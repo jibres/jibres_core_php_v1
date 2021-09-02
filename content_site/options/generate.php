@@ -179,7 +179,7 @@ class generate
 		{
 			// do noting
 		}
-		else if(mb_strlen($_text) > 7)
+		else if(mb_strlen($_text) > 8)
 		{
 			$flexMode = '';
 		}

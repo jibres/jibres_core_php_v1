@@ -39,7 +39,7 @@ class socialnetwork
 
 			$radio_html = '';
 
-			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_socialnetwork', T_("Business Social Networks"), (($use_as_socialnetwork === 'business_socialnetwork')? true : false));
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_socialnetwork', T_("Business"), (($use_as_socialnetwork === 'business_socialnetwork')? true : false));
 			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'custom_socialnetwork', T_("Custom"), (($use_as_socialnetwork === 'custom_socialnetwork')? true : false));
 
 

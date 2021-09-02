@@ -66,7 +66,7 @@ trait description
 
 				$radio_html = '';
 
-				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_description', T_("Business Description"), (($use_as_description === 'business_description')? true : false));
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_description', T_("Business"), (($use_as_description === 'business_description')? true : false));
 				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'custom_description', T_("Custom"), (($use_as_description === 'custom_description')? true : false));
 
 

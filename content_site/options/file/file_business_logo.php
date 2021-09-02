@@ -73,7 +73,7 @@ trait file_business_logo
 			{
 				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_("None"), (($use_as_logo === 'none')? true : false));
 			}
-			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_logo', T_("Business Logo"), (($use_as_logo === 'business_logo')? true : false));
+			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_logo', T_("Business"), (($use_as_logo === 'business_logo')? true : false));
 			$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'custom_logo', T_("Custom"), (($use_as_logo === 'custom_logo')? true : false));
 
 

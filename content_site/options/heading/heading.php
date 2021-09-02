@@ -89,7 +89,7 @@ trait heading
 
 				$radio_html = '';
 
-				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_heading', T_("Business Title"), (($use_as_heading === 'business_heading')? true : false));
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'business_heading', T_("Business"), (($use_as_heading === 'business_heading')? true : false));
 				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'custom_heading', T_("Custom"), (($use_as_heading === 'custom_heading')? true : false));
 
 
