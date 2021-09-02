@@ -5,46 +5,75 @@ namespace content_site\options\responsive;
 class responsive_device
 {
 
-	public static function enum()
+	public static function device()
 	{
-		$enum   = [];
+		$device   = [];
+		$device[] = ['key' => 'all', 'title' => T_('All')];
+		$device[] = ['key' => 'desktop', 'title' => T_('Desktop')];
+		$device[] = ['key' => 'mobile', 'title' => T_('Mobile')];
 
-		$enum[] = ['key' => 'all', 'title' => T_('All')];
-		$enum[] = ['key' => 'desktop', 'title' => T_('Desktop')];
-		$enum[] = ['key' => 'mobile', 'title' => T_('Mobile')];
-
-
-
-		return $enum;
+		return $device;
 	}
+
+
+	public static function mobile()
+	{
+		$mobile   = [];
+		$mobile[] = ['key' => 'all', 'title' => T_('All')];
+		$mobile[] = ['key' => 'browser', 'title' => T_('Browser')];
+		$mobile[] = ['key' => 'pwa', 'title' => T_('PWA')];
+		$mobile[] = ['key' => 'application', 'title' => T_('Application')];
+
+		return $mobile;
+	}
+
+
+	public static function os()
+	{
+		$os   = [];
+		$os[] = ['key' => 'all', 'title' => T_('All')];
+		$os[] = ['key' => 'windows', 'title' => T_('Windows')];
+		$os[] = ['key' => 'linux', 'title' => T_('Linux')];
+		$os[] = ['key' => 'mac', 'title' => T_('MAC')];
+		// $os[] = ['key' => 'android', 'title' => T_('Android')];
+
+		return $os;
+	}
+
 
 	public static function validator($_data)
 	{
-		$new_data = [];
-		$new_data['device'] =  \dash\validate::enum(a($_data, 'device'), true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Effect')]);
-
-
+		$new_data           = [];
+		$new_data['device'] =  \dash\validate::enum(a($_data, 'device'), true, ['enum' => array_column(self::device(), 'key'), 'field_title' => T_('Effect')]);
+		$new_data['mobile'] =  \dash\validate::enum(a($_data, 'mobile'), true, ['enum' => array_column(self::mobile(), 'key'), 'field_title' => T_('Effect')]);
+		$new_data['os']     =  \dash\validate::enum(a($_data, 'os'), true, ['enum' => array_column(self::os(), 'key'), 'field_title' => T_('Effect')]);
 		return $new_data;
 	}
 
 
-	public static function default()
-	{
-		return 'all';
-	}
-
-
-
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail('device');
+		$device = \content_site\section\view::get_current_index_detail('device');
+		$mobile = \content_site\section\view::get_current_index_detail('mobile');
+		$os = \content_site\section\view::get_current_index_detail('os');
 
-		if(!$default)
+
+		if(!$device)
 		{
-			$default = self::default();
+			$device = 'all';
 		}
 
-		$title = T_("Device");
+		if(!$mobile)
+		{
+			$mobile = 'all';
+		}
+
+
+		if(!$os)
+		{
+			$os = 'all';
+		}
+
 
 		$html = '';
 		$html .= \content_site\options\generate::form();
@@ -52,22 +81,16 @@ class responsive_device
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 			$html .= \content_site\options\generate::multioption();
 
+			$title = T_("Device");
 			$html .= "<label>$title</label>";
-
-
 
 			$radio_html = '';
 
-			foreach (self::enum() as $key => $value)
+			foreach (self::device() as $key => $value)
 			{
-				if(isset($value['system']) && $value['system'])
-				{
-					continue;
-				}
-
 				$selected = false;
 
-				if($default === $value['key'])
+				if($device === $value['key'])
 				{
 					$selected = true;
 				}
@@ -76,6 +99,60 @@ class responsive_device
 			}
 
 			$html .= \content_site\options\generate::radio_line_add_ul('device', $radio_html);
+
+			$data_response_hide = null;
+
+			if($device !== 'mobile')
+			{
+				$data_response_hide = 'data-response-hide';
+			}
+
+			$html .= "<div data-response='device' data-response-where='mobile' $data_response_hide>";
+			{
+
+
+				$title = T_("Mobile");
+				$html .= "<label>$title</label>";
+
+				$radio_html = '';
+
+				foreach (self::mobile() as $key => $value)
+				{
+					$selected = false;
+
+					if($mobile === $value['key'])
+					{
+						$selected = true;
+					}
+
+					$radio_html .= \content_site\options\generate::radio_line_itemText('mobile', $value['key'], $value['title'], $selected);
+				}
+
+				$html .= \content_site\options\generate::radio_line_add_ul('mobile', $radio_html);
+
+			}
+			$html .= '</div>';
+
+
+			$title = T_("OS");
+			$html .= "<label>$title</label>";
+
+			$radio_html = '';
+
+			foreach (self::os() as $key => $value)
+			{
+				$selected = false;
+
+				if($os === $value['key'])
+				{
+					$selected = true;
+				}
+
+				$radio_html .= \content_site\options\generate::radio_line_itemText('os', $value['key'], $value['title'], $selected);
+			}
+
+			$html .= \content_site\options\generate::radio_line_add_ul('os', $radio_html);
+
 		}
 		$html .= \content_site\options\generate::_form();
 
