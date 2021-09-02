@@ -1,5 +1,5 @@
 <?php
-namespace content_site\header\h3;
+namespace content_site\header;
 
 
 class h3
@@ -43,7 +43,6 @@ class h3
 	{
 		return
 		[
-			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[

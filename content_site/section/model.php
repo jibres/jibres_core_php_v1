@@ -727,7 +727,7 @@ class model
 
 
 
-		$section = \dash\request::get('section');
+		$section = \dash\request::post('section');
 
 		$section = \dash\validate::string_100($section);
 

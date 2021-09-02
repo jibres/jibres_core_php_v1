@@ -1,5 +1,5 @@
 <?php
-namespace content_site\header\h0;
+namespace content_site\header;
 
 
 class option
@@ -28,8 +28,8 @@ class option
 		return
 		[
 			'group'   => T_("Header"),
-			'section' => 'h0',
-			'title'   => T_("Without header"),
+			'section' => 'header',
+			'title'   => T_("Header"),
 			'icon'    => \dash\utility\icon::url('Header'),
 		];
 	}
@@ -46,6 +46,7 @@ class option
 		return
 		[
 			'h0',
+			'h3',
 		];
 
 	}
@@ -55,7 +56,7 @@ class option
 	{
 		return
 		[
-			'h0:p1',
+			'header:p1',
 		];
 	}
 

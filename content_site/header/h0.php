@@ -1,5 +1,5 @@
 <?php
-namespace content_site\header\h0;
+namespace content_site\header;
 
 
 class h0
@@ -14,11 +14,11 @@ class h0
 	{
 		return
 		[
-			'title'        => T_("Without Header"),
+			'title'        => T_("Card Design"),
 			'default'      => [],
 			'options'      =>
 			[
-				'msg' => 'my_msg',
+				'file',
 			],
 
 			'preview_list' =>
@@ -29,19 +29,6 @@ class h0
 	}
 
 
-	public static function my_msg()
-	{
-		$html = '';
-		$html .= '<div class="msg">';
-		{
-			$html .= T_("This is empty header");
-		}
-		$html .= '</div>';
-
-		return $html;
-	}
-
-
 	/**
 	 * Preview 1
 	 */
@@ -49,7 +36,6 @@ class h0
 	{
 		return
 		[
-			'preview_title'  => T_("Preview :val", ['val' => \dash\fit::number(1)]),
 			'version'        => 1,
 			'options' =>
 			[

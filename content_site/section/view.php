@@ -149,6 +149,11 @@ class view
 				continue;
 			}
 
+			if($folder === 'header' || $folder === 'footer')
+			{
+				$section_requested = $folder;
+			}
+
 			if($section_requested)
 			{
 				if(a($value, 'section') === $section_requested)

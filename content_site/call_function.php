@@ -18,11 +18,11 @@ class call_function
 	 */
 	public static function get_folder($_section_key)
 	{
-		if(substr($_section_key, 0, 1) === 'h' && is_numeric(substr($_section_key, 1, 1)))
+		if($_section_key === 'header')
 		{
 			$folder = 'header';
 		}
-		elseif(substr($_section_key, 0, 1) === 'f' && is_numeric(substr($_section_key, 1, 1)))
+		elseif($_section_key === 'footer')
 		{
 			$folder = 'footer';
 		}
@@ -66,7 +66,15 @@ class call_function
 	{
 		$folder = self::get_folder($_section_key);
 
-		return '\\content_site\\'. $folder .'\\'. $_section_key. '\\%s';
+		if($folder === 'header' || $folder === 'footer')
+		{
+			return '\\content_site\\'. $folder .'\\%s';
+		}
+		else
+		{
+			return '\\content_site\\'. $folder .'\\'. $_section_key. '\\%s';
+		}
+
 	}
 
 
@@ -140,7 +148,15 @@ class call_function
 	{
 		if(self::trust_folder($_folder) && ($section = \dash\validate::string_100($_section)))
 		{
-			$dir = root . '/content_site/'. $_folder. '/'. $section;
+			if($_folder === 'header' || $_folder === 'footer')
+			{
+				$dir = root . '/content_site/'. $section;
+			}
+			else
+			{
+				$dir = root . '/content_site/'. $_folder. '/'. $section;
+			}
+
 			$dir = \autoload::fix_os_path($dir);
 
 			if(is_dir($dir))

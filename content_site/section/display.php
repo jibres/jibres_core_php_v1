@@ -19,7 +19,8 @@ else
 		// variables
 		$select_preview =
 		[
-			'opt_model'    => a($value, 'opt_model'),
+			'section'     => a($value, 'section'),
+			'opt_model'   => a($value, 'opt_model'),
 			'preview_key' => a($value, 'preview_key'),
 		];
 
