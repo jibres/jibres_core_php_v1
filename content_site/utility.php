@@ -98,6 +98,11 @@ class utility
 			'post_order',
 			'post_tag',
 			'post_template',
+
+
+			// prdouct
+			'product_order',
+			'product_tag',
 		];
 
 		$preview = a($load, 'preview');
