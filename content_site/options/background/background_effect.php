@@ -10,7 +10,7 @@ class background_effect
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'none', 'title' => T_("None"),];
+		$enum[] = ['key' => 'none',   'title' => T_("None"),];
 		$enum[] = ['key' => 'mesh',   'title' => T_("Mesh"),];
 		$enum[] = ['key' => 'dark',   'title' => T_("Dark"),];
 		return $enum;
@@ -19,7 +19,7 @@ class background_effect
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Backgroun Effect')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Background Effect')]);
 		return $data;
 	}
 
@@ -54,6 +54,33 @@ class background_effect
 		}
 	}
 
+	public static function html($_key)
+	{
+		$style = '';
+
+		switch ($_key)
+		{
+			case 'mesh':
+				$style = 'style="background-image:url('. \dash\url::cdn(). '/img/sitebuilder/headline/headline1/mesh.png);background-repeat:repeat;background-attachment:fixed;"';
+				break;
+
+			case 'dark':
+				$style = 'style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))"';
+				break;
+
+
+			default:
+				break;
+		}
+
+		if($style)
+		{
+			return '<div class="w-full h-full absolute" '. $style. '></div>';
+		}
+
+		return null;
+	}
+
 
 	public static function admin_html()
 	{
@@ -66,7 +93,7 @@ class background_effect
 		}
 
 
-		$title = T_('Backgroun Effect');
+		$title = T_('Background Effect');
 
 		$html = '';
 		$html .= \content_site\options\generate::form();

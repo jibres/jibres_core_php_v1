@@ -11,11 +11,16 @@ class headline1_html
 
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
-			$style = 'style="background-image:url('. \dash\url::cdn(). '/img/sitebuilder/headline/headline1/mesh.png);background-repeat:repeat;background-attachment:fixed;"';
+			// $style = 'style="background-image:url('. \dash\url::cdn(). '/img/sitebuilder/headline/headline1/mesh.png);background-repeat:repeat;background-attachment:fixed;"';
 
-			$style = 'style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))"';
+			// $style = 'style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))"';
 
-			$html .= '<div class="w-full h-screen absolute" '. $style. '></div>';
+			// a($_args, 'background:full_style')
+
+			// $html .= '<div class="w-full h-full absolute" '. $style. '></div>';
+
+
+			$html .= \content_site\options\background\background_effect::html(a($_args, 'background_effect'));
 
 			$html .= '<div class="sm:max-w-xl p-5 md:p-10 lg:p-14 z-10">';
 			{
