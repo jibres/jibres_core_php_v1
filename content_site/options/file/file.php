@@ -288,9 +288,9 @@ trait file
 			$choose_url .= '?'. \dash\request::build_query($meta_action);
 
 			$choose_title = T_("Choose from gallery");
-			$html .= '<div class="text-center">';
+			$html .= '<div class="">';
 			{
-				$html .= "<a  class='link-primary sm txtC'  href='$choose_url'>$choose_title</a>";
+				$html .= "<a class='block link-secondary leading-9 sm' href='$choose_url'>$choose_title</a>";
 			}
 			$html .= '</div>';
 		}
