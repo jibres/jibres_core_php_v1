@@ -7,7 +7,7 @@ class section
 	public static function element_start($_args)
 	{
 		$background_style = a($_args, 'background:full_style');
-		$section_id       = a($_args, 'secition:id');
+		$section_id       = a($_args, 'section:id');
 
 		$cnElement = 'div';
 		if(a($_args, 'heading') !== null)

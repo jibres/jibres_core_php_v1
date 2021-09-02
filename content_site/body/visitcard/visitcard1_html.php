@@ -91,7 +91,7 @@ class visitcard1_html
 		$type             = a($_args, 'model');
 		$height           = a($_args, 'height:class');
 		$background_style = a($_args, 'background:full_style');
-		$section_id       = a($_args, 'secition:id');
+		$section_id       = a($_args, 'section:id');
 		$color_text       = a($_args, 'color_text:full_style');
 
 
