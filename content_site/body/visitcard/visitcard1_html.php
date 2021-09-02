@@ -18,12 +18,15 @@ class visitcard1_html
 
 				$html .= '<div class="'. $cardClass. '">';
 				{
-					$html .= '<div class="logo w-64 h-64 md:w-64 md:h-64 m-auto">';
+					$logoSrc = a($_args, 'logo');
+					if($logoSrc)
 					{
-						$logoSrc = a($_args, 'logo');
-						$html .= '<img class="w-full '. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
+						$html .= '<div class="logo w-64 h-64 md:w-64 md:h-64 m-auto">';
+						{
+							$html .= '<img class="w-full '. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
+						}
+						$html .= '</div>';
 					}
-					$html .= '</div>';
 
 					$html .= '<div class="flex-1 flex flex-col m-auto p-5 px-10 text-center">';
 					{
