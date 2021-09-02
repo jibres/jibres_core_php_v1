@@ -56,6 +56,11 @@ class icon
                 $fileName .= $_name;
 
                 break;
+            case 'pack':
+                $fileName .= $_pack. '/';
+                $fileName .= $_name;
+
+                break;
 
             default:
                 // use other folders
