@@ -36,6 +36,17 @@ class fire
 		{
 			$_args['magicbox_gap:class'] = \content_site\options\magicbox\magicbox_gap::class_name(a($_args, 'magicbox_gap'));
 		}
+
+		if(array_key_exists('container_align', $_args))
+		{
+			$_args['container_align:class'] = \content_site\options\container\container_align::class_name(a($_args, 'container_align'));
+		}
+
+		if(array_key_exists('container_justify', $_args))
+		{
+			$_args['container_justify:class'] = \content_site\options\container\container_justify::class_name(a($_args, 'container_justify'));
+		}
+
 		// maybe all section have this variable
 
 		$_args['font:class']            = \content_site\assemble\font::class($_args);

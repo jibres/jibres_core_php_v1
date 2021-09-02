@@ -10,9 +10,9 @@ trait container_justify
 		$enum   = [];
 
 
-		$enum[] = ['key' => 'left', 'title' => T_("Left"), 'icon' => \dash\utility\icon::svg('TextAlignmentLeft'),  'class' => 'items-left' ];
-		$enum[] = ['key' => 'center','title' => T_("Center"), 'icon' => \dash\utility\icon::svg('TextAlignmentCenter'),  'class' => 'items-center'];
-		$enum[] = ['key' => 'right', 	 'title' => T_("Right"), 'icon' => \dash\utility\icon::svg('TextAlignmentRight'), 'class' => 'items-end'];
+		$enum[] = ['key' => 'left', 'title' => T_("Left"), 'icon' => \dash\utility\icon::svg('TextAlignmentLeft'),  'class' => 'justify-start' ];
+		$enum[] = ['key' => 'center','title' => T_("Center"), 'icon' => \dash\utility\icon::svg('TextAlignmentCenter'),  'class' => 'justify-center'];
+		$enum[] = ['key' => 'right', 	 'title' => T_("Right"), 'icon' => \dash\utility\icon::svg('TextAlignmentRight'), 'class' => 'justify-end'];
 
 
 		return $enum;

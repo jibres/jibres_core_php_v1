@@ -24,6 +24,14 @@ class section
 		{
 			$classNames .= ' '. a($_args, 'font:class');
 		}
+		if(a($_args, 'container_align:class'))
+		{
+			$classNames .= ' '. a($_args, 'container_align:class');
+		}
+		if(a($_args, 'container_justify:class'))
+		{
+			$classNames .= ' '. a($_args, 'container_justify:class');
+		}
 
 		$html = "<$cnElement data-type='". a($_args, 'model'). "' class='$classNames'$background_style $section_id>";
 
