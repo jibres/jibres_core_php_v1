@@ -33,6 +33,8 @@ class socialnetwork
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 
+			$title = T_("Social Networks");
+			$html .= "<label>$title</label>";
 			$name = 'use_as_socialnetwork';
 
 			$radio_html = '';
