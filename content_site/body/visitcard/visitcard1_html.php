@@ -18,9 +18,9 @@ class visitcard1_html
 
 				$html .= '<div class="'. $cardClass. '">';
 				{
-					$html .= '<div class="logo w-48 h-48 md:w-64 md:h-64 m-auto">';
+					$html .= '<div class="logo w-64 h-64 md:w-64 md:h-64 m-auto">';
 					{
-						$logoSrc = \dash\url::icon();
+						$logoSrc = a($_args, 'logo');
 						$html .= '<img class="w-full '. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
 					}
 					$html .= '</div>';
@@ -62,7 +62,7 @@ class visitcard1_html
 							}
 							$html .= '<h2 class="'. $descClass. '" '. a($_args, 'color_text:full_style'). '>';
 							{
-								$html .= $desc;
+								$html .= nl2br($desc);
 							}
 							$html .= '</h2>';
 						}
