@@ -17,9 +17,40 @@ class layout
 	{
 		$html = '';
 
-		$html .= '<header class="text-gray-600 body-font">';
+
+		$html .= '<header id="jHeader3" class="relative py-5 bg-gray-100">';
 		{
-			$html .= '<div class="container mx-auto flex flex-wrap p-5 flex-col sm:flex-row items-center">';
+			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
+			{
+				$html .= '<div class="actionBar flex p-1 sm:p-2 md:p-3 bg-white rounded shadow-sm">';
+				{
+					$html .= '<a href="" class="">';
+					{
+						$siteTitle = \lib\store::title();
+						$logo = \lib\store::logo();
+						if($logo)
+						{
+							$html .= '<img class="w-16 h-16 rounded" src="'. $logo. '" alt="'. $siteTitle. '">';
+						}
+						// add title
+						$html .= '<h1 class="text-2xl">';
+						{
+							$html .= $siteTitle;
+						}
+						$html .= '</h1>';
+					}
+					$html .= '</a>';
+
+
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
+
+
+
+			// $html .= '<div class="container mx-auto flex flex-wrap p-5 flex-col sm:flex-row items-center">';
 			{
 				$html .= '<a class="flex title-font font-medium items-center text-gray-900 mb-4 sm:mb-0">';
 				{
@@ -70,7 +101,7 @@ class layout
 
 				$html .= '<button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 sm:mt-0">Login</button>';
 			}
-			$html .= '</div>';
+			// $html .= '</div>';
 		}
 		$html .= '</header>';
 
