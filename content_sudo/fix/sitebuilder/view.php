@@ -174,7 +174,7 @@ class view
 					break;
 
 				case 'text':
-					// $preview = self::conver_text($pagebuilder_record, $new_record);
+					$preview = self::conver_text($pagebuilder_record, $new_record);
 					break;
 
 				case 'quote':
