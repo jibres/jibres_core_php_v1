@@ -14,11 +14,11 @@ class visitcard1_html
 				$title        = a($_args, 'heading');
 				$desc         = a($_args, 'description');
 
-				$cardClass = 'relative m-auto overflow-hidden flex max-w-screen-sm md:max-w-screen-md w-full bg-white shadow-xl hover:shadow-lg transition '. $borderRadius;
+				$cardClass = 'relative mx-5 md:m-auto overflow-hidden flex flex-col md:flex-row max-w-screen-sm md:max-w-screen-md w-full bg-white md:shadow-xl md:hover:shadow-lg transition rounded-lg md:'. $borderRadius;
 
 				$html .= '<div class="'. $cardClass. '">';
 				{
-					$html .= '<div class="logo w-64 h-64 m-auto">';
+					$html .= '<div class="logo w-48 h-48 md:w-64 md:h-64 m-auto">';
 					{
 						$logoSrc = \dash\url::icon();
 						$html .= '<img class="w-full '. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
@@ -31,15 +31,15 @@ class visitcard1_html
 						$titleClass = 'leading-normal';
 						if(mb_strlen($title) > 20 )
 						{
-							$titleClass .= ' text-3xl';
+							$titleClass .= ' text-2xl md:text-3xl';
 						}
 						elseif(mb_strlen($title) > 15 )
 						{
-							$titleClass .= ' text-4xl';
+							$titleClass .= ' text-3xl md:text-4xl';
 						}
 						else
 						{
-							$titleClass .= ' text-5xl';
+							$titleClass .= ' text-4xl md:text-5xl';
 						}
 						if(\dash\language::dir() === 'rtl')
 						{
@@ -53,17 +53,19 @@ class visitcard1_html
 						$html .= '</h1>';
 
 						// set desc
-						$descClass = 'leading-relax text-gray-600';
-						if(\dash\language::dir() !== 'rtl')
+						if($desc)
 						{
-							$descClass .= 'text-lg';
+							$descClass = 'leading-relax text-gray-600 mt-2';
+							if(\dash\language::dir() !== 'rtl')
+							{
+								$descClass .= ' text-lg';
+							}
+							$html .= '<h2 class="'. $descClass. '" '. a($_args, 'color_text:full_style'). '>';
+							{
+								$html .= $desc;
+							}
+							$html .= '</h2>';
 						}
-
-						$html .= '<h2 class="'. $descClass. '" '. a($_args, 'color_text:full_style'). '>';
-						{
-							$html .= $desc;
-						}
-						$html .= '</h2>';
 
 						// set social media links
 						$socialNetworksList = \lib\store::social();
