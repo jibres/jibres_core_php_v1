@@ -8,7 +8,7 @@ trait heading_business
 
 	public static function have_text_position()
 	{
-		return true;
+		return false;
 	}
 
 

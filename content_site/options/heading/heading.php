@@ -158,7 +158,7 @@ trait heading
 
 				$data_response_hide = null;
 
-				if($use_as_heading === 'use_as_heading')
+				if($use_as_heading === 'custom_heading')
 				{
 					$data_response_hide = 'data-response-hide';
 				}
