@@ -21,6 +21,7 @@ class headline1
 				'heading_raw',
 				'description',
 
+
 				// 'image_list2' =>
 				// [
 				// 	'file',
@@ -37,6 +38,7 @@ class headline1
 					'container_align',
 					'container_justify',
 
+					'background_effect',
 					'background_pack',
 					'color_heading',
 					'color_text',
