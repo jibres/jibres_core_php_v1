@@ -22,22 +22,29 @@ class layout
 		{
 			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
 			{
-				$html .= '<div class="actionBar flex p-1 sm:p-2 md:p-3 bg-white rounded shadow-sm">';
+				$html .= '<div class="actionBar flex items-center p-1 sm:p-2 md:p-3 bg-white rounded shadow-sm">';
 				{
-					$html .= '<a href="" class="">';
+					$html .= '<a href="" class="flex-1">';
 					{
 						$siteTitle = \lib\store::title();
 						$logo = \lib\store::logo();
 						if($logo)
 						{
-							$html .= '<img class="w-16 h-16 rounded" src="'. $logo. '" alt="'. $siteTitle. '">';
+							$html .= '<img class="inline-block w-16 h-16 rounded" src="'. $logo. '" alt="'. $siteTitle. '">';
 						}
 						// add title
-						$html .= '<h1 class="text-2xl">';
+						$html .= '<h1 class="inline-block px-2 text-2xl font-bold">';
 						{
 							$html .= $siteTitle;
 						}
 						$html .= '</h1>';
+					}
+					$html .= '</a>';
+
+					$html .= '<a class="h-12 w-12 p-3 bg-gray-50 rounded-full transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/search">';
+					{
+						$html .= \dash\utility\icon::svg('search');
+
 					}
 					$html .= '</a>';
 
