@@ -42,7 +42,7 @@ class p1
 			'default'      =>
 			[
 				'heading'               => T_("Products"),
-				'product_order'            => 'latest',
+				'product_order'            => 'newest',
 				'count'                 => 3,
 				'product_show_image'       => true,
 				'btn_viewall_check'     => true,
@@ -80,7 +80,7 @@ class p1
 				'product_show_title' => true,
 				'product_show_price' => true,
 				'product_show_image' => true,
-				'product_order'      => 'latest',
+				'product_order'      => 'newest',
 				'height'             => 'sm',
 				'heading_position'   => 'center',
 				'coverratio'         => '16:9',

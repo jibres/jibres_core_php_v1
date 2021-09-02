@@ -54,7 +54,7 @@ class p4
 			[
 				'heading'                   => T_("Latest Posts"),
 				'post_template'             => 'any',
-				'post_order'                => 'latest',
+				'post_order'                => 'newest',
 				'count'                     => 3,
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
