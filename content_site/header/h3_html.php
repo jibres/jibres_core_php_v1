@@ -22,7 +22,7 @@ class h3_html
 			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
 			{
 				// action bar
-				$html .= '<div class="actionBar flex items-center p-1 sm:p-2 md:p-3 bg-white rounded shadow-sm">';
+				$html .= '<div class="actionBar flex items-center p-1 sm:p-2 md:p-3 bg-gray-50 rounded shadow-inner">';
 				{
 					$html .= '<a href="" class="flex-1">';
 					{
@@ -74,7 +74,7 @@ class h3_html
 				$html .= '</div>';
 
 				// menu bar
-				$html .= '<div class="menuBar flex items-center bg-white rounded shadow-sm mt-2">';
+				$html .= '<div class="menuBar flex items-center bg-gray-50 rounded shadow-inner mt-2">';
 				{
 					if(a($_args, 'menu_1'))
 					{
@@ -87,7 +87,7 @@ class h3_html
 								{
 									$target = a($value, 'target') ? 'target="_blank"' : null;
 
-									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-100 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
+									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
 								}
 							}
 						}
@@ -109,7 +109,7 @@ class h3_html
 								{
 									$target = a($value, 'target') ? 'target="_blank"' : null;
 
-									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-100 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
+									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
 								}
 							}
 						}
