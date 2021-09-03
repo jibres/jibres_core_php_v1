@@ -45,34 +45,43 @@ class h3_html
 					}
 					$html .= '</a>';
 
-					$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full relative transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/search">';
-					{
-						$html .= \dash\utility\icon::svg('search');
-					}
-					$html .= '</a>';
 
-					$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full relative transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/cart">';
+					if(a($_args, 'link_search'))
 					{
-						$html .= \dash\utility\icon::svg('cart');
-						$html .= '<span class="absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 text-center leading-5 p-0.5 text-sm">';
-						$html .= '4';
-						$html .= '</span>';
+						$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full relative transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/search">';
+						{
+							$html .= \dash\utility\icon::svg('search');
+						}
+						$html .= '</a>';
 					}
-					$html .= '</a>';
 
+					if(a($_args, 'link_cart'))
+					{
+						$html .= '<a class="h-12 w-12 p-3 mx-1 bg-gray-50 rounded-full relative transition hover:shadow-sm" href="'. \dash\url::kingdom(). '/cart">';
+						{
+							$html .= \dash\utility\icon::svg('cart');
+							$html .= '<span class="absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 text-center leading-5 p-0.5 text-sm">';
+							$html .= '4';
+							$html .= '</span>';
+						}
+						$html .= '</a>';
+					}
 
-					$enterTxt  = T_("Enter to account");
-					$enterLink = \dash\url::kingdom(). '/enter';
-					if(\dash\user::login())
+					if(a($_args, 'link_enter'))
 					{
-						$enterTxt  = T_("Profile");
-						$enterLink = \dash\url::kingdom(). '/profile';
+						$enterTxt  = T_("Enter to account");
+						$enterLink = \dash\url::kingdom(). '/enter';
+						if(\dash\user::login())
+						{
+							$enterTxt  = T_("Profile");
+							$enterLink = \dash\url::kingdom(). '/profile';
+						}
+						$html .= '<a class="p-3 mx-1 rounded link-secondary" href="'. $enterLink. '">';
+						{
+							$html .= $enterTxt;
+						}
+						$html .= '</a>';
 					}
-					$html .= '<a class="p-3 mx-1 rounded link-secondary" href="'. $enterLink. '">';
-					{
-						$html .= $enterTxt;
-					}
-					$html .= '</a>';
 
 				}
 				$html .= '</div>';

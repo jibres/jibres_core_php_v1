@@ -22,6 +22,9 @@ class h3
 				'file_business_logo_header',
 				'menu_1',
 				'menu_2',
+				'link_search',
+				'link_cart',
+				'link_enter',
 				'responsive' => \content_site\utility::set_responsive_option_header(),
 
 			],
