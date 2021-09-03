@@ -445,17 +445,24 @@ class view
 
 		if(!\dash\engine\content::is('site') && $result['body'] && $_generate_layout)
 		{
-			if(isset($result['text']) && ($section_key === 'html' || $section_key === 'text'))
+			if(a($result, 'status') === 'hidden')
 			{
-				$result['body']['html_text'] = $result['text'];
+				// needless to generate layout
 			}
+			else
+			{
+				if(isset($result['text']) && ($section_key === 'html' || $section_key === 'text'))
+				{
+					$result['body']['html_text'] = $result['text'];
+				}
 
 
-			$result['body']           = array_merge($thisDefault, $result['body']);
+				$result['body']           = array_merge($thisDefault, $result['body']);
 
-			$result['body'] = \content_site\assemble\fire::me($result['body']);
+				$result['body'] = \content_site\assemble\fire::me($result['body']);
 
-			$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
+				$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
+			}
 
 		}
 
