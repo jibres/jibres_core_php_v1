@@ -79,6 +79,7 @@ class f3_html
 				$html .= '</div>';
 				$html .= $hr;
 
+				$html .= \content_site\assemble\menu::generate('menu_1');
 
 
 

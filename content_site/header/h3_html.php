@@ -97,27 +97,19 @@ class h3_html
 					// menu bar
 					$html .= '<div class="menuBar flex items-center bg-gray-50 rounded shadow-inner mt-2">';
 					{
-						if(a($_args, 'menu_1'))
-						{
-							$html .= '<nav class="flex-1 flex">';
-							{
-								$html .= \content_site\assemble\menu::generate($_args['menu_1'], 'p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition');
-							}
-							$html .= '</nav>';
-						}
-						else
-						{
-							$html .= '<div class="flex-1"></div>';
-						}
+						$menuOpt =
+						[
+							'nav_class' => '',
+							'ul_class' => 'flex',
+							'a_class' => 'block p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition',
+						];
 
-						if(a($_args, 'menu_2'))
-						{
-							$html .= '<nav class="flex">';
-							{
-								$html .= \content_site\assemble\menu::generate($_args['menu_2'], 'p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition');
-							}
-							$html .= '</nav>';
-						}
+						$menuOptPrimary                   = $menuOpt;
+						$menuOptPrimary['nav_class']      = 'flex-1';
+						$menuOptPrimary['force_show_box'] = true;
+						$html .= \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOptPrimary);
+
+						$html .= \content_site\assemble\menu::generate(a($_args, 'menu_2'), $menuOpt);
 					}
 					$html .= '</div>';
 				}

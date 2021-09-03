@@ -15,20 +15,38 @@ class menu
 	public static function generate($_menu_id, $_arg = null)
 	{
 		$load_menu = \lib\app\menu\get::load_menu($_menu_id);
+		$html = null;
 
-		$html = '<nav';
-		if(a($_arg, 'nav_class'))
+		if($load_menu)
 		{
-			$html .= ' class="'. a($_arg, 'nav_class'). '"';
+			$html = '<nav';
+			if(a($_arg, 'nav_class'))
+			{
+				$html .= ' class="'. a($_arg, 'nav_class'). '"';
+			}
+			$html .= '>';
+			// loop to create list item
+			{
+				// var_dump($load_menu);
+				if($load_menu && is_array($load_menu['list']))
+				{
+					$html .= self::menuLi($load_menu['list'], 1, $_arg);
+				}
+			}
+			$html .= '</nav>';
 		}
-		$html .= '>';
-		// loop to create list item
+		elseif(a($_arg, 'force_show_box'))
 		{
-			$html .= self::menuLi($load_menu['list'], 1, $_arg);
+			$html = '<div';
+			if(a($_arg, 'nav_class'))
+			{
+				$html .= ' class="'. a($_arg, 'nav_class'). '"';
+			}
+			$html .= '>';
+			$html .= '</div>';
 		}
-		$html .= '</nav>';
 
-		return;
+		return $html;
 	}
 
 
@@ -43,7 +61,7 @@ class menu
 		$menuLi = '<ul';
 		if(a($_arg, 'ul_class'))
 		{
-			$html .= ' class="'. a($_arg, 'ul_class'). '"';
+			$menuLi .= ' class="'. a($_arg, 'ul_class'). '"';
 		}
 		$menuLi .= '>';
 
@@ -59,7 +77,7 @@ class menu
 			}
 			$menuLi .= '>';
 			{
-				$menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'));
+				$menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'), $_arg);
 				if(isset($myLiData['child']) && count($myLiData['child']))
 				{
 					$menuLi .= self::menuLi($myLiData['child'], $_layer + 1, $_arg);
@@ -72,17 +90,22 @@ class menu
 	}
 
 
-	private static function menuLink($_text, $_link = null, $_target = null)
+	private static function menuLink($_text, $_link, $_target, $_arg)
 	{
 		$menuLinkEl = '<a';
 		if($_target)
 		{
 			$menuLinkEl .= ' target="_blank"';
 		}
+		if(a($_arg, 'a_class'))
+		{
+			$menuLinkEl .= ' class="'. a($_arg, 'a_class'). '"';
+		}
 		if($_link)
 		{
 			$menuLinkEl .= ' href="'. $_link. '"';
 		}
+
 		$menuLinkEl .= '>';
 		$menuLinkEl .= $_text;
 		$menuLinkEl .= '</a>';
