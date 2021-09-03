@@ -31,6 +31,19 @@ class controller
 		}
 		else
 		{
+			if(\dash\request::get('id'))
+			{
+				$id = \dash\validate::id(\dash\request::get('id'));
+				if($id)
+				{
+					$load = \lib\app\tag\get::get_force($id);
+					if(a($load, 'url'))
+					{
+						\dash\redirect::to($load['url']);
+					}
+				}
+			}
+
 			$myCategoryList = \lib\app\tag\search::site_list();
 		}
 
