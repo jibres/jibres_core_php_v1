@@ -9,52 +9,57 @@ trait footer
 	public static function conver_footer($record, &$new_record)
 	{
 
-		var_dump(func_get_args());exit;
-		$new_record['folder']         = 'body';
-		$new_record['section']        = 'blog';
-		$new_record['model']          = 'b2';
+		$new_record['folder']         = 'footer';
+		$new_record['section']        = 'footer';
 		$new_record['preview_key']    = 'p1';
 
 
-		$preview = \content_site\call_function::section_model_preview('blog', 'b2', 'p1');
+
+		if(a($record, 'type') === 'f100')
+		{
+			$new_record['model']          = 'f1';
+		}
+		elseif(a($record, 'type') === 'f201')
+		{
+			$new_record['model']          = 'f3';
+		}
+		elseif(a($record, 'type') === 'f0')
+		{
+			$new_record['model']          = 'f0';
+		}
+		else
+		{
+			var_dump(func_get_args());exit;
+		}
+
+		$preview = \content_site\call_function::section_model_preview($new_record['folder'], $new_record['model'], $new_record['preview_key']);
 
 		$preview = $preview['options'];
 
-		if(a($record, 'title'))
+		if(a($record, 'text'))
 		{
-			$preview['heading'] = $record['title'];
+			$preview['copyright'] = strip_tags($record['text']);
+			$preview['copyright'] = str_replace('&nbsp;', '', $preview['copyright']);
 		}
 
-		if(a($record, 'puzzle', 'limit'))
+		if(a($record, 'detail', 'footer_menu_1'))
 		{
-			$limit = $record['puzzle']['limit'];
-			$range = \content_site\options\count\count_post::this_range();
-			if(!in_array($limit, $range))
-			{
-				if($limit < 10)
-				{
-					$limit = 10;
-				}
-				else
-				{
-					$limit = 30;
-				}
-			}
-
-			$preview['count'] = $limit;
+			$preview['menu_1'] = a($record, 'detail', 'footer_menu_1');
 		}
 
-		if(a($record, 'infoposition', 'code') === 'bottom')
+		if(a($record, 'detail', 'footer_menu_2'))
 		{
-			$preview['magicbox_title_position'] = 'outside';
-			$preview['link_color']              = 'dark';
+			$preview['menu_2'] = a($record, 'detail', 'footer_menu_2');
 		}
 
-		$preview['btn_viewall_check'] = 0;
-
-		if(a($record, 'detail', 'tag_id'))
+		if(a($record, 'detail', 'footer_menu_3'))
 		{
-			$preview['post_tag'] = $record['detail']['tag_id'];
+			$preview['menu_3'] = a($record, 'detail', 'footer_menu_3');
+		}
+
+		if(a($record, 'detail', 'footer_menu_4'))
+		{
+			$preview['menu_4'] = a($record, 'detail', 'footer_menu_4');
 		}
 
 		return $preview;

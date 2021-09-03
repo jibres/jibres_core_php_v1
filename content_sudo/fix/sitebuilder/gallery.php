@@ -12,7 +12,7 @@ trait gallery
 		$new_record['section']        = 'gallery';
 
 
-
+		var_dump(func_get_args());exit;
 
 		$old_preview_key =  a($record, 'puzzle', 'puzzle_type'). ' -- '. a($record, 'puzzle', 'slider_type'). ' -- ' .a($record, 'puzzle', 'code');
 

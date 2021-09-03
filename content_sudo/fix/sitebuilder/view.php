@@ -59,10 +59,10 @@ class view
 
 		foreach ($list as $key => $value)
 		{
-			// if(a($value, 'subdomain') !== 'rezamohiti')
-			// {
-			// 	continue;
-			// }
+			if(a($value, 'subdomain') !== 'rezamohiti')
+			{
+				continue;
+			}
 
 			if(in_array(a($value, 'subdomain'), $skipp_subdomain))
 			{
@@ -150,13 +150,6 @@ class view
 					$skipp_section = false;
 					break;
 
-				case 'image':
-					$preview = self::conver_gallery($pagebuilder_record, $new_record);
-					self::counter($pagebuilder_record['type']. '::converted');
-					$skipp_section = false;
-					break;
-
-
 				case 'h0':
 				case 'h100':
 				case 'h300':
@@ -173,6 +166,16 @@ class view
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
+
+
+				case 'image':
+					$preview = self::conver_gallery($pagebuilder_record, $new_record);
+					self::counter($pagebuilder_record['type']. '::converted');
+					$skipp_section = false;
+					break;
+
+
+
 
 				case 'products':
 					$preview = self::conver_product($pagebuilder_record, $new_record);

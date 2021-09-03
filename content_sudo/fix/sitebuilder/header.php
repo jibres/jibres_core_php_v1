@@ -9,9 +9,8 @@ trait header
 	public static function conver_header($record, &$new_record)
 	{
 
-		var_dump(func_get_args());exit;
-		$new_record['folder']         = 'body';
-		$new_record['section']        = 'blog';
+		$new_record['folder']         = 'header';
+		$new_record['section']        = 'header';
 		$new_record['model']          = 'b2';
 		$new_record['preview_key']    = 'p1';
 
