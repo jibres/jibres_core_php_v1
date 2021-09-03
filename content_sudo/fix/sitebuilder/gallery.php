@@ -10,13 +10,9 @@ trait gallery
 	{
 		$new_record['folder']         = 'body';
 		$new_record['section']        = 'gallery';
-		$new_record['model']          = 'g2';
-		$new_record['preview_key']    = 'p1';
 
 
-		$preview = \content_site\call_function::section_model_preview('gallery', 'g2', 'p1');
 
-		$preview = $preview['options'];
 
 		$old_preview_key =  a($record, 'puzzle', 'puzzle_type'). ' -- '. a($record, 'puzzle', 'slider_type'). ' -- ' .a($record, 'puzzle', 'code');
 
@@ -28,6 +24,8 @@ trait gallery
 			case 'slider -- simple -- 2+2':
 			case 'slider -- simple -- 2+2+4':
 			case 'slider -- simple -- ':
+				$new_record['model']          = 'g4';
+				$new_record['preview_key']    = 'p1';
 				// one slider
 				break;
 
@@ -36,7 +34,9 @@ trait gallery
 			case 'slider -- special -- 4+4':
 			case 'slider -- special -- ':
 				// like supersaeed.jibres.ir
-				// master slider of alot business
+				// master slider of many business
+				$new_record['model']          = 'g2';
+				$new_record['preview_key']    = 'p1';
 				break;
 
 
@@ -54,19 +54,18 @@ trait gallery
 			case 'puzzle -- simple -- 2+3+3':
 			case 'puzzle -- simple -- ':
 			default:
-
+				$new_record['model']          = 'g1';
+				$new_record['preview_key']    = 'p5';
 				// magicbox 2+3...
 				break;
 		}
 
-
-		if($old_preview_key === 1)
-		{
-			var_dump(\dash\temp::get("CurrentBusiness"));
-			var_dump($record);exit;
-		}
+		$preview = \content_site\call_function::section_model_preview('gallery', $new_record['model'], $new_record['preview_key']);
+		$preview = $preview['options'];
 
 		return;
+		self::who();
+		var_dump($record);exit;
 
 		if(a($record, 'detail', 'list') && is_array($record['detail']['list']))
 		{

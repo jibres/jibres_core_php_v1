@@ -85,6 +85,11 @@ class view
 		exit();
 	}
 
+	public static function who()
+	{
+		var_dump(\dash\temp::get('CurrentBusiness'));
+	}
+
 
 	private static function ready($_data)
 	{
@@ -155,7 +160,7 @@ class view
 				case 'h0':
 				case 'h100':
 				case 'h300':
-					// $preview = self::conver_header($pagebuilder_record, $new_record);
+					$preview = self::conver_header($pagebuilder_record, $new_record);
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
@@ -164,7 +169,7 @@ class view
 				case 'f100':
 				case 'f201':
 				case 'f300':
-					// $preview = self::conver_footer($pagebuilder_record, $new_record);
+					$preview = self::conver_footer($pagebuilder_record, $new_record);
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
@@ -182,7 +187,7 @@ class view
 					break;
 
 				case 'quote':
-					// $preview = self::conver_quote($pagebuilder_record, $new_record);
+					$preview = self::conver_quote($pagebuilder_record, $new_record);
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;

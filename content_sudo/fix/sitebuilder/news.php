@@ -13,7 +13,6 @@ trait news
 		$new_record['model']          = 'b2';
 		$new_record['preview_key']    = 'p1';
 
-
 		$preview = \content_site\call_function::section_model_preview('blog', 'b2', 'p1');
 
 		$preview = $preview['options'];
