@@ -120,7 +120,11 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 if(\dash\engine\store::inBusinessWebsite())
 {
   // temporary condition
-  if(!\dash\data::newPageBuilder())
+  if(\dash\data::newPageBuilder())
+  {
+    echo ' <link href='. \dash\layout\func::staticmtime('css/jibres-migrate.min.css'). ' rel="stylesheet"/>'."\n";
+  }
+  else
   {
     echo ' <link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>'."\n";
   }
