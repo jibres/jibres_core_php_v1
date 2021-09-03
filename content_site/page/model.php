@@ -28,10 +28,15 @@ class model
 	}
 
 
-	public static function save_page( )
+	public static function save_page($_id = null)
 	{
 
 		$page_id = \dash\request::get('id');
+
+		if(!$page_id && $_id)
+		{
+			$page_id = $_id;
+		}
 
 		$page_id = \dash\validate::code($page_id);
 		$page_id = \dash\coding::decode($page_id);

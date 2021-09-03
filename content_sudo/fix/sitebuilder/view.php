@@ -235,6 +235,9 @@ class view
 
 			\dash\pdo\query_template::update('pagebuilder', $new_record, a($pagebuilder_record, 'id'));
 
+			// save page
+			\content_site\page\model::save_page(\dash\coding::encode(a($pagebuilder_record, 'related_id')));
+
 
 		}
 	}
