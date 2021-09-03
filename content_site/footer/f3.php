@@ -18,7 +18,7 @@ class f3
 			'default'      => [],
 			'options'      =>
 			[
-				'heading_business_header',
+				'heading_business_footer',
 				'description_business',
 
 				'file_business_logo_footer',
@@ -26,7 +26,7 @@ class f3
 				'menu_2',
 				'menu_3',
 				'menu_4',
-				'description_footer',
+				'description_copyright',
 				'certificate_enamad',
 				'certificate_samandehi',
 				'responsive' => \content_site\utility::set_responsive_option_footer(),
