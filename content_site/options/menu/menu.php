@@ -77,11 +77,11 @@ trait menu
 				{
 					if($default)
 					{
-						$html .= '<a href="'. \dash\url::kingdom(). '/a/setting/menu/roster?id='. $default. '" class="link text-xs"><i class="sf-external-link"></i> '. T_("Edit"). '</a>';
+						$html .= '<a target="_blank" class="link-secondary text-xs leading-6 block" href="'. \dash\url::kingdom(). '/a/setting/menu/roster?id='. $default. '">'. T_("Manage"). ' <i class="sf-external-link pLa5"></i> </a>';
 					}
 					else
 					{
-						$html .= '<a href="'. \dash\url::kingdom() . '/a/setting/menu/add" class="link text-xs"><i class="sf-external-link"></i> '. T_("Add") .'</a>';
+						$html .= '<a target="_blank" class="link-secondary text-xs leading-6 block" href="'. \dash\url::kingdom() . '/a/setting/menu/add">'. T_("Add"). ' <i class="sf-external-link pLa5"></i> </a>';
 					}
 				}
 				$html .= '</div>';

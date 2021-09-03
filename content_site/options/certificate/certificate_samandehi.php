@@ -13,7 +13,6 @@ class certificate_samandehi
 
 	public static function admin_html()
 	{
-
 		if(\dash\language::current() !== 'fa')
 		{
 			return '';
@@ -38,9 +37,9 @@ class certificate_samandehi
 
 			$html .= "<div data-response='samandehi' $data_response_hide>";
 			{
-				$html .= '<a href="'. \lib\store::admin_url(). '/a/setting/thirdparty/samandehi" target="_blank" class="jalert jalert-info p-3 block">';
+				$html .= '<a href="'. \lib\store::admin_url(). '/a/setting/thirdparty/samandehi" target="_blank" class="jalert p-3 block">';
 				{
-					$html .= '<span class="text-sm">'.T_("Manage samandehi certificate").' <i class="sf-external-link"></i></span>';
+					$html .= '<span class="link-secondary text-xs leading-6 block">'.T_("Manage samandehi certificate").' <i class="sf-external-link"></i></span>';
 				}
 				$html .= '</a>';
 			}

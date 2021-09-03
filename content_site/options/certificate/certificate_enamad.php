@@ -38,9 +38,9 @@ class certificate_enamad
 
 			$html .= "<div data-response='enamad' $data_response_hide>";
 			{
-				$html .= '<a href="'. \lib\store::admin_url(). '/a/setting/thirdparty/enamad" target="_blank" class="jalert jalert-info p-3 block">';
+				$html .= '<a href="'. \lib\store::admin_url(). '/a/setting/thirdparty/enamad" target="_blank" class="jalert  p-3 block">';
 				{
-					$html .= '<span class="text-sm">'.T_("Manage enamad certificate").' <i class="sf-external-link"></i></span>';
+					$html .= '<span class="link-secondary text-xs leading-6 block">'.T_("Manage enamad certificate").' <i class="sf-external-link"></i></span>';
 				}
 				$html .= '</a>';
 			}
