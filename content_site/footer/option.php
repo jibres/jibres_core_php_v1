@@ -1,5 +1,5 @@
 <?php
-namespace content_site\footer\f0;
+namespace content_site\footer;
 
 
 class option
@@ -28,8 +28,8 @@ class option
 		return
 		[
 			'group'   => T_("Footer"),
-			'section'     => 'f0',
-			'title'   => T_("Footer 0"),
+			'section' => 'footer',
+			'title'   => T_("Footer"),
 			'icon'    => \dash\utility\icon::url('Footer'),
 		];
 	}
@@ -46,6 +46,8 @@ class option
 		return
 		[
 			'f0',
+			'f1',
+			'f3',
 		];
 
 	}
@@ -55,7 +57,8 @@ class option
 	{
 		return
 		[
-			'f0:p1',
+			'f1:p1',
+			'f3:p1',
 		];
 	}
 

@@ -1,8 +1,8 @@
 <?php
-namespace content_site\footer\f3;
+namespace content_site\footer;
 
 
-class f3
+class f1
 {
 
 	/**
@@ -14,11 +14,11 @@ class f3
 	{
 		return
 		[
-			'title'        => T_("Card Design"),
+			'title'        => T_("Simple"),
 			'default'      => [],
 			'options'      =>
 			[
-				'heading_business_footer',
+				'heading_business_header',
 				'file_business_logo_header',
 				'menu_1',
 				// 'style' =>

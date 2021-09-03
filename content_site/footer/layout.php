@@ -1,5 +1,5 @@
 <?php
-namespace content_site\footer\f3;
+namespace content_site\footer;
 
 
 class layout
@@ -15,7 +15,7 @@ class layout
 	 */
 	public static function layout($_args)
 	{
-		return '';
+		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args);
 	}
 }
 ?>

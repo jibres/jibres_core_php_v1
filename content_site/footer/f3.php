@@ -1,8 +1,8 @@
 <?php
-namespace content_site\footer\f0;
+namespace content_site\footer;
 
 
-class f0
+class f3
 {
 
 	/**
@@ -14,10 +14,17 @@ class f0
 	{
 		return
 		[
-			'title'        => T_("Without footer"),
+			'title'        => T_("Shopping Footer"),
 			'default'      => [],
 			'options'      =>
 			[
+				'heading_business_header',
+				'file_business_logo_header',
+				'menu_1',
+				// 'style' =>
+				// [
+					// 'type',
+				// ]
 
 			],
 

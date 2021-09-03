@@ -185,6 +185,14 @@ class utility
 	}
 
 
+
+
+	public static function set_responsive_option_footer()
+	{
+		return self::set_responsive_option();
+	}
+
+
 	public static function set_responsive_option_header()
 	{
 		return self::set_responsive_option();
