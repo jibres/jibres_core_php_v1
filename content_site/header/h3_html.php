@@ -26,18 +26,22 @@ class h3_html
 				{
 					$html .= '<a href="" class="flex-1">';
 					{
-						$siteTitle = \lib\store::title();
-						$logo = \lib\store::logo();
+						$logo = a($_args, 'logo');
+
 						if($logo)
 						{
-							$html .= '<img class="inline-block w-16 h-16 rounded" src="'. $logo. '" alt="'. $siteTitle. '">';
+							$html .= '<img class="inline-block w-16 h-16 rounded" src="'. $logo. '" alt="'. a($_args, 'heading'). '">';
 						}
-						// add title
-						$html .= '<h1 class="inline-block px-2 text-2xl font-bold">';
+
+						if(a($_args, 'heading'))
 						{
-							$html .= $siteTitle;
+							// add title
+							$html .= '<h1 class="inline-block px-2 text-2xl font-bold">';
+							{
+								$html .= $_args['heading'];
+							}
+							$html .= '</h1>';
 						}
-						$html .= '</h1>';
 					}
 					$html .= '</a>';
 
