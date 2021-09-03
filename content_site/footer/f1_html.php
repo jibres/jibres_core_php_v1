@@ -17,51 +17,26 @@ class f1_html
 	{
 		$html = '';
 
-		$html .= '<footer id="jFooter3" class="relative py-5">';
+		if(a($_args, 'heading'))
 		{
-			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto justify-center text-center">';
+			$html .= '<footer class="text-gray-600 body-font text-center shadow-inner">';
 			{
-
-				$html .= '<a href="" class="">';
+				$html .= '<div class="container px-5 py-5 mx-auto text-center">';
 				{
-					$siteTitle = \lib\store::title();
-					// add title
-					$html .= '<h1 class="px-2 text-3xl font-bold">';
+					$html .= '<a href="'.\dash\url::kingdom().'" class="title-font font-medium items-center md:justify-start justify-center text-gray-900">';
 					{
-						$html .= $siteTitle;
-					}
-					$html .= '</h1>';
-				}
-				$html .= '</a>';
-
-				$html .= '<h2 class="block px-2 mt-5 text-xl font-bold">';
-				{
-					$html .= \lib\store::desc();
-				}
-				$html .= '</h2>';
-
-				if(a($_args, 'menu_1'))
-				{
-					$html .= '<nav class="sm:ml-auto flex flex-wrap items-center  justify-center mt-10">';
-					{
-						$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
-						if(is_array(a($load_menu, 'list')))
+						$html .= '<span class="ml-3 text-xl">';
 						{
-							foreach ($load_menu['list'] as $key => $value)
-							{
-								$target = a($value, 'target') ? 'target="_blank"' : null;
-
-								$html .= "<a href='$value[url]' $target class='mr-2 border-t-2 border-b-2 hover:text-gray-900'>$value[title]</a>";
-							}
+							$html .= $_args['heading'];
 						}
+						$html .= '</span>';
 					}
-					$html .= '</nav>';
+					$html .= '</a>';
 				}
+				$html .= '</div>';
 			}
-			$html .= '</div>';
-
+			$html .= '</footer>';
 		}
-		$html .= '</footer>';
 
 		return $html;
 	}

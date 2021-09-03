@@ -19,12 +19,6 @@ class f1
 			'options'      =>
 			[
 				'heading_business_header',
-				'file_business_logo_header',
-				'menu_1',
-				// 'style' =>
-				// [
-					// 'type',
-				// ]
 
 			],
 
