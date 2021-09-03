@@ -23,7 +23,7 @@ class f3_html
 			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
 			{
 				// action bar
-				$html .= '<div class="top flex items-end p-1 sm:p-2 md:p-3">';
+				$html .= '<div class="top flex items-end py-1 sm:py-2 md:py-3">';
 				{
 					$siteTitle = \lib\store::title();
 					$siteDesc = \lib\store::desc();
@@ -33,22 +33,18 @@ class f3_html
 					{
 						$html .= '<img class="inline-block w-32 h-32 rounded-lg bg-white" src="'. $logo. '" alt="'. $siteTitle. '">';
 					}
-					$html .= '<div class="flex-1">';
+					$html .= '<div class="flex-1 px-2">';
 					{
-						$html .= '<div class="inline-block px-2">';
+						// add title
+						$html .= '<h2 class="text-2xl font-bold text-white mb-2 line-clamp-1">';
 						{
-							// add title
-							$html .= '<h2 class="text-2xl font-bold text-white line-clamp-1">';
-							{
-								$html .= $siteTitle;
-							}
-							$html .= '</h2>';
-							// desc
-							$html .= '<div class="text-gray-300 line-clamp-3">';
-							{
-								$html .= $siteDesc;
-							}
-							$html .= '</div>';
+							$html .= $siteTitle;
+						}
+						$html .= '</h2>';
+						// desc
+						$html .= '<div class="text-gray-300 line-clamp-3">';
+						{
+							$html .= $siteDesc;
 						}
 						$html .= '</div>';
 					}
@@ -56,12 +52,15 @@ class f3_html
 
 					$certClass = 'inline-block w-32 h-32 rounded-lg bg-white p-1';
 					// add enamad cert
-					$html .= \content_site\assemble\cert::enamad($certClass);
+					$html .= \content_site\assemble\cert::enamad($certClass. 'mx-2');
 					// add samandehi cert
 					$html .= \content_site\assemble\cert::samandehi($certClass);
 
 				}
 				$html .= '</div>';
+
+				$html .= '<hr class="border-1 border-gray-600 my-8">';
+
 
 				// menu bar
 				$html .= '<div class="menuBar flex items-center bg-gray-50 rounded shadow-inner mt-2">';
