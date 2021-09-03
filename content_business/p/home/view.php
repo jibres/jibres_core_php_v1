@@ -18,6 +18,7 @@ class view
 		\dash\data::back_link(\dash\url::kingdom());
 
 
+
 		$customer_review = \dash\app\comment\get::product_customer_review($id);
 		\dash\data::customerReview($customer_review);
 
@@ -32,7 +33,9 @@ class view
 		\dash\data::productSettingSaved($product_setting);
 
 
-		$myCart = \lib\website::cart_detail();
+		$cart_detail = \lib\app\cart\search::my_detail();
+		$cart_summary = \lib\app\cart\search::my_detail_summary($cart_detail);
+		$myCart = $cart_detail;
 
 		if($myCart && is_array($myCart))
 		{
@@ -60,7 +63,7 @@ class view
 		}
 		// pwa header
 		// \dash\data::menu_link(true);
-		\dash\data::cart_link(\dash\fit::number(\lib\website::cart_count()));
+		\dash\data::cart_link(\dash\fit::number(\lib\app\cart\get::my_cart_count()));
 		\dash\data::search_link(\dash\url::kingdom().'/search');
 
 

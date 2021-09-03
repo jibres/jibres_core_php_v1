@@ -6,14 +6,14 @@ class view
 {
 	public static function config()
 	{
-		$title = T_("Pay"). ' ('. \dash\fit::number(\lib\website::cart_total(true)). ')';
+		$title = T_("Pay"). ' ('. \dash\fit::number(\lib\app\cart\get::my_cart_total(true)). ')';
 		\dash\face::titlePWA($title);
 		\dash\face::title($title);
 
 		// btn
 		\dash\data::back_link(\dash\url::kingdom().'/cart');
 
-		$addressDataTable = \lib\website::my_address_list();
+		$addressDataTable = \dash\app\address::user_address_list(\dash\user::code());;
 		\dash\data::addressDataTable($addressDataTable);
 
 
@@ -26,7 +26,7 @@ class view
 
 		self::cart_detail();
 
-		$cartSummary = \lib\website::cart_summary();
+		$cartSummary = \lib\app\cart\search::my_detail_summary(\lib\app\cart\search::my_detail());
 		\dash\data::cartSummary($cartSummary);
 
 		$cart_setting = \lib\app\setting\get::cart_setting();
@@ -40,7 +40,7 @@ class view
 	public static function cart_detail()
 	{
 
-		$myCart = \lib\website::cart_detail();
+		$myCart = \lib\app\cart\search::my_detail();
 		\dash\data::myCart($myCart);
 
 		if(is_array($myCart))

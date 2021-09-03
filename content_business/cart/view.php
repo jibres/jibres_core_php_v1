@@ -15,7 +15,7 @@ class view
 		\dash\data::dataTable($cart_detail);
 
 		$cart_summary = \lib\app\cart\search::my_detail_summary($cart_detail);
-
+		
 		\dash\data::cartSummary($cart_summary);
 
 		$cart_setting = \lib\app\setting\get::cart_setting();

@@ -11,7 +11,7 @@ class controller
 			\dash\redirect::to(\dash\url::kingdom());
 		}
 
-		if(!\lib\website::cart_count())
+		if(!\lib\app\cart\get::my_cart_count())
 		{
 			\dash\redirect::to(\dash\url::kingdom(). '/cart');
 		}
