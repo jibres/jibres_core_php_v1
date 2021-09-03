@@ -97,7 +97,8 @@ class business
 		}
 
 		// check route sitebuilder
-		if((\dash\url::isLocal() && (\dash\request::get('preview') || \dash\request::get('force'))) || \dash\temp::get('forceLoadNewSiteBuilder'))
+		// need to remove all condition like forceLoadNewSiteBuilder
+		// if((\dash\url::isLocal() && (\dash\request::get('preview') || \dash\request::get('force'))) || \dash\temp::get('forceLoadNewSiteBuilder'))
 		{
 			// load page builder by detect current page
 			$pagebuilder = \content_site\load\load::current_page();
@@ -154,43 +155,43 @@ class business
 
 
 
-		// load page builder by detect current page
-		$pagebuilder = \lib\pagebuilder\load\page::current_page();
+		// // load page builder by detect current page
+		// $pagebuilder = \lib\pagebuilder\load\page::current_page();
 
-		if(isset($pagebuilder['post_detail']['ishomepage']) && $pagebuilder['post_detail']['ishomepage'])
-		{
-			self::$have_header = true;
-			self::$have_footer = true;
-		}
-		else
-		{
-			// need to load homepage header and footer
-			$homepage_header_footer = \lib\pagebuilder\load\page::homepage_header_footer();
+		// if(isset($pagebuilder['post_detail']['ishomepage']) && $pagebuilder['post_detail']['ishomepage'])
+		// {
+		// 	self::$have_header = true;
+		// 	self::$have_footer = true;
+		// }
+		// else
+		// {
+		// 	// need to load homepage header and footer
+		// 	$homepage_header_footer = \lib\pagebuilder\load\page::homepage_header_footer();
 
-			if(isset($homepage_header_footer['header']) && $homepage_header_footer['header'])
-			{
-				self::$have_header = true;
-			}
+		// 	if(isset($homepage_header_footer['header']) && $homepage_header_footer['header'])
+		// 	{
+		// 		self::$have_header = true;
+		// 	}
 
-			if(isset($homepage_header_footer['footer']) && $homepage_header_footer['footer'])
-			{
-				self::$have_footer = true;
-			}
-		}
+		// 	if(isset($homepage_header_footer['footer']) && $homepage_header_footer['footer'])
+		// 	{
+		// 		self::$have_footer = true;
+		// 	}
+		// }
 
-		if($pagebuilder)
-		{
-			self::$pagebuilder         = true;
-			self::$pagebuilder_setting = $pagebuilder;
+		// if($pagebuilder)
+		// {
+		// 	self::$pagebuilder         = true;
+		// 	self::$pagebuilder_setting = $pagebuilder;
 
-			\dash\data::website($pagebuilder);
+		// 	\dash\data::website($pagebuilder);
 
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		// 	return true;
+		// }
+		// else
+		// {
+		// 	return false;
+		// }
 	}
 
 
