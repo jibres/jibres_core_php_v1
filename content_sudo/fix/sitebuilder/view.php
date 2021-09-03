@@ -233,7 +233,7 @@ class view
 
 
 
-			// \dash\pdo\query_template::update('pagebuilder', $new_record, a($pagebuilder_record, 'id'));
+			\dash\pdo\query_template::update('pagebuilder', $new_record, a($pagebuilder_record, 'id'));
 
 
 		}

@@ -61,50 +61,59 @@ trait gallery
 		$preview = \content_site\call_function::section_model_preview('gallery', $new_record['model'], $new_record['preview_key']);
 		$preview = $preview['options'];
 
-		self::who();
-		var_dump($record);exit;
-
-		if(a($record, 'detail', 'list') && is_array($record['detail']['list']))
+		$menu_transfered = false;
+		if(a($record, 'meta', 'converted'))
 		{
-			$list = $record['detail']['list'];
+			$menu_transfered = true;
+		}
 
-			// $menu_id = \content_site\body\gallery\option::add_menu_for_gallery($record['id']);
 
-			foreach ($list as $key => $value)
+		if(!$menu_transfered)
+		{
+			if(a($record, 'detail', 'list') && is_array($record['detail']['list']))
 			{
-				$url = \dash\validate::absolute_url(a($value, 'url'), false);
+				$list = $record['detail']['list'];
 
-				$args =
-				[
-					'file'    => a($value, 'image'),
-					'url'     => $url ? $url : null,
-					'pointer' => 'other',
-					'title'   => a($value, 'alt'),
-					'sort'    => a($value, 'sort'),
-				];
+				$menu_id = \content_site\body\gallery\option::add_menu_for_gallery($record['id']);
 
-				if(!$url)
+				foreach ($list as $key => $value)
 				{
-					unset($args['pointer']);
-					unset($args['url']);
-					// $args['pointer'] = 'homepage';
-				}
+					$url = \dash\validate::absolute_url(a($value, 'url'), false);
 
-				if(!$args['title'])
-				{
-					unset($args['title']);
-				}
+					$args =
+					[
+						'file'    => a($value, 'image'),
+						'url'     => $url ? $url : null,
+						'pointer' => 'other',
+						'title'   => a($value, 'alt'),
+						'sort'    => a($value, 'sort'),
+					];
 
-				// $child_id = \content_site\body\gallery\option::add_menu_child_as_gallery_item($record['id'], $menu_id, 1, $args);
+					if(!$url)
+					{
+						unset($args['pointer']);
+						unset($args['url']);
+						// $args['pointer'] = 'homepage';
+					}
 
-				if(!$child_id)
-				{
-					\dash\notif::api('ss');
-					self::counter('error:cannnot add menu_id');
+					if(!$args['title'])
+					{
+						unset($args['title']);
+					}
+
+					$child_id = \content_site\body\gallery\option::add_menu_child_as_gallery_item($record['id'], $menu_id, 1, $args);
+
+					if(!$child_id)
+					{
+						\dash\notif::api('ss');
+						self::counter('error:cannnot add menu_id');
+					}
 				}
 			}
 
 		}
+
+		$new_record['meta'] = json_encode(['converted' => 1]);
 
 
 		return $preview;
