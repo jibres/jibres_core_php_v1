@@ -255,6 +255,11 @@ class find
 		}
 
 		// add pwa footer
+		if(\dash\layout\business::$new_sitebuilder)
+		{
+			require_once core.'layout/pwa/pwa-footer-v2.php';
+		}
+		else
 		{
 			require_once core.'layout/pwa/pwa-footer.php';
 		}
