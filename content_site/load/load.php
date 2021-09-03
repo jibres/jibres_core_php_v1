@@ -295,84 +295,64 @@ class load
 
 
 
-	// public static function detect_header()
-	// {
-	// 	// exception module needless to load pagebuilder
-	// 	if(self::exception_module())
-	// 	{
-	// 		return false;
-	// 	}
-
-	// 	if(self::$comingsoon_visitcad_template)
-	// 	{
-	// 		return false;
-	// 	}
-
-	// 	$currentHeader = [];
-
-	// 	$current_module_header = \dash\data::website_header();
-
-	// 	if(is_array($current_module_header) && $current_module_header)
-	// 	{
-	// 		$currentHeader = $current_module_header;
-	// 	}
-	// 	elseif(isset(self::$homepage_header_footer['header']))
-	// 	{
-	// 		$currentHeader = self::$homepage_header_footer['header'];
-	// 	}
-
-	// 	// detect header
-	// 	if(isset($currentHeader[0]))
-	// 	{
-	// 		$currentHeader = $currentHeader[0];
-	// 	}
+	public static function detect_header()
+	{
+		// exception module needless to load pagebuilder
+		if(self::exception_module())
+		{
+			return false;
+		}
 
 
-	// 	\dash\data::currentHeader($currentHeader);
+		$currentHeader = [];
 
-	// 	return $currentHeader;
+		$current_module_header = \dash\data::website_header();
 
-	// }
+		if(is_array($current_module_header) && $current_module_header)
+		{
+			$currentHeader = $current_module_header;
+		}
+		elseif(isset(self::$homepage_header_footer['header']))
+		{
+			$currentHeader = self::$homepage_header_footer['header'];
+		}
 
 
 
-	// public static function detect_footer()
-	// {
-	// 	// exception module needless to load pagebuilder
-	// 	if(self::exception_module())
-	// 	{
-	// 		return false;
-	// 	}
+		\dash\data::website_header($currentHeader);
 
-	// 	if(self::$comingsoon_visitcad_template)
-	// 	{
-	// 		return false;
-	// 	}
+		return $currentHeader;
 
-	// 	$currentFooter = [];
-
-	// 	$current_module_footer = \dash\data::website_footer();
-
-	// 	if(is_array($current_module_footer) && $current_module_footer)
-	// 	{
-	// 		$currentFooter = $current_module_footer;
-	// 	}
-	// 	elseif(isset(self::$homepage_header_footer['footer']))
-	// 	{
-	// 		$currentFooter = self::$homepage_header_footer['footer'];
-	// 	}
-	// 	// detect footer
-	// 	if(isset($currentFooter[0]))
-	// 	{
-	// 		$currentFooter = $currentFooter[0];
-	// 	}
+	}
 
 
-	// 	\dash\data::currentFooter($currentFooter);
 
-	// 	return $currentFooter;
+	public static function detect_footer()
+	{
+		// exception module needless to load pagebuilder
+		if(self::exception_module())
+		{
+			return false;
+		}
 
-	// }
+		$currentFooter = [];
+
+		$current_module_footer = \dash\data::website_footer();
+
+		if(is_array($current_module_footer) && $current_module_footer)
+		{
+			$currentFooter = $current_module_footer;
+		}
+		elseif(isset(self::$homepage_header_footer['footer']))
+		{
+			$currentFooter = self::$homepage_header_footer['footer'];
+		}
+
+		\dash\data::website_footer($currentFooter);
+
+		return $currentFooter;
+
+	}
 
 }
 ?>
