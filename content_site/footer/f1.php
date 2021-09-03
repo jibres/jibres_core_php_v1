@@ -15,14 +15,16 @@ class f1
 		return
 		[
 			'title'        => T_("Simple"),
-			'default'      => [],
 			'options'      =>
 			[
 				'heading_business_header',
 				'responsive' => \content_site\utility::set_responsive_option_footer(),
 
 			],
-
+			'default'      =>
+			[
+				'use_as_heading'     => 'business_heading',
+			],
 			'preview_list' =>
 			[
 				'p1',
@@ -41,7 +43,7 @@ class f1
 			'version'        => 1,
 			'options' =>
 			[
-
+				'use_as_heading'     => 'business_heading',
 			],
 		];
 	}

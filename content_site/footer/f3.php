@@ -15,7 +15,6 @@ class f3
 		return
 		[
 			'title'        => T_("Shopping Footer"),
-			'default'      => [],
 			'options'      =>
 			[
 				'heading_business_footer',
@@ -31,6 +30,14 @@ class f3
 				'certificate_samandehi',
 				'responsive' => \content_site\utility::set_responsive_option_footer(),
 
+			],
+			'default'      =>
+			[
+				'use_as_logo'           => 'business_logo',
+				'use_as_heading'        => 'business_heading',
+				'use_as_description'    => 'business_description',
+				'certificate_samandehi' => true,
+				'certificate_enamad'    => true,
 			],
 
 			'preview_list' =>
@@ -51,7 +58,11 @@ class f3
 			'version'        => 1,
 			'options' =>
 			[
-
+				'use_as_logo'           => 'business_logo',
+				'use_as_heading'        => 'business_heading',
+				'use_as_description'    => 'business_description',
+				'certificate_samandehi' => true,
+				'certificate_enamad'    => true,
 			],
 		];
 	}

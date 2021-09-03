@@ -15,7 +15,6 @@ class h1
 		return
 		[
 			'title'        => T_("Simple"),
-			'default'      => [],
 			'options'      =>
 			[
 				'heading_business_header',
@@ -28,6 +27,11 @@ class h1
 				]),
 				'responsive' => \content_site\utility::set_responsive_option_header(),
 
+			],
+			'default'      =>
+			[
+				'use_as_heading'     => 'business_heading',
+				'use_as_description' => 'business_description',
 			],
 
 			'preview_list' =>
@@ -48,7 +52,8 @@ class h1
 			'version'        => 1,
 			'options' =>
 			[
-
+				'use_as_heading'     => 'business_heading',
+				'use_as_description' => 'business_description',
 			],
 		];
 	}
