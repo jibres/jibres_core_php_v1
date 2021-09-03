@@ -469,12 +469,19 @@ class store
 
 			if(isset($all_store_setting['store_data']['redirect_jibres_subdomain_to_master']) && $all_store_setting['store_data']['redirect_jibres_subdomain_to_master'])
 			{
-				$new_url = \lib\store::master_domain(true);
-
-				if($new_url)
+				if(\dash\url::isLocal())
 				{
-					\dash\redirect::to($new_url);
-					return false;
+					// nohting
+				}
+				else
+				{
+					$new_url = \lib\store::master_domain(true);
+
+					if($new_url)
+					{
+						\dash\redirect::to($new_url);
+						return false;
+					}
 				}
 			}
 			return $result;
