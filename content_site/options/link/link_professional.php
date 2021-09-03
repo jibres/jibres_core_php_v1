@@ -11,7 +11,7 @@ trait link_professional
 		$args =
 		[
 			'pointer'       => a($_data, 'pointer'),
-			'url'           => a($_data, 'link'),
+			'url'           => a($_data, 'url'),
 			'target'        => a($_data, 'target'),
 
 			'product_id'    => a($_data, 'products_id'),
@@ -101,7 +101,7 @@ trait link_professional
 						'forms'         => ['title' => T_('Forms'),			'api_link' => '/a/form/api?json=true', ],
 						'socialnetwork' => ['title' => T_('Socialnetwork'),	'api_link' => null, ],
 						'other'         => ['title' => T_('Other'),			'api_link' => null, ],
-						'selffile'      => ['title' => T_('Self file addr'),'api_link' => null, ],
+						// 'selffile'      => ['title' => T_('Self file addr'),'api_link' => null, ],
 					];
 
 					foreach ($list as $key => $value)
@@ -175,7 +175,7 @@ trait link_professional
 						}
 						$html .= "</div>";
 
-						$html .= \content_site\options\generate::checkbox('target', T_('Open in new windows'), $target);
+						// $html .= \content_site\options\generate::checkbox('target', T_('Open in new windows'), $target);
 
 					}
 					$html .= '</div>';
