@@ -28,8 +28,8 @@ foreach ($list as $key => $value)
   }
   elseif(a($value, 'folder')  === 'footer')
   {
-    $footer_link = \dash\url::here(). '/section/'. a($footer, 'section'). \dash\request::full_get(['sid' => a($footer, 'id')]);
     $footer = $value;
+    $footer_link = \dash\url::here(). '/section/'. a($footer, 'section'). \dash\request::full_get(['sid' => a($footer, 'id')]);
   }
 }
 
