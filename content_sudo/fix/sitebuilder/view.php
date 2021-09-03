@@ -138,20 +138,16 @@ class view
 			$skipp_section = true;
 			switch (a($pagebuilder_record, 'type'))
 			{
-				// in new sitebuilder we have blog! in old sitebuilder we have news
-				case 'blog':
-					// var_dump('new sitebuilder section key!', $pagebuilder_record, func_get_args());exit;
-					break;
 
 				case 'news':
-					// $preview = self::conver_news($pagebuilder_record, $new_record);
-					// self::counter('news_converted');
+					$preview = self::conver_news($pagebuilder_record, $new_record);
+					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
 
 				case 'image':
 					$preview = self::conver_gallery($pagebuilder_record, $new_record);
-					// self::counter('gallery_converted');
+					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
 
@@ -160,6 +156,8 @@ class view
 				case 'h100':
 				case 'h300':
 					// $preview = self::conver_header($pagebuilder_record, $new_record);
+					self::counter($pagebuilder_record['type']. '::converted');
+					$skipp_section = false;
 					break;
 
 				case 'f0':
@@ -167,20 +165,36 @@ class view
 				case 'f201':
 				case 'f300':
 					// $preview = self::conver_footer($pagebuilder_record, $new_record);
+					self::counter($pagebuilder_record['type']. '::converted');
+					$skipp_section = false;
 					break;
 
 				case 'products':
 					$preview = self::conver_product($pagebuilder_record, $new_record);
+					self::counter($pagebuilder_record['type']. '::converted');
+					$skipp_section = false;
 					break;
 
 				case 'text':
 					$preview = self::conver_text($pagebuilder_record, $new_record);
+					self::counter($pagebuilder_record['type']. '::converted');
+					$skipp_section = false;
 					break;
 
 				case 'quote':
 					// $preview = self::conver_quote($pagebuilder_record, $new_record);
+					self::counter($pagebuilder_record['type']. '::converted');
+					$skipp_section = false;
 					break;
 
+
+				/**
+				 * Unknown !!
+				 */
+
+				// in new sitebuilder we have blog! in old sitebuilder we have news
+				case 'blog':
+				case 'b1':
 				case null:
 				case '':
 					// maybe new sitebuilder
