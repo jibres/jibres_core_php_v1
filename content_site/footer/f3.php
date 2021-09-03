@@ -26,7 +26,7 @@ class f3
 				'menu_2',
 				'menu_3',
 				'menu_4',
-				'description_copyright',
+				'copyright',
 				'certificate_enamad',
 				'certificate_samandehi',
 				'responsive' => \content_site\utility::set_responsive_option_footer(),

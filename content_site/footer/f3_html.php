@@ -126,10 +126,10 @@ class f3_html
 				}
 
 
-				if(a($_args, 'description_footer'))
+				if(a($_args, 'copyright'))
 				{
 					$html .= '<p class="text-gray-300 leading-relaxed py-8 opacity-60">';
-					$html .= $_args['description_footer'];
+					$html .= $_args['copyright'];
 					$html .= '</p>';
 				}
 			}
