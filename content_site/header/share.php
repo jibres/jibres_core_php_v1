@@ -12,7 +12,7 @@ class share
 
 		if(a($_args, 'announcement_check'))
 		{
-			$html .= "<div class='topLine'>";
+			$html .= "<div class='jalert jalert-error content-center text-center p-5'>";
 			{
 				$html  .= \content_site\assemble\link::generate(a($_args, 'announcement_link'), a($_args, 'announcement_description'));
 			}
