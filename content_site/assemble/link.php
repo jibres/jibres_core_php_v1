@@ -5,15 +5,8 @@ namespace content_site\assemble;
 class link
 {
 
-	public static function generate($_link_detail, $_text, $_class = null)
+	public static function generate($_link_detail)
 	{
-		$html = '';
-
-		if(!a($_link_detail, 'pointer'))
-		{
-			return $html;
-		}
-
 		$related_id       = a($_link_detail, 'related_id');
 
 		$target_blank = false;
@@ -74,21 +67,27 @@ class link
 			case 'socialnetwork':
 				if(!a($_link_detail, 'socialnetwork'))
 				{
-					return '';
+					// nothing
 				}
-				$social_detail = \lib\store::social($_link_detail['socialnetwork']);
+				else
+				{
+					$social_detail = \lib\store::social($_link_detail['socialnetwork']);
 
-				$link = a($social_detail, 'link');
-				$target_blank = true;
+					$link = a($social_detail, 'link');
+					$target_blank = true;
+				}
 				break;
 
 			case 'other':
 				if(!a($_link_detail, 'url'))
 				{
-					return '';
+					// nothing
 				}
-				$target_blank = true;
-				$link = $_link_detail['url'];
+				else
+				{
+					$target_blank = true;
+					$link = $_link_detail['url'];
+				}
 				break;
 
 			case 'title':
@@ -96,20 +95,21 @@ class link
 			case 'selffile':
 			default:
 				// have no link
-				return '';
+				// nothing
 				break;
 		}
 
-		$html .= '<a href="'. $link. '"';
+		$result = [];
+		$result['link'] = $link;
+
+		$result['target_blank'] = $target_blank;
 		if($target_blank)
 		{
-			$html .= ' target="_blank"';
+			$result['target_blank_html'] = ' target="_blank"';
 		}
-		$html .= '>';
-		$html .= $_text;
-		$html .= '</a>';
 
-		return $html;
+
+		return $result;
 	}
 
 }
