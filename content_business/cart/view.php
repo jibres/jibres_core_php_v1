@@ -6,15 +6,17 @@ class view
 {
 	public static function config()
 	{
-		$title = T_("Shopping Cart"). ' ('. \dash\fit::number(\lib\website::cart_count()). ')';
+		$title = T_("Shopping Cart"). ' ('. \dash\fit::number(\lib\app\cart\get::my_cart_count()). ')';
 		\dash\face::titlePWA($title);
 		\dash\face::title($title);
 
-		$dataTable = \lib\website::cart_detail();
-		\dash\data::dataTable($dataTable);
+		$cart_detail = \lib\app\cart\search::my_detail();
+		
+		\dash\data::dataTable($cart_detail);
 
-		$cartSummary = \lib\website::cart_summary();
-		\dash\data::cartSummary($cartSummary);
+		$cart_summary = \lib\app\cart\search::my_detail_summary($cart_detail);
+
+		\dash\data::cartSummary($cart_summary);
 
 		$cart_setting = \lib\app\setting\get::cart_setting();
 		\dash\data::cartSettingSaved($cart_setting);
