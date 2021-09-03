@@ -287,20 +287,23 @@ class pwa_menu
 			[
 				'home' =>
 				[
-					'href' => \dash\url::kingdom(),
-					'icon' => 'home',
+					'href'  => \dash\url::kingdom(),
+					'icon'  => 'home',
+					'img'   => 'home',
 					'title' => T_('Home'),
 				],
 				'category' =>
 				[
 					'href' => \dash\url::kingdom(). '/collection',
 					'icon' => 'th-large',
+					'img'   => 'categories',
 					'title' => T_('Tags'),
 				],
 				'cart' =>
 				[
 					'href' => \dash\url::kingdom(). '/cart',
 					'icon' => 'shopping-cart',
+					'img'   => 'cart',
 					'title' => T_('Cart'),
 					'cartItem' => \dash\fit::number(\lib\website::cart_count()),
 				],
@@ -308,6 +311,7 @@ class pwa_menu
 				[
 					'href' => \dash\url::kingdom(). '/profile',
 					'icon' => 'user',
+					'img'   => 'profile',
 					'title' => T_('Profile'),
 				],
 			];

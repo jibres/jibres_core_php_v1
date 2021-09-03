@@ -29,14 +29,14 @@ class footer2
             $footer .= " class='selected'";
           }
           $footer .= ">";
-          if(isset($item['icon']) && $item['icon'])
+          // add img
+          if(isset($item['img']) && $item['img'])
           {
-            // $footer .= "<div class='icon'><i class='sf-". $item['icon']. "'></i></div>";
             $footer .= "<div class='icon'>";
-            $footer .= "<i class='sf-". $item['icon'];
+            $footer .= "<img src='". \dash\utility\icon::url(a($item, 'img')). "' alt ='". a($item, 'title') ."'>";
             if(isset($item['iconPulse']) && $item['iconPulse'])
             {
-              $footer .= " pulse";
+              $footer .= " class'pulse'";
             }
             $footer .= "'";
             if(isset($item['cartItem']) && $item['cartItem'])
@@ -48,6 +48,7 @@ class footer2
             $footer .= "</div>";
 
           }
+          // add title
           if(isset($item['title']) && $item['title'])
           {
             $footer .= "<div class='title'>". $item['title']. "</div>";
