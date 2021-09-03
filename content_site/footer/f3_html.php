@@ -32,7 +32,7 @@ class f3_html
 						$logo = \lib\store::logo();
 						if($logo)
 						{
-							$html .= '<img class="inline-block w-32 h-32 rounded" src="'. $logo. '" alt="'. $siteTitle. '">';
+							$html .= '<img class="inline-block w-32 h-32 rounded-lg bg-white" src="'. $logo. '" alt="'. $siteTitle. '">';
 						}
 						$html .= '<div class="inline-block px-2">';
 						{
@@ -53,10 +53,11 @@ class f3_html
 					}
 					$html .= '</div>';
 
+					$certClass = 'inline-block w-32 h-32 rounded-lg bg-white p-1';
 					// add enamad cert
-					$html .= \content_site\assemble\cert::enamad();
+					$html .= \content_site\assemble\cert::enamad($certClass);
 					// add samandehi cert
-					$html .= \content_site\assemble\cert::samandehi();
+					$html .= \content_site\assemble\cert::samandehi($certClass);
 
 				}
 				$html .= '</div>';
