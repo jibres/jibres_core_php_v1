@@ -122,7 +122,7 @@ if(\dash\engine\store::inBusinessWebsite())
   // temporary condition
   if(\dash\data::newPageBuilder())
   {
-    echo ' <link href='. \dash\layout\func::staticmtime('css/jibres-migrate.min.css'). ' rel="stylesheet"/>'."\n";
+    // echo ' <link href='. \dash\layout\func::staticmtime('css/jibres-migrate.min.css'). ' rel="stylesheet"/>'."\n";
   }
   else
   {
