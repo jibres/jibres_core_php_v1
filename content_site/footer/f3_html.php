@@ -77,7 +77,6 @@ class f3_html
 
 				}
 				$html .= '</div>';
-				$html .= $hr;
 
 
 				$menuOpt =
@@ -121,13 +120,14 @@ class f3_html
 
 				if($colCount > 0)
 				{
-					$html .= $menuHTML;
 					$html .= $hr;
+					$html .= $menuHTML;
 				}
 
 
 				if(a($_args, 'copyright'))
 				{
+					$html .= $hr;
 					$html .= '<p class="text-gray-300 leading-relaxed py-8 opacity-60">';
 					$html .= $_args['copyright'];
 					$html .= '</p>';
