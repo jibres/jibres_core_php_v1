@@ -79,11 +79,52 @@ class f3_html
 				$html .= '</div>';
 				$html .= $hr;
 
-				$html .= \content_site\assemble\menu::generate('menu_1');
 
+				$menuOpt =
+				[
+					'nav_class' => '',
+					'ul_class'  => '',
+					'li_class'  => '',
+					'a_class'   => 'inline-block p-1 sm:p-2 hover:opacity-70 focus:opacity-50 transition text-gray-100',
+				];
+				$menu1 = \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
+				$menu2 = \content_site\assemble\menu::generate(a($_args, 'menu_2'), $menuOpt);
+				$menu3 = \content_site\assemble\menu::generate(a($_args, 'menu_3'), $menuOpt);
+				$menu4 = \content_site\assemble\menu::generate(a($_args, 'menu_4'), $menuOpt);
 
+				$colCount = 0;
+				if($menu1)
+				{
+					$colCount ++;
+				}
+				if($menu2)
+				{
+					$colCount ++;
+				}
+				if($menu3)
+				{
+					$colCount ++;
+				}
+				if($menu4)
+				{
+					$colCount ++;
+				}
 
-				$html .= $hr;
+				$menuHTML = '<div class="grid grid-cols-'. $colCount. ' gap-3">';
+				{
+					$menuHTML .= $menu1;
+					$menuHTML .= $menu2;
+					$menuHTML .= $menu3;
+					$menuHTML .= $menu4;
+				}
+				$menuHTML .= '</div>';
+
+				if($colCount > 0)
+				{
+					$html .= $menuHTML;
+					$html .= $hr;
+				}
+
 
 				if(a($_args, 'description_footer'))
 				{

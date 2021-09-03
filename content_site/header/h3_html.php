@@ -100,8 +100,9 @@ class h3_html
 						$menuOpt =
 						[
 							'nav_class' => '',
-							'ul_class' => 'flex',
-							'a_class' => 'block p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition',
+							'ul_class'  => 'flex',
+							'li_class'  => '',
+							'a_class'   => 'block p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition',
 						];
 
 						$menuOptPrimary                   = $menuOpt;
