@@ -99,16 +99,7 @@ class h3_html
 						{
 							$html .= '<nav class="flex-1 flex">';
 							{
-								$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
-								if(is_array(a($load_menu, 'list')))
-								{
-									foreach ($load_menu['list'] as $key => $value)
-									{
-										$target = a($value, 'target') ? 'target="_blank"' : null;
-
-										$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
-									}
-								}
+								$html .= \content_site\assemble\menu::generate($_args['menu_1'], 'p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition');
 							}
 							$html .= '</nav>';
 						}
@@ -121,16 +112,7 @@ class h3_html
 						{
 							$html .= '<nav class="flex">';
 							{
-								$load_menu = \lib\app\menu\get::load_menu($_args['menu_2']);
-								if(is_array(a($load_menu, 'list')))
-								{
-									foreach ($load_menu['list'] as $key => $value)
-									{
-										$target = a($value, 'target') ? 'target="_blank"' : null;
-
-										$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
-									}
-								}
+								$html .= \content_site\assemble\menu::generate($_args['menu_2'], 'p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition');
 							}
 							$html .= '</nav>';
 						}
