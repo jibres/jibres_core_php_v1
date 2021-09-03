@@ -25,25 +25,26 @@ class f3_html
 				// action bar
 				$html .= '<div class="top flex items-end p-1 sm:p-2 md:p-3">';
 				{
+					$siteTitle = \lib\store::title();
+					$siteDesc = \lib\store::desc();
+					$logo = \lib\store::logo();
+
+					if($logo)
+					{
+						$html .= '<img class="inline-block w-32 h-32 rounded-lg bg-white" src="'. $logo. '" alt="'. $siteTitle. '">';
+					}
 					$html .= '<div class="flex-1">';
 					{
-						$siteTitle = \lib\store::title();
-						$siteDesc = \lib\store::desc();
-						$logo = \lib\store::logo();
-						if($logo)
-						{
-							$html .= '<img class="inline-block w-32 h-32 rounded-lg bg-white" src="'. $logo. '" alt="'. $siteTitle. '">';
-						}
 						$html .= '<div class="inline-block px-2">';
 						{
 							// add title
-							$html .= '<h2 class="text-2xl font-bold text-white">';
+							$html .= '<h2 class="text-2xl font-bold text-white line-clamp-1">';
 							{
 								$html .= $siteTitle;
 							}
 							$html .= '</h2>';
 							// desc
-							$html .= '<div class="text-gray-300">';
+							$html .= '<div class="text-gray-300 line-clamp-3">';
 							{
 								$html .= $siteDesc;
 							}
