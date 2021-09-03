@@ -93,6 +93,33 @@ class get
 		return $load;
 	}
 
+	public static function get_force($_id)
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		$_id = \dash\validate::id($_id);
+
+		if(!$_id)
+		{
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		$load = \lib\db\productcategory\get::one($_id);
+		if(!$load)
+		{
+			\dash\notif::error(T_("Invalid category id"));
+			return false;
+		}
+
+		$load = \lib\app\tag\ready::row($load);
+		return $load;
+	}
+
 
 	public static function parent_list($_id = null)
 	{
