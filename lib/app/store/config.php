@@ -43,6 +43,9 @@ class config
 	 */
 	public static function first_setup_domain()
 	{
+		// force disable
+		return false;
+
 		$setup_before = \lib\db\setting\get::by_cat_key('business_first_setup_domain_data', 'execute');
 
 		if(!$setup_before)
