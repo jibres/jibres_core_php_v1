@@ -22,10 +22,21 @@ trait link_professional
 			'socialnetwork' => a($_data, 'socialnetwork'),
 		];
 
+		$data = \lib\app\menu\check::variable($args, true);
 
-		\dash\notif::error("Need to fix ". __LINE__);
+		unset($data['parent1']);
+		unset($data['parent2']);
+		unset($data['parent3']);
+		unset($data['parent4']);
+		unset($data['parent5']);
 
-		return;
+		return [self::db_key() => $data];
+	}
+
+
+	public static function db_key()
+	{
+		return 'link_professional';
 	}
 
 	public static function have_specialsave()
@@ -36,12 +47,24 @@ trait link_professional
 
 	public static function admin_html()
 	{
-		$url           = \content_site\section\view::get_current_index_detail('url');
-		$pointer       = \content_site\section\view::get_current_index_detail('pointer');
-		$target        = \content_site\section\view::get_current_index_detail('target');
-		$target        = \content_site\section\view::get_current_index_detail('target');
-		$related_id    = \content_site\section\view::get_current_index_detail('related_id');
-		$socialnetwork = \content_site\section\view::get_current_index_detail('socialnetwork');
+		if(self::have_specialsave())
+		{
+			$url           = \content_site\section\view::get_current_index_detail('url');
+			$pointer       = \content_site\section\view::get_current_index_detail('pointer');
+			$target        = \content_site\section\view::get_current_index_detail('target');
+			$related_id    = \content_site\section\view::get_current_index_detail('related_id');
+			$socialnetwork = \content_site\section\view::get_current_index_detail('socialnetwork');
+
+		}
+		else
+		{
+			$preview       = \dash\data::currentSectionDetail_preview();
+			$url           = a($preview, self::db_key(), 'url');
+			$pointer       = a($preview, self::db_key(), 'pointer');
+			$target        = a($preview, self::db_key(), 'target');
+			$related_id    = a($preview, self::db_key(), 'related_id');
+			$socialnetwork = a($preview, self::db_key(), 'socialnetwork');
+		}
 
 		$html = '';
 

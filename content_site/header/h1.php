@@ -21,6 +21,11 @@ class h1
 				'heading_business_header',
 				'description_business',
 				'menu_1',
+				'announcement' => \content_site\utility::set_announcement(),
+				'style' => \content_site\utility::set_style_option(
+				[
+					'font',
+				]),
 				'responsive' => \content_site\utility::set_responsive_option_header(),
 
 			],

@@ -206,6 +206,16 @@ class utility
 		];
 	}
 
+	public static function set_announcement()
+	{
+		return
+		[
+			'announcement_check',
+			'announcement_description',
+			'announcement_link',
+		];
+	}
+
 	/**
 	 * Everywhere need backgroun pack option use this function
 	 *
