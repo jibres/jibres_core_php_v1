@@ -17,6 +17,8 @@ class h3_html
 	{
 		$html = '';
 
+		$html .= share::announcement($_args);
+
 		$html .= '<header id="jHeader3" class="relative py-5">';
 		{
 			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';

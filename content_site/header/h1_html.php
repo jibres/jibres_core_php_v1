@@ -17,7 +17,7 @@ class h1_html
 	{
 		$html = '';
 
-		$html = share::announcement($_args);
+		$html .= share::announcement($_args);
 
 		if(a($_args, 'heading') || a($_args, 'description') || a($_args, 'menu_1'))
 		{
