@@ -77,50 +77,53 @@ class h3_html
 				}
 				$html .= '</div>';
 
-				// menu bar
-				$html .= '<div class="menuBar flex items-center bg-gray-50 rounded shadow-inner mt-2">';
+				if(a($_args, 'menu_1') || a($_args, 'menu_2'))
 				{
-					if(a($_args, 'menu_1'))
+					// menu bar
+					$html .= '<div class="menuBar flex items-center bg-gray-50 rounded shadow-inner mt-2">';
 					{
-						$html .= '<nav class="flex-1 flex">';
+						if(a($_args, 'menu_1'))
 						{
-							$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
-							if(is_array(a($load_menu, 'list')))
+							$html .= '<nav class="flex-1 flex">';
 							{
-								foreach ($load_menu['list'] as $key => $value)
+								$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
+								if(is_array(a($load_menu, 'list')))
 								{
-									$target = a($value, 'target') ? 'target="_blank"' : null;
+									foreach ($load_menu['list'] as $key => $value)
+									{
+										$target = a($value, 'target') ? 'target="_blank"' : null;
 
-									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
+										$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
+									}
 								}
 							}
+							$html .= '</nav>';
 						}
-						$html .= '</nav>';
-					}
-					else
-					{
-						$html .= '<div class="flex-1"></div>';
-					}
-
-					if(a($_args, 'menu_1'))
-					{
-						$html .= '<nav class="flex">';
+						else
 						{
-							$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
-							if(is_array(a($load_menu, 'list')))
-							{
-								foreach ($load_menu['list'] as $key => $value)
-								{
-									$target = a($value, 'target') ? 'target="_blank"' : null;
+							$html .= '<div class="flex-1"></div>';
+						}
 
-									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
+						if(a($_args, 'menu_2'))
+						{
+							$html .= '<nav class="flex">';
+							{
+								$load_menu = \lib\app\menu\get::load_menu($_args['menu_2']);
+								if(is_array(a($load_menu, 'list')))
+								{
+									foreach ($load_menu['list'] as $key => $value)
+									{
+										$target = a($value, 'target') ? 'target="_blank"' : null;
+
+										$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
+									}
 								}
 							}
+							$html .= '</nav>';
 						}
-						$html .= '</nav>';
 					}
+					$html .= '</div>';
 				}
-				$html .= '</div>';
 
 			}
 			$html .= '</div>';
