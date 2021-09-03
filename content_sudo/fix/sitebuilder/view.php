@@ -30,7 +30,7 @@ class view
 	}
 
 	private static $counter = [];
-	private static function counter($_key)
+	private static function counter($_key, $_meta = [])
 	{
 		if(isset(self::$counter[$_key]))
 		{
@@ -39,6 +39,11 @@ class view
 		else
 		{
 			self::$counter[$_key] = 1;
+		}
+
+		if($_meta && \dash\url::isLocal())
+		{
+			file_put_contents(__DIR__. '/temp.me.log', date("Y-m-d H:i:s"). "\n". json_encode($_meta, JSON_UNESCAPED_UNICODE). "\n", FILE_APPEND);
 		}
 	}
 
@@ -59,9 +64,9 @@ class view
 
 		foreach ($list as $key => $value)
 		{
-			if(a($value, 'subdomain') !== 'mohiti')
+			if(a($value, 'subdomain') !== 'karimeh')
 			{
-				continue;
+				// continue;
 			}
 
 			if(in_array(a($value, 'subdomain'), $skipp_subdomain))
@@ -193,8 +198,8 @@ class view
 
 
 
-		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
 		$query = "	SELECT * FROM pagebuilder where 1";
+		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
 
 		$old_record_pagebuilder = \dash\db::get($query);
 

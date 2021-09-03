@@ -613,6 +613,17 @@ class option
 
 		$args = \lib\app\menu\edit::edit($_args, $_id, true, true);
 
+
+		if(!is_array($_meta))
+		{
+			$_meta = [];
+		}
+
+		if(!is_array($args))
+		{
+			$args = [];
+		}
+
 		$args = array_merge($preview, $args, $_meta);
 
 		$args['is_preview_menu'] = true;

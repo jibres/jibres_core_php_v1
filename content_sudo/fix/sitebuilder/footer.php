@@ -27,6 +27,10 @@ trait footer
 		{
 			$new_record['model']          = 'f0';
 		}
+		elseif(a($record, 'type') === 'f300')
+		{
+			$new_record['model']          = 'f1';
+		}
 		else
 		{
 			var_dump(func_get_args());exit;

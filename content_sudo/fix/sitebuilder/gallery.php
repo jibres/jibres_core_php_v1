@@ -112,8 +112,8 @@ trait gallery
 
 					if(!$child_id)
 					{
-						\dash\notif::api('ss');
-						self::counter('error:cannnot add menu_id');
+
+						self::counter('error:cannnot add menu_id', $args);
 					}
 				}
 			}
