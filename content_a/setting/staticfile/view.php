@@ -13,7 +13,7 @@ class view
 		// back
 
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\lib\pagebuilder\tools\homepage::get_link());
+		\dash\data::back_link(\dash\url::this());
 	}
 }
 ?>
