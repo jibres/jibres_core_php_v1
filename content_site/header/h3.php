@@ -40,7 +40,6 @@ class h3
 				'link_search'              => true,
 				'link_enter'               => true,
 				'link_cart'                => true,
-				'announcement_check'       => true,
 			],
 
 			'preview_list' =>
@@ -66,7 +65,6 @@ class h3
 				'link_search'              => true,
 				'link_enter'               => true,
 				'link_cart'                => true,
-				'announcement_check'       => true,
 			],
 		];
 	}
