@@ -9,14 +9,14 @@ trait quote
 	public static function conver_quote($record, &$new_record)
 	{
 
-		var_dump(func_get_args());exit;
 		$new_record['folder']         = 'body';
-		$new_record['section']        = 'blog';
-		$new_record['model']          = 'b2';
+		$new_record['section']        = 'quote';
+		$new_record['model']          = 'quote1';
 		$new_record['preview_key']    = 'p1';
 
 
-		$preview = \content_site\call_function::section_model_preview('blog', 'b2', 'p1');
+		$preview = \content_site\call_function::section_model_preview('quote', $new_record['model'], $new_record['preview_key']);
+
 
 		$preview = $preview['options'];
 
@@ -25,37 +25,39 @@ trait quote
 			$preview['heading'] = $record['title'];
 		}
 
-		if(a($record, 'puzzle', 'limit'))
+		$new_list = [];
+
+		if(a($record, 'detail', 'list') && is_array(a($record, 'detail', 'list')))
 		{
-			$limit = $record['puzzle']['limit'];
-			$range = \content_site\options\count\count_post::this_range();
-			if(!in_array($limit, $range))
+			$list = $record['detail']['list'];
+
+
+			foreach ($list as $key => $value)
 			{
-				if($limit < 10)
+				$load_comment = [];
+
+				$comment_id = $value['comment_id'];
+
+				if(is_numeric($comment_id))
 				{
-					$limit = 10;
+					$load_comment = \dash\db\comments\get::by_id($comment_id);
 				}
-				else
-				{
-					$limit = 30;
-				}
+
+				$new_list[] =
+				[
+					'index'       => md5(rand(). microtime()),
+					'title'       => a($load_comment, 'title'),
+					'text'        => strip_tags(a($load_comment, 'content')),
+					'displayname' => a($load_comment, 'displayname'),
+					'job'         => a($value, 'job'),
+					'avatar'      => a($value, 'image'),
+				];
 			}
 
-			$preview['count'] = $limit;
 		}
 
-		if(a($record, 'infoposition', 'code') === 'bottom')
-		{
-			$preview['magicbox_title_position'] = 'outside';
-			$preview['link_color']              = 'dark';
-		}
+		$preview['quote_list'] = $new_list;
 
-		$preview['btn_viewall_check'] = 0;
-
-		if(a($record, 'detail', 'tag_id'))
-		{
-			$preview['post_tag'] = $record['detail']['tag_id'];
-		}
 
 		return $preview;
 
