@@ -137,8 +137,9 @@
 <div class="box" data-settings>
     <div class="body">
         <div class="row">
+        <?php if(\dash\permission::check('_group_setting')) {?>
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/pagebuilder">
+                <a target="_blank" class="row" data-item href="<?php echo \dash\url::kingdom(). '/site'; ?>">
                     <div class="c-auto"><i class="sf-monitor"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Online Store Website"); ?></h2>
@@ -146,6 +147,7 @@
                     </div>
                 </a>
             </div>
+        <?php } // endif ?>
 
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
                 <a class="row" data-item href="<?php echo \dash\url::here(); ?>/android">

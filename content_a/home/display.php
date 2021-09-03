@@ -165,7 +165,7 @@
     </nav>
     <nav class="items long">
       <ul>
-        <?php if(\dash\permission::check('_group_setting')) { $url = \lib\pagebuilder\tools\homepage::get_link(); ?>
+        <?php if(\dash\permission::check('_group_setting')) { $url = \content_site\homepage::get_link(); ?>
         <li>
           <a class="item f" href="<?php echo $url ?>">
             <i class="sf-monitor"></i>
@@ -177,7 +177,7 @@
         <li>
           <a data-direct class="item f" href="<?php echo \dash\url::kingdom(); ?>/site">
             <i class="sf-monitor"></i>
-            <div class="key text-green-700"><?php echo T_("Website Builder"); ?></div>
+            <div class="key text-green-700"><?php echo T_("Website Builder"); ?> (Local)</div>
             <div class="go"></div>
           </a>
         </li>
