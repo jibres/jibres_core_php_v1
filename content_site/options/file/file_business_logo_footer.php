@@ -7,10 +7,7 @@ trait file_business_logo_footer
 	use file_business_logo;
 
 
-	public static function db_key()
-	{
-		return 'footer_logo';
-	}
+
 
 	public static function title()
 	{
