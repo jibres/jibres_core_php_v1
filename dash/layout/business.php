@@ -136,9 +136,10 @@ class business
 				}
 			}
 
+			self::$new_sitebuilder     = true;
+
 			if($pagebuilder || \dash\temp::get('forceLoadNewSiteBuilder'))
 			{
-				self::$new_sitebuilder     = true;
 				self::$pagebuilder         = true;
 				self::$pagebuilder_setting = $pagebuilder;
 
