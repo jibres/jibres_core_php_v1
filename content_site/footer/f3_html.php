@@ -28,36 +28,52 @@ class f3_html
 				// action bar
 				$html .= '<div class="top flex items-end py-1 sm:py-2 md:py-3">';
 				{
-					$siteTitle = \lib\store::title();
-					$siteDesc = \lib\store::desc();
-					$logo = \lib\store::logo();
 
-					if($logo)
+					if(a($_args, 'logo'))
 					{
-						$html .= '<img class="inline-block w-32 h-32 rounded-lg bg-white" src="'. $logo. '" alt="'. $siteTitle. '">';
+						$html .= '<img class="inline-block w-32 h-32 rounded-lg bg-white" src="'. $_args['logo']. '" alt="'. a($_args, 'heading'). '">';
 					}
-					$html .= '<div class="flex-1 px-2">';
+
+					if(a($_args, 'description') || a($_args, 'heading'))
 					{
-						// add title
-						$html .= '<h2 class="text-2xl font-bold text-white mb-2 line-clamp-1">';
+						$html .= '<div class="flex-1 px-2">';
 						{
-							$html .= $siteTitle;
-						}
-						$html .= '</h2>';
-						// desc
-						$html .= '<div class="text-gray-300 line-clamp-3">';
-						{
-							$html .= $siteDesc;
+							if(a($_args, 'heading'))
+							{
+								// add title
+								$html .= '<h2 class="text-2xl font-bold text-white mb-2 line-clamp-1">';
+								{
+									$html .= $_args['heading'];
+								}
+								$html .= '</h2>';
+							}
+
+							if(a($_args, 'description'))
+							{
+								// desc
+								$html .= '<div class="text-gray-300 line-clamp-3">';
+								{
+									$html .= $_args['description'];
+								}
+								$html .= '</div>';
+							}
 						}
 						$html .= '</div>';
 					}
-					$html .= '</div>';
 
 					$certClass = 'inline-block w-32 h-32 rounded-lg bg-white p-1';
-					// add enamad cert
-					$html .= \content_site\assemble\cert::enamad($certClass. 'mx-2');
-					// add samandehi cert
-					$html .= \content_site\assemble\cert::samandehi($certClass);
+
+					if(a($_args, 'certificate_enamad'))
+					{
+						// add enamad cert
+						$html .= \content_site\assemble\cert::enamad($certClass. 'mx-2');
+					}
+
+					if(a($_args, 'certificate_samandehi'))
+					{
+						// add samandehi cert
+						$html .= \content_site\assemble\cert::samandehi($certClass);
+					}
 
 				}
 				$html .= '</div>';
@@ -66,11 +82,14 @@ class f3_html
 
 
 
-
 				$html .= $hr;
-				$html .= '<p class="text-gray-300 leading-relaxed py-8 opacity-60">';
-				$html .= 'All right reserved.';
-				$html .= '</p>';
+
+				if(a($_args, 'description_footer'))
+				{
+					$html .= '<p class="text-gray-300 leading-relaxed py-8 opacity-60">';
+					$html .= $_args['description_footer'];
+					$html .= '</p>';
+				}
 			}
 			$html .= '</div>';
 		}
