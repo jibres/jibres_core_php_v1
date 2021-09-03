@@ -9,51 +9,63 @@ trait header
 	public static function conver_header($record, &$new_record)
 	{
 
+
+
 		$new_record['folder']         = 'header';
 		$new_record['section']        = 'header';
-		$new_record['model']          = 'b2';
 		$new_record['preview_key']    = 'p1';
 
 
-		$preview = \content_site\call_function::section_model_preview('blog', 'b2', 'p1');
+		if(a($record, 'type') === 'h100')
+		{
+			$new_record['model']          = 'h3';
+		}
+		elseif(a($record, 'type') === 'h300')
+		{
+			$new_record['model']          = 'h1';
+		}
+		elseif(a($record, 'type') === 'h0')
+		{
+			$new_record['model']          = 'h0';
+		}
+		else
+		{
+			var_dump(func_get_args());exit;
+		}
+
+
+		$preview = \content_site\call_function::section_model_preview($new_record['folder'], $new_record['model'], $new_record['preview_key']);
 
 		$preview = $preview['options'];
 
-		if(a($record, 'title'))
+
+		if(a($record, 'detail', 'header_menu_1'))
 		{
-			$preview['heading'] = $record['title'];
+			$preview['menu_1'] = $record['detail']['header_menu_1'];
 		}
 
-		if(a($record, 'puzzle', 'limit'))
+		if(a($record, 'detail', 'header_menu_2'))
 		{
-			$limit = $record['puzzle']['limit'];
-			$range = \content_site\options\count\count_post::this_range();
-			if(!in_array($limit, $range))
-			{
-				if($limit < 10)
-				{
-					$limit = 10;
-				}
-				else
-				{
-					$limit = 30;
-				}
-			}
-
-			$preview['count'] = $limit;
+			$preview['menu_2'] = $record['detail']['header_menu_2'];
 		}
 
-		if(a($record, 'infoposition', 'code') === 'bottom')
+
+		if(a($record, 'detail', 'announcement', 'status'))
 		{
-			$preview['magicbox_title_position'] = 'outside';
-			$preview['link_color']              = 'dark';
+			$preview['announcement_check'] = true;
+			$preview['announcement_link']  =
+			[
+				'url'     => a($record, 'detail', 'announcement', 'url'),
+				'pointer' => 'other',
+			];
+
+  			$preview['announcement_description'] = a($record, 'detail', 'announcement', 'text');
 		}
 
-		$preview['btn_viewall_check'] = 0;
-
-		if(a($record, 'detail', 'tag_id'))
+		if(a($record, 'detail', 'logo'))
 		{
-			$preview['post_tag'] = $record['detail']['tag_id'];
+			$preview['use_as_logo'] = 'custom_logo';
+			$preview['logo'] = $record['detail']['logo'];
 		}
 
 		return $preview;
