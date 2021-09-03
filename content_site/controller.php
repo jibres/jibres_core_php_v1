@@ -33,7 +33,20 @@ class controller
 			\dash\permission::deny();
 		}
 
-		if(in_array(\dash\url::module(), ['body', 'header', 'footer', 'options']))
+		// check master permisson
+		\dash\permission::access('_group_setting');
+
+		$sys_module = 
+		[
+			'body', 
+			'header', 
+			'footer',
+			'options',
+			'assemble',
+			'load',
+		];
+
+		if(in_array(\dash\url::module(), $sys_module))
 		{
 			\dash\header::status(404);
 		}
