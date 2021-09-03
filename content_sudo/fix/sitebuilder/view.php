@@ -59,7 +59,7 @@ class view
 
 		foreach ($list as $key => $value)
 		{
-			if(a($value, 'subdomain') !== 'rezamohiti')
+			if(a($value, 'subdomain') !== 'kafi3d')
 			{
 				continue;
 			}
@@ -178,19 +178,19 @@ class view
 
 
 				case 'products':
-					// $preview = self::conver_product($pagebuilder_record, $new_record);
+					$preview = self::conver_product($pagebuilder_record, $new_record);
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
 
 				case 'text':
-					// $preview = self::conver_text($pagebuilder_record, $new_record);
+					$preview = self::conver_text($pagebuilder_record, $new_record);
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
 
 				case 'quote':
-					// $preview = self::conver_quote($pagebuilder_record, $new_record);
+					$preview = self::conver_quote($pagebuilder_record, $new_record);
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
@@ -224,10 +224,18 @@ class view
 				continue;
 			}
 
+			if(!a($new_record, 'status'))
+			{
+				$new_record['status']         = 'enable';
+			}
+
+			if(!a($new_record, 'status_preview'))
+			{
+				$new_record['status_preview']         = 'enable';
+			}
+
 			$new_record['sort']           = a($pagebuilder_record, 'sort');
 			$new_record['sort_preview']   = a($pagebuilder_record, 'sort');
-			$new_record['status']         = 'enable';
-			$new_record['status_preview'] = 'enable';
 			$new_record['preview']        = json_encode($preview);
 			$new_record['body']           = $new_record['preview'];
 

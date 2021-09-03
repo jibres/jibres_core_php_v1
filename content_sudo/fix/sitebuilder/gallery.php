@@ -58,6 +58,7 @@ trait gallery
 				break;
 		}
 
+
 		$preview = \content_site\call_function::section_model_preview('gallery', $new_record['model'], $new_record['preview_key']);
 		$preview = $preview['options'];
 
@@ -67,12 +68,18 @@ trait gallery
 			$menu_transfered = true;
 		}
 
+		// $menu_transfered = true;
 
 		if(!$menu_transfered)
 		{
 			if(a($record, 'detail', 'list') && is_array($record['detail']['list']))
 			{
 				$list = $record['detail']['list'];
+
+				if(!$list)
+				{
+					$new_record['status_preview'] = 'hidden';
+				}
 
 				$menu_id = \content_site\body\gallery\option::add_menu_for_gallery($record['id']);
 
@@ -109,6 +116,10 @@ trait gallery
 						self::counter('error:cannnot add menu_id');
 					}
 				}
+			}
+			else
+			{
+				$new_record['status_preview'] = 'hidden';
 			}
 
 		}
