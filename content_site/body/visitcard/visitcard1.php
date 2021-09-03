@@ -62,6 +62,7 @@ class visitcard1
 			'version'        => 1,
 			'options' =>
 			[
+				'radius'               => 'full',
 
 			],
 		];

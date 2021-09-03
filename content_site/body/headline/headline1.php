@@ -51,7 +51,6 @@ class headline1
 				'use_as_description' => null,
 				'height'             => 'fullscreen',
 				'heading'            => T_("Head line"),
-				'description'        => T_("Description"),
 				'container_justify'  => 'left',
 				'container_align'    => 'end',
 				'color_text'         => '#ffffff',
@@ -82,7 +81,15 @@ class headline1
 			'version'        => 1,
 			'options' =>
 			[
-
+				'height'             => 'fullscreen',
+				'heading'            => T_("Coming Soon") ,
+				'container_justify'  => 'left',
+				'container_align'    => 'end',
+				'color_text'         => '#ffffff',
+				'color_heading'      => '#ffffff',
+				'background_pack'    => 'image',
+				'background_image'   => \dash\url::cdn(). '/business/comingsoon-1/img/jibres-soon-1.jpg',
+				'background_effect'  => 'mesh',
 			],
 		];
 	}

@@ -59,7 +59,7 @@ class view
 
 		foreach ($list as $key => $value)
 		{
-			if(a($value, 'subdomain') !== 'rezamohiti')
+			if(a($value, 'subdomain') !== 'mohiti')
 			{
 				continue;
 			}
@@ -128,6 +128,32 @@ class view
 				$comingsoon_pages[] = a($value, 'id');
 
 
+				$new_record                   = [];
+				$new_record['folder']         = 'body';
+				$new_record['section']        = 'headline';
+				$new_record['model']          = 'headline1';
+				$new_record['preview_key']    = 'p1';
+				$new_record['status']         = 'enable';
+				$new_record['sort']           = 1;
+				$new_record['sort_preview']   = 1;
+				$new_record['status_preview'] = 'enable';
+
+				$preview                      = \content_site\call_function::section_model_preview($new_record['section'], $new_record['model'], $new_record['preview_key']);
+				$new_record['preview']        = json_encode($preview['options']);
+				$new_record['body']           = json_encode($preview['options']);
+
+				$new_record['related']        = 'posts';
+				$new_record['related_id']     = a($value, 'id');
+				$new_record['datecreated']    = date("Y-m-d H:i:s");
+
+
+				if(!a($temp, 'meta', 'converted'))
+				{
+					\lib\db\sitebuilder\insert::new_record($new_record);
+					\dash\pdo\query_template::update('posts', ['meta' => json_encode(array_merge(a($temp, 'meta'), ['converted' => 1]))], a($value, 'id'));
+				}
+
+
 			}
 
 			if(a($temp, 'meta', 'template') === 'visitcard')
@@ -165,8 +191,6 @@ class view
 			}
 		}
 
-
-		var_dump($all_page_builder);exit;
 
 
 		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
