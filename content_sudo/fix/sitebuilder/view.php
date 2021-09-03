@@ -114,6 +114,59 @@ class view
 	{
 		self::counter('i');
 
+		$query = "	SELECT * FROM posts where posts.type='pagebuilder' ";
+		$all_page_builder = \dash\db::get($query);
+
+		$visitcard_pages = [];
+		$comingsoon_pages = [];
+
+		foreach ($all_page_builder as $key => $value)
+		{
+			$temp = self::ready($value);
+			if(a($temp, 'meta', 'template') === 'comingsoon')
+			{
+				$comingsoon_pages[] = a($value, 'id');
+
+
+			}
+
+			if(a($temp, 'meta', 'template') === 'visitcard')
+			{
+				$visitcard_pages[] = a($value, 'id');
+
+
+
+
+				$new_record                   = [];
+				$new_record['folder']         = 'body';
+				$new_record['section']        = 'visitcard';
+				$new_record['model']          = 'visitcard1';
+				$new_record['preview_key']    = 'p1';
+				$new_record['status']         = 'enable';
+				$new_record['sort']           = 1;
+				$new_record['sort_preview']   = 1;
+				$new_record['status_preview'] = 'enable';
+
+				$preview                      = \content_site\call_function::section_model_preview($new_record['section'], $new_record['model'], $new_record['preview_key']);
+				$new_record['preview']        = json_encode($preview['options']);
+				$new_record['body']           = json_encode($preview['options']);
+
+				$new_record['related']        = 'posts';
+				$new_record['related_id']     = a($value, 'id');
+				$new_record['datecreated']    = date("Y-m-d H:i:s");
+
+
+				if(!a($temp, 'meta', 'converted'))
+				{
+					\lib\db\sitebuilder\insert::new_record($new_record);
+					\dash\pdo\query_template::update('posts', ['meta' => json_encode(array_merge(a($temp, 'meta'), ['converted' => 1]))], a($value, 'id'));
+				}
+
+			}
+		}
+
+
+		var_dump($all_page_builder);exit;
 
 
 		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
@@ -233,6 +286,12 @@ class view
 			if(!a($new_record, 'status_preview'))
 			{
 				$new_record['status_preview']         = 'enable';
+			}
+
+			if(in_array(a($pagebuilder_record, 'related_id'), $comingsoon_pages) || in_array(a($pagebuilder_record, 'related_id'), $visitcard_pages))
+			{
+				$new_record['status_preview'] = 'hidden';
+				$new_record['status']         = 'hidden';
 			}
 
 			$new_record['sort']           = a($pagebuilder_record, 'sort');
