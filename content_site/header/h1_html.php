@@ -17,51 +17,61 @@ class h1_html
 	{
 		$html = '';
 
-		$html .= '<header id="jHeader3" class="relative py-5">';
+		if(a($_args, 'heading') || a($_args, 'description') || a($_args, 'menu_1'))
 		{
-			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto justify-center text-center">';
+			$html .= '<header id="jHeader3" class="relative py-5">';
 			{
-
-				$html .= '<a href="" class="">';
+				$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto justify-center text-center">';
 				{
-					$siteTitle = \lib\store::title();
-					// add title
-					$html .= '<h1 class="px-2 text-3xl font-bold">';
+
+					if(a($_args, 'heading'))
 					{
-						$html .= $siteTitle;
-					}
-					$html .= '</h1>';
-				}
-				$html .= '</a>';
-
-				$html .= '<h2 class="block px-2 mt-5 text-xl font-bold">';
-				{
-					$html .= \lib\store::desc();
-				}
-				$html .= '</h2>';
-
-				if(a($_args, 'menu_1'))
-				{
-					$html .= '<nav class="sm:ml-auto flex flex-wrap items-center  justify-center mt-10">';
-					{
-						$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
-						if(is_array(a($load_menu, 'list')))
+						$html .= '<a href="'.\dash\url::kingdom().'" class="">';
 						{
-							foreach ($load_menu['list'] as $key => $value)
+							// add title
+							$html .= '<h1 class="px-2 text-3xl font-bold">';
 							{
-								$target = a($value, 'target') ? 'target="_blank"' : null;
+								$html .= $_args['heading'];
+							}
+							$html .= '</h1>';
+						}
+						$html .= '</a>';
+					}
 
-								$html .= "<a href='$value[url]' $target class='mr-2 border-t-2 border-b-2 hover:text-gray-900'>$value[title]</a>";
+					if(a($_args, 'description'))
+					{
+						$html .= '<h2 class="block px-2 mt-5 text-xl font-bold">';
+						{
+							$html .= $_args['description'];
+						}
+						$html .= '</h2>';
+					}
+
+					if(a($_args, 'menu_1'))
+					{
+						$html .= '<nav class="sm:ml-auto flex flex-wrap items-center  justify-center mt-10">';
+						{
+							$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
+							if(is_array(a($load_menu, 'list')))
+							{
+								foreach ($load_menu['list'] as $key => $value)
+								{
+									$target = a($value, 'target') ? 'target="_blank"' : null;
+
+									$html .= "<a href='$value[url]' $target class='mr-2 border-t-2 border-b-2 hover:text-gray-900'>$value[title]</a>";
+								}
 							}
 						}
+						$html .= '</nav>';
 					}
-					$html .= '</nav>';
 				}
-			}
-			$html .= '</div>';
+				$html .= '</div>';
 
-		}
-		$html .= '</header>';
+			}
+			$html .= '</header>';
+
+		} // empty header
+
 
 		return $html;
 	}

@@ -19,12 +19,9 @@ class h1
 			'options'      =>
 			[
 				'heading_business_header',
-				'file_business_logo_header',
+				'description_business',
 				'menu_1',
-				// 'style' =>
-				// [
-					// 'type',
-				// ]
+				'responsive' => \content_site\utility::set_responsive_option_header(),
 
 			],
 
