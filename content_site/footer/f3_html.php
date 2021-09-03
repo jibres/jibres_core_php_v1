@@ -15,10 +15,13 @@ class f3_html
 	 */
 	public static function html($_args)
 	{
-
+		// hr
+		$hr = '<hr class="border-1 border-gray-600 my-5">';
+		// style
 		$style = 'background:url("'. \dash\url::cdn(). '/img/sitebuilder/footer/f3/footer3-bg.svg") right bottom no-repeat,linear-gradient(254.96deg, HSL(257, 32%, 11%) 0%, HSL(314, 33%, 18%) 99.41%);';
 		$style = "style='". $style. "'";
-		$html = '<footer id="jFooter3" class="relative py-10 mt-10" '. $style. '>';
+
+		$html = '<footer id="jFooter3" class="relative py-5" '. $style. '>';
 		{
 			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
 			{
@@ -58,58 +61,18 @@ class f3_html
 
 				}
 				$html .= '</div>';
+				$html .= $hr;
 
-				$html .= '<hr class="border-1 border-gray-600 my-8">';
 
 
-				// menu bar
-				$html .= '<div class="menuBar flex items-center bg-gray-50 rounded shadow-inner mt-2">';
-				{
-					if(a($_args, 'menu_1'))
-					{
-						$html .= '<nav class="flex-1 flex">';
-						{
-							$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
-							if(is_array(a($load_menu, 'list')))
-							{
-								foreach ($load_menu['list'] as $key => $value)
-								{
-									$target = a($value, 'target') ? 'target="_blank"' : null;
 
-									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
-								}
-							}
-						}
-						$html .= '</nav>';
-					}
-					else
-					{
-						$html .= '<div class="flex-1"></div>';
-					}
 
-					if(a($_args, 'menu_1'))
-					{
-						$html .= '<nav class="flex">';
-						{
-							$load_menu = \lib\app\menu\get::load_menu($_args['menu_1']);
-							if(is_array(a($load_menu, 'list')))
-							{
-								foreach ($load_menu['list'] as $key => $value)
-								{
-									$target = a($value, 'target') ? 'target="_blank"' : null;
-
-									$html .= "<a href='$value[url]' $target class='p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition'>$value[title]</a>";
-								}
-							}
-						}
-						$html .= '</nav>';
-					}
-				}
-				$html .= '</div>';
-
+				$html .= $hr;
+				$html .= '<p class="text-gray-300 leading-relaxed py-8 opacity-60">';
+				$html .= 'All right reserved.';
+				$html .= '</p>';
 			}
 			$html .= '</div>';
-
 		}
 		$html .= '</footer>';
 
