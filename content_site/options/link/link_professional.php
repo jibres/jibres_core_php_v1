@@ -29,6 +29,14 @@ trait link_professional
 		unset($data['parent3']);
 		unset($data['parent4']);
 		unset($data['parent5']);
+		unset($data['title']);
+		unset($data['target']);
+		unset($data['sort']);
+		unset($data['for']);
+		unset($data['for_id']);
+		unset($data['file']);
+		unset($data['description']);
+
 
 		return [self::db_key() => $data];
 	}
