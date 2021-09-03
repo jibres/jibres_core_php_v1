@@ -17,21 +17,37 @@ class f1_html
 	{
 		$html = '';
 
-		if(a($_args, 'heading'))
+		if(a($_args, 'heading') || a($_args, 'copyright'))
 		{
 			$html .= '<footer class="text-gray-600 body-font text-center shadow-inner">';
 			{
 				$html .= '<div class="container px-5 py-5 mx-auto text-center">';
 				{
-					$html .= '<a href="'.\dash\url::kingdom().'" class="title-font font-medium items-center md:justify-start justify-center text-gray-900">';
+					if(a($_args, 'heading'))
 					{
-						$html .= '<span class="ml-3 text-xl">';
+						$html .= '<a href="'.\dash\url::kingdom().'" class="title-font font-medium items-center md:justify-start justify-center text-gray-900 block">';
 						{
-							$html .= $_args['heading'];
+							$html .= '<span class="ml-3 text-xl">';
+							{
+								$html .= $_args['heading'];
+							}
+							$html .= '</span>';
 						}
-						$html .= '</span>';
+						$html .= '</a>';
 					}
-					$html .= '</a>';
+
+					if(a($_args, 'copyright'))
+					{
+						$html .= '<a href="'.\dash\url::kingdom().'" class="title-font font-medium items-center md:justify-start justify-center text-gray-900 block">';
+						{
+							$html .= '<span class="ml-3 text-xl">';
+							{
+								$html .= $_args['copyright'];
+							}
+							$html .= '</span>';
+						}
+						$html .= '</a>';
+					}
 				}
 				$html .= '</div>';
 			}
