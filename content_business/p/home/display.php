@@ -51,8 +51,8 @@ $html .= '<div class="avand productPage">';
 
   if(\dash\data::similarProduct())
   {
-    $html .= '<h2 class="jTitle1">'. T_("Related products"). '</h2>';
-    \lib\website::product_list(\dash\data::similarProduct());
+    // $html .= '<h2 class="jTitle1">'. T_("Related products"). '</h2>';
+    // \lib\website::product_list(\dash\data::similarProduct());
   }
 
 }
