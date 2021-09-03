@@ -82,7 +82,7 @@ class get
 
 	public static function homepage_header_footer($_related_id)
 	{
-		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = :related_id AND pagebuilder.mode IN ('header', 'footer') ";
+		$query  = "SELECT * FROM pagebuilder WHERE pagebuilder.related_id = :related_id AND pagebuilder.folder IN ('header', 'footer') ";
 		$param  = [':related_id' => $_related_id];
 		$result = \dash\pdo::get($query, $param);
 		return $result;
@@ -101,11 +101,11 @@ class get
 				pagebuilder.related_id = :id OR
 				(
 					pagebuilder.related_id = :related_id AND
-					pagebuilder.mode IN ('header', 'footer')
+					pagebuilder.folder IN ('header', 'footer')
 				)
 
 			ORDER BY
-				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				FIELD(pagebuilder.folder, 'header', 'body', 'footer'),
 				pagebuilder.sort ASC,
 				pagebuilder.id ASC
 			LIMIT 1000
@@ -131,11 +131,11 @@ class get
 				pagebuilder.related_id = :id OR
 				(
 					pagebuilder.related_id = :related_id AND
-					pagebuilder.mode IN ('header', 'footer')
+					pagebuilder.folder IN ('header', 'footer')
 				)
 
 			ORDER BY
-				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				FIELD(pagebuilder.folder, 'header', 'body', 'footer'),
 				pagebuilder.sort_preview ASC,
 				pagebuilder.id ASC
 			LIMIT 1000
@@ -171,7 +171,7 @@ class get
 			WHERE
 				pagebuilder.related_id = :id
 			ORDER BY
-				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				FIELD(pagebuilder.folder, 'header', 'body', 'footer'),
 				pagebuilder.sort ASC,
 				pagebuilder.id ASC
 			LIMIT 1000
@@ -213,7 +213,7 @@ class get
 			WHERE
 				pagebuilder.related_id = :id
 			ORDER BY
-				FIELD(pagebuilder.mode, 'header', 'body', 'footer'),
+				FIELD(pagebuilder.folder, 'header', 'body', 'footer'),
 				pagebuilder.sort_preview ASC,
 				pagebuilder.id ASC
 			LIMIT 1000
