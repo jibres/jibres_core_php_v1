@@ -36,6 +36,11 @@ class layout
 			$_args['description'] = \lib\store::desc();
 		}
 
+		if(a($_args, 'link_cart'))
+		{
+			$_args['cart_count'] = \lib\app\cart\get::my_cart_count();
+		}
+
 		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args);
 	}
 }

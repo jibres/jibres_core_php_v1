@@ -63,7 +63,7 @@ class h3_html
 							{
 								$html .= \dash\utility\icon::svg('cart');
 								$html .= '<span class="absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 text-center leading-5 p-0.5 text-sm">';
-								$html .= '4';
+								$html .= \dash\fit::number(a($_args, 'cart_count'));
 								$html .= '</span>';
 							}
 							$html .= '</a>';
