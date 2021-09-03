@@ -19,6 +19,7 @@ class f1
 			'options'      =>
 			[
 				'heading_business_header',
+				'responsive' => \content_site\utility::set_responsive_option_footer(),
 
 			],
 

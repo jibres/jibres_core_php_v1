@@ -19,7 +19,6 @@ class f0
 			'options'      =>
 			[
 				'msg' => 'my_msg',
-				'responsive' => \content_site\utility::set_responsive_option_footer(),
 			],
 
 			'preview_list' =>

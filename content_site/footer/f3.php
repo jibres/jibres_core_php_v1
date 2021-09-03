@@ -19,12 +19,17 @@ class f3
 			'options'      =>
 			[
 				'heading_business_header',
-				'file_business_logo_header',
+				'description_business',
+
+				'file_business_logo_footer',
 				'menu_1',
-				// 'style' =>
-				// [
-					// 'type',
-				// ]
+				'menu_2',
+				'menu_3',
+				'menu_4',
+				'description',
+				'certificate_enamad',
+				'certificate_samandehi',
+				'responsive' => \content_site\utility::set_responsive_option_footer(),
 
 			],
 

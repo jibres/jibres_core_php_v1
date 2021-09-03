@@ -6,12 +6,10 @@ class menu_1
 {
 	use menu;
 
-
-	public static function db_key()
+	public static function title()
 	{
-		return 'menu_1';
+		return T_("Menu 1");
 	}
-
 
 }
 ?>

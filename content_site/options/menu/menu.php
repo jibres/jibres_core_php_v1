@@ -37,7 +37,7 @@ trait menu
 
 	public static function db_key()
 	{
-		return 'menu';
+		return \content_site\utility::className(__CLASS__);
 	}
 
 

@@ -2,13 +2,13 @@
 namespace content_site\options\menu;
 
 
-class menu_2
+class menu_4
 {
 	use menu;
 
 	public static function title()
 	{
-		return T_("Menu 2");
+		return T_("Menu 4");
 	}
 }
 ?>
