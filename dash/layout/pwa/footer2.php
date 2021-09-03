@@ -33,7 +33,7 @@ class footer2
           if(isset($item['img']) && $item['img'])
           {
             $footer .= "<div class='icon'>";
-            $footer .= "<img src='". \dash\utility\icon::url(a($item, 'img')). "' alt ='". a($item, 'title') ."'>";
+            $footer .= "<img src='". \dash\utility\icon::src(a($item, 'img')). "' alt ='". a($item, 'title') ."'>";
             if(isset($item['iconPulse']) && $item['iconPulse'])
             {
               $footer .= " class'pulse'";
