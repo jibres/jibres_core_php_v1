@@ -178,19 +178,19 @@ class view
 
 
 				case 'products':
-					$preview = self::conver_product($pagebuilder_record, $new_record);
+					// $preview = self::conver_product($pagebuilder_record, $new_record);
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
 
 				case 'text':
-					$preview = self::conver_text($pagebuilder_record, $new_record);
+					// $preview = self::conver_text($pagebuilder_record, $new_record);
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;
 
 				case 'quote':
-					$preview = self::conver_quote($pagebuilder_record, $new_record);
+					// $preview = self::conver_quote($pagebuilder_record, $new_record);
 					self::counter($pagebuilder_record['type']. '::converted');
 					$skipp_section = false;
 					break;

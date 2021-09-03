@@ -12,8 +12,6 @@ trait gallery
 		$new_record['section']        = 'gallery';
 
 
-		var_dump(func_get_args());exit;
-
 		$old_preview_key =  a($record, 'puzzle', 'puzzle_type'). ' -- '. a($record, 'puzzle', 'slider_type'). ' -- ' .a($record, 'puzzle', 'code');
 
 		// self::counter($old_preview_key);
@@ -63,7 +61,6 @@ trait gallery
 		$preview = \content_site\call_function::section_model_preview('gallery', $new_record['model'], $new_record['preview_key']);
 		$preview = $preview['options'];
 
-		return;
 		self::who();
 		var_dump($record);exit;
 
