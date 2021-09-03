@@ -8,7 +8,7 @@ class description_copyright
 
 	public static function db_key()
 	{
-		return 'description_copyright';
+		return 'copyright';
 	}
 
 	public static function title()
