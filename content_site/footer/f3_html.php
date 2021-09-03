@@ -66,7 +66,7 @@ class f3_html
 					if(a($_args, 'certificate_enamad'))
 					{
 						// add enamad cert
-						$html .= \content_site\assemble\cert::enamad($certClass. 'mx-2');
+						$html .= \content_site\assemble\cert::enamad($certClass. ' mx-2');
 					}
 
 					if(a($_args, 'certificate_samandehi'))

@@ -7,16 +7,16 @@ class cert
 	public static function enamad($_class = null)
 	{
 		// load enamad data
-		$storeData = \dash\data::store_store_data();
+		$enamad = \lib\store::detail('enamad');
 
-		if(isset($storeData['enamad']))
+		if($enamad)
 		{
-			$explode_enamad = explode('_', $storeData['enamad']);
+			$explode_enamad = explode('_', $enamad);
 			if(isset($explode_enamad[0]) && isset($explode_enamad[1]))
 			{
 				$linkHref = 'https://trustseal.enamad.ir/?id='. $explode_enamad[0]. '&amp;Code='. $explode_enamad[1];
 				$imgSrc = 'https://Trustseal.eNamad.ir/logo.aspx?id='. $explode_enamad[0]. '&amp;Code='. $explode_enamad[1];
-				// $imgSrc = \dash\url::icon();
+
 
 				$html = '<a data-cert="enamad" referrerpolicy="origin" target="_blank" href="'. $linkHref. '"';
 				if($_class)
@@ -36,30 +36,27 @@ class cert
 
 	public static function samandehi($_class = null)
 	{
-		$storeData = \dash\data::store_store_data();
-		$samandehi_link1 = isset($storeData['samandehi_link1']) ? $storeData['samandehi_link1'] : null;
-		$samandehi_link2 = isset($storeData['samandehi_link2']) ? $storeData['samandehi_link2'] : null;
+		$samandehi_link1 = \lib\store::detail('samandehi_link1');
+		$samandehi_link2 = \lib\store::detail('samandehi_link2');
 
 
-		$linkHref = '#';
-		$imgSrc = '';
-		$imgSrc = \dash\url::icon();
+		$html = '';
 
-		if($linkHref && $imgSrc)
+		if($samandehi_link1 && $samandehi_link2)
 		{
-			$html = '<div data-cert="samandehi" id="samandehiCert" data-open="'. $linkHref. '"';
+			$html .= '<div data-cert="samandehi" id="samandehiCert" data-open="'. $samandehi_link1. '"';
 			if($_class)
 			{
 				$html .= ' class="'. $_class. '"';
 			}
 			$html .= '>';
-			$html .= '<img src="'. $imgSrc.'" alt="'. T_("Samandehi Certificate").'">';
-			$html .= '</div>';
 
-			return $html;
+			$html .= '<img src="'. $samandehi_link2.'" alt="'. T_("Samandehi Certificate").'">';
+
+			$html .= '</div>';
 		}
 
-		return null;
+		return $html;
 	}
 
 }
