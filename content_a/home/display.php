@@ -165,23 +165,14 @@
     </nav>
     <nav class="items long">
       <ul>
-        <?php if(\dash\permission::check('_group_setting')) { $url = \content_site\homepage::get_link(); ?>
+        <?php if(\dash\permission::check('_group_setting')) {?>
         <li>
-          <a class="item f" href="<?php echo $url ?>">
+          <a class="item f" data-direct href="<?php echo \dash\url::kingdom(). '/site' ?>">
             <i class="sf-monitor"></i>
             <div class="key"><?php echo T_("Website Builder"); ?></div>
             <div class="go"></div>
           </a>
         </li>
-<?php if (\dash\url::isLocal()) { ?>
-        <li>
-          <a data-direct class="item f" href="<?php echo \dash\url::kingdom(); ?>/site">
-            <i class="sf-monitor"></i>
-            <div class="key text-green-700"><?php echo T_("Website Builder"); ?> (Local)</div>
-            <div class="go"></div>
-          </a>
-        </li>
-<?php } ?>
       <?php } //endif ?>
       <?php if(\dash\permission::check('_group_application')) {?>
         <li>
