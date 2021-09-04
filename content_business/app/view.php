@@ -6,6 +6,9 @@ class view
 {
 	public static function config()
 	{
+		\dash\redirect::to(\dash\url::kingdom(). '/apk');
+
+
 		$myTitle = T_('Download App');
 		if(\dash\data::appDetail_downloadtitle())
 		{
