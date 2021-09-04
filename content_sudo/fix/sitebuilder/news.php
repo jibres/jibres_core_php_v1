@@ -17,6 +17,8 @@ trait news
 
 		$preview = $preview['options'];
 
+		$preview['container'] = 'xl';
+
 		if(a($record, 'title'))
 		{
 			$preview['heading'] = $record['title'];

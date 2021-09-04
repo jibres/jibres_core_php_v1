@@ -29,6 +29,8 @@ trait product
 
 		$preview = $preview['options'];
 
+		$preview['container'] = 'xl';
+
 		if(a($record, 'title'))
 		{
 			$preview['heading'] = $record['title'];

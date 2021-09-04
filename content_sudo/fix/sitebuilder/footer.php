@@ -40,6 +40,8 @@ trait footer
 
 		$preview = $preview['options'];
 
+		$preview['container'] = 'xl';
+
 		if(a($record, 'text'))
 		{
 			$preview['copyright'] = strip_tags($record['text']);
