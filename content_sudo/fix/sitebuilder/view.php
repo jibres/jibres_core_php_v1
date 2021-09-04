@@ -64,9 +64,9 @@ class view
 
 		foreach ($list as $key => $value)
 		{
-			if(a($value, 'subdomain') !== 'karimeh')
+			if(a($value, 'subdomain') !== 'rezamohiti')
 			{
-				// continue;
+				continue;
 			}
 
 			if(in_array(a($value, 'subdomain'), $skipp_subdomain))
@@ -83,6 +83,8 @@ class view
 
 			\dash\db::close();
 		}
+
+		\dash\log::to_supervisor('#Convert sitebuilder complete '. date("Y-m-d H:i:s"). ' In :'. (microtime(true) - $start). 's' );
 
 		var_dump(self::$counter);
 		var_dump(microtime(true) - $start);
@@ -198,8 +200,8 @@ class view
 
 
 
-		$query = "	SELECT * FROM pagebuilder where 1";
 		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
+		$query = "	SELECT * FROM pagebuilder where 1";
 
 		$old_record_pagebuilder = \dash\db::get($query);
 
