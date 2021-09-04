@@ -38,7 +38,7 @@ trait header
 
 		$preview = $preview['options'];
 
-		$preview['container'] = 'xl';
+		$preview['container'] = 'lg';
 
 		if(a($record, 'detail', 'header_menu_1'))
 		{

@@ -62,7 +62,7 @@ trait gallery
 
 		$preview = \content_site\call_function::section_model_preview('gallery', $new_record['model'], $new_record['preview_key']);
 		$preview = $preview['options'];
-		$preview['container'] = 'xl';
+		$preview['container'] = 'lg';
 
 		if($height)
 		{

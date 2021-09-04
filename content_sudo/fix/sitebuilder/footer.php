@@ -40,7 +40,7 @@ trait footer
 
 		$preview = $preview['options'];
 
-		$preview['container'] = 'xl';
+		$preview['container'] = 'lg';
 
 		if(a($record, 'text'))
 		{
