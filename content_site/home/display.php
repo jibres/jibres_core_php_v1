@@ -1,17 +1,40 @@
 <?php
-$html = '';
+
+html_site_list('homepage');
+html_site_list();
+function html_site_list($_type = null)
+{
 
 $code = \content_site\homepage::code();
 
+$html = '';
 $html .= '<nav class="items">';
 $html .= '<ul>';
 foreach (\dash\data::dataTable() as $key => $value)
 {
-
-  if(a($value, 'id') === $code)
+  if($_type === 'homepage')
   {
-    continue;
+    if(a($value, 'id') === $code)
+    {
+      // ok
+    }
+    else
+    {
+      continue;
+    }
   }
+  else
+  {
+    if(a($value, 'id') !== $code)
+    {
+      // ok
+    }
+    else
+    {
+      continue;
+    }
+  }
+
   $date_title = '';
   if(a($value, 'datemodified'))
   {
@@ -59,6 +82,8 @@ foreach (\dash\data::dataTable() as $key => $value)
     $html .= '<div class="go '. $value['icon_list']. '"></div>';
     $html .= '</a>';
     $html .= '</li>';
+
+
   }
   $html .= '</ul>';
   $html .= '</nav>';
@@ -66,4 +91,5 @@ foreach (\dash\data::dataTable() as $key => $value)
   echo $html;
 
 \dash\utility\pagination::html();
+}
 ?>

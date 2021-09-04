@@ -19,7 +19,6 @@ class view
 		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(\dash\app\posts\filter::list('pagebuilder'));
 		\dash\data::listEngine_sort(true);
-		\dash\data::listEngine_before(__DIR__. '/homepage.php');
 		\dash\data::sortList(\dash\app\posts\filter::sort_list('pagebuilder'));
 
 		$args =
