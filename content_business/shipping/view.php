@@ -13,7 +13,11 @@ class view
 		// btn
 		\dash\data::back_link(\dash\url::kingdom().'/cart');
 
-		$addressDataTable = \dash\app\address::user_address_list(\dash\user::code());;
+		$addressDataTable = [];
+		if(\dash\user::id())
+		{
+			$addressDataTable = \dash\app\address::user_address_list(\dash\user::code());;
+		}
 		\dash\data::addressDataTable($addressDataTable);
 
 

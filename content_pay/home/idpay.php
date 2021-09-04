@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="175px" version="1.1"
+<svg class='w-full' xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="175px" version="1.1"
 viewBox="0 -1000 3387 3500"
  xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs>

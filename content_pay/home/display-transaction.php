@@ -141,7 +141,7 @@ if(\dash\data::payDetail_final_msg())
 
 					<input type="hidden" name="ok" value="1">
 
-					<button class="btn primary block"><?php echo T_("Pay"); ?></button>
+					<button class="btn-primary block"><?php echo T_("Pay"); ?></button>
 
 					<?php if(\dash\data::payDetail_turn_back()) {?>
 
