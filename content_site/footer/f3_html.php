@@ -23,7 +23,8 @@ class f3_html
 
 		$html = '<footer id="jFooter3" class="relative py-5" '. $style. '>';
 		{
-			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
+			// $html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
+			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
 				// action bar
 				$html .= '<div class="top flex items-end py-1 sm:py-2 md:py-3">';
