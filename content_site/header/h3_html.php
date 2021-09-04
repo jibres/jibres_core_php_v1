@@ -21,7 +21,8 @@ class h3_html
 
 		$html .= '<header id="jHeader3" class="relative py-5">';
 		{
-			$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
+			// $html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
+			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
 				if(a($_args, 'logo') || a($_args, 'heading') || a($_args, 'link_search') || a($_args, 'link_cart') || a($_args, 'link_enter'))
 				{
