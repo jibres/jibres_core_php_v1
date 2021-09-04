@@ -80,25 +80,39 @@ class layout
 
 		foreach ($image_list as $key => $value)
 		{
-			if(!a($value, 'file'))
+			$myFile = a($value, 'file');
+			$myTitle = a($value, 'title');
+			if(!$myFile)
 			{
 				if($our_image)
 				{
-					$image_list[$key]['file']  = a($our_image, 0, 'file');
-					$image_list[$key]['title'] = a($our_image, 0, 'title');
+					$myFile  = a($our_image, 0, 'file');
+
+					if(!$myTitle)
+					{
+						$myTitle = a($our_image, 0, 'title');
+					}
 
 					unset($our_image[0]);
 					$our_image = array_values($our_image);
 				}
 				else
 				{
-					$image_list[$key]['file']  = \dash\sample\img::image();
-					$image_list[$key]['title'] = T_("Image :val", ['val' => \dash\fit::number($key + 1)]);
+					$myFile  = \dash\sample\img::image();
+
+					if(!$myTitle)
+					{
+						$myTitle = T_("Image :val", ['val' => \dash\fit::number($key + 1)]);
+					}
 				}
 			}
 
-			$image_list[$key]['file_detail'] = \lib\filepath::get_detail($value['file']);
-			$image_list[$key]['thumb']       = $value['file'];
+			$image_list[$key]['file_detail'] = \lib\filepath::get_detail($myFile);
+
+			$myFile = \lib\filepath::fix($myFile);
+
+			$image_list[$key]['thumb']       = $myFile;
+			$image_list[$key]['file']        = $myFile;
 		}
 
 		if(is_numeric($max) && count($image_list) < $max)
@@ -111,10 +125,12 @@ class layout
 			{
 				$counter++;
 
+				$rand_img = \dash\sample\img::image();
 				$image_list[] =
 				[
 					'title' => T_("Image :val", ['val' => \dash\fit::number($i)]),
-					'file'    => \dash\sample\img::image()
+					'file'  => $rand_img,
+					'thumb' => $rand_img,
 				];
 
 				// check have not loop error
