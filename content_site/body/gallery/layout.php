@@ -105,13 +105,23 @@ class layout
 		{
 			$len = $max - count($image_list);
 
+			$counter = 0;
+
 			for ($i=1; $i <= $len; $i++)
 			{
+				$counter++;
+
 				$image_list[] =
 				[
 					'title' => T_("Image :val", ['val' => \dash\fit::number($i)]),
 					'file'    => \dash\sample\img::image()
 				];
+
+				// check have not loop error
+				if($counter > 50)
+				{
+					return $image_list;
+				}
 			}
 		}
 
