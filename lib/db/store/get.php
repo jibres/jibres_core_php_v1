@@ -150,6 +150,7 @@ class get
 			FROM
 				store
 			INNER JOIN store_data ON store_data.id = store.id
+			ORDER BY store.id ASC
 		";
 		$result = \dash\db::get($query, null, false, 'master');
 		return $result;
