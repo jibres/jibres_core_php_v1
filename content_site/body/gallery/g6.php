@@ -37,6 +37,7 @@ class g6
 					'slider_autoplay',
 					'slider_next_prev',
 					'slider_pagination',
+					'slider_size',
 				],
 
 				// sub page
