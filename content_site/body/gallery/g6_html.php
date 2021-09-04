@@ -4,7 +4,7 @@ namespace content_site\body\gallery;
 
 class g6_html
 {
-	public static function html($_args, $_image_list)
+	public static function html($_args, $_list)
 	{
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
@@ -12,19 +12,14 @@ class g6_html
 			{
 				// $html .= \content_site\assemble\wrench\heading::simple1($_args);
 
-				$html .= \content_site\assemble\wrench\section::grid_12($_args);
+				// $html .= \content_site\assemble\wrench\section::grid_12($_args);
+				$html .= '<div class="">';
 				{
-					$optCard =
-					[
-						'grid' => true,
-					];
-
-					$html .= \content_site\assemble\element\card::html($_args, $_image_list, $optCard);
+					$html .= \content_site\assemble\element\slider::html($_args, $_list, 'card');
 				}
 				$html .= '</div>';
 
 				// $html .= \content_site\body\blog\share::btn_viewall($_args);
-
 			}
 			$html .= "</div>";
 		}

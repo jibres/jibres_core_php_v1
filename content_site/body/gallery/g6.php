@@ -12,33 +12,80 @@ class g6
 	 */
 	public static function option()
 	{
-
-		$option                           = g2::option();
-		$option['title']                  = T_("Card Design");
-
-		$option['maximum_capacity']       = 14;
-		$option['minimum_item']           = 4;
-		$option['default']['image_count'] = 12;
-		unset($option['break_image_list']);
-
-		\content_site\utility::unset_option($option['options'], 'magicbox_title_position_slider');
-		\content_site\utility::unset_option($option['options']['style'], 'link_color_magicbox_title');
-		\content_site\utility::unset_option($option['options']['style'], 'image_mask');
-		\content_site\utility::unset_option($option['options']['style'], 'effect');
-		\content_site\utility::unset_option($option['options']['style'], 'magicbox_gap');
-		unset($option['options']['slider_setting']);
-
-		$myKey = array_search('container_gallery', $option['options']['style']);
-		$option['options']['style'] = array_replace($option['options']['style'], [$myKey => 'container_gallery_g4']);
-
-
-		$option['preview_list']           =
+		return
 		[
-				'p1',
+			'title'        => T_("Card Slider"),
+			'options'      =>
+			[
+				// 'heading_raw',
+				'image_list' =>
+				[
+					'file_gallery',
+					'caption_gallery',
+					'link_gallery',
+					'target_gallery',
+					'image_remove',
+				],
+				'image_add',
 
+				// 'magicbox_title_position_slider',
+				'image_random',
+
+				'slider_setting' =>
+				[
+					'slider_effect',
+					'slider_autoplay',
+					'slider_next_prev',
+					'slider_pagination',
+				],
+
+				// sub page
+				'style' => \content_site\utility::set_style_option(
+				[
+					'font',
+					'height',
+					'background_pack',
+					'container_gallery',
+					'magicbox_gap',
+					'radius_full',
+					'coverratio_no_free',
+					'effect',
+					'image_mask',
+					// 'link_color_magicbox_title',
+				]),
+				// 'responsive' => \content_site\utility::set_responsive_option(),
+			],
+			// 'break_image_list' => 4,
+			'maximum_capacity' => 14,
+			'minimum_item'     => 6,
+			'default'          =>
+			[
+				'heading'                 => T_("Image Gallery"),
+				'magicbox_title_position' => 'inside',
+				'coverratio'              => '16:9',
+				'height'                  => 'auto',
+				'container'               => 'fluid',
+				'link_color'              => 'inside',
+				'effect'                  => 'zoom',
+				'slider_effect'           => 'slide',
+			],
+			'preview_list' =>
+			[
+				'p1',
+				// 'p2',
+				// 'p3',
+				// 'p4',
+				// 'p5',
+				// 'p6',
+				// 'p7',
+				// 'p8',
+				// 'p9',
+				// 'p10',
+				// 'p11',
+			],
 		];
 
-		return $option;
+
 	}
 
 
