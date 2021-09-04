@@ -81,7 +81,7 @@ if(\dash\url::child())
         $html .= '<div class="c"></div>';
 
 
-        if(\dash\permission::supervisor() && !\dash\url::subchild() && \dash\url::child())
+        if(\dash\url::isLocal() && \dash\permission::supervisor() && !\dash\url::subchild() && \dash\url::child())
         {
           $html .= "<div class='cauto os pLa5'>";
           {
