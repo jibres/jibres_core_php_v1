@@ -3,7 +3,7 @@ namespace content_a\setting\menu\setting;
 
 
 
-class view extends \content_a\website\menu\item\view
+class view extends \content_a\setting\menu\item\view
 {
 	public static function config()
 	{
