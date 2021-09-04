@@ -15,7 +15,7 @@ trait gallery
 		$old_preview_key =  a($record, 'puzzle', 'puzzle_type'). ' -- '. a($record, 'puzzle', 'slider_type'). ' -- ' .a($record, 'puzzle', 'code');
 
 		// self::counter($old_preview_key);
-
+		$height = null;
 		switch ($old_preview_key)
 		{
 			case 'slider -- simple -- 1+3+4':
@@ -52,8 +52,9 @@ trait gallery
 			case 'puzzle -- simple -- 2+3+3':
 			case 'puzzle -- simple -- ':
 			default:
-				$new_record['model']          = 'g1';
-				$new_record['preview_key']    = 'p5';
+				$new_record['model']       = 'g5';
+				$new_record['preview_key'] = 'p1';
+				$height                    = 'sm';
 				// magicbox 2+3...
 				break;
 		}
@@ -62,6 +63,11 @@ trait gallery
 		$preview = \content_site\call_function::section_model_preview('gallery', $new_record['model'], $new_record['preview_key']);
 		$preview = $preview['options'];
 		$preview['container'] = 'xl';
+
+		if($height)
+		{
+			$preview['height'] = $height;
+		}
 
 		$menu_transfered = false;
 		if(a($record, 'meta', 'converted'))

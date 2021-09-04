@@ -13,56 +13,23 @@ class g5
 	public static function option()
 	{
 
-		return
+		$option                           = g2::option();
+		$option['title']                  = T_("Magic Box");
+
+		$option['maximum_capacity']       = 14;
+		$option['minimum_item']           = 4;
+		$option['default']['image_count'] = 12;
+		unset($option['break_image_list']);
+
+		$myKey = array_search('slider_effect', $option['options']['slider_setting']);
+		$option['options']['slider_setting'] = array_replace($option['options']['slider_setting'], [$myKey => 'slider_effect_full']);
+
+		$myKey = array_search('container_gallery', $option['options']['style']);
+		$option['options']['style'] = array_replace($option['options']['style'], [$myKey => 'container_gallery_g4']);
+
+
+		$option['preview_list']           =
 		[
-			'title'        => T_("Magic Box"),
-			'options'      =>
-			[
-				'heading_full',
-				'post_tag',
-				'post_template',
-				'post_order',
-				'count_post',
-				'magicbox_title_position',
-				'btn_viewall',
-				'style' => \content_site\utility::set_style_option(
-				[
-					'font',
-					'height',
-					'magicbox_gap',
-					'background_pack',
-					'color_heading',
-					'radius_full',
-					'coverratio',
-					'effect',
-					'image_mask',
-					'link_color_magicbox_title',
-					'btn_viewall_mode',
-				]),
-				'responsive' => \content_site\utility::set_responsive_option(),
-			],
-			'default'      =>
-			[
-				'heading'                   => T_("Latest Posts"),
-				'post_template'             => 'any',
-				'post_order'                => 'latest',
-				'count'                     => 3,
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'background_pack'           => 'none',
-				'height'                    => 'md',
-				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
-				'color_text'                => '#333333',
-				'heading_position'          => 'center',
-				'btn_viewall_mode'          => 'dark',
-				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
-				'effect'                    => 'zoom',
-				'link_color_magicbox_title' => 'light'
-			],
-			'preview_list' =>
-			[
 				'p1',
 				'p2',
 				'p3',
@@ -73,10 +40,9 @@ class g5
 				'p8',
 				'p9',
 				'p10',
-				'p11',
-				'p12',
-			],
 		];
+
+		return $option;
 	}
 
 
@@ -85,7 +51,6 @@ class g5
 	 */
 	public static function p1($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -97,16 +62,11 @@ class g5
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '16:9',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 12,
 				'color_text'                => '#333333',
-				'btn_viewall_check'         => true,
-				'btn_viewall_mode'          => 'dark',
-				'btn_viewall'               => T_("View all"),
 				'background_pack'           => 'none',
 			]
 		];
@@ -115,7 +75,6 @@ class g5
 
 	public static function p2($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -128,17 +87,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '3:1',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 10,
 				'color_text'                => '#333333',
-				'color_heading'             => '#0173cb',
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'primary',
 				'background_pack'           => 'solid',
 				'background_color'          => '#e5faff',
 			]
@@ -148,7 +101,6 @@ class g5
 
 	public static function p3($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -161,17 +113,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 8,
 				'color_text'                => '#333333',
-				'color_heading'             => '#000000',
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
 				'background_pack'           => 'solid',
 				'background_color'          => '#dcdbd9',
 			]
@@ -181,7 +127,6 @@ class g5
 
 	public static function p4($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -194,17 +139,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '3:4',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 4,
 				'color_text'                => '#333333',
-				'color_heading'             => '#000000',
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
 				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#c4c2d0',
@@ -217,7 +156,6 @@ class g5
 
 	public static function p5($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -230,17 +168,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 4,
 				'color_text'                => '#333333',
-				'color_heading'             => '#d7bf1d',
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
@@ -253,7 +185,6 @@ class g5
 
 	public static function p6($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -266,16 +197,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'squircle',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'left',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 8,
 				'color_text'                => '#333333',
-				'color_heading'             => '#000000',
-				'btn_viewall_check'         => null,
-				'btn_viewall'               => T_("View all"),
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
@@ -288,7 +214,6 @@ class g5
 
 	public static function p7($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -301,16 +226,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'heart',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'light',
 				'coverratio'                => '1:1',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 1,
 				'color_text'                => '#333333',
-				'color_heading'             => '#ff1493',
-				'btn_viewall_check'         => null,
-				'btn_viewall'               => T_("View all"),
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
@@ -323,7 +243,6 @@ class g5
 
 	public static function p8($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -336,17 +255,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'hexagon-2',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'none',
 				'coverratio'                => '1:1',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 3,
 				'color_text'                => '#333333',
-				'color_heading'             => '#ffffff',
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
@@ -359,7 +272,6 @@ class g5
 
 	public static function p9($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -372,17 +284,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'parallelogram',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => null,
 				'effect'                    => 'none',
 				'coverratio'                => '1:1',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 3,
 				'color_text'                => '#333333',
-				'color_heading'             => '#ffffff',
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
 				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#e6a691',
@@ -395,7 +301,6 @@ class g5
 
 	public static function p10($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -408,17 +313,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'parallelogram-4',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 4,
 				'color_text'                => '#333333',
-				'color_heading'             => '#ffffff',
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
 				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#674c4b',
@@ -431,7 +330,6 @@ class g5
 
 	public static function p11($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -444,17 +342,11 @@ class g5
 				'link_color'                => 'secondary',
 				'image_mask'                => 'none',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '16:9',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 7,
 				'color_text'                => '#333333',
-				'color_heading'             => '#333333',
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
 				'background_pack'           => 'none',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#0db8d9',
@@ -467,7 +359,6 @@ class g5
 
 	public static function p12($_title = null)
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
 			'version'        => 1,
@@ -480,17 +371,11 @@ class g5
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'fullscreen',
-				'heading_position'          => 'center',
-				'heading'                   => $_title,
 				'effect'                    => 'dark',
 				'coverratio'                => '16:9',
 				'magicbox_gap'              => 'sm',
 				'count'                     => 6,
 				'color_text'                => '#333333',
-				'color_heading'             => '#333333',
-				'btn_viewall_check'         => true,
-				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
 				'background_pack'           => 'solid',
 				'background_image'          => null,
 				'background_gradient_type'  => 'to bottom right',
