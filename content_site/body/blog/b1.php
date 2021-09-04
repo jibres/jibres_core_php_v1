@@ -43,7 +43,7 @@ class b1
 					'coverratio',
 					'btn_viewall_mode',
 				]),
-				'responsive' => \content_site\utility::set_responsive_option(),
+				// 'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
 			[

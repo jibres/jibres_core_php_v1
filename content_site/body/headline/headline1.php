@@ -43,7 +43,7 @@ class headline1
 					'color_heading',
 					'color_text',
 				]),
-				'responsive' => \content_site\utility::set_responsive_option(),
+				// 'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
 			[

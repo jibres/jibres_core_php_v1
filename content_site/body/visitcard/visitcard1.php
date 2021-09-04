@@ -32,7 +32,7 @@ class visitcard1
 					'background_pack',
 
 				]),
-				'responsive' => \content_site\utility::set_responsive_option(),
+				// 'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
 			[

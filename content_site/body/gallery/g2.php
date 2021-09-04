@@ -54,7 +54,7 @@ class g2
 					'image_mask',
 					'link_color_magicbox_title',
 				]),
-				'responsive' => \content_site\utility::set_responsive_option(),
+				// 'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'break_image_list' => 4,
 			'maximum_capacity' => 14,

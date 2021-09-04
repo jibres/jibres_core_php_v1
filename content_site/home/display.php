@@ -1,12 +1,17 @@
 <?php
 $html = '';
 
+$code = \content_site\homepage::code();
 
 $html .= '<nav class="items">';
 $html .= '<ul>';
 foreach (\dash\data::dataTable() as $key => $value)
 {
 
+  if(a($value, 'id') === $code)
+  {
+    continue;
+  }
   $date_title = '';
   if(a($value, 'datemodified'))
   {

@@ -19,7 +19,7 @@ class h0
 			'options'      =>
 			[
 				'msg' => 'my_msg',
-				'responsive' => \content_site\utility::set_responsive_option_header(),
+				// 'responsive' => \content_site\utility::set_responsive_option_header(),
 			],
 
 			'preview_list' =>
