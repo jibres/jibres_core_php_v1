@@ -118,10 +118,10 @@ class business
 			}
 		}
 
-		self::$siteBuilder     = true;
 
 		if($siteBuilder)
 		{
+			self::$siteBuilder     = true;
 			self::$siteBuilder         = true;
 
 			\dash\data::website($siteBuilder);
@@ -140,7 +140,7 @@ class business
 			return null;
 		}
 
-		elseif(self::$siteBuilder)
+		if(self::$siteBuilder)
 		{
 			if(\dash\data::demoOnlineLoadPreviewSection())
 			{
