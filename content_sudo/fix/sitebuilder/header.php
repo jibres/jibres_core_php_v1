@@ -69,6 +69,13 @@ trait header
 			$preview['logo'] = $record['detail']['logo'];
 		}
 
+		if($new_record['model'] === 'h3' && \lib\store::detail('nosale'))
+		{
+			$preview['link_search']    = false;
+			$preview['link_enter']     = false;
+			$preview['link_cart']      = false;
+		}
+
 		return $preview;
 
 
