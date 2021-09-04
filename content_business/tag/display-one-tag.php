@@ -29,7 +29,7 @@
           <?php foreach (\dash\data::dataRow_child() as $key => $value) {?>
             <a  class="c-auto txtC" href="<?php echo a($value, 'url') ?>">
               <div>
-                <img class="w100" src="<?php echo a($value, 'file') ?>" alt="<?php echo a($value, 'title') ?>">
+                <img class="w-20" src="<?php echo a($value, 'file') ?>" alt="<?php echo a($value, 'title') ?>">
               </div>
               <div class="txtC">
                 <?php echo a($value, 'title') ?>
