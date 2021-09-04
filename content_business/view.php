@@ -45,28 +45,6 @@ class view
 			\dash\face::logo($store_logo);
 		}
 
-		switch (\dash\data::website_template())
-		{
-			case 'comingsoon':
-				\dash\face::disablePWA_Header(true);
-				\dash\face::css(["business/comingsoon-1/comingsoon-1.css"]);
-				break;
-
-			case 'visitcard':
-				\dash\face::disablePWA_Header(true);
-				\dash\face::css(
-					[
-						"business/visitcard-1/visitcard-1.css",
-						"https://fonts.googleapis.com/css?family=Quicksand:300,400"
-					]
-				);
-				\dash\face::twitterCard('summary_large_image');
-				break;
-
-			default:
-				break;
-		}
-
 		\dash\upload\size::set_default_file_size('business');
 
 		self::customStyle();

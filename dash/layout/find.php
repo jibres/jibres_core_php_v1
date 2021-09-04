@@ -157,22 +157,23 @@ class find
 			}
 			elseif($myContent === 'content_business')
 			{
-				if(\dash\layout\business::have_header())
-				{
-					if(\dash\layout\business::$new_sitebuilder)
-					{
-						$myHeader = root. 'content_site/load/header.php';
-					}
-					else
-					{
-						$myHeader = root. 'lib/pagebuilder/load/header.php';
-					}
-				}
-				else
-				{
-					// subdomain of stores
-					$myHeader = root.'content_business/home/layout/header.php';
-				}
+				$myHeader = root. 'content_site/load/header.php';
+				// if(\dash\layout\business::have_header())
+				// {
+				// 	if(\dash\layout\business::$new_sitebuilder)
+				// 	{
+				// 		$myHeader = root. 'content_site/load/header.php';
+				// 	}
+				// 	else
+				// 	{
+				// 		$myHeader = root. 'lib/pagebuilder/load/header.php';
+				// 	}
+				// }
+				// else
+				// {
+				// 	// subdomain of stores
+				// 	$myHeader = root.'content_business/home/layout/header.php';
+				// }
 			}
 			elseif($myContent === 'content_developers')
 			{
@@ -222,22 +223,22 @@ class find
 			}
 			elseif($myContent === 'content_business')
 			{
-				if(\dash\layout\business::have_footer())
-				{
-					if(\dash\layout\business::$new_sitebuilder)
-					{
-						$myFooter = root. 'content_site/load/footer.php';
-					}
-					else
-					{
-						$myFooter = root. 'lib/pagebuilder/load/footer.php';
-					}
-				}
-				else
-				{
-					// subdomain of stores
-					$myFooter = root.'content_business/home/layout/footer.php';
-				}
+				$myFooter = root. 'content_site/load/footer.php';
+				// if(\dash\layout\business::have_footer())
+				// {
+				// 	if(\dash\layout\business::$new_sitebuilder)
+				// 	{
+				// 	}
+				// 	else
+				// 	{
+				// 		$myFooter = root. 'lib/pagebuilder/load/footer.php';
+				// 	}
+				// }
+				// else
+				// {
+				// 	// subdomain of stores
+				// 	$myFooter = root.'content_business/home/layout/footer.php';
+				// }
 			}
 			elseif(\dash\data::include_adminPanelBuilder())
 			{
@@ -255,15 +256,15 @@ class find
 		}
 
 		// add pwa footer
-		if(\dash\layout\business::$new_sitebuilder)
+		// if(\dash\layout\business::$new_sitebuilder)
 		{
 			$footerPWA = \dash\layout\pwa\footer2::html();
 			echo $footerPWA;
 		}
-		else
-		{
-			require_once core.'layout/pwa/pwa-footer.php';
-		}
+		// else
+		// {
+		// 	require_once core.'layout/pwa/pwa-footer.php';
+		// }
 
 		echo "</footer>";
 	}

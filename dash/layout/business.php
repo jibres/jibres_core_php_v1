@@ -10,15 +10,7 @@ class business
 	 *
 	 * @var        bool
 	 */
-	private static $pagebuilder = false;
-
-
-	/**
-	 * The website settting
-	 *
-	 * @var        array
-	 */
-	private static $pagebuilder_setting = [];
+	private static $siteBuilder = false;
 
 
 	/**
@@ -37,14 +29,6 @@ class business
 	private static $have_footer    = false;
 
 
-	/**
-	 * Load new site builder
-	 *
-	 * @var        bool
-	 */
-	public static $new_sitebuilder = false;
-
-
 
 	/**
 	 * return the website is loaded or no
@@ -53,7 +37,7 @@ class business
 	 */
 	public static function website()
 	{
-		return self::$pagebuilder;
+		return self::$siteBuilder;
 	}
 
 
@@ -96,114 +80,67 @@ class business
 			return false;
 		}
 
-		// check route sitebuilder
-		// need to remove all condition like forceLoadNewSiteBuilder
-		// if((\dash\url::isLocal() && (\dash\request::get('preview') || \dash\request::get('force'))) || \dash\temp::get('forceLoadNewSiteBuilder'))
-		{
-			// load page builder by detect current page
-			$pagebuilder = \content_site\load\load::current_page();
 
-			if(isset($pagebuilder['post_detail']['ishomepage']) && $pagebuilder['post_detail']['ishomepage'])
+		// load page builder by detect current page
+		$siteBuilder = \content_site\load\load::current_page();
+
+		if(isset($siteBuilder['post_detail']['ishomepage']) && $siteBuilder['post_detail']['ishomepage'])
+		{
+			self::$have_header = true;
+			self::$have_footer = true;
+		}
+		else
+		{
+			$homepage_header_footer = [];
+
+			if(!a($siteBuilder, 'header') || !a($siteBuilder, 'footer'))
+			{
+				// need to load homepage header and footer
+				$homepage_header_footer = \content_site\load\load::homepage_header_footer();
+			}
+
+			if(a($siteBuilder, 'header'))
 			{
 				self::$have_header = true;
+			}
+			elseif(isset($homepage_header_footer['header']) && $homepage_header_footer['header'])
+			{
+				self::$have_header = true;
+			}
+
+			if(a($siteBuilder, 'footer'))
+			{
 				self::$have_footer = true;
 			}
-			else
+			elseif(isset($homepage_header_footer['footer']) && $homepage_header_footer['footer'])
 			{
-				$homepage_header_footer = [];
-
-				if(!a($pagebuilder, 'header') || !a($pagebuilder, 'footer'))
-				{
-					// need to load homepage header and footer
-					$homepage_header_footer = \content_site\load\load::homepage_header_footer();
-				}
-
-				if(a($pagebuilder, 'header'))
-				{
-					self::$have_header = true;
-				}
-				elseif(isset($homepage_header_footer['header']) && $homepage_header_footer['header'])
-				{
-					self::$have_header = true;
-				}
-
-				if(a($pagebuilder, 'footer'))
-				{
-					self::$have_footer = true;
-				}
-				elseif(isset($homepage_header_footer['footer']) && $homepage_header_footer['footer'])
-				{
-					self::$have_footer = true;
-				}
-			}
-
-			self::$new_sitebuilder     = true;
-
-			if($pagebuilder || \dash\temp::get('forceLoadNewSiteBuilder'))
-			{
-				self::$pagebuilder         = true;
-				self::$pagebuilder_setting = $pagebuilder;
-
-				\dash\data::newPageBuilder(true);
-
-				\dash\data::website($pagebuilder);
-
-				return true;
+				self::$have_footer = true;
 			}
 		}
 
+		self::$siteBuilder     = true;
 
+		if($siteBuilder)
+		{
+			self::$siteBuilder         = true;
 
+			\dash\data::website($siteBuilder);
 
-		// // load page builder by detect current page
-		// $pagebuilder = \lib\pagebuilder\load\page::current_page();
+			return true;
+		}
 
-		// if(isset($pagebuilder['post_detail']['ishomepage']) && $pagebuilder['post_detail']['ishomepage'])
-		// {
-		// 	self::$have_header = true;
-		// 	self::$have_footer = true;
-		// }
-		// else
-		// {
-		// 	// need to load homepage header and footer
-		// 	$homepage_header_footer = \lib\pagebuilder\load\page::homepage_header_footer();
-
-		// 	if(isset($homepage_header_footer['header']) && $homepage_header_footer['header'])
-		// 	{
-		// 		self::$have_header = true;
-		// 	}
-
-		// 	if(isset($homepage_header_footer['footer']) && $homepage_header_footer['footer'])
-		// 	{
-		// 		self::$have_footer = true;
-		// 	}
-		// }
-
-		// if($pagebuilder)
-		// {
-		// 	self::$pagebuilder         = true;
-		// 	self::$pagebuilder_setting = $pagebuilder;
-
-		// 	\dash\data::website($pagebuilder);
-
-		// 	return true;
-		// }
-		// else
-		// {
-		// 	return false;
-		// }
 	}
 
 
 
 	public static function body_addr()
 	{
-		if(!self::$pagebuilder)
+		if(!self::$siteBuilder)
 		{
 			return null;
 		}
 
-		if(self::$new_sitebuilder)
+		elseif(self::$siteBuilder)
 		{
 			if(\dash\data::demoOnlineLoadPreviewSection())
 			{
@@ -211,10 +148,6 @@ class business
 			}
 
 			return root. 'content_site/load/body.php';
-		}
-		elseif(self::$pagebuilder)
-		{
-			return root. 'lib/pagebuilder/load/body.php';
 		}
 		elseif(\dash\engine\template::$finded_template)
 		{

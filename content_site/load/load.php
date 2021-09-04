@@ -8,8 +8,6 @@ class load
 
 	public static $homepage_header_footer = [];
 
-	public static $comingsoon_visitcad_template = false;
-
 
 	public static function homepage_header_footer()
 	{
@@ -91,7 +89,6 @@ class load
 		$homepage_builder                    = false;
 		$need_homepage_body                  = false;
 		$need_homepage_header_footer         = false;
-		$comingsoon_visitcad_template        = false;
 		$need_explode_homepage_header_footer = false;
 
 		$homepage_id                  = \content_site\homepage::id();
@@ -180,42 +177,35 @@ class load
 
 		$list = [];
 
-		if($comingsoon_visitcad_template)
+		if($need_homepage_body)
 		{
-			self::$comingsoon_visitcad_template = $comingsoon_visitcad_template;
-			// nothing !
+			// in homepage need to load full homepage detail
+			$list = \lib\db\sitebuilder\get::line_list($page_id);
 		}
 		else
 		{
-			if($need_homepage_body)
+			if(floatval($page_id) === floatval($homepage_id))
 			{
-				// in homepage need to load full homepage detail
+				// homepage id is equal with page id. load full page id detail
 				$list = \lib\db\sitebuilder\get::line_list($page_id);
 			}
 			else
 			{
-				if(floatval($page_id) === floatval($homepage_id))
+
+				if(\dash\request::get('preview') && a($post_detail, 'datecreated') && \dash\request::get('preview') === md5($post_detail['datecreated']))
 				{
-					// homepage id is equal with page id. load full page id detail
-					$list = \lib\db\sitebuilder\get::line_list($page_id);
+					$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer_preview($page_id, $homepage_id);
 				}
 				else
 				{
-
-					if(\dash\request::get('preview') && a($post_detail, 'datecreated') && \dash\request::get('preview') === md5($post_detail['datecreated']))
-					{
-						$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer_preview($page_id, $homepage_id);
-					}
-					else
-					{
-						// load full page id and homepage header and footer
-						$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer($page_id, $homepage_id);
-					}
-					$need_explode_homepage_header_footer = true;
+					// load full page id and homepage header and footer
+					$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer($page_id, $homepage_id);
 				}
+				$need_explode_homepage_header_footer = true;
 			}
-
 		}
+
+
 
 		$result                = [];
 

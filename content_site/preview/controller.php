@@ -160,7 +160,6 @@ class controller
 		if($allow)
 		{
 			\dash\data::previewBackUrl($back_url);
-			\dash\temp::set('forceLoadNewSiteBuilder', true);
 			\dash\data::demoOnlineLoadPreviewSection(true);
 			\dash\open::get();
 		}
