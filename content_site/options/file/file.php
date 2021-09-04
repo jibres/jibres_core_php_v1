@@ -171,7 +171,8 @@ trait file
 		}
 		// form
 		{
-			$html .= \content_site\options\generate::opt_hidden($option_key);
+			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::multioption();
 
 			// need special save
 			if(self::have_specialsave())
