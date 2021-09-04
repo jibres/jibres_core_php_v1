@@ -322,6 +322,8 @@ class ready
 			self::cart_limit($result);
 		}
 
+		$result['link'] = a($result, 'url');
+
 		return $result;
 	}
 
