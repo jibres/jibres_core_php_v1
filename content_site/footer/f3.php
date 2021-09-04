@@ -28,6 +28,11 @@ class f3
 				'description_copyright',
 				'certificate_enamad',
 				'certificate_samandehi',
+				'style' => \content_site\utility::set_style_option(
+				[
+					// 'font',
+					'container',
+				]),
 				'responsive' => \content_site\utility::set_responsive_option_footer(),
 
 			],
@@ -38,6 +43,7 @@ class f3
 				'use_as_description'    => 'business_description',
 				'certificate_samandehi' => true,
 				'certificate_enamad'    => true,
+				'container'             => 'xl',
 			],
 
 			'preview_list' =>
