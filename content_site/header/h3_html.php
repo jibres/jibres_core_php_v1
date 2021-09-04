@@ -29,7 +29,7 @@ class h3_html
 					// action bar
 					$html .= '<div class="actionBar flex items-center p-1 sm:p-2 md:p-3 bg-gray-50 rounded shadow-inner">';
 					{
-						$html .= '<a href="" class="flex-1">';
+						$html .= '<a href="'. \dash\url::kingdom() .'" class="flex-1">';
 						{
 							$logo = a($_args, 'logo');
 
