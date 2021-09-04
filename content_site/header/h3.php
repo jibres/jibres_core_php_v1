@@ -27,7 +27,7 @@ class h3
 				'announcement' => \content_site\utility::set_announcement(),
 				'style' => \content_site\utility::set_style_option(
 				[
-					'font',
+					// 'font',
 					'container',
 				]),
 				'responsive' => \content_site\utility::set_responsive_option_header(),
@@ -35,11 +35,12 @@ class h3
 			],
 			'default'      =>
 			[
-				'use_as_logo'              => 'business_logo',
-				'use_as_heading'           => 'business_heading',
-				'link_search'              => true,
-				'link_enter'               => true,
-				'link_cart'                => true,
+				'use_as_logo'    => 'business_logo',
+				'use_as_heading' => 'business_heading',
+				'link_search'    => true,
+				'link_enter'     => true,
+				'link_cart'      => true,
+				'container'      => 'xl',
 			],
 
 			'preview_list' =>
