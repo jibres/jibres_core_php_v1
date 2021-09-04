@@ -31,6 +31,7 @@ class p1
 				[
 					'font',
 					'height',
+					'container',
 					'background_pack',
 					'color_heading',
 					'radius_normal',

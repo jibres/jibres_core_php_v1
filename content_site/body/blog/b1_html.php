@@ -8,7 +8,7 @@ class b1_html
 	{
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
-			$html .= \content_site\assemble\wrench\section::container_auto($_args, a($_args, 'count'));
+			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
 				$html .= \content_site\assemble\wrench\heading::simple1($_args);
 

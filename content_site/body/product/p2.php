@@ -31,6 +31,7 @@ class p2
 				[
 					'font',
 					'height',
+					'container',
 					'magicbox_gap',
 					'background_pack',
 					'color_heading',
