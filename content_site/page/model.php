@@ -114,7 +114,7 @@ class model
 
 		foreach ($currentSectionList as $key => $value)
 		{
-			if(a($value, 'mode') === 'header' || a($value, 'mode') === 'footer')
+			if(a($value, 'folder') === 'header' || a($value, 'folder') === 'footer')
 			{
 				unset($currentSectionList[$key]);
 			}
