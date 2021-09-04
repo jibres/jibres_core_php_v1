@@ -66,7 +66,7 @@ class view
 		{
 			if(a($value, 'subdomain') !== 'rezamohiti')
 			{
-				continue;
+				// continue;
 			}
 
 			if(in_array(a($value, 'subdomain'), $skipp_subdomain))
