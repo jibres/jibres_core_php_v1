@@ -218,7 +218,7 @@ class get
 			$_max_level = 1;
 		}
 
-		$_max_level = 5;
+		$_max_level = 1;
 
 		$load = \lib\db\menu\get::load_menu($id, $_max_level);
 
