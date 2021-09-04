@@ -22,7 +22,7 @@ class responsive_device
 		$mobile[] = ['key' => 'all', 'title' => T_('All')];
 		$mobile[] = ['key' => 'browser', 'title' => T_('Browser')];
 		$mobile[] = ['key' => 'pwa', 'title' => T_('PWA')];
-		$mobile[] = ['key' => 'application', 'title' => T_('Application')];
+		// $mobile[] = ['key' => 'application', 'title' => T_('Application')];
 
 		return $mobile;
 	}
@@ -115,31 +115,31 @@ class responsive_device
 				$data_response_hide = 'data-response-hide';
 			}
 
-			$html .= "<div data-response='device' data-response-where='mobile' $data_response_hide>";
-			{
+			// $html .= "<div data-response='device' data-response-where='mobile' $data_response_hide>";
+			// {
 
 
-				$title = T_("Mobile");
-				$html .= "<label>$title</label>";
+			// 	$title = T_("Mobile");
+			// 	$html .= "<label>$title</label>";
 
-				$radio_html = '';
+			// 	$radio_html = '';
 
-				foreach (self::mobile() as $key => $value)
-				{
-					$selected = false;
+			// 	foreach (self::mobile() as $key => $value)
+			// 	{
+			// 		$selected = false;
 
-					if($mobile === $value['key'])
-					{
-						$selected = true;
-					}
+			// 		if($mobile === $value['key'])
+			// 		{
+			// 			$selected = true;
+			// 		}
 
-					$radio_html .= \content_site\options\generate::radio_line_itemText('mobile', $value['key'], $value['title'], $selected);
-				}
+			// 		$radio_html .= \content_site\options\generate::radio_line_itemText('mobile', $value['key'], $value['title'], $selected);
+			// 	}
 
-				$html .= \content_site\options\generate::radio_line_add_ul('mobile', $radio_html);
+			// 	$html .= \content_site\options\generate::radio_line_add_ul('mobile', $radio_html);
 
-			}
-			$html .= '</div>';
+			// }
+			// $html .= '</div>';
 
 
 			$title = T_("OS");

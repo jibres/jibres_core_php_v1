@@ -273,7 +273,7 @@ class load
 
 		// foreach ($result['body'] as $key => $value)
 		// {
-		// 	if(\....NEED FIX....\device\device::is_ok(a($value, 'device'), a($value, 'mobile'), a($value, 'os')))
+		// 	if(\content_site\assemble\device::is_ok(a($value, 'device'), a($value, 'mobile'), a($value, 'os')))
 		// 	{
 		// 		$new_body[] = $value;
 		// 	}
