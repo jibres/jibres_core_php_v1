@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-05 14:40+0430\n"
-"PO-Revision-Date: 2021-09-05 14:42+0430\n"
+"POT-Creation-Date: 2021-09-05 18:32+0430\n"
+"PO-Revision-Date: 2021-09-05 18:33+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -73,8 +73,9 @@ msgstr "درباره جیبرس"
 #: content/story/view.php:12 content/team/view.php:15 content/terms/view.php:15
 #: content/whois/view.php:13 content_business/app/view.php:26
 #: content_business/p/home/view.php:17 content_enter/home/view.php:35
-#: content_love/subscribe/view.php:13 dash/layout/pwa/pwa_menu.php:293
-#: includes/languages/trans_static_public.php:70
+#: content_love/subscribe/view.php:13
+#: content_site/options/responsive/responsive_footer_link_add.php:53
+#: dash/layout/pwa/pwa_menu.php:293 includes/languages/trans_static_public.php:70
 msgid "Home"
 msgstr "صفحه نخست"
 
@@ -2223,12 +2224,12 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/products/add/view.php:14 content_a/products/edit/view.php:22
 #: content_a/products/home/view.php:11 content_a/setting/home/display.php:25
 #: content_a/setting/menu/item/display.php:20 content_site/body/product/option.php:17
-#: content_site/body/product/option.php:19 content_site/body/product/p1.php:46
-#: content_site/body/product/p1.php:73 content_site/body/product/p3.php:51
-#: content_site/body/product/p3.php:84 content_site/body/product/p3.php:118
-#: content_site/body/product/p3.php:152 content_site/body/product/p3.php:186
-#: content_site/body/product/p3.php:220 content_site/body/product/p3.php:254
-#: content_site/body/product/p3.php:291
+#: content_site/body/product/option.php:19 content_site/body/product/p1.php:47
+#: content_site/body/product/p1.php:74 content_site/body/product/p3.php:52
+#: content_site/body/product/p3.php:85 content_site/body/product/p3.php:119
+#: content_site/body/product/p3.php:153 content_site/body/product/p3.php:187
+#: content_site/body/product/p3.php:221 content_site/body/product/p3.php:255
+#: content_site/body/product/p3.php:292
 #: content_site/options/link/link_professional.php:105
 #: dash/layout/admin/sidebar/sidebar-a.php:6 dash/panel.php:231 dash/plan_list.php:44
 #: includes/languages/trans_static.php:571 lib/app/--website/body/template.php:91
@@ -6467,10 +6468,12 @@ msgstr "انتخاب تگ"
 #: content_site/options/file/file_business_logo.php:99
 #: content_site/options/image/image_mask.php:11
 #: content_site/options/magicbox/magicbox_gap.php:13
-#: content_site/options/post/post_template.php:24 dash/layout/search/search-filter.php:179
-#: dash/layout/search/search-filter.php:220 dash/layout/search/search-filter.php:249
-#: lib/--pagebuilder/body/effect/effect.php:15 lib/--pagebuilder/body/news/filter.php:40
-#: lib/--pagebuilder/body/news/filter.php:63 lib/app/--website/effect.php:10
+#: content_site/options/post/post_template.php:24
+#: content_site/options/responsive/responsive_footer.php:72
+#: dash/layout/search/search-filter.php:179 dash/layout/search/search-filter.php:220
+#: dash/layout/search/search-filter.php:249 lib/--pagebuilder/body/effect/effect.php:15
+#: lib/--pagebuilder/body/news/filter.php:40 lib/--pagebuilder/body/news/filter.php:63
+#: lib/app/--website/effect.php:10
 msgid "None"
 msgstr "هیچ‌کدام"
 
@@ -10155,7 +10158,7 @@ msgstr "نوع پیام"
 #: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
 #: content_love/domain/irnic/display.php:58 content_my/domain/irnic/display.php:58
 #: content_site/options/font/font.php:14 content_site/options/font/font.php:18
-#: lib/ratio.php:72
+#: content_site/options/responsive/responsive_footer.php:73 lib/ratio.php:72
 msgid "Default"
 msgstr "پیش‌فرض"
 
@@ -16794,17 +16797,17 @@ msgstr "سئو هوشمند"
 #: content_site/body/blog/b2.php:435 content_site/body/blog/b2.php:471
 #: content_site/body/blog/b3.php:45 content_site/body/blog/b3.php:76
 #: content_site/body/blog/b3.php:104 content_site/body/blog/b3.php:133
-#: content_site/body/blog/b3.php:162 content_site/body/product/p2.php:49
-#: content_site/body/product/p2.php:90 content_site/body/product/p2.php:120
-#: content_site/body/product/p2.php:152 content_site/body/product/p2.php:184
-#: content_site/body/product/p2.php:219 content_site/body/product/p2.php:254
-#: content_site/body/product/p2.php:288 content_site/body/product/p2.php:322
-#: content_site/body/product/p2.php:357 content_site/body/product/p2.php:392
-#: content_site/body/product/p2.php:427 content_site/body/product/p2.php:462
-#: content_site/body/product/p4.php:56 content_site/body/product/p4.php:92
-#: content_site/body/product/p4.php:128 content_site/body/product/p4.php:164
-#: content_site/body/product/p4.php:200 content_site/body/product/p4.php:236
-#: content_site/body/product/p4.php:275 content_site/body/product/p4.php:314
+#: content_site/body/blog/b3.php:162 content_site/body/product/p2.php:50
+#: content_site/body/product/p2.php:91 content_site/body/product/p2.php:121
+#: content_site/body/product/p2.php:153 content_site/body/product/p2.php:185
+#: content_site/body/product/p2.php:220 content_site/body/product/p2.php:255
+#: content_site/body/product/p2.php:289 content_site/body/product/p2.php:323
+#: content_site/body/product/p2.php:358 content_site/body/product/p2.php:393
+#: content_site/body/product/p2.php:428 content_site/body/product/p2.php:463
+#: content_site/body/product/p4.php:57 content_site/body/product/p4.php:93
+#: content_site/body/product/p4.php:129 content_site/body/product/p4.php:165
+#: content_site/body/product/p4.php:201 content_site/body/product/p4.php:237
+#: content_site/body/product/p4.php:276 content_site/body/product/p4.php:315
 #: content_site/template/site/demo_001.php:26 content_site/template/site/demo_001.php:51
 #: content_site/template/site/demo_002.php:26
 msgid "Latest Posts"
@@ -23167,22 +23170,22 @@ msgstr "دیزاین کارت"
 #: content_site/body/blog/b3.php:52 content_site/body/blog/b3.php:95
 #: content_site/body/blog/b3.php:123 content_site/body/blog/b3.php:152
 #: content_site/body/blog/b3.php:182 content_site/body/blog/layout.php:66
-#: content_site/body/product/layout.php:64 content_site/body/product/p1.php:51
-#: content_site/body/product/p1.php:91 content_site/body/product/p2.php:53
-#: content_site/body/product/p2.php:111 content_site/body/product/p2.php:141
-#: content_site/body/product/p2.php:173 content_site/body/product/p2.php:205
-#: content_site/body/product/p2.php:240 content_site/body/product/p2.php:275
-#: content_site/body/product/p2.php:309 content_site/body/product/p2.php:343
-#: content_site/body/product/p2.php:378 content_site/body/product/p2.php:413
-#: content_site/body/product/p2.php:448 content_site/body/product/p2.php:483
-#: content_site/body/product/p3.php:56 content_site/body/product/p3.php:108
-#: content_site/body/product/p3.php:142 content_site/body/product/p3.php:176
-#: content_site/body/product/p3.php:210 content_site/body/product/p3.php:244
-#: content_site/body/product/p3.php:278 content_site/body/product/p3.php:315
-#: content_site/body/product/p4.php:60 content_site/body/product/p4.php:118
-#: content_site/body/product/p4.php:154 content_site/body/product/p4.php:190
-#: content_site/body/product/p4.php:226 content_site/body/product/p4.php:262
-#: content_site/body/product/p4.php:301 content_site/body/product/p4.php:342
+#: content_site/body/product/layout.php:69 content_site/body/product/p1.php:52
+#: content_site/body/product/p1.php:92 content_site/body/product/p2.php:54
+#: content_site/body/product/p2.php:112 content_site/body/product/p2.php:142
+#: content_site/body/product/p2.php:174 content_site/body/product/p2.php:206
+#: content_site/body/product/p2.php:241 content_site/body/product/p2.php:276
+#: content_site/body/product/p2.php:310 content_site/body/product/p2.php:344
+#: content_site/body/product/p2.php:379 content_site/body/product/p2.php:414
+#: content_site/body/product/p2.php:449 content_site/body/product/p2.php:484
+#: content_site/body/product/p3.php:57 content_site/body/product/p3.php:109
+#: content_site/body/product/p3.php:143 content_site/body/product/p3.php:177
+#: content_site/body/product/p3.php:211 content_site/body/product/p3.php:245
+#: content_site/body/product/p3.php:279 content_site/body/product/p3.php:316
+#: content_site/body/product/p4.php:61 content_site/body/product/p4.php:119
+#: content_site/body/product/p4.php:155 content_site/body/product/p4.php:191
+#: content_site/body/product/p4.php:227 content_site/body/product/p4.php:263
+#: content_site/body/product/p4.php:302 content_site/body/product/p4.php:343
 #: content_site/options/btn/btn_viewall.php:21 content_site/template/site/demo_001.php:36
 #: content_site/template/site/demo_001.php:61 content_site/template/site/demo_002.php:36
 msgid "View all"
@@ -23302,11 +23305,11 @@ msgstr "HTML"
 msgid "Raw HTML"
 msgstr "HTML خام"
 
-#: content_site/body/product/layout.php:117
+#: content_site/body/product/layout.php:122
 msgid "Your product’s title"
 msgstr "عنوان محصول شما"
 
-#: content_site/body/product/layout.php:118
+#: content_site/body/product/layout.php:123
 msgid "Your business hasn't published any products yet."
 msgstr "بیزینس شما هنون محصولی را منتشر نکرده است."
 
@@ -23719,6 +23722,7 @@ msgstr "نسبت تصویر شاخص"
 #: content_site/options/description/description.php:95
 #: content_site/options/file/file_business_logo.php:102
 #: content_site/options/heading/heading.php:116
+#: content_site/options/responsive/responsive_footer.php:74
 #: content_site/options/socialnetwork/socialnetwork.php:71
 msgid "Custom"
 msgstr "دلخواه"
@@ -23837,15 +23841,18 @@ msgstr "ارتفاع بخش"
 #: content_site/options/image/image_add2.php:13
 #: content_site/options/image/image_add2.php:73
 #: content_site/options/quote/quote_add.php:14
+#: content_site/options/responsive/responsive_footer_link_add.php:18
+#: content_site/options/responsive/responsive_footer_link_add.php:79
 msgid "Invalid section detail"
 msgstr "جزئیات بخش اشتباه است"
 
 #: content_site/options/image/image_add2.php:25
-#: content_site/options/quote/quote_add.php:26 content_site/section/html/model.php:69
-#: content_site/section/model.php:267 content_site/section/model.php:423
-#: content_site/section/model.php:493 content_site/section/model.php:528
-#: content_site/section/model.php:581 content_site/section/model.php:628
-#: content_site/update_record.php:39
+#: content_site/options/quote/quote_add.php:26
+#: content_site/options/responsive/responsive_footer_link_add.php:30
+#: content_site/section/html/model.php:69 content_site/section/model.php:267
+#: content_site/section/model.php:423 content_site/section/model.php:493
+#: content_site/section/model.php:528 content_site/section/model.php:581
+#: content_site/section/model.php:628 content_site/update_record.php:39
 msgid "Section not found"
 msgstr "بخش یافت نشد"
 
@@ -23965,6 +23972,7 @@ msgid "Search in :val"
 msgstr "جستجو در :val"
 
 #: content_site/options/link/link_search.php:23
+#: content_site/options/responsive/responsive_header_search_link.php:23
 msgid "Display search link"
 msgstr "نمایش لینک جستجو"
 
@@ -24088,6 +24096,16 @@ msgstr "حالت پخش آیتم‌ها"
 msgid "Filter by post type"
 msgstr "فیلتر با نوع نوشته"
 
+#: content_site/options/product/product_filter_image.php:14
+#: content_site/options/product/product_show_image.php:14
+#: content_site/options/product/product_show_title.php:14
+msgid "Can not hide product title and image together"
+msgstr "نمی‌توانید عنوان محصول و تصویر آن را باهم مخفی کنید"
+
+#: content_site/options/product/product_filter_image.php:43
+msgid "Only products with an image"
+msgstr "فقط محصولات دارای تصویر"
+
 #: content_site/options/product/product_order.php:23
 msgid "Product order"
 msgstr "ترتیب محصولات"
@@ -24095,11 +24113,6 @@ msgstr "ترتیب محصولات"
 #: content_site/options/product/product_show_discountpercent.php:25
 msgid "Display product discount percent"
 msgstr "نمایش دصد تخفیف محصول"
-
-#: content_site/options/product/product_show_image.php:14
-#: content_site/options/product/product_show_title.php:14
-msgid "Can not hide product title and image together"
-msgstr "نمی‌توانید عنوان محصول و تصویر آن را باهم مخفی کنید"
 
 #: content_site/options/product/product_show_image.php:43
 msgid "Display product image"
@@ -24192,6 +24205,18 @@ msgstr "دستگاه"
 #: lib/--pagebuilder/body/device/design.php:136
 msgid "OS"
 msgstr "سیستم‌عامل"
+
+#: content_site/options/responsive/responsive_footer.php:35
+msgid "Footer links"
+msgstr "لینک‌های پابرگ"
+
+#: content_site/options/responsive/responsive_footer_link_add.php:110
+msgid "Add footer links"
+msgstr "افزودن لینک پابرگ"
+
+#: content_site/options/responsive/responsive_header_title.php:24
+msgid "Page title in mobile"
+msgstr "عنوان صفحه در موبایل"
 
 #: content_site/options/slider/slider_autoplay.php:36
 msgid "Autoplay delay"
@@ -42886,9 +42911,6 @@ msgstr "یارد"
 
 #~ msgid "Related products"
 #~ msgstr "محصولات مرتبط"
-
-#~ msgid "Footer 3"
-#~ msgstr "پابرگ ۳"
 
 #~ msgid "Without Header"
 #~ msgstr "بدون سرصفحه"
