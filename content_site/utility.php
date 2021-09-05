@@ -191,7 +191,7 @@ class utility
 	{
 		return
 		[
-			'responsive_device',
+			// 'responsive_footer',
 		];
 
 	}
