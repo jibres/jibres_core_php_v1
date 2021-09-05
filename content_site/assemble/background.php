@@ -44,6 +44,10 @@ class background
 
 			case 'image';
 
+				if(a($_data, 'background_color'))
+				{
+					$style[] = 'background:'. $_data['background_color']. ';';
+				}
 				// background file
 				if(a($_data, 'background_image') && is_string($_data['background_image']))
 				{
@@ -96,6 +100,8 @@ class background
 				{
 					$style[] = 'background-size:'. $_data['background_size']. ';';
 				}
+
+
 				break;
 
 			case 'gradient';

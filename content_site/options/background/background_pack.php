@@ -165,6 +165,8 @@ class background_pack
 		$html .= '<div data-response="opt_background_pack" data-response-where="image" '.(($default === 'image') ? null : 'data-response-hide').'>';
 		{
 			$html .= background_image::admin_html();
+			$html .= background_color::admin_html();
+
 			$html .= background_position::admin_html();
 
 			$html .= background_attachment::admin_html();
