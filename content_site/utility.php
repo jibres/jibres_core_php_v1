@@ -197,7 +197,7 @@ class utility
 				[
 					'responsive_footer_btn_title',
 					'responsive_footer_btn_icon',
-					'responsive_footer_btn_url',
+					'responsive_footer_btn_link',
 				],
 			];
 		}
