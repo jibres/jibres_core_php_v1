@@ -21,6 +21,7 @@ class p2
 				'heading_full',
 
 				'product_tag',
+				'product_filter_image',
 				'product_order',
 				'count_product',
 				'magicbox_title_position',

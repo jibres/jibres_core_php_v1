@@ -21,6 +21,7 @@ class p4
 				'heading_full',
 
 				'product_tag',
+				'product_filter_image',
 				'product_order',
 				'count_product_p4',
 				// 'magicbox_title_position',

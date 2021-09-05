@@ -20,6 +20,7 @@ class p1
 				'heading_full',
 
 				'product_tag',
+				'product_filter_image',
 				'product_order',
 				'count_product',
 				'product_show_image_title',

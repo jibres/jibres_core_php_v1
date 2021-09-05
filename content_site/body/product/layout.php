@@ -24,12 +24,17 @@ class layout
 		{
 			$line_detail =
 			[
-				'tag_id'            => a($_args, 'product_tag'),
-				'limit'             => a($_args, 'count'),
-				'website_order'     => a($_args, 'product_order'),
+				'tag_id'               => a($_args, 'product_tag'),
+				'limit'                => a($_args, 'count'),
+				'website_order'        => a($_args, 'product_order'),
 
 				// 'btn_viewall_check' => a($_args, 'btn_viewall_check'),
 			];
+
+			if(a($_args, 'product_filter_image') === true)
+			{
+				$line_detail['g'] = 'y';
+			}
 
 			$productList = \lib\app\product\search::website_product_search(null, $line_detail);
 
