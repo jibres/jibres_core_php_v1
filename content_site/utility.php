@@ -189,13 +189,21 @@ class utility
 
 	public static function set_responsive_option_footer()
 	{
-		return self::set_responsive_option();
+		return
+		[
+			'responsive_device',
+		];
+
 	}
 
 
 	public static function set_responsive_option_header()
 	{
-		return self::set_responsive_option();
+		return
+		[
+			'responsive_header_title',
+			'responsive_header_search_link',
+		];
 	}
 
 	public static function set_responsive_option()
