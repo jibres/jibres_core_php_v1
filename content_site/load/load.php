@@ -307,6 +307,10 @@ class load
 			$currentHeader = self::$homepage_header_footer['header'];
 		}
 
+		if(isset($currentHeader[0]))
+		{
+			$currentHeader = $currentHeader[0];
+		}
 
 
 		\dash\data::website_header($currentHeader);
@@ -336,6 +340,11 @@ class load
 		elseif(isset(self::$homepage_header_footer['footer']))
 		{
 			$currentFooter = self::$homepage_header_footer['footer'];
+		}
+
+		if(isset($currentFooter[0]))
+		{
+			$currentFooter = $currentFooter[0];
 		}
 
 		\dash\data::website_footer($currentFooter);
