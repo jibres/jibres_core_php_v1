@@ -39,12 +39,30 @@ else
     $child        = \dash\url::child();
     $subchild     = \dash\url::subchild();
     $folder       = \dash\data::currentSectionDetail_mode();
+    $dir3         = \dash\url::dir(3);
 
     if($subchild && isset($options_list[$subchild]) && is_array($options_list[$subchild]))
     {
       foreach ($options_list[$subchild] as $key => $option)
       {
-        $html .= \content_site\call_function::option_admin_html($option, $currentSectionDetail);
+        if(is_array($option))
+        {
+            if($dir3 && isset($options_list[$subchild][$dir3]) && is_array($options_list[$subchild][$dir3]))
+            {
+              foreach ($options_list[$subchild][$dir3] as $k => $v)
+              {
+                $html .= \content_site\call_function::option_admin_html($v, $currentSectionDetail);
+              }
+            }
+            else
+            {
+              $html .= \content_site\call_function::option_admin_html($key, $currentSectionDetail);
+            }
+        }
+        else
+        {
+          $html .= \content_site\call_function::option_admin_html($option, $currentSectionDetail);
+        }
       }
     }
     elseif(is_array($options_list))
