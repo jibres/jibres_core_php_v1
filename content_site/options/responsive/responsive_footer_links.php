@@ -22,11 +22,11 @@ class responsive_footer_links
 	{
 		$currentSectionDetail = \dash\data::currentSectionDetail();
 
-		$image_list = [];
+		$footer_link_list = [];
 
-		if(isset($currentSectionDetail['preview']['footer_links']) && is_array($currentSectionDetail['preview']['footer_links']))
+		if(isset($currentSectionDetail['preview']['responsive']) && is_array($currentSectionDetail['preview']['responsive']))
 		{
-			$image_list = $currentSectionDetail['preview']['footer_links'];
+			$footer_link_list = $currentSectionDetail['preview']['responsive'];
 		}
 
 
@@ -37,34 +37,34 @@ class responsive_footer_links
 		{
 
 	  		$html .= \content_site\options\generate::opt_hidden(__CLASS__);
-			$html .= \content_site\options\generate::opt_hidden('child_key', 'footer_links');
+			$html .= \content_site\options\generate::opt_hidden('child_key', 'responsive');
 
 
 			$html .= '<nav class="items">';
 			{
 		  		$html .= '<ul data-sortable>';
 		  		{
-		    		foreach ($image_list as $key => $value)
+		    		foreach ($footer_link_list as $key => $value)
 		    		{
 			      		$html .= '<li>';
 			      		{
-				      		$html .= '<a class="item f" href="'. \dash\url::that(). '/footer_links'. \dash\request::full_get(['index' => a($value, 'index')]). '">';
+				      		$html .= '<a class="item f" href="'. \dash\url::current(). '/responsive_footer'. \dash\request::full_get(['index' => a($value, 'index')]). '">';
 				      		{
 					            $html .= '<input type="hidden" name="sort_child[]" value="'.  a($value, 'index'). '">';
 
-				      			if(isset($value['file']) && $value['file'])
+					            $icon = 'Image';
+
+				      			if(isset($value['icon']) && $value['icon'])
 				      			{
-				        			$file_url = \dash\fit::img(\lib\filepath::fix($value['file']));
-				      			}
-				      			else
-				      			{
-				        			$file_url = \dash\utility\icon::url('Image', 'major');
+				        			$icon = $value['icon'];
 				      			}
 
-				        		$html .= '<img src="'. $file_url. '" alt="'. a($value, 'title'). '">';
+				        		$icon_url = \dash\utility\icon::url($icon, 'major');
+
+				        		$html .= '<img src="'. $icon_url. '" alt="'. a($value, 'title'). '">';
 				        		$html .= '<div class="key">'. a($value, 'title').' </div>';
 
-            					if (count($image_list) > 1)
+            					if (count($footer_link_list) > 1)
             					{
               						$html .= '<img class="p-5 opacity-70 hover:bg-gray-200" alt="Image" data-handle src="'. \dash\utility\icon::url('DragHandle', 'minor'). '">';
               					}

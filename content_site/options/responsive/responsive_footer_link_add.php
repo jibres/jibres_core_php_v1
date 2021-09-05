@@ -55,6 +55,14 @@ class responsive_footer_link_add
 
 		];
 
+		if(count($currentSectionDetail['preview']['responsive']) > 5)
+		{
+			\dash\pdo::rollback();
+			\dash\notif::error(T_("Maximum capacity of footer links is full"));
+			return false;
+
+		}
+
 		$preview = json_encode($currentSectionDetail['preview']);
 
 		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $currentSectionDetail['id']);
@@ -62,7 +70,7 @@ class responsive_footer_link_add
 		\dash\pdo::commit();
 
 
-		$url = \dash\url::that(). '/responsive'. \dash\request::full_get(['index' => $index]);
+		$url = \dash\url::that(). '/responsive/responsive_footer'. \dash\request::full_get(['index' => $index]);
 
 		\dash\redirect::to($url);
 

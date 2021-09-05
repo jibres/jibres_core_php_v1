@@ -191,7 +191,12 @@ class utility
 	{
 		return
 		[
-			// 'responsive_footer',
+			'responsive_footer' =>
+			[
+				'responsive_footer_btn_title',
+				'responsive_footer_btn_icon',
+				'responsive_footer_btn_url',
+			],
 		];
 
 	}
