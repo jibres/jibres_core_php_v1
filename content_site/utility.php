@@ -189,15 +189,19 @@ class utility
 
 	public static function set_responsive_option_footer()
 	{
-		return
-		[
-			'responsive_footer' =>
+		if(\dash\url::isLocal())
+		{
+			return
 			[
-				'responsive_footer_btn_title',
-				'responsive_footer_btn_icon',
-				'responsive_footer_btn_url',
-			],
-		];
+				'responsive_footer' =>
+				[
+					'responsive_footer_btn_title',
+					'responsive_footer_btn_icon',
+					'responsive_footer_btn_url',
+				],
+			];
+		}
+		return [];
 
 	}
 
