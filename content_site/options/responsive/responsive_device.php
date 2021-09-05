@@ -89,7 +89,7 @@ class responsive_device
 
 			$html .= '<p class="jalert jalert-info p-3 text-sm ">';
 			{
-				$html  .= T_("You can configure this section to a specific operating system or device");
+				$html  .= T_("You can restrict this section to a specific device or operating system that is only visible on that device and operating system");
 			}
 			$html .= '</p>';
 

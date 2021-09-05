@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-04 17:05+0430\n"
-"PO-Revision-Date: 2021-09-04 17:09+0430\n"
+"POT-Creation-Date: 2021-09-05 14:40+0430\n"
+"PO-Revision-Date: 2021-09-05 14:42+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1056,7 +1056,6 @@ msgstr "نام کامل"
 #: content_my/domain/setting/elements/superdetail.php:70
 #: content_pay/home/display-donate.php:9 content_site/body/contactform/cf1_html.php:76
 #: content_site/options/responsive/responsive_device.php:13
-#: content_site/options/responsive/responsive_device.php:122
 #: content_sudo/tg/log/display.php:98 content_sudo/tg/system/display.php:24
 #: content_sudo/tg/users/display.php:99
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:99
@@ -2224,8 +2223,8 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/products/add/view.php:14 content_a/products/edit/view.php:22
 #: content_a/products/home/view.php:11 content_a/setting/home/display.php:25
 #: content_a/setting/menu/item/display.php:20 content_site/body/product/option.php:17
-#: content_site/body/product/option.php:19 content_site/body/product/p1.php:45
-#: content_site/body/product/p1.php:72 content_site/body/product/p3.php:51
+#: content_site/body/product/option.php:19 content_site/body/product/p1.php:46
+#: content_site/body/product/p1.php:73 content_site/body/product/p3.php:51
 #: content_site/body/product/p3.php:84 content_site/body/product/p3.php:118
 #: content_site/body/product/p3.php:152 content_site/body/product/p3.php:186
 #: content_site/body/product/p3.php:220 content_site/body/product/p3.php:254
@@ -5373,7 +5372,7 @@ msgstr ""
 #: content_crm/member/identification/display.php:106
 #: content_crm/member/identification/display.php:118 content_crm/ticket/add/display.php:18
 #: content_crm/ticket/edit/display.php:18 content_crm/ticket/view/display-answer.php:34
-#: content_site/options/file/file.php:218 dash/layout/post/admin-gallery-box.php:15
+#: content_site/options/file/file.php:219 dash/layout/post/admin-gallery-box.php:15
 #: lib/--pagebuilder/body/image/add.php:13 lib/--pagebuilder/header/logo/design.php:17
 msgid "Drag &amp; Drop your files or Browse"
 msgstr "فایل را انتخاب کرده یا در اینجا بندازید"
@@ -5381,7 +5380,7 @@ msgstr "فایل را انتخاب کرده یا در اینجا بندازید"
 #: content_a/--pagebuilder/seo/display.php:85 content_cms/posts/advance/display.php:69
 #: content_cms/posts/edit/display-gallery.php:36
 #: content_cms/posts/edit/display-gallery.php:76
-#: content_cms/posts/edit/display-gallery.php:145 content_site/options/file/file.php:290
+#: content_cms/posts/edit/display-gallery.php:145 content_site/options/file/file.php:291
 #: dash/layout/post/admin-gallery-box.php:176
 msgid "Choose from gallery"
 msgstr "انتخاب از گالری"
@@ -8891,7 +8890,7 @@ msgstr "صفحه"
 #: content_love/files/home/display.php:92 content_love/files/images/display.php:11
 #: content_love/files/remove/display.php:11 content_site/body/gallery/option.php:28
 #: content_site/options/background/background_pack.php:140
-#: content_site/options/file/file.php:241 content_site/options/image/image_add2.php:48
+#: content_site/options/file/file.php:242 content_site/options/image/image_add2.php:48
 #: content_site/options/quote/quote_add.php:59 dash/app/files/filter.php:35
 #: dash/app/files/ready.php:54 lib/app/--website/body/line/imageblock.php:12
 msgid "Image"
@@ -9025,7 +9024,7 @@ msgstr "صفحه اول مقدمه"
 #: content_crm/member/identification/display.php:119
 #: content_love/application/home/display.php:83 content_love/files/home/display.php:37
 #: content_love/files/home/display.php:49 content_love/home/display.php:115
-#: content_site/options/file/file.php:253 content_sudo/log/display.php:52
+#: content_site/options/file/file.php:254 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
 #: includes/languages/trans_static.php:500 lib/app/form/generator.php:829
 msgid "File"
@@ -16552,14 +16551,14 @@ msgid "Total file"
 msgstr "کل فایل‌ها"
 
 #: content_cms/files/home/display.php:116 content_love/files/home/display.php:116
-#: content_site/options/file/file.php:245 dash/app/files/filter.php:38
+#: content_site/options/file/file.php:246 dash/app/files/filter.php:38
 #: dash/app/files/ready.php:71 dash/layout/post/admin-gallery-box.php:135
 #: dash/layout/post/gallery-box.php:22
 msgid "PDF"
 msgstr "پی‌دی‌اف"
 
 #: content_cms/files/home/display.php:124 content_love/files/home/display.php:124
-#: content_site/options/file/file.php:249 dash/layout/post/admin-gallery-box.php:139
+#: content_site/options/file/file.php:250 dash/layout/post/admin-gallery-box.php:139
 msgid "ZIP"
 msgstr "فایل فشرده"
 
@@ -16781,27 +16780,27 @@ msgstr "در انتظار تایید"
 msgid "Smart SEO"
 msgstr "سئو هوشمند"
 
-#: content_cms/home/display.php:177 content_site/body/blog/b1.php:50
-#: content_site/body/blog/b1.php:90 content_site/body/blog/b1.php:119
-#: content_site/body/blog/b1.php:149 content_site/body/blog/b1.php:180
-#: content_site/body/blog/b1.php:208 content_site/body/blog/b1.php:239
-#: content_site/body/blog/b1.php:271 content_site/body/blog/b1.php:303
-#: content_site/body/blog/b1.php:332 content_site/body/blog/b2.php:46
-#: content_site/body/blog/b2.php:88 content_site/body/blog/b2.php:118
-#: content_site/body/blog/b2.php:151 content_site/body/blog/b2.php:184
-#: content_site/body/blog/b2.php:220 content_site/body/blog/b2.php:256
-#: content_site/body/blog/b2.php:291 content_site/body/blog/b2.php:326
-#: content_site/body/blog/b2.php:362 content_site/body/blog/b2.php:398
-#: content_site/body/blog/b2.php:434 content_site/body/blog/b2.php:470
+#: content_cms/home/display.php:177 content_site/body/blog/b1.php:51
+#: content_site/body/blog/b1.php:91 content_site/body/blog/b1.php:120
+#: content_site/body/blog/b1.php:150 content_site/body/blog/b1.php:181
+#: content_site/body/blog/b1.php:209 content_site/body/blog/b1.php:240
+#: content_site/body/blog/b1.php:272 content_site/body/blog/b1.php:304
+#: content_site/body/blog/b1.php:333 content_site/body/blog/b2.php:47
+#: content_site/body/blog/b2.php:89 content_site/body/blog/b2.php:119
+#: content_site/body/blog/b2.php:152 content_site/body/blog/b2.php:185
+#: content_site/body/blog/b2.php:221 content_site/body/blog/b2.php:257
+#: content_site/body/blog/b2.php:292 content_site/body/blog/b2.php:327
+#: content_site/body/blog/b2.php:363 content_site/body/blog/b2.php:399
+#: content_site/body/blog/b2.php:435 content_site/body/blog/b2.php:471
 #: content_site/body/blog/b3.php:45 content_site/body/blog/b3.php:76
 #: content_site/body/blog/b3.php:104 content_site/body/blog/b3.php:133
-#: content_site/body/blog/b3.php:162 content_site/body/product/p2.php:48
-#: content_site/body/product/p2.php:89 content_site/body/product/p2.php:119
-#: content_site/body/product/p2.php:151 content_site/body/product/p2.php:183
-#: content_site/body/product/p2.php:218 content_site/body/product/p2.php:253
-#: content_site/body/product/p2.php:287 content_site/body/product/p2.php:321
-#: content_site/body/product/p2.php:356 content_site/body/product/p2.php:391
-#: content_site/body/product/p2.php:426 content_site/body/product/p2.php:461
+#: content_site/body/blog/b3.php:162 content_site/body/product/p2.php:49
+#: content_site/body/product/p2.php:90 content_site/body/product/p2.php:120
+#: content_site/body/product/p2.php:152 content_site/body/product/p2.php:184
+#: content_site/body/product/p2.php:219 content_site/body/product/p2.php:254
+#: content_site/body/product/p2.php:288 content_site/body/product/p2.php:322
+#: content_site/body/product/p2.php:357 content_site/body/product/p2.php:392
+#: content_site/body/product/p2.php:427 content_site/body/product/p2.php:462
 #: content_site/body/product/p4.php:56 content_site/body/product/p4.php:92
 #: content_site/body/product/p4.php:128 content_site/body/product/p4.php:164
 #: content_site/body/product/p4.php:200 content_site/body/product/p4.php:236
@@ -21919,7 +21918,6 @@ msgstr "بیزینس من را بساز"
 
 #: content_my/business/home/display_pwa.php:59
 #: content_my/business/home/display_site.php:140
-#: content_site/options/responsive/responsive_device.php:25
 #: lib/--pagebuilder/body/application/application.php:39
 #: lib/app/--website/body/line/application.php:12 lib/app/--website/body/template.php:140
 #: lib/app/log/caller/application/application_readyToDownload.php:15
@@ -23151,33 +23149,32 @@ msgstr "نماد ساماندهی"
 msgid "email"
 msgstr "رایانامه"
 
-#: content_site/body/blog/b1.php:17 content_site/body/gallery/g6.php:17
-#: content_site/body/product/p1.php:17
+#: content_site/body/blog/b1.php:17 content_site/body/product/p1.php:17
 msgid "Card Design"
 msgstr "دیزاین کارت"
 
-#: content_site/body/blog/b1.php:60 content_site/body/blog/b1.php:109
-#: content_site/body/blog/b1.php:138 content_site/body/blog/b1.php:168
-#: content_site/body/blog/b1.php:227 content_site/body/blog/b1.php:258
-#: content_site/body/blog/b1.php:290 content_site/body/blog/b1.php:322
-#: content_site/body/blog/b1.php:351 content_site/body/blog/b2.php:51
-#: content_site/body/blog/b2.php:109 content_site/body/blog/b2.php:140
-#: content_site/body/blog/b2.php:173 content_site/body/blog/b2.php:206
-#: content_site/body/blog/b2.php:242 content_site/body/blog/b2.php:278
-#: content_site/body/blog/b2.php:313 content_site/body/blog/b2.php:348
-#: content_site/body/blog/b2.php:384 content_site/body/blog/b2.php:420
-#: content_site/body/blog/b2.php:456 content_site/body/blog/b2.php:492
+#: content_site/body/blog/b1.php:61 content_site/body/blog/b1.php:110
+#: content_site/body/blog/b1.php:139 content_site/body/blog/b1.php:169
+#: content_site/body/blog/b1.php:228 content_site/body/blog/b1.php:259
+#: content_site/body/blog/b1.php:291 content_site/body/blog/b1.php:323
+#: content_site/body/blog/b1.php:352 content_site/body/blog/b2.php:52
+#: content_site/body/blog/b2.php:110 content_site/body/blog/b2.php:141
+#: content_site/body/blog/b2.php:174 content_site/body/blog/b2.php:207
+#: content_site/body/blog/b2.php:243 content_site/body/blog/b2.php:279
+#: content_site/body/blog/b2.php:314 content_site/body/blog/b2.php:349
+#: content_site/body/blog/b2.php:385 content_site/body/blog/b2.php:421
+#: content_site/body/blog/b2.php:457 content_site/body/blog/b2.php:493
 #: content_site/body/blog/b3.php:52 content_site/body/blog/b3.php:95
 #: content_site/body/blog/b3.php:123 content_site/body/blog/b3.php:152
 #: content_site/body/blog/b3.php:182 content_site/body/blog/layout.php:66
-#: content_site/body/product/layout.php:64 content_site/body/product/p1.php:50
-#: content_site/body/product/p1.php:90 content_site/body/product/p2.php:52
-#: content_site/body/product/p2.php:110 content_site/body/product/p2.php:140
-#: content_site/body/product/p2.php:172 content_site/body/product/p2.php:204
-#: content_site/body/product/p2.php:239 content_site/body/product/p2.php:274
-#: content_site/body/product/p2.php:308 content_site/body/product/p2.php:342
-#: content_site/body/product/p2.php:377 content_site/body/product/p2.php:412
-#: content_site/body/product/p2.php:447 content_site/body/product/p2.php:482
+#: content_site/body/product/layout.php:64 content_site/body/product/p1.php:51
+#: content_site/body/product/p1.php:91 content_site/body/product/p2.php:53
+#: content_site/body/product/p2.php:111 content_site/body/product/p2.php:141
+#: content_site/body/product/p2.php:173 content_site/body/product/p2.php:205
+#: content_site/body/product/p2.php:240 content_site/body/product/p2.php:275
+#: content_site/body/product/p2.php:309 content_site/body/product/p2.php:343
+#: content_site/body/product/p2.php:378 content_site/body/product/p2.php:413
+#: content_site/body/product/p2.php:448 content_site/body/product/p2.php:483
 #: content_site/body/product/p3.php:56 content_site/body/product/p3.php:108
 #: content_site/body/product/p3.php:142 content_site/body/product/p3.php:176
 #: content_site/body/product/p3.php:210 content_site/body/product/p3.php:244
@@ -23237,6 +23234,7 @@ msgid "Magic Line"
 msgstr "خط جادویی"
 
 #: content_site/body/gallery/g1.php:57 content_site/body/gallery/g2.php:64
+#: content_site/body/gallery/g6.php:64
 msgid "Image Gallery"
 msgstr "گالری تصویر"
 
@@ -23257,7 +23255,11 @@ msgstr "۲ جعبه جادویی + اسلایدر"
 msgid "Slider"
 msgstr "اسلایدر"
 
-#: content_site/body/gallery/layout.php:105 content_site/body/gallery/layout.php:131
+#: content_site/body/gallery/g6.php:17 content_site/body/product/p3.php:17
+msgid "Card Slider"
+msgstr "اسلایدر کارتی"
+
+#: content_site/body/gallery/layout.php:105 content_site/body/gallery/layout.php:132
 #: content_site/body/gallery/option.php:544 lib/--pagebuilder/tools/first_init.php:195
 #: lib/app/--website/init.php:179
 msgid "Image :val"
@@ -23307,10 +23309,6 @@ msgstr "عنوان محصول شما"
 #: content_site/body/product/layout.php:118
 msgid "Your business hasn't published any products yet."
 msgstr "بیزینس شما هنون محصولی را منتشر نکرده است."
-
-#: content_site/body/product/p3.php:17
-msgid "Card Slider"
-msgstr "اسلایدر کارتی"
 
 #: content_site/body/product/p4.php:18
 msgid "Magic Slider"
@@ -24177,11 +24175,19 @@ msgid "MAC"
 msgstr "مک"
 
 #: content_site/options/responsive/responsive_device.php:92
+msgid ""
+"You can restrict this section to a specific device or operating system that is only "
+"visible on that device and operating system"
+msgstr ""
+"می‌توانید این بخش را به دستگاه یا سیستم عامل خاصی محدود کنید که تنها در آن دستگاه و "
+"سیستم عامل قابل نمایش باشد"
+
+#: content_site/options/responsive/responsive_device.php:96
 #: lib/--pagebuilder/body/device/design.php:9 lib/--pagebuilder/body/device/design.php:132
 msgid "Device"
 msgstr "دستگاه"
 
-#: content_site/options/responsive/responsive_device.php:145
+#: content_site/options/responsive/responsive_device.php:149
 #: lib/--pagebuilder/body/device/design.php:79
 #: lib/--pagebuilder/body/device/design.php:136
 msgid "OS"
@@ -24383,7 +24389,7 @@ msgstr "مدل بخش اشتباه است"
 
 #: content_site/section/display-footer.php:66
 msgid "Are you sure to remove this section?"
-msgstr "آیا درباه‌ی حذف این بخش مطمئن هستید؟"
+msgstr "آیا نسبت به حذف این بخش اطمینان دارید؟"
 
 #: content_site/section/display-footer.php:75
 msgid "Remove section"
