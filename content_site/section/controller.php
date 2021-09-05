@@ -68,14 +68,14 @@ class controller
 		 */
 		if(!in_array($child, self::all_section_name()))
 		{
-			\dash\header::status(404, T_("Invalid section name"));
+			\dash\header::status(404, T_("Invalid section name"). ' '. __LINE__);
 			return;
 		}
 
 		// not route image/add/[anything]
-		if(\dash\url::dir(3))
+		if(\dash\url::dir(4))
 		{
-			\dash\header::status(404, T_("Invalid url"));
+			\dash\header::status(404, T_("Invalid url"). ' '. __LINE__);
 			return;
 		}
 
@@ -84,7 +84,7 @@ class controller
 		$section_id = \dash\validate::id($section_id);
 		if(!$section_id)
 		{
-			\dash\header::status(403, T_("Invalid section id"));
+			\dash\header::status(403, T_("Invalid section id"). ' '. __LINE__);
 			return;
 		}
 
@@ -93,12 +93,28 @@ class controller
 		$options = \content_site\call_function::option($child, a($current_section_detail, 'model'));
 
 		$subchild = \dash\url::subchild();
+		$dir3     = \dash\url::dir(3);
 
 		if($subchild)
 		{
 			if(isset($options[$subchild]) && is_array($options[$subchild]))
 			{
-				// ok.
+				if($dir3)
+				{
+					if(isset($options[$subchild][$dir3]) && is_array($options[$subchild][$dir3]))
+					{
+						// ok
+					}
+					else
+					{
+						\dash\header::status(403, T_("Invalid url!"). ' '. __LINE__);
+					}
+
+				}
+				else
+				{
+					// ok.
+				}
 			}
 			elseif($subchild === 'model')
 			{
@@ -107,7 +123,7 @@ class controller
 			}
 			else
 			{
-				\dash\header::status(403, T_("Invalid url!"));
+				\dash\header::status(403, T_("Invalid url!"). ' '. __LINE__);
 				return;
 			}
 		}
@@ -193,7 +209,7 @@ class controller
 
 			if(!is_array($section_detail) || !$section_detail)
 			{
-				\dash\header::status(404, T_("Invalid section id"));
+				\dash\header::status(404, T_("Invalid section id"). ' '. __LINE__);
 				return false;
 			}
 
@@ -205,7 +221,7 @@ class controller
 			}
 			else
 			{
-				\dash\header::status(404, T_("Invalid section model"));
+				\dash\header::status(404, T_("Invalid section model"). ' '. __LINE__);
 				return false;
 			}
 		}
