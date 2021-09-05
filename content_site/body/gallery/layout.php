@@ -113,6 +113,7 @@ class layout
 
 			$image_list[$key]['thumb']       = $myFile;
 			$image_list[$key]['file']        = $myFile;
+			$image_list[$key]['link']        = a($value, 'url');
 		}
 
 		if(is_numeric($max) && count($image_list) < $max)
