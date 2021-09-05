@@ -113,7 +113,17 @@ class model
 			if(is_array($value))
 			{
 				$trust_options_list[] = $key;
-				$trust_options_list = array_merge($trust_options_list, $value);
+				foreach ($value as $k => $v)
+				{
+					if(is_array($v))
+					{
+						$trust_options_list = array_merge($trust_options_list, $v);
+					}
+					else
+					{
+						$trust_options_list[] = $v;
+					}
+				}
 			}
 			else
 			{
@@ -152,7 +162,6 @@ class model
 		{
 			$trust_options_list = array_merge($trust_options_list, $extends_option);
 		}
-
 
 		if(in_array($option_key, $trust_options_list))
 		{
@@ -357,6 +366,8 @@ class model
 			// replace array
 			$preview = $conflict;
 		}
+
+		// var_dump($preview);exit;
 
 		$preview           = json_encode($preview);
 
