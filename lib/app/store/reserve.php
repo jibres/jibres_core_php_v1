@@ -8,7 +8,7 @@ class reserve
 	private static function need_reserve()
 	{
 		// count business must be reserved everytime
-		return 5;
+		return 10;
 	}
 
 
