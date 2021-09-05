@@ -40,7 +40,7 @@ class b2
 					'link_color_magicbox_title',
 					'btn_viewall_mode',
 				]),
-				// 'responsive' => \content_site\utility::set_responsive_option(),
+				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
 			[

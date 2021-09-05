@@ -269,17 +269,17 @@ class load
 			}
 		}
 
-		// $new_body = [];
+		$new_body = [];
 
-		// foreach ($result['body'] as $key => $value)
-		// {
-		// 	if(\content_site\assemble\device::is_ok(a($value, 'device'), a($value, 'mobile'), a($value, 'os')))
-		// 	{
-		// 		$new_body[] = $value;
-		// 	}
-		// }
+		foreach ($result['body'] as $key => $value)
+		{
+			if(\content_site\assemble\device::is_ok($value))
+			{
+				$new_body[] = $value;
+			}
+		}
 
-		// $result['body'] = $new_body;
+		$result['body'] = $new_body;
 
 	}
 

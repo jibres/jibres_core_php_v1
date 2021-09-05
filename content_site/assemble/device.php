@@ -17,9 +17,13 @@ class device
 	}
 
 
-	public static function is_ok($_device, $_mobile, $_os)
+	public static function is_ok($_record)
 	{
-		if(!$_device)
+		$device = a($_record, 'preview', 'device');
+		$mobile = a($_record, 'preview', 'mobile');
+		$os     = a($_record, 'preview', 'os');
+
+		if(!$device)
 		{
 			return true;
 		}
@@ -35,7 +39,7 @@ class device
 		// mobile ('all','browser','pwa', 'application','other')
 		// os ('all','windows','linux', 'mac', 'android', 'other')
 
-		switch ($_os)
+		switch ($os)
 		{
 			// windows
 			// 'blackberry', 'iphone', 'palmos', 'palmsource', 'symbian', 'beos', 'os2', 'amiga', 'webtv', 'macintosh', 'mac_', 'mac ', 'nt', 'win','android',
@@ -78,7 +82,7 @@ class device
 				break;
 		}
 
-		switch ($_device)
+		switch ($device)
 		{
 			case 'desktop':
 				if(a($detect, 'mobile', 'mobile'))
@@ -93,7 +97,7 @@ class device
 					return false;
 				}
 
-				switch ($_mobile)
+				switch ($mobile)
 				{
 					// browser
 					case 'browser':

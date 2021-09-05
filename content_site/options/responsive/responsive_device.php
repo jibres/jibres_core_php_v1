@@ -48,11 +48,9 @@ class responsive_device
 		$new_data['mobile'] =  \dash\validate::enum(a($_data, 'mobile'), true, ['enum' => array_column(self::mobile(), 'key'), 'field_title' => T_('Effect')]);
 		$new_data['os']     =  \dash\validate::enum(a($_data, 'os'), true, ['enum' => array_column(self::os(), 'key'), 'field_title' => T_('Effect')]);
 
-		// only set this variable in fiueld
-		\content_site\update_record::need_update_record_field($new_data);
+		return $new_data;
 
-		// return [] to not save in preview
-		return [];
+		// \content_site\update_record::need_update_record_field($new_data);
 	}
 
 
@@ -61,9 +59,9 @@ class responsive_device
 		$currentSectionDetail = \dash\data::currentSectionDetail();
 
 
-		$device = a($currentSectionDetail, 'device');
-		$mobile = a($currentSectionDetail, 'mobile');
-		$os     = a($currentSectionDetail, 'os');
+		$device = a($currentSectionDetail, 'preview', 'device');
+		$mobile = a($currentSectionDetail, 'preview', 'mobile');
+		$os     = a($currentSectionDetail, 'preview', 'os');
 
 
 		if(!$device)

@@ -20,7 +20,7 @@ class html
 			[
 				'heading_raw',
 				'html',
-				// 'responsive' => \content_site\utility::set_responsive_option(),
+				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 
 			'preview_list' =>
