@@ -41,6 +41,20 @@ class layout
 			$_args['cart_count'] = \lib\app\cart\get::my_cart_count();
 		}
 
+		if(a($_args, 'responsive_header_title'))
+		{
+			\dash\face::titlePWA(a($_args, 'responsive_header_title'));
+		}
+
+		if(a($_args, 'responsive_header_search_link') === false)
+		{
+			\dash\data::search_link(null);
+		}
+		else
+		{
+			\dash\data::search_link(\dash\url::kingdom().'/search');
+		}
+
 		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args);
 	}
 }
