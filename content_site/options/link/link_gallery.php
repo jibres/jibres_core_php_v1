@@ -13,7 +13,7 @@ class link_gallery
 		$args =
 		[
 			'pointer'       => a($_data, 'pointer'),
-			'url'           => a($_data, 'link'),
+			'url'           => a($_data, 'url'),
 			'target'        => a($_data, 'target'),
 
 			'product_id'    => a($_data, 'products_id'),
