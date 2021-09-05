@@ -87,6 +87,12 @@ class responsive_device
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 			$html .= \content_site\options\generate::multioption();
 
+			$html .= '<p class="jalert jalert-info p-3 text-sm ">';
+			{
+				$html  .= T_("You can configure this section to a specific operating system or device");
+			}
+			$html .= '</p>';
+
 			$title = T_("Device");
 			$html .= "<label>$title</label>";
 
