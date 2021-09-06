@@ -26,6 +26,16 @@ class identify
 	}
 
 
+	public static function factor_id($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		if(is_string($_data) &&  substr($_data, 0, 2) === 'JF')
+		{
+			$_data = substr($_data, 2);
+		}
+
+		return self::id($_data, $_notif, $_element, $_field_title, $_meta);
+	}
+
 
 	public static function code($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
