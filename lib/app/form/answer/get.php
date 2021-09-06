@@ -23,7 +23,7 @@ class get
 	public static function is_answered_form_factor_id($_form_id, $_factor_id)
 	{
 		$form_id = \dash\validate::id($_form_id);
-		$factor_id = \dash\validate::id($_factor_id);
+		$factor_id = \dash\validate::factor_id($_factor_id);
 
 		if(!$form_id || !$factor_id)
 		{

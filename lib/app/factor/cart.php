@@ -349,51 +349,62 @@ class cart
 
 		if($data['payway'] === 'online')
 		{
-			// set status on pending_pay
-			\lib\app\factor\action::set('awaiting_payment', $factor_id);
-
-			// go to bank
-			$meta =
+			$final_fn_args =
 			[
-				'msg_go'        => T_("Pay order"),
-				'auto_go'       => false,
-				'auto_back'     => false,
-				'final_msg'     => true,
-				'turn_back'     => \dash\url::kingdom(). '/orders/view?id='. $result['factor_id'],
-				'user_id'       => $factor_user_id,
-				'amount'        => abs($result['price']),
-				'currency'      => \lib\store::currency('code'),
-				'factor_id'     => $result['factor_id'],
-				'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
-				'final_fn_args' =>
-				[
-					'factor_id' => $result['factor_id'],
-					'user_id'   => $factor_user_id,
-					'amount'    => abs($result['price']),
-				],
+				'factor_id' => $result['factor_id'],
+				'user_id'   => $factor_user_id,
+				'amount'    => abs($result['price']),
 			];
 
-
-			$result_pay = \dash\utility\pay\start::api($meta);
-
-			if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
+			if($result['price'])
 			{
-				if(\dash\url::is_api())
+
+				// set status on pending_pay
+				\lib\app\factor\action::set('awaiting_payment', $factor_id);
+
+				// go to bank
+				$meta =
+				[
+					'msg_go'        => T_("Pay order"),
+					'auto_go'       => false,
+					'auto_back'     => false,
+					'final_msg'     => true,
+					'turn_back'     => \dash\url::kingdom(). '/orders/view?id='. $result['factor_id'],
+					'user_id'       => $factor_user_id,
+					'amount'        => abs($result['price']),
+					'currency'      => \lib\store::currency('code'),
+					'factor_id'     => $result['factor_id'],
+					'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
+					'final_fn_args' => $final_fn_args,
+
+				];
+
+
+				$result_pay = \dash\utility\pay\start::api($meta);
+
+				if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
 				{
-					$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
-					\dash\notif::meta($result_pay);
-					\dash\notif::ok($msg);
-					return;
+					if(\dash\url::is_api())
+					{
+						$msg = T_("Pay link :val", ['val' => $result_pay['url']]);
+						\dash\notif::meta($result_pay);
+						\dash\notif::ok($msg);
+						return;
+					}
+					else
+					{
+						\dash\redirect::to($result_pay['url']);
+					}
 				}
 				else
 				{
-					\dash\redirect::to($result_pay['url']);
+					\dash\log::oops('generate_pay_error');
+					return false;
 				}
 			}
 			else
 			{
-				\dash\log::oops('generate_pay_error');
-				return false;
+				// free price
 			}
 
 		}
