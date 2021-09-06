@@ -247,7 +247,7 @@ class pwa_menu
 				{
 					$myFooter[] =
 					[
-						'href'  => a($footer, $i, 'url'),
+						'href'  => a($footer, $i, 'url') ?  a($footer, $i, 'url') : '#',
 						'icon'  => a($footer, $i, 'icon'),
 						'img'   => a($footer, $i, 'icon'),
 						'title' => a($footer, $i, 'title'),

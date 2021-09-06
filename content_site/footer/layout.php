@@ -35,6 +35,7 @@ class layout
 			$_args['description'] = \lib\store::desc();
 		}
 
+		\dash\data::currentFooterPwaBtn([]);
 		if(a($_args, 'use_as_footer_link') === 'custom')
 		{
 			if(a($_args, 'responsive') && is_array($_args['responsive']))
@@ -43,10 +44,16 @@ class layout
 				{
 					$_args['responsive'][$key]['url'] = \content_site\assemble\link::generate(a($value, 'link'), true);
 				}
-
-				\dash\data::currentFooterPwaBtn($_args['responsive']);
 			}
 		}
+		else
+		{
+			$_args['responsive'] = [];
+			$_args['responsive_force_remove'] = true;
+		}
+
+		\dash\data::currentFooterPwaBtn(a($_args, 'responsive'));
+
 
 
 		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args);
