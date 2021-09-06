@@ -42,62 +42,51 @@ class pwa_menu
 
 	public static function businessWebsiteMenu()
 	{
-		switch (\dash\data::website_template())
+		switch (\dash\url::module())
 		{
-			case 'comingsoon':
-				return null;
+			case 'p':
+				return self::businessProductPage();
 				break;
 
-			case 'visitcard':
-				return null;
+			case 'cart':
+				// disable menu if nosale is active
+				if(\dash\data::nosale())
+				{
+					return null;
+				}
+
+				return self::businessCartPage();
 				break;
+
+			case 'shipping':
+				// disable menu if nosale is active
+				if(\dash\data::nosale())
+				{
+					return null;
+				}
+
+				return self::businessShippingPage();
+				break;
+
+			case 'app':
+				// don't show menu on app page
+				return null;
+			break;
 
 			default:
-				switch (\dash\url::module())
+			case null:
+				// disable menu if nosale is active
+				if(\dash\data::nosale())
 				{
-					case 'p':
-						return self::businessProductPage();
-						break;
-
-					case 'cart':
-						// disable menu if nosale is active
-						if(\dash\data::nosale())
-						{
-							return null;
-						}
-
-						return self::businessCartPage();
-						break;
-
-					case 'shipping':
-						// disable menu if nosale is active
-						if(\dash\data::nosale())
-						{
-							return null;
-						}
-
-						return self::businessShippingPage();
-						break;
-
-					case 'app':
-						// don't show menu on app page
-						return null;
-					break;
-
-					default:
-					case null:
-						// disable menu if nosale is active
-						if(\dash\data::nosale())
-						{
-							return null;
-						}
-
-						return self::businessWebsite();
-						break;
-
+					return null;
 				}
+
+				return self::businessWebsite();
 				break;
+
 		}
+
+
 
 
 	}
@@ -246,39 +235,25 @@ class pwa_menu
 
 	public static function businessWebsite()
 	{
-		$footer = \dash\data::currentFooter();
+		$footer = \dash\data::currentFooterPwaBtn();
 
-		if(isset($footer['detail']['pwabtn']) && $footer['detail']['pwabtn'] && is_array($footer['detail']['pwabtn']))
+		if($footer && is_array($footer))
 		{
-			$custom_footer = $footer['detail']['pwabtn'];
+			$myFooter =  [];
 
-			$myFooter =
-			[
-				'home' =>
-				[
-					'href' => a($custom_footer, 'url_1'),
-					'icon' => a($custom_footer, 'icon_1'),
-					'title' => a($custom_footer, 'title_1'),
-				],
-				'category' =>
-				[
-					'href' => a($custom_footer, 'url_2'),
-					'icon' => a($custom_footer, 'icon_2'),
-					'title' => a($custom_footer, 'title_2'),
-				],
-				'cart' =>
-				[
-					'href' => a($custom_footer, 'url_3'),
-					'icon' => a($custom_footer, 'icon_3'),
-					'title' => a($custom_footer, 'title_3'),
-				],
-				'profile' =>
-				[
-					'href' => a($custom_footer, 'url_4'),
-					'icon' => a($custom_footer, 'icon_4'),
-					'title' => a($custom_footer, 'title_4'),
-				],
-			];
+			for ($i = 0; $i <= 5 ; $i++)
+			{
+				if(a($footer, $i))
+				{
+					$myFooter[] =
+					[
+						'href'  => a($footer, $i, 'url'),
+						'icon'  => a($footer, $i, 'icon'),
+						'img'   => a($footer, $i, 'icon'),
+						'title' => a($footer, $i, 'title'),
+					];
+				}
+			}
 
 		}
 		else
@@ -323,19 +298,31 @@ class pwa_menu
 		switch (\dash\url::module())
 		{
 			case 'category':
-				$myFooter['category']['selected'] = true;
+				if(isset($myFooter['category']))
+				{
+					$myFooter['category']['selected'] = true;
+				}
 				break;
 
 			case 'cart':
-				$myFooter['cart']['selected'] = true;
+				if(isset($myFooter['cart']))
+				{
+					$myFooter['cart']['selected'] = true;
+				}
 				break;
 
 			case 'profile':
-				$myFooter['profile']['selected'] = true;
+				if(isset($myFooter['profile']))
+				{
+					$myFooter['profile']['selected'] = true;
+				}
 				break;
 
 			default:
-				$myFooter['home']['selected'] = true;
+				if(isset($myFooter['home']))
+				{
+					$myFooter['home']['selected'] = true;
+				}
 				break;
 		}
 
