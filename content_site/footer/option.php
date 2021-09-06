@@ -48,6 +48,7 @@ class option
 			'f0',
 			'f1',
 			'f3',
+			'f_rafiei',
 		];
 
 	}
