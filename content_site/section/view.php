@@ -442,35 +442,39 @@ class view
 		// 	\dash\data::xhrHtml($result['preview_layout']);
 		// }
 
-
-		if(!\dash\engine\content::is('site') && $result['body'] && $_generate_layout)
-		{
-			if(a($result, 'status') === 'hidden')
-			{
-				// needless to generate layout
-			}
-			else
-			{
-				if(isset($result['text']) && ($section_key === 'html' || $section_key === 'text'))
-				{
-					$result['body']['html_text'] = $result['text'];
-				}
-
-
-				$result['body']           = array_merge($thisDefault, $result['body']);
-
-				$result['body'] = \content_site\assemble\fire::me($result['body']);
-
-				$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
-			}
-
-		}
-
 		if(\dash\request::get('preview') === md5(\dash\data::currentPageDetail_datecreated()))
 		{
 			$result['body']        = $result['preview'];
 			$result['body_layout'] = $result['preview_layout'];
 		}
+		else
+		{
+
+			if(!\dash\engine\content::is('site') && $result['body'] && $_generate_layout)
+			{
+				if(a($result, 'status') === 'hidden')
+				{
+					// needless to generate layout
+				}
+				else
+				{
+					if(isset($result['text']) && ($section_key === 'html' || $section_key === 'text'))
+					{
+						$result['body']['html_text'] = $result['text'];
+					}
+
+
+					$result['body']           = array_merge($thisDefault, $result['body']);
+
+					$result['body'] = \content_site\assemble\fire::me($result['body']);
+
+					$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
+				}
+
+			}
+
+		}
+
 
 		return $result;
 	}
