@@ -219,6 +219,11 @@ class call_function
 			{
 				$namespace = sprintf($namespace, $args);
 
+				if(self::_call([$namespace, 'is_private']) === true)
+				{
+					return false;
+				}
+
 				$load_preview = self::_call([$namespace, $args2]);
 
 				return $load_preview;
@@ -397,6 +402,11 @@ class call_function
 		{
 			$namespace_model = sprintf($namespace, $value);
 
+			if(self::_call([$namespace_model, 'is_private']) === true)
+			{
+				continue;
+			}
+
 			$temp_load_model_option = self::_call([$namespace_model, 'option']);
 
 			$temp_load_model_option['model'] = $value;
@@ -520,6 +530,11 @@ class call_function
 
 			foreach ($need_load_preview as $preview_function)
 			{
+				if(self::_call([$namespace_model, 'is_private']) === true)
+				{
+					continue;
+				}
+
 				$load_preview = self::_call([$namespace_model, $preview_function]);
 
 				if(is_array($load_preview) && $load_preview)
