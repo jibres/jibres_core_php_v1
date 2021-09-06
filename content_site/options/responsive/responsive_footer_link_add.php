@@ -49,9 +49,9 @@ class responsive_footer_link_add
 		$currentSectionDetail['preview']['responsive'][] =
 		[
 			'index' => $index,
-			'url'   => null,
+			'link'  => [],
 			'title' => T_("Home"),
-			'icon'  => 'home',
+			'icon'  => 'Home',
 
 		];
 

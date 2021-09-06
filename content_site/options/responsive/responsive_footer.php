@@ -83,16 +83,17 @@ class responsive_footer
 				$data_response_hide = 'data-response-hide';
 			}
 
-			$html .= "<div data-response='$name' data-response-where='custom' $data_response_hide>";
-			{
-				$html .= responsive_footer_links::admin_html();
-				$html .= responsive_footer_link_add::admin_html();
-			}
-
-			$html .= '</div>';
 
 		}
 		$html .= \content_site\options\generate::_form();
+
+		$html .= "<div data-response='$name' data-response-where='custom' $data_response_hide>";
+		{
+			$html .= responsive_footer_links::admin_html();
+			$html .= responsive_footer_link_add::admin_html();
+		}
+
+		$html .= '</div>';
 
 		return $html;
 	}
