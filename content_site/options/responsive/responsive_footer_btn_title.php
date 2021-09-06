@@ -6,7 +6,7 @@ class responsive_footer_btn_title
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::string_50($_data);
+		$data = \dash\validate::string_10($_data);
 		return $data;
 	}
 

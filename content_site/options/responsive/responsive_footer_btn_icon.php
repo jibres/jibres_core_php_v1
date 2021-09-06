@@ -48,7 +48,7 @@ class responsive_footer_btn_icon
 		        		$icon_url = \dash\utility\icon::url($icon, 'major');
 
 		        		$html .= '<img src="'. $icon_url. '" alt="Current Icon">';
-		        		$html .= '<div class="key">'. T_("Current Icon").' </div>';
+		        		$html .= '<div class="key">'. T_("Icon :val", ['val' => $icon]).' </div>';
 		        		$html .= '<div class="go"></div>';
 
 		      		}
