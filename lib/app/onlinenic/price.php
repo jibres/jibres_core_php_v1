@@ -6,7 +6,8 @@ class price
 {
 	private static function dollar()
 	{
-		return 29600; // toman
+		return 28750;
+		// return 29600; // toman // date: 2021-09-06
 		// return 26100; // toman // date: 2021-08-26
 		// return 31000; // toman // date: 2020-11-26
 		// return 26000; // toman // date: 2020-09-28
