@@ -35,6 +35,20 @@ class layout
 			$_args['description'] = \lib\store::desc();
 		}
 
+		if(a($_args, 'use_as_footer_link') === 'custom')
+		{
+			if(a($_args, 'responsive') && is_array($_args['responsive']))
+			{
+				foreach ($_args['responsive'] as $key => $value)
+				{
+					$_args['responsive'][$key]['url'] = \content_site\assemble\link::generate(a($value, 'link'), true);
+				}
+
+				\dash\data::currentFooterPwaBtn($_args['responsive']);
+			}
+		}
+
+
 		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args);
 	}
 }
