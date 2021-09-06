@@ -592,15 +592,15 @@ class url
 
 		if(!in_array($analyze_url['root'], $allow_upload_provider))
 		{
-			if(!preg_match("/\.(zip)$/", $analyze_url['path']))
-			{
-				if($_notif)
-				{
-					\dash\notif::error(T_("Only zip file is supported for this URL"), ['element' => $_element, 'code' => 1605]);
-					\dash\cleanse::$status = false;
-				}
-				return false;
-			}
+			// if(!preg_match("/\.(zip)$/", $analyze_url['path']))
+			// {
+			// 	if($_notif)
+			// 	{
+			// 		\dash\notif::error(T_("Only zip file is supported for this URL"), ['element' => $_element, 'code' => 1605]);
+			// 		\dash\cleanse::$status = false;
+			// 	}
+			// 	return false;
+			// }
 		}
 
 		return $data;
