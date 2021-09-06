@@ -549,6 +549,18 @@ class call_function
 						$preview_title = a($section_detail, 'title'). ' - '. a($load_model_option, 'title'). ' - ' . T_("Sample :val", ['val' => \dash\fit::number($int_function)]);
 					}
 
+					$premium = self::_call([$namespace_model, 'premium']);
+
+					$price = 0;
+
+					if($premium === true)
+					{
+						$folder = self::get_folder($_section_key);
+
+						$feature_key = implode('_', ['site', $folder, $_section_key, $model]);
+
+						$price = \lib\features\get::price($feature_key);
+					}
 
 					$version = (a($load_preview, 'version') ? $load_preview['version'] : 1);
 
@@ -561,6 +573,8 @@ class call_function
 						'preview_key'   => $preview_function,
 						'version'       => $version,
 						'opt_model'     => $model,
+						'price'         => $price,
+						'premium'       => $premium,
 						'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $model. '/'. $preview_function,
 						'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $model, $model. '-'. $preview_function, $version),
 					];

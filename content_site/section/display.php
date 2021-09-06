@@ -37,6 +37,22 @@ else
 			$html .= '<div class="text-sm font-medium text-gray-900 text-justify p-5">';
 			{
 				$html .= a($value, 'preview_title');
+
+				if(a($value, 'premium'))
+				{
+					$html .= '<span class="w-5 inline-block mr-5 ml-5">';
+					{
+						$html .= \dash\utility\icon::svg('Favorite');
+					}
+					$html .= '</span>';
+
+					if(a($value, 'price'))
+					{
+						$html .= \dash\fit::number($value['price']);
+						$html .= ' '. \lib\currency::unit();
+					}
+
+				}
 			}
 			$html .= '</div>';
 		}
