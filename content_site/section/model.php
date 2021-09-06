@@ -117,6 +117,7 @@ class model
 				{
 					if(is_array($v))
 					{
+						$trust_options_list[] = $k;
 						$trust_options_list = array_merge($trust_options_list, $v);
 					}
 					else
@@ -367,7 +368,6 @@ class model
 			$preview = $conflict;
 		}
 
-		// var_dump($preview);exit;
 
 		$preview           = json_encode($preview);
 
