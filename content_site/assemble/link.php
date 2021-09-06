@@ -5,7 +5,7 @@ namespace content_site\assemble;
 class link
 {
 
-	public static function generate($_link_detail)
+	public static function generate($_link_detail, $_only_link = false)
 	{
 		$related_id       = a($_link_detail, 'related_id');
 
@@ -106,6 +106,11 @@ class link
 		if($target_blank)
 		{
 			$result['target_blank_html'] = ' target="_blank"';
+		}
+
+		if($_only_link)
+		{
+			return $link;
 		}
 
 
