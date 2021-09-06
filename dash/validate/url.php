@@ -8,7 +8,7 @@ class url
 
 	public static function url($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = self::absolute_url($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$data = self::absolute_url($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 1000]);
 
 		if($data === false || $data === null)
 		{
@@ -563,7 +563,7 @@ class url
 
 	public static function external_url($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
-		$data = self::url($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 100]);
+		$data = self::url($_data, $_notif, $_element, $_field_title, ['min' => 3, 'max' => 1000]);
 
 		if($data === false || $data === null)
 		{
