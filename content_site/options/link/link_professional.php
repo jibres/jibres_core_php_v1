@@ -66,12 +66,14 @@ trait link_professional
 		}
 		else
 		{
-			$preview       = \dash\data::currentSectionDetail_preview();
-			$url           = a($preview, self::db_key(), 'url');
-			$pointer       = a($preview, self::db_key(), 'pointer');
-			$target        = a($preview, self::db_key(), 'target');
-			$related_id    = a($preview, self::db_key(), 'related_id');
-			$socialnetwork = a($preview, self::db_key(), 'socialnetwork');
+			$my_detail     = \content_site\section\view::get_current_index_detail();
+
+			$url           = a($my_detail, self::db_key(), 'url');
+			$pointer       = a($my_detail, self::db_key(), 'pointer');
+			$target        = a($my_detail, self::db_key(), 'target');
+			$related_id    = a($my_detail, self::db_key(), 'related_id');
+			$socialnetwork = a($my_detail, self::db_key(), 'socialnetwork');
+
 		}
 
 		$html = '';
