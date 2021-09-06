@@ -8,12 +8,12 @@ class footer2
   public static function html()
   {
     $footer = null;
-    if(\dash\layout\pwa\pwa_menu::get())
+    $load_footer = \dash\layout\pwa\pwa_menu::get();
+    if($load_footer)
     {
-
       $footer .= "<div class='pwa'>";
       $footer .= "<nav class='flex'>";
-      foreach (\dash\layout\pwa\pwa_menu::get() as $key => $item)
+      foreach ($load_footer as $key => $item)
       {
         $myClass = '';
         if(isset($item['class']) && $item['class'])
