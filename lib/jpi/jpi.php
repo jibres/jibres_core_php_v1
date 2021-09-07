@@ -42,7 +42,9 @@ class jpi
 		// set headers
 		$header   = [];
 		$header[] = 'Authorization: '. $apikey;
-		// $header[] = 'Content-Type: application/json';
+		$header[] = 'x-busisness: '. \lib\store::code();
+		$header[] = 'x-buser: '. \dash\user::code();
+		$header[] = 'x-juser: '. \dash\coding::encode(\dash\user::jibres_user());
 
 
 		if($_param && is_array($_param))
@@ -82,6 +84,7 @@ class jpi
 			'response'        => $response,
 			'response_decode' => json_decode($response, true),
 			'CurlError'       => $CurlError,
+			'Info'       => $getInfo,
 		];
 
 		// var_dump($log);exit;
