@@ -46,6 +46,12 @@ class jpi
 		$header[] = 'x-buser: '. \dash\user::code();
 		$header[] = 'x-juser: '. \dash\coding::encode(\dash\user::jibres_user());
 
+		if($_body)
+		{
+			$header[] = 'Accept: application/json';
+			$header[] = 'Content-Type: application/json';
+		}
+
 
 		if($_param && is_array($_param))
 		{
@@ -60,7 +66,7 @@ class jpi
 
 		if($_body && is_array($_body))
 		{
-			$_body = json_encode($_body, JSON_UNESCAPED_UNICODE);
+			$_body = json_encode($_body);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $_body);
 		}
 
@@ -87,7 +93,7 @@ class jpi
 			'Info'       => $getInfo,
 		];
 
-		// var_dump($log);exit;
+		var_dump($log);exit;
 		// \dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'arvan_cdn_api.log', 'arvand_api');
 
 		if(!$response)
@@ -132,8 +138,12 @@ class jpi
 	}
 
 
+	public static function features_pay($_args)
+	{
+		$result = self::run('features','post', null, $_args);
 
-
+		return $result;
+	}
 
 }
 ?>
