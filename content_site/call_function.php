@@ -337,6 +337,27 @@ class call_function
 
 
 	/**
+	 * Call model previe function
+	 *
+	 * @param      <type>  $_section_key  The section key
+	 * @param      <type>  $_model        The model
+	 * @param      <type>  $_preview_key  The preview key
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function section_model_premium($_section_key, $_model)
+	{
+		$namespace   = self::get_namespace($_section_key);
+
+		$namespace   = sprintf($namespace, $_model);
+
+		return self::_call([$namespace, 'premium']);
+	}
+
+
+
+
+	/**
 	 * Get current option by check model
 	 *
 	 * @return     array  ( description_of_the_return_value )
