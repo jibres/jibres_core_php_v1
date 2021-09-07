@@ -7,15 +7,27 @@ class model
 	public static function post()
 	{
 
-		$post = \dash\request::input_body();
-		print_r($post);exit;
-		// $result =
-		// [
-		// 	'budget'   => \dash\user::budget(),
-		// 	'currency' => \lib\currency::unit(),
-		// ];
+		$business_id   = \content_r10\tools::get_current_business_id();
+		$features      = \dash\request::input_body();
 
-		// \content_r10\tools::say($result);
+		$true_features = [];
+		foreach ($features as $key => $value)
+		{
+			if(substr($key, 0, 8) === 'feature_')
+			{
+				$true_features[] = $value;
+			}
+		}
+
+		$args =
+		[
+			'use_as_budget' => \dash\request::input_body('use_as_budget'),
+			'turn_back'     => \dash\request::input_body('turn_back'),
+		];
+
+		$result = \lib\features\pay::pay($business_id, $true_features, $args);
+
+		\content_r10\tools::say($result);
 	}
 }
 ?>

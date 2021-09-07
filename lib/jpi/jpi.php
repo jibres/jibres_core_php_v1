@@ -93,7 +93,7 @@ class jpi
 			'Info'       => $getInfo,
 		];
 
-		var_dump($log);exit;
+		// var_dump($log);exit;
 		// \dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'arvan_cdn_api.log', 'arvand_api');
 
 		if(!$response)

@@ -29,16 +29,25 @@ class model
 			return false;
 		}
 
-		$args = array_column($page_factor, 'feature_key');
+
+		$args                  = [];
+		$args['use_as_budget'] = 1;
+		$args['turn_back']     = \dash\url::path();
+
+		foreach ($page_factor as $key => $value)
+		{
+			$args['feature_'. $key] = a($value, 'feature_key');
+		}
 
 		$pay_url = \lib\jpi\features::pay($args);
 
-		if($pay_url)
+		if(isset($pay_url['result']['pay_link']))
 		{
-			\dash\redirect::to($pay_url);
+			\dash\redirect::to($pay_url['result']['pay_link']);
 			return;
 		}
 
+		// var_dump($pay_url);
 		var_dump($page_factor);exit;
 
 	}
