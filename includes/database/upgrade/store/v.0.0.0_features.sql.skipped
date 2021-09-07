@@ -1,4 +1,6 @@
-CREATE TABLE jibres_XXXXXXX.features (
+DROP TABLE IF EXISTS jibres_XXXXXXX.features;
+
+CREATE TABLE IF NOT EXISTS jibres_XXXXXXX.features (
 `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 `feature_key` varchar(150) NULL DEFAULT NULL,
 `token` varchar(200) NULL DEFAULT NULL,
