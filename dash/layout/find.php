@@ -256,15 +256,20 @@ class find
 		}
 
 		// add pwa footer
-		// if(\dash\layout\business::$new_sitebuilder)
+		if(\dash\engine\store::inBusinessWebsite())
 		{
 			$footerPWA = \dash\layout\pwa\footer2::html();
 			echo $footerPWA;
 		}
-		// else
-		// {
-		// 	require_once core.'layout/pwa/pwa-footer.php';
-		// }
+		else if(\dash\data::include_adminPanelBuilder())
+		{
+			$footerPWA = \dash\layout\pwa\footer2::html();
+			echo $footerPWA;
+		}
+		else
+		{
+			require_once core.'layout/pwa/pwa-footer.php';
+		}
 
 		echo "</footer>";
 	}
