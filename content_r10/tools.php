@@ -5,6 +5,7 @@ namespace content_r10;
 class tools
 {
 	public static $r10            = [];
+	private static $lock_on_store = [];
 
 	/**
 	 * this function route as first of every request on api
@@ -21,7 +22,7 @@ class tools
 		if(\dash\url::module() === 'jpi')
 		{
 			self::check_jpi_token();
-			return;
+			return false;
 
 		}
 
@@ -50,19 +51,19 @@ class tools
 		if(!is_string($Authorization))
 		{
 			self::stop(400, T_("Authorization is not string!"));
-			return;
+			return false;
 		}
 
 		if(!$Authorization)
 		{
 			self::stop(400, T_("Authorization not set"));
-			return;
+			return false;
 		}
 
 		if(mb_strlen($Authorization) > 100)
 		{
 			self::stop(400, T_("Authorization is too long!"));
-			return;
+			return false;
 		}
 
 
@@ -75,31 +76,47 @@ class tools
 		else
 		{
 			self::stop(403, T_("Invalid Authorization"));
-			return;
+			return false;
 		}
 
 		$jibres_user_code = \dash\header::get('HTTP_X_JUSER');
 		$business_user    = \dash\header::get('HTTP_X_BUSER');
 		$business         = \dash\header::get('HTTP_X_BUSISNESS');
 
+
+		// check jibres user code
 		if(!$jibres_user_code)
 		{
-			self::stop(403, T_("Jibres user code required"));
-			return;
+			self::stop(400, T_("Jibres user code required"));
+			return false;
 		}
 
 		if(!\dash\validate::code($jibres_user_code, false))
 		{
-			self::stop(403, T_("Invalid jibres user code"));
-			return;
+			self::stop(400, T_("Invalid jibres user code"));
+			return false;
 		}
 
 		$jibres_user = \dash\coding::decode($jibres_user_code);
 
 		if(!\dash\validate::id($jibres_user))
 		{
-			self::stop(403, T_("Invalid jibres user id"));
-			return;
+			self::stop(400, T_("Invalid jibres user id"));
+			return false;
+		}
+
+		if(!$business)
+		{
+			self::stop(400, T_("Business code is required"));
+			return false;
+		}
+
+		$business_id = \dash\store_coding::decode($business);
+
+		if(!$business_id)
+		{
+			self::stop(400, T_("Invalid business id"));
+			return false;
 		}
 
 		\dash\user::init($jibres_user, 'api_core');
@@ -107,9 +124,29 @@ class tools
 		if(!\dash\user::id())
 		{
 			self::stop(403, T_("User not found"));
-			return;
+			return false;
 		}
 
+
+		$load_store = \lib\app\store\get::by_id($business_id);
+		if(!$load_store)
+		{
+			self::stop(403, T_("Store not found"));
+			return false;
+		}
+
+		self::$lock_on_store = $load_store;
+	}
+
+
+	public static function get_current_business_id()
+	{
+		if(isset(self::$lock_on_store['id']))
+		{
+			return self::$lock_on_store['id'];
+		}
+
+		return false;
 	}
 
 
@@ -150,7 +187,7 @@ class tools
 
 		if(!$appkey)
 		{
-			return;
+			return false;
 		}
 
 		\dash\app\apilog::static_var('appkey', $appkey);
