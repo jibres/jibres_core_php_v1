@@ -29,6 +29,16 @@ class model
 			return false;
 		}
 
+		$args = array_column($page_factor, 'feature_key');
+
+		$pay_url = \lib\jpi\features::pay($args);
+
+		if($pay_url)
+		{
+			\dash\redirect::to($pay_url);
+			return;
+		}
+
 		var_dump($page_factor);exit;
 
 	}
