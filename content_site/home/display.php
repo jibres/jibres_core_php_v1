@@ -91,6 +91,6 @@ foreach (\dash\data::dataTable() as $key => $value)
 
   echo $html;
 
-\dash\utility\pagination::html();
 }
+\dash\utility\pagination::html();
 ?>
