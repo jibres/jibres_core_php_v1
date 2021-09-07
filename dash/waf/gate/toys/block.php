@@ -94,6 +94,12 @@ class block
 			return null;
 		}
 
+		// this cat not be tha tag!
+		if(is_int($_txt) || is_bool($_text) || is_float($_text) || is_numeric($_text))
+		{
+			return null;
+		}
+
 		$strippedText = strip_tags($_text);
 		if($_text !== $strippedText)
 		{
