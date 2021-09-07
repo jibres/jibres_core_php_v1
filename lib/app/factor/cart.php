@@ -404,7 +404,10 @@ class cart
 			}
 			else
 			{
+				\lib\app\factor\action::set('successful_payment', $factor_id);
+
 				// free price
+
 			}
 
 		}
