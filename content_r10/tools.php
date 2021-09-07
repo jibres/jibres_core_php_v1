@@ -78,6 +78,38 @@ class tools
 			return;
 		}
 
+		$jibres_user_code = \dash\header::get('HTTP_X_JUSER');
+		$business_user    = \dash\header::get('HTTP_X_BUSER');
+		$business         = \dash\header::get('HTTP_X_BUSISNESS');
+
+		if(!$jibres_user_code)
+		{
+			self::stop(403, T_("Jibres user code required"));
+			return;
+		}
+
+		if(!\dash\validate::code($jibres_user_code, false))
+		{
+			self::stop(403, T_("Invalid jibres user code"));
+			return;
+		}
+
+		$jibres_user = \dash\coding::decode($jibres_user_code);
+
+		if(!\dash\validate::id($jibres_user))
+		{
+			self::stop(403, T_("Invalid jibres user id"));
+			return;
+		}
+
+		\dash\user::init($jibres_user, 'api_core');
+
+		if(!\dash\user::id())
+		{
+			self::stop(403, T_("User not found"));
+			return;
+		}
+
 	}
 
 
