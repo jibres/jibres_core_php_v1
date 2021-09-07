@@ -89,7 +89,14 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::kingdom(). '/orders');
+			if(isset($saveorder['factor_id']))
+			{
+				\dash\redirect::to(\dash\url::kingdom(). '/orders/view?id='. $saveorder['factor_id']);
+			}
+			else
+			{
+				\dash\redirect::to(\dash\url::kingdom(). '/orders');
+			}
 		}
 		return;
 
