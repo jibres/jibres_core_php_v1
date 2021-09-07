@@ -18,6 +18,11 @@ class view extends \content_site\page\view
 		//factor detail
 		\dash\data::pageFactor(self::page_factor());
 
+		$my_jibres_budget = \lib\jpi\budget::me();
+
+		\dash\data::myBudget($my_jibres_budget);
+
+
 	}
 
 

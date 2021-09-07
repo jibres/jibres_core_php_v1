@@ -8,6 +8,8 @@ if(!is_array($page_factor))
 
 ?>
 
+<div class="btn-primary"><?php echo \dash\fit::number(\dash\data::myBudget_budget()); ?> <small><?php echo \dash\data::myBudget_currency() ?></small></div>
+
 <div class='flex flex-col'>
   <div class='-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
     <div class='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>
