@@ -9,7 +9,7 @@ class view
 
 		$result =
 		[
-			'budget'   => rand(),
+			'budget'   => \dash\user::budget(),
 			'currency' => \lib\currency::unit(),
 		];
 
