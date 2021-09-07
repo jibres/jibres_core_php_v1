@@ -160,6 +160,7 @@ class start
 			'currency'        => null,
 			'get_token'       => false,
 			'api_mode'        => false,
+			'pay_on_jibres'   => false,
 		];
 
 		if(!is_array($_args))
@@ -322,7 +323,17 @@ class start
 			return self::endCompile($_args);
 		}
 
-		$url = \dash\url::kingdom(). '/pay/'. $token;
+		if(isset($_args['pay_on_jibres']) && $_args['pay_on_jibres'])
+		{
+			$url = \dash\url::jibres_domain();
+		}
+		else
+		{
+			$url = \dash\url::kingdom(). '/';
+		}
+
+		$url .= 'pay/'. $token;
+
 
 		if($_args['bank'])
 		{
@@ -346,8 +357,6 @@ class start
 			{
 				if($_args['api_mode'])
 				{
-					$url = \dash\url::kingdom(). '/pay/'. $token;
-
 					$detail =
 					[
 						'token'          => $token,
