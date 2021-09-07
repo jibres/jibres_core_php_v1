@@ -17,7 +17,14 @@ class tools
 			return false;
 		}
 
-		self::check_appkey();
+		// check jpi module
+		if(\dash\url::module() === 'jpi')
+		{
+			self::check_jpi_token();
+			return;
+
+		}
+
 		self::check_accesstoken();
 
 		if(\dash\url::module() === 'domain')
@@ -27,6 +34,50 @@ class tools
 		}
 
 		\dash\temp::set('isApi', true);
+	}
+
+
+
+	/**
+	 * Load jibres token api key from header and check is valid
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function check_jpi_token()
+	{
+		$Authorization = \dash\header::get('HTTP_AUTHORIZATION');
+
+		if(!is_string($Authorization))
+		{
+			self::stop(400, T_("Authorization is not string!"));
+			return;
+		}
+
+		if(!$Authorization)
+		{
+			self::stop(400, T_("Authorization not set"));
+			return;
+		}
+
+		if(mb_strlen($Authorization) > 100)
+		{
+			self::stop(400, T_("Authorization is too long!"));
+			return;
+		}
+
+
+		$my_Authorization = \dash\setting\whisper::say('jibres_api', 'token');
+
+		if(\dash\utility::hasher($my_Authorization, $Authorization))
+		{
+			// ok
+		}
+		else
+		{
+			self::stop(403, T_("Invalid Authorization"));
+			return;
+		}
+
 	}
 
 
