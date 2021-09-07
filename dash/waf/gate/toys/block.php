@@ -95,7 +95,7 @@ class block
 		}
 
 		// this cat not be tha tag!
-		if(is_int($_txt) || is_bool($_text) || is_float($_text) || is_numeric($_text))
+		if(is_int($_txt) || is_bool($_text) || is_float($_text) || is_numeric($_text) || is_null($_text))
 		{
 			return null;
 		}
