@@ -14,5 +14,11 @@ class site_body_blog_b4
 		return T_("Description");
 	}
 
+
+	public static function title()
+	{
+		return T_("Title");
+	}
+
 }
 ?>
