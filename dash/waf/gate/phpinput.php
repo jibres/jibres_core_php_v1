@@ -34,19 +34,7 @@ class phpinput
 				}
 				else
 				{
-					if(is_array($value))
-					{
-						foreach ($value as $k => $v)
-						{
-							post::check_key($k);
-
-							post::check_value($v, $k);
-						}
-					}
-					else
-					{
-						post::check_value($value, $key);
-					}
+					post::check_value($value, $key);
 				}
 			}
 		}
