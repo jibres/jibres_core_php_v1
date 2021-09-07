@@ -47,6 +47,37 @@ class model
 			return false;
 		}
 
+		$all_section = \lib\db\sitebuilder\get::all_section($page_id);
+
+		if($all_section)
+		{
+			$need_pay = [];
+
+			foreach ($all_section as $key => $value)
+			{
+				$is_premium = \content_site\call_function::section_model_premium(a($value, 'section'), a($value, 'model'));
+
+				if($is_premium)
+				{
+					$payed_before = false;
+
+					if(!$payed_before)
+					{
+						$need_pay[] = $is_premium;
+					}
+				}
+			}
+
+			if(count($need_pay) >= 1)
+			{
+				$order_page = \dash\url::this(). '/factor?'. \dash\request::build_query(['id' => \dash\request::get('id')]);
+				\dash\redirect::to($order_page);
+				return;
+			}
+		}
+
+
+		// fully remove deleted section
 		$preview_deleted = \lib\db\sitebuilder\get::preview_deleted($page_id);
 
 		if($preview_deleted)
@@ -57,10 +88,13 @@ class model
 			}
 		}
 
+
+
+
+		// update all body detail by preview detail
 		\lib\db\sitebuilder\update::save_page($page_id);
 
-		$all_section = \lib\db\sitebuilder\get::all_section($page_id);
-
+		// update special detail
 		if($all_section)
 		{
 			foreach ($all_section as $key => $value)
