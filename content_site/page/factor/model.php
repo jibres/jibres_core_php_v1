@@ -19,7 +19,7 @@ class model
 	 *
 	 * @return     bool  ( description_of_the_return_value )
 	 */
-	private static function pay_page_factor()
+	public static function pay_page_factor($_from_auto_save = false)
 	{
 		$page_factor = view::page_factor();
 
@@ -32,7 +32,7 @@ class model
 
 		$args                  = [];
 		$args['use_as_budget'] = 1;
-		$args['turn_back']     = \dash\url::pwd();
+		$args['turn_back']     = \dash\url::current(). \dash\request::full_get(['auto' => 'save']);
 
 		foreach ($page_factor as $key => $value)
 		{
@@ -43,8 +43,15 @@ class model
 
 		if(isset($result['result']['pay_link']))
 		{
-			\dash\redirect::to($result['result']['pay_link']);
-			return;
+			if($_from_auto_save)
+			{
+				// not redirect
+			}
+			else
+			{
+				\dash\redirect::to($result['result']['pay_link']);
+				return;
+			}
 		}
 
 		if(isset($result['result']['features_enabled']) && $result['result']['features_enabled'])
@@ -56,8 +63,21 @@ class model
 		}
 		else
 		{
-			\dash\notif::error_once(T_("Unknown error"). ' ' . __LINE__);
-			return false;
+			if($_from_auto_save)
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\notif::error_once(T_("Unknown error"). ' ' . __LINE__);
+				return false;
+			}
+		}
+
+		if($_from_auto_save)
+		{
+			// remove auto save from url
+			\dash\redirect::to(\dash\url::current(). \dash\request::full_get(['auto' => null]));
 		}
 
 
