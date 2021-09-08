@@ -14,10 +14,23 @@ class tools
 	{
 		// set is api variable to check somewhere
 		\dash\temp::set('isApi', true);
+		$check_permission = true;
 
-		self::check_apikey();
+		if(\dash\url::module() === 'bpi')
+		{
+			self::check_bpi_token();
 
-		self::apikey_required();
+			$check_permission = false;
+
+		}
+		else
+		{
+
+			self::check_apikey();
+
+			self::apikey_required();
+
+		}
 
 		if(!\dash\url::store())
 		{
@@ -30,11 +43,14 @@ class tools
 			self::stop(404, T_("Store not found"));
 		}
 
-		// maybe some where have erro. but need fix other palce.
-		// this content need have any permission
-		if(!\dash\permission::has_permission())
+		if($check_permission)
 		{
-			\dash\permission::deny();
+			// maybe some where have erro. but need fix other palce.
+			// this content need have any permission
+			if(!\dash\permission::has_permission())
+			{
+				\dash\permission::deny();
+			}
 		}
 
 	}
@@ -62,6 +78,50 @@ class tools
 				self::stop(403, T_("Apikey not set"));
 			}
 		}
+	}
+
+
+
+	/**
+	 * Load jibres token api key from header and check is valid
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public static function check_bpi_token()
+	{
+		$Authorization = \dash\header::get('HTTP_AUTHORIZATION');
+
+		if(!is_string($Authorization))
+		{
+			self::stop(400, T_("Authorization is not string!"));
+			return false;
+		}
+
+		if(!$Authorization)
+		{
+			self::stop(400, T_("Authorization not set"));
+			return false;
+		}
+
+		if(mb_strlen($Authorization) > 100)
+		{
+			self::stop(400, T_("Authorization is too long!"));
+			return false;
+		}
+
+
+		$my_Authorization = \dash\setting\whisper::say('jibres_api', 'bpi_token');
+
+		if(\dash\utility::hasher($my_Authorization, $Authorization))
+		{
+			// ok
+		}
+		else
+		{
+			self::stop(403, T_("Invalid Authorization"));
+			return false;
+		}
+
 	}
 
 
