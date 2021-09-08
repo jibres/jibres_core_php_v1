@@ -11,5 +11,12 @@ class features
 		return $result;
 
 	}
+
+
+	public static function sync()
+	{
+		$result = jpi::features_sync();
+		return $result;
+	}
 }
 ?>

@@ -145,5 +145,14 @@ class jpi
 		return $result;
 	}
 
+	public static function features_sync()
+	{
+		$result = self::run('features/sync','get');
+
+		return $result;
+	}
+
+
+
 }
 ?>

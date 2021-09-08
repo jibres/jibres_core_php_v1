@@ -59,7 +59,9 @@ class model
 
 				if($is_premium)
 				{
-					$payed_before = false;
+					$feature_key = implode('_', ['site', a($value, 'folder'), a($value, 'section'), a($value, 'model')]);
+
+					$payed_before = \lib\features\check::payed($feature_key);
 
 					if(!$payed_before)
 					{
