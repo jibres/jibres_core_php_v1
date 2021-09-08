@@ -39,16 +39,27 @@ class model
 			$args['feature_'. $key] = a($value, 'feature_key');
 		}
 
-		$pay_url = \lib\jpi\features::pay($args);
+		$result = \lib\jpi\features::pay($args);
 
-		if(isset($pay_url['result']['pay_link']))
+		if(isset($result['result']['pay_link']))
 		{
-			\dash\redirect::to($pay_url['result']['pay_link']);
+			\dash\redirect::to($result['result']['pay_link']);
 			return;
 		}
 
-		// var_dump($pay_url);
-		var_dump($page_factor);exit;
+		if(isset($result['result']['features_enabled']) && $result['result']['features_enabled'])
+		{
+			\content_site\page\model::save_page();
+			$page_url = \dash\url::this(). '?'. \dash\request::build_query(['id' => \dash\request::get('id')]);
+			\dash\redirect::to($page_url);
+			return;
+		}
+		else
+		{
+			\dash\notif::error_once(T_("Unknown error"). ' ' . __LINE__);
+			return false;
+		}
+
 
 	}
 }
