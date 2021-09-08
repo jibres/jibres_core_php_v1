@@ -55,7 +55,7 @@ class post
 	 */
 	public static function check_value($value, $key = null, $_need_html = false)
 	{
-		\dash\waf\gate\toys\only::string($value);
+		\dash\waf\gate\toys\only::like_string($value);
 
 		\dash\waf\gate\toys\block::script($value);
 
