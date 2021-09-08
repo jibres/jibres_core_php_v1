@@ -12,6 +12,13 @@ class view
 
 		\content_site\view::fill_page_detail();
 
+
+		// auto check and save page after payment
+		if(\dash\request::get('auto') === 'save')
+		{
+			model::save_page();
+		}
+
 	}
 }
 ?>
