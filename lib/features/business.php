@@ -34,5 +34,12 @@ class business
 
 		return $new_list;
 	}
+
+
+	public static function sync_required()
+	{
+		\lib\app\setting\tools::update('features', 'sync_required', date("Y-m-d H:i:s"));
+		\lib\db\setting\delete::by_cat_key('features', 'synced');
+	}
 }
 ?>

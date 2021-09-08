@@ -80,6 +80,8 @@ class check
 
 			\lib\app\setting\tools::update('features', 'synced', 1);
 
+			\lib\db\setting\delete::by_cat_key('features', 'sync_required');
+
 			\lib\app\setting\get::reset_setting_cache('features');
 
 			$get_all_feature_setting = \lib\app\setting\get::features();

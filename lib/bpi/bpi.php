@@ -1,42 +1,34 @@
 <?php
-namespace lib\jpi;
+namespace lib\bpi;
 
 /**
- * Jibres API
- * This class describes a jpi.
+ * Business API
+ * This class describes a bpi.
  */
-class jpi
+class bpi
 {
 
-	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])
+	private static function run($_business_id, $_path, $_method, $_param = null, $_body = null, $_option = [])
 	{
-		if(!\dash\user::login())
-		{
-			return false;
-		}
+		// if(!\dash\user::login())
+		// {
+		// 	return false;
+		// }
 
-		if(!\dash\engine\store::inStore())
-		{
-			\dash\notif::error_once(T_("This method works only in business mode"));
-			return false;
-		}
+		// if(\dash\engine\store::inStore())
+		// {
+		// 	\dash\notif::error_once(T_("This method works only in jibres mode"));
+		// 	return false;
+		// }
 
-		$jibres_user_id = \dash\user::detail('jibres_user_id');
-
-		if(!$jibres_user_id)
-		{
-			\dash\notif::error_once(T_("Please login to continue"));
-			return false;
-		}
-
-
-		$apikey = \dash\setting\whisper::say('jibres_api', 'token');
+		$apikey = \dash\setting\whisper::say('jibres_api', 'bpi_token');
 
 		$apikey = \dash\utility::hasher($apikey);
 
-		$url = \dash\url::jibres_subdomain('core');
-		$url .= \dash\language::current(). '/';
-		$url .= 'r10/jpi/';
+		$url = \dash\url::jibres_subdomain('business');
+		// $url .= \dash\language::current(). '/';
+		$url .= \dash\store_coding::encode($_business_id). '/';
+		$url .= 'b1/bpi/';
 		$url .= $_path;
 
 		// set headers
@@ -95,6 +87,8 @@ class jpi
 
 		// \dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'arvan_cdn_api.log', 'arvand_api');
 
+		// var_dump($log);exit;
+
 		if(!$response)
 		{
 			if($CurlError)
@@ -118,10 +112,8 @@ class jpi
 			{
 				var_dump($log);exit;
 			}
-			else
-			{
-				\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jpi.log', 'arvand_api');
-			}
+
+			\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'bpi.log', 'arvand_api');
 
 			\dash\notif::error('Jibres: Can not parse JSON!');
 			return false;
@@ -131,32 +123,9 @@ class jpi
 
 	}
 
-
-
-	public static function budget()
+	public static function sync_required($_business_id)
 	{
-		$result = self::run('budget','get');
-
-		if(isset($result['result']))
-		{
-			return $result['result'];
-		}
-
-		return false;
-	}
-
-
-	public static function features_pay($_args)
-	{
-		$result = self::run('features','post', null, $_args);
-
-		return $result;
-	}
-
-	public static function features_sync()
-	{
-		$result = self::run('features/sync','get');
-
+		$result = self::run($_business_id, 'features','post', null, ['sync_required' => 'yes']);
 		return $result;
 	}
 
