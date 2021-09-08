@@ -93,7 +93,6 @@ class jpi
 			'Info'       => $getInfo,
 		];
 
-		// var_dump($log);exit;
 		// \dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'arvan_cdn_api.log', 'arvand_api');
 
 		if(!$response)
@@ -115,6 +114,7 @@ class jpi
 
 		if(!is_array($result))
 		{
+			var_dump($log);exit;
 			\dash\notif::error('Jibres: Can not parse JSON!');
 			return false;
 		}
