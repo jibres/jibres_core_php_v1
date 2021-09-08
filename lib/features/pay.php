@@ -134,7 +134,7 @@ class pay
 			$turn_back = \dash\url::kingdom();
 			if(isset($_args['turn_back']) && is_string($_args['turn_back']))
 			{
-				$turn_back .= $_args['turn_back'];
+				$turn_back = $_args['turn_back'];
 			}
 
 			$temp_args                = [];

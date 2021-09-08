@@ -32,7 +32,7 @@ class model
 
 		$args                  = [];
 		$args['use_as_budget'] = 1;
-		$args['turn_back']     = \dash\url::path();
+		$args['turn_back']     = \dash\url::pwd();
 
 		foreach ($page_factor as $key => $value)
 		{
