@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\staticfile;
+namespace content_site\staticfile;
 
 
 class model

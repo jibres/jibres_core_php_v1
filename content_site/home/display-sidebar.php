@@ -5,7 +5,7 @@ $html .= '<nav class="sections items">';
 {
   $html .= '<ul>';
   {
-    $staticfile = \lib\store::admin_url(). '/a/setting/staticfile';
+    $staticfile = \dash\url::here(). '/staticfile';
 
     $html .= '<li>';
     {
