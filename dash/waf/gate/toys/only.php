@@ -97,6 +97,16 @@ class only
 	}
 
 
+	public static function like_string($_string)
+	{
+		if(!is_numeric($_string) && !is_string($_string) && !is_null($_string) && !is_int($_string) && !is_float($_string) && !is_bool($_string))
+		{
+			\dash\waf\dog::BITE('only S/N/I/F/B', 428);
+		}
+	}
+
+
+
 	public static function string($_string)
 	{
 		if(!is_numeric($_string) && !is_string($_string))
