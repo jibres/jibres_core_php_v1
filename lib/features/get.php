@@ -17,6 +17,14 @@ class get
 	}
 
 
+	public static function title($_feature)
+	{
+		$title = \lib\features\call_function::title($_feature);
+
+		return $title;
+	}
+
+
 	public static function detail($_feature)
 	{
 		$price = \lib\features\call_function::price($_feature);
