@@ -186,7 +186,81 @@ class pay
 
 	public static function after_pay($_args)
 	{
-		var_dump($_args);exit;
+		if(isset($_args['features']) && is_array($_args['features']))
+		{
+			// ok
+		}
+		else
+		{
+			\dash\log::oops('featuresIsNotArray');
+			return false;
+		}
+
+		if(a($_args, 'user_id') && a($_args, 'business_id'))
+		{
+			// ok
+		}
+		else
+		{
+			\dash\log::oops('featuresUserIdOrBusinessIdNotSet');
+			return false;
+		}
+
+		$user_id     = $_args['user_id'];
+		$business_id = $_args['business_id'];
+		$features    = $_args['features'];
+
+
+		\dash\pdo::transaction();
+
+		$business_features_list = \lib\db\store_features\get::by_business_id_lock($business_id);
+
+		foreach ($business_features_list as $business_feature)
+		{
+			$saved_feature_key = a($business_feature, 'feature_key');
+			$saved_status      = a($business_feature, 'status');
+
+			if(in_array($saved_feature_key, $features))
+			{
+				if($saved_status === 'enable')
+				{
+					// the user pay this feature before
+				}
+				else
+				{
+					$price  = floatval(get::price($saved_feature_key));
+
+					\dash\db::transaction();
+					// check budget
+					$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
+
+					if($user_budget > $price)
+					{
+						$insert_transaction =
+						[
+							'user_id' => $user_id,
+							'title'   => T_("Buy features :val", ['val' => get::title($saved_feature_key)]),
+							'amount'  => $price,
+						];
+
+						$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
+
+						\dash\pdo\query_template::update('store_features', ['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($business_feature, 'id'));
+
+						\dash\db::commit();
+					}
+					else
+					{
+						\dash\db::rollback();
+					}
+				}
+			}
+		}
+
+		\dash\pdo::commit();
+
+		// send request to api.busisness.jibres to alert him the feature is payed
+
 	}
 }
 ?>
