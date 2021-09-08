@@ -9,7 +9,10 @@ class general
 	{
 		if(!is_string($_text) && !is_numeric($_text))
 		{
-			\dash\waf\dog::BITE('only T/N on len', 416);
+			// needless to check len
+			// maybe bool, null, int, float
+			// \dash\waf\dog::BITE('only T/N on len', 416);
+			return;
 		}
 
 		// convert numeric to string
@@ -34,7 +37,10 @@ class general
 	{
 		if(!is_string($_text) && !is_numeric($_text))
 		{
-			\dash\waf\dog::BITE('only T/N on len', 416);
+			// needless to check len
+			// maybe bool, null, int, float
+			// \dash\waf\dog::BITE('only T/N on len', 416);
+			return;
 		}
 
 		// convert numeric to string
