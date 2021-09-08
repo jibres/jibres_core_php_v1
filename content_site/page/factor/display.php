@@ -55,7 +55,16 @@ if(!is_array($page_factor))
           </tbody>
         </table>
 
-        <button data-ajaxify data-data='{"pay": "pay"}' class="btn-danger lg ">Pay</button>
+        <form method="post">
+          <input type="hidden" name="pay" value="pay">
+          <label class="toggle2">
+          <span>Use as budget</span>
+          <input type="checkbox" name="use_as_budget">
+          </label>
+
+          <button  class="btn-danger lg ">Pay</button>
+        </form>
+
       </div>
     </div>
   </div>

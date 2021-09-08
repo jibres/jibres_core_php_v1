@@ -109,7 +109,8 @@ class pay
 		}
 
 
-
+		// 		$user_budget = \dash\user::budget();
+		// var_dump($_args, $pay_price, $user_budget);exit;
 		if($pay_price)
 		{
 			// check use ad budget
@@ -122,25 +123,29 @@ class pay
 				{
 					$pay_price = $remain_amount;
 				}
+				else
+				{
+					$pay_price = 0;
+				}
 			}
 		}
 
 		$result = [];
 
+		$turn_back = \dash\url::kingdom();
+		if(isset($_args['turn_back']) && is_string($_args['turn_back']))
+		{
+			$turn_back = $_args['turn_back'];
+		}
+
+		$temp_args                = [];
+		$temp_args['features']    = $calculate_price;
+		$temp_args['user_id']     = $user_id;
+		$temp_args['business_id'] = $_business_id;
+
 		if($pay_price > 0)
 		{
 			// generate pay link
-
-			$turn_back = \dash\url::kingdom();
-			if(isset($_args['turn_back']) && is_string($_args['turn_back']))
-			{
-				$turn_back = $_args['turn_back'];
-			}
-
-			$temp_args                = [];
-			$temp_args['features']    = $calculate_price;
-			$temp_args['user_id']     = $user_id;
-			$temp_args['business_id'] = $_business_id;
 
 			// go to bank
 			$meta =
@@ -174,6 +179,8 @@ class pay
 		}
 		else
 		{
+			self::after_pay($temp_args);
+
 			$result['features_enabled'] = true;
 			// ok need less to pay anything
 		}

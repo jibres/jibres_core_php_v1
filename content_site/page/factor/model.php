@@ -19,7 +19,7 @@ class model
 	 *
 	 * @return     bool  ( description_of_the_return_value )
 	 */
-	public static function pay_page_factor($_from_auto_save = false)
+	public static function pay_page_factor()
 	{
 		$page_factor = view::page_factor();
 
@@ -31,8 +31,8 @@ class model
 
 
 		$args                  = [];
-		$args['use_as_budget'] = 1;
-		$args['turn_back']     = \dash\url::current(). \dash\request::full_get(['auto' => 'save']);
+		$args['use_as_budget'] = \dash\request::post('use_as_budget');
+		$args['turn_back']     = \dash\url::this(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'auto' => 'save']);
 
 		foreach ($page_factor as $key => $value)
 		{
@@ -41,17 +41,11 @@ class model
 
 		$result = \lib\jpi\features::pay($args);
 
+
 		if(isset($result['result']['pay_link']))
 		{
-			if($_from_auto_save)
-			{
-				// not redirect
-			}
-			else
-			{
-				\dash\redirect::to($result['result']['pay_link']);
-				return;
-			}
+			\dash\redirect::to($result['result']['pay_link']);
+			return;
 		}
 
 		if(isset($result['result']['features_enabled']) && $result['result']['features_enabled'])
@@ -63,23 +57,9 @@ class model
 		}
 		else
 		{
-			if($_from_auto_save)
-			{
-				// nothing
-			}
-			else
-			{
-				\dash\notif::error_once(T_("Unknown error"). ' ' . __LINE__);
-				return false;
-			}
+			\dash\notif::error_once(T_("Unknown error"). ' ' . __LINE__);
+			return false;
 		}
-
-		if($_from_auto_save)
-		{
-			// remove auto save from url
-			\dash\redirect::to(\dash\url::current(). \dash\request::full_get(['auto' => null]));
-		}
-
 
 	}
 }

@@ -8,11 +8,6 @@ class view extends \content_site\page\view
 	{
 		parent::config();
 
-		// auto check and save page after payment
-		if(\dash\request::get('auto') === 'save')
-		{
-			model::pay_page_factor(true);
-		}
 
 		\dash\data::include_adminPanelBuilder(true);
 
