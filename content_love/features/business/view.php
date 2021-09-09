@@ -24,8 +24,10 @@ class view
 			'order'    => \dash\request::get('order'),
 			'sort'     => \dash\request::get('sort'),
 			'user'     => \dash\request::get('user'),
-			// 'status' => \dash\request::get('status'),
-			// 'dblsub' => \dash\request::get('dblsub'),
+			'fstatus' => \dash\request::get('fstatus'),
+			'feature_key' => \dash\request::get('feature_key'),
+			'business_id' => \dash\request::get('business_id'),
+
 		];
 
 

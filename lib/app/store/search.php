@@ -24,10 +24,13 @@ class search
 	{
 		$condition =
 		[
-			'order'    => 'order',
-			'sort'     => ['enum' => ['name','id']],
-			'user'     => 'code',
-			'features' => 'bit',
+			'order'       => 'order',
+			'sort'        => ['enum' => ['name','id']],
+			'user'        => 'code',
+			'features'    => 'bit',
+			'fstatus'     => 'string_100',
+			'feature_key' => 'string_100',
+			'business_id' => 'id',
 		];
 
 		$require = [];
@@ -74,7 +77,27 @@ class search
 		{
 			$meta['fields'] = "store.*, store_features.*, store.status AS `store_status`, store_data.*, store.id AS `id`";
 			$meta['join'][] = " INNER JOIN store_features ON store_features.store_id = store.id ";
+
+			if($data['business_id'])
+			{
+				$and[] = "store_features.store_id = $data[business_id] ";
+			}
+
+			if($data['fstatus'])
+			{
+				$and[] = "store_features.status = '$data[fstatus]' ";
+			}
+
+
+			if($data['feature_key'])
+			{
+				$and[] = "store_features.feature_key = '$data[feature_key]' ";
+			}
+
+
+
 		}
+
 
 		if($query_string)
 		{
