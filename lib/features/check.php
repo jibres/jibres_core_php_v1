@@ -21,7 +21,19 @@ class check
 
 		if(isset($get_all_feature_setting['synced']) && $get_all_feature_setting['synced'])
 		{
-			// ok
+			$synced = $get_all_feature_setting['synced'];
+
+			if(($sync_time = strtotime($synced)) !== false)
+			{
+				if(time() - $sync_time > (60*60*24))
+				{
+					$sync_required = true;
+				}
+			}
+			else
+			{
+				$sync_required = true;
+			}
 		}
 		else
 		{
@@ -30,7 +42,14 @@ class check
 
 		if(isset($get_all_feature_setting['sync_required']) && $get_all_feature_setting['sync_required'])
 		{
-			$sync_required = true;
+			if($get_all_feature_setting['sync_required'] === 'no')
+			{
+				// needless to sync
+			}
+			else
+			{
+				$sync_required = true;
+			}
 		}
 
 
@@ -38,18 +57,18 @@ class check
 		if($sync_required)
 		{
 			// sync features by jibres
-			$list = \lib\jpi\jpi::features_sync();
+			$result = \lib\jpi\jpi::features_sync();
 
 			$features_list = [];
 
-			if(isset($list['result']) && is_array($list['result']))
+			if(isset($result['result']) && is_array($result['result']))
 			{
-				$features_list = $list['result'];
+				$features_list = $result['result'];
 			}
 			else
 			{
-				// var_dump($list);exit;
-				if(isset($list['ok']) && $list['ok'])
+				// var_dump($result);exit;
+				if(isset($result['ok']) && $result['ok'])
 				{
 					// ok
 				}
@@ -61,26 +80,70 @@ class check
 				}
 			}
 
-			\lib\db\setting\delete::by_cat('features');
+			$added_features = [];
 
-			foreach ($features_list as $key => $value)
+
+			$new_features_key = array_column($features_list, 'feature_key');
+
+			$current_features_raw = \lib\db\setting\get::by_cat('features');
+
+			$current_features = [];
+
+			foreach ($current_features_raw as $key => $value)
 			{
-				if(a($value, 'feature_key'))
+				if(in_array(a($value, 'key'), ['synced', 'sync_required']))
 				{
-					$myValue = a($value, 'status');
+					continue;
+				}
 
-					if(a($value, 'expiredate'))
+				$current_features[] = $value;
+			}
+
+			if(empty($current_features))
+			{
+				foreach ($features_list as $key => $value)
+				{
+					if(a($value, 'feature_key'))
 					{
-						$myValue = $value['expiredate'];
+						self::added_feature_to_setting($value);
 					}
+				}
+			}
+			else
+			{
+				foreach ($current_features as $key => $value)
+				{
+					if(in_array(a($value, 'key'), $new_features_key))
+					{
+						foreach ($features_list as $feature_detail)
+						{
+							if(a($value, 'key') === a($feature_detail, 'feature_key'))
+							{
+								$added_features[] = $feature_detail['feature_key'];
 
-					\lib\app\setting\tools::update('features', $value['feature_key'], $myValue);
+								self::added_feature_to_setting($feature_detail);
+
+							}
+						}
+					}
+					else
+					{
+						\lib\db\setting\delete::by_cat_key('features', a($value, 'key'));
+					}
 				}
 			}
 
-			\lib\app\setting\tools::update('features', 'synced', 1);
+			foreach ($features_list as $feature_detail)
+			{
+				if(!in_array(a($feature_detail, 'feature_key'), $added_features))
+				{
+					self::added_feature_to_setting($feature_detail);
+				}
+			}
 
-			\lib\db\setting\delete::by_cat_key('features', 'sync_required');
+			\lib\app\setting\tools::update('features', 'synced', date("Y-m-d H:i:s"));
+
+			\lib\app\setting\tools::update('features', 'sync_required', 'no');
 
 			\lib\app\setting\get::reset_setting_cache('features');
 
@@ -88,6 +151,19 @@ class check
 		}
 
 		self::$business_feature_list = $get_all_feature_setting;
+	}
+
+
+	private static function added_feature_to_setting($_data)
+	{
+		$myValue = a($_data, 'status');
+
+		if(a($_data, 'expiredate'))
+		{
+			$myValue = $_data['expiredate'];
+		}
+
+		\lib\app\setting\tools::update('features', $_data['feature_key'], $myValue);
 	}
 
 

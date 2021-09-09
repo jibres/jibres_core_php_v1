@@ -16,9 +16,9 @@ class get
 	}
 
 
-	public static function by_business_id($_business_id)
+	public static function active_by_business_id($_business_id)
 	{
-		$query = "SELECT * FROM store_features WHERE store_features.store_id = :id";
+		$query = "SELECT * FROM store_features WHERE store_features.store_id = :id AND store_features.status = 'enable' ";
 		$param = [':id' => $_business_id];
 
 		$result = \dash\pdo::get($query, $param);
