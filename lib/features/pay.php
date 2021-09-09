@@ -155,7 +155,7 @@ class pay
 			$meta =
 			[
 				'pay_on_jibres' => true,
-				'msg_go'        => T_("Buy Jibres features"),
+				'msg_go'        => T_("Unlock Jibres features"),
 				'auto_go'       => false,
 				'auto_back'     => true,
 				'final_msg'     => false,
@@ -252,7 +252,7 @@ class pay
 						$insert_transaction =
 						[
 							'user_id' => $user_id,
-							'title'   => T_("Buy features :val", ['val' => get::title($saved_feature_key)]),
+							'title'   => T_("Unlock feature :val", ['val' => get::title($saved_feature_key)]),
 							'amount'  => $price,
 						];
 

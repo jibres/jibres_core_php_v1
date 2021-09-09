@@ -13,7 +13,7 @@ class business_features
 
 		$result              = [];
 
-		$result['title']     = T_("New feature payed");
+		$result['title']     = T_("New features unlocked");
 
 		$result['icon']      = 'money-banknote';
 		$result['cat']       = T_("Features");
