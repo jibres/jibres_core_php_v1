@@ -1,7 +1,10 @@
 <?php
 namespace lib\features;
 
-
+/**
+ * This class describes a pay.
+ * This class call from api
+ */
 class pay
 {
 	public static function pay($_business_id, $_features, $_args = [])

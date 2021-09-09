@@ -1,7 +1,10 @@
 <?php
 namespace lib\features;
 
-
+/**
+ * This class describes a business.
+ * This class call from api r10
+ */
 class business
 {
 	public static function list($_business_id)
