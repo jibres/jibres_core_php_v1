@@ -8,14 +8,30 @@ if(!is_array($all_features))
 
 ?>
 
-<?php foreach ($all_features as $key => $value) {?>
-	<div class="box">
-		<div class="pad">
-			<div class="f">
-				<div class="c"><?php echo a($value, 'title') ?></div>
-				<div class="c"><?php echo a($value, 'description') ?></div>
-				<div class="c"><?php echo \dash\fit::number(a($value, 'price')) ?></div>
-			</div>
-		</div>
-	</div>
-<?php } //endfor ?>
+<div class="tblBox font-14">
+	<table class="tbl1 v1">
+		<thead>
+			<tr>
+				<th><?php echo T_("Code") ?></th>
+				<th><?php echo T_("Title") ?></th>
+				<th><?php echo T_("Price") ?></th>
+				<th><?php echo T_("Count use") ?></th>
+				<th class="collapsing"><?php echo T_("List") ?></th>
+			</tr>
+		</thead>
+		<tbody>
+
+		<?php foreach ($all_features as $key => $value) {?>
+			<tr>
+				<td><code><?php echo a($value, 'feature_key') ?></code></td>
+				<td><?php echo a($value, 'title') ?></td>
+				<td><?php echo \dash\fit::price(a($value, 'price')) ?></td>
+				<td><?php echo a($value, 'count_use') ?></td>
+				<td class="collapsing"><a href="#" class="btn info outline"><?php echo T_("Business") ?></a></td>
+
+			</tr>
+		<?php } //endfor ?>
+
+		</tbody>
+	</table>
+</div>

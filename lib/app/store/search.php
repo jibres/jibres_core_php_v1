@@ -24,9 +24,10 @@ class search
 	{
 		$condition =
 		[
-			'order' => 'order',
-			'sort'  => ['enum' => ['name','id']],
-			'user'  => 'code',
+			'order'    => 'order',
+			'sort'     => ['enum' => ['name','id']],
+			'user'     => 'code',
+			'features' => 'bit',
 		];
 
 		$require = [];
@@ -60,6 +61,20 @@ class search
 		$query_string = \dash\validate::search($_query_string, false);
 
 		$meta['join'][] = " LEFT JOIN store_data ON store_data.id = store.id ";
+
+		$meta['fields'] =
+		"
+			store.*,
+			store.status AS `store_status`,
+			store_data.*,
+			store.id AS `id`
+		";
+
+		if($data['features'])
+		{
+			$meta['fields'] = "store.*, store_features.*, store.status AS `store_status`, store_data.*, store.id AS `id`";
+			$meta['join'][] = " INNER JOIN store_features ON store_features.store_id = store.id ";
+		}
 
 		if($query_string)
 		{

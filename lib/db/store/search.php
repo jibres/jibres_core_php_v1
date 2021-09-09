@@ -18,10 +18,7 @@ class search
 		$query =
 		"
 			SELECT
-				store.*,
-				store.status AS `store_status`,
-				store_data.*,
-				store.id AS `id`
+				$q[fields]
 			FROM
 				store
 				$q[join]
