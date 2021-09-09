@@ -257,6 +257,16 @@ class pay
 
 						\dash\pdo\query_template::update('store_features', ['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($business_feature, 'id'));
 
+
+						// send notif to supervisor
+						$log =
+						[
+							'my_feature_key' => $saved_feature_key,
+							'my_business_id' => $business_id,
+							'my_user_id'     => $user_id,
+						];
+						\dash\log::set('business_features', $log);
+
 						\dash\db::commit();
 					}
 					else
