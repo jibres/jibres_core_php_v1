@@ -38,7 +38,7 @@ class check
 		if($sync_required)
 		{
 			// sync features by jibres
-			$list = \lib\jpi\features::sync();
+			$list = \lib\jpi\jpi::features_sync();
 
 			$features_list = [];
 

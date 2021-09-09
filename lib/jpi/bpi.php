@@ -1,5 +1,5 @@
 <?php
-namespace lib\bpi;
+namespace lib\jpi;
 
 /**
  * Business API

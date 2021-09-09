@@ -268,7 +268,7 @@ class pay
 
 		// send request to api.busisness.jibres to alert him the feature is payed
 
-		\lib\bpi\bpi::sync_required($business_id);
+		\lib\jpi\bpi::sync_required($business_id);
 
 	}
 }

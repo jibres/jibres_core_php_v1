@@ -39,7 +39,7 @@ class model
 			$args['feature_'. $key] = a($value, 'feature_key');
 		}
 
-		$result = \lib\jpi\features::pay($args);
+		$result = \lib\jpi\jpi::features_pay($args);
 
 
 		if(isset($result['result']['pay_link']))
