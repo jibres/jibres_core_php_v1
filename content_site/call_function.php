@@ -362,17 +362,47 @@ class call_function
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	public static function section_options($_section_key, $_model)
+	public static function section_options($_section_key, $_model, $_merge_array = false)
 	{
 		$namespace   = self::get_namespace($_section_key);
 
 		$namespace   = sprintf($namespace, $_model);
 
-		return self::_call([$namespace, 'option']);
+		$options = self::_call([$namespace, 'option']);
 
-		return null;
+		if(!$_merge_array)
+		{
+			return $options;
+		}
+
+		if(isset($options['options']) && is_array($options['options']))
+		{
+			$options = self::merge_array_keys($options['options']);
+		}
+
+		return $options;
 	}
 
+	private static function merge_array_keys($_array)
+	{
+		$array = [];
+
+		foreach ($_array as $key => $value)
+		{
+
+			if(is_array($value))
+			{
+				$array[] = $key;
+				$array = array_merge($array, self::merge_array_keys($value));
+			}
+			else
+			{
+				$array[] = $value;
+			}
+		}
+
+		return $array;
+	}
 
 
 
