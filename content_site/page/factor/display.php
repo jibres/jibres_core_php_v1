@@ -44,7 +44,7 @@ if(!is_array($page_factor))
                 <div class='text-sm text-gray-500'><?php echo \lib\currency::unit() ?></div>
               </td>
               <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
-                Not payed
+                <?php if(a($value, 'payed_before')) {echo 'payed';}else{echo 'not payed';} ?>
               </td>
               <td class='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
                 <a href='#' class='text-indigo-600 hover:text-indigo-900'>Remove</a>

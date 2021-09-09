@@ -62,6 +62,10 @@ class view extends \content_site\page\view
 
 					$feature_detail = \lib\features\get::detail($feature_key);
 
+					$payed_before = \lib\features\check::payed($feature_key);
+
+					$feature_detail['payed_before'] = $payed_before;
+
 					$page_factor[] = $feature_detail;
 				}
 			}
