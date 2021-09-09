@@ -12,6 +12,7 @@
         <th><?php echo T_("Datecreated") ?></th>
         <th><?php echo T_("Expire date") ?></th>
         <th><?php echo T_("Date modified") ?></th>
+        <th class="collapsing"></th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +25,7 @@
           <td><?php if(a($value, 'datecreated')) {echo \dash\fit::date_time(a($value, 'datecreated'));}else{echo '-';}  ?></td>
           <td><?php if(a($value, 'expiredate')) {echo \dash\fit::date_time(a($value, 'expiredate'));}else{echo '-';}  ?></td>
           <td><?php if(a($value, 'datemodified')) {echo \dash\fit::date_time(a($value, 'datemodified'));}else{echo '-';}  ?></td>
+          <td class="collapsing"><?php if(a($value, 'status') === 'enable') {?><div data-confirm data-data='{"remove": "feature", "feature_key": "<?php echo a($value, 'feature_key') ?>"}'><i class="sf-trash fc-red"></i></div><?php } //endif ?></td>
         </tr>
       <?php } //endfor ?>
     </tbody>
