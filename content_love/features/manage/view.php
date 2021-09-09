@@ -17,6 +17,12 @@ class view
 		\dash\data::featuresList($features_list);
 
 
+
+		$all_features = \lib\features\get::all_list();
+
+		\dash\data::allFeatures($all_features);
+
+
 	}
 }
 ?>

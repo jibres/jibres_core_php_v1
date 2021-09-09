@@ -36,5 +36,19 @@ class get
 
 		return $result;
 	}
+
+
+
+	public static function by_business_id_feature($_business_id, $_feature)
+	{
+		$query = "SELECT * FROM store_features WHERE store_features.store_id = :id AND store_features.feature_key = :feature_key LIMIT 1";
+		$param = [':id' => $_business_id, ':feature_key' => $_feature];
+
+		$result = \dash\pdo::get($query, $param, null, true);
+
+		return $result;
+	}
+
+
 }
 ?>

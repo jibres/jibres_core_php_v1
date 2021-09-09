@@ -1,4 +1,6 @@
 <?php $dataRow = \dash\data::dataRow(); ?>
+<div class="avand">
+
 <div class="tblBox font-14">
   <table class="tbl1 v4">
     <thead>
@@ -26,4 +28,29 @@
       <?php } //endfor ?>
     </tbody>
   </table>
+</div>
+
+
+
+  <form method="post" autocomplete="off">
+    <input type="hidden" name="addfeatures" value="1">
+    <div class="box">
+      <div class="body">
+        <label for="features"><?php echo T_("Add new feature to this business") ?></label>
+        <div>
+          <select class="select22" name="features" id="features">
+            <?php foreach (\dash\data::allFeatures() as $key => $value) { ?>
+
+              <option value="<?php echo a($value, 'feature_key') ?>" ><?php echo a($value, 'title') ?></option>
+            <?php } //endif ?>
+          </select>
+        </div>
+      </div>
+      <footer class="txtRa">
+        <button class="btn master"><?php echo T_("Add") ?></button>
+      </footer>
+    </div>
+  </form>
+
+
 </div>
