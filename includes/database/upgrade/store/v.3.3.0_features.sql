@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS jibres_XXXXXXX.features;
