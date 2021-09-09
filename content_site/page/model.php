@@ -51,26 +51,7 @@ class model
 
 		if($all_section)
 		{
-			$need_pay = [];
-
-			foreach ($all_section as $key => $value)
-			{
-				$is_premium = \content_site\call_function::section_model_premium(a($value, 'section'), a($value, 'model'));
-
-				if($is_premium)
-				{
-					$feature_key = implode('_', ['site', a($value, 'folder'), a($value, 'section'), a($value, 'model')]);
-
-					$payed_before = \lib\features\check::payed($feature_key);
-
-					if(!$payed_before)
-					{
-						$need_pay[] = $is_premium;
-					}
-				}
-			}
-
-			if(count($need_pay) >= 1)
+			if(self::need_pay($all_section))
 			{
 				$order_page = \dash\url::this(). '/factor?'. \dash\request::build_query(['id' => \dash\request::get('id')]);
 				\dash\redirect::to($order_page);
@@ -106,6 +87,82 @@ class model
 		}
 	}
 
+
+
+	public static function need_pay($_all_section, $_return_factor = false)
+	{
+		if(!$_all_section || !is_array($_all_section))
+		{
+			$_all_section = [];
+		}
+
+		$need_pay    = [];
+		$page_factor = [];
+
+		foreach ($_all_section as $key => $value)
+		{
+			$is_premium = \content_site\call_function::section_model_premium(a($value, 'section'), a($value, 'model'));
+
+			if($is_premium)
+			{
+				$feature_key                    = implode('_', ['site', a($value, 'folder'), a($value, 'section'), a($value, 'model')]);
+
+				$payed_before                   = \lib\features\check::payed($feature_key);
+
+				$feature_detail                 = \lib\features\get::detail($feature_key);
+
+				$feature_detail['payed_before'] = $payed_before;
+
+				$page_factor[]                  = $feature_detail;
+
+				if(!$payed_before)
+				{
+					$need_pay[] = $is_premium;
+				}
+			}
+
+			$model_options = \content_site\call_function::section_options(a($value, 'section'), a($value, 'model'), true);
+			$preview       = a($value, 'preview');
+			$preview       = json_decode($preview, true);
+
+			if(!is_array($preview))
+			{
+				$preview = [];
+			}
+
+			foreach ($model_options as $opt)
+			{
+				$is_premium = \content_site\call_function::option_premium($opt, $preview);
+
+				if($is_premium)
+				{
+					$feature_key = implode('_', ['site', 'options', $opt]);
+
+					$payed_before = \lib\features\check::payed($feature_key);
+
+					$feature_detail                 = \lib\features\get::detail($feature_key);
+
+					$feature_detail['payed_before'] = $payed_before;
+
+					$page_factor[]                  = $feature_detail;
+
+					if(!$payed_before)
+					{
+						$need_pay[] = $is_premium;
+					}
+				}
+
+			}
+		}
+
+		if($_return_factor)
+		{
+			return $page_factor;
+		}
+
+		return $need_pay ? true : false;
+
+	}
 
 	/**
 	 * Set the section order

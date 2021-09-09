@@ -48,28 +48,7 @@ class view extends \content_site\page\view
 
 		$all_section = \lib\db\sitebuilder\get::all_section($page_id);
 
-		if($all_section)
-		{
-			$page_factor = [];
-
-			foreach ($all_section as $key => $value)
-			{
-				$is_premium = \content_site\call_function::section_model_premium(a($value, 'section'), a($value, 'model'));
-
-				if($is_premium)
-				{
-					$feature_key = implode('_', ['site', a($value, 'folder'), a($value, 'section'), a($value, 'model')]);
-
-					$feature_detail = \lib\features\get::detail($feature_key);
-
-					$payed_before = \lib\features\check::payed($feature_key);
-
-					$feature_detail['payed_before'] = $payed_before;
-
-					$page_factor[] = $feature_detail;
-				}
-			}
-		}
+		$page_factor = \content_site\page\model::need_pay($all_section, true);
 
 
 		return $page_factor;
