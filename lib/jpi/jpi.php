@@ -99,14 +99,15 @@ class jpi
 		{
 			if($CurlError)
 			{
-				\dash\notif::error(' CURL Error: '. $CurlError);
+				\dash\log::to_supervisor('#JPI #CURL_Error: '. $CurlError);
+				\dash\log::oops();
 			}
 			return false;
 		}
 
 		if(!is_string($response))
 		{
-			\dash\notif::error('Jibres: Result curl is not string!');
+			\dash\notif::error('Jibres: Invalid result!');
 			return false;
 		}
 
@@ -120,7 +121,7 @@ class jpi
 			}
 			else
 			{
-				\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jpi.log', 'arvand_api');
+				\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jpi.log', 'jpi');
 			}
 
 			\dash\notif::error('Jibres: Can not parse JSON!');

@@ -93,14 +93,15 @@ class bpi
 		{
 			if($CurlError)
 			{
-				\dash\notif::error(' CURL Error: '. $CurlError);
+				\dash\log::to_supervisor('#BPI #CURL_Error: '. $CurlError);
+				\dash\log::oops();
 			}
 			return false;
 		}
 
 		if(!is_string($response))
 		{
-			\dash\notif::error('Jibres: Result curl is not string!');
+			\dash\notif::error('Jibres: Result is invalid!');
 			return false;
 		}
 
@@ -113,7 +114,7 @@ class bpi
 				var_dump($log);exit;
 			}
 
-			\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'bpi.log', 'arvand_api');
+			\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'bpi.log', 'jpi');
 
 			\dash\notif::error('Jibres: Can not parse JSON!');
 			return false;
