@@ -80,9 +80,9 @@ class pay
 				[
 					'store_id'    => $_business_id,
 					'feature_key' => $feature_key,
-					'zone'        => null,
+					'zone'        => get::zone($feature_key),
 					'status'      => 'pending',
-					'addedby'     => null,
+					'addedby'     => 'user',
 					'user_id'     => $user_id,
 					'price'       => $price,
 					'finalprice'  => $price,

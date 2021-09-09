@@ -35,6 +35,19 @@ class get
 	}
 
 
+	public static function zone($_feature)
+	{
+		$zone = \lib\features\call_function::zone($_feature);
+
+		if(!$zone)
+		{
+			$zone = 0;
+		}
+
+		return $zone;
+	}
+
+
 	public static function title($_feature)
 	{
 		$title = \lib\features\call_function::title($_feature);

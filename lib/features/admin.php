@@ -34,14 +34,16 @@ class admin
 		}
 		else
 		{
+			$price  = floatval(get::price($feature));
+
 			$insert =
 			[
 				'store_id'    => $_business_id,
-				'feature_key' => $feature_key,
-				'zone'        => null,
-				'status'      => 'pending',
-				'addedby'     => null,
-				'user_id'     => $user_id,
+				'feature_key' => $feature,
+				'zone'        => get::zone($feature),
+				'status'      => 'enable',
+				'addedby'     => 'admin',
+				'user_id'     => \dash\user::id(),
 				'price'       => $price,
 				'finalprice'  => $price,
 				'datecreated' => date("Y-m-d H:i:s"),
