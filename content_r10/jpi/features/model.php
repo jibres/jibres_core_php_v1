@@ -23,6 +23,8 @@ class model
 		[
 			'use_as_budget' => \dash\request::input_body('use_as_budget'),
 			'turn_back'     => \dash\request::input_body('turn_back'),
+			'page_url'      => \dash\request::input_body('page_url'),
+
 		];
 
 		$result = \lib\features\pay::pay($business_id, $true_features, $args);

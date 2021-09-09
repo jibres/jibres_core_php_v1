@@ -28,14 +28,22 @@ class business_features
 
 	public static function get_msg($_args = [], $_avatar = false)
 	{
-		$msg          = '';
+		$msg               = '';
 
-		$my_feature_key = isset($_args['data']['my_feature_key']) ? $_args['data']['my_feature_key'] : null;
-		$my_business_id = isset($_args['data']['my_business_id']) ? $_args['data']['my_business_id'] : null;
-		$my_user_id = isset($_args['data']['my_user_id']) ? $_args['data']['my_user_id'] : null;
+		$my_feature_key    = isset($_args['data']['my_feature_key']) ? $_args['data']['my_feature_key'] : null;
+		$my_business_id    = isset($_args['data']['my_business_id']) ? $_args['data']['my_business_id'] : null;
+		$my_user_id        = isset($_args['data']['my_user_id']) ? $_args['data']['my_user_id'] : null;
+		$my_page_url       = isset($_args['data']['my_page_url']) ? $_args['data']['my_page_url'] : null;
+		$my_business_title = isset($_args['data']['my_business_title']) ? $_args['data']['my_business_title'] : null;
+		$my_price          = isset($_args['data']['my_price']) ? $_args['data']['my_price'] : null;
 
-		$msg .= T_("Feature") . ' '. $my_feature_key. "\n";
-		$msg .= T_("Business") . ' '. $my_business_id. "\n";
+
+
+		$msg .= "\n#$my_feature_key\n";
+		$msg .= T_("Feature") . ' '. \lib\features\get::title($my_feature_key). "\n";
+		$msg .= T_("Business") . ' '. $my_business_title. "\n";
+		$msg .= T_("Price") . ' '. \dash\fit::number($my_price). "\n";
+		$msg .= T_("Page Url") . "\n". $my_page_url. "\n";
 
 		return $msg;
 	}

@@ -33,6 +33,8 @@ class model
 		$args                  = [];
 		$args['use_as_budget'] = \dash\request::post('use_as_budget');
 		$args['turn_back']     = \dash\url::this(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'auto' => 'save']);
+		$args['page_url']      = \dash\data::currentPageDetail_link();
+
 
 		foreach ($page_factor as $key => $value)
 		{

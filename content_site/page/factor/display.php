@@ -26,9 +26,7 @@ if(!is_array($page_factor))
               <th class='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
                 Payed
               </th>
-              <th class='relative px-6 py-3'>
-                <span class='sr-only'>Remove</span>
-              </th>
+
             </tr>
           </thead>
           <tbody class='bg-white divide-y divide-gray-200'>
@@ -46,9 +44,7 @@ if(!is_array($page_factor))
               <td class='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
                 <?php if(a($value, 'payed_before')) {echo 'payed';}else{echo 'not payed';} ?>
               </td>
-              <td class='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
-                <a href='#' class='text-indigo-600 hover:text-indigo-900'>Remove</a>
-              </td>
+
             </tr>
 	        <?php } //endif ?>
 

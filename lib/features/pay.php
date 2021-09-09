@@ -145,6 +145,7 @@ class pay
 		$temp_args['features']    = $calculate_price;
 		$temp_args['user_id']     = $user_id;
 		$temp_args['business_id'] = $_business_id;
+		$temp_args['page_url']    = a($_args, 'page_url');
 
 		if($pay_price > 0)
 		{
@@ -220,6 +221,8 @@ class pay
 		$business_id = $_args['business_id'];
 		$features    = $_args['features'];
 
+		$load_busness_detail = \lib\app\store\get::data_by_id($business_id);
+
 
 		\dash\pdo::transaction();
 
@@ -261,9 +264,13 @@ class pay
 						// send notif to supervisor
 						$log =
 						[
-							'my_feature_key' => $saved_feature_key,
-							'my_business_id' => $business_id,
-							'my_user_id'     => $user_id,
+							'my_feature_key'    => $saved_feature_key,
+							'my_business_id'    => $business_id,
+							'my_user_id'        => $user_id,
+							'my_page_url'       => a($_args, 'page_url'),
+							'my_business_title' => a($load_busness_detail, 'title'),
+							'my_price'          => $price,
+
 						];
 						\dash\log::set('business_features', $log);
 
