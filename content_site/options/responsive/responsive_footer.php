@@ -4,6 +4,19 @@ namespace content_site\options\responsive;
 
 class responsive_footer
 {
+
+	public static function premium($_preview)
+	{
+		if(isset($_preview['use_as_footer_link']) && $_preview['use_as_footer_link'] === 'custom')
+		{
+			return true;
+		}
+
+		return false;
+
+	}
+
+
 	public static function validator($_data)
 	{
 		$new_data = [];
