@@ -20,7 +20,7 @@ class footer2
         {
           $myClass = ' '. $item['class'];
         }
-        $footer .= "<div class='flex-grow". $myClass. "' data-key='". $key. "'>";
+        $footer .= "<div class='flex-1". $myClass. "' data-key='". $key. "'>";
         if(isset($item['href']))
         {
           $footer .= "<a href='". $item['href']. "'";
