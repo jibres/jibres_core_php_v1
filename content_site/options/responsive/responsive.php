@@ -7,7 +7,7 @@ class responsive
 	public static function is_ul_li()
 	{
 		// only active in local
-		return \dash\url::isLocal();
+		return \dash\permission::supervisor();
 
 		return true;
 	}
@@ -15,7 +15,7 @@ class responsive
 	public static function admin_html()
 	{
 		// only active in local
-		if(!\dash\url::isLocal())
+		if(!\dash\permission::supervisor())
 		{
 			return '';
 		}
