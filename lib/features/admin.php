@@ -60,7 +60,23 @@ class admin
 
 		\lib\jpi\bpi::sync_required($business_id);
 
+
 		\dash\notif::ok(T_("Sync request sended to business"));
+
+
+		// send notif to supervisor
+		$load_busness_detail = \lib\app\store\get::data_by_id($business_id);
+		$log =
+		[
+			'my_feature_add_by_admin' => true,
+			'my_feature_key'          => $feature,
+			'my_business_id'          => $business_id,
+			'my_user_id'              => \dash\user::id(),
+			'my_business_title'       => a($load_busness_detail, 'title'),
+
+		];
+
+		\dash\log::set('business_features', $log);
 
 	}
 
@@ -106,6 +122,22 @@ class admin
 		\lib\jpi\bpi::sync_required($business_id);
 
 		\dash\notif::ok(T_("Sync request sended to business"));
+
+
+		// send notif to supervisor
+		$load_busness_detail = \lib\app\store\get::data_by_id($business_id);
+		$log =
+		[
+			'my_feature_removed' => true,
+			'my_feature_key'     => $feature,
+			'my_business_id'     => $business_id,
+			'my_user_id'         => \dash\user::id(),
+			'my_business_title'  => a($load_busness_detail, 'title'),
+
+		];
+
+		\dash\log::set('business_features', $log);
+
 
 	}
 }

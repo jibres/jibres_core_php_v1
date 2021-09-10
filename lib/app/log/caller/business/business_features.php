@@ -13,7 +13,19 @@ class business_features
 
 		$result              = [];
 
-		$result['title']     = T_("New features unlocked");
+		if(a($_args, 'data', 'my_feature_add_by_admin'))
+		{
+			$result['title']     = T_("New features unlocked by admin");
+		}
+		elseif(a($_args, 'data', 'my_feature_removed'))
+		{
+			$result['title']     = T_("Features locked");
+		}
+		else
+		{
+			$result['title']     = T_("New features unlocked");
+		}
+
 
 		$result['icon']      = 'money-banknote';
 		$result['cat']       = T_("Features");
@@ -30,20 +42,38 @@ class business_features
 	{
 		$msg               = '';
 
-		$my_feature_key    = isset($_args['data']['my_feature_key']) ? $_args['data']['my_feature_key'] : null;
-		$my_business_id    = isset($_args['data']['my_business_id']) ? $_args['data']['my_business_id'] : null;
-		$my_user_id        = isset($_args['data']['my_user_id']) ? $_args['data']['my_user_id'] : null;
-		$my_page_url       = isset($_args['data']['my_page_url']) ? $_args['data']['my_page_url'] : null;
-		$my_business_title = isset($_args['data']['my_business_title']) ? $_args['data']['my_business_title'] : null;
-		$my_price          = isset($_args['data']['my_price']) ? $_args['data']['my_price'] : null;
+		$my_feature_key          = a($_args, 'data', 'my_feature_key');
+		$my_business_id          = a($_args, 'data', 'my_business_id');
+		$my_user_id              = a($_args, 'data', 'my_user_id');
+		$my_page_url             = a($_args, 'data', 'my_page_url');
+		$my_business_title       = a($_args, 'data', 'my_business_title');
+		$my_price                = a($_args, 'data', 'my_price');
+		$my_feature_add_by_admin = a($_args, 'data', 'my_feature_add_by_admin');
+		$my_feature_removed      = a($_args, 'data', 'my_feature_removed');
 
+		if($my_feature_add_by_admin)
+		{
+			$msg .= "\n#$my_feature_key #AddedByAdmin\n";
+			$msg .= T_("Feature") . ' '. \lib\features\get::title($my_feature_key). "\n";
+			$msg .= T_("Business") . ' '. $my_business_title. "\n";
+			$msg .= " ". T_("Add by admin");
+		}
+		elseif($my_feature_removed)
+		{
+			$msg .= "\n#$my_feature_key #Removed\n";
+			$msg .= T_("Feature") . ' '. \lib\features\get::title($my_feature_key). "\n";
+			$msg .= T_("Removed by admin from Business") . ' '. $my_business_title. "\n";
+		}
+		else
+		{
+			$msg .= "\n#$my_feature_key\n";
+			$msg .= T_("Feature") . ' '. \lib\features\get::title($my_feature_key). "\n";
+			$msg .= T_("Business") . ' '. $my_business_title. "\n";
+			$msg .= T_("Price") . ' '. \dash\fit::number($my_price). "\n";
+			$msg .= T_("Page Url") . "\n". $my_page_url. "\n";
 
+		}
 
-		$msg .= "\n#$my_feature_key\n";
-		$msg .= T_("Feature") . ' '. \lib\features\get::title($my_feature_key). "\n";
-		$msg .= T_("Business") . ' '. $my_business_title. "\n";
-		$msg .= T_("Price") . ' '. \dash\fit::number($my_price). "\n";
-		$msg .= T_("Page Url") . "\n". $my_page_url. "\n";
 
 		return $msg;
 	}
