@@ -36,6 +36,7 @@ class layout
 		}
 
 		\dash\data::currentFooterPwaBtn([]);
+
 		if(a($_args, 'use_as_footer_link') === 'custom')
 		{
 			if(a($_args, 'responsive') && is_array($_args['responsive']))
@@ -44,6 +45,10 @@ class layout
 				{
 					$_args['responsive'][$key]['url'] = \content_site\assemble\link::generate(a($value, 'link'), true);
 				}
+			}
+			else
+			{
+				$_args['responsive'] = false;
 			}
 		}
 		elseif(a($_args, 'use_as_footer_link') === 'none')

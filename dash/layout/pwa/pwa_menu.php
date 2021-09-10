@@ -303,7 +303,7 @@ class pwa_menu
 		elseif($footer === false)
 		{
 			// remove footer
-			return [];
+			$myFooter = [];
 		}
 		else
 		{
