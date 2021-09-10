@@ -37,8 +37,8 @@ class get
 		$last = self::last();
 		if(isset($last['balance']) && is_numeric($last['balance']))
 		{
-			// nic credit have less than 50 unit
-			if(floatval($last['balance']) < 50)
+			// nic credit have less than 100 unit
+			if(floatval($last['balance']) < 100)
 			{
 				\dash\log::set('domain_creditLow', ['my_balance' => $last['balance']]);
 			}
