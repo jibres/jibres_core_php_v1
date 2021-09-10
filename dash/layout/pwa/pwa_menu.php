@@ -233,6 +233,51 @@ class pwa_menu
 	}
 
 
+	/**
+	 * Use in content_site/options/responsive_footer
+	 * To show default pwa menu links
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function public_pwa_menu()
+	{
+		return
+		[
+			'home' =>
+			[
+				'href'  => \dash\url::kingdom(),
+				'icon'  => 'home',
+				'img'   => 'home',
+				'title' => T_('Home'),
+			],
+			'category' =>
+			[
+				'href' => \dash\url::kingdom(). '/collection',
+				'icon' => 'th-large',
+				'img'   => 'categories',
+				'title' => T_('Tags'),
+			],
+			'cart' =>
+			[
+				'href' => \dash\url::kingdom(). '/cart',
+				'icon' => 'shopping-cart',
+				'img'   => 'cart',
+				'title' => T_('Cart'),
+				'cartItem' => \dash\fit::number(\lib\app\cart\get::my_cart_count()),
+
+			],
+			'profile' =>
+			[
+				'href' => \dash\url::kingdom(). '/profile',
+				'icon' => 'user',
+				'img'   => 'profile',
+				'title' => T_('Profile'),
+			],
+		];
+
+	}
+
+
 	public static function businessWebsite()
 	{
 		$footer = \dash\data::currentFooterPwaBtn();
@@ -258,40 +303,7 @@ class pwa_menu
 		}
 		else
 		{
-			$myFooter =
-			[
-				'home' =>
-				[
-					'href'  => \dash\url::kingdom(),
-					'icon'  => 'home',
-					'img'   => 'home',
-					'title' => T_('Home'),
-				],
-				'category' =>
-				[
-					'href' => \dash\url::kingdom(). '/collection',
-					'icon' => 'th-large',
-					'img'   => 'categories',
-					'title' => T_('Tags'),
-				],
-				'cart' =>
-				[
-					'href' => \dash\url::kingdom(). '/cart',
-					'icon' => 'shopping-cart',
-					'img'   => 'cart',
-					'title' => T_('Cart'),
-					'cartItem' => \dash\fit::number(\lib\app\cart\get::my_cart_count()),
-					
-				],
-				'profile' =>
-				[
-					'href' => \dash\url::kingdom(). '/profile',
-					'icon' => 'user',
-					'img'   => 'profile',
-					'title' => T_('Profile'),
-				],
-			];
-
+			$myFooter = self::public_pwa_menu();
 		}
 
 		// select module if user select them
