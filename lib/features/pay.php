@@ -61,7 +61,7 @@ class pay
 				else
 				{
 					// set pending
-					\dash\pdo\query_template::update('store_features', ['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], a($business_feature, 'id'));
+					\lib\db\store_features\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], a($business_feature, 'id'));
 
 					$calculate_price[] = $saved_feature_key;
 				}
@@ -89,7 +89,7 @@ class pay
 					'datecreated' => date("Y-m-d H:i:s"),
 				];
 
-				\dash\pdo\query_template::insert('store_features', $insert);
+				\lib\db\store_features\insert::new_record($insert);
 
 			}
 		}
@@ -258,7 +258,7 @@ class pay
 
 						$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
 
-						\dash\pdo\query_template::update('store_features', ['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($business_feature, 'id'));
+						\lib\db\store_features\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($business_feature, 'id'));
 
 
 						// send notif to supervisor

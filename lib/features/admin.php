@@ -28,7 +28,7 @@ class admin
 				return;
 			}
 
-			\dash\pdo\query_template::update('store_features', ['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
+			\lib\db\store_features\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
 
 			\dash\notif::ok(T_("Feature exist. Re Enabled"));
 		}
@@ -49,7 +49,7 @@ class admin
 				'datecreated' => date("Y-m-d H:i:s"),
 			];
 
-			\dash\pdo\query_template::insert('store_features', $insert);
+			\lib\db\store_features\insert::new_record($insert);
 
 			\dash\notif::ok(T_("Feature added"));
 		}
@@ -82,7 +82,7 @@ class admin
 		{
 			if(a($check, 'status') === 'enable')
 			{
-				\dash\pdo\query_template::update('store_features', ['status' => 'deleted', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
+				\lib\db\store_features\update::record(['status' => 'deleted', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
 				\dash\notif::ok(T_("Feature removed"));
 			}
 			else
