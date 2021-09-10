@@ -313,5 +313,25 @@ class utility
 	}
 
 
+
+	/**
+	 * CHeck is private by entery prise
+	 *
+	 * @param      <type>  $_enterprise  The enterprise
+	 *
+	 * @return     bool    True if the specified enterprise is private enterprise, False otherwise.
+	 */
+	public static function is_private_enterprise($_enterprise)
+	{
+		if(\lib\store::enterprise() === $_enterprise)
+		{
+			return false;
+		}
+
+		return true;
+
+	}
+
+
 }
 ?>
