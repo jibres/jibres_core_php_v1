@@ -120,7 +120,7 @@ class option
 
 				$preview = json_encode($preview);
 
-				\dash\pdo\query_template::update('menu', ['preview' => $preview], $value['id']);
+				\lib\db\menu\update::pdo_update(['preview' => $preview], $value['id']);
 			}
 		}
 
@@ -600,7 +600,7 @@ class option
 
 		\dash\pdo::transaction();
 
-		$record = \dash\pdo\query_template::get_for_update('menu', $_id);
+		$record = \lib\db\menu\get::pdo_get_for_update($_id);
 
 		if(isset($record['preview']))
 		{
@@ -631,7 +631,7 @@ class option
 
 		$args = json_encode($args);
 
-		\dash\pdo\query_template::update('menu', ['preview' => $args], $_id);
+		\lib\db\menu\update::pdo_update(['preview' => $args], $_id);
 
 		\dash\pdo::commit();
 

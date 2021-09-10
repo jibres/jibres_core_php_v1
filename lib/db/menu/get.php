@@ -5,6 +5,11 @@ namespace lib\db\menu;
 class get
 {
 
+	public static function pdo_get_for_update($_id)
+	{
+		return \dash\pdo\query_template::get_for_update('menu', $_id);
+	}
+
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM menu WHERE menu.id = $_id LIMIT 1";

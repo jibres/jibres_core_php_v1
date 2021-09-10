@@ -5,6 +5,11 @@ namespace lib\db\menu;
 class update
 {
 
+	public static function pdo_update($_args, $_id)
+	{
+		return \dash\pdo\query_template::update('menu', $_args, $_id);
+	}
+
 	public static function update($_args, $_id)
 	{
 		$set = \dash\db\config::make_set($_args);
