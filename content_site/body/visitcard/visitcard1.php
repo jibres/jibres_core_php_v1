@@ -42,6 +42,8 @@ class visitcard1
 				'use_as_logo'          => 'business_logo',
 				'use_as_heading'       => 'business_heading',
 				'use_as_description'   => 'business_description',
+				'background_pack'      => 'solid',
+				'background_color'     => '#eeeeee',
 			],
 			'preview_list' =>
 			[
