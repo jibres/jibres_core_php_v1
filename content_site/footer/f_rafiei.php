@@ -7,12 +7,7 @@ class f_rafiei
 	// is private model
 	public static function is_private()
 	{
-		if(\lib\store::enterprise() === 'rafiei')
-		{
-			return false;
-		}
-
-		return true;
+		return \content_site\utility::is_private_enterprise('rafiei');
 	}
 
 	/**

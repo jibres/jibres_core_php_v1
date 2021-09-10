@@ -48,6 +48,7 @@ class option
 			'h0',
 			'h1',
 			'h3',
+			'h_rafiei',
 		];
 
 	}
