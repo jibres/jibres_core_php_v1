@@ -89,21 +89,37 @@ class responsive_footer
 
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 
-			$data_response_hide = null;
-
-			if($use_as_footer_link !== 'custom')
-			{
-				$data_response_hide = 'data-response-hide';
-			}
-
 
 		}
 		$html .= \content_site\options\generate::_form();
+
+		$data_response_hide = null;
+
+		if($use_as_footer_link !== 'custom')
+		{
+			$data_response_hide = 'data-response-hide';
+		}
+
 
 		$html .= "<div data-response='$name' data-response-where='custom' $data_response_hide>";
 		{
 			$html .= responsive_footer_links::admin_html();
 			$html .= responsive_footer_link_add::admin_html();
+		}
+
+		$html .= '</div>';
+
+		$data_response_hide = null;
+
+		if($use_as_footer_link !== 'default')
+		{
+			$data_response_hide = 'data-response-hide';
+		}
+
+
+		$html .= "<div data-response='$name' data-response-where='default' $data_response_hide>";
+		{
+			$html .= responsive_footer_links::admin_html_default_links();
 		}
 
 		$html .= '</div>';

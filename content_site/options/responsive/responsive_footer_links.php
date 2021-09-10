@@ -18,6 +18,47 @@ class responsive_footer_links
 	}
 
 
+	public static function admin_html_default_links()
+	{
+		$default_menu = \dash\layout\pwa\pwa_menu::public_pwa_menu();
+		$html = '';
+		$html .= '<nav class="items">';
+		{
+	  		$html .= '<ul data-sortable>';
+	  		{
+	    		foreach ($default_menu as $key => $value)
+	    		{
+		      		$html .= '<li>';
+		      		{
+		      		$html .= '<a class="item f">';
+			      		{
+				            $icon = 'Image';
+
+			      			if(isset($value['icon']) && $value['icon'])
+			      			{
+			        			$icon = $value['icon'];
+			      			}
+
+			        		$icon_url = \dash\utility\icon::url($icon, 'major');
+
+			        		$html .= '<img src="'. $icon_url. '" alt="'. a($value, 'title'). '">';
+			        		$html .= '<div class="key">'. a($value, 'title').' </div>';
+
+			      		}
+			      		$html .= '</a>';
+		      		}
+			    	$html .= '</li>';
+
+	    		}
+	  		}
+	  		$html .= '</ul>';
+		}
+		$html .= '</nav>';
+
+		return $html;
+	}
+
+
 	public static function admin_html()
 	{
 		$currentSectionDetail = \dash\data::currentSectionDetail();
