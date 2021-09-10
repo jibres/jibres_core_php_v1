@@ -69,6 +69,14 @@ class view
 	{
 		$link = \dash\data::currentPageDetail_link();
 
+
+		if(\dash\url::isLocal())
+		{
+			$link = \lib\store::subdomain_url(). '/';
+			$link .= \dash\data::currentPageDetail_linkpath();
+
+		}
+
 		$get = [];
 
 		// if(\dash\data::currentPageDetail_status() !== 'publish')
@@ -86,8 +94,6 @@ class view
 		\dash\data::btnPreviewSiteBuilderOneSection($link. '?'. \dash\request::build_query(array_unique(array_merge($get, ['psid' => \dash\request::get('sid')]))));
 
 		$link .= '?'. \dash\request::build_query($get);
-
-		$page_url = \dash\data::btnPreviewSiteBuilder();
 
 		$id = a(\dash\data::currentSectionDetail(), 'model'). '-'. a(\dash\data::currentSectionDetail(), 'id');
 		$link .= '#'. $id;
