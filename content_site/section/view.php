@@ -376,11 +376,18 @@ class view
 			}
 		}
 
+		// in admin check iframe size
+		if(!$_generate_layout)
+		{
+			// \content_site\utility::set_iframe_on_mobile();
+		}
+
 		$default = [];
 
 		$detail  = [];
 
 		$detail = \content_site\call_function::detail($section_key);
+
 
 		if(!is_array($detail))
 		{

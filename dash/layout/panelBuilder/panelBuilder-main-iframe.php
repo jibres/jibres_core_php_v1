@@ -16,11 +16,15 @@ if(\dash\data::currentSectionList() && is_array(\dash\data::currentSectionList()
 // {
 //   $previewHTML .= a($value, 'preview_layout');
 // }
-
+$data_size = " data-size='desktop'";
+if($my_size = \dash\data::pageBuilderIframeSize())
+{
+  $data_size = " data-size='$my_size'";
+}
 
 $html = '';
 
-$html .= '<div class="browserFrame h-full mx-auto shadow-lg overflow-hidden rounded-t-2xl rounded-b-md flex flex-col bg-white transition" data-size="desktop">';
+$html .= "<div class='browserFrame h-full mx-auto shadow-lg overflow-hidden rounded-t-2xl rounded-b-md flex flex-col bg-white transition' $data_size>";
 $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center mx-2">';
 {
   // dots

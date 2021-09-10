@@ -5,6 +5,7 @@ namespace content_site;
 class utility
 {
 	private static $fill_by_default_data = false;
+	private static $iframe_size          = 'desktop';
 	private static $need_redirect        = null;
 
 
@@ -332,6 +333,28 @@ class utility
 
 	}
 
+
+	public static function set_iframe_on($_size = null)
+	{
+		if($_size)
+		{
+			self::$iframe_size = $_size;
+		}
+
+		\dash\data::pageBuilderIframeSize(self::$iframe_size);
+
+		return self::$iframe_size;
+	}
+
+	public static function set_iframe_on_mobile()
+	{
+		return self::set_iframe_on('mobile');
+	}
+
+	public static function set_iframe_on_desktop()
+	{
+		return self::set_iframe_on('desktop');
+	}
 
 }
 ?>

@@ -35,6 +35,8 @@ class view
 
 
 		\dash\upload\size::set_default_file_size();
+
+		\dash\data::pageBuilderIframeSize(\content_site\utility::set_iframe_on());
 	}
 
 
