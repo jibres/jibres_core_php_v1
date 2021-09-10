@@ -55,6 +55,12 @@ class view
 			\dash\data::btnSaveSiteBuilderEditor(true);
 		}
 
+		// in admin check iframe size
+		if(\dash\url::subchild() === 'responsive')
+		{
+			\content_site\utility::set_iframe_on_mobile();
+		}
+
 	}
 
 
@@ -376,11 +382,6 @@ class view
 			}
 		}
 
-		// in admin check iframe size
-		if(!$_generate_layout)
-		{
-			// \content_site\utility::set_iframe_on_mobile();
-		}
 
 		$default = [];
 
