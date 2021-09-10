@@ -1,1 +1,0 @@
-<?php require('footer_menu_1.php') ?>
