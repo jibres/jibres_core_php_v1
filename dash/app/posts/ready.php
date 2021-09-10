@@ -156,6 +156,7 @@ class ready
 			$my_link = \dash\url::kingdom(). '/';
 		}
 
+		$my_kingdom = $my_link;
 
 
 		// only jibres have post language
@@ -198,7 +199,8 @@ class ready
 			}
 		}
 
-		$result['link'] = $my_link;
+		$result['link']     = $my_link;
+		$result['linkpath'] = str_replace($my_kingdom, '', $my_link);
 
 
 		if(a($result, 'subtype') === 'video')
