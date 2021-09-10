@@ -49,22 +49,10 @@ class pwa_menu
 				break;
 
 			case 'cart':
-				// disable menu if nosale is active
-				if(\dash\data::nosale())
-				{
-					return null;
-				}
-
 				return self::businessCartPage();
 				break;
 
 			case 'shipping':
-				// disable menu if nosale is active
-				if(\dash\data::nosale())
-				{
-					return null;
-				}
-
 				return self::businessShippingPage();
 				break;
 
