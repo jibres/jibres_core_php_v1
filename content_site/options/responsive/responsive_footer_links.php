@@ -32,16 +32,16 @@ class responsive_footer_links
 		      		{
 		      		$html .= '<a class="item f">';
 			      		{
-				            $icon = 'Image';
+				            $img = 'Image';
 
-			      			if(isset($value['icon']) && $value['icon'])
+			      			if(isset($value['img']) && $value['img'])
 			      			{
-			        			$icon = $value['icon'];
+			        			$img = $value['img'];
 			      			}
 
-			        		$icon_url = \dash\utility\icon::url($icon, 'major');
+			        		$img_url = \dash\utility\icon::url($img, 'major');
 
-			        		$html .= '<img src="'. $icon_url. '" alt="'. a($value, 'title'). '">';
+			        		$html .= '<img src="'. $img_url. '" alt="'. a($value, 'title'). '">';
 			        		$html .= '<div class="key">'. a($value, 'title').' </div>';
 
 			      		}

@@ -46,10 +46,13 @@ class layout
 				}
 			}
 		}
+		elseif(a($_args, 'use_as_footer_link') === 'none')
+		{
+			$_args['responsive'] = false;
+		}
 		else
 		{
 			$_args['responsive'] = [];
-			$_args['responsive_force_remove'] = true;
 		}
 
 		\dash\data::currentFooterPwaBtn(a($_args, 'responsive'));
