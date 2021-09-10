@@ -704,7 +704,7 @@ class store
 			}
 			else
 			{
-				$store_domain = \dash\url::business_url(\lib\store::detail('subdomain'));
+				$store_domain = self::subdomain_url();
 			}
 
 		}
@@ -728,6 +728,12 @@ class store
 		}
 
 		return $store_domain;
+	}
+
+
+	public static function subdomain_url()
+	{
+		return \dash\url::business_url(\lib\store::detail('subdomain'));
 	}
 
 
