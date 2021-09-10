@@ -75,12 +75,6 @@ class pwa_menu
 
 			default:
 			case null:
-				// disable menu if nosale is active
-				if(\dash\data::nosale())
-				{
-					return null;
-				}
-
 				return self::businessWebsite();
 				break;
 
