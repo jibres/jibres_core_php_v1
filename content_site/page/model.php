@@ -122,6 +122,12 @@ class model
 			}
 
 			$model_options = \content_site\call_function::section_options(a($value, 'section'), a($value, 'model'), true);
+
+			if(!is_array($model_options))
+			{
+				$model_options = [];
+			}
+
 			$preview       = a($value, 'preview');
 			$preview       = json_decode($preview, true);
 
