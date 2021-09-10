@@ -60,20 +60,6 @@ class responsive_footer
 				}
 				$html .= '</div>';
 
-				$data_response_hide = null;
-
-				if($use_as_footer_link === 'custom_logo')
-				{
-					$data_response_hide = 'data-response-hide';
-				}
-
-				// open data-response and close after heading input
-				$html .= "<div data-response='$name' data-response-where='business_logo' $data_response_hide>";
-				{
-					// $html .= '<a target="_blank" class="link-secondary text-xs leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/general">'. T_("Manage"). ' <i class="sf-external-link pLa5"></i> </a>';
-				}
-				$html .= '</div>';
-
 			}
 			$html .= '</div>';
 
