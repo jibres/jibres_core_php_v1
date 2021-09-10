@@ -41,7 +41,7 @@ class update_record
 			return false;
 		}
 
-		\dash\pdo\query_template::update('pagebuilder', [$_field => $_value], $_section_id);
+		\lib\db\sitebuilder\update::record([$_field => $_value], $_section_id);
 
 		\dash\pdo::commit();
 

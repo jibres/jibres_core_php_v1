@@ -51,7 +51,7 @@ class image_add2
 
 		$preview = json_encode($currentSectionDetail['preview']);
 
-		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $currentSectionDetail['id']);
+		\lib\db\sitebuilder\update::record(['preview' => $preview], $currentSectionDetail['id']);
 
 		\dash\pdo::commit();
 

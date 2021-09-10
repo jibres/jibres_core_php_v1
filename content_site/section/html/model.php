@@ -73,13 +73,13 @@ class model extends \content_site\section\model
 
 			if($_mode === 'html')
 			{
-				\dash\pdo\query_template::update('pagebuilder', ['text_preview' => $html], $section_id);
+				\lib\db\sitebuilder\update::record(['text_preview' => $html], $section_id);
 			}
 			else
 			{
 				$preview           = json_encode(['type' => 'html', 'key' => 'html', 'heading' => $title]);
 
-				\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+				\lib\db\sitebuilder\update::record(['preview' => $preview], $section_id);
 			}
 
 			\dash\pdo::commit();

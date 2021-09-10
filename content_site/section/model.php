@@ -341,7 +341,7 @@ class model
 
 		if(\dash\temp::get('siteBuilderSetValueInText'))
 		{
-			\dash\pdo\query_template::update('pagebuilder', ['text_preview' => a($preview, 'html')], $section_id);
+			\lib\db\sitebuilder\update::record(['text_preview' => a($preview, 'html')], $section_id);
 			unset($preview['html']);
 		}
 
@@ -394,7 +394,7 @@ class model
 				$update_record = array_merge($update_record, \content_site\update_record::need_update_record_field());
 			}
 
-			\dash\pdo\query_template::update('pagebuilder', $update_record, $section_id);
+			\lib\db\sitebuilder\update::record($update_record, $section_id);
 
 			\dash\pdo::commit();
 
@@ -555,7 +555,7 @@ class model
 
 				$preview           = json_encode($preview);
 
-				\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+				\lib\db\sitebuilder\update::record(['preview' => $preview], $section_id);
 
 				\dash\pdo::commit();
 
@@ -706,7 +706,7 @@ class model
 
 		$preview           = json_encode($preview);
 
-		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $section_id);
+		\lib\db\sitebuilder\update::record(['preview' => $preview], $section_id);
 
 		\dash\pdo::commit();
 

@@ -65,7 +65,7 @@ class responsive_footer_link_add
 
 		$preview = json_encode($currentSectionDetail['preview']);
 
-		\dash\pdo\query_template::update('pagebuilder', ['preview' => $preview], $currentSectionDetail['id']);
+		\lib\db\sitebuilder\update::record(['preview' => $preview], $currentSectionDetail['id']);
 
 		\dash\pdo::commit();
 
