@@ -294,7 +294,7 @@ class pwa_menu
 				}
 			}
 		}
-		elseif($footer === false)
+		elseif($footer === false || $footer === null)
 		{
 			// remove footer
 			$myFooter = [];
