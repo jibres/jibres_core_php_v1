@@ -1,6 +1,11 @@
 <?php
 namespace dash\pdo;
 
+/**
+ * This class describes a query template.
+ * Function of this class must be use only in db level
+ * Do not use this function in app or api level!
+ */
 class query_template
 {
 
