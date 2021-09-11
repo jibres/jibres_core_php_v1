@@ -15,6 +15,11 @@ class f_rafiei_html
 	 */
 	public static function html($_args)
 	{
+		$color_heading    = a($_args, 'color_heading:full_style');
+		$color_text       = a($_args, 'color_text:full_style');
+
+		$hr = '<hr class="border-1 border-gray-600 my-1">';
+
 		$html = \content_site\assemble\wrench\section::element_start($_args, 'footer');
 		{
 			$bgColor = a($_args, 'background_color');
@@ -47,7 +52,7 @@ class f_rafiei_html
 							if(a($_args, 'heading'))
 							{
 								// add title
-								$html .= '<h2 class="text-2xl font-bold text-white mb-2 line-clamp-1">';
+								$html .= '<h2 class="text-2xl font-bold text-white mb-2 line-clamp-1"'. $color_heading. '>';
 								{
 									$html .= $_args['heading'];
 								}
@@ -57,7 +62,7 @@ class f_rafiei_html
 							if(a($_args, 'description'))
 							{
 								// desc
-								$html .= '<div class="text-gray-300 line-clamp-3">';
+								$html .= '<div class="text-gray-300 line-clamp-3"'. $color_text. '>';
 								{
 									$html .= $_args['description'];
 								}
@@ -90,7 +95,7 @@ class f_rafiei_html
 					'nav_class' => '',
 					'ul_class'  => '',
 					'li_class'  => '',
-					'a_class'   => 'inline-block p-1 sm:p-2 hover:opacity-70 focus:opacity-50 transition text-gray-100',
+					'a_class'   => 'inline-block p-1 sm:p-2 hover:opacity-70 focus:opacity-50 transition text-gray-100 link-'. a($_args, 'link_color'),
 				];
 				$menu1 = \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
 				$menu2 = \content_site\assemble\menu::generate(a($_args, 'menu_2'), $menuOpt);
@@ -115,7 +120,7 @@ class f_rafiei_html
 					$colCount ++;
 				}
 
-				$menuHTML = '<div class="grid grid-cols-'. $colCount. ' gap-3">';
+				$menuHTML = '<div class="grid grid-cols-'. $colCount. ' gap-3 py-4">';
 				{
 					$menuHTML .= $menu1;
 					$menuHTML .= $menu2;

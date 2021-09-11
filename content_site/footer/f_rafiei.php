@@ -38,6 +38,8 @@ class f_rafiei
 					'font',
 					'container',
 					'background_pack',
+					'color_heading',
+					'color_text',
 					'link_color',
 				]),
 				'responsive' => \content_site\utility::set_responsive_option_footer(),
