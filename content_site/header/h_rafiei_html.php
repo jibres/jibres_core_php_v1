@@ -23,7 +23,7 @@ class h_rafiei_html
 			{
 				$color = '#eda336';
 				$topCircleStyle = 'height:40px;top:-30px;border-radius:50%;background-color:'. $color.';';
-				$html .= '<div id="topLine" class="fixed w-full mx-auto right-0 left-0 z-100" style="'. $topCircleStyle. '"></div>';
+				$html .= '<div id="topLine" class="fixed w-full mx-auto right-0 left-0 z-50" style="'. $topCircleStyle. '"></div>';
 
 				$html .= '<a href="'. \dash\url::kingdom() .'" class="block max-w-md mx-auto py-1 md:py-3">';
 				if(a($_args, 'logo'))

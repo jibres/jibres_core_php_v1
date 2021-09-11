@@ -140,6 +140,11 @@ class f_rafiei_html
 				}
 			}
 			$html .= '</div>';
+
+			$color = '#eda336';
+			$topCircleStyle = 'height:40px;bottom:-30px;border-radius:50%;background-color:'. $color.';';
+			$html .= '<div id="topLine" class="fixed w-full mx-auto right-0 left-0 z-50" style="'. $topCircleStyle. '"></div>';
+
 		}
 		$html .= '</footer>';
 
