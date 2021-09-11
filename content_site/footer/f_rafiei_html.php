@@ -62,7 +62,7 @@ class f_rafiei_html
 							if(a($_args, 'description'))
 							{
 								// desc
-								$html .= '<div class="text-gray-300 line-clamp-3"'. $color_text. '>';
+								$html .= '<div class="text-gray-300 line-clamp-3 leading-relaxed opacity-80"'. $color_text. '>';
 								{
 									$html .= $_args['description'];
 								}
