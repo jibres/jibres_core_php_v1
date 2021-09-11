@@ -98,6 +98,12 @@ class model
 			return false;
 		}
 
+		if(floatval($page_id) === floatval(\content_site\homepage::id()))
+		{
+			\dash\notif::error(T_("Can not remove homepage"));
+			return false;
+		}
+
 		$all_section = \lib\db\sitebuilder\get::all_section($page_id);
 
 		if($all_section)
