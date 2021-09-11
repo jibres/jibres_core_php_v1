@@ -33,6 +33,7 @@ class h_rafiei
 					'container',
 					'background_pack',
 					'link_color',
+					'background_color',
 				]),
 				'responsive' => \content_site\utility::set_responsive_option_header(),
 
