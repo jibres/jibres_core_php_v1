@@ -4,15 +4,22 @@ namespace content_site\assemble\wrench;
 
 class section
 {
-	public static function element_start($_args)
+	public static function element_start($_args, $_usedFor = null)
 	{
 		$background_style = a($_args, 'background:full_style');
 		$section_id       = a($_args, 'section:id');
 
 		$cnElement = 'div';
-		if(a($_args, 'heading') !== null)
+		if($_usedFor === 'header')
 		{
-			$cnElement = 'section';
+			$cnElement = 'header';
+		}
+		else
+		{
+			if(a($_args, 'heading') !== null)
+			{
+				$cnElement = 'section';
+			}
 		}
 
 		$classNames = 'flex overflow-hidden relative';
