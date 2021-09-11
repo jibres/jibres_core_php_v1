@@ -18,7 +18,7 @@ class f_rafiei_html
 		$color_heading    = a($_args, 'color_heading:full_style');
 		$color_text       = a($_args, 'color_text:full_style');
 
-		$hr = '<hr class="border-1 border-gray-600 my-1">';
+		$hr = '<hr class="border-1 border-gray-600 my-1 opacity-30">';
 
 		$html = \content_site\assemble\wrench\section::element_start($_args, 'footer');
 		{
@@ -34,7 +34,7 @@ class f_rafiei_html
 				$html .= '</svg>';
 			}
 
-			$html .= \content_site\assemble\wrench\section::container($_args);
+			$html .= \content_site\assemble\wrench\section::container($_args, 'text-sm');
 			{
 				// action bar
 				$html .= '<div class="top flex items-end py-1 sm:py-2 md:py-3">';
@@ -95,7 +95,7 @@ class f_rafiei_html
 					'nav_class' => '',
 					'ul_class'  => '',
 					'li_class'  => '',
-					'a_class'   => 'inline-block p-1 sm:p-2 hover:opacity-70 focus:opacity-50 transition text-gray-100 link-'. a($_args, 'link_color'),
+					'a_class'   => 'inline-block p-1 sm:p-2 md:px-4 hover:opacity-70 focus:opacity-50 transition text-gray-100 link-'. a($_args, 'link_color'),
 				];
 				$menu1 = \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
 				$menu2 = \content_site\assemble\menu::generate(a($_args, 'menu_2'), $menuOpt);
