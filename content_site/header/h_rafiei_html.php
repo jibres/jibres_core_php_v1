@@ -19,11 +19,15 @@ class h_rafiei_html
 
 		$html .= share::announcement($_args);
 
-		$html .= '<header id="jHeader3" class="relative py-5">';
+		$html .= '<header id="jHeaderRafiei2" class="relative py-5">';
 		{
 			// $html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
-			$html .= \content_site\assemble\wrench\section::container($_args);
+			$html .= \content_site\assemble\wrench\section::container($_args, 'relative');
 			{
+				$color = '#eda336';
+				$topCircleStyle = 'top:-40px;border-radius:50%;background-color:'. $color.';';
+				$html .= '<div id="topLine" class="absolute w-full h-8 mx-auto absolute right-0 left-0 z-100 bg-red-100" style="'. $topCircleStyle. '"></div>';
+
 				if(a($_args, 'logo') || a($_args, 'heading') || a($_args, 'link_search') || a($_args, 'link_cart') || a($_args, 'link_enter'))
 				{
 					// action bar

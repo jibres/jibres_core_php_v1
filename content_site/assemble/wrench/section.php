@@ -59,10 +59,18 @@ class section
 	}
 
 
-	public static function container($_args)
+	public static function container($_args, $_extraClass = null)
 	{
-		$container = a($_args, 'container:class');
-		$element = "<div class='$container m-auto'>";
+		$classList = 'm-auto';
+		if(a($_args, 'container:class'))
+		{
+			$classList .= ' '. a($_args, 'container:class');
+		}
+		if($_extraClass)
+		{
+			$classList .= ' '. $_extraClass;
+		}
+		$element = "<div class='$classList'>";
 
 		return $element;
 	}
