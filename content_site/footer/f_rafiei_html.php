@@ -17,18 +17,20 @@ class f_rafiei_html
 	{
 		$html = \content_site\assemble\wrench\section::element_start($_args, 'footer');
 		{
+			$bgColor = a($_args, 'background_color');
+
+			if(a($_args, 'background_pack') === 'solid' && $bgColor)
+			{
+				$html .= '<svg class="absolute right-0 left-0 bottom-full z-10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 100" xml:space="preserve">';
+				$html .= '<style type="text/css">.st0{opacity:0.7;fill:'.$bgColor. ';enable-background:new;}.st1{fill:'.$bgColor. ';}</style>';
+				$html .= '<path class="st0" d="M2000,100V0c-312.4,67.2-649.1,98.6-1000,98.6S312.4,67.1,0,0v100H2000z"/>';
+				$html .= '<path class="st0" d="M2000,100V26.6c-312.4,46.6-649.1,72-1000,72S312.4,73.1,0,26.5V100H2000z"/>';
+				$html .= '<path class="st1" d="M2000,100V53.1c-312.4,29.4-649.1,45.5-1000,45.5S312.4,82.5,0,53v47H2000z"/>';
+				$html .= '</svg>';
+			}
+
 			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
-				$bgColor = a($_args, 'background_color');
-
-				if(a($_args, 'background_pack') === 'solid' && $bgColor)
-				{
-					$fillColor = \content_site\assemble\color::rgb($bgColor);
-					$html .= '<svg class="absolute right-0 left-0 top-0 z-10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 100" xml:space="preserve"><path class="header_curve1" fill="rgba('. $fillColor. ',0.7)" d="M0,0v100C312.4,32.9,649.1,1.4,1000,1.4s687.6,31.4,1000,98.6V0H0z"/><path class="header_curve1" fill="rgba('. $fillColor. ',0.7)" d="M0,0v73.5C312.4,26.9,649.1,1.4,1000,1.4s687.6,25.4,1000,72V0H0z"/><path class="header_curve2" fill="rgba('. $fillColor. ',1)" d="M0,0v47C312.4,17.5,649.1,1.4,1000,1.4s687.6,16.1,1000,45.5V0H0z"/></svg>';
-				}
-
-
-
 				// action bar
 				$html .= '<div class="top flex items-end py-1 sm:py-2 md:py-3">';
 				{
