@@ -139,7 +139,7 @@ class f_rafiei_html
 				if(a($_args, 'copyright'))
 				{
 					$html .= $hr;
-					$html .= '<p class="text-gray-300 leading-relaxed py-8 opacity-60">';
+					$html .= '<p class="leading-relaxed py-8 opacity-60"'. $color_text. '>';
 					$html .= $_args['copyright'];
 					$html .= '</p>';
 				}
