@@ -8,11 +8,13 @@ class section
 	{
 		$background_style = a($_args, 'background:full_style');
 		$section_id       = a($_args, 'section:id');
+		$classNames = 'flex overflow-hidden relative';
 
 		$cnElement = 'div';
 		if($_usedFor === 'header')
 		{
 			$cnElement = 'header';
+			$classNames = 'relative';
 		}
 		else
 		{
@@ -22,7 +24,6 @@ class section
 			}
 		}
 
-		$classNames = 'flex overflow-hidden relative';
 		if(a($_args, 'height:class'))
 		{
 			if(a($_args, 'container_justify:class'))
