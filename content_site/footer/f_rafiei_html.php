@@ -37,7 +37,7 @@ class f_rafiei_html
 			$html .= \content_site\assemble\wrench\section::container($_args, 'text-sm');
 			{
 				// action bar
-				$html .= '<div class="top flex items-end py-1 sm:py-2 md:py-3">';
+				$html .= '<div class="top flex items-end py-1 pt-2 sm:py-5 md:pt-12 md:py-10">';
 				{
 
 					if(a($_args, 'logo'))
@@ -120,7 +120,7 @@ class f_rafiei_html
 					$colCount ++;
 				}
 
-				$menuHTML = '<div class="grid grid-cols-'. $colCount. ' gap-3 py-4">';
+				$menuHTML = '<div class="grid grid-cols-'. $colCount. ' gap-3 py-4 md:py-10">';
 				{
 					$menuHTML .= $menu1;
 					$menuHTML .= $menu2;
