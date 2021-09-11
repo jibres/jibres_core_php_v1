@@ -246,7 +246,7 @@ class call_function
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
-	public static function option_admin_html($_option_key, $_data)
+	public static function option_admin_html($_option_key, $_data = [])
 	{
 		$html = '';
 
