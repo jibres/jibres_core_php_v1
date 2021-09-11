@@ -26,15 +26,12 @@ class h_rafiei
 				'heading_business_header',
 				'file_business_logo_header',
 				'menu_1',
-				'menu_2',
-				'link_search',
-				'link_cart',
-				'link_enter',
 				'announcement' => \content_site\utility::set_announcement(),
 				'style' => \content_site\utility::set_style_option(
 				[
-					// 'font',
+					'font',
 					'container',
+					'background_pack',
 				]),
 				'responsive' => \content_site\utility::set_responsive_option_header(),
 

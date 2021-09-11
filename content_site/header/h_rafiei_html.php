@@ -17,7 +17,7 @@ class h_rafiei_html
 
 		$html .= share::announcement($_args);
 
-		$html .= '<header id="jHeaderRafiei2" class="relative py-5">';
+		$html .= '<header id="jHeaderRafiei2" class="relative py-2">';
 		{
 			// $html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
 			$html .= \content_site\assemble\wrench\section::container($_args, 'relative');
@@ -38,7 +38,7 @@ class h_rafiei_html
 					'nav_class' => '',
 					'ul_class'  => 'flex justify-center',
 					'li_class'  => '',
-					'a_class'   => 'block p-1 sm:p-2 md:p-3 bg-gray-200 bg-opacity-0 hover:bg-opacity-70 transition',
+					'a_class'   => 'block p-1 sm:p-2 md:p-3 rounded-lg bg-gray-100 bg-opacity-0 hover:bg-opacity-70 focus:bg-opacity-90 text-gray-800 transition',
 				];
 				$html .= \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
 
