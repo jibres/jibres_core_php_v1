@@ -35,8 +35,10 @@ class f_rafiei
 				'certificate_samandehi',
 				'style' => \content_site\utility::set_style_option(
 				[
-					// 'font',
+					'font',
 					'container',
+					'background_pack',
+					'link_color',
 				]),
 				'responsive' => \content_site\utility::set_responsive_option_footer(),
 

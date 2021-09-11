@@ -16,6 +16,11 @@ class section
 			$cnElement = 'header';
 			$classNames = 'relative';
 		}
+		else if($_usedFor === 'footer')
+		{
+			$cnElement = 'footer';
+			$classNames = 'relative';
+		}
 		else
 		{
 			if(a($_args, 'heading') !== null)
