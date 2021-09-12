@@ -300,6 +300,11 @@ class view
 			$detail = $preview;
 		}
 
+		if($myTemp = \dash\temp::get('forceChangePreviewJsonFromPostMeta'))
+		{
+			$detail = $myTemp;
+		}
+
 		if($_need)
 		{
 			return a($detail, $_need);
