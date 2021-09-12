@@ -77,6 +77,42 @@ class model
 		// update all body detail by preview detail
 		\lib\db\sitebuilder\update::save_page($page_id);
 
+
+		\dash\pdo::transaction();
+
+		$post_detail = \dash\db\posts::pdo_get_by_id_lock($page_id);
+
+		if(!$post_detail)
+		{
+			\dash\pdo::rollback();
+		}
+		else
+		{
+
+			$meta = [];
+
+			if(isset($post_detail['meta']))
+			{
+				$meta = json_decode($post_detail['meta'], true);
+				if(!is_array($meta))
+				{
+					$meta = [];
+				}
+			}
+
+			if(isset($meta['preview']) && is_array($meta['preview']))
+			{
+				$meta['body'] = $meta['preview'];
+			}
+
+			$meta = json_encode($meta);
+
+			\dash\db\posts::pdo_update(['meta' => $meta], $page_id);
+
+			\dash\pdo::commit();
+		}
+
+
 		// update special detail
 		if($all_section)
 		{
