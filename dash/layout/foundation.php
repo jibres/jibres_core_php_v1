@@ -197,6 +197,17 @@ if(\dash\request::get('iframe'))
 {
   echo " data-iframe";
 }
+
+if(\dash\data::bodyBackgroundStyle())
+{
+  echo " style='". \dash\data::bodyBackgroundStyle(). "'";
+}
+
+if(\dash\data::bodyMasterFont())
+{
+  echo " class='". \dash\data::bodyMasterFont(). "'";
+}
+
 echo " data-preload";
 ?>><?php
 \dash\layout\find::allBlocks();

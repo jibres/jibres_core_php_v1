@@ -53,7 +53,49 @@ class load
 
 		$ready = \dash\app\posts\ready::row($post_detail);
 
+		if(self::load_preview_mode($post_detail))
+		{
+			$my_page_setting = a($ready, 'meta', 'preview');
+		}
+		else
+		{
+			$my_page_setting = a($ready, 'meta', 'body');
+		}
+
+		if(a($my_page_setting, 'font'))
+		{
+			$page_font = \content_site\assemble\font::class($my_page_setting);
+			\dash\data::bodyMasterFont($page_font);
+		}
+
+		if(a($my_page_setting, 'background_pack'))
+		{
+			$background_style = \content_site\assemble\background::style($my_page_setting);
+			\dash\data::bodyBackgroundStyle($background_style);
+		}
+
+
+
+
+
 		return $ready;
+	}
+
+
+	/**
+	 * Loads a preview mode.
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
+	private static function load_preview_mode($_post_detail)
+	{
+		// check load preview mode
+		if(\dash\request::get('preview') && a($_post_detail, 'datecreated') && \dash\request::get('preview') === md5($_post_detail['datecreated']))
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 
@@ -143,6 +185,11 @@ class load
 
 		if(!$page_id || !is_numeric($page_id))
 		{
+			if($homepage_id)
+			{
+				$post_detail = self::get_page_detail($homepage_id);
+			}
+
 			if($need_homepage_header_footer)
 			{
 				// load homepage header and footer only
@@ -171,18 +218,12 @@ class load
 			\dash\redirect::to($url);
 		}
 
-		// check load preview mode
-		$load_preview_mode = false;
-		if(\dash\request::get('preview') && a($post_detail, 'datecreated') && \dash\request::get('preview') === md5($post_detail['datecreated']))
-		{
-			$load_preview_mode = true;
-		}
 
 		$list = [];
 
 		if($homepage_builder || floatval($page_id) === floatval($homepage_id))
 		{
-			if($load_preview_mode)
+			if(self::load_preview_mode($post_detail))
 			{
 				$list = \lib\db\sitebuilder\get::line_list_preview($page_id);
 			}
@@ -194,7 +235,7 @@ class load
 		}
 		else
 		{
-			if($load_preview_mode)
+			if(self::load_preview_mode($post_detail))
 			{
 				$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer_preview($page_id, $homepage_id);
 			}
