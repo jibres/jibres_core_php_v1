@@ -87,7 +87,6 @@ class load
 		$page_id                             = null;
 		$post_detail                         = null;
 		$homepage_builder                    = false;
-		$need_homepage_body                  = false;
 		$need_homepage_header_footer         = false;
 		$need_explode_homepage_header_footer = false;
 
@@ -133,9 +132,7 @@ class load
 		{
 			$page_id                     = $homepage_id;
 
-			$homepage_builder            = true;
-
-			$need_homepage_body          = true;
+			$homepage_builder          = true;
 
 			$need_homepage_header_footer = true;
 		}
@@ -169,40 +166,44 @@ class load
 		// not route special post url when the post set as homepage
 		if(!$homepage_builder && a($post_detail, 'ishomepage'))
 		{
-			$url = \dash\url::kingdom();
+			$url = \dash\url::kingdom(). '/';
 			$url .= \dash\request::full_get();
 			\dash\redirect::to($url);
 		}
 
+		// check load preview mode
+		$load_preview_mode = false;
+		if(\dash\request::get('preview') && a($post_detail, 'datecreated') && \dash\request::get('preview') === md5($post_detail['datecreated']))
+		{
+			$load_preview_mode = true;
+		}
 
 		$list = [];
 
-		if($need_homepage_body)
+		if($homepage_builder || floatval($page_id) === floatval($homepage_id))
 		{
-			// in homepage need to load full homepage detail
-			$list = \lib\db\sitebuilder\get::line_list($page_id);
-		}
-		else
-		{
-			if(floatval($page_id) === floatval($homepage_id))
+			if($load_preview_mode)
 			{
-				// homepage id is equal with page id. load full page id detail
-				$list = \lib\db\sitebuilder\get::line_list($page_id);
+				$list = \lib\db\sitebuilder\get::line_list_preview($page_id);
 			}
 			else
 			{
-
-				if(\dash\request::get('preview') && a($post_detail, 'datecreated') && \dash\request::get('preview') === md5($post_detail['datecreated']))
-				{
-					$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer_preview($page_id, $homepage_id);
-				}
-				else
-				{
-					// load full page id and homepage header and footer
-					$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer($page_id, $homepage_id);
-				}
-				$need_explode_homepage_header_footer = true;
+				// in homepage need to load full homepage detail
+				$list = \lib\db\sitebuilder\get::line_list($page_id);
 			}
+		}
+		else
+		{
+			if($load_preview_mode)
+			{
+				$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer_preview($page_id, $homepage_id);
+			}
+			else
+			{
+				// load full page id and homepage header and footer
+				$list = \lib\db\sitebuilder\get::line_list_with_homepage_header_footer($page_id, $homepage_id);
+			}
+			$need_explode_homepage_header_footer = true;
 		}
 
 
