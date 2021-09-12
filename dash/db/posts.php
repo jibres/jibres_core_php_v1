@@ -4,6 +4,18 @@ namespace dash\db;
 /** work with posts **/
 class posts
 {
+	public static function pdo_get_by_id_lock($_id)
+	{
+		$query = "SELECT * FROM posts WHERE posts.id = :id LIMIT 1 FOR UPDATE";
+		$param = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+	}
+
+	public static function pdo_update($_args, $_id)
+	{
+		return \dash\pdo\query_template::update('posts', $_args, $_id);
+	}
 
 	public static function get_words_chart($_where = [])
 	{
