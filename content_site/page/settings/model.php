@@ -261,6 +261,7 @@ class model
 
 		if(\content_site\utility::need_redirect())
 		{
+			\dash\notif::reloadIframe();
 			\dash\redirect::pwd();
 		}
 	}
