@@ -203,8 +203,8 @@ $post_setting_preview = a($post_meta, 'preview');
 
 \dash\temp::set('forceChangePreviewJsonFromPostMeta', $post_setting_preview);
 
-$html .= \content_site\call_function::option_admin_html('background_pack_page');
-$html .= \content_site\call_function::option_admin_html('font_page');
+$html .= \content_site\call_function::option_admin_html('background_pack');
+$html .= \content_site\call_function::option_admin_html('font');
 
 echo $html;
 ?>
