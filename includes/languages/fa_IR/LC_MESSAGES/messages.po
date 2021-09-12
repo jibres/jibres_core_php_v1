@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-10 13:58+0430\n"
-"PO-Revision-Date: 2021-09-10 14:10+0430\n"
+"POT-Creation-Date: 2021-09-12 16:29+0430\n"
+"PO-Revision-Date: 2021-09-12 16:31+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -75,7 +75,7 @@ msgstr "درباره جیبرس"
 #: content_business/p/home/view.php:17 content_enter/home/view.php:35
 #: content_love/subscribe/view.php:13
 #: content_site/options/responsive/responsive_footer_link_add.php:53
-#: dash/layout/pwa/pwa_menu.php:268 includes/languages/trans_static_public.php:70
+#: dash/layout/pwa/pwa_menu.php:233 includes/languages/trans_static_public.php:70
 msgid "Home"
 msgstr "صفحه نخست"
 
@@ -2661,12 +2661,12 @@ msgid "Why Free?"
 msgstr "چرا رایگان؟"
 
 #: content/home/layout/header.php:21 dash/layout/admin/admin-header.php:19
-#: dash/layout/admin/admin-sidebar-frame.php:47 dash/layout/pwa/pwa_menu.php:123
+#: dash/layout/admin/admin-sidebar-frame.php:47 dash/layout/pwa/pwa_menu.php:105
 msgid "Help Center"
 msgstr "مرکز راهنمایی"
 
 #: content/home/layout/header.php:27 content_a/home/view.php:17 content_my/home/view.php:9
-#: dash/layout/pwa/pwa_menu.php:104 dash/panel.php:33
+#: dash/layout/pwa/pwa_menu.php:86 dash/panel.php:33
 msgid "Control Center"
 msgstr "مرکز کنترل"
 
@@ -2740,7 +2740,7 @@ msgstr "هزار تومان"
 #: content_my/domain/home/view.php:13 content_site/home/view.php:14
 #: dash/layout/admin/sidebar/sidebar-a.php:4
 #: dash/layout/admin/sidebar/sidebar-domain.php:4
-#: dash/layout/admin/sidebar/sidebar-m.php:1 dash/layout/pwa/pwa_menu.php:179
+#: dash/layout/admin/sidebar/sidebar-m.php:1 dash/layout/pwa/pwa_menu.php:161
 #: includes/languages/trans_static_public.php:89 lib/app/quickaccess/setting.php:463
 #: lib/app/quickaccess/setting.php:478 lib/app/quickaccess/setting.php:677
 msgid "Dashboard"
@@ -4597,7 +4597,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_site/page/new/view.php:11 content_site/page/settings/view.php:13
 #: content_site/page/view.php:10 content_site/preview/display.php:18
 #: content_site/section/html/view.php:39 content_site/section/view.php:36
-#: content_site/section/view.php:75 content_site/section/view.php:228
+#: content_site/section/view.php:81 content_site/section/view.php:234
 #: content_site/staticfile/view.php:15 content_sudo/apilog/home/view.php:9
 #: content_sudo/apilog/view/view.php:9 content_sudo/backup/display.php:5
 #: content_sudo/backup/view.php:10 content_sudo/changeallfuel/view.php:8
@@ -5056,7 +5056,7 @@ msgstr "ویرایش"
 #: content_love/changelog/add/display.php:36 content_love/domain/detail/display.php:195
 #: content_love/store/backup/display.php:19 content_my/domain/irnic/edit/display.php:24
 #: content_my/domain/setting/elements/remove.php:13
-#: content_site/page/settings/display-sidebar.php:164
+#: content_site/page/settings/display-sidebar.php:192
 #: content_site/staticfile/display.php:36
 msgid "Remove"
 msgstr "حذف"
@@ -5408,7 +5408,7 @@ msgstr "افزودن تفصیل جدید"
 #: content_site/options/image/image_mask.php:11
 #: content_site/options/magicbox/magicbox_gap.php:13
 #: content_site/options/post/post_template.php:24
-#: content_site/options/responsive/responsive_footer.php:85
+#: content_site/options/responsive/responsive_footer.php:71
 #: dash/layout/search/search-filter.php:179 dash/layout/search/search-filter.php:220
 #: dash/layout/search/search-filter.php:249 lib/app/--website/effect.php:10
 msgid "None"
@@ -5873,9 +5873,10 @@ msgstr "افزودن درآمد"
 #: content_crm/telegram/home/display.php:6 content_crm/ticket/home/display.php:6
 #: content_crm/transactions/display-statistics.php:21
 #: content_crm/transactions/display-statistics.php:37
-#: content_love/domain/home/display.php:242 content_love/files/home/display.php:36
-#: content_love/gift/home/display.php:7 content_sudo/tg/system/display.php:10
-#: content_sudo/tg/users/display.php:85 includes/languages/trans_static_public.php:899
+#: content_love/domain/home/display.php:242 content_love/features/all/display.php:19
+#: content_love/files/home/display.php:36 content_love/gift/home/display.php:7
+#: content_sudo/tg/system/display.php:10 content_sudo/tg/users/display.php:85
+#: includes/languages/trans_static_public.php:899
 msgid "Count"
 msgstr "تعداد"
 
@@ -6407,7 +6408,7 @@ msgid "Remain"
 msgstr "مانده"
 
 #: content_a/accounting/report/quarter/display-detail.php:9
-#: dash/layout/pwa/pwa_menu.php:391 includes/languages/trans_static.php:36
+#: dash/layout/pwa/pwa_menu.php:389 includes/languages/trans_static.php:36
 #: includes/languages/trans_static.php:516 lib/app/factor/ready.php:80
 #: lib/app/tax/doc/template.php:235
 msgid "Buy"
@@ -7255,7 +7256,7 @@ msgstr "اپلیکیشن خود را بسازید"
 msgid "App Intro detail"
 msgstr "جزئیات صفحه معرفی اپ"
 
-#: content_a/android/intro/display.php:12 content_site/view.php:47
+#: content_a/android/intro/display.php:12 content_site/view.php:49
 #: lib/app/store/analytics.php:55
 msgid "Page"
 msgstr "صفحه"
@@ -7680,7 +7681,7 @@ msgstr "کاربر مهمان سبد خرید اضافه کرده"
 
 #: content_a/cart/home/display.php:142 content_a/cart/home/view.php:13
 #: content_a/home/display.php:82 content_crm/member/glance/display.php:324
-#: dash/layout/pwa/pwa_menu.php:282 lib/app/store/analytics.php:84
+#: dash/layout/pwa/pwa_menu.php:247 lib/app/store/analytics.php:84
 msgid "Cart"
 msgstr "سبد خرید"
 
@@ -8196,7 +8197,7 @@ msgid "Result count group by province"
 msgstr "تعداد نتیجه به تفکیک استان"
 
 #: content_a/form/analytics/province/display.php:17
-#: content_love/features/all/display.php:19
+#: content_love/features/all/display.php:20
 msgid "List"
 msgstr "لیست"
 
@@ -8566,7 +8567,7 @@ msgstr "نوع پیام"
 #: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
 #: content_love/domain/irnic/display.php:58 content_my/domain/irnic/display.php:58
 #: content_site/options/font/font.php:14 content_site/options/font/font.php:18
-#: content_site/options/responsive/responsive_footer.php:86 lib/ratio.php:72
+#: content_site/options/responsive/responsive_footer.php:72 lib/ratio.php:72
 msgid "Default"
 msgstr "پیش‌فرض"
 
@@ -8640,7 +8641,7 @@ msgstr "مرتب‌سازی آیتم‌ها"
 #: content_a/form/tag/edit/view.php:17 content_a/tag/add/view.php:10
 #: content_a/tag/edit/view.php:13 content_a/tag/sort/view.php:10
 #: content_business/tag/display-one-tag.php:4
-#: content_site/options/link/link_professional.php:109 dash/layout/pwa/pwa_menu.php:275
+#: content_site/options/link/link_professional.php:109 dash/layout/pwa/pwa_menu.php:240
 #: includes/languages/trans_static_public.php:975 lib/app/quickaccess/tags.php:30
 msgid "Tags"
 msgstr "تگ‌ها"
@@ -9699,7 +9700,7 @@ msgstr "جمع تخفیف‌ها"
 
 #: content_a/order/view.php:9 content_a/setting/home/display.php:67
 #: content_crm/member/glance/display.php:318 dash/layout/admin/admin-header.php:21
-#: dash/layout/pwa/pwa_menu.php:191 dash/panel.php:221 dash/plan_list.php:52
+#: dash/layout/pwa/pwa_menu.php:173 dash/panel.php:221 dash/plan_list.php:52
 #: lib/app/quickaccess/factors.php:30
 msgid "Orders"
 msgstr "سفارشات"
@@ -9734,7 +9735,7 @@ msgstr "جستجو در محصولات"
 #: content_love/store/display.php:27 content_love/store/display.php:60
 #: content_my/domain/irnic/view.php:16 content_my/domain/stepGuide.php:56
 #: content_my/domain/whoisdetail/view.php:15 dash/layout/admin/sidebar/sidebar-a.php:21
-#: dash/layout/pwa/pwa_menu.php:204 lib/app/quickaccess/setting.php:49
+#: dash/layout/pwa/pwa_menu.php:186 lib/app/quickaccess/setting.php:49
 #: lib/app/quickaccess/setting.php:58 lib/app/quickaccess/setting.php:67
 #: lib/app/quickaccess/setting.php:76 lib/app/quickaccess/setting.php:94
 #: lib/app/quickaccess/setting.php:104 lib/app/quickaccess/setting.php:113
@@ -10107,17 +10108,17 @@ msgid "End part of your product url."
 msgstr "آخرین قسمت آدرس محصول شما."
 
 #: content_a/products/edit/block/seo.php:28 content_a/tag/edit/display.php:47
-#: content_cms/posts/seo/display.php:32 content_site/page/settings/display-sidebar.php:82
+#: content_cms/posts/seo/display.php:32 content_site/page/settings/display-sidebar.php:108
 msgid "SEO Description"
 msgstr "توضیح برای موتورهای جستجو"
 
 #: content_a/products/edit/block/seo.php:28 content_a/tag/edit/display.php:47
-#: content_cms/posts/seo/display.php:32 content_site/page/settings/display-sidebar.php:82
+#: content_cms/posts/seo/display.php:32 content_site/page/settings/display-sidebar.php:108
 msgid "If leave it empty we are generate it automatically"
 msgstr "اگر این را خالی رها کنید ما به صورت خودکار آن را می‌سازیم"
 
 #: content_a/products/edit/block/seo.php:29 content_a/tag/edit/display.php:48
-#: content_cms/posts/seo/display.php:33 content_site/page/settings/display-sidebar.php:83
+#: content_cms/posts/seo/display.php:33 content_site/page/settings/display-sidebar.php:109
 msgid "Excerpt used for social media and search engines"
 msgstr "گزیده متن برای رسانه‌های اجتماعی و موتورهای جستجو استفاده می‌شود"
 
@@ -11765,8 +11766,8 @@ msgstr "اینجا کلیک کنید"
 #: content_love/business/analytics/table/display.php:7
 #: content_love/business/datalist/display.php:8 content_love/log/home/logTable.php:63
 #: content_love/smslog/view/display.php:16 content_love/store/display.php:20
-#: content_site/page/settings/display-sidebar.php:121
-#: content_site/page/settings/display-sidebar.php:123
+#: content_site/page/settings/display-sidebar.php:148
+#: content_site/page/settings/display-sidebar.php:150
 #: content_sudo/apilog/home/display.php:80
 msgid "Url"
 msgstr "نشانی اینترنتی"
@@ -13359,7 +13360,7 @@ msgid "Clone"
 msgstr "دریافت"
 
 #: content_a/tag/edit/display.php:34 content_cms/posts/seo/display.php:26
-#: content_site/page/settings/display-sidebar.php:76
+#: content_site/page/settings/display-sidebar.php:102
 msgid "SEO Title"
 msgstr "عنوان برای موتورهای جستجو"
 
@@ -14073,8 +14074,8 @@ msgstr "شما می‌توانید با نام کاربری یا موبایل و
 
 #: content_account/my/home/display.php:35 content_account/my/home/display.php:82
 #: content_account/my/profile/view.php:10 content_business/profile/display-menu.php:4
-#: content_site/header/h3_html.php:81 dash/layout/pwa/pwa_menu.php:129
-#: dash/layout/pwa/pwa_menu.php:291 includes/languages/trans_static_public.php:98
+#: content_site/header/h3_html.php:81 dash/layout/pwa/pwa_menu.php:111
+#: dash/layout/pwa/pwa_menu.php:256 includes/languages/trans_static_public.php:98
 #: includes/languages/trans_static_public.php:381
 msgid "Profile"
 msgstr "پروفایل"
@@ -14554,7 +14555,7 @@ msgstr "زیر دامنه اشتباه است. زیر دامنه را حذف ک�
 
 #: content_b1/posts/cover/model.php:14 content_b1/posts/thumb/model.php:14
 #: content_cms/posts/advance/model.php:36 content_cms/posts/edit/model.php:55
-#: content_site/page/settings/model.php:37
+#: content_site/page/settings/model.php:51
 msgid "Please upload a photo"
 msgstr "لطفا یک تصویر بارگذاری کنید"
 
@@ -14665,7 +14666,7 @@ msgstr "شما باید :val :currency دیگر به سبد خرید خود اض
 #: content_love/domain/setting/action/display.php:37 content_my/domain/stepGuide.php:65
 #: content_pay/home/display-donate.php:19 content_pay/home/display-transaction.php:18
 #: content_pay/home/display-transaction.php:144 content_pay/home/view.php:24
-#: content_pay/home/view.php:57 dash/layout/pwa/pwa_menu.php:421
+#: content_pay/home/view.php:57 dash/layout/pwa/pwa_menu.php:419
 #: dash/utility/pay/api/zarinpal/bank.php:29 lib/app/factor/filter.php:50
 #: lib/app/factor/filter.php:59
 msgid "Pay"
@@ -14846,12 +14847,12 @@ msgstr "سود شما"
 msgid "To buy select variants"
 msgstr "برای خرید تنوع را انتخاب کنید"
 
-#: content_business/p/home/blocks/detail.php:200 dash/layout/pwa/pwa_menu.php:368
+#: content_business/p/home/blocks/detail.php:200 dash/layout/pwa/pwa_menu.php:366
 msgid "In cart"
 msgstr "در سبد خرید"
 
 #: content_business/p/home/blocks/detail.php:206
-#: dash/layout/admin/sidebar/sidebar-api-v2.php:104 dash/layout/pwa/pwa_menu.php:343
+#: dash/layout/admin/sidebar/sidebar-api-v2.php:104 dash/layout/pwa/pwa_menu.php:341
 msgid "Add to cart"
 msgstr "افزودن به سبد خرید"
 
@@ -15646,7 +15647,6 @@ msgid "Published"
 msgstr "منتشر شده"
 
 #: content_cms/posts/advance/display.php:50
-#: content_site/page/settings/display-sidebar.php:63
 msgid "Post cover"
 msgstr "کاور نوشته"
 
@@ -15835,7 +15835,6 @@ msgstr ""
 "مزیت‌هایی تصویر شاخص، افزایش زیبایی وب‌سایت شماست."
 
 #: content_cms/posts/edit/display-gallery.php:138
-#: content_site/page/settings/display-sidebar.php:65
 msgid "Featured image"
 msgstr "تصویر شاخص"
 
@@ -16010,53 +16009,53 @@ msgstr "آدرس انتقال"
 msgid "Edit post redirect"
 msgstr "ویرایش آدرس انتقال مطلب"
 
-#: content_cms/posts/seo/display.php:37 content_site/page/settings/display-sidebar.php:87
+#: content_cms/posts/seo/display.php:37 content_site/page/settings/display-sidebar.php:113
 msgid "Special Address"
 msgstr "آدرس اختصاصی"
 
-#: content_cms/posts/seo/display.php:42 content_site/page/settings/display-sidebar.php:92
+#: content_cms/posts/seo/display.php:42 content_site/page/settings/display-sidebar.php:118
 msgid "Independence"
 msgstr "مستقل"
 
-#: content_cms/posts/seo/display.php:48 content_site/page/settings/display-sidebar.php:98
+#: content_cms/posts/seo/display.php:48 content_site/page/settings/display-sidebar.php:124
 msgid "Special"
 msgstr "خاص"
 
-#: content_cms/posts/seo/display.php:55 content_site/page/settings/display-sidebar.php:105
+#: content_cms/posts/seo/display.php:55 content_site/page/settings/display-sidebar.php:131
 #: dash/app/posts/filter.php:184
 msgid "Under tag"
 msgstr "زیرمجموعه تگ"
 
-#: content_cms/posts/seo/display.php:63 content_site/page/settings/display-sidebar.php:113
+#: content_cms/posts/seo/display.php:63 content_site/page/settings/display-sidebar.php:139
 #: dash/app/posts/filter.php:194
 msgid "Under page"
 msgstr "زیرمجموعه صفحه‌ای دیگر"
 
-#: content_cms/posts/seo/display.php:71 content_site/page/settings/display-sidebar.php:121
+#: content_cms/posts/seo/display.php:71 content_site/page/settings/display-sidebar.php:148
 msgid "End part of your news url."
 msgstr "آخرین قسمت آدرس مطلب شما."
 
-#: content_cms/posts/seo/display.php:79 content_site/page/settings/display-sidebar.php:129
+#: content_cms/posts/seo/display.php:79 content_site/page/settings/display-sidebar.php:156
 msgid "You can set this page as a subset of another page"
 msgstr "شما می‌توانید این صفحه را به عنوان زیر مجموعه صفحه‌ای دیگر قرار دهید"
 
-#: content_cms/posts/seo/display.php:80 content_site/page/settings/display-sidebar.php:130
+#: content_cms/posts/seo/display.php:80 content_site/page/settings/display-sidebar.php:157
 msgid "Only published page can set as page parent"
 msgstr "تنها صفحات منتشر شده امکان تنظیم به عنوان صفحه والد را خواهند داشت"
 
 #: content_cms/posts/seo/display.php:83 content_cms/posts/seo/display.php:84
-#: content_site/page/settings/display-sidebar.php:133
-#: content_site/page/settings/display-sidebar.php:134
+#: content_site/page/settings/display-sidebar.php:160
+#: content_site/page/settings/display-sidebar.php:161
 msgid "Choose a post"
 msgstr "یک نوشته‌ را انتخاب کنید"
 
-#: content_cms/posts/seo/display.php:94 content_site/page/settings/display-sidebar.php:144
+#: content_cms/posts/seo/display.php:94 content_site/page/settings/display-sidebar.php:171
 msgid "Set post address as sub child of tag"
 msgstr "تنظیم آدرس نوشته به عنوان زیرمجموعه‌ای از یک تگ"
 
 #: content_cms/posts/seo/display.php:95 content_cms/posts/seo/display.php:96
-#: content_site/page/settings/display-sidebar.php:145
-#: content_site/page/settings/display-sidebar.php:146
+#: content_site/page/settings/display-sidebar.php:172
+#: content_site/page/settings/display-sidebar.php:173
 msgid "Select tag"
 msgstr "انتخاب تگ"
 
@@ -16504,7 +16503,7 @@ msgid "Reduce account recharge"
 msgstr "کاهش شارژ حساب مشتری"
 
 #: content_crm/member/glance/display.php:378 content_crm/ticket/message/view.php:9
-#: content_love/gift/create/stepGuide.php:98 dash/layout/pwa/pwa_menu.php:110
+#: content_love/gift/create/stepGuide.php:98 dash/layout/pwa/pwa_menu.php:92
 msgid "Messages"
 msgstr "پیام‌ها"
 
@@ -19172,7 +19171,7 @@ msgid "Update all business statistics"
 msgstr "به‌روزرسانی آمار همه‌ی بیزینس‌ها"
 
 #: content_love/business/home/view.php:9 content_love/business/question/display.php:8
-#: content_love/features/all/display.php:30 content_love/features/business/display.php:7
+#: content_love/features/all/display.php:32 content_love/features/business/display.php:7
 #: content_love/smslog/view/display.php:15 content_my/home/display_site.php:9
 #: content_site/options/description/description.php:94
 #: content_site/options/file/file_business_logo.php:101
@@ -19180,7 +19179,7 @@ msgstr "به‌روزرسانی آمار همه‌ی بیزینس‌ها"
 #: content_site/options/socialnetwork/socialnetwork.php:70
 #: content_sudo/dbversion/display.php:22 content_sudo/dbversion/display.php:35
 #: content_sudo/update/display.php:33 content_sudo/update/display.php:105
-#: dash/layout/pwa/pwa_menu.php:117 lib/app/business_domain/filter.php:69
+#: dash/layout/pwa/pwa_menu.php:99 lib/app/business_domain/filter.php:69
 #: lib/app/business_domain/filter.php:70
 #: lib/app/log/caller/business/business_createNew.php:19
 #: lib/app/log/caller/business/business_creatingNew.php:19
@@ -20142,8 +20141,8 @@ msgid "History"
 msgstr "تاریخچه"
 
 #: content_love/features/all/display.php:18
-msgid "Count use"
-msgstr "تعداد استفاده"
+msgid "Count enable"
+msgstr "تعداد فعال‌ها"
 
 #: content_love/features/all/view.php:9
 msgid "All features"
@@ -20163,14 +20162,6 @@ msgstr "امکانات بیزینس‌ها"
 #: content_love/features/home/display.php:6
 msgid "All features list"
 msgstr "لیست‌ همه امکانات"
-
-#: content_love/features/home/display.php:24
-msgid "Add features to business"
-msgstr "افزودن ویژگی به بیزینس‌"
-
-#: content_love/features/home/display.php:33
-msgid "Add features to all business"
-msgstr "افزودن ویژگی به همه بیزینس‌ها"
 
 #: content_love/features/home/view.php:9
 msgid "Business features list"
@@ -22324,7 +22315,7 @@ msgstr "ساده"
 msgid "Shopping Footer"
 msgstr "پابرگ فروشگاهی"
 
-#: content_site/footer/f_rafiei.php:27
+#: content_site/footer/f_rafiei.php:22
 msgid "Rafiei Footer"
 msgstr "پابرگ سایت استاد رفیعی"
 
@@ -22348,6 +22339,10 @@ msgstr "سرصفحه فروشگاهی"
 #: content_site/header/h3_html.php:77
 msgid "Enter to account"
 msgstr "ورود به حساب‌کاربری"
+
+#: content_site/header/h_rafiei.php:23
+msgid "Rafiei Header"
+msgstr "سرصفحه #رفیعی"
 
 #: content_site/header/option.php:30 content_site/header/option.php:32
 #: content_site/page/display-sidebar.php:42 content_sudo/apilog/home/display.php:82
@@ -22419,6 +22414,10 @@ msgstr "وضعیت پس‌زمینه هنگام اسکرول صفحه"
 #: content_site/options/background/background_color.php:36
 msgid "Background Color"
 msgstr "رنگ پس‌زمینه"
+
+#: content_site/options/background/background_color_header_line.php:11
+msgid "Header line color"
+msgstr "رنگ خط سرصفحه"
 
 #: content_site/options/background/background_effect.php:14
 msgid "Mesh"
@@ -22703,7 +22702,7 @@ msgstr "نسبت تصویر شاخص"
 #: content_site/options/description/description.php:95
 #: content_site/options/file/file_business_logo.php:102
 #: content_site/options/heading/heading.php:116
-#: content_site/options/responsive/responsive_footer.php:87
+#: content_site/options/responsive/responsive_footer.php:73
 #: content_site/options/socialnetwork/socialnetwork.php:71
 msgid "Custom"
 msgstr "دلخواه"
@@ -23302,7 +23301,7 @@ msgid "Page factor"
 msgstr "فاکتور صفحه"
 
 #: content_site/page/factor/view.php:45 content_site/page/model.php:46
-#: content_site/page/model.php:180 content_site/page/settings/model.php:97
+#: content_site/page/model.php:186 content_site/page/settings/model.php:15
 #: content_site/section/html/model.php:34 content_site/section/model.php:735
 msgid "Invali page id"
 msgstr "شماره صفحه نادرست"
@@ -23311,13 +23310,13 @@ msgstr "شماره صفحه نادرست"
 msgid "Data saved"
 msgstr "ذخیره شد"
 
-#: content_site/page/model.php:188 content_site/page/model.php:197
+#: content_site/page/model.php:194 content_site/page/model.php:203
 #: content_site/section/model.php:658 dash/app/posts/gallery.php:280
 #: lib/app/product/gallery.php:405
 msgid "Invalid sort arguments"
 msgstr "آرگومان مرتب‌سازی اشتباه است"
 
-#: content_site/page/model.php:218 content_site/page/model.php:230
+#: content_site/page/model.php:230 content_site/page/model.php:242
 #: content_site/section/model.php:677 content_site/section/model.php:692
 msgid "Some item have problem in sorting. Need load again"
 msgstr "برخی از اطلاعات اشتباه هستند. لطفا مجددا صفحه را بارگذاری کنید"
@@ -23367,41 +23366,71 @@ msgstr "افزودن صفحه جدید"
 msgid "Is home page"
 msgstr "این صفحه نخست است"
 
-#: content_site/page/settings/display-sidebar.php:34
+#: content_site/page/settings/display-sidebar.php:33
 msgid "Are you sure to set this page as homepage?"
 msgstr "آیا از تنظیم این صفحه به عنوان صفحه نخست اطمینان دارید؟"
 
-#: content_site/page/settings/display-sidebar.php:35
+#: content_site/page/settings/display-sidebar.php:34
 msgid ""
 "After setting as the homepage, the current changes of your page will be saved and "
 "published"
 msgstr "بعد از تنظیم به عنوان صفحه نخست، تغییرات فعلی صفحه شما ذخیره شده و منتشر می‌شود"
 
-#: content_site/page/settings/display-sidebar.php:38
+#: content_site/page/settings/display-sidebar.php:37
 msgid "Set as home page"
 msgstr "تنظیم به عنوان صفحه نخست"
 
+#: content_site/page/settings/display-sidebar.php:49
 #: content_site/page/settings/display-sidebar.php:52
-#: content_site/page/settings/display-sidebar.php:54
 msgid "Page title"
 msgstr "عنوان صفحه"
 
-#: content_site/page/settings/display-sidebar.php:158
+#: content_site/page/settings/display-sidebar.php:59
+msgid "This is the homepage and this title only use in admin panel"
+msgstr ""
+"این صفحه نخست وب‌سایت شما است و عنوانی که وارد می‌کنید تنها در پنل ادمین کاربرد دارد"
+
+#: content_site/page/settings/display-sidebar.php:82
+#: content_site/page/settings/display-sidebar.php:86
+msgid "Page cover"
+msgstr "کاور صفحه"
+
+#: content_site/page/settings/display-sidebar.php:145
+msgid "In homepage page url is your domain"
+msgstr "در صفحه نخست،‌آدرس صفحه شما، آدرس دامنه شماست"
+
+#: content_site/page/settings/display-sidebar.php:186
 msgid "Remove page and all section"
 msgstr "حذف صفحه و همه بخش‌‌های آن"
 
-#: content_site/page/settings/display-sidebar.php:161
-#: content_site/page/settings/display-sidebar.php:164
+#: content_site/page/settings/display-sidebar.php:189
+#: content_site/page/settings/display-sidebar.php:192
 msgid "Are you sure to remove this page?"
 msgstr "آیا از حذف این صفحه اطمینان دارید؟"
 
-#: content_site/page/settings/display-sidebar.php:164
+#: content_site/page/settings/display-sidebar.php:192
 msgid "All section on this page will be removed and can not be restore"
 msgstr "تمام بخش‌های این صفحه به‌صورت غیرقابل بازگشت پاک خواهند شد"
 
-#: content_site/page/settings/model.php:113
+#: content_site/page/settings/model.php:112
+msgid "Can not remove homepage"
+msgstr "نمی‌توانید صفحه نخست را حذف کنید"
+
+#: content_site/page/settings/model.php:128
 msgid "Page removed"
 msgstr "صفحه حذف شد"
+
+#: content_site/page/settings/model.php:157 content_site/section/model.php:156
+msgid "Option key not found!"
+msgstr "کد گزینه یافت نشد!"
+
+#: content_site/page/settings/model.php:194 content_site/section/model.php:217
+msgid "Please check your input"
+msgstr "لطفا ورودی‌های خود را کنترل کنید"
+
+#: content_site/page/settings/model.php:217
+msgid "Page not found!"
+msgstr "صفحه یافت نشد!"
 
 #: content_site/preview/controller.php:27
 msgid "Invalid section name or preview key"
@@ -23484,17 +23513,9 @@ msgstr "ورود HTML‌ الزامی است"
 msgid "Custom HTML Code"
 msgstr "کد HTML‌ سفارشی"
 
-#: content_site/section/model.php:156
-msgid "Option key not found!"
-msgstr "کد گزینه یافت نشد!"
-
 #: content_site/section/model.php:179
 msgid "Invalid option"
 msgstr "شناسه گزینه نامعتبر است"
-
-#: content_site/section/model.php:217
-msgid "Please check your input"
-msgstr "لطفا ورودی‌های خود را کنترل کنید"
 
 #: content_site/section/model.php:233 content_site/section/model.php:767
 msgid "Invalid preview_key"
@@ -25224,19 +25245,19 @@ msgstr "لطفا برای مرتب سازی همه تصاویر موجود در 
 msgid "Sort saved"
 msgstr "مرتب‌سازی ذخیره شد"
 
-#: dash/app/posts/ready.php:224
+#: dash/app/posts/ready.php:226
 msgid "will be published on future"
 msgstr "در آینده منتشر خواهد شد"
 
-#: dash/app/posts/ready.php:234
+#: dash/app/posts/ready.php:236
 msgid "Post will be published at :val"
 msgstr "نوشته در تاریخ :val منتشر خواهد شد"
 
-#: dash/app/posts/ready.php:238
+#: dash/app/posts/ready.php:240
 msgid "Post published at :val"
 msgstr "نوشته در تاریخ :val منتشر شده است"
 
-#: dash/app/posts/ready.php:243
+#: dash/app/posts/ready.php:245
 msgid "Post will be published at when status set on publish"
 msgstr "نوشته در زمانی مشخص‌شده در تاریخ انتشار، منتشر می‌شود"
 
@@ -26685,11 +26706,11 @@ msgstr "نظر خودتون رو در مورد این نوشته بنویسید 
 msgid "User reviews"
 msgstr "نظرات کاربران"
 
-#: dash/layout/foundation.php:215
+#: dash/layout/foundation.php:226
 msgid "JavaScript is required to use our service."
 msgstr "جاوا اسکریپت برای استفاده از سرویس ما ضروری است."
 
-#: dash/layout/foundation.php:217
+#: dash/layout/foundation.php:228
 msgid "Enable JavaScript in your browser or use one which supports it."
 msgstr ""
 "جاوا اسکریپت را در مرورگر خود فعال کنید یا از مرورگری استفاده کنید که از آن پشتیبانی "
@@ -26766,11 +26787,11 @@ msgstr "ذخیره HTML"
 msgid "Save Text"
 msgstr "ذخیره متن"
 
-#: dash/layout/panelBuilder/panelBuilder-main-iframe.php:43
+#: dash/layout/panelBuilder/panelBuilder-main-iframe.php:47
 msgid "Connect to your Domain"
 msgstr "به دامنه خودتان متصل کنید"
 
-#: dash/layout/panelBuilder/panelBuilder-main-iframe.php:48 lib/pardakhtyar/type.php:85
+#: dash/layout/panelBuilder/panelBuilder-main-iframe.php:52 lib/pardakhtyar/type.php:85
 msgid "Live"
 msgstr "زنده"
 
@@ -26842,7 +26863,7 @@ msgstr "کپی لینک کوتاه"
 msgid "ShortLink of this page is copied. Paste in anywhere!"
 msgstr "کد کوتاه این صفحه کپی شد. آن‌ را هر جا که خواستید قرار دهید!"
 
-#: dash/layout/pwa/pwa_menu.php:185 includes/languages/trans_static.php:329
+#: dash/layout/pwa/pwa_menu.php:167 includes/languages/trans_static.php:329
 #: includes/languages/trans_static.php:442 lib/app/quickaccess/setting.php:458
 #: lib/app/quickaccess/setting.php:472
 msgid "products"
@@ -41729,6 +41750,15 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Count use"
+#~ msgstr "تعداد استفاده"
+
+#~ msgid "Add features to business"
+#~ msgstr "افزودن ویژگی به بیزینس‌"
+
+#~ msgid "Add features to all business"
+#~ msgstr "افزودن ویژگی به همه بیزینس‌ها"
+
 #~ msgid "Add new page"
 #~ msgstr "افزودن برگه جدید"
 
@@ -42509,9 +42539,6 @@ msgstr "یارد"
 
 #~ msgid "Invalid record type"
 #~ msgstr "نوع اشتباه است"
-
-#~ msgid "Can not remove homepage"
-#~ msgstr "نمی‌توانید صفحه نخست را حذف کنید"
 
 #~ msgid "Page successfully removed"
 #~ msgstr "صفحه با موفقیت حذف شد"
@@ -45986,9 +46013,6 @@ msgstr "یارد"
 
 #~ msgid "Some :type is wrong"
 #~ msgstr "برخی از :type اشتباه هستند"
-
-#~ msgid "Parent not found"
-#~ msgstr "والد یافت نشد"
 
 #~ msgid "Can not set the parent as yourself"
 #~ msgstr "یک شیء‌ نمی تواند والد خودش باشد"
