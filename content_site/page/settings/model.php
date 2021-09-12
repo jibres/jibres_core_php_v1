@@ -89,6 +89,8 @@ class model
 				}
 			}
 
+			return;
+
 		}
 
 
