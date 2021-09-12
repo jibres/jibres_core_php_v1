@@ -76,7 +76,18 @@ class view
 		{
 			$link = \lib\store::subdomain_url(). '/';
 			$link .= \dash\data::currentPageDetail_linkpath();
+		}
 
+		if(\dash\request::get('id') === homepage::code())
+		{
+			if(\dash\url::isLocal())
+			{
+				$link = \lib\store::subdomain_url();
+			}
+			else
+			{
+				$link = \lib\store::url();
+			}
 		}
 
 		$get = [];
