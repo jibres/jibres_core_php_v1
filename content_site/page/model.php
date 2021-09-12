@@ -217,6 +217,12 @@ class model
 			{
 				unset($currentSectionList[$key]);
 			}
+
+			// bug
+			if(!a($value, 'folder') && !a($value, 'section') && !a($value, 'model'))
+			{
+				unset($currentSectionList[$key]);
+			}
 		}
 
 		if(count($currentSectionList) !== count($sort))
