@@ -152,9 +152,10 @@ class model
 
 		\dash\notif::complete();
 
+		\dash\notif::reloadIframe();
+
 		if(\content_site\utility::need_redirect())
 		{
-			\dash\notif::reloadIframe();
 			\dash\redirect::pwd();
 		}
 	}
