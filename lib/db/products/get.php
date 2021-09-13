@@ -42,7 +42,7 @@ class get
 			FROM
 				products
 			WHERE
-				products.status != 'deleted' AND
+				products.status = 'active' AND
 				products.parent IS NULL AND
 				products.id >= $_from AND
 				products.id < $_to
