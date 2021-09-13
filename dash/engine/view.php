@@ -164,7 +164,7 @@ class view
 			\dash\face::title(\dash\data::dataRow_title());
 
 			// to not put << | site >> force on the page title
-			// \dash\face::specialTitle(true);
+			\dash\face::specialTitle(true);
 		}
 		// set seo title
 		if(\dash\data::dataRow_seotitle())
