@@ -211,7 +211,11 @@ class sitemap
 
 					file_put_contents($local_tmp_file, null);
 
-					return \dash\scp::send($local_tmp_file, $_addr);
+					$result = \dash\scp::send($local_tmp_file, $_addr);
+
+					\dash\file::delete($local_tmp_file);
+
+					return $result;
 				}
 				else
 				{
@@ -237,7 +241,11 @@ class sitemap
 
 					\dash\scp::recv($_addr, $local_tmp_file);
 
-					return \dash\file::read($local_tmp_file);
+					$result = \dash\file::read($local_tmp_file);
+
+					\dash\file::delete($local_tmp_file);
+
+					return $result;
 
 				}
 				else
@@ -423,6 +431,8 @@ class sitemap
 
 			self::file($master_xml, 'copy_data', $local_tmp_file);
 
+			\dash\file::delete($local_tmp_file);
+
 		}
 
 		return $result;
@@ -501,6 +511,8 @@ class sitemap
 		$sitemap->endSitemap();
 
 		self::file($addr, 'copy_data', $local_tmp_file);
+
+		\dash\file::delete($local_tmp_file);
 
 		self::add_to_list($_type, $addr);
 
