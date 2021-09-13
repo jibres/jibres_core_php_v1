@@ -207,15 +207,15 @@ class sitemap
 			case 'write':
 				if($is_scp)
 				{
-					$local_tmp_file = tempnam("/tmp", "sitemap_scp_file_". md5($_addr));
+					// $local_tmp_file = tempnam("/tmp", "sitemap_scp_file_". md5($_addr));
 
-					file_put_contents($local_tmp_file, null);
+					// file_put_contents($local_tmp_file, 'null');
 
-					$result = \dash\scp::send($local_tmp_file, $_addr);
+					// $result = \dash\scp::send($local_tmp_file, $_addr);
 
-					\dash\file::delete($local_tmp_file);
+					// \dash\file::delete($local_tmp_file);
 
-					return $result;
+					// return $result;
 				}
 				else
 				{
@@ -411,6 +411,7 @@ class sitemap
 
 		if($_set_result)
 		{
+
 			$local_tmp_file = tempnam("/tmp", "sitemap_xml_". md5($master_xml));
 
 			$sitemap = new \dash\utility\sitemap_xml($local_tmp_file);
