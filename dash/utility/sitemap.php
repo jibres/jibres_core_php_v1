@@ -147,6 +147,100 @@ class sitemap
 	}
 
 
+	public static function file($_addr, $_action)
+	{
+		// $upload_other_server_scp = \dash\upload\file::upload_other_server_scp();
+
+		// if($upload_other_server_scp)
+		// {
+		// 	if(!\dash\scp::uploader_connection())
+		// 	{
+		// 		\dash\notif::error(T_("Can not connect to storage server"));
+		// 		return false;
+		// 	}
+		// }
+
+		// test
+		$upload_other_server_scp = false;
+
+
+		switch ($_action)
+		{
+			case 'is_file':
+				if($upload_other_server_scp)
+				{
+					var_dump(func_get_args());exit;
+				}
+				else
+				{
+					return is_file($_addr);
+				}
+				break;
+
+			case 'delete':
+				if($upload_other_server_scp)
+				{
+					var_dump(func_get_args());exit;
+				}
+				else
+				{
+					return \dash\file::delete($_addr);
+				}
+				break;
+
+			case 'write':
+				if($upload_other_server_scp)
+				{
+					var_dump(func_get_args());exit;
+				}
+				else
+				{
+					return \dash\file::write($_addr, null);
+				}
+				break;
+
+			case 'read':
+				if($upload_other_server_scp)
+				{
+					var_dump(func_get_args());exit;
+				}
+				else
+				{
+					return \dash\file::read($_addr);
+				}
+				break;
+
+			case 'exists':
+				if($upload_other_server_scp)
+				{
+					var_dump(func_get_args());exit;
+				}
+				else
+				{
+					return \dash\file::exists($_addr);
+				}
+				break;
+
+			case 'makeDir':
+				if($upload_other_server_scp)
+				{
+					var_dump(func_get_args());exit;
+				}
+				else
+				{
+					return \dash\file::makeDir($_addr, null, true);
+				}
+				break;
+
+
+			default:
+				return null;
+				break;
+		}
+	}
+
+
+
 	/**
 	 * Creates all sitemap group
 	 */
@@ -162,8 +256,8 @@ class sitemap
 		else
 		{
 			self::create_jibres_static_page();
-			self::create_all_item('posts');
-			self::create_all_item('tags');
+			// self::create_all_item('posts');
+			// self::create_all_item('tags');
 
 		}
 	}
@@ -177,7 +271,7 @@ class sitemap
 	public static function delete()
 	{
 		$path = self::sitemap_real_path();
-		\dash\file::delete($path);
+		self::file($path, 'delete');
 		return true;
 	}
 
@@ -245,16 +339,16 @@ class sitemap
 		$master_xml = str_replace(basename($_addr), '', $_addr);
 		$master_xml .= $_type. '.xml';
 
-		if(!is_file($master_xml))
+		if(!self::file($master_xml, 'is_file'))
 		{
-			\dash\file::write($master_xml, null);
+			self::file($master_xml, 'write');
 		}
 
 		$result = [];
 
 		try
 		{
-			$object = @new \SimpleXMLElement(\dash\file::read($master_xml));
+			$object = @new \SimpleXMLElement(self::file($master_xml, 'read'));
 
 			foreach ($object as $key => $value)
 			{
@@ -335,7 +429,7 @@ class sitemap
 		$addr .= $_type. '-'. $calculate['file_name'];
 
 		// delete to create again
-		\dash\file::delete($addr);
+		self::file($addr, 'delete');
 
 		$result = $_fn::sitemap_list($calculate['from'], $calculate['to']);
 
@@ -375,7 +469,7 @@ class sitemap
 	{
 		if(\dash\engine\store::inStore())
 		{
-			$addr = \dash\upload\directory::move_to('business');
+			$addr = \dash\upload\directory::move_to('business', false, true);
 			$addr .= \dash\store_coding::encode_raw(). '/';
 			$addr .= 'sitemap/';
 		}
@@ -392,18 +486,18 @@ class sitemap
 			$addr .= $_type. '/';
 		}
 
-		if(!\dash\file::exists($addr))
+		if(!self::file($addr, 'exists'))
 		{
-			\dash\file::makeDir($addr, null, true);
+			self::file($addr, 'makeDir');
 		}
 
 		if($_type)
 		{
 			$master_xml = $addr . $_type. '.xml';
 
-			if(!is_file($master_xml))
+			if(!self::file($master_xml, 'is_file'))
 			{
-				\dash\file::write($master_xml, null);
+				self::file($master_xml, 'write');
 			}
 		}
 
