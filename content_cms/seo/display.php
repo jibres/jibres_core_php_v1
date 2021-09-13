@@ -13,17 +13,7 @@
     </div>
   </div>
 
-  <nav class="items long">
-    <ul>
-      <li class="">
-        <a class="item f" href="<?php echo \dash\url::here();?>/sitemap">
-          <i class="sf-sitemap"></i>
-          <div class="key"><?php echo T_('Sitemap');?></div>
-          <div class="go info"></div>
-        </a>
-      </li>
-    </ul>
-  </nav>
+
 
 </div>
 
