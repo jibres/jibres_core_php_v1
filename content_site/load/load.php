@@ -47,6 +47,7 @@ class load
 		if(isset($post_detail['id']) && floatval($post_detail['id']) === floatval(\content_site\homepage::id()))
 		{
 			$post_detail['ishomepage'] = true;
+			\dash\face::specialTitle(true);
 		}
 
 		\dash\temp::set('not_load_cms_setting', true);
@@ -79,6 +80,7 @@ class load
 		{
 			\dash\data::dataRow($ready);
 		}
+
 
 		\dash\engine\view::set_cms_titles();
 
