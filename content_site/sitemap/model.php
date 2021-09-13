@@ -1,5 +1,5 @@
 <?php
-namespace content_cms\sitemap;
+namespace content_site\sitemap;
 
 class model
 {
