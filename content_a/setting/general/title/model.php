@@ -10,7 +10,6 @@ class model
 		[
 			'desc'       => \dash\request::post('desc'),
 			'title'      => \dash\request::post('title'),
-			'shorttitle' => \dash\request::post('shorttitle'),
 		];
 
 		\lib\app\store\edit::selfedit($post);

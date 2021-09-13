@@ -9,7 +9,6 @@ $storeData = \dash\data::store_store_data();
       <h3><?php echo T_("Business Title");?></h3>
       <div class="body">
         <p class="txtB"><?php echo a($storeData, 'title') ?></p>
-        <?php if(a($storeData, 'shorttitle')) {?><small><?php echo a($storeData, 'shorttitle') ?></small><?php }//endif ?>
         <p class="fc-mute"><?php echo a($storeData, 'desc') ?></p>
 
       </div>

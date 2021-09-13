@@ -13,12 +13,6 @@ $storeData = \dash\data::store_store_data();
         </div>
         <label for="desc"><?php echo T_("Description"); ?></label>
         <textarea class="txt mB10" name="desc"  maxlength='2000' rows="3"><?php echo a($storeData, 'desc'); ?></textarea>
-
-
-        <label for="ishorttitle"><?php echo T_("Short title"); ?> <span class="fc-mute"><?php echo T_("For PWA mode") ?></span></label>
-        <div class="input">
-          <input type="text" name="shorttitle" id="ishorttitle" value="<?php echo a($storeData, 'shorttitle'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='20' minlength="1" >
-        </div>
       </div>
         <footer class="txtRa">
           <button class="btn success"><?php echo T_("Save"); ?></button>
