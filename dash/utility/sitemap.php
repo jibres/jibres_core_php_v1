@@ -148,13 +148,13 @@ class sitemap
 
 	private static $scp_upload = null;
 
-	public static function file($_addr, $_action)
+	public static function file($_addr, $_action, $_data_file = null)
 	{
 		if(self::$scp_upload === null)
 		{
-			$upload_other_server_scp = \dash\upload\file::upload_other_server_scp();
+			$is_scp = \dash\upload\file::upload_other_server_scp();
 
-			if($upload_other_server_scp)
+			if($is_scp)
 			{
 				if(\dash\scp::uploader_connection())
 				{
@@ -172,16 +172,20 @@ class sitemap
 		}
 
 		// test
-		$upload_other_server_scp = self::$scp_upload;
-		$upload_other_server_scp = false;
+		$is_scp = self::$scp_upload;
+		// $is_scp = false;
 
+		if($is_scp)
+		{
+			$_addr = self::get_path($_addr, true);
+		}
 
 		switch ($_action)
 		{
 			case 'is_file':
-				if($upload_other_server_scp)
+				if($is_scp)
 				{
-					var_dump(func_get_args());exit;
+					return \dash\scp::check_dir($_addr);
 				}
 				else
 				{
@@ -190,9 +194,9 @@ class sitemap
 				break;
 
 			case 'delete':
-				if($upload_other_server_scp)
+				if($is_scp)
 				{
-					var_dump(func_get_args());exit;
+					return \dash\scp::delete($_addr);
 				}
 				else
 				{
@@ -201,9 +205,13 @@ class sitemap
 				break;
 
 			case 'write':
-				if($upload_other_server_scp)
+				if($is_scp)
 				{
-					var_dump(func_get_args());exit;
+					$local_tmp_file = tempnam("/tmp", "sitemap_scp_file_". md5($_addr));
+
+					file_put_contents($local_tmp_file, null);
+
+					return \dash\scp::send($local_tmp_file, $_addr);
 				}
 				else
 				{
@@ -211,10 +219,26 @@ class sitemap
 				}
 				break;
 
-			case 'read':
-				if($upload_other_server_scp)
+			case 'copy_data':
+				if($is_scp)
 				{
-					var_dump(func_get_args());exit;
+					return \dash\scp::send($_data_file, $_addr);
+				}
+				else
+				{
+					return \dash\file::write($_addr, \dash\file::read($_data_file));
+				}
+				break;
+
+			case 'read':
+				if($is_scp)
+				{
+					$local_tmp_file = tempnam("/tmp", "sitemap_scp_file_". md5($_addr));
+
+					\dash\scp::recv($_addr, $local_tmp_file);
+
+					return \dash\file::read($local_tmp_file);
+
 				}
 				else
 				{
@@ -223,9 +247,9 @@ class sitemap
 				break;
 
 			case 'exists':
-				if($upload_other_server_scp)
+				if($is_scp)
 				{
-					var_dump(func_get_args());exit;
+					return \dash\scp::check_dir($_addr);
 				}
 				else
 				{
@@ -234,9 +258,9 @@ class sitemap
 				break;
 
 			case 'makeDir':
-				if($upload_other_server_scp)
+				if($is_scp)
 				{
-					var_dump(func_get_args());exit;
+					return \dash\scp::makeDir($_addr, null, true);
 				}
 				else
 				{
@@ -324,7 +348,7 @@ class sitemap
 	}
 
 
-	private static function get_path($_addr)
+	private static function get_path($_addr, $_raw = false)
 	{
 		if(\dash\engine\store::inStore())
 		{
@@ -333,6 +357,11 @@ class sitemap
 		else
 		{
 			$path = str_replace(YARD. 'talambar_dl/', '', $_addr);
+		}
+
+		if($_raw)
+		{
+			return $path;
 		}
 
 		$path = \lib\filepath::fix($path);
@@ -379,7 +408,9 @@ class sitemap
 
 		if($_set_result)
 		{
-			$sitemap = new \dash\utility\sitemap_xml($master_xml);
+			$local_tmp_file = tempnam("/tmp", "sitemap_xml_". md5($master_xml));
+
+			$sitemap = new \dash\utility\sitemap_xml($local_tmp_file);
 
 			$sitemap->siteampIndex();
 
@@ -389,6 +420,8 @@ class sitemap
 			}
 
 			$sitemap->endSitemap();
+
+			self::file($master_xml, 'copy_data', $local_tmp_file);
 
 		}
 
@@ -451,7 +484,9 @@ class sitemap
 			return false;
 		}
 
-		$sitemap = new \dash\utility\sitemap_xml($addr);
+		$local_tmp_file = tempnam("/tmp", "sitemap_xml_". md5($addr));
+
+		$sitemap = new \dash\utility\sitemap_xml($local_tmp_file);
 
 		$sitemap->startSitemap();
 
@@ -464,6 +499,8 @@ class sitemap
 		}
 
 		$sitemap->endSitemap();
+
+		self::file($addr, 'copy_data', $local_tmp_file);
 
 		self::add_to_list($_type, $addr);
 
@@ -481,7 +518,8 @@ class sitemap
 	{
 		if(\dash\engine\store::inStore())
 		{
-			$addr = \dash\upload\directory::move_to('business', false, true);
+			// $addr = \dash\upload\directory::move_to('business', false, true);
+			$addr = \dash\upload\directory::move_to('business');
 			$addr .= \dash\store_coding::encode_raw(). '/';
 			$addr .= 'sitemap/';
 		}
