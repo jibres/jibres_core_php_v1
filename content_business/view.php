@@ -8,33 +8,37 @@ class view
 	{
 		\dash\data::store(\lib\store::detail());
 
-		$store_title = \lib\store::detail('title');
-		if($store_title)
-		{
-			\dash\face::site($store_title);
-			\dash\face::title($store_title);
-
-			$store_short_title = \lib\store::detail('shorttitle');
-			if($store_short_title && \dash\request::is_pwa())
-			{
-				\dash\face::title($store_short_title);
-			}
-		}
-
 		if(\dash\request::get('preview'))
 		{
 			\dash\data::HtmlPointerEventsNone(true);
 		}
 
-		$store_desc = \lib\store::detail('desc');
-		if($store_desc)
+		\dash\upload\size::set_default_file_size('business');
+
+
+
+		// set SEO detail
+		$store_title = \lib\store::detail('title');
+		// set if not set.
+		// maybe set on load page builder
+		if($store_title  && !\dash\face::title())
 		{
-			\dash\face::desc($store_desc);
-			\dash\face::intro($store_desc);
+			\dash\face::site($store_title);
+			\dash\face::title($store_title);
 		}
-		else
+
+		$store_desc = \lib\store::detail('desc');
+		if(!\dash\face::desc())
 		{
-			\dash\face::desc($store_title);
+			if($store_desc)
+			{
+				\dash\face::desc($store_desc);
+				\dash\face::intro($store_desc);
+			}
+			else
+			{
+				\dash\face::desc($store_title);
+			}
 		}
 
 		$store_logo = \lib\store::logo();
@@ -45,7 +49,6 @@ class view
 			\dash\face::logo($store_logo);
 		}
 
-		\dash\upload\size::set_default_file_size('business');
 
 	}
 
