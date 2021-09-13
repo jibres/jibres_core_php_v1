@@ -146,21 +146,33 @@ class sitemap
 		return $sitemap;
 	}
 
+	private static $scp_upload = null;
 
 	public static function file($_addr, $_action)
 	{
-		// $upload_other_server_scp = \dash\upload\file::upload_other_server_scp();
+		if(self::$scp_upload === null)
+		{
+			$upload_other_server_scp = \dash\upload\file::upload_other_server_scp();
 
-		// if($upload_other_server_scp)
-		// {
-		// 	if(!\dash\scp::uploader_connection())
-		// 	{
-		// 		\dash\notif::error(T_("Can not connect to storage server"));
-		// 		return false;
-		// 	}
-		// }
+			if($upload_other_server_scp)
+			{
+				if(\dash\scp::uploader_connection())
+				{
+					self::$scp_upload = true;
+				}
+				else
+				{
+					self::$scp_upload = false;
+				}
+			}
+			else
+			{
+				self::$scp_upload = false;
+			}
+		}
 
 		// test
+		$upload_other_server_scp = self::$scp_upload;
 		$upload_other_server_scp = false;
 
 
