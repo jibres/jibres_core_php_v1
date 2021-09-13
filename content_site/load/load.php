@@ -44,10 +44,12 @@ class load
 		// load post detail
 		$post_detail = \dash\db\posts\get::by_id_type($_id, 'pagebuilder');
 
+		$is_homepage = false;
+
 		if(isset($post_detail['id']) && floatval($post_detail['id']) === floatval(\content_site\homepage::id()))
 		{
 			$post_detail['ishomepage'] = true;
-			\dash\face::specialTitle(true);
+			$is_homepage               = true;
 		}
 
 		\dash\temp::set('not_load_cms_setting', true);
@@ -75,10 +77,18 @@ class load
 			\dash\data::bodyBackgroundStyle($background_style);
 		}
 
+
+		$temp = $ready;
+		if($is_homepage)
+		{
+			\dash\face::specialTitle(true);
+			unset($temp['post_title']);
+			unset($temp['title']);
+		}
 		// fill dataRow to set cms title
 		if(!\dash\data::dataRow())
 		{
-			\dash\data::dataRow($ready);
+			\dash\data::dataRow($temp);
 		}
 
 
