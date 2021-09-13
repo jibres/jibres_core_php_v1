@@ -77,7 +77,7 @@ class load
 		// fill dataRow to set cms title
 		if(!\dash\data::dataRow())
 		{
-			\dash\data::dataRow($post_detail);
+			\dash\data::dataRow($ready);
 		}
 
 		\dash\engine\view::set_cms_titles();
