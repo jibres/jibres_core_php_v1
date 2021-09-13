@@ -103,87 +103,95 @@ class sitebuilder
 	{
 		self::counter('i');
 
-		$query = "	SELECT * FROM posts where posts.type='pagebuilder' ";
-		$all_page_builder = \dash\db::get($query);
+		// $query = "	SELECT * FROM posts where posts.type='pagebuilder' ";
+		// $all_page_builder = \dash\db::get($query);
 
-		$visitcard_pages = [];
-		$comingsoon_pages = [];
+		// $visitcard_pages = [];
+		// $comingsoon_pages = [];
 
-		foreach ($all_page_builder as $key => $value)
+		// foreach ($all_page_builder as $key => $value)
+		// {
+		// 	$temp = self::ready($value);
+		// 	if(a($temp, 'meta', 'template') === 'comingsoon')
+		// 	{
+		// 		self::counter('comingsoon_pages');
+		// 		// $comingsoon_pages[] = a($value, 'id');
+
+
+		// 		// $new_record                   = [];
+		// 		// $new_record['folder']         = 'body';
+		// 		// $new_record['section']        = 'headline';
+		// 		// $new_record['model']          = 'headline1';
+		// 		// $new_record['preview_key']    = 'p1';
+		// 		// $new_record['status']         = 'enable';
+		// 		// $new_record['sort']           = 1;
+		// 		// $new_record['sort_preview']   = 1;
+		// 		// $new_record['status_preview'] = 'enable';
+
+		// 		// $preview                      = \content_site\call_function::section_model_preview($new_record['section'], $new_record['model'], $new_record['preview_key']);
+		// 		// $new_record['preview']        = json_encode($preview['options']);
+		// 		// $new_record['body']           = json_encode($preview['options']);
+
+		// 		// $new_record['related']        = 'posts';
+		// 		// $new_record['related_id']     = a($value, 'id');
+		// 		// $new_record['datecreated']    = date("Y-m-d H:i:s");
+
+
+		// 		// if(!a($temp, 'meta', 'converted'))
+		// 		// {
+		// 		// 	\lib\db\sitebuilder\insert::new_record($new_record);
+		// 		// 	\dash\pdo\query_template::update('posts', ['meta' => json_encode(array_merge(a($temp, 'meta'), ['converted' => 1]))], a($value, 'id'));
+		// 		// }
+
+
+		// 	}
+
+		// 	if(a($temp, 'meta', 'template') === 'visitcard')
+		// 	{
+		// 		self::counter('visitcard_pages');
+		// 		// $visitcard_pages[] = a($value, 'id');
+
+
+
+
+		// 		// $new_record                   = [];
+		// 		// $new_record['folder']         = 'body';
+		// 		// $new_record['section']        = 'visitcard';
+		// 		// $new_record['model']          = 'visitcard1';
+		// 		// $new_record['preview_key']    = 'p1';
+		// 		// $new_record['status']         = 'enable';
+		// 		// $new_record['sort']           = 1;
+		// 		// $new_record['sort_preview']   = 1;
+		// 		// $new_record['status_preview'] = 'enable';
+
+		// 		// $preview                      = \content_site\call_function::section_model_preview($new_record['section'], $new_record['model'], $new_record['preview_key']);
+		// 		// $new_record['preview']        = json_encode($preview['options']);
+		// 		// $new_record['body']           = json_encode($preview['options']);
+
+		// 		// $new_record['related']        = 'posts';
+		// 		// $new_record['related_id']     = a($value, 'id');
+		// 		// $new_record['datecreated']    = date("Y-m-d H:i:s");
+
+
+		// 		// if(!a($temp, 'meta', 'converted'))
+		// 		// {
+		// 		// 	\lib\db\sitebuilder\insert::new_record($new_record);
+		// 		// 	\dash\pdo\query_template::update('posts', ['meta' => json_encode(array_merge(a($temp, 'meta'), ['converted' => 1]))], a($value, 'id'));
+		// 		// }
+
+		// 	}
+		// }
+
+		// return;
+
+		$query = "	SELECT count(*) as `count` FROM pagebuilder where pagebuilder.folder IS NULL ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		if($result)
 		{
-			$temp = self::ready($value);
-			if(a($temp, 'meta', 'template') === 'comingsoon')
-			{
-				self::counter('comingsoon_pages');
-				// $comingsoon_pages[] = a($value, 'id');
-
-
-				// $new_record                   = [];
-				// $new_record['folder']         = 'body';
-				// $new_record['section']        = 'headline';
-				// $new_record['model']          = 'headline1';
-				// $new_record['preview_key']    = 'p1';
-				// $new_record['status']         = 'enable';
-				// $new_record['sort']           = 1;
-				// $new_record['sort_preview']   = 1;
-				// $new_record['status_preview'] = 'enable';
-
-				// $preview                      = \content_site\call_function::section_model_preview($new_record['section'], $new_record['model'], $new_record['preview_key']);
-				// $new_record['preview']        = json_encode($preview['options']);
-				// $new_record['body']           = json_encode($preview['options']);
-
-				// $new_record['related']        = 'posts';
-				// $new_record['related_id']     = a($value, 'id');
-				// $new_record['datecreated']    = date("Y-m-d H:i:s");
-
-
-				// if(!a($temp, 'meta', 'converted'))
-				// {
-				// 	\lib\db\sitebuilder\insert::new_record($new_record);
-				// 	\dash\pdo\query_template::update('posts', ['meta' => json_encode(array_merge(a($temp, 'meta'), ['converted' => 1]))], a($value, 'id'));
-				// }
-
-
-			}
-
-			if(a($temp, 'meta', 'template') === 'visitcard')
-			{
-				self::counter('visitcard_pages');
-				// $visitcard_pages[] = a($value, 'id');
-
-
-
-
-				// $new_record                   = [];
-				// $new_record['folder']         = 'body';
-				// $new_record['section']        = 'visitcard';
-				// $new_record['model']          = 'visitcard1';
-				// $new_record['preview_key']    = 'p1';
-				// $new_record['status']         = 'enable';
-				// $new_record['sort']           = 1;
-				// $new_record['sort_preview']   = 1;
-				// $new_record['status_preview'] = 'enable';
-
-				// $preview                      = \content_site\call_function::section_model_preview($new_record['section'], $new_record['model'], $new_record['preview_key']);
-				// $new_record['preview']        = json_encode($preview['options']);
-				// $new_record['body']           = json_encode($preview['options']);
-
-				// $new_record['related']        = 'posts';
-				// $new_record['related_id']     = a($value, 'id');
-				// $new_record['datecreated']    = date("Y-m-d H:i:s");
-
-
-				// if(!a($temp, 'meta', 'converted'))
-				// {
-				// 	\lib\db\sitebuilder\insert::new_record($new_record);
-				// 	\dash\pdo\query_template::update('posts', ['meta' => json_encode(array_merge(a($temp, 'meta'), ['converted' => 1]))], a($value, 'id'));
-				// }
-
-			}
+			self::counter('folder is not null');
 		}
 
 		return;
-
 
 		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
 		$query = "	SELECT * FROM pagebuilder where 1";
