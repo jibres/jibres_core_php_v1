@@ -74,9 +74,13 @@ class load
 			\dash\data::bodyBackgroundStyle($background_style);
 		}
 
+		// fill dataRow to set cms title
+		if(!\dash\data::dataRow())
+		{
+			\dash\data::dataRow($post_detail);
+		}
 
-
-
+		\dash\engine\view::set_cms_titles();
 
 		return $ready;
 	}
