@@ -6,6 +6,7 @@ namespace dash;
 class scp
 {
 	private static $connection     = null;
+	private static $ssh2_sftp      = null;
 	private static $home_directory = null;
 
 
@@ -56,6 +57,23 @@ class scp
 			}
 		}
 	}
+
+
+	/**
+	 * Get ssh2 sftp connection
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function _ssh2_sftp()
+	{
+		if(self::$ssh2_sftp === null)
+		{
+			self::$ssh2_sftp = ssh2_sftp(self::$connection);
+		}
+
+		return self::$ssh2_sftp;
+	}
+
 
 
 	public static function disconnect()
@@ -144,7 +162,7 @@ class scp
 
 		try
 		{
-			$sftp   = @ssh2_sftp(self::$connection);
+			$sftp   = self::_ssh2_sftp();
 			$result = @ssh2_sftp_unlink($sftp, $_remote_file);
 			return $result;
 		}
@@ -171,7 +189,7 @@ class scp
 
 		try
 		{
-			$sftp   = @ssh2_sftp(self::$connection);
+			$sftp   = ssh2_sftp(self::$connection);
 			$result = @ssh2_sftp_mkdir($sftp, dirname($_path), $_mode, $_recursive);
 			return $result;
 		}
@@ -193,7 +211,7 @@ class scp
 
 		try
 		{
-			$sftp   = @ssh2_sftp(self::$connection);
+			$sftp   = self::_ssh2_sftp();
 			$result = file_exists('ssh2.sftp://' . $sftp . dirname($_path));
 			return $result;
 		}
@@ -209,7 +227,7 @@ class scp
 	{
 		self::connect();
 
-		$sftp   = @ssh2_sftp(self::$connection);
+		$sftp   = self::_ssh2_sftp();
 
 		$stream  = 'ssh2.sftp://';
 		$stream .= $sftp;
