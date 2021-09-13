@@ -177,7 +177,7 @@ class sitemap
 
 		if($is_scp)
 		{
-			$_addr = self::get_path($_addr, true);
+			$_addr = str_replace(YARD, '', $_addr);
 		}
 
 		switch ($_action)
@@ -356,7 +356,7 @@ class sitemap
 	}
 
 
-	private static function get_path($_addr, $_raw = false)
+	private static function get_path($_addr)
 	{
 		if(\dash\engine\store::inStore())
 		{
@@ -365,11 +365,6 @@ class sitemap
 		else
 		{
 			$path = str_replace(YARD. 'talambar_dl/', '', $_addr);
-		}
-
-		if($_raw)
-		{
-			return $path;
 		}
 
 		$path = \lib\filepath::fix($path);
