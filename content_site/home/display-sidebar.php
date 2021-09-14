@@ -12,7 +12,7 @@ $html .= '<nav class="sections items">';
       {
         $html .= '<div class="key">'. T_("Sitemap"). '</div>';
         {
-          $html .= '<img class="p-4" src="'. \dash\utility\icon::url('Domains'). '">';
+          $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Domains'). '">';
         }
         $html .= '</a>';
       }
@@ -36,7 +36,7 @@ $html .= '<nav class="sections items">';
       {
         $html .= '<div class="key">'. T_("Static file"). '</div>';
         {
-          $html .= '<img class="p-4" src="'. \dash\utility\icon::url('Tools'). '">';
+          $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Tools'). '">';
         }
         $html .= '</a>';
       }
