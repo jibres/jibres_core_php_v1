@@ -16,11 +16,11 @@
       {
         $html .= "<a class='item f' href='". $show_preview_link. "'>";
         {
-          // $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
+          // $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" src="'. a($sectionRequestedDetail, 'icon'). '">';
           $html .= '<div class="key">'. T_("All"). '</div>';
           if(\dash\request::get('category') === 'popular' || !\dash\request::get('category')) // selected
           {
-            $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+            $html .= '<img class="p-2" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
           }
           $html .= '</a>';
         }
@@ -45,11 +45,11 @@
         {
           $html .= "<a class='item f' href='". $show_preview_link. "'>";
           {
-            // $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($sectionRequestedDetail, 'icon'). '">';
+            // $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" src="'. a($sectionRequestedDetail, 'icon'). '">';
             $html .= '<div class="key">'. a($sectionRequestedDetail, 'title'). ' - '. a($item, 'title'). '</div>';
             if(\dash\request::get('category') === a($item, 'model'))
             {
-              $html .= '<img class="p-4" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+              $html .= '<img class="p-2" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
             }
             $html .= '</a>';
           }

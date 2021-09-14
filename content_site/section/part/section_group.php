@@ -21,7 +21,7 @@ foreach (\dash\data::groupSectionList() as $group => $items)
     $html .= '<li>';
     // $html .= "<a class='item f' data-ajaxify data-data='". $data. "'>";
     $html .= "<a class='item f' href='". $show_preview_link. "'>";
-    $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-4" src="'. a($item, 'icon'). '">';
+    $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" src="'. a($item, 'icon'). '">';
     $html .= '<div class="key">'. a($item, 'title'). '</div>';
 
     $html .= '</a>';

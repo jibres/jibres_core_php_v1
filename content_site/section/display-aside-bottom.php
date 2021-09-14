@@ -70,8 +70,9 @@ if(\dash\url::child())
         $downloadSupervisor = \dash\url::current(). \dash\request::full_get(['downloadjson' => 1]);
 
         $myFile = \dash\url::child(). '-'. \dash\request::get('sid'). '.php';
-        $html .= "<a href='$downloadSupervisor' class='btn-outline-warning mb-2' title='".T_("Download PHP")."' download='$myFile' target='_blank'>";
+        $html .= "<a href='$downloadSupervisor' class='btn-outline-warning btn-sm mb-2 flex align-center' title='".T_("Download PHP")."' download='$myFile' target='_blank'>";
         $html .= '<img class="w-5 block" src="'. \dash\utility\icon::url('Code'). '" alt="Download php">';
+            $html .= '<span class="px-2">'. T_("Download Template").'</span>';
         $html .= '</a>';
       }
 
