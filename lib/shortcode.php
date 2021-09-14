@@ -162,7 +162,19 @@ class shortcode
 	        return $matches[0];
 	    }
 
-	    return $matches[1] . "<a href=\"$url\" target=\"_blank\" rel=\"nofollow noopener\">$url</a>" . $suffix;
+	    $rel = 'nofollow noopener noreferrer';
+
+	    if(strpos($url, \dash\url::base()) === 0)
+	    {
+	    	$rel = '';
+	    }
+
+	    if($rel)
+	    {
+	    	$rel = " rel=\"$rel\"";
+	    }
+
+	    return $matches[1] . "<a href=\"$url\" target=\"_blank\"$rel>$url</a>" . $suffix;
 	}
 
 

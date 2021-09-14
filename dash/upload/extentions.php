@@ -160,6 +160,12 @@ class extentions
 					// mime of csv file is 'text/csv', 'text/plain'
 					// https://github.com/PHPOffice/PhpSpreadsheet/issues/429
 				}
+				elseif($_ext === 'mp3' && in_array($mime_content_type, ['application/octet-stream', 'audio/mpeg']))
+				{
+					// ok
+					// https://bugs.php.net/bug.php?id=80590&edit=3
+					// https://stackoverflow.com/questions/2754713/why-some-mp3s-on-mime-content-type-return-application-octet-stream
+				}
 				else
 				{
 					\dash\notif::error(T_("Content type of this file is different by extension of file"));
