@@ -1,7 +1,7 @@
 <?php 
 if(isset($currentSectionDetail['discardable']) && $currentSectionDetail['discardable'] && \dash\url::subchild())
 {
-	$html .= '<nav class="items long mT20">';
+	$html .= '<nav class="items long mt-4">';
 	{
 	    $html .= '<ul>';
 	    {

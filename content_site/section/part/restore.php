@@ -12,7 +12,7 @@ $html .= '</p>';
 $restore_title = T_("Are you sure to restore this section?");
 
 
-$html .= '<nav class="items long mT20">';
+$html .= '<nav class="items long mt-4">';
 {
   $html .= '<ul>';
   {

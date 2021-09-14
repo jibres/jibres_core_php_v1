@@ -240,10 +240,10 @@ class find
 				// 	$myFooter = root.'content_business/home/layout/footer.php';
 				// }
 			}
-			elseif(\dash\data::include_adminPanelBuilder())
-			{
-				$myFooter = core.'layout/panelBuilder/panelBuilder-footer.php';
-			}
+			// elseif(\dash\data::include_adminPanelBuilder())
+			// {
+			// 	$myFooter = core.'layout/panelBuilder/panelBuilder-footer.php';
+			// }
 		}
 
 

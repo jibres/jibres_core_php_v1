@@ -2,7 +2,7 @@
 
 if(\dash\permission::supervisor() && !\dash\url::subchild() && \dash\url::child())
 {
-  $html .= '<nav class="items long mT20">';
+  $html .= '<nav class="items long mt-4">';
   {
       $html .= '<ul>';
       {
