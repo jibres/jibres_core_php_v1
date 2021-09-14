@@ -19,7 +19,7 @@ class view
 		}
 
 		// php8.0-xml
-		$result['php-xml']                = 'Install manually :)';
+		$result['php-xml']                 = 'Install manually :)';
 
 		$result['mbstring']                = extension_loaded('mbstring');
 		$result['soap']                    = class_exists("soapclient");
@@ -40,7 +40,7 @@ class view
 		$result['error_reporting']         = ini_get('error_reporting');
 		$result['log_errors']              = ini_get('log_errors');
 		$result['session.name']            = ini_get('session.name');
-
+		$result['finfo']                   = function_exists('finfo_open');
 
 		$w                       = stream_get_wrappers();
 		$result['openssl']       = extension_loaded ('openssl');

@@ -232,7 +232,8 @@ class edit
 		}
 
 
-		$need_check = ['title', 'content', 'slug', 'seotitle', 'excerpt', 'specialaddress', 'url', 'status'];
+		// $need_check = ['title', 'content', 'slug', 'seotitle', 'excerpt', 'specialaddress', 'url', 'status'];
+		$need_check = ['slug', 'specialaddress', 'url', 'status'];
 
 		foreach ($_data as $key => $value)
 		{
