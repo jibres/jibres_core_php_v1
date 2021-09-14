@@ -86,13 +86,22 @@ class load
 			unset($temp['title']);
 		}
 		// fill dataRow to set cms title
+		$force_remove_dataRow = false;
+
 		if(!\dash\data::dataRow())
 		{
+			$force_remove_dataRow = true;
+
 			\dash\data::dataRow($temp);
 		}
 
 
 		\dash\engine\view::set_cms_titles();
+
+		if($force_remove_dataRow)
+		{
+			\dash\data::dataRow(null);
+		}
 
 		return $ready;
 	}
