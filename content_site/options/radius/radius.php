@@ -100,7 +100,7 @@ trait radius
 					$selected = true;
 				}
 
-				$radio_html .= \content_site\options\generate::radio_line_itemText($name, $value['key'], $value['title'], $selected);
+				$radio_html .= \content_site\options\generate::radio_line_itemText($name, $value['key'], $value['title'], $selected, true);
 			}
 
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);

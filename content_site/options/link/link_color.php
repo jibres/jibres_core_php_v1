@@ -71,7 +71,7 @@ trait link_color
 
 						if($link_color == $value['key'] || (!$link_color && $value['key'] === 'outline'))
 						{
-							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="'. $checkColor. '" width="24" height="24" viewBox="0 0 24 24" class="px-2 pt-1 mx-auto"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
+							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="'. $checkColor. '" width="24" height="24" viewBox="0 0 24 24" class="p-1.5 mx-auto"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
 						}
 
 						$json = json_encode(['opt_'. \content_site\utility::className(__CLASS__) => 1, 'multioption' => 'multi', 'link_color' => $value['key']]);

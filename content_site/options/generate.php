@@ -157,7 +157,7 @@ class generate
 	public static function radio_line_add_ul($_uniqueName, $_html_child, $_fixDirection = null)
 	{
 		$html = '';
-		$classList = 'filter-switch flex items-center relative p-1 lg:p-1.5 space-x-2 bg-gray-100 text-center rounded-lg font-bold text-blue-600 mb-2';
+		$classList = 'filter-switch flex items-center relative p-1 lg:p-1.5 space-x-2 bg-gray-100 text-center rounded-lg text-blue-600 mb-2 overflow-hidden';
 		if($_fixDirection)
 		{
 			if($_fixDirection)
@@ -183,11 +183,11 @@ class generate
 
 		$html = '';
 		$flexMode = 'flex-1';
-		$fontSize = 'leading-7 text-sm';
+		$fontSize = 'leading-8 text-sm';
 
 		if($_fontSizeSmall)
 		{
-			$fontSize = 'leading-6 text-xs';
+			$fontSize = 'leading-9 text-xs';
 		}
 		if(substr($_text, 0, 4) === '<svg')
 		{
@@ -207,7 +207,7 @@ class generate
 			}
 			$html .= '>';
 
-			$classList = 'block px-1 md:px-2 text-gray-600 rounded-lg shadow bg-white transition overflow-hidden '. $fontSize;
+			$classList = 'block h-7 px-1 md:px-1.5 text-gray-600 rounded-lg shadow bg-white transition overflow-hidden '. $fontSize;
 
 			$html .= "<label for='$myId' class='$classList'>";
 			if($_value === 'more')
