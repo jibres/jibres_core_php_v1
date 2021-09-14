@@ -490,7 +490,8 @@ class sitemap
 			return false;
 		}
 
-		$local_tmp_file = tempnam("/tmp", "sitemap_xml_". md5($addr));
+		// create tmp file
+		$local_tmp_file = @tempnam("/tmp", "sitemap_xml_". md5($addr));
 
 		$sitemap = new \dash\utility\sitemap_xml($local_tmp_file);
 
