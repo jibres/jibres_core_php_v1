@@ -157,7 +157,7 @@ class generate
 	public static function radio_line_add_ul($_uniqueName, $_html_child, $_fixDirection = null)
 	{
 		$html = '';
-		$classList = 'filter-switch flex items-center relative p-2 space-x-2 bg-gray-100 text-center rounded-lg font-bold text-blue-600 mb-3';
+		$classList = 'filter-switch flex items-center relative p-1 lg:p-1.5 space-x-2 bg-gray-100 text-center rounded-lg font-bold text-blue-600 mb-2';
 		if($_fixDirection)
 		{
 			if($_fixDirection)
@@ -207,7 +207,7 @@ class generate
 			}
 			$html .= '>';
 
-			$classList = 'block pt-2 px-3 h-12 text-gray-600 rounded-lg shadow bg-white transition overflow-hidden '. $fontSize;
+			$classList = 'block px-1 md:px-2 text-gray-600 rounded-lg shadow bg-white transition overflow-hidden '. $fontSize;
 
 			$html .= "<label for='$myId' class='$classList'>";
 			if($_value === 'more')

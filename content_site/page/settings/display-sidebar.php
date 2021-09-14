@@ -16,11 +16,11 @@ if(\dash\request::get('id') === $homepage_id)
   $is_homepage = true;
 }
 
-$html .= "<div class='mb-10'>";
+$html .= "<div class='mb-6'>";
 {
   if($is_homepage)
   {
-    $html .= "<div class='btn danger block disabled'>";
+    $html .= "<div class='btn danger block w-full disabled'>";
     {
       $html .= T_('Is home page');
     }
@@ -32,7 +32,7 @@ $html .= "<div class='mb-10'>";
     $set_as_homepage = json_encode(['set_as_homepage' => 'set_as_homepage']);
     $set_as_homepage_title = T_('Are you sure to set this page as homepage?');
     $set_as_homepage_msg = T_('After setting as the homepage, the current changes of your page will be saved and published');
-    $html .= "<div class='btn master block' data-confirm data-data='$set_as_homepage' data-title='$set_as_homepage_title' data-msg='$set_as_homepage_msg' >";
+    $html .= "<div class='btn-outline-primary w-full' data-confirm data-data='$set_as_homepage' data-title='$set_as_homepage_title' data-msg='$set_as_homepage_msg' >";
     {
       $html .= T_('Set as home page');
     }
@@ -189,7 +189,7 @@ echo $html;
       <label for='readydelete'><?php echo T_('Are you sure to remove this page?'); ?></label>
     </div>
     <div data-response='readydelete' data-response-hide>
-      <button data-confirm data-data='{'remove':'page'}' data-title='<?php echo T_('Are you sure to remove this page?') ?>' data-msg='<?php echo T_('All section on this page will be removed and can not be restore') ?>' class='btn danger block '><?php echo T_('Remove') ?></button>
+      <button data-confirm data-data='{'remove':'page'}' data-title='<?php echo T_('Are you sure to remove this page?') ?>' data-msg='<?php echo T_('All section on this page will be removed and can not be restore') ?>' class='btn-outline-danger w-full'><?php echo T_('Remove') ?></button>
     </div>
   </div>
 <?php } //endif ?>
