@@ -1,6 +1,7 @@
-<div class="h-full flex flex-wrap content-center">
+<div class="h-full flex flex-wrap content-center px-3">
 
-  <a class="backBtn pe-5 ps-2 mx-5 rounded-xl w-50 text-sm text-gray-600 hover:text-gray-900 focus:text-gray-900 transition bg-gray-50 hover:bg-gray-200 focus:bg-gray-200" href="<?php echo \dash\data::back_link(); ?>" <?php if(\dash\data::back_direct()) { echo 'data-direct';} ?>>
+ <div class="backBtn">
+  <a class="btn-light btn-sm" href="<?php echo \dash\data::back_link(); ?>" <?php if(\dash\data::back_direct()) { echo 'data-direct';} ?>>
 <?php
 if(\dash\language::dir() === 'rtl')
 {
@@ -11,27 +12,28 @@ else
  echo \dash\utility\icon::svg('ChevronLeft', 'minor');
 }
 ?>
-    <span class="inline-block transition-none"><?php echo \dash\data::back_text(); ?></span>
+    <span class="px-1"><?php echo \dash\data::back_text(); ?></span>
   </a>
-  <div class="flex-grow mx-5 font-bold"><?php echo \dash\face::title(); ?></div>
+ </div>
+  <div class="flex-grow px-5 font-bold"><?php echo \dash\face::title(); ?></div>
 
+ <div class="actionBtn">
 <?php if(\dash\data::action_link() && \dash\data::action_text()) {?>
-  <a href="<?php echo \dash\data::action_link(); ?>" class="inline-block mx-5 px-10 text-center text-white transition bg-blue-400 rounded-lg shadow hover:shadow-lg hover:bg-blue-500 hover:text-gray-50 focus:outline-none cursor-pointer "><?php echo \dash\data::action_text(); ?></a>
+  <a href="<?php echo \dash\data::action_link(); ?>" class="btn-secondary"><?php echo \dash\data::action_text(); ?></a>
 <?php }?>
-
-
 <?php if(\dash\data::btnSaveSiteBuilder()) { ?>
 <form method="post" autocomplete="off" action="<?php echo \dash\url::here(). '/page?id='. \dash\request::get('id'); ?>">
   <input type="hidden" name="savepage" value="savepage">
-  <button class="inline-block mx-5 px-10 text-center text-white transition bg-blue-400 rounded-lg shadow hover:shadow-lg hover:bg-blue-500 hover:text-gray-50 focus:outline-none focus:bg-blue-600 cursor-pointer "><?php echo T_("Save"); ?></button>
+  <button class="btn-primary"><?php echo T_("Save & Publish"); ?></button>
 </form>
 <?php } // endif ?>
 <?php if(\dash\data::btnSaveSiteBuilderHtml()) { ?>
-  <button  form="savehtmlform" class="inline-block mx-5 px-10 text-center text-white transition bg-gray-800 rounded-lg shadow hover:shadow-lg hover:bg-gray-500 hover:text-gray-50 focus:outline-none focus:bg-blue-600 cursor-pointer "><?php echo T_("Save HTML"); ?></button>
+  <button form="savehtmlform" class="btn-secondary"><?php echo T_("Save HTML"); ?></button>
 <?php }//endif ?>
 <?php if(\dash\data::btnSaveSiteBuilderEditor()) { ?>
-  <button  form="sectioneditorhtml" class="inline-block mx-5 px-10 text-center text-white transition bg-gray-800 rounded-lg shadow hover:shadow-lg hover:bg-gray-500 hover:text-gray-50 focus:outline-none focus:bg-blue-600 cursor-pointer "><?php echo T_("Save Text"); ?></button>
+  <button form="sectioneditorhtml" class="btn-secondary"><?php echo T_("Save Text"); ?></button>
 <?php }//endif ?>
+ </div>
 
 
 </div>
