@@ -34,8 +34,8 @@ class find
 		}
 		else
 		{
-			self::sidebar();
 			self::header();
+			self::sidebar();
 			// self::nav();
 			self::main();
 			self::footer();
