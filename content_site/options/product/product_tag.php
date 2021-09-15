@@ -71,7 +71,7 @@ class product_tag
 	        {
 	        	$selected = null;
 
-	        	if($value['id'] === $default)
+	        	if($value['id'] == $default)
 	        	{
 	        		$selected = ' selected';
 	        	}
