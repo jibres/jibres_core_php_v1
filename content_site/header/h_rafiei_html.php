@@ -28,7 +28,7 @@ class h_rafiei_html
 				$html .= '<a href="'. \dash\url::kingdom() .'" class="block max-w-md mx-auto py-1 md:py-3">';
 				if(a($_args, 'logo'))
 				{
-					$html .= '<img class="block mx-auto h-48 rounded" src="'. a($_args, 'logo'). '" alt="'. a($_args, 'heading'). '">';
+					$html .= '<img class="block mx-auto max-h-48 rounded" src="'. a($_args, 'logo'). '" alt="'. a($_args, 'heading'). '">';
 				}
 				$html .= '</a>';
 
