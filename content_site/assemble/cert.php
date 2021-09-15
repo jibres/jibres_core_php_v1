@@ -24,7 +24,7 @@ class cert
 					$html .= ' class="'. $_class. '"';
 				}
 				$html .= '>';
-				$html .= '<img referrerpolicy="origin" src="'. $imgSrc. '" alt="'. T_("Enamad Certificate"). '" id="'.$explode_enamad[1].'">';
+				$html .= '<img class="max-w-full max-h-full m-auto" referrerpolicy="origin" src="'. $imgSrc. '" alt="'. T_("Enamad Certificate"). '" id="'.$explode_enamad[1].'">';
 				$html .= '</a>';
 
 				return $html;
@@ -51,7 +51,7 @@ class cert
 			}
 			$html .= '>';
 
-			$html .= '<img src="'. $samandehi_link2.'" alt="'. T_("Samandehi Certificate").'">';
+			$html .= '<img class="max-w-full max-h-full m-auto" src="'. $samandehi_link2.'" alt="'. T_("Samandehi Certificate").'">';
 
 			$html .= '</div>';
 		}
