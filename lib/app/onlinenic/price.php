@@ -280,5 +280,30 @@ class price
 		}
 		return self::$price_list;
 	}
+
+
+	private static $price_list_raw = [];
+	public static function domain_price()
+	{
+		if(!self::$price_list_raw)
+		{
+			$dir = __DIR__. '/pricing.csv';
+			if(is_file($dir))
+			{
+				$priceList = \dash\utility\import::csv($dir);
+				if(!$priceList || !is_array($priceList))
+				{
+					return false;
+				}
+
+				if(!empty($priceList))
+				{
+					self::$price_list_raw = $priceList;
+				}
+			}
+		}
+		return self::$price_list_raw;
+	}
+
 }
 ?>
