@@ -61,7 +61,7 @@ class background_effect
 		switch ($_key)
 		{
 			case 'mesh':
-				$style = 'style="background-image:url('. \dash\url::cdn(). '/img/sitebuilder/headline/headline1/mesh.png);background-repeat:repeat;background-attachment:fixed;"';
+				$style = 'style="background-image:url('. \dash\url::cdn(). '/img/sitebuilder/headline/headline1/mesh.png);background-repeat:repeat;"';
 				break;
 
 			case 'dark':
