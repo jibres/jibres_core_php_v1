@@ -6,12 +6,13 @@ class price
 {
 	private static function dollar()
 	{
-		return 28750;
-		// return 29600; // toman // date: 2021-09-06
-		// return 26100; // toman // date: 2021-08-26
-		// return 31000; // toman // date: 2020-11-26
-		// return 26000; // toman // date: 2020-09-28
-		// return 19000; // toman // date: 2020-06-18
+		return 29957;
+		// return 29957; // 2021-09-15
+		// return 29600; // 2021-09-06
+		// return 26100; // 2021-08-26
+		// return 31000; // 2020-11-26
+		// return 26000; // 2020-09-28
+		// return 19000; // 2020-06-18
 
 		// .com domain
 		// 8.89 $ onlinenic without wage
@@ -32,7 +33,7 @@ class price
 		switch ($_tld)
 		{
 			case 'com':
-				$profit = 4;
+				$profit = 3;
 				break;
 		}
 
