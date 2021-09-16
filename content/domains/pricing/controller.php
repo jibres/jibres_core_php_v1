@@ -85,7 +85,7 @@ class controller
 	}
 
 
-	public static function priceEl($_val)
+	public static function priceEl($_val, $_optimizeForMobile = null)
 	{
 		if(!$_val)
 		{
@@ -105,7 +105,14 @@ class controller
 		else if($currency === 'IRT')
 		{
 			$html .= \dash\fit::number($_val);
-			$html .= '<small class="fc-mute">';
+			if($_optimizeForMobile)
+			{
+				$html .= '<small class="fc-mute s0">';
+			}
+			else
+			{
+				$html .= '<small class="fc-mute">';
+			}
 			$html .= ' '. T_("Hezar Toman");
 			$html .= '</small>';
 		}

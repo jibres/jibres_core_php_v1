@@ -50,7 +50,7 @@ for ($i=1; $i <= 10; $i++)
     <table class="tbl1 v4" data-datatable="pricing">
       <thead>
         <tr>
-          <th class="collapsing txtL"></th>
+          <th class="collapsing txtL s0"></th>
           <th class="txtL"><?php echo T_("TLD") ?></th>
           <th class="txtL"><?php echo T_("Register") ?></th>
           <th class="txtL"><?php echo T_("Renew") ?></th>
@@ -60,11 +60,11 @@ for ($i=1; $i <= 10; $i++)
       <tbody>
         <?php $count = 0; foreach (\dash\data::dataTable() as $key => $value) { $count++;?>
           <tr>
-            <td class="collapsing" data-order="<?php echo $count; ?>"><?php echo \dash\fit::number($count); ?></td>
+            <td class="collapsing s0" data-order="<?php echo $count; ?>"><?php echo \dash\fit::number($count); ?></td>
             <td class="ltr txtL"><?php echo a($value, 'TLD') ?></td>
-            <td class="txtB txtL" data-order="<?php echo a($value, 'register'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></td>
-            <td class="txtB txtL" data-order="<?php echo a($value, 'renew'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'renew')) ?></td>
-            <td class="txtB txtL" data-order="<?php echo a($value, 'transfer'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'transfer')) ?></td>
+            <td class="txtB txtL" data-order="<?php echo a($value, 'register'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register'), true); ?></td>
+            <td class="txtB txtL" data-order="<?php echo a($value, 'renew'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'renew'), true) ?></td>
+            <td class="txtB txtL" data-order="<?php echo a($value, 'transfer'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'transfer'), true) ?></td>
           </tr>
         <?php } // endfor ?>
       </tbody>
