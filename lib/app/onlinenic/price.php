@@ -332,7 +332,21 @@ class price
 			}
 			if(isset($value['type']) && $value['type'])
 			{
-				$tldPrice['type'] = $value['type'];
+				if($_type)
+				{
+					if($_type === $value['type'])
+					{
+						$tldPrice['type'] = $value['type'];
+					}
+					else
+					{
+						continue;
+					}
+				}
+				else
+				{
+					$tldPrice['type'] = $value['type'];
+				}
 			}
 			else
 			{

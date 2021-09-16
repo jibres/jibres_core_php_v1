@@ -18,7 +18,20 @@ class controller
 				// if(\dash\permission::supervisor())
 				{
 					\dash\open::get();
-					$price = \lib\app\onlinenic\price::domain_price();
+					$type = \dash\request::get('type');
+					switch ($type)
+					{
+						case 'register':
+						case 'renew':
+						case 'transfer':
+							$price = \lib\app\onlinenic\price::domain_price('domain'. $type);
+
+							break;
+
+						default:
+							$price = \lib\app\onlinenic\price::domain_price();
+							break;
+					}
 
 					\dash\code::jsonBoom($price, true);
 				}
