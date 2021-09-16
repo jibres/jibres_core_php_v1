@@ -7,7 +7,11 @@ class view
 	public static function config()
 	{
 		\dash\face::title(T_('Hundreds Of Domains At Great Prices'));
-		\dash\face::desc(T_('Use our domain price search tool to find the cost of popular domains.'). ' '. T_('Buy or transfer a domain name today!'));
+		\dash\face::desc(T_('Check out our domain name pricing table and availability.'). ' '. T_('Use our domain price search tool to find the cost of popular domains.'));
+
+		\dash\face::seo(T_('Domain Name Price and Registration'));
+		\dash\face::headTitle(T_('Cheap Domain Names | Find Domain Prices at Jibres'));
+
 
 		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-domain-pricing-1.jpg');
 
