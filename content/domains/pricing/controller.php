@@ -24,7 +24,16 @@ class controller
 						case 'register':
 						case 'renew':
 						case 'transfer':
-							$price = \lib\app\onlinenic\price::domain_price('domain'. $type);
+							$unit = null;
+							if(\dash\language::current() === 'fa')
+							{
+								$unit = 'IRT';
+							}
+							if(\dash\request::get('currency') === '$')
+							{
+								$unit = '$';
+							}
+							$price = \lib\app\onlinenic\price::domain_price('domain'. $type, $unit);
 
 							break;
 

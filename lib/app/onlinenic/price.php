@@ -283,7 +283,7 @@ class price
 	}
 
 
-	public static function domain_price($_type = null)
+	public static function domain_price($_type = null, $_unit = null)
 	{
 		$priceList = [];
 		$dir = __DIR__. '/pricing.csv';
@@ -302,6 +302,7 @@ class price
 		$filteredPrice = [];
 		$forbiddenTLD = [
 			// and remove forbidden tld
+			'.adult',
 			'.xxx',
 			'.porn',
 			'.sex',
@@ -313,6 +314,97 @@ class price
 
 			// and remove tld with paper
 			'.de',
+
+			// and remove expensive tld
+			// $ 2399
+			'.auto',
+			'.car',
+			'.cars',
+			'.protection',
+			'.security',
+			// $ 1859
+			'.lotto',
+			// $ 589
+			'.theatre',
+			// $ 360.99
+			'.hosting',
+			'.juegos',
+			// $ 349
+			'.game',
+			// $ 289
+			'.movie',
+			// $ 189
+			'.aaa.pro',
+			'.aca.pro',
+			'.acct.pro',
+			'.avocat.pro',
+			'.bar.pro',
+			'.cpa.pro',
+			'.eng.pro',
+			'.jur.pro',
+			'.law.pro',
+			'.med.pro',
+			'.recht.pro',
+			// $ 120.99
+			'.audio',
+			'.blackfriday',
+			'.guitars',
+			'.hiphop',
+			'.property',
+			'.creditcard',
+			// less than 100$ is okay
+
+			// 3 level domains
+			'.co.ag',
+			'.com.ag',
+			'.net.ag',
+			'.nom.ag',
+			'.org.ag',
+			'.ac.vn',
+			'.com.vc',
+			'.edu.vn',
+			'.gov.vn',
+			'.health.vn',
+			'.info.vn',
+			'.int.vn',
+			'.name.vn',
+			'.net.vc',
+			'.net.vn',
+			'.org.vc',
+			'.org.vn',
+			'.pro.vn',
+			'.com.co',
+			'.net.co',
+			'.nom.co',
+			'.com.tw',
+			'.net.tw',
+			'.org.tw',
+			'.co.lc',
+			'.com.lc',
+			'.l.lc',
+			'.land',
+			'.loans',
+			'.money',
+			'.net.lc',
+			'.org.lc',
+			'.p.lc',
+			'.co.uk',
+			'.ltd.uk',
+			'.me',
+			'.me.uk',
+			'.net.uk',
+			'.one',
+			'.org.uk',
+			'.plc.uk',
+			'.*.name',
+			'.co.in',
+			'.firm.in',
+			'.gen.in',
+			'.ind.in',
+			'.net.in',
+			'.org.in',
+
+
 		];
 
 		foreach ($priceList as $key => $value)
@@ -367,6 +459,15 @@ class price
 					$extraFee = 1 + ( $extraFee / 100 );
 
 					$tldPrice[$name] = round($value[$name] * $extraFee, 2);
+
+					if($_unit === 'IRT')
+					{
+						// exchange
+						$exchangedPrice = round($tldPrice[$name] * self::dollar(), -3);
+						// remove 3 zero
+						$exchangedPrice = $exchangedPrice / 1000;
+						$tldPrice[$name] = $exchangedPrice;
+					}
 				}
 			}
 
