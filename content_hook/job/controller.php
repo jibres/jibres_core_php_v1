@@ -166,7 +166,7 @@ class controller
 		{
 			$fn = ['\\content_hook\\job\\controller', 'business_once'];
 
-			\content_hook\job\business::run_once($fn);
+			\content_hook\job\business::run_once($fn, 'business_once');
 
 
 		}
@@ -174,7 +174,7 @@ class controller
 		{
 			$fn = ['\\content_hook\\job\\controller', 'public_cronjob'];
 
-			\content_hook\job\business::run_once($fn);
+			\content_hook\job\business::run_once($fn, 'public_cronjob');
 
 		}
 
