@@ -1,4 +1,24 @@
 <div class="jibresBanner">
+
+ <div class="avand">
+  <div class="row">
+<?php
+foreach (\dash\data::specialTLD() as $tld => $value) {
+  if(a($value, 'register'))
+  {
+?>
+    <div class="c-2 c-xs-6 c-sm-4 c-md-4 c-lg-2 pA5">
+      <div class="cbox mB10-f">
+        <div class="tld font-35 txtB"><?php echo $tld ?></div>
+        <div class="fc-mute font-16"><?php echo T_("Registeration") ?></div>
+        <div class="price font-20 mT10"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></div>
+      </div>
+    </div>
+<?php } } ?>
+
+  </div>
+ </div>
+
  <div class="avand impact">
   <div class="f mB10">
 <?php

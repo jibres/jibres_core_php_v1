@@ -530,14 +530,14 @@ class price
 	private static function irDomainPrice($_currency = null)
 	{
 		$irDomainList = [
-			'ir',
-			'id.ir',
-			'co.ir',
-			'ac.ir',
-			'sch.ir',
-			'net.ir',
-			'org.ir',
-			'gov.ir',
+			'.ir',
+			'.id.ir',
+			'.co.ir',
+			'.ac.ir',
+			'.sch.ir',
+			'.net.ir',
+			'.org.ir',
+			'.gov.ir',
 		];
 		$irDomainType = ['domainregister', 'domainrenew', 'domaintransfer'];
 		$irPriceList = [];

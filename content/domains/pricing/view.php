@@ -34,6 +34,31 @@ class view
 
 		$price = \lib\app\onlinenic\price::price_table(controller::requestType(), controller::requestCurrency(), $year);
 		\dash\data::dataTable($price);
+
+		$special =
+		[
+			'.com',
+			'.net',
+			// '.org',
+			// '.io',
+			'.app',
+			'.me',
+			'.xyz',
+			// '.co',
+			// '.info',
+			// '.pro',
+			'.ir',
+		];
+		$specialTLD = [];
+		foreach ($special as $tld)
+		{
+			if(isset($price[$tld]))
+			{
+				$specialTLD[$tld] = $price[$tld];
+			}
+		}
+
+		\dash\data::specialTLD($specialTLD);
 	}
 
 }
