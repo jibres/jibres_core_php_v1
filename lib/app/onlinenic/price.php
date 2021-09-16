@@ -474,8 +474,10 @@ class price
 			$filteredPrice[] = $tldPrice;
 		}
 
+		// add ir domains
+		$finalDataList = array_merge($filteredPrice, self::irDomainPrice($_currency));
 
-		return $filteredPrice;
+		return $finalDataList;
 	}
 
 
@@ -521,9 +523,51 @@ class price
 			}
 		}
 
-
-
 		return $priceTable;
+	}
+
+
+	private static function irDomainPrice($_currency = null)
+	{
+		$irDomainList = [
+			'ir',
+			'id.ir',
+			'co.ir',
+			'ac.ir',
+			'sch.ir',
+			'net.ir',
+			'org.ir',
+			'gov.ir',
+		];
+		$irDomainType = ['domainregister', 'domainrenew', 'domaintransfer'];
+		$irPriceList = [];
+
+		$ir1yr = 0.99;
+		$ir5yr = 2.99;
+		if($_currency === 'IRT')
+		{
+			$ir1yr = \lib\app\nic_domain\price::register('1year') / 1000;
+			$ir5yr = \lib\app\nic_domain\price::register('5year') / 1000;
+		}
+
+		foreach ($irDomainList as $tld)
+		{
+			foreach ($irDomainType as  $type)
+			{
+
+				$thisTLD =
+				[
+					'domain'  => $tld,
+					'type'    => $type,
+					'1 year'  => $ir1yr,
+					'5 years' => $ir5yr,
+				];
+
+				$irPriceList[] = $thisTLD;
+			}
+		}
+
+		return $irPriceList;
 	}
 
 }

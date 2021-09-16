@@ -99,10 +99,12 @@ class controller
 			$html .= '<span class="fc-mute">';
 			$html .= '$';
 			$html .= '</span>';
+			$html .= \dash\fit::number($_val, false);
 		}
-		$html .= \dash\fit::number($_val);
-		if($currency === 'IRT')
+
+		else if($currency === 'IRT')
 		{
+			$html .= \dash\fit::number($_val);
 			$html .= '<small class="fc-mute">';
 			$html .= ' '. T_("Hezar Toman");
 			$html .= '</small>';
