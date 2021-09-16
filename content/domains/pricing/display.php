@@ -1,6 +1,29 @@
 <div class="jibresBanner">
  <div class="avand impact">
+  <div class="f mB10">
+<?php
+for ($i=1; $i <= 10; $i++)
+{
+  $link = \dash\url::that(). '?yr='. $i;
+  if($i === 1)
+  {
+    $link = \dash\url::that();
+  }
 
+  $choosenYr = intval(\dash\request::get('yr'));
+  if($choosenYr === $i || ($choosenYr === 0 && $i === 1))
+  {
+    $classList = 'c mA5 btn primary';
+  }
+  else
+  {
+    $classList = 'c mA5 btn outline';
+  }
+    echo '<a class="'. $classList. '" href="'. $link. '">'. \dash\fit::number($i). ' '. T_('Year'). '</a>';
+}
+?>
+
+  </div>
   <div class="tblBox1 ltr">
     <table class="tbl1 v4" data-datatable="pricing">
       <thead>
