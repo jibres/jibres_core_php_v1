@@ -33,6 +33,7 @@ class price
 		switch ($_tld)
 		{
 			case 'com':
+			case '.com':
 				$profit = 3;
 				break;
 		}
@@ -282,7 +283,7 @@ class price
 	}
 
 
-	public static function domain_price()
+	public static function domain_price($_type = null)
 	{
 		$priceList = [];
 		$dir = __DIR__. '/pricing.csv';
@@ -291,14 +292,75 @@ class price
 			$priceList = \dash\utility\import::csv($dir);
 		}
 
+		if(!is_array($priceList))
+		{
+			return null;
+		}
+
 		// add foreach to add extra 2.9% fee of transfer
-		// and remove forbidden tld
-		// and remove tld with paper
 		// and maybe some other changes
+		$filteredPrice = [];
+		$forbiddenTLD = [
+			// and remove forbidden tld
+			'.xxx',
+			'.porn',
+			'.sex',
+			'.sexy',
+			'.bet',
+			'.casino',
+			'.dating',
+			'.wine',
+
+			// and remove tld with paper
+			'.de',
+		];
+
+		foreach ($priceList as $key => $value)
+		{
+			$tldPrice = [];
+			if(isset($value['domain']) && $value['domain'])
+			{
+				if(in_array($value['domain'], $forbiddenTLD))
+				{
+					continue;
+				}
+				$tldPrice['domain'] = $value['domain'];
+			}
+			else
+			{
+				continue;
+			}
+			if(isset($value['type']) && $value['type'])
+			{
+				$tldPrice['type'] = $value['type'];
+			}
+			else
+			{
+				continue;
+			}
+
+			// price for 10 year
+			for ($i=1; $i <= 10; $i++)
+			{
+				$name = $i. ' years';
+				if($i === 1)
+				{
+					$name = $i. ' year';
+				}
+				if(isset($value[$name]))
+				{
+					$extraFee = self::wage() + self::profit($value['domain']) + 0.1 ;
+					$extraFee = 1 + ( $extraFee / 100 );
+
+					$tldPrice[$name] = round($value[$name] * $extraFee, 2);
+				}
+			}
+
+			$filteredPrice[] = $tldPrice;
+		}
 
 
-
-		return $priceList;
+		return $filteredPrice;
 	}
 
 }
