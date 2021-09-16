@@ -26,6 +26,7 @@ class controller
 		self::cronjob_run();
 
 		\dash\notif::ok("Ok ;)");
+		\dash\notif::ok("Time: ". date("Y-m-d H:i:s"));
 
 		\dash\code::jsonBoom(\dash\notif::get());
 	}
@@ -165,7 +166,7 @@ class controller
 		{
 			$fn = ['\\content_hook\\job\\controller', 'business_once'];
 
-			\content_hook\job\business::run_once($fn);
+			\content_hook\job\business::run_once($fn, 'business_once');
 
 
 		}
@@ -173,7 +174,7 @@ class controller
 		{
 			$fn = ['\\content_hook\\job\\controller', 'public_cronjob'];
 
-			\content_hook\job\business::run_once($fn);
+			\content_hook\job\business::run_once($fn, 'public_cronjob');
 
 		}
 

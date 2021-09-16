@@ -7,7 +7,7 @@ class model
 	{
 		\dash\code::time_limit(0);
 
-		\content_hook\job\business::run_once(['\\lib\\app\\sync\\statistics', 'fire']);
+		\content_hook\job\business::run_once(['\\lib\\app\\sync\\statistics', 'fire'], 'business_statistics');
 
 		\dash\notif::ok(T_("All business sitemap created"));
 		\dash\redirect::pwd();
