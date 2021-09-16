@@ -25,11 +25,14 @@ class view
 			case '9':
 			case '10':
 				$year = \dash\request::get('yr'). ' years';
+				$newTitle = ' - '. \dash\fit::number(\dash\request::get('yr')) . ' '. T_("year");
+				\dash\face::title(\dash\face::title(). $newTitle);
 				break;
 
 			default:
 				break;
 		}
+
 
 
 		$price = \lib\app\onlinenic\price::price_table(controller::requestType(), controller::requestCurrency(), $year);
