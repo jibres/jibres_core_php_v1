@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-16 20:39+0430\n"
-"PO-Revision-Date: 2021-09-16 20:39+0430\n"
+"POT-Creation-Date: 2021-09-16 21:35+0430\n"
+"PO-Revision-Date: 2021-09-16 21:38+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -65,7 +65,7 @@ msgstr "درباره جیبرس"
 #: content/campaign/nowruz1400/view.php:12 content/campaign/view.php:12
 #: content/careers/view.php:12 content/certificates/view.php:15
 #: content/changelog/view.php:21 content/contact/view.php:24
-#: content/domains/home/view.php:12 content/enterprise/view.php:13
+#: content/domains/home/view.php:16 content/enterprise/view.php:13
 #: content/forceunlock/view.php:12 content/free/view.php:12 content/investment/view.php:12
 #: content/press/view.php:15 content/pricing/view.php:13 content/privacy/view.php:15
 #: content/shipping/irpost/view.php:12 content/shipping/view.php:12
@@ -142,13 +142,13 @@ msgstr ""
 #: content/brand/section-standard.php:23 content/brand/section-vertical.php:18
 #: content/brand/section-vertical.php:24 content/certificates/view.php:9
 #: content/contact/view.php:9 content/domains/home/domain-price-compare.php:17
-#: content/home/layout/header.php:15 content/investment/display-company-info.php:6
-#: content/press/view.php:9 content/privacy/view.php:9 content/view.php:33
-#: content_a/view.php:9 content_developers/home/layout/header.php:15
-#: content_developers/home/view.php:9 content_developers/view.php:8
-#: content_enter/home/view.php:20 content_enter/home/view.php:22
-#: content_love/gift/card/giftcard.php:24 content_love/gift/card/giftcard.php:27
-#: content_my/domain/setting/dns/display.php:8
+#: content/domains/pricing/view.php:12 content/home/layout/header.php:15
+#: content/investment/display-company-info.php:6 content/press/view.php:9
+#: content/privacy/view.php:9 content/view.php:33 content_a/view.php:9
+#: content_developers/home/layout/header.php:15 content_developers/home/view.php:9
+#: content_developers/view.php:8 content_enter/home/view.php:20
+#: content_enter/home/view.php:22 content_love/gift/card/giftcard.php:24
+#: content_love/gift/card/giftcard.php:27 content_my/domain/setting/dns/display.php:8
 #: content_my/domain/setting/dns/display.php:19
 #: content_my/domain/setting/elements/irnic.php:51
 #: content_my/domain/setting/elements/irnic.php:62
@@ -1015,11 +1015,11 @@ msgstr ""
 "و صدالبته پیشنهادات گرانبهایتان از طریق فرم زیر سبب کمک به ما برای این مهم خواهد شد."
 
 #: content/contact/display.php:22 content_a/chap/size-receipt/receipt.php:102
-#: content_a/order/address/display.php:144 content_a/setting/--buildwebsite/display.php:21
-#: content_a/setting/fund/display.php:60 content_a/setting/pcpos/display.php:124
-#: content_account/address.php:25 content_business/shipping/display.php:103
-#: content_cms/comments/edit/display.php:11 content_cms/comments/view/display.php:17
-#: content_crm/member/add/display.php:5 content_crm/member/identification/display.php:8
+#: content_a/order/address/display.php:144 content_a/setting/fund/display.php:60
+#: content_a/setting/pcpos/display.php:124 content_account/address.php:25
+#: content_business/shipping/display.php:103 content_cms/comments/edit/display.php:11
+#: content_cms/comments/view/display.php:17 content_crm/member/add/display.php:5
+#: content_crm/member/identification/display.php:8
 #: content_crm/member/identification/display.php:10 content_crm/staff/add/display.php:5
 #: content_enter/signup/display.php:12 content_love/subscribe/display.php:15
 #: content_site/body/contactform/cf1_html.php:87 dash/app/ticket/contact.php:116
@@ -1766,9 +1766,25 @@ msgid "Jibres offers cheap domain names with the most reliable service."
 msgstr ""
 "جیبرس در کنار ارائه‌ی یک سرویس مطمئنِ، ارزان‌ترین قیمت دامنه را به شما پیشنهاد می‌کند."
 
-#: content/domains/home/view.php:10 content/domains/pricing/view.php:10
+#: content/domains/home/view.php:10
 msgid "Buy or transfer a domain name today!"
 msgstr "همین امروز دامنه خودتان را بخرید یا منتقل کنید!"
+
+#: content/domains/home/view.php:12
+msgid "Domain Names"
+msgstr "نام دامنه"
+
+#: content/domains/home/view.php:12
+msgid "Register Domains with Jibres"
+msgstr "ثبت دامنه با جیبرس"
+
+#: content/domains/home/view.php:12
+msgid "Buy a Domain Name"
+msgstr "خرید نام دامنه"
+
+#: content/domains/home/view.php:13
+msgid "Buy A Domain"
+msgstr "خرید دامنه"
 
 #: content/domains/pricing/controller.php:109 content/home/view.php:76
 #: content/pricing/display.php:52 content/pricing/display.php:53
@@ -1804,10 +1820,22 @@ msgid "Hundreds Of Domains At Great Prices"
 msgstr "صدها دامنه با قیمت عالی"
 
 #: content/domains/pricing/view.php:10
+msgid "Check out our domain name pricing table and availability."
+msgstr "جدول قیمت دامنه‌ها و در خالی و دسترس بودن دامنه را بررسی کنید."
+
+#: content/domains/pricing/view.php:10
 msgid "Use our domain price search tool to find the cost of popular domains."
 msgstr "با استفاده از ابزار جستجوی قیمت دامنه هزینه دامنه‌های محبوب خود را بیابید."
 
-#: content/domains/pricing/view.php:12 content/domains/search/view.php:12
+#: content/domains/pricing/view.php:12
+msgid "Domain Name Price and Registration"
+msgstr "لیست قیمت دامنه و ثبت سریع دامنه جدید"
+
+#: content/domains/pricing/view.php:13
+msgid "Cheap Domain Names | Find Domain Prices at Jibres"
+msgstr "دامنه ارزان | ارزان‌ترین قیمت دامنه را در جیبرس پیدا کنید"
+
+#: content/domains/pricing/view.php:19 content/domains/search/view.php:16
 #: content/home/layout/header.php:19 content_a/setting/home/display.php:78
 #: content_account/billing/view.php:17 content_developers/docs/home/display.php:30
 #: content_love/business/domain/action/view.php:12
@@ -1833,7 +1861,7 @@ msgstr "با استفاده از ابزار جستجوی قیمت دامنه ه�
 msgid "Domains"
 msgstr "دامنه‌ها"
 
-#: content/domains/pricing/view.php:28 dash/utility/human.php:27
+#: content/domains/pricing/view.php:35 dash/utility/human.php:27
 #: includes/languages/trans_static_public.php:25
 msgid "year"
 msgstr "سال"
@@ -2027,6 +2055,10 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content/domains/search/view.php:10
 msgid "Find your dream domain."
 msgstr "دامنه‌ی رویایی خودتان را بیابید."
+
+#: content/domains/search/view.php:12
+msgid "Find the Best Domain Names with Jibres"
+msgstr "با جیبرس بهترین نام‌های دامنه را پیدا کنید"
 
 #: content/enterprise/display.php:3
 msgid ""
@@ -2717,9 +2749,9 @@ msgstr "بیشتر و بیشتر بفروش."
 
 #: content/home/view.php:82 content/ip/home/view.php:9 content_a/order/home/view.php:143
 #: content_a/order/view.php:11 content_a/products/home/view.php:14
-#: content_a/setting/--buildwebsite/view.php:10 content_a/setting/home/view.php:10
-#: content_a/setting/pos/view.php:10 content_account/notification/view.php:14
-#: content_cms/home/view.php:11 content_crm/home/view.php:17 content_crm/home/view.php:24
+#: content_a/setting/home/view.php:10 content_a/setting/pos/view.php:10
+#: content_account/notification/view.php:14 content_cms/home/view.php:11
+#: content_crm/home/view.php:17 content_crm/home/view.php:24
 #: content_love/application/home/view.php:12 content_love/business/datalist/view.php:12
 #: content_love/business/domain/view.php:13 content_love/business/home/view.php:13
 #: content_love/domain/action/view.php:12 content_love/domain/all/view.php:12
@@ -5287,7 +5319,7 @@ msgstr "ماهیت گروه"
 #: content_a/accounting/report/quarter/display-list.php:73
 #: content_a/cart/home/display.php:180 content_a/form/answer/display.php:68
 #: content_a/form/answer/display.php:81 content_love/log/home/logTable.php:9
-#: content_pay/home/display-transaction.php:287 content_sudo/apilog/home/display.php:103
+#: content_pay/home/display-transaction.php:294 content_sudo/apilog/home/display.php:103
 #: content_sudo/smsclient/home/display.php:52 includes/languages/trans_static.php:678
 msgid "Detail"
 msgstr "جزئیات"
@@ -7040,6 +7072,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/thirdparty/irmellat/display.php:35
 #: content_a/setting/thirdparty/irparsian/display.php:27
 #: content_a/setting/thirdparty/irpayir/display.php:27
+#: content_a/setting/thirdparty/irpayping/display.php:27
 #: content_a/setting/thirdparty/irzarinpal/display.php:27
 #: content_a/setting/thirdparty/kavenegar/display.php:23
 #: content_a/setting/thirdparty/mediaad/display.php:20
@@ -10796,67 +10829,6 @@ msgstr "صدور فاکتور فروش"
 msgid "Factors"
 msgstr "فاکتورها"
 
-#: content_a/setting/--buildwebsite/display.php:11
-msgid "Drag &amp; Drop website logo or Browse"
-msgstr "لوگوی وب‌سایت خود را بکشید و اینجا رها کنید یا انتخاب کنید"
-
-#: content_a/setting/--buildwebsite/display.php:14
-msgid "Your logo"
-msgstr "لوگوی شما"
-
-#: content_a/setting/--buildwebsite/display.php:19
-msgid "Website title"
-msgstr "عنوان وب‌سایت"
-
-#: content_a/setting/--buildwebsite/display.php:24
-msgid "Website Description"
-msgstr "توضیحات وب‌سایت"
-
-#: content_a/setting/--buildwebsite/display.php:30
-#: content_a/setting/--buildwebsite/display.php:33 content_a/setting/instagram/view.php:8
-#: content_a/setting/social-old/display.php:16 content_a/setting/social/display.php:15
-#: content_a/setting/social/display.php:16 content_account/my/home/display.php:160
-#: content_account/my/social/display.php:41 content_account/my/social/display.php:44
-#: lib/app/--website/init.php:82 lib/store.php:493 lib/store.php:530
-msgid "Instagram"
-msgstr "اینستاگرام"
-
-#: content_a/setting/--buildwebsite/display.php:37
-#: content_a/setting/--buildwebsite/display.php:40 content_a/setting/fb/view.php:8
-#: content_a/setting/social-old/display.php:66 content_a/setting/social/display.php:29
-#: content_a/setting/social/display.php:30 content_account/my/home/display.php:165
-#: content_account/my/social/display.php:20 content_account/my/social/display.php:23
-#: lib/store.php:496 lib/store.php:536
-msgid "Facebook"
-msgstr "فیس‌بوک"
-
-#: content_a/setting/--buildwebsite/display.php:44
-#: content_a/setting/--buildwebsite/display.php:47
-#: content_a/setting/social-old/display.php:45 content_a/setting/social/display.php:37
-#: content_a/setting/social/display.php:38 content_a/setting/tw/view.php:8
-#: content_account/my/home/display.php:170 content_account/my/social/display.php:27
-#: content_account/my/social/display.php:30 lib/store.php:495 lib/store.php:533
-msgid "Twitter"
-msgstr "توییتر"
-
-#: content_a/setting/--buildwebsite/display.php:51
-#: content_a/setting/--buildwebsite/display.php:54 content_a/setting/linkedin/view.php:8
-#: content_a/setting/social-old/display.php:52 content_a/setting/social/display.php:46
-#: content_a/setting/social/display.php:47 content_account/my/home/display.php:175
-#: content_account/my/social/display.php:34 content_account/my/social/display.php:37
-#: includes/languages/trans_static_public.php:251 lib/store.php:498 lib/store.php:534
-msgid "Linkedin"
-msgstr "لینکدین"
-
-#: content_a/setting/--buildwebsite/display.php:61
-#: content_enter/verifyemail/display.php:11 content_my/business/start/display.php:17
-msgid "Let's go"
-msgstr "بزن بریم"
-
-#: content_a/setting/--buildwebsite/view.php:8
-msgid "Build Website"
-msgstr "ساخت وب‌سایت"
-
 #: content_a/setting/aparat/display.php:8
 msgid "Enter your account username in aparat."
 msgstr "نام کاربری شما در آپارات."
@@ -11248,6 +11220,13 @@ msgstr "اطلاعات حقوقی فروشگاه"
 msgid "Enter your account username in facebook."
 msgstr "نام کاربری شما در فیسبوک."
 
+#: content_a/setting/fb/view.php:8 content_a/setting/social-old/display.php:66
+#: content_a/setting/social/display.php:29 content_a/setting/social/display.php:30
+#: content_account/my/home/display.php:165 content_account/my/social/display.php:20
+#: content_account/my/social/display.php:23 lib/store.php:496 lib/store.php:536
+msgid "Facebook"
+msgstr "فیس‌بوک"
+
 #: content_a/setting/fund/controller.php:14 content_a/setting/menu/item/controller.php:13
 #: content_b1/user/budget/detail/view.php:13 content_cms/posts/edit/controller.php:14
 #: content_my/domain/irnic/edit/controller.php:15 content_site/homepage.php:60
@@ -11595,6 +11574,14 @@ msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزین�
 msgid "Enter your account username in instagram."
 msgstr "نام کاربری شما در اینستاگرام."
 
+#: content_a/setting/instagram/view.php:8 content_a/setting/social-old/display.php:16
+#: content_a/setting/social/display.php:15 content_a/setting/social/display.php:16
+#: content_account/my/home/display.php:160 content_account/my/social/display.php:41
+#: content_account/my/social/display.php:44 lib/app/--website/init.php:82
+#: lib/store.php:493 lib/store.php:530
+msgid "Instagram"
+msgstr "اینستاگرام"
+
 #: content_a/setting/legal/choosepage/display.php:16
 msgid "Search in published posts"
 msgstr "جستجو در نوشته‌های منتشر شده"
@@ -11641,6 +11628,14 @@ msgstr "شرایط استفاده از خدمات"
 #: content_a/setting/linkedin/display.php:8
 msgid "Enter your account username in linkedin."
 msgstr "نام کاربری شما در لینکدین."
+
+#: content_a/setting/linkedin/view.php:8 content_a/setting/social-old/display.php:52
+#: content_a/setting/social/display.php:46 content_a/setting/social/display.php:47
+#: content_account/my/home/display.php:175 content_account/my/social/display.php:34
+#: content_account/my/social/display.php:37 includes/languages/trans_static_public.php:251
+#: lib/store.php:498 lib/store.php:534
+msgid "Linkedin"
+msgstr "لینکدین"
 
 #: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:119
 #: lib/app/store/edit.php:252
@@ -12514,6 +12509,13 @@ msgstr "نام کاربری ادمین تلگرام"
 msgid "Youtube"
 msgstr "یوتیوب"
 
+#: content_a/setting/social-old/display.php:45 content_a/setting/social/display.php:37
+#: content_a/setting/social/display.php:38 content_a/setting/tw/view.php:8
+#: content_account/my/home/display.php:170 content_account/my/social/display.php:27
+#: content_account/my/social/display.php:30 lib/store.php:495 lib/store.php:533
+msgid "Twitter"
+msgstr "توییتر"
+
 #: content_a/setting/social-old/display.php:87
 msgid "Eitaa"
 msgstr "ایتا"
@@ -12876,6 +12878,10 @@ msgstr "درگاه پرداخت‌یار"
 msgid "IDPay"
 msgstr "آی‌دی‌پی"
 
+#: content_a/setting/thirdparty/display.php:184
+msgid "PayPing"
+msgstr "پی‌پینگ"
+
 #: content_a/setting/thirdparty/enamad/display.php:9
 msgid ""
 "Any company or individual that wants to sell their products or services online via its "
@@ -12974,7 +12980,7 @@ msgstr "درگاه پرداخت آی‌دی‌پی"
 msgid "Enable irkish payment"
 msgstr "فعال‌سازی درگاه پرداخت ایران‌کیش"
 
-#: content_a/setting/thirdparty/irirkish/view.php:11 dash/utility/pay/get.php:48
+#: content_a/setting/thirdparty/irirkish/view.php:11 dash/utility/pay/get.php:49
 msgid "IranKish Payment"
 msgstr "درگاه پرداخت ایران‌کیش"
 
@@ -12990,7 +12996,7 @@ msgstr "درگاه پرداخت بانک ملت"
 msgid "Enable parsian payment"
 msgstr "فعال‌سازی درگاه پرداخت پارسیان"
 
-#: content_a/setting/thirdparty/irparsian/view.php:11 dash/utility/pay/get.php:46
+#: content_a/setting/thirdparty/irparsian/view.php:11 dash/utility/pay/get.php:47
 msgid "Parsian Payment"
 msgstr "درگاه پرداخت پارسیان"
 
@@ -13001,6 +13007,14 @@ msgstr "فعال‌سازی درگاه پرداخت پی‌آی‌آر"
 #: content_a/setting/thirdparty/irpayir/view.php:11
 msgid "Payir payment"
 msgstr "درگاه پرداخت پی‌آی‌آر"
+
+#: content_a/setting/thirdparty/irpayping/display.php:13
+msgid "Enable payping payment"
+msgstr "فعال‌سازی درگاه پرداخت پی‌پینگ"
+
+#: content_a/setting/thirdparty/irpayping/view.php:11
+msgid "PayPing payment"
+msgstr "پرداخت پی‌پینگ"
 
 #: content_a/setting/thirdparty/irzarinpal/display.php:13
 msgid "Enable zarinpal payment"
@@ -13023,7 +13037,7 @@ msgstr "رابط برنامه‌نویسی"
 msgid "Kavenegar API"
 msgstr "کلید اتصال ای‌پی‌آی کاوه‌نگار"
 
-#: content_a/setting/thirdparty/onlinepayment/display.php:7 dash/utility/pay/get.php:51
+#: content_a/setting/thirdparty/onlinepayment/display.php:7 dash/utility/pay/get.php:52
 msgid "Mellat payment"
 msgstr "درگاه پرداخت بانک ملت"
 
@@ -13071,7 +13085,7 @@ msgstr "درگاه پرداخت ایران‌کیش"
 msgid "idpay payment"
 msgstr "درگاه پرداخت آی‌دی‌پی"
 
-#: content_a/setting/thirdparty/onlinepayment/model.php:154
+#: content_a/setting/thirdparty/onlinepayment/model.php:170
 msgid "Pay test"
 msgstr "تست درگاه پرداخت"
 
@@ -18592,6 +18606,10 @@ msgstr "کد اعتبارسنجی منقضی شده است"
 #: content_enter/verifyemail/controller.php:95 dash/app/user/email.php:152
 msgid "This email is already verified"
 msgstr "این ایمیل قبلا تایید شده است"
+
+#: content_enter/verifyemail/display.php:11 content_my/business/start/display.php:17
+msgid "Let's go"
+msgstr "بزن بریم"
 
 #: content_love/application/edit/display.php:4
 msgid "Cancel request"
@@ -28261,7 +28279,8 @@ msgstr "درگاه آسان پرداخت در سرویس شما قفل شده ا
 #: dash/utility/pay/api/asanpardakht/back.php:56 dash/utility/pay/api/idpay/back.php:45
 #: dash/utility/pay/api/irkish/back.php:55 dash/utility/pay/api/mellat/back.php:59
 #: dash/utility/pay/api/parsian/back.php:48 dash/utility/pay/api/payir/back.php:58
-#: dash/utility/pay/api/sep/back.php:49 dash/utility/pay/api/zarinpal/back.php:40
+#: dash/utility/pay/api/payping/back.php:58 dash/utility/pay/api/sep/back.php:49
+#: dash/utility/pay/api/zarinpal/back.php:40
 msgid "Your session is lost! We can not find your transaction"
 msgstr "اطلاعات سشن از دست رفته است! ما نمی‌توانیم تراکنش شما را بیابیم"
 
@@ -28271,6 +28290,7 @@ msgstr "اطلاعات سشن از دست رفته است! ما نمی‌توا�
 #: dash/utility/pay/api/irkish/back.php:79 dash/utility/pay/api/mellat/back.php:78
 #: dash/utility/pay/api/parsian/back.php:65 dash/utility/pay/api/parsian/back.php:72
 #: dash/utility/pay/api/payir/back.php:76 dash/utility/pay/api/payir/back.php:105
+#: dash/utility/pay/api/payping/back.php:76 dash/utility/pay/api/payping/back.php:105
 #: dash/utility/pay/api/sep/back.php:58
 msgid "Your session is lost! We can not find amount"
 msgstr "اطلاعات سشن از دست رفته است! ما نمی‌توانیم مبلغ تراکنش شما را بیابیم"
@@ -28587,6 +28607,18 @@ msgstr "کلید اتصال به درگاه پرداخت یافت نشد"
 msgid "The payir payment token not set"
 msgstr "کد احراز هویت پی‌آی‌آر یافت نشد"
 
+#: dash/utility/pay/api/payping/back.php:13 dash/utility/pay/api/payping/go.php:13
+msgid "The payping payment on this service is locked"
+msgstr "درگاه پی‌پینگ در سرویس شما قفل شده است"
+
+#: dash/utility/pay/api/payping/back.php:20
+msgid "The payping payment api not set"
+msgstr "کلید اتصال به درگاه پرداخت پی‌پینگ یافت نشد"
+
+#: dash/utility/pay/api/payping/back.php:45 dash/utility/pay/api/payping/go.php:20
+msgid "The payping payment token not set"
+msgstr "کد احراز هویت پی‌پینگ یافت نشد"
+
 #: dash/utility/pay/api/sep/back.php:13 dash/utility/pay/api/sep/go.php:13
 msgid "The sep payment on this service is locked"
 msgstr "درگاه سامان در سرویس شما قفل شده است"
@@ -28700,23 +28732,23 @@ msgstr "تراکنش‌"
 msgid "Zarinpal payment Authority not found"
 msgstr "اعتبارسنجی برای پرداخت با زرین پال یافت نشد"
 
-#: dash/utility/pay/get.php:47
+#: dash/utility/pay/get.php:48
 msgid "Asanpardakht payment"
 msgstr "درگاه پرداخت آسان‌پرداخت"
 
-#: dash/utility/pay/get.php:49
+#: dash/utility/pay/get.php:50
 msgid "Zarinpal payment"
 msgstr "درگاه پرداخت زرین‌پال"
 
-#: dash/utility/pay/get.php:50
+#: dash/utility/pay/get.php:51
 msgid "Payir Payment"
 msgstr "درگاه پرداخت پی‌آی‌آر"
 
-#: dash/utility/pay/get.php:52
+#: dash/utility/pay/get.php:53
 msgid "Sep payment"
 msgstr "درگاه پرداخت سامان"
 
-#: dash/utility/pay/get.php:53
+#: dash/utility/pay/get.php:54
 msgid "IDPay payment"
 msgstr "درگاه پرداخت آی‌دی‌پی"
 
@@ -39584,7 +39616,7 @@ msgstr "واحد وزن"
 msgid "length"
 msgstr "طول"
 
-#: lib/app/quickaccess/setting.php:359 lib/app/setting/set.php:541
+#: lib/app/quickaccess/setting.php:359 lib/app/setting/set.php:548
 #: lib/app/setting/setup.php:329
 msgid "Length unit"
 msgstr "واحد طول"
@@ -39786,23 +39818,23 @@ msgstr "تنظیمات سبد خرید ذخیره شد"
 msgid "Shipping setting saved"
 msgstr "تنظیمات ارسال سفارش ذخیره شد"
 
-#: lib/app/setting/set.php:336
+#: lib/app/setting/set.php:343
 msgid "Invalid input"
 msgstr "ورودی نامعتبر است"
 
-#: lib/app/setting/set.php:365
+#: lib/app/setting/set.php:372
 msgid "Bank gateway config was saved"
 msgstr "تنظیمات درگاه بانک ذخیره شد"
 
-#: lib/app/setting/set.php:421
+#: lib/app/setting/set.php:428
 msgid "Can not support this endpoint!"
 msgstr "این نقطه اتصال را پشتیبانی نمی‌کنیم!"
 
-#: lib/app/setting/set.php:427
+#: lib/app/setting/set.php:434
 msgid "Invalid endpoint!"
 msgstr "نقطه اتصال اشتباه است!"
 
-#: lib/app/setting/set.php:450
+#: lib/app/setting/set.php:457
 msgid ""
 "You already use from another s3 platform. To active this service please disable all "
 "other S3 service first"
@@ -39810,14 +39842,14 @@ msgstr ""
 "شما هم‌اکنون از یک پلتفرم فضای ابری دیگری استفاده می‌کنید. برای فعال کردن این سرویس لطفا "
 "ابتدا همه سرویس‌های فضای ابری دیگر را غیر فعال کنید"
 
-#: lib/app/setting/set.php:499
+#: lib/app/setting/set.php:506
 msgid ""
 "We can not connect to S3 service by this variable. This setting automatically disabled"
 msgstr ""
 "ما نتوانستیم به پلتفرم S3 با مقادیر وارد شده متصل شویم. وضعیت اتصال به صورت خودکار "
 "غیرفعال خواهد شد"
 
-#: lib/app/setting/set.php:510
+#: lib/app/setting/set.php:517
 msgid ""
 "The connection was successfully tested <br> From now on, all files uploaded to your "
 "service will be stored in this cloud service provider"
@@ -39825,19 +39857,19 @@ msgstr ""
 "اتصال با موفقیت آزمایش شد <br> از این پس، تمام پرونده‌های بارگذاری شده در سرویس شما، در "
 "زیرساخت این ارائه دهنده خدمات فضای ابری ذخیره می‌شوند"
 
-#: lib/app/setting/set.php:522
+#: lib/app/setting/set.php:529
 msgid "Upload provider setting saved"
 msgstr "تنظیمات سرویس ارائه دهنده خدمات ابری ذخیره شد"
 
-#: lib/app/setting/set.php:541 lib/app/setting/setup.php:329
+#: lib/app/setting/set.php:548 lib/app/setting/setup.php:329
 msgid "Mass unit"
 msgstr "واحد وزن"
 
-#: lib/app/setting/set.php:679 lib/app/setting/set.php:727 lib/app/setting/setup.php:279
+#: lib/app/setting/set.php:686 lib/app/setting/set.php:734 lib/app/setting/setup.php:279
 msgid "Please choose your province"
 msgstr "لطفا استان خود را انتخاب کنید"
 
-#: lib/app/setting/set.php:685 lib/app/setting/set.php:733 lib/app/setting/setup.php:285
+#: lib/app/setting/set.php:692 lib/app/setting/set.php:740 lib/app/setting/setup.php:285
 msgid "Please choose your city"
 msgstr "لطفا شهر خود را انتخاب کنید"
 
@@ -41779,6 +41811,21 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Drag &amp; Drop website logo or Browse"
+#~ msgstr "لوگوی وب‌سایت خود را بکشید و اینجا رها کنید یا انتخاب کنید"
+
+#~ msgid "Your logo"
+#~ msgstr "لوگوی شما"
+
+#~ msgid "Website title"
+#~ msgstr "عنوان وب‌سایت"
+
+#~ msgid "Website Description"
+#~ msgstr "توضیحات وب‌سایت"
+
+#~ msgid "Build Website"
+#~ msgstr "ساخت وب‌سایت"
 
 #~ msgid "Domain TLD"
 #~ msgstr "تی‌ال‌دی دامنه"
@@ -48197,9 +48244,6 @@ msgstr "یارد"
 
 #~ msgid "How many days to expire the remaining domain to automatically renew it?"
 #~ msgstr "چند روز مانده به منقضی شدن دامنه به صورت خودکار آن را تمدید کنیم؟"
-
-#~ msgid "Domain Name"
-#~ msgstr "نام دامنه"
 
 #~ msgid "Use from your budget"
 #~ msgstr "استفاده از شارژ حساب کاربری"

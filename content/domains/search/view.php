@@ -8,6 +8,10 @@ class view
 	{
 		\dash\face::title(T_('Domain Name Search'));
 		\dash\face::desc(T_('Every website starts with a great domain name.'). ' '. T_('Find your dream domain.'));
+
+		\dash\face::seo(T_('Find the Best Domain Names with Jibres'));
+		// \dash\face::headTitle(T_('Buy A Domain'));
+
 		// btn
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::kingdom(). '/domains');

@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_('Hundreds Of Domains At Great Prices'));
 		\dash\face::desc(T_('Check out our domain name pricing table and availability.'). ' '. T_('Use our domain price search tool to find the cost of popular domains.'));
 
-		\dash\face::seo(T_('Domain Name Price and Registration'));
+		\dash\face::seo(T_('Domain Name Price and Registration'). ' | '. T_("Jibres"));
 		\dash\face::headTitle(T_('Cheap Domain Names | Find Domain Prices at Jibres'));
 
 
