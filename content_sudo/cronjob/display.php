@@ -23,7 +23,14 @@
     <h3><code>UNIX crontab</code></h3>
     <?php echo nl2br(\dash\data::unixcrontab()); ?>
   </div>
+  <br>
+  <div class="mT20 ltr">
+    Is busy cronjob?
+<?php var_dump(\dash\utility\busy::is_busy('cronjob_business_once')); ?>
+  </div>
 </div>
+
+
 
 
 
