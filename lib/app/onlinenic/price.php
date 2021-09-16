@@ -282,7 +282,7 @@ class price
 	}
 
 
-	private static function domain_price()
+	public static function domain_price()
 	{
 		$priceList = [];
 		$dir = __DIR__. '/pricing.csv';
@@ -299,20 +299,6 @@ class price
 
 
 		return $priceList;
-	}
-
-	public static function domain_price_json()
-	{
-		$dataListJson = null;
-		$dataList = self::domain_price();
-
-		if(is_array($dataList))
-		{
-			$dataListJson = json_encode($dataList, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-
-		}
-
-		return $dataListJson;
 	}
 
 }
