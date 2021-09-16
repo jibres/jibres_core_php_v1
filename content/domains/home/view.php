@@ -12,8 +12,7 @@ class view
 		\dash\data::back_text(T_('Home'));
 		\dash\data::back_link(\dash\url::kingdom());
 
-
-
+		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-domain-1.jpg');
 
 
 		$domainPrice =

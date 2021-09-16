@@ -8,6 +8,9 @@ class view
 	{
 		\dash\face::title(T_('Hundreds Of Domains At Great Prices'));
 		\dash\face::desc(T_('Use our domain price search tool to find the cost of popular domains.'). ' '. T_('Buy or transfer a domain name today!'));
+
+		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-domain-pricing-1.jpg');
+
 		// btn
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::kingdom(). '/domains');

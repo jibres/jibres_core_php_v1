@@ -12,6 +12,8 @@ class view
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::kingdom(). '/domains');
 
+		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-domain-search-1.jpg');
+
 		$q = \dash\validate::search_string();
 		$q = \dash\validate::domain_root($q);
 		if($q)
