@@ -51,6 +51,22 @@ class import
             {
                 $result[]  = array_combine($header, $value);
             }
+            else if(count($value) < count($header))
+            {
+                $filledLine = [];
+                for ($i=0; $i < count($header); $i++)
+                {
+                    if(array_key_exists($i, $value))
+                    {
+                        $filledLine[$i] = $value[$i];
+                    }
+                    else
+                    {
+                        $filledLine[] = null;
+                    }
+                }
+                $result[]  = array_combine($header, $filledLine);
+            }
         }
         return $result;
     }
