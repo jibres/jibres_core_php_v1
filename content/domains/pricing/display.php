@@ -5,24 +5,21 @@
     <table class="tbl1 v4" data-datatable="pricing">
       <thead>
         <tr>
-        <th class="collapsing"></th>
-        <th><?php echo T_("TLD") ?></th>
-        <th><?php echo T_("Price") ?> <small><?php echo T_("Toman"); ?></small></th>
-        <?php if(\dash\permission::supervisor()) {?>
-          <th><?php echo T_("Price") ?> <small><?php echo T_("Dollar"); ?></small></th>
-         <?php } //endif ?>
+          <th class="collapsing"></th>
+          <th><?php echo T_("TLD") ?></th>
+          <th><?php echo T_("Register") ?></th>
+          <th><?php echo T_("Renew") ?></th>
+          <th><?php echo T_("Transfer") ?></th>
         </tr>
       </thead>
       <tbody>
         <?php $count = 0; foreach (\dash\data::dataTable() as $key => $value) { $count++;?>
           <tr>
             <td class="collapsing"><?php echo \dash\fit::number($count); ?></td>
-            <td class="ltr"><?php echo a($value, 'tld') ?></td>
-            <td class="txtB"><?php echo \dash\fit::number(a($value, 'price')) ?></td>
-            <?php if(\dash\permission::supervisor()) {?>
-              <td class="txtB"><?php echo \dash\fit::text(a($value, 'dollar')) ?></td>
-            <?php } //endif ?>
-
+            <td class="ltr"><?php echo a($value, 'TLD') ?></td>
+            <td class="txtB"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></td>
+            <td class="txtB"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'renew')) ?></td>
+            <td class="txtB"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'transfer')) ?></td>
           </tr>
         <?php } // endfor ?>
       </tbody>

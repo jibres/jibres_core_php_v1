@@ -326,6 +326,8 @@ class price
 			'.lotto',
 			// $ 589
 			'.theatre',
+			// $ 389
+			'.tickets',
 			// $ 360.99
 			'.hosting',
 			'.juegos',
@@ -352,6 +354,10 @@ class price
 			'.hiphop',
 			'.property',
 			'.creditcard',
+			// $ 88.99
+			'.ag',
+			// $ 84.99
+			'.sc',
 			// less than 100$ is okay
 
 			// 3 level domains
@@ -476,6 +482,54 @@ class price
 
 
 		return $filteredPrice;
+	}
+
+
+	public static function price_table($_type = null, $_unit = null, $_year = '1 year')
+	{
+		$priceList = self::domain_price($_type, $_unit);
+		$priceTable = [];
+
+		foreach ($priceList as $key => $value)
+		{
+			$tld = null;
+			$type = null;
+			if(isset($value['domain']) && $value['domain'])
+			{
+				$tld = $value['domain'];
+				$priceTable[$tld]['TLD'] = $tld;
+			}
+			if(isset($value['type']))
+			{
+				switch ($value['type'])
+				{
+					case 'domainregister':
+						$type = 'register';
+						break;
+
+					case 'domainrenew':
+						$type = 'renew';
+						break;
+
+					case 'domaintransfer':
+						$type = 'transfer';
+						break;
+
+					default:
+						break;
+				}
+			}
+
+			$priceTable[$tld]['duration'] = intval(trim(substr($_year, 0, 2)));
+			if(isset($value[$_year]) && $value[$_year])
+			{
+				$priceTable[$tld][$type] = $value[$_year];
+			}
+		}
+
+
+
+		return $priceTable;
 	}
 
 }
