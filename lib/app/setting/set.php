@@ -314,6 +314,13 @@ class set
 			'api'    => 'string_100',
 		];
 
+		$payping =
+		[
+			'status' => 'bit',
+			'token'    => 'string_100',
+		];
+
+
 		$mellat =
 		[
 			'status'       => 'bit',
@@ -341,7 +348,7 @@ class set
 		{
 			unset($value['empty']);
 
-			if(in_array($key, ['zarinpal','asanpardakht','irkish','parsian','payir','mellat', 'idpay']))
+			if(in_array($key, ['zarinpal','asanpardakht','irkish','parsian','payir','mellat', 'idpay', 'payping']))
 			{
 				$data[$key] = \dash\cleanse::input($value, $$key, [], []);
 
