@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Domains'));
 		\dash\data::back_link(\dash\url::kingdom(). '/domains');
 
-		$price = \lib\app\onlinenic\price::price_table();
+		$price = \lib\app\onlinenic\price::price_table(controller::requestType(), controller::requestCurrency());
 		\dash\data::dataTable($price);
 	}
 

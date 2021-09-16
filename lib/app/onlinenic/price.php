@@ -283,7 +283,7 @@ class price
 	}
 
 
-	public static function domain_price($_type = null, $_unit = null)
+	public static function domain_price($_type = null, $_currency = null)
 	{
 		$priceList = [];
 		$dir = __DIR__. '/pricing.csv';
@@ -465,8 +465,7 @@ class price
 					$extraFee = 1 + ( $extraFee / 100 );
 
 					$tldPrice[$name] = round($value[$name] * $extraFee, 2);
-
-					if($_unit === 'IRT')
+					if($_currency === 'IRT')
 					{
 						// exchange
 						$exchangedPrice = round($tldPrice[$name] * self::dollar(), -3);
@@ -485,9 +484,9 @@ class price
 	}
 
 
-	public static function price_table($_type = null, $_unit = null, $_year = '1 year')
+	public static function price_table($_type = null, $_currency = null, $_year = '1 year')
 	{
-		$priceList = self::domain_price($_type, $_unit);
+		$priceList = self::domain_price($_type, $_currency);
 		$priceTable = [];
 
 		foreach ($priceList as $key => $value)

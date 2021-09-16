@@ -93,16 +93,21 @@ class controller
 		}
 
 		$currency = self::requestCurrency();
-		$html = '';
+		$html = '<div class="">';
 		if($currency === '$')
 		{
+			$html .= '<span class="fc-mute">';
 			$html .= '$';
+			$html .= '</span>';
 		}
 		$html .= \dash\fit::number($_val);
 		if($currency === 'IRT')
 		{
-			$html .= ' '. T_("IRT");
+			$html .= '<small class="fc-mute">';
+			$html .= ' '. T_("Hezar Toman");
+			$html .= '</small>';
 		}
+		$html .= '</div>';
 
 		return $html;
 	}
