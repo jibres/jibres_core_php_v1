@@ -10,7 +10,7 @@ foreach (\dash\data::specialTLD() as $tld => $value) {
     <div class="c-2 c-xs-6 c-sm-4 c-md-4 c-lg-2 pA5">
       <div class="cbox mB10-f">
         <div class="tld font-35 txtB"><?php echo $tld ?></div>
-        <div class="fc-mute font-16"><?php echo T_("Registeration") ?></div>
+        <div class="fc-mute font-16"><?php echo T_("Registration") ?></div>
         <div class="price font-20 mT10"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></div>
       </div>
     </div>
@@ -61,8 +61,8 @@ for ($i=1; $i <= 10; $i++)
             <td class="collapsing" data-order="<?php echo $count; ?>"><?php echo \dash\fit::number($count); ?></td>
             <td class="ltr txtL"><?php echo a($value, 'TLD') ?></td>
             <td class="txtB txtL" data-order="<?php echo a($value, 'register'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></td>
-            <td class="txtB txtL" data-order="<?php echo a($value, 'register'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'renew')) ?></td>
-            <td class="txtB txtL" data-order="<?php echo a($value, 'register'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'transfer')) ?></td>
+            <td class="txtB txtL" data-order="<?php echo a($value, 'renew'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'renew')) ?></td>
+            <td class="txtB txtL" data-order="<?php echo a($value, 'transfer'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'transfer')) ?></td>
           </tr>
         <?php } // endfor ?>
       </tbody>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-16 19:45+0430\n"
-"PO-Revision-Date: 2021-09-16 19:47+0430\n"
+"POT-Creation-Date: 2021-09-16 20:39+0430\n"
+"PO-Revision-Date: 2021-09-16 20:39+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1780,8 +1780,8 @@ msgid "Hezar Toman"
 msgstr "هزار تومان"
 
 #: content/domains/pricing/display.php:13
-msgid "Registeration"
-msgstr "ثبت‌نام"
+msgid "Registration"
+msgstr "ثبت"
 
 #: content/domains/pricing/display.php:42 content_love/business/monthly/display.php:13
 #: content_sudo/backup/display.php:149 lib/app/domains/filter.php:62
@@ -1832,6 +1832,11 @@ msgstr "با استفاده از ابزار جستجوی قیمت دامنه ه�
 #: content_my/home/display_site.php:15
 msgid "Domains"
 msgstr "دامنه‌ها"
+
+#: content/domains/pricing/view.php:28 dash/utility/human.php:27
+#: includes/languages/trans_static_public.php:25
+msgid "year"
+msgstr "سال"
 
 #: content/domains/search/display.php:5 content_my/domain/buy/display-search.php:7
 msgid "Discover the perfect domain now"
@@ -28168,10 +28173,6 @@ msgstr "این مکان وجود ندارد!"
 #: dash/utility/git.php:187 dash/utility/git.php:237
 msgid "NO change!"
 msgstr "بدون تغییر!"
-
-#: dash/utility/human.php:27 includes/languages/trans_static_public.php:25
-msgid "year"
-msgstr "سال"
 
 #: dash/utility/human.php:28 includes/languages/trans_static_public.php:26
 msgid "month"
