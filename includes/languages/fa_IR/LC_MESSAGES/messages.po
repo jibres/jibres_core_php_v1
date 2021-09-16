@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-14 22:15+0430\n"
-"PO-Revision-Date: 2021-09-14 22:16+0430\n"
+"POT-Creation-Date: 2021-09-16 19:45+0430\n"
+"PO-Revision-Date: 2021-09-16 19:47+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -823,8 +823,8 @@ msgstr "ما توسعه دهنده هستیم، صبور باشید!"
 #: content_my/business/home/display_site.php:141
 #: content_my/business/home/display_site.php:147
 #: content_my/business/home/display_site.php:153 content_site/body/blog/b3_html.php:98
-#: content_site/body/blog/b4_html.php:98 content_site/section/html/display-sidebar.php:12
-#: dash/app/changelog.php:23
+#: content_site/body/blog/b4_html.php:98
+#: content_site/section/html/display-aside-top.php:12 dash/app/changelog.php:23
 msgid "Read more"
 msgstr "بیشتر بخوانید"
 
@@ -1375,8 +1375,8 @@ msgstr "تمدید خودکار"
 msgid "Beautiful Panel"
 msgstr "پنل مدیریت زیبا"
 
-#: content/domains/home/domain-topBox.php:2 content/domains/pricing/display.php:4
-#: content/home/display.php:82 content_my/domain/home/display.php:7
+#: content/domains/home/domain-topBox.php:2 content/home/display.php:82
+#: content_my/domain/home/display.php:7
 msgid "Search for your dream domain"
 msgstr "به دنبال دامنه‌ی رویایی خودتان بگردید"
 
@@ -1441,9 +1441,10 @@ msgstr ""
 msgid "Find my Domain"
 msgstr "دامنه من را بیاب"
 
-#: content/domains/home/domain-topBox.php:23 content_love/domain/detail/pageStep.php:34
-#: content_love/domain/home/display.php:238 content_love/domain/setting/pageStep.php:35
-#: includes/languages/trans_static.php:588 lib/app/store/filter.php:31
+#: content/domains/home/domain-topBox.php:23 content/domains/pricing/display.php:55
+#: content_love/domain/detail/pageStep.php:34 content_love/domain/home/display.php:238
+#: content_love/domain/setting/pageStep.php:35 includes/languages/trans_static.php:588
+#: lib/app/store/filter.php:31
 msgid "Transfer"
 msgstr "انتقال"
 
@@ -1460,7 +1461,8 @@ msgstr ""
 msgid "Transfer Now"
 msgstr "همین الان منتقل کن"
 
-#: content/domains/home/domain-topBox.php:30 content_love/domain/home/display.php:239
+#: content/domains/home/domain-topBox.php:30 content/domains/pricing/display.php:54
+#: content_love/domain/home/display.php:239
 #: content_my/domain/setting/elements/detail.php:51
 msgid "Renew"
 msgstr "تمدید"
@@ -1759,7 +1761,7 @@ msgstr ""
 msgid "Domain Registration"
 msgstr "ثبت دامنه"
 
-#: content/domains/home/view.php:10 content/domains/pricing/view.php:10
+#: content/domains/home/view.php:10
 msgid "Jibres offers cheap domain names with the most reliable service."
 msgstr ""
 "جیبرس در کنار ارائه‌ی یک سرویس مطمئنِ، ارزان‌ترین قیمت دامنه را به شما پیشنهاد می‌کند."
@@ -1768,44 +1770,42 @@ msgstr ""
 msgid "Buy or transfer a domain name today!"
 msgstr "همین امروز دامنه خودتان را بخرید یا منتقل کنید!"
 
-#: content/domains/pricing/display.php:11
-msgid "Domain TLD"
-msgstr "تی‌ال‌دی دامنه"
+#: content/domains/pricing/controller.php:109 content/home/view.php:76
+#: content/pricing/display.php:52 content/pricing/display.php:53
+#: content/pricing/display.php:54 content/pricing/display.php:77
+#: content/pricing/display.php:78 content/pricing/display.php:79
+#: content/pricing/display.php:106 content/pricing/display.php:107
+#: content/pricing/display.php:108
+msgid "Hezar Toman"
+msgstr "هزار تومان"
 
-#: content/domains/pricing/display.php:12 content/domains/pricing/display.php:14
-#: content/pricing/display.php:46 content/pricing/display.php:69
-#: content/pricing/display.php:98 content_a/chap/size-receipt/receipt.php:104
-#: content_a/order/home/display.php:59 content_a/order/products/display.php:50
-#: content_a/order/products/display.php:52 content_a/pricehistory/display.php:8
-#: content_a/pricehistory/display.php:39 content_a/pricehistory/display.php:77
-#: content_a/products/child/display.php:95 content_a/products/child/display.php:165
-#: content_a/products/share/display.php:32 content_a/products/share/model.php:62
-#: content_a/products/variants/display-add-product.php:30
-#: content_a/products/variants/display-add-product.php:69 content_a/sale/display.php:18
-#: content_business/p/home/blocks/detail.php:56 content_business/p/home/view.php:107
-#: content_love/domain/billing/display.php:92
-#: content_love/domain/setting/action/display.php:44
-#: content_love/features/all/display.php:17 content_love/features/manage/display.php:10
-#: content_love/gift/usage/display.php:7
-#: lib/app/log/caller/business/business_features.php:72 lib/app/product/filter.php:151
-#: lib/app/product/filter.php:160 lib/app/product/property.php:198
-#: lib/app/product/site_list.php:266 lib/app/product/updateprice.php:125
-msgid "Price"
-msgstr "قیمت"
+#: content/domains/pricing/display.php:13
+msgid "Registeration"
+msgstr "ثبت‌نام"
 
-#: content/domains/pricing/display.php:12
-#: content_my/domain/buy/display-settings-com.php:29
-#: content_my/domain/review/display.php:192 lib/currency.php:12 lib/namecheap/api.php:159
-msgid "Toman"
-msgstr "تومان"
+#: content/domains/pricing/display.php:42 content_love/business/monthly/display.php:13
+#: content_sudo/backup/display.php:149 lib/app/domains/filter.php:62
+#: lib/app/form/report.php:177 lib/app/nic_domainaction/ready.php:60
+#: lib/app/nic_domainbilling/ready.php:62 lib/app/nic_domainbilling/ready.php:66
+#: lib/app/tax/year/get.php:115
+msgid "Year"
+msgstr "سال"
 
-#: content/domains/pricing/display.php:14
-msgid "Dollar"
-msgstr "دلار"
+#: content/domains/pricing/display.php:52
+msgid "TLD"
+msgstr "TLD"
 
-#: content/domains/pricing/view.php:9 content_my/domain/review/display.php:190
-msgid "Domain Price"
-msgstr "هزینه دامنه"
+#: content/domains/pricing/display.php:53 content_love/domain/home/display.php:240
+msgid "Register"
+msgstr "ثبت"
+
+#: content/domains/pricing/view.php:9
+msgid "Hundreds Of Domains At Great Prices"
+msgstr "صدها دامنه با قیمت عالی"
+
+#: content/domains/pricing/view.php:10
+msgid "Use our domain price search tool to find the cost of popular domains."
+msgstr "با استفاده از ابزار جستجوی قیمت دامنه هزینه دامنه‌های محبوب خود را بیابید."
 
 #: content/domains/pricing/view.php:12 content/domains/search/view.php:12
 #: content/home/layout/header.php:19 content_a/setting/home/display.php:78
@@ -2710,14 +2710,6 @@ msgstr "ساده‌ترین راه برای کسب درآمد در عصر دیج
 msgid "Sell more and more."
 msgstr "بیشتر و بیشتر بفروش."
 
-#: content/home/view.php:76 content/pricing/display.php:52 content/pricing/display.php:53
-#: content/pricing/display.php:54 content/pricing/display.php:77
-#: content/pricing/display.php:78 content/pricing/display.php:79
-#: content/pricing/display.php:106 content/pricing/display.php:107
-#: content/pricing/display.php:108
-msgid "Hezar Toman"
-msgstr "هزار تومان"
-
 #: content/home/view.php:82 content/ip/home/view.php:9 content_a/order/home/view.php:143
 #: content_a/order/view.php:11 content_a/products/home/view.php:14
 #: content_a/setting/--buildwebsite/view.php:10 content_a/setting/home/view.php:10
@@ -3277,6 +3269,26 @@ msgstr "نقره‌ای"
 #: content/pricing/display.php:41 content/pricing/priceTable.php:75
 msgid "Gold"
 msgstr "طلایی"
+
+#: content/pricing/display.php:46 content/pricing/display.php:69
+#: content/pricing/display.php:98 content_a/chap/size-receipt/receipt.php:104
+#: content_a/order/home/display.php:59 content_a/order/products/display.php:50
+#: content_a/order/products/display.php:52 content_a/pricehistory/display.php:8
+#: content_a/pricehistory/display.php:39 content_a/pricehistory/display.php:77
+#: content_a/products/child/display.php:95 content_a/products/child/display.php:165
+#: content_a/products/share/display.php:32 content_a/products/share/model.php:62
+#: content_a/products/variants/display-add-product.php:30
+#: content_a/products/variants/display-add-product.php:69 content_a/sale/display.php:18
+#: content_business/p/home/blocks/detail.php:56 content_business/p/home/view.php:107
+#: content_love/domain/billing/display.php:92
+#: content_love/domain/setting/action/display.php:44
+#: content_love/features/all/display.php:17 content_love/features/manage/display.php:10
+#: content_love/gift/usage/display.php:7
+#: lib/app/log/caller/business/business_features.php:72 lib/app/product/filter.php:151
+#: lib/app/product/filter.php:160 lib/app/product/property.php:198
+#: lib/app/product/site_list.php:266 lib/app/product/updateprice.php:125
+msgid "Price"
+msgstr "قیمت"
 
 #: content/pricing/display.php:46
 msgid "Pay monthly"
@@ -5057,7 +5069,7 @@ msgstr "ویرایش"
 #: content_love/changelog/add/display.php:36 content_love/domain/detail/display.php:195
 #: content_love/store/backup/display.php:19 content_my/domain/irnic/edit/display.php:24
 #: content_my/domain/setting/elements/remove.php:13
-#: content_site/page/settings/display-sidebar.php:192
+#: content_site/page/settings/display-aside-top.php:192
 #: content_site/staticfile/display.php:36
 msgid "Remove"
 msgstr "حذف"
@@ -5131,7 +5143,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 #: content_site/options/responsive/responsive_device.php:11
 #: content_site/options/responsive/responsive_device.php:22
 #: content_site/options/responsive/responsive_device.php:34
-#: content_site/page/new/display-sidebar.php:16
+#: content_site/page/new/display-aside-top.php:16
 #: content_site/section/part/preview_list.php:20
 #: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:814
 #: lib/app/form/report_advance.php:112
@@ -10109,17 +10121,20 @@ msgid "End part of your product url."
 msgstr "آخرین قسمت آدرس محصول شما."
 
 #: content_a/products/edit/block/seo.php:28 content_a/tag/edit/display.php:47
-#: content_cms/posts/seo/display.php:32 content_site/page/settings/display-sidebar.php:108
+#: content_cms/posts/seo/display.php:32
+#: content_site/page/settings/display-aside-top.php:108
 msgid "SEO Description"
 msgstr "توضیح برای موتورهای جستجو"
 
 #: content_a/products/edit/block/seo.php:28 content_a/tag/edit/display.php:47
-#: content_cms/posts/seo/display.php:32 content_site/page/settings/display-sidebar.php:108
+#: content_cms/posts/seo/display.php:32
+#: content_site/page/settings/display-aside-top.php:108
 msgid "If leave it empty we are generate it automatically"
 msgstr "اگر این را خالی رها کنید ما به صورت خودکار آن را می‌سازیم"
 
 #: content_a/products/edit/block/seo.php:29 content_a/tag/edit/display.php:48
-#: content_cms/posts/seo/display.php:33 content_site/page/settings/display-sidebar.php:109
+#: content_cms/posts/seo/display.php:33
+#: content_site/page/settings/display-aside-top.php:109
 msgid "Excerpt used for social media and search engines"
 msgstr "گزیده متن برای رسانه‌های اجتماعی و موتورهای جستجو استفاده می‌شود"
 
@@ -11759,8 +11774,8 @@ msgstr "اینجا کلیک کنید"
 #: content_love/business/analytics/table/display.php:7
 #: content_love/business/datalist/display.php:8 content_love/log/home/logTable.php:63
 #: content_love/smslog/view/display.php:16 content_love/store/display.php:20
-#: content_site/page/settings/display-sidebar.php:148
-#: content_site/page/settings/display-sidebar.php:150
+#: content_site/page/settings/display-aside-top.php:148
+#: content_site/page/settings/display-aside-top.php:150
 #: content_sudo/apilog/home/display.php:80
 msgid "Url"
 msgstr "نشانی اینترنتی"
@@ -13353,7 +13368,7 @@ msgid "Clone"
 msgstr "دریافت"
 
 #: content_a/tag/edit/display.php:34 content_cms/posts/seo/display.php:26
-#: content_site/page/settings/display-sidebar.php:102
+#: content_site/page/settings/display-aside-top.php:102
 msgid "SEO Title"
 msgstr "عنوان برای موتورهای جستجو"
 
@@ -16001,53 +16016,60 @@ msgstr "آدرس انتقال"
 msgid "Edit post redirect"
 msgstr "ویرایش آدرس انتقال مطلب"
 
-#: content_cms/posts/seo/display.php:37 content_site/page/settings/display-sidebar.php:113
+#: content_cms/posts/seo/display.php:37
+#: content_site/page/settings/display-aside-top.php:113
 msgid "Special Address"
 msgstr "آدرس اختصاصی"
 
-#: content_cms/posts/seo/display.php:42 content_site/page/settings/display-sidebar.php:118
+#: content_cms/posts/seo/display.php:42
+#: content_site/page/settings/display-aside-top.php:118
 msgid "Independence"
 msgstr "مستقل"
 
-#: content_cms/posts/seo/display.php:48 content_site/page/settings/display-sidebar.php:124
+#: content_cms/posts/seo/display.php:48
+#: content_site/page/settings/display-aside-top.php:124
 msgid "Special"
 msgstr "خاص"
 
-#: content_cms/posts/seo/display.php:55 content_site/page/settings/display-sidebar.php:131
-#: dash/app/posts/filter.php:184
+#: content_cms/posts/seo/display.php:55
+#: content_site/page/settings/display-aside-top.php:131 dash/app/posts/filter.php:184
 msgid "Under tag"
 msgstr "زیرمجموعه تگ"
 
-#: content_cms/posts/seo/display.php:63 content_site/page/settings/display-sidebar.php:139
-#: dash/app/posts/filter.php:194
+#: content_cms/posts/seo/display.php:63
+#: content_site/page/settings/display-aside-top.php:139 dash/app/posts/filter.php:194
 msgid "Under page"
 msgstr "زیرمجموعه صفحه‌ای دیگر"
 
-#: content_cms/posts/seo/display.php:71 content_site/page/settings/display-sidebar.php:148
+#: content_cms/posts/seo/display.php:71
+#: content_site/page/settings/display-aside-top.php:148
 msgid "End part of your news url."
 msgstr "آخرین قسمت آدرس مطلب شما."
 
-#: content_cms/posts/seo/display.php:79 content_site/page/settings/display-sidebar.php:156
+#: content_cms/posts/seo/display.php:79
+#: content_site/page/settings/display-aside-top.php:156
 msgid "You can set this page as a subset of another page"
 msgstr "شما می‌توانید این صفحه را به عنوان زیر مجموعه صفحه‌ای دیگر قرار دهید"
 
-#: content_cms/posts/seo/display.php:80 content_site/page/settings/display-sidebar.php:157
+#: content_cms/posts/seo/display.php:80
+#: content_site/page/settings/display-aside-top.php:157
 msgid "Only published page can set as page parent"
 msgstr "تنها صفحات منتشر شده امکان تنظیم به عنوان صفحه والد را خواهند داشت"
 
 #: content_cms/posts/seo/display.php:83 content_cms/posts/seo/display.php:84
-#: content_site/page/settings/display-sidebar.php:160
-#: content_site/page/settings/display-sidebar.php:161
+#: content_site/page/settings/display-aside-top.php:160
+#: content_site/page/settings/display-aside-top.php:161
 msgid "Choose a post"
 msgstr "یک نوشته‌ را انتخاب کنید"
 
-#: content_cms/posts/seo/display.php:94 content_site/page/settings/display-sidebar.php:171
+#: content_cms/posts/seo/display.php:94
+#: content_site/page/settings/display-aside-top.php:171
 msgid "Set post address as sub child of tag"
 msgstr "تنظیم آدرس نوشته به عنوان زیرمجموعه‌ای از یک تگ"
 
 #: content_cms/posts/seo/display.php:95 content_cms/posts/seo/display.php:96
-#: content_site/page/settings/display-sidebar.php:172
-#: content_site/page/settings/display-sidebar.php:173
+#: content_site/page/settings/display-aside-top.php:172
+#: content_site/page/settings/display-aside-top.php:173
 msgid "Select tag"
 msgstr "انتخاب تگ"
 
@@ -17219,8 +17241,8 @@ msgstr "پاسخ در تیکت جدید"
 msgid "Show Attachment"
 msgstr "نمایش ضمیمه‌‌"
 
-#: content_crm/ticket/view/display.php:47 content_site/page/display-sidebar.php:65
-#: content_site/page/display-sidebar.php:108
+#: content_crm/ticket/view/display.php:47 content_site/page/display-aside-top.php:68
+#: content_site/page/display-aside-top.php:111
 msgid "Without title"
 msgstr "بدون عنوان"
 
@@ -19112,13 +19134,6 @@ msgstr "به‌روزرسانی آمار همه‌ی بیزینس‌ها"
 msgid "Business"
 msgstr "بیزینس"
 
-#: content_love/business/monthly/display.php:13 content_sudo/backup/display.php:149
-#: lib/app/domains/filter.php:62 lib/app/form/report.php:177
-#: lib/app/nic_domainaction/ready.php:60 lib/app/nic_domainbilling/ready.php:62
-#: lib/app/nic_domainbilling/ready.php:66 lib/app/tax/year/get.php:115
-msgid "Year"
-msgstr "سال"
-
 #: content_love/business/monthly/display.php:15
 msgid "Count business"
 msgstr "تعداد بیزینس‌ها"
@@ -19236,7 +19251,7 @@ msgstr "ساخت مجدد نقشه سایت"
 msgid "All business sitemap created"
 msgstr "نقشه سایت برای همه بیزینس‌ها ساخته شد"
 
-#: content_love/business/sitemap/view.php:8 content_site/home/display-sidebar.php:13
+#: content_love/business/sitemap/view.php:8 content_site/home/display-aside-top.php:13
 #: content_site/sitemap/view.php:8 dash/app/posts/dropdown.php:51
 #: lib/app/quickaccess/setting.php:237
 msgid "Sitemap"
@@ -19638,7 +19653,7 @@ msgstr "مدت زمانی که مایلید این دامنه را بخرید ا
 #: content_my/domain/option/display.php:36 content_my/domain/option/model.php:37
 #: content_my/domain/renew/display.php:34 content_my/domain/renew/display.php:56
 #: content_my/domain/review/controller.php:102 content_my/domain/review/controller.php:152
-#: lib/app/onlinenic/price.php:192 lib/app/plan/branding.php:23
+#: lib/app/onlinenic/price.php:194 lib/app/plan/branding.php:23
 msgid "1 Year"
 msgstr "یک ساله"
 
@@ -19648,7 +19663,7 @@ msgstr "یک ساله"
 #: content_my/domain/option/display.php:41 content_my/domain/option/model.php:41
 #: content_my/domain/renew/display.php:38 content_my/domain/renew/display.php:62
 #: content_my/domain/review/controller.php:107 content_my/domain/review/controller.php:156
-#: lib/app/onlinenic/price.php:196
+#: lib/app/onlinenic/price.php:198
 msgid "5 Year"
 msgstr "پنج ساله"
 
@@ -19831,10 +19846,6 @@ msgstr "ثبت فورس دامنه"
 #: content_love/domain/home/display.php:233
 msgid "Domain buy & renew & transfer & whois & total buy in lasy 30 days"
 msgstr "خرید،‌ تمدید،‌ انتقال دامنه در ۳۰ روز گذشته"
-
-#: content_love/domain/home/display.php:240
-msgid "Register"
-msgstr "ثبت"
 
 #: content_love/domain/home/display.php:244
 msgid "All API request in 60 last days"
@@ -20965,6 +20976,11 @@ msgstr "نمی‌توان این دامنه را ثبت کرد"
 msgid "Try another"
 msgstr "مجددا تلاش کنید"
 
+#: content_my/domain/buy/display-settings-com.php:29
+#: content_my/domain/review/display.php:192 lib/currency.php:12 lib/namecheap/api.php:159
+msgid "Toman"
+msgstr "تومان"
+
 #: content_my/domain/buy/display-settings-com.php:76
 #: content_my/domain/transfer/display.php:54
 msgid "By submit this form, you are indicating that you have agree to the :terms."
@@ -21405,42 +21421,42 @@ msgid "Choose renew time"
 msgstr "مدت زمانی که مایلید این دامنه را تمدید کنید انتخاب کنید"
 
 #: content_my/domain/renew/display.php:35 content_my/domain/review/controller.php:153
-#: lib/app/onlinenic/price.php:193
+#: lib/app/onlinenic/price.php:195
 msgid "2 Year"
 msgstr "دو ساله"
 
 #: content_my/domain/renew/display.php:36 content_my/domain/review/controller.php:154
-#: lib/app/onlinenic/price.php:194
+#: lib/app/onlinenic/price.php:196
 msgid "3 Year"
 msgstr "سه سال"
 
 #: content_my/domain/renew/display.php:37 content_my/domain/review/controller.php:155
-#: lib/app/onlinenic/price.php:195
+#: lib/app/onlinenic/price.php:197
 msgid "4 Year"
 msgstr "چهار ساله"
 
 #: content_my/domain/renew/display.php:39 content_my/domain/review/controller.php:157
-#: lib/app/onlinenic/price.php:197
+#: lib/app/onlinenic/price.php:199
 msgid "6 Year"
 msgstr "شش ساله"
 
 #: content_my/domain/renew/display.php:40 content_my/domain/review/controller.php:158
-#: lib/app/onlinenic/price.php:198
+#: lib/app/onlinenic/price.php:200
 msgid "7 Year"
 msgstr "هفت ساله"
 
 #: content_my/domain/renew/display.php:41 content_my/domain/review/controller.php:159
-#: lib/app/onlinenic/price.php:199
+#: lib/app/onlinenic/price.php:201
 msgid "8 Year"
 msgstr "هشت ساله"
 
 #: content_my/domain/renew/display.php:42 content_my/domain/review/controller.php:160
-#: lib/app/onlinenic/price.php:200
+#: lib/app/onlinenic/price.php:202
 msgid "9 Year"
 msgstr "نه ساله"
 
 #: content_my/domain/renew/display.php:43 content_my/domain/review/controller.php:161
-#: lib/app/onlinenic/price.php:201
+#: lib/app/onlinenic/price.php:203
 msgid "10 Year"
 msgstr "ده ساله"
 
@@ -21495,6 +21511,10 @@ msgstr "اگر کد هدیه‌ای در اختیار دارید در این ق�
 #: lib/app/gift/check.php:50 lib/app/gift/check.php:52
 msgid "Invalid gift code"
 msgstr "کد هدیه نامعتبر است"
+
+#: content_my/domain/review/display.php:190
+msgid "Domain Price"
+msgstr "هزینه دامنه"
 
 #: content_my/domain/review/display.php:200
 msgid "Your Gift"
@@ -22265,7 +22285,7 @@ msgid "Rafiei Footer"
 msgstr "پابرگ سایت استاد رفیعی"
 
 #: content_site/footer/option.php:30 content_site/footer/option.php:32
-#: content_site/page/display-sidebar.php:92
+#: content_site/page/display-aside-top.php:95
 msgid "Footer"
 msgstr "فوتر"
 
@@ -22290,11 +22310,11 @@ msgid "Rafiei Header"
 msgstr "سرصفحه #رفیعی"
 
 #: content_site/header/option.php:30 content_site/header/option.php:32
-#: content_site/page/display-sidebar.php:42 content_sudo/apilog/home/display.php:82
+#: content_site/page/display-aside-top.php:45 content_sudo/apilog/home/display.php:82
 msgid "Header"
 msgstr "سرصفحه"
 
-#: content_site/home/display-sidebar.php:37
+#: content_site/home/display-aside-top.php:37
 msgid "Static file"
 msgstr "فایل‌های ثابت"
 
@@ -23212,7 +23232,7 @@ msgstr "تنظیمات اسلایدر"
 msgid "Slide size"
 msgstr "اندازه اسلایدر"
 
-#: content_site/options/style/style.php:24 content_site/page/display-sidebar.php:145
+#: content_site/options/style/style.php:24 content_site/page/display-aside-top.php:137
 msgid "Personalize"
 msgstr "شخصی‌سازی"
 
@@ -23239,23 +23259,23 @@ msgstr "صفحه یافت نشد!"
 msgid "Page design"
 msgstr "دیزاین صفحه"
 
-#: content_site/page/display-sidebar.php:81
+#: content_site/page/display-aside-top.php:84
 msgid "Add Section"
 msgstr "افزودن بخش"
 
-#: content_site/page/display-sidebar.php:100
+#: content_site/page/display-aside-top.php:103
 msgid "Deleted section"
 msgstr "بخش‌های حذف شده"
 
-#: content_site/page/display-sidebar.php:100
+#: content_site/page/display-aside-top.php:103
 msgid "After saving the page, this section will be deleted completely"
 msgstr "پس از ذخیره صفحه این بخش‌ به صورت کامل حذف خواهد شد"
 
-#: content_site/page/display-sidebar.php:129 content_site/page/settings/view.php:11
+#: content_site/page/display-aside-top.php:130 content_site/page/settings/view.php:11
 msgid "Page setting"
 msgstr "تنظیمات صفحه"
 
-#: content_site/page/display-sidebar.php:143
+#: content_site/page/display-aside-top.php:135
 msgid "Change Background"
 msgstr "تغییر پس‌زمینه"
 
@@ -23328,53 +23348,53 @@ msgstr "نمی‌توانیم صفحه شما را اضافه کنیم!"
 msgid "Add new Page"
 msgstr "افزودن صفحه جدید"
 
-#: content_site/page/settings/display-sidebar.php:25
+#: content_site/page/settings/display-aside-top.php:25
 msgid "Is home page"
 msgstr "این صفحه نخست است"
 
-#: content_site/page/settings/display-sidebar.php:33
+#: content_site/page/settings/display-aside-top.php:33
 msgid "Are you sure to set this page as homepage?"
 msgstr "آیا از تنظیم این صفحه به عنوان صفحه نخست اطمینان دارید؟"
 
-#: content_site/page/settings/display-sidebar.php:34
+#: content_site/page/settings/display-aside-top.php:34
 msgid ""
 "After setting as the homepage, the current changes of your page will be saved and "
 "published"
 msgstr "بعد از تنظیم به عنوان صفحه نخست، تغییرات فعلی صفحه شما ذخیره شده و منتشر می‌شود"
 
-#: content_site/page/settings/display-sidebar.php:37
+#: content_site/page/settings/display-aside-top.php:37
 msgid "Set as home page"
 msgstr "تنظیم به عنوان صفحه نخست"
 
-#: content_site/page/settings/display-sidebar.php:49
-#: content_site/page/settings/display-sidebar.php:52
+#: content_site/page/settings/display-aside-top.php:49
+#: content_site/page/settings/display-aside-top.php:52
 msgid "Page title"
 msgstr "عنوان صفحه"
 
-#: content_site/page/settings/display-sidebar.php:59
+#: content_site/page/settings/display-aside-top.php:59
 msgid "This is the homepage and this title only use in admin panel"
 msgstr ""
 "این صفحه نخست وب‌سایت شما است و عنوانی که وارد می‌کنید تنها در پنل ادمین کاربرد دارد"
 
-#: content_site/page/settings/display-sidebar.php:82
-#: content_site/page/settings/display-sidebar.php:86
+#: content_site/page/settings/display-aside-top.php:82
+#: content_site/page/settings/display-aside-top.php:86
 msgid "Page cover"
 msgstr "کاور صفحه"
 
-#: content_site/page/settings/display-sidebar.php:145
+#: content_site/page/settings/display-aside-top.php:145
 msgid "In homepage page url is your domain"
 msgstr "در صفحه نخست،‌آدرس صفحه شما، آدرس دامنه شماست"
 
-#: content_site/page/settings/display-sidebar.php:186
+#: content_site/page/settings/display-aside-top.php:186
 msgid "Remove page and all section"
 msgstr "حذف صفحه و همه بخش‌‌های آن"
 
-#: content_site/page/settings/display-sidebar.php:189
-#: content_site/page/settings/display-sidebar.php:192
+#: content_site/page/settings/display-aside-top.php:189
+#: content_site/page/settings/display-aside-top.php:192
 msgid "Are you sure to remove this page?"
 msgstr "آیا از حذف این صفحه اطمینان دارید؟"
 
-#: content_site/page/settings/display-sidebar.php:192
+#: content_site/page/settings/display-aside-top.php:192
 msgid "All section on this page will be removed and can not be restore"
 msgstr "تمام بخش‌های این صفحه به‌صورت غیرقابل بازگشت پاک خواهند شد"
 
@@ -23416,32 +23436,36 @@ msgstr "شناسه صفحه یا شناسه بخش یافت نشد"
 msgid "Invalid section model"
 msgstr "مدل بخش اشتباه است"
 
-#: content_site/section/display-footer.php:66
+#: content_site/section/display-aside-bottom.php:66
 msgid "Are you sure to remove this section?"
 msgstr "آیا نسبت به حذف این بخش اطمینان دارید؟"
 
-#: content_site/section/display-footer.php:75
-msgid "Remove section"
-msgstr "حذف بخش"
-
-#: content_site/section/display-footer.php:92
+#: content_site/section/display-aside-bottom.php:73
 #: content_site/section/part/download_php.php:17
 msgid "Download PHP"
 msgstr "دانلود PHP"
 
-#: content_site/section/display-footer.php:104
+#: content_site/section/display-aside-bottom.php:75
+msgid "Download Template"
+msgstr "دانلود الگو"
+
+#: content_site/section/display-aside-bottom.php:86
+msgid "Remove section"
+msgstr "حذف بخش"
+
+#: content_site/section/display-aside-bottom.php:99
 msgid "Change Model"
 msgstr "تغییر مدل"
 
-#: content_site/section/display-footer.php:113
+#: content_site/section/display-aside-bottom.php:108
 msgid "Hide/Show"
 msgstr "نمایان / مخفی"
 
-#: content_site/section/html/display-sidebar.php:3
+#: content_site/section/html/display-aside-top.php:3
 msgid "Section title"
 msgstr "عنوان بخش"
 
-#: content_site/section/html/display-sidebar.php:11
+#: content_site/section/html/display-aside-top.php:11
 msgid ""
 "TailwindCSS is an absolutely amazing front end CSS library that allows you to create "
 "stunning CSS layouts. Using TailwindCSS in your Jibres Theme will help add beauty and "
@@ -23455,7 +23479,7 @@ msgstr ""
 "معنای استفاده از مجموعه ای از کلاس‌های ابزار است که به شما امکان می دهد دقیقاً با آنچه "
 "نیاز دارید کار کنید."
 
-#: content_site/section/html/display-sidebar.php:21
+#: content_site/section/html/display-aside-top.php:21
 msgid "Don't use < script > tag"
 msgstr "از تگ < script > استفاده نکنید"
 
@@ -26792,11 +26816,11 @@ msgstr "ذخیره HTML"
 msgid "Save Text"
 msgstr "ذخیره متن"
 
-#: dash/layout/panelBuilder/panelBuilder-main-iframe.php:47
+#: dash/layout/panelBuilder/panelBuilder-main-iframe.php:49
 msgid "Connect to your Domain"
 msgstr "به دامنه خودتان متصل کنید"
 
-#: dash/layout/panelBuilder/panelBuilder-main-iframe.php:52 lib/pardakhtyar/type.php:85
+#: dash/layout/panelBuilder/panelBuilder-main-iframe.php:54 lib/pardakhtyar/type.php:85
 msgid "Live"
 msgstr "زنده"
 
@@ -38747,11 +38771,11 @@ msgstr "در حال حاضر نمی‌توانیم جزئیات دی‌ان‌ا
 msgid "Can not get domain tranfer code"
 msgstr "نمی‌توانیم کد انتقال دامنه را دریافت کنیم"
 
-#: lib/app/onlinenic/price.php:120 lib/app/onlinenic/price.php:173
+#: lib/app/onlinenic/price.php:122 lib/app/onlinenic/price.php:175
 msgid "Error in load domain price detail"
 msgstr "خطا در دریافت هزینه‌های مربوط به دامنه"
 
-#: lib/app/onlinenic/price.php:134
+#: lib/app/onlinenic/price.php:136
 msgid "This period of domain have not price!"
 msgstr "این بازه زمانی برای دامنه قیمت مشخصی ندارد!"
 
@@ -41754,6 +41778,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Domain TLD"
+#~ msgstr "تی‌ال‌دی دامنه"
+
+#~ msgid "Dollar"
+#~ msgstr "دلار"
 
 #~ msgid "Short title"
 #~ msgstr "عنوان کوتاه"
@@ -47897,9 +47927,6 @@ msgstr "یارد"
 
 #~ msgid "The IRNIC handle must be exist in your domain contact list"
 #~ msgstr "شناسه ایرنیک باید در لیست مخاطبان شما وجود داشته باشد"
-
-#~ msgid "Register admin"
-#~ msgstr "مدیر دامنه"
 
 #~ msgid "Register technical"
 #~ msgstr "مسئول فنی"
