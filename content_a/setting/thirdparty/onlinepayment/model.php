@@ -26,6 +26,7 @@ class model
 			$payment['parsian']      = [];
 			$payment['payir']        = [];
 			$payment['mellat']       = [];
+			$payment['payping']       = [];
 		}
 
 		// zarinpal
@@ -106,6 +107,21 @@ class model
 			{
 				$payment['payir']['status'] = \dash\request::post('payir') ? true : false;
 				$payment['payir']['api']    = \dash\request::post('api');
+			}
+		}
+
+
+		// payping
+		{
+			if(\dash\request::post('set_payping_payment_status'))
+			{
+				$payment['payping']['status']       = \dash\request::post('payping_payment_status');
+			}
+
+			if(\dash\request::post('set_payping'))
+			{
+				$payment['payping']['status'] = \dash\request::post('payping') ? true : false;
+				$payment['payping']['token']    = \dash\request::post('token');
 			}
 		}
 

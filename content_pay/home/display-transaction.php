@@ -262,6 +262,13 @@ if(!$selected && \dash\engine\store::inStore())
 			</div>
 			<?php } //endif ?>
 
+			<?php if(isset($myPayment['payping']['status']) && $myPayment['payping']['status']) {?>
+			<div class="radioGateway">
+			<input type="radio" name="bank" value="payping" id="payping" <?php if($selected === 'payping') { echo 'checked';} ?>>
+			<label for='payping'><img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payping.png" alt='PayPing'></label>
+			</div>
+			<?php } //endif ?>
+
 			<?php if(isset($myPayment['sep']['status']) && $myPayment['sep']['status']) {?>
 			<div class="radioGateway">
 			<input type="radio" name="bank" value="sep" id="sep" <?php if($selected === 'sep') { echo 'checked';} ?>>

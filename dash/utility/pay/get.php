@@ -36,6 +36,7 @@ class get
 		\dash\data::myPayment_mellat(\dash\setting\mellat::get());
 		\dash\data::myPayment_sep(\dash\setting\sep::get());
 		\dash\data::myPayment_idpay(\dash\setting\idpay::get());
+		\dash\data::myPayment_payping(\dash\setting\payping::get());
 
 	}
 
