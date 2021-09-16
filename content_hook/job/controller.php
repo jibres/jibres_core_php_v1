@@ -26,6 +26,7 @@ class controller
 		self::cronjob_run();
 
 		\dash\notif::ok("Ok ;)");
+		\dash\notif::ok("Time: ". date("Y-m-d H:i:s"));
 
 		\dash\code::jsonBoom(\dash\notif::get());
 	}
