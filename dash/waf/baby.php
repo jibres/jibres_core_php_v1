@@ -315,11 +315,7 @@ class baby
 			self::$level = 3;
 			return true;
 		}
-		if(preg_match("/<(.*)script/i", $_txt))
-		{
-			self::$level = 4;
-			return true;
-		}
+
 		if(preg_match("/alert(.*)\(/i", $_txt))
 		{
 			self::$level = 5;

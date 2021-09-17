@@ -212,7 +212,7 @@ class block
 
 		self::preg("/<\s+script/i", $_txt, 'Disallow script 3!');
 
-		self::preg("/<(.*)script/i", $_txt, 'Disallow script 4!');
+		self::preg("/<([^\>]{0,5})script/i", $_txt, 'Disallow script 4!');
 
 		self::preg("/alert(.{0,5})\(/i", $_txt, 'Disallow script 5!');
 
