@@ -8,11 +8,12 @@
         <div class="msg">
           <p><?php echo T_("Understand how users behave on your site, what they need, and how they feel, fast. Heatmaps visually represent where users click, move, and scroll on your site. With this context, you'll learn how users really behave."); ?></p>
         </div>
-
-          <label for="ihotjar"><?php echo T_("Site ID"); ?> <span class="fc-red">*</span></label>
+        <div class="ltr">
+          <label for="ihotjar">Site ID <span class="fc-red">*</span></label>
           <div class="input ltr">
             <input type="text" name="addon_hotjar" id="ihotjar" placeholder="" value="<?php echo a($storeData, 'addon_hotjar'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='20' minlength="1">
           </div>
+        </div>
       </div>
 <?php if (!\dash\detect\device::detectPWA()) { ?>
       <footer class="txtRa">

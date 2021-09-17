@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-17 22:44+0430\n"
-"PO-Revision-Date: 2021-09-17 23:02+0430\n"
+"POT-Creation-Date: 2021-09-17 23:44+0430\n"
+"PO-Revision-Date: 2021-09-17 23:46+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -795,7 +795,7 @@ msgid "Jibres Certificates"
 msgstr "مجوزها و گواهینامه‌های جیبرس"
 
 #: content/certificates/view.php:9 content/home/layout/footer.php:187
-#: content/home/layout/pwa-footer.php:182 content_a/setting/thirdparty/display.php:97
+#: content/home/layout/pwa-footer.php:182 content_a/setting/thirdparty/display.php:105
 msgid "Certificates"
 msgstr "گواهی‌نامه‌ها"
 
@@ -1389,7 +1389,7 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_a/accounting/coding/display-list.php:92
 #: content_a/accounting/coding/display.php:53 content_a/accounting/coding/display.php:54
 #: content_a/accounting/filter.php:9 content_a/cart/home/display.php:82
-#: content_a/form/analytics/table/display.php:40
+#: content_a/discount/home/display.php:5 content_a/form/analytics/table/display.php:40
 #: content_a/form/analytics/table/display.php:41 content_a/form/answer/display.php:48
 #: content_a/form/answer/display.php:49 content_a/form/answer/item/display.php:37
 #: content_a/form/answer/item/display.php:38 content_a/form/home/display.php:73
@@ -2255,16 +2255,16 @@ msgstr "صد البته با عشق ساختیمش 😍"
 msgid "Jibres has created for futuristic entrepreneurs"
 msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته شده است"
 
-#: content/home/display.php:100 content_a/home/display.php:104
-#: content_a/products/add/view.php:14 content_a/products/edit/view.php:22
-#: content_a/products/home/view.php:11 content_a/setting/home/display.php:25
-#: content_a/setting/menu/item/display.php:20 content_site/body/product/option.php:17
-#: content_site/body/product/option.php:19 content_site/body/product/p1.php:47
-#: content_site/body/product/p1.php:74 content_site/body/product/p3.php:52
-#: content_site/body/product/p3.php:85 content_site/body/product/p3.php:119
-#: content_site/body/product/p3.php:153 content_site/body/product/p3.php:187
-#: content_site/body/product/p3.php:221 content_site/body/product/p3.php:255
-#: content_site/body/product/p3.php:292
+#: content/home/display.php:100 content_a/discount/home/display-aside-top.php:50
+#: content_a/home/display.php:104 content_a/products/add/view.php:14
+#: content_a/products/edit/view.php:22 content_a/products/home/view.php:11
+#: content_a/setting/home/display.php:25 content_a/setting/menu/item/display.php:20
+#: content_site/body/product/option.php:17 content_site/body/product/option.php:19
+#: content_site/body/product/p1.php:47 content_site/body/product/p1.php:74
+#: content_site/body/product/p3.php:52 content_site/body/product/p3.php:85
+#: content_site/body/product/p3.php:119 content_site/body/product/p3.php:153
+#: content_site/body/product/p3.php:187 content_site/body/product/p3.php:221
+#: content_site/body/product/p3.php:255 content_site/body/product/p3.php:292
 #: content_site/options/link/link_professional.php:108
 #: dash/layout/admin/sidebar/sidebar-a.php:6 dash/panel.php:231 dash/plan_list.php:44
 #: includes/languages/trans_static.php:571 lib/app/--website/body/template.php:91
@@ -2630,7 +2630,8 @@ msgid "Resources"
 msgstr "منابع"
 
 #: content/home/layout/footer.php:162 content/home/layout/pwa-footer.php:158
-#: content_a/home/display.php:148 content_site/body/blog/option.php:21
+#: content_a/discount/home/display-aside-top.php:94 content_a/home/display.php:148
+#: content_site/body/blog/option.php:21
 msgid "Blog"
 msgstr "بلاگ"
 
@@ -2747,11 +2748,11 @@ msgstr "ساده‌ترین راه برای کسب درآمد در عصر دیج
 msgid "Sell more and more."
 msgstr "بیشتر و بیشتر بفروش."
 
-#: content/home/view.php:82 content/ip/home/view.php:9 content_a/order/home/view.php:143
-#: content_a/order/view.php:11 content_a/products/home/view.php:14
-#: content_a/setting/home/view.php:10 content_a/setting/pos/view.php:10
-#: content_account/notification/view.php:14 content_cms/home/view.php:11
-#: content_crm/home/view.php:17 content_crm/home/view.php:24
+#: content/home/view.php:82 content/ip/home/view.php:9 content_a/discount/home/view.php:15
+#: content_a/order/home/view.php:143 content_a/order/view.php:11
+#: content_a/products/home/view.php:14 content_a/setting/home/view.php:10
+#: content_a/setting/pos/view.php:10 content_account/notification/view.php:14
+#: content_cms/home/view.php:11 content_crm/home/view.php:17 content_crm/home/view.php:24
 #: content_love/application/home/view.php:12 content_love/business/datalist/view.php:12
 #: content_love/business/domain/view.php:13 content_love/business/home/view.php:13
 #: content_love/domain/action/view.php:12 content_love/domain/all/view.php:12
@@ -2968,11 +2969,13 @@ msgstr "کلیدواژه‌ها"
 msgid "E-commerce"
 msgstr "تجارت الکترونیک"
 
-#: content/investment/display-company-info.php:83 content_a/home/display.php:172
+#: content/investment/display-company-info.php:83
+#: content_a/discount/home/display-aside-top.php:118 content_a/home/display.php:172
 msgid "Website Builder"
 msgstr "سایت‌ساز"
 
-#: content/investment/display-company-info.php:84 content_a/home/display.php:181
+#: content/investment/display-company-info.php:84
+#: content_a/discount/home/display-aside-top.php:127 content_a/home/display.php:181
 msgid "App Builder"
 msgstr "اپ ساز"
 
@@ -2988,7 +2991,8 @@ msgstr "دستیار فروش اینستاگرام"
 msgid "PWA Builder"
 msgstr "PWA ساز"
 
-#: content/investment/display-company-info.php:89 content_a/home/display.php:127
+#: content/investment/display-company-info.php:89
+#: content_a/discount/home/display-aside-top.php:73 content_a/home/display.php:127
 #: content_crm/home/view.php:8 content_crm/log/enter/view.php:11
 #: content_crm/log/home/view.php:11 content_crm/log/home/view.php:20
 #: content_crm/member/home/view.php:16 content_crm/notification/home/view.php:12
@@ -4535,7 +4539,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/android/splash/view.php:12 content_a/android/title/view.php:12
 #: content_a/cart/add/view.php:19 content_a/cart/home/view.php:16
 #: content_a/cart/user/view.php:13 content_a/chap/view.php:12
-#: content_a/form/add/view.php:12 content_a/form/analytics/addcondition/view.php:12
+#: content_a/discount/add/view.php:13 content_a/form/add/view.php:12
+#: content_a/form/analytics/addcondition/view.php:12
 #: content_a/form/analytics/addfilter/view.php:12
 #: content_a/form/analytics/answer/view.php:12 content_a/form/analytics/chart/view.php:12
 #: content_a/form/analytics/chart2/view.php:12 content_a/form/analytics/create/view.php:12
@@ -4745,7 +4750,7 @@ msgid "Quickly Start Free!"
 msgstr "به‌سرعت و رایگان شروع کن!"
 
 #: content/view.php:17 content/view.php:18 content/view.php:19
-#: content_a/home/display.php:148
+#: content_a/discount/home/display-aside-top.php:94 content_a/home/display.php:148
 msgid " & "
 msgstr " + "
 
@@ -5039,7 +5044,7 @@ msgstr "وضعیت"
 #: content_a/accounting/doc/add/display-doc.php:103
 #: content_a/accounting/doc/add/display-docdetail.php:111
 #: content_a/accounting/year/add/display.php:40 content_a/cart/add/display.php:54
-#: content_a/form/analytics/addfilter/display.php:11
+#: content_a/discount/add/display.php:12 content_a/form/analytics/addfilter/display.php:11
 #: content_a/form/item/choice/display.php:11 content_a/form/tag/add/display.php:12
 #: content_a/order/products/display.php:66 content_a/products/add/view.php:19
 #: content_a/products/bullet/display.php:21 content_a/products/property/add/display.php:60
@@ -5508,7 +5513,8 @@ msgid "Cloud Accounting Configuration"
 msgstr "پیکربندی حسابداری ابری"
 
 #: content_a/accounting/config/view.php:10 content_a/accounting/home/view.php:13
-#: content_a/home/display.php:160 lib/app/quickaccess/setting.php:668
+#: content_a/discount/home/display-aside-top.php:106 content_a/home/display.php:160
+#: lib/app/quickaccess/setting.php:668
 msgid "Cloud Accounting"
 msgstr "حسابداری ابری"
 
@@ -5916,7 +5922,7 @@ msgstr "افزودن درآمد"
 #: content_a/accounting/factor/display.php:8 content_a/accounting/home/display.php:136
 #: content_a/android/home/display.php:117 content_a/cart/add/display.php:39
 #: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
-#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:203
+#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:210
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
 #: content_a/sale/display.php:17 content_cms/files/home/display.php:36
 #: content_crm/home/display.php:6 content_crm/sms/home/display.php:6
@@ -7066,6 +7072,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/thirdparty/digitaloceans3/display.php:41
 #: content_a/setting/thirdparty/enamad/display.php:41
 #: content_a/setting/thirdparty/gtag/display.php:19
+#: content_a/setting/thirdparty/hotjar/display.php:19
 #: content_a/setting/thirdparty/imber/display.php:18
 #: content_a/setting/thirdparty/irasanpardakht/display.php:53
 #: content_a/setting/thirdparty/iridpay/display.php:24
@@ -7733,8 +7740,9 @@ msgid "Guest user add cart"
 msgstr "کاربر مهمان سبد خرید اضافه کرده"
 
 #: content_a/cart/home/display.php:142 content_a/cart/home/view.php:13
-#: content_a/home/display.php:82 content_crm/member/glance/display.php:324
-#: dash/layout/pwa/pwa_menu.php:247 lib/app/store/analytics.php:84
+#: content_a/discount/home/display-aside-top.php:28 content_a/home/display.php:82
+#: content_crm/member/glance/display.php:324 dash/layout/pwa/pwa_menu.php:247
+#: lib/app/store/analytics.php:84
 msgid "Cart"
 msgstr "سبد خرید"
 
@@ -7955,6 +7963,53 @@ msgstr "چاپ فاکتور"
 #: lib/app/tag/get.php:100 lib/app/tag/get.php:128 lib/app/tag/search.php:28
 msgid "Store not found"
 msgstr "فروشگاه یافت نشد"
+
+#: content_a/discount/add/display.php:5 content_a/discount/home/display-aside-top.php:144
+#: content_a/discount/home/view.php:9 content_a/home/display.php:198
+msgid "Discount code"
+msgstr "کد تخفیف"
+
+#: content_a/discount/add/view.php:9
+msgid "Add new discount code"
+msgstr "افزودن کد تخفیف جدید"
+
+#: content_a/discount/home/display-aside-top.php:9 content_a/home/display.php:63
+msgid "Unprocessed Order"
+msgstr "سفارشات پردازش نشده"
+
+#: content_a/discount/home/display-aside-top.php:19 content_a/home/display.php:73
+msgid "All Orders"
+msgstr "همه سفارشات"
+
+#: content_a/discount/home/display-aside-top.php:37 content_a/home/display.php:91
+msgid "Sale Invoicing"
+msgstr "صدور فاکتور فروش"
+
+#: content_a/discount/home/display-aside-top.php:60 content_a/home/display.php:114
+msgid "Add new Product"
+msgstr "افزودن محصول جدید"
+
+#: content_a/discount/home/display-aside-top.php:80 content_a/home/display.php:134
+#: content_crm/home/display.php:46 content_crm/member/add/view.php:12
+#: content_crm/member/glance/view.php:19 content_crm/staff/add/view.php:12
+#: content_developers/docs/001-intro.php:17 includes/languages/trans_static.php:73
+#: lib/app/quickaccess/customers.php:30
+msgid "Customers"
+msgstr "مشتریان"
+
+#: content_a/discount/home/display-aside-top.php:94 content_a/home/display.php:148
+#: dash/panel.php:253
+msgid "Content Management"
+msgstr "سیستم مدیریت محتوا"
+
+#: content_a/discount/home/display-aside-top.php:137 content_a/home/display.php:191
+#: content_my/domain/home/display.php:120 dash/panel.php:275
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: content_a/discount/home/view.php:11
+msgid "Add New Discount code"
+msgstr "افزودن کد تخفیف جدید"
 
 #: content_a/form/add/display.php:6
 msgid "Form title"
@@ -9101,43 +9156,11 @@ msgstr "شما :val پیام جدید دارید!"
 msgid "You have :val not reviewed answer in :form"
 msgstr "شما :val پاسخ از فرم :form دریافت کرده‌اید که هنوز بررسی نشده‌اند"
 
-#: content_a/home/display.php:63
-msgid "Unprocessed Order"
-msgstr "سفارشات پردازش نشده"
-
-#: content_a/home/display.php:73
-msgid "All Orders"
-msgstr "همه سفارشات"
-
-#: content_a/home/display.php:91
-msgid "Sale Invoicing"
-msgstr "صدور فاکتور فروش"
-
-#: content_a/home/display.php:114
-msgid "Add new Product"
-msgstr "افزودن محصول جدید"
-
-#: content_a/home/display.php:134 content_crm/home/display.php:46
-#: content_crm/member/add/view.php:12 content_crm/member/glance/view.php:19
-#: content_crm/staff/add/view.php:12 content_developers/docs/001-intro.php:17
-#: includes/languages/trans_static.php:73 lib/app/quickaccess/customers.php:30
-msgid "Customers"
-msgstr "مشتریان"
-
-#: content_a/home/display.php:148 dash/panel.php:253
-msgid "Content Management"
-msgstr "سیستم مدیریت محتوا"
-
-#: content_a/home/display.php:191 content_my/domain/home/display.php:120
-#: dash/panel.php:275
-msgid "Settings"
-msgstr "تنظیمات"
-
-#: content_a/home/display.php:201
+#: content_a/home/display.php:208
 msgid "Sum factor price and count of it group by hours"
 msgstr "جمع مبالغ فاکتور و تعداد آن به تفکیک ساعت"
 
-#: content_a/home/display.php:202
+#: content_a/home/display.php:209
 msgid "Sum price"
 msgstr "جمع مبالغ"
 
@@ -11518,6 +11541,7 @@ msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 #: content_a/setting/thirdparty/digitaloceans3/view.php:11
 #: content_a/setting/thirdparty/enamad/view.php:11
 #: content_a/setting/thirdparty/gtag/view.php:11
+#: content_a/setting/thirdparty/hotjar/view.php:11
 #: content_a/setting/thirdparty/imber/view.php:11
 #: content_a/setting/thirdparty/mediaad/view.php:11
 #: content_a/setting/thirdparty/onlinepayment/view.php:11
@@ -12134,7 +12158,7 @@ msgstr "افزودن دستگاه کارتخوان جدید به فروشگاه 
 msgid "Saderat"
 msgstr "بانک صادرات"
 
-#: content_a/setting/pcpos/display.php:11 content_a/setting/thirdparty/display.php:151
+#: content_a/setting/pcpos/display.php:11 content_a/setting/thirdparty/display.php:159
 #: includes/languages/trans_static_public.php:506 lib/app/quickaccess/setting.php:129
 #: lib/app/quickaccess/setting.php:132
 msgid "Mellat"
@@ -12156,7 +12180,7 @@ msgstr "بانک سپه"
 msgid "Keshavarzi"
 msgstr "بانک کشاورزی"
 
-#: content_a/setting/pcpos/display.php:16 content_a/setting/thirdparty/display.php:165
+#: content_a/setting/pcpos/display.php:16 content_a/setting/thirdparty/display.php:173
 #: content_pay/home/display-transaction.php:215 lib/app/quickaccess/setting.php:147
 #: lib/app/quickaccess/setting.php:150
 msgid "Parsian"
@@ -12256,19 +12280,19 @@ msgstr "بانک مشترک ایران و ونزوئلا"
 msgid "Irkish"
 msgstr "ایران کیش"
 
-#: content_a/setting/pcpos/display.php:40 content_a/setting/thirdparty/display.php:172
+#: content_a/setting/pcpos/display.php:40 content_a/setting/thirdparty/display.php:180
 #: includes/languages/trans_static_public.php:534 lib/app/quickaccess/setting.php:165
 #: lib/app/quickaccess/setting.php:168
 msgid "Asanpardakht"
 msgstr "آسان پرداخت"
 
-#: content_a/setting/pcpos/display.php:41 content_a/setting/thirdparty/display.php:185
+#: content_a/setting/pcpos/display.php:41 content_a/setting/thirdparty/display.php:193
 #: includes/languages/trans_static_public.php:535 lib/app/quickaccess/setting.php:156
 #: lib/app/quickaccess/setting.php:159
 msgid "Zarinpal"
 msgstr "زرین پال"
 
-#: content_a/setting/pcpos/display.php:42 content_a/setting/thirdparty/display.php:199
+#: content_a/setting/pcpos/display.php:42 content_a/setting/thirdparty/display.php:207
 #: includes/languages/trans_static_public.php:536 lib/app/quickaccess/setting.php:184
 #: lib/app/quickaccess/setting.php:187
 msgid "Payir"
@@ -12811,117 +12835,126 @@ msgid "Google Analytics"
 msgstr "گوگل آنالیتیکس"
 
 #: content_a/setting/thirdparty/display.php:15
+#: content_a/setting/thirdparty/hotjar/view.php:8
+msgid "Hotjar"
+msgstr "Hotjar"
+
+#: content_a/setting/thirdparty/display.php:16
+msgid "See What Users Really Do"
+msgstr "ببینید کاربران واقعا چه می‌کنند"
+
+#: content_a/setting/thirdparty/display.php:23
 msgid "Cloud Storage S3"
 msgstr "فضای ذخیره‌سازی ابری S3"
 
-#: content_a/setting/thirdparty/display.php:21
+#: content_a/setting/thirdparty/display.php:29
 msgid "Amazon"
 msgstr "آمازون"
 
-#: content_a/setting/thirdparty/display.php:28 content_cms/files/home/display.php:15
+#: content_a/setting/thirdparty/display.php:36 content_cms/files/home/display.php:15
 #: content_love/files/home/display.php:15
 msgid "DigitalOcean"
 msgstr "دیجیتال‌ اوشن"
 
-#: content_a/setting/thirdparty/display.php:35 content_cms/files/home/display.php:10
+#: content_a/setting/thirdparty/display.php:43 content_cms/files/home/display.php:10
 #: content_love/files/home/display.php:10
 msgid "ArvanCloud"
 msgstr "ابر آروان"
 
-#: content_a/setting/thirdparty/display.php:43
+#: content_a/setting/thirdparty/display.php:51
 msgid "Live Chat"
 msgstr "چت آنلاین"
 
-#: content_a/setting/thirdparty/display.php:49
+#: content_a/setting/thirdparty/display.php:57
 msgid "tawk.to"
 msgstr "Tawk.to"
 
-#: content_a/setting/thirdparty/display.php:50
+#: content_a/setting/thirdparty/display.php:58
 msgid "100% FREE live chat!"
 msgstr "چت زنده ۱۰۰٪ رایگان!"
 
-#: content_a/setting/thirdparty/display.php:58
+#: content_a/setting/thirdparty/display.php:66
 msgid "Tidio"
 msgstr "Tidio"
 
-#: content_a/setting/thirdparty/display.php:59
+#: content_a/setting/thirdparty/display.php:67
 msgid "The Ultimate Communication Toolbox"
 msgstr "جعبه ابزار ارتباطات بی‌نهایت"
 
-#: content_a/setting/thirdparty/display.php:67
+#: content_a/setting/thirdparty/display.php:75
 msgid "Crisp"
 msgstr "Crisp"
 
-#: content_a/setting/thirdparty/display.php:68
+#: content_a/setting/thirdparty/display.php:76
 msgid "#1 Messaging Platform For Startups & SMB's"
 msgstr "پلتفرم پیام‌رسانی شماره 1 برای استارتاپ‌ها"
 
-#: content_a/setting/thirdparty/display.php:78
+#: content_a/setting/thirdparty/display.php:86
 msgid "RayChat"
 msgstr "رایچت"
 
-#: content_a/setting/thirdparty/display.php:79
+#: content_a/setting/thirdparty/display.php:87
 msgid "Online Chat Platform"
 msgstr "پلتفرم گفتگوی آنلاین"
 
-#: content_a/setting/thirdparty/display.php:87
+#: content_a/setting/thirdparty/display.php:95
 #: content_a/setting/thirdparty/imber/view.php:8 lib/app/quickaccess/setting.php:100
 #: lib/app/quickaccess/setting.php:104
 msgid "Imber"
 msgstr "ایمبر"
 
-#: content_a/setting/thirdparty/display.php:88
+#: content_a/setting/thirdparty/display.php:96
 msgid "All in One Marketing Automation Platform"
 msgstr "سرویس جامع ارتباط با مشتری"
 
-#: content_a/setting/thirdparty/display.php:103
+#: content_a/setting/thirdparty/display.php:111
 #: content_a/setting/thirdparty/enamad/view.php:8 lib/app/quickaccess/setting.php:205
 #: lib/app/quickaccess/setting.php:206 lib/app/quickaccess/setting.php:208
 msgid "Enamad"
 msgstr "نماد اعتماد"
 
-#: content_a/setting/thirdparty/display.php:110 lib/app/quickaccess/setting.php:214
+#: content_a/setting/thirdparty/display.php:118 lib/app/quickaccess/setting.php:214
 #: lib/app/quickaccess/setting.php:215 lib/app/quickaccess/setting.php:217
 msgid "Samandehi"
 msgstr "ساماندهی"
 
-#: content_a/setting/thirdparty/display.php:118
+#: content_a/setting/thirdparty/display.php:126
 msgid "Search engine"
 msgstr "موتور جستجو"
 
-#: content_a/setting/thirdparty/display.php:124
+#: content_a/setting/thirdparty/display.php:132
 #: content_a/setting/thirdparty/torob/view.php:8
 msgid "Torob"
 msgstr "ترب"
 
-#: content_a/setting/thirdparty/display.php:132
+#: content_a/setting/thirdparty/display.php:140
 msgid "Advertise"
 msgstr "تبلیغات"
 
-#: content_a/setting/thirdparty/display.php:138
+#: content_a/setting/thirdparty/display.php:146
 #: content_a/setting/thirdparty/mediaad/view.php:8
 msgid "Media.ad"
 msgstr "مدیااد"
 
-#: content_a/setting/thirdparty/display.php:145
+#: content_a/setting/thirdparty/display.php:153
 msgid "Bank payment"
 msgstr "درگاه پرداخت بانک"
 
-#: content_a/setting/thirdparty/display.php:158 lib/app/quickaccess/setting.php:138
+#: content_a/setting/thirdparty/display.php:166 lib/app/quickaccess/setting.php:138
 #: lib/app/quickaccess/setting.php:141
 msgid "IranKish"
 msgstr "ایران‌کیش"
 
-#: content_a/setting/thirdparty/display.php:179
+#: content_a/setting/thirdparty/display.php:187
 msgid "Assistant payment"
 msgstr "درگاه پرداخت‌یار"
 
-#: content_a/setting/thirdparty/display.php:192 lib/app/quickaccess/setting.php:174
+#: content_a/setting/thirdparty/display.php:200 lib/app/quickaccess/setting.php:174
 #: lib/app/quickaccess/setting.php:177
 msgid "IDPay"
 msgstr "آی‌دی‌پی"
 
-#: content_a/setting/thirdparty/display.php:206
+#: content_a/setting/thirdparty/display.php:214
 msgid "PayPing"
 msgstr "پی‌پینگ"
 
@@ -12982,6 +13015,20 @@ msgstr ""
 #: content_a/setting/thirdparty/gtag/display.php:12
 msgid "Your Google Analytics Tracking ID"
 msgstr "Tracking ID گوگل آنالیتیکس شما"
+
+#: content_a/setting/thirdparty/hotjar/display.php:9
+msgid ""
+"Understand how users behave on your site, what they need, and how they feel, fast. "
+"Heatmaps visually represent where users click, move, and scroll on your site. With this "
+"context, you'll learn how users really behave."
+msgstr ""
+"درک کنید که کاربران چگونه در سایت شما رفتار می‌کنند ، به چه چیزی نیاز دارند و چگونه "
+"احساس می‌کنند. نقشه‌های حرارتی بصری نشان‌دهنده جایی است که کاربران در سایت شما کلیک و حرکت "
+"می‌کنند. با این شرایط ، شما نحوه رفتار واقعی کاربران را خواهید آموخت."
+
+#: content_a/setting/thirdparty/hotjar/display.php:12
+msgid "Site ID"
+msgstr ""
 
 #: content_a/setting/thirdparty/imber/display.php:9
 msgid ""
@@ -20946,7 +20993,7 @@ msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: content_my/business/start/model.php:31 lib/app/store/add.php:81
-#: lib/app/store/check.php:73
+#: lib/app/store/check.php:74
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
@@ -40280,7 +40327,7 @@ msgstr "درخواست جابجایی ذخیره شد"
 msgid "Fuel updated"
 msgstr "سوخت به‌روزرسانی شد"
 
-#: lib/app/store/check.php:81
+#: lib/app/store/check.php:82
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
@@ -43189,9 +43236,6 @@ msgstr "یارد"
 
 #~ msgid "Add new cost"
 #~ msgstr "افزودن هزینه جدید"
-
-#~ msgid "Add new income"
-#~ msgstr "افزودن درآمد جدید"
 
 #~ msgid "Internal code"
 #~ msgstr "کد داخلی"
