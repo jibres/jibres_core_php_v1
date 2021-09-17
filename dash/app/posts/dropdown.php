@@ -95,12 +95,18 @@ class dropdown
 		$meta         = [];
 		$msg          = T_("Posts not found."). ' ';
 
+		if(\dash\request::get('ptype') === 'page')
+		{
+			$meta['type'] = 'pagebuilder';
+		}
+
 		$query = \dash\validate::search(\dash\validate::search_string(), false);
 
 
 		if($query)
 		{
 			$resultRaw    = \dash\app\posts\search::list($query, $meta);
+
 			foreach ($resultRaw as $key => $value)
 			{
 				$result['results'][] = self::getNeededField($value);
