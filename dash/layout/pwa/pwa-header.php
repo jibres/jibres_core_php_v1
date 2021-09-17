@@ -39,30 +39,40 @@ if(!\dash\face::disablePWA_Header())
   // help btn
   if(\dash\face::help())
   {
-    echo "<a class='square help' href='". \dash\face::help(). "'></a>";
+    echo "<a class='square help' href='". \dash\face::help(). "'>";
+    echo \dash\utility\icon::svg('Question Mark');
+    echo '</a>';
   }
   // search btn
   if(\dash\data::search_link())
   {
     if(!\dash\data::nosale())
     {
-  	 echo "<a class='square search' href='". \dash\data::search_link(). "'></a>";
+      echo "<a class='square search' href='". \dash\data::search_link(). "'>";
+      echo \dash\utility\icon::svg('Search');
+      echo '</a>';
     }
   }
   // preview btn
   if(\dash\face::btnPreview())
   {
-    echo "<a class='square preview' href='". \dash\face::btnPreview(). "'></a>";
+    echo "<a class='square preview' href='". \dash\face::btnPreview(). "'>";
+    echo \dash\utility\icon::svg('Live View');
+    echo '</a>';
   }
   // view btn
   if(\dash\face::btnView())
   {
-    echo "<a class='square view' href='". \dash\face::btnView(). "'></a>";
+    echo "<a class='square view' href='". \dash\face::btnView(). "'>";
+    echo \dash\utility\icon::svg('Data Visualization');
+    echo '</a>';
   }
   // duplicate btn
   if(\dash\face::btnDuplicate())
   {
-    echo "<a class='square duplicate' href='". \dash\face::btnDuplicate(). "'></a>";
+    echo "<a class='square minor duplicate' href='". \dash\face::btnDuplicate(). "'>";
+    echo \dash\utility\icon::svg('Duplicate', 'minor');
+    echo '</a>';
   }
 
   // if(\dash\face::btnPrint())
@@ -73,7 +83,9 @@ if(!\dash\face::disablePWA_Header())
   // cart btn
   if(\dash\data::cart_link() !== null)
   {
-  	echo "<a class='square cart' href='". \dash\url::kingdom(). "/cart' data-item='". \dash\data::cart_link(). "'></a>";
+  	echo "<a class='square cart' href='". \dash\url::kingdom(). "/cart' data-item='". \dash\data::cart_link(). "'>";
+    echo \dash\utility\icon::svg('Cart');
+    echo '</a>';
   }
   // add btn
   if(\dash\data::action_link() && (\dash\data::action_icon() || \dash\data::action_text()))
@@ -88,14 +100,19 @@ if(!\dash\face::disablePWA_Header())
     }
   }
   // setting
-  if(\dash\face::btnSetting())
+  if(\dash\face::btnSetting() or 1)
   {
-    echo "<a class='square setting' href='". \dash\face::btnSetting(). "'></a>";
+    echo "<a class='square setting' href='". \dash\face::btnSetting(). "'>";
+    // echo \dash\utility\icon::svg('Settings');
+    echo \dash\utility\icon::svg('Tools');
+    echo '</a>';
   }
   // menu btn
-  if(\dash\data::menu_link())
+  if(\dash\data::menu_link() or 1)
   {
-  	echo "<div class='square menu'></div>";
+  	echo "<div class='square menu'>";
+    echo \dash\utility\icon::svg('Mobile Vertical Dots');
+    echo '</div>';
   }
   // save btn
   if(\dash\face::btnSave())
@@ -140,7 +157,7 @@ if(!\dash\face::disablePWA_Header())
     echo "</button>";
   }
   // menu btn
-  if(\dash\data::menu_link() or 1)
+  if(\dash\data::menu_link())
   {
     echo "<div class='square hamburger'>";
     {
