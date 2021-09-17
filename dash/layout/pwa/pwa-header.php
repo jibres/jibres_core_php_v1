@@ -158,10 +158,10 @@ if(!\dash\face::disablePWA_Header())
     }
     echo "</button>";
   }
-  // menu btn
-  if(\dash\data::hamburger())
+  // show hamburget menu icon
+  if(\dash\data::hamburger() || \dash\data::include_adminPanelBuilder())
   {
-    echo "<div class='square hamburger'>";
+    echo "<div class='square hamburger sidenavHandler'>";
     {
       echo \dash\utility\icon::svg('Mobile Hamburger');
     }
