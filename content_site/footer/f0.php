@@ -15,7 +15,9 @@ class f0
 		return
 		[
 			'title'        => T_("Empty"),
-			'default'      => [],
+			'default'      =>
+			[
+			],
 			'options'      =>
 			[
 				'msg' => 'my_msg',
@@ -46,6 +48,7 @@ class f0
 			'version'        => 1,
 			'options' =>
 			[
+				'use_as_footer_link'    => 'none',
 
 			],
 		];
