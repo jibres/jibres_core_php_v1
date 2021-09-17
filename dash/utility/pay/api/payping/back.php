@@ -14,39 +14,28 @@ class back
             return \dash\utility\pay\setting::turn_back();
         }
 
-        if(!\dash\setting\payping::get('api'))
+        if(!\dash\setting\payping::get('token'))
         {
-            \dash\log::set('pay:payping:api:not:set');
-            \dash\notif::error(T_("The payping payment api not set"));
-            return \dash\utility\pay\setting::turn_back();
-        }
-
-
-        $token  = (string) \dash\request::request('token');
-        $status = (string) \dash\request::request('status');
-
-        // old version
-        // $transId      = (string) \dash\request::request('transId');
-        // $description  = (string) \dash\request::request('description');
-        // $factorNumber = (string) \dash\request::request('factorNumber');
-        // $cardNumber   = (string) \dash\request::request('cardNumber');
-        // $message      = (string) \dash\request::request('message');
-
-        // if(!$status)
-        // {
-        //     \dash\log::set('pay:payping:status:verify:not:found');
-        //     \dash\notif::error(T_("The payping payment status not set"));
-        //     return \dash\utility\pay\setting::turn_back();
-        // }
-
-        if(!$token)
-        {
-            \dash\log::set('pay:payping:token:verify:not:found');
+            \dash\log::set('pay:payping:token:not:set');
             \dash\notif::error(T_("The payping payment token not set"));
             return \dash\utility\pay\setting::turn_back();
         }
 
-        \dash\utility\pay\setting::load_banktoken($_token, $token, 'payping');
+
+        $refId  = (string) \dash\request::request('refid');
+        if(!$refId)
+        {
+            \dash\log::set('pay:payping:refid:not:set');
+            \dash\notif::error(T_("The payping payment refId not set"));
+            return \dash\utility\pay\setting::turn_back();
+        }
+
+
+        $clientrefid = (string) \dash\request::request('clientrefid');
+        $code        = (string) \dash\request::request('code');
+
+
+        \dash\utility\pay\setting::load_token($_token);
 
         if(\dash\utility\pay\setting::get_id())
         {
@@ -59,17 +48,27 @@ class back
             return \dash\utility\pay\setting::turn_back();
         }
 
-        $payping          = [];
-        $payping['api']   = \dash\setting\payping::get('api');
-        $payping['token'] = $token;
-
-        if(\dash\utility\pay\setting::getAmount())
+        if($clientrefid === (string) $transaction_id)
         {
-            $amount  = floatval(\dash\utility\pay\setting::getAmount()) * 10;
+            // ok
         }
         else
         {
+            \dash\log::set('pay:payping:clientrefid:transactionid:not:equal');
+            \dash\notif::error(T_("The payping ref id is invalid"));
+            return \dash\utility\pay\setting::turn_back();
+        }
 
+        $payping          = [];
+        $payping['token'] = \dash\setting\payping::get('token');
+        $payping['refId'] = $refId;
+
+        if(\dash\utility\pay\setting::getAmount())
+        {
+            $amount  = floatval(\dash\utility\pay\setting::getAmount());
+        }
+        else
+        {
             \dash\utility\pay\setting::set_condition('error');
             \dash\utility\pay\setting::save();
 
@@ -77,34 +76,25 @@ class back
             return \dash\utility\pay\setting::turn_back();
         }
 
+        $payping['amount'] = intval($amount);
 
         \dash\utility\pay\setting::set_condition('pending');
         \dash\utility\pay\setting::set_payment_response2(\dash\request::request());
         \dash\utility\pay\setting::save(true);
 
-        if(intval($status) === 1)
+        $is_ok = \dash\utility\pay\api\payping\bank::verify($payping);
+
+        $payment_response = \dash\utility\pay\api\payping\bank::$payment_response;
+
+        \dash\utility\pay\setting::set_payment_response3($payment_response);
+
+        if($is_ok)
         {
-            $is_ok = \dash\utility\pay\api\payping\bank::verify($payping);
-
-            $payment_response = \dash\utility\pay\api\payping\bank::$payment_response;
-
-            \dash\utility\pay\setting::set_payment_response3($payment_response);
-
-            if(isset($is_ok['status']) && intval($is_ok['status']) === 1)
+            if(intval($is_ok) === intval($amount))
             {
-                if(isset($is_ok['amount']) && floatval($is_ok['amount']) === floatval($amount) && isset($is_ok['factorNumber']) && floatval($is_ok['factorNumber']) === floatval($transaction_id))
-                {
+                \dash\utility\pay\verify::bank_ok($amount, $transaction_id);
 
-                    \dash\utility\pay\verify::bank_ok($amount /10, $transaction_id);
-
-                    return \dash\utility\pay\setting::turn_back();
-                }
-                else
-                {
-                    \dash\log::set('pay:payping:amount:not:found:verify', ['amount' => $amount, 'bankAmount' => $is_ok['amount']]);
-                    \dash\notif::error(T_("Your session is lost! We can not find amount"));
-                    return \dash\utility\pay\setting::turn_back();
-                }
+                return \dash\utility\pay\setting::turn_back();
             }
             else
             {
@@ -113,8 +103,9 @@ class back
         }
         else
         {
-            return \dash\utility\pay\verify::bank_error('error');
+            return \dash\utility\pay\verify::bank_error('verify_error');
         }
+
     }
 }
 ?>

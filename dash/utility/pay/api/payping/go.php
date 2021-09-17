@@ -49,7 +49,6 @@ class go
         }
 
         // set in this step and check in other step
-        // $payping['specialPaymentId'] = $transaction_id;
         $payping['clientRefId'] = $transaction_id;
 
         // $payping['Description']     = null;
