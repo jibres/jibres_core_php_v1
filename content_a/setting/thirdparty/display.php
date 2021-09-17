@@ -177,15 +177,13 @@
           <div class="go"></div>
         </a>
       </li>
-<?php if(false) {?>
-        <li>
+      <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/irpayping">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payping.png" alt='PayPing'>
           <div class="key"><?php echo T_("PayPing"); ?></div>
           <div class="go"></div>
         </a>
       </li>
-    <?php }//endif ?>
     </ul>
   </nav>
 </div>
