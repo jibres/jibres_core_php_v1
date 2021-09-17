@@ -16,6 +16,7 @@ trait link_professional
 
 			'product_id'    => a($_data, 'products_id'),
 			'post_id'       => a($_data, 'posts_id'),
+			'page_id'       => a($_data, 'pages_id'),
 			'tag_id'        => a($_data, 'tags_id'),
 			'hashtag_id'    => a($_data, 'hashtag_id'),
 			'form_id'       => a($_data, 'forms_id'),
@@ -106,6 +107,7 @@ trait link_professional
 						'homepage'      => ['title' => T_('Homepage'),		'api_link' => null, ],
 						'products'      => ['title' => T_('Products'),		'api_link' => '/a/products/api?json=true', ],
 						'posts'         => ['title' => T_('Posts'),			'api_link' => '/cms/posts/api?json=true', ],
+						'pages'         => ['title' => T_('Pages'),			'api_link' => '/cms/posts/api?json=true&ptype=page', ],
 						'tags'          => ['title' => T_('Tags'),			'api_link' => '/a/tag/api?json=true&getid=1', ],
 						'hashtag'       => ['title' => T_('Hashtag'),		'api_link' => '/cms/hashtag/api?json=true&getid=1', ],
 						'forms'         => ['title' => T_('Forms'),			'api_link' => '/a/form/api?json=true', ],
@@ -237,6 +239,7 @@ trait link_professional
 				break;
 
 			case 'posts':
+			case 'pages':
 				$_related_id = \dash\coding::encode($_related_id);
 				$loadPost = \dash\app\posts\get::get($_related_id);
 				if(isset($loadPost['title']))
