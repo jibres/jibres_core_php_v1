@@ -5,7 +5,18 @@ if(!\dash\face::disablePWA_Header())
   echo "<div class='pwa'>";
   if(\dash\data::back_link())
   {
-  	echo "<a class='square back' href='". \dash\data::back_link(). "'></a>";
+    echo "<a class='square minor back' href='". \dash\data::back_link(). "'>";
+    {
+      if(\dash\language::dir() === 'rtl')
+      {
+        echo \dash\utility\icon::svg('Chevron Right', 'minor');
+      }
+      else
+      {
+        echo \dash\utility\icon::svg('Chevron Left', 'minor');
+      }
+    }
+  	echo "</a>";
   }
 
   if(\dash\face::logoPWA())
@@ -128,7 +139,15 @@ if(!\dash\face::disablePWA_Header())
     }
     echo "</button>";
   }
-
+  // menu btn
+  if(\dash\data::menu_link() or 1)
+  {
+    echo "<div class='square hamburger'>";
+    {
+      echo \dash\utility\icon::svg('Mobile Hamburger');
+    }
+    echo "</div>";
+  }
   echo "</div>";
 }
 ?>
