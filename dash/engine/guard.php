@@ -209,6 +209,12 @@ class guard
 			$policy['script-src'][] = "static.cloudflareinsights.com";
 			$policy['form-action'][] = 'https://va.tawk.to';
 		}
+		// tidio
+		if(\dash\engine\viewThirdParty::tidio())
+		{
+			$policy['script-src'][] = "https://*.tidio.co";
+			$policy['script-src'][] = "https://*.tidiochat.com";
+		}
 		// Raychat
 		if(\dash\engine\viewThirdParty::raychat())
 		{
