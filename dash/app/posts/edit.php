@@ -134,9 +134,15 @@ class edit
 
 			if(array_key_exists('url', $args))
 			{
-				\lib\app\menu\update::post($id, true);
+				if(a($load_posts, 'type') === 'pagebuilder')
+				{
+					\lib\app\menu\update::page($id, true);
+				}
+				else
+				{
+					\lib\app\menu\update::post($id, true);
+				}
 			}
-
 
 			if(\dash\engine\process::status())
 			{

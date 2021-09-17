@@ -73,7 +73,27 @@ class update
 		return null;
 	}
 
+	public static function page($_id, $_set = false)
+	{
+		$is_used = self::is_used('pages', $_id);
 
+		if(!$_set)
+		{
+			return $is_used;
+		}
+
+		if($is_used)
+		{
+			$load = \dash\app\posts\get::get(\dash\coding::encode($_id));
+
+			if(isset($load['link']))
+			{
+				return self::fix_update('pages', $_id, $load['link']);
+			}
+		}
+
+		return null;
+	}
 
 	public static function post($_id, $_set = false)
 	{
