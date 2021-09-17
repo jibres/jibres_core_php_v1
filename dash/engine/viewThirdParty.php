@@ -12,6 +12,8 @@ class viewThirdParty
 
 		\dash\data::addons_gtag(self::googleAnalytics());
 		\dash\data::addons_tawk(self::tawk());
+		\dash\data::addons_tidio(self::tidio());
+		\dash\data::addons_crisp(self::crisp());
 		\dash\data::addons_imber(self::imber());
 		\dash\data::addons_raychat(self::raychat());
 		\dash\data::addons_mediaad(self::mediaad());
@@ -79,6 +81,44 @@ class viewThirdParty
 			default:
 				return null;
 		}
+		return null;
+	}
+
+
+	public static function tidio()
+	{
+		if(\dash\engine\store::inBusinessWebsite())
+		{
+			if(\lib\store::detail('addon_tidio'))
+			{
+				return \lib\store::detail('addon_tidio');
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		// force disable
+		return null;
+	}
+
+
+	public static function crisp()
+	{
+		if(\dash\engine\store::inBusinessWebsite())
+		{
+			if(\lib\store::detail('addon_crisp'))
+			{
+				return \lib\store::detail('addon_crisp');
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		// force disable
 		return null;
 	}
 
