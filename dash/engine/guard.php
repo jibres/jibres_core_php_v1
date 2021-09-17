@@ -484,6 +484,7 @@ class guard
 			[
 				'https://pay.ir',
 				'https://idpay.ir',
+				'https://api.payping.ir',
 			];
 
 			if(in_array($origin, $allow_origin_list))
