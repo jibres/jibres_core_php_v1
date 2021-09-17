@@ -201,6 +201,11 @@ class guard
 			$policy['script-src'][] = "www.google-analytics.com";
 			$policy['script-src'][] = "www.googletagmanager.com";
 		}
+		// hotjar
+		if(\dash\engine\viewThirdParty::hotjar())
+		{
+			$policy['script-src'][] = "https://*.hotjar.com";
+		}
 		// tawk
 		if(\dash\engine\viewThirdParty::tawk())
 		{
