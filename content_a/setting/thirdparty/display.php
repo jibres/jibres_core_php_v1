@@ -4,8 +4,16 @@
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/gtag">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/google_analytics.svg" alt='Google Analytics'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/analytics/google_analytics.svg" alt='Google Analytics'>
           <div class="key"><?php echo T_("Google Analytics"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/hotjar">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/analytics/hotjar.png" alt='hotjar'>
+          <div class="key"><?php echo T_("Hotjar"); ?></div>
+          <div class="value"><?php echo T_("See What Users Really Do"); ?></div>
           <div class="go"></div>
         </a>
       </li>

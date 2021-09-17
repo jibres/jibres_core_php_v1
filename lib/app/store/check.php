@@ -33,6 +33,7 @@ class check
 			'phone'                               => 'phone',
 			'mobile'                              => 'mobile',
 			'google_analytics'                    => 'string_50',
+			'addon_hotjar'                        => 'string_20',
 			'addon_tawk'                          => 'string_50',
 			'addon_tidio'                         => 'string_50',
 			'addon_crisp'                         => 'string_50',
