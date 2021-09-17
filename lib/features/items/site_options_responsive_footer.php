@@ -2,7 +2,7 @@
 namespace lib\features\items;
 
 
-class site_options_responsive_footer
+class site_options_responsive_footer___need_fix
 {
 	public static function price()
 	{

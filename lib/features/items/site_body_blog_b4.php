@@ -2,7 +2,7 @@
 namespace lib\features\items;
 
 
-class site_body_blog_b4
+class site_body_blog_b4____fix
 {
 	public static function price()
 	{
