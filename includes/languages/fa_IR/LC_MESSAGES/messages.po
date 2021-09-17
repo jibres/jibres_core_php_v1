@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-17 10:12+0430\n"
-"PO-Revision-Date: 2021-09-17 10:14+0430\n"
+"POT-Creation-Date: 2021-09-17 22:44+0430\n"
+"PO-Revision-Date: 2021-09-17 23:02+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -795,7 +795,7 @@ msgid "Jibres Certificates"
 msgstr "مجوزها و گواهینامه‌های جیبرس"
 
 #: content/certificates/view.php:9 content/home/layout/footer.php:187
-#: content/home/layout/pwa-footer.php:182 content_a/setting/thirdparty/display.php:74
+#: content/home/layout/pwa-footer.php:182 content_a/setting/thirdparty/display.php:97
 msgid "Certificates"
 msgstr "گواهی‌نامه‌ها"
 
@@ -2265,7 +2265,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_site/body/product/p3.php:153 content_site/body/product/p3.php:187
 #: content_site/body/product/p3.php:221 content_site/body/product/p3.php:255
 #: content_site/body/product/p3.php:292
-#: content_site/options/link/link_professional.php:107
+#: content_site/options/link/link_professional.php:108
 #: dash/layout/admin/sidebar/sidebar-a.php:6 dash/panel.php:231 dash/plan_list.php:44
 #: includes/languages/trans_static.php:571 lib/app/--website/body/template.php:91
 #: lib/app/export/product.php:57 lib/app/quickaccess/products.php:27
@@ -5055,7 +5055,7 @@ msgstr "وضعیت"
 #: content_love/changelog/add/display.php:44 content_love/changelog/view.php:16
 #: content_love/features/manage/display.php:56 content_site/options/menu/menu.php:84
 #: content_site/page/new/display.php:17 content_site/staticfile/display.php:24
-#: dash/layout/admin/admin-titlebox.php:95 dash/layout/pwa/pwa-header.php:127
+#: dash/layout/admin/admin-titlebox.php:95 dash/layout/pwa/pwa-header.php:157
 #: includes/languages/trans_static_public.php:143
 msgid "Add"
 msgstr "افزودن"
@@ -7062,6 +7062,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/telegram/text/display.php:19
 #: content_a/setting/thirdparty/arvanclouds3/display.php:41
 #: content_a/setting/thirdparty/awss3/display.php:41
+#: content_a/setting/thirdparty/crisp/display.php:19
 #: content_a/setting/thirdparty/digitaloceans3/display.php:41
 #: content_a/setting/thirdparty/enamad/display.php:41
 #: content_a/setting/thirdparty/gtag/display.php:19
@@ -7078,7 +7079,8 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/thirdparty/mediaad/display.php:20
 #: content_a/setting/thirdparty/raychat/display.php:20
 #: content_a/setting/thirdparty/samandehi/display.php:42
-#: content_a/setting/thirdparty/tawk/display.php:20 content_a/setting/tw/display.php:18
+#: content_a/setting/thirdparty/tawk/display.php:20
+#: content_a/setting/thirdparty/tidio/display.php:20 content_a/setting/tw/display.php:18
 #: content_a/setting/youtube/display.php:15 content_a/setup/address/display.php:61
 #: content_a/setup/company/display.php:54 content_a/setup/logo/display.php:26
 #: content_a/setup/owner/display.php:41 content_a/setup/payment/display.php:43
@@ -7107,7 +7109,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_love/store/setting/display.php:84 content_my/domain/option/display.php:78
 #: content_site/gallery/dispaly-fileaddr.php:12 content_sudo/backup/display.php:53
 #: content_sudo/cronjob/display.php:14 dash/layout/admin/admin-titlebox.php:73
-#: dash/layout/pwa/pwa-header.php:106
+#: dash/layout/pwa/pwa-header.php:136
 msgid "Save"
 msgstr "ذخیره"
 
@@ -8692,7 +8694,7 @@ msgstr "مرتب‌سازی آیتم‌ها"
 #: content_a/form/tag/edit/view.php:17 content_a/tag/add/view.php:10
 #: content_a/tag/edit/view.php:13 content_a/tag/sort/view.php:10
 #: content_business/tag/display-one-tag.php:4
-#: content_site/options/link/link_professional.php:109 dash/layout/pwa/pwa_menu.php:240
+#: content_site/options/link/link_professional.php:111 dash/layout/pwa/pwa_menu.php:240
 #: includes/languages/trans_static_public.php:975 lib/app/quickaccess/tags.php:30
 msgid "Tags"
 msgstr "تگ‌ها"
@@ -11253,7 +11255,7 @@ msgstr "فیس‌بوک"
 #: lib/app/form/form/get.php:44 lib/app/form/item/get.php:22 lib/app/form/item/get.php:176
 #: lib/app/form/item/get.php:210 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
-#: lib/app/menu/check.php:68 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
+#: lib/app/menu/check.php:69 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
 #: lib/app/nic_domain/get.php:456 lib/app/nic_domain/get.php:484
 #: lib/app/nic_domain/get.php:511 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
@@ -11512,6 +11514,7 @@ msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 #: content_a/setting/home/display.php:88
 #: content_a/setting/thirdparty/arvanclouds3/view.php:11
 #: content_a/setting/thirdparty/awss3/view.php:11
+#: content_a/setting/thirdparty/crisp/view.php:11
 #: content_a/setting/thirdparty/digitaloceans3/view.php:11
 #: content_a/setting/thirdparty/enamad/view.php:11
 #: content_a/setting/thirdparty/gtag/view.php:11
@@ -11521,6 +11524,7 @@ msgstr "اتصال دامنه اختصاصی شما به بیزینس"
 #: content_a/setting/thirdparty/raychat/view.php:11
 #: content_a/setting/thirdparty/samandehi/view.php:11
 #: content_a/setting/thirdparty/tawk/view.php:11
+#: content_a/setting/thirdparty/tidio/view.php:11
 #: content_a/setting/thirdparty/torob/view.php:11 content_a/setting/thirdparty/view.php:8
 #: lib/app/quickaccess/setting.php:49 lib/app/quickaccess/setting.php:58
 #: lib/app/quickaccess/setting.php:67 lib/app/quickaccess/setting.php:76
@@ -11685,12 +11689,12 @@ msgid "Invalid sub menu id"
 msgstr "شناسه فهرست فرعی اشتباه است"
 
 #: content_a/setting/menu/item/display.php:14
-#: content_site/options/link/link_professional.php:98
+#: content_site/options/link/link_professional.php:99
 msgid "Hint to"
 msgstr "اشاره به"
 
 #: content_a/setting/menu/item/display.php:16
-#: content_site/options/link/link_professional.php:102
+#: content_site/options/link/link_professional.php:103
 msgid "Please select an item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -11703,7 +11707,7 @@ msgid "Home page"
 msgstr "صفحه نخست"
 
 #: content_a/setting/menu/item/display.php:21 content_cms/posts/home/view.php:9
-#: content_site/options/link/link_professional.php:108 dash/app/comment/filter.php:30
+#: content_site/options/link/link_professional.php:109 dash/app/comment/filter.php:30
 #: includes/languages/trans_static.php:570 includes/languages/trans_static_public.php:90
 #: includes/languages/trans_static_public.php:973
 msgid "Posts"
@@ -11719,7 +11723,7 @@ msgid "Hashtag of posts"
 msgstr "هشتگ نوشته‌ها"
 
 #: content_a/setting/menu/item/display.php:24 content_business/f/home/view.php:17
-#: content_site/options/link/link_professional.php:111
+#: content_site/options/link/link_professional.php:113
 #: lib/app/log/caller/form/form_newAnswer.php:16 lib/app/store/analytics.php:105
 #: lib/app/store/analytics.php:106 lib/app/store/analytics.php:107
 #: lib/app/store/analytics.php:108 lib/app/store/analytics.php:109
@@ -11752,7 +11756,7 @@ msgid "Search in forms"
 msgstr "جستجو در فرم‌ها"
 
 #: content_a/setting/menu/item/display.php:82
-#: content_site/options/link/link_professional.php:147
+#: content_site/options/link/link_professional.php:149
 msgid "Select social network"
 msgstr "انتخاب شبکه اجتماعی"
 
@@ -11765,7 +11769,7 @@ msgid "To manage your social network"
 msgstr "برای مدیریت شبکه‌های اجتماعی"
 
 #: content_a/setting/menu/item/display.php:92 content_my/domain/setting/dns/display.php:22
-#: content_site/options/link/link_professional.php:164 lib/email/send.php:20
+#: content_site/options/link/link_professional.php:166 lib/email/send.php:20
 msgid "Click here"
 msgstr "اینجا کلیک کنید"
 
@@ -12130,7 +12134,7 @@ msgstr "افزودن دستگاه کارتخوان جدید به فروشگاه 
 msgid "Saderat"
 msgstr "بانک صادرات"
 
-#: content_a/setting/pcpos/display.php:11 content_a/setting/thirdparty/display.php:128
+#: content_a/setting/pcpos/display.php:11 content_a/setting/thirdparty/display.php:151
 #: includes/languages/trans_static_public.php:506 lib/app/quickaccess/setting.php:129
 #: lib/app/quickaccess/setting.php:132
 msgid "Mellat"
@@ -12152,7 +12156,7 @@ msgstr "بانک سپه"
 msgid "Keshavarzi"
 msgstr "بانک کشاورزی"
 
-#: content_a/setting/pcpos/display.php:16 content_a/setting/thirdparty/display.php:142
+#: content_a/setting/pcpos/display.php:16 content_a/setting/thirdparty/display.php:165
 #: content_pay/home/display-transaction.php:215 lib/app/quickaccess/setting.php:147
 #: lib/app/quickaccess/setting.php:150
 msgid "Parsian"
@@ -12252,19 +12256,19 @@ msgstr "بانک مشترک ایران و ونزوئلا"
 msgid "Irkish"
 msgstr "ایران کیش"
 
-#: content_a/setting/pcpos/display.php:40 content_a/setting/thirdparty/display.php:162
+#: content_a/setting/pcpos/display.php:40 content_a/setting/thirdparty/display.php:172
 #: includes/languages/trans_static_public.php:534 lib/app/quickaccess/setting.php:165
 #: lib/app/quickaccess/setting.php:168
 msgid "Asanpardakht"
 msgstr "آسان پرداخت"
 
-#: content_a/setting/pcpos/display.php:41 content_a/setting/thirdparty/display.php:155
+#: content_a/setting/pcpos/display.php:41 content_a/setting/thirdparty/display.php:185
 #: includes/languages/trans_static_public.php:535 lib/app/quickaccess/setting.php:156
 #: lib/app/quickaccess/setting.php:159
 msgid "Zarinpal"
 msgstr "زرین پال"
 
-#: content_a/setting/pcpos/display.php:42 content_a/setting/thirdparty/display.php:176
+#: content_a/setting/pcpos/display.php:42 content_a/setting/thirdparty/display.php:199
 #: includes/languages/trans_static_public.php:536 lib/app/quickaccess/setting.php:184
 #: lib/app/quickaccess/setting.php:187
 msgid "Payir"
@@ -12770,6 +12774,15 @@ msgstr "فایل‌های خود را در زیرساخت ابری آمازون 
 msgid "Amazon S3"
 msgstr "آمازون S3"
 
+#: content_a/setting/thirdparty/crisp/display.php:9
+msgid ""
+"Crisp Live Chat is a free and beautiful chat for your website. Crisp allows you to "
+"embed a free live chat module to your website and let site visitors chat with you."
+msgstr ""
+"با اتصال Crisp می‌توانید پشتیبانی آنلاین به مشتریان ارائه بدید و باعث جلب اعتماد مشتریان "
+"و مخاطبان وب‌سایت شوید و همینطور نرخ ماندگاری در وب‌سایت رو افزایش بدید و در نتایج گوگل "
+"بدرخشید!"
+
 #: content_a/setting/thirdparty/digitaloceans3/display.php:9
 msgid ""
 "Spaces is an S3-compatible object storage service that lets you store and serve large "
@@ -12820,65 +12833,95 @@ msgid "Live Chat"
 msgstr "چت آنلاین"
 
 #: content_a/setting/thirdparty/display.php:49
-msgid "tawk.to - 100% FREE live chat!"
-msgstr "tawk.to چت زنده ۱۰۰٪ رایگان!"
+msgid "tawk.to"
+msgstr "Tawk.to"
 
-#: content_a/setting/thirdparty/display.php:57
-msgid "RayChat - Online Chat Platform"
-msgstr "رایچت - پلتفرم گفتگوی آنلاین و ارتباط با مشتریان"
+#: content_a/setting/thirdparty/display.php:50
+msgid "100% FREE live chat!"
+msgstr "چت زنده ۱۰۰٪ رایگان!"
 
-#: content_a/setting/thirdparty/display.php:65
-msgid "Imber - All in One Marketing Automation Platform"
-msgstr "ایمبر - سرویس جامع ارتباط با مشتری"
+#: content_a/setting/thirdparty/display.php:58
+msgid "Tidio"
+msgstr "Tidio"
 
-#: content_a/setting/thirdparty/display.php:80
+#: content_a/setting/thirdparty/display.php:59
+msgid "The Ultimate Communication Toolbox"
+msgstr "جعبه ابزار ارتباطات بی‌نهایت"
+
+#: content_a/setting/thirdparty/display.php:67
+msgid "Crisp"
+msgstr "Crisp"
+
+#: content_a/setting/thirdparty/display.php:68
+msgid "#1 Messaging Platform For Startups & SMB's"
+msgstr "پلتفرم پیام‌رسانی شماره 1 برای استارتاپ‌ها"
+
+#: content_a/setting/thirdparty/display.php:78
+msgid "RayChat"
+msgstr "رایچت"
+
+#: content_a/setting/thirdparty/display.php:79
+msgid "Online Chat Platform"
+msgstr "پلتفرم گفتگوی آنلاین"
+
+#: content_a/setting/thirdparty/display.php:87
+#: content_a/setting/thirdparty/imber/view.php:8 lib/app/quickaccess/setting.php:100
+#: lib/app/quickaccess/setting.php:104
+msgid "Imber"
+msgstr "ایمبر"
+
+#: content_a/setting/thirdparty/display.php:88
+msgid "All in One Marketing Automation Platform"
+msgstr "سرویس جامع ارتباط با مشتری"
+
+#: content_a/setting/thirdparty/display.php:103
 #: content_a/setting/thirdparty/enamad/view.php:8 lib/app/quickaccess/setting.php:205
 #: lib/app/quickaccess/setting.php:206 lib/app/quickaccess/setting.php:208
 msgid "Enamad"
 msgstr "نماد اعتماد"
 
-#: content_a/setting/thirdparty/display.php:87 lib/app/quickaccess/setting.php:214
+#: content_a/setting/thirdparty/display.php:110 lib/app/quickaccess/setting.php:214
 #: lib/app/quickaccess/setting.php:215 lib/app/quickaccess/setting.php:217
 msgid "Samandehi"
 msgstr "ساماندهی"
 
-#: content_a/setting/thirdparty/display.php:95
+#: content_a/setting/thirdparty/display.php:118
 msgid "Search engine"
 msgstr "موتور جستجو"
 
-#: content_a/setting/thirdparty/display.php:101
+#: content_a/setting/thirdparty/display.php:124
 #: content_a/setting/thirdparty/torob/view.php:8
 msgid "Torob"
 msgstr "ترب"
 
-#: content_a/setting/thirdparty/display.php:109
+#: content_a/setting/thirdparty/display.php:132
 msgid "Advertise"
 msgstr "تبلیغات"
 
-#: content_a/setting/thirdparty/display.php:115
+#: content_a/setting/thirdparty/display.php:138
 #: content_a/setting/thirdparty/mediaad/view.php:8
 msgid "Media.ad"
 msgstr "مدیااد"
 
-#: content_a/setting/thirdparty/display.php:122
+#: content_a/setting/thirdparty/display.php:145
 msgid "Bank payment"
 msgstr "درگاه پرداخت بانک"
 
-#: content_a/setting/thirdparty/display.php:135 lib/app/quickaccess/setting.php:138
+#: content_a/setting/thirdparty/display.php:158 lib/app/quickaccess/setting.php:138
 #: lib/app/quickaccess/setting.php:141
 msgid "IranKish"
 msgstr "ایران‌کیش"
 
-#: content_a/setting/thirdparty/display.php:149
+#: content_a/setting/thirdparty/display.php:179
 msgid "Assistant payment"
 msgstr "درگاه پرداخت‌یار"
 
-#: content_a/setting/thirdparty/display.php:169 lib/app/quickaccess/setting.php:174
+#: content_a/setting/thirdparty/display.php:192 lib/app/quickaccess/setting.php:174
 #: lib/app/quickaccess/setting.php:177
 msgid "IDPay"
 msgstr "آی‌دی‌پی"
 
-#: content_a/setting/thirdparty/display.php:183
+#: content_a/setting/thirdparty/display.php:206
 msgid "PayPing"
 msgstr "پی‌پینگ"
 
@@ -12952,11 +12995,6 @@ msgstr ""
 #: content_a/setting/thirdparty/imber/display.php:11
 msgid "Imber Token"
 msgstr "توکن ایمبر"
-
-#: content_a/setting/thirdparty/imber/view.php:8 lib/app/quickaccess/setting.php:100
-#: lib/app/quickaccess/setting.php:104
-msgid "Imber"
-msgstr "ایمبر"
 
 #: content_a/setting/thirdparty/irasanpardakht/display.php:13
 msgid "Enable asanpardakht payment"
@@ -13186,6 +13224,28 @@ msgid ""
 msgstr ""
 "سرویس tawk.to پیشنهاد نرم‌افزار اندروید، آی‌اواس و نسخه ویندوز و سیستم‌عامل مک را هم برای "
 "اتصال به پنل مدیریت خود ارائه می‌دهد."
+
+#: content_a/setting/thirdparty/tidio/display.php:9
+msgid ""
+"Tidio is an all-round marketing and communication tool for growing your online "
+"business. See what else you can accomplish. Integration with messenger. Tidio uniquely "
+"merges live chat, Bots, and Marketing Automation."
+msgstr ""
+"Tidio یک ابزار بازاریابی و ارتباطات همه جانبه برای توسعه تجارت آنلاین شما است. تیدیو با "
+"یک رابط کاربری قوی با طراحی چشم‌نواز در سمت کاربر و پشتیبان دارد که جذابیت کار با آن را "
+"دوچندان کرده است."
+
+#: content_a/setting/thirdparty/tidio/display.php:10
+msgid ""
+"By adding Tidio Chat to your store you empower your customers with the quickest and "
+"most effective form of contact. Research shows that live chat can boost sales by as "
+"much as 40%. Next time your customer faces an issue, they won’t go to the competitors "
+"or waste time - they’ll contact you."
+msgstr ""
+"با افزودن Tidio به فروشگاه خود، با مشتریان خود به سریع ترین و موثرترین روش ارتباط "
+"برقرار کنید. تحقیقات نشان می‌دهد که چت زنده می تواند فروش را تا 40 درصد افزایش دهد. دفعه "
+"بعد که مشتری شما با مشکلی روبرو شد، به سراغ رقبا نمی‌رود و وقت خود را از دست نمی‌هد - "
+"آنها با شما تماس خواهند گرفت."
 
 #: content_a/setting/thirdparty/torob/display.php:9
 msgid ""
@@ -15435,8 +15495,8 @@ msgstr "افزودن هشتگ جدید"
 msgid "Hashtags"
 msgstr "هشتگ‌ها"
 
-#: content_cms/hashtag/edit/controller.php:15 lib/app/menu/check.php:228
-#: lib/app/menu/check.php:255
+#: content_cms/hashtag/edit/controller.php:15 lib/app/menu/check.php:232
+#: lib/app/menu/check.php:259
 msgid "Invalid hashtag id"
 msgstr "شناسه هشتگ نادرست است"
 
@@ -15549,7 +15609,7 @@ msgstr "گالری"
 msgid "Podcast"
 msgstr "پادکست"
 
-#: content_cms/home/display.php:92 content_site/options/link/link_professional.php:110
+#: content_cms/home/display.php:92 content_site/options/link/link_professional.php:112
 #: dash/app/posts/filter.php:223 dash/app/posts/filter.php:233
 msgid "Hashtag"
 msgstr "هشتگ"
@@ -17260,8 +17320,8 @@ msgstr "پاسخ در تیکت جدید"
 msgid "Show Attachment"
 msgstr "نمایش ضمیمه‌‌"
 
-#: content_crm/ticket/view/display.php:47 content_site/page/display-aside-top.php:68
-#: content_site/page/display-aside-top.php:111
+#: content_crm/ticket/view/display.php:47 content_site/page/display-aside-top.php:65
+#: content_site/page/display-aside-top.php:108
 msgid "Without title"
 msgstr "بدون عنوان"
 
@@ -20886,7 +20946,7 @@ msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: content_my/business/start/model.php:31 lib/app/store/add.php:81
-#: lib/app/store/check.php:71
+#: lib/app/store/check.php:73
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
@@ -21868,7 +21928,7 @@ msgstr ""
 msgid "Jibres Services"
 msgstr "سرویس‌های جیبرس"
 
-#: content_my/home/display_pwa.php:29 content_site/options/link/link_professional.php:106
+#: content_my/home/display_pwa.php:29 content_site/options/link/link_professional.php:107
 #: includes/languages/trans_static_public.php:72
 msgid "Homepage"
 msgstr "صفحه نخست"
@@ -22062,6 +22122,10 @@ msgstr "نماد اعتماد الکترونیکی"
 #: content_site/assemble/cert.php:54
 msgid "Samandehi Certificate"
 msgstr "نماد ساماندهی"
+
+#: content_site/assemble/cert.php:78
+msgid "Payping Certificate"
+msgstr "نماد اطمینان پی‌پینگ"
 
 #: content_site/assemble/wrench/socialnetworks.php:29
 msgid "github"
@@ -22291,7 +22355,7 @@ msgstr "شماره صفحه نادرست"
 msgid "Empty"
 msgstr "خالی"
 
-#: content_site/footer/f0.php:34
+#: content_site/footer/f0.php:36
 msgid "This footer is emtpy. Have not any option!"
 msgstr "این فوتر خالی است و تنظیمات خاصی ندارد!"
 
@@ -22308,7 +22372,7 @@ msgid "Rafiei Footer"
 msgstr "پابرگ سایت استاد رفیعی"
 
 #: content_site/footer/option.php:30 content_site/footer/option.php:32
-#: content_site/page/display-aside-top.php:95
+#: content_site/page/display-aside-top.php:92
 msgid "Footer"
 msgstr "فوتر"
 
@@ -22333,7 +22397,7 @@ msgid "Rafiei Header"
 msgstr "سرصفحه #رفیعی"
 
 #: content_site/header/option.php:30 content_site/header/option.php:32
-#: content_site/page/display-aside-top.php:45 content_sudo/apilog/home/display.php:82
+#: content_site/page/display-aside-top.php:42 content_sudo/apilog/home/display.php:82
 msgid "Header"
 msgstr "سرصفحه"
 
@@ -22590,6 +22654,10 @@ msgstr "فعال سازی نماد اعتماد الکترونیکی"
 #: content_site/options/certificate/certificate_enamad.php:43
 msgid "Manage enamad certificate"
 msgstr "مدیریت نماد اعتماد الکترونیکی"
+
+#: content_site/options/certificate/certificate_payping.php:38
+msgid "Show Payping certificate"
+msgstr "نمایش نماد اطمینان پی‌پینگ"
 
 #: content_site/options/certificate/certificate_samandehi.php:28
 msgid "Enable samandehi"
@@ -22913,14 +22981,20 @@ msgstr "مدل لینک"
 msgid "Display enter link"
 msgstr "نمایش لینک ورود"
 
-#: content_site/options/link/link_professional.php:112
+#: content_site/options/link/link_professional.php:110
+#: includes/languages/trans_static_public.php:91
+#: includes/languages/trans_static_public.php:976
+msgid "Pages"
+msgstr "صفحات"
+
+#: content_site/options/link/link_professional.php:114
 #: includes/languages/trans_static_public.php:190
 #: lib/app/--website/body/line/socialnetwork.php:12
 #: lib/app/--website/body/template.php:133
 msgid "Socialnetwork"
 msgstr "شبکه‌های اجتماعی"
 
-#: content_site/options/link/link_professional.php:113 dash/app/files/filter.php:46
+#: content_site/options/link/link_professional.php:115 dash/app/files/filter.php:46
 #: dash/app/telegram/filter.php:40 includes/languages/trans_static.php:541
 #: lib/app/form/item/type.php:305 lib/app/form/item/type.php:432
 #: lib/app/form/item/type.php:449 lib/app/form/item/type.php:466 lib/app/sms/filter.php:30
@@ -22932,11 +23006,11 @@ msgstr "شبکه‌های اجتماعی"
 msgid "Other"
 msgstr "سایر"
 
-#: content_site/options/link/link_professional.php:163
+#: content_site/options/link/link_professional.php:165
 msgid "Only active socialnetwork can be displayd. To manage you socialnetwork ID"
 msgstr "تنها شبکه‌های اجتماعی فعال نمایش داده می‌شوند. برای مدیریت شبکه‌های اجتماعی"
 
-#: content_site/options/link/link_professional.php:200
+#: content_site/options/link/link_professional.php:202
 msgid "Search in :val"
 msgstr "جستجو در :val"
 
@@ -23255,7 +23329,7 @@ msgstr "تنظیمات اسلایدر"
 msgid "Slide size"
 msgstr "اندازه اسلایدر"
 
-#: content_site/options/style/style.php:24 content_site/page/display-aside-top.php:137
+#: content_site/options/style/style.php:24 content_site/page/display-aside-bottom.php:15
 msgid "Personalize"
 msgstr "شخصی‌سازی"
 
@@ -23282,25 +23356,25 @@ msgstr "صفحه یافت نشد!"
 msgid "Page design"
 msgstr "دیزاین صفحه"
 
-#: content_site/page/display-aside-top.php:84
-msgid "Add Section"
-msgstr "افزودن بخش"
-
-#: content_site/page/display-aside-top.php:103
-msgid "Deleted section"
-msgstr "بخش‌های حذف شده"
-
-#: content_site/page/display-aside-top.php:103
-msgid "After saving the page, this section will be deleted completely"
-msgstr "پس از ذخیره صفحه این بخش‌ به صورت کامل حذف خواهد شد"
-
-#: content_site/page/display-aside-top.php:130 content_site/page/settings/view.php:11
+#: content_site/page/display-aside-bottom.php:8 content_site/page/settings/view.php:11
 msgid "Page setting"
 msgstr "تنظیمات صفحه"
 
-#: content_site/page/display-aside-top.php:135
+#: content_site/page/display-aside-bottom.php:13
 msgid "Change Background"
 msgstr "تغییر پس‌زمینه"
+
+#: content_site/page/display-aside-top.php:81
+msgid "Add Section"
+msgstr "افزودن بخش"
+
+#: content_site/page/display-aside-top.php:100
+msgid "Deleted section"
+msgstr "بخش‌های حذف شده"
+
+#: content_site/page/display-aside-top.php:100
+msgid "After saving the page, this section will be deleted completely"
+msgstr "پس از ذخیره صفحه این بخش‌ به صورت کامل حذف خواهد شد"
 
 #: content_site/page/factor/model.php:28
 msgid "Nothing to pay"
@@ -24468,7 +24542,7 @@ msgstr "دیدگاه شما با موفقیت اضافه شد"
 msgid "You can not send comment on this page!"
 msgstr "شما نمی‌توانید در این صفحه دیدگاهی ارسال کنید!"
 
-#: dash/app/comment/check.php:41 lib/app/menu/check.php:176
+#: dash/app/comment/check.php:41 lib/app/menu/check.php:180
 msgid "Invalid post id"
 msgstr "شناسه مطلب اشتباه است"
 
@@ -24969,7 +25043,7 @@ msgstr "شناسه سطح دسترسی اشتباه است"
 msgid "Permission removed"
 msgstr "سطح دسترسی حذف شد"
 
-#: dash/app/posts/add.php:27 lib/app/menu/check.php:54
+#: dash/app/posts/add.php:27 lib/app/menu/check.php:55
 msgid "Title is required"
 msgstr "عنوان الزامی است"
 
@@ -24985,7 +25059,7 @@ msgstr "مطلب با موفقیت اضافه شد"
 msgid "Can not access to edit this post!"
 msgstr "شما دسترسی لازم را برای ویرایش این نوشته را ندارید!"
 
-#: dash/app/posts/check.php:127 lib/app/menu/check.php:234 lib/app/menu/check.php:261
+#: dash/app/posts/check.php:127 lib/app/menu/check.php:238 lib/app/menu/check.php:265
 msgid "Please choose a tag"
 msgstr "لطفا تگ را انتخاب کنید"
 
@@ -25070,12 +25144,12 @@ msgstr "نسبت تصویر"
 msgid "Posts not found."
 msgstr "نوشته یافت نشد."
 
-#: dash/app/posts/dropdown.php:111 dash/app/user/site_list.php:39
+#: dash/app/posts/dropdown.php:117 dash/app/user/site_list.php:39
 #: lib/app/product/site_list.php:70
 msgid "No result founded!"
 msgstr "نتیجه‌ای یافت نشد!"
 
-#: dash/app/posts/dropdown.php:122 dash/app/user/site_list.php:55
+#: dash/app/posts/dropdown.php:128 dash/app/user/site_list.php:55
 #: dash/layout/search/search-empty.php:2 dash/layout/search/search-empty.php:3
 #: lib/app/product/site_list.php:82
 msgid "No result found!"
@@ -25093,31 +25167,31 @@ msgstr "شناسه مطلب اشتباه است"
 msgid "Publish date is required when post is published"
 msgstr "تاریخ انتشار برای نوشته‌های منتشرشده الزامی است"
 
-#: dash/app/posts/edit.php:172
+#: dash/app/posts/edit.php:178
 msgid "Post successfully updated"
 msgstr "مطلب با موفقیت به‌روزرسانی شد"
 
-#: dash/app/posts/edit.php:177
+#: dash/app/posts/edit.php:183
 msgid "Post save without changes"
 msgstr "نوشته بدون تغییر ذخیره شد"
 
-#: dash/app/posts/edit.php:196
+#: dash/app/posts/edit.php:202
 msgid "When post set on type video you must be have fill the video file to publish"
 msgstr ""
 "وقتی نوع نوشته روی ویدئو تنظیم شده باشد شما باید یک فایل ویدئویی در این نوشته داشته "
 "باشید تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:211
+#: dash/app/posts/edit.php:217
 msgid "When post set on type audio you must be have fill the audio file to publish"
 msgstr ""
 "وقتی نوع نوشته روی پادکست تنظیم شده باشد شما باید یک فایل صوتی در این نوشته داشته باشید "
 "تا این نوشته قابل انتشار باشد"
 
-#: dash/app/posts/edit.php:301
+#: dash/app/posts/edit.php:307
 msgid "To convert to video you must have only one gallery items and that must be a video"
 msgstr "برای تغییر نوع به ویدئو شما باید یک فایل ویدئویی در گالری این نوشته داشته باشید"
 
-#: dash/app/posts/edit.php:321
+#: dash/app/posts/edit.php:327
 msgid "To convert to audio you must have only one gallery items and that must be a audio"
 msgstr "برای تغییر نوع به پادکست شما باید یک فایل صوتی در گالری این نوشته داشته باشید"
 
@@ -26264,7 +26338,7 @@ msgstr "اطلاعات پشتیبان گیری خودکار ذخیر شد"
 msgid "Return to Homepage"
 msgstr "بازگشت به صفحه‌نخست"
 
-#: dash/engine/guard.php:421
+#: dash/engine/guard.php:432
 msgid "Please wait a moment, The system is being updated ..."
 msgstr "لطفا چند لحظه صبر کنید، سیستم در حال به‌روزرسانی است ..."
 
@@ -32449,11 +32523,6 @@ msgstr "مطمئنید؟ بعد از حذف امکان بازگشت وجود ن�
 msgid "or"
 msgstr "یا"
 
-#: includes/languages/trans_static_public.php:91
-#: includes/languages/trans_static_public.php:976
-msgid "Pages"
-msgstr "صفحات"
-
 #: includes/languages/trans_static_public.php:92
 msgid "Terms"
 msgstr "عبارات"
@@ -38152,37 +38221,37 @@ msgstr "با بازکردن لینک زیر می‌تونید وضعیت ارس�
 msgid "Menu created"
 msgstr "منو ساخته شد"
 
-#: lib/app/menu/check.php:82
+#: lib/app/menu/check.php:83
 msgid "Maximum menu level is 5"
 msgstr "منو حداکثر می‌تواند ۵ لایه باشد"
 
-#: lib/app/menu/check.php:150 lib/app/product/bullet.php:40 lib/app/product/edit.php:112
+#: lib/app/menu/check.php:151 lib/app/product/bullet.php:40 lib/app/product/edit.php:112
 #: lib/app/product/property.php:78 lib/app/product/property.php:111
 #: lib/app/product/property.php:447
 msgid "Invalid product id"
 msgstr "شناسه محصول اشتباه است"
 
-#: lib/app/menu/check.php:156
+#: lib/app/menu/check.php:157
 msgid "Please choose a product"
 msgstr "لطفا یک محصول را انتخاب کنید"
 
-#: lib/app/menu/check.php:182
+#: lib/app/menu/check.php:186
 msgid "Please choose a post"
 msgstr "لطفا یک نوشته را انتخاب کنید"
 
-#: lib/app/menu/check.php:202
+#: lib/app/menu/check.php:206
 msgid "Invalid form id"
 msgstr "شناسه فرم اشتباه است"
 
-#: lib/app/menu/check.php:208
+#: lib/app/menu/check.php:212
 msgid "Please choose a form"
 msgstr "لطفا یکی از فرم‌ها را انتخاب کنید"
 
-#: lib/app/menu/check.php:275
+#: lib/app/menu/check.php:279
 msgid "Please choose a social network"
 msgstr "لطفا یکی از شبکه‌های اجتماعی خود را انتخاب کنید"
 
-#: lib/app/menu/check.php:293
+#: lib/app/menu/check.php:297
 msgid "Please set a url"
 msgstr "لطفا آدرس را وارد کنید"
 
@@ -40211,7 +40280,7 @@ msgstr "درخواست جابجایی ذخیره شد"
 msgid "Fuel updated"
 msgstr "سوخت به‌روزرسانی شد"
 
-#: lib/app/store/check.php:79
+#: lib/app/store/check.php:81
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
