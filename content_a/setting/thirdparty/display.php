@@ -46,24 +46,37 @@
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/tawk">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/tawk.png" alt='tawk.to'>
-          <div class="key"><?php echo T_("tawk.to - 100% FREE live chat!"); ?></div>
+          <div class="key"><?php echo T_("tawk.to"); ?></div>
+          <div class="value"><?php echo T_("100% FREE live chat!"); ?></div>
           <div class="go"></div>
         </a>
       </li>
 
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/tidio">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/livechat/tidio.png" alt='tidio'>
-          <div class="key"><?php echo T_("Tidio - The Ultimate Communication Toolbox"); ?></div>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/tidio.png" alt='tidio'>
+          <div class="key"><?php echo T_("Tidio"); ?></div>
+          <div class="value"><?php echo T_("The Ultimate Communication Toolbox"); ?></div>
           <div class="go"></div>
         </a>
       </li>
+
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/crisp">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/crisp.png" alt='crisp'>
+          <div class="key"><?php echo T_("Crisp"); ?></div>
+          <div class="value"><?php echo T_("#1 Messaging Platform For Startups & SMB's"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
 
 <?php if (\dash\language::current() === 'fa') { ?>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/raychat">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/raychat.jpg" alt='RayChat'>
-          <div class="key"><?php echo T_("RayChat - Online Chat Platform"); ?></div>
+          <div class="key"><?php echo T_("RayChat"); ?></div>
+          <div class="value"><?php echo T_("Online Chat Platform"); ?></div>
           <div class="go"></div>
         </a>
       </li>
@@ -71,7 +84,8 @@
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/imber">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/imber.png" alt='Imber'>
-          <div class="key"><?php echo T_("Imber - All in One Marketing Automation Platform"); ?></div>
+          <div class="key"><?php echo T_("Imber"); ?></div>
+          <div class="value"><?php echo T_("All in One Marketing Automation Platform"); ?></div>
           <div class="go"></div>
         </a>
       </li>

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\thirdparty\tidio;
+namespace content_a\setting\thirdparty\crisp;
 
 
 class model
@@ -8,7 +8,7 @@ class model
 	{
 		$post =
 		[
-			'addon_tidio' => \dash\request::post('addon_tidio'),
+			'addon_crisp' => \dash\request::post('addon_crisp'),
 		];
 
 		\lib\app\store\edit::selfedit($post);
