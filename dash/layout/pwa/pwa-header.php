@@ -77,7 +77,9 @@ if(!\dash\face::disablePWA_Header())
 
   // if(\dash\face::btnPrint())
   // {
-  //   echo "<a class='square print' data-exec='print'></a>";
+  //   echo "<a class='square print' data-exec='print'>";
+  //   echo \dash\utility\icon::svg('Print');
+  //   echo '</a>';
   // }
 
   // cart btn
@@ -100,7 +102,7 @@ if(!\dash\face::disablePWA_Header())
     }
   }
   // setting
-  if(\dash\face::btnSetting() or 1)
+  if(\dash\face::btnSetting())
   {
     echo "<a class='square setting' href='". \dash\face::btnSetting(). "'>";
     // echo \dash\utility\icon::svg('Settings');
@@ -108,7 +110,7 @@ if(!\dash\face::disablePWA_Header())
     echo '</a>';
   }
   // menu btn
-  if(\dash\data::menu_link() or 1)
+  if(\dash\data::menu_link())
   {
   	echo "<div class='square menu'>";
     echo \dash\utility\icon::svg('Mobile Vertical Dots');
@@ -157,7 +159,7 @@ if(!\dash\face::disablePWA_Header())
     echo "</button>";
   }
   // menu btn
-  if(\dash\data::menu_link())
+  if(\dash\data::hamburger())
   {
     echo "<div class='square hamburger'>";
     {
