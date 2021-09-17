@@ -4,7 +4,7 @@
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div class="box">
         <div class="body">
-          <img class="block mB10" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/raychat-banner.png" alt='raychat'>
+          <img class="block mB10" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/raychat-banner.png" alt='raychat'>
           <div class="msg">
             <p><?php echo T_("Raychat is a free customer messaging platform. Chat with your customers and make them a loyal customer.") ?></p>
           </div>

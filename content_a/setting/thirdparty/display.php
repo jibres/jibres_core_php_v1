@@ -45,15 +45,24 @@
     <ul>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/tawk">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/tawk.png" alt='tawk.to'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/tawk.png" alt='tawk.to'>
           <div class="key"><?php echo T_("tawk.to - 100% FREE live chat!"); ?></div>
           <div class="go"></div>
         </a>
       </li>
+
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/tidio">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/livechat/tidio.png" alt='tidio'>
+          <div class="key"><?php echo T_("Tidio - The Ultimate Communication Toolbox"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
 <?php if (\dash\language::current() === 'fa') { ?>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/raychat">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/raychat.jpg" alt='RayChat'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/raychat.jpg" alt='RayChat'>
           <div class="key"><?php echo T_("RayChat - Online Chat Platform"); ?></div>
           <div class="go"></div>
         </a>
@@ -61,7 +70,7 @@
 <?php } ?>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/imber">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/imber.png" alt='Imber'>
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/imber.png" alt='Imber'>
           <div class="key"><?php echo T_("Imber - All in One Marketing Automation Platform"); ?></div>
           <div class="go"></div>
         </a>

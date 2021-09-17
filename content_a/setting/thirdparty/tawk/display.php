@@ -3,7 +3,7 @@
 <div class="avand-sm impact zero">
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div class="box">
-        <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/tawk-banner.jpg" alt='tawk.to'>
+        <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/tawk-banner.jpg" alt='tawk.to'>
         <div class="body">
           <div class="msg">
             <p><?php echo T_("tawk.to is the world's #1 most widely used live chat software. More than 35 percent of all websites that use live chat. tawk.to is a 100 percent free live chat application designed to increase the effectiveness in managing the online customer engagement experience, enabling multiple websites and agents in a single dashboard interface to chat with the visitors on your website."); ?></p>
