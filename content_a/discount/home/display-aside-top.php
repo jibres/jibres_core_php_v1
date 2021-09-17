@@ -1,58 +1,4 @@
-<?php $dashboardData = \dash\data::dashboardData(); ?>
-
-
-<div class="row">
-  <div class="c-xs-12 c-sm-12 c-md-8">
-
-    <div class="box">
-      <div class='font-16'>
-        <select class="select22" data-model='html' data-ajax--url="<?php echo \dash\url::here() ?>/setting/search/full" data-shortkey-search data-placeholder="<?php echo T_("Search") ?>"></select>
-      </div>
-    </div>
-
-    <div class="font-12">
-      <?php if(a($dashboardData, 'new_order')) {?>
-        <a href="<?php echo \dash\url::here(). '/order/unprocessed' ?>">
-          <div class="msg info2 txtB">
-            <?php echo T_("You have :val Unprocessed order", ['val' => \dash\fit::number(a($dashboardData, 'new_order'))]) ?>
-          </div>
-        </a>
-      <?php } //endif ?>
-      <?php if(a($dashboardData, 'new_ticket')) {?>
-        <a href="<?php echo \dash\url::kingdom(). '/crm/ticket/datalist?status=awaiting' ?>">
-          <div class="msg info2 txtB">
-            <?php echo T_("You have :val Unanswered ticket", ['val' => \dash\fit::number(a($dashboardData, 'new_ticket'))]) ?>
-          </div>
-        </a>
-      <?php } //endif ?>
-       <?php if(a($dashboardData, 'new_comment')) {?>
-        <a href="<?php echo \dash\url::kingdom(). '/cms/comments?status=awaiting' ?>">
-          <div class="msg info2 txtB">
-            <?php echo T_("You have :val awaiting comment", ['val' => \dash\fit::number(a($dashboardData, 'new_comment'))]) ?>
-          </div>
-        </a>
-      <?php } //endif ?>
-      <?php if(a($dashboardData, 'notif_count')) {?>
-        <a href="<?php echo \dash\url::kingdom(). '/crm/notification/me' ?>">
-          <div class="msg info2 txtB">
-            <?php echo T_("You have :val new message!", ['val' => \dash\fit::number(a($dashboardData, 'notif_count'))]) ?>
-          </div>
-        </a>
-      <?php } //endif ?>
-      <?php if(a($dashboardData, 'new_form_answer')) {?>
-        <?php foreach(a($dashboardData, 'new_form_answer') as $key => $value) {?>
-          <a href="<?php echo \dash\url::kingdom(). '/a/form/answer?id='. a($value, 'id') ?>">
-            <div class="msg info2 txtB">
-              <?php echo T_("You have :val not reviewed answer in :form", ['val' => \dash\fit::number(a($value, 'count_need_review')), 'form' => a($value, 'title')]) ?>
-            </div>
-          </a>
-        <?php } //endif ?>
-      <?php } //endif ?>
-    </div>
-<?php if(\dash\permission::check('_group_products')) {?>
-   <div id="chartdiv" class="box chart x400" data-abc='a/homepage'></div>
-<?php } //endif ?>
-  </div>
+  
   <div class="c-xs-12 c-sm-12 c-md-4">
    <nav class="items long">
      <ul>
@@ -102,7 +48,7 @@
         <a class="item f" href="<?php echo \dash\url::here();?>/products">
           <i class="sf-tags"></i>
           <div class="key"><?php echo T_('Products');?></div>
-          <div class="value"><?php echo \dash\fit::number(a($dashboardData, 'product_count')); ?></div>
+          <div class="value"><?php echo \dash\fit::number(a(null, 'product_count')); ?></div>
           <div class="go search"></div>
         </a>
       </li>
@@ -132,7 +78,7 @@
         <a class="item f" href="<?php echo \dash\url::kingdom();?>/crm/member">
           <i class="sf-users"></i>
           <div class="key"><?php echo T_('Customers');?></div>
-          <div class="value"><?php echo \dash\fit::number(a($dashboardData, 'customer_count')); ?></div>
+          <div class="value"><?php echo \dash\fit::number(a(null, 'customer_count')); ?></div>
           <div class="go search"></div>
         </a>
        </li>
@@ -195,18 +141,9 @@
     <?php if(\dash\url::isLocal()) {?>
        <nav class="items long">
       <ul>
-          <li><a data-direct class="item f" href="<?php echo \dash\url::here(); ?>/discount"><i class="sf-diamond"></i><div class="key"><?php echo T_("Discount code"); ?></div><div class="go"></div></a></li>
+          <li><a class="item f" href="<?php echo \dash\url::here(); ?>/discount"><i class="sf-diamond"></i><div class="key"><?php echo T_("Discount code"); ?></div><div class="go"></div></a></li>
       </ul>
     </nav>
     <?php  }//endif ?>
  </div>
-</div>
-<div class="hide">
-  <div id="chartcategory"><?php echo a(\dash\data::dashboardData(), 'chart', 'categories'); ?></div>
-  <div id="chartsum"><?php echo a(\dash\data::dashboardData(), 'chart', 'sum'); ?></div>
-  <div id="chartcount"><?php echo a(\dash\data::dashboardData(), 'chart', 'count'); ?></div>
-  <div id="charttitle"><?php echo T_("Sum factor price and count of it group by hours"); ?></div>
-  <div id="charttitlesum"><?php echo T_("Sum price"); ?></div>
-  <div id="charttitlecount"><?php echo T_("Count"); ?></div>
-  <div id="charttitleunit"><?php echo \lib\currency::unit(); ?></div>
 </div>
