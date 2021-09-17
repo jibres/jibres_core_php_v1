@@ -64,6 +64,12 @@ class f3_html
 
 					$certClass = 'inline-block w-32 h-32 rounded-lg bg-white p-1';
 
+					if(a($_args, 'certificate_payping'))
+					{
+						// add payping cert
+						$html .= \content_site\assemble\cert::payping($certClass. ' mx-2 pt-4');
+					}
+
 					if(a($_args, 'certificate_enamad'))
 					{
 						// add enamad cert

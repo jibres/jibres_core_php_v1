@@ -26,6 +26,7 @@ class f3
 				'menu_3',
 				'menu_4',
 				'description_copyright',
+				'certificate_payping',
 				'certificate_enamad',
 				'certificate_samandehi',
 				'style' => \content_site\utility::set_style_option(

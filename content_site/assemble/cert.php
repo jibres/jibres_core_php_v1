@@ -59,5 +59,27 @@ class cert
 		return $html;
 	}
 
+
+	public static function payping($_class = null)
+	{
+		$linkHref = 'https://oauth.payping.ir/trust';
+		$imgSrc = \dash\url::cdn(). '/img/thirdparty/bank/payping-logo-blue.svg';
+		$html = '';
+
+		$payping = a(\lib\app\setting\get::bank_payment_setting(), 'payping');
+		if(a($payping, 'status') && a($payping, 'token'))
+		{
+			$html = '<a data-cert="payping" referrerpolicy="origin" target="_blank" href="'. $linkHref. '"';
+			if($_class)
+			{
+				$html .= ' class="'. $_class. '"';
+			}
+			$html .= '>';
+			$html .= '<img class="max-w-full max-h-full m-auto" referrerpolicy="origin" src="'. $imgSrc. '" alt="'. T_("Payping Certificate"). '">';
+			$html .= '</a>';
+		}
+
+		return $html;
+	}
 }
 ?>
