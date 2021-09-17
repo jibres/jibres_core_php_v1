@@ -215,6 +215,11 @@ class guard
 			$policy['script-src'][] = "https://*.tidio.co";
 			$policy['script-src'][] = "https://*.tidiochat.com";
 		}
+		// crisp
+		if(\dash\engine\viewThirdParty::crisp())
+		{
+			$policy['script-src'][] = "https://*.crisp.chat";
+		}
 		// Raychat
 		if(\dash\engine\viewThirdParty::raychat())
 		{
