@@ -166,6 +166,13 @@
           <div class="go"></div>
         </a>
       </li>
+       <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irasanpardakht">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/asanpardasht-logo.svg" alt='Asanpardasht'>
+          <div class="key"><?php echo T_("Asanpardakht"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -176,13 +183,6 @@
         <a class="f" href="<?php echo \dash\url::that(); ?>/irzarinpal">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/zarinpal-icon.svg" alt='ZarinPal'>
           <div class="key"><?php echo T_("Zarinpal"); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
-       <li>
-        <a class="f" href="<?php echo \dash\url::that(); ?>/irasanpardakht">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/asanpardasht-logo.svg" alt='Asanpardasht'>
-          <div class="key"><?php echo T_("Asanpardakht"); ?></div>
           <div class="go"></div>
         </a>
       </li>

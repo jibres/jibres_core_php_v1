@@ -2,10 +2,10 @@
 
 <form method="post" autocomplete="off">
 	<input type="hidden" name="set_payping" value="1">
-	<div class="avand-sm">
+	<div class="avand-sm impact zero">
 		<div class="box">
+				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payping-banner.jpg" alt='PayPing'>
 			<div class="pad">
-				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payping.png" alt='PayPing'>
 
 				<div class="switch1 mT20">
 				 <input type="checkbox" name="payping" id="payping" <?php if(a($bank, 'payping', 'status')) { echo 'checked';} ?> >
