@@ -11,7 +11,7 @@ class check
 		[
 			'title'         => 'title',
 			'url'           => 'absolute_url',
-			'pointer'       => ['enum' => ['homepage','products','posts','forms','tags','hashtag','socialnetwork','other', 'title', 'separator', 'selffile']],
+			'pointer'       => ['enum' => ['homepage','products','posts','pages', 'pagebuilder', 'file','menu','forms','tags','hashtag','socialnetwork','other','title','separator','selffile']],
 			'target'        => ['enum' => ['blank']],
 			'parent'        => 'id',
 			'related_id'    => 'id',
@@ -23,6 +23,7 @@ class check
 			// 'parent5'    => 'id',
 			'product_id'    => 'id',
 			'post_id'       => 'code',
+			'page_id'       => 'code',
 			'form_id'       => 'id',
 			'tag_id'        => 'id',
 			'socialnetwork' => 'socialnetwork',
@@ -158,6 +159,9 @@ class check
 				}
 				break;
 
+			case 'pages':
+				$data['post_id'] = $data['page_id'];
+				// break; // nobreak!
 			case 'posts':
 				if($data['post_id'])
 				{
@@ -308,6 +312,7 @@ class check
 		unset($data['parent']);
 		unset($data['product_id']);
 		unset($data['post_id']);
+		unset($data['page_id']);
 		unset($data['tag_id']);
 
 		unset($data['hashtag_id']);
