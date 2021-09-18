@@ -34,7 +34,7 @@ $html .= '<div class="max-w-xl m-auto">';
         $html .= '</div>';
         $html .= '<div class="input ltr">';
         {
-          $html .= '<input type="text" name="code" value="" placeholder="'.T_("e.g. SPRINGSALE").'">';
+          $html .= '<input type="text" name="code" value="'.a($dataRow, 'code').'" placeholder="'.T_("e.g. SPRINGSALE").'">';
         }
         $html .= '</div>';
         $html .= '<label for="code" class=""><small>'.T_("Customers will enter this discount code at checkout."). '</small></label>';
@@ -100,7 +100,7 @@ $html .= '<div class="max-w-xl m-auto">';
             $html .= '<label for="percentage">'. T_("Discount value"). '</label>';
             $html .= '<div class="input">';
             {
-              $html .= '<input type="tel" name="percentage" id="percentage" value="'.a($dataRow.'percentage').'" placeholder="'.T_("%").'">';
+              $html .= '<input type="tel" name="percentage" id="percentage" value="'.a($dataRow,'percentage').'" placeholder="'.T_("%").'">';
             }
             $html .= '</div>';
 

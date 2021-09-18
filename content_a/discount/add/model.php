@@ -33,12 +33,21 @@ class model
 			'endtime'          => \dash\request::post('endtime'),
 		];
 
-		$result = \lib\app\discount\add::add($post);
-
-		if(isset($result['id']))
+		if(\dash\data::editMode())
 		{
-			\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
+			$result = \lib\app\discount\edit::edit($post, \dash\request::get('id'));
+
 		}
+		else
+		{
+			$result = \lib\app\discount\add::add($post);
+
+			if(isset($result['id']))
+			{
+				\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
+			}
+		}
+
 
 	}
 }
