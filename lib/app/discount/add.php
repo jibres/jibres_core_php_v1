@@ -25,7 +25,7 @@ class add
 
 		$args['status']      = 'draft';
 		$args['creator']     = \dash\user::id();
-		$args['datecreated'] = date("Y-m-d H:i:s")
+		$args['datecreated'] = date("Y-m-d H:i:s");
 
 		$id = \lib\db\discount\insert::new_record($args);
 
