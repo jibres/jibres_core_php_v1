@@ -7,7 +7,6 @@ $html .= '<div class="max-w-lg m-auto">';
     /*=====================================
     =            Discount code            =
     =====================================*/
-
     $html .= '<div class="box">';
     {
       $html .= '<div class="body">';
@@ -38,15 +37,12 @@ $html .= '<div class="max-w-lg m-auto">';
       $html .= '</div>';
     }
     $html .= '</div>';
-
-
     /*=====  End of Discount code  ======*/
 
 
     /*=============================
     =            types            =
     =============================*/
-
     $html .= '<div class="box">';
     {
       $html .= '<div class="body">';
@@ -77,15 +73,12 @@ $html .= '<div class="max-w-lg m-auto">';
       $html .= '</div>';
     }
     $html .= '</div>';
-
-
     /*=====  End of types  ======*/
 
 
     /*=============================
     =            value            =
     =============================*/
-
     $html .= '<div data-response="type" data-response-where="percentage|fixedamount">';
     {
       $html .= '<div class="box">';
@@ -122,16 +115,12 @@ $html .= '<div class="max-w-lg m-auto">';
       $html .= '</div>';
     }
     $html .= '</div>';
-
-
     /*=====  End of value  ======*/
 
 
     /*================================
     =            apply to            =
     ================================*/
-
-
     $html .= '<div class="box">';
     {
 
@@ -179,16 +168,12 @@ $html .= '<div class="max-w-lg m-auto">';
       $html .= '</div>';
     }
     $html .= '</div>';
-
-
     /*=====  End of apply to  ======*/
 
 
     /*============================================
     =            Minimum requirements            =
     ============================================*/
-
-
     $html .= '<div class="box">';
     {
 
@@ -241,8 +226,6 @@ $html .= '<div class="max-w-lg m-auto">';
       $html .= '</div>';
     }
     $html .= '</div>';
-
-
     /*=====  End of Minimum requirements  ======*/
 
 
@@ -250,7 +233,6 @@ $html .= '<div class="max-w-lg m-auto">';
     /*============================================
     =            Customer eligibility            =
     ============================================*/
-
     $html .= '<div class="box">';
     {
 
@@ -260,22 +242,61 @@ $html .= '<div class="max-w-lg m-auto">';
 
         $html .= '<div class="radio1">';
         {
-          $html .= '<input type="radio" name="customer" value="everyone" id="type-everyone">';
-          $html .= '<label for="type-everyone">'. T_("Everyone"). '</label>';
+          $html .= '<input type="radio" name="customer" value="everyone" id="customer-everyone" checked>';
+          $html .= '<label for="customer-everyone">'. T_("Everyone"). '</label>';
         }
         $html .= '</div>';
 
         $html .= '<div class="radio1">';
         {
-          $html .= '<input type="radio" name="customer" value="specialgroup" id="type-specialgroup">';
-          $html .= '<label for="type-specialgroup">'. T_("Special group of customers"). '</label>';
+          $html .= '<input type="radio" name="customer" value="specialgroup" id="customer-specialgroup">';
+          $html .= '<label for="customer-specialgroup">'. T_("Special group of customers"). '</label>';
+        }
+        $html .= '</div>';
+
+        $html .= '<div data-response="customer" data-response-where="specialgroup" data-response-hide>';
+        {
+          $html .= '<select name="customer_group" id="customer_group" class="select22">';
+          {
+            $customer_group =
+            [
+              ['key' => 'all', 'title' => T_("All customer")],
+              ['key' => 'notsale', 'title' => T_("Not sale")],
+              ['key' => 'havesale', 'title' => T_("Have sale")],
+            ];
+
+            foreach ($customer_group as $key => $value)
+            {
+
+              $html .= '<option value="'. $value['key']. '" ';
+              if(false)
+              {
+                $html .= ' selected';
+              }
+              $html .= '>';
+              $html .= $value['title'];
+              $html .= '</option>';
+            }
+          }
+          $html .= '</select>';
         }
         $html .= '</div>';
 
         $html .= '<div class="radio1">';
         {
-          $html .= '<input type="radio" name="customer" value="specialcustomers" id="type-specialcustomers">';
-          $html .= '<label for="type-specialcustomers">'. T_("Special customers"). '</label>';
+          $html .= '<input type="radio" name="customer" value="specialcustomers" id="customer-specialcustomers">';
+          $html .= '<label for="customer-specialcustomers">'. T_("Special customers"). '</label>';
+        }
+        $html .= '</div>';
+
+        $html .= '<div data-response="customer" data-response-where="specialcustomers" data-response-hide>';
+        {
+          $html .= '<select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::here(). '/hashtag/api?json=true'.'" data-placeholder="'. T_('Enter your tags and seperate them by comma'). '">';
+            foreach ([] as $key => $value)
+            {
+              $html .= '<option value="<?php echo $value["title"]; ?>" selected><?php echo $value["title"]; ?></option>';
+            }
+            $html .= '</select>';
         }
         $html .= '</div>';
 
@@ -283,16 +304,12 @@ $html .= '<div class="max-w-lg m-auto">';
       $html .= '</div>';
     }
     $html .= '</div>';
-
-
     /*=====  End of Customer eligibility  ======*/
 
 
     /*===================================
     =            Usage limit            =
     ===================================*/
-
-
     $html .= '<div class="box">';
     {
 
@@ -318,16 +335,12 @@ $html .= '<div class="max-w-lg m-auto">';
       $html .= '</div>';
     }
     $html .= '</div>';
-
-
     /*=====  End of Usage limit  ======*/
 
 
     /*===================================
     =            Active date            =
     ===================================*/
-
-
     $html .= '<div class="box">';
     {
 
@@ -353,13 +366,7 @@ $html .= '<div class="max-w-lg m-auto">';
       $html .= '</div>';
     }
     $html .= '</div>';
-
-
     /*=====  End of Active date  ======*/
-
-
-
-
 
   }
   $html .= '</form>';
