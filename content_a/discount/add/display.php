@@ -144,7 +144,7 @@ $html .= '<div class="max-w-lg m-auto">';
 
         $html .= '<div data-response="applyto" data-response-where="specialcategory" data-response-hide>';
         {
-          $html .= '<select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">';
+          $html .= '<select name="product_category[]" id="product_category" class="select22" data-model="tag" multiple="multiple">';
           {
             foreach (\dash\data::listProductTag() as $key => $value)
             {
@@ -199,7 +199,7 @@ $html .= '<div class="max-w-lg m-auto">';
         {
             $html .= '<div class="input">';
             {
-              $html .= '<input type="tel" name="value" value="" placeholder="'. \lib\store::currency().'">';
+              $html .= '<input type="tel" name="pricefloor" value="" placeholder="'. \lib\store::currency().'">';
             }
             $html .= '</div>';
         }
@@ -216,7 +216,7 @@ $html .= '<div class="max-w-lg m-auto">';
         {
             $html .= '<div class="input">';
             {
-              $html .= '<input type="tel" name="value" value="">';
+              $html .= '<input type="tel" name="quantityfloor" value="">';
             }
             $html .= '</div>';
         }
@@ -291,7 +291,7 @@ $html .= '<div class="max-w-lg m-auto">';
 
         $html .= '<div data-response="customer" data-response-where="specialcustomers" data-response-hide>';
         {
-          $html .= '<select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::here(). '/hashtag/api?json=true'.'" data-placeholder="'. T_('Enter your tags and seperate them by comma'). '">';
+          $html .= '<select name="special_customer[]" id="special_customer" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/member/api?json=true'.'" data-placeholder="'. T_('Search in customers'). '">';
             foreach ([] as $key => $value)
             {
               $html .= '<option value="<?php echo $value["title"]; ?>" selected><?php echo $value["title"]; ?></option>';
@@ -317,17 +317,28 @@ $html .= '<div class="max-w-lg m-auto">';
       {
         $html .= '<h2>'. T_("Usage limits"). '</h2>';
 
-        $html .= '<div class="check1 ">';
+        $html .= '<div class="check1">';
         {
-          $html .= '<input type="checkbox" name="limit" value="everyone" id="limittotal">';
+          $html .= '<input type="checkbox" name="limit"  id="limittotal">';
           $html .= '<label for="limittotal">'. T_("Limit number of times this discount can be used in total"). '</label>';
         }
         $html .= '</div>';
 
-        $html .= '<div class="check1 ">';
+
+        $html .= '<div data-response="limit" data-response-hide>';
         {
-          $html .= '<input type="checkbox" name="limit" value="everyone" id="limittotal">';
-          $html .= '<label for="limittotal">'. T_("Limit to one use per customer"). '</label>';
+            $html .= '<div class="input">';
+            {
+              $html .= '<input type="tel" name="counttotla" value="">';
+            }
+            $html .= '</div>';
+        }
+        $html .= '</div>';
+
+        $html .= '<div class="check1">';
+        {
+          $html .= '<input type="checkbox" name="limitperuser"  id="limitperuser">';
+          $html .= '<label for="limitperuser">'. T_("Limit to one use per customer"). '</label>';
         }
         $html .= '</div>';
 
@@ -348,17 +359,71 @@ $html .= '<div class="max-w-lg m-auto">';
       {
         $html .= '<h2>'. T_("Active date"). '</h2>';
 
-        $html .= '<div class="check1 ">';
+        $html .= '<div class="flex">';
         {
-          $html .= '<input type="checkbox" name="limit" value="everyone" id="limittotal">';
-          $html .= '<label for="limittotal">'. T_("Limit number of times this discount can be used in total"). '</label>';
+          $html .= '<div class="flex-1">';
+          {
+            $html .= '<label for="startdate">'. T_("Start date"). '</label>';
+            $html .= '<div class="input ltr">';
+            {
+              $html .= '<input type="text" name="code" value="" id="startdate" placeholder="'.\dash\fit::date_en(date("Y-m-d")).'" data-format="date">';
+            }
+            $html .= '</div>';
+          }
+          $html .= '</div>';
+          ;
+
+          $html .= '<div class="flex-1 mr-1 ml-1">';
+          {
+            $html .= '<label for="starttime">'. T_("Time"). '</label>';
+            $html .= '<div class="input ltr">';
+            {
+              $html .= '<input type="text" name="code" value="" id="starttime" placeholder="'.date("H:i").'" data-format="time">';
+            }
+            $html .= '</div>';
+          }
+          $html .= '</div>';
+
         }
         $html .= '</div>';
 
-        $html .= '<div class="check1 ">';
+        $html .= '<div class="check1">';
         {
-          $html .= '<input type="checkbox" name="limit" value="everyone" id="limittotal">';
-          $html .= '<label for="limittotal">'. T_("Limit to one use per customer"). '</label>';
+          $html .= '<input type="checkbox" name="setenddate"  id="setenddate">';
+          $html .= '<label for="setenddate">'. T_("Set end date"). '</label>';
+        }
+        $html .= '</div>';
+
+
+        $html .= '<div data-response="setenddate" data-response-hide>';
+        {
+          $html .= '<div class="flex">';
+          {
+            $html .= '<div class="flex-1">';
+            {
+              $html .= '<label for="enddate">'. T_("End date"). '</label>';
+              $html .= '<div class="input ltr">';
+              {
+                $html .= '<input type="text" name="code" value="" id="enddate" placeholder="'.\dash\fit::date_en(date("Y-m-d")).'" data-format="date">';
+              }
+              $html .= '</div>';
+            }
+            $html .= '</div>';
+
+
+            $html .= '<div class="flex-1 mr-1 ml-1">';
+            {
+              $html .= '<label for="endtime">'. T_("Time"). '</label>';
+              $html .= '<div class="input ltr">';
+              {
+                $html .= '<input type="text" name="code" value="" id="endtime" placeholder="'.date("H:i").'" data-format="time">';
+              }
+              $html .= '</div>';
+            }
+            $html .= '</div>';
+
+          }
+          $html .= '</div>';
         }
         $html .= '</div>';
 
