@@ -57,8 +57,8 @@ class check
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		$data['startdate'] = $data['startdate']. ' '. $data['starttime'];
-		$data['enddate']   = $data['enddate']. ' '. $data['endtime'];
+		$data['startdate'] = trim($data['startdate']. ' '. $data['starttime']);
+		$data['enddate']   = trim($data['enddate']. ' '. $data['endtime']);
 
 		unset($data['starttime']);
 		unset($data['endtime']);
@@ -69,7 +69,6 @@ class check
 		unset($data['set_usagetotal']);
 		unset($data['setenddate']);
 
-		 var_dump($data);exit;
 		return $data;
 
 	}
