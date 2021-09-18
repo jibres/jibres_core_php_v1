@@ -56,6 +56,33 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
     {
       $html .= '<button form="sectioneditorhtml" class="btn-secondary">'. T_("Save Text"). '</button>';
     }
+
+    if(\dash\face::btnSave())
+    {
+      $html .= '<button class="btn-success" form="';
+      $html .= \dash\face::btnSave();
+      $html .= '"';
+      $html .= " name='submitall'";
+
+      if(\dash\face::btnSaveValue())
+      {
+        $html .= " value='". \dash\face::btnSaveValue(). "'";
+      }
+
+      $html .= '>';
+
+      if(\dash\face::btnSaveText())
+      {
+        $html .= \dash\face::btnSaveText();
+      }
+      else
+      {
+        $html .= T_("Save");
+      }
+      $html .= "</button>";
+
+    }
+
   }
   $html .= '</div>';
 
