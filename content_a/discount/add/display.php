@@ -55,7 +55,7 @@ $html .= '<div class="max-w-lg m-auto">';
 
         $html .= '<div class="radio1">';
         {
-          $html .= '<input type="radio" name="type" value="percentage" id="type-percentage">';
+          $html .= '<input type="radio" name="type" value="percentage" id="type-percentage" checked>';
           $html .= '<label for="type-percentage">'. T_("Percentage"). '</label>';
         }
         $html .= '</div>';
@@ -86,16 +86,36 @@ $html .= '<div class="max-w-lg m-auto">';
     =            value            =
     =============================*/
 
-    $html .= '<div class="box">';
+    $html .= '<div data-response="type" data-response-where="percentage|fixedamount">';
     {
-
-      $html .= '<div class="body">';
+      $html .= '<div class="box">';
       {
-        $html .= '<h2>'. T_("Value"). '</h2>';
-        $html .= '<label for="value">'. T_("Discount value"). '</label>';
-        $html .= '<div class="input">';
+
+        $html .= '<div class="body">';
         {
-          $html .= '<input type="text" name="value" value="" placeholder="">';
+          $html .= '<h2>'. T_("Value"). '</h2>';
+
+          $html .= '<div data-response="type" data-response-where="percentage">';
+          {
+            $html .= '<label for="value">'. T_("Discount value"). '</label>';
+            $html .= '<div class="input">';
+            {
+              $html .= '<input type="tel" name="value" value="" placeholder="'.T_("%").'">';
+            }
+            $html .= '</div>';
+          }
+          $html .= '</div>';
+
+          $html .= '<div data-response="type" data-response-where="fixedamount" data-response-hide>';
+          {
+            $html .= '<label for="value">'. T_("Discount value"). '</label>';
+            $html .= '<div class="input">';
+            {
+              $html .= '<input type="tel" name="value" value="" placeholder="'. \lib\store::currency().'">';
+            }
+            $html .= '</div>';
+          }
+          $html .= '</div>';
         }
         $html .= '</div>';
       }
@@ -121,17 +141,39 @@ $html .= '<div class="max-w-lg m-auto">';
 
         $html .= '<div class="radio1">';
         {
-          $html .= '<input type="radio" name="applyto" value="allproduct" id="type-allproduct">';
-          $html .= '<label for="type-allproduct">'. T_("All product"). '</label>';
+          $html .= '<input type="radio" name="applyto" value="allproduct" id="applyto-allproduct" checked>';
+          $html .= '<label for="applyto-allproduct">'. T_("All product"). '</label>';
         }
         $html .= '</div>';
 
         $html .= '<div class="radio1">';
         {
-          $html .= '<input type="radio" name="applyto" value="specialcategory" id="type-specialcategory">';
-          $html .= '<label for="type-specialcategory">'. T_("Special category"). '</label>';
+          $html .= '<input type="radio" name="applyto" value="specialcategory" id="applyto-specialcategory">';
+          $html .= '<label for="applyto-specialcategory">'. T_("Special category"). '</label>';
         }
         $html .= '</div>';
+
+        $html .= '<div data-response="applyto" data-response-where="specialcategory" data-response-hide>';
+        {
+          $html .= '<select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">';
+          {
+            foreach (\dash\data::listProductTag() as $key => $value)
+            {
+
+              $html .= '<option value="'. $value['title']. '" ';
+              if(is_array(\dash\data::listSavedCat()) && in_array($value['title'], \dash\data::listSavedCat()))
+              {
+                $html .= ' selected';
+              }
+              $html .= '>';
+              $html .= $value['title'];
+              $html .= '</option>';
+            }
+          }
+          $html .= '</select>';
+        }
+        $html .= '</div>';
+
 
       }
       $html .= '</div>';
@@ -156,22 +198,42 @@ $html .= '<div class="max-w-lg m-auto">';
 
         $html .= '<div class="radio1">';
         {
-          $html .= '<input type="radio" name="applyto" value="allproduct" id="type-allproduct">';
-          $html .= '<label for="type-allproduct">'. T_("None"). '</label>';
+          $html .= '<input type="radio" name="minimumrequirements" value="none" id="minimum-none" checked>';
+          $html .= '<label for="minimum-none">'. T_("None"). '</label>';
         }
         $html .= '</div>';
 
         $html .= '<div class="radio1">';
         {
-          $html .= '<input type="radio" name="applyto" value="allproduct" id="type-allproduct">';
-          $html .= '<label for="type-allproduct">'. T_("Minimum purchase amount ($)"). '</label>';
+          $html .= '<input type="radio" name="minimumrequirements" value="amount" id="minimum-amount">';
+          $html .= '<label for="minimum-amount">'. T_("Minimum purchase amount :currency", ['currency' => '('.\lib\store::currency().')']). '</label>';
+        }
+        $html .= '</div>';
+
+        $html .= '<div data-response="minimumrequirements" data-response-where="amount" data-response-hide>';
+        {
+            $html .= '<div class="input">';
+            {
+              $html .= '<input type="tel" name="value" value="" placeholder="'. \lib\store::currency().'">';
+            }
+            $html .= '</div>';
         }
         $html .= '</div>';
 
         $html .= '<div class="radio1">';
         {
-          $html .= '<input type="radio" name="applyto" value="specialcategory" id="type-specialcategory">';
-          $html .= '<label for="type-specialcategory">'. T_("Minimum quantity of items"). '</label>';
+          $html .= '<input type="radio" name="minimumrequirements" value="quantity" id="minimum-quantity">';
+          $html .= '<label for="minimum-quantity">'. T_("Minimum quantity of items"). '</label>';
+        }
+        $html .= '</div>';
+
+        $html .= '<div data-response="minimumrequirements" data-response-where="quantity" data-response-hide>';
+        {
+            $html .= '<div class="input">';
+            {
+              $html .= '<input type="tel" name="value" value="">';
+            }
+            $html .= '</div>';
         }
         $html .= '</div>';
 

@@ -20,6 +20,12 @@ class view
 		\dash\face::btnSave('discountadd');
 
 		\dash\data::include_adminPanelBuilder(true);
+
+
+		$category_list = \lib\app\tag\get::all_category();
+		$category_list = array_reverse($category_list);
+		\dash\data::listProductTag($category_list);
+
 	}
 }
 ?>
