@@ -1,6 +1,11 @@
 <?php
+
+$dataRow = \dash\data::dataRow();
+$currency = \lib\store::currency();
+
+
 $html = '';
-$html .= '<div class="max-w-lg m-auto">';
+$html .= '<div class="max-w-xl m-auto">';
 {
   $html .= '<form method="post" autocomplete="off" id="discountadd">';
   {
@@ -21,7 +26,7 @@ $html .= '<div class="max-w-lg m-auto">';
 
           $html .= '<div class="">';
           {
-            $html .= '<button class="link-secondary text-xs " for="code">'. T_("Generate code"). '</button>';
+            $html .= '<button class="link-secondary text-xs" for="code">'. T_("Generate code"). '</button>';
           }
           $html .= '</div>';
 
@@ -33,6 +38,8 @@ $html .= '<div class="max-w-lg m-auto">';
         }
         $html .= '</div>';
         $html .= '<label for="code" class=""><small>'.T_("Customers will enter this discount code at checkout."). '</small></label>';
+
+        $html .= '<textarea name="desc" class="txt" row="3" placeholder="'.T_("Description").'">'.a($dataRow, 'desc'). '</textarea>';
       }
       $html .= '</div>';
     }
@@ -90,21 +97,29 @@ $html .= '<div class="max-w-lg m-auto">';
 
           $html .= '<div data-response="type" data-response-where="percentage">';
           {
-            $html .= '<label for="value">'. T_("Discount value"). '</label>';
+            $html .= '<label for="giftpercent">'. T_("Discount value"). '</label>';
             $html .= '<div class="input">';
             {
-              $html .= '<input type="tel" name="value" value="" placeholder="'.T_("%").'">';
+              $html .= '<input type="tel" name="giftpercent" id="giftpercent" value="'.a($dataRow.'giftpercent').'" placeholder="'.T_("%").'">';
             }
             $html .= '</div>';
+
+            $html .= '<label for="giftmax">'. T_("Maximum amount"). '</label>';
+            $html .= '<div class="input">';
+            {
+              $html .= '<input type="tel" name="giftmax" id="giftmax" value="'.a($dataRow, 'giftmax').'" placeholder="'. $currency.'">';
+            }
+            $html .= '</div>';
+
           }
           $html .= '</div>';
 
           $html .= '<div data-response="type" data-response-where="fixedamount" data-response-hide>';
           {
-            $html .= '<label for="value">'. T_("Discount value"). '</label>';
+            $html .= '<label for="giftamount">'. T_("Discount value"). '</label>';
             $html .= '<div class="input">';
             {
-              $html .= '<input type="tel" name="value" value="" placeholder="'. \lib\store::currency().'">';
+              $html .= '<input type="tel" name="giftamount" id="giftamount" value="'.a($dataRow, 'giftamount').'" placeholder="'. $currency.'">';
             }
             $html .= '</div>';
           }
@@ -191,7 +206,7 @@ $html .= '<div class="max-w-lg m-auto">';
         $html .= '<div class="radio1">';
         {
           $html .= '<input type="radio" name="minimumrequirements" value="amount" id="minimum-amount">';
-          $html .= '<label for="minimum-amount">'. T_("Minimum purchase amount :currency", ['currency' => '('.\lib\store::currency().')']). '</label>';
+          $html .= '<label for="minimum-amount">'. T_("Minimum purchase amount :currency", ['currency' => '('.$currency.')']). '</label>';
         }
         $html .= '</div>';
 
@@ -199,7 +214,7 @@ $html .= '<div class="max-w-lg m-auto">';
         {
             $html .= '<div class="input">';
             {
-              $html .= '<input type="tel" name="pricefloor" value="" placeholder="'. \lib\store::currency().'">';
+              $html .= '<input type="tel" name="pricefloor" value="" placeholder="'. $currency.'">';
             }
             $html .= '</div>';
         }
@@ -319,17 +334,17 @@ $html .= '<div class="max-w-lg m-auto">';
 
         $html .= '<div class="check1">';
         {
-          $html .= '<input type="checkbox" name="limit"  id="limittotal">';
-          $html .= '<label for="limittotal">'. T_("Limit number of times this discount can be used in total"). '</label>';
+          $html .= '<input type="checkbox" name="set_usagetotal"  id="set_usagetotal">';
+          $html .= '<label for="set_usagetotal">'. T_("Limit number of times this discount can be used in total"). '</label>';
         }
         $html .= '</div>';
 
 
-        $html .= '<div data-response="limit" data-response-hide>';
+        $html .= '<div data-response="set_usagetotal" data-response-hide>';
         {
             $html .= '<div class="input">';
             {
-              $html .= '<input type="tel" name="counttotla" value="">';
+              $html .= '<input type="tel" name="usagetotal" value="'.a($dataRow, 'usagetotal').'">';
             }
             $html .= '</div>';
         }
@@ -337,8 +352,8 @@ $html .= '<div class="max-w-lg m-auto">';
 
         $html .= '<div class="check1">';
         {
-          $html .= '<input type="checkbox" name="limitperuser"  id="limitperuser">';
-          $html .= '<label for="limitperuser">'. T_("Limit to one use per customer"). '</label>';
+          $html .= '<input type="checkbox" name="usageperuser"  id="usageperuser">';
+          $html .= '<label for="usageperuser">'. T_("Limit to one use per customer"). '</label>';
         }
         $html .= '</div>';
 
