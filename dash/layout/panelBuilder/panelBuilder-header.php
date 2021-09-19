@@ -57,41 +57,41 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
       $html .= '<button form="sectioneditorhtml" class="btn-secondary">'. T_("Save Text"). '</button>';
     }
 
+    /*================================
+    =            Btn Save            =
+    ================================*/
     if(\dash\face::btnSave())
     {
-      $html .= '<button class="btn-success" form="';
-      $html .= \dash\face::btnSave();
-      $html .= '"';
+      $btnSave_form = \dash\face::btnSave();
 
+      $btnSave_name = 'submitall';
       if(\dash\face::btnSaveName())
       {
-        $btnSaveName = \dash\face::btnSaveName();
+        $btnSave_name = \dash\face::btnSaveName();
       }
-      else
+
+      $btnSave_class = 'btn-success';
+      if(\dash\face::btnSaveClass())
       {
-        $btnSaveName = 'submitall';
+        $btnSave_class = \dash\face::btnSaveClass();
       }
 
-      $html .= " name='".$btnSaveName. "'";
-
+      $btnSave_value = null;
       if(\dash\face::btnSaveValue())
       {
-        $html .= " value='". \dash\face::btnSaveValue(). "'";
+        $btnSave_value = \dash\face::btnSaveValue();
       }
 
-      $html .= '>';
-
+      $btnSave_text = T_("Save");
       if(\dash\face::btnSaveText())
       {
-        $html .= \dash\face::btnSaveText();
+        $btnSave_text = \dash\face::btnSaveText();
       }
-      else
-      {
-        $html .= T_("Save");
-      }
-      $html .= "</button>";
+
+      $html .= "<button class='$btnSave_class' form='$btnSave_form' name='$btnSave_name' value='$btnSave_value'>$btnSave_text</button>";
 
     }
+    /*=====  End of Btn Save  ======*/
 
   }
   $html .= '</div>';
