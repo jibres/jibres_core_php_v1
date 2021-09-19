@@ -29,7 +29,7 @@ class add
 
 		$id = \lib\db\discount\insert::new_record($args);
 
-		\dash\notif::ok(T_("Discount code successfully added"));
+		// \dash\notif::ok(T_("Discount code successfully added"));
 
 		return ['id' => $id];
 	}
