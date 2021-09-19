@@ -31,6 +31,7 @@ class model
 			'setenddate'       => \dash\request::post('setenddate'),
 			'enddate'          => \dash\request::post('enddate'),
 			'endtime'          => \dash\request::post('endtime'),
+			'status'           => \dash\request::post('status'),
 		];
 
 		if(\dash\data::editMode())
