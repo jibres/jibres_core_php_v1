@@ -19,6 +19,10 @@ class view
 
 		\dash\face::btnSave('discountadd');
 
+		\dash\face::btnSaveName('save_publish');
+		\dash\face::btnSaveValue('save_publish');
+		\dash\face::btnSaveText(T_("Save and publish"));
+
 		\dash\data::include_adminPanelBuilder(true);
 
 
