@@ -7,7 +7,7 @@ $currency = \lib\store::currency();
 $html = '';
 $html .= '<div class="max-w-xl m-auto">';
 {
-	$html .= '<form method="post" autocomplete="off" id="discountadd" data-patch>';
+	$html .= '<form method="post" autocomplete="off" id="discountadd">';
 	{
 		/*=====================================
 		=            Discount code            =

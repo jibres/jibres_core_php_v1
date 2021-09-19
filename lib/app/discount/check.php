@@ -50,7 +50,7 @@ class check
 
 		];
 
-		$require = [];
+		$require = ['code'];
 
 		$meta = [];
 
@@ -76,6 +76,45 @@ class check
 			}
 
 			$data['enddate']   = trim($data['enddate']. ' '. $data['endtime']);
+		}
+
+		if($data['startdate'] && $data['enddate'])
+		{
+			if(strtotime($data['enddate'])  < strtotime($data['startdate']))
+			{
+				\dash\notif::error(T_("Start date must be less than end date!"), ['element' => ['startdate', 'enddate', 'starttime', 'endtime']]);
+				return false;
+			}
+		}
+
+		if($data['status'] === 'enable')
+		{
+			// check some thing on enable discount code
+			if($data['type'] === 'percentage' && !$data['percentage'])
+			{
+				\dash\notif::error(T_("Percentage is required"), 'percentage');
+				return false;
+			}
+
+			if($data['type'] === 'fixed_amount' && !$data['fixedamount'])
+			{
+				\dash\notif::error(T_("Fixed amount is required"), 'fixedamount');
+				return false;
+			}
+
+
+			if($data['minrequirements'] === 'amount' && !$data['minpurchase'])
+			{
+				\dash\notif::error(T_("Minimum purchase is required"), 'minpurchase');
+				return false;
+			}
+
+			if($data['minrequirements'] === 'quantity' && !$data['minquantity'])
+			{
+				\dash\notif::error(T_("Minimum quantity is required"), 'minquantity');
+				return false;
+			}
+
 		}
 
 		unset($data['starttime']);
