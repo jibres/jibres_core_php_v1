@@ -48,10 +48,6 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
       }
       $html .= '</form>';
     }
-    if(\dash\data::btnSaveSiteBuilderHtml())
-    {
-      $html .= '<button form="savehtmlform" class="btn-secondary">'. T_("Save HTML"). '</button>';
-    }
 
 
     /*================================
