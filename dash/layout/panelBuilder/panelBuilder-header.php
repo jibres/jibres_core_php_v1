@@ -39,17 +39,6 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
       $html .= '<a href="'. \dash\data::action_link(). '" class="btn-secondary">'. \dash\data::action_text(). '</a>';
     }
 
-    if(\dash\data::btnSaveSiteBuilder())
-    {
-      $html .= '<form method="post" autocomplete="off" action="'. \dash\url::here(). '/page?id='. \dash\request::get('id'). '">';
-      {
-        $html .= '<input type="hidden" name="savepage" value="savepage">';
-        $html .= '<button class="btn-primary">'. T_("Save & Publish"). '</button>';
-      }
-      $html .= '</form>';
-    }
-
-
     /*================================
     =            Btn Save            =
     ================================*/
