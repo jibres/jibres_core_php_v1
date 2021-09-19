@@ -28,7 +28,7 @@ class check
 			'customer'         => ['enum' => ['everyone','special_customer_group', 'special_customer']],
 
 			'usagetotal'       => 'int',
-			'usageperuser'     => 'int',
+			'usageperuser'     => 'bit', // maybe later set it as int. current
 
 			// 'creator'       => '',
 			// 'datecreated'   => '',
@@ -50,15 +50,33 @@ class check
 
 		];
 
-		$require = ['code'];
+		$require = [];
 
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		if(!$data['startdate'])
+		{
+			$data['startdate'] = date("Y-m-d");
+		}
+
+		if(!$data['starttime'])
+		{
+			$data['starttime'] = date("H:i");
+		}
 
 		$data['startdate'] = trim($data['startdate']. ' '. $data['starttime']);
-		$data['enddate']   = trim($data['enddate']. ' '. $data['endtime']);
+
+		if($data['enddate'])
+		{
+			if(!$data['endtime'])
+			{
+				$data['endtime'] = date("H:i");
+			}
+
+			$data['enddate']   = trim($data['enddate']. ' '. $data['endtime']);
+		}
 
 		unset($data['starttime']);
 		unset($data['endtime']);

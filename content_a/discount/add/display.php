@@ -447,7 +447,7 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div class="check1">';
 				{
-					$html .= '<input type="checkbox" name="usageperuser"  id="usageperuser">';
+					$html .= '<input type="checkbox" name="usageperuser"  id="usageperuser" '.(a($dataRow, 'usageperuser') ? 'checked' : '').'>';
 					$html .= '<label for="usageperuser">'. T_("Limit to one use per customer"). '</label>';
 				}
 				$html .= '</div>';
@@ -475,7 +475,7 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<label for="startdate">'. T_("Start date"). '</label>';
 						$html .= '<div class="input ltr">';
 						{
-							$html .= '<input type="text" name="startdate" value="'. a($dataRow, 'startdate'). '" id="startdate" placeholder="'.\dash\fit::date_en(date("Y-m-d")).'" data-format="date">';
+							$html .= '<input type="text" name="startdate" value="'. \dash\fit::date_en(a($dataRow, 'startdate')). '" id="startdate" placeholder="'.\dash\fit::date_en(date("Y-m-d")).'" data-format="date">';
 						}
 						$html .= '</div>';
 					}
@@ -487,7 +487,7 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<label for="starttime">'. T_("Time"). '</label>';
 						$html .= '<div class="input ltr">';
 						{
-							$html .= '<input type="text" name="starttime" value="'. a($dataRow, 'starttime'). '" id="starttime" placeholder="'.date("H:i").'" data-format="time">';
+							$html .= '<input type="text" name="starttime" value="'. date("H:i", (a($dataRow, 'startdate') ? strtotime(a($dataRow, 'startdate')) : null)). '" id="starttime" placeholder="'.date("H:i").'" data-format="time">';
 						}
 						$html .= '</div>';
 					}
@@ -519,7 +519,7 @@ $html .= '<div class="max-w-xl m-auto">';
 							$html .= '<label for="enddate">'. T_("End date"). '</label>';
 							$html .= '<div class="input ltr">';
 							{
-								$html .= '<input type="text" name="enddate" value="'. a($dataRow, 'enddate'). '" id="enddate" placeholder="'.\dash\fit::date_en(date("Y-m-d")).'" data-format="date">';
+								$html .= '<input type="text" name="enddate" value="'. \dash\fit::date_en(a($dataRow, 'enddate')). '" id="enddate" placeholder="'.\dash\fit::date_en(date("Y-m-d")).'" data-format="date">';
 							}
 							$html .= '</div>';
 						}
@@ -531,7 +531,7 @@ $html .= '<div class="max-w-xl m-auto">';
 							$html .= '<label for="endtime">'. T_("Time"). '</label>';
 							$html .= '<div class="input ltr">';
 							{
-								$html .= '<input type="text" name="endtime" value="'. a($dataRow, 'endtime'). '" id="endtime" placeholder="'.date("H:i").'" data-format="time">';
+								$html .= '<input type="text" name="endtime" value="'. date("H:i", (a($dataRow, 'enddate') ? strtotime(a($dataRow, 'enddate')) : null)). '" id="endtime" placeholder="'.date("H:i").'" data-format="time">';
 							}
 							$html .= '</div>';
 						}
