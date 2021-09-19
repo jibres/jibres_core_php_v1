@@ -52,7 +52,7 @@ class edit
 
 			\lib\db\discount\update::update($data, $load['id']);
 
-			\dash\notif::ok(T_("Saved"));
+			// \dash\notif::ok(T_("Saved"));
 		}
 
 		return true;
