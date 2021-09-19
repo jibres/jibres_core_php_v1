@@ -104,7 +104,7 @@ class datetime
 			$data_datetime = new \DateTime($data);
 			$year = $data_datetime->format("Y");
 
-			if(intval($year) > 3000)
+			if(intval($year) > 2038)
 			{
 				if($_notif)
 				{
