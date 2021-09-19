@@ -52,7 +52,10 @@ class view
 			\dash\data::displayIncludeTextEditor(true);
 			\dash\data::btnSaveSiteBuilder(false);
 			\dash\data::btnSaveSiteBuilderHtml(false);
-			\dash\data::btnSaveSiteBuilderEditor(true);
+
+			\dash\face::btnSave('sectioneditorhtml');
+			\dash\face::btnSaveText(T_("Save Text"));
+			\dash\face::btnSaveClass('btn-secondary');
 		}
 
 		// in admin check iframe size

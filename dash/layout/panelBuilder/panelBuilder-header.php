@@ -52,10 +52,7 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
     {
       $html .= '<button form="savehtmlform" class="btn-secondary">'. T_("Save HTML"). '</button>';
     }
-    if(\dash\data::btnSaveSiteBuilderEditor())
-    {
-      $html .= '<button form="sectioneditorhtml" class="btn-secondary">'. T_("Save Text"). '</button>';
-    }
+
 
     /*================================
     =            Btn Save            =
