@@ -62,7 +62,17 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
       $html .= '<button class="btn-success" form="';
       $html .= \dash\face::btnSave();
       $html .= '"';
-      $html .= " name='submitall'";
+
+      if(\dash\face::btnSaveName())
+      {
+        $btnSaveName = \dash\face::btnSaveName();
+      }
+      else
+      {
+        $btnSaveName = 'submitall';
+      }
+
+      $html .= " name='".$btnSaveName. "'";
 
       if(\dash\face::btnSaveValue())
       {
