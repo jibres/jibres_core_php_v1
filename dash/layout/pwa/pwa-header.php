@@ -119,23 +119,7 @@ if(!\dash\face::disablePWA_Header())
   // save btn
   if(\dash\face::btnSave())
   {
-    echo '<button class="save" form="';
-    echo \dash\face::btnSave();
-    echo '"';
-    if(\dash\face::btnSaveValue())
-    {
-      echo " name='submitall' value='". \dash\face::btnSaveValue(). "'";
-    }
-    echo '>';
-    if(\dash\face::btnSaveText())
-    {
-      echo \dash\face::btnSaveText();
-    }
-    else
-    {
-      echo T_("Save");
-    }
-    echo "</button>";
+    echo \dash\layout\button::html_btnSave(true);
   }
   // insert btn
   if(\dash\face::btnInsert())

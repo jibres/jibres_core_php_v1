@@ -55,34 +55,7 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
     ================================*/
     if(\dash\face::btnSave())
     {
-      $btnSave_form = \dash\face::btnSave();
-
-      $btnSave_name = 'submitall';
-      if(\dash\face::btnSaveName())
-      {
-        $btnSave_name = \dash\face::btnSaveName();
-      }
-
-      $btnSave_class = 'btn-success';
-      if(\dash\face::btnSaveClass())
-      {
-        $btnSave_class = \dash\face::btnSaveClass();
-      }
-
-      $btnSave_value = null;
-      if(\dash\face::btnSaveValue())
-      {
-        $btnSave_value = \dash\face::btnSaveValue();
-      }
-
-      $btnSave_text = T_("Save");
-      if(\dash\face::btnSaveText())
-      {
-        $btnSave_text = \dash\face::btnSaveText();
-      }
-
-      $html .= "<button class='$btnSave_class' form='$btnSave_form' name='$btnSave_name' value='$btnSave_value'>$btnSave_text</button>";
-
+      $html .= \dash\layout\button::html_btnSave();
     }
     /*=====  End of Btn Save  ======*/
 
