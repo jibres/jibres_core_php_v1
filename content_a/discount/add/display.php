@@ -103,7 +103,13 @@ $html .= '<div class="max-w-xl m-auto">';
 		/*=============================
 		=            value            =
 		=============================*/
-		$html .= '<div data-response="type" data-response-where="percentage|fixed_amount">';
+		$data_response_hide = null;
+		if(a($dataRow, 'type') === 'free_shipping')
+		{
+			$data_response_hide = 'data-response-hide';
+		}
+
+		$html .= '<div data-response="type" data-response-where="percentage|fixed_amount" '.$data_response_hide.'>';
 		{
 			$html .= '<div class="box">';
 			{
@@ -112,7 +118,13 @@ $html .= '<div class="max-w-xl m-auto">';
 				{
 					$html .= '<h2>'. T_("Value"). '</h2>';
 
-					$html .= '<div data-response="type" data-response-where="percentage">';
+					$data_response_hide = 'data-response-hide';
+					if(a($dataRow, 'type') === 'percentage' || !a($dataRow, 'type'))
+					{
+						$data_response_hide = null;
+					}
+
+					$html .= '<div data-response="type" data-response-where="percentage" '.$data_response_hide.'>';
 					{
 						$html .= '<label for="percentage">'. T_("Discount value"). '</label>';
 						$html .= '<div class="input">';
@@ -131,7 +143,13 @@ $html .= '<div class="max-w-xl m-auto">';
 					}
 					$html .= '</div>';
 
-					$html .= '<div data-response="type" data-response-where="fixed_amount" data-response-hide>';
+					$data_response_hide = 'data-response-hide';
+					if(a($dataRow, 'type') === 'fixed_amount')
+					{
+						$data_response_hide = null;
+					}
+
+					$html .= '<div data-response="type" data-response-where="fixed_amount" '.$data_response_hide.'>';
 					{
 						$html .= '<label for="fixedamount">'. T_("Discount value"). '</label>';
 						$html .= '<div class="input">';
@@ -174,7 +192,13 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
-				$html .= '<div data-response="applyto" data-response-where="special_category" data-response-hide>';
+				$data_response_hide = 'data-response-hide';
+				if(a($dataRow, 'applyto') === 'special_category')
+				{
+					$data_response_hide = null;
+				}
+
+				$html .= '<div data-response="applyto" data-response-where="special_category" '.$data_response_hide.'>';
 				{
 					$html .= '<select name="product_category[]" id="product_category" class="select22" data-model="tag" multiple="multiple">';
 					{
@@ -203,7 +227,13 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
-				$html .= '<div data-response="applyto" data-response-where="special_products" data-response-hide>';
+				$data_response_hide = 'data-response-hide';
+				if(a($dataRow, 'applyto') === 'special_products')
+				{
+					$data_response_hide = null;
+				}
+
+				$html .= '<div data-response="applyto" data-response-where="special_products" '.$data_response_hide.'>';
 				{
 					 $html .= '<select name="special_products[]" id="special_products" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/member/api?json=true'.'" data-placeholder="'. T_('Search in customers'). '">';
 						foreach ([] as $key => $value)
@@ -245,7 +275,13 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
-				$html .= '<div data-response="minrequirements" data-response-where="amount" data-response-hide>';
+				$data_response_hide = 'data-response-hide';
+				if(a($dataRow, 'minrequirements') === 'amount')
+				{
+					$data_response_hide = null;
+				}
+
+				$html .= '<div data-response="minrequirements" data-response-where="amount" '.$data_response_hide.'>';
 				{
 						$html .= '<div class="input">';
 						{
@@ -262,7 +298,13 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
-				$html .= '<div data-response="minrequirements" data-response-where="quantity" data-response-hide>';
+				$data_response_hide = 'data-response-hide';
+				if(a($dataRow, 'minrequirements') === 'quantity')
+				{
+					$data_response_hide = null;
+				}
+
+				$html .= '<div data-response="minrequirements" data-response-where="quantity" '.$data_response_hide.'>';
 				{
 						$html .= '<div class="input">';
 						{
@@ -304,7 +346,13 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
-				$html .= '<div data-response="customer" data-response-where="special_customer_group" data-response-hide>';
+				$data_response_hide = 'data-response-hide';
+				if(a($dataRow, 'customer') === 'special_customer_group')
+				{
+					$data_response_hide = null;
+				}
+
+				$html .= '<div data-response="customer" data-response-where="special_customer_group" '.$data_response_hide.'>';
 				{
 					$html .= '<select name="customer_group" id="customer_group" class="select22">';
 					{
@@ -339,7 +387,13 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
-				$html .= '<div data-response="customer" data-response-where="special_customer" data-response-hide>';
+				$data_response_hide = 'data-response-hide';
+				if(a($dataRow, 'customer') === 'special_customer')
+				{
+					$data_response_hide = null;
+				}
+
+				$html .= '<div data-response="customer" data-response-where="special_customer" '.$data_response_hide.'>';
 				{
 					$html .= '<select name="special_customer[]" id="special_customer" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/member/api?json=true'.'" data-placeholder="'. T_('Search in customers'). '">';
 						foreach ([] as $key => $value)
@@ -369,13 +423,19 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div class="check1">';
 				{
-					$html .= '<input type="checkbox" name="set_usagetotal"  id="set_usagetotal">';
+					$html .= '<input type="checkbox" name="set_usagetotal"  id="set_usagetotal" '.(a($dataRow, 'usagetotal') ? 'checked' : '').'>';
 					$html .= '<label for="set_usagetotal">'. T_("Limit number of times this discount can be used in total"). '</label>';
 				}
 				$html .= '</div>';
 
 
-				$html .= '<div data-response="set_usagetotal" data-response-hide>';
+				$data_response_hide = 'data-response-hide';
+				if(a($dataRow, 'usagetotal'))
+				{
+					$data_response_hide = null;
+				}
+
+				$html .= '<div data-response="set_usagetotal" '.$data_response_hide.'>';
 				{
 						$html .= '<div class="input">';
 						{
@@ -438,13 +498,19 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div class="check1">';
 				{
-					$html .= '<input type="checkbox" name="setenddate"  id="setenddate">';
+					$html .= '<input type="checkbox" name="setenddate"  id="setenddate" '.(a($dataRow, 'enddate') ? 'checked' : '').'>';
 					$html .= '<label for="setenddate">'. T_("Set end date"). '</label>';
 				}
 				$html .= '</div>';
 
 
-				$html .= '<div data-response="setenddate" data-response-hide>';
+				$data_response_hide = 'data-response-hide';
+				if(a($dataRow, 'enddate'))
+				{
+					$data_response_hide = null;
+				}
+
+				$html .= '<div data-response="setenddate" '.$data_response_hide.'>';
 				{
 					$html .= '<div class="flex">';
 					{
@@ -470,12 +536,10 @@ $html .= '<div class="max-w-xl m-auto">';
 							$html .= '</div>';
 						}
 						$html .= '</div>';
-
 					}
 					$html .= '</div>';
 				}
 				$html .= '</div>';
-
 			}
 			$html .= '</div>';
 		}
