@@ -129,14 +129,14 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<label for="percentage">'. T_("Discount value"). '</label>';
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="percentage" id="percentage" value="'.a($dataRow,'percentage').'" placeholder="'.T_("%").'">';
+							$html .= '<input type="tel" name="percentage" id="percentage" value="'.a($dataRow,'percentage').'" placeholder="'.T_("%").'" maxlength="3">';
 						}
 						$html .= '</div>';
 
 						$html .= '<label for="maxamount">'. T_("Maximum amount"). '</label>';
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="maxamount" id="maxamount" value="'.a($dataRow, 'maxamount').'" placeholder="'. $currency.'">';
+							$html .= '<input type="tel" name="maxamount" id="maxamount" value="'.round(a($dataRow, 'maxamount')).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
 						}
 						$html .= '</div>';
 
@@ -223,7 +223,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				$html .= '<div class="radio1">';
 				{
 					$html .= '<input type="radio" name="applyto" value="special_products" id="applyto-special_products" '.(a($dataRow, 'applyto') === 'special_products' ? 'checked' : '').'>';
-					$html .= '<label for="applyto-special_products">'. T_("Special category"). '</label>';
+					$html .= '<label for="applyto-special_products">'. T_("Special products"). '</label>';
 				}
 				$html .= '</div>';
 
@@ -285,7 +285,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				{
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="minpurchase" value="'. a($dataRow, 'minpurchase'). '" placeholder="'. $currency.'">';
+							$html .= '<input type="tel" name="minpurchase" value="'. round(a($dataRow, 'minpurchase')). '" placeholder="'. $currency.'" data-format="price" maxlength="18">';
 						}
 						$html .= '</div>';
 				}
@@ -308,7 +308,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				{
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="minquantity" value="'. a($dataRow, 'minquantity'). '">';
+							$html .= '<input type="tel" name="minquantity" value="'. a($dataRow, 'minquantity'). '" data-format="price" maxlength="4">';
 						}
 						$html .= '</div>';
 				}
@@ -439,7 +439,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				{
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="usagetotal" value="'.a($dataRow, 'usagetotal').'">';
+							$html .= '<input type="tel" name="usagetotal" value="'.a($dataRow, 'usagetotal').'" data-format="price" maxlength="9">';
 						}
 						$html .= '</div>';
 				}
