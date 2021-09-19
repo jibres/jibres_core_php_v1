@@ -6,44 +6,81 @@ class button
 
 	public static function html_btnSave($_is_pwa = false)
 	{
-	    if(\dash\face::btnSave())
-	    {
-	      $btnSave_form = \dash\face::btnSave();
 
-	      $btnSave_name = 'submitall';
-	      if(\dash\face::btnSaveName())
-	      {
-	        $btnSave_name = \dash\face::btnSaveName();
-	      }
+		if(\dash\face::btnSave())
+		{
+			$html = '';
+			$btnSave_form_id = \dash\face::btnSave();
 
-	      $btnSave_class = 'btn-success';
-	      if(\dash\face::btnSaveClass())
-	      {
-	        $btnSave_class = \dash\face::btnSaveClass();
-	      }
+			$btnSave_name = 'submitall';
+			if(\dash\face::btnSaveName())
+			{
+				$btnSave_name = \dash\face::btnSaveName();
+			}
 
-	      if($_is_pwa)
-	      {
-	      	$btnSave_class = 'save';
-	      }
+			$btnSave_class = 'btn-success';
+			if(\dash\face::btnSaveClass())
+			{
+				$btnSave_class = \dash\face::btnSaveClass();
+			}
 
-	      $btnSave_value = null;
-	      if(\dash\face::btnSaveValue())
-	      {
-	        $btnSave_value = \dash\face::btnSaveValue();
-	      }
+			if($_is_pwa)
+			{
+				$btnSave_class = 'save';
+			}
 
-	      $btnSave_text = T_("Save");
-	      if(\dash\face::btnSaveText() && !$_is_pwa)
-	      {
-	        $btnSave_text = \dash\face::btnSaveText();
-	      }
+			$btnSave_value = null;
+			if(\dash\face::btnSaveValue())
+			{
+				$btnSave_value = \dash\face::btnSaveValue();
+			}
 
-	      return "<button class='$btnSave_class' form='$btnSave_form' name='$btnSave_name' value='$btnSave_value'>$btnSave_text</button>";
+			$btnSave_text = T_("Save");
+			if(\dash\face::btnSaveText() && !$_is_pwa)
+			{
+				$btnSave_text = \dash\face::btnSaveText();
+			}
 
-	    }
+			$btnSave_is_form     = false;
+			$btnSave_form_action = null;
+			if(\dash\face::btnSaveForm())
+			{
+				$btnSave_is_form = true;
+				$btnSave_form_action = \dash\face::btnSaveForm();
+			}
 
-	    return null;
+			$btnSave_input_hidden = [];
+			if(\dash\face::btnSaveInputHidden() && is_array(\dash\face::btnSaveInputHidden()))
+			{
+				$btnSave_input_hidden = \dash\face::btnSaveInputHidden();
+			}
+
+			if($btnSave_is_form)
+			{
+				$html .= "<form method='post' autocomplete='off' action='$btnSave_form_action'>";
+				{
+					$html .= "<input type='hidden' name='$btnSave_name' value='$btnSave_value'>";
+					if($btnSave_input_hidden)
+					{
+						foreach ($btnSave_input_hidden as $key => $value)
+						{
+							$html .= "<input type='hidden' name='$key' value='$value'>";
+						}
+					}
+
+					$html .= "<button class='$btnSave_class'>$btnSave_text</button>";
+				}
+				$html .= '</form>';
+			}
+			else
+			{
+				$html .= "<button class='$btnSave_class' form='$btnSave_form_id' name='$btnSave_name' value='$btnSave_value'>$btnSave_text</button>";
+			}
+
+			return $html;
+		}
+
+		return null;
 
 
 	}
