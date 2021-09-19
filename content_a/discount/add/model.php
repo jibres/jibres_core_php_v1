@@ -48,6 +48,8 @@ class model
 			}
 		}
 
+		\dash\notif::complete();
+
 
 	}
 }
