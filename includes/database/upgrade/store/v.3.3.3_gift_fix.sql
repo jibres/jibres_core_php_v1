@@ -85,30 +85,3 @@ KEY `discountlookup_index_valid` (`valid`),
 KEY `discountlookup_index_discount_id` (`discount_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-
-CREATE TABLE jibres_XXXXXXX.discount_usage (
-`id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-`discount_id` bigint UNSIGNED DEFAULT NULL,
-`user_id` int UNSIGNED DEFAULT NULL,
-`transaction_id` bigint UNSIGNED DEFAULT NULL,
-`price` DECIMAL(22, 4) DEFAULT NULL,
-`discount` DECIMAL(22, 4) DEFAULT NULL,
-`discountpercent` smallint UNSIGNED DEFAULT NULL,
-`finalprice` DECIMAL(22, 4) DEFAULT NULL,
-`datecreated` timestamp NULL DEFAULT NULL,
-`ip_id` bigint UNSIGNED DEFAULT NULL,
-`agent_id` int UNSIGNED DEFAULT NULL,
-PRIMARY KEY (`id`),
-KEY `discountusage_user_id` (`user_id`),
-KEY `discountusage_transaction_id` (`transaction_id`),
-KEY `discountusage_discount_id` (`discount_id`),
-KEY `discountusage_search_index_ip_id` (`ip_id`),
-KEY `discountusage_search_index_agent_id` (`agent_id`),
-CONSTRAINT `discountusage_discount_id` FOREIGN KEY (`discount_id`) REFERENCES `discount` (`id`) ON UPDATE CASCADE,
-CONSTRAINT `discountusage_transaction_id` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`) ON UPDATE CASCADE,
-CONSTRAINT `discountusage_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
