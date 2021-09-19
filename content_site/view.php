@@ -61,7 +61,17 @@ class view
 			\dash\face::title(\dash\face::title(). ' '. $myTitle);
 		}
 
-		\dash\data::btnSaveSiteBuilder(true);
+		/*================================
+		=            Btn save            =
+		================================*/
+		\dash\face::btnSave(true);
+		\dash\face::btnSaveText(T_("Save & Publish"));
+		\dash\face::btnSaveClass('btn-primary');
+		\dash\face::btnSaveForm(\dash\url::here(). '/page?id='. \dash\request::get('id'));
+		\dash\face::btnSaveName('savepage');
+		\dash\face::btnSaveValue('savepage');
+		/*=====  End of Btn save  ======*/
+
 
 		self::generate_iframe_src();
 	}

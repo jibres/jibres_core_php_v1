@@ -50,7 +50,6 @@ class view
 		{
 			\dash\data::include_adminPanelBuilder(true);
 			\dash\data::displayIncludeTextEditor(true);
-			\dash\data::btnSaveSiteBuilder(false);
 
 			\dash\face::btnSave('sectioneditorhtml');
 			\dash\face::btnSaveText(T_("Save Text"));

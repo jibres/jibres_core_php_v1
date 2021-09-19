@@ -10,7 +10,6 @@ class view
 		\content_site\view::fill_page_detail();
 
 		\dash\data::include_adminPanelBuilder(true);
-		\dash\data::btnSaveSiteBuilder(false);
 
 		\dash\face::btnSave('savehtmlform');
 		\dash\face::btnSaveText(T_("Save HTML"));
