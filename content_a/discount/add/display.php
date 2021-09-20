@@ -122,13 +122,6 @@ $html .= '<div class="max-w-xl m-auto">';
 						}
 						$html .= '</div>';
 
-						$html .= '<label for="maxamount">'. T_("Maximum amount"). '</label>';
-						$html .= '<div class="input">';
-						{
-							$html .= '<input type="tel" name="maxamount" id="maxamount" value="'.round(a($dataRow, 'maxamount')).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
-						}
-						$html .= '</div>';
-
 					}
 					$html .= '</div>';
 
@@ -146,6 +139,14 @@ $html .= '<div class="max-w-xl m-auto">';
 							$html .= '<input type="tel" name="fixedamount" id="fixedamount" value="'.a($dataRow, 'fixedamount').'" placeholder="'. $currency.'">';
 						}
 						$html .= '</div>';
+					}
+					$html .= '</div>';
+
+
+					$html .= '<label for="maxamount">'. T_("Maximum amount"). '</label>';
+					$html .= '<div class="input">';
+					{
+						$html .= '<input type="tel" name="maxamount" id="maxamount" value="'.round(a($dataRow, 'maxamount')).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
 					}
 					$html .= '</div>';
 				}
