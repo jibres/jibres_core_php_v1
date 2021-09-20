@@ -30,6 +30,11 @@ class view
 		$category_list = array_reverse($category_list);
 		\dash\data::listProductTag($category_list);
 
+		if(\dash\data::editMode())
+		{
+			\dash\data::discountDedicate(\lib\app\discount\dedicated::load_all_dedicated(\dash\request::get('id')));
+		}
+
 	}
 }
 ?>

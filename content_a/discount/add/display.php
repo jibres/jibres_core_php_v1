@@ -2,6 +2,7 @@
 
 $dataRow = \dash\data::dataRow();
 $currency = \lib\store::currency();
+$dedicated = \dash\data::discountDedicate();
 
 
 $html = '';
@@ -190,11 +191,17 @@ $html .= '<div class="max-w-xl m-auto">';
 				{
 					$html .= '<select name="product_category[]" id="product_category" class="select22" data-model="tag" multiple="multiple">';
 					{
+						$current_category_id = [];
+
+						if(is_array(a($dedicated, 'special_category')))
+						{
+							$current_category_id = array_column($dedicated['special_category'], 'product_category_id');
+						}
+
 						foreach (\dash\data::listProductTag() as $key => $value)
 						{
-
 							$html .= '<option value="'. $value['title']. '" ';
-							if(is_array(\dash\data::listSavedCat()) && in_array($value['title'], \dash\data::listSavedCat()))
+							if(in_array($value['id'], $current_category_id))
 							{
 								$html .= ' selected';
 							}
@@ -223,7 +230,8 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div data-response="applyto" data-response-where="special_products" '.$data_response_hide.'>';
 				{
-					 $html .= '<select name="special_products[]" id="special_products" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/member/api?json=true'.'" data-placeholder="'. T_('Search in customers'). '">';
+					 $html .= '<select name="special_products[]" id="special_products" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/member/api?json=true'.'" data-placeholder="'. T_('Search in products'). '">';
+
 						foreach ([] as $key => $value)
 						{
 							$html .= '<option value="<?php echo $value["title"]; ?>" selected><?php echo $value["title"]; ?></option>';

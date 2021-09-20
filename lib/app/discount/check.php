@@ -41,10 +41,10 @@ class check
 			'desc'             => 'desc',
 			'msgsuccess'       => 'desc',
 
-			'product_category' => 'bit',
-			'special_products' => 'bit',
-			'customer_group'   => 'bit',
-			'special_customer' => 'bit',
+			'product_category' => 'tag',
+			'special_products' => 'tag',
+			'customer_group'   => 'string_100',
+			'special_customer' => 'tag',
 			'set_usagetotal'   => 'bit',
 			'setenddate'       => 'bit',
 
@@ -119,10 +119,6 @@ class check
 
 		unset($data['starttime']);
 		unset($data['endtime']);
-		unset($data['product_category']);
-		unset($data['special_products']);
-		unset($data['customer_group']);
-		unset($data['special_customer']);
 		unset($data['set_usagetotal']);
 		unset($data['setenddate']);
 

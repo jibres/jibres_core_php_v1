@@ -27,8 +27,17 @@ class add
 		$args['creator']     = \dash\user::id();
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
+		$temp_args = $args;
+
+		unset($args['product_category']);
+		unset($args['special_products']);
+		unset($args['customer_group']);
+		unset($args['special_customer']);
+
 		$id = \lib\db\discount\insert::new_record($args);
 
+
+		dedicated::sync($temp_args, $id);
 		// \dash\notif::ok(T_("Discount code successfully added"));
 
 		return ['id' => $id];

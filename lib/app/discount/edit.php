@@ -22,9 +22,7 @@ class edit
 		}
 
 
-		$data = \dash\cleanse::patch_mode($_args, $args);
-
-
+		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		$check_duplicate_code = \lib\db\discount\get::check_duplicate_code($args['code']);
 
@@ -41,19 +39,23 @@ class edit
 			}
 		}
 
+		$temp_args = $args;
 
-		if(empty($data))
+		unset($args['product_category']);
+		unset($args['special_products']);
+		unset($args['customer_group']);
+		unset($args['special_customer']);
+
+
+		if(!empty($args))
 		{
-			\dash\notif::info(T_("No change in your data"));
-		}
-		else
-		{
-			$data['datemodified'] = date("Y-m-d H:i:s");
+			//
+			$args['datemodified'] = date("Y-m-d H:i:s");
 
-			\lib\db\discount\update::update($data, $load['id']);
-
-			// \dash\notif::ok(T_("Saved"));
+			\lib\db\discount\update::update($args, $load['id']);
 		}
+
+		dedicated::sync($temp_args, $load['id']);
 
 		return true;
 	}
