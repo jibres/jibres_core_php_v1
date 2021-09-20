@@ -40,28 +40,16 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<label for="code" class=""><small>'.T_("Customers will enter this discount code at checkout."). '</small></label>';
 
-				$html .= '<textarea name="desc" class="txt" row="3" placeholder="'.T_("Description").'">'.a($dataRow, 'desc'). '</textarea>';
-
-				$html .= '<h2>'. T_("Status"). '</h2>';
-
-				$html .= '<div class="radio1">';
+				if(false)
 				{
-					$html .= '<input type="radio" name="status" value="draft" id="status-draft" '.((a($dataRow, 'status') === 'draft' || !a($dataRow, 'status')) ? 'checked' : '').'>';
-					$html .= '<label for="status-draft">'. T_("Draft"). '</label>';
+					$html .= '<textarea name="desc" class="txt" row="3" placeholder="'.T_("Description").'">'.a($dataRow, 'desc'). '</textarea>';
 				}
-				$html .= '</div>';
-
-				$html .= '<div class="radio1">';
-				{
-					$html .= '<input type="radio" name="status" value="enable" id="status-enable" '.(a($dataRow, 'status') === 'enable' ? 'checked' : '').'>';
-					$html .= '<label for="status-enable">'. T_("Enable"). '</label>';
-				}
-				$html .= '</div>';
 			}
 			$html .= '</div>';
 		}
 		$html .= '</div>';
 		/*=====  End of Discount code  ======*/
+
 
 
 		/*=============================
@@ -545,6 +533,34 @@ $html .= '<div class="max-w-xl m-auto">';
 		}
 		$html .= '</div>';
 		/*=====  End of Active date  ======*/
+
+		/*==============================
+		=            Status            =
+		==============================*/
+		$html .= '<div class="box">';
+		{
+			$html .= '<div class="body">';
+			{
+				$html .= '<h2>'. T_("Status"). '</h2>';
+
+				$html .= '<div class="radio1">';
+				{
+					$html .= '<input type="radio" name="status" value="draft" id="status-draft" '.((a($dataRow, 'status') === 'draft' || !a($dataRow, 'status')) ? 'checked' : '').'>';
+					$html .= '<label for="status-draft">'. T_("Draft"). '</label>';
+				}
+				$html .= '</div>';
+
+				$html .= '<div class="radio1">';
+				{
+					$html .= '<input type="radio" name="status" value="enable" id="status-enable" '.(a($dataRow, 'status') === 'enable' ? 'checked' : '').'>';
+					$html .= '<label for="status-enable">'. T_("Enable"). '</label>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+		/*=====  End of Status  ======*/
 
 	}
 	$html .= '</form>';
