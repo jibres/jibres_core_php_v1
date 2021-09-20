@@ -592,6 +592,11 @@ $html .= '<div class="max-w-xl m-auto">';
 
 	}
 	$html .= '</form>';
+
+	if(\dash\data::editMode())
+	{
+		$html .= '<button class="btn-danger" data-confirm data-data=\'{"remove": "remove"}\'>'. T_("Remove Discount code"). '</button>';
+	}
 }
 $html .= '</div>';
 

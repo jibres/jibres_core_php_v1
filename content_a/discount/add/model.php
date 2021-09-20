@@ -6,6 +6,17 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('remove') === 'remove')
+		{
+			$result = \lib\app\discount\remove::remove(\dash\request::get('id'));
+
+			if($result)
+			{
+				\dash\redirect::to(\dash\url::this());
+			}
+			return;
+		}
+
 		$post =
 		[
 			'code'             => \dash\request::post('code'),

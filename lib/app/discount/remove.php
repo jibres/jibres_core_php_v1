@@ -14,26 +14,17 @@ class remove
 			return false;
 		}
 
-		$check_parent_not_use = \lib\db\discount\get::check_parent_not_use($load['id']);
-
-		if(isset($check_parent_not_use['id']))
+		// check usage
+		$check_usage = false;
+		if($check_usage)
 		{
-			\dash\notif::error(T_("This record is parent of some other record and cannot be remove"));
+			\dash\notif::error(T_("Can not remove discount because this discount is used in some orders"));
 			return false;
 		}
 
-		$check_this_not_use = \lib\db\discount\get::check_not_use($load['id']);
-
-		if(isset($check_this_not_use['id']))
-		{
-			\dash\notif::error(T_("This record is used in some document and cannot be remove"));
-			return false;
-		}
-
-
+		\lib\db\discount_lookup\delete::by_discount_id($load['id']);
+		\lib\db\discount_dedicated\delete::by_discount_id($load['id']);
 		\lib\db\discount\delete::by_id($load['id']);
-
-		\dash\notif::ok(T_("Data removed"));
 
 		return true;
 	}
