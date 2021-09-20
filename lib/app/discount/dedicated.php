@@ -40,6 +40,22 @@ class dedicated
 				$result[$value['type']][] = $value;
 			}
 		}
+
+		if($result['special_products'])
+		{
+			$load_multi_products = \lib\db\products\get::by_multi_id(implode(',', array_column($result['special_products'], 'product_id')));
+
+			$load_multi_products = array_combine(array_column($load_multi_products, 'id'), $load_multi_products);
+
+			foreach ($result['special_products'] as $key => $value)
+			{
+				if(isset($load_multi_products[a($value, 'product_id')]['title']))
+				{
+					$result['special_products'][$key]['product_title'] = $load_multi_products[a($value, 'product_id')]['title'];
+				}
+			}
+
+		}
 		return $result;
 	}
 
@@ -77,19 +93,47 @@ class dedicated
 			$category = array_filter($category);
 			$category = array_unique($category);
 
-			$load_multi_category = \lib\db\productcategory\get::mulit_title($category);
+			$load_multi_category = [];
 
-			if(!is_array($load_multi_category))
+			if($category)
 			{
-				$load_multi_category = [];
+				$load_multi_category = \lib\db\productcategory\get::mulit_title($category);
+
+				if(!is_array($load_multi_category))
+				{
+					$load_multi_category = [];
+				}
 			}
 
-			self::sync_data($load_current_decicate, $load_multi_category, 'special_category', 'product_category_id');
+
+			self::sync_data($_id, $load_current_decicate, $load_multi_category, 'special_category', 'product_category_id');
+		}
+
+		if(a($_args, 'special_products'))
+		{
+			$products = $_args['special_products'];
+			$products = array_map('floatval', $products);
+			$products = array_filter($products);
+			$products = array_unique($products);
+
+			$load_multi_products = [];
+
+			if($products)
+			{
+				$load_multi_products = \lib\db\products\get::by_multi_id(implode(',', $products));
+
+				if(!is_array($load_multi_products))
+				{
+					$load_multi_products = [];
+				}
+			}
+
+			self::sync_data($_id, $load_current_decicate, $load_multi_products, 'special_products', 'product_id');
 		}
 	}
 
 
-	private static function sync_data($_load_current_decicate, $_special_data, $_type, $_field)
+	private static function sync_data($_id, $_load_current_decicate, $_special_data, $_type, $_field)
 	{
 		$category_ids = array_column($_special_data, 'id');
 
