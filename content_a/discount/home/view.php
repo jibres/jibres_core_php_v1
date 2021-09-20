@@ -17,6 +17,36 @@ class view
 		\dash\data::back_direct(true);
 
 		\dash\data::include_adminPanelBuilder(true);
+
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(\lib\app\discount\filter::list());
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\lib\app\discount\filter::sort_list());
+
+		$args =
+		[
+			'order'       => \dash\request::get('order'),
+			'sort'        => \dash\request::get('sort'),
+			'status'      => \dash\request::get('status'),
+
+		];
+
+		$search_string = \dash\validate::search_string();
+		$postList      = \lib\app\discount\search::list($search_string, $args, true);
+
+		\dash\data::dataTable($postList);
+
+		$isFiltered = \lib\app\discount\search::is_filtered();
+		\dash\data::isFiltered($isFiltered);
+
+		if($isFiltered)
+		{
+			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
+		}
+
+
 	}
 }
 ?>

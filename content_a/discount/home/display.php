@@ -1,11 +1,36 @@
-<?php $dashboardData = \dash\data::dashboardData(); ?>
+<?php
 
-    <div class="box">
-      <div class='font-16'>
-        <select class="select22" data-model='html' data-ajax--url="<?php echo \dash\url::here() ?>/setting/search/full" data-shortkey-search data-placeholder="<?php echo T_("Search") ?>"></select>
-      </div>
-    </div>
 
-<?php if(\dash\permission::check('_group_products')) {?>
-   <div id="chartdiv" class="box chart x400" data-abc='a/homepage'></div>
-<?php } //endif ?>
+$html = '';
+$html .= '<nav class="items">';
+$html .= '<ul>';
+foreach (\dash\data::dataTable() as $key => $value)
+{
+
+  $date_title = '';
+  if(a($value, 'datemodified'))
+  {
+    $date_title .= T_("Date modified"). ': '. \dash\fit::date_time(a($value, 'datemodified')). "\n";
+  }
+  if(a($value, 'publishdate'))
+  {
+    $date_title .= T_("Publish date"). ': '. \dash\fit::date_time(a($value, 'publishdate'));
+  }
+
+    $html .= '<li>';
+    $html .= '<a class="item f align-center" href="'. \dash\url::this(). '/edit?id='.  a($value, 'id'). '">';
+
+    $html .= '<div class="key">'.  a($value, 'code'). '</div>';
+    $html .= '<time class="value" datatime="'. $date_title. '">'. \dash\fit::date_time(a($value, 'datecreated')). '</time>';
+    $html .= '<div class="go"></div>';
+    $html .= '</a>';
+    $html .= '</li>';
+
+}
+$html .= '</ul>';
+$html .= '</nav>';
+
+echo $html;
+
+\dash\utility\pagination::html();
+?>
