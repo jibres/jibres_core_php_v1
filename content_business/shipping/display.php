@@ -1,3 +1,8 @@
+<?php if(\dash\url::isLocal()) {?>
+<form method="get" id='discountform' class="hide" autocomplete="new-password" action="<?php echo \dash\url::current(); ?>">
+</form>
+<?php } //endif ?>
+
 <form method="post" id='shippingForm' autocomplete="new-password">
   <div class="avand shippingPage">
     <div class="row">
@@ -40,7 +45,19 @@
             </div>
           <?php } // endif ?>
         <?php } //endif ?>
+
         <?php addNewAddress(\dash\data::addressDataTable()); ?>
+
+         <?php if(\dash\url::isLocal()) {?>
+          <div class="box">
+            <div class="body">
+              <div class="input">
+                <input type="text" name="discount" form="discountform" value="<?php echo \dash\request::get('discount'); ?>">
+                <button class="btn addon success" form="discountform"><?php echo T_("Apply") ?></button>
+              </div>
+            </div>
+          </div>
+        <?php } //endif ?>
 
         <?php if(\dash\data::shippingSurveyForm()) { echo \lib\app\form\generator::shipping_survey(\dash\data::shippingSurveyForm());} ?>
         <div class="box">
