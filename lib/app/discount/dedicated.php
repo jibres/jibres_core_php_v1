@@ -83,51 +83,57 @@ class dedicated
 			{
 				$load_multi_category = [];
 			}
-			
-			$category_ids = array_column($load_multi_category, 'id');
 
-			$must_insert = [];
-			$must_remove = [];
+			self::sync_data($load_current_decicate, $load_multi_category, 'special_category', 'product_category_id');
+		}
+	}
 
-			if($load_current_decicate['special_category'] && !$category_ids)
+
+	private static function sync_data($_load_current_decicate, $_special_data, $_type, $_field)
+	{
+		$category_ids = array_column($_special_data, 'id');
+
+		$must_insert = [];
+		$must_remove = [];
+
+		if($_load_current_decicate[$_type] && !$category_ids)
+		{
+			$must_remove = array_column($_load_current_decicate[$_type], 'id');
+		}
+		elseif(!$_load_current_decicate[$_type] && $category_ids)
+		{
+			$must_insert = $category_ids;
+		}
+		else
+		{
+			$current_ids = array_column($_load_current_decicate[$_type], $_field, 'id');
+
+			$must_remove = array_keys(array_diff($current_ids, $category_ids));
+			$must_insert = array_diff($category_ids, $current_ids);
+
+		}
+
+		if($must_insert)
+		{
+			$multi_insert = [];
+
+			foreach ($must_insert as $key => $value)
 			{
-				$must_remove = array_column($load_current_decicate['special_category'], 'id');
-			}
-			elseif(!$load_current_decicate['special_category'] && $category_ids)
-			{
-				$must_insert = $category_ids;
-			}
-			else
-			{
-				$current_ids = array_column($load_current_decicate['special_category'], 'product_category_id', 'id');
-
-				$must_remove = array_keys(array_diff($current_ids, $category_ids));
-				$must_insert = array_diff($category_ids, $current_ids);
-
+				$multi_insert[] =
+				[
+					'discount_id' => $_id,
+					'type'        => $_type,
+					$_field       => $value,
+					'datecreated' => date("Y-m-d H:i:s"),
+				];
 			}
 
-			if($must_insert)
-			{
-				$multi_insert = [];
+			\lib\db\discount_dedicated\insert::multi_insert($multi_insert);
+		}
 
-				foreach ($must_insert as $key => $value)
-				{
-					$multi_insert[] =
-					[
-						'discount_id'         => $_id,
-						'type'                => 'special_category',
-						'product_category_id' => $value,
-						'datecreated'         => date("Y-m-d H:i:s"),
-					];
-				}
-
-				\lib\db\discount_dedicated\insert::multi_insert($multi_insert);
-			}
-
-			if($must_remove)
-			{
-				\lib\db\discount_dedicated\delete::multi_remove($must_remove);
-			}
+		if($must_remove)
+		{
+			\lib\db\discount_dedicated\delete::multi_remove($must_remove);
 		}
 	}
 
