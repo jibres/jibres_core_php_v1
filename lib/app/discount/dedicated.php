@@ -66,6 +66,23 @@ class dedicated
 			}
 
 		}
+
+
+		if($result['special_customer'])
+		{
+			$load_multi_products = \dash\db\users\get::by_multi_id(implode(',', array_column($result['special_customer'], 'customer_id')));
+
+			$load_multi_products = array_combine(array_column($load_multi_products, 'id'), $load_multi_products);
+
+			foreach ($result['special_customer'] as $key => $value)
+			{
+				if(isset($load_multi_products[a($value, 'customer_id')]['displayname']))
+				{
+					$result['special_customer'][$key]['customer_name'] = trim($load_multi_products[a($value, 'customer_id')]['displayname']. ' '. \dash\fit::text(a($load_multi_products, a($value, 'customer_id'), 'mobile')));
+				}
+			}
+
+		}
 		return $result;
 	}
 
@@ -157,6 +174,30 @@ class dedicated
 			}
 
 			self::sync_data($_id, $load_current_decicate, [$group], 'special_customer_group', 'specailvalue');
+		}
+
+
+		if(a($_args, 'special_customer'))
+		{
+			$users = $_args['special_customer'];
+
+			$users = array_map(['\\dash\\coding', 'decode'], $users);
+			$users = array_filter($users);
+			$users = array_unique($users);
+
+			$load_multi_users = [];
+
+			if($users)
+			{
+				$load_multi_users = \dash\db\users\get::by_multi_id(implode(',', $users));
+
+				if(!is_array($load_multi_users))
+				{
+					$load_multi_users = [];
+				}
+			}
+
+			self::sync_data($_id, $load_current_decicate, $load_multi_users, 'special_customer', 'customer_id');
 		}
 	}
 

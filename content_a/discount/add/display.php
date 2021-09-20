@@ -337,14 +337,14 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div class="radio1">';
 				{
-					$html .= '<input type="radio" name="customer" value="everyone" id="customer-everyone" checked>';
+					$html .= '<input type="radio" name="customer" value="everyone" id="customer-everyone" '.((a($dataRow, 'customer') === 'everyone' || !a($dataRow, 'customer')) ? 'checked' : '').'>';
 					$html .= '<label for="customer-everyone">'. T_("Everyone"). '</label>';
 				}
 				$html .= '</div>';
 
 				$html .= '<div class="radio1">';
 				{
-					$html .= '<input type="radio" name="customer" value="special_customer_group" id="customer-special_customer_group">';
+					$html .= '<input type="radio" name="customer" value="special_customer_group" id="customer-special_customer_group" '.(a($dataRow, 'customer') === 'special_customer_group' ? 'checked' : '').'>';
 					$html .= '<label for="customer-special_customer_group">'. T_("Special group of customers"). '</label>';
 				}
 				$html .= '</div>';
@@ -388,7 +388,7 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div class="radio1">';
 				{
-					$html .= '<input type="radio" name="customer" value="special_customer" id="customer-special_customer">';
+					$html .= '<input type="radio" name="customer" value="special_customer" id="customer-special_customer" '.(a($dataRow, 'customer') === 'special_customer' ? 'checked' : '').'>';
 					$html .= '<label for="customer-special_customer">'. T_("Special customers"). '</label>';
 				}
 				$html .= '</div>';
@@ -401,11 +401,21 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div data-response="customer" data-response-where="special_customer" '.$data_response_hide.'>';
 				{
-					$html .= '<select name="special_customer[]" id="special_customer" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/member/api?json=true'.'" data-placeholder="'. T_('Search in customers'). '">';
-						foreach ([] as $key => $value)
+					$html .= '<select name="special_customer[]" id="special_customer" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true&mode=text'.'" data-placeholder="'. T_('Search in customers'). '">';
+
+					 	$current_customer = [];
+
+						if(is_array(a($dedicated, 'special_customer')))
 						{
-							$html .= '<option value="<?php echo $value["title"]; ?>" selected><?php echo $value["title"]; ?></option>';
+							$current_customer = $dedicated['special_customer'];
 						}
+
+
+						foreach ($current_customer as $key => $value)
+						{
+							$html .= '<option value="'. \dash\coding::encode(a($value, 'customer_id')). '" selected>'.a($value, 'customer_name').'</option>';
+						}
+
 						$html .= '</select>';
 				}
 				$html .= '</div>';
