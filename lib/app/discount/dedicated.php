@@ -4,6 +4,16 @@ namespace lib\app\discount;
 
 class dedicated
 {
+	public static function customer_group()
+	{
+		return
+		[
+			['key' => 'notsale', 'title' => T_("Customers who have not yet purchased")],
+			['key' => 'havesale', 'title' => T_("Customers who have purchased")],
+		];
+	}
+
+
 	public static function load_all_dedicated($_id, $_raw = false)
 	{
 		$id = \dash\validate::id($_id);
@@ -130,30 +140,48 @@ class dedicated
 
 			self::sync_data($_id, $load_current_decicate, $load_multi_products, 'special_products', 'product_id');
 		}
+
+		if(a($_args, 'customer_group'))
+		{
+			$group_key = $_args['customer_group'];
+
+			$all_group_list = self::customer_group();
+
+			if(!in_array($group_key, array_column($all_group_list, 'key')))
+			{
+				$group = [];
+			}
+			else
+			{
+				$group = ['id' => $group_key];
+			}
+
+			self::sync_data($_id, $load_current_decicate, [$group], 'special_customer_group', 'specailvalue');
+		}
 	}
 
 
 	private static function sync_data($_id, $_load_current_decicate, $_special_data, $_type, $_field)
 	{
-		$category_ids = array_column($_special_data, 'id');
+		$data_ids = array_column($_special_data, 'id');
 
 		$must_insert = [];
 		$must_remove = [];
 
-		if($_load_current_decicate[$_type] && !$category_ids)
+		if($_load_current_decicate[$_type] && !$data_ids)
 		{
 			$must_remove = array_column($_load_current_decicate[$_type], 'id');
 		}
-		elseif(!$_load_current_decicate[$_type] && $category_ids)
+		elseif(!$_load_current_decicate[$_type] && $data_ids)
 		{
-			$must_insert = $category_ids;
+			$must_insert = $data_ids;
 		}
 		else
 		{
 			$current_ids = array_column($_load_current_decicate[$_type], $_field, 'id');
 
-			$must_remove = array_keys(array_diff($current_ids, $category_ids));
-			$must_insert = array_diff($category_ids, $current_ids);
+			$must_remove = array_keys(array_diff($current_ids, $data_ids));
+			$must_insert = array_diff($data_ids, $current_ids);
 
 		}
 

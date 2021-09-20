@@ -359,22 +359,25 @@ $html .= '<div class="max-w-xl m-auto">';
 				{
 					$html .= '<select name="customer_group" id="customer_group" class="select22">';
 					{
-						$customer_group =
-						[
-							['key' => 'all', 'title' => T_("All customer")],
-							['key' => 'notsale', 'title' => T_("Not sale")],
-							['key' => 'havesale', 'title' => T_("Have sale")],
-						];
+						$customer_group = \lib\app\discount\dedicated::customer_group();
+
+						$current_group = [];
+
+						if(is_array(a($dedicated, 'special_customer_group')))
+						{
+							$current_group = array_column($dedicated['special_customer_group'], 'specailvalue');
+						}
 
 						foreach ($customer_group as $key => $value)
 						{
-
 							$html .= '<option value="'. $value['key']. '" ';
-							if(false)
+
+							if(in_array($value['key'], $current_group))
 							{
 								$html .= ' selected';
 							}
 							$html .= '>';
+
 							$html .= $value['title'];
 							$html .= '</option>';
 						}
