@@ -62,6 +62,15 @@ class site_list
 	private static function getNeededField($_data)
 	{
 
+		if(\dash\request::get('mode') === 'text')
+		{
+			return
+			[
+				'id' => a($_data, 'id'),
+				'text' => trim(a($_data, 'displayname'). ' '. \dash\fit::text(a($_data, 'mobile'))),
+			];
+		}
+
 		// $myName = '<img class="ui avatar image" src="'.  $value['avatar'] .'">';
 		// $myName .= '<span class="pRa10">'. \dash\fit::number($value['code'], false). '</span>';
 		// $myName .= '   '. $value['firstname']. ' <b>'. $value['lastname']. '</b> <small class="badge light mLa5">'. $value['father'].'</small>';
