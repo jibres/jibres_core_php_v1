@@ -620,6 +620,7 @@ class cleanse
 			case 'real_html_full': 		$data = \dash\validate\text::html_full(...$fn_args); 				break;
 
 			case 'username': 			$data = \dash\validate\text::username(...$fn_args); 				break;
+			case 'discount_code':		$data = \dash\validate\text::discount_code(...$fn_args); 			break;
 			case 'slug': 				$data = \dash\validate\text::slug(...$fn_args); 					break;
 			case 'barcode': 			$data = \dash\validate\text::barcode(...$fn_args); 					break;
 			case 'sku': 				$data = \dash\validate\text::sku(...$fn_args); 						break;

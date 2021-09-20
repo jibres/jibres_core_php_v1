@@ -11,7 +11,7 @@ class check
 		$condition =
 		[
 
-			'code'             => 'username',
+			'code'             => 'discount_code',
 			'type'             => ['enum' => ['percentage','fixed_amount', 'free_shipping', 'buy_x_get_y', 'automatic']],
 			'minrequirements'  => ['enum' => ['none','amount', 'quantity']],
 			'percentage'       => 'percent',

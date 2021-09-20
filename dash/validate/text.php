@@ -499,6 +499,83 @@ class text
 	}
 
 
+	public static function discount_code($_data, $_notif = false, $_element = null, $_field_title = null)
+	{
+
+		$data = self::string($_data, $_notif, $_element, $_field_title, ['min' => 2, 'max' => 50]);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		$data = \dash\utility\convert::to_en_number($data);
+
+		$data_before = $data;
+
+		$data = preg_replace("/\_{2,}/", "_", $data);
+		$data = preg_replace("/\-{2,}/", "-", $data);
+		$data = str_replace('_-',  '', $data);
+		$data = str_replace('-_',  '', $data);
+
+		$data = trim($data, '_-');
+
+		$data = mb_strtolower($data);
+
+		if(!$data)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Discount code should contain a valid Latin letter"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		if(mb_strlen($data_before) !== mb_strlen($data))
+		{
+			\dash\notif::warn(T_("We have removed _- characters from discount code"), ['element' => $_element, 'code' => 1700]);
+		}
+
+		// duble check because we remove some data
+		if(mb_strlen($data) < 2)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Field discount code must be larger than 2 character"), ['element' => $_element, 'code' => 1607]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+
+		}
+
+
+		if(!preg_match("/^[A-Za-z0-9_-]+$/", $data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Only [A-Za-z0-9_-] can use in discount code"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+
+		if(is_numeric($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Discount code should contain a Latin letter"), ['element' => $_element, 'code' => 1750]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+
+		return $data;
+	}
+
+
 
 	public static function email_raw($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
