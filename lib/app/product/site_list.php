@@ -88,6 +88,14 @@ class site_list
 
 	private static function getNeededField($_data)
 	{
+		if(\dash\request::get('mode') === 'text')
+		{
+			return
+			[
+				'id'       => a($_data, 'id'),
+				'text'     => a($_data, 'title'),
+			];
+		}
 
 		// $myName = '<img class="ui avatar image" src="'.  $value['avatar'] .'">';
 		// $myName .= '<span class="pRa10">'. \dash\fit::number($value['code']). '</span>';
