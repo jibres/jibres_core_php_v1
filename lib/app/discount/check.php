@@ -78,6 +78,11 @@ class check
 			$data['enddate']   = trim($data['enddate']. ' '. $data['endtime']);
 		}
 
+		if(!$data['setenddate'])
+		{
+			$data['enddate'] = null;
+		}
+
 		if($data['startdate'] && $data['enddate'])
 		{
 			if(strtotime($data['enddate'])  < strtotime($data['startdate']))
