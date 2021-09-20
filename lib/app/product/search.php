@@ -401,8 +401,11 @@ class search
 		}
 
 
-		$price_desc_sort = " ORDER BY IF(products.variant_child, (SELECT MAX(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s) %s ";
-		$price_asc_sort  = " ORDER BY IF(products.variant_child, (SELECT MIN(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s) %s ";
+		$price_desc_sort = "ISNULL(products.%s), IF(products.variant_child, (SELECT MAX(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s)";
+		$price_asc_sort  = "ISNULL(products.%s), IF(products.variant_child, (SELECT MIN(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s)";
+		$instock_first   = "FIELD(products.instock, 'yes', NULL, 'no')";
+
+		$order = null;
 
 		if($data['sort'] && !$order_sort)
 		{
@@ -412,7 +415,6 @@ class search
 			if($check_order_trust)
 			{
 				$sort = mb_strtolower($data['sort']);
-				$order = null;
 				if($data['order'])
 				{
 					$order = mb_strtolower($data['order']);
@@ -422,16 +424,16 @@ class search
 				{
 					if($order === 'asc')
 					{
-						$order_sort = sprintf($price_asc_sort, $sort, $sort, $order);
+						$order_sort = sprintf($price_asc_sort, $sort, $sort, $sort);
 					}
 					else
 					{
-						$order_sort = sprintf($price_desc_sort, $sort, $sort, $order);
+						$order_sort = sprintf($price_desc_sort, $sort, $sort, $sort);
 					}
 				}
 				else
 				{
-					$order_sort = " ORDER BY $sort $order";
+					$order_sort = " $sort $order";
 				}
 
 			}
@@ -439,7 +441,7 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY products.id DESC";
+			$order_sort = " products.id DESC";
 		}
 
 
@@ -448,24 +450,24 @@ class search
 			switch ($data['website_order'])
 			{
 				case 'oldest':
-					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), products.id ASC";
+					$order_sort = "products.id ASC";
 					break;
 
 				case 'random':
-					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), RAND() ";
+					$order_sort = "RAND() ";
 					break;
 
 				case 'expensive':
-					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), products.finalprice DESC ";
+					$order_sort = "products.finalprice DESC ";
 					break;
 
 				case 'inexpensive':
-					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), ISNULL(products.finalprice), products.finalprice ASC ";
+					$order_sort = "ISNULL(products.finalprice), products.finalprice ASC ";
 					break;
 
 				case 'latest':
 				default:
-					$order_sort = " ORDER BY FIELD(products.instock, 'yes'), products.id DESC";
+					$order_sort = "products.id DESC";
 					break;
 			}
 		}
@@ -474,21 +476,28 @@ class search
 		{
 			$sort       = 'discount';
 			$order      = 'desc';
-			$order_sort = sprintf($price_desc_sort, $sort, $sort, $order);
+			$order_sort = sprintf($price_desc_sort, $sort, $sort, $sort);
 		}
 
 		if($data['exp'] === 'y')
 		{
 			$sort       = 'finalprice';
 			$order      = 'desc';
-			$order_sort = sprintf($price_desc_sort, $sort, $sort, $order);
+			$order_sort = sprintf($price_desc_sort, $sort, $sort, $sort);
 		}
 		elseif($data['exp'] === 'n')
 		{
 			$sort       = 'finalprice';
 			$order      = 'asc';
-			$order_sort = sprintf($price_asc_sort, $sort, $sort, $order);
+			$order_sort = sprintf($price_asc_sort, $sort, $sort, $sort);
 		}
+
+		if($data['websitemode'] || $data['website_order'])
+		{
+			$order_sort = " $instock_first, $order_sort";
+		}
+
+		$order_sort = " ORDER BY $order_sort $order";
 
 		$and = array_merge($and, $_where);
 
