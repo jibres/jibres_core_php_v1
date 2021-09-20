@@ -12,8 +12,11 @@ class view
 		\dash\data::include_adminPanelBuilder(true);
 
 		\dash\face::btnSave('savehtmlform');
+		\dash\face::btnSaveForm(false);
 		\dash\face::btnSaveText(T_("Save HTML"));
 		\dash\face::btnSaveClass('btn-secondary');
+		\dash\face::btnSaveName('savehtml');
+		\dash\face::btnSaveValue('html');
 
 		if(\dash\data::mySectionID())
 		{
