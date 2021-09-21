@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		$title = T_("Pay"). ' ('. \dash\fit::number(\lib\app\cart\get::my_cart_total(true)). ')';
+		$title = T_("Pay"). ' ('. \dash\fit::text(\lib\app\cart\get::my_cart_total(true)). ')';
 		\dash\face::titlePWA($title);
 		\dash\face::title($title);
 

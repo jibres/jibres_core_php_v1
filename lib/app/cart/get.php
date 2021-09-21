@@ -37,7 +37,7 @@ class get
 
 	public static function my_cart_total($_full = false)
 	{
-		$detail = \lib\app\cart\search::my_detail();
+		$detail = \lib\app\cart\search::my_detail_summary(\lib\app\cart\search::my_detail());
 
 		if(isset($detail['total']))
 		{
