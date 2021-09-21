@@ -245,7 +245,7 @@ class pwa_menu
 				'icon' => 'shopping-cart',
 				'img'   => 'cart',
 				'title' => T_('Cart'),
-				'cartItem' => \dash\fit::number(\lib\app\cart\get::my_cart_count()),
+				'cartItem' => \dash\fit::number(\dash\data::myCart_count()),
 
 			],
 			'profile' =>
@@ -376,7 +376,7 @@ class pwa_menu
 
 	public static function businessCartPage()
 	{
-		if(!\lib\app\cart\get::my_cart_count())
+		if(!\dash\data::myCart_count())
 		{
 			return	self::businessWebsite();
 		}
@@ -386,14 +386,14 @@ class pwa_menu
 			'cart' =>
 			[
 				'href' => \dash\url::kingdom(). '/shipping',
-				'title' => T_('Buy'). ' ( '. \dash\fit::number(\lib\app\cart\get::my_cart_count()). ' )',
+				'title' => T_('Buy'). ' ( '. \dash\fit::number(\dash\data::myCart_count()). ' )',
 				'class' => 'pwafooterGoShipping',
 			],
 
 			'total' =>
 			[
 				'href' => \dash\url::kingdom(). '/shipping',
-				'title' => \dash\fit::number(\lib\app\cart\get::my_cart_total(true)),
+				'title' => \dash\fit::number(\dash\data::myCart_total_full()),
 				'class' => 'pwafooterGoShipping',
 			],
 		];
@@ -406,7 +406,7 @@ class pwa_menu
 
 	public static function businessShippingPage()
 	{
-		if(!\lib\app\cart\get::my_cart_count())
+		if(!\dash\data::myCart_count())
 		{
 			return	self::businessWebsite();
 		}
@@ -416,7 +416,7 @@ class pwa_menu
 			'cart' =>
 			[
 				'form' => 'shippingForm',
-				'title' => T_('Pay'). ' '. \dash\fit::number(\lib\app\cart\get::my_cart_total(true)),
+				'title' => T_('Pay'). ' '. \dash\fit::number(\dash\data::myCart_total_full()),
 				'class' => 'pwafooterPay',
 			],
 		];

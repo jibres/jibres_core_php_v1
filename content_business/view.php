@@ -77,14 +77,22 @@ class view
 
 		$cart_summary = \lib\app\cart\search::my_detail_summary($cart_detail);
 
+		$total_full = null;
+
+		if(isset($cart_summary['total']))
+		{
+			$total_full =  $cart_summary['total']. ' '. \lib\store::currency();
+		}
+
 		\dash\data::cartSummary($cart_summary);
 
 		$cart_setting = \lib\app\setting\get::cart_setting();
 		\dash\data::cartSettingSaved($cart_setting);
 
-		$myCart            = [];
-		$myCart['count']   = count($cart_detail);
-		$myCart['setting'] = $cart_setting;
+		$myCart               = [];
+		$myCart['count']      = count($cart_detail);
+		$myCart['setting']    = $cart_setting;
+		$myCart['total_full'] = $total_full;
 
 		\dash\data::myCart($myCart);
 	}
