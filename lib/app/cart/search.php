@@ -232,7 +232,7 @@ class search
 	}
 
 
-	public static function my_detail_summary($_detail)
+	public static function my_detail_summary($_detail, $_option = [])
 	{
 		if(!is_array($_detail))
 		{
@@ -261,27 +261,7 @@ class search
 		// only if have product calculate shipping
 		if(in_array('product', $all_type))
 		{
-			$shipping = \lib\app\setting\get::shipping_setting();
-
-			if(isset($shipping['sendbypost']) && is_numeric($shipping['sendbypost']) && isset($shipping['sendbypostprice']) && is_numeric($shipping['sendbypostprice']))
-			{
-				if(isset($shipping['freeshipping']) && is_numeric($shipping['freeshipping']) && isset($shipping['freeshippingprice']) && is_numeric($shipping['freeshippingprice']))
-				{
-					if(floatval($subtotal) >= floatval($shipping['freeshippingprice']))
-					{
-						$shipping_value = 0;
-					}
-					else
-					{
-						$shipping_value = floatval($shipping['sendbypostprice']);
-					}
-				}
-				else
-				{
-					$shipping_value = floatval($shipping['sendbypostprice']);
-				}
-			}
-
+			$shipping_value = \lib\app\factor\add::get_shipping_price($subtotal);
 		}
 
 		$result             = [];
@@ -292,6 +272,8 @@ class search
 		$result['subvat'] = $subvat;
 		$result['total']    = ($result['subtotal'] + $result['shipping']) - $result['discount'] + $result['subvat'];
 
+
+		// var_dump($result,func_get_args());exit;
 		return $result;
 
 	}
