@@ -22,6 +22,36 @@ class add
 		return $sum;
 	}
 
+
+	public static function get_shipping_price($_total)
+	{
+		$shipping_value = 0;
+
+		$shipping = \lib\app\setting\get::shipping_setting();
+
+		if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
+		{
+			if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
+			{
+				if(\lib\price::total_down($_total) >= floatval($shipping['freeshippingprice']))
+				{
+					$shipping_value = 0;
+				}
+				else
+				{
+					$shipping_value = floatval($shipping['sendbypostprice']);
+				}
+			}
+			else
+			{
+				$shipping_value = floatval($shipping['sendbypostprice']);
+			}
+		}
+
+		return $shipping_value;
+	}
+
+
 	public static function calculate_shipping_value($factor, $_option = [])
 	{
 		// in file mode not calculate shipping
@@ -41,26 +71,7 @@ class add
 		{
 			if(a($_option, 'mode') === 'customer')
 			{
-				$shipping = \lib\app\setting\get::shipping_setting();
-
-				if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
-				{
-					if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
-					{
-						if(\lib\price::total_down($factor['total']) >= floatval($shipping['freeshippingprice']))
-						{
-							$shipping_value = 0;
-						}
-						else
-						{
-							$shipping_value = floatval($shipping['sendbypostprice']);
-						}
-					}
-					else
-					{
-						$shipping_value = floatval($shipping['sendbypostprice']);
-					}
-				}
+				$shipping_value = self::get_shipping_price($factor['total']);
 			}
 			else
 			{
