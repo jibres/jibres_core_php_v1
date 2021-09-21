@@ -433,7 +433,7 @@ class search
 				}
 				else
 				{
-					$order_sort = " $sort $order";
+					$order_sort = " $sort ";
 				}
 
 			}
