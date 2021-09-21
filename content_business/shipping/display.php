@@ -82,10 +82,10 @@
         <div class="c-xs-12 c-sm-12 c-lg-4">
           <?php echo \lib\app\factor\schedule_order::message_html(); ?>
           <?php require_once(root. '/content_business/cart/cartSummary.php') ?>
-          <?php if(\dash\data::myCart()) {?>
+          <?php if(\dash\data::cartList()) {?>
                <nav class="items long">
                  <ul>
-                  <?php foreach (\dash\data::myCart() as $key => $value) {?>
+                  <?php foreach (\dash\data::cartList() as $key => $value) {?>
                    <li>
                     <a class="f" href="<?php echo a($value, 'url'); ?>">
                       <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo a($value, 'title');?>">

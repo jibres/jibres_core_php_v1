@@ -73,7 +73,7 @@ class view
 			$cart_detail = [];
 		}
 
-		\dash\data::dataTable($cart_detail);
+		\dash\data::cartList($cart_detail);
 
 		$cart_summary = \lib\app\cart\search::my_detail_summary($cart_detail);
 

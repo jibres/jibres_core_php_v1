@@ -1,12 +1,12 @@
 
 <section class="avand cartPage">
-<?php if(\dash\data::dataTable()) {?>
+<?php if(\dash\data::cartList()) {?>
  <h1><?php echo \dash\face::titlePWA() ?></h1>
  <div class="row">
   <div class="c-xs-12 c-sm-12 c-lg-8">
    <div class="box">
 
-<?php foreach (\dash\data::dataTable() as $key => $value) {?>
+<?php foreach (\dash\data::cartList() as $key => $value) {?>
     <div class="cartItem">
      <div class="row align-center">
       <div class="c-auto">
