@@ -6,6 +6,7 @@ class view
 {
 	public static function config()
 	{
+		// load cart detail once
 		\content_business\view::load_cart_detail();
 
 		$title = T_("Shopping Cart"). ' ('. \dash\fit::number(\dash\data::myCart_count()). ')';
