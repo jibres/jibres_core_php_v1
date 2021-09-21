@@ -52,7 +52,7 @@
           <div class="box">
             <div class="body">
               <div class="input">
-                <input type="text" name="discount" form="discountform" value="<?php echo \dash\request::get('discount'); ?>">
+                <input type="text" name="discount" autocomplete="off" form="discountform" value="<?php echo \dash\request::get('discount'); ?>">
                 <button class="btn addon success" form="discountform"><?php echo T_("Apply") ?></button>
               </div>
             </div>
