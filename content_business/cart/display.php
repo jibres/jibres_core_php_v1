@@ -1,3 +1,4 @@
+
 <section class="avand cartPage">
 <?php if(\dash\data::dataTable()) {?>
  <h1><?php echo \dash\face::titlePWA() ?></h1>

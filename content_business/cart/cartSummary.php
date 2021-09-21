@@ -37,7 +37,7 @@
      </dl>
     </div>
     <?php
-     $cart_setting = \lib\app\setting\get::cart_setting();
+     $cart_setting = \dash\data::myCart_setting();
     if(isset($cart_setting['minimumorderamount']) && $cart_setting['minimumorderamount'] && is_numeric($cart_setting['minimumorderamount']))
     {
       $total = \dash\data::cartSummary_total();
@@ -59,6 +59,6 @@
 
       <button type="submit" class="btn-danger lg block " ><?php echo T_("Pay"). ' ( '. \dash\fit::number(\dash\data::cartSummary_total()). ' )'; ?></button>
     <?php }else{ ?>
-      <a class="btn-danger lg block " href="<?php echo \dash\url::here() . '/shipping' ?>"><?php echo T_("BUY"). ' ( '. \dash\fit::number(\lib\app\cart\get::my_cart_count()). ' )'; ?></a>
+      <a class="btn-danger lg block " href="<?php echo \dash\url::here() . '/shipping' ?>"><?php echo T_("BUY"). ' ( '. \dash\fit::number(\dash\data::myCart_count()). ' )'; ?></a>
     <?php } //endif ?>
    </div>

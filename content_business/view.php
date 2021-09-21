@@ -4,6 +4,8 @@ namespace content_business;
 
 class view
 {
+	private static $load_cart_detail_once = false;
+
 	public static function config()
 	{
 		\dash\data::store(\lib\store::detail());
@@ -48,8 +50,43 @@ class view
 			\dash\face::twitterCard('summary');
 			\dash\face::logo($store_logo);
 		}
+	}
 
 
+	/**
+	 * Load cart detail.
+	 */
+	public static function load_cart_detail()
+	{
+		// check load one
+		if(self::$load_cart_detail_once)
+		{
+			return;
+		}
+
+		self::$load_cart_detail_once = true;
+
+		$cart_detail = \lib\app\cart\search::my_detail();
+
+		if(!is_array($cart_detail))
+		{
+			$cart_detail = [];
+		}
+
+		\dash\data::dataTable($cart_detail);
+
+		$cart_summary = \lib\app\cart\search::my_detail_summary($cart_detail);
+
+		\dash\data::cartSummary($cart_summary);
+
+		$cart_setting = \lib\app\setting\get::cart_setting();
+		\dash\data::cartSettingSaved($cart_setting);
+
+		$myCart            = [];
+		$myCart['count']   = count($cart_detail);
+		$myCart['setting'] = $cart_setting;
+
+		\dash\data::myCart($myCart);
 	}
 
 }
