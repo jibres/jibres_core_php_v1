@@ -428,23 +428,26 @@ class view
 		}
 		else
 		{
-			if($_generate_layout)
+			if(self::load_preview_mode())
 			{
-				if(isset($result['text_preview']) && ($section_key === 'html' || $section_key === 'text'))
+				if($_generate_layout)
 				{
-					$result['preview']['html_text'] = $result['text_preview'];
-				}
-
-				$result['preview'] = \content_site\assemble\fire::me($result['preview']);
-
-
-				$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
-
-				if(\dash\request::get('psid') && is_numeric(\dash\request::get('psid')))
-				{
-					if(floatval(a($result, 'id')) !== floatval(\dash\request::get('psid')))
+					if(isset($result['text_preview']) && ($section_key === 'html' || $section_key === 'text'))
 					{
-						$result['preview_layout'] = null;
+						$result['preview']['html_text'] = $result['text_preview'];
+					}
+
+					$result['preview'] = \content_site\assemble\fire::me($result['preview']);
+
+
+					$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
+
+					if(\dash\request::get('psid') && is_numeric(\dash\request::get('psid')))
+					{
+						if(floatval(a($result, 'id')) !== floatval(\dash\request::get('psid')))
+						{
+							$result['preview_layout'] = null;
+						}
 					}
 				}
 			}
@@ -456,7 +459,7 @@ class view
 		// 	\dash\data::xhrHtml($result['preview_layout']);
 		// }
 
-		if(\dash\request::get('preview') === md5(\dash\data::currentPageDetail_datecreated()))
+		if(self::load_preview_mode())
 		{
 			$result['body']        = $result['preview'];
 			$result['body_layout'] = $result['preview_layout'];
@@ -491,6 +494,18 @@ class view
 
 
 		return $result;
+	}
+
+
+
+	/**
+	 * Check need load preview mode or no
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function load_preview_mode()
+	{
+		return \dash\request::get('preview') === md5(\dash\data::currentPageDetail_datecreated());
 	}
 
 
