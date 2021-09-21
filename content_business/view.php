@@ -89,10 +89,25 @@ class view
 		$cart_setting = \lib\app\setting\get::cart_setting();
 		\dash\data::cartSettingSaved($cart_setting);
 
+
+
+		if(is_array($cart_detail))
+		{
+			$allType = array_column($cart_detail, 'type');
+			if(count($allType) === 1 && a($allType, 0) === 'file')
+			{
+				\dash\data::fileMode(true);
+			}
+		}
+
 		$myCart               = [];
 		$myCart['count']      = count($cart_detail);
 		$myCart['setting']    = $cart_setting;
 		$myCart['total_full'] = $total_full;
+
+		// pwa header
+		// \dash\data::menu_link(true);
+		\dash\data::cart_link(\dash\fit::number($myCart['count']));
 
 		\dash\data::myCart($myCart);
 	}

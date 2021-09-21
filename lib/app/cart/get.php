@@ -35,22 +35,6 @@ class get
 		return $user_cart_count;
 	}
 
-	public static function my_cart_total($_full = false)
-	{
-		$detail = \lib\app\cart\search::my_detail_summary(\lib\app\cart\search::my_detail());
-
-		if(isset($detail['total']))
-		{
-			$result =  $detail['total'];
-
-			if($_full)
-			{
-				$result .= ' '. \lib\store::currency();
-			}
-
-			return $result;
-		}
-	}
 
 
 	public static function my_cart_list()

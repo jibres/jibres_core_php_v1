@@ -63,7 +63,6 @@ class view
 		}
 		// pwa header
 		// \dash\data::menu_link(true);
-		\dash\data::cart_link(\dash\fit::number(\lib\app\cart\get::my_cart_count()));
 		\dash\data::search_link(\dash\url::kingdom().'/search');
 
 

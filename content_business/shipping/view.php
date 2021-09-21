@@ -6,7 +6,9 @@ class view
 {
 	public static function config()
 	{
-		$title = T_("Pay"). ' ('. \dash\fit::text(\lib\app\cart\get::my_cart_total(true)). ')';
+
+
+		$title = T_("Pay"). ' ('. \dash\fit::text(\dash\data::myCart_total_full()). ')';
 		\dash\face::titlePWA($title);
 		\dash\face::title($title);
 
@@ -28,34 +30,10 @@ class view
 		$shipping_setting = \lib\app\setting\get::shipping_setting();
 		\dash\data::shippingSettingSaved($shipping_setting);
 
-		self::cart_detail();
-
-		$cartSummary = \lib\app\cart\search::my_detail_summary(\lib\app\cart\search::my_detail());
-		\dash\data::cartSummary($cartSummary);
-
-		$cart_setting = \lib\app\setting\get::cart_setting();
-		\dash\data::cartSettingSaved($cart_setting);
-
 
 		self::static_var();
 	}
 
-
-	public static function cart_detail()
-	{
-
-		$myCart = \lib\app\cart\search::my_detail();
-		\dash\data::myCart($myCart);
-
-		if(is_array($myCart))
-		{
-			$allType = array_column($myCart, 'type');
-			if(count($allType) === 1 && a($allType, 0) === 'file')
-			{
-				\dash\data::fileMode(true);
-			}
-		}
-	}
 
 	private static function static_var()
 	{
