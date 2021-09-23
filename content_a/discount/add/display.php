@@ -115,10 +115,18 @@ $html .= '<div class="max-w-xl m-auto">';
 
 					$html .= '<div data-response="type" data-response-where="percentage" '.$data_response_hide.'>';
 					{
-						$html .= '<label for="percentage">'. T_("Discount value"). '</label>';
+						$html .= '<label for="percentage">'. T_("Discount value"). ' ('. T_("%") . ') </label>';
 						$html .= '<div class="input">';
 						{
 							$html .= '<input type="tel" name="percentage" id="percentage" value="'.a($dataRow,'percentage').'" placeholder="'.T_("%").'" maxlength="3">';
+						}
+						$html .= '</div>';
+
+
+						$html .= '<label for="maxamount">'. T_("Maximum amount"). '</label>';
+						$html .= '<div class="input">';
+						{
+							$html .= '<input type="tel" name="maxamount" id="maxamount" value="'.round(a($dataRow, 'maxamount')).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
 						}
 						$html .= '</div>';
 
@@ -133,7 +141,7 @@ $html .= '<div class="max-w-xl m-auto">';
 
 					$html .= '<div data-response="type" data-response-where="fixed_amount" '.$data_response_hide.'>';
 					{
-						$html .= '<label for="fixedamount">'. T_("Discount value"). '</label>';
+						$html .= '<label for="fixedamount">'. T_("Discount value"). ' ('.  $currency. ') </label>';
 						$html .= '<div class="input">';
 						{
 							$html .= '<input type="tel" name="fixedamount" id="fixedamount" value="'.a($dataRow, 'fixedamount').'" placeholder="'. $currency.'">';
@@ -142,13 +150,6 @@ $html .= '<div class="max-w-xl m-auto">';
 					}
 					$html .= '</div>';
 
-
-					$html .= '<label for="maxamount">'. T_("Maximum amount"). '</label>';
-					$html .= '<div class="input">';
-					{
-						$html .= '<input type="tel" name="maxamount" id="maxamount" value="'.round(a($dataRow, 'maxamount')).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
-					}
-					$html .= '</div>';
 				}
 				$html .= '</div>';
 			}
