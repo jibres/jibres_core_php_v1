@@ -122,6 +122,11 @@ class check
 
 		}
 
+		if(!$data['set_usagetotal'])
+		{
+			$data['usagetotal'] = null;
+		}
+
 		unset($data['starttime']);
 		unset($data['endtime']);
 		unset($data['set_usagetotal']);

@@ -155,6 +155,7 @@ class checkout
 
 		$factor             = [];
 		$factor['type'] = 'saleorder';
+		$factor['customer'] = \dash\user::code();
 
 		$factor_detail = [];
 

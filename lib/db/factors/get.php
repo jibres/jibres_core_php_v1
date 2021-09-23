@@ -4,6 +4,22 @@ namespace lib\db\factors;
 class get
 {
 
+	public static function user_discount_usage_count($_discount_id, $_user_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id AND factors.discount_id = $_discount_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
+	public static function discount_usage_total_count($_discount_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.discount_id = $_discount_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
+
+
 	public static function count_group_by_month_fuel($_fuel, $_dbname)
 	{
 		$query  =

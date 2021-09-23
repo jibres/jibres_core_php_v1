@@ -5,6 +5,22 @@ namespace lib\db\productcategoryusage;
 class get
 {
 
+	public static function get_product_id_in_category_ids($_product_ids, $_category_ids)
+	{
+		$query =
+		"
+			SELECT
+				productcategoryusage.product_id AS `product_id`
+			FROM
+				productcategoryusage
+			WHERE
+				productcategoryusage.product_id IN ($_product_ids) AND
+				productcategoryusage.productcategory_id IN ($_category_ids)
+		";
+		$result = \dash\db::get($query, 'product_id');
+		return $result;
+	}
+
 
 	public static function usage($_product_id)
 	{
