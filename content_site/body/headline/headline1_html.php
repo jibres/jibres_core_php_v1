@@ -25,7 +25,7 @@ class headline1_html
 
 				$html .= '<div class="text-sm sm:text-base" '.$color_text.'>';
 				{
-					$html .= a($_args, 'description');
+					$html .= nl2br(a($_args, 'description'));
 				}
 				$html .= '</div>';
 			}
