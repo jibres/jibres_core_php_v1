@@ -109,7 +109,12 @@ class add
 			'customer_mode'     => false,
 
 			// only calculate factor value for show in shipping page
-			'only_calculate' => false,
+			'only_calculate'    => false,
+
+			// the raw discount code
+			// need to check is valid
+			// fill discoutn2 on factors
+			'discount_code'     => null,
 
 			'start_transaction' => true,
 		];
@@ -152,6 +157,17 @@ class add
 			return false;
 		}
 
+		/*===========================================
+		=            Check discount code            =
+		===========================================*/
+		$check_discount_code = [];
+
+		if($_option['discount_code'])
+		{
+			$check_discount_code = \lib\app\factor\discount_check::get_result($_option['discount_code'], $factor, $factor_detail);
+		}
+		/*=====  End of Check discount code  ======*/
+
 
 		$factor['subprice']    = self::my_sum($factor_detail, 'sub_price_temp');
 		$factor['subdiscount'] = self::my_sum($factor_detail, 'sub_discount_temp');
@@ -160,11 +176,18 @@ class add
 		$factor['qty']         = self::my_sum($factor_detail, 'count');
 		$factor['item']        = count($factor_detail);
 
-		$factor['total']     = floatval($factor['subtotal']) - floatval($factor['discount']);
+		// calc discount2 from discount code
+		$factor['discount2'] = null;
+		if(a($check_discount_code, 'discount2'))
+		{
+			$factor['discount2'] = $check_discount_code['discount2'];
+		}
+
+		$factor['total']     = floatval($factor['subtotal']) - floatval($factor['discount']) - floatval($factor['discount2']);
 
 		if($factor['discount'])
 		{
-			if(floatval($factor['discount']) > floatval($factor['subtotal']))
+			if(floatval($factor['discount']) + floatval($factor['discount2']) > floatval($factor['subtotal']))
 			{
 				\dash\notif::error(T_("Discount is larger than order total"));
 				return false;
@@ -201,9 +224,9 @@ class add
 		$factor['mode']      = $mode;
 
 
-
 		if($_option['only_calculate'])
 		{
+			$factor['discount_code'] = $check_discount_code;
 			return $factor;
 		}
 

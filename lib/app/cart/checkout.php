@@ -87,14 +87,14 @@ class checkout
 	}
 
 
-	public static function shipping_detail()
+	public static function shipping_detail($_args = [])
 	{
-		return self::detail();
+		return self::detail($_args);
 	}
 
 
 
-	public static function detail()
+	public static function detail($_args = [])
 	{
 
 		/**
@@ -175,6 +175,7 @@ class checkout
 		[
 			'customer_mode'  => true,
 			'only_calculate' => true,
+			'discount_code'  => a($_args, 'discount_code'),
 		];
 
 
@@ -191,6 +192,7 @@ class checkout
 		];
 
 		$myCart['payableString'] = \dash\fit::number($myCart['summary']['total']). ' '. \lib\store::currency() ;
+		$myCart['discount_code'] = a($result, 'discount_code');
 
 
 		// var_dump($factor, $factor_detail, $factor_option, $result, $myCart);exit;

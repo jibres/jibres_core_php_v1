@@ -1,3 +1,6 @@
+<?php
+$myCart = \dash\data::myCart();
+?>
 <?php if(\dash\url::isLocal()) {?>
 <form method="get" id='discountform' class="hide" autocomplete="new-password" action="<?php echo \dash\url::current(); ?>">
 </form>
@@ -55,6 +58,9 @@
                 <input type="text" name="discount" autocomplete="off" form="discountform" value="<?php echo \dash\request::get('discount'); ?>">
                 <button class="btn addon success" form="discountform"><?php echo T_("Apply") ?></button>
               </div>
+              <?php if(a($myCart, 'discount_code', 'msg')) {?>
+                <div class="msg mT10 <?php echo a($myCart, 'discount_code', 'msg_class') ?>"><?php echo a($myCart, 'discount_code', 'msg') ?></div>
+              <?php } // ebduf ?>
             </div>
           </div>
         <?php } //endif ?>

@@ -11,8 +11,10 @@ class controller
 			\dash\redirect::to(\dash\url::kingdom());
 		}
 
+		$args = [];
+		// $args['discount_code'] = \dash\request::get('discount');
 		// load cart detail once
-		\lib\app\cart\checkout::shipping_detail();
+		\lib\app\cart\checkout::shipping_detail($args);
 
 
 		if(!\dash\data::myCart_count())
