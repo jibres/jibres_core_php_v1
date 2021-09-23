@@ -104,7 +104,13 @@ class add
 		[
 			'debug'             => true,
 			'factor_id'         => null,
-			'from_cart'         => false,
+
+			// customer try to add new factor by cart and shipping page
+			'customer_mode'     => false,
+
+			// only calculate factor value for show in shipping page
+			'only_calculate' => false,
+
 			'fileMode'          => false,
 			'start_transaction' => true,
 		];
@@ -124,7 +130,7 @@ class add
 			return false;
 		}
 
-		if(!$_option['from_cart'])
+		if(!$_option['customer_mode'])
 		{
 			// check permission to add new factor
 			\dash\permission::access('factorSaleAdd');
@@ -169,7 +175,7 @@ class add
 		// the factor mode
 		$mode = 'admin';
 
-		if($_option['from_cart'])
+		if($_option['customer_mode'])
 		{
 			// change factor mode to customer
 			$mode = 'customer';
@@ -188,6 +194,13 @@ class add
 		$factor['transport'] = null;
 		$factor['desc']      = $factor['desc'];
 		$factor['mode']      = $mode;
+
+
+
+		if($_option['only_calculate'])
+		{
+			return $factor;
+		}
 
 
 		// check max input size for factor
