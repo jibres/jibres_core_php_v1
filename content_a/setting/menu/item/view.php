@@ -64,6 +64,16 @@ class view
 			}
 		}
 
+
+		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'pages' && isset($dataRow['related_id']) && $dataRow['related_id'])
+		{
+			$loadPost = \dash\app\posts\get::get(\dash\coding::encode($dataRow['related_id']));
+			if(isset($loadPost['title']))
+			{
+				\dash\data::postTitle($loadPost['title']);
+			}
+		}
+
 		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'tags' && isset($dataRow['related_id']) && $dataRow['related_id'])
 		{
 			$loadTag = \lib\app\tag\get::get($dataRow['related_id']);

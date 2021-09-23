@@ -19,6 +19,7 @@ $addChildMode = \dash\data::addChildMode();
             <option value="homepage" <?php if(\dash\data::dataRow_pointer() === 'homepage') {echo 'selected';} ?>><?php echo T_("Home page") ?></option>
             <option value="products" <?php if(\dash\data::dataRow_pointer() === 'products') {echo 'selected';} ?>><?php echo T_("Products") ?></option>
             <option value="posts" <?php if(\dash\data::dataRow_pointer() === 'posts') {echo 'selected';} ?>><?php echo T_("Posts") ?></option>
+            <option value="pages" <?php if(\dash\data::dataRow_pointer() === 'pages') {echo 'selected';} ?>><?php echo T_("Pages") ?></option>
             <option value="tags" <?php if(\dash\data::dataRow_pointer() === 'tags') {echo 'selected';} ?>><?php echo T_("Tag of products") ?></option>
             <option value="hashtag" <?php if(\dash\data::dataRow_pointer() === 'hashtag') {echo 'selected';} ?>><?php echo T_("Hashtag of posts") ?></option>
             <option value="forms" <?php if(\dash\data::dataRow_pointer() === 'forms') {echo 'selected';} ?>><?php echo T_("Forms") ?></option>
@@ -46,6 +47,15 @@ $addChildMode = \dash\data::addChildMode();
 
        <div data-response='pointer' data-response-where='posts' <?php if(\dash\data::dataRow_pointer() === 'posts'){}else{ echo 'data-response-hide';} ?>>
           <select name="post_id" class="select22" id="postSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/posts/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in posts"); ?>'>
+            <?php if(\dash\data::dataRow_related_id()) {?>
+              <option value="<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>" selected><?php echo \dash\data::postTitle() ?></option>
+            <?php } //endif ?>
+            </select>
+        </div>
+
+
+       <div data-response='pointer' data-response-where='pages' <?php if(\dash\data::dataRow_pointer() === 'pages'){}else{ echo 'data-response-hide';} ?>>
+          <select name="page_id" class="select22" id="pageSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/cms/posts/api'; ?>?json=true&ptype=page' data-shortkey-search data-placeholder='<?php echo T_("Search in pages"); ?>'>
             <?php if(\dash\data::dataRow_related_id()) {?>
               <option value="<?php echo \dash\coding::encode(\dash\data::dataRow_related_id()) ?>" selected><?php echo \dash\data::postTitle() ?></option>
             <?php } //endif ?>
