@@ -111,7 +111,6 @@ class add
 			// only calculate factor value for show in shipping page
 			'only_calculate' => false,
 
-			'fileMode'          => false,
 			'start_transaction' => true,
 		];
 
@@ -172,6 +171,12 @@ class add
 			}
 		}
 
+		$fileMode = false;
+		if(array_values(array_filter(array_unique(array_column($factor_detail, 'type')))) === ['file'])
+		{
+			$fileMode = true;
+		}
+
 		// the factor mode
 		$mode = 'admin';
 
@@ -180,7 +185,7 @@ class add
 			// change factor mode to customer
 			$mode = 'customer';
 
-			$factor = self::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $_option['fileMode']]);
+			$factor = self::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $fileMode]);
 
 		}
 
@@ -328,6 +333,7 @@ class add
 			unset($factor_detail[$key]['sub_price_temp']);
 			unset($factor_detail[$key]['sub_discount_temp']);
 			unset($factor_detail[$key]['sub_vat_temp']);
+			unset($factor_detail[$key]['type']);
 
 			if($value['track_stock_temp'])
 			{

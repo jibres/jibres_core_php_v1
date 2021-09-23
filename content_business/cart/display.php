@@ -1,12 +1,12 @@
 
 <section class="avand cartPage">
-<?php if(\dash\data::cartList()) {?>
+<?php if(\dash\data::myCart_list()) {?>
  <h1><?php echo \dash\face::titlePWA() ?></h1>
  <div class="row">
   <div class="c-xs-12 c-sm-12 c-lg-8">
    <div class="box">
 
-<?php foreach (\dash\data::cartList() as $key => $value) {?>
+<?php foreach (\dash\data::myCart_list() as $key => $value) {?>
     <div class="cartItem">
      <div class="row align-center">
       <div class="c-auto">
@@ -64,7 +64,7 @@
    </div>
 <?php if(\dash\data::cartSettingSaved_page_text()) {?><p class="fs14 msg <?php echo \dash\data::cartSettingSaved_color_class() ?>"><?php echo \dash\data::cartSettingSaved_page_text(); ?></p><?php } //endif ?>
   </div>
-  <?php if(\dash\data::cartSummary()) {?>
+  <?php if(\dash\data::myCart_list()) {?>
   <div class="c-xs-12 c-sm-12 c-lg-4">
     <?php require_once('cartSummary.php'); ?>
 

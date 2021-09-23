@@ -393,7 +393,7 @@ class pwa_menu
 			'total' =>
 			[
 				'href' => \dash\url::kingdom(). '/shipping',
-				'title' => \dash\fit::number(\dash\data::myCart_total_full()),
+				'title' => \dash\fit::number(\dash\data::myCart_payableString()),
 				'class' => 'pwafooterGoShipping',
 			],
 		];

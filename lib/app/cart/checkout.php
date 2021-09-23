@@ -80,46 +80,86 @@ class checkout
 	}
 
 
-	public static function for_shippin_page()
+
+	public static function cart_detail()
 	{
-		$factor             = [];
-		$factor['customer'] = $user_id ? \dash\coding::encode($user_id): null;
+		return self::detail();
+	}
 
-		if(!$factor['customer'] && $data['mobile'])
-		{
-			$new_user_id = \dash\app\user::quick_add(['mobile' => $data['mobile']]);
-			if(is_numeric($new_user_id))
-			{
-				$factor['customer']	= \dash\coding::encode($new_user_id);
-			}
-		}
 
-		if(isset($factor['customer']) && $factor['customer'])
+	public static function shipping_detail()
+	{
+		return self::detail();
+	}
+
+
+
+	public static function detail()
+	{
+
+		/**
+
+			TODO:
+			- Need check if in cart mode update view and autoremove product
+
+		 */
+		$myCart               = [];
+
+
+		$user_id    = null;
+		$user_guest = null;
+
+		if(\dash\user::id())
 		{
-			$factor_user_id = \dash\coding::decode($factor['customer']);
+			$user_id = \dash\user::id();
 		}
 		else
 		{
-			\dash\notif::error(T_("Plese set mobile or login to continue"));
-			return false;
+			$user_guest = \dash\user::get_user_guest();
 		}
 
-		$factor['guestid']  = $user_guest;
-		$factor['type']     = 'saleorder';
-		// $factor['status']   = '';
-		$factor['desc']     = $data['desc'];
-		$factor['discount'] = null;
+		if(!$user_id)
+		{
+			if(!$user_guest)
+			{
+				return false;
+			}
+		}
 
+		if($user_id)
+		{
+			$user_cart = \lib\db\cart\get::user_cart($user_id);
+		}
+		else
+		{
+			$user_cart = \lib\db\cart\get::user_cart_guest($user_guest);
+		}
 
-		$fileMode = true;
+		$cart_list = \lib\app\cart\search::my_detail();
+
+		if(!is_array($cart_list))
+		{
+			$cart_list = [];
+		}
+
+		$myCart['list'] = $cart_list;
+
+		$cart_setting = \lib\app\setting\get::cart_setting();
+
+		$myCart['count']      = count($cart_list);
+		$myCart['setting']    = $cart_setting;
+		$myCart['total_full'] = 0;
+
+		// pwa header
+		\dash\data::cart_link(\dash\fit::number($myCart['count']));
+
+		$factor             = [];
+		$factor['type'] = 'saleorder';
+
 		$factor_detail = [];
+
 		foreach ($user_cart as $key => $value)
 		{
-			if(isset($value['type']) && $value['type'] != 'file')
-			{
-				$fileMode = false;
-			}
-
 			$factor_detail[] =
 			[
 				'product'  => $value['product_id'],
@@ -127,34 +167,36 @@ class checkout
 				'discount' => null,
 				'price'    => null,
 			];
-
-		}
-
-		if(!$fileMode && $need_address_text)
-		{
-			if(!$data['address'])
-			{
-				\dash\notif::error(T_("Address is required"), 'address');
-				return false;
-			}
 		}
 
 		$return = [];
 
 		$factor_option =
 		[
-			'customer_mode' => true,
-			'fileMode' => $fileMode
+			'customer_mode'  => true,
+			'only_calculate' => true,
 		];
-
-		if(isset($_args['shipping_form_answer']) && $_args['shipping_form_answer'])
-		{
-			$factor_option['start_transaction'] = false;
-			\dash\db::transaction();
-		}
 
 
 		$result = \lib\app\factor\add::new_factor($factor, $factor_detail, $factor_option);
+
+
+		$myCart['summary'] =
+		[
+			'subtotal' => a($result, 'subprice'),
+			'discount' => a($result, 'subdiscount'),
+			'subvat'   => a($result, 'subvat'),
+			'shipping' => a($result, 'shipping'),
+			'total'    => a($result, 'total'),
+		];
+
+		$myCart['payableString'] = \dash\fit::number($myCart['summary']['total']). ' '. \lib\store::currency() ;
+
+
+		// var_dump($factor, $factor_detail, $factor_option, $result, $myCart);exit;
+
+		\dash\notif::clean();
+		\dash\data::myCart($myCart);
 
 	}
 
@@ -376,6 +418,7 @@ class checkout
 
 		}
 
+
 		if(!$fileMode && $need_address_text)
 		{
 			if(!$data['address'])
@@ -390,7 +433,6 @@ class checkout
 		$factor_option =
 		[
 			'customer_mode' => true,
-			'fileMode' => $fileMode
 		];
 
 		if(isset($_args['shipping_form_answer']) && $_args['shipping_form_answer'])
@@ -529,7 +571,7 @@ class checkout
 					'amount'        => abs($result['price']),
 					'currency'      => \lib\store::currency('code'),
 					'factor_id'     => $result['factor_id'],
-					'final_fn'      => ['/lib/app/factor/cart', 'after_pay'],
+					'final_fn'      => ['/lib/app/cart/checkout', 'after_pay'],
 					'final_fn_args' => $final_fn_args,
 
 				];

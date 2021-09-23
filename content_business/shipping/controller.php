@@ -12,7 +12,8 @@ class controller
 		}
 
 		// load cart detail once
-		\content_business\view::load_cart_detail();
+		\lib\app\cart\checkout::shipping_detail();
+
 
 		if(!\dash\data::myCart_count())
 		{

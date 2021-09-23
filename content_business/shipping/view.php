@@ -8,7 +8,7 @@ class view
 	{
 
 
-		$title = T_("Pay"). ' ('. \dash\fit::text(\dash\data::myCart_total_full()). ')';
+		$title = T_("Pay"). ' ('. \dash\fit::text(\dash\data::myCart_payableString()). ')';
 		\dash\face::titlePWA($title);
 		\dash\face::title($title);
 

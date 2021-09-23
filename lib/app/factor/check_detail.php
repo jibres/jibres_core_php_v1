@@ -229,6 +229,7 @@ class check_detail
 			$factor_detail_record['sub_price_temp']    = $price * $count;
 			$factor_detail_record['sub_discount_temp'] = $discount * $count;
 
+			$factor_detail_record['type'] = $this_proudct['type'];
 
 			$factor_detail[] = $factor_detail_record;
 		}

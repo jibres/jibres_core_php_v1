@@ -78,14 +78,14 @@
         </div>
         <?php if(\dash\data::shippingSettingSaved_page_text()) {?><p class="msg fs14 <?php echo \dash\data::shippingSettingSaved_color_class() ?>"><?php echo \dash\data::shippingSettingSaved_page_text(); ?></p><?php } //endif ?>
       </div>
-      <?php if(\dash\data::cartSummary()) {?>
+      <?php if(\dash\data::myCart_count()) {?>
         <div class="c-xs-12 c-sm-12 c-lg-4">
           <?php echo \lib\app\factor\schedule_order::message_html(); ?>
           <?php require_once(root. '/content_business/cart/cartSummary.php') ?>
-          <?php if(\dash\data::cartList()) {?>
+          <?php if(\dash\data::myCart_list()) {?>
                <nav class="items long">
                  <ul>
-                  <?php foreach (\dash\data::cartList() as $key => $value) {?>
+                  <?php foreach (\dash\data::myCart_list() as $key => $value) {?>
                    <li>
                     <a class="f" href="<?php echo a($value, 'url'); ?>">
                       <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo a($value, 'title');?>">
