@@ -85,7 +85,7 @@ class model
 			$args['shipping_form_answer'] = $answer;
 		}
 
-		$saveorder = \lib\app\factor\cart::to_factor($args);
+		$saveorder = \lib\app\cart\checkout::to_factor($args);
 
 		if(\dash\engine\process::status())
 		{

@@ -17,7 +17,7 @@ class model
 
 			$post = [];
 
-			$saveorder = \lib\app\factor\cart::to_factor($post, $user, $guestid, true);
+			$saveorder = \lib\app\cart\checkout::to_factor($post, $user, $guestid, true);
 
 			if(\dash\engine\process::status() && isset($saveorder['factor_id']))
 			{
