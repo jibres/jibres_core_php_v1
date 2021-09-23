@@ -51,7 +51,9 @@ class view
 			\dash\data::include_adminPanelBuilder(true);
 			\dash\data::displayIncludeTextEditor(true);
 
+			\dash\face::btnSaveForm(null);
 			\dash\face::btnSave('sectioneditorhtml');
+			\dash\face::btnSaveName('sectioneditorhtml');
 			\dash\face::btnSaveText(T_("Save Text"));
 			\dash\face::btnSaveClass('btn-secondary');
 		}
