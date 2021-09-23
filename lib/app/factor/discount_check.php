@@ -68,6 +68,24 @@ class discount_check
 			return false;
 		}
 
+		if($load['startdate'])
+		{
+			if(time() < strtotime($load['startdate']))
+			{
+				self::error(T_("Discount is not available at this time."));
+				return false;
+			}
+		}
+
+		if($load['enddate'])
+		{
+			if(time() > strtotime($load['enddate']))
+			{
+				self::error(T_("Discount was expired"));
+				return false;
+			}
+		}
+
 		/*----------  check minpurchase  ----------*/
 		if($load['type'] === 'percentage')
 		{
@@ -79,7 +97,16 @@ class discount_check
 			{
 				if($load['minpurchase'])
 				{
-					// check total
+					// check count
+					if(floatval($_factor['subtotal']) >= floatval($load['minpurchase']))
+					{
+						// ok
+					}
+					else
+					{
+						self::error(T_("You must have at least :val :currency in your cart to use this discount", ['val' => \dash\fit::number($load['minpurchase']), 'currency' => \lib\store::currency()]));
+						return false;
+					}
 				}
 				else
 				{
@@ -92,7 +119,15 @@ class discount_check
 				if($load['minquantity'])
 				{
 					// check count
-
+					if(floatval($_factor['item']) >= floatval($load['minquantity']))
+					{
+						// ok
+					}
+					else
+					{
+						self::error(T_("You must have at least :val item in your cart to use this discount code", ['val' => \dash\fit::number($load['minquantity'])]));
+						return false;
+					}
 				}
 				else
 				{
@@ -100,7 +135,19 @@ class discount_check
 					/* We should not save such a discount code */
 				}
 			}
+		}
 
+		if($load['customer'] === 'special_customer_group')
+		{
+
+		}
+		elseif($load['customer'] === 'special_customer')
+		{
+
+		}
+		else
+		{
+			//everyone
 		}
 
 

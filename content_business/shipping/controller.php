@@ -12,7 +12,12 @@ class controller
 		}
 
 		$args = [];
-		// $args['discount_code'] = \dash\request::get('discount');
+
+		if(\dash\url::isLocal())
+		{
+			$args['discount_code'] = \dash\request::get('discount');
+		}
+
 		// load cart detail once
 		\lib\app\cart\checkout::shipping_detail($args);
 

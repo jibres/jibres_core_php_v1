@@ -157,6 +157,15 @@ class add
 			return false;
 		}
 
+
+
+		$factor['subprice']    = self::my_sum($factor_detail, 'sub_price_temp');
+		$factor['subdiscount'] = self::my_sum($factor_detail, 'sub_discount_temp');
+		$factor['subvat']      = self::my_sum($factor_detail, 'sub_vat_temp');
+		$factor['subtotal']    = self::my_sum($factor_detail, 'sum');
+		$factor['qty']         = self::my_sum($factor_detail, 'count');
+		$factor['item']        = count($factor_detail);
+
 		/*===========================================
 		=            Check discount code            =
 		===========================================*/
@@ -167,14 +176,6 @@ class add
 			$check_discount_code = \lib\app\factor\discount_check::get_result($_option['discount_code'], $factor, $factor_detail);
 		}
 		/*=====  End of Check discount code  ======*/
-
-
-		$factor['subprice']    = self::my_sum($factor_detail, 'sub_price_temp');
-		$factor['subdiscount'] = self::my_sum($factor_detail, 'sub_discount_temp');
-		$factor['subvat']      = self::my_sum($factor_detail, 'sub_vat_temp');
-		$factor['subtotal']    = self::my_sum($factor_detail, 'sum');
-		$factor['qty']         = self::my_sum($factor_detail, 'count');
-		$factor['item']        = count($factor_detail);
 
 		// calc discount2 from discount code
 		$factor['discount2'] = null;
