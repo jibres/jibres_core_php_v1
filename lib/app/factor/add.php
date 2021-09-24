@@ -178,7 +178,7 @@ class add
 			// save discount id
 			if(a($check_discount_code, 'discount_id'))
 			{
-				$result['discount_id'] = $check_discount_code['discount_id'];
+				$factor['discount_id'] = $check_discount_code['discount_id'];
 			}
 		}
 		/*=====  End of Check discount code  ======*/

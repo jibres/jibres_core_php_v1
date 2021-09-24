@@ -15,7 +15,8 @@ class remove
 		}
 
 		// check usage
-		$check_usage = false;
+		$check_usage = \lib\db\factors\get::check_used_discount_id($load['id']);
+
 		if($check_usage)
 		{
 			\dash\notif::error(T_("Can not remove discount because this discount is used in some orders"));
