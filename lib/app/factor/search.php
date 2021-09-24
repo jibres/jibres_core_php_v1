@@ -49,6 +49,7 @@ class search
 			'weekday'           => 'weekday',
 			'pay'               => 'y_n',
 
+			'discount_id'       => 'id',
 			'subpricelarger'    => 'bigint',
 			'subpriceless'      => 'bigint',
 			'subpriceequal'     => 'bigint',
@@ -65,8 +66,8 @@ class search
 			'subdiscountless'   => 'bigint',
 			'subdiscountequal'  => 'bigint',
 			'subtotal'          => 'bigint',
-			'limit'          => 'int',
-			'get_unprocessed' => 'bit',
+			'limit'             => 'int',
+			'get_unprocessed'   => 'bit',
 		];
 
 		$require = [];
@@ -114,7 +115,6 @@ class search
 			if($data['customer'] === '-quick')
 			{
 				$and[] = ' factors.customer IS NULL ';
-				self::$filter_args[T_('Customer')] = T_('Quick factor');
 			}
 			else
 			{
@@ -123,7 +123,6 @@ class search
 				if($id)
 				{
 					$and[] = " factors.customer = $id ";
-					self::$filter_args['customer'] = '*'. T_('Customer');
 					self::$is_filtered             = true;
 				}
 			}
@@ -134,7 +133,12 @@ class search
 		if($data['type'])
 		{
 			$and[] = " factors.type = '$data[type]' ";
-			self::$filter_args['type'] = '*'. T_('Type');
+			self::$is_filtered             = true;
+		}
+
+		if($data['discount_id'])
+		{
+			$and[] = " factors.discount_id = $data[discount_id] ";
 			self::$is_filtered             = true;
 		}
 
@@ -142,7 +146,6 @@ class search
 		if($data['guestid'])
 		{
 			$and[] = " factors.guestid = '$data[guestid]' ";
-			self::$filter_args['guestid'] = T_('Guest');
 			self::$is_filtered             = true;
 		}
 
@@ -150,7 +153,6 @@ class search
 		{
 			$join_factordetails               = true;
 			$and[] = " factordetails.product_id = $data[product] ";
-			self::$filter_args['product'] = '*'. T_('Product');
 			self::$is_filtered                = true;
 		}
 
@@ -159,20 +161,16 @@ class search
 			$and[] = " DATE(factors.datecreated) >=  '$data[startdate]' ";
 			$and[] = " DATE(factors.datecreated) <=  '$data[enddate]' ";
 
-			self::$filter_args[T_('Start')] = $data['startdate'];
-			self::$filter_args[T_('End')]  = $data['enddate'];
 			self::$is_filtered          = true;
 		}
 		elseif($data['startdate'])
 		{
 			$and[] = " DATE(factors.datecreated) >=  '$data[startdate]' ";
-			self::$filter_args[T_('Start')] = $data['startdate'];
 			self::$is_filtered          = true;
 		}
 		elseif($data['enddate'])
 		{
 			$and[] = " DATE(factors.datecreated) <=  '$data[enddate]' ";
-			self::$filter_args[T_('End')]  = $data['enddate'];
 			self::$is_filtered          = true;
 		}
 
@@ -180,7 +178,6 @@ class search
 		if($data['date'])
 		{
 			$and[] = " DATE(factors.datecreated) =  '$data[date]' ";
-			self::$filter_args[T_('Date')] = $data['date'];
 			self::$is_filtered = true;
 		}
 
@@ -190,35 +187,30 @@ class search
 			$and[] =  " HOUR(factors.datecreated) =  HOUR('$time') ";
 			$and[] =  " MINUTE(factors.datecreated) =  MINUTE('$time') ";
 
-			self::$filter_args[T_('Time')] = $data['time'];
 			self::$is_filtered = true;
 		}
 
 		if($data['weekday'])
 		{
 			$and[] = " DAYNAME(factors.datecreated) = '$data[weekday]' " ;
-			self::$filter_args[T_('Weekday')] = $data['weekday'];
 			self::$is_filtered = true;
 		}
 
 		if($data['subpricelarger'])
 		{
 			$and[] = " factors.subprice > $data[subpricelarger] ";
-			self::$filter_args[T_('Subprice larger than')] = self::price_sum_down($data['subpricelarger']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subpriceless'])
 		{
 			$and[] = " factors.subprice <  $data[subpriceless] ";
-			self::$filter_args[T_('Subprice less than')] = self::price_sum_down($data['subpriceless']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subpriceequal'])
 		{
 			$and[] = " factors.subprice =  $data[subpriceequal] ";
-			self::$filter_args[T_('Subprice equal')] = self::price_sum_down($data['subpriceequal']);
 			self::$is_filtered = true;
 		}
 
@@ -226,104 +218,89 @@ class search
 		if($data['itemlarger'])
 		{
 			$and[] = " factors.item > $data[itemlarger] ";
-			self::$filter_args[T_('Item larger than')] = $data['itemlarger'];
 			self::$is_filtered = true;
 		}
 
 		if($data['itemless'])
 		{
 			$and[] = " factors.item <  $data[itemless] ";
-			self::$filter_args[T_('Item less than')] = $data['itemless'];
 			self::$is_filtered = true;
 		}
 
 		if($data['itemequal'])
 		{
 			$and[] = " factors.item =  $data[itemequal] ";
-			self::$filter_args[T_('Item equal')] = $data['itemequal'];
 			self::$is_filtered = true;
 		}
 
 		if($data['qtylarger'])
 		{
 			$and[] = " factors.qty > $data[qtylarger] ";
-			self::$filter_args[T_('Qty larger than')] = \lib\number::down($data['qtylarger']);
 			self::$is_filtered = true;
 		}
 
 		if($data['qtyless'])
 		{
 			$and[] = " factors.qty <  $data[qtyless] ";
-			self::$filter_args[T_('Qty less than')] = \lib\number::down($data['qtyless']);
 			self::$is_filtered = true;
 		}
 
 		if($data['qtyequal'])
 		{
 			$and[] = " factors.qty =  $data[qtyequal] ";
-			self::$filter_args[T_('Qty equal')] = \lib\number::down($data['qtyequal']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subtotallarger'])
 		{
 			$and[] = " factors.subtotal > $data[subtotallarger] ";
-			self::$filter_args[T_('Subtotal larger than')] = self::price_sum_down($data['subtotallarger']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subtotalless'])
 		{
 			$and[] = " factors.subtotal <  $data[subtotalless] ";
-			self::$filter_args[T_('Subtotal less than')] = self::price_sum_down($data['subtotalless']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subtotalequal'])
 		{
 			$and[] = " factors.subtotal =  $data[subtotalequal] ";
-			self::$filter_args[T_('Subtotal equal')] = self::price_sum_down($data['subtotalequal']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subtotal'])
 		{
 			$and[] = " factors.subtotal =  $data[subtotal] ";
-			self::$filter_args[T_('Subtotal equal')] = self::price_sum_down($data['subtotal']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subdiscountlarger'])
 		{
 			$and[] = " factors.subdiscount > $data[subdiscountlarger] ";
-			self::$filter_args[T_('Subdiscount larger than')] = self::price_sum_down($data['subdiscountlarger']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subdiscountless'])
 		{
 			$and[] = " factors.subdiscount <  $data[subdiscountless] ";
-			self::$filter_args[T_('Subdiscount less than')] = self::price_sum_down($data['subdiscountless']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subdiscountequal'])
 		{
 			$and[] = " factors.subdiscount =  $data[subdiscountequal] ";
-			self::$filter_args[T_('Subdiscount equal')] = self::price_sum_down($data['subdiscountequal']);
 			self::$is_filtered = true;
 		}
 
 		// if($data['pay'] === 'y')
 		// {
 		// 	$and[] = " factors.pay IS NOT NULL ";
-		// 	self::$filter_args[T_('Pay')] = T_("Payed");
 		// 	self::$is_filtered = true;
 		// }
 		// elseif($data['pay'] === 'n')
 		// {
 		// 	$and[] = " factors.pay IS NULL ";
-		// 	self::$filter_args[T_('Pay')] = T_("Not Payed");
 		// 	self::$is_filtered = true;
 		// }
 
@@ -378,7 +355,6 @@ class search
 		}
 
 		$filter_args_data = [];
-		foreach (self::$filter_args as $key => $value)
 		{
 			$my_key = $key;
 			if($key === 'customer')

@@ -176,7 +176,7 @@ $sortLink = \dash\data::sortLink();
 
 <?php function htmlFilter() {?>
 <p class="f fs14 msg warn2 mT20">
-  <span class="c"><?php echo \dash\data::filterBox(); ?></span>
+  <span class="c"></span>
   <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
 <?php } // endfunction ?>

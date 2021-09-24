@@ -48,6 +48,7 @@ class view
 		if(\dash\request::get('subdiscountless'))	  	 { $args['subdiscountless']   = \dash\request::get('subdiscountless');	}
 		if(\dash\request::get('subdiscountequal'))	 	 { $args['subdiscountequal']  = \dash\request::get('subdiscountequal');	}
 		if(\dash\request::get('subtotal'))		 		 { $args['subtotal']          = \dash\request::get('subtotal');			}
+		if(\dash\request::get('discount_id'))	 		 { $args['discount_id']       = \dash\request::get('discount_id');		}
 
 		if(\dash\url::child() === 'unprocessed')
 		{
