@@ -185,11 +185,12 @@ class checkout
 
 		$myCart['summary'] =
 		[
-			'subtotal' => a($result, 'subprice'),
-			'discount' => a($result, 'subdiscount'),
-			'subvat'   => a($result, 'subvat'),
-			'shipping' => a($result, 'shipping'),
-			'total'    => a($result, 'total'),
+			'subtotal'  => a($result, 'subprice'),
+			'discount'  => a($result, 'subdiscount'),
+			'subvat'    => a($result, 'subvat'),
+			'shipping'  => a($result, 'shipping'),
+			'total'     => a($result, 'total'),
+			'discount2' => a($result, 'discount2'),
 		];
 
 		$myCart['payableString'] = \dash\fit::number($myCart['summary']['total']). ' '. \lib\store::currency() ;

@@ -174,6 +174,12 @@ class add
 		if($_option['discount_code'])
 		{
 			$check_discount_code = \lib\app\factor\discount_check::get_result($_option['discount_code'], $factor, $factor_detail);
+
+			// save discount id
+			if(a($check_discount_code, 'discount_id'))
+			{
+				$result['discount_id'] = $check_discount_code['discount_id'];
+			}
 		}
 		/*=====  End of Check discount code  ======*/
 
@@ -213,7 +219,7 @@ class add
 
 		}
 
-		$factor['total']     = (floatval($factor['subtotal']) - floatval($factor['discount'])) + floatval($factor['shipping']);
+		$factor['total']     = (floatval($factor['subtotal']) - (floatval($factor['discount']) + floatval($factor['discount2']))) + floatval($factor['shipping']);
 
 		$factor['status']    = $factor['status'] ? $factor['status'] : 'registered';
 		$factor['seller']    = \dash\user::id();
@@ -348,6 +354,11 @@ class add
 		$return['factor_id'] = $factor_id;
 		$return['price']     = \lib\price::total_down($factor['total']);
 
+		$product_discount = [];
+		if(is_array(a($check_discount_code, 'product_discount')))
+		{
+			$product_discount = $check_discount_code['product_discount'];
+		}
 
 		$product_need_track_stock = [];
 
@@ -364,9 +375,18 @@ class add
 				$product_need_track_stock[] = $value;
 			}
 
+			// save product discount
+			if(isset($product_discount[$value['product_id']]))
+			{
+				$factor_detail[$key]['discount2'] = $product_discount[$value['product_id']];
+
+			}
+
 			unset($factor_detail[$key]['track_stock_temp']);
 
 		}
+
+		var_dump($factor_detail);exit;
 
 		$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);
 

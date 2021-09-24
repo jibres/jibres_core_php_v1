@@ -17,6 +17,13 @@ $myCartSummary = \dash\data::myCart_summary();
      </dl>
    <?php } //endif ?>
 
+    <?php if(a($myCartSummary, 'discount2')) {?>
+     <dl class="discount">
+      <dt><?php echo T_("Discount code"); ?></dt>
+      <dd><?php echo \dash\fit::number(a($myCartSummary, 'discount2')); ?> <?php echo $currency; ?> </dd>
+     </dl>
+   <?php } //endif ?>
+
      <?php if(a($myCartSummary, 'subvat')) {?>
      <dl class="subvat">
       <dt><?php echo T_("Vat"); ?></dt>
