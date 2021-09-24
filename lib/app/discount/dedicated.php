@@ -228,20 +228,49 @@ class dedicated
 
 		if($must_insert)
 		{
-			$multi_insert = [];
-
-			foreach ($must_insert as $key => $value)
+			$max_dedicated = 100;
+			switch ($_type)
 			{
-				$multi_insert[] =
-				[
-					'discount_id' => $_id,
-					'type'        => $_type,
-					$_field       => $value,
-					'datecreated' => date("Y-m-d H:i:s"),
-				];
+
+				case 'special_category':
+					$max_dedicated = 100;
+					break;
+
+				case 'special_products':
+					$max_dedicated = 500;
+					break;
+
+				case 'special_customer_group':
+					$max_dedicated = 2;
+					break;
+
+				case 'special_customer':
+					$max_dedicated = 500;
+					break;
 			}
 
-			\lib\db\discount_dedicated\insert::multi_insert($multi_insert);
+
+			if(is_array($_load_current_decicate[$_type]) && count($_load_current_decicate[$_type]) + count($must_insert) > $max_dedicated)
+			{
+				\dash\notif::warn(T_("Maximum capacity of discount dedicated is full"));
+			}
+			else
+			{
+				$multi_insert = [];
+
+				foreach ($must_insert as $key => $value)
+				{
+					$multi_insert[] =
+					[
+						'discount_id' => $_id,
+						'type'        => $_type,
+						$_field       => $value,
+						'datecreated' => date("Y-m-d H:i:s"),
+					];
+				}
+
+				\lib\db\discount_dedicated\insert::multi_insert($multi_insert);
+			}
 		}
 
 		if($must_remove)
