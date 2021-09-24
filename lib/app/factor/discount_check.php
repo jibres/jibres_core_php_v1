@@ -88,6 +88,11 @@ class discount_check
 	 */
 	public static function check($_discount_code, $_factor, $_factor_detail)
 	{
+		if(!$_factor['subtotal'])
+		{
+			self::error(T_("No amount to pay!"));
+			return false;
+		}
 
 		/*----------  validate discount string code  ----------*/
 		$discount_code = \dash\validate::discount_code($_discount_code, false);
@@ -256,8 +261,21 @@ class discount_check
 			}
 		}
 
+		/*=============================================
+		=            Define somve variable            =
+		=============================================*/
+
 		// base amount for calculate discount
 		$base_amount = $_factor['subprice'];
+
+		// Which products are assigned to the discount code
+		$apply_product_ids = [];
+
+		// The amount to be subtracted from the sum
+		$discount2 = 0;
+
+		/*=====  End of Define somve variable  ======*/
+
 
 		if($load['applyto'] === 'special_category')
 		{
@@ -291,6 +309,7 @@ class discount_check
 					if(in_array($value['product_id'], $get_valid_product_id))
 					{
 						$base_amount += floatval($value['price']);
+						$apply_product_ids[] = $value['product_id'];
 					}
 				}
 			}
@@ -316,6 +335,7 @@ class discount_check
 				{
 					$finded = true;
 					$base_amount += floatval($value['price']);
+					$apply_product_ids[] = $value['product_id'];
 				}
 			}
 
@@ -328,15 +348,96 @@ class discount_check
 		else
 		{
 			/* all product */
+			$apply_product_ids = array_column($_factor_detail, 'product_id');
+		}
+
+		if($load['type'] === 'percentage')
+		{
+			if($load['percentage'])
+			{
+				$discount2 = self::percentage($base_amount, $load['percentage']);
+
+				// check maximum amount
+				if(floatval($load['maxamount']))
+				{
+					if(floatval($discount2) > floatval($load['maxamount']))
+					{
+						$discount2 = $load['maxamount'];
+					}
+				}
+			}
+			else
+			{
+				/* Bug! */
+				self::error(T_("Discount is broken!"));
+				return false;
+
+			}
+		}
+		else
+		{
+			var_dump($load);exit;
 		}
 
 
+		/**
+		 * @example
+		 * subtotal = 100
+		 * discount2 = 120
+		 * discount2 = 120 - |100 - 120|
+		 * discount2 = 100
+		 */
+		if(floatval($_factor['subtotal']) - floatval($discount2) < 0)
+		{
+			$discount2 = $discount2 - abs(floatval($_factor['subtotal']) - floatval($discount2));
+		}
 
-		var_dump($load);exit;
-		var_dump($result);
+
+		/*----------  Calculate discount per products  ----------*/
+		$discount_per_product = $discount2 / count($apply_product_ids);
+
+		$product_discount = [];
+
+		foreach ($apply_product_ids as $product_id)
+		{
+			$product_discount[$product_id] = $discount_per_product;
+		}
+
+		/*===============================================
+		=            Save setting in $result            =
+		===============================================*/
+
+		self::$result['discount2']        = $discount2;
+		self::$result['discount_id']      = $discount_id;
+		self::$result['product_discount'] = $product_discount;
+		self::$result['success_msg']      = T_("here you are :) ");
+
+		return true;
+
+
+		var_dump($discount2);
+		var_dump($apply_product_ids);
+		var_dump($load);
+		var_dump($base_amount);
+		var_dump($_factor);
 		var_dump($discount_code);exit;
 
 		var_dump(func_get_args());exit;
+	}
+
+
+	/**
+	 * Calculate percentage
+	 * 20% of 500 => (20 * 500) / 100
+	 *
+	 * @param      <type>  $_amount      The amount
+	 * @param      <type>  $_percentage  The percentage
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function percentage($_amount, $_percentage)
+	{
+		return ((floatval($_amount) * floatval($_percentage)) / 100);
 	}
 }
 ?>
