@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\factor;
+namespace lib\app\discount;
 
 
 class discount_check

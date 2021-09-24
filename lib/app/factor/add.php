@@ -173,7 +173,7 @@ class add
 
 		if($_option['discount_code'])
 		{
-			$check_discount_code = \lib\app\factor\discount_check::get_result($_option['discount_code'], $factor, $factor_detail);
+			$check_discount_code = \lib\app\discount\discount_check::get_result($_option['discount_code'], $factor, $factor_detail);
 
 			// save discount id
 			if(a($check_discount_code, 'discount_id'))
