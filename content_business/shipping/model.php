@@ -85,6 +85,8 @@ class model
 			$args['shipping_form_answer'] = $answer;
 		}
 
+		$args['discount_code'] = \dash\request::get('discount');
+
 		$saveorder = \lib\app\cart\checkout::to_factor($args);
 
 		if(\dash\engine\process::status())

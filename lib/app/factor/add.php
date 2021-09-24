@@ -386,8 +386,6 @@ class add
 
 		}
 
-		var_dump($factor_detail);exit;
-
 		$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);
 
 		if(!$add_detail)

@@ -217,28 +217,28 @@ class checkout
 	{
 		$condition =
 		[
+			'discount_code'        => 'discount_code',
+			'title'                => 'string_40',
+			'name'                 => 'displayname',
+			'mobile'               => 'mobile',
 
-			'title'       => 'string_40',
-			'name'        => 'displayname',
-			'mobile'      => 'mobile',
-
-			'company'     => 'bit',
-			'country'     => 'country',
-			'province'    => 'province',
-			'city'        => 'city',
-			'address'     => 'address',
-			'address2'    => 'address',
-			'postcode'    => 'postcode',
-			'phone'       => 'phone',
-			'fax'         => 'phone',
+			'company'              => 'bit',
+			'country'              => 'country',
+			'province'             => 'province',
+			'city'                 => 'city',
+			'address'              => 'address',
+			'address2'             => 'address',
+			'postcode'             => 'postcode',
+			'phone'                => 'phone',
+			'fax'                  => 'phone',
 
 			'shipping_form_answer' => 'bit', // just for skipp error
 
 
 
-			'desc'        => 'desc',
-			'address_id' => 'code',
-			'payway'     => ['enum' => ['online', 'bank', 'on_deliver', 'check', 'card']],
+			'desc'                 => 'desc',
+			'address_id'           => 'code',
+			'payway'               => ['enum' => ['online', 'bank', 'on_deliver', 'check', 'card']],
 		];
 
 		$user_id = null;
@@ -437,6 +437,7 @@ class checkout
 		$factor_option =
 		[
 			'customer_mode' => true,
+			'discount_code' => $data['discount_code'],
 		];
 
 		if(isset($_args['shipping_form_answer']) && $_args['shipping_form_answer'])
