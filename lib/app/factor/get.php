@@ -424,12 +424,20 @@ class get
 
 		$factor_action = \lib\app\factor\action::get_by_factor_id($_id);
 
+		$discount_code = [];
+
+		if(a($factor, 'discount_id'))
+		{
+			$discount_code = \lib\app\discount\get::get($factor['discount_id']);
+		}
+
 
 		$result                  = [];
 		$result['factor']        = $factor;
 		$result['factor_detail'] = $factor_detail;
 		$result['address']       = $factor_address;
 		$result['action']        = $factor_action;
+		$result['discount_code'] = $discount_code;
 
 		return $result;
 	}

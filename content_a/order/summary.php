@@ -30,6 +30,15 @@
                   <td><?php echo \dash\fit::number(a($orderDetail, 'factor', 'discount')). ' '. \lib\store::currency(); ?></td>
                 </tr>
               <?php } //endif ?>
+
+
+              <?php if(a($orderDetail, 'factor', 'discount2')) {?>
+                <tr>
+                  <td class="collapsing fc-mute"><?php echo T_("Discount code") ?> <small><code><?php echo a($orderDetail, 'discount_code', 'code') ?></code></small></td>
+                  <td><?php echo \dash\fit::number(a($orderDetail, 'factor', 'discount2')). ' '. \lib\store::currency(); ?></td>
+                </tr>
+              <?php } //endif ?>
+
                 <tr>
                   <td class="collapsing fc-mute"><?php echo T_("Shipping") ?></td>
               		<?php if(a($orderDetail, 'factor', 'shipping')) {?>
