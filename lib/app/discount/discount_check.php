@@ -274,6 +274,9 @@ class discount_check
 		// The amount to be subtracted from the sum
 		$discount2 = 0;
 
+		// free shipping
+		$free_shipping = false;
+
 		/*=====  End of Define somve variable  ======*/
 
 
@@ -387,9 +390,15 @@ class discount_check
 				return false;
 			}
 		}
+		elseif($load['type'] === 'free_shipping')
+		{
+			$free_shipping = true;
+		}
 		else
 		{
-			var_dump($load);exit;
+			/* Bug! */
+			self::error(T_("Invalid discount code type!"));
+			return false;
 		}
 
 
@@ -421,21 +430,13 @@ class discount_check
 		===============================================*/
 
 		self::$result['discount2']        = $discount2;
+		self::$result['free_shipping']    = $free_shipping;
 		self::$result['discount_id']      = $discount_id;
 		self::$result['product_discount'] = $product_discount;
 		self::$result['success_msg']      = T_("here you are :) ");
 
 		return true;
 
-
-		var_dump($discount2);
-		var_dump($apply_product_ids);
-		var_dump($load);
-		var_dump($base_amount);
-		var_dump($_factor);
-		var_dump($discount_code);exit;
-
-		var_dump(func_get_args());exit;
 	}
 
 

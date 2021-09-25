@@ -216,7 +216,11 @@ class add
 			$mode = 'customer';
 
 			$factor = self::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $fileMode]);
+		}
 
+		if(a($check_discount_code, 'free_shipping') === true)
+		{
+			$factor['shipping'] = 0;
 		}
 
 		$factor['total']     = (floatval($factor['subtotal']) - (floatval($factor['discount']) + floatval($factor['discount2']))) + floatval($factor['shipping']);
@@ -229,6 +233,7 @@ class add
 		$factor['transport'] = null;
 		$factor['desc']      = $factor['desc'];
 		$factor['mode']      = $mode;
+
 
 
 		if($_option['only_calculate'])
