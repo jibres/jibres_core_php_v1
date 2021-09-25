@@ -4,8 +4,12 @@ namespace lib\app\discount;
 
 class discount_check
 {
-	private static $result = [];
+	private static $result             = [];
 	private static $load_all_dedicated = false;
+	private static $user_id            = null;
+	private static $code               = null;
+	private static $discount_id        = null;
+	private static $valid              = null;
 
 
 	public static function get_result()
@@ -20,14 +24,53 @@ class discount_check
 
 
 	/**
+	 * Saves a lookup.
+	 *
+	 * @param      <type>  $_error_type  The error type
+	 * @param      <type>  $_error_msg   The error message
+	 */
+	private static function save_lookup($_error_message = null, $_ciritical = null)
+	{
+		$insert                = [];
+		$insert['user_id']     = self::$user_id;
+		$insert['code']        = self::$code;
+		$insert['discount_id'] = self::$discount_id;
+		$insert['valid']       = self::$valid ? 'yes' : 'no';
+		$insert['errortype']   = null;
+		$insert['message']     = $_error_message;
+		$insert['datecreated'] = date("Y-m-d H:i:s");
+		$insert['ip_id']       = \dash\utility\ip::id();
+		$insert['agent_id']    = \dash\agent::get(true);
+
+		\lib\db\discount_lookup\insert::new_record($insert);
+
+		if($_ciritical)
+		{
+			$get_count_invalid_lookup = \lib\db\discount_lookup\get::count_by_ip_agent($insert['ip_id'], $insert['agent_id']);
+
+			if($get_count_invalid_lookup > 10)
+			{
+				\dash\waf\ip::isolateIP(1, 'invalid_discount_code');
+			}
+			elseif($get_count_invalid_lookup > 50)
+			{
+				\dash\waf\ip::isolateIP(10, 'invalid_discount_code > 50');
+			}
+		}
+	}
+
+
+	/**
 	 * Save error in msg variable
 	 *
 	 * @param      <type>  $_msg   The message
 	 * @param      string  $_mode  The mode
 	 */
-	private static function error($_msg, $_mode = 'danger')
+	private static function error($_msg, $_ciritical = null)
 	{
-		self::$result['msg_class'] = $_mode;
+		self::save_lookup($_msg, $_ciritical);
+
+		self::$result['msg_class'] = 'danger';
 		self::$result['msg']       = $_msg;
 	}
 
@@ -88,18 +131,38 @@ class discount_check
 	 */
 	public static function check($_discount_code, $_factor, $_factor_detail)
 	{
+		// needless to chekc anything.
 		if(!$_factor['subtotal'])
 		{
 			self::error(T_("No amount to pay!"));
 			return false;
 		}
 
+
+		// save current user id
+		if($_factor['customer'])
+		{
+			self::$user_id = $_factor['customer'];
+		}
+		elseif(\dash\user::id())
+		{
+			self::$user_id = \dash\user::id();
+		}
+
+		// save discount code
+		self::$code = \dash\validate::string($_discount_code, false);
+		if(mb_strlen(self::$code) > 100)
+		{
+			self::$code = substr(self::$code, 0, 100);
+		}
+
+
 		/*----------  validate discount string code  ----------*/
 		$discount_code = \dash\validate::discount_code($_discount_code, false);
 
 		if(!$discount_code)
 		{
-			self::error(T_("Invalid Discount code"));
+			self::error(T_("Invalid Discount code"), true);
 			return false;
 		}
 
@@ -108,9 +171,13 @@ class discount_check
 
 		if(!$load)
 		{
-			self::error(T_("Discount not found"));
+			self::error(T_("Discount not found"), true);
 			return false;
 		}
+
+		// save is valid discoutn
+		self::$valid = true;
+
 
 		// save discount id
 		$discount_id = $load['id'];
@@ -434,6 +501,8 @@ class discount_check
 		self::$result['discount_id']      = $discount_id;
 		self::$result['product_discount'] = $product_discount;
 		self::$result['success_msg']      = T_("here you are :) ");
+
+		self::save_lookup(T_("Ok"));
 
 		return true;
 
