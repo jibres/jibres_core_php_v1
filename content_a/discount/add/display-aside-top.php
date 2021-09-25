@@ -34,23 +34,8 @@ if(a($discountSummary, 'summary'))
 if($discount_id)
 {
 	$title = T_("Show factors by this discount");
-	$html .= "<a class='btn-secondary outline' href='$filter_factor' data-direct>$title</a>";
+	$html .= "<a class='link-primary outline' href='$filter_factor' data-direct>$title</a>";
 }
-
-if(a($discountSummary, 'used'))
-{
-	$title = T_("Count used :val", ['val' => \dash\fit::number($discountSummary['used'])]);
-	$html .= "<a class='btn-secondary outline' href='$filter_factor' data-direct>$title</a>";
-
-}
-
-if(a($discountSummary, 'lookup'))
-{
-	$title = T_("Count lookup :val", ['val' => \dash\fit::number($discountSummary['lookup'])]);
-	$html .= "<a class='btn-secondary outline' data-direct>$title</a>";
-
-}
-
 
 
 echo $html;

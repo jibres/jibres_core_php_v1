@@ -140,8 +140,7 @@ class get
 		{
 			if(a($summary, 3))
 			{
-				$summary[3] =  $summary[3]. ' '. T_(",") . T_("one per customer");
-
+				$summary[3] =  $summary[3]. T_(","). ' ' . T_("one per customer");
 			}
 			else
 			{
@@ -185,6 +184,15 @@ class get
 			$summary[] = T_("Disabled");
 		}
 
+		if($result['lookup'])
+		{
+			$summary[] = T_(":val lookup", ['val' => \dash\fit::number($result['lookup'])]);
+		}
+
+		if($result['used'])
+		{
+			$summary[] = T_(":val used", ['val' => \dash\fit::number($result['used'])]);
+		}
 
 		$result['summary'] = $summary;
 
