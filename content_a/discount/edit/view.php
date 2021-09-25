@@ -11,6 +11,9 @@ class view extends \content_a\discount\add\view
 
 		\dash\face::title(T_("Edit discount code"));
 
+
+		\dash\data::discountSummary(\lib\app\discount\get::summary(\dash\request::get('id')));
+
 	}
 }
 ?>

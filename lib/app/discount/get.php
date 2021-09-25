@@ -50,5 +50,21 @@ class get
 		return $result;
 	}
 
+
+	public static function summary($_id)
+	{
+		$id = \dash\validate::id($_id, false);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$result           = [];
+		$result['used']   = \lib\db\factors\get::discount_usage_total_count($id);
+		$result['lookup'] = \lib\db\discount_lookup\get::count_by_discount_id($id);
+
+		return $result;
+	}
+
 }
 ?>

@@ -11,5 +11,13 @@ class get
 		$result = \dash\db::get($query, 'count', true);
 		return $result;
 	}
+
+
+	public static function count_by_discount_id($_discount_id)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM discount_lookup WHERE discount_lookup.discount_id = $_discount_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return $result;
+	}
 }
 ?>

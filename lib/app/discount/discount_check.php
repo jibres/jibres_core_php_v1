@@ -180,7 +180,7 @@ class discount_check
 
 
 		// save discount id
-		$discount_id = $load['id'];
+		self::$discount_id = $discount_id = $load['id'];
 
 		/*----------  check status  ----------*/
 		if(a($load, 'status') !== 'enable')
