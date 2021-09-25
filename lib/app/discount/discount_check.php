@@ -374,6 +374,19 @@ class discount_check
 
 			}
 		}
+		elseif($load['type'] === 'fixed_amount')
+		{
+			if($load['fixedamount'])
+			{
+				$discount2 = floatval($load['fixedamount']);
+			}
+			else
+			{
+				/* Bug! */
+				self::error(T_("Discount is broken!"));
+				return false;
+			}
+		}
 		else
 		{
 			var_dump($load);exit;
