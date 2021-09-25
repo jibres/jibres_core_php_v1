@@ -1,31 +1,52 @@
 <?php
 $html = '';
 
-$summary = \dash\data::discountSummary();
+$discountSummary = \dash\data::discountSummary();
 $discount_id = \dash\request::get('id');
 $filter_factor = \dash\url::here(). '/order?discount_id='. $discount_id;
 
-/*=======================================
-=            Link to factors            =
-=======================================*/
+if(\dash\data::dataRow_code())
+{
+	$html .= '<h3>';
+	{
+		$html .= \dash\data::dataRow_code();
+	}
+	$html .= '</h3>';
+}
+
+if(a($discountSummary, 'summary'))
+{
+	$html .= '<ul class="list-disc pl-5 pr-5 mb-5">';
+	{
+		foreach ($discountSummary['summary'] as $key => $value)
+		{
+			$html .= '<li>';
+			{
+				$html .= $value;
+			}
+			$html .= '</li>';
+		}
+	}
+	$html .= '</ul>';
+}
+
+
 if($discount_id)
 {
 	$title = T_("Show factors by this discount");
 	$html .= "<a class='btn-secondary outline' href='$filter_factor' data-direct>$title</a>";
 }
-/*=====  End of Link to factors  ======*/
 
-
-if(a($summary, 'used'))
+if(a($discountSummary, 'used'))
 {
-	$title = T_("Count used :val", ['val' => \dash\fit::number($summary['used'])]);
+	$title = T_("Count used :val", ['val' => \dash\fit::number($discountSummary['used'])]);
 	$html .= "<a class='btn-secondary outline' href='$filter_factor' data-direct>$title</a>";
 
 }
 
-if(a($summary, 'lookup'))
+if(a($discountSummary, 'lookup'))
 {
-	$title = T_("Count lookup :val", ['val' => \dash\fit::number($summary['lookup'])]);
+	$title = T_("Count lookup :val", ['val' => \dash\fit::number($discountSummary['lookup'])]);
 	$html .= "<a class='btn-secondary outline' data-direct>$title</a>";
 
 }
