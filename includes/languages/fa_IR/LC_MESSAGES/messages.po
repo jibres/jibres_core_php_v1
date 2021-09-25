@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-25 14:45+0330\n"
-"PO-Revision-Date: 2021-09-25 14:57+0330\n"
+"POT-Creation-Date: 2021-09-25 16:14+0330\n"
+"PO-Revision-Date: 2021-09-25 16:19+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7960,15 +7960,15 @@ msgstr "چاپ فاکتور"
 msgid "Store not found"
 msgstr "فروشگاه یافت نشد"
 
-#: content_a/discount/add/display-aside-top.php:13
+#: content_a/discount/add/display-aside-top.php:36
 msgid "Show factors by this discount"
 msgstr "نمایش سفارشاتی که از این کد تخفیف استفاده کرده‌اند"
 
-#: content_a/discount/add/display-aside-top.php:21
+#: content_a/discount/add/display-aside-top.php:42
 msgid "Count used :val"
 msgstr "تعداد استفاده شده :val"
 
-#: content_a/discount/add/display-aside-top.php:28
+#: content_a/discount/add/display-aside-top.php:49
 msgid "Count lookup :val"
 msgstr "تعداد فراخوانی :val"
 
@@ -8002,7 +8002,7 @@ msgstr "درصد"
 msgid "Fixed amount"
 msgstr "مبلغ ثابت"
 
-#: content_a/discount/add/display.php:82
+#: content_a/discount/add/display.php:82 lib/app/discount/get.php:84
 msgid "Free shipping"
 msgstr "ارسال رایگان"
 
@@ -8089,7 +8089,7 @@ msgstr "حداقل تعداد اقلام"
 msgid "Customer eligibility"
 msgstr "اختصاص به مشتری"
 
-#: content_a/discount/add/display.php:343
+#: content_a/discount/add/display.php:343 lib/app/discount/get.php:121
 msgid "Everyone"
 msgstr "هرکس"
 
@@ -14077,8 +14077,8 @@ msgid "Welcome"
 msgstr "خوش آمدید"
 
 #: content_account/home/display.php:14 dash/app/address.php:228
-#: includes/languages/trans_static_public.php:33 lib/app/factor/get.php:405
-#: lib/app/product/property.php:276
+#: includes/languages/trans_static_public.php:33 lib/app/discount/get.php:143
+#: lib/app/factor/get.php:405 lib/app/product/property.php:276
 msgid ","
 msgstr "،"
 
@@ -36451,6 +36451,71 @@ msgstr "کد،‌ صعودی"
 msgid "Code DESC"
 msgstr "کد، نزولی"
 
+#: lib/app/discount/get.php:72
+#, php-format
+msgid ":val % off"
+msgstr ":val ٪ تخفیف"
+
+#: lib/app/discount/get.php:79
+msgid ":val :currency off"
+msgstr ":val :currency تخفیف"
+
+#: lib/app/discount/get.php:90
+msgid "all prodcut"
+msgstr "همه محصولات"
+
+#: lib/app/discount/get.php:94
+msgid "special category of products"
+msgstr "دسته‌بندی خاص از محصولات"
+
+#: lib/app/discount/get.php:99
+msgid "special products"
+msgstr "محصولات خاص"
+
+#: lib/app/discount/get.php:108
+msgid "Minimum purchase :val :currency"
+msgstr "حداقل مبلغ خرید :val :currency"
+
+#: lib/app/discount/get.php:115
+msgid "Minimum purchase of :val items"
+msgstr "حداقل خرید :val قلم"
+
+#: lib/app/discount/get.php:126
+msgid "For special customer group"
+msgstr "مشتریان گروه خاصی از مشتریان"
+
+#: lib/app/discount/get.php:130
+msgid "For special customer"
+msgstr "برای مشتریان خاص"
+
+#: lib/app/discount/get.php:136
+msgid "Limit of :val uses"
+msgstr "محدود به :val بار استفاده"
+
+#: lib/app/discount/get.php:143 lib/app/discount/get.php:148
+msgid "one per customer"
+msgstr "یکی برای هر مشتری"
+
+#: lib/app/discount/get.php:159
+msgid "Active from :val"
+msgstr "فعال از :val"
+
+#: lib/app/discount/get.php:167
+msgid "Active until :val"
+msgstr "فعال تا :val"
+
+#: lib/app/discount/get.php:171
+msgid "Was expire at :val"
+msgstr "منقضی شده در :val"
+
+#: lib/app/discount/get.php:177
+msgid "Active now"
+msgstr "هم اکنون فعال"
+
+#: lib/app/discount/get.php:185
+msgid "Disabled"
+msgstr "غیرفعال شده"
+
 #: lib/app/discount/remove.php:22
 msgid "Can not remove discount because this discount is used in some orders"
 msgstr "نمی‌توانید این کد تخفیف را حذف کنید. این کد تخفیف در تعدادی سفارش استفاده شده است."
@@ -47242,9 +47307,6 @@ msgstr "یارد"
 
 #~ msgid "Order Limit"
 #~ msgstr "محدودیت سبد خرید"
-
-#~ msgid ":val Staff"
-#~ msgstr ":val کارمند"
 
 #~ msgid "Basic Report"
 #~ msgstr "گزارش اولیه"
