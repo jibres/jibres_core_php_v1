@@ -264,11 +264,32 @@ class discount_check
 
 			$special_group = a($special_group, 0, 'specailvalue');
 
+			if(!$_factor['customer'])
+			{
+				self::error(T_("Please login to use this discount"));
+				return false;
+			}
+
+			$count_factors_by_this_customer = \lib\db\factors\get::count_by_customer($_factor['customer']);
+
 			switch ($special_group)
 			{
 				case 'notsale':
+					if($count_factors_by_this_customer)
+					{
+						// the user was sale before
+						self::error(T_("Discount only for first order!"));
+						return false;
+					}
+					break;
+
 				case 'havesale':
-					// code...
+					if(!$count_factors_by_this_customer)
+					{
+						// the user was sale before
+						self::error(T_("Discount only for customer who have order before!"));
+						return false;
+					}
 					break;
 
 				default:

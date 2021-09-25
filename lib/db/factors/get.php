@@ -3,6 +3,12 @@ namespace lib\db\factors;
 
 class get
 {
+	public static function count_by_customer($_user_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id ";
+		$result = \dash\db::get($query, 'count', true);
+		return floatval($result);
+	}
 
 	public static function check_used_discount_id($_discount_id)
 	{
