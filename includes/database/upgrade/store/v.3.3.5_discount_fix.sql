@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.discount_lookup ADD INDEX `discount_lookup_ip_id_agent_id` (`ip_id`, `agent_id`);
