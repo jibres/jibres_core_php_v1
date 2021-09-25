@@ -144,7 +144,7 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<label for="fixedamount">'. T_("Discount value"). ' ('.  $currency. ') </label>';
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="fixedamount" id="fixedamount" value="'.a($dataRow, 'fixedamount').'" placeholder="'. $currency.'">';
+							$html .= '<input type="tel" name="fixedamount" id="fixedamount" value="'.a($dataRow, 'fixedamount').'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
 						}
 						$html .= '</div>';
 					}
