@@ -13,66 +13,93 @@ class calculate
 			return false;
 		}
 
-		// calculate sum factor
-		$get_sum_detail = \lib\db\factordetails\get::sum_detail($_factor_id);
+		$ready_factor =
+		[
+			'desc'       => a($load_factor, 'desc'),
+			'discount'   => a($load_factor, 'discount'),
+			'shipping'   => a($load_factor, 'shipping'),
+			'date'       => a($load_factor, 'date'),
+			'type'       => a($load_factor, 'type'),
+			'status'     => a($load_factor, 'status'),
+			'paystatus'  => a($load_factor, 'paystatus'),
+			'customer'   => a($load_factor, 'customer'),
+			'guestid'    => a($load_factor, 'guestid'),
+			'address_id' => a($load_factor, 'address_id'),
+		];
 
-		if(!is_array($get_sum_detail))
+		$factor_detail = \lib\db\factordetails\get::by_factor_id_join_product($_factor_id);
+
+		if(!is_array($factor_detail))
 		{
-			$get_sum_detail = [];
+			$factor_detail = [];
 		}
 
-		$factor                = [];
+		$ready_factor_detail = [];
 
-		if(array_key_exists('subprice', $get_sum_detail))
+		foreach ($factor_detail as $key => $value)
 		{
-			$factor['subprice']    = $get_sum_detail['subprice'];
-			$factor['subdiscount'] = $get_sum_detail['subdiscount'];
-			$factor['subvat']      = $get_sum_detail['subvat'];
-			$factor['subtotal']    = $get_sum_detail['subtotal'];
-			$factor['qty']         = $get_sum_detail['qty'];
-			$factor['item']        = $get_sum_detail['item'];
-		}
-		else
-		{
-			// factor is empty
-			$factor['subprice']    = 0;
-			$factor['subdiscount'] = 0;
-			$factor['subvat']      = 0;
-			$factor['subtotal']    = 0;
-			$factor['qty']         = 0;
-			$factor['item']        = 0;
-			$factor['shipping']    = 0;
+			$ready_factor_detail[] =
+			[
+				'product'  => a($value, 'product_id'),
+				'count'    => a($value, 'count'),
+				'discount' => a($value, 'discount'),
+				'price'    => a($value, 'price'),
+			];
 		}
 
-		$factor['discount']    = $load_factor['discount'];
+		$factor_option =
+		[
+			'customer_mode'       => (a($load_factor, 'mode') === 'customer') ? true : false,
+			'factor_id'           => $_factor_id,
+			're_calculate_factor' => true,
+			'discount_id'         => a($load_factor, 'discount_id'),
+		];
 
-		$factor['total']     = floatval($factor['subtotal']) - floatval($factor['discount']);
+		$result = \lib\app\factor\add::new_factor($ready_factor, $ready_factor_detail, $factor_option);
 
-		if($factor['discount'])
-		{
-			if(floatval($factor['discount']) > floatval($factor['subtotal']))
-			{
-				\dash\notif::error(T_("Discount is larger than order total"));
-				return false;
-			}
-		}
-
-		$_option['loca_factor'] = $load_factor;
-		$_option['mode']        = $load_factor['mode'];
-
-		$factor = \lib\app\factor\add::calculate_shipping_value($factor, $_option);
-
-		$factor['total']     = (floatval($factor['subtotal']) - floatval($factor['discount'])) + floatval($factor['shipping']);
-
-		// check max input size for factor
-		$factor          = \lib\app\factor\check::value_max_limit($factor, $_option);
-
-		if(!$factor || !\dash\engine\process::status())
+		// we have error in data
+		if(!\dash\engine\process::status())
 		{
 			return false;
 		}
 
-		$update = \lib\db\factors\update::record($factor, $_factor_id);
+		// update factor record
+		$update = \lib\db\factors\update::record($result['factor'], $_factor_id);
+
+		// remove all current factor detail
+		\lib\db\factordetails\delete::hard_by_factor_id($_factor_id);
+
+		$product_discount = [];
+		if(is_array(a($result, 'discount_code', 'product_discount')))
+		{
+			$product_discount = $result['discount_code']['product_discount'];
+		}
+
+		$factor_detail = $result['factor_detail'];
+
+		foreach ($factor_detail as $key => $value)
+		{
+			$factor_detail[$key]['factor_id'] = $_factor_id;
+			unset($factor_detail[$key]['sub_price_temp']);
+			unset($factor_detail[$key]['sub_discount_temp']);
+			unset($factor_detail[$key]['sub_vat_temp']);
+			unset($factor_detail[$key]['type']);
+
+			// save product discount
+			if(isset($product_discount[$value['product_id']]))
+			{
+				$factor_detail[$key]['discount2'] = $product_discount[$value['product_id']];
+
+			}
+
+			unset($factor_detail[$key]['track_stock_temp']);
+
+		}
+
+		$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);
+
+
+
 
 		// calculate product inventory
 		$product_neet_track_count = \lib\db\factordetails\get::product_neet_track_count($_factor_id);

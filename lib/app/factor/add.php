@@ -127,21 +127,26 @@ class add
 	{
 		$default_option =
 		[
-			'debug'             => true,
-			'factor_id'         => null,
+			'debug'               => true,
+			'factor_id'           => null,
 
 			// customer try to add new factor by cart and shipping page
-			'customer_mode'     => false,
+			'customer_mode'       => false,
 
 			// only calculate factor value for show in shipping page
-			'only_calculate'    => false,
+			'only_calculate'      => false,
 
 			// the raw discount code
 			// need to check is valid
 			// fill discoutn2 on factors
-			'discount_code'     => null,
+			'discount_code'       => null,
+			// in edit mode we have discount id vs discount code
+			'discount_id'         => null,
 
-			'start_transaction' => true,
+			'start_transaction'   => true,
+
+			// recalculate factor
+			're_calculate_factor' => false,
 		];
 
 		if(!is_array($_option))
@@ -196,9 +201,16 @@ class add
 		===========================================*/
 		$check_discount_code = [];
 
-		if($_option['discount_code'])
+		if($_option['discount_code'] || $_option['discount_id'])
 		{
-			$check_discount_code = \lib\app\discount\discount_check::get_result($_option['discount_code'], $factor, $factor_detail);
+			if($_option['discount_code'])
+			{
+				$check_discount_code = \lib\app\discount\discount_check::get_result($_option['discount_code'], $factor, $factor_detail);
+			}
+			else
+			{
+				$check_discount_code = \lib\app\discount\discount_check::get_result_by_discount_id($_option['discount_id'], $factor, $factor_detail);
+			}
 
 			// save discount id
 			if(a($check_discount_code, 'discount_id'))
@@ -255,7 +267,6 @@ class add
 		$factor['date']      = date("Y-m-d H:i:s");
 		$factor['title']     = null;
 		$factor['pre']       = null;
-		$factor['transport'] = null;
 		$factor['desc']      = $factor['desc'];
 		$factor['mode']      = $mode;
 
@@ -268,6 +279,15 @@ class add
 		{
 			$factor['discount_code'] = $check_discount_code;
 			return $factor;
+		}
+
+		if($_option['re_calculate_factor'])
+		{
+			$result                  = [];
+			$result['factor']        = $factor;
+			$result['factor_detail'] = $factor_detail;
+			$result['discount_code'] = $check_discount_code;
+			return $result;
 		}
 
 

@@ -4,6 +4,12 @@ namespace lib\db\factordetails;
 
 class delete
 {
+	public static function hard_by_factor_id($_factor_id)
+	{
+		$query = "DELETE FROM factordetails WHERE factordetails.factor_id = $_factor_id ";
+		$result = \dash\db::query($query);
+		return $result;
+	}
 
 	public static function by_factor_id($_factor_id)
 	{

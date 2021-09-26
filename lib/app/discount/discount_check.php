@@ -10,6 +10,7 @@ class discount_check
 	private static $code               = null;
 	private static $discount_id        = null;
 	private static $valid              = null;
+	private static $edit_factor_mode   = false;
 
 
 	public static function get_result()
@@ -18,6 +19,29 @@ class discount_check
 
 		// first check and fill $result
 		self::check(...func_get_args());
+
+		return self::$result;
+	}
+
+
+	/**
+	 * Gets the result by discount identifier.
+	 * Not check status or active discount
+	 * Only check price and minimum requirement
+	 * In edit factor load this function
+	 *
+	 * @param      <type>  $_discount_code  The discount code
+	 * @param      <type>  $_factor         The factor
+	 * @param      <type>  $_factor_detail  The factor detail
+	 */
+	public static function get_result_by_discount_id($_discount_id, $_factor, $_factor_detail)
+	{
+		self::$edit_factor_mode = true;
+		self::$discount_id      = $_discount_id;
+
+		self::$result           = [];
+
+		self::check(null, $_factor, $_factor_detail);
 
 		return self::$result;
 	}
@@ -149,25 +173,34 @@ class discount_check
 			self::$user_id = \dash\user::id();
 		}
 
-		// save discount code
-		self::$code = \dash\validate::string($_discount_code, false);
-		if(mb_strlen(self::$code) > 100)
+		if(self::$edit_factor_mode && self::$discount_id)
 		{
-			self::$code = substr(self::$code, 0, 100);
+			// not check discount code
+			$load = \lib\app\discount\get::get(self::$discount_id);
 		}
-
-
-		/*----------  validate discount string code  ----------*/
-		$discount_code = \dash\validate::discount_code($_discount_code, false);
-
-		if(!$discount_code)
+		else
 		{
-			self::error(T_("Invalid Discount code"), true);
-			return false;
-		}
+			// save discount code
+			self::$code = \dash\validate::string($_discount_code, false);
+			if(mb_strlen(self::$code) > 100)
+			{
+				self::$code = substr(self::$code, 0, 100);
+			}
 
-		/*----------  load discount code  ----------*/
-		$load = \lib\app\discount\get::by_code($discount_code);
+
+			/*----------  validate discount string code  ----------*/
+			$discount_code = \dash\validate::discount_code($_discount_code, false);
+
+			if(!$discount_code)
+			{
+				self::error(T_("Invalid Discount code"), true);
+				return false;
+			}
+
+			/*----------  load discount code  ----------*/
+			$load = \lib\app\discount\get::by_code($discount_code);
+
+		}
 
 		if(!$load)
 		{
@@ -182,30 +215,35 @@ class discount_check
 		// save discount id
 		self::$discount_id = $discount_id = $load['id'];
 
-		/*----------  check status  ----------*/
-		if(a($load, 'status') !== 'enable')
+		// in edit mode needless to check something
+		if(!self::$edit_factor_mode)
 		{
-			self::error(T_("Discount is not enable"));
-			return false;
-		}
-
-		if($load['startdate'])
-		{
-			if(time() < strtotime($load['startdate']))
+			/*----------  check status  ----------*/
+			if(a($load, 'status') !== 'enable')
 			{
-				self::error(T_("Discount is not available at this time."));
+				self::error(T_("Discount is not enable"));
 				return false;
+			}
+
+			if($load['startdate'])
+			{
+				if(time() < strtotime($load['startdate']))
+				{
+					self::error(T_("Discount is not available at this time."));
+					return false;
+				}
+			}
+
+			if($load['enddate'])
+			{
+				if(time() > strtotime($load['enddate']))
+				{
+					self::error(T_("Discount was expired"));
+					return false;
+				}
 			}
 		}
 
-		if($load['enddate'])
-		{
-			if(time() > strtotime($load['enddate']))
-			{
-				self::error(T_("Discount was expired"));
-				return false;
-			}
-		}
 
 		/*----------  check minpurchase  ----------*/
 		if($load['type'] === 'percentage')
@@ -325,27 +363,30 @@ class discount_check
 			//everyone
 		}
 
-		if($load['usageperuser'])
+		if(!self::$edit_factor_mode)
 		{
-			// check not used by this user
-			$count = \lib\app\discount\usage::user_usage_count($discount_id, $_factor['customer']);
-			if($count)
+			if($load['usageperuser'])
 			{
-				self::error(T_("You already use from this discount code, Can not use again"));
-				return false;
+				// check not used by this user
+				$count = \lib\app\discount\usage::user_usage_count($discount_id, $_factor['customer']);
+				if($count)
+				{
+					self::error(T_("You already use from this discount code, Can not use again"));
+					return false;
+				}
 			}
-		}
 
 
-		if($load['usagetotal'])
-		{
-			// check maximum usage discount
-			$count = \lib\app\discount\usage::total_count($discount_id);
-
-			if(floatval($count) >= floatval($load['usagetotal']))
+			if($load['usagetotal'])
 			{
-				self::error(T_("Maximum capacity of this discount is full!"));
-				return false;
+				// check maximum usage discount
+				$count = \lib\app\discount\usage::total_count($discount_id);
+
+				if(floatval($count) >= floatval($load['usagetotal']))
+				{
+					self::error(T_("Maximum capacity of this discount is full!"));
+					return false;
+				}
 			}
 		}
 
