@@ -223,6 +223,12 @@ class action
 			return false;
 		}
 
+		if(a($load_factor, 'status') === 'deleted')
+		{
+			\dash\notif::error(T_("This order was deleted and can not be update!"));
+			return false;
+		}
+
 		if(\dash\url::content() === 'a')
 		{
 			\dash\permission::access('manageFactors');

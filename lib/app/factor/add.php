@@ -457,6 +457,12 @@ class add
 			return false;
 		}
 
+		if(a($load_factor, 'status') === 'deleted')
+		{
+			\dash\notif::error(T_("This order was deleted and can not be update!"));
+			return false;
+		}
+
 		$load_product = \lib\app\product\get::get($data['product_id']);
 		if(!$load_product)
 		{
@@ -530,6 +536,7 @@ class add
 				unset($factor_detail[$key]['sub_discount_temp']);
 				unset($factor_detail[$key]['sub_vat_temp']);
 				unset($factor_detail[$key]['track_stock_temp']);
+				unset($factor_detail[$key]['type']);
 
 			}
 

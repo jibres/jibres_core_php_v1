@@ -44,6 +44,14 @@ class edit
 			return false;
 		}
 
+		$load_factor = \lib\app\factor\get::one($factor_id);
+
+		if(a($load_factor, 'status') === 'deleted')
+		{
+			\dash\notif::error(T_("This order was deleted and can not update it!"));
+			return false;
+		}
+
 		$check_ok  = \lib\db\factordetails\get::by_id_factor_id($id, $factor_id);
 
 		if(!isset($check_ok['id']))
@@ -220,6 +228,14 @@ class edit
 			return false;
 		}
 
+		$load_factor = \lib\app\factor\get::one($factor_id);
+
+		if(a($load_factor, 'status') === 'deleted')
+		{
+			\dash\notif::error(T_("This order was deleted and can not update it!"));
+			return false;
+		}
+
 
 		$update =
 		[
@@ -241,6 +257,14 @@ class edit
 			return false;
 		}
 
+		$load_factor = \lib\app\factor\get::one($factor_id);
+
+		if(a($load_factor, 'status') === 'deleted')
+		{
+			\dash\notif::error(T_("This order was deleted and can not update it!"));
+			return false;
+		}
+
 		$update =
 		[
 			'type'       => $_type,
@@ -257,6 +281,13 @@ class edit
 
 		if(!$load_factor)
 		{
+			return false;
+		}
+
+
+		if(a($load_factor, 'status') === 'deleted')
+		{
+			\dash\notif::error(T_("This order was deleted and can not update it!"));
 			return false;
 		}
 
@@ -352,6 +383,13 @@ class edit
 
 		if(!$load_factor)
 		{
+			return false;
+		}
+
+
+		if(a($load_factor, 'status') === 'deleted')
+		{
+			\dash\notif::error(T_("This order was deleted and can not update it!"));
 			return false;
 		}
 
