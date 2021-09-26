@@ -160,6 +160,15 @@ else
    </tr>
    <?php } //endif ?>
 
+
+   <?php if(isset($factorDetail['factor']['discount2']) && $factorDetail['factor']['discount2']) {?>
+
+   <tr>
+     <th class="txtRa fs08"><?php echo T_("Discount code"); ?></th>
+     <td class="collapsing txtLa"><?php echo \dash\fit::number(a($factorDetail, 'factor', 'discount2')); ?></td>
+   </tr>
+   <?php } //endif ?>
+
 <?php } //endif ?>
    <tr class="msg info2 factorSum">
      <th class="txtRa fs08"><?php echo T_("Total payable"); ?></th>
