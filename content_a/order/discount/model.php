@@ -32,7 +32,7 @@ class model
 		{
 			$post =
 			[
-				'discount' => \dash\request::post('discount'),
+
 				'shipping' => \dash\request::post('shipping'),
 			];
 

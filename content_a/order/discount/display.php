@@ -11,10 +11,7 @@
       <div class="box">
         <div class="pad">
           <?php require_once(root. '/content_a/order/summary.php'); ?>
-          <label for='idiscount'><?php echo T_("Discount") ?></label>
-          <div class="input">
-            <input type="tel" data-format='price' name="discount" value="<?php echo a($orderDetail, 'factor', 'discount') ?>">
-          </div>
+
           <label for='ishipping'><?php echo T_("Shipping") ?></label>
           <div class="input">
             <input type="tel" data-format='price' name="shipping" value="<?php echo a($orderDetail, 'factor', 'shipping') ?>">
