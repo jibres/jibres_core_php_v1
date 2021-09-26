@@ -63,6 +63,14 @@ class calculate
 			return false;
 		}
 
+		if(isset($_option['show_discount_error']))
+		{
+			if(isset($result['discount_code']['msg']))
+			{
+				\dash\notif::error($result['discount_code']['msg']);
+			}
+		}
+
 		// update factor record
 		$update = \lib\db\factors\update::record($result['factor'], $_factor_id);
 

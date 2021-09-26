@@ -275,6 +275,87 @@ class edit
 	}
 
 
+
+	public static function remove_discount_code($_factor_id)
+	{
+		$factor_id = \lib\app\factor\get::fix_id($_factor_id);
+
+		if(!$factor_id)
+		{
+			\dash\notif::error(T_("Invalid factor id"));
+			return false;
+		}
+
+		$load_factor = \lib\app\factor\get::one($factor_id);
+		if(!$load_factor)
+		{
+			\dash\notif::error(T_("Order not found"));
+			return false;
+		}
+
+
+		\dash\db::transaction();
+
+		\lib\db\factors\update::record(['discount_id' => null], $factor_id);
+
+		\lib\app\factor\calculate::again($factor_id, ['show_discount_error' => true]);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\db::commit();
+			\dash\notif::ok(T_("Discount removed to order"));
+		}
+		else
+		{
+			\dash\db::rollback();
+		}
+
+
+
+		return true;
+
+	}
+
+	public static function add_discount_code($_discount_code, $_factor_id)
+	{
+		$factor_id = \lib\app\factor\get::fix_id($_factor_id);
+
+		if(!$factor_id)
+		{
+			\dash\notif::error(T_("Invalid factor id"));
+			return false;
+		}
+
+		$load_discount = \lib\app\discount\get::by_code($_discount_code);
+		if(!$load_discount)
+		{
+			\dash\notif::error(T_("Discount not found"));
+			return false;
+		}
+
+		\dash\db::transaction();
+
+		\lib\db\factors\update::record(['discount_id' => $load_discount['id']], $factor_id);
+
+		\lib\app\factor\calculate::again($factor_id, ['show_discount_error' => true]);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\db::commit();
+			\dash\notif::ok(T_("Discount added to order"));
+		}
+		else
+		{
+			\dash\db::rollback();
+		}
+
+
+
+		return true;
+
+	}
+
+
 	public static function edit_factor($_args, $_id)
 	{
 		$load_factor = \lib\app\factor\get::one($_id);

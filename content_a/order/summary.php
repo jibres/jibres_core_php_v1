@@ -38,6 +38,11 @@
                   <td><?php echo \dash\fit::number(a($orderDetail, 'factor', 'discount2')). ' '. \lib\store::currency(); ?></td>
                   <td><code><?php echo a($orderDetail, 'discount_code', 'code') ?></code></td>
                   <td><a class="link sm" href="<?php echo \dash\url::here(). '/discount/edit?id='. a($orderDetail, 'factor', 'discount_id') ?>" data-direct><?php echo T_("Show Discount") ?></a></td>
+                  <td class="collapsing">
+                    <?php if(\dash\url::child() === 'discount') {?>
+                    <div class="btn linkDel" data-confirm data-data='{"removediscount": "removediscount"}'><?php echo T_("Remove discount") ?></div>
+                    <?php } //endif ?>
+                  </td>
                 </tr>
               <?php } //endif ?>
 
