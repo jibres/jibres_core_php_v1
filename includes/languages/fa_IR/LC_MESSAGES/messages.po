@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-26 11:43+0330\n"
-"PO-Revision-Date: 2021-09-26 11:44+0330\n"
+"POT-Creation-Date: 2021-09-26 17:02+0330\n"
+"PO-Revision-Date: 2021-09-26 17:02+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2158,7 +2158,7 @@ msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی د
 
 #: content/home/display.php:35 content/pricing/display.php:38
 #: content/pricing/priceTable.php:7 content/pricing/priceTable.php:18
-#: content_a/cart/add/display.php:131 content_a/order/summary.php:49
+#: content_a/cart/add/display.php:131 content_a/order/summary.php:54
 #: content_a/products/edit/block/price.php:86 content_business/cart/cartSummary.php:40
 #: content_business/p/home/blocks/detail.php:66 content_site/assemble/wrench/price.php:31
 msgid "Free"
@@ -4158,7 +4158,7 @@ msgstr "۹٪"
 #: content_a/accounting/report/total/display.php:97
 #: content_a/accounting/report/total/display.php:127 content_a/cart/add/display.php:136
 #: content_a/order/home/display.php:70 content_a/order/links.php:30
-#: content_a/order/productList.php:38 content_a/order/summary.php:55
+#: content_a/order/productList.php:38 content_a/order/summary.php:60
 #: content_a/sale/display.php:20 content_business/cart/cartSummary.php:46
 #: content_business/orders/display.php:19 dash/utility/pagination.php:484
 msgid "Total"
@@ -7655,7 +7655,7 @@ msgid "Order Summary"
 msgstr "خلاصه سفارش"
 
 #: content_a/cart/add/display.php:127 content_a/order/discount/display.php:18
-#: content_a/order/home/display.php:67 content_a/order/summary.php:45
+#: content_a/order/home/display.php:67 content_a/order/summary.php:50
 #: content_a/setting/home/display.php:47 content_business/cart/cartSummary.php:36
 msgid "Shipping"
 msgstr "حمل و نقل"
@@ -7949,7 +7949,7 @@ msgstr "چاپ فاکتور"
 #: content_cms/controller.php:16 content_r10/tools.php:134 content_site/controller.php:24
 #: content_v2/controller.php:19 dash/engine/store.php:313 lib/app/application/queue.php:12
 #: lib/app/application/queue.php:243 lib/app/business_domain/add.php:68
-#: lib/app/business_domain/edit.php:100 lib/app/factor/add.php:133
+#: lib/app/business_domain/edit.php:100 lib/app/factor/add.php:163
 #: lib/app/factor/get.php:179 lib/app/plan/history.php:113 lib/app/product/edit.php:104
 #: lib/app/product/get.php:45 lib/app/product/get.php:86 lib/app/product/unit.php:63
 #: lib/app/product/unit.php:229 lib/app/product/unit.php:261 lib/app/product/unit.php:355
@@ -7965,8 +7965,8 @@ msgid "Show factors by this discount"
 msgstr "نمایش سفارشاتی که از این کد تخفیف استفاده کرده‌اند"
 
 #: content_a/discount/add/display.php:24 content_a/discount/home/view.php:9
-#: content_a/home/display.php:198 content_a/order/summary.php:37
-#: content_business/cart/cartSummary.php:22
+#: content_a/home/display.php:198 content_a/order/discount/display.php:36
+#: content_a/order/summary.php:37 content_business/cart/cartSummary.php:22
 msgid "Discount code"
 msgstr "کد تخفیف"
 
@@ -8380,7 +8380,7 @@ msgstr "همین الان بساز"
 #: content_love/business/domain/setting/display.php:125
 #: includes/languages/trans_static.php:539 includes/languages/trans_static_public.php:935
 #: lib/app/application/queue.php:450 lib/app/business_domain/search.php:178
-#: lib/app/business_domain/search_dns.php:123 lib/app/discount/discount_check.php:526
+#: lib/app/business_domain/search_dns.php:123 lib/app/discount/discount_check.php:567
 #: lib/app/import/product.php:17 lib/pardakhtyar/type.php:15
 msgid "Ok"
 msgstr "بسیار خب"
@@ -9496,6 +9496,10 @@ msgstr "زمان سفارش"
 msgid "Payment status"
 msgstr "وضعیت پرداخت"
 
+#: content_a/order/discount/display.php:42
+msgid "Apply discount code"
+msgstr "اعمال کد تخفیف"
+
 #: content_a/order/editdate/display.php:23
 msgid "Last date modified"
 msgstr "آخرین به‌روزرسانی"
@@ -9919,6 +9923,10 @@ msgstr "جمع تخفیف‌ها"
 #: content_a/order/summary.php:40
 msgid "Show Discount"
 msgstr "نمایش کد تخفیف"
+
+#: content_a/order/summary.php:43
+msgid "Remove discount"
+msgstr "حذف کد تخفیف"
 
 #: content_a/order/view.php:9 content_a/setting/home/display.php:67
 #: content_crm/member/glance/display.php:318 dash/layout/admin/admin-header.php:21
@@ -14915,11 +14923,11 @@ msgstr ""
 "همین امروز اپلیکیشن ما رو نصب کن! با برنامه رایگان ما می‌تونید سریع و به سرعت خرید کنید. "
 "از تخفیفات ویژه و جدیدی که بر روی اپ ما ارائه میشه همین الان استفاده کنید"
 
-#: content_business/cart/cartSummary.php:58 lib/app/factor/add.php:263
+#: content_business/cart/cartSummary.php:58 lib/app/factor/add.php:311
 msgid "Minimum order amount is :val :currency"
 msgstr "حداقل مبلغ سفارش :val :currency است"
 
-#: content_business/cart/cartSummary.php:60 lib/app/factor/add.php:265
+#: content_business/cart/cartSummary.php:60 lib/app/factor/add.php:313
 msgid "You must add :val :currency to your cart"
 msgstr "شما باید :val :currency دیگر به سبد خرید خود اضافه کنید"
 
@@ -15027,7 +15035,7 @@ msgstr "سفارشات من"
 msgid "This is not your order"
 msgstr "این سفارش شما نیست"
 
-#: content_business/orders/view/controller.php:35
+#: content_business/orders/view/controller.php:35 lib/app/factor/edit.php:292
 msgid "Order not found"
 msgstr "سفارش یافت نشد"
 
@@ -23543,7 +23551,7 @@ msgstr "خطای نامشخص"
 msgid "Page factor"
 msgstr "فاکتور صفحه"
 
-#: content_site/page/model.php:18 lib/app/factor/edit.php:124 lib/app/factor/edit.php:316
+#: content_site/page/model.php:18 lib/app/factor/edit.php:124 lib/app/factor/edit.php:397
 msgid "Data saved"
 msgstr "ذخیره شد"
 
@@ -24688,7 +24696,7 @@ msgid "Please wait until your comment was approved"
 msgstr "لطفا صبر کنید تا دیگاه‌های شما تایید شود"
 
 #: dash/app/comment/add.php:49 dash/app/ticket/add.php:72 dash/utility/pay/start.php:219
-#: lib/app/cart/add.php:211 lib/app/factor/add.php:301
+#: lib/app/cart/add.php:211 lib/app/factor/add.php:349
 msgid "Who are you?"
 msgstr "شما کی هستید؟"
 
@@ -36361,88 +36369,88 @@ msgstr "مشتریانی که خرید کرده‌اند"
 msgid "Maximum capacity of discount dedicated is full"
 msgstr "حداکثر ظرفیت اختصاص کد تخفیف به موارد خاص پر شده است"
 
-#: lib/app/discount/discount_check.php:137
+#: lib/app/discount/discount_check.php:161
 msgid "No amount to pay!"
 msgstr "مبلغی برای پرداخت یافت نشد!"
 
-#: lib/app/discount/discount_check.php:165
+#: lib/app/discount/discount_check.php:196
 msgid "Invalid Discount code"
 msgstr "کد تخفیف نامعتبر است"
 
-#: lib/app/discount/discount_check.php:174
+#: lib/app/discount/discount_check.php:207 lib/app/factor/edit.php:332
 msgid "Discount not found"
 msgstr "کد تخفیف یافت نشد"
 
-#: lib/app/discount/discount_check.php:188
+#: lib/app/discount/discount_check.php:224
 msgid "Discount is not enable"
 msgstr "کد تخفیف غیر نیست"
 
-#: lib/app/discount/discount_check.php:196
+#: lib/app/discount/discount_check.php:232
 msgid "Discount is not available at this time."
 msgstr "در حال حاضر این کد تخفیف قابل استفاده نیست."
 
-#: lib/app/discount/discount_check.php:205
+#: lib/app/discount/discount_check.php:241
 msgid "Discount was expired"
 msgstr "کد تخفیف منقضی شده است"
 
-#: lib/app/discount/discount_check.php:228
+#: lib/app/discount/discount_check.php:266
 msgid "You must have at least :val :currency in your cart to use this discount"
 msgstr ""
 "شما باید حداقل :val :currency در سبد خرید خود داشته باشید تا بتوانید از این کد تخفیف "
 "استفاده کنید"
 
-#: lib/app/discount/discount_check.php:249
+#: lib/app/discount/discount_check.php:287
 msgid "You must have at least :val item in your cart to use this discount code"
 msgstr ""
 "شما باید حداقل :val قلم جنس در سبد خرید خود داشته باشید تا بتوانید از این کد تخفیف "
 "استفاده کنید"
 
-#: lib/app/discount/discount_check.php:269 lib/app/discount/discount_check.php:313
+#: lib/app/discount/discount_check.php:307 lib/app/discount/discount_check.php:351
 msgid "Please login to use this discount"
 msgstr "برای استفاده از این کد تخفیف لطفا وارد سیستم شوید"
 
-#: lib/app/discount/discount_check.php:281
+#: lib/app/discount/discount_check.php:319
 msgid "Discount only for first order!"
 msgstr "این کد تخفیف فقط مربوط به اولین سفارش است!"
 
-#: lib/app/discount/discount_check.php:290
+#: lib/app/discount/discount_check.php:328
 msgid "Discount only for customer who have order before!"
 msgstr "این کد تخفیف مربوط به مشتریانی هست که قبلا خرید کرده‌اند!"
 
-#: lib/app/discount/discount_check.php:318
+#: lib/app/discount/discount_check.php:356
 msgid "Sorry! This discount code is not for you"
 msgstr "متاسفیم! این کد تخفیف قابلیت استفاده برای حساب کاربری شما را ندارد"
 
-#: lib/app/discount/discount_check.php:334
+#: lib/app/discount/discount_check.php:374
 msgid "You already use from this discount code, Can not use again"
 msgstr "شما قبلا از این کد تخفیف استفاده کرده‌اید. امکان استفاده مجدد وجود ندارد"
 
-#: lib/app/discount/discount_check.php:347
+#: lib/app/discount/discount_check.php:387
 msgid "Maximum capacity of this discount is full!"
 msgstr "حداکثر ظرفیت این کد تخفیف تکمیل شده است!"
 
-#: lib/app/discount/discount_check.php:388
+#: lib/app/discount/discount_check.php:429
 msgid ""
 "This is a discount code for a specific category of products not found in your cart!"
 msgstr "این کد تخفیف به دسته‌بندی خاصی از محصولات اختصاص دارد که در سبد خرید شما یافت نشد!"
 
-#: lib/app/discount/discount_check.php:409
+#: lib/app/discount/discount_check.php:450
 msgid "Can not load products category!"
 msgstr "نمی‌توانیم دسته‌بندی محصول را باز کنیم!"
 
-#: lib/app/discount/discount_check.php:435
+#: lib/app/discount/discount_check.php:476
 msgid "This is a discount code for a specific products not found in your cart!"
 msgstr "این کد تخفیف به محصولات خاصی اختصاص دارد که در سبد خرید شما یافت نشد!"
 
-#: lib/app/discount/discount_check.php:463 lib/app/discount/discount_check.php:477
+#: lib/app/discount/discount_check.php:504 lib/app/discount/discount_check.php:518
 msgid "Discount is broken!"
 msgstr "در کد تخفیف اشکالی و"
 
-#: lib/app/discount/discount_check.php:488
+#: lib/app/discount/discount_check.php:529
 msgid "Invalid discount code type!"
 msgstr "نوع کد تخفیف اشتباه است!"
 
-#: lib/app/discount/discount_check.php:524
+#: lib/app/discount/discount_check.php:565
 msgid "here you are :) "
 msgstr "بفرمایید :)"
 
@@ -36674,7 +36682,7 @@ msgstr "لطفا توضیحات را تکمیل کنید و یا فایلی را
 msgid "Order not found!"
 msgstr "سفارش یافت نشد!"
 
-#: lib/app/factor/action.php:228 lib/app/factor/add.php:462
+#: lib/app/factor/action.php:228 lib/app/factor/add.php:519
 msgid "This order was deleted and can not be update!"
 msgstr "این سفارش حذف شده است و امکان ویرایش آن وجود ندارد!"
 
@@ -36690,31 +36698,31 @@ msgstr "هیچ تغییری در وضعیت سفارش شما رخ نداد"
 msgid "Operation accomplished"
 msgstr "عملیات با موفقیت انجام شد"
 
-#: lib/app/factor/add.php:199 lib/app/factor/calculate.php:55
+#: lib/app/factor/add.php:236
 msgid "Discount is larger than order total"
 msgstr "تخفیف بزرگتر از مبلغ کل سفارش است"
 
-#: lib/app/factor/add.php:290
+#: lib/app/factor/add.php:338
 msgid "You have a lot unpaid factors. Please try again later"
 msgstr "شما تعدادی سفارش پرداخت نشده دارید. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید"
 
-#: lib/app/factor/add.php:312 lib/app/factor/add.php:324
+#: lib/app/factor/add.php:360 lib/app/factor/add.php:372
 msgid "You have a lot unpaid factors. Please try again later or login to add more"
 msgstr "شما تعدادی سفارش پرداخت نشده دارید. برای ثبت سفارش بیشتر وارد سیستم شوید"
 
-#: lib/app/factor/add.php:354
+#: lib/app/factor/add.php:402
 msgid "No way to insert factor"
 msgstr "هیچ راهی برای ثبت کالا وجود ندارد"
 
-#: lib/app/factor/add.php:421
+#: lib/app/factor/add.php:469
 msgid "Factor successfuly added"
 msgstr "فاکتور با موفقیت اضافه شد"
 
-#: lib/app/factor/add.php:501 lib/app/factor/edit.php:111
+#: lib/app/factor/add.php:558 lib/app/factor/edit.php:111
 msgid "Data is out of range for column count"
 msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - count"
 
-#: lib/app/factor/add.php:558
+#: lib/app/factor/add.php:615
 msgid "Product added to factor"
 msgstr "محصول به سفارش اضافه شد"
 
@@ -36796,7 +36804,7 @@ msgid "Can not add factor item price less than 0"
 msgstr "نمی‌توانید قیمت یک آیتم سفارش را زیر صفر وارد کنید"
 
 #: lib/app/factor/edit.php:51 lib/app/factor/edit.php:235 lib/app/factor/edit.php:264
-#: lib/app/factor/edit.php:290 lib/app/factor/edit.php:392
+#: lib/app/factor/edit.php:371 lib/app/factor/edit.php:473
 msgid "This order was deleted and can not update it!"
 msgstr "این سفارش حذف شده است و امکان ویرایش آن وجود ندارد!"
 
@@ -36812,27 +36820,40 @@ msgstr "نمی‌توانید تعداد محصول در سفارش را کمت�
 msgid "This factor is payed. To cancel this order contact to administrator"
 msgstr "این فاکتور پرداخت شده است. جهت لغو سفارش با مدیر سیستم تماس بگیرید"
 
-#: lib/app/factor/edit.php:302
+#: lib/app/factor/edit.php:285 lib/app/factor/edit.php:325 lib/app/factor/get.php:152
+#: lib/app/factor/get.php:196
+msgid "Invalid factor id"
+msgstr "شناسه فاکتور اشتباه است"
+
+#: lib/app/factor/edit.php:306
+msgid "Discount removed to order"
+msgstr "کد تخفیف از سفارش حذف شد"
+
+#: lib/app/factor/edit.php:345
+msgid "Discount added to order"
+msgstr "کد تخفیف به سفارش اعمال شد"
+
+#: lib/app/factor/edit.php:383
 msgid "Order save without change"
 msgstr "سفارش بدون تغییر ذخیره شد"
 
-#: lib/app/factor/edit.php:325
+#: lib/app/factor/edit.php:406
 msgid "Order updated"
 msgstr "سفارش به‌روزرسانی شد"
 
-#: lib/app/factor/edit.php:346
+#: lib/app/factor/edit.php:427
 msgid "Please choose a customer or add new customer"
 msgstr "لطفا یک مشتری را انتخاب کنید و یا مشتری جدیدی ثبت کنید"
 
-#: lib/app/factor/edit.php:353
+#: lib/app/factor/edit.php:434
 msgid "customer changed"
 msgstr "مشتری تغییر یافت"
 
-#: lib/app/factor/edit.php:372
+#: lib/app/factor/edit.php:453
 msgid "Customer removed from this order"
 msgstr "مشتری از این سفارش حذف شد"
 
-#: lib/app/factor/edit.php:429
+#: lib/app/factor/edit.php:510
 msgid "Order address was updated"
 msgstr "آدرس سفارش به‌روزرسانی شد"
 
@@ -36887,10 +36908,6 @@ msgstr "پرداخت نشده"
 #: lib/app/factor/get.php:144 lib/app/factor/get.php:188
 msgid "Factor id not set"
 msgstr "شناسه فاکتور تنظیم نشده است"
-
-#: lib/app/factor/get.php:152 lib/app/factor/get.php:196
-msgid "Invalid factor id"
-msgstr "شناسه فاکتور اشتباه است"
 
 #: lib/app/factor/ready.php:83
 msgid "Back buy"
@@ -41544,6 +41561,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "% off"
+#~ msgstr "٪ تخفیف"
 
 #~ msgid "Count used :val"
 #~ msgstr "تعداد استفاده شده :val"

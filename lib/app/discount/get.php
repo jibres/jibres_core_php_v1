@@ -69,7 +69,7 @@ class get
 		{
 			if($_detail['percentage'])
 			{
-				$summary[1] = T_(":val % off", ['val' => \dash\fit::number($_detail['percentage'])]);
+				$summary[1] = T_(':val % off', ['val' => \dash\fit::number($_detail['percentage'])]);
 			}
 		}
 		elseif($_detail['type'] === 'fixed_amount')
