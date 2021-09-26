@@ -5,7 +5,7 @@
     <?php require_once(root. '/content_a/order/links.php'); ?>
   </div>
   <div class="c-xs-12 c-sm-12 c-md-9">
-
+    <?php require_once(root. '/content_a/order/detail.php'); ?>
     <form method="post" autocomplete="off">
       <input type="hidden" name="editdesc" value="editdesc">
       <div class="box">

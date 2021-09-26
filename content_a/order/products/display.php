@@ -16,7 +16,7 @@ $have_user = false;
     <?php require_once(root. '/content_a/order/links.php'); ?>
   </div>
   <div class="c-xs-12 c-sm-12 c-md-9">
-
+    <?php require_once(root. '/content_a/order/detail.php'); ?>
 <?php if(\dash\data::userDetail()) { $have_user = true; ?>
   <div class="msg">
     <div class="f fs14">

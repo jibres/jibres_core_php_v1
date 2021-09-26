@@ -9,6 +9,8 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
     <?php require_once(root. '/content_a/order/links.php'); ?>
   </div>
   <div class="c-xs-12 c-sm-12 c-md-9">
+    <?php require_once(root. '/content_a/order/detail.php'); ?>
+
     <form method="post" autocomplete="off" data-patch>
 
       <div class="box">
@@ -118,6 +120,8 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
     </div>
   </form>
 
+
+  <?php if($orderStatus !== 'deleted') {?>
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="body">
@@ -129,6 +133,8 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
       </footer>
     </div>
   </form>
+  <?php } //endif ?>
+
 
 <?php  if(\dash\data::myActionList()) {?>
   <div class="tblBox font-12">
