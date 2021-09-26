@@ -106,17 +106,58 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalVAT']); ?></td>
        <td class="valPrice"><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?></td>
       </tr>
+
+
      </tfoot>
     </table>
-
     <div class="msg priceTxt"></div>
-
-
   </div>
 
-<?php if(a($factorDetail, 'factor', 'desc')) {?>
-<p class="msg font-14"><?php echo nl2br(a($factorDetail, 'factor', 'desc')) ?></p>
-<?php } //endif ?>
+<div class="f">
+  <div class="c">
+    <?php if(a($factorDetail, 'factor', 'desc')) {?>
+      <p class="msg font-14"><?php echo nl2br(a($factorDetail, 'factor', 'desc')) ?></p>
+    <?php } //endif ?>
+  </div>
+  <div class="c3">
+
+    <div class="tblBox">
+      <table class="tbl1 v4">
+        <tbody>
+        <?php if(a($factorDetail, 'factor', 'subprice')) {?>
+          </tr>
+            <td><?php echo T_("Total") ?></td>
+            <td><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'subprice')) ?></td>
+          <tr>
+        <?php } //endif ?>
+        <?php if(a($factorDetail, 'factor', 'shipping')) {?>
+          </tr>
+            <td><?php echo T_("Shipping") ?></td>
+            <td><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'shipping')) ?></td>
+          <tr>
+        <?php } //endif ?>
+
+        <?php if(a($factorDetail, 'factor', 'discount2')) {?>
+          </tr>
+            <td><?php echo T_("Discount code") ?></td>
+            <td><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'discount2')) ?></td>
+          <tr>
+        <?php } //endif ?>
+
+        <?php if(a($factorDetail, 'factor', 'total')) {?>
+          </tr>
+            <td><?php echo T_("Total payable") ?></td>
+            <td><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'total')) ?></td>
+          <tr>
+        <?php } //endif ?>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
 <div class="txtC">
   <div class="barcodeBox">
     <svg class="barcodePrev wide" data-val="#factorid" data-height=20 data-hideValue></svg>

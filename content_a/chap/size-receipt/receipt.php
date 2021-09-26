@@ -159,10 +159,15 @@ else
      <td class="collapsing txtLa"><?php echo \dash\fit::number(a($factorDetail, 'factor', 'subvat')); ?></td>
    </tr>
    <?php } //endif ?>
+   <?php if(isset($factorDetail['factor']['shipping']) && $factorDetail['factor']['shipping']) {?>
+   <tr>
+     <th class="txtRa fs08"><?php echo T_("Shipping"); ?></th>
+     <td class="collapsing txtLa"><?php echo \dash\fit::number(a($factorDetail, 'factor', 'shipping')); ?></td>
+   </tr>
+   <?php } //endif ?>
 
 
-   <?php if(isset($factorDetail['factor']['discount2']) && $factorDetail['factor']['discount2']) {?>
-
+  <?php if(isset($factorDetail['factor']['discount2']) && $factorDetail['factor']['discount2']) {?>
    <tr>
      <th class="txtRa fs08"><?php echo T_("Discount code"); ?></th>
      <td class="collapsing txtLa"><?php echo \dash\fit::number(a($factorDetail, 'factor', 'discount2')); ?></td>
