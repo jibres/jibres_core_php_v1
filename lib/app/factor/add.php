@@ -4,6 +4,14 @@ namespace lib\app\factor;
 
 class add
 {
+	/**
+	 * My array_sum
+	 *
+	 * @param      <type>  $_array   The array
+	 * @param      <type>  $_column  The column
+	 *
+	 * @return     int     ( description_of_the_return_value )
+	 */
 	public static function my_sum($_array, $_column)
 	{
 		$sum = 0;
@@ -23,6 +31,14 @@ class add
 	}
 
 
+
+	/**
+	 * Gets the shipping price.
+	 *
+	 * @param      <type>  $_total  The total
+	 *
+	 * @return     int     The shipping price.
+	 */
 	public static function get_shipping_price($_total)
 	{
 		$shipping_value = 0;
@@ -52,6 +68,15 @@ class add
 	}
 
 
+	/**
+	 * Calculates the shipping value.
+	 * if file mode have not shipping value
+	 *
+	 * @param      <type>  $factor   The factor
+	 * @param      array   $_option  The option
+	 *
+	 * @return     <type>  The shipping value.
+	 */
 	public static function calculate_shipping_value($factor, $_option = [])
 	{
 		// in file mode not calculate shipping
@@ -235,7 +260,10 @@ class add
 		$factor['mode']      = $mode;
 
 
-
+		/**
+		 * Retrun data.
+		 * Only need calculate factor detail
+		 */
 		if($_option['only_calculate'])
 		{
 			$factor['discount_code'] = $check_discount_code;
@@ -425,6 +453,15 @@ class add
 	}
 
 
+	/**
+	 * Add prodcut to exist factor
+	 * this function call in edit factor mode
+	 *
+	 * @param      <type>  $_args       The arguments
+	 * @param      <type>  $_factor_id  The factor identifier
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	public static function add_product($_args, $_factor_id)
 	{
 
