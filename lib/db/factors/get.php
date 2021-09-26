@@ -5,14 +5,14 @@ class get
 {
 	public static function count_by_customer($_user_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id ";
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id AND factors.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true);
 		return floatval($result);
 	}
 
 	public static function check_used_discount_id($_discount_id)
 	{
-		$query = "SELECT factors.id FROM factors WHERE factors.discount_id = $_discount_id LIMIT 1";
+		$query = "SELECT factors.id FROM factors WHERE factors.discount_id = $_discount_id AND factors.status != 'deleted' LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return floatval($result);
 	}
@@ -20,7 +20,7 @@ class get
 
 	public static function user_discount_usage_count($_discount_id, $_user_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id AND factors.discount_id = $_discount_id ";
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id AND factors.discount_id = $_discount_id AND factors.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true);
 		return floatval($result);
 	}
@@ -28,7 +28,7 @@ class get
 
 	public static function discount_usage_total_count($_discount_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.discount_id = $_discount_id ";
+		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.discount_id = $_discount_id AND factors.status != 'deleted' ";
 		$result = \dash\db::get($query, 'count', true);
 		return floatval($result);
 	}
