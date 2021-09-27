@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-26 17:02+0330\n"
-"PO-Revision-Date: 2021-09-26 17:02+0330\n"
+"POT-Creation-Date: 2021-09-27 16:39+0330\n"
+"PO-Revision-Date: 2021-09-27 16:41+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -705,7 +705,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/accounting/report/vatreport/display.php:191
 #: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
-#: content_a/discount/add/display.php:46 content_a/form/item/display.php:144
+#: content_a/discount/add/display.php:49 content_a/form/item/display.php:144
 #: content_a/form/setting/display.php:15 content_a/form/setting/display.php:16
 #: content_a/form/tag/edit/display.php:12 content_a/order/comment/display.php:13
 #: content_a/order/detail/display.php:75 content_a/products/desc/display.php:8
@@ -4157,10 +4157,11 @@ msgstr "۹٪"
 #: content_a/accounting/report/total/display.php:69
 #: content_a/accounting/report/total/display.php:97
 #: content_a/accounting/report/total/display.php:127 content_a/cart/add/display.php:136
-#: content_a/order/home/display.php:70 content_a/order/links.php:30
-#: content_a/order/productList.php:38 content_a/order/summary.php:60
-#: content_a/sale/display.php:20 content_business/cart/cartSummary.php:46
-#: content_business/orders/display.php:19 dash/utility/pagination.php:484
+#: content_a/chap/size-a4/a4-1.php:129 content_a/order/home/display.php:70
+#: content_a/order/links.php:30 content_a/order/productList.php:38
+#: content_a/order/summary.php:60 content_a/sale/display.php:20
+#: content_business/cart/cartSummary.php:46 content_business/orders/display.php:19
+#: dash/utility/pagination.php:484
 msgid "Total"
 msgstr "مجموع"
 
@@ -4535,7 +4536,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/cart/add/view.php:19 content_a/cart/home/view.php:16
 #: content_a/cart/user/view.php:13 content_a/chap/view.php:12
 #: content_a/discount/add/view.php:13 content_a/discount/add/view.php:17
-#: content_a/form/add/view.php:12 content_a/form/analytics/addcondition/view.php:12
+#: content_a/discount/duplicate/view.php:13 content_a/form/add/view.php:12
+#: content_a/form/analytics/addcondition/view.php:12
 #: content_a/form/analytics/addfilter/view.php:12
 #: content_a/form/analytics/answer/view.php:12 content_a/form/analytics/chart/view.php:12
 #: content_a/form/analytics/chart2/view.php:12 content_a/form/analytics/create/view.php:12
@@ -4952,7 +4954,7 @@ msgid "followup"
 msgstr "پیگیری"
 
 #: content_a/accounting/coding/add/display-add.php:139
-#: content_a/discount/add/display.php:586 content_a/setting/order/display.php:57
+#: content_a/discount/add/display.php:589 content_a/setting/order/display.php:57
 #: content_a/setting/order/display.php:116 content_a/setting/order/display.php:138
 #: content_a/setting/thirdparty/onlinepayment/display.php:21
 #: content_a/setting/thirdparty/onlinepayment/display.php:53
@@ -4996,7 +4998,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/doc/add/display-list.php:111
 #: content_a/accounting/doc/display.php:14 content_a/accounting/factor/display.php:48
 #: content_a/accounting/turnover/display.php:185 content_a/android/apk/display.php:32
-#: content_a/discount/add/display.php:574 content_a/form/answer/export/display.php:42
+#: content_a/discount/add/display.php:577 content_a/form/answer/export/display.php:42
 #: content_a/form/itemLink.php:14 content_a/order/detail/display.php:30
 #: content_a/products/edit/block/sidebar-menu.php:7
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
@@ -5056,7 +5058,7 @@ msgstr "وضعیت"
 #: content_love/changelog/add/display.php:44 content_love/changelog/view.php:16
 #: content_love/features/manage/display.php:56 content_site/options/menu/menu.php:84
 #: content_site/page/new/display.php:17 content_site/staticfile/display.php:24
-#: dash/layout/admin/admin-titlebox.php:95 dash/layout/pwa/pwa-header.php:141
+#: dash/layout/admin/admin-titlebox.php:95 dash/layout/pwa/pwa-header.php:144
 #: includes/languages/trans_static_public.php:143
 msgid "Add"
 msgstr "افزودن"
@@ -5449,7 +5451,7 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/accounting/factor/add/display.php:153
 #: content_a/accounting/factor/add/display.php:169
 #: content_a/accounting/factor/add/display.php:186
-#: content_a/accounting/factor/add/display.php:204 content_a/discount/add/display.php:272
+#: content_a/accounting/factor/add/display.php:204 content_a/discount/add/display.php:275
 #: content_a/form/tag/remove/display.php:37 content_a/tag/remove/display.php:38
 #: content_cms/hashtag/remove/display.php:37 content_crm/member/legal/display.php:70
 #: content_love/business/setting/display.php:87 content_love/store/setting/display.php:58
@@ -5977,7 +5979,7 @@ msgstr "لطفا ماه را انتخاب کنید"
 msgid "Choose status"
 msgstr "انتخاب وضعیت"
 
-#: content_a/accounting/filter.php:23 content_a/discount/add/display.php:579
+#: content_a/accounting/filter.php:23 content_a/discount/add/display.php:582
 #: content_a/form/status/display.php:17 content_a/order/status/display.php:44
 #: content_a/products/edit/block/sidebar-menu.php:10 content_cms/home/display.php:10
 #: content_cms/posts/advance/display.php:22 dash/app/posts/filter.php:57
@@ -5997,14 +5999,14 @@ msgid "Choose template"
 msgstr "انتخاب قالب"
 
 #: content_a/accounting/filter.php:56 content_a/accounting/turnover/display.php:25
-#: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:493
+#: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:496
 #: content_a/form/answer/display.php:63 content_a/order/home/filter.php:245
 #: content_a/pricehistory/display.php:36
 msgid "Start date"
 msgstr "تاریخ شروع"
 
 #: content_a/accounting/filter.php:62 content_a/accounting/turnover/display.php:31
-#: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:537
+#: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:540
 #: content_a/form/answer/display.php:64 content_a/order/home/filter.php:251
 #: content_a/pricehistory/display.php:37
 msgid "End date"
@@ -6523,12 +6525,11 @@ msgid "Postalcode"
 msgstr "کد پستی"
 
 #: content_a/accounting/report/quarter/display-detail.php:65
-#: content_a/cart/add/display.php:121 content_a/order/discount/display.php:14
-#: content_a/order/home/display.php:60 content_a/order/productList.php:21
-#: content_a/order/products/display.php:56 content_a/order/products/display.php:58
-#: content_a/order/summary.php:29 content_a/pricehistory/display.php:40
-#: content_a/products/child/display.php:102 content_a/products/child/display.php:172
-#: content_a/products/edit/block/price.php:55
+#: content_a/cart/add/display.php:121 content_a/order/home/display.php:60
+#: content_a/order/productList.php:21 content_a/order/products/display.php:56
+#: content_a/order/products/display.php:58 content_a/order/summary.php:29
+#: content_a/pricehistory/display.php:40 content_a/products/child/display.php:102
+#: content_a/products/child/display.php:172 content_a/products/edit/block/price.php:55
 #: content_a/products/variants/display-add-product.php:31
 #: content_a/products/variants/display-add-product.php:75 content_a/sale/display.php:19
 #: content_business/cart/cartSummary.php:15 content_business/p/home/view.php:100
@@ -7033,7 +7034,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/form/analytics/setting/display.php:38
 #: content_a/form/analytics/tag/display.php:41 content_a/form/answer/detail/display.php:98
 #: content_a/order/address/display.php:77 content_a/order/comment/display.php:17
-#: content_a/order/discount/display.php:24 content_a/order/editdate/display.php:46
+#: content_a/order/discount/display.php:21 content_a/order/editdate/display.php:46
 #: content_a/order/productList.php:68 content_a/order/status/display.php:118
 #: content_a/products/desc/display.php:13 content_a/products/edit/display-child.php:4
 #: content_a/products/edit/display-master.php:3
@@ -7654,7 +7655,8 @@ msgstr "اختصاص سبد خرید به مشتری"
 msgid "Order Summary"
 msgstr "خلاصه سفارش"
 
-#: content_a/cart/add/display.php:127 content_a/order/discount/display.php:18
+#: content_a/cart/add/display.php:127 content_a/chap/size-a4/a4-1.php:135
+#: content_a/chap/size-receipt/receipt.php:164 content_a/order/discount/display.php:15
 #: content_a/order/home/display.php:67 content_a/order/summary.php:50
 #: content_a/setting/home/display.php:47 content_business/cart/cartSummary.php:36
 msgid "Shipping"
@@ -7873,6 +7875,19 @@ msgstr "قیمت نهایی"
 msgid "Sum Total"
 msgstr "جمع کل"
 
+#: content_a/chap/size-a4/a4-1.php:142 content_a/chap/size-receipt/receipt.php:172
+#: content_a/discount/add/display.php:24 content_a/discount/duplicate/display.php:24
+#: content_a/discount/home/view.php:9 content_a/home/display.php:198
+#: content_a/order/discount/display.php:34 content_a/order/summary.php:37
+#: content_business/cart/cartSummary.php:22
+msgid "Discount code"
+msgstr "کد تخفیف"
+
+#: content_a/chap/size-a4/a4-1.php:149 content_a/chap/size-receipt/receipt.php:179
+#: content_a/sale/display.php:62
+msgid "Total payable"
+msgstr "جمع مبلغ قابل پرداخت"
+
 #: content_a/chap/size-a4/oneSide-buyer.php:11
 msgid "Buyer Details"
 msgstr "جزئیات خریدار"
@@ -7937,10 +7952,6 @@ msgstr "کل تخفیف و سود شما"
 msgid "VAT"
 msgstr "مالیات بر ارزش افزوده"
 
-#: content_a/chap/size-receipt/receipt.php:165 content_a/sale/display.php:62
-msgid "Total payable"
-msgstr "جمع مبلغ قابل پرداخت"
-
 #: content_a/chap/view.php:9
 msgid "Print factor"
 msgstr "چاپ فاکتور"
@@ -7964,41 +7975,35 @@ msgstr "فروشگاه یافت نشد"
 msgid "Show factors by this discount"
 msgstr "نمایش سفارشاتی که از این کد تخفیف استفاده کرده‌اند"
 
-#: content_a/discount/add/display.php:24 content_a/discount/home/view.php:9
-#: content_a/home/display.php:198 content_a/order/discount/display.php:36
-#: content_a/order/summary.php:37 content_business/cart/cartSummary.php:22
-msgid "Discount code"
-msgstr "کد تخفیف"
-
-#: content_a/discount/add/display.php:30 content_love/gift/create/stepGuide.php:88
+#: content_a/discount/add/display.php:32 content_love/gift/create/stepGuide.php:88
 msgid "Generate code"
 msgstr "ساخت کد"
 
-#: content_a/discount/add/display.php:38
+#: content_a/discount/add/display.php:41 content_a/discount/duplicate/display.php:33
 msgid "e.g. SPRINGSALE"
 msgstr "مثل SPRINGSALE"
 
-#: content_a/discount/add/display.php:42
+#: content_a/discount/add/display.php:45
 msgid "Customers will enter this discount code at checkout."
 msgstr "مشتریان هنگام پرداخت این کد را وارد می‌کنند."
 
-#: content_a/discount/add/display.php:63
+#: content_a/discount/add/display.php:66
 msgid "Types"
 msgstr "انواع"
 
-#: content_a/discount/add/display.php:68
+#: content_a/discount/add/display.php:71
 msgid "Percentage"
 msgstr "درصد"
 
-#: content_a/discount/add/display.php:75
+#: content_a/discount/add/display.php:78
 msgid "Fixed amount"
 msgstr "مبلغ ثابت"
 
-#: content_a/discount/add/display.php:82 lib/app/discount/get.php:84
+#: content_a/discount/add/display.php:85 lib/app/discount/get.php:84
 msgid "Free shipping"
 msgstr "ارسال رایگان"
 
-#: content_a/discount/add/display.php:108
+#: content_a/discount/add/display.php:111
 #: content_a/form/analytics/addcondition/display-condition.php:27
 #: content_a/form/analytics/addcondition/display-condition.php:29
 #: content_a/products/property/add/display.php:47
@@ -8014,11 +8019,11 @@ msgstr "ارسال رایگان"
 msgid "Value"
 msgstr "مقدار"
 
-#: content_a/discount/add/display.php:118 content_a/discount/add/display.php:144
+#: content_a/discount/add/display.php:121 content_a/discount/add/display.php:147
 msgid "Discount value"
 msgstr "مقدار تخفیف"
 
-#: content_a/discount/add/display.php:118 content_a/discount/add/display.php:121
+#: content_a/discount/add/display.php:121 content_a/discount/add/display.php:124
 #: content_a/form/report/answer/display-bar.php:19
 #: content_a/form/report/answer/display-bar.php:27
 #: content_a/form/report/answer/display-country.php:19
@@ -8040,97 +8045,105 @@ msgstr "مقدار تخفیف"
 msgid "%"
 msgstr "٪"
 
-#: content_a/discount/add/display.php:126
+#: content_a/discount/add/display.php:129
 msgid "Maximum amount"
 msgstr "حداکثر مبلغ"
 
-#: content_a/discount/add/display.php:170
+#: content_a/discount/add/display.php:173
 msgid "Apply to"
 msgstr "اعمال به"
 
-#: content_a/discount/add/display.php:175
+#: content_a/discount/add/display.php:178
 msgid "All product"
 msgstr "همه محصولات"
 
-#: content_a/discount/add/display.php:182
+#: content_a/discount/add/display.php:185
 msgid "Special category"
 msgstr "دسته‌بندی خاص"
 
-#: content_a/discount/add/display.php:223
+#: content_a/discount/add/display.php:226
 msgid "Special products"
 msgstr "محصولات خاص"
 
-#: content_a/discount/add/display.php:235 content_a/pricehistory/choose/display.php:8
+#: content_a/discount/add/display.php:238 content_a/pricehistory/choose/display.php:8
 #: content_a/tag/edit/display.php:80
 msgid "Search in products"
 msgstr "جستجو در محصولات"
 
-#: content_a/discount/add/display.php:267
+#: content_a/discount/add/display.php:270
 msgid "Minimum requirements"
 msgstr "حداقل الزامات"
 
-#: content_a/discount/add/display.php:279
+#: content_a/discount/add/display.php:282
 msgid "Minimum purchase amount :currency"
 msgstr "حداقل مبلغ خرید :currency"
 
-#: content_a/discount/add/display.php:302
+#: content_a/discount/add/display.php:305
 msgid "Minimum quantity of items"
 msgstr "حداقل تعداد اقلام"
 
-#: content_a/discount/add/display.php:338
+#: content_a/discount/add/display.php:341
 msgid "Customer eligibility"
 msgstr "اختصاص به مشتری"
 
-#: content_a/discount/add/display.php:343 lib/app/discount/get.php:121
+#: content_a/discount/add/display.php:346 lib/app/discount/get.php:121
 msgid "Everyone"
 msgstr "هرکس"
 
-#: content_a/discount/add/display.php:350
+#: content_a/discount/add/display.php:353
 msgid "Special group of customers"
 msgstr "گروهی خاص از مشتریان"
 
-#: content_a/discount/add/display.php:394
+#: content_a/discount/add/display.php:397
 msgid "Special customers"
 msgstr "مشتریان خاص"
 
-#: content_a/discount/add/display.php:406
+#: content_a/discount/add/display.php:409
 msgid "Search in customers"
 msgstr "جستجو در مشتریان"
 
-#: content_a/discount/add/display.php:440
+#: content_a/discount/add/display.php:443
 msgid "Usage limits"
 msgstr "محدودیت استفاده"
 
-#: content_a/discount/add/display.php:445
+#: content_a/discount/add/display.php:448
 msgid "Limit number of times this discount can be used in total"
 msgstr "تعداد دفعات استفاده از این کد تخفیف در مجموع محدود است"
 
-#: content_a/discount/add/display.php:469
+#: content_a/discount/add/display.php:472
 msgid "Limit to one use per customer"
 msgstr "محدود به یک بار استفاده برای هر مشتری"
 
-#: content_a/discount/add/display.php:487
+#: content_a/discount/add/display.php:490
 msgid "Active date"
 msgstr "تاریخ فعال شدن"
 
-#: content_a/discount/add/display.php:505 content_a/discount/add/display.php:549
+#: content_a/discount/add/display.php:508 content_a/discount/add/display.php:552
 #: content_a/order/editdate/display.php:38 content_a/order/home/filter.php:234
 #: content_love/business/domain/action/display.php:25
 #: content_love/business/domain/log/display.php:13 lib/app/form/item/type.php:208
 msgid "Time"
 msgstr "زمان"
 
-#: content_a/discount/add/display.php:520
+#: content_a/discount/add/display.php:523
 msgid "Set end date"
 msgstr "تنظیم تاریخ پایان"
 
-#: content_a/discount/add/display.php:600
+#: content_a/discount/add/display.php:603
 msgid "Remove Discount code"
 msgstr "حذف کد تخفیف"
 
 #: content_a/discount/add/view.php:9
 msgid "Add new discount code"
 msgstr "افزودن کد تخفیف جدید"
+
+#: content_a/discount/duplicate/display.php:41
+msgid "Make duplicate"
+msgstr "ساخت کپی"
+
+#: content_a/discount/duplicate/view.php:9
+msgid "Duplidate from discount code"
+msgstr "تهیه نسخه کپی از کد تخفیف"
 
 #: content_a/discount/edit/view.php:12
 msgid "Edit discount code"
@@ -8404,6 +8417,7 @@ msgstr "عنوان جدید"
 
 #: content_a/form/analytics/duplicate/display.php:12
 #: content_a/form/duplicate/display.php:12 dash/layout/admin/admin-titlebox.php:27
+#: dash/layout/button.php:94
 msgid "Duplicate"
 msgstr "کپی"
 
@@ -9496,7 +9510,7 @@ msgstr "زمان سفارش"
 msgid "Payment status"
 msgstr "وضعیت پرداخت"
 
-#: content_a/order/discount/display.php:42
+#: content_a/order/discount/display.php:40
 msgid "Apply discount code"
 msgstr "اعمال کد تخفیف"
 
@@ -36333,9 +36347,17 @@ msgstr "سبد خرید حذف شد"
 msgid "The product was removed from your cart"
 msgstr "محصول از سبد خرید شما حذف شد"
 
-#: lib/app/discount/add.php:22 lib/app/discount/edit.php:37
+#: lib/app/discount/add.php:22 lib/app/discount/add.php:67 lib/app/discount/edit.php:37
 msgid "This discount code is exist in your list. Try another"
 msgstr "این کد تخفیف قبلا ثبت شده است. لطفا کد دیگری را انتخاب کنید"
+
+#: lib/app/discount/add.php:75
+msgid "Can not create duplicate from your discount code"
+msgstr "نمی‌توانیم یک نسخه کپی از کد تخفیف تولید کنیم"
+
+#: lib/app/discount/add.php:79
+msgid "Discount was duplicate"
+msgstr "کد تخفیف کپی شد"
 
 #: lib/app/discount/check.php:90
 msgid "Start date must be less than end date!"
@@ -36453,6 +36475,12 @@ msgstr "نوع کد تخفیف اشتباه است!"
 #: lib/app/discount/discount_check.php:565
 msgid "here you are :) "
 msgstr "بفرمایید :)"
+
+#: lib/app/discount/edit.php:64
+msgid "After use discount code, can not edit type or discount value!"
+msgstr ""
+"بعد از اینکه از کد تخفیف در سفارشات استفاده شد امکان ویرایش نوع و یا مقدار تخفیف وجود "
+"ندارد!"
 
 #: lib/app/discount/filter.php:13
 msgid "Code ASC"
@@ -44554,9 +44582,6 @@ msgstr "یارد"
 
 #~ msgid "Have duplicate mobile"
 #~ msgstr "دارای موبایل تکراری"
-
-#~ msgid "Have duplicate email"
-#~ msgstr "دارای ایمیل تکراری"
 
 #~ msgid "Have duplicate username"
 #~ msgstr "دارای نام کاربری تکراری"
