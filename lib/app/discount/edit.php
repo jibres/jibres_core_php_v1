@@ -47,6 +47,28 @@ class edit
 		unset($args['special_customer']);
 
 
+		foreach ($args as $key => $value)
+		{
+			if(\dash\validate::is_equal($value, a($load, $key)))
+			{
+				unset($args[$key]);
+			}
+		}
+
+		$is_used = \lib\db\factors\get::check_used_discount_id($load['id']);
+		if($is_used)
+		{
+
+			if(array_key_exists('percentage', $args) || array_key_exists('fixedamount', $args) || array_key_exists('type', $args))
+			{
+				\dash\notif::warn(T_("After use discount code, can not edit type or discount value!"));
+				unset($args['type']);
+				unset($args['percentage']);
+				unset($args['fixedamount']);
+			}
+
+		}
+
 		if(!empty($args))
 		{
 			//
