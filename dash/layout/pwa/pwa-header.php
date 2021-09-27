@@ -116,6 +116,9 @@ if(!\dash\face::disablePWA_Header())
     echo \dash\utility\icon::svg('Mobile Vertical Dots');
     echo '</div>';
   }
+
+  echo \dash\layout\button::html_btnDuplicate(true);
+
   // save btn
   if(\dash\face::btnSave())
   {
