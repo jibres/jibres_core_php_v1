@@ -39,6 +39,7 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
       $html .= '<a href="'. \dash\data::action_link(). '" class="btn-secondary">'. \dash\data::action_text(). '</a>';
     }
 
+    $html .= \dash\layout\button::html_btnDuplicate();
     /*================================
     =            Btn Save            =
     ================================*/
@@ -47,6 +48,7 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
       $html .= \dash\layout\button::html_btnSave();
     }
     /*=====  End of Btn Save  ======*/
+
 
   }
   $html .= '</div>';
