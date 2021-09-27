@@ -25,11 +25,14 @@ $html .= '<div class="max-w-xl m-auto">';
 					}
 					$html .= '</div>';
 
-					$html .= '<div class="">';
+					if(\dash\url::isLocal())
 					{
-						$html .= '<button class="link-secondary text-xs" for="code">'. T_("Generate code"). '</button>';
+						$html .= '<div class="">';
+						{
+							$html .= '<button class="link-secondary text-xs" for="code">'. T_("Generate code"). '</button>';
+						}
+						$html .= '</div>';
 					}
-					$html .= '</div>';
 
 				}
 				$html .= '</div>';
