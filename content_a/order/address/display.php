@@ -134,6 +134,39 @@
       </div>
     <?php }// endif ?>
 
+    <?php if(\dash\data::customerAddressList()) {?>
+
+      <div class="box">
+        <div class="pad">
+          <div class="txtB mB10"><?php echo T_("Replace order address by customer saved address") ?></div>
+
+              <?php foreach (\dash\data::customerAddressList() as $key => $value) {?>
+               <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3" data-confirm data-data='{"updateaddress": "<?php echo a($value, 'id') ?>"}'>
+                <div class="radio4">
+                  <input  id="address<?php echo $key; ?>" type="radio" name="address_id" value="<?php echo a($value, 'id'); ?>" <?php if(\dash\data::currentCustomerAddressid() == a($value, 'id')) {echo 'checked';} ?>>
+                  <label for="address<?php echo $key; ?>">
+                    <address>
+                      <div class="title"><?php echo a($value, 'name'); ?></div>
+                      <?php if(a($value, 'mobile')) {?>
+                        <div class="mobile"><?php echo T_("Mobile") ?> <b><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></b></div>
+                      <?php } //endif ?>
+                      <div class="addr"><?php echo a($value, 'address'); ?></div>
+                      <?php if(a($value, 'postcode')) {?>
+                        <div class="postalcode"><?php echo T_("Postalcode") ?> <b><?php echo \dash\fit::text(a($value, 'postcode')); ?></b></div>
+                      <?php } //endif ?>
+                      <?php if(a($value, 'phone')) {?>
+                        <div class="phone"><?php echo T_("Phone") ?> <b><?php echo \dash\fit::text(a($value, 'phone')); ?></b></div>
+                      <?php } //endif ?>
+                    </address>
+                  </label>
+                </div>
+               </div>
+              <?php } //endfor ?>
+        </div>
+      </div>
+
+    <?php } //endif ?>
+
     <form method="post" autocomplete="off">
 
 
