@@ -50,7 +50,7 @@
      <div class="msg">
       <div class="row align-center">
         <div class="c-auto c-xs-12">
-          <img class="customerImg" src="<?php echo a($value, 'avatar'); ?>" alt='<?php echo a($value, 'displayname'); ?>'>
+          <img class="customerImg w-10" src="<?php echo a($value, 'avatar'); ?>" alt='<?php echo a($value, 'displayname'); ?>'>
         </div>
         <div class="c c-xs-12">
           <div class="msg minimal row align-center">
@@ -72,7 +72,7 @@
             <?php foreach ($value['answers'] as $k => $v) {?>
               <div class="row align-center">
                 <div class="c-auto c-xs-12">
-                  <img class="customerImg mT5-f" src="<?php echo a($value, 'avatar'); ?>" alt='<?php echo a($value, 'displayname'); ?>'>
+                  <img class="customerImg mT5-f w-10" src="<?php echo a($value, 'avatar'); ?>" alt='<?php echo a($value, 'displayname'); ?>'>
                 </div>
                 <div class="c c-xs-12">
                   <div class="msg minimal row align-center">
