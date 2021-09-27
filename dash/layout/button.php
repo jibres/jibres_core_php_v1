@@ -84,5 +84,17 @@ class button
 
 
 	}
+
+
+	public static function html_btnDuplicate($_is_pwa = false)
+	{
+		if($btnDuplicate = \dash\face::btnDuplicate())
+		{
+			$html = '';
+			$html .= "<a href='$btnDuplicate' class='btn-secondary mr-1 ml-1'>". T_("Duplicate")."</a>";
+			return $html;
+		}
+		return null;
+	}
 }
 ?>
