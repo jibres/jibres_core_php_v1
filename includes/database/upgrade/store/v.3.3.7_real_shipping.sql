@@ -1,0 +1,1 @@
+UPDATE jibres_XXXXXXX.factors SET factors.realshipping = factors.shipping;
