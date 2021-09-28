@@ -255,6 +255,8 @@ class add
 			$factor = self::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $fileMode]);
 		}
 
+		$factor['realshipping'] = $factor['shipping'];
+
 		if(a($check_discount_code, 'free_shipping') === true)
 		{
 			$factor['shipping'] = 0;
