@@ -123,6 +123,7 @@ class get
 
 	public static function expensive()
 	{
+		// $result = \lib\report\cache::get(['\\lib\\db\\products\\get', 'expensive']);
 		$result = \lib\db\products\get::expensive();
 		$result = \lib\app\product\ready::row($result);
 		return $result;
