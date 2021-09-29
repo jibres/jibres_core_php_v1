@@ -152,12 +152,25 @@ class csrf
 		if(isset($check['status']))
 		{
 			$check_status = $check['status'];
-
 		}
 		else
 		{
 			return false;
 		}
+
+		// check is equal user id
+		if(!\dash\validate::is_equal(a($check, 'user_id'), \dash\user::id()))
+		{
+			return false;
+		}
+
+		// check is eual remember_me string
+		if(!\dash\validate::is_equal(a($check, 'remember_me'), \dash\login::read_cookie()))
+		{
+			return false;
+		}
+
+
 
 		// active code was active 1 day
 		if($check_status === 'active')
