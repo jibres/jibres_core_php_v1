@@ -31,9 +31,15 @@ class bank
         curl_setopt($handle, CURLOPT_RETURNTRANSFER, TRUE);
         $result = curl_exec($handle);
         curl_close($handle);
-        $result = json_decode($result, true);
 
         self::$payment_response = $result;
+
+        $result = json_decode($result, true);
+
+        if(!is_array($result))
+        {
+            $result = [];
+        }
 
         if(isset($result['status']) && intval($result['status']) === 1 && isset($result['token']))
         {
