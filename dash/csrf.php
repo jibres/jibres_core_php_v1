@@ -52,18 +52,25 @@ class csrf
 		$token .= (string) rand();
 		$token .= '$_<3_$';
 		$token .= \dash\url::pwd();
-		$token = md5($token);
 
 		$insert =
 		[
-			'token'       => $token,
 			'urlmd5'      => md5(\dash\url::pwd()),
 			'url'         => \dash\validate::string(\dash\url::pwd(), false),
 			'status'      => 'active',
 			'datecreated' => date("Y-m-d H:i:s"),
 			'ip_id'       => \dash\utility\ip::id(),
 			'agent_id'    => \dash\agent::get(true),
+			'user_id'     => \dash\user::id(),
+			'remember_me' => \dash\login::read_cookie(),
+			'session_id'  => session_id(),
 		];
+
+		$token .= json_encode($insert);
+
+		$token = md5($token);
+
+		$insert['token'] = $token;
 
 		$csrf_id = \dash\db\csrf\insert::new_record($insert);
 
