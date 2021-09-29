@@ -1,0 +1,3 @@
+ALTER TABLE jibres_XXXXXXX.csrf ADD `user_id` INT(10) UNSIGNED NULL DEFAULT NULL;
+ALTER TABLE jibres_XXXXXXX.csrf ADD `remember_me` varchar(500) NULL DEFAULT NULL;
+ALTER TABLE jibres_XXXXXXX.csrf ADD `session_id` varchar(500) NULL DEFAULT NULL;
