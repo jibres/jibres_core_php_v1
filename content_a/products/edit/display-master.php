@@ -21,7 +21,7 @@
         <div class="pad">
           <div class="mB10">
             <div class="row align-center">
-              <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
+              <div class="c"><label for='tag'><?php echo T_("Category"); ?></label></div>
               <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
             </div>
             <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
