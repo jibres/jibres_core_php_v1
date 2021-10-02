@@ -342,7 +342,7 @@ class search
 
 		if($data['websitemode'])
 		{
-			// $and[] = " products.instock = 'yes'";
+			$and[] = " products.saleonline = 'yes' ";
 			$and['parent_is_null'] = " products.parent IS NULL ";
 		}
 
