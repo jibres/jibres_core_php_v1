@@ -76,7 +76,7 @@ class add
 			return false;
 		}
 
-		\dash\notif::error(T_("Discount was duplicate"));
+		\dash\notif::ok(T_("Discount was duplicate"));
 		return ['id' => $new_id];
 
 	}
