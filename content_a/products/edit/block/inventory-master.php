@@ -34,6 +34,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
                 <p class="fc-mute fs09"><?php echo T_("If you want to change the stock enter current stock here") ?></p>
               </div>
             <?php } //endif ?>
+            <?php if(\dash\url::child() !== 'add') {?>
             <div class="f">
               <div class="c s12 pRa10">
                 <label for='minstock'><?php echo T_("Min stock"); ?></label>
@@ -50,6 +51,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
             </div>
             <p class="fs09 fc-mute mB0-f"><?php echo T_("Optimize your inventory decisions."); ?> <?php echo T_("Know which products are the most profitable and which you should re-order when."); ?> <b><?php echo T_("Demand forecasting!"); ?></b> <?php echo T_("Receive recommendations on your products based on your rate of sales."); ?>
           </p>
+          <?php } //endif ?>
         </div>
       </div>
 
