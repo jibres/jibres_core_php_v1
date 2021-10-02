@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-09-27 17:50+0330\n"
-"PO-Revision-Date: 2021-09-27 17:51+0330\n"
+"POT-Creation-Date: 2021-10-02 12:02+0330\n"
+"PO-Revision-Date: 2021-10-02 12:03+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -10067,7 +10067,7 @@ msgid "Add new product"
 msgstr "افزودن محصول جدید"
 
 #: content_a/products/advance/display.php:17 content_a/products/advance/view.php:11
-#: content_a/products/edit/block/sidebar-menu.php:58
+#: content_a/products/edit/block/sidebar-menu.php:63
 #: content_crm/permission/edit/display.php:84 dash/layout/admin/admin-titlebox.php:30
 #: lib/app/quickaccess/setting.php:507
 msgid "Advance"
@@ -10181,7 +10181,7 @@ msgid "Manage product variants"
 msgstr "مدیریت تنوع محصول"
 
 #: content_a/products/comment/view.php:23
-#: content_a/products/edit/block/sidebar-menu.php:75 content_cms/comments/home/view.php:9
+#: content_a/products/edit/block/sidebar-menu.php:80 content_cms/comments/home/view.php:9
 #: content_cms/comments/view/view.php:14 content_crm/member/glance/display.php:393
 #: dash/app/posts/filter.php:203 dash/app/posts/filter.php:213
 #: includes/languages/trans_static.php:574 includes/languages/trans_static_public.php:94
@@ -10383,40 +10383,44 @@ msgstr "گزیده متن برای رسانه‌های اجتماعی و موت�
 msgid "Active"
 msgstr "فعال"
 
-#: content_a/products/edit/block/sidebar-menu.php:26
+#: content_a/products/edit/block/sidebar-menu.php:22
+msgid "Active in Online Store"
+msgstr "فعال در فروشگاه آنلاین"
+
+#: content_a/products/edit/block/sidebar-menu.php:31
 msgid ":total items of this product have been sold in :count factors"
 msgstr "تعداد :total مورد از این محصول در :count فاکتور به فروش رسیده است"
 
-#: content_a/products/edit/block/sidebar-menu.php:28
+#: content_a/products/edit/block/sidebar-menu.php:33
 msgid "View factors"
 msgstr "نمایش فاکتور‌ها"
 
-#: content_a/products/edit/block/sidebar-menu.php:31
+#: content_a/products/edit/block/sidebar-menu.php:36
 msgid "This product has not been sold yet!"
 msgstr "این محصول هنوز به فروش نرفته است!"
 
-#: content_a/products/edit/block/sidebar-menu.php:42
+#: content_a/products/edit/block/sidebar-menu.php:47
 msgid "Edit Description"
 msgstr "ویرایش توضیحات"
 
-#: content_a/products/edit/block/sidebar-menu.php:50
+#: content_a/products/edit/block/sidebar-menu.php:55
 msgid "Product Properties"
 msgstr "مشخصات محصول"
 
-#: content_a/products/edit/block/sidebar-menu.php:83
+#: content_a/products/edit/block/sidebar-menu.php:88
 msgid "Price change chart"
 msgstr "نمودار تغییر قیمت محصول"
 
-#: content_a/products/edit/block/sidebar-menu.php:95
+#: content_a/products/edit/block/sidebar-menu.php:100
 #: content_cms/posts/edit/display.php:140 content_cms/posts/edit/display.php:148
 msgid "Smart Share"
 msgstr "اشتراک‌گذاری هوشمند"
 
-#: content_a/products/edit/block/sidebar-menu.php:109
+#: content_a/products/edit/block/sidebar-menu.php:114
 msgid "Make product variants"
 msgstr "ثبت تنوع محصول"
 
-#: content_a/products/edit/block/sidebar-menu.php:123
+#: content_a/products/edit/block/sidebar-menu.php:128
 msgid "Manage variants"
 msgstr "مدیریت تنوع محصول"
 
@@ -14953,11 +14957,11 @@ msgstr ""
 "همین امروز اپلیکیشن ما رو نصب کن! با برنامه رایگان ما می‌تونید سریع و به سرعت خرید کنید. "
 "از تخفیفات ویژه و جدیدی که بر روی اپ ما ارائه میشه همین الان استفاده کنید"
 
-#: content_business/cart/cartSummary.php:58 lib/app/factor/add.php:311
+#: content_business/cart/cartSummary.php:58 lib/app/factor/add.php:313
 msgid "Minimum order amount is :val :currency"
 msgstr "حداقل مبلغ سفارش :val :currency است"
 
-#: content_business/cart/cartSummary.php:60 lib/app/factor/add.php:313
+#: content_business/cart/cartSummary.php:60 lib/app/factor/add.php:315
 msgid "You must add :val :currency to your cart"
 msgstr "شما باید :val :currency دیگر به سبد خرید خود اضافه کنید"
 
@@ -24717,7 +24721,7 @@ msgid "Please wait until your comment was approved"
 msgstr "لطفا صبر کنید تا دیگاه‌های شما تایید شود"
 
 #: dash/app/comment/add.php:49 dash/app/ticket/add.php:72 dash/utility/pay/start.php:219
-#: lib/app/cart/add.php:211 lib/app/factor/add.php:349
+#: lib/app/cart/add.php:211 lib/app/factor/add.php:351
 msgid "Who are you?"
 msgstr "شما کی هستید؟"
 
@@ -36717,7 +36721,7 @@ msgstr "لطفا توضیحات را تکمیل کنید و یا فایلی را
 msgid "Order not found!"
 msgstr "سفارش یافت نشد!"
 
-#: lib/app/factor/action.php:228 lib/app/factor/add.php:519
+#: lib/app/factor/action.php:228 lib/app/factor/add.php:521
 msgid "This order was deleted and can not be update!"
 msgstr "این سفارش حذف شده است و امکان ویرایش آن وجود ندارد!"
 
@@ -36737,27 +36741,27 @@ msgstr "عملیات با موفقیت انجام شد"
 msgid "Discount is larger than order total"
 msgstr "تخفیف بزرگتر از مبلغ کل سفارش است"
 
-#: lib/app/factor/add.php:338
+#: lib/app/factor/add.php:340
 msgid "You have a lot unpaid factors. Please try again later"
 msgstr "شما تعدادی سفارش پرداخت نشده دارید. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید"
 
-#: lib/app/factor/add.php:360 lib/app/factor/add.php:372
+#: lib/app/factor/add.php:362 lib/app/factor/add.php:374
 msgid "You have a lot unpaid factors. Please try again later or login to add more"
 msgstr "شما تعدادی سفارش پرداخت نشده دارید. برای ثبت سفارش بیشتر وارد سیستم شوید"
 
-#: lib/app/factor/add.php:402
+#: lib/app/factor/add.php:404
 msgid "No way to insert factor"
 msgstr "هیچ راهی برای ثبت کالا وجود ندارد"
 
-#: lib/app/factor/add.php:469
+#: lib/app/factor/add.php:471
 msgid "Factor successfuly added"
 msgstr "فاکتور با موفقیت اضافه شد"
 
-#: lib/app/factor/add.php:558 lib/app/factor/edit.php:111
+#: lib/app/factor/add.php:560 lib/app/factor/edit.php:111
 msgid "Data is out of range for column count"
 msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - count"
 
-#: lib/app/factor/add.php:615
+#: lib/app/factor/add.php:617
 msgid "Product added to factor"
 msgstr "محصول به سفارش اضافه شد"
 
@@ -38687,23 +38691,23 @@ msgstr "جزئیات دستگاه پوز یافت نشد"
 msgid "Product title can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/add.php:185
+#: lib/app/product/add.php:194
 msgid "No way to insert product"
 msgstr "هیچ راهی برای ثبت محصول نیست"
 
-#: lib/app/product/add.php:210 lib/app/product/add.php:258
+#: lib/app/product/add.php:219 lib/app/product/add.php:267
 msgid "No way to insert product price"
 msgstr "هیچ راهی برای ثبت مبلغ محصول وجود ندارد"
 
-#: lib/app/product/add.php:277
+#: lib/app/product/add.php:286
 msgid "Product successfuly added"
 msgstr "محصول با موفقیت اضافه شد"
 
-#: lib/app/product/add.php:330
+#: lib/app/product/add.php:339
 msgid "Please set product title"
 msgstr "لطفا عنوان محصول را وارد کنید"
 
-#: lib/app/product/add.php:340
+#: lib/app/product/add.php:349
 msgid "Please change the product name to copy"
 msgstr "لطفا نام محصول را برای تهیه نسخه کپی وارد کنید"
 
