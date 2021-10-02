@@ -34,6 +34,12 @@ class controller
 			}
 		}
 
+		if(a($load_product, 'saleonline') === 'no')
+		{
+			\dash\header::status(404, T_("This product cannot be sold in the online store"));
+		}
+
+
 		\dash\data::dataRow($load_product);
 
 

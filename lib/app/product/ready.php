@@ -213,9 +213,9 @@ class ready
 				case 'trackquantity':
 				case 'instock':
 				case 'oversale':
-				case 'saleonline':
-				case 'saletelegram':
-				case 'saleapp':
+				// case 'saleonline':
+				// case 'saletelegram':
+				// case 'saleapp':
 					if($value === 'yes')
 					{
 						$value = true;
