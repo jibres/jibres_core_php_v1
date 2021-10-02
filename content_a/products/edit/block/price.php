@@ -24,27 +24,7 @@
  <div class="box">
       <div class="pad jboxPrice">
 
-
-        <div class="f" data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?>  >
-          <div class="c s12 pRa5">
-            <label for='buyprice'><?php echo T_("Buy cost"); ?></label>
-            <div class="input fix ltr">
-              <input type="tel" name="buyprice" id="buyprice" data-format='price' value="<?php echo a($productDataRow,'buyprice'); ?>" maxlength="18" data-run-input='calcProductMargin'>
-            </div>
-          </div>
-          <div class="c s12">
-            <div class="grossProfitMargin hideIn">
-              <label for='buyprice'><?php echo T_("Gross profit"); ?></label>
-              <div class="msg h36" data-percent='11'>
-                <div class="f">
-                  <div class="c"></div>
-                  <div class="cauto"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="f mB10">
+        <div class="f ">
           <div class="c s12 pRa5">
             <label for='price'><?php echo T_("Sale Price"); ?></label>
             <div class="input fix ltr mB5-f">
@@ -59,6 +39,8 @@
             </div>
           </div>
         </div>
+
+
 
         <?php if(isset($storData['tax_status']) && $storData['tax_status']) {?>
           <div class="msg h36 dark2">
@@ -76,7 +58,7 @@
           </div>
         <?php } //endif ?>
         <div>
-          <div class="msg mT10 mB0 minimal">
+          <div class="msg mB10 minimal">
             <div class="f align-center">
                 <div class="cauto">
                   <?php echo T_("Final Price"); ?>
@@ -94,6 +76,25 @@
           <?php if(\dash\language::current() === 'fa') {?>
             <div class="msg info2 txtB finalPriceToman"></div>
           <?php } //endif ?>
+        </div>
+         <div class="f" data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?>  >
+          <div class="c s12 pRa5">
+            <label for='buyprice'><?php echo T_("Buy cost"); ?> <small><?php echo T_("Customers won’t see this") ?></small></label>
+            <div class="input fix ltr">
+              <input type="tel" name="buyprice" id="buyprice" data-format='price' value="<?php echo a($productDataRow,'buyprice'); ?>" maxlength="18" data-run-input='calcProductMargin'>
+            </div>
+          </div>
+          <div class="c s12">
+            <div class="grossProfitMargin hideIn">
+              <label for='buyprice'><?php echo T_("Gross profit"); ?></label>
+              <div class="msg h36" data-percent='11'>
+                <div class="f">
+                  <div class="c"></div>
+                  <div class="cauto"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
