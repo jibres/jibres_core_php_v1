@@ -55,9 +55,9 @@ class model
 		$post['trackquantity'] = \dash\request::post('trackquantity');
 		$post['oversale']      = \dash\request::post('oversale');
 		$post['stock']         = \dash\request::post('stock');
+		$post['saleonline']    = \dash\request::post('saleonline');
 		$post['minstock']      = \dash\request::post('minstock');
 		$post['maxstock']      = \dash\request::post('maxstock');
-
 
 
 		return $post;

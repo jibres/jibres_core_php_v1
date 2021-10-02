@@ -136,12 +136,12 @@ class check
 			$data['type'] = 'product';
 		}
 
-		$data['vat']          = $data['vat'] 			? 'yes' : 'no';
-		$data['saleonline']   = $data['saleonline'] 	? 'yes' : 'no';
-		$data['oversale']     = $data['oversale'] 		? 'yes' : 'no';
-		$data['saletelegram'] = $data['saletelegram'] 	? 'yes' : 'no';
-		$data['saleapp']      = $data['saleapp'] 		? 'yes' : 'no';
-		$data['trackquantity']     = $data['trackquantity'] 		? 'yes' : 'no';
+		$data['vat']           = $data['vat'] 			? 'yes' : 'no';
+		$data['saleonline']    = $data['saleonline'] 	? 'yes' : 'no';
+		$data['oversale']      = $data['oversale'] 		? 'yes' : 'no';
+		$data['saletelegram']  = $data['saletelegram'] 	? 'yes' : 'no';
+		$data['saleapp']       = $data['saleapp'] 		? 'yes' : 'no';
+		$data['trackquantity'] = $data['trackquantity']	? 'yes' : 'no';
 
 		if($data['parent'])
 		{
