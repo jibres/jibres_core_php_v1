@@ -170,6 +170,15 @@ class add
 			unset($args['desc']);
 		}
 
+
+		/*========================================
+		=            Default variable            =
+		========================================*/
+		$args['saleonline'] = 'yes';
+
+		/*=====  End of Default variable  ======*/
+
+
 		$product_id = null;
 		if(!empty($args))
 		{
