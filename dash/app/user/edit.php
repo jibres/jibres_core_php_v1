@@ -223,6 +223,8 @@ trait edit
 			}
 		}
 
+
+
 		if($args['email'])
 		{
 			$check_email_exist = \dash\db\users::get(['email' => $args['email'], 'limit' => 1]);
@@ -265,6 +267,12 @@ trait edit
 		}
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
+
+		if(array_key_exists('mobile', $args) && !a($args, 'mobile') && a($load_user, 'permission'))
+		{
+			\dash\notif::error(T_("Can not remove mobile of users who have permission!"));
+			return false;
+		}
 
 		if(!empty($args))
 		{
