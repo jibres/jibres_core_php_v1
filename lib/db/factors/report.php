@@ -32,7 +32,9 @@ class report
 			FROM
 				factors
 			WHERE
-				factors.status != 'deleted'
+				factors.status != 'deleted' AND
+				factors.date >= '$_args[startdate]' AND
+				factors.date <= '$_args[enddate]'
 			GROUP BY $group_by
 		";
 
