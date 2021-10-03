@@ -54,6 +54,7 @@ class view
 					"price"           => 143008,
 					"currency"        => "Rial"
 				],
+				'visual page'     => \dash\url::sitelang(). '/shipping/irpost',
 			];
 		}
 
