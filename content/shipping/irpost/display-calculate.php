@@ -44,7 +44,7 @@
 							</div>
 							<div class="c-xs-6 c-sm-6">
 								<div class="radio3">
-									<input type="radio" name="sendtype" value="inprovince" id="inprovice" <?php if(\dash\request::get('sendtype') === 'inprovice') {echo 'checked';} ?>>
+									<input type="radio" name="sendtype" value="inprovince" id="inprovice" <?php if(\dash\request::get('sendtype') === 'inprovince') {echo 'checked';} ?>>
 									<label for="inprovice"><?php echo T_("In province") ?></label>
 								</div>
 							</div>
