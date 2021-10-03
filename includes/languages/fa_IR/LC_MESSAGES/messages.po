@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-02 17:45+0330\n"
-"PO-Revision-Date: 2021-10-02 17:47+0330\n"
+"POT-Creation-Date: 2021-10-03 10:40+0330\n"
+"PO-Revision-Date: 2021-10-03 10:41+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -9463,7 +9463,7 @@ msgstr "ذخیره آدرس"
 
 #: content_a/order/address/model.php:48 content_enter/home/model.php:65
 #: content_love/domain/domainbuy/model.php:22 content_r10/tools.php:126
-#: dash/app/address.php:259 dash/app/user/add.php:77 dash/upload/category.php:68
+#: dash/app/address.php:259 dash/app/user/add.php:109 dash/upload/category.php:68
 #: dash/upload/user.php:22 dash/upload/user.php:79 dash/upload/user.php:98
 #: dash/upload/user.php:156 lib/pardakhtyar/app/acceptor.php:16
 #: lib/pardakhtyar/app/merchantIbans.php:16 lib/pardakhtyar/app/shop.php:16
@@ -25975,27 +25975,27 @@ msgstr "نمی‌توانید کاربری که داری سطح دسترسی ه�
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
-#: dash/app/user/add.php:100 dash/app/user/edit.php:221
+#: dash/app/user/add.php:132 dash/app/user/edit.php:221
 msgid "Duplicate mobile"
 msgstr "تلفن همراه تکراری"
 
-#: dash/app/user/add.php:121 dash/app/user/edit.php:258
+#: dash/app/user/add.php:155 dash/app/user/edit.php:260
 msgid "Duplicate nationalcode or pasportcode in your user list"
 msgstr "این کدملی یا شماره گذرنامه در لیست اعضا شما تکراری است"
 
-#: dash/app/user/add.php:141
+#: dash/app/user/add.php:175
 msgid "No way to insert user"
 msgstr "هیچ راهی برای ثبت کاربر یافت نشد"
 
-#: dash/app/user/add.php:153
+#: dash/app/user/add.php:187
 msgid "User successfuly added"
 msgstr "کاربر با موفقیت اضافه شد"
 
-#: dash/app/user/add.php:190 lib/app/factor/check.php:112
+#: dash/app/user/add.php:224 lib/app/factor/check.php:112
 msgid "Customer detail is invalid"
 msgstr "اطلاعات مشتری اشتباه است"
 
-#: dash/app/user/add.php:218 lib/app/factor/check.php:140
+#: dash/app/user/add.php:252 lib/app/factor/check.php:140
 msgid ""
 "This thirdparyt already added to your store. plase set her mobile or change the name"
 msgstr ""
@@ -26006,7 +26006,7 @@ msgstr ""
 msgid "Can not access to edit user"
 msgstr "دسترسی لازم برای ویرایش کاربر وجود ندارد"
 
-#: dash/app/user/business.php:95 dash/app/user/edit.php:281
+#: dash/app/user/business.php:95 dash/app/user/edit.php:289
 msgid "User successfully updated"
 msgstr "کاربر با موفقیت به روزرسانی شد"
 
@@ -26055,9 +26055,13 @@ msgid "Please set mobile to this user and then change the permission"
 msgstr ""
 "لطفا برای تغییر سطح دسترسی کاربر ابتدا یک شماره تلفن همراه برای این کاربر ثبت کنید"
 
-#: dash/app/user/edit.php:231
+#: dash/app/user/edit.php:233
 msgid "Duplicate email"
 msgstr "ایمیل تکراری است"
+
+#: dash/app/user/edit.php:273
+msgid "Can not remove mobile of users who have permission!"
+msgstr "نمی‌توانید موبایل کاربرانی که دارای سطح دسترسی هستند را حذف کنید!"
 
 #: dash/app/user/email.php:93 dash/app/user/email.php:146 dash/app/user/email.php:276
 msgid "Email not found"
