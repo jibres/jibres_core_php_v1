@@ -49,6 +49,38 @@ trait add
 	}
 
 
+	/**
+	 * Adds a staff.
+	 * Try to add new user
+	 * if user exists update user permission
+	 *
+	 * @param      <type>  $_args  The arguments
+	 */
+	public static function add_staff($_args)
+	{
+		$result = self::add($_args);
+
+		if(!\dash\engine\process::status())
+		{
+			\dash\notif::clean();
+
+			\dash\engine\process::continue();
+
+			if(isset($result['id']))
+			{
+				return \dash\app\user::edit($_args, $result['id']);
+			}
+			else
+			{
+				return $result;
+			}
+		}
+		else
+		{
+			return $result;
+		}
+	}
+
 
 	/**
 	 * add new user
@@ -98,7 +130,9 @@ trait add
 		if(isset($check_mobile_exist['id']))
 		{
 			if($_option['debug']) \dash\notif::error(T_("Duplicate mobile"), 'mobile');
-			return null;
+			$return       = [];
+			$return['id'] = $return['user_id'] = \dash\coding::encode($check_mobile_exist['id']);
+			return $return;
 		}
 
 		if($args['nationalcode'] || $args['pasportcode'])

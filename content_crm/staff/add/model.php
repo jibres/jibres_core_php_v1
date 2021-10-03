@@ -45,7 +45,7 @@ class model
 			return false;
 		}
 
-		$result = \dash\app\user::add($request);
+		$result = \dash\app\user::add_staff($request);
 
 		if(\dash\engine\process::status())
 		{
