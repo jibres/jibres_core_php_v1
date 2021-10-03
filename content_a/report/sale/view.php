@@ -11,7 +11,11 @@ class view
 		\dash\data::back_link(\dash\url::here());
 
 
-		$args = [];
+		$args              = [];
+
+		$args['startdate'] = \dash\request::get('startdate');
+		$args['enddate']   = \dash\request::get('enddate');
+		$args['groupby']   = \dash\request::get('groupby');
 
 		$result = \lib\app\report\sale\get::master_report($args);
 
