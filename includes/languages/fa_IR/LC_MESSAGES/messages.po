@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-03 10:40+0330\n"
-"PO-Revision-Date: 2021-10-03 10:41+0330\n"
+"POT-Creation-Date: 2021-10-03 14:25+0330\n"
+"PO-Revision-Date: 2021-10-03 14:25+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -839,7 +839,8 @@ msgstr "بیشتر بخوانید"
 #: content_a/accounting/turnover/display.php:183 content_a/cart/home/display.php:171
 #: content_a/chap/size-a4/a4-1.php:35 content_a/form/analytics/answer/display.php:110
 #: content_a/form/answer/detail/display.php:145 content_a/order/editdate/display.php:31
-#: content_a/order/home/filter.php:228 content_business/orders/display.php:20
+#: content_a/order/home/filter.php:228 content_a/report/sale/display.php:22
+#: content_business/orders/display.php:20
 #: content_crm/member/transactions/minus/display.php:14
 #: content_crm/member/transactions/plus/display.php:14
 #: content_crm/transactions/detail/display.php:67 content_love/changelog/add/display.php:9
@@ -4160,11 +4161,15 @@ msgstr "۹٪"
 #: content_a/accounting/report/total/display.php:127 content_a/cart/add/display.php:136
 #: content_a/chap/size-a4/a4-1.php:129 content_a/order/home/display.php:70
 #: content_a/order/links.php:30 content_a/order/productList.php:38
-#: content_a/order/summary.php:60 content_a/sale/display.php:20
-#: content_business/cart/cartSummary.php:46 content_business/orders/display.php:19
-#: dash/utility/pagination.php:484
+#: content_a/order/summary.php:60 content_a/report/sale/display.php:25
+#: content_a/sale/display.php:20 content_business/cart/cartSummary.php:46
+#: content_business/orders/display.php:19 dash/utility/pagination.php:484
 msgid "Total"
 msgstr "مجموع"
+
+#: content/shipping/irpost/display-calculate.php:169
+msgid "Also available this module from :API"
+msgstr "همچنین این ماژول از طریق :API در دسترس است"
 
 #: content/shipping/irpost/view.php:9
 msgid "Postal Service Shipping Calculator"
@@ -5059,7 +5064,7 @@ msgstr "وضعیت"
 #: content_love/changelog/add/display.php:44 content_love/changelog/view.php:16
 #: content_love/features/manage/display.php:56 content_site/options/menu/menu.php:84
 #: content_site/page/new/display.php:17 content_site/staticfile/display.php:24
-#: dash/layout/admin/admin-titlebox.php:95 dash/layout/pwa/pwa-header.php:144
+#: dash/layout/admin/admin-titlebox.php:95 dash/layout/pwa/pwa-header.php:143
 #: includes/languages/trans_static_public.php:143
 msgid "Add"
 msgstr "افزودن"
@@ -5922,9 +5927,10 @@ msgstr "افزودن درآمد"
 #: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:210
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
-#: content_a/sale/display.php:17 content_cms/files/home/display.php:36
-#: content_crm/home/display.php:6 content_crm/sms/home/display.php:6
-#: content_crm/telegram/home/display.php:6 content_crm/ticket/home/display.php:6
+#: content_a/report/sale/display.php:23 content_a/sale/display.php:17
+#: content_cms/files/home/display.php:36 content_crm/home/display.php:6
+#: content_crm/sms/home/display.php:6 content_crm/telegram/home/display.php:6
+#: content_crm/ticket/home/display.php:6
 #: content_crm/transactions/display-statistics.php:21
 #: content_crm/transactions/display-statistics.php:37
 #: content_love/domain/home/display.php:242 content_love/features/all/display.php:19
@@ -7761,7 +7767,6 @@ msgstr "محصول"
 
 #: content_a/cart/home/display.php:147 content_a/cart/home/display.php:186
 #: content_a/form/answer/item/display.php:48 content_a/report/products/display.php:28
-#: content_a/report/sale/display.php:28
 msgid "Item"
 msgstr "گزینه"
 
@@ -7847,8 +7852,8 @@ msgid "Serial Number"
 msgstr "شماره سریال"
 
 #: content_a/chap/size-a4/a4-1.php:49 content_a/chap/size-receipt/receipt.php:103
-#: content_a/order/home/display.php:58 content_business/orders/display.php:17
-#: content_business/p/home/blocks/detail.php:190
+#: content_a/order/home/display.php:58 content_a/report/sale/display.php:24
+#: content_business/orders/display.php:17 content_business/p/home/blocks/detail.php:190
 msgid "Qty"
 msgstr "تعداد"
 
@@ -10266,7 +10271,6 @@ msgstr "حداقل موجودی"
 #: content_a/products/edit/block/inventory-child.php:48
 #: content_a/products/edit/block/inventory-master.php:46
 #: content_a/report/products/display.php:44 content_a/report/products/display.php:196
-#: content_a/report/sale/display.php:44 content_a/report/sale/display.php:196
 msgid "Max stock"
 msgstr "حداکثر موجودی"
 
@@ -10861,95 +10865,94 @@ msgstr "جهت ثبت تنوع لطفا محصولاتی که مورد نیاز 
 msgid "Variants"
 msgstr "تنوع محصول"
 
-#: content_a/report/products/display.php:6 content_a/report/sale/display.php:6
+#: content_a/report/products/display.php:6
 msgid "Price history"
 msgstr "تاریخچه قیمت"
 
-#: content_a/report/products/display.php:12 content_a/report/sale/display.php:12
+#: content_a/report/products/display.php:12
 msgid "Total products"
 msgstr "تعداد محصولات"
 
-#: content_a/report/products/display.php:13 content_a/report/sale/display.php:13
+#: content_a/report/products/display.php:13
 msgid "Average price"
 msgstr "میانگین قیمت"
 
-#: content_a/report/products/display.php:17 content_a/report/sale/display.php:17
+#: content_a/report/products/display.php:17
 #: content_site/options/product/product_order.php:14
 msgid "Expensive product"
 msgstr "گران‌ترین محصول"
 
-#: content_a/report/products/display.php:23 content_a/report/sale/display.php:23
+#: content_a/report/products/display.php:23
 #: content_site/options/product/product_order.php:15
 msgid "Inexpensive product"
 msgstr "ارزان‌ترین محصول"
 
-#: content_a/report/products/display.php:28 content_a/report/sale/display.php:28
+#: content_a/report/products/display.php:28
 msgid "Max sale count"
 msgstr "بیشترین فروش"
 
-#: content_a/report/products/display.php:33 content_a/report/sale/display.php:33
+#: content_a/report/products/display.php:33
 msgid "Max price change count"
 msgstr "محصول با بیشترین تغییر قیمت"
 
-#: content_a/report/products/display.php:38 content_a/report/sale/display.php:38
+#: content_a/report/products/display.php:38
 msgid "Max sale price"
 msgstr "پیشترین قیمت فروش رفته"
 
-#: content_a/report/products/display.php:48 content_a/report/sale/display.php:48
+#: content_a/report/products/display.php:48
 msgid "Product have variants"
 msgstr "محصولات دارای تنوع"
 
-#: content_a/report/products/display.php:54 content_a/report/sale/display.php:54
+#: content_a/report/products/display.php:54
 msgid "Total finalprice of all products"
 msgstr "جمع کل مبالغ محصولات"
 
-#: content_a/report/products/display.php:56 content_a/report/sale/display.php:56
+#: content_a/report/products/display.php:56
 msgid "Total price of all products"
 msgstr "جمع کل قیمت محصولات"
 
-#: content_a/report/products/display.php:58 content_a/report/sale/display.php:58
+#: content_a/report/products/display.php:58
 msgid "Total profit of all products"
 msgstr "سود فروش کل محصولات"
 
-#: content_a/report/products/display.php:65 content_a/report/sale/display.php:65
+#: content_a/report/products/display.php:65
 msgid "Total price change"
 msgstr "تعداد تغییرات قیمت"
 
-#: content_a/report/products/display.php:69 content_a/report/sale/display.php:69
+#: content_a/report/products/display.php:69
 msgid "Bestselling product"
 msgstr "پرفروش‌ترین محصول"
 
-#: content_a/report/products/display.php:84 content_a/report/sale/display.php:84
+#: content_a/report/products/display.php:84
 msgid "Most items in the cart"
 msgstr "بیشترین محصول در سبد خرید"
 
-#: content_a/report/products/display.php:97 content_a/report/sale/display.php:97
-#: lib/app/quickaccess/setting.php:484 lib/app/store/analytics.php:71
+#: content_a/report/products/display.php:97 lib/app/quickaccess/setting.php:484
+#: lib/app/store/analytics.php:71
 msgid "Product tag"
 msgstr "تگ محصولات"
 
-#: content_a/report/products/display.php:101 content_a/report/sale/display.php:101
-#: lib/app/quickaccess/setting.php:547
+#: content_a/report/products/display.php:101 lib/app/quickaccess/setting.php:547
 msgid "Product units"
 msgstr "واحد‌های محصولات"
 
-#: content_a/report/products/display.php:115 content_a/report/sale/display.php:115
+#: content_a/report/products/display.php:115
 msgid "Expensive list"
 msgstr "لیست گران‌ترین محصولات"
 
-#: content_a/report/products/display.php:134 content_a/report/sale/display.php:134
+#: content_a/report/products/display.php:134
 msgid "Inexpensive list"
 msgstr "لیست ارزان ترین"
 
-#: content_a/report/products/display.php:154 content_a/report/sale/display.php:154
+#: content_a/report/products/display.php:154
 msgid "Max sold products"
 msgstr "بیشترین محصول فروش رفته"
 
-#: content_a/report/products/display.php:175 content_a/report/sale/display.php:175
+#: content_a/report/products/display.php:175
 msgid "Max sold price"
 msgstr "بیشترین قیمت فروش رفته"
 
-#: content_a/report/products/display.php:217 content_a/report/sale/display.php:217
+#: content_a/report/products/display.php:217
 msgid "Last product in cart"
 msgstr "آخرین محصولات اضافه شده در سبد خرید"
 
@@ -28871,7 +28874,7 @@ msgstr "حساب کاربری لاگین برای پرداخت با پارسیا
 msgid "The parsian payment Token not set"
 msgstr "توکن برای پرداخت با پارسیان تنظیم نشده است"
 
-#: dash/utility/pay/api/parsian/bank.php:16 lib/irankish/run.php:15
+#: dash/utility/pay/api/parsian/bank.php:16 lib/pardakhtyar/irankish/run.php:15
 msgid "Can not connect to parsian gateway. Install it!"
 msgstr "امکان اتصال به درگاه بانک پارسیان نیست. نصبش کنید!"
 
