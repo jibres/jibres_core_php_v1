@@ -117,7 +117,6 @@ if(!\dash\face::disablePWA_Header())
     echo '</div>';
   }
 
-  echo \dash\layout\button::html_btnDuplicate(true);
 
   // save btn
   if(\dash\face::btnSave())
