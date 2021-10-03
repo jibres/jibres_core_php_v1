@@ -162,3 +162,10 @@
 				<?php } } ?>
 </div>
 			<?php } //endif ?>
+
+<div class="avand-md">
+	<div class="msg minimal success2 mT20">
+		<?php $api_link = "<a target='_blank' href='". \dash\url::set_subdomain('core'). '/r10/irpost'. "'>API</a>"; ?>
+		<?php echo T_("Also available this module from :API", ['API' => $api_link]) ?>
+	</div>
+</div>
