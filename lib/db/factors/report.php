@@ -3,27 +3,37 @@ namespace lib\db\factors;
 
 class report
 {
-	public static function sale_report()
+	public static function sale_report($_args)
 	{
+
+		switch ($_args['groupby'])
+		{
+		 	case 'date':
+		 	default:
+		 		$select_field = ", DATE(factors.date) AS `groupbykey` ";
+		 		$group_by = "groupbykey";
+		 		break;
+		 }
+
 		$query =
 		"
 			SELECT
 				COUNT(*) AS `count`,
-				SUM(factors.qty) AS `qty`,
-				SUM(factors.subprice) AS `subprice`,
-				SUM(factors.subtotal) AS `subtotal`,
-				SUM(factors.subvat) AS `subvat`,
-				SUM(factors.subdiscount) AS `subdiscount`,
-				SUM(factors.discount2) AS `discount2`,
-				SUM(factors.shipping) AS `shipping`,
-				SUM(factors.total) AS `total`,
-				SUM(factors.item) AS `item`,
-				DATE(factors.date) AS `date`
+				SUM(IFNULL(factors.qty, 0)) AS `qty`,
+				SUM(IFNULL(factors.subprice, 0)) AS `subprice`,
+				SUM(IFNULL(factors.subtotal, 0)) AS `subtotal`,
+				SUM(IFNULL(factors.subvat, 0)) AS `subvat`,
+				SUM(IFNULL(factors.subdiscount, 0)) AS `subdiscount`,
+				SUM(IFNULL(factors.discount2, 0)) AS `discount2`,
+				SUM(IFNULL(factors.shipping, 0)) AS `shipping`,
+				SUM(IFNULL(factors.total, 0)) AS `total`,
+				SUM(IFNULL(factors.item, 0)) AS `item`
+				$select_field
 			FROM
 				factors
 			WHERE
 				factors.status != 'deleted'
-			GROUP BY DATE(factors.date)
+			GROUP BY $group_by
 		";
 
 		$result = \dash\db::get($query);
