@@ -7,7 +7,7 @@
 
 
 
-      <?php $total_fund = \lib\report\product\get::total_fund(); if($total_fund) { ?>
+      <?php $total_fund = \lib\app\report\product\get::total_fund(); if($total_fund) { ?>
 
         <li><a class="f" href="<?php echo \dash\url::here(). '/products'; ?>"><div class="key"><?php echo T_("The amount you spent");?> <small>(<?php echo T_("Product buyprice * stock") ?>)</small></div><div class="value"><?php echo \dash\fit::number(a($total_fund, 'total_buyprice'));?></div><div class="go"></div></a></li>
 

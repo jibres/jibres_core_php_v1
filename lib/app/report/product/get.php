@@ -1,5 +1,5 @@
 <?php
-namespace lib\report\product;
+namespace lib\app\report\product;
 
 
 class get
