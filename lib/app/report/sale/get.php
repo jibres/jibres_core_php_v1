@@ -8,8 +8,8 @@ class get
 	{
 		$condition =
 		[
-			'startdate' => 'date_time',
-			'enddate'   => 'date_time',
+			'startdate' => 'datetime',
+			'enddate'   => 'datetime',
 			'groupby'   => ['enum' => ['none', 'hour', 'date']],
 		];
 
