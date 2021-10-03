@@ -9,6 +9,14 @@ class view
 
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
+
+
+		$args = [];
+
+		$result = \lib\app\report\sale\get::master_report($args);
+
+		\dash\data::masterReport($result);
+
 	}
 }
 ?>
