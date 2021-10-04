@@ -14,14 +14,14 @@ class visitcard1_html
 				$title        = a($_args, 'heading');
 				$desc         = a($_args, 'description');
 
-				$cardClass = 'relative mx-5 md:m-auto overflow-hidden flex flex-col md:flex-row max-w-screen-sm md:max-w-screen-md w-full bg-white md:shadow-xl md:hover:shadow-lg transition rounded-lg md:'. $borderRadius;
+				$cardClass = 'relative m-auto overflow-hidden flex flex-col md:flex-row max-w-screen-sm md:max-w-screen-md w-max md:w-full bg-white md:shadow-xl md:hover:shadow-lg transition rounded-lg md:'. $borderRadius;
 
 				$html .= '<div class="'. $cardClass. '">';
 				{
 					$logoSrc = a($_args, 'logo');
 					if($logoSrc)
 					{
-						$html .= '<div class="logo w-64 h-64 md:w-64 md:h-64 m-auto">';
+						$html .= '<div class="logo w-64 h-64 md:w-64 md:h-64 m-auto mt-5 md:mt-auto">';
 						{
 							$html .= '<img class="w-full '. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
 						}
