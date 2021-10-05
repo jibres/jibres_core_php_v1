@@ -29,6 +29,18 @@ class view
 			}
 		}
 
+		$file = \dash\request::get('file');
+		$file = \dash\validate::string_100($file, false);
+		if($file && isset($list[$file]))
+		{
+			$dir = __DIR__. '/part/'. $file. '.me.json';
+
+			if(is_file($dir))
+			{
+				\dash\file::download($dir);
+			}
+		}
+
 	}
 
 

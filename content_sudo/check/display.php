@@ -12,6 +12,17 @@ $html .= '<div class="fs14">';
 			$html .= $value;
 		}
 		$html .= '</a>';
+
+		$dir = __DIR__. '/part/'. $key. '.me.json';
+
+		if(is_file($dir))
+		{
+			$html .= '<a class="block mB10" href="'. \dash\url::this(). '?file='. $key. '">';
+			{
+				$html .= 'Download file';
+			}
+			$html .= '</a>';
+		}
 	}
 }
 $html .= '</div>';

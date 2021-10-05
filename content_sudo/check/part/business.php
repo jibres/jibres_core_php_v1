@@ -61,7 +61,7 @@ class business
 
 	public static function who()
 	{
-		var_dump(\dash\temp::get('CurrentBusiness'));
+		return \dash\temp::get('CurrentBusiness');
 	}
 }
 ?>

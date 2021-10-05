@@ -6,10 +6,18 @@ class business_duplicate_setting_record
 {
 	public static function business_duplicate_setting_record()
 	{
+		\dash\file::delete(self::my_dir());
+
 		$fn = ['\\content_sudo\\check\\part\\business_duplicate_setting_record', 'find'];
 
 		\content_sudo\check\part\business::call_fn_in_all_store($fn);
 
+	}
+
+
+	public static function my_dir()
+	{
+		return __DIR__ . '/business_duplicate_setting_record.me.json';
 	}
 
 
@@ -33,8 +41,8 @@ class business_duplicate_setting_record
 		$duplicate = \dash\db::get($query);
 		if($duplicate)
 		{
-			\content_sudo\check\part\business::who();
-			var_dump($duplicate);
+			$save = [\content_sudo\check\part\business::who(),$duplicate];
+			\dash\file::append(self::my_dir(), json_encode($save, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 		}
 	}
 
