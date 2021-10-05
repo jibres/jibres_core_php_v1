@@ -84,6 +84,13 @@ class get
 		$result          = [];
 		$result['raw']   = $ready_chart_category;
 		$result['chart'] = $chart;
+		$result['date']  =
+		[
+			'startdate' => \dash\fit::date_en(date("Y-m-d", strtotime($data['startdate']))),
+			'enddate'   => \dash\fit::date_en(date("Y-m-d", strtotime($data['enddate']))),
+			'starttime' => date("H:i", strtotime($data['startdate'])),
+			'endtime'   => date("H:i", strtotime($data['enddate'])),
+		];
 
 		return $result;
 	}

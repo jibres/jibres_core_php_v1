@@ -7,6 +7,8 @@ if(!is_array($reportRaw))
 	$reportRaw = [];
 }
 
+$reportDate = a($report, 'date');
+
 $html = '';
 
 
@@ -28,7 +30,7 @@ $html .= '<div class="avand">';
 			'last90days' =>  T_("Last 90 days"),
 			'lastmonth'  =>  T_("Last month"),
 			'lastyear'   =>  T_("Last year"),
-			'custom'   =>  T_("Custom"),
+			'custom'     =>  T_("Custom"),
 			// 'Week to date'       =>  T_("Week to date"),
 			// 'Month to date'      =>  T_("Month to date"),
 			// 'Quarter to date'    =>  T_("Quarter to date"),
@@ -65,7 +67,12 @@ $html .= '<div class="avand">';
 						{
 							foreach ($date_range as $key => $value)
 							{
-								$html .= "<option value='$key'>$value</option>";
+								$selected = null;
+								if(\dash\request::get('daterange') === $key)
+								{
+									$selected = 'selected';
+								}
+								$html .= "<option value='$key' $selected>$value</option>";
 							}
 						}
 						$html .= '</select>';
@@ -82,7 +89,12 @@ $html .= '<div class="avand">';
 						{
 							foreach ($group_by as $key => $value)
 							{
-								$html .= "<option value='$key'>$value</option>";
+								$selected = null;
+								if(\dash\request::get('groupby') === $key)
+								{
+									$selected = 'selected';
+								}
+								$html .= "<option value='$key' $selected>$value</option>";
 							}
 						}
 						$html .= '</select>';
@@ -104,7 +116,7 @@ $html .= '<div class="avand">';
 							$html .= '<label for="startdate">'. T_("Start date"). '</label>';
 							$html .= '<div class="input">';
 							{
-								$html .= '<input type="tel" name="startdate" data-format="date">';
+								$html .= '<input type="tel" name="startdate" value="'.a($reportDate, 'startdate').'" data-format="date">';
 							}
 							$html .= '</div>';
 						}
@@ -115,7 +127,7 @@ $html .= '<div class="avand">';
 							$html .= '<label for="starttime">'. T_("Start time"). '</label>';
 							$html .= '<div class="input">';
 							{
-								$html .= '<input type="tel" name="starttime" data-format="time">';
+								$html .= '<input type="tel" name="starttime" value="'.a($reportDate, 'starttime').'" data-format="time">';
 							}
 							$html .= '</div>';
 						}
@@ -126,7 +138,7 @@ $html .= '<div class="avand">';
 							$html .= '<label for="enddate">'. T_("End date"). '</label>';
 							$html .= '<div class="input">';
 							{
-								$html .= '<input type="tel" name="enddate" data-format="date">';
+								$html .= '<input type="tel" name="enddate" value="'.a($reportDate, 'enddate').'" data-format="date">';
 							}
 							$html .= '</div>';
 						}
@@ -137,7 +149,7 @@ $html .= '<div class="avand">';
 							$html .= '<label for="endtime">'. T_("End time"). '</label>';
 							$html .= '<div class="input">';
 							{
-								$html .= '<input type="tel" name="endtime" data-format="time">';
+								$html .= '<input type="tel" name="endtime" value="'.a($reportDate, 'endtime').'" data-format="time">';
 							}
 							$html .= '</div>';
 						}
