@@ -5,7 +5,7 @@
 				<tr>
 					<th class="collapsing">Id</th>
 					<th class="collapsing">User</th>
-					<th class="collapsing">Host</th>
+
 					<th class="collapsing">db</th>
 					<th class="collapsing">Command</th>
 					<th class="collapsing">Time</th>
@@ -18,7 +18,6 @@
 					<tr>
 						<td class="collapsing"><?php echo a($value, 'Id') ?></td>
 						<td class="collapsing"><?php echo a($value, 'User') ?></td>
-						<td class="collapsing"><?php echo a($value, 'Host') ?></td>
 						<td class="collapsing"><?php echo a($value, 'db') ?></td>
 						<td class="collapsing"><?php echo a($value, 'Command') ?></td>
 						<td class="collapsing"><?php echo a($value, 'Time') ?></td>
@@ -29,5 +28,7 @@
 			</tbody>
 		</table>
 	</div>
+<?php if(false) {?>
 <pre><?php print_r(\dash\data::fullprocesslist()); ?></pre>
+<?php } //endif ?>
 </div>
