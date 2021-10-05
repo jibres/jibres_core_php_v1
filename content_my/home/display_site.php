@@ -24,6 +24,13 @@
      </div>
     </section>
 
+    <div class="msg info2 txtC">
+            <?php echo T_("If you have any questions, you can raise them through the ticket with the support of Jibres.") ?>
+        <a class="link" href="<?php echo \dash\url::this(). '/ticket' ?>">
+            <?php echo T_("Ticketing system") ?>
+        </a>
+    </div>
+
 
    <div class="f">
     <div class="c6 s12 pRa10">
