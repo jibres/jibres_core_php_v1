@@ -92,14 +92,18 @@ if(!\dash\face::disablePWA_Header())
   // add btn
   if(\dash\data::action_link() && (\dash\data::action_icon() || \dash\data::action_text()))
   {
-    if(\dash\data::action_icon())
-    {
-      echo "<a class='square ". \dash\data::action_icon()."' href='". \dash\data::action_link(). "'></a>";
-    }
-    else
-    {
-      echo "<a class='action' href='". \dash\data::action_link(). "'>". \dash\data::action_text(). "</a>";
-    }
+    // if(\dash\data::action_icon())
+    // {
+    //   // echo "<a class='square ". \dash\data::action_icon()."' href='". \dash\data::action_link(). "'></a>";
+    //   echo "<a class='square' href='". \dash\data::action_link(). "'>";
+    //   echo \dash\utility\icon::svg(\dash\data::action_icon());
+    //   echo "</a>";
+    // }
+    // else
+    // {
+    //   echo "<a class='action' href='". \dash\data::action_link(). "'>". \dash\data::action_text(). "</a>";
+    // }
+    echo "<a class='action' href='". \dash\data::action_link(). "'>". \dash\data::action_text(). "</a>";
   }
   // setting
   if(\dash\face::btnSetting())
