@@ -16,6 +16,9 @@ class view
 		$args['startdate'] = \dash\request::get('startdate');
 		$args['enddate']   = \dash\request::get('enddate');
 		$args['groupby']   = \dash\request::get('groupby');
+		$args['daterange'] = \dash\request::get('daterange');
+		$args['starttime'] = \dash\request::get('starttime');
+		$args['endtime']   = \dash\request::get('endtime');
 
 		$result = \lib\app\report\sale\get::master_report($args);
 

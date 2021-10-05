@@ -10,7 +10,14 @@ class get
 		[
 			'startdate' => 'datetime',
 			'enddate'   => 'datetime',
-			'groupby'   => ['enum' => ['none', 'hour', 'date']],
+			'groupby'   => ['enum' => ['none', 'hour', 'date', 'week', 'month', 'year']],
+			'daterange' => ['enum' => ['today','yesterday','last7days','last30days','last90days','lastmonth','lastyear','custom']],
+			'starttime' => 'time',
+			'endtime'   => 'time',
+
+
+
+
 		];
 
 		$require = [];
