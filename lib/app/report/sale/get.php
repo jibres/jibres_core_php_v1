@@ -33,12 +33,12 @@ class get
 	{
 		return
 		[
-			'none'  =>  T_("None"),
+			// 'none'  =>  T_("None"),
 			'date'  =>  T_("Date"),
 			'hour'  =>  T_("Hour"),
-			'week'  =>  T_("Week"),
-			'month' =>  T_("Month"),
-			'year'  =>  T_("Year"),
+			// 'week'  =>  T_("Week"),
+			// 'month' =>  T_("Month"),
+			// 'year'  =>  T_("Year"),
 		];
 	}
 
@@ -60,6 +60,11 @@ class get
 		$require = [];
 		$meta    = [];
 		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(!$data['daterange'])
+		{
+			$data['daterange'] = 'lastyear';
+		}
 
 		switch ($data['daterange'])
 		{
@@ -189,6 +194,8 @@ class get
 			'starttime' => date("H:i", strtotime($data['startdate'])),
 			'endtime'   => date("H:i", strtotime($data['enddate'])),
 		];
+		$result['daterange'] = $data['daterange'];
+		$result['groupby'] = $data['groupby'];
 
 		return $result;
 	}
@@ -226,8 +233,8 @@ class get
 			case 'date':
 				do
 				{
-					$myDate = date("Y-m-d", $start);
-					$result[$myDate] = array_merge($default, ['groupbykey' => $myDate]);
+					$mydate = date("Y-m-d", $start);
+					$result[$mydate] = array_merge($default, ['groupbykey' => $mydate]);
 					$start += (60*60*24);
 					$counter++;
 
@@ -237,7 +244,18 @@ class get
 					}
 				}
 				while ($start < $end);
+				break;
 
+			case 'hour':
+				for ($i=0; $i < 24 ; $i++)
+				{
+					if($i < 10)
+					{
+						$i = '0'. $i;
+					}
+					$mydate = $i;
+					$result[$mydate] = array_merge($default, ['groupbykey' => $mydate]);
+				}
 				break;
 
 			default:

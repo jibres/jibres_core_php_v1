@@ -8,6 +8,12 @@ class report
 
 		switch ($_args['groupby'])
 		{
+		 	case 'hour':
+
+		 		$select_field = ", HOUR(factors.date) AS `groupbykey` ";
+		 		$group_by = "groupbykey";
+		 		break;
+
 		 	case 'date':
 		 	default:
 		 		$select_field = ", DATE(factors.date) AS `groupbykey` ";
@@ -39,6 +45,7 @@ class report
 		";
 
 		$result = \dash\db::get($query);
+
 		return $result;
 	}
 }

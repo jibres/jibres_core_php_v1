@@ -41,7 +41,7 @@ $html .= '<div class="avand">';
 							foreach ($date_range as $key => $value)
 							{
 								$selected = null;
-								if(\dash\request::get('daterange') === $key)
+								if(a($report, 'daterange') === $key)
 								{
 									$selected = 'selected';
 								}
@@ -63,7 +63,7 @@ $html .= '<div class="avand">';
 							foreach ($group_by as $key => $value)
 							{
 								$selected = null;
-								if(\dash\request::get('groupby') === $key)
+								if(a($report, 'groupby') === $key)
 								{
 									$selected = 'selected';
 								}
@@ -77,8 +77,13 @@ $html .= '<div class="avand">';
 				}
 				$html .= '</div>';
 
+				$data_response_hide = 'data-response-hide';
+				if(\dash\request::get('daterange') === 'custom')
+				{
+					$data_response_hide = '';
+				}
 
-				$html .= '<div data-response="daterange" data-response-where="custom" data-response-hide>';
+				$html .= '<div data-response="daterange" data-response-where="custom" '. $data_response_hide.'>';
 				{
 					$html .= '<div class="row">';
 					{
