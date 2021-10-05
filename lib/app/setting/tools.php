@@ -27,7 +27,7 @@ class tools
 			'value' => $_value,
 		];
 
-		$result = \lib\db\setting\insert::new_record($insert);
+		$result = \lib\db\setting\insert::new_record($insert, true);
 		return $result;
 	}
 

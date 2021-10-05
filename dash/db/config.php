@@ -379,7 +379,7 @@ class config
 	}
 
 
-	public static function make_multi_insert($_args)
+	public static function make_multi_insert($_args, $_raw = false)
 	{
 		if(!is_array($_args))
 		{
@@ -447,6 +447,11 @@ class config
 		$fields = '`'.  implode("`,`", array_keys($fields)). '`';
 
 		$values = implode("),(", $together);
+
+		if($_raw)
+		{
+			return ['fields' => $fields, 'values' => $values];
+		}
 
 		$temp_query = "($fields) VALUES ($values) ";
 		return $temp_query;
