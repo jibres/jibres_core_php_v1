@@ -7,8 +7,8 @@ class view
 	{
 		\dash\face::title(T_('Sale report'));
 
-		\dash\data::back_text(T_('Dashboard'));
-		\dash\data::back_link(\dash\url::here());
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this());
 
 
 		$args              = [];

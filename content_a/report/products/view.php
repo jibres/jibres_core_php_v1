@@ -7,8 +7,8 @@ class view
 	{
 		\dash\face::title(T_('Product report'));
 
-		\dash\data::back_text(T_('Setting'));
-		\dash\data::back_link(\dash\url::here(). '/setting/product');
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this());
 	}
 }
 ?>
