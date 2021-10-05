@@ -159,6 +159,12 @@
             <div class="go"></div>
           </a>
        </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::here();?>/check">
+            <div class="key"><?php echo T_('Check');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
      </ul>
    </nav>
 
