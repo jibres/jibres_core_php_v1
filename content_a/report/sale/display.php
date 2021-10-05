@@ -21,37 +21,10 @@ $html .= '<div class="avand">';
 	$html .= '<div class="box">';
 	{
 		// Date range
-		$date_range =
-		[
-			'today'      =>  T_("Today"),
-			'yesterday'  =>  T_("Yesterday"),
-			'last7days'  =>  T_("Last 7 days"),
-			'last30days' =>  T_("Last 30 days"),
-			'last90days' =>  T_("Last 90 days"),
-			'lastmonth'  =>  T_("Last month"),
-			'lastyear'   =>  T_("Last year"),
-			'custom'     =>  T_("Custom"),
-			// 'Week to date'       =>  T_("Week to date"),
-			// 'Month to date'      =>  T_("Month to date"),
-			// 'Quarter to date'    =>  T_("Quarter to date"),
-			// 'Year to date'       =>  T_("Year to date"),
-			// '3rd Quarter (2021)' =>  T_("3rd Quarter (2021)"),
-			// '2nd Quarter (2021)' =>  T_("2nd Quarter (2021)"),
-			// '1st Quarter (2021)' =>  T_("1st Quarter (2021)"),
-			// '4th Quarter (2020)' =>  T_("4th Quarter (2020)"),
-		];
+		$date_range = \lib\app\report\sale\get::date_range();
 
 		// Group by
-		$group_by =
-		[
-			'none'  =>  T_("None"),
-			'date'  =>  T_("Date"),
-			'hour'  =>  T_("Hour"),
-			'week'  =>  T_("Week"),
-			'month' =>  T_("Month"),
-			'year'  =>  T_("Year"),
-
-		];
+		$group_by   = \lib\app\report\sale\get::group_by();
 
 		$html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'">';
 		{
