@@ -1,0 +1,1 @@
+DELETE FROM business_1000447.setting WHERE setting.id = 37 LIMIT 1;
