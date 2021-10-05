@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-05 17:08+0330\n"
-"PO-Revision-Date: 2021-10-05 17:08+0330\n"
+"POT-Creation-Date: 2021-10-05 19:55+0330\n"
+"PO-Revision-Date: 2021-10-05 19:56+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -839,7 +839,7 @@ msgstr "بیشتر بخوانید"
 #: content_a/accounting/turnover/display.php:183 content_a/cart/home/display.php:171
 #: content_a/chap/size-a4/a4-1.php:35 content_a/form/analytics/answer/display.php:110
 #: content_a/form/answer/detail/display.php:145 content_a/order/editdate/display.php:31
-#: content_a/order/home/filter.php:228 content_a/report/sale/display.php:38
+#: content_a/order/home/filter.php:228 content_a/report/sale/display.php:177
 #: content_business/orders/display.php:20
 #: content_crm/member/transactions/minus/display.php:14
 #: content_crm/member/transactions/plus/display.php:14
@@ -854,7 +854,7 @@ msgstr "بیشتر بخوانید"
 #: content_pay/home/display-transaction.php:122
 #: content_site/options/post/post_show_date.php:15 content_sudo/ip/display.php:61
 #: dash/app/transaction/filter.php:43 includes/languages/trans_static_public.php:195
-#: lib/app/form/item/type.php:178
+#: lib/app/form/item/type.php:178 lib/app/report/sale/get.php:37
 msgid "Date"
 msgstr "تاریخ"
 
@@ -2749,7 +2749,7 @@ msgstr "بیشتر و بیشتر بفروش."
 
 #: content/home/view.php:82 content/ip/home/view.php:9 content_a/discount/home/view.php:15
 #: content_a/order/home/view.php:144 content_a/order/view.php:11
-#: content_a/products/home/view.php:14 content_a/report/sale/view.php:10
+#: content_a/products/home/view.php:14 content_a/report/home/view.php:10
 #: content_a/setting/home/view.php:10 content_a/setting/pos/view.php:10
 #: content_account/notification/view.php:14 content_cms/home/view.php:11
 #: content_crm/home/view.php:17 content_crm/home/view.php:24
@@ -4161,7 +4161,7 @@ msgstr "۹٪"
 #: content_a/accounting/report/total/display.php:127 content_a/cart/add/display.php:136
 #: content_a/chap/size-a4/a4-1.php:129 content_a/order/home/display.php:70
 #: content_a/order/links.php:30 content_a/order/productList.php:38
-#: content_a/order/summary.php:60 content_a/report/sale/display.php:41
+#: content_a/order/summary.php:60 content_a/report/sale/display.php:180
 #: content_a/sale/display.php:20 content_business/cart/cartSummary.php:46
 #: content_business/orders/display.php:19 dash/utility/pagination.php:484
 msgid "Total"
@@ -4573,7 +4573,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/products/poof/view.php:15 content_a/products/property/add/view.php:14
 #: content_a/products/property/edit/view.php:14 content_a/products/property/view.php:15
 #: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
-#: content_a/products/variants/view.php:14 content_a/setting/aparat/view.php:10
+#: content_a/products/variants/view.php:14 content_a/report/products/view.php:10
+#: content_a/report/sale/view.php:10 content_a/setting/aparat/view.php:10
 #: content_a/setting/branding/view.php:10 content_a/setting/domain/add/view.php:11
 #: content_a/setting/domain/existdomain/view.php:11
 #: content_a/setting/domain/manage/view.php:11 content_a/setting/domain/remove/view.php:11
@@ -5928,7 +5929,7 @@ msgstr "افزودن درآمد"
 #: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:210
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
-#: content_a/report/sale/display.php:39 content_a/sale/display.php:17
+#: content_a/report/sale/display.php:178 content_a/sale/display.php:17
 #: content_cms/files/home/display.php:36 content_crm/home/display.php:6
 #: content_crm/sms/home/display.php:6 content_crm/telegram/home/display.php:6
 #: content_crm/ticket/home/display.php:6
@@ -6009,14 +6010,14 @@ msgstr "انتخاب قالب"
 #: content_a/accounting/filter.php:56 content_a/accounting/turnover/display.php:25
 #: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:496
 #: content_a/form/answer/display.php:63 content_a/order/home/filter.php:245
-#: content_a/pricehistory/display.php:36
+#: content_a/pricehistory/display.php:36 content_a/report/sale/display.php:94
 msgid "Start date"
 msgstr "تاریخ شروع"
 
 #: content_a/accounting/filter.php:62 content_a/accounting/turnover/display.php:31
 #: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:540
 #: content_a/form/answer/display.php:64 content_a/order/home/filter.php:251
-#: content_a/pricehistory/display.php:37
+#: content_a/pricehistory/display.php:37 content_a/report/sale/display.php:116
 msgid "End date"
 msgstr "تاریخ پایان"
 
@@ -6056,7 +6057,8 @@ msgstr "پاک‌سازی فیلترها"
 
 #: content_a/accounting/filter.php:126 content_a/accounting/filter_only_year.php:21
 #: content_a/accounting/turnover/display.php:121 content_a/order/home/filter.php:78
-#: content_business/shipping/display.php:59 content_my/domain/review/display.php:141
+#: content_a/report/sale/display.php:145 content_business/shipping/display.php:59
+#: content_my/domain/review/display.php:141
 msgid "Apply"
 msgstr "اعمال‌کردن"
 
@@ -6181,7 +6183,7 @@ msgid "Charge Bank from partners"
 msgstr "شارژ حساب بانکی از طریق جاری شرکا"
 
 #: content_a/accounting/home/display.php:321 content_a/form/itemLink.php:25
-#: dash/panel.php:263
+#: content_a/report/home/view.php:8 dash/panel.php:263
 msgid "Reports"
 msgstr "گزارش‌ها"
 
@@ -7853,7 +7855,7 @@ msgid "Serial Number"
 msgstr "شماره سریال"
 
 #: content_a/chap/size-a4/a4-1.php:49 content_a/chap/size-receipt/receipt.php:103
-#: content_a/order/home/display.php:58 content_a/report/sale/display.php:40
+#: content_a/order/home/display.php:58 content_a/report/sale/display.php:179
 #: content_business/orders/display.php:17 content_business/p/home/blocks/detail.php:190
 msgid "Qty"
 msgstr "تعداد"
@@ -9985,8 +9987,8 @@ msgid "Order Edit"
 msgstr "ویرایش سفارش"
 
 #: content_a/pricehistory/choose/view.php:12 content_a/pricehistory/view.php:12
-#: content_a/report/products/view.php:10 content_a/report/productvalue/view.php:10
-#: content_a/setting/domain/add/view.php:8 content_a/setting/domain/existdomain/view.php:8
+#: content_a/report/productvalue/view.php:10 content_a/setting/domain/add/view.php:8
+#: content_a/setting/domain/existdomain/view.php:8
 #: content_a/setting/domain/manage/view.php:8 content_a/setting/domain/remove/view.php:8
 #: content_a/setting/domain/setting/view.php:8 content_a/setting/domain/view.php:8
 #: content_a/setting/domain/view.php:11 content_a/setting/factor/view.php:13
@@ -10866,6 +10868,15 @@ msgstr "جهت ثبت تنوع لطفا محصولاتی که مورد نیاز 
 msgid "Variants"
 msgstr "تنوع محصول"
 
+#: content_a/report/home/display.php:12 content_a/report/sale/display.php:161
+#: content_a/report/sale/view.php:8
+msgid "Sale report"
+msgstr "گزارش فروش"
+
+#: content_a/report/home/display.php:26
+msgid "Products report"
+msgstr "گزارش محصولات"
+
 #: content_a/report/products/display.php:6
 msgid "Price history"
 msgstr "تاریخچه قیمت"
@@ -10997,9 +11008,23 @@ msgstr "کل سود"
 msgid "Product value"
 msgstr "ارزش محصول"
 
-#: content_a/report/sale/display.php:22 content_a/report/sale/view.php:8
-msgid "Sale report"
-msgstr "گزارش فروش"
+#: content_a/report/sale/display.php:38
+msgid "Date range"
+msgstr "بازه زمانی"
+
+#: content_a/report/sale/display.php:60 dash/layout/search/search-filter.php:63
+msgid "Group by"
+msgstr "به تفکیک"
+
+#: content_a/report/sale/display.php:105 content_a/setting/order/schedule/display.php:51
+#: content_a/setting/order/schedule/display.php:78
+msgid "Start time"
+msgstr "ساعت شروع"
+
+#: content_a/report/sale/display.php:127 content_a/setting/order/schedule/display.php:52
+#: content_a/setting/order/schedule/display.php:83
+msgid "End time"
+msgstr "ساعت پایان"
 
 #: content_a/sale/display.php:3
 msgid "You can add new empty tab if current tab is filled!"
@@ -12274,16 +12299,6 @@ msgstr "دریافت سفارش طبق جدول زمانبندی هفتگی"
 msgid "Weekday"
 msgstr "روز هفته"
 
-#: content_a/setting/order/schedule/display.php:51
-#: content_a/setting/order/schedule/display.php:78
-msgid "Start time"
-msgstr "ساعت شروع"
-
-#: content_a/setting/order/schedule/display.php:52
-#: content_a/setting/order/schedule/display.php:83
-msgid "End time"
-msgstr "ساعت پایان"
-
 #: content_a/setting/order/schedule/display.php:69
 msgid "Add your active time in every day"
 msgstr "زمان فعالیت خود را در هر روز اضافه کنید"
@@ -12630,7 +12645,7 @@ msgid "Set Product Text"
 msgstr "تنظیم متن ثابت اشتراک‌گذاری هر محصول"
 
 #: content_a/setting/product/preparationtime/display.php:14
-#: lib/app/product/property.php:219
+#: lib/app/product/property.php:219 lib/app/report/sale/get.php:38
 msgid "Hour"
 msgstr "ساعت"
 
@@ -22986,7 +23001,7 @@ msgstr "نسبت تصویر شاخص"
 #: content_site/options/file/file_business_logo.php:102
 #: content_site/options/heading/heading.php:116
 #: content_site/options/responsive/responsive_footer.php:73
-#: content_site/options/socialnetwork/socialnetwork.php:71
+#: content_site/options/socialnetwork/socialnetwork.php:71 lib/app/report/sale/get.php:18
 msgid "Custom"
 msgstr "دلخواه"
 
@@ -27231,10 +27246,6 @@ msgid ""
 msgstr ""
 "اگر فقط مایل به مشاهده موارد خاصی هستید، فیلتر مربوطه را اعمال کنید. با سازماندهی "
 "داده‌ها، آنالیز آن‌ها ساده‌تر می‌شود."
-
-#: dash/layout/search/search-filter.php:63
-msgid "Group by"
-msgstr "به تفکیک"
 
 #: dash/layout/search/search-filter.php:117
 msgid "From date"
@@ -39065,7 +39076,7 @@ msgstr "مشخصات محصول ذخیره شد"
 msgid "Tomorrow"
 msgstr "فردا"
 
-#: lib/app/product/ready.php:256
+#: lib/app/product/ready.php:256 lib/app/report/sale/get.php:11
 msgid "Today"
 msgstr "امروز"
 
@@ -39590,11 +39601,35 @@ msgstr "مالیات"
 msgid "document"
 msgstr "سند حسابداری"
 
-#: lib/app/report/sale/get.php:32
+#: lib/app/report/sale/get.php:12
+msgid "Yesterday"
+msgstr "دیروز"
+
+#: lib/app/report/sale/get.php:13
+msgid "Last 7 days"
+msgstr "۷ روز گذشته"
+
+#: lib/app/report/sale/get.php:14
+msgid "Last 30 days"
+msgstr "۳۰ روز گذشته"
+
+#: lib/app/report/sale/get.php:15
+msgid "Last 90 days"
+msgstr "۹۰ روز گذشته"
+
+#: lib/app/report/sale/get.php:16
+msgid "Last month"
+msgstr "ماه اخیر"
+
+#: lib/app/report/sale/get.php:17
+msgid "Last year"
+msgstr "سال گذشته"
+
+#: lib/app/report/sale/get.php:142
 msgid "Start date must be less than end date"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
 
-#: lib/app/report/sale/get.php:138
+#: lib/app/report/sale/get.php:268
 msgid "Only 1,000 record in result can be show"
 msgstr "تنها ۱۰۰۰ ردیف در خروجی قابل نمایش است"
 
@@ -45552,9 +45587,6 @@ msgstr "یارد"
 #~ msgid "Avg. First Response"
 #~ msgstr "میانگین اولین پاسخگویی"
 
-#~ msgid "Last month"
-#~ msgstr "ماه اخیر"
-
 #~ msgid "Minute"
 #~ msgstr "دقیقه"
 
@@ -46768,9 +46800,6 @@ msgstr "یارد"
 
 #~ msgid "Create user at"
 #~ msgstr "ایجاد شده در"
-
-#~ msgid "Last order"
-#~ msgstr "آخرین سفارش"
 
 #~ msgid "Change user mobile"
 #~ msgstr "ویرایش تلفن همراه کاربر"
