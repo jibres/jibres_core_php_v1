@@ -3,6 +3,14 @@
   <?php require_once(root. 'content_love/store/storeDetail.php') ?>
   <div class="box">
     <div class="body">
+      <h6><?php echo T_("Creator") ?></h6>
+      <div class="row">
+        <div class="c-xs-2 c-sm-2">
+          <img class="w100" src="<?php echo \dash\data::currentCreator_avatar() ?>">
+        </div>
+        <div class="c-xs-10 c-sm-10"><?php echo \dash\data::currentCreator_displayname() ?> <b><?php echo \dash\data::currentCreator_mobile() ?></b></div>
+      </div>
+      <hr>
       <h6><?php echo T_("Current owner") ?></h6>
       <div class="row">
         <div class="c-xs-2 c-sm-2">

@@ -12,12 +12,14 @@ class edit
 			return false;
 		}
 
-		$load_store = \lib\db\store\get::by_id($_id);
+		$load_store = \lib\db\store\get::data($_id);
 		if(!isset($load_store['id']))
 		{
 			\dash\notif::error(T_("Store not found"));
 			return false;
 		}
+
+		$load_store_id = \lib\db\store\get::by_id($load_store['id']);
 
 		$mobile = \dash\validate::mobile($_new_owner_mobile);
 
@@ -33,8 +35,7 @@ class edit
 			return false;
 		}
 
-
-		if(floatval(a($load_store, 'creator')) === floatval(a($load_user, 'id')))
+		if(floatval(a($load_store, 'owner')) === floatval(a($load_user, 'id')))
 		{
 			\dash\notif::error(T_("New owner and current owner is iqual!"));
 			return false;
@@ -44,11 +45,31 @@ class edit
 
 		$my_store_db          = \dash\engine\store::make_database_name($load_store['id']);
 
-		\lib\db\setting\update::overwirte_cat_key_fuel($load_user['id'], 'store_setting', 'owner', $load_store['fuel'], $my_store_db);
+		\lib\db\setting\update::overwirte_cat_key_fuel($load_user['id'], 'store_setting', 'owner', $load_store_id['fuel'], $my_store_db);
 
-		\lib\store::reset_cache($load_store['id'], $load_store['subdomain']);
+		$new_owner_store_user = \lib\db\store_user\get::by_store_id_user_id($load_store['id'], $load_user['id']);
+		if(!$new_owner_store_user)
+		{
+			$new_record_store_user =
+			[
+				'store_id'    => $load_store['id'],
+				'user_id'     => $load_user['id'],
+				'staff'       => 'yes',
+				'datecreated' => date("Y-m-d H:i:s"),
+			];
+			\lib\db\store_user\insert::jibres_new_record($new_record_store_user);
+		}
+		else
+		{
+			\lib\db\store_user\update::jibres_store_user_update($load_store['id'], $load_user['id'], ['staff' => 'yes']);
+		}
 
-		\dash\log::set('businessOwnerUpdate', ['old_owner' => $load_store['creator'], 'new_owner' => $load_user['id'] ]);
+		\lib\db\store_user\update::jibres_store_user_update($load_store['id'], $load_store['owner'], ['staff' => 'no']);
+
+
+		\lib\store::reset_cache($load_store['id'], $load_store_id['subdomain']);
+
+		\dash\log::set('businessOwnerUpdate', ['old_owner' => $load_store['owner'], 'new_owner' => $load_user['id'] ]);
 
 		\dash\notif::ok(T_("Owner was changed"));
 
