@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-05 19:55+0330\n"
-"PO-Revision-Date: 2021-10-05 19:56+0330\n"
+"POT-Creation-Date: 2021-10-08 15:12+0330\n"
+"PO-Revision-Date: 2021-10-08 15:13+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4641,10 +4641,10 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_love/gift/view/view.php:12 content_love/log/caller/view.php:13
 #: content_love/log/show/view.php:12 content_love/notiflog/view.php:12
 #: content_love/smslog/view/view.php:12 content_love/store/backup/view.php:12
-#: content_love/store/setting/view.php:12 content_love/store/transfer/view.php:12
-#: content_my/business/error/view.php:23 content_my/business/start/display.php:37
-#: content_my/domain/irnic/add/view.php:22 content_my/domain/irnic/edit/view.php:14
-#: content_my/domain/setting/action/view.php:12
+#: content_love/store/owner/view.php:12 content_love/store/setting/view.php:12
+#: content_love/store/transfer/view.php:12 content_my/business/error/view.php:23
+#: content_my/business/start/display.php:37 content_my/domain/irnic/add/view.php:22
+#: content_my/domain/irnic/edit/view.php:14 content_my/domain/setting/action/view.php:12
 #: content_my/domain/setting/business/view.php:12
 #: content_my/domain/setting/dns/view.php:12
 #: content_my/domain/setting/dnsadvance/view.php:12
@@ -5462,7 +5462,7 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/accounting/factor/add/display.php:204 content_a/discount/add/display.php:275
 #: content_a/form/tag/remove/display.php:37 content_a/tag/remove/display.php:38
 #: content_cms/hashtag/remove/display.php:37 content_crm/member/legal/display.php:70
-#: content_love/business/setting/display.php:87 content_love/store/setting/display.php:58
+#: content_love/business/setting/display.php:87 content_love/store/setting/display.php:69
 #: content_site/options/background/background_effect.php:13
 #: content_site/options/effect/effect.php:12
 #: content_site/options/file/file_business_logo.php:99
@@ -7122,8 +7122,8 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_love/business/domain/setting/display.php:27
 #: content_love/business/domain/setting/display.php:134
 #: content_love/business/setting/display.php:93
-#: content_love/business/setting/display.php:118 content_love/store/setting/display.php:64
-#: content_love/store/setting/display.php:84 content_my/domain/option/display.php:78
+#: content_love/business/setting/display.php:118 content_love/store/setting/display.php:75
+#: content_love/store/setting/display.php:95 content_my/domain/option/display.php:78
 #: content_site/gallery/dispaly-fileaddr.php:12 content_sudo/backup/display.php:53
 #: content_sudo/cronjob/display.php:14 dash/layout/admin/admin-titlebox.php:73
 #: dash/layout/button.php:38
@@ -7975,10 +7975,11 @@ msgstr "چاپ فاکتور"
 #: lib/app/factor/get.php:179 lib/app/plan/history.php:113 lib/app/product/edit.php:104
 #: lib/app/product/get.php:45 lib/app/product/get.php:86 lib/app/product/unit.php:63
 #: lib/app/product/unit.php:229 lib/app/product/unit.php:261 lib/app/product/unit.php:355
-#: lib/app/store/edit.php:33 lib/app/store/edit.php:72 lib/app/store/edit.php:118
-#: lib/app/store/remove.php:13 lib/app/tag/add.php:70 lib/app/tag/add.php:176
-#: lib/app/tag/add.php:251 lib/app/tag/edit.php:279 lib/app/tag/get.php:69
-#: lib/app/tag/get.php:100 lib/app/tag/get.php:128 lib/app/tag/search.php:28
+#: lib/app/store/edit.php:18 lib/app/store/edit.php:106 lib/app/store/edit.php:145
+#: lib/app/store/edit.php:191 lib/app/store/remove.php:13 lib/app/tag/add.php:70
+#: lib/app/tag/add.php:176 lib/app/tag/add.php:251 lib/app/tag/edit.php:279
+#: lib/app/tag/get.php:69 lib/app/tag/get.php:100 lib/app/tag/get.php:128
+#: lib/app/tag/search.php:28
 msgid "Store not found"
 msgstr "فروشگاه یافت نشد"
 
@@ -8259,11 +8260,11 @@ msgstr "کوچکتر از"
 #: content_a/products/property/display.php:67
 #: content_a/setting/general/remove/display.php:34 content_a/units/display.php:78
 #: content_a/units/display.php:202 content_a/units/display.php:257
-#: content_account/address.php:10 content_my/business/ask/display.php:52
-#: content_my/business/ask/view.php:21 content_my/business/start/display.php:51
-#: content_my/business/start/view.php:19 content_my/business/subdomain/display.php:27
-#: content_my/business/subdomain/view.php:16 content_my/domain/review/display.php:249
-#: content_pay/home/display-transaction.php:42
+#: content_account/address.php:10 content_love/store/owner/display.php:29
+#: content_my/business/ask/display.php:52 content_my/business/ask/view.php:21
+#: content_my/business/start/display.php:51 content_my/business/start/view.php:19
+#: content_my/business/subdomain/display.php:27 content_my/business/subdomain/view.php:16
+#: content_my/domain/review/display.php:249 content_pay/home/display-transaction.php:42
 #: content_pay/home/display-transaction.php:149
 #: dash/social/telegram/commands/step_ticketAnswer.php:42
 #: dash/social/telegram/commands/step_ticketAnswer.php:82
@@ -11878,7 +11879,7 @@ msgid "Linkedin"
 msgstr "لینکدین"
 
 #: content_a/setting/logo/model.php:18 lib/app/setting/setup.php:119
-#: lib/app/store/edit.php:252
+#: lib/app/store/edit.php:325
 msgid "Your setting was saved"
 msgstr "تنظیمات شما ذخیره شد"
 
@@ -14281,8 +14282,8 @@ msgstr ""
 "موجودی حساب کاربری خود را بررسی کنید، حساب کاربری خود را شارژ کنید و صورتحساب‌ها را "
 "بپردازید!"
 
-#: content_account/home/display.php:137 content_my/domain/irnic/edit/display.php:88
-#: content_sudo/home/display.php:164
+#: content_account/home/display.php:137 content_love/store/owner/display.php:39
+#: content_my/domain/irnic/edit/display.php:88 content_sudo/home/display.php:164
 msgid "Check"
 msgstr "بررسی"
 
@@ -19513,39 +19514,41 @@ msgstr "تعداد کسانی که به بعضی از سوالات پاسخ دا
 msgid "Total skip and answer"
 msgstr "مجموع پاسخ‌ها و رد کرده‌ها"
 
-#: content_love/business/setting/display.php:48 content_love/store/setting/display.php:21
+#: content_love/business/setting/display.php:48 content_love/store/setting/display.php:32
 msgid "Change business fuel"
 msgstr "تغییر سوخت بیزینس"
 
-#: content_love/business/setting/display.php:60 content_love/store/setting/display.php:32
+#: content_love/business/setting/display.php:60 content_love/store/setting/display.php:43
 msgid "Re enable this business"
 msgstr "فعال سازی مجدد این بیزینس"
 
-#: content_love/business/setting/display.php:73 content_love/store/setting/display.php:43
+#: content_love/business/setting/display.php:73 content_love/store/setting/display.php:54
 msgid "Go to admin"
 msgstr "برو به پنل مدیریت"
 
-#: content_love/business/setting/display.php:84 content_love/store/setting/display.php:55
+#: content_love/business/setting/display.php:84 content_love/store/setting/display.php:66
 msgid "Chage business enterprise"
 msgstr "تغییر شناسه مشتری سازمانی"
 
-#: content_love/business/setting/display.php:88 content_love/store/setting/display.php:59
+#: content_love/business/setting/display.php:88 content_love/store/setting/display.php:70
 msgid "Rafiei"
 msgstr "رفیعی"
 
-#: content_love/business/setting/display.php:103 content_love/store/setting/display.php:72
+#: content_love/business/setting/display.php:103 content_love/store/setting/display.php:83
 msgid "Chage business storage limit"
 msgstr "تغییر حجم فضای ذخیره‌سازی بیزینس"
 
-#: content_love/business/setting/display.php:110 content_love/store/setting/display.php:77
+#: content_love/business/setting/display.php:110 content_love/store/setting/display.php:88
 msgid "Chage business upload file size limit"
 msgstr "تغییر حجم آپلود بیزینس"
 
-#: content_love/business/setting/display.php:128 content_love/store/setting/display.php:91
+#: content_love/business/setting/display.php:128
+#: content_love/store/setting/display.php:102
 msgid "You can change business subdomain"
 msgstr "شما می‌توانید زیردامنه بیزینس را تغییر دهید"
 
-#: content_love/business/setting/display.php:134 content_love/store/setting/display.php:97
+#: content_love/business/setting/display.php:134
+#: content_love/store/setting/display.php:108
 msgid "Change subdomian"
 msgstr "ویرایش زیردامنه"
 
@@ -21023,6 +21026,31 @@ msgstr "پشتیبان‌گیری"
 msgid "Backup Now"
 msgstr "همین الان بکاپ بگیر"
 
+#: content_love/store/owner/display.php:6
+msgid "Creator"
+msgstr "ایجاد کننده"
+
+#: content_love/store/owner/display.php:14
+msgid "Current owner"
+msgstr "مالک فعلی"
+
+#: content_love/store/owner/display.php:23
+msgid "New owner"
+msgstr "مالک جدید"
+
+#: content_love/store/owner/display.php:32 content_love/store/owner/view.php:9
+#: content_love/store/setting/display.php:21
+msgid "Change owner"
+msgstr "تغییر مالکیت"
+
+#: content_love/store/owner/display.php:34
+msgid "Choose new owner"
+msgstr "مالک جدید را انتخاب کنید"
+
+#: content_love/store/owner/view.php:42
+msgid "Use not found"
+msgstr "کاربر یافت نشد"
+
 #: content_love/subscribe/display.php:6 content_love/subscribe/view.php:9
 msgid "Subscribe to Jibres world"
 msgstr "مشترک شدن در دنیای جیبرس"
@@ -21225,7 +21253,7 @@ msgid "choose subdomain on Jibres"
 msgstr "زیردامنه‌ خودتان را بر روی جیبرس انتخاب کنید"
 
 #: content_my/business/subdomain/model.php:28 lib/app/store/add.php:92
-#: lib/app/store/edit.php:25 lib/app/store/subdomain.php:23
+#: lib/app/store/edit.php:98 lib/app/store/subdomain.php:23
 msgid "This subdomain is already occupied"
 msgstr "این زیر دامنه قبلاً گرفته شده است"
 
@@ -25341,7 +25369,7 @@ msgstr "نمی‌توانید صفحه‌ای را به‌عنوان والد خ
 msgid "Duplicate post url. This post url is already exists in your post list"
 msgstr "آدرس نوشته تکراری است. این آدرس نوشته در لیست نوشته‌های شما وجود دارد"
 
-#: dash/app/posts/check.php:290 lib/app/cart/search.php:293
+#: dash/app/posts/check.php:290 lib/app/cart/search.php:293 lib/app/store/edit.php:34
 msgid "Invalid user"
 msgstr "کاربر نامعتبر"
 
@@ -36329,7 +36357,7 @@ msgstr "برای ثبت سبد خرید لطفا مشتری را انتخاب ک
 #: lib/app/product/unit.php:21 lib/app/product/updateprice.php:154
 #: lib/app/product/variants.php:84 lib/app/product/variants.php:258
 #: lib/app/product/variants.php:275 lib/app/setting/setup.php:92
-#: lib/app/setting/setup.php:230 lib/app/store/edit.php:197
+#: lib/app/setting/setup.php:230 lib/app/store/edit.php:270
 #: lib/app/tax/doc/gallery.php:102
 msgid "Your are not in this store!"
 msgstr "شما در این فروشگاه نیستید!"
@@ -40119,27 +40147,35 @@ msgstr "تماس با ما"
 msgid "Sample contact page"
 msgstr "نمونه‌ای از صفحه ارتباط با ما"
 
-#: lib/app/store/edit.php:20
+#: lib/app/store/edit.php:40
+msgid "New owner and current owner is iqual!"
+msgstr "مالک جدید و قدیم برابر هستند!"
+
+#: lib/app/store/edit.php:74
+msgid "Owner was changed"
+msgstr "مالکیت منتقل شد"
+
+#: lib/app/store/edit.php:93
 msgid "No change in business subdomain"
 msgstr "هیچ تغییری در زیردامنه فروشگاه ایجاد نشد"
 
-#: lib/app/store/edit.php:47
+#: lib/app/store/edit.php:120
 msgid "Subdomain was changed"
 msgstr "زیردامنه تغییر یافت"
 
-#: lib/app/store/edit.php:59
+#: lib/app/store/edit.php:132
 msgid "Invalid enterprise"
 msgstr "شناسه مشتری سازمانی نامعتبر است"
 
-#: lib/app/store/edit.php:88
+#: lib/app/store/edit.php:161
 msgid "Enterprice was changed"
 msgstr "شناسه مشتری سازمانی ذخیره شد"
 
-#: lib/app/store/edit.php:150
+#: lib/app/store/edit.php:223
 msgid "Storage was changed"
 msgstr "فضای ذخیره‌سازی تغییر کرد"
 
-#: lib/app/store/edit.php:188
+#: lib/app/store/edit.php:261
 msgid "Your social network was saved"
 msgstr "شبکه‌های اجتماعی شما ذخیره شد"
 
@@ -49916,9 +49952,6 @@ msgstr "یارد"
 
 #~ msgid "dbversiondate"
 #~ msgstr "تاریخ نسخه پایگاه داده"
-
-#~ msgid "creator"
-#~ msgstr "ایجاد کننده"
 
 #~ msgid "Do you wanna something here!?"
 #~ msgstr "چیز میخواهید اینجا؟"
