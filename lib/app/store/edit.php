@@ -4,6 +4,58 @@ namespace lib\app\store;
 
 class edit
 {
+	public static function change_owner($_id, $_new_owner_mobile)
+	{
+		$_id = \dash\validate::id($_id);
+		if(!$_id)
+		{
+			return false;
+		}
+
+		$load_store = \lib\db\store\get::by_id($_id);
+		if(!isset($load_store['id']))
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		$mobile = \dash\validate::mobile($_new_owner_mobile);
+
+		if(!$mobile)
+		{
+			return false;
+		}
+
+		$load_user = \dash\db\users::get_by_mobile($mobile);
+		if(!$load_user)
+		{
+			\dash\notif::error(T_("Invalid user"));
+			return false;
+		}
+
+
+		if(floatval(a($load_store, 'creator')) === floatval(a($load_user, 'id')))
+		{
+			\dash\notif::error(T_("New owner and current owner is iqual!"));
+			return false;
+		}
+
+		\lib\db\store\update::owner($load_user['id'], $load_store['id']);
+
+		$my_store_db          = \dash\engine\store::make_database_name($load_store['id']);
+
+		\lib\db\setting\update::overwirte_cat_key_fuel($load_user['id'], 'store_setting', 'owner', $load_store['fuel'], $my_store_db);
+
+		\lib\store::reset_cache($load_store['id'], $load_store['subdomain']);
+
+		\dash\log::set('businessOwnerUpdate', ['old_owner' => $load_store['creator'], 'new_owner' => $load_user['id'] ]);
+
+		\dash\notif::ok(T_("Owner was changed"));
+
+		return true;
+	}
+
+
 	public static function change_subdomain($_subdomain, $_id)
 	{
 		$subdomain = \dash\validate::subdomain_admin($_subdomain);

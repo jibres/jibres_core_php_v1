@@ -24,6 +24,17 @@ class update
 
 	}
 
+
+
+
+	public static function owner($_owner, $_id)
+	{
+		$date   = date("Y-m-d H:i:s");
+		$query  = "UPDATE store SET store.creator = '$_owner', store.datemodified = '$date' WHERE store.id = $_id LIMIT 1";
+		$result = \dash\db::query($query, 'master');
+		return $result;
+	}
+
 	public static function subdomain($_subdomain, $_id)
 	{
 		$date   = date("Y-m-d H:i:s");

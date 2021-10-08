@@ -16,6 +16,17 @@
     <nav class="items">
       <ul>
         <li>
+          <a class="f item" href="<?php echo \dash\url::this(). '/owner?id='. \dash\request::get('id'); ?>">
+            <i class="sf-user-secret"></i>
+            <div class="key"><?php echo T_("Change owner") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <nav class="items">
+      <ul>
+        <li>
           <a class="f item" href="<?php echo \dash\url::this(). '/transfer?id='. \dash\request::get('id'); ?>">
             <i class="sf-exchange"></i>
             <div class="key"><?php echo T_("Change business fuel") ?></div>
