@@ -65,7 +65,7 @@ else
                 </a>
               </li>
               <li>
-                <a class="item f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='follow noopener'>
+                <a class="item f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='noopener'>
                   <div class="key">API <i class="sf-external-link"></i></div>
                   <div class="go"></div>
                 </a>
@@ -272,11 +272,11 @@ else
       <nav class="c s12 pLR10 langlist"><?php
         if(\dash\language::current() == 'fa')
         {
-          echo "<a hreflang='en' target='_blank' rel='follow noopener' href='https://jibres.com'>English <span class='compact mLa5 sf-external-link'></span></a>";
+          echo "<a hreflang='en' target='_blank' rel='noopener' href='https://jibres.com'>English <span class='compact mLa5 sf-external-link'></span></a>";
         }
         else
         {
-          echo "<a hreflang='fa' target='_blank' rel='follow noopener' href='https://jibres.ir'>فارسی <span class='compact mLa5 sf-external-link'></span></a>";
+          echo "<a hreflang='fa' target='_blank' rel='noopener' href='https://jibres.ir'>فارسی <span class='compact mLa5 sf-external-link'></span></a>";
         }
       ?></nav>
       <nav class="cauto s12 os share1">
