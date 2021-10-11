@@ -475,7 +475,7 @@ class create
 				'amount'  => floatval($data['minus_transaction']),
 			];
 
-			$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
+			\dash\app\transaction\budget::minus($insert_transaction);
 
 			\dash\db::commit();
 
