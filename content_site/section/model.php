@@ -99,6 +99,11 @@ class model
 			return;
 		}
 
+		if(self::upload_editor())
+		{
+			return false;
+		}
+
 
 		$trust_options_list_raw = \dash\data::currentOptionList();
 		if(!is_array($trust_options_list_raw))
@@ -713,6 +718,41 @@ class model
 		\dash\notif::complete();
 
 		return true;
+
+	}
+
+
+	public static function upload_editor()
+	{
+		if(\dash\request::files('upload'))
+		{
+			$id = null;
+
+			if(\dash\request::get('id'))
+			{
+				$id = \dash\coding::decode(\dash\request::get('id'));
+			}
+
+			$uploaded_file = \dash\upload\cms::set_post_gallery_editor($id);
+
+			$result             = [];
+
+			if(isset($uploaded_file['filename']) && isset($uploaded_file['path']))
+			{
+				$result['fineName'] = $uploaded_file['filename'];
+				$result['url']      = \lib\filepath::fix($uploaded_file['path']);
+				$result['uploaded'] = 1;
+			}
+			else
+			{
+				$result['uploaded'] = 0;
+			}
+
+			\dash\code::jsonBoom($result);
+
+			return true;
+		}
+		return false;
 
 	}
 
