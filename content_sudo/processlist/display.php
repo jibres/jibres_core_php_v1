@@ -1,3 +1,4 @@
+<?php if(false) {?>
 <div class="cbox">
 	<div class="tblBox">
 		<table class="tbl1 v3">
@@ -28,9 +29,9 @@
 			</tbody>
 		</table>
 	</div>
-<pre><?php print_r(\dash\data::fullprocesslist()); ?></pre>
+
 </div>
-<?php if(false) {?>
+<?php } //endif ?>
 <div class="cbox">
 	<div class="tblBox">
 		<table class="tbl1 v3">
@@ -61,6 +62,5 @@
 			</tbody>
 		</table>
 	</div>
-<pre><?php print_r(\dash\data::fullprocesslist()); ?></pre>
+
 </div>
-<?php } //endif ?>
