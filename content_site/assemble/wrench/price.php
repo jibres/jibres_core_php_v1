@@ -6,6 +6,11 @@ class price
 {
 	public static function simple1($_value, $_link = null)
 	{
+    if(!a($_value, 'finalprice') && !a($_value, 'price'))
+    {
+      return null;
+    }
+
 		$priceEl = '';
 		$priceEl .= '<div class="priceLine">';
 		{
