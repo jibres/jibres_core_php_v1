@@ -214,9 +214,37 @@ class magicbox
 
 			if($showCaptionBox)
 			{
+				$cardClass = '';
+				if($linkColorClass)
+				{
+					$cardClass .= $linkColorClass;
+				}
+
+				if($linkAlign)
+				{
+					$cardClass .= ' '. $linkAlign;
+				}
+
+				switch (a($_args, 'slider_size'))
+				{
+					case 'sm':
+					case 'md':
+						$cardClass .= ' text-xs';
+						break;
+
+					case 'lg':
+					case 'xl':
+						$cardClass .= ' text-sm';
+						break;
+
+					default:
+						break;
+				}
+
 				if(a($_args, 'magicbox_title_position') === 'inside')
 				{
-					$card .= "<div class='absolute inset-x-0 bottom-0 block px-4 py-2 z-10 transition $linkColorClass $linkAlign'>";
+
+					$card .= "<div class='absolute inset-x-0 bottom-0 block px-4 py-2 z-10 transition $cardClass'>";
 					{
 						if($showTitle)
 						{
@@ -237,7 +265,7 @@ class magicbox
 				}
 				elseif(a($_args, 'magicbox_title_position') === 'outside')
 				{
-					$card .= "<div class='block $linkColorClass transition text-white px-4 py-2 z-10 $linkAlign'>";
+					$card .= "<div class='block transition text-white px-4 py-2 z-10 $cardClass'>";
 					{
 						if($showTitle)
 						{
