@@ -457,7 +457,7 @@ class dns
 		[
 			'type'             => ['enum' => ['A', 'AAAA', 'ANAME', 'CNAME','MX','NS','PTR',/*'SOA','SRV',*/ 'TXT']],
 			'key'              => 'string_100',
-			'value'            => 'string_100',
+			'value'            => 'string_255',
 			'priority'         => 'int',
 			'addtocdnpaneldns' => 'bit',
 		];
