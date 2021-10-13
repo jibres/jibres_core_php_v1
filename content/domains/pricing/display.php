@@ -46,25 +46,23 @@ for ($i=1; $i <= 10; $i++)
 ?>
 
   </div>
-  <div class="tblBox1 ltr">
+  <div class="tblBox1">
     <table class="tbl1 v4" data-datatable="pricing">
       <thead>
         <tr>
-          <th class="collapsing txtL s0"></th>
-          <th class="txtL"><?php echo T_("TLD") ?></th>
-          <th class="txtL"><?php echo T_("Register") ?></th>
-          <th class="txtL"><?php echo T_("Renew") ?></th>
-          <th class="txtL"><?php echo T_("Transfer") ?></th>
+          <th><?php echo T_("TLD") ?></th>
+          <th><?php echo T_("Register") ?></th>
+          <th><?php echo T_("Renew") ?></th>
+          <th><?php echo T_("Transfer") ?></th>
         </tr>
       </thead>
       <tbody>
         <?php $count = 0; foreach (\dash\data::dataTable() as $key => $value) { $count++;?>
           <tr>
-            <td class="collapsing s0" data-order="<?php echo $count; ?>"><?php echo \dash\fit::number($count); ?></td>
-            <td class="ltr txtL"><?php echo a($value, 'TLD') ?></td>
-            <td class="txtB txtL" data-order="<?php echo a($value, 'register'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register'), true); ?></td>
-            <td class="txtB txtL" data-order="<?php echo a($value, 'renew'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'renew'), true) ?></td>
-            <td class="txtB txtL" data-order="<?php echo a($value, 'transfer'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'transfer'), true) ?></td>
+            <td class="ltr txtB"><?php echo a($value, 'TLD') ?></td>
+            <td data-order="<?php echo a($value, 'register'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register'), true); ?></td>
+            <td data-order="<?php echo a($value, 'renew'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'renew'), true) ?></td>
+            <td data-order="<?php echo a($value, 'transfer'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'transfer'), true) ?></td>
           </tr>
         <?php } // endfor ?>
       </tbody>
