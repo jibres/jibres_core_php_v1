@@ -48,6 +48,7 @@ class slider
 				{
 					// set margin
 					$slideMarginClass = 'p-0.5 md:p-1';
+					$slideSizeClass = '';
 
 					switch (a($_args, 'slider_size'))
 					{

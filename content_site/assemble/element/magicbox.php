@@ -24,6 +24,9 @@ class magicbox
 		$effect       = a($_args, 'effect');
 		$maskImg      = a($_args, 'image_mask:class');
 
+		$file_index = 'file';
+		$link_index = 'url';
+
 		if(a($_args, 'section') === 'blog')
 		{
 			$file_index = 'thumb';
@@ -32,11 +35,6 @@ class magicbox
 		elseif(a($_args, 'section') === 'product')
 		{
 			$file_index = 'thumb';
-			$link_index = 'url';
-		}
-		else
-		{
-			$file_index = 'file';
 			$link_index = 'url';
 		}
 

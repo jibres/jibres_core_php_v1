@@ -136,9 +136,27 @@ class card
 			if($showCaptionBox)
 			{
 				$captionClass = 'flex-grow';
+
+				// set fontSize
+				switch (a($_args, 'slider_size'))
+				{
+					case 'sm':
+					case 'md':
+						$captionClass .= ' text-xs';
+						break;
+
+					case 'lg':
+					case 'xl':
+						$captionClass .= ' text-sm';
+						break;
+
+					default:
+						break;
+				}
+
 				if($insideSlider)
 				{
-					$captionClass .= ' px-2 py-1 md:px-3 md:py-2 lg:px-4 lg:py-2';
+					$captionClass .= ' px-2 py-1 md:px-3 md:py-2 lg:px-3 lg:py-2';
 				}
 				else
 				{
