@@ -290,11 +290,7 @@ class model
 		\dash\notif::complete();
 
 
-		// need to save and publish page
-		if(!\lib\store::detail('force_stop_sitebuilder_auto_save'))
-		{
-			\content_site\page\model::save_page(\dash\request::get('id'));
-		}
+		\content_site\model::check_auto_save_page();
 
 		\dash\notif::reloadIframe();
 

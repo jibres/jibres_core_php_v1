@@ -88,6 +88,8 @@ class model extends \content_site\section\model
 
 			\dash\notif::ok(T_("Saved"));
 
+			\content_site\model::check_auto_save_page();
+
 			\dash\redirect::pwd();
 		}
 		else
@@ -124,6 +126,8 @@ class model extends \content_site\section\model
 			{
 				return false;
 			}
+
+			\content_site\model::check_auto_save_page();
 
 			$url = \dash\url::this(). '/';
 			$url .= 'html';

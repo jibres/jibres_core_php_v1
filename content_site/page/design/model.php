@@ -156,6 +156,8 @@ class model
 
 		\dash\notif::reloadIframe();
 
+		\content_site\model::check_auto_save_page();
+
 		if(\content_site\utility::need_redirect())
 		{
 			\dash\redirect::pwd();

@@ -84,7 +84,7 @@ class model
 			{
 				\dash\notif::clean();
 				\dash\notif::complete();
-
+				\content_site\model::check_auto_save_page();
 				if($need_redirect)
 				{
 					\dash\redirect::pwd();
