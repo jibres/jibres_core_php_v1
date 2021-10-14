@@ -139,7 +139,7 @@
         <div class="row">
         <?php if(\dash\permission::check('_group_setting')) {?>
             <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-action data-item href="<?php echo \dash\url::kingdom(). '/site'; ?>">
+                <a class="row" data-direct data-item href="<?php echo \dash\url::kingdom(). '/site'; ?>">
                     <div class="c-auto"><i class="sf-monitor"></i></div>
                     <div class="c">
                         <h2><?php echo T_("Website Builder"); ?></h2>
