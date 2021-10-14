@@ -246,14 +246,26 @@ class panel
 			];
 		}
 
-		if(\dash\permission::check('_group_cms'))
+		// if(\dash\permission::check('_group_cms'))
+		// {
+		// 	$menu[] =
+		// 	[
+		// 		'title'  => T_("Content Management"),
+		// 		'link'   => \dash\url::kingdom().'/cms',
+		// 		'icon'   => 'file-text',
+		// 		'active' => (\dash\url::content()==='cms'? true :false)
+		// 	];
+		// }
+
+		if(\dash\permission::check('_group_sitebuilder'))
 		{
 			$menu[] =
 			[
-				'title'  => T_("Content Management"),
-				'link'   => \dash\url::kingdom().'/cms',
-				'icon'   => 'file-text',
-				'active' => (\dash\url::content()==='cms'? true :false)
+				'title'  => T_("Website Builder"),
+				'link'   => \dash\url::kingdom().'/site',
+				'icon'   => 'monitor',
+				'direct' => true,
+				'active' => (\dash\url::content()==='site'? true :false)
 			];
 		}
 
