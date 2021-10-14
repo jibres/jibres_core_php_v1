@@ -76,9 +76,19 @@ foreach (\dash\data::dataTable() as $key => $value)
         default:
           break;
       }
-    $html .= '<i class="sf-'. $type. '"></i>';
+      $html .= '<i class="sf-'. $type. '"></i>';
     }
+
+
     $html .= '<div class="key">'.  a($value, 'title'). '</div>';
+
+    $html .= '<div class="value">';
+      if(a($value, 'have_unsaved_change'))
+      {
+        $html .= '<span class="btn-danger btn-sm ">'. T_("Has unsaved changes"). '</span>';
+      }
+    $html .= '</div>';
+
     $html .= '<time class="value" datatime="'. $date_title. '">'. \dash\fit::date_time(a($value, 'datecreated')). '</time>';
     $html .= '<div class="go '. $value['icon_list']. '"></div>';
     $html .= '</a>';

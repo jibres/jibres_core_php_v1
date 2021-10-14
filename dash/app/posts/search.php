@@ -60,6 +60,9 @@ class search
 			'homepage_id'        => 'id',
 
 			'website_order'      => 'string_50',
+
+			// laod data and check all section of pagebuilder is changd or no
+			'load_pagebuilder_changes' => 'bit',
 		];
 
 
@@ -295,6 +298,7 @@ class search
 			}
 		}
 
+
 		if(!$order_sort)
 		{
 			$order_sort = " ORDER BY posts.id DESC ";
@@ -322,6 +326,24 @@ class search
 		if($data['homepage_id'])
 		{
 			$and[] = " posts.id !=  $data[homepage_id]";
+		}
+
+		// check anything in page section is changed and not published or no
+		if($data['load_pagebuilder_changes'])
+		{
+			$haveChange =
+			"
+				SELECT pagebuilder.id FROM pagebuilder WHERE pagebuilder.related_id = posts.id AND
+				(
+					pagebuilder.sort   != pagebuilder.sort_preview OR
+					pagebuilder.status != pagebuilder.status_preview OR
+					pagebuilder.text   != pagebuilder.text_preview OR
+					pagebuilder.body   != pagebuilder.preview
+				)
+				LIMIT 1
+			";
+
+			$meta['fields'] = "posts.*, (IF(($haveChange), 1, 0)) AS `have_unsaved_change`";
 		}
 
 		$list = \dash\db\posts\search::list($and, $or, $order_sort, $meta);

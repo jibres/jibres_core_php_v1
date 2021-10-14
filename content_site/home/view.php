@@ -26,7 +26,8 @@ class view
 			// 'order'       => \dash\request::get('order'),
 			// 'sort'        => \dash\request::get('sort'),
 			// 'status'      => \dash\request::get('status'),
-			'type'        => 'pagebuilder',
+			'type'                     => 'pagebuilder',
+			'load_pagebuilder_changes' => true,
 
 			// 'pd'      => \dash\request::get('pd'),
 			// 'g'       => \dash\request::get('g'),
