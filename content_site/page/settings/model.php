@@ -6,6 +6,8 @@ class model
 {
 	public static function post()
 	{
+		\content_site\model::check_homepage_permission();
+
 		$page_id = \dash\request::get('id');
 
 		$page_id = \dash\validate::code($page_id);
@@ -23,6 +25,7 @@ class model
 
 		if(\dash\request::post('set_as_homepage') === 'set_as_homepage')
 		{
+
 			\content_site\page\model::save_page();
 			\content_site\homepage::set_as_homepage(\dash\request::get('id'));
 			\dash\redirect::pwd();

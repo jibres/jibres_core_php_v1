@@ -62,6 +62,8 @@ class model
 
 		$update_record = [];
 
+		\content_site\model::check_homepage_permission();
+
 		if(!$section_id)
 		{
 			\dash\notif::error(T_("Invalid section id"). ' '. __LINE__);

@@ -6,6 +6,9 @@ class model
 {
 	public static function post()
 	{
+
+		\content_site\model::check_homepage_permission();
+
 		if(\dash\request::post('set_sort_section'))
 		{
 			self::set_sort();

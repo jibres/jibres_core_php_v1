@@ -27,7 +27,7 @@ $html .= "<div class='mb-6'>";
     $html .= '</div>';
 
   }
-  else
+  elseif(\dash\permission::check('manageHomepage'))
   {
     $set_as_homepage = json_encode(['set_as_homepage' => 'set_as_homepage']);
     $set_as_homepage_title = T_('Are you sure to set this page as homepage?');

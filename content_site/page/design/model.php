@@ -16,6 +16,8 @@ class model
 			return false;
 		}
 
+		\content_site\model::check_homepage_permission();
+
 
 		self::save_page_background_font($page_id);
 

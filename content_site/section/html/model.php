@@ -6,6 +6,8 @@ class model extends \content_site\section\model
 {
 	public static function post()
 	{
+		\content_site\model::check_homepage_permission();
+
 		if(\dash\request::post('savehtml') === 'html')
 		{
 			self::save_html();
