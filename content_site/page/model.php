@@ -12,6 +12,7 @@ class model
 		if(\dash\request::post('set_sort_section'))
 		{
 			self::set_sort();
+
 		}
 
 		if(\dash\request::post('savepage') === 'savepage')
@@ -287,6 +288,13 @@ class model
 		\lib\db\sitebuilder\update::set_sort($sort);
 
 		\dash\notif::complete();
+
+
+		// need to save and publish page
+		if(!\lib\store::detail('force_stop_sitebuilder_auto_save'))
+		{
+			\content_site\page\model::save_page(\dash\request::get('id'));
+		}
 
 		\dash\notif::reloadIframe();
 

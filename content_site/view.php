@@ -64,12 +64,28 @@ class view
 		/*================================
 		=            Btn save            =
 		================================*/
-		\dash\face::btnSave(true);
-		\dash\face::btnSaveText(T_("Save & Publish"));
-		\dash\face::btnSaveClass('btn-primary');
-		\dash\face::btnSaveForm(\dash\url::here(). '/page?id='. \dash\request::get('id'));
-		\dash\face::btnSaveName('savepage');
-		\dash\face::btnSaveValue('savepage');
+		if(\lib\store::detail('force_stop_sitebuilder_auto_save'))
+		{
+			\dash\face::btnSave(true);
+			\dash\face::btnSaveText(T_("Save & Publish"));
+			\dash\face::btnSaveClass('btn-primary');
+			\dash\face::btnSaveForm(\dash\url::here(). '/page?id='. \dash\request::get('id'));
+			\dash\face::btnSaveName('savepage');
+			\dash\face::btnSaveValue('savepage');
+		}
+		else
+		{
+			$titleAutoSave = T_("Your change will be saved and published automatically");
+			$msgAutoSave = T_("After any change in your page, data will be saved and published."). ' ';
+			$msgAutoSave .= T_("If you want to disable auto-save and publish your change manually"). ' ';
+			// $msgAutoSave .= '<a href="'. \dash\url::here(). '/autosave">'. T_("Click herer"). '</a>';
+			$msgAutoSave .= T_("Go to site builder setting and turn off this feature");
+			$btnSaveAttr = 'data-notif="'.$msgAutoSave.'" data-notif-title="'.$titleAutoSave.'" data-notif-type="info" data-notif-icon="person"  data-alerty=""';
+			\dash\face::btnSave(true);
+			\dash\face::btnSaveText(T_("Auto Save & Publish"));
+			\dash\face::btnSaveClass('btn-secondary');
+			\dash\face::btnSaveAttr($btnSaveAttr);
+		}
 		/*=====  End of Btn save  ======*/
 
 
