@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-14 13:05+0330\n"
-"PO-Revision-Date: 2021-10-14 13:06+0330\n"
+"POT-Creation-Date: 2021-10-14 15:06+0330\n"
+"PO-Revision-Date: 2021-10-14 15:13+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4651,31 +4651,31 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_my/domain/setting/dnsadvance/view.php:12
 #: content_my/domain/setting/holder/view.php:12
 #: content_my/domain/setting/transfer/view.php:12
-#: content_pay/home/display-transaction.php:157 content_site/gallery/view.php:11
-#: content_site/icon/view.php:11 content_site/page/design/view.php:13
-#: content_site/page/factor/view.php:16 content_site/page/new/view.php:11
-#: content_site/page/settings/view.php:13 content_site/page/view.php:10
-#: content_site/preview/display.php:18 content_site/section/html/view.php:44
-#: content_site/section/view.php:36 content_site/section/view.php:84
-#: content_site/section/view.php:237 content_site/sitemap/view.php:10
-#: content_site/staticfile/view.php:15 content_sudo/apilog/home/view.php:9
-#: content_sudo/apilog/view/view.php:9 content_sudo/backup/display.php:5
-#: content_sudo/backup/view.php:10 content_sudo/changeallfuel/view.php:8
-#: content_sudo/check/view.php:11 content_sudo/cronjob/view.php:9
-#: content_sudo/dbversion/view.php:9 content_sudo/dnsprovider/view.php:8
-#: content_sudo/fix/view.php:11 content_sudo/homepage/view.php:11
-#: content_sudo/info/view.php:8 content_sudo/ip/view.php:10 content_sudo/log/view.php:10
-#: content_sudo/log/view.php:16 content_sudo/passwd/view.php:8
-#: content_sudo/processlist/view.php:9 content_sudo/query/view.php:9
-#: content_sudo/server/view.php:9 content_sudo/session/view.php:9
-#: content_sudo/shorturl/view.php:9 content_sudo/smsclient/edit/view.php:9
-#: content_sudo/smsclient/home/view.php:8 content_sudo/tempfile/view.php:16
-#: content_sudo/tempfile/view.php:50 content_sudo/tg/home/view.php:8
-#: content_sudo/tg/log/view.php:9 content_sudo/tg/logshow/view.php:9
-#: content_sudo/tg/sendmessage/view.php:8 content_sudo/tg/sendphoto/view.php:9
-#: content_sudo/tg/system/view.php:9 content_sudo/tg/users/view.php:9
-#: content_sudo/tg/webhook/view.php:8 content_sudo/update/view.php:8
-#: content_sudo/usage/view.php:8 dash/engine/view.php:202
+#: content_pay/home/display-transaction.php:157 content_site/autosave/view.php:10
+#: content_site/gallery/view.php:11 content_site/icon/view.php:11
+#: content_site/page/design/view.php:13 content_site/page/factor/view.php:16
+#: content_site/page/new/view.php:11 content_site/page/settings/view.php:13
+#: content_site/page/view.php:10 content_site/preview/display.php:18
+#: content_site/section/html/view.php:44 content_site/section/view.php:36
+#: content_site/section/view.php:84 content_site/section/view.php:237
+#: content_site/sitemap/view.php:10 content_site/staticfile/view.php:15
+#: content_sudo/apilog/home/view.php:9 content_sudo/apilog/view/view.php:9
+#: content_sudo/backup/display.php:5 content_sudo/backup/view.php:10
+#: content_sudo/changeallfuel/view.php:8 content_sudo/check/view.php:11
+#: content_sudo/cronjob/view.php:9 content_sudo/dbversion/view.php:9
+#: content_sudo/dnsprovider/view.php:8 content_sudo/fix/view.php:11
+#: content_sudo/homepage/view.php:11 content_sudo/info/view.php:8
+#: content_sudo/ip/view.php:10 content_sudo/log/view.php:10 content_sudo/log/view.php:16
+#: content_sudo/passwd/view.php:8 content_sudo/processlist/view.php:9
+#: content_sudo/query/view.php:9 content_sudo/server/view.php:9
+#: content_sudo/session/view.php:9 content_sudo/shorturl/view.php:9
+#: content_sudo/smsclient/edit/view.php:9 content_sudo/smsclient/home/view.php:8
+#: content_sudo/tempfile/view.php:16 content_sudo/tempfile/view.php:50
+#: content_sudo/tg/home/view.php:8 content_sudo/tg/log/view.php:9
+#: content_sudo/tg/logshow/view.php:9 content_sudo/tg/sendmessage/view.php:8
+#: content_sudo/tg/sendphoto/view.php:9 content_sudo/tg/system/view.php:9
+#: content_sudo/tg/users/view.php:9 content_sudo/tg/webhook/view.php:8
+#: content_sudo/update/view.php:8 content_sudo/usage/view.php:8 dash/engine/view.php:202
 msgid "Back"
 msgstr "بازگشت"
 
@@ -7127,7 +7127,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_love/store/setting/display.php:95 content_my/domain/option/display.php:78
 #: content_site/gallery/dispaly-fileaddr.php:12 content_sudo/backup/display.php:53
 #: content_sudo/cronjob/display.php:14 dash/layout/admin/admin-titlebox.php:73
-#: dash/layout/button.php:38
+#: dash/layout/button.php:44
 msgid "Save"
 msgstr "ذخیره"
 
@@ -8429,7 +8429,7 @@ msgstr "عنوان جدید"
 
 #: content_a/form/analytics/duplicate/display.php:12
 #: content_a/form/duplicate/display.php:12 dash/layout/admin/admin-titlebox.php:27
-#: dash/layout/button.php:94
+#: dash/layout/button.php:100
 msgid "Duplicate"
 msgstr "کپی"
 
@@ -21186,7 +21186,7 @@ msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: content_my/business/start/model.php:31 lib/app/store/add.php:81
-#: lib/app/store/check.php:74
+#: lib/app/store/check.php:76
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
@@ -22395,6 +22395,63 @@ msgstr "رایانامه"
 msgid "instagram"
 msgstr "اینستاگرام"
 
+#: content_site/autosave/display.php:4
+msgid "Auto save and publish"
+msgstr "ذخیره و انتشار خودکار"
+
+#: content_site/autosave/display.php:6
+msgid "By default, all your changes are automatically saved and published"
+msgstr "به صورت پیش‌فرض تمام تغییرات شما به صورت خودکار ذخیره و منتشر می‌شوند"
+
+#: content_site/autosave/display.php:7
+msgid "You can disable this feature and manually publish your changes"
+msgstr ""
+"شما می‌توانید این امکان را غیرفعال کنید و به صورت دستی تغییرات خود را ذخیره و منتشر کنید"
+
+#: content_site/autosave/display.php:8
+msgid ""
+"If your changes have not been published, only you can see them on Site Builder and your "
+"customers will see the previous version of the changes."
+msgstr ""
+"اگر تغییرات شما ذخیره و منتشر نشود، تنها شما می‌توانید آنها را مشاهده کنید و مشتریان شما "
+"نسخه قبلی تغییرات صفحه مورد نظر را مشاهده خواهند کرد"
+
+#: content_site/autosave/display.php:9
+msgid ""
+"Turn off this feature if you want to see the changes yourself first and publish them "
+"whenever you want"
+msgstr ""
+"در صورتی که می‌خواهید تغییرات صفحه را ابتدا خودتان مشاهده کنید و در هر زمان که ‌تمایل "
+"داشتید آن‌ها را منتشر کنید این امکان را غیرفعال کنید"
+
+#: content_site/autosave/display.php:10
+msgid ""
+"Note that if you are using the HTML section, you must continue to click the save button "
+"on that page"
+msgstr ""
+"توجه داشته باشید اگر از بخش HTML استفاده می‌کنید باید دکمه ذخیره را در آن صفحه بزنید تا "
+"تغییرات HTML شما ذخیره شود"
+
+#: content_site/autosave/display.php:14
+msgid "Auto-save currently disabled"
+msgstr "ذخیره و انتشار خودکار در حال حاضر غیرفعال است"
+
+#: content_site/autosave/display.php:15
+msgid "To enable auto-save and publish Click herer"
+msgstr "برای فعال سازی ذخیره و انتشار خودکار کلیک کنید"
+
+#: content_site/autosave/display.php:18
+msgid "Auto-save currently enabled"
+msgstr "ذخیره و انتشار خودکار در حال حاضر فعال است"
+
+#: content_site/autosave/display.php:19
+msgid "To disable auto-save and publish Click herer"
+msgstr "برای غیرفعال سازی ذخیره و انتشار خودکار کلیک کنید"
+
+#: content_site/autosave/view.php:8 content_site/home/display-aside-top.php:89
+msgid "Setting auto-save and publish"
+msgstr "تنظیمات ذخیره و انتشار خودکار"
+
 #: content_site/body/blog/b1.php:17 content_site/body/product/p1.php:17
 msgid "Card Design"
 msgstr "دیزاین کارت"
@@ -23150,10 +23207,10 @@ msgstr "افزودن تصویر جدید"
 #: content_site/options/image/image_add2.php:25
 #: content_site/options/quote/quote_add.php:26
 #: content_site/options/responsive/responsive_footer_link_add.php:30
-#: content_site/section/html/model.php:71 content_site/section/model.php:284
-#: content_site/section/model.php:441 content_site/section/model.php:511
-#: content_site/section/model.php:546 content_site/section/model.php:599
-#: content_site/section/model.php:646 content_site/update_record.php:39
+#: content_site/section/html/model.php:71 content_site/section/model.php:287
+#: content_site/section/model.php:444 content_site/section/model.php:514
+#: content_site/section/model.php:549 content_site/section/model.php:602
+#: content_site/section/model.php:649 content_site/update_record.php:39
 msgid "Section not found"
 msgstr "بخش یافت نشد"
 
@@ -23587,17 +23644,17 @@ msgid "Personalize"
 msgstr "شخصی‌سازی"
 
 #: content_site/page/design/model.php:15 content_site/page/factor/view.php:45
-#: content_site/page/model.php:49 content_site/page/model.php:225
+#: content_site/page/model.php:50 content_site/page/model.php:226
 #: content_site/page/settings/model.php:17 content_site/section/html/model.php:36
-#: content_site/section/model.php:777
+#: content_site/section/model.php:780
 msgid "Invali page id"
 msgstr "شماره صفحه نادرست"
 
-#: content_site/page/design/model.php:52 content_site/section/model.php:163
+#: content_site/page/design/model.php:52 content_site/section/model.php:166
 msgid "Option key not found!"
 msgstr "کد گزینه یافت نشد!"
 
-#: content_site/page/design/model.php:89 content_site/section/model.php:224
+#: content_site/page/design/model.php:89 content_site/section/model.php:227
 msgid "Please check your input"
 msgstr "لطفا ورودی‌های خود را کنترل کنید"
 
@@ -23642,18 +23699,18 @@ msgstr "خطای نامشخص"
 msgid "Page factor"
 msgstr "فاکتور صفحه"
 
-#: content_site/page/model.php:21 lib/app/factor/edit.php:124 lib/app/factor/edit.php:397
+#: content_site/page/model.php:22 lib/app/factor/edit.php:124 lib/app/factor/edit.php:397
 msgid "Data saved"
 msgstr "ذخیره شد"
 
-#: content_site/page/model.php:233 content_site/page/model.php:242
-#: content_site/section/model.php:665 dash/app/posts/gallery.php:280
+#: content_site/page/model.php:234 content_site/page/model.php:243
+#: content_site/section/model.php:668 dash/app/posts/gallery.php:280
 #: lib/app/product/gallery.php:405
 msgid "Invalid sort arguments"
 msgstr "آرگومان مرتب‌سازی اشتباه است"
 
-#: content_site/page/model.php:269 content_site/page/model.php:281
-#: content_site/section/model.php:684 content_site/section/model.php:699
+#: content_site/page/model.php:270 content_site/page/model.php:282
+#: content_site/section/model.php:687 content_site/section/model.php:702
 msgid "Some item have problem in sorting. Need load again"
 msgstr "برخی از اطلاعات اشتباه هستند. لطفا مجددا صفحه را بارگذاری کنید"
 
@@ -23760,7 +23817,7 @@ msgstr "صفحه حذف شد"
 msgid "Invalid section name or preview key"
 msgstr "نام بخش یا کد پیش‌نمایش اشتباه است"
 
-#: content_site/preview/controller.php:35 content_site/section/model.php:655
+#: content_site/preview/controller.php:35 content_site/section/model.php:658
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
@@ -23769,7 +23826,7 @@ msgid "Invalid section name"
 msgstr "نام بخش اشتباه"
 
 #: content_site/section/controller.php:87 content_site/section/controller.php:212
-#: content_site/section/html/controller.php:21 content_site/section/model.php:69
+#: content_site/section/html/controller.php:21 content_site/section/model.php:72
 msgid "Invalid section id"
 msgstr "شناسه بخش اشتباه است"
 
@@ -23839,7 +23896,7 @@ msgstr "از تگ < script > استفاده نکنید"
 msgid "HTML is required"
 msgstr "ورود HTML‌ الزامی است"
 
-#: content_site/section/html/model.php:97
+#: content_site/section/html/model.php:99
 msgid "Custom HTML Code"
 msgstr "کد HTML‌ سفارشی"
 
@@ -23847,51 +23904,51 @@ msgstr "کد HTML‌ سفارشی"
 msgid "Save HTML"
 msgstr "ذخیره HTML"
 
-#: content_site/section/model.php:186
+#: content_site/section/model.php:189
 msgid "Invalid option"
 msgstr "شناسه گزینه نامعتبر است"
 
-#: content_site/section/model.php:240 content_site/section/model.php:809
+#: content_site/section/model.php:243 content_site/section/model.php:812
 msgid "Invalid preview_key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:249 content_site/section/model.php:799
+#: content_site/section/model.php:252 content_site/section/model.php:802
 msgid "Invalid model"
 msgstr "مدل اشتباه است"
 
-#: content_site/section/model.php:257 content_site/section/model.php:826
+#: content_site/section/model.php:260 content_site/section/model.php:829
 msgid "Invalid preview key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:328
+#: content_site/section/model.php:331
 msgid "Can not save this index!"
 msgstr "نمی‌توانیم این ایندکس را ذخیره کنیم!"
 
-#: content_site/section/model.php:362
+#: content_site/section/model.php:365
 msgid "Some settings are conflicting!"
 msgstr "برخی از تنظیمات تداخل دارند!"
 
-#: content_site/section/model.php:577
+#: content_site/section/model.php:580
 msgid "Can not remove this block!"
 msgstr "نمی‌توانید این مورد را حذف کنید!"
 
-#: content_site/section/model.php:677
+#: content_site/section/model.php:680
 msgid "This section have not sortable item!"
 msgstr "این بخش امکان مرتب سازی را ندارد!"
 
-#: content_site/section/model.php:789
+#: content_site/section/model.php:792
 msgid "Invalid key"
 msgstr "شناسه نامعتبر"
 
-#: content_site/section/model.php:818
+#: content_site/section/model.php:821
 msgid "Can not chose this section!"
 msgstr "نمی‌توانید این بخش را انتخاب کنید!"
 
-#: content_site/section/model.php:959
+#: content_site/section/model.php:962
 msgid "Maximum capacity of page section is full"
 msgstr "حداکثر ظرفیت بخش‌های قابل استفاده در صفحه تکمیل شده است"
 
-#: content_site/section/model.php:967
+#: content_site/section/model.php:970
 msgid "No way to save data"
 msgstr "هیچ راهی برای ثبت اطلاعات وجود ندارد"
 
@@ -24016,9 +24073,30 @@ msgstr "دمو ۰۰۱"
 msgid "Demo 002"
 msgstr "دمو ۰۰۲"
 
-#: content_site/view.php:68
+#: content_site/view.php:70
 msgid "Save & Publish"
 msgstr "ذخیره و انتشار"
+
+#: content_site/view.php:78
+msgid "Your change will be saved and published automatically"
+msgstr "تغییرات شما به صورت خودکار ذخیره و منتشر خواهند شد"
+
+#: content_site/view.php:79
+msgid "After any change in your page, data will be saved and published."
+msgstr "بعد از هر تغییری در صفحه شما، اطلاعات ذخیره و منتشر خواهند شد"
+
+#: content_site/view.php:80
+msgid "If you want to disable auto-save and publish your change manually"
+msgstr ""
+"اگر می‌خواهید ذخیره و انتشار خودکار را غیرفعال کنید و تغییرات را به صورت دستی منتشر کنید"
+
+#: content_site/view.php:82
+msgid "Go to site builder setting and turn off this feature"
+msgstr "به تنظیمات ذخیره و انتشار خودکار در بخش سایت‌ساز رفته و این امکان را غیرفعال کنید"
+
+#: content_site/view.php:85
+msgid "Auto Save & Publish"
+msgstr "ذخیره و انتشار خودکار"
 
 #: content_sudo/apilog/home/display.php:57
 msgid "Remove last month log"
@@ -40114,7 +40192,7 @@ msgstr "درخواست جابجایی ذخیره شد"
 msgid "Fuel updated"
 msgstr "سوخت به‌روزرسانی شد"
 
-#: lib/app/store/check.php:82
+#: lib/app/store/check.php:84
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
@@ -45422,9 +45500,6 @@ msgstr "یارد"
 
 #~ msgid "CMS Customization"
 #~ msgstr "سفارشی‌سازی سیستم مدیریت محتوا"
-
-#~ msgid "To change post status Click here"
-#~ msgstr "برای تغییر وضعیت مطلب کلیک کنید"
 
 #~ msgid "You can change your post status"
 #~ msgstr "شما می‌توانید وضعیت این نوشته را به صورت دستی ویرایش کنید"
