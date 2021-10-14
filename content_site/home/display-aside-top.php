@@ -5,7 +5,7 @@ $sidebar_links[] =
 [
   'href'   => \dash\url::here(). '/sitemap',
   'title'  => T_("Sitemap"),
-  'icon'   => 'Domains',
+  'icon'   => 'Globe',
   'direct' => false,
 ];
 
