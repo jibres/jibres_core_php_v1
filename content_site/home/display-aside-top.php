@@ -1,185 +1,112 @@
 <?php
-$html = '';
-$html .= '<nav class="sections items">';
-{
-  $html .= '<ul>';
-  {
-    $sitemap = \dash\url::here(). '/sitemap';
+$sidebar_links = [];
 
-    $html .= '<li>';
-    {
-      $html .= "<a class='item f' href='". $sitemap. "'>";
-      {
-        $html .= '<div class="key">'. T_("Sitemap"). '</div>';
-        {
-          $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Domains'). '">';
-        }
-        $html .= '</a>';
-      }
-    }
-    $html .= '</li>';
-  }
-  $html .= '</ul>';
-}
-$html .= '</nav>';
+$sidebar_links[] =
+[
+  'href'   => \dash\url::here(). '/sitemap',
+  'title'  => T_("Sitemap"),
+  'icon'   => 'Domains',
+  'direct' => false,
+];
+
 
 if(\dash\permission::check('siteBuilderSetting'))
 {
-  $html .= '<nav class="sections items">';
-  {
-    $html .= '<ul>';
-    {
-      $staticfile = \dash\url::here(). '/staticfile';
-
-      $html .= '<li>';
-      {
-        $html .= "<a class='item f' href='". $staticfile. "'>";
-        {
-          $html .= '<div class="key">'. T_("Static file"). '</div>';
-          {
-            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Tools'). '">';
-          }
-          $html .= '</a>';
-        }
-      }
-      $html .= '</li>';
-    }
-    $html .= '</ul>';
-  }
-  $html .= '</nav>';
-
+  $sidebar_links[] =
+  [
+    'href'   => \dash\url::here(). '/staticfile',
+    'title'  => T_("Static file"),
+    'icon'   => 'Tools',
+    'direct' => false,
+  ];
 }
 
 if(\dash\permission::check('_group_cms'))
 {
-  $html .= '<nav class="sections items">';
-  {
-    $html .= '<ul>';
-    {
-      $cms = \dash\url::kingdom(). '/cms';
-
-      $html .= '<li>';
-      {
-        $html .= "<a class='item f' href='". $cms. "' data-direct>";
-        {
-          $html .= '<div class="key">'. T_("Content Management"). T_(" & "). T_("Blog"). '</div>';
-          {
-            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Note'). '">';
-          }
-          $html .= '</a>';
-        }
-      }
-      $html .= '</li>';
-    }
-    $html .= '</ul>';
-  }
-  $html .= '</nav>';
-
+  $sidebar_links[] =
+  [
+    'href'   => \dash\url::kingdom(). '/cms',
+    'title'  => T_("Content Management"). T_(" & "). T_("Blog"),
+    'icon'   => 'Note',
+    'direct' => true,
+  ];
 }
 
 if(\dash\permission::check('cmsAttachmentView'))
 {
-  $html .= '<nav class="sections items">';
-  {
-    $html .= '<ul>';
-    {
-      $cms = \dash\url::kingdom(). '/cms/files';
-
-      $html .= '<li>';
-      {
-        $html .= "<a class='item f' href='". $cms. "' data-direct>";
-        {
-          $html .= '<div class="key">'. T_("Files"). '</div>';
-          {
-            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Folder'). '">';
-          }
-          $html .= '</a>';
-        }
-      }
-      $html .= '</li>';
-    }
-    $html .= '</ul>';
-  }
-  $html .= '</nav>';
-
+  $sidebar_links[] =
+  [
+    'href'   => \dash\url::kingdom(). '/cms/files',
+    'title'  => T_("Files"),
+    'icon'   => 'Folder',
+    'direct' => true,
+  ];
 }
 
 
 
 if(\dash\permission::check('siteBuilderSetting'))
 {
-  $html .= '<nav class="sections items">';
-  {
-    $html .= '<ul>';
-    {
-      $cms = \dash\url::kingdom(). '/a/setting/legal';
-
-      $html .= '<li>';
-      {
-        $html .= "<a class='item f' href='". $cms. "' data-direct>";
-        {
-          $html .= '<div class="key">'. T_("Legal pages"). '</div>';
-          {
-            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('FraudProtectUnprotected'). '">';
-          }
-          $html .= '</a>';
-        }
-      }
-      $html .= '</li>';
-    }
-    $html .= '</ul>';
-  }
-  $html .= '</nav>';
-
+  $sidebar_links[] =
+  [
+    'href'   => \dash\url::kingdom(). '/a/setting/legal',
+    'title'  => T_("Legal pages"),
+    'icon'   => 'FraudProtectUnprotected',
+    'direct' => true,
+  ];
 }
 
 
 
 if(\dash\permission::check('siteBuilderSetting'))
 {
-  $html .= '<nav class="sections items">';
-  {
-    $html .= '<ul>';
-    {
-      $cms = \dash\url::kingdom(). '/a/setting/domain';
-
-      $html .= '<li>';
-      {
-        $html .= "<a class='item f' href='". $cms. "' data-direct>";
-        {
-          $html .= '<div class="key">'. T_("Domains"). '</div>';
-          {
-            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Domains'). '">';
-          }
-          $html .= '</a>';
-        }
-      }
-      $html .= '</li>';
-    }
-    $html .= '</ul>';
-  }
-  $html .= '</nav>';
+  $sidebar_links[] =
+  [
+    'href'   => \dash\url::kingdom(). '/a/setting/domain',
+    'title'  => T_("Domains"),
+    'icon'   => 'Domains',
+    'direct' => true,
+  ];
 
 }
 
 
-
-
 if(\dash\permission::check('siteBuilderSetting'))
+{
+  $sidebar_links[] =
+  [
+    'href'   => \dash\url::kingdom(). '/a/setting/menu',
+    'title'  => T_("Menu"),
+    'icon'   => 'MobileHamburger',
+    'direct' => true,
+  ];
+}
+
+/*=====================================
+=            Generate html            =
+=====================================*/
+
+$html = '';
+
+foreach ($sidebar_links as $key => $value)
 {
   $html .= '<nav class="sections items">';
   {
     $html .= '<ul>';
     {
-      $cms = \dash\url::kingdom(). '/a/setting/menu';
-
       $html .= '<li>';
       {
-        $html .= "<a class='item f' href='". $cms. "' data-direct>";
+        $html .= "<a class='item f' href='". a($value, 'href'). "'";
+        if(a($value, 'direct'))
         {
-          $html .= '<div class="key">'. T_("Menu"). '</div>';
+          $html .= ' data-direct';
+        }
+
+        $html .= ">";
+        {
+          $html .= '<div class="key">'. a($value, 'title'). '</div>';
           {
-            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('MobileHamburger'). '">';
+            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url(a($value, 'icon')). '">';
           }
           $html .= '</a>';
         }
@@ -191,6 +118,12 @@ if(\dash\permission::check('siteBuilderSetting'))
   $html .= '</nav>';
 
 }
+
+
 
 echo $html;
+
+
+/*=====  End of Generate html  ======*/
+
 ?>
