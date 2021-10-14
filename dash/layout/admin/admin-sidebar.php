@@ -67,6 +67,11 @@ else
           {
             echo ' href="'. $item['link']. '"';
           }
+
+          if(isset($item['direct']) && $item['direct'])
+          {
+            echo ' data-direct';
+          }
           // add class
           $class = null;
           if(isset($item['icon']))
