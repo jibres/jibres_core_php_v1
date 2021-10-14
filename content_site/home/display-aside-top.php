@@ -23,30 +23,32 @@ $html .= '<nav class="sections items">';
 }
 $html .= '</nav>';
 
-
-$html .= '<nav class="sections items">';
+if(\dash\permission::check('staticFileVerify'))
 {
-  $html .= '<ul>';
+  $html .= '<nav class="sections items">';
   {
-    $staticfile = \dash\url::here(). '/staticfile';
-
-    $html .= '<li>';
+    $html .= '<ul>';
     {
-      $html .= "<a class='item f' href='". $staticfile. "'>";
-      {
-        $html .= '<div class="key">'. T_("Static file"). '</div>';
-        {
-          $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Tools'). '">';
-        }
-        $html .= '</a>';
-      }
-    }
-    $html .= '</li>';
-  }
-  $html .= '</ul>';
-}
-$html .= '</nav>';
+      $staticfile = \dash\url::here(). '/staticfile';
 
+      $html .= '<li>';
+      {
+        $html .= "<a class='item f' href='". $staticfile. "'>";
+        {
+          $html .= '<div class="key">'. T_("Static file"). '</div>';
+          {
+            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Tools'). '">';
+          }
+          $html .= '</a>';
+        }
+      }
+      $html .= '</li>';
+    }
+    $html .= '</ul>';
+  }
+  $html .= '</nav>';
+
+}
 
 
 echo $html;
