@@ -133,5 +133,34 @@ if(\dash\permission::check('siteBuilderSetting'))
 
 }
 
+
+
+if(\dash\permission::check('siteBuilderSetting'))
+{
+  $html .= '<nav class="sections items">';
+  {
+    $html .= '<ul>';
+    {
+      $cms = \dash\url::kingdom(). '/a/setting/domain';
+
+      $html .= '<li>';
+      {
+        $html .= "<a class='item f' href='". $cms. "' data-direct>";
+        {
+          $html .= '<div class="key">'. T_("Domains"). '</div>';
+          {
+            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Domains'). '">';
+          }
+          $html .= '</a>';
+        }
+      }
+      $html .= '</li>';
+    }
+    $html .= '</ul>';
+  }
+  $html .= '</nav>';
+
+}
+
 echo $html;
 ?>
