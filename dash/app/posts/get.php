@@ -33,6 +33,12 @@ class get
 		return $have_any_published_post ? true : false;
 	}
 
+	public static function have_any_pagebuilder()
+	{
+		$have_any_pagebuilder = \dash\db\posts\get::have_any_pagebuilder();
+		return $have_any_pagebuilder ? true : false;
+	}
+
 
 	public static function load_all_parent($_id)
 	{

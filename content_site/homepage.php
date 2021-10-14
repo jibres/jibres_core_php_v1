@@ -61,6 +61,9 @@ class homepage
 			return false;
 		}
 
+		// save setting before set as homepage
+		\content_site\page\model::save_page($_post_id);
+
 		$load_post_detail = self::load_homepage_post($post_id);
 
 		if(!$load_post_detail)

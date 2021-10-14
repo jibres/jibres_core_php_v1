@@ -26,7 +26,6 @@ class model
 		if(\dash\request::post('set_as_homepage') === 'set_as_homepage')
 		{
 
-			\content_site\page\model::save_page();
 			\content_site\homepage::set_as_homepage(\dash\request::get('id'));
 			\dash\redirect::pwd();
 			return;
