@@ -28,13 +28,8 @@ class controller
 		\dash\redirect::to_login();
 
 
-		if(!\dash\permission::has_permission())
-		{
-			\dash\permission::deny();
-		}
-
 		// check master permisson
-		\dash\permission::access('_group_setting');
+		\dash\permission::access('_group_sitebuilder');
 
 		$sys_module = 
 		[
