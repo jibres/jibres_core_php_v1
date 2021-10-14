@@ -50,6 +50,33 @@ if(\dash\permission::check('staticFileVerify'))
 
 }
 
+if(\dash\permission::check('_group_cms'))
+{
+  $html .= '<nav class="sections items">';
+  {
+    $html .= '<ul>';
+    {
+      $cms = \dash\url::kingdom(). '/cms';
+
+      $html .= '<li>';
+      {
+        $html .= "<a class='item f' href='". $cms. "' data-direct>";
+        {
+          $html .= '<div class="key">'. T_("Content Management"). T_(" & "). T_("Blog"). '</div>';
+          {
+            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Note'). '">';
+          }
+          $html .= '</a>';
+        }
+      }
+      $html .= '</li>';
+    }
+    $html .= '</ul>';
+  }
+  $html .= '</nav>';
+
+}
+
 
 echo $html;
 ?>
