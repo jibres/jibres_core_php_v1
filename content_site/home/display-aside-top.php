@@ -23,7 +23,7 @@ $html .= '<nav class="sections items">';
 }
 $html .= '</nav>';
 
-if(\dash\permission::check('staticFileVerify'))
+if(\dash\permission::check('siteBuilderSetting'))
 {
   $html .= '<nav class="sections items">';
   {
@@ -92,6 +92,35 @@ if(\dash\permission::check('cmsAttachmentView'))
           $html .= '<div class="key">'. T_("Files"). '</div>';
           {
             $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Folder'). '">';
+          }
+          $html .= '</a>';
+        }
+      }
+      $html .= '</li>';
+    }
+    $html .= '</ul>';
+  }
+  $html .= '</nav>';
+
+}
+
+
+
+if(\dash\permission::check('siteBuilderSetting'))
+{
+  $html .= '<nav class="sections items">';
+  {
+    $html .= '<ul>';
+    {
+      $cms = \dash\url::kingdom(). '/a/setting/legal';
+
+      $html .= '<li>';
+      {
+        $html .= "<a class='item f' href='". $cms. "' data-direct>";
+        {
+          $html .= '<div class="key">'. T_("Legal pages"). '</div>';
+          {
+            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('FraudProtectUnprotected'). '">';
           }
           $html .= '</a>';
         }
