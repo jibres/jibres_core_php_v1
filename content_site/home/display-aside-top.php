@@ -77,6 +77,32 @@ if(\dash\permission::check('_group_cms'))
 
 }
 
+if(\dash\permission::check('cmsAttachmentView'))
+{
+  $html .= '<nav class="sections items">';
+  {
+    $html .= '<ul>';
+    {
+      $cms = \dash\url::kingdom(). '/cms/files';
+
+      $html .= '<li>';
+      {
+        $html .= "<a class='item f' href='". $cms. "' data-direct>";
+        {
+          $html .= '<div class="key">'. T_("Files"). '</div>';
+          {
+            $html .= '<img class="p-2.5" src="'. \dash\utility\icon::url('Folder'). '">';
+          }
+          $html .= '</a>';
+        }
+      }
+      $html .= '</li>';
+    }
+    $html .= '</ul>';
+  }
+  $html .= '</nav>';
+
+}
 
 echo $html;
 ?>
