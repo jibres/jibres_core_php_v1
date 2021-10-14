@@ -79,6 +79,20 @@ $sidebar_links[] =
   'direct' => true,
 ];
 
+if(\dash\url::isLocal())
+{
+  if(\dash\permission::check('siteBuilderSetting'))
+  {
+    $sidebar_links[] =
+    [
+      'href'   => \dash\url::here(). '/autosave',
+      'title'  => T_("Setting auto-save and publish"),
+      'icon'   => 'FlipCamera',
+      'direct' => false,
+    ];
+  }
+}
+
 
 /*=====================================
 =            Generate html            =
