@@ -51,11 +51,13 @@ class check
 
 			'enterdisallow'                       => 'bit',
 			'entersignupdisallow'                 => 'bit',
-			'forceloginorder'					  => 'bit',
+			'forceloginorder'                     => 'bit',
 
 			'torob_api'                           => 'bit',
 
 			'homepage_builder_post_id'            => 'id',
+
+			'force_stop_sitebuilder_auto_save'    => 'bit',
 
 			'satisfaction_survey'                 => 'id',
 			'shipping_survey'                     => 'id',

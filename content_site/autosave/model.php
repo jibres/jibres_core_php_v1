@@ -5,13 +5,24 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('rebuild') === 'rebuild')
+		$post = [];
+
+		if(\dash\request::post('autosave') === 'enable')
 		{
-			\dash\notif::ok(T_("Setting saved"));
-			\dash\redirect::pwd();
+			$post['force_stop_sitebuilder_auto_save'] = null;
+		}
+		elseif(\dash\request::post('autosave') === 'disable')
+		{
+			$post['force_stop_sitebuilder_auto_save'] = 1;
+		}
+		else
+		{
 			return;
 		}
 
+		\lib\app\store\edit::selfedit($post);
+		\dash\redirect::pwd();
+		return;
 	}
 }
 ?>
