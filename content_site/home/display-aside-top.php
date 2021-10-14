@@ -71,16 +71,14 @@ if(\dash\permission::check('siteBuilderSetting'))
 }
 
 
-if(\dash\permission::check('siteBuilderSetting'))
-{
-  $sidebar_links[] =
-  [
-    'href'   => \dash\url::kingdom(). '/a/setting/menu',
-    'title'  => T_("Menu"),
-    'icon'   => 'MobileHamburger',
-    'direct' => true,
-  ];
-}
+$sidebar_links[] =
+[
+  'href'   => \dash\url::kingdom(). '/a/setting/menu',
+  'title'  => T_("Menu"),
+  'icon'   => 'MobileHamburger',
+  'direct' => true,
+];
+
 
 /*=====================================
 =            Generate html            =
