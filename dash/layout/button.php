@@ -29,6 +29,12 @@ class button
 				$btnSave_class = 'save';
 			}
 
+			$btnSave_attr = null;
+			if(\dash\face::btnSaveAttr())
+			{
+				$btnSave_attr = \dash\face::btnSaveAttr();
+			}
+
 			$btnSave_value = null;
 			if(\dash\face::btnSaveValue())
 			{
@@ -68,13 +74,13 @@ class button
 						}
 					}
 
-					$html .= "<button class='$btnSave_class'>$btnSave_text</button>";
+					$html .= "<button class='$btnSave_class' $btnSave_attr>$btnSave_text</button>";
 				}
 				$html .= '</form>';
 			}
 			else
 			{
-				$html .= "<button class='$btnSave_class' form='$btnSave_form_id' name='$btnSave_name' value='$btnSave_value'>$btnSave_text</button>";
+				$html .= "<button class='$btnSave_class' form='$btnSave_form_id' name='$btnSave_name' value='$btnSave_value' $btnSave_attr>$btnSave_text</button>";
 			}
 
 			return $html;
