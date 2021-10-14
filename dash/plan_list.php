@@ -169,9 +169,9 @@ class plan_list
 		// $master['homepagebuilder']              = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'homepagebuilder', 				'title' => T_('Manage Homepage'), 'require' => []];
 
 		// --------------- SITEBUILDER
+		$master['siteBuilderSetting']	        = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'siteBuilderSetting', 		'title' => T_('Website setting'), 'require' => [], 'description' => T_("Domain setting, Static file verification, Manage legal pages")];
 		$master['manageHomepage']               = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'manageHomepage', 			'title' => T_('Manage homepage'), 'require' => []];
 		$master['removeSitePage']               = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'removeSitePage', 			'title' => T_('Access to remove page'), 'require' => []];
-		$master['staticFileVerify']	            = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'staticFileVerify', 		'title' => T_('Static file verification'), 'require' => []];
 
 		// --------------- FORMS
 		$master['ManageForm']                   = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageForm', 						'title' => T_('Manage Form'), 'require' => []];
