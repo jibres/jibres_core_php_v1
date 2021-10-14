@@ -104,7 +104,7 @@ class model
 	 */
 	private static function remove_page($_page_id)
 	{
-
+		\dash\permission::access('removeSiteBuilderPage');
 
 		if(floatval($_page_id) === floatval(\content_site\homepage::id()))
 		{

@@ -180,7 +180,7 @@ echo $html;
 </form>
 
 
-<?php if(!$is_homepage) {?>
+<?php if(!$is_homepage && \dash\permission::check('removeSiteBuilderPage')) {?>
   <div class='mt-10'>
     <hr class='mb-5'>
     <div class='fc-red'><?php echo T_('Remove page and all section') ?></div>

@@ -95,7 +95,7 @@ class plan_list
 		[
 			'key'      => 'sitebuilder',
 			'title'    => T_("Sitebuilder"),
-			'desc'     => T_("Access to change and manage business website"),
+			'desc'     => T_("Access to manage business website builder"),
 			'advance'  => [],
 		];
 
@@ -171,7 +171,7 @@ class plan_list
 		// --------------- SITEBUILDER
 		$master['siteBuilderSetting']	        = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'siteBuilderSetting', 		'title' => T_('Website setting'), 'require' => [], 'description' => T_("Domain setting, Static file verification, Manage legal pages")];
 		$master['manageHomepage']               = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'manageHomepage', 			'title' => T_('Manage homepage'), 'require' => []];
-		$master['removeSitePage']               = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'removeSitePage', 			'title' => T_('Access to remove page'), 'require' => []];
+		$master['removeSiteBuilderPage']        = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'removeSiteBuilderPage', 	'title' => T_('Remove site builder page'), 'require' => []];
 
 		// --------------- FORMS
 		$master['ManageForm']                   = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageForm', 						'title' => T_('Manage Form'), 'require' => []];
