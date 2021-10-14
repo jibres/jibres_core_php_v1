@@ -6,6 +6,8 @@ class controller
 	public static function routing()
 	{
 
+		\dash\permission::access('siteBuilderSetting');
+
 		$policy_page = \lib\app\setting\policy_page::get_page_key();
 
 		$page = \dash\request::get('page');
