@@ -142,20 +142,6 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
 
 
 
-<?php if(\dash\permission::check('cmsAttachmentView')) {?>
-      <nav class="items long">
-        <ul>
-          <li class="">
-            <a class="item f" href="<?php echo \dash\url::here();?>/files">
-              <i class="sf-file"></i>
-              <div class="key"><?php echo T_('Files');?></div>
-              <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_files()); ?></div>
-              <div class="go"></div>
-            </a>
-          </li>
-        </ul>
-      </nav>
-<?php }// endif ?>
 
       <nav class="items long">
         <ul>
