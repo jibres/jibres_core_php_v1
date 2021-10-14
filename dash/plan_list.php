@@ -20,6 +20,7 @@ class plan_list
 			'accounting',
 			'application',
 			'setting',
+			'sitebuilder',
 			'crm',
 			'cms',
 			'support',
@@ -86,6 +87,15 @@ class plan_list
 			'key'      => 'setting',
 			'title'    => T_("Manage Setting"),
 			'desc'     => T_("Access to change and manage business settings"),
+			'advance'  => [],
+		];
+
+
+		$group['sitebuilder'] =
+		[
+			'key'      => 'sitebuilder',
+			'title'    => T_("Sitebuilder"),
+			'desc'     => T_("Access to change and manage business website"),
 			'advance'  => [],
 		];
 
@@ -158,6 +168,10 @@ class plan_list
 		// $master['pagebuilder']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'pagebuilder', 					'title' => T_('Manage Pagebuilder'), 'require' => []];
 		// $master['homepagebuilder']              = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'homepagebuilder', 				'title' => T_('Manage Homepage'), 'require' => []];
 
+		// --------------- SITEBUILDER
+		$master['manageHomepage']               = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'manageHomepage', 			'title' => T_('Manage homepage'), 'require' => []];
+		$master['removeSitePage']               = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'removeSitePage', 			'title' => T_('Access to remove page'), 'require' => []];
+		$master['staticFileVerify']	            = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'staticFileVerify', 		'title' => T_('Static file verification'), 'require' => []];
 
 		// --------------- FORMS
 		$master['ManageForm']                   = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageForm', 						'title' => T_('Manage Form'), 'require' => []];
