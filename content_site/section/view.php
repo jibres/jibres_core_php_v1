@@ -55,7 +55,7 @@ class view
 			\dash\face::btnSave('sectioneditorhtml');
 			\dash\face::btnSaveName('sectioneditorhtml');
 			\dash\face::btnSaveText(T_("Save Text"));
-			\dash\face::btnSaveClass('btn-secondary');
+			\dash\face::btnSaveClass('btn-primary');
 			\dash\face::btnSaveAttr(null);
 		}
 

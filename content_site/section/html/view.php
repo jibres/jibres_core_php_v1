@@ -14,7 +14,7 @@ class view
 		\dash\face::btnSave('savehtmlform');
 		\dash\face::btnSaveForm(false);
 		\dash\face::btnSaveText(T_("Save HTML"));
-		\dash\face::btnSaveClass('btn-secondary');
+		\dash\face::btnSaveClass('btn-primary');
 		\dash\face::btnSaveName('savehtml');
 		\dash\face::btnSaveValue('html');
 		\dash\face::btnSaveAttr(null);
