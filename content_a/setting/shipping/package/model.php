@@ -6,13 +6,34 @@ class model
 {
 	public static function post()
 	{
-		$post               = [];
-		$post['page_text'] = \dash\request::post('page_text');
-		$post['color']      = \dash\request::post('color') ? \dash\request::post('color') : null;
+		if(\dash\request::post('remove') === 'remove')
+		{
+			\lib\app\setting\package::remove(\dash\request::post('title'));
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::ok(T_("Package removed"));
+				\dash\redirect::pwd();
+			}
 
-		\lib\app\setting\set::shipping_setting($post);
+			return;
 
-		\dash\redirect::pwd();
+		}
+
+		$post           = [];
+		$post['title']  = \dash\request::post('title');
+		$post['length'] = \dash\request::post('length');
+		$post['width']  = \dash\request::post('width');
+		$post['height'] = \dash\request::post('height');
+		$post['weight'] = \dash\request::post('weight');
+
+		\lib\app\setting\package::add($post);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::ok(T_("Package added"));
+			\dash\redirect::pwd();
+		}
+
 	}
 }
 ?>

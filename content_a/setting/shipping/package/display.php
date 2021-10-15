@@ -1,24 +1,87 @@
+<?php
+$lenght_unit = null;
+
+if(\lib\store::detail('length_unit'))
+{
+ $lenght_unit =  a(\lib\units::detail(\lib\store::detail('length_unit'), 'length'), 'name');
+}
+
+$mass_unit = null;
+
+if(\lib\store::detail('mass_unit'))
+{
+ $mass_unit =  a(\lib\units::detail(\lib\store::detail('mass_unit'), 'mass'), 'name');
+}
+
+?>
 <div class="avand-md">
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="pad">
-        <p><?php echo T_("If you want to show a message to all customers on the shopping shipping page, write it here. You can also adjust the color of this text. <br> After setting this text, you will see a sample of it at the bottom of this page");?></p>
-        <label for="color"><?php echo T_("Message Type"); ?></label>
-        <div>
-          <select class="select22" name="color">
-            <option value="0"><?php echo T_("Default"); ?></option>
-            <option value="red" <?php if(\dash\data::shippingSettingSaved_color() === 'red') {echo 'selected';} ?>><?php echo T_("Red (For important warning message)") ?></option>
-            <option value="green" <?php if(\dash\data::shippingSettingSaved_color() === 'green') {echo 'selected';} ?>><?php echo T_("Green (For thank you message)") ?></option>
-            <option value="blue" <?php if(\dash\data::shippingSettingSaved_color() === 'blue') {echo 'selected';} ?>><?php echo T_("Blue (For information message)") ?></option>
-            <option value="yellow" <?php if(\dash\data::shippingSettingSaved_color() === 'yellow') {echo 'selected';} ?>><?php echo T_("Yellow (For warning message)") ?></option>
-          </select>
+        <p><?php echo T_("Define packages detail");?></p>
+
+        <label for="title"><?php echo T_("Title"); ?></label>
+        <div class="input">
+          <input type="text" name="title" value="<?php echo \dash\data::dataRow_title() ?>">
         </div>
-        <label for="page_text"><?php echo T_("Text"); ?></label>
-        <textarea name="page_text" id="page_text" class="txt" rows="5"><?php echo \dash\data::shippingSettingSaved_page_text(); ?></textarea>
+
+        <div class="row">
+          <div class="c-xs c-sm">
+            <label for="length"><?php echo T_("Length"); ?></label>
+            <div class="input">
+              <input type="number" step="0.1" max="99999" name="length" id="length" placeholder="<?php echo \lib\store::detail('length_unit') ?>" value="<?php echo \dash\data::dataRow_length() ?>">
+
+            </div>
+          </div>
+          <div class="c-xs c-sm">
+            <label for="width"><?php echo T_("Width"); ?></label>
+            <div class="input">
+              <input type="number" step="0.1" max="99999" name="width" id="width" placeholder="<?php echo \lib\store::detail('length_unit') ?>" value="<?php echo \dash\data::dataRow_width() ?>">
+
+            </div>
+          </div>
+          <div class="c-xs c-sm">
+            <label for="height"><?php echo T_("Height"); ?></label>
+            <div class="input">
+              <input type="number" step="0.1" max="99999" name="height" id="height" placeholder="<?php echo \lib\store::detail('length_unit') ?>" value="<?php echo \dash\data::dataRow_height() ?>">
+            </div>
+          </div>
+          <div class="c-xs-2 c-sm-2">
+            <label>&nbsp;</label>
+            <div class="input">
+              <input type="text" value="<?php echo $lenght_unit ?>" disabled readonly>
+            </div>
+          </div>
+        </div>
+        <label for="weight"><?php echo T_("Weight"); ?> <small><?php echo T_("When empty") ?></small></label>
+        <div class="input">
+          <input type="number" step="0.1" max="99999" name="weight" id="weight" value="<?php echo \dash\data::dataRow_weight() ?>">
+          <label for="weight" class="addon"><?php echo $mass_unit ?></label>
+        </div>
+
+
       </div>
       <footer class="txtRa">
         <button  class="btn success" ><?php echo T_("Save"); ?></button>
       </footer>
     </div>
   </form>
+
+  <?php if(\dash\data::packageList()) {?>
+    <?php foreach (\dash\data::packageList() as $key => $value){ ?>
+      <div class="box">
+        <div class="pad">
+          <div class="txtB fs14"><?php echo a($value, 'title') ?></div>
+          <?php if(a($value, 'length')) {?><div><small><?php echo T_("Length"); ?></small> <?php echo \dash\fit::text(a($value, 'length')) ?> <small><?php echo $lenght_unit ?></small></div><?php } //endif ?>
+          <?php if(a($value, 'width')) {?><div><small><?php echo T_("Width"); ?></small> <?php echo \dash\fit::text(a($value, 'width')) ?> <small><?php echo $lenght_unit ?></small></div><?php } //endif ?>
+          <?php if(a($value, 'height')) {?><div><small><?php echo T_("Height"); ?></small> <?php echo \dash\fit::text(a($value, 'height')) ?> <small><?php echo $lenght_unit ?></small></div><?php } //endif ?>
+          <?php if(a($value, 'weight')) {?><div><small><?php echo T_("Weight"); ?></small> <?php echo \dash\fit::text(a($value, 'weight')) ?> <small><?php echo $mass_unit ?></small></div><?php } //endif ?>
+        </div>
+        <footer class="txtRa">
+          <div class="btn danger outline" data-confirm data-data='{"remove": "remove", "title" : "<?php echo a($value, 'title') ?>"}'><?php echo T_("Remove") ?></div>
+        </footer>
+
+      </div>
+    <?php } ?>
+  <?php } //endif ?>
 </div>
