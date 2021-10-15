@@ -17,6 +17,7 @@ class view
 		\dash\face::btnSaveClass('btn-secondary');
 		\dash\face::btnSaveName('savehtml');
 		\dash\face::btnSaveValue('html');
+		\dash\face::btnSaveAttr(null);
 
 		if(\dash\data::mySectionID())
 		{

@@ -56,6 +56,7 @@ class view
 			\dash\face::btnSaveName('sectioneditorhtml');
 			\dash\face::btnSaveText(T_("Save Text"));
 			\dash\face::btnSaveClass('btn-secondary');
+			\dash\face::btnSaveAttr(null);
 		}
 
 		// in admin check iframe size
