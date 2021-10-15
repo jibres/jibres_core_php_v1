@@ -97,7 +97,7 @@ class statistics
 		$result['csrf']                 = floatval(\dash\db\config::public_get_count('csrf'));
 		$result['dayevent']             = floatval(\dash\db\config::public_get_count('dayevent'));
 		$result['factoraction']         = floatval(\dash\db\config::public_get_count('factoraction'));
-		$result['factoraddress']        = floatval(\dash\db\config::public_get_count('factoraddress'));
+		$result['factorshipping']        = floatval(\dash\db\config::public_get_count('factorshipping'));
 		$result['files']                = floatval(\dash\db\config::public_get_count('files'));
 		$result['fileusage']            = floatval(\dash\db\config::public_get_count('fileusage'));
 		$result['form']                 = floatval(\dash\db\config::public_get_count('form'));

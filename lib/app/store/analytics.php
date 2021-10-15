@@ -79,7 +79,7 @@ class analytics
 			'factordetail'         => ['group' => T_("Factors"), 'title' => T_('Factor detail')],
 			'sumfactor'            => ['group' => T_("Factors"), 'title' => T_('Sum factor')],
 			'factoraction'         => ['group' => T_("Factors"), 'title' => T_("Factor action")],
-			'factoraddress'        => ['group' => T_("Factors"), 'title' => T_("Factor address")],
+			'factorshipping'        => ['group' => T_("Factors"), 'title' => T_("Factor shipping")],
 
 			'cart'                 => ['group' => T_("Factors"), 'title' => T_('Cart'), 'important' => true,],
 

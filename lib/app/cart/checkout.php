@@ -533,7 +533,7 @@ class checkout
 			];
 		}
 
-		\lib\db\factoraddress\insert::new_record($insert_factor_address);
+		\lib\db\factorshipping\insert::new_record($insert_factor_address);
 
 
 		if($user_id)

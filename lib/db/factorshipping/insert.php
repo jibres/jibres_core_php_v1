@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\factoraddress;
+namespace lib\db\factorshipping;
 
 
 class insert
@@ -18,7 +18,7 @@ class insert
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 		if($set)
 		{
-			$query = " INSERT INTO `factoraddress` SET $set ";
+			$query = " INSERT INTO `factorshipping` SET $set ";
 			if(\dash\db::query($query))
 			{
 				return true;

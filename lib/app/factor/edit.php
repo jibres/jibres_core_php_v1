@@ -495,16 +495,16 @@ class edit
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$check_exitst_id = \lib\db\factoraddress\get::by_factor_id($load_factor['id']);
+		$check_exitst_id = \lib\db\factorshipping\get::by_factor_id($load_factor['id']);
 		if(isset($check_exitst_id['factor_id']))
 		{
-			\lib\db\factoraddress\update::record($data, $load_factor['id']);
+			\lib\db\factorshipping\update::record($data, $load_factor['id']);
 		}
 		else
 		{
 			$data['datecreated'] = date("Y-m-d H:i:s");
 			$data['factor_id'] = $load_factor['id'];
-			\lib\db\factoraddress\insert::new_record($data);
+			\lib\db\factorshipping\insert::new_record($data);
 		}
 
 		\dash\notif::ok(T_("Order address was updated"));

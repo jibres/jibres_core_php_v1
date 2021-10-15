@@ -1,5 +1,5 @@
 <?php
-namespace lib\db\factoraddress;
+namespace lib\db\factorshipping;
 
 
 class get
@@ -15,7 +15,7 @@ class get
 	 */
 	public static function by_factor_id($_factor_id)
 	{
-		$query = "SELECT * FROM factoraddress WHERE factoraddress.factor_id = $_factor_id LIMIT 1";
+		$query = "SELECT * FROM factorshipping WHERE factorshipping.factor_id = $_factor_id LIMIT 1";
 		$result = \dash\db::get($query, null, true);
 		return $result;
 	}

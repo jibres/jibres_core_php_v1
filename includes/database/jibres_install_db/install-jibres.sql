@@ -745,6 +745,7 @@ CREATE TABLE `store_analytics` (
   `dayevent` bigint DEFAULT NULL,
   `factoraction` bigint DEFAULT NULL,
   `factoraddress` bigint DEFAULT NULL,
+  `factorshipping` bigint DEFAULT NULL,
   `files` bigint DEFAULT NULL,
   `fileusage` bigint DEFAULT NULL,
   `form` bigint DEFAULT NULL,

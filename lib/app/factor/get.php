@@ -291,7 +291,7 @@ class get
 		}
 
 		// load address saved on this factor
-		$factor_address = \lib\db\factoraddress\get::by_factor_id($factor['id']);
+		$factor_address = \lib\db\factorshipping\get::by_factor_id($factor['id']);
 		$factor_address = \dash\app\address::ready($factor_address);
 
 		$factor_action = \lib\app\factor\action::get_by_factor_id_public($factor['id']);
@@ -373,7 +373,7 @@ class get
 		}
 
 		// load address saved on this factor
-		$factor_address = \lib\db\factoraddress\get::by_factor_id($_id);
+		$factor_address = \lib\db\factorshipping\get::by_factor_id($_id);
 
 		if(!is_array($factor_address))
 		{
