@@ -1,26 +1,6 @@
 <?php
 $sidebar_links = [];
 
-$sidebar_links[] =
-[
-  'href'   => \dash\url::here(). '/sitemap',
-  'title'  => T_("Sitemap"),
-  'icon'   => 'Globe',
-  'direct' => false,
-];
-
-
-if(\dash\permission::check('siteBuilderSetting'))
-{
-  $sidebar_links[] =
-  [
-    'href'   => \dash\url::here(). '/staticfile',
-    'title'  => T_("Static file"),
-    'icon'   => 'Tools',
-    'direct' => false,
-  ];
-}
-
 if(\dash\permission::check('_group_cms'))
 {
   $sidebar_links[] =
@@ -31,6 +11,7 @@ if(\dash\permission::check('_group_cms'))
     'direct' => true,
   ];
 }
+
 
 if(\dash\permission::check('cmsAttachmentView'))
 {
@@ -56,6 +37,13 @@ if(\dash\permission::check('siteBuilderSetting'))
   ];
 }
 
+$sidebar_links[] =
+[
+  'href'   => \dash\url::here(). '/sitemap',
+  'title'  => T_("Sitemap"),
+  'icon'   => 'Globe',
+  'direct' => false,
+];
 
 
 if(\dash\permission::check('siteBuilderSetting'))
@@ -63,12 +51,25 @@ if(\dash\permission::check('siteBuilderSetting'))
   $sidebar_links[] =
   [
     'href'   => \dash\url::kingdom(). '/a/setting/domain',
-    'title'  => T_("Domains"),
+    'title'  => T_("domain"),
     'icon'   => 'Domains',
     'direct' => true,
   ];
 
 }
+
+if(\dash\permission::check('siteBuilderSetting'))
+{
+  $sidebar_links[] =
+  [
+    'href'   => \dash\url::here(). '/staticfile',
+    'title'  => T_("Static file"),
+    'icon'   => 'Tools',
+    'direct' => false,
+  ];
+}
+
+
 
 
 $sidebar_links[] =
