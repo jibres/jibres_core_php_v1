@@ -24,7 +24,6 @@ class model
 
 		\dash\notif::complete();
 
-		\content_site\model::check_auto_save_page();
 
 
 		self::reloadIframe();
@@ -33,6 +32,8 @@ class model
 
 	private static function reloadIframe()
 	{
+		\content_site\model::check_auto_save_page();
+
 		$page_url = \content_site\view::generate_iframe_src(true);
 
 		if(self::$do_nothing_reload)
