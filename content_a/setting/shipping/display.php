@@ -96,21 +96,22 @@
 </div>
 
 
-
-<section class="f" data-option='setting-shipping-setting' id="setting-shipping-setting">
+<?php if(false) {?>
+<section class="f" data-option='setting-shipping-package' id="setting-shipping-package">
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Shipping option"); ?></h3>
+      <h3><?php echo T_("Shipping package setting"); ?></h3>
       <div class="body">
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/setting"><?php echo T_("Set") ?></a>
+      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/package"><?php echo T_("Set") ?></a>
     </div>
   </form>
 </section>
+<?php } //endif ?>
 
 
 
