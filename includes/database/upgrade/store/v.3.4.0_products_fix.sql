@@ -1,1 +1,0 @@
-UPDATE jibres_XXXXXXX.products SET products.saleonline = 'yes';
