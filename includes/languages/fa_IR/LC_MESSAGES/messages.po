@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-14 15:06+0330\n"
-"PO-Revision-Date: 2021-10-14 15:13+0330\n"
+"POT-Creation-Date: 2021-10-15 16:05+0330\n"
+"PO-Revision-Date: 2021-10-15 16:07+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1858,7 +1858,7 @@ msgstr "دامنه ارزان | ارزان‌ترین قیمت دامنه را �
 #: content_love/domain/setting/view.php:12 content_love/home/display.php:36
 #: content_my/domain/import/view.php:12 content_my/domain/poll/view.php:12
 #: content_my/domain/review/view.php:13 content_my/domain/setting/view.php:12
-#: content_my/home/display_site.php:15 content_site/home/display-aside-top.php:66
+#: content_my/home/display_site.php:15
 msgid "Domains"
 msgstr "دامنه‌ها"
 
@@ -2630,7 +2630,7 @@ msgstr "منابع"
 
 #: content/home/layout/footer.php:162 content/home/layout/pwa-footer.php:158
 #: content_a/home/display.php:148 content_site/body/blog/option.php:21
-#: content_site/home/display-aside-top.php:29
+#: content_site/home/display-aside-top.php:9
 msgid "Blog"
 msgstr "بلاگ"
 
@@ -4038,7 +4038,9 @@ msgstr ""
 "جلوگیری می‌کند. توجه داشته باشید که برخی از شرکت‌های حمل و نقل، حجم مرسوله را در تعیین "
 "هزینه ارسال درنظر می‌گیرند."
 
-#: content/shipping/irpost/display-calculate.php:7 lib/app/product/filter.php:317
+#: content/shipping/irpost/display-calculate.php:7
+#: content_a/setting/shipping/package/display.php:56
+#: content_a/setting/shipping/package/display.php:78 lib/app/product/filter.php:317
 #: lib/app/product/filter.php:327 lib/app/product/property.php:218
 #: lib/app/product/property.php:287
 msgid "Weight"
@@ -4108,7 +4110,7 @@ msgid "New"
 msgstr "جدید"
 
 #: content/shipping/irpost/display-calculate.php:69
-#: content_a/setting/shipping/display.php:143
+#: content_a/setting/shipping/display.php:142
 msgid "Calculate"
 msgstr "محاسبه"
 
@@ -4587,7 +4589,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/setting/menu/add/view.php:13 content_a/setting/menu/edit/view.php:12
 #: content_a/setting/menu/item/view.php:15 content_a/setting/menu/roster/view.php:15
 #: content_a/setting/menu/setting/view.php:14 content_a/setting/pcpos/view.php:12
-#: content_a/setting/shipping/irpost/view.php:11 content_a/setting/shipping/view.php:11
+#: content_a/setting/shipping/irpost/view.php:11
+#: content_a/setting/shipping/package/view.php:11 content_a/setting/shipping/view.php:11
 #: content_a/setting/social-old/view.php:14 content_a/setting/telegram/view.php:10
 #: content_a/setting/tw/view.php:10 content_a/setting/youtube/view.php:10
 #: content_a/tag/clone/view.php:13 content_a/tag/editgroup/view.php:13
@@ -4656,8 +4659,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_site/page/design/view.php:13 content_site/page/factor/view.php:16
 #: content_site/page/new/view.php:11 content_site/page/settings/view.php:13
 #: content_site/page/view.php:10 content_site/preview/display.php:18
-#: content_site/section/html/view.php:44 content_site/section/view.php:36
-#: content_site/section/view.php:84 content_site/section/view.php:237
+#: content_site/section/html/view.php:45 content_site/section/view.php:36
+#: content_site/section/view.php:85 content_site/section/view.php:238
 #: content_site/sitemap/view.php:10 content_site/staticfile/view.php:15
 #: content_sudo/apilog/home/view.php:9 content_sudo/apilog/view/view.php:9
 #: content_sudo/backup/display.php:5 content_sudo/backup/view.php:10
@@ -4756,7 +4759,7 @@ msgid "Quickly Start Free!"
 msgstr "به‌سرعت و رایگان شروع کن!"
 
 #: content/view.php:17 content/view.php:18 content/view.php:19
-#: content_a/home/display.php:148 content_site/home/display-aside-top.php:29
+#: content_a/home/display.php:148 content_site/home/display-aside-top.php:9
 msgid " & "
 msgstr " + "
 
@@ -4864,10 +4867,11 @@ msgstr "کد"
 #: content_a/setting/fund/display.php:13 content_a/setting/general/title/display.php:10
 #: content_a/setting/menu/item/display.php:17 content_a/setting/menu/item/display.php:32
 #: content_a/setting/pcpos/display.php:46 content_a/setting/pcpos/display.php:48
-#: content_a/tag/add/display.php:5 content_a/tag/edit/display.php:6
-#: content_a/units/display.php:41 content_cms/comments/edit/display.php:17
-#: content_cms/comments/view/display.php:163 content_cms/files/view/display.php:20
-#: content_cms/hashtag/add/display.php:6 content_cms/hashtag/edit/display.php:5
+#: content_a/setting/shipping/package/display.php:23 content_a/tag/add/display.php:5
+#: content_a/tag/edit/display.php:6 content_a/units/display.php:41
+#: content_cms/comments/edit/display.php:17 content_cms/comments/view/display.php:163
+#: content_cms/files/view/display.php:20 content_cms/hashtag/add/display.php:6
+#: content_cms/hashtag/edit/display.php:5
 #: content_crm/member/transactions/minus/display.php:9
 #: content_crm/member/transactions/plus/display.php:9
 #: content_crm/notification/view/display.php:30
@@ -5109,6 +5113,7 @@ msgstr "ویرایش"
 #: content_a/form/item/choice/display.php:32 content_a/products/bullet/display.php:29
 #: content_a/setting/fund/display.php:40 content_a/setting/menu/item/display.php:122
 #: content_a/setting/menu/setting/display.php:41 content_a/setting/pcpos/display.php:161
+#: content_a/setting/shipping/package/display.php:81
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
 #: content_a/units/display.php:135 content_account/api/display.php:16
 #: content_business/p/home/blocks/detail.php:168 content_cms/comments/view/display.php:144
@@ -7069,6 +7074,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/product/tag/display.php:23
 #: content_a/setting/product/viewtext/display.php:25
 #: content_a/setting/shipping/display.php:62 content_a/setting/shipping/display.php:88
+#: content_a/setting/shipping/package/display.php:65
 #: content_a/setting/shipping/text/display.php:20
 #: content_a/setting/social-old/display.php:102
 #: content_a/setting/telegram/adminusername/display.php:21
@@ -9312,7 +9318,7 @@ msgstr "افزودن محصول جدید"
 msgid "Customers"
 msgstr "مشتریان"
 
-#: content_a/home/display.php:148 content_site/home/display-aside-top.php:29
+#: content_a/home/display.php:148 content_site/home/display-aside-top.php:9
 msgid "Content Management"
 msgstr "سیستم مدیریت محتوا"
 
@@ -12130,8 +12136,8 @@ msgstr "حداقل مبلغ سفارش"
 #: content_a/setting/order/display.php:14 content_a/setting/order/display.php:31
 #: content_a/setting/order/display.php:159 content_a/setting/order/display.php:175
 #: content_a/setting/order/display.php:197 content_a/setting/product/display.php:86
-#: content_a/setting/product/display.php:104 content_a/setting/shipping/display.php:110
-#: content_a/setting/shipping/display.php:127 content_a/setting/telegram/display.php:119
+#: content_a/setting/product/display.php:104 content_a/setting/shipping/display.php:109
+#: content_a/setting/shipping/display.php:126 content_a/setting/telegram/display.php:119
 #: includes/languages/trans_static.php:610
 msgid "Set"
 msgstr "تنظیم"
@@ -12677,17 +12683,59 @@ msgstr "آیا ارسال رایگان دارید؟"
 msgid "Shipping larger than this value is free"
 msgstr "بالاتر از این مبلغ ارسال رایگان است"
 
-#: content_a/setting/shipping/display.php:103
-msgid "Shipping option"
-msgstr "تنظیمات ارسال سفارش"
+#: content_a/setting/shipping/display.php:102
+#: content_a/setting/shipping/package/view.php:8
+msgid "Shipping package setting"
+msgstr "تنظیم بسته‌بندی‌های ارسال سفارش"
 
-#: content_a/setting/shipping/display.php:120
+#: content_a/setting/shipping/display.php:119
 msgid "Shipping default page text"
 msgstr "متن ثابت صفحه ارسال سفارش"
 
-#: content_a/setting/shipping/display.php:136 content_a/setting/shipping/irpost/view.php:9
+#: content_a/setting/shipping/display.php:135 content_a/setting/shipping/irpost/view.php:9
 msgid "Calculate IR POST Shipping price"
 msgstr "محاسبه هزینه ارسال با پست"
+
+#: content_a/setting/shipping/package/display.php:21
+msgid "Define packages detail"
+msgstr "تعریف بسته‌های ارسال سفارش"
+
+#: content_a/setting/shipping/package/display.php:30
+#: content_a/setting/shipping/package/display.php:75 content_crm/sms/view/display.php:38
+#: lib/app/product/property.php:64 lib/app/product/property.php:293
+#: lib/app/product/property.php:297
+msgid "Length"
+msgstr "طول"
+
+#: content_a/setting/shipping/package/display.php:37
+#: content_a/setting/shipping/package/display.php:76
+#: content_cms/files/images/display.php:14 content_cms/files/remove/display.php:13
+#: content_love/files/images/display.php:14 content_love/files/remove/display.php:13
+#: lib/app/product/property.php:65 lib/app/product/property.php:303
+#: lib/app/product/property.php:307
+msgid "Width"
+msgstr "عرض"
+
+#: content_a/setting/shipping/package/display.php:44
+#: content_a/setting/shipping/package/display.php:77
+#: content_site/options/container/container.php:38
+#: content_site/options/height/height.php:22 content_site/options/radius/radius.php:31
+#: lib/app/product/property.php:66 lib/app/product/property.php:313
+#: lib/app/product/property.php:317
+msgid "Height"
+msgstr "ارتفاع"
+
+#: content_a/setting/shipping/package/display.php:56
+msgid "When empty"
+msgstr "زمانی که خالی است"
+
+#: content_a/setting/shipping/package/model.php:14
+msgid "Package removed"
+msgstr "بسته حذف شد"
+
+#: content_a/setting/shipping/package/model.php:33
+msgid "Package added"
+msgstr "بسته اضافه شد"
 
 #: content_a/setting/shipping/text/display.php:5
 msgid ""
@@ -15548,7 +15596,7 @@ msgstr "بارگذاری"
 #: content_cms/files/add/view.php:11 content_cms/files/datalist/view.php:9
 #: content_cms/files/home/view.php:9 content_cms/files/view/view.php:11
 #: content_love/files/datalist/view.php:9 content_love/files/home/view.php:9
-#: content_love/files/view/view.php:11 content_site/home/display-aside-top.php:40
+#: content_love/files/view/view.php:11 content_site/home/display-aside-top.php:21
 #: includes/languages/trans_static.php:573 lib/app/store/analytics.php:116
 msgid "Files"
 msgstr "فایل‌ها"
@@ -15654,13 +15702,6 @@ msgid ""
 msgstr ""
 "برای بهینه‌سازی تصاویر و افزایش امتیاز سئو، تصاویر بارگذاری شده را در اندازه‌های مختلف و "
 "با فرمت webp ذخیره می‌کنیم تا از آن در هر جا با اندازه مورد نیاز استفاده کنیم."
-
-#: content_cms/files/images/display.php:14 content_cms/files/remove/display.php:13
-#: content_love/files/images/display.php:14 content_love/files/remove/display.php:13
-#: lib/app/product/property.php:65 lib/app/product/property.php:303
-#: lib/app/product/property.php:307
-msgid "Width"
-msgstr "عرض"
 
 #: content_cms/files/images/view.php:8 content_love/files/images/view.php:8
 msgid "Webp images"
@@ -17274,11 +17315,6 @@ msgstr ""
 #: content_crm/sms/view/display.php:22
 msgid "Line"
 msgstr "خط"
-
-#: content_crm/sms/view/display.php:38 lib/app/product/property.php:64
-#: lib/app/product/property.php:293 lib/app/product/property.php:297
-msgid "Length"
-msgstr "طول"
 
 #: content_crm/sms/view/display.php:39
 msgid "Character"
@@ -19558,7 +19594,7 @@ msgstr "ساخت مجدد نقشه سایت"
 msgid "All business sitemap created"
 msgstr "نقشه سایت برای همه بیزینس‌ها ساخته شد"
 
-#: content_love/business/sitemap/view.php:8 content_site/home/display-aside-top.php:7
+#: content_love/business/sitemap/view.php:8 content_site/home/display-aside-top.php:43
 #: content_site/sitemap/view.php:8 dash/app/posts/dropdown.php:51
 #: lib/app/quickaccess/setting.php:237
 msgid "Sitemap"
@@ -20661,7 +20697,7 @@ msgid "any"
 msgstr "همه"
 
 #: content_love/gift/create/usage/display.php:27 content_love/gift/edit/display.php:72
-#: includes/languages/trans_static.php:665
+#: content_site/home/display-aside-top.php:54 includes/languages/trans_static.php:665
 msgid "domain"
 msgstr "دامنه"
 
@@ -22448,7 +22484,7 @@ msgstr "ذخیره و انتشار خودکار در حال حاضر فعال ا
 msgid "To disable auto-save and publish Click herer"
 msgstr "برای غیرفعال سازی ذخیره و انتشار خودکار کلیک کنید"
 
-#: content_site/autosave/view.php:8 content_site/home/display-aside-top.php:89
+#: content_site/autosave/view.php:8 content_site/home/display-aside-top.php:88
 msgid "Setting auto-save and publish"
 msgstr "تنظیمات ذخیره و انتشار خودکار"
 
@@ -22707,15 +22743,15 @@ msgstr "سرصفحه #رفیعی"
 msgid "Header"
 msgstr "سرصفحه"
 
-#: content_site/home/display-aside-top.php:18
-msgid "Static file"
-msgstr "فایل‌های ثابت"
-
-#: content_site/home/display-aside-top.php:53
+#: content_site/home/display-aside-top.php:34
 msgid "Legal pages"
 msgstr "صفحات حقوقی"
 
-#: content_site/home/display-aside-top.php:77 content_site/options/menu/menu.php:31
+#: content_site/home/display-aside-top.php:66
+msgid "Static file"
+msgstr "فایل‌های ثابت"
+
+#: content_site/home/display-aside-top.php:78 content_site/options/menu/menu.php:31
 #: content_site/options/menu/menu.php:51
 msgid "Menu"
 msgstr "منو"
@@ -23022,13 +23058,6 @@ msgstr "دریافت موبایل"
 msgid "Get name"
 msgstr "گرفتن نام"
 
-#: content_site/options/container/container.php:38
-#: content_site/options/height/height.php:22 content_site/options/radius/radius.php:31
-#: lib/app/product/property.php:66 lib/app/product/property.php:313
-#: lib/app/product/property.php:317
-msgid "Height"
-msgstr "ارتفاع"
-
 #: content_site/options/container/container.php:93
 msgid "Container"
 msgstr "چارچوب عمومی"
@@ -23207,10 +23236,10 @@ msgstr "افزودن تصویر جدید"
 #: content_site/options/image/image_add2.php:25
 #: content_site/options/quote/quote_add.php:26
 #: content_site/options/responsive/responsive_footer_link_add.php:30
-#: content_site/section/html/model.php:71 content_site/section/model.php:287
-#: content_site/section/model.php:444 content_site/section/model.php:514
-#: content_site/section/model.php:549 content_site/section/model.php:602
-#: content_site/section/model.php:649 content_site/update_record.php:39
+#: content_site/section/html/model.php:71 content_site/section/model.php:288
+#: content_site/section/model.php:445 content_site/section/model.php:515
+#: content_site/section/model.php:550 content_site/section/model.php:603
+#: content_site/section/model.php:650 content_site/update_record.php:39
 msgid "Section not found"
 msgstr "بخش یافت نشد"
 
@@ -23646,15 +23675,15 @@ msgstr "شخصی‌سازی"
 #: content_site/page/design/model.php:15 content_site/page/factor/view.php:45
 #: content_site/page/model.php:50 content_site/page/model.php:226
 #: content_site/page/settings/model.php:17 content_site/section/html/model.php:36
-#: content_site/section/model.php:780
+#: content_site/section/model.php:781
 msgid "Invali page id"
 msgstr "شماره صفحه نادرست"
 
-#: content_site/page/design/model.php:52 content_site/section/model.php:166
+#: content_site/page/design/model.php:52 content_site/section/model.php:167
 msgid "Option key not found!"
 msgstr "کد گزینه یافت نشد!"
 
-#: content_site/page/design/model.php:89 content_site/section/model.php:227
+#: content_site/page/design/model.php:89 content_site/section/model.php:228
 msgid "Please check your input"
 msgstr "لطفا ورودی‌های خود را کنترل کنید"
 
@@ -23704,13 +23733,13 @@ msgid "Data saved"
 msgstr "ذخیره شد"
 
 #: content_site/page/model.php:234 content_site/page/model.php:243
-#: content_site/section/model.php:668 dash/app/posts/gallery.php:280
+#: content_site/section/model.php:669 dash/app/posts/gallery.php:280
 #: lib/app/product/gallery.php:405
 msgid "Invalid sort arguments"
 msgstr "آرگومان مرتب‌سازی اشتباه است"
 
 #: content_site/page/model.php:270 content_site/page/model.php:282
-#: content_site/section/model.php:687 content_site/section/model.php:702
+#: content_site/section/model.php:688 content_site/section/model.php:703
 msgid "Some item have problem in sorting. Need load again"
 msgstr "برخی از اطلاعات اشتباه هستند. لطفا مجددا صفحه را بارگذاری کنید"
 
@@ -23817,7 +23846,7 @@ msgstr "صفحه حذف شد"
 msgid "Invalid section name or preview key"
 msgstr "نام بخش یا کد پیش‌نمایش اشتباه است"
 
-#: content_site/preview/controller.php:35 content_site/section/model.php:658
+#: content_site/preview/controller.php:35 content_site/section/model.php:659
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
@@ -23826,7 +23855,7 @@ msgid "Invalid section name"
 msgstr "نام بخش اشتباه"
 
 #: content_site/section/controller.php:87 content_site/section/controller.php:212
-#: content_site/section/html/controller.php:21 content_site/section/model.php:72
+#: content_site/section/html/controller.php:21 content_site/section/model.php:73
 msgid "Invalid section id"
 msgstr "شناسه بخش اشتباه است"
 
@@ -23904,51 +23933,51 @@ msgstr "کد HTML‌ سفارشی"
 msgid "Save HTML"
 msgstr "ذخیره HTML"
 
-#: content_site/section/model.php:189
+#: content_site/section/model.php:190
 msgid "Invalid option"
 msgstr "شناسه گزینه نامعتبر است"
 
-#: content_site/section/model.php:243 content_site/section/model.php:812
+#: content_site/section/model.php:244 content_site/section/model.php:813
 msgid "Invalid preview_key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:252 content_site/section/model.php:802
+#: content_site/section/model.php:253 content_site/section/model.php:803
 msgid "Invalid model"
 msgstr "مدل اشتباه است"
 
-#: content_site/section/model.php:260 content_site/section/model.php:829
+#: content_site/section/model.php:261 content_site/section/model.php:830
 msgid "Invalid preview key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:331
+#: content_site/section/model.php:332
 msgid "Can not save this index!"
 msgstr "نمی‌توانیم این ایندکس را ذخیره کنیم!"
 
-#: content_site/section/model.php:365
+#: content_site/section/model.php:366
 msgid "Some settings are conflicting!"
 msgstr "برخی از تنظیمات تداخل دارند!"
 
-#: content_site/section/model.php:580
+#: content_site/section/model.php:581
 msgid "Can not remove this block!"
 msgstr "نمی‌توانید این مورد را حذف کنید!"
 
-#: content_site/section/model.php:680
+#: content_site/section/model.php:681
 msgid "This section have not sortable item!"
 msgstr "این بخش امکان مرتب سازی را ندارد!"
 
-#: content_site/section/model.php:792
+#: content_site/section/model.php:793
 msgid "Invalid key"
 msgstr "شناسه نامعتبر"
 
-#: content_site/section/model.php:821
+#: content_site/section/model.php:822
 msgid "Can not chose this section!"
 msgstr "نمی‌توانید این بخش را انتخاب کنید!"
 
-#: content_site/section/model.php:962
+#: content_site/section/model.php:963
 msgid "Maximum capacity of page section is full"
 msgstr "حداکثر ظرفیت بخش‌های قابل استفاده در صفحه تکمیل شده است"
 
-#: content_site/section/model.php:970
+#: content_site/section/model.php:971
 msgid "No way to save data"
 msgstr "هیچ راهی برای ثبت اطلاعات وجود ندارد"
 
@@ -39754,6 +39783,18 @@ msgstr "تنها ۱۰۰۰ ردیف در خروجی قابل نمایش است"
 msgid "Tipax"
 msgstr "تیپاکس"
 
+#: lib/app/setting/package.php:44
+msgid "Invalid title"
+msgstr "عنوان اشتباه است"
+
+#: lib/app/setting/package.php:55
+msgid "Package not found"
+msgstr "بسته یافت نشد"
+
+#: lib/app/setting/package.php:90
+msgid "Duplicate package title"
+msgstr "عنوان بسته تکراری است"
+
 #: lib/app/setting/policy_page.php:47
 msgid "Refund policy page"
 msgstr "صفحه سیاست‌های مرجوعی کالا"
@@ -40051,8 +40092,8 @@ msgid "Factor action"
 msgstr "عملیات روی فاکتور‌ها"
 
 #: lib/app/store/analytics.php:82
-msgid "Factor address"
-msgstr "آدرس‌ فاکتور‌ها"
+msgid "Factor shipping"
+msgstr "ارسال سفارش"
 
 #: lib/app/store/analytics.php:88
 msgid "Sum plus transaction"
@@ -41808,6 +41849,12 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Shipping option"
+#~ msgstr "تنظیمات ارسال سفارش"
+
+#~ msgid "Factor address"
+#~ msgstr "آدرس‌ فاکتور‌ها"
+
 #~ msgid "Access to remove page"
 #~ msgstr "دسترسی به حذف صفحه"
 
@@ -41978,9 +42025,6 @@ msgstr "یارد"
 
 #~ msgid "Maximum capacity of this image block is full"
 #~ msgstr "ظرفیت صفحات این جعبه تصویر تکمیل است"
-
-#~ msgid "Image added"
-#~ msgstr "جعبه تصویر اضافه شد"
 
 #~ msgid "Product line added"
 #~ msgstr "ردیف محصولات اضافه شد"
@@ -44729,9 +44773,6 @@ msgstr "یارد"
 #~ msgid "You are not have billing detail yet!"
 #~ msgstr "هیچ تراکنش مالی برای شما یافت نشد!"
 
-#~ msgid "Billing usage detail"
-#~ msgstr "جزئیات میزان استفاده"
-
 #~ msgid "Invoice Detail"
 #~ msgstr "جزئیات فاکتور"
 
@@ -45332,9 +45373,6 @@ msgstr "یارد"
 
 #~ msgid "Please fill the file content"
 #~ msgstr "لطفا باکس متن را پر کنید"
-
-#~ msgid "Invalid file"
-#~ msgstr "فایل اشتباه"
 
 #~ msgid "File successfuly update"
 #~ msgstr "فایل با موفقیت به‌روزرسانی شد"
