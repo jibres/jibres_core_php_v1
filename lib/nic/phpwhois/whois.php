@@ -83,12 +83,11 @@ class whois
                 else
                 {
 
-
                     // Getting whois information
                     $fp = @fsockopen($whois_server, 43, $errno, $errstr, 10);
                     if (!$fp)
                     {
-                        return T_("Connection error!");
+                        return T_("Connection error!") . ' '. $errno. ' - '. $errstr;
                     }
 
                     stream_set_timeout($fp, 5);
