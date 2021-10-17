@@ -113,6 +113,23 @@
 
 
 
+<section class="f" data-option='setting-shipping-method' id="setting-shipping-method">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Shipping method"); ?></h3>
+      <div class="body">
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <div class="action">
+      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/method"><?php echo T_("Set") ?></a>
+    </div>
+  </form>
+</section>
+
+
+
 <section class="f" data-option='setting-shipping-text' id="setting-shipping-text">
   <div class="c8 s12">
     <div class="data">
