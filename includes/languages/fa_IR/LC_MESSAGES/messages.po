@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-15 16:05+0330\n"
-"PO-Revision-Date: 2021-10-15 16:07+0330\n"
+"POT-Creation-Date: 2021-10-17 15:13+0330\n"
+"PO-Revision-Date: 2021-10-17 15:14+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -711,8 +711,9 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/order/detail/display.php:75 content_a/products/desc/display.php:8
 #: content_a/products/desc/display.php:11 content_a/setting/fund/display.php:18
 #: content_a/setting/fund/display.php:61 content_a/setting/general/title/display.php:14
-#: content_a/tag/edit/display.php:10 content_a/tag/edit/display.php:11
-#: content_developers/docs/004-responses.php:59 content_love/domain/credit/display.php:35
+#: content_a/setting/shipping/method/display.php:12 content_a/tag/edit/display.php:10
+#: content_a/tag/edit/display.php:11 content_developers/docs/004-responses.php:59
+#: content_love/domain/credit/display.php:35
 #: content_love/gift/create/message/display.php:14
 #: content_love/gift/create/review/display.php:28 content_love/gift/edit/display.php:40
 #: content_love/gift/view/display.php:28 content_love/log/home/logTable.php:10
@@ -4110,7 +4111,7 @@ msgid "New"
 msgstr "جدید"
 
 #: content/shipping/irpost/display-calculate.php:69
-#: content_a/setting/shipping/display.php:142
+#: content_a/setting/shipping/display.php:159
 msgid "Calculate"
 msgstr "محاسبه"
 
@@ -4590,6 +4591,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/setting/menu/item/view.php:15 content_a/setting/menu/roster/view.php:15
 #: content_a/setting/menu/setting/view.php:14 content_a/setting/pcpos/view.php:12
 #: content_a/setting/shipping/irpost/view.php:11
+#: content_a/setting/shipping/method/view.php:11
 #: content_a/setting/shipping/package/view.php:11 content_a/setting/shipping/view.php:11
 #: content_a/setting/social-old/view.php:14 content_a/setting/telegram/view.php:10
 #: content_a/setting/tw/view.php:10 content_a/setting/youtube/view.php:10
@@ -4867,6 +4869,7 @@ msgstr "کد"
 #: content_a/setting/fund/display.php:13 content_a/setting/general/title/display.php:10
 #: content_a/setting/menu/item/display.php:17 content_a/setting/menu/item/display.php:32
 #: content_a/setting/pcpos/display.php:46 content_a/setting/pcpos/display.php:48
+#: content_a/setting/shipping/method/display.php:7
 #: content_a/setting/shipping/package/display.php:23 content_a/tag/add/display.php:5
 #: content_a/tag/edit/display.php:6 content_a/units/display.php:41
 #: content_cms/comments/edit/display.php:17 content_cms/comments/view/display.php:163
@@ -5113,6 +5116,7 @@ msgstr "ویرایش"
 #: content_a/form/item/choice/display.php:32 content_a/products/bullet/display.php:29
 #: content_a/setting/fund/display.php:40 content_a/setting/menu/item/display.php:122
 #: content_a/setting/menu/setting/display.php:41 content_a/setting/pcpos/display.php:161
+#: content_a/setting/shipping/method/display.php:32
 #: content_a/setting/shipping/package/display.php:81
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
 #: content_a/units/display.php:135 content_account/api/display.php:16
@@ -7074,6 +7078,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/product/tag/display.php:23
 #: content_a/setting/product/viewtext/display.php:25
 #: content_a/setting/shipping/display.php:62 content_a/setting/shipping/display.php:88
+#: content_a/setting/shipping/method/display.php:19
 #: content_a/setting/shipping/package/display.php:65
 #: content_a/setting/shipping/text/display.php:20
 #: content_a/setting/social-old/display.php:102
@@ -12137,8 +12142,8 @@ msgstr "حداقل مبلغ سفارش"
 #: content_a/setting/order/display.php:159 content_a/setting/order/display.php:175
 #: content_a/setting/order/display.php:197 content_a/setting/product/display.php:86
 #: content_a/setting/product/display.php:104 content_a/setting/shipping/display.php:109
-#: content_a/setting/shipping/display.php:126 content_a/setting/telegram/display.php:119
-#: includes/languages/trans_static.php:610
+#: content_a/setting/shipping/display.php:126 content_a/setting/shipping/display.php:143
+#: content_a/setting/telegram/display.php:119 includes/languages/trans_static.php:610
 msgid "Set"
 msgstr "تنظیم"
 
@@ -12688,13 +12693,31 @@ msgstr "بالاتر از این مبلغ ارسال رایگان است"
 msgid "Shipping package setting"
 msgstr "تنظیم بسته‌بندی‌های ارسال سفارش"
 
-#: content_a/setting/shipping/display.php:119
+#: content_a/setting/shipping/display.php:119 content_a/setting/shipping/method/view.php:8
+msgid "Shipping method"
+msgstr "روش‌های ارسال سفارش"
+
+#: content_a/setting/shipping/display.php:136
 msgid "Shipping default page text"
 msgstr "متن ثابت صفحه ارسال سفارش"
 
-#: content_a/setting/shipping/display.php:135 content_a/setting/shipping/irpost/view.php:9
+#: content_a/setting/shipping/display.php:152 content_a/setting/shipping/irpost/view.php:9
 msgid "Calculate IR POST Shipping price"
 msgstr "محاسبه هزینه ارسال با پست"
+
+#: content_a/setting/shipping/method/display.php:5
+msgid "Define shipping methods detail"
+msgstr "تعریف روش‌های ارسال سفارش"
+
+#: content_a/setting/shipping/method/model.php:14
+#: content_a/setting/shipping/package/model.php:14
+msgid "Package removed"
+msgstr "بسته حذف شد"
+
+#: content_a/setting/shipping/method/model.php:30
+#: content_a/setting/shipping/package/model.php:33
+msgid "Package added"
+msgstr "بسته اضافه شد"
 
 #: content_a/setting/shipping/package/display.php:21
 msgid "Define packages detail"
@@ -12728,14 +12751,6 @@ msgstr "ارتفاع"
 #: content_a/setting/shipping/package/display.php:56
 msgid "When empty"
 msgstr "زمانی که خالی است"
-
-#: content_a/setting/shipping/package/model.php:14
-msgid "Package removed"
-msgstr "بسته حذف شد"
-
-#: content_a/setting/shipping/package/model.php:33
-msgid "Package added"
-msgstr "بسته اضافه شد"
 
 #: content_a/setting/shipping/text/display.php:5
 msgid ""
@@ -39783,11 +39798,11 @@ msgstr "تنها ۱۰۰۰ ردیف در خروجی قابل نمایش است"
 msgid "Tipax"
 msgstr "تیپاکس"
 
-#: lib/app/setting/package.php:44
+#: lib/app/setting/package.php:44 lib/app/setting/shipping_method.php:44
 msgid "Invalid title"
 msgstr "عنوان اشتباه است"
 
-#: lib/app/setting/package.php:55
+#: lib/app/setting/package.php:55 lib/app/setting/shipping_method.php:55
 msgid "Package not found"
 msgstr "بسته یافت نشد"
 
@@ -39905,6 +39920,10 @@ msgstr "از"
 #: lib/app/setting/setup.php:243
 msgid "Please choose yoru file"
 msgstr "لطفا فایل خود را انتخاب کنید"
+
+#: lib/app/setting/shipping_method.php:87
+msgid "Duplicate shipping method title"
+msgstr "عنوان روش ارسال تکراری است"
 
 #: lib/app/shaparak/iban/set.php:47 lib/app/shaparak/profile/set.php:131
 #: lib/app/shaparak/shop/set.php:51
