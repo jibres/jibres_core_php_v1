@@ -204,27 +204,45 @@ class shortcode
 
 		while(preg_match("/\[(video)\s+(from\=)([^\[\]\s]*)\s+(code\=)([^\[\]\s]*)\]/", $_data, $split))
 		{
-			if($split[3] === 'aparat')
+			$videoService = $split[3];
+			$videoSrc = $split[5];
+			if($videoService)
 			{
-				$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="aparat">';
-				$iframe .= '<iframe src="https://www.aparat.com/video/video/embed/videohash/'. $split[5] .'/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>';
-				$iframe .= '</div>';
-				$_data = str_replace($split[0], $iframe, $_data);
+				switch ($videoService)
+				{
+					case 'aparat':
+						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="aparat">';
+						$iframe .= '<iframe src="https://www.aparat.com/video/video/embed/videohash/'. $videoSrc .'/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>';
+						$iframe .= '</div>';
+						$_data = str_replace($split[0], $iframe, $_data);
+						break;
+
+					case 'youtube':
+						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="youtube">';
+						$iframe .= '<iframe src="https://www.youtube.com/embed/'. $videoSrc.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+						$iframe .= '</div>';
+						$_data = str_replace($split[0], $iframe, $_data);
+						break;
+
+					case 'vimeo':
+						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="vimeo">';
+						$iframe .= '<iframe src="https://player.vimeo.com/video/'. $videoSrc.'" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+						$iframe .= '</div>';
+						$_data = str_replace($split[0], $iframe, $_data);
+						break;
+
+					case 'dailymotion':
+						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="dailymotion">';
+						$iframe .= '<iframe src="https://www.dailymotion.com/embed/video/'. $videoSrc.'" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+						$iframe .= '</div>';
+						$_data = str_replace($split[0], $iframe, $_data);
+						break;
+
+					default:
+						break;
+				}
 			}
-			elseif($split[3] === 'youtube')
-			{
-				$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="youtube">';
-				$iframe .= '<iframe src="https://www.youtube.com/embed/'. $split[5].'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-				$iframe .= '</div>';
-				$_data = str_replace($split[0], $iframe, $_data);
-			}
-			elseif($split[3] === 'vimeo')
-			{
-				$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="vimeo">';
-				$iframe .= '<iframe src="https://player.vimeo.com/video/'. $split[5].'" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
-				$iframe .= '</div>';
-				$_data = str_replace($split[0], $iframe, $_data);
-			}
+
 		}
 
 		// return $_data;
