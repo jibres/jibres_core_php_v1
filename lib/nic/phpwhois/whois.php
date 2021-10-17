@@ -84,7 +84,7 @@ class whois
                 {
 
                     // Getting whois information
-                    $fp = @fsockopen($whois_server, 43, $errno, $errstr, 50);
+                    $fp = @fsockopen($whois_server, 43, $errno, $errstr, 10);
                     if (!$fp)
                     {
                         return T_("Connection error!") . ' '. $errno. ' - '. $errstr;
