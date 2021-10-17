@@ -10,7 +10,7 @@ class controller
 
 		if($url)
 		{
-			$url = 'https://'. $url;
+			$url = 'http://'. $url;
 		}
 		else
 		{
