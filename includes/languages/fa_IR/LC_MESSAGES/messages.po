@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-17 15:13+0330\n"
-"PO-Revision-Date: 2021-10-17 15:14+0330\n"
+"POT-Creation-Date: 2021-10-18 13:38+0330\n"
+"PO-Revision-Date: 2021-10-18 13:39+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -711,7 +711,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/order/detail/display.php:75 content_a/products/desc/display.php:8
 #: content_a/products/desc/display.php:11 content_a/setting/fund/display.php:18
 #: content_a/setting/fund/display.php:61 content_a/setting/general/title/display.php:14
-#: content_a/setting/shipping/method/display.php:12 content_a/tag/edit/display.php:10
+#: content_a/setting/shipping/method/display.php:13 content_a/tag/edit/display.php:10
 #: content_a/tag/edit/display.php:11 content_developers/docs/004-responses.php:59
 #: content_love/domain/credit/display.php:35
 #: content_love/gift/create/message/display.php:14
@@ -4041,7 +4041,7 @@ msgstr ""
 
 #: content/shipping/irpost/display-calculate.php:7
 #: content_a/setting/shipping/package/display.php:56
-#: content_a/setting/shipping/package/display.php:78 lib/app/product/filter.php:317
+#: content_a/setting/shipping/package/display.php:82 lib/app/product/filter.php:317
 #: lib/app/product/filter.php:327 lib/app/product/property.php:218
 #: lib/app/product/property.php:287
 msgid "Weight"
@@ -4869,7 +4869,7 @@ msgstr "کد"
 #: content_a/setting/fund/display.php:13 content_a/setting/general/title/display.php:10
 #: content_a/setting/menu/item/display.php:17 content_a/setting/menu/item/display.php:32
 #: content_a/setting/pcpos/display.php:46 content_a/setting/pcpos/display.php:48
-#: content_a/setting/shipping/method/display.php:7
+#: content_a/setting/shipping/method/display.php:8
 #: content_a/setting/shipping/package/display.php:23 content_a/tag/add/display.php:5
 #: content_a/tag/edit/display.php:6 content_a/units/display.php:41
 #: content_cms/comments/edit/display.php:17 content_cms/comments/view/display.php:163
@@ -5097,6 +5097,8 @@ msgstr "افزودن"
 #: content_a/setting/legal/display.php:81 content_a/setting/legal/display.php:110
 #: content_a/setting/menu/edit/display.php:11 content_a/setting/menu/item/display.php:124
 #: content_a/setting/order/display.php:218 content_a/setting/order/display.php:245
+#: content_a/setting/shipping/method/display.php:41
+#: content_a/setting/shipping/package/display.php:90
 #: content_a/tag/editgroup/display.php:13 content_a/tag/property/display.php:64
 #: content_a/units/display.php:75 content_a/units/display.php:134
 #: content_account/address.php:147 content_cms/comments/edit/display.php:39
@@ -5116,8 +5118,8 @@ msgstr "ویرایش"
 #: content_a/form/item/choice/display.php:32 content_a/products/bullet/display.php:29
 #: content_a/setting/fund/display.php:40 content_a/setting/menu/item/display.php:122
 #: content_a/setting/menu/setting/display.php:41 content_a/setting/pcpos/display.php:161
-#: content_a/setting/shipping/method/display.php:32
-#: content_a/setting/shipping/package/display.php:81
+#: content_a/setting/shipping/method/display.php:37
+#: content_a/setting/shipping/package/display.php:86
 #: content_a/setting/telegram/bot/display.php:24 content_a/units/display.php:68
 #: content_a/units/display.php:135 content_account/api/display.php:16
 #: content_business/p/home/blocks/detail.php:168 content_cms/comments/view/display.php:144
@@ -7078,8 +7080,6 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/product/tag/display.php:23
 #: content_a/setting/product/viewtext/display.php:25
 #: content_a/setting/shipping/display.php:62 content_a/setting/shipping/display.php:88
-#: content_a/setting/shipping/method/display.php:19
-#: content_a/setting/shipping/package/display.php:65
 #: content_a/setting/shipping/text/display.php:20
 #: content_a/setting/social-old/display.php:102
 #: content_a/setting/telegram/adminusername/display.php:21
@@ -11507,7 +11507,8 @@ msgstr "فیس‌بوک"
 #: lib/app/nic_domain/get.php:456 lib/app/nic_domain/get.php:484
 #: lib/app/nic_domain/get.php:511 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
-#: lib/app/product/edit.php:25 lib/app/product/edit.php:35 lib/app/tag/edit.php:16
+#: lib/app/product/edit.php:25 lib/app/product/edit.php:35 lib/app/setting/package.php:72
+#: lib/app/setting/shipping_method.php:72 lib/app/tag/edit.php:16
 #: lib/app/tax/coding/get.php:161 lib/app/tax/doc/get.php:43
 #: lib/app/tax/docdetail/edit.php:16 lib/app/tax/docdetail/get.php:22
 #: lib/app/tax/docdetail/remove.php:13 lib/app/tax/docdetail/remove.php:20
@@ -12705,33 +12706,43 @@ msgstr "متن ثابت صفحه ارسال سفارش"
 msgid "Calculate IR POST Shipping price"
 msgstr "محاسبه هزینه ارسال با پست"
 
-#: content_a/setting/shipping/method/display.php:5
-msgid "Define shipping methods detail"
+#: content_a/setting/shipping/method/display.php:6
+msgid "Define shipping method"
 msgstr "تعریف روش‌های ارسال سفارش"
 
-#: content_a/setting/shipping/method/model.php:14
-#: content_a/setting/shipping/package/model.php:14
-msgid "Package removed"
-msgstr "بسته حذف شد"
+#: content_a/setting/shipping/method/display.php:19
+msgid "Edit method"
+msgstr "ویرایش روش ارسال"
 
-#: content_a/setting/shipping/method/model.php:30
-#: content_a/setting/shipping/package/model.php:33
-msgid "Package added"
-msgstr "بسته اضافه شد"
+#: content_a/setting/shipping/method/display.php:21
+msgid "Create method"
+msgstr "ثبت روش ارسال"
+
+#: content_a/setting/shipping/method/model.php:14
+msgid "Shipping method removed"
+msgstr "روش ارسال حذف شد"
+
+#: content_a/setting/shipping/method/model.php:33
+msgid "Shipping method edited"
+msgstr "روش ارسال ویرایش شد"
+
+#: content_a/setting/shipping/method/model.php:42
+msgid "Shipping method added"
+msgstr "روش‌ ارسال اضافه شد"
 
 #: content_a/setting/shipping/package/display.php:21
 msgid "Define packages detail"
 msgstr "تعریف بسته‌های ارسال سفارش"
 
 #: content_a/setting/shipping/package/display.php:30
-#: content_a/setting/shipping/package/display.php:75 content_crm/sms/view/display.php:38
+#: content_a/setting/shipping/package/display.php:79 content_crm/sms/view/display.php:38
 #: lib/app/product/property.php:64 lib/app/product/property.php:293
 #: lib/app/product/property.php:297
 msgid "Length"
 msgstr "طول"
 
 #: content_a/setting/shipping/package/display.php:37
-#: content_a/setting/shipping/package/display.php:76
+#: content_a/setting/shipping/package/display.php:80
 #: content_cms/files/images/display.php:14 content_cms/files/remove/display.php:13
 #: content_love/files/images/display.php:14 content_love/files/remove/display.php:13
 #: lib/app/product/property.php:65 lib/app/product/property.php:303
@@ -12740,7 +12751,7 @@ msgid "Width"
 msgstr "عرض"
 
 #: content_a/setting/shipping/package/display.php:44
-#: content_a/setting/shipping/package/display.php:77
+#: content_a/setting/shipping/package/display.php:81
 #: content_site/options/container/container.php:38
 #: content_site/options/height/height.php:22 content_site/options/radius/radius.php:31
 #: lib/app/product/property.php:66 lib/app/product/property.php:313
@@ -12751,6 +12762,26 @@ msgstr "ارتفاع"
 #: content_a/setting/shipping/package/display.php:56
 msgid "When empty"
 msgstr "زمانی که خالی است"
+
+#: content_a/setting/shipping/package/display.php:66
+msgid "Edit package"
+msgstr "ویرایش بسته‌"
+
+#: content_a/setting/shipping/package/display.php:68
+msgid "Create package"
+msgstr "ایجاد بسته"
+
+#: content_a/setting/shipping/package/model.php:14
+msgid "Package removed"
+msgstr "بسته حذف شد"
+
+#: content_a/setting/shipping/package/model.php:34
+msgid "Package edited"
+msgstr "بسته ویرایش شد"
+
+#: content_a/setting/shipping/package/model.php:43
+msgid "Package added"
+msgstr "بسته اضافه شد"
 
 #: content_a/setting/shipping/text/display.php:5
 msgid ""
@@ -27493,8 +27524,8 @@ msgstr "نمی‌توانیم لینک به سرویس PDO بسازیم!"
 msgid "SSL Connection error!"
 msgstr "خطا در اتصال به SSL!"
 
-#: dash/pdo/connection.php:196 lib/nic/phpwhois/whois.php:91
-#: lib/nic/phpwhois/whois.php:122
+#: dash/pdo/connection.php:196 lib/nic/phpwhois/whois.php:90
+#: lib/nic/phpwhois/whois.php:121
 msgid "Connection error!"
 msgstr "خطا در اتصال!"
 
@@ -39798,15 +39829,11 @@ msgstr "تنها ۱۰۰۰ ردیف در خروجی قابل نمایش است"
 msgid "Tipax"
 msgstr "تیپاکس"
 
-#: lib/app/setting/package.php:44 lib/app/setting/shipping_method.php:44
-msgid "Invalid title"
-msgstr "عنوان اشتباه است"
+#: lib/app/setting/package.php:66 lib/app/setting/shipping_method.php:66
+msgid "Record not found"
+msgstr "ردیف یافت نشد"
 
-#: lib/app/setting/package.php:55 lib/app/setting/shipping_method.php:55
-msgid "Package not found"
-msgstr "بسته یافت نشد"
-
-#: lib/app/setting/package.php:90
+#: lib/app/setting/package.php:111 lib/app/setting/package.php:160
 msgid "Duplicate package title"
 msgstr "عنوان بسته تکراری است"
 
@@ -39921,8 +39948,12 @@ msgstr "از"
 msgid "Please choose yoru file"
 msgstr "لطفا فایل خود را انتخاب کنید"
 
-#: lib/app/setting/shipping_method.php:87
+#: lib/app/setting/shipping_method.php:109
 msgid "Duplicate shipping method title"
+msgstr "عنوان روش ارسال تکراری است"
+
+#: lib/app/setting/shipping_method.php:156
+msgid "Duplicate shipping_method title"
 msgstr "عنوان روش ارسال تکراری است"
 
 #: lib/app/shaparak/iban/set.php:47 lib/app/shaparak/profile/set.php:131
@@ -41596,11 +41627,11 @@ msgstr "خطای اعتبارسنجی"
 msgid "Command completed successfully; action pending"
 msgstr "فرمان با موفقیت انجام شد. درخواست شما در صف قرار گرفت"
 
-#: lib/nic/phpwhois/whois.php:159
+#: lib/nic/phpwhois/whois.php:158
 msgid "No whois server for this tld in list!"
 msgstr "ما منبعی برای دریافت اطلاعات این دامنه پیدا نکردیم!"
 
-#: lib/nic/phpwhois/whois.php:165
+#: lib/nic/phpwhois/whois.php:164
 msgid "Domain :val  isn't valid!"
 msgstr "دامنه :val معتبر نیست!"
 
@@ -41867,6 +41898,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Invalid title"
+#~ msgstr "عنوان اشتباه است"
+
+#~ msgid "Package not found"
+#~ msgstr "بسته یافت نشد"
 
 #~ msgid "Shipping option"
 #~ msgstr "تنظیمات ارسال سفارش"
@@ -43009,9 +43046,6 @@ msgstr "یارد"
 
 #~ msgid "Add new image"
 #~ msgstr "افزودن تصویر جدید"
-
-#~ msgid "Edit image"
-#~ msgstr "ویرایش تصویر"
 
 #~ msgid "Image block setting"
 #~ msgstr "تنظیمات بخش تصاویر"
