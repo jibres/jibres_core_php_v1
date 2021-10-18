@@ -10,7 +10,15 @@ class controller
 
 		if($url)
 		{
-			$url = 'http://'. $url;
+			if(substr($url, 0, 5) === 'https')
+			{
+				$url = 'https://'. substr($url, 5);
+
+			}
+			else
+			{
+				$url = 'http://'. $url;
+			}
 		}
 		else
 		{
