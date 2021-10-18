@@ -61,12 +61,23 @@ if(\lib\store::detail('mass_unit'))
 
 
       </div>
-      <footer class="txtRa">
-        <?php if(\dash\data::editMode()) {?>
-          <button  class="btn primary"><?php echo T_("Edit package"); ?></button>
-        <?php }else{ ?>
-          <button  class="btn success"><?php echo T_("Create package"); ?></button>
-        <?php } //endif ?>
+        <footer class="">
+          <div class="row">
+            <div class="c-auto">
+              <?php if(\dash\data::editMode()) {?>
+                <a href="<?php echo \dash\url::current() ?>" class="btn secondary outline"><?php echo T_("Cancel") ?></a>
+              <?php } //endif ?>
+            </div>
+            <div class="c"></div>
+            <div class="c-auto">
+              <?php if(\dash\data::editMode()) {?>
+                <button  class="btn primary"><?php echo T_("Edit package"); ?></button>
+              <?php }else{ ?>
+                <button  class="btn success"><?php echo T_("Create package"); ?></button>
+              <?php } //endif ?>
+            </div>
+          </div>
+
       </footer>
     </div>
   </form>
