@@ -53,6 +53,14 @@ class dns
 
 		if(!$get_dns)
 		{
+			/**
+
+				TODO:
+				- Get from nic info if domain is .ir
+				- Get from php-dig https://github.com/hostinger/php-dig/blob/master/src/Hostinger/ExecuteDigCommand.php
+
+			 */
+
 			$get_dns = self::get_from_php_dns_function($load['domain']);
 
 			if(!$get_dns)
