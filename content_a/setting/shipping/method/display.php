@@ -1,8 +1,9 @@
+
 <div class="avand-md">
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="pad">
-        <p><?php echo T_("Define shipping methods detail");?></p>
+        <p><?php echo T_("Define shipping method");?></p>
 
         <label for="title"><?php echo T_("Title"); ?></label>
         <div class="input">
@@ -10,13 +11,15 @@
         </div>
 
         <label for="desc"><?php echo T_("Description"); ?></label>
-        <textarea class="txt" name="desc" rows="3"></textarea>
-
-
+        <textarea name="desc" class="txt" rows="3"><?php echo \dash\data::dataRow_desc() ?></textarea>
 
       </div>
       <footer class="txtRa">
-        <button  class="btn success" ><?php echo T_("Save"); ?></button>
+        <?php if(\dash\data::editMode()) {?>
+          <button  class="btn primary"><?php echo T_("Edit method"); ?></button>
+        <?php }else{ ?>
+          <button  class="btn success"><?php echo T_("Create method"); ?></button>
+        <?php } //endif ?>
       </footer>
     </div>
   </form>
@@ -25,11 +28,21 @@
     <?php foreach (\dash\data::methodList() as $key => $value){ ?>
       <div class="box">
         <div class="pad">
-          <div class="txtB fs14"><?php echo a($value, 'title') ?></div>
-          <p><?php echo a($value, 'desc'); ?></p>
+          <div class="txtB mB10 fs14"><?php echo a($value, 'title') ?></div>
+
+          <?php if(a($value, 'desc')) {?><div> <p><?php echo nl2br(a($value, 'desc')) ?> </p> </div><?php } //endif ?>
         </div>
-        <footer class="txtRa">
-          <div class="btn danger outline" data-confirm data-data='{"remove": "remove", "title" : "<?php echo a($value, 'title') ?>"}'><?php echo T_("Remove") ?></div>
+        <footer class="">
+          <div class="row">
+            <div class="c-auto"><div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></div>
+            <div class="c"></div>
+            <div class="c-auto">
+              <?php if(\dash\data::editMode() && \dash\request::get('id') == a($value, 'id')) { /*Nothing*/ }else{ ?>
+                <a href="<?php echo \dash\url::current(). '?id='. a($value, 'id') ?>" class="btn primary outline"><?php echo T_("Edit") ?></a>
+              <?php } //endif ?>
+            </div>
+          </div>
+
         </footer>
 
       </div>

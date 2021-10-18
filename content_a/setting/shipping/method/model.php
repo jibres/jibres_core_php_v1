@@ -8,11 +8,11 @@ class model
 	{
 		if(\dash\request::post('remove') === 'remove')
 		{
-			\lib\app\setting\shipping_method::remove(\dash\request::post('title'));
+			\lib\app\setting\shipping_method::remove(\dash\request::post('id'));
 			if(\dash\engine\process::status())
 			{
-				\dash\notif::ok(T_("Package removed"));
-				\dash\redirect::pwd();
+				\dash\notif::ok(T_("Shipping method removed"));
+				\dash\redirect::to(\dash\url::current());
 			}
 
 			return;
@@ -21,15 +21,30 @@ class model
 
 		$post           = [];
 		$post['title']  = \dash\request::post('title');
-		$post['desc'] = \dash\request::post('desc');
+		$post['desc']   = \dash\request::post('desc');
+		$post['status'] = \dash\request::post('status');
 
-		\lib\app\setting\shipping_method::add($post);
 
-		if(\dash\engine\process::status())
+		if(\dash\data::editMode())
 		{
-			\dash\notif::ok(T_("Package added"));
-			\dash\redirect::pwd();
+			\lib\app\setting\shipping_method::edit($post, \dash\request::get('id'));
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::ok(T_("Shipping method edited"));
+				\dash\redirect::to(\dash\url::current());
+			}
 		}
+		else
+		{
+			\lib\app\setting\shipping_method::add($post);
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::ok(T_("Shipping method added"));
+				\dash\redirect::pwd();
+			}
+		}
+
+
 
 	}
 }

@@ -23,7 +23,9 @@ class shipping_method
 		{
 			if(isset($value['key']) && array_key_exists('value', $value))
 			{
-				$setting[] = \dash\json::decode($value['value']);
+				$myValue       = \dash\json::decode($value['value']);
+				$myValue['id'] = a($value, 'id');
+				$setting[]     = $myValue;
 			}
 		}
 
@@ -32,30 +34,49 @@ class shipping_method
 
 
 
-	public static function remove($_title)
+	public static function remove($_id)
+	{
+		$load = self::load($_id);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		\lib\db\setting\delete::record($load['id']);
+		return true;
+
+	}
+
+
+	public static function load($_id)
 	{
 		$cat   = 'shipping_shipping_method';
 
+		$id = \dash\validate::id($_id);
 
-		$key = \dash\validate::title($_title);
-
-		if(!$key)
+		if(!$id)
 		{
-			\dash\notif::error(T_("Invalid title"));
 			return false;
 		}
 
-		if($setting = \lib\app\setting\tools::get($cat, $key))
+		$load = \lib\db\setting\get::by_id($id);
+		if(!$load)
 		{
-			\lib\db\setting\delete::record($setting['id']);
-			return true;
-		}
-		else
-		{
-			\dash\notif::error(T_("Package not found"));
+			\dash\notif::error(T_("Record not found"));
 			return false;
 		}
 
+		if(a($load, 'cat') !== $cat)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$result = \dash\json::decode(a($load, 'value'));
+		$result['id'] = $id;
+
+		return $result;
 	}
 
 
@@ -66,7 +87,8 @@ class shipping_method
 		$condition =
 		[
 			'title'  => 'title',
-			'desc' => 'desc',
+			'desc'   => 'desc',
+			'status' => 'bit',
 		];
 
 		$require = ['title'];
@@ -92,6 +114,55 @@ class shipping_method
 
 		return true;
 	}
+
+
+
+	public static function edit($_args, $_id)
+	{
+		$condition =
+		[
+			'title'  => 'title',
+			'desc'   => 'desc',
+			'status' => 'bit',
+		];
+
+		$require = ['title'];
+
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$cat  = 'shipping_shipping_method';
+
+		$load = self::load($_id);
+		if(!$load)
+		{
+			return false;
+		}
+
+		$key = $data['title'];
+
+		$value = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+		if($check_duplicate = \lib\app\setting\tools::get($cat, $key))
+		{
+			if(a($check_duplicate, 'id') == $load['id'])
+			{
+				// ok.
+			}
+			else
+			{
+				\dash\notif::error(T_("Duplicate shipping_method title"));
+				return false;
+			}
+		}
+
+		\lib\db\setting\update::record(['key' => $key, 'value' => $value], $load['id']);
+
+		return true;
+	}
+
 
 
 }
