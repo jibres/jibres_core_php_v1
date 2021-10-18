@@ -5,6 +5,11 @@ namespace lib\db\setting;
 class update
 {
 
+	public static function record($_args, $_id)
+	{
+		$result = \dash\pdo\query_template::update('setting', $_args, $_id);
+		return $result;
+	}
 
 	public static function by_cat_key($_cat, $_key, $_value)
 	{

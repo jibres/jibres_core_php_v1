@@ -36,6 +36,21 @@ class package
 
 	public static function remove($_id)
 	{
+		$load = self::load($_id);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		\lib\db\setting\delete::record($load['id']);
+		return true;
+
+	}
+
+
+	public static function load($_id)
+	{
 		$cat   = 'shipping_package';
 
 		$id = \dash\validate::id($_id);
@@ -58,9 +73,10 @@ class package
 			return false;
 		}
 
-		\lib\db\setting\delete::record($load['id']);
-		return true;
+		$result = \dash\json::decode(a($load, 'value'));
+		$result['id'] = $id;
 
+		return $result;
 	}
 
 
@@ -100,6 +116,57 @@ class package
 
 		return true;
 	}
+
+
+
+	public static function edit($_args, $_id)
+	{
+		$condition =
+		[
+			'title'  => 'title',
+			'length' => 'float',
+			'width'  => 'float',
+			'height' => 'float',
+			'weight' => 'float',
+		];
+
+		$require = ['title'];
+
+
+		$meta =	[];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$cat  = 'shipping_package';
+
+		$load = self::load($_id);
+		if(!$load)
+		{
+			return false;
+		}
+
+		$key = $data['title'];
+
+		$value = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+		if($check_duplicate = \lib\app\setting\tools::get($cat, $key))
+		{
+			if(a($check_duplicate, 'id') == $load['id'])
+			{
+				// ok.
+			}
+			else
+			{
+				\dash\notif::error(T_("Duplicate package title"));
+				return false;
+			}
+		}
+
+		\lib\db\setting\update::record(['key' => $key, 'value' => $value], $load['id']);
+
+		return true;
+	}
+
 
 
 }

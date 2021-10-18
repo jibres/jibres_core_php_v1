@@ -12,7 +12,7 @@ class model
 			if(\dash\engine\process::status())
 			{
 				\dash\notif::ok(T_("Package removed"));
-				\dash\redirect::pwd();
+				\dash\redirect::to(\dash\url::current());
 			}
 
 			return;
@@ -26,13 +26,26 @@ class model
 		$post['height'] = \dash\request::post('height');
 		$post['weight'] = \dash\request::post('weight');
 
-		\lib\app\setting\package::add($post);
-
-		if(\dash\engine\process::status())
+		if(\dash\data::editMode())
 		{
-			\dash\notif::ok(T_("Package added"));
-			\dash\redirect::pwd();
+			\lib\app\setting\package::edit($post, \dash\request::get('id'));
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::ok(T_("Package edited"));
+				\dash\redirect::to(\dash\url::current());
+			}
 		}
+		else
+		{
+			\lib\app\setting\package::add($post);
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::ok(T_("Package added"));
+				\dash\redirect::pwd();
+			}
+		}
+
+
 
 	}
 }

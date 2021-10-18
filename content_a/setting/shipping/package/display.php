@@ -62,7 +62,11 @@ if(\lib\store::detail('mass_unit'))
 
       </div>
       <footer class="txtRa">
-        <button  class="btn success" ><?php echo T_("Save"); ?></button>
+        <?php if(\dash\data::editMode()) {?>
+          <button  class="btn primary"><?php echo T_("Edit package"); ?></button>
+        <?php }else{ ?>
+          <button  class="btn success"><?php echo T_("Create package"); ?></button>
+        <?php } //endif ?>
       </footer>
     </div>
   </form>
@@ -77,8 +81,15 @@ if(\lib\store::detail('mass_unit'))
           <?php if(a($value, 'height')) {?><div><small><?php echo T_("Height"); ?></small> <?php echo \dash\fit::text(a($value, 'height')) ?> <small><?php echo $lenght_unit ?></small></div><?php } //endif ?>
           <?php if(a($value, 'weight')) {?><div><small><?php echo T_("Weight"); ?></small> <?php echo \dash\fit::text(a($value, 'weight')) ?> <small><?php echo $mass_unit ?></small></div><?php } //endif ?>
         </div>
-        <footer class="txtRa">
-          <div class="btn danger outline" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div>
+        <footer class="row">
+          <div class="c-auto"><div class="btn danger outline" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></div>
+          <div class="c"></div>
+          <div class="c-auto">
+            <?php if(\dash\data::editMode() && \dash\request::get('id') == a($value, 'id')) { /*Nothing*/ }else{ ?>
+              <a href="<?php echo \dash\url::current(). '?id='. a($value, 'id') ?>" class="btn primary outline"><?php echo T_("Edit") ?></a>
+            <?php } //endif ?>
+          </div>
+
         </footer>
 
       </div>
