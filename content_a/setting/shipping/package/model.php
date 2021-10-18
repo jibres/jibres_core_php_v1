@@ -8,7 +8,7 @@ class model
 	{
 		if(\dash\request::post('remove') === 'remove')
 		{
-			\lib\app\setting\package::remove(\dash\request::post('title'));
+			\lib\app\setting\package::remove(\dash\request::post('id'));
 			if(\dash\engine\process::status())
 			{
 				\dash\notif::ok(T_("Package removed"));

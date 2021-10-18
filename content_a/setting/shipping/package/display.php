@@ -78,7 +78,7 @@ if(\lib\store::detail('mass_unit'))
           <?php if(a($value, 'weight')) {?><div><small><?php echo T_("Weight"); ?></small> <?php echo \dash\fit::text(a($value, 'weight')) ?> <small><?php echo $mass_unit ?></small></div><?php } //endif ?>
         </div>
         <footer class="txtRa">
-          <div class="btn danger outline" data-confirm data-data='{"remove": "remove", "title" : "<?php echo a($value, 'title') ?>"}'><?php echo T_("Remove") ?></div>
+          <div class="btn danger outline" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div>
         </footer>
 
       </div>

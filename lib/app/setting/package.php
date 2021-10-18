@@ -23,7 +23,9 @@ class package
 		{
 			if(isset($value['key']) && array_key_exists('value', $value))
 			{
-				$setting[] = \dash\json::decode($value['value']);
+				$myValue       = \dash\json::decode($value['value']);
+				$myValue['id'] = a($value, 'id');
+				$setting[]     = $myValue;
 			}
 		}
 
@@ -32,29 +34,32 @@ class package
 
 
 
-	public static function remove($_title)
+	public static function remove($_id)
 	{
 		$cat   = 'shipping_package';
 
+		$id = \dash\validate::id($_id);
 
-		$key = \dash\validate::title($_title);
-
-		if(!$key)
+		if(!$id)
 		{
-			\dash\notif::error(T_("Invalid title"));
 			return false;
 		}
 
-		if($setting = \lib\app\setting\tools::get($cat, $key))
+		$load = \lib\db\setting\get::by_id($id);
+		if(!$load)
 		{
-			\lib\db\setting\delete::record($setting['id']);
-			return true;
-		}
-		else
-		{
-			\dash\notif::error(T_("Package not found"));
+			\dash\notif::error(T_("Record not found"));
 			return false;
 		}
+
+		if(a($load, 'cat') !== $cat)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		\lib\db\setting\delete::record($load['id']);
+		return true;
 
 	}
 
