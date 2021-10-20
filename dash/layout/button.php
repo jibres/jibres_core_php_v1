@@ -98,8 +98,6 @@ class button
 		{
 			$html = '';
 			$html .= "<a href='$btnDuplicate' class='btn-light btn-icon btn-sm mx-2'>";
-
-			// $html .= '<img src="'. \dash\utility\icon::url('duplicate', 'minor'). '">';
 			$html .= \dash\utility\icon::svg('duplicate', 'minor');
 			$html .= '<span>'. T_("Duplicate"). '</span>';
 			$html .= "</a>";
