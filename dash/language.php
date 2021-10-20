@@ -142,6 +142,28 @@ class language
 	}
 
 
+	public static function classLeftAuto()
+	{
+		if(self::rtl())
+		{
+			return 'r';
+		}
+
+		return 'l';
+	}
+
+
+	public static function classRightAuto()
+	{
+		if(self::rtl())
+		{
+			return 'l';
+		}
+
+		return 'r';
+	}
+
+
 	/**
 	 * get detail of language
 	 * @param  string $_request [description]

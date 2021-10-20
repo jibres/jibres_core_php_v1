@@ -18,7 +18,7 @@ class button
 				$btnSave_name = \dash\face::btnSaveName();
 			}
 
-			$btnSave_class = 'btn-success';
+			$btnSave_class = 'btn-primary';
 			if(\dash\face::btnSaveClass())
 			{
 				$btnSave_class = \dash\face::btnSaveClass();
@@ -97,7 +97,14 @@ class button
 		if($btnDuplicate = \dash\face::btnDuplicate())
 		{
 			$html = '';
-			$html .= "<a href='$btnDuplicate' class='btn-secondary mr-1 ml-1'>". T_("Duplicate")."</a>";
+			$html .= "<a href='$btnDuplicate' class='btn-light mx-2'>";
+
+			$iconClass = 'inline-block h-5';
+			$iconClass .= ' m'. \dash\language::classRightAuto(). '-2';
+
+			$html .= '<img class="'. $iconClass. '" src="'. \dash\utility\icon::url('duplicate', 'minor'). '">';
+			$html .= '<span class="inline-block">'. T_("Duplicate"). '</span>';
+			$html .= "</a>";
 			return $html;
 		}
 		return null;
