@@ -29,7 +29,7 @@
 
             <?php }elseif(\dash\data::canAddStore_type() === 'store3') {?>
 
-              <a href='<?php echo \dash\url::support(); ?>/ticket/add?title=<?php echo T_("Create more business"); ?>' class="btn block outline mT10 primary"><?php echo T_("Contact Us"); ?></a>
+              <a href='<?php echo \dash\url::kingdom(); ?>/my/ticket/add?title=<?php echo T_("Create more business"); ?>' class="btn block outline mT10 primary"><?php echo T_("Contact Us"); ?></a>
 
             <?php } //endif ?>
 
