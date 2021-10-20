@@ -18,7 +18,7 @@ class calculate
 			'desc'       => a($load_factor, 'desc'),
 			'discount'   => a($load_factor, 'discount'),
 			'shipping'   => a($load_factor, 'shipping'),
-			'date'       => a($load_factor, 'date'),
+			// 'date'       => a($load_factor, 'date'),
 			'type'       => a($load_factor, 'type'),
 			'status'     => a($load_factor, 'status'),
 			'paystatus'  => a($load_factor, 'paystatus'),
@@ -71,6 +71,7 @@ class calculate
 			}
 		}
 
+		unset($result['factor']['date']);
 		// update factor record
 		$update = \lib\db\factors\update::record($result['factor'], $_factor_id);
 
