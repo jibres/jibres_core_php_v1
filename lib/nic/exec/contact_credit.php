@@ -100,6 +100,19 @@ class contact_credit
 						$temp['amount'] = $amount;
 					}
 
+					if(isset($credit->domain))
+					{
+						$domain = $credit->domain->__toString();
+
+						if(!is_string($domain))
+						{
+							$domain = null;
+						}
+
+						$temp['domain'] = $domain;
+					}
+
+
 					if(isset($credit->balance))
 					{
 						$balance = $credit->balance->__toString();
