@@ -108,6 +108,7 @@ class language
 		return $result;
 	}
 
+
 	public static function dir()
 	{
 		if(isset(self::$language['direction']))
@@ -116,6 +117,28 @@ class language
 		}
 
 		return 'ltr';
+	}
+
+
+	public static function rtl()
+	{
+		if(self::dir() === 'rtl')
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
+	public static function ltr()
+	{
+		if(self::dir() === 'ltr')
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 
