@@ -121,9 +121,10 @@ class controller
 		}
 
 		// fetch credit of nic
-		if(self::daily_on('10'))
+		if(self::every_hour())
 		{
 			\lib\app\nic_credit\get::fetch();
+			\lib\app\nic_credit\get::check_refund();
 		}
 
 		// from 8 to 20

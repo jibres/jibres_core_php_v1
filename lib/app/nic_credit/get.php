@@ -54,5 +54,31 @@ class get
 		$last = \lib\app\nic_credit\ready::row($last);
 		return $last;
 	}
+
+
+	public static function check_refund()
+	{
+		$need_check_refound = \lib\db\nic_credit\get::check_refund();
+		if(!$need_check_refound || !is_array($need_check_refound))
+		{
+			return;
+		}
+
+		foreach ($need_check_refound as $key => $value)
+		{
+			$transaction_id = \lib\app\nic_poll\get::back_money($value['domain']);
+			$meta = null;
+			if(!$transaction_id)
+			{
+				$meta = 'Can not refund money';
+				$transaction_id = null;
+			}
+
+			$update = ['refund_transaction_id' => $transaction_id, 'meta' => $meta];
+
+			\lib\db\nic_credit\update::record($update, $value['id']);
+
+		}
+	}
 }
 ?>

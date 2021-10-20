@@ -123,11 +123,11 @@ class get
 
 	}
 
-
-	private static function back_money($_domain)
+	// call from nic credit
+	public static function back_money($_domain)
 	{
 		$result = \lib\db\nic_domainbilling\get::register_price_back($_domain);
-		if(!is_array($result))
+		if(!is_array($result) || !$result)
 		{
 			return false;
 		}
@@ -154,6 +154,8 @@ class get
 			\dash\log::set('domain_irnicRefundMoney', ['to' => $result['user_id'], 'mydomain' => $_domain]);
 
 			\dash\log::to_supervisor('Domain reject money back. Refund money successfull. domain: '. $_domain);
+
+			return $transaction_id;
 
 		}
 
