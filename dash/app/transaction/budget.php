@@ -160,7 +160,7 @@ class budget
 				return self::set($new_data);
 			}
 
-			return true;
+			return $transaction_id;
 			// \dash\redirect::to(\dash\url::this(). '/transactions'. \dash\request::full_get());
 		}
 
