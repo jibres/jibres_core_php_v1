@@ -67,7 +67,7 @@ class site_list
 		}
 		else
 		{
-			$result['results'][] = ['text' => T_("No result founded!"), 'id' => null, "disabled"  => true];
+			$result['results'][] = ['text' => T_("No result found!"), 'id' => null, "disabled"  => true];
 		}
 
 		if(!$result)

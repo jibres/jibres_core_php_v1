@@ -36,7 +36,7 @@ class site_list
 			$result['result'] =
 			[
 				[
-					"text"  => T_("No result founded!"),
+					"text"  => T_("No result found!"),
 					"id" => null,
 					// "disabled"  => true
 				]
