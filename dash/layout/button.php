@@ -97,13 +97,11 @@ class button
 		if($btnDuplicate = \dash\face::btnDuplicate())
 		{
 			$html = '';
-			$html .= "<a href='$btnDuplicate' class='btn-light mx-2'>";
+			$html .= "<a href='$btnDuplicate' class='btn-light btn-icon btn-sm mx-2'>";
 
-			$iconClass = 'inline-block h-5';
-			$iconClass .= ' m'. \dash\language::classRightAuto(). '-2';
-
-			$html .= '<img class="'. $iconClass. '" src="'. \dash\utility\icon::url('duplicate', 'minor'). '">';
-			$html .= '<span class="inline-block">'. T_("Duplicate"). '</span>';
+			// $html .= '<img src="'. \dash\utility\icon::url('duplicate', 'minor'). '">';
+			$html .= \dash\utility\icon::svg('duplicate', 'minor');
+			$html .= '<span>'. T_("Duplicate"). '</span>';
 			$html .= "</a>";
 			return $html;
 		}

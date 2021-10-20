@@ -6,7 +6,7 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
   $html .= '<div class="backBtn">';
   {
 
-    $html .= '<a class="btn-light btn-sm" href="'. \dash\data::back_link(). '" ';
+    $html .= '<a class="btn-light btn-icon btn-sm" href="'. \dash\data::back_link(). '" ';
     if(\dash\data::back_direct())
     {
       $html .= 'data-direct';
@@ -23,7 +23,7 @@ $html .= '<div class="h-full flex flex-wrap content-center px-3">';
        $html .= \dash\utility\icon::svg('ChevronLeft', 'minor');
       }
 
-      $html .= '<span class="px-1">'. \dash\data::back_text(). '</span>';
+      $html .= '<span>'. \dash\data::back_text(). '</span>';
     }
     $html .= '</a>';
   }
