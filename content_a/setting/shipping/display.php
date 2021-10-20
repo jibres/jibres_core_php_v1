@@ -95,7 +95,7 @@
 
 </div>
 
-
+<?php if(false) {?>
 <section class="f" data-option='setting-shipping-package' id="setting-shipping-package">
   <div class="c8 s12">
     <div class="data">
@@ -127,6 +127,7 @@
     </div>
   </form>
 </section>
+<?php } //endif ?>
 
 
 
