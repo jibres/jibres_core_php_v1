@@ -65,7 +65,7 @@ class dns
 
 			if(!$get_dns)
 			{
-				$get_dns = self::get_from_whois($load['domain']);
+				// $get_dns = self::get_from_whois($load['domain']);
 
 				if(!$get_dns)
 				{
