@@ -389,7 +389,19 @@ class edit
 
 			\lib\db\factors\update::record($args, $load_factor['id']);
 
-			$ok = \lib\app\factor\calculate::again($load_factor['id'], ['shipping_value' => a($args, 'shipping')]);
+			$meta = [];
+
+			if(array_key_exists('shipping', $args))
+			{
+				$meta['force_shipping_value'] = a($args, 'shipping');
+			}
+			elseif(a($load_factor, 'shipping'))
+			{
+				$meta['force_shipping_value'] = a($load_factor, 'shipping');
+
+			}
+
+			$ok = \lib\app\factor\calculate::again($load_factor['id'], $meta);
 
 			if($ok)
 			{

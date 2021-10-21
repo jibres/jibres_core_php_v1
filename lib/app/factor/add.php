@@ -147,6 +147,9 @@ class add
 
 			// recalculate factor
 			're_calculate_factor' => false,
+
+			// force set shipping value by admin
+			'force_shipping_value' => null,
 		];
 
 		if(!is_array($_option))
@@ -252,7 +255,7 @@ class add
 			// change factor mode to customer
 			$mode = 'customer';
 
-			$factor = self::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $fileMode]);
+			$factor = self::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $fileMode, 'shipping_value' => a($_option, 'force_shipping_value')]);
 		}
 
 		$factor['realshipping'] = $factor['shipping'];
@@ -264,13 +267,6 @@ class add
 
 		$factor['total']     = (floatval($factor['subtotal']) - (floatval($factor['discount']) + floatval($factor['discount2']))) + floatval($factor['shipping']);
 
-		$factor['status']    = $factor['status'] ? $factor['status'] : 'registered';
-		$factor['seller']    = \dash\user::id();
-		$factor['date']      = date("Y-m-d H:i:s");
-		$factor['title']     = null;
-		$factor['pre']       = null;
-		$factor['desc']      = $factor['desc'];
-		$factor['mode']      = $mode;
 
 
 		/**
@@ -292,6 +288,13 @@ class add
 			return $result;
 		}
 
+		$factor['status']    = $factor['status'] ? $factor['status'] : 'registered';
+		$factor['seller']    = \dash\user::id();
+		$factor['date']      = date("Y-m-d H:i:s");
+		$factor['title']     = null;
+		$factor['pre']       = null;
+		$factor['desc']      = $factor['desc'];
+		$factor['mode']      = $mode;
 
 		// check max input size for factor
 		$factor          = \lib\app\factor\check::value_max_limit($factor, $_option);

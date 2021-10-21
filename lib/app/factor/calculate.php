@@ -8,6 +8,7 @@ class calculate
 	public static function again($_factor_id, $_option = [])
 	{
 		$load_factor = \lib\app\factor\get::one($_factor_id);
+
 		if(!$load_factor)
 		{
 			return false;
@@ -18,7 +19,7 @@ class calculate
 			'desc'       => a($load_factor, 'desc'),
 			'discount'   => a($load_factor, 'discount'),
 			'shipping'   => a($load_factor, 'shipping'),
-			// 'date'       => a($load_factor, 'date'),
+			'date'       => a($load_factor, 'date'),
 			'type'       => a($load_factor, 'type'),
 			'status'     => a($load_factor, 'status'),
 			'paystatus'  => a($load_factor, 'paystatus'),
@@ -49,10 +50,11 @@ class calculate
 
 		$factor_option =
 		[
-			'customer_mode'       => (a($load_factor, 'mode') === 'customer') ? true : false,
-			'factor_id'           => $_factor_id,
-			're_calculate_factor' => true,
-			'discount_id'         => a($load_factor, 'discount_id'),
+			'customer_mode'        => (a($load_factor, 'mode') === 'customer') ? true : false,
+			'factor_id'            => $_factor_id,
+			're_calculate_factor'  => true,
+			'discount_id'          => a($load_factor, 'discount_id'),
+			'force_shipping_value' => a($_option, 'force_shipping_value'),
 		];
 
 		$result = \lib\app\factor\add::new_factor($ready_factor, $ready_factor_detail, $factor_option);
@@ -71,7 +73,6 @@ class calculate
 			}
 		}
 
-		unset($result['factor']['date']);
 		// update factor record
 		$update = \lib\db\factors\update::record($result['factor'], $_factor_id);
 
