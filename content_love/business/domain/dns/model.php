@@ -19,6 +19,7 @@ class model
 				'type'             => \dash\request::post('type'),
 				'key'              => \dash\request::post('key'),
 				'value'            => \dash\request::post('value'),
+				'cloud'            => \dash\request::post('cloud'),
 				'addtocdnpaneldns' => \dash\request::post('addtocdnpaneldns'),
 			];
 

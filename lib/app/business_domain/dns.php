@@ -468,6 +468,7 @@ class dns
 			'value'            => 'string_255',
 			'priority'         => 'int',
 			'addtocdnpaneldns' => 'bit',
+			'cloud'            => 'bit',
 		];
 
 		$require = ['type', 'key', 'value'];
@@ -531,9 +532,19 @@ class dns
 			'key'                => $data['key'],
 			'value'              => $data['value'],
 			'priority'           => $data['priority'],
+			'cloud'              => $data['cloud'] ? 1 : null,
 			'status'             => 'pending',
 			'datecreated'        => date("Y-m-d H:i:s"),
 		];
+
+		if(!array_key_exists('cloud', $_args))
+		{
+			$insert['cloud'] = 1;
+		}
+		elseif(array_key_exists('cloud', $_args) && !$data['cloud'])
+		{
+			$insert['cloud'] = 0;
+		}
 
 		$dns_id = \lib\db\business_domain\insert::new_record_dns($insert);
 
@@ -632,13 +643,20 @@ class dns
 
 				$value = json_encode($value);
 
+				$cloud = true;
+
+				if((string) a($load_dns_record, 'cloud') === '0')
+				{
+					$cloud = false;
+				}
+
 				$add_dns =
 				[
 					"type"           =>  $load_dns_record['type'],
 					"name"           =>  $load_dns_record['key'],
 					"value"          =>  $value,
 					"ttl"            =>  120,
-					"cloud"          =>  true,
+					"cloud"          =>  $cloud,
 					"upstream_https" =>  "default",
 					"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
 				];

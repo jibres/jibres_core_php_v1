@@ -21,9 +21,9 @@
                 <option value="NS">NS</option>
                 <option value="PTR">PTR</option>
                 <?php if(false) {?>
-                <option value="SOA">SOA</option>
-                <option value="SRV">SRV</option>
-              <?php } //endif ?>
+                  <option value="SOA">SOA</option>
+                  <option value="SRV">SRV</option>
+                <?php } //endif ?>
                 <option value="TXT">TXT</option>
               </select>
             </div>
@@ -34,86 +34,94 @@
               <input type="text" name="key" id="ikey" placeholder="Use @ for root">
             </div>
           </div>
-          <div class="c-xs-12 c-sm-5">
+          <div class="c-xs-12 c-sm-4">
             <label for="ivalue"><?php echo T_("Value") ?></label>
             <div class="input ltr">
               <input type="text" name="value" id="ivalue" placeholder="">
             </div>
           </div>
+
+          <div class="c-xs-auto c-sm-auto">
+            <div class="check1 mT20">
+              <input type="checkbox" name="cloud" value="1" id="cloud" checked>
+              <label for="cloud"><?php echo T_("Cloud") ?></label>
+            </div>
+          </div>
+
+
+          <div class="check1">
+            <input type="checkbox" name="addtocdnpaneldns" value="1" id="iaddtocdnpaneldns" checked>
+            <label for="iaddtocdnpaneldns"><?php echo T_("Also add to CDN panel DNS record") ?></label>
+          </div>
+          <div class="fc-mute">
+            <?php echo T_("If you do not add to the panel, the system will automatically add to the panel after a few minutes, but if you sync in the meantime, this information will be deleted."); ?>
+          </div>
+
+          <p class="msg minimal mT10"><?php echo T_("You can insert Jibres DNS record to this domain"); ?> <span data-confirm data-data='{"jibresdns": "jibresdns"}' class="link"><?php echo T_("Insert now!") ?></span></p>
+
+
+
         </div>
-
-        <div class="check1">
-          <input type="checkbox" name="addtocdnpaneldns" value="1" id="iaddtocdnpaneldns" checked>
-          <label for="iaddtocdnpaneldns"><?php echo T_("Also add to CDN panel DNS record") ?></label>
-        </div>
-        <div class="fc-mute">
-          <?php echo T_("If you do not add to the panel, the system will automatically add to the panel after a few minutes, but if you sync in the meantime, this information will be deleted."); ?>
-        </div>
-
-        <p class="msg minimal mT10"><?php echo T_("You can insert Jibres DNS record to this domain"); ?> <span data-confirm data-data='{"jibresdns": "jibresdns"}' class="link"><?php echo T_("Insert now!") ?></span></p>
-
-
-
+        <footer class="f">
+          <div class="cauto"><div data-confirm data-data='{"dnsfetch": "dnsfetch"}' class="btn link"><?php echo T_("Fetch DNS") ?></div></div>
+          <div class="c"></div>
+          <div class="cauto"><button class="btn master"><?php echo T_("Add DNS") ?></button></div>
+        </footer>
       </div>
-      <footer class="f">
-        <div class="cauto"><div data-confirm data-data='{"dnsfetch": "dnsfetch"}' class="btn link"><?php echo T_("Fetch DNS") ?></div></div>
-        <div class="c"></div>
-        <div class="cauto"><button class="btn master"><?php echo T_("Add DNS") ?></button></div>
-      </footer>
-    </div>
-  </form>
+      </div>
+    </form>
 
-<form method="post">
-  <div class="box">
-    <div class="pad">
-      <input type="hidden" name="changeserver" value="changeserver">
-      <div>
-        <label for="iserver"><?php echo T_("Server") ?></label>
-        <select class="select22" name="server" id="iserver">
-          <option value="" readonly><?php echo T_("Choose server") ?></option>
-          <?php foreach (\dash\data::serverList() as $key => $value) {?>
-            <option value="<?php echo a($value, 'code') ?>" <?php if(a($value, 'code') == \dash\data::currentServerKey()) { echo 'selected';} ?>><?php echo a($value, 'title') ?></option>
-          <?php } //endif ?>
-        </select>
+    <form method="post">
+      <div class="box">
+        <div class="pad">
+          <input type="hidden" name="changeserver" value="changeserver">
+          <div>
+            <label for="iserver"><?php echo T_("Server") ?></label>
+            <select class="select22" name="server" id="iserver">
+              <option value="" readonly><?php echo T_("Choose server") ?></option>
+              <?php foreach (\dash\data::serverList() as $key => $value) {?>
+                <option value="<?php echo a($value, 'code') ?>" <?php if(a($value, 'code') == \dash\data::currentServerKey()) { echo 'selected';} ?>><?php echo a($value, 'title') ?></option>
+              <?php } //endif ?>
+            </select>
+          </div>
+
+        </div>
+        <footer class="txtRa">
+          <button class="btn danger"><?php echo T_("Change source server") ?></button>
+        </footer>
       </div>
 
-    </div>
-    <footer class="txtRa">
-      <button class="btn danger"><?php echo T_("Change source server") ?></button>
-    </footer>
-  </div>
-
-</form>
+    </form>
 
 
-  <?php if(\dash\data::dnsList()) {?>
-    <table class="tbl1 v4 font-12">
-      <thead>
-        <tr>
-          <th class="collapsing"></th>
-          <th><?php echo T_("Type") ?></th>
-          <th><?php echo T_("Key") ?></th>
-          <th><?php echo T_("Value") ?></th>
-          <th><?php echo T_("Status") ?></th>
-          <th class="collapsing"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach (\dash\data::dnsList() as $key => $value) {?>
+    <?php if(\dash\data::dnsList()) {?>
+      <table class="tbl1 v4 font-12">
+        <thead>
           <tr>
-            <td class="collapsing"><?php if(a($value, 'verify')) {?><i title="<?php echo T_("Verified") ?>" class="sf-check fc-green"></i><?php }else{ ?><i title="<?php echo T_("Not verify") ?>" class="sf-exclamation-triangle fc-orange"></i><?php } //endif ?></td>
-            <td><?php echo a($value, 'type'); ?></td>
-            <td><?php echo a($value, 'key'); ?></td>
-            <td><?php echo a($value, 'value'); ?></td>
-            <td><?php echo a($value, 'status'); ?></td>
-            <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div></td>
+            <th class="collapsing"></th>
+            <th><?php echo T_("Type") ?></th>
+            <th><?php echo T_("Key") ?></th>
+            <th><?php echo T_("Value") ?></th>
+            <th><?php echo T_("Status") ?></th>
+            <th class="collapsing"></th>
           </tr>
-        <?php } // endif ?>
-      </tbody>
-    </table>
-  <?php } // endif ?>
+        </thead>
+        <tbody>
+          <?php foreach (\dash\data::dnsList() as $key => $value) {?>
+            <tr>
+              <td class="collapsing"><?php if(a($value, 'cloud')) {?><i title="<?php echo T_("Cloud") ?>" class="sf-cloud fc-green"></i><?php }else{ ?><i title="<?php echo T_("Raw") ?>" class="sf-cloud fc-mute"></i><?php } //endif ?></td>
+              <td><?php echo a($value, 'type'); ?></td>
+              <td><?php echo a($value, 'key'); ?></td>
+              <td><?php echo a($value, 'value'); ?></td>
+              <td><?php echo a($value, 'status'); ?></td>
+              <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div></td>
+            </tr>
+          <?php } // endif ?>
+        </tbody>
+      </table>
+    <?php } // endif ?>
 
 
 
-</div>
+  </div>
 
