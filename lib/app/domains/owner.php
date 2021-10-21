@@ -24,7 +24,7 @@ class owner
 		{
 			foreach ($need_check_owner_again as $key => $value)
 			{
-				self::fetch_domain_owner($value['name']);
+				// self::fetch_domain_owner($value['name']);
 			}
 		}
 	}
