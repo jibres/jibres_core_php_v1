@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		$url = \dash\url::kingdom(). '/tag';
+		$url = \dash\url::kingdom(). '/category';
 
 		if(\dash\url::child())
 		{

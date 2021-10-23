@@ -172,7 +172,7 @@ class ready
 		$result['full_slug']  = $new_slug;
 		$result['full_title'] = $new_title;
 
-		$result['url'] = \lib\store::url(). '/tag';
+		$result['url'] = \lib\store::url(). '/category';
 		if(isset($_option['first_url']) && $_option['first_url'])
 		{
 			$result['url'] .= '/'. $_option['first_url'];

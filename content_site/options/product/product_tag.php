@@ -41,7 +41,7 @@ class product_tag
 			$tagSearchLink .= '?tagid='. $default;
 		}
 
-		$title = T_("Filter by special tag");
+		$title = T_("Filter by special category");
 
 		$html = '';
 

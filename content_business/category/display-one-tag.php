@@ -1,7 +1,7 @@
 <div class="avand category">
     <div class="box">
       <div class="pad">
-        <a href="<?php echo \dash\url::kingdom(). '/tag'; ?>"><?php echo T_("Tags") ?></a>
+        <a href="<?php echo \dash\url::kingdom(). '/category'; ?>"><?php echo T_("Categories") ?></a>
         <?php if(\dash\data::dataRow_parent() && is_array(\dash\data::dataRow_parent())) {?>
           <?php foreach (\dash\data::dataRow_parent() as $key => $value) { echo ' / '; ?>
           <a href="<?php echo a($value, 'url') ?>"><?php echo a($value, 'title') ?></a>

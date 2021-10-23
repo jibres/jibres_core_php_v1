@@ -234,10 +234,10 @@ class pwa_menu
 			],
 			'category' =>
 			[
-				'href' => \dash\url::kingdom(). '/collection',
+				'href' => \dash\url::kingdom(). '/category',
 				'icon' => 'th-large',
 				'img'   => 'categories',
-				'title' => T_('Tags'),
+				'title' => T_('Category'),
 			],
 			'cart' =>
 			[

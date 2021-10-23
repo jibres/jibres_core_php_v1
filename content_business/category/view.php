@@ -1,5 +1,5 @@
 <?php
-namespace content_business\tag;
+namespace content_business\category;
 
 
 class view
