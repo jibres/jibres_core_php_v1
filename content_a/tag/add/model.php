@@ -7,7 +7,7 @@ class model
 	public static function post()
 	{
 		$args           = [];
-		$args['title']  = \dash\request::post('tag');
+		$args['title']  = \dash\request::post('category');
 		$args['firstlevel'] = \dash\request::get('firstlevel') ? 1 : null;
 
 		$result = \lib\app\tag\add::add($args);

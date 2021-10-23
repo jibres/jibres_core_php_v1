@@ -4,8 +4,8 @@
     <section class="box">
       <div class="body">
        <div class="mB20">
-              <label for='tag'><?php echo T_("Clone tag property from"); ?></label>
-            <select name="clone" id="tag" class="select22" data-model="tag" >
+              <label for='category'><?php echo T_("Clone category property from"); ?></label>
+            <select name="clone" id="category" class="select22" data-model="tag" >
               <option value=""></option>
               <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
                 <option value="<?php echo $value['id']; ?>"><?php echo $value['title']; ?></option>

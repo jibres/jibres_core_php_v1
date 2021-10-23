@@ -5,7 +5,7 @@
         <div class="body">
           <label for="icatname"><?php echo T_("Title"); ?></label>
           <div class="input">
-            <input type="text" name="title" id="icatname" placeholder='<?php echo T_("Tag name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
+            <input type="text" name="title" id="icatname" placeholder='<?php echo T_("Category name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
           </div>
           <label for="desc"><?php echo T_("Description"); ?></label>
           <textarea  class="txt mB10" id='desc' name="desc" rows="4" placeholder='<?php echo T_("Description"); ?>' maxlength='5000' rows="2"><?php echo \dash\data::dataRow_desc(); ?></textarea>
@@ -28,7 +28,7 @@
               </div>
             </div>
           </div>
-          <div class="seoData" data-kerkere-content='hide'>
+          <div class="seoData" data-kerkere-content='hide2'>
             <hr>
             <div>
               <label for='seoTitle'><?php echo T_("SEO Title"); ?> <small><?php echo T_("Recommended being more than 40 character."); ?></small></label>
@@ -40,7 +40,7 @@
             <div>
               <label for="icatslug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your tag url."); ?></small></label>
               <div class="input ltr">
-                <input type="text" class="ltr" name="slug" id="icatslug" placeholder='<?php echo T_("Tag slug"); ?>' value="<?php echo \dash\data::dataRow_slug(); ?>" maxlength='50' minlength="1">
+                <input type="text" class="ltr" name="slug" id="icatslug" placeholder='<?php echo T_("Category slug"); ?>' value="<?php echo \dash\data::dataRow_slug(); ?>" maxlength='50' minlength="1">
               </div>
             </div>
             <div>
@@ -55,7 +55,7 @@
         <header><h2><?php echo T_("General property"); ?></h2></header>
         <div class="body">
           <p>
-            <?php echo T_("If the products in this tag have similar attributes, you can enter the group and title of the attributes here to enter only the values ​​of each one when completing the product specifications faster."); ?>
+            <?php echo T_("If the products in this category have similar attributes, you can enter the group and title of the attributes here to enter only the values of each one when completing the product specifications faster."); ?>
           </p>
 
           <?php if(\dash\data::propertyGroup() && is_array(\dash\data::propertyGroup())) {?>
@@ -75,7 +75,7 @@
 
       <section class="hide">
       <div class="pad mB50">
-        <label for="productid"><?php echo T_("Choose product to add product to this Tag"); ?></label>
+        <label for="productid"><?php echo T_("Choose product to add product to this Category"); ?></label>
         <div>
           <select name="add_product_id" class="select22" data-model='html'  <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/sale'; ?>?json=true' data-placeholder='<?php echo T_("Search in products"); ?>'>
               </select>
@@ -99,7 +99,7 @@
     </div>
     <div class="c-xs-12 c-sm-12 c-lg-4">
       <section class="box">
-        <header><h2><?php echo T_("Tag image"); ?></h2></header>
+        <header><h2><?php echo T_("Category image"); ?></h2></header>
         <div class="body2">
           <div data-uploader data-name='file' data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(\dash\data::dataRow_file()) { echo "data-fill";}?>>
             <input type="file" accept="image/jpeg, image/png" id="image1">
@@ -121,16 +121,16 @@
        <section class="box">
           <div class="pad">
             <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
-            <p><?php echo T_("You can delete this tag because we are not found any product in that."); ?></p>
+            <p><?php echo T_("You can delete this category because we are not found any product in that."); ?></p>
             <?php }else{ ?>
-              <p><?php echo T_("You can delete this tag and merge all product in this tag by another tag."); ?></p>
+              <p><?php echo T_("You can delete this category and merge all product in this category by another category."); ?></p>
             <?php }//endif ?>
           </div>
           <footer>
             <?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) {?>
-              <div class="txtRa"><span data-confirm data-data='{"delete" : "delete"}' class="btn linkDel" ><?php echo T_("Remove tag"); ?></span></div>
+              <div class="txtRa"><span data-confirm data-data='{"delete" : "delete"}' class="btn linkDel" ><?php echo T_("Remove category"); ?></span></div>
             <?php }else{ ?>
-              <div class="txtRa"><a href="<?php echo \dash\url::this(). '/remove?'. \dash\request::fix_get() ?>" class="btn linkDel" ><?php echo T_("Remove tag"); ?></a></div>
+              <div class="txtRa"><a href="<?php echo \dash\url::this(). '/remove?'. \dash\request::fix_get() ?>" class="btn linkDel" ><?php echo T_("Remove category"); ?></a></div>
             <?php }//endif ?>
           </footer>
         </section>
@@ -138,7 +138,7 @@
       <ul>
           <li>
             <a class="f item" href="<?php echo \dash\url::here(); ?>/products?tagid=<?php echo \dash\data::dataRow_id(); ?>">
-              <div class="key"><?php echo T_("Show products by this tag"); ?></div>
+              <div class="key"><?php echo T_("Show products by this category"); ?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dataRow_count()) ?></div>
               <div class="go"></div>
             </a>

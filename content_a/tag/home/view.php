@@ -5,13 +5,13 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Product Tags'));
+		\dash\face::title(T_('Product Category'));
 
 		\dash\face::btnView(\lib\store::url(). '/tag');
 
 		if(\dash\permission::check('manageProductTag'))
 		{
-			\dash\data::action_text(T_('Add new tag'));
+			\dash\data::action_text(T_('Add new category'));
 			\dash\data::action_icon('plus');
 			\dash\data::action_link(\dash\url::this(). '/add');
 		}

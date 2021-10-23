@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Remove tag'));
+		\dash\face::title(T_('Remove category'));
 
 
 		$id = \dash\request::get('id');

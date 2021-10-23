@@ -12,7 +12,7 @@ class controller
 
 		if(!$dataRow)
 		{
-			\dash\header::status(404, T_("Invalid tag id"));
+			\dash\header::status(404, T_("Invalid category id"));
 		}
 
 		\dash\data::myId($id);

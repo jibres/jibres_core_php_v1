@@ -5,7 +5,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Add tag to all product'));
+		\dash\face::title(T_('Add category to all product'));
 
 		// back
 		\dash\data::back_text(T_('Product setting'));

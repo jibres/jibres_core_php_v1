@@ -6,12 +6,12 @@
       <div class="body">
 
         <p>
-          <?php echo T_("If the products in this tag have similar attributes, you can enter the group and title of the attributes here to enter only the values ​​of each one when completing the product specifications faster."); ?>
+          <?php echo T_("If the products in this category have similar attributes, you can enter the group and title of the attributes here to enter only the values of each one when completing the product specifications faster."); ?>
           <br>
-          <?php echo T_("Here you just enter the group name and key of property. And you can set value of this property on product property edit page for each product contain this tag."); ?>
+          <?php echo T_("Here you just enter the group name and key of property. And you can set value of this property on product property edit page for each product contain this category."); ?>
           <br>
-        <?php echo T_("Also you can copy all property from another tag here") ?>
-        <a href="<?php echo \dash\url::this(). '/clone'. \dash\request::full_get() ?>" class="link"><?php echo T_("Copy from other tag") ?></a>
+        <?php echo T_("Also you can copy all property from another category here") ?>
+        <a href="<?php echo \dash\url::this(). '/clone'. \dash\request::full_get() ?>" class="link"><?php echo T_("Copy from other category") ?></a>
         </p>
         <div class="row">
           <div class="c-md-6 c-xs-12 c-sm-12">

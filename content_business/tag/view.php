@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Tag"));
+		\dash\face::title(T_("Category"));
 
 		// \dash\data::search_link(\dash\url::kingdom().'/search');
 
