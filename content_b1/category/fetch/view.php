@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\tag\fetch;
+namespace content_b1\category\fetch;
 
 
 class view

@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\tag\detail;
+namespace content_b1\category\detail;
 
 
 class view

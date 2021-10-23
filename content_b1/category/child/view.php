@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\tag\child;
+namespace content_b1\category\child;
 
 
 class view

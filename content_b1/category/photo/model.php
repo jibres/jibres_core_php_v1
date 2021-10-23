@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\tag\photo;
+namespace content_b1\category\photo;
 
 
 class model

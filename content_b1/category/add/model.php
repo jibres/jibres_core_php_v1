@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\tag\add;
+namespace content_b1\category\add;
 
 
 class model
