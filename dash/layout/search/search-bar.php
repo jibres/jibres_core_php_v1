@@ -25,7 +25,7 @@ if($all_get)
         <div>
           <div class="input search <?php if(\dash\validate::search_string()) { echo 'apply'; }?>">
             <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" class="barCode" data-default data-pass='submit' autocomplete='off' autofocus>
-            <button class="addon btn light3 s0"><i class="sf-search"></i></button>
+            <button class="addon btn light3 s0"><span class="w-5"><?php echo \dash\utility\icon::svg('Search', 'major') ?></span></button>
           </div>
         </div>
       </div>
