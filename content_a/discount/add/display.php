@@ -182,7 +182,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				$html .= '<div class="radio1">';
 				{
 					$html .= '<input type="radio" name="applyto" value="special_category" id="applyto-special_category" '.(a($dataRow, 'applyto') === 'special_category' ? 'checked' : '').'>';
-					$html .= '<label for="applyto-special_category">'. T_("Special category"). '</label>';
+					$html .= '<label for="applyto-special_category">'. T_("Special category"). '123</label>';
 				}
 				$html .= '</div>';
 
@@ -194,7 +194,7 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div data-response="applyto" data-response-where="special_category" '.$data_response_hide.'>';
 				{
-					$html .= '<select name="product_category[]" id="product_category" class="select22" data-model="tag" multiple="multiple">';
+					$html .= '<select name="product_category[]" id="product_category" class="select22" multiple="multiple">';
 					{
 						$current_category_id = [];
 
@@ -406,7 +406,7 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div data-response="customer" data-response-where="special_customer" '.$data_response_hide.'>';
 				{
-					$html .= '<select name="special_customer[]" id="special_customer" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true&mode=text'.'" data-placeholder="'. T_('Search in customers'). '">';
+					$html .= '<select name="special_customer[]" id="special_customer" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true&mode=text'.'" data-placeholder="'. T_('Search in customers123'). '">';
 
 					 	$current_customer = [];
 
