@@ -41,7 +41,7 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				\dash\notif::ok(T_("Tag file deleted"));
+				\dash\notif::ok(T_("Category image removed"));
 				\dash\redirect::pwd();
 			}
 			return;

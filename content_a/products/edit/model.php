@@ -39,7 +39,7 @@ class model
 			$post['desc']      = \dash\request::post_html();
 		}
 
-		$post['tag']           = \dash\request::post('tag');
+		$post['category']           = \dash\request::post('category');
 		$post['buyprice']      = \dash\request::post('buyprice');
 		$post['price']         = \dash\request::post('price');
 		$post['discount']      = \dash\request::post('discount');

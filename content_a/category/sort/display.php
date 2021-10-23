@@ -14,14 +14,14 @@ if(!is_array($dataTable))
   </form>
   <?php if(\dash\data::listProductCategory()) {?>
   <form method="post" autocomplete="off">
-    <input type="hidden" name="addtag" value="1">
+    <input type="hidden" name="addcategory" value="1">
     <div class="box">
       <div class="pad">
         <p>
           <?php echo T_("By adding category to list you can sort it and set one category as child of another") ?>
         </p>
        <div>
-        <select name="tag" class="select22" data-model='tag' data-placeholder="<?php echo T_("Choose category"); ?>" >
+        <select name="category" class="select22" data-model='tag' data-placeholder="<?php echo T_("Choose category"); ?>" >
            <option></option>
           <?php foreach (\dash\data::listProductCategory() as $key => $value) {?>
           <option value="<?php echo a($value, 'id'); ?>"><?php echo a($value, 'title'); ?></option>

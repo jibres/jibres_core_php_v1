@@ -19,10 +19,10 @@ class add
 	{
 		$condition =
 		[
-			'tag'      => 'string_30',
+			'category'      => 'string_30',
 		];
 
-		$require = ['tag'];
+		$require = ['category'];
 
 		$meta = [];
 
@@ -30,7 +30,7 @@ class add
 
 		$tag_id = null;
 
-		$check_duplicate = \lib\db\productcategory\get::check_duplicate_title($data['tag']);
+		$check_duplicate = \lib\db\productcategory\get::check_duplicate_title($data['category']);
 
 		if(isset($check_duplicate['id']))
 		{
@@ -38,7 +38,7 @@ class add
 		}
 		else
 		{
-			$insert_args = \lib\app\category\check::variable(['title' => $data['tag']]);
+			$insert_args = \lib\app\category\check::variable(['title' => $data['category']]);
 
 			unset($insert_args['properties']);
 
@@ -53,7 +53,7 @@ class add
 
 		if(!$tag_id)
 		{
-			\dash\notif::error(T_("Can not add tag"));
+			\dash\notif::error(T_("Can not add category"));
 			return false;
 		}
 
@@ -79,7 +79,7 @@ class add
 		$_id = \dash\validate::id($_id);
 		if(!$_id || !is_numeric($_id))
 		{
-			\dash\notif::error(T_("Invalid tag id"));
+			\dash\notif::error(T_("Invalid category id"));
 			return false;
 		}
 
@@ -103,7 +103,7 @@ class add
 
 		if(!isset($get_category['id']))
 		{
-			\dash\notif::error(T_("Invalid tag id"), 'tag');
+			\dash\notif::error(T_("Invalid category id"), 'category');
 			return false;
 		}
 
@@ -185,7 +185,7 @@ class add
 		$_id = \dash\validate::id($_id);
 		if(!$_id || !is_numeric($_id))
 		{
-			\dash\notif::error(T_("Invalid tag id"));
+			\dash\notif::error(T_("Invalid category id"));
 			return false;
 		}
 
@@ -196,7 +196,7 @@ class add
 
 		if(!isset($get_category['id']))
 		{
-			\dash\notif::error(T_("Invalid tag id"), 'tag');
+			\dash\notif::error(T_("Invalid category id"), 'category');
 			return false;
 		}
 
@@ -314,7 +314,7 @@ class add
 
 		if($check_product_have_cat)
 		{
-			\dash\notif::warn(T_("This product have this tag"));
+			\dash\notif::warn(T_("This product have this category"));
 			return true;
 		}
 		else

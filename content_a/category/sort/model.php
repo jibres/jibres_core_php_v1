@@ -5,9 +5,9 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('addtag'))
+		if(\dash\request::post('addcategory'))
 		{
-			\lib\app\category\add::first_level(\dash\request::post('tag'));
+			\lib\app\category\add::first_level(\dash\request::post('category'));
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::pwd();
