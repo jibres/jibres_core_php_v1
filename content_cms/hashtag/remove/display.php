@@ -31,7 +31,7 @@
         <div data-response='wd' data-response-where='wdn' data-response-hide>
 
         <div class="mB10">
-          <label for='tag'><?php echo T_("New Tag"); ?></label>
+          <label for='tag'><?php echo T_("New hashtag"); ?></label>
            <select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one hashtag") ?>">
             <?php if(\dash\request::get('tagid')) {?>
               <option value="0"><?php echo T_("None") ?></option>

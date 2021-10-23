@@ -513,7 +513,7 @@ class seo
 			if(isset($_detail['tags']) && is_array($_detail['tags']) && $_detail['tags'])
 			{
 				$ok  = null;
-				$msg = T_("Tags not use in first paragraph.");
+				$msg = T_("Hashtag not use in first paragraph.");
 
 				$paragraphs = preg_split("/\n|\<br\s?\/?\>|\<\/p\>/", $_detail['content']);
 				if(isset($paragraphs[0]))

@@ -20,7 +20,7 @@ $addChildMode = \dash\data::addChildMode();
             <option value="products" <?php if(\dash\data::dataRow_pointer() === 'products') {echo 'selected';} ?>><?php echo T_("Products") ?></option>
             <option value="posts" <?php if(\dash\data::dataRow_pointer() === 'posts') {echo 'selected';} ?>><?php echo T_("Posts") ?></option>
             <option value="pages" <?php if(\dash\data::dataRow_pointer() === 'pages') {echo 'selected';} ?>><?php echo T_("Pages") ?></option>
-            <option value="tags" <?php if(\dash\data::dataRow_pointer() === 'tags') {echo 'selected';} ?>><?php echo T_("Tag of products") ?></option>
+            <option value="tags" <?php if(\dash\data::dataRow_pointer() === 'tags') {echo 'selected';} ?>><?php echo T_("Category of products") ?></option>
             <option value="hashtag" <?php if(\dash\data::dataRow_pointer() === 'hashtag') {echo 'selected';} ?>><?php echo T_("Hashtag of posts") ?></option>
             <option value="forms" <?php if(\dash\data::dataRow_pointer() === 'forms') {echo 'selected';} ?>><?php echo T_("Forms") ?></option>
             <option value="socialnetwork" <?php if(\dash\data::dataRow_pointer() === 'socialnetwork') {echo 'selected';} ?>><?php echo T_("Social network") ?></option>

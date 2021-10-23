@@ -489,7 +489,7 @@ class setting
 				T_("category"),
 			],
 			'url'      => \dash\url::kingdom(). '/a/category',
-			'addr'     => [T_("Setting"), T_("Products"), T_("Tag"),],
+			'addr'     => [T_("Setting"), T_("Products"), T_("Category"),],
 			'icon'     => 'tag',
 		];
 
@@ -504,7 +504,7 @@ class setting
 				T_("category"),
 			],
 			'url'      => \dash\url::kingdom(). '/a/category/sort',
-			'addr'     => [T_("Setting"), T_("Products"), T_("Tag"), T_("Advance")],
+			'addr'     => [T_("Setting"), T_("Products"), T_("Category"), T_("Advance")],
 			'icon'     => 'tag',
 		];
 
@@ -522,7 +522,7 @@ class setting
 				T_("category"),
 			],
 			'url'      => \dash\url::kingdom(). '/a/category/add',
-			'addr'     => [T_("Setting"), T_("Products"), T_("Tag"), T_("Add new tag")],
+			'addr'     => [T_("Setting"), T_("Products"), T_("Category"), T_("Add new tag")],
 			'icon'     => 'plus-circle',
 		];
 
@@ -537,7 +537,7 @@ class setting
 				T_("all"),
 			],
 			'url'      => \dash\url::kingdom(). '/a/setting/product/category',
-			'addr'     => [T_("Setting"), T_("Products"), T_("Tag"), T_("Add tag to all prodcut")],
+			'addr'     => [T_("Setting"), T_("Products"), T_("Category"), T_("Add tag to all prodcut")],
 			'icon'     => 'plus-circle',
 		];
 

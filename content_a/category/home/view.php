@@ -9,7 +9,7 @@ class view
 
 		\dash\face::btnView(\lib\store::url(). '/category');
 
-		if(\dash\permission::check('manageProductTag'))
+		if(\dash\permission::check('manageProductCategory'))
 		{
 			\dash\data::action_text(T_('Add new category'));
 			\dash\data::action_icon('plus');

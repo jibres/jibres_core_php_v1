@@ -34,7 +34,7 @@ class edit
 
 	public static function set_sort_property($_group_sort, $_key_sort, $_id)
 	{
-		if(!\dash\permission::check('manageProductTag'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}
@@ -96,7 +96,7 @@ class edit
 
 	public static function edit_group($_new_group, $_old_group, $_id)
 	{
-		if(!\dash\permission::check('manageProductTag'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}
@@ -169,7 +169,7 @@ class edit
 
 	public static function clone($_clone, $_id)
 	{
-		if(!\dash\permission::check('manageProductTag'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}
@@ -280,7 +280,7 @@ class edit
 			return false;
 		}
 
-		if(!\dash\permission::check('manageProductTag'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}

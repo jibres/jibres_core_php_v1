@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\product\tag;
+namespace content_a\setting\product\category;
 
 
 class model

@@ -71,7 +71,7 @@ class add
 			return false;
 		}
 
-		if(!\dash\permission::check('manageProductTag'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}
@@ -177,7 +177,7 @@ class add
 			return false;
 		}
 
-		if(!\dash\permission::check('manageProductTag'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}
@@ -252,7 +252,7 @@ class add
 			return false;
 		}
 
-		if(!\dash\permission::check('manageProductTag'))
+		if(!\dash\permission::check('manageProductCategory'))
 		{
 			return false;
 		}
