@@ -27,7 +27,7 @@ class tags
 			[
 				'icon'  => 'tag',
 				'title' => a($value, 'title'),
-				'addr'  => [T_("Setting"), T_("Products"), T_("Tags"), '#'. \dash\fit::text(a($value, 'id'))],
+				'addr'  => [T_("Setting"), T_("Products"), T_("Categories"), '#'. \dash\fit::text(a($value, 'id'))],
 				'url'   => sprintf($edit_url, a($value, 'id')),
 			];
 		}

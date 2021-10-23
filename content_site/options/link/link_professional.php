@@ -108,7 +108,7 @@ trait link_professional
 						'products'      => ['title' => T_('Products'),		'api_link' => '/a/products/api?json=true', ],
 						'posts'         => ['title' => T_('Posts'),			'api_link' => '/cms/posts/api?json=true', ],
 						'pages'         => ['title' => T_('Pages'),			'api_link' => '/cms/posts/api?json=true&ptype=page', ],
-						'tags'          => ['title' => T_('Tags'),			'api_link' => '/a/tag/api?json=true&getid=1', ],
+						'tags'          => ['title' => T_('Categories'),	'api_link' => '/a/category/api?json=true&getid=1', ],
 						'hashtag'       => ['title' => T_('Hashtag'),		'api_link' => '/cms/hashtag/api?json=true&getid=1', ],
 						'forms'         => ['title' => T_('Forms'),			'api_link' => '/a/form/api?json=true', ],
 						'socialnetwork' => ['title' => T_('Socialnetwork'),	'api_link' => null, ],
