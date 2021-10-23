@@ -35,7 +35,8 @@ class search
 			'price'          => 'price',
 			'buyprice'       => 'price',
 			'discount'       => 'price',
-			'tag_id'         => 'id',
+			'tag_id'         => 'id', // need remove it later
+			'cat_id'         => 'id',
 			'tag_with_child' => 'bit',
 			'unit_id'        => 'id',
 			'website_order' => 'string_50',
@@ -114,18 +115,18 @@ class search
 			self::$is_filtered        = true;
 		}
 
-		if($data['tag_id'])
+		if($data['cat_id'])
 		{
 			if($data['tag_with_child'])
 			{
-				$get_all_child_id = \lib\db\productcategory\get::all_child_id($data['tag_id']);
+				$get_all_child_id = \lib\db\productcategory\get::all_child_id($data['cat_id']);
 
 				if(!is_array($get_all_child_id))
 				{
 					$get_all_child_id = [];
 				}
 
-				$get_all_child_id[] = $data['tag_id'];
+				$get_all_child_id[] = $data['cat_id'];
 
 				$all_child_id = implode(",", $get_all_child_id);
 
@@ -136,7 +137,7 @@ class search
 			}
 			else
 			{
-				$and[]   = " productcategoryusage.productcategory_id =  $data[tag_id] ";
+				$and[]   = " productcategoryusage.productcategory_id =  $data[cat_id] ";
 				$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
 				$type = 'catusage';
 				self::$is_filtered        = true;
@@ -782,7 +783,7 @@ class search
 	public static function website_product_list($_option = null)
 	{
 		$type   = null;
-		$tag_id = null;
+		$cat_id = null;
 
 
 		if(isset($_option['value']['productline']['type']))
@@ -792,7 +793,7 @@ class search
 
 		if(isset($_option['value']['productline']['cat_id']))
 		{
-			$tag_id = $_option['value']['productline']['cat_id'];
+			$cat_id = $_option['value']['productline']['cat_id'];
 		}
 
 		$limit = 16;
@@ -817,9 +818,9 @@ class search
 		$and['parent_is_null'] = " products.parent IS NULL ";
 
 
-		if($tag_id)
+		if($cat_id)
 		{
-			$and[]  = " productcategoryusage.productcategory_id =  $tag_id ";
+			$and[]  = " productcategoryusage.productcategory_id =  $cat_id ";
 			$meta['join'][] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
 		}
 

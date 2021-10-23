@@ -14,7 +14,7 @@ class view
 		[
 			'order'       => \dash\request::get('order'),
 			'sort'        => \dash\request::get('sort'),
-			'tag_id'      => \dash\request::get('tagid'),
+			'cat_id'      => \dash\request::get('catid'),
 			'websitemode' => true,
 			'limit'       => 30,
 		];

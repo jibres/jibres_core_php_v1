@@ -38,7 +38,7 @@
               </div>
             </div>
             <div>
-              <label for="icatslug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your tag url."); ?></small></label>
+              <label for="icatslug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your category url."); ?></small></label>
               <div class="input ltr">
                 <input type="text" class="ltr" name="slug" id="icatslug" placeholder='<?php echo T_("Category slug"); ?>' value="<?php echo \dash\data::dataRow_slug(); ?>" maxlength='50' minlength="1">
               </div>
@@ -83,9 +83,9 @@
       </div>
       <footer class="f">
         <div class="cauto">
-          <a class="btn link" href="<?php echo \dash\url::here(); ?>/products?tagid=<?php echo \dash\data::dataRow_id(); ?>">
+          <a class="btn link" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>">
               <span class="ltr"><?php echo \dash\fit::number(\dash\data::dataRow_count()) ?></span>
-              <?php echo T_("Product founded by this tag"); ?>
+              <?php echo T_("Product founded by this category"); ?>
             </a>
 
         </div>
@@ -137,7 +137,7 @@
     <nav class="items long">
       <ul>
           <li>
-            <a class="f item" href="<?php echo \dash\url::here(); ?>/products?tagid=<?php echo \dash\data::dataRow_id(); ?>">
+            <a class="f item" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>">
               <div class="key"><?php echo T_("Show products by this category"); ?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dataRow_count()) ?></div>
               <div class="go"></div>

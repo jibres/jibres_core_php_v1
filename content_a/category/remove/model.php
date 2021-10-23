@@ -8,7 +8,7 @@ class model
 	{
 		$id     = \dash\request::get('id');
 		$wd     = \dash\request::post('wd');
-		$tag_id = \dash\request::post('tagid');
+		$cat_id = \dash\request::post('catid');
 
 		if(!\dash\data::dataRow_count())
 		{
@@ -28,10 +28,10 @@ class model
 			{
 				$type = 'select_new_category';
 
-				$tag_id = \dash\validate::id($tag_id, false);
-				if(!$tag_id)
+				$cat_id = \dash\validate::id($cat_id, false);
+				if(!$cat_id)
 				{
-					\dash\notif::error(T_("Please choose new tag"), 'tagid');
+					\dash\notif::error(T_("Please choose new tag"), 'catid');
 					return false;
 				}
 			}
@@ -43,7 +43,7 @@ class model
 			$action =
 			[
 				'type'       => $type,
-				'new_tag_id' => $tag_id,
+				'new_cat_id' => $cat_id,
 			];
 
 			\lib\app\category\remove::remove_action($id, $action);

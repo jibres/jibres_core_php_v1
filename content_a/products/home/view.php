@@ -38,7 +38,7 @@ class view
 			// 'price'        => \dash\request::get('price'),
 			// 'buyprice'     => \dash\request::get('buyprice'),
 			// 'cat'          => \dash\request::get('cat'),
-			'tag_id'       => \dash\request::get('tagid') ? \dash\request::get('tagid') : null,
+			'cat_id'       => \dash\request::get('catid') ? \dash\request::get('catid') : null,
 
 			// 'discount'     => \dash\request::get('discount'),
 			'unit_id'      => \dash\request::get('unitid') ? \dash\request::get('unitid') : null,

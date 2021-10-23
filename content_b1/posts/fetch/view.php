@@ -13,7 +13,6 @@ class view
 			'sort'    => \dash\request::get('sort'),
 			'status'  => \dash\request::get('status'),
 			'subtype' => \dash\request::get('subtype'),
-			'tag_id'  => \dash\request::get('tagid'),
 
 			'pd'      => \dash\request::get('pd'),
 			'g'       => \dash\request::get('g'),

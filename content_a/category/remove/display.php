@@ -7,7 +7,7 @@
         <div class="msg">
           <?php echo T_(":val products by this category founded", ['val' => \dash\fit::number(\dash\data::dataRow_count())]) ?>
         <br>
-          <a class="link" href="<?php echo \dash\url::here(); ?>/products?tagid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show products by this category"); ?></a>
+          <a class="link" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show products by this category"); ?></a>
         </div>
 
         <p>
@@ -33,8 +33,8 @@
 
         <div class="mB10">
           <label for='cat'><?php echo T_("New category"); ?></label>
-           <select name="tagid" id="cat" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one category") ?>">
-            <?php if(\dash\request::get('tagid')) {?>
+           <select name="catid" id="cat" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one category") ?>">
+            <?php if(\dash\request::get('catid')) {?>
               <option value="0"><?php echo T_("None") ?></option>
             <?php }else{?>
               <option value="" readonly></option>

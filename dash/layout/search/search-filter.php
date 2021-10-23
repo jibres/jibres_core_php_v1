@@ -173,8 +173,8 @@ function HTML_product_tag_search($value)
   echo '</div>';
 
   echo '<div>';
-  echo '<select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Select one category"). '">';
-  if(\dash\request::get('tagid'))
+  echo '<select name="catid" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Select one category"). '">';
+  if(\dash\request::get('catid'))
   {
       echo '<option value="0">'. T_("None"). '</option>';
   }
@@ -185,7 +185,7 @@ function HTML_product_tag_search($value)
   foreach (\dash\data::listProductCategory() as $k => $v)
   {
       echo '<option value="'. $v['id']. '" ';
-      if(\dash\request::get('tagid') === $v['id'])
+      if(\dash\request::get('catid') === $v['id'])
       {
         echo 'selected';
       }
