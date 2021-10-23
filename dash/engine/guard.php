@@ -468,7 +468,7 @@ class guard
 			{
 				if(substr($origin, 0, 8) !== 'https://')
 				{
-					\dash\header::status(418, 'origin 1');
+					\dash\header::status(412, 'origin 1');
 				}
 			}
 
@@ -540,7 +540,7 @@ class guard
 			}
 			else
 			{
-				\dash\header::status(418, 'origin 2');
+				\dash\header::status(424, 'origin 2');
 			}
 		}
 	}
