@@ -1,4 +1,4 @@
-<?php require_once(root. 'content_a/category/tagName.php') ?>
+<?php require_once(root. 'content_a/category/categoryName.php') ?>
 <form method="post" autocomplete="off" >
   <div class="avand-lg">
     <section class="box">
@@ -39,7 +39,7 @@
             <?php }else{?>
               <option value="" readonly></option>
             <?php } //endif ?>
-            <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
+            <?php foreach (\dash\data::listProductCategory() as $key => $value) {?>
               <?php if($value['id'] === \dash\request::get('id')) {continue;}?>
               <option value="<?php echo $value['id']; ?>" ><?php echo $value['title']; ?></option>
             <?php } //endfor ?>

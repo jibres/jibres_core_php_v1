@@ -203,7 +203,7 @@ $html .= '<div class="max-w-xl m-auto">';
 							$current_category_id = array_column($dedicated['special_category'], 'product_category_id');
 						}
 
-						foreach (\dash\data::listProductTag() as $key => $value)
+						foreach (\dash\data::listProductCategory() as $key => $value)
 						{
 							$html .= '<option value="'. $value['title']. '" ';
 							if(in_array($value['id'], $current_category_id))

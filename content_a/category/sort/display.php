@@ -12,7 +12,7 @@ if(!is_array($dataTable))
     <input type="hidden" name="setsort" value="1">
     <?php echo \lib\app\category\get::sort_list(); ?>
   </form>
-  <?php if(\dash\data::listProductTag()) {?>
+  <?php if(\dash\data::listProductCategory()) {?>
   <form method="post" autocomplete="off">
     <input type="hidden" name="addtag" value="1">
     <div class="box">
@@ -23,7 +23,7 @@ if(!is_array($dataTable))
        <div>
         <select name="tag" class="select22" data-model='tag' data-placeholder="<?php echo T_("Choose category"); ?>" >
            <option></option>
-          <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
+          <?php foreach (\dash\data::listProductCategory() as $key => $value) {?>
           <option value="<?php echo a($value, 'id'); ?>"><?php echo a($value, 'title'); ?></option>
          <?php } //endfor ?>
         </select>

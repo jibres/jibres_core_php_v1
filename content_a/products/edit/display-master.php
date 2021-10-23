@@ -25,7 +25,7 @@
               <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
             </div>
             <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
-              <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
+              <?php foreach (\dash\data::listProductCategory() as $key => $value) {?>
                 <option value="<?php echo $value['title']; ?>" <?php if(is_array(\dash\data::listSavedCat()) && in_array($value['title'], \dash\data::listSavedCat())) {echo 'selected'; } ?>><?php echo $value['title']; ?></option>
               <?php } //endfor ?>
             </select>

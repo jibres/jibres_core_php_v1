@@ -1,4 +1,4 @@
-<?php require_once(root. 'content_a/category/tagName.php') ?>
+<?php require_once(root. 'content_a/category/categoryName.php') ?>
 <div class="avand-md">
   <form method="post" autocomplete="off" >
     <section class="box">

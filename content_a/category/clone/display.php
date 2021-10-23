@@ -1,4 +1,4 @@
-<?php require_once(root. 'content_a/category/tagName.php') ?>
+<?php require_once(root. 'content_a/category/categoryName.php') ?>
 <div class="avand-md">
   <form method="post" autocomplete="off" >
     <section class="box">
@@ -7,7 +7,7 @@
               <label for='category'><?php echo T_("Clone category property from"); ?></label>
             <select name="clone" id="category" class="select22" data-model="tag" >
               <option value=""></option>
-              <?php foreach (\dash\data::listProductTag() as $key => $value) {?>
+              <?php foreach (\dash\data::listProductCategory() as $key => $value) {?>
                 <option value="<?php echo $value['id']; ?>"><?php echo $value['title']; ?></option>
               <?php } //endfor ?>
             </select>

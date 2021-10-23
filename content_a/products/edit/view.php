@@ -46,7 +46,7 @@ class view
 
 		$category_list = \lib\app\category\get::all_category();
 		$category_list = array_reverse($category_list);
-		\dash\data::listProductTag($category_list);
+		\dash\data::listProductCategory($category_list);
 
 		$property_list = \lib\app\product\property::get_count($id);
 		\dash\data::propertyCount($property_list);

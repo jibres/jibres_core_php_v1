@@ -182,7 +182,7 @@ function HTML_product_tag_search($value)
   {
       echo '<option value=""></option>';
   }
-  foreach (\dash\data::listProductTag() as $k => $v)
+  foreach (\dash\data::listProductCategory() as $k => $v)
   {
       echo '<option value="'. $v['id']. '" ';
       if(\dash\request::get('tagid') === $v['id'])

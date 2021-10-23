@@ -22,7 +22,7 @@ class view
 		\dash\data::listUnits($unit_list);
 
 		$category_list = \lib\app\category\search::list(null, ['pagination' => false]);
-		\dash\data::listProductTag($category_list);
+		\dash\data::listProductCategory($category_list);
 
 
 		\content_a\products\edit\view::product_ratio();
