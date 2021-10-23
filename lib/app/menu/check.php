@@ -217,7 +217,7 @@ class check
 			case 'tags':
 				if($data['tag_id'])
 				{
-					$load_tag = \lib\app\tag\get::get($data['tag_id']);
+					$load_tag = \lib\app\category\get::get($data['tag_id']);
 					if(isset($load_tag['id']))
 					{
 						$data['related_id'] = $load_tag['id'];

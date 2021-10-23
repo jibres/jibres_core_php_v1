@@ -210,7 +210,7 @@ class add
 
 		if($my_tag)
 		{
-			\lib\app\tag\add::product_cat($my_tag, $product_id);
+			\lib\app\category\add::product_cat($my_tag, $product_id);
 
 			if(!\dash\engine\process::status())
 			{

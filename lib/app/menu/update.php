@@ -128,7 +128,7 @@ class update
 
 		if($is_used)
 		{
-			$load = \lib\app\tag\get::get($_id);
+			$load = \lib\app\category\get::get($_id);
 
 			if(isset($load['url']))
 			{

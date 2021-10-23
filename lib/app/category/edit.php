@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\tag;
+namespace lib\app\category;
 
 
 class edit
@@ -291,7 +291,7 @@ class edit
 			return false;
 		}
 
-		$args = \lib\app\tag\check::variable($_args, $_id, $_properties);
+		$args = \lib\app\category\check::variable($_args, $_id, $_properties);
 
 		if(!$args)
 		{

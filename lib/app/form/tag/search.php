@@ -98,7 +98,7 @@ class search
 
 		if(is_array($list))
 		{
-			$list = array_map(['\\lib\\app\\tag\\ready', 'row'], $list);
+			$list = array_map(['\\lib\\app\\category\\ready', 'row'], $list);
 		}
 		else
 		{

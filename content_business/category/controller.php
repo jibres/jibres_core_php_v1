@@ -20,7 +20,7 @@ class controller
 
 			$url = urldecode($url);
 
-			$load = \lib\app\tag\get::by_url($url);
+			$load = \lib\app\category\get::by_url($url);
 
 			if(!$load)
 			{
@@ -36,7 +36,7 @@ class controller
 				$id = \dash\validate::id(\dash\request::get('id'));
 				if($id)
 				{
-					$load = \lib\app\tag\get::get_force($id);
+					$load = \lib\app\category\get::get_force($id);
 					if(a($load, 'url'))
 					{
 						\dash\redirect::to($load['url']);
@@ -44,7 +44,7 @@ class controller
 				}
 			}
 
-			$myCategoryList = \lib\app\tag\search::site_list();
+			$myCategoryList = \lib\app\category\search::site_list();
 		}
 
 		\dash\data::categoryDataTable($myCategoryList);

@@ -10,7 +10,7 @@ class model
 		$args['title']  = \dash\request::post('category');
 		$args['firstlevel'] = \dash\request::get('firstlevel') ? 1 : null;
 
-		$result = \lib\app\tag\add::add($args);
+		$result = \lib\app\category\add::add($args);
 
 		if(\dash\engine\process::status())
 		{

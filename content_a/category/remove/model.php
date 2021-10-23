@@ -12,7 +12,7 @@ class model
 
 		if(!\dash\data::dataRow_count())
 		{
-			\lib\app\tag\remove::remove($id);
+			\lib\app\category\remove::remove($id);
 		}
 		else
 		{
@@ -46,7 +46,7 @@ class model
 				'new_tag_id' => $tag_id,
 			];
 
-			\lib\app\tag\remove::remove_action($id, $action);
+			\lib\app\category\remove::remove_action($id, $action);
 		}
 
 		if(\dash\engine\process::status())

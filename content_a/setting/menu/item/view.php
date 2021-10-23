@@ -76,7 +76,7 @@ class view
 
 		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'tags' && isset($dataRow['related_id']) && $dataRow['related_id'])
 		{
-			$loadTag = \lib\app\tag\get::get($dataRow['related_id']);
+			$loadTag = \lib\app\category\get::get($dataRow['related_id']);
 			if(isset($loadTag['title']))
 			{
 				\dash\data::tagTitle($loadTag['title']);

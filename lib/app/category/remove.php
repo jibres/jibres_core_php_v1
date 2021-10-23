@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\tag;
+namespace lib\app\category;
 
 
 class remove
@@ -7,7 +7,7 @@ class remove
 
 	public static function remove_file($_id)
 	{
-		$load = \lib\app\tag\get::inline_get($_id);
+		$load = \lib\app\category\get::inline_get($_id);
 		if($load)
 		{
 			\dash\upload\category::remove($_id);
@@ -18,7 +18,7 @@ class remove
 
 	public static function first_level($_id)
 	{
-		$load = \lib\app\tag\get::inline_get($_id);
+		$load = \lib\app\category\get::inline_get($_id);
 		if($load)
 		{
 			\lib\db\productcategory\update::first_level($_id);
@@ -28,7 +28,7 @@ class remove
 
 	public static function remove_action($_id, $_action)
 	{
-		$load = \lib\app\tag\get::inline_get($_id);
+		$load = \lib\app\category\get::inline_get($_id);
 
 		if(!isset($load['id']))
 		{
@@ -49,7 +49,7 @@ class remove
 		{
 			if(isset($_action['new_tag_id']))
 			{
-				$load_new = \lib\app\tag\get::inline_get($_action['new_tag_id']);
+				$load_new = \lib\app\category\get::inline_get($_action['new_tag_id']);
 
 				if(!isset($load_new['id']))
 				{
@@ -84,7 +84,7 @@ class remove
 		}
 
 
-		$load = \lib\app\tag\get::inline_get($_id);
+		$load = \lib\app\category\get::inline_get($_id);
 
 		if(!isset($load['id']))
 		{

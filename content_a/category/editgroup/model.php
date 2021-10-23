@@ -8,7 +8,7 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-		$result = \lib\app\tag\edit::edit_group(\dash\request::post('cat'), \dash\request::get('group'), $id);
+		$result = \lib\app\category\edit::edit_group(\dash\request::post('cat'), \dash\request::get('group'), $id);
 
 		if($result)
 		{

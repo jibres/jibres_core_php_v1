@@ -10,7 +10,7 @@ if(!is_array($dataTable))
 <div class="avand-md">
   <form method='post' data-patch>
     <input type="hidden" name="setsort" value="1">
-    <?php echo \lib\app\tag\get::sort_list(); ?>
+    <?php echo \lib\app\category\get::sort_list(); ?>
   </form>
   <?php if(\dash\data::listProductTag()) {?>
   <form method="post" autocomplete="off">

@@ -8,7 +8,7 @@ class model
 	{
 		$id = \dash\request::get('id');
 
-		$result = \lib\app\tag\edit::clone(\dash\request::post('clone'),  $id);
+		$result = \lib\app\category\edit::clone(\dash\request::post('clone'),  $id);
 
 		if($result)
 		{

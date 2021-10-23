@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\tag;
+namespace lib\app\category;
 
 
 class check

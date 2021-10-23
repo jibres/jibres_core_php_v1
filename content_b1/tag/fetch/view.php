@@ -12,7 +12,7 @@ class view
 		$meta['parent2'] = null;
 		$meta['parent3'] = null;
 
-		$list = \lib\app\tag\search::list(\dash\validate::search_string(), $meta);
+		$list = \lib\app\category\search::list(\dash\validate::search_string(), $meta);
 
 		if(!is_array($list))
 		{

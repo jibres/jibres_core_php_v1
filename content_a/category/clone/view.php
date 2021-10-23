@@ -14,7 +14,7 @@ class view
 		\dash\data::back_link(\dash\url::this(). '/property?id='. $id);
 
 
-		$category_list = \lib\app\tag\get::all_category();
+		$category_list = \lib\app\category\get::all_category();
 		$category_list = array_reverse($category_list);
 		\dash\data::listProductTag($category_list);
 

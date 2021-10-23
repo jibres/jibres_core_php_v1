@@ -222,7 +222,7 @@ class property
 		self::push($result, T_("General property"), ['key' => T_("SKU"), 'value' => a($load, 'sku'), 'lock' => false, 'field_name' => 'sku']);
 
 
-		$cat_list = \lib\app\tag\get::product_cat($id);
+		$cat_list = \lib\app\category\get::product_cat($id);
 
 		if(is_array($cat_list) && $cat_list)
 		{
@@ -232,7 +232,7 @@ class property
 		{
 			if(a($load_parent, 'id'))
 			{
-				$cat_list = \lib\app\tag\get::product_cat($load_parent['id']);
+				$cat_list = \lib\app\category\get::product_cat($load_parent['id']);
 				if(is_array($cat_list) && $cat_list)
 				{
 					// ok
@@ -250,7 +250,7 @@ class property
 
 		if($cat_list)
 		{
-			$cat_list = array_map(['\\lib\\app\\tag\\ready', 'row'], $cat_list);
+			$cat_list = array_map(['\\lib\\app\\category\\ready', 'row'], $cat_list);
 
 			\dash\temp::set('TempProductLoadedTagList', $cat_list);
 
@@ -463,7 +463,7 @@ class property
 		if(isset($load['cat_id']) && $load['cat_id'])
 		{
 			$cat_id   = $load['cat_id'];
-			$load_parent_property = \lib\app\tag\get::parent_property($cat_id);
+			$load_parent_property = \lib\app\category\get::parent_property($cat_id);
 			if($load_parent_property && is_array($load_parent_property))
 			{
 				foreach ($load_parent_property as $key => $value)
@@ -475,7 +475,7 @@ class property
 				}
 			}
 
-			$load_cat = \lib\app\tag\get::get($cat_id);
+			$load_cat = \lib\app\category\get::get($cat_id);
 
 			if(isset($load_cat['properties']) && $load_cat['properties'] && is_array($load_cat['properties']))
 			{

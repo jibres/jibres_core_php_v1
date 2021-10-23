@@ -44,7 +44,7 @@ class view
 		$unit_list = \lib\app\product\unit::list();
 		\dash\data::listUnits($unit_list);
 
-		$category_list = \lib\app\tag\get::all_category();
+		$category_list = \lib\app\category\get::all_category();
 		$category_list = array_reverse($category_list);
 		\dash\data::listProductTag($category_list);
 
@@ -54,7 +54,7 @@ class view
 		$comment_list = \dash\app\comment\get::product_comment_count($id);
 		\dash\data::commentCount($comment_list);
 
-		$cat_list = \lib\app\tag\get::product_cat($id);
+		$cat_list = \lib\app\category\get::product_cat($id);
 		if(is_array($cat_list) && $cat_list)
 		{
 			$cat_list = array_column($cat_list, 'title');

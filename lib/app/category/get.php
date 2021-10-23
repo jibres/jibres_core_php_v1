@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\tag;
+namespace lib\app\category;
 
 
 class get
@@ -14,7 +14,7 @@ class get
 			return false;
 		}
 
-		$list = array_map(['\\lib\\app\\tag\\ready', 'row'], $list);
+		$list = array_map(['\\lib\\app\\category\\ready', 'row'], $list);
 
 		return $list;
 	}
@@ -89,7 +89,7 @@ class get
 
 		$load['count'] = \lib\db\productcategory\get::get_count_product($_id);
 
-		$load = \lib\app\tag\ready::row($load);
+		$load = \lib\app\category\ready::row($load);
 		return $load;
 	}
 
@@ -116,7 +116,7 @@ class get
 			return false;
 		}
 
-		$load = \lib\app\tag\ready::row($load);
+		$load = \lib\app\category\ready::row($load);
 		return $load;
 	}
 
@@ -176,7 +176,7 @@ class get
 			return false;
 		}
 
-		$load = \lib\app\tag\ready::row($load);
+		$load = \lib\app\category\ready::row($load);
 
 
 		$find_parent = self::find_parent($load);
@@ -225,7 +225,7 @@ class get
 			$load_title_url = [];
 		}
 
-		$load_title_url = array_map(['\\lib\\app\\tag\\ready', 'row'], $load_title_url);
+		$load_title_url = array_map(['\\lib\\app\\category\\ready', 'row'], $load_title_url);
 
 		return $load_title_url;
 	}
@@ -284,7 +284,7 @@ class get
 
 			foreach ($get_child as $key => $value)
 			{
-				$new_list[] = \lib\app\tag\ready::row($value);
+				$new_list[] = \lib\app\category\ready::row($value);
 			}
 
 			$get_child = $new_list;
@@ -390,7 +390,7 @@ class get
 	public static function sort_list()
 	{
 
-		$tag_list = \lib\app\tag\search::list(null, ['pagination' => false, 'sort_list' => 1]);
+		$tag_list = \lib\app\category\search::list(null, ['pagination' => false, 'sort_list' => 1]);
 
 		if(!is_array($tag_list))
 		{

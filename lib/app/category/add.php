@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\tag;
+namespace lib\app\category;
 
 
 class add
@@ -7,7 +7,7 @@ class add
 
 	public static function first_level($_id)
 	{
-		$load = \lib\app\tag\get::inline_get($_id);
+		$load = \lib\app\category\get::inline_get($_id);
 		if($load)
 		{
 			$sort = floatval(\lib\db\productcategory\get::last_sort()) + 1;
@@ -38,7 +38,7 @@ class add
 		}
 		else
 		{
-			$insert_args = \lib\app\tag\check::variable(['title' => $data['tag']]);
+			$insert_args = \lib\app\category\check::variable(['title' => $data['tag']]);
 
 			unset($insert_args['properties']);
 
@@ -259,7 +259,7 @@ class add
 
 
 
-		$args = \lib\app\tag\check::variable($_args);
+		$args = \lib\app\category\check::variable($_args);
 		if(!$args)
 		{
 			return false;
@@ -303,7 +303,7 @@ class add
 			return false;
 		}
 
-		$load_cat = \lib\app\tag\get::get($_tag_id);
+		$load_cat = \lib\app\category\get::get($_tag_id);
 		if(!$load_cat)
 		{
 			return false;

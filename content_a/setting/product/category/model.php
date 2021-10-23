@@ -9,7 +9,7 @@ class model
 		$post           = [];
 		$post['tag'] = \dash\request::post('category');
 
-		\lib\app\tag\add::apply_to_all($post);
+		\lib\app\category\add::apply_to_all($post);
 
 
 

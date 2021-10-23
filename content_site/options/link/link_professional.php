@@ -249,7 +249,7 @@ trait link_professional
 				break;
 
 			case 'tags':
-				$loadTag = \lib\app\tag\get::get($_related_id);
+				$loadTag = \lib\app\category\get::get($_related_id);
 				if(isset($loadTag['title']))
 				{
 					$selected_title = $loadTag['title'];

@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		$list = \lib\app\tag\search::list();
+		$list = \lib\app\category\search::list();
 		\content_b1\tools::say($list);
 	}
 

@@ -7,7 +7,7 @@ class view
 
 	public static function config()
 	{
-		$dataRow = \lib\app\tag\get::get(\dash\request::get('id'));
+		$dataRow = \lib\app\category\get::get(\dash\request::get('id'));
 		\content_b1\tools::say($dataRow);
 	}
 

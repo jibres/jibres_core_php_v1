@@ -15,7 +15,7 @@ class model
 		$args['seotitle'] = \dash\request::input_body('seotitle');
 		$args['seodesc']  = \dash\request::input_body('seodesc');
 
-		$result = \lib\app\tag\add::add($args);
+		$result = \lib\app\category\add::add($args);
 
 		\content_b1\tools::say($result);
 	}

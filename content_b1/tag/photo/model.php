@@ -19,7 +19,7 @@ class model
 			$args['file'] = $file;
 		}
 
-		$result = \lib\app\tag\edit::edit($args, $id);
+		$result = \lib\app\category\edit::edit($args, $id);
 
 		\content_b1\tools::say($result);
 	}
@@ -30,7 +30,7 @@ class model
 		$id = \dash\request::get('id');
 		$id = \dash\validate::id($id);
 
-		\lib\app\tag\remove::remove_file($id);
+		\lib\app\category\remove::remove_file($id);
 
 		if(\dash\engine\process::status())
 		{

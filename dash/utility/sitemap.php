@@ -662,7 +662,7 @@ class sitemap
 
 	public static function tags($_id)
 	{
-		return self::make('tags', $_id, 'url', '\\lib\\app\\tag\\get');
+		return self::make('tags', $_id, 'url', '\\lib\\app\\category\\get');
 	}
 
 	public static function forms($_id)

@@ -20,7 +20,7 @@ class model
 
 		$property  = \dash\request::input_body('property');
 
-		$result = \lib\app\tag\edit::edit($args, $id, $property);
+		$result = \lib\app\category\edit::edit($args, $id, $property);
 
 		\content_b1\tools::say($result);
 	}

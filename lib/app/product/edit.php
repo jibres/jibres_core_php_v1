@@ -189,7 +189,7 @@ class edit
 				$args['tag'] = \dash\app\terms\find::tag(a($args, 'desc'), $args['tag']);
 			}
 
-			\lib\app\tag\add::product_cat($args['tag'], $id);
+			\lib\app\category\add::product_cat($args['tag'], $id);
 			if(!\dash\engine\process::status())
 			{
 				return false;

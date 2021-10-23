@@ -9,7 +9,7 @@ class tags
 	 */
 	public static function list($_query_string)
 	{
-		$search = \lib\app\tag\search::list($_query_string, []);
+		$search = \lib\app\category\search::list($_query_string, []);
 
 		if(!$search || !is_array($search))
 		{

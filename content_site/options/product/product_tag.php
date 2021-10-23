@@ -26,7 +26,7 @@ class product_tag
 
 	public static function admin_html()
 	{
-		$tag_list = \lib\app\tag\get::all_category();
+		$tag_list = \lib\app\category\get::all_category();
 		$default = \content_site\section\view::get_current_index_detail('product_tag');
 
 		if(!$default)

@@ -7,7 +7,7 @@ class controller
 	{
 		$id = \dash\request::get('id');
 
-		$dataRow = \lib\app\tag\get::get($id);
+		$dataRow = \lib\app\category\get::get($id);
 		\dash\data::dataRow($dataRow);
 
 		if(!$dataRow)
