@@ -182,20 +182,21 @@ class edit
 
 
 
-		if(array_key_exists('tag', $args))
+		if(array_key_exists('category', $args))
 		{
-			if(a($args, 'desc') && is_array($args['tag']))
+			if(a($args, 'desc') && is_array($args['category']))
 			{
-				$args['tag'] = \dash\app\terms\find::tag(a($args, 'desc'), $args['tag']);
+				$args['category'] = \dash\app\terms\find::tag(a($args, 'desc'), $args['category']);
 			}
 
-			\lib\app\category\add::product_cat($args['tag'], $id);
+			\lib\app\category\add::product_cat($args['category'], $id);
 			if(!\dash\engine\process::status())
 			{
 				return false;
 			}
 		}
 
+		unset($args['category']);
 		unset($args['tag']);
 
 		if(isset($args['type']))

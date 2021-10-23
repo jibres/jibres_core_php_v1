@@ -143,16 +143,17 @@ class add
 			}
 		}
 
-		$my_tag = [];
-		if(array_key_exists('tag', $args))
+		$my_category = [];
+		if(array_key_exists('category', $args))
 		{
-			if($args['tag'])
+			if($args['category'])
 			{
-				$my_tag = $args['tag'];
+				$my_category = $args['category'];
 			}
 		}
 
 		unset($args['tag']);
+		unset($args['category']);
 
 		$stock = null;
 		if($args['stock'])
@@ -205,12 +206,12 @@ class add
 
 		if($desc)
 		{
-			$my_tag = \dash\app\terms\find::tag($desc, $my_tag);
+			$my_category = \dash\app\terms\find::tag($desc, $my_category);
 		}
 
-		if($my_tag)
+		if($my_category)
 		{
-			\lib\app\category\add::product_cat($my_tag, $product_id);
+			\lib\app\category\add::product_cat($my_category, $product_id);
 
 			if(!\dash\engine\process::status())
 			{
