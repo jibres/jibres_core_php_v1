@@ -417,6 +417,8 @@ class model
 			// check process after change model
 			\content_site\call_function::after_change_model($section_key, $section_id, $model, $preview_key);
 
+			\content_site\model::check_auto_save_page();
+
 			\dash\redirect::to(\dash\url::that(). \dash\request::full_get());
 
 		}
@@ -899,6 +901,8 @@ class model
 		$url = \dash\url::this(). '/';
 		$url .= $section;
 		$url .= \dash\request::full_get(['sid' => $id, 'folder' => null, 'section' => null,]);
+
+		\content_site\model::check_auto_save_page();
 
 		\dash\redirect::to($url);
 
