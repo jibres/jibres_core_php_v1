@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-23 16:56+0330\n"
-"PO-Revision-Date: 2021-10-23 16:57+0330\n"
+"POT-Creation-Date: 2021-10-23 17:25+0330\n"
+"PO-Revision-Date: 2021-10-23 17:25+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5107,8 +5107,8 @@ msgstr "افزودن"
 #: content_cms/comments/edit/display.php:39 content_crm/permission/setting/display.php:11
 #: content_crm/permission/user/display.php:11 content_crm/ticket/view/display-live.php:78
 #: content_love/changelog/add/display.php:42 content_my/domain/irnic/edit/display.php:25
-#: includes/languages/trans_static_public.php:144 lib/app/menu/generate.php:86
-#: lib/app/menu/generate2.php:65 lib/app/tag/get.php:467
+#: includes/languages/trans_static_public.php:144 lib/app/category/get.php:467
+#: lib/app/menu/generate.php:86 lib/app/menu/generate2.php:65
 msgid "Edit"
 msgstr "ویرایش"
 
@@ -5222,7 +5222,7 @@ msgstr "همه"
 #: content_a/products/property/add/display.php:16
 #: content_a/products/property/add/display.php:20
 #: content_a/products/property/display.php:29 content_a/products/property/display.php:33
-#: content_a/products/property/edit/display.php:13 lib/app/tag/add.php:97
+#: content_a/products/property/edit/display.php:13 lib/app/category/add.php:97
 msgid "Group"
 msgstr "گروه"
 
@@ -6519,9 +6519,9 @@ msgstr "فروش"
 #: content_love/smslog/view/display.php:12 content_my/domain/setting/elements/irnic.php:26
 #: dash/app/ticket/filter.php:57 dash/app/ticket/filter.php:58
 #: dash/app/transaction/filter.php:36 dash/app/transaction/filter.php:37
-#: lib/app/application/queue_search.php:66 lib/app/gift/filter.php:51
-#: lib/app/gift/filter.php:52 lib/app/nic_log/search.php:69
-#: lib/app/onlinenic/log/search.php:69 lib/app/tag/add.php:97
+#: lib/app/application/queue_search.php:66 lib/app/category/add.php:97
+#: lib/app/gift/filter.php:51 lib/app/gift/filter.php:52 lib/app/nic_log/search.php:69
+#: lib/app/onlinenic/log/search.php:69
 msgid "Type"
 msgstr "نوع"
 
@@ -7884,10 +7884,12 @@ msgid "Edit group title"
 msgstr "ویرایش عنوان گروه"
 
 #: content_a/category/edit/controller.php:15 content_a/category/remove/controller.php:14
-#: lib/app/tag/edit.php:44 lib/app/tag/edit.php:106 lib/app/tag/edit.php:179
-#: lib/app/tag/edit.php:185 lib/app/tag/edit.php:290 lib/app/tag/get.php:50
-#: lib/app/tag/get.php:57 lib/app/tag/get.php:79 lib/app/tag/get.php:86
-#: lib/app/tag/get.php:108 lib/app/tag/get.php:115 lib/app/tag/search.php:40
+#: lib/app/category/add.php:82 lib/app/category/add.php:106 lib/app/category/add.php:188
+#: lib/app/category/add.php:199 lib/app/category/edit.php:44 lib/app/category/edit.php:106
+#: lib/app/category/edit.php:179 lib/app/category/edit.php:185
+#: lib/app/category/edit.php:290 lib/app/category/get.php:50 lib/app/category/get.php:57
+#: lib/app/category/get.php:79 lib/app/category/get.php:86 lib/app/category/get.php:108
+#: lib/app/category/get.php:115 lib/app/category/search.php:40
 msgid "Invalid category id"
 msgstr "شناسه دسته‌بندی اشتباه است"
 
@@ -7916,8 +7918,8 @@ msgid "Slug"
 msgstr "نامک"
 
 #: content_a/category/edit/display.php:41
-msgid "End part of your tag url."
-msgstr "آخرین قسمت آدرس تگ شما."
+msgid "End part of your category url."
+msgstr "آخرین قسمت آدرس دسته‌بندی شما."
 
 #: content_a/category/edit/display.php:43
 msgid "Category slug"
@@ -7983,8 +7985,8 @@ msgid "Search in products"
 msgstr "جستجو در محصولات"
 
 #: content_a/category/edit/display.php:88
-msgid "Product founded by this tag"
-msgstr "محصول با این تگ یافت شد"
+msgid "Product founded by this category"
+msgstr "محصول با این دسته‌بندی یافت شد"
 
 #: content_a/category/edit/display.php:102
 msgid "Category image"
@@ -8011,8 +8013,8 @@ msgid "Show products by this category"
 msgstr "نمایش محصولات موجود در این دسته‌بندی"
 
 #: content_a/category/edit/model.php:44
-msgid "Tag file deleted"
-msgstr "تصویر تگ حذف شد"
+msgid "Category image removed"
+msgstr "تصویر دسته‌بندی حذف شد"
 
 #: content_a/category/edit/view.php:8
 msgid "Edit category"
@@ -8053,13 +8055,13 @@ msgstr "عنوان نزولی"
 msgid "Add new product"
 msgstr "افزودن محصول جدید"
 
-#: content_a/category/home/display.php:157 content_a/form/tag/display.php:105
-msgid "No tag founded."
-msgstr "هیچ تگی یافت نشد."
+#: content_a/category/home/display.php:157
+msgid "No category founded."
+msgstr "هیچ دسته‌بندی یافت نشد."
 
-#: content_a/category/home/display.php:158 content_a/form/tag/display.php:106
-msgid "Try to start with add new tag!"
-msgstr "با افزودن تگ جدید تلاشی برای شروع داشته باشید!"
+#: content_a/category/home/display.php:158
+msgid "Try to start with add new category!"
+msgstr "با افزودن دسته‌بندی جدید تلاشی برای شروع داشته باشید!"
 
 #: content_a/category/home/view.php:8
 msgid "Product Category"
@@ -8152,16 +8154,17 @@ msgstr "ذخیره تغییرات و حذف دسته‌بندی"
 
 #: content_a/category/remove/model.php:22
 msgid ""
-"This tag used in some product. Please specify what you want to do with these products. "
-"Do you want to delete this tag from them or select a new tag for them?"
+"This category used in some product. Please specify what you want to do with these "
+"products. Do you want to delete this category from them or select a new category for "
+"them?"
 msgstr ""
-"این تگ در تعدادی از محصولات استفاده شده است. لطفا مشخص کنید که می‌خواهید چه کاری انجام "
-"دهید؟ آیا می‌خواهید این تگ را از محصولات حذف کنید و یا اینکه آن را با تگ جدید جایگزین "
-"کنید؟"
+"این دسته‌بندی در تعدادی از محصولات استفاده شده است. لطفا مشخص کنید که می‌خواهید چه کاری "
+"انجام دهید؟ آیا می‌خواهید این دسته‌بندی را از محصولات حذف کنید و یا اینکه آن را با دسته "
+"بندی جدید جایگزین کنید؟"
 
-#: content_a/category/remove/model.php:34 content_a/form/tag/remove/model.php:34
-msgid "Please choose new tag"
-msgstr "لطفا تگ جدید را انتخاب کنید"
+#: content_a/category/remove/model.php:34
+msgid "Please choose new category"
+msgstr "لطفا دسته‌بندی جدید را انتخاب کنید"
 
 #: content_a/category/sort/display.php:21
 msgid ""
@@ -8311,15 +8314,15 @@ msgstr "چاپ فاکتور"
 #: content_cms/controller.php:16 content_r10/tools.php:134 content_site/controller.php:24
 #: content_v2/controller.php:19 dash/engine/store.php:313 lib/app/application/queue.php:12
 #: lib/app/application/queue.php:243 lib/app/business_domain/add.php:68
-#: lib/app/business_domain/edit.php:100 lib/app/factor/add.php:166
-#: lib/app/factor/get.php:179 lib/app/plan/history.php:113 lib/app/product/edit.php:104
-#: lib/app/product/get.php:45 lib/app/product/get.php:86 lib/app/product/unit.php:63
-#: lib/app/product/unit.php:229 lib/app/product/unit.php:261 lib/app/product/unit.php:355
-#: lib/app/store/edit.php:18 lib/app/store/edit.php:106 lib/app/store/edit.php:145
-#: lib/app/store/edit.php:191 lib/app/store/remove.php:13 lib/app/tag/add.php:70
-#: lib/app/tag/add.php:176 lib/app/tag/add.php:251 lib/app/tag/edit.php:279
-#: lib/app/tag/get.php:69 lib/app/tag/get.php:100 lib/app/tag/get.php:128
-#: lib/app/tag/search.php:28
+#: lib/app/business_domain/edit.php:100 lib/app/category/add.php:70
+#: lib/app/category/add.php:176 lib/app/category/add.php:251 lib/app/category/edit.php:279
+#: lib/app/category/get.php:69 lib/app/category/get.php:100 lib/app/category/get.php:128
+#: lib/app/category/search.php:28 lib/app/factor/add.php:166 lib/app/factor/get.php:179
+#: lib/app/plan/history.php:113 lib/app/product/edit.php:104 lib/app/product/get.php:45
+#: lib/app/product/get.php:86 lib/app/product/unit.php:63 lib/app/product/unit.php:229
+#: lib/app/product/unit.php:261 lib/app/product/unit.php:355 lib/app/store/edit.php:18
+#: lib/app/store/edit.php:106 lib/app/store/edit.php:145 lib/app/store/edit.php:191
+#: lib/app/store/remove.php:13
 msgid "Store not found"
 msgstr "فروشگاه یافت نشد"
 
@@ -9396,14 +9399,22 @@ msgstr "نام تگ"
 msgid "Add new form tag"
 msgstr "افزودن تگ جدید"
 
+#: content_a/form/tag/display.php:105
+msgid "No tag founded."
+msgstr "هیچ تگی یافت نشد."
+
+#: content_a/form/tag/display.php:106
+msgid "Try to start with add new tag!"
+msgstr "با افزودن تگ جدید تلاشی برای شروع داشته باشید!"
+
 #: content_a/form/tag/edit/controller.php:15 content_a/form/tag/remove/controller.php:16
 #: dash/app/posts/check.php:218 dash/app/terms/remove.php:18 dash/app/terms/remove.php:51
-#: dash/app/terms/remove.php:82 lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106
-#: lib/app/form/tag/get.php:113 lib/app/form/tag/get.php:130 lib/app/form/tag/get.php:137
+#: dash/app/terms/remove.php:82 lib/app/category/remove.php:35
+#: lib/app/category/remove.php:56 lib/app/category/remove.php:91
+#: lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106 lib/app/form/tag/get.php:113
+#: lib/app/form/tag/get.php:130 lib/app/form/tag/get.php:137
 #: lib/app/form/tag/remove.php:18 lib/app/form/tag/remove.php:39
-#: lib/app/form/tag/remove.php:72 lib/app/tag/add.php:82 lib/app/tag/add.php:106
-#: lib/app/tag/add.php:188 lib/app/tag/add.php:199 lib/app/tag/remove.php:35
-#: lib/app/tag/remove.php:56 lib/app/tag/remove.php:91
+#: lib/app/form/tag/remove.php:72
 msgid "Invalid tag id"
 msgstr "شناسه تگ نادرست است"
 
@@ -9489,6 +9500,10 @@ msgstr ""
 "این تگ در تعدادی از پاسخ استفاده شده است. لطفا مشخص کنید که می‌خواهید چه کاری انجام "
 "دهید؟ آیا می‌خواهید این تگ را از پاسخ‌ها حذف کنید و یا اینکه آن را با تگ جدید جایگزین "
 "کنید؟"
+
+#: content_a/form/tag/remove/model.php:34
+msgid "Please choose new tag"
+msgstr "لطفا تگ جدید را انتخاب کنید"
 
 #: content_a/form/tag/view.php:8
 msgid "Form Tags"
@@ -11568,8 +11583,8 @@ msgstr "لطفا استان را انتخاب کنید"
 #: content_a/setting/factor/seller/model.php:21 content_a/setting/order/model.php:57
 #: content_site/section/html/model.php:89 dash/app/changelog.php:347
 #: dash/app/permission/edit.php:157 dash/app/permission/edit.php:229
+#: lib/app/category/edit.php:91 lib/app/category/edit.php:164
 #: lib/app/product/property.php:689 lib/app/setting/policy_page.php:35
-#: lib/app/tag/edit.php:91 lib/app/tag/edit.php:164
 msgid "Saved"
 msgstr "ذخیره شد"
 
@@ -11755,10 +11770,11 @@ msgstr "فیس‌بوک"
 #: lib/app/business_domain/dns.php:292 lib/app/business_domain/dns.php:300
 #: lib/app/business_domain/dns.php:357 lib/app/business_domain/dns.php:365
 #: lib/app/business_domain/dns.php:575 lib/app/business_domain/dns.php:583
-#: lib/app/discount/get.php:22 lib/app/export/download.php:30 lib/app/factor/edit.php:59
-#: lib/app/form/answer/get.php:108 lib/app/form/answer/remove.php:14
-#: lib/app/form/choice/get.php:24 lib/app/form/filter/get.php:24
-#: lib/app/form/form/get.php:44 lib/app/form/item/get.php:22 lib/app/form/item/get.php:176
+#: lib/app/category/edit.php:16 lib/app/discount/get.php:22 lib/app/export/download.php:30
+#: lib/app/factor/edit.php:59 lib/app/form/answer/get.php:108
+#: lib/app/form/answer/remove.php:14 lib/app/form/choice/get.php:24
+#: lib/app/form/filter/get.php:24 lib/app/form/form/get.php:44
+#: lib/app/form/item/get.php:22 lib/app/form/item/get.php:176
 #: lib/app/form/item/get.php:210 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
 #: lib/app/menu/check.php:69 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
@@ -11766,11 +11782,10 @@ msgstr "فیس‌بوک"
 #: lib/app/nic_domain/get.php:511 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
 #: lib/app/product/edit.php:25 lib/app/product/edit.php:35 lib/app/setting/package.php:72
-#: lib/app/setting/shipping_method.php:72 lib/app/tag/edit.php:16
-#: lib/app/tax/coding/get.php:161 lib/app/tax/doc/get.php:43
-#: lib/app/tax/docdetail/edit.php:16 lib/app/tax/docdetail/get.php:22
-#: lib/app/tax/docdetail/remove.php:13 lib/app/tax/docdetail/remove.php:20
-#: lib/app/tax/year/get.php:66
+#: lib/app/setting/shipping_method.php:72 lib/app/tax/coding/get.php:161
+#: lib/app/tax/doc/get.php:43 lib/app/tax/docdetail/edit.php:16
+#: lib/app/tax/docdetail/get.php:22 lib/app/tax/docdetail/remove.php:13
+#: lib/app/tax/docdetail/remove.php:20 lib/app/tax/year/get.php:66
 msgid "Invalid id"
 msgstr "شناسه نامعتبر"
 
@@ -15077,6 +15092,10 @@ msgstr "لینوکس"
 msgid "Setting saved"
 msgstr "تنظیمات ذخیره شد"
 
+#: content_b1/category/photo/model.php:37
+msgid "Category file deleted"
+msgstr "تصویر دسته‌بندی حذف شد"
+
 #: content_b1/controller.php:36 content_r10/controller.php:36 content_v2/controller.php:46
 msgid "Invalid subdomain. remove subdomain to continue"
 msgstr "زیر دامنه اشتباه است. زیر دامنه را حذف کرده و ادامه دهید"
@@ -15100,10 +15119,6 @@ msgstr "فایل معتبر نیست"
 #: content_b1/product/gallery/remove/model.php:27
 msgid "File removed from gallery"
 msgstr "فایل از گالری حذف شد"
-
-#: content_b1/tag/photo/model.php:37
-msgid "Category file deleted"
-msgstr "تصویر دسته‌بندی حذف شد"
 
 #: content_b1/ticket/detail/view.php:18
 msgid "Please set the master ticket id"
@@ -15244,8 +15259,8 @@ msgid "Invalid category url"
 msgstr "آدرس دسته‌ اشتباه است"
 
 #: content_business/category/display-all-tag-list.php:22
-msgid "No tags founded!"
-msgstr "تگی یافت نشد!"
+msgid "No categories founded!"
+msgstr "هیچ دسته‌بندی یافت نشد!"
 
 #: content_business/category/display-one-tag.php:52 content_business/search/display.php:11
 msgid "Search products"
@@ -25922,7 +25937,7 @@ msgstr "نوشته حذف شد"
 msgid "Post move to trash"
 msgstr "نوشته به زباله‌دان منتقل شد"
 
-#: dash/app/posts/terms.php:45 lib/app/tag/add.php:377
+#: dash/app/posts/terms.php:45 lib/app/category/add.php:377
 msgid "Invalid cat format"
 msgstr "فرمت دسته‌بندی نادرست است"
 
@@ -25970,7 +25985,8 @@ msgstr "تگ بدون تغییر ذخیره شد"
 msgid "This tag used in menu and can not be remove"
 msgstr "این تگ در منو استفاده شده و امکان حذف آن وجود ندارد"
 
-#: dash/app/terms/remove.php:59 lib/app/form/tag/remove.php:47 lib/app/tag/remove.php:64
+#: dash/app/terms/remove.php:59 lib/app/category/remove.php:64
+#: lib/app/form/tag/remove.php:47
 msgid "Please select one tag"
 msgstr "لطفا یک تگ را انتخاب کنید"
 
@@ -36700,6 +36716,153 @@ msgstr "سبد خرید حذف شد"
 msgid "The product was removed from your cart"
 msgstr "محصول از سبد خرید شما حذف شد"
 
+#: lib/app/category/add.php:56
+msgid "Can not add category"
+msgstr "نمی‌توانیم این دسته‌بندی را اضافه کنیم"
+
+#: lib/app/category/add.php:62
+msgid "Tag added to all prodcut"
+msgstr "تگ به همه محصولات اضافه شد"
+
+#: lib/app/category/add.php:153
+msgid "Duplicate item founded"
+msgstr "این آیتم تکراری است"
+
+#: lib/app/category/add.php:167
+msgid "General property saved"
+msgstr "مشخصات عمومی ذخیره شد"
+
+#: lib/app/category/add.php:226 lib/app/product/property.php:599
+msgid "Property not found"
+msgstr "مشخصه یافت نشد"
+
+#: lib/app/category/add.php:240
+msgid "General property removed"
+msgstr "مشخصات عمومی حذف شد"
+
+#: lib/app/category/add.php:282 lib/app/form/tag/add.php:93 lib/app/form/tag/add.php:135
+#: lib/app/fund/add.php:27 lib/app/inventory/add.php:40 lib/app/nic_contact/add.php:179
+#: lib/app/nic_contact/add.php:345 lib/app/product/unit.php:41 lib/app/product/unit.php:91
+msgid "No way to insert data"
+msgstr "هیچ راهی برای افزودن اطلاعات نیست"
+
+#: lib/app/category/add.php:286
+msgid "Category successfully added"
+msgstr "دسته‌بندی با موفقیت اضافه شد"
+
+#: lib/app/category/add.php:317
+msgid "This product have this category"
+msgstr "این محصول هم‌اکنون دارای این دسته‌بندی می‌باشد"
+
+#: lib/app/category/add.php:328
+msgid "Category added to this product"
+msgstr "دسته‌بندی به این محصول اضافه شد"
+
+#: lib/app/category/add.php:418
+msgid "Category is too long!"
+msgstr "دسته‌بندی خیلی طولانی است!"
+
+#: lib/app/category/add.php:462
+msgid "You can set maximum 20 cat to product"
+msgstr "شما می‌توانید حداکثر ۲۰ دسته‌بندی به یک محصول اضافه کنید"
+
+#: lib/app/category/check.php:28
+msgid "Property key"
+msgstr "عنوان خصوصیت محصول"
+
+#: lib/app/category/check.php:28
+msgid "Group properties"
+msgstr "گروه مشخصات"
+
+#: lib/app/category/check.php:53 lib/app/form/tag/check.php:57
+msgid "Duplicate slug founded"
+msgstr "نامک تکراری است"
+
+#: lib/app/category/check.php:74
+msgid "Property Group not set"
+msgstr "گروه مشخصات محصول تنظیم نشده است"
+
+#: lib/app/category/check.php:82
+msgid "Property Key must be an array"
+msgstr "کلید‌های مشخصات محصول باید آرایه باشد"
+
+#: lib/app/category/edit.php:25 lib/app/tax/docdetail/edit.php:25
+msgid "No data to sort"
+msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
+
+#: lib/app/category/edit.php:50 lib/app/category/edit.php:56
+msgid "Invalid sort item detail"
+msgstr "جزئیات مربوط به مرتب‌سازی اشتباه است"
+
+#: lib/app/category/edit.php:62
+msgid "Count of group and key is not matched!"
+msgstr "تعداد گروه‌ها و کلید‌ها باهم مطابقت ندارد!"
+
+#: lib/app/category/edit.php:72 lib/app/category/edit.php:122
+#: lib/app/category/edit.php:192 lib/app/category/edit.php:199
+msgid "Tag not founded"
+msgstr "تگ یافت نشn"
+
+#: lib/app/category/edit.php:115
+msgid "Please enter the group name"
+msgstr "لطفا عنوان گروه را وارد کنید"
+
+#: lib/app/category/edit.php:257
+msgid "No property found to add to list"
+msgstr "مشخصات جدیدی برای افزودن به لیست پیدا نشد"
+
+#: lib/app/category/edit.php:262
+msgid ":val property added"
+msgstr ":val مشخصه اضافه شد"
+
+#: lib/app/category/edit.php:311
+msgid "Duplicate category founded"
+msgstr "دسته‌بندی تکراری یافت شد"
+
+#: lib/app/category/edit.php:342
+msgid "No change in your product category"
+msgstr "دسته‌بندی محصول شما تغییری نکرد"
+
+#: lib/app/category/edit.php:360
+msgid "The category successfully updated"
+msgstr "دسته‌بندی با موفقیت به‌روزرسانی شد"
+
+#: lib/app/category/edit.php:366
+msgid "Can not update your product category"
+msgstr "نمی‌توانیم دسته‌بندی محصول شما را به‌روزرسانی کنیم"
+
+#: lib/app/category/edit.php:373
+msgid "Category saved without chnage"
+msgstr "دسته‌بندی بدون تغییر ذخیره شد"
+
+#: lib/app/category/edit.php:387 lib/app/menu/edit.php:87 lib/app/menu/edit.php:123
+msgid "Sort arguments must be array"
+msgstr "پارامتر مرتب‌سازی باید آرایه باشد"
+
+#: lib/app/category/edit.php:559
+msgid "Can not save this tag level!"
+msgstr "نمی‌توانیم این سطح از تگ را ذخیره کنیم!"
+
+#: lib/app/category/get.php:405
+msgid "Add sub tag"
+msgstr "افزودن تگ زیرمجموعه"
+
+#: lib/app/category/remove.php:97
+msgid "Some product save by this tag and you can not remove it"
+msgstr "تعدادی از محصولات با این تگ ذخیره شده‌اند و شما نمی‌توانید این تگ را حذف کنید"
+
+#: lib/app/category/remove.php:104
+msgid "Category successfully removed"
+msgstr "دسته‌بندی با موفقیت حذف شد"
+
+#: lib/app/category/search.php:70
+msgid "This record is not childable"
+msgstr "این مورد امکان داشتن زیرمجوعه را ندارد"
+
+#: lib/app/category/search.php:76
+msgid "This record have not child"
+msgstr "این مورد دارای زیرمجموعه نیست"
+
 #: lib/app/discount/add.php:22 lib/app/discount/add.php:67 lib/app/discount/edit.php:37
 msgid "This discount code is exist in your list. Try another"
 msgstr "این کد تخفیف قبلا ثبت شده است. لطفا کد دیگری را انتخاب کنید"
@@ -37642,16 +37805,9 @@ msgstr "گزینه دوم گزینه‌ای نیست"
 msgid "The question 3 is not choiceable"
 msgstr "گزینه سوم گزینه‌ای نیست"
 
-#: lib/app/form/tag/add.php:49 lib/app/tag/add.php:56
+#: lib/app/form/tag/add.php:49
 msgid "Can not add tag"
 msgstr "نمی‌توانیم این تگ را اضافه کنیم"
-
-#: lib/app/form/tag/add.php:93 lib/app/form/tag/add.php:135 lib/app/fund/add.php:27
-#: lib/app/inventory/add.php:40 lib/app/nic_contact/add.php:179
-#: lib/app/nic_contact/add.php:345 lib/app/product/unit.php:41 lib/app/product/unit.php:91
-#: lib/app/tag/add.php:282
-msgid "No way to insert data"
-msgstr "هیچ راهی برای افزودن اطلاعات نیست"
 
 #: lib/app/form/tag/add.php:97
 msgid "Tag successfully added"
@@ -37672,10 +37828,6 @@ msgstr "کلید‌واژه خیلی طولانی است!"
 #: lib/app/form/tag/add.php:353
 msgid "You can set maximum 20 tag to answer"
 msgstr "شما می‌توانید حداکثر ۲۰ کلید‌واژه به یک پاسخ اضافه کنید"
-
-#: lib/app/form/tag/check.php:57 lib/app/tag/check.php:53
-msgid "Duplicate slug founded"
-msgstr "نامک تکراری است"
 
 #: lib/app/form/tag/edit.php:38
 msgid "Duplicate tag founded"
@@ -38316,10 +38468,6 @@ msgstr "لطفا آدرس را وارد کنید"
 #: lib/app/menu/edit.php:68
 msgid "Menu updated"
 msgstr "فهرست به‌روزرسانی شد"
-
-#: lib/app/menu/edit.php:87 lib/app/menu/edit.php:123 lib/app/tag/edit.php:387
-msgid "Sort arguments must be array"
-msgstr "پارامتر مرتب‌سازی باید آرایه باشد"
 
 #: lib/app/menu/edit.php:100
 msgid "No item to sort"
@@ -39322,10 +39470,6 @@ msgstr "این مورد از مشخصات برجسته حذف شد"
 #: lib/app/product/property.php:592
 msgid "This property is not an outstanding property"
 msgstr "این مشخصه از مشخصات برجسته نیست"
-
-#: lib/app/product/property.php:599 lib/app/tag/add.php:226
-msgid "Property not found"
-msgstr "مشخصه یافت نشد"
 
 #: lib/app/product/property.php:658
 msgid "Property group"
@@ -40549,131 +40693,6 @@ msgstr "فروشگاه فعال شد"
 #: lib/app/store/search.php:218
 msgid "Field"
 msgstr "فیلد"
-
-#: lib/app/tag/add.php:62
-msgid "Tag added to all prodcut"
-msgstr "تگ به همه محصولات اضافه شد"
-
-#: lib/app/tag/add.php:153
-msgid "Duplicate item founded"
-msgstr "این آیتم تکراری است"
-
-#: lib/app/tag/add.php:167
-msgid "General property saved"
-msgstr "مشخصات عمومی ذخیره شد"
-
-#: lib/app/tag/add.php:240
-msgid "General property removed"
-msgstr "مشخصات عمومی حذف شد"
-
-#: lib/app/tag/add.php:286
-msgid "Category successfully added"
-msgstr "دسته‌بندی با موفقیت اضافه شد"
-
-#: lib/app/tag/add.php:317
-msgid "This product have this tag"
-msgstr "این محصول هم‌اکنون دارای این تگ می‌باشد"
-
-#: lib/app/tag/add.php:328
-msgid "Category added to this product"
-msgstr "دسته‌بندی به این محصول اضافه شد"
-
-#: lib/app/tag/add.php:418
-msgid "Category is too long!"
-msgstr "دسته‌بندی خیلی طولانی است!"
-
-#: lib/app/tag/add.php:462
-msgid "You can set maximum 20 cat to product"
-msgstr "شما می‌توانید حداکثر ۲۰ دسته‌بندی به یک محصول اضافه کنید"
-
-#: lib/app/tag/check.php:28
-msgid "Property key"
-msgstr "عنوان خصوصیت محصول"
-
-#: lib/app/tag/check.php:28
-msgid "Group properties"
-msgstr "گروه مشخصات"
-
-#: lib/app/tag/check.php:74
-msgid "Property Group not set"
-msgstr "گروه مشخصات محصول تنظیم نشده است"
-
-#: lib/app/tag/check.php:82
-msgid "Property Key must be an array"
-msgstr "کلید‌های مشخصات محصول باید آرایه باشد"
-
-#: lib/app/tag/edit.php:25 lib/app/tax/docdetail/edit.php:25
-msgid "No data to sort"
-msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
-
-#: lib/app/tag/edit.php:50 lib/app/tag/edit.php:56
-msgid "Invalid sort item detail"
-msgstr "جزئیات مربوط به مرتب‌سازی اشتباه است"
-
-#: lib/app/tag/edit.php:62
-msgid "Count of group and key is not matched!"
-msgstr "تعداد گروه‌ها و کلید‌ها باهم مطابقت ندارد!"
-
-#: lib/app/tag/edit.php:72 lib/app/tag/edit.php:122 lib/app/tag/edit.php:192
-#: lib/app/tag/edit.php:199
-msgid "Tag not founded"
-msgstr "تگ یافت نشn"
-
-#: lib/app/tag/edit.php:115
-msgid "Please enter the group name"
-msgstr "لطفا عنوان گروه را وارد کنید"
-
-#: lib/app/tag/edit.php:257
-msgid "No property found to add to list"
-msgstr "مشخصات جدیدی برای افزودن به لیست پیدا نشد"
-
-#: lib/app/tag/edit.php:262
-msgid ":val property added"
-msgstr ":val مشخصه اضافه شد"
-
-#: lib/app/tag/edit.php:311
-msgid "Duplicate category founded"
-msgstr "دسته‌بندی تکراری یافت شد"
-
-#: lib/app/tag/edit.php:342
-msgid "No change in your product category"
-msgstr "دسته‌بندی محصول شما تغییری نکرد"
-
-#: lib/app/tag/edit.php:360
-msgid "The category successfully updated"
-msgstr "دسته‌بندی با موفقیت به‌روزرسانی شد"
-
-#: lib/app/tag/edit.php:366
-msgid "Can not update your product category"
-msgstr "نمی‌توانیم دسته‌بندی محصول شما را به‌روزرسانی کنیم"
-
-#: lib/app/tag/edit.php:373
-msgid "Category saved without chnage"
-msgstr "دسته‌بندی بدون تغییر ذخیره شد"
-
-#: lib/app/tag/edit.php:559
-msgid "Can not save this tag level!"
-msgstr "نمی‌توانیم این سطح از تگ را ذخیره کنیم!"
-
-#: lib/app/tag/get.php:405
-msgid "Add sub tag"
-msgstr "افزودن تگ زیرمجموعه"
-
-#: lib/app/tag/remove.php:97
-msgid "Some product save by this tag and you can not remove it"
-msgstr "تعدادی از محصولات با این تگ ذخیره شده‌اند و شما نمی‌توانید این تگ را حذف کنید"
-
-#: lib/app/tag/remove.php:104
-msgid "Category successfully removed"
-msgstr "دسته‌بندی با موفقیت حذف شد"
-
-#: lib/app/tag/search.php:70
-msgid "This record is not childable"
-msgstr "این مورد امکان داشتن زیرمجوعه را ندارد"
-
-#: lib/app/tag/search.php:76
-msgid "This record have not child"
-msgstr "این مورد دارای زیرمجموعه نیست"
 
 #: lib/app/tax/coding/add.php:43 lib/app/tax/coding/edit.php:78
 msgid "Duplicate title"
@@ -41994,6 +42013,29 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "End part of your tag url."
+#~ msgstr "آخرین قسمت آدرس تگ شما."
+
+#~ msgid "Product founded by this tag"
+#~ msgstr "محصول با این تگ یافت شد"
+
+#~ msgid "Tag file deleted"
+#~ msgstr "تصویر تگ حذف شد"
+
+#~ msgid ""
+#~ "This tag used in some product. Please specify what you want to do with these "
+#~ "products. Do you want to delete this tag from them or select a new tag for them?"
+#~ msgstr ""
+#~ "این تگ در تعدادی از محصولات استفاده شده است. لطفا مشخص کنید که می‌خواهید چه کاری "
+#~ "انجام دهید؟ آیا می‌خواهید این تگ را از محصولات حذف کنید و یا اینکه آن را با تگ جدید "
+#~ "جایگزین کنید؟"
+
+#~ msgid "No tags founded!"
+#~ msgstr "تگی یافت نشد!"
+
+#~ msgid "This product have this tag"
+#~ msgstr "این محصول هم‌اکنون دارای این تگ می‌باشد"
 
 #~ msgid "Tag of products"
 #~ msgstr "تگ محصولات"
@@ -44472,30 +44514,6 @@ msgstr "یارد"
 #~ msgid "How long have we taken the time to develop our idea?"
 #~ msgstr "چقدر برای صرف ایده جیبرس صرف کرده‌ایم؟"
 
-#~ msgid "End part of your category url."
-#~ msgstr "آخرین قسمت آدرس دسته‌بندی شما."
-
-#~ msgid "Product founded by this category"
-#~ msgstr "محصول با این دسته‌بندی یافت شد"
-
-#~ msgid "No category founded."
-#~ msgstr "هیچ دسته‌بندی یافت نشد."
-
-#~ msgid "Try to start with add new category!"
-#~ msgstr "با افزودن دسته‌بندی جدید تلاشی برای شروع داشته باشید!"
-
-#~ msgid ""
-#~ "This category used in some product. Please specify what you want to do with these "
-#~ "products. Do you want to delete this category from them or select a new category for "
-#~ "them?"
-#~ msgstr ""
-#~ "این دسته‌بندی در تعدادی از محصولات استفاده شده است. لطفا مشخص کنید که می‌خواهید چه "
-#~ "کاری انجام دهید؟ آیا می‌خواهید این دسته‌بندی را از محصولات حذف کنید و یا اینکه آن را "
-#~ "با دسته بندی جدید جایگزین کنید؟"
-
-#~ msgid "Please choose new category"
-#~ msgstr "لطفا دسته‌بندی جدید را انتخاب کنید"
-
 #~ msgid "Select any of the categories you want and move them to sort"
 #~ msgstr ""
 #~ "یک دسته‌بندی را انتخاب کنید و آن را جابجا کنید تا مطابق ترتیب دلخواه شما مرتب‌سازی شود"
@@ -44520,9 +44538,6 @@ msgstr "یارد"
 
 #~ msgid "Manage Product Category"
 #~ msgstr "مدیریت دسته‌بندی محصولات"
-
-#~ msgid "This product have this category"
-#~ msgstr "این محصول هم‌اکنون دارای این دسته‌بندی می‌باشد"
 
 #~ msgid "Please select one category"
 #~ msgstr "لطفا یک دسته را انتخاب کنید"
