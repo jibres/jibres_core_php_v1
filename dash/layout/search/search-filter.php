@@ -162,18 +162,18 @@ function HTML_product_tag_search($value)
 {
   echo "<div class='mB10'>";
   echo '<div class="row align-center">';
-  echo '<div class="c"><label for="tag">'. T_("Tag"). '</label></div>';
+  echo '<div class="c"><label for="tag">'. T_("Category"). '</label></div>';
   echo '<div class="c-auto os">';
   echo '<a class="font-12"';
   if(!\dash\detect\device::detectPWA())
   { echo " target='_blank' ";
   }
-  echo ' href="'. \dash\url::here(). '/tag">'. T_("Manage"). ' <i class="sf-link-external"></i></a>';
+  echo ' href="'. \dash\url::here(). '/category">'. T_("Manage"). ' <i class="sf-link-external"></i></a>';
   echo '</div>';
   echo '</div>';
 
   echo '<div>';
-  echo '<select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Select one tag"). '">';
+  echo '<select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Select one category"). '">';
   if(\dash\request::get('tagid'))
   {
       echo '<option value="0">'. T_("None"). '</option>';

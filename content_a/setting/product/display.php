@@ -1,7 +1,7 @@
 <?php $urlHere = \dash\url::here(); ?>
 
 
-<section class="f" data-option='product-tag'>
+<section class="f" data-option='product-category'>
   <div class="c8 s12">
     <div class="data">
       <h3><?php echo T_("Category of products") ?></h3>
@@ -12,11 +12,11 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-      <a class="btn primary" href="<?php echo $urlHere. '/tag' ?>"><?php echo T_("Category of products") ?></a>
+      <a class="btn primary" href="<?php echo $urlHere. '/category' ?>"><?php echo T_("Category of products") ?></a>
     </div>
   </div>
   <footer class="txtRa">
-    <a class="link" href="<?php echo \dash\url::that(). '/tag' ?>"><?php echo T_("Add category to all product"); ?></a>
+    <a class="link" href="<?php echo \dash\url::that(). '/category' ?>"><?php echo T_("Add category to all product"); ?></a>
   </footer>
 </section>
 

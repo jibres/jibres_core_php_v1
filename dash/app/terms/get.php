@@ -209,7 +209,7 @@ class get
 								}
 								else
 								{
-									$html .= "<a href='$baset_url/tag/$value[url]'>$value[title]</a>";
+									$html .= "<a href='$baset_url/category/$value[url]'>$value[title]</a>";
 								}
 							}
 						}

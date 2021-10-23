@@ -63,7 +63,7 @@ $addChildMode = \dash\data::addChildMode();
         </div>
 
          <div data-response='pointer' data-response-where='tags' <?php if(\dash\data::dataRow_pointer() === 'tags'){}else{ echo 'data-response-hide';} ?>>
-          <select name="tag_id" class="select22" id="tagSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/tag/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_("Search in tag"); ?>'>
+          <select name="tag_id" class="select22" id="tagSearch"  data-model='html'  data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true&getid=1' data-shortkey-search data-placeholder='<?php echo T_("Search in category"); ?>'>
             <?php if(\dash\data::dataRow_related_id()) {?>
               <option value="<?php echo \dash\data::dataRow_related_id() ?>" selected><?php echo \dash\data::tagTitle() ?></option>
             <?php } //endif ?>

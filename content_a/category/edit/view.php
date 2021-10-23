@@ -1,0 +1,23 @@
+<?php
+namespace content_a\category\edit;
+
+class view
+{
+	public static function config()
+	{
+		\dash\face::title(T_('Edit category'));
+
+
+		$id = \dash\data::myId();
+
+		\dash\data::back_text(T_('Categories'));
+		\dash\data::back_link(\dash\url::this());
+
+		\dash\face::btnView(\dash\data::dataRow_url());
+		\dash\face::btnSave('form1');
+
+		\content_a\category\property\view::load_property();
+
+	}
+}
+?>

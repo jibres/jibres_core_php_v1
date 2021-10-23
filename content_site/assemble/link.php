@@ -47,7 +47,7 @@ class link
 				break;
 
 			case 'tags':
-				$link .= '/tag';
+				$link .= '/category';
 
 				if($related_id)
 				{

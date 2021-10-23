@@ -9,7 +9,7 @@
          <div>
         <div class="row align-center">
           <div class="c"><label for='category'><?php echo T_("Tag"); ?></label></div>
-          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/tag"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+          <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
         </div>
         <select name="category" id="category" class="select22" data-model="tag" data-placeholder="<?php echo T_("Enter new category or select one category") ?>">
           <option value="" readonly></option>

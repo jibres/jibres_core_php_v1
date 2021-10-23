@@ -260,7 +260,7 @@ class property
 			{
 				if(\dash\url::content() === 'a')
 				{
-					$cat_url = \dash\url::here(). '/tag/edit?id='. a($tag, 'productcategory_id');
+					$cat_url = \dash\url::here(). '/category/edit?id='. a($tag, 'productcategory_id');
 				}
 				else
 				{
