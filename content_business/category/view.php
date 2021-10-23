@@ -27,7 +27,7 @@ class view
 				'maxd'           => \dash\request::get('maxd'),
 				'st'             => \dash\request::get('st'),
 				'd'              => \dash\request::get('d'),
-				'tag_id'         => \dash\data::dataRow_id(),
+				'cat_id'         => \dash\data::dataRow_id(),
 				'tag_with_child' => 1,
 				'limit'          => 50,
 			];

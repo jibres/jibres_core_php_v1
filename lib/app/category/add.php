@@ -28,13 +28,13 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$tag_id = null;
+		$cat_id = null;
 
 		$check_duplicate = \lib\db\productcategory\get::check_duplicate_title($data['category']);
 
 		if(isset($check_duplicate['id']))
 		{
-			$tag_id = $check_duplicate['id'];
+			$cat_id = $check_duplicate['id'];
 		}
 		else
 		{
@@ -48,16 +48,16 @@ class add
 			}
 
 
-			$tag_id = \lib\db\productcategory\insert::new_record($insert_args);
+			$cat_id = \lib\db\productcategory\insert::new_record($insert_args);
 		}
 
-		if(!$tag_id)
+		if(!$cat_id)
 		{
 			\dash\notif::error(T_("Can not add category"));
 			return false;
 		}
 
-		\lib\db\productcategory\insert::apply_to_all_product($tag_id);
+		\lib\db\productcategory\insert::apply_to_all_product($cat_id);
 
 		\dash\notif::ok(T_("Tag added to all prodcut"));
 		return true;
@@ -295,7 +295,7 @@ class add
 
 
 
-	public static function product_cat_plus($_tag_id, $_product_id)
+	public static function product_cat_plus($_cat_id, $_product_id)
 	{
 		$product_detail = \lib\app\product\get::get($_product_id);
 		if(!$product_detail)
@@ -303,14 +303,14 @@ class add
 			return false;
 		}
 
-		$load_cat = \lib\app\category\get::get($_tag_id);
+		$load_cat = \lib\app\category\get::get($_cat_id);
 		if(!$load_cat)
 		{
 			return false;
 		}
 
 
-		$check_product_have_cat = \lib\db\productcategoryusage\get::check_product_have_cat($_product_id, $_tag_id);
+		$check_product_have_cat = \lib\db\productcategoryusage\get::check_product_have_cat($_product_id, $_cat_id);
 
 		if($check_product_have_cat)
 		{
@@ -321,7 +321,7 @@ class add
 		{
 			$insert =
 			[
-				'productcategory_id' => $_tag_id,
+				'productcategory_id' => $_cat_id,
 				'product_id'         => $_product_id,
 			];
 			\lib\db\productcategoryusage\insert::new_record($insert);

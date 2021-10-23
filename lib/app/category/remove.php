@@ -47,9 +47,9 @@ class remove
 
 		if(isset($_action['type']) && $_action['type'] === 'select_new_category')
 		{
-			if(isset($_action['new_tag_id']))
+			if(isset($_action['new_cat_id']))
 			{
-				$load_new = \lib\app\category\get::inline_get($_action['new_tag_id']);
+				$load_new = \lib\app\category\get::inline_get($_action['new_cat_id']);
 
 				if(!isset($load_new['id']))
 				{
