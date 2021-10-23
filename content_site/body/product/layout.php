@@ -24,7 +24,7 @@ class layout
 		{
 			$line_detail =
 			[
-				'tag_id'               => a($_args, 'product_tag'),
+				'cat_id'               => a($_args, 'product_tag'),
 				'limit'                => a($_args, 'count'),
 				'website_order'        => a($_args, 'product_order'),
 
