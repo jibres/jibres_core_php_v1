@@ -406,7 +406,7 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div data-response="customer" data-response-where="special_customer" '.$data_response_hide.'>';
 				{
-					$html .= '<select name="special_customer[]" id="special_customer" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true&mode=text'.'" data-placeholder="'. T_('Search in customers123'). '">';
+					$html .= '<select name="special_customer[]" id="special_customer" class="select22" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true&mode=text'.'" data-placeholder="'. T_('Search in customers123'). '">';
 
 					 	$current_customer = [];
 
