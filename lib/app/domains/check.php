@@ -102,7 +102,7 @@ class check
 			$international_domains[] = $myDomainName. '.'. $myTld;
 		}
 
-		$check_namecheap_domain = \lib\namecheap\api::check_domain($international_domains);
+		$check_namecheap_domain = \lib\api\namecheap\api::check_domain($international_domains);
 
 
 		if(!is_array($check_namecheap_domain))

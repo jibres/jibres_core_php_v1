@@ -1,5 +1,5 @@
 <?php
-namespace lib\namecheap;
+namespace lib\api\namecheap;
 
 
 class api
