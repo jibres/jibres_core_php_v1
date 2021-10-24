@@ -4,14 +4,9 @@
     <section class="box">
       <div class="body">
        <div class="mB20">
-              <label for='category'><?php echo T_("Clone category property from"); ?></label>
-            <select name="clone" id="category" class="select22" data-model="tag" >
-              <option value=""></option>
-              <?php foreach (\dash\data::listProductCategory() as $key => $value) {?>
-                <option value="<?php echo $value['id']; ?>"><?php echo $value['title']; ?></option>
-              <?php } //endfor ?>
-            </select>
-          </div>
+          <label for='category'><?php echo T_("Clone category property from"); ?></label>
+          <select name="clone" id="category" class="select22" data-model="tag" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true&getid=1'></select>
+        </div>
       </div>
       <footer class="txtRa">
         <button class="btn master"><?php echo T_("Clone") ?></button>
