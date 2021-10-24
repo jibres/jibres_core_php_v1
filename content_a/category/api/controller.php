@@ -19,11 +19,18 @@ class controller
 
 		foreach ($result as $key => $value)
 		{
-			$my_result[] =
+			$temp =
 			[
-				'id'    => a($value, 'id'),
+				'id'   => a($value, 'id'),
 				'text' => a($value, 'title'),
 			];
+
+			if(!\dash\request::get('getid'))
+			{
+				$temp['id'] = $temp['text'];
+			}
+
+			$my_result[] = $temp;
 		}
 
 		\dash\notif::results($my_result);

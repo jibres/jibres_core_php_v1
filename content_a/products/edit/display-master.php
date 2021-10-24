@@ -25,7 +25,7 @@
               <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
             </div>
 
-            <select name="category[]" id="category" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true&getid=1' data-shortkey-search >
+            <select name="category[]" id="category" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true'>
               <?php foreach (\dash\data::listSavedCat() as $key => $value) {?>
                 <option value="<?php echo $value; ?>" selected><?php echo $value; ?></option>
               <?php } //endfor ?>
