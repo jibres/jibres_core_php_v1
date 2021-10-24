@@ -13,17 +13,17 @@ trait link_professional
 			'pointer'       => a($_data, 'pointer'),
 			'url'           => a($_data, 'url'),
 			'target'        => a($_data, 'target'),
-
 			'product_id'    => a($_data, 'products_id'),
 			'post_id'       => a($_data, 'posts_id'),
 			'page_id'       => a($_data, 'pages_id'),
-			'tag_id'        => a($_data, 'tags_id'),
+			'category_id'   => a($_data, 'category_id'),
 			'hashtag_id'    => a($_data, 'hashtag_id'),
 			'form_id'       => a($_data, 'forms_id'),
 			'socialnetwork' => a($_data, 'socialnetwork'),
 		];
 
 		$data = \lib\app\menu\check::variable($args, true);
+
 
 		unset($data['parent1']);
 		unset($data['parent2']);
@@ -108,7 +108,7 @@ trait link_professional
 						'products'      => ['title' => T_('Products'),		'api_link' => '/a/products/api?json=true', ],
 						'posts'         => ['title' => T_('Posts'),			'api_link' => '/cms/posts/api?json=true', ],
 						'pages'         => ['title' => T_('Pages'),			'api_link' => '/cms/posts/api?json=true&ptype=page', ],
-						'tags'          => ['title' => T_('Categories'),	'api_link' => '/a/category/api?json=true&getid=1', ],
+						'category'      => ['title' => T_('Categories'),	'api_link' => '/a/category/api?json=true&getid=1', ],
 						'hashtag'       => ['title' => T_('Hashtag'),		'api_link' => '/cms/hashtag/api?json=true&getid=1', ],
 						'forms'         => ['title' => T_('Forms'),			'api_link' => '/a/form/api?json=true', ],
 						'socialnetwork' => ['title' => T_('Socialnetwork'),	'api_link' => null, ],
@@ -248,11 +248,11 @@ trait link_professional
 				}
 				break;
 
-			case 'tags':
-				$loadTag = \lib\app\category\get::get($_related_id);
-				if(isset($loadTag['title']))
+			case 'category':
+				$loadCategory = \lib\app\category\get::get($_related_id);
+				if(isset($loadCategory['title']))
 				{
-					$selected_title = $loadTag['title'];
+					$selected_title = $loadCategory['title'];
 				}
 				break;
 

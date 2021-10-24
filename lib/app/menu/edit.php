@@ -35,7 +35,7 @@ class edit
 			$exception[] = 'parent5';
 		}
 
-		if(isset($_args['product_id']) || isset($_args['post_id']) || isset($_args['tag_id']) || isset($_args['hashtag_id']) || isset($_args['form_id']) || isset($_args['page_id']))
+		if(isset($_args['product_id']) || isset($_args['post_id']) || isset($_args['category_id']) || isset($_args['hashtag_id']) || isset($_args['form_id']) || isset($_args['page_id']))
 		{
 			$exception[] = 'related_id';
 			$exception[] = 'url';

@@ -74,12 +74,12 @@ class view
 			}
 		}
 
-		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'tags' && isset($dataRow['related_id']) && $dataRow['related_id'])
+		if(isset($dataRow['pointer']) && $dataRow['pointer'] === 'category' && isset($dataRow['related_id']) && $dataRow['related_id'])
 		{
-			$loadTag = \lib\app\category\get::get($dataRow['related_id']);
-			if(isset($loadTag['title']))
+			$loadCategory = \lib\app\category\get::get($dataRow['related_id']);
+			if(isset($loadCategory['title']))
 			{
-				\dash\data::tagTitle($loadTag['title']);
+				\dash\data::categoryTitle($loadCategory['title']);
 			}
 		}
 

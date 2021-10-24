@@ -11,7 +11,7 @@ class check
 		[
 			'title'         => 'title',
 			'url'           => 'absolute_url',
-			'pointer'       => ['enum' => ['homepage','products','posts','pages', 'pagebuilder', 'file','menu','forms','tags','hashtag','socialnetwork','other','title','separator','selffile']],
+			'pointer'       => ['enum' => ['homepage','products','posts','pages', 'pagebuilder', 'file','menu','forms','tags','hashtag','socialnetwork','other','title','separator','selffile', 'category']],
 			'target'        => ['enum' => ['blank']],
 			'parent'        => 'id',
 			'related_id'    => 'id',
@@ -25,7 +25,8 @@ class check
 			'post_id'       => 'code',
 			'page_id'       => 'code',
 			'form_id'       => 'id',
-			'tag_id'        => 'id',
+			'tag_id'   => 'id',
+			'category_id'   => 'id',
 			'socialnetwork' => 'socialnetwork',
 			'hashtag_id'    => 'code',
 
@@ -214,28 +215,28 @@ class check
 				}
 				break;
 
-			case 'tags':
-				if($data['tag_id'])
+			case 'category':
+				if($data['category_id'])
 				{
-					$load_tag = \lib\app\category\get::get($data['tag_id']);
-					if(isset($load_tag['id']))
+					$load_category = \lib\app\category\get::get($data['category_id']);
+					if(isset($load_category['id']))
 					{
-						$data['related_id'] = $load_tag['id'];
+						$data['related_id'] = $load_category['id'];
 
-						if(isset($load_tag['url']))
+						if(isset($load_category['url']))
 						{
-							$data['url'] = $load_tag['url'];
+							$data['url'] = $load_category['url'];
 						}
 					}
 					elseif(!$_force)
 					{
-						\dash\notif::error(T_("Invalid hashtag id"));
+						\dash\notif::error(T_("Invalid category id"));
 						return false;
 					}
 				}
 				elseif(!$_force)
 				{
-					\dash\notif::error(T_("Please choose a tag"));
+					\dash\notif::error(T_("Please choose a category"));
 					return false;
 				}
 				break;
@@ -314,6 +315,7 @@ class check
 		unset($data['post_id']);
 		unset($data['page_id']);
 		unset($data['tag_id']);
+		unset($data['category_id']);
 
 		unset($data['hashtag_id']);
 		unset($data['form_id']);
