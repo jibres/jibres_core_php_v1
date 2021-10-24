@@ -41,12 +41,8 @@ class view
 		$variants_list = \lib\app\product\variants::get($id);
 		\dash\data::variantsList($variants_list);
 
-		$unit_list = \lib\app\product\unit::list();
-		\dash\data::listUnits($unit_list);
-
-		$category_list = \lib\app\category\get::all_category();
-		$category_list = array_reverse($category_list);
-		\dash\data::listProductCategory($category_list);
+		// $unit_list = \lib\app\product\unit::list();
+		// \dash\data::listUnits($unit_list);
 
 		$property_list = \lib\app\product\property::get_count($id);
 		\dash\data::propertyCount($property_list);

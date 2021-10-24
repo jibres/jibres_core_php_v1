@@ -18,12 +18,8 @@ class view
 		\dash\face::btnInsertValue('master');
 		\dash\face::btnInsertText(T_("Add"));
 
-		$unit_list = \lib\app\product\unit::list();
-		\dash\data::listUnits($unit_list);
-
-		$category_list = \lib\app\category\search::list(null, ['pagination' => false]);
-		\dash\data::listProductCategory($category_list);
-
+		// $unit_list = \lib\app\product\unit::list();
+		// \dash\data::listUnits($unit_list);
 
 		\content_a\products\edit\view::product_ratio();
 
