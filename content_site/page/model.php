@@ -53,15 +53,15 @@ class model
 
 		$all_section = \lib\db\sitebuilder\get::all_section($page_id);
 
-		if($all_section)
-		{
-			if(self::need_pay($all_section))
-			{
-				$order_page = \dash\url::this(). '/factor?'. \dash\request::build_query(['id' => \dash\request::get('id')]);
-				\dash\redirect::to($order_page);
-				return;
-			}
-		}
+		// if($all_section)
+		// {
+		// 	if(self::need_pay($all_section))
+		// 	{
+		// 		$order_page = \dash\url::this(). '/factor?'. \dash\request::build_query(['id' => \dash\request::get('id')]);
+		// 		\dash\redirect::to($order_page);
+		// 		return;
+		// 	}
+		// }
 
 
 		// fully remove deleted section
