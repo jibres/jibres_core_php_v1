@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-23 17:25+0330\n"
-"PO-Revision-Date: 2021-10-23 17:25+0330\n"
+"POT-Creation-Date: 2021-10-24 07:25+0330\n"
+"PO-Revision-Date: 2021-10-24 07:25+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4679,7 +4679,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_sudo/tg/logshow/view.php:9 content_sudo/tg/sendmessage/view.php:8
 #: content_sudo/tg/sendphoto/view.php:9 content_sudo/tg/system/view.php:9
 #: content_sudo/tg/users/view.php:9 content_sudo/tg/webhook/view.php:8
-#: content_sudo/update/view.php:8 content_sudo/usage/view.php:8 dash/engine/view.php:202
+#: content_sudo/update/view.php:8 content_sudo/usage/view.php:8 dash/engine/view.php:218
 msgid "Back"
 msgstr "بازگشت"
 
@@ -11935,12 +11935,22 @@ msgstr "اگر این تنظیم خاموش باشد هیچ کاربری نمی�
 msgid "Require users to register and login to register an order"
 msgstr "الزام مشتریان به ثبت‌نام و ورود به حساب کاربری هنگام ثبت سفارش"
 
-#: content_a/setting/general/display.php:257 content_a/setting/general/remove/view.php:8
+#: content_a/setting/general/display.php:258
+msgid "Show to search engines"
+msgstr "نمایش به موتور‌های جستجو"
+
+#: content_a/setting/general/display.php:260
+msgid ""
+"If this feature is turned off, the search engine will be asked not to check your site"
+msgstr ""
+"اگر این امکان خاموش باشد از موتور‌های جستجو درخواست می‌شود تا وب‌سایت شما را بررسی نکنند"
+
+#: content_a/setting/general/display.php:279 content_a/setting/general/remove/view.php:8
 #: lib/app/quickaccess/setting.php:410
 msgid "Remove business"
 msgstr "حذف بیزینس"
 
-#: content_a/setting/general/display.php:264
+#: content_a/setting/general/display.php:286
 msgid "Remove Business"
 msgstr "حذف بیزینس"
 
@@ -21398,7 +21408,7 @@ msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: content_my/business/start/model.php:31 lib/app/store/add.php:81
-#: lib/app/store/check.php:76
+#: lib/app/store/check.php:78
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
@@ -26917,7 +26927,7 @@ msgstr "نمی‌توانیم به درخواست از این آدرس در ای
 msgid "This business is currently unavailable!"
 msgstr "این بیزینس در حال حاضر در دسترس نیست!"
 
-#: dash/engine/view.php:149
+#: dash/engine/view.php:165
 msgid "Latest news"
 msgstr "آخرین اخبار"
 
@@ -27375,11 +27385,11 @@ msgstr "نظر خودتون رو در مورد این نوشته بنویسید 
 msgid "User reviews"
 msgstr "نظرات کاربران"
 
-#: dash/layout/foundation.php:222
+#: dash/layout/foundation.php:227
 msgid "JavaScript is required to use our service."
 msgstr "جاوا اسکریپت برای استفاده از سرویس ما ضروری است."
 
-#: dash/layout/foundation.php:224
+#: dash/layout/foundation.php:229
 msgid "Enable JavaScript in your browser or use one which supports it."
 msgstr ""
 "جاوا اسکریپت را در مرورگر خود فعال کنید یا از مرورگری استفاده کنید که از آن پشتیبانی "
@@ -39180,23 +39190,23 @@ msgstr "جزئیات دستگاه پوز یافت نشد"
 msgid "Product title can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/add.php:194
+#: lib/app/product/add.php:195
 msgid "No way to insert product"
 msgstr "هیچ راهی برای ثبت محصول نیست"
 
-#: lib/app/product/add.php:219 lib/app/product/add.php:267
+#: lib/app/product/add.php:220 lib/app/product/add.php:268
 msgid "No way to insert product price"
 msgstr "هیچ راهی برای ثبت مبلغ محصول وجود ندارد"
 
-#: lib/app/product/add.php:286
+#: lib/app/product/add.php:287
 msgid "Product successfuly added"
 msgstr "محصول با موفقیت اضافه شد"
 
-#: lib/app/product/add.php:339
+#: lib/app/product/add.php:340
 msgid "Please set product title"
 msgstr "لطفا عنوان محصول را وارد کنید"
 
-#: lib/app/product/add.php:349
+#: lib/app/product/add.php:350
 msgid "Please change the product name to copy"
 msgstr "لطفا نام محصول را برای تهیه نسخه کپی وارد کنید"
 
@@ -39244,23 +39254,23 @@ msgstr "بیش از دو محصول با این بارکد به ثبت رسید�
 msgid "Some detail is wrong!"
 msgstr "برخی از جزئیات اشتباه هستند!"
 
-#: lib/app/product/edit.php:248
+#: lib/app/product/edit.php:249
 msgid "Title of product can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/edit.php:318
+#: lib/app/product/edit.php:319
 msgid "Can not update product"
 msgstr "نمی‌توانیم محصول را به‌روزرسانی کنیم"
 
-#: lib/app/product/edit.php:365 lib/app/product/edit.php:375
+#: lib/app/product/edit.php:366 lib/app/product/edit.php:376
 msgid "Your product successfully updated"
 msgstr "محصول با موفقیت به‌روزرسانی شد"
 
-#: lib/app/product/edit.php:384
+#: lib/app/product/edit.php:385
 msgid "Your product saved without change"
 msgstr "محصول شما بدون تغییر ذخیره شد"
 
-#: lib/app/product/edit.php:393
+#: lib/app/product/edit.php:394
 msgid "No value found for editing"
 msgstr "هیچ مقداری برای ویرایش وجود ندارد"
 
@@ -40530,7 +40540,7 @@ msgstr "درخواست جابجایی ذخیره شد"
 msgid "Fuel updated"
 msgstr "سوخت به‌روزرسانی شد"
 
-#: lib/app/store/check.php:84
+#: lib/app/store/check.php:86
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 

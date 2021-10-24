@@ -255,7 +255,7 @@ $storeData = \dash\data::store_store_data();
 <section class="f" data-option='setting-disallow-robots' id="setting-busienss-disallow-robots">
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Allow search engine access and find your website");?></h3>
+      <h3><?php echo T_("Show to search engines");?></h3>
       <div class="body">
         <p><?php echo T_("If this feature is turned off, the search engine will be asked not to check your site");?></p>
       </div>
