@@ -26,7 +26,7 @@ class cdnpanel
 
 		\lib\app\business_domain\edit::unset_date($_id, 'cdnpanel');
 
-		$check_exist_domain_on_cdn_panel = \lib\arvancloud\api::get_domain($domain);
+		$check_exist_domain_on_cdn_panel = \lib\api\arvancloud\api::get_domain($domain);
 
 		if(isset($check_exist_domain_on_cdn_panel['data']['id']))
 		{
@@ -34,7 +34,7 @@ class cdnpanel
 
 			$arvan_domain_id = $check_exist_domain_on_cdn_panel['data']['id'];
 
-			$remove_domain = \lib\arvancloud\api::delete_domain($domain, $arvan_domain_id);
+			$remove_domain = \lib\api\arvancloud\api::delete_domain($domain, $arvan_domain_id);
 
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_remove_domain', ['desc' => "Domain remove result", 'meta' => self::meta($remove_domain)]);
 		}
@@ -54,13 +54,13 @@ class cdnpanel
 
 	private static function remove_all_dns_record($_domain)
 	{
-		$get_list_dns_record = \lib\arvancloud\api::get_dns_record($_domain);
+		$get_list_dns_record = \lib\api\arvancloud\api::get_dns_record($_domain);
 
 		if(is_array($get_list_dns_record) && isset($get_list_dns_record['data']))
 		{
 			foreach ($get_list_dns_record['data'] as $dns_detail)
 			{
-				\lib\arvancloud\api::remove_dns_record($_domain, $dns_detail['id']);
+				\lib\api\arvancloud\api::remove_dns_record($_domain, $dns_detail['id']);
 			}
 		}
 
@@ -97,7 +97,7 @@ class cdnpanel
 
 		$domain = $load['domain'];
 
-		$check_exist_domain_on_cdn_panel = \lib\arvancloud\api::get_domain($domain);
+		$check_exist_domain_on_cdn_panel = \lib\api\arvancloud\api::get_domain($domain);
 
 		if(!$check_exist_domain_on_cdn_panel || !is_array($check_exist_domain_on_cdn_panel))
 		{
@@ -133,7 +133,7 @@ class cdnpanel
 		}
 
 
-		$add_domain = \lib\arvancloud\api::add_domain($domain);
+		$add_domain = \lib\api\arvancloud\api::add_domain($domain);
 
 
 		if(isset($add_domain['data']['id']))
@@ -142,7 +142,7 @@ class cdnpanel
 
 
 			// fetch dns record
-			$result_fetch = \lib\arvancloud\api::check_dns_record($domain);
+			$result_fetch = \lib\api\arvancloud\api::check_dns_record($domain);
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_check', ['meta' => self::meta($result_fetch)]);
 
 
@@ -158,12 +158,12 @@ class cdnpanel
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_already_inuse', ['desc' => "This domain is already is use in CDN panel", 'meta' => self::meta($add_domain)]);
 
-			$get_domain = \lib\arvancloud\api::get_domain($domain);
+			$get_domain = \lib\api\arvancloud\api::get_domain($domain);
 
 			if(isset($get_domain['data']['id']))
 			{
 				// fetch dns record
-				$result_fetch = \lib\arvancloud\api::check_dns_record($domain);
+				$result_fetch = \lib\api\arvancloud\api::check_dns_record($domain);
 				\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_check', ['meta' => self::meta($result_fetch)]);
 
 

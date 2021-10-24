@@ -66,9 +66,9 @@ class https
 			return false;
 		}
 
-		\lib\arvancloud\api::check_dns_record($domain);
+		\lib\api\arvancloud\api::check_dns_record($domain);
 
-		$get_domain = \lib\arvancloud\api::get_domain($domain);
+		$get_domain = \lib\api\arvancloud\api::get_domain($domain);
 		if(isset($get_domain['data']['services']['dns']))
 		{
 			if($get_domain['data']['services']['dns'] === 'active')
@@ -98,7 +98,7 @@ class https
 		\lib\app\business_domain\dns::check_if_not_exist_add($_id);
 
 
-		$get_https_setting = \lib\arvancloud\api::get_arvan_request($domain);
+		$get_https_setting = \lib\api\arvancloud\api::get_arvan_request($domain);
 
 
 		if(isset($get_https_setting['data']) && is_array($get_https_setting['data']))
@@ -120,7 +120,7 @@ class https
 						"f_ssl_redirect" => true,
 					];
 
-					\lib\arvancloud\api::set_arvan_request_https($domain, $update_https_args);
+					\lib\api\arvancloud\api::set_arvan_request_https($domain, $update_https_args);
 
 					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
 
@@ -176,7 +176,7 @@ class https
 				"f_ssl_redirect" => true,
 			];
 
-			$set_https['ssl_type'] = \lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
+			$set_https['ssl_type'] = \lib\api\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
 
 
 			$add_https_args =
@@ -184,7 +184,7 @@ class https
 				"ar_wildcard" => true,
 			];
 
-			$set_https['ar_wildcard'] = \lib\arvancloud\api::set_arvan_request($domain, $add_https_args);
+			$set_https['ar_wildcard'] = \lib\api\arvancloud\api::set_arvan_request($domain, $add_https_args);
 
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_sended');
 			\lib\app\business_domain\edit::set_date($_id, 'httpsrequest');
@@ -227,9 +227,9 @@ class https
 				"f_ssl_redirect"      => true,
 			];
 
-			\lib\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
+			\lib\api\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
 
-			\lib\arvancloud\api::https_upstram($domain, 'auto');
+			\lib\api\arvancloud\api::https_upstram($domain, 'auto');
 
 		}
 

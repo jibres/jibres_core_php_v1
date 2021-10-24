@@ -400,7 +400,7 @@ class dns
 						\dash\notif::warn(T_("We can not find this record on CDN panel"));
 					}
 
-					$result_remove = \lib\arvancloud\api::remove_dns_record($domain, $cdn_id);
+					$result_remove = \lib\api\arvancloud\api::remove_dns_record($domain, $cdn_id);
 					\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_remove', ['meta' => self::meta($result_remove)]);
 
 				}
@@ -661,7 +661,7 @@ class dns
 					"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
 				];
 
-				$result_add = \lib\arvancloud\api::add_dns_record($domain, $add_dns);
+				$result_add = \lib\api\arvancloud\api::add_dns_record($domain, $add_dns);
 
 
 				$meta = $result_add;
@@ -703,7 +703,7 @@ class dns
 
 		$domain = $load['domain'];
 
-		$get_dns_record = \lib\arvancloud\api::get_dns_record($domain);
+		$get_dns_record = \lib\api\arvancloud\api::get_dns_record($domain);
 
 		if(!is_array($get_dns_record))
 		{
@@ -826,7 +826,7 @@ class dns
 
 
 			// start update dns record
-			$get_list_dns_record = \lib\arvancloud\api::get_dns_record($domain);
+			$get_list_dns_record = \lib\api\arvancloud\api::get_dns_record($domain);
 
 			if(!is_array($get_list_dns_record) || !isset($get_list_dns_record['data']))
 			{
@@ -839,7 +839,7 @@ class dns
 				{
 					$id = a($dns_detail, 'id');
 
-					$result_remove = \lib\arvancloud\api::remove_dns_record($value['domain'], $id);
+					$result_remove = \lib\api\arvancloud\api::remove_dns_record($value['domain'], $id);
 
 					self::add(a($value, 'id'), ['addtocdnpaneldns' => true, 'type' => 'CNAME', 'key' => 'www', 'value' => $value['domain']]);
 
@@ -865,7 +865,7 @@ class dns
 					// 		"ip_filter_mode" => json_encode(["count"=>"single","order"=>"none","geo_filter" =>"none"]),
 					// 	];
 
-					// 	$put_dns = \lib\arvancloud\api::update_dns_record($domain, $update_dns, $dns_detail['id']);
+					// 	$put_dns = \lib\api\arvancloud\api::update_dns_record($domain, $update_dns, $dns_detail['id']);
 					// 	if($put_dns)
 					// 	{
 					// 		\lib\db\business_domain\update::update_dns(['value' => $_new_ip], $value['id']);
