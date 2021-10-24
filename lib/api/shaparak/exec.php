@@ -1,5 +1,5 @@
 <?php
-namespace lib\shaparak;
+namespace lib\api\shaparak;
 
 class exec
 {

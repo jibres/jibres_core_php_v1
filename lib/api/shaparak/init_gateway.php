@@ -1,5 +1,5 @@
 <?php
-namespace lib\shaparak;
+namespace lib\api\shaparak;
 
 
 class init_gateway
@@ -111,7 +111,7 @@ class init_gateway
 
 		$send = [$send];
 
-		$result = \lib\shaparak\exec::run($send, 5);
+		$result = \lib\api\shaparak\exec::run($send, 5);
 
 		return $result;
 	}

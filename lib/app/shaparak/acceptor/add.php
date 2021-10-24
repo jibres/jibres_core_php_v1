@@ -9,10 +9,10 @@ class add
 		$insert =
 		[
 			'user_id'                        => $_user_id,
-			'iin'                            => \lib\shaparak\acceptor::get_iin(),
+			'iin'                            => \lib\api\shaparak\acceptor::get_iin(),
 			'acceptorCode'                   => null,
 			'acceptorType'                   => 2,
-			'facilitatorAcceptorCode'        => \lib\shaparak\acceptor::get_facilitatorAcceptorCode(),
+			'facilitatorAcceptorCode'        => \lib\api\shaparak\acceptor::get_facilitatorAcceptorCode(),
 			'cancelable'                     => 0,
 			'refundable'                     => 0,
 			'blockable'                      => 0,
