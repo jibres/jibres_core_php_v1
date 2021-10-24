@@ -43,7 +43,7 @@ class plan_list
 		[
 			'key'      => 'products',
 			'title'    => T_("Products"),
-			'desc'     => T_("Access to display and edit products as well as items such as product tag, categories and anything about the products."),
+			'desc'     => T_("Access to display and edit products as well as items such as product, categories and anything about the products."),
 			'advance'  => [],
 		];
 
@@ -153,7 +153,7 @@ class plan_list
 		$master['ProductDelete']                = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'ProductDelete', 				'title' => T_('Delete product'), 'require' => []];
 		$master['mamageProductUnit']            = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'mamageProductUnit', 			'title' => T_('Mamage Product Unit'), 'require' => []];
 		$master['manageProductCompany']         = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductCompany', 		'title' => T_('Manage Product Company'), 'require' => []];
-		$master['manageProductCategory']             = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductCategory', 			'title' => T_('Manage Product Tag'), 'require' => []];
+		$master['manageProductCategory']        = ['jibres' => false, 'business' => true,  'group' => 'products', 	'caller' => 'manageProductCategory', 		'title' => T_('Manage product categories'), 'require' => []];
 
 
 		// --------------- FACTOR + CART + SALE
@@ -165,11 +165,10 @@ class plan_list
 
 		// --------------- SETTING
 		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('Manage business setting'), 'require' => []];
-		// $master['pagebuilder']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'pagebuilder', 					'title' => T_('Manage Pagebuilder'), 'require' => []];
-		// $master['homepagebuilder']              = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'homepagebuilder', 				'title' => T_('Manage Homepage'), 'require' => []];
+
 
 		// --------------- SITEBUILDER
-		$master['siteBuilderSetting']	        = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'siteBuilderSetting', 		'title' => T_('Website setting'), 'require' => [], 'description' => T_("Domain setting, Static file verification, Manage legal pages")];
+		$master['siteBuilderSetting']	        = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'siteBuilderSetting', 		'title' => T_('Website setting'), 'require' => [],];
 		$master['manageHomepage']               = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'manageHomepage', 			'title' => T_('Manage homepage'), 'require' => []];
 		$master['removeSiteBuilderPage']        = ['jibres' => false, 'business' => true,  'group' => 'sitebuilder', 	'caller' => 'removeSiteBuilderPage', 	'title' => T_('Remove site builder page'), 'require' => []];
 
@@ -207,13 +206,13 @@ class plan_list
 		$master['cmsCommentView']               = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsCommentView', 				'title' => T_('View Comments'), 'require' => []];
 		$master['cmsManageComment']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageComment', 			'title' => T_('Manage Comments'), 'require' => []];
 
-		$master['cmsManageTag']                 = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageTag', 				'title' => T_('Manage Tags'), 'require' => []];
+		$master['cmsManageHashtag']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageHashtag', 			'title' => T_('Manage Hashtags'), 'require' => []];
 
 		$master['cmsAttachmentView']            = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAttachmentView', 			'title' => T_('View Attachment'), 'require' => []];
 		$master['cmsAttachmentAdd']             = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsAttachmentAdd', 			'title' => T_('Add New Attachment'), 'require' => []];
 		$master['cmsManageAttachment']          = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsManageAttachment', 			'title' => T_('Manage Attachments'), 'require' => []];
 
-		$master['cmsConfig']                   = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsConfig',	 				'title' => T_('CMS customization'), 'require' => []];
+		$master['cmsConfig']                    = ['jibres' => true,  'business' => true,  'group' => 'cms', 		'caller' => 'cmsConfig',	 				'title' => T_('CMS customization'), 'require' => []];
 
 		return $master;
 	}

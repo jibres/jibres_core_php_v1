@@ -9,7 +9,7 @@ class remove
 	public static function remove_action($_id, $_action)
 	{
 
-		\dash\permission::access('cmsManageTag');
+		\dash\permission::access('cmsManageHashtag');
 
 		$load = \dash\app\terms\get::get($_id);
 
@@ -73,7 +73,7 @@ class remove
 
 	public static function remove($_id)
 	{
-		\dash\permission::access('cmsManageTag');
+		\dash\permission::access('cmsManageHashtag');
 
 		$load = \dash\app\terms\get::get($_id);
 

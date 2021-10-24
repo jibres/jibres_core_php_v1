@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-10-24 08:51+0330\n"
-"PO-Revision-Date: 2021-10-24 08:52+0330\n"
+"POT-Creation-Date: 2021-10-24 09:45+0330\n"
+"PO-Revision-Date: 2021-10-24 09:46+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4970,7 +4970,7 @@ msgid "followup"
 msgstr "پیگیری"
 
 #: content_a/accounting/coding/add/display-add.php:139
-#: content_a/discount/add/display.php:589 content_a/setting/order/display.php:57
+#: content_a/discount/add/display.php:590 content_a/setting/order/display.php:57
 #: content_a/setting/order/display.php:116 content_a/setting/order/display.php:138
 #: content_a/setting/shipping/method/display.php:18
 #: content_a/setting/shipping/method/display.php:50
@@ -5017,7 +5017,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/doc/add/display-list.php:111
 #: content_a/accounting/doc/display.php:14 content_a/accounting/factor/display.php:48
 #: content_a/accounting/turnover/display.php:185 content_a/android/apk/display.php:32
-#: content_a/discount/add/display.php:577 content_a/form/answer/export/display.php:42
+#: content_a/discount/add/display.php:578 content_a/form/answer/export/display.php:42
 #: content_a/form/itemLink.php:14 content_a/order/detail/display.php:30
 #: content_a/products/edit/block/sidebar-menu.php:7
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
@@ -5046,7 +5046,7 @@ msgstr "غیرفعال"
 #: dash/app/ticket/filter.php:42 dash/app/ticket/filter.php:44
 #: dash/app/ticket/filter.php:45 dash/app/user/filter.php:27 dash/app/user/filter.php:28
 #: dash/app/user/filter.php:29 dash/app/user/filter.php:30 dash/app/user/filter.php:31
-#: dash/layout/search/search-filter.php:244 lib/app/business_domain/filter.php:34
+#: dash/layout/search/search-filter.php:238 lib/app/business_domain/filter.php:34
 #: lib/app/business_domain/search.php:102 lib/app/business_domain/search_dns.php:59
 #: lib/app/discount/filter.php:35 lib/app/discount/filter.php:44
 #: lib/app/gift/filter.php:43 lib/app/gift/filter.php:44 lib/app/gift/filter.php:45
@@ -5062,7 +5062,7 @@ msgstr "وضعیت"
 #: content_a/accounting/doc/add/display-docdetail.php:111
 #: content_a/accounting/year/add/display.php:40 content_a/cart/add/display.php:54
 #: content_a/category/add/display.php:11 content_a/category/edit/display.php:93
-#: content_a/category/property/display.php:55 content_a/category/sort/display.php:33
+#: content_a/category/property/display.php:55 content_a/category/sort/display.php:29
 #: content_a/form/analytics/addfilter/display.php:11
 #: content_a/form/item/choice/display.php:11 content_a/form/tag/add/display.php:12
 #: content_a/order/products/display.php:66 content_a/products/add/view.php:19
@@ -5107,7 +5107,7 @@ msgstr "افزودن"
 #: content_cms/comments/edit/display.php:39 content_crm/permission/setting/display.php:11
 #: content_crm/permission/user/display.php:11 content_crm/ticket/view/display-live.php:78
 #: content_love/changelog/add/display.php:42 content_my/domain/irnic/edit/display.php:25
-#: includes/languages/trans_static_public.php:144 lib/app/category/get.php:467
+#: includes/languages/trans_static_public.php:144 lib/app/category/get.php:463
 #: lib/app/menu/generate.php:86 lib/app/menu/generate2.php:65
 msgid "Edit"
 msgstr "ویرایش"
@@ -5201,7 +5201,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 #: content_love/domain/onlineniclog/display.php:22
 #: content_site/options/post/post_tag.php:64
 #: content_site/options/post/post_template.php:26
-#: content_site/options/product/product_tag.php:68
+#: content_site/options/product/product_tag.php:70
 #: content_site/options/responsive/responsive_device.php:11
 #: content_site/options/responsive/responsive_device.php:22
 #: content_site/options/responsive/responsive_device.php:34
@@ -5275,7 +5275,7 @@ msgstr "تفصیل‌پذیر"
 #: content_sudo/apilog/home/display.php:196 content_sudo/ip/display.php:108
 #: content_sudo/tg/log/display.php:192 content_sudo/tg/log/display.php:200
 #: content_sudo/tg/users/display.php:133 content_sudo/tg/users/display.php:141
-#: dash/layout/search/search-filter.php:277
+#: dash/layout/search/search-filter.php:271
 msgid "Clear filters"
 msgstr "پاک‌سازی فیلترها"
 
@@ -5475,7 +5475,7 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/accounting/factor/add/display.php:169
 #: content_a/accounting/factor/add/display.php:186
 #: content_a/accounting/factor/add/display.php:204
-#: content_a/category/remove/display.php:38 content_a/discount/add/display.php:275
+#: content_a/category/remove/display.php:38 content_a/discount/add/display.php:276
 #: content_a/form/tag/remove/display.php:37 content_cms/hashtag/remove/display.php:37
 #: content_crm/member/legal/display.php:70 content_love/business/setting/display.php:87
 #: content_love/store/setting/display.php:69
@@ -5486,8 +5486,8 @@ msgstr "افزودن تفصیل جدید"
 #: content_site/options/magicbox/magicbox_gap.php:13
 #: content_site/options/post/post_template.php:24
 #: content_site/options/responsive/responsive_footer.php:71
-#: dash/layout/search/search-filter.php:179 dash/layout/search/search-filter.php:220
-#: dash/layout/search/search-filter.php:249
+#: dash/layout/search/search-filter.php:179 dash/layout/search/search-filter.php:214
+#: dash/layout/search/search-filter.php:243
 msgid "None"
 msgstr "هیچ‌کدام"
 
@@ -6004,7 +6004,7 @@ msgstr "لطفا ماه را انتخاب کنید"
 msgid "Choose status"
 msgstr "انتخاب وضعیت"
 
-#: content_a/accounting/filter.php:23 content_a/discount/add/display.php:582
+#: content_a/accounting/filter.php:23 content_a/discount/add/display.php:583
 #: content_a/form/status/display.php:17 content_a/order/status/display.php:44
 #: content_a/products/edit/block/sidebar-menu.php:10 content_cms/home/display.php:10
 #: content_cms/posts/advance/display.php:22 dash/app/posts/filter.php:57
@@ -6024,14 +6024,14 @@ msgid "Choose template"
 msgstr "انتخاب قالب"
 
 #: content_a/accounting/filter.php:56 content_a/accounting/turnover/display.php:25
-#: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:496
+#: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:497
 #: content_a/form/answer/display.php:63 content_a/order/home/filter.php:245
 #: content_a/pricehistory/display.php:36 content_a/report/sale/display.php:94
 msgid "Start date"
 msgstr "تاریخ شروع"
 
 #: content_a/accounting/filter.php:62 content_a/accounting/turnover/display.php:31
-#: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:540
+#: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:541
 #: content_a/form/answer/display.php:64 content_a/order/home/filter.php:251
 #: content_a/pricehistory/display.php:37 content_a/report/sale/display.php:116
 msgid "End date"
@@ -6925,7 +6925,7 @@ msgstr "چاپ همه اسناد حسابداری"
 #: content_site/options/heading/heading.php:106 content_site/options/menu/menu.php:80
 #: content_site/options/socialnetwork/socialnetwork.php:60 dash/engine/pwa.php:63
 #: dash/engine/pwa.php:64 dash/layout/search/search-filter.php:171
-#: dash/layout/search/search-filter.php:212
+#: dash/layout/search/search-filter.php:206
 msgid "Manage"
 msgstr "مدیریت"
 
@@ -7080,7 +7080,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/order/minimum/display.php:26
 #: content_a/setting/order/schedule/display.php:36
 #: content_a/setting/order/validity/display.php:36
-#: content_a/setting/product/category/display.php:23
+#: content_a/setting/product/category/display.php:19
 #: content_a/setting/product/free/display.php:23
 #: content_a/setting/product/preparationtime/display.php:21
 #: content_a/setting/product/viewtext/display.php:25
@@ -7874,7 +7874,7 @@ msgstr "دسته‌بندی‌ها"
 msgid "Clone category property from"
 msgstr "دریافت مشخصات از دسته‌بندی"
 
-#: content_a/category/clone/display.php:17
+#: content_a/category/clone/display.php:12
 msgid "Clone"
 msgstr "دریافت"
 
@@ -7887,9 +7887,9 @@ msgstr "ویرایش عنوان گروه"
 #: lib/app/category/add.php:82 lib/app/category/add.php:106 lib/app/category/add.php:188
 #: lib/app/category/add.php:199 lib/app/category/edit.php:44 lib/app/category/edit.php:106
 #: lib/app/category/edit.php:179 lib/app/category/edit.php:185
-#: lib/app/category/edit.php:290 lib/app/category/get.php:50 lib/app/category/get.php:57
-#: lib/app/category/get.php:79 lib/app/category/get.php:86 lib/app/category/get.php:108
-#: lib/app/category/get.php:115 lib/app/category/search.php:40 lib/app/menu/check.php:233
+#: lib/app/category/edit.php:290 lib/app/category/get.php:46 lib/app/category/get.php:53
+#: lib/app/category/get.php:75 lib/app/category/get.php:82 lib/app/category/get.php:104
+#: lib/app/category/get.php:111 lib/app/category/search.php:40 lib/app/menu/check.php:233
 msgid "Invalid category id"
 msgstr "شناسه دسته‌بندی اشتباه است"
 
@@ -7979,7 +7979,7 @@ msgstr "تنظیم مشخصات عمومی محصول"
 msgid "Choose product to add product to this Category"
 msgstr "برای افزودن محصول به این دسته‌بندی، یک محصول را انتخاب کنید"
 
-#: content_a/category/edit/display.php:80 content_a/discount/add/display.php:238
+#: content_a/category/edit/display.php:80 content_a/discount/add/display.php:239
 #: content_a/pricehistory/choose/display.php:8
 msgid "Search in products"
 msgstr "جستجو در محصولات"
@@ -8148,7 +8148,7 @@ msgstr "دسته‌بندی جدید"
 msgid "Select one category"
 msgstr "لطفا یک دسته را انتخاب کنید"
 
-#: content_a/category/remove/display.php:55
+#: content_a/category/remove/display.php:51
 msgid "Save change and remove category"
 msgstr "ذخیره تغییرات و حذف دسته‌بندی"
 
@@ -8204,7 +8204,7 @@ msgid "Qty"
 msgstr "تعداد"
 
 #: content_a/chap/size-a4/a4-1.php:50 content_a/products/property/display.php:124
-#: content_a/units/display.php:109 dash/layout/search/search-filter.php:205
+#: content_a/units/display.php:109 dash/layout/search/search-filter.php:199
 #: lib/app/product/filter.php:378 lib/app/product/property.php:221
 msgid "Unit"
 msgstr "واحد"
@@ -8316,7 +8316,7 @@ msgstr "چاپ فاکتور"
 #: lib/app/application/queue.php:243 lib/app/business_domain/add.php:68
 #: lib/app/business_domain/edit.php:100 lib/app/category/add.php:70
 #: lib/app/category/add.php:176 lib/app/category/add.php:251 lib/app/category/edit.php:279
-#: lib/app/category/get.php:69 lib/app/category/get.php:100 lib/app/category/get.php:128
+#: lib/app/category/get.php:65 lib/app/category/get.php:96 lib/app/category/get.php:124
 #: lib/app/category/search.php:28 lib/app/factor/add.php:166 lib/app/factor/get.php:179
 #: lib/app/plan/history.php:113 lib/app/product/edit.php:104 lib/app/product/get.php:45
 #: lib/app/product/get.php:86 lib/app/product/unit.php:63 lib/app/product/unit.php:229
@@ -8416,70 +8416,70 @@ msgstr "همه محصولات"
 msgid "Special category"
 msgstr "دسته‌بندی خاص"
 
-#: content_a/discount/add/display.php:226
+#: content_a/discount/add/display.php:227
 msgid "Special products"
 msgstr "محصولات خاص"
 
-#: content_a/discount/add/display.php:270
+#: content_a/discount/add/display.php:271
 msgid "Minimum requirements"
 msgstr "حداقل الزامات"
 
-#: content_a/discount/add/display.php:282
+#: content_a/discount/add/display.php:283
 msgid "Minimum purchase amount :currency"
 msgstr "حداقل مبلغ خرید :currency"
 
-#: content_a/discount/add/display.php:305
+#: content_a/discount/add/display.php:306
 msgid "Minimum quantity of items"
 msgstr "حداقل تعداد اقلام"
 
-#: content_a/discount/add/display.php:341
+#: content_a/discount/add/display.php:342
 msgid "Customer eligibility"
 msgstr "اختصاص به مشتری"
 
-#: content_a/discount/add/display.php:346 lib/app/discount/get.php:121
+#: content_a/discount/add/display.php:347 lib/app/discount/get.php:121
 msgid "Everyone"
 msgstr "هرکس"
 
-#: content_a/discount/add/display.php:353
+#: content_a/discount/add/display.php:354
 msgid "Special group of customers"
 msgstr "گروهی خاص از مشتریان"
 
-#: content_a/discount/add/display.php:397
+#: content_a/discount/add/display.php:398
 msgid "Special customers"
 msgstr "مشتریان خاص"
 
-#: content_a/discount/add/display.php:409
+#: content_a/discount/add/display.php:410
 msgid "Search in customers123"
-msgstr ""
+msgstr "جستجو در مشتریان۱۲۳"
 
-#: content_a/discount/add/display.php:443
+#: content_a/discount/add/display.php:444
 msgid "Usage limits"
 msgstr "محدودیت استفاده"
 
-#: content_a/discount/add/display.php:448
+#: content_a/discount/add/display.php:449
 msgid "Limit number of times this discount can be used in total"
 msgstr "تعداد دفعات استفاده از این کد تخفیف در مجموع محدود است"
 
-#: content_a/discount/add/display.php:472
+#: content_a/discount/add/display.php:473
 msgid "Limit to one use per customer"
 msgstr "محدود به یک بار استفاده برای هر مشتری"
 
-#: content_a/discount/add/display.php:490
+#: content_a/discount/add/display.php:491
 msgid "Active date"
 msgstr "تاریخ فعال شدن"
 
-#: content_a/discount/add/display.php:508 content_a/discount/add/display.php:552
+#: content_a/discount/add/display.php:509 content_a/discount/add/display.php:553
 #: content_a/order/editdate/display.php:38 content_a/order/home/filter.php:234
 #: content_love/business/domain/action/display.php:25
 #: content_love/business/domain/log/display.php:13 lib/app/form/item/type.php:208
 msgid "Time"
 msgstr "زمان"
 
-#: content_a/discount/add/display.php:523
+#: content_a/discount/add/display.php:524
 msgid "Set end date"
 msgstr "تنظیم تاریخ پایان"
 
-#: content_a/discount/add/display.php:603
+#: content_a/discount/add/display.php:604
 msgid "Remove Discount code"
 msgstr "حذف کد تخفیف"
 
@@ -10983,7 +10983,7 @@ msgid "Add new property"
 msgstr "افزودن مشخصات جدید"
 
 #: content_a/products/property/display.php:125 content_a/products/property/display.php:126
-#: dash/layout/search/search-filter.php:217
+#: dash/layout/search/search-filter.php:211
 msgid "like Qty, kg, etc"
 msgstr "مثل عدد، کیلوگرم، تعداد"
 
@@ -13350,7 +13350,7 @@ msgid ""
 msgstr ""
 "با اتصال Crisp می‌توانید پشتیبانی آنلاین به مشتریان ارائه بدید و باعث جلب اعتماد مشتریان "
 "و مخاطبان وب‌سایت شوید و همینطور نرخ ماندگاری در وب‌سایت رو افزایش بدید و در نتایج گوگل "
-"بدرخشید!"
+"بدرخشید."
 
 #: content_a/setting/thirdparty/digitaloceans3/display.php:9
 msgid ""
@@ -13412,7 +13412,7 @@ msgstr "چت آنلاین"
 
 #: content_a/setting/thirdparty/display.php:57
 msgid "tawk.to"
-msgstr "Tawk.to"
+msgstr "tawk.to"
 
 #: content_a/setting/thirdparty/display.php:58
 msgid "100% FREE live chat!"
@@ -16300,7 +16300,7 @@ msgstr "ویرایش زبان نوشته"
 msgid "You can change your post language"
 msgstr "شما می‌توانید زبان این نوشته را به صورت دستی تغییر دهید"
 
-#: content_cms/posts/advance/display.php:241 dash/plan_list.php:204
+#: content_cms/posts/advance/display.php:241 dash/plan_list.php:203
 msgid "Remove post"
 msgstr "حذف نوشته"
 
@@ -22635,7 +22635,7 @@ msgid ""
 "customers will see the previous version of the changes."
 msgstr ""
 "اگر تغییرات شما ذخیره و منتشر نشود، تنها شما می‌توانید آنها را مشاهده کنید و مشتریان شما "
-"نسخه قبلی تغییرات صفحه مورد نظر را مشاهده خواهند کرد"
+"نسخه قبلی تغییرات صفحه مورد نظر را مشاهده خواهند کرد."
 
 #: content_site/autosave/display.php:9
 msgid ""
@@ -22909,7 +22909,7 @@ msgstr "آدرس فایل شما"
 
 #: content_site/header/h0.php:35
 msgid "This header is emtpy. Have not any option!"
-msgstr "این سرصفحه خالی است و تنظیمات خاصی ندارد"
+msgstr "این سرصفحه خالی است و تنظیمات خاصی ندارد!"
 
 #: content_site/header/h3.php:17
 msgid "Shopping Header"
@@ -22941,7 +22941,7 @@ msgstr "فایل‌های ثابت"
 msgid "Menu"
 msgstr "منو"
 
-#: content_site/home/display.php:19 dash/plan_list.php:173
+#: content_site/home/display.php:19 dash/plan_list.php:172
 msgid "Manage homepage"
 msgstr "مدیریت صفحه نخست"
 
@@ -23641,7 +23641,6 @@ msgid "Filter by special hashtag"
 msgstr "فیلتر با هشتگ خاص"
 
 #: content_site/options/post/post_tag.php:62
-#: content_site/options/product/product_tag.php:66
 msgid "Select hashtag"
 msgstr "انتخاب هشتگ"
 
@@ -23697,9 +23696,13 @@ msgstr "نمایش قیمت محصول"
 msgid "Display product title"
 msgstr "نمایش عنوان محصول"
 
-#: content_site/options/product/product_tag.php:44
+#: content_site/options/product/product_tag.php:46
 msgid "Filter by special category"
 msgstr "فیلتر با دست‌بندی خاص"
+
+#: content_site/options/product/product_tag.php:68
+msgid "Select category"
+msgstr "انتخاب دسته‌بندی"
 
 #: content_site/options/quote/quote_add.php:49
 msgid "Maximum capacity of this section is full"
@@ -24289,7 +24292,7 @@ msgstr "تغییرات شما به صورت خودکار ذخیره و منتش�
 
 #: content_site/view.php:79
 msgid "After any change in your page, data will be saved and published."
-msgstr "بعد از هر تغییری در صفحه شما، اطلاعات ذخیره و منتشر خواهند شد"
+msgstr "بعد از هر تغییری در صفحه شما، اطلاعات ذخیره و منتشر خواهند شد."
 
 #: content_site/view.php:80
 msgid "If you want to disable auto-save and publish your change manually"
@@ -27559,15 +27562,15 @@ msgstr "از تاریخ"
 msgid "To date"
 msgstr "تا تاریخ"
 
-#: dash/layout/search/search-filter.php:246
+#: dash/layout/search/search-filter.php:240
 msgid "Product Status"
 msgstr "وضعیت محصول"
 
-#: dash/layout/search/search-filter.php:273
+#: dash/layout/search/search-filter.php:267
 msgid "Record founded"
 msgstr "ردیف یافت شد"
 
-#: dash/layout/search/search-filter.php:280
+#: dash/layout/search/search-filter.php:274
 msgid "Apply filter"
 msgstr "اعمال‌کردن فیلتر"
 
@@ -27663,11 +27666,11 @@ msgstr "دسترسی غیر مجاز"
 
 #: dash/plan_list.php:46
 msgid ""
-"Access to display and edit products as well as items such as product tag, categories "
-"and anything about the products."
+"Access to display and edit products as well as items such as product, categories and "
+"anything about the products."
 msgstr ""
-"دسترسی به نمایش محصولات، ویرایش آنها و هر چیزی که مرتبط با محصولات باشد مانند تگ‌ها، "
-"دسته بندی‌ها و ..."
+"دسترسی به نمایش محصولات، ویرایش آنها و هر چیزی که مرتبط با محصولات باشد مانند دسته "
+"بندی‌ها و ..."
 
 #: dash/plan_list.php:54
 msgid ""
@@ -27731,8 +27734,8 @@ msgid "Manage Product Company"
 msgstr "مدیریت شرکت سازنده محصولات"
 
 #: dash/plan_list.php:156
-msgid "Manage Product Tag"
-msgstr "مدیریت تگ محصولات"
+msgid "Manage product categories"
+msgstr "مدیریت دسته‌بندی محصولات"
 
 #: dash/plan_list.php:160
 msgid "Add new sale order"
@@ -27754,119 +27757,115 @@ msgstr "دریافت کننده پیام‌های سفارشات"
 msgid "Manage business setting"
 msgstr "مدیریت تنظیمات بیزینس"
 
-#: dash/plan_list.php:172
+#: dash/plan_list.php:171
 msgid "Website setting"
 msgstr "تنظیمات وب‌سایت"
 
-#: dash/plan_list.php:172
-msgid "Domain setting, Static file verification, Manage legal pages"
-msgstr "تنظیمات دامنه، اعتبارسنجی از طریق فایل‌های ثابت، مدیریت صفحات حقوقی و قانونی"
-
-#: dash/plan_list.php:174
+#: dash/plan_list.php:173
 msgid "Remove site builder page"
 msgstr "حذف صفحات سایت‌ساز"
 
-#: dash/plan_list.php:177
+#: dash/plan_list.php:176
 msgid "Manage Form"
 msgstr "مدیریت فرم‌ساز"
 
-#: dash/plan_list.php:178
+#: dash/plan_list.php:177
 msgid "Advance Form Analyze"
 msgstr "تجزیه و تحلیل پیشرفته"
 
-#: dash/plan_list.php:179
+#: dash/plan_list.php:178
 msgid "Manage Form Tags"
 msgstr "مدیریت تگ فرم‌ها"
 
-#: dash/plan_list.php:180
+#: dash/plan_list.php:179
 msgid "Remove form answer"
 msgstr "حذف پاسخ فرم‌ها"
 
-#: dash/plan_list.php:181
+#: dash/plan_list.php:180
 msgid "Form Description"
 msgstr "ثبت توضیحات برای پاسخ‌ فرم‌ها"
 
-#: dash/plan_list.php:186
+#: dash/plan_list.php:185
 msgid "Manage Customers"
 msgstr "مدیریت مشتریان"
 
-#: dash/plan_list.php:187
+#: dash/plan_list.php:186
 msgid "Manage customer payemnts"
 msgstr "مدیریت پرداختی‌های مشتریان"
 
-#: dash/plan_list.php:188
+#: dash/plan_list.php:187
 msgid "Permission Management"
 msgstr "مدیریت سطح دسترسی"
 
-#: dash/plan_list.php:189
+#: dash/plan_list.php:188
 msgid "Show Payemnt List"
 msgstr "نمایش لیست پرداختی‌ها"
 
-#: dash/plan_list.php:190
+#: dash/plan_list.php:189
 msgid "Show logs"
 msgstr "نمایش ردپا"
 
-#: dash/plan_list.php:191
+#: dash/plan_list.php:190
 msgid "Show sms list"
 msgstr "نمایش لیست پیامک‌ها"
 
-#: dash/plan_list.php:192
+#: dash/plan_list.php:191
 msgid "Show Telegram messages list"
 msgstr "نمایش لیست پیام‌های تلگرام"
 
-#: dash/plan_list.php:194
+#: dash/plan_list.php:193
 msgid "Show Tickets List"
 msgstr "نمایش لیست تیکت‌ها"
 
-#: dash/plan_list.php:195
+#: dash/plan_list.php:194
 msgid "Ticket Manager"
 msgstr "مدیریت تیکت"
 
-#: dash/plan_list.php:197
+#: dash/plan_list.php:196
 msgid "Add New Notification"
 msgstr "افزودن پیام جدید"
 
-#: dash/plan_list.php:201
+#: dash/plan_list.php:200
 msgid "Manage Post"
 msgstr "مدیریت نوشته‌ها"
 
-#: dash/plan_list.php:202
+#: dash/plan_list.php:201
 msgid "Manage All Post"
 msgstr "مدیریت تمامی نوشته‌‌ها"
 
-#: dash/plan_list.php:203
+#: dash/plan_list.php:202
 msgid "Publish post"
 msgstr "انتشار نوشته"
 
-#: dash/plan_list.php:205
+#: dash/plan_list.php:204
 msgid "Manage Help Center"
 msgstr "مدیریت مقالات مرکز راهنمایی"
 
-#: dash/plan_list.php:207
+#: dash/plan_list.php:206
 msgid "View Comments"
 msgstr "نمایش نظرات"
 
-#: dash/plan_list.php:208
+#: dash/plan_list.php:207
 msgid "Manage Comments"
 msgstr "مدیریت نظرات"
 
-#: dash/plan_list.php:210
-msgid "Manage Tags"
-msgstr "مدیریت تگ‌ها"
+#: dash/plan_list.php:209
+msgid "Manage Hashtags"
+msgstr "مدیریت هشتگ‌ها"
 
-#: dash/plan_list.php:212
+#: dash/plan_list.php:211
 msgid "View Attachment"
 msgstr "نمایش ضمیمه‌‌ها"
 
-#: dash/plan_list.php:213
+#: dash/plan_list.php:212
 msgid "Add New Attachment"
 msgstr "افزودن فایل ضمیمه جدید"
 
-#: dash/plan_list.php:214
+#: dash/plan_list.php:213
 msgid "Manage Attachments"
 msgstr "مدیریت ضمیمه‌ها"
 
-#: dash/plan_list.php:216
+#: dash/plan_list.php:215
 msgid "CMS customization"
 msgstr "سفارشی‌سازی سیستم مدیریت محتوا"
 
@@ -36852,7 +36851,7 @@ msgstr "پارامتر مرتب‌سازی باید آرایه باشد"
 msgid "Can not save this tag level!"
 msgstr "نمی‌توانیم این سطح از تگ را ذخیره کنیم!"
 
-#: lib/app/category/get.php:405
+#: lib/app/category/get.php:401
 msgid "Add sub tag"
 msgstr "افزودن تگ زیرمجموعه"
 
@@ -36991,7 +36990,7 @@ msgstr "این کد تخفیف به محصولات خاصی اختصاص دار�
 
 #: lib/app/discount/discount_check.php:504 lib/app/discount/discount_check.php:518
 msgid "Discount is broken!"
-msgstr "در کد تخفیف اشکالی و"
+msgstr "کد تخفیف خراب شده است!"
 
 #: lib/app/discount/discount_check.php:529
 msgid "Invalid discount code type!"
@@ -36999,7 +36998,7 @@ msgstr "نوع کد تخفیف اشتباه است!"
 
 #: lib/app/discount/discount_check.php:565
 msgid "here you are :) "
-msgstr "بفرمایید :)"
+msgstr "بفرمایید :) "
 
 #: lib/app/discount/edit.php:64
 msgid "After use discount code, can not edit type or discount value!"
@@ -37089,7 +37088,7 @@ msgstr ":val استفاده"
 
 #: lib/app/discount/remove.php:22
 msgid "Can not remove discount because this discount is used in some orders"
-msgstr "نمی‌توانید این کد تخفیف را حذف کنید. این کد تخفیف در تعدادی سفارش استفاده شده است."
+msgstr "نمی‌توانید این کد تخفیف را حذف کنید. این کد تخفیف در تعدادی سفارش استفاده شده است"
 
 #: lib/app/domains/check.php:14
 msgid "Please enter a valid domain for check"
@@ -41609,7 +41608,7 @@ msgstr "ویژگی وجود ندارد"
 
 #: lib/features/items/site_options_responsive_footer.php:14
 msgid "Customize footer in for application (Responsive) description ..."
-msgstr "سفارشی سازی دکمه‌های پابرگ در اپلیکیشن (حالت موبایلی) توضیح"
+msgstr "سفارشی سازی دکمه‌های پابرگ در اپلیکیشن (حالت موبایلی) توضیح ..."
 
 #: lib/features/items/site_options_responsive_footer.php:20
 msgid "Customize footer in for application (Responsive)"
@@ -42026,6 +42025,15 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Manage Product Tag"
+#~ msgstr "مدیریت تگ محصولات"
+
+#~ msgid "Domain setting, Static file verification, Manage legal pages"
+#~ msgstr "تنظیمات دامنه، اعتبارسنجی از طریق فایل‌های ثابت، مدیریت صفحات حقوقی و قانونی"
+
+#~ msgid "Manage Tags"
+#~ msgstr "مدیریت تگ‌ها"
 
 #~ msgid "Show to search engines"
 #~ msgstr "نمایش به موتور‌های جستجو"
@@ -44552,9 +44560,6 @@ msgstr "یارد"
 #~ msgid "Footer #rafiei"
 #~ msgstr "فوتر #رفیعی"
 
-#~ msgid "Manage Product Category"
-#~ msgstr "مدیریت دسته‌بندی محصولات"
-
 #~ msgid "Please select one category"
 #~ msgstr "لطفا یک دسته را انتخاب کنید"
 
@@ -45847,9 +45852,6 @@ msgstr "یارد"
 #~ msgid "Minutes"
 #~ msgstr "دقیقه"
 
-#~ msgid "Manage tag"
-#~ msgstr "مدیریت تگ"
-
 #~ msgid "supportTicketAnswer"
 #~ msgstr "توانایی پاسخ به تیکت‌ها"
 
@@ -46537,9 +46539,6 @@ msgstr "یارد"
 
 #~ msgid "Product comment"
 #~ msgstr "نظرات مشتریان"
-
-#~ msgid "Select category"
-#~ msgstr "انتخاب دسته‌بندی"
 
 #~ msgid ""
 #~ "Setting up a post featured image helps you to publish your post professionally on "
