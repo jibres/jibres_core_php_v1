@@ -259,7 +259,7 @@ class create
 			];
 
 
-			$contact_id = \lib\onlinenic\api::create_contact_id($create_new_contact);
+			$contact_id = \lib\api\onlinenic\api::create_contact_id($create_new_contact);
 
 			if(isset($contact_id['data']['contactid']))
 			{
@@ -535,7 +535,7 @@ class create
 
 
 			// run nic create domain exec
-		$result = \lib\onlinenic\api::register_domain($ready);
+		$result = \lib\api\onlinenic\api::register_domain($ready);
 
 
 		if(isset($result['data']['domain']) && isset($result['data']['regdate']) && isset($result['data']['expdate']))

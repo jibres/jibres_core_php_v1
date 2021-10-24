@@ -183,7 +183,7 @@ class edit
 
 		if($have_update)
 		{
-			$result = \lib\onlinenic\api::update_domain_dns($ready);
+			$result = \lib\api\onlinenic\api::update_domain_dns($ready);
 
 			if(isset($result['code']) && $result['code'] == 1000)
 			{

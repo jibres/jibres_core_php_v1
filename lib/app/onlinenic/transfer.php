@@ -213,7 +213,7 @@ class transfer
 			];
 
 
-			$contact_id = \lib\onlinenic\api::create_contact_id($create_new_contact);
+			$contact_id = \lib\api\onlinenic\api::create_contact_id($create_new_contact);
 
 			if(isset($contact_id['data']['contactid']))
 			{
@@ -475,7 +475,7 @@ class transfer
 
 
 		// run nic create domain exec
-		$result = \lib\onlinenic\api::transfer_domain($ready);
+		$result = \lib\api\onlinenic\api::transfer_domain($ready);
 
 
 		// $result                 = [];

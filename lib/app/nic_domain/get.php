@@ -95,7 +95,7 @@ class get
 	private static function com_domain_fetch($_domain, $_load_domain)
 	{
 
-		$get_domain_info = \lib\onlinenic\api::info_domain($_domain);
+		$get_domain_info = \lib\api\onlinenic\api::info_domain($_domain);
 
 		if(!isset($get_domain_info['data']))
 		{

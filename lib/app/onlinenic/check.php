@@ -17,7 +17,7 @@ class check
 		else
 		{
 
-			$result = \lib\onlinenic\api::check_domain($domain, $_type);
+			$result = \lib\api\onlinenic\api::check_domain($domain, $_type);
 
 			if(!isset($result['data']))
 			{

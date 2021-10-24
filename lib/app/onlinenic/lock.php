@@ -81,7 +81,7 @@ class lock
 		}
 
 
-		$result = \lib\onlinenic\api::lock($_domain);
+		$result = \lib\api\onlinenic\api::lock($_domain);
 
 		if(isset($result['code']) && $result['code'] == 1000)
 		{
@@ -185,7 +185,7 @@ class lock
 		}
 
 
-		$result = \lib\onlinenic\api::unlock($_domain);
+		$result = \lib\api\onlinenic\api::unlock($_domain);
 
 		if(isset($result['code']) && $result['code'] == 1000)
 		{
@@ -202,7 +202,7 @@ class lock
 			\dash\notif::ok(T_("Domain is unlocked"));
 
 
-			$result_auth_code = \lib\onlinenic\api::get_auth_code($_domain);
+			$result_auth_code = \lib\api\onlinenic\api::get_auth_code($_domain);
 			if(isset($result_auth_code['data']['Transfercode']))
 			{
 				\dash\notif::info("Transfercode: ". $result_auth_code['data']['Transfercode']);

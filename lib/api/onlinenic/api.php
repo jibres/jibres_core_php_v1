@@ -1,5 +1,5 @@
 <?php
-namespace lib\onlinenic;
+namespace lib\api\onlinenic;
 
 
 class api

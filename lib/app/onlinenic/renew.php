@@ -98,7 +98,7 @@ class renew
 			$domain_id = \lib\db\nic_domain\insert::new_record($insert);
 		}
 
-		$get_domain_info = \lib\onlinenic\api::info_domain($domain);
+		$get_domain_info = \lib\api\onlinenic\api::info_domain($domain);
 
 		if(!isset($get_domain_info['data']['expdate']))
 		{
@@ -377,7 +377,7 @@ class renew
 
 
 
-		$result = \lib\onlinenic\api::renew_domain($ready);
+		$result = \lib\api\onlinenic\api::renew_domain($ready);
 
 		\dash\temp::set('domain_code_url', \dash\coding::encode($domain_id));
 		\dash\temp::set('domain_name_url', $domain);

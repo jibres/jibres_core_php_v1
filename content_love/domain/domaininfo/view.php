@@ -27,7 +27,7 @@ class view
 			}
 			else
 			{
-				$info = \lib\onlinenic\api::info_domain($q);
+				$info = \lib\api\onlinenic\api::info_domain($q);
 				$log_id = \dash\temp::get('ONLINENIC-last-log-id');
 				if($log_id)
 				{
