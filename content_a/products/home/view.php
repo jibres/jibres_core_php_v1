@@ -77,7 +77,7 @@ class view
 		\dash\data::productSettingSaved(\lib\app\setting\get::product_setting());
 
 		// set back link
-		\lib\backlink::set_products();
+		\lib\app\back_btn\link::set_products();
 
 		$myProductList = \lib\app\product\search::variant_list($search_string, $args);
 

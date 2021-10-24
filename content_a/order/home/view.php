@@ -57,7 +57,7 @@ class view
 
 		$search_string = \dash\validate::search_string();
 
-		\lib\backlink::set_order();
+		\lib\app\back_btn\link::set_order();
 
 		$myFactorList = \lib\app\factor\search::list($search_string, $args);
 

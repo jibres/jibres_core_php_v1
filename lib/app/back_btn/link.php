@@ -1,7 +1,7 @@
 <?php
-namespace lib;
+namespace lib\app\back_btn;
 
-class backlink
+class link
 {
 
 	public static function set_factor($_args = [])

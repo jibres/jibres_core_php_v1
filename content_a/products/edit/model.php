@@ -143,7 +143,7 @@ class model
 		// product no changed not redirect
 		if(\dash\temp::get('productNoChangeNotRedirect'))
 		{
-			\dash\redirect::to(\lib\backlink::products());
+			\dash\redirect::to(\lib\app\back_btn\link::products());
 		}
 
 		// \dash\redirect::pwd();
@@ -245,7 +245,7 @@ class model
 			$result = \lib\app\product\edit::edit(['status' => 'archive'], $_id);
 			if($result)
 			{
-				\dash\redirect::to(\lib\backlink::products());
+				\dash\redirect::to(\lib\app\back_btn\link::products());
 			}
 			return true;
 		}
@@ -261,7 +261,7 @@ class model
 			$result = \lib\app\product\remove::product($_id);
 			if($result)
 			{
-				\dash\redirect::to(\lib\backlink::products());
+				\dash\redirect::to(\lib\app\back_btn\link::products());
 			}
 			return true;
 		}
