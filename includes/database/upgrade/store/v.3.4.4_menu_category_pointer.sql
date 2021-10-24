@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.menu CHANGE `pointer` `pointer` ENUM('homepage','products','posts','pages','pagebuilder','file','menu','forms','tags','hashtag','socialnetwork','other','title','separator','selffile','category') CHARACTER SET utf8mb4 NULL DEFAULT NULL;
