@@ -1,27 +1,27 @@
 <?php
-namespace lib\features;
+namespace lib\app\premium;
 
 
 class check
 {
-	private static $business_feature_list = [];
+	private static $business_premium_list = [];
 
 
 	private static function load_once()
 	{
 		// check fill once
-		if(!empty(self::$business_feature_list))
+		if(!empty(self::$business_premium_list))
 		{
 			return;
 		}
 
-		$get_all_feature_setting = \lib\app\setting\get::features();
+		$get_all_premium_setting = \lib\app\setting\get::premium();
 
 		$sync_required = false;
 
-		if(isset($get_all_feature_setting['synced']) && $get_all_feature_setting['synced'])
+		if(isset($get_all_premium_setting['synced']) && $get_all_premium_setting['synced'])
 		{
-			$synced = $get_all_feature_setting['synced'];
+			$synced = $get_all_premium_setting['synced'];
 
 			if(($sync_time = strtotime($synced)) !== false)
 			{
@@ -40,9 +40,9 @@ class check
 			$sync_required = true;
 		}
 
-		if(isset($get_all_feature_setting['sync_required']) && $get_all_feature_setting['sync_required'])
+		if(isset($get_all_premium_setting['sync_required']) && $get_all_premium_setting['sync_required'])
 		{
-			if($get_all_feature_setting['sync_required'] === 'no')
+			if($get_all_premium_setting['sync_required'] === 'no')
 			{
 				// needless to sync
 			}
@@ -56,14 +56,14 @@ class check
 
 		if($sync_required)
 		{
-			// sync features by jibres
-			$result = \lib\jpi\jpi::features_sync();
+			// sync premium by jibres
+			$result = \lib\jpi\jpi::premium_sync();
 
-			$features_list = [];
+			$premium_list = [];
 
 			if(isset($result['result']) && is_array($result['result']))
 			{
-				$features_list = $result['result'];
+				$premium_list = $result['result'];
 			}
 			else
 			{
@@ -74,87 +74,87 @@ class check
 				}
 				else
 				{
-					// can not connect to jpi. Keep current features list;
-					self::$business_feature_list = $get_all_feature_setting;
+					// can not connect to jpi. Keep current premium list;
+					self::$business_premium_list = $get_all_premium_setting;
 					return;
 				}
 			}
 
-			$added_features = [];
+			$added_premium = [];
 
 
-			$new_features_key = array_column($features_list, 'feature_key');
+			$new_premium_key = array_column($premium_list, 'premium_key');
 
-			$current_features_raw = \lib\db\setting\get::by_cat('features');
+			$current_premium_raw = \lib\db\setting\get::by_cat('premium');
 
-			$current_features = [];
+			$current_premium = [];
 
-			foreach ($current_features_raw as $key => $value)
+			foreach ($current_premium_raw as $key => $value)
 			{
 				if(in_array(a($value, 'key'), ['synced', 'sync_required']))
 				{
 					continue;
 				}
 
-				$current_features[] = $value;
+				$current_premium[] = $value;
 			}
 
-			if(empty($current_features))
+			if(empty($current_premium))
 			{
-				foreach ($features_list as $key => $value)
+				foreach ($premium_list as $key => $value)
 				{
-					if(a($value, 'feature_key'))
+					if(a($value, 'premium_key'))
 					{
-						self::added_feature_to_setting($value);
+						self::added_premium_to_setting($value);
 					}
 				}
 			}
 			else
 			{
-				foreach ($current_features as $key => $value)
+				foreach ($current_premium as $key => $value)
 				{
-					if(in_array(a($value, 'key'), $new_features_key))
+					if(in_array(a($value, 'key'), $new_premium_key))
 					{
-						foreach ($features_list as $feature_detail)
+						foreach ($premium_list as $premium_detail)
 						{
-							if(a($value, 'key') === a($feature_detail, 'feature_key'))
+							if(a($value, 'key') === a($premium_detail, 'premium_key'))
 							{
-								$added_features[] = $feature_detail['feature_key'];
+								$added_premium[] = $premium_detail['premium_key'];
 
-								self::added_feature_to_setting($feature_detail);
+								self::added_premium_to_setting($premium_detail);
 
 							}
 						}
 					}
 					else
 					{
-						\lib\db\setting\delete::by_cat_key('features', a($value, 'key'));
+						\lib\db\setting\delete::by_cat_key('premium', a($value, 'key'));
 					}
 				}
 			}
 
-			foreach ($features_list as $feature_detail)
+			foreach ($premium_list as $premium_detail)
 			{
-				if(!in_array(a($feature_detail, 'feature_key'), $added_features))
+				if(!in_array(a($premium_detail, 'premium_key'), $added_premium))
 				{
-					self::added_feature_to_setting($feature_detail);
+					self::added_premium_to_setting($premium_detail);
 				}
 			}
 
-			\lib\app\setting\tools::update('features', 'synced', date("Y-m-d H:i:s"));
+			\lib\app\setting\tools::update('premium', 'synced', date("Y-m-d H:i:s"));
 
-			\lib\app\setting\tools::update('features', 'sync_required', 'no');
+			\lib\app\setting\tools::update('premium', 'sync_required', 'no');
 
-			\lib\app\setting\get::reset_setting_cache('features');
+			\lib\app\setting\get::reset_setting_cache('premium');
 
-			$get_all_feature_setting = \lib\app\setting\get::features();
+			$get_all_premium_setting = \lib\app\setting\get::premium();
 		}
 
-		self::$business_feature_list = $get_all_feature_setting;
+		self::$business_premium_list = $get_all_premium_setting;
 	}
 
 
-	private static function added_feature_to_setting($_data)
+	private static function added_premium_to_setting($_data)
 	{
 		$myValue = a($_data, 'status');
 
@@ -163,23 +163,23 @@ class check
 			$myValue = $_data['expiredate'];
 		}
 
-		\lib\app\setting\tools::update('features', $_data['feature_key'], $myValue);
+		\lib\app\setting\tools::update('premium', $_data['premium_key'], $myValue);
 	}
 
 
 
-	public static function payed($_feature)
+	public static function payed($_premium)
 	{
 
 		self::load_once();
 
-		if(isset(self::$business_feature_list[$_feature]))
+		if(isset(self::$business_premium_list[$_premium]))
 		{
-			if(self::$business_feature_list[$_feature] === 'enable')
+			if(self::$business_premium_list[$_premium] === 'enable')
 			{
 				return true;
 			}
-			elseif(($myTime = strtotime(self::$business_feature_list[$_feature])) !== false)
+			elseif(($myTime = strtotime(self::$business_premium_list[$_premium])) !== false)
 			{
 				if($myTime > time())
 				{

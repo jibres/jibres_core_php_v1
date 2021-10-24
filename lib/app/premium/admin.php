@@ -1,46 +1,46 @@
 <?php
-namespace lib\features;
+namespace lib\app\premium;
 
 /**
- * Add feature by admin to business
+ * Add premium by admin to business
  */
 class admin
 {
-	public static function add($_business_id, $_feature)
+	public static function add($_business_id, $_premium)
 	{
 
 		$business_id = \dash\validate::id($_business_id);
-		$feature = \dash\validate::string_100($_feature);
+		$premium = \dash\validate::string_100($_premium);
 
-		if(!$business_id || !$feature)
+		if(!$business_id || !$premium)
 		{
-			\dash\notif::error(T_("Business or feature is required"));
+			\dash\notif::error(T_("Business or premium is required"));
 			return false;
 		}
 
-		$check = \lib\db\store_features\get::by_business_id_feature($business_id, $feature);
+		$check = \lib\db\store_premium\get::by_business_id_premium($business_id, $premium);
 
 		if(isset($check['id']))
 		{
 			if(a($check, 'status') === 'enable')
 			{
-				\dash\notif::error(T_("This feature already enable on this business"));
+				\dash\notif::error(T_("This premium already enable on this business"));
 				return;
 			}
 
-			\lib\db\store_features\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
+			\lib\db\store_premium\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
 
 			\dash\notif::ok(T_("Feature exist. Re Enabled"));
 		}
 		else
 		{
-			$price  = floatval(get::price($feature));
+			$price  = floatval(get::price($premium));
 
 			$insert =
 			[
 				'store_id'    => $_business_id,
-				'feature_key' => $feature,
-				'zone'        => get::zone($feature),
+				'premium_key' => $premium,
+				'zone'        => get::zone($premium),
 				'status'      => 'enable',
 				'addedby'     => 'admin',
 				'user_id'     => \dash\user::id(),
@@ -49,14 +49,14 @@ class admin
 				'datecreated' => date("Y-m-d H:i:s"),
 			];
 
-			\lib\db\store_features\insert::new_record($insert);
+			\lib\db\store_premium\insert::new_record($insert);
 
 			\dash\notif::ok(T_("Feature added"));
 		}
 
 
 
-		// send request to api.busisness.jibres to alert him the feature is payed
+		// send request to api.busisness.jibres to alert him the premium is payed
 
 		\lib\jpi\bpi::sync_required($business_id);
 
@@ -68,37 +68,37 @@ class admin
 		$load_busness_detail = \lib\app\store\get::data_by_id($business_id);
 		$log =
 		[
-			'my_feature_add_by_admin' => true,
-			'my_feature_key'          => $feature,
+			'my_premium_add_by_admin' => true,
+			'my_premium_key'          => $premium,
 			'my_business_id'          => $business_id,
 			'my_user_id'              => \dash\user::id(),
 			'my_business_title'       => a($load_busness_detail, 'title'),
 
 		];
 
-		\dash\log::set('business_features', $log);
+		\dash\log::set('business_premium', $log);
 
 	}
 
-	public static function remove($_business_id, $_feature)
+	public static function remove($_business_id, $_premium)
 	{
 
 		$business_id = \dash\validate::id($_business_id);
-		$feature = \dash\validate::string_100($_feature);
+		$premium = \dash\validate::string_100($_premium);
 
-		if(!$business_id || !$feature)
+		if(!$business_id || !$premium)
 		{
-			\dash\notif::error(T_("Business or feature is required"));
+			\dash\notif::error(T_("Business or premium is required"));
 			return false;
 		}
 
-		$check = \lib\db\store_features\get::by_business_id_feature($business_id, $feature);
+		$check = \lib\db\store_premium\get::by_business_id_premium($business_id, $premium);
 
 		if(isset($check['id']))
 		{
 			if(a($check, 'status') === 'enable')
 			{
-				\lib\db\store_features\update::record(['status' => 'deleted', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
+				\lib\db\store_premium\update::record(['status' => 'deleted', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
 				\dash\notif::ok(T_("Feature removed"));
 			}
 			else
@@ -117,7 +117,7 @@ class admin
 
 
 
-		// send request to api.busisness.jibres to alert him the feature is payed
+		// send request to api.busisness.jibres to alert him the premium is payed
 
 		\lib\jpi\bpi::sync_required($business_id);
 
@@ -128,15 +128,15 @@ class admin
 		$load_busness_detail = \lib\app\store\get::data_by_id($business_id);
 		$log =
 		[
-			'my_feature_removed' => true,
-			'my_feature_key'     => $feature,
+			'my_premium_removed' => true,
+			'my_premium_key'     => $premium,
 			'my_business_id'     => $business_id,
 			'my_user_id'         => \dash\user::id(),
 			'my_business_title'  => a($load_busness_detail, 'title'),
 
 		];
 
-		\dash\log::set('business_features', $log);
+		\dash\log::set('business_premium', $log);
 
 
 	}

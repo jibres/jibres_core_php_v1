@@ -1,5 +1,5 @@
 <?php
-namespace content_a\discount\duplicate;
+namespace content_a\premium\duplicate;
 
 
 class model
@@ -12,7 +12,7 @@ class model
 		];
 
 
-		$result = \lib\app\discount\add::duplicate($post, \dash\request::get('id'));
+		$result = \lib\app\premium\add::duplicate($post, \dash\request::get('id'));
 
 		if(isset($result['id']))
 		{

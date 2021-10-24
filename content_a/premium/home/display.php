@@ -1,10 +1,16 @@
 <?php
 
+$premiumList = \dash\data::premiumList();
+
+if(!is_array($premiumList))
+{
+  $premiumList = [];
+}
 
 $html = '';
 $html .= '<nav class="items">';
 $html .= '<ul>';
-foreach (\dash\data::dataTable() as $key => $value)
+foreach ($premiumList as $key => $value)
 {
 
   $date_title = '';
@@ -18,10 +24,10 @@ foreach (\dash\data::dataTable() as $key => $value)
   }
 
     $html .= '<li>';
-    $html .= '<a class="item f align-center" href="'. \dash\url::this(). '/edit?id='.  a($value, 'id'). '">';
+    $html .= '<a class="item f align-center" href="'. \dash\url::this(). '/view/'.  a($value, 'premium_key'). '">';
 
-    $html .= '<div class="key">'.  a($value, 'code'). '</div>';
-    $html .= '<time class="value" datatime="'. $date_title. '">'. \dash\fit::date_time(a($value, 'datecreated')). '</time>';
+    $html .= '<div class="key">'.  a($value, 'title'). '</div>';
+    $html .= '<time class="value" datatime="'. $date_title. '">'. \dash\fit::number(a($value, 'price')). '</time>';
     $html .= '<div class="go"></div>';
     $html .= '</a>';
     $html .= '</li>';

@@ -1,5 +1,5 @@
 <?php
-namespace lib\features\items;
+namespace lib\app\premium\items;
 
 
 class site_body_blog_b4____fix

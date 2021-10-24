@@ -1,5 +1,5 @@
 <?php
-namespace lib\features\items;
+namespace lib\app\premium\items;
 
 
 class site_options_responsive_footer___need_fix

@@ -1,45 +1,68 @@
 <?php
-namespace lib\features;
+namespace lib\app\premium;
 
 
 class get
 {
 	public static function all_list()
 	{
-		$list = glob(__DIR__. '/items/*');
+		$dir_list = glob(__DIR__. '/items/*', GLOB_ONLYDIR);
 
-		$features = [];
+		$premium  = [];
 
-		foreach ($list as $key => $value)
+		foreach ($dir_list as $dir)
 		{
-			$feature_key = str_replace('.php', '', basename($value));
+			$file_list = glob($dir. '/*.php');
 
-			$features[] = self::detail($feature_key);
+			foreach ($file_list as $file)
+			{
+				$premium_key = str_replace('.php', '', basename($file));
+				$temp        = \lib\app\premium\call_function::detail($premium_key);
+
+				if($temp)
+				{
+					$temp['premium_key'] = $premium_key;
+					$premium[] =  $temp;
+				}
+			}
 		}
 
-		return $features;
+		return $premium;
 
+	}
+
+
+	/**
+	 * Get premium detail
+	 *
+	 * @param      <type>  $_premium  The premium
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function detail($_premium)
+	{
+		return \lib\app\premium\call_function::detail($_premium);
 	}
 
 
 	public static function all_list_by_count()
 	{
 		$list         = self::all_list();
-		$count_all    = \lib\db\store_features\get::group_by_feature_key();
-		$count_enable = \lib\db\store_features\get::group_by_feature_key_status('enable');
+		$count_all    = \lib\db\store_premium\get::group_by_premium_key();
+		$count_enable = \lib\db\store_premium\get::group_by_premium_key_status('enable');
 
 		foreach ($list as $key => $value)
 		{
-			if(isset($value['feature_key']))
+			if(isset($value['premium_key']))
 			{
-				if(isset($count_all[$value['feature_key']]))
+				if(isset($count_all[$value['premium_key']]))
 				{
-					$list[$key]['count_use'] = $count_all[$value['feature_key']];
+					$list[$key]['count_use'] = $count_all[$value['premium_key']];
 				}
 
-				if(isset($count_enable[$value['feature_key']]))
+				if(isset($count_enable[$value['premium_key']]))
 				{
-					$list[$key]['count_enable'] = $count_enable[$value['feature_key']];
+					$list[$key]['count_enable'] = $count_enable[$value['premium_key']];
 				}
 			}
 		}
@@ -49,9 +72,9 @@ class get
 	}
 
 
-	public static function price($_feature)
+	public static function price($_premium)
 	{
-		$price = \lib\features\call_function::price($_feature);
+		$price = \lib\app\premium\call_function::price($_premium);
 
 		if(!$price)
 		{
@@ -62,9 +85,9 @@ class get
 	}
 
 
-	public static function zone($_feature)
+	public static function zone($_premium)
 	{
-		$zone = \lib\features\call_function::zone($_feature);
+		$zone = \lib\app\premium\call_function::zone($_premium);
 
 		if(!$zone)
 		{
@@ -75,35 +98,14 @@ class get
 	}
 
 
-	public static function title($_feature)
+	public static function title($_premium)
 	{
-		$title = \lib\features\call_function::title($_feature);
+		$title = \lib\app\premium\call_function::title($_premium);
 
 		return $title;
 	}
 
 
-	public static function detail($_feature)
-	{
-		$price = \lib\features\call_function::price($_feature);
 
-		if(!$price)
-		{
-			$price = 0;
-		}
-
-		$title = \lib\features\call_function::title($_feature);
-		$description = \lib\features\call_function::description($_feature);
-
-
-		return
-		[
-			'feature_key' => $_feature,
-			'title'       => $title,
-			'price'       => $price,
-			'description' => $description,
-		];
-
-	}
 }
 ?>

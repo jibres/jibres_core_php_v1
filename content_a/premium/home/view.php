@@ -1,15 +1,13 @@
 <?php
-namespace content_a\discount\home;
+namespace content_a\premium\home;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Discount code"));
+		\dash\face::title(T_("Jibres premium features"));
 
-		\dash\data::action_text(T_('Add New Discount code'));
-		\dash\data::action_link(\dash\url::this(). '/add');
 
 		// back
 		\dash\data::back_text(T_('Dashboard'));
@@ -19,32 +17,12 @@ class view
 		\dash\data::include_adminPanelBuilder(true);
 
 
-		\dash\data::listEngine_start(true);
-		\dash\data::listEngine_search(\dash\url::that());
-		\dash\data::listEngine_filter(\lib\app\discount\filter::list());
-		\dash\data::listEngine_sort(true);
-		\dash\data::sortList(\lib\app\discount\filter::sort_list());
+		$args = [];
 
-		$args =
-		[
-			'order'       => \dash\request::get('order'),
-			'sort'        => \dash\request::get('sort'),
-			'status'      => \dash\request::get('status'),
+		$premium = \lib\app\premium\search::list(\dash\request::get('q'), $args);
 
-		];
+		\dash\data::premiumList($premium);
 
-		$search_string = \dash\validate::search_string();
-		$postList      = \lib\app\discount\search::list($search_string, $args, true);
-
-		\dash\data::dataTable($postList);
-
-		$isFiltered = \lib\app\discount\search::is_filtered();
-		\dash\data::isFiltered($isFiltered);
-
-		if($isFiltered)
-		{
-			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
-		}
 
 
 	}

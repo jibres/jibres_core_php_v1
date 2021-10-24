@@ -1,5 +1,5 @@
 <?php
-namespace lib\features;
+namespace lib\app\premium;
 
 
 class ready

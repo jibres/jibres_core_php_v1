@@ -1,5 +1,5 @@
 <?php
-namespace lib\features;
+namespace lib\app\premium;
 
 /**
  * This class describes a business.
@@ -7,7 +7,7 @@ namespace lib\features;
 class business
 {
 	/**
-	 * Only get enable features list
+	 * Only get enable premium list
  	 * This function call from api r10
 	 */
 	public static function list($_business_id)
@@ -19,20 +19,20 @@ class business
 			return false;
 		}
 
-		$business_features_list = \lib\db\store_features\get::active_by_business_id($business_id);
+		$business_premium_list = \lib\db\store_premium\get::active_by_business_id($business_id);
 
-		if(!is_array($business_features_list))
+		if(!is_array($business_premium_list))
 		{
-			$business_features_list = [];
+			$business_premium_list = [];
 		}
 
 		$new_list = [];
 
-		foreach ($business_features_list as $key => $value)
+		foreach ($business_premium_list as $key => $value)
 		{
 			$new_list[] =
 			[
-				'feature_key' => a($value, 'feature_key'),
+				'premium_key' => a($value, 'premium_key'),
 				'status'      => a($value, 'status'),
 				'expiredate'  => a($value, 'expiredate'),
 			];
@@ -47,13 +47,13 @@ class business
 	 */
 	public static function sync_required()
 	{
-		\lib\app\setting\tools::update('features', 'sync_required', date("Y-m-d H:i:s"));
-		\lib\app\setting\tools::update('features', 'synced', null);
+		\lib\app\setting\tools::update('premium', 'sync_required', date("Y-m-d H:i:s"));
+		\lib\app\setting\tools::update('premium', 'synced', null);
 	}
 
 
 	/**
-	 * Get all features of one business
+	 * Get all premium of one business
 	 *
 	 * @param      <type>  $_business_id  The business identifier
 	 *
@@ -68,16 +68,16 @@ class business
 			return false;
 		}
 
-		$business_features_list = \lib\db\store_features\get::by_business_id($business_id);
+		$business_premium_list = \lib\db\store_premium\get::by_business_id($business_id);
 
-		if(!is_array($business_features_list))
+		if(!is_array($business_premium_list))
 		{
-			$business_features_list = [];
+			$business_premium_list = [];
 		}
 
-		$business_features_list = array_map(['\\lib\\features\\ready', 'row'], $business_features_list);
+		$business_premium_list = array_map(['\\lib\\premium\\ready', 'row'], $business_premium_list);
 
-		return $business_features_list;
+		return $business_premium_list;
 
 	}
 }
