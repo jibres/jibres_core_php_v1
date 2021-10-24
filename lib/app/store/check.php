@@ -63,7 +63,7 @@ class check
 			'shipping_survey'                     => 'id',
 			'order_schedule'                      => 'json',
 
-			'allowsearchengine'                   => 'yes_no',
+			'disallowsearchengine'                   => 'yes_no',
 		];
 
 		$require = ['title'];

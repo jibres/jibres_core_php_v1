@@ -75,9 +75,9 @@ class model
 			$post['entersignupdisallow'] = \dash\request::post('entersignupdisallow') ? null : 1;
 		}
 
-		if(\dash\request::post('set_allowsearchengine'))
+		if(\dash\request::post('set_disallowsearchengine'))
 		{
-			$post['allowsearchengine'] = \dash\request::post('allowsearchengine') ? 'yes' : 'no';
+			$post['disallowsearchengine'] = \dash\request::post('disallowsearchengine') ? 'yes' : 'no';
 		}
 
 

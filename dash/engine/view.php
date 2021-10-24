@@ -68,7 +68,7 @@ class view
 		{
 			// user force set off allow search engine
 			// if this option is off or inBusinessSubdomain disallow sarch engine is true
-			if(\lib\store::detail('allowsearchengine') === 'no' || \dash\engine\store::inBusinessSubdomain())
+			if(\lib\store::detail('disallowsearchengine') === 'yes' || \dash\engine\store::inBusinessSubdomain())
 			{
 				\dash\face::disallowSearchEngine(true);
 			}
