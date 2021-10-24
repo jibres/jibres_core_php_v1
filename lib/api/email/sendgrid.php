@@ -1,5 +1,5 @@
 <?php
-namespace lib\email;
+namespace lib\api\email;
 
 
 class sendgrid

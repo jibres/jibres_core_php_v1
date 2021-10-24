@@ -239,7 +239,7 @@ class email
 		// 	'subject'  => T_("Verify your mail"),
 		// ];
 
-		// $send = \lib\email\send::send($email);
+		// $send = \lib\api\email\send::send($email);
 
 		$args = \dash\email\template::verify(true, $email, \dash\user::detail('displayname'), $url);
 

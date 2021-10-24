@@ -1,5 +1,5 @@
 <?php
-namespace lib\email;
+namespace lib\api\email;
 
 
 class send
@@ -7,7 +7,7 @@ class send
 
 	public static function send($_args)
 	{
-		return \lib\email\sendgrid::send($_args);
+		return \lib\api\email\sendgrid::send($_args);
 	}
 
 
@@ -28,7 +28,7 @@ class send
 			'subject'  => T_("Verify your mail"),
 		];
 
-		$send = \lib\email\send::send($email);
+		$send = \lib\api\email\send::send($email);
 
 		return $send;
 	}

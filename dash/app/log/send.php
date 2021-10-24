@@ -97,7 +97,7 @@ class send
 			'subject'  => a($_meta, 'subject'),
 		];
 
-		$send = \lib\email\send::send($email);
+		$send = \lib\api\email\send::send($email);
 
 
 	}
