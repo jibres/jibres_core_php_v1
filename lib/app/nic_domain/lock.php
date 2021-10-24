@@ -80,7 +80,7 @@ class lock
 			return true;
 		}
 
-		$result = \lib\nic\exec\domain_lock::lock($_domain);
+		$result = \lib\api\nic\exec\domain_lock::lock($_domain);
 		if($result)
 		{
 			$_domain_id = \lib\db\nic_domain\update::update(['lock' => 1], $load_domain['id']);
@@ -183,7 +183,7 @@ class lock
 			return true;
 		}
 
-		$result = \lib\nic\exec\domain_lock::unlock($_domain);
+		$result = \lib\api\nic\exec\domain_lock::unlock($_domain);
 		if($result)
 		{
 			$_domain_id = \lib\db\nic_domain\update::update(['lock' => 0], $load_domain['id']);

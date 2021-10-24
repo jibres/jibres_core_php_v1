@@ -54,7 +54,7 @@ class edit
 
 		$nic_id = $load['nic_id'];
 
-		$result = \lib\nic\exec\contact_check::check($nic_id);
+		$result = \lib\api\nic\exec\contact_check::check($nic_id);
 
 		if(isset($result[$nic_id]['avail']) && $result[$nic_id]['avail'] == '1')
 		{

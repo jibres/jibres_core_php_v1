@@ -6,7 +6,7 @@ class get
 {
 	public static function fetch()
 	{
-		$result = \lib\nic\exec\contact_credit::credit();
+		$result = \lib\api\nic\exec\contact_credit::credit();
 
 		$must_insert = [];
 		if(!is_array($result))

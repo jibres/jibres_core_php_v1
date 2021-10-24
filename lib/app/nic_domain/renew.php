@@ -410,7 +410,7 @@ class renew
 		$finalprice = floatval($price) - floatval($discount);
 		$gift_usage_id = null;
 
-		$result = \lib\nic\exec\domain_renew::renew($ready);
+		$result = \lib\api\nic\exec\domain_renew::renew($ready);
 
 		\dash\temp::set('domain_code_url', \dash\coding::encode($domain_id));
 		\dash\temp::set('domain_name_url', $domain);

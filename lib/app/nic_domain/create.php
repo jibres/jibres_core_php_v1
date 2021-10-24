@@ -165,7 +165,7 @@ class create
 			}
 
 			$nic_id = $add_quick_contact;
-			$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
+			$get_contac_nic =  \lib\api\nic\exec\contact_check::check($nic_id);
 		}
 		else
 		{
@@ -201,7 +201,7 @@ class create
 
 		if($irnic_admin)
 		{
-			$get_contac_nic_admin =  \lib\nic\exec\contact_check::check($irnic_admin);
+			$get_contac_nic_admin =  \lib\api\nic\exec\contact_check::check($irnic_admin);
 			if(!isset($get_contac_nic_admin[$irnic_admin]))
 			{
 				\dash\notif::error(T_("Can not find account detail of this domain"));
@@ -240,7 +240,7 @@ class create
 
 		if($irnic_bill)
 		{
-			$get_contac_nic_bill =  \lib\nic\exec\contact_check::check($irnic_bill);
+			$get_contac_nic_bill =  \lib\api\nic\exec\contact_check::check($irnic_bill);
 			if(!isset($get_contac_nic_bill[$irnic_bill]))
 			{
 				// bug!!
@@ -272,7 +272,7 @@ class create
 
 		if($irnic_tech)
 		{
-			$get_contac_nic_tech =  \lib\nic\exec\contact_check::check($irnic_tech);
+			$get_contac_nic_tech =  \lib\api\nic\exec\contact_check::check($irnic_tech);
 			if(!isset($get_contac_nic_tech[$irnic_tech]))
 			{
 				// bug!!
@@ -622,7 +622,7 @@ class create
 		$gift_usage_id = null;
 
 		// run nic create domain exec
-		$result = \lib\nic\exec\domain_create::create($ready);
+		$result = \lib\api\nic\exec\domain_create::create($ready);
 
 		// $result                 = [];
 		// $result['name']         = $domain;

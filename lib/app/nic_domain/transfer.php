@@ -114,7 +114,7 @@ class transfer
 			}
 
 			$nic_id = $add_quick_contact;
-			$get_contac_nic =  \lib\nic\exec\contact_check::check($nic_id);
+			$get_contac_nic =  \lib\api\nic\exec\contact_check::check($nic_id);
 		}
 		else
 		{
@@ -413,7 +413,7 @@ class transfer
 
 		];
 
-		$result = \lib\nic\exec\domain_transfer::transfer($ready);
+		$result = \lib\api\nic\exec\domain_transfer::transfer($ready);
 
 		if($result)
 		{

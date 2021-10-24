@@ -280,7 +280,7 @@ class edit
 		}
 		else
 		{
-			$update_domian = \lib\nic\exec\domain_update::update($args);
+			$update_domian = \lib\api\nic\exec\domain_update::update($args);
 			if(!$update_domian)
 			{
 				\dash\notif::error(T_("Can not update your domain detail now!"));

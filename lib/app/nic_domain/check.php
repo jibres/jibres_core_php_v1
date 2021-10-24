@@ -13,7 +13,7 @@ class check
 			return false;
 		}
 
-		$result = \lib\nic\exec\domain_check::check($_domain);
+		$result = \lib\api\nic\exec\domain_check::check($_domain);
 
 		\lib\app\domains\detect::domain('check', $_domain, $result);
 
@@ -31,7 +31,7 @@ class check
 		}
 
 
-		$result = \lib\nic\exec\domain_info::info($_domain);
+		$result = \lib\api\nic\exec\domain_info::info($_domain);
 
 		\lib\app\domains\detect::domain_info($_domain, $result);
 

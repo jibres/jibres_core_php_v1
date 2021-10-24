@@ -71,7 +71,7 @@ class check
 
 
 
-		$check_nic_domain = \lib\nic\exec\domain_check::multi_check($ir_domains);
+		$check_nic_domain = \lib\api\nic\exec\domain_check::multi_check($ir_domains);
 
 
 		$check_tld_international =

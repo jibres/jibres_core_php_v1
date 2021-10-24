@@ -29,7 +29,7 @@ class who
 		try
 		{
 
-			$phpwhois = new \lib\nic\phpwhois\whois($_domain);
+			$phpwhois = new \lib\api\nic\phpwhois\whois($_domain);
 
 			$answer                  = $phpwhois->info();
 
@@ -126,7 +126,7 @@ class who
 		try
 		{
 			// Creating default configured client
-			$whois = \lib\nic\Iodev\Whois\Whois::create();
+			$whois = \lib\api\nic\Iodev\Whois\Whois::create();
 
 			// Checking availability
 			if ($whois->isDomainAvailable($_domain))

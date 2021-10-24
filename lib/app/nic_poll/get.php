@@ -6,7 +6,7 @@ class get
 {
 	public static function cronjob_list()
 	{
-		$poll = \lib\nic\exec\poll::request();
+		$poll = \lib\api\nic\exec\poll::request();
 
 		if(isset($poll['count']) && is_numeric($poll['count']) && intval($poll['count']) > 0)
 		{
@@ -103,7 +103,7 @@ class get
 							}
 						}
 
-						$set_as_acknowledge = \lib\nic\exec\poll::acknowledge($poll['id']);
+						$set_as_acknowledge = \lib\api\nic\exec\poll::acknowledge($poll['id']);
 						if($set_as_acknowledge)
 						{
 							\lib\db\nic_poll\update::update(['acknowledge' => 1], $poll_id);
@@ -115,7 +115,7 @@ class get
 					break;
 				}
 
-				$poll = \lib\nic\exec\poll::request();
+				$poll = \lib\api\nic\exec\poll::request();
 
 			}
 		}

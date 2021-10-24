@@ -37,7 +37,7 @@ class add
 			return $_nic_id;
 		}
 
-		$result = \lib\nic\exec\contact_check::check($_nic_id);
+		$result = \lib\api\nic\exec\contact_check::check($_nic_id);
 
 		if(isset($result[$_nic_id]['avail']) && $result[$_nic_id]['avail'] == '1')
 		{
@@ -84,11 +84,11 @@ class add
 			return false;
 		}
 
-		$result = \lib\nic\exec\contact_check::check($_old_contact);
+		$result = \lib\api\nic\exec\contact_check::check($_old_contact);
 
 		if(isset($result[$_old_contact]['avail']) && $result[$_old_contact]['avail'] == '1')
 		{
-			// $info = \lib\nic\exec\contact_info::info($_old_contact);
+			// $info = \lib\api\nic\exec\contact_info::info($_old_contact);
 			$result = self::add_account($result[$_old_contact], $_title);
 			if($result)
 			{
@@ -281,7 +281,7 @@ class add
 		];
 
 
-		$result = \lib\nic\exec\contact_create::create($ready);
+		$result = \lib\api\nic\exec\contact_create::create($ready);
 
 		if(isset($result['nic_id']))
 		{
