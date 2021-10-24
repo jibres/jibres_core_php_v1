@@ -25,11 +25,6 @@ class view
 
 		\dash\data::include_adminPanelBuilder(true);
 
-
-		$category_list = \lib\app\category\get::all_category();
-		$category_list = array_reverse($category_list);
-		\dash\data::listProductCategory($category_list);
-
 		if(\dash\data::editMode())
 		{
 			\dash\data::discountDedicate(\lib\app\discount\dedicated::load_all_dedicated(\dash\request::get('id')));

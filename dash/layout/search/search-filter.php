@@ -173,24 +173,18 @@ function HTML_product_tag_search($value)
   echo '</div>';
 
   echo '<div>';
-  echo '<select name="catid" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Select one category"). '">';
+  echo '<select name="catid" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Select one category"). '" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/a/category/api?json=true&getid=1">';
   if(\dash\request::get('catid'))
   {
       echo '<option value="0">'. T_("None"). '</option>';
+      $loadCategory = \lib\app\category\get::get(\dash\request::get('catid'));
+      echo '<option value="'. a($loadCategory, 'id'). '" selected>'. a($loadCategory, 'title') .'</option>';
   }
   else
   {
       echo '<option value=""></option>';
   }
-  foreach (\dash\data::listProductCategory() as $k => $v)
-  {
-      echo '<option value="'. $v['id']. '" ';
-      if(\dash\request::get('catid') === $v['id'])
-      {
-        echo 'selected';
-      }
-      echo '> '.$v['title']. '</option>';
-  }
+
   echo '</select>';
   echo '</div>';
   echo "</div>";

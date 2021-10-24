@@ -19,11 +19,7 @@ class get
 		return $list;
 	}
 
-	public static function all_category()
-	{
-		$result = \lib\db\productcategory\get::all_category();
-		return $result;
-	}
+
 
 
 	public static function all_category_not_sorted()

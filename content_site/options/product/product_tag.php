@@ -26,7 +26,6 @@ class product_tag
 
 	public static function admin_html()
 	{
-		$tag_list = \lib\app\category\get::all_category();
 		$default = \content_site\section\view::get_current_index_detail('product_tag');
 
 		if(!$default)
@@ -36,9 +35,12 @@ class product_tag
 
 		$tagSearchLink = \dash\url::kingdom(). '/a/products';
 
+		$load_category = [];
+
 		if($default)
 		{
 			$tagSearchLink .= '?tagid='. $default;
+			$load_category = \lib\app\category\get::get($default);
 		}
 
 		$title = T_("Filter by special category");
@@ -63,21 +65,14 @@ class product_tag
 			}
 			$html .= "</div>";
 
-	        $html .= '<select name="opt_product_tag" class="select22" id="product_tag" data-placeholder="'. T_("Select hashtag"). '">';
+	        $html .= '<select name="opt_product_tag" class="select22" id="product_tag" data-placeholder="'. T_("Select category"). '"  data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/a/category/api?json=true&getid=1">';
 
 			$html .= '<option value="0">'. T_("All"). '</option>';
 
-	        foreach ($tag_list as $key => $value)
-	        {
-	        	$selected = null;
-
-	        	if($value['id'] == $default)
-	        	{
-	        		$selected = ' selected';
-	        	}
-
-	        	$html .= "<option value='$value[id]'$selected>$value[title]</option>";
-	        }
+			if($load_category)
+			{
+	        	$html .= "<option value='". a($load_category, 'id')."' selected>". a($load_category, 'title'). "</option>";
+			}
 
 	       	$html .= '</select>';
 		}

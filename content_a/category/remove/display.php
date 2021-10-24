@@ -33,16 +33,12 @@
 
         <div class="mB10">
           <label for='cat'><?php echo T_("New category"); ?></label>
-           <select name="catid" id="cat" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one category") ?>">
+           <select name="catid" id="cat" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one category") ?>" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true&getid=1'>
             <?php if(\dash\request::get('catid')) {?>
               <option value="0"><?php echo T_("None") ?></option>
             <?php }else{?>
               <option value="" readonly></option>
             <?php } //endif ?>
-            <?php foreach (\dash\data::listProductCategory() as $key => $value) {?>
-              <?php if($value['id'] === \dash\request::get('id')) {continue;}?>
-              <option value="<?php echo $value['id']; ?>" ><?php echo $value['title']; ?></option>
-            <?php } //endfor ?>
           </select>
         </div>
 

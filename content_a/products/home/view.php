@@ -99,10 +99,6 @@ class view
 		$unit_list = \lib\app\product\unit::list();
 		\dash\data::listUnits($unit_list);
 
-		$category_list = \lib\app\category\get::all_category();
-		$category_list = array_reverse($category_list);
-		\dash\data::listProductCategory($category_list);
-
 	}
 }
 ?>

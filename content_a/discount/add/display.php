@@ -194,7 +194,7 @@ $html .= '<div class="max-w-xl m-auto">';
 
 				$html .= '<div data-response="applyto" data-response-where="special_category" '.$data_response_hide.'>';
 				{
-					$html .= '<select name="product_category[]" id="product_category" class="select22" multiple="multiple">';
+					$html .= '<select name="product_category[]" id="product_category" class="select22" multiple="multiple" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/a/category/api?json=true&getid=1'. '" >';
 					{
 						$current_category_id = [];
 
@@ -203,17 +203,18 @@ $html .= '<div class="max-w-xl m-auto">';
 							$current_category_id = array_column($dedicated['special_category'], 'product_category_id');
 						}
 
-						foreach (\dash\data::listProductCategory() as $key => $value)
+						if(is_array(a($dedicated, 'special_category')))
 						{
-							$html .= '<option value="'. $value['title']. '" ';
-							if(in_array($value['id'], $current_category_id))
+							foreach ($dedicated['special_category'] as $key => $value)
 							{
+								$html .= '<option value="'. $value['title']. '" ';
 								$html .= ' selected';
+								$html .= '>';
+								$html .= $value['title'];
+								$html .= '</option>';
 							}
-							$html .= '>';
-							$html .= $value['title'];
-							$html .= '</option>';
 						}
+
 					}
 					$html .= '</select>';
 				}

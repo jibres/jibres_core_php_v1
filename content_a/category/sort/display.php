@@ -12,7 +12,7 @@ if(!is_array($dataTable))
     <input type="hidden" name="setsort" value="1">
     <?php echo \lib\app\category\get::sort_list(); ?>
   </form>
-  <?php if(\dash\data::listProductCategory()) {?>
+
   <form method="post" autocomplete="off">
     <input type="hidden" name="addcategory" value="1">
     <div class="box">
@@ -21,11 +21,7 @@ if(!is_array($dataTable))
           <?php echo T_("By adding category to list you can sort it and set one category as child of another") ?>
         </p>
        <div>
-        <select name="category" class="select22" data-model='tag' data-placeholder="<?php echo T_("Choose category"); ?>" >
-           <option></option>
-          <?php foreach (\dash\data::listProductCategory() as $key => $value) {?>
-          <option value="<?php echo a($value, 'id'); ?>"><?php echo a($value, 'title'); ?></option>
-         <?php } //endfor ?>
+        <select name="category" class="select22" data-model='tag' data-placeholder="<?php echo T_("Choose category"); ?>" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true&getid=1'>
         </select>
        </div>
       </div>
@@ -34,5 +30,5 @@ if(!is_array($dataTable))
       </footer>
     </div>
   </form>
-<?php }//endif ?>
+
 </div>

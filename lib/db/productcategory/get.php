@@ -69,13 +69,6 @@ class get
 		return $result;
 	}
 
-	public static function all_category()
-	{
-		$query  = "SELECT productcategory.id, productcategory.title FROM productcategory ORDER BY CHAR_LENGTH(productcategory.title) DESC ";
-		$result = \dash\db::get($query);
-		return $result;
-	}
-
 
 	public static function all_category_not_sorted()
 	{
