@@ -75,6 +75,13 @@ class model
 			$post['entersignupdisallow'] = \dash\request::post('entersignupdisallow') ? null : 1;
 		}
 
+		if(\dash\request::post('set_allowsearchengine'))
+		{
+			$post['allowsearchengine'] = \dash\request::post('allowsearchengine') ? 'yes' : 'no';
+		}
+
+
+
 		if(\dash\request::post('set_forceloginorder'))
 		{
 			$post['forceloginorder'] = \dash\request::post('forceloginorder');

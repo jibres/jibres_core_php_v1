@@ -46,8 +46,18 @@ if(\dash\url::store())
  <meta content="<?php echo \dash\url::jibres_subdomain('core');?>" name="jibres:core"/>
  <meta content="<?php echo \dash\url::jibres_subdomain('api');?>" name="jibres:api"/>
  <meta content="<?php echo \dash\url::cdn();?>/" name="jibres:cdn"/>
- <meta content="index, follow" name="robots"/>
 <?php
+// disallow robots to find website
+if(\dash\face::disallowSearchEngine())
+{
+  echo ' <meta content="noindex, nofollow" name="robots"/>'. "\n";
+  echo ' <meta content="noindex, nofollow" name="googlebot"/>'. "\n";
+}
+else
+{
+ echo ' <meta content="index, follow" name="robots"/>'. "\n";
+}
+
 // add third party addons
 if(\dash\data::addons())
 {
@@ -84,10 +94,6 @@ if(\dash\data::addons())
  <link href="<?php echo \lib\store::logo();?>?v=1" rel="apple-touch-startup-image"/>
  <link href="<?php echo \lib\store::logo();?>?v=1" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
- <?php if(\dash\engine\store::inBusinessSubdomain()) {?>
- <meta name="robots" content="noindex">
- <meta name="googlebot" content="noindex">
-<?php } /* end if of businessSubdomain*/ } else {?>
  <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml" name="msapplication-config"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-32x32.png" sizes="32x32" type="image/png" rel="icon"/>
@@ -95,8 +101,7 @@ if(\dash\data::addons())
  <link href="<?php echo \dash\url::cdn();?>/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
  <link href="<?php echo \dash\url::logo();?>" rel="apple-touch-startup-image"/>
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
-<?php }?>
-<?php if(\dash\detect\device::detectPWA() === 'ios') { ?>
+<?php } /*end if*/ if(\dash\detect\device::detectPWA() === 'ios') { ?>
   <link rel="apple-touch-startup-image" href="<?php echo \dash\url::cdn();?>/img/splash/jibres-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="<?php echo \dash\url::cdn();?>/img/splash/jibres-750x1294.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="<?php echo \dash\url::cdn();?>/img/splash/jibres-1242x2148.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">

@@ -251,6 +251,28 @@ $storeData = \dash\data::store_store_data();
 </section>
 </div>
 
+
+<section class="f" data-option='setting-disallow-robots' id="setting-busienss-disallow-robots">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Allow search engine access and find your website");?></h3>
+      <div class="body">
+        <p><?php echo T_("If this feature is turned off, the search engine will be asked not to check your site");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_allowsearchengine" value="1">
+    <div class="action">
+      <div class="switch1">
+        <input id="iallowsearchengine" type="checkbox" name="allowsearchengine" <?php if(\dash\data::storeData_allowsearchengine() === 'no') {}else{ echo 'checked'; } ?>>
+        <label for="iallowsearchengine"></label>
+      </div>
+    </div>
+  </form>
+</section>
+
+
 <section class="f" data-option='setting-remove' id="setting-busienss-remove">
   <div class="c8 s12">
     <div class="data">

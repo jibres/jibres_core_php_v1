@@ -60,6 +60,22 @@ class view
 		// load detail of business website
 		\dash\layout\business::check_website();
 
+
+		/*=======================================================
+		=            Check some variable if In Store            =
+		=======================================================*/
+		if(\dash\engine\store::inStore())
+		{
+			// user force set off allow search engine
+			// if this option is off or inBusinessSubdomain disallow sarch engine is true
+			if(\lib\store::detail('allowsearchengine') === 'no' || \dash\engine\store::inBusinessSubdomain())
+			{
+				\dash\face::disallowSearchEngine(true);
+			}
+		}
+		/*=====  End of Check some variable if In Store  ======*/
+
+
 		// set custom logo
 		// if(\dash\option::config('site', 'logo'))
 		// {

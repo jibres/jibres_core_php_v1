@@ -62,6 +62,8 @@ class check
 			'satisfaction_survey'                 => 'id',
 			'shipping_survey'                     => 'id',
 			'order_schedule'                      => 'json',
+
+			'allowsearchengine'                   => 'yes_no',
 		];
 
 		$require = ['title'];
