@@ -153,14 +153,14 @@ class check
 
 		if($data['discount'])
 		{
-			$data['discount'] = \lib\price::up($data['discount']);
-			$data['discount'] = \lib\number::up($data['discount']);
+			$data['discount'] = floatval($data['discount']);
+			$data['discount'] = floatval($data['discount']);
 		}
 
 		if($data['shipping'])
 		{
-			$data['shipping'] = \lib\price::up($data['shipping']);
-			// $data['discount'] = \lib\number::up($data['discount']);
+			$data['shipping'] = floatval($data['shipping']);
+			// $data['discount'] = floatval($data['discount']);
 		}
 
 

@@ -17,7 +17,7 @@ class homepage
 		[
 			'product'     => $product,
 			'factor'      => $factor,
-			'sum_factor'  => round(\lib\price::down(\lib\number::down($sum_factor))),
+			'sum_factor'  => round(floatval(floatval($sum_factor))),
 			'last_update' => date("Y-m-d H:i:s"),
 		];
 

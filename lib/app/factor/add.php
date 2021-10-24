@@ -49,7 +49,7 @@ class add
 		{
 			if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
 			{
-				if(\lib\price::total_down($_total) >= floatval($shipping['freeshippingprice']))
+				if(floatval($_total) >= floatval($shipping['freeshippingprice']))
 				{
 					$shipping_value = 0;
 				}
@@ -410,7 +410,7 @@ class add
 
 		$return              = [];
 		$return['factor_id'] = $factor_id;
-		$return['price']     = \lib\price::total_down($factor['total']);
+		$return['price']     = floatval($factor['total']);
 
 		$product_discount = [];
 		if(is_array(a($check_discount_code, 'product_discount')))
@@ -550,13 +550,13 @@ class add
 		$count      = $data['count'];
 
 		// check exist this product in factor and plus the count
-		$check_exist = \lib\db\factordetails\get::check_exist_record($load_factor['id'], $data['product_id'], \lib\price::up($price), \lib\price::up($discount));
+		$check_exist = \lib\db\factordetails\get::check_exist_record($load_factor['id'], $data['product_id'], floatval($price), floatval($discount));
 
 		if(isset($check_exist['id']))
 		{
 			$add_new_record = false;
 
-			$new_count = floatval(\lib\number::up($data['count'])) + floatval($check_exist['count']);
+			$new_count = floatval(floatval($data['count'])) + floatval($check_exist['count']);
 
 			if(!\dash\validate::bigint($new_count, false))
 			{

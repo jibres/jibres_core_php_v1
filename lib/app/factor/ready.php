@@ -47,7 +47,7 @@ class ready
 
 				case 'qty':
 				case 'count':
-					$value = \lib\number::down($value);
+					$value = floatval($value);
 					$result[$key] = $value;
 					break;
 
@@ -56,7 +56,7 @@ class ready
 				case 'shipping':
 				case 'finalprice':
 				case 'vat':
-					$value = \lib\price::down($value);
+					$value = floatval($value);
 					$result[$key] = $value;
 					break;
 
@@ -67,8 +67,8 @@ class ready
 				case 'subtotal':
 				case 'total':
 				case 'sum':
-					$value = \lib\price::down($value);
-					$value = \lib\number::down($value);
+					$value = floatval($value);
+					$value = floatval($value);
 					$result[$key] = $value;
 					break;
 
@@ -187,7 +187,7 @@ class ready
 
 				case 'qty':
 				case 'count':
-					$value = \lib\number::down($value);
+					$value = floatval($value);
 					$result[$key] = $value;
 					break;
 
@@ -196,14 +196,14 @@ class ready
 				case 'discount':
 				case 'finalprice':
 				case 'vat':
-					$value = \lib\price::down($value);
+					$value = floatval($value);
 					$result[$key] = $value;
 					break;
 
 
 				case 'sum':
-					$value = \lib\price::down($value);
-					$value = \lib\number::down($value);
+					$value = floatval($value);
+					$value = floatval($value);
 					$result[$key] = $value;
 					break;
 

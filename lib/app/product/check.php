@@ -127,7 +127,7 @@ class check
 		if($data['weight'])
 		{
 			// remove float value of number
-			$data['weight'] = \lib\number::up($data['weight']);
+			$data['weight'] = floatval($data['weight']);
 		}
 
 
@@ -212,12 +212,12 @@ class check
 			}
 
 
-			$data['buyprice']        = \lib\price::up($data['buyprice']);
-			$data['price']           = \lib\price::up($data['price']);
-			$data['discount']        = \lib\price::up($data['discount']);
-			$data['discountpercent'] = \lib\price::up($discountpercent);
-			$data['finalprice']      = \lib\price::up($data['finalprice']);
-			$data['vatprice']        = \lib\price::up($data['vatprice']);
+			$data['buyprice']        = floatval($data['buyprice']);
+			$data['price']           = floatval($data['price']);
+			$data['discount']        = floatval($data['discount']);
+			$data['discountpercent'] = floatval($discountpercent);
+			$data['finalprice']      = floatval($data['finalprice']);
+			$data['vatprice']        = floatval($data['vatprice']);
 		}
 
 		return $data;

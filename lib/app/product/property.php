@@ -280,11 +280,11 @@ class property
 
 		if(a($load, 'weight'))
 		{
-			// self::push($result, T_("General property"), ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load, 'weight'))) . ' '. $mass_name,]);
+			// self::push($result, T_("General property"), ['key' => T_("Weight"), 'value' => \dash\fit::number(floatval(a($load, 'weight'))) . ' '. $mass_name,]);
 		}
 		elseif(a($load_parent, 'weight'))
 		{
-			self::push($result, T_("General property"), ['key' => T_("Weight"), 'value' => \dash\fit::number(\lib\number::down(a($load_parent, 'weight'))) . ' '. $mass_name,]);
+			self::push($result, T_("General property"), ['key' => T_("Weight"), 'value' => \dash\fit::number(floatval(a($load_parent, 'weight'))) . ' '. $mass_name,]);
 		}
 
 

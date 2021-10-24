@@ -6,7 +6,7 @@ class inventory
 
 	public static function initial($_count, $_product_id)
 	{
-		$stock     = \lib\number::up($_count);
+		$stock     = floatval($_count);
 		$thisstock = $stock;
 
 		$insert =
@@ -14,7 +14,7 @@ class inventory
 			'inventory_id'       => null,
 			'product_id'         => $_product_id,
 			'datecreated'        => date("Y-m-d H:i:s"),
-			'count'              => \lib\number::up($_count),
+			'count'              => floatval($_count),
 			'stock'              => $stock,
 			'thisstock'          => $thisstock,
 			'action'             => 'initial',
@@ -101,7 +101,7 @@ class inventory
 			return self::initial($_count, $_product_id);
 		}
 
-		$count = \lib\number::up(floatval($_count));
+		$count = floatval(floatval($_count));
 
 		$stock = floatval($last_stock['stock']);
 		$diff  = floatval($count) - $stock;

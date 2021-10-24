@@ -355,7 +355,7 @@ class search
 			$search         = substr($query_string, 1);
 			$search         = \dash\number::clean($search);
 
-			$and[] = " ( products.finalprice = ". \lib\price::up($search). " OR products.price = ". \lib\price::up($search). " )";
+			$and[] = " ( products.finalprice = ". floatval($search). " OR products.price = ". floatval($search). " )";
 
 			$and[] = "products.barcode IS NULL";
 			$and[] = "products.barcode2 IS NULL";
@@ -384,8 +384,8 @@ class search
 			{
 				$search_price = \dash\utility\convert::to_en_number($query_string);
 
-				$or[] = "products.finalprice = ". \lib\price::up($search_price);
-				$or[] = "products.price = ". \lib\price::up($search_price);
+				$or[] = "products.finalprice = ". floatval($search_price);
+				$or[] = "products.price = ". floatval($search_price);
 
 				if($search_product_id = \dash\validate::id($search_price, false))
 				{
@@ -665,7 +665,7 @@ class search
 		{
 			if(isset($value['variant_child']) && $value['variant_child'])
 			{
-				$list[$key]['stock'] = \lib\number::down(\lib\db\productinventory\get::product_variant_stock($value['id']));
+				$list[$key]['stock'] = floatval(\lib\db\productinventory\get::product_variant_stock($value['id']));
 			}
 		}
 
@@ -697,8 +697,8 @@ class search
 					{
 						$list[$key]['variants_detail'] = $variants[$value['id']];
 
-						$min_price = \lib\price::down($variants[$value['id']]['min_price']);
-						$max_price = \lib\price::down($variants[$value['id']]['max_price']);
+						$min_price = floatval($variants[$value['id']]['min_price']);
+						$max_price = floatval($variants[$value['id']]['max_price']);
 						if($min_price !== $max_price)
 						{
 							$min_price = \dash\fit::number($min_price);
@@ -755,22 +755,22 @@ class search
 
 				if(isset($min_price['finalprice']))
 				{
-					$list[$key]['finalprice'] = \lib\price::down($min_price['finalprice']);
+					$list[$key]['finalprice'] = floatval($min_price['finalprice']);
 				}
 
 				if(isset($min_price['price']))
 				{
-					$list[$key]['price'] = \lib\price::down($min_price['price']);
+					$list[$key]['price'] = floatval($min_price['price']);
 				}
 
 				if(isset($min_price['discount']))
 				{
-					$list[$key]['discount'] = \lib\price::down($min_price['discount']);
+					$list[$key]['discount'] = floatval($min_price['discount']);
 				}
 
 				if(isset($min_price['discountpercent']))
 				{
-					$list[$key]['discountpercent'] = \lib\price::down($min_price['discountpercent']);
+					$list[$key]['discountpercent'] = floatval($min_price['discountpercent']);
 				}
 			}
 		}

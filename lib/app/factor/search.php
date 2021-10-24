@@ -83,7 +83,7 @@ class search
 			}
 			elseif($value === 'int' && $data[$key])
 			{
-				$data[$key] = \lib\number::up($data[$key]);
+				$data[$key] = floatval($data[$key]);
 			}
 
 		}
@@ -435,7 +435,7 @@ class search
 				$temp['title'] = $temp_title;
 			}
 
-			$temp['count'] = \lib\number::down($value['count']);
+			$temp['count'] = floatval($value['count']);
 			$temp['id']    = $value['product_id'];
 
 
@@ -457,12 +457,12 @@ class search
 
 	private static function price_sum_up($_data)
 	{
-		return \lib\number::up(\lib\price::up($_data));
+		return floatval(floatval($_data));
 	}
 
 	private static function price_sum_down($_data)
 	{
-		return \lib\number::down(\lib\price::down($_data));
+		return floatval(floatval($_data));
 	}
 
 	public static function last_user_order($_user_id)

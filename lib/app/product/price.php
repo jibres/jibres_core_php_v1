@@ -18,12 +18,12 @@ class price
 
 		if(isset($load_price['min_price']))
 		{
-			$min_price = \lib\price::down($load_price['min_price']);
+			$min_price = floatval($load_price['min_price']);
 		}
 
 		if(isset($load_price['max_price']))
 		{
-			$max_price = \lib\price::down($load_price['max_price']);
+			$max_price = floatval($load_price['max_price']);
 		}
 
 		$result =

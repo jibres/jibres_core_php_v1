@@ -164,7 +164,7 @@ class ready
 				case 'sold_price':
 					if($value)
 					{
-						$result[$key] = \lib\price::total_down($value);
+						$result[$key] = floatval($value);
 					}
 					else
 					{
@@ -180,7 +180,7 @@ class ready
 				case 'bought':
 					if($value)
 					{
-						$result[$key] = \lib\number::down($value);
+						$result[$key] = floatval($value);
 					}
 					else
 					{
@@ -196,7 +196,7 @@ class ready
 					$result['currency'] = $currency;
 					if($value)
 					{
-						$result[$key] = \lib\price::down($value);
+						$result[$key] = floatval($value);
 					}
 					else
 					{
@@ -563,7 +563,7 @@ class ready
 				case 'finalprice':
 					if($value)
 					{
-						$result[$key] = \lib\price::down($value);
+						$result[$key] = floatval($value);
 					}
 					else
 					{

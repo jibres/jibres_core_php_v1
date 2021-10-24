@@ -70,25 +70,25 @@ class updateprice
 			$buyprice = null;
 			if($value['buyprice'])
 			{
-				$buyprice = \lib\price::down($value['buyprice']);
+				$buyprice = floatval($value['buyprice']);
 			}
 
 			$price = null;
 			if($value['price'])
 			{
-				$price = \lib\price::down($value['price']);
+				$price = floatval($value['price']);
 			}
 
 			$discount = null;
 			if($value['discount'])
 			{
-				$discount = \lib\price::down($value['discount']);
+				$discount = floatval($value['discount']);
 			}
 
 			$finalprice = null;
 			if($value['finalprice'])
 			{
-				$finalprice = \lib\price::down($value['finalprice']);
+				$finalprice = floatval($value['finalprice']);
 			}
 
 			$profit = null;

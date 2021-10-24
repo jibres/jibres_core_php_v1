@@ -36,8 +36,8 @@ class get
 			foreach ($sale_time_chart as $key => $value)
 			{
 				$count = floatval($value['count']);
-				$sum   = \lib\number::down($value['sum']);
-				$sum   = \lib\price::down($sum);
+				$sum   = floatval($value['sum']);
+				$sum   = floatval($sum);
 
 				$temp[] = ['key' => \dash\fit::number($value['key']), 'count' => $count, 'sum' => $sum];
 			}

@@ -55,7 +55,7 @@ class ready
 				case 'stock':
 					if($value)
 					{
-						$result[$key] = \lib\number::down($value);
+						$result[$key] = floatval($value);
 					}
 					else
 					{
@@ -71,7 +71,7 @@ class ready
 				case 'vatprice':
 					if($value)
 					{
-						$result[$key] = \lib\price::down($value);
+						$result[$key] = floatval($value);
 					}
 					else
 					{
@@ -82,7 +82,7 @@ class ready
 
 				// case 'qty':
 				// case 'count':
-				// 	$value = \lib\number::down($value);
+				// 	$value = floatval($value);
 				// 	$result[$key] = $value;
 				// 	break;
 
@@ -92,8 +92,8 @@ class ready
 				// case 'subtotal':
 				// case 'total':
 				case 'sum':
-					$value = \lib\price::down($value);
-					$value = \lib\number::down($value);
+					$value = floatval($value);
+					$value = floatval($value);
 					$result[$key] = $value;
 					break;
 

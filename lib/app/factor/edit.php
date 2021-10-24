@@ -36,7 +36,7 @@ class edit
 		$id        = \dash\validate::id($_id);
 		$factor_id = \dash\validate::id($_factor_id);
 		$count     = \dash\validate::bigint($_count);
-		$count     = \lib\number::up($count);
+		$count     = floatval($count);
 
 		if(!$id || !$factor_id)
 		{

@@ -44,7 +44,7 @@ class get
 		{
 			foreach ($result as $key => $value)
 			{
-				$result[$key] = \lib\price::total_down($value);
+				$result[$key] = floatval($value);
 			}
 			return $result;
 		}
@@ -58,7 +58,7 @@ class get
 		$result = \lib\db\products\get::average_finalprice();
 		if($result && is_numeric($result))
 		{
-			return \lib\price::down($result);
+			return floatval($result);
 		}
 		return 0;
 	}

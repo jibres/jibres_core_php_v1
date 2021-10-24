@@ -62,7 +62,7 @@ class check_detail
 			// }
 
 			// up count to remove desimal
-			$value['count'] = \lib\number::up($value['count']);
+			$value['count'] = floatval($value['count']);
 
 			$continue = false;
 
@@ -92,12 +92,12 @@ class check_detail
 
 			if(isset($value['discount']))
 			{
-				$value['discount'] = \lib\price::up($value['discount']);
+				$value['discount'] = floatval($value['discount']);
 			}
 
 			if(isset($value['price']) && is_numeric($value['price']))
 			{
-				$value['price'] = \lib\price::up($value['price']);
+				$value['price'] = floatval($value['price']);
 			}
 			else
 			{
