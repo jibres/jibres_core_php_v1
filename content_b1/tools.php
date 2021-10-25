@@ -16,7 +16,7 @@ class tools
 		\dash\temp::set('isApi', true);
 		$check_permission = true;
 
-		if(\dash\url::module() === 'bpi')
+		if(\dash\url::module() === 'business')
 		{
 			self::check_bpi_token();
 
