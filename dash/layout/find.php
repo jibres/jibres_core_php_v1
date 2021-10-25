@@ -82,7 +82,7 @@ class find
 			elseif(\dash\data::include_adminPanelBuilder())
 			{
 				// admin panels
-				$myMain = core.'layout/panelBuilder/panelBuilder-main.php';
+				$myMain = core.'layout/panelBuilder/panelBuilder_main.php';
 			}
 			elseif(\dash\engine\content::get() === 'content')
 			{
@@ -148,7 +148,7 @@ class find
 			elseif(\dash\data::include_adminPanelBuilder())
 			{
 				// siteBuilder panels
-				$myHeader = core.'layout/panelBuilder/panelBuilder-header.php';
+				$myHeader = core.'layout/panelBuilder/panelBuilder_header.php';
 			}
 			elseif($myContent === 'content')
 			{
@@ -242,7 +242,7 @@ class find
 			}
 			// elseif(\dash\data::include_adminPanelBuilder())
 			// {
-			// 	$myFooter = core.'layout/panelBuilder/panelBuilder-footer.php';
+			// 	$myFooter = core.'layout/panelBuilder/panelBuilder_footer.php';
 			// }
 		}
 
@@ -285,8 +285,17 @@ class find
 		}
 		elseif(\dash\data::include_adminPanelBuilder())
 		{
-			// siteBuilder panels
-			require_once core.'layout/panelBuilder/panelBuilder-sidebar.php';
+			// change condition to turn on with flag or use address to enable old sidebar for sitebuilder
+			if(\dash\url::isLocal())
+			{
+				// new menu builder
+				echo \dash\layout\panelBuilder\sidebar::html();
+			}
+			else
+			{
+				// siteBuilder panels
+				require_once core.'layout/panelBuilder/panelBuilder_sidebar.php';
+			}
 		}
 		echo "</aside>";
 	}
