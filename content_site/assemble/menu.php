@@ -86,7 +86,7 @@ class menu
 			}
 			$menuLi .= '>';
 			{
-				$menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'), $_arg);
+				$menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'), a($myLiData, 'icon'), $_arg);
 				if(isset($myLiData['child']) && count($myLiData['child']))
 				{
 					$menuLi .= self::menuLi($myLiData['child'], $_layer + 1, $_arg);
@@ -99,7 +99,7 @@ class menu
 	}
 
 
-	private static function menuLink($_text, $_link, $_target, $_arg)
+	private static function menuLink($_text, $_link, $_target, $_icon, $_arg)
 	{
 		$menuLinkEl = '<a';
 		if($_target)
@@ -116,6 +116,18 @@ class menu
 		}
 
 		$menuLinkEl .= '>';
+    if($_icon)
+    {
+      if(a($_arg, 'a_iconGroup'))
+      {
+        $menuLinkEl .= \dash\utility\icon::svg($_icon, a($_arg, 'a_iconGroup'));
+      }
+      else
+      {
+        $menuLinkEl .= \dash\utility\icon::svg($_icon);
+      }
+    }
+
 		$menuLinkEl .= $_text;
 		$menuLinkEl .= '</a>';
 
