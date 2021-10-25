@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\jibres\features;
+namespace content_r10\jibres\premium\sync;
 
 
 class controller

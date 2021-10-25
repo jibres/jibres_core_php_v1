@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\jibres\features;
+namespace content_r10\jibres\premium;
 
 
 class model
@@ -8,14 +8,14 @@ class model
 	{
 
 		$business_id   = \content_r10\tools::get_current_business_id();
-		$features      = \dash\request::input_body();
+		$premium      = \dash\request::input_body();
 
-		$true_features = [];
-		foreach ($features as $key => $value)
+		$true_premium = [];
+		foreach ($premium as $key => $value)
 		{
 			if(substr($key, 0, 8) === 'feature_')
 			{
-				$true_features[] = $value;
+				$true_premium[] = $value;
 			}
 		}
 
@@ -27,7 +27,7 @@ class model
 
 		];
 
-		$result = \lib\features\pay::pay($business_id, $true_features, $args);
+		$result = \lib\app\premium\pay::pay($business_id, $true_premium, $args);
 
 		\content_r10\tools::say($result);
 	}

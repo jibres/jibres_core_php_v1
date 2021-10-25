@@ -6,7 +6,7 @@ class call_function
 {
 	/**
 	 * Gets the namespace.
-	 * discount_profesional > \lib\premium\items\discount\discount_profesional
+	 * discount_profesional > \lib\app\premium\items\discount\discount_profesional
 	 *
 	 * @param      <type>  $_premium_key  The premium key
 	 *
