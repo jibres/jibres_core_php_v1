@@ -13,18 +13,12 @@ class discount_profesional
 			'relase_date'   => '2021-10-24',
 			'last_update'   => '2021-10-24',
 			'title'         => T_("Profesional discount"),
-			'description'   => self::description(),
+			'description'   => T_("Description"),
+			'keywords'      => [T_("discount"), T_("discount code")],
 
 		];
 
 	}
-
-	private static function description()
-	{
-		return T_("Description");
-	}
-
-
 
 }
 ?>

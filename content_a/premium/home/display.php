@@ -8,33 +8,35 @@ if(!is_array($premiumList))
 }
 
 $html = '';
-$html .= '<nav class="items">';
-$html .= '<ul>';
-foreach ($premiumList as $key => $value)
+$html .= '<div class="row">';
 {
-
-  $date_title = '';
-  if(a($value, 'datemodified'))
+  foreach ($premiumList as $key => $value)
   {
-    $date_title .= T_("Date modified"). ': '. \dash\fit::date_time(a($value, 'datemodified')). "\n";
-  }
-  if(a($value, 'publishdate'))
-  {
-    $date_title .= T_("Publish date"). ': '. \dash\fit::date_time(a($value, 'publishdate'));
+    $html .= '<div class="c-3">';
+    {
+      $html .= '<a class="" href="'. \dash\url::this(). '/view/'.  a($value, 'premium_key'). '">';
+      {
+        $html .= '<div class="box">';
+        {
+          $html .= '<div class="body">';
+          {
+              $html .= '<div class="">'.  a($value, 'title'). '</div>';
+              $html .= '<div class="">'.  \dash\fit::number(a($value, 'price')). '</div>';
+          }
+          $html .= '</div>';
+        }
+        $html .= '</div>';
+      }
+      $html .= '</a>';
+
+    }
+    $html .= '</div>';
   }
 
-    $html .= '<li>';
-    $html .= '<a class="item f align-center" href="'. \dash\url::this(). '/view/'.  a($value, 'premium_key'). '">';
-
-    $html .= '<div class="key">'.  a($value, 'title'). '</div>';
-    $html .= '<time class="value" datatime="'. $date_title. '">'. \dash\fit::number(a($value, 'price')). '</time>';
-    $html .= '<div class="go"></div>';
-    $html .= '</a>';
-    $html .= '</li>';
 
 }
-$html .= '</ul>';
-$html .= '</nav>';
+$html .= '</div>';
+
 
 echo $html;
 
