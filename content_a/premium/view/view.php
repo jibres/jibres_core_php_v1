@@ -20,6 +20,12 @@ class view
 		\dash\data::include_adminPanelBuilder(true);
 
 
+		$my_jibres_budget = \lib\api\jibres\api::budget();
+
+
+		\dash\data::myBudget($my_jibres_budget);
+
+
 
 
 	}

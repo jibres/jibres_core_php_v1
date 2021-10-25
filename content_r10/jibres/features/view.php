@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\jpi\features;
+namespace content_r10\jibres\features;
 
 
 class view

@@ -18,8 +18,8 @@ class tools
 			return false;
 		}
 
-		// check jpi module
-		if(\dash\url::module() === 'jpi')
+		// check jibres module
+		if(\dash\url::module() === 'jibres')
 		{
 			self::check_jpi_token();
 			return false;

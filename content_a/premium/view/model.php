@@ -1,5 +1,5 @@
 <?php
-namespace content_a\premium\duplicate;
+namespace content_a\premium\view;
 
 
 class model

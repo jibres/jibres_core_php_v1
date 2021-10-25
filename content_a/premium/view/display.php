@@ -20,7 +20,29 @@ $html .= '<div class="max-w-xl m-auto">';
 				$html .= a($premiumDetail, 'description');
 
 				$html .= '<br>';
+				$html .= 'Price';
+				$html .= '<br>';
 				$html .= a($premiumDetail, 'price');
+
+				if(\dash\data::myBudget())
+				{
+					$html .= '<div class="msg">';
+					{
+						$html .= 'Your jibres budget';
+						$html .= '<br>';
+						$html .= \dash\data::myBudget_budget();
+						$html .= '<br>';
+						$html .= \dash\data::myBudget_currency();
+					}
+					$html .= '</div>';
+
+					$html .= '<div class="check1">';
+					{
+						$html .= '<input type="checkbox" name="useasbudget" id="useasbudget">';
+						$html .= '<label for="useasbudget">Use as budget</label>';
+					}
+					$html .= '</div>';
+				}
 
 			}
 			$html .= '</div>';

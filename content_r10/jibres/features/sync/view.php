@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\jpi\features\sync;
+namespace content_r10\jibres\features\sync;
 
 
 class view

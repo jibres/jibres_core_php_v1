@@ -1,11 +1,11 @@
 <?php
-namespace lib\jpi;
+namespace lib\api\jibres;
 
 /**
  * Jibres API
- * This class describes a jpi.
+ * This class describes a jibres_api.
  */
-class jpi
+class api
 {
 
 	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])
@@ -36,7 +36,7 @@ class jpi
 
 		$url = \dash\url::jibres_subdomain('core');
 		$url .= \dash\language::current(). '/';
-		$url .= 'r10/jpi/';
+		$url .= 'r10/jibres/';
 		$url .= $_path;
 
 		// set headers
@@ -99,7 +99,7 @@ class jpi
 		{
 			if($CurlError)
 			{
-				\dash\log::to_supervisor('#JPI #CURL_Error: '. $CurlError);
+				\dash\log::to_supervisor('#jibres_api #CURL_Error: '. $CurlError);
 				\dash\log::oops();
 			}
 			return false;
@@ -121,7 +121,7 @@ class jpi
 			}
 			else
 			{
-				\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jpi.log', 'jpi');
+				\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jibres_api.log', 'jibres_api');
 			}
 
 			\dash\notif::error('Jibres: Can not parse JSON!');

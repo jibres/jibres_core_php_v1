@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\jpi\budget;
+namespace content_r10\jibres\budget;
 
 
 class view
