@@ -3,7 +3,7 @@
 $sideNavTop = \dash\layout\func::display_addr(). '-aside-top.php';
 if(is_file($sideNavTop))
 {
-  echo '<div class="h-full flex flex-col">';
+  echo '<div class="h-full flex flex-col p-2 md:p-4">';
   {
     echo '<div class="flex-1">';
     require_once $sideNavTop;
