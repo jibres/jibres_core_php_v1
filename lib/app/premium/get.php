@@ -4,28 +4,37 @@ namespace lib\app\premium;
 
 class get
 {
+
+	/**
+	 * Get list of premium items
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
 	public static function all_list()
 	{
-		$dir_list = glob(__DIR__. '/items/*', GLOB_ONLYDIR);
+		/**
+		 * After add new premium file need update this list
+		 */
+		$list =
+		[
+			'discount_profesional',
+		];
 
+
+		// call detail functon of every premium items
 		$premium  = [];
 
-		foreach ($dir_list as $dir)
+		foreach ($list as $premium_key)
 		{
-			$file_list = glob($dir. '/*.php');
+			$temp        = \lib\app\premium\call_function::detail($premium_key);
 
-			foreach ($file_list as $file)
+			if($temp)
 			{
-				$premium_key = str_replace('.php', '', basename($file));
-				$temp        = \lib\app\premium\call_function::detail($premium_key);
-
-				if($temp)
-				{
-					$temp['premium_key'] = $premium_key;
-					$premium[] =  $temp;
-				}
+				$temp['premium_key'] = $premium_key;
+				$premium[]           =  $temp;
 			}
 		}
+
 
 		return $premium;
 
