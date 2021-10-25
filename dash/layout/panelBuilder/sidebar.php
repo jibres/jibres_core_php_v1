@@ -7,6 +7,16 @@ class sidebar
   {
     // generate html of sidebar
     $myMenu = sidebarMenu::list0();
+    $args = [];
+
+    $menuHTML = \content_site\assemble\menu::generate($myMenu);
+
+
+    return $menuHTML;
+
+
+
+
 
     if(!is_array($myMenu))
     {

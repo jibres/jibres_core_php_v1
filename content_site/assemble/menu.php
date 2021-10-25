@@ -14,7 +14,16 @@ class menu
 	 */
 	public static function generate($_menu_id, $_arg = null)
 	{
-		$load_menu = \lib\app\menu\get::load_menu($_menu_id);
+		$load_menu = null;
+		if(is_array($_menu_id))
+		{
+			// menu is passed
+			$load_menu = $_menu_id;
+		}
+		else
+		{
+			$load_menu = \lib\app\menu\get::load_menu($_menu_id);
+		}
 		$html = null;
 
 		if($load_menu)

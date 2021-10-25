@@ -7,39 +7,37 @@ class sidebarMenu
 	{
 		$menu =
 		[
-			[
 				"group" => "list0",
 				'level' => 0,
-				"items" =>
+				"list" =>
 				[
 					[
 						'title' => T_("Home"),
-						'link' => \dash\url::kingdom().'/a',
+						'url' => \dash\url::kingdom().'/a',
 						'icon' => 'home',
 						'class' => '123',
 					],
 					[
 						'title' => T_("Orders"),
-						'link' => \dash\url::kingdom().'/a/orders',
+						'url' => \dash\url::kingdom().'/a/orders',
 						'icon' => 'orders',
 					],
 					[
 						'title' => T_("Products"),
-						'link' => \dash\url::kingdom().'/a/products',
+						'url' => \dash\url::kingdom().'/a/products',
 						'icon' => 'product',
 					],
 					[
 						'title' => T_("CRM"). ' - '. T_("Customers"),
-						'link' => \dash\url::kingdom().'/crm',
+						'url' => \dash\url::kingdom().'/crm',
 						'icon' => 'users',
 					],
 					[
 						'title' => T_("Analytics"),
-						'link' => \dash\url::kingdom().'/a/analytics',
+						'url' => \dash\url::kingdom().'/a/analytics',
 						'icon' => 'chart',
 					],
 				],
-			]
 		];
 
 		return $menu;
