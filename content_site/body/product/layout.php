@@ -38,6 +38,10 @@ class layout
 
 			$productList = \lib\app\product\search::website_product_search(null, $line_detail);
 
+			if(a($_args, 'product_tag'))
+			{
+				$view_all_link .= '?catid='. $_args['product_tag'];
+			}
 			// if(isset($dataList['list']) && is_array($dataList['list']))
 			// {
 			// 	$productList = $dataList['list'];
