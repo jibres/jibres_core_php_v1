@@ -17,11 +17,13 @@ class view
 		\dash\data::include_adminPanelBuilder(true);
 
 
-		$args = [];
+		$args             = [];
+		$args['category'] = \dash\request::get('category');
 
 		$plugin = \lib\app\plugin\search::list(\dash\request::get('q'), $args);
 
-		\dash\data::pluginList($plugin);
+		\dash\data::pluginList(a($plugin, 'list'));
+		\dash\data::pluginKeywords(a($plugin, 'keywords'));
 
 
 

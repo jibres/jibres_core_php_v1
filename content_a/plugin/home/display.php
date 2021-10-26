@@ -7,7 +7,44 @@ if(!is_array($pluginList))
   $pluginList = [];
 }
 
+$pluginKeywords = \dash\data::pluginKeywords();
+
+if(!is_array($pluginKeywords))
+{
+  $pluginKeywords = [];
+}
+
+
 $html = '';
+
+foreach ($pluginKeywords as $key => $value)
+{
+  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::this(). \dash\request::full_get(['category' => $value]). '">#'. $value. '</a>';
+}
+if(\dash\request::get())
+{
+  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::this(). '">#'. T_("Clear filter"). '</a>';
+}
+
+/*========================================
+=            search in plugin            =
+========================================*/
+$html .= '<form method="get" autocomplete="off" action="'.\dash\url::this().'">';
+{
+  $html .= '<div class="input">';
+  {
+    $html .= '<input type="text" name="q" value="'. \dash\request::get('q'). '">';
+    $html .= '<button class="addon btn"><img class="w-3" src="'. \dash\utility\icon::url('Search'). '"></button>';
+  }
+  $html .= '</div>';
+}
+$html .= '</form>';
+
+
+
+/*=====  End of search in plugin  ======*/
+
+
 $html .= '<div class="row">';
 {
   foreach ($pluginList as $key => $value)
