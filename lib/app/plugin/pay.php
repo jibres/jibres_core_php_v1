@@ -15,7 +15,6 @@ class pay
 			return false;
 		}
 
-
 		$plugin = array_filter($_plugin);
 		$plugin = array_unique($plugin);
 

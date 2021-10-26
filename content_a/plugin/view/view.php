@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Vidw plugin feature"));
+		\dash\face::title(T_("Vidw plugin"));
 		if(\dash\data::pluginDetail_title())
 		{
 			\dash\face::title(\dash\data::pluginDetail_title());
@@ -20,6 +20,7 @@ class view
 		\dash\data::include_adminPanelBuilder(true);
 
 
+		// load budget from jibres api
 		$my_jibres_budget = \lib\api\jibres\api::budget();
 
 

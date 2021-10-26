@@ -38,8 +38,8 @@ $html .= '<div class="max-w-xl m-auto">';
 
 					$html .= '<div class="check1">';
 					{
-						$html .= '<input type="checkbox" name="useasbudget" id="useasbudget">';
-						$html .= '<label for="useasbudget">Use as budget</label>';
+						$html .= '<input type="checkbox" name="use_budget" id="use_budget">';
+						$html .= '<label for="use_budget">Use budget</label>';
 					}
 					$html .= '</div>';
 				}

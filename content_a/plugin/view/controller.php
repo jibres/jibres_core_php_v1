@@ -21,8 +21,12 @@ class controller
 			\dash\header::status(404, T_("plugin key is invalid"));
 		}
 
+		\dash\data::pluginKey($plugin_key);
 		\dash\data::pluginDetail($load_plugin);
+
+		// allow load and post to this url
 		\dash\open::get();
+		\dash\open::post();
 	}
 }
 ?>

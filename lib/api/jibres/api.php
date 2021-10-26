@@ -147,16 +147,16 @@ class api
 	}
 
 
-	public static function features_pay($_args)
+	public static function enable_plugin($_args)
 	{
-		$result = self::run('features','post', null, $_args);
+		$result = self::run('plugin','post', null, $_args);
 
 		return $result;
 	}
 
-	public static function features_sync()
+	public static function sync_plugin()
 	{
-		$result = self::run('features/sync','get');
+		$result = self::run('plugin/sync','get');
 
 		return $result;
 	}
