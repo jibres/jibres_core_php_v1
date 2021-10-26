@@ -5,9 +5,9 @@ namespace lib\app\plugin;
  * This class describes a pay.
  * This class call from api
  */
-class pay
+class activate
 {
-	public static function pay($_business_id, $_plugin, $_args = [])
+	public static function activate($_business_id, $_plugin, $_args = [])
 	{
 		if(!is_array($_plugin))
 		{
@@ -36,6 +36,11 @@ class pay
 
 		$business_plugin_list = \lib\db\store_plugin\get::by_business_id_lock($_business_id);
 
+		if(!is_array($business_plugin_list))
+		{
+			$business_plugin_list = [];
+		}
+
 		$calculate_price = [];
 		$price           = 0;
 
@@ -60,7 +65,13 @@ class pay
 				else
 				{
 					// set pending
-					\lib\db\store_plugin\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], a($business_plugin, 'id'));
+					$updated = \lib\db\store_plugin\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], a($business_plugin, 'id'));
+					if(!$updated)
+					{
+						\dash\log::oops('ErrorInUpdatePlugin', T_("Can not edit this plugin. Please contact to administrator"));
+						\dash\pdo::rollback();
+						return false;
+					}
 
 					$calculate_price[] = $saved_plugin_key;
 				}
@@ -88,7 +99,13 @@ class pay
 					'datecreated' => date("Y-m-d H:i:s"),
 				];
 
-				\lib\db\store_plugin\insert::new_record($insert);
+				$id = \lib\db\store_plugin\insert::new_record($insert);
+				if(!$id)
+				{
+					\dash\log::oops('ErrorInAddNewPlugin', T_("Can not add this plugin. Please contact to administrator"));
+					\dash\pdo::rollback();
+					return false;
+				}
 
 			}
 		}
@@ -227,6 +244,11 @@ class pay
 
 		$business_plugin_list = \lib\db\store_plugin\get::by_business_id_lock($business_id);
 
+		if(!is_array($business_plugin_list))
+		{
+			$business_plugin_list = [];
+		}
+
 		foreach ($business_plugin_list as $business_plugin)
 		{
 			$saved_plugin_key = a($business_plugin, 'plugin_key');
@@ -251,7 +273,7 @@ class pay
 						$insert_transaction =
 						[
 							'user_id' => $user_id,
-							'title'   => T_("Unlock plugin :val", ['val' => get::title($saved_plugin_key)]),
+							'title'   => T_("Activate plugin :val", ['val' => get::title($saved_plugin_key)]),
 							'amount'  => $price,
 						];
 
@@ -287,7 +309,7 @@ class pay
 
 		// send request to api.busisness.jibres to alert him the plugin is payed
 
-		\lib\jpi\bpi::sync_required($business_id);
+		\lib\api\business\api::sync_required($business_id);
 
 	}
 }

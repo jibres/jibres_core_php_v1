@@ -1,11 +1,11 @@
 <?php
-namespace lib\jpi;
+namespace lib\api\business;
 
 /**
  * Business API
  * This class describes a bpi.
  */
-class bpi
+class api
 {
 
 	private static function run($_business_id, $_path, $_method, $_param = null, $_body = null, $_option = [])
@@ -28,7 +28,7 @@ class bpi
 		$url = \dash\url::jibres_subdomain('business');
 		// $url .= \dash\language::current(). '/';
 		$url .= \dash\store_coding::encode($_business_id). '/';
-		$url .= 'b1/bpi/';
+		$url .= 'b1/business/';
 		$url .= $_path;
 
 		// set headers
@@ -93,7 +93,7 @@ class bpi
 		{
 			if($CurlError)
 			{
-				\dash\log::to_supervisor('#BPI #CURL_Error: '. $CurlError);
+				\dash\log::to_supervisor('#BusinessAPI #CURL_Error: '. $CurlError);
 				\dash\log::oops();
 			}
 			return false;
@@ -114,7 +114,7 @@ class bpi
 				var_dump($log);exit;
 			}
 
-			\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'bpi.log', 'jpi');
+			\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'business_api.log', 'business');
 
 			\dash\notif::error('Jibres: Can not parse JSON!');
 			return false;
@@ -126,7 +126,7 @@ class bpi
 
 	public static function sync_required($_business_id)
 	{
-		$result = self::run($_business_id, 'features','post', null, ['sync_required' => 'yes']);
+		$result = self::run($_business_id, 'plugin','post', null, ['sync_required' => 'yes']);
 		return $result;
 	}
 

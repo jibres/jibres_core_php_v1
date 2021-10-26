@@ -14,9 +14,7 @@ class model
 		$args['plugin_'. \dash\data::pluginKey()] = \dash\data::pluginKey();
 
 
-		$result = \lib\api\jibres\api::enable_plugin($args);
-
-		var_dump($result);exit;
+		$result = \lib\api\jibres\api::plugin_activate($args);
 
 		if(isset($result['result']['pay_link']))
 		{
@@ -26,29 +24,15 @@ class model
 
 		if(isset($result['result']['plugin_enabled']) && $result['result']['plugin_enabled'])
 		{
-			\content_site\page\model::save_page();
-			$page_url = \dash\url::this(). '?'. \dash\request::build_query(['id' => \dash\request::get('id')]);
-			\dash\redirect::to($page_url);
+			\dash\notif::ok(T_("This plugin is already activated"));
+			\dash\redirect::pwd();
 			return;
 		}
 		else
 		{
-			\dash\notif::error_once(T_("Unknown error"). ' ' . __LINE__);
+			\dash\notif::generate_jibres_api_notif($result);
 			return false;
 		}
-
-		var_dump($post);exit;
-
-
-		$result = \lib\app\plugin\add::duplicate($post, \dash\request::get('id'));
-
-		if(isset($result['id']))
-		{
-			\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
-		}
-
-
-		\dash\notif::complete();
 
 
 	}

@@ -147,7 +147,7 @@ class api
 	}
 
 
-	public static function enable_plugin($_args)
+	public static function plugin_activate($_args)
 	{
 		$result = self::run('plugin','post', null, $_args);
 

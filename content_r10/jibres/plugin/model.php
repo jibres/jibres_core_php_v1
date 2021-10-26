@@ -27,7 +27,7 @@ class model
 			'page_url'      => \dash\request::input_body('page_url'),
 		];
 
-		$result = \lib\app\plugin\pay::pay($business_id, $true_plugin, $args);
+		$result = \lib\app\plugin\activate::activate($business_id, $true_plugin, $args);
 
 		\content_r10\tools::say($result);
 	}

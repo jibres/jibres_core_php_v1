@@ -110,9 +110,10 @@ class get
 
 	public static function price($_plugin)
 	{
-		$price = \lib\app\plugin\call_function::price($_plugin);
+		$detail = \lib\app\plugin\call_function::detail($_plugin);
 
-		if(!$price)
+		$price = floatval(a($detail, 'price'));
+		if(!$price || !is_numeric($price))
 		{
 			$price = 0;
 		}
