@@ -9,8 +9,8 @@ class site_body_blog_b4
 	{
 		return
 		[
-			'comperatprice' => 2000,
-			'price'         => 1000,
+			'comperatprice' => 3000,
+			'price'         => 2000,
 			'relase_date'   => '2021-10-24',
 			'last_update'   => '2021-10-24',
 			'title'         => T_("Body blog b4"),

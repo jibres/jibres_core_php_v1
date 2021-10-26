@@ -9,8 +9,8 @@ class site_options_responsive_footer
 	{
 		return
 		[
-			'comperatprice' => 2000,
-			'price'         => 1000,
+			'comperatprice' => 4000,
+			'price'         => 3000,
 			'relase_date'   => '2021-10-24',
 			'last_update'   => '2021-10-24',
 			'title'         => T_("Customize footer in for application (Responsive)"),
