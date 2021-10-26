@@ -51,7 +51,7 @@ $html .= '<div class="row">';
   {
     $html .= '<div class="c-3">';
     {
-      $html .= '<a class="" href="'. \dash\url::this(). '/view/'.  a($value, 'plugin_key'). '">';
+      $html .= '<a class="" href="'. \dash\url::this(). '/view/'.  a($value, 'plugin'). '">';
       {
         $html .= '<div class="box">';
         {

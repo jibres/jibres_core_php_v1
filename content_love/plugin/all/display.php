@@ -1,9 +1,9 @@
 <?php
-$all_features = \lib\features\get::all_list_by_count();
+$all_plugin = \lib\app\plugin\get::all_list_by_count();
 
-if(!is_array($all_features))
+if(!is_array($all_plugin))
 {
-	$all_features = [];
+	$all_plugin = [];
 }
 
 ?>
@@ -22,9 +22,9 @@ if(!is_array($all_features))
 		</thead>
 		<tbody>
 
-		<?php foreach ($all_features as $key => $value) {?>
+		<?php foreach ($all_plugin as $key => $value) {?>
 			<tr>
-				<td><code><?php echo a($value, 'feature_key') ?></code></td>
+				<td><code><?php echo a($value, 'plugin') ?></code></td>
 				<td><?php echo a($value, 'title') ?></td>
 				<td class="collapsing"><?php echo \dash\fit::number(a($value, 'price')) ?></td>
 				<td class="collapsing"><span class="fc-green txtB"><?php echo \dash\fit::number(a($value, 'count_enable')) ?></span></td>

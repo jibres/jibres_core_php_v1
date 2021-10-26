@@ -1,5 +1,5 @@
 <?php
-namespace content_love\features\manage;
+namespace content_love\plugin\manage;
 
 
 class controller

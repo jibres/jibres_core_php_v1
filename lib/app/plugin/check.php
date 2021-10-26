@@ -83,7 +83,7 @@ class check
 			$added_plugin = [];
 
 
-			$new_plugin_key = array_column($plugin_list, 'plugin_key');
+			$new_plugin = array_column($plugin_list, 'plugin');
 
 			$current_plugin_raw = \lib\db\setting\get::by_cat('plugin');
 
@@ -103,7 +103,7 @@ class check
 			{
 				foreach ($plugin_list as $key => $value)
 				{
-					if(a($value, 'plugin_key'))
+					if(a($value, 'plugin'))
 					{
 						self::added_plugin_to_setting($value);
 					}
@@ -113,13 +113,13 @@ class check
 			{
 				foreach ($current_plugin as $key => $value)
 				{
-					if(in_array(a($value, 'key'), $new_plugin_key))
+					if(in_array(a($value, 'key'), $new_plugin))
 					{
 						foreach ($plugin_list as $plugin_detail)
 						{
-							if(a($value, 'key') === a($plugin_detail, 'plugin_key'))
+							if(a($value, 'key') === a($plugin_detail, 'plugin'))
 							{
-								$added_plugin[] = $plugin_detail['plugin_key'];
+								$added_plugin[] = $plugin_detail['plugin'];
 
 								self::added_plugin_to_setting($plugin_detail);
 
@@ -135,7 +135,7 @@ class check
 
 			foreach ($plugin_list as $plugin_detail)
 			{
-				if(!in_array(a($plugin_detail, 'plugin_key'), $added_plugin))
+				if(!in_array(a($plugin_detail, 'plugin'), $added_plugin))
 				{
 					self::added_plugin_to_setting($plugin_detail);
 				}
@@ -163,7 +163,7 @@ class check
 			$myValue = $_data['expiredate'];
 		}
 
-		\lib\app\setting\tools::update('plugin', $_data['plugin_key'], $myValue);
+		\lib\app\setting\tools::update('plugin', $_data['plugin'], $myValue);
 	}
 
 

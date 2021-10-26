@@ -3,7 +3,7 @@
 		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/all'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-list-ul"></i></div>
-				<div class="label"><?php echo T_("All features list"); ?></div>
+				<div class="label"><?php echo T_("All plugin list"); ?></div>
 			</div>
 		</a>
 	</div>
@@ -12,7 +12,7 @@
 		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/business'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-globe"></i></div>
-				<div class="label"><?php echo T_("Business features"); ?></div>
+				<div class="label"><?php echo T_("Business plugin"); ?></div>
 			</div>
 		</a>
 	</div>

@@ -8,15 +8,15 @@ class call_function
 	 * Gets the namespace.
 	 * discount_profesional > \lib\app\plugin\items\discount\discount_profesional
 	 *
-	 * @param      <type>  $_plugin_key  The plugin key
+	 * @param      <type>  $_plugin  The plugin key
 	 *
 	 * @return     <type>  The namespace.
 	 */
-	private static function get_namespace($_plugin_key)
+	private static function get_namespace($_plugin)
 	{
-		$folder = strtok($_plugin_key, '_');
+		$folder = strtok($_plugin, '_');
 
-		$namespace = '\\lib\\app\\plugin\\items\\'. $folder. '\\'. $_plugin_key;
+		$namespace = '\\lib\\app\\plugin\\items\\'. $folder. '\\'. $_plugin;
 
 		return $namespace;
 	}
@@ -34,9 +34,9 @@ class call_function
 	{
 		if(isset($_args[0]) && is_string($_args[0]))
 		{
-			$plugin_key = $_args[0];
+			$plugin = $_args[0];
 
-			$namespace = self::get_namespace($plugin_key);
+			$namespace = self::get_namespace($plugin);
 
 			if(is_callable([$namespace, $_function]))
 			{

@@ -28,7 +28,7 @@
       </td>
 
       <td>
-        <code><a href="<?php echo \dash\url::that(). '?'.\dash\request::build_query(['feature_key' => a($value, 'feature_key')]) ?>"><?php echo a($value, 'feature_key'); ?></a></code>
+        <code><a href="<?php echo \dash\url::that(). '?'.\dash\request::build_query(['plugin' => a($value, 'plugin')]) ?>"><?php echo a($value, 'plugin'); ?></a></code>
       </td>
 
       <td><a href="<?php echo \dash\url::that(). '?'.\dash\request::build_query(['fstatus' => a($value, 'status')]) ?>"><?php echo T_(a($value, 'status')); ?></a></td>

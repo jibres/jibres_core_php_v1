@@ -1,12 +1,12 @@
 <?php
-namespace content_love\features\all;
+namespace content_love\plugin\all;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("All features"));
+		\dash\face::title(T_("All plugin"));
 
 
 		// btn

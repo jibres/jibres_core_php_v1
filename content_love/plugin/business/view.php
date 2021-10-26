@@ -1,12 +1,12 @@
 <?php
-namespace content_love\features\business;
+namespace content_love\plugin\business;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Business features"));
+		\dash\face::title(T_("Business plugin"));
 
 		// btn
 		\dash\data::back_text(T_('Back'));
@@ -20,12 +20,12 @@ class view
 
 		$args =
 		[
-			'features' => 1,
+			'plugin' => 1,
 			'order'    => \dash\request::get('order'),
 			'sort'     => \dash\request::get('sort'),
 			'user'     => \dash\request::get('user'),
 			'fstatus' => \dash\request::get('fstatus'),
-			'feature_key' => \dash\request::get('feature_key'),
+			'plugin' => \dash\request::get('plugin'),
 			'business_id' => \dash\request::get('business_id'),
 
 		];

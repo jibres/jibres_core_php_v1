@@ -148,10 +148,10 @@
 
 
 	<div class="c4 s12">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/features'>
+		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/plugin'>
 			<div class="statistic green">
 				<div class="value"><i class="sf-money-banknote"></i></div>
-				<div class="label"><?php echo T_("Features"); ?></div>
+				<div class="label"><?php echo T_("Plugin"); ?></div>
 			</div>
 		</a>
 	</div>

@@ -1,5 +1,5 @@
 <?php
-namespace content_love\features\all;
+namespace content_love\plugin\business;
 
 
 class controller

@@ -39,7 +39,7 @@ class admin
 			$insert =
 			[
 				'store_id'    => $_business_id,
-				'plugin_key' => $plugin,
+				'plugin' => $plugin,
 				'zone'        => get::zone($plugin),
 				'status'      => 'enable',
 				'addedby'     => 'admin',
@@ -69,7 +69,7 @@ class admin
 		$log =
 		[
 			'my_plugin_add_by_admin' => true,
-			'my_plugin_key'          => $plugin,
+			'my_plugin'          => $plugin,
 			'my_business_id'          => $business_id,
 			'my_user_id'              => \dash\user::id(),
 			'my_business_title'       => a($load_busness_detail, 'title'),
@@ -129,7 +129,7 @@ class admin
 		$log =
 		[
 			'my_plugin_removed' => true,
-			'my_plugin_key'     => $plugin,
+			'my_plugin'     => $plugin,
 			'my_business_id'     => $business_id,
 			'my_user_id'         => \dash\user::id(),
 			'my_business_title'  => a($load_busness_detail, 'title'),

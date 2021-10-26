@@ -46,12 +46,12 @@ class activate
 
 		foreach ($business_plugin_list as $business_plugin)
 		{
-			$saved_plugin_key = a($business_plugin, 'plugin');
+			$saved_plugin = a($business_plugin, 'plugin');
 			$saved_status     = a($business_plugin, 'status');
 
-			if(in_array($saved_plugin_key, $plugin))
+			if(in_array($saved_plugin, $plugin))
 			{
-				unset($plugin[array_search($saved_plugin_key, $plugin)]);
+				unset($plugin[array_search($saved_plugin, $plugin)]);
 
 				if($saved_status === 'enable')
 				{
@@ -60,7 +60,7 @@ class activate
 				elseif($saved_status === 'pending')
 				{
 					// nothing
-					$calculate_price[] = $saved_plugin_key;
+					$calculate_price[] = $saved_plugin;
 				}
 				else
 				{
@@ -73,7 +73,7 @@ class activate
 						return false;
 					}
 
-					$calculate_price[] = $saved_plugin_key;
+					$calculate_price[] = $saved_plugin;
 				}
 			}
 		}
@@ -82,15 +82,15 @@ class activate
 		// have new plugin
 		if($plugin)
 		{
-			foreach ($plugin as $key => $plugin_key)
+			foreach ($plugin as $key => $plugin)
 			{
-				$price  = floatval(get::price($plugin_key));
+				$price  = floatval(get::price($plugin));
 
 				$insert =
 				[
 					'store_id'    => $_business_id,
-					'plugin'      => $plugin_key,
-					'zone'        => get::zone($plugin_key),
+					'plugin'      => $plugin,
+					'zone'        => get::zone($plugin),
 					'status'      => 'pending',
 					'addedby'     => 'user',
 					'user_id'     => $user_id,
@@ -119,9 +119,9 @@ class activate
 
 		if($calculate_price)
 		{
-			foreach ($calculate_price as $key => $plugin_key)
+			foreach ($calculate_price as $key => $plugin)
 			{
-				$price  = floatval(get::price($plugin_key));
+				$price  = floatval(get::price($plugin));
 
 				$pay_price += $price;
 			}
@@ -251,10 +251,10 @@ class activate
 
 		foreach ($business_plugin_list as $business_plugin)
 		{
-			$saved_plugin_key = a($business_plugin, 'plugin');
+			$saved_plugin = a($business_plugin, 'plugin');
 			$saved_status      = a($business_plugin, 'status');
 
-			if(in_array($saved_plugin_key, $plugin))
+			if(in_array($saved_plugin, $plugin))
 			{
 				if($saved_status === 'enable')
 				{
@@ -262,7 +262,7 @@ class activate
 				}
 				else
 				{
-					$price  = floatval(get::price($saved_plugin_key));
+					$price  = floatval(get::price($saved_plugin));
 
 					\dash\db::transaction();
 					// check budget
@@ -273,7 +273,7 @@ class activate
 						$insert_transaction =
 						[
 							'user_id' => $user_id,
-							'title'   => T_("Activate plugin :val", ['val' => get::title($saved_plugin_key)]),
+							'title'   => T_("Activate plugin :val", ['val' => get::title($saved_plugin)]),
 							'amount'  => $price,
 						];
 
@@ -285,7 +285,7 @@ class activate
 						// send notif to supervisor
 						$log =
 						[
-							'my_plugin_key'    => $saved_plugin_key,
+							'my_plugin'    => $saved_plugin,
 							'my_business_id'    => $business_id,
 							'my_user_id'        => $user_id,
 							'my_page_url'       => a($_args, 'page_url'),

@@ -1,12 +1,12 @@
 <?php
-namespace content_love\features\home;
+namespace content_love\plugin\home;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Business features list"));
+		\dash\face::title(T_("Business plugin list"));
 
 
 		// btn

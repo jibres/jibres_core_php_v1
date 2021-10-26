@@ -7,21 +7,21 @@ class controller
 
 	public static function routing()
 	{
-		$plugin_key = \dash\url::subchild();
+		$plugin = \dash\url::subchild();
 
-		if(!$plugin_key)
+		if(!$plugin)
 		{
 			\dash\redirect::to(\dash\url::this());
 		}
 
 
-		$load_plugin = \lib\app\plugin\get::detail($plugin_key);
+		$load_plugin = \lib\app\plugin\get::detail($plugin);
 		if(!$load_plugin)
 		{
 			\dash\header::status(404, T_("plugin key is invalid"));
 		}
 
-		\dash\data::pluginKey($plugin_key);
+		\dash\data::pluginKey($plugin);
 		\dash\data::pluginDetail($load_plugin);
 
 		// allow load and post to this url
