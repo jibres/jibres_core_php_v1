@@ -1,15 +1,15 @@
 <?php
-namespace content_a\premium\view;
+namespace content_a\plugin\view;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Vidw premium feature"));
-		if(\dash\data::premiumDetail_title())
+		\dash\face::title(T_("Vidw plugin feature"));
+		if(\dash\data::pluginDetail_title())
 		{
-			\dash\face::title(\dash\data::premiumDetail_title());
+			\dash\face::title(\dash\data::pluginDetail_title());
 		}
 
 		// back
