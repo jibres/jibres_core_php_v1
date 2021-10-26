@@ -119,6 +119,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
       <p class="msg font-14"><?php echo nl2br(a($factorDetail, 'factor', 'desc')) ?></p>
     <?php } //endif ?>
   </div>
+  <?php if(floatval(a($factorDetail, 'factor', 'total')) !== floatval($tableTotal['FinalPrice'])) {?>
   <div class="c3">
 
     <div class="tblBox">
@@ -155,6 +156,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
     </div>
 
   </div>
+<?php } //endif ?>
 </div>
 
 
