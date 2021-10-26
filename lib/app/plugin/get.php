@@ -17,8 +17,35 @@ class get
 		 */
 		$list =
 		[
+			/*=====================================
+			=            Admin plugins            =
+			=====================================*/
+
+			/* Discount code */
 			'discount_profesional',
+
+
+			/*=====  End of Admin plugins  ======*/
+
+
+			/*====================================
+			=            Site plugins            =
+			====================================*/
+
+			/* Site blog  */
+
+			'site_body_blog_b4',
+
+			/* Responsive */
+
+			'site_options_responsive_footer'
+
+
+			/*=====  End of Site plugins  ======*/
+
 		];
+
+
 
 
 		// call detail functon of every plugin items
