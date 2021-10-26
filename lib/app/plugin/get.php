@@ -124,11 +124,12 @@ class get
 
 	public static function zone($_plugin)
 	{
-		$zone = \lib\app\plugin\call_function::zone($_plugin);
+		$detail = \lib\app\plugin\call_function::detail($_plugin);
 
-		if(!$zone)
+		$zone = floatval(a($detail, 'zone'));
+		if(!$zone || !is_numeric($zone))
 		{
-			$zone = 0;
+			$zone = null;
 		}
 
 		return $zone;
@@ -137,7 +138,13 @@ class get
 
 	public static function title($_plugin)
 	{
-		$title = \lib\app\plugin\call_function::title($_plugin);
+		$detail = \lib\app\plugin\call_function::detail($_plugin);
+
+		$title = floatval(a($detail, 'title'));
+		if(!$title || !is_numeric($title))
+		{
+			$title = null;
+		}
 
 		return $title;
 	}

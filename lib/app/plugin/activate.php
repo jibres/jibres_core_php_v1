@@ -46,8 +46,8 @@ class activate
 
 		foreach ($business_plugin_list as $business_plugin)
 		{
-			$saved_plugin_key = a($business_plugin, 'plugin_key');
-			$saved_status = a($business_plugin, 'status');
+			$saved_plugin_key = a($business_plugin, 'plugin');
+			$saved_status     = a($business_plugin, 'status');
 
 			if(in_array($saved_plugin_key, $plugin))
 			{
@@ -89,7 +89,7 @@ class activate
 				$insert =
 				[
 					'store_id'    => $_business_id,
-					'plugin_key' => $plugin_key,
+					'plugin'      => $plugin_key,
 					'zone'        => get::zone($plugin_key),
 					'status'      => 'pending',
 					'addedby'     => 'user',
@@ -178,7 +178,7 @@ class activate
 				'turn_back'     => $turn_back,
 				'user_id'       => $user_id,
 				'amount'        => $pay_price,
-				'final_fn'      => ['/lib/plugin/pay', 'after_pay'],
+				'final_fn'      => ['/lib/app/plugin/activate', 'after_pay'],
 				'final_fn_args' => $temp_args,
 			];
 
@@ -251,7 +251,7 @@ class activate
 
 		foreach ($business_plugin_list as $business_plugin)
 		{
-			$saved_plugin_key = a($business_plugin, 'plugin_key');
+			$saved_plugin_key = a($business_plugin, 'plugin');
 			$saved_status      = a($business_plugin, 'status');
 
 			if(in_array($saved_plugin_key, $plugin))
