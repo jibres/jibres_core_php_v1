@@ -400,5 +400,22 @@ class notif
 			}
 		}
 	}
+
+
+	public static function generate_jibres_api_notif($_result)
+	{
+		if(isset($_result['msg']) && is_array($_result['msg']))
+		{
+			foreach ($_result['msg'] as $key => $value)
+			{
+				if(isset($value['type']) && isset($value['text']) && in_array($value['type'], ['error','ok', 'warn','info']))
+				{
+					$type = $value['type'];
+
+					\dash\notif::$type($value['text']);
+				}
+			}
+		}
+	}
 }
 ?>
