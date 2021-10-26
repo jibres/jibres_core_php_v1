@@ -1,28 +1,28 @@
 <?php
 
-$premiumDetail = \dash\data::premiumDetail();
+$pluginDetail = \dash\data::pluginDetail();
 $currency = \lib\store::currency();
 
 $html = '';
 $html .= '<div class="max-w-xl m-auto">';
 {
-	$html .= '<form method="post" autocomplete="off" id="premiumadd">';
+	$html .= '<form method="post" autocomplete="off" id="pluginadd">';
 	{
 		/*=====================================
-		=            Premium                  =
+		=            plugin                  =
 		=====================================*/
 		$html .= '<div class="box">';
 		{
 			$html .= '<div class="body">';
 			{
-				$html .= a($premiumDetail, 'title');
+				$html .= a($pluginDetail, 'title');
 				$html .= '<br>';
-				$html .= a($premiumDetail, 'description');
+				$html .= a($pluginDetail, 'description');
 
 				$html .= '<br>';
 				$html .= 'Price';
 				$html .= '<br>';
-				$html .= a($premiumDetail, 'price');
+				$html .= a($pluginDetail, 'price');
 
 				if(\dash\data::myBudget())
 				{
@@ -55,7 +55,7 @@ $html .= '<div class="max-w-xl m-auto">';
 
 		}
 		$html .= '</div>';
-		/*=====  End of Premium  ======*/
+		/*=====  End of plugin  ======*/
 
 
 	}

@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\premium;
+namespace lib\app\plugin;
 
 
 class ready

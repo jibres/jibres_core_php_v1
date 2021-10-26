@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\premium\items\discount;
+namespace lib\app\plugin\items\discount;
 
 
 class discount_profesional

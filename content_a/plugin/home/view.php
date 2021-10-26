@@ -1,12 +1,12 @@
 <?php
-namespace content_a\premium\home;
+namespace content_a\plugin\home;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Jibres premium features"));
+		\dash\face::title(T_("Jibres plugins"));
 
 
 		// back
@@ -19,9 +19,9 @@ class view
 
 		$args = [];
 
-		$premium = \lib\app\premium\search::list(\dash\request::get('q'), $args);
+		$plugin = \lib\app\plugin\search::list(\dash\request::get('q'), $args);
 
-		\dash\data::premiumList($premium);
+		\dash\data::pluginList($plugin);
 
 
 

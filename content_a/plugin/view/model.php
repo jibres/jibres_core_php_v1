@@ -1,5 +1,5 @@
 <?php
-namespace content_a\premium\view;
+namespace content_a\plugin\view;
 
 
 class model
@@ -12,7 +12,7 @@ class model
 		];
 
 
-		$result = \lib\app\premium\add::duplicate($post, \dash\request::get('id'));
+		$result = \lib\app\plugin\add::duplicate($post, \dash\request::get('id'));
 
 		if(isset($result['id']))
 		{

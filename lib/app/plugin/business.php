@@ -1,5 +1,5 @@
 <?php
-namespace lib\app\premium;
+namespace lib\app\plugin;
 
 /**
  * This class describes a business.
@@ -7,7 +7,7 @@ namespace lib\app\premium;
 class business
 {
 	/**
-	 * Only get enable premium list
+	 * Only get enable plugin list
  	 * This function call from api r10
 	 */
 	public static function list($_business_id)
@@ -19,20 +19,20 @@ class business
 			return false;
 		}
 
-		$business_premium_list = \lib\db\store_premium\get::active_by_business_id($business_id);
+		$business_plugin_list = \lib\db\store_plugin\get::active_by_business_id($business_id);
 
-		if(!is_array($business_premium_list))
+		if(!is_array($business_plugin_list))
 		{
-			$business_premium_list = [];
+			$business_plugin_list = [];
 		}
 
 		$new_list = [];
 
-		foreach ($business_premium_list as $key => $value)
+		foreach ($business_plugin_list as $key => $value)
 		{
 			$new_list[] =
 			[
-				'premium_key' => a($value, 'premium_key'),
+				'plugin_key' => a($value, 'plugin_key'),
 				'status'      => a($value, 'status'),
 				'expiredate'  => a($value, 'expiredate'),
 			];
@@ -47,13 +47,13 @@ class business
 	 */
 	public static function sync_required()
 	{
-		\lib\app\setting\tools::update('premium', 'sync_required', date("Y-m-d H:i:s"));
-		\lib\app\setting\tools::update('premium', 'synced', null);
+		\lib\app\setting\tools::update('plugin', 'sync_required', date("Y-m-d H:i:s"));
+		\lib\app\setting\tools::update('plugin', 'synced', null);
 	}
 
 
 	/**
-	 * Get all premium of one business
+	 * Get all plugin of one business
 	 *
 	 * @param      <type>  $_business_id  The business identifier
 	 *
@@ -68,16 +68,16 @@ class business
 			return false;
 		}
 
-		$business_premium_list = \lib\db\store_premium\get::by_business_id($business_id);
+		$business_plugin_list = \lib\db\store_plugin\get::by_business_id($business_id);
 
-		if(!is_array($business_premium_list))
+		if(!is_array($business_plugin_list))
 		{
-			$business_premium_list = [];
+			$business_plugin_list = [];
 		}
 
-		$business_premium_list = array_map(['\\lib\\premium\\ready', 'row'], $business_premium_list);
+		$business_plugin_list = array_map(['\\lib\\plugin\\ready', 'row'], $business_plugin_list);
 
-		return $business_premium_list;
+		return $business_plugin_list;
 
 	}
 }

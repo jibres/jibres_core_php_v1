@@ -1,20 +1,20 @@
 <?php
 
-$premiumList = \dash\data::premiumList();
+$pluginList = \dash\data::pluginList();
 
-if(!is_array($premiumList))
+if(!is_array($pluginList))
 {
-  $premiumList = [];
+  $pluginList = [];
 }
 
 $html = '';
 $html .= '<div class="row">';
 {
-  foreach ($premiumList as $key => $value)
+  foreach ($pluginList as $key => $value)
   {
     $html .= '<div class="c-3">';
     {
-      $html .= '<a class="" href="'. \dash\url::this(). '/view/'.  a($value, 'premium_key'). '">';
+      $html .= '<a class="" href="'. \dash\url::this(). '/view/'.  a($value, 'plugin_key'). '">';
       {
         $html .= '<div class="box">';
         {
