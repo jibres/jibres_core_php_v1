@@ -1,5 +1,5 @@
 <?php
-namespace content_b1\business\premium;
+namespace content_b1\business\plugin;
 
 
 class model
@@ -11,7 +11,7 @@ class model
 
 		if(\dash\request::input_body('sync_required'))
 		{
-			\lib\app\premium\business::sync_required();
+			\lib\app\plugin\business::sync_required();
 		}
 
 		\dash\notif::ok(T_("Setting saved"));

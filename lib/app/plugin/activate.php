@@ -47,7 +47,7 @@ class activate
 		foreach ($business_plugin_list as $business_plugin)
 		{
 			$saved_plugin = a($business_plugin, 'plugin');
-			$saved_status     = a($business_plugin, 'status');
+			$saved_status = a($business_plugin, 'status');
 
 			if(in_array($saved_plugin, $plugin))
 			{
@@ -82,15 +82,15 @@ class activate
 		// have new plugin
 		if($plugin)
 		{
-			foreach ($plugin as $key => $plugin)
+			foreach ($plugin as $key => $plugin_key)
 			{
-				$price  = floatval(get::price($plugin));
+				$price  = floatval(get::price($plugin_key));
 
 				$insert =
 				[
 					'store_id'    => $_business_id,
-					'plugin'      => $plugin,
-					'zone'        => get::zone($plugin),
+					'plugin'      => $plugin_key,
+					'zone'        => get::zone($plugin_key),
 					'status'      => 'pending',
 					'addedby'     => 'user',
 					'user_id'     => $user_id,
@@ -158,7 +158,7 @@ class activate
 		}
 
 		$temp_args                = [];
-		$temp_args['plugin']    = $calculate_price;
+		$temp_args['plugin']      = $calculate_price;
 		$temp_args['user_id']     = $user_id;
 		$temp_args['business_id'] = $_business_id;
 		$temp_args['page_url']    = a($_args, 'page_url');
@@ -171,7 +171,7 @@ class activate
 			$meta =
 			[
 				'pay_on_jibres' => true,
-				'msg_go'        => T_("Unlock Jibres plugin"),
+				'msg_go'        => T_("Activate plugin :val", ['val' => get::title($plugin)]),
 				'auto_go'       => false,
 				'auto_back'     => true,
 				'final_msg'     => false,
@@ -192,17 +192,18 @@ class activate
 			}
 			else
 			{
-				\dash\log::oops('generate_pay_error');
+				\dash\log::oops('generate_pay_plugin_error', T_("Oh!, We cannot complete your request. Please contact to administrator"));
 				return false;
 			}
 
 		}
 		else
 		{
-			self::after_pay($temp_args);
-
-			$result['plugin_enabled'] = true;
-			// ok need less to pay anything
+			if(self::after_pay($temp_args))
+			{
+				$result['plugin_enabled'] = true;
+				// ok need less to pay anything
+			}
 		}
 
 
@@ -235,7 +236,7 @@ class activate
 
 		$user_id     = $_args['user_id'];
 		$business_id = $_args['business_id'];
-		$plugin    = $_args['plugin'];
+		$plugin      = $_args['plugin'];
 
 		$load_busness_detail = \lib\app\store\get::data_by_id($business_id);
 
@@ -252,7 +253,7 @@ class activate
 		foreach ($business_plugin_list as $business_plugin)
 		{
 			$saved_plugin = a($business_plugin, 'plugin');
-			$saved_status      = a($business_plugin, 'status');
+			$saved_status = a($business_plugin, 'status');
 
 			if(in_array($saved_plugin, $plugin))
 			{
@@ -285,7 +286,7 @@ class activate
 						// send notif to supervisor
 						$log =
 						[
-							'my_plugin'    => $saved_plugin,
+							'my_plugin'         => $saved_plugin,
 							'my_business_id'    => $business_id,
 							'my_user_id'        => $user_id,
 							'my_page_url'       => a($_args, 'page_url'),
@@ -310,6 +311,8 @@ class activate
 		// send request to api.busisness.jibres to alert him the plugin is payed
 
 		\lib\api\business\api::sync_required($business_id);
+
+		return true;
 
 	}
 }

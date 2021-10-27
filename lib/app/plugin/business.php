@@ -32,9 +32,9 @@ class business
 		{
 			$new_list[] =
 			[
-				'plugin' => a($value, 'plugin'),
-				'status'      => a($value, 'status'),
-				'expiredate'  => a($value, 'expiredate'),
+				'plugin'     => a($value, 'plugin'),
+				'status'     => a($value, 'status'),
+				'expiredate' => a($value, 'expiredate'),
 			];
 		}
 
