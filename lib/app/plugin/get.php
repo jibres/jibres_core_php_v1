@@ -132,6 +132,11 @@ class get
 			$zone = null;
 		}
 
+		if(!$zone)
+		{
+			$zone = strtok($_plugin, '_');
+		}
+
 		return $zone;
 	}
 
