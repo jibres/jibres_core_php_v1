@@ -92,5 +92,32 @@ class search
 
 		return $result;
 	}
+
+
+	public static function all_list_by_count()
+	{
+		$list         = self::all_list();
+		$count_all    = \lib\db\store_plugin\get::group_by_plugin();
+		$count_enable = \lib\db\store_plugin\get::group_by_plugin_status('enable');
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['plugin']))
+			{
+				if(isset($count_all[$value['plugin']]))
+				{
+					$list[$key]['count_use'] = $count_all[$value['plugin']];
+				}
+
+				if(isset($count_enable[$value['plugin']]))
+				{
+					$list[$key]['count_enable'] = $count_enable[$value['plugin']];
+				}
+			}
+		}
+
+		return $list;
+
+	}
 }
 ?>

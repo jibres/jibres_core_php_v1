@@ -10,9 +10,10 @@ class business
 	 * Only get enable plugin list
  	 * This function call from api r10
 	 */
-	public static function list($_business_id)
+	public static function list()
 	{
-		$business_id = \dash\validate::id($_business_id);
+		$business_id = \lib\store::id();
+		$business_id = \dash\validate::id($business_id);
 
 		if(!$business_id)
 		{

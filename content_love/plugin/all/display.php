@@ -1,5 +1,5 @@
 <?php
-$all_plugin = \lib\app\plugin\get::all_list_by_count();
+$all_plugin = \lib\app\plugin\search::all_list_by_count();
 
 if(!is_array($all_plugin))
 {
