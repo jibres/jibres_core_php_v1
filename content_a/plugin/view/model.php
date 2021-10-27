@@ -9,7 +9,7 @@ class model
 
 		$args                                     = [];
 		$args['use_budget']                       = \dash\request::post('use_budget');
-		$args['turn_back']                        = \dash\url::this(). '?'. \dash\request::build_query(['id' => \dash\request::get('id'), 'auto' => 'save']);
+		$args['turn_back']                        = \dash\url::pwd();
 		$args['page_url']                         = \dash\data::currentPageDetail_link();
 		$args['plugin_'. \dash\data::pluginKey()] = \dash\data::pluginKey();
 

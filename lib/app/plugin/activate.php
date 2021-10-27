@@ -133,7 +133,7 @@ class activate
 		if($pay_price)
 		{
 			// check use ad budget
-			if(isset($_args['use_as_budget']) && $_args['use_as_budget'])
+			if(isset($_args['use_budget']) && $_args['use_budget'])
 			{
 				$user_budget = \dash\user::budget();
 

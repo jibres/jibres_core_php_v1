@@ -22,9 +22,9 @@ class model
 
 		$args =
 		[
-			'use_as_budget' => \dash\request::input_body('use_as_budget'),
-			'turn_back'     => \dash\request::input_body('turn_back'),
-			'page_url'      => \dash\request::input_body('page_url'),
+			'use_budget' => \dash\request::input_body('use_budget'),
+			'turn_back'  => \dash\request::input_body('turn_back'),
+			'page_url'   => \dash\request::input_body('page_url'),
 		];
 
 		$result = \lib\app\plugin\activate::activate($business_id, $true_plugin, $args);
