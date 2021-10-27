@@ -73,13 +73,13 @@
                 </a>
             </div>
 
-            <?php if(\dash\url::isLocal() && false) {?>
+            <?php if(\dash\url::isLocal()) {?>
              <div class="c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/branding">
-                    <div class="c-auto"><i class="sf-check-circle fc-green"></i></div>
+                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/plugin">
+                    <div class="c-auto"><i class="sf-plug fc-green"></i></div>
                     <div class="c">
-                        <h2><?php echo T_("Branding"); ?></h2>
-                        <p><?php echo T_("Remove jibres branding"); ?></p>
+                        <h2><?php echo T_("Plugin"); ?></h2>
+                        <p><?php echo T_("Plugin and failures"); ?></p>
                     </div>
                 </a>
             </div>
