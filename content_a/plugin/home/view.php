@@ -25,6 +25,7 @@ class view
 		\dash\data::pluginList(a($plugin, 'list'));
 		\dash\data::pluginKeywords(a($plugin, 'keywords'));
 
+
 		$activated_list = \lib\app\plugin\business::list();
 		\dash\data::activatedList($activated_list);
 		var_dump($activated_list);exit;
