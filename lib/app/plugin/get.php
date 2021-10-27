@@ -15,7 +15,7 @@ class get
 		/**
 		 * After add new plugin file need update this list
 		 */
-		$list =
+		$keys =
 		[
 			/*=====================================
 			=            Admin plugins            =
@@ -49,21 +49,21 @@ class get
 
 
 		// call detail functon of every plugin items
-		$plugin  = [];
+		$list  = [];
 
-		foreach ($list as $plugin)
+		foreach ($keys as $plugin)
 		{
 			$temp        = \lib\app\plugin\call_function::detail($plugin);
 
 			if($temp)
 			{
 				$temp['plugin'] = $plugin;
-				$plugin[]           =  $temp;
+				$list[]       =  $temp;
 			}
 		}
 
 
-		return $plugin;
+		return $list;
 
 	}
 
