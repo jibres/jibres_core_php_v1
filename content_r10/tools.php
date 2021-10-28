@@ -44,7 +44,7 @@ class tools
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function check_jpi_token()
+	private static function check_jpi_token()
 	{
 		$Authorization = \dash\header::get('HTTP_AUTHORIZATION');
 

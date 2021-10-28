@@ -155,7 +155,7 @@ class business
 				}
 				else
 				{
-					// can not connect to jpi. Keep current plugin list;
+					// can not connect to jibres api token. Keep current plugin list;
 					self::$business_plugin_list = $get_all_plugin_setting;
 					return;
 				}

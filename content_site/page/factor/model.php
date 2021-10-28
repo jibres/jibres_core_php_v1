@@ -25,10 +25,10 @@ class model
 
 		if(!$page_factor)
 		{
-			\dash\notif::error_once(T_("Nothing to pay"));
-			return false;
 		}
 
+			\dash\notif::error_once(T_("Nothing to pay"));
+			return false;
 
 		$args                  = [];
 		$args['use_as_budget'] = \dash\request::post('use_as_budget');
@@ -41,7 +41,7 @@ class model
 			$args['feature_'. $key] = a($value, 'feature_key');
 		}
 
-		$result = \lib\jpi\jpi::features_pay($args);
+
 
 
 		if(isset($result['result']['pay_link']))
