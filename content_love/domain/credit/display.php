@@ -47,7 +47,7 @@
               <td class="collapsing"><?php echo a($value, 'domain'); ?></td>
               <td class="collapsing"><?php echo \dash\fit::text(a($value, 'amount')); ?></td>
               <td class="collapsing"><?php echo \dash\fit::text(a($value, 'balance')); ?></td>
-              <td class="collapsing"><?php echo a($value, 'transaction_id'); if(a($value, 'meta')) { echo '<br>'. a($value,'meta');} ?></td>
+              <td class="collapsing"><?php echo a($value, 'refund_transaction_id'); if(a($value, 'meta')) { echo '<br>'. a($value,'meta');} ?></td>
               <td class="txtL"><?php echo a($value, 'description'); ?></td>
 
             </tr>
