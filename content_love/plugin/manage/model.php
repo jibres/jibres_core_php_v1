@@ -11,7 +11,7 @@ class model
 			$plugin     = \dash\request::post('plugin');
 			$business_id = \dash\request::get('id');
 
-			\lib\plugin\admin::add($business_id, $plugin);
+			\lib\app\plugin\activate::add($business_id, $plugin);
 
 			if(\dash\engine\process::status())
 			{
@@ -24,7 +24,7 @@ class model
 			$plugin     = \dash\request::post('plugin');
 			$business_id = \dash\request::get('id');
 
-			\lib\plugin\admin::remove($business_id, $plugin);
+			\lib\app\plugin\activate::remove($business_id, $plugin);
 
 			if(\dash\engine\process::status())
 			{

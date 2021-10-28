@@ -78,7 +78,6 @@ class business
 			$business_plugin_list = [];
 		}
 
-		$business_plugin_list = array_map(['\\lib\\plugin\\ready', 'row'], $business_plugin_list);
 
 		return $business_plugin_list;
 

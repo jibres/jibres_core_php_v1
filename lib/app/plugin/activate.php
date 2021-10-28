@@ -316,7 +316,16 @@ class activate
 
 	}
 
-		public static function add($_business_id, $_plugin)
+
+	/**
+	 * Admin can add force one plugin to business
+	 *
+	 * @param      <type>  $_business_id  The business identifier
+	 * @param      <type>  $_plugin       The plugin
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function add($_business_id, $_plugin)
 	{
 
 		$business_id = \dash\validate::id($_business_id);
@@ -340,7 +349,7 @@ class activate
 
 			\lib\db\store_plugin\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
 
-			\dash\notif::ok(T_("Feature exist. Re Enabled"));
+			\dash\notif::ok(T_("Plugin exist. Re Enabled"));
 		}
 		else
 		{
@@ -349,26 +358,26 @@ class activate
 			$insert =
 			[
 				'store_id'    => $_business_id,
-				'plugin' => $plugin,
+				'plugin'      => $plugin,
 				'zone'        => get::zone($plugin),
 				'status'      => 'enable',
 				'addedby'     => 'admin',
 				'user_id'     => \dash\user::id(),
 				'price'       => $price,
-				'finalprice'  => $price,
+				'finalprice'  => 0,
 				'datecreated' => date("Y-m-d H:i:s"),
 			];
 
 			\lib\db\store_plugin\insert::new_record($insert);
 
-			\dash\notif::ok(T_("Feature added"));
+			\dash\notif::ok(T_("Plugin added"));
 		}
 
 
 
 		// send request to api.busisness.jibres to alert him the plugin is payed
 
-		\lib\jpi\bpi::sync_required($business_id);
+		\lib\api\business\api::sync_required($business_id);
 
 
 		\dash\notif::ok(T_("Sync request sended to business"));
@@ -379,10 +388,10 @@ class activate
 		$log =
 		[
 			'my_plugin_add_by_admin' => true,
-			'my_plugin'          => $plugin,
-			'my_business_id'          => $business_id,
-			'my_user_id'              => \dash\user::id(),
-			'my_business_title'       => a($load_busness_detail, 'title'),
+			'my_plugin'              => $plugin,
+			'my_business_id'         => $business_id,
+			'my_user_id'             => \dash\user::id(),
+			'my_business_title'      => a($load_busness_detail, 'title'),
 
 		];
 
@@ -409,11 +418,11 @@ class activate
 			if(a($check, 'status') === 'enable')
 			{
 				\lib\db\store_plugin\update::record(['status' => 'deleted', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
-				\dash\notif::ok(T_("Feature removed"));
+				\dash\notif::ok(T_("Plugin removed"));
 			}
 			else
 			{
-				\dash\notif::warn(T_("Feature already removed"));
+				\dash\notif::warn(T_("Plugin already removed"));
 				return false;
 			}
 
@@ -421,7 +430,7 @@ class activate
 		}
 		else
 		{
-			\dash\notif::error(T_("Feature not exist"));
+			\dash\notif::error(T_("Plugin not exist"));
 			return false;
 		}
 
@@ -429,7 +438,7 @@ class activate
 
 		// send request to api.busisness.jibres to alert him the plugin is payed
 
-		\lib\jpi\bpi::sync_required($business_id);
+		\lib\api\business\api::sync_required($business_id);
 
 		\dash\notif::ok(T_("Sync request sended to business"));
 
