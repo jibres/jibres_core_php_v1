@@ -705,6 +705,8 @@ class create
 			// fetch nic credit after register domain
 			\lib\app\nic_credit\get::fetch();
 
+			\lib\app\nic_domain\get::force_fetch($domain);
+
 			return true;
 
 		}
