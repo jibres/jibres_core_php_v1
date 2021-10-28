@@ -24,11 +24,19 @@ $html .= '<div class="max-w-xl m-auto">';
 				$html .= '<br>';
 				$html .= 'Price';
 				$html .= '<br>';
-				$html .= a($pluginDetail, 'price');
+
+				if(a($pluginDetail, 'price') === 0)
+				{
+					$html .= '<div class="text-green-500">'.  T_("Free"). '</div>';
+				}
+				else
+				{
+					$html .= '<div class="">'.  \dash\fit::number(a($pluginDetail, 'price')). '</div>';
+				}
 
 				if(!$is_activated)
 				{
-					if(\dash\data::myBudget())
+					if(\dash\data::myBudget() && a($pluginDetail, 'price'))
 					{
 						$html .= '<div class="msg">';
 						{
@@ -62,7 +70,14 @@ $html .= '<div class="max-w-xl m-auto">';
 			{
 				$html .= '<footer>';
 				{
-					$html .= '<button class="btn-danger">'. T_("Buy"). '</button>';
+					if(a($pluginDetail, 'price'))
+					{
+						$html .= '<button class="btn-danger">'. T_("Buy"). '</button>';
+					}
+					else
+					{
+						$html .= '<button class="btn-success">'. T_("Get it for free"). '</button>';
+					}
 				}
 				$html .= '</footer>';
 			}

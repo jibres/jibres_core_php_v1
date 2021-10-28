@@ -66,7 +66,15 @@ $html .= '<div class="row">';
               {
                 $html .= '<div class="text-green-500 font-bold">'.  T_('Activated'). '</div>';
               }
-              $html .= '<div class="">'.  \dash\fit::number(a($value, 'price')). '</div>';
+
+              if(a($value, 'price') === 0)
+              {
+                $html .= '<div class="text-green-500">'.  T_("Free"). '</div>';
+              }
+              else
+              {
+                $html .= '<div class="">'.  \dash\fit::number(a($value, 'price')). '</div>';
+              }
           }
           $html .= '</div>';
         }

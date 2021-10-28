@@ -38,7 +38,10 @@ class get
 
 			/* Responsive */
 
-			'site_options_responsive_footer'
+			'site_options_responsive_footer',
+
+			// test free plugin
+			'site_body_blog_free',
 
 
 			/*=====  End of Site plugins  ======*/
