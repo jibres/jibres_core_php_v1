@@ -117,11 +117,12 @@ class template
 		[
 			'@'        => 'twitter',
 			'~'        => 'github',
-			'+'        => 'googleplus',
+			// '+'        => 'googleplus',
 			// 'f'        => 'facebook',
 			'fb'       => 'facebook',
 			'in'       => 'linkedin',
 			'tg'       => 'telegram',
+			'ig'       => 'instagram',
 		];
 
 		// if name of current module is exist then save complete name of it
@@ -130,16 +131,40 @@ class template
 			$social_name = $social_list[$mymodule];
 		}
 
-		// declare address of social networks
-		$social_list =
-		[
-			'twitter'    => 'https://twitter.com/ermile_jibres',
-			'github'     => 'https://github.com/jibres',
-			'facebook'   => 'https://www.facebook.com/jibres',
-			'linkedin'   => 'https://linkedin.com/in/jibres',
-			'telegram'   => 'http://telegram.me/jibres',
-			// 'aparat'     => 'http://www.aparat.com/',
-		];
+		/**
+		 * Load business social network
+		 */
+		if(\dash\engine\store::inStore() && \dash\engine\store::inBusinessWebsite())
+		{
+			$load_business_social  = \lib\store::social();
+			if(!is_array($load_business_social))
+			{
+				$load_business_social = [];
+			}
+
+			$social_list = array_combine(array_keys($load_business_social), array_column($load_business_social, 'link'));
+
+		}
+		else
+		{
+			/**
+			 * Jibres social network
+			 *
+			 */
+
+			// declare address of social networks
+			$social_list =
+			[
+				'twitter'   => 'https://twitter.com/ermile_jibres',
+				'github'    => 'https://github.com/jibres',
+				'facebook'  => 'https://www.facebook.com/jibres',
+				'linkedin'  => 'https://linkedin.com/in/jibres',
+				'telegram'  => 'http://telegram.me/jibres',
+				'instagram' => 'https://instagram.com/JibresDotCom/',
+				// 'aparat'     => 'http://www.aparat.com/',
+			];
+
+		}
 
 		// if social name exist in social adresses then redirect to it
 		if(isset($social_list[$social_name]))
