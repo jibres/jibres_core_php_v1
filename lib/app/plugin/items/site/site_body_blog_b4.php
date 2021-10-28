@@ -9,6 +9,7 @@ class site_body_blog_b4
 	{
 		return
 		[
+			'type'          => 'once',
 			'comperatprice' => 3000,
 			'price'         => 2000,
 			'relase_date'   => '2021-10-24',

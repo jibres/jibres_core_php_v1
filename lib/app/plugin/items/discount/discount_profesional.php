@@ -8,6 +8,7 @@ class discount_profesional
 	{
 		return
 		[
+			'type'          => 'once',
 			'comperatprice' => 200000,
 			'price'         => 100000,
 			'relase_date'   => '2021-10-24',

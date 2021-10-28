@@ -9,6 +9,7 @@ class site_body_blog_free
 	{
 		return
 		[
+			'type'          => 'once',
 			'comperatprice' => 0,
 			'price'         => 0,
 			'relase_date'   => '2021-10-24',

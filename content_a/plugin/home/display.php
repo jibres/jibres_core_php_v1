@@ -64,6 +64,7 @@ $html .= '<div class="row">';
           $html .= '<div class="body">';
           {
               $html .= '<div class="">'.  a($value, 'title'). '</div>';
+              $html .= '<div class="">'.  a($value, 'type'). '</div>';
               if($is_activated)
               {
                 $html .= '<div class="text-green-500 font-bold">'.  T_('Activated'). '</div>';

@@ -43,6 +43,9 @@ class get
 			// test free plugin
 			'site_body_blog_free',
 
+			// test period plugin
+			'remove_brand',
+
 
 			/*=====  End of Site plugins  ======*/
 

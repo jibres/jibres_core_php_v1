@@ -9,6 +9,7 @@ class site_options_responsive_footer
 	{
 		return
 		[
+			'type'          => 'once',
 			'comperatprice' => 4000,
 			'price'         => 3000,
 			'relase_date'   => '2021-10-24',

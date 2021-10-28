@@ -25,13 +25,29 @@ $html .= '<div class="max-w-xl m-auto">';
 				$html .= 'Price';
 				$html .= '<br>';
 
-				if(a($pluginDetail, 'price') === 0)
+				if(a($pluginDetail, 'type') === 'periodic' && is_array(a($pluginDetail, 'price_list')))
 				{
-					$html .= '<div class="text-green-500">'.  T_("Free"). '</div>';
+					foreach ($pluginDetail['price_list'] as $key => $value)
+					{
+
+						$html .= '<div class="radio3">';
+						{
+							$html .= '<input type="radio" name="periodic" value="'.a($value, 'key').'" id="periodic_'.a($value, 'key').'">';
+							$html .= '<label for="periodic_'.a($value, 'key').'">'.a($value, 'title').'</label>';
+						}
+						$html .= '</div>';
+					}
 				}
 				else
 				{
-					$html .= '<div class="">'.  \dash\fit::number(a($pluginDetail, 'price')). '</div>';
+					if(a($pluginDetail, 'price') === 0)
+					{
+						$html .= '<div class="text-green-500">'.  T_("Free"). '</div>';
+					}
+					else
+					{
+						$html .= '<div class="">'.  \dash\fit::number(a($pluginDetail, 'price')). '</div>';
+					}
 				}
 
 				if(!$is_activated)
