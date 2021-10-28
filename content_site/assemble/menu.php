@@ -87,7 +87,7 @@ class menu
 			$menuLi .= '>';
 			{
 				$menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'), a($myLiData, 'icon'), $_arg);
-				if(isset($myLiData['child']) && count($myLiData['child']))
+				if(isset($myLiData['child']) && is_array($myLiData['child']) && count($myLiData['child']))
 				{
 					$menuLi .= self::menuLi($myLiData['child'], $_layer + 1, $_arg);
 				}
