@@ -20,6 +20,7 @@ class view
 		$args              = [];
 		$args['category']  = \dash\request::get('category');
 		$args['activated'] = \dash\request::get('activated');
+		$args['sync']      = \dash\request::get('sync');
 
 		$plugin = \lib\app\plugin\search::list(\dash\request::get('q'), $args);
 
