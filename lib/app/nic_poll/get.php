@@ -74,7 +74,7 @@ class get
 										// remove verify from everyone
 										\lib\db\nic_domain\update::remove_verify_from_all($insert['domain']);
 
-										self::back_money($insert['domain']);
+										// self::back_money($insert['domain']);
 									}
 									else
 									{
