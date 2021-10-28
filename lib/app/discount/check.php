@@ -132,6 +132,38 @@ class check
 		unset($data['set_usagetotal']);
 		unset($data['setenddate']);
 
+
+
+		/**
+		 * If not active discount_profesional change something
+		 */
+		if(!\lib\app\plugin\business::is_activated('discount_profesional'))
+		{
+			// set apply to all product
+			$data['applyto']         = 'all_products';
+
+			$data['customer']        = 'everyone';
+
+			$data['freeshipping']    = 'all';
+
+
+			// can not set or update end date
+			$data['enddate']         = null;
+
+			$data['minrequirements'] = 'none';
+
+			$data['usageperuser']    = null;
+
+			unset($data['minpurchase']);
+			unset($data['minquantity']);
+			unset($data['product_category']);
+			unset($data['special_products']);
+			unset($data['customer_group']);
+			unset($data['special_customer']);
+			unset($data['setenddate']);
+
+		}
+
 		return $data;
 
 	}
