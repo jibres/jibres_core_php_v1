@@ -13,10 +13,9 @@ class business
 	 * Only get enable plugin list
  	 * This function call from api r10
 	 */
-	public static function list()
+	public static function list($_business_id)
 	{
-		$business_id = \lib\store::id();
-		$business_id = \dash\validate::id($business_id);
+		$business_id = \dash\validate::id($_business_id);
 
 		if(!$business_id)
 		{
@@ -86,7 +85,10 @@ class business
 	}
 
 
-
+	/**
+	 * Load business plugin once
+	 * If need sync business plugin by jibres connect to jibres api and get business plugin
+	 */
 	private static function load_once()
 	{
 		// check fill once

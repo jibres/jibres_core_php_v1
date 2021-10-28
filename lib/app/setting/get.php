@@ -461,9 +461,9 @@ class get
 
 
 
-	public static function features()
+	public static function plugin()
 	{
-		$cat   = 'features';
+		$cat   = 'plugin';
 
 		$result = self::load_setting_once($cat);
 		if(!is_array($result))

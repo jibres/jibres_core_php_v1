@@ -3,6 +3,8 @@
 $pluginDetail = \dash\data::pluginDetail();
 $currency = \lib\store::currency();
 
+$is_activated = \lib\app\plugin\business::is_activated(\dash\data::pluginKey());
+
 $html = '';
 $html .= '<div class="max-w-xl m-auto">';
 {
@@ -24,34 +26,46 @@ $html .= '<div class="max-w-xl m-auto">';
 				$html .= '<br>';
 				$html .= a($pluginDetail, 'price');
 
-				if(\dash\data::myBudget())
+				if(!$is_activated)
 				{
-					$html .= '<div class="msg">';
+					if(\dash\data::myBudget())
 					{
-						$html .= 'Your jibres budget';
-						$html .= '<br>';
-						$html .= \dash\data::myBudget_budget();
-						$html .= '<br>';
-						$html .= \dash\data::myBudget_currency();
-					}
-					$html .= '</div>';
+						$html .= '<div class="msg">';
+						{
+							$html .= 'Your jibres budget';
+							$html .= '<br>';
+							$html .= \dash\data::myBudget_budget();
+							$html .= '<br>';
+							$html .= \dash\data::myBudget_currency();
+						}
+						$html .= '</div>';
 
-					$html .= '<div class="check1">';
-					{
-						$html .= '<input type="checkbox" name="use_budget" id="use_budget">';
-						$html .= '<label for="use_budget">Use budget</label>';
+
+						$html .= '<div class="check1">';
+						{
+							$html .= '<input type="checkbox" name="use_budget" id="use_budget">';
+							$html .= '<label for="use_budget">Use budget</label>';
+						}
+						$html .= '</div>';
 					}
-					$html .= '</div>';
 				}
+				else
+				{
+					$html .= '<div class="text-green-500 font-bold">'.  T_('Activated'). '</div>';
+				}
+
 
 			}
 			$html .= '</div>';
 
-			$html .= '<footer>';
+			if(!$is_activated)
 			{
-				$html .= '<button class="btn-danger">'. T_("Buy"). '</button>';
+				$html .= '<footer>';
+				{
+					$html .= '<button class="btn-danger">'. T_("Buy"). '</button>';
+				}
+				$html .= '</footer>';
 			}
-			$html .= '</footer>';
 
 		}
 		$html .= '</div>';

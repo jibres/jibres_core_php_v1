@@ -49,6 +49,8 @@ $html .= '<div class="row">';
 {
   foreach ($pluginList as $key => $value)
   {
+    $is_activated = \lib\app\plugin\business::is_activated(a($value, 'plugin'));
+
     $html .= '<div class="c-3">';
     {
       $html .= '<a class="" href="'. \dash\url::this(). '/view/'.  a($value, 'plugin'). '">';
@@ -58,6 +60,10 @@ $html .= '<div class="row">';
           $html .= '<div class="body">';
           {
               $html .= '<div class="">'.  a($value, 'title'). '</div>';
+              if($is_activated)
+              {
+                $html .= '<div class="text-green-500 font-bold">'.  T_('Activated'). '</div>';
+              }
               $html .= '<div class="">'.  \dash\fit::number(a($value, 'price')). '</div>';
           }
           $html .= '</div>';

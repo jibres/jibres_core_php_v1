@@ -4,6 +4,7 @@ namespace lib\api\jibres;
 /**
  * Jibres API
  * This class describes a jibres_api.
+ * Execute module content_r10/jibres/plugin
  */
 class api
 {
