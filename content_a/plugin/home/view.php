@@ -17,8 +17,9 @@ class view
 		\dash\data::include_adminPanelBuilder(true);
 
 
-		$args             = [];
-		$args['category'] = \dash\request::get('category');
+		$args              = [];
+		$args['category']  = \dash\request::get('category');
+		$args['activated'] = \dash\request::get('activated');
 
 		$plugin = \lib\app\plugin\search::list(\dash\request::get('q'), $args);
 

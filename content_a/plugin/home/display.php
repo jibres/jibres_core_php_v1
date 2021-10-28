@@ -23,8 +23,10 @@ foreach ($pluginKeywords as $key => $value)
 }
 if(\dash\request::get())
 {
-  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::this(). '">#'. T_("Clear filter"). '</a>';
+  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::this(). '">'. T_("Clear filter"). '</a>';
 }
+  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::this(). \dash\request::full_get(['activated' => 1]). '">'. T_("Activated"). '</a>';
+
 
 /*========================================
 =            search in plugin            =

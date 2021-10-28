@@ -9,6 +9,7 @@ class search
 		$condition =
 		[
 			'category'      => 'string_100',
+			'activated'      => 'bit',
 
 		];
 
@@ -68,6 +69,21 @@ class search
 
 			$list = $new_list;
 
+		}
+
+		if($data['activated'])
+		{
+			$new_list = [];
+
+			foreach ($list as $key => $value)
+			{
+				if(\lib\app\plugin\business::is_activated(a($value, 'plugin')))
+				{
+					$new_list[] = $value;
+				}
+			}
+
+			$list = $new_list;
 		}
 
 
