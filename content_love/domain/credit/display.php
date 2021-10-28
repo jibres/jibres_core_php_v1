@@ -24,6 +24,7 @@
         <thead>
 
 
+          <th class="collapsing">ROID</th>
           <th class="collapsing"><?php echo T_("Date"); ?></th>
           <th class="collapsing"><?php echo T_("Domain"); ?></th>
           <th class="collapsing">
@@ -41,6 +42,7 @@
           <?php foreach (\dash\data::dataTable() as $key => $value) {?>
             <tr>
 
+              <td class="collapsing"><?php echo a($value, 'roid'); ?></td>
               <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'date')); ?></td>
               <td class="collapsing"><?php echo a($value, 'domain'); ?></td>
               <td class="collapsing"><?php echo \dash\fit::text(a($value, 'amount')); ?></td>
