@@ -1,8 +1,5 @@
 <?php
-/**
- * Tip!
- * This file is required in content_love/plugin module
- */
+
 
 $pluginList = \dash\data::pluginList();
 
@@ -55,11 +52,8 @@ $html .= '<div class="row">';
 {
   foreach ($pluginList as $key => $value)
   {
-    $is_activated = false;
-    if(!\dash\data::pluginAdminList())
-    {
-      $is_activated = \lib\app\plugin\business::is_activated(a($value, 'plugin'));
-    }
+
+    $is_activated = \lib\app\plugin\business::is_activated(a($value, 'plugin'));
 
     $html .= '<div class="c-3">';
     {
