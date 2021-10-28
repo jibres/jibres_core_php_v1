@@ -6,6 +6,9 @@ namespace lib\app\plugin;
  */
 class business
 {
+	private static $business_plugin_list = [];
+
+
 	/**
 	 * Only get enable plugin list
  	 * This function call from api r10
@@ -82,7 +85,6 @@ class business
 
 	}
 
-	private static $business_plugin_list = [];
 
 
 	private static function load_once()
@@ -135,7 +137,7 @@ class business
 		if($sync_required)
 		{
 			// sync plugin by jibres
-			$result = \lib\jpi\jpi::plugin_sync();
+			$result = \lib\api\jibres\api::sync_plugin();
 
 			$plugin_list = [];
 
@@ -246,7 +248,7 @@ class business
 
 
 
-	public static function payed($_plugin)
+	public static function is_activated($_plugin)
 	{
 
 		self::load_once();
