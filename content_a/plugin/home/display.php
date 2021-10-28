@@ -1,4 +1,8 @@
 <?php
+/**
+ * Tip!
+ * This file is required in content_love/plugin module
+ */
 
 $pluginList = \dash\data::pluginList();
 
@@ -19,19 +23,19 @@ $html = '';
 
 foreach ($pluginKeywords as $key => $value)
 {
-  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::this(). \dash\request::full_get(['category' => $value]). '">#'. $value. '</a>';
+  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::that(). \dash\request::full_get(['category' => $value]). '">#'. $value. '</a>';
 }
 if(\dash\request::get())
 {
-  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::this(). '">'. T_("Clear filter"). '</a>';
+  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::that(). '">'. T_("Clear filter"). '</a>';
 }
-  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::this(). \dash\request::full_get(['activated' => 1]). '">'. T_("Activated"). '</a>';
+  $html.= '<a class="btn-outline-primary mr-5" href="'. \dash\url::that(). \dash\request::full_get(['activated' => 1]). '">'. T_("Activated"). '</a>';
 
 
 /*========================================
 =            search in plugin            =
 ========================================*/
-$html .= '<form method="get" autocomplete="off" action="'.\dash\url::this().'">';
+$html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'">';
 {
   $html .= '<div class="input">';
   {
@@ -51,11 +55,15 @@ $html .= '<div class="row">';
 {
   foreach ($pluginList as $key => $value)
   {
-    $is_activated = \lib\app\plugin\business::is_activated(a($value, 'plugin'));
+    $is_activated = false;
+    if(!\dash\data::pluginAdminList())
+    {
+      $is_activated = \lib\app\plugin\business::is_activated(a($value, 'plugin'));
+    }
 
     $html .= '<div class="c-3">';
     {
-      $html .= '<a class="" href="'. \dash\url::this(). '/view/'.  a($value, 'plugin'). '">';
+      $html .= '<a class="" href="'. \dash\url::that(). '/view/'.  a($value, 'plugin'). '">';
       {
         $html .= '<div class="box">';
         {

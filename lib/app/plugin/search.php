@@ -8,9 +8,10 @@ class search
 	{
 		$condition =
 		[
-			'category'  => 'string_100',
-			'activated' => 'bit',
-			'sync'      => 'bit',
+			'category'   => 'string_100',
+			'activated'  => 'bit',
+			'sync'       => 'bit',
+			'admin_list' => 'bit',
 
 		];
 
@@ -21,7 +22,7 @@ class search
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		// force sync plugin by jibres
-		if($data['sync'])
+		if($data['sync'] && !$data['admin_list'])
 		{
 			\lib\app\plugin\business::sync_required();
 		}
@@ -77,7 +78,7 @@ class search
 
 		}
 
-		if($data['activated'])
+		if($data['activated'] && !$data['admin_list'])
 		{
 			$new_list = [];
 
