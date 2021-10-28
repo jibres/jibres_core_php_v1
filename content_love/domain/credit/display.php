@@ -33,7 +33,7 @@
             <a href="<?php echo \dash\url::that(). \dash\request::full_get(['order' => 'asc', 'sort' => 'amount']) ?>"><i class="sf-chevron-down"></i></a>
           </th>
           <th class="collapsing"><?php echo T_("Balance"); ?></th>
-          <th class="collapsing"><?php echo T_("Transactoin"); ?></th>
+          <th class="collapsing"><?php echo T_("Transaction"); ?></th>
           <th class="txtL"><?php echo T_("Description"); ?></th>
 
 
