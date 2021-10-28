@@ -168,6 +168,9 @@ $html .= '<div class="max-w-xl m-auto">';
 		$html .= '<div class="box">';
 		{
 
+			$html .= HTML_discount_profesional_is_not_activate();
+
+
 			$html .= '<div class="body">';
 			{
 				$html .= '<h2>'. T_("Apply to"). '</h2>';
@@ -265,7 +268,7 @@ $html .= '<div class="max-w-xl m-auto">';
 		============================================*/
 		$html .= '<div class="box">';
 		{
-
+			$html .= HTML_discount_profesional_is_not_activate();
 			$html .= '<div class="body">';
 			{
 				$html .= '<h2>'. T_("Minimum requirements"). '</h2>';
@@ -336,7 +339,7 @@ $html .= '<div class="max-w-xl m-auto">';
 		============================================*/
 		$html .= '<div class="box">';
 		{
-
+			$html .= HTML_discount_profesional_is_not_activate();
 			$html .= '<div class="body">';
 			{
 				$html .= '<h2>'. T_("Customer eligibility"). '</h2>';
@@ -467,6 +470,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
+				$html .= HTML_discount_profesional_is_not_activate();
 				$html .= '<div class="check1">';
 				{
 					$html .= '<input type="checkbox" name="usageperuser"  id="usageperuser" '.(a($dataRow, 'usageperuser') ? 'checked' : '').'>';
@@ -518,6 +522,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
+				$html .= HTML_discount_profesional_is_not_activate();
 				$html .= '<div class="check1">';
 				{
 					$html .= '<input type="checkbox" name="setenddate"  id="setenddate" '.(a($dataRow, 'enddate') ? 'checked' : '').'>';
@@ -606,6 +611,19 @@ $html .= '<div class="max-w-xl m-auto">';
 }
 $html .= '</div>';
 
+
+function HTML_discount_profesional_is_not_activate()
+{
+	$plugin_key                   = 'discount_profesional';
+	$plugin_discount_is_activated = \lib\app\plugin\business::is_activated($plugin_key);
+
+	if(!$plugin_discount_is_activated)
+	{
+		return '<a class="jalert jalert-error content-center p-3 block" href="'. \dash\url::kingdom(). '/a/plugin/view/'. $plugin_key.'" data-direct target="_blank">'. T_("Need to activate this plugin"). '</a>';
+	}
+
+	return null;
+}
 
 echo $html;
 ?>
