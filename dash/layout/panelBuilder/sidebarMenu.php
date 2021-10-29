@@ -49,6 +49,7 @@ class sidebarMenu
 						'url' => \dash\url::kingdom().'/a/discount',
 						'icon' => 'Discounts',
 						'child' => self::list_crm(),
+						'selected' => true,
 					],
 				],
 		];

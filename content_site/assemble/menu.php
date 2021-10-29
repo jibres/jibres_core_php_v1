@@ -86,7 +86,7 @@ class menu
 			}
 			$menuLi .= '>';
 			{
-				$menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'), a($myLiData, 'icon'), $_arg);
+				$menuLi .= self::menuLink(a($myLiData, 'title'), a($myLiData, 'url'), a($myLiData, 'target'), $myLiData, $_arg);
 				if(isset($myLiData['child']) && is_array($myLiData['child']) && count($myLiData['child']))
 				{
 					$menuLi .= self::menuLi($myLiData['child'], $_layer + 1, $_arg);
@@ -99,7 +99,7 @@ class menu
 	}
 
 
-	private static function menuLink($_text, $_link, $_target, $_icon, $_arg)
+	private static function menuLink($_text, $_link, $_target, $_li, $_arg)
 	{
 		$menuLinkEl = '<a';
 		if($_target)
@@ -114,17 +114,22 @@ class menu
 		{
 			$menuLinkEl .= ' href="'. $_link. '"';
 		}
+		if(a($_li, 'selected'))
+		{
+			$menuLinkEl .= ' data-selected';
+		}
+
 
 		$menuLinkEl .= '>';
-    if($_icon)
+    if(a($_li, 'icon'))
     {
-      if(a($_arg, 'a_iconGroup'))
+      if(a($_li, 'iconGroup'))
       {
-        $menuLinkEl .= \dash\utility\icon::svg($_icon, a($_arg, 'a_iconGroup'));
+        $menuLinkEl .= \dash\utility\icon::svg(a($_li, 'icon'), a($_li, 'iconGroup'));
       }
       else
       {
-        $menuLinkEl .= \dash\utility\icon::svg($_icon);
+        $menuLinkEl .= \dash\utility\icon::svg(a($_li, 'icon'));
       }
     }
 
