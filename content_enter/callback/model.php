@@ -20,6 +20,12 @@ class model
 
 	public static function kavenegar()
 	{
+		if(\dash\request::request('type') === 'delivery')
+		{
+		// too many request for delivery. needless to save anything
+			return;
+		}
+
 		\dash\log::set('enter:callback:sms:resieve');
 
 		$condition =
