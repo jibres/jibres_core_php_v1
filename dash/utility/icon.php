@@ -31,11 +31,16 @@ class icon
     }
 
 
-    public static function src($_name, $_pack = null)
+    public static function src($_name, $_pack = null, $_fill = null)
     {
         $fileContent = self::svg($_name, $_pack);
         if($fileContent)
         {
+            if($_fill)
+            {
+                $fileContent = str_replace('#5C5F62', $_fill, $fileContent);
+            }
+
             return 'data:image/svg+xml,'. rawurlencode($fileContent);
         }
         return null;
