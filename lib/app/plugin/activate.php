@@ -127,7 +127,7 @@ class activate
 		{
 			$insert_action =
 			[
-				'plugin_id'   => $id,
+				'plugin_id'   => $plugin_id,
 				'addedby'     => 'user',
 				'user_id'     => $user_id,
 				'price'       => $price,
@@ -177,7 +177,7 @@ class activate
 		}
 
 		$temp_args                = [];
-		$temp_args['plugin']      = $calculate_price;
+		$temp_args['plugin']      = $plugin;
 		$temp_args['user_id']     = $user_id;
 		$temp_args['business_id'] = $_business_id;
 		$temp_args['page_url']    = a($_args, 'page_url');
@@ -233,8 +233,8 @@ class activate
 
 	public static function after_pay($_args)
 	{
-		var_dump(func_get_args());exit;
-		if(isset($_args['plugin']) && is_array($_args['plugin']))
+
+		if(isset($_args['plugin']) && is_string($_args['plugin']))
 		{
 			// ok
 		}
@@ -270,61 +270,54 @@ class activate
 			$is_activated_in_business = [];
 		}
 
-		foreach ($is_activated_in_business as $business_plugin)
+
+		if(a($is_activated_in_business, 'status') === 'enable')
 		{
-			$saved_plugin = a($business_plugin, 'plugin');
-			$saved_status = a($business_plugin, 'status');
+			// the user pay this plugin before
+		}
+		else
+		{
+			$price  = floatval(\lib\app\plugin\get::price($plugin));
 
-			if(in_array($saved_plugin, $plugin))
+			\dash\db::transaction();
+			// check budget
+			$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
+
+			if($user_budget > $price)
 			{
-				if($saved_status === 'enable')
-				{
-					// the user pay this plugin before
-				}
-				else
-				{
-					$price  = floatval(\lib\app\plugin\get::price($saved_plugin));
+				$insert_transaction =
+				[
+					'user_id' => $user_id,
+					'title'   => T_("Activate plugin :val", ['val' => \lib\app\plugin\get::title($plugin)]),
+					'amount'  => $price,
+				];
 
-					\dash\db::transaction();
-					// check budget
-					$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
+				$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
 
-					if($user_budget > $price)
-					{
-						$insert_transaction =
-						[
-							'user_id' => $user_id,
-							'title'   => T_("Activate plugin :val", ['val' => \lib\app\plugin\get::title($saved_plugin)]),
-							'amount'  => $price,
-						];
-
-						$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
-
-						\lib\db\store_plugin\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($business_plugin, 'id'));
+				\lib\db\store_plugin\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($is_activated_in_business, 'id'));
 
 
-						// send notif to supervisor
-						$log =
-						[
-							'my_plugin'         => $saved_plugin,
-							'my_business_id'    => $business_id,
-							'my_user_id'        => $user_id,
-							'my_page_url'       => a($_args, 'page_url'),
-							'my_business_title' => a($load_busness_detail, 'title'),
-							'my_price'          => $price,
+				// send notif to supervisor
+				$log =
+				[
+					'my_plugin'         => $plugin,
+					'my_business_id'    => $business_id,
+					'my_user_id'        => $user_id,
+					'my_page_url'       => a($_args, 'page_url'),
+					'my_business_title' => a($load_busness_detail, 'title'),
+					'my_price'          => $price,
 
-						];
-						\dash\log::set('business_plugin', $log);
+				];
+				\dash\log::set('business_plugin', $log);
 
-						\dash\db::commit();
-					}
-					else
-					{
-						\dash\db::rollback();
-					}
-				}
+				\dash\db::commit();
+			}
+			else
+			{
+				\dash\db::rollback();
 			}
 		}
+
 
 		\dash\pdo::commit();
 
