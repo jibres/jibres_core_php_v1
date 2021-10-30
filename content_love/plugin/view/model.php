@@ -7,11 +7,11 @@ class model
 	public static function post()
 	{
 
-		$args                                     = [];
-		$args['use_budget']                       = \dash\request::post('use_budget');
-		$args['turn_back']                        = \dash\url::pwd();
-		$args['page_url']                         = \dash\data::currentPageDetail_link();
-		$args['plugin_'. \dash\data::pluginKey()] = \dash\data::pluginKey();
+		$args               = [];
+		$args['use_budget'] = \dash\request::post('use_budget');
+		$args['turn_back']  = \dash\url::pwd();
+		$args['page_url']   = \dash\data::currentPageDetail_link();
+		$args['plugin']     = \dash\data::pluginKey();
 
 
 		$result = \lib\api\jibres\api::plugin_activate($args);

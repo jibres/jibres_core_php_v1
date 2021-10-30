@@ -7,129 +7,148 @@ namespace lib\app\plugin;
  */
 class activate
 {
-	public static function activate($_business_id, $_plugin, $_args = [])
+	/**
+	 * Activate plugin by user
+	 *
+	 * @param      <type>      $_business_id  The business identifier
+	 * @param      <type>      $_plugin       The plugin
+	 * @param      array       $_args         The arguments
+	 *
+	 * @return     array|bool  ( description_of_the_return_value )
+	 */
+	public static function activate($_business_id, $_args = [])
 	{
-		if(!is_array($_plugin))
+		$condition =
+		[
+			'plugin'     => 'string_200',
+			'periodic'   => 'string_200',
+			'use_budget' => 'bit',
+			'turn_back'  => 'string_2000',
+		];
+
+		$require = ['plugin', 'turn_back'];
+
+		$meta    = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		/**
+		 * @author reza
+		 *
+		 * Validate plugin
+		 * Check is enable or not expire
+		 * Get type (once or periodic)
+		 * Calculate price (by something like date relase, gift code, festival, ...)
+		 * Load business plugin by like this name
+		 * If have business plugin load all plugin action
+		 * If plugin type is once and plugin is activated generate error and return. else activate this plugin after minus transaction
+		 * If plugin type is periodic append date to plugin and add new action
+		 *
+		 * In the future manage refund and expire plugin in this function
+		 */
+
+		$plugin = $data['plugin'];
+
+		// load plugin detail
+		$plugin_detail = \lib\app\plugin\get::detail($plugin);
+		if(!$plugin_detail)
 		{
-			\dash\notif::error(T_("Invalid plugin args"));
+			\dash\notif::error(T_("Invalid plugin!"));
 			return false;
 		}
 
-		$plugin = array_filter($_plugin);
-		$plugin = array_unique($plugin);
-
-		if(!$plugin)
+		// detect plugin type
+		$plugin_type = 'once';
+		if(a($plugin_detail, 'type') && is_string($plugin_detail['type']))
 		{
-			\dash\notif::error(T_("No plugin to pay!"));
-			return false;
+			$plugin_type = $plugin_detail['type'];
 		}
 
-		if(count($plugin) > 100)
-		{
-			\dash\notif::error(T_("Too meany plugin!"));
-			return false;
-		}
+		$price = \lib\app\plugin\get::price($plugin);
+
 
 		$user_id = \dash\user::id();
 
 		\dash\pdo::transaction();
 
-		$business_plugin_list = \lib\db\store_plugin\get::by_business_id_lock($_business_id);
+		$is_activated_in_business = \lib\db\store_plugin\get::by_business_id_lock($_business_id, $plugin);
 
-		if(!is_array($business_plugin_list))
+		if(!is_array($is_activated_in_business))
 		{
-			$business_plugin_list = [];
+			$is_activated_in_business = [];
 		}
 
-		$calculate_price = [];
-		$price           = 0;
+		// plugin id
+		$plugin_id = null;
 
-		foreach ($business_plugin_list as $business_plugin)
+		// is activated before.
+		// need check something in action
+		$current_actions = [];
+
+		// if last action is pending needless to add new pending action
+		$last_action_pending     = [];
+
+		if(isset($is_activated_in_business['id']))
 		{
-			$saved_plugin = a($business_plugin, 'plugin');
-			$saved_status = a($business_plugin, 'status');
+			// set plugin id
+			$plugin_id = $is_activated_in_business['id'];
 
-			if(in_array($saved_plugin, $plugin))
+			var_dump($is_activated_in_business);exit;
+
+			$last_action_pending = \lib\db\store_plugin\get::get_last_action_pending($is_activated_in_business['id']);
+
+			$current_actions = \lib\db\store_plugin\get::get_current_actions($is_activated_in_business['id']);
+		}
+		else
+		{
+			// need to add new record in store plugin
+
+			$insert =
+			[
+				'store_id'    => $_business_id,
+				'plugin'      => $plugin,
+				'zone'        => \lib\app\plugin\get::zone($plugin),
+				'status'      => 'pending',
+				'datecreated' => date("Y-m-d H:i:s"),
+			];
+
+			$plugin_id = \lib\db\store_plugin\insert::new_record($insert);
+
+			if(!$plugin_id)
 			{
-				unset($plugin[array_search($saved_plugin, $plugin)]);
-
-				if($saved_status === 'enable')
-				{
-					// the user pay this plugin before
-				}
-				elseif($saved_status === 'pending')
-				{
-					// nothing
-					$calculate_price[] = $saved_plugin;
-				}
-				else
-				{
-					// set pending
-					$updated = \lib\db\store_plugin\update::record(['status' => 'pending', 'datemodified' => date("Y-m-d H:i:s")], a($business_plugin, 'id'));
-					if(!$updated)
-					{
-						\dash\log::oops('ErrorInUpdatePlugin', T_("Can not edit this plugin. Please contact to administrator"));
-						\dash\pdo::rollback();
-						return false;
-					}
-
-					$calculate_price[] = $saved_plugin;
-				}
+				\dash\pdo::rollback();
+				\dash\log::oops('ErrorInAddNewPlugin', T_("Can not add this plugin. Please contact to administrator"));
+				return false;
 			}
 		}
 
-
-		// have new plugin
-		if($plugin)
+		if(!$last_action_pending)
 		{
-			foreach ($plugin as $key => $plugin_key)
+			$insert_action =
+			[
+				'plugin_id'   => $id,
+				'addedby'     => 'user',
+				'user_id'     => $user_id,
+				'price'       => $price,
+				'finalprice'  => $price,
+				'status'      => 'pending',
+				'datecreated' => date("Y-m-d H:i:s"),
+			];
+
+			$action_id = \lib\db\store_plugin_action\insert::new_record($insert);
+			if(!$action_id)
 			{
-				$price  = floatval(get::price($plugin_key));
-
-				$insert =
-				[
-					'store_id'    => $_business_id,
-					'plugin'      => $plugin_key,
-					'zone'        => get::zone($plugin_key),
-					'status'      => 'pending',
-					'addedby'     => 'user',
-					'user_id'     => $user_id,
-					'price'       => $price,
-					'finalprice'  => $price,
-					'datecreated' => date("Y-m-d H:i:s"),
-				];
-
-				$id = \lib\db\store_plugin\insert::new_record($insert);
-				if(!$id)
-				{
-					\dash\log::oops('ErrorInAddNewPlugin', T_("Can not add this plugin. Please contact to administrator"));
-					\dash\pdo::rollback();
-					return false;
-				}
-
+				\dash\pdo::rollback();
+				\dash\log::oops('ErrorInAddNewPluginAction', T_("Can not add this action. Please contact to administrator"));
+				return false;
 			}
 		}
 
 		\dash\pdo::commit();
 
-		$pay_price       = 0;
-		$calculate_price = array_merge($calculate_price, $plugin);
-		$calculate_price = array_filter($calculate_price);
-		$calculate_price = array_unique($calculate_price);
+		$pay_price = $price;
 
-		if($calculate_price)
-		{
-			foreach ($calculate_price as $key => $plugin)
-			{
-				$price  = floatval(get::price($plugin));
-
-				$pay_price += $price;
-			}
-		}
-
-
-		// 		$user_budget = \dash\user::budget();
-		// var_dump($_args, $pay_price, $user_budget);exit;
 		if($pay_price)
 		{
 			// check use ad budget
@@ -171,7 +190,7 @@ class activate
 			$meta =
 			[
 				'pay_on_jibres' => true,
-				'msg_go'        => T_("Activate plugin :val", ['val' => get::title($plugin)]),
+				'msg_go'        => T_("Activate plugin :val", ['val' => \lib\app\plugin\get::title($plugin)]),
 				'auto_go'       => false,
 				'auto_back'     => true,
 				'final_msg'     => false,
@@ -214,6 +233,7 @@ class activate
 
 	public static function after_pay($_args)
 	{
+		var_dump(func_get_args());exit;
 		if(isset($_args['plugin']) && is_array($_args['plugin']))
 		{
 			// ok
@@ -236,21 +256,21 @@ class activate
 
 		$user_id     = $_args['user_id'];
 		$business_id = $_args['business_id'];
-		$plugin      = $_args['plugin'];
+		$plugin  = $_args['plugin'];
 
 		$load_busness_detail = \lib\app\store\get::data_by_id($business_id);
 
 
 		\dash\pdo::transaction();
 
-		$business_plugin_list = \lib\db\store_plugin\get::by_business_id_lock($business_id);
+		$is_activated_in_business = \lib\db\store_plugin\get::by_business_id_lock($business_id, $plugin);
 
-		if(!is_array($business_plugin_list))
+		if(!is_array($is_activated_in_business))
 		{
-			$business_plugin_list = [];
+			$is_activated_in_business = [];
 		}
 
-		foreach ($business_plugin_list as $business_plugin)
+		foreach ($is_activated_in_business as $business_plugin)
 		{
 			$saved_plugin = a($business_plugin, 'plugin');
 			$saved_status = a($business_plugin, 'status');
@@ -263,7 +283,7 @@ class activate
 				}
 				else
 				{
-					$price  = floatval(get::price($saved_plugin));
+					$price  = floatval(\lib\app\plugin\get::price($saved_plugin));
 
 					\dash\db::transaction();
 					// check budget
@@ -274,7 +294,7 @@ class activate
 						$insert_transaction =
 						[
 							'user_id' => $user_id,
-							'title'   => T_("Activate plugin :val", ['val' => get::title($saved_plugin)]),
+							'title'   => T_("Activate plugin :val", ['val' => \lib\app\plugin\get::title($saved_plugin)]),
 							'amount'  => $price,
 						];
 
@@ -353,13 +373,13 @@ class activate
 		}
 		else
 		{
-			$price  = floatval(get::price($plugin));
+			$price  = floatval(\lib\app\plugin\get::price($plugin));
 
 			$insert =
 			[
 				'store_id'    => $_business_id,
 				'plugin'      => $plugin,
-				'zone'        => get::zone($plugin),
+				'zone'        => \lib\app\plugin\get::zone($plugin),
 				'status'      => 'enable',
 				'addedby'     => 'admin',
 				'user_id'     => \dash\user::id(),
