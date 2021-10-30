@@ -96,6 +96,7 @@ if(\dash\data::addons())
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
 <?php } else {?>
  <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml" name="msapplication-config"/>
+ <link href="<?php echo \dash\url::cdn();?>?v=1" rel="shortcut icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png" sizes="180x180" rel="apple-touch-icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-32x32.png" sizes="32x32" type="image/png" rel="icon"/>
  <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-16x16.png" sizes="16x16" type="image/png" rel="icon"/>
