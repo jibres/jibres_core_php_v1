@@ -41,7 +41,7 @@ class menu
 			// loop to create list item
 			{
 				// var_dump($load_menu);
-				if($load_menu && is_array($load_menu['list']))
+				if($load_menu && is_array(a($load_menu, 'list')))
 				{
 					$html .= self::menuLi($load_menu['list'], 1, $_arg);
 				}
