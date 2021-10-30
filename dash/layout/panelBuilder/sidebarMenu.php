@@ -7,9 +7,10 @@ class sidebarMenu
 	{
 		$menu =
 		[
-				"group" => "list0",
-				'level' => 0,
-				"list" =>
+				"group"     => "list0",
+				"nav_class" => 'asideM2',
+				'level'     => 0,
+				"list"      =>
 				[
 					"home" =>
 					[

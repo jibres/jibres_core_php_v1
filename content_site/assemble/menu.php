@@ -9,7 +9,7 @@ class menu
 	 * based on wp menu creator
 	 * https://developer.wordpress.org/reference/functions/wp_nav_menu/
 	 * @param  [type] $_menu_id [description]
-	 * @param  [type] $_arg     [description]
+	 * @param  [type] $_arg     [descriptio n]
 	 * @return [type]           [description]
 	 */
 	public static function generate($_menu_id, $_arg = null)
@@ -19,6 +19,10 @@ class menu
 		{
 			// menu is passed
 			$load_menu = $_menu_id;
+		}
+		elseif($_menu_id === null && is_array($_arg))
+		{
+			$load_menu = $_arg;
 		}
 		else
 		{
