@@ -138,6 +138,19 @@
   </form>
 
 
+
+  <div class="box">
+    <div class="body">
+      <div class="f">
+        <div class="c">
+          <p class=""><?php echo T_("Something else") ?></p>
+          <div data-confirm data-data='{"f_ssl_redirect": "true"}' class="link"><?php echo T_("Auto move HTTP to HTTPS") ?></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="box">
     <div class="body">
       <div class="f">

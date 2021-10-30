@@ -195,6 +195,74 @@ class https
 	}
 
 
+	/**
+	 * Force enable f_ssl_redirect
+	 *
+	 * @param      <type>  $_id    The identifier
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function f_ssl_redirect($_id)
+	{
+		$load = \lib\app\business_domain\get::get($_id);
+		if(!$load || !isset($load['domain']))
+		{
+			return false;
+		}
+
+		$domain = $load['domain'];
+
+
+		$get_https_setting = \lib\api\arvancloud\api::get_arvan_request($domain);
+
+
+		if(isset($get_https_setting['data']) && is_array($get_https_setting['data']))
+		{
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_result', ['meta' => self::meta($get_https_setting)]);
+
+			if(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'off')
+			{
+				\dash\notif::error(T_("SSL of this domain is off!"));
+				return false;
+			}
+			elseif(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'arvan')
+			{
+				if(isset($get_https_setting['data']['f_ssl_redirect']) && $get_https_setting['data']['f_ssl_redirect'])
+				{
+					\dash\notif::ok(T_("SSL redirect is already activated"));
+					return true;
+				}
+				else
+				{
+					// need to update f_ssl_redirect.
+					// arvan can not enable this option on first request https
+					$update_https_args =
+					[
+						"f_ssl_redirect" => true,
+					];
+
+					\lib\api\arvancloud\api::set_arvan_request_https($domain, $update_https_args);
+
+					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
+				}
+
+
+			}
+			else
+			{
+				\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_unknown', ['meta' => self::meta($get_https_setting)]);
+				\dash\log::oops('unknowHTTPSArvanStatus');
+				return false;
+			}
+		}
+		else
+		{
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_error', ['meta' => self::meta($get_https_setting)]);
+			\dash\notif::error(T_("Can not connect to CDN service"));
+			return false;
+		}
+	}
+
 
 	public static function force_update_all_https()
 	{

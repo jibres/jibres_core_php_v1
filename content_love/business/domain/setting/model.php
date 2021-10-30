@@ -30,6 +30,13 @@ class model
 			}
 		}
 
+		if(\dash\request::post('f_ssl_redirect'))
+		{
+			$result = \lib\app\business_domain\https::f_ssl_redirect(\dash\data::dataRow_id());
+			\dash\redirect::pwd();
+
+		}
+
 
 		if(\dash\request::post('addtocdnpanel') === 'addtocdnpanel')
 		{
