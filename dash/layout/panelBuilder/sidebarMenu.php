@@ -79,6 +79,20 @@ class sidebarMenu
 						'url'       => \dash\url::kingdom().'/a/sitebuilder',
 						'icon'      => 'Online Store',
 						// 'child'     => self::list_crm(),
+						'iconColor' => 'green',
+					],
+					"android" =>
+					[
+						'title'     => T_("Mobile App"),
+						'url'       => \dash\url::kingdom().'/a/pos',
+						'icon'      => 'mobile',
+						'iconColor' => '#a1b2c3',
+					],
+					"pos" =>
+					[
+						'title'     => T_("Point of Sale"),
+						'url'       => \dash\url::kingdom().'/a/pos',
+						'icon'      => 'point of sale',
 						'iconColor' => '#a1b2c3',
 					],
 				],
