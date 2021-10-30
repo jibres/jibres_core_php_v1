@@ -17,37 +17,37 @@ class sidebarMenu
 						'title'       => T_("Home"),
 						'url'         => \dash\url::kingdom().'/a',
 						'icon'        => 'home',
-						'iconColor'   => '#777777',
+						'iconColor'   => '#a1b2c3',
 						'class'       => '123',
 						// 'selected' => true,
 					],
 					"orders" =>
 					[
 						'title'     => T_("Orders"),
-						// 'url'    => \dash\url::kingdom().'/a/orders',
+						'url'    => \dash\url::kingdom().'/a/orders',
 						'icon'      => 'orders',
-						'iconColor' => '#777777',
+						'iconColor' => '#a1b2c3',
 					],
 					"products" =>
 					[
 						'title'     => T_("Products"),
 						'url'       => \dash\url::kingdom().'/a/products',
 						'icon'      => 'products',
-						'iconColor' => '#777777',
+						'iconColor' => '#a1b2c3',
 					],
 					"crm" =>
 					[
 						'title'     => T_("CRM"). ' - '. T_("Customers"),
 						'url'       => \dash\url::kingdom().'/crm',
 						'icon'      => 'Customers',
-						'iconColor' => '#777777',
+						'iconColor' => '#a1b2c3',
 					],
 					"analytics" =>
 					[
 						'title'     => T_("Analytics"),
 						'url'       => \dash\url::kingdom().'/a/analytics',
 						'icon'      => 'analytics',
-						'iconColor' => '#777777',
+						'iconColor' => '#a1b2c3',
 					],
 					"discounts" =>
 					[
@@ -55,7 +55,31 @@ class sidebarMenu
 						'url'       => \dash\url::kingdom().'/a/discount',
 						'icon'      => 'Discounts',
 						'child'     => self::list_crm(),
-						'iconColor' => '#777777',
+						'iconColor' => '#a1b2c3',
+					],
+					"plugins" =>
+					[
+						'title'     => T_("Plugins"),
+						'url'       => \dash\url::kingdom().'/a/plugins',
+						'icon'      => 'Apps',
+						'iconColor' => '#da9e51',
+					],
+					"seperator1" =>
+					[
+						'seperator' => true,
+						'desc' => 123,
+					],
+					"channels" =>
+					[
+						'title'     => T_("Sales Channels"),
+					],
+					"siteBuilder" =>
+					[
+						'title'     => T_("Online Website"),
+						'url'       => \dash\url::kingdom().'/a/sitebuilder',
+						'icon'      => 'Online Store',
+						// 'child'     => self::list_crm(),
+						'iconColor' => '#a1b2c3',
 					],
 				],
 		];

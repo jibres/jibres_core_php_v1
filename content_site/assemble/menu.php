@@ -105,10 +105,34 @@ class menu
 
 	private static function menuLink($_text, $_link, $_target, $_li, $_arg)
 	{
-		$menuLinkEl = '<a';
+		$menuLinkEl = '<';
+		if($_link)
+		{
+			$menuLinkEl .= 'a';
+		}
+		else
+		{
+			$menuLinkEl .= 'div';
+		}
+
+		$menuLinkEl .= ' data-item';
+
+		if(a($_li, 'seperator'))
+		{
+			$menuLinkEl .= '="seperator"';
+		}
+		elseif(!$_link)
+		{
+			$menuLinkEl .= '="heading"';
+		}
+
 		if($_target)
 		{
 			$menuLinkEl .= ' target="_blank"';
+		}
+		if(a($_li, 'desc'))
+		{
+			$menuLinkEl .= ' title="'. a($_li, 'desc'). '"';
 		}
 		if(a($_arg, 'a_class'))
 		{
@@ -118,10 +142,7 @@ class menu
 		{
 			$menuLinkEl .= ' href="'. $_link. '"';
 		}
-		else
-		{
-			$menuLinkEl .= ' data-heading';
-		}
+
 		if(a($_li, 'selected'))
 		{
 			$menuLinkEl .= ' data-selected';
@@ -142,7 +163,16 @@ class menu
     }
 
 		$menuLinkEl .= $_text;
-		$menuLinkEl .= '</a>';
+		$menuLinkEl .= '</';
+		if($_link)
+		{
+			$menuLinkEl .= 'a';
+		}
+		else
+		{
+			$menuLinkEl .= 'div';
+		}
+		$menuLinkEl .= '>';
 
 		return $menuLinkEl;
 	}
