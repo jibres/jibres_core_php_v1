@@ -170,5 +170,41 @@ class static_files
 		\dash\code::jsonBoom($robots, true, 'text');
 	}
 
+
+
+
+	public static function browserconfig_xml()
+	{
+		$logo = \dash\url::logo();
+		if(\dash\engine\store::inStore())
+		{
+			$logo = \lib\store::logo();
+		}
+
+		$xml = '';
+
+		$xml .= '<?xml version="1.0" encoding="utf-8"?>';
+
+		$xml .= '<browserconfig>';
+		{
+			$xml .= '<msapplication>';
+			{
+				$xml .= '<tile>';
+				{
+					$xml .= '<square150x150logo src="'.$logo.'"/>';
+					$xml .= '<TileColor>#000000</TileColor>';
+				}
+				$xml .= '</tile>';
+			}
+			$xml .= '</msapplication>';
+		}
+		$xml .= '</browserconfig>';
+
+		// cache 1 day
+		\dash\header::cache(60*60*24);
+
+		\dash\code::jsonBoom($xml, true, 'xml');
+	}
+
 }
 ?>

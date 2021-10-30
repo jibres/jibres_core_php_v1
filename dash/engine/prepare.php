@@ -292,6 +292,10 @@ class prepare
 				\dash\engine\static_files::robots();
 				break;
 
+			case 'browserconfig.xml':
+				\dash\engine\static_files::browserconfig_xml();
+				break;
+
 			case 'static/humans.txt':
 			case 'humans.txt':
 			case 'contributors':
