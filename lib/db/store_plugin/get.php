@@ -25,7 +25,7 @@ class get
 
 	public static function by_business_id_lock($_business_id, $_plugin)
 	{
-		$query = "SELECT * FROM store_plugin WHERE store_plugin.store_id = :id AND store_plugin.plugin = :plugin FOR UPDATE";
+		$query = "SELECT * FROM store_plugin WHERE store_plugin.store_id = :id AND store_plugin.plugin = :plugin LIMIT 1 FOR UPDATE";
 
 		$param =
 		[
@@ -33,7 +33,7 @@ class get
 			':plugin' => $_plugin,
 		];
 
-		$result = \dash\pdo::get($query, $param);
+		$result = \dash\pdo::get($query, $param, null, true);
 
 		return $result;
 	}

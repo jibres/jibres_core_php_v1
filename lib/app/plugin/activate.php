@@ -32,6 +32,7 @@ class activate
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		self::after_pay(0,0);
 
 		/**
 		 * @author reza
@@ -72,33 +73,22 @@ class activate
 
 		\dash\pdo::transaction();
 
-		$is_activated_in_business = \lib\db\store_plugin\get::by_business_id_lock($_business_id, $plugin);
+		$check_duplicate = \lib\db\store_plugin\get::by_business_id_lock($_business_id, $plugin);
 
-		if(!is_array($is_activated_in_business))
+		if(!is_array($check_duplicate))
 		{
-			$is_activated_in_business = [];
+			$check_duplicate = [];
 		}
 
 		// plugin id
 		$plugin_id = null;
+		// action id
+		$action_id = null;
 
-		// is activated before.
-		// need check something in action
-		$current_actions = [];
-
-		// if last action is pending needless to add new pending action
-		$last_action_pending     = [];
-
-		if(isset($is_activated_in_business['id']))
+		if(isset($check_duplicate['id']))
 		{
 			// set plugin id
-			$plugin_id = $is_activated_in_business['id'];
-
-			var_dump($is_activated_in_business);exit;
-
-			$last_action_pending = \lib\db\store_plugin\get::get_last_action_pending($is_activated_in_business['id']);
-
-			$current_actions = \lib\db\store_plugin\get::get_current_actions($is_activated_in_business['id']);
+			$plugin_id = $check_duplicate['id'];
 		}
 		else
 		{
@@ -123,27 +113,28 @@ class activate
 			}
 		}
 
-		if(!$last_action_pending)
-		{
-			$insert_action =
-			[
-				'plugin_id'   => $plugin_id,
-				'addedby'     => 'user',
-				'user_id'     => $user_id,
-				'price'       => $price,
-				'finalprice'  => $price,
-				'status'      => 'pending',
-				'datecreated' => date("Y-m-d H:i:s"),
-			];
+		// check if plugin type is once and activated before
+		// if pending needless to check on this function. Check in after_pay()
+		$insert_action =
+		[
+			'plugin_id'   => $plugin_id,
+			'addedby'     => 'user',
+			'user_id'     => $user_id,
+			'price'       => $price,
+			'finalprice'  => $price,
+			'status'      => 'pending',
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
 
-			$action_id = \lib\db\store_plugin_action\insert::new_record($insert);
-			if(!$action_id)
-			{
-				\dash\pdo::rollback();
-				\dash\log::oops('ErrorInAddNewPluginAction', T_("Can not add this action. Please contact to administrator"));
-				return false;
-			}
+		$action_id = \lib\db\store_plugin_action\insert::new_record($insert_action);
+
+		if(!$action_id)
+		{
+			\dash\pdo::rollback();
+			\dash\log::oops('ErrorInAddNewPluginAction', T_("Can not add this action. Please contact to administrator"));
+			return false;
 		}
+
 
 		\dash\pdo::commit();
 
@@ -177,10 +168,11 @@ class activate
 		}
 
 		$temp_args                = [];
-		$temp_args['plugin']      = $plugin;
-		$temp_args['user_id']     = $user_id;
 		$temp_args['business_id'] = $_business_id;
-		$temp_args['page_url']    = a($_args, 'page_url');
+		$temp_args['plugin']      = $plugin;
+		$temp_args['plugin_id']   = $plugin_id;
+		$temp_args['action_id']   = $action_id;
+		$temp_args['user_id']     = $user_id;
 
 		if($pay_price > 0)
 		{
@@ -201,12 +193,13 @@ class activate
 				'final_fn_args' => $temp_args,
 			];
 
-
-
 			$result_pay = \dash\utility\pay\start::api($meta);
 
 			if(isset($result_pay['url']) && isset($result_pay['transaction_id']))
 			{
+				// save transaction id in action
+				\lib\db\store_plugin_action\update::record(['transaction_id' => \dash\coding::decode($result_pay['transaction_id'])], $action_id);
+
 				$result['pay_link'] = $result_pay['url'];
 			}
 			else
@@ -231,8 +224,27 @@ class activate
 	}
 
 
-	public static function after_pay($_args)
+	public static function after_pay($_args, $_transaction_detail = [])
 	{
+		$_args =
+		[
+			'business_id' => '1000005',
+			'plugin'      => 'site_options_responsive_footer',
+			'plugin_id'   => '20',
+			'action_id'   => '7',
+			'user_id'     => 13,
+		];
+
+		$_transaction_detail = ['id' => 2347];
+
+
+
+		$transaction_id = a($_transaction_detail, 'id');
+		if(!is_numeric($transaction_id) || !$transaction_id)
+		{
+			\dash\log::oops('pluginTransactionIDNotSetOrInvalid');
+			return false;
+		}
 
 		if(isset($_args['plugin']) && is_string($_args['plugin']))
 		{
@@ -256,22 +268,22 @@ class activate
 
 		$user_id     = $_args['user_id'];
 		$business_id = $_args['business_id'];
-		$plugin  = $_args['plugin'];
+		$plugin      = $_args['plugin'];
 
 		$load_busness_detail = \lib\app\store\get::data_by_id($business_id);
 
 
 		\dash\pdo::transaction();
 
-		$is_activated_in_business = \lib\db\store_plugin\get::by_business_id_lock($business_id, $plugin);
+		$check_duplicate = \lib\db\store_plugin\get::by_business_id_lock($business_id, $plugin);
 
-		if(!is_array($is_activated_in_business))
+		if(!is_array($check_duplicate))
 		{
-			$is_activated_in_business = [];
+			$check_duplicate = [];
 		}
 
 
-		if(a($is_activated_in_business, 'status') === 'enable')
+		if(a($check_duplicate, 'status') === 'enable')
 		{
 			// the user pay this plugin before
 		}
@@ -294,7 +306,7 @@ class activate
 
 				$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
 
-				\lib\db\store_plugin\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($is_activated_in_business, 'id'));
+				\lib\db\store_plugin\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($check_duplicate, 'id'));
 
 
 				// send notif to supervisor
