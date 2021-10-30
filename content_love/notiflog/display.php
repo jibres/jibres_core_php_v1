@@ -95,7 +95,7 @@
       <th><?php echo T_("urldir") ?></th>
       <th><?php echo T_("urlquery") ?></th>
       <th><?php echo T_("datecreated") ?></th>
-
+      <th class="collapsing"></th>
 
 
       </tr>
@@ -103,8 +103,6 @@
     <tbody>
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-
-
           <td><?php echo a($value, 'id') ?></td>
           <td><?php echo a($value, 'type') ?></td>
           <td><?php echo a($value, 'method') ?></td>
@@ -113,8 +111,9 @@
           <td><?php echo a($value, 'user_id') ?></td>
           <td><?php echo a($value, 'urlkingdom') ?></td>
           <td><?php echo a($value, 'urldir') ?></td>
-          <td><?php echo a($value, 'urlquery') ?></td>
+          <td><?php echo a($value, 'urlquery') ?> </td>
           <td><?php echo a($value, 'datecreated') ?></td>
+          <td class="collapsing"><i class="sf-list-ul" title="<?php echo a($value, 'urlkingdom'). '/'. a($value, 'urldir'). '?'. a($value, 'urlquery') ?>"></i></td>
 
 
         </tr>
