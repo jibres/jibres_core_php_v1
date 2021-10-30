@@ -1,3 +1,33 @@
+<?php if(\dash\data::messgeGroupBy()) {?>
+  <div class="box">
+    <div class="pad">
+    <table class="tbl1 v4">
+
+      <tbody>
+        <tr class="positive">
+          <td><?php echo T_("Count all") ?></td>
+          <td><?php echo \dash\fit::number(array_sum(array_column(\dash\data::messgeGroupBy(), 'count'))) ?>
+          <?php if(\dash\permission::supervisor()) {?>
+            <div class="btn linkDel" data-confirm data-data='{"emptytable": "emptytable"}'><?php echo T_("Delete all") ?></div>
+          <?php } //endif ?>
+          </td>
+
+        </tr>
+
+<?php foreach (\dash\data::messgeGroupBy() as $key => $value) {?>
+  <tr>
+    <td><?php echo a($value, 'message') ?></td>
+    <td><?php echo \dash\fit::number(a($value, 'count')) ?></td>
+  </tr>
+<?php } //endif ?>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+<?php } //endif ?>
+
+
 <nav class="items pwaMultiLine">
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>

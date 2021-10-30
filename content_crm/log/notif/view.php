@@ -32,6 +32,10 @@ class view
 
 		\dash\data::dataTable($dataTable);
 
+		$show_group_by = \dash\app\log_notif\search::group_by();
+		\dash\data::messgeGroupBy($show_group_by);
+
+
 	}
 
 }
