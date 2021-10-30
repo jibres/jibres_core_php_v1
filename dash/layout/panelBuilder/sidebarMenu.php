@@ -57,12 +57,12 @@ class sidebarMenu
 						'child'     => self::list_crm(),
 						'iconColor' => '#a1b2c3',
 					],
-					"plugins" =>
+					"settings" =>
 					[
-						'title'     => T_("Plugins"),
-						'url'       => \dash\url::kingdom().'/a/plugins',
-						'icon'      => 'Apps',
-						'iconColor' => '#da9e51',
+						'title'     => T_("Settings"),
+						'url'       => \dash\url::kingdom().'/a/settings',
+						'icon'      => 'Settings',
+						'iconColor' => '#a1b2c3',
 					],
 					"seperator1" =>
 					[
@@ -94,6 +94,18 @@ class sidebarMenu
 						'url'       => \dash\url::kingdom().'/a/pos',
 						'icon'      => 'point of sale',
 						'iconColor' => '#a1b2c3',
+					],
+					"seperator2" =>
+					[
+						'seperator' => true,
+						'desc' => 123,
+					],
+					"plugins" =>
+					[
+						'title'     => T_("Plugins"),
+						'url'       => \dash\url::kingdom().'/a/plugins',
+						'icon'      => 'Apps',
+						'iconColor' => '#da9e51',
 					],
 				],
 		];
