@@ -131,14 +131,14 @@ class menu
 		$menuLinkEl .= '>';
     if(a($_li, 'icon'))
     {
-      if(a($_li, 'iconGroup'))
-      {
-        $menuLinkEl .= \dash\utility\icon::svg(a($_li, 'icon'), a($_li, 'iconGroup'));
-      }
-      else
-      {
-        $menuLinkEl .= \dash\utility\icon::svg(a($_li, 'icon'));
-      }
+       $menuLinkEl .= \dash\utility\icon::svg(a($_li, 'icon'), a($_li, 'iconGroup'), a($_li, 'iconColor'));
+      // if(a($_li, 'iconGroup'))
+      // {
+      // }
+      // else
+      // {
+      //   $menuLinkEl .= \dash\utility\icon::svg(a($_li, 'icon'), null, , a($_li, 'iconColor'));
+      // }
     }
 
 		$menuLinkEl .= $_text;

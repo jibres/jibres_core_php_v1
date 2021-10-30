@@ -6,15 +6,22 @@ class icon
     // based on shopify polaris icon pack
     // https://polaris-icons.shopify.com/
 
-    public static function svg($_name, $_pack = null)
+    public static function svg($_name, $_pack = null, $_fill = null)
     {
+        $svgData = null;
         $filePath = YARD.'talambar_cdn'. self::generateFileName($_name, $_pack);
 
         if(is_file($filePath))
         {
-            return file_get_contents($filePath);
+            $svgData = file_get_contents($filePath);
+
+            if($_fill)
+            {
+                $svgData = str_replace('#5C5F62', $_fill, $svgData);
+            }
         }
-        return null;
+
+        return $svgData;
     }
 
 

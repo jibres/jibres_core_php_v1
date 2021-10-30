@@ -14,42 +14,48 @@ class sidebarMenu
 				[
 					"home" =>
 					[
-						'title' => T_("Home"),
-						'url' => \dash\url::kingdom().'/a',
-						'icon' => 'home',
-						'class' => '123',
+						'title'       => T_("Home"),
+						'url'         => \dash\url::kingdom().'/a',
+						'icon'        => 'home',
+						'iconColor'   => '#777777',
+						'class'       => '123',
 						// 'selected' => true,
 					],
 					"orders" =>
 					[
-						'title' => T_("Orders"),
-						// 'url' => \dash\url::kingdom().'/a/orders',
-						'icon' => 'orders',
+						'title'     => T_("Orders"),
+						// 'url'    => \dash\url::kingdom().'/a/orders',
+						'icon'      => 'orders',
+						'iconColor' => '#777777',
 					],
 					"products" =>
 					[
-						'title' => T_("Products"),
-						'url' => \dash\url::kingdom().'/a/products',
-						'icon' => 'products',
+						'title'     => T_("Products"),
+						'url'       => \dash\url::kingdom().'/a/products',
+						'icon'      => 'products',
+						'iconColor' => '#777777',
 					],
 					"crm" =>
 					[
-						'title' => T_("CRM"). ' - '. T_("Customers"),
-						'url' => \dash\url::kingdom().'/crm',
-						'icon' => 'Customers',
+						'title'     => T_("CRM"). ' - '. T_("Customers"),
+						'url'       => \dash\url::kingdom().'/crm',
+						'icon'      => 'Customers',
+						'iconColor' => '#777777',
 					],
 					"analytics" =>
 					[
-						'title' => T_("Analytics"),
-						'url' => \dash\url::kingdom().'/a/analytics',
-						'icon' => 'analytics',
+						'title'     => T_("Analytics"),
+						'url'       => \dash\url::kingdom().'/a/analytics',
+						'icon'      => 'analytics',
+						'iconColor' => '#777777',
 					],
 					"discounts" =>
 					[
-						'title' => T_("Discounts"),
-						'url' => \dash\url::kingdom().'/a/discount',
-						'icon' => 'Discounts',
-						'child' => self::list_crm(),
+						'title'     => T_("Discounts"),
+						'url'       => \dash\url::kingdom().'/a/discount',
+						'icon'      => 'Discounts',
+						'child'     => self::list_crm(),
+						'iconColor' => '#777777',
 					],
 				],
 		];
