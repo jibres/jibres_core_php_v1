@@ -118,6 +118,10 @@ class menu
 		{
 			$menuLinkEl .= ' href="'. $_link. '"';
 		}
+		else
+		{
+			$menuLinkEl .= ' data-heading';
+		}
 		if(a($_li, 'selected'))
 		{
 			$menuLinkEl .= ' data-selected';

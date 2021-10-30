@@ -23,7 +23,7 @@ class sidebarMenu
 					"orders" =>
 					[
 						'title' => T_("Orders"),
-						'url' => \dash\url::kingdom().'/a/orders',
+						// 'url' => \dash\url::kingdom().'/a/orders',
 						'icon' => 'orders',
 					],
 					"products" =>
@@ -50,7 +50,6 @@ class sidebarMenu
 						'url' => \dash\url::kingdom().'/a/discount',
 						'icon' => 'Discounts',
 						'child' => self::list_crm(),
-						'selected' => true,
 					],
 				],
 		];
