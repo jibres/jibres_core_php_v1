@@ -76,7 +76,8 @@ class check
 					'awaiting_verify_payment',
 					'unsuccessful_payment',
 					'payment_unverified',
-					'successful_payment'
+					'successful_payment',
+					'unpaid'
 				]
 			],
 
