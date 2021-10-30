@@ -10,9 +10,11 @@
                 <?php echo a($value, 'message'); ?>
 
               </div>
-              <div class="cauto">
+              <?php if(\dash\permission::supervisor()) {?>
+              <div class="cauto fc-red">
                 <?php echo a($value, 'urlkingdom'). '/'. a($value, 'urldir'); ?>
               </div>
+            <?php } //endif ?>
             </div>
           </div>
 
