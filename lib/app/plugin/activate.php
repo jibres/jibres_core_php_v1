@@ -71,11 +71,11 @@ class activate
 
 		\dash\pdo::transaction();
 
-		$check_duplicate = \lib\db\store_plugin\get::by_business_id_lock($_business_id, $plugin);
+		$exist_plugin_record = \lib\db\store_plugin\get::by_business_id_lock($_business_id, $plugin);
 
-		if(!is_array($check_duplicate))
+		if(!is_array($exist_plugin_record))
 		{
-			$check_duplicate = [];
+			$exist_plugin_record = [];
 		}
 
 		// plugin id
@@ -83,10 +83,10 @@ class activate
 		// action id
 		$action_id = null;
 
-		if(isset($check_duplicate['id']))
+		if(isset($exist_plugin_record['id']))
 		{
 			// set plugin id
-			$plugin_id = $check_duplicate['id'];
+			$plugin_id = $exist_plugin_record['id'];
 		}
 		else
 		{
@@ -112,7 +112,18 @@ class activate
 		}
 
 
+		// type
+		$plugin_type = a($plugin_detail, 'type');
 
+		if($plugin_type === 'once')
+		{
+			if(a($exist_plugin_record, 'status') === 'enable')
+			{
+				\dash\pdo::rollback();
+				\dash\notif::ok(T_("This plugin is already activated for your business"));
+				return true;
+			}
+		}
 
 		// check if plugin type is once and activated before
 		// if pending needless to check on this function. Check in after_pay()
