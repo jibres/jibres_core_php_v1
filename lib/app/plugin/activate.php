@@ -232,35 +232,20 @@ class activate
 			}
 		}
 
-
-
 		return $result;
 	}
 
 
-	public static function after_pay($_args, $_transaction_detail = [])
+
+	/**
+	 * After pay
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function after_pay($_args)
 	{
-
-		// $_args =
-		// [
-		// 	'business_id' => '1000005',
-		// 	'plugin'      => 'site_body_blog_b4',
-		// 	'plugin_id'   => '22',
-		// 	'action_id'   => '11',
-		// 	'user_id'     => 13,
-		// ];
-
-		// $_transaction_detail = ['id' => 2352];
-
-
-
-		// $transaction_id = a($_transaction_detail, 'id');
-		// if(!is_numeric($transaction_id) || !$transaction_id)
-		// {
-		// 	\dash\log::oops('pluginTransactionIDNotSetOrInvalid');
-		// 	return false;
-		// }
-
 		if(isset($_args['plugin']) && is_string($_args['plugin']))
 		{
 			// ok
@@ -334,7 +319,7 @@ class activate
 			\dash\pdo::rollback();
 			// the user pay this plugin before
 			\dash\notif::ok(T_("This plugin is already activated for your business"));
-			return ture;
+			return true;
 		}
 
 
