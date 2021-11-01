@@ -230,6 +230,11 @@ class activate
 				$result['plugin_enabled'] = true;
 				// ok need less to pay anything
 			}
+			else
+			{
+				\dash\log::oops('pluginAfterPayError', T_("Oh!, We cannot complete your request. Please contact to administrator"));
+				return false;
+			}
 		}
 
 		return $result;
