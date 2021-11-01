@@ -23,6 +23,22 @@ class get
 	}
 
 
+	public static function by_business_id_plugin_id_lock($_business_id, $_plugin_id, $_plugin)
+	{
+		$query = "SELECT * FROM store_plugin WHERE store_plugin.id = :plugin_id AND store_plugin.store_id = :store_id AND store_plugin.plugin = :plugin LIMIT 1 FOR UPDATE";
+
+		$param =
+		[
+			':plugin_id' => $_plugin_id,
+			':store_id'  => $_business_id,
+			':plugin'    => $_plugin,
+		];
+
+		$result = \dash\pdo::get($query, $param, null, true);
+
+		return $result;
+	}
+
 	public static function by_business_id_lock($_business_id, $_plugin)
 	{
 		$query = "SELECT * FROM store_plugin WHERE store_plugin.store_id = :id AND store_plugin.plugin = :plugin LIMIT 1 FOR UPDATE";

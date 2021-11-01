@@ -32,8 +32,6 @@ class activate
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		self::after_pay(0,0);
-
 		/**
 		 * @author reza
 		 *
@@ -113,16 +111,21 @@ class activate
 			}
 		}
 
+
+
+
 		// check if plugin type is once and activated before
 		// if pending needless to check on this function. Check in after_pay()
 		$insert_action =
 		[
 			'plugin_id'   => $plugin_id,
+			'action'      => 'request_activate',
 			'addedby'     => 'user',
+			'type'        => 'activate',
 			'user_id'     => $user_id,
 			'price'       => $price,
 			'finalprice'  => $price,
-			'status'      => 'pending',
+			'status'      => 'enable',
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
 
@@ -226,25 +229,26 @@ class activate
 
 	public static function after_pay($_args, $_transaction_detail = [])
 	{
-		$_args =
-		[
-			'business_id' => '1000005',
-			'plugin'      => 'site_options_responsive_footer',
-			'plugin_id'   => '20',
-			'action_id'   => '7',
-			'user_id'     => 13,
-		];
 
-		$_transaction_detail = ['id' => 2347];
+		// $_args =
+		// [
+		// 	'business_id' => '1000005',
+		// 	'plugin'      => 'site_body_blog_b4',
+		// 	'plugin_id'   => '22',
+		// 	'action_id'   => '11',
+		// 	'user_id'     => 13,
+		// ];
+
+		// $_transaction_detail = ['id' => 2352];
 
 
 
-		$transaction_id = a($_transaction_detail, 'id');
-		if(!is_numeric($transaction_id) || !$transaction_id)
-		{
-			\dash\log::oops('pluginTransactionIDNotSetOrInvalid');
-			return false;
-		}
+		// $transaction_id = a($_transaction_detail, 'id');
+		// if(!is_numeric($transaction_id) || !$transaction_id)
+		// {
+		// 	\dash\log::oops('pluginTransactionIDNotSetOrInvalid');
+		// 	return false;
+		// }
 
 		if(isset($_args['plugin']) && is_string($_args['plugin']))
 		{
@@ -269,25 +273,61 @@ class activate
 		$user_id     = $_args['user_id'];
 		$business_id = $_args['business_id'];
 		$plugin      = $_args['plugin'];
+		$plugin_id   = $_args['plugin_id'];
+		$action_id   = $_args['action_id'];
 
 		$load_busness_detail = \lib\app\store\get::data_by_id($business_id);
 
-
 		\dash\pdo::transaction();
 
-		$check_duplicate = \lib\db\store_plugin\get::by_business_id_lock($business_id, $plugin);
+		// load plugin detail
+		$exist_plugin_record = \lib\db\store_plugin\get::by_business_id_plugin_id_lock($business_id, $plugin_id, $plugin);
 
-		if(!is_array($check_duplicate))
+		if(!is_array($exist_plugin_record))
 		{
-			$check_duplicate = [];
+			$exist_plugin_record = [];
+		}
+
+		if(!$exist_plugin_record)
+		{
+			\dash\pdo::rollback();
+			\dash\log::oops('pluginCanNotFindActivateRequest', T_("Can not find your activate plugin request. Please contact to administrator"));
+			return false;
+		}
+
+		// load action details
+		$load_action_detail = \lib\db\store_plugin_action\get::by_id($action_id);
+
+		if(!$load_action_detail || !is_array($load_action_detail))
+		{
+			\dash\pdo::rollback();
+			\dash\log::oops('pluginCanNotFindActionRecord', T_("Can not find your activate action. Please contact to administrator"));
+			return false;
+		}
+
+		// load plugin detail
+		$plugin_detail = \lib\app\plugin\get::detail($plugin);
+
+		if(!$plugin_detail || !is_array($plugin_detail))
+		{
+			\dash\pdo::rollback();
+			\dash\log::oops('pluginAfterPayNotLoaded', T_("Plugin not found. Please contact to administrator"));
+			return false;
 		}
 
 
-		if(a($check_duplicate, 'status') === 'enable')
+		$plugin_type = a($plugin_detail, 'type');
+
+		if(a($exist_plugin_record, 'status') === 'enable' && $plugin_type === 'once')
 		{
+			\dash\pdo::rollback();
 			// the user pay this plugin before
+			\dash\notif::ok(T_("This plugin is already activated for your business"));
+			return ture;
 		}
-		else
+
+
+		if($plugin_type === 'once')
 		{
 			$price  = floatval(\lib\app\plugin\get::price($plugin));
 
@@ -306,8 +346,44 @@ class activate
 
 				$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
 
-				\lib\db\store_plugin\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($check_duplicate, 'id'));
+				if(!$transaction_id || !is_numeric($transaction_id))
+				{
+					\dash\pdo::rollback();
+					\dash\db::rollback();
+					\dash\log::oops('PluginAfterPayCanNotAddMinusTransaction', T_("Can not add this action. Please contact to administrator"));
+					return false;
+				}
 
+				// enable plugin
+				\lib\db\store_plugin\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($exist_plugin_record, 'id'));
+
+
+				// check if plugin type is once and activated before
+				// if pending needless to check on this function. Check in after_pay()
+				$insert_action =
+				[
+					'plugin_id'      => $plugin_id,
+					'action'         => 'activate_complete',
+					'addedby'        => 'user',
+					'type'           => 'activate',
+					'user_id'        => $user_id,
+					'parent'         => $action_id,
+					'transaction_id' => $transaction_id,
+					'price'          => $price,
+					'finalprice'     => $price,
+					'status'         => 'enable',
+					'datecreated'    => date("Y-m-d H:i:s"),
+				];
+
+				$action_id = \lib\db\store_plugin_action\insert::new_record($insert_action);
+
+				if(!$action_id)
+				{
+					\dash\pdo::rollback();
+					\dash\db::rollback();
+					\dash\log::oops('ErrorInAddNewPluginAction', T_("Can not add this action. Please contact to administrator"));
+					return false;
+				}
 
 				// send notif to supervisor
 				$log =
@@ -326,8 +402,14 @@ class activate
 			}
 			else
 			{
+				\dash\notif::ok(T_("This plugin is already activated for your business"));
 				\dash\db::rollback();
 			}
+		}
+		else
+		{
+			// pay periodic plugin
+
 		}
 
 
