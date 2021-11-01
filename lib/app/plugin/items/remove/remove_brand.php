@@ -24,8 +24,9 @@ class remove_brand
 					'key'           => 'yearly',
 					'plus_day'      => 366, // day
 					'title'         => T_("One year"),
+					'default'       => true,
 					'comperatprice' => 2400000,
-					'price'         => 1000000,
+					'price'         => 2000000,
 				],
 			],
 			'relase_date' => '2021-10-24',

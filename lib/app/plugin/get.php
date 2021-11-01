@@ -87,19 +87,95 @@ class get
 	}
 
 
-	public static function price($_plugin)
+	/**
+	 * Get price.
+	 * If type is once get the price else load all price list and get price of periodic
+	 *
+	 * @param      <type>  $_plugin    The plugin
+	 * @param      <type>  $_periodic  The periodic
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function price($_plugin, $_periodic = null)
 	{
 		$detail = \lib\app\plugin\call_function::detail($_plugin);
 
-		$price = floatval(a($detail, 'price'));
-		if(!$price || !is_numeric($price))
+		$price = null;
+
+		if(a($detail, 'type') === 'once')
 		{
-			$price = 0;
+			$price = a($detail, 'price');
+		}
+		else
+		{
+			if(!$_periodic)
+			{
+				\dash\notif::error(T_("Please choose one periodic"));
+				return false;
+			}
+
+			$price_list = a($detail, 'price_list');
+			if(!is_array($price_list) || !$price_list)
+			{
+				\dash\log::oops('ErrorPluginPriceList', T_("Can not complete your request. Please contact to administrator"));
+				return false;
+			}
+
+
+			foreach ($price_list as $key => $value)
+			{
+				if(a($value, 'key') === $_periodic)
+				{
+					$price = a($value, 'price');
+					break;
+				}
+			}
 		}
 
 		return $price;
 	}
 
+
+
+	public static function plus_day($_plugin, $_periodic)
+	{
+		$detail = \lib\app\plugin\call_function::detail($_plugin);
+
+		$plus_day = null;
+
+		if(a($detail, 'type') === 'once')
+		{
+			\dash\notif::error(T_("This plugin is not periodically"));
+			return false;
+		}
+		else
+		{
+			if(!$_periodic)
+			{
+				\dash\notif::error(T_("Please choose one periodic"));
+				return false;
+			}
+
+			$price_list = a($detail, 'price_list');
+			if(!is_array($price_list) || !$price_list)
+			{
+				\dash\log::oops('ErrorPluginPriceList', T_("Can not complete your request. Please contact to administrator"));
+				return false;
+			}
+
+
+			foreach ($price_list as $key => $value)
+			{
+				if(a($value, 'key') === $_periodic)
+				{
+					$plus_day = a($value, 'plus_day');
+					break;
+				}
+			}
+		}
+
+		return $plus_day;
+	}
 
 	public static function zone($_plugin)
 	{

@@ -47,6 +47,9 @@ class activate
 		 * In the future manage refund and expire plugin in this function
 		 */
 
+		self::after_pay(1);\dash\notif::api('x');
+		var_dump('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww');exit;
+
 		$plugin = $data['plugin'];
 
 		// load plugin detail
@@ -57,6 +60,7 @@ class activate
 			return false;
 		}
 
+
 		// detect plugin type
 		$plugin_type = 'once';
 		if(a($plugin_detail, 'type') && is_string($plugin_detail['type']))
@@ -64,7 +68,18 @@ class activate
 			$plugin_type = $plugin_detail['type'];
 		}
 
-		$price = \lib\app\plugin\get::price($plugin);
+
+		// --------------- Load price
+		$price = \lib\app\plugin\get::price($plugin, $data['periodic']);
+
+		if(!is_numeric($price))
+		{
+			\dash\notif::error(T_("Invalid periodic key!"));
+			return false;
+		}
+
+		$price = floatval($price);
+
 
 
 		$user_id = \dash\user::id();
@@ -112,9 +127,6 @@ class activate
 		}
 
 
-		// type
-		$plugin_type = a($plugin_detail, 'type');
-
 		if($plugin_type === 'once')
 		{
 			if(a($exist_plugin_record, 'status') === 'enable')
@@ -123,6 +135,11 @@ class activate
 				\dash\notif::ok(T_("This plugin is already activated for your business"));
 				return true;
 			}
+		}
+		else
+		{
+			// check exist periodic or max limit of date
+			// var_dump(__LINE__);exit;
 		}
 
 		// check if plugin type is once and activated before
@@ -176,6 +193,7 @@ class activate
 		$result = [];
 
 		$turn_back = \dash\url::kingdom();
+
 		if(isset($_args['turn_back']) && is_string($_args['turn_back']))
 		{
 			$turn_back = $_args['turn_back'];
@@ -186,6 +204,7 @@ class activate
 		$temp_args['plugin']      = $plugin;
 		$temp_args['plugin_id']   = $plugin_id;
 		$temp_args['action_id']   = $action_id;
+		$temp_args['periodic']    = $data['periodic'];
 		$temp_args['user_id']     = $user_id;
 
 		if($pay_price > 0)
@@ -251,6 +270,17 @@ class activate
 	 */
 	public static function after_pay($_args)
 	{
+
+		$_args =
+		[
+			'business_id' =>  '1000005',
+			'plugin'      =>  'remove_brand',
+			'plugin_id'   =>  '26',
+			'action_id'   =>  '20',
+			'periodic'    =>  'yearly',
+			'user_id'     =>  13,
+		];
+
 		if(isset($_args['plugin']) && is_string($_args['plugin']))
 		{
 			// ok
@@ -319,99 +349,143 @@ class activate
 
 		$plugin_type = a($plugin_detail, 'type');
 
-		if(a($exist_plugin_record, 'status') === 'enable' && $plugin_type === 'once')
+		if(a($exist_plugin_record, 'status') === 'enable')
 		{
-			\dash\pdo::rollback();
-			// the user pay this plugin before
-			\dash\notif::ok(T_("This plugin is already activated for your business"));
-			return true;
-		}
-
-
-		if($plugin_type === 'once')
-		{
-			$price  = floatval(\lib\app\plugin\get::price($plugin));
-
-			\dash\db::transaction();
-			// check budget
-			$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
-
-			if($user_budget > $price)
+			if($plugin_type === 'once')
 			{
-				$insert_transaction =
-				[
-					'user_id' => $user_id,
-					'title'   => T_("Activate plugin :val", ['val' => \lib\app\plugin\get::title($plugin)]),
-					'amount'  => $price,
-				];
-
-				$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
-
-				if(!$transaction_id || !is_numeric($transaction_id))
-				{
-					\dash\pdo::rollback();
-					\dash\db::rollback();
-					\dash\log::oops('PluginAfterPayCanNotAddMinusTransaction', T_("Can not add this action. Please contact to administrator"));
-					return false;
-				}
-
-				// enable plugin
-				\lib\db\store_plugin\update::record(['status' => 'enable', 'datemodified' => date("Y-m-d H:i:s")], a($exist_plugin_record, 'id'));
-
-
-				// check if plugin type is once and activated before
-				// if pending needless to check on this function. Check in after_pay()
-				$insert_action =
-				[
-					'plugin_id'      => $plugin_id,
-					'action'         => 'activate_complete',
-					'addedby'        => 'user',
-					'type'           => 'activate',
-					'user_id'        => $user_id,
-					'parent'         => $action_id,
-					'transaction_id' => $transaction_id,
-					'price'          => $price,
-					'finalprice'     => $price,
-					'status'         => 'enable',
-					'datecreated'    => date("Y-m-d H:i:s"),
-				];
-
-				$action_id = \lib\db\store_plugin_action\insert::new_record($insert_action);
-
-				if(!$action_id)
-				{
-					\dash\pdo::rollback();
-					\dash\db::rollback();
-					\dash\log::oops('ErrorInAddNewPluginAction', T_("Can not add this action. Please contact to administrator"));
-					return false;
-				}
-
-				// send notif to supervisor
-				$log =
-				[
-					'my_plugin'         => $plugin,
-					'my_business_id'    => $business_id,
-					'my_user_id'        => $user_id,
-					'my_page_url'       => a($_args, 'page_url'),
-					'my_business_title' => a($load_busness_detail, 'title'),
-					'my_price'          => $price,
-
-				];
-				\dash\log::set('business_plugin', $log);
-
-				\dash\db::commit();
+				\dash\pdo::rollback();
+				// the user pay this plugin before
+				\dash\notif::ok(T_("This plugin is already activated for your business"));
+				return true;
 			}
 			else
 			{
-				\dash\notif::ok(T_("This plugin is already activated for your business"));
-				\dash\db::rollback();
+				// check max time
 			}
 		}
-		else
-		{
-			// pay periodic plugin
 
+		$periodic = a($_args, 'periodic');
+
+		// --------------- Get price
+		$price  = \lib\app\plugin\get::price($plugin, $periodic);
+
+		if(!is_numeric($price))
+		{
+			\dash\notif::error(T_("Invalid periodic key!"));
+			return false;
 		}
+
+		$price = floatval($price);
+
+
+		// --------------- Get plus day
+		$plus_day = null;
+
+		if($plugin_type === 'periodic')
+		{
+			$plus_day  = \lib\app\plugin\get::plus_day($plugin, $periodic);
+		}
+
+		if($plus_day)
+		{
+			$max_day = 365;
+			// check max day
+		}
+
+		// update plugin
+		$update_plugin =
+		[
+			'status'       => 'enable',
+			'datemodified' => date("Y-m-d H:i:s"),
+		];
+
+
+		if($plus_day)
+		{
+			$update_plugin['expiredate'] = date("Y-m-d H:i:s", time() + ($plus_day * 60*60*24));
+		}
+
+		\dash\db::transaction();
+		// check budget
+		$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
+
+		if($user_budget < $price)
+		{
+			\dash\notif::ok(T_("This plugin is already activated for your business"));
+			\dash\db::rollback();
+		}
+
+
+		$insert_transaction =
+		[
+			'user_id' => $user_id,
+			'title'   => T_("Activate plugin :val", ['val' => \lib\app\plugin\get::title($plugin)]),
+			'amount'  => $price,
+		];
+
+		$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
+
+		if(!$transaction_id || !is_numeric($transaction_id))
+		{
+			\dash\pdo::rollback();
+			\dash\db::rollback();
+			\dash\log::oops('PluginAfterPayCanNotAddMinusTransaction', T_("Can not add this action. Please contact to administrator"));
+			return false;
+		}
+
+		// enable plugin
+		\lib\db\store_plugin\update::record($update_plugin, a($exist_plugin_record, 'id'));
+
+
+		// check if plugin type is once and activated before
+		// if pending needless to check on this function. Check in after_pay()
+		$insert_action =
+		[
+			'plugin_id'      => $plugin_id,
+			'action'         => 'activate_complete',
+			'addedby'        => 'user',
+			'type'           => 'activate',
+			'user_id'        => $user_id,
+			'parent'         => $action_id,
+			'transaction_id' => $transaction_id,
+			'price'          => $price,
+			'finalprice'     => $price,
+			'status'         => 'enable',
+			'datecreated'    => date("Y-m-d H:i:s"),
+		];
+
+		if($plus_day)
+		{
+			$insert_action['datestart']  = date("Y-m-d H:i:s");
+			$insert_action['plusday']    = $plus_day;
+			$insert_action['expiredate'] = date("Y-m-d H:i:s", time() + ($plus_day * (60*60*24)));
+		}
+
+		$action_id = \lib\db\store_plugin_action\insert::new_record($insert_action);
+
+		if(!$action_id)
+		{
+			\dash\pdo::rollback();
+			\dash\db::rollback();
+			\dash\log::oops('ErrorInAddNewPluginAction', T_("Can not add this action. Please contact to administrator"));
+			return false;
+		}
+
+		// send notif to supervisor
+		$log =
+		[
+			'my_plugin'         => $plugin,
+			'my_business_id'    => $business_id,
+			'my_user_id'        => $user_id,
+			'my_page_url'       => a($_args, 'page_url'),
+			'my_business_title' => a($load_busness_detail, 'title'),
+			'my_price'          => $price,
+
+		];
+		\dash\log::set('business_plugin', $log);
+
+		\dash\db::commit();
+
 
 
 		\dash\pdo::commit();

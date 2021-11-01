@@ -32,7 +32,13 @@ $html .= '<div class="max-w-xl m-auto">';
 
 						$html .= '<div class="radio3">';
 						{
-							$html .= '<input type="radio" name="periodic" value="'.a($value, 'key').'" id="periodic_'.a($value, 'key').'">';
+							$checked = null;
+							if(a($value, 'default'))
+							{
+								$checked = 'checked';
+							}
+
+							$html .= '<input type="radio" name="periodic" value="'.a($value, 'key').'" id="periodic_'.a($value, 'key').'" '.$checked.'>';
 							$html .= '<label for="periodic_'.a($value, 'key').'">'.a($value, 'title').'</label>';
 						}
 						$html .= '</div>';
