@@ -124,6 +124,13 @@ class activate
 			}
 		}
 
+		$action_description = null;
+		if($data['use_budget'])
+		{
+			$action_description = 'Use budget to pay price';
+		}
+
+
 		// check if plugin type is once and activated before
 		// if pending needless to check on this function. Check in after_pay()
 		$insert_action =
@@ -136,7 +143,9 @@ class activate
 			'price'       => $price,
 			'finalprice'  => $price,
 			'status'      => 'enable',
+			'desc'        => $action_description,
 			'datecreated' => date("Y-m-d H:i:s"),
+
 		];
 
 		if($plugin_type === 'once')
@@ -154,6 +163,7 @@ class activate
 			// // calculate start date and end date and fill the $insert_action
 			// self::calculate_start_date_expire_date($plugin, $plugin_id, $data['periodic'], $insert_action);
 		}
+
 
 
 		$action_id = \lib\db\store_plugin_action\insert::new_record($insert_action);
@@ -449,7 +459,7 @@ class activate
 			}
 			elseif(a($exist_plugin_record, 'status') !== 'enable')
 			{
-				$action_description = 'Master plugin record is not enable!';
+				$action_description = 'Master plugin record is not enable! start date set on today';
 				$datestart = time();
 			}
 			else
