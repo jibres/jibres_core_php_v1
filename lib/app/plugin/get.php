@@ -210,6 +210,19 @@ class get
 	}
 
 
+	/**
+	 * Convert day to time
+	 * 1 day = 86400 second
+	 *
+	 * @param      <type>  $_days  The days
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function day_to_time($_days)
+	{
+		return floatval($_days) * 60 * 60 * 24;
+	}
+
 
 }
 ?>

@@ -47,8 +47,6 @@ class activate
 		 * In the future manage refund and expire plugin in this function
 		 */
 
-		self::after_pay(1);\dash\notif::api('x');
-		var_dump('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww');exit;
 
 		$plugin = $data['plugin'];
 
@@ -126,22 +124,6 @@ class activate
 			}
 		}
 
-
-		if($plugin_type === 'once')
-		{
-			if(a($exist_plugin_record, 'status') === 'enable')
-			{
-				\dash\pdo::rollback();
-				\dash\notif::ok(T_("This plugin is already activated for your business"));
-				return true;
-			}
-		}
-		else
-		{
-			// check exist periodic or max limit of date
-			// var_dump(__LINE__);exit;
-		}
-
 		// check if plugin type is once and activated before
 		// if pending needless to check on this function. Check in after_pay()
 		$insert_action =
@@ -156,6 +138,22 @@ class activate
 			'status'      => 'enable',
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
+
+		if($plugin_type === 'once')
+		{
+			if(a($exist_plugin_record, 'status') === 'enable')
+			{
+				\dash\pdo::rollback();
+				\dash\notif::ok(T_("This plugin is already activated for your business"));
+				return true;
+			}
+		}
+		else
+		{
+			// calculate start date and end date and fill the $insert_action
+			self::calculate_start_date_expire_date($plugin, $plugin_id, $data['periodic'], $insert_action);
+		}
+
 
 		$action_id = \lib\db\store_plugin_action\insert::new_record($insert_action);
 
@@ -270,16 +268,6 @@ class activate
 	 */
 	public static function after_pay($_args)
 	{
-
-		$_args =
-		[
-			'business_id' =>  '1000005',
-			'plugin'      =>  'remove_brand',
-			'plugin_id'   =>  '26',
-			'action_id'   =>  '20',
-			'periodic'    =>  'yearly',
-			'user_id'     =>  13,
-		];
 
 		if(isset($_args['plugin']) && is_string($_args['plugin']))
 		{
@@ -400,10 +388,6 @@ class activate
 		];
 
 
-		if($plus_day)
-		{
-			$update_plugin['expiredate'] = date("Y-m-d H:i:s", time() + ($plus_day * 60*60*24));
-		}
 
 		\dash\db::transaction();
 		// check budget
@@ -433,10 +417,6 @@ class activate
 			return false;
 		}
 
-		// enable plugin
-		\lib\db\store_plugin\update::record($update_plugin, a($exist_plugin_record, 'id'));
-
-
 		// check if plugin type is once and activated before
 		// if pending needless to check on this function. Check in after_pay()
 		$insert_action =
@@ -454,12 +434,16 @@ class activate
 			'datecreated'    => date("Y-m-d H:i:s"),
 		];
 
+
 		if($plus_day)
 		{
-			$insert_action['datestart']  = date("Y-m-d H:i:s");
-			$insert_action['plusday']    = $plus_day;
-			$insert_action['expiredate'] = date("Y-m-d H:i:s", time() + ($plus_day * (60*60*24)));
+			// calculate start date and end date and fill the $insert_action
+			self::calculate_start_date_expire_date($plugin, $plugin_id, $periodic, $insert_action);
+			$update_plugin['expiredate'] = $insert_action['expiredate'];
 		}
+
+		// enable plugin
+		\lib\db\store_plugin\update::record($update_plugin, a($exist_plugin_record, 'id'));
 
 		$action_id = \lib\db\store_plugin_action\insert::new_record($insert_action);
 
@@ -640,6 +624,36 @@ class activate
 		\dash\log::set('business_plugin', $log);
 
 
+	}
+
+
+
+	private static function calculate_start_date_expire_date($plugin, $plugin_id, $periodic, &$insert_action)
+	{
+		$get_max_expiredate = \lib\db\store_plugin_action\get::max_expire_date($plugin_id);
+		if(!$get_max_expiredate || !is_string($get_max_expiredate) || strtotime($get_max_expiredate) === false)
+		{
+			$datestart = time();
+		}
+		else
+		{
+			$get_max_expiredate_time = strtotime($get_max_expiredate);
+			if($get_max_expiredate_time >= time())
+			{
+				$datestart = $get_max_expiredate_time;
+			}
+			else
+			{
+				$datestart = time();
+			}
+		}
+
+		$plus_day  = \lib\app\plugin\get::plus_day($plugin, $periodic);
+
+
+		$insert_action['datestart']  = date("Y-m-d H:i:s", $datestart);
+		$insert_action['plusday']    = $plus_day;
+		$insert_action['expiredate'] = date("Y-m-d H:i:s", $datestart + \lib\app\plugin\get::day_to_time($plus_day));
 	}
 }
 ?>

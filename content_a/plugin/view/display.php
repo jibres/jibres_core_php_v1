@@ -1,9 +1,11 @@
 <?php
 
 $pluginDetail = \dash\data::pluginDetail();
-$currency = \lib\store::currency();
+$currency     = \lib\store::currency();
 
 $is_activated = \lib\app\plugin\business::is_activated(\dash\data::pluginKey());
+
+$payable      = (!$is_activated || a($pluginDetail, 'type') !== 'once');
 
 $html = '';
 $html .= '<div class="max-w-xl m-auto">';
@@ -56,7 +58,7 @@ $html .= '<div class="max-w-xl m-auto">';
 					}
 				}
 
-				if(!$is_activated)
+				if($payable)
 				{
 					if(\dash\data::myBudget() && a($pluginDetail, 'price'))
 					{
@@ -88,7 +90,7 @@ $html .= '<div class="max-w-xl m-auto">';
 			}
 			$html .= '</div>';
 
-			if(!$is_activated)
+			if($payable)
 			{
 				$html .= '<footer>';
 				{
