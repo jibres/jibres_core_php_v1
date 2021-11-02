@@ -119,7 +119,7 @@ class activate
 			if(!$plugin_id)
 			{
 				\dash\pdo::rollback();
-				\dash\log::oops('ErrorInAddNewPlugin', T_("Can not add this plugin. Please contact to administrator"));
+				\dash\log::oops('ErrorInAddNewPlugin', T_(__LINE__. "Can not add this plugin. Please contact to administrator"));
 				return false;
 			}
 		}
@@ -161,7 +161,6 @@ class activate
 		{
 			// in request activate needless to save start date and end date
 			// // calculate start date and end date and fill the $insert_action
-			// self::calculate_start_date_expire_date($plugin, $plugin_id, $data['periodic'], $insert_action);
 		}
 
 
@@ -171,7 +170,7 @@ class activate
 		if(!$action_id)
 		{
 			\dash\pdo::rollback();
-			\dash\log::oops('ErrorInAddNewPluginAction', T_("Can not add this action. Please contact to administrator"));
+			\dash\log::oops('ErrorInAddNewPluginAction', T_(__LINE__. "Can not add this action. Please contact to administrator"));
 			return false;
 		}
 
@@ -411,21 +410,27 @@ class activate
 		}
 
 
-		$insert_transaction =
-		[
-			'user_id' => $user_id,
-			'title'   => T_("Activate plugin :val", ['val' => \lib\app\plugin\get::title($plugin)]),
-			'amount'  => $price,
-		];
+		$transaction_id = null;
 
-		$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
-
-		if(!$transaction_id || !is_numeric($transaction_id))
+		if($price)
 		{
-			\dash\pdo::rollback();
-			\dash\db::rollback();
-			\dash\log::oops('PluginAfterPayCanNotAddMinusTransaction', T_("Can not add this action. Please contact to administrator"));
-			return false;
+
+			$insert_transaction =
+			[
+				'user_id' => $user_id,
+				'title'   => T_("Activate plugin :val", ['val' => \lib\app\plugin\get::title($plugin)]),
+				'amount'  => $price,
+			];
+
+			$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
+
+			if(!$transaction_id || !is_numeric($transaction_id))
+			{
+				\dash\pdo::rollback();
+				\dash\db::rollback();
+				\dash\log::oops('PluginAfterPayCanNotAddMinusTransaction', T_(__LINE__. "Can not add this action. Please contact to administrator"));
+				return false;
+			}
 		}
 
 		// check if plugin type is once and activated before
@@ -497,7 +502,7 @@ class activate
 		{
 			\dash\pdo::rollback();
 			\dash\db::rollback();
-			\dash\log::oops('ErrorInAddNewPluginAction', T_("Can not add this action. Please contact to administrator"));
+			\dash\log::oops('ErrorInAddNewPluginAction', T_(__LINE__. "Can not add this action. Please contact to administrator"));
 			return false;
 		}
 
@@ -672,11 +677,5 @@ class activate
 
 	}
 
-
-
-	private static function calculate_start_date_expire_date($plugin, $plugin_id, $periodic, &$insert_action)
-	{
-
-	}
 }
 ?>
