@@ -439,7 +439,42 @@ class activate
 		if($plus_day)
 		{
 			// calculate start date and end date and fill the $insert_action
-			self::calculate_start_date_expire_date($plugin, $plugin_id, $periodic, $insert_action);
+			$action_description = null;
+
+			$get_max_expiredate = \lib\db\store_plugin_action\get::max_expire_date($plugin_id);
+			if(!$get_max_expiredate || !is_string($get_max_expiredate) || strtotime($get_max_expiredate) === false)
+			{
+				$action_description = 'Max expiredate not found or is not valid datetime';
+				$datestart = time();
+			}
+			elseif(a($exist_plugin_record, 'status') !== 'enable')
+			{
+				$action_description = 'Master plugin record is not enable!';
+				$datestart = time();
+			}
+			else
+			{
+				$get_max_expiredate_time = strtotime($get_max_expiredate);
+				if($get_max_expiredate_time >= time())
+				{
+					$action_description = 'Start date set after last expire date';
+					$datestart = $get_max_expiredate_time;
+				}
+				else
+				{
+					$action_description = 'The start date was set today because the last expiration date has passed';
+					$datestart = time();
+				}
+			}
+
+			$plus_day  = \lib\app\plugin\get::plus_day($plugin, $periodic);
+
+
+			$insert_action['datestart']  = date("Y-m-d H:i:s", $datestart);
+			$insert_action['plusday']    = $plus_day;
+			$insert_action['expiredate'] = date("Y-m-d H:i:s", $datestart + \lib\app\plugin\get::day_to_time($plus_day));
+			$insert_action['desc']       = $action_description;
+
 			$update_plugin['expiredate'] = $insert_action['expiredate'];
 		}
 
@@ -631,30 +666,7 @@ class activate
 
 	private static function calculate_start_date_expire_date($plugin, $plugin_id, $periodic, &$insert_action)
 	{
-		$get_max_expiredate = \lib\db\store_plugin_action\get::max_expire_date($plugin_id);
-		if(!$get_max_expiredate || !is_string($get_max_expiredate) || strtotime($get_max_expiredate) === false)
-		{
-			$datestart = time();
-		}
-		else
-		{
-			$get_max_expiredate_time = strtotime($get_max_expiredate);
-			if($get_max_expiredate_time >= time())
-			{
-				$datestart = $get_max_expiredate_time;
-			}
-			else
-			{
-				$datestart = time();
-			}
-		}
 
-		$plus_day  = \lib\app\plugin\get::plus_day($plugin, $periodic);
-
-
-		$insert_action['datestart']  = date("Y-m-d H:i:s", $datestart);
-		$insert_action['plusday']    = $plus_day;
-		$insert_action['expiredate'] = date("Y-m-d H:i:s", $datestart + \lib\app\plugin\get::day_to_time($plus_day));
 	}
 }
 ?>
