@@ -150,8 +150,9 @@ class activate
 		}
 		else
 		{
-			// calculate start date and end date and fill the $insert_action
-			self::calculate_start_date_expire_date($plugin, $plugin_id, $data['periodic'], $insert_action);
+			// in request activate needless to save start date and end date
+			// // calculate start date and end date and fill the $insert_action
+			// self::calculate_start_date_expire_date($plugin, $plugin_id, $data['periodic'], $insert_action);
 		}
 
 
