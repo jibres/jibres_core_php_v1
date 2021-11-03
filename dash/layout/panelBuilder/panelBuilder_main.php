@@ -13,8 +13,6 @@ else
 	{
 		echo $pageNav;
 	}
-
-	require_once ('admin-titlebox.php');
 	if(\dash\data::listEngine())
 	{
 		if(\dash\data::listEngine_before() && is_string(\dash\data::listEngine_before()) && is_file(\dash\data::listEngine_before()))

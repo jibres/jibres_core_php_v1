@@ -12,7 +12,7 @@ class pageNav
       return null;
     }
 
-    $html = '<div class="titleBox-v2">';
+    $html = '<div class="titleBox-v2 mb-2">';
     {
       $html .= '<div class="flex flex-wrap content-center align-center">';
       {
@@ -73,7 +73,8 @@ class pageNav
     $html = '';
     $html .= '<div class="flex-none backBtn">';
     {
-      $html .= '<a class="btn-light btn-icon btn-sm" href="'. \dash\data::back_link(). '" ';
+      $desc = T_("Press F8 to go back");
+      $html .= '<a class="btn-light btn-icon btn-sm" data-shortkey="119" title="'. $desc. '" href="'. \dash\data::back_link(). '" ';
       if(\dash\data::back_direct())
       {
         $html .= 'data-direct';
@@ -89,6 +90,8 @@ class pageNav
          $html .= \dash\utility\icon::svg('ChevronLeft', 'minor');
         }
         $html .= '<span>'. \dash\data::back_text(). '</span>';
+        // $html .= '<kbd class="mx-1">F8</kbd>';
+
       }
       $html .= '</a>';
     }
@@ -157,7 +160,8 @@ class pageNav
   private static function saveBtn()
   {
     $html = '';
-    $html .= '<button class="btn-success btnSave" data-shortkey="115"';
+    $desc = T_("Press F4 to save");
+    $html .= '<button class="btn-success btnSave" data-shortkey="115" title="'. $desc. '"';
     if(\dash\face::btnSave())
     {
       $html .= ' form="'. \dash\face::btnSave(). '"';
@@ -176,7 +180,7 @@ class pageNav
     {
       $html .= T_("Save");
     }
-    $html .= ' <kbd class="mx-1">F4</kbd>';
+    // $html .= ' <kbd class="mx-1">F4</kbd>';
     $html .= "</button>";
 
     return $html;
@@ -186,7 +190,8 @@ class pageNav
   private static function insertBtn()
   {
     $html = '';
-    $html .= '<button class="btn-primary btnInsert" data-shortkey="119"';
+    $desc = T_("Press F4 to add");
+    $html .= '<button class="btn-primary btnInsert" data-shortkey="115" title="'. $desc. '"';
     if(\dash\face::btnInsert())
     {
       $html .= ' form="'. \dash\face::btnInsert(). '"';
@@ -205,7 +210,7 @@ class pageNav
     {
       $html .= T_("Add");
     }
-    $html .= ' <kbd class="mx-1">F8</kbd>';
+    // $html .= ' <kbd class="mx-1">F4</kbd>';
     $html .= "</button>";
 
     return $html;
