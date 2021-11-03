@@ -22,7 +22,7 @@ class pageNav
         }
         $html .= '<div class="flex-grow px-5 font-bold">'. \dash\face::title(). '</div>';
         // actionGroup
-        $html .= '<nav class="actions flex-none">';
+        $html .= '<nav class="actionExtra flex-none mx-1">';
         {
           $html .= self::btn(\dash\face::btnImport(), T_("Import"), ['icon' => 'import', 'iconGroup' => 'minor']);
           $html .= self::btn(\dash\face::btnExport(), T_("Export"), ['icon' => 'export', 'iconGroup' => 'minor']);
@@ -38,6 +38,26 @@ class pageNav
         if(\dash\face::btnPrev() || \dash\face::btnNext() or 1)
         {
           $html .= self::nextPrevBtn();
+        }
+
+        if(\dash\face::btnSave() || \dash\face::btnInsert() || \dash\data::action_link())
+        {
+          $html .= '<nav class="actionPrimary flex justify-between">';
+          if(\dash\data::action_text() && \dash\data::action_link())
+          {
+            $btnClass = "btn-primary";
+            $html .= '<a class="'. $btnClass. '" href="'. \dash\data::action_link(). '" data-shortkey="120"><span>'. \dash\data::action_text(). '</span>';
+            $html .= ' <kbd class="mx-1">F9</kbd></a>';
+          }
+          if(\dash\face::btnSave())
+          {
+            $html .= self::saveBtn();
+          }
+          if(\dash\face::btnInsert())
+          {
+            $html .= self::insertBtn();
+          }
+          $html .= '</nav>';
         }
       }
       $html .= '</div>';
@@ -80,7 +100,7 @@ class pageNav
   private static function btn($_link, $_text = null, $_arg = null)
   {
     $html = '';
-    if($_link or 1)
+    if($_link)
     {
       $html .= '<a';
       {
@@ -134,6 +154,63 @@ class pageNav
   }
 
 
+  private static function saveBtn()
+  {
+    $html = '';
+    $html .= '<button class="btn-success btnSave" data-shortkey="115"';
+    if(\dash\face::btnSave())
+    {
+      $html .= ' form="'. \dash\face::btnSave(). '"';
+    }
+    $html .= " name='submitall'";
+    if(\dash\face::btnSaveValue())
+    {
+      $html .= " value='". \dash\face::btnSaveValue(). "'";
+    }
+    $html .= '>';
+    if(\dash\face::btnSaveText())
+    {
+      $html .= \dash\face::btnSaveText();
+    }
+    else
+    {
+      $html .= T_("Save");
+    }
+    $html .= ' <kbd class="mx-1">F4</kbd>';
+    $html .= "</button>";
+
+    return $html;
+  }
+
+
+  private static function insertBtn()
+  {
+    $html = '';
+    $html .= '<button class="btn-primary btnInsert" data-shortkey="119"';
+    if(\dash\face::btnInsert())
+    {
+      $html .= ' form="'. \dash\face::btnInsert(). '"';
+    }
+    $html .= " name='submitall'";
+    if(\dash\face::btnSaveValue())
+    {
+      $html .= " value='". \dash\face::btnSaveValue(). "'";
+    }
+    $html .= '>';
+    if(\dash\face::btnInsertValue())
+    {
+      $html .= \dash\face::btnInsertValue();
+    }
+    else
+    {
+      $html .= T_("Add");
+    }
+    $html .= ' <kbd class="mx-1">F8</kbd>';
+    $html .= "</button>";
+
+    return $html;
+  }
+
 
   private static function nextPrevBtn()
   {
@@ -146,7 +223,7 @@ class pageNav
     }
 
     $html = '';
-    $html .= '<nav>';
+    $html .= '<nav class="actionNextPrev mx-1">';
     {
       $html .= self::btn(\dash\face::btnPrev(), 'P', ['icon' => $prevIcon, 'iconGroup' => 'minor', 'desc' => T_("Previous item")]);
       $html .= self::btn(\dash\face::btnNext(), 'N', ['icon' => $nextIcon, 'iconGroup' => 'minor', 'desc' => T_("Next item")]);
