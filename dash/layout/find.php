@@ -129,8 +129,9 @@ class find
 
 	public static function header()
 	{
-		$myHeader = \dash\layout\func::page_header();
-		$headerScroll = null;
+		$myHeader      = \dash\layout\func::page_header();
+		$myHeaderNewClass = null;
+		$headerScroll  = null;
 
 		// set header for some scenario
 		// if we dont have header
@@ -148,7 +149,7 @@ class find
 			elseif(\dash\data::include_adminPanelBuilder())
 			{
 				// siteBuilder panels
-				$myHeader = core.'layout/panelBuilder/panelBuilder_header.php';
+				$myHeaderNewClass = \dash\layout\panelBuilder\header::html();
 			}
 			elseif($myContent === 'content')
 			{
@@ -190,6 +191,12 @@ class find
 		echo ">";
 
 		// add desktop header
+		if($myHeaderNewClass)
+		{
+			echo "<div class='desktop'>";
+			echo $myHeaderNewClass;
+			echo "</div>";
+		}
 		if($myHeader)
 		{
 			echo "<div class='desktop'>";
