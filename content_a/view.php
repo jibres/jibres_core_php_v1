@@ -38,6 +38,7 @@ class view
 
 		\dash\upload\size::set_default_file_size();
 
+		\dash\data::include_m2(true);
 
 		// hide sidebar on accounting
 		switch (\dash\url::module())

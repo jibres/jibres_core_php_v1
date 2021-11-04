@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Dashboard of :store", ['store' => \dash\face::site()]));
+		\dash\face::title(T_("Dashboard"));
 
 		\dash\face::desc(T_('Glance at your store summary and compare some important data together and enjoy Jibres!'). ' '. T_('Have a good day;)'));
 
