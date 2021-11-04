@@ -35,7 +35,14 @@ class sidebar
 	 */
 	private static function sidebar_menu()
 	{
-		$menu = [];
+		/**
+		 * Define
+		 */
+		$menu    = [];
+		$kingdom = \dash\url::kingdom();
+		$module  = \dash\url::module();
+		$child   = \dash\url::child();
+
 
 		/*========================================
 		=            Home / Dashboard            =
@@ -53,6 +60,7 @@ class sidebar
 		if(!\dash\url::module())
 		{
 			$menu['home']['selected'] = true;
+			$menu['home']['iconColor'] = 'green';
 		}
 		/*=====  End of Home / Dashboard  ======*/
 
@@ -63,32 +71,53 @@ class sidebar
 		$menu["orders"] =
 		[
 			'title'     => T_("Orders"),
-			'url'       => \dash\url::kingdom().'/a/order',
+			'url'       => $kingdom. '/a/order',
 			'icon'      => 'orders',
 			'iconColor' => '#a1b2c3',
 			'class'     => null,
 			'selected'  => false,
 		];
 
-		if(\dash\url::module() === 'order')
+		if(in_array($module, ['order', 'cart', 'sale']))
 		{
-			$menu['orders']['selected'] = true;
+			$menu['orders']['iconColor'] = 'green';
 
 
 			$orders_child = [];
 
-			$orders_child['all_orders'] =
+			$orders_child['all'] =
 			[
 				'title'    => T_("All orders"),
-				'url'      => \dash\url::this(),
-				'selected' => null,
+				'url'      => $kingdom. '/a/order',
+				'selected' => ($module === 'order' && !$child),
 			];
 
-			if(!\dash\url::child())
-			{
-				$orders_child['all_orders']['selected'] = true;
-				$menu['orders']['selected']             = false;
-			}
+
+			$orders_child['unprocessed'] =
+			[
+				'title'    => T_("Unprocessed Order"),
+				'url'      => $kingdom. '/a/order/unprocessed',
+				'selected' => $child === 'unprocessed',
+			];
+
+
+			$orders_child['cart'] =
+			[
+				'title'    => T_("Cart"),
+				'url'      => $kingdom. '/a/cart',
+				'selected' => $module === 'cart',
+			];
+
+
+			$orders_child['sale'] =
+			[
+				'title'    => T_("Sale Invoicing"),
+				'url'      => $kingdom. '/a/sale',
+				'selected' => $module === 'sale',
+			];
+
+
+
 
 			$menu['orders']['child'] = $orders_child;
 
