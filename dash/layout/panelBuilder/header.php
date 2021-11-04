@@ -15,51 +15,49 @@ class header
       $targetLink = ' target="_blank"';
     }
 
-    $html .= '<div class="h-full flex flex-wrap content-center align-center px-3">';
+    $html .= '<div class="h-full flex content-center align-center px-3">';
     {
       // logo
-      $html .= '<a class="logo" href="'. $masterUrl. '"';
+      $html .= '<a class="btn-light transition rounded-lg h-12 flex align-center max-w-sm overflow-hidden logo mx-1" href="'. $masterUrl. '"';
       if($targetLink)
       {
         $html .= $targetLink;
       }
       $html .= '>';
-      $html .= '<img class="h-12 w-12 rounded-lg" src="'. \dash\face::logo(). '" alt="'. \dash\face::site(). '">';
+      $html .= '<img class="h-8 w-8 rounded-lg" src="'. \dash\face::logo(). '" alt="'. \dash\face::site(). '">';
+      $html .= '<h1 class="mx-2 flex-grow line-clamp-1">';
+      $html .= \dash\face::site();
+      $html .= '</h1>';
       $html .= '</a>';
 
-      // title
-      $html .= '<h1 class="mx-2 flex-grow">';
-      $html .= '<a class="cauto logo" href="'. $masterUrl. '"';
-      if($targetLink)
+      // empty
+      $html .= '<div class="mx-1 flex-grow search">';
       {
-        $html .= $targetLink;
+        $html .= '<select class="select22 rounded-lg" data-model="html" data-ajax--url="'. \dash\url::here(). '/setting/search/full" data-shortkey-search data-placeholder="'. T_("Search"). '"></select>';
       }
-      $html .= '>';
-      $html .= \dash\face::site();
-      $html .= '</a>';
-      $html .= '</h1>';
+      $html .= '</div>';
 
 
       if(\dash\url::support())
       {
-        $html .= '<a class="h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::support(). '" target="_blank" title="'. T_("Help Center"). '">';
+        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::support(). '" target="_blank" title="'. T_("Help Center"). '">';
         $html .= \dash\utility\icon::svg('Question Mark Inverse');
         $html .= '</a>';
       }
 
       if(\dash\user::id())
       {
-        $html .= '<a class="h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::kingdom(). '/a/order/unprocessed" title="'. T_("Unprocessed Orders"). '">';
+        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::kingdom(). '/a/order/unprocessed" title="'. T_("Unprocessed Orders"). '">';
         $html .= \dash\utility\icon::svg('First Order');
         $html .= '</a>';
 
         // notification
-        $html .= '<a class="h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '">';
+        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '">';
         $html .= \dash\utility\icon::svg('Notification');
         $html .= '</a>';
 
         // avatar
-        $html .= '<a class="h-12 w-12 p-1 mx-1 btn-light transition rounded-lg" href="'. \dash\url::kingdom(). '/account" title="'. \dash\user::detail('displayname'). '">';
+        $html .= '<a class="flex-none h-12 w-12 p-1 mx-1 btn-light transition rounded-lg" href="'. \dash\url::kingdom(). '/account" title="'. \dash\user::detail('displayname'). '">';
         if(\dash\user::detail('avatar'))
         {
           $html .= '<img class="rounded-full" src="'. \dash\fit::img(\dash\user::detail('avatar')). '" alt="'. \dash\user::detail('displayname'). '">';
@@ -75,7 +73,7 @@ class header
       else
       {
         // enter to jibres
-        $html .= '<a class="h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::kingdom(). '/enter?referer='. urlencode(\dash\url::location()). '" title="'. T_("Enter to have better experience"). '">';
+        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::kingdom(). '/enter?referer='. urlencode(\dash\url::location()). '" title="'. T_("Enter to have better experience"). '">';
         $html .= \dash\utility\icon::svg('Circle Alert', null, '#c80a5a');
         $html .= '</a>';
       }
