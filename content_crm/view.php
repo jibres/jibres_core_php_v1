@@ -10,7 +10,7 @@ class view
 		\dash\upload\size::set_default_file_size('crm');
 
 
-		// \dash\data::include_m2(true);
+		\dash\data::include_m2(true);
 	}
 }
 ?>

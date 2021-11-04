@@ -163,36 +163,37 @@ class sidebar
 		===========================*/
 		$menu["crm"] =
 		[
-			'title'     => T_("CRM"). ' - '. T_("Customers"),
+			'title'     => "CRM". ' - '. T_("Customers"),
 			'url'       => $kingdom. '/crm',
 			'icon'      => 'Customers',
 			'iconColor' => '#a1b2c3',
 		];
 
 
-		// if(in_array($module, ['products']))
-		// {
-		// 	$menu['products']['iconColor'] = 'green';
+		if(in_array($content, ['crm']))
+		{
+			$menu['crm']['iconColor'] = $blue;
+			$menu['crm']['selected']  = true;
 
-		// 	$crm_crm = [];
+			$crm_child = [];
 
-		// 	$crm_crm['all'] =
-		// 	[
-		// 		'title'    => T_("All customers"),
-		// 		'url'      => $kingdom. '/crm',
-		// 		'selected' => ($content === 'products' && !$child),
-		// 	];
+			$crm_child['all'] =
+			[
+				'title'    => T_("All customers"),
+				'url'      => $kingdom. '/crm/member',
+				'selected' => ($content === 'crm'),
+			];
 
+			$crm_child['add'] =
+			[
+				'title'    => T_("All new customer"),
+				'url'      => $kingdom. '/crm/member/add',
+				'selected' => ($content === 'crm'),
+			];
 
-		// 	$crm_crm['add'] =
-		// 	[
-		// 		'title'    => T_("Add product"),
-		// 		'url'      => $kingdom. '/a/products/add',
-		// 		'selected' => ($child === 'add'),
-		// 	];
+			$menu['crm']['child'] = $crm_child;
+		}
 
-		// 	$menu['products']['child'] = $crm_crm;
-		// }
 		/*=====  End of CRM  ======*/
 
 
