@@ -146,6 +146,10 @@ class find
 				// admin panels
 				$myHeader = core.'layout/admin/admin-header.php';
 			}
+			elseif(\dash\data::include_adminPanelBuilder() === 'siteLivePreview')
+			{
+				$myHeader = core.'layout/panelBuilder/panelBuilder_header.php';
+			}
 			elseif(\dash\data::include_adminPanelBuilder())
 			{
 				// siteBuilder panels
