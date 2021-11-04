@@ -610,7 +610,7 @@ class call_function
 
 						$feature_key = implode('_', ['site', $folder, $_section_key, $model]);
 
-						$price = \lib\features\get::price($feature_key);
+						// $price = \lib\features\get::price($feature_key);
 					}
 
 					$version = (a($load_preview, 'version') ? $load_preview['version'] : 1);
