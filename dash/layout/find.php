@@ -146,14 +146,17 @@ class find
 				// admin panels
 				$myHeader = core.'layout/admin/admin-header.php';
 			}
-			elseif(\dash\data::include_adminPanelBuilder() === 'siteLivePreview')
+			elseif(\dash\data::include_adminV2())
 			{
-				$myHeader = core.'layout/panelBuilder/panelBuilder_header.php';
-			}
-			elseif(\dash\data::include_adminPanelBuilder())
-			{
-				// siteBuilder panels
-				$myHeaderNewClass = \dash\layout\panelBuilder\header::html();
+				if(\dash\data::include_adminV2() === 'siteBuilder')
+				{
+					$myHeader = core.'layout/panelBuilder/panelBuilder_header.php';
+				}
+				else
+				{
+					// siteBuilder panels
+					$myHeaderNewClass = \dash\layout\panelBuilder\header::html();
+				}
 			}
 			elseif($myContent === 'content')
 			{

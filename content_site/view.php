@@ -11,6 +11,8 @@ class view
 		\dash\face::slogan(T_("Integrated Sales and Online Accounting"));
 
 
+		\dash\data::include_adminV2(true);
+
 		switch (\dash\url::directory())
 		{
 			case null:
@@ -20,6 +22,9 @@ class view
 				break;
 
 			default:
+				// detect siteBuilder to use titleBox inside haeder
+				\dash\data::include_adminV2('siteBuilder');
+
 				// show display inside sidebar and iframe in page center
 				\dash\data::include_adminPanelBuilder("siteLivePreview");
 				break;
