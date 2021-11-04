@@ -150,7 +150,7 @@ class find
 			{
 				if(\dash\data::include_m2() === 'siteBuilder')
 				{
-					$myHeader = core.'layout/m2/panelBuilder_header.php';
+					$myHeader = core.'layout/m2/header_siteBuilder.php';
 				}
 				else
 				{
