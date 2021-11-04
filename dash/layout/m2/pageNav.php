@@ -12,7 +12,7 @@ class pageNav
       return null;
     }
 
-    $html = '<div class="titleBox-v2 h-10 mb-2.5">';
+    $html = '<div class="titleBox-v2 h-10 mb-2.5 hidden lg:block">';
     {
       $html .= '<div class="flex flex-wrap content-center align-center">';
       {
