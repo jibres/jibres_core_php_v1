@@ -25,7 +25,7 @@ class header
       }
       $html .= '>';
       $html .= '<img class="h-8 w-8 rounded-lg" src="'. \dash\face::logo(). '" alt="'. \dash\face::site(). '">';
-      $html .= '<h1 class="mx-2 flex-grow line-clamp-1">';
+      $html .= '<h1 class="pLa10 flex-grow line-clamp-1">';
       $html .= \dash\face::site();
       $html .= '</h1>';
       $html .= '</a>';
