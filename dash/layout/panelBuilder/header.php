@@ -18,24 +18,28 @@ class header
     $html .= '<div class="h-full flex content-center align-center px-3">';
     {
       // logo
-      $html .= '<a class="btn-light transition rounded-lg h-12 flex align-center max-w-sm overflow-hidden logo mx-1" href="'. $masterUrl. '"';
+      $html .= '<a class="btn-light transition flex-none rounded-lg h-12 flex align-center max-w-sm overflow-hidden logo mx-1" href="'. $masterUrl. '"';
       if($targetLink)
       {
         $html .= $targetLink;
       }
       $html .= '>';
       $html .= '<img class="h-8 w-8 rounded-lg" src="'. \dash\face::logo(). '" alt="'. \dash\face::site(). '">';
-      $html .= '<h1 class="pLa10 flex-grow line-clamp-1">';
+      $html .= '<h1 class="pLa10 line-clamp-1">';
       $html .= \dash\face::site();
       $html .= '</h1>';
       $html .= '</a>';
 
       // empty
-      $html .= '<div class="mx-1 flex-grow search">';
+      $html .= '<div class="mx-1 flex-grow flex-shrink1 search">';
       {
-        $html .= '<select class="select22 rounded-lg" data-model="html" data-ajax--url="'. \dash\url::here(). '/setting/search/full" data-shortkey-search data-placeholder="'. T_("Search"). '"></select>';
+        $html .= '<div class="mx-auto max-w-md">';
+        $html .= '<select class="select22 rounded-lg mx-auto" data-model="html" data-ajax--url="'. \dash\url::here(). '/setting/search/full" data-shortkey-search data-placeholder="'. T_("Search"). '"></select>';
+        $html .= '</div>';
       }
       $html .= '</div>';
+      // $html .= '<div class="flex-grow">';
+      // $html .= '</div>';
 
 
       if(\dash\url::support())
