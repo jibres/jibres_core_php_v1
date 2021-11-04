@@ -1,5 +1,5 @@
 <?php
-namespace dash\layout\panelBuilder;
+namespace dash\layout\m2;
 
 class sidebarMenu
 {

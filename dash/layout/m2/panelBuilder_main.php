@@ -4,11 +4,11 @@
 <?php
 if(\dash\data::include_adminPanelBuilder() !== true)
 {
-	require_once(core. 'layout/panelBuilder/panelBuilder_main_iframe.php');
+	require_once(core. 'layout/m2/panelBuilder_main_iframe.php');
 }
 else
 {
-	$pageNav = \dash\layout\panelBuilder\pageNav::html();
+	$pageNav = \dash\layout\m2\pageNav::html();
 	if($pageNav)
 	{
 		echo $pageNav;

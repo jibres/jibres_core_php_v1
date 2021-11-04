@@ -79,10 +79,10 @@ class find
 				// admin panels
 				$myMain = core.'layout/admin/admin-main.php';
 			}
-			elseif(\dash\data::include_adminPanelBuilder())
+			elseif(\dash\data::include_m2())
 			{
 				// admin panels
-				$myMain = core.'layout/panelBuilder/panelBuilder_main.php';
+				$myMain = core.'layout/m2/panelBuilder_main.php';
 			}
 			elseif(\dash\engine\content::get() === 'content')
 			{
@@ -146,16 +146,16 @@ class find
 				// admin panels
 				$myHeader = core.'layout/admin/admin-header.php';
 			}
-			elseif(\dash\data::include_adminV2())
+			elseif(\dash\data::include_m2())
 			{
-				if(\dash\data::include_adminV2() === 'siteBuilder')
+				if(\dash\data::include_m2() === 'siteBuilder')
 				{
-					$myHeader = core.'layout/panelBuilder/panelBuilder_header.php';
+					$myHeader = core.'layout/m2/panelBuilder_header.php';
 				}
 				else
 				{
 					// siteBuilder panels
-					$myHeaderNewClass = \dash\layout\panelBuilder\header::html();
+					$myHeaderNewClass = \dash\layout\m2\header::html();
 				}
 			}
 			elseif($myContent === 'content')
@@ -254,9 +254,9 @@ class find
 				// 	$myFooter = root.'content_business/home/layout/footer.php';
 				// }
 			}
-			// elseif(\dash\data::include_adminPanelBuilder())
+			// elseif(\dash\data::include_m2())
 			// {
-			// 	$myFooter = core.'layout/panelBuilder/panelBuilder_footer.php';
+			// 	$myFooter = core.'layout/m2/panelBuilder_footer.php';
 			// }
 		}
 
@@ -275,7 +275,7 @@ class find
 			$footerPWA = \dash\layout\pwa\footer2::html();
 			echo $footerPWA;
 		}
-		else if(\dash\data::include_adminPanelBuilder())
+		else if(\dash\data::include_m2())
 		{
 			$footerPWA = \dash\layout\pwa\footer2::html();
 			echo $footerPWA;
@@ -297,18 +297,18 @@ class find
 			require_once core.'layout/admin/admin-sidebar.php';
 			echo "\n";
 		}
-		elseif(\dash\data::include_adminPanelBuilder())
+		elseif(\dash\data::include_m2())
 		{
 			// change condition to turn on with flag or use address to enable old sidebar for sitebuilder
 			if(\dash\url::isLocal() && \dash\url::content() !== 'site')
 			{
 				// new menu builder
-				echo \dash\layout\panelBuilder\sidebar::html();
+				echo \dash\layout\m2\sidebar::html();
 			}
 			else
 			{
 				// siteBuilder panels
-				require_once core.'layout/panelBuilder/panelBuilder_sidebar.php';
+				require_once core.'layout/m2/panelBuilder_sidebar.php';
 			}
 		}
 		echo "</aside>";
