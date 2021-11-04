@@ -49,8 +49,9 @@ if(!is_array($dataTable))
 $andType = \dash\request::get('type') ? '&type='. \dash\request::get('type') : null;
 $sortLink = \dash\data::sortLink();
 ?>
+<div class="tblBox">
 
-  <table class="tbl1 v6 fs12 txtC">
+  <table class="tbl1 v6 fs12">
     <thead>
       <tr class="fs08">
         <th class="s0" data-sort="<?php echo a($sortLink, 'customer', 'order'); ?>"><a href="<?php echo a($sortLink, 'customer', 'link'); ?>"><?php echo T_("Customer"); ?></a></th>
@@ -86,7 +87,7 @@ $sortLink = \dash\data::sortLink();
             <?php if(isset($value['customer'])) {?>
             <a href="<?php echo \dash\url::this(); ?>?customer=<?php echo a($value, 'customer'); ?>">
               <?php if(isset($value['avatar'])) {?>
-                <img src="<?php echo $value['avatar']; ?>" class="avatar">
+                <img src="<?php echo $value['avatar']; ?>" class="rounded-lg w-7">
               <?php } ?>
               <?php if(isset($value['firstname']) || isset($value['lastname'])) {?>
               <?php echo a($value, 'firstname'); ?> <b><?php echo a($value, 'lastname'); ?></b>
@@ -134,7 +135,7 @@ $sortLink = \dash\data::sortLink();
           </td>
         </tr>
         <tr>
-          <td colspan="<?php if(!\dash\request::get('type')) {echo 11;}else{echo 10;}?>" class="pTB0-f txtLa">
+          <td colspan="<?php if(!\dash\request::get('type')) {echo 11;}else{echo 10;}?>" class="">
 
             <?php
 
@@ -153,14 +154,14 @@ $sortLink = \dash\data::sortLink();
               <?php $counterI++; ?>
               <?php if($counterI == 7) {?>
                 <?php $needMore = true; ?>
-                <a data-kerkere='.openDetailFactor_<?php echo a($value, 'id'); ?>' class="badge primary outline"><?php echo T_("More"); ?> ... <span class="mLR5">+<?php echo \dash\fit::number(intval($value['item']) - 6); ?></span></a>
+                <a data-kerkere='.openDetailFactor_<?php echo a($value, 'id'); ?>' class="badge primary outline"><?php echo T_("More"); ?> ... <span class="">+<?php echo \dash\fit::number(intval($value['item']) - 6); ?></span></a>
               <?php } //endif ?>
               <?php if($needMore) {?>
                 <?php $openKerkere = true;  ?>
                 <?php $needMore = false;  ?>
                 <div class="openDetailFactor_<?php echo a($value, 'id'); ?>" data-kerkere-content='hide'>
               <?php } //endif ?>
-                <a class="badge <?php if(\dash\request::get('product') == $myValue['id'])  {echo 'primary';}else{ echo 'secondary outline';}?> " href="<?php echo \dash\url::this(); ?>?product=<?php echo a($myValue, 'id'); ?>"><?php echo a($myValue, 'title'); ?> <span class="mLR5"><?php echo \dash\fit::number(a($myValue, 'count')); ?></span></a>
+                <a class=" bg-gray-200 p-1 px-2 rounded-lg text-xs <?php if(\dash\request::get('product') == $myValue['id'])  {echo 'primary2';}else{ echo 'secondary2 outline2';}?> " href="<?php echo \dash\url::this(); ?>?product=<?php echo a($myValue, 'id'); ?>"><?php echo a($myValue, 'title'); ?> <span class=""><?php echo \dash\fit::number(a($myValue, 'count')); ?></span></a>
             <?php } //endfor ?>
               <?php if($openKerkere) {?>
                 </div>
@@ -170,6 +171,7 @@ $sortLink = \dash\data::sortLink();
       <?php } //endfor ?>
     </tbody>
   </table>
+</div>
 <?php \dash\utility\pagination::html(); ?>
 <?php } // endfunction ?>
 

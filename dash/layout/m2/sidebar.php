@@ -80,7 +80,7 @@ class sidebar
 			'selected'  => false,
 		];
 
-		if(in_array($module, ['order', 'cart', 'sale']))
+		if(in_array($module, ['order', 'cart', 'sale', 'chap']))
 		{
 			$menu['orders']['iconColor'] = $blue;
 
@@ -90,7 +90,7 @@ class sidebar
 			[
 				'title'    => T_("All orders"),
 				'url'      => $kingdom. '/a/order',
-				'selected' => ($module === 'order' && !$child),
+				'selected' => (in_array($module, ['order', 'chap']) && $child !== 'unprocessed'),
 			];
 
 			$orders_child['unprocessed'] =
@@ -107,12 +107,6 @@ class sidebar
 				'selected' => $module === 'cart',
 			];
 
-			$orders_child['sale'] =
-			[
-				'title'    => T_("Sale Invoicing"),
-				'url'      => $kingdom. '/a/sale',
-				'selected' => $module === 'sale',
-			];
 
 			$menu['orders']['child'] = $orders_child;
 		}
