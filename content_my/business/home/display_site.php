@@ -25,7 +25,7 @@ myStores();
   <?php foreach (\dash\data::listStore_staff() as $key => $value) {?>
 
   <div class="c4 xauto s12 pRa10">
-    <a href='<?php echo a($value, 'url'); ?>/a' class="scard">
+    <a href='<?php echo a($value, 'url'); ?>/a' class="scard" data-direct>
       <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
       <div class="body">
         <h2><?php echo a($value, 'title'); ?></h2>
@@ -56,7 +56,7 @@ myStores();
     <?php foreach ($listStore_owner as $key => $value) {?>
 
   <div class="c6 x4 s12 pRa10">
-    <a href='<?php echo a($value, 'url'); ?>/a' class="scardLarge grBlue3">
+    <a href='<?php echo a($value, 'url'); ?>/a' class="scardLarge grBlue3" data-direct>
       <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
       <h2><?php echo a($value, 'title'); ?></h2>
       <div class="f summary">
@@ -100,7 +100,7 @@ myStores();
   <?php foreach ($listStore_owner as $key => $value) {?>
 
   <div class="c4 xauto s12 pRa10">
-    <a href='<?php echo a($value, 'url'); ?>/a' class="scard">
+    <a href='<?php echo a($value, 'url'); ?>/a' class="scard" data-direct>
       <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
       <div class="body">
         <h2><?php echo a($value, 'title'); ?></h2>

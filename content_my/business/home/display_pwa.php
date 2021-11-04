@@ -23,7 +23,7 @@
    <ul>
     <?php foreach (\dash\data::listStore_staff() as $key => $value) {?>
      <li>
-      <a class="f align-center" href="<?php echo a($value, 'url'); ?>/a">
+      <a class="f align-center" href="<?php echo a($value, 'url'); ?>/a" data-direct>
        <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
        <div class="key"><?php echo a($value, 'title'); ?></div>
        <div class="go"></div>
