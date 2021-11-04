@@ -40,8 +40,10 @@ class sidebar
 		 */
 		$menu    = [];
 		$kingdom = \dash\url::kingdom();
+		$content = \dash\url::content();
 		$module  = \dash\url::module();
 		$child   = \dash\url::child();
+		$blue    = '#009ef7';
 
 
 		/*========================================
@@ -57,10 +59,10 @@ class sidebar
 			'selected'  => false,
 		];
 
-		if(!\dash\url::module())
+		if($content === 'a' && !$module)
 		{
 			$menu['home']['selected'] = true;
-			$menu['home']['iconColor'] = 'green';
+			$menu['home']['iconColor'] = $blue;
 		}
 		/*=====  End of Home / Dashboard  ======*/
 
@@ -80,7 +82,7 @@ class sidebar
 
 		if(in_array($module, ['order', 'cart', 'sale']))
 		{
-			$menu['orders']['iconColor'] = 'green';
+			$menu['orders']['iconColor'] = $blue;
 
 			$orders_child = [];
 
@@ -132,7 +134,7 @@ class sidebar
 
 		if(in_array($module, ['products']))
 		{
-			$menu['products']['iconColor'] = 'green';
+			$menu['products']['iconColor'] = $blue;
 
 			$product_child = [];
 
@@ -140,7 +142,7 @@ class sidebar
 			[
 				'title'    => T_("All products"),
 				'url'      => $kingdom. '/a/products',
-				'selected' => ($module === 'products' && !$child),
+				'selected' => ($module === 'products' && $child !== 'add'),
 			];
 
 
@@ -156,14 +158,47 @@ class sidebar
 		/*=====  End of Products  ======*/
 
 
+		/*===========================
+		=            CRM            =
+		===========================*/
 		$menu["crm"] =
 		[
 			'title'     => T_("CRM"). ' - '. T_("Customers"),
-			'url'       => \dash\url::kingdom().'/crm',
+			'url'       => $kingdom. '/crm',
 			'icon'      => 'Customers',
 			'iconColor' => '#a1b2c3',
 		];
 
+
+		// if(in_array($module, ['products']))
+		// {
+		// 	$menu['products']['iconColor'] = 'green';
+
+		// 	$crm_crm = [];
+
+		// 	$crm_crm['all'] =
+		// 	[
+		// 		'title'    => T_("All customers"),
+		// 		'url'      => $kingdom. '/crm',
+		// 		'selected' => ($content === 'products' && !$child),
+		// 	];
+
+
+		// 	$crm_crm['add'] =
+		// 	[
+		// 		'title'    => T_("Add product"),
+		// 		'url'      => $kingdom. '/a/products/add',
+		// 		'selected' => ($child === 'add'),
+		// 	];
+
+		// 	$menu['products']['child'] = $crm_crm;
+		// }
+		/*=====  End of CRM  ======*/
+
+
+		/*=================================
+		=            Analytics            =
+		=================================*/
 		$menu["analytics"] =
 		[
 			'title'     => T_("Analytics"),
@@ -172,6 +207,17 @@ class sidebar
 			'iconColor' => '#a1b2c3',
 		];
 
+		/*=====  End of Analytics  ======*/
+
+
+
+		/*=============================================
+		=            Section comment block            =
+		=============================================*/
+
+
+
+		/*=====  End of Section comment block  ======*/
 
 		$menu["discounts"] =
 		[
