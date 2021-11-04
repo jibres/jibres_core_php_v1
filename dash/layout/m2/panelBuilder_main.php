@@ -8,10 +8,13 @@ if(\dash\data::include_adminPanelBuilder() !== true)
 }
 else
 {
-	$pageNav = \dash\layout\m2\pageNav::html();
-	if($pageNav)
+	if(\dash\data::include_m2() !== 'siteBuilder')
 	{
-		echo $pageNav;
+		$pageNav = \dash\layout\m2\pageNav::html();
+		if($pageNav)
+		{
+			echo $pageNav;
+		}
 	}
 	if(\dash\data::listEngine())
 	{
