@@ -16,7 +16,7 @@ class view
 		\dash\data::back_link(\dash\url::here());
 		\dash\data::back_direct(true);
 
-		\dash\data::include_adminPanelBuilder(true);
+		\dash\data::include_m2(true);
 
 
 		\dash\data::listEngine_start(true);

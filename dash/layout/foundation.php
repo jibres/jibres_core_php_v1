@@ -130,7 +130,7 @@ if(\dash\engine\store::inBusinessWebsite())
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-migrate-v1.css'). ' rel="stylesheet"/>'."\n";
 }
-else if(\dash\data::include_adminPanelBuilder())
+else if(\dash\data::include_m2())
 {
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-migrate-v1.css'). ' rel="stylesheet"/>'."\n";
@@ -188,9 +188,9 @@ if(\dash\data::include_adminPanel())
     echo " data-panel";
   }
 }
-if(\dash\data::include_adminPanelBuilder())
+if(\dash\data::include_m2())
 {
-  echo " data-siteBuilder";
+  echo " data-m2";
 }
 if(\dash\engine\store::inStore() && \lib\store::enterprise())
 {

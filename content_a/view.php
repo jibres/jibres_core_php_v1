@@ -18,6 +18,12 @@ class view
 			\dash\face::boxTitle(false);
 		}
 
+		// @todo -> temporary enable m2 for all of modules inside a
+		if(\dash\url::module() == 'discount' || \dash\url::module() == 'discount')
+		{
+			\dash\data::include_m2(true);
+		}
+
 		\dash\data::include_adminPanel(true);
 		// use old version of chart until new version is being stable
 

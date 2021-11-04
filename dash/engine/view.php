@@ -277,20 +277,13 @@ class view
 
 			\dash\data::userBadge_desc($txtDesc);
 		}
-		if(\dash\data::include_adminPanelBuilder())
+		// admin v2
+		if(\dash\data::include_m2())
 		{
 			\dash\data::global_panel(null);
 			\dash\data::global_siteBuilder('');
 
 			\dash\data::include_adminPanel(false);
-			\dash\data::global_scriptPage('a_site_builder.js');
-		}
-		// admin v2
-		if(\dash\data::include_adminV2())
-		{
-			\dash\data::global_panel(null);
-			\dash\data::global_siteBuilder('');
-
 			\dash\data::include_adminPanel(false);
 			\dash\data::global_scriptPage('a_site_builder.js');
 		}

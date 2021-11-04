@@ -2,7 +2,7 @@
 
 
 <?php
-if(\dash\data::include_adminPanelBuilder() !== true)
+if(\dash\data::include_m2() !== true)
 {
 	require_once(core. 'layout/m2/panelBuilder_main_iframe.php');
 }

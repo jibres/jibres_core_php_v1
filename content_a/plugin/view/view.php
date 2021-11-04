@@ -15,20 +15,12 @@ class view
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
-		
-
-		\dash\data::include_adminPanelBuilder(true);
-
 
 		// load budget from jibres api
 		$my_jibres_budget = \lib\api\jibres\api::budget();
 
 
 		\dash\data::myBudget($my_jibres_budget);
-
-
-
-
 	}
 }
 ?>

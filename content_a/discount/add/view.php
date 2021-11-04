@@ -23,8 +23,6 @@ class view
 		\dash\face::btnSaveValue('save_and_publish');
 		\dash\face::btnSaveText(T_("Save"));
 
-		\dash\data::include_adminPanelBuilder(true);
-
 		if(\dash\data::editMode())
 		{
 			\dash\data::discountDedicate(\lib\app\discount\dedicated::load_all_dedicated(\dash\request::get('id')));

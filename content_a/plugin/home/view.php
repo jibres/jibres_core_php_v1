@@ -8,14 +8,10 @@ class view
 	{
 		\dash\face::title(T_("Jibres plugins"));
 
-
 		// back
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 		\dash\data::back_direct(true);
-
-		\dash\data::include_adminPanelBuilder(true);
-
 
 		$args              = [];
 		$args['category']  = \dash\request::get('category');
@@ -26,7 +22,6 @@ class view
 
 		\dash\data::pluginList(a($plugin, 'list'));
 		\dash\data::pluginKeywords(a($plugin, 'keywords'));
-
 	}
 }
 ?>

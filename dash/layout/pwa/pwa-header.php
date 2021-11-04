@@ -149,7 +149,7 @@ if(!\dash\face::disablePWA_Header())
     echo "</button>";
   }
   // show hamburget menu icon
-  if(\dash\data::hamburger() || \dash\data::include_adminPanelBuilder())
+  if(\dash\data::hamburger() || \dash\data::include_m2())
   {
     echo "<div class='square hamburger sidenavHandler'>";
     {
