@@ -9,7 +9,7 @@
     </div>
 
 
-      <table class="tbl1 v4 txtC fs13 productList" data-item='0'>
+      <table class="tbl1 v4 txtC text-sm productList" data-item='0'>
    <thead>
     <tr class="fs08">
      <th class="headIndex collapsing"><?php echo T_("Row"); ?></th>
@@ -77,9 +77,7 @@
       <?php } //endif ?>
 
 
-      <button class="cauto btn success block factor_save_btn" type="submit" name="save_btn" value="save_next" id='save_nextContinue' data-shortkey='115'><?php echo T_("Save Factor & Continue"); ?> <kbd class="floatRa mT5">f4</kbd></button>
-
-      <button class="cauto btn secondary block factor_save_btn mT10" type="submit" name="save_btn" value="save_print" id='save_nextPrint' data-shortkey='119'><?php echo T_("Save & Print"); ?> <kbd class="floatRa mT5">f8</kbd></button>
+      <button class="btn-secondary cauto block w-full factor_save_btn mt-1" type="submit" name="save_btn" value="save_print" id='save_nextPrint' data-shortkey='120'><?php echo T_("Save & Print"); ?> <kbd class="floatRa mT5">f9</kbd></button>
     </div>
 
   </div>
