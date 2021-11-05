@@ -300,7 +300,7 @@ class find
 		elseif(\dash\data::include_m2())
 		{
 			// change condition to turn on with flag or use address to enable old sidebar for sitebuilder
-			if(\dash\url::isLocal() && \dash\url::content() !== 'site')
+			if(\dash\url::isLocal())
 			{
 				// new menu builder
 				echo \dash\layout\m2\sidebar::html();

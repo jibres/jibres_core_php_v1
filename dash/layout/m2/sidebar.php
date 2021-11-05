@@ -282,32 +282,152 @@ class sidebar
 		];
 
 
-		$menu["siteBuilder"] =
+		/*===================================
+		=            SiteBuilder            =
+		===================================*/
+		$menu["site"] =
 		[
 			'title'     => T_("Online Website"),
-			'url'       => \dash\url::kingdom().'/a/sitebuilder',
+			'url'       => \dash\url::kingdom().'/site',
 			'icon'      => 'Online Store',
-			'child'     => self::list_crm(),
 			'iconColor' => 'green',
 		];
 
+		if(in_array($content, ['site']))
+		{
+			$menu['site']['iconColor'] = $blue;
+			// $menu['site']['selected']  = true;
 
+			$sidebar_links = [];
+
+			if(\dash\permission::check('_group_cms'))
+			{
+			  $sidebar_links[] =
+			  [
+				'url'   => \dash\url::kingdom(). '/cms',
+				'title'  => T_("Content Management"). T_(" & "). T_("Blog"),
+				// 'icon'   => 'Note',
+				'direct' => true,
+			  ];
+			}
+
+
+			if(\dash\permission::check('cmsAttachmentView'))
+			{
+			  $sidebar_links[] =
+			  [
+				'url'   => \dash\url::kingdom(). '/cms/files',
+				'title'  => T_("Files"),
+				// 'icon'   => 'Folder',
+				'direct' => true,
+			  ];
+			}
+
+
+
+			if(\dash\permission::check('siteBuilderSetting'))
+			{
+			  $sidebar_links[] =
+			  [
+				'url'   => \dash\url::kingdom(). '/a/setting/legal',
+				'title'  => T_("Legal pages"),
+				// 'icon'   => 'FraudProtectUnprotected',
+				'direct' => true,
+			  ];
+			}
+
+			$sidebar_links[] =
+			[
+			  'url'   => \dash\url::here(). '/sitemap',
+			  'title'  => T_("Sitemap"),
+			  // 'icon'   => 'Globe',
+			  'direct' => false,
+			];
+
+
+			if(\dash\permission::check('siteBuilderSetting'))
+			{
+			  $sidebar_links[] =
+			  [
+				'url'   => \dash\url::kingdom(). '/a/setting/domain',
+				'title'  => T_("domain"),
+				// 'icon'   => 'Domains',
+				'direct' => true,
+			  ];
+
+			}
+
+			if(\dash\permission::check('siteBuilderSetting'))
+			{
+			  $sidebar_links[] =
+			  [
+				'url'   => \dash\url::here(). '/staticfile',
+				'title'  => T_("Static file"),
+				// 'icon'   => 'Tools',
+				'direct' => false,
+			  ];
+			}
+
+
+
+
+			$sidebar_links[] =
+			[
+			  'url'   => \dash\url::kingdom(). '/a/setting/menu',
+			  'title'  => T_("Menu"),
+			  // 'icon'   => 'MobileHamburger',
+			  'direct' => true,
+			];
+
+			if(\dash\permission::check('siteBuilderSetting'))
+			{
+			  $sidebar_links[] =
+			  [
+				'url'   => \dash\url::here(). '/autosave',
+				'title'  => T_("Setting auto-save and publish"),
+				// 'icon'   => 'FlipCamera',
+				'direct' => false,
+				'selected' => ($module === 'autosave'),
+			  ];
+			}
+
+
+
+			$menu['site']['child'] = $sidebar_links;
+		}
+
+		/*=====  End of SiteBuilder  ======*/
+
+
+		/*===================================
+		=            Application            =
+		===================================*/
 		$menu["android"] =
 		[
 			'title'     => T_("Mobile App"),
-			'url'       => \dash\url::kingdom().'/a/pos',
+			'url'       => \dash\url::kingdom().'/a/android',
 			'icon'      => 'mobile',
 			'iconColor' => '#a1b2c3',
 		];
 
+		if(in_array($module, ['android']))
+		{
+			$menu['android']['iconColor'] = $blue;
+			$menu['android']['selected']  = true;
+		}
 
-		$menu["pos"] =
-		[
-			'title'     => T_("Point of Sale"),
-			'url'       => \dash\url::kingdom().'/a/pos',
-			'icon'      => 'point of sale',
-			'iconColor' => '#a1b2c3',
-		];
+
+		/*=====  End of Application  ======*/
+
+
+
+		// $menu["pos"] =
+		// [
+		// 	'title'     => T_("Point of Sale"),
+		// 	'url'       => \dash\url::kingdom().'/a/pos',
+		// 	'icon'      => 'point of sale',
+		// 	'iconColor' => '#a1b2c3',
+		// ];
 
 
 		$menu["seperator2"] =
@@ -317,13 +437,16 @@ class sidebar
 		];
 
 
-		$menu["plugins"] =
-		[
-			'title'     => T_("Plugins"),
-			'url'       => \dash\url::kingdom().'/a/plugins',
-			'icon'      => 'Apps',
-			'iconColor' => '#da9e51',
-		];
+		if(\dash\url::isLocal())
+		{
+			$menu["plugins"] =
+			[
+				'title'     => T_("Plugins"),
+				'url'       => \dash\url::kingdom().'/a/plugins',
+				'icon'      => 'Apps',
+				'iconColor' => '#da9e51',
+			];
+		}
 
 
 
