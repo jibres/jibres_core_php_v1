@@ -56,7 +56,7 @@ class header
         $html .= '</a>';
 
         // notification
-        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg notification" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '">';
+        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg notification" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '" data-direct>';
         $html .= \dash\utility\icon::svg('Notification');
         $html .= '</a>';
 
