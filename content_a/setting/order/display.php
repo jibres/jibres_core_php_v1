@@ -11,7 +11,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/minimum"><?php echo T_("Set") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/minimum"><?php echo T_("Set") ?></a>
     </div>
   </form>
 </section>
@@ -28,7 +28,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/validity"><?php echo T_("Set") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/validity"><?php echo T_("Set") ?></a>
     </div>
   </form>
 </section>
@@ -59,7 +59,7 @@
     </div>
   </form>
   <footer class="txtRa">
-    <a class="link btn" href="<?php echo \dash\url::this(). '/thirdparty' ?>"><?php echo T_("Manage Online payment config") ?></a>
+    <a class="btn-outline-link btn-sm" href="<?php echo \dash\url::this(). '/thirdparty' ?>"><?php echo T_("Manage Online payment config") ?></a>
   </footer>
 </section>
 
@@ -93,7 +93,7 @@
     </div>
   </form>
   <footer class="txtRa">
-    <a class="link btn" href="<?php echo \dash\url::this(). '/thirdparty' ?>"><?php echo T_("Manage Online payment config") ?></a>
+    <a class="btn-outline-link btn-sm" href="<?php echo \dash\url::this(). '/thirdparty' ?>"><?php echo T_("Manage Online payment config") ?></a>
   </footer>
 </section>
 </div>
@@ -156,7 +156,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/cartlimit"><?php echo T_("Set") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/cartlimit"><?php echo T_("Set") ?></a>
     </div>
   </form>
 </section>
@@ -172,7 +172,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/carttext"><?php echo T_("Set") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/carttext"><?php echo T_("Set") ?></a>
     </div>
   </form>
 </section>
@@ -194,7 +194,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-        <a class="btn primary" href="<?php echo \dash\url::that(). '/schedule'; ?>"><?php echo T_("Set") ?></a>
+        <a class="btn-primary" href="<?php echo \dash\url::that(). '/schedule'; ?>"><?php echo T_("Set") ?></a>
     </div>
   </form>
 </section>
@@ -215,9 +215,9 @@
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
       <?php if(\lib\store::detail('satisfaction_survey')) {?>
-        <a class="btn primary" href="<?php echo \dash\url::here(). '/form/edit?id='. \lib\store::detail('satisfaction_survey'); ?>"><?php echo T_("Edit") ?></a>
+        <a class="btn-primary" href="<?php echo \dash\url::here(). '/form/edit?id='. \lib\store::detail('satisfaction_survey'); ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
-        <div class="btn primary" data-ajaxify data-data='{"create": "satisfaction_survey"}'><?php echo T_("Create") ?></div>
+        <div class="btn-primary" data-ajaxify data-data='{"create": "satisfaction_survey"}'><?php echo T_("Create") ?></div>
       <?php } //endif ?>
     </div>
   </form>
@@ -242,9 +242,9 @@
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
       <?php if(\lib\store::detail('shipping_survey')) {?>
-        <a class="btn primary" href="<?php echo \dash\url::here(). '/form/edit?id='. \lib\store::detail('shipping_survey'); ?>"><?php echo T_("Edit") ?></a>
+        <a class="btn-primary" href="<?php echo \dash\url::here(). '/form/edit?id='. \lib\store::detail('shipping_survey'); ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
-        <div class="btn primary" data-ajaxify data-data='{"create": "shipping_survey"}'><?php echo T_("Create") ?></div>
+        <div class="btn-primary" data-ajaxify data-data='{"create": "shipping_survey"}'><?php echo T_("Create") ?></div>
       <?php } //endif ?>
     </div>
   </form>

@@ -34,14 +34,9 @@ After setting this text, you will see a sample of it at the bottom of this page"
         </div>
       </div>
       <footer class="txtRa">
-        <button  class="btn success" ><?php echo T_("Save"); ?></button>
+        <button  class="btn-success" ><?php echo T_("Save"); ?></button>
       </footer>
   </div>
-    <?php if(\dash\data::cartSettingSaved_page_text()) {?>
-      <div class="fs12">
-        <div class="msg <?php echo \dash\data::cartSettingSaved_color_class() ?>"><?php echo nl2br(\dash\data::cartSettingSaved_page_text()) ?></div>
-      </div>
-    <?php } //endif ?>
 </div>
 
 </form>
