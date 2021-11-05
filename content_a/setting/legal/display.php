@@ -16,18 +16,18 @@ $choose_url = \dash\url::that(). '/choosepage';
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
      <?php if(a($policyPageDetail, 'aboutus_page', 'code')) {?>
-        <a class="btn primary" href="<?php echo a($policyPageDetail, 'aboutus_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
+        <a class="btn-primary" href="<?php echo a($policyPageDetail, 'aboutus_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
-        <button data-ajaxify data-data='{"template": "template", "mode": "aboutus_page"}' class="btn"><?php echo T_("Create from template") ?></button>
+        <button data-ajaxify data-data='{"template": "template", "mode": "aboutus_page"}' class="btn-outline-secondary "><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
     </div>
   </form>
   <footer class="txtRa">
     <?php if(\dash\data::havePublishedPost()) {?>
        <?php if(a($policyPageDetail, 'aboutus_page', 'code')) {?>
-          <a class="btn link" href="<?php echo $choose_url . '?page=aboutus_page' ?>"><?php echo T_("Change with existing post") ?></a>
+          <a class="btn-light btn-sm p-1 m-1 " href="<?php echo $choose_url . '?page=aboutus_page' ?>"><?php echo T_("Change with existing post") ?></a>
        <?php }else{ ?>
-          <a class="btn link" href="<?php echo $choose_url . '?page=aboutus_page' ?>"><?php echo T_("Choose from existing post") ?></a>
+          <a class="btn-light btn-sm p-1 m-1 " href="<?php echo $choose_url . '?page=aboutus_page' ?>"><?php echo T_("Choose from existing post") ?></a>
        <?php } //endif ?>
    <?php } //endif ?>
   </footer>
@@ -46,18 +46,18 @@ $choose_url = \dash\url::that(). '/choosepage';
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
      <?php if(a($policyPageDetail, 'refund_policy_page', 'code')) {?>
-        <a class="btn primary" href="<?php echo a($policyPageDetail, 'refund_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
+        <a class="btn-primary" href="<?php echo a($policyPageDetail, 'refund_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
-        <button data-ajaxify data-data='{"template": "template", "mode": "refund_policy_page"}' class="btn"><?php echo T_("Create from template") ?></button>
+        <button data-ajaxify data-data='{"template": "template", "mode": "refund_policy_page"}' class="btn-outline-secondary "><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
     </div>
   </form>
   <footer class="txtRa">
     <?php if(\dash\data::havePublishedPost()) {?>
        <?php if(a($policyPageDetail, 'refund_policy_page', 'code')) {?>
-          <a class="btn link" href="<?php echo $choose_url . '?page=refund_policy_page' ?>"><?php echo T_("Change with existing post") ?></a>
+          <a class="btn-light btn-sm p-1 m-1 " href="<?php echo $choose_url . '?page=refund_policy_page' ?>"><?php echo T_("Change with existing post") ?></a>
        <?php }else{ ?>
-          <a class="btn link" href="<?php echo $choose_url . '?page=refund_policy_page' ?>"><?php echo T_("Choose from existing post") ?></a>
+          <a class="btn-light btn-sm p-1 m-1 " href="<?php echo $choose_url . '?page=refund_policy_page' ?>"><?php echo T_("Choose from existing post") ?></a>
        <?php } //endif ?>
    <?php } //endif ?>
   </footer>
@@ -78,18 +78,18 @@ $choose_url = \dash\url::that(). '/choosepage';
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
      <?php if(a($policyPageDetail, 'privacy_policy_page', 'code')) {?>
-        <a class="btn primary" href="<?php echo a($policyPageDetail, 'privacy_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
+        <a class="btn-primary" href="<?php echo a($policyPageDetail, 'privacy_policy_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
-        <button data-ajaxify data-data='{"template": "template", "mode": "privacy_policy_page"}' class="btn"><?php echo T_("Create from template") ?></button>
+        <button data-ajaxify data-data='{"template": "template", "mode": "privacy_policy_page"}' class="btn-outline-secondary "><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
     </div>
   </form>
   <footer class="txtRa">
     <?php if(\dash\data::havePublishedPost()) {?>
        <?php if(a($policyPageDetail, 'privacy_policy_page', 'code')) {?>
-          <a class="btn link" href="<?php echo $choose_url . '?page=privacy_policy_page' ?>"><?php echo T_("Change with existing post") ?></a>
+          <a class="btn-light btn-sm p-1 m-1 " href="<?php echo $choose_url . '?page=privacy_policy_page' ?>"><?php echo T_("Change with existing post") ?></a>
        <?php }else{ ?>
-          <a class="btn link" href="<?php echo $choose_url . '?page=privacy_policy_page' ?>"><?php echo T_("Choose from existing post") ?></a>
+          <a class="btn-light btn-sm p-1 m-1 " href="<?php echo $choose_url . '?page=privacy_policy_page' ?>"><?php echo T_("Choose from existing post") ?></a>
        <?php } //endif ?>
    <?php } //endif ?>
   </footer>
@@ -107,18 +107,18 @@ $choose_url = \dash\url::that(). '/choosepage';
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
      <?php if(a($policyPageDetail, 'termsofservice_page', 'code')) {?>
-        <a class="btn primary" href="<?php echo a($policyPageDetail, 'termsofservice_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
+        <a class="btn-primary" href="<?php echo a($policyPageDetail, 'termsofservice_page', 'detail', 'edit_link') ?>"><?php echo T_("Edit") ?></a>
       <?php }else{ ?>
-        <button data-ajaxify data-data='{"template": "template", "mode": "termsofservice_page"}' class="btn"><?php echo T_("Create from template") ?></button>
+        <button data-ajaxify data-data='{"template": "template", "mode": "termsofservice_page"}' class="btn-outline-secondary "><?php echo T_("Create from template") ?></button>
       <?php } //endif ?>
     </div>
   </form>
   <footer class="txtRa">
     <?php if(\dash\data::havePublishedPost()) {?>
        <?php if(a($policyPageDetail, 'termsofservice_page', 'code')) {?>
-          <a class="btn link" href="<?php echo $choose_url . '?page=termsofservice_page' ?>"><?php echo T_("Change with existing post") ?></a>
+          <a class="btn-light btn-sm p-1 m-1 " href="<?php echo $choose_url . '?page=termsofservice_page' ?>"><?php echo T_("Change with existing post") ?></a>
        <?php }else{ ?>
-          <a class="btn link" href="<?php echo $choose_url . '?page=termsofservice_page' ?>"><?php echo T_("Choose from existing post") ?></a>
+          <a class="btn-light btn-sm p-1 m-1 " href="<?php echo $choose_url . '?page=termsofservice_page' ?>"><?php echo T_("Choose from existing post") ?></a>
        <?php } //endif ?>
    <?php } //endif ?>
   </footer>
