@@ -23,7 +23,7 @@ class visitcard1_html
 					{
 						$html .= '<div class="logo w-64 h-64 md:w-64 md:h-64 m-auto mt-5 md:mt-auto">';
 						{
-							$html .= '<img class="w-full '. $borderRadius. '" src="'. $logoSrc .'" alt='. $title .'>';
+							$html .= '<img class="w-full '. $borderRadius. '" src="'. $logoSrc .'" alt="'. $title .'">';
 						}
 						$html .= '</div>';
 					}
