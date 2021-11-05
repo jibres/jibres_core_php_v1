@@ -8,8 +8,8 @@ class view
 	{
 		\dash\face::title(T_('Content Management System'));
 
-		\dash\data::back_text(T_("Website Builder"));
-		\dash\data::back_link(\dash\url::kingdom(). '/site');
+		\dash\data::back_text(T_("Dashboard"));
+		\dash\data::back_link(\dash\url::kingdom(). '/a');
 		\dash\data::back_direct(true);
 
 		\dash\data::action_text(T_('Add New Post'));

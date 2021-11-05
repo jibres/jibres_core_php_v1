@@ -11,8 +11,8 @@ class view
 		\dash\data::action_text(T_('Upload'));
 		\dash\data::action_link(\dash\url::this(). '/add');
 
-		\dash\data::back_text(T_('Website Builder'));
-		\dash\data::back_link(\dash\url::kingdom(). '/site');
+		\dash\data::back_text(T_('Dashboard'));
+		\dash\data::back_link(\dash\url::kingdom(). '/a');
 		\dash\data::back_direct(true);
 
 		$dashboard_detail = \dash\app\files\dashboard::detail();
