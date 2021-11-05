@@ -49,7 +49,7 @@ if(!is_array($dataTable))
 $andType = \dash\request::get('type') ? '&type='. \dash\request::get('type') : null;
 $sortLink = \dash\data::sortLink();
 ?>
-<div class="tblBox">
+<div class="tblBox mt-3">
 
   <table class="tbl1 v6 fs12">
     <thead>
@@ -76,7 +76,7 @@ $sortLink = \dash\data::sortLink();
           <th class="s0" data-sort="<?php echo a($sortLink, 'type', 'order'); ?>"><a href="<?php echo a($sortLink, 'type', 'link'); ?>"><?php echo T_("Type"); ?></a></th>
         <?php } //endif ?>
 
-        <th><?php echo T_("Operation"); ?></th>
+        <th class="collapsing"><?php echo T_("Operation"); ?></th>
       </tr>
 
     </thead>
@@ -120,22 +120,19 @@ $sortLink = \dash\data::sortLink();
           <?php } //endif ?>
           <td ><a href="<?php echo \dash\url::this(); ?>?total=<?php echo a($value, 'total'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'total')); ?></a></td>
           <td class="collapsing">
-            <div class="f">
-              <div class="c s0 fs09"><?php echo \dash\fit::date_time(a($value, 'date')); ?></div>
-              <div class="cauto os txtB pRa10"><?php echo \dash\fit::date_human(a($value, 'date')); ?></div>
-
+            <?php echo \dash\fit::date_time(a($value, 'date')); ?>
           </td>
           <td><?php echo a($value, 't_paystatus') ?></td>
           <?php if(!\dash\request::get('type')) {?>
 
           <td class="s0" ><a class="badge" href="<?php echo \dash\url::this(); ?>?type=<?php echo a($value, 'type'); ?>"><?php echo T_(ucfirst(a($value, 'type'))); ?></a></td>
           <?php } //endif ?>
-          <td>
-            <a href="<?php echo \dash\url::this(); ?>/detail?id=<?php echo a($value, 'id'); ?>" class="btn link"><?php echo T_("View"); ?></a>
+          <td class="collapsing">
+            <a href="<?php echo \dash\url::this(); ?>/detail?id=<?php echo a($value, 'id'); ?>" class="btn-outline-secondary"><?php echo T_("View"); ?></a>
           </td>
         </tr>
         <tr>
-          <td colspan="<?php if(!\dash\request::get('type')) {echo 11;}else{echo 10;}?>" class="">
+          <td colspan="<?php if(!\dash\request::get('type')) {echo 11;}else{echo 10;}?>" class="p-1">
 
             <?php
 
@@ -154,14 +151,14 @@ $sortLink = \dash\data::sortLink();
               <?php $counterI++; ?>
               <?php if($counterI == 7) {?>
                 <?php $needMore = true; ?>
-                <a data-kerkere='.openDetailFactor_<?php echo a($value, 'id'); ?>' class="badge primary outline"><?php echo T_("More"); ?> ... <span class="">+<?php echo \dash\fit::number(intval($value['item']) - 6); ?></span></a>
+                <a data-kerkere='.openDetailFactor_<?php echo a($value, 'id'); ?>' class="bg-gray-200 p-1 px-2 rounded-lg text-xs"><?php echo T_("More"); ?> ... <span class="">+<?php echo \dash\fit::number(intval($value['item']) - 6); ?></span></a>
               <?php } //endif ?>
               <?php if($needMore) {?>
                 <?php $openKerkere = true;  ?>
                 <?php $needMore = false;  ?>
                 <div class="openDetailFactor_<?php echo a($value, 'id'); ?>" data-kerkere-content='hide'>
               <?php } //endif ?>
-                <a class=" bg-gray-200 p-1 px-2 rounded-lg text-xs <?php if(\dash\request::get('product') == $myValue['id'])  {echo 'primary2';}else{ echo 'secondary2 outline2';}?> " href="<?php echo \dash\url::this(); ?>?product=<?php echo a($myValue, 'id'); ?>"><?php echo a($myValue, 'title'); ?> <span class=""><?php echo \dash\fit::number(a($myValue, 'count')); ?></span></a>
+                <a class="bg-gray-200 p-1 px-2 rounded-lg text-xs <?php if(\dash\request::get('product') == $myValue['id'])  {echo 'bg-blue-300 text-black';}else{ echo '';}?> " href="<?php echo \dash\url::this(); ?>?product=<?php echo a($myValue, 'id'); ?>"><?php echo a($myValue, 'title'); ?> <span class=""><?php echo \dash\fit::number(a($myValue, 'count')); ?></span></a>
             <?php } //endfor ?>
               <?php if($openKerkere) {?>
                 </div>
@@ -177,7 +174,7 @@ $sortLink = \dash\data::sortLink();
 
 
 <?php function htmlFilter() {?>
-<p class="f fs14 msg warn2 mT20">
+<p class="f fs14 jalert-info p-3 rounded-lg mt-3 mT20">
   <span class="c"></span>
   <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
@@ -185,7 +182,7 @@ $sortLink = \dash\data::sortLink();
 
 
 <?php function htmlFilterNoResult() {?>
-<p class="f fs14 msg warn2">
+<p class="f fs14 jalert-info p-3 rounded-lg mt-3">
   <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
   <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
@@ -193,7 +190,7 @@ $sortLink = \dash\data::sortLink();
 
 
 <?php function htmlStartAddNew() {?>
-<p class="fs14 msg success2 pTB20"><?php echo T_("Hi!"); ?>
+<p class="fs14 jalert-success pTB20"><?php echo T_("Hi!"); ?>
   <?php if(\dash\permission::check('factorSaleAdd')) {?><a href="<?php echo \dash\url::here(); ?>/sale"><?php echo T_("Try to start with add new sale!"); ?></a><?php } // endif ?>
 </p>
 <?php } // endfunction ?>
