@@ -164,6 +164,7 @@ class model
 			\lib\app\setting\setup::save_pos($post);
 
 			\dash\notif::clean();
+			\dash\notif::complete();
 
 			return true;
 		}
