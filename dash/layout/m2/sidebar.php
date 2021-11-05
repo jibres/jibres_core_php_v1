@@ -238,6 +238,60 @@ class sidebar
 
 
 
+		/*===========================
+		=            CMS            =
+		===========================*/
+		if(\dash\permission::check('_group_cms'))
+		{
+			$menu['cms'] =
+			[
+				'url'      => $kingdom. '/cms',
+				'title'    => T_("Content Management"),
+				'icon'      => 'Blog',
+			];
+
+		  	if(in_array($content, ['cms']) && $module !== 'files')
+			{
+				$menu['cms']['iconColor'] = $blue;
+
+				if(!$module)
+				{
+					$menu['cms']['selected']  = true;
+				}
+
+				$cms_child = [];
+
+				$cms_child['posts'] =
+				[
+					'title'    => T_("Posts"),
+					'url'      => $kingdom. '/cms/posts',
+					'selected' => ($module === 'posts'),
+				];
+
+
+				$cms_child['hashtag'] =
+				[
+					'title'    => T_("Hashtag"),
+					'url'      => $kingdom. '/cms/hashtag',
+					'selected' => ($module === 'hashtag'),
+				];
+
+				$cms_child['comments'] =
+				[
+					'title'    => T_("Comments"),
+					'url'      => $kingdom. '/cms/comments',
+					'selected' => ($module === 'comments'),
+				];
+
+
+				$menu['cms']['child'] = $cms_child;
+			}
+		}
+
+
+		/*=====  End of CMS  ======*/
+
+
 
 
 		/*=================================
@@ -318,6 +372,32 @@ class sidebar
 
 
 
+		/*=============================
+		=            Files            =
+		=============================*/
+		if(\dash\permission::check('cmsAttachmentView'))
+		{
+
+			$menu['files'] =
+			[
+				'url'      => $kingdom. '/cms/files',
+				'title'    => T_("Files"),
+				'icon'      => 'Attachment',
+			];
+
+		  	if(in_array($content, ['cms']) && $module === 'files')
+			{
+				$menu['files']['iconColor'] = $blue;
+				$menu['files']['selected'] = true;
+			}
+		}
+
+
+		/*=====  End of Files  ======*/
+
+
+
+
 
 
 		/*===============================
@@ -331,7 +411,7 @@ class sidebar
 			'iconColor' => '#a1b2c3',
 		];
 
-		if(in_array($module, ['setting']) && !($content === 'a' && $module === 'setting' && in_array($child, ['legal', 'domain', 'menu'])))
+		if(in_array($module, ['setting']) && !($content === 'a' && $module === 'setting' && in_array($child, ['domain', 'menu'])))
 		{
 			$menu['settings']['iconColor'] = $blue;
 			$menu['settings']['selected']  = true;
@@ -376,7 +456,7 @@ class sidebar
 			'iconColor' => 'green',
 		];
 
-		if(in_array($content, ['site', 'cms',]) || ($content === 'a' && $module === 'setting' && in_array($child, ['legal', 'domain', 'menu'])))
+		if(in_array($content, ['site',]) || ($content === 'a' && $module === 'setting' && in_array($child, ['domain', 'menu'])))
 		{
 			$menu['site']['iconColor'] = $blue;
 			// $menu['site']['selected']  = true;
@@ -392,56 +472,6 @@ class sidebar
 				'selected' => ($content === 'site' && !in_array($module, ['sitemap', 'staticfile', 'autosave']))
 			];
 
-
-			if(\dash\permission::check('_group_cms'))
-			{
-			  $sidebar_links[] =
-			  [
-				'url'      => $kingdom. '/cms',
-				'title'    => T_("Content Management"). T_(" & "). T_("Blog"),
-				// 'icon'  => 'Note',
-				'direct'   => true,
-				'selected' => ($content === 'cms' && $module !== 'files')
-			  ];
-			}
-
-
-			if(\dash\permission::check('cmsAttachmentView'))
-			{
-			  $sidebar_links[] =
-			  [
-				'url'      => $kingdom. '/cms/files',
-				'title'    => T_("Files"),
-				// 'icon'  => 'Folder',
-				'direct'   => true,
-				'selected' => ($content === 'cms' && $module === 'files')
-			  ];
-			}
-
-
-
-			if(\dash\permission::check('siteBuilderSetting'))
-			{
-			  $sidebar_links[] =
-			  [
-				'url'      => $kingdom. '/a/setting/legal',
-				'title'    => T_("Legal pages"),
-				// 'icon'  => 'FraudProtectUnprotected',
-				'direct'   => true,
-				'selected' => ($content === 'a' && $module === 'setting' && $child === 'legal')
-			  ];
-			}
-
-			$sidebar_links[] =
-			[
-				'url'      => $kingdom. '/site/sitemap',
-				'title'    => T_("Sitemap"),
-				// 'icon'  => 'Globe',
-				'direct'   => false,
-				'selected' => ($module === 'sitemap'),
-			];
-
-
 			if(\dash\permission::check('siteBuilderSetting'))
 			{
 			  $sidebar_links[] =
@@ -454,6 +484,17 @@ class sidebar
 			  ];
 
 			}
+
+			$sidebar_links[] =
+			[
+				'url'      => $kingdom. '/site/sitemap',
+				'title'    => T_("Sitemap"),
+				// 'icon'  => 'Globe',
+				'direct'   => false,
+				'selected' => ($module === 'sitemap'),
+			];
+
+
 
 			if(\dash\permission::check('siteBuilderSetting'))
 			{
