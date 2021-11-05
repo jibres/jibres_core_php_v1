@@ -36,7 +36,7 @@
         <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
         </select>
       </div>
-      <div class="cauto"><i data-kerkere='.addNewCustomer' class="sf-plus btn outline mLa5 pLR10"></i></div>
+      <div class="cauto"><div data-kerkere='.addNewCustomer' class="btn-light"><?php echo \dash\utility\icon::svg('CirclePlus') ?></div></div>
     </div>
     <div class="addNewCustomer" data-kerkere-content='hide'>
       <div class="msg info2 mT10 mB0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
