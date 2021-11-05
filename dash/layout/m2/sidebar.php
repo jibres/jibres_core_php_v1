@@ -166,6 +166,8 @@ class sidebar
 		/*=====  End of Products  ======*/
 
 
+
+
 		/*===========================
 		=            CRM            =
 		===========================*/
@@ -205,6 +207,10 @@ class sidebar
 		/*=====  End of CRM  ======*/
 
 
+
+
+
+
 		/*=================================
 		=            Analytics            =
 		=================================*/
@@ -223,6 +229,11 @@ class sidebar
 		}
 
 		/*=====  End of Analytics  ======*/
+
+
+
+
+
 
 
 		/*================================
@@ -250,6 +261,11 @@ class sidebar
 		/*=====  End of Discount  ======*/
 
 
+
+
+
+
+
 		/*===============================
 		=            Setting            =
 		===============================*/
@@ -270,6 +286,12 @@ class sidebar
 		/*=====  End of Setting  ======*/
 
 
+
+
+
+		/*=================================
+		=            Seperator            =
+		=================================*/
 		$menu["seperator1"] =
 		[
 			'seperator' => true,
@@ -280,6 +302,13 @@ class sidebar
 		[
 			'title'     => T_("Sales Channels"),
 		];
+
+
+		/*=====  End of Seperator  ======*/
+
+
+
+
 
 
 		/*===================================
@@ -399,6 +428,9 @@ class sidebar
 		/*=====  End of SiteBuilder  ======*/
 
 
+
+
+
 		/*===================================
 		=            Application            =
 		===================================*/
@@ -416,8 +448,10 @@ class sidebar
 			$menu['android']['selected']  = true;
 		}
 
-
 		/*=====  End of Application  ======*/
+
+
+
 
 
 
@@ -430,15 +464,19 @@ class sidebar
 		// ];
 
 
-		$menu["seperator2"] =
-		[
-			'seperator' => true,
-			'desc' => 123,
-		];
+
+
 
 
 		if(\dash\url::isLocal())
 		{
+
+			$menu["seperator2"] =
+			[
+				'seperator' => true,
+				'desc' => 123,
+			];
+
 			$menu["plugins"] =
 			[
 				'title'     => T_("Plugins"),
@@ -450,51 +488,9 @@ class sidebar
 
 
 
-		// switch (\dash\url::content())
-		// {
-		// 	case 'a':
-		// 		switch (\dash\url::module())
-		// 		{
-		// 			case 'discount':
-		// 				$menu['list']['discounts']['selected'] = true;
-		// 				break;
-
-		// 			case 'null':
-		// 				$menu['list']['home']['selected'] = true;
-		// 				break;
-		// 			case 'products':
-		// 				$menu['list']['home']['selected'] = true;
-
-		// 			default:
-		// 				break;
-		// 		}
-		// 		break;
-
-		// 	default:
-		// 		break;
-		// }
 
 		return $menu;
 	}
 
-
-	public static function list_crm()
-	{
-		$menu =
-		[
-				"crm_home" =>
-				[
-					'title' => T_("Test1"),
-					'url' => \dash\url::kingdom().'/a',
-				],
-				"crm_home2" =>
-				[
-					'title' => T_("Test2"),
-					'url' => \dash\url::kingdom().'/a/orders',
-				],
-		];
-
-		return $menu;
-	}
 }
 ?>
