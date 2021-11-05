@@ -2,7 +2,7 @@
 
 
 <?php
-if(\dash\data::include_m2() !== true)
+if(\dash\data::include_adminPanelBuilder() === 'siteLivePreview')
 {
 	require_once(core. 'layout/m2/panelBuilder_main_iframe.php');
 }
