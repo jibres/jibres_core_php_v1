@@ -126,7 +126,7 @@ class sidebar
 		];
 
 
-		if(in_array($module, ['products', 'category', 'units']))
+		if(in_array($module, ['products', 'category', 'units', 'pricehistory']))
 		{
 			$menu['products']['iconColor'] = $blue;
 
@@ -136,7 +136,7 @@ class sidebar
 			[
 				'title'    => T_("All products"),
 				'url'      => $kingdom. '/a/products',
-				'selected' => ($module === 'products' && $child !== 'add'),
+				'selected' => (in_array($module, ['products', 'pricehistory']) && $child !== 'add'),
 			];
 
 

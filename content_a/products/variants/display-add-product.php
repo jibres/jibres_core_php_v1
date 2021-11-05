@@ -29,7 +29,7 @@
                       <th><?php echo T_("Stock"); ?></th>
                       <th><?php echo T_("Price"); ?></th>
                       <th><?php echo T_("Discount"); ?></th>
-                      <th class="collapsing"></th>
+                      <th class="collapsing">&nbsp;&nbsp;&nbsp;&nbsp;</th>
 
 
                     </tr>
@@ -77,7 +77,7 @@
                         </td>
 
                         <td class="collapsing">
-                          <div><i data-removeElTrigger class="sf-trash fc-red fs14"></i></div>
+                          <div data-removeElTrigger><?php echo \dash\utility\icon::svg("Delete", null, '#dc3545'); ?></div>
                         </td>
 
                       </tr>
