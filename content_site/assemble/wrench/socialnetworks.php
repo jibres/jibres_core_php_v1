@@ -17,7 +17,7 @@ class socialnetworks
         $imgSrc = \dash\url::cdn(). '/img/social/type1/linkedin.svg';
 
         $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'linkedin', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("linkedin"). '"';
+        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("linkedin"). '">';
         $html .= '</a>';
       }
 
@@ -26,7 +26,7 @@ class socialnetworks
         $imgSrc = \dash\url::cdn(). '/img/social/type1/github.svg';
 
         $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'github', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("github"). '"';
+        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("github"). '">';
         $html .= '</a>';
       }
 
@@ -35,7 +35,7 @@ class socialnetworks
         $imgSrc = \dash\url::cdn(). '/img/social/type1/facebook.svg';
 
         $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'facebook', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("facebook"). '"';
+        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("facebook"). '">';
         $html .= '</a>';
       }
 
@@ -44,7 +44,7 @@ class socialnetworks
         $imgSrc = \dash\url::cdn(). '/img/social/type1/twitter.svg';
 
         $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'twitter', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("twitter"). '"';
+        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("twitter"). '">';
         $html .= '</a>';
       }
 
@@ -53,7 +53,7 @@ class socialnetworks
         $imgSrc = \dash\url::cdn(). '/img/social/type1/email.svg';
 
         $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'email', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("email"). '"';
+        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("email"). '">';
         $html .= '</a>';
       }
 
@@ -62,7 +62,7 @@ class socialnetworks
         $imgSrc = \dash\url::cdn(). '/img/social/type1/instagram.svg';
 
         $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'instagram', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("instagram"). '"';
+        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("instagram"). '">';
         $html .= '</a>';
       }
 
@@ -72,7 +72,7 @@ class socialnetworks
         $imgSrc = \dash\url::cdn(). '/img/social/type1/telegram.svg';
 
         $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'telegram', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("telegram"). '"';
+        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("telegram"). '">';
         $html .= '</a>';
       }
 
