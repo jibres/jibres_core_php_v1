@@ -71,7 +71,7 @@ class view
 			$btnSaveAttr = 'data-notif="'.$msgAutoSave.'" data-notif-title="'.$titleAutoSave.'" data-notif-type="info" data-notif-icon="person"  data-alerty=""';
 			\dash\face::btnSave(true);
 			\dash\face::btnSaveText(T_("Auto Save & Publish"));
-			\dash\face::btnSaveClass('btn-secondary');
+			\dash\face::btnSaveClass('btn-outline-secondary btn-sm');
 			\dash\face::btnSaveAttr($btnSaveAttr);
 		}
 		/*=====  End of Btn save  ======*/
