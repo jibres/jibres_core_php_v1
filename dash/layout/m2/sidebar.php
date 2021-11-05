@@ -180,10 +180,13 @@ class sidebar
 		];
 
 
-		if(in_array($content, ['crm']))
+		if(in_array($content, ['crm']) || ($content === 'a' && $module === 'form'))
 		{
 			$menu['crm']['iconColor'] = $blue;
-			$menu['crm']['selected']  = true;
+			if(!$module)
+			{
+				$menu['crm']['selected']  = true;
+			}
 
 			$crm_child = [];
 
@@ -191,15 +194,41 @@ class sidebar
 			[
 				'title'    => T_("All customers"),
 				'url'      => $kingdom. '/crm/member',
-				'selected' => ($content === 'crm'),
+				'selected' => ($content === 'crm' &&  $module === 'member'),
 			];
 
-			$crm_child['add'] =
+			$crm_child['transactions'] =
 			[
-				'title'    => T_("All new customer"),
-				'url'      => $kingdom. '/crm/member/add',
-				'selected' => ($content === 'crm'),
+				'title'    => T_("Transactions"),
+				'url'      => $kingdom. '/crm/transactions',
+				'selected' => ($content === 'crm' && $module === 'transactions'),
 			];
+
+
+			$crm_child['form'] =
+			[
+				'title'    => T_("Form builder"),
+				'url'      => $kingdom. '/a/form',
+				'selected' => ($content === 'a' && $module === 'form'),
+			];
+
+
+			$crm_child['ticket'] =
+			[
+				'title'    => T_("Ticket"),
+				'url'      => $kingdom. '/crm/ticket',
+				'selected' => ($content === 'crm' && $module === 'ticket'),
+			];
+
+
+
+			$crm_child['permission'] =
+			[
+				'title'    => T_("Permission"),
+				'url'      => $kingdom. '/crm/permission',
+				'selected' => ($content === 'crm' && $module === 'permission'),
+			];
+
 
 			$menu['crm']['child'] = $crm_child;
 		}
