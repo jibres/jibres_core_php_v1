@@ -1,5 +1,5 @@
 <?php $urlHere = \dash\url::here(); ?>
-<div class="avand">
+<div class="">
   <nav class="items">
     <ul>
 

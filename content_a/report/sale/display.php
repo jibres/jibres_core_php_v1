@@ -13,7 +13,7 @@ $html = '';
 
 
 
-$html .= '<div class="avand">';
+$html .= '<div class="">';
 {
 	/*====================================
 	=            Filter chart            =

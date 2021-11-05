@@ -211,40 +211,64 @@ class sidebar
 		$menu["analytics"] =
 		[
 			'title'     => T_("Analytics"),
-			'url'       => \dash\url::kingdom().'/a/analytics',
+			'url'       => \dash\url::kingdom().'/a/report',
 			'icon'      => 'analytics',
 			'iconColor' => '#a1b2c3',
 		];
 
+		if(in_array($module, ['report']))
+		{
+			$menu['analytics']['iconColor'] = $blue;
+			$menu['analytics']['selected']  = true;
+		}
+
 		/*=====  End of Analytics  ======*/
 
 
+		/*================================
+		=            Discount            =
+		================================*/
+		if(\dash\url::isLocal())
+		{
+			$menu["discounts"] =
+			[
+				'title'     => T_("Discounts"),
+				'url'       => \dash\url::kingdom().'/a/discount',
+				'icon'      => 'Discounts',
+				'iconColor' => '#a1b2c3',
+			];
 
-		/*=============================================
-		=            Section comment block            =
-		=============================================*/
+			if(in_array($module, ['discount']))
+			{
+				$menu['discounts']['iconColor'] = $blue;
+				$menu['discounts']['selected']  = true;
+			}
+		}
 
 
 
-		/*=====  End of Section comment block  ======*/
-
-		$menu["discounts"] =
-		[
-			'title'     => T_("Discounts"),
-			'url'       => \dash\url::kingdom().'/a/discount',
-			'icon'      => 'Discounts',
-			'child'     => self::list_crm(),
-			'iconColor' => '#a1b2c3',
-		];
+		/*=====  End of Discount  ======*/
 
 
+		/*===============================
+		=            Setting            =
+		===============================*/
 		$menu["settings"] =
 		[
 			'title'     => T_("Settings"),
-			'url'       => \dash\url::kingdom().'/a/settings',
+			'url'       => \dash\url::kingdom().'/a/setting',
 			'icon'      => 'Settings',
 			'iconColor' => '#a1b2c3',
 		];
+
+		if(in_array($module, ['setting']))
+		{
+			$menu['settings']['iconColor'] = $blue;
+			$menu['settings']['selected']  = true;
+		}
+
+		/*=====  End of Setting  ======*/
+
 
 		$menu["seperator1"] =
 		[
