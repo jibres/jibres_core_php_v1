@@ -166,7 +166,7 @@ class site_list
 		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
 			$datalist['finalprice'] = $_data['finalprice'];
-			$priceTxt .= '<span class="txtB">'. \dash\fit::number($datalist['finalprice']). '</span>';
+			$priceTxt .= '<span class="font-bold">'. \dash\fit::number($datalist['finalprice']). '</span>';
 		}
 
 		if(isset($_data['buyprice']))
