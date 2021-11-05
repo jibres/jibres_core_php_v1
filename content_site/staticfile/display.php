@@ -6,22 +6,22 @@
         <p>
           <?php echo T_("You can set some file to route in your domain") ?>
         </p>
-        <div class="row align-end">
+        <div class="row ">
           <div class="c-xs-12 c">
             <label for="filename"><?php echo T_("File name"); ?> <span class="fc-red">* <?php echo T_("Required") ?></span></label>
-            <div class="input mB0-f ltr">
+            <div class="input ltr">
               <input placeholder="For example: 123456.html" type="text" name="filename" id="filename" <?php \dash\layout\autofocus::html() ?> required maxlength='50' minlength="1" >
             </div>
           </div>
           <div class="c-xs-12 c">
             <label for="filecontent"><?php echo T_("file content"); ?></label>
-            <div class="input mB0-f ltr">
+            <div class="input ltr">
               <input type="text" name="filecontent" id="filecontent" <?php \dash\layout\autofocus::html() ?> maxlength='200' minlength="1"  >
             </div>
 
           </div>
           <div class="c-xs-12 c-auto">
-            <button  class="btn master" ><?php echo T_("Add"); ?></button>
+            <button  class="btn-primary mt-6" ><?php echo T_("Add"); ?></button>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@
           <tr>
             <td><a target="_blank" href="<?php echo \lib\store::url(). '/'. $key; ?>"><i class="sf-link-external compact"></i> </a><?php echo $key; ?></td>
             <td><?php echo $value; ?></td>
-            <td><div class="btn linkDel" data-confirm data-data='{"remove": "file", "name": "<?php echo $key; ?>", "content" : "<?php echo $value; ?>"}'><i class="sf-trash fc-red fs14"></i></div></td>
+            <td><div class="" data-confirm data-data='{"remove": "file", "name": "<?php echo $key; ?>", "content" : "<?php echo $value; ?>"}'><div class="w-10 p-3 flex"><?php echo \dash\utility\icon::svg('Delete', null, '#bd2130') ?></div></div></td>
           </tr>
         <?php } //endfor ?>
       </tbody>
