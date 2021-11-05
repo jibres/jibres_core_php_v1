@@ -58,7 +58,7 @@ if(!is_array($dataTable))
 }
 ?>
 
-<nav class="items">
+<nav class="items mt-2">
   <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>

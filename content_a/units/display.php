@@ -24,7 +24,10 @@
 
 <?php function addNewUnit() {?>
 
-<div class="cbox">
+<div class="box">
+  <div class="body">
+
+
 
   <?php if(\dash\data::editMode()) {?>
 
@@ -85,6 +88,7 @@
 
     <?php }// endif ?>
   </form>
+</div>
 </div>
 
 <?php } //endfunction ?>
@@ -171,7 +175,8 @@
 
 <div class="f justify-center">
   <div class="x6 c5 m8 s12 pRa10">
-    <dvi class="cbox">
+    <dvi class="box">
+      <div class="body">
         <?php if(\dash\data::dataRow_count()) {?>
 
 
@@ -281,6 +286,7 @@
         <?php } //endif ?>
 
     </dvi>
+  </div>
   </div>
 </div>
 <?php }//endfunction ?>
