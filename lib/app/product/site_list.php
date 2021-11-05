@@ -104,13 +104,13 @@ class site_list
 
 		$result   = [];
 		$id       = null;
-		$name     = null;
+		$html     = '<div class="flex align-center">';
 		$datalist = [];
 		$priceTxt = '<span class="description ltr">';
 
 		if(isset($_data['thumb']))
 		{
-			$name .= '<img class="avatar image" src="'.  $_data['thumb'] .'"> ';
+			$html .= '<img class="flex-none rounded-lg max-h-7 w-7" src="'.  $_data['thumb'] .'"> ';
 		}
 
 		if(isset($_data['id']))
@@ -122,45 +122,45 @@ class site_list
 		if(isset($_data['title']))
 		{
 			$datalist['title'] = $_data['title'];
-			$name .= '<span class="pRa10">'. $_data['title']. '</span>';
+			$html .= '<span class="mx-1 flex-grow">'. $_data['title']. '</span>';
 
 			if(isset($_data['vat']) && $_data['vat'])
 			{
-				$name .= '*';
+				$html .= '*';
 			}
 
-			if(isset($_data['optionname1']) && isset($_data['optionvalue1']))
-			{
-				$name .= '<span class="pRa10">'. $_data['optionname1']. ' '. $_data['optionvalue1']. '</span>';
-			}
+			// if(isset($_data['optionname1']) && isset($_data['optionvalue1']))
+			// {
+			// 	$html .= '<span class="mx-1">'. $_data['optionname1']. ' '. $_data['optionvalue1']. '</span>';
+			// }
 
-			if(isset($_data['optionname2']) && isset($_data['optionvalue2']))
-			{
-				$name .= '<span class="pRa10">'. $_data['optionname2']. ' '. $_data['optionvalue2']. '</span>';
-			}
+			// if(isset($_data['optionname2']) && isset($_data['optionvalue2']))
+			// {
+			// 	$html .= '<span class="mx-1">'. $_data['optionname2']. ' '. $_data['optionvalue2']. '</span>';
+			// }
 
-			if(isset($_data['optionname3']) && isset($_data['optionvalue3']))
-			{
-				$name .= '<span class="pRa10">'. $_data['optionname3']. ' '. $_data['optionvalue3']. '</span>';
-			}
+			// if(isset($_data['optionname3']) && isset($_data['optionvalue3']))
+			// {
+			// 	$html .= '<span class="mx-1">'. $_data['optionname3']. ' '. $_data['optionvalue3']. '</span>';
+			// }
 		}
 
 		if(isset($_data['barcode']))
 		{
 			$datalist['barcode'] = $_data['barcode'];
-			$name .= '<span class="badge light mRa5"><i class="sf-thumbnails"></i> '. T_('Barcode'). '</span>';
+			$html .= '<span class="mx-1 px-1 rounded-lg bg-blue-100 text-blue-500">'. T_('Barcode'). '</span>';
 		}
 
 		if(isset($_data['barcode2']))
 		{
 			$datalist['barcode2'] = $_data['barcode2'];
-			$name .= '<span class="badge light mRa5"><i class="sf-check"></i> '. T_('Iran barcode'). '</span>';
+			$html .= '<span class="mx-1 px-1 rounded-lg bg-blue-100 text-blue-500">'. T_('Iran barcode'). '</span>';
 		}
 
 		if(isset($_data['code']))
 		{
 			$datalist['desc'] = T_("Code"). ' +'. $_data['code'];
-			$name .= '<span class="badge light mRa5"><i class="sf-bookmark"></i> '. T_('Code'). $_data['code']. '</span>';
+			$html .= '<span class="mx-1 px-1 rounded-lg bg-blue-100 text-blue-600">'. T_('Code'). $_data['code']. '</span>';
 		}
 
 		if(isset($_data['finalprice']) && $_data['finalprice'])
@@ -187,7 +187,7 @@ class site_list
 			$datalist['price'] = null;
 		}
 
-		if(isset($_data['discount']))
+		if(isset($_data['discount']) && $_data['discount'])
 		{
 			$datalist['discount'] = $_data['discount'];
 			$priceTxt .= ' - '. \dash\fit::number($datalist['discount']). '</span>';
@@ -195,11 +195,13 @@ class site_list
 
 
 		// add price to name of item
-		$name   .= $priceTxt. '</span>';
+		$html   .= $priceTxt. '</span>';
+		$html   .= '</div>';
+
 		$result =
 		[
 			// select22
-			'html'     => $name,
+			'html'     => $html,
 			'id'       => $id,
 			// for extra use and remove double query
 			'datalist' => $datalist,
