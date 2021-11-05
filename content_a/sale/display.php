@@ -30,28 +30,28 @@
   <div class="c3 s12">
 
     <div class="cbox p0">
-    <div class="f">
-      <div class="c">
+    <div class="flex align-center">
+      <div class="flex-grow">
 
         <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
         </select>
       </div>
-      <div class="cauto"><div data-kerkere='.addNewCustomer' class="btn-light"><?php echo \dash\utility\icon::svg('CirclePlus') ?></div></div>
+      <div class="flex-none"><div class="btn-light w-12 h-9 flex" data-kerkere='.addNewCustomer'><?php echo \dash\utility\icon::svg('CirclePlus') ?></div></div>
     </div>
     <div class="addNewCustomer" data-kerkere-content='hide'>
-      <div class="msg info2 mT10 mB0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
-        <div class="input mTB5">
+      <div class="bg-blue-100 my-1 text-sm p-2 rounded-sm"><?php echo T_("Quickly add customer"); ?></div>
+        <div class="input mb-1">
           <input type="tel" name="memberTl" id="memberTl" placeholder='<?php echo T_("Mobile"); ?> <?php echo T_("Like"); ?> <?php echo \dash\fit::mobile('09120123456'); ?>' <?php \dash\layout\autofocus::html() ?>  maxlength='30' data-response-realtime>
         </div>
 
-        <select name="memberGender" id="memberGender" class="select22 mT5">
+        <select name="memberGender" id="memberGender" class="select22">
           <option value="" disabled><?php echo T_("Gender"); ?></option>
           <option value="0">-</option>
           <option value="male"><?php echo T_("Mr"); ?></option>
           <option value="female"><?php echo T_("Mrs"); ?></option>
         </select>
 
-        <div class="input mT5">
+        <div class="input mt-1">
           <input type="text" name="memberN" id="memberN" placeholder='<?php echo T_("Customer Name"); ?>'  maxlength='70' minlength="1">
         </div>
     </div>
