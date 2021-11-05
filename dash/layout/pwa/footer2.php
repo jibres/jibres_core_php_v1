@@ -44,7 +44,7 @@ class footer2
               $footer .= ' data-item="'. $item['cartItem']. '"';
             }
             $footer .= ">";
-            $footer .= "</i>";
+            // $footer .= "</i>";
             $footer .= "</div>";
 
           }
