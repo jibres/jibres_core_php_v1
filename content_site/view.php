@@ -13,23 +13,6 @@ class view
 
 		\dash\data::include_m2(true);
 
-		switch (\dash\url::directory())
-		{
-			case null:
-			case 'page/new':
-				\dash\data::include_adminPanelBuilder(true);
-				// code...
-				break;
-
-			default:
-				// detect siteBuilder to use titleBox inside haeder
-				\dash\data::include_m2('siteBuilder');
-
-				// show display inside sidebar and iframe in page center
-				\dash\data::include_adminPanelBuilder("siteLivePreview");
-				break;
-		}
-
 
 		\dash\face::site(\lib\store::title());
 		\dash\data::store(\lib\store::detail());

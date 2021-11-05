@@ -22,6 +22,12 @@ class view
 	{
 		\content_site\view::fill_page_detail();
 
+		// detect siteBuilder to use titleBox inside haeder
+		\dash\data::include_m2('siteBuilder');
+
+		// show display inside sidebar and iframe in page center
+		\dash\data::include_adminPanelBuilder("siteLivePreview");
+
 
 		// in a section
 		if(\dash\url::child())

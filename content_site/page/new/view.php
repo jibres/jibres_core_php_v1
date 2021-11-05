@@ -18,6 +18,8 @@ class view
 
 		\dash\data::mySiteBuilderPageTitle(\dash\session::get('mySiteBuilderPageTitle'));
 
+		\dash\data::include_adminPanelBuilder(true);
+
 		// $template_list = \content_site\template\preview::list();
 		// \dash\data::templateList($template_list);
 

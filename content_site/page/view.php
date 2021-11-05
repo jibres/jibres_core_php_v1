@@ -19,6 +19,12 @@ class view
 			model::save_page();
 		}
 
+		// detect siteBuilder to use titleBox inside haeder
+		\dash\data::include_m2('siteBuilder');
+
+		// show display inside sidebar and iframe in page center
+		\dash\data::include_adminPanelBuilder("siteLivePreview");
+
 	}
 }
 ?>
