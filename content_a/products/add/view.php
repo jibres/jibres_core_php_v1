@@ -15,8 +15,8 @@ class view
 		\dash\data::back_link(\lib\app\back_btn\link::products());
 
 		\dash\face::btnInsert('aProductData');
-		\dash\face::btnInsertValue('master');
 		\dash\face::btnInsertText(T_("Add"));
+		\dash\face::btnInsertValue('master');
 
 		// $unit_list = \lib\app\product\unit::list();
 		// \dash\data::listUnits($unit_list);

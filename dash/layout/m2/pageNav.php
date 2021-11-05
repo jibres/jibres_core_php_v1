@@ -202,9 +202,9 @@ class pageNav
       $html .= " value='". \dash\face::btnSaveValue(). "'";
     }
     $html .= '>';
-    if(\dash\face::btnInsertValue())
+    if(\dash\face::btnInsertText())
     {
-      $html .= \dash\face::btnInsertValue();
+      $html .= \dash\face::btnInsertText();
     }
     else
     {
