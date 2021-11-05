@@ -4,10 +4,10 @@
   <div class="box cartPage">
     <div class="pad">
       <?php foreach (a($orderDetail, 'factor_detail') as $key => $value) {?>
-        <div class="cartItem">
+        <div class="cartItem2">
           <div class="row align-center">
             <div class="c-auto">
-              <img src="<?php echo a($value, 'thumb') ?>" alt="<?php echo a($value, 'title') ?>">
+              <img class="w-20" src="<?php echo a($value, 'thumb') ?>" alt="<?php echo a($value, 'title') ?>">
             </div>
             <div class="c">
               <h3 class="title"><a href="<?php echo a($value, 'edit_url') ?>"><?php echo a($value, 'title') ?></a></h3>
@@ -65,7 +65,7 @@
                         <input type="hidden" name="type" value="edit_count">
                         <input type="hidden" name="factor_detail_id" value="<?php echo a($value, 'id') ?>">
                         <div class="input">
-                          <button class="addon fc-blue sf-floppy-o" title="<?php echo T_("Save") ?>"></button>
+                          <button class="addon" title="<?php echo T_("Save") ?>"><img class="w-3" src="<?php echo \dash\utility\icon::url('Save', 'minor') ?>"></button>
                           <input step="0.001" type="number" name="count" value="<?php echo a($value, 'count'); ?>" >
                         </div>
                       </form>
@@ -73,7 +73,7 @@
 
                   </div>
 
-                  <div class="productDel" data-confirm data-data='<?php echo $remove ?>' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
+                  <span  data-confirm data-data='<?php echo $remove ?>' title='<?php echo T_("Delete") ?>'><img class="w-3" src="<?php echo \dash\utility\icon::url('Delete') ?>"></span>
 
               <?php }else{ ?>
                 <span class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'count')) ?></span>

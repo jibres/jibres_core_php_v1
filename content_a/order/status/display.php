@@ -129,7 +129,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
         <div><?php echo T_("It is not possible to return the order after deleting it. Order information is locked and only visible") ?></div>
       </div>
       <footer class="txtRa">
-        <div class="btn danger outline" data-confirm data-data='{"removeorder": "removeorder"}'><?php echo T_("Remove order") ?></div>
+        <div class="btn-danger" data-confirm data-data='{"removeorder": "removeorder"}'><?php echo T_("Remove order") ?></div>
       </footer>
     </div>
   </form>

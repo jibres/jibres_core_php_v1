@@ -36,7 +36,7 @@
                 <td>
                   <?php echo \dash\fit::date_time(a($orderDetail, 'factor', 'date')); ?>
                   <small class="fc-mute mLa20"><?php echo \dash\fit::date_human(a($orderDetail, 'factor', 'date')) ?></small>
-                  <a href="<?php echo \dash\url::this(). '/editdate?id='. \dash\request::get('id') ?>" class="btn link"><?php echo T_("Edit") ?></a>
+                  <a href="<?php echo \dash\url::this(). '/editdate?id='. \dash\request::get('id') ?>" class="bg-gray-200 p-2  rounded-lg text-xs"><?php echo T_("Edit") ?></a>
                 </td>
               </tr>
 

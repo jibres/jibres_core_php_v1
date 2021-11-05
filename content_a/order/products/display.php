@@ -63,7 +63,7 @@ $have_user = false;
         </div>
 
         <footer class="txtRa">
-          <button class="btn success"><?php echo T_("Add"); ?></button>
+          <button class="btn-success"><?php echo T_("Add"); ?></button>
         </footer>
       </div>
 

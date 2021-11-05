@@ -26,7 +26,7 @@
           <?php foreach (\dash\data::orderHaveFormAnswer() as $key => $value) {?>
             <div class="msg">
               <?php echo a($value, 'title') ?>
-              <a class="btn link" href="<?php echo \dash\url::kingdom(). '/a/form/answer/detail?'. \dash\request::build_query(['id' => a($value, 'form_id'), 'aid' => a($value, 'id')]);  ?>"><?php   echo T_("Show answer") ?></a>
+              <a class="jbtn-link" href="<?php echo \dash\url::kingdom(). '/a/form/answer/detail?'. \dash\request::build_query(['id' => a($value, 'form_id'), 'aid' => a($value, 'id')]);  ?>"><?php   echo T_("Show answer") ?></a>
             </div>
           <?php } //endif ?>
         </div>
@@ -55,7 +55,7 @@
           </div>
         </div>
         <footer class="f">
-          <div class="cauto"><i data-kerkere='.showAttachment' class="sf-attach fs14"></i></div>
+          <div class="cauto"><i data-kerkere='.showAttachment' class="sf-attach fs14"><img class="bg-gray-100 rounded-lg w-10 p-3" src="<?php echo \dash\utility\icon::url('Attachment') ?>"></i></div>
           <div class="c"></div>
           <div class="cauto"><button class="btn success"><?php echo T_("Add comment") ?></button></div>
 
