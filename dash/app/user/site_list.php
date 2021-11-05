@@ -78,13 +78,12 @@ class site_list
 
 		$result   = [];
 		$id       = null;
-		$name     = null;
+		$html     = '<div class="flex align-center">';
 		$datalist = [];
-		$priceTxt = '<span class="description ltr">';
 
 		if(isset($_data['avatar']))
 		{
-			$name .= '<img class="avatar image" src="'.  $_data['avatar'] .'"> ';
+			$html .= '<img class="flex-none rounded-lg max-h-7 w-7" src="'.  $_data['avatar'] .'"> ';
 		}
 
 		if(isset($_data['id']))
@@ -96,22 +95,24 @@ class site_list
 		if(isset($_data['displayname']))
 		{
 			$datalist['displayname'] = $_data['displayname'];
-			$name .= '<span class="pRa10">'. $_data['displayname']. '</span>';
+			$html .= '<span class="flex-grow line-clamp-1 px-2">'. $_data['displayname']. '</span>';
 		}
 
 
 		if(isset($_data['mobile']))
 		{
 			$datalist['desc'] = $_data['mobile'];
-			$name .= '<span class="badge light mRa5"><i class="sf-mobile"></i> '. \dash\fit::mobile($_data['mobile']). '</span>';
+
+			$html .= '<span class="flex-none">';
+			$html .= \dash\fit::mobile($_data['mobile']);
+			$html .= '</span>';
 		}
 
-			// add price to name of item
-		$name   .= $priceTxt. '</span>';
+		$html   .= '</div>';
 		$result =
 		[
 			// on list
-			'html'     => $name,
+			'html'     => $html,
 			'id'    => $id,
 			'datalist' => $datalist,
 		];
