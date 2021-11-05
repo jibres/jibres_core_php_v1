@@ -331,7 +331,7 @@ class sidebar
 			'iconColor' => '#a1b2c3',
 		];
 
-		if(in_array($module, ['setting']))
+		if(in_array($module, ['setting']) && !($content === 'a' && $module === 'setting' && in_array($child, ['legal', 'domain'])))
 		{
 			$menu['settings']['iconColor'] = $blue;
 			$menu['settings']['selected']  = true;
@@ -376,21 +376,32 @@ class sidebar
 			'iconColor' => 'green',
 		];
 
-		if(in_array($content, ['site']))
+		if(in_array($content, ['site', 'cms',]) || ($content === 'a' && $module === 'setting' && in_array($child, ['legal', 'domain'])))
 		{
 			$menu['site']['iconColor'] = $blue;
 			// $menu['site']['selected']  = true;
 
 			$sidebar_links = [];
 
+			$sidebar_links[] =
+			[
+				'url'      => $kingdom. '/site',
+				'title'    => T_("Site builder"),
+				// 'icon'  => 'Note',
+				'direct'   => true,
+				'selected' => ($content === 'site' && !in_array($module, ['sitemap', 'staticfile']))
+			];
+
+
 			if(\dash\permission::check('_group_cms'))
 			{
 			  $sidebar_links[] =
 			  [
-				'url'   => \dash\url::kingdom(). '/cms',
-				'title'  => T_("Content Management"). T_(" & "). T_("Blog"),
-				// 'icon'   => 'Note',
-				'direct' => true,
+				'url'      => $kingdom. '/cms',
+				'title'    => T_("Content Management"). T_(" & "). T_("Blog"),
+				// 'icon'  => 'Note',
+				'direct'   => true,
+				'selected' => ($content === 'cms' && $module !== 'files')
 			  ];
 			}
 
@@ -399,10 +410,11 @@ class sidebar
 			{
 			  $sidebar_links[] =
 			  [
-				'url'   => \dash\url::kingdom(). '/cms/files',
-				'title'  => T_("Files"),
-				// 'icon'   => 'Folder',
-				'direct' => true,
+				'url'      => $kingdom. '/cms/files',
+				'title'    => T_("Files"),
+				// 'icon'  => 'Folder',
+				'direct'   => true,
+				'selected' => ($content === 'cms' && $module === 'files')
 			  ];
 			}
 
@@ -412,19 +424,21 @@ class sidebar
 			{
 			  $sidebar_links[] =
 			  [
-				'url'   => \dash\url::kingdom(). '/a/setting/legal',
-				'title'  => T_("Legal pages"),
-				// 'icon'   => 'FraudProtectUnprotected',
-				'direct' => true,
+				'url'      => $kingdom. '/a/setting/legal',
+				'title'    => T_("Legal pages"),
+				// 'icon'  => 'FraudProtectUnprotected',
+				'direct'   => true,
+				'selected' => ($content === 'a' && $module === 'setting' && $child === 'legal')
 			  ];
 			}
 
 			$sidebar_links[] =
 			[
-			  'url'   => \dash\url::here(). '/sitemap',
-			  'title'  => T_("Sitemap"),
-			  // 'icon'   => 'Globe',
-			  'direct' => false,
+				'url'      => $kingdom. '/site/sitemap',
+				'title'    => T_("Sitemap"),
+				// 'icon'  => 'Globe',
+				'direct'   => false,
+				'selected' => ($module === 'sitemap'),
 			];
 
 
@@ -432,10 +446,11 @@ class sidebar
 			{
 			  $sidebar_links[] =
 			  [
-				'url'   => \dash\url::kingdom(). '/a/setting/domain',
-				'title'  => T_("domain"),
-				// 'icon'   => 'Domains',
-				'direct' => true,
+				'url'      => $kingdom. '/a/setting/domain',
+				'title'    => T_("domain"),
+				// 'icon'  => 'Domains',
+				'direct'   => true,
+				'selected' => ($content === 'a' && $module === 'setting' && $child === 'domain')
 			  ];
 
 			}
@@ -444,10 +459,11 @@ class sidebar
 			{
 			  $sidebar_links[] =
 			  [
-				'url'   => \dash\url::here(). '/staticfile',
-				'title'  => T_("Static file"),
-				// 'icon'   => 'Tools',
-				'direct' => false,
+				'url'      => $kingdom. '/site/staticfile',
+				'title'    => T_("Static file"),
+				// 'icon'  => 'Tools',
+				'direct'   => false,
+				'selected' => ($module === 'staticfile'),
 			  ];
 			}
 
@@ -456,20 +472,20 @@ class sidebar
 
 			$sidebar_links[] =
 			[
-			  'url'   => \dash\url::kingdom(). '/a/setting/menu',
-			  'title'  => T_("Menu"),
-			  // 'icon'   => 'MobileHamburger',
-			  'direct' => true,
+				'url'     => $kingdom. '/a/setting/menu',
+				'title'   => T_("Menu"),
+				// 'icon' => 'MobileHamburger',
+				'direct'  => true,
 			];
 
 			if(\dash\permission::check('siteBuilderSetting'))
 			{
 			  $sidebar_links[] =
 			  [
-				'url'   => \dash\url::here(). '/autosave',
-				'title'  => T_("Setting auto-save and publish"),
-				// 'icon'   => 'FlipCamera',
-				'direct' => false,
+				'url'      => $kingdom. '/site/autosave',
+				'title'    => T_("Setting auto-save and publish"),
+				// 'icon'  => 'FlipCamera',
+				'direct'   => false,
 				'selected' => ($module === 'autosave'),
 			  ];
 			}
