@@ -254,7 +254,32 @@ class sidebar
 		if(in_array($module, ['report']))
 		{
 			$menu['analytics']['iconColor'] = $blue;
-			$menu['analytics']['selected']  = true;
+
+			if(!$child)
+			{
+				$menu['analytics']['selected']  = true;
+			}
+
+			$analytics_child = [];
+
+			$analytics_child['sale'] =
+			[
+				'title'    => T_("Sale report"),
+				'url'      => $kingdom. '/a/report/sale',
+				'selected' => ($child === 'sale'),
+			];
+
+			$analytics_child['products'] =
+			[
+				'title'    => T_("Products report"),
+				'url'      => $kingdom. '/a/report/products',
+				'selected' => ($child === 'products'),
+			];
+
+
+			$menu['analytics']['child'] = $analytics_child;
+
+
 		}
 
 		/*=====  End of Analytics  ======*/
