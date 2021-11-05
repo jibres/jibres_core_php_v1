@@ -162,7 +162,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 
 <div class="txtC">
   <div class="barcodeBox">
-    <svg class="barcodePrev wide" data-val="#factorid" data-height=20 data-hideValue></svg>
+    <svg class="barcodePrev wide mx-auto" data-val="#factorid" data-height=20 data-hideValue></svg>
   </div>
 </div>
 
