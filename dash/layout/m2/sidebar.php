@@ -90,7 +90,7 @@ class sidebar
 			[
 				'title'    => T_("All orders"),
 				'url'      => $kingdom. '/a/order',
-				'selected' => (in_array($module, ['order', 'chap']) && $child !== 'unprocessed'),
+				'selected' => (in_array($module, ['order', 'chap', 'sale']) && $child !== 'unprocessed'),
 			];
 
 			$orders_child['unprocessed'] =
