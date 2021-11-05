@@ -160,7 +160,7 @@ if(!is_array($dataTable))
 
   <?php }else{ ?>
 
-<div class="tblBox">
+<div class="tblBox mt-3">
 
   <table class="tbl1 v1 cbox fs12">
     <thead>
@@ -188,12 +188,12 @@ if(!is_array($dataTable))
         <td class="s0"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
 
         <td class="collapsing">
-            <a <?php if(a($value, 'user_id')) {?> href="<?php echo \dash\url::kingdom(). '/crm/member/general?id='. a($value, 'user_id'); ?>" <?php } // endif ?> class="f align-center userPack">
+            <a <?php if(a($value, 'user_id')) {?> href="<?php echo \dash\url::kingdom(). '/crm/member/general?id='. a($value, 'user_id'); ?>" <?php } // endif ?> class="align-center userPack">
               <div class="c pRa10">
                 <div class="mobile" data-copy="<?php echo a($value, 'user_detail', 'mobile'); ?>"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
                 <div class="name"><?php echo a($value, 'user_detail', 'displayname'); ?></div>
               </div>
-              <img class="cauto" src="<?php echo a($value, 'user_detail', 'avatar'); ?>">
+
             </a>
           </td>
       </tr>
