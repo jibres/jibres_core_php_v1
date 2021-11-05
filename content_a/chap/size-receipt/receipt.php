@@ -13,22 +13,22 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
   <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
 
-  <div class="logo txtC midSize">
-   <img src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>">
+  <div class="w-32 mx-auto mb-3">
+   <img class="rounded-md" src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>">
   </div>
 <?php } //endif ?>
 
- <div class="f storeDetail fs12 txtC">
+ <div class="f storeDetail text-sm txtC">
   <div class="c">
-   <h1><?php echo a($storeData,'title'); ?></h1>
-   <address>
+   <h1 class="leading-7 text-xl font-black"><?php echo a($storeData,'title'); ?></h1>
+   <address class="not-italic leading-6">
     <div class="address"><?php echo a($storeData,'address'); ?></div>
     <div class="f">
-     <div class="phone"><?php echo \dash\fit::text(a($storeData,'phone')); ?></div>
+     <div class="phone font-bold"><?php echo \dash\fit::text(a($storeData,'phone')); ?></div>
      <div class="website"><?php echo a($storeData,'website'); ?></div>
     </div>
    </address>
-   <div class="desc mB5"><?php echo a($storeData,'desc'); ?></div>
+   <div class="leading-6 mb-2"><?php echo a($storeData,'desc'); ?></div>
   </div>
  </div>
 
@@ -37,7 +37,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 <?php if(isset($storeData['factorheader']) && $storeData['factorheader']) {?>
 
 <hr>
-<p class="factorHeader fs12 txtC">
+<p class="factorHeader text-sm txtC">
 <?php echo a($storeData,'factorheader'); ?>
 </p>
 
@@ -50,7 +50,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 <?php if(isset($factorDetail['address']) && $factorDetail['address']) {?>
 <?php $address = $factorDetail['address'] ?>
 <hr>
-<div class="customerDetail fs12 txtC">
+<div class="customerDetail text-sm txtC">
   <div class="fs14"><?php echo T_("Customer Detail"); ?></div>
 
   <div class="pA10"><span class="txtB"><?php echo a($factorDetail, 'factor', 'customer_detail', 'displayname'); ?></span></div>
@@ -86,7 +86,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 
 
- <div class="f factorDetail fs12 mB10 txtC">
+ <div class="f factorDetail text-sm mb-2 txtC">
   <div class="c12">
    <div class="datetime"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></div>
    <div><?php echo T_("Factor Number"); ?> <code id='barcode' data-val='<?php echo a($factorDetail, 'factor', 'id_code'); ?>'><?php echo a($factorDetail, 'factor', 'id_code'); ?></code></div>
@@ -96,7 +96,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 
 
- <table class="tbl1 v1 fs12 txtC">
+ <table class="tbl1 v1 text-sm txtC mb-2">
   <thead>
    <tr class="fs07">
     <th><?php echo T_("Name"); ?></th>
@@ -136,7 +136,7 @@ else
 
 
 
- <table class="tbl fs14 factorResult mB10">
+ <table class="tbl fs14 factorResult mb-2 w-full">
   <tbody>
     <?php if((isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) || (isset($factorDetail['factor']['subvat']) && $factorDetail['factor']['subvat'])) {?>
 
@@ -175,7 +175,7 @@ else
    <?php } //endif ?>
 
 <?php } //endif ?>
-   <tr class="msg info2 factorSum">
+   <tr class="bg-blue-100 rounded-lg p-2 block factorSum">
      <th class="txtRa fs08"><?php echo T_("Total payable"); ?></th>
      <td class="collapsing txtLa"><?php echo \dash\fit::number(a($factorDetail, 'factor', 'total')); ?> <small class="fs05"><?php echo \lib\currency::unit(); ?></small></td>
    </tr>
@@ -184,7 +184,7 @@ else
  </table>
 
 
-<div class="barcodeBox">
+<div class="barcodeBox w-48 mx-auto">
   <svg class="barcodePrev wide" data-val="#barcode" data-height=20 data-hideValue></svg>
 </div>
 
