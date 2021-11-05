@@ -331,7 +331,7 @@ class sidebar
 			'iconColor' => '#a1b2c3',
 		];
 
-		if(in_array($module, ['setting']) && !($content === 'a' && $module === 'setting' && in_array($child, ['legal', 'domain'])))
+		if(in_array($module, ['setting']) && !($content === 'a' && $module === 'setting' && in_array($child, ['legal', 'domain', 'menu'])))
 		{
 			$menu['settings']['iconColor'] = $blue;
 			$menu['settings']['selected']  = true;
@@ -376,7 +376,7 @@ class sidebar
 			'iconColor' => 'green',
 		];
 
-		if(in_array($content, ['site', 'cms',]) || ($content === 'a' && $module === 'setting' && in_array($child, ['legal', 'domain'])))
+		if(in_array($content, ['site', 'cms',]) || ($content === 'a' && $module === 'setting' && in_array($child, ['legal', 'domain', 'menu'])))
 		{
 			$menu['site']['iconColor'] = $blue;
 			// $menu['site']['selected']  = true;
@@ -389,7 +389,7 @@ class sidebar
 				'title'    => T_("Site builder"),
 				// 'icon'  => 'Note',
 				'direct'   => true,
-				'selected' => ($content === 'site' && !in_array($module, ['sitemap', 'staticfile']))
+				'selected' => ($content === 'site' && !in_array($module, ['sitemap', 'staticfile', 'autosave']))
 			];
 
 
@@ -476,6 +476,7 @@ class sidebar
 				'title'   => T_("Menu"),
 				// 'icon' => 'MobileHamburger',
 				'direct'  => true,
+				'selected' => ($content === 'a' && $module === 'setting' && $child === 'menu')
 			];
 
 			if(\dash\permission::check('siteBuilderSetting'))
