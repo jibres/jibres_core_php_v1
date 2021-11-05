@@ -166,7 +166,16 @@ class pageNav
     {
       $html .= ' form="'. \dash\face::btnSave(). '"';
     }
-    $html .= " name='submitall'";
+
+    if(\dash\face::btnSaveName())
+    {
+      $html .= ' name="'. \dash\face::btnSaveName(). '"';
+    }
+    else
+    {
+      $html .= " name='submitall'";
+    }
+
     if(\dash\face::btnSaveValue())
     {
       $html .= " value='". \dash\face::btnSaveValue(). "'";

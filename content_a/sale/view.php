@@ -17,6 +17,12 @@ class view
 		\lib\app\fund\login::check();
 
 		\lib\app\pos\tools::pc_pos_btn();
+
+
+		\dash\face::btnSave('factorAdd');
+		\dash\face::btnSaveName('save_btn');
+		\dash\face::btnSaveValue('save_next');
+		\dash\face::btnSaveText(T_("Save Factor & Continue"));
 	}
 }
 ?>
