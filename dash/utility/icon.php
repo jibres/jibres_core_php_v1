@@ -62,8 +62,16 @@ class icon
         }
         if($_class)
         {
-            $class = '<svg class="'. $_class. '" ';
-            $_data = str_replace('<svg ', $class, $_data);
+            if(strpos($_data, ' class="') === false)
+            {
+                $class = '<svg class="'. $_class. '" ';
+                $_data = str_replace('<svg ', $class, $_data);
+            }
+            else
+            {
+                $class = ' class="'. $_class;
+                $_data = str_replace(' class="', $class, $_data);
+            }
         }
 
         return $_data;
@@ -100,7 +108,6 @@ class icon
 
             case 'pack':
             case 'social':
-            case 'bootstrap':
                 $fileName .= $_pack. '/';
                 $fileName .= $_name;
                 break;
