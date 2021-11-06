@@ -118,7 +118,7 @@ class pageNav
           $html .= ' disabled';
         }
         $html .= '"';
-        if($_link)
+        if(is_string($_link))
         {
           $html .= ' href="'. $_link. '"';
         }
