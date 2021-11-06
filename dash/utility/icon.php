@@ -69,7 +69,7 @@ class icon
             }
             else
             {
-                $class = ' class="'. $_class;
+                $class = ' class="'. $_class. ' ';
                 $_data = str_replace(' class="', $class, $_data);
             }
         }
