@@ -6,7 +6,7 @@ class icon
     // based on shopify polaris icon pack
     // https://polaris-icons.shopify.com/
 
-    public static function svg($_name, $_pack = null, $_fill = null)
+    public static function svg($_name, $_pack = null, $_fill = null, $_class = null)
     {
         $svgData = null;
         $filePath = YARD.'talambar_cdn'. self::generateFileName($_name, $_pack);
@@ -18,6 +18,11 @@ class icon
             if($_fill)
             {
                 $svgData = str_replace('#5C5F62', $_fill, $svgData);
+            }
+            if($_class)
+            {
+                $class = '<svg class="'. $_class. '" ';
+                $svgData = str_replace('<svg ', $class, $svgData);
             }
         }
 
@@ -31,7 +36,7 @@ class icon
     }
 
 
-    public static function src($_name, $_pack = null, $_fill = null)
+    public static function src($_name, $_pack = null, $_fill = null, $_class = null)
     {
         $fileContent = self::svg($_name, $_pack);
         if($fileContent)
@@ -39,6 +44,11 @@ class icon
             if($_fill)
             {
                 $fileContent = str_replace('#5C5F62', $_fill, $fileContent);
+            }
+            if($_class)
+            {
+                $class = '<svg class="'. $_class. '" ';
+                $svgData = str_replace('<svg ', $class, $svgData);
             }
 
             return 'data:image/svg+xml,'. rawurlencode($fileContent);
