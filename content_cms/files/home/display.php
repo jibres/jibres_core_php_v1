@@ -75,7 +75,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
      <ul>
        <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist">
-          <i class="sf-files-o"></i>
+          <?php echo \dash\utility\icon::svg('file-earmark-medical', 'bootstrap'); ?>
           <div class="key"><?php echo T_('Total file');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboard, 'total_count')); ?></div>
           <div class="go"></div>
@@ -88,7 +88,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
     <ul>
       <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=image">
-          <i class="sf-file-image-o"></i>
+          <?php echo \dash\utility\icon::svg('file-earmark-image', 'bootstrap') ?>
           <div class="key"><?php echo T_('Image');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'image')); ?></div>
           <div class="go"></div>
@@ -96,7 +96,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
       </li>
       <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=audio">
-          <i class="sf-music"></i>
+          <?php echo \dash\utility\icon::svg('file-earmark-music', 'bootstrap') ?>
           <div class="key"><?php echo T_('Audio');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'audio')); ?></div>
           <div class="go"></div>
@@ -104,7 +104,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
       </li>
       <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=video">
-          <i class="sf-file-video-o"></i>
+          <?php echo \dash\utility\icon::svg('file-earmark-play', 'bootstrap') ?>
           <div class="key"><?php echo T_('Video');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'video')); ?></div>
           <div class="go"></div>
@@ -112,7 +112,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
       </li>
       <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=pdf">
-          <i class="sf-file-pdf-o"></i>
+          <?php echo \dash\utility\icon::svg('file-earmark-pdf', 'bootstrap') ?>
           <div class="key"><?php echo T_('PDF');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'pdf')); ?></div>
           <div class="go"></div>
@@ -120,7 +120,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
       </li>
       <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=archive">
-          <i class="sf-file-archive-o"></i>
+          <?php echo \dash\utility\icon::svg('file-earmark-zip', 'bootstrap') ?>
           <div class="key"><?php echo T_('ZIP');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'archive')); ?></div>
           <div class="go"></div>
@@ -128,7 +128,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
       </li>
       <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist?type=other">
-          <i class="sf-file-o"></i>
+          <?php echo \dash\utility\icon::svg('file-earmark', 'bootstrap') ?>
           <div class="key"><?php echo T_('Other files');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboard, 'type_count', 'other')); ?></div>
           <div class="go"></div>
@@ -141,7 +141,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
      <ul>
       <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/add">
-          <i class="sf-cloud-upload"></i>
+          <?php echo \dash\utility\icon::svg('cloud-arrow-up', 'bootstrap') ?>
           <div class="key"><?php echo T_('Upload New File');?></div>
 
           <div class="go plus ok"></div>
@@ -154,7 +154,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
      <ul>
       <li>
         <a class="item f">
-          <i class="sf-database"></i>
+          <?php echo \dash\utility\icon::svg('sd-card', 'bootstrap') ?>
           <div class="key"><?php echo T_('Storage Limit');?></div>
           <div class="value"><?php echo \dash\fit::file_size(a($dashboard, 'storage_limit')); ?></div>
           <div class="go detail"></div>
@@ -162,7 +162,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
       </li>
       <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist?order=desc&sort=size">
-          <i class="sf-folder"></i>
+          <?php echo \dash\utility\icon::svg('battery-full', 'bootstrap') ?>
           <div class="key"><?php echo T_('Used Space');?></div>
           <div class="value"><?php echo \dash\fit::file_size(a($dashboard, 'total_size')); ?></div>
           <div class="go detail"></div>
@@ -170,7 +170,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
       </li>
       <li>
         <a class="item f">
-          <i class="sf-battery-half"></i>
+          <?php echo \dash\utility\icon::svg('battery-half', 'bootstrap') ?>
           <div class="key"><?php echo T_('Useage percent');?></div>
           <div class="value txtB"><?php echo \dash\fit::text(a($dashboard, 'used_percent')). ' '. T_("%"); ?></div>
           <div class="go detail"></div>
