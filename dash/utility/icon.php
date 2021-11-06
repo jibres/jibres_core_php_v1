@@ -91,6 +91,13 @@ class icon
                 $fileName .= $_name;
                 break;
 
+            case 'bootstrap':
+                $fileName .= $_pack. '/';
+                $_name = str_replace(' ', '-', $_name);
+                $_name = strtolower($_name);
+                $fileName .= $_name;
+                break;
+
             case 'pack':
             case 'social':
             case 'bootstrap':

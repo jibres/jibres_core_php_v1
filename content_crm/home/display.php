@@ -158,7 +158,7 @@
       </li>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/log">
-          <i class="sf-camera-surveillance"></i>
+          <?php echo \dash\utility\icon::svg('Clock history', 'bootstrap'); ?>
           <div class="key"><?php echo T_('Users Action Log');?></div>
           <div class="go"></div>
         </a>
