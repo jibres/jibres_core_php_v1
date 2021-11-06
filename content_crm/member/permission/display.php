@@ -23,7 +23,7 @@
     </div>
   </form>
   <footer class="txtRa">
-    <a class="btn link" href="<?php echo \dash\url::here(). '/permission' ?>"><?php echo T_("Manage permissions") ?></a>
+    <a class="my-1 btn" href="<?php echo \dash\url::here(). '/permission' ?>"><?php echo T_("Manage permissions") ?></a>
   </footer>
 </section>
 
@@ -38,7 +38,7 @@
             <div class="f msg minimal ltr info2 mB0-f mT10" title="<?php echo T_("Copy") ?>" class="link" data-copy='<?php echo \dash\data::UserApiKey_auth(); ?>' data-copy-msg='<?php echo T_("Copied. Paste into your code!") ?>'>
               <code class="cauto txtB"><?php echo ("API key") ?></code>
               <code class="c"><?php echo substr(\dash\data::UserApiKey_auth(), 0, 8). str_repeat('*', 16). substr(\dash\data::UserApiKey_auth(), 24); ?></code>
-              <span class="cauto"><div class="btn link sm"><?php echo T_("Copy") ?></div></span>
+              <span class="cauto"><div class="btn-link btn-sm"><?php echo T_("Copy") ?></div></span>
             </div>
         <?php }// endif ?>
       </div>
@@ -47,7 +47,7 @@
   <div class="c4 s12">
     <div class="action">
   <?php if(\dash\data::UserApiKey()) {?>
-        <div data-confirm data-data='{"apikey": "revoke"}' class="btn secondary"><?php echo T_("Revoke") ?></div>
+        <div data-confirm data-data='{"apikey": "revoke"}' class="btn-secondary"><?php echo T_("Revoke") ?></div>
   <?php }else{ ?>
         <div data-confirm data-data='{"apikey": "generate"}' class="btn master"><?php echo T_("Generate API Key") ?></div>
   <?php } //endif ?>
@@ -56,7 +56,7 @@
   <?php if(\dash\data::UserApiKey()) {?>
     <footer class="txtRa">
 
-        <div data-confirm data-data='{"apikey": "remove"}' class="btn linkDel"><?php echo T_("Remove") ?></div>
+        <div data-confirm data-data='{"apikey": "remove"}' class="text-red-500 p-2"><?php echo T_("Remove") ?></div>
     </footer>
   <?php } //endif ?>
 </section>
