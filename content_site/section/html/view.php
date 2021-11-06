@@ -9,7 +9,7 @@ class view
 	{
 		\content_site\view::fill_page_detail();
 
-		\dash\data::include_adminPanelBuilder(true);
+		\dash\data::include_m2('siteBuilder');
 
 		\dash\face::btnSave('savehtmlform');
 		\dash\face::btnSaveForm(false);
