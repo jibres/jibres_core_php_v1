@@ -110,7 +110,7 @@
             <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=awaiting">
 <?php
 $awaitingColor = '';
-if(\dash\data::dashboardDetail_comments_awaiting() > 0 || 12)
+if(\dash\data::dashboardDetail_comments_awaiting() > 0)
 {
   $awaitingColor = "text-red-500";
 }
