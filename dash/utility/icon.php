@@ -15,15 +15,7 @@ class icon
         {
             $svgData = file_get_contents($filePath);
 
-            if($_fill)
-            {
-                $svgData = str_replace('#5C5F62', $_fill, $svgData);
-            }
-            if($_class)
-            {
-                $class = '<svg class="'. $_class. '" ';
-                $svgData = str_replace('<svg ', $class, $svgData);
-            }
+            $svgData = self::prepareSVG($svgData, $_pack, $_fill, $_class);
         }
 
         return $svgData;
@@ -41,19 +33,40 @@ class icon
         $fileContent = self::svg($_name, $_pack);
         if($fileContent)
         {
-            if($_fill)
-            {
-                $fileContent = str_replace('#5C5F62', $_fill, $fileContent);
-            }
-            if($_class)
-            {
-                $class = '<svg class="'. $_class. '" ';
-                $svgData = str_replace('<svg ', $class, $svgData);
-            }
+            $fileContent = self::prepareSVG($fileContent, $_pack, $_fill, $_class);
 
             return 'data:image/svg+xml,'. rawurlencode($fileContent);
         }
         return null;
+    }
+
+
+    private static function prepareSVG($_data, $_pack = null, $_fill = null, $_class = null)
+    {
+        if($_fill)
+        {
+            switch ($_pack)
+            {
+                case 'major':
+                case 'minor':
+                    $_data = str_replace('#5C5F62', $_fill, $_data);
+                    break;
+
+                case 'bootstrap2':
+                    $_data = str_replace('currentColor', $_fill, $_data);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        if($_class)
+        {
+            $class = '<svg class="'. $_class. '" ';
+            $_data = str_replace('<svg ', $class, $_data);
+        }
+
+        return $_data;
     }
 
 
@@ -76,12 +89,13 @@ class icon
                 $_name .= ucwords($_pack);
 
                 $fileName .= $_name;
-
                 break;
+
             case 'pack':
+            case 'social':
+            case 'bootstrap':
                 $fileName .= $_pack. '/';
                 $fileName .= $_name;
-
                 break;
 
             default:
