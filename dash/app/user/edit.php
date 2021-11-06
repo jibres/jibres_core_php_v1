@@ -117,6 +117,19 @@ trait edit
 						return false;
 					}
 				}
+
+				if(array_key_exists('permission', $_args) && !$_args['permission'])
+				{
+					$is_staff = false;
+				}
+				elseif(a($_args, 'permission'))
+				{
+					$is_staff = true;
+				}
+				elseif(!a($load_user, 'permission'))
+				{
+					$is_staff = false;
+				}
 			}
 		}
 
