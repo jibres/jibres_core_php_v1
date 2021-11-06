@@ -19,7 +19,7 @@ class link_gallery
 			'product_id'    => a($_data, 'products_id'),
 			'post_id'       => a($_data, 'posts_id'),
 			'page_id'       => a($_data, 'pages_id'),
-			'category_id'   => a($_data, 'tags_id'),
+			'category_id'   => a($_data, 'category_id'),
 			'hashtag_id'    => a($_data, 'hashtag_id'),
 			'form_id'       => a($_data, 'forms_id'),
 			'socialnetwork' => a($_data, 'socialnetwork'),
