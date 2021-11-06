@@ -20,7 +20,7 @@
       <p>
         <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set CNAME record for that subdomain at the following address:") ?>
         <table class="tbl1 v4 minimal ltr txtL">
-          <thead class="font-12">
+          <thead class="text-sm">
             <tr>
               <th class="ltr txtL">Type</th>
               <th class="ltr txtL">Key</th>
@@ -143,7 +143,7 @@
 
           <?php if($have_any_record || 1) {?>
             <div class="tblBox">
-              <table class="tbl1 v4 font-12 ltr txtL">
+              <table class="tbl1 v4 text-sm ltr txtL">
                 <thead>
                   <tr>
                     <th class="ltr txtL">Type</th>

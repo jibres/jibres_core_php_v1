@@ -22,7 +22,7 @@
           <div class="mB10">
             <div class="row align-center">
               <div class="c"><label for='category'><?php echo T_("Category"); ?></label></div>
-              <div class="c-auto os"><a class="font-12 text-sm"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><span><?php echo T_("Manage"); ?></span> <?php echo \dash\utility\icon::svg('External', 'minor', null, 'h-3 w-3 inline-block'); ?></a></div>
+              <div class="c-auto os"><a class="text-sm"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><span><?php echo T_("Manage"); ?></span> <?php echo \dash\utility\icon::svg('External', 'minor', null, 'h-3 w-3 inline-block'); ?></a></div>
             </div>
 
             <select name="category[]" id="category" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true'>
@@ -76,6 +76,6 @@
 
 <?php if(\dash\url::child() !== 'add') {?>
 
-<div class="btn secondary outline font-12" data-confirm data-data='{"archive": "product"}'><?php echo T_("Archive product") ?></div>
-<div class="btn danger outline font-12" data-confirm data-data='{"delete": "product"}'><?php echo T_("Delete product") ?></div>
+<div class="btn secondary outline text-sm" data-confirm data-data='{"archive": "product"}'><?php echo T_("Archive product") ?></div>
+<div class="btn danger outline text-sm" data-confirm data-data='{"delete": "product"}'><?php echo T_("Delete product") ?></div>
 <?php } //endif ?>

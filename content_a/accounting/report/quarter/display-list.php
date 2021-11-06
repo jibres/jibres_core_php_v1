@@ -62,13 +62,13 @@
 						<td data-copy='<?php echo a($v, 'user_detail', 'companynationalid'); ?>'><?php echo a($v, 'user_detail', 'companynationalid'); ?></td>
 						<td data-copy='<?php echo a($v, 'user_detail', 'companyeconomiccode'); ?>'><?php echo a($v, 'user_detail', 'companyeconomiccode'); ?></td>
 						<td data-copy='<?php echo a($v, 'producttitle'); ?>'><?php echo a($v, 'producttitle'); ?></td>
-						<td class="font-12 ltr txtR">
+						<td class="text-sm ltr txtR">
 							<code data-copy='<?php echo a($v, 'total') ?>'><?php echo \dash\fit::number(a($v, 'total'), true, 'en') ?></code>
 						</td>
 
-						<td data-copy='<?php echo a($v, 'totaldiscount') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totaldiscount'), true, 'en') ?></code></td>
-						<td data-copy='<?php echo a($v, 'totalvat6') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvat6'), true, 'en') ?></code></td>
-						<td data-copy='<?php echo a($v, 'totalvat3') ?>' class="font-12 ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvat3'), true, 'en') ?></code></td>
+						<td data-copy='<?php echo a($v, 'totaldiscount') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totaldiscount'), true, 'en') ?></code></td>
+						<td data-copy='<?php echo a($v, 'totalvat6') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvat6'), true, 'en') ?></code></td>
+						<td data-copy='<?php echo a($v, 'totalvat3') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a($v, 'totalvat3'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'user_detail', 'companyname'); ?>'><?php echo a($v, 'user_detail', 'companyname'); ?></td>
 						<td class="collapsing"><?php if(!a($v, 'merged')) { ?><a class="link txtB " href="<?php echo \dash\url::current(). \dash\request::full_get(['fid' => a($v, 'id')]) ?>"><?php echo T_("Detail") ?></a><?php } //endif ?></td>
 					</tr>

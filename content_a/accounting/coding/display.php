@@ -72,7 +72,7 @@
 <?php function htmlListCoding() {?>
 	<div class="tblBox">
 
- <table class="tbl1 v4 font-12 minimal">
+ <table class="tbl1 v4 text-sm minimal">
     <thead>
       <tr>
 

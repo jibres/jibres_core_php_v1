@@ -1,7 +1,7 @@
 <?php if(\dash\request::get('print')) {?>
 
    <div class="printArea" data-size='A4'>
-      <div class="msg info2 txtL ltr txtB font-12">
+      <div class="msg info2 txtL ltr txtB text-sm">
       <div class="f">
         <div class="cauto">
           <span><?php echo T_("Answer ID") ?></span>
@@ -16,7 +16,7 @@
 
     </div>
   <table class="tbl1 v6">
-    <tbody class="font-12">
+    <tbody class="text-sm">
 <?php $i=0; foreach (\dash\data::dataTable() as $key => $value) { $i++;  ?>
       <?php  if($i % 2) { ?>
         <tr>
@@ -37,7 +37,7 @@
 
 <div class="row">
    <div class="c-xs-12 c-sm-12 c-md-6">
-    <div class="msg info2 txtL ltr txtB font-12">
+    <div class="msg info2 txtL ltr txtB text-sm">
       <div class="f">
         <div class="cauto">
           <span><?php echo T_("Answer ID") ?></span>
@@ -51,14 +51,14 @@
     </div>
 
       <?php if(a(\dash\data::answerDetail(), 'factor_id')) {?>
-    <div class="msg info2 txtL ltr txtB font-12">
+    <div class="msg info2 txtL ltr txtB text-sm">
         <a href="<?php echo \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'); ?>"><?php echo T_("View Order") ?></a>
       </div>
       <?php } //endif ?>
 
 
   <table class="tbl1 v6">
-    <tbody class="font-12">
+    <tbody class="text-sm">
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
           <th class=""><?php echo a($value, 'item_title'); ?></th>
@@ -85,7 +85,7 @@
            <div>
           <div class="row align-center">
             <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
-            <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?> href="<?php echo \dash\url::here(). '/form/tag'. \dash\request::full_get() ?>"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+            <div class="c-auto os"><a class="text-sm"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?> href="<?php echo \dash\url::here(). '/form/tag'. \dash\request::full_get() ?>"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
           </div>
           <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
             <?php foreach (\dash\data::allTagList() as $key => $value) {?>

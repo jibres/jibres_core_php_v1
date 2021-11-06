@@ -17,7 +17,7 @@
 
               </div>
                 <?php if(a($value, 'discount')) {?>
-                  <div class="fc-mute mB5 font-12">
+                  <div class="fc-mute mB5 text-sm">
                     <span class=""><?php echo T_("Discount") ?></span>
                     <span class="price"><?php echo \dash\fit::number(a($value, 'discount')); ?></span>
                     <span class="unit"><?php echo \lib\store::currency(); ?></span>
@@ -25,13 +25,13 @@
                 <?php } //endif ?>
 
                 <?php if(a($value, 'vat')) {?>
-                  <div class="fc-mute mB5 font-12">
+                  <div class="fc-mute mB5 text-sm">
                     <span class=""><?php echo T_("Vat") ?></span>
                     <span class="price"><?php echo \dash\fit::number(a($value, 'vat')); ?></span>
                     <span class="unit"><?php echo \lib\store::currency(); ?></span>
                   </div>
                 <?php } //endif ?>
-              <span class="compact ltr fc-mute font-12"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></span>
+              <span class="compact ltr fc-mute text-sm"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></span>
             </div>
             <div class="c">
               <div class="priceShow" data-cart>

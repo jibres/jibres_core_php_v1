@@ -27,9 +27,9 @@
       <tr>
         <th class="border-solid border-b-2 border-gray-400 border-r font-10 bg-gray-200"><?php echo T_("Day"); ?></th>
         <th class="border-solid border-b-2 border-gray-400 border-r font-10 bg-gray-200"><?php echo T_("Month"); ?></th>
-        <th class="border-solid border-b-2 border-gray-400 font-12 border-r" colspan="14"><?php echo T_("Rial"); ?></th>
-        <th class="border-solid border-b-2 border-gray-400 font-12 border-r" colspan="14"><?php echo T_("Rial"); ?></th>
-        <th class="border-solid border-b-2 border-gray-400 font-12 " colspan="14"><?php echo T_("Rial"); ?></th>
+        <th class="border-solid border-b-2 border-gray-400 text-sm border-r" colspan="14"><?php echo T_("Rial"); ?></th>
+        <th class="border-solid border-b-2 border-gray-400 text-sm border-r" colspan="14"><?php echo T_("Rial"); ?></th>
+        <th class="border-solid border-b-2 border-gray-400 text-sm " colspan="14"><?php echo T_("Rial"); ?></th>
       </tr>
     </thead>
     <tbody class="font-11" style="line-height: 2.2em;">

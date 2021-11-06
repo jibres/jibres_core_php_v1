@@ -7,7 +7,7 @@
     <form method="post" autocomplete="off">
       <input type="hidden" name="sortable" value="sortable">
       <div class="tblBox">
-        <table class="tbl1 v6 font-12">
+        <table class="tbl1 v6 text-sm">
           <thead>
             <tr>
               <th class="collapsing"></th>
@@ -23,7 +23,7 @@
             <?php $i = 0; $first = true; $last = null; foreach (\dash\data::whereList() as $key => $value) { $i++; $last = a($value, 'count_after'); ?>
               <?php if($first) { $first = false;?>
                 <tr class="positive">
-                  <td class="collapsing font-12"><span class=""><?php echo T_("All") ?></span></td>
+                  <td class="collapsing text-sm"><span class=""><?php echo T_("All") ?></span></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -31,8 +31,8 @@
                 </tr>
               <?php } // endif ?>
               <tr>
-                <td class="collapsing font-12"><div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></td>
-                <td class="collapsing font-12">
+                <td class="collapsing text-sm"><div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></td>
+                <td class="collapsing text-sm">
                   <a href="<?php echo \dash\url::this().'/report/answer?'. \dash\request::fix_get(['iid' => a($value, 'item_id')]) ?>">
                     <span class="txtB"><?php echo \dash\fit::number(a($value, 'item_id')) ?>.</span> <?php echo a($value, 'field_title') ?>
                   </a>
@@ -48,7 +48,7 @@
           </tbody>
           <tfoot>
             <tr>
-                <td class="collapsing font-12"><span class=""><?php echo T_("Remain") ?></span></td>
+                <td class="collapsing text-sm"><span class=""><?php echo T_("Remain") ?></span></td>
                 <td></td>
                 <td></td>
                 <td></td>

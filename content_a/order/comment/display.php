@@ -42,7 +42,7 @@
           <div class="mB20">
             <textarea id="desc" name="cdesc" class="txt" rows="3" placeholder="<?php echo T_("Anything about this order") ?>"></textarea>
           </div>
-          <div class="fc-mute font-12 mB10">
+          <div class="fc-mute text-sm mB10">
             <?php echo T_("Enter anything such as payment method, tracking number, additional details, customer conversations, and anything related to this order in this field.") ?>
           </div>
 
@@ -64,7 +64,7 @@
     </form>
 
     <?php  if(a($orderDetail, 'action')) {?>
-      <div class="tblBox font-12">
+      <div class="tblBox text-sm">
         <table class="tbl1 v4">
           <tbody>
           <?php foreach (a($orderDetail, 'action') as $key => $value) { if(a($value, 'category') !== 'notes') {continue;} ?>

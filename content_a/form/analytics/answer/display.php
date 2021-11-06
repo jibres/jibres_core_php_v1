@@ -9,7 +9,7 @@
 
         </tr>
       </thead>
-      <tbody class="font-12">
+      <tbody class="text-sm">
         <?php $items = \dash\data::fields(); ?>
         <?php $i=0; foreach ($value as $k => $v) { $extra = in_array($v['item_type'], ['descriptive_answer']); if(isset($items[$v['item_id']]['visible']) && $items[$v['item_id']]['visible']) {}else{continue;} $i++;  ?>
         <?php  if(($i % 2) || ($extra)) { echo '<tr>';} ?>
@@ -52,7 +52,7 @@
            <div>
           <div class="row align-center">
             <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
-            <div class="c-auto os"><a class="font-12"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?> href="<?php echo \dash\url::here(). '/form/tag'. \dash\request::full_get() ?>"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
+            <div class="c-auto os"><a class="text-sm"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?> href="<?php echo \dash\url::here(). '/form/tag'. \dash\request::full_get() ?>"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
           </div>
           <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
             <?php foreach (\dash\data::allTagList() as $key => $value) {?>

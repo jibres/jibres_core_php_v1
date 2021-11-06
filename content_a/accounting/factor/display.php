@@ -40,7 +40,7 @@
 
   <?php if(\dash\data::dataTable()) {?>
     <div class="tblBox">
-      <table class="tbl1 v6  minimal font-12">
+      <table class="tbl1 v6  minimal text-sm">
         <thead>
           <tr>
             <th><?php echo T_("Number") ?></th>
@@ -57,7 +57,7 @@
         </thead>
         <tbody>
           <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-            <tr class="font-12">
+            <tr class="text-sm">
               <td class="font-14">
                 <a class="link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">#<?php echo \dash\fit::number(a($value, 'number'), true, 'en'); ?></a>
               </td>

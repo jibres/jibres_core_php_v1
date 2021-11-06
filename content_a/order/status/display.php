@@ -137,7 +137,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
 
 
 <?php  if(\dash\data::myActionList()) {?>
-  <div class="tblBox font-12">
+  <div class="tblBox text-sm">
     <table class="tbl1 v4">
       <thead>
         <tr><th colspan="3"><?php echo T_("Action history") ?></th></tr>

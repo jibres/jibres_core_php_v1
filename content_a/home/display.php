@@ -1,7 +1,7 @@
 <?php $dashboardData = \dash\data::dashboardData(); ?>
 
 
-    <div class="font-12">
+    <div class="text-sm">
       <?php if(a($dashboardData, 'new_order')) {?>
         <a href="<?php echo \dash\url::here(). '/order/unprocessed' ?>">
           <div class="jalert-success mb-3 txtB">
