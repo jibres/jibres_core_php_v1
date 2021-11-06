@@ -139,26 +139,26 @@ if(\dash\data::payDetail_final_msg())
 					<?php ipayBank(); ?>
 
 
-					<input type="hidden" name="ok" value="1">
-
-					<button class="btn-primary block"><?php echo T_("Pay"); ?></button>
-
-					<?php if(\dash\data::payDetail_turn_back()) {?>
-
-						<div class="f mT5">
-							<a  href="<?php echo $myTurnBackUrl; ?>" class="cauto os btn light sm"><?php echo T_("Cancel"); ?></a>
+					<div class="px-1 flex">
+						<input type="hidden" name="ok" value="1">
+						<div class="flex-grow">
+							<button class="btn-primary block w-36"><?php echo T_("Pay"); ?></button>
 						</div>
 
+
+					<?php if(\dash\data::payDetail_turn_back()) {?>
+						<a <?php if(!\dash\engine\store::inStore()){ echo "data-direct";} ?> href="<?php echo $myTurnBackUrl; ?>" class="btn-outline-secondary"><?php echo T_("Cancel"); ?></a>
 					<?php }  ?>
 
 				<?php }else{ ?>
 
 					<?php if(\dash\data::payDetail_turn_back()) {?>
-						<a  class="btn success block mT10" href="<?php echo $myTurnBackUrl; ?>"><?php echo T_("Back"); ?></a>
+						<a <?php if(!\dash\engine\store::inStore()){ echo "data-direct";} ?> class="btn-primary" href="<?php echo $myTurnBackUrl; ?>"><?php echo T_("Continue"); ?></a>
 					<?php }  ?>
 
 
 				<?php } // endif ?>
+					</div>
 			</form>
 		</div>
 
@@ -209,8 +209,8 @@ if(!$selected && \dash\engine\store::inStore())
 	<?php if(!array_filter($myPayment)) {?>
 		<p class="txtB txtC mT10"><?php echo T_("No payment gateway was founded") ?></p>
 	<?php }else{ ?>
-		<div class="msg pTB5 mB5"><?php echo T_("Choose a gateway"); ?></div>
-		<div class="msg pA5">
+		<div class="pb-2"><?php echo T_("Choose a gateway"); ?></div>
+		<div class="pb-2">
 			<?php if(isset($myPayment['parsian']['status']) && $myPayment['parsian']['status']) {?>
 			<div class="radioGateway" title='<?php echo T_("Parsian"); ?>'>
 			<input type="radio" name="bank" value="parsian" id="parsian"  <?php if($selected === 'parsian') { echo 'checked';} ?>>

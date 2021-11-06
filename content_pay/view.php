@@ -7,15 +7,16 @@ class view
 	{
 
 
-		if(\dash\engine\store::inStore())
-		{
-			// \dash\data::include_m2(true);
-			// \dash\data::userToggleSidebar(false);
-		}
-		else
-		{
-			\dash\data::include_adminPanel(true);
-		}
+		// if(\dash\engine\store::inStore())
+		// {
+		// 	// \dash\data::include_m2(true);
+		// 	// \dash\data::userToggleSidebar(false);
+		// 	// \dash\data::include_adminPanel(true);
+		// }
+		// else
+		// {
+		// 	\dash\data::include_adminPanel(true);
+		// }
 
 
 		if(\dash\engine\store::inStore())

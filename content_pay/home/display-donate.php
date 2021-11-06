@@ -1,6 +1,6 @@
 <form method="post" autocomplete="off" id="payformsubmit">
 	<?php echo \dash\csrf::html(); ?>
-	<div class="avand-sm">
+	<div class="avand-sm mt-10">
 		<div class="box">
 			<div class="pad">
 
