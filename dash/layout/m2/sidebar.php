@@ -248,6 +248,7 @@ class sidebar
 				'url'      => $kingdom. '/cms',
 				'title'    => T_("Content Management"),
 				'icon'      => 'Blog',
+				'iconColor' => '#a1b2c3',
 			];
 
 		  	if(in_array($content, ['cms']) && $module !== 'files')
@@ -287,11 +288,31 @@ class sidebar
 				$menu['cms']['child'] = $cms_child;
 			}
 		}
-
-
 		/*=====  End of CMS  ======*/
 
 
+		/*=============================
+		=            Files            =
+		=============================*/
+		if(\dash\permission::check('cmsAttachmentView'))
+		{
+
+			$menu['files'] =
+			[
+				'url'      => $kingdom. '/cms/files',
+				'title'    => T_("Files"),
+				'icon'      => 'Attachment',
+			];
+
+		  	if(in_array($content, ['cms']) && $module === 'files')
+			{
+				$menu['files']['iconColor'] = $blue;
+				$menu['files']['selected'] = true;
+			}
+		}
+
+
+		/*=====  End of Files  ======*/
 
 
 		/*=================================
@@ -363,37 +384,8 @@ class sidebar
 				$menu['discounts']['selected']  = true;
 			}
 		}
-
-
-
 		/*=====  End of Discount  ======*/
 
-
-
-
-
-		/*=============================
-		=            Files            =
-		=============================*/
-		if(\dash\permission::check('cmsAttachmentView'))
-		{
-
-			$menu['files'] =
-			[
-				'url'      => $kingdom. '/cms/files',
-				'title'    => T_("Files"),
-				'icon'      => 'Attachment',
-			];
-
-		  	if(in_array($content, ['cms']) && $module === 'files')
-			{
-				$menu['files']['iconColor'] = $blue;
-				$menu['files']['selected'] = true;
-			}
-		}
-
-
-		/*=====  End of Files  ======*/
 
 
 

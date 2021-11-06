@@ -74,7 +74,7 @@ class pageNav
     $html .= '<div class="flex-none backBtn">';
     {
       $desc = T_("Press F8 to go back");
-      $html .= '<a class="btn-light btn-icon btn-sm" data-shortkey="119" title="'. $desc. '" href="'. \dash\data::back_link(). '" ';
+      $html .= '<a class="btn-light btn-icon" data-shortkey="119" title="'. $desc. '" href="'. \dash\data::back_link(). '" ';
       if(\dash\data::back_direct())
       {
         $html .= 'data-direct';
@@ -107,7 +107,12 @@ class pageNav
     {
       $html .= '<a';
       {
-        $html .= ' class="btn-light btn-icon btn-sm mx-0.5 my-0.5';
+        $html .= ' class="btn-light btn-sm mx-0.5 my-0.5';
+        if($_text)
+        {
+          $html .= ' btn-icon';
+
+        }
         if($_link === 'disabled')
         {
           $html .= ' disabled';
@@ -239,8 +244,8 @@ class pageNav
     $html = '';
     $html .= '<nav class="actionNextPrev mx-1">';
     {
-      $html .= self::btn(\dash\face::btnPrev(), 'P', ['icon' => $prevIcon, 'iconGroup' => 'minor', 'desc' => T_("Previous item")]);
-      $html .= self::btn(\dash\face::btnNext(), 'N', ['icon' => $nextIcon, 'iconGroup' => 'minor', 'desc' => T_("Next item")]);
+      $html .= self::btn(\dash\face::btnPrev(), '', ['icon' => $prevIcon, 'iconGroup' => 'minor', 'desc' => T_("Previous item")]);
+      $html .= self::btn(\dash\face::btnNext(), '', ['icon' => $nextIcon, 'iconGroup' => 'minor', 'desc' => T_("Next item")]);
     }
     $html .= '</nav>';
     return $html;
