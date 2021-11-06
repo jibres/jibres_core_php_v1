@@ -47,7 +47,7 @@ class setting
 			'keywords' => [T_("Google Analytics"), T_("Google"), T_("Analytics"), T_("Statistics"), 'Google Analytics', 'statistics'],
 			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/gtag',
 			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Google Analytics") ],
-			'img'      => \dash\url::cdn(). '/img/thirdparty/google_analytics.svg',
+			'img'      => \dash\url::cdn(). '/img/thirdparty/analytics/google_analytics.svg',
 		];
 
 		$list[] =
@@ -92,7 +92,7 @@ class setting
 			'keywords' => [T_("chat"), T_("live chat"), 'chat', 'live'],
 			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/tawk',
 			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Tawk.to") ],
-			'img'      => \dash\url::cdn(). '/img/thirdparty/tawk.png',
+			'img'      => \dash\url::cdn(). '/img/thirdparty/livechat/tawk.png',
 		];
 
 		$list[] =
@@ -102,7 +102,7 @@ class setting
 			'keywords' => [T_("chat"), T_("live chat"), 'chat', 'live'],
 			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/imber',
 			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Imber") ],
-			'img'      => \dash\url::cdn(). '/img/thirdparty/imber.png',
+			'img'      => \dash\url::cdn(). '/img/thirdparty/livechat/imber.png',
 		];
 
 		$list[] =
@@ -111,7 +111,7 @@ class setting
 			'keywords' => [T_("chat"), T_("live chat"), 'chat', 'live'],
 			'url'      => \dash\url::kingdom(). '/a/setting/thirdparty/raychat',
 			'addr'     => [T_("Setting"), T_("Third Party Services"), T_("Raychat") ],
-			'img'      => \dash\url::cdn(). '/img/thirdparty/raychat.jpg',
+			'img'      => \dash\url::cdn(). '/img/thirdparty/livechat/raychat.jpg',
 		];
 
 	}
