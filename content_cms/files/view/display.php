@@ -26,34 +26,37 @@
 					<div class="key"><?php echo T_("Type") ?></div>
 					<div class="value"><?php echo a($dataRow, 't_type') ?></div>
 <?php
-$fType = 'file';
+
+
+$fType = 'file-earmark';
 switch (a($dataRow, 'type'))
 {
   case 'image':
-    $fType = 'file-image-o';
+    $fType = 'file-earmark-image';
     break;
 
   case 'audio':
-    $fType = 'music';
+    $fType = 'file-earmark-music';
     break;
 
   case 'video':
-    $fType = 'file-video-o';
+    $fType = 'file-earmark-play';
     break;
 
   case 'pdf':
-    $fType = 'file-pdf-o';
+    $fType = 'file-earmark-pdf';
     break;
 
   case 'zip':
-    $fType = 'file-zip-o';
+    $fType = 'file-earmark-zip';
     break;
 
   default:
-    $fType = 'file-o';
+    $fType = 'file-earmark';
     break;
 }
-echo "<i class='sf-". $fType. "' title='". a($dataRow, 't_type'). "'>". "</i>";
+echo \dash\utility\icon::svg($fType, 'bootstrap');
+
 ?>
 				</a>
 			</li>
