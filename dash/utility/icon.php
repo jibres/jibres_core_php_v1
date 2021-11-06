@@ -117,6 +117,10 @@ class icon
     }
 
 
+    public static function bootstrap($_name, $_class = null)
+    {
+        return self::svg($_name, 'bootstrap', null, $_class);
+    }
 
 
 
