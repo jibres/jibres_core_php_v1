@@ -48,7 +48,7 @@
                   <a class="link" target="_blank" href="<?php echo \dash\url::this(). '/turnover?contain='. a($value, 'assistant_id') ?>"><i class="sf-retweet" title="<?php echo T_("Turnover") ?>"></i> </a>
                   <span class="compact"> <?php echo a($value, 'total_title') . ' - '. a($value, 'assistant_title'); ?> </span>
                 </div>
-                <div class="font-11 pLa10"><?php echo a($value, 'details_title'); ?>
+                <div class="text-xs pLa10"><?php echo a($value, 'details_title'); ?>
 
                 </div>
               </td>

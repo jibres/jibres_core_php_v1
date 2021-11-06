@@ -4,9 +4,9 @@
     <div class="msg"><?php echo T_("No detail was founded") ?></div>
   <?php }else{ ?>
 
-    <table class="tbl1 v6 font-10">
+    <table class="tbl1 v6 text-xs">
       <thead>
-        <tr class="font-10">
+        <tr class="text-xs">
           <th class="collapsing"><?php echo T_("Code") ?></th>
           <th><?php echo T_("Accounting Group") ?></th>
 

@@ -60,7 +60,7 @@ echo "<i class='sf-". $fType. "' title='". a($dataRow, 't_type'). "'>". "</i>";
 			<li>
 				<div class="f item" data-copy="<?php echo a($dataRow, 'path') ?>">
 					<div class="key"><?php echo T_("Path") ?></div>
-					<div class="value ltr font-11"><?php echo a($dataRow, 'path') ?> <a class="font-18 mL10" target="_blank" href="<?php echo a($dataRow, 'path') ?>"><i class="sf-link-external"></i></a></div>
+					<div class="value ltr text-xs"><?php echo a($dataRow, 'path') ?> <a class="font-18 mL10" target="_blank" href="<?php echo a($dataRow, 'path') ?>"><i class="sf-link-external"></i></a></div>
 					<i class="sf-link"></i>
 				</div>
 			</li>

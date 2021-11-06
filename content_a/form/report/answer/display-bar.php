@@ -4,7 +4,7 @@
 <?php if(a($myData, 'data_table')) {?>
 <div class="tblBox font-14">
 	<table class="tbl1 v6 minimal">
-		<thead class="font-10">
+		<thead class="text-xs">
 			<tr>
 				<th><?php echo T_("Choice") ?></th>
 				<th class="collapsing txtL"><?php echo T_("Frequency") ?></th>

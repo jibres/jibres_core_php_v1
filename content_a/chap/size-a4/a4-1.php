@@ -90,7 +90,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPriceAfterDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalVAT); ?></td>
-       <td class="valPrice lastCol"><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small><?php echo \dash\fit::price($FinalPrice); ?></td>
+       <td class="valPrice lastCol"><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small><?php echo \dash\fit::price($FinalPrice); ?></td>
       </tr>
 <?php } //endfor ?>
      </tbody>
@@ -104,7 +104,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalDiscount']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPriceAfterDiscount']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalVAT']); ?></td>
-       <td class="valPrice"><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?></td>
+       <td class="valPrice"><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?></td>
       </tr>
 
 
@@ -128,27 +128,27 @@ $tableTotal['FinalPrice'] += $FinalPrice;
         <?php if(a($factorDetail, 'factor', 'subprice')) {?>
           </tr>
             <td><?php echo T_("Total") ?></td>
-            <td><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'subprice')) ?></td>
+            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'subprice')) ?></td>
           <tr>
         <?php } //endif ?>
         <?php if(a($factorDetail, 'factor', 'shipping')) {?>
           </tr>
             <td><?php echo T_("Shipping") ?></td>
-            <td><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'shipping')) ?></td>
+            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'shipping')) ?></td>
           <tr>
         <?php } //endif ?>
 
         <?php if(a($factorDetail, 'factor', 'discount2')) {?>
           </tr>
             <td><?php echo T_("Discount code") ?></td>
-            <td><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'discount2')) ?></td>
+            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'discount2')) ?></td>
           <tr>
         <?php } //endif ?>
 
         <?php if(a($factorDetail, 'factor', 'total')) {?>
           </tr>
             <td><?php echo T_("Total payable") ?></td>
-            <td><small class="font-10 floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'total')) ?></td>
+            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'total')) ?></td>
           <tr>
         <?php } //endif ?>
         </tbody>

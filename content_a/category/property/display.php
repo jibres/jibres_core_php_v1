@@ -61,7 +61,7 @@
     <form method="post" data-patch>
       <input type="hidden" name="itemsort" value="itemsort">
         <?php foreach (\dash\data::propertyGroup() as $key => $value) {?>
-          <p class="txtB mB0-f font-16"><?php echo $key ?> <a class="font-11" href="<?php echo \dash\url::this(). '/editgroup'. \dash\request::full_get(['group' => $key]); ?>"><?php echo T_("Edit") ?></a></p>
+          <p class="txtB mB0-f font-16"><?php echo $key ?> <a class="text-xs" href="<?php echo \dash\url::this(). '/editgroup'. \dash\request::full_get(['group' => $key]); ?>"><?php echo T_("Edit") ?></a></p>
           <nav class="items long">
             <ul class="sortable" data-sortable>
             <?php foreach ($value as $k => $v) {?>

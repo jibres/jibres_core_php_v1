@@ -7,9 +7,9 @@
   <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
    <div class="break-inside-avoid">
     <h5 class="mT25 font-black"><?php echo a($group, 'detail', 'title'); ?></h5>
-    <table class="tbl1 v4 font-10 minimal">
+    <table class="tbl1 v4 text-xs minimal">
     <thead>
-      <tr class="font-10">
+      <tr class="text-xs">
         <th class="collapsing"></th>
         <th><?php echo T_("Accounting total") ?></th>
           <th><?php echo T_("Accounting assistant") ?></th>
@@ -100,9 +100,9 @@
 
   <?php } //endfor ?>
   <h5 class="mT25 font-black"><?php echo T_("Total") ?></h5>
-    <table class="tbl1 v6 font-10 break-inside-avoid minimal">
+    <table class="tbl1 v6 text-xs break-inside-avoid minimal">
     <thead>
-      <tr class="font-10">
+      <tr class="text-xs">
         <th class="collapsing"></th>
 
         <th></th>

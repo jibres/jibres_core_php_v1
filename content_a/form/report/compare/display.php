@@ -70,7 +70,7 @@
 <?php if(a($myData, 'data_table')) {?>
   <div class="tblBox font-14">
     <table class="tbl1 v6 minimal">
-      <thead class="font-10">
+      <thead class="text-xs">
         <tr>
           <th><?php echo \dash\data::itemDetailQ1_title() ?></th>
           <th><?php echo \dash\data::itemDetailQ2_title() ?></th>
