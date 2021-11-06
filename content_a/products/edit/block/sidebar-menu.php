@@ -43,7 +43,7 @@
         <?php if(\dash\detect\device::detectPWA()) {?>
           <li>
             <a class="item f" href="<?php echo \dash\url::this().'/desc?id='. \dash\request::get('id'); ?>">
-              <i class="sf-list-ul"></i>
+              <?php echo \dash\utility\icon::svg('Text Block'); ?>
               <div class="key"><?php echo T_("Edit Description") ?></div>
               <div class="go"></div>
             </a>
@@ -51,7 +51,7 @@
         <?php } //endif ?>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/property?id=<?php echo a($productDataRow,'id'); ?>">
-            <i class="sf-database"></i>
+            <?php echo \dash\utility\icon::svg('Checklist Alternate'); ?>
             <div class="key"><?php echo T_("Product Properties"); ?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::propertyCount()); ?></div>
             <div class="go"></div>
@@ -59,7 +59,7 @@
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/advance?id=<?php echo a($productDataRow,'id'); ?>">
-            <i class="sf-package"></i>
+            <?php echo \dash\utility\icon::svg('package'); ?>
             <div class="key"><?php echo T_("Advance"); ?></div>
             <div class="value"><?php ?></div>
             <div class="go"></div>
@@ -76,7 +76,7 @@
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(); ?>/comment?id=<?php echo \dash\request::get('id'); ?>">
-            <i class="sf-chat-alt-fill"></i>
+            <?php echo \dash\utility\icon::svg('Conversation', 'minor'); ?>
             <div class="key"><?php echo T_("Comments"); ?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::commentCount()); ?></div>
             <div class="go"></div>
@@ -84,7 +84,7 @@
         </li>
           <li>
             <a class="item f" href="<?php echo \dash\url::here(); ?>/pricehistory?id=<?php echo \dash\request::get('id'); ?>">
-              <i class="sf-line-chart"></i>
+              <?php echo \dash\utility\icon::svg('Analytics'); ?>
               <div class="key"><?php echo T_("Price change chart"); ?></div>
               <div class="go"></div>
             </a>
@@ -96,7 +96,7 @@
       <ul>
           <li>
             <a class="item f" href="<?php echo \dash\url::this(); ?>/share?id=<?php echo \dash\request::get('id'); ?>">
-              <i class="sf-thumbs-o-up fc-fb"></i>
+              <?php echo \dash\utility\icon::svg('Affiliate'); ?>
               <div class="key"><?php echo T_("Smart Share"); ?></div>
               <div class="go fc-fb"></div>
             </a>
@@ -110,7 +110,7 @@
           <ul>
             <li>
               <a class="item f" href="<?php echo \dash\url::this(); ?>/variants?id=<?php echo a($productDataRow,'id'); ?>">
-                <i class="sf-picture"></i>
+                <?php echo \dash\utility\icon::svg('Collections'); ?>
                 <div class="key"><?php echo T_("Make product variants"); ?></div>
                 <div class="value"><?php if(count($child_list)) { echo \dash\fit::number(count($child_list)); } ?></div>
                 <div class="go"></div>
@@ -124,7 +124,7 @@
           <ul>
             <li>
               <a class="item f" href="<?php echo \dash\url::this(); ?>/child?id=<?php echo a($productDataRow,'id'); ?>">
-                <i class="sf-picture"></i>
+                <?php echo \dash\utility\icon::svg('Collections'); ?>
                 <div class="key"><?php echo T_("Manage variants"); ?></div>
                 <div class="value"><?php if(count($child_list)) { echo \dash\fit::number(count($child_list));} ?></div>
                 <div class="go"></div>
