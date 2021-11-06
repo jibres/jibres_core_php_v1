@@ -4,6 +4,34 @@ namespace dash\app\posts;
 
 class get
 {
+	public static function post_icon($_data)
+	{
+
+		$type = 'newspaper';
+		switch (a($_data, 'subtype'))
+		{
+		  case 'standard':
+		    $type = 'newspaper';
+		    break;
+
+		  case 'gallery':
+		    $type = 'images';
+		    break;
+
+		  case 'video':
+		    $type = 'film';
+		    break;
+
+		  case 'audio':
+		    $type = 'mic';
+		    break;
+
+		  default:
+		    $type = 'newspaper';
+		    break;
+		}
+		return \dash\utility\icon::svg($type, 'bootstrap');
+	}
 
 
 	public static function sitemap_list($_from, $_to)
