@@ -66,7 +66,7 @@ class go
             \dash\session::set('redirect_page_args', ['Token' => $Token, 'RedirectURL' => $RedirectURL]);
             \dash\session::set('redirect_page_title', T_("Redirect to sep payment"));
             \dash\session::set('redirect_page_button', T_("Redirect"));
-            \dash\notif::direct();
+            \dash\utility\pay\setting::before_redirect(true);
             \dash\redirect::to(\dash\utility\pay\setting::get_callbck_url('redirect_page'));
             return true;
         }

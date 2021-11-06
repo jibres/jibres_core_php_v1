@@ -70,6 +70,7 @@ class go
 
                 \dash\utility\pay\setting::save();
 
+                \dash\utility\pay\setting::before_redirect();
                 // redirect
                 \dash\redirect::to($redirect);
                 return;

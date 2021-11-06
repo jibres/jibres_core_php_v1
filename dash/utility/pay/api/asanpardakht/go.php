@@ -77,7 +77,7 @@ class go
             \dash\session::set('redirect_page_args', ['RefId' => $RefId]);
             \dash\session::set('redirect_page_title', T_("Redirect to asanpardakht payment"));
             \dash\session::set('redirect_page_button', T_("Redirect"));
-            \dash\notif::direct();
+            \dash\utility\pay\setting::before_redirect(true);
             \dash\redirect::to(\dash\utility\pay\setting::get_callbck_url('redirect_page'));
             return true;
 

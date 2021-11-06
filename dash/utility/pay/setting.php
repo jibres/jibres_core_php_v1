@@ -21,6 +21,20 @@ class setting
     }
 
 
+    /**
+     * Check direct before redirect to bank
+     *
+     * @param      bool  $_force_direct  The force direct
+     */
+    public static function before_redirect($_force_direct = false)
+    {
+    	if($_force_direct || !\dash\engine\store::inStore())
+    	{
+    		\dash\notif::direct();
+    	}
+    }
+
+
     public static function get_callbck_url($_payment)
     {
         $callback_url =  \dash\url::kingdom();
@@ -178,6 +192,8 @@ class setting
 
 			}
 		}
+
+		self::before_redirect();
 		\dash\redirect::to($back_url, 'pay', 302);
 	}
 

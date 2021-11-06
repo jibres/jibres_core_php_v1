@@ -66,6 +66,8 @@ class go
             \dash\utility\pay\setting::save();
 
             $redirect_url = "https://api.payping.ir/v2/pay/gotoipg/". $token;
+
+            \dash\utility\pay\setting::before_redirect();
             \dash\redirect::to($redirect_url);
             return true;
         }

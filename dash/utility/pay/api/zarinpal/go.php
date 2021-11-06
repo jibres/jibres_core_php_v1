@@ -79,6 +79,7 @@ class go
 
                 \dash\utility\pay\setting::save();
 
+                \dash\utility\pay\setting::before_redirect();
                 // redirect to bank
                 \dash\redirect::to($redirect);
 

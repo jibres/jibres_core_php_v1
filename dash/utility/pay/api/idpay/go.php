@@ -68,7 +68,7 @@ class go
                 \dash\utility\pay\setting::set_condition('redirect');
                 \dash\utility\pay\setting::set_banktoken($token['id']);
                 \dash\utility\pay\setting::save();
-
+                \dash\utility\pay\setting::before_redirect();
                 \dash\redirect::to($token['link']);
                 return true;
             }

@@ -68,6 +68,8 @@ class go
             \dash\utility\pay\setting::save();
 
             $redirect_url = "https://pay.ir/pg/". $token;
+
+            \dash\utility\pay\setting::before_redirect();
             \dash\redirect::to($redirect_url);
             return true;
         }

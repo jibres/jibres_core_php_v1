@@ -381,6 +381,7 @@ class start
 			}
 			else
 			{
+				\dash\utility\pay\setting::before_redirect();
 				\dash\redirect::to($url);
 			}
 		}
