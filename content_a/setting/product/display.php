@@ -1,41 +1,6 @@
 <?php $urlHere = \dash\url::here(); ?>
 
 
-<section class="f" data-option='product-category'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Category of products") ?></h3>
-      <div class="body">
-        <p></p>
-      </div>
-    </div>
-  </div>
-  <div class="c4 s12">
-    <div class="action">
-      <a class="btn primary" href="<?php echo $urlHere. '/category' ?>"><?php echo T_("Category of products") ?></a>
-    </div>
-  </div>
-  <footer class="txtRa">
-    <a class="link" href="<?php echo \dash\url::that(). '/category' ?>"><?php echo T_("Add category to all product"); ?></a>
-  </footer>
-</section>
-
-<section class="f" data-option='product-unit'>
-  <div class="c8 s12">
-    <div class="data">
-      <h3><?php echo T_("Product Units") ?></h3>
-      <div class="body">
-        <p></p>
-      </div>
-    </div>
-  </div>
-  <div class="c4 s12">
-    <div class="action">
-      <a class="btn primary" href="<?php echo $urlHere. '/units' ?>"><?php echo T_("Product Units") ?></a>
-    </div>
-  </div>
-</section>
-
 
 
 <section class="f" data-option='product-import'>
