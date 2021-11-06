@@ -76,6 +76,6 @@
 
 <?php if(\dash\url::child() !== 'add') {?>
 
-<div class="btn secondary outline text-sm" data-confirm data-data='{"archive": "product"}'><?php echo T_("Archive product") ?></div>
-<div class="btn danger outline text-sm" data-confirm data-data='{"delete": "product"}'><?php echo T_("Delete product") ?></div>
+<div class="btn-outline-secondary text-sm" data-confirm data-data='{"archive": "product"}'><?php echo T_("Archive product") ?></div>
+<div class="btn-outline-danger text-sm" data-confirm data-data='{"delete": "product"}'><?php echo T_("Delete product") ?></div>
 <?php } //endif ?>

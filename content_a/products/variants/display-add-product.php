@@ -77,7 +77,7 @@
                         </td>
 
                         <td class="collapsing">
-                          <div data-removeElTrigger><?php echo \dash\utility\icon::svg("Delete", null, '#dc3545'); ?></div>
+                          <div data-removeElTrigger><?php echo \dash\utility\icon::svg_delete(); ?></div>
                         </td>
 
                       </tr>
@@ -93,9 +93,9 @@
 
       </div>
       <footer class="f">
-        <div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\url::that(). '?id='. \dash\data::productDataRow_id(). '&makevariants=1'; ?>"><?php echo T_("Edit options") ?></a></div>
+        <div class="cauto"><a class="btn-outline-secondary" href="<?php echo \dash\url::that(). '?id='. \dash\data::productDataRow_id(). '&makevariants=1'; ?>"><?php echo T_("Edit options") ?></a></div>
         <div class="c"></div>
-        <div class="cauto"><button class="btn master" name="submitall" value="savevariants"><?php echo T_("Save"); ?></button></div>
+        <div class="cauto"><button class="btn-primary" name="submitall" value="savevariants"><?php echo T_("Save"); ?></button></div>
 
 
       </footer>

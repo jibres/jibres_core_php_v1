@@ -1,5 +1,5 @@
 <form method="post" autocomplete="off">
-  <div class="avand-md">
+  <div class="avand-lg">
     <div class="box">
       <div class="body">
 
@@ -70,7 +70,7 @@
 
       </div>
       <footer class="txtRa">
-        <button class="btn master" name="submitall" value="makevariants"><?php echo T_("Next"); ?></button>
+        <button class="btn-primary" name="submitall" value="makevariants"><?php echo T_("Next"); ?></button>
       </footer>
     </div>
   </div>
