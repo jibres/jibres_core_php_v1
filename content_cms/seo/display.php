@@ -3,7 +3,7 @@
 <div class="avand-md zero">
   <div class="box">
     <div class="pad">
-      <div class="seoRank txtC mT20" data-size='hero'>
+      <div class="seoRank text-center text-3xl" data-size='hero'>
         <?php echo a(\dash\data::dashboardDetail(), 'seostar_html') ?>
       </div>
       <div class="font-18 txtC">

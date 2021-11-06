@@ -85,25 +85,29 @@ class seo
 		{
 			if($i <= $_star)
 			{
-				$result .= '<i class="fc-gold sf-star"></i>';
+				$result .= \dash\utility\icon::svg('star-fill', 'bootstrap', null, 'text-yellow-300');
+				// $result .= '<i class="fc-gold sf-star"></i>';
 			}
 			else
 			{
 				if($i - 0.25 <= $_star )
 				{
-					$result .= '<i class="fc-gold sf-star"></i>';
+					$result .= \dash\utility\icon::svg('star-fill', 'bootstrap', null, 'text-yellow-300');
+					// $result .= '<i class="fc-gold sf-star"></i>';
 				}
 				else if($i - 0.75 <= $_star )
 				{
-					$result .= '<i class="fc-gold sf-star-half-o"></i>';
+					$result .= \dash\utility\icon::svg('star-half', 'bootstrap', null, 'text-yellow-300');
+					// $result .= '<i class="fc-gold sf-star-half-o"></i>';
 				}
 				else
 				{
-					$result .= '<i class="fc-gold sf-star-o"></i>';
+					$result .= \dash\utility\icon::svg('star', 'bootstrap', null, 'text-yellow-300');
+					// $result .= '<i class="fc-gold sf-star-o"></i>';
 				}
 			}
 		}
-		$result = '<div class="ltr compact">'. $result. '</div>';
+		$result = '<div class="ltr compact flex"><div class="flex-1"></div><div class="flex">'. $result. '</div><div class="flex-1"></div></div>';
 		return $result;
 	}
 
