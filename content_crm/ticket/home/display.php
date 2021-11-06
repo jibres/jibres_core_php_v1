@@ -61,7 +61,7 @@
      <ul>
       <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?so=y">
-        <?php echo \dash\utility\icon::svg('patch-check', 'bootstrap'); ?>
+        <?php echo \dash\utility\icon::bootstrap('patch-check-fill', 'text-green-500'); ?>
         <div class="key"><?php echo T_('Solved tickets');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'solved')); ?></div>
         <div class="go"></div>
@@ -69,7 +69,7 @@
       </li>
        <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?so=n">
-        <?php echo \dash\utility\icon::svg('patch-exclamation-fill', 'bootstrap'); ?>
+        <?php echo \dash\utility\icon::bootstrap('patch-exclamation', 'text-yellow-500'); ?>
         <div class="key"><?php echo T_('Unsolved tickets');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'unsolved')); ?></div>
         <div class="go"></div>

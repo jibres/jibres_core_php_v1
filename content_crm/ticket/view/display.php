@@ -76,7 +76,7 @@ else
           <div class="f item" data-copy="<?php echo \dash\url::kingdom(); ?>/!<?php echo \dash\data::dataRow_id() ?>">
             <div class="key"><?php echo T_("Ticket ID") ?></div>
             <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
-            <i class="sf-pound"></i>
+            <?php echo \dash\utility\icon::bootstrap('hash'); ?>
           </div>
         </li>
 
@@ -89,7 +89,7 @@ else
       <?php if(\dash\data::dataRow_base()) {?>
         <li class="">
           <a class="f item" href='<?php echo \dash\url::this(). '/view?id='. \dash\data::dataRow_base(); ?>'>
-            <i class="sf-asterisk fc-red"></i>
+            <?php echo \dash\utility\icon::bootstrap('asterisk', 'text-red-500'); ?>
             <div class="key"><?php echo T_("Separated from"); ?></div>
             <div class="value"><?php echo T_("Ticket"). ' '. \dash\data::dataRow_base(); ?></div>
           </a>
@@ -97,14 +97,14 @@ else
       <?php }// endif ?>
         <li>
           <div class="f item">
-            <i class="sf-date"></i>
+            <?php echo \dash\utility\icon::bootstrap('Calendar date'); ?>
             <div class="key"><?php echo T_("Submit Date") ?></div>
             <time class="value" datetime="<?php echo \dash\data::dataRow_datecreated(); ?>"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()); ?></time>
           </div>
         </li>
         <li>
           <div class="f item">
-            <i class="sf-clock"></i>
+            <?php echo \dash\utility\icon::bootstrap('watch'); ?>
             <div class="key"></div>
             <div class="value"><?php echo \dash\fit::date_human(\dash\data::dataRow_datecreated()); ?></div>
           </div>
@@ -112,7 +112,7 @@ else
         <?php if(\dash\data::dataRow_answertime() && !$customer_mode) {?>
         <li>
           <div class="f item">
-            <i class="sf-cardiac-pulse"></i>
+            <?php echo \dash\utility\icon::bootstrap('activity'); ?>
             <div class="key"><?php echo T_("First Answer") ?></div>
             <div class="value "><?php echo \dash\utility\human::time(\dash\data::dataRow_answertime(), true); ?></div>
           </div>
@@ -121,7 +121,7 @@ else
         <?php if(\dash\data::dataRow_subtype() && !$customer_mode) {?>
           <li>
           <div class="f item">
-            <i class="sf-arrows-alt"></i>
+            <?php echo \dash\utility\icon::bootstrap('braces'); ?>
             <div class="key"><?php echo T_("Type") ?></div>
             <div class="value "><?php echo T_(ucfirst(\dash\data::dataRow_subtype())); ?></div>
           </div>
@@ -136,7 +136,7 @@ else
         <?php if(\dash\data::dataRow_mobile()) {?>
           <li>
             <a class="f item" href="tel:+<?php echo \dash\data::dataRow_mobile();?>">
-              <i class="sf-mobile"></i>
+              <?php echo \dash\utility\icon::bootstrap('telephone'); ?>
               <div class="key"><?php echo T_("Mobile") ?></div>
               <div class="value mobile"><?php echo \dash\fit::mobile(\dash\data::dataRow_mobile()); ?></div>
             </a>
@@ -145,7 +145,7 @@ else
         <?php }elseif($customer_mode) {?>
           <li>
             <a class="f item" href="<?php echo \dash\url::kingdom(). '/enter?referer='. urlencode(\dash\url::location());  ?>">
-              <i class="sf-sign-in"></i>
+              <?php echo \dash\utility\icon::bootstrap('box-arrow-in-left'); ?>
               <div class="key"><?php echo T_("Please login to save ticket") ?></div>
             </a>
           </li>
@@ -153,7 +153,7 @@ else
         <?php }else{ ?>
           <li>
             <a class="f item" href="<?php echo \dash\url::this(). '/assign?id='. \dash\data::dataRow_id();  ?>">
-              <i class="sf-plug"></i>
+              <?php echo \dash\utility\icon::bootstrap('plug'); ?>
               <div class="key"><?php echo T_("Assign to user") ?></div>
             </a>
           </li>
@@ -161,7 +161,7 @@ else
         <?php if(\dash\data::dataRow_useremail()){ ?>
         <li>
           <div class="f item" data-copy='<?php echo \dash\data::dataRow_useremail(); ?>'>
-            <i class="sf-at"></i>
+              <?php echo \dash\utility\icon::bootstrap('at'); ?>
             <div class="key"><?php echo T_("Email") ?></div>
             <div class="value"><?php echo \dash\data::dataRow_useremail(); ?></div>
           </div>
@@ -170,7 +170,7 @@ else
         <?php if(\dash\data::dataRow_usertelegram()){ ?>
         <li>
           <a class="f item" href="https://t.me/<?php echo \dash\data::dataRow_usertelegram(); ?>">
-            <i class="sf-paper-plane"></i>
+              <?php echo \dash\utility\icon::bootstrap('telegram'); ?>
             <div class="key"><?php echo T_("Telegram") ?></div>
             <div class="value txtL ltr"><?php echo \dash\data::dataRow_usertelegram(); ?></div>
           </a>
@@ -195,7 +195,7 @@ else
               data-confirm
               data-data='{"setstatus": "set", "status": "spam"}'
               data-title="<?php echo T_("Report as spam"); ?>">
-                <i class="sf-ban fc-red"></i>
+                <?php echo \dash\utility\icon::bootstrap('X octagon fill', 'text-yellow-600'); ?>
                 <div class="key"><?php echo T_("Is spam?") ?></div>
                 <div class="go"></div>
               </div>
@@ -204,7 +204,7 @@ else
 <?php if(\dash\data::dataRow_status() !== 'close' && \dash\data::dataRow_status() !== 'deleted' && \dash\data::dataRow_status() !== 'spam') {?>
             <li>
               <div class="f item" data-confirm data-data='{"setstatus": "set", "status": "close"}' data-title="<?php echo T_("Do you want to archive this ticket?"); ?>">
-                <i class="sf-archive fc-mute"></i>
+                <?php echo \dash\utility\icon::bootstrap('archive-fill', 'text-gray-500'); ?>
                 <div class="key"><?php echo T_("Set ticket as archive") ?></div>
               </div>
           </li>
@@ -212,7 +212,7 @@ else
 <?php if(\dash\data::dataRow_status() === 'close') {?>
             <li>
               <div class="f item"data-confirm data-data='{"setstatus": "set", "status": "deleted"}' data-title="<?php echo T_("Do you want to delete this ticket?"); ?>">
-                <i class="sf-trash fc-red"></i>
+                <?php echo \dash\utility\icon::bootstrap('trash', 'text-red-500'); ?>
                 <div class="key"><?php echo T_("Remove ticket") ?></div>
               </div>
           </li>
@@ -220,7 +220,11 @@ else
 <?php } //endif ?>
         <li>
           <div class="f item" data-ajaxify data-data='{"setsolved": "set", "solved": "<?php echo intval(\dash\data::dataRow_solved()); ?>"}' data-title="<?php if(\dash\data::dataRow_solved()) {echo T_("Is the problem unresolved and still is?");}else{echo T_("Has the problem raised in this ticket been resolved?");} ?>">
-            <i class="sf-<?php if(\dash\data::dataRow_solved()){echo 'heart ok';}else{echo 'heart-o';} ?>"></i>
+            <?php if(\dash\data::dataRow_solved()) { ?>
+            <?php echo \dash\utility\icon::bootstrap('patch-check-fill', 'text-green-500'); ?>
+            <?php } else { ?>
+            <?php echo \dash\utility\icon::bootstrap('patch-exclamation', 'text-gray-500'); ?>
+            <?php } ?>
             <div class="key"><?php echo T_("Solved?") ?></div>
             <div class="value txtB"><?php if(\dash\data::dataRow_solved()){echo T_("Yes");}else{echo T_("No");} ?></div>
           </div>
@@ -234,7 +238,7 @@ else
         <?php if(a(\dash\data::conversation(), 0, 'messagecount')) {?>
         <li>
           <div class="f item">
-            <i class="sf-comment"></i>
+            <?php echo \dash\utility\icon::bootstrap('chat-quote', 'text-gray-500'); ?>
             <div class="key"><?php echo T_("Message Count"); ?></div>
             <div class="value"><?php echo \dash\fit::number(a(\dash\data::conversation(), 0, 'messagecount')); ?></div>
           </div>
@@ -243,7 +247,7 @@ else
         <?php if(a(\dash\data::conversation(), 0, 'answercount')) {?>
         <li>
           <div class="f item">
-            <i class="sf-comments-o"></i>
+            <?php echo \dash\utility\icon::bootstrap('chat-right-quote-fill', 'text-gray-500'); ?>
             <div class="key"><?php echo T_("Answer Count"); ?></div>
             <div class="value"><?php echo \dash\fit::number(a(\dash\data::conversation(), 0, 'answercount')); ?></div>
           </div>
@@ -252,7 +256,7 @@ else
         <?php if(a(\dash\data::conversation(), 0, 'attachmentcount')) {?>
         <li>
           <div class="f item">
-            <i class="sf-attach"></i>
+            <?php echo \dash\utility\icon::bootstrap('paperclip', 'text-blue-500'); ?>
             <div class="key"><?php echo T_("Attachment"); ?></div>
             <div class="value"><?php echo \dash\fit::number(a(\dash\data::conversation(), 0, 'attachmentcount')); ?></div>
           </div>

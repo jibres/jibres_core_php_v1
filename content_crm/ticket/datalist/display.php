@@ -9,11 +9,11 @@ echo '<nav class="items long">';
       {
         if(a($value, 'solved'))
         {
-          echo \dash\utility\icon::svg('Patch check', 'bootstrap', null, 'text-green-500');
+          echo \dash\utility\icon::svg('Patch check fill', 'bootstrap', null, 'text-green-500');
         }
         else
         {
-          echo \dash\utility\icon::svg('Patch exclamation fill', 'bootstrap', null, 'text-blue-500');
+          echo \dash\utility\icon::svg('Patch exclamation', 'bootstrap', null, 'text-blue-500');
         }
 
         echo a($value, 'statusIcon');
