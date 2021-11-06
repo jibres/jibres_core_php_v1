@@ -16,8 +16,8 @@ $have_user = false;
 <?php if(\dash\data::userDetail()) { $have_user = true; ?>
   <div class="msg">
     <div class="f fs14">
-      <div class="cauto"><img class="avatar" src="<?php echo \dash\data::userDetail_avatar() ?>"></div>
-      <div class="c"><?php echo \dash\data::userDetail_displayname(); ?></div>
+      <div class="cauto"><img class="avatar w-12 rounded-lg" src="<?php echo \dash\data::userDetail_avatar() ?>"></div>
+      <div class="c mx-2"><?php echo \dash\data::userDetail_displayname(); ?></div>
       <div class="c"><?php echo \dash\fit::mobile(\dash\data::userDetail_mobile()); ?></div>
     </div>
   </div>
@@ -49,9 +49,9 @@ $have_user = false;
         </div>
 
         <footer class="f">
-          <div class="cauto"><div class="btn linkDel" data-confirm data-data='{"removeall": "removeall"}'><?php echo T_("Remove All") ?></div></div>
+          <div class="cauto"><div class="btn-danger" data-confirm data-data='{"removeall": "removeall"}'><?php echo T_("Remove All") ?></div></div>
           <div class="c"></div>
-          <div class="cauto"><button class="btn success"><?php echo T_("Add"); ?></button></div>
+          <div class="cauto"><button class="btn-success"><?php echo T_("Add"); ?></button></div>
 
         </footer>
       </div>
@@ -208,7 +208,7 @@ $have_user = false;
 
                   </div>
 
-                  <div class="productDel" data-confirm data-data='{"type": "remove", "product_id": "<?php echo a($value, 'product_id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
+                  <div class="productDel p-1" data-confirm data-data='{"type": "remove", "product_id": "<?php echo a($value, 'product_id') ?>"}' title='<?php echo T_("Delete") ?>'><?php echo \dash\utility\icon::svg_delete() ?></div>
 
                 </div>
               <?php } // endif ?>
