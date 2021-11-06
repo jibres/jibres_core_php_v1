@@ -20,7 +20,7 @@
      <ul>
        <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/datalist">
-          <i class="sf-heart-o"></i>
+          <?php echo \dash\utility\icon::svg('list-task', 'bootstrap'); ?>
           <div class="key"><?php echo T_('All tickets');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'tickets')); ?></div>
           <div class="go search"></div>
@@ -28,7 +28,7 @@
       </li>
        <li>
         <a class="item f" href="<?php echo \dash\url::this();?>/add">
-          <i class="sf-asterisk"></i>
+          <?php echo \dash\utility\icon::svg('plus-circle-dotted', 'bootstrap'); ?>
           <div class="key"><?php echo T_('Add new ticket');?></div>
           <div class="go plus"></div>
         </a>
@@ -40,7 +40,7 @@
      <ul>
       <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?status=awaiting">
-        <i class="sf-spin-alt fc-hot"></i>
+        <?php echo \dash\utility\icon::svg('Hourglass split', 'bootstrap'); ?>
         <div class="key"><?php echo T_('Awaiting answer');?></div>
         <div class="value txtB"><?php echo \dash\fit::number(a($dashboardDetail, 'awaiting')); ?></div>
         <div class="go"></div>
@@ -48,7 +48,7 @@
       </li>
        <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?status=close">
-        <i class="sf-archive"></i>
+        <?php echo \dash\utility\icon::svg('archive', 'bootstrap'); ?>
         <div class="key"><?php echo T_('Closed tickets');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'close')); ?></div>
         <div class="go"></div>
@@ -61,7 +61,7 @@
      <ul>
       <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?so=y">
-        <i class="sf-check"></i>
+        <?php echo \dash\utility\icon::svg('patch-check', 'bootstrap'); ?>
         <div class="key"><?php echo T_('Solved tickets');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'solved')); ?></div>
         <div class="go"></div>
@@ -69,7 +69,7 @@
       </li>
        <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?so=n">
-        <i class="sf-exclamation-triangle"></i>
+        <?php echo \dash\utility\icon::svg('patch-exclamation-fill', 'bootstrap'); ?>
         <div class="key"><?php echo T_('Unsolved tickets');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'unsolved')); ?></div>
         <div class="go"></div>
@@ -84,7 +84,7 @@
      <ul>
       <li>
        <a class="item f" href="<?php echo \dash\url::this();?>/message">
-        <i class="sf-align-left"></i>
+        <?php echo \dash\utility\icon::svg('chat-quote', 'bootstrap'); ?>
         <div class="key"><?php echo T_('All messages');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'message')); ?></div>
         <div class="go"></div>
@@ -98,7 +98,7 @@
      <ul>
       <li>
        <a class="item f">
-        <i class="sf-clock"></i>
+        <?php echo \dash\utility\icon::svg('clock', 'bootstrap'); ?>
         <div class="key"><?php echo T_('The average time of the first response');?></div>
         <div class="value"><?php echo \dash\utility\human::time(a($dashboardDetail, 'answertime'), true); ?></div>
         <div class="go detail"></div>
