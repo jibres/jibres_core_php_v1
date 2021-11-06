@@ -7,25 +7,31 @@
     </div>
     <div class="c-auto order-md-first">
       <div class="checkIcon">
-        <label for="file1-2" class="sf-attach" data-kerkere='.uploadBox'></label>
+        <label for="file1-2" data-kerkere='.uploadBox'>
+          <?php echo \dash\utility\icon::svg('Paperclip', 'bootstrap'); ?>
+        </label>
       </div>
     </div>
 <?php if(!$customer_mode) {?>
     <div class="c-auto">
       <div class="checkIcon">
         <input type="checkbox" name="sendmessage" id="sendmessage">
-        <label for="sendmessage" class="sf-bell" title="<?php echo T_("Send notify about your answer to creator of ticket") ?>"></label>
+        <label for="sendmessage">
+          <?php echo \dash\utility\icon::svg('bell-fill', 'bootstrap'); ?>
+        </label>
       </div>
     </div>
     <div class="c-auto">
       <div class="checkIcon">
         <input type="checkbox" name="note" id="inote">
-        <label for="inote" class="sf-sun-o" title="<?php echo T_("Disabling this option will add your reply to the ticket as a note") ?>"></label>
+        <label for="inote">
+          <?php echo \dash\utility\icon::svg('sun-fill', 'bootstrap'); ?>
+        </label>
       </div>
     </div>
 <?php }?>
     <div class="c-xs c-sm c-md-auto txtRa">
-      <button class="btn master"><?php echo T_("Send"); ?></button>
+      <button class="btn-primary"><?php echo T_("Send"); ?></button>
     </div>
   </div>
   <div class="uploadBox" data-kerkere-content='hide'>
