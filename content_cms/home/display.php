@@ -43,8 +43,7 @@
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts">
-            <i class="sf-archive"></i>
-
+            <?php echo \dash\utility\icon::svg('archive', 'bootstrap') ?>
             <div class="key"><?php echo T_('All Posts');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_post()); ?></div>
             <div class="go"></div>
@@ -52,7 +51,7 @@
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=standard">
-            <i class="sf-news"></i>
+            <?php echo \dash\utility\icon::svg('newspaper', 'bootstrap') ?>
             <div class="key"><?php echo T_('Standard Posts');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_standard()); ?></div>
             <div class="go"></div>
@@ -60,7 +59,7 @@
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=gallery">
-            <i class="sf-picture"></i>
+            <?php echo \dash\utility\icon::svg('images', 'bootstrap') ?>
             <div class="key"><?php echo T_('Gallery');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_gallery()); ?></div>
             <div class="go"></div>
@@ -68,7 +67,7 @@
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=video">
-            <i class="sf-film"></i>
+            <?php echo \dash\utility\icon::svg('film', 'bootstrap') ?>
             <div class="key"><?php echo T_('Video');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_video()); ?></div>
             <div class="go"></div>
@@ -76,7 +75,7 @@
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/posts?subtype=audio">
-            <i class="sf-music"></i>
+            <?php echo \dash\utility\icon::svg('mic', 'bootstrap') ?>
             <div class="key"><?php echo T_('Podcast');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_audio()); ?></div>
             <div class="go"></div>
@@ -88,7 +87,7 @@
       <ul>
         <li>
           <a class="item f" href="<?php echo \dash\url::here();?>/hashtag">
-            <i class="sf-pound"></i>
+            <?php echo \dash\utility\icon::svg('hash', 'bootstrap') ?>
             <div class="key"><?php echo T_('Hashtag');?></div>
             <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_tags()); ?></div>
             <div class="go"></div>
@@ -101,7 +100,7 @@
         <ul>
           <li>
             <a class="item f" href="<?php echo \dash\url::here();?>/comments">
-              <i class="sf-comments"></i>
+              <?php echo \dash\utility\icon::svg('chat-dots', 'bootstrap') ?>
               <div class="key"><?php echo T_('All Comments');?></div>
               <div class="value"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments()); ?></div>
               <div class="go"></div>
@@ -111,12 +110,14 @@
             <a class="item f" href="<?php echo \dash\url::here();?>/comments?status=awaiting">
 <?php
 $awaitingColor = '';
-if(\dash\data::dashboardDetail_comments_awaiting() > 0)
+if(\dash\data::dashboardDetail_comments_awaiting() > 0 || 12)
 {
-  $awaitingColor = " fc-red";
+  $awaitingColor = "text-red-500";
 }
 ?>
-              <i class="sf-commenting<?php echo $awaitingColor;?>"></i>
+
+
+              <?php echo \dash\utility\icon::svg('chat', 'bootstrap', null, $awaitingColor) ?>
               <div class="key"><?php echo T_('Awaiting Moderation');?></div>
               <div class="value<?php echo $awaitingColor;?>"><?php echo \dash\fit::number(\dash\data::dashboardDetail_comments_awaiting()); ?></div>
               <div class="go<?php echo $awaitingColor;?>"></div>
@@ -131,7 +132,7 @@ if(\dash\data::dashboardDetail_comments_awaiting() > 0)
         <ul>
           <li class="">
             <a class="item f" href="<?php echo \dash\url::here();?>/config">
-              <i class="sf-settings"></i>
+              <?php echo \dash\utility\icon::svg('gear', 'bootstrap') ?>
               <div class="key"><?php echo T_('Config');?></div>
               <div class="go"></div>
             </a>
