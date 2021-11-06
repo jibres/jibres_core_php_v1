@@ -53,7 +53,9 @@ if(\dash\data::dataRow_banktoken())
 	<div class="f fix topBox">
 		<div class="c8">
 			<div class="payPriceBox">
-				<span class="price"><?php echo \dash\fit::number(\dash\data::dataRow_plus()); ?></span>
+				<div class="priceBlock">
+					<span class="price"><?php echo \dash\fit::number(\dash\data::dataRow_plus()); ?></span>
+				</div>
 				<abbr class="unit"><?php echo \dash\data::dataRow_currency_name(); ?></abbr>
 			</div>
 		</div>
