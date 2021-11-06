@@ -16,7 +16,7 @@
     <div class="c-auto">
       <div class="checkIcon">
         <input type="checkbox" name="sendmessage" id="sendmessage">
-        <label for="sendmessage">
+        <label for="sendmessage" title="<?php echo T_("Send notify about your answer to creator of ticket") ?>">
           <?php echo \dash\utility\icon::svg('bell-fill', 'bootstrap'); ?>
         </label>
       </div>
@@ -24,7 +24,7 @@
     <div class="c-auto">
       <div class="checkIcon">
         <input type="checkbox" name="note" id="inote">
-        <label for="inote">
+        <label for="inote" title="<?php echo T_("Disabling this option will add your reply to the ticket as a note") ?>">
           <?php echo \dash\utility\icon::svg('sun-fill', 'bootstrap'); ?>
         </label>
       </div>
