@@ -42,7 +42,7 @@
      <ul>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/member">
-          <i class="sf-users"></i>
+          <?php echo \dash\utility\icon::svg('Customers'); ?>
           <div class="key"><?php echo T_('Customers');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'users')); ?></div>
           <div class="go search"></div>
@@ -50,7 +50,7 @@
       </li>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/member/add">
-          <i class="sf-user-plus"></i>
+          <?php echo \dash\utility\icon::svg('Customer Plus'); ?>
           <div class="key"><?php echo T_('Add new Customer');?></div>
           <div class="go plus"></div>
         </a>
@@ -62,14 +62,14 @@
      <ul>
       <li>
        <a class="item f" href="<?php echo \dash\url::here();?>/staff">
-        <i class="sf-user-close-security"></i>
+        <?php echo \dash\utility\icon::svg('profile'); ?>
         <div class="key"><?php echo T_('Staffs');?></div>
         <div class="go"></div>
        </a>
       </li>
        <li>
        <a class="item f" href="<?php echo \dash\url::here();?>/permission">
-        <i class="sf-unlock-alt"></i>
+        <?php echo \dash\utility\icon::svg('lock'); ?>
         <div class="key"><?php echo T_('Permissions');?></div>
         <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'permissions')); ?></div>
         <div class="go"></div>
@@ -84,7 +84,7 @@
 
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/transactions?verify=y">
-        <i class="sf-money"></i>
+          <?php echo \dash\utility\icon::svg('Capture Payment', 'minor'); ?>
           <div class="key"><?php echo T_('Successful payments');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'transactions')); ?></div>
           <div class="go"></div>
@@ -93,7 +93,7 @@
 
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/transactions">
-        <i class="sf-receipt-shopping-streamline"></i>
+          <?php echo \dash\utility\icon::svg('Payments'); ?>
           <div class="key"><?php echo T_('All payments');?></div>
           <div class="go"></div>
         </a>
@@ -109,7 +109,7 @@
 
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/ticket">
-          <i class="sf-chat-alt-fill"></i>
+          <?php echo \dash\utility\icon::svg('Chat'); ?>
           <div class="key"><?php echo T_('Tickets');?></div>
           <div class="value"><?php echo \dash\fit::number(a($dashboardDetail, 'tickets')); ?></div>
           <div class="go"></div>
@@ -118,7 +118,7 @@
 
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/notification">
-          <i class="sf-bell"></i>
+          <?php echo \dash\utility\icon::svg('Notification'); ?>
           <div class="key"><?php echo T_('Notifications');?></div>
           <div class="go"></div>
         </a>
@@ -132,7 +132,7 @@
     <ul>
     <?php if(\dash\permission::check('_group_form')) {?>
       <li><a class="item f" href="<?php echo \dash\url::kingdom(); ?>/a/form">
-        <i class="sf-edit"></i>
+        <?php echo \dash\utility\icon::svg('Forms'); ?>
         <div class="key"><?php echo T_("Form Builder"); ?></div>
         <div class="go"></div>
       </a></li>
@@ -144,14 +144,14 @@
      <ul>
        <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/sms">
-          <i class="sf-envelope"></i>
+          <?php echo \dash\utility\icon::svg('chat-left-text', 'bootstrap'); ?>
           <div class="key"><?php echo T_('SMS');?></div>
           <div class="go"></div>
         </a>
       </li>
       <li>
         <a class="item f" href="<?php echo \dash\url::here();?>/telegram">
-          <i class="sf-paper-plane"></i>
+          <?php echo \dash\utility\icon::svg('telegram', 'bootstrap'); ?>
           <div class="key"><?php echo T_('Telegram');?></div>
           <div class="go"></div>
         </a>
