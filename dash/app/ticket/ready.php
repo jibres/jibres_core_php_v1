@@ -31,39 +31,44 @@ class ready
 				case 'status':
 					$color       = null;
 					$color_class = null;
-					$statuclass = 'sf-exchange';
+					$statusIcon = 'sf-exchange';
+					$statusClass = 'text-gray-700';
 					switch ($value)
 					{
 						case 'awaiting':
 							$color       = null;
 							$color_class = 'pain';
-							$statuclass = 'sf-bullhorn fc-black';
+							$statusIcon = 'Hourglass split';
+							$statusClass = 'text-gray-500';
 							break;
-
 
 						case 'spam':
 						case 'deleted':
 						case 'filter':
 							$color       = 'negative';
 							$color_class = 'danger';
-							$statuclass = 'sf-trash-can fc-red';
+							$statusIcon = 'Trash fill';
+							$statusClass = 'text-red-400';
 							break;
 
 
 						case 'close':
 							$color       = 'disabled';
 							$color_class = 'secondary';
-							$statuclass = 'sf-archive fc-mute';
+							$statusIcon = 'archive';
+							$statusClass = 'text-green-800';
 							break;
 
 						case 'answered':
 							$color       = 'positive';
 							$color_class = 'success';
-							$statuclass = 'sf-coffee fc-gold';
+							$statusIcon = 'Hourglass top';
+							$statusClass = 'text-green-600';
 							break;
 					}
 
-					$result['statuclass'] = '<i class="'. $statuclass. '" title="'. T_($value). '"></i>';
+					$result['statusIcon'] = \dash\utility\icon::svg($statusIcon, 'bootstrap', null, $statusClass, ['title' => T_($value)]);
+
 
 					if(isset($_data['plus']) && $_data['plus'])
 					{
@@ -163,7 +168,7 @@ class ready
 			unset($result['ipRaw']);
 			unset($result['rowColor']);
 			unset($result['colorClass']);
-			unset($result['statuclass']);
+			unset($result['statusIcon']);
 			unset($result['plus']);
 			unset($result['gender_string']);
 		}

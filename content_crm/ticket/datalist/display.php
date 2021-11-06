@@ -9,14 +9,14 @@ echo '<nav class="items long">';
       {
         if(a($value, 'solved'))
         {
-          echo '<i class="sf-heart ok"></i>';
+          echo \dash\utility\icon::svg('Patch check', 'bootstrap', null, 'text-green-500');
         }
         else
         {
-          echo '<i class="sf-heart-o"></i>';
+          echo \dash\utility\icon::svg('Patch exclamation fill', 'bootstrap', null, 'text-blue-500');
         }
 
-        echo a($value, 'statuclass');
+        echo a($value, 'statusIcon');
 
         if(a($value, 'subtype') === 'bug')
         {
@@ -28,7 +28,6 @@ echo '<nav class="items long">';
         }
 
 
-        echo "<i class='sf-retweet' data-count='". \dash\fit::number(a($value, 'plus')). "'></i>";
 
         echo '<div class="key">'. a($value, 'title'). '</div>';
 
@@ -39,6 +38,9 @@ echo '<nav class="items long">';
         }
 
         echo '<time class="value" datetime="'. a($value, 'datecreated'). '">'. \dash\fit::date_time(a($value, 'datecreated')). '</time>';
+        echo "<i data-count='". \dash\fit::number(a($value, 'plus')). "'>";
+        echo \dash\utility\icon::svg('chat-quote', 'bootstrap');
+        echo "</i>";
       }
       echo '</a>';
     }
