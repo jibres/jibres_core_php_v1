@@ -115,5 +115,19 @@ class icon
 
         return $fileName;
     }
+
+
+
+
+
+    /**
+     * Delete icon
+     *
+     * @return     <type>  ( description_of_the_return_value )
+     */
+    public static function svg_delete()
+    {
+        return self::svg('trash', 'bootstrap', null, 'text-red-500');
+    }
 }
 ?>
