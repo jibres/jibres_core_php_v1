@@ -43,22 +43,27 @@ class icon
 
     private static function prepareSVG($_data, $_pack = null, $_fill = null, $_class = null)
     {
-        if($_fill)
+        switch ($_pack)
         {
-            switch ($_pack)
-            {
-                case 'major':
-                case 'minor':
+            case 'major':
+            case 'minor':
+                if($_fill)
+                {
                     $_data = str_replace('#5C5F62', $_fill, $_data);
-                    break;
+                }
+                break;
 
-                case 'bootstrap2':
+            case 'bootstrap':
+                if($_fill)
+                {
                     $_data = str_replace('currentColor', $_fill, $_data);
-                    break;
+                }
+                $_data = str_replace('height="16"', '', $_data);
+                $_data = str_replace('width="16"', '', $_data);
+                break;
 
-                default:
-                    break;
-            }
+            default:
+                break;
         }
         if($_class)
         {
