@@ -42,7 +42,6 @@ if(\dash\layout\pwa\pwa_menu::get())
           echo \dash\utility\icon::bootstrap($item['icon'], $itemClass);
         }
         echo "</div>";
-
       }
       if(isset($item['title']) && $item['title'])
       {

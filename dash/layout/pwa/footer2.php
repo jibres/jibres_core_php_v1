@@ -29,25 +29,54 @@ class footer2
             $footer .= " class='selected'";
           }
           $footer .= ">";
-          // add img
-          if(isset($item['img']) && $item['img'])
+
+          // add icon
+          if(isset($item['icon']) && $item['icon'])
           {
-            $footer .= "<div class='icon'>";
-            $footer .= "<img src='". \dash\utility\icon::src(a($item, 'img')). "' alt ='". a($item, 'title') ."'>";
-            if(isset($item['iconPulse']) && $item['iconPulse'])
-            {
-              $footer .= " class'pulse'";
-            }
-            $footer .= "'";
+            $footer .= "<div class='icon'";
             if(isset($item['cartItem']) && $item['cartItem'])
             {
               $footer .= ' data-item="'. $item['cartItem']. '"';
             }
+            if(isset($item['iconPulse']) && $item['iconPulse'])
+            {
+              $itemClass = ' data-pulse';
+            }
             $footer .= ">";
-            // $footer .= "</i>";
-            $footer .= "</div>";
 
+            $itemClass = null;
+            if(isset($item['iconGroup']))
+            {
+              $footer .= \dash\utility\icon::svg($item['icon'], $item['iconGroup'], $itemClass);
+            }
+            else
+            {
+              $footer .= \dash\utility\icon::bootstrap($item['icon'], $itemClass);
+            }
+            $footer .= "</div>";
           }
+
+
+          // // add img
+          // if(isset($item['img']) && $item['img'])
+          // {
+          //   $footer .= "<div class='icon'>";
+          //   $footer .= "<img src='". \dash\utility\icon::src(a($item, 'img')). "' alt ='". a($item, 'title') ."'>";
+          //   if(isset($item['iconPulse']) && $item['iconPulse'])
+          //   {
+          //     $footer .= " class'pulse'";
+          //   }
+          //   $footer .= "'";
+          //   if(isset($item['cartItem']) && $item['cartItem'])
+          //   {
+          //     $footer .= ' data-item="'. $item['cartItem']. '"';
+          //   }
+          //   $footer .= ">";
+          //   // $footer .= "</i>";
+          //   $footer .= "</div>";
+          // }
+
+
           // add title
           if(isset($item['title']) && $item['title'])
           {
@@ -70,7 +99,7 @@ class footer2
       $footer .= "</div>";
 
     }
-    echo $footer;
+    return $footer;
   }
 }
 ?>

@@ -270,20 +270,8 @@ class find
 		}
 
 		// add pwa footer
-		if(\dash\engine\store::inBusinessWebsite())
-		{
-			$footerPWA = \dash\layout\pwa\footer2::html();
-			echo $footerPWA;
-		}
-		else if(\dash\data::include_m2())
-		{
-			$footerPWA = \dash\layout\pwa\footer2::html();
-			echo $footerPWA;
-		}
-		else
-		{
-			require_once core.'layout/pwa/pwa-footer.php';
-		}
+		$footerPWA = \dash\layout\pwa\footer2::html();
+		echo $footerPWA;
 
 		echo "</footer>";
 	}
