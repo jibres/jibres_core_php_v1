@@ -45,19 +45,21 @@ class header
       if(\dash\url::support())
       {
         $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::support(). '" target="_blank" title="'. T_("Help Center"). '">';
-        $html .= \dash\utility\icon::svg('Question Mark Inverse');
+        $html .= \dash\utility\icon::bootstrap('info-circle', 'text-gray-500');
         $html .= '</a>';
       }
 
       if(\dash\user::id())
       {
         $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg orders" href="'. \dash\url::kingdom(). '/a/order/unprocessed" title="'. T_("Unprocessed Orders"). '">';
-        $html .= \dash\utility\icon::svg('First Order');
+        $html .= \dash\utility\icon::bootstrap('App indicator', 'text-gray-500');
+        // $html .= \dash\utility\icon::svg('First Order');
         $html .= '</a>';
 
         // notification
         $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg notification" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '" data-direct>';
-        $html .= \dash\utility\icon::svg('Notification');
+        // $html .= \dash\utility\icon::svg('Notification');
+        $html .= \dash\utility\icon::bootstrap('envelope', 'text-gray-500');
         $html .= '</a>';
 
         // avatar
