@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" translate="no" prefix="og: http://ogp.me/ns#"<?php if (\dash\permission::supervisor() || \dash\url::tld() === 'local') echo ' data-debugger1';?><?php if (\dash\data::HtmlPointerEventsNone()) echo ' class="pointer-events-none1 select-none"';?><?php if (\dash\detect\device::detectPWA()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}else{echo " data-desktop";}?>>
+<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" translate="no" prefix="og: http://ogp.me/ns#"<?php if (\dash\permission::supervisor() || \dash\url::tld() === 'local') echo ' data-debugger';?><?php if (\dash\data::HtmlPointerEventsNone()) echo ' class="pointer-events-none1 select-none"';?><?php if (\dash\detect\device::detectPWA()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}else{echo " data-desktop";}?>>
 <head>
  <meta charset="UTF-8"/>
  <base href="<?php echo \dash\url::base();?>"/>
@@ -96,14 +96,14 @@ if(\dash\data::addons())
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
  <meta content="<?php echo \dash\url::kingdom();?>/browserconfig.xml?v=1" name="msapplication-config"/>
 <?php } else {?>
- <link href="<?php echo \dash\url::cdn();?>?v=1" rel="shortcut icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png" sizes="180x180" rel="apple-touch-icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-32x32.png" sizes="32x32" type="image/png" rel="icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-16x16.png" sizes="16x16" type="image/png" rel="icon"/>
- <link href="<?php echo \dash\url::cdn();?>/favicons/safari-pinned-tab.svg" rel="mask-icon"/>
- <link href="<?php echo \dash\url::logo();?>" rel="apple-touch-startup-image"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon.ico?j=2" rel="shortcut icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/apple-touch-icon.png?j=2" sizes="180x180" rel="apple-touch-icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-32x32.png?j=2" sizes="32x32" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/favicon-16x16.png?j=2" sizes="16x16" type="image/png" rel="icon"/>
+ <link href="<?php echo \dash\url::cdn();?>/favicons/safari-pinned-tab.svg?j=2" rel="mask-icon"/>
+ <link href="<?php echo \dash\url::logo();?>?j=2" rel="apple-touch-startup-image"/>
  <link href="<?php echo \dash\url::kingdom();?>/manifest.webmanifest" rel="manifest"/>
- <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?v=1" name="msapplication-config"/>
+ <meta content="<?php echo \dash\url::cdn();?>/favicons/browserconfig.xml?j=2" name="msapplication-config"/>
 <?php } /*end if*/ if(\dash\detect\device::detectPWA() === 'ios') { ?>
   <link rel="apple-touch-startup-image" href="<?php echo \dash\url::cdn();?>/img/splash/jibres-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="<?php echo \dash\url::cdn();?>/img/splash/jibres-750x1294.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
