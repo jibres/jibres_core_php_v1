@@ -5,7 +5,12 @@ if(!\dash\face::disablePWA_Header())
   echo "<div class='pwa'>";
   if(\dash\data::back_link())
   {
-    echo "<a class='square minor back' href='". \dash\data::back_link(). "'>";
+    echo "<a class='square minor back' href='". \dash\data::back_link(). "'";
+    if(\dash\data::back_direct())
+    {
+      echo ' data-direct';
+    }
+    echo ">";
     {
       if(\dash\language::dir() === 'rtl')
       {
