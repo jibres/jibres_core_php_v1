@@ -234,21 +234,21 @@ class pwa_menu
 			[
 				'href'  => \dash\url::kingdom(),
 				'icon'  => 'home',
-				'img'   => 'home',
+				'iconGroup'  => 'major',
 				'title' => T_('Home'),
 			],
 			'category' =>
 			[
 				'href' => \dash\url::kingdom(). '/category',
-				'icon' => 'th-large',
-				'img'   => 'categories',
+				'icon' => 'Categories',
+				'iconGroup'  => 'major',
 				'title' => T_('Category'),
 			],
 			'cart' =>
 			[
 				'href' => \dash\url::kingdom(). '/cart',
-				'icon' => 'shopping-cart',
-				'img'   => 'cart',
+				'icon' => 'cart',
+				'iconGroup'  => 'major',
 				'title' => T_('Cart'),
 				'cartItem' => \dash\fit::number(\dash\data::myCart_count()),
 
@@ -256,7 +256,8 @@ class pwa_menu
 			'profile' =>
 			[
 				'href' => \dash\url::kingdom(). '/profile',
-				'icon' => 'user',
+				'icon' => 'profile',
+				'iconGroup'  => 'major',
 				'img'   => 'profile',
 				'title' => T_('Profile'),
 			],
@@ -279,10 +280,10 @@ class pwa_menu
 				{
 					$myFooter[] =
 					[
-						'href'  => a($footer, $i, 'url') ?  a($footer, $i, 'url') : '#',
-						'icon'  => a($footer, $i, 'icon'),
-						'img'   => a($footer, $i, 'icon'),
-						'title' => a($footer, $i, 'title'),
+						'href'      => a($footer, $i, 'url') ?  a($footer, $i, 'url') : '#',
+						'icon'      => a($footer, $i, 'icon'),
+						'iconGroup' => a($footer, $i, 'major'),
+						'title'     => a($footer, $i, 'title'),
 					];
 				}
 			}
