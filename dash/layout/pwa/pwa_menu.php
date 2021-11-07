@@ -82,32 +82,32 @@ class pwa_menu
 			[
 				'href' => \dash\url::kingdom(). '/my',
 				// 'selected' => true,
-				'icon' => 'home',
+				'icon' => 'speedometer2',
 				'title' => T_('Control Center'),
 			],
 			'messages' =>
 			[
 				'href' => \dash\url::kingdom(). '/account/notification',
-				'icon' => 'comments',
+				'icon' => 'envelope',
 				'title' => T_('Messages'),
 				'iconPulse' => true,
 			],
 			'business' =>
 			[
 				'href' => \dash\url::kingdom(). '/my/business',
-				'icon' => 'money',
+				'icon' => 'shop-window',
 				'title' => T_('Business'),
 			],
-			'support' =>
-			[
-				'href' => \dash\url::support(),
-				'icon' => 'info-circle',
-				'title' => T_('Help Center'),
-			],
+			// 'support' =>
+			// [
+			// 	'href' => \dash\url::support(),
+			// 	'icon' => 'info-circle',
+			// 	'title' => T_('Help Center'),
+			// ],
 			'account' =>
 			[
 				'href' => \dash\url::kingdom(). '/account',
-				'icon' => 'user',
+				'icon' => 'person-square',
 				'title' => T_('Profile'),
 			],
 		];
@@ -157,32 +157,37 @@ class pwa_menu
 			'dashboard' =>
 			[
 				'href' => \dash\url::kingdom(). '/a',
-				'icon' => 'gauge',
+				'icon' => 'home',
+				'iconGroup' => 'major',
 				'title' => T_('Dashboard'),
 			],
 			'products' =>
 			[
 				'href' => \dash\url::kingdom(). '/a/products',
-				'icon' => 'tags',
+				'icon' => 'Products',
+				'iconGroup' => 'major',
 				'title' => T_('products'),
 			],
 			'orders' =>
 			[
 				'href' => \dash\url::kingdom(). '/a/order',
-				'icon' => 'caddie-shopping-streamline',
+				'icon' => 'orders',
+				'iconGroup' => 'major',
 				'title' => T_('Orders'),
 				'iconPulse' => true,
 			],
 			// 'report' =>
 			// [
 			// 	'href' => \dash\url::kingdom(). '/a/report',
-			// 	'icon' => 'money',
+			// 	'icon' => 'analytics',
+			// 'iconGroup' => 'major',
 			// 	'title' => T_('Report'),
 			// ],
 			'setting' =>
 			[
 				'href' => \dash\url::kingdom(). '/a/setting',
-				'icon' => 'cogs',
+				'icon' => 'settings',
+				'iconGroup' => 'major',
 				'title' => T_('Setting'),
 			],
 		];

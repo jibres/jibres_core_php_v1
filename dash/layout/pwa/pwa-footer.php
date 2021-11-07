@@ -21,20 +21,26 @@ if(\dash\layout\pwa\pwa_menu::get())
       echo ">";
       if(isset($item['icon']) && $item['icon'])
       {
-        // echo "<div class='icon'><i class='sf-". $item['icon']. "'></i></div>";
-        echo "<div class='icon'>";
-        echo "<i class='sf-". $item['icon'];
-        if(isset($item['iconPulse']) && $item['iconPulse'])
-        {
-          echo " pulse";
-        }
-        echo "'";
+        echo "<div class='icon'";
         if(isset($item['cartItem']) && $item['cartItem'])
         {
           echo ' data-item="'. $item['cartItem']. '"';
         }
         echo ">";
-        echo "</i>";
+
+        $itemClass = '';
+        if(isset($item['iconPulse']) && $item['iconPulse'])
+        {
+          $itemClass = 'pulse';
+        }
+        if(isset($item['iconGroup']))
+        {
+          echo \dash\utility\icon::svg($item['icon'], $item['iconGroup'], $itemClass);
+        }
+        else
+        {
+          echo \dash\utility\icon::bootstrap($item['icon'], $itemClass);
+        }
         echo "</div>";
 
       }
