@@ -65,6 +65,7 @@ class panel
 			$menu[] =
 			[
 				'title'  => T_("Customers - CRM"),
+				'direct' => true,
 				'link'   => \dash\url::kingdom().'/crm',
 				'icon'   => 'atom',
 				'active' => (\dash\url::content()==='crm'? true :false)
