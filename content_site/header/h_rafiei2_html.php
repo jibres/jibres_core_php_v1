@@ -19,30 +19,33 @@ class h_rafiei2_html
 
 		$html = \content_site\assemble\wrench\section::element_start($_args, 'header');
 		{
+			$color = '#004bb0';
 			$topBgStyle = 'background-image: url('. \dash\url::cdn() .'/enterprise/rafiei/v2/header-pattern1.png);background-repeat:repeat-x;';
 			$topBgStyle .= 'animation:bgMoveLtr 60s linear infinite;';
 
 
-			$html .= '<div id="bgHeader" class="absolute h-24 w-full mx-auto top-0 right-0 left-0 z-50 opacity-30" style="'. $topBgStyle. '"></div>';
+			$html .= '<div id="bgHeader" class="absolute h-24 w-full mx-auto top-0 right-0 left-0 opacity-30" style="'. $topBgStyle. '"></div>';
 
-			$html .= \content_site\assemble\wrench\section::container($_args, 'h-20 mt-16 bg-blue-100 rounded-lg relative py-2');
+			$html .= \content_site\assemble\wrench\section::container($_args, 'pt-12');
 			{
-
-				$html .= '<a href="'. \dash\url::kingdom() .'" class="block max-w-md mx-auto py-1 md:py-3">';
-				if(a($_args, 'logo'))
+				$html .= '<div class="flex h-20 rounded-xl relative py-2 px-4 overflow-hidden1" style="background-color:'. $color. ';">';
 				{
-					$html .= '<img class="block mx-auto max-h-48 rounded" src="'. a($_args, 'logo'). '" alt="'. a($_args, 'heading'). '">';
-				}
-				$html .= '</a>';
+					$html .= '<a href="'. \dash\url::kingdom() .'" class="h-16 w-24 siteLogo">';
+					$html .= '<img class="block mx-auto rounded h-full" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
 
-				$menuOpt =
-				[
-					'nav_class' => 'py-2',
-					'ul_class'  => 'flex justify-center',
-					'li_class'  => '',
-					'a_class'   => 'block p-1 sm:p-2 md:px-4 rounded-lg bg-gray-100 bg-opacity-0 hover:bg-opacity-20 focus:bg-opacity-50 text-gray-800 transition link-'. a($_args, 'link_color'),
-				];
-				$html .= \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
+					$html .= '<h1 class="hidden">'. a($_args, 'heading'). "</h1>";
+					$html .= '</a>';
+
+					$menuOpt =
+					[
+						'nav_class' => 'py-2',
+						'ul_class'  => 'flex justify-center',
+						'li_class'  => '',
+						'a_class'   => 'block p-1 sm:p-2 md:px-4 rounded-lg bg-gray-100 bg-opacity-0 hover:bg-opacity-20 focus:bg-opacity-50 text-gray-800 transition link-'. a($_args, 'link_color'),
+					];
+					$html .= \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
+				}
+				$html .= '</div>';
 			}
 			$html .= '</div>';
 
