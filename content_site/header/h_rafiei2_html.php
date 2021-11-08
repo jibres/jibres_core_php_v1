@@ -19,11 +19,14 @@ class h_rafiei2_html
 
 		$html = \content_site\assemble\wrench\section::element_start($_args, 'header');
 		{
-			$html .= \content_site\assemble\wrench\section::container($_args, 'relative py-2');
+			$topBgStyle = 'background-image: url('. \dash\url::cdn() .'/enterprise/rafiei/v2/header-pattern1.png);background-repeat:repeat-x;';
+			$topBgStyle .= 'animation:bgMoveLtr 60s linear infinite;';
+
+
+			$html .= '<div id="bgHeader" class="absolute h-24 w-full mx-auto top-0 right-0 left-0 z-50 opacity-30" style="'. $topBgStyle. '"></div>';
+
+			$html .= \content_site\assemble\wrench\section::container($_args, 'h-20 mt-16 bg-blue-100 rounded-lg relative py-2');
 			{
-				$color = '#eda336';
-				$topCircleStyle = 'height:40px;top:-30px;border-radius:50%;background-color:'. $color.';';
-				$html .= '<div id="topLine" class="fixed w-full mx-auto right-0 left-0 z-50" style="'. $topCircleStyle. '"></div>';
 
 				$html .= '<a href="'. \dash\url::kingdom() .'" class="block max-w-md mx-auto py-1 md:py-3">';
 				if(a($_args, 'logo'))

@@ -16,7 +16,7 @@
           <div class="c-xs-12 c">
             <label for="filecontent"><?php echo T_("file content"); ?></label>
             <div class="input ltr">
-              <input type="text" name="filecontent" id="filecontent" <?php \dash\layout\autofocus::html() ?> maxlength='200' minlength="1"  >
+              <input type="text" name="filecontent" id="filecontent" <?php \dash\layout\autofocus::html() ?> maxlength='100' minlength="1"  >
             </div>
 
           </div>
@@ -28,9 +28,10 @@
     </div>
   </form>
   <?php if(\dash\data::fileList()) {?>
-    <table class="tbl1 v1">
+    <table class="tbl1 v1 table-auto">
       <thead>
         <tr>
+          <th class="collapsing"></th>
           <th><?php echo T_("File name") ?></th>
           <th><?php echo T_("File content") ?></th>
           <th class="collapsing"><?php echo T_("Remove") ?></th>
@@ -39,8 +40,9 @@
       <tbody>
         <?php foreach (\dash\data::fileList() as $key => $value) {?>
           <tr>
-            <td><a target="_blank" href="<?php echo \lib\store::url(). '/'. $key; ?>"><i class="sf-link-external compact"></i> </a><?php echo $key; ?></td>
-            <td><?php echo $value; ?></td>
+            <td><a target="_blank" href="<?php echo \lib\store::url(). '/'. $key; ?>"><?php echo \dash\utility\icon::bootstrap('box arrow up right', 'h-3 w-3') ?> </a></td>
+            <td class="collapsing"><?php echo $key; ?></td>
+            <td><div class="overflow-hidden overflow-ellipsis w-full max-w-xs "><?php echo $value;?></div></td>
             <td><div class="" data-confirm data-data='{"remove": "file", "name": "<?php echo $key; ?>", "content" : "<?php echo $value; ?>"}'><div class="w-10 p-3 flex"><?php echo \dash\utility\icon::svg('Delete', null, '#bd2130') ?></div></div></td>
           </tr>
         <?php } //endfor ?>
