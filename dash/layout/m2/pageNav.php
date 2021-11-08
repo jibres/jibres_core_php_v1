@@ -107,7 +107,7 @@ class pageNav
     {
       $html .= '<a';
       {
-        $html .= ' class="btn-light btn-sm mx-0.5 my-0.5';
+        $html .= ' class="btn-light btn-sm mx-0.5';
         if($_text)
         {
           $html .= ' btn-icon';
@@ -166,7 +166,7 @@ class pageNav
   {
     $html = '';
     $desc = T_("Press F4 to save");
-    $html .= '<button class="btn-success btnSave" data-shortkey="115" title="'. $desc. '"';
+    $html .= '<button class="btn-success btnSave w-24" data-shortkey="115" title="'. $desc. '"';
     if(\dash\face::btnSave())
     {
       $html .= ' form="'. \dash\face::btnSave(). '"';
@@ -233,19 +233,19 @@ class pageNav
 
   private static function nextPrevBtn()
   {
-    $nextIcon = 'Arrow Right';
-    $prevIcon = 'Arrow Left';
+    $prevIcon = 'Arrow bar left';
+    $nextIcon = 'Arrow bar right';
     if(\dash\language::dir() === 'rtl')
     {
-      $nextIcon = 'Arrow Left';
-      $prevIcon = 'Arrow Right';
+      $prevIcon = 'Arrow bar right';
+      $nextIcon = 'Arrow bar left';
     }
 
     $html = '';
     $html .= '<nav class="actionNextPrev mx-1">';
     {
-      $html .= self::btn(\dash\face::btnPrev(), '', ['icon' => $prevIcon, 'iconGroup' => 'minor', 'desc' => T_("Previous item")]);
-      $html .= self::btn(\dash\face::btnNext(), '', ['icon' => $nextIcon, 'iconGroup' => 'minor', 'desc' => T_("Next item")]);
+      $html .= self::btn(\dash\face::btnPrev(), '', ['icon' => $prevIcon, 'iconGroup' => 'bootstrap', 'desc' => T_("Previous item")]);
+      $html .= self::btn(\dash\face::btnNext(), '', ['icon' => $nextIcon, 'iconGroup' => 'bootstrap', 'desc' => T_("Next item")]);
     }
     $html .= '</nav>';
     return $html;
