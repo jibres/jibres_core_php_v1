@@ -16,7 +16,7 @@ class g3
 		$option['title']                  = T_("2 Magic Box + Slider");
 
 		$option['maximum_capacity']       = 14;
-		$option['minimum_item']           = 4;
+		$option['minimum_item']           = 3;
 		$option['break_image_list']       = 2;
 
 		$option['default']['image_count'] = 12;

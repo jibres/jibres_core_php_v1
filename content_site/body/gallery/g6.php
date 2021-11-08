@@ -58,7 +58,7 @@ class g6
 			],
 			// 'break_image_list' => 4,
 			'maximum_capacity' => 14,
-			'minimum_item'     => 6,
+			'minimum_item'     => 1,
 			'default'          =>
 			[
 				'heading'                 => T_("Image Gallery"),

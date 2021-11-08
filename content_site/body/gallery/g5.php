@@ -17,7 +17,7 @@ class g5
 		$option['title']                  = T_("Magic Box");
 
 		$option['maximum_capacity']       = 14;
-		$option['minimum_item']           = 4;
+		$option['minimum_item']           = 1;
 		$option['default']['image_count'] = 12;
 		unset($option['break_image_list']);
 
