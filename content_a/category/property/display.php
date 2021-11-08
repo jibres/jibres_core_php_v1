@@ -70,7 +70,7 @@
                   <input type="hidden" class="hide" name="sortgroup[]" value="<?php echo $key ?>">
                   <input type="hidden" class="hide" name="sortkey[]" value="<?php echo $v ?>">
                   <div class="f">
-                    <div data-handle class="cauto handle"><i class="sf-sort"></i></div>
+                    <div data-handle class="cauto handle sortHandle"><i class="sf-sort"></i></div>
                     <div class="c mLa10"><?php echo $v?></div>
                   </div>
 

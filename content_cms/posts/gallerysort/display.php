@@ -10,7 +10,7 @@
 <div class="msg fs14"><?php echo T_("Select any of the image you want and move them to sort") ?></div>
 <form method="post" data-sortable data-willy class="ltr">
 <?php foreach ($gallery as $key => $value) {?>
-  <div class="roundedBox" data-handle <?php if(a($value, 'type') !== 'image') {echo 'data-gr="'. rand(1, 20). '"'; }  ?>>
+  <div class="roundedBox sortHandle" data-handle <?php if(a($value, 'type') !== 'image') {echo 'data-gr="'. rand(1, 20). '"'; }  ?>>
     <figure class="overlay" >
       <input type="hidden" name="sort[]" value="<?php echo a($value, 'id'); ?>">
       <?php if(a($value, 'type') === 'image') {?>

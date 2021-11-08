@@ -21,7 +21,7 @@
           <tbody data-sortable>
             <?php foreach (\dash\data::choiceList() as $key => $value) {?>
               <tr <?php if(a($value, 'id') === \dash\request::get('cid')) { echo 'class="active"'; }?>>
-                <td class="collapsing" data-handle ><i class="sf-sort"></i>
+                <td class="collapsing sortHandle" data-handle ><i class="sf-sort"></i>
                   <input type="hidden" name="sort[]" value="<?php echo a($value, 'id') ?>">
                 </td>
                 <td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['cid' => a($value, 'id')]) ?>"><i class="sf-edit"></i> <?php echo a($value, 'title') ?></a></td>

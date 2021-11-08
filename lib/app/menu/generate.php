@@ -55,7 +55,7 @@ class generate
 			$result .= '<li>';
 			$result .= '<div class="f item">';
             {
-    			// $result .= '<i class="sf-thumbnails" data-handle>';
+    			// $result .= '<i class="sf-thumbnails sortHandle" data-handle>';
        //          {
        //          }
        //          $result .= '</i>';

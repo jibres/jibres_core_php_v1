@@ -64,7 +64,7 @@ foreach ($list as $key => $value)
               <img class="bg-gray-100 hover:bg-gray-200 p-2.5" src="<?php echo a($value, 'preview', 'icon') ?>">
               <div class="key"><?php if(a($value, 'preview', 'heading') !== null) { echo a($value, 'preview', 'heading'); }else{ echo '<i class="fc-mute">'. T_("Without title"). '</i>';} ?></div>
               <?php if (count($body) > 1) { ?>
-                <img class="p-3 opacity-70 hover:bg-gray-300" data-handle src="<?php echo \dash\utility\icon::url('DragHandle', 'minor'); ?>">
+                <img class="p-3 opacity-70 hover:bg-gray-300 sortHandle" data-handle src="<?php echo \dash\utility\icon::url('DragHandle', 'minor'); ?>">
               <?php } ?>
             </a>
           </li>

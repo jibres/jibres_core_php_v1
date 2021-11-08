@@ -53,7 +53,7 @@ class quote_list
 
             					if (count($currentSectionDetail['preview']['quote_list']) > 1)
             					{
-              						$html .= '<img class="p-5 opacity-70 hover:bg-gray-200" data-handle src="'. \dash\utility\icon::url('DragHandle', 'minor'). '">';
+              						$html .= '<img class="p-5 opacity-70 hover:bg-gray-200 sortHandle" data-handle src="'. \dash\utility\icon::url('DragHandle', 'minor'). '">';
               					}
               					else
               					{

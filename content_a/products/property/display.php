@@ -100,7 +100,7 @@ require_once(root. 'content_a/products/productName.php');
                       <div class="key">
                         <div class="row">
                           <?php if((a($value, 'value') || a($value, 'value') == '0') && !a($value, 'lock')) {?>
-                            <div class="cauto handle" data-handle><i class="sf-sort"></i></div>
+                            <div class="cauto handle sortHandle" data-handle><i class="sf-sort"></i></div>
                           <?php }elseif(!a($value, 'sortable')){ ?>
                             <!-- <i class="sf-sort disabled"></i> -->
                           <?php } //endif ?>

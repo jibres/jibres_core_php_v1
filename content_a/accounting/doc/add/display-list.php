@@ -38,7 +38,7 @@
              <?php if($locDelMode) {?>
                 <span><?php echo \dash\fit::number($key + 1) ?></span>
              <?php }else{?>
-                <i data-handle class="sf-sort p0"></i>
+                <i data-handle class="sf-sort p0 sortHandle"></i>
                 <input type="hidden" class="hide" name="sort[]" value="<?php echo a($value, 'id'); ?>">
                 <?php }// endif ?>
               </td>
