@@ -81,4 +81,62 @@ class socialnetworks
 
     return $html;
   }
+
+
+  public static function type2($_social, $_size = 9, $_color = null)
+  {
+    $html = '<nav class="social flex justify-center">';
+    {
+      $linkClass = 'block transition p-1 lg:mx-0.5 text-gray-50 opacity-90 hover:opacity-70 focus:opacity-60';
+      $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
+
+
+      if(a($_social, 'linkedin', 'link'))
+      {
+        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'linkedin', 'link') .'">';
+        $html .= \dash\utility\icon::bootstrap('linkedin', $imgClass);
+        $html .= '</a>';
+      }
+
+      if(a($_social, 'github', 'link'))
+      {
+        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'github', 'link') .'">';
+        $html .= \dash\utility\icon::bootstrap('github', $imgClass);
+        $html .= '</a>';
+      }
+
+      if(a($_social, 'facebook', 'link'))
+      {
+        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'facebook', 'link') .'">';
+        $html .= \dash\utility\icon::bootstrap('facebook', $imgClass);
+        $html .= '</a>';
+      }
+
+      if(a($_social, 'twitter', 'link'))
+      {
+        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'twitter', 'link') .'">';
+        $html .= \dash\utility\icon::bootstrap('twitter', $imgClass);
+        $html .= '</a>';
+      }
+
+      if(a($_social, 'instagram', 'link'))
+      {
+        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'instagram', 'link') .'">';
+        $html .= \dash\utility\icon::bootstrap('instagram', $imgClass);
+        $html .= '</a>';
+      }
+
+
+      if(a($_social, 'telegram', 'link'))
+      {
+        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'telegram', 'link') .'">';
+        $html .= \dash\utility\icon::bootstrap('telegram', $imgClass);
+        $html .= '</a>';
+      }
+
+    }
+    $html .= '</nav>';
+
+    return $html;
+  }
 }
