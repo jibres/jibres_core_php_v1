@@ -20,7 +20,18 @@ class g3_html
 					// slider box
 					$html .= '<div class="row-span-2 col-span-6 md:col-span-4">';
 					{
-						$html .= \content_site\assemble\element\slider::html($_args, $sliderList);
+						if(count($sliderList) >= 2)
+						{
+							$html .= \content_site\assemble\element\slider::html($_args, $sliderList);
+						}
+						elseif(count($sliderList) === 1)
+						{
+							$html .= \content_site\assemble\element\magicbox::html($_args, $sliderList, $magicBoxOpt);
+						}
+						else
+						{
+							// zero!
+						}
 					}
 					$html .= '</div>';
 
