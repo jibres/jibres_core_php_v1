@@ -28,9 +28,9 @@ class h_rafiei2_html
 
 			$html .= \content_site\assemble\wrench\section::container($_args, 'pt-10');
 			{
-				$html .= '<div class="flex align-center h-20 rounded-xl relative py-2 px-4 overflow-hidden1" style="background-color:'. $color. ';">';
+				$html .= '<div class="flex align-center h-20 rounded-lg relative py-2 px-4 overflow-hidden1" style="background-color:'. $color. ';">';
 				{
-					$html .= '<a href="'. \dash\url::kingdom() .'" class="h-16 w-24 siteLogo rounded-xl overflow-hidden">';
+					$html .= '<a href="'. \dash\url::kingdom() .'" class="h-16 w-24 siteLogo rounded-lg overflow-hidden">';
 					$html .= '<img class="block mx-auto h-full" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
 
 					$html .= '<h1 class="hidden">'. a($_args, 'heading'). "</h1>";
