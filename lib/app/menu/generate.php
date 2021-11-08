@@ -59,7 +59,7 @@ class generate
        //          {
        //          }
        //          $result .= '</i>';
-                $result .= \dash\utility\icon::bootstrap('Grip horizontal', 'sortableHandle');
+                $result .= \dash\utility\icon::bootstrap('Grip horizontal', 'sortHandle');
                 $result .= '<input type="hidden" name="sort[]" data-id="'. a($one_item, 'id'). '">';
 
                 // $result .= '<i data-kerkere=".showMenu" data-kerkere-icon="open"></i>';
