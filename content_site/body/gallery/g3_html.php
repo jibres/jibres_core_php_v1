@@ -26,6 +26,11 @@ class g3_html
 						}
 						elseif(count($sliderList) === 1)
 						{
+							$magicBoxOpt =
+							[
+								'class' => 'h-full',
+								'mediaBoxClass' => 'h-full'
+							];
 							$html .= \content_site\assemble\element\magicbox::html($_args, $sliderList, $magicBoxOpt);
 						}
 						else

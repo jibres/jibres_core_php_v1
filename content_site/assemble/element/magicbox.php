@@ -139,6 +139,10 @@ class magicbox
 				{
 					$mediaBoxClass .= ' overflow-hidden';
 				}
+				if(a($_opt, 'mediaBoxClass'))
+				{
+					$mediaBoxClass .= ' '. a($_opt, 'mediaBoxClass');
+				}
 
 				$mediaElementType = 'picture';
 
