@@ -42,7 +42,7 @@ class f_rafiei2_html
 							if(a($_args, 'description'))
 							{
 								// desc
-								$html .= '<div class="text-gray-200 line-clamp-5 leading-relaxed transition opacity-90 hover:opacity-100"'. $color_text. '>';
+								$html .= '<div class="text-gray-200 line-clamp-5 leading-7 transition opacity-90 hover:opacity-100"'. $color_text. '>';
 								{
 									$html .= $_args['description'];
 								}
@@ -67,7 +67,7 @@ class f_rafiei2_html
 						}
 						$html .= '</div>';
 
-						$certClass = 'inline-block w-32 h-32 rounded-lg bg-white p-1';
+						$certClass = 'inline-block w-24 h-24 rounded-lg bg-white p-1';
 						if(a($_args, 'certificate_enamad'))
 						{
 							// add enamad cert
