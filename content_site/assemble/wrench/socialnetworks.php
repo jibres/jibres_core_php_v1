@@ -87,7 +87,7 @@ class socialnetworks
   {
     $html = '<nav class="social flex">';
     {
-      $linkClass = 'block transition p-1 lg:mx-0.5 text-gray-50 opacity-90 hover:opacity-70 focus:opacity-60';
+      $linkClass = 'block transition p-1 lg:mx-0.5 text-gray-50 transition opacity-90 hover:opacity-100 focus:opacity-100';
       $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
 
 
