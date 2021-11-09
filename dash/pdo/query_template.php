@@ -9,7 +9,7 @@ namespace dash\pdo;
 class query_template
 {
 
-	public static function insert($_table, $_args)
+	public static function insert($_table, $_args, $_option = [])
 	{
 		if(empty($_args))
 		{
@@ -27,7 +27,14 @@ class query_template
 			$param[$new_key] = $value;
 		}
 
-		$query = "INSERT INTO `$_table` SET ";
+		$IGNORE = null;
+
+		if(a($_option, 'ignore'))
+		{
+			$IGNORE = 'IGNORE';
+		}
+
+		$query = "INSERT $IGNORE INTO `$_table` SET ";
 
 		$query_set = [];
 
