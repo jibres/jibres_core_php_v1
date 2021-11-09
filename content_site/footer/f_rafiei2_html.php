@@ -30,7 +30,7 @@ class f_rafiei2_html
 				$html .= '<div class="footerPrimary py-1 sm:py-5 md:py-10 lg:py-16 flex flex-wrap">';
 				{
 					// line1
-					$html .= '<div class="w-full lg:w-4/6 footerInfo">';
+					$html .= '<div class="w-full lg:w-3/6 footerInfo">';
 					{
 						$html .= '<div class="max-w-sm lg:max-w-md md:mx-auto lg:mx-0">';
 							$html .= '<a href="'. \dash\url::kingdom() .'" class="block h-20 lg:h-24 max-w-md siteLogo rounded-lg overflow-hidden mb-6 transition hover:opacity-80 focus:opacity-80">';
@@ -54,11 +54,11 @@ class f_rafiei2_html
 					$html .= '</div>';
 
 
-					$html .= '<div class="w-full lg:w-2/6 footerExtra">';
+					$html .= '<div class="w-full lg:w-3/6 footerExtra">';
 					{
 						$html .= '<div class="SocialMedia mb-6">';
 						{
-							$html .= '<div class="text-2xl h-10 mb-2 text-white footerExtra">';
+							$html .= '<div class="text-2xl h-10 mb-2 text-white select-none footerExtra">';
 							$html .= T_("Follow us on Social Media");
 							$html .= '</div>';
 							// socialNetwork
@@ -81,6 +81,8 @@ class f_rafiei2_html
 						}
 					}
 					$html .= '</div>';
+					$watermarkImg = 'left:-40px;bottom:-40px;';
+					$html .= '<img class="h-80 max-w-md opacity-20 absolute" style="'. $watermarkImg. '" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
 				}
 			}
 			$html .= '</div>';

@@ -19,7 +19,7 @@ class section
 		else if($_usedFor === 'footer')
 		{
 			$cnElement = 'footer';
-			$classNames = 'relative';
+			$classNames = 'relative overflow-hidden';
 		}
 		else
 		{
