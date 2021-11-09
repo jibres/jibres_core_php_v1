@@ -33,9 +33,9 @@ class f_rafiei2_html
 					$html .= '<div class="w-full lg:w-1/2 footerInfo">';
 					{
 						$html .= '<div class="max-w-sm lg:max-w-md md:mx-auto">';
-							$html .= '<a href="'. \dash\url::kingdom() .'" class="block max-h-32 max-w-md siteLogo rounded-lg overflow-hidden mb-6 transition hover:opacity-80 focus:opacity-80">';
+							$html .= '<a href="'. \dash\url::kingdom() .'" class="block h-20 lg:h-24 max-w-md siteLogo rounded-lg overflow-hidden mb-6 transition hover:opacity-80 focus:opacity-80">';
 							{
-								$html .= '<img class="block mx-auto h-full" src="'. \dash\url::cdn(). '/enterprise/rafiei/header/rafiei-header-v1.png" alt="'. a($_args, 'heading'). '">';
+								$html .= '<img class="block" src="'. \dash\url::cdn(). '/enterprise/rafiei/header/rafiei-header-v1.png" alt="'. a($_args, 'heading'). '">';
 							}
 							$html .= '</a>';
 
@@ -54,8 +54,19 @@ class f_rafiei2_html
 					$html .= '</div>';
 
 
-					$html .= '<div class="top flex py-1 sm:py-2 md:py-3 footerExtra">';
+					$html .= '<div class="w-full lg:w-1/2 footerExtra">';
 					{
+						$html .= '<div class="SocialMedia mb-6">';
+						{
+							$html .= '<div class="text-2xl h-10 mb-2 text-white w-full lg:w-1/2 footerExtra">';
+							$html .= T_("Follow us on Social Media");
+							$html .= '</div>';
+							// socialNetwork
+							$html .= \content_site\assemble\wrench\socialnetworks::type2(\lib\store::social(), 10);
+
+						}
+						$html .= '</div>';
+
 						$certClass = 'inline-block w-32 h-32 rounded-lg bg-white p-1';
 						if(a($_args, 'certificate_enamad'))
 						{
@@ -71,6 +82,8 @@ class f_rafiei2_html
 					}
 					$html .= '</div>';
 				}
+			}
+			$html .= '</div>';
 
 
 				$menuOpt =
@@ -126,8 +139,6 @@ class f_rafiei2_html
 					$html .= $_args['copyright'];
 					$html .= '</p>';
 				}
-			}
-			$html .= '</div>';
 
 			$color = '#eda336';
 			$topCircleStyle = 'height:40px;bottom:-30px;border-radius:50%;background-color:'. $color.';';
