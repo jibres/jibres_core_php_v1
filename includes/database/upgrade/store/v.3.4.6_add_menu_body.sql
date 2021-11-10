@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.menu ADD `body` mediumtext NULL DEFAULT NULL AFTER `preview`;

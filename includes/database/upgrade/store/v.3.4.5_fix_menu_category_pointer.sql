@@ -1,1 +1,0 @@
-UPDATE jibres_XXXXXXX.menu SET menu.pointer = 'category' WHERE menu.pointer = 'tags';
