@@ -33,9 +33,9 @@ class f_rafiei2_html
 					$html .= '<div class="w-full lg:w-3/6 footerInfo relative z-10">';
 					{
 						$html .= '<div class="max-w-sm lg:max-w-md md:mx-auto lg:mx-0">';
-							$html .= '<a href="'. \dash\url::kingdom() .'" class="block h-20 lg:h-24 max-w-md siteLogo rounded-lg overflow-hidden mb-6 transition hover:opacity-80 focus:opacity-80">';
+							$html .= '<a href="'. \dash\url::kingdom() .'" class="block h-20 lg:h-24 max-w-md siteLogo rounded-lg overflow-hidden mb-6 transition hover:opacity-80 focus:opacity-80" style1="filter:grayscale(1);">';
 							{
-								$html .= '<img class="block" src="'. \dash\url::cdn(). '/enterprise/rafiei/header/rafiei-header-v1.png" alt="'. a($_args, 'heading'). '">';
+								$html .= '<img class="block grayscale" src="'. \dash\url::cdn(). '/enterprise/rafiei/header/rafiei-header-v1.png" alt="'. a($_args, 'heading'). '">';
 							}
 							$html .= '</a>';
 
