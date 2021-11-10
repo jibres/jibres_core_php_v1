@@ -83,7 +83,12 @@ class section
 		{
 			$classList .= ' '. a($_opt, 'class');
 		}
-		$element = "<div class='$classList'>";
+		$element = "<div class='$classList'";
+		if(a($_opt, 'style'))
+		{
+			$element .= ' style="'. a($_opt, 'style'). '"';
+		}
+		$element .= ">";
 
 		return $element;
 	}
