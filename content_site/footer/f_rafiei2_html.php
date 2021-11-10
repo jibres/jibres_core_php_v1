@@ -30,7 +30,7 @@ class f_rafiei2_html
 				$html .= '<div class="footerPrimary py-1 sm:py-5 md:py-10 lg:py-16 flex flex-wrap">';
 				{
 					// line1
-					$html .= '<div class="w-full lg:w-3/6 footerInfo">';
+					$html .= '<div class="w-full lg:w-3/6 footerInfo relative z-10">';
 					{
 						$html .= '<div class="max-w-sm lg:max-w-md md:mx-auto lg:mx-0">';
 							$html .= '<a href="'. \dash\url::kingdom() .'" class="block h-20 lg:h-24 max-w-md siteLogo rounded-lg overflow-hidden mb-6 transition hover:opacity-80 focus:opacity-80">';
@@ -54,17 +54,16 @@ class f_rafiei2_html
 					$html .= '</div>';
 
 
-					$html .= '<div class="w-full lg:w-3/6 footerExtra">';
+					$html .= '<div class="w-full lg:w-3/6 footerExtra relative z-10">';
 					{
 						$html .= '<div class="SocialMedia mb-6 mx-auto">';
 						{
-							$html .= '<div class="text-2xl h-10 mb-2 text-white select-none text-center md:mt-4 lg:mt-0 footerExtra">';
+							$html .= '<div class="text-2xl h-10 mb-2 text-white select-none text-center md:mt-4 lg:mt-0">';
 							$html .= T_("Follow us on Social Media");
 							$html .= '</div>';
 							// socialNetwork
 							$socialArg = ['navClass' => 'justify-center'];
 							$html .= \content_site\assemble\wrench\socialnetworks::type2(\lib\store::social(), 10, $socialArg);
-
 						}
 						$html .= '</div>';
 
@@ -72,13 +71,12 @@ class f_rafiei2_html
 						$html .= '<div class="certificates flex justify-center mb-6 mx-auto">';
 						{
 							$certClass = 'inline-block w-24 h-24 rounded-lg bg-white p-1 transition opacity-70 hover:opacity-80 focus:opacity-100';
-							if(a($_args, 'certificate_enamad') or 1)
+							if(a($_args, 'certificate_enamad'))
 							{
 								// add enamad cert
 								$html .= \content_site\assemble\cert::enamad($certClass. ' mx-2');
 							}
-
-							if(a($_args, 'certificate_samandehi') or 1)
+							if(a($_args, 'certificate_samandehi'))
 							{
 								// add samandehi cert
 								$html .= \content_site\assemble\cert::samandehi($certClass);
