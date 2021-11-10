@@ -20,8 +20,6 @@ class f_rafiei2_html
 		$color_heading    = a($_args, 'color_heading:full_style');
 		$color_text       = a($_args, 'color_text:full_style');
 
-		$hr = '<hr class="border-1 border-gray-600 my-1 opacity-30">';
-
 		$html = \content_site\assemble\wrench\section::element_start($_args, 'footer');
 		{
 			$html .= \content_site\assemble\wrench\section::container($_args, 'text-sm');
@@ -33,6 +31,7 @@ class f_rafiei2_html
 					$html .= '<div class="w-full md:w-3/6 footerInfo relative z-10">';
 					{
 						$html .= '<div class="max-w-sm lg:max-w-md mx-auto md:mx-0">';
+						{
 							$html .= '<a href="'. \dash\url::kingdom() .'" class="block h-20 lg:h-24 max-w-md siteLogo rounded-lg overflow-hidden mb-6 transition hover:opacity-80 focus:opacity-80" style1="filter:grayscale(1);">';
 							{
 								$html .= '<img class="block grayscale" src="'. \dash\url::cdn(). '/enterprise/rafiei/header/rafiei-header-v1.png" alt="'. a($_args, 'heading'). '">';
@@ -48,10 +47,11 @@ class f_rafiei2_html
 								}
 								$html .= '</div>';
 							}
-
+						}
 						$html .= '</div>';
 					}
 					$html .= '</div>';
+					// line1 end
 
 
 					$html .= '<div class="w-full md:w-3/6 footerExtra relative z-10">';
@@ -85,13 +85,16 @@ class f_rafiei2_html
 						$html .= '</div>';
 					}
 					$html .= '</div>';
-					$watermarkImg = 'left:-40px;bottom:-40px;';
-					$html .= '<img class="h-80 max-w-md opacity-20 absolute" style="'. $watermarkImg. '" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
+
+					$html .= '<img class="h-80 max-w-md opacity-20 absolute" style="left:-40px;bottom:-40px;" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
 				}
+				$html .= '</div>';
 			}
 			$html .= '</div>';
 
-
+			// secondary footer box for links
+			$html .= \content_site\assemble\wrench\section::container($_args, 'text-sm');
+			{
 				$menuOpt =
 				[
 					'nav_class' => '',
@@ -100,47 +103,13 @@ class f_rafiei2_html
 					'a_class'   => 'inline-block p-1 sm:p-2 md:px-4 hover:opacity-70 focus:opacity-50 transition text-gray-100 link-'. a($_args, 'link_color'),
 				];
 				$menu1 = \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
-				$menu2 = \content_site\assemble\menu::generate(a($_args, 'menu_2'), $menuOpt);
-				$menu3 = \content_site\assemble\menu::generate(a($_args, 'menu_3'), $menuOpt);
-				$menu4 = \content_site\assemble\menu::generate(a($_args, 'menu_4'), $menuOpt);
 
-				$colCount = 0;
-				if($menu1)
-				{
-					$colCount ++;
-				}
-				if($menu2)
-				{
-					$colCount ++;
-				}
-				if($menu3)
-				{
-					$colCount ++;
-				}
-				if($menu4)
-				{
-					$colCount ++;
-				}
-
-				$menuHTML = '<div class="grid grid-cols-'. $colCount. ' gap-3 py-4 md:py-10">';
-				{
-					$menuHTML .= $menu1;
-					$menuHTML .= $menu2;
-					$menuHTML .= $menu3;
-					$menuHTML .= $menu4;
-				}
-				$menuHTML .= '</div>';
-
-				if($colCount > 0)
-				{
-					$html .= $hr;
-					$html .= $menuHTML;
-				}
+			}
+			$html .= '</div>';
 
 
 				if(a($_args, 'copyright'))
 				{
-					$html .= $hr;
 					$html .= '<p class="leading-relaxed py-8 opacity-60"'. $color_text. '>';
 					$html .= $_args['copyright'];
 					$html .= '</p>';
