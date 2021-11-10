@@ -93,25 +93,30 @@ class f_rafiei2_html
 			$html .= '</div>';
 
 			// secondary footer box for links
-			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm select-none', 'style' => 'background-color:#013C8A']);
+			$html .= '<div class="select-none" style="background-color:#013C8A">';
 			{
-				// $menuOpt =
-				// [
-				// 	'nav_class' => '',
-				// 	'ul_class'  => '',
-				// 	'li_class'  => '',
-				// 	'a_class'   => 'inline-block p-1 sm:p-2 md:px-4 hover:opacity-70 focus:opacity-50 transition text-gray-100 link-'. a($_args, 'link_color'),
-				// ];
+				$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm select-none', 'style' => 'background-color:#013C8A']);
+				{
+					// $menuOpt =
+					// [
+					// 	'nav_class' => '',
+					// 	'ul_class'  => '',
+					// 	'li_class'  => '',
+					// 	'a_class'   => 'inline-block p-1 sm:p-2 md:px-4 hover:opacity-70 focus:opacity-50 transition text-gray-100 link-'. a($_args, 'link_color'),
+					// ];
 
-				$menuOpt =
-				[
-					'nav_class' => 'py-2 md:py-4 lg:py-6',
-					'ul_class'  => 'flex',
-					'li_class'  => '',
-					'a_class'   => 'block p-2 lg:px-4 rounded bg-gray-50 bg-opacity-0 hover:bg-opacity-20 focus:bg-opacity-30 text-white transition link-'. a($_args, 'link_color'),
-				];
+					$menuOpt =
+					[
+						'nav_class' => 'py-2 md:py-4 lg:py-6',
+						'ul_class'  => 'flex',
+						'li_class'  => '',
+						'a_class'   => 'block p-2 lg:px-4 rounded bg-gray-50 bg-opacity-0 hover:bg-opacity-20 focus:bg-opacity-30 text-white transition link-'. a($_args, 'link_color'),
+					];
 
-				$html .= \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
+					$html .= \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
+				}
+				$html .= '</div>';
+
 			}
 			$html .= '</div>';
 
