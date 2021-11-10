@@ -25,7 +25,7 @@ class f_rafiei2_html
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm']);
 			{
 				// primaray footer box
-				$html .= '<div class="footerPrimary py-1 sm:py-5 md:py-10 lg:py-16 flex flex-wrap">';
+				$html .= '<div class="footerPrimary py-1 sm:py-5 md:py-10 lg:py-16 flex flex-wrap relative">';
 				{
 					// line1
 					$html .= '<div class="w-full md:w-3/6 footerInfo relative z-10">';
@@ -86,14 +86,14 @@ class f_rafiei2_html
 					}
 					$html .= '</div>';
 
-					$html .= '<img class="h-80 max-w-md opacity-20 absolute" style="left:-40px;bottom:-40px;" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
+					$html .= '<img class="h-80 max-w-md opacity-20 absolute" style="left:-60px;bottom:-50px;" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
 				}
 				$html .= '</div>';
 			}
 			$html .= '</div>';
 
 			// secondary footer box for links
-			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm', 'style' => 'background-color:#013C8A']);
+			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm select-none', 'style' => 'background-color:#013C8A']);
 			{
 				// $menuOpt =
 				// [
@@ -116,12 +116,27 @@ class f_rafiei2_html
 			$html .= '</div>';
 
 
-				if(a($_args, 'copyright'))
+			if(a($_args, 'copyright'))
+			{
+				$html .= '<div class="select-none" style="background-color:#012350">';
 				{
-					$html .= '<p class="leading-relaxed py-8 opacity-60"'. $color_text. '>';
-					$html .= $_args['copyright'];
-					$html .= '</p>';
+					$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm text-blue-100 flex py-8']);
+					{
+						$html .= '<p class="leading-relaxed flex-grow"'. $color_text. '>';
+						$html .= $_args['copyright'];
+						$html .= '</p>';
+						$html .= '<p class="leading-relaxed"'. $color_text. '>';
+
+						$html .= '<a dir="ltr" href="'. \dash\url::kingdom(). '">';
+						$html .= 'All Content by '. ucwords(\dash\url::domain());
+						$html .= ' is licensed under a Creative Commons Attribution 4.0 International License.';
+						$html .=  '</a>';
+						$html .= '</p>';
+					}
+					$html .= '</div>';
 				}
+				$html .= '</div>';
+			}
 
 		}
 		$html .= '</footer>';
