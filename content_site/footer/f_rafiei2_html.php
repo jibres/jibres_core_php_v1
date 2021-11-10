@@ -30,9 +30,9 @@ class f_rafiei2_html
 				$html .= '<div class="footerPrimary py-1 sm:py-5 md:py-10 lg:py-16 flex flex-wrap">';
 				{
 					// line1
-					$html .= '<div class="w-full lg:w-3/6 footerInfo relative z-10">';
+					$html .= '<div class="w-full md:w-3/6 footerInfo relative z-10">';
 					{
-						$html .= '<div class="max-w-sm lg:max-w-md md:mx-auto lg:mx-0">';
+						$html .= '<div class="max-w-sm lg:max-w-md mx-auto md:mx-0">';
 							$html .= '<a href="'. \dash\url::kingdom() .'" class="block h-20 lg:h-24 max-w-md siteLogo rounded-lg overflow-hidden mb-6 transition hover:opacity-80 focus:opacity-80" style1="filter:grayscale(1);">';
 							{
 								$html .= '<img class="block grayscale" src="'. \dash\url::cdn(). '/enterprise/rafiei/header/rafiei-header-v1.png" alt="'. a($_args, 'heading'). '">';
@@ -54,7 +54,7 @@ class f_rafiei2_html
 					$html .= '</div>';
 
 
-					$html .= '<div class="w-full lg:w-3/6 footerExtra relative z-10">';
+					$html .= '<div class="w-full md:w-3/6 footerExtra relative z-10">';
 					{
 						$html .= '<div class="SocialMedia mb-6 mx-auto">';
 						{
