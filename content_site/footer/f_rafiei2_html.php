@@ -86,9 +86,9 @@ class f_rafiei2_html
 					}
 					$html .= '</div>';
 
-					$html .= '<img class="h-80 max-w-md opacity-20 absolute" style="left:-60px;bottom:-50px;" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
 				}
 				$html .= '</div>';
+					$html .= '<img class="h-80 max-w-md opacity-20 absolute" style="left:-50px;bottom:100px;" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
 			}
 			$html .= '</div>';
 
