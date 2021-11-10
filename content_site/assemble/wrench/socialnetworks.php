@@ -83,9 +83,15 @@ class socialnetworks
   }
 
 
-  public static function type2($_social, $_size = 9, $_class = null)
+  public static function type2($_social, $_size = 9, $_arg = null)
   {
-    $html = '<nav class="social flex">';
+    $navClass = 'social flex';
+    if(a($_arg, 'navClass'))
+    {
+      $navClass .= ' '. a($_arg, 'navClass');
+    }
+
+    $html = '<nav class="'. $navClass. '">';
     {
       $linkClass = 'block transition p-1 lg:mx-0.5 text-gray-50 transition opacity-90 hover:opacity-100 focus:opacity-100';
       $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;

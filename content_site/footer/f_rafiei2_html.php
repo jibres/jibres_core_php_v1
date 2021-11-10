@@ -56,29 +56,35 @@ class f_rafiei2_html
 
 					$html .= '<div class="w-full lg:w-3/6 footerExtra">';
 					{
-						$html .= '<div class="SocialMedia mb-6">';
+						$html .= '<div class="SocialMedia mb-6 mx-auto">';
 						{
-							$html .= '<div class="text-2xl h-10 mb-2 text-white select-none footerExtra">';
+							$html .= '<div class="text-2xl h-10 mb-2 text-white select-none text-center md:mt-4 lg:mt-0 footerExtra">';
 							$html .= T_("Follow us on Social Media");
 							$html .= '</div>';
 							// socialNetwork
-							$html .= \content_site\assemble\wrench\socialnetworks::type2(\lib\store::social(), 10);
+							$socialArg = ['navClass' => 'justify-center'];
+							$html .= \content_site\assemble\wrench\socialnetworks::type2(\lib\store::social(), 10, $socialArg);
 
 						}
 						$html .= '</div>';
 
-						$certClass = 'inline-block w-24 h-24 rounded-lg bg-white p-1 transition opacity-70 hover:opacity-80 focus:opacity-100';
-						if(a($_args, 'certificate_enamad'))
-						{
-							// add enamad cert
-							$html .= \content_site\assemble\cert::enamad($certClass. ' mx-2');
-						}
 
-						if(a($_args, 'certificate_samandehi'))
+						$html .= '<div class="certificates flex justify-center mb-6 mx-auto">';
 						{
-							// add samandehi cert
-							$html .= \content_site\assemble\cert::samandehi($certClass);
+							$certClass = 'inline-block w-24 h-24 rounded-lg bg-white p-1 transition opacity-70 hover:opacity-80 focus:opacity-100';
+							if(a($_args, 'certificate_enamad') or 1)
+							{
+								// add enamad cert
+								$html .= \content_site\assemble\cert::enamad($certClass. ' mx-2');
+							}
+
+							if(a($_args, 'certificate_samandehi') or 1)
+							{
+								// add samandehi cert
+								$html .= \content_site\assemble\cert::samandehi($certClass);
+							}
 						}
+						$html .= '</div>';
 					}
 					$html .= '</div>';
 					$watermarkImg = 'left:-40px;bottom:-40px;';
