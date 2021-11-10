@@ -22,7 +22,7 @@ class f_rafiei2_html
 
 		$html = \content_site\assemble\wrench\section::element_start($_args, 'footer');
 		{
-			$html .= \content_site\assemble\wrench\section::container($_args, 'text-sm');
+			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm']);
 			{
 				// primaray footer box
 				$html .= '<div class="footerPrimary py-1 sm:py-5 md:py-10 lg:py-16 flex flex-wrap">';
@@ -93,7 +93,7 @@ class f_rafiei2_html
 			$html .= '</div>';
 
 			// secondary footer box for links
-			$html .= \content_site\assemble\wrench\section::container($_args, 'text-sm');
+			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm']);
 			{
 				$menuOpt =
 				[
@@ -102,8 +102,7 @@ class f_rafiei2_html
 					'li_class'  => '',
 					'a_class'   => 'inline-block p-1 sm:p-2 md:px-4 hover:opacity-70 focus:opacity-50 transition text-gray-100 link-'. a($_args, 'link_color'),
 				];
-				$menu1 = \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
-
+				$html .= \content_site\assemble\menu::generate(a($_args, 'menu_1'), $menuOpt);
 			}
 			$html .= '</div>';
 

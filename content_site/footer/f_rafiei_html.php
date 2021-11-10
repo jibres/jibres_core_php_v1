@@ -34,7 +34,7 @@ class f_rafiei_html
 				$html .= '</svg>';
 			}
 
-			$html .= \content_site\assemble\wrench\section::container($_args, 'text-sm');
+			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm']);
 			{
 				// action bar
 				$html .= '<div class="top flex items-end py-1 pt-2 sm:py-5 md:pt-12 md:py-10">';

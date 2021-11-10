@@ -72,16 +72,16 @@ class section
 	}
 
 
-	public static function container($_args, $_extraClass = null)
+	public static function container($_args, $_opt = null)
 	{
 		$classList = 'm-auto';
 		if(a($_args, 'container:class'))
 		{
 			$classList .= ' '. a($_args, 'container:class');
 		}
-		if($_extraClass)
+		if(a($_opt, 'class'))
 		{
-			$classList .= ' '. $_extraClass;
+			$classList .= ' '. a($_opt, 'class');
 		}
 		$element = "<div class='$classList'>";
 

@@ -27,9 +27,9 @@ class f_rafiei2
 
 				'file_business_logo_footer',
 				'menu_1',
-				'menu_2',
-				'menu_3',
-				'menu_4',
+				// 'menu_2',
+				// 'menu_3',
+				// 'menu_4',
 				'description_copyright',
 				'certificate_enamad',
 				'certificate_samandehi',

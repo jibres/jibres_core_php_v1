@@ -19,7 +19,7 @@ class h_rafiei_html
 
 		$html = \content_site\assemble\wrench\section::element_start($_args, 'header');
 		{
-			$html .= \content_site\assemble\wrench\section::container($_args, 'relative py-2');
+			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'relative py-2']);
 			{
 				$color = '#eda336';
 				$topCircleStyle = 'height:40px;top:-30px;border-radius:50%;background-color:'. $color.';';
