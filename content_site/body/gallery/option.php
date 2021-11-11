@@ -617,7 +617,11 @@ class option
 			}
 		}
 
-		$args = \lib\app\menu\edit::edit($_args, $_id, true, true);
+		$option = [];
+
+		$option['meta'] = a($preview, 'meta');
+
+		$args = \lib\app\menu\edit::edit($_args, $_id, true, true, $option);
 
 
 		if(!is_array($_meta))

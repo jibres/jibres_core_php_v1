@@ -4,7 +4,7 @@ namespace lib\app\menu;
 
 class edit
 {
-	public static function edit($_args, $_id, $_force = false, $_return_array = false)
+	public static function edit($_args, $_id, $_force = false, $_return_array = false, $_option = [])
 	{
 		if(!$_force)
 		{
@@ -17,8 +17,7 @@ class edit
 			return false;
 		}
 
-
-		$args = \lib\app\menu\check::variable($_args, $_force);
+		$args = \lib\app\menu\check::variable($_args, $_force, $_option);
 
 		if(!$args)
 		{
