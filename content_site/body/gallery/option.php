@@ -222,6 +222,11 @@ class option
 
 		$menu = array_merge($menu, $menu['preview']);
 
+		if(is_array(a($menu, 'preview', 'meta')))
+		{
+			$menu = array_merge($menu, $menu['preview']['meta']);
+		}
+
 		$menu['index']      = $index;
 		$menu['section_id'] = $currentSectionDetail['id'];
 

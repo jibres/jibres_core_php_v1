@@ -6,19 +6,10 @@ class description_gallery
 
 	use description;
 
-
-	public static function special_load_value()
+	public static function db_key()
 	{
-		return true;
+		return 'desc';
 	}
-
-	public static function load_value()
-	{
-		$data = \content_site\body\gallery\option::get_current_item();
-		return a($data, 'preview', 'meta', 'desc');
-
-	}
-
 
 	public static function have_specialsave()
 	{

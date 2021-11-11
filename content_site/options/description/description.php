@@ -21,6 +21,7 @@ trait description
 		return $new_data;
 	}
 
+
 	public static function db_key()
 	{
 		return 'description';
@@ -51,23 +52,10 @@ trait description
 	}
 
 
-	public static function special_load_value()
-	{
-		return false;
-	}
-
-
 	public static function admin_html()
 	{
-		if(self::special_load_value())
-		{
-			$default            = self::load_value();
-		}
-		else
-		{
-			$default            = \content_site\section\view::get_current_index_detail(self::db_key());
-		}
 
+		$default            = \content_site\section\view::get_current_index_detail(self::db_key());
 		$use_as_description = \content_site\section\view::get_current_index_detail('use_as_description');
 		$title              = self::title();
 
