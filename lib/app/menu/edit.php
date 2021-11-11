@@ -41,6 +41,12 @@ class edit
 			$exception[] = 'url';
 		}
 
+
+		if(isset($_args['desc']))
+		{
+			$exception[] = 'meta';
+		}
+
 		if(isset($_args['socialnetwork']))
 		{
 			$exception[] = 'url';
@@ -60,6 +66,8 @@ class edit
 			\dash\notif::info(T_("No data to change"));
 			return false;
 		}
+
+		unset($args['meta']);
 
 		$args['datemodified'] = date("Y-m-d H:i:s");
 

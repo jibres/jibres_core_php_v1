@@ -4,7 +4,7 @@ namespace lib\app\menu;
 
 class check
 {
-	public static function variable($_args, $_force = false)
+	public static function variable($_args, $_force = false, $_option = [])
 	{
 
 		$condition =
@@ -34,6 +34,10 @@ class check
 			'for_id'        => 'id',
 			'file'          => 'string',
 			'description'   => 'desc',
+
+			// save in json in preview | body
+			'meta'   => 'bit', // only need to skip error
+			'desc'   => 'string_200',
 		];
 
 		$require = [];
@@ -309,6 +313,20 @@ class check
 				break;
 		}
 
+		// fill meta
+		$meta         = [];
+
+		if(is_array(a($_option, 'meta')))
+		{
+			$meta = $_option['meta'];
+		}
+
+		if(array_key_exists('desc', $_args))
+		{
+			$meta['desc'] = $data['desc'];
+		}
+
+		$data['meta'] = $meta;
 
 		unset($data['parent']);
 		unset($data['product_id']);
@@ -319,6 +337,7 @@ class check
 
 		unset($data['hashtag_id']);
 		unset($data['form_id']);
+		unset($data['desc']);
 
 		return $data;
 	}

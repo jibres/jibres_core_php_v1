@@ -13,6 +13,8 @@ class add
 
 		$args = \lib\app\menu\check::variable($_args);
 
+		unset($args['meta']);
+
 		if(!$args)
 		{
 			return false;

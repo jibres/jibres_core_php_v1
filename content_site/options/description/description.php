@@ -45,9 +45,29 @@ trait description
 	}
 
 
+	public static function have_specialsave()
+	{
+		return false;
+	}
+
+
+	public static function special_load_value()
+	{
+		return false;
+	}
+
+
 	public static function admin_html()
 	{
-		$default            = \content_site\section\view::get_current_index_detail(self::db_key());
+		if(self::special_load_value())
+		{
+			$default            = self::load_value();
+		}
+		else
+		{
+			$default            = \content_site\section\view::get_current_index_detail(self::db_key());
+		}
+
 		$use_as_description = \content_site\section\view::get_current_index_detail('use_as_description');
 		$title              = self::title();
 
@@ -57,6 +77,12 @@ trait description
 
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+
+			if(self::have_specialsave())
+			{
+				$html .= \content_site\options\generate::specialsave();
+			}
+
 			if(self::include_business_desc())
 			{
 				$name       = 'use_as_description';
