@@ -124,7 +124,7 @@ class option
 			}
 		}
 
-		\dash\notif::clean();
+		\dash\notif::clean(true);
 
 	}
 
@@ -324,7 +324,7 @@ class option
 
 		\lib\app\menu\remove::remove($menu_id, true);
 
-		\dash\notif::clean();
+		\dash\notif::clean(true);
 
 	}
 
@@ -468,7 +468,7 @@ class option
 				}
 			}
 
-			\dash\notif::clean();
+			\dash\notif::clean(true);
 		}
 	}
 
@@ -592,7 +592,7 @@ class option
 
 		if(\dash\engine\process::status())
 		{
-			\dash\notif::clean();
+			\dash\notif::clean(true);
 		}
 
 		return true;
@@ -695,7 +695,7 @@ class option
 
 		if(\dash\engine\process::status())
 		{
-			\dash\notif::clean();
+			\dash\notif::clean(true);
 		}
 
 		return true;
