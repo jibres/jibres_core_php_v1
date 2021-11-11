@@ -330,7 +330,7 @@ class notif
 	}
 
 
-	public static function clean($_show_error = false)
+	public static function clean($_show_error = true)
 	{
 		if($_show_error)
 		{

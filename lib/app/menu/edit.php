@@ -42,7 +42,7 @@ class edit
 		}
 
 
-		if(isset($_args['desc']))
+		if(array_key_exists('desc', $_args) || array_key_exists('video_loop', $_args))
 		{
 			$exception[] = 'meta';
 		}

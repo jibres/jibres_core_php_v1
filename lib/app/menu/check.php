@@ -25,7 +25,7 @@ class check
 			'post_id'       => 'code',
 			'page_id'       => 'code',
 			'form_id'       => 'id',
-			'tag_id'   => 'id',
+			'tag_id'        => 'id',
 			'category_id'   => 'id',
 			'socialnetwork' => 'socialnetwork',
 			'hashtag_id'    => 'code',
@@ -36,8 +36,9 @@ class check
 			'description'   => 'desc',
 
 			// save in json in preview | body
-			'meta'   => 'bit', // only need to skip error
-			'desc'   => 'string_200',
+			'meta'          => 'bit', // only need to skip error
+			'desc'          => 'string_200',
+			'video_loop'    => 'checkbox',
 		];
 
 		$require = [];
@@ -324,6 +325,11 @@ class check
 		if(array_key_exists('desc', $_args))
 		{
 			$meta['desc'] = $data['desc'];
+		}
+
+		if(array_key_exists('video_loop', $_args))
+		{
+			$meta['video_loop'] = $data['video_loop'];
 		}
 
 		$data['meta'] = $meta;
