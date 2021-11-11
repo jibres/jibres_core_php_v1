@@ -259,7 +259,7 @@ class file
 			}
 			else
 			{
-				\dash\notif::error(T_("Can not upload your file in storage"));
+				\dash\notif::error(T_("Can not connect to storage server!"));
 				return false;
 			}
 		}
