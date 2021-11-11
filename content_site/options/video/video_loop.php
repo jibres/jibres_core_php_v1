@@ -17,8 +17,19 @@ trait video_loop
 	}
 
 
+	public static function visible()
+	{
+		return true;
+	}
+
+
 	public static function admin_html()
 	{
+		if(!self::visible())
+		{
+			return '';
+		}
+
 		$default = \content_site\section\view::get_current_index_detail('video_loop');
 
 		$html = '';

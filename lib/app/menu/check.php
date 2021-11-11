@@ -344,6 +344,7 @@ class check
 		unset($data['hashtag_id']);
 		unset($data['form_id']);
 		unset($data['desc']);
+		unset($data['video_loop']);
 
 		return $data;
 	}
