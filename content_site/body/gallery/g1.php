@@ -22,6 +22,10 @@ class g1
 				'image_list' =>
 				[
 					'file_gallery',
+					'video_loop_gallery',
+					'video_controls_gallery',
+					'video_autoplay_gallery',
+					'video_poster_gallery',
 					'caption_gallery',
 					'link_gallery',
 					'target_gallery',
