@@ -39,6 +39,7 @@ class check
 			'desc'           => 'string_200',
 			'video_loop'     => 'checkbox',
 			'video_controls' => 'checkbox',
+			'video_autoplay' => 'checkbox',
 			'video_poster'   => 'string',
 		];
 
@@ -344,6 +345,7 @@ class check
 		unset($_args['video_poster']);
 		unset($_args['desc']);
 		unset($_args['video_controls']);
+		unset($_args['video_autoplay']);
 
 		return $_args;
 	}
