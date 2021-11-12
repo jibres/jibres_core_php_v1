@@ -120,7 +120,7 @@ class option
 
 				$preview = json_encode($preview);
 
-				\lib\db\menu\update::pdo_update(['preview' => $preview,], $value['id']);
+				\lib\db\menu\update::pdo_update(['preview' => $preview, 'body' => $preview], $value['id']);
 			}
 		}
 
@@ -170,6 +170,11 @@ class option
 			{
 				if(a($value, 'preview', 'is_saved_menu'))
 				{
+					if(is_array(a($value, 'body')))
+					{
+						$value = array_merge($value, $value['body']);
+					}
+
 					$new_list[] = $value;
 				}
 			}

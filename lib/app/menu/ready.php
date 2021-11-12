@@ -19,6 +19,7 @@ class ready
 			switch ($key)
 			{
 				case 'preview':
+				case 'body':
 					$result[$key] = json_decode($value, true);
 					if(!is_array($result[$key]))
 					{
