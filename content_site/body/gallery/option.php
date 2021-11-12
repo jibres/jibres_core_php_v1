@@ -145,8 +145,6 @@ class option
 			$list = [];
 		}
 
-		// var_dump($list);
-
 		$new_list = [];
 
 		foreach ($list as $key => $value)
@@ -186,9 +184,6 @@ class option
 				array_multisort($new_list, SORT_ASC, SORT_NUMERIC, $sort_column);
 			}
 		}
-
-		// var_dump($new_list);exit;
-
 
 		return $new_list;
 	}
