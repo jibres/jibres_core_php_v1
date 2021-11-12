@@ -24,7 +24,7 @@ class caption_gallery
 		{
 			$html .= \content_site\options\generate::not_redirect();
 			$html .= \content_site\options\generate::specialsave();;
-	    	$html .= \content_site\options\generate::text('opt_caption_gallery', $default, T_("Caption"));
+	    	$html .= \content_site\options\generate::text('opt_caption_gallery', $default, T_("Title"));
 
 		}
   		$html .= \content_site\options\generate::_form();
