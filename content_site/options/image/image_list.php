@@ -58,7 +58,30 @@ class image_list
 
 				      			if(isset($value['file']) && $value['file'])
 				      			{
-				        			$file_url = \dash\fit::img(\lib\filepath::fix($value['file']));
+				        			$file_detail = \lib\filepath::get_detail($value['file']);
+
+			        				switch (a($file_detail, 'type'))
+			        				{
+			        					case 'image':
+			        						$file_url = \dash\fit::img(\lib\filepath::fix($value['file']));
+			        						break;
+
+			        					case 'video':
+			        						if(a($value, 'video_poster'))
+			        						{
+			        							$file_url = \dash\fit::img(\lib\filepath::fix($value['video_poster']));
+			        						}
+			        						else
+			        						{
+			        							$file_url = \dash\utility\icon::url('Film',  'bootstrap');
+			        						}
+			        						break;
+
+			        					default:
+			        						$file_url = \dash\utility\icon::url('Image', 'major');
+			        						break;
+			        				}
+
 				      			}
 				      			else
 				      			{
