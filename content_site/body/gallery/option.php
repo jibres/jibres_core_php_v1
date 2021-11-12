@@ -120,7 +120,7 @@ class option
 
 				$preview = json_encode($preview);
 
-				\lib\db\menu\update::pdo_update(['preview' => $preview, 'body' => $preview], $value['id']);
+				\lib\db\menu\update::pdo_update(['preview' => $preview,], $value['id']);
 			}
 		}
 
