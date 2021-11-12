@@ -618,11 +618,6 @@ class option
 
 		$option = [];
 
-		// $option['meta'] = a($preview, 'meta');
-		$option['meta'] = [];
-		$option['meta']['video_loop'] = a($preview, 'video_loop');
-
-
 		$args = \lib\app\menu\edit::edit($_args, $_id, true, true, $option);
 
 
