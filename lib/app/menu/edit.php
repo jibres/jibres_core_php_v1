@@ -41,11 +41,6 @@ class edit
 		}
 
 
-		if(array_key_exists('desc', $_args) || array_key_exists('video_loop', $_args))
-		{
-			$exception[] = 'meta';
-		}
-
 		if(isset($_args['socialnetwork']))
 		{
 			$exception[] = 'url';
@@ -66,7 +61,7 @@ class edit
 			return false;
 		}
 
-		unset($args['meta']);
+		$args = \lib\app\menu\check::unset_gallery_index($args);
 
 		$args['datemodified'] = date("Y-m-d H:i:s");
 

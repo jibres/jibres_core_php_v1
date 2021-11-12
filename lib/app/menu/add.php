@@ -13,7 +13,7 @@ class add
 
 		$args = \lib\app\menu\check::variable($_args);
 
-		unset($args['meta']);
+		$args = \lib\app\menu\check::unset_gallery_index($args);
 
 		if(!$args)
 		{

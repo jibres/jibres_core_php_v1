@@ -120,7 +120,7 @@ class option
 
 				$preview = json_encode($preview);
 
-				\lib\db\menu\update::pdo_update(['preview' => $preview], $value['id']);
+				\lib\db\menu\update::pdo_update(['preview' => $preview, 'body' => $preview], $value['id']);
 			}
 		}
 
@@ -144,6 +144,8 @@ class option
 		{
 			$list = [];
 		}
+
+		// var_dump($list);
 
 		$new_list = [];
 
@@ -185,6 +187,8 @@ class option
 			}
 		}
 
+		// var_dump($new_list);exit;
+
 
 		return $new_list;
 	}
@@ -222,10 +226,10 @@ class option
 
 		$menu = array_merge($menu, $menu['preview']);
 
-		if(is_array(a($menu, 'preview', 'meta')))
-		{
-			$menu = array_merge($menu, $menu['preview']['meta']);
-		}
+		// if(is_array(a($menu, 'preview', 'meta')))
+		// {
+		// 	$menu = array_merge($menu, $menu['preview']['meta']);
+		// }
 
 		$menu['index']      = $index;
 		$menu['section_id'] = $currentSectionDetail['id'];
@@ -619,7 +623,10 @@ class option
 
 		$option = [];
 
-		$option['meta'] = a($preview, 'meta');
+		// $option['meta'] = a($preview, 'meta');
+		$option['meta'] = [];
+		$option['meta']['video_loop'] = a($preview, 'video_loop');
+
 
 		$args = \lib\app\menu\edit::edit($_args, $_id, true, true, $option);
 

@@ -36,7 +36,6 @@ class check
 			'description'   => 'desc',
 
 			// save in json in preview | body
-			'meta'          => 'bit', // only need to skip error
 			'desc'          => 'string_200',
 			'video_loop'    => 'checkbox',
 		];
@@ -314,25 +313,7 @@ class check
 				break;
 		}
 
-		// fill meta
-		$meta         = [];
 
-		if(is_array(a($_option, 'meta')))
-		{
-			$meta = $_option['meta'];
-		}
-
-		if(array_key_exists('desc', $_args))
-		{
-			$meta['desc'] = $data['desc'];
-		}
-
-		if(array_key_exists('video_loop', $_args))
-		{
-			$meta['video_loop'] = $data['video_loop'];
-		}
-
-		$data['meta'] = $meta;
 
 		unset($data['parent']);
 		unset($data['product_id']);
@@ -343,10 +324,25 @@ class check
 
 		unset($data['hashtag_id']);
 		unset($data['form_id']);
-		unset($data['desc']);
-		unset($data['video_loop']);
+		// unset($data['desc']);
+		// unset($data['video_loop']);
 
 		return $data;
+	}
+
+
+	/**
+	 * This index only need in site gallery
+	 * @param  [type] $_args [description]
+	 * @return [type]        [description]
+	 */
+	public static function unset_gallery_index($_args)
+	{
+		unset($_args['meta']);
+		unset($_args['video_loop']);
+		unset($_args['desc']);
+
+		return $_args;
 	}
 }
 ?>
