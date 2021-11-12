@@ -13,6 +13,10 @@ class video_loop_gallery
 	}
 
 
+	/**
+	 * Use in other options
+	 * @return [type] [description]
+	 */
 	public static function visible()
 	{
 		$data = \content_site\body\gallery\option::get_current_item();

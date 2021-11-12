@@ -38,6 +38,7 @@ class check
 			// save in json in preview | body
 			'desc'          => 'string_200',
 			'video_loop'    => 'checkbox',
+			'video_poster'  => 'string',
 		];
 
 		$require = [];
@@ -324,8 +325,7 @@ class check
 
 		unset($data['hashtag_id']);
 		unset($data['form_id']);
-		// unset($data['desc']);
-		// unset($data['video_loop']);
+
 
 		return $data;
 	}
@@ -340,6 +340,7 @@ class check
 	{
 		unset($_args['meta']);
 		unset($_args['video_loop']);
+		unset($_args['video_poster']);
 		unset($_args['desc']);
 
 		return $_args;
