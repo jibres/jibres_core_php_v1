@@ -12,16 +12,17 @@ trait file
 
 	public static function validator_upload_file($_data)
 	{
+		$CLASS = \content_site\utility::className(__CLASS__);
 
-		if(\dash\request::files(\content_site\utility::className(__CLASS__)))
+		if(\dash\request::files($CLASS))
 		{
 			if(self::upload_video())
 			{
-				$file_path = \dash\upload\website::upload_image_or_video(\content_site\utility::className(__CLASS__));
+				$file_path = \dash\upload\website::upload_image_or_video($CLASS);
 			}
 			else
 			{
-				$file_path = \dash\upload\website::upload_image(\content_site\utility::className(__CLASS__));
+				$file_path = \dash\upload\website::upload_image($CLASS);
 			}
 
 			if(!\dash\engine\process::status())
@@ -118,8 +119,19 @@ trait file
 	}
 
 
+	public static function visible()
+	{
+		return true;
+	}
+
+
 	public static function admin_html($_section_detail = null)
 	{
+		if(!self::visible())
+		{
+			return '';
+		}
+
 		return self::html_upload_file(...func_get_args());
 	}
 
@@ -133,7 +145,16 @@ trait file
 		return [];
 	}
 
+	public static function have_label()
+	{
+		return false;
+	}
 
+
+	public static function label()
+	{
+		return null;
+	}
 
 	public static function html_upload_file($_section_detail = null)
 	{
@@ -177,14 +198,24 @@ trait file
 			// need special save
 			if(self::have_specialsave())
 			{
-				$html .= \content_site\options\generate::specialsave();;
+				$html .= \content_site\options\generate::specialsave();
+			}
+
+
+			if(self::have_label())
+			{
+				$html .= '<label>';
+				{
+					$html .=  self::label();
+				}
+				$html .= '</label>';
 			}
 
 			$html .= '<div ';
 			// upload attr
 			$html .= ' data-uploader';
 			$html .= ' data-name="'.$option_key.'"';
-			$html .= ' data-final="#finalImage"';
+			$html .= ' data-final="#finalImage-'.$option_key.'"';
 			$html .= ' data-autoSend';
 			$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';
 
@@ -215,13 +246,13 @@ trait file
 				]);
 			}
 
-			$html .= '<input type="file" accept="'.implode(',', $accept).'" id="myfile">';
-			$html .= '<label for="myfile">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
+			$html .= '<input type="file" accept="'.implode(',', $accept).'" id="'.$option_key.'-id">';
+			$html .= '<label for="'.$option_key.'-id">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
 
 
 			$file_detail = \lib\filepath::get_detail($default);
 
-			$html .= '<label for="myfile">';
+			$html .= '<label for="'.$option_key.'-id">';
 			{
 				if($default)
 				{
@@ -239,7 +270,7 @@ trait file
 					}
 					else if($file_detail['type'] === 'image')
 					{
-						$html .= '<img id="finalImage" src="'. $default. '" alt="'. T_("Image"). '">';
+						$html .= '<img id="finalImage-'.$option_key.'" src="'. $default. '" alt="'. T_("Image"). '">';
 					}
 					else if($file_detail['type'] === 'pdf')
 					{
@@ -256,7 +287,7 @@ trait file
 				}
 				else
 				{
-					$html .= '<img id="finalImage" src="#" alt="File"">';
+					$html .= '<img id="finalImage-'.$option_key.'" src="#" alt="File"">';
 				}
 			}
 			$html .= '</label>';
