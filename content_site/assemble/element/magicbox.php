@@ -166,7 +166,28 @@ class magicbox
 
 					if(a($_item, 'file_detail', 'type') === 'video')
 					{
-						$card .= "<video controls class='$imgClass'>";
+						$card .= "<video ";
+						if(a($_item, 'video_controls'))
+						{
+							$card .= "controls ";
+						}
+
+						if(a($_item, 'video_loop'))
+						{
+							$card .= "loop ";
+						}
+
+						if(a($_item, 'video_autoplay'))
+						{
+							$card .= "autoplay ";
+						}
+
+						if(a($_item, 'video_poster'))
+						{
+							$card .= "poster='". \lib\filepath::fix($_item['video_poster']). "'";
+						}
+
+						$card .= " class='$imgClass'>";
 
 						$card .= "<source src='$myThumb' type='". a($_item, 'file_detail', 'mime'). "'>";
 						$card .= "</video>";
