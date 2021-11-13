@@ -29,11 +29,11 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       <div class="w-3/12 txtRa">
         <div class="flex align-center">
           <span class="compact pRa5 text-2xs w-20"><?php echo T_("Serial Number"); ?></span>
-          <span class="flex-grow border border-gray-500 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest" id="factorid" data-val="<?php echo a($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(a($factorDetail, 'factor', 'id')) ?></span>
+          <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest" id="factorid" data-val="<?php echo a($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(a($factorDetail, 'factor', 'id')) ?></span>
         </div>
         <div class="flex align-center">
           <span class="compact pRa5 text-2xs w-20"><?php echo T_("Date"); ?></span>
-          <span class="flex-grow border border-gray-500 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></span>
+          <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></span>
         </div>
       </div>
     </header>
