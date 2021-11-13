@@ -1,7 +1,7 @@
     <div id="sellerDetails" class="oneSide">
-      <div class="row">
-        <div class="c-1"><h2 class="txtC"><?php echo T_("Seller Details"); ?></h2></div>
-        <div class="c-11">
+      <div class="flex">
+        <div class="w-20"><h2 class="txtC"><?php echo T_("Seller"); ?></h2></div>
+        <div class="flex-grow">
           <div class="row padMore">
             <div class="c-6 title"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo a($storeData,'title');} ?></div>
             <div class="c-3">

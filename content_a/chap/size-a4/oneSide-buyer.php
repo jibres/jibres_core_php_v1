@@ -14,9 +14,9 @@ if($customerDetailAvailable)
 ?>
 
     <div id="sellerDetails" class="oneSide">
-      <div class="row">
-        <div class="c-1"><h2 class="txtC"><?php echo T_("Buyer Details"); ?></h2></div>
-        <div class="c-11">
+      <div class="flex align-center">
+        <div class="w-20"><h2 class="txtC"><?php echo T_("Buyer"); ?></h2></div>
+        <div class="flex-grow">
           <div class="row padMore">
             <div class="c-6 title"><?php echo a($customerDetail, 'displayname'); ?></div>
             <div class="c-3">

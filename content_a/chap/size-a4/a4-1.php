@@ -9,21 +9,21 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 ?>
 
 <div class="printArea" data-size='A4.landscape'>
-  <div class="invoice" data-theme="1">
+  <div class="invoice text-sm" data-theme="1">
     <header class="row align-center">
       <div class="c-3">
 <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
         <div class="logo">
-         <img src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>">
+         <img class="h-16 max-w-xs" src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>">
         </div>
 <?php } //endif ?>
 
       </div>
       <div class="c-6 txtC">
         <?php $country = a($storeData,'country'); if($country === 'IR') {?>
-        <h1><?php echo T_("Sale Invoice"); ?></h1>
+        <h1 class="text-3xl text-blue-800 font-black"><?php echo T_("Sale Invoice"); ?></h1>
         <?php }else{ ?>
-        <h1><?php echo T_("Invoice"); ?></h1>
+        <h1 class="text-3xl text-blue-800 font-black"><?php echo T_("Invoice"); ?></h1>
         <?php } //endif ?>
       </div>
       <div class="c-3 txtRa">
@@ -53,7 +53,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
        <th class="text-right"><?php echo T_("Total discount"); ?></th>
        <th class="text-right"><?php echo T_("Total price after discount"); ?></th>
        <th class="text-right"><?php echo T_("Total VAT"); ?></th>
-       <th class="text-right"><?php echo T_("Final Price"); ?></th>
+       <th class="text-right"><?php echo T_("Final Price"); ?> <small class="text-xs px-1"><?php echo \lib\store::currency(); ?></small></th>
       </tr>
      </thead>
      <tbody>
@@ -90,7 +90,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPriceAfterDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalVAT); ?></td>
-       <td class="valPrice lastCol"><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small><?php echo \dash\fit::price($FinalPrice); ?></td>
+       <td class="valPrice lastCol"><?php echo \dash\fit::price($FinalPrice); ?></td>
       </tr>
 <?php } //endfor ?>
      </tbody>
@@ -104,7 +104,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalDiscount']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPriceAfterDiscount']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalVAT']); ?></td>
-       <td class="valPrice"><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?></td>
+       <td class="valPrice"><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?><small class="text-xs px-1"><?php echo \lib\store::currency(); ?></small></td>
       </tr>
 
 
