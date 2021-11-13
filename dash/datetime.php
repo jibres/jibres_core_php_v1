@@ -137,7 +137,7 @@ class datetime
 
 	public static function fit($_datetime = null, $_format = null, $_type = null, $_calendar = null)
 	{
-		if($_datetime === null)
+		if($_datetime === null || $_datetime === true)
 		{
 			$_datetime = date("Y-m-d H:i:s");
 		}
