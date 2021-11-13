@@ -1,18 +1,18 @@
-    <div id="sellerDetails" class="oneSide text-sm bg-gray-100 border border-gray-400 rounded overflow-hidden mb-1">
+    <div id="sellerDetails" class="oneSide text-sm bg-gray-100 border border-gray-400 rounded overflow-hidden mb-1 leading-7">
       <div class="flex">
         <div class="w-20 bg-gray-200 flex justify-center">
-          <h2 class="flex self-center font-black"><?php echo T_("Seller"); ?></h2>
+          <h2 class="flex self-center font-bold"><?php echo T_("Seller"); ?></h2>
         </div>
         <div class="flex-grow px-2">
-          <div class="row padMore">
-            <div class="c-6 title"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo a($storeData,'title');} ?></div>
-            <div class="c-3">
-              <span><?php echo a($storeData, 'companyeconomiccode') ? T_("VAT Number") : null ; ?></span>
-              <code><?php echo a($storeData, 'companyeconomiccode') ?></code>
+          <div class="flex">
+            <div class="w-6/12 font-black"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo a($storeData,'title');} ?></div>
+            <div class="w-3/12 flex px-2">
+              <div class="flex-grow"><?php echo a($storeData, 'companyeconomiccode') ? T_("VAT Number") : null ; ?></div>
+              <code class="font-bold"><?php echo a($storeData, 'companyeconomiccode') ?></code>
             </div>
-            <div class="c-3">
-              <span><?php echo a($storeData, 'companynationalid') ? T_("Company ID Number") : null; ?></span>
-              <code><?php echo a($storeData, 'companynationalid') ?></code>
+            <div class="w-3/12 flex">
+              <div class="flex-grow"><?php echo a($storeData, 'companynationalid') ? T_("Company ID Number") : null; ?></div>
+              <code class="font-bold"><?php echo a($storeData, 'companynationalid') ?></code>
             </div>
           </div>
           <div class="row padMore">
