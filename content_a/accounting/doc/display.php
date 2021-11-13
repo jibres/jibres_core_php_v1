@@ -31,8 +31,8 @@
 							</td>
 							<td class=""><?php echo \dash\fit::number(a($value, 'item_count')) ?></td>
 
-							<td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'sum_debtor'), 'en') ?></span></td>
-							<td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'sum_creditor'), 'en') ?></span></td>
+							<td class="font-14 fc-green"><span class="text-right txtB"><?php echo \dash\fit::number_decimal(a($value, 'sum_debtor'), 'en') ?></span></td>
+							<td class="font-14 fc-red"><span class="text-right txtB"><?php echo \dash\fit::number_decimal(a($value, 'sum_creditor'), 'en') ?></span></td>
 						</tr>
 						<tr>
 							<td class="pTB5-f" colspan="7"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>

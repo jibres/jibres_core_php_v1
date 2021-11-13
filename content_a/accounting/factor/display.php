@@ -70,10 +70,10 @@
               <td class=""><?php echo \dash\fit::number(a($value, 'item_count')) ?></td>
               <td class=""><?php echo T_(a($value, 'template_title')) ?></td>
 
-              <td class="font-14 fc-green"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'total'), 'en') ?></span></td>
-              <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>
-              <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(a($value, 'totalvat'), 'en') ?></span></td>
-              <td class="font-14 fc-red"><span class="txtR txtB"><?php echo \dash\fit::number_decimal(floatval(a($value, 'total')) - floatval(a($value, 'discount')) + floatval(a($value, 'totalvat')), 'en') ?></span></td>
+              <td class="font-14 fc-green"><span class="text-right txtB"><?php echo \dash\fit::number_decimal(a($value, 'total'), 'en') ?></span></td>
+              <td class="font-14 fc-red"><span class="text-right txtB"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>
+              <td class="font-14 fc-red"><span class="text-right txtB"><?php echo \dash\fit::number_decimal(a($value, 'totalvat'), 'en') ?></span></td>
+              <td class="font-14 fc-red"><span class="text-right txtB"><?php echo \dash\fit::number_decimal(floatval(a($value, 'total')) - floatval(a($value, 'discount')) + floatval(a($value, 'totalvat')), 'en') ?></span></td>
               <td class="txtRa"><?php if(a($value, 'quarterlyreport') === 'yes') { echo '<a href="'.\dash\url::that(). \dash\request::full_get(['quarterlyreport' => 'yes']). '"><i class="sf-check fc-green"></i></a>'; }else{ echo '<a href="'.\dash\url::that(). \dash\request::full_get(['quarterlyreport' => 'no']). '"><i class="sf-times fc-red"></i></a>'; } //endif ?></td>
             </tr>
             <tr>

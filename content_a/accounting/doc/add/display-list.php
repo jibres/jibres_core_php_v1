@@ -56,8 +56,8 @@
                <?php if(!\dash\data::descEmpty()) {?>
                   <td class="collapsing"><?php echo a($value, 'desc') ?></td>
                <?php } //endif ?>
-              <td data-copy='<?php echo a($value, 'debtor'); ?>' class="ltr txtR fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
-              <td data-copy='<?php echo a($value, 'creditor'); ?>' class="ltr txtR fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
+              <td data-copy='<?php echo a($value, 'debtor'); ?>' class="ltr text-right fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
+              <td data-copy='<?php echo a($value, 'creditor'); ?>' class="ltr text-right fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
               <?php if($locDelMode) {}else{?>
               <td class="p0 txtRa">
                 <?php if(\dash\request::get('did') == a($value, 'id')) {?>
