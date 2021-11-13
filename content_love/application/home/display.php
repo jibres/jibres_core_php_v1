@@ -112,7 +112,7 @@ else
                 <td class=" " title='<?php echo a($value, 'path'); ?>'><?php if(a($value, 'path')) { echo '<a href="https://app.talambar.ir/'. $value['path'].'" class="btn">'.T_("Download").'</a>'; }?></td>
             </tr>
             <tr>
-                <td colspan="10" class="ltr txtL pTB5-f"><?php echo a($value, 'meta'); ?></td>
+                <td colspan="10" class="ltr text-left pTB5-f"><?php echo a($value, 'meta'); ?></td>
             </tr>
             <?php } //endfor ?>
         </tbody>

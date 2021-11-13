@@ -74,7 +74,7 @@ else
 
                 <tr data-kerkere-content='hide' class="showDetail<?php echo a($value, 'id') ?>">
                     <td colspan="8">
-<pre class="txtL ltr"><?php echo a($value, 'detail_pretty') ?></pre>
+<pre class="text-left ltr"><?php echo a($value, 'detail_pretty') ?></pre>
                     </td>
                 </tr>
               <?php }// endfor ?>

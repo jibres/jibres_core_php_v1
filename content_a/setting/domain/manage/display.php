@@ -149,7 +149,7 @@
                     <th class="ltr txtL">Type</th>
                     <th class="ltr txtL">Key</th>
                     <th class="ltr txtL">Value</th>
-                    <th class="ltr txtL s0">Status</th>
+                    <th class="ltr text-left s0">Status</th>
                     <th class="ltr txtL"></th>
                   </tr>
                 </thead>
@@ -164,7 +164,7 @@
                           <div class="badge" title="Priority"><?php echo a($value, 'priority'); ?></div>
                         <?php }  // end if?>
                       </td>
-                      <td class="ltr txtL s0"><?php echo a($value, 'status'); ?></td>
+                      <td class="ltr text-left s0"><?php echo a($value, 'status'); ?></td>
                       <td class="ltr txtL">
                         <?php if(a($value, 'status') !== 'pending_delete') {?>
                             <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div>

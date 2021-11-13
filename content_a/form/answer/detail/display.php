@@ -1,7 +1,7 @@
 <?php if(\dash\request::get('print')) {?>
 
    <div class="printArea" data-size='A4'>
-      <div class="msg info2 txtL ltr txtB text-sm">
+      <div class="msg info2 text-left ltr txtB text-sm">
       <div class="f">
         <div class="cauto">
           <span><?php echo T_("Answer ID") ?></span>
@@ -37,7 +37,7 @@
 
 <div class="row">
    <div class="c-xs-12 c-sm-12 c-md-6">
-    <div class="msg info2 txtL ltr txtB text-sm">
+    <div class="msg info2 text-left ltr txtB text-sm">
       <div class="f">
         <div class="cauto">
           <span><?php echo T_("Answer ID") ?></span>
@@ -51,7 +51,7 @@
     </div>
 
       <?php if(a(\dash\data::answerDetail(), 'factor_id')) {?>
-    <div class="msg info2 txtL ltr txtB text-sm">
+    <div class="msg info2 text-left ltr txtB text-sm">
         <a href="<?php echo \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'); ?>"><?php echo T_("View Order") ?></a>
       </div>
       <?php } //endif ?>

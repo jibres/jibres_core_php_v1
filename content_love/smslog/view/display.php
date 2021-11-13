@@ -20,8 +20,8 @@
           <tr><td><?php echo T_('IP id') ?></td><td><?php echo a($data, 'ip_id'); ?></td></tr>
           <tr><td><?php echo T_('IP MD5') ?></td><td><?php echo a($data, 'ip_md5'); ?></td></tr>
           <tr><td><?php echo T_('Agent') ?></td><td><?php echo a($data, 'agent_id'); ?></td></tr>
-          <tr><td><?php echo T_('response') ?></td><td><pre class="txtL ltr"><?php echo a($data, 'response'); ?></pre></td></tr>
-          <tr><td><?php echo T_('send') ?></td><td><pre class="txtL ltr"><?php echo a($data, 'send'); ?></pre></td></tr>
+          <tr><td><?php echo T_('response') ?></td><td><pre class="text-left ltr"><?php echo a($data, 'response'); ?></pre></td></tr>
+          <tr><td><?php echo T_('send') ?></td><td><pre class="text-left ltr"><?php echo a($data, 'send'); ?></pre></td></tr>
           <tr><td><?php echo T_('datesend') ?></td><td><?php echo \dash\fit::date_time(a($data, 'datesend')); ?></td></tr>
           <tr><td><?php echo T_('dateresponse') ?></td><td><?php echo \dash\fit::date_time(a($data, 'dateresponse')); ?></td></tr>
           <tr><td><?php echo T_('datecreated') ?></td><td><?php echo \dash\fit::date_time(a($data, 'datecreated')); ?></td></tr>

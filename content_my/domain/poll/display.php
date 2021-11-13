@@ -1,7 +1,7 @@
 <div class="f justify-center">
  <div class="c9 m12 s12">
   <div class="cbox">
-   <div class="msg minimal pLR20-f fs16 txtB ltr txtL success"><?php echo \dash\data::domainDetail_name() ?></div>
+   <div class="msg minimal pLR20-f fs16 txtB ltr text-left success"><?php echo \dash\data::domainDetail_name() ?></div>
     <?php if(\dash\data::dataTable()) {?>
      	<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 

@@ -27,7 +27,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td colspan="3" class="collapsing txtL ltr txtB font-14 fc-blue"><?php echo \dash\fit::price(\dash\data::countAll()) ?></td>
+                  <td colspan="3" class="collapsing text-left ltr txtB font-14 fc-blue"><?php echo \dash\fit::price(\dash\data::countAll()) ?></td>
                 </tr>
               <?php } // endif ?>
               <tr>
@@ -40,9 +40,9 @@
                 </td>
                 <td class="collapsing"><?php echo a($value, 'condition_title') ?></td>
                 <td class="collapsing"><?php echo a($value, 'value') ?></td>
-                <td class="collapsing txtL ltr"><?php echo \dash\fit::price(a($value, 'inside')) ?></td>
-                <td class="collapsing txtL ltr"><?php echo \dash\fit::price(a($value, 'outside')) ?></td>
-                <td class="collapsing txtL ltr txtB font-14 fc-blue"><?php echo \dash\fit::price(a($value, 'count_after')) ?></td>
+                <td class="collapsing text-left ltr"><?php echo \dash\fit::price(a($value, 'inside')) ?></td>
+                <td class="collapsing text-left ltr"><?php echo \dash\fit::price(a($value, 'outside')) ?></td>
+                <td class="collapsing text-left ltr txtB font-14 fc-blue"><?php echo \dash\fit::price(a($value, 'count_after')) ?></td>
               </tr>
             <?php } //endfor ?>
           </tbody>
@@ -52,7 +52,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td colspan="3" class="collapsing txtL ltr txtB"><?php echo \dash\fit::price($last) ?></td>
+                <td colspan="3" class="collapsing text-left ltr txtB"><?php echo \dash\fit::price($last) ?></td>
             </tr>
           </tfoot>
         </table>

@@ -138,7 +138,7 @@ if(!is_array($dataTable))
       <td class="collapsing"><a href="<?php echo \dash\url::that(); ?>?step=<?php echo a($value, 'step'); ?>"><?php echo a($value, 'step'); ?></a></td>
 
       <td>
-        <div class="ltr txtL txtB mB5">
+        <div class="ltr text-left txtB mB5">
           <a href="<?php echo \dash\url::that(); ?>?sendmethod=<?php echo a($value, 'sendmethod'); ?>" title='<?php echo T_("Method"); ?>'><?php echo a($value, 'sendmethod'); ?></a>
           <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo a($value, 'id'); ?>#sendkeyboard"><?php if(isset($value['sendkeyboard']) && $value['sendkeyboard']) {?><i class="sf-thumbnails fc-green" title='<?php echo T_("With keyboard"); ?>'></i><?php }else{ ?><i class="sf-file-text fc-mute" title='<?php echo T_("Without keyboard"); ?>'></i><?php } ?></a>
           <?php if(isset($value['sendmesageid']) && $value['sendmesageid']) {?>

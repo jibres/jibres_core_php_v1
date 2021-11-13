@@ -15,8 +15,8 @@
 			<?php foreach ($myData['data_table'] as $key => $value) {?>
 				<tr>
 					<td><?php echo a($value, 'name') ?></td>
-					<td class="ltr txtL collapsing"><?php echo \dash\fit::number(a($value, 'count')) ?></td>
-					<td class="ltr txtL collapsing"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(a($value, 'percent')); ?></b></td>
+					<td class="ltr text-left collapsing"><?php echo \dash\fit::number(a($value, 'count')) ?></td>
+					<td class="ltr text-left collapsing"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(a($value, 'percent')); ?></b></td>
 				</tr>
 			<?php } //endfor ?>
 		</tbody>

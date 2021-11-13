@@ -109,7 +109,7 @@ else if($fax)
 ?></div>
             <div class="c-3"><?php
 {
-  echo '<span class="block ltr txtL pLR5">';
+  echo '<span class="block ltr text-left pLR5">';
   echo a($customerDetail, 'url');
   echo '</span>';
 }

@@ -29,7 +29,7 @@
 			<p class="fc-mute mB0-f"><?php echo T_("Drag & Drop your avatar or click on click on photo to browse") ?></p>
 			</form>
 			<?php if(\dash\data::dataRowMember_avatar_raw()) {?>
-				<div class="txtL font-18">
+				<div class="text-left font-18">
 					<div class="linkDel" data-confirm data-data='{"btn": "remove"}'><i class="sf-trash"></i></div>
 				</div>
 			<?php } //endif ?>

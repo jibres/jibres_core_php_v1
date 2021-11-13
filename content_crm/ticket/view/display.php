@@ -172,7 +172,7 @@ else
           <a class="f item" href="https://t.me/<?php echo \dash\data::dataRow_usertelegram(); ?>">
               <?php echo \dash\utility\icon::bootstrap('telegram'); ?>
             <div class="key"><?php echo T_("Telegram") ?></div>
-            <div class="value txtL ltr"><?php echo \dash\data::dataRow_usertelegram(); ?></div>
+            <div class="value text-left ltr"><?php echo \dash\data::dataRow_usertelegram(); ?></div>
           </a>
         </li>
       <?php } //endif ?>

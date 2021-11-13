@@ -52,7 +52,7 @@
                 </div>
               </div>
               <div class="cauto"><?php echo T_("VAT"); ?></div>
-              <div class="cauto ltr txtL pLR5" id="vatCost"></div>
+              <div class="cauto ltr text-left pLR5" id="vatCost"></div>
               <div class="cauto"><?php echo a($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>
