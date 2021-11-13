@@ -15,20 +15,20 @@
           <?php if(\dash\request::get('show') === 'col6') {?>
             <th><?php echo T_("Opening debtor") ?></th>
             <th><?php echo T_("Opening creditor") ?></th>
-            <th class="txtR"><?php echo T_("Current Debtor") ?></th>
-            <th class="txtR"><?php echo T_("Current Creditor") ?></th>
+            <th class="text-right"><?php echo T_("Current Debtor") ?></th>
+            <th class="text-right"><?php echo T_("Current Creditor") ?></th>
           <?php } //endif ?>
 
           <?php if(\dash\request::get('show') === 'col4' || !\dash\request::get('show')) {?>
-          <th class="txtR"><?php echo T_("Sum Debtor") ?></th>
-          <th class="txtR"><?php echo T_("Sum Creditor") ?></th>
+          <th class="text-right"><?php echo T_("Sum Debtor") ?></th>
+          <th class="text-right"><?php echo T_("Sum Creditor") ?></th>
           <?php } //endif ?>
           <?php if(\dash\request::get('show') === 'balancesheet') {?>
-          <th class="txtR"><?php echo T_("End value") ?></th>
-          <th class="txtR"><?php echo T_("Opening value") ?></th>
+          <th class="text-right"><?php echo T_("End value") ?></th>
+          <th class="text-right"><?php echo T_("Opening value") ?></th>
         <?php }else{ ?>
-          <th class="txtR"><?php echo T_("Remain Debtor") ?></th>
-          <th class="txtR"><?php echo T_("Remain Creditor") ?></th>
+          <th class="text-right"><?php echo T_("Remain Debtor") ?></th>
+          <th class="text-right"><?php echo T_("Remain Creditor") ?></th>
           <?php } //endif ?>
 
         </tr>
@@ -68,23 +68,23 @@
             <td></td>
 
           <?php if(\dash\request::get('show') === 'col6') {?>
-            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'opening_debtor') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'opening_debtor'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'opening_creditor') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'opening_creditor'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'debtor') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'debtor'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'creditor') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'creditor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'opening_debtor') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'opening_debtor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'opening_creditor') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'opening_creditor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'debtor') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'debtor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'creditor') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
 
           <?php if(\dash\request::get('show') === 'col4' || !\dash\request::get('show')) {?>
-            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'sum_debtor') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'sum_debtor'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'sum_creditor') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'sum_creditor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'sum_debtor') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'sum_debtor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'sum_creditor') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'sum_creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
 
           <?php if(\dash\request::get('show') === 'balancesheet') {?>
-            <td data-copy="<?php echo a(\dash\data::reportDetail_sum(), 'end_value') ?>" class="text-sm ltr txtR"></i><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'end_value'), true, 'en') ?></code></td>
-            <td data-copy="<?php echo a(\dash\data::reportDetail_sum(), 'opening') ?>" class="text-sm ltr txtR"></i><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'opening'), true, 'en') ?></code></td>
+            <td data-copy="<?php echo a(\dash\data::reportDetail_sum(), 'end_value') ?>" class="text-sm ltr text-right"></i><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'end_value'), true, 'en') ?></code></td>
+            <td data-copy="<?php echo a(\dash\data::reportDetail_sum(), 'opening') ?>" class="text-sm ltr text-right"></i><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'opening'), true, 'en') ?></code></td>
           <?php }else{ ?>
-            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'remain_debtor') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'remain_debtor'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'remain_creditor') ?>' class="text-sm ltr txtR"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'remain_creditor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'remain_debtor') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'remain_debtor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a(\dash\data::reportDetail_sum(), 'remain_creditor') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a(\dash\data::reportDetail_sum(), 'remain_creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
 
           </tr>

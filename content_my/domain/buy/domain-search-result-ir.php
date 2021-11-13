@@ -51,7 +51,7 @@ $master_domain = a($master, 'full');
                 else
                 {
                     // cell2
-                    echo '<div class="cauto pA5 pR20-f txtR">';
+                    echo '<div class="cauto pA5 pR20-f text-right">';
                         echo '<div>';
                             if(isset($master['price_1year']))
                             {

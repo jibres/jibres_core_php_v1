@@ -46,14 +46,14 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       <tr class="fs07">
        <th class="collapsing">#</th>
        <th><?php echo T_("Explanation"); ?></th>
-       <th class="collapsing txtR"><?php echo T_("Qty"); ?></th>
+       <th class="collapsing text-right"><?php echo T_("Qty"); ?></th>
        <th class="collapsing"><?php echo T_("Unit"); ?></th>
-       <th class="txtR"><?php echo T_("Unit price"); ?></th>
-       <th class="txtR"><?php echo T_("Total price"); ?></th>
-       <th class="txtR"><?php echo T_("Total discount"); ?></th>
-       <th class="txtR"><?php echo T_("Total price after discount"); ?></th>
-       <th class="txtR"><?php echo T_("Total VAT"); ?></th>
-       <th class="txtR"><?php echo T_("Final Price"); ?></th>
+       <th class="text-right"><?php echo T_("Unit price"); ?></th>
+       <th class="text-right"><?php echo T_("Total price"); ?></th>
+       <th class="text-right"><?php echo T_("Total discount"); ?></th>
+       <th class="text-right"><?php echo T_("Total price after discount"); ?></th>
+       <th class="text-right"><?php echo T_("Total VAT"); ?></th>
+       <th class="text-right"><?php echo T_("Final Price"); ?></th>
       </tr>
      </thead>
      <tbody>

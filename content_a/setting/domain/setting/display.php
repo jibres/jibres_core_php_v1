@@ -31,7 +31,7 @@
         <div class="msg minimal <?php if(\dash\data::redirectJibresSubdomainToMaster()) { echo "success2";}  ?> ltr mB0 mT20 row">
           <div class="c-xs-12 c-5"><?php $domain = (\dash\url::tld() === 'com') ? 'myjibres.com': 'jibres.store'; echo \lib\store::detail('subdomain').'.'. $domain; ?></div>
           <div class="c-xs-12 c-2 txtC"> <i class="sf-chevron-right"></i><i class="sf-chevron-right"></i><i class="sf-chevron-right"></i> </div>
-          <div class="c-xs-12 c-5 txtR"><b><?php echo $masterdomain; ?></b></div>
+          <div class="c-xs-12 c-5 text-right"><b><?php echo $masterdomain; ?></b></div>
         </div>
       </div>
     </div>

@@ -24,8 +24,8 @@
              <?php if(!\dash\data::descEmpty()) {?>
                <th class="collapsing"><?php echo T_("Explanation"); ?></th>
              <?php } //endif ?>
-             <th class="collapsing txtR"><?php echo T_("Debtor") ?></th>
-             <th class="collapsing txtR"><?php echo T_("Creditor") ?></th>
+             <th class="collapsing text-right"><?php echo T_("Debtor") ?></th>
+             <th class="collapsing text-right"><?php echo T_("Creditor") ?></th>
              <?php if($locDelMode) {}else{?>
              <th class="collapsing p0"></th>
              <?php } //endif ?>
@@ -79,8 +79,8 @@
             <?php } //endif ?>
 
               <td><?php echo T_("Total"); ?> <?php if(\dash\data::currentCurrency()) { echo ' ('. \dash\data::currentCurrency(). ') ';} ?></td>
-             <td data-copy='<?php echo \dash\data::summary_debtor() ?>' class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
-             <td data-copy='<?php echo \dash\data::summary_creditor() ?>' class="ltr txtR"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
+             <td data-copy='<?php echo \dash\data::summary_debtor() ?>' class="ltr text-right"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
+             <td data-copy='<?php echo \dash\data::summary_creditor() ?>' class="ltr text-right"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
               <?php if($locDelMode) {}else{?>
                 <td class="p0 txtRa txtB">
                    <?php $remain_doc = \dash\data::summary_debtor() - \dash\data::summary_creditor(); if($remain_doc != 0) {?>
