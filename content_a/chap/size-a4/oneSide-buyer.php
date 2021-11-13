@@ -13,29 +13,29 @@ if($customerDetailAvailable)
 {
 ?>
 
-    <div id="sellerDetails" class="oneSide text-sm bg-gray-100 border border-gray-400 rounded overflow-hidden">
+    <div id="sellerDetails" class="oneSide bg-gray-100 border border-gray-400 rounded overflow-hidden mb-1">
       <div class="flex">
         <div class="w-20 bg-gray-200 flex justify-center">
           <h2 class="flex self-center font-bold"><?php echo T_("Buyer"); ?></h2>
         </div>
-        <div class="flex-grow">
-          <div class="row padMore">
-            <div class="c-6 font-black"><?php echo a($customerDetail, 'displayname'); ?></div>
-            <div class="c-3">
+        <div class="flex-grow px-2 text-xs leading-7">
+          <div class="flex">
+            <div class="flex-grow font-black"><?php echo a($customerDetail, 'displayname'); ?></div>
+            <div class="w-3/12 flex px-2">
               <?php if(a($customerDetail, 'companyeconomiccode')) {?>
-              <span><?php echo T_("VAT Number"); ?></span>
-              <code><?php echo a($customerDetail, 'companyeconomiccode') ?></code>
+              <div class="flex-grow"><?php echo T_("VAT Number"); ?></div>
+              <code class="font-bold tracking-widest"><?php echo a($customerDetail, 'companyeconomiccode') ?></code>
             <?php } //endif ?>
             </div>
-            <div class="c-3">
+            <div class="w-3/12 flex px-2">
               <?php if(a($customerDetail, 'companynationalid')) {?>
-              <span><?php echo T_("Company ID Number"); ?></span>
-              <code><?php echo a($customerDetail, 'companynationalid') ?></code>
+              <div class="flex-grow"><?php echo T_("Company ID Number"); ?></div>
+              <code class="font-bold tracking-widest"><?php echo a($customerDetail, 'companynationalid') ?></code>
             <?php  }//endif ?>
             </div>
           </div>
-          <div class="row padMore">
-            <div class="c-6"><?php
+          <div class="flex">
+            <div class="flex-grow"><?php
 $country = a($addressDetail,'country_name');
 if($country)
 {
@@ -64,22 +64,22 @@ if($city)
   echo '</span>';
 }
 ?></div>
-            <div class="c-3">
+            <div class="w-3/12 flex px-2">
               <?php if(a($addressDetail, 'postcode')) {?>
-              <span><?php echo T_("Postal Code"); ?></span>
-              <code><?php echo a($addressDetail, 'postcode'); ?></code>
+              <div class="flex-grow"><?php echo T_("Postal Code"); ?></div>
+              <code class="font-bold tracking-widest"><?php echo a($addressDetail, 'postcode'); ?></code>
             <?php } //endif ?>
             </div>
-            <div class="c-3">
+            <div class="w-3/12 flex px-2">
               <?php if(a($customerDetail, 'companyregisternumber')) {?>
-              <span><?php echo T_("Company Registration Number"); ?></span>
-              <code><?php echo a($customerDetail, 'companyregisternumber') ?></code>
+              <div class="flex-grow"><?php echo T_("Company Registration Number"); ?></div>
+              <code class="font-bold tracking-widest"><?php echo a($customerDetail, 'companyregisternumber') ?></code>
             <?php } //endif ?>
             </div>
           </div>
 
-          <div class="row padMore">
-            <div class="c-6"><?php
+          <div class="flex">
+            <div class="flex-grow"><?php
 $address = a($addressDetail, 'address');
 if($address)
 {
@@ -89,31 +89,31 @@ if($address)
   // echo '</span>';
 }
 ?></div>
-            <div class="c-3"><?php
+            <div class="w-3/12 flex px-2"><?php
 $phone = a($addressDetail, 'phone');
 $fax = a($addressDetail, 'fax');
 if($phone)
 {
-  echo '<span>'. T_('Phone'). '</span>'. ' ';
-  echo '<code>';
+  echo '<span class="flex-grow">'. T_('Phone'). '</span>'. ' ';
+  echo '<code class="font-bold tracking-widest">';
   // echo $phone;
   echo $phone;
   echo '</code>';
 }
 else if($fax)
 {
-  echo '<span>'. T_('Fax'). '</span>'. ' ';
-  echo '<code>';
+  echo '<span class="flex-grow">'. T_('Fax'). '</span>'. ' ';
+  echo '<code class="font-bold tracking-widest">';
   // echo $fax;
   echo $fax;
   echo '</code>';
 }
 ?></div>
-            <div class="c-3"><?php
+            <div class="w-3/12 flex px-2"><?php
 {
-  echo '<span class="block ltr text-left pLR5">';
+  echo '<div dir="ltr" class="text-left truncate">';
   echo a($customerDetail, 'url');
-  echo '</span>';
+  echo '</div>';
 }
 ?></div>
           </div>
