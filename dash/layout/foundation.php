@@ -191,6 +191,10 @@ if(\dash\data::include_adminPanel())
 if(\dash\data::include_m2())
 {
   echo " data-m2";
+  if(is_string(\dash\data::include_m2()))
+  {
+    echo "=". \dash\data::include_m2(). ' ';
+  }
 }
 if(\dash\engine\store::inStore() && \lib\store::enterprise())
 {
