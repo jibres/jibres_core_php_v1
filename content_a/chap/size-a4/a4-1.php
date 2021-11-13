@@ -95,7 +95,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 <?php } //endfor ?>
      </tbody>
      <tfoot>
-      <tr class="bg-blue-200 text-sm leading-7 border-t-2 border-blue-500">
+      <tr class="bg-blue-200 text-sm leading-10 border-t-2 border-blue-500">
        <td colspan="2" class="px-2"><?php echo T_("Sum Total"); ?></td>
        <td></td>
        <td></td>
