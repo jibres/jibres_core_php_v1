@@ -10,8 +10,8 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 <div class="printArea" data-size='A4.landscape'>
   <div class="invoice text-sm" data-theme="1">
-    <header class="row align-center">
-      <div class="c-3">
+    <header class="flex align-center">
+      <div class="w-3/12">
 <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
         <div class="logo">
          <img class="h-16 max-w-xs" src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>">
@@ -19,14 +19,14 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 <?php } //endif ?>
 
       </div>
-      <div class="c-6 txtC">
+      <div class="w-6/12 txtC">
         <?php $country = a($storeData,'country'); if($country === 'IR') {?>
         <h1 class="text-3xl text-blue-800 font-black"><?php echo T_("Sale Invoice"); ?></h1>
         <?php }else{ ?>
         <h1 class="text-3xl text-blue-800 font-black"><?php echo T_("Invoice"); ?></h1>
         <?php } //endif ?>
       </div>
-      <div class="c-3 txtRa">
+      <div class="w-3/12 txtRa">
         <div>
           <span class="compact pRa5"><?php echo T_("Serial Number"); ?></span>
           <span class="printEmptyBox" id="factorid" data-val="<?php echo a($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(a($factorDetail, 'factor', 'id')) ?></span>
