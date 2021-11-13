@@ -14,9 +14,9 @@
               <th><?php echo \dash\data::filterDetail_title() ?></th>
               <th class="collapsing"><?php echo \dash\fit::number(count(\dash\data::whereList())) ?> <small><?php echo T_("Filter") ?></small></th>
               <th></th>
-              <th class="collapsing txtL"><?php echo T_("Inside") ?></th>
-              <th class="collapsing txtL"><?php echo T_("Outside") ?></th>
-              <th class="collapsing txtL"><?php echo T_("Count after") ?></th>
+              <th class="collapsing text-left"><?php echo T_("Inside") ?></th>
+              <th class="collapsing text-left"><?php echo T_("Outside") ?></th>
+              <th class="collapsing text-left"><?php echo T_("Count after") ?></th>
             </tr>
           </thead>
           <tbody>

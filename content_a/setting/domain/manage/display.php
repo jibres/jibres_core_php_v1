@@ -19,19 +19,19 @@
     <div class="body">
       <p>
         <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set CNAME record for that subdomain at the following address:") ?>
-        <table class="tbl1 v4 minimal ltr txtL">
+        <table class="tbl1 v4 minimal ltr text-left">
           <thead class="text-sm">
             <tr>
-              <th class="ltr txtL">Type</th>
-              <th class="ltr txtL">Key</th>
-              <th class="ltr txtL">Value</th>
+              <th class="ltr text-left">Type</th>
+              <th class="ltr text-left">Key</th>
+              <th class="ltr text-left">Value</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="ltr txtL">
-              <td class="ltr txtL">CNAME</td>
-              <td class="ltr txtL" data-copy='<?php echo \dash\data::domainDetail_subdomain() ?>'><?php echo \dash\data::domainDetail_subdomain() ?></td>
-              <td class="ltr txtL"><span data-copy='business.jibres.ir'><code>business.jibres.ir</code></span></td>
+            <tr class="ltr text-left">
+              <td class="ltr text-left">CNAME</td>
+              <td class="ltr text-left" data-copy='<?php echo \dash\data::domainDetail_subdomain() ?>'><?php echo \dash\data::domainDetail_subdomain() ?></td>
+              <td class="ltr text-left"><span data-copy='business.jibres.ir'><code>business.jibres.ir</code></span></td>
             </tr>
           </tbody>
         </table>
@@ -58,7 +58,7 @@
         <div class="msg minumal">
           <?php echo T_("To connect domain to jibres change your domain name server to below value") ?>
           <br>
-          <div class="ltr txtL">
+          <div class="ltr text-left">
             <?php
               $ns1 = \lib\app\nic_usersetting\defaultval::ns1();
               $ns2 = \lib\app\nic_usersetting\defaultval::ns2();
@@ -90,8 +90,8 @@
         <div class="row ltr">
           <div class="c-xs-12 c-sm-2">
             <label for="itype">Type</label>
-            <div class="txtL">
-              <select class="select22 ltr txtL" name="type" id="itype">
+            <div class="text-left">
+              <select class="select22 ltr text-left" name="type" id="itype">
                 <option value="">Type</option>
                 <option value="A">A</option>
                 <option value="AAAA">AAAA</option>
@@ -143,29 +143,29 @@
 
           <?php if($have_any_record || 1) {?>
             <div class="tblBox">
-              <table class="tbl1 v4 text-sm ltr txtL">
+              <table class="tbl1 v4 text-sm ltr text-left">
                 <thead>
                   <tr>
-                    <th class="ltr txtL">Type</th>
-                    <th class="ltr txtL">Key</th>
-                    <th class="ltr txtL">Value</th>
+                    <th class="ltr text-left">Type</th>
+                    <th class="ltr text-left">Key</th>
+                    <th class="ltr text-left">Value</th>
                     <th class="ltr text-left s0">Status</th>
-                    <th class="ltr txtL"></th>
+                    <th class="ltr text-left"></th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach (\dash\data::dnsList() as $key => $value) {?>
                           <?php if(a($value, 'allow_remove') || 1) {?>
-                    <tr class="txtL">
-                      <td class="ltr txtL"><?php echo a($value, 'type'); ?></td>
-                      <td class="ltr txtL"><?php echo a($value, 'key'); ?></td>
-                      <td class="ltr txtL"><?php echo a($value, 'value'); ?>
+                    <tr class="text-left">
+                      <td class="ltr text-left"><?php echo a($value, 'type'); ?></td>
+                      <td class="ltr text-left"><?php echo a($value, 'key'); ?></td>
+                      <td class="ltr text-left"><?php echo a($value, 'value'); ?>
                         <?php if(a($value, 'priority')) { ?>
                           <div class="badge" title="Priority"><?php echo a($value, 'priority'); ?></div>
                         <?php }  // end if?>
                       </td>
                       <td class="ltr text-left s0"><?php echo a($value, 'status'); ?></td>
-                      <td class="ltr txtL">
+                      <td class="ltr text-left">
                         <?php if(a($value, 'status') !== 'pending_delete') {?>
                             <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div>
                           <?php } //endif ?>

@@ -12,7 +12,7 @@
     </a>
   </div>
 </section>
-<div class="msg fs14 txtB txtL"><b>Last credit description</b> <?php echo \dash\data::lastCredit_description() ?></div>
+<div class="msg fs14 txtB text-left"><b>Last credit description</b> <?php echo \dash\data::lastCredit_description() ?></div>
 
 
 <div class="fs14">
@@ -34,7 +34,7 @@
           </th>
           <th class="collapsing"><?php echo T_("Balance"); ?></th>
           <th class="collapsing"><?php echo T_("Transaction"); ?></th>
-          <th class="txtL"><?php echo T_("Description"); ?></th>
+          <th class="text-left"><?php echo T_("Description"); ?></th>
 
 
         </thead>
@@ -48,7 +48,7 @@
               <td class="collapsing"><?php echo \dash\fit::text(a($value, 'amount')); ?></td>
               <td class="collapsing"><?php echo \dash\fit::text(a($value, 'balance')); ?></td>
               <td class="collapsing"><?php echo a($value, 'refund_transaction_id'); if(a($value, 'meta')) { echo '<br>'. a($value,'meta');} ?></td>
-              <td class="txtL"><?php echo a($value, 'description'); ?></td>
+              <td class="text-left"><?php echo a($value, 'description'); ?></td>
 
             </tr>
           <?php }// endfor ?>

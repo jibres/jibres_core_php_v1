@@ -18,7 +18,7 @@
 
 <form method="get" autocomplete="off" action="<?php echo \dash\url::this(); ?>">
   <div class="avand-md">
-    <div class="box ltr txtL">
+    <div class="box ltr text-left">
       <div class="pad">
         <label>IP</label>
         <div class="input ltr">

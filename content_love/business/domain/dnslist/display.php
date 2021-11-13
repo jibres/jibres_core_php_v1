@@ -30,7 +30,7 @@
     <tbody>
    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
       <tr>
-        <td class="ltr txtL">
+        <td class="ltr text-left">
           <div class="">
             <a target="_blank" href="<?php echo \dash\url::protocol(). '://'. a($value, 'domain'); ?>">
               <code><?php echo a($value, 'domain'); ?></code><i class="sf-external-link"></i>

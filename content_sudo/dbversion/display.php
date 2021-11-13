@@ -43,17 +43,17 @@ $needUpgrade = \dash\data::needUpgrade();
 		<table class="tbl1 v1 ltr">
 			<thead>
 				<tr>
-					<th class="txtL">Busienss</th>
-					<th class="txtL">Databas Version</th>
-					<th class="txtL">Last upgrade</th>
+					<th class="text-left">Busienss</th>
+					<th class="text-left">Databas Version</th>
+					<th class="text-left">Last upgrade</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php foreach (\dash\data::allDatabaseVersion() as $key => $value) { ?>
-					<tr class="txtL">
-						<td class="txtL"><?php echo a($value, 'id') ?></td>
-						<td class="txtL"><?php echo a($value, 'dbversion') ?></td>
-						<td class="txtL"><?php echo \dash\fit::date_time(a($value, 'dbversiondate')) ?></td>
+					<tr class="text-left">
+						<td class="text-left"><?php echo a($value, 'id') ?></td>
+						<td class="text-left"><?php echo a($value, 'dbversion') ?></td>
+						<td class="text-left"><?php echo \dash\fit::date_time(a($value, 'dbversiondate')) ?></td>
 					</tr>
 				<?php } //endfor ?>
 			</tbody>

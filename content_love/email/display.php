@@ -1,7 +1,7 @@
 
 <div class="avand-md">
   <form method="post" autocomplete="off" action="<?php echo \dash\url::this(); ?>" data-timeout=0>
-    <div class="box ltr txtL">
+    <div class="box ltr text-left">
       <div class="pad">
         <label>Email</label>
         <div class="input ltr">

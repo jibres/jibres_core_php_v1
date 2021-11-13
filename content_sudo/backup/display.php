@@ -99,7 +99,7 @@
 <?php if(isset($value['type']) && $value['type'] == 'file') {?>
 
   <tr>
-    <td class="txtL">
+    <td class="text-left">
       <span class="sf-database fs15 mR10"></span>
       <a href="<?php echo \dash\url::here() . '/backup'. \dash\request::full_get(['download' => a($value, 'addr')]); ?>" data-direct title='<?php echo T_("Click to download"); ?>'><?php echo a($value, 'name'); ?></a>
     </td>
@@ -110,7 +110,7 @@
 <?php }elseif(isset($value['type']) && $value['type'] == 'folder') {?>
 
   <tr>
-    <td class="txtL">
+    <td class="text-left">
       <span class="sf-folder fs15 mR10"></span>
       <a href="<?php echo \dash\url::this(); ?>/?folder=<?php echo a($value, 'folder'); ?>&subfolder=<?php echo a($value, 'subfolder'); ?>"><?php echo a($value, 'name'); ?></a>
     </td>

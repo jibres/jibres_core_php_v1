@@ -17,32 +17,32 @@
       <?php if(\lib\store::detail('companyeconomiccode')) {?>
       <tr>
         <th class=""><?php echo T_('Economic code') ?></th>
-        <td class="collapsing txtL"><?php echo \dash\fit::text(\lib\store::detail('companyeconomiccode')) ?></td>
+        <td class="collapsing text-left"><?php echo \dash\fit::text(\lib\store::detail('companyeconomiccode')) ?></td>
       </tr>
     <?php } //endif ?>
       <?php if(\lib\store::detail('companynationalid')) {?>
       <tr>
         <th class=""><?php echo T_('National ID') ?></th>
-        <td class="collapsing txtL"><?php echo \dash\fit::text(\lib\store::detail('companynationalid')) ?></td>
+        <td class="collapsing text-left"><?php echo \dash\fit::text(\lib\store::detail('companynationalid')) ?></td>
       </tr>
     <?php } //endif ?>
       <?php if(\lib\store::detail('companyregisternumber')) {?>
       <tr>
         <th class=""><?php echo T_('Register number') ?></th>
-        <td class="collapsing txtL"><?php echo \dash\fit::text(\lib\store::detail('companyregisternumber')) ?></td>
+        <td class="collapsing text-left"><?php echo \dash\fit::text(\lib\store::detail('companyregisternumber')) ?></td>
       </tr>
     <?php } //endif ?>
       <?php if(\lib\store::detail('postcode')) {?>
       <tr>
         <th class=""><?php echo T_('Postcode') ?></th>
-        <td class="collapsing txtL"><?php echo \dash\fit::text(\lib\store::detail('postcode')) ?></td>
+        <td class="collapsing text-left"><?php echo \dash\fit::text(\lib\store::detail('postcode')) ?></td>
       </tr>
     <?php } //endif ?>
 
       <?php if(\lib\store::detail('phone')) {?>
       <tr>
         <th class=""><?php echo T_('Phone') ?></th>
-        <td class="collapsing txtL"><?php echo \dash\fit::text(\lib\store::detail('phone')) ?></td>
+        <td class="collapsing text-left"><?php echo \dash\fit::text(\lib\store::detail('phone')) ?></td>
       </tr>
     <?php } //endif ?>
     </tbody>

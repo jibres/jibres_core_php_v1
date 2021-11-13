@@ -17,8 +17,8 @@
 		<thead class="text-xs">
 			<tr>
 				<th><?php echo T_("Choice") ?></th>
-				<th class="collapsing txtL"><?php echo T_("Frequency") ?></th>
-				<th class="collapsing txtL"><?php echo T_("Percent frequency") ?></th>
+				<th class="collapsing text-left"><?php echo T_("Frequency") ?></th>
+				<th class="collapsing text-left"><?php echo T_("Percent frequency") ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,8 +34,8 @@
 		<tfoot>
 			<tr>
 				<td><?php echo T_("Sum") ?></td>
-				<td class="ltr txtL"><?php echo \dash\fit::number(array_sum(array_column($myData['data_table'], 'count'))) ?></td>
-				<td class="ltr txtL"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(array_sum(array_column($myData['data_table'], 'percent'))); ?></b></td>
+				<td class="ltr text-left"><?php echo \dash\fit::number(array_sum(array_column($myData['data_table'], 'count'))) ?></td>
+				<td class="ltr text-left"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(array_sum(array_column($myData['data_table'], 'percent'))); ?></b></td>
 			</tr>
 		</tfoot>
 	<?php } //endif ?>

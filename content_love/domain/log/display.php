@@ -106,21 +106,21 @@ else
             <tr>
                 <td class="collapsing"><a href="<?php echo \dash\url::that(). '/view?id='. a($value, 'id'); ?>"><i class="sf-info-circle mRa10"></i><?php echo T_("Request"). ' '. \dash\fit::number(a($value, 'id')); ?></a></td>
 
-                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?q='. a($value, 'domain'); ?>"><code><?php echo a($value, 'domain'); ?></code></a></td>
-                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?q='. a($value, 'nic_id'); ?>"><code><?php echo a($value, 'nic_id'); ?></code></a></td>
-                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?type='. a($value, 'type'); ?>"><code><?php echo a($value, 'type'); ?></code></a></td>
+                <td class="collapsing ltr text-left"><a href="<?php echo \dash\url::that(). '?q='. a($value, 'domain'); ?>"><code><?php echo a($value, 'domain'); ?></code></a></td>
+                <td class="collapsing ltr text-left"><a href="<?php echo \dash\url::that(). '?q='. a($value, 'nic_id'); ?>"><code><?php echo a($value, 'nic_id'); ?></code></a></td>
+                <td class="collapsing ltr text-left"><a href="<?php echo \dash\url::that(). '?type='. a($value, 'type'); ?>"><code><?php echo a($value, 'type'); ?></code></a></td>
 
                 <td class="collapsing"><a href="<?php echo \dash\url::that(). '?result_code='. a($value, 'result_code'); ?>"><code><?php echo a($value, 'result_code'); ?></code></a></td>
 
 
-                <td class="collapsing ltr txtL">
+                <td class="collapsing ltr text-left">
                   <div><?php echo \dash\fit::date_time(a($value, 'datesend')); ?></div>
 <?php if(a($value, 'dateresponse                                                   ')) { ?>
                   <div><?php echo \dash\fit::date_time(a($value, 'dateresponse')); ?></div>
 <?php } //endif ?>
                 </td>
 
-                <td class="collapsing ltr txtL"><a href="<?php echo \dash\url::that(). '?ip='. a($value, 'ip'); ?>"><code><?php echo a($value, 'ip'); ?></code></a></td>
+                <td class="collapsing ltr text-left"><a href="<?php echo \dash\url::that(). '?ip='. a($value, 'ip'); ?>"><code><?php echo a($value, 'ip'); ?></code></a></td>
                 <td class="collapsing">
                   <a href="<?php echo \dash\url::that(). '?user='. a($value, 'user_id'); ?>" class="f align-center userPack">
                     <div class="c pRa10">

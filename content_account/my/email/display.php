@@ -21,7 +21,7 @@
 
   <?php if(\dash\data::myList_primary()) {?>
   <label><?php echo T_("Primary Email") ?></label>
-    <nav class="items long ltr txtL">
+    <nav class="items long ltr text-left">
      <ul>
       <?php foreach (\dash\data::myList_primary() as $key => $value) {?>
        <li>
@@ -38,7 +38,7 @@
 
    <?php if(\dash\data::myList_verify()) {?>
     <label><?php echo T_("Verified Email") ?></label>
-    <nav class="items long ltr txtL">
+    <nav class="items long ltr text-left">
      <ul>
       <?php foreach (\dash\data::myList_verify() as $key => $value) {?>
        <li>
@@ -56,7 +56,7 @@
 
    <?php if(\dash\data::myList_other()) {?>
     <label><?php echo T_("Pending verification") ?></label>
-    <nav class="items long ltr txtL">
+    <nav class="items long ltr text-left">
      <ul>
       <?php foreach (\dash\data::myList_other() as $key => $value) {?>
        <li>

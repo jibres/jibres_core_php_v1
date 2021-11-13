@@ -52,7 +52,7 @@ elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status()
           <div class="msg"><?php echo T_("You can share your app link via social networks or publish your app via stores."). ' <b>'. T_('Go change the worlds.'). '</b>'; ?><br>
           </div>
 
-          <div class="input txtL">
+          <div class="input text-left">
             <span data-copy="<?php echo \dash\data::downoadAPK(); ?>  b " class="btn addon"><?php echo T_("Copy App Link"); ?></span>
              <input id="downloadLinkAPK" type="text" value="<?php echo \dash\data::downoadAPK(); ?>" class='txtL' readonly>
           </div>

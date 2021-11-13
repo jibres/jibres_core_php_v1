@@ -285,17 +285,17 @@ class part
 					$html .= self::publishDate();
 				}
 				$html .= '</div>';
-				$html .= '<div class="c-xs-6 c-auto txtL">';
+				$html .= '<div class="c-xs-6 c-auto text-left">';
 				{
 					$html .= self::readingTime();
 				}
 				$html .= '</div>';
-				$html .= '<div class="c-xs-2 c txtL">';
+				$html .= '<div class="c-xs-2 c text-left">';
 				{
 					$html .= T_("Share");
 				}
 				$html .= '</div>';
-				$html .= '<nav class="c-xs-10 c-auto share1 txtL">';
+				$html .= '<nav class="c-xs-10 c-auto share1 text-left">';
 				{
 					$html .= self::shareLink();
 				}

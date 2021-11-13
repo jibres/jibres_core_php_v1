@@ -3,15 +3,15 @@
 		<table class="tbl1 v1 ltr">
 			<thead>
 				<tr>
-					<th class="txtL">Variable_name</th>
-					<th class="txtL">Value</th>
+					<th class="text-left">Variable_name</th>
+					<th class="text-left">Value</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php foreach (\dash\data::mysqlConf() as $key => $value) { if(a($value, 'Variable_name') == 'ft_boolean_syntax') {continue;}?>
-					<tr class="txtL">
-						<td class="txtL"><?php echo a($value, 'Variable_name') ?></td>
-						<td class="txtL"><?php echo a($value, 'Value') ?></td>
+					<tr class="text-left">
+						<td class="text-left"><?php echo a($value, 'Variable_name') ?></td>
+						<td class="text-left"><?php echo a($value, 'Value') ?></td>
 					</tr>
 				<?php } //endfor ?>
 			</tbody>
@@ -30,15 +30,15 @@
 		<table class="tbl1 v3 ltr">
 			<thead>
 				<tr>
-					<th class="txtL">IP</th>
-					<th class="txtL">Count</th>
+					<th class="text-left">IP</th>
+					<th class="text-left">Count</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php foreach (\dash\data::ipList() as $key => $value) {?>
-					<tr class="txtL">
-						<td class="txtL"><?php echo a($value, 'ip') ?></td>
-						<td class="txtL"><?php echo a($value, 'count') ?></td>
+					<tr class="text-left">
+						<td class="text-left"><?php echo a($value, 'ip') ?></td>
+						<td class="text-left"><?php echo a($value, 'count') ?></td>
 					</tr>
 				<?php } //endfor ?>
 			</tbody>

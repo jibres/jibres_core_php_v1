@@ -77,8 +77,8 @@
           <?php if(\dash\data::itemDetailQ3_title()) {?>
             <th><?php echo \dash\data::itemDetailQ3_title() ?></th>
           <?php } //endif ?>
-          <th class="collapsing txtL"><?php echo T_("Frequency") ?></th>
-          <th class="collapsing txtL"><?php echo T_("Percent frequency") ?></th>
+          <th class="collapsing text-left"><?php echo T_("Frequency") ?></th>
+          <th class="collapsing text-left"><?php echo T_("Percent frequency") ?></th>
         </tr>
       </thead>
       <tbody>
@@ -101,8 +101,8 @@
           <?php if(\dash\data::itemDetailQ3_title()) {?>
             <td></td>
           <?php } //endif ?>
-          <td class="ltr txtL"><?php echo \dash\fit::number(array_sum(array_column($myData['data_table'], 'count'))) ?></td>
-          <td class="ltr txtL"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(array_sum(array_column($myData['data_table'], 'percent'))); ?></b></td>
+          <td class="ltr text-left"><?php echo \dash\fit::number(array_sum(array_column($myData['data_table'], 'count'))) ?></td>
+          <td class="ltr text-left"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(array_sum(array_column($myData['data_table'], 'percent'))); ?></b></td>
         </tr>
       </tfoot>
     </table>

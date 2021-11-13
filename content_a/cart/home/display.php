@@ -169,7 +169,7 @@ if(!is_array($dataTable))
         <th><?php echo T_("Product count"); ?></th>
         <th><?php echo T_("Item count"); ?></th>
         <th class="s0"><?php echo T_("Date"); ?></th>
-        <th class="collapsing txtL"><?php echo T_("User"); ?></th>
+        <th class="collapsing text-left"><?php echo T_("User"); ?></th>
       </tr>
     </thead>
 

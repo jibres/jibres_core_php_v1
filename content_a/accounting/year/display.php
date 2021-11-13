@@ -6,8 +6,8 @@
 				<div class="box">
 					<div class="body">
 						<h4><?php echo a($value, 'title') ?></h4>
-						<div class=""><?php echo T_("Start date") ?> <b class="compact ltr txtL"><?php echo \dash\fit::date(a($value, 'startdate')) ?></b></div>
-						<div class=""><?php echo T_("End date") ?> <b class="compact ltr txtL"><?php echo \dash\fit::date(a($value, 'enddate')) ?></b></div>
+						<div class=""><?php echo T_("Start date") ?> <b class="compact ltr text-left"><?php echo \dash\fit::date(a($value, 'startdate')) ?></b></div>
+						<div class=""><?php echo T_("End date") ?> <b class="compact ltr text-left"><?php echo \dash\fit::date(a($value, 'enddate')) ?></b></div>
 						<?php if(a($value, 'isdefault')) {?>
 							<div class="badge success"><?php echo T_("Current accounting year") ?></div>
 						<?php }else{ ?>

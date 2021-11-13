@@ -1,7 +1,7 @@
 <div class="text">
  <?php if(\dash\data::wafLimitTime()) {?>
  	<p class="mB0-f"><?php echo T_("Your account block will be expire until") ?>
- 	<time class="block ltr txtL"><?php echo \dash\fit::date_time(date("Y-m-d H:i:s", \dash\data::wafLimitTime())); ?></time>
+ 	<time class="block ltr text-left"><?php echo \dash\fit::date_time(date("Y-m-d H:i:s", \dash\data::wafLimitTime())); ?></time>
  	</p>
  <?php }else{ ?>
  	<p><?php echo T_("You are blocked becauese of some reason!"); ?></p>

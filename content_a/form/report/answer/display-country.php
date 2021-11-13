@@ -7,8 +7,8 @@
 		<thead class="text-xs">
 			<tr>
 				<th><?php echo T_("Choice") ?></th>
-				<th class="collapsing txtL"><?php echo T_("Frequency") ?></th>
-				<th class="collapsing txtL"><?php echo T_("Percent frequency") ?></th>
+				<th class="collapsing text-left"><?php echo T_("Frequency") ?></th>
+				<th class="collapsing text-left"><?php echo T_("Percent frequency") ?></th>
 			</tr>
 		</thead>
 		<tbody>

@@ -165,29 +165,29 @@ else
      </tr>
      <?php if(\dash\data::domainDetail_ns1()) {?>
      <tr>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ip1() ?></td>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ns1() ?></td>
+      <td class="ltr text-left"><?php echo \dash\data::domainDetail_ip1() ?></td>
+      <td class="ltr text-left"><?php echo \dash\data::domainDetail_ns1() ?></td>
      </tr>
      <?php } //endif ?>
 
      <?php if(\dash\data::domainDetail_ns2()) {?>
      <tr>
-       <td class="ltr txtL"><?php echo \dash\data::domainDetail_ip2() ?></td>
-       <td class="ltr txtL"><?php echo \dash\data::domainDetail_ns2() ?></td>
+       <td class="ltr text-left"><?php echo \dash\data::domainDetail_ip2() ?></td>
+       <td class="ltr text-left"><?php echo \dash\data::domainDetail_ns2() ?></td>
      </tr>
      <?php } //endif ?>
 
      <?php if(\dash\data::domainDetail_ns3()) {?>
      <tr>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ip3() ?></td>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ns3() ?></td>
+      <td class="ltr text-left"><?php echo \dash\data::domainDetail_ip3() ?></td>
+      <td class="ltr text-left"><?php echo \dash\data::domainDetail_ns3() ?></td>
      </tr>
      <?php } //endif ?>
 
      <?php if(\dash\data::domainDetail_ns4()) {?>
      <tr>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ip4() ?></td>
-      <td class="ltr txtL"><?php echo \dash\data::domainDetail_ns4() ?></td>
+      <td class="ltr text-left"><?php echo \dash\data::domainDetail_ip4() ?></td>
+      <td class="ltr text-left"><?php echo \dash\data::domainDetail_ns4() ?></td>
      </tr>
      <?php } //endif ?>
     </table>
