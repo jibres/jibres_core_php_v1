@@ -15,7 +15,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
  <div class="storeDetail border-black">
   <div class="flex align-center">
 <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
-   <div class="w-44 mx-auto mb-1 mRa5">
+   <div class="w-32 mx-auto mb-1 mRa5">
     <img class="rounded-lg" src="<?php echo \dash\url::icon(); /*$storeData['logo'];*/ ?>" alt="<?php echo a($storeData,'title'); ?>" style="filter: grayscale(100%);">
    </div>
 <?php } //endif ?>
@@ -26,9 +26,9 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
   </div>
 
 
-  <address class="not-italic text-xs leading-7 py-1 border-t border-b border-black">
-    <div class="address"><?php echo a($storeData,'address'); ?></div>
-    <div class="flex">
+  <address class="not-italic py-1 border-t border-b border-black">
+    <div class="address text-2xs leading-7"><?php echo a($storeData,'address'); ?></div>
+    <div class="flex text-xs leading-6">
      <div class="w-1/2 website text-left"><?php echo a($storeData,'website'); ?></div>
      <div class="w-1/2 phone text-left"><?php echo \dash\fit::text(a($storeData,'phone')); ?></div>
     </div>
@@ -90,20 +90,20 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
  </div>
 
 
- <table class="table-auto text mb-2 border-separate1 border border-green-900">
+ <table class="table-auto text mb-2 border border-black rounded w-full">
   <thead>
    <tr class="text-xs leading-8 bg-black text-white">
     <th class="border-b border-black"><?php echo T_("Name"); ?></th>
-    <th class="border-b border-black"><?php echo T_("Price"); ?><?php if(isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) {?><br><?php echo T_("For you"); ?><?php }//endif ?></th>
+    <th class="border-b border-black"><?php echo T_("Price"); ?><?php if(isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount'] && false) {?><br><?php echo T_("For you"); ?><?php }//endif ?></th>
     <th class="border-b border-black"><?php echo T_("Qty"); ?></th>
     <th class="border-b border-black"><?php echo T_("Sum"); ?></th>
    </tr>
   </thead>
-  <tbody class="text-sm">
+  <tbody class="text-sm leading-7">
   <?php foreach ($factor_detail as $key => $dataRow) {?>
-  <tr>
-   <td class="txtLa productTitle px-0.5 leading-6 text-sm"><?php if(isset($dataRow['vat']) && $dataRow['vat']) {echo ' * ';} echo ' '. a($dataRow, 'title');?></td>
-   <td class="text-center"><?php
+  <tr class="border-b border-black border-dashed">
+   <td class="txtLa productTitle px-0.5 text-xs font-bold leading-6"><?php if(isset($dataRow['vat']) && $dataRow['vat']) {echo ' * ';} echo ' '. a($dataRow, 'title');?></td>
+   <td class="txtLa text-center text-sm"><?php
 if(isset($dataRow['discount']) && $dataRow['discount'])
 {
   echo '<del>'. \dash\fit::number_en(a($dataRow, 'price')). '</del>';
@@ -115,8 +115,8 @@ else
   echo \dash\fit::number_en(a($dataRow, 'price'));
 }
 ?></td>
-   <td class="text-center"><?php echo \dash\fit::number_en(a($dataRow, 'count'), false); ?> <small><?php echo a($dataRow, 'unit'); ?></small></td>
-   <td class="text-center px-1"><?php echo \dash\fit::number_en(a($dataRow, 'sum')); ?></td>
+   <td class="text-center leading-4 text-sm"><?php echo \dash\fit::number_en(a($dataRow, 'count'), false); ?><small class="block"><?php echo a($dataRow, 'unit'); ?></small></td>
+   <td class="txtLa text-center px-1"><?php echo \dash\fit::number_en(a($dataRow, 'sum')); ?></td>
   </tr>
  <?php } //endfor ?>
   </tbody>
@@ -124,48 +124,48 @@ else
  </table>
 
 
- <table class="table-auto factorResult w-full">
+ <table class="table-auto border border-black factorResult w-full">
   <tbody>
     <?php if((isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) || (isset($factorDetail['factor']['subvat']) && $factorDetail['factor']['subvat'])) {?>
 
-   <tr>
-     <th class="txtRa fs08"><?php echo T_("Invoice amount"); ?></th>
-     <td class="txtLa"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subprice')); ?></td>
+   <tr class="bg-gray-300">
+     <th class="txtLa text-xs"><?php echo T_("Invoice amount"); ?></th>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subprice')); ?></td>
    </tr>
    <?php if(isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) {?>
 
-   <tr>
-     <th class="txtRa fs08"><?php echo T_("Your total discount and profits"); ?></th>
-     <td class="txtLa"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subdiscount')); ?></td>
+   <tr class="bg-gray-300">
+     <th class="txtLa text-xs"><?php echo T_("Your total discount and profits"); ?></th>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subdiscount')); ?></td>
    </tr>
    <?php } //endif ?>
 
    <?php if(isset($factorDetail['factor']['subvat']) && $factorDetail['factor']['subvat']) {?>
 
-   <tr>
-     <th class="txtRa fs08">* <?php echo T_("VAT"); ?></th>
-     <td class="txtLa"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subvat')); ?></td>
+   <tr class="bg-gray-300">
+     <th class="txtLa text-xs">* <?php echo T_("VAT"); ?></th>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subvat')); ?></td>
    </tr>
    <?php } //endif ?>
    <?php if(isset($factorDetail['factor']['shipping']) && $factorDetail['factor']['shipping']) {?>
-   <tr>
-     <th class="txtRa fs08"><?php echo T_("Shipping"); ?></th>
-     <td class="txtLa"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'shipping')); ?></td>
+   <tr class="bg-gray-300">
+     <th class="txtLa text-xs"><?php echo T_("Shipping"); ?></th>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'shipping')); ?></td>
    </tr>
    <?php } //endif ?>
 
 
   <?php if(isset($factorDetail['factor']['discount2']) && $factorDetail['factor']['discount2']) {?>
-   <tr>
-     <th class="txtRa fs08"><?php echo T_("Discount code"); ?></th>
-     <td class="txtLa"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'discount2')); ?></td>
+   <tr class="bg-gray-300">
+     <th class="txtLa text-xs"><?php echo T_("Discount code"); ?></th>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'discount2')); ?></td>
    </tr>
    <?php } //endif ?>
 
 <?php } //endif ?>
-   <tr class="bg-black text-white block factorSum">
-     <th class="w-full text-xs textLa"><?php echo T_("Total payable"); ?> <small class="text-2xs"><?php echo \lib\currency::unit(); ?></small></th>
-     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'total')); ?></td>
+   <tr class="bg-black text-white factorSum">
+     <th class="txtLa w-full text-xs"><?php echo T_("Total payable"); ?> <small class="text-sm">( <?php echo \lib\currency::unit(); ?> )</small></th>
+     <td class="txtLa px-1 font-bold"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'total')); ?></td>
    </tr>
   </tbody>
 
@@ -173,7 +173,7 @@ else
 
 
 <div class="barcodeBox">
-  <svg class="barcodePrev wide w-48 mx-auto" data-val="#barcode" data-height=20 data-hideValue></svg>
+  <svg class="barcodePrev wide w-full mx-auto" data-val="#barcode" data-height=20 data-hideValue></svg>
    <div class="text-center text-xs"><code class="hidden" id='barcode' data-val='<?php echo a($factorDetail, 'factor', 'id_code'); ?>'><?php echo a($factorDetail, 'factor', 'id_code'); ?></code></div>
 </div>
 
