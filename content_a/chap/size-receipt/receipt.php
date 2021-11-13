@@ -50,43 +50,55 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 <?php if(isset($factorDetail['address']) && $factorDetail['address']) {?>
 <?php $address = $factorDetail['address'] ?>
-<div class="customerDetail text-sm text-center">
-  <div class="fs14"><?php echo T_("Customer Detail"); ?></div>
-
-  <div class="pA10"><span class="txtB"><?php echo a($factorDetail, 'factor', 'customer_detail', 'displayname'); ?></span></div>
-
+<div class="customerDetail border-b border-black">
+  <div class="text-base bg-black text-white text-center leading-7"><?php echo T_("Customer"); ?></div>
+  <div class="font-bold leading-8 text-sm"><?php echo a($factorDetail, 'factor', 'customer_detail', 'displayname'); ?></div>
 
 <?php if(isset($address['address']) && $address['address']) {?>
-  <div class="pA10">
-    <?php echo T_("Address"); ?>
-  <?php if(isset($address['location_string']) && $address['location_string']) {?>
-    <span class="txtB"><?php echo $address['location_string']; ?></span>
-  <?php } //endif ?>
+  <div class="flex align-center">
+    <div class="flex-grow">
+    <?php if(isset($address['location_string']) && $address['location_string']) {?>
+      <div class="leading-6 text-xs"><?php echo $address['location_string']; ?></div>
+    <?php } //endif ?>
 
-  <?php if(isset($address['address']) && $address['address']) {?>
-    <span class="txtB"><?php echo $address['address']; ?></span>
-  <?php } //endif ?>
-
-
+    <?php if(isset($address['address']) && $address['address']) {?>
+      <div class="leading-6 text-sm font-bold"><?php echo $address['address']; ?></div>
+    <?php } //endif ?>
+    </div>
+    <div class="bg-gray-600 text-white p-2 flex rounded">
+      <?php echo \dash\utility\icon::bootstrap('geo-alt-fill', 'w-10 h-10') ?>
+    </div>
   </div>
 <?php } //endif address ?>
 
+<div class="flex align-center">
 <?php if(isset($address['phone']) && $address['phone']) {?>
-  <div class="pA10"><?php echo T_("Tel"); ?> <span class="txtB ltr compact"><?php echo \dash\fit::text($address['phone']); ?></span></div>
+  <div class=""><span class="text-2xs"><?php echo T_("Tel"); ?></span> <span dir="ltr" class="text-xs"><?php echo \dash\fit::text($address['phone']); ?></span></div>
 <?php } //endif ?>
 
 <?php if(isset($address['mobile']) && $address['mobile']) {?>
-  <div class="pA10"><?php echo T_("Mobile"); ?> <span class="txtB ltr compact"><?php echo \dash\fit::mobile($address['mobile']); ?></span></div>
+  <div class="txtRa flex-grow"><span class="text-2xs"><?php echo T_("Mobile"); ?></span> <span dir="ltr" class="font-bold"><?php echo \dash\fit::mobile($address['mobile']); ?></span></div>
 <?php } //endif ?>
+</div>
 
 
 </div>
 <?php } //endif ?>
 
 
- <div class="factorDetail text-xs leading-7 my-1 flex">
+ <div class="factorDetail text-xs leading-7 my-1">
+  <div class="flex">
    <div class="w-1/2 date"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date'), true); ?></div>
    <div class="w-1/2 time text-left"><?php echo \dash\fit::time(a($factorDetail, 'factor', 'date'), true); ?></div>
+  </div>
+
+<?php if(strtotime(a($factorDetail, 'factor', 'date')) < strtotime('-1 day')) {?>
+  <div class="flex">
+    <div class="flex-grow"><?php echo T_("Date Printed") ?></div>
+   <div dir="ltr" class="w-1/2 time text-left"><?php echo \dash\fit::date_time(true); ?></div>
+  </div>
+<?php } ?>
+
  </div>
 
 
@@ -129,13 +141,13 @@ else
     <?php if((isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) || (isset($factorDetail['factor']['subvat']) && $factorDetail['factor']['subvat'])) {?>
 
    <tr class="bg-gray-300">
-     <th class="txtLa text-xs"><?php echo T_("Invoice amount"); ?></th>
+     <th class="txtLa text-xs px-1"><?php echo T_("Invoice amount"); ?></th>
      <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subprice')); ?></td>
    </tr>
    <?php if(isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) {?>
 
    <tr class="bg-gray-300">
-     <th class="txtLa text-xs"><?php echo T_("Your total discount and profits"); ?></th>
+     <th class="txtLa text-xs px-1"><?php echo T_("Your total discount and profits"); ?></th>
      <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subdiscount')); ?></td>
    </tr>
    <?php } //endif ?>
@@ -143,13 +155,13 @@ else
    <?php if(isset($factorDetail['factor']['subvat']) && $factorDetail['factor']['subvat']) {?>
 
    <tr class="bg-gray-300">
-     <th class="txtLa text-xs">* <?php echo T_("VAT"); ?></th>
+     <th class="txtLa text-xs px-1">* <?php echo T_("VAT"); ?></th>
      <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subvat')); ?></td>
    </tr>
    <?php } //endif ?>
    <?php if(isset($factorDetail['factor']['shipping']) && $factorDetail['factor']['shipping']) {?>
    <tr class="bg-gray-300">
-     <th class="txtLa text-xs"><?php echo T_("Shipping"); ?></th>
+     <th class="txtLa text-xs px-1"><?php echo T_("Shipping"); ?></th>
      <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'shipping')); ?></td>
    </tr>
    <?php } //endif ?>
@@ -157,14 +169,14 @@ else
 
   <?php if(isset($factorDetail['factor']['discount2']) && $factorDetail['factor']['discount2']) {?>
    <tr class="bg-gray-300">
-     <th class="txtLa text-xs"><?php echo T_("Discount code"); ?></th>
+     <th class="txtLa text-xs px-1"><?php echo T_("Discount code"); ?></th>
      <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'discount2')); ?></td>
    </tr>
    <?php } //endif ?>
 
 <?php } //endif ?>
    <tr class="bg-black text-white factorSum">
-     <th class="txtLa w-full text-xs"><?php echo T_("Total payable"); ?> <small class="text-sm">( <?php echo \lib\currency::unit(); ?> )</small></th>
+     <th class="txtLa w-full text-xs px-1"><?php echo T_("Total payable"); ?> <small class="text-sm">( <?php echo \lib\currency::unit(); ?> )</small></th>
      <td class="txtLa px-1 font-bold"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'total')); ?></td>
    </tr>
   </tbody>
