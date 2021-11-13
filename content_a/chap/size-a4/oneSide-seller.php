@@ -1,7 +1,9 @@
-    <div id="sellerDetails" class="oneSide">
+    <div id="sellerDetails" class="oneSide text-sm bg-gray-100 border border-gray-400 rounded overflow-hidden mb-1">
       <div class="flex">
-        <div class="w-20"><h2 class="txtC"><?php echo T_("Seller"); ?></h2></div>
-        <div class="flex-grow">
+        <div class="w-20 bg-gray-200 flex justify-center">
+          <h2 class="flex self-center font-black"><?php echo T_("Seller"); ?></h2>
+        </div>
+        <div class="flex-grow px-2">
           <div class="row padMore">
             <div class="c-6 title"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo a($storeData,'title');} ?></div>
             <div class="c-3">

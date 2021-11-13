@@ -13,9 +13,11 @@ if($customerDetailAvailable)
 {
 ?>
 
-    <div id="sellerDetails" class="oneSide">
-      <div class="flex align-center">
-        <div class="w-20"><h2 class="txtC"><?php echo T_("Buyer"); ?></h2></div>
+    <div id="sellerDetails" class="oneSide text-sm bg-gray-100 border border-gray-400 rounded overflow-hidden">
+      <div class="flex">
+        <div class="w-20 bg-gray-200 flex justify-center">
+          <h2 class="flex self-center font-black"><?php echo T_("Buyer"); ?></h2>
+        </div>
         <div class="flex-grow">
           <div class="row padMore">
             <div class="c-6 title"><?php echo a($customerDetail, 'displayname'); ?></div>

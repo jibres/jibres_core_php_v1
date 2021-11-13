@@ -29,11 +29,11 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       <div class="w-3/12 txtRa">
         <div>
           <span class="compact pRa5"><?php echo T_("Serial Number"); ?></span>
-          <span class="printEmptyBox" id="factorid" data-val="<?php echo a($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(a($factorDetail, 'factor', 'id')) ?></span>
+          <span class="printEmptyBox rounded" id="factorid" data-val="<?php echo a($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(a($factorDetail, 'factor', 'id')) ?></span>
         </div>
         <div>
           <span class="compact pRa5"><?php echo T_("Date"); ?></span>
-          <span class="printEmptyBox"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></span>
+          <span class="printEmptyBox rounded"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></span>
         </div>
       </div>
     </header>
