@@ -6,7 +6,7 @@ class icon
     // based on shopify polaris icon pack
     // https://polaris-icons.shopify.com/
 
-    public static function svg($_name, $_pack = null, $_fill = null, $_class = null)
+    public static function svg($_name, $_pack = null, $_fill = null, $_class = null, $_args = null)
     {
         $svgData = null;
         $filePath = YARD.'talambar_cdn'. self::generateFileName($_name, $_pack);
@@ -15,7 +15,7 @@ class icon
         {
             $svgData = file_get_contents($filePath);
 
-            $svgData = self::prepareSVG($svgData, $_pack, $_fill, $_class);
+            $svgData = self::prepareSVG($svgData, $_pack, $_fill, $_class, $_args);
         }
 
         return $svgData;
@@ -41,7 +41,7 @@ class icon
     }
 
 
-    private static function prepareSVG($_data, $_pack = null, $_fill = null, $_class = null)
+    private static function prepareSVG($_data, $_pack = null, $_fill = null, $_class = null, $_args = null)
     {
         switch ($_pack)
         {
@@ -58,8 +58,22 @@ class icon
                 {
                     $_data = str_replace('currentColor', $_fill, $_data);
                 }
-                $_data = str_replace('height="16"', '', $_data);
-                $_data = str_replace('width="16"', '', $_data);
+                if(a($_args, 'width'))
+                {
+                    $_data = str_replace('width="16"', 'width="'. a($_args, 'width'). '"', $_data);
+                }
+                else
+                {
+                    $_data = str_replace('width="16"', '', $_data);
+                }
+                if(a($_args, 'height'))
+                {
+                    $_data = str_replace('height="16"', 'height="'. a($_args, 'height'). '"', $_data);
+                }
+                else
+                {
+                    $_data = str_replace('height="16"', '', $_data);
+                }
                 break;
 
             default:
@@ -129,9 +143,9 @@ class icon
     }
 
 
-    public static function bootstrap($_name, $_class = null)
+    public static function bootstrap($_name, $_class = null, $_args = null)
     {
-        return self::svg($_name, 'bootstrap', null, $_class);
+        return self::svg($_name, 'bootstrap', null, $_class, $_args);
     }
 
 
