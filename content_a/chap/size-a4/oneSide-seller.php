@@ -1,6 +1,6 @@
     <div id="sellerDetails" class="oneSide bg-gray-100 border border-gray-400 rounded overflow-hidden mb-1">
       <div class="flex">
-        <div class="w-20 bg-gray-200 flex justify-center">
+        <div class="flex-none w-20 bg-gray-200 flex justify-center">
           <h2 class="flex self-center font-bold"><?php echo T_("Seller"); ?></h2>
         </div>
         <div class="flex-grow px-2 text-xs leading-7">

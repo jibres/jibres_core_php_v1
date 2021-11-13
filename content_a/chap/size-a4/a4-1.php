@@ -28,11 +28,11 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       </div>
       <div class="w-3/12 txtRa">
         <div class="flex align-center">
-          <span class="compact pRa5 text-2xs w-20"><?php echo T_("Serial Number"); ?></span>
+          <span class="compact pRa5 text-2xs w-16"><?php echo T_("Serial Number"); ?></span>
           <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest" id="factorid" data-val="<?php echo a($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(a($factorDetail, 'factor', 'id')) ?></span>
         </div>
         <div class="flex align-center">
-          <span class="compact pRa5 text-2xs w-20"><?php echo T_("Date"); ?></span>
+          <span class="compact pRa5 text-2xs w-16"><?php echo T_("Date"); ?></span>
           <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></span>
         </div>
       </div>
@@ -41,19 +41,19 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 <?php require('oneSide-seller.php'); ?>
 <?php require('oneSide-buyer.php'); ?>
 
-    <table class="tbl2 v1">
+    <table class="w-full table-auto border border-gray-400 rounded">
      <thead>
-      <tr class="fs07">
-       <th class="collapsing">#</th>
+      <tr class="bg-blue-100 text-xs leading-10 text-right border-b-2 border-blue-500">
+       <th></th>
        <th><?php echo T_("Explanation"); ?></th>
-       <th class="collapsing text-right"><?php echo T_("Qty"); ?></th>
-       <th class="collapsing"><?php echo T_("Unit"); ?></th>
-       <th class="text-right"><?php echo T_("Unit price"); ?></th>
-       <th class="text-right"><?php echo T_("Total price"); ?></th>
-       <th class="text-right"><?php echo T_("Total discount"); ?></th>
-       <th class="text-right"><?php echo T_("Total price after discount"); ?></th>
-       <th class="text-right"><?php echo T_("Total VAT"); ?></th>
-       <th class="text-right"><?php echo T_("Final Price"); ?> <small class="text-xs px-1"><?php echo \lib\store::currency(); ?></small></th>
+       <th><?php echo T_("Qty"); ?></th>
+       <th><?php echo T_("Unit"); ?></th>
+       <th><?php echo T_("Unit price"); ?></th>
+       <th><?php echo T_("Total price"); ?></th>
+       <th><?php echo T_("Total discount"); ?></th>
+       <th><?php echo T_("Total price after discount"); ?></th>
+       <th><?php echo T_("Total VAT"); ?></th>
+       <th><?php echo T_("Final Price"); ?> <small class="text-xs px-1">( <?php echo \lib\store::currency(); ?> )</small></th>
       </tr>
      </thead>
      <tbody>
@@ -80,11 +80,11 @@ $tableTotal['totalPriceAfterDiscount'] += $totalPriceAfterDiscount;
 $tableTotal['totalVAT'] += $totalVAT;
 $tableTotal['FinalPrice'] += $FinalPrice;
 ?>
-      <tr>
-       <td><?php echo \dash\fit::number($key + 1); ?></td>
-       <td class="txtLa productTitle"><?php echo a($dataRow, 'title');?></td>
+      <tr class="text-sm leading-7 border-b">
+       <td class="px-2"><?php echo \dash\fit::number($key + 1); ?></td>
+       <td class="productTitle"><?php echo a($dataRow, 'title');?></td>
        <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'count')); ?></td>
-       <td><?php echo a($dataRow, 'unit'); ?></td>
+       <td class="text-xs"><?php echo a($dataRow, 'unit'); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'price')); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPrice); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
@@ -95,8 +95,8 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 <?php } //endfor ?>
      </tbody>
      <tfoot>
-      <tr>
-       <td colspan="2" class="txtLa"><?php echo T_("Sum Total"); ?></td>
+      <tr class="bg-blue-200 text-sm leading-7 border-t-2 border-blue-500">
+       <td colspan="2" class="px-2"><?php echo T_("Sum Total"); ?></td>
        <td></td>
        <td></td>
        <td></td>
@@ -162,12 +162,12 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 
 <div class="txtC">
   <div class="barcodeBox">
-    <svg class="barcodePrev wide mx-auto" data-val="#factorid" data-height=20 data-hideValue></svg>
+    <svg class="barcodePrev wide mx-auto w-60" data-val="#factorid" data-height=30 data-hideValue></svg>
   </div>
 </div>
 
 
-
-
 </div>
 
+<!-- force portrait for receipt print-->
+<style type="text/css">@page {size: landscape;}</style>

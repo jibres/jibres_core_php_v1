@@ -195,9 +195,6 @@ else
 </p>
 <?php } //endif ?>
 
-
-
-
-
 </div>
-
+<!-- force portrait for receipt print-->
+<style type="text/css">@page {size: portrait;}</style>
