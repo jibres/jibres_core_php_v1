@@ -3,7 +3,14 @@
 $customerDetail = a($factorDetail, 'factor', 'customer_detail');
 $addressDetail = a($factorDetail, 'address');
 
+$customerDetailAvailable = true;
+if($customerDetail === null && count($addressDetail) === 0)
+{
+  $customerDetailAvailable = false;
+}
 
+if($customerDetailAvailable)
+{
 ?>
 
     <div id="sellerDetails" class="oneSide">
@@ -112,3 +119,4 @@ else if($fax)
         </div>
       </div>
     </div>
+<?php } ?>
