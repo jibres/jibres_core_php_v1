@@ -24,7 +24,7 @@
 
   require_once(root. 'dash/layout/post/admin-gallery-box.php');
 
-    if(false)
+    if(true)
     {
   // runaction_product_suggestion
   // product_suggestion
