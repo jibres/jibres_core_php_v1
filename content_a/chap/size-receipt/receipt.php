@@ -11,33 +11,34 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 <div class="invoice printArea" data-size='receipt8'>
 
 
-  <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
 
-  <div class="w-32 mx-auto mb-3">
-   <img class="rounded-md" src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>">
-  </div>
+ <div class="storeDetail border-black">
+  <div class="flex align-center">
+<?php if(isset($storeData['logo']) && $storeData['logo']) {?>
+   <div class="w-28 mx-auto mb-1 mRa5">
+    <img class="rounded-lg" src="<?php echo \dash\url::icon(); /*$storeData['logo'];*/ ?>" alt="<?php echo a($storeData,'title'); ?>" style="filter: grayscale(100%);">
+   </div>
 <?php } //endif ?>
-
- <div class="f storeDetail text-sm txtC">
-  <div class="c">
-   <h1 class="leading-7 text-xl font-black"><?php echo a($storeData,'title'); ?></h1>
-   <address class="not-italic leading-6">
-    <div class="address"><?php echo a($storeData,'address'); ?></div>
-    <div class="f">
-     <div class="phone font-bold"><?php echo \dash\fit::text(a($storeData,'phone')); ?></div>
-     <div class="website"><?php echo a($storeData,'website'); ?></div>
-    </div>
-   </address>
-   <div class="leading-6 mb-2"><?php echo a($storeData,'desc'); ?></div>
+   <div class="flex-grow">
+    <h1 class="leading-7 font-black"><?php echo a($storeData,'title'); ?></h1>
+    <h2 class="leading-7 text-2xs"><?php echo a($storeData,'desc'); ?></h2>
+   </div>
   </div>
+
+
+  <address class="not-italic text-xs leading-7 py-1 border-t border-b border-black">
+    <div class="address"><?php echo a($storeData,'address'); ?></div>
+    <div class="flex">
+     <div class="w-1/2 website text-left"><?php echo a($storeData,'website'); ?></div>
+     <div class="w-1/2 phone text-left font-bold"><?php echo \dash\fit::text(a($storeData,'phone')); ?></div>
+    </div>
+  </address>
  </div>
 
 
 
 <?php if(isset($storeData['factorheader']) && $storeData['factorheader']) {?>
-
-<hr>
-<p class="factorHeader text-sm txtC">
+<p class="factorHeader text-sm text-center">
 <?php echo a($storeData,'factorheader'); ?>
 </p>
 
@@ -49,8 +50,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 <?php if(isset($factorDetail['address']) && $factorDetail['address']) {?>
 <?php $address = $factorDetail['address'] ?>
-<hr>
-<div class="customerDetail text-sm txtC">
+<div class="customerDetail text-sm text-center">
   <div class="fs14"><?php echo T_("Customer Detail"); ?></div>
 
   <div class="pA10"><span class="txtB"><?php echo a($factorDetail, 'factor', 'customer_detail', 'displayname'); ?></span></div>
@@ -84,28 +84,22 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 <?php } //endif ?>
 
 
-
-
- <div class="f factorDetail text-sm mb-2 txtC">
-  <div class="c12">
-   <div class="datetime"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></div>
-   <div><?php echo T_("Factor Number"); ?> <code id='barcode' data-val='<?php echo a($factorDetail, 'factor', 'id_code'); ?>'><?php echo a($factorDetail, 'factor', 'id_code'); ?></code></div>
-  </div>
+ <div class="factorDetail text-sm leading-7 my-1 flex">
+   <div class="w-1/2 date"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date'), true); ?></div>
+   <div class="w-1/2 time text-left"><?php echo \dash\fit::time(a($factorDetail, 'factor', 'date'), true); ?></div>
  </div>
 
 
-
-
- <table class="tbl1 v1 text-sm txtC mb-2">
+ <table class="tbl1 v1 text-sm mb-2">
   <thead>
-   <tr class="fs07">
+   <tr class="text-xs">
     <th><?php echo T_("Name"); ?></th>
     <th><?php echo T_("Qty"); ?></th>
     <th><?php echo T_("Price"); ?><?php if(isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) {?><br><?php echo T_("For you"); ?><?php }//endif ?></th>
     <th><?php echo T_("Sum"); ?></th>
    </tr>
   </thead>
-  <tbody>
+  <tbody class="text-sm">
   <?php foreach ($factor_detail as $key => $dataRow) {?>
 
 
@@ -184,14 +178,15 @@ else
  </table>
 
 
-<div class="barcodeBox w-48 mx-auto">
-  <svg class="barcodePrev wide" data-val="#barcode" data-height=20 data-hideValue></svg>
+<div class="barcodeBox">
+  <svg class="barcodePrev wide w-48 mx-auto" data-val="#barcode" data-height=20 data-hideValue></svg>
+   <div class="text-center text-xs"><?php echo T_("Factor"); ?> <code class="hidden" id='barcode' data-val='<?php echo a($factorDetail, 'factor', 'id_code'); ?>'><?php echo a($factorDetail, 'factor', 'id_code'); ?></code></div>
 </div>
 
 <?php if(isset($storeData['factorfooter']) && $storeData['factorfooter']) {?>
 
 <hr>
-<p class="factorFooter fs14 txtC">
+<p class="factorFooter fs14 text-center">
 <?php echo a($storeData,'factorfooter'); ?>
 </p>
 <?php } //endif ?>
