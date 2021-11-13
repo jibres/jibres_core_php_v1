@@ -116,7 +116,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 <div class="f">
   <div class="c">
     <?php if(a($factorDetail, 'factor', 'desc')) {?>
-      <p class="text-sm bg-gray-50 p-2 mb-1"><?php echo nl2br(a($factorDetail, 'factor', 'desc')) ?></p>
+      <p class="text-sm bg-gray-50 p-2 mb-1 mt-2 leading-7 text-gray-800"><?php echo nl2br(a($factorDetail, 'factor', 'desc')) ?></p>
     <?php } //endif ?>
   </div>
   <?php if(floatval(a($factorDetail, 'factor', 'total')) !== floatval($tableTotal['FinalPrice'])) {?>
