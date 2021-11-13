@@ -14,7 +14,7 @@ class view
 		// enable title box
 		if(\dash\url::module() == 'setup')
 		{
-			\dash\data::userToggleSidebar(false);
+			\dash\data::include_m2('wide');
 			\dash\face::boxTitle(false);
 		}
 
@@ -44,7 +44,7 @@ class view
 		switch (\dash\url::module())
 		{
 			case 'accounting':
-				\dash\data::userToggleSidebar(false);
+				\dash\data::include_m2('wide');
 				break;
 
 			default:
