@@ -184,14 +184,13 @@ else
  </table>
 
 
-<div class="barcodeBox">
+<div class="barcodeBox mb-1">
   <svg class="barcodePrev wide w-full mx-auto" data-val="#barcode" data-height=20 data-hideValue></svg>
    <div class="text-center text-xs"><code class="hidden" id='barcode' data-val='<?php echo a($factorDetail, 'factor', 'id_code'); ?>'><?php echo a($factorDetail, 'factor', 'id_code'); ?></code></div>
 </div>
 
 <?php if(isset($storeData['factorfooter']) && $storeData['factorfooter']) {?>
 
-<hr>
 <p class="factorFooter fs14 text-center">
 <?php echo a($storeData,'factorfooter'); ?>
 </p>
