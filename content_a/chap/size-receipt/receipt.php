@@ -190,8 +190,7 @@ else
 </div>
 
 <?php if(isset($storeData['factorfooter']) && $storeData['factorfooter']) {?>
-
-<p class="factorFooter fs14 text-center">
+<p class="factorFooter text-center border-t border-black">
 <?php echo a($storeData,'factorfooter'); ?>
 </p>
 <?php } //endif ?>
