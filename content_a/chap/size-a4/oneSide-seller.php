@@ -1,22 +1,22 @@
-    <div id="sellerDetails" class="oneSide text-sm bg-gray-100 border border-gray-400 rounded overflow-hidden mb-1 leading-7">
+    <div id="sellerDetails" class="oneSide bg-gray-100 border border-gray-400 rounded overflow-hidden mb-1">
       <div class="flex">
         <div class="w-20 bg-gray-200 flex justify-center">
           <h2 class="flex self-center font-bold"><?php echo T_("Seller"); ?></h2>
         </div>
-        <div class="flex-grow px-2">
+        <div class="flex-grow px-2 text-xs leading-7">
           <div class="flex">
-            <div class="w-6/12 font-black"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo a($storeData,'title');} ?></div>
+            <div class="flex-grow font-black"><?php if(isset($storeData['companyname']) && $storeData['companyname']) { echo $storeData['companyname'];}else{ echo a($storeData,'title');} ?></div>
             <div class="w-3/12 flex px-2">
               <div class="flex-grow"><?php echo a($storeData, 'companyeconomiccode') ? T_("VAT Number") : null ; ?></div>
-              <code class="font-bold"><?php echo a($storeData, 'companyeconomiccode') ?></code>
+              <code class="font-bold tracking-widest"><?php echo a($storeData, 'companyeconomiccode') ?></code>
             </div>
-            <div class="w-3/12 flex">
+            <div class="w-3/12 flex px-2">
               <div class="flex-grow"><?php echo a($storeData, 'companynationalid') ? T_("Company ID Number") : null; ?></div>
-              <code class="font-bold"><?php echo a($storeData, 'companynationalid') ?></code>
+              <code class="font-bold tracking-widest"><?php echo a($storeData, 'companynationalid') ?></code>
             </div>
           </div>
-          <div class="row padMore">
-            <div class="c-6"><?php
+          <div class="flex">
+            <div class="flex-grow"><?php
 $country = a($storeData,'country_detail', 'name');
 if($country)
 {
@@ -45,18 +45,18 @@ if($city)
   echo '</span>';
 }
 ?></div>
-            <div class="c-3">
-              <span><?php echo a($storeData, 'postcode') ? T_("Postal Code") : null ; ?></span>
-              <code><?php echo a($storeData, 'postcode'); ?></code>
+            <div class="w-3/12 flex px-2">
+              <div class="flex-grow"><?php echo a($storeData, 'postcode') ? T_("Postal Code") : null ; ?></div>
+              <code class="font-bold tracking-widest"><?php echo a($storeData, 'postcode'); ?></code>
             </div>
-            <div class="c-3">
-              <span><?php echo a($storeData, 'companyregisternumber') ? T_("Company Registration Number") : null; ?></span>
-              <code><?php echo a($storeData, 'companyregisternumber') ?></code>
+            <div class="w-3/12 flex px-2">
+              <div class="flex-grow"><?php echo a($storeData, 'companyregisternumber') ? T_("Company Registration Number") : null; ?></div>
+              <code class="font-bold tracking-widest"><?php echo a($storeData, 'companyregisternumber') ?></code>
             </div>
           </div>
 
-          <div class="row padMore">
-            <div class="c-6"><?php
+          <div class="flex">
+            <div class="flex-grow"><?php
 $address = a($storeData,'address');
 if($address)
 {
@@ -66,29 +66,29 @@ if($address)
   // echo '</span>';
 }
 ?></div>
-            <div class="c-3"><?php
+            <div class="w-3/12 flex px-2"><?php
 $phone = a($storeData,'phone');
 $fax = a($storeData,'fax');
 if($phone)
 {
-  echo '<span>'. T_('Phone'). '</span>'. ' ';
-  echo '<code>';
+  echo '<div class="flex-grow">'. T_('Phone'). '</div>'. ' ';
+  echo '<code class="font-bold tracking-widest">';
   // echo $phone;
   echo $phone;
   echo '</code>';
 }
 else if($fax)
 {
-  echo '<span>'. T_('Fax'). '</span>'. ' ';
-  echo '<code>';
+  echo '<div class="flex-grow">'. T_('Fax'). '</div>'. ' ';
+  echo '<code class="font-bold tracking-widest">';
   // echo $fax;
   echo $fax;
   echo '</code>';
 }
 ?></div>
-            <div class="c-3"><?php
+            <div class="w-3/12 flex px-2"><?php
 {
-  echo '<span class="block ltr text-left pLR5">';
+  echo '<div dir="ltr" class="text-left truncate">';
   if(isset($storeData['local_website']) && $storeData['local_website'])
   {
     echo $storeData['local_website'];
@@ -97,7 +97,7 @@ else if($fax)
   {
     echo \lib\store::url();
   }
-  echo '</span>';
+  echo '</div>';
 }
 ?></div>
           </div>
