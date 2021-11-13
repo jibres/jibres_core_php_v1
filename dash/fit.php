@@ -202,13 +202,13 @@ class fit{
 	}
 
 
-	public static function time($_date)
+	public static function time($_date, $_format = null)
 	{
 		if(!$_date)
 		{
 			return null;
 		}
-		return \dash\datetime::fit($_date, null, 'time');
+		return \dash\datetime::fit($_date, $_format, 'time');
 	}
 
 	public static function date_time($_date, $_format = null)
