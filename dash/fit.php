@@ -63,9 +63,9 @@ class fit{
 
 
 
-	public static function number_en($_text)
+	public static function number_en($_text, $_autoFormat = true)
 	{
-		return self::number($_text, true, 'en');
+		return self::number($_text, $_autoFormat, 'en');
 	}
 
 
