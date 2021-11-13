@@ -16,7 +16,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
   <div class="flex align-center">
 <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
    <div class="w-32 mx-auto mb-1 mRa5">
-    <img class="rounded-lg" src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>" style="filter: grayscale(100%);">
+    <img class="rounded-lg" src="<?php echo \dash\fit::img($storeData['logo'], 120); ?>" alt="<?php echo a($storeData,'title'); ?>" style="filter: grayscale(100%);">
    </div>
 <?php } //endif ?>
    <div class="flex-grow">

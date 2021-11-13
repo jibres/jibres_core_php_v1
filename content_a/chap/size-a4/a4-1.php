@@ -14,25 +14,25 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       <div class="w-3/12">
 <?php if(isset($storeData['logo']) && $storeData['logo']) {?>
         <div class="logo">
-         <img class="h-16 max-w-xs" src="<?php echo $storeData['logo']; ?>" alt="<?php echo a($storeData,'title'); ?>">
+         <img class="h-16 max-w-xs" src="<?php echo \dash\fit::img($storeData['logo'], 120); ?>" alt="<?php echo a($storeData,'title'); ?>">
         </div>
 <?php } //endif ?>
 
       </div>
       <div class="w-6/12 txtC">
         <?php $country = a($storeData,'country'); if($country === 'IR') {?>
-        <h1 class="text-2xl text-blue-800 font-black"><?php echo T_("Sale Invoice"); ?></h1>
+        <h1 class="text-xl text-blue-800 font-black"><?php echo T_("Sale Invoice"); ?></h1>
         <?php }else{ ?>
-        <h1 class="text-2xl text-blue-800 font-black"><?php echo T_("Invoice"); ?></h1>
+        <h1 class="text-xl text-blue-800 font-black"><?php echo T_("Invoice"); ?></h1>
         <?php } //endif ?>
       </div>
       <div class="w-3/12 txtRa">
         <div class="flex align-center">
-          <span class="compact pRa5 text-xs w-20"><?php echo T_("Serial Number"); ?></span>
+          <span class="compact pRa5 text-2xs w-20"><?php echo T_("Serial Number"); ?></span>
           <span class="flex-grow border border-gray-500 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest" id="factorid" data-val="<?php echo a($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(a($factorDetail, 'factor', 'id')) ?></span>
         </div>
         <div class="flex align-center">
-          <span class="compact pRa5 text-xs w-20"><?php echo T_("Date"); ?></span>
+          <span class="compact pRa5 text-2xs w-20"><?php echo T_("Date"); ?></span>
           <span class="flex-grow border border-gray-500 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></span>
         </div>
       </div>
