@@ -84,7 +84,9 @@ class view
 				break;
 
 			case 'a5':
-				\dash\data::printFileUrl(root. 'content_a/chap/size-a4/a4-1.php');
+						\dash\data::printFileUrl(root. 'content_a/chap/size-a4/a4-1.php');
+						\dash\data::include_m2('wide');
+						\dash\data::paperSize('A5');
 				break;
 
 			default:
