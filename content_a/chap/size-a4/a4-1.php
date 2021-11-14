@@ -1,5 +1,4 @@
 <?php
-$storeData = \dash\data::store_store_data();
 $factorDetail = \dash\data::factorInfo();
 $factor_detail = [];
 if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detail']))
@@ -12,15 +11,15 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
   <div class="invoice" data-theme="1">
     <header class="flex align-center">
       <div class="w-3/12">
-<?php if(isset($storeData['logo']) && $storeData['logo']) {?>
+<?php if(\dash\data::storeData_logo()) {?>
         <div class="logo">
-         <img class="h-16 max-w-xs" src="<?php echo \dash\fit::img($storeData['logo'], 120); ?>" alt="<?php echo a($storeData,'title'); ?>">
+         <img class="h-16 max-w-xs" src="<?php echo \dash\fit::img(\dash\data::storeData_logo(), 120); ?>" alt="<?php echo \dash\data::storeData_title(); ?>">
         </div>
 <?php } //endif ?>
 
       </div>
       <div class="w-6/12 txtC">
-        <?php $country = a($storeData,'country'); if($country === 'IR') {?>
+        <?php if(\dash\data::storeData_country() === 'IR') {?>
         <h1 class="text-xl text-blue-800 font-black"><?php echo T_("Sale Invoice"); ?></h1>
         <?php }else{ ?>
         <h1 class="text-xl text-blue-800 font-black"><?php echo T_("Invoice"); ?></h1>
@@ -29,7 +28,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       <div class="w-3/12 txtRa">
         <div class="flex align-center">
           <span class="compact pRa5 text-2xs w-16"><?php echo T_("Serial Number"); ?></span>
-          <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest" id="factorid" data-val="<?php echo a($factorDetail, 'factor', 'id') ?>"><?php echo \dash\fit::text(a($factorDetail, 'factor', 'id')) ?></span>
+          <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest" id="factorid" data-val="<?php echo \dash\data::invoice_id() ?>"><?php echo \dash\fit::text(\dash\data::invoice_id()) ?></span>
         </div>
         <div class="flex align-center">
           <span class="compact pRa5 text-2xs w-16"><?php echo T_("Date"); ?></span>

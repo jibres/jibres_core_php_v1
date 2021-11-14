@@ -28,6 +28,7 @@ class view
 			\dash\data::invoiceDetail($myFactor['factor_detail']);
 		}
 
+		\dash\data::storeData(\dash\data::store_store_data());
 
 
 		$printSize  = \dash\url::child();
