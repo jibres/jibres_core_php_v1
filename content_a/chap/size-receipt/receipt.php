@@ -1,15 +1,5 @@
-<?php
-$factorDetail = \dash\data::factorInfo();
-$factor_detail = [];
-if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detail']))
-{
-  $factor_detail = $factorDetail['factor_detail'];
-}
-?>
 
 <div class="invoice printArea" data-size='receipt8'>
-
-
 
  <div class="storeDetail border-black">
   <div class="flex align-center">
@@ -47,11 +37,11 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
 
 
-<?php if(isset($factorDetail['address']) && $factorDetail['address']) {?>
-<?php $address = $factorDetail['address'] ?>
+<?php $address = \dash\data::address() ?>
+<?php if($address) {?>
 <div class="customerDetail border-b border-black">
   <div class="text-base bg-black text-white text-center leading-7"><?php echo T_("Customer"); ?></div>
-  <div class="font-bold leading-8 text-sm"><?php echo a($factorDetail, 'factor', 'customer_detail', 'displayname'); ?></div>
+  <div class="font-bold leading-8 text-sm"><?php echo \dash\data::customer_displayname(); ?></div>
 
 <?php if(isset($address['address']) && $address['address']) {?>
   <div class="flex align-center">
@@ -87,11 +77,11 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
  <div class="factorDetail text-xs leading-7 my-1">
   <div class="flex">
-   <div class="w-1/2 date"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date'), true); ?></div>
-   <div class="w-1/2 time text-left"><?php echo \dash\fit::time(a($factorDetail, 'factor', 'date'), true); ?></div>
+   <div class="w-1/2 date"><?php echo \dash\fit::date(\dash\data::invoice_date(), true); ?></div>
+   <div class="w-1/2 time text-left"><?php echo \dash\fit::time(\dash\data::invoice_date(), true); ?></div>
   </div>
 
-<?php if(strtotime(a($factorDetail, 'factor', 'date')) < strtotime('-1 day')) {?>
+<?php if(strtotime(\dash\data::invoice_date()) < strtotime('-1 day')) {?>
   <div class="flex">
     <div class="flex-grow"><?php echo T_("Date Printed") ?></div>
    <div dir="ltr" class="w-1/2 time text-left"><?php echo \dash\fit::date_time(true); ?></div>
@@ -105,13 +95,13 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
   <thead>
    <tr class="text-xs leading-8 bg-black text-white">
     <th class="border-b border-black"><?php echo T_("Name"); ?></th>
-    <th class="border-b border-black"><?php echo T_("Price"); ?><?php if(isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount'] && false) {?><br><?php echo T_("For you"); ?><?php }//endif ?></th>
+    <th class="border-b border-black"><?php echo T_("Price"); ?></th>
     <th class="border-b border-black"><?php echo T_("Qty"); ?></th>
     <th class="border-b border-black"><?php echo T_("Sum"); ?></th>
    </tr>
   </thead>
   <tbody class="text-sm leading-7">
-  <?php foreach ($factor_detail as $key => $dataRow) {?>
+  <?php foreach (\dash\data::invoiceDetail() as $key => $dataRow) {?>
   <tr class="border-b border-black border-dashed">
    <td class="txtLa productTitle px-0.5 text-xs font-bold leading-6"><?php if(isset($dataRow['vat']) && $dataRow['vat']) {echo ' * ';} echo ' '. a($dataRow, 'title');?></td>
    <td class="txtLa text-center text-sm"><?php
@@ -137,46 +127,46 @@ else
 
  <table class="table-auto border border-black factorResult w-full">
   <tbody>
-    <?php if((isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) || (isset($factorDetail['factor']['subvat']) && $factorDetail['factor']['subvat'])) {?>
+    <?php if(\dash\data::invoice_subdiscount() || \dash\data::invoice_subvat()) {?>
 
    <tr class="bg-gray-300">
      <th class="txtLa text-xs px-1"><?php echo T_("Invoice amount"); ?></th>
-     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subprice')); ?></td>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(\dash\data::invoice_subprice()); ?></td>
    </tr>
-   <?php if(isset($factorDetail['factor']['subdiscount']) && $factorDetail['factor']['subdiscount']) {?>
+   <?php if(\dash\data::invoice_subdiscount()) {?>
 
    <tr class="bg-gray-300">
      <th class="txtLa text-xs px-1"><?php echo T_("Your total discount and profits"); ?></th>
-     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subdiscount')); ?></td>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(\dash\data::invoice_subdiscount()); ?></td>
    </tr>
    <?php } //endif ?>
 
-   <?php if(isset($factorDetail['factor']['subvat']) && $factorDetail['factor']['subvat']) {?>
+   <?php if(\dash\data::invoice_subvat()) {?>
 
    <tr class="bg-gray-300">
      <th class="txtLa text-xs px-1">* <?php echo T_("VAT"); ?></th>
-     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'subvat')); ?></td>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(\dash\data::invoice_subvat()); ?></td>
    </tr>
    <?php } //endif ?>
-   <?php if(isset($factorDetail['factor']['shipping']) && $factorDetail['factor']['shipping']) {?>
+   <?php if(\dash\data::invoice_shipping()) {?>
    <tr class="bg-gray-300">
      <th class="txtLa text-xs px-1"><?php echo T_("Shipping"); ?></th>
-     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'shipping')); ?></td>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(\dash\data::invoice_shipping()); ?></td>
    </tr>
    <?php } //endif ?>
 
 
-  <?php if(isset($factorDetail['factor']['discount2']) && $factorDetail['factor']['discount2']) {?>
+  <?php if(\dash\data::invoice_discount2()) {?>
    <tr class="bg-gray-300">
      <th class="txtLa text-xs px-1"><?php echo T_("Discount code"); ?></th>
-     <td class="txtLa px-1"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'discount2')); ?></td>
+     <td class="txtLa px-1"><?php echo \dash\fit::number_en(\dash\data::invoice_discount2()); ?></td>
    </tr>
    <?php } //endif ?>
 
 <?php } //endif ?>
    <tr class="bg-black text-white factorSum">
      <th class="txtLa w-full text-xs px-1"><?php echo T_("Total payable"); ?> <small class="text-sm">( <?php echo \lib\currency::unit(); ?> )</small></th>
-     <td class="txtLa px-1 font-bold"><?php echo \dash\fit::number_en(a($factorDetail, 'factor', 'total')); ?></td>
+     <td class="txtLa px-1 font-bold"><?php echo \dash\fit::number_en(\dash\data::invoice_total()); ?></td>
    </tr>
   </tbody>
 
@@ -185,7 +175,7 @@ else
 
 <div class="barcodeBox mb-1">
   <svg class="barcodePrev wide w-full mx-auto" data-val="#barcode" data-height=20 data-hideValue></svg>
-   <div class="text-center text-xs"><code class="hidden" id='barcode' data-val='<?php echo a($factorDetail, 'factor', 'id_code'); ?>'><?php echo a($factorDetail, 'factor', 'id_code'); ?></code></div>
+   <div class="text-center text-xs"><code class="hidden" id='barcode' data-val='<?php echo a(\dash\data::invoice(), 'id_code'); ?>'><?php echo a(\dash\data::invoice(), 'id_code'); ?></code></div>
 </div>
 
 <?php if(\dash\data::storeData_factorfooter()) {?>
