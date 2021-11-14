@@ -14,8 +14,21 @@ class view
 
 		$id = \dash\request::get('id');
 
-		$factorDetail = \lib\app\factor\get::full($id);
-		\dash\data::factorDetail($factorDetail);
+		$myFactor = \lib\app\factor\get::full($id);
+		\dash\data::factorInfo($myFactor);
+
+
+		if(isset($myFactor['factor']) && is_array($myFactor['factor']))
+		{
+			\dash\data::invoice($myFactor['factor']);
+		}
+
+		if(isset($myFactor['factor_detail']) && is_array($myFactor['factor_detail']))
+		{
+			\dash\data::invoiceDetail($myFactor['factor_detail']);
+		}
+
+
 
 		$printSize  = \dash\url::child();
 		$printModel = \dash\request::get('model');

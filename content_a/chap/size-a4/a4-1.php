@@ -1,6 +1,6 @@
 <?php
 $storeData = \dash\data::store_store_data();
-$factorDetail = \dash\data::factorDetail();
+$factorDetail = \dash\data::factorInfo();
 $factor_detail = [];
 if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detail']))
 {
