@@ -89,14 +89,7 @@ else if($fax)
             <div class="w-3/12 flex px-2"><?php
 {
   echo '<div dir="ltr" class="text-left truncate">';
-  if(a(\dash\data::storeData(), 'local_website'))
-  {
-    echo a(\dash\data::storeData(), 'local_website');
-  }
-  else
-  {
-    echo \lib\store::url();
-  }
+  echo \lib\store::url();
   echo '</div>';
 }
 ?></div>
