@@ -1,18 +1,7 @@
 <?php
-
-$customerDetail = a($factorDetail, 'factor', 'customer_detail');
-$addressDetail = a($factorDetail, 'address');
-
-$customerDetailAvailable = true;
-if($customerDetail === null && count($addressDetail) === 0)
-{
-  $customerDetailAvailable = false;
-}
-
-if($customerDetailAvailable)
+if(\dash\data::customer())
 {
 ?>
-
     <div id="sellerDetails" class="oneSide bg-gray-100 border border-gray-400 rounded overflow-hidden mb-1">
       <div class="flex">
         <div class="flex-none w-20 bg-gray-200 flex justify-center">
@@ -36,7 +25,7 @@ if($customerDetailAvailable)
           </div>
           <div class="flex">
             <div class="flex-grow"><?php
-$country = a($addressDetail,'country_name');
+$country = a(\dash\data::address(),'country_name');
 if($country)
 {
   echo '<span>';
@@ -44,7 +33,7 @@ if($country)
   echo '</span>';
 }
 
-$province = a($addressDetail, 'province_name');
+$province = a(\dash\data::address(), 'province_name');
 if($province)
 {
   echo T_(', ');
@@ -54,7 +43,7 @@ if($province)
   echo '</span>';
 }
 
-$city = a($addressDetail,'city_name');
+$city = a(\dash\data::address(),'city_name');
 if($city)
 {
   echo T_(', ');
@@ -65,9 +54,9 @@ if($city)
 }
 ?></div>
             <div class="w-3/12 flex px-2">
-              <?php if(a($addressDetail, 'postcode')) {?>
+              <?php if(a(\dash\data::address(), 'postcode')) {?>
               <div class="flex-grow"><?php echo T_("Postal Code"); ?></div>
-              <code class="font-bold tracking-widest"><?php echo a($addressDetail, 'postcode'); ?></code>
+              <code class="font-bold tracking-widest"><?php echo \dash\data::address_postcode(); ?></code>
             <?php } //endif ?>
             </div>
             <div class="w-3/12 flex px-2">
@@ -80,7 +69,7 @@ if($city)
 
           <div class="flex">
             <div class="flex-grow"><?php
-$address = a($addressDetail, 'address');
+$address = \dash\data::address_address();
 if($address)
 {
   // echo '<span>'. T_('Address'). '</span>'. ' ';
@@ -90,8 +79,8 @@ if($address)
 }
 ?></div>
             <div class="w-3/12 flex px-2"><?php
-$phone = a($addressDetail, 'phone');
-$fax = a($addressDetail, 'fax');
+$phone = \dash\data::address_phone();
+$fax = \dash\data::address_fax();
 if($phone)
 {
   echo '<span class="flex-grow">'. T_('Phone'). '</span>'. ' ';

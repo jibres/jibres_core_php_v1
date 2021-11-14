@@ -28,10 +28,17 @@ class view
 			\dash\data::invoiceDetail($myFactor['factor_detail']);
 		}
 
+
+		if(isset($myFactor['address']) && is_array($myFactor['address']))
+		{
+			\dash\data::address($myFactor['address']);
+		}
+
 		if(isset($myFactor['factor']['customer_detail']) && is_array($myFactor['factor']['customer_detail']))
 		{
 			\dash\data::customer($myFactor['factor']['customer_detail']);
 		}
+
 
 		\dash\data::storeData(\dash\data::store_store_data());
 
