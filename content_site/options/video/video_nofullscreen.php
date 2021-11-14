@@ -2,14 +2,18 @@
 namespace content_site\options\video;
 
 
-class video_nofullscreen_gallery
+trait video_nofullscreen
 {
-	use video_nofullscreen;
+	use video_option;
 
-
-	public static function gallery_mode()
+	public static function name()
 	{
-		return true;
+		return 'video_nofullscreen';
+	}
+
+	public static function title()
+	{
+		return T_("No fullscreen");
 	}
 
 
