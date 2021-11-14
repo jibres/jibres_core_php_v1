@@ -1,6 +1,3 @@
-<?php
-$factorDetail = \dash\data::factorInfo();
-?>
 
 <div class="printArea" data-size='<?php echo \dash\data::paperSize(); ?>'>
   <div class="invoice" data-theme="1">

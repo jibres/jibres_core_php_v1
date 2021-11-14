@@ -1,5 +1,4 @@
 <?php
-$storeData = \dash\data::store_store_data();
 $factorDetail = \dash\data::factorInfo();
 $factor_detail = [];
 if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detail']))
@@ -14,32 +13,32 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 
  <div class="storeDetail border-black">
   <div class="flex align-center">
-<?php if(isset($storeData['logo']) && $storeData['logo']) {?>
+<?php if(\dash\data::storeData_logo()) {?>
    <div class="w-32 mx-auto mb-1 mRa5">
-    <img class="rounded" src="<?php echo \dash\fit::img($storeData['logo'], 120); ?>" alt="<?php echo a($storeData,'title'); ?>" style="filter: grayscale(100%);">
+    <img class="rounded" src="<?php echo \dash\fit::img(\dash\data::storeData_logo(), 120); ?>" alt="<?php echo \dash\data::storeData_title(); ?>" style="filter: grayscale(100%);">
    </div>
 <?php } //endif ?>
    <div class="flex-grow">
-    <h1 class="leading-7 font-black"><?php echo a($storeData,'title'); ?></h1>
-    <h2 class="leading-7 text-2xs"><?php echo a($storeData,'desc'); ?></h2>
+    <h1 class="leading-7 font-black"><?php echo \dash\data::storeData_title(); ?></h1>
+    <h2 class="leading-7 text-2xs"><?php echo \dash\data::storeData_desc(); ?></h2>
    </div>
   </div>
 
 
   <address class="not-italic py-1 border-t border-b border-black">
-    <div class="address text-2xs leading-7"><?php echo a($storeData,'address'); ?></div>
+    <div class="address text-2xs leading-7"><?php echo \dash\data::storeData_address(); ?></div>
     <div class="flex text-xs leading-6">
-     <div class="w-1/2 website text-left"><?php echo a($storeData,'website'); ?></div>
-     <div class="w-1/2 phone text-left"><?php echo \dash\fit::text(a($storeData,'phone')); ?></div>
+     <div class="w-1/2 website text-left"><?php echo \dash\data::storeData_website(); ?></div>
+     <div class="w-1/2 phone text-left"><?php echo \dash\fit::text(\dash\data::storeData_phone()); ?></div>
     </div>
   </address>
  </div>
 
 
 
-<?php if(isset($storeData['factorheader']) && $storeData['factorheader']) {?>
+<?php if(\dash\data::storeData_factorheader()) {?>
 <p class="factorHeader text-sm text-center">
-<?php echo a($storeData,'factorheader'); ?>
+<?php echo \dash\data::storeData_factorheader(); ?>
 </p>
 
 <?php } //endif ?>
@@ -189,9 +188,9 @@ else
    <div class="text-center text-xs"><code class="hidden" id='barcode' data-val='<?php echo a($factorDetail, 'factor', 'id_code'); ?>'><?php echo a($factorDetail, 'factor', 'id_code'); ?></code></div>
 </div>
 
-<?php if(isset($storeData['factorfooter']) && $storeData['factorfooter']) {?>
+<?php if(\dash\data::storeData_factorfooter()) {?>
 <p class="factorFooter text-center border-t border-black">
-<?php echo a($storeData,'factorfooter'); ?>
+<?php echo \dash\data::storeData_factorfooter(); ?>
 </p>
 <?php } //endif ?>
 
