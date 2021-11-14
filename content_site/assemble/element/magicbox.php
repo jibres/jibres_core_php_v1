@@ -167,6 +167,9 @@ class magicbox
 					if(a($_item, 'file_detail', 'type') === 'video')
 					{
 						$card .= "<video ";
+
+						$card .= "data-src='". $myThumb. "' ";
+
 						if(a($_item, 'video_controls') !== false)
 						{
 							$card .= "controls ";
@@ -209,12 +212,12 @@ class magicbox
 
 						if(a($_item, 'video_poster'))
 						{
-							$card .= "poster='". \lib\filepath::fix($_item['video_poster']). "'";
+							$card .= "data-poster='". \lib\filepath::fix($_item['video_poster']). "'";
 						}
 
 						$card .= " class='$imgClass'>";
 
-						$card .= "<source src='$myThumb' type='". a($_item, 'file_detail', 'mime'). "'>";
+						$card .= "<source data-src='$myThumb' type='". a($_item, 'file_detail', 'mime'). "'>";
 						$card .= "</video>";
 					}
 					else
