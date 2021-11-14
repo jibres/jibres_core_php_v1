@@ -166,59 +166,11 @@ class magicbox
 
 					if(a($_item, 'file_detail', 'type') === 'video')
 					{
-						$card .= "<video ";
+						$video_args          = $_item;
+						$video_args['src']   = \lib\filepath::fix(a($_item, $file_index), 'raw');
+						$video_args['class'] = $imgClass;
 
-						$card .= "data-src='". $myThumb. "' ";
-
-						if(a($_item, 'video_controls') !== false)
-						{
-							$card .= "controls ";
-						}
-
-						if(a($_item, 'video_loop'))
-						{
-							$card .= "loop ";
-						}
-
-						if(a($_item, 'video_autoplay'))
-						{
-							$card .= "autoplay ";
-						}
-
-						if(a($_item, 'video_nodownload'))
-						{
-							$card .= 'controlsList="nodownload" ';
-						}
-
-						if(a($_item, 'video_nofullscreen'))
-						{
-							$card .= 'nofullscreen ';
-						}
-
-						if(a($_item, 'video_muted'))
-						{
-							$card .= 'muted ';
-						}
-
-						if(a($_item, 'video_clickable') !== false)
-						{
-							$card .= 'data-clickable ';
-						}
-
-						if(a($_item, 'video_disablepictureinpicture'))
-						{
-							$card .= 'disablePictureInPicture ';
-						}
-
-						if(a($_item, 'video_poster'))
-						{
-							$card .= "data-poster='". \lib\filepath::fix($_item['video_poster']). "'";
-						}
-
-						$card .= " class='$imgClass'>";
-
-						$card .= "<source data-src='$myThumb' type='". a($_item, 'file_detail', 'mime'). "'>";
-						$card .= "</video>";
+						$card .= video::html($video_args);
 					}
 					else
 					{
