@@ -1,6 +1,6 @@
 
 <div class="printArea" data-size='<?php echo \dash\data::paperSize(); ?>'>
-  <div class="invoice" data-theme="1">
+  <div class="invoice<?php if(\dash\data::paperSize() === 'A5') {echo ' text-xs';}?>" data-theme="1">
     <header class="flex align-center">
       <div class="w-3/12">
 <?php if(\dash\data::storeData_logo()) {?>
@@ -12,18 +12,18 @@
       </div>
       <div class="w-6/12 txtC">
         <?php if(\dash\data::storeData_country() === 'IR') {?>
-        <h1 class="text-xl text-blue-800 font-black"><?php echo T_("Sale Invoice"); ?></h1>
+        <h1 class="text-xl1 text-blue-800 font-black"><?php echo T_("Sale Invoice"); ?></h1>
         <?php }else{ ?>
-        <h1 class="text-xl text-blue-800 font-black"><?php echo T_("Invoice"); ?></h1>
+        <h1 class="text-xl1 text-blue-800 font-black"><?php echo T_("Invoice"); ?></h1>
         <?php } //endif ?>
       </div>
       <div class="w-3/12 txtRa">
         <div class="flex align-center">
-          <span class="compact pRa5 text-2xs w-16"><?php echo T_("Serial Number"); ?></span>
+          <span class="flex-none pRa5 text-2xs w-16"><?php echo T_("Serial Number"); ?></span>
           <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest" id="factorid" data-val="<?php echo \dash\data::invoice_id() ?>"><?php echo \dash\fit::text(\dash\data::invoice_id()) ?></span>
         </div>
         <div class="flex align-center">
-          <span class="compact pRa5 text-2xs w-16"><?php echo T_("Date"); ?></span>
+          <span class="flex-none pRa5 text-2xs w-16"><?php echo T_("Date"); ?></span>
           <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest"><?php echo \dash\fit::date(\dash\data::invoice_date()); ?></span>
         </div>
       </div>
