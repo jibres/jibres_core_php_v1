@@ -8,7 +8,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
 }
 ?>
 
-<div class="printArea" data-size='A4.landscape'>
+<div class="printArea" data-size='<?php echo \dash\data::paperSize(); ?>'>
   <div class="invoice" data-theme="1">
     <header class="flex align-center">
       <div class="w-3/12">
@@ -170,4 +170,8 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 </div>
 
 <!-- force portrait for receipt print-->
+<?php if(\dash\request::get('model') === 'landscape') {?>
 <style type="text/css">@page {size: landscape;}</style>
+<?php } else {?>
+<style type="text/css">@page {size: portrait;}</style>
+<?php }?>
