@@ -1,10 +1,5 @@
 <?php
 $factorDetail = \dash\data::factorInfo();
-$factor_detail = [];
-if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detail']))
-{
-  $factor_detail = $factorDetail['factor_detail'];
-}
 ?>
 
 <div class="printArea" data-size='<?php echo \dash\data::paperSize(); ?>'>
@@ -32,7 +27,7 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
         </div>
         <div class="flex align-center">
           <span class="compact pRa5 text-2xs w-16"><?php echo T_("Date"); ?></span>
-          <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest"><?php echo \dash\fit::date(a($factorDetail, 'factor', 'date')); ?></span>
+          <span class="flex-grow border border-gray-400 text-red-500 text-center text-lg leading-6 mb-1 printEmptyBox rounded tracking-widest"><?php echo \dash\fit::date(\dash\data::invoice_date()); ?></span>
         </div>
       </div>
     </header>
@@ -58,7 +53,8 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
       </tr>
      </thead>
      <tbody>
-<?php $tableTotal =
+<?php
+$tableTotal =
 [
  'totalPrice'              => 0,
  'totalDiscount'           => 0,
@@ -66,20 +62,21 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
  'totalVAT'                => 0,
  'FinalPrice'              => 0,
 ];
-?>
-<?php foreach ($factor_detail as $key => $dataRow) {?>
-<?php
-$totalPrice = a($dataRow, 'price') * a($dataRow, 'count');
-$totalDiscount = a($dataRow, 'discount') * a($dataRow, 'count');
-$totalPriceAfterDiscount = $totalPrice - $totalDiscount;
-$totalVAT = a($dataRow, 'vat');
-$FinalPrice = a($dataRow, 'sum');
+if(is_array(\dash\data::invoiceDetail()))
+{
+  foreach (\dash\data::invoiceDetail() as $key => $dataRow)
+  {
+    $totalPrice = a($dataRow, 'price') * a($dataRow, 'count');
+    $totalDiscount = a($dataRow, 'discount') * a($dataRow, 'count');
+    $totalPriceAfterDiscount = $totalPrice - $totalDiscount;
+    $totalVAT = a($dataRow, 'vat');
+    $FinalPrice = a($dataRow, 'sum');
 
-$tableTotal['totalPrice'] += $totalPrice;
-$tableTotal['totalDiscount'] += $totalDiscount;
-$tableTotal['totalPriceAfterDiscount'] += $totalPriceAfterDiscount;
-$tableTotal['totalVAT'] += $totalVAT;
-$tableTotal['FinalPrice'] += $FinalPrice;
+    $tableTotal['totalPrice'] += $totalPrice;
+    $tableTotal['totalDiscount'] += $totalDiscount;
+    $tableTotal['totalPriceAfterDiscount'] += $totalPriceAfterDiscount;
+    $tableTotal['totalVAT'] += $totalVAT;
+    $tableTotal['FinalPrice'] += $FinalPrice;
 ?>
       <tr class="text-sm leading-7 border-b">
        <td class="px-2"><?php echo \dash\fit::number($key + 1); ?></td>
@@ -96,6 +93,7 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td class="valPrice lastCol"><?php echo \dash\fit::price($FinalPrice); ?></td>
       </tr>
 <?php } //endfor ?>
+<?php } //endif ?>
      </tbody>
      <tfoot>
       <tr class="bg-blue-200 text-sm leading-10 border-t-2 border-blue-500">
@@ -120,40 +118,40 @@ $tableTotal['FinalPrice'] += $FinalPrice;
 
 <div class="f">
   <div class="c">
-    <?php if(a($factorDetail, 'factor', 'desc')) {?>
-      <p class="text-sm bg-gray-50 p-2 mb-1 mt-2 leading-7 text-gray-800"><?php echo nl2br(a($factorDetail, 'factor', 'desc')) ?></p>
+    <?php if(\dash\data::invoice_desc()) {?>
+      <p class="text-sm bg-gray-50 p-2 mb-1 mt-2 leading-7 text-gray-800"><?php echo nl2br(\dash\data::invoice_desc()) ?></p>
     <?php } //endif ?>
   </div>
-  <?php if(floatval(a($factorDetail, 'factor', 'total')) !== floatval($tableTotal['FinalPrice'])) {?>
+  <?php if(floatval(\dash\data::invoice_total()) !== floatval($tableTotal['FinalPrice'])) {?>
   <div class="c3">
 
     <div class="tblBox">
       <table class="tbl1 v4">
         <tbody>
-        <?php if(a($factorDetail, 'factor', 'subprice')) {?>
+        <?php if(\dash\data::invoice_subprice()) {?>
           </tr>
             <td><?php echo T_("Total") ?></td>
-            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'subprice')) ?></td>
+            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(\dash\data::invoice_subprice()) ?></td>
           <tr>
         <?php } //endif ?>
-        <?php if(a($factorDetail, 'factor', 'shipping')) {?>
+        <?php if(\dash\data::invoice_shipping()) {?>
           </tr>
             <td><?php echo T_("Shipping") ?></td>
-            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'shipping')) ?></td>
+            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(\dash\data::invoice_shipping()) ?></td>
           <tr>
         <?php } //endif ?>
 
-        <?php if(a($factorDetail, 'factor', 'discount2')) {?>
+        <?php if(\dash\data::invoice_discount2()) {?>
           </tr>
             <td><?php echo T_("Discount code") ?></td>
-            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'discount2')) ?></td>
+            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(\dash\data::invoice_discount2()) ?></td>
           <tr>
         <?php } //endif ?>
 
-        <?php if(a($factorDetail, 'factor', 'total')) {?>
+        <?php if(\dash\data::invoice_total()) {?>
           </tr>
             <td><?php echo T_("Total payable") ?></td>
-            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(a($factorDetail, 'factor', 'total')) ?></td>
+            <td><small class="text-xs floatL"><?php echo \lib\store::currency(); ?></small> <?php echo \dash\fit::price(\dash\data::invoice_total()) ?></td>
           <tr>
         <?php } //endif ?>
         </tbody>

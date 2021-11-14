@@ -20,17 +20,17 @@ if($customerDetailAvailable)
         </div>
         <div class="flex-grow px-2 text-xs leading-7">
           <div class="flex">
-            <div class="flex-grow font-black"><?php echo a($customerDetail, 'displayname'); ?></div>
+            <div class="flex-grow font-black"><?php echo \dash\data::customer_displayname(); ?></div>
             <div class="w-3/12 flex px-2">
-              <?php if(a($customerDetail, 'companyeconomiccode')) {?>
+              <?php if(\dash\data::customer_companyeconomiccode()) {?>
               <div class="flex-grow"><?php echo T_("VAT Number"); ?></div>
-              <code class="font-bold tracking-widest"><?php echo a($customerDetail, 'companyeconomiccode') ?></code>
+              <code class="font-bold tracking-widest"><?php echo \dash\data::customer_companyeconomiccode() ?></code>
             <?php } //endif ?>
             </div>
             <div class="w-3/12 flex px-2">
-              <?php if(a($customerDetail, 'companynationalid')) {?>
+              <?php if(\dash\data::customer_companynationalid()) {?>
               <div class="flex-grow"><?php echo T_("Company ID Number"); ?></div>
-              <code class="font-bold tracking-widest"><?php echo a($customerDetail, 'companynationalid') ?></code>
+              <code class="font-bold tracking-widest"><?php echo \dash\data::customer_companynationalid() ?></code>
             <?php  }//endif ?>
             </div>
           </div>
@@ -71,9 +71,9 @@ if($city)
             <?php } //endif ?>
             </div>
             <div class="w-3/12 flex px-2">
-              <?php if(a($customerDetail, 'companyregisternumber')) {?>
+              <?php if(\dash\data::customer_companyregisternumber()) {?>
               <div class="flex-grow"><?php echo T_("Company Registration Number"); ?></div>
-              <code class="font-bold tracking-widest"><?php echo a($customerDetail, 'companyregisternumber') ?></code>
+              <code class="font-bold tracking-widest"><?php echo \dash\data::customer_companyregisternumber() ?></code>
             <?php } //endif ?>
             </div>
           </div>
@@ -112,7 +112,7 @@ else if($fax)
             <div class="w-3/12 flex px-2"><?php
 {
   echo '<div dir="ltr" class="text-left truncate">';
-  echo a($customerDetail, 'url');
+  echo \dash\data::customer_url();
   echo '</div>';
 }
 ?></div>
