@@ -16,6 +16,12 @@ trait video_clickable
 		return T_("Clickable");
 	}
 
+	public static function default()
+	{
+		return true;
+	}
+
+
 
 }
 ?>

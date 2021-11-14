@@ -167,7 +167,7 @@ class magicbox
 					if(a($_item, 'file_detail', 'type') === 'video')
 					{
 						$card .= "<video ";
-						if(a($_item, 'video_controls'))
+						if(a($_item, 'video_controls') !== false)
 						{
 							$card .= "controls ";
 						}
@@ -197,7 +197,7 @@ class magicbox
 							$card .= 'muted ';
 						}
 
-						if(a($_item, 'video_clickable'))
+						if(a($_item, 'video_clickable') !== false)
 						{
 							$card .= 'data-clickable ';
 						}

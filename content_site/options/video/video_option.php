@@ -20,6 +20,11 @@ trait video_option
 		return false;
 	}
 
+	public static function default()
+	{
+		return false;
+	}
+
 
 	public static function validator($_data)
 	{
@@ -75,6 +80,11 @@ trait video_option
 		}
 
 		$default = \content_site\section\view::get_current_index_detail(self::name());
+
+		if(!is_bool($default))
+		{
+			$default = self::default();
+		}
 
 		$html = '';
 		$html .= \content_site\options\generate::form();

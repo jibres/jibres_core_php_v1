@@ -16,6 +16,11 @@ trait video_controls
 		return T_("Controls");
 	}
 
+	public static function default()
+	{
+		return true;
+	}
+
 
 }
 ?>
