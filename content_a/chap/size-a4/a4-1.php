@@ -1,6 +1,6 @@
 
 <div class="printArea" data-size='<?php echo \dash\data::paperSize(); ?>'>
-  <div class="invoice<?php if(\dash\data::paperSize() === 'A5') {echo ' text-xs';}?>" data-theme="1">
+  <div class="invoice<?php if(\dash\data::paperSize() === 'A5') {echo ' text-2xs';}?>" data-theme="1">
     <header class="flex align-center">
       <div class="w-3/12">
 <?php if(\dash\data::storeData_logo()) {?>

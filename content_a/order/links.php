@@ -16,7 +16,7 @@
     <li>
       <a class="f item" href="<?php echo \dash\url::here(). '/chap/a4?id='. \dash\request::get('id'); ?>&model=portrait">
         <?php echo \dash\utility\icon::bootstrap('printer'); ?>
-        <div class="key"><?php echo T_("Print"). ' '. T_('A4');?></div>
+        <div class="key"><?php echo T_("Print"). ' '. ('A4');?></div>
         <div class="go"></div>
       </a>
     </li>
@@ -24,7 +24,14 @@
       <a class="f item" href="<?php echo \dash\url::here(). '/chap/a4?id='. \dash\request::get('id'); ?>&model=landscape">
         <i class="sf-print"></i>
         <?php echo \dash\utility\icon::bootstrap('printer'); ?>
-        <div class="key"><?php echo T_("Print"). ' '. T_('A4'). ' - '. T_('Landscape');?></div>
+        <div class="key"><?php echo T_("Print"). ' '. ('A4'). ' - '. T_('Landscape');?></div>
+        <div class="go"></div>
+      </a>
+    </li>
+    <li>
+      <a class="f item" href="<?php echo \dash\url::here(). '/chap/a5?id='. \dash\request::get('id'); ?>&model=portrait">
+        <?php echo \dash\utility\icon::bootstrap('printer'); ?>
+        <div class="key"><?php echo T_("Print"). ' '. ('A5');?></div>
         <div class="go"></div>
       </a>
     </li>
