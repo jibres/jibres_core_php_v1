@@ -40,8 +40,10 @@
        <th><?php echo T_("Unit price"); ?></th>
        <th><?php echo T_("Qty"); ?></th>
        <th><?php echo T_("Unit"); ?></th>
+<?php if(\dash\data::invoice_subdiscount()) {?>
        <th><?php echo T_("Total price"); ?></th>
        <th><?php echo T_("Total discount"); ?></th>
+<?php }?>
 <?php if(\dash\data::invoice_subvat()) { ?>
        <th><?php echo T_("Total price after discount"); ?></th>
        <th><?php echo T_("Total VAT"); ?></th>
@@ -81,8 +83,10 @@ if(is_array(\dash\data::invoiceDetail()))
        <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'price')); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'count')); ?></td>
        <td class="text-xs"><?php echo a($dataRow, 'unit'); ?></td>
+<?php if(\dash\data::invoice_subdiscount()) {?>
        <td class="valPrice"><?php echo \dash\fit::price($totalPrice); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
+<?php }?>
 <?php if(\dash\data::invoice_subvat()) { ?>
        <td class="valPrice"><?php echo \dash\fit::price($totalPriceAfterDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalVAT); ?></td>
@@ -98,13 +102,15 @@ if(is_array(\dash\data::invoiceDetail()))
        <td></td>
        <td></td>
        <td></td>
+<?php if(\dash\data::invoice_subdiscount()) {?>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPrice']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalDiscount']); ?></td>
+<?php }?>
 <?php if(\dash\data::invoice_subvat()) { ?>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPriceAfterDiscount']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalVAT']); ?></td>
 <?php }?>
-       <td class="valPrice"><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?><small class="text-xs px-1"><?php echo \lib\store::currency(); ?></small></td>
+       <td class="valPrice font-bold"><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?><small class="text-xs px-1"><?php echo \lib\store::currency(); ?></small></td>
       </tr>
 
 
