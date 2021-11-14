@@ -182,6 +182,31 @@ class magicbox
 							$card .= "autoplay ";
 						}
 
+						if(a($_item, 'video_nodownload'))
+						{
+							$card .= 'controlsList="nodownload" ';
+						}
+
+						if(a($_item, 'video_nofullscreen'))
+						{
+							$card .= 'nofullscreen ';
+						}
+
+						if(a($_item, 'video_muted'))
+						{
+							$card .= 'muted ';
+						}
+
+						if(a($_item, 'video_clickable'))
+						{
+							$card .= 'data-clickable ';
+						}
+
+						if(a($_item, 'video_disablepictureinpicture'))
+						{
+							$card .= 'disablePictureInPicture ';
+						}
+
 						if(a($_item, 'video_poster'))
 						{
 							$card .= "poster='". \lib\filepath::fix($_item['video_poster']). "'";
