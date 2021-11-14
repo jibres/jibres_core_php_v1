@@ -65,6 +65,35 @@ class option
 	}
 
 
+	/**
+	 * option in one item gallery
+	 * use in g1, g2
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function option_in_one_item()
+	{
+		return
+		[
+			'file_gallery',
+			'video_loop_gallery',
+			'video_controls_gallery',
+			'video_autoplay_gallery',
+			'video_poster_gallery',
+
+			'video_nodownload_gallery',
+			'video_nofullscreen_gallery',
+			'video_muted_gallery',
+			'video_clickable_gallery',
+			'video_disablepictureinpicture_gallery',
+			'caption_gallery',
+			'link_gallery',
+			'target_gallery',
+			'image_remove',
+		];
+	}
+
+
 	public static function maximum_capacity($_type)
 	{
 		$option = \content_site\call_function::section_options('gallery', $_type);

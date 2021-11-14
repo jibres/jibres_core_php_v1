@@ -19,19 +19,8 @@ class g2
 			'options'      =>
 			[
 				// 'heading_raw',
-				'image_list' =>
-				[
-					'file_gallery',
-					'video_loop_gallery',
-					'video_controls_gallery',
-					'video_autoplay_gallery',
-					'video_poster_gallery',
-					'description_gallery',
-					'caption_gallery',
-					'link_gallery',
-					'target_gallery',
-					'image_remove',
-				],
+				'image_list' => option::option_in_one_item(),
+
 				'image_add',
 
 				'magicbox_title_position_slider',
