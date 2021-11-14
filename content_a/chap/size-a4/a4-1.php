@@ -51,8 +51,10 @@ if(isset($factorDetail['factor_detail']) && is_array($factorDetail['factor_detai
        <th><?php echo T_("Unit price"); ?></th>
        <th><?php echo T_("Total price"); ?></th>
        <th><?php echo T_("Total discount"); ?></th>
+<?php if($totalVAT) { ?>
        <th><?php echo T_("Total price after discount"); ?></th>
        <th><?php echo T_("Total VAT"); ?></th>
+<?php }?>
        <th><?php echo T_("Final Price"); ?> <small class="text-xs px-1">( <?php echo \lib\store::currency(); ?> )</small></th>
       </tr>
      </thead>
@@ -88,8 +90,10 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'price')); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPrice); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
+<?php if($totalVAT) { ?>
        <td class="valPrice"><?php echo \dash\fit::price($totalPriceAfterDiscount); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalVAT); ?></td>
+<?php }?>
        <td class="valPrice lastCol"><?php echo \dash\fit::price($FinalPrice); ?></td>
       </tr>
 <?php } //endfor ?>
@@ -102,8 +106,10 @@ $tableTotal['FinalPrice'] += $FinalPrice;
        <td></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPrice']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalDiscount']); ?></td>
+<?php if($totalVAT) { ?>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPriceAfterDiscount']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalVAT']); ?></td>
+<?php }?>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['FinalPrice']); ?><small class="text-xs px-1"><?php echo \lib\store::currency(); ?></small></td>
       </tr>
 
