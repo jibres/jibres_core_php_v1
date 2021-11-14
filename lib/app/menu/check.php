@@ -9,38 +9,44 @@ class check
 
 		$condition =
 		[
-			'title'          => 'title',
-			'url'            => 'absolute_url',
-			'pointer'        => ['enum' => ['homepage','products','posts','pages', 'pagebuilder', 'file','menu','forms','tags','hashtag','socialnetwork','other','title','separator','selffile', 'category']],
-			'target'         => ['enum' => ['blank']],
-			'parent'         => 'id',
-			'related_id'     => 'id',
-			'sort'           => 'int',
-			// 'parent1'     => 'id',
-			// 'parent2'     => 'id',
-			// 'parent3'     => 'id',
-			// 'parent4'     => 'id',
-			// 'parent5'     => 'id',
-			'product_id'     => 'id',
-			'post_id'        => 'code',
-			'page_id'        => 'code',
-			'form_id'        => 'id',
-			'tag_id'         => 'id',
-			'category_id'    => 'id',
-			'socialnetwork'  => 'socialnetwork',
-			'hashtag_id'     => 'code',
+			'title'                         => 'title',
+			'url'                           => 'absolute_url',
+			'pointer'                       => ['enum' => ['homepage','products','posts','pages', 'pagebuilder', 'file','menu','forms','tags','hashtag','socialnetwork','other','title','separator','selffile', 'category']],
+			'target'                        => ['enum' => ['blank']],
+			'parent'                        => 'id',
+			'related_id'                    => 'id',
+			'sort'                          => 'int',
+			// 'parent1'                    => 'id',
+			// 'parent2'                    => 'id',
+			// 'parent3'                    => 'id',
+			// 'parent4'                    => 'id',
+			// 'parent5'                    => 'id',
+			'product_id'                    => 'id',
+			'post_id'                       => 'code',
+			'page_id'                       => 'code',
+			'form_id'                       => 'id',
+			'tag_id'                        => 'id',
+			'category_id'                   => 'id',
+			'socialnetwork'                 => 'socialnetwork',
+			'hashtag_id'                    => 'code',
 
-			'for'            => ['enum' => ['menu', 'gallery']],
-			'for_id'         => 'id',
-			'file'           => 'string',
-			'description'    => 'desc',
+			'for'                           => ['enum' => ['menu', 'gallery']],
+			'for_id'                        => 'id',
+			'file'                          => 'string',
+			'description'                   => 'desc',
 
 			// save in json in preview | body
-			'desc'           => 'string_200',
-			'video_loop'     => 'checkbox',
-			'video_controls' => 'checkbox',
-			'video_autoplay' => 'checkbox',
-			'video_poster'   => 'string',
+			'desc'                          => 'string_200',
+			'video_loop'                    => 'checkbox',
+			'video_controls'                => 'checkbox',
+			'video_autoplay'                => 'checkbox',
+			'video_poster'                  => 'string',
+
+			'video_nodownload'              => 'checkbox',
+			'video_nofullscreen'            => 'checkbox',
+			'video_muted'                   => 'checkbox',
+			'video_clickable'               => 'checkbox',
+			'video_disablepictureinpicture' => 'checkbox',
 		];
 
 		$require = [];
@@ -346,6 +352,12 @@ class check
 		unset($_args['desc']);
 		unset($_args['video_controls']);
 		unset($_args['video_autoplay']);
+
+		unset($_args['video_nodownload']);
+		unset($_args['video_nofullscreen']);
+		unset($_args['video_muted']);
+		unset($_args['video_clickable']);
+		unset($_args['video_disablepictureinpicture']);
 
 		return $_args;
 	}
