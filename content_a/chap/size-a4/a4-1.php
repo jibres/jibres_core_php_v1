@@ -37,9 +37,9 @@
       <tr class="bg-blue-100 text-xs leading-10 text-right border-b-2 border-blue-500">
        <th></th>
        <th><?php echo T_("Explanation"); ?></th>
+       <th><?php echo T_("Unit price"); ?></th>
        <th><?php echo T_("Qty"); ?></th>
        <th><?php echo T_("Unit"); ?></th>
-       <th><?php echo T_("Unit price"); ?></th>
        <th><?php echo T_("Total price"); ?></th>
        <th><?php echo T_("Total discount"); ?></th>
 <?php if(\dash\data::invoice_subvat()) { ?>
@@ -78,9 +78,9 @@ if(is_array(\dash\data::invoiceDetail()))
       <tr class="text-sm leading-7 border-b">
        <td class="px-2"><?php echo \dash\fit::number($key + 1); ?></td>
        <td class="productTitle"><?php echo a($dataRow, 'title');?></td>
+       <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'price')); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'count')); ?></td>
        <td class="text-xs"><?php echo a($dataRow, 'unit'); ?></td>
-       <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'price')); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalPrice); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
 <?php if(\dash\data::invoice_subvat()) { ?>
