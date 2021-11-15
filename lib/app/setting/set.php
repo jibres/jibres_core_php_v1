@@ -722,7 +722,7 @@ class set
 			'factor_fax'      => 'phone',
 		];
 
-		$require = ['factor_country', 'factor_address'];
+		$require = [/*'factor_country', 'factor_address'*/];
 
 
 		$meta =	[];

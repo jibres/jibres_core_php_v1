@@ -17,7 +17,7 @@
           </div>
           <div class="flex">
             <div class="flex-grow"><?php
-$country = a(\dash\data::storeData(),'country_detail', 'name');
+$country = a(\dash\data::sellerAddress(),'country_name');
 if($country)
 {
   echo '<span>';
@@ -25,7 +25,7 @@ if($country)
   echo '</span>';
 }
 
-$province = a(\dash\data::storeData(),'province_detail', 'name');
+$province = a(\dash\data::sellerAddress(),'province_name');
 if($province)
 {
   echo T_(', ');
@@ -35,7 +35,7 @@ if($province)
   echo '</span>';
 }
 
-$city = a(\dash\data::storeData(),'city_detail', 'name');
+$city = a(\dash\data::sellerAddress(),'city_name');
 if($city)
 {
   echo T_(', ');
@@ -46,8 +46,8 @@ if($city)
 }
 ?></div>
             <div class="w-3/12 flex px-2">
-              <div class="flex-grow"><?php echo \dash\data::storeData_postcode() ? T_("Postal Code") : null ; ?></div>
-              <code class="font-bold tracking-widest"><?php echo \dash\data::storeData_postcode(); ?></code>
+              <div class="flex-grow"><?php echo \dash\data::sellerAddress_postcode() ? T_("Postal Code") : null ; ?></div>
+              <code class="font-bold tracking-widest"><?php echo \dash\data::sellerAddress_postcode(); ?></code>
             </div>
             <div class="w-3/12 flex px-2">
               <div class="flex-grow"><?php echo \dash\data::storeData_companyregisternumber() ? T_("Company Registration Number") : null; ?></div>
@@ -57,7 +57,7 @@ if($city)
 
           <div class="flex">
             <div class="flex-grow"><?php
-$address = \dash\data::storeData_address();
+$address = \dash\data::sellerAddress_address();
 if($address)
 {
   // echo '<span>'. T_('Address'). '</span>'. ' ';
@@ -67,8 +67,8 @@ if($address)
 }
 ?></div>
             <div class="w-3/12 flex px-2"><?php
-$phone = \dash\data::storeData_phone();
-$fax = \dash\data::storeData_fax();
+$phone = \dash\data::sellerAddress_phone();
+$fax = \dash\data::sellerAddress_fax();
 if($phone)
 {
   echo '<div class="flex-grow">'. T_('Phone'). '</div>'. ' ';

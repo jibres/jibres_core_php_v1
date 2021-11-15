@@ -16,10 +16,10 @@
 
 
   <address class="not-italic py-1 border-t border-b border-black">
-    <div class="address text-2xs leading-7"><?php echo \dash\data::storeData_address(); ?></div>
+    <div class="address text-2xs leading-7"><?php echo \dash\data::sellerAddress_address(); ?></div>
     <div class="flex text-xs leading-6">
      <div class="w-1/2 website text-left"><?php echo \dash\data::storeData_website(); ?></div>
-     <div class="w-1/2 phone text-left"><?php echo \dash\fit::text(\dash\data::storeData_phone()); ?></div>
+     <div class="w-1/2 phone text-left"><?php echo \dash\fit::text(\dash\data::sellerAddresss_phone()); ?></div>
     </div>
   </address>
  </div>

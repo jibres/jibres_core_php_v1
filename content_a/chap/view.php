@@ -40,8 +40,39 @@ class view
 		}
 
 
-		\dash\data::storeData(\dash\data::store_store_data());
+		$storeData = \dash\data::store_store_data();
 
+		\dash\data::storeData($storeData);
+
+		$seller_address =
+		[
+			'country'  => a($storeData, 'country'),
+			'province' => a($storeData, 'province'),
+			'city'     => a($storeData, 'city'),
+			'address'  => a($storeData, 'address'),
+			'mobile'   => a($storeData, 'mobile'),
+			'postcode' => a($storeData, 'postcode'),
+			'phone'    => a($storeData, 'phone'),
+			'fax'      => a($storeData, 'fax'),
+		];
+
+		if(a($storeData, 'factor_address'))
+		{
+			$seller_address =
+			[
+				'country'  => a($storeData, 'factor_country'),
+				'province' => a($storeData, 'factor_province'),
+				'city'     => a($storeData, 'factor_city'),
+				'address'  => a($storeData, 'factor_address'),
+				'mobile'   => a($storeData, 'factor_mobile'),
+				'postcode' => a($storeData, 'factor_postcode'),
+				'phone'    => a($storeData, 'factor_phone'),
+				'fax'      => a($storeData, 'factor_fax'),
+			];
+		}
+
+		$seller_address = \dash\app\address::ready($seller_address);
+		\dash\data::sellerAddress($seller_address);
 
 		$printSize  = \dash\url::child();
 		$printModel = \dash\request::get('model');
