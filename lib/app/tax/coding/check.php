@@ -180,6 +180,12 @@ class check
 		if(isset($load_parent['code']) && $data['code'])
 		{
 			$data['code'] = $load_parent['code']. $data['code'];
+
+			if(!\dash\validate::int($data['code'], false))
+			{
+				\dash\notif::error(T_("Accounting code is out of range"));
+				return false;
+			}
 		}
 
 		if($data['code'])
