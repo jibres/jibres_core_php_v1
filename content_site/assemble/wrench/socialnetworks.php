@@ -76,6 +76,16 @@ class socialnetworks
         $html .= '</a>';
       }
 
+
+      if(a($_social, 'whatsapp', 'link'))
+      {
+        $imgSrc = \dash\url::cdn(). '/img/social/type1/whatsapp.svg';
+
+        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'whatsapp', 'link') .'">';
+        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("Whatsapp"). '">';
+        $html .= '</a>';
+      }
+
     }
     $html .= '</nav>';
 
