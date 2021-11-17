@@ -67,6 +67,11 @@ class bank
                 return false;
             }
         }
+        elseif(isset($header['http_code']) && in_array($header['http_code'], [400, 401, 500, 503, 403, 404]))
+        {
+            \dash\notif::error(T_("Payping error :val. Please contact to payping support", ['val' => \dash\fit::number($header['http_code'])]));
+            return false;
+        }
         else
         {
             if(isset($result['Error']))
