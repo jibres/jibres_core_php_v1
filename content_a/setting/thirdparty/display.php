@@ -202,16 +202,16 @@
         </a>
       </li>
       <li>
-        <a class="f" href="<?php echo \dash\url::that(); ?>/irpayir">
-          <i class="spay-32-payir"></i>
-          <div class="key"><?php echo T_("Payir"); ?></div>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irpayping">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payping.png" alt='PayPing'>
+          <div class="key"><?php echo T_("PayPing"); ?></div>
           <div class="go"></div>
         </a>
       </li>
       <li>
-        <a class="f" href="<?php echo \dash\url::that(); ?>/irpayping">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payping.png" alt='PayPing'>
-          <div class="key"><?php echo T_("PayPing"); ?></div>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/irpayir">
+          <i class="spay-32-payir"></i>
+          <div class="key"><?php echo T_("Payir"); ?></div>
           <div class="go"></div>
         </a>
       </li>
