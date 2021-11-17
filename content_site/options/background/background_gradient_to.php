@@ -2,8 +2,10 @@
 namespace content_site\options\background;
 
 
-class background_gradient_to extends background_color
+trait background_gradient_to
 {
+	use background_color;
+
 	public static function admin_html()
 	{
 		$default = \content_site\section\view::get_current_index_detail('background_gradient_to');

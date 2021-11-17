@@ -2,7 +2,7 @@
 namespace content_site\options\background;
 
 
-class background_gradient_type
+trait background_gradient_type
 {
 
 	public static function enum()
