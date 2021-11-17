@@ -234,6 +234,7 @@ class edit
 			'youtube'   => 'socialnetwork',
 			'twitter'   => 'socialnetwork',
 			'linkedin'  => 'socialnetwork',
+			'whatsapp'  => 'socialnetwork',
 			'github'    => 'socialnetwork',
 			'facebook'  => 'socialnetwork',
 			'email'     => 'email',

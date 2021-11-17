@@ -40,11 +40,18 @@
         </a>
       </li>
 
-
       <li>
         <a class="f" href="<?php echo \dash\url::this(); ?>/linkedin">
           <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/linkedin.svg" alt='<?php echo T_("Linkedin"); ?>'>
           <div class="key"><?php echo T_("Linkedin"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
+
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(); ?>/whatsapp">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/whatsapp.svg" alt='<?php echo T_("WhatsApp"); ?>'>
+          <div class="key"><?php echo T_("WhatsApp"); ?></div>
           <div class="go"></div>
         </a>
       </li>
