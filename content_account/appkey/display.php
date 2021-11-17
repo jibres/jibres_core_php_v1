@@ -5,7 +5,7 @@
       <?php if(!\dash\user::detail('verifymobile')) {?>
         <a href="<?php echo \dash\url::kingdom(); ?>/enter/verify?referer=<?php echo urlencode(\dash\url::location()); ?>" target="_blank"  class="msg block warn txtB txtC mT10"><?php echo T_("To make your appkey you must verify your mobile"); ?></a>
       <?php }else{ ?>
-        <div class="msg warn2 mT20">
+        <div class="alert-warning mT20">
           <div><?php echo T_("Protect this key like a password!"); ?></div>
           <div><?php echo T_("By this code you can build new application to manage your account and manage other customer"); ?></div>
         </div>

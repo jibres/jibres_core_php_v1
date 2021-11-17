@@ -15,7 +15,7 @@
 
 <?php if(!\dash\data::countAll()) {?>
 
-<p class="msg warn2 fs14"><?php echo T_("You have not any product to export!"); ?>
+<p class="alert-warning fs14"><?php echo T_("You have not any product to export!"); ?>
 	<a href="<?php echo \dash\url::here(); ?>/products/add"><?php echo T_("Add new product"); ?></a>
 </p>
 

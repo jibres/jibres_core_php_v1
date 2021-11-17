@@ -121,7 +121,7 @@ else
     </div>
     <?php }else{ ?>
 
-      <div class="msg warn2"><?php echo T_("No billing history founded"); ?></div>
+      <div class="alert-warning"><?php echo T_("No billing history founded"); ?></div>
     <?php } //endif ?>
 
 <?php \dash\utility\pagination::html(); ?>
@@ -135,7 +135,7 @@ else
 
 
 <?php function htmlFilter() {?>
-<p class="f fs14 msg warn2">
+<p class="f fs14 alert-warning">
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>

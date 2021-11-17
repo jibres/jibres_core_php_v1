@@ -6,7 +6,7 @@
 </div>
 
 <?php if(!\dash\data::countAll()) {?>
-<p class="msg warn2 fs14"><?php echo T_("You have not any answer to export!"); ?></p>
+<p class="alert-warning fs14"><?php echo T_("You have not any answer to export!"); ?></p>
 <?php }else{ ?>
 <div class="msg f fs14">
 	<div class="cauto mLa5 s12"><?php echo T_("Answer count"); ?> <b><?php echo \dash\fit::number(\dash\data::countAll()); ?></b></div>

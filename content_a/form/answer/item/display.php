@@ -73,7 +73,7 @@ else
 <?php } //endif ?>
 
 <?php function htmlFilterNoResult() {?>
-  <p class="f fs14 msg warn2">
+  <p class="f fs14 alert-warning">
     <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
     <a class="cauto" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&iid='. \dash\request::get('iid'); ?>"><?php echo T_("Clear filters"); ?></a>
   </p>

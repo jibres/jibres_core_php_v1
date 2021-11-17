@@ -101,7 +101,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
               </div>
           </div>
           <?php if(!\dash\data::detailsList()) {?>
-            <div class="msg warn2">
+            <div class="alert-warning">
               <?php echo T_("You need to add some accounting details to add quick factor") ?>
               <a target="_blank" class="link fs08" href="<?php echo \dash\url::this(). '/coding/add?type=details' ?>"><i class="sf-external-link"></i> <?php echo T_("Add new accounting details") ?></a>
             </div>

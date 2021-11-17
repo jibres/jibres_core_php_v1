@@ -6,7 +6,7 @@
         <img src="<?php echo \dash\url::cdn(); ?>/images/pricing/plan1-free.png" alt='<?php echo \dash\face::site(); ?> <?php echo T_("Free Plan"); ?>'>
         <h2><?php echo T_("Free"); ?></h2>
         <h3><?php echo T_("All the basics for personal use."); ?> <?php echo T_("Also <span class='txtB'>sell on social networks</span> with easy online payment."); ?></h3>
-        <div class="msg warn2"><?php echo T_("Beta Version"); ?></div>
+        <div class="alert-warning"><?php echo T_("Beta Version"); ?></div>
 
         <ul>
           <li><?php echo T_("Integrated Sales"); ?></li>
@@ -25,7 +25,7 @@
         <img src="<?php echo \dash\url::cdn(); ?>/images/pricing/plan2-starter.png" alt='<?php echo \dash\face::site(); ?> <?php echo T_("Starter Plan"); ?>'>
         <h2><?php echo T_("Bronze"); ?></h2>
         <h3><?php echo T_("Special choice for starting a new business."); ?></h3>
-        <div class="msg warn2"><?php echo T_("Soon"); ?></div>
+        <div class="alert-warning"><?php echo T_("Soon"); ?></div>
         <ul>
           <li><?php echo T_("vCard Website"); ?></li>
           <li><?php echo T_("Staff Accounts"); ?></li>
@@ -49,7 +49,7 @@
         <img src="<?php echo \dash\url::cdn(); ?>/images/pricing/plan3-simple.png" alt='<?php echo \dash\face::site(); ?> <?php echo T_("Simple Plan"); ?>'>
         <h2><?php echo T_("Silver"); ?></h2>
         <h3><?php echo T_("For who want try to change!"); ?><br><span class="txtB"><?php echo T_("Enjoy modern era."); ?></span></h3>
-        <div class="msg warn2"><?php echo T_("Soon"); ?></div>
+        <div class="alert-warning"><?php echo T_("Soon"); ?></div>
         <ul>
           <li><?php echo T_("Advance Reports"); ?></li>
           <li><?php echo T_("All Invoice Types"); ?></li>
@@ -74,7 +74,7 @@
         <img src="<?php echo \dash\url::cdn(); ?>/images/pricing/plan4-standard.png" alt='<?php echo \dash\face::site(); ?> <?php echo T_("Standard Plan"); ?>'>
         <h2><?php echo T_("Gold"); ?></h2>
         <h3><?php echo T_("For someones ready to use Jibres as hero."); ?> <?php echo T_("<span class='bold'>Everything you need</span> for a growing business."); ?></h3>
-        <div class="msg warn2"><?php echo T_("Soon"); ?></div>
+        <div class="alert-warning"><?php echo T_("Soon"); ?></div>
         <ul>
           <li><?php echo T_("Online Store"); ?></li>
           <li><?php echo T_("News website"); ?></li>

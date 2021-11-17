@@ -175,7 +175,7 @@
 
     <?php }else{ ?>
 
-     <div class="msg warn2">
+     <div class="alert-warning">
       <div class="f">
        <div class="c">
         <?php echo T_("Domain is occupied"); ?>

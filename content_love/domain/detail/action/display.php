@@ -24,7 +24,7 @@
 
     <?php }else{ ?>
 
-      <div class="msg warn2"><?php echo T_("No action history founded"); ?></div>
+      <div class="alert-warning"><?php echo T_("No action history founded"); ?></div>
     <?php } //endif ?>
 
 

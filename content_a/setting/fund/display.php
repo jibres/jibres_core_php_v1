@@ -30,7 +30,7 @@
           </select>
         </div>
       <?php }else{ ?>
-        <div class="msg warn2"><a href="<?php echo \dash\url::this(). '/pcpos'; ?>" class="link"><?php echo T_("Add new pos") ?></a></div>
+        <div class="alert-warning"><a href="<?php echo \dash\url::this(). '/pcpos'; ?>" class="link"><?php echo T_("Add new pos") ?></a></div>
       <?php } //endif ?>
 
 

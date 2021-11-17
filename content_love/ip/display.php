@@ -64,7 +64,7 @@
 
 <?php if(\dash\data::ipNotFound()) {?>
 <div class="avand-md">
-<div class="msg warn2"><?php echo T_("IP detail not found") ?></div>
+<div class="alert-warning"><?php echo T_("IP detail not found") ?></div>
 </div>
 <?php }elseif(\dash\data::ipDetail()) {?>
 <pre>

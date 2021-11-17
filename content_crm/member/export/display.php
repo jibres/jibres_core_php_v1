@@ -5,7 +5,7 @@
 
 <?php if(!\dash\data::countAll()) {?>
 
-<p class="msg warn2 fs14"><?php echo T_("You have not any member to export!"); ?>
+<p class="alert-warning fs14"><?php echo T_("You have not any member to export!"); ?>
 	<a href="<?php echo \dash\url::here(); ?>/members/add"><?php echo T_("Add new member"); ?></a>
 </p>
 

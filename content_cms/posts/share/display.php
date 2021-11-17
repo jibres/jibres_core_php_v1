@@ -8,7 +8,7 @@ $propertyList = \dash\data::propertyList();
   <div class="box">
     <div class="pad">
     <?php if(!\dash\data::telegramSetting_apikey()) { // neet to set telegram setting first?>
-      <div class="msg warn2 mB0">
+      <div class="alert-warning mB0">
         <?php echo T_("You must set Telegram bot setting first") ?> <a class="link" href="<?php echo \dash\url::here(). '/setting/telegram' ?>"><?php echo T_("Click here to setup telegram setting") ?></a>
       </div>
     <?php }else{ ?>

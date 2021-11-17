@@ -19,6 +19,6 @@
 </div>
 <?php }else{ ?>
   <div class="avand-sm">
-    <div class="msg warn2 txtC"><?php echo T_("No categories founded!") ?></div>
+    <div class="alert-warning txtC"><?php echo T_("No categories founded!") ?></div>
   </div>
 <?php } //endif ?>

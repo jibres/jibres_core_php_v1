@@ -4,7 +4,7 @@
   <div class="cbox">
    <div class="msg minimal pLR20-f fs16 txtB ltr text-left success"><?php echo \dash\data::domainDetail_name() ?></div>
 
-   <p class="msg warn2"><?php echo T_('Filling the server IP address records (glue records) are required when you wish to set the name servers of a domain name to a hostname under the domain name itself.'); ?></p>
+   <p class="alert-warning"><?php echo T_('Filling the server IP address records (glue records) are required when you wish to set the name servers of a domain name to a hostname under the domain name itself.'); ?></p>
    <form method="post" autocomplete="off" >
       <div class="f">
 
@@ -77,7 +77,7 @@
   <div class="cbox">
    <div class="msg minimal pLR20-f fs16 txtB ltr text-left danger"><?php echo \dash\data::domainDetail_name() ?></div>
 
-   <p class="msg warn2"><?php echo T_('Only edit domain record'); ?></p>
+   <p class="alert-warning"><?php echo T_('Only edit domain record'); ?></p>
    <form method="post" autocomplete="off" >
     <input type="hidden" name="raw_edit" value="raw_edit">
       <div class="f">

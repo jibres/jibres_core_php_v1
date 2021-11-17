@@ -12,7 +12,7 @@
 
 <?php if(!\dash\data::dataTable()){?>
 
-  <div class="msg warn2 txtC txtB fs14"><?php echo T_("No result found") ?></div>
+  <div class="alert-warning txtC txtB fs14"><?php echo T_("No result found") ?></div>
 
 <?php }else{ ?>
 
@@ -55,7 +55,7 @@
 <?php \dash\utility\pagination::html(); ?>
 
 <?php if(\dash\data::isFiltered()) {?>
-<p class="f fs14 msg warn2">
+<p class="f fs14 alert-warning">
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::current(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>

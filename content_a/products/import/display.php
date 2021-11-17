@@ -76,7 +76,7 @@ $awaitingImport = \dash\data::awaitingImport();
 
 	<?php if(isset($awaitingImport['meta']['overwrite_count']) && $awaitingImport['meta']['overwrite_count']) {?>
 
-		<div class="msg warn2">
+		<div class="alert-warning">
 			<?php echo T_("Your input file contains a number of records that have ID, and if you import this file your existing products by this ids will be replaced with new data"); ?>
 			<br>
 			<?php echo T_("Count record have ID"); ?> <b><?php echo \dash\fit::number($awaitingImport['meta']['overwrite_count']); ?></b>

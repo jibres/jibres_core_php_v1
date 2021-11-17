@@ -1,7 +1,7 @@
 <div class="avand-md">
 	<div class="box">
 		<div class="body">
-			<p class="msg warn2">
+			<p class="alert-warning">
 				<?php echo T_("Can not set variants after sale, buy or any factor type of this products"); ?>
 			</p>
 		</div>

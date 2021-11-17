@@ -126,7 +126,7 @@ else
 
 
 <?php function htmlFilter() {?>
-<p class="f fs14 msg warn2">
+<p class="f fs14 alert-warning">
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>

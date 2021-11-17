@@ -44,7 +44,7 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
             <?php } // endfor ?>
           </select>
         <?php }else{ ?>
-          <div class="msg warn2"><a class="btn-link" href="<?php echo \dash\url::this(). '/year/add' ?>"><?php echo T_("Add new accounting year") ?></a></div>
+          <div class="alert-warning"><a class="btn-link" href="<?php echo \dash\url::this(). '/year/add' ?>"><?php echo T_("Add new accounting year") ?></a></div>
         <?php } // endif ?>
 
         <?php if($defaultYear) {?>

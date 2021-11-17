@@ -133,7 +133,7 @@ if(!is_array($dataTable))
 
 
 <?php function htmlFilter() {?>
-<p class="f fs14 msg warn2">
+<p class="f fs14 alert-warning">
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
 
   <?php if(\dash\data::barcodeScaned()) {?>

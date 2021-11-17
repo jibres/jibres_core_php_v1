@@ -11,7 +11,7 @@
       </div>
     <?php }else{ ?>
       <div class="font-16">
-        <div class="msg warn2">
+        <div class="alert-warning">
           <?php echo T_("Your domain was connected to a business but we can not find this business in you business list!") ?>
           <p>
             <?php echo T_("If you need to know what happened") ?> <a href="<?php echo \dash\url::kingdom(). '/my/ticket/add?title=domainConnectedToAnotherBusiness' ?>" class="link"><?php echo T_("Contact with us") ?></a>

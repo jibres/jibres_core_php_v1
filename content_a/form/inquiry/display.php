@@ -17,7 +17,7 @@
 					<div data-response="inquiry" <?php if(\dash\data::dataRow_inquiry()){/*nothing*/}else{ echo 'data-response-hide'; } ?>>
 
 						<?php if(!\dash\data::formItems()) {?>
-							<div class="msg warn2"><?php echo T_("You have not any inquiry question in your form. Questions that are mobile or national code can be used in the inquiry process") ?></div>
+							<div class="alert-warning"><?php echo T_("You have not any inquiry question in your form. Questions that are mobile or national code can be used in the inquiry process") ?></div>
 						<?php }else{ ?>
 							<p class="mB0-f"><?php echo T_("Which question to ask?") ?></p>
 							<?php foreach (\dash\data::formItems() as $key => $value) { $myId =  a($value, 'id'); ?>
