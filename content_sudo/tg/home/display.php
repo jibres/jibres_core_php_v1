@@ -6,9 +6,9 @@ $tg = \dash\data::tg();
     <div class="dcard x4 mB10 ">
       <h2><a href="https://t.me/<?php echo a($tg, 'info', 'bot'); ?>" target="_blank"><?php echo a($tg, 'info', 'bot'); ?></a></h2>
       <pre class="mT25"><?php echo a($tg, 'info', 'token'); ?></pre>
-      <a class="btn dark outline mT25" href="<?php echo \dash\url::this(); ?>/log"><?php echo T_("Logs"); ?></a>
-      <a class="btn dark outline mT25" href="<?php echo \dash\url::this(); ?>/users"><?php echo T_("Users"); ?></a>
-      <a class="btn dark outline mT25" href="<?php echo \dash\url::this(); ?>/system"><?php echo T_("System"); ?></a>
+      <a class="btn-outline-dark mT25" href="<?php echo \dash\url::this(); ?>/log"><?php echo T_("Logs"); ?></a>
+      <a class="btn-outline-dark mT25" href="<?php echo \dash\url::this(); ?>/users"><?php echo T_("Users"); ?></a>
+      <a class="btn-outline-dark mT25" href="<?php echo \dash\url::this(); ?>/system"><?php echo T_("System"); ?></a>
     <?php if(\dash\user::id() === 1) {?>
       <a class="btn-outline-danger mT10" href="<?php echo \dash\url::this(); ?>/webhook"><?php echo T_("Webhook"); ?></a>
     <?php } ?>
