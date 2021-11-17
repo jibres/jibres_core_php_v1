@@ -240,6 +240,7 @@ class edit
 			'email'     => 'email',
 			'aparat'    => 'socialnetwork',
 			'eitaa'     => 'socialnetwork',
+			'whatsapp'  => 'mobile',
 		];
 
 		$require = [];

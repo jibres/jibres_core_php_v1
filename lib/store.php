@@ -496,6 +496,7 @@ class store
 		$social['facebook']  = ['user' => null, 'title' => T_("Facebook"), 'link' => 'https://facebook.com/'];
 		$social['github']    = ['user' => null, 'title' => T_("Github"), 'link' => 'https://github.com/'];
 		$social['linkedin']  = ['user' => null, 'title' => T_("Linkedin"), 'link' => 'https://linkedin.com/in/'];
+		$social['whatsapp']  = ['user' => null, 'title' => T_("Whatsapp"), 'link' => 'https://wa.me/'];
 		// $social['youtube']   = ['user' => null, 'title' => T_("Youtube"), 'link' => 'https://youtube.com/'];
 
 		if(\dash\language::current() === 'fa')
@@ -534,6 +535,7 @@ class store
 				case 'linkedin':	$social['linkedin']  = ['user' => $value, 'title' => T_("Linkedin"), 'link' => 'https://linkedin.com/in/'. $value];	break;
 				case 'github':		$social['github']    = ['user' => $value, 'title' => T_("Github"), 'link' => 'https://github.com/'. $value];		break;
 				case 'facebook':	$social['facebook']  = ['user' => $value, 'title' => T_("Facebook"), 'link' => 'https://facebook.com/'. $value];	break;
+				case 'whatsapp':	$social['whatsapp']  = ['user' => $value, 'title' => T_("Whatsapp"), 'link' => 'https://wa.me/'. $value];	break;
 				case 'email':		$social['email']     = ['user' => $value, 'title' => T_("Email"), 'link' => 'mailto:'. $value];					break;
 				// case 'aparat':		$social['aparat']    = ['user' => $value, 'title' => T_("Aparat"), 'link' => 'https://aparat.com/'. $value];		break;
 				default:

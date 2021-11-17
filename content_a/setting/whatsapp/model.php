@@ -12,13 +12,6 @@ class model
 		[
 			'whatsapp'  => \dash\request::post('whatsapp'),
 
-			// 'instagram' => \dash\request::post('instagram'),
-			// 'telegram'  => \dash\request::post('telegram'),
-			// 'youtube'   => \dash\request::post('youtube'),
-			// 'github'    => \dash\request::post('github'),
-			// 'email'     => \dash\request::post('email'),
-			// 'aparat'    => \dash\request::post('aparat'),
-			// 'eitaa'     => \dash\request::post('eitaa'),
 		];
 
 
