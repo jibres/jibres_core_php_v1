@@ -40,10 +40,22 @@ trait background_gradient_type
 	}
 
 
+	public static function name()
+	{
+		return 'background_gradient_type';
+	}
+
+
+	public static function title()
+	{
+		return T_("Gradient direction");
+	}
+
+
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail('background_gradient_type');
+		$default = \content_site\section\view::get_current_index_detail(self::name());
 
 		if(!$default)
 		{
@@ -51,12 +63,12 @@ trait background_gradient_type
 		}
 
 
-		$title = T_("Gradient direction");
+
 
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, self::title());
 		}
   		$html .= \content_site\options\generate::_form();
 

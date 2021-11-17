@@ -13,13 +13,30 @@ class effect
 		$enum[] = ['key' => 'zoom', 'title' => T_('Zoom')];
 		$enum[] = ['key' => 'dark', 'title' => T_('Dark')];
 		$enum[] = ['key' => 'light','title' => T_('Light')];
+		$enum[] = ['key' => 'gradient','title' => T_('Gradient')];
 
 
 		return $enum;
 	}
 
+	public static function extends_option()
+	{
+		return
+		[
+			'effect',
+			'effect_gradient_type',
+			'effect_gradient_to'
+		];
+	}
+
+
 	public static function validator($_data)
 	{
+		if($_data === 'gradient')
+		{
+			\content_site\utility::need_redirect(true);
+		}
+
 		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Effect')]);
 	}
 
@@ -69,8 +86,19 @@ class effect
 			}
 
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
+
 		}
 		$html .= \content_site\options\generate::_form();
+
+		$html .= '<div data-response="'.$name.'" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
+		{
+			$html .= effect_gradient_type::admin_html();
+
+			$html .= "<label for='color-opt_background_gradient_from' class='block mT5-f'>". T_("Gradient colors"). "</label>";
+
+			$html .= effect_gradient_to::admin_html();
+		}
+		$html .= '</div>';
 
 
 		return $html;
