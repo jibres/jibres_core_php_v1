@@ -13,7 +13,14 @@ class socialnetwork
 
 		foreach ($all_social_list as $key => $value)
 		{
-			$new_data[$key] = \dash\validate::string_100(a($_data, $key), false);
+			if($key === 'whatsapp')
+			{
+				$new_data[$key] = \dash\validate::mobile(a($_data, $key), false);
+			}
+			else
+			{
+				$new_data[$key] = \dash\validate::socialnetwork(a($_data, $key), false);
+			}
 		}
 
 		return $new_data;
