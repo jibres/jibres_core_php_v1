@@ -192,7 +192,7 @@ else
       <td>
         <?php echo T_("Remove this domain from your account"); ?>
       </td>
-      <td class="txtRa ltr"><div data-confirm data-data='{"status" : "remove"}' class="btn danger "><?php echo T_("Remove") ?></div></td>
+      <td class="txtRa ltr"><div data-confirm data-data='{"status" : "remove"}' class="btn-danger "><?php echo T_("Remove") ?></div></td>
      </tr>
 
 

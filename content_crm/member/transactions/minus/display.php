@@ -31,7 +31,7 @@
 
       </div>
       <footer class="txtRa">
-        <button class="btn danger"><?php echo T_("Save") ?></button>
+        <button class="btn-danger"><?php echo T_("Save") ?></button>
       </footer>
     </div>
   </form>

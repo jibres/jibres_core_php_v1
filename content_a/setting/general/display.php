@@ -283,7 +283,7 @@ $storeData = \dash\data::store_store_data();
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn danger" href="<?php echo \dash\url::that(). '/remove' ?>"><?php echo T_("Remove Business") ?></a>
+      <a class="btn-danger" href="<?php echo \dash\url::that(). '/remove' ?>"><?php echo T_("Remove Business") ?></a>
     </div>
   </form>
 </section>

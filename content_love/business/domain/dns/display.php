@@ -87,7 +87,7 @@
 
         </div>
         <footer class="txtRa">
-          <button class="btn danger"><?php echo T_("Change source server") ?></button>
+          <button class="btn-danger"><?php echo T_("Change source server") ?></button>
         </footer>
       </div>
 

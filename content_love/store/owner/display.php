@@ -29,7 +29,7 @@
         <div class="c-xs-2 c-sm-2"><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id') ?>" class="btn-secondary"><?php echo T_("Cancel") ?></a></div>
       </div>
 
-      <div class="btn danger block mTB10" data-confirm data-data='{"changeowner": "changeowner"}'><?php echo T_("Change owner") ?></div>
+      <div class="btn-danger block mTB10" data-confirm data-data='{"changeowner": "changeowner"}'><?php echo T_("Change owner") ?></div>
       <?php }else{ ?>
         <h6><?php echo T_("Choose new owner") ?></h6>
         <form method="get" action="<?php echo \dash\url::that() ?>" autocomplete="off">

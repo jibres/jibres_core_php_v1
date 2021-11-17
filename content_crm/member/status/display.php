@@ -89,7 +89,7 @@
 		<?php if(\dash\data::dataRowMember_status() === 'removed') {?>
       		<div class="btn-success" data-confirm data-data='{"status": "awaiting"}'><?php echo T_("Restore user") ?></div>
 		<?php }else{ ?>
-      		<div class="btn danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove user") ?></div>
+      		<div class="btn-danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove user") ?></div>
 		<?php } //endif ?>
     </div>
   </form>

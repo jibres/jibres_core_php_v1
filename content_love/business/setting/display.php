@@ -131,7 +131,7 @@
         </div>
       </div>
       <footer class="txtRa">
-        <button class="btn danger"><?php echo T_("Change subdomian") ?></button>
+        <button class="btn-danger"><?php echo T_("Change subdomian") ?></button>
       </footer>
     </div>
   </form>

@@ -5,4 +5,4 @@
 	<textarea  name="why" rows="2" maxlength="200"><?php echo \dash\data::getWhy(); ?></textarea>
 </div>
 
-<button type="submit" class="btn danger block mT10"><?php echo T_("Delete Account"); ?></button>
+<button type="submit" class="btn-danger block mT10"><?php echo T_("Delete Account"); ?></button>

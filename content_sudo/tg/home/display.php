@@ -10,7 +10,7 @@ $tg = \dash\data::tg();
       <a class="btn dark outline mT25" href="<?php echo \dash\url::this(); ?>/users"><?php echo T_("Users"); ?></a>
       <a class="btn dark outline mT25" href="<?php echo \dash\url::this(); ?>/system"><?php echo T_("System"); ?></a>
     <?php if(\dash\user::id() === 1) {?>
-      <a class="btn danger outline mT10" href="<?php echo \dash\url::this(); ?>/webhook"><?php echo T_("Webhook"); ?></a>
+      <a class="btn-outline-danger mT10" href="<?php echo \dash\url::this(); ?>/webhook"><?php echo T_("Webhook"); ?></a>
     <?php } ?>
     </div>
   </div>

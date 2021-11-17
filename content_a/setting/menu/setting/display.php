@@ -38,7 +38,7 @@
   </div>
   <div class="c4 s12">
       <div class="action">
-        <div data-confirm data-data='{"remove": "remove"}' class="btn danger"><?php echo T_("Remove") ?></div>
+        <div data-confirm data-data='{"remove": "remove"}' class="btn-danger"><?php echo T_("Remove") ?></div>
       </div>
   </div>
 </section>

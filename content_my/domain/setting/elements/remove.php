@@ -10,7 +10,7 @@
   </div>
   <div class="c4 s12">
       <div class="action">
-        <div class="btn danger" data-confirm data-data='{"status" : "remove"}'><?php echo T_("Remove") ?></div>
+        <div class="btn-danger" data-confirm data-data='{"status" : "remove"}'><?php echo T_("Remove") ?></div>
       </div>
   </div>
 </section>

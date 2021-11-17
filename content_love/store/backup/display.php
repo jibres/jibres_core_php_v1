@@ -16,7 +16,7 @@
       </div>
         <?php if(\dash\data::currentBackup()) {?>
       <footer class="f">
-        <div class="cauto"><div data-ajaxify data-data='{"remove": "remove"}' class="btn danger outline"><?php echo T_("Remove") ?></div></div>
+        <div class="cauto"><div data-ajaxify data-data='{"remove": "remove"}' class="btn-outline-danger"><?php echo T_("Remove") ?></div></div>
 
         <div class="c"></div>
         <div class="cauto"><a target="_blank" class="btn master" href="<?php echo \dash\url::that(). \dash\request::full_get(['download' => 1]) ?>"><?php echo T_("Download") ?></a></div>

@@ -75,7 +75,7 @@
         <?php if(!\dash\data::dataRow_cdnpanel()) {?>
           <button class="btn master"><?php echo T_("Add to CDN panel Now!") ?></button>
         <?php }else{ ?>
-          <button class="btn danger"><?php echo T_("Remove from CDN panel") ?></button>
+          <button class="btn-danger"><?php echo T_("Remove from CDN panel") ?></button>
         <?php } //endif ?>
       </footer>
     </div>

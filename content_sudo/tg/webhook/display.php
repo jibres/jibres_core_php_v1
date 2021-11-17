@@ -15,7 +15,7 @@ $tg = \dash\data::tg();
     <input type="number" name="max_connections" id="max_connections" min="0" max="200" placeholder='<?php echo T_("Defaults to 40"); ?>'>
   </div>
 
-  <button class="btn danger block"><?php echo T_("Set Webhook"); ?></button>
+  <button class="btn-danger block"><?php echo T_("Set Webhook"); ?></button>
 </form>
 
 <pre class="msg info2 fs16"></pre>

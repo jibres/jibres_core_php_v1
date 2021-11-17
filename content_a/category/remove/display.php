@@ -48,7 +48,7 @@
 
     </div>
     <footer class="txtRa">
-      <button class="btn danger"><?php echo T_("Save change and remove category") ?></button>
+      <button class="btn-danger"><?php echo T_("Save change and remove category") ?></button>
     </footer>
   </section>
 </div>

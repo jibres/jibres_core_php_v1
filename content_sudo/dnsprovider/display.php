@@ -12,7 +12,7 @@
         </div>
       </div>
       <footer class="txtRa">
-        <button name="ssl" value="ssl" class="btn danger">Update now</button>
+        <button name="ssl" value="ssl" class="btn-danger">Update now</button>
       </footer>
     </div>
   </div>

@@ -33,7 +33,7 @@
         <div class="row">
           <div class="c-auto">
             <?php if(\dash\data::editMode()) {?>
-              <div class="btn danger outline" data-confirm data-data='{"remove":"remove"}'><?php echo T_("Remove") ?></div>
+              <div class="btn-outline-danger" data-confirm data-data='{"remove":"remove"}'><?php echo T_("Remove") ?></div>
             <?php } //endif ?>
           </div>
           <div class="c"></div>

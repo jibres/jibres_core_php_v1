@@ -20,7 +20,7 @@ $html .= "<div class='mb-6'>";
 {
   if($is_homepage)
   {
-    $html .= "<div class='btn danger block w-full disabled'>";
+    $html .= "<div class='btn-danger block w-full disabled'>";
     {
       $html .= T_('Is home page');
     }

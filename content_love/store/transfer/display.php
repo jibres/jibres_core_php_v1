@@ -65,7 +65,7 @@
         </div>
       </div>
       <footer class="txtRa">
-        <button class="btn danger">Update by process</button>
+        <button class="btn-danger">Update by process</button>
       </footer>
     </div>
   </form>

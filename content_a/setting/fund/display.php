@@ -37,7 +37,7 @@
         <?php if(\dash\data::editMode()) {?>
           <div class="f">
             <div class="c"><button class="btn block primary mT10"><?php echo T_("Edit"); ?></button></div>
-            <div class="cauto mLa5"><div data-confirm data-data='{"remove": "remove"}' class="btn danger mT10"><?php echo T_("Remove"); ?></div></div>
+            <div class="cauto mLa5"><div data-confirm data-data='{"remove": "remove"}' class="btn-danger mT10"><?php echo T_("Remove"); ?></div></div>
           </div>
 
         <?php }else{ ?>

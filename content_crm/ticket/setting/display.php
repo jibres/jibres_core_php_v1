@@ -118,7 +118,7 @@ echo "<div class='btn ". $btnclass. "' data-ajaxify data-data='". $json . "' dat
   </div>
   <div class="c4 s12">
     <div class="action">
-      <div data-confirm data-data='{"runaction_editstatus" : 1, "status" : "deleted"}' class="btn danger"><?php echo T_("Remove") ?></div>
+      <div data-confirm data-data='{"runaction_editstatus" : 1, "status" : "deleted"}' class="btn-danger"><?php echo T_("Remove") ?></div>
     </div>
   </div>
   <footer class="txtRa">

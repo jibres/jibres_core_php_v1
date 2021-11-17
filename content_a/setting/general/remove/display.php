@@ -34,7 +34,7 @@ $storeData = \dash\data::store_store_data();
         <div class="cauto"><a class="btn-secondary outline" href="<?php echo \dash\url::that() ?>"><?php echo T_("Cancel") ?></a></div>
         <div class="c"></div>
 
-        <div class="cauto"><div data-response='sure' data-response-hide><button class="btn danger"><?php echo T_("Confirm and delete business"); ?></button></div></div>
+        <div class="cauto"><div data-response='sure' data-response-hide><button class="btn-danger"><?php echo T_("Confirm and delete business"); ?></button></div></div>
 
       </footer>
     </div>

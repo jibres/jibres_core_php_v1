@@ -16,7 +16,7 @@
         <div class="msg f align-center fs08">
           <div class="c s12"><?php echo T_("Don't recognize a device?"); ?></div>
           <div class="cauto os">
-            <a class="btn danger outline" data-confirm  data-data='{"type": "terminateall" <?php echo \dash\csrf::get_json(); ?>}' ><?php echo T_("Terminate all other sessions"); ?></a>
+            <a class="btn-outline-danger" data-confirm  data-data='{"type": "terminateall" <?php echo \dash\csrf::get_json(); ?>}' ><?php echo T_("Terminate all other sessions"); ?></a>
           </div>
         </div>
 

@@ -12,7 +12,7 @@
         </div>
       </div>
       <footer class="txtRa">
-        <button class="btn danger">Update All</button>
+        <button class="btn-danger">Update All</button>
       </footer>
     </div>
   </div>
