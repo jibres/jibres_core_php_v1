@@ -69,10 +69,10 @@
         <td><?php echo \dash\fit::file_size(a($value, 'size_raw')) ?></td>
         <td><?php echo a($value, 'ext') ?></td>
         <td>
-          <a target="_blank" data-direct class="btn link" href='<?php echo \dash\url::this() . \dash\request::full_get(['file' => a($value, 'name') ]); ?>'>Download</a>
+          <a target="_blank" data-direct class="btn-link" href='<?php echo \dash\url::this() . \dash\request::full_get(['file' => a($value, 'name') ]); ?>'>Download</a>
         <?php if(a($value, 'new')) {?>
-          <div class="btn link"></div>
-          <a data-direct class="btn link" href='<?php echo \dash\url::this() . \dash\request::full_get(['file' => a($value, 'name'), 'clear' => 1 ]); ?>'>Clean</a>
+          <div class="btn-link"></div>
+          <a data-direct class="btn-link" href='<?php echo \dash\url::this() . \dash\request::full_get(['file' => a($value, 'name'), 'clear' => 1 ]); ?>'>Clean</a>
         <?php } //endif ?>
 
         </td>

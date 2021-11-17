@@ -99,7 +99,7 @@ $addChildMode = \dash\data::addChildMode();
               <?php echo T_("Only the networks you have set up are displayed") ?>
               <br>
               <?php echo T_("To manage your social network") ?>
-              <a class="btn link" href="<?php echo \dash\url::kingdom(). '/a/setting/social' ?>"><?php echo T_("Click here") ?></a>
+              <a class="btn-link" href="<?php echo \dash\url::kingdom(). '/a/setting/social' ?>"><?php echo T_("Click here") ?></a>
             </p>
           </div>
         </div>

@@ -63,7 +63,7 @@
                 <?php if(\dash\request::get('did') == a($value, 'id')) {?>
                   <span class="fc-mute"><i><?php echo T_("Editing") ?>...</i></span>
                 <?php }else{ ?>
-                <a class="btn link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. a($value, 'id') ?>"><?php echo T_("Edit") ?></a>
+                <a class="btn-link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. a($value, 'id') ?>"><?php echo T_("Edit") ?></a>
                 <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo a($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
               <?php } //endif ?>
               </td>

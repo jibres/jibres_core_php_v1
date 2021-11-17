@@ -63,7 +63,7 @@
 					</div>
 					<footer class="f">
 						<?php if(\dash\request::get()) {?>
-						<div class="cauto"><a class="btn link" href="<?php echo \dash\url::current() ?>"><?php echo T_("New") ?></a></div>
+						<div class="cauto"><a class="btn-link" href="<?php echo \dash\url::current() ?>"><?php echo T_("New") ?></a></div>
 						<?php } //endif ?>
 						<div class="c"></div>
 						<div class="cauto"><button class="btn-success"><?php echo T_("Calculate") ?></button></div>

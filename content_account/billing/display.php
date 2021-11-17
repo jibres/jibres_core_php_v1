@@ -52,7 +52,7 @@ if(a($value, 'token') && !a($value, 'verify_again'))
           <div class="key"><?php echo a($value, 'title'); ?>
           </div>
           <?php if(a($value, 'verify_again')){?>
-            <div class="value" data-ajaxify data-data='{"check": "again", "id" : "<?php echo a($value, 'id') ?>" <?php echo \dash\csrf::get_json(true) ?>}'><span class="btn link"><?php echo T_("Check verify again"); ?></span></div>
+            <div class="value" data-ajaxify data-data='{"check": "again", "id" : "<?php echo a($value, 'id') ?>" <?php echo \dash\csrf::get_json(true) ?>}'><span class="btn-link"><?php echo T_("Check verify again"); ?></span></div>
           <?php }// endif ?>
 <?php
 if(isset($value['plus']) && $value['plus'])

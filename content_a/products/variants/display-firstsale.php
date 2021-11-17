@@ -6,7 +6,7 @@
 			</p>
 		</div>
 		<footer class="txtRa">
-			<a class="btn link" href="<?php echo \dash\url::here(). '/order?product='. \dash\data::productDataRow_id(); ?>"><?php echo T_("Show list of order contain this product") ?></a>
+			<a class="btn-link" href="<?php echo \dash\url::here(). '/order?product='. \dash\data::productDataRow_id(); ?>"><?php echo T_("Show list of order contain this product") ?></a>
 
 		</footer>
 	</div>

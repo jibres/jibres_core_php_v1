@@ -43,7 +43,7 @@ $have_user = false;
 
 
           <?php if(!$have_user && $dataTable) {?>
-            <div class="fc-mute pA10"><?php echo T_("This shopping cart is not assigned to the customer and the customer has added the shopping cart without logging in. Click here if you want to dedicate this shopping cart to a specific customer") ?> <span data-kerkere='.assignUser' class="btn link"><?php echo T_("Assign to customer") ?></span></div>
+            <div class="fc-mute pA10"><?php echo T_("This shopping cart is not assigned to the customer and the customer has added the shopping cart without logging in. Click here if you want to dedicate this shopping cart to a specific customer") ?> <span data-kerkere='.assignUser' class="btn-link"><?php echo T_("Assign to customer") ?></span></div>
           <?php } //endif ?>
 
         </div>

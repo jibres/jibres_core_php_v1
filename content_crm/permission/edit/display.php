@@ -81,7 +81,7 @@ if(!is_array($permissionList))
 <?php } //endif ?>
     </div>
     <div class="cauto">
-      <a class="btn link" href="<?php echo \dash\url::this(). '/advance?id='. \dash\request::get('id'). '&group='. $key ?>"><?php echo T_("Advance") ?></a>
+      <a class="btn-link" href="<?php echo \dash\url::this(). '/advance?id='. \dash\request::get('id'). '&group='. $key ?>"><?php echo T_("Advance") ?></a>
     </div>
   </footer>
 </section>

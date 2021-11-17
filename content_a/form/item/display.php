@@ -19,7 +19,7 @@
 						<b><?php echo a($value, 'type_detail', 'title'); ?></b>
 					</div>
 					<div class="cauto s12">
-						<a class="btn link" href="<?php echo \dash\url::this(). '/item/type?'. \dash\request::fix_get() ?>"><?php echo T_("Change type") ?></a>
+						<a class="btn-link" href="<?php echo \dash\url::this(). '/item/type?'. \dash\request::fix_get() ?>"><?php echo T_("Change type") ?></a>
 					</div>
 				</div>
 
@@ -335,7 +335,7 @@ function settingDefaultvalue($value) {?>
 				<?php echo T_("Choices") ?>
 			</div>
 			<div class="cauto s12">
-				<a class="btn link" href="<?php echo \dash\url::this(). '/item/choice?'. \dash\request::fix_get() ?>"><?php echo T_("Manage choice") ?></a>
+				<a class="btn-link" href="<?php echo \dash\url::this(). '/item/choice?'. \dash\request::fix_get() ?>"><?php echo T_("Manage choice") ?></a>
 			</div>
 		</div>
 	</div>

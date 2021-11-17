@@ -69,7 +69,7 @@
 
         </div>
         <footer class="txtRa">
-          <a class="btn link" href="<?php echo \dash\url::this(). '/property?id='. \dash\data::dataRow_id(); ?>"><?php echo T_("Set product general property") ?></a>
+          <a class="btn-link" href="<?php echo \dash\url::this(). '/property?id='. \dash\data::dataRow_id(); ?>"><?php echo T_("Set product general property") ?></a>
         </footer>
       </section>
 
@@ -83,7 +83,7 @@
       </div>
       <footer class="f">
         <div class="cauto">
-          <a class="btn link" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>">
+          <a class="btn-link" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>">
               <span class="ltr"><?php echo \dash\fit::number(\dash\data::dataRow_count()) ?></span>
               <?php echo T_("Product founded by this category"); ?>
             </a>

@@ -121,7 +121,7 @@
           <td><?php echo a($value, 'title') ?></td>
           <td><?php echo a($value, 'nature') ?></td>
           <td><?php if(a($value, 'detailable')){?><i class="sf-check fc-red"></i><?php }// endif ?></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
+          <td class="collapsing"><a class="btn-link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>
@@ -170,7 +170,7 @@
 
 
 <?php function htmlStartAddNew() {?>
-  <div class="msg fs14 success2"><?php echo T_("Hi!") ?> <a class="btn link" href="<?php echo \dash\url::that() ?>/add"><?php echo T_("Add new") ?></a></div>
+  <div class="msg fs14 success2"><?php echo T_("Hi!") ?> <a class="btn-link" href="<?php echo \dash\url::that() ?>/add"><?php echo T_("Add new") ?></a></div>
 <?php } //endif ?>
 
 

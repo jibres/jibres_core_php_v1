@@ -113,7 +113,7 @@
 				<div class="c"></div>
 				<div class="cauto">
 					<?php if(\dash\data::dataTableDraft()) {?>
-						<a class="btn link" href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['status' => 'draft']) ?>"><?php echo T_("You have some draft document!") ?></a>
+						<a class="btn-link" href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['status' => 'draft']) ?>"><?php echo T_("You have some draft document!") ?></a>
 					<?php } // endif ?>
 					<?php if(\dash\request::get()) {?>
 						<a href="<?php echo \dash\url::current() ?>" class="btn sm secondary outline"><?php echo T_("Clear filter") ?></a>

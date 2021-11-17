@@ -88,7 +88,7 @@
 
 
           <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo a($value, 'title') ?></a></td>
+          <td class="collapsing"><a class="btn-link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo a($value, 'title') ?></a></td>
           <td class="collapsing"><?php echo T_(ucfirst(a($value, 'naturegroup'))); ?></td>
           <td class="collapsing"><?php echo T_(ucfirst(a($value, 'balancetype'))); ?></td>
         </tr>

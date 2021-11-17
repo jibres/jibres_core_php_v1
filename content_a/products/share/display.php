@@ -19,7 +19,7 @@ require_once(root. 'content_a/products/productName.php');
         <?php if(!\dash\data::telegramSetting_apikey()) { // neet to set telegram setting first?>
           <div class="msg warn2">
             <?php echo T_("You must set Telegram bot setting first") ?>
-            <a class="btn link" href="<?php echo \dash\url::here(). '/setting/telegram' ?>"><?php echo T_("Click here to setup telegram setting") ?></a>
+            <a class="btn-link" href="<?php echo \dash\url::here(). '/setting/telegram' ?>"><?php echo T_("Click here to setup telegram setting") ?></a>
           </div>
         <?php }else{ ?>
           <form method="post" autocomplete="off" id='form1'>

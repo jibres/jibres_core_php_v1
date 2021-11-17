@@ -54,7 +54,7 @@
       </div>
       <div class="c"></div>
       <div class="cauto">
-          <a class="btn link" target="_blank" href="<?php echo \dash\url::here(); ?>/processlist">Mysql Process List</a>
+          <a class="btn-link" target="_blank" href="<?php echo \dash\url::here(); ?>/processlist">Mysql Process List</a>
       </div>
     </div>
 
@@ -63,7 +63,7 @@
   <div class="c s6">
     <div class="msg fs14">
       <div class="btn master" data-confirm data-data='{"type": "cdn"}'><?php echo T_("Pull CDN repository"); ?></div>
-      <a class="btn link" href="<?php echo \dash\url::here(). '/tempfile' ?>"><?php echo T_("Temp files") ?></a>
+      <a class="btn-link" href="<?php echo \dash\url::here(). '/tempfile' ?>"><?php echo T_("Temp files") ?></a>
     </div>
   </div>
 

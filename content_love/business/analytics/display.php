@@ -48,7 +48,7 @@
             <td class="txtB fc-blue"><?php echo \dash\fit::number_en(a($value, 'max')); ?></td>
             <td><?php echo \dash\fit::number_en(a($value, 'min')); ?></td>
             <td><?php echo \dash\fit::number_en(a($value, 'avg')); ?></td>
-            <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/analytics/table?f='. $key ?>"><?php echo T_("Show list") ?></a></td>
+            <td class="collapsing"><a class="btn-link" href="<?php echo \dash\url::this(). '/analytics/table?f='. $key ?>"><?php echo T_("Show list") ?></a></td>
           </tr>
         <?php } //endfor ?>
       </tbody>
@@ -85,7 +85,7 @@
             <td class="txtB fc-blue"><?php echo \dash\fit::number_en(a($value, 'max')); ?></td>
             <td><?php echo \dash\fit::number_en(a($value, 'min')); ?></td>
             <td><?php echo \dash\fit::number_en(a($value, 'avg')); ?></td>
-            <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/analytics/table?f='. $key ?>"><?php echo T_("Show list") ?></a></td>
+            <td class="collapsing"><a class="btn-link" href="<?php echo \dash\url::this(). '/analytics/table?f='. $key ?>"><?php echo T_("Show list") ?></a></td>
           </tr>
         <?php } //endfor ?>
       </tbody>

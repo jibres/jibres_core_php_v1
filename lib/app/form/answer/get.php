@@ -130,7 +130,7 @@ class get
 		}
 		elseif(isset($value['item_type']) && $value['item_type'] === 'file')
 		{
-			$result .= '<a target="_blank" href="'. \lib\filepath::fix($value['answer']). '" class="btn link" >'. T_("Show file"). '</a>';
+			$result .= '<a target="_blank" href="'. \lib\filepath::fix($value['answer']). '" class="btn-link" >'. T_("Show file"). '</a>';
 		}
 		else
 		{

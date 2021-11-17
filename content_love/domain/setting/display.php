@@ -213,7 +213,7 @@ else
      </tr>
      <tr>
 
-      <td colspan="2"><div class="btn link" data-ajaxify data-data='{"whois" : "fetch"}'><?php echo T_("Update now") ?></div></td>
+      <td colspan="2"><div class="btn-link" data-ajaxify data-data='{"whois" : "fetch"}'><?php echo T_("Update now") ?></div></td>
 
      </tr>
 

@@ -14,7 +14,7 @@
 		<?php if(\dash\data::countAll() < 50) {?>
 			<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>&download=now" data-direct class="mLa10"><?php echo T_("Download Now"); ?></a>
 		<?php }elseif(\dash\data::countAll() >= 50) {?>
-			<div class="btn link" data-confirm data-data='{"export":"answer"}' class="mLa10"><?php echo T_("Send export request"); ?></div>
+			<div class="btn-link" data-confirm data-data='{"export":"answer"}' class="mLa10"><?php echo T_("Send export request"); ?></div>
 		<?php } //endif ?>
 	</div>
 </div>

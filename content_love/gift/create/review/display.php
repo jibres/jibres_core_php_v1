@@ -40,7 +40,7 @@
 
       <footer class="f">
         <div class="cauto">
-          <a class="btn link" href="<?php echo \dash\url::this(). '/list' ?>"><?php echo T_("Leave draft"); ?></a>
+          <a class="btn-link" href="<?php echo \dash\url::this(). '/list' ?>"><?php echo T_("Leave draft"); ?></a>
         </div>
         <div class="c"></div>
         <div class="cauto">

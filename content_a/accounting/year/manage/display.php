@@ -66,7 +66,7 @@
       </div>
   </div>
   <footer class="txtRa">
-  	<a class="btn link" href='<?php echo \dash\url::this(). '/doc/add?type=opening'; ?>'><?php echo T_("Add opening document manually") ?></a>
+  	<a class="btn-link" href='<?php echo \dash\url::this(). '/doc/add?type=opening'; ?>'><?php echo T_("Add opening document manually") ?></a>
   </footer>
 </section>
 
@@ -85,7 +85,7 @@
       </div>
   </div>
   <footer class="txtRa">
-  	<div data-kerkere='.showListClosingHarmfulProfit' class="btn link"><?php echo T_("Show list") ?></div>
+  	<div data-kerkere='.showListClosingHarmfulProfit' class="btn-link"><?php echo T_("Show list") ?></div>
   </footer>
 </section>
 
@@ -164,7 +164,7 @@
       </div>
   </div>
   <footer class="txtRa">
-  	<div data-kerkere='.showClosingList' class="btn link"><?php echo T_("Show list") ?></div>
+  	<div data-kerkere='.showClosingList' class="btn-link"><?php echo T_("Show list") ?></div>
   </footer>
 </section>
 

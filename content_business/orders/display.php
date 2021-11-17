@@ -28,7 +28,7 @@
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
 
         <tr>
-          <th class="collapsing"><a href="<?php echo \dash\url::this(). '/view?id='. a($value, 'id_code'); ?>"><code class="btn link"><?php echo a($value, 'id_code') ?></code></a></th>
+          <th class="collapsing"><a href="<?php echo \dash\url::this(). '/view?id='. a($value, 'id_code'); ?>"><code class="btn-link"><?php echo a($value, 'id_code') ?></code></a></th>
           <td class="s0"><a href="<?php echo \dash\url::this(); ?>?itemequal=<?php echo a($value, 'item'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'item')); ?></a></td>
           <td class="s0"><a href="<?php echo \dash\url::this(); ?>?qtyequal=<?php echo a($value, 'qty'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'qty')); ?></a></td>
 

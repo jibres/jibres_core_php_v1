@@ -18,9 +18,9 @@
 
           <td class="collapsing">
             <?php if(a($value, 'type_detail', 'chart')) {?>
-              <a class="btn link" href="<?php echo \dash\url::that(). '/answer?id='. a($value, 'form_id'). '&iid='. a($value, 'id'); ?>"><i class="sf-chart"></i> <?php echo T_("Report") ?></a></td>
+              <a class="btn-link" href="<?php echo \dash\url::that(). '/answer?id='. a($value, 'form_id'). '&iid='. a($value, 'id'); ?>"><i class="sf-chart"></i> <?php echo T_("Report") ?></a></td>
             <?php }else{ ?>
-              <a class="btn link" href="<?php echo \dash\url::this(). '/answer/item?id='. a($value, 'form_id'). '&iid='. a($value, 'id'); ?>"><i class="sf-list-ul"></i> <?php echo T_("Answers") ?></a></td>
+              <a class="btn-link" href="<?php echo \dash\url::this(). '/answer/item?id='. a($value, 'form_id'). '&iid='. a($value, 'id'); ?>"><i class="sf-list-ul"></i> <?php echo T_("Answers") ?></a></td>
             <?php } //endif ?>
         </tr>
       <?php } //endif ?>

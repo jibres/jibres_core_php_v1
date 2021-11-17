@@ -23,7 +23,7 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
     <?php if(\dash\data::openingMode()) {?>
       <div class="p0">
         <?php if(\dash\data::openingDoc()) {?>
-          <div class="msg warn txtB txtC"><?php echo T_("You already add Opening Document in this year!"); ?> <a class="btn link" href="<?php echo \dash\url::that().'/edit?id='. \dash\data::openingDoc_id() ?>"><?php echo T_("View Document"); ?></a></div>
+          <div class="msg warn txtB txtC"><?php echo T_("You already add Opening Document in this year!"); ?> <a class="btn-link" href="<?php echo \dash\url::that().'/edit?id='. \dash\data::openingDoc_id() ?>"><?php echo T_("View Document"); ?></a></div>
         <?php }else{ ?>
           <div class="msg success2 txtB txtC"><?php echo T_("Opening Document"); ?></div>
         <?php } //endif ?>
@@ -44,7 +44,7 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
             <?php } // endfor ?>
           </select>
         <?php }else{ ?>
-          <div class="msg warn2"><a class="btn link" href="<?php echo \dash\url::this(). '/year/add' ?>"><?php echo T_("Add new accounting year") ?></a></div>
+          <div class="msg warn2"><a class="btn-link" href="<?php echo \dash\url::this(). '/year/add' ?>"><?php echo T_("Add new accounting year") ?></a></div>
         <?php } // endif ?>
 
         <?php if($defaultYear) {?>

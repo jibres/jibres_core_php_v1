@@ -57,7 +57,7 @@ else
           <td class="">
             <?php echo \lib\app\form\answer\get::HTMLshowDetaiRecrod($value); ?>
           </td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::this(). '/answer/detail?id='. \dash\request::get('id'). '&aid='. a($value, 'answer_id') ?>"><?php echo T_("Other answer") ?></a></td>
+          <td class="collapsing"><a class="btn-link" href="<?php echo \dash\url::this(). '/answer/detail?id='. \dash\request::get('id'). '&aid='. a($value, 'answer_id') ?>"><?php echo T_("Other answer") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>

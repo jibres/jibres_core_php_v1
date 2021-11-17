@@ -25,7 +25,7 @@
   </form>
   <footer class="txtRa">
   	<?php if(!a($bank, 'mellat', 'empty')){  ?>
-  		<a class="btn link" href="<?php echo \dash\url::that(). '/irmellat' ?>"> <?php echo T_("Change connection setting") ?></a>
+  		<a class="btn-link" href="<?php echo \dash\url::that(). '/irmellat' ?>"> <?php echo T_("Change connection setting") ?></a>
   	<?php } //endif ?>
 
   </footer>
@@ -57,7 +57,7 @@
   </form>
   <footer class="txtRa">
   	<?php if(!a($bank, 'zarinpal', 'empty')){  ?>
-  		<a class="btn link" href="<?php echo \dash\url::that(). '/irzarinpal' ?>"> <?php echo T_("Change connection setting") ?></a>
+  		<a class="btn-link" href="<?php echo \dash\url::that(). '/irzarinpal' ?>"> <?php echo T_("Change connection setting") ?></a>
   	<?php } //endif ?>
 
   </footer>
@@ -90,7 +90,7 @@
   </form>
   <footer class="txtRa">
   	<?php if(!a($bank, 'asanpardakht', 'empty')){  ?>
-  		<a class="btn link" href="<?php echo \dash\url::that(). '/irasanpardakht' ?>"> <?php echo T_("Change connection setting") ?></a>
+  		<a class="btn-link" href="<?php echo \dash\url::that(). '/irasanpardakht' ?>"> <?php echo T_("Change connection setting") ?></a>
   	<?php } //endif ?>
 
   </footer>
@@ -121,7 +121,7 @@
   </form>
   <footer class="txtRa">
   	<?php if(!a($bank, 'parsian', 'empty')){  ?>
-  		<a class="btn link" href="<?php echo \dash\url::that(). '/irparsian' ?>"> <?php echo T_("Change connection setting") ?></a>
+  		<a class="btn-link" href="<?php echo \dash\url::that(). '/irparsian' ?>"> <?php echo T_("Change connection setting") ?></a>
   	<?php } //endif ?>
 
   </footer>
@@ -153,7 +153,7 @@
   </form>
   <footer class="txtRa">
   	<?php if(!a($bank, 'payir', 'empty')){  ?>
-  		<a class="btn link" href="<?php echo \dash\url::that(). '/irpayir' ?>"> <?php echo T_("Change connection setting") ?></a>
+  		<a class="btn-link" href="<?php echo \dash\url::that(). '/irpayir' ?>"> <?php echo T_("Change connection setting") ?></a>
   	<?php } //endif ?>
 
   </footer>
@@ -185,7 +185,7 @@
   </form>
   <footer class="txtRa">
     <?php if(!a($bank, 'irkish', 'empty')){  ?>
-      <a class="btn link" href="<?php echo \dash\url::that(). '/irirkish' ?>"> <?php echo T_("Change connection setting") ?></a>
+      <a class="btn-link" href="<?php echo \dash\url::that(). '/irirkish' ?>"> <?php echo T_("Change connection setting") ?></a>
     <?php } //endif ?>
 
   </footer>
@@ -218,7 +218,7 @@
   </form>
   <footer class="txtRa">
     <?php if(!a($bank, 'idpay', 'empty')){  ?>
-      <a class="btn link" href="<?php echo \dash\url::that(). '/iridpay' ?>"> <?php echo T_("Change connection setting") ?></a>
+      <a class="btn-link" href="<?php echo \dash\url::that(). '/iridpay' ?>"> <?php echo T_("Change connection setting") ?></a>
     <?php } //endif ?>
 
   </footer>

@@ -25,7 +25,7 @@ require_once(root. 'content_a/products/productName.php');
               <div class="msg f">
                 <div class="c"><?php echo a($value, 'text') ?></div>
                 <div class="cauto">
-                  <a class="btn link" href="<?php echo \dash\url::this() . '/bullet?id='. \dash\request::get('id'). '&index='. $key; ?>"><?php echo T_("Edit"); ?></a>
+                  <a class="btn-link" href="<?php echo \dash\url::this() . '/bullet?id='. \dash\request::get('id'). '&index='. $key; ?>"><?php echo T_("Edit"); ?></a>
                   <span data-confirm data-data='{"type": "remove", "index": "<?php echo $key ?>"}' class="btn-link-danger"><?php echo T_("Remove") ?></span>
                 </div>
 

@@ -16,7 +16,7 @@
         </div>
 
         <div class="msg">
-          <div data-kerkere-icon data-kerkere='.showField' class="btn link"><?php echo T_("You can customize visible field") ?></div>
+          <div data-kerkere-icon data-kerkere='.showField' class="btn-link"><?php echo T_("You can customize visible field") ?></div>
         </div>
         <div data-kerkere-content="hide" class="showField">
 

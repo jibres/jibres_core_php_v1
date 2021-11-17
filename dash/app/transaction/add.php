@@ -19,7 +19,7 @@ class add
 		}
 
 		$html = '';
-		$html .= '<a target="_blank" class="btn link" href="';
+		$html .= '<a target="_blank" class="btn-link" href="';
 
 		if(\dash\engine\store::inStore())
 		{

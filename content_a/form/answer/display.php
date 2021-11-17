@@ -78,7 +78,7 @@
           <td><?php echo \dash\fit::number(a($value, 'count_answer')); ?></td>
           <td class="collapsing"><?php if(a($value, 'factor_id')) {?><a href="<?php echo \dash\url::kingdom(). '/a/order/comment?id='. a($value, 'factor_id'); ?>"><?php echo T_("View Order") ?></a><?php } //endif ?></td>
           <td class="collapsing"><?php if(a($value, 'review')){echo "<i class='sf-check fc-black'></i>";}else{echo "<i class='sf-times fc-mute'></i>";} ?></td>
-          <td class="collapsing"><a class="btn link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\request::get('id'). '&aid='. a($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
+          <td class="collapsing"><a class="btn-link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\request::get('id'). '&aid='. a($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
         </tr>
       <?php } //endif ?>
     </tbody>

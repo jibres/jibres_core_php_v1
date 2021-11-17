@@ -12,7 +12,7 @@
 
 
       </div>
-      <a class="btn link" href="https://www.nic.ir/Create_New_Handle?class=Person" target="_blank" data-direct><?php echo T_("Register on IRNIC") ?></a>
+      <a class="btn-link" href="https://www.nic.ir/Create_New_Handle?class=Person" target="_blank" data-direct><?php echo T_("Register on IRNIC") ?></a>
    </div>
 
     <?php if(false) { // the IRNIC disable create contact from api :) Date: 2020-06-22 ?>
