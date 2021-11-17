@@ -17,12 +17,12 @@ class separator1
 			'title'        => T_("Separator 1"),
 			'options'      =>
 			[
-
+				'heading',
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
 			[
-
+				'heading' => T_("Separator"),
 			],
 			'preview_list' =>
 			[
