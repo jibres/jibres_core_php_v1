@@ -6,7 +6,7 @@
 
 <p class="msg info2 fs14"><?php echo T_("Importing a CSV file that has been sorted by a spreadsheet editor such as Microsoft Excel or Numbers might cause your products to be removed from their relevant image links on the CSV, and your product's images will be lost."); ?></p>
 
-<p class="msg danger2 fs14"><?php echo T_("Before you start your import, make sure that you have a backup of your product data."); ?></p>
+<p class="alert-danger2 fs14"><?php echo T_("Before you start your import, make sure that you have a backup of your product data."); ?></p>
 
 <div class="cbox">
 	<ul>
@@ -43,14 +43,14 @@ $awaitingImport = \dash\data::awaitingImport();
 
 	<?php if(isset($awaitingImport['meta']['allErrorCount']) && $awaitingImport['meta']['allErrorCount']) {?>
 
-		<div class="msg danger f"><?php echo T_("Count Record found whit error:"); ?> <b class="c mLa10 s12"><?php echo \dash\fit::number($awaitingImport['meta']['allErrorCount']); ?></b></div>
+		<div class="alert-danger f"><?php echo T_("Count Record found whit error:"); ?> <b class="c mLa10 s12"><?php echo \dash\fit::number($awaitingImport['meta']['allErrorCount']); ?></b></div>
 		<div class="">
 
 		<?php if(isset($awaitingImport['meta']['error']) && $awaitingImport['meta']['error'] && is_array($awaitingImport['meta']['error'])) {?>
 
 			<?php foreach ($awaitingImport['meta']['error'] as $key => $value) {?>
 
-			<div class="msg danger2">
+			<div class="alert-danger2">
 				<div class="f">
 					<div class="c s12"><small><?php echo T_("Error"); ?></small>: <?php echo a($value, 'msg'); ?></div>
 					<div class="c s12"><small><?php echo T_("Count error"); ?></small> <b><?php echo \dash\fit::number(a($value, 'count')); ?></b></div>

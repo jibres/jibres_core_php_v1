@@ -87,7 +87,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
     <?php } //endfor ?>
   </ul>
     <?php }else{ ?>
-      <div class="msg danger"><?php echo T_("The IRNIC server not respond at this time. Try again later!") ?></div>
+      <div class="alert-danger"><?php echo T_("The IRNIC server not respond at this time. Try again later!") ?></div>
     <?php } //endif ?>
   <?php } //endif ?>
   </div>

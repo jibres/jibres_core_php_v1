@@ -60,7 +60,7 @@
  	<div class="txtC">
 
  	<?php if(\dash\data::ipDetail_block() === 'block') {?>
- 		<p class="msg danger">IP is blocked! <?php if(\dash\data::ipDetail_countblock()) {?> <span> (Count block: <?php echo \dash\data::ipDetail_countblock(); ?> ) </span><?php } //endif ?></p>
+ 		<p class="alert-danger">IP is blocked! <?php if(\dash\data::ipDetail_countblock()) {?> <span> (Count block: <?php echo \dash\data::ipDetail_countblock(); ?> ) </span><?php } //endif ?></p>
  	<?php }elseif(\dash\data::ipDetail_block() === 'unblock'){?>
  		<p class="msg success">IP is not blocked</p>
  	<?php }elseif(\dash\data::ipDetail_block() === 'unknown'){?>

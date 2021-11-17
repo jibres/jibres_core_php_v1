@@ -20,7 +20,7 @@
         </form>
       <?php }else{ ?>
         <p><?php echo T_("Remove domain from your business") ?></p>
-        <div class="msg danger2 minimal"><?php echo T_("You are trying to remove domain :domain from your business", ['domain' => '<b>'. \dash\data::domainDetail_domain(). '</b>']) ?></div>
+        <div class="alert-danger2 minimal"><?php echo T_("You are trying to remove domain :domain from your business", ['domain' => '<b>'. \dash\data::domainDetail_domain(). '</b>']) ?></div>
         <p class="fc-red"><?php echo T_("If you sure to want to remove this domain from your business click the below button") ?></p>
       <?php } //endif ?>
     </div>

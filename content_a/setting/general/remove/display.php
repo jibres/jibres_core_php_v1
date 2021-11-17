@@ -7,7 +7,7 @@ $storeData = \dash\data::store_store_data();
   <div class="avand-md">
     <div class="box">
       <div class="pad">
-        <div class="msg danger2">
+        <div class="alert-danger2">
           <?php echo T_("Be careful, You are deleting your business!") ?>
         </div>
         <p>

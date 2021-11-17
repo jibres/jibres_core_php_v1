@@ -1,6 +1,6 @@
 
 <?php if(\dash\language::current() == 'fa') {?>
-	<div class="msg danger2 rtl">
+	<div class="alert-danger2 rtl">
 		<li>حتما تمامی اطلاعات را با کاراکتر‌های لاتین وارد کنید.</li>
 		<li>حتما از یک ایمیل معتبر برای ثبت دامنه استفاده کنید. بعد از فرایند ثبت دامنه شما باید از طریق ایمیلی که به شما ارسال شده است فرایند را تایید کنید.</li>
 		<li>با توجه به تحریم بودن ایران امکان انتخاب این کشور در لیست وجود ندارد. لذا از نام‌های معروف ایرانی برای نام شهر و استان استفاده نکنید.</li>
@@ -98,7 +98,7 @@ $country_list =
 
 	</div>
 </div>
-<div class="msg danger2 mT20">
+<div class="alert-danger2 mT20">
 	<p><?php echo T_("Please enter the email you have access to. After registering any international domain, you must confirm the domain registration process by this image. Please be careful") ?></p>
 	<label for="iemail">Email</label>
 	<div class="input ltr">

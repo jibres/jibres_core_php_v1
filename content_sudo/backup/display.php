@@ -123,7 +123,7 @@
 </div>
 
 <?php }else{ ?>
-<div class="msg danger fs16"><?php echo T_("No backup was found"); ?></div>
+<div class="alert-danger fs16"><?php echo T_("No backup was found"); ?></div>
 <?php } ?>
 
 

@@ -120,7 +120,7 @@
 
     <?php if(\dash\data::nicMaybeError()) {?>
 
-        <div class="msg danger fs14">
+        <div class="alert-danger fs14">
           <p><?php
             echo
             T_("We can not detect the reseller or billing contact of this account"). '. '.
@@ -161,7 +161,7 @@ $giftCode = \dash\data::giftDetail_discount();
   }
   else
   {
-    echo '<div class="msg danger2 f align-center">';
+    echo '<div class="alert-danger2 f align-center">';
       echo '<div class="c" id="giftcardmessageerror">';
       if(\dash\data::gitfErrorMessage())
       {

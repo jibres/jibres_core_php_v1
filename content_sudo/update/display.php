@@ -1,8 +1,8 @@
 
-<p class="msg danger2 font-30 txtC"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
+<p class="alert-danger2 font-30 txtC"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
 
 <?php if(\dash\data::isLockService()) {?>
-  <p class="msg danger fs20 txtB txtC"><?php echo T_("Service is Locked!"); ?></p>
+  <p class="alert-danger fs20 txtB txtC"><?php echo T_("Service is Locked!"); ?></p>
 <?php }else{ ?>
   <p class="msg success2 fs20 txtB txtC"><?php echo T_("Service is Running!"); ?></p>
 <?php } //endif ?>
@@ -88,7 +88,7 @@ $needUpgrade = \dash\data::needUpgrade();
 
 ?>
 
-  <div class="msg danger2 fs14">
+  <div class="alert-danger2 fs14">
   <p><?php echo T_("Database need to upgrade"); ?></p>
    <div class="f">
 

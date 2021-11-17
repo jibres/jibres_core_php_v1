@@ -1,7 +1,7 @@
 
 <?php if(\dash\data::gitHaveChange() && !\dash\url::isLocal()) {?>
 
-<a href="<?php echo \dash\url::here(); ?>/gitstatus" class=" msg danger fs18 block txtC"><?php echo T_("Some code was changed!!!"); ?></a>
+<a href="<?php echo \dash\url::here(); ?>/gitstatus" class=" alert-danger fs18 block txtC"><?php echo T_("Some code was changed!!!"); ?></a>
 
 <?php } //endif ?>
 

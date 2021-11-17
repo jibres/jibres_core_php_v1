@@ -11,7 +11,7 @@
 		<?php
 		if(\dash\data::domainError())
 		{
-			echo '<div class="msg danger mT20">'. \dash\data::domainError().'</div>';
+			echo '<div class="alert-danger mT20">'. \dash\data::domainError().'</div>';
 		}
 		?>
 	</div>

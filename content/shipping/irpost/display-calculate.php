@@ -158,7 +158,7 @@
 				<?php } //endif ?>
 
 				<?php if(isset($result['error'])) { foreach ($result['error'] as $key => $value) {?>
-					<div class="msg danger2 txtB font-14"><?php echo $value ?></div>
+					<div class="alert-danger2 txtB font-14"><?php echo $value ?></div>
 				<?php } } ?>
 </div>
 			<?php } //endif ?>

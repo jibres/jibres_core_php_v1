@@ -9,6 +9,6 @@
 	</div>
 </div>
 
-<div class="msg danger2">
+<div class="alert-danger2">
 	<p><?php echo T_("Please enter the email you have access to. After registering any international domain, you must confirm the domain registration process by this image.") ?></p>
 </div>
