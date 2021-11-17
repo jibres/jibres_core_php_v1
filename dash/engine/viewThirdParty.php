@@ -17,6 +17,7 @@ class viewThirdParty
 		\dash\data::addons_crisp(self::crisp());
 		\dash\data::addons_imber(self::imber());
 		\dash\data::addons_mediaad(self::mediaad());
+		\dash\data::addons_goftino(self::goftino());
 		// disable raychat for security reason
 		// \dash\data::addons_raychat(self::raychat());
 	}
@@ -110,6 +111,25 @@ class viewThirdParty
 			if(\lib\store::detail('addon_tidio'))
 			{
 				return \lib\store::detail('addon_tidio');
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		// force disable
+		return null;
+	}
+
+
+	public static function goftino()
+	{
+		if(\dash\engine\store::inBusinessWebsite())
+		{
+			if(\lib\store::detail('addon_goftino'))
+			{
+				return \lib\store::detail('addon_goftino');
 			}
 			else
 			{

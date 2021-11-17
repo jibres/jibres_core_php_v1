@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-11-17 17:27+0330\n"
-"PO-Revision-Date: 2021-11-17 17:29+0330\n"
+"POT-Creation-Date: 2021-11-17 17:33+0330\n"
+"PO-Revision-Date: 2021-11-17 17:34+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -13429,10 +13429,14 @@ msgstr "Crisp"
 msgid "#1 Messaging Platform For Startups & SMB's"
 msgstr "پلتفرم پیام‌رسانی شماره 1 برای استارتاپ‌ها"
 
-#: content_a/setting/thirdparty/display.php:85 content_a/setting/thirdparty/display.php:86
+#: content_a/setting/thirdparty/display.php:85
 #: content_a/setting/thirdparty/goftino/view.php:8
 msgid "Goftino"
 msgstr "گفتینو"
+
+#: content_a/setting/thirdparty/display.php:86
+msgid "Online chat and customer relationship system"
+msgstr "سامانه گفت‌وگوی آنلاین و ارتباط با مشتریان"
 
 #: content_a/setting/thirdparty/display.php:98
 msgid "RayChat"
@@ -42071,6 +42075,11 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#, fuzzy
+#~| msgid "Online Chat Platform"
+#~ msgid "Online chat system"
+#~ msgstr "پلتفرم گفتگوی آنلاین"
 
 #~ msgid "Buyer Details"
 #~ msgstr "جزئیات خریدار"

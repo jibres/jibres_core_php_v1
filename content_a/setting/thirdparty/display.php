@@ -83,7 +83,7 @@
         <a class="f" href="<?php echo \dash\url::that(); ?>/goftino">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/goftino.svg" alt='goftino'>
           <div class="key"><?php echo T_("Goftino"); ?></div>
-          <div class="value"><?php echo T_("Goftino"); ?></div>
+          <div class="value"><?php echo T_("Online chat and customer relationship system"); ?></div>
           <div class="go"></div>
         </a>
       </li>
