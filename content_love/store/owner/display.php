@@ -26,7 +26,7 @@
           <img class="w100" src="<?php echo \dash\data::newOwner_avatar() ?>">
         </div>
         <div class="c-xs-8 c-sm-8"><?php echo \dash\data::newOwner_displayname() ?> <b><?php echo \dash\data::newOwner_mobile() ?></b></div>
-        <div class="c-xs-2 c-sm-2"><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id') ?>" class="btn secondary"><?php echo T_("Cancel") ?></a></div>
+        <div class="c-xs-2 c-sm-2"><a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id') ?>" class="btn-secondary"><?php echo T_("Cancel") ?></a></div>
       </div>
 
       <div class="btn danger block mTB10" data-confirm data-data='{"changeowner": "changeowner"}'><?php echo T_("Change owner") ?></div>

@@ -159,8 +159,8 @@ else
         <?php }else{ echo T_('Name Servers'). ' - DNS'; } ?>
       </td>
       <td class="txtRa">
-        <a rel="nofollow" target="_blank" class="btn secondary sm outline" href="https://intodns.com/<?php echo \dash\data::domainDetail_name(); ?>"><?php echo T_("check DNS server and mail server health"); ?></a>
-        <a target="_blank" class="btn secondary sm outline" href="<?php echo \dash\url::sitelang().'/whois/'. \dash\data::domainDetail_name(); ?>"><?php echo T_("Whois?"); ?></a>
+        <a rel="nofollow" target="_blank" class="btn-secondary sm outline" href="https://intodns.com/<?php echo \dash\data::domainDetail_name(); ?>"><?php echo T_("check DNS server and mail server health"); ?></a>
+        <a target="_blank" class="btn-secondary sm outline" href="<?php echo \dash\url::sitelang().'/whois/'. \dash\data::domainDetail_name(); ?>"><?php echo T_("Whois?"); ?></a>
       </td>
      </tr>
      <?php if(\dash\data::domainDetail_ns1()) {?>
@@ -362,7 +362,7 @@ else
         <?php echo T_("Remove to check again"); ?>
       </td>
       <td class="txtRa ltr">
-        <div data-confirm data-data='{"clean" : "lastfetch"}' class="btn secondary outline"><?php echo T_("Clean fetch") ?></div>
+        <div data-confirm data-data='{"clean" : "lastfetch"}' class="btn-secondary outline"><?php echo T_("Clean fetch") ?></div>
       </td>
      </tr>
 

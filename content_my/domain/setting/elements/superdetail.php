@@ -14,7 +14,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-      <div class="btn secondary" data-confirm data-data='{"clean" : "lastfetch"}'><?php echo T_("Clean domain fetch") ?></div>
+      <div class="btn-secondary" data-confirm data-data='{"clean" : "lastfetch"}'><?php echo T_("Clean domain fetch") ?></div>
     </div>
   </div>
   <table class="tbl1 minimal">
@@ -55,7 +55,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-      <div class="btn secondary" data-confirm data-data='{"whois" : "fetch"}'><?php echo T_("Fetch now") ?></div>
+      <div class="btn-secondary" data-confirm data-data='{"whois" : "fetch"}'><?php echo T_("Fetch now") ?></div>
     </div>
   </div>
   <table class="tbl1 minimal">

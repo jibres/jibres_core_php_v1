@@ -6,7 +6,7 @@
 			<div class="f">
 				<div class="c s12"><?php echo \dash\data::productDataRow_title(); ?></div>
 				<div class="c s12"><?php if(\dash\data::productDataRow_price()) { echo T_("Price"). ' '. \dash\fit::number(\dash\data::productDataRow_price()); } //endif ?></div>
-				<div class="cauto"><a class="btn secondary" href="<?php echo \dash\url::here(); ?>/products/edit?id=<?php echo \dash\data::productDataRow_id(); ?>"><?php echo T_("Edit"); ?></a></div>
+				<div class="cauto"><a class="btn-secondary" href="<?php echo \dash\url::here(); ?>/products/edit?id=<?php echo \dash\data::productDataRow_id(); ?>"><?php echo T_("Edit"); ?></a></div>
 			</div>
 		</div>
 

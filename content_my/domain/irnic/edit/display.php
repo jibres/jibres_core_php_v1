@@ -85,7 +85,7 @@
 				</p>
 				<?php } //endif ?>
 				<div class="txtRa">
-					<button class="btn secondary"><?php echo T_("Check"); ?></button>
+					<button class="btn-secondary"><?php echo T_("Check"); ?></button>
 				</div>
 			</form>
 		</div>

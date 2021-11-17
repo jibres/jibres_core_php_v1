@@ -89,7 +89,7 @@ $awaitingImport = \dash\data::awaitingImport();
 
 	<div class="txtRa">
 
-	<div class="btn secondary" data-ajaxify data-data='{"cancel": "cancel"}' data-method='post'><?php echo T_("Never mind"); ?></div>
+	<div class="btn-secondary" data-ajaxify data-data='{"cancel": "cancel"}' data-method='post'><?php echo T_("Never mind"); ?></div>
 	<?php if(!a($awaitingImport, 'meta', 'allErrorCount')) {?>
 
 

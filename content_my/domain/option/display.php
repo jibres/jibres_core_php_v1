@@ -102,7 +102,7 @@
             <?php } ?>
           </select>
         <?php }else{ ?>
-          <a href="<?php echo \dash\url::this(). '/irnic' ?>" class="btn secondary w200"><?php echo T_("Manage IRNIC Handle"); ?></a>
+          <a href="<?php echo \dash\url::this(). '/irnic' ?>" class="btn-secondary w200"><?php echo T_("Manage IRNIC Handle"); ?></a>
         <?php } ?>
     </div>
   </form>
@@ -127,7 +127,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-          <a href="<?php echo \dash\url::this(). '/whoisdetail' ?>" class="btn secondary w200"><?php echo T_("Manage Whois Detail"); ?></a>
+          <a href="<?php echo \dash\url::this(). '/whoisdetail' ?>" class="btn-secondary w200"><?php echo T_("Manage Whois Detail"); ?></a>
     </div>
   </form>
 </section>

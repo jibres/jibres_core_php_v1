@@ -7,7 +7,7 @@
 				<h2><?php echo T_("Add note"); ?></h2>
 				<input type="hidden" name="redirecturl" value="<?php echo \dash\url::pwd(); ?>">
 				<textarea class="txt " name="note" rows="3" <?php \dash\layout\autofocus::html() ?> placeholder='<?php echo T_("Write your note about user."); ?> <?php echo T_("Something like calls, favorites, hobbits, special approach or something else."); ?>'></textarea>
-				<button class="btn secondary block mT5"><?php echo T_("Add new note"); ?></button>
+				<button class="btn-secondary block mT5"><?php echo T_("Add new note"); ?></button>
 			</form>
 		</div>
 	</div>

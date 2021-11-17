@@ -65,7 +65,7 @@ if(\lib\store::detail('mass_unit'))
           <div class="row">
             <div class="c-auto">
               <?php if(\dash\data::editMode()) {?>
-                <a href="<?php echo \dash\url::current() ?>" class="btn secondary outline"><?php echo T_("Cancel") ?></a>
+                <a href="<?php echo \dash\url::current() ?>" class="btn-secondary outline"><?php echo T_("Cancel") ?></a>
               <?php } //endif ?>
             </div>
             <div class="c"></div>

@@ -38,7 +38,7 @@
 
       </div>
       <footer class="f">
-        <div class="cauto"><a class="btn secondary outline" href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['field' => null]) ?>"><?php echo T_("Cancel") ?></a></div>
+        <div class="cauto"><a class="btn-secondary outline" href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['field' => null]) ?>"><?php echo T_("Cancel") ?></a></div>
         <div class="c"></div>
         <div class="cauto"><button class="btn master"><?php echo T_("Add condition") ?></button></div>
       </footer>

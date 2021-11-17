@@ -115,7 +115,7 @@ else
         <a href="<?php echo \dash\url::that(). '/dns?domain='. \dash\request::get('domain'); ?>"><?php echo T_('Name Servers'). ' - DNS' ?></a>
         <?php }else{ echo T_('Name Servers'). ' - DNS'; } ?>
       </td>
-      <td class="txtRa"><a rel="nofollow" target="_blank" class="btn secondary sm outline" href="https://intodns.com/<?php echo \dash\data::domainDetail_name(); ?>"><?php echo T_("check DNS server and mail server health"); ?></a></td>
+      <td class="txtRa"><a rel="nofollow" target="_blank" class="btn-secondary sm outline" href="https://intodns.com/<?php echo \dash\data::domainDetail_name(); ?>"><?php echo T_("check DNS server and mail server health"); ?></a></td>
      </tr>
      <?php if(\dash\data::domainDetail_ns1()) {?>
      <tr>
