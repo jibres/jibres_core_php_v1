@@ -18,7 +18,7 @@ if(a(\dash\data::domainDetail(), 'jibres_dns'))
         </div>
         <div class="c4 s12">
             <div class="action">
-              <a class="btn primary" href="<?php echo $href; ?>"><?php echo T_("Manage Domain DNS record") ?></a>
+              <a class="btn-primary" href="<?php echo $href; ?>"><?php echo T_("Manage Domain DNS record") ?></a>
             </div>
         </div>
       </section>
@@ -36,7 +36,7 @@ if(a(\dash\data::domainDetail(), 'jibres_dns'))
         </div>
         <div class="c4 s12">
             <div class="action">
-              <a class="btn primary" href="<?php echo \dash\url::that(). '/business?domain='. \dash\request::get('domain') ?>"><?php echo T_("Build my website") ?></a>
+              <a class="btn-primary" href="<?php echo \dash\url::that(). '/business?domain='. \dash\request::get('domain') ?>"><?php echo T_("Build my website") ?></a>
             </div>
         </div>
       </section>

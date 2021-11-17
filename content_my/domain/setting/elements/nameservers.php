@@ -14,7 +14,7 @@
 <?php if(\dash\data::domainDetail_verify() && \dash\data::domainDetail_verifychangenameserver()){ ?>
   <div class="c4 s12">
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(). '/dns?domain='. \dash\request::get('domain') ?>"><?php echo T_("Update Name Servers") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(). '/dns?domain='. \dash\request::get('domain') ?>"><?php echo T_("Update Name Servers") ?></a>
     </div>
   </div>
 <?php } ?>

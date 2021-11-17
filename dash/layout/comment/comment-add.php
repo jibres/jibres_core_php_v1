@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="c-auto os">
-          <button class="btn primary"><?php echo T_("Send"); ?></button>
+          <button class="btn-primary"><?php echo T_("Send"); ?></button>
         </div>
 
       </div>

@@ -14,7 +14,7 @@
 <?php if(\dash\data::domainDetail_verify() && \dash\data::domainDetail_verifychangeholder()){ ?>
   <div class="c4 s12">
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain') ?>"><?php echo T_("Manage Domain Holders") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(). '/holder?domain='. \dash\request::get('domain') ?>"><?php echo T_("Manage Domain Holders") ?></a>
     </div>
   </div>
 <?php } ?>

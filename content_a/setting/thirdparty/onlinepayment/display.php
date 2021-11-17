@@ -14,7 +14,7 @@
     <input type="hidden" name="set_mellat_payment_status" value="1">
     <div class="action">
 	  <?php if(a($bank, 'mellat', 'empty')){  ?>
-	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irmellat?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  	<a class="btn-primary" href="<?php echo \dash\url::that(). '/irmellat?init=1' ?>"><?php echo T_("Connect") ?></a>
 	  <?php }else{ ?>
       <div class="switch1">
         <input id="imellat_payment_status" type="checkbox" name="mellat_payment_status" <?php if(a($bank, 'mellat', 'status')){ echo 'checked'; } ?>>
@@ -46,7 +46,7 @@
     <input type="hidden" name="set_zarinpal_payment_status" value="1">
     <div class="action">
 	  <?php if(a($bank, 'zarinpal', 'empty')){  ?>
-	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irzarinpal?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  	<a class="btn-primary" href="<?php echo \dash\url::that(). '/irzarinpal?init=1' ?>"><?php echo T_("Connect") ?></a>
 	  <?php }else{ ?>
       <div class="switch1">
         <input id="izarinpal_payment_status" type="checkbox" name="zarinpal_payment_status" <?php if(a($bank, 'zarinpal', 'status')){ echo 'checked'; } ?>>
@@ -79,7 +79,7 @@
     <input type="hidden" name="set_asanpardakht_payment_status" value="1">
     <div class="action">
 	  <?php if(a($bank, 'asanpardakht', 'empty')){  ?>
-	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irasanpardakht?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  	<a class="btn-primary" href="<?php echo \dash\url::that(). '/irasanpardakht?init=1' ?>"><?php echo T_("Connect") ?></a>
 	  <?php }else{ ?>
       <div class="switch1">
         <input id="iasanpardakht_payment_status" type="checkbox" name="asanpardakht_payment_status" <?php if(a($bank, 'asanpardakht', 'status')){ echo 'checked'; } ?>>
@@ -110,7 +110,7 @@
     <input type="hidden" name="set_parsian_payment_status" value="1">
     <div class="action">
 	  <?php if(a($bank, 'parsian', 'empty')){  ?>
-	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irparsian?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  	<a class="btn-primary" href="<?php echo \dash\url::that(). '/irparsian?init=1' ?>"><?php echo T_("Connect") ?></a>
 	  <?php }else{ ?>
       <div class="switch1">
         <input id="iparsian_payment_status" type="checkbox" name="parsian_payment_status" <?php if(a($bank, 'parsian', 'status')){ echo 'checked'; } ?>>
@@ -142,7 +142,7 @@
     <input type="hidden" name="set_payir_payment_status" value="1">
     <div class="action">
 	  <?php if(a($bank, 'payir', 'empty')){  ?>
-	  	<a class="btn primary" href="<?php echo \dash\url::that(). '/irpayir?init=1' ?>"><?php echo T_("Connect") ?></a>
+	  	<a class="btn-primary" href="<?php echo \dash\url::that(). '/irpayir?init=1' ?>"><?php echo T_("Connect") ?></a>
 	  <?php }else{ ?>
       <div class="switch1">
         <input id="ipayir_payment_status" type="checkbox" name="payir_payment_status" <?php if(a($bank, 'payir', 'status')){ echo 'checked'; } ?>>
@@ -174,7 +174,7 @@
     <input type="hidden" name="set_irkish_payment_status" value="1">
     <div class="action">
     <?php if(a($bank, 'irkish', 'empty')){  ?>
-      <a class="btn primary" href="<?php echo \dash\url::that(). '/irirkish?init=1' ?>"><?php echo T_("Connect") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(). '/irirkish?init=1' ?>"><?php echo T_("Connect") ?></a>
     <?php }else{ ?>
       <div class="switch1">
         <input id="iirkish_payment_status" type="checkbox" name="irkish_payment_status" <?php if(a($bank, 'irkish', 'status')){ echo 'checked'; } ?>>
@@ -207,7 +207,7 @@
     <input type="hidden" name="set_idpay_payment_status" value="1">
     <div class="action">
     <?php if(a($bank, 'idpay', 'empty')){  ?>
-      <a class="btn primary" href="<?php echo \dash\url::that(). '/iridpay?init=1' ?>"><?php echo T_("Connect") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(). '/iridpay?init=1' ?>"><?php echo T_("Connect") ?></a>
     <?php }else{ ?>
       <div class="switch1">
         <input id="iidpay_payment_status" type="checkbox" name="idpay_payment_status" <?php if(a($bank, 'idpay', 'status')){ echo 'checked'; } ?>>

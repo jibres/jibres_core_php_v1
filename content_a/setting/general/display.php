@@ -16,7 +16,7 @@ $storeData = \dash\data::store_store_data();
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(). '/title' ?>"><?php echo T_("Edit title") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(). '/title' ?>"><?php echo T_("Edit title") ?></a>
     </div>
   </form>
 </section>
@@ -64,7 +64,7 @@ $storeData = \dash\data::store_store_data();
   <form class="c4 s12" method="post" data-patch>
 
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(). '/address' ?>"><?php echo T_("Manage business address") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(). '/address' ?>"><?php echo T_("Manage business address") ?></a>
     </div>
   </form>
 </section>

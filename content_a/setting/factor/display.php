@@ -10,7 +10,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/seller"><?php echo T_("Edit seller detail") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/seller"><?php echo T_("Edit seller detail") ?></a>
     </div>
   </form>
 </section>
@@ -27,7 +27,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/address"><?php echo T_("Edit address") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/address"><?php echo T_("Edit address") ?></a>
     </div>
   </form>
 </section>

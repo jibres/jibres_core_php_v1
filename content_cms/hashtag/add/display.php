@@ -9,7 +9,7 @@
 				</div>
 			</div>
 			<footer class="txtRa">
-				<button class="btn primary"><?php echo T_("Add"); ?></button>
+				<button class="btn-primary"><?php echo T_("Add"); ?></button>
 			</footer>
 		</div>
 	</form>

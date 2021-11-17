@@ -78,13 +78,13 @@
             <button class="btn outline warn block"><?php echo T_("Edit"); ?></button>
           </div>
           <div class="cauto">
-            <a class="btn primary block" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Cancel"); ?></a>
+            <a class="btn-primary block" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Cancel"); ?></a>
           </div>
        </div>
 
     <?php }else{ ?>
 
-       <button class="btn primary block mT20"><?php echo T_("Add"); ?></button>
+       <button class="btn-primary block mT20"><?php echo T_("Add"); ?></button>
 
     <?php }// endif ?>
   </form>
@@ -204,7 +204,7 @@
                     <button class="btn danger outline block hauto" type="submit"><?php echo T_("Set all products by this unit as a non product unit and remove this unit"); ?></button>
                   </div>
                   <div class="cauto">
-                    <a class="btn primary block" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Cancel"); ?></a>
+                    <a class="btn-primary block" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Cancel"); ?></a>
                   </div>
                </div>
 
@@ -259,7 +259,7 @@
                     <button class="btn danger outline block" type="submit"><?php echo T_("Save and remove unit"); ?></button>
                   </div>
                   <div class="cauto">
-                    <a class="btn primary block" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Cancel"); ?></a>
+                    <a class="btn-primary block" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Cancel"); ?></a>
                   </div>
                </div>
               </div>

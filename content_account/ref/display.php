@@ -29,12 +29,12 @@
     <div class="input pTB10 w400">
       <label class="addon" for="youRefLink"><?php echo T_("Link"); ?></label>
       <input type="text" id="youRefLink" readonly value="jibres.com?ref=<?php echo \dash\user::code(); ?>" class="ltr">
-      <button class="addon btn primary" data-copy='#youRefLink'>Copy <span class="sf-link"></span></button>
+      <button class="addon btn-primary" data-copy='#youRefLink'>Copy <span class="sf-link"></span></button>
     </div>
     <div class="input pTB10 w400">
       <label class="addon" for="youRefPromo"><?php echo T_("Promo code"); ?></label>
       <input type="text" id="youRefPromo" readonly value="ref=<?php echo \dash\user::code(); ?>" class="ltr">
-      <button class="addon btn primary" data-copy='#youRefPromo'>Copy <span class="sf-link"></span></button>
+      <button class="addon btn-primary" data-copy='#youRefPromo'>Copy <span class="sf-link"></span></button>
     </div>
   </div>
 

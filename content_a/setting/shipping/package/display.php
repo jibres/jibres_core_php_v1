@@ -71,7 +71,7 @@ if(\lib\store::detail('mass_unit'))
             <div class="c"></div>
             <div class="c-auto">
               <?php if(\dash\data::editMode()) {?>
-                <button  class="btn primary"><?php echo T_("Edit package"); ?></button>
+                <button  class="btn-primary"><?php echo T_("Edit package"); ?></button>
               <?php }else{ ?>
                 <button  class="btn-success"><?php echo T_("Create package"); ?></button>
               <?php } //endif ?>
@@ -98,7 +98,7 @@ if(\lib\store::detail('mass_unit'))
             <div class="c"></div>
             <div class="c-auto">
               <?php if(\dash\data::editMode() && \dash\request::get('id') == a($value, 'id')) { /*Nothing*/ }else{ ?>
-                <a href="<?php echo \dash\url::current(). '?id='. a($value, 'id') ?>" class="btn primary outline"><?php echo T_("Edit") ?></a>
+                <a href="<?php echo \dash\url::current(). '?id='. a($value, 'id') ?>" class="btn-primary outline"><?php echo T_("Edit") ?></a>
               <?php } //endif ?>
             </div>
           </div>

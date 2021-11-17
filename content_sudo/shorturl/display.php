@@ -8,7 +8,7 @@
     <div class="input ltr">
       <label class="addon"><?php echo T_("String or Number"); ?></label>
       <input type="text" name="val" value="<?php echo \dash\request::get('val'); ?>" >
-      <button type="submit" class=" btn primary" ><?php echo T_("Run"); ?></button>
+      <button type="submit" class=" btn-primary" ><?php echo T_("Run"); ?></button>
     </div>
   </form>
 </div>

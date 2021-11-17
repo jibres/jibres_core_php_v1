@@ -43,7 +43,7 @@
       </div>
 
       <footer class="txtRa">
-        <button class="btn primary"><?php echo T_("Save & Next"); ?></button>
+        <button class="btn-primary"><?php echo T_("Save & Next"); ?></button>
       </footer>
     </form>
   </div>

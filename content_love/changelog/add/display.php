@@ -39,7 +39,7 @@
           <div class="c"></div>
           <div class="c-auto">
             <?php if(\dash\data::editMode()) {?>
-              <button class="btn primary"><?php echo T_("Edit") ?></button>
+              <button class="btn-primary"><?php echo T_("Edit") ?></button>
             <?php }else{ ?>
               <button class="btn-success"><?php echo T_("Add") ?></button>
             <?php } //endif ?>

@@ -106,7 +106,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/package"><?php echo T_("Set") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/package"><?php echo T_("Set") ?></a>
     </div>
   </form>
 </section>
@@ -123,7 +123,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/method"><?php echo T_("Set") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/method"><?php echo T_("Set") ?></a>
     </div>
   </form>
 </section>
@@ -141,7 +141,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/text"><?php echo T_("Set") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/text"><?php echo T_("Set") ?></a>
     </div>
   </form>
 </section>

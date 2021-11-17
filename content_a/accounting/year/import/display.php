@@ -12,7 +12,7 @@
 
 			</div>
 			<footer class="txtRa">
-				<button class="btn primary"><?php echo T_("Import") ?></button>
+				<button class="btn-primary"><?php echo T_("Import") ?></button>
 			</footer>
 		</div>
 	</form>

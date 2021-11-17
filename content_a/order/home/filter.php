@@ -75,7 +75,7 @@ function BoxProductFilter()
           <?php if(\dash\request::get()) {?>
             <a class="btn outline" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
           <?php }//endif ?>
-          <button class="btn primary"><?php echo T_("Apply"); ?></button>
+          <button class="btn-primary"><?php echo T_("Apply"); ?></button>
         </div>
       </div>
 

@@ -76,6 +76,6 @@
 		<?php } //endif ?>
 	</div>
 	<footer class="txtRa">
-		<button class="btn primary" name="btn" value="add"><?php echo T_("Save"); ?></button>
+		<button class="btn-primary" name="btn" value="add"><?php echo T_("Save"); ?></button>
 	</footer>
 </form>

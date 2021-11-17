@@ -17,7 +17,7 @@ $tg = \dash\data::tg();
 
 </textarea>
 
-  <button class="btn primary block"><?php echo T_("Send"); ?></button>
+  <button class="btn-primary block"><?php echo T_("Send"); ?></button>
 </form>
 
 <?php if(isset($tg['send'])) {?>

@@ -138,7 +138,7 @@
           <label for="gift"><?php echo T_("If you have gift cart enter here") ?> 🎁</label>
           <div class="input ltr">
             <input type="text" name="gift"  value="<?php echo \dash\request::get('gift'); ?>" id="gift" maxlength="50" placeholder='<?php echo T_("Gift code") ?>'>
-            <button class="btn primary addon"><?php echo T_("Apply"); ?></button>
+            <button class="btn-primary addon"><?php echo T_("Apply"); ?></button>
           </div>
         </form>
 

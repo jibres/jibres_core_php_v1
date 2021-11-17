@@ -95,7 +95,7 @@ $have_user = false;
         </div>
 
         <footer class="txtRa">
-          <button class="btn primary"><?php echo T_("Assign cart to user"); ?></button>
+          <button class="btn-primary"><?php echo T_("Assign cart to user"); ?></button>
         </footer>
       </div>
 

@@ -50,7 +50,7 @@
         </div>
         <?php iLifeTime(); ?>
       </div>
-      <button class="btn primary block mT5 "><?php echo T_("Save"); ?></button>
+      <button class="btn-primary block mT5 "><?php echo T_("Save"); ?></button>
     </form>
     </div>
   </div>

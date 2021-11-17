@@ -16,7 +16,7 @@ $tg = \dash\data::tg();
   </div>
   <div class="c s12">
     <div class="dcard x2 mB10">
-      <a class="btn primary" href="<?php echo \dash\url::this(); ?>/sendmessage"><?php echo T_("Send message"); ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::this(); ?>/sendmessage"><?php echo T_("Send message"); ?></a>
     </div>
     <div class="dcard x2 mB10">
       salam

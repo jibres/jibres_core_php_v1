@@ -14,7 +14,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-      <a class="btn primary" href="<?php echo $urlHere; ?>/products/import"><?php echo T_("Import") ?></a>
+      <a class="btn-primary" href="<?php echo $urlHere; ?>/products/import"><?php echo T_("Import") ?></a>
     </div>
   </div>
 </section>
@@ -31,7 +31,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-      <a class="btn primary" href="<?php echo $urlHere; ?>/products/export"><?php echo T_("Export") ?></a>
+      <a class="btn-primary" href="<?php echo $urlHere; ?>/products/export"><?php echo T_("Export") ?></a>
     </div>
   </div>
 </section>
@@ -48,7 +48,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/viewtext"><?php echo T_("Set") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/viewtext"><?php echo T_("Set") ?></a>
     </div>
   </div>
 </section>
@@ -66,7 +66,7 @@
   </div>
   <div class="c4 s12">
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(); ?>/free"><?php echo T_("Set") ?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(); ?>/free"><?php echo T_("Set") ?></a>
     </div>
   </div>
 </section>
@@ -133,7 +133,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <a class="btn primary" href="<?php echo \dash\url::that(). '/preparationtime' ?>"><?php echo T_("Set Preparation time");?></a>
+      <a class="btn-primary" href="<?php echo \dash\url::that(). '/preparationtime' ?>"><?php echo T_("Set Preparation time");?></a>
     </div>
   </form>
 </section>

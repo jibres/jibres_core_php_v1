@@ -74,7 +74,7 @@
         <footer class="f">
           <div class="cauto"><?php if(a($orderDetail, 'factor', 'customer')) { ?><div data-confirm data-data='{"removecustomer": "removecustomer"}' class="btn linkDel"><?php echo T_("Remove customer") ?></div><?php } // endif ?></div>
           <div class="c"></div>
-          <div class="cauto"><button class="btn primary"><?php echo T_("Save"); ?></button></div>
+          <div class="cauto"><button class="btn-primary"><?php echo T_("Save"); ?></button></div>
 
         </footer>
 

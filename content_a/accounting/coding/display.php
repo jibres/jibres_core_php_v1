@@ -172,7 +172,7 @@
 							<div class="cauto"><a class="btn secondary outline" href="<?php echo a(\dash\data::loadDetail(), 'add_child_link'); ?>"><?php echo a(\dash\data::loadDetail(), 'add_child_text'); ?></a></div>
 						<?php } //endif ?>
 						<div class="c"></div>
-						<div class="cauto"><a class="btn primary" href="<?php echo \dash\url::that(). '/edit?id='. \dash\data::loadDetail_id() ?>"><?php echo T_("Edit"); ?></a></div>
+						<div class="cauto"><a class="btn-primary" href="<?php echo \dash\url::that(). '/edit?id='. \dash\data::loadDetail_id() ?>"><?php echo T_("Edit"); ?></a></div>
 
 					</footer>
 				</div>

@@ -28,7 +28,7 @@
         </div>
       </div>
       <footer class="txtRa">
-        <button class="btn primary"><?php echo T_("Assign ticket to user"); ?></button>
+        <button class="btn-primary"><?php echo T_("Assign ticket to user"); ?></button>
       </footer>
     </div>
   </div>

@@ -25,7 +25,7 @@ if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() ==
           <p><?php echo T_("Your request to create store app is saved and on queue in our app factory."). ' '. T_("We are send a message notification to you after your app is being ready. which usually take some minutes."); ?></p>
         </div>
         <footer class="txtRa">
-          <a href="<?php echo \dash\url::this(). '/apk'; ?>" class="btn primary" ><?php echo T_("Check status"); ?></a>
+          <a href="<?php echo \dash\url::this(). '/apk'; ?>" class="btn-primary" ><?php echo T_("Check status"); ?></a>
         </footer>
     </div>
 
@@ -46,7 +46,7 @@ else
           <p class="mB0-f"><?php echo T_("Hooray!"). ' 😍<br>'. T_("Your Application ready to build") ?></p>
         </div>
         <footer class="txtRa">
-          <div data-confirm data-data='{"build" : "now"}' class="btn primary" ><?php echo T_("Let's go build my android app"); ?></div>
+          <div data-confirm data-data='{"build" : "now"}' class="btn-primary" ><?php echo T_("Let's go build my android app"); ?></div>
         </footer>
     </div>
     <?php } // endif ?>

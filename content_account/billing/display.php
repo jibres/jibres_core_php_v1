@@ -12,7 +12,7 @@
            <div class="input pA5">
             <label class="addon" for="amount-number"><?php echo \lib\currency::unit(); ?></label>
             <input id="amount-number" type="number" name="amount" value="<?php echo \dash\data::amount(); ?>" placeholder='<?php echo T_("Enter an amount to charge your account"); ?>' required min=0 max="9999999999">
-            <button class="addon btn primary"><?php echo T_("Checkout"); ?></button>
+            <button class="addon btn-primary"><?php echo T_("Checkout"); ?></button>
            </div>
           </form>
         </div>

@@ -58,7 +58,7 @@
 
         <div class="f align-center mB10">
           <div class="c fc-mute"><?php echo \dash\data::stepDesc(); ?></div>
-          <div class="cauto os"><button class="btn primary"><?php echo T_("Save"); ?></button></div>
+          <div class="cauto os"><button class="btn-primary"><?php echo T_("Save"); ?></button></div>
         </div>
 
       </form>
