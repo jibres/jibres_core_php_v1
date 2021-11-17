@@ -24,7 +24,7 @@
      </div>
     </section>
 
-    <div class="msg info2 txtC fs12">
+    <div class="alert-info txtC fs12">
             <?php echo T_("If you have any questions, you can raise them through the ticket with the support of Jibres.") ?>
         <a class="link" href="<?php echo \dash\url::this(). '/ticket' ?>">
             <?php echo T_("Support system") ?>

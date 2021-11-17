@@ -18,7 +18,7 @@ $tg = \dash\data::tg();
   <button class="btn-danger block"><?php echo T_("Set Webhook"); ?></button>
 </form>
 
-<pre class="msg info2 fs16"></pre>
+<pre class="alert-info fs16"></pre>
 
 
 
@@ -30,7 +30,7 @@ $tg = \dash\data::tg();
 
 <div class="cbox">
   <h2><?php echo T_("Last request"); ?></h2>
-  <div class="msg info2">
+  <div class="alert-info">
     <pre><?php echo a($tg, 'send'); ?></pre>
   </div>
   <div class="msg">

@@ -5,7 +5,7 @@
     <div class="box">
       <div class="pad">
 
-        <p class="msg info2"><?php echo T_('You can change domain technical and billing holder to another one to allow them to do some action.'); ?></p>
+        <p class="alert-info"><?php echo T_('You can change domain technical and billing holder to another one to allow them to do some action.'); ?></p>
         <label for="iholder"><?php echo T_("Domain Holder"); ?></label>
         <div class="input ltr">
           <input type="text" name="holder" id="iholder" maxlength="15" disabled value="<?php echo \dash\data::domainDetail_holder(); ?>" >

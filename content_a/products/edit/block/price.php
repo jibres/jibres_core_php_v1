@@ -74,7 +74,7 @@
             </div>
           </div>
           <?php if(\dash\language::current() === 'fa') {?>
-            <div class="msg info2 txtB finalPriceToman"></div>
+            <div class="alert-info txtB finalPriceToman"></div>
           <?php } //endif ?>
         </div>
          <div class="f" data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?>  >

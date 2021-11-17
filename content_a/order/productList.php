@@ -87,5 +87,5 @@
     </div>
   </div>
 <?php }else{ ?>
-  <div class="msg info2 fs14 txtB"><?php echo T_("This order is empty") ?></div>
+  <div class="alert-info fs14 txtB"><?php echo T_("This order is empty") ?></div>
 <?php } ?>

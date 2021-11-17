@@ -148,7 +148,7 @@
 
 <?php }else{ ?>
 
-<div class="msg info2 fs12 txtB">
+<div class="alert-info fs12 txtB">
 
     <?php echo T_("Hi!"); ?>
     <br>
@@ -189,7 +189,7 @@
             </p>
           </div>
 
-          <div class="msg info2 txtC txtB">
+          <div class="alert-info txtC txtB">
             <a href="<?php echo \dash\url::here(); ?>/products?unitid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show product list"); ?> <?php echo \dash\data::dataRow_title(); ?></a>
           </div>
 

@@ -85,7 +85,7 @@ require_once(root. 'content_a/products/productName.php');
     ?>
     <form method="post" id="form1"  autocomplete="off">
           <?php $i=0; $XI = 1; foreach (\dash\data::propertyList() as $property => $cat) { $i++; ?>
-            <div class="msg info2">
+            <div class="alert-info">
               <?php if($i === 1) {echo '<div class="font-14">'. $cat['title']. '</div>';}else{ ?>
                  <a class="font-14" href="<?php echo \dash\url::that(). '/edit'. \dash\request::full_get(['group' => $cat['title'] ]) ?>">
                     <?php echo $cat['title']; ?>

@@ -4,14 +4,14 @@
   <div class="box">
     <div class="pad">
       <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
-      <div class="msg info2 txtB font-14">
+      <div class="alert-info txtB font-14">
         <span class="mRa10 txtB"><?php echo \dash\fit::number(\dash\data::itemDetailQ1_sort()) ?>.</span>
         <?php echo \dash\data::itemDetailQ1_title() ?>
         <input type="hidden" name="q1" value="<?php echo \dash\request::get('q1') ?>">
       </div>
 
       <?php if(\dash\data::itemDetailQ2_title()) {?>
-        <div class="msg info2 txtB font-14">
+        <div class="alert-info txtB font-14">
         <span class="mRa10 txtB"><?php echo \dash\fit::number(\dash\data::itemDetailQ2_sort()) ?>.</span>
           <?php echo \dash\data::itemDetailQ2_title() ?>
         <input type="hidden" name="q2" value="<?php echo \dash\request::get('q2') ?>">
@@ -34,7 +34,7 @@
 
 
     <?php if(\dash\data::itemDetailQ3_title()) {?>
-      <div class="msg info2 txtB font-14">
+      <div class="alert-info txtB font-14">
         <span class="mRa10 txtB"><?php echo \dash\fit::number(\dash\data::itemDetailQ3_sort()) ?>.</span>
         <?php echo \dash\data::itemDetailQ3_title() ?>
         <input type="hidden" name="q3" value="<?php echo \dash\request::get('q3') ?>">

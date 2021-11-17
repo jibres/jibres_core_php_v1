@@ -15,7 +15,7 @@ if(\dash\data::domainDetail_jibres_dns())
   <div class="avand-sm">
 
         <?php if(!\dash\data::domainDetail_jibres_dns()) {?>
-          <div class="msg info2 f font-16">
+          <div class="alert-info f font-16">
             <div class="cauto"><img class="avatar mRa10" src="<?php echo \dash\url::icon() ?>" alt="<?php echo T_("Jibres") ?>"></div>
             <div class="c">
               <?php echo T_("If you want to set your domain Nameserver as our jibres dns record") ?>

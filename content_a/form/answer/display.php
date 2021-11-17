@@ -5,7 +5,7 @@
     if(\dash\data::countNotReviewed())
     {
      ?>
-     <div class="f msg info2 text-sm">
+     <div class="f alert-info text-sm">
        <div class="c txtB"><?php echo T_("You have :val not reviewed answer", ['val' => \dash\fit::number(\dash\data::countNotReviewed())]) ?></div>
        <div class="cauto"><div class="btn-primary" data-confirm data-data='{"mark": "all"}'><?php echo T_("Mark all as review") ?></div></div>
      </div>
@@ -89,7 +89,7 @@
 <?php } //endif ?>
 
 <?php function htmlFilter() {?>
-  <p class="f fs14 msg info2">
+  <p class="f fs14 alert-info">
     <span class="c"><?php echo \dash\data::filterBox(); ?></span>
     <a class="cauto" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>"><?php echo T_("Clear filters"); ?></a>
   </p>

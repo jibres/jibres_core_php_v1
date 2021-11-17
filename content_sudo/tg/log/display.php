@@ -187,7 +187,7 @@ if(!is_array($dataTable))
 
 
 <?php function htmlFilter() {?>
-<p class="f fs14 msg info2">
+<p class="f fs14 alert-info">
   <span class="c"><?php echo \dash\data::dataFilter(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::here(); ?>/<?php echo \dash\url::module(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>

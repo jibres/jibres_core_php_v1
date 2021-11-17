@@ -4,7 +4,7 @@ $result = '';
 // {
 //   $result .= '<div class="f justify-center fs14">';
 //   $result .= '<div class="c6 s12">';
-//   $result .= '<div class="msg info2 txtC">';
+//   $result .= '<div class="alert-info txtC">';
 //   $result .= '<p class="txtB fs12">'. \dash\data::domainDetail_name(). '</p>';
 //   $result .= '<p>'. T_("Domain is Available for buy"). '</p>';
 //   $result .= '<a class="btn-success" href="'. \dash\url::this() . '/buy/'. \dash\data::domainDetail_name(). '">'. T_("Buy now"). '</a>';

@@ -1,6 +1,6 @@
 
 
-<div class="msg info2 fs14">
+<div class="alert-info fs14">
 <?php echo T_("You can export your form answer to a CSV file to help with several tasks."); ?>
 
 </div>

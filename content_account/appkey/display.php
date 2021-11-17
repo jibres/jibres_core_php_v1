@@ -15,7 +15,7 @@
         <input type="text" name="appkey" value="<?php echo \dash\data::appkey_auth(); ?>" readonly  class="txtC" placeholder='<?php echo T_("GENERATE YOUR APPKEY"); ?>'>
       </div>
       <?php if(\dash\data::appkey_auth()) {?>
-        <div class="msg info2 mT20">
+        <div class="alert-info mT20">
           <div><?php echo T_("If you want to revoke or remove this appkey"); ?> <a href="<?php echo \dash\url::kingdom(); ?>/my/ticket/add?title=remove appkey"><?php echo T_("Contact us"); ?></a></div>
         </div>
       <?php }else{ ?>

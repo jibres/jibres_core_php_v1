@@ -4,7 +4,7 @@ $result = '';
 
 if(\dash\data::needVerifyEmail())
 {
-    $result .= '<div class="msg info2 font-16">';
+    $result .= '<div class="alert-info font-16">';
     $result .= '<p class="mB5-f">';
     $result .= T_("If you want to manage this domain you must add this emails to your account and verify it");
     $result .= '</p>';

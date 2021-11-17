@@ -116,7 +116,7 @@ else
 
 <?php function htmlStartAddNew() {?>
 
-<div class="fs14 msg info2 pTB20">
+<div class="fs14 alert-info pTB20">
   <p><?php echo T_("Hi!"); ?></p>
 
 </div>

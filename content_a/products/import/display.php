@@ -1,10 +1,10 @@
 
 
-<p class="msg info2 fs14"><?php echo T_("Importing products is useful if you switched to Jibres from another platform."); ?> <?php echo T_("When importing, Jibres converts the data from the CSV file into products."); ?></p>
+<p class="alert-info fs14"><?php echo T_("Importing products is useful if you switched to Jibres from another platform."); ?> <?php echo T_("When importing, Jibres converts the data from the CSV file into products."); ?></p>
 
-<p class="msg info2 fs14"><?php echo T_("If you want to transfer a large amount of product information between Jibres and another system, then you can use a specially-formatted spreadsheet to import or export that data."); ?> <?php echo T_("Jibres uses CSV (comma-separated value) files to perform this kind of bulk task."); ?></p>
+<p class="alert-info fs14"><?php echo T_("If you want to transfer a large amount of product information between Jibres and another system, then you can use a specially-formatted spreadsheet to import or export that data."); ?> <?php echo T_("Jibres uses CSV (comma-separated value) files to perform this kind of bulk task."); ?></p>
 
-<p class="msg info2 fs14"><?php echo T_("Importing a CSV file that has been sorted by a spreadsheet editor such as Microsoft Excel or Numbers might cause your products to be removed from their relevant image links on the CSV, and your product's images will be lost."); ?></p>
+<p class="alert-info fs14"><?php echo T_("Importing a CSV file that has been sorted by a spreadsheet editor such as Microsoft Excel or Numbers might cause your products to be removed from their relevant image links on the CSV, and your product's images will be lost."); ?></p>
 
 <p class="alert-danger2 fs14"><?php echo T_("Before you start your import, make sure that you have a backup of your product data."); ?></p>
 

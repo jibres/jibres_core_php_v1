@@ -105,7 +105,7 @@ if(\dash\data::payDetail_final_msg())
 
 				<?php if(\dash\data::payDetail_msg_go()) {?>
 
-					<div class="msg info2"><?php echo \dash\data::payDetail_msg_go(); ?></div>
+					<div class="alert-info"><?php echo \dash\data::payDetail_msg_go(); ?></div>
 
 				<?php } ?>
 

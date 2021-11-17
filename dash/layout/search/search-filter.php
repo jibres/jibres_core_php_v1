@@ -1,7 +1,7 @@
 <?php
 if(is_array(\dash\data::listEngine_filter()))
 {
-  echo '<p class="msg info2">'. T_("Organize your data so it's easier to analyze. Filter your data if you only want to display records that meet certain criteria."). '</p>';
+  echo '<p class="alert-info">'. T_("Organize your data so it's easier to analyze. Filter your data if you only want to display records that meet certain criteria."). '</p>';
   echo '<div class="filterList">';
 
   $first            = true;

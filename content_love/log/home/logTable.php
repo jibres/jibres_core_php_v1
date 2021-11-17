@@ -119,7 +119,7 @@
 
 
 <?php function htmlFilter() {?>
-<p class="f fs14 msg info2">
+<p class="f fs14 alert-info">
   <span class="c"><?php echo \dash\data::dataFilter(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::here(); ?>/log"><?php echo T_("Clear filters"); ?></a>
 </p>

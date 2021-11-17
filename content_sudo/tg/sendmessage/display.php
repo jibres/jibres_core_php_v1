@@ -25,7 +25,7 @@ $tg = \dash\data::tg();
 
 <div class="cbox">
   <h2><?php echo T_("Last request"); ?></h2>
-  <div class="msg info2">
+  <div class="alert-info">
     <pre><?php echo a($tg, 'send'); ?></pre>
   </div>
   <div class="msg">
