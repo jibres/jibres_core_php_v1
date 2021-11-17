@@ -11,7 +11,7 @@
 
 <p class="alert-info fs14"><?php echo T_("If you want to transfer a large amount of product information between Jibres and another system, then you can use a specially-formatted spreadsheet to import or export that data."); ?> <?php echo T_("Jibres uses CSV (comma-separated value) files to perform this kind of bulk task."); ?></p>
 
-<p class="msg primary2 fs14"><?php echo T_("If you export up to 50 products, then the CSV file is downloaded by your browser. If you export 51 or more products, then the CSV file is emailed to you."); ?> <?php echo T_("If you aren't the store owner, then the file is sent to the store owner's email as well."); ?></p>
+<p class="alert-primary2 fs14"><?php echo T_("If you export up to 50 products, then the CSV file is downloaded by your browser. If you export 51 or more products, then the CSV file is emailed to you."); ?> <?php echo T_("If you aren't the store owner, then the file is sent to the store owner's email as well."); ?></p>
 
 <?php if(!\dash\data::countAll()) {?>
 

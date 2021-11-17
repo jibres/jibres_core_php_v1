@@ -64,9 +64,9 @@
  	<?php }elseif(\dash\data::ipDetail_block() === 'unblock'){?>
  		<p class="alert-success">IP is not blocked</p>
  	<?php }elseif(\dash\data::ipDetail_block() === 'unknown'){?>
- 		<p class="msg secondary">Unknown ip status</p>
+ 		<p class="alert-secondary">Unknown ip status</p>
  	<?php }elseif(\dash\data::ipDetail_block() === 'new'){?>
- 		<p class="msg primary">New ip</p>
+ 		<p class="alert-primary">New ip</p>
  	<?php } //endif ?>
  	</div>
  </div>

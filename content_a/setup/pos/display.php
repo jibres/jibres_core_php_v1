@@ -4,7 +4,7 @@
   <div class="body">
     <div class="pad">
       <h1><?php echo \dash\face::title(); ?></h1>
-      <div class="msg primary2"><?php echo T_("You can change these settings everytime."); ?></div>
+      <div class="alert-primary2"><?php echo T_("You can change these settings everytime."); ?></div>
       <form method="post" autocomplete="off">
 
         <p><?php echo T_("You can use barcode scanners to quickly enter products to the cart at checkout."); ?> <?php echo T_("If already you have barcode reader in your store, please tell us to add related fileds into products."); ?></p>

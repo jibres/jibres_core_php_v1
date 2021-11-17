@@ -5,7 +5,7 @@
 
     <div class="avand-lg zero impact">
         <?php if(\dash\request::get('tag')) {?>
-            <div class="msg dark mB0">
+            <div class="alert-dark mB0">
                 <div class="row align-center">
                     <div class="c-auto"><?php echo T_("You are watching the changelog of the project with the :tag tag", ['tag' => '#'.\dash\request::get('tag')]) ?></div>
                     <div class="c"></div>
