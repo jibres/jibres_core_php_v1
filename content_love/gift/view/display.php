@@ -7,7 +7,7 @@
       <div class="pad">
         <table class="tbl1">
           <tbody>
-            <td><td colspan="2" class="text-left"><a class="btn success2" href="<?php echo \dash\url::this(). '/card?id='. \dash\data::dataRow_id() ?>"><?php echo T_("View gift card") ?></a></td></td>
+            <td><td colspan="2" class="text-left"><a class="btn-outline-success" href="<?php echo \dash\url::this(). '/card?id='. \dash\data::dataRow_id() ?>"><?php echo T_("View gift card") ?></a></td></td>
             <tr class="active"><td><?php echo T_("Gift code"); ?></td><td class="text-left"><code class="link txtB"><?php echo \dash\data::dataRow_code(); ?></code></td></tr>
             <tr><td><?php echo T_("Category"); ?></td><td class="text-left"><?php echo \dash\data::dataRow_category(); ?> </td></tr>
             <?php if(\dash\data::dataRow_giftpercent()) {?>

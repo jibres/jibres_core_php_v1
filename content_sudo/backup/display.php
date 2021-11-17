@@ -26,8 +26,8 @@
       </div>
 
       <div class="btn success block mB10" data-confirm data-timeout=0 data-data='{"backupnow": "jibres"}'>Backup Jibres Database</div>
-      <div class="btn success2 block mB10" data-confirm data-timeout=0 data-data='{"backupnow": "domain"}'>Backup Domains Database</div>
-      <div class="btn success2 block mB10" data-confirm data-timeout=0 data-data='{"backupnow": "business"}'>Backup All business Database</div>
+      <div class="btn-outline-success block mB10" data-confirm data-timeout=0 data-data='{"backupnow": "domain"}'>Backup Domains Database</div>
+      <div class="btn-outline-success block mB10" data-confirm data-timeout=0 data-data='{"backupnow": "business"}'>Backup All business Database</div>
 
     </div>
   </div>
