@@ -61,12 +61,22 @@ class bank
             {
                 return $result['code'];
             }
+            else
+            {
+                \dash\notif::error(T_("Result code not found in payping response!"));
+                return false;
+            }
         }
         else
         {
             if(isset($result['Error']))
             {
                 \dash\notif::error($result['Error']);
+                return false;
+            }
+            else
+            {
+                \dash\notif::error(T_("Unkown error! Please contact to payping support"));
                 return false;
             }
         }
