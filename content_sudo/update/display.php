@@ -4,7 +4,7 @@
 <?php if(\dash\data::isLockService()) {?>
   <p class="alert-danger fs20 txtB txtC"><?php echo T_("Service is Locked!"); ?></p>
 <?php }else{ ?>
-  <p class="msg success2 fs20 txtB txtC"><?php echo T_("Service is Running!"); ?></p>
+  <p class="alert-success fs20 txtB txtC"><?php echo T_("Service is Running!"); ?></p>
 <?php } //endif ?>
 
 <div class="f">

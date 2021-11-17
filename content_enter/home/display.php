@@ -1,5 +1,5 @@
 <?php if(\dash\user::id()) { ?>
-<div class="msg success2 f fs06" title='<?php echo T_("You"); ?>'>
+<div class="alert-success f fs06" title='<?php echo T_("You"); ?>'>
 	<span class="c"><?php echo \dash\user::detail('displayname'); ?></span>
 	<span class="cauto"><?php echo \dash\fit::mobile(\dash\user::detail('mobile')); ?></span>
  </div>

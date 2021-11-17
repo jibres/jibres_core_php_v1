@@ -10,7 +10,7 @@
           </div>
 
           <?php if(a($storeData, 'samandehi_link1')) {?>
-            <div class="msg success2 minimal"><?php echo T_("Your samandehi detail was saved") ?></div>
+            <div class="alert-success minimal"><?php echo T_("Your samandehi detail was saved") ?></div>
             <?php if(a($storeData, 'samandehi_link1')) {?>
               <div class="msg minimal">
                 <div class="f">

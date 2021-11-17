@@ -135,5 +135,5 @@
 
 
 <?php function htmlStartAddNew() {?>
-<p class="fs14 msg success2 pTB20"><?php echo T_("Hi!"); ?> <a href="<?php echo \dash\url::here(); ?>/log/add"><?php echo T_("Try to start with add new record!"); ?></a></p>
+<p class="fs14 alert-success pTB20"><?php echo T_("Hi!"); ?> <a href="<?php echo \dash\url::here(); ?>/log/add"><?php echo T_("Try to start with add new record!"); ?></a></p>
 <?php } //endfunction ?>

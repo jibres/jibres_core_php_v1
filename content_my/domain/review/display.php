@@ -144,7 +144,7 @@
 
 <?php if(\dash\request::get('gift')) {?>
   <?php if(\dash\data::giftDetail_msgsuccess()) {?>
-            <div class="msg success"><?php echo nl2br(\dash\data::giftDetail_msgsuccess()); ?></div>
+            <div class="alert-success"><?php echo nl2br(\dash\data::giftDetail_msgsuccess()); ?></div>
   <?php }// endif ?>
 <?php
 $giftCode = \dash\data::giftDetail_discount();

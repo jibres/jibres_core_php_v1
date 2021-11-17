@@ -29,7 +29,7 @@
    <p><?php echo T_("However, taking the nature of cyberspace into account, we should remember that offering an absolute assurance might not be possible."); ?> <?php echo T_("Assuring privacy and security, with that ideal concept we bear in mind, does not exist; and if somebody gives you an assurance of securing your privacy, he has certainly abused your trust."); ?></p>
    <p><?php echo T_("Upon buying any digital or the so-called smart device, you have invaded your own privacy yourself."); ?> <?php echo T_("If you want your privacy not to be invaded, you should depart from technology and say goodbye to any digital and smart device."); ?> <?php echo T_("In fact, we have employed all updated technologies of the world to provide you with the maximum security."); ?></p>
 
-   <p class="msg success txtC"><?php echo T_("As the final remark, we wish to assure you that our main concern is to secure your privacy and protect your information against impermissible access."); ?></p>
+   <p class="alert-success txtC"><?php echo T_("As the final remark, we wish to assure you that our main concern is to secure your privacy and protect your information against impermissible access."); ?></p>
  </div>
 
  <div class="avand-lg impact zero">

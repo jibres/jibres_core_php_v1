@@ -4,7 +4,7 @@
       <h2 class="txtB"><?php echo T_("What are Sitemaps?"); ?></h2>
       <p><?php echo T_('Sitemaps are an easy way for webmasters to inform search engines about pages on their sites that are available for crawling. In its simplest form, a Sitemap is an XML file that lists URLs for a site along with additional metadata about each URL (when it was last updated, how often it usually changes, and how important it is, relative to other URLs in the site) so that search engines can more intelligently crawl the site.') ?></p>
       <p><?php echo T_('Web crawlers usually discover pages from links within the site and from other sites. Sitemaps supplement this data to allow crawlers that support Sitemaps to pick up all URLs in the Sitemap and learn about those URLs using the associated metadata. Using the Sitemap protocol does not guarantee that web pages are included in search engines, but provides hints for web crawlers to do a better job of crawling your site.'); ?></p>
-      <div class="msg success"><?php echo T_('We automatically build your sitemap.') ?></div>
+      <div class="alert-success"><?php echo T_('We automatically build your sitemap.') ?></div>
 
       <div class="msg info2 row ltr mB0" data-copy='<?php echo \dash\utility\sitemap::url(); ?>'>
         <div class="c"><a class="link" target="_blank" href="<?php echo \dash\utility\sitemap::url(); ?>"><i class="sf-link-external compact mR10"></i><?php echo \dash\utility\sitemap::url(); ?></a></div>

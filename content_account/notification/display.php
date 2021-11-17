@@ -54,7 +54,7 @@ else
 {
 ?>
 
-<p class="fs14 msg success2 pTB20"><?php echo T_("Hi!"); ?> <?php echo T_("No notifications found"); ?></p>
+<p class="fs14 alert-success pTB20"><?php echo T_("Hi!"); ?> <?php echo T_("No notifications found"); ?></p>
 
 <?php
 } //endif

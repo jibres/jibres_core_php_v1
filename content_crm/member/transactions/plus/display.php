@@ -3,7 +3,7 @@
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="body">
-        <div class="msg success2 minimal">
+        <div class="alert-success minimal">
           <p><?php echo T_("You try to Increase account recharge to customer account") ?></p>
         </div>
         <label for="title"><?php echo T_("Title") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>

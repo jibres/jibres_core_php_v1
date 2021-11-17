@@ -62,7 +62,7 @@
  	<?php if(\dash\data::ipDetail_block() === 'block') {?>
  		<p class="alert-danger">IP is blocked! <?php if(\dash\data::ipDetail_countblock()) {?> <span> (Count block: <?php echo \dash\data::ipDetail_countblock(); ?> ) </span><?php } //endif ?></p>
  	<?php }elseif(\dash\data::ipDetail_block() === 'unblock'){?>
- 		<p class="msg success">IP is not blocked</p>
+ 		<p class="alert-success">IP is not blocked</p>
  	<?php }elseif(\dash\data::ipDetail_block() === 'unknown'){?>
  		<p class="msg secondary">Unknown ip status</p>
  	<?php }elseif(\dash\data::ipDetail_block() === 'new'){?>

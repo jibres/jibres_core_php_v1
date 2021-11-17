@@ -255,7 +255,7 @@ $html .= '</div>';
 
 if(\dash\data::productSettingSaved_view_text() || (\dash\data::productSettingSaved_button_link() && \dash\data::productSettingSaved_button_title()))
 {
-  $html .= '<div class="msg globalMsg success2">';
+  $html .= '<div class="msg globalalert-success">';
   {
     $html .= '<div class="row">';
     {

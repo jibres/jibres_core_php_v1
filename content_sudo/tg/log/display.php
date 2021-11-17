@@ -203,7 +203,7 @@ if(!is_array($dataTable))
 
 
 <?php function htmlStartAddNew() {?>
-<p class="fs14 msg success2 pTB20"><?php echo T_("No record exist!"); ?></p>
+<p class="fs14 alert-success pTB20"><?php echo T_("No record exist!"); ?></p>
 <?php } //endif ?>
 
 

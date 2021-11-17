@@ -3,7 +3,7 @@
   <div class="box">
     <div class="body">
       <?php if(\dash\data::businessDomainDetail()) {?>
-        <div class="msg success"><?php echo T_("This domain exist in business domain list") ?></div>
+        <div class="alert-success"><?php echo T_("This domain exist in business domain list") ?></div>
       <?php }else{ ?>
         <div class="alert-warning"><?php echo T_("Doamin was not found in business domain list") ?>
           <span class="btn-link" data-confirm data-data='{"adddomain": "adddomain"}'><?php echo T_("Add now") ?></span>

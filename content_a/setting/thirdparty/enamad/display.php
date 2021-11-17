@@ -10,7 +10,7 @@
           </div>
 
           <?php if(a($storeData, 'enamad')) {?>
-            <div class="msg success2 minimal"><?php echo T_("Your enamad detail was saved") ?></div>
+            <div class="alert-success minimal"><?php echo T_("Your enamad detail was saved") ?></div>
             <?php if(\dash\data::enamadID()) {?>
               <div class="msg minimal">
                 <div class="f">

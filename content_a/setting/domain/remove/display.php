@@ -4,7 +4,7 @@
   <div class="box">
     <div class="body">
       <?php if($ifmaster) {?>
-        <div class="msg success2 minimal"><?php echo T_("Add this time your business master domain set on this domain") ?></div>
+        <div class="alert-success minimal"><?php echo T_("Add this time your business master domain set on this domain") ?></div>
 
         <form class="c4 s12" method="post" data-patch>
           <input type="hidden" name="master" value="master">

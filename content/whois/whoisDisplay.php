@@ -9,7 +9,7 @@ if(\dash\data::whoisResult())
 	<div class="c12 s12 mT10">
 
 		<?php if(\dash\data::whoisResult_available()) {?>
-			<div class="f msg success">
+			<div class="f alert-success">
 				<div class="c"><?php echo T_("Domain is available"); ?></div>
 				<div class="cauto"><a class="btn-outline-success" href="<?php echo \dash\url::kingdom() ?>/domains/search?q=<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Register domain"); ?></a></div>
 			</div>

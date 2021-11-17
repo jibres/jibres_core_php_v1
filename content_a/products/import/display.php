@@ -38,7 +38,7 @@ $awaitingImport = \dash\data::awaitingImport();
 	<h4><?php echo T_("Result analysis file"); ?></h4>
 	<?php if(isset($awaitingImport['meta']['avalible_count']) && $awaitingImport['meta']['avalible_count']) {?>
 
-		<div class="msg success2 f"><?php echo T_("Count Record available to import:"); ?> <b class="c mLa10 s12"><?php echo \dash\fit::number($awaitingImport['meta']['avalible_count']); ?></b></div>
+		<div class="alert-success f"><?php echo T_("Count Record available to import:"); ?> <b class="c mLa10 s12"><?php echo \dash\fit::number($awaitingImport['meta']['avalible_count']); ?></b></div>
 	<?php }//endif ?>
 
 	<?php if(isset($awaitingImport['meta']['allErrorCount']) && $awaitingImport['meta']['allErrorCount']) {?>
