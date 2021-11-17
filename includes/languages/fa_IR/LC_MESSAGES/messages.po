@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
 "POT-Creation-Date: 2021-11-17 17:33+0330\n"
-"PO-Revision-Date: 2021-11-17 17:34+0330\n"
+"PO-Revision-Date: 2021-11-17 17:36+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -13436,7 +13436,7 @@ msgstr "گفتینو"
 
 #: content_a/setting/thirdparty/display.php:86
 msgid "Online chat and customer relationship system"
-msgstr "سامانه گفت‌وگوی آنلاین و ارتباط با مشتریان"
+msgstr "سامانه گفتگوی آنلاین و ارتباط با مشتریان"
 
 #: content_a/setting/thirdparty/display.php:98
 msgid "RayChat"
