@@ -362,7 +362,7 @@ else
         <?php echo T_("Remove to check again"); ?>
       </td>
       <td class="txtRa ltr">
-        <div data-confirm data-data='{"clean" : "lastfetch"}' class="btn-secondary outline"><?php echo T_("Clean fetch") ?></div>
+        <div data-confirm data-data='{"clean" : "lastfetch"}' class="btn-outline-secondary"><?php echo T_("Clean fetch") ?></div>
       </td>
      </tr>
 

@@ -65,7 +65,7 @@ if(\lib\store::detail('mass_unit'))
           <div class="row">
             <div class="c-auto">
               <?php if(\dash\data::editMode()) {?>
-                <a href="<?php echo \dash\url::current() ?>" class="btn-secondary outline"><?php echo T_("Cancel") ?></a>
+                <a href="<?php echo \dash\url::current() ?>" class="btn-outline-secondary"><?php echo T_("Cancel") ?></a>
               <?php } //endif ?>
             </div>
             <div class="c"></div>
@@ -98,7 +98,7 @@ if(\lib\store::detail('mass_unit'))
             <div class="c"></div>
             <div class="c-auto">
               <?php if(\dash\data::editMode() && \dash\request::get('id') == a($value, 'id')) { /*Nothing*/ }else{ ?>
-                <a href="<?php echo \dash\url::current(). '?id='. a($value, 'id') ?>" class="btn-primary outline"><?php echo T_("Edit") ?></a>
+                <a href="<?php echo \dash\url::current(). '?id='. a($value, 'id') ?>" class="btn-outline-primary"><?php echo T_("Edit") ?></a>
               <?php } //endif ?>
             </div>
           </div>

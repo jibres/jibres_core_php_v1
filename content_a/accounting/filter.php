@@ -121,7 +121,7 @@
               <?php } //endif ?>
             <?php } //endif ?>
             <?php if(\dash\request::get()) {?>
-              <a href="<?php echo \dash\url::current() ?>" class="btn-secondary outline"><?php echo T_("Clear filter") ?></a>
+              <a href="<?php echo \dash\url::current() ?>" class="btn-outline-secondary"><?php echo T_("Clear filter") ?></a>
             <?php } //endif ?>
             <button class="btn"><?php echo T_("Apply") ?></button>
           </div>

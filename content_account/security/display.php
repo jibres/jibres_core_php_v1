@@ -98,7 +98,7 @@ else
             <h3><?php echo T_("Active Sessions"); ?></h3>
             <p><?php echo T_("Devices that have been active on your account in the last month, or are currently signed in."); ?></p>
             <p><?php echo T_("All of your history about signing in to you account is here and you can check them."); ?> <?php echo T_("If there’s a device you don’t recognize, someone else may have your password."); ?> <?php echo T_("Change your password to protect your Account."); ?></p>
-            <a href="<?php echo \dash\url::this(); ?>/sessions" class="btn-primary outline"><?php echo T_("Check all active sessions"); ?> <span class="badge primary"><?php if(is_array(\dash\data::sessionsList())) {echo \dash\fit::number(count(\dash\data::sessionsList()));} ?></span></a>
+            <a href="<?php echo \dash\url::this(); ?>/sessions" class="btn-outline-primary"><?php echo T_("Check all active sessions"); ?> <span class="badge primary"><?php if(is_array(\dash\data::sessionsList())) {echo \dash\fit::number(count(\dash\data::sessionsList()));} ?></span></a>
           </div>
           <div class="cauto s12 os">
             <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/privacy-checkup.png" alt='<?php echo T_("Sessions"); ?>'>
@@ -136,8 +136,8 @@ else
             <h3><?php echo T_("Access token and Application key"); ?></h3>
             <p><?php echo T_("Protect this key like a password!"); ?></p>
             <p><?php echo T_("Keys used to access APIs in"); ?> <?php echo \dash\face::site(); ?></p>
-            <a href="<?php echo \dash\url::here(); ?>/api" class="btn-primary outline"><?php echo T_("Access Token"); ?></a>
-            <a href="<?php echo \dash\url::here(); ?>/appkey" class="btn-primary outline"><?php echo T_("Application key"); ?></a>
+            <a href="<?php echo \dash\url::here(); ?>/api" class="btn-outline-primary"><?php echo T_("Access Token"); ?></a>
+            <a href="<?php echo \dash\url::here(); ?>/appkey" class="btn-outline-primary"><?php echo T_("Application key"); ?></a>
           </div>
           <div class="cauto s12 os">
             <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/data-collected.svg" alt='<?php echo T_("Sessions"); ?>'>

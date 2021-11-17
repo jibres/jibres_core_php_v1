@@ -16,7 +16,7 @@
         <div class="c-xs-12 c-sm-auto p0">
           <div class="mT25 txtRa">
         <?php if(\dash\request::get()) {?>
-          <a href="<?php echo \dash\url::current() ?>" class="btn-secondary outline"><?php echo T_("Clear filter") ?></a>
+          <a href="<?php echo \dash\url::current() ?>" class="btn-outline-secondary"><?php echo T_("Clear filter") ?></a>
         <?php } //endif ?>
         <button class="btn master"><?php echo T_("Apply") ?></button>
           </div>
