@@ -1,4 +1,4 @@
-<div id="content" class="h-full">
+<div id="content">
 
 
 <?php
