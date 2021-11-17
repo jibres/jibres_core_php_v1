@@ -69,7 +69,7 @@
      <?php if(\dash\data::dataRowAddress()) {?>
       <div class="row">
         <div class="cauto">
-          <div class="btn linkDel" data-confirm data-data='<?php echo json_encode(['addressid' => \dash\data::dataRowAddress_id(), 'btnremove' => 'delete']); ?>' name="btnremove" value="delete"><?php echo T_("Delete"); ?></div>
+          <div class="btn-link-danger" data-confirm data-data='<?php echo json_encode(['addressid' => \dash\data::dataRowAddress_id(), 'btnremove' => 'delete']); ?>' name="btnremove" value="delete"><?php echo T_("Delete"); ?></div>
         </div>
         <div class="c"></div>
         <div class="cauto">

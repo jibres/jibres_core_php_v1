@@ -25,9 +25,9 @@
       </div>
       <footer>
         <?php if(!\dash\data::dataRow_count()) {?>
-          <div class="txtRa"><span data-confirm data-data='{"delete" : "delete"}' class="btn linkDel" ><?php echo T_("Remove tag"); ?></span></div>
+          <div class="txtRa"><span data-confirm data-data='{"delete" : "delete"}' class="btn-link-danger" ><?php echo T_("Remove tag"); ?></span></div>
         <?php }else{ ?>
-          <div class="txtRa"><a href="<?php echo \dash\url::this(). '/remove?'. \dash\request::fix_get() ?>" class="btn linkDel" ><?php echo T_("Remove tag"); ?></a></div>
+          <div class="txtRa"><a href="<?php echo \dash\url::this(). '/remove?'. \dash\request::fix_get() ?>" class="btn-link-danger" ><?php echo T_("Remove tag"); ?></a></div>
         <?php }//endif ?>
       </footer>
     </div>

@@ -158,7 +158,7 @@
           <p class=""><?php echo T_("All action, dns record and Domain record of this domain will be removed") ?></p>
         </div>
         <div class="cauto pRa5">
-          <div data-confirm data-data='{"removedomain": "removedomain"}' class="btn linkDel"><?php echo T_("Remove domain") ?></div>
+          <div data-confirm data-data='{"removedomain": "removedomain"}' class="btn-link-danger"><?php echo T_("Remove domain") ?></div>
         </div>
       </div>
     </div>

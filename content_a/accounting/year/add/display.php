@@ -27,7 +27,7 @@
       <?php if(\dash\data::editMode()) {?>
         <footer class="f">
           <div class="cauto">
-            <div data-confirm data-data='{"remove": "remove"}' class="btn linkDel"><?php echo T_("Remove") ?></div>
+            <div data-confirm data-data='{"remove": "remove"}' class="btn-link-danger"><?php echo T_("Remove") ?></div>
           </div>
           <div class="c"></div>
           <div class="cauto">

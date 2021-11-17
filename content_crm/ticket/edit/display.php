@@ -9,7 +9,7 @@
           <div class="cauto"><?php echo T_("You can change the file by upload new file or remove file") ?></div>
           <div class="c"></div>
           <div class="cauto"><a target="_blank" href="<?php echo \dash\data::dataRow_file(); ?>"  class="link btn"><?php echo T_("View") ?></a></div>
-          <div class="cauto"><div data-ajaxify data-data='{"removefile": "removefile"}' class="btn linkDel"><?php echo T_("Remove Attachment") ?></div></div>
+          <div class="cauto"><div data-ajaxify data-data='{"removefile": "removefile"}' class="btn-link-danger"><?php echo T_("Remove Attachment") ?></div></div>
         </div>
         </div>
       <?php } //endif ?>
@@ -20,7 +20,7 @@
     </div>
     <footer class="f">
       <?php if(\dash\data::dataRow_parent()) {?>
-      <div class="cauto"><div data-confirm data-data='{"remove": "remove"}' class="btn linkDel"><?php echo T_("Remove this message") ?></div></div>
+      <div class="cauto"><div data-confirm data-data='{"remove": "remove"}' class="btn-link-danger"><?php echo T_("Remove this message") ?></div></div>
     <?php } //endif ?>
       <div class="c"></div>
       <div class="cauto"><button class="btn master"><?php echo T_("Save") ?></button></div>

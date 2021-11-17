@@ -191,7 +191,7 @@
       </div>
       <footer class="f">
         <div class="c"></div>
-        <div class="cauto"><a href="<?php echo \dash\url::that(). '/remove?'. \dash\request::fix_get() ?>" class="btn linkDel" ><?php echo T_("Remove domain") ?></a></div>
+        <div class="cauto"><a href="<?php echo \dash\url::that(). '/remove?'. \dash\request::fix_get() ?>" class="btn-link-danger" ><?php echo T_("Remove domain") ?></a></div>
       </footer>
     </div>
 

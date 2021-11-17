@@ -27,9 +27,9 @@
     <footer class="f">
       <div class="c"></div>
       <?php if($ifmaster) {?>
-        <div class="cauto"><button class="btn linkDel disabled" ><?php echo T_("Change master domain first") ?></button></div>
+        <div class="cauto"><button class="btn-link-danger disabled" ><?php echo T_("Change master domain first") ?></button></div>
       <?php }else{ ?>
-        <div class="cauto"><button class="btn linkDel" data-confirm data-data='{"removedomain" : "removedomain"}'><?php echo T_("Remove domain") ?></button></div>
+        <div class="cauto"><button class="btn-link-danger" data-confirm data-data='{"removedomain" : "removedomain"}'><?php echo T_("Remove domain") ?></button></div>
       <?php } //endif ?>
     </footer>
   </div>

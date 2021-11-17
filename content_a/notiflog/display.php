@@ -7,7 +7,7 @@
         <tr class="positive">
           <td><?php echo T_("Count all") ?></td>
           <td><?php echo \dash\fit::number(array_sum(array_column(\dash\data::messgeGroupBy(), 'count'))) ?>
-            <div class="btn linkDel" data-confirm data-data='{"emptytable": "emptytable"}'><?php echo T_("Delete all") ?></div>
+            <div class="btn-link-danger" data-confirm data-data='{"emptytable": "emptytable"}'><?php echo T_("Delete all") ?></div>
           </td>
 
         </tr>

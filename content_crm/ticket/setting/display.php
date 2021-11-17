@@ -122,6 +122,6 @@ echo "<div class='btn ". $btnclass. "' data-ajaxify data-data='". $json . "' dat
     </div>
   </div>
   <footer class="txtRa">
-      <div data-confirm data-data='{"runaction_editstatus" : 1, "status" : "spam"}' class="btn linkDel"><?php echo T_("Set as Spam ticket") ?></div>
+      <div data-confirm data-data='{"runaction_editstatus" : 1, "status" : "spam"}' class="btn-link-danger"><?php echo T_("Set as Spam ticket") ?></div>
   </footer>
 </section>

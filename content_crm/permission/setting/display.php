@@ -23,7 +23,7 @@
         <?php } //endif ?>
       </div>
       <footer class="txtRa">
-        <div class="btn linkDel" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
+        <div class="btn-link-danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
       </footer>
     </div>
 </div>

@@ -41,7 +41,7 @@ $storeData = \dash\data::store_store_data();
 
   <?php if(a($storeData, 'logo') && !a($storeData, 'default_logo')) {?>
     <footer class="txtRa">
-     <div data-confirm data-data='{"remove_business_logo": "logo"}' class="btn link fc-red"><?php echo T_("Remove logo") ?></div>
+     <div data-confirm data-data='{"remove_business_logo": "logo"}' class="btn-link-danger"><?php echo T_("Remove logo") ?></div>
     </footer>
   <?php } //endif ?>
 </section>

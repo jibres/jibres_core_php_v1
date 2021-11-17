@@ -49,7 +49,7 @@
     <div class="fc-red"><?php echo T_("Remove this filter. All condition of this filter will be removed") ?></div>
   </div>
   <footer class="txtRa">
-    <div data-confirm data-data='{"removefilter": "removefilter"}' class="btn linkDel" ><?php echo T_("Remove filter"); ?></div>
+    <div data-confirm data-data='{"removefilter": "removefilter"}' class="btn-link-danger" ><?php echo T_("Remove filter"); ?></div>
 
   </footer>
 </div>

@@ -41,7 +41,7 @@
           <?php if(!a($storeData, 'samandehi_link1')) {?>
           <button  class="btn-success" ><?php echo T_("Save"); ?></div>
           <?php }else{ ?>
-            <button class="btn linkDel" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove samandehi setting") ?></button>
+            <button class="btn-link-danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove samandehi setting") ?></button>
           <?php } //endif ?>
         </footer>
     </div>
