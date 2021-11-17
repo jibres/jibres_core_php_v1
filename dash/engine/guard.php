@@ -237,6 +237,14 @@ class guard
 		{
 			$policy['script-src'][] = "https://*.imber.live/";
 		}
+		// Goftino
+		if(\dash\engine\viewThirdParty::goftino())
+		{
+			$policy['script-src'][] = "https://*.goftino.com/";
+			$policy['script-src'][] = "'sha256-32tzxvLVL1z4KSPOhytvZeJ1UYZG5zs+pew1bJujxgw='";
+			// $policy['script-src'][] = "'unsafe-inline'";
+
+		}
 		// mediaadd
 		if(\dash\engine\viewThirdParty::mediaad())
 		{
