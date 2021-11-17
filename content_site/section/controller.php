@@ -27,6 +27,7 @@ class controller
 			'visitcard',
 			'quote',
 			'text',
+			'separator',
 			'html',
 			/* -------------- */
 
@@ -156,6 +157,7 @@ class controller
 	public static function section_list()
 	{
 		$list = self::all_section_name();
+
 
 		$section_list = [];
 
