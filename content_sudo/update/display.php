@@ -75,7 +75,7 @@
 
 <div class="msg fs14">
 <p><?php echo T_("Force unlock page"); ?></p>
-<a class="btn success" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/forceunlock?force=1"><?php echo T_("Force unlock page"); ?></a>
+<a class="btn-success" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/forceunlock?force=1"><?php echo T_("Force unlock page"); ?></a>
 </div>
 
 

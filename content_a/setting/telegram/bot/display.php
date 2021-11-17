@@ -19,7 +19,7 @@
       </div>
       <footer class="txtRa">
         <?php if(!\dash\data::telegramSettingSaved_apikey()) {?>
-          <button  class="btn success" ><?php echo T_("Save"); ?></button>
+          <button  class="btn-success" ><?php echo T_("Save"); ?></button>
         <?php }else{ ?>
           <div data-confirm data-data='{"apikey": null, "status": "delete"}'  class="btn danger" ><?php echo T_("Remove"); ?></div>
         <?php } //endif ?>

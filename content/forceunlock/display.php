@@ -15,7 +15,7 @@
 <div class="f justify-center txtC">
 
 	<div class="c6 s12">
-		<div data-confirm data-data='{"unlock" : "unlock"}' class="btn success block xl">
+		<div data-confirm data-data='{"unlock" : "unlock"}' class="btn-success block xl">
 			<?php echo T_("Force unlock"); ?>
 		</div>
 	</div>

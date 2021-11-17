@@ -17,7 +17,7 @@
 <?php }?>
             </div>
 
-            <button class="btn success block"><?php echo T_("Build my online business"); ?></button>
+            <button class="btn-success block"><?php echo T_("Build my online business"); ?></button>
           </form>
 
         </div>

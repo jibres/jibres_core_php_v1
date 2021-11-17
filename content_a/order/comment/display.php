@@ -57,7 +57,7 @@
         <footer class="f">
           <div class="cauto"><i data-kerkere='.showAttachment' class="sf-attach fs14"><img class="bg-gray-100 rounded-lg w-10 p-3" src="<?php echo \dash\utility\icon::url('Attachment') ?>"></i></div>
           <div class="c"></div>
-          <div class="cauto"><button class="btn success"><?php echo T_("Add comment") ?></button></div>
+          <div class="cauto"><button class="btn-success"><?php echo T_("Add comment") ?></button></div>
 
         </footer>
       </div>

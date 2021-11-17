@@ -73,7 +73,7 @@ if(\lib\store::detail('mass_unit'))
               <?php if(\dash\data::editMode()) {?>
                 <button  class="btn primary"><?php echo T_("Edit package"); ?></button>
               <?php }else{ ?>
-                <button  class="btn success"><?php echo T_("Create package"); ?></button>
+                <button  class="btn-success"><?php echo T_("Create package"); ?></button>
               <?php } //endif ?>
             </div>
           </div>

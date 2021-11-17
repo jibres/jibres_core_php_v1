@@ -250,7 +250,7 @@ $giftCode = \dash\data::giftDetail_discount();
       </div>
       <div class="c"></div>
       <div class="cauto">
-        <button class="btn success"><?php echo \dash\data::buttonTitle(); ?></button>
+        <button class="btn-success"><?php echo \dash\data::buttonTitle(); ?></button>
       </div>
     </footer>
     </div>

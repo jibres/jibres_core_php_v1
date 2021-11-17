@@ -8,7 +8,7 @@
           </div>
       </div>
       <footer class="txtRa">
-            <button class="btn success"><?php echo T_("Renew Domain"); ?></button>
+            <button class="btn-success"><?php echo T_("Renew Domain"); ?></button>
       </footer>
     </div>
   </div>
@@ -79,7 +79,7 @@
 
     </div>
     <footer class="txtRa">
-     <button class="btn success"><?php echo T_("Renew Domain"); ?></button>
+     <button class="btn-success"><?php echo T_("Renew Domain"); ?></button>
 
     </footer>
   </div>

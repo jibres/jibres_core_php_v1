@@ -12,7 +12,7 @@
         <div class="msg f">
           <div class="cauto"><?php echo T_("Print all data") ?></div>
           <div class="c"></div>
-          <div class="cauto"><a href="<?php echo \dash\url::that(). '/answer?'. \dash\request::fix_get(['printall' => 1]); ?>" target="_blank" class="btn success" ><?php echo T_("Print") ?></a></div>
+          <div class="cauto"><a href="<?php echo \dash\url::that(). '/answer?'. \dash\request::fix_get(['printall' => 1]); ?>" target="_blank" class="btn-success" ><?php echo T_("Print") ?></a></div>
         </div>
 
         <div class="msg">

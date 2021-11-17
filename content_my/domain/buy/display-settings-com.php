@@ -80,7 +80,7 @@
               ?></p>
 
               <div class="txtRa mT10">
-                <button class="btn success"><?php echo T_("Review Detail"); ?></button>
+                <button class="btn-success"><?php echo T_("Review Detail"); ?></button>
               </div>
 
             </form>

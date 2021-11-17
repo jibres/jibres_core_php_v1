@@ -8,7 +8,7 @@
           </div>
         </div>
         <footer class="txtRa">
-          <button class="btn success"><?php echo T_("Transfer Domain"); ?></button>
+          <button class="btn-success"><?php echo T_("Transfer Domain"); ?></button>
         </footer>
       </div>
     </div>
@@ -59,7 +59,7 @@
                 <?php } //endiof ?>
               </div>
               <footer class="txtRa">
-                <button class="btn success"><?php echo T_("Transfer Domain"); ?></button>
+                <button class="btn-success"><?php echo T_("Transfer Domain"); ?></button>
               </footer>
             </div>
 

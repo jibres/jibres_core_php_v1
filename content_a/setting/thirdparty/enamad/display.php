@@ -38,7 +38,7 @@
         </div>
         <footer class="txtRa">
           <?php if(!a($storeData, 'enamad')) {?>
-          <button  class="btn success" ><?php echo T_("Save"); ?></div>
+          <button  class="btn-success" ><?php echo T_("Save"); ?></div>
           <?php }else{ ?>
             <button class="btn linkDel" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove enamad setting") ?></button>
           <?php } //endif ?>

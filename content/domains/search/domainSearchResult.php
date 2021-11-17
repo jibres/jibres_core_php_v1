@@ -76,7 +76,7 @@ if(\dash\data::infoResult())
                     {
                         if($value['available'])
                         {
-                            echo '<a class="btn success" href="'. \dash\url::kingdom(). '/my/domain/buy/'. $key.'">'. T_("Let's Buy"). '</a>' ;
+                            echo '<a class="btn-success" href="'. \dash\url::kingdom(). '/my/domain/buy/'. $key.'">'. T_("Let's Buy"). '</a>' ;
                         }
                         else
                         {

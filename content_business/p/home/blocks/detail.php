@@ -273,7 +273,7 @@ if(\dash\data::productSettingSaved_view_text() || (\dash\data::productSettingSav
         {
             if(\dash\data::productSettingSaved_button_link() && \dash\data::productSettingSaved_button_title())
             {
-              $html .= '<a class="btn success" target="_blank" href="'. \dash\data::productSettingSaved_button_link(). '">'. \dash\data::productSettingSaved_button_title(). '</a>';
+              $html .= '<a class="btn-success" target="_blank" href="'. \dash\data::productSettingSaved_button_link(). '">'. \dash\data::productSettingSaved_button_title(). '</a>';
             }
         }
         $html .= '</div>';

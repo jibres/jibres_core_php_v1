@@ -40,7 +40,7 @@ if(\dash\data::domainDetail_jibres_dns())
         </div>
       </div>
       <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Update"); ?></button>
+        <button class="btn-success"><?php echo T_("Update"); ?></button>
       </footer>
     </div>
   </div>

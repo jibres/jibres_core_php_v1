@@ -23,7 +23,7 @@ if(a($dataRowMember,  'status') === 'ban')
 
     $banMessage .= '<div class="cauto">';
     {
-      $banMessage .= '<div class="btn success" data-confirm data-data=\'{"resetban": "resetban"}\'>'. T_("Reset user now"). '</div>';
+      $banMessage .= '<div class="btn-success" data-confirm data-data=\'{"resetban": "resetban"}\'>'. T_("Reset user now"). '</div>';
     }
     $banMessage .='</div>';
   }

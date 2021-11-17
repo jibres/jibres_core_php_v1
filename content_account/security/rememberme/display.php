@@ -11,7 +11,7 @@
           <?php echo \dash\csrf::html(); ?>
 
           <div class="txtRa mT20">
-            <button class="btn success"><?php echo T_("Save"); ?></button>
+            <button class="btn-success"><?php echo T_("Save"); ?></button>
           </div>
       </div>
     </div>

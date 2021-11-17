@@ -14,7 +14,7 @@
               <input type="text" name="bt" placeholder='<?php echo T_("Your business title"); ?>' <?php \dash\layout\autofocus::html() ?> required maxlength='50'>
             </div>
 
-            <button class="btn success block"><?php echo T_("Let's go"); ?></button>
+            <button class="btn-success block"><?php echo T_("Let's go"); ?></button>
           </form>
           <img src="<?php echo \dash\url::cdn(); ?>/img/business/your-brand.svg" alt='<?php echo T_("Create a business on Jibres"); ?>'>
 

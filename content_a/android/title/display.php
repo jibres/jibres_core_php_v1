@@ -20,7 +20,7 @@
 
       </div>
       <footer class="f">
-        <div class="cauto os"><button class="btn success"><?php echo \dash\data::nextBtn(); ?></button></div>
+        <div class="cauto os"><button class="btn-success"><?php echo \dash\data::nextBtn(); ?></button></div>
       </footer>
     </form>
   </div>

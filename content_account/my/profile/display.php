@@ -45,7 +45,7 @@
           <textarea class="txt mB20 pB25" name="bio" id="bio" placeholder='<?php echo T_("Bio"); ?>' maxlength='300' rows="3"><?php echo \dash\data::dataRow_bio(); ?></textarea>
 
         <div class="txtRa">
-          <button class="btn success"><?php echo T_("Save"); ?></button>
+          <button class="btn-success"><?php echo T_("Save"); ?></button>
         </div>
 
       </form>

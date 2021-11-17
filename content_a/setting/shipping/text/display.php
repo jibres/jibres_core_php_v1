@@ -17,7 +17,7 @@
         <textarea name="page_text" id="page_text" class="txt" rows="5"><?php echo \dash\data::shippingSettingSaved_page_text(); ?></textarea>
       </div>
       <footer class="txtRa">
-        <button  class="btn success" ><?php echo T_("Save"); ?></button>
+        <button  class="btn-success" ><?php echo T_("Save"); ?></button>
       </footer>
     </div>
   </form>

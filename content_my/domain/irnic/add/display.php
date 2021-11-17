@@ -117,7 +117,7 @@
 
 
     <div class="txtRa">
-     <button class="btn success"><?php echo T_("Create IRNIC handle"); ?></button>
+     <button class="btn-success"><?php echo T_("Create IRNIC handle"); ?></button>
     </div>
    </form>
   </div>
@@ -138,7 +138,7 @@
      <p class="fc-mute"><?php echo T_("If you don't know about IRNIC, you can register via Jibres or directly on nic.ir website."); ?> <a href="<?php echo \dash\url::current(); ?>?type=new"><?php echo T_('Register IRNIC handle'); ?></a></p>
 
      <div class="txtRa">
-      <button class="btn success"><?php echo T_("Add IRNIC handle"); ?></button>
+      <button class="btn-success"><?php echo T_("Add IRNIC handle"); ?></button>
      </div>
     </form>
    </div>

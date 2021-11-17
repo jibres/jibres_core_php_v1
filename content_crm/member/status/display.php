@@ -87,7 +87,7 @@
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
 		<?php if(\dash\data::dataRowMember_status() === 'removed') {?>
-      		<div class="btn success" data-confirm data-data='{"status": "awaiting"}'><?php echo T_("Restore user") ?></div>
+      		<div class="btn-success" data-confirm data-data='{"status": "awaiting"}'><?php echo T_("Restore user") ?></div>
 		<?php }else{ ?>
       		<div class="btn danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove user") ?></div>
 		<?php } //endif ?>

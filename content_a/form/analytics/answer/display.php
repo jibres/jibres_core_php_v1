@@ -92,7 +92,7 @@
         </div>
         <footer class="f">
           <div class="c"></div>
-          <div class="cauto"><button class="btn success"><?php echo T_("Add comment") ?></button></div>
+          <div class="cauto"><button class="btn-success"><?php echo T_("Add comment") ?></button></div>
         </footer>
       </div>
     </form>

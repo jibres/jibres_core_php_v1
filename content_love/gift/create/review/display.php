@@ -44,7 +44,7 @@
         </div>
         <div class="c"></div>
         <div class="cauto">
-          <button class="btn success" name="status" value="enable"><?php echo T_("Publish"); ?></button>
+          <button class="btn-success" name="status" value="enable"><?php echo T_("Publish"); ?></button>
         </div>
       </footer>
     </form>

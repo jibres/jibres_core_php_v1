@@ -2,7 +2,7 @@
 <div class="c6 s12">
 	<div class="cbox">
 	 <div class="msg f"><?php echo T_("Cancel request") ?><div data-confirm data-data='{"status" : "cancel"}' class="cauto os btn danger"><?php echo T_("Set status on Cancel"); ?></div></div>
-	 <div class="msg f"><?php echo T_("Set on queue request") ?><div data-confirm data-data='{"status" : "queue"}' class="cauto os btn success"><?php echo T_("Set status on Cancel"); ?></div></div>
+	 <div class="msg f"><?php echo T_("Set on queue request") ?><div data-confirm data-data='{"status" : "queue"}' class="cauto os btn-success"><?php echo T_("Set status on Cancel"); ?></div></div>
 	 <div class="msg f"><?php echo T_("id") ?> <span class="cauto os"><?php echo \dash\data::dataRow_id(); ?></span></div>
 	 <div class="msg f"><?php echo T_("store_id") ?> <span class="cauto os"><?php echo \dash\data::dataRow_store_id(); ?></span></div>
 	 <div class="msg f"><?php echo T_("user_id") ?> <span class="cauto os"><?php echo \dash\data::dataRow_user_id(); ?></span></div>

@@ -14,7 +14,7 @@ if(\dash\data::appQueue_status() === 'queue' || \dash\data::appQueue_status() ==
           <p class="mB0-f"><?php echo T_("Your have some change in  application detail and need to build your application again"); ?></p>
         </div>
         <footer class="txtRa">
-          <div data-confirm data-data='{"build" : "now", "rebuild" : true}' class="btn success" ><?php echo T_("Rebuild application"); ?></div>
+          <div data-confirm data-data='{"build" : "now", "rebuild" : true}' class="btn-success" ><?php echo T_("Rebuild application"); ?></div>
         </footer>
     </div>
     <?php }else{ ?>

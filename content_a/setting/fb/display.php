@@ -11,7 +11,7 @@
           </div>
       </div>
         <footer class="txtRa">
-          <button  class="btn success" ><?php echo T_("Save"); ?></div>
+          <button  class="btn-success" ><?php echo T_("Save"); ?></div>
         </footer>
       </div>
    </form>

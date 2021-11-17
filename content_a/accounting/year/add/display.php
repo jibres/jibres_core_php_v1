@@ -31,7 +31,7 @@
           </div>
           <div class="c"></div>
           <div class="cauto">
-            <button class="btn success"><?php echo T_("Edit") ?></button>
+            <button class="btn-success"><?php echo T_("Edit") ?></button>
           </div>
 
         </footer>

@@ -45,7 +45,7 @@
       </div>
 
       <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Create gift card"); ?></button>
+        <button class="btn-success"><?php echo T_("Create gift card"); ?></button>
       </footer>
     </form>
   </div>

@@ -15,7 +15,7 @@ $storeData = \dash\data::store_store_data();
         <textarea class="txt mB10" name="desc"  maxlength='2000' rows="3"><?php echo a($storeData, 'desc'); ?></textarea>
       </div>
         <footer class="txtRa">
-          <button class="btn success"><?php echo T_("Save"); ?></button>
+          <button class="btn-success"><?php echo T_("Save"); ?></button>
         </footer>
     </div>
   </div>

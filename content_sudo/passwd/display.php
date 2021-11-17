@@ -8,7 +8,7 @@
         </div>
       </div>
       <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Go") ?></button>
+        <button class="btn-success"><?php echo T_("Go") ?></button>
       </footer>
     </div>
   </div>

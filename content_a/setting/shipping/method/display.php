@@ -31,7 +31,7 @@
               <?php if(\dash\data::editMode()) {?>
                 <button  class="btn primary"><?php echo T_("Edit method"); ?></button>
               <?php }else{ ?>
-                <button  class="btn success"><?php echo T_("Create method"); ?></button>
+                <button  class="btn-success"><?php echo T_("Create method"); ?></button>
               <?php } //endif ?>
             </div>
           </div>

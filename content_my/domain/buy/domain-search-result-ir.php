@@ -107,7 +107,7 @@ $master_domain = a($master, 'full');
                     {
                         if($master['available'])
                         {
-                            echo '<a class="btn success lg" href="'. \dash\url::kingdom(). '/my/domain/buy/'. $master_domain.'">'. T_("Let's Buy"). '</a>' ;
+                            echo '<a class="btn-success lg" href="'. \dash\url::kingdom(). '/my/domain/buy/'. $master_domain.'">'. T_("Let's Buy"). '</a>' ;
                         }
                         else
                         {

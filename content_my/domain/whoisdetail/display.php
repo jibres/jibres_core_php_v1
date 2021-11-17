@@ -6,7 +6,7 @@
 				<?php require_once('whoisDetailForm.php'); ?>
 			</div>
 			<footer class="txtLa">
-				<button class="btn success"><?php echo "Save"; ?></button>
+				<button class="btn-success"><?php echo "Save"; ?></button>
 			</footer>
 		</div>
 	</form>

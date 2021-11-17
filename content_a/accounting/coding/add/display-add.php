@@ -151,7 +151,7 @@
 
           <div class="c"></div>
           <div class="cauto">
-            <button class="btn success"><?php echo $buttonTitle; ?></button>
+            <button class="btn-success"><?php echo $buttonTitle; ?></button>
           </div>
         </footer>
 

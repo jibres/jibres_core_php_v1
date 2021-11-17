@@ -33,7 +33,7 @@
         </div>
 
         <footer class="txtRa">
-          <button class="btn success"><?php echo \dash\data::nextBtnAll(); ?></button>
+          <button class="btn-success"><?php echo \dash\data::nextBtnAll(); ?></button>
         </footer>
 
       </div>

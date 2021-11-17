@@ -13,7 +13,7 @@
            <input type="tel" name="number" id="number" placeholder='<?php echo \dash\data::productDataRow_title(); ?>' value='<?php echo \dash\data::newNumber(); ?>' <?php \dash\layout\autofocus::html(); ?> data-format>
           </div>
           <div class="txtRa">
-            <button class="btn success"><?php echo T_("Copy"); ?></button>
+            <button class="btn-success"><?php echo T_("Copy"); ?></button>
           </div>
     </div>
 

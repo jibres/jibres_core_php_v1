@@ -32,7 +32,7 @@ foreach ($myQ['items'] as $itemKey => $myItem)
 
             <div class="f">
               <div class="c pRa5">
-                <button class="btn success block"><?php echo T_("Next"); ?></button>
+                <button class="btn-success block"><?php echo T_("Next"); ?></button>
               </div>
               <div class="cauto os pLa5">
                 <button class="btn block" name="skip" value="skip"><?php echo T_("Skip"); ?></button>

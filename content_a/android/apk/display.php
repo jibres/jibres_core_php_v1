@@ -7,7 +7,7 @@
     <div  class="box impact">
       <header><h2><?php echo T_("Your Store Android Application Status");?></h2>
         <?php if(\dash\permission::supervisor()) {?>
-          <div data-confirm data-data='{"build" : "rebuild"}' class="btn success xs"><?php echo T_("Rebuild it"); ?></div>
+          <div data-confirm data-data='{"build" : "rebuild"}' class="btn-success xs"><?php echo T_("Rebuild it"); ?></div>
         <?php } //endif ?>
       </header>
 
@@ -81,7 +81,7 @@ else
 
          <?php if($addNew) {?>
           <footer class="txtRa">
-            <div data-confirm data-data='{"build" : "now"}' class="btn success"><?php echo T_("Build it now"); ?></div>
+            <div data-confirm data-data='{"build" : "now"}' class="btn-success"><?php echo T_("Build it now"); ?></div>
           </footer>
         <?php } //endif ?>
 <?php

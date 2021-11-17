@@ -16,7 +16,7 @@
         </div>
 <?php if (!\dash\detect\device::detectPWA()) { ?>
         <footer class="txtRa">
-          <button  class="btn success" ><?php echo T_("Save"); ?></div>
+          <button  class="btn-success" ><?php echo T_("Save"); ?></div>
         </footer>
 <?php } ?>
     </div>

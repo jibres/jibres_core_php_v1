@@ -47,7 +47,7 @@
 
 
           <div class="txtRa pT10">
-            <button class="btn success"><?php echo T_("Save"); ?></button>
+            <button class="btn-success"><?php echo T_("Save"); ?></button>
           </div>
 
       </div>

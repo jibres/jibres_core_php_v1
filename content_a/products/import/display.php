@@ -23,7 +23,7 @@
 		<div class="input w300">
 			<input type="file" name="import" accept=".csv" id="import">
 		</div>
-		<button class="btn success"><?php echo T_("Check file"); ?></button>
+		<button class="btn-success"><?php echo T_("Check file"); ?></button>
 	</form>
 </div>
 
@@ -98,7 +98,7 @@ $awaitingImport = \dash\data::awaitingImport();
 			<div class="btn warn" data-confirm data-data='{"import": "ok"}'><?php echo T_("I sure. I want to overwrite that products"); ?></div>
 		<?php }else{ ?>
 
-			<div class="btn success" data-confirm data-data='{"import": "ok"}'><?php echo T_("Import"); ?></div>
+			<div class="btn-success" data-confirm data-data='{"import": "ok"}'><?php echo T_("Import"); ?></div>
 		<?php } //endif ?>
 
 	<?php }//endif ?>

@@ -9,7 +9,7 @@
         <textarea class="txt ltr" rows="15" name="domains" placeholder="<?php echo T_("Every domain in one line") ?>"></textarea>
       </div>
       <footer class="txtRa">
-        <button class="btn success"><?php echo T_("Import domain"); ?></button>
+        <button class="btn-success"><?php echo T_("Import domain"); ?></button>
       </footer>
     </div>
   </form>

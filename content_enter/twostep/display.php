@@ -18,7 +18,7 @@ else
   <div class='text'>
    <p><?php echo T_("Two-step login is now deactive for you."); ?></p>
   </div>
-  <button data-ajaxify data-method='post' data-data='{"action": "active" <?php echo \dash\csrf::get_json(); ?>}' class="btn success block"><?php echo T_("Active two-step"); ?></button>
+  <button data-ajaxify data-method='post' data-data='{"action": "active" <?php echo \dash\csrf::get_json(); ?>}' class="btn-success block"><?php echo T_("Active two-step"); ?></button>
 
 
 <?php

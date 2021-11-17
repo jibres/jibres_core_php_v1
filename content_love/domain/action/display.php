@@ -32,7 +32,7 @@
                     </td>
                     <td>
                         <?php if(a($value, 'detail', 'pay_link')) {?>
-                            <a href="<?php echo a($value, 'detail', 'pay_link') ?>" target="_blank" class="btn success"><?php echo T_("Pay") ?></a>
+                            <a href="<?php echo a($value, 'detail', 'pay_link') ?>" target="_blank" class="btn-success"><?php echo T_("Pay") ?></a>
                         <?php } // endif ?>
                         <?php echo a($value, 'desc'); ?>
 

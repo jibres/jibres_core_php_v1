@@ -66,7 +66,7 @@
 						<div class="cauto"><a class="btn link" href="<?php echo \dash\url::current() ?>"><?php echo T_("New") ?></a></div>
 						<?php } //endif ?>
 						<div class="c"></div>
-						<div class="cauto"><button class="btn success"><?php echo T_("Calculate") ?></button></div>
+						<div class="cauto"><button class="btn-success"><?php echo T_("Calculate") ?></button></div>
 					</footer>
 				</div>
 

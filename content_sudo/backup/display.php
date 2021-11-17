@@ -25,7 +25,7 @@
         <li>Trafic send: <span><?php echo \dash\fit::number((((\dash\data::mysqlInfo_Bytes_sent()) / 1024 ) / 1024)); ?></span> <small>MB</small></li>
       </div>
 
-      <div class="btn success block mB10" data-confirm data-timeout=0 data-data='{"backupnow": "jibres"}'>Backup Jibres Database</div>
+      <div class="btn-success block mB10" data-confirm data-timeout=0 data-data='{"backupnow": "jibres"}'>Backup Jibres Database</div>
       <div class="btn-outline-success block mB10" data-confirm data-timeout=0 data-data='{"backupnow": "domain"}'>Backup Domains Database</div>
       <div class="btn-outline-success block mB10" data-confirm data-timeout=0 data-data='{"backupnow": "business"}'>Backup All business Database</div>
 

@@ -138,7 +138,7 @@
   <div class="body">
     <div class="row align-center">
       <div class="c"><?php echo T_("You can change status of this comment"); ?></div>
-      <div class="c-auto c-xs-6"><div data-ajaxify data-data='{"status": "approved"}' class="btn success<?php if(a($dataRow, 'status') !== 'approved'){echo ' outline';} ?>"><?php echo T_("Approved"); ?></div></div>
+      <div class="c-auto c-xs-6"><div data-ajaxify data-data='{"status": "approved"}' class="btn-success<?php if(a($dataRow, 'status') !== 'approved'){echo ' outline';} ?>"><?php echo T_("Approved"); ?></div></div>
       <div class="c-auto c-xs-6"><div data-ajaxify data-data='{"status": "unapproved"}' class="btn secondary<?php if(a($dataRow, 'status') !== 'unapproved'){echo ' outline';} ?>"><?php echo T_("Unapproved"); ?></div></div>
       <div class="c-auto c-xs-6"><div data-ajaxify data-data='{"status": "spam"}' class="btn pain<?php if(a($dataRow, 'status') !== 'spam'){echo ' outline';} ?>"><?php echo T_("Spam"); ?></div></div>
       <div class="c-auto c-xs-6"><div data-confirm data-data='{"remove": "remove"}' class="btn danger<?php if(a($dataRow, 'status') !== 'remove'){echo ' outline';} ?>"><?php echo T_("Remove"); ?></div></div>

@@ -9,7 +9,7 @@
            <input type="text" name="title" id="title" placeholder='<?php echo \dash\data::productDataRow_title(); ?>' value='<?php echo \dash\data::productDataRow_title(); ?>' maxlength='200' autofocus>
           </div>
           <div class="txtRa">
-            <button class="btn success"><?php echo T_("Copy"); ?></button>
+            <button class="btn-success"><?php echo T_("Copy"); ?></button>
           </div>
     </div>
 
