@@ -17,7 +17,7 @@ class transaction_newPaySuccessfull
 		$result['cat']       = T_("Payment");
 		$result['iconClass'] = 'fc-green';
 		$result['txt']       = self::get_msg($_args);
-		$result['txt'] .= '<a class="link btn" href="'. \dash\url::kingdom(). '/crm/transactions'. '">'. T_("Transactions list"). '</a>';
+		$result['txt'] .= '<a class="btn-link" href="'. \dash\url::kingdom(). '/crm/transactions'. '">'. T_("Transactions list"). '</a>';
 		return $result;
 
 	}

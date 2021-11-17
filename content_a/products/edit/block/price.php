@@ -12,7 +12,7 @@
         </div>
         <div class="c"></div>
         <div class="cauto">
-          <a class="link btn" href="<?php echo \dash\url::this(). '/child?id='. \dash\request::get('id') ?>"><?php echo T_("Manage each independently"); ?> </a>
+          <a class="btn-link" href="<?php echo \dash\url::this(). '/child?id='. \dash\request::get('id') ?>"><?php echo T_("Manage each independently"); ?> </a>
         </div>
       </div>
   </div>

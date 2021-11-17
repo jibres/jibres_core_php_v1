@@ -52,7 +52,7 @@
             <tr><td><?php echo T_("Last use date"); ?></td><td class="text-left ltr"><?php echo \dash\fit::date_time(a($dashboard, 'lastusage', 'datecreated')); ?></td></tr>
             <tr><td><?php echo T_("Total price"); ?> <small>(<?php echo \lib\currency::unit(); ?>)</small></td><td class="text-left ltr"><?php echo \dash\fit::number(a($dashboard, 'totalparice')); ?></td></tr>
 
-            <tr><td></td><td class="text-left"><a href="<?php echo \dash\url::this(). '/usage?gift_id='. \dash\request::get('id'); ?>" class="link btn"><?php echo T_("Show usage list"); ?></a></td></tr>
+            <tr><td></td><td class="text-left"><a href="<?php echo \dash\url::this(). '/usage?gift_id='. \dash\request::get('id'); ?>" class="btn-link"><?php echo T_("Show usage list"); ?></a></td></tr>
 
           </tbody>
         </table>
@@ -69,7 +69,7 @@
             <tr><td><?php echo T_("Total valid lookup"); ?></td><td class="text-left"><?php echo \dash\fit::number(a($dashboard, 'lookupvalid')); ?></td></tr>
             <tr><td><?php echo T_("Total invalid lookup"); ?></td><td class="text-left"><?php echo \dash\fit::number(a($dashboard, 'lookupinvalid')); ?></td></tr>
 
-            <tr><td></td><td class="text-left"><a href="<?php echo \dash\url::this(). '/lookup?gift_id='. \dash\request::get('id'); ?>" class="link btn"><?php echo T_("Show lookup list"); ?></a></td></tr>
+            <tr><td></td><td class="text-left"><a href="<?php echo \dash\url::this(). '/lookup?gift_id='. \dash\request::get('id'); ?>" class="btn-link"><?php echo T_("Show lookup list"); ?></a></td></tr>
 
           </tbody>
         </table>

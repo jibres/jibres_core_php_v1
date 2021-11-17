@@ -8,7 +8,7 @@
         <div class="row">
           <div class="cauto"><?php echo T_("You can change the file by upload new file or remove file") ?></div>
           <div class="c"></div>
-          <div class="cauto"><a target="_blank" href="<?php echo \dash\data::dataRow_file(); ?>"  class="link btn"><?php echo T_("View") ?></a></div>
+          <div class="cauto"><a target="_blank" href="<?php echo \dash\data::dataRow_file(); ?>"  class="btn-link"><?php echo T_("View") ?></a></div>
           <div class="cauto"><div data-ajaxify data-data='{"removefile": "removefile"}' class="btn-link-danger"><?php echo T_("Remove Attachment") ?></div></div>
         </div>
         </div>

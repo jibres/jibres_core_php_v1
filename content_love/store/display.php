@@ -57,7 +57,7 @@
 
       </td>
       <td class="collapsing">
-        <a href="<?php echo \dash\url::this(). '/setting?id='. a($value, 'id') ?>" class="link btn"><?php echo T_("Setting") ?></a>
+        <a href="<?php echo \dash\url::this(). '/setting?id='. a($value, 'id') ?>" class="btn-link"><?php echo T_("Setting") ?></a>
       </td>
 
     </tr>

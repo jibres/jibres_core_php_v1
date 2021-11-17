@@ -189,7 +189,7 @@ if($myChildList)
                   </tbody>
                 </table>
               </div>
-              <div class="link btn" data-kerkere='.addNewLine'><?php echo T_("Add new variants") ?></div>
+              <div class="btn-link" data-kerkere='.addNewLine'><?php echo T_("Add new variants") ?></div>
   </div>
 </div>
 <?php }else{ /*have variant child but no child is founded. this is a bug!*/ ?>

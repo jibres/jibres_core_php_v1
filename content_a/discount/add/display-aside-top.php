@@ -34,7 +34,7 @@ if(a($discountSummary, 'summary'))
 if($discount_id)
 {
 	$title = T_("Show factors by this discount");
-	$html .= "<a class='link-primary outline' href='$filter_factor' data-direct>$title</a>";
+	$html .= "<a class='link-outline-primary' href='$filter_factor' data-direct>$title</a>";
 }
 
 
