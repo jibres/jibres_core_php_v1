@@ -17,7 +17,7 @@ class viewThirdParty
 		\dash\data::addons_crisp(self::crisp());
 		\dash\data::addons_imber(self::imber());
 		\dash\data::addons_mediaad(self::mediaad());
-		\dash\data::addons_goftino(self::goftino());
+		// \dash\data::addons_goftino(self::goftino());
 		// disable raychat for security reason
 		// \dash\data::addons_raychat(self::raychat());
 	}
