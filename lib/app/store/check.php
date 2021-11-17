@@ -40,6 +40,7 @@ class check
 			'addon_imber'                         => 'string_50',
 			'addon_raychat'                       => 'string_50',
 			'addon_mediaad'                       => 'intstring_10_4',
+			'addon_goftino'                       => 'string_50',
 			'enamad'                              => 'string_100',
 			'nosale'                              => 'bit',
 			'samandehi_link1'                     => 'url',
@@ -63,7 +64,7 @@ class check
 			'shipping_survey'                     => 'id',
 			'order_schedule'                      => 'json',
 
-			'disallowsearchengine'                   => 'yes_no',
+			'disallowsearchengine'                => 'yes_no',
 		];
 
 		$require = ['title'];
