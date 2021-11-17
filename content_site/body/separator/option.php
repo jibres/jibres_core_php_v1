@@ -12,7 +12,7 @@ class option
 	 */
 	public static function premium()
 	{
-		return false;
+		return !\dash\url::isLocal();
 	}
 
 
