@@ -34,7 +34,7 @@
       <td><a href="<?php echo \dash\url::that(). '?'.\dash\request::build_query(['fstatus' => a($value, 'status')]) ?>"><?php echo T_(a($value, 'status')); ?></a></td>
 
       <td class="collapsing">
-        <a href="<?php echo \dash\url::this(). '/manage?id='. a($value, 'id') ?>" class="btn info outline"><?php echo T_("Manage") ?></a>
+        <a href="<?php echo \dash\url::this(). '/manage?id='. a($value, 'id') ?>" class="btn-outline-info"><?php echo T_("Manage") ?></a>
       </td>
 
     </tr>

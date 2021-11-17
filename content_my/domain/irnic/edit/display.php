@@ -22,7 +22,7 @@
 
 	            <div class="f align-center mT50">
 	            	<div class="c pRa10"><div data-confirm data-data='{"myaction": "remove"}' class="btn outline danger"><?php echo T_("Remove"); ?></div></div>
-	            	<div class="cauto os"><button class="btn info"><?php echo T_("Edit"); ?></button></div>
+	            	<div class="cauto os"><button class="btn-info"><?php echo T_("Edit"); ?></button></div>
 	            </div>
 
 			</form>
