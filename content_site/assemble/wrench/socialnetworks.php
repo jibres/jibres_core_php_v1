@@ -9,7 +9,7 @@ class socialnetworks
     $html = '<nav class="social flex flex-row justify-center mt-5 mb-2">';
     {
       $linkClass = 'block transition opacity-60 hover:opacity-80 focus:opacity-100 p-0.5';
-      $imgClass = 'block overflow-hidden rounded-full h-'. $_size. ' w-'. $_size;
+      $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
 
 
       if(a($_social, 'linkedin', 'link'))
@@ -72,7 +72,7 @@ class socialnetworks
         $imgSrc = \dash\url::cdn(). '/img/social/type1/telegram.svg';
 
         $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'telegram', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("telegram"). '">';
+        $html .= '<img class="'. $imgClass. ' rounded-full" src="'. $imgSrc. '" alt="'. T_("telegram"). '">';
         $html .= '</a>';
       }
 
