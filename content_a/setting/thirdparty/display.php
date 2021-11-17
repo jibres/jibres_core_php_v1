@@ -1,3 +1,4 @@
+
 <div class="avand-sm zero">
   <h2><?php echo T_("Analytics"); ?></h2>
   <nav class="items mB25-f">
@@ -37,6 +38,7 @@
           <div class="go"></div>
         </a>
       </li>
+
        <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/arvanclouds3">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/arvancloud.svg" alt='ArvanCloud'>
@@ -79,6 +81,7 @@
       </li>
 
 
+<?php if (\dash\language::current() === 'fa') { ?>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/goftino">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/goftino.svg" alt='goftino'>
@@ -87,11 +90,6 @@
           <div class="go"></div>
         </a>
       </li>
-
-
-
-
-<?php if (\dash\language::current() === 'fa') { ?>
       <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/raychat">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/raychat.jpg" alt='RayChat'>
