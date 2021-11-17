@@ -90,7 +90,7 @@ else
       <th><?php echo T_('Verify for this user');
 if(\dash\data::domainDetail_verify())
 {
- echo "<span class='linkDel mLa5' data-confirm data-data='{\"myaction\" : \"verify\", \"op\" :\"unset\"}'>". T_('Click to disable'). "</span>";
+ echo "<span class='btn-link-danger mLa5' data-confirm data-data='{\"myaction\" : \"verify\", \"op\" :\"unset\"}'>". T_('Click to disable'). "</span>";
 }
 else
 {

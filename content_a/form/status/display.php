@@ -60,7 +60,7 @@
         </div>
         <?php if(\dash\data::dataRow_status() == 'trash') { ?>
           <footer class="txtRa">
-            <div class="linkDel btn" data-confirm data-data='{"status" : "deleted"}'><?php echo T_("Delete completely") ?></div>
+            <div class="btn-link-danger" data-confirm data-data='{"status" : "deleted"}'><?php echo T_("Delete completely") ?></div>
           </footer>
         <?php } ?>
       </div>

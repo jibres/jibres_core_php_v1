@@ -30,7 +30,7 @@
 			</form>
 			<?php if(\dash\data::dataRowMember_avatar_raw()) {?>
 				<div class="text-left font-18">
-					<div class="linkDel" data-confirm data-data='{"btn": "remove"}'><i class="sf-trash"></i></div>
+					<div class="btn-link-danger" data-confirm data-data='{"btn": "remove"}'><i class="sf-trash"></i></div>
 				</div>
 			<?php } //endif ?>
 		</div>

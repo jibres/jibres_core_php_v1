@@ -94,7 +94,7 @@ if(\lib\store::detail('mass_unit'))
         </div>
         <footer class="">
           <div class="row">
-            <div class="c-auto"><div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></div>
+            <div class="c-auto"><div class="btn-link-danger" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></div>
             <div class="c"></div>
             <div class="c-auto">
               <?php if(\dash\data::editMode() && \dash\request::get('id') == a($value, 'id')) { /*Nothing*/ }else{ ?>

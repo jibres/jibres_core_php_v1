@@ -90,10 +90,10 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
               </div>
             <?php }else{ ?>
               <div class="c-xs c-auto p0">
-                <div class="btn mT10 linkDel outline" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
+                <div class="btn-link-danger mT10" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
               </div>
               <div class="c-xs-auto c-auto p0">
-                <button class="btn mT10 secondary outline"><?php echo T_("Edit") ?></button>
+                <button class="btn-outline-secondary mT10"><?php echo T_("Edit") ?></button>
               </div>
             <?php }//endif ?>
         <?php } //endif ?>

@@ -29,7 +29,7 @@
                   <?php if(a($value, 'id') === \dash\request::get('cid')) {?>
                     <div class="fc-mute"><i><?php echo T_("Editing...") ?></i></div>
                   <?php }else{ ?>
-                    <div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div>
+                    <div class="btn-link-danger" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div>
                   <?php } //endif ?>
                 </td>
               </tr>

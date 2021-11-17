@@ -37,7 +37,7 @@
 			<?php settingRecord(\dash\data::itemDetail()); ?>
 		</div>
 		<footer class="f">
-			<div class="cauto"><div class="linkDel btn" data-confirm data-data='{"removeitem": "removeitem"}'><?php echo T_("Remove question") ?></div></div>
+			<div class="cauto"><div class="btn-link-danger" data-confirm data-data='{"removeitem": "removeitem"}'><?php echo T_("Remove question") ?></div></div>
 
 
 		</footer>

@@ -102,7 +102,7 @@
 
       </div>
       <footer class="f">
-        <div class="cauto"><div class="linkDel btn" data-confirm data-data='{"resethttps": "resethttps"}'><?php echo T_("Reset HTTPS date") ?></div></div>
+        <div class="cauto"><div class="btn-link-danger" data-confirm data-data='{"resethttps": "resethttps"}'><?php echo T_("Reset HTTPS date") ?></div></div>
         <div class="c"></div>
         <div class="cauto"><button class="btn master"><?php echo T_("Send HTTPS request") ?></button></div>
 

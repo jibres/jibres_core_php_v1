@@ -31,7 +31,7 @@
                 </tr>
               <?php } // endif ?>
               <tr>
-                <td class="collapsing text-sm"><div class="linkDel btn" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></td>
+                <td class="collapsing text-sm"><div class="btn-link-danger" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></td>
                 <td class="collapsing text-sm">
                   <a href="<?php echo \dash\url::this().'/report/answer?'. \dash\request::fix_get(['iid' => a($value, 'item_id')]) ?>">
                     <span class="txtB"><?php echo \dash\fit::number(a($value, 'item_id')) ?>.</span> <?php echo a($value, 'field_title') ?>
