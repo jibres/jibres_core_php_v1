@@ -43,9 +43,9 @@
          <div class="itemOperation">
           <div class="productCount">
            <div class="input">
-            <label class="addon btn light" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>+</label>
+            <label class="addon btn-light" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>+</label>
             <input type="number" name="count" value="<?php echo a($value, 'count'); ?>" readonly data-format='int'>
-            <label class="addon btn light" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>-</label>
+            <label class="addon btn-light" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>-</label>
            </div>
 
           </div>

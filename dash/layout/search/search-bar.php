@@ -17,7 +17,7 @@ if($all_get)
     <div class="row">
 <?php if(\dash\data::listEngine_filter()) {?>
       <div class="c-auto">
-        <a class="btn light3 <?php if(\dash\data::isFiltered()) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
+        <a class="btn-light3 <?php if(\dash\data::isFiltered()) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
       </div>
 <?php }?>
 
@@ -25,7 +25,7 @@ if($all_get)
         <div>
           <div class="input search <?php if(\dash\validate::search_string()) { echo 'apply'; }?>">
             <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" class="barCode" data-default data-pass='submit' autocomplete='off' autofocus>
-            <button class="addon btn light3 s0"><span class="w-5"><?php echo \dash\utility\icon::svg('Search', 'major') ?></span></button>
+            <button class="addon btn-light3 s0"><span class="w-5"><?php echo \dash\utility\icon::svg('Search', 'major') ?></span></button>
           </div>
         </div>
       </div>

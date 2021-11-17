@@ -17,39 +17,39 @@ if(\dash\face::boxTitle() !== false)
 
     <nav class="c-auto actions">
 <?php if(\dash\face::btnImport()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnImport(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
+     <a class="btn-light" href="<?php echo \dash\face::btnImport(); ?>"><i class="pRa5 compact sf-in"></i><span><?php echo T_("Import"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnExport()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnExport(); ?>"><i class="pRa5 compact sf-out"></i><span><?php echo T_("Export"); ?></span></a>
+     <a class="btn-light" href="<?php echo \dash\face::btnExport(); ?>"><i class="pRa5 compact sf-out"></i><span><?php echo T_("Export"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnNew()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnNew(); ?>"><i class="pRa5 compact sf-plus-circle"></i><span><?php echo T_("New"); ?></span></a>
+     <a class="btn-light" href="<?php echo \dash\face::btnNew(); ?>"><i class="pRa5 compact sf-plus-circle"></i><span><?php echo T_("New"); ?></span></a>
 <?php } // endif ?>
 
 
 <?php if(\dash\face::btnDuplicate()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnDuplicate(); ?>"><i class="pRa5 compact sf-files-o"></i><span><?php echo T_("Duplicate"); ?></span></a>
+     <a class="btn-light" href="<?php echo \dash\face::btnDuplicate(); ?>"><i class="pRa5 compact sf-files-o"></i><span><?php echo T_("Duplicate"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnSetting()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnSetting(); ?>"><i class="pRa5 compact sf-tools"></i><span><?php echo T_("Advance"); ?></span></a>
+     <a class="btn-light" href="<?php echo \dash\face::btnSetting(); ?>"><i class="pRa5 compact sf-tools"></i><span><?php echo T_("Advance"); ?></span></a>
 <?php } // endif ?>
 
 <?php if(\dash\face::btnPreview()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnPreview(); ?>" target="_blank" data-fancybox='btnPreview' data-type="iframe" data-preload="false"><i class="pRa5 compact sf-binoculars"></i><span><?php echo T_("Preview"); ?></span></a>
+     <a class="btn-light" href="<?php echo \dash\face::btnPreview(); ?>" target="_blank" data-fancybox='btnPreview' data-type="iframe" data-preload="false"><i class="pRa5 compact sf-binoculars"></i><span><?php echo T_("Preview"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::btnView()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::btnView(); ?>" target="_blank" data-fancybox='btnView' data-type="iframe" data-preload="false"><i class="pRa5 compact sf-eye"></i><span><?php echo T_("View"); ?></span></a>
+     <a class="btn-light" href="<?php echo \dash\face::btnView(); ?>" target="_blank" data-fancybox='btnView' data-type="iframe" data-preload="false"><i class="pRa5 compact sf-eye"></i><span><?php echo T_("View"); ?></span></a>
 <?php } // endif ?>
 <?php if(\dash\face::help()) { ?>
-     <a class="btn light" href="<?php echo \dash\face::help(); ?>" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span><?php echo T_("Help"); ?></span></a>
+     <a class="btn-light" href="<?php echo \dash\face::help(); ?>" target="_blank"><i class="pRa5 compact sf-question-circle"></i><span><?php echo T_("Help"); ?></span></a>
 <?php } // endif ?>
     </nav>
 
 
 <?php if(\dash\face::btnPrev() || \dash\face::btnNext()) { ?>
     <nav class="c-auto os nav">
-     <a class="btn light <?php if(\dash\face::btnPrev() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnPrev() !== 'disabled') { echo 'href="'. \dash\face::btnPrev().'"'; } ?> title='<?php echo T_("Previous item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i></a>
-     <a class="btn light <?php if(\dash\face::btnNext() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnNext() !== 'disabled') { echo 'href="'. \dash\face::btnNext().'"'; } ?>  title='<?php echo T_("Next item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'left'; } else { echo 'right'; } ?>"></i></a>
+     <a class="btn-light <?php if(\dash\face::btnPrev() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnPrev() !== 'disabled') { echo 'href="'. \dash\face::btnPrev().'"'; } ?> title='<?php echo T_("Previous item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'right'; } else { echo 'left'; } ?>"></i></a>
+     <a class="btn-light <?php if(\dash\face::btnNext() === 'disabled') { echo 'disabled'; } ?>" <?php if(\dash\face::btnNext() !== 'disabled') { echo 'href="'. \dash\face::btnNext().'"'; } ?>  title='<?php echo T_("Next item"); ?>'><i class="sf-chevron-<?php if(\dash\language::dir() === 'rtl') { echo 'left'; } else { echo 'right'; } ?>"></i></a>
     </nav>
 <?php } // endif ?>
 

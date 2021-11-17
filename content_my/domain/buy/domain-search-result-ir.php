@@ -113,15 +113,15 @@ $master_domain = a($master, 'full');
                         {
                             if(array_key_exists('domain_restricted', $master) && $master['domain_restricted'])
                             {
-                                echo '<div class="btn light">'. T_("Domain restricted for register"). '</div>' ;
+                                echo '<div class="btn-light">'. T_("Domain restricted for register"). '</div>' ;
                             }
                             elseif(array_key_exists('domain_name_valid', $master) && $master['domain_name_valid'] === false)
                             {
-                                echo '<div class="btn light">'. T_("Domain name is not valid"). '</div>' ;
+                                echo '<div class="btn-light">'. T_("Domain name is not valid"). '</div>' ;
                             }
                             else
                             {
-                                echo '<a class="btn light" target="_blank" href="'. \dash\url::kingdom(). '/whois/'. urlencode($master_domain).'">'. T_("Whois taken?"). '</a>' ;
+                                echo '<a class="btn-light" target="_blank" href="'. \dash\url::kingdom(). '/whois/'. urlencode($master_domain).'">'. T_("Whois taken?"). '</a>' ;
                             }
                         }
                     }

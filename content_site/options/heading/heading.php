@@ -153,7 +153,7 @@ trait heading
 
 	    		if(self::have_text_position())
 				{
-	    			$html .= '<label class="addon btn light" data-kerkere=".showHeadingOption">...</label>';
+	    			$html .= '<label class="addon btn-light" data-kerkere=".showHeadingOption">...</label>';
 	    		}
 			}
 

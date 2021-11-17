@@ -50,7 +50,7 @@
           <div class="searchBox mB20">
             <div class="input search <?php if(\dash\validate::search_string()) { echo 'apply'; }?>">
               <input type="search" name="q" placeholder='<?php echo T_("Search products"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>"  autocomplete='off' >
-              <button class="addon btn light3 s0"><i class="sf-search"></i></button>
+              <button class="addon btn-light3 s0"><i class="sf-search"></i></button>
             </div>
           </div>
           <?php HTML_tag_filter(); ?>

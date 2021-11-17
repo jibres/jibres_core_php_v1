@@ -134,7 +134,7 @@ class part
 			$html .= '<div class="tagLine">';
 			foreach ($tags as $key => $value)
 			{
-				$html .= '<a class="btn light mRa5 mB5" href="'. a($value, 'link'). '">';
+				$html .= '<a class="btn-light mRa5 mB5" href="'. a($value, 'link'). '">';
 				$html .= a($value, 'title');
 				$html .= "</a> ";
 			}

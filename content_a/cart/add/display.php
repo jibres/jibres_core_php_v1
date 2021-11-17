@@ -201,9 +201,9 @@ $have_user = false;
                       $minus = json_encode(array_merge($json, ['type' => 'minus_count']));
 
                       ?>
-                      <label class="addon btn light" data-ajaxify data-method="post" data-data='<?php echo $plus ?>'>+</label>
+                      <label class="addon btn-light" data-ajaxify data-method="post" data-data='<?php echo $plus ?>'>+</label>
                       <input type="number" step="0.001" name="count" value="<?php echo floatval(a($value, 'count')); ?>" readonly data-format='price'>
-                      <label class="addon btn light" data-ajaxify data-method="post" data-data='<?php echo $minus ?>'>-</label>
+                      <label class="addon btn-light" data-ajaxify data-method="post" data-data='<?php echo $minus ?>'>-</label>
                     </div>
 
                   </div>
