@@ -28,7 +28,7 @@
         </div>
       </div>
       <footer class="txtRa">
-        <button  class="btn warn" ><?php echo T_("Reset"); ?></button>
+        <button  class="btn-warning" ><?php echo T_("Reset"); ?></button>
       </footer>
   </div>
 </div>

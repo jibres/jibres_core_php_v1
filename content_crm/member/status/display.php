@@ -47,7 +47,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-      <div class="btn warn" data-confirm data-data='{"resetban": "resetban"}'><?php echo T_("Reset user") ?></div>
+      <div class="btn-warning" data-confirm data-data='{"resetban": "resetban"}'><?php echo T_("Reset user") ?></div>
     </div>
   </form>
 </section>
@@ -66,7 +66,7 @@
   </div>
   <form class="c4 s12" method="post" data-patch>
     <div class="action">
-          <div class="btn warn" data-confirm data-data='{"permission": "customer"}'><?php echo T_("Convert to customer") ?></div>
+          <div class="btn-warning" data-confirm data-data='{"permission": "customer"}'><?php echo T_("Convert to customer") ?></div>
     </div>
   </form>
 </section>

@@ -9,7 +9,7 @@
         <form method="get" action='<?php echo \dash\url::current() ?>' autocomplete='off'>
           <div class="input">
             <input type="search" name="q" autocomplete="off" maxlength="65" value="<?php echo \dash\data::getDomain(); ?>" <?php if (!\dash\detect\device::detectPWA()) {echo "autofocus";} ?> >
-            <button class="addon btn warn"><?php echo T_("Search"); ?></button>
+            <button class="addon btn-warning"><?php echo T_("Search"); ?></button>
           </div>
         </form>
       </section>

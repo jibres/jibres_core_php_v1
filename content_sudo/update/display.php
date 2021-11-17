@@ -49,7 +49,7 @@
   <div class="c s6">
     <div class="msg fs14 f">
       <div class="cauto">
-          <a class="btn warn" target="_blank" href="<?php echo \dash\url::this(); ?>?git=all"><?php echo T_("Pull git repository"); ?></a>
+          <a class="btn-warning" target="_blank" href="<?php echo \dash\url::this(); ?>?git=all"><?php echo T_("Pull git repository"); ?></a>
 
       </div>
       <div class="c"></div>

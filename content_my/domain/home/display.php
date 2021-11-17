@@ -9,7 +9,7 @@
       <form method="get" action="<?php echo \dash\url::here(); ?>/domain/buy" autocomplete='off' data-timeout="0">
         <div class="input">
           <input type="search" name="q" autocomplete="off" maxlength="65" placeholder='<?php echo T_('Enter your idea for domain name') ?>'>
-          <button class="addon btn warn"><?php echo T_("Register Domain"); ?></button>
+          <button class="addon btn-warning"><?php echo T_("Register Domain"); ?></button>
         </div>
       </form>
     </section>

@@ -95,7 +95,7 @@ $awaitingImport = \dash\data::awaitingImport();
 
 		<?php if(a($awaitingImport, 'meta', 'overwrite_count')) {?>
 
-			<div class="btn warn" data-confirm data-data='{"import": "ok"}'><?php echo T_("I sure. I want to overwrite that products"); ?></div>
+			<div class="btn-warning" data-confirm data-data='{"import": "ok"}'><?php echo T_("I sure. I want to overwrite that products"); ?></div>
 		<?php }else{ ?>
 
 			<div class="btn-success" data-confirm data-data='{"import": "ok"}'><?php echo T_("Import"); ?></div>

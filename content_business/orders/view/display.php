@@ -58,7 +58,7 @@
 
         <?php if(!a(\dash\data::dataRow_order(), 'pay') && a(\dash\data::dataRow_order(), 'status') !== 'cancel') {?>
           <footer class="txtRa">
-            <div class="btn warn" data-confirm data-data='{"set_status": "cancel"}'><?php echo T_("Cancel order") ?></div>
+            <div class="btn-warning" data-confirm data-data='{"set_status": "cancel"}'><?php echo T_("Cancel order") ?></div>
           </footer>
         <?php } //endif ?>
       </div>

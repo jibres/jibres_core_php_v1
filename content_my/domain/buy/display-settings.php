@@ -181,7 +181,7 @@
         <?php echo T_("Domain is occupied"); ?>
        </div>
        <div class="cauto">
-        <a class="btn warn" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Who is?"); ?></a>
+        <a class="btn-warning" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/whois/<?php echo \dash\data::myDomain(); ?>"><?php echo T_("Who is?"); ?></a>
        </div>
       </div>
      </div>
