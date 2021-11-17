@@ -34,7 +34,7 @@
     <tr>
       <td class="collapsing">
 
-          <a class="btn primary2" href="<?php echo \dash\url::this(). '/view?id='. $value['id'] ?>">
+          <a class="btn-outline-primary" href="<?php echo \dash\url::this(). '/view?id='. $value['id'] ?>">
             <i class="sf-eye"></i>
             <code><?php echo $value['id'] ?></code>
           </a>

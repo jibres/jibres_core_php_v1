@@ -78,7 +78,7 @@
         <tr>
           <?php foreach ($fields as $field) {?>
             <?php if(a($field, 'field') === 'f_answer_id') {?>
-              <td><a class="btn primary2 xs" href="<?php echo \dash\url::that(). '/answer?'. \dash\request::fix_get(['aid' => $value['f_answer_id']]);  ?>"><?php echo T_("Show") ?></a></td>
+              <td><a class="btn-outline-primary xs" href="<?php echo \dash\url::that(). '/answer?'. \dash\request::fix_get(['aid' => $value['f_answer_id']]);  ?>"><?php echo T_("Show") ?></a></td>
             <?php }else{ if(array_key_exists('visible', $field) && !$field['visible']) {continue;} ?>
               <td class="collapsing"><?php echo a($value, a($field, 'field')) ?></td>
             <?php }//endif ?>

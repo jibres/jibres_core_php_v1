@@ -271,7 +271,7 @@ function HTML_product_status_search($value)
       <a class="btn secondary outline" href="<?php if(\dash\data::listEngine_cleanFilterUrl()){ echo \dash\data::listEngine_cleanFilterUrl(); }else{ echo \dash\url::that(); } ?>"><?php echo T_("Clear filters"); ?></a>
     <?php }//endif ?>
     <?php if($apply_filter_btn) {?>
-    <button class="btn primary2 outline"><?php echo T_("Apply filter") ?></button>
+    <button class="btn-outline-primary outline"><?php echo T_("Apply filter") ?></button>
   <?php } //endif ?>
   </div>
 </div>

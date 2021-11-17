@@ -26,7 +26,7 @@ class inquiry
 		echo '<input type="tel" name="q" ';
 		echo ' maxlength=15 ';
 		echo '>';
-		echo '<button class="addon btn primary2"><i class="sf-search"></i></button>';
+		echo '<button class="addon btn-outline-primary"><i class="sf-search"></i></button>';
 		echo '</div>';
 		echo '</form>';
 
@@ -220,7 +220,7 @@ class inquiry
 			echo ' data-format="nationalCode" maxlength=12 ';
 		}
 		echo '>';
-		echo '<button class="addon btn primary2"><i class="sf-search"></i></button>';
+		echo '<button class="addon btn-outline-primary"><i class="sf-search"></i></button>';
 		echo '</div>';
 		echo '</form>';
 	}

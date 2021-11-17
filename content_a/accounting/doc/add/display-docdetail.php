@@ -129,7 +129,7 @@ foreach (\dash\data::assistantList() as $key => $value)
             <label for="calcvat"><small><?php echo T_("Calculate Vat price") ?></small></label>
             <div class="input">
               <input type="tel" id="calcvat" name="calcvat" data-format='price' value="<?php echo \dash\request::get('calcvat') ?>">
-              <button class="btn primary2"><?php echo T_("Calculate vat") ?></button>
+              <button class="btn-outline-primary"><?php echo T_("Calculate vat") ?></button>
             </div>
 
           </div>
