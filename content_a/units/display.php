@@ -271,7 +271,7 @@
         <?php }else{ ?>
 
 
-          <div class="msg info">
+          <div class="alert-info">
             <p>
               <?php echo T_("No product found by this unit"); ?>
               <br>
