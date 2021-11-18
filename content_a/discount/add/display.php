@@ -619,7 +619,7 @@ function HTML_discount_profesional_is_not_activate()
 
 	if(!$plugin_discount_is_activated)
 	{
-		return '<a class="jalert jalert-error content-center p-3 block" href="'. \dash\url::kingdom(). '/a/plugin/view/'. $plugin_key.'" data-direct target="_blank">'. T_("Need to activate this plugin"). '</a>';
+		return '<a class="jalert alert-error content-center p-3 block" href="'. \dash\url::kingdom(). '/a/plugin/view/'. $plugin_key.'" data-direct target="_blank">'. T_("Need to activate this plugin"). '</a>';
 	}
 
 	return null;

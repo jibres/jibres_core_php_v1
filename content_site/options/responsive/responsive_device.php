@@ -87,7 +87,7 @@ class responsive_device
 			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 			$html .= \content_site\options\generate::multioption();
 
-			$html .= '<p class="jalert jalert-info p-3 text-sm ">';
+			$html .= '<p class="jalert alert-info p-3 text-sm ">';
 			{
 				$html  .= T_("You can restrict this section to a specific device or operating system that is only visible on that device and operating system");
 			}
