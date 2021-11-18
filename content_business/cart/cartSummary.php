@@ -58,7 +58,7 @@ $myCartSummary = \dash\data::myCart_summary();
         $minimumorderamount_html = T_("Minimum order amount is :val :currency", ['val' => \dash\fit::number($cart_setting['minimumorderamount']), 'currency' => $currency]);
         $minimumorderamount_html .= '<br>';
         $minimumorderamount_html .= T_("You must add :val :currency to your cart", ['val' => \dash\fit::number((floatval($cart_setting['minimumorderamount']) - floatval($total))), 'currency' => $currency]);
-        echo '<div class="alert-danger2">'. $minimumorderamount_html. '</div>';
+        echo '<div class="alert-danger">'. $minimumorderamount_html. '</div>';
       }
     }
 

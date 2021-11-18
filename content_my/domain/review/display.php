@@ -161,7 +161,7 @@ $giftCode = \dash\data::giftDetail_discount();
   }
   else
   {
-    echo '<div class="alert-danger2 f align-center">';
+    echo '<div class="alert-danger f align-center">';
       echo '<div class="c" id="giftcardmessageerror">';
       if(\dash\data::gitfErrorMessage())
       {

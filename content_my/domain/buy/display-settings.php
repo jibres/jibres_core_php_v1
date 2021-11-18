@@ -41,7 +41,7 @@
     if($message)
     {
       $message .= ' '. T_("If you have not this type of account your register can not be complete!");
-      echo '<div class="alert-danger2 minimal">'. $message. '</div>';
+      echo '<div class="alert-danger minimal">'. $message. '</div>';
     }
    } //endif ?>
   <?php }else{ ?>

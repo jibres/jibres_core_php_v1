@@ -1,5 +1,5 @@
 
-<p class="alert-danger2 font-30 text-center"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
+<p class="alert-danger font-30 text-center"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
 
 <?php if(\dash\data::isLockService()) {?>
   <p class="alert-danger fs20 font-bold text-center"><?php echo T_("Service is Locked!"); ?></p>
@@ -88,7 +88,7 @@ $needUpgrade = \dash\data::needUpgrade();
 
 ?>
 
-  <div class="alert-danger2 fs14">
+  <div class="alert-danger fs14">
   <p><?php echo T_("Database need to upgrade"); ?></p>
    <div class="f">
 

@@ -5,7 +5,7 @@ $needUpgrade = \dash\data::needUpgrade();
 
 ?>
 
-  <div class="alert-danger2 fs14">
+  <div class="alert-danger fs14">
   <p><?php echo T_("Database need to upgrade"); ?></p>
    <div class="f">
 

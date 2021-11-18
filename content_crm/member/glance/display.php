@@ -8,7 +8,7 @@ $dataRowMember = \dash\data::dataRowMember();
 if(a($dataRowMember,  'status') === 'ban')
 {
   $banMessage = '';
-  $banMessage .= '<div class="alert-danger2 font-14 "><div class="row align-center">';
+  $banMessage .= '<div class="alert-danger font-14 "><div class="row align-center">';
   {
     $banMessage .= '<div class="cauto">';
     {

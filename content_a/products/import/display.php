@@ -6,7 +6,7 @@
 
 <p class="alert-info fs14"><?php echo T_("Importing a CSV file that has been sorted by a spreadsheet editor such as Microsoft Excel or Numbers might cause your products to be removed from their relevant image links on the CSV, and your product's images will be lost."); ?></p>
 
-<p class="alert-danger2 fs14"><?php echo T_("Before you start your import, make sure that you have a backup of your product data."); ?></p>
+<p class="alert-danger fs14"><?php echo T_("Before you start your import, make sure that you have a backup of your product data."); ?></p>
 
 <div class="cbox">
 	<ul>
@@ -50,7 +50,7 @@ $awaitingImport = \dash\data::awaitingImport();
 
 			<?php foreach ($awaitingImport['meta']['error'] as $key => $value) {?>
 
-			<div class="alert-danger2">
+			<div class="alert-danger">
 				<div class="f">
 					<div class="c s12"><small><?php echo T_("Error"); ?></small>: <?php echo a($value, 'msg'); ?></div>
 					<div class="c s12"><small><?php echo T_("Count error"); ?></small> <b><?php echo \dash\fit::number(a($value, 'count')); ?></b></div>
