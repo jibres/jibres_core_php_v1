@@ -20,6 +20,9 @@ class application1
 				'heading_business',
 				'description_business',
 				'file_business_logo',
+				'link_googleplay',
+				'link_cafebazar',
+				'link_myket',
 
 				'style' => \content_site\utility::set_style_option(
 				[
