@@ -24,7 +24,7 @@
 
 
            <?php $address = a(\dash\data::dataRow(), 'address'); if(a($address, 'address')){ ?>
-          <div class="msg">
+          <div class="alert2">
             <span class=" link"><?php echo T_("Address") ?></span>
             <?php if(isset($address['country']) && $address['country']) {?><i class="flag <?php echo mb_strtolower($address['country']); ?>"></i><?php } //endif ?>
             <span ><?php echo a($address, 'location_string'); ?></span>

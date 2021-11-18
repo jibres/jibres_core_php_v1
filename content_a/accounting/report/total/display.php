@@ -3,7 +3,7 @@
 <?php require_once(root. '/content_a/accounting/report/report_header.php'); ?>
 
 <?php if(!\dash\data::reportDetail()) {?>
-  <div class="msg"><?php echo T_("No detail was founded") ?></div>
+  <div class="alert2"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
   <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
    <div class="break-inside-avoid">

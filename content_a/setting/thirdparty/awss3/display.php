@@ -5,7 +5,7 @@
     <div  class="box">
       <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/aws-banner.jpg" alt='AWS'>
       <div class="body">
-        <div class="msg">
+        <div class="alert2">
           <p><?php echo T_("Amazon S3 or Amazon Simple Storage Service is a service offered by Amazon Web Services (AWS) that provides object storage through a web service interface. Amazon S3 uses the same scalable storage infrastructure that Amazon.com uses to run its global e-commerce network") ?></p>
         </div>
 

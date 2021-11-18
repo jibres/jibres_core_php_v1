@@ -5,7 +5,7 @@
     <div  class="box">
         <div class="body">
           <img class="block mB20" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/imber-banner.png" alt='Imber'>
-          <div class="msg">
+          <div class="alert2">
             <p><?php echo T_("Imber is an all-in-one marketing automation platform built for customer support with live chat, sales, and marketing. All together. 7 day free trial.") ?></p>
           </div>
             <label for="iimber"><?php echo T_("Imber Token"); ?> <span class="fc-red">*</span></label>

@@ -48,7 +48,7 @@
     </div>
 
 
-      <div class="msg">
+      <div class="alert2">
 
       <small><?php echo T_("Sometimes employees sell some product with decimal unit and if you are force this unit to give integer value, we are not allow them to enter invalid value"); ?></small>
       <div class="switch1 mT10">

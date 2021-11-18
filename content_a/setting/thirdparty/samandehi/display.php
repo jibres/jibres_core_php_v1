@@ -5,7 +5,7 @@
     <div class="box">
       <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/samandehi-banner.jpg" alt='samandehi'>
         <div class="body">
-          <div class="msg">
+          <div class="alert2">
             <p><?php echo T_("Any company or individual that wants to have online website, can acquire the Samandehi certification, which is the official indicator for an approved and trusted online vendor."); ?></p>
           </div>
 

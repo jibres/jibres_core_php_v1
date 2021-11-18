@@ -18,7 +18,7 @@ $have_user = false;
   <div class="c-xs-12 c-sm-12 c-md-9">
     <?php require_once(root. '/content_a/order/detail.php'); ?>
 <?php if(\dash\data::userDetail()) { $have_user = true; ?>
-  <div class="msg">
+  <div class="alert2">
     <div class="f fs14">
       <div class="cauto"><img class="avatar" src="<?php echo \dash\data::userDetail_avatar() ?>"></div>
       <div class="c"><?php echo \dash\data::userDetail_displayname(); ?></div>

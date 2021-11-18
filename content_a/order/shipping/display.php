@@ -124,7 +124,7 @@ if(\lib\store::detail('mass_unit'))
                 <option value="custom"><?php echo T_("Custom") ?></option>
               </select>
             <?php }else{ ?>
-              <div class="msg">
+              <div class="alert2">
                 <a class="link sm" href="<?php echo \dash\url::here(). '/setting/shipping/method' ?>"><?php echo T_("Add new shipping method") ?></a>
               </div>
             <?php } // endif ?>

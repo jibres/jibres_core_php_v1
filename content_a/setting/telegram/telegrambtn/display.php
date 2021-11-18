@@ -12,7 +12,7 @@
           <div class="action f">
           <?php $social = \lib\store::social(); if(!is_array($social)) { $social = []; } ?>
           <?php if(!$social) {?>
-            <div class="msg"><?php echo T_("Please set your social network id") ?></div>
+            <div class="alert2"><?php echo T_("Please set your social network id") ?></div>
           <?php }else{ ?>
               <div class="f">
 

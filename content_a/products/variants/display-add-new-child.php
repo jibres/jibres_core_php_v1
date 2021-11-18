@@ -23,7 +23,7 @@ if(!is_numeric($remain_count))
 
           <div class="fc-red"><?php echo T_("Note that if you delete one type of variant, all products that have that type of variant will be removed!") ?></div>
         </p>
-        <div class="msg"><?php echo T_("Count product child"); ?> <span class="font-bold"><?php echo \dash\fit::number(\dash\data::countChild()); ?></span></div>
+        <div class="alert2"><?php echo T_("Count product child"); ?> <span class="font-bold"><?php echo \dash\fit::number(\dash\data::countChild()); ?></span></div>
         <?php $i = 0; foreach ($currentVariants as $key => $value) { $i++;?>
           <div class="example">
             <div class="mA5"><?php echo $key ?></div>

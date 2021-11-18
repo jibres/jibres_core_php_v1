@@ -10,7 +10,7 @@
           <span class="addon"><i class="sf-mail"></i></span>
         </div>
         <?php if(\dash\request::get('v') == 1) {?>
-          <div class="msg"><?php echo T_("You need to verify email after add to your account") ?></div>
+          <div class="alert2"><?php echo T_("You need to verify email after add to your account") ?></div>
         <?php } //endif ?>
       </div>
       <footer class="txtRa">

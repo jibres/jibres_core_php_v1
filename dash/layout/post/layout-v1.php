@@ -54,14 +54,14 @@ if(a($dataRow, 'tags') && is_array(a($dataRow, 'tags')))
 
 echo '</div>';
 }
-echo '<div class="msg">';
+echo '<div class="alert2">';
 require_once('share-box.php');
 echo '</div>';
 
 $myPostSimilar = \dash\app\posts\search::similar_post(\dash\data::dataRow_id());
 if($myPostSimilar)
 {
-  echo '<nav class="msg">';
+  echo '<nav class="alert2">';
   echo '<h4 class="mB20-f">'. T_("Recommended for you"). '</h4>';
   foreach ($myPostSimilar as $key => $value)
   {

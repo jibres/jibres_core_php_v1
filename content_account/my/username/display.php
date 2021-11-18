@@ -2,7 +2,7 @@
 <div class="f justify-center">
   <div class="c6 m8 x5 s12">
     <div class="cbox">
-      <div class="msg">
+      <div class="alert2">
         <div><?php echo T_("You can choose a username"); ?></div>
         <div><?php echo T_("You can use a-z, 0-9 and underscores."); ?></div>
         <div><?php echo T_("Minimum length is 5 characters."); ?></div>

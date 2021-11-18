@@ -3,7 +3,7 @@
     <div  class="box">
       <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/logo/social/facebook-banner.png" alt='Facebook'>
       <div class="body">
-        <div class="msg">
+        <div class="alert2">
           <p><?php echo T_("Enter your account username in facebook.") ?></p>
         </div>
           <div class="input ltr">

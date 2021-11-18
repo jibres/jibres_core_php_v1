@@ -5,7 +5,7 @@
     <div  class="box">
       <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/digitalocean-banner.jpg" alt='DigitalOcean'>
       <div class="body">
-        <div class="msg">
+        <div class="alert2">
           <p><?php echo T_("Spaces is an S3-compatible object storage service that lets you store and serve large amounts of data. Each Space is a bucket for you to store and serve files.") ?></p>
         </div>
 

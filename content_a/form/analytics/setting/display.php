@@ -15,7 +15,7 @@
           <div class="cauto"><a href="<?php echo \dash\url::that(). '/answer?'. \dash\request::fix_get(['printall' => 1]); ?>" target="_blank" class="btn-success" ><?php echo T_("Print") ?></a></div>
         </div>
 
-        <div class="msg">
+        <div class="alert2">
           <div data-kerkere-icon data-kerkere='.showField' class="btn-link"><?php echo T_("You can customize visible field") ?></div>
         </div>
         <div data-kerkere-content="hide" class="showField">

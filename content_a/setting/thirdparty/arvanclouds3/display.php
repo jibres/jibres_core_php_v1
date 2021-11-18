@@ -5,7 +5,7 @@
     <div  class="box">
         <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/arvancloud-banner.jpg" alt='ArvanCloud'>
       <div class="body">
-        <div class="msg">
+        <div class="alert2">
           <p><?php echo T_("ArvanCloud allows you to save any kind of data on Cloud Storage in a completely encrypted format. You can have stable access to a reliable storage system from all around the world, without worrying about data loss.") ?></p>
         </div>
 

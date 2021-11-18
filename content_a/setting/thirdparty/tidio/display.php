@@ -5,7 +5,7 @@
     <div class="box">
         <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/tidio-banner-2.jpg" alt='tidio'>
         <div class="body">
-          <div class="msg">
+          <div class="alert2">
             <p><?php echo T_("Tidio is an all-round marketing and communication tool for growing your online business. See what else you can accomplish. Integration with messenger. Tidio uniquely merges live chat, Bots, and Marketing Automation."); ?></p>
             <p><?php echo T_("By adding Tidio Chat to your store you empower your customers with the quickest and most effective form of contact. Research shows that live chat can boost sales by as much as 40%. Next time your customer faces an issue, they won’t go to the competitors or waste time - they’ll contact you."); ?></p>
           </div>

@@ -123,7 +123,7 @@
 					</table>
 				</div>
 			<?php }else{ ?>
-				<div class="msg"><?php echo T_("Document list is empty!") ?></div>
+				<div class="alert2"><?php echo T_("Document list is empty!") ?></div>
 			<?php } //endif ?>
 		</div>
 	</div>
@@ -201,7 +201,7 @@
 					</table>
 				</div>
 			<?php }else{ ?>
-				<div class="msg"><?php echo T_("Document list is empty!") ?></div>
+				<div class="alert2"><?php echo T_("Document list is empty!") ?></div>
 			<?php } //endif ?>
 		</div>
 	</div>

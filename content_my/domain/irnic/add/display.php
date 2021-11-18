@@ -7,7 +7,7 @@
   <?php if(\dash\request::get('type') === 'new') {?>
 
    <div class="cbox">
-    <div class="msg">
+    <div class="alert2">
       <?php echo T_('Please go to nic.ir for register new account'); ?>
 
 

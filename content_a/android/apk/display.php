@@ -49,7 +49,7 @@ elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status()
           </div>
 
           <?php if(\dash\data::downoadAPK()) {?>
-          <div class="msg"><?php echo T_("You can share your app link via social networks or publish your app via stores."). ' <b>'. T_('Go change the worlds.'). '</b>'; ?><br>
+          <div class="alert2"><?php echo T_("You can share your app link via social networks or publish your app via stores."). ' <b>'. T_('Go change the worlds.'). '</b>'; ?><br>
           </div>
 
           <div class="input text-left">

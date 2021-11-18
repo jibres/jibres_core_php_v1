@@ -5,7 +5,7 @@
     <div class="box">
       <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/analytics/hotjar-banner.jpg" alt='hotjar'>
       <div class="body">
-        <div class="msg">
+        <div class="alert2">
           <p><?php echo T_("Understand how users behave on your site, what they need, and how they feel, fast. Heatmaps visually represent where users click, move, and scroll on your site. With this context, you'll learn how users really behave."); ?></p>
         </div>
         <div class="ltr">

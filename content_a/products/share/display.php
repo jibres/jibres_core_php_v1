@@ -24,7 +24,7 @@ require_once(root. 'content_a/products/productName.php');
         <?php }else{ ?>
           <form method="post" autocomplete="off" id='form1'>
             <img class="" src="<?php echo \dash\data::productDataRow_thumb() ?>">
-            <div class="msg">
+            <div class="alert2">
               <p><?php echo \dash\data::productDataRow_title() ?></p>
               <p><?php echo \dash\data::productDataRow_title2() ?></p>
 

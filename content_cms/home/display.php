@@ -200,7 +200,7 @@ echo '<i class="sf-'. $type. '"></i>';
         </ul>
       </nav>
     <?php } else { ?>
-      <p class="msg"><?php echo T_("No post has registered yet!"); ?></p>
+      <p class="alert2"><?php echo T_("No post has registered yet!"); ?></p>
     <?php } //endif ?>
   </div>
 
@@ -221,7 +221,7 @@ echo '<i class="sf-'. $type. '"></i>';
         </ul>
       </nav>
     <?php } else { ?>
-      <p class="msg"><?php echo T_("No comment has registered yet!"); ?></p>
+      <p class="alert2"><?php echo T_("No comment has registered yet!"); ?></p>
     <?php } //endif ?>
   </div>
 

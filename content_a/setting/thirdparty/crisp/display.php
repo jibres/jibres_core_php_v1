@@ -5,7 +5,7 @@
     <div class="box">
         <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/crisp-banner.png" alt='crisp'>
         <div class="body">
-          <div class="msg">
+          <div class="alert2">
             <p><?php echo T_("Crisp Live Chat is a free and beautiful chat for your website. Crisp allows you to embed a free live chat module to your website and let site visitors chat with you."); ?></p>
           </div>
 

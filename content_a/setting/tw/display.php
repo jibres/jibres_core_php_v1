@@ -7,7 +7,7 @@
         <div class="c3"></div>
       </div>
       <div class="body">
-        <div class="msg">
+        <div class="alert2">
           <p><?php echo T_("Enter your account username in twitter.") ?></p>
         </div>
           <div class="input ltr">

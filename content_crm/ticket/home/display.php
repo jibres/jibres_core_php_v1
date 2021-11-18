@@ -136,7 +136,7 @@
        </ul>
      </nav>
 <?php } else { ?>
-  <p class="msg"><?php echo T_("No ticket have been received so far"); ?></p>
+  <p class="alert2"><?php echo T_("No ticket have been received so far"); ?></p>
 <?php } //endif ?>
   </div>
 
@@ -161,7 +161,7 @@
        </ul>
      </nav>
 <?php } else { ?>
-  <p class="msg"><?php echo T_("No active ticket founded"); ?></p>
+  <p class="alert2"><?php echo T_("No active ticket founded"); ?></p>
 <?php } //endif ?>
 
   </div>

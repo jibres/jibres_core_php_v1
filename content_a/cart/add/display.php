@@ -14,7 +14,7 @@ $have_user = false;
 </form>
 
 <?php if(\dash\data::userDetail()) { $have_user = true; ?>
-  <div class="msg">
+  <div class="alert2">
     <div class="f fs14">
       <div class="cauto"><img class="avatar w-12 rounded-lg" src="<?php echo \dash\data::userDetail_avatar() ?>"></div>
       <div class="c mx-2"><?php echo \dash\data::userDetail_displayname(); ?></div>

@@ -5,7 +5,7 @@
     <div class="box">
       <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/enamad-banner.png" alt='enamad'>
         <div class="body">
-          <div class="msg">
+          <div class="alert2">
             <p><?php echo T_("Any company or individual that wants to sell their products or services online via its own website, should acquire the eNAMAD, which is the official indicator for an approved and trusted online vendor. To secure an eNAMAD certificate, E-commerce Development Center of Iran requires businesses to meet 38 different conditions."); ?></p>
           </div>
 

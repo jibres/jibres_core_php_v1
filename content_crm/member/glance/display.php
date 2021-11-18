@@ -207,7 +207,7 @@ if(a($dataRowMember,  'status') === 'ban')
          </ul>
         </nav>
         <?php } else { ?>
-          <p class="msg"><?php echo T_("Not yet ordered."); ?></p>
+          <p class="alert2"><?php echo T_("Not yet ordered."); ?></p>
         <?php } // endif ?>
       </div>
       <div class="c-xs-12 c-sm-12 c-md-6">
@@ -227,7 +227,7 @@ if(a($dataRowMember,  'status') === 'ban')
          </ul>
         </nav>
         <?php } else { ?>
-          <p class="msg"><?php echo T_("No ticket have been received so far"); ?></p>
+          <p class="alert2"><?php echo T_("No ticket have been received so far"); ?></p>
         <?php } // endif ?>
       </div>
     </div>

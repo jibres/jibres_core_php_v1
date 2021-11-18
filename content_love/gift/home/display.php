@@ -124,7 +124,7 @@
        </ul>
      </nav>
 <?php } else { ?>
-  <p class="msg"><?php echo T_("No usage so far"); ?></p>
+  <p class="alert2"><?php echo T_("No usage so far"); ?></p>
 <?php } //endif ?>
   </div>
 
@@ -148,7 +148,7 @@
        </ul>
      </nav>
 <?php } else { ?>
-  <p class="msg"><?php echo T_("No lookup founded"); ?></p>
+  <p class="alert2"><?php echo T_("No lookup founded"); ?></p>
 <?php } //endif ?>
 
   </div>

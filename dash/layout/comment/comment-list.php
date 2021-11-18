@@ -47,7 +47,7 @@
 <?php $commentList = \dash\data::commentList(); if($commentList) { ?>
     <div class="commnetList">
 <?php foreach ($commentList as $key => $value){ ?>
-     <div class="msg">
+     <div class="alert2">
       <div class="row align-center">
         <div class="c-auto c-xs-12">
           <img class="customerImg w-10" src="<?php echo a($value, 'avatar'); ?>" alt='<?php echo a($value, 'displayname'); ?>'>

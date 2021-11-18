@@ -188,7 +188,7 @@
        </ul>
      </nav>
 <?php } else { ?>
-  <p class="msg"><?php echo T_("No customers have been registered yet"); ?></p>
+  <p class="alert2"><?php echo T_("No customers have been registered yet"); ?></p>
 <?php } //endif ?>
   </div>
 
@@ -209,7 +209,7 @@
        </ul>
      </nav>
 <?php } else { ?>
-  <p class="msg"><?php echo T_("No entries have been made so far"); ?></p>
+  <p class="alert2"><?php echo T_("No entries have been made so far"); ?></p>
 <?php } //endif ?>
   </div>
 
@@ -233,7 +233,7 @@
        </ul>
      </nav>
 <?php } else { ?>
-  <p class="msg"><?php echo T_("No ticket have been received so far"); ?></p>
+  <p class="alert2"><?php echo T_("No ticket have been received so far"); ?></p>
 <?php } //endif ?>
 
   </div>

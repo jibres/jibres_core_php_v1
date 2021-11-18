@@ -33,7 +33,7 @@ $tg = \dash\data::tg();
   <div class="alert-info">
     <pre><?php echo a($tg, 'send'); ?></pre>
   </div>
-  <div class="msg">
+  <div class="alert2">
     <pre><?php echo a($tg, 'response'); ?></pre>
   </div>
 </div>

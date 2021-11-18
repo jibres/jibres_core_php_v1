@@ -3,7 +3,7 @@
     <div class="box">
       <div class="body">
 
-        <p class="msg"><?php echo T_("You can differentiate your product in terms of three features"); ?></p>
+        <p class="alert2"><?php echo T_("You can differentiate your product in terms of three features"); ?></p>
 
         <div class="row msg minimal">
           <div class="c-xs-12 c-sm-12 c-md-4">

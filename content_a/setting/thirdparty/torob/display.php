@@ -5,7 +5,7 @@
     <div  class="box">
       <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/torob-logo.svg" alt='torob'>
       <div class="body">
-        <div class="msg">
+        <div class="alert2">
          <?php echo T_("The horseradish search engine has been launched with the aim of providing and comparing prices transparently. This search engine has collected millions of products from thousands of reputable Iranian online stores to help users find the best price between different stores in the shortest time. It also helps reputable online stores to access a wide range of online users without the need for technical knowledge.") ?>
         </div>
 

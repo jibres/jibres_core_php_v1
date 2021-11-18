@@ -4,7 +4,7 @@
 
       <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/whatsapp-banner.jpg" alt='WhatsApp'>
       <div class="body">
-        <div class="msg">
+        <div class="alert2">
           <p><?php echo T_("Enter your account mobile in whatsapp.") ?></p>
         </div>
           <div class="input ltr">

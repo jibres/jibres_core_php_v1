@@ -14,7 +14,7 @@ $propertyList = \dash\data::propertyList();
     <?php }else{ ?>
       <form method="post" autocomplete="off" id='form1'>
         <img class="" src="<?php echo \dash\data::dataRow_thumb() ?>">
-        <div class="msg">
+        <div class="alert2">
           <p><?php echo \dash\data::dataRow_title() ?></p>
           <p><?php echo \dash\data::dataRow_excerpt(); ?></p>
           <textarea class="txt" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'></textarea>

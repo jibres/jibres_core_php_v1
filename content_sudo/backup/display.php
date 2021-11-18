@@ -20,7 +20,7 @@
   <div class="c s12 pRa10">
     <div class="cbox">
       <h6><?php echo T_("Database info"); ?></h6>
-      <div class="msg">
+      <div class="alert2">
         <li>Trafic received: <span><?php echo \dash\fit::number((((\dash\data::mysqlInfo_Bytes_received()) / 1024 ) / 1024)); ?></span> <small>MB</small></li>
         <li>Trafic send: <span><?php echo \dash\fit::number((((\dash\data::mysqlInfo_Bytes_sent()) / 1024 ) / 1024)); ?></span> <small>MB</small></li>
       </div>

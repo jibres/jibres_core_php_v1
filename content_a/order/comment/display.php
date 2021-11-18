@@ -24,7 +24,7 @@
         <div class="pad">
           <p><?php echo T_("User answer to your form in this order") ?></p>
           <?php foreach (\dash\data::orderHaveFormAnswer() as $key => $value) {?>
-            <div class="msg">
+            <div class="alert2">
               <?php echo a($value, 'title') ?>
               <a class="jbtn-link" href="<?php echo \dash\url::kingdom(). '/a/form/answer/detail?'. \dash\request::build_query(['id' => a($value, 'form_id'), 'aid' => a($value, 'id')]);  ?>"><?php   echo T_("Show answer") ?></a>
             </div>

@@ -8,7 +8,7 @@
     <header><h2><?php echo T_("Result count group by province");?></h2></header>
       <div class="body">
         <?php foreach (\dash\data::provinceResult() as $key => $value) {?>
-            <div class="msg">
+            <div class="alert2">
               <div class="f">
                 <div class="cauto"><?php echo a($value, 'name') ?></div>
                 <div class="c"></div>

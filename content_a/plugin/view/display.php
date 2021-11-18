@@ -62,7 +62,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				{
 					if(\dash\data::myBudget() && a($pluginDetail, 'price'))
 					{
-						$html .= '<div class="msg">';
+						$html .= '<div class="alert2">';
 						{
 							$html .= 'Your jibres budget';
 							$html .= '<br>';

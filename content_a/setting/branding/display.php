@@ -5,7 +5,7 @@
         <?php
         if(\lib\store::detail('branding'))
         {
-          echo '<div class="msg">'. T_("Your branding was expire at :val", ['val' => \dash\fit::date_time(\lib\store::detail('branding'))]). '</div>';
+          echo '<div class="alert2">'. T_("Your branding was expire at :val", ['val' => \dash\fit::date_time(\lib\store::detail('branding'))]). '</div>';
         }
         ?>
         <form method="post" autocomplete="off" data-patch>

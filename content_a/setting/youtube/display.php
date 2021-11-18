@@ -4,7 +4,7 @@
 
       <div class="body">
         <img src="<?php echo \dash\url::cdn(); ?>/img/logo/social/youtube-banner.png" alt='Toutube'>
-        <div class="msg">
+        <div class="alert2">
           <p><?php echo T_("Enter your account username in youtube.") ?></p>
         </div>
           <div class="input ltr">

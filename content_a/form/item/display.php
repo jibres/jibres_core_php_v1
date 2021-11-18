@@ -12,7 +12,7 @@
 				<input type="text" name="item_title_<?php echo $myKey ?>" placeholder="<?php echo T_("Title") ?>" value="<?php echo a($value, 'title'); ?>">
 			</div>
 
-			<div class="msg">
+			<div class="alert2">
 				<div class="f">
 					<div class="c s12">
 						<small><?php echo T_("Item type") ?></small>
@@ -329,7 +329,7 @@ function settingDefaultvalue($value) {?>
 
 
  function settingChoice($value) {?>
- 	<div class="msg">
+ 	<div class="alert2">
 		<div class="f">
 			<div class="c s12">
 				<?php echo T_("Choices") ?>
