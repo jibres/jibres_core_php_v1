@@ -17,7 +17,7 @@ if($all_get)
     <div class="row">
 <?php if(\dash\data::listEngine_filter()) {?>
       <div class="c-auto">
-        <a class="btn-light3 <?php if(\dash\data::isFiltered()) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
+        <a class="btn-light <?php if(\dash\data::isFiltered()) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
       </div>
 <?php }?>
 
