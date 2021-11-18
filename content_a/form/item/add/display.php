@@ -4,7 +4,7 @@
 
 	<div class="box">
 		<div class="body">
-			<div class="txtB">
+			<div class="font-bold">
 				<?php echo \dash\data::dataRow_title(); ?>
 			</div>
 		</div>

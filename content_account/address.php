@@ -6,7 +6,7 @@
 
     <h6 class="text-center">
     <?php if(\dash\data::dataRowAddress()) {?>
-        <?php echo T_("Edit address"); ?> <span class="txtB fc-blue"><?php echo \dash\data::dataRowAddress_title(); ?></span>
+        <?php echo T_("Edit address"); ?> <span class="font-bold fc-blue"><?php echo \dash\data::dataRowAddress_title(); ?></span>
         <a class="badge secondary" href="<?php echo \dash\data::myUrlAddress(); if(\dash\request::get('id')) { echo '?id='. \dash\request::get('id'); }?>"><?php echo T_("Cancel"); ?></a>
     <?php }else{ ?>
 
@@ -111,7 +111,7 @@
             <?php } // endif ?>
 
           </td>
-          <td class="txtB pRa10">
+          <td class="font-bold pRa10">
 
           <span ><?php echo a($value, 'title'); ?></span>
           </td>

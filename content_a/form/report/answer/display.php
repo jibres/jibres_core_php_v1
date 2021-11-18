@@ -1,7 +1,7 @@
 
 
 <?php if(\dash\data::noChart()) {?>
-  <div class="msg warn text-center txtB fs14"><?php echo T_("Can not drow chart for this item!") ?></div>
+  <div class="msg warn text-center font-bold fs14"><?php echo T_("Can not drow chart for this item!") ?></div>
 <?php }else{ ?>
 
 <?php $myData = \dash\data::reportDetail(); ?>
@@ -34,8 +34,8 @@
      </div>
     </section>
 
-<div class="alert-info txtB font-14 f">
-  <div class="cauto"><span class="mRa10 txtB"><?php echo \dash\fit::number(\dash\data::itemDetail_sort()) ?>.</span></div>
+<div class="alert-info font-bold font-14 f">
+  <div class="cauto"><span class="mRa10 font-bold"><?php echo \dash\fit::number(\dash\data::itemDetail_sort()) ?>.</span></div>
   <div class="cauto"><?php echo \dash\data::itemDetail_title() ?></div>
   <div class="c"></div>
   <div class="cauto">
@@ -68,7 +68,7 @@
 
 <?php }else{ ?>
 
-<div class="msg warn txtB font-14">Not ready this chart yet :/</div>
+<div class="msg warn font-bold font-14">Not ready this chart yet :/</div>
 
 <?php } //endif ?>
 <?php } //endif ?>

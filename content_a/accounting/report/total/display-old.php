@@ -33,7 +33,7 @@
         <?php if($lastGroup !== a($value, 'group_title')) {?>
           <?php $lastGroup = a($value, 'group_title'); ?>
           <tr class="positive">
-            <td colspan="8" class="txtB fs14"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id')]); ?>"><?php echo a($value, 'group_title') ?></a></td>
+            <td colspan="8" class="font-bold fs14"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id')]); ?>"><?php echo a($value, 'group_title') ?></a></td>
           </tr>
         <?php } //endif ?>
         <tr>

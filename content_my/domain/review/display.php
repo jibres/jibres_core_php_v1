@@ -19,7 +19,7 @@
       <li>
        <div class="f item">
         <div class="key"><?php echo T_('Domain Period');?></div>
-        <div class="value ltr txtB"><?php echo \dash\data::myPeriodTitle(); ?></div>
+        <div class="value ltr font-bold"><?php echo \dash\data::myPeriodTitle(); ?></div>
         <div class="go detail"></div>
        </div>
       </li>
@@ -236,7 +236,7 @@ $giftCode = \dash\data::giftDetail_discount();
            <tr data-payable>
             <th><?php echo T_("Amount payable") ?></th>
             <td class="txtRa collapsing">
-              <span class="txtB fs20" id='domainPayablePrice'><?php echo \dash\fit::number($mypayedprice) ?></span>
+              <span class="font-bold fs20" id='domainPayablePrice'><?php echo \dash\fit::number($mypayedprice) ?></span>
               <span class="fc-mute mLa5"><?php echo \lib\currency::unit();?></span>
             </td>
            </tr>

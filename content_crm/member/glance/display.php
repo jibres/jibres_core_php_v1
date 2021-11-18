@@ -240,14 +240,14 @@ if(a($dataRowMember,  'status') === 'ban')
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/detail'. $myID;?>">
             <img src="<?php echo \dash\fit::img(\dash\data::dataRowMember_avatar()); ?>">
-            <div class="key txtB"><?php echo \dash\data::dataRowMember_displayname();?></div>
+            <div class="key font-bold"><?php echo \dash\data::dataRowMember_displayname();?></div>
             <div class="go"></div>
           </a>
         </li>
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/mobile'. $myID;?>">
             <div class="key"><?php echo T_("Mobile") ?></div>
-            <div class="value ltr txtB"><?php echo \dash\fit::mobile(\dash\data::dataRowMember_mobile());?></div>
+            <div class="value ltr font-bold"><?php echo \dash\fit::mobile(\dash\data::dataRowMember_mobile());?></div>
             <div class="go"></div>
           </a>
         </li>
@@ -261,7 +261,7 @@ if(a($dataRowMember,  'status') === 'ban')
         <li>
           <a class="item f" href="<?php echo \dash\url::this(). '/permission'. $myID;?>">
             <div class="key"><?php echo T_("Permission") ?></div>
-            <div class="value txtB"><?php echo \dash\data::dataRowMember_permission() === 'admin' ? T_("Admin") : \dash\data::dataRowMember_permission(); ?></div>
+            <div class="value font-bold"><?php echo \dash\data::dataRowMember_permission() === 'admin' ? T_("Admin") : \dash\data::dataRowMember_permission(); ?></div>
             <div class="go"></div>
           </a>
         </li>

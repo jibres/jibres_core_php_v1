@@ -24,7 +24,7 @@ if(!isset($gMaxGift))
 				<img class="logo" src="<?php echo \dash\url::icon();?>" alt="<?php echo T_("Jibres");?>">
 			</div>
 			<div class="c">
-				<h2 class="txtB mB0"><?php echo T_("Jibres"); ?></h2>
+				<h2 class="font-bold mB0"><?php echo T_("Jibres"); ?></h2>
 				<h3><?php echo T_("Sell & Enjoy"); ?></h3>
 			</div>
 			<div class="cauto os pLa20 pTB10 meta">
@@ -59,7 +59,7 @@ if(!isset($gMaxGift))
 <?php
 if(isset($gDesc))
 {
-	echo "<div class='msg txtB fs14 mB10'>". $gDesc. "</div>";
+	echo "<div class='msg font-bold fs14 mB10'>". $gDesc. "</div>";
 }
 ?>
 	</div>

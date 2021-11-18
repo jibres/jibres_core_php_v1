@@ -40,7 +40,7 @@ if($customer_mode && !$ticket_in_content_my)
 <?php
 if(\dash\data::dataRow_title())
 {
-  echo '<div class="key txtB">'. \dash\data::dataRow_title(). '</div>';
+  echo '<div class="key font-bold">'. \dash\data::dataRow_title(). '</div>';
 }
 else
 {
@@ -75,7 +75,7 @@ else
         <li>
           <div class="f item" data-copy="<?php echo \dash\url::kingdom(); ?>/!<?php echo \dash\data::dataRow_id() ?>">
             <div class="key"><?php echo T_("Ticket ID") ?></div>
-            <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
+            <div class="value font-bold"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
             <?php echo \dash\utility\icon::bootstrap('hash'); ?>
           </div>
         </li>
@@ -185,7 +185,7 @@ else
           <div class="f item">
             <?php echo \dash\data::dataRow_statuclass(); ?>
             <div class="key"><?php echo T_("Status") ?></div>
-            <div class="value txtB"><?php echo T_(\dash\data::dataRow_status() === 'close' ? 'archive' : \dash\data::dataRow_status()); ?></div>
+            <div class="value font-bold"><?php echo T_(\dash\data::dataRow_status() === 'close' ? 'archive' : \dash\data::dataRow_status()); ?></div>
           </div>
         </li>
 <?php if(!$customer_mode) {?>
@@ -226,7 +226,7 @@ else
             <?php echo \dash\utility\icon::bootstrap('patch-exclamation', 'text-gray-500'); ?>
             <?php } ?>
             <div class="key"><?php echo T_("Solved?") ?></div>
-            <div class="value txtB"><?php if(\dash\data::dataRow_solved()){echo T_("Yes");}else{echo T_("No");} ?></div>
+            <div class="value font-bold"><?php if(\dash\data::dataRow_solved()){echo T_("Yes");}else{echo T_("No");} ?></div>
           </div>
         </li>
 <?php } // endif ?>
@@ -272,7 +272,7 @@ else
         <li>
           <a target="_blank" class="f item" href="<?php echo \dash\url::jibres_domain(). 'ip/'. \dash\utility\convert::to_en_number(\dash\data::dataRow_prettyip()) ?>">
             <div class="key"><?php echo T_("IP") ?></div>
-            <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_prettyip()); ?></div>
+            <div class="value font-bold"><?php echo \dash\fit::text(\dash\data::dataRow_prettyip()); ?></div>
             <div class="go external"></div>
           </a>
         </li>

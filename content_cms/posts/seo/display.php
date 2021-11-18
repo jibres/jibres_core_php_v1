@@ -34,7 +34,7 @@
       </div>
 
       <div class="mB10">
-        <div class="txtB mB10"><?php echo T_("Special Address") ?></div>
+        <div class="font-bold mB10"><?php echo T_("Special Address") ?></div>
         <div class="row">
           <div class="c-xs-12 c-sm-6 c-md">
             <div class="radio3">

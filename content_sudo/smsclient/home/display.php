@@ -29,12 +29,12 @@ if(!is_array($dataTable))
       		<?php }elseif(isset($value['status']) && $value['status'] === 'Disabled') {?> class="warning"
       		<?php }else{ ?>  class="active" <?php } ?>>
 		<td>
-			<div class="txtB fs14"><?php echo a($value, 'fullname'); ?></div>
+			<div class="font-bold fs14"><?php echo a($value, 'fullname'); ?></div>
 			<div class="badge light"><?php echo a($value, 'username'); ?></div>
 			<div class="badge light"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
 		</td>
 
-		<td class="txtB text-center">
+		<td class="font-bold text-center">
 			<div><?php echo \dash\fit::number(a($value, 'remaincredit')); ?></div>
 			<div class="badge light"> <?php echo T_("Minimum allow credit"); ?> <?php echo \dash\fit::number(a($value, 'mininumallowedcredit')); ?></div>
 		</td>

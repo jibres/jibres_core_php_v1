@@ -76,7 +76,7 @@
                   <span  data-confirm data-data='<?php echo $remove ?>' title='<?php echo T_("Delete") ?>'><img class="w-3" src="<?php echo \dash\utility\icon::url('Delete') ?>"></span>
 
               <?php }else{ ?>
-                <span class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'count')) ?></span>
+                <span class="font-bold"><?php echo \dash\fit::number_decimal(a($value, 'count')) ?></span>
                   <small><?php echo a($value, 'unit') ?></small>
               <?php } //endif ?>
                 </div>
@@ -87,5 +87,5 @@
     </div>
   </div>
 <?php }else{ ?>
-  <div class="alert-info fs14 txtB"><?php echo T_("This order is empty") ?></div>
+  <div class="alert-info fs14 font-bold"><?php echo T_("This order is empty") ?></div>
 <?php } ?>

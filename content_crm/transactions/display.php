@@ -10,7 +10,7 @@
         <div class="key"><?php echo a($value, 'title'); ?></div>
 
         <div class="spay-32-<?php echo a($value, 'payment'); ?> key cauto"></div>
-        <div class="key txtB ltr"><?php if(isset($value['plus']) && $value['plus']) {?><b>+<?php echo \dash\fit::price($value['plus']); ?></b><?php }?><?php if(isset($value['minus']) && $value['minus']) {?><b>-<?php echo \dash\fit::price($value['minus']); ?></b><?php }?></div>
+        <div class="key font-bold ltr"><?php if(isset($value['plus']) && $value['plus']) {?><b>+<?php echo \dash\fit::price($value['plus']); ?></b><?php }?><?php if(isset($value['minus']) && $value['minus']) {?><b>-<?php echo \dash\fit::price($value['minus']); ?></b><?php }?></div>
 <?php if(isset($value['verify']) && $value['verify']) {?>
         <div class="go check ok"></div>
 <?php }else{ ?>

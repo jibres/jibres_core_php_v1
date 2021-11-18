@@ -44,7 +44,7 @@
     <?php foreach (\dash\data::methodList() as $key => $value){ ?>
       <div class="box">
         <div class="pad">
-          <div class="txtB mB10 fs14">
+          <div class="font-bold mB10 fs14">
             <?php echo a($value, 'title') ?>
             <?php if(a($value, 'status')) {?>
               <span class="badge xs success2"><?php echo T_("Enable") ?></span>

@@ -110,7 +110,7 @@ echo $html;
       </div>
 
       <div class='mb-5'>
-        <div class='txtB mb-5'><?php echo T_('Special Address') ?></div>
+        <div class='font-bold mb-5'><?php echo T_('Special Address') ?></div>
         <div class='row'>
           <div class='c-xs-12 c-sm-6 c-md'>
             <div class='radio3'>

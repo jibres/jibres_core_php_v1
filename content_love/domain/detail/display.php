@@ -7,7 +7,7 @@
     <table class="tbl1 v4 mB0">
      <tr>
       <th><?php echo T_('Domain') ?> <a class="link mLa5" target="_blank" rel="nofollow" href="http://<?php echo \dash\data::domainDetail_name(); ?>"><i class=" mRa5 sf-link"></i></a></th>
-      <td class="ltr txtRa txtB"><?php echo \dash\data::domainDetail_name(); ?></td>
+      <td class="ltr txtRa font-bold"><?php echo \dash\data::domainDetail_name(); ?></td>
      </tr>
      <tr>
       <th><?php echo T_('Status & Validity') ?></th>

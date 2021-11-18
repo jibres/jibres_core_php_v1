@@ -3,7 +3,7 @@
  <div class="body">
 
   <?php if(\dash\data::checkResult_available()) {?>
-   <div class="msg minimal success2 text-center txtB mB10-f fs16">
+   <div class="msg minimal success2 text-center font-bold mB10-f fs16">
     <?php echo \dash\data::myDomain(); ?>
    </div>
    <?php if($special_ir_tld = \dash\validate\url::is_legal_ir_domain(\dash\data::myDomain(), true))
@@ -45,7 +45,7 @@
     }
    } //endif ?>
   <?php }else{ ?>
-   <div class="msg minimal warn2 text-center txtB mB0-f fs16">
+   <div class="msg minimal warn2 text-center font-bold mB0-f fs16">
     <p><?php echo T_("Can not register this domain"); ?></p>
     <?php echo \dash\data::myDomain(); ?>
     <br>

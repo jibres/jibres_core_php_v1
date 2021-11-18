@@ -1,5 +1,5 @@
 <?php if(\dash\data::domainDetail_available() === '1') {?>
-<div class="alert-danger text-center txtB fs14"><?php echo T_("This domain is available for register!") ?></div>
+<div class="alert-danger text-center font-bold fs14"><?php echo T_("This domain is available for register!") ?></div>
 <?php } //endif ?>
 <?php require_once (root. 'content_love/domain/setting/pageStep.php'); ?>
 
@@ -11,7 +11,7 @@
     <table class="tbl1 v4 mB0">
      <tr>
       <th><?php echo T_('Domain') ?> <a class="link mLa5" target="_blank" rel="nofollow" href="http://<?php echo \dash\data::domainDetail_name(); ?>"><i class=" mRa5 sf-link"></i></a></th>
-      <td class="ltr txtRa txtB"><?php echo \dash\data::domainDetail_name(); ?></td>
+      <td class="ltr txtRa font-bold"><?php echo \dash\data::domainDetail_name(); ?></td>
      </tr>
      <tr>
       <th><?php echo T_('Status & Validity') ?>
@@ -261,7 +261,7 @@ else
       <td>
         <?php echo T_("Reseller") ?>
       </td>
-      <td class="txtRa ltr txtB"><?php echo \dash\data::domainDetail_reseller(); ?></td>
+      <td class="txtRa ltr font-bold"><?php echo \dash\data::domainDetail_reseller(); ?></td>
      </tr>
    <?php } //endif ?>
     </table>

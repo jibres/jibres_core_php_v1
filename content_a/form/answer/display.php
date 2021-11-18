@@ -6,7 +6,7 @@
     {
      ?>
      <div class="f alert-info text-sm">
-       <div class="c txtB"><?php echo T_("You have :val not reviewed answer", ['val' => \dash\fit::number(\dash\data::countNotReviewed())]) ?></div>
+       <div class="c font-bold"><?php echo T_("You have :val not reviewed answer", ['val' => \dash\fit::number(\dash\data::countNotReviewed())]) ?></div>
        <div class="cauto"><div class="btn-primary" data-confirm data-data='{"mark": "all"}'><?php echo T_("Mark all as review") ?></div></div>
      </div>
       <?php

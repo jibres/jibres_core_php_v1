@@ -58,7 +58,7 @@
 
               <tr class="active">
                 <td class="collapsing fc-mute"><?php echo T_("Total") ?></td>
-                <td colspan="3" class="txtB font-16"><?php echo \dash\fit::number(a($orderDetail, 'factor', 'total')). ' '. \lib\store::currency(); ?></td>
+                <td colspan="3" class="font-bold font-16"><?php echo \dash\fit::number(a($orderDetail, 'factor', 'total')). ' '. \lib\store::currency(); ?></td>
               </tr>
 
 		</tbody>

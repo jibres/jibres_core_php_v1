@@ -61,7 +61,7 @@
           <?php if(\dash\data::propertyGroup() && is_array(\dash\data::propertyGroup())) {?>
               <?php foreach (\dash\data::propertyGroup() as $key => $value) {?>
             <div class="msg minimal">
-                <span class="txtB fc-black "><?php echo $key ?></span>
+                <span class="font-bold fc-black "><?php echo $key ?></span>
                 <span><?php echo implode(T_(", "), $value) ?></span>
             </div>
               <?php } // endfor ?>

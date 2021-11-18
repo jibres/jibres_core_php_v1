@@ -49,14 +49,14 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
 <div class="row ltr">
   <div class="c-xs-12 c-sm-6 <?php if(\dash\url::content() === 'my') { echo 'c-md-4'; } ?>">
   <?php if(isset($result['ir_list']) && is_array($result['ir_list'])){?>
-    <h5 class="txtB mT20"><?php echo T_("Dot IR TLD"); ?></h5>
+    <h5 class="font-bold mT20"><?php echo T_("Dot IR TLD"); ?></h5>
     <?php if($result['ir_list']) {?>
     <ul class="items">
     <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li>
       <a href="<?php if(a($value, 'available')) { echo \dash\url::this(). '/buy/'. $key; }else{ if(a($value,'domain_name_valid')) { echo \dash\url::this(). '/whois?domain='. $key; } } //endif ?>" class="f item">
        <div class="key fit fc-mute"><?php echo substr(a($value, 'name'), 0, 15); ?></div>
-       <div class="key grow txtB">.<?php echo a($value, 'tld'); ?></div>
+       <div class="key grow font-bold">.<?php echo a($value, 'tld'); ?></div>
        <?php if(a($value, 'available')) {?>
         <div class="value">
           <span class="compact font-10"><?php echo a($value, 'unit');?></span>
@@ -93,7 +93,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
   </div>
    <div class="c-xs-12 c-sm-6 <?php if(\dash\url::content() === 'my') { echo 'c-md-4'; } ?>">
   <?php if(isset($result['com_list']) && is_array($result['com_list'])){?>
-    <h5 class="txtB mT20"><?php echo T_("International TLD"); ?></h5>
+    <h5 class="font-bold mT20"><?php echo T_("International TLD"); ?></h5>
     <ul class="items">
     <?php foreach ($result['com_list'] as $key => $value) {?>
      <li>
@@ -103,7 +103,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
       <a href="<?php echo \dash\url::this(). '/whois?domain='. $key; ?>" class="f item" target="_blank">
 <?php } ?>
        <div class="key fit fc-mute"><?php echo substr(a($value, 'name'), 0, 15); ?></div>
-       <div class="key grow txtB">.<?php echo a($value, 'tld'); ?></div>
+       <div class="key grow font-bold">.<?php echo a($value, 'tld'); ?></div>
        <?php if(a($value, 'available') && !a($value, 'domain_premium')) {?>
         <div class="value">
           <span class="compact font-10"><?php echo a($value, 'unit');?></span>
@@ -134,12 +134,12 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
   <?php if(\dash\url::content() === 'my') {?>
    <div class="c-xs-12 c-sm-6 <?php if(\dash\url::content() === 'my') { echo 'c-md-4'; } ?>">
   <?php if(\dash\data::domainSuggestion()) {?>
-    <h5 class="txtB mT20"><?php echo T_("Our short suggestion"); ?></h5>
+    <h5 class="font-bold mT20"><?php echo T_("Our short suggestion"); ?></h5>
     <ul class="items">
     <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
      <li>
       <a href="<?php echo \dash\url::this(). '/buy/'. a($value, 'domain') ?>" class="f item">
-       <div class="key fit txtB"><?php echo a($value, 'root'); ?></div>
+       <div class="key fit font-bold"><?php echo a($value, 'root'); ?></div>
        <div class="key grow fc-mute">.<?php echo a($value, 'tld'); ?></div>
 
          <div class="value">

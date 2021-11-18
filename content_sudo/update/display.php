@@ -2,9 +2,9 @@
 <p class="alert-danger2 font-30 text-center"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
 
 <?php if(\dash\data::isLockService()) {?>
-  <p class="alert-danger fs20 txtB text-center"><?php echo T_("Service is Locked!"); ?></p>
+  <p class="alert-danger fs20 font-bold text-center"><?php echo T_("Service is Locked!"); ?></p>
 <?php }else{ ?>
-  <p class="alert-success fs20 txtB text-center"><?php echo T_("Service is Running!"); ?></p>
+  <p class="alert-success fs20 font-bold text-center"><?php echo T_("Service is Running!"); ?></p>
 <?php } //endif ?>
 
 <div class="f">
@@ -94,7 +94,7 @@ $needUpgrade = \dash\data::needUpgrade();
 
     <?php if(isset($needUpgrade['jibres']) && $needUpgrade['jibres']) {?>
       <div class="c">
-        <span class="txtB"><?php echo T_("Jibres"); ?></span>
+        <span class="font-bold"><?php echo T_("Jibres"); ?></span>
          <span><?php echo T_("current version"); ?> <b><?php echo a($needUpgrade, 'jibres', 'current'); ?></b></span> >>>
          <span><?php echo T_("new version"); ?> <b><?php echo a($needUpgrade, 'jibres', 'upgrade'); ?></b></span>
       </div>
@@ -102,7 +102,7 @@ $needUpgrade = \dash\data::needUpgrade();
 
     <?php if(isset($needUpgrade['store']) && $needUpgrade['store']) {?>
       <div class="c">
-        <span class="txtB"><?php echo T_("Business"); ?></span>
+        <span class="font-bold"><?php echo T_("Business"); ?></span>
          <span><?php echo T_("current version"); ?> <b><?php echo a($needUpgrade, 'store', 'current'); ?></b></span> >>>
          <span><?php echo T_("new version"); ?> <b><?php echo a($needUpgrade, 'store', 'upgrade'); ?></b></span>
       </div>

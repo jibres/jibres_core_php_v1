@@ -28,7 +28,7 @@
     </div>
     <div class="text-center">
       <h2><?php echo T_("SEO Content Analysis Score") ?></h2>
-      <div class="font-30 txtB ltr"><?php echo \dash\fit::text(a($seoAnalyze, 'rank')). ' '. T_("%") ?></div>
+      <div class="font-30 font-bold ltr"><?php echo \dash\fit::text(a($seoAnalyze, 'rank')). ' '. T_("%") ?></div>
     </div>
   </div>
 </div>

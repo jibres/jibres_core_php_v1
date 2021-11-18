@@ -12,7 +12,7 @@
 
 <?php if(!\dash\data::dataTable()){?>
 
-  <div class="alert-warning text-center txtB fs14"><?php echo T_("No result found") ?></div>
+  <div class="alert-warning text-center font-bold fs14"><?php echo T_("No result found") ?></div>
 
 <?php }else{ ?>
 

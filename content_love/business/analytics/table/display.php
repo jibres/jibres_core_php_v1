@@ -33,7 +33,7 @@
             </td>
 
 
-            <td class="collapsing txtB fc-blue"><?php echo \dash\fit::number_en(a($value, \dash\request::get('f'))); ?></td>
+            <td class="collapsing font-bold fc-blue"><?php echo \dash\fit::number_en(a($value, \dash\request::get('f'))); ?></td>
 
           </tr>
 

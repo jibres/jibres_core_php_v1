@@ -172,7 +172,7 @@ if(a($dashboard, 'upload_special_provider') && a($dashboard, 'upload_provider_na
         <a class="item f">
           <?php echo \dash\utility\icon::svg('battery-half', 'bootstrap') ?>
           <div class="key"><?php echo T_('Useage percent');?></div>
-          <div class="value txtB"><?php echo \dash\fit::text(a($dashboard, 'used_percent')). ' '. T_("%"); ?></div>
+          <div class="value font-bold"><?php echo \dash\fit::text(a($dashboard, 'used_percent')). ' '. T_("%"); ?></div>
           <div class="go detail"></div>
         </a>
       </li>

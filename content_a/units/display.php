@@ -31,7 +31,7 @@
 
   <?php if(\dash\data::editMode()) {?>
 
-		<h3><?php echo T_("Edit unit"); ?> <span class="fc-green txtB"><?php echo \dash\data::dataRow_title(); ?></span></h3>
+		<h3><?php echo T_("Edit unit"); ?> <span class="fc-green font-bold"><?php echo \dash\data::dataRow_title(); ?></span></h3>
 
   <?php }else{ ?>
 
@@ -67,7 +67,7 @@
       <?php }else{ ?>
 
         <p class="msg mT10 info2"><?php echo T_("No product in this unit"); ?>
-          <span class="txtB"><?php echo T_("You can delete it now!"); ?></span>
+          <span class="font-bold"><?php echo T_("You can delete it now!"); ?></span>
           <a href="<?php echo \dash\url::this(); ?>/remove?id=<?php echo \dash\request::get('id'); ?>" class="badge danger mLa5"><?php echo T_("Remove"); ?></a>
         </p>
 
@@ -148,7 +148,7 @@
 
 <?php }else{ ?>
 
-<div class="alert-info fs12 txtB">
+<div class="alert-info fs12 font-bold">
 
     <?php echo T_("Hi!"); ?>
     <br>
@@ -181,7 +181,7 @@
 
 
           <div class="msg <?php if(\dash\data::dataRow_count() < 10) { echo 'warn2';} else { echo 'danger2'; } ?>">
-            <div class="msg  text-center txtB"><?php echo \dash\data::dataRow_title(); ?></div>
+            <div class="msg  text-center font-bold"><?php echo \dash\data::dataRow_title(); ?></div>
             <p>
               <b><?php echo \dash\fit::number(\dash\data::dataRow_count()); ?></b>  <?php echo T_("Product found in this unit"); ?>
               <br>
@@ -189,7 +189,7 @@
             </p>
           </div>
 
-          <div class="alert-info text-center txtB">
+          <div class="alert-info text-center font-bold">
             <a href="<?php echo \dash\url::here(); ?>/products?unitid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show product list"); ?> <?php echo \dash\data::dataRow_title(); ?></a>
           </div>
 

@@ -134,7 +134,7 @@
         <tr <?php if(isset($value['isdefault']) && $value['isdefault']) {?> title='<?php echo T_("Is default"); ?>' class="positive" <?php } //endif ?>>
           <td class="collapsing"><span class="spay-32-<?php echo a($value, 'slug'); ?>"></span></td>
           <td class="collapsing txtLa">
-            <span class="txtB"><?php echo T_(ucfirst(a($value, 'slug'))); ?></span>
+            <span class="font-bold"><?php echo T_(ucfirst(a($value, 'slug'))); ?></span>
             <?php if(isset($value['pcpos']) && $value['pcpos']) {?>
 
           <span class="badge primary"><?php echo T_("PcPos"); ?></span>

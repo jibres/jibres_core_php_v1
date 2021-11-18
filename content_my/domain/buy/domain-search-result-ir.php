@@ -23,7 +23,7 @@ $master_domain = a($master, 'full');
             echo '<div class="c s12 pA5 pR10-f">';
             if(isset($master['name']) && isset($master['tld']))
             {
-                echo '<span class="name txtB fs20">'. $master['name']. '</span>';
+                echo '<span class="name font-bold fs20">'. $master['name']. '</span>';
                 echo '<span class="tld mL5 fs14">.'. $master['tld']. '</span>';
             }
             else

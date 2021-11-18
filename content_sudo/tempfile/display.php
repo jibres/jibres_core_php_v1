@@ -1,4 +1,4 @@
-<div class="msg  xl txtB text-center">
+<div class="msg  xl font-bold text-center">
 <?php echo T_("Remove all temp file") ?>
 <div data-confirm data-data='{"remove": "remove"}' class="btn-link-danger"><?php echo T_("Remove now") ?></div>
 </div>
@@ -26,7 +26,7 @@
     <?php if((isset($value['is_old']) && !$value['is_old']) || !isset($value['is_old'])) {?>
     <div class="c mA5 text-center">
       <a data-direct class="msg block" href='<?php echo \dash\url::current() .'/'. a($value, 'name'); ?>'  >
-        <div class="label ltr txtB"><?php echo a($value, 'name'); ?></div>
+        <div class="label ltr font-bold"><?php echo a($value, 'name'); ?></div>
       </a>
     </div>
   <?php } //endif ?>

@@ -33,7 +33,7 @@ class price
       }
       elseif((string) $price === '0')
       {
-        $priceEl .= '<span class="txtB fc-green">'. T_("Free"). '</span>';
+        $priceEl .= '<span class="font-bold fc-green">'. T_("Free"). '</span>';
       }
       elseif(is_null($price))
       {

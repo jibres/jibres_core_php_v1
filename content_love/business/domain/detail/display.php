@@ -24,8 +24,8 @@
           <div class="alert-info"><?php echo T_("This domain is not connected to any business or any domain!") ?></div>
         <?php } //endif ?>
 
-        <div class="msg minimal"><?php echo T_("Status") ?> <span class="txtB"><?php echo \dash\data::dataRow_tstatus() ?></span></div>
-        <div class="msg minimal"><?php echo T_("Date created") ?> <span class="txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()) ?></span></div>
+        <div class="msg minimal"><?php echo T_("Status") ?> <span class="font-bold"><?php echo \dash\data::dataRow_tstatus() ?></span></div>
+        <div class="msg minimal"><?php echo T_("Date created") ?> <span class="font-bold"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()) ?></span></div>
 
         <?php if(\dash\data::dataRow_checkdns()) {?>
           <div class="msg minimal f"><div class="c"><?php echo T_("DNS Resolved") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_checkdns()); ?></div></div>

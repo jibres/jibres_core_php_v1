@@ -1,11 +1,11 @@
 <?php if(\dash\request::get('print')) {?>
 
    <div class="printArea" data-size='A4'>
-      <div class="alert-info text-left ltr txtB text-sm">
+      <div class="alert-info text-left ltr font-bold text-sm">
       <div class="f">
         <div class="cauto">
           <span><?php echo T_("Answer ID") ?></span>
-          <span><code class="compact txtB"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
+          <span><code class="compact font-bold"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
         </div>
         <div class="c"></div>
         <div class="cauto">
@@ -37,11 +37,11 @@
 
 <div class="row">
    <div class="c-xs-12 c-sm-12 c-md-6">
-    <div class="alert-info text-left ltr txtB text-sm">
+    <div class="alert-info text-left ltr font-bold text-sm">
       <div class="f">
         <div class="cauto">
           <span><?php echo T_("Answer ID") ?></span>
-          <span><code class="compact txtB"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
+          <span><code class="compact font-bold"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
         </div>
         <div class="c"></div>
         <div class="cauto">
@@ -51,7 +51,7 @@
     </div>
 
       <?php if(a(\dash\data::answerDetail(), 'factor_id')) {?>
-    <div class="alert-info text-left ltr txtB text-sm">
+    <div class="alert-info text-left ltr font-bold text-sm">
         <a href="<?php echo \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'); ?>"><?php echo T_("View Order") ?></a>
       </div>
       <?php } //endif ?>

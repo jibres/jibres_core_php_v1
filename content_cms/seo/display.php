@@ -8,7 +8,7 @@
       </div>
       <div class="font-18 text-center">
         <h2><?php echo T_("Average post SEO rank") ?></h2>
-        <div class="font-40 txtB ltr"><?php echo \dash\fit::number(a(\dash\data::dashboardDetail(), 'avg_seorank')). ' '. T_("%") ?></div>
+        <div class="font-40 font-bold ltr"><?php echo \dash\fit::number(a(\dash\data::dashboardDetail(), 'avg_seorank')). ' '. T_("%") ?></div>
       </div>
     </div>
   </div>

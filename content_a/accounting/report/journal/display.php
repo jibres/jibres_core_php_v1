@@ -9,7 +9,7 @@
   <div class="printArea" data-size='A4'>
     <div class="msg f align-center text-center font-16">
       <div class="c3"></div>
-      <div class="c6"><h2 class="txtB"><?php echo T_("General Journal"); ?></h2></div>
+      <div class="c6"><h2 class="font-bold"><?php echo T_("General Journal"); ?></h2></div>
       <div class="c3"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
     </div>
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-right-blue-500">

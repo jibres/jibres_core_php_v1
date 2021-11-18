@@ -6,7 +6,7 @@
 
 	    <p><?php echo T_("Everything (methods, parameters, etc.) is fixed to a version number, and every call must contain one."); ?></p>
 
-	    <p class="txtB"><?php echo T_("The endpoint of each API is listed at the beginning of the documentation"); ?></p>
+	    <p class="font-bold"><?php echo T_("The endpoint of each API is listed at the beginning of the documentation"); ?></p>
 
 
 	</div>

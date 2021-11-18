@@ -11,12 +11,12 @@
 <?php } // endif ?>
     </a>
   </div>
-  <h2><?php echo T_("Welcome"); ?><?php echo T_(","); ?> <span class="txtB"><?php echo \dash\user::detail('fullname'); ?></span></h2>
+  <h2><?php echo T_("Welcome"); ?><?php echo T_(","); ?> <span class="font-bold"><?php echo \dash\user::detail('fullname'); ?></span></h2>
   <p class="font-14"><?php echo T_("Manage your info, privacy, and security to make us work better for you"); ?></p>
 </div>
 
 <?php if(!\dash\user::detail('verifymobile'))  {?>
-  <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="msg warn text-center txtB fs14 block"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
+  <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="msg warn text-center font-bold fs14 block"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
 <?php }//endif ?>
 
 <div class="f fs14">

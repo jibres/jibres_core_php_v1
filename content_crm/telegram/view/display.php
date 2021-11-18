@@ -4,7 +4,7 @@
       <li>
       <a class="f item">
         <div class="key"><?php echo T_("ID") ?></div>
-        <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
         <div class="go detail"></div>
       </a>
      </li>
@@ -12,7 +12,7 @@
        <li>
       <a class="f item">
         <div class="key"><?php echo T_("Send Method") ?></div>
-        <div class="value txtB"><?php echo \dash\data::dataRow_sendmethod(); ?></div>
+        <div class="value font-bold"><?php echo \dash\data::dataRow_sendmethod(); ?></div>
         <div class="go detail"></div>
       </a>
      </li>
@@ -21,7 +21,7 @@
        <li>
       <a class="f item">
         <div class="key"><?php echo T_("Date send") ?></div>
-        <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_senddate()); ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::date_time(\dash\data::dataRow_senddate()); ?></div>
         <div class="go detail"></div>
       </a>
      </li>
@@ -29,7 +29,7 @@
     <li>
       <a class="f item" data-kerkere='.showResponse'>
         <div class="key"><?php echo T_("Date response") ?></div>
-        <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_responsedate()); ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::date_time(\dash\data::dataRow_responsedate()); ?></div>
         <div class="go detail"></div>
       </a>
      </li>

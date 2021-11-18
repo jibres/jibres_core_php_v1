@@ -16,7 +16,7 @@
       <?php if(a($value, 'type') === 'image') {?>
         <img src="<?php echo \dash\fit::img(a($value, 'path'), 220); ?>" alt="<?php echo T_("File :val", ['val' => \dash\fit::number($key)]); ?>" data-gr="3">
       <?php }else{ ?>
-        <div class="text-center mTB5 txtB"><?php echo T_(ucfirst(a($value, 'type'))) ?></div>
+        <div class="text-center mTB5 font-bold"><?php echo T_(ucfirst(a($value, 'type'))) ?></div>
         <img src="<?php echo \dash\fit::img(\dash\app::static_image_url('wide'), 220); ?>" alt="<?php echo T_("File :val", ['val' => \dash\fit::number($key)]); ?>" data-gr="2">
       <?php } //endif ?>
     </figure>

@@ -6,7 +6,7 @@ foreach (\dash\data::dataTable() as $key => $value)
 {
   $result .= '<li>';
   $result .= '<a class="f" href="'.  \dash\url::this(). '/view?id='.  a($value, 'id'). '">';
-  $result .= '<div class="key txtB">'. a($value, 'code'). '</div>';
+  $result .= '<div class="key font-bold">'. a($value, 'code'). '</div>';
   if(a($value, 'category'))
   {
     $result .= ' <div class="value">'. a($value, 'category'). '</div>';

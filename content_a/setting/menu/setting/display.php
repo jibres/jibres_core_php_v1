@@ -3,7 +3,7 @@
     <div class="data">
       <h3><?php echo T_("Change menu title");?></h3>
       <div class="body">
-          <div class="txtB"><?php echo \dash\data::menuDetail_title() ?></div>
+          <div class="font-bold"><?php echo \dash\data::menuDetail_title() ?></div>
       </div>
     </div>
   </div>

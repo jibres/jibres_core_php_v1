@@ -28,7 +28,7 @@
           ?>
           <tr>
             <td><a href="<?php echo \dash\url::this(). \dash\request::full_get($args) ?>"><?php echo \dash\fit::number_en($key) ?></a></td>
-            <td class="txtB"><?php echo \dash\fit::number_en($value) ?></td>
+            <td class="font-bold"><?php echo \dash\fit::number_en($value) ?></td>
           </tr>
         <?php } //endif ?>
       </tbody>

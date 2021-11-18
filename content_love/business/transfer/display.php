@@ -6,14 +6,14 @@
       <li>
         <a class="f item">
           <div class="key">Current Fuel</div>
-          <div class="value txtB"><?php echo $dataRow['fuel'] ?></div>
+          <div class="value font-bold"><?php echo $dataRow['fuel'] ?></div>
         </a>
       </li>
 
        <li>
         <a class="f item">
           <div class="key">Status</div>
-          <div class="value txtB"><?php echo $dataRow['status'] ?></div>
+          <div class="value font-bold"><?php echo $dataRow['status'] ?></div>
         </a>
       </li>
     </ul>

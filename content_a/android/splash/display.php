@@ -13,7 +13,7 @@
 <?php }//endfor ?>
           </div>
 
-          <div class="txtB" data-kerkere=".splashAdvanceOption" data-kerkere-icon data-kerkere-single><?php echo T_("Advance option");?></div>
+          <div class="font-bold" data-kerkere=".splashAdvanceOption" data-kerkere-icon data-kerkere-single><?php echo T_("Advance option");?></div>
 
           <div class="splashAdvanceOption" data-kerkere-content='hide'>
             <p class="alert-warning mT10"><?php echo T_("If you want to personalize more you need to increase your plan.");?></p>

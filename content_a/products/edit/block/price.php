@@ -48,7 +48,7 @@
               <div class="c pRa5">
                 <div class="check1 mB0">
                   <input type="checkbox" name="vat" id="vat" data-rate='0.09' data-run-input='calcProductMargin' <?php if(\dash\data::productDataRow_vat()) { echo 'checked'; } ?> >
-                  <label for="vat"><?php echo T_("Charge taxes"); ?><span class="compact mLa10 txtB"><?php echo \dash\fit::number(9); ?>%</span></label>
+                  <label for="vat"><?php echo T_("Charge taxes"); ?><span class="compact mLa10 font-bold"><?php echo \dash\fit::number(9); ?>%</span></label>
                 </div>
               </div>
               <div class="cauto"><?php echo T_("VAT"); ?></div>
@@ -65,7 +65,7 @@
                     <?php if(is_null(a($productDataRow,'finalprice')) && \dash\url::child() !== 'add') {?>
                       <a class="link text-left" href="<?php echo \dash\url::here(). '/setting/product/free'; ?>"><?php echo T_("Manage free product button") ?></a>
                     <?php }elseif((string) a($productDataRow,'finalprice') === '0') {?>
-                      <span class="fc-green txtB"><?php echo T_("Free") ?></span>
+                      <span class="fc-green font-bold"><?php echo T_("Free") ?></span>
                     <?php }else{ ?>
                     <?php } //endif ?>
                   </div>
@@ -74,7 +74,7 @@
             </div>
           </div>
           <?php if(\dash\language::current() === 'fa') {?>
-            <div class="alert-info txtB finalPriceToman"></div>
+            <div class="alert-info font-bold finalPriceToman"></div>
           <?php } //endif ?>
         </div>
          <div class="f" data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?>  >

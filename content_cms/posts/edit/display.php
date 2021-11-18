@@ -121,7 +121,7 @@ switch (\dash\data::dataRow_status())
   <div class="box font-16">
     <div class="pad">
       <a class="row align-center" href="<?php echo \dash\url::this(). '/analyze'. \dash\request::full_get(); ?>">
-        <div class="c c-xs-12 txtB"><?php
+        <div class="c c-xs-12 font-bold"><?php
 echo T_("SEO content analysis of this post is :val.", ['val' => '<b>'. \dash\fit::text(a(\dash\data::dataRow(), 'seorank')). ' '. T_("%"). '</b>']);
 if(a(\dash\data::dataRow(), 'seorank') < 90)
 {

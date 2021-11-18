@@ -44,7 +44,7 @@
 
           <?php if(\dash\data::trackingDetail()) { $tracking_number = \dash\data::trackingDetail_desc(); ?>
             <div class="alert-success">
-              <div class="font-20 txtB"><?php echo T_("Your tracking number is") ?>
+              <div class="font-20 font-bold"><?php echo T_("Your tracking number is") ?>
                 <code data-copy='<?php echo $tracking_number ?>'><?php echo $tracking_number ?></code>
               </div>
               <?php if(\dash\validate::post_track_id($tracking_number, false)) {?>

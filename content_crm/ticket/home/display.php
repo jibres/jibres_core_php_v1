@@ -42,7 +42,7 @@
        <a class="item f" href="<?php echo \dash\url::this();?>/datalist?status=awaiting">
         <?php echo \dash\utility\icon::svg('Hourglass split', 'bootstrap'); ?>
         <div class="key"><?php echo T_('Awaiting answer');?></div>
-        <div class="value txtB"><?php echo \dash\fit::number(a($dashboardDetail, 'awaiting')); ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::number(a($dashboardDetail, 'awaiting')); ?></div>
         <div class="go"></div>
        </a>
       </li>

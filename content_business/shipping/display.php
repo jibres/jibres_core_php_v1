@@ -103,7 +103,7 @@ $myCart = \dash\data::myCart();
                  </ul>
                </nav>
           <?php }else{ // no product in cart ?>
-            <div class="alert-warning text-center txtB fs14"><?php echo T_("No product in your cart") ?></div>
+            <div class="alert-warning text-center font-bold fs14"><?php echo T_("No product in your cart") ?></div>
           <?php } //endif ?>
         </div>
       <?php } //endif ?>

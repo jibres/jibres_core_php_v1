@@ -5,7 +5,7 @@
         <div class="cauto fc-mute"><?php echo \dash\data::domainDetail_tstatus(); ?></div>
         <div class="c"></div>
         <div class="cauto">
-          <div class="txtB ltr">
+          <div class="font-bold ltr">
             <a href="<?php echo \dash\url::protocol(). '://'. \dash\data::domainDetail_domain();  ?>" target="_blank"><?php echo \dash\data::domainDetail_domain() ?> <i class="sf-link-external"></i></a>
           </div>
         </div>
@@ -64,10 +64,10 @@
               $ns2 = \lib\app\nic_usersetting\defaultval::ns2();
             ?>
             <div data-copy="<?php echo $ns1 ?>">
-              <small>Name server #1</small> <code class="txtB"> <?php echo $ns1 ?></code>
+              <small>Name server #1</small> <code class="font-bold"> <?php echo $ns1 ?></code>
             </div>
             <div data-copy="<?php echo $ns2 ?>">
-              <small>Name server #2</small> <code class="txtB"> <?php echo $ns2 ?></code>
+              <small>Name server #2</small> <code class="font-bold"> <?php echo $ns2 ?></code>
             </div>
           </div>
         </div>

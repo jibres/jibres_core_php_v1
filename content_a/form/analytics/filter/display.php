@@ -27,14 +27,14 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td colspan="3" class="collapsing text-left ltr txtB font-14 fc-blue"><?php echo \dash\fit::price(\dash\data::countAll()) ?></td>
+                  <td colspan="3" class="collapsing text-left ltr font-bold font-14 fc-blue"><?php echo \dash\fit::price(\dash\data::countAll()) ?></td>
                 </tr>
               <?php } // endif ?>
               <tr>
                 <td class="collapsing text-sm"><div class="btn-link-danger" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></td>
                 <td class="collapsing text-sm">
                   <a href="<?php echo \dash\url::this().'/report/answer?'. \dash\request::fix_get(['iid' => a($value, 'item_id')]) ?>">
-                    <span class="txtB"><?php echo \dash\fit::number(a($value, 'item_id')) ?>.</span> <?php echo a($value, 'field_title') ?>
+                    <span class="font-bold"><?php echo \dash\fit::number(a($value, 'item_id')) ?>.</span> <?php echo a($value, 'field_title') ?>
                   </a>
 
                 </td>
@@ -42,7 +42,7 @@
                 <td class="collapsing"><?php echo a($value, 'value') ?></td>
                 <td class="collapsing text-left ltr"><?php echo \dash\fit::price(a($value, 'inside')) ?></td>
                 <td class="collapsing text-left ltr"><?php echo \dash\fit::price(a($value, 'outside')) ?></td>
-                <td class="collapsing text-left ltr txtB font-14 fc-blue"><?php echo \dash\fit::price(a($value, 'count_after')) ?></td>
+                <td class="collapsing text-left ltr font-bold font-14 fc-blue"><?php echo \dash\fit::price(a($value, 'count_after')) ?></td>
               </tr>
             <?php } //endfor ?>
           </tbody>
@@ -52,7 +52,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td colspan="3" class="collapsing text-left ltr txtB"><?php echo \dash\fit::price($last) ?></td>
+                <td colspan="3" class="collapsing text-left ltr font-bold"><?php echo \dash\fit::price($last) ?></td>
             </tr>
           </tfoot>
         </table>

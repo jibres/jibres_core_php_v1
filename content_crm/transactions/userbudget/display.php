@@ -8,7 +8,7 @@
 <?php if($value['permission']) { ?>
         <div class="go star gold"></div>
 <?php } ?>
-        <div class="key mobile txtB"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
+        <div class="key mobile font-bold"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
         <div class="value datetime humandate"><?php  echo \dash\fit::number(a($value, 'budget')); ?></div>
 
         <div class="go s0<?php if(isset($value['status']) && in_array($value['status'], ['disable','removed','filter','unreachable'])) { echo ' nok';}else{}?>"></div>

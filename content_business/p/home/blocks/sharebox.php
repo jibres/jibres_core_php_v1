@@ -9,7 +9,7 @@ $html .= '<div class="box shareBox">';
       $html .= '<a data-copy="'. \dash\url::kingdom(). '/p/'. \dash\data::dataRow_id(). '" href="'. \dash\url::kingdom(). '/p/'. \dash\data::dataRow_id(). '">';
       {
         $html .= T_("Product Code");
-        $html .= ' <span class="txtB">';
+        $html .= ' <span class="font-bold">';
         {
           $html .= \dash\fit::number(\dash\data::dataRow_id());
         }

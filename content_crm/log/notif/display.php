@@ -35,7 +35,7 @@
         <a class="f align-center">
           <div class="key">
             <div class="line1"><?php echo a($value, 'type'); ?></div>
-            <div class="line2 f txtB">
+            <div class="line2 f font-bold">
               <div class="c">
                 <?php echo a($value, 'message'); ?>
 

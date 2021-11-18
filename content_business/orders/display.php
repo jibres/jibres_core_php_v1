@@ -36,7 +36,7 @@
           <td class="collapsing">
             <div class="f">
               <div class="c fs09"><?php echo \dash\fit::date_time(a($value, 'date')); ?>
-              <div class="cauto os txtB pRa10"><?php echo \dash\fit::date_human(a($value, 'date')); ?></div>
+              <div class="cauto os font-bold pRa10"><?php echo \dash\fit::date_human(a($value, 'date')); ?></div>
             </div>
           </td>
           <td><?php echo T_(a($value, 'status')); ?></td>

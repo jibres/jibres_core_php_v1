@@ -27,7 +27,7 @@
        <li>
         <a class="item f">
           <i class="sf-envelope s0"></i>
-          <div class="key txtB"><?php echo a($value, 'email');?></div>
+          <div class="key font-bold"><?php echo a($value, 'email');?></div>
           <i data-confirm data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash fc-red fs14"></i>
         </a>
        </li>

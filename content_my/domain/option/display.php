@@ -24,7 +24,7 @@
       <h3><?php echo T_("IR Domain Auto Renew Period");?></h3>
       <div class="body">
         <p><?php echo T_("Based on your decision, we are renew your dot ir domains and you can set period for this automatic action");?></p>
-        <p><span class="txtB"><?php echo T_("Note"); ?></span> <?php echo T_("You can enable or disable auto renew option on your domains.");?></p>
+        <p><span class="font-bold"><?php echo T_("Note"); ?></span> <?php echo T_("You can enable or disable auto renew option on your domains.");?></p>
       </div>
     </div>
   </div>

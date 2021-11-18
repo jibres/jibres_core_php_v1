@@ -176,7 +176,7 @@ class search
 
 			if(isset($_data['addr']))
 			{
-				$html .= "<div class='txtB'>". $_data['title']. "</div>";
+				$html .= "<div class='font-bold'>". $_data['title']. "</div>";
 				$html .= "<div>". implode(' / ', $_data['addr']). "</div>";
 			}
 			else

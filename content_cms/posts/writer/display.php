@@ -8,7 +8,7 @@
 
          <?php if(\dash\data::postWriterOld()) {?>
           <p><?php echo T_("Current post wirter") ?></p>
-          <div class="mB10 txtB"><?php echo \dash\data::postWriterOld_displayname(); ?></div>
+          <div class="mB10 font-bold"><?php echo \dash\data::postWriterOld_displayname(); ?></div>
           <div><?php echo \dash\fit::mobile(\dash\data::postWriterOld_mobile()); ?></div>
          <?php } //endif ?>
 

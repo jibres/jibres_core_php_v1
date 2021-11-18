@@ -209,7 +209,7 @@ if(!$selected && \dash\engine\store::inStore())
 
 ?>
 	<?php if(!array_filter($myPayment)) {?>
-		<p class="txtB text-center mT10"><?php echo T_("No payment gateway was founded") ?></p>
+		<p class="font-bold text-center mT10"><?php echo T_("No payment gateway was founded") ?></p>
 	<?php }else{ ?>
 		<div class="pb-2"><?php echo T_("Choose a gateway"); ?></div>
 		<div class="pb-2">

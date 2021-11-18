@@ -21,14 +21,14 @@
       <li>
       <a class="f item">
         <div class="key"><?php echo T_("ID") ?></div>
-        <div class="value txtB"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::text(\dash\data::dataRow_id()); ?></div>
         <div class="go detail"></div>
       </a>
      </li>
      <li>
       <a class="f item">
         <div class="key"><?php echo T_("Title") ?></div>
-        <div class="value txtB"><?php echo \dash\data::dataRow_title(); ?></div>
+        <div class="value font-bold"><?php echo \dash\data::dataRow_title(); ?></div>
         <div class="go detail"></div>
       </a>
      </li>
@@ -36,7 +36,7 @@
     <li>
       <a class="f item">
         <div class="key"><?php echo T_("Date created") ?></div>
-        <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()); ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()); ?></div>
         <div class="go detail"></div>
       </a>
      </li>
@@ -44,7 +44,7 @@
      <li>
       <a class="f item">
         <div class="key"><?php echo T_("Read date") ?></div>
-        <div class="value txtB"><?php echo \dash\fit::date_time(\dash\data::dataRow_readdate()); ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::date_time(\dash\data::dataRow_readdate()); ?></div>
         <div class="go detail"></div>
       </a>
      </li>

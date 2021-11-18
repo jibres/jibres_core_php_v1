@@ -8,7 +8,7 @@
 
         <table class="tbl1 v1 font-14">
           <tbody>
-              <tr><td><?php echo T_("Gift code"); ?></td><td class="text-left"><code class="link txtB"><?php echo \dash\data::dataRow_code(); ?></code></td></tr>
+              <tr><td><?php echo T_("Gift code"); ?></td><td class="text-left"><code class="link font-bold"><?php echo \dash\data::dataRow_code(); ?></code></td></tr>
               <?php if(\dash\data::dataRow_giftpercent()) {?>
                 <tr><td><?php echo T_("Gift percent"); ?></td><td class="text-left"><?php echo \dash\fit::number(\dash\data::dataRow_giftpercent()). ' '. T_("%"); ?></td></tr>
               <?php }else{ ?>

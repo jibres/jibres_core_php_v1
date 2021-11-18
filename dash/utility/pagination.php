@@ -481,7 +481,7 @@ class pagination
 		if($page_number)
 		{
 			echo "<nav class='pagination f fs11 mTB5' data-xhr='pagination'>";
-			echo "<a class='cauto s0' title='". self::detail('desc'). "'>". T_("Total") ." <span class='txtB'>". \dash\fit::number(self::get_total_rows()) ."</span></a>";
+			echo "<a class='cauto s0' title='". self::detail('desc'). "'>". T_("Total") ." <span class='font-bold'>". \dash\fit::number(self::get_total_rows()) ."</span></a>";
 			echo "<div class='c flex justify-center'>";
 			foreach ($page_number as $key => $value)
 			{

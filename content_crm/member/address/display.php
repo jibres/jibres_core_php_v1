@@ -20,7 +20,7 @@
 	        <div class="key">
 	          <span class="fc-blue"><?php echo a($value, 'title'); ?></span>
 	          <span class="fc-mute"><?php echo a($value, 'location_string'); ?></span>
-	          <span class="txtB"><?php echo a($value, 'address'); ?></span>
+	          <span class="font-bold"><?php echo a($value, 'address'); ?></span>
 	        </div>
 	        <div class="value ltr"><?php echo \dash\fit::mobile($value['postcode']); ?></div>
 	        <div class="value username ltr"><?php echo \dash\fit::mobile($value['phone']); ?></div>

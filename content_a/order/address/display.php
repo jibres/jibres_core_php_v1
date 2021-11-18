@@ -15,7 +15,7 @@
               <a class="item f" href="<?php echo \dash\url::kingdom(). '/crm/member/glance?id='. a($orderDetail, 'factor', 'customer') ;?>">
                 <div>
                     <span class="fc-mute"><?php echo T_("Customer") ?></span>
-                    <span class="txtB"><?php echo a($orderDetail, 'factor', 'customer_detail', 'displayname') ?></span>
+                    <span class="font-bold"><?php echo a($orderDetail, 'factor', 'customer_detail', 'displayname') ?></span>
                 </div>
               </a>
             </div>
@@ -23,7 +23,7 @@
             <div class="cauto s12">
               <div>
                 <span class="fc-mute"><?php echo T_("Mobile") ?></span>
-                <span class="txtB ltr compact"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')) ?></span>
+                <span class="font-bold ltr compact"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')) ?></span>
               </div>
             </div>
             <div class="c mB10"></div>
@@ -86,7 +86,7 @@
         <div class="body">
           <div class="f">
             <div class="cauto s12">
-              <div class="txtB">
+              <div class="font-bold">
                 <?php echo T_("Customer legal information") ?>
               </div>
             </div>
@@ -138,7 +138,7 @@
 
       <div class="box">
         <div class="pad">
-          <div class="txtB mB10"><?php echo T_("Replace order address by customer saved address") ?></div>
+          <div class="font-bold mB10"><?php echo T_("Replace order address by customer saved address") ?></div>
 
               <?php foreach (\dash\data::customerAddressList() as $key => $value) {?>
                <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3" data-confirm data-data='{"updateaddress": "<?php echo a($value, 'id') ?>"}'>

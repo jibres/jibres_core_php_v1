@@ -63,7 +63,7 @@ $html .= '<div class="row align-center">';
       }
       elseif((string) \dash\data::dataRow_finalprice() === '0')
       {
-        $html .= '<span class="txtB fc-green">'. T_("Free"). '</span>';
+        $html .= '<span class="font-bold fc-green">'. T_("Free"). '</span>';
       }
       elseif(is_null(\dash\data::dataRow_finalprice()))
       {
@@ -215,7 +215,7 @@ $html .= '<div class="row align-center">';
         else
         {
         // can not shop
-            $html .= '<div class="txtB mTB10">'. a(\dash\data::dataRow(), 'shop_message').'</div>';
+            $html .= '<div class="font-bold mTB10">'. a(\dash\data::dataRow(), 'shop_message').'</div>';
         } //endif
       }
       $html .= '</div>';
@@ -241,7 +241,7 @@ $html .= '<div class="row align-center">';
             {
               if(a($cat, 'outstanding'))
               {
-                $html .= '<li><span>'. a($cat, 'key') . '</span> <span class="txtB">'. a($cat, 'value'). '</span></li>';
+                $html .= '<li><span>'. a($cat, 'key') . '</span> <span class="font-bold">'. a($cat, 'value'). '</span></li>';
               }
             }
          }

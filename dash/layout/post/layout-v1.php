@@ -36,7 +36,7 @@ if(\dash\data::dataRow_datemodified())
 
   echo '</div>';
   echo '<div class="cauto os">';
-  echo '<a data-copy="'.  \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" href="'. \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" title="'.  T_("For share via social networks"). '">'. T_("Short Code") .' <span class="txtB">' . \dash\data::dataRow_id(). '</span></a>';
+  echo '<a data-copy="'.  \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" href="'. \dash\url::kingdom(). '/n/'. \dash\data::dataRow_id(). '" title="'.  T_("For share via social networks"). '">'. T_("Short Code") .' <span class="font-bold">' . \dash\data::dataRow_id(). '</span></a>';
   echo '</div>';
   echo '</div>';
 }

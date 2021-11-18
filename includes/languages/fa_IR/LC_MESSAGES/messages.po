@@ -1155,14 +1155,14 @@ msgstr "تمام آنچه که نیاز است درباره دامنه بدان�
 msgid ""
 "Have you ever asked yourself, 'What is a domain, anyway?' Well, take a look up there at "
 "the top of the screen. See that part at the top of your browser window in the URL bar? "
-"It's the part that starts with '<span class='txtB'>http://</span>' in the address bar. "
-"The second part of the URL is the domain. In our case, it's <span class='txtB'>jibres."
+"It's the part that starts with '<span class='font-bold'>http://</span>' in the address bar. "
+"The second part of the URL is the domain. In our case, it's <span class='font-bold'>jibres."
 "com</span>."
 msgstr ""
 "آیا تا به حال شده از خودتون بپرسید دامنه چیست؟ یه نگاه به بالای همین صفحه بندازید. نوار "
-"آدرس رو توی مرورگر خودتون می‌بینید؟ همونجایی که با '<span class='txtB'>https://</span>' "
+"آدرس رو توی مرورگر خودتون می‌بینید؟ همونجایی که با '<span class='font-bold'>https://</span>' "
 "شروع شده رو توی نوار آدرس ببینید. بخش دوم آدرس مربوط به دامنه است. در این مورد ما دامنه "
-"<span class='txtB'>jibres.ir</span>."
+"<span class='font-bold'>jibres.ir</span>."
 
 #: content/domains/home/definition.php:12
 msgid "Let's take a look at what goes on behind that domain."
@@ -3599,9 +3599,9 @@ msgid "All the basics for personal use."
 msgstr "همه نیازهای اولیه برای استفاده شخصی."
 
 #: content/pricing/priceTable.php:8
-msgid "Also <span class='txtB'>sell on social networks</span> with easy online payment."
+msgid "Also <span class='font-bold'>sell on social networks</span> with easy online payment."
 msgstr ""
-"هم‌چنین <span class='txtB'> فروش در شبکه‌های اجتماعی</span> به‌سادگی با پرداخت آنلاین."
+"هم‌چنین <span class='font-bold'> فروش در شبکه‌های اجتماعی</span> به‌سادگی با پرداخت آنلاین."
 
 #: content/pricing/priceTable.php:9
 msgid "Beta Version"
@@ -43380,8 +43380,8 @@ msgstr "یارد"
 #~ msgid "Invalid index of imageblock!"
 #~ msgstr "شناسه تصویر اشتباه است!"
 
-#~ msgid "Drag &amp; Drop your files or <span class=\"txtB\">Browse</span>"
-#~ msgstr "فایل را بکشید و اینجا رها کنید یا <span class=\"txtB\">انتخاب کنید</span>"
+#~ msgid "Drag &amp; Drop your files or <span class=\"font-bold\">Browse</span>"
+#~ msgstr "فایل را بکشید و اینجا رها کنید یا <span class=\"font-bold\">انتخاب کنید</span>"
 
 #~ msgid "Image Alt"
 #~ msgstr "متن جایگزین عکس"
@@ -48099,8 +48099,8 @@ msgstr "یارد"
 #~ msgid "Advanced Permission"
 #~ msgstr "سطح دسترسی پیشرفته"
 
-#~ msgid "Get started with our <span class='txtB'>Free Plan</span>"
-#~ msgstr "با <span class='txtB'>پلن رایگان</span> ما شروع کن"
+#~ msgid "Get started with our <span class='font-bold'>Free Plan</span>"
+#~ msgstr "با <span class='font-bold'>پلن رایگان</span> ما شروع کن"
 
 #~ msgid "Get Free"
 #~ msgstr "دریافت رایگان"

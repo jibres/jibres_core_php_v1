@@ -63,7 +63,7 @@
     <li>
       <a class="item f">
         <div class="key"><?php echo T_("Date created");?></div>
-        <div class="value txtB ltr"><?php echo \dash\fit::date_time(a($dataRow, 'datecreated'));?></div>
+        <div class="value font-bold ltr"><?php echo \dash\fit::date_time(a($dataRow, 'datecreated'));?></div>
         <div class="go detail"></div>
       </a>
     </li>
@@ -71,7 +71,7 @@
      <li>
       <a class="item f">
         <div class="key"><?php echo T_("Datemodified");?></div>
-        <div class="value txtB ltr"><?php echo \dash\fit::date_time(a($dataRow, 'datemodified'));?></div>
+        <div class="value font-bold ltr"><?php echo \dash\fit::date_time(a($dataRow, 'datemodified'));?></div>
         <div class="go detail"></div>
       </a>
     </li>
@@ -81,7 +81,7 @@
       <li>
       <a class="item f" href="<?php echo 'https://jibres.'. \dash\url::jibres_tld(). '/ip/'. $myIp; ?>" target="_blank">
         <div class="key"><?php echo T_("IP");?></div>
-        <div class="value txtB ltr"><?php echo $myIp; ?></div>
+        <div class="value font-bold ltr"><?php echo $myIp; ?></div>
         <div class="go external"></div>
       </a>
     </li>
@@ -114,7 +114,7 @@
     <li>
       <a class="item f" href="<?php echo \dash\data::listCommentMoudle(). \dash\request::full_get(['cid' => null, 'answerto' => \dash\request::get('cid')]); ?>">
         <div class="key"><?php echo T_("Number of responses received");?></div>
-        <div class="value txtB ltr"><?php echo \dash\fit::number(\dash\data::answerCount()); ?></div>
+        <div class="value font-bold ltr"><?php echo \dash\fit::number(\dash\data::answerCount()); ?></div>
         <div class="go"></div>
       </a>
     </li>
@@ -125,7 +125,7 @@
     <li>
       <a class="item f">
         <div class="key"><?php echo T_("Status");?></div>
-        <div class="value txtB ltr"><?php echo a($dataRow, 'tstatus'); ?></div>
+        <div class="value font-bold ltr"><?php echo a($dataRow, 'tstatus'); ?></div>
         <div class="go <?php echo a($dataRow, 'html_class') ?>"></div>
       </a>
     </li>
@@ -161,7 +161,7 @@ if(a($dataRow, 'status') === 'unapproved')
     <li>
       <div class="item f">
         <div class="key"><?php echo T_("Title")?></div>
-        <div class="value txtB"><?php echo a($dataRow, 'title'); ?></div>
+        <div class="value font-bold"><?php echo a($dataRow, 'title'); ?></div>
         <div class="go detail"></div>
       </div>
     </li>

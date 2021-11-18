@@ -86,7 +86,7 @@ if(\lib\store::detail('mass_unit'))
     <?php foreach (\dash\data::packageList() as $key => $value){ ?>
       <div class="box">
         <div class="pad">
-          <div class="txtB mB10 fs14"><?php echo a($value, 'title') ?></div>
+          <div class="font-bold mB10 fs14"><?php echo a($value, 'title') ?></div>
           <?php if(a($value, 'length')) {?><div><small><?php echo T_("Length"); ?></small> <?php echo \dash\fit::text(a($value, 'length')) ?> <small><?php echo $lenght_unit ?></small></div><?php } //endif ?>
           <?php if(a($value, 'width')) {?><div><small><?php echo T_("Width"); ?></small> <?php echo \dash\fit::text(a($value, 'width')) ?> <small><?php echo $lenght_unit ?></small></div><?php } //endif ?>
           <?php if(a($value, 'height')) {?><div><small><?php echo T_("Height"); ?></small> <?php echo \dash\fit::text(a($value, 'height')) ?> <small><?php echo $lenght_unit ?></small></div><?php } //endif ?>

@@ -15,7 +15,7 @@ if(\dash\data::dataTable())
 
         <i class="<?php if(isset($value['icon']) && $value['icon']) { echo 'sf-'. $value['icon']. ' '; }else{ echo 'sf-heart '; } if(isset($value['iconClass']) && $value['iconClass']) { echo $value['iconClass']; }?> c-xs-0" title='<?php if(isset($value['cat']))  { echo $value['cat']; }?>'></i>
 
-        <div class="key fit txtB c-xs-0"><?php if(isset($value['title']))
+        <div class="key fit font-bold c-xs-0"><?php if(isset($value['title']))
           {
             echo $value['title'];
           }

@@ -264,7 +264,7 @@ function HTML_product_status_search($value)
 <div class="row align-center mT10">
   <div class="c">
     <?php $total_rows = \dash\utility\pagination::get_total_rows(); ?>
-    <div class="fc-mute"><span class="txtB"><?php echo \dash\fit::number($total_rows); ?></span> <?php echo T_("Record founded") ?></div>
+    <div class="fc-mute"><span class="font-bold"><?php echo \dash\fit::number($total_rows); ?></span> <?php echo T_("Record founded") ?></div>
   </div>
   <div class="c-auto">
     <?php if(\dash\request::get()) {?>

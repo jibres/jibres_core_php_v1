@@ -24,7 +24,7 @@
 
           <a href="<?php echo \dash\url::this(); ?>?user=<?php echo $codeValue; ?>">
             <img src="<?php if(isset($value['avatar']) && $value['avatar']) {echo a($value, 'avatar'); }else{ echo \dash\url::siftal(). '/images/default/avatar.png'; } ?>" class="avatar mRa5" alt="<?php echo a($value, 'displayname'); ?>">
-            <span class="txtB s0 fs08"><?php echo a($value, 'displayname'); ?></span>
+            <span class="font-bold s0 fs08"><?php echo a($value, 'displayname'); ?></span>
           </a>
           <div class="txtRa fs08">
             <a title='<?php echo T_("Mobile"); ?>'><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></a>
@@ -43,7 +43,7 @@
 
           <a href="<?php echo \dash\url::this(); ?>?session_id=<?php echo a($value, 'session_id'); ?>">
             <img src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" class="avatar mRa5" alt='<?php echo T_("Guest"); ?>'>
-            <span class="txtB s0 fs08"><?php echo T_("Guest"); ?></span>
+            <span class="font-bold s0 fs08"><?php echo T_("Guest"); ?></span>
           </a><br>
           <span class="badge light floatR"><a href="<?php echo \dash\url::this(); ?>/show?id=<?php echo a($value, 'id'); ?>"><?php echo \dash\fit::text($value['id']); ?></a></span>
 
@@ -73,7 +73,7 @@
 
 
         <td class="">
-          <span class="txtB"><?php echo a($value, 'title'); ?></span>
+          <span class="font-bold"><?php echo a($value, 'title'); ?></span>
           <br>
           <?php echo a($value, 'content'); ?>
 

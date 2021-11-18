@@ -4,28 +4,28 @@
     <div class="text-sm">
       <?php if(a($dashboardData, 'new_order')) {?>
         <a href="<?php echo \dash\url::here(). '/order/unprocessed' ?>">
-          <div class="alert-success mb-3 txtB">
+          <div class="alert-success mb-3 font-bold">
             <?php echo T_("You have :val Unprocessed order", ['val' => \dash\fit::number(a($dashboardData, 'new_order'))]) ?>
           </div>
         </a>
       <?php } //endif ?>
       <?php if(a($dashboardData, 'new_ticket')) {?>
         <a href="<?php echo \dash\url::kingdom(). '/crm/ticket/datalist?status=awaiting' ?>">
-          <div class="alert-success mb-3 txtB">
+          <div class="alert-success mb-3 font-bold">
             <?php echo T_("You have :val Unanswered ticket", ['val' => \dash\fit::number(a($dashboardData, 'new_ticket'))]) ?>
           </div>
         </a>
       <?php } //endif ?>
        <?php if(a($dashboardData, 'new_comment')) {?>
         <a href="<?php echo \dash\url::kingdom(). '/cms/comments?status=awaiting' ?>">
-          <div class="alert-success mb-3 txtB">
+          <div class="alert-success mb-3 font-bold">
             <?php echo T_("You have :val awaiting comment", ['val' => \dash\fit::number(a($dashboardData, 'new_comment'))]) ?>
           </div>
         </a>
       <?php } //endif ?>
       <?php if(a($dashboardData, 'notif_count')) {?>
         <a href="<?php echo \dash\url::kingdom(). '/crm/notification/me' ?>">
-          <div class="alert-success mb-3 txtB">
+          <div class="alert-success mb-3 font-bold">
             <?php echo T_("You have :val new message!", ['val' => \dash\fit::number(a($dashboardData, 'notif_count'))]) ?>
           </div>
         </a>
@@ -33,7 +33,7 @@
       <?php if(a($dashboardData, 'new_form_answer')) {?>
         <?php foreach(a($dashboardData, 'new_form_answer') as $key => $value) {?>
           <a href="<?php echo \dash\url::kingdom(). '/a/form/answer?id='. a($value, 'id') ?>">
-            <div class="alert-success mb-3 txtB">
+            <div class="alert-success mb-3 font-bold">
               <?php echo T_("You have :val not reviewed answer in :form", ['val' => \dash\fit::number(a($value, 'count_need_review')), 'form' => a($value, 'title')]) ?>
             </div>
           </a>

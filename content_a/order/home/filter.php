@@ -68,7 +68,7 @@ function BoxProductFilter()
       <div class="f text-sm">
         <div class="cauto">
           <?php $total_rows = \dash\utility\pagination::get_total_rows(); ?>
-          <div class="fc-mute mA10"><span class="txtB"><?php echo \dash\fit::number($total_rows); ?></span> <?php echo T_("Product founded") ?></div>
+          <div class="fc-mute mA10"><span class="font-bold"><?php echo \dash\fit::number($total_rows); ?></span> <?php echo T_("Product founded") ?></div>
         </div>
         <div class="c"></div>
         <div class="cauto">

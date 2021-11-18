@@ -93,7 +93,7 @@ if(!is_array($dataTable))
       <td class="collapsing">
         <a href="<?php echo \dash\url::that(); ?>?user_id=<?php echo a($value, 'user_id'); ?>">
           <img src="<?php echo a($value, 'avatar'); ?>" class="avatar mRa5" alt="<?php echo a($value, 'displayname'); ?>">
-          <span class="txtB s0 fs08"><?php echo a($value, 'displayname'); ?></span>
+          <span class="font-bold s0 fs08"><?php echo a($value, 'displayname'); ?></span>
         </a>
         <div class="txtRa fs08">
           <a href="<?php echo \dash\url::that(); ?>?mobile=<?php echo a($value, 'mobile'); ?>" title='<?php echo T_("Mobile"); ?>'><?php echo a($value, 'mobile'); ?></a>

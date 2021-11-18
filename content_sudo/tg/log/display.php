@@ -92,7 +92,7 @@ if(!is_array($dataTable))
       <td class="collapsing">
         <a href="<?php echo \dash\url::that(); ?>?user_id=<?php echo a($value, 'user_id'); ?>">
           <img src="<?php echo a($value, 'avatar'); ?>" class="avatar mRa5" alt="<?php echo a($value, 'displayname'); ?>">
-          <span class="txtB s0 fs08"><?php echo a($value, 'displayname'); ?></span>
+          <span class="font-bold s0 fs08"><?php echo a($value, 'displayname'); ?></span>
         </a>
         <div class="txtRa fs08">
           <a  title='<?php echo T_("Mobile"); ?>'><?php echo \dash\fit::number(a($value, 'mobile')); ?></a>
@@ -138,7 +138,7 @@ if(!is_array($dataTable))
       <td class="collapsing"><a href="<?php echo \dash\url::that(); ?>?step=<?php echo a($value, 'step'); ?>"><?php echo a($value, 'step'); ?></a></td>
 
       <td>
-        <div class="ltr text-left txtB mB5">
+        <div class="ltr text-left font-bold mB5">
           <a href="<?php echo \dash\url::that(); ?>?sendmethod=<?php echo a($value, 'sendmethod'); ?>" title='<?php echo T_("Method"); ?>'><?php echo a($value, 'sendmethod'); ?></a>
           <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo a($value, 'id'); ?>#sendkeyboard"><?php if(isset($value['sendkeyboard']) && $value['sendkeyboard']) {?><i class="sf-thumbnails fc-green" title='<?php echo T_("With keyboard"); ?>'></i><?php }else{ ?><i class="sf-file-text fc-mute" title='<?php echo T_("Without keyboard"); ?>'></i><?php } ?></a>
           <?php if(isset($value['sendmesageid']) && $value['sendmesageid']) {?>
@@ -151,13 +151,13 @@ if(!is_array($dataTable))
         </div>
         <div class="f fs09">
           <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo a($value, 'id'); ?>#send" class="cauto mRa5" title='<?php echo T_("Check more detail"); ?>'><i class="sf-save"></i></a>
-          <a href="<?php echo \dash\url::that(); ?>?senddate=<?php echo a($value, 'senddate'); ?>" title='<?php echo a($value, 'senddate'); ?>' class="c txtB"><?php echo a($value, 'senddate'); ?></a>
+          <a href="<?php echo \dash\url::that(); ?>?senddate=<?php echo a($value, 'senddate'); ?>" title='<?php echo a($value, 'senddate'); ?>' class="c font-bold"><?php echo a($value, 'senddate'); ?></a>
         </div>
           <?php if(isset($value['response']) && $value['response']) {?>
 
         <div class="f fs09">
           <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo a($value, 'id'); ?>#response" class="cauto mRa5" title='<?php echo T_("Check more detail"); ?>'><i class="sf-save"></i></a>
-          <a href="<?php echo \dash\url::that(); ?>?responsedate=<?php echo a($value, 'responsedate'); ?>" title='<?php echo a($value, 'responsedate'); ?>' class="c txtB"><?php echo a($value, 'responsedate'); ?></a>
+          <a href="<?php echo \dash\url::that(); ?>?responsedate=<?php echo a($value, 'responsedate'); ?>" title='<?php echo a($value, 'responsedate'); ?>' class="c font-bold"><?php echo a($value, 'responsedate'); ?></a>
         </div>
 
 <?php }else{ ?>

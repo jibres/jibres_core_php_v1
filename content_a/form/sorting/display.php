@@ -1,7 +1,7 @@
 	<div class="box">
 		<div class="body">
 			<span><?php echo T_("Form Title"); ?></span>
-			<span class="txtB"> <?php echo \dash\data::dataRow_title(); ?></span>
+			<span class="font-bold"> <?php echo \dash\data::dataRow_title(); ?></span>
 		</div>
 	</div>
 
@@ -14,7 +14,7 @@ if(!is_array($dataTable))
 }
 ?>
 
-<div class="msg minimal info2 txtB font-14"><?php echo T_("Drag the item and move it where you want to change the question sort. Items is sorted from left to right") ?></div>
+<div class="msg minimal info2 font-bold font-14"><?php echo T_("Drag the item and move it where you want to change the question sort. Items is sorted from left to right") ?></div>
 
 <form method="post" data-sortable data-willy class="ltr row">
 <?php foreach ($dataTable as $key => $value) {?>

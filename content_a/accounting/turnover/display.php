@@ -222,7 +222,7 @@
 							<a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id'), 'details' => a($value, 'details_id')]); ?>"><?php echo a($value, 'details_title'); ?></a>
 						</td>
 					<?php } //endif ?>
-					<td class="txtB"><?php echo \dash\fit::date(a($value, 'date')) ?></td>
+					<td class="font-bold"><?php echo \dash\fit::date(a($value, 'date')) ?></td>
 
 					<?php if(\dash\request::get('status') === 'draft') { ?>
 						<td><?php echo a($value, 'tstatus') ?></td>
@@ -232,7 +232,7 @@
 					<td data-copy='<?php echo a($value, 'debtor') ?>' class="text-right ltr font-14 fc-green"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></td>
 					<td data-copy='<?php echo a($value, 'creditor') ?>' class="text-right ltr font-14 fc-red"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></td>
 					<?php if(\dash\url::subchild() === 'detail' or true) {?>
-					<td data-copy='<?php echo a($value, 'balance_now') ?>' class="text-right ltr font-14 txtB <?php if(a($value, 'balance_now') < 0){ echo 'fc-red'; }else{ echo 'fc-green';} ?>"><?php echo \dash\fit::number_decimal(a($value, 'balance_now'), 'en') ?></td>
+					<td data-copy='<?php echo a($value, 'balance_now') ?>' class="text-right ltr font-14 font-bold <?php if(a($value, 'balance_now') < 0){ echo 'fc-red'; }else{ echo 'fc-green';} ?>"><?php echo \dash\fit::number_decimal(a($value, 'balance_now'), 'en') ?></td>
 					<?php } //endif ?>
 
 				</tr>

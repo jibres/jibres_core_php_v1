@@ -12,7 +12,7 @@
     </a>
   </div>
 </section>
-<div class="msg fs14 txtB text-left"><b>Last credit description</b> <?php echo \dash\data::lastCredit_description() ?></div>
+<div class="msg fs14 font-bold text-left"><b>Last credit description</b> <?php echo \dash\data::lastCredit_description() ?></div>
 
 
 <div class="fs14">

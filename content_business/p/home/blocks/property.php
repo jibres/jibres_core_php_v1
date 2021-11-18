@@ -40,7 +40,7 @@ if(\dash\data::propertyList())
 			          {
 			            if(a($value, 'bold'))
 			            {
-			              $html .= '<div class="txtB">';
+			              $html .= '<div class="font-bold">';
 			            }
 
 			            if(is_numeric($value['value']))

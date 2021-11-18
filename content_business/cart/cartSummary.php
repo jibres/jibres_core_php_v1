@@ -37,7 +37,7 @@ $myCartSummary = \dash\data::myCart_summary();
         <?php if(a($myCartSummary, 'shipping')) {?>
       <dd><?php echo \dash\fit::number(a($myCartSummary, 'shipping')); ?> <?php echo $currency; ?> </dd>
       <?php }elseif(is_numeric(a($myCartSummary, 'shipping'))){ ?>
-        <dd class="fc-green"><span class="txtB" ><?php echo T_("Free") ?></span> <i class="sf-gift"></i></dd>
+        <dd class="fc-green"><span class="font-bold" ><?php echo T_("Free") ?></span> <i class="sf-gift"></i></dd>
       <?php }//endif ?>
      </dl>
     <?php }//endif ?>

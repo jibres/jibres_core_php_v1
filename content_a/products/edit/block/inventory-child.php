@@ -29,7 +29,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
 
             <?php if(!$have_variant_child) {?>
               <div class="c s12 pRa10">
-                <label for='stock'><?php echo T_("Current Stock Count"); ?> <span class="txtB pRa10"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></span>
+                <label for='stock'><?php echo T_("Current Stock Count"); ?> <span class="font-bold pRa10"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></span>
                 </label>
                 <div class="input">
                   <input type="tel" name="stock" id="stock" data-format='number' placeholder="<?php echo T_('Current Stock Count'). ' '. \dash\fit::number(\dash\data::productDataRow_stock()); ?>" maxlength="7">
