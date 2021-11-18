@@ -13,6 +13,8 @@ class view
 		// 	'store' => 'y88p',
 		// ];
 
+		\dash\notif::complete();
+
 		\content_r10\tools::say($result);
 	}
 }
