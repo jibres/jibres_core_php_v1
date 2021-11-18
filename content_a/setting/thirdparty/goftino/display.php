@@ -5,7 +5,7 @@
     <div  class="box">
         <img class="block B20" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/goftino-banner.jpg" alt='Goftino'>
         <div class="body">
-          <div class="alert-light">
+          <div class="alert-simple">
             <p><?php echo T_("Goftino is a communication service to chat with customers on your website and answer questions upon their behaviors.") ?></p>
           </div>
           <label for="igoftino"><?php echo T_("Goftino ID"); ?> <span class="fc-red">*</span></label>
