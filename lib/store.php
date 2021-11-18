@@ -877,6 +877,27 @@ class store
 
 
 
+	public static function android_apk_url()
+	{
+		$app_queue = \lib\app\application\queue::detail();
+
+		if(isset($app_queue['status']) && $app_queue['status'])
+		{
+			if(isset($app_queue['status']) && $app_queue['status'] === 'done')
+			{
+				$downoadAPK = \lib\store::url();
+				return $downoadAPK. '/app';
+			}
+
+		}
+
+		return null;
+
+	}
+
+
+
+
 	public static function my_fuel()
 	{
 		if(self::detail('fuel'))
