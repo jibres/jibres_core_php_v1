@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-11-18 05:58+0330\n"
-"PO-Revision-Date: 2021-11-18 05:59+0330\n"
+"POT-Creation-Date: 2021-11-18 15:38+0330\n"
+"PO-Revision-Date: 2021-11-18 15:41+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1155,14 +1155,14 @@ msgstr "تمام آنچه که نیاز است درباره دامنه بدان�
 msgid ""
 "Have you ever asked yourself, 'What is a domain, anyway?' Well, take a look up there at "
 "the top of the screen. See that part at the top of your browser window in the URL bar? "
-"It's the part that starts with '<span class='font-bold'>http://</span>' in the address bar. "
-"The second part of the URL is the domain. In our case, it's <span class='font-bold'>jibres."
-"com</span>."
+"It's the part that starts with '<span class='font-bold'>http://</span>' in the address "
+"bar. The second part of the URL is the domain. In our case, it's <span class='font-"
+"bold'>jibres.com</span>."
 msgstr ""
 "آیا تا به حال شده از خودتون بپرسید دامنه چیست؟ یه نگاه به بالای همین صفحه بندازید. نوار "
-"آدرس رو توی مرورگر خودتون می‌بینید؟ همونجایی که با '<span class='font-bold'>https://</span>' "
-"شروع شده رو توی نوار آدرس ببینید. بخش دوم آدرس مربوط به دامنه است. در این مورد ما دامنه "
-"<span class='font-bold'>jibres.ir</span>."
+"آدرس رو توی مرورگر خودتون می‌بینید؟ همونجایی که با '<span class='font-bold'>https://</"
+"span>' شروع شده رو توی نوار آدرس ببینید. بخش دوم آدرس مربوط به دامنه است. در این مورد "
+"ما دامنه <span class='font-bold'>jibres.ir</span>."
 
 #: content/domains/home/definition.php:12
 msgid "Let's take a look at what goes on behind that domain."
@@ -3599,7 +3599,8 @@ msgid "All the basics for personal use."
 msgstr "همه نیازهای اولیه برای استفاده شخصی."
 
 #: content/pricing/priceTable.php:8
-msgid "Also <span class='font-bold'>sell on social networks</span> with easy online payment."
+msgid ""
+"Also <span class='font-bold'>sell on social networks</span> with easy online payment."
 msgstr ""
 "هم‌چنین <span class='font-bold'> فروش در شبکه‌های اجتماعی</span> به‌سادگی با پرداخت آنلاین."
 
@@ -7109,7 +7110,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/thirdparty/crisp/display.php:19
 #: content_a/setting/thirdparty/digitaloceans3/display.php:41
 #: content_a/setting/thirdparty/enamad/display.php:41
-#: content_a/setting/thirdparty/goftino/display.php:18
+#: content_a/setting/thirdparty/goftino/display.php:19
 #: content_a/setting/thirdparty/gtag/display.php:19
 #: content_a/setting/thirdparty/hotjar/display.php:20
 #: content_a/setting/thirdparty/imber/display.php:18
@@ -7260,6 +7261,7 @@ msgid "Google Play Store"
 msgstr "فروشگاه گوگل پلی"
 
 #: content_a/android/download/display.php:29
+#: content_site/options/link/link_cafebazar.php:22
 msgid "Cafebazar"
 msgstr "کافه‌بازار"
 
@@ -9206,7 +9208,7 @@ msgstr "زرد (برای پیام هشدار)"
 
 #: content_a/form/item/display.php:319 content_a/setting/menu/display.php:9
 #: content_a/setting/menu/roster/display.php:25 content_account/ref/display.php:30
-#: content_love/changelog/add/display.php:14 content_site/options/link/link_raw.php:29
+#: content_love/changelog/add/display.php:14 content_site/options/link/link_raw.php:22
 msgid "Link"
 msgstr "لینک"
 
@@ -13432,32 +13434,32 @@ msgstr "Crisp"
 msgid "#1 Messaging Platform For Startups & SMB's"
 msgstr "پلتفرم پیام‌رسانی شماره 1 برای استارتاپ‌ها"
 
-#: content_a/setting/thirdparty/display.php:88
-#: content_a/setting/thirdparty/goftino/view.php:8
-msgid "Goftino"
-msgstr "گفتینو"
-
-#: content_a/setting/thirdparty/display.php:89
-msgid "Online chat and customer relationship system"
-msgstr "سامانه گفتگوی آنلاین و ارتباط با مشتریان"
-
-#: content_a/setting/thirdparty/display.php:96
-msgid "RayChat"
-msgstr "رایچت"
-
-#: content_a/setting/thirdparty/display.php:97
-msgid "Online Chat Platform"
-msgstr "پلتفرم گفتگوی آنلاین"
-
-#: content_a/setting/thirdparty/display.php:105
+#: content_a/setting/thirdparty/display.php:86
 #: content_a/setting/thirdparty/imber/view.php:8 lib/app/quickaccess/setting.php:100
 #: lib/app/quickaccess/setting.php:104
 msgid "Imber"
 msgstr "ایمبر"
 
-#: content_a/setting/thirdparty/display.php:106
+#: content_a/setting/thirdparty/display.php:87
 msgid "All in One Marketing Automation Platform"
 msgstr "سرویس جامع ارتباط با مشتری"
+
+#: content_a/setting/thirdparty/display.php:96
+#: content_a/setting/thirdparty/goftino/view.php:8
+msgid "Goftino"
+msgstr "گفتینو"
+
+#: content_a/setting/thirdparty/display.php:97
+msgid "Online chat and customer relationship system"
+msgstr "سامانه گفتگوی آنلاین و ارتباط با مشتریان"
+
+#: content_a/setting/thirdparty/display.php:104
+msgid "RayChat"
+msgstr "رایچت"
+
+#: content_a/setting/thirdparty/display.php:105
+msgid "Online Chat Platform"
+msgstr "پلتفرم گفتگوی آنلاین"
 
 #: content_a/setting/thirdparty/display.php:121
 #: content_a/setting/thirdparty/enamad/view.php:8 lib/app/quickaccess/setting.php:205
@@ -13552,12 +13554,23 @@ msgid ""
 msgstr "کد نماد اعتماد دارای کلمات مشخصی است که در کد ارسالی توسط شما یافت نشد"
 
 #: content_a/setting/thirdparty/goftino/display.php:9
-msgid "Capabilities that you need in attracting customers and better service support"
-msgstr "قابلیت‌هایی که در جذب مشتریان و پشتیبانی بهتر از خدمات، به آن‌ها نیاز دارید"
+msgid ""
+"Goftino is a communication service to chat with customers on your website and answer "
+"questions upon their behaviors."
+msgstr ""
+"سامانه گفتگوی آنلاین و گردآوری رفتار مشتریان؛ گفتینو یک سامانه گفتگوی آنلاین است که به "
+"شما این امکان را میده که بتونید با کاربران خودتون گفتگو کنید. با گفتینو به آسانی با "
+"مشتریان مستقیم صحبت کنید و با این ابزار پشتیبانی ، حس اعتماد و پاسخگویی را در آنها زنده "
+"نگه دارید!"
 
 #: content_a/setting/thirdparty/goftino/display.php:11
 msgid "Goftino ID"
 msgstr "شناسه گفتینو"
+
+#: content_a/setting/thirdparty/goftino/display.php:15
+#: content_a/setting/thirdparty/raychat/display.php:16
+msgid "This service is disabled due to a security problem."
+msgstr "این سرویس به دلیل مشکل امنیتی تا اطلاع ثانوی غیرفعال است."
 
 #: content_a/setting/thirdparty/gtag/display.php:9
 msgid ""
@@ -13748,10 +13761,6 @@ msgstr ""
 #: content_a/setting/thirdparty/raychat/display.php:12
 msgid "Raychat Token"
 msgstr "توکن رایچت"
-
-#: content_a/setting/thirdparty/raychat/display.php:16
-msgid "This service is disabled due to a security problem."
-msgstr "این سرویس به دلیل مشکل امنیتی تا اطلاع ثانوی غیرفعال است."
 
 #: content_a/setting/thirdparty/raychat/view.php:8 lib/app/quickaccess/setting.php:110
 #: lib/app/quickaccess/setting.php:113
@@ -18327,7 +18336,7 @@ msgstr "درخواست مجوز لازم را برای اجرا ندارد"
 
 #: content_developers/docs/004-responses.php:96 content_enter/callback/controller.php:12
 #: content_my/domain/buy/controller.php:11 content_my/domain/renew/controller.php:13
-#: content_site/section/controller.php:80 content_v2/check.php:23 content_v2/tools.php:175
+#: content_site/section/controller.php:81 content_v2/check.php:23 content_v2/tools.php:175
 #: dash/validate/url.php:579
 msgid "Invalid url"
 msgstr "آدرس اشتباه"
@@ -21361,6 +21370,8 @@ msgstr "بیزینس من را بساز"
 
 #: content_my/business/home/display_pwa.php:59
 #: content_my/business/home/display_site.php:140
+#: content_site/body/application/application1.php:40
+#: content_site/body/application/option.php:28 content_site/body/application/option.php:30
 #: lib/app/log/caller/application/application_readyToDownload.php:15
 msgid "Application"
 msgstr "برنامه"
@@ -22717,6 +22728,10 @@ msgstr "برای غیرفعال سازی ذخیره و انتشار خودکار
 msgid "Setting auto-save and publish"
 msgstr "تنظیمات ذخیره و انتشار خودکار"
 
+#: content_site/body/application/application1.php:17
+msgid "application 1"
+msgstr "برنامه ۱"
+
 #: content_site/body/blog/b1.php:17 content_site/body/product/p1.php:17
 msgid "Card Design"
 msgstr "دیزاین کارت"
@@ -23581,6 +23596,14 @@ msgstr "مدل لینک"
 msgid "Display enter link"
 msgstr "نمایش لینک ورود"
 
+#: content_site/options/link/link_googleplay.php:22
+msgid "Google Play"
+msgstr "گوگل‌پلی"
+
+#: content_site/options/link/link_myket.php:24
+msgid "Mayket"
+msgstr "مایکت"
+
 #: content_site/options/link/link_professional.php:114
 #: includes/languages/trans_static_public.php:190
 msgid "Socialnetwork"
@@ -24147,25 +24170,25 @@ msgstr "نام بخش یا کد پیش‌نمایش اشتباه است"
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
-#: content_site/section/controller.php:73
+#: content_site/section/controller.php:74
 msgid "Invalid section name"
 msgstr "نام بخش اشتباه"
 
-#: content_site/section/controller.php:89 content_site/section/controller.php:215
+#: content_site/section/controller.php:90 content_site/section/controller.php:216
 #: content_site/section/html/controller.php:21 content_site/section/model.php:73
 msgid "Invalid section id"
 msgstr "شناسه بخش اشتباه است"
 
-#: content_site/section/controller.php:112 content_site/section/controller.php:128
+#: content_site/section/controller.php:113 content_site/section/controller.php:129
 #: dash/validate/html.php:384
 msgid "Invalid url!"
 msgstr "آدرس اشتباه است!"
 
-#: content_site/section/controller.php:207
+#: content_site/section/controller.php:208
 msgid "Page id or section id not found"
 msgstr "شناسه صفحه یا شناسه بخش یافت نشد"
 
-#: content_site/section/controller.php:227
+#: content_site/section/controller.php:228
 msgid "Invalid section model"
 msgstr "مدل بخش اشتباه است"
 
@@ -36759,7 +36782,7 @@ msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پن
 msgid "Can not connect to CDN panel"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم"
 
-#: lib/app/business_domain/dns.php:802 lib/app/business_domain/https.php:275
+#: lib/app/business_domain/dns.php:802 lib/app/business_domain/https.php:278
 msgid "No DNS record found by this ip"
 msgstr "هیچ رکورد دی‌ان‌اس با این آی‌پی یافت نشد"
 
@@ -36897,7 +36920,7 @@ msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پن
 msgid "HTTPS request is OK"
 msgstr "درخواست اچ‌تی‌تی‌پی‌اس کامل شده است"
 
-#: lib/app/business_domain/https.php:162 lib/app/business_domain/https.php:261
+#: lib/app/business_domain/https.php:162 lib/app/business_domain/https.php:264
 msgid "Can not connect to CDN service"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم"
 
@@ -42100,6 +42123,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Capabilities that you need in attracting customers and better service support"
+#~ msgstr "قابلیت‌هایی که در جذب مشتریان و پشتیبانی بهتر از خدمات، به آن‌ها نیاز دارید"
 
 #, fuzzy
 #~| msgid "Online Chat Platform"
