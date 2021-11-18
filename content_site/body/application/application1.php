@@ -20,6 +20,7 @@ class application1
 				'heading_business',
 				'description_business',
 				'file_business_logo',
+				'android_apk_link',
 				'link_googleplay',
 				'link_cafebazar',
 				'link_myket',

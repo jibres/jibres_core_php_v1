@@ -13,9 +13,10 @@ class application1_html
 			$desc    = a($_args, 'description');
 			$logoSrc = a($_args, 'logo');
 
-      $link_googleplay = a($_args, 'link_googleplay');
-      $link_cafebazar = a($_args, 'link_cafebazar');
-      $link_myket = a($_args, 'link_myket');
+      $link_googleplay  = a($_args, 'link_googleplay');
+      $link_cafebazar   = a($_args, 'link_cafebazar');
+      $link_myket       = a($_args, 'link_myket');
+      $android_apk_link = a($_args, 'android_apk_link');
 
 			$html .= <<<HTML
 <section class="text-gray-600 body-font">
@@ -46,9 +47,6 @@ class application1_html
           </span>
         </button>
 
-        $link_googleplay <br>
-        $link_cafebazar <br>
-        $link_myket <br>
 
       </div>
     </div>
@@ -57,6 +55,10 @@ class application1_html
     </div>
   </div>
 </section>
+        $link_googleplay <br>
+        $link_cafebazar <br>
+        $link_myket <br>
+        $android_apk_link <br>
 HTML;
 
 		}
