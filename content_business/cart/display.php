@@ -96,7 +96,7 @@
     );
  }
 ?></p>
- <div class="msg txtC"><?php echo T_("The Cart is a temporary place to store a list of your items and reflects each item's most recent price."); ?></div>
+ <div class="msg text-center"><?php echo T_("The Cart is a temporary place to store a list of your items and reflects each item's most recent price."); ?></div>
 </div>
 <?php } //endif ?>
 

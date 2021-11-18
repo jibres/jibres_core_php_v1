@@ -22,7 +22,7 @@
     <li><?php echo T_("Furthermore, this agreement, under the name Terms and Conditions, will be available and observable, in all pages of the website. Users will be responsible for a lack of information on the most recent changes."); ?></li>
    </ul>
 
-   <p class="alert-primary txtC"><?php echo T_("It should be mentioned that in case there would be any modifications in the above-mentioned tenors, an updated version will be available for the public, and as well, all the users will be informed."); ?></p>
+   <p class="alert-primary text-center"><?php echo T_("It should be mentioned that in case there would be any modifications in the above-mentioned tenors, an updated version will be available for the public, and as well, all the users will be informed."); ?></p>
 
  </div>
 

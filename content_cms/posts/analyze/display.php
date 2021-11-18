@@ -23,10 +23,10 @@
 <?php if(\dash\data::seoAnalyze()) { $seoAnalyze = \dash\data::seoAnalyze(); ?>
 <div class="box">
   <div class="pad">
-    <div class="seoRank txtC mT20" data-size='normal'>
+    <div class="seoRank text-center mT20" data-size='normal'>
       <?php echo a($seoAnalyze, 'star_html') ?>
     </div>
-    <div class="txtC">
+    <div class="text-center">
       <h2><?php echo T_("SEO Content Analysis Score") ?></h2>
       <div class="font-30 txtB ltr"><?php echo \dash\fit::text(a($seoAnalyze, 'rank')). ' '. T_("%") ?></div>
     </div>

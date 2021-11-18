@@ -128,7 +128,7 @@ if(a(\dash\data::dataRow(), 'seorank') < 90)
   echo " ". T_("Look at our tips and improve your SEO.");
 }
         ?></div>
-        <div class="c-auto c-xs-12 txtC font-30"><?php echo a(\dash\data::dataRow(), 'seo_rank_star'); ?></div>
+        <div class="c-auto c-xs-12 text-center font-30"><?php echo a(\dash\data::dataRow(), 'seo_rank_star'); ?></div>
       </a>
     </div>
   </div>

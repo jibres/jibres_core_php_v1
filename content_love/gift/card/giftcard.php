@@ -54,7 +54,7 @@ if(!isset($gMaxGift))
 			<code class="circle"><span class="percent"><?php echo $gPercent; ?></span><span>%</span></code>
 		</div>
 	</div>
-	<div class="txtC fs14 mT20">
+	<div class="text-center fs14 mT20">
 		<p><?php echo T_("You can use gift card on last step of your buy process."); ?></p>
 <?php
 if(isset($gDesc))

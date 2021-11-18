@@ -10,7 +10,7 @@
         <input type="hidden" name="add" value="apikey">
         <div class="input">
           <label><?php echo T_("YOUR API KEY"); ?></label>
-          <input type="text" name="apikey" value="<?php echo \dash\data::apikey_auth(); ?>" readonly  class="txtC" placeholder='<?php echo T_("GENERATE NEW API KEY"); ?>'>
+          <input type="text" name="apikey" value="<?php echo \dash\data::apikey_auth(); ?>" readonly  class="text-center" placeholder='<?php echo T_("GENERATE NEW API KEY"); ?>'>
         </div>
         <?php if(\dash\data::apikey_auth()) {?>
           <button data-confirm data-data='{"remove" : "apikey" <?php echo \dash\csrf::get_json(); ?>}' class="btn-warning mT5 block"><?php echo T_("Remove"); ?></button>

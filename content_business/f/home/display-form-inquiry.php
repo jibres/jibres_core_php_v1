@@ -13,7 +13,7 @@ if(!is_array($formItems))
 
 	<div class="avand-md">
 			<?php if(\dash\data::inquiryExec()) {?>
-				<div class="font-18 txtC txtB">
+				<div class="font-18 text-center txtB">
 					<?php \dash\notif::get_in_html() ?>
 				</div>
 			<?php if(\dash\data::inquiryExecHaveResult()) {?>

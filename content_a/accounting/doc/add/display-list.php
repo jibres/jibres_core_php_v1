@@ -7,7 +7,7 @@
     </form>
   <?php } //endif ?>
   <?php if(\dash\data::dataRow_status() === 'deleted') {?>
-    <div class="alert-danger mTB10 txtC txtB"><?php echo T_("This tax document is deleted") ?></div>
+    <div class="alert-danger mTB10 text-center txtB"><?php echo T_("This tax document is deleted") ?></div>
   <?php } //endif ?>
   <form method="post" class="box">
     <input type="hidden" name="sortable" value="sortable">
@@ -97,7 +97,7 @@
     <footer class="hide">
       <div class="f">
         <div class="cauto"><?php echo \dash\data::deptorICON(); ?><?php echo T_("Total"). ' '. T_("Debtor"); ?> <span class="txtB fc-green"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor()); ?> </span></div>
-        <div class="c txtC"><?php echo \dash\data::equalICON(); ?></div>
+        <div class="c text-center"><?php echo \dash\data::equalICON(); ?></div>
         <div class="cauto"><?php echo T_("Total"). ' '.T_("Creditor"); ?> <span class="txtB fc-red"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor()); ?></span> <?php echo \dash\data::creditorICON(); ?></div>
       </div>
     </footer>
@@ -106,9 +106,9 @@
 
 <?php if(!\dash\data::printAllMode()) {?>
   <?php if( \dash\data::summary_debtor() && \dash\data::summary_creditor() && floatval(\dash\data::summary_debtor()) === floatval(\dash\data::summary_creditor())) {?>
-    <div class="msg p0 mT20 success txtB txtC fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
+    <div class="msg p0 mT20 success txtB text-center fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }else{ ?>
-    <div class="msg p0 mT20 danger txtB txtC fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
+    <div class="msg p0 mT20 danger txtB text-center fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }//endif ?>
   <?php }//endif ?>
 

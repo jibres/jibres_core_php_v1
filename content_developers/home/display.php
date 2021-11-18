@@ -1,6 +1,6 @@
 
 	<div class="avand">
-		<div class="f txtC pT50 pB100">
+		<div class="f text-center pT50 pB100">
 
 			<div class="c4 s12 pA10">
 				<div class="box hasCover">

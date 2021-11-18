@@ -17,7 +17,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
          <div>
         <label for='sku'><?php echo T_("Stock keeping unit - SKU"); ?></label>
         <div class="input">
-          <input type="text" name="sku" id="sku" value="<?php echo a($productDataRow,'sku'); ?>" maxlength="16" class="txtC ltr">
+          <input type="text" name="sku" id="sku" value="<?php echo a($productDataRow,'sku'); ?>" maxlength="16" class="text-center ltr">
         </div>
       </div>
 

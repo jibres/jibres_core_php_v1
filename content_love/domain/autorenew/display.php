@@ -4,9 +4,9 @@
             <th class="ltr text-left">#</th>
             <th class="ltr text-left">Date expire</th>
             <th class="ltr text-left">Auto renew period IR</th>
-            <th class="txtC">Auto renew period COM</th>
-            <th class="txtC">Renew Notif</th>
-            <th class="txtC">Renew Try</th>
+            <th class="text-center">Auto renew period COM</th>
+            <th class="text-center">Renew Notif</th>
+            <th class="text-center">Renew Try</th>
         </tr>
     </thead>
     <tbody class="ltr text-left">
@@ -18,9 +18,9 @@
             </td>
             <td class="ltr text-left"><?php echo \dash\fit::date_time(a($value, 'dateexpire')); ?></td>
             <td class="ltr text-left"><?php echo a($value, 'autorenewperiod'); ?></td>
-            <td class="txtC"><?php echo a($value, 'autorenewperiodcom'); ?></td>
-            <td class="txtC"><?php echo \dash\fit::date_time(a($value, 'renewnotif')); ?></td>
-            <td class="txtC"><?php echo \dash\fit::date_time(a($value, 'renewtry')); ?></td>
+            <td class="text-center"><?php echo a($value, 'autorenewperiodcom'); ?></td>
+            <td class="text-center"><?php echo \dash\fit::date_time(a($value, 'renewnotif')); ?></td>
+            <td class="text-center"><?php echo \dash\fit::date_time(a($value, 'renewtry')); ?></td>
 
         </tr>
         <?php } //endfor ?>

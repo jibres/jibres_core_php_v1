@@ -10,7 +10,7 @@
 <?php } //endif ?>
 
       </div>
-      <div class="w-6/12 txtC">
+      <div class="w-6/12 text-center">
         <?php if(\dash\data::storeData_country() === 'IR') {?>
         <h1 class="text-xl1 text-blue-800 font-black"><?php echo T_("Sale Invoice"); ?></h1>
         <?php }else{ ?>
@@ -166,7 +166,7 @@ if(is_array(\dash\data::invoiceDetail()))
 </div>
 
 
-<div class="txtC">
+<div class="text-center">
   <div class="barcodeBox">
     <svg class="barcodePrev wide mx-auto w-60" data-val="#factorid" data-height=30 data-hideValue></svg>
   </div>

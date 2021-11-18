@@ -1,7 +1,7 @@
 
 
 
-<div class="font-12 txtC">
+<div class="font-12 text-center">
   <div class="avatar mB10">
     <a href="<?php echo \dash\url::here(); ?>/my/avatar" class="compact">
 <?php if(\dash\user::detail('avatar'))  {?>
@@ -16,7 +16,7 @@
 </div>
 
 <?php if(!\dash\user::detail('verifymobile'))  {?>
-  <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="msg warn txtC txtB fs14 block"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
+  <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="msg warn text-center txtB fs14 block"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
 <?php }//endif ?>
 
 <div class="f fs14">
@@ -162,6 +162,6 @@
 
 </div>
 
-<div class="txtC fs14 mT5 pLR10">
+<div class="text-center fs14 mT5 pLR10">
   <div class="msg mB0"><?php echo T_("Only you can see your settings."); ?> <?php echo T_("We are committed to protecting your privacy and security."); ?> <a href="<?php echo \dash\url::kingdom(); ?>/privacy" target="_blank"><?php echo T_("Learn more"); ?></a></div>
 </div>

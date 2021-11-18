@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="txtC mT10">
+    <div class="text-center mT10">
       <a class="hey" href="<?php echo \dash\url::kingdom() ?>/about"><div class="inside"><?php echo T_('By using each sales channel on Jibres, you can keep track of your products, orders, and customers in one place.'); ?></div></a>
     </div>
 
@@ -84,7 +84,7 @@
      </div>
     </form>
    </div>
-   <p class="txtC fc-mute"><?php echo T_('Every website starts with a great domain name. Jibres offers cheap domain names with the most reliable service. Buy domain names with Jibres and see why we are cool!'); ?></p>
+   <p class="text-center fc-mute"><?php echo T_('Every website starts with a great domain name. Jibres offers cheap domain names with the most reliable service. Buy domain names with Jibres and see why we are cool!'); ?></p>
   </div>
 </section>
 <?php }?>
@@ -93,8 +93,8 @@
 
 <section id='statistic'>
   <div class="avand">
-    <h3 class="txtC txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span class="emoji">❤️</span></h3>
-    <div class="f txtC">
+    <h3 class="text-center txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span class="emoji">❤️</span></h3>
+    <div class="f text-center">
       <div class="c s12 pA10">
           <div class="ltr fs50"><?php echo \dash\utility\convert::to_en_number(\dash\fit::stats(\dash\data::homepagenumber_product(), true)) ?>+</div>
           <div class="font-14"><?php echo T_('Products'); ?></div>

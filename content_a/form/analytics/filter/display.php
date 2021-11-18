@@ -59,5 +59,5 @@
       </div>
     </form>
   <?php }else{ ?>
-    <div class="msg font-14 txtC warn2"><?php echo T_("No filter added") ?></div>
+    <div class="msg font-14 text-center warn2"><?php echo T_("No filter added") ?></div>
   <?php } //endif ?>

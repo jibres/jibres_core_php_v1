@@ -3,7 +3,7 @@
     <div class="body">
       <a target="_blank" href="https://jibres.<?php echo \dash\url::tld(); ?>/api" class="btn block outline"><?php echo \dash\data::myTitle(); ?></a>
       <?php if(!\dash\user::detail('verifymobile')) {?>
-        <a href="<?php echo \dash\url::kingdom(); ?>/enter/verify?referer=<?php echo urlencode(\dash\url::location()); ?>" target="_blank"  class="msg block warn txtB txtC mT10"><?php echo T_("To make your appkey you must verify your mobile"); ?></a>
+        <a href="<?php echo \dash\url::kingdom(); ?>/enter/verify?referer=<?php echo urlencode(\dash\url::location()); ?>" target="_blank"  class="msg block warn txtB text-center mT10"><?php echo T_("To make your appkey you must verify your mobile"); ?></a>
       <?php }else{ ?>
         <div class="alert-warning mT20">
           <div><?php echo T_("Protect this key like a password!"); ?></div>
@@ -12,7 +12,7 @@
       <?php } //endif ?>
       <div class="input">
         <label><?php echo T_("YOUR APPKEY"); ?></label>
-        <input type="text" name="appkey" value="<?php echo \dash\data::appkey_auth(); ?>" readonly  class="txtC" placeholder='<?php echo T_("GENERATE YOUR APPKEY"); ?>'>
+        <input type="text" name="appkey" value="<?php echo \dash\data::appkey_auth(); ?>" readonly  class="text-center" placeholder='<?php echo T_("GENERATE YOUR APPKEY"); ?>'>
       </div>
       <?php if(\dash\data::appkey_auth()) {?>
         <div class="alert-info mT20">

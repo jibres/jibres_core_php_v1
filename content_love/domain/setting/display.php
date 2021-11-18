@@ -1,5 +1,5 @@
 <?php if(\dash\data::domainDetail_available() === '1') {?>
-<div class="alert-danger txtC txtB fs14"><?php echo T_("This domain is available for register!") ?></div>
+<div class="alert-danger text-center txtB fs14"><?php echo T_("This domain is available for register!") ?></div>
 <?php } //endif ?>
 <?php require_once (root. 'content_love/domain/setting/pageStep.php'); ?>
 

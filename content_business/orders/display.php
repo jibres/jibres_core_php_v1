@@ -9,7 +9,7 @@
 			{
 			?>
 
-			   <table class="tbl1 v6 fs12 txtC">
+			   <table class="tbl1 v6 fs12 text-center">
     <thead>
       <tr class="fs08">
       	<th class="collapsing">#</th>

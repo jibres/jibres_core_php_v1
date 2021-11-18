@@ -6,7 +6,7 @@
 
  <div class="avand-lg impact">
 
-  <p class="alert-success txtC"><?php echo T_("Social responsibility refers to our role in maintaining, caring about and helping our society, while having set as its goal a responsibility-centered enterprise along with wealth production."); ?></p>
+  <p class="alert-success text-center"><?php echo T_("Social responsibility refers to our role in maintaining, caring about and helping our society, while having set as its goal a responsibility-centered enterprise along with wealth production."); ?></p>
 
   <p><?php echo T_("The issue of the social responsibility of organizations and corporations towards the society is from among the important issues being focused on in recent years."); ?> <?php echo T_("The social responsibility of organizations relates to the organization's responsibility towards society, human beings and the environment in which they are active."); ?></p>
 

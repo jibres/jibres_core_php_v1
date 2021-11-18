@@ -13,7 +13,7 @@ else
 ?>
 
 
-<div class="txtC fs14 mTB25">
+<div class="text-center fs14 mTB25">
   <img class="box700 mB20-f" src="<?php echo \dash\url::cdn(); ?>/img/account/profile-cover.png" alt='<?php echo T_("Personal info"); ?>'>
   <h2><?php echo \dash\face::title(); ?></h2>
   <p><?php echo T_('Basic info, like your name and photo, that you use on our services'); ?></p>

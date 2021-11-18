@@ -4,7 +4,7 @@
   <div class="box">
     <div class="body">
 
-    <h6 class="txtC">
+    <h6 class="text-center">
     <?php if(\dash\data::dataRowAddress()) {?>
         <?php echo T_("Edit address"); ?> <span class="txtB fc-blue"><?php echo \dash\data::dataRowAddress_title(); ?></span>
         <a class="badge secondary" href="<?php echo \dash\data::myUrlAddress(); if(\dash\request::get('id')) { echo '?id='. \dash\request::get('id'); }?>"><?php echo T_("Cancel"); ?></a>

@@ -1,7 +1,7 @@
 <div class="avand-sm">
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div  class="box">
-      <div class="f algin-center txtC">
+      <div class="f algin-center text-center">
         <div class="c3"></div>
           <img class="c6" src="<?php echo \dash\url::cdn(); ?>/img/logo/social/twitter.svg" alt='Twitter'>
         <div class="c3"></div>

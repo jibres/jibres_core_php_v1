@@ -4,7 +4,7 @@
  <div class="avand-lg impact">
 
 
-  <p class="txtC txtB">ایرنیک — مرکز ثبت دامنه نقطه-آی‌آر (‎.ir) <br />متن توافقنامه ثبت دامنه تحت &lrm;.ir و .ایران.ir</p>
+  <p class="text-center txtB">ایرنیک — مرکز ثبت دامنه نقطه-آی‌آر (‎.ir) <br />متن توافقنامه ثبت دامنه تحت &lrm;.ir و .ایران.ir</p>
 
   <ul>
    <li>ارسال این صفحه به منزله امضای <a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_iran" > موافقتنامه ثبت دامنه </a> از طرف متقاضی ثبت و قبول ضمایم آن به شرح زیر می‌باشد.</li>
@@ -46,7 +46,7 @@
 
  <div class="avand-lg impact ltr">
 
-  <p class="txtC txtB"> IRNIC - Dot-IR (.ir) ccTLD Registry<br/>Text of agreement for registering domains under .ir and &lrm;.ایران.ir </p>
+  <p class="text-center txtB"> IRNIC - Dot-IR (.ir) ccTLD Registry<br/>Text of agreement for registering domains under .ir and &lrm;.ایران.ir </p>
   <p> By submitting this form the registrant agrees to the following</p>
    <ul>
     <li><a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir">Terms and Conditions</a> for the registration of an Internet domain (under .ir) including</li>

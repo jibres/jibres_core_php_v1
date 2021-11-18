@@ -72,7 +72,7 @@
         <?php foreach (\dash\data::storeAnalytics() as $key => $value) {?>
           <?php if($last_group !== a($value, 'group')) { $last_group = a($value, 'group') ?>
             <tr class="active">
-              <td colspan="6" class="txtC txtB">
+              <td colspan="6" class="text-center txtB">
                 <?php echo str_repeat(' - ', 20); ?>
                 <?php echo a($value, 'group'); ?>
                 <?php echo str_repeat(' - ', 20); ?>

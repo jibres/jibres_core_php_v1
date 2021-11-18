@@ -1,7 +1,7 @@
 
 
 <?php if(\dash\data::noChart()) {?>
-  <div class="msg warn txtC txtB fs14"><?php echo T_("Can not drow chart for this item!") ?></div>
+  <div class="msg warn text-center txtB fs14"><?php echo T_("Can not drow chart for this item!") ?></div>
 <?php }else{ ?>
 
 <?php $myData = \dash\data::reportDetail(); ?>

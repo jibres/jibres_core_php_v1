@@ -14,7 +14,7 @@
 
  </div>
 
- <div class="avand-md zero txtC mB25">
+ <div class="avand-md zero text-center mB25">
 
   <div class="row justify-center">
     <div class="c-xs-6 c-sm-6">

@@ -1,4 +1,4 @@
-<div class="msg warn fs14 txtC txtB"><?php echo T_("Be Careful! You are in management mode!") ?></div>
+<div class="msg warn fs14 text-center txtB"><?php echo T_("Be Careful! You are in management mode!") ?></div>
 <div class="f">
 	<div class="c s12">
 		<a href="<?php echo \dash\url::that(). '?id='. \dash\request::get('id'); ?>" class="dcard x1 <?php if(!\dash\url::subchild()) { echo ' active';} ?>" >

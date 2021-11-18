@@ -1,4 +1,4 @@
-<div class="pricingQuick jibresBanner txtC">
+<div class="pricingQuick jibresBanner text-center">
   <div class="avand impact">
     <div class="f">
 

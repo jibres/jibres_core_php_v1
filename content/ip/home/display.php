@@ -5,7 +5,7 @@
  </div>
 <?php } ?>
 
- <div class="avand-md impact zero txtC">
+ <div class="avand-md impact zero text-center">
  	<table class="tbl1 v3 mB0">
  		<tr>
  			<th><?php echo T_("IP"); ?></th>
@@ -57,7 +57,7 @@
 <?php }?>
 
  <div class="avand-md zero">
- 	<div class="txtC">
+ 	<div class="text-center">
 
  	<?php if(\dash\data::ipDetail_block() === 'block') {?>
  		<p class="alert-danger">IP is blocked! <?php if(\dash\data::ipDetail_countblock()) {?> <span> (Count block: <?php echo \dash\data::ipDetail_countblock(); ?> ) </span><?php } //endif ?></p>

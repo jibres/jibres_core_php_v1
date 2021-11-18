@@ -1,9 +1,9 @@
 <style type="text/css">.page-break{page-break-after:always}</style>
 <div class="printArea" data-size='A4'>
   <div class="m-80 fs12">
-    <h4 class="txtC m-20"><?php if(\dash\url::subchild() === 'journal'){ echo T_("General Journal"); }else{echo T_("Ledger");} ?></h4>
-    <h1 class="txtC"><?php echo \lib\store::title() ?></h1>
-    <h2 class="txtC m-20"><?php echo a(\dash\data::currentYearDetail(), 'title') ?></h2>
+    <h4 class="text-center m-20"><?php if(\dash\url::subchild() === 'journal'){ echo T_("General Journal"); }else{echo T_("Ledger");} ?></h4>
+    <h1 class="text-center"><?php echo \lib\store::title() ?></h1>
+    <h2 class="text-center m-20"><?php echo a(\dash\data::currentYearDetail(), 'title') ?></h2>
 
 
 

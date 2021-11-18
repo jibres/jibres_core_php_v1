@@ -7,7 +7,7 @@
 
 			<form method="post" autocomplete="off">
 
-				<div class="msg minimal info2 txtC txtB fs16 mB10 "><?php echo \dash\data::dataRow_nic_id(); ?></div>
+				<div class="msg minimal info2 text-center txtB fs16 mB10 "><?php echo \dash\data::dataRow_nic_id(); ?></div>
 				<label for="ititle"><?php echo T_("Title"); ?></label>
 				<div class="input">
 					<input type="text" name="title" id="ititle" value="<?php echo \dash\data::dataRow_title(); ?>" maxlength="50">

@@ -74,7 +74,7 @@
         </div>
       </div>
 
-      <div class="c12 mT10 txtC">
+      <div class="c12 mT10 text-center">
         <button class="btn  secondary"><?php echo T_("Save"); ?></button>
       </div>
 

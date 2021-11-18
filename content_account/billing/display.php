@@ -83,7 +83,7 @@ elseif(isset($value['minus']) && $value['minus'])
 
 <?php }else{ ?>
 
-<p class="alert-info txtC fs14"><?php echo T_("You are not have payment history yet!"); ?></p>
+<p class="alert-info text-center fs14"><?php echo T_("You are not have payment history yet!"); ?></p>
 
 <?php } //endif ?>
 

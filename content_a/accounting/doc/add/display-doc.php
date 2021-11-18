@@ -23,9 +23,9 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
     <?php if(\dash\data::openingMode()) {?>
       <div class="p0">
         <?php if(\dash\data::openingDoc()) {?>
-          <div class="msg warn txtB txtC"><?php echo T_("You already add Opening Document in this year!"); ?> <a class="btn-link" href="<?php echo \dash\url::that().'/edit?id='. \dash\data::openingDoc_id() ?>"><?php echo T_("View Document"); ?></a></div>
+          <div class="msg warn txtB text-center"><?php echo T_("You already add Opening Document in this year!"); ?> <a class="btn-link" href="<?php echo \dash\url::that().'/edit?id='. \dash\data::openingDoc_id() ?>"><?php echo T_("View Document"); ?></a></div>
         <?php }else{ ?>
-          <div class="alert-success txtB txtC"><?php echo T_("Opening Document"); ?></div>
+          <div class="alert-success txtB text-center"><?php echo T_("Opening Document"); ?></div>
         <?php } //endif ?>
 
 

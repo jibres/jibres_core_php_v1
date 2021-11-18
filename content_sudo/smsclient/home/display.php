@@ -12,7 +12,7 @@ if(!is_array($dataTable))
     <thead>
       <tr class="fs08">
 		<th><?php echo T_("Customer"); ?></th>
-		<th class="txtC"><?php echo T_("Credit"); ?></th>
+		<th class="text-center"><?php echo T_("Credit"); ?></th>
 		<th><?php echo T_("Status"); ?></th>
 		<th><?php echo T_("Last login date"); ?></th>
 		<th><?php echo T_("Pricing"); ?></th>
@@ -34,7 +34,7 @@ if(!is_array($dataTable))
 			<div class="badge light"><?php echo \dash\fit::mobile(a($value, 'mobile')); ?></div>
 		</td>
 
-		<td class="txtB txtC">
+		<td class="txtB text-center">
 			<div><?php echo \dash\fit::number(a($value, 'remaincredit')); ?></div>
 			<div class="badge light"> <?php echo T_("Minimum allow credit"); ?> <?php echo \dash\fit::number(a($value, 'mininumallowedcredit')); ?></div>
 		</td>

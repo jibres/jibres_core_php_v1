@@ -3,7 +3,7 @@ if(\dash\user::id())
 {
 	if(\dash\user::detail('displayname') || \dash\user::detail('mobile'))
 	{
-		echo '<div class="alert-success f fs08 txtC txtB" title='. T_("You"). '>';
+		echo '<div class="alert-success f fs08 text-center txtB" title='. T_("You"). '>';
 		if(\dash\user::detail('displayname'))
 		{
 			echo '<span class="c12 s12">'. \dash\user::detail('displayname'). '</span><br>';

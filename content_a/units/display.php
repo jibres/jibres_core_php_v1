@@ -112,9 +112,9 @@
         <tr class="fs09">
           <th><?php echo T_("Unit"); ?></th>
 
-          <th class="txtC"><?php echo T_("Count product"); ?></th>
-          <th class="txtC"><?php echo T_("Force integer value"); ?></th>
-          <th class="txtC"><?php echo T_("Action"); ?></th>
+          <th class="text-center"><?php echo T_("Count product"); ?></th>
+          <th class="text-center"><?php echo T_("Force integer value"); ?></th>
+          <th class="text-center"><?php echo T_("Action"); ?></th>
         </tr>
       </thead>
 
@@ -130,10 +130,10 @@
 
           </td>
 
-          <td class="txtC">
+          <td class="text-center">
             <a href="<?php echo \dash\url::here(); ?>/products?unitid=<?php echo a($value, 'id'); ?>" title='<?php echo T_("Click to check products in this unit"); ?>'><?php echo \dash\fit::number(a($value, 'count')); ?></a>
           </td>
-          <td class="txtC"><?php if(isset($value['int']) && $value['int']) { ?><i class="sf-check fc-green"></i><?php }else{ echo '-';} ?></td>
+          <td class="text-center"><?php if(isset($value['int']) && $value['int']) { ?><i class="sf-check fc-green"></i><?php }else{ echo '-';} ?></td>
           <td class="collapsing">
             <a class="block" href="<?php echo \dash\url::this(); ?>?id=<?php echo a($value, 'id'); ?>"><i class="sf-edit fs11  mRa10"></i><span class="sm"><?php echo T_("Edit"); ?></span></a>
             <a class="block" href="<?php echo \dash\url::this(); ?>/remove?id=<?php echo a($value, 'id'); ?>"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm"><?php echo T_("Remove"); ?></span></a>
@@ -181,7 +181,7 @@
 
 
           <div class="msg <?php if(\dash\data::dataRow_count() < 10) { echo 'warn2';} else { echo 'danger2'; } ?>">
-            <div class="msg  txtC txtB"><?php echo \dash\data::dataRow_title(); ?></div>
+            <div class="msg  text-center txtB"><?php echo \dash\data::dataRow_title(); ?></div>
             <p>
               <b><?php echo \dash\fit::number(\dash\data::dataRow_count()); ?></b>  <?php echo T_("Product found in this unit"); ?>
               <br>
@@ -189,7 +189,7 @@
             </p>
           </div>
 
-          <div class="alert-info txtC txtB">
+          <div class="alert-info text-center txtB">
             <a href="<?php echo \dash\url::here(); ?>/products?unitid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show product list"); ?> <?php echo \dash\data::dataRow_title(); ?></a>
           </div>
 

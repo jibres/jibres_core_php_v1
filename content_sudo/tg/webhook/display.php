@@ -23,7 +23,7 @@ $tg = \dash\data::tg();
 
 
 
-<div class="msg txtC fs18"><?php echo date("Y-m-d H:i:s"); ?></div>
+<div class="msg text-center fs18"><?php echo date("Y-m-d H:i:s"); ?></div>
 
 <?php if(isset($tg['send'])) {?>
 

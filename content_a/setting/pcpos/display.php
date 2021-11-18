@@ -117,7 +117,7 @@
   <div class="c s12">
 
 
-    <table class="tbl1 v1 txtC cbox fs12 ">
+    <table class="tbl1 v1 text-center cbox fs12 ">
       <thead>
         <tr class="fs09">
           <th colspan="2" class=""><?php echo T_("Bank"); ?></th>

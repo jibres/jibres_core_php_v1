@@ -1,10 +1,10 @@
 
-<p class="alert-danger2 font-30 txtC"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
+<p class="alert-danger2 font-30 text-center"><?php echo T_("If you dont know about this page, leave it!"); ?></p>
 
 <?php if(\dash\data::isLockService()) {?>
-  <p class="alert-danger fs20 txtB txtC"><?php echo T_("Service is Locked!"); ?></p>
+  <p class="alert-danger fs20 txtB text-center"><?php echo T_("Service is Locked!"); ?></p>
 <?php }else{ ?>
-  <p class="alert-success fs20 txtB txtC"><?php echo T_("Service is Running!"); ?></p>
+  <p class="alert-success fs20 txtB text-center"><?php echo T_("Service is Running!"); ?></p>
 <?php } //endif ?>
 
 <div class="f">
@@ -114,7 +114,7 @@ $needUpgrade = \dash\data::needUpgrade();
 <div class="msg font-20 row align-center">
   <div class="c"><?php echo T_("Run all step by one click"); ?> <small><?php echo T_("For when you don't have heavy updates"); ?></small></div>
   <div class="c-auto os">
-    <div class="btn-danger txtC" data-confirm data-timeout=0 data-data='{"type" : "all"}'><?php echo T_("Update & Upgrade all"); ?></div>
+    <div class="btn-danger text-center" data-confirm data-timeout=0 data-data='{"type" : "all"}'><?php echo T_("Update & Upgrade all"); ?></div>
   </div>
 </div>
 <div class="mB50">&nbsp;</div>

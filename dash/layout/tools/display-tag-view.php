@@ -43,7 +43,7 @@ if($myPostByThisCat)
         echo "<section class='f'>";
         if(isset($value['thumb']))
         {
-          echo "<div class='cauto s12 pRa10 txtC'>";
+          echo "<div class='cauto s12 pRa10 text-center'>";
           {
             echo "<a href='". $value['link']. "'>";
             echo "<img src='". $value['thumb']. "' alt='". $value['title']. "'>";

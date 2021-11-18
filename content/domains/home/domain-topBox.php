@@ -1,7 +1,7 @@
 
-  <h2 class="txtC"><?php echo T_('Search for your dream domain'); ?></h2>
+  <h2 class="text-center"><?php echo T_('Search for your dream domain'); ?></h2>
   <form class="domainSearchBox" action='<?php echo \dash\url::kingdom() ?>/domains/search' method='get' autocomplete='off'>
-   <p class="txtC"><?php echo T_('Every website starts with a great domain name'); ?></p>
+   <p class="text-center"><?php echo T_('Every website starts with a great domain name'); ?></p>
   <div class="input ltr">
    <input type="search" name="q" id='domainFirstSearch' maxlength='63' autocomplete='off' <?php if (!\dash\detect\device::detectPWA() && 0) echo 'autofocus'?>>
    <button class="addon btn-primary"><?php echo T_('Search'); ?></button>

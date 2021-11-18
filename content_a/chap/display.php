@@ -7,7 +7,7 @@ else
 {
 ?>
 
-<div class="alert-warning txtC fs20"><?php echo T_("Please choose one format to print factor"); ?></div>
+<div class="alert-warning text-center fs20"><?php echo T_("Please choose one format to print factor"); ?></div>
 
 <?php } //endif ?>
 

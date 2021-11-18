@@ -6,7 +6,7 @@
 
       <?php echo \dash\csrf::html(); ?>
       <div class="cbox">
-        <h3 class="txtC mB20"><?php echo \dash\face::title(); ?></h3>
+        <h3 class="text-center mB20"><?php echo \dash\face::title(); ?></h3>
 
 
             <label for="website"><?php echo T_("Website"); ?></label>

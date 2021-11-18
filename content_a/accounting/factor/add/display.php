@@ -292,7 +292,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
 
       <?php if(\dash\data::editMode() && $docIsLock) {?>
         <div class="tblBox">
-          <table class="tbl1 v11 txtC">
+          <table class="tbl1 v11 text-center">
             <thead>
               <tr>
                 <th><?php echo T_("Subtotal"); ?></th>

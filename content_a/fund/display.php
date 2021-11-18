@@ -1,5 +1,5 @@
 <div class="avand-lg">
-	<div class="msg fs14 txtC txtB">
+	<div class="msg fs14 text-center txtB">
 		<?php echo T_("Where are you?") ?>
 	</div>
 <section class="f">

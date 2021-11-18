@@ -27,11 +27,11 @@
       <div class="pad">
         <div class="row">
           <?php foreach (\dash\data::dataRow_child() as $key => $value) {?>
-            <a  class="c-auto txtC" href="<?php echo a($value, 'url') ?>">
+            <a  class="c-auto text-center" href="<?php echo a($value, 'url') ?>">
               <div>
                 <img class="w-20" src="<?php echo a($value, 'file') ?>" alt="<?php echo a($value, 'title') ?>">
               </div>
-              <div class="txtC">
+              <div class="text-center">
                 <?php echo a($value, 'title') ?>
               </div>
             </a>

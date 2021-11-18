@@ -2,7 +2,7 @@
  <div class="avand impact">
 
   <form class="domainSearchBox" action='<?php echo \dash\url::kingdom() ?>/domains/search' method='get' autocomplete='off'>
-   <h4 class="txtC"><?php echo T_('Discover the perfect domain now'); ?></h4>
+   <h4 class="text-center"><?php echo T_('Discover the perfect domain now'); ?></h4>
   <div class="input ltr">
    <input type="search" name="q" id='domainFirstSearch' maxlength='63' value="<?php echo \dash\data::myDomain(); ?>" autocomplete='off' <?php if (!\dash\detect\device::detectPWA() && 0) echo 'autofocus'?>>
    <button class="addon btn-primary"><?php echo T_('Search'); ?></button>
