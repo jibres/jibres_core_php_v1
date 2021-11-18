@@ -80,6 +80,14 @@
         </a>
       </li>
 
+      <li>
+        <a class="f" href="<?php echo \dash\url::that(); ?>/imber">
+          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/imber.png" alt='Imber'>
+          <div class="key"><?php echo T_("Imber"); ?></div>
+          <div class="value"><?php echo T_("All in One Marketing Automation Platform"); ?></div>
+          <div class="go"></div>
+        </a>
+      </li>
 
 <?php if (\dash\language::current() === 'fa') { ?>
       <li>
@@ -99,14 +107,6 @@
         </a>
       </li>
 <?php } ?>
-      <li>
-        <a class="f" href="<?php echo \dash\url::that(); ?>/imber">
-          <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/imber.png" alt='Imber'>
-          <div class="key"><?php echo T_("Imber"); ?></div>
-          <div class="value"><?php echo T_("All in One Marketing Automation Platform"); ?></div>
-          <div class="go"></div>
-        </a>
-      </li>
     </ul>
   </nav>
 

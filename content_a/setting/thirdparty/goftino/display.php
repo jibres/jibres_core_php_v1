@@ -3,15 +3,17 @@
 <div class="avand-sm impact zero">
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div  class="box">
+          <img class="block mB20" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/goftino-banner.jpg" alt='Goftino'>
         <div class="body">
-          <img class="block mB20" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/livechat/goftino-banner.png" alt='Goftino'>
           <div class="msg">
-            <p><?php echo T_("Capabilities that you need in attracting customers and better service support") ?></p>
+            <p><?php echo T_("Goftino is a communication service to chat with customers on your website and answer questions upon their behaviors.
+") ?></p>
           </div>
-            <label for="igoftino"><?php echo T_("Goftino ID"); ?> <span class="fc-red">*</span></label>
-            <div class="input ltr">
+          <label for="igoftino"><?php echo T_("Goftino ID"); ?> <span class="fc-red">*</span></label>
+          <div class="input ltr">
             <input type="text" name="addon_goftino" id="igoftino" value="<?php echo a($storeData, 'addon_goftino'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1">
-            </div>
+          </div>
+          <div class="alert-danger"><?php echo T_("This service is disabled due to a security problem."); ?></div>
         </div>
 <?php if (!\dash\detect\device::detectPWA()) { ?>
         <footer class="txtRa">
