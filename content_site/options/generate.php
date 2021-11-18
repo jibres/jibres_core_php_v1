@@ -77,6 +77,20 @@ class generate
 	}
 
 
+	public static function btn_link($_href, $_text, $_class = 'light')
+	{
+		$html = '';
+
+		$html .= "<a href='$_href' class='btn-$_class'>";
+		{
+			$html .= $_text;
+		}
+		$html .= '</a>';
+
+		return $html;
+	}
+
+
 	public static function text($_name, $_value, $_lable = null, $_placeholder = null, $_class = null, $_type = 'text')
 	{
 		$html = '';
@@ -238,9 +252,11 @@ class generate
 
 		$html = '';
 		$html .= '<label class="toggle2">';
-    $html .= '<span>'. $_title .'</span>';
-    $html .= '<input type="checkbox" name="'. $_name. '"'. $checked. '>';
-    $html .= '</label>';
+		{
+		    $html .= '<span>'. $_title .'</span>';
+		    $html .= '<input type="checkbox" name="'. $_name. '"'. $checked. '>';
+		    $html .= '</label>';
+		}
 
 		return $html;
 	}
