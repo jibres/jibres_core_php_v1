@@ -1,7 +1,7 @@
 
 
 <?php if(\dash\data::noChart()) {?>
-  <div class="msg warn text-center font-bold fs14"><?php echo T_("Can not drow chart for this item!") ?></div>
+  <div class="alert-warning text-center font-bold fs14"><?php echo T_("Can not drow chart for this item!") ?></div>
 <?php }else{ ?>
 
 <?php $myData = \dash\data::reportDetail(); ?>
@@ -68,7 +68,7 @@
 
 <?php }else{ ?>
 
-<div class="msg warn font-bold font-14">Not ready this chart yet :/</div>
+<div class="alert-warning font-bold font-14">Not ready this chart yet :/</div>
 
 <?php } //endif ?>
 <?php } //endif ?>

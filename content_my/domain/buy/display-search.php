@@ -14,7 +14,7 @@
         </form>
       </section>
         <?php if(\dash\data::InvalidDomain()) {?>
-          <div class="msg warn fs14">
+          <div class="alert-warning fs14">
             <?php echo T_("Please enter a valid domain") ?>
           </div>
         <?php } //endif ?>
@@ -41,7 +41,7 @@ if($result)
 }
 elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
 {
-  echo '<div class="msg warn text-center mB0">'. T_("Please enter valid domain name!"). "</div>";
+  echo '<div class="alert-warning text-center mB0">'. T_("Please enter valid domain name!"). "</div>";
 }
 ?>
 

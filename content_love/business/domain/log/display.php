@@ -3,7 +3,7 @@
   <div class="avand-xl">
 
         <?php if(!\dash\data::dataTable()) {?>
-          <div class="msg warn"><?php echo T_("No action found for this domain") ?></div>
+          <div class="alert-warning"><?php echo T_("No action found for this domain") ?></div>
         <?php }else{ ?>
           <table class="tbl1 v4 fs14">
             <thead>

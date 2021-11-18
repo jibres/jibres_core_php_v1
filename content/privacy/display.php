@@ -24,7 +24,7 @@
 
  <div class="avand-lg impact">
   <h2><?php echo T_("Privacy from Our Point of View"); ?></h2>
-   <p class="msg warn text-center"><?php echo T_("Let us be straightforward! Cyberspace is not a safe location for personal information."); ?></p>
+   <p class="alert-warning text-center"><?php echo T_("Let us be straightforward! Cyberspace is not a safe location for personal information."); ?></p>
    <p><?php echo T_("For that reason, Jibres makes no request for important information of yours and allow to save some general information including age, gender, education, interests, etc is only for private use of your team or company."); ?> <?php echo T_("It is worth mentioning that recording the aforementioned points is totally voluntary."); ?></p>
    <p><?php echo T_("However, taking the nature of cyberspace into account, we should remember that offering an absolute assurance might not be possible."); ?> <?php echo T_("Assuring privacy and security, with that ideal concept we bear in mind, does not exist; and if somebody gives you an assurance of securing your privacy, he has certainly abused your trust."); ?></p>
    <p><?php echo T_("Upon buying any digital or the so-called smart device, you have invaded your own privacy yourself."); ?> <?php echo T_("If you want your privacy not to be invaded, you should depart from technology and say goodbye to any digital and smart device."); ?> <?php echo T_("In fact, we have employed all updated technologies of the world to provide you with the maximum security."); ?></p>

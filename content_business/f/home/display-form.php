@@ -16,7 +16,7 @@ if(!is_array($formItems))
 				<?php echo \dash\csrf::html(); ?>
 				<?php echo \dash\captcha\recaptcha::html(); ?>
 				<?php if(\dash\data::formDetail_status() !== 'publish' && \dash\data::accessLoadItem()) {?>
-					<div class="msg warn text-center font-bold"><?php echo T_("Your form is not publish. Only you can view this form.") ?> <a class="btn-link" href="<?php echo \lib\store::admin_url(). '/a/form/edit?id='. \dash\data::formDetail_id() ?>"><?php echo T_("Edit form") ?></a></div>
+					<div class="alert-warning text-center font-bold"><?php echo T_("Your form is not publish. Only you can view this form.") ?> <a class="btn-link" href="<?php echo \lib\store::admin_url(). '/a/form/edit?id='. \dash\data::formDetail_id() ?>"><?php echo T_("Edit form") ?></a></div>
 				<?php } //endif ?>
 				<?php if(\dash\data::formDetail_file()) {?>
 					<img class="mB10" src="<?php echo \dash\data::formDetail_file() ?>" alt="<?php echo \dash\data::formDetail_title(); ?>">

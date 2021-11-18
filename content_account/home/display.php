@@ -16,7 +16,7 @@
 </div>
 
 <?php if(!\dash\user::detail('verifymobile'))  {?>
-  <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="msg warn text-center font-bold fs14 block"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
+  <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="alert-warning text-center font-bold fs14 block"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
 <?php }//endif ?>
 
 <div class="f fs14">

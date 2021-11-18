@@ -113,7 +113,7 @@
   </div>
   <div class="c s12">
     <?php if(\dash\data::MustSetReseller()) {?>
-        <div class="msg warn fs14">
+        <div class="alert-warning fs14">
           <?php  echo  T_("To make full use of jibres domain services, please go to nic.ir and set domain reseller on 'ji128-irnic'"); ?>
         </div>
     <?php }//endif ?>
