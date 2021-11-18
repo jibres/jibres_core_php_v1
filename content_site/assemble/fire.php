@@ -76,5 +76,75 @@ class fire
 
 
 
+	/**
+	 * Ready store logo, name and description
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function store_detail($_args)
+	{
+
+		if(a($_args, 'use_as_logo')   === 'business_logo')
+		{
+			$_args['logo'] = \lib\store::logo();
+		}
+
+		if(a($_args, 'logo'))
+		{
+			$_args['logo'] = \lib\filepath::fix($_args['logo']);
+		}
+
+		if(a($_args, 'use_as_heading')       === 'business_heading')
+		{
+			$_args['heading'] = \lib\store::title();
+		}
+
+		if(a($_args, 'use_as_description')   === 'business_description')
+		{
+			$_args['description'] = \lib\store::desc();
+		}
+
+		return $_args;
+
+	}
+
+
+	/**
+	 * Ready store social networks
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function store_social($_args)
+	{
+		$social = \lib\store::all_social_list();
+
+		foreach ($social as $key => $value)
+		{
+			if(a($_args, 'use_as_socialnetwork') === 'business_socialnetwork')
+			{
+				$my_social = \lib\store::social($key);
+				if($my_social)
+				{
+					$_args[$key] = a($my_social, 'user');
+				}
+				else
+				{
+					$_args[$key] = null;
+				}
+			}
+
+			if(a($_args, $key))
+			{
+				$_args[$key] = array_merge($value, ['user' => $_args[$key], 'link' => a($value, 'link'). $_args[$key]]);
+			}
+		}
+
+		return $_args;
+	}
+
 }
 ?>
