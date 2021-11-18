@@ -87,7 +87,7 @@
         <tr>
 
 
-          <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
+          <td class="collapsing"><span class="font-bold"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
           <td class="collapsing"><a class="btn-link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo a($value, 'title') ?></a></td>
           <td class="collapsing"><?php echo T_(ucfirst(a($value, 'naturegroup'))); ?></td>
           <td class="collapsing"><?php echo T_(ucfirst(a($value, 'balancetype'))); ?></td>
@@ -129,24 +129,24 @@
 							<tbody>
 
 								<tr>
-									<td class="txtB"><code class="link"><?php echo \dash\data::loadDetail_code(); ?></code></td>
-									<td class="txtB"><?php echo \dash\data::loadDetail_title(); ?></td>
+									<td class="font-bold"><code class="link"><?php echo \dash\data::loadDetail_code(); ?></code></td>
+									<td class="font-bold"><?php echo \dash\data::loadDetail_title(); ?></td>
 								</tr>
 
 
 								<tr>
 									<td class="collapsing"><?php echo T_("Status") ?></td>
-									<td class="txtB"><?php echo T_(\dash\data::loadDetail_status()); ?></td>
+									<td class="font-bold"><?php echo T_(\dash\data::loadDetail_status()); ?></td>
 								</tr>
 
 								<tr>
 									<td class="collapsing"><?php echo T_("Nature group") ?></td>
-									<td class="txtB"><?php echo T_(ucfirst(\dash\data::loadDetail_naturegroup())); ?></td>
+									<td class="font-bold"><?php echo T_(ucfirst(\dash\data::loadDetail_naturegroup())); ?></td>
 								</tr>
 
 								<tr>
 									<td class="collapsing"><?php echo T_("Balance type") ?></td>
-									<td class="txtB"><?php echo T_(ucfirst(\dash\data::loadDetail_balancetype())); ?></td>
+									<td class="font-bold"><?php echo T_(ucfirst(\dash\data::loadDetail_balancetype())); ?></td>
 								</tr>
 								<?php if(\dash\data::loadDetail_type() === 'assistant' ) {?>
 									<tr>

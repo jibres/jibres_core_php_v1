@@ -30,7 +30,7 @@ if(\dash\data::dataTableAll())
 			echo '<div class="box ">';
 				echo '<div class="pad">';
 					echo '<div class="row align-center mB10">';
-						echo '<div class="c txtB">'. \lib\store::title(). '</div>';
+						echo '<div class="c font-bold">'. \lib\store::title(). '</div>';
 						echo '<div class="c-auto">'. \dash\data::dataRow_tstatus(). '</div>';
 						echo '<div class="c-auto">'. T_("Date"). ' <b>'. \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())). '</b></div>';
 						echo '</div>';

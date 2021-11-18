@@ -8,7 +8,7 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
  <div class="box hide d-print-block">
   <div class="pad">
     <div class="row align-center mB10">
-      <div class="c txtB"><?php echo \lib\store::title(); ?></div>
+      <div class="c font-bold"><?php echo \lib\store::title(); ?></div>
       <div class="c-auto"><?php echo \dash\data::dataRow_tstatus() ?></div>
       <div class="c-auto"><?php echo T_("Date"); ?> <b><?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?></b></div>
     </div>
@@ -23,9 +23,9 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
     <?php if(\dash\data::openingMode()) {?>
       <div class="p0">
         <?php if(\dash\data::openingDoc()) {?>
-          <div class="msg warn txtB text-center"><?php echo T_("You already add Opening Document in this year!"); ?> <a class="btn-link" href="<?php echo \dash\url::that().'/edit?id='. \dash\data::openingDoc_id() ?>"><?php echo T_("View Document"); ?></a></div>
+          <div class="msg warn font-bold text-center"><?php echo T_("You already add Opening Document in this year!"); ?> <a class="btn-link" href="<?php echo \dash\url::that().'/edit?id='. \dash\data::openingDoc_id() ?>"><?php echo T_("View Document"); ?></a></div>
         <?php }else{ ?>
-          <div class="alert-success txtB text-center"><?php echo T_("Opening Document"); ?></div>
+          <div class="alert-success font-bold text-center"><?php echo T_("Opening Document"); ?></div>
         <?php } //endif ?>
 
 

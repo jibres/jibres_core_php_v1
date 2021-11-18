@@ -1,7 +1,7 @@
 <?php require "layout/persianRecommendBox.php"; ?>
 <section id="homeLanding">
   <div class="avand-sm">
-    <h2 class="txtB"><?php echo T_('Everything you need to sell online'); ?></h2>
+    <h2 class="font-bold"><?php echo T_('Everything you need to sell online'); ?></h2>
 
     <?php if(!\dash\user::login()) {?>
     <form class="row" method="post" autocomplete="off" action="<?php echo \dash\url::kingdom(). '/enter/hi' ?>">
@@ -76,7 +76,7 @@
   <div class="avand-md">
    <h2><a href="<?php echo \dash\url::kingdom() ?>/domains"><?php echo T_("Jibres Domain Center"); ?></a></h2>
    <div class="domainQuickBuy box">
-    <h3 class="mB10"><?php echo T_("Get your :val .IR domain", ["val" => "<span class='txtB'>". \dash\fit::number(\dash\data::domainPrice_ir1year()). ' '. \lib\currency::unit(). '</span>'] ); ?></h3>
+    <h3 class="mB10"><?php echo T_("Get your :val .IR domain", ["val" => "<span class='font-bold'>". \dash\fit::number(\dash\data::domainPrice_ir1year()). ' '. \lib\currency::unit(). '</span>'] ); ?></h3>
     <form method="get" action="<?php echo \dash\url::kingdom(); ?>/domains/search" autocomplete='off'>
      <div class="input">
       <input type="text" name="q" autocomplete="off" maxlength="65" placeholder='<?php echo T_('Search for your dream domain') ?>'>
@@ -93,7 +93,7 @@
 
 <section id='statistic'>
   <div class="avand">
-    <h3 class="text-center txtB mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span class="emoji">❤️</span></h3>
+    <h3 class="text-center font-bold mB100 fs30" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span class="emoji">❤️</span></h3>
     <div class="f text-center">
       <div class="c s12 pA10">
           <div class="ltr fs50"><?php echo \dash\utility\convert::to_en_number(\dash\fit::stats(\dash\data::homepagenumber_product(), true)) ?>+</div>
@@ -137,10 +137,10 @@
     <p><?php echo T_("Let us handle your data collection. Focus on the work that can't be automated. Create beautiful online forms without any technical knowledge. Jibres form builder allows you to quickly create efficient forms that are easy to take and get higher completion rates."); ?></p>
     <p><?php echo T_("Design professional forms with Jibres Online Form Builder. Customize to match your branding. Create a form to register in style, get contact details, or to collect feedback.") ?></p>
 
-    <h5 class="txtB"><?php echo T_("100% Free"); ?></h5>
+    <h5 class="font-bold"><?php echo T_("100% Free"); ?></h5>
     <p><?php echo T_("Every form has its URL, so you can share the form with or without your own website. Create forms and surveys that people enjoy answering with Jibres.") ?></p>
 
-    <h5 class="txtB"><?php echo T_("Reduce paper usage") ?></h5>
+    <h5 class="font-bold"><?php echo T_("Reduce paper usage") ?></h5>
     <p><?php echo T_("Don't let paperwork slow you down anymore. Jibres Forms will increase your efficiency by automating tiresome manual tasks. You'll never have to waste paper and your valuable time again. Sit back and watch your workflow.") ?></p>
   </div>
 </section>

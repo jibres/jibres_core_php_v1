@@ -31,7 +31,7 @@ if(\dash\data::infoResult())
                 if(isset($value['name']) && isset($value['tld']))
                 {
                     echo '<span class="name">'. $value['name']. '</span>';
-                    echo '<span class="tld txtB mL5">.'. $value['tld']. '</span>';
+                    echo '<span class="tld font-bold mL5">.'. $value['tld']. '</span>';
                 }
                 else
                 {

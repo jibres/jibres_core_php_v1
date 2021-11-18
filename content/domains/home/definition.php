@@ -3,7 +3,7 @@
   <section>
    <h2><?php echo T_('What is a domain?'); ?></h2>
    <p><?php echo T_('Everything you need to know about domains'); ?></p>
-   <p><?php echo T_("Have you ever asked yourself, 'What is a domain, anyway?' Well, take a look up there at the top of the screen. See that part at the top of your browser window in the URL bar? It's the part that starts with '<span class='txtB'>http://</span>' in the address bar. The second part of the URL is the domain. In our case, it's <span class='txtB'>jibres.com</span>."); ?></p>
+   <p><?php echo T_("Have you ever asked yourself, 'What is a domain, anyway?' Well, take a look up there at the top of the screen. See that part at the top of your browser window in the URL bar? It's the part that starts with '<span class='font-bold'>http://</span>' in the address bar. The second part of the URL is the domain. In our case, it's <span class='font-bold'>jibres.com</span>."); ?></p>
   </section>
   <hr class="mB50">
 
@@ -51,7 +51,7 @@
    <p><?php echo T_("Registering a domain reserves it so no one else can register it. So it might be smart to snatch up a domain now-your personal name, company name, or other things you're involved with, like a book title, band name, or hobby-just to take it 'off the market'."); ?></p>
    <p><?php echo T_("In my case, I might not need the domain minion.party today, but I'll definitely want to own it once I become super famous."); ?></p>
 
-   <p class="txtB fs11 mB5"><?php echo T_("There's also custom email."); ?></p>
+   <p class="font-bold fs11 mB5"><?php echo T_("There's also custom email."); ?></p>
    <p><?php echo T_("Want an email address like me@minion.party? To get such a slick, personalized address, you'll need to reserve the domain first, then attach it to email hosting. This is a smart move especially if you're running a business site. That way, your customers can easily remember info@mybusiness as easily as they remember your domain itself."); ?></p>
   </section>
   <hr>

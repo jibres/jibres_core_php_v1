@@ -7,7 +7,7 @@
     </form>
   <?php } //endif ?>
   <?php if(\dash\data::dataRow_status() === 'deleted') {?>
-    <div class="alert-danger mTB10 text-center txtB"><?php echo T_("This tax document is deleted") ?></div>
+    <div class="alert-danger mTB10 text-center font-bold"><?php echo T_("This tax document is deleted") ?></div>
   <?php } //endif ?>
   <form method="post" class="box">
     <input type="hidden" name="sortable" value="sortable">
@@ -56,8 +56,8 @@
                <?php if(!\dash\data::descEmpty()) {?>
                   <td class="collapsing"><?php echo a($value, 'desc') ?></td>
                <?php } //endif ?>
-              <td data-copy='<?php echo a($value, 'debtor'); ?>' class="ltr text-right fc-green"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
-              <td data-copy='<?php echo a($value, 'creditor'); ?>' class="ltr text-right fc-red"><code class="txtB"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
+              <td data-copy='<?php echo a($value, 'debtor'); ?>' class="ltr text-right fc-green"><code class="font-bold"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
+              <td data-copy='<?php echo a($value, 'creditor'); ?>' class="ltr text-right fc-red"><code class="font-bold"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
               <?php if($locDelMode) {}else{?>
               <td class="p0 txtRa">
                 <?php if(\dash\request::get('did') == a($value, 'id')) {?>
@@ -79,10 +79,10 @@
             <?php } //endif ?>
 
               <td><?php echo T_("Total"); ?> <?php if(\dash\data::currentCurrency()) { echo ' ('. \dash\data::currentCurrency(). ') ';} ?></td>
-             <td data-copy='<?php echo \dash\data::summary_debtor() ?>' class="ltr text-right"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
-             <td data-copy='<?php echo \dash\data::summary_creditor() ?>' class="ltr text-right"><code class="txtB"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
+             <td data-copy='<?php echo \dash\data::summary_debtor() ?>' class="ltr text-right"><code class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor(), 'en'); ?></code></td>
+             <td data-copy='<?php echo \dash\data::summary_creditor() ?>' class="ltr text-right"><code class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor(), 'en'); ?></code></td>
               <?php if($locDelMode) {}else{?>
-                <td class="p0 txtRa txtB">
+                <td class="p0 txtRa font-bold">
                    <?php $remain_doc = \dash\data::summary_debtor() - \dash\data::summary_creditor(); if($remain_doc != 0) {?>
                   <a class="fc-white  block" href="<?php $myType = 'debtor'; if($remain_doc > 0){ $myType = 'creditor';} echo \dash\url::current(). '?id='. \dash\request::get('id'). '&value='. abs($remain_doc). '&type='. $myType;  ?>"><span class="compact mRa10"><?php echo T_("Diff"); ?></span><span class="compact ltr"><?php echo  \dash\fit::number_decimal($remain_doc, 'en'); ?></span></a>
                 <?php } //endif ?>
@@ -96,9 +96,9 @@
     </div>
     <footer class="hide">
       <div class="f">
-        <div class="cauto"><?php echo \dash\data::deptorICON(); ?><?php echo T_("Total"). ' '. T_("Debtor"); ?> <span class="txtB fc-green"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor()); ?> </span></div>
+        <div class="cauto"><?php echo \dash\data::deptorICON(); ?><?php echo T_("Total"). ' '. T_("Debtor"); ?> <span class="font-bold fc-green"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor()); ?> </span></div>
         <div class="c text-center"><?php echo \dash\data::equalICON(); ?></div>
-        <div class="cauto"><?php echo T_("Total"). ' '.T_("Creditor"); ?> <span class="txtB fc-red"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor()); ?></span> <?php echo \dash\data::creditorICON(); ?></div>
+        <div class="cauto"><?php echo T_("Total"). ' '.T_("Creditor"); ?> <span class="font-bold fc-red"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor()); ?></span> <?php echo \dash\data::creditorICON(); ?></div>
       </div>
     </footer>
   </form>
@@ -106,9 +106,9 @@
 
 <?php if(!\dash\data::printAllMode()) {?>
   <?php if( \dash\data::summary_debtor() && \dash\data::summary_creditor() && floatval(\dash\data::summary_debtor()) === floatval(\dash\data::summary_creditor())) {?>
-    <div class="msg p0 mT20 success txtB text-center fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
+    <div class="msg p0 mT20 success font-bold text-center fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }else{ ?>
-    <div class="msg p0 mT20 danger txtB text-center fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
+    <div class="msg p0 mT20 danger font-bold text-center fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }//endif ?>
   <?php }//endif ?>
 

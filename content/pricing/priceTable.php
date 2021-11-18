@@ -5,7 +5,7 @@
       <div class="c3 m6 s12 col1">
         <img src="<?php echo \dash\url::cdn(); ?>/images/pricing/plan1-free.png" alt='<?php echo \dash\face::site(); ?> <?php echo T_("Free Plan"); ?>'>
         <h2><?php echo T_("Free"); ?></h2>
-        <h3><?php echo T_("All the basics for personal use."); ?> <?php echo T_("Also <span class='txtB'>sell on social networks</span> with easy online payment."); ?></h3>
+        <h3><?php echo T_("All the basics for personal use."); ?> <?php echo T_("Also <span class='font-bold'>sell on social networks</span> with easy online payment."); ?></h3>
         <div class="alert-warning"><?php echo T_("Beta Version"); ?></div>
 
         <ul>
@@ -48,7 +48,7 @@
       <div class="c3 m6 s12 col3">
         <img src="<?php echo \dash\url::cdn(); ?>/images/pricing/plan3-simple.png" alt='<?php echo \dash\face::site(); ?> <?php echo T_("Simple Plan"); ?>'>
         <h2><?php echo T_("Silver"); ?></h2>
-        <h3><?php echo T_("For who want try to change!"); ?><br><span class="txtB"><?php echo T_("Enjoy modern era."); ?></span></h3>
+        <h3><?php echo T_("For who want try to change!"); ?><br><span class="font-bold"><?php echo T_("Enjoy modern era."); ?></span></h3>
         <div class="alert-warning"><?php echo T_("Soon"); ?></div>
         <ul>
           <li><?php echo T_("Advance Reports"); ?></li>

@@ -43,15 +43,15 @@ require_once ('priceTable.php');
   </thead>
   <tbody>
       <tr class="fs14">
-        <th class="txtB"><?php echo T_("Price"); ?> <small><?php echo T_("Pay monthly"); ?></small></th>
-        <td class="txtB"><?php echo T_("FREE"); ?></td>
+        <th class="font-bold"><?php echo T_("Price"); ?> <small><?php echo T_("Pay monthly"); ?></small></th>
+        <td class="font-bold"><?php echo T_("FREE"); ?></td>
 <?php
 if(\dash\language::current() === 'fa')
 {
 ?>
-        <td class="txtB"><?php echo \dash\fit::number('14'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('30'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('75'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('14'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('30'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('75'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
 <?php
 }
 else
@@ -66,17 +66,17 @@ else
       </tr>
 
       <tr class="fs14">
-        <th class="txtB"><?php echo T_("Price"); ?> <small><?php echo T_("Pay yearly"); ?></small>
+        <th class="font-bold"><?php echo T_("Price"); ?> <small><?php echo T_("Pay yearly"); ?></small>
           <span class="badge sm mLa10"><?php echo T_("Two month free"); ?></span>
         </th>
-        <td class="txtB"><?php echo T_("FREE"); ?></td>
+        <td class="font-bold"><?php echo T_("FREE"); ?></td>
 <?php
 if(\dash\language::current() === 'fa')
 {
 ?>
-        <td class="txtB"><?php echo \dash\fit::number('140'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('300'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('750'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('140'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('300'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('750'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
 <?php
 }
 else
@@ -95,7 +95,7 @@ if(false)
 {
 ?>
       <tr class="fs14">
-        <th class="txtB"><?php echo T_("Price"); ?> <small><?php echo T_("Pay yearly"); ?></small>
+        <th class="font-bold"><?php echo T_("Price"); ?> <small><?php echo T_("Pay yearly"); ?></small>
           <span class="badge success sm mLa10"><?php echo T_("First Year"); ?></span>
           <span class="badge sm mLa10"><?php echo T_("More than 50 percent off"); ?></span>
         </th>
@@ -103,9 +103,9 @@ if(false)
 if(\dash\language::current() === 'fa')
 {
 ?>
-        <td class="txtB"><?php echo \dash\fit::number('50'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('150'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('300'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('50'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('150'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('300'); ?> <small><?php echo T_("Hezar Toman"); ?></small></td>
 <?php
 }
 else
@@ -165,10 +165,10 @@ if(\dash\language::current() === 'fa')
 ?>
       <tr>
         <th><?php echo T_("Each SMS cost"); ?> <span class="badge lg"><?php echo T_("Optional"); ?></span></th>
-        <td class="txtB"><?php echo \dash\fit::number('100'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('75'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('40'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
-        <td class="txtB"><?php echo \dash\fit::number('30'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('100'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('75'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('40'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
+        <td class="font-bold"><?php echo \dash\fit::number('30'); ?> <small><?php echo \lib\currency::unit(); ?></small></td>
       </tr>
 <?php
 } // endif

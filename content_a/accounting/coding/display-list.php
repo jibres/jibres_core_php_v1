@@ -117,7 +117,7 @@
         <tr>
           <td class="collapsing"><span class="fc-mute"><?php echo \dash\fit::text(a($value, 'id')) ?></span></td>
 
-          <td class="collapsing"><span class="txtB"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
+          <td class="collapsing"><span class="font-bold"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
           <td><?php echo a($value, 'title') ?></td>
           <td><?php echo a($value, 'nature') ?></td>
           <td><?php if(a($value, 'detailable')){?><i class="sf-check fc-red"></i><?php }// endif ?></td>

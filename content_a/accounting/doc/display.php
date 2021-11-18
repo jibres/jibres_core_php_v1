@@ -23,16 +23,16 @@
 							<td class="font-14">
 								<a class="link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">#<?php echo \dash\fit::number(a($value, 'number'), true, 'en'); ?></a>
 							</td>
-							<td class="txtB"><a href="<?php echo \dash\url::that(). \dash\request::full_get(['startdate' => \dash\fit::date_en(a($value, 'date')), 'enddate' => \dash\fit::date_en(a($value, 'date'))]) ?>"><?php echo \dash\fit::date(a($value, 'date')) ?></a></td>
+							<td class="font-bold"><a href="<?php echo \dash\url::that(). \dash\request::full_get(['startdate' => \dash\fit::date_en(a($value, 'date')), 'enddate' => \dash\fit::date_en(a($value, 'date'))]) ?>"><?php echo \dash\fit::date(a($value, 'date')) ?></a></td>
 							<td class="">
 								<?php if(a($value, 'status') === 'lock') { echo '<i class="compact sf-lock fc-red mRa10"></i>';} else { echo '<i class="compact sf-unlock fc-green mRa10"></i>';}  ?>
 								<a href="<?php echo \dash\url::that(). '?status='. a($value, 'status'); ?>"><?php echo T_(a($value, 'tstatus')) ?></a>
-								<?php if(a($value, 'type') === 'opening') { echo '<i class="fc-mute txtB">'. T_("Opening Document"). '</i>';} ?>
+								<?php if(a($value, 'type') === 'opening') { echo '<i class="fc-mute font-bold">'. T_("Opening Document"). '</i>';} ?>
 							</td>
 							<td class=""><?php echo \dash\fit::number(a($value, 'item_count')) ?></td>
 
-							<td class="font-14 fc-green"><span class="text-right txtB"><?php echo \dash\fit::number_decimal(a($value, 'sum_debtor'), 'en') ?></span></td>
-							<td class="font-14 fc-red"><span class="text-right txtB"><?php echo \dash\fit::number_decimal(a($value, 'sum_creditor'), 'en') ?></span></td>
+							<td class="font-14 fc-green"><span class="text-right font-bold"><?php echo \dash\fit::number_decimal(a($value, 'sum_debtor'), 'en') ?></span></td>
+							<td class="font-14 fc-red"><span class="text-right font-bold"><?php echo \dash\fit::number_decimal(a($value, 'sum_creditor'), 'en') ?></span></td>
 						</tr>
 						<tr>
 							<td class="pTB5-f" colspan="7"><?php if(a($value, 'gallery')) { echo '<i class="compact mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>

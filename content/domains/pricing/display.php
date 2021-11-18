@@ -9,7 +9,7 @@ foreach (\dash\data::specialTLD() as $tld => $value) {
 ?>
     <div class="c-2 c-xs-6 c-sm-4 c-md-4 c-lg-2 pA5">
       <div class="cbox mB10-f">
-        <div class="tld font-35 txtB ltr txtLa"><?php echo $tld ?></div>
+        <div class="tld font-35 font-bold ltr txtLa"><?php echo $tld ?></div>
         <div class="fc-mute font-16"><?php echo T_("Registration") ?></div>
         <div class="price font-20 mT10"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></div>
       </div>
@@ -59,7 +59,7 @@ for ($i=1; $i <= 10; $i++)
       <tbody>
         <?php $count = 0; foreach (\dash\data::dataTable() as $key => $value) { $count++;?>
           <tr>
-            <td class="ltr txtB"><?php echo a($value, 'TLD') ?></td>
+            <td class="ltr font-bold"><?php echo a($value, 'TLD') ?></td>
             <td data-order="<?php echo a($value, 'register'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register'), true); ?></td>
             <td data-order="<?php echo a($value, 'renew'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'renew'), true) ?></td>
             <td data-order="<?php echo a($value, 'transfer'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'transfer'), true) ?></td>

@@ -137,7 +137,7 @@
 									<div class="key">
 										<?php echo T_("Total"); ?>
 									</div>
-									<div class="value txtB">
+									<div class="value font-bold">
 										<?php echo \dash\fit::number(a($result, 'price')) ?> <small><?php echo $currency ?></small>
 									</div>
 								</a>
@@ -158,7 +158,7 @@
 				<?php } //endif ?>
 
 				<?php if(isset($result['error'])) { foreach ($result['error'] as $key => $value) {?>
-					<div class="alert-danger2 txtB font-14"><?php echo $value ?></div>
+					<div class="alert-danger2 font-bold font-14"><?php echo $value ?></div>
 				<?php } } ?>
 </div>
 			<?php } //endif ?>

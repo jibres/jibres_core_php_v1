@@ -5,7 +5,7 @@ $myUrlStatic = \dash\url::cdn();
 
     <div class="dl vertical msg minimal">
       <div class="f align-center" data-kerkere=".standardPNG-icon">
-        <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?></h4></div>
+        <div class="c s12"><h4 class="fs10 font-bold mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/icon/svg/Jibres-Logo-icon.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
@@ -57,7 +57,7 @@ $myUrlStatic = \dash\url::cdn();
 
     <div class="dl vertical msg minimal">
       <div class="f align-center" data-kerkere=".standardBlackPNG-icon">
-        <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?> / <?php echo T_("Black"); ?></h4></div>
+        <div class="c s12"><h4 class="fs10 font-bold mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?> / <?php echo T_("Black"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/icon-black/svg/Jibres-Logo-icon-black.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
@@ -109,7 +109,7 @@ $myUrlStatic = \dash\url::cdn();
 
     <div class="dl vertical msg minimal mB0">
       <div class="f align-center" data-kerkere=".standardWhitePNG-icon">
-        <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?> / <?php echo T_("White"); ?></h4></div>
+        <div class="c s12"><h4 class="fs10 font-bold mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?> / <?php echo T_("White"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-black" src="<?php echo $myUrlStatic; ?>/logo/icon-white/svg/Jibres-Logo-icon-white.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>

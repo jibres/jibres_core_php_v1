@@ -6,7 +6,7 @@ $myUrlStatic = \dash\url::cdn();
 
     <div class="dl msg minimal">
       <div class="f align-center" data-kerkere=".standardPNG">
-        <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?></h4></div>
+        <div class="c s12"><h4 class="fs10 font-bold mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/en/svg/Jibres-Logo-en.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
@@ -54,7 +54,7 @@ $myUrlStatic = \dash\url::cdn();
 
     <div class="dl msg minimal">
       <div class="f align-center" data-kerkere=".standardBlackPNG">
-        <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("Black"); ?></h4></div>
+        <div class="c s12"><h4 class="fs10 font-bold mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("Black"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/en-black/svg/Jibres-Logo-en-black.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
@@ -102,7 +102,7 @@ $myUrlStatic = \dash\url::cdn();
 
     <div class="dl msg minimal mB0">
       <div class="f align-center" data-kerkere=".standardWhitePNG">
-        <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("White"); ?></h4></div>
+        <div class="c s12"><h4 class="fs10 font-bold mB10"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("White"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-black" src="<?php echo $myUrlStatic; ?>/logo/en-white/svg/Jibres-Logo-en-white.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
@@ -139,7 +139,7 @@ if(\dash\language::current() === 'fa')
   <section class="avand-lg impact">
     <div class="dl msg minimal">
       <div class="f align-center" data-kerkere=".standardFaPNG">
-        <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?></h4></div>
+        <div class="c s12"><h4 class="fs10 font-bold mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/fa/svg/Jibres-Logo-fa.svg" alt='<?php echo T_("Jibres Logo"); ?> svg'>
         </div>
@@ -187,7 +187,7 @@ if(\dash\language::current() === 'fa')
 
     <div class="dl msg minimal">
       <div class="f align-center" data-kerkere=".standardFaBlackPNG">
-        <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("Black"); ?></h4></div>
+        <div class="c s12"><h4 class="fs10 font-bold mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("Black"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-white" src="<?php echo $myUrlStatic; ?>/logo/fa-black/svg/Jibres-Logo-fa-black.svg" alt='<?php echo T_("Jibres Persian Logo"); ?> svg'>
         </div>
@@ -235,7 +235,7 @@ if(\dash\language::current() === 'fa')
 
     <div class="dl msg minimal mB0">
       <div class="f align-center" data-kerkere=".standardFaWhitePNG">
-        <div class="c s12"><h4 class="fs10 txtB mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("White"); ?></h4></div>
+        <div class="c s12"><h4 class="fs10 font-bold mB10"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("White"); ?></h4></div>
         <div class="cauto os s12">
           <img class="bg-black" src="<?php echo $myUrlStatic; ?>/logo/fa-white/svg/Jibres-Logo-fa-white.svg" alt='<?php echo T_("Jibres Persian Logo"); ?> svg'>
         </div>

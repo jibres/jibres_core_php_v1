@@ -9,7 +9,7 @@
  	<table class="tbl1 v3 mB0">
  		<tr>
  			<th><?php echo T_("IP"); ?></th>
- 			<td class="txtB" data-copy='<?php echo T_(\dash\data::ip_ip()); ?>'><?php echo T_(\dash\data::ip_ip()); ?></td>
+ 			<td class="font-bold" data-copy='<?php echo T_(\dash\data::ip_ip()); ?>'><?php echo T_(\dash\data::ip_ip()); ?></td>
  		</tr>
 <?php if(\dash\data::ip_country()) { ?>
  		<tr>

@@ -61,7 +61,7 @@ function make_whois_detail_box($_title, $_array)
 			foreach ($_array as $key => $value)
 			{
 				echo '<tr>';
-				echo '<td class="txtB">';
+				echo '<td class="font-bold">';
 					echo $value['title'];
 				echo '</td>';
 

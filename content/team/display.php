@@ -5,7 +5,7 @@
 
  <div class="avand impact text-center">
  	<p><?php echo \dash\face::desc(); ?></p>
- 	<h2 class="txtB"><?php echo T_('The best thing about Jibres is our people.'); ?></h2>
+ 	<h2 class="font-bold"><?php echo T_('The best thing about Jibres is our people.'); ?></h2>
  	<hr>
 
  	<p><?php echo T_("We are curious. Our team is made up of pioneering innovators that approach some of the Internet’s toughest challenges with interest and a desire to learn. We are committed to providing exceptional customer service and solve customer problems in clever and technically astute ways."); ?></p>

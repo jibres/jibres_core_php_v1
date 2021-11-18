@@ -55,19 +55,19 @@
 	<h2><?php echo T_("Severity Guidelines"); ?></h2>
 	<p><?php echo T_("All submissions are rated by Jibres using a purposefully simple scale. Each vulnerability is unique but the following is a rough guideline we use internally for rating and rewarding submissions."); ?> <?php echo T_("Currently, we only have a bounty for high and critical bugs."); ?></p>
 
-	<div class="txtB"><?php echo T_("Vital"); ?></div>
+	<div class="font-bold"><?php echo T_("Vital"); ?></div>
 	<p><?php echo T_("Vital severity issue is a disaster. You choose about life or death and you have access to control everything."); ?></p>
 
-	<div class="txtB"><?php echo T_("Critical"); ?></div>
+	<div class="font-bold"><?php echo T_("Critical"); ?></div>
 	<p><?php echo T_("Critical severity issues present a direct and immediate risk to a broad array of our users or to Jibres itself. They often affect relatively low-level/foundational components in one of our application stacks or infrastructure."); ?></p>
 
-	<div class="txtB"><?php echo T_("High"); ?></div>
+	<div class="font-bold"><?php echo T_("High"); ?></div>
 	<p><?php echo T_("High severity issues allow an attacker to read or modify highly sensitive data that they are not authorized to access. They are generally more narrow in scope than critical issues, though they may still grant an attacker extensive access."); ?></p>
 
-	<div class="txtB"><?php echo T_("Medium"); ?></div>
+	<div class="font-bold"><?php echo T_("Medium"); ?></div>
 	<p><?php echo T_("Medium severity issues allow an attacker to read or modify limited amounts of data that they are not authorized to access. They generally grant access to less sensitive information than high severity issues."); ?></p>
 
-	<div class="txtB"><?php echo T_("Low"); ?></div>
+	<div class="font-bold"><?php echo T_("Low"); ?></div>
 	<p class="mB0"><?php echo T_("Low severity issues allow an attacker to access extremely limited amounts of data. They may violate an expectation for how something is intended to work, but it allows nearly no escalation of privilege or ability to trigger unintended behavior by an attacker."); ?></p>
 </div>
 
