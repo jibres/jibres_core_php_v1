@@ -29,6 +29,7 @@ class controller
 			'quote',
 			'text',
 			'separator',
+			'application',
 			'html',
 			/* -------------- */
 
