@@ -43,7 +43,7 @@
 
 
         <?php if(isset($storData['tax_status']) && $storData['tax_status']) {?>
-          <div class="msg h36 dark2">
+          <div class="" data-desc>
             <div class="f align-center">
               <div class="c pRa5">
                 <div class="check1 mB0">
@@ -58,7 +58,7 @@
           </div>
         <?php } //endif ?>
         <div>
-          <div class="msg mB10 minimal">
+          <div class="" data-desc>
             <div class="f align-center">
                 <div class="cauto">
                   <?php echo T_("Final Price"); ?>
@@ -87,7 +87,7 @@
           <div class="c s12">
             <div class="grossProfitMargin hideIn">
               <label for='buyprice'><?php echo T_("Gross profit"); ?></label>
-              <div class="msg h36" data-percent='11'>
+              <div class="" data-percent='11' data-desc>
                 <div class="f">
                   <div class="c"></div>
                   <div class="cauto"></div>
