@@ -244,6 +244,9 @@ class https
 					\lib\api\arvancloud\api::set_arvan_request_https($domain, $update_https_args);
 
 					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
+
+					// fetch and add jibres dns
+					\lib\app\business_domain\dns::check_if_not_exist_add($_id);
 				}
 
 
