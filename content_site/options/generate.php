@@ -77,7 +77,7 @@ class generate
 	}
 
 
-	public static function text($_name, $_value, $_lable = null, $_placeholder = null, $_class = null)
+	public static function text($_name, $_value, $_lable = null, $_placeholder = null, $_class = null, $_type = 'text')
 	{
 		$html = '';
 
@@ -87,7 +87,7 @@ class generate
 		}
 		$html .= "<div class='input $_class'>";
 		{
-			$html .= "<input type='text' name='$_name' id='id-$_name' value='$_value' placeholder='$_placeholder'>";
+			$html .= "<input type='$_type' name='$_name' id='id-$_name' value='$_value' placeholder='$_placeholder'>";
 		}
 		$html .= '</div>';
 
