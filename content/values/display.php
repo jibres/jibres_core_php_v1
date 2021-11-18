@@ -20,7 +20,7 @@
 
 
  	<h3><?php echo T_("Love"); ?></h3>
- 	<p class="msg"><?php echo T_("Underlying everything, love for our service and customers is essential to realizing our fullest potential."); ?></p>
+ 	<p class="alert2"><?php echo T_("Underlying everything, love for our service and customers is essential to realizing our fullest potential."); ?></p>
 
  </div>
 

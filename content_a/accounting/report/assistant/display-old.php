@@ -1,7 +1,7 @@
 <?php require_once(root. '/content_a/accounting/filter.php'); ?>
 
   <?php if(!\dash\data::reportDetail()) {?>
-    <div class="msg"><?php echo T_("No detail was founded") ?></div>
+    <div class="alert2"><?php echo T_("No detail was founded") ?></div>
   <?php }else{ ?>
 
     <table class="tbl1 v1 text-xs">
