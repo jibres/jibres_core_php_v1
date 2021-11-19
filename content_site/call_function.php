@@ -281,9 +281,33 @@ class call_function
 
 		$model_detail = self::_call([$namespace, 'option']);
 
+
 		if(isset($model_detail['default']))
 		{
 			return $model_detail['default'];
+		}
+
+		return null;
+	}
+
+
+
+	/**
+	 * Get force option of one section in special model
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	public static function force($_section_key, $_model)
+	{
+		$namespace   = self::get_namespace($_section_key);
+
+		$namespace   = sprintf($namespace, $_model);
+
+		$model_detail = self::_call([$namespace, 'option']);
+
+		if(isset($model_detail['force']))
+		{
+			return $model_detail['force'];
 		}
 
 		return null;

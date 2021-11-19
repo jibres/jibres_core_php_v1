@@ -416,6 +416,13 @@ class view
 			$default = [];
 		}
 
+		$force = \content_site\call_function::force($section_key, a($result, 'model'));
+
+		if(!is_array($force))
+		{
+			$force = [];
+		}
+
 		$identify =
 		[
 			'id'          => a($result, 'id'),
@@ -426,7 +433,8 @@ class view
 
 		$thisDefault = array_merge($identify, $detail, $default);
 
-		$result['preview']                 = array_merge($thisDefault, $result['preview']);
+		$result['preview']                 = array_merge($thisDefault, $result['preview'], $force);
+
 		$result['preview']['preview_mode'] = true;
 		$result['preview_layout']          = null;
 
@@ -489,7 +497,7 @@ class view
 					}
 
 
-					$result['body']           = array_merge($thisDefault, $result['body']);
+					$result['body']           = array_merge($thisDefault, $result['body'], $force);
 
 					$result['body'] = \content_site\assemble\fire::me($result['body']);
 
