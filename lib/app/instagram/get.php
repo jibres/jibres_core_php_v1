@@ -3,6 +3,27 @@ namespace lib\app\instagram;
 
 class get
 {
+	public static function access_token()
+	{
+		$load = \lib\app\setting\get::by_cat_key('instagram', 'access_token');
+		if(isset($load['value']))
+		{
+			return $load['value'];
+		}
+
+		return null;
+	}
+
+	public static function user_id()
+	{
+		$load = \lib\app\setting\get::by_cat_key('instagram', 'user_id');
+		if(isset($load['value']))
+		{
+			return $load['value'];
+		}
+
+		return null;
+	}
 
 	public static function login_url()
 	{

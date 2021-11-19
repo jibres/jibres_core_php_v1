@@ -20,6 +20,10 @@
     <div class="body">
       <div class="alert2">
         <p><?php echo T_("Connect to your instagram account.") ?></p>
+        <?php if(\dash\data::instagramUserId()) {?>
+        <p class="alert2-success"><?php echo T_("Connected.") ?></p>
+
+        <?php } //endif ?>
       </div>
     </div>
     <footer class="txtRa">
