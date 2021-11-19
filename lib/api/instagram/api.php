@@ -12,7 +12,7 @@ class api
 		[
 			'apiKey'      => '1098204907431178',
 			'apiSecret'   => 'ceb1b49b17b0e75683fbb0ec9ff999b4',
-			'apiCallback' => self::callback(),
+			'apiCallback' => 'https://jibres.ir/hook/ig/',
 		];
 
 		try
@@ -32,28 +32,21 @@ class api
 	}
 
 
-	private static function callback()
-	{
-		return 'https://jibres.ir/hook/ig/';
-		return 'https://jibres.com/api/instagram/a/';
-		return \dash\url::kingdom().'/hook/ig/';
-	}
-
-
 
 	/**
 	 * Gets the login url.
 	 *
 	 * @return     <type>  The login url.
 	 */
-	public static function getLoginUrl()
+	public static function getLoginUrl($_token = null)
 	{
 		if(!self::config())
 		{
 			return false;
 		}
 
-	    $url = self::$instagram->getLoginUrl(['basic', 'user_profile'], 'aaaaaaaaaaabbbbbbbbbbbbbcccccccccccc');
+	    $url = self::$instagram->getLoginUrl(['basic', 'user_profile'], $_token);
+
 	    return $url;
 	}
 }
