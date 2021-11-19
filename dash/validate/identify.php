@@ -67,6 +67,37 @@ class identify
 		return $data;
 	}
 
+
+
+	public static function store_code($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = $_data;
+
+		if($data === null || $data === '')
+		{
+			return null;
+		}
+
+		$data = \dash\validate\text::string($_data, $_notif, $_element, $_field_title, ['min' => 1, 'max' => 12]);
+
+		if($data === false)
+		{
+			return false;
+		}
+
+		if(!\dash\store_coding::is($data))
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Invalid code"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
 	public static function code_0($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		if(( is_string($_data) || is_numeric($_data) ) && (string) $_data === '0')

@@ -659,8 +659,9 @@ class cleanse
 			case 'password': 			$data = \dash\validate\password::password(...$fn_args); 			break;
 			case 'color': 				$data = \dash\validate\color::color(...$fn_args); 					break;
 			case 'id': 					$data = \dash\validate\identify::id(...$fn_args); 					break;
-			case 'factor_id': 			$data = \dash\validate\identify::factor_id(...$fn_args); 					break;
+			case 'factor_id': 			$data = \dash\validate\identify::factor_id(...$fn_args); 			break;
 			case 'code': 				$data = \dash\validate\identify::code(...$fn_args); 				break;
+			case 'store_code':			$data = \dash\validate\identify::store_code(...$fn_args); 			break;
 			case 'code_0': 				$data = \dash\validate\identify::code_0(...$fn_args); 				break;
 			case 'id_code': 			$data = \dash\validate\identify::id_code(...$fn_args); 				break;
 			case 'enum': 				$data = \dash\validate\dataarray::enum(...$fn_args); 				break;

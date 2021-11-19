@@ -78,12 +78,10 @@ class store_coding
 	}
 
 
-
-
-
-
-
-
+	public static function is($_code)
+	{
+		return \dash\coding::is($_code, 'store');
+	}
 
 }
 ?>
