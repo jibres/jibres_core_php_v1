@@ -34,7 +34,7 @@ class api
 
 	private static function callback()
 	{
-		return 'https://jibres.ir/hook/ig/aaaaaaaaaaaaaaaaaaaaaaaaaa';
+		return 'https://jibres.ir/hook/ig/';
 		return 'https://jibres.com/api/instagram/a/';
 		return \dash\url::kingdom().'/hook/ig/';
 	}
@@ -53,7 +53,7 @@ class api
 			return false;
 		}
 
-	    $url = self::$instagram->getLoginUrl(['basic', 'user_profile']);
+	    $url = self::$instagram->getLoginUrl(['basic', 'user_profile'], 'aaaaaaaaaaabbbbbbbbbbbbbcccccccccccc');
 	    return $url;
 	}
 }
