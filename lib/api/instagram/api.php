@@ -34,7 +34,7 @@ class api
 
 	private static function callback()
 	{
-		return 'https://jibres.ir/hook/ig/';
+		return 'https://jibres.ir/hook/ig/?jtoken=abc';
 		return 'https://jibres.com/api/instagram/a/';
 		return \dash\url::kingdom().'/hook/ig/';
 	}
