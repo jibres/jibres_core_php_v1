@@ -42,6 +42,8 @@ class check
 			'video_autoplay'                => 'checkbox',
 			'video_poster'                  => 'string',
 
+			'btn_title'                     => 'string_50',
+
 			'video_nodownload'              => 'checkbox',
 			'video_nofullscreen'            => 'checkbox',
 			'video_muted'                   => 'checkbox',
@@ -352,6 +354,7 @@ class check
 		unset($_args['desc']);
 		unset($_args['video_controls']);
 		unset($_args['video_autoplay']);
+		unset($_args['btn_title']);
 
 		unset($_args['video_nodownload']);
 		unset($_args['video_nofullscreen']);

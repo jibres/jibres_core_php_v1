@@ -90,6 +90,7 @@ class option
 			'description_gallery',
 			'link_gallery',
 			'target_gallery',
+			'caption_gallery_button',
 			'image_remove',
 		];
 	}

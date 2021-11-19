@@ -187,6 +187,11 @@ class model
 			}
 			else
 			{
+				if(\dash\url::isLocal())
+				{
+					\dash\notif::info('Local: '. json_encode(['opt_'=> $option_key, 'list' => $trust_options_list]));
+				}
+
 				\dash\notif::error(T_("Invalid option"). ' '. __LINE__);
 				return false;
 			}

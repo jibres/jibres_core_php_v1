@@ -2,34 +2,29 @@
 namespace content_site\options\caption;
 
 
-class caption_gallery
+trait caption_gallery
 {
+	use caption;
 
-	public static function specialsave($_data)
+
+	public static function have_specialsave()
 	{
-		$data = \dash\validate::string_100(a($_data, 'caption_gallery'));
+		return true;
+	}
 
-		return \content_site\body\gallery\option::update_one_gallery_item(['title' => $data]);
+
+	public static function title()
+	{
+		return T_("Title");
 	}
 
 
 
-
-	public static function admin_html()
+	public static function specialsave($_data)
 	{
-		$default = \content_site\section\view::get_current_index_detail('title');
+		$data = \dash\validate::string_100(a($_data, self::name()));
 
-		$html = '';
-		$html .= \content_site\options\generate::form();
-		{
-			$html .= \content_site\options\generate::not_redirect();
-			$html .= \content_site\options\generate::specialsave();;
-	    	$html .= \content_site\options\generate::text('opt_caption_gallery', $default, T_("Title"));
-
-		}
-  		$html .= \content_site\options\generate::_form();
-
-		return $html;
+		return \content_site\body\gallery\option::update_one_gallery_item(['title' => $data]);
 	}
 
 }
