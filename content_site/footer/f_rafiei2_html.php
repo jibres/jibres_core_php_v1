@@ -119,33 +119,29 @@ class f_rafiei2_html
 			}
 
 
-			if(a($_args, 'copyright'))
+			$html .= '<div class="select-none" style="background-color:#012350">';
 			{
-				$html .= '<div class="select-none" style="background-color:#012350">';
+				$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm text-blue-100 flex py-8']);
 				{
-					$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-sm text-blue-100 flex py-8']);
-					{
-						$html .= '<p class="leading-relaxed flex-grow"'. $color_text. '>';
-						$html .= a($_args, 'heading');
-						$html .= '</p>';
-						$html .= '<p dir="ltr" class="leading-relaxed"'. $color_text. '>';
+					$html .= '<p class="leading-relaxed flex-grow"'. $color_text. '>';
+					$html .= a($_args, 'heading');
+					$html .= '</p>';
+					$html .= '<p dir="ltr" class="leading-relaxed"'. $color_text. '>';
 
-						$html .= 'All Content by ';
-						$html .= '<a href="'. \dash\url::kingdom(). '">';
-						$html .=  ucwords(\dash\url::domain());
-						$html .=  '</a>';
-						$html .= ' is licensed under a ';
-						$html .= '<a href="https://creativecommons.org/licenses/by/4.0/">';
-						$html .= 'Creative Commons Attribution 4.0 International License';
-						$html .=  '</a>';
-						$html .= '.';
-						$html .= '</p>';
-					}
-					$html .= '</div>';
+					$html .= 'All Content by ';
+					$html .= '<a href="'. \dash\url::kingdom(). '">';
+					$html .=  ucwords(\dash\url::domain());
+					$html .=  '</a>';
+					$html .= ' is licensed under a ';
+					$html .= '<a href="https://creativecommons.org/licenses/by/4.0/">';
+					$html .= 'Creative Commons Attribution 4.0 International License';
+					$html .=  '</a>';
+					$html .= '.';
+					$html .= '</p>';
 				}
 				$html .= '</div>';
 			}
-
+			$html .= '</div>';
 		}
 		$html .= '</footer>';
 
