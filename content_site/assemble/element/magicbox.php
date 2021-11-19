@@ -122,7 +122,7 @@ class magicbox
 			// thumb
 			// if($myThumb && a($_args, 'post_show_image'))
 			{
-				$mediaBoxClass = 'transition shadow-sm hover:shadow-md';
+				$mediaBoxClass = 'transition relative shadow-sm hover:shadow-md';
 				if(a($_args, 'coverratio:class'))
 				{
 					$mediaBoxClass .= ' '. a($_args, 'coverratio:class');
@@ -154,7 +154,7 @@ class magicbox
 				$card .= "<$mediaElementType class='$mediaBoxClass'>";
 				{
 
-					$imgClass = 'object-cover w-full';
+					$imgClass = 'object-cover w-full h-full';
 					if(a($_args, 'coverratio') === 'free')
 					{
 						$imgClass = 'h-auto w-full';
@@ -169,6 +169,7 @@ class magicbox
 						$video_args          = $_item;
 						$video_args['src']   = \lib\filepath::fix(a($_item, $file_index), 'raw');
 						$video_args['class'] = $imgClass;
+						// $video_args['videoFrameClass'] = '123';
 
 						$card .= video::html($video_args);
 					}

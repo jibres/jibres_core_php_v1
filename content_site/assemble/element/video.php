@@ -11,6 +11,12 @@ class video
 		$src      = a($_args, 'src');
 		$imgClass = a($_args, 'class');
 
+		$html .= "<div";
+		if(a($_args, 'videoFrameClass'))
+		{
+			$html .= ' class="'. a($_args, 'videoFrameClass'). '"';
+		}
+		$html .= ">";
 		$html .= "<video ";
 
 		$html .= "data-src='". $src. "' ";
@@ -64,6 +70,7 @@ class video
 
 		$html .= "<source data-src='$src' type='". a($_args, 'file_detail', 'mime'). "'>";
 		$html .= "</video>";
+		$html .= "</div>";
 
 		return $html;
 	}
