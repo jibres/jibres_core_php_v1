@@ -15,12 +15,13 @@ class api
 			'apiCallback' => self::callback(),
 		];
 
-
-		$instagram = new \lib\api\instagram\Instagram($args);
-
-
-		if(!$instagram)
+		try
 		{
+			$instagram = new \lib\api\instagram\Instagram($args);
+		}
+		catch (\Exception $e)
+		{
+			\dash\notif::error($e->getMessage());
 			return false;
 		}
 
