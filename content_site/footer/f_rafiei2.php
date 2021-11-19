@@ -52,6 +52,9 @@ class f_rafiei2
 				'use_as_description'    => 'business_description',
 				'certificate_samandehi' => true,
 				'certificate_enamad'    => true,
+			],
+			'force' =>
+			[
 				'container'             => 'xl',
 			],
 

@@ -44,7 +44,10 @@ class h_rafiei2
 				// 'link_search'    => true,
 				// 'link_enter'     => true,
 				// 'link_cart'      => true,
-				'container'      => 'xl',
+			],
+			'force' =>
+			[
+				'container'             => 'xl',
 			],
 
 			'preview_list' =>
