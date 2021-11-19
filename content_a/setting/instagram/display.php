@@ -23,6 +23,7 @@
         <?php if(\dash\data::instagramUserId()) {?>
         <p class="alert2-success"><?php echo T_("Connected.") ?></p>
         <code><?php echo \dash\data::instagramAccessToken() ?></code>
+        <code><?php echo \dash\data::instagramUserId(); ?></code>
         <?php } //endif ?>
       </div>
     </div>
