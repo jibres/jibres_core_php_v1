@@ -116,10 +116,10 @@ class magicbox
 			$elementTag .= ' '. $elClass;
 		}
 		// add playing mode for autoplay video
-		if(a($_item, 'video_autoplay'))
-		// if(a($_item, 'video_autoplay') && a($_item, 'video_muted'))
+		// if(a($_item, 'video_autoplay'))
+		if(a($_item, 'video_autoplay') && a($_item, 'video_muted'))
 		{
-			$elementTag .= ' data-playing';
+			$elementTag .= ' data-playing="play"';
 		}
 		$elementTag .= '>';
 
@@ -255,8 +255,15 @@ class magicbox
 
 				if(a($_args, 'magicbox_title_position') === 'inside')
 				{
-
-					$card .= "<div data-magic-caption class='absolute inset-x-0 bottom-0 block px-4 py-2 z-10 transition $cardClass'>";
+					if(a($_item, 'video_controls'))
+					{
+						$cardClass .= ' top-0';
+					}
+					else
+					{
+						$cardClass .= ' bottom-0';
+					}
+					$card .= "<div data-magic-caption class='absolute inset-x-0 block px-4 py-2 z-10 transition $cardClass'>";
 					{
 						if($showTitle)
 						{
