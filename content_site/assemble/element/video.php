@@ -10,12 +10,14 @@ class video
 
 		$src      = a($_args, 'src');
 		$imgClass = a($_args, 'class');
+		$videoFrameClass = 'videoFrame';
 
 		$html .= "<div";
 		if(a($_args, 'videoFrameClass'))
 		{
-			$html .= ' class="'. a($_args, 'videoFrameClass'). '"';
+			$videoFrameClass .= ' '. a($_args, 'videoFrameClass');
 		}
+		$html .= ' class="'. $videoFrameClass. '"';
 		$html .= ">";
 		$html .= "<video ";
 
