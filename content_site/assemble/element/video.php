@@ -26,6 +26,10 @@ class video
 		}
 		$html .= ' class="'. $videoFrameClass. '"';
 		$html .= ' data-player="'. $playerMode. '"';
+		if(a($_args, 'video_clickable') !== false)
+		{
+			$html .= ' data-clickable';
+		}
 		$html .= ">";
 		$html .= "<video ";
 
@@ -62,11 +66,6 @@ class video
 		if(a($_args, 'video_muted'))
 		{
 			$html .= 'muted ';
-		}
-
-		if(a($_args, 'video_clickable') !== false)
-		{
-			$html .= 'data-clickable ';
 		}
 
 		if(a($_args, 'video_disablepictureinpicture'))
