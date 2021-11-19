@@ -97,7 +97,7 @@ foreach (\dash\data::conversation() as $key => $value)
       <img src="<?php echo \dash\fit::img(a($value, 'file'), 460); ?>" alt="attachment">
     </a>
 <?php } else { ?>
-    <a class="attachment btn-dark" target="_blank" href="<?php echo a($value, 'file') ?>"><i class="sf-attach mRa10"></i> <?php echo T_("Show Attachment") ?></a>
+    <a class="btn-dark btn-icon attachment" target="_blank" href="<?php echo a($value, 'file') ?>"><?php echo \dash\utility\icon::bootstrap('paperclip'); ?><?php echo T_("Show Attachment") ?></a>
 <?php }//endif ?>
   </div>
 <?php }//endif ?>
