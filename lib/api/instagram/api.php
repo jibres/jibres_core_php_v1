@@ -45,9 +45,26 @@ class api
 			return false;
 		}
 
-	    $url = self::$instagram->getLoginUrl(['basic', 'user_profile'], $_token);
+	    $url = self::$instagram->getLoginUrl(['basic', 'user_profile', 'user_media'], $_token);
 
 	    return $url;
 	}
+
+
+	public static function getOAuthToken($_code = null)
+	{
+		if(!self::config())
+		{
+			return false;
+		}
+
+	    $result = self::$instagram->getOAuthToken($_code);
+
+	    return $result;
+	}
+
+
+
+
 }
 ?>

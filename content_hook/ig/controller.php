@@ -10,28 +10,19 @@ class controller
 	 */
 	public static function routing()
 	{
-		if(\dash\request::get('run'))
+		$code  = \dash\request::get('code');
+		$state = \dash\request::get('state');
+
+		$redirect_url = \lib\app\instagram\check::login_callback($code, $state);
+
+		if($redirect_url)
 		{
-			$url = \lib\api\instagram\api::getLoginUrl();
-			var_dump($url);
-		}
-		\dash\code::jsonBoom(['get' => $_GET, 'post' => $_POST]);
-
-		$myhook = \dash\social\telegram\tg::setting('hookFolder');
-
-		if(\dash\url::child() === $myhook)
-		{
-			// \dash\temp::set('clesnse_not_end_with_error', true);
-
-			// fire telegram api
-			\dash\social\telegram\tg::fire();
-
-			// bobooom :)
-			\dash\code::boom();
+			\dash\redirect::to($redirect_url);
+			return;
 		}
 
 		// log access to this url
-		\dash\log::set('tgUnauthorizedAccess');
+		\dash\log::set('InstagramAPIInvalidCallbackDetail');
 		\dash\header::status(404);
 	}
 }

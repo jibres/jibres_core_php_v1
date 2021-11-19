@@ -37,6 +37,23 @@ class get
 	}
 
 
+	public static function by_code($_code)
+	{
+		$id = \dash\store_coding::decode_raw($_code);
+		$id = \dash\validate::id($id, false);
+		if($id)
+		{
+			$by_id_detail = \lib\db\store\get::detail($id);
+			if($by_id_detail)
+			{
+				return $by_id_detail;
+			}
+		}
+
+		return null;
+	}
+
+
 	public static function data_by_id($_id)
 	{
 		$_id = \dash\validate::id($_id, false);
