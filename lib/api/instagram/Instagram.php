@@ -1,5 +1,5 @@
 <?php
-namespace dash\social\instagram\src;
+namespace lib\api\instagram;
 
 
 /**
