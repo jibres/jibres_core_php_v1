@@ -30,7 +30,7 @@ class menu
 		}
 		$html = null;
 
-		if($load_menu)
+		if($load_menu && is_array(a($load_menu, 'list')))
 		{
 			$html = '<nav';
 			if(a($_arg, 'nav_class'))
@@ -40,11 +40,7 @@ class menu
 			$html .= '>';
 			// loop to create list item
 			{
-				// var_dump($load_menu);
-				if($load_menu && is_array(a($load_menu, 'list')))
-				{
-					$html .= self::menuLi($load_menu['list'], 1, $_arg);
-				}
+				$html .= self::menuLi($load_menu['list'], 1, $_arg);
 			}
 			$html .= '</nav>';
 		}
