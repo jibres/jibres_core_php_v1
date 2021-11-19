@@ -11,7 +11,7 @@
       <div class="box">
         <div class="pad">
           <label for='idesc'><?php echo T_("Description") ?> <small><?php echo T_("This is the text that the customer has registered in the order.") ?></small></label>
-          <textarea name="desc" class="txt" id="idesc" rows="3"><?php echo a($orderDetail, 'factor', 'desc'); ?></textarea>
+          <textarea rows="5" data-rows-min="5" data-autoResize name="desc" class="txt" id="idesc" rows="3"><?php echo a($orderDetail, 'factor', 'desc'); ?></textarea>
         </div>
         <footer class="txtRa">
           <button class="btn master"><?php echo T_("Save") ?></button>
