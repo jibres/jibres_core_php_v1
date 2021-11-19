@@ -42,6 +42,8 @@ class video
 		{
 			$html .= "controls ";
 		}
+			$html .= "preload='metadata' ";
+
 
 		if(a($_args, 'video_loop'))
 		{
