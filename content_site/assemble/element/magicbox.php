@@ -154,7 +154,7 @@ class magicbox
 				$card .= "<$mediaElementType class='$mediaBoxClass'>";
 				{
 
-					$imgClass = 'object-cover w-full h-full';
+					$imgClass = 'object-cover w-full h-full overflow-hidden';
 					if(a($_args, 'coverratio') === 'free')
 					{
 						$imgClass = 'h-auto w-full';
@@ -169,7 +169,7 @@ class magicbox
 						$video_args          = $_item;
 						$video_args['src']   = \lib\filepath::fix(a($_item, $file_index), 'raw');
 						$video_args['class'] = $imgClass;
-						// $video_args['videoFrameClass'] = '123';
+						$video_args['videoFrameClass'] = $imgClass;
 
 						$card .= video::html($video_args);
 					}

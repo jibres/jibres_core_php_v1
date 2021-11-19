@@ -9,7 +9,7 @@ class video
 		$html = '';
 
 		$src      = a($_args, 'src');
-		$imgClass = a($_args, 'class');
+		$videoClass = a($_args, 'class');
 		$videoFrameClass = 'videoFrame';
 
 		$html .= "<div";
@@ -68,7 +68,7 @@ class video
 			$html .= "data-poster='". \lib\filepath::fix($_args['video_poster']). "'";
 		}
 
-		$html .= " class='$imgClass'>";
+		$html .= " class='plyr $videoClass'>";
 
 		$html .= "<source data-src='$src' type='". a($_args, 'file_detail', 'mime'). "'>";
 		$html .= "</video>";
