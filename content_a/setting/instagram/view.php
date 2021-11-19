@@ -22,9 +22,9 @@ class view
 		// $instagram_user_id = '17841401959306742';
 		if($instagram_access_token && $instagram_user_id)
 		{
-			$media = \lib\api\instagram\api::getUserMedia($instagram_access_token, $instagram_user_id);
-			var_dump($media);
-			var_dump($instagram_access_token);exit;
+			// $media = \lib\api\instagram\api::getUserMedia($instagram_access_token, $instagram_user_id);
+			// var_dump($media);
+			// var_dump($instagram_access_token);exit;
 		}
 	}
 }
