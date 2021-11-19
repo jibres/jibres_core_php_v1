@@ -28,7 +28,7 @@ class h_rafiei2_html
 
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'pt-3 md:pt-5 lg:pt-10 pb-0.5 sm:pb-1 md:pb-2 lg:pb-4 select-none']);
 			{
-				$html .= '<div class="flex align-center h-20 rounded-lg relative py-2 px-4 overflow-hidden1" style="background-color:'. $color. ';">';
+				$html .= '<div class="flex align-center h-20 rounded-lg relative py-2 px-4 overflow-hidden" style="background-color:'. $color. ';">';
 				{
 					$html .= '<a href="'. \dash\url::kingdom() .'" class="h-16 w-24 siteLogo rounded-lg overflow-hidden">';
 					$html .= '<img class="block mx-auto h-full" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
@@ -48,6 +48,10 @@ class h_rafiei2_html
 					$html .= '<div class="flex-grow"></div>';
 					// socialNetwork
 					$html .= \content_site\assemble\wrench\socialnetworks::type2(\lib\store::social(), 8);
+					$symbolStyle = 'background-image: url('. \dash\url::cdn() .'/enterprise/rafiei/v2/symbol-1.svg);background-size:cover;';
+					$symbolStyle .= 'position:absolute;width:180px;height:150px;left:280px;top:-30px;';
+
+					$html .= '<div id="bgHeader" class="opacity-70" style="'. $symbolStyle. '"></div>';
 				}
 				$html .= '</div>';
 			}
