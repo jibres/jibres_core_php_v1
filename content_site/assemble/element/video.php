@@ -11,6 +11,13 @@ class video
 		$src      = a($_args, 'src');
 		$videoClass = a($_args, 'class');
 		$videoFrameClass = 'videoFrame';
+		$playerMode = a($_args, 'videoPlayer');
+		if(!$playerMode)
+		{
+			// plyr
+			// video-js
+			$playerMode = 'default';
+		}
 
 		$html .= "<div";
 		if(a($_args, 'videoFrameClass'))
@@ -18,10 +25,14 @@ class video
 			$videoFrameClass .= ' '. a($_args, 'videoFrameClass');
 		}
 		$html .= ' class="'. $videoFrameClass. '"';
+		$html .= ' data-player="'. $playerMode. '"';
 		$html .= ">";
 		$html .= "<video ";
 
-		$html .= "data-src='". $src. "' ";
+		if($playerMode === 'default')
+		{
+			$html .= "data-src='". $src. "' ";
+		}
 
 		if(a($_args, 'video_controls') !== false)
 		{
@@ -65,12 +76,30 @@ class video
 
 		if(a($_args, 'video_poster'))
 		{
-			$html .= "data-poster='". \lib\filepath::fix($_args['video_poster']). "'";
+			if($playerMode === 'default')
+			{
+				$html .= "data-poster";
+			}
+			else
+			{
+				$html .= "poster";
+			}
+			$html .= "='". \lib\filepath::fix($_args['video_poster']). "' ";
 		}
 
-		$html .= " class='plyr $videoClass'>";
+		$html .= " class='". $videoClass. "'>";
 
-		$html .= "<source data-src='$src' type='". a($_args, 'file_detail', 'mime'). "'>";
+		$html .= "<source ";
+		if($playerMode === 'default')
+		{
+			$html .= "data-src";
+		}
+		else
+		{
+			$html .= "src";
+		}
+		$html .= "='". $src. "'";
+		$html .= " type='". a($_args, 'file_detail', 'mime'). "'>";
 		$html .= "</video>";
 		$html .= "</div>";
 
