@@ -25,30 +25,30 @@ class f_rafiei2
 				// 'heading_business_footer',
 				'description_business',
 
-				'file_business_logo_footer',
+				// 'file_business_logo_footer',
 				'menu_1',
 				// 'menu_2',
 				// 'menu_3',
 				// 'menu_4',
-				'description_copyright',
+				// 'description_copyright',
 				'certificate_enamad',
 				'certificate_samandehi',
-				'style' => \content_site\utility::set_style_option(
-				[
-					'font',
-					'container',
-					'background_pack',
-					'color_heading',
-					'color_text',
-					'link_color',
-				]),
+				// 'style' => \content_site\utility::set_style_option(
+				// [
+				// 	// 'font',
+				// 	// 'container',
+				// 	// 'background_pack',
+				// 	// 'color_heading',
+				// 	// 'color_text',
+				// 	// 'link_color',
+				// ]),
 				'responsive' => \content_site\utility::set_responsive_option_footer(),
 
 			],
 			'default'      =>
 			[
-				'use_as_logo'           => 'business_logo',
-				'use_as_heading'        => 'business_heading',
+				// 'use_as_logo'           => 'business_logo',
+				// 'use_as_heading'        => 'business_heading',
 				'use_as_description'    => 'business_description',
 				'certificate_samandehi' => true,
 				'certificate_enamad'    => true,
