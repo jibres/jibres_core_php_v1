@@ -37,6 +37,7 @@ class get
 			'token'        => $token,
 			'type'         => 'login',
 			'username'     => null,
+			'pwd'          => \dash\url::pwd(),
 			'code'         => null,
 			'status'       => 'enable',
 			'send'         => null,

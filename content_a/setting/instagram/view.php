@@ -9,6 +9,10 @@ class view
 
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/social');
+
+
+		$instagram_user_id = \lib\app\instagram\get::user_id();
+		\dash\data::instagramUserId($instagram_user_id);
 	}
 }
 ?>
