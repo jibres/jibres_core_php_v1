@@ -64,7 +64,16 @@ foreach (\dash\data::conversation() as $key => $value)
       <footer class="row<?php if($otherSide) {echo " f-row-reverse";} ?>">
         <?php if(!$userText && !$customer_mode) {?>
         <div class="c-auto">
-          <i class="sf-check<?php if(a($value, 'see')) {echo ' seen';} ?>" title="<?php echo T_("Seen") ?>"></i>
+<?php
+  if(a($value, 'see'))
+  {
+    echo \dash\utility\icon::bootstrap('check-all', 'w-5 h-5 text-blue-600');
+  }
+  else
+  {
+    echo \dash\utility\icon::bootstrap('check', 'w-5 h-5');
+  }
+?>
         </div>
         <?php } //endif ?>
 <?php
