@@ -129,7 +129,7 @@ trait description
 			{
 	    		$html .= '<label for="description">'. $title. '</label>';
 			}
-	    	$html .= '<textarea class="txt" name="description" rows="3"';
+	    	$html .= '<textarea class="txt" name="description" rows="3" data-rows-min="3" data-autoResize';
 	    	if(self::simple_editor())
 	    	{
 	    		// $html .= ' data-editor="simple"';
