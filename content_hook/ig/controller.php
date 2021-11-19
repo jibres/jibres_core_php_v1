@@ -15,7 +15,7 @@ class controller
 			$url = \lib\api\instagram\api::getLoginUrl();
 			var_dump($url);
 		}
-		\dash\code::jsonBoom(['server' => $_SERVER, 'get' => $_GET, 'post' => $_POST]);
+		\dash\code::jsonBoom(['get' => $_GET, 'post' => $_POST]);
 
 		$myhook = \dash\social\telegram\tg::setting('hookFolder');
 
