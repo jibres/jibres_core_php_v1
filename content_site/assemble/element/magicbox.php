@@ -250,7 +250,7 @@ class magicbox
 				if(a($_args, 'magicbox_title_position') === 'inside')
 				{
 
-					$card .= "<div class='absolute inset-x-0 bottom-0 block px-4 py-2 z-10 transition $cardClass'>";
+					$card .= "<div data-magic-caption class='absolute inset-x-0 bottom-0 block px-4 py-2 z-10 transition $cardClass'>";
 					{
 						if($showTitle)
 						{
