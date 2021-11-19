@@ -115,6 +115,12 @@ class magicbox
 		{
 			$elementTag .= ' '. $elClass;
 		}
+		// add playing mode for autoplay video
+		if(a($_item, 'video_autoplay'))
+		// if(a($_item, 'video_autoplay') && a($_item, 'video_muted'))
+		{
+			$elementTag .= ' data-playing';
+		}
 		$elementTag .= '>';
 
 		$card = $elementTag;
