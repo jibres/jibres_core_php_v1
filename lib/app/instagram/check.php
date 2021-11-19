@@ -61,19 +61,26 @@ class check
 		if(isset($getOAuthToken->access_token))
 		{
 			$access_token = $getOAuthToken->access_token;
+			\lib\db\setting\update::overwirte_cat_key_fuel($access_token, 'instagram', 'access_token', $load_store['fuel'], $db_name);
 		}
 
 		if(isset($getOAuthToken->user_id))
 		{
 			$user_id = $getOAuthToken->user_id;
+			\lib\db\setting\update::overwirte_cat_key_fuel($user_id, 'instagram', 'user_id', $load_store['fuel'], $db_name);
 		}
 
-		var_dump($access_token, $user_id);exit;
+
+		$result = [];
+
+		$result['redirect'] = \dash\url::kingdom();
 
 		if(a($load, 'pwd'))
 		{
-			return $load['pwd'];
+			$result['redirect'] = $load['pwd'];
 		}
+
+		return $result;
 
 	}
 }

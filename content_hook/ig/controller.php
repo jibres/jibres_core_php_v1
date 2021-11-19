@@ -15,9 +15,9 @@ class controller
 
 		$redirect_url = \lib\app\instagram\check::login_callback($code, $state);
 
-		if($redirect_url)
+		if(a($redirect_url, 'redirect'))
 		{
-			\dash\redirect::to($redirect_url);
+			\dash\redirect::to(a($redirect_url, 'redirect'));
 			return;
 		}
 
