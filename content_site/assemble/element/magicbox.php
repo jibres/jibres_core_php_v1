@@ -263,12 +263,12 @@ class magicbox
 					{
 						$cardClass .= ' bottom-0';
 					}
-					$card .= "<div data-magic-caption class='absolute inset-x-0 block px-4 py-2 z-10 transition $cardClass'>";
+					$card .= "<div data-magic-caption class='absolute flex inset-x-0 block px-4 py-2 z-10 transition $cardClass'>";
 					{
 						if($showTitle)
 						{
 							// title
-							$card .= "<h3 class='leading-7 line-clamp-3'>";
+							$card .= "<h3 class='flex-grow leading-7 line-clamp-3'>";
 							{
 								$card .= $myTitle;
 							}
@@ -278,6 +278,10 @@ class magicbox
 						if($showPrice)
 						{
 							$card .= \content_site\assemble\wrench\price::simple1($_item);
+						}
+						if(a($_item, 'file_detail', 'type') === 'video')
+						{
+							$card .= '<span class="duration"></span>';
 						}
 					}
 					$card .= '</div>';
