@@ -64,6 +64,24 @@ class api
 	}
 
 
+	public static function getUserMedia($_access_token, $_user_id)
+	{
+		if(!self::config())
+		{
+			return false;
+		}
+
+		self::$instagram->setAccessToken($_access_token);
+
+	    $result = self::$instagram->getUserMedia($_user_id);
+
+	    return $result;
+	}
+
+
+
+
+
 
 
 }
