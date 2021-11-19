@@ -87,6 +87,7 @@ class option
 			'video_disablepictureinpicture_gallery',
 			'video_poster_gallery',
 			'caption_gallery',
+			'description_gallery',
 			'link_gallery',
 			'target_gallery',
 			'image_remove',
