@@ -5,7 +5,7 @@ class get
 {
 	public static function access_token()
 	{
-		$load = \lib\app\setting\get::by_cat_key('instagram', 'access_token');
+		$load = \lib\db\setting\get::by_cat_key('instagram', 'access_token');
 		if(isset($load['value']))
 		{
 			return $load['value'];
@@ -16,7 +16,7 @@ class get
 
 	public static function user_id()
 	{
-		$load = \lib\app\setting\get::by_cat_key('instagram', 'user_id');
+		$load = \lib\db\setting\get::by_cat_key('instagram', 'user_id');
 		if(isset($load['value']))
 		{
 			return $load['value'];
