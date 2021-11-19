@@ -13,6 +13,10 @@ class view
 
 		$instagram_user_id = \lib\app\instagram\get::user_id();
 		\dash\data::instagramUserId($instagram_user_id);
+
+
+		$instagram_access_token = \lib\app\instagram\get::access_token();
+		\dash\data::instagramAccessToken($instagram_access_token);
 	}
 }
 ?>
