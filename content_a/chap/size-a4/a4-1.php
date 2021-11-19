@@ -122,7 +122,7 @@ if(is_array(\dash\data::invoiceDetail()))
 <div class="f">
   <div class="c">
     <?php if(\dash\data::invoice_desc()) {?>
-      <p class="text-sm bg-gray-50 p-2 mb-1 mt-2 leading-7 text-gray-800"><?php echo nl2br(\dash\data::invoice_desc()) ?></p>
+      <p class="alert2 lg text-sm mb-1 mt-2 leading-7"><?php echo nl2br(\dash\data::invoice_desc()) ?></p>
     <?php } //endif ?>
   </div>
   <?php if(floatval(\dash\data::invoice_total()) !== floatval($tableTotal['FinalPrice'])) {?>
