@@ -23,27 +23,27 @@ class h_rafiei2
 			'title'        => T_("Rafiei Header v2"),
 			'options'      =>
 			[
-				'file_business_logo_header',
+				// 'file_business_logo_header',
 				'menu_1',
 				'announcement' => \content_site\utility::set_announcement(),
-				'style' => \content_site\utility::set_style_option(
-				[
-					'font',
-					'container',
-					'background_pack',
-					'link_color',
-					'background_color_header_line',
-				]),
+				// 'style' => \content_site\utility::set_style_option(
+				// [
+				// 	'font',
+				// 	'container',
+				// 	'background_pack',
+				// 	'link_color',
+				// 	'background_color_header_line',
+				// ]),
 				'responsive' => \content_site\utility::set_responsive_option_header(),
 
 			],
 			'default'      =>
 			[
-				'use_as_logo'    => 'business_logo',
-				'use_as_heading' => 'business_heading',
-				'link_search'    => true,
-				'link_enter'     => true,
-				'link_cart'      => true,
+				// 'use_as_logo'    => 'business_logo',
+				// 'use_as_heading' => 'business_heading',
+				// 'link_search'    => true,
+				// 'link_enter'     => true,
+				// 'link_cart'      => true,
 				'container'      => 'xl',
 			],
 
@@ -65,11 +65,11 @@ class h_rafiei2
 			'version'        => 1,
 			'options' =>
 			[
-				'use_as_logo'              => 'business_logo',
+				// 'use_as_logo'              => 'business_logo',
 				'use_as_heading'           => 'business_heading',
-				'link_search'              => true,
-				'link_enter'               => true,
-				'link_cart'                => true,
+				// 'link_search'              => true,
+				// 'link_enter'               => true,
+				// 'link_cart'                => true,
 			],
 		];
 	}
