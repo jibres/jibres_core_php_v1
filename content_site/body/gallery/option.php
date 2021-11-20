@@ -76,11 +76,12 @@ class option
 		return
 		[
 			'file_gallery',
-			'video_loop_gallery',
+			'video_clickable_gallery',
 			'video_controls_gallery',
+			'video_loop_gallery',
+
 			'video_autoplay_gallery',
 			'video_muted_gallery',
-			'video_clickable_gallery',
 
 			'video_nodownload_gallery',
 			'video_nofullscreen_gallery',
