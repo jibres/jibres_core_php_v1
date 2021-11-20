@@ -9,7 +9,7 @@ namespace dash\pdo;
 class query_template
 {
 
-	public static function insert($_table, $_args, $_option = [])
+	public static function insert($_table, $_args, $_fuel = null, $_option = [])
 	{
 		if(empty($_args))
 		{
@@ -45,13 +45,13 @@ class query_template
 
 		$query .= implode(',', $query_set);
 
-		$result = \dash\pdo::query($query, $param);
+		$result = \dash\pdo::query($query, $param, $_fuel, $_option);
 
 		return \dash\pdo::insert_id();
 	}
 
 
-	public static function update($_table, $_args, $_id, $_fuel = null, $_db_name = null)
+	public static function update($_table, $_args, $_id, $_fuel = null, $_option = [])
 	{
 		if(empty($_args))
 		{
@@ -84,32 +84,32 @@ class query_template
 
 		$param[':_id'] = $_id;
 
-		$result = \dash\pdo::query($query, $param, $_fuel, ['database' => $_db_name]);
+		$result = \dash\pdo::query($query, $param, $_fuel, $_option);
 
 		return $result;
 	}
 
 
 
-	public static function get($_table, $_id, $_fuel = null, $_db_name = null)
+	public static function get($_table, $_id, $_fuel = null, $_option = [])
 	{
 		$query = "SELECT * FROM `$_table` WHERE `$_table`.`id` = :_id LIMIT 1 ";
 
 		$param = [':_id' => $_id];
 
-		$result = \dash\pdo::get($query, $param, null, true, $_fuel, ['database' => $_db_name]);
+		$result = \dash\pdo::get($query, $param, null, true, $_fuel, $_option);
 
 		return $result;
 	}
 
 
-	public static function get_for_update($_table, $_id, $_fuel = null, $_db_name = null)
+	public static function get_for_update($_table, $_id, $_fuel = null, $_option = [])
 	{
 		$query = "SELECT * FROM `$_table` WHERE `$_table`.`id` = :_id LIMIT 1 FOR UPDATE ";
 
 		$param = [':_id' => $_id];
 
-		$result = \dash\pdo::get($query, $param, null, true, $_fuel, ['database' => $_db_name]);
+		$result = \dash\pdo::get($query, $param, null, true, $_fuel, $_option);
 
 		return $result;
 	}

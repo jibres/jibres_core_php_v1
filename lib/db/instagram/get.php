@@ -8,7 +8,7 @@ class get
 	{
 		$query  = "SELECT * FROM instagram WHERE instagram.id = :id LIMIT 1 ";
 		$param  = [':id' => $_id];
-		$result = \dash\pdo::get($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param, null, true, 'api');
 		return $result;
 	}
 
