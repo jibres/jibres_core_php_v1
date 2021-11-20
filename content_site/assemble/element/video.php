@@ -30,6 +30,10 @@ class video
 		{
 			$html .= ' data-clickable';
 		}
+		if(a($_args, 'video_controls') !== false)
+		{
+			$html .= " data-controls";
+		}
 		$html .= ">";
 		$html .= "<video ";
 
@@ -40,9 +44,16 @@ class video
 
 		if(a($_args, 'video_controls') !== false)
 		{
-			$html .= "controls ";
+			if(a($_args, 'video_clickable') !== false)
+			{
+				// if clickable dont show controls, handle with js
+			}
+			else
+			{
+				$html .= "controls ";
+			}
 		}
-			$html .= "preload='metadata' ";
+		$html .= "preload='metadata' ";
 
 
 		if(a($_args, 'video_loop'))
