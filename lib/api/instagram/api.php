@@ -17,7 +17,7 @@ class api
 
 	private static function config()
 	{
-		// $account = 'reza_test';
+		$account = 'reza_test';
 		$account = 'jibres_consumer';
 		self::$load_setting = \dash\setting\whisper::say('instagram', $account);
 	}
