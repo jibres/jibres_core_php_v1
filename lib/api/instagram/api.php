@@ -201,7 +201,7 @@ class api
 			'url'    => $_user_id. '/media',
 			'param'  =>
 			[
-				'fields'     => implode(',', ['id', 'media_type', 'media_url']),
+				'fields'     => implode(',', ['caption','id','media_type','media_url','permalink','thumbnail_url','timestamp','username']),
 				'access_token' => $_access_token,
 
 			],
