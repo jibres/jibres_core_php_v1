@@ -12,6 +12,11 @@ class caption_gallery_button
 		return T_("Button title");
 	}
 
+	public static function db_key()
+	{
+		return 'btn_title';
+	}
+
 
 
 	public static function specialsave($_data)
