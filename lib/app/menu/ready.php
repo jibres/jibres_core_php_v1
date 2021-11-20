@@ -44,6 +44,11 @@ class ready
 			$result['url'] = \lib\filepath::fix($result['file']);
 		}
 
+		if(isset($result['pointer']) && $result['pointer'] === 'homepage')
+		{
+			$result['url'] = \lib\store::url();
+		}
+
 		$result['child'] = [];
 		return $result;
 	}
