@@ -332,6 +332,15 @@ class magicbox
 		}
 		$html .= '</div>';
 
+		// show btn
+		if($myBtnText)
+		{
+			$html .= "<div class='leading-7 line-clamp-1 text-sm'>";
+			{
+				$html .= $myBtnText;
+			}
+			$html .= '</div>';
+		}
 
 		if(a($_itemData, 'file_detail', 'type') === 'video')
 		{
