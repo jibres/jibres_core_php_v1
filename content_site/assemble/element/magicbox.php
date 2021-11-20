@@ -255,7 +255,7 @@ class magicbox
 
 				if(a($_args, 'magicbox_title_position') === 'inside')
 				{
-					if(a($_item, 'video_controls'))
+					if(a($_item, 'video_controls') && a($_item, 'video_clickable') === false)
 					{
 						$cardClass .= ' top-0';
 					}
