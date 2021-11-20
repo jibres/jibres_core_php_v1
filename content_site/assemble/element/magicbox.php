@@ -335,10 +335,15 @@ class magicbox
 		// show btn
 		if($myBtnText)
 		{
-			$btnClass = 'btn-primary btn-sm';
+			$btnClass = 'btn-primary';
 			if(a($_args, 'btn_color'))
 			{
-				$btnClass = 'btn-'. a($_args, 'btn_color'). ' btn-sm';
+				$btnClass = 'btn-'. a($_args, 'btn_color');
+			}
+			$btnClass .= ' btn-sm';
+			if(a($_args, 'radius:class'))
+			{
+				$btnClass .= ' '. a($_args, 'radius:class');
 			}
 			$html .= "<div class='". $btnClass. "'>";
 			{
