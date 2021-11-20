@@ -263,7 +263,7 @@ class magicbox
 					{
 						$cardClass .= ' bottom-0';
 					}
-					$card .= "<div data-magic-caption class='absolute flex align-center inset-x-0 block px-2 lg:px-4 py-2 lg:py-4 z-10 transition $cardClass'>";
+					$card .= "<div data-magic-caption class='absolute flex align-center inset-x-0 block px-2 lg:px-3 py-2 lg:py-3 z-10 transition $cardClass'>";
 					{
 						$card .= self::htmlCaptionBox($_item, $_args, $showTitle, $showPrice);
 					}
