@@ -20,7 +20,7 @@ class link_color_magicbox_button
 
 	public static function db_key()
 	{
-		return 'button_color';
+		return 'btn_color';
 	}
 
 
