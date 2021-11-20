@@ -45,7 +45,7 @@ class api
 			return false;
 		}
 
-	    $url = self::$instagram->getLoginUrl(['user_profile','public_content','user_media','basic','likes','comments','relationships'], $_token);
+	    $url = self::$instagram->getLoginUrl(['user_profile','public_content','user_media','user_photos','basic','likes','comments'], $_token);
 
 	    return $url;
 	}
@@ -78,6 +78,24 @@ class api
 	    return $result;
 	}
 
+
+	public static function __callStatic($_fn, $_args)
+	{
+
+		if(!self::config())
+		{
+			return false;
+		}
+
+		$access_token = a($_args, 0);
+		$user_id      = a($_args, 1);
+
+		self::$instagram->setAccessToken($access_token);
+
+	    $result = self::$instagram->$_fn($user_id);
+
+	    return $result;
+	}
 
 
 
