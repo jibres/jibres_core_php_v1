@@ -335,7 +335,12 @@ class magicbox
 		// show btn
 		if($myBtnText)
 		{
-			$html .= "<div class='leading-7 line-clamp-1 text-sm rounded px-1 lg:px-2 bg-blue-700'>";
+			$btnClass = 'btn-primary btn-sm';
+			// if(a($_args, 'link_color'))
+			// {
+			// 	$btnClass .= ' link-'. a($_args, 'link_color');
+			// }
+			$html .= "<div class='". $btnClass. "'>";
 			{
 				$html .= $myBtnText;
 			}
