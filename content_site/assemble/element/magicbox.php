@@ -193,18 +193,19 @@ class magicbox
 						}
 					}
 				}
-				$card .= "</$mediaElementType>";
-			}
 
-			// add gradinet effect if exist
-			if($effect === 'gradient')
-			{
-				$gradientTo = a($_args, 'effect_gradient_to');
-				$gradientType = a($_args, 'effect_gradient_type');
-				$gradientStyle = 'position:absolute;top:0;bottom:0;right:0;left:0;';
-				$gradientStyle .= 'background:linear-gradient('. $gradientType. ', transparent 20%, '. $gradientTo. ' 100%)';
-				$card .= '<div style="'. $gradientStyle. '">';
-				$card .= "</div>";
+				// add gradinet effect if exist
+				if($effect === 'gradient')
+				{
+					$gradientTo = a($_args, 'effect_gradient_to');
+					$gradientType = a($_args, 'effect_gradient_type');
+					$gradientStyle = 'position:absolute;top:0;bottom:0;right:0;left:0;';
+					$gradientStyle .= 'background:linear-gradient('. $gradientType. ', transparent 10%, '. $gradientTo. ' 80%, '. $gradientTo. ' 100%)';
+					$card .= '<div style="'. $gradientStyle. '">';
+					$card .= "</div>";
+				}
+
+				$card .= "</$mediaElementType>";
 			}
 
 
