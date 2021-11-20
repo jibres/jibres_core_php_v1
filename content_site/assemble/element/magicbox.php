@@ -344,7 +344,7 @@ class magicbox
 
 		if(a($_itemData, 'file_detail', 'type') === 'video')
 		{
-			$html .= '<div data-duration class="flex-none bg-gray-800 rounded px-1"></div>';
+			$html .= '<div data-duration class="flex-none bg-gray-800 text-white rounded px-1"></div>';
 		}
 
 		return $html;
