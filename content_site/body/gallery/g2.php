@@ -47,6 +47,7 @@ class g2
 					'effect',
 					'image_mask',
 					'link_color_magicbox_title',
+					'link_color_magicbox_button',
 				]),
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],

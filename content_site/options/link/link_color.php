@@ -23,7 +23,7 @@ trait link_color
 	{
 		$new_data                       = [];
 
-		$new_data['link_color']  = \dash\validate::enum(a($_data, 'link_color'), false, ['enum' => array_column(self::link_color(), 'key')]);
+		$new_data[self::db_key()]  = \dash\validate::enum(a($_data, self::db_key()), false, ['enum' => array_column(self::link_color(), 'key')]);
 
 		\content_site\utility::need_redirect(true);
 
@@ -42,11 +42,16 @@ trait link_color
 		return true;
 	}
 
+	public static function title()
+	{
+		return T_("Link mode");
+	}
+
 
 	public static function admin_html()
 	{
 
-		$link_color = \content_site\section\view::get_current_index_detail('link_color');
+		$link_color = \content_site\section\view::get_current_index_detail(self::db_key());
 
 		$html = '';
 
@@ -55,7 +60,7 @@ trait link_color
 
 			$html .= '<div class="mt-5 mb-5">';
 			{
-				$html .= "<label class='block mT10-f'>". T_("Link mode"). "</label>";
+				$html .= "<label class='block mT10-f'>". self::title(). "</label>";
 				$html .= '<div class="relative grid grid-cols-8 gap-1">';
 				{
 					$list = self::link_color();
@@ -74,7 +79,7 @@ trait link_color
 							$selected = '<svg xmlns="http://www.w3.org/2000/svg" fill="'. $checkColor. '" width="24" height="24" viewBox="0 0 24 24" class="p-1.5 mx-auto"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>';
 						}
 
-						$json = json_encode(['opt_'. \content_site\utility::className(__CLASS__) => 1, 'multioption' => 'multi', 'link_color' => $value['key']]);
+						$json = json_encode(['opt_'. \content_site\utility::className(__CLASS__) => 1, 'multioption' => 'multi', self::db_key() => $value['key']]);
 
 						$html .= "<button data-ajaxify data-data='$json' class='btn-$value[key] btn-circle transition shadow hover:shadow-md'>$selected</button>";
 
