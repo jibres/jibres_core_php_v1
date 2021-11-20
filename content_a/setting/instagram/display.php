@@ -33,11 +33,11 @@
           </div>
         <?php }//endif ?>
 
-        <div data-confirm data-data='{"instagram": "remove_token"}' data-method='post' class="btn-danger" ><?php echo T_("Remove"); ?></div>
+        <div data-confirm data-data='{"ig_action": "remove_token"}' data-method='post' class="btn-danger" ><?php echo T_("Remove"); ?></div>
         <?php } //endif ?>
     </div>
     <footer class="txtRa">
-      <div data-ajaxify data-data='{"instagram": "login"}' data-method='post' class="btn-primary" ><?php echo T_("Connect"); ?></div>
+      <div data-ajaxify data-data='{"ig_action": "login"}' data-method='post' class="btn-primary" ><?php echo T_("Connect"); ?></div>
     </footer>
   </div>
 
