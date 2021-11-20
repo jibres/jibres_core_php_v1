@@ -204,6 +204,10 @@ class option
 				{
 					if(is_array(a($value, 'body')))
 					{
+						if(a($value, 'url') && !a($value, 'body', 'url'))
+						{
+							$value['body']['url'] = a($value, 'url');
+						}
 						$value = array_merge($value, $value['body']);
 					}
 
