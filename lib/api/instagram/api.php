@@ -12,25 +12,46 @@ class api
 
 	private static $result_raw = [];
 
+	private static $load_setting = [];
+
+
+	private static function config()
+	{
+		// $account = 'reza_test';
+		$account = 'jibres_consumer';
+		self::$load_setting = \dash\setting\whisper::say('instagram', $account);
+	}
+
 
 	private static function app_id()
 	{
-		return '887342455486578';
+		self::config();
+		return a(self::$load_setting, 'app_id');
 	}
 
 
 	private static function app_secret()
 	{
-		return '6b8920f3c83407cae4e48a234d457d99';
+		self::config();
+		return a(self::$load_setting, 'secretkey');
 	}
 
 
 	private static function redirect_uri()
 	{
-		return 'https://jibres.ir/hook/ig/';
+		self::config();
+		return a(self::$load_setting, 'redirect_uri');
 	}
 
 
+	/**
+	 * Run
+	 * Connect to facebook
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	private static function run($_args)
 	{
 
@@ -213,6 +234,11 @@ class api
 	}
 
 
+	/**
+	 * Not working yet!
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function add_post()
 	{
 		$args =
