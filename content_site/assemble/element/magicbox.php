@@ -297,11 +297,31 @@ class magicbox
 		if($_showTitle)
 		{
 			// title
-			$html .= "<h3 class='flex-grow leading-7 line-clamp-3'>";
+			$html .= "<div class='flex-grow'>";
 			{
-				$html .= $myTitle;
+				if($myTitle)
+				{
+					$titleClass = 'leading-7 line-clamp-3 font-bold';
+					if($myDesc)
+					{
+						$titleClass .= ' text-xl';
+					}
+					$html .= "<h3 class='". $titleClass. "'>";
+					{
+						$html .= $myTitle;
+					}
+					$html .= '</h3>';
+				}
+				if($myDesc)
+				{
+					$html .= "<p class='leading-7 line-clamp-3 text-sm'>";
+					{
+						$html .= $myDesc;
+					}
+					$html .= '</p>';
+				}
 			}
-			$html .= '</h3>';
+			$html .= '</div>';
 		}
 
 		if($_showPrice)
