@@ -265,24 +265,7 @@ class magicbox
 					}
 					$card .= "<div data-magic-caption class='absolute flex align-center inset-x-0 block px-4 py-2 z-10 transition $cardClass'>";
 					{
-						if($showTitle)
-						{
-							// title
-							$card .= "<h3 class='flex-grow leading-7 line-clamp-3'>";
-							{
-								$card .= $myTitle;
-							}
-							$card .= '</h3>';
-						}
-
-						if($showPrice)
-						{
-							$card .= \content_site\assemble\wrench\price::simple1($_item);
-						}
-						if(a($_item, 'file_detail', 'type') === 'video')
-						{
-							$card .= '<span class="duration bg-gray-800 rounded px-1"></span>';
-						}
+						$card .= self::htmlCaptionBox($_item, $showTitle, $showPrice);
 					}
 					$card .= '</div>';
 				}
@@ -290,20 +273,7 @@ class magicbox
 				{
 					$card .= "<div class='block transition text-white px-4 py-2 z-10 $cardClass'>";
 					{
-						if($showTitle)
-						{
-							// title
-							$card .= "<h3 class='leading-7 line-clamp-3'>";
-							{
-								$card .= $myTitle;
-							}
-							$card .= '</h3>';
-						}
-
-						if($showPrice)
-						{
-							$card .= \content_site\assemble\wrench\price::simple1($_item);
-						}
+						$card .= self::htmlCaptionBox($_item, $showTitle, $showPrice);
 					}
 					$card .= '</div>';
 				}
@@ -315,5 +285,36 @@ class magicbox
 		return $card;
 	}
 
+
+	private static function htmlCaptionBox($_itemData, $_showTitle = null, $_showPrice = null)
+	{
+		$myTitle   = a($_itemData, 'title');
+		$myDesc    = a($_itemData, 'desc');
+		$myBtnText = a($_itemData, 'btn_title');
+
+		$html = '';
+
+		if($_showTitle)
+		{
+			// title
+			$html .= "<h3 class='flex-grow leading-7 line-clamp-3'>";
+			{
+				$html .= $myTitle;
+			}
+			$html .= '</h3>';
+		}
+
+		if($_showPrice)
+		{
+			$html .= \content_site\assemble\wrench\price::simple1($_itemData);
+		}
+
+		if(a($_itemData, 'file_detail', 'type') === 'video')
+		{
+			$html .= '<span class="duration bg-gray-800 rounded px-1"></span>';
+		}
+
+		return $html;
+	}
 }
 ?>
