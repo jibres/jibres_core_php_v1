@@ -6,12 +6,12 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('instagram') === 'remove_token')
+		if(\dash\request::post('ig_action') === 'remove_token')
 		{
 			\lib\app\instagram\remove::token();
 			return true;
 		}
-		elseif(\dash\request::post('instagram') === 'login')
+		elseif(\dash\request::post('ig_action') === 'login')
 		{
 			$instagramLoginUrl = \lib\app\instagram\get::login_url();
 
