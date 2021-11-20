@@ -24,6 +24,8 @@
         <p class="alert2-success"><?php echo T_("Connected.") ?></p>
         <code><?php echo \dash\data::instagramAccessToken() ?></code>
         <code><?php echo \dash\data::instagramUserId(); ?></code>
+
+        <div data-confirm data-data='{"instagram": "remove_token"}' data-method='post' class="btn-danger" ><?php echo T_("Remove"); ?></div>
         <?php } //endif ?>
       </div>
     </div>
