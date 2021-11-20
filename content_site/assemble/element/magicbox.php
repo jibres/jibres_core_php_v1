@@ -294,10 +294,10 @@ class magicbox
 
 		$html = '';
 
-		if($_showTitle)
+		// title
+		$html .= "<div class='flex-grow'>";
 		{
-			// title
-			$html .= "<div class='flex-grow'>";
+			if($_showTitle)
 			{
 				if($myTitle)
 				{
@@ -306,12 +306,14 @@ class magicbox
 					{
 						$titleClass .= ' text-xl';
 					}
+					// show title
 					$html .= "<h3 class='". $titleClass. "'>";
 					{
 						$html .= $myTitle;
 					}
 					$html .= '</h3>';
 				}
+				// show desc
 				if($myDesc)
 				{
 					$html .= "<p class='leading-7 line-clamp-3 text-sm'>";
@@ -321,13 +323,15 @@ class magicbox
 					$html .= '</p>';
 				}
 			}
-			$html .= '</div>';
-		}
 
-		if($_showPrice)
-		{
-			$html .= \content_site\assemble\wrench\price::simple1($_itemData);
+			// show price line
+			if($_showPrice)
+			{
+				$html .= \content_site\assemble\wrench\price::simple1($_itemData);
+			}
 		}
+		$html .= '</div>';
+
 
 		if(a($_itemData, 'file_detail', 'type') === 'video')
 		{
