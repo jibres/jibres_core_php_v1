@@ -335,7 +335,7 @@ class magicbox
 		// show btn
 		if($myBtnText)
 		{
-			$html .= "<div class='leading-7 line-clamp-1 text-sm'>";
+			$html .= "<div class='leading-7 line-clamp-1 text-sm rounded px-1 lg:px-2 bg-blue-700'>";
 			{
 				$html .= $myBtnText;
 			}
