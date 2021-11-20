@@ -34,14 +34,19 @@ class api
 	private static function run($_args)
 	{
 
-		if(a($_args, 'url'))
+		if(a($_args, 'raw_url'))
 		{
-			$master_url = $_args['url'];
+			$master_url = $_args['raw_url'];
 		}
 		else
 		{
 			$master_url = self::$graph_url;
 			$master_url .= '/'. self::$version;
+		}
+
+		if(a($_args, 'url'))
+		{
+			$master_url .= '/'. $_args['url'];
 		}
 
 		// get param
@@ -172,7 +177,7 @@ class api
 		$args =
 		[
 			'method' => 'post',
-			'url' => self::$api_url. '/oauth/access_token',
+			'raw_url' => self::$api_url. '/oauth/access_token',
 			'body' =>
 			[
 				'client_id'     => self::app_id(),
@@ -188,6 +193,22 @@ class api
 
 
 
+	public static function getUserMedia($_access_token, $_user_id)
+	{
+		$args =
+		[
+			'method' => 'get',
+			'url'    => $_user_id. '/media',
+			'param'  =>
+			[
+				'fields'     => implode(',', ['id', 'media_type', 'media_url']),
+				'access_token' => $_access_token,
+
+			],
+		];
+
+		return self::run($args);
+	}
 
 
 }

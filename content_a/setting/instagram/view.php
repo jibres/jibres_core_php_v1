@@ -18,6 +18,15 @@ class view
 		$instagram_access_token = \lib\app\instagram\get::access_token();
 		\dash\data::instagramAccessToken($instagram_access_token);
 
+
+
+		if($instagram_access_token)
+		{
+			$myPosts = \lib\app\instagram\get::get_my_posts();
+			\dash\data::myInstagramPosts($myPosts);
+		}
+
+
 	}
 }
 ?>

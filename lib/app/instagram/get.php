@@ -25,6 +25,31 @@ class get
 		return null;
 	}
 
+
+	public static function get_my_posts()
+	{
+		$access_token = self::access_token();
+
+		$user_id      = self::user_id();
+
+		$access_token = 'IGQVJWVUg5dzdkS1NWSDZApTkFPalpGVmlBejgxWjlpRFhyZAEtMSm1TVGZAZARnRacHBaVjBlUXg1NU50UWFpQmJ6NUlpT1RRYnNDdzN4TTBLN2ZAsd3VvZADFCM2JuYXFVaDI4Q1lxQnZAENVZA2Q21LZAGI5RVVuLWk1Q2JGeUxV';
+		$user_id      = '17841401959306742';
+
+		if(!$access_token || !$user_id)
+		{
+			return [];
+		}
+
+		$media_list = \lib\api\instagram\api::getUserMedia($access_token, $user_id);
+
+		if(isset($media_list['data']))
+		{
+			return $media_list['data'];
+		}
+
+		return [];
+	}
+
 	public static function login_url()
 	{
 		$token = \lib\store::code_raw();
