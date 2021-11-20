@@ -113,6 +113,8 @@ class api
 			'CurlError'       => $CurlError,
 		];
 
+		// var_dump($log);exit;
+
 		// \dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'arvan_cdn_api.log', 'arvand_api');
 
 		if(!$response)
@@ -210,6 +212,24 @@ class api
 		return self::run($args);
 	}
 
+
+	public static function add_post()
+	{
+		$args =
+		[
+			'method' => 'post',
+			'raw_url' => 'https://graph.facebook.com/17841401959306742/media',
+			'param' =>
+			[
+
+				'image_url' => 'https://cdn.jibres.ir/img/bg/jibres-privacy-3.jpg',
+				'caption' => '#JibresInstagramAPI',
+
+			],
+		];
+
+		return self::run($args);
+	}
 
 }
 ?>
