@@ -34,9 +34,9 @@ class api
 	private static function run($_args)
 	{
 
-		if(a($_args, 'api_mode') === 'api')
+		if(a($_args, 'url'))
 		{
-			$master_url = self::$api_url;
+			$master_url = $_args['url'];
 		}
 		else
 		{
@@ -44,12 +44,14 @@ class api
 			$master_url .= '/'. self::$version;
 		}
 
+		// get param
 		$param = [];
 		if(is_array(a($_args, 'param')))
 		{
 			$param = $_args['param'];
 		}
 
+		// body param
 		$body = [];
 		if(is_array(a($_args, 'body')))
 		{
@@ -96,7 +98,6 @@ class api
 		$getInfo   = curl_getinfo($ch);
 		curl_close ($ch);
 
-		var_dump($response, $CurlError, $getInfo);exit;
 
 		$log =
 		[
@@ -134,6 +135,7 @@ class api
 			return addslashes($response);
 		}
 
+
 		return $result;
 
 	}
@@ -164,6 +166,25 @@ class api
 
 	}
 
+
+	public static function getOAuthToken($_code)
+	{
+		$args =
+		[
+			'method' => 'post',
+			'url' => self::$api_url. '/oauth/access_token',
+			'body' =>
+			[
+				'client_id'     => self::app_id(),
+				'client_secret' => self::app_secret(),
+				'grant_type'    => 'authorization_code',
+				'redirect_uri'  => self::redirect_uri(),
+				'code'          => $_code,
+			],
+		];
+
+		return self::run($args);
+	}
 
 
 
