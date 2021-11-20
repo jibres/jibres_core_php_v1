@@ -3,98 +3,165 @@ namespace lib\api\instagram;
 
 class api
 {
-	private static $instagram = null;
+
+	private static $api_url    = 'https://api.instagram.com';
+	private static $graph_url  = 'https://graph.instagram.com';
+
+	// only for graph url
+	private static $version    = 'v12.0';
+
+	private static $result_raw = [];
 
 
-	private static function config()
+	private static function app_id()
 	{
-		$args =
+		return '887342455486578';
+	}
+
+
+	private static function app_secret()
+	{
+		return '6b8920f3c83407cae4e48a234d457d99';
+	}
+
+
+	private static function redirect_uri()
+	{
+		return 'https://jibres.ir/hook/ig/';
+	}
+
+
+	private static function run($_args)
+	{
+
+		if(a($_args, 'api_mode') === 'api')
+		{
+			$master_url = self::$api_url;
+		}
+		else
+		{
+			$master_url = self::$graph_url;
+			$master_url .= '/'. self::$version;
+		}
+
+		$param = [];
+		if(is_array(a($_args, 'param')))
+		{
+			$param = $_args['param'];
+		}
+
+		$body = [];
+		if(is_array(a($_args, 'body')))
+		{
+			$body = $_args['body'];
+		}
+
+		$method = 'get';
+		if(a($_args, 'method'))
+		{
+			$method = $_args['method'];
+		}
+
+		$url = $master_url;
+
+		if($param)
+		{
+			$url .= '?'. http_build_query($param);
+		}
+
+		// set headers
+		$header   = [];
+		$header[] = 'Accept: application/json';
+
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, mb_strtoupper($method));
+		curl_setopt($ch, CURLOPT_URL, $url);
+
+		if($body && is_array($body))
+		{
+			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($body));
+		}
+
+
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 120);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 120);
+
+		$response  = curl_exec($ch);
+		$CurlError = curl_error($ch);
+		$getInfo   = curl_getinfo($ch);
+		curl_close ($ch);
+
+		var_dump($response, $CurlError, $getInfo);exit;
+
+		$log =
 		[
-			'apiKey'      => '1098204907431178',
-			'apiSecret'   => 'ceb1b49b17b0e75683fbb0ec9ff999b4',
-			'apiCallback' => 'https://jibres.ir/hook/ig/',
+			'url'             => $url,
+			'func_get_args'   => func_get_args(),
+			'response'        => $response,
+			'response_decode' => json_decode($response, true),
+			'CurlError'       => $CurlError,
 		];
 
-		try
+		// \dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'arvan_cdn_api.log', 'arvand_api');
+
+		if(!$response)
 		{
-			$instagram = new \lib\api\instagram\Instagram($args);
-		}
-		catch (\Exception $e)
-		{
-			\dash\notif::error($e->getMessage());
+			\dash\notif::error(T_("Can not connect to Domain server!"));
+
+			if($CurlError)
+			{
+				\dash\notif::error(' CURL Error: '. $CurlError);
+			}
 			return false;
 		}
 
-		self::$instagram = $instagram;
+		if(!is_string($response))
+		{
+			\dash\notif::error('Jibres: Result curl is not string!');
+			return false;
+		}
 
-		return true;
+		$result = json_decode($response, true);
+
+		if(!is_array($result))
+		{
+			\dash\notif::error('Jibres: Can not parse JSON!');
+			return addslashes($response);
+		}
+
+		return $result;
 
 	}
 
 
 
-	/**
-	 * Gets the login url.
-	 *
-	 * @return     <type>  The login url.
-	 */
-	public static function getLoginUrl($_token = null)
+	public static function getLoginUrl($_state = null)
 	{
-		if(!self::config())
+		$param =
+		[
+			'client_id'     => self::app_id(),
+			'redirect_uri'  => self::redirect_uri(),
+			'scope'         => implode(',', ['user_profile','public_content','user_media','user_photos','basic','likes','comments']),
+			'response_type' => 'code',
+		];
+
+		if($_state)
 		{
-			return false;
+			$param['state'] = $_state;
 		}
 
-	    $url = self::$instagram->getLoginUrl(['user_profile','public_content','user_media','user_photos','basic','likes','comments'], $_token);
+		$url = self::$api_url;
+		$url .= '/oauth/authorize';
 
-	    return $url;
-	}
+		$url .= '?'. http_build_query($param);
 
+		return $url;
 
-	public static function getOAuthToken($_code = null)
-	{
-		if(!self::config())
-		{
-			return false;
-		}
-
-	    $result = self::$instagram->getOAuthToken($_code);
-
-	    return $result;
-	}
-
-
-	public static function getUserMedia($_access_token, $_user_id)
-	{
-		if(!self::config())
-		{
-			return false;
-		}
-
-		self::$instagram->setAccessToken($_access_token);
-
-	    $result = self::$instagram->getUserMedia($_user_id);
-
-	    return $result;
-	}
-
-
-	public static function __callStatic($_fn, $_args)
-	{
-
-		if(!self::config())
-		{
-			return false;
-		}
-
-		$access_token = a($_args, 0);
-		$user_id      = a($_args, 1);
-
-		self::$instagram->setAccessToken($access_token);
-
-	    $result = self::$instagram->$_fn($user_id);
-
-	    return $result;
 	}
 
 
