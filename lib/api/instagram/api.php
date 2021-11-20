@@ -45,7 +45,7 @@ class api
 			return false;
 		}
 
-	    $url = self::$instagram->getLoginUrl(['basic', 'user_profile', 'user_media'], $_token);
+	    $url = self::$instagram->getLoginUrl(['user_profile','public_content','user_media','basic','likes','comments','relationships'], $_token);
 
 	    return $url;
 	}
