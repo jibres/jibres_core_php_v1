@@ -175,9 +175,10 @@ class api
 		$param =
 		[
 			'client_id'     => self::app_id(),
-			'redirect_uri'  => self::redirect_uri(),
 			'scope'         => implode(',', ['user_profile','public_content','user_media','user_photos','basic','likes','comments']),
 			'response_type' => 'code',
+			'state'         => 1,
+			'redirect_uri'  => self::redirect_uri(),
 		];
 
 		if($_state)

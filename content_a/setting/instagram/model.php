@@ -8,12 +8,12 @@ class model
 	{
 		if(\dash\request::post('ig_action') === 'remove_token')
 		{
-			\lib\app\instagram\remove::token();
+			\lib\app\instagram\business::remove_token();
 			return true;
 		}
 		elseif(\dash\request::post('ig_action') === 'login')
 		{
-			$instagramLoginUrl = \lib\app\instagram\get::login_url();
+			$instagramLoginUrl = \lib\app\instagram\business::login_url();
 
 			if(!$instagramLoginUrl)
 			{

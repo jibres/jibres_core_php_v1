@@ -164,5 +164,13 @@ class api
 
 
 
+	public static function get_instagram_login_url()
+	{
+		$result = self::run('instagram/login','get');
+
+		return $result;
+	}
+
+
 }
 ?>

@@ -50,20 +50,36 @@ class get
 		return [];
 	}
 
-	public static function login_url()
-	{
-		$token = \lib\store::code_raw();
-		$token.= '-';
-		$token .= md5(microtime(). '!_JIBRES_IG_!'. rand(). '_'. rand());
 
+
+	/**
+	 * Call jibres api to get login url
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
+	public static function login_url($_business_id)
+	{
+
+		$token = $_business_id;
+		$token .= '-';
+		$token .= microtime();
+		$token .= '!_JIBRES_IG_!';
+		$token .= rand();
+		$token .= '-';
+		$token .= rand();
+		$token = md5($token);
 
 		$insert =
 		[
+			'store_id'     => $_business_id,
+			'app_id'       => null,
 			'token'        => $token,
-			'type'         => 'login',
-			'username'     => null,
 			'pwd'          => \dash\url::pwd(),
-			'code'         => null,
+
+			'access_token' => null,
+			'user_id'      => null,
+			'request_type' => 'login',
+			'username'     => null,
 			'status'       => 'enable',
 			'send'         => null,
 			'receive'      => null,
@@ -81,9 +97,10 @@ class get
 			return false;
 		}
 
-		$url = \lib\api\instagram\api::getLoginUrl($token);
+		$instagram_login_url = \lib\api\instagram\api::getLoginUrl($token);
 
-		return $url;
+
+		return $instagram_login_url;
 	}
 }
 ?>
