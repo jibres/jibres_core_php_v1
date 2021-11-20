@@ -281,7 +281,7 @@ class magicbox
 						}
 						if(a($_item, 'file_detail', 'type') === 'video')
 						{
-							$card .= '<span class="duration"></span>';
+							$card .= '<span class="duration bg-gray-800 rounded px-1"></span>';
 						}
 					}
 					$card .= '</div>';
