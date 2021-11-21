@@ -20,12 +20,6 @@ class view
 
 
 
-		if($instagram_access_token)
-		{
-			$myPosts = \lib\app\instagram\get::get_my_posts();
-			\dash\data::myInstagramPosts($myPosts);
-		}
-
 
 	}
 }
