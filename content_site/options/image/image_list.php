@@ -93,7 +93,7 @@ class image_list
 
             					if (count($image_list) > 1)
             					{
-              						$html .= '<img class="p-5 opacity-70 hover:bg-gray-200 sortHandle" alt="Image" data-handle src="'. \dash\utility\icon::url('DragHandle', 'minor'). '">';
+              						$html .= '<img class="p-3 opacity-70 hover:bg-gray-200 sortHandle" alt="Image" data-handle src="'. \dash\utility\icon::url('DragHandle', 'minor'). '">';
               					}
               					else
               					{
