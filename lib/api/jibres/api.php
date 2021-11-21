@@ -38,7 +38,7 @@ class api
 
 		$url = \dash\url::jibres_subdomain('core');
 		// $url .= \dash\language::current(). '/';
-		$url .= '/r10/jibres/';
+		$url .= 'r10/jibres/';
 		$url .= $_path;
 
 		// set headers
