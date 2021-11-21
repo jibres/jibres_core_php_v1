@@ -201,7 +201,7 @@ if(\dash\engine\store::inStore() && \lib\store::enterprise())
     echo " data-enterprise='". \lib\store::enterprise(). "'";
 }
 // set iframe
-if(\dash\request::get('iframe') || \dash\request::is_iframe() || true)
+if(\dash\request::is_iframe())
 {
   echo " data-iframe";
 }

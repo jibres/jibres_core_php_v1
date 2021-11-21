@@ -453,6 +453,10 @@ class request
 		{
 			return true;
 		}
+		if(\dash\request::get('iframe'))
+		{
+			return true;
+		}
 
 		return false;
 	}
