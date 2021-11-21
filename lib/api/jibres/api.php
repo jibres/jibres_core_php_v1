@@ -14,12 +14,14 @@ class api
 		if(!\dash\user::login())
 		{
 			// return false;
+			var_dump(__LINE__);
 		}
 
 		if(!\dash\engine\store::inStore())
 		{
 			\dash\notif::error_once(T_("This method works only in business mode"));
 			// return false;
+			var_dump(__LINE__);
 		}
 
 		$jibres_user_id = \dash\user::detail('jibres_user_id');
@@ -28,6 +30,7 @@ class api
 		{
 			\dash\notif::error_once(T_("Please login to continue"));
 			// return false;
+			var_dump(__LINE__);
 		}
 
 
