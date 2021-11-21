@@ -13,15 +13,14 @@ class api
 	{
 		if(!\dash\user::login())
 		{
-			// return false;
-			\dash\notif::error(__LINE__);
+			\dash\notif::error_once(T_("Please login to continue"));
+			return false;
 		}
 
 		if(!\dash\engine\store::inStore())
 		{
 			\dash\notif::error_once(T_("This method works only in business mode"));
-			// return false;
-			\dash\notif::error(__LINE__);
+			return false;
 		}
 
 		$jibres_user_id = \dash\user::detail('jibres_user_id');
@@ -29,8 +28,7 @@ class api
 		if(!$jibres_user_id)
 		{
 			\dash\notif::error_once(T_("Please login to continue"));
-			// return false;
-			\dash\notif::error(__LINE__);
+			return false;
 		}
 
 
@@ -39,8 +37,8 @@ class api
 		$apikey = \dash\utility::hasher($apikey);
 
 		$url = \dash\url::jibres_subdomain('core');
-		$url .= \dash\language::current(). '/';
-		$url .= 'r10/jibres/';
+		// $url .= \dash\language::current(). '/';
+		$url .= '/r10/jibres/';
 		$url .= $_path;
 
 		// set headers
