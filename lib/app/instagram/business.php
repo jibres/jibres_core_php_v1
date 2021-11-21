@@ -13,7 +13,6 @@ class business
 	{
 		$url = \lib\api\jibres\api::get_instagram_login_url();
 
-		var_dump($url);exit;
 		if(!$url || !isset($url['result']['login_url']))
 		{
 			return false;

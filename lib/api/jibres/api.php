@@ -95,7 +95,7 @@ class api
 			'Info'            => $getInfo,
 		];
 
-		\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jibres_api.log', 'jibres_api');
+		// \dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jibres_api.log', 'jibres_api');
 
 		if(!$response)
 		{
@@ -117,7 +117,7 @@ class api
 
 		if(!is_array($result))
 		{
-			if(\dash\url::isLocal() || \dash\permission::supervisor())
+			if(\dash\url::isLocal())
 			{
 				var_dump($log);exit;
 			}
