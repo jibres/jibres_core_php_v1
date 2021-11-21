@@ -20,5 +20,15 @@ class business
 
 		return $url['result']['login_url'];
 	}
+
+
+	public static function remove_token()
+	{
+		\lib\db\setting\update::overwirte_cat_key(null, 'instagram', 'access_token');
+		\lib\db\setting\update::overwirte_cat_key(null, 'instagram', 'user_id');
+
+		\dash\notif::ok(T_("Connection removed"));
+		return true;
+	}
 }
 ?>

@@ -9,6 +9,7 @@ class model
 		if(\dash\request::post('ig_action') === 'remove_token')
 		{
 			\lib\app\instagram\business::remove_token();
+			\dash\redirect::pwd();
 			return true;
 		}
 		elseif(\dash\request::post('ig_action') === 'login')
