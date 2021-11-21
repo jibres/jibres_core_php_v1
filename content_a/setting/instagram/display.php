@@ -32,12 +32,21 @@
           <?php } //endif ?>
           </div>
         <?php }//endif ?>
-
-        <div data-confirm data-data='{"ig_action": "remove_token"}' data-method='post' class="btn-danger" ><?php echo T_("Remove"); ?></div>
         <?php } //endif ?>
+
     </div>
-    <footer class="txtRa">
-      <div data-ajaxify data-data='{"ig_action": "login"}' data-method='post' class="btn-primary" ><?php echo T_("Connect"); ?></div>
+    <footer class="">
+      <div class="row">
+        <div class="c-auto">
+          <?php if(\dash\data::instagramUserId()) {?>
+            <div data-confirm data-data='{"ig_action": "remove_token"}' data-method='post' class="btn-danger" ><?php echo T_("Remove"); ?></div>
+          <?php } //endif ?>
+        </div>
+        <div class="c"></div>
+        <div class="c-auto">
+          <div data-ajaxify data-data='{"ig_action": "login"}' data-method='post' class="btn-primary" ><?php echo T_("Connect"); ?></div>
+        </div>
+      </div>
     </footer>
   </div>
 
