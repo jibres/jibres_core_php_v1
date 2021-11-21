@@ -201,7 +201,7 @@ if(\dash\engine\store::inStore() && \lib\store::enterprise())
     echo " data-enterprise='". \lib\store::enterprise(). "'";
 }
 // set iframe
-if(\dash\request::get('iframe'))
+if(\dash\request::get('iframe') || \dash\request::is_iframe() || true)
 {
   echo " data-iframe";
 }
@@ -214,11 +214,6 @@ if(\dash\data::bodyBackgroundStyle())
 if(\dash\data::bodyMasterFont())
 {
   echo " class='". \dash\data::bodyMasterFont(). "'";
-}
-
-if(\dash\request::is_iframe())
-{
-  echo ' data-iframe';
 }
 
 echo " data-preload";
