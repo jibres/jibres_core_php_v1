@@ -290,6 +290,20 @@ class fit{
 			return $_src;
 		}
 
+		if(
+			strpos($_src, 'talambar') !== false ||
+			strpos($_src, 'digitaloceanspaces') !== false ||
+			strpos($_src, 'amazonaws') !== false ||
+			strpos($_src, 'arvanstorage') !== false
+		)
+		{
+			// ok
+		}
+		else
+		{
+			return $_src;
+		}
+
 		$dotPosition = strrpos($_src, '.');
 		if(!$dotPosition)
 		{
