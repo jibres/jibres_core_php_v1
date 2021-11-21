@@ -3,51 +3,6 @@ namespace lib\app\instagram;
 
 class get
 {
-	public static function access_token()
-	{
-		$load = \lib\db\setting\get::by_cat_key('instagram', 'access_token');
-		if(isset($load['value']))
-		{
-			return $load['value'];
-		}
-
-		return null;
-	}
-
-	public static function user_id()
-	{
-		$load = \lib\db\setting\get::by_cat_key('instagram', 'user_id');
-		if(isset($load['value']))
-		{
-			return $load['value'];
-		}
-
-		return null;
-	}
-
-
-	public static function get_my_posts()
-	{
-		$access_token = self::access_token();
-
-		$user_id      = self::user_id();
-
-		if(!$access_token || !$user_id)
-		{
-			return [];
-		}
-
-		$media_list = \lib\api\instagram\api::getUserMedia($access_token, $user_id);
-
-		if(isset($media_list['data']))
-		{
-			return $media_list['data'];
-		}
-
-		return [];
-	}
-
-
 
 	/**
 	 * Call jibres api to get login url

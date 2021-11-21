@@ -46,7 +46,7 @@ class add
 		$seo_detail['title']   = a($args, 'title') . ' | '. \dash\face::hereTitle();
 		$seo_detail['seodesc'] = a($args, 'excerpt');
 		$seo_detail['content'] = a($args, 'content');
-		// $seo_detail['tags']    = a($args, 'tags');
+		// $seo_detail['tags'] = a($args, 'tags');
 
 		$seoAnalyze    = \dash\seo::analyze($seo_detail);
 

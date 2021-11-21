@@ -11,15 +11,15 @@ class view
 		\dash\data::back_link(\dash\url::this(). '/social');
 
 
-		$instagram_user_id = \lib\app\instagram\get::user_id();
+		$instagram_user_id = \lib\app\instagram\business::user_id();
 		\dash\data::instagramUserId($instagram_user_id);
 
 
-		$instagram_access_token = \lib\app\instagram\get::access_token();
+		$instagram_access_token = \lib\app\instagram\business::access_token();
 		\dash\data::instagramAccessToken($instagram_access_token);
 
 
-
+		\lib\app\instagram\business::get_my_posts();
 
 	}
 }

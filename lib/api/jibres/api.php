@@ -159,23 +159,27 @@ class api
 	public static function plugin_activate($_args)
 	{
 		$result = self::run('plugin','post', null, $_args);
-
 		return $result;
 	}
+
 
 	public static function sync_plugin()
 	{
 		$result = self::run('plugin/sync','get');
-
 		return $result;
 	}
-
 
 
 	public static function get_instagram_login_url()
 	{
 		$result = self::run('instagram/login','get');
+		return $result;
+	}
 
+
+	public static function get_instagram_media_list($_args)
+	{
+		$result = self::run('instagram/fetch','get', $_args);
 		return $result;
 	}
 
