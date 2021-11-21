@@ -17,7 +17,7 @@ class model
 
 			if(!$instagramLoginUrl)
 			{
-				\dash\notif::error(T_("Can not connect to instagram!"));
+				\dash\notif::error(T_("Instagram connection service is not available at the moment"));
 				return false;
 			}
 
