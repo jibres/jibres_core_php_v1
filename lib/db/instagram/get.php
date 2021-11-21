@@ -14,13 +14,12 @@ class get
 
 
 
-	public static function by_token_type($_token, $_type)
+	public static function by_token($_token)
 	{
-		$query  = "SELECT * FROM instagram WHERE instagram.token = :token AND instagram.type = :type AND instagram.status = 'enable' ORDER BY instagram.id DESC LIMIT 1 ";
+		$query  = "SELECT * FROM instagram WHERE instagram.token = :token  AND instagram.status = 'enable' ORDER BY instagram.id DESC LIMIT 1 ";
 		$param  =
 		[
 			':token' => $_token,
-			':type'  => $_type,
 		];
 
 		$result = \dash\pdo::get($query, $param, null, true, 'api_log');

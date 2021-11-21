@@ -132,5 +132,13 @@ class api
 
 
 
+	public static function set_instagram_detail($_business_id, $_args)
+	{
+		$result = self::run($_business_id, 'instagram/detail','post', null, $_args);
+		return $result;
+	}
+
+
+
 }
 ?>

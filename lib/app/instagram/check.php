@@ -14,62 +14,51 @@ class check
 			return false;
 		}
 
-		if(strpos($state, '-') === false)
+		if(!\dash\validate::md5($state))
 		{
 			return false;
 		}
 
-		$explode = explode('-', $state);
+		$load_token = \lib\db\instagram\get::by_token($state);
 
-		if(!\dash\validate::store_code(a($explode, 0)))
+		if(!$load_token || !isset($load_token['store_id']))
 		{
 			return false;
 		}
 
-		if(!\dash\validate::md5(a($explode, 1)))
-		{
-			return false;
-		}
 
-		$load_store = \lib\app\store\get::by_code(a($explode, 0));
-
+		$load_store = \lib\app\store\get::by_id($load_token['store_id']);
 		if(!$load_store)
 		{
 			return false;
 		}
 
-		$db_name = \dash\engine\store::make_database_name(a($load_store, 'id'));
+		// $getOAuthToken =
+		// [
+		// 	'access_token' => 'IGQVJVb0l0RGZAWSklTa1NRcmpsbHRPMGhmM1BqanNhdHJkNTdwQjg4X2xsd2FpNG9CcXE0Rm10VjBXS2V0QVg3bzlPbUxmNFJ1bDRIUmRfbkZAZAc0FiWFg2RzJBX01acld4RWZAlMGhpZAG5oZAnRobC1Cc3hRMDlTd0ZAYZAFJ3',
+		// 	'user_id' => 17841401959306742,
+		// ];
 
-		$load = \lib\db\instagram\get::by_token_type($state, 'login', a($load_store, 'fuel'), $db_name);
-
-		if(!$load)
+		$getOAuthToken = \lib\api\instagram\api::getOAuthToken($code);
+		if(!$getOAuthToken)
 		{
+			\dash\log::oops('instagramApiNullAccessToken');
 			return false;
 		}
 
-		$getOAuthToken = \lib\api\instagram\api::getOAuthToken($code);
-
-		if(!$getOAuthToken)
+		if(!isset($getOAuthToken['access_token']))
 		{
 			\dash\log::oops('cannotGetInstagramAccessToken');
 			return false;
 		}
 
-		$access_token = null;
-		$user_id      = null;
+		$args =
+		[
+			'access_token' => a($getOAuthToken, 'access_token'),
+			'user_id'      => a($getOAuthToken, 'user_id'),
+		];
 
-		if(isset($getOAuthToken['access_token']))
-		{
-			$access_token = $getOAuthToken['access_token'];
-			\lib\db\setting\update::overwirte_cat_key_fuel($access_token, 'instagram', 'access_token', $load_store['fuel'], $db_name);
-		}
-
-		if(isset($getOAuthToken['user_id']))
-		{
-			$user_id = $getOAuthToken['user_id'];
-			\lib\db\setting\update::overwirte_cat_key_fuel($user_id, 'instagram', 'user_id', $load_store['fuel'], $db_name);
-		}
-
+		$api_result = \lib\api\business\api::set_instagram_detail($load_store['id'], $args);
 
 		$result = [];
 
