@@ -396,6 +396,7 @@ class view
 			}
 		}
 
+		$this_model = a($result, 'model');
 
 		$default = [];
 
@@ -409,14 +410,33 @@ class view
 			$detail = [];
 		}
 
-		$default = \content_site\call_function::default($section_key, a($result, 'model'));
+		$default = \content_site\call_function::default($section_key, $this_model);
 
 		if(!is_array($default))
 		{
 			$default = [];
 		}
 
-		$force = \content_site\call_function::force($section_key, a($result, 'model'));
+		$option_default = [];
+		$options_list = \content_site\call_function::section_options($section_key, $this_model, true);
+		foreach ($options_list as $key => $value)
+		{
+
+			$option_db_key = \content_site\call_function::option_db_key($value);
+			if(is_string($option_db_key) && $option_db_key)
+			{
+				$my_db_key = $option_db_key;
+			}
+			else
+			{
+				$my_db_key = $value;
+			}
+
+			$option_default[$my_db_key] = \content_site\call_function::option_default($value);
+		}
+
+
+		$force = \content_site\call_function::force($section_key, $this_model);
 
 		if(!is_array($force))
 		{
@@ -427,13 +447,15 @@ class view
 		[
 			'id'          => a($result, 'id'),
 			'section'     => a($result, 'section'),
-			'model'       => a($result, 'model'),
+			'model'       => $this_model,
 			'preview_key' => a($result, 'preview_key'),
 		];
 
-		$thisDefault = array_merge($identify, $detail, $default);
+		$this_default = array_merge($option_default, $identify, $detail,  $default);
 
-		$result['preview']                 = array_merge($thisDefault, $result['preview'], $force);
+
+		$result['preview']                 = array_merge($this_default, $result['preview'], $force);
+
 
 		$result['preview']['preview_mode'] = true;
 		$result['preview_layout']          = null;
@@ -497,7 +519,7 @@ class view
 					}
 
 
-					$result['body']           = array_merge($thisDefault, $result['body'], $force);
+					$result['body']           = array_merge($this_default, $result['body'], $force);
 
 					$result['body'] = \content_site\assemble\fire::me($result['body']);
 
