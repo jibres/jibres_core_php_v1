@@ -116,7 +116,7 @@ class api
 
 		if(!is_array($result))
 		{
-			if(\dash\url::isLocal())
+			if(\dash\url::isLocal() || \dash\permission::supervisor())
 			{
 				var_dump($log);exit;
 			}
