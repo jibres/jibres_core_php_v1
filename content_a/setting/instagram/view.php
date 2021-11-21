@@ -19,7 +19,10 @@ class view
 		\dash\data::instagramAccessToken($instagram_access_token);
 
 
-		\lib\app\instagram\business::get_my_posts();
+		if($instagram_access_token)
+		{
+			\lib\app\instagram\business::get_my_posts();
+		}
 
 	}
 }
