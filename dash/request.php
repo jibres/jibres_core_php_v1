@@ -446,6 +446,18 @@ class request
 	}
 
 
+
+	public static function is_iframe()
+	{
+		if(\dash\server::get('HTTP_SEC_FETCH_DEST') === 'iframe')
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
 	public static function is_android()
 	{
 		return self::is_app('android');

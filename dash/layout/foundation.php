@@ -216,6 +216,11 @@ if(\dash\data::bodyMasterFont())
   echo " class='". \dash\data::bodyMasterFont(). "'";
 }
 
+if(\dash\request::is_iframe())
+{
+  echo ' data-iframe';
+}
+
 echo " data-preload";
 ?>><?php
 \dash\layout\find::allBlocks();
