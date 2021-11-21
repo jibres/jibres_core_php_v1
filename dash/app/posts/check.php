@@ -79,15 +79,12 @@ class check
 			}
 		}
 
-		if($data['type'] === 'pagebuilder')
-		{
-			// nothing
-		}
-		else
+		if(!$data['type'])
 		{
 			// all record is page
 			$data['type']    = 'post';
 		}
+
 
 		if(!$data['language'])
 		{

@@ -55,6 +55,24 @@ class business
 	}
 
 
+	public static function last_fetch($_set = false)
+	{
+		if($_set)
+		{
+			\lib\db\setting\update::overwirte_cat_key(date("Y-m-d H:i:s"), 'instagram', 'last_fetch');
+			return true;
+		}
+
+		$load = \lib\db\setting\get::by_cat_key('instagram', 'last_fetch');
+		if(isset($load['value']))
+		{
+			return $load['value'];
+		}
+
+		return null;
+	}
+
+
 	public static function get_my_posts()
 	{
 		$access_token = self::access_token();
@@ -66,8 +84,6 @@ class business
 			return [];
 		}
 
-		$last_fetch = null;
-		// check last fetch
 
 		$args =
 		[
@@ -75,20 +91,25 @@ class business
 			'user_id'      => $user_id,
 		];
 
-		if(true) // need fetch
+		$last_fetch = self::last_fetch();
+
+		// check last fetch
+		if(!$last_fetch || (time() - strtotime($last_fetch) > (60))) // need fetch
 		{
+			self::last_fetch(true);
 			self::fetch($args);
 		}
 
+		$get_instagram_posts = \dash\app\posts\search::list(null, ['type' => 'instagram'],true);
 
-		return [];
+		return $get_instagram_posts;
+
 	}
 
 
 	private static function fetch($_args)
 	{
 		$media_list = \lib\api\jibres\api::get_instagram_media_list($_args);
-
 
 		if(isset($media_list['result']) && $media_list['result'] && is_array($media_list['result']))
 		{
@@ -130,7 +151,6 @@ class business
 				$insert_socail_posts =
 				[
 					'social'          => 'instagram',
-					'product_id'      => null,
 					'request'         => 'fetch',
 					'status'          => null,
 					'channel'         => $username,
