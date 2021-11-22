@@ -21,7 +21,7 @@ class instagram
 		$html = '';
 		if(!$instagram_access_token)
 		{
-			$html .= '<a target="_blank" class="btn-primary  leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/instagram">'. T_("Connect to your instagram"). ' <i class="sf-external-link pLa5"></i> </a>';
+			$html .= '<a target="_blank" class="btn-primary leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/instagram">'. T_("Connect to your instagram"). ' <i class="sf-external-link pLa5"></i> </a>';
 		}
 		else
 		{
@@ -30,8 +30,16 @@ class instagram
 				$html .= '<div class="alert2">'. T_("Last fetch"). ': '. \dash\fit::date_human($instagram_last_fetch). '</div>';
 			}
 
-			$html .= '<a target="_blank" class="btn-primary  leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/instagram">'. T_("Fetch posts now"). ' <i class="sf-external-link pLa5"></i> </a>';
+			$json =
+			[
+				'ig_action'   => 'fetch',
+			];
 
+			$json = json_encode($json);
+
+			$html .= '<a target="_blank" data-method="post" class="btn-primary leading-6 block" data-ajaxify=\''.$json.'\' href="'. \lib\store::admin_url(). '/a/setting/instagram">'. T_("Fetch posts now"). ' <i class="sf-external-link pLa5"></i> </a>';
+
+			$html .= '<a target="_blank" class="btn-link leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/instagram">'. T_("Manage"). ' <i class="sf-external-link pLa5"></i> </a>';
 
 		}
 
