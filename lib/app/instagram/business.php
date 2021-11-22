@@ -144,7 +144,7 @@ class business
 
 					'cover'            => $media_url, // path
 					'thumb'            => $media_url, // path
-					'title'            => $caption ? $caption : $id,
+					'title'            => $caption ? substr($caption, 0, 199) : $id,
 					'content'          => $caption ? $caption : $id,
 					'type'             => 'instagram',
 					'subtype'          => 'standard', // ['enum' => ['standard', 'gallery', 'video', 'audio']],
