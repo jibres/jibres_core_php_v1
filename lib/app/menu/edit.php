@@ -67,7 +67,10 @@ class edit
 
 		\lib\db\menu\update::update($args, $_id);
 
-		\dash\notif::ok(T_("Menu updated"));
+		if(!$_force)
+		{
+			\dash\notif::ok(T_("Menu updated"));
+		}
 
 		return true;
 	}

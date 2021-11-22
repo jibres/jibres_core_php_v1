@@ -21,7 +21,11 @@ class remove
 
 		\lib\db\menu\delete::remove_menu($load['id']);
 
-		\dash\notif::ok(T_("Menu removed"));
+		if(!$_force)
+		{
+			\dash\notif::ok(T_("Menu removed"));
+		}
+
 		return true;
 	}
 }

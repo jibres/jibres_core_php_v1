@@ -29,7 +29,10 @@ class add
 
 		$id = \lib\db\menu\insert::new_record($args);
 
-		\dash\notif::ok(T_("Menu created"));
+		if(!$_force)
+		{
+			\dash\notif::ok(T_("Menu created"));
+		}
 
 		return ['id' => $id];
 	}
