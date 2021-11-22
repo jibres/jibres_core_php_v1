@@ -2,7 +2,7 @@
 namespace content_site\options\padding;
 
 
-class padding
+trait padding
 {
 	public static function enum()
 	{
@@ -25,19 +25,37 @@ class padding
 		return array_column(self::enum(), 'key');
 	}
 
+
+	public static function name()
+	{
+		return 'padding';
+	}
+
+	public static function title()
+	{
+		return T_("Padding");
+	}
+
+
+	public static function db_key()
+	{
+		return 'padding';
+	}
+
 	public static function extends_option()
 	{
 		return
 		[
 			'height',
-			'padding',
+			'padding_top',
+			'padding_bottom',
 		];
 	}
 
 
 	public static function validator($_data)
 	{
-		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
+		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => self::title()]);
 	}
 
 
@@ -94,22 +112,20 @@ class padding
 		}
 	}
 
-
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail('padding');
+		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 
 		if(!$default)
 		{
 			$default = self::default();
 		}
 
-		$title = T_("Section padding");
-
 		$html = '';
+
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::rangeslider('opt_padding', self::this_range(), $default, $title);
+			$html .= \content_site\options\generate::rangeslider('opt_'. self::name(), self::this_range(), $default, self::title());
 		}
   		$html .= \content_site\options\generate::_form();
 

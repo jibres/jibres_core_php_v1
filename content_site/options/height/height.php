@@ -27,9 +27,11 @@ class height
 		return
 		[
 			'height',
-			'padding',
+			'padding_top',
+			'padding_bottom',
 		];
 	}
+
 
 
 	public static function default()
@@ -135,7 +137,8 @@ class height
 
 		$html .= "<div data-response='$name' data-response-where='auto' $data_response_hide>";
 		{
-			$html .= \content_site\options\padding\padding::admin_html();
+			$html .= \content_site\options\padding\padding_top::admin_html();
+			$html .= \content_site\options\padding\padding_bottom::admin_html();
 		}
 		$html .= '</div>';
 
