@@ -86,8 +86,8 @@ else if($fax)
   echo '</code>';
 }
 ?></div>
-            <div class="w-3/12 flex px-2"><?php
-{
+            <div class="w-3/12 px-2"><?php
+if(false){
   echo '<div dir="ltr" class="text-left truncate">';
   echo \lib\store::url();
   echo '</div>';

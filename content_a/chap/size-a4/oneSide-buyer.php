@@ -98,11 +98,11 @@ else if($fax)
   echo '</code>';
 }
 ?></div>
-            <div class="w-3/12 flex px-2"><?php
+            <div class="w-3/12 px-2"><?php
 {
-  echo '<div dir="ltr" class="text-left truncate">';
-  echo \dash\data::customer_url();
-  echo '</div>';
+    echo '<div dir="ltr" class="text-left truncate">';
+    echo \dash\data::customer_url();
+    echo '</div>';
 }
 ?></div>
           </div>
