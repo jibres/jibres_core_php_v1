@@ -22,6 +22,15 @@ class height
 		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
 	}
 
+	public static function extends_option()
+	{
+		return
+		[
+			'height',
+			'padding',
+		];
+	}
+
 
 	public static function default()
 	{
@@ -117,6 +126,19 @@ class height
 			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
 		}
 		$html .= \content_site\options\generate::_form();
+
+		$data_response_hide = 'data-response-hide';
+		if($default === 'auto')
+		{
+			$data_response_hide = null;
+		}
+
+		$html .= "<div data-response='$name' data-response-where='auto' $data_response_hide>";
+		{
+			$html .= \content_site\options\padding\padding::admin_html();
+		}
+		$html .= '</div>';
+
 
 
 		return $html;

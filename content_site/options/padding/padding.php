@@ -7,15 +7,15 @@ class padding
 	public static function enum()
 	{
 		$enum   = [];
-		$enum[] = ['key' => 'zero',     'class_wo_padding' => 'min-h-1/4',    'class' => 'min-h-1/4 py-5', ];
+		$enum[] = ['key' => 'zero',   'class_wo_padding' => 'min-h-1/4',    'class' => 'min-h-1/4 py-5', ];
 		$enum[] = ['key' => 'auto',   'class_wo_padding' => '',             'class' => '', ];
 		$enum[] = ['key' => 'xs',     'class_wo_padding' => 'min-h-1/4',    'class' => 'min-h-1/4 py-5', ];
 		$enum[] = ['key' => 'sm',     'class_wo_padding' => 'min-h-1/4',    'class' => 'min-h-1/4 py-5', ];
 		$enum[] = ['key' => 'md',     'class_wo_padding' => 'min-h-1/2',    'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', ];
 		$enum[] = ['key' => 'lg',     'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
 		$enum[] = ['key' => 'xl',     'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
-		$enum[] = ['key' => 'xxl',     'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
-		$enum[] = ['key' => 'xxxl',     'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
+		$enum[] = ['key' => 'xxl',    'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
+		$enum[] = ['key' => 'xxxl',   'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', ];
 
 		return $enum;
 	}
@@ -23,6 +23,15 @@ class padding
 	public static function this_range()
 	{
 		return array_column(self::enum(), 'key');
+	}
+
+	public static function extends_option()
+	{
+		return
+		[
+			'height',
+			'padding',
+		];
 	}
 
 
