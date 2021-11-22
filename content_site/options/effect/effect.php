@@ -50,6 +50,8 @@ class effect
 
 	public static function admin_html()
 	{
+		$html = '';
+
 		$default = \content_site\section\view::get_current_index_detail('effect');
 
 		if(!$default)
@@ -59,36 +61,40 @@ class effect
 
 		$title = T_("Effect");
 
-		$html = '';
+		$name       = 'opt_effect';
+
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= "<label>$title</label>";
-
-			$name       = 'opt_effect';
-
-			$radio_html = '';
-
-			foreach (self::enum() as $key => $value)
-			{
-				if(isset($value['system']) && $value['system'])
-				{
-					continue;
-				}
-
-				$selected = false;
-
-				if($default === $value['key'])
-				{
-					$selected = true;
-				}
-
-				$radio_html .= \content_site\options\generate::radio_line_itemText($name, $value['key'], $value['title'], $selected);
-			}
-
-			$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
-
+			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, $title);
 		}
 		$html .= \content_site\options\generate::_form();
+
+		// {
+		// 	$html .= "<label>$title</label>";
+
+
+		// 	$radio_html = '';
+
+		// 	foreach (self::enum() as $key => $value)
+		// 	{
+		// 		if(isset($value['system']) && $value['system'])
+		// 		{
+		// 			continue;
+		// 		}
+
+		// 		$selected = false;
+
+		// 		if($default === $value['key'])
+		// 		{
+		// 			$selected = true;
+		// 		}
+
+		// 		$radio_html .= \content_site\options\generate::radio_line_itemText($name, $value['key'], $value['title'], $selected);
+		// 	}
+
+		// 	$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
+
+		// }
 
 		$html .= '<div data-response="'.$name.'" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
 		{
