@@ -15,6 +15,12 @@ class option
 		return !\dash\url::isLocal();
 	}
 
+	public static function is_private()
+	{
+		return !\dash\url::isLocal();
+	}
+
+
 
 	/**
 	 * Get detail
