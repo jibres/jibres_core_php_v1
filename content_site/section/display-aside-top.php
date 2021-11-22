@@ -88,7 +88,9 @@ else
     $html .= \content_site\utility::ul_li_close();
   }
 
+
  require_once('part/discard.php');
+ require_once('part/change_mode.php');
 }
 
 $html .= '</div>';

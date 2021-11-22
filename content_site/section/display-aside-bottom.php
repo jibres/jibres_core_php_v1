@@ -92,17 +92,6 @@ if(\dash\url::child())
 
 
 
-
-        $html .= "<div class='cauto os pLa5'>";
-        {
-          $model_url = \dash\url::that(). '/model'. \dash\request::full_get();
-          $html .= "<a href='$model_url' class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-2 rounded-lg'  title='". T_("Change Model") ."'>";
-          $html .= '<img class="w-5 block" src="'. \dash\utility\icon::url('Replace'). '" alt="change to another model">';
-          $html .= '</a>';
-        }
-
-
-        $html .= '</div>';
         $html .= "<div class='cauto os pLa5'>";
         {
           $html .= "<a class='inline-block bg-gray-50 hover:bg-gray-100 focus:bg-gray-200 active:bg-gray-300 transition p-2 rounded-lg' data-ajaxify data-data='$hide_view_json' title='". T_("Hide/Show") ."'>";
