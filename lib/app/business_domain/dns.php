@@ -60,16 +60,28 @@ class dns
 				- Get from php-dig https://github.com/hostinger/php-dig/blob/master/src/Hostinger/ExecuteDigCommand.php
 
 			 */
+			if(\dash\validate::ir_domain($load['domain'], false))
+			{
+				$info_domain = \lib\app\nic_domain\get::info($load['domain']);
 
-			$get_dns = self::get_from_php_dns_function($load['domain']);
+				if(isset($info_domain[$load['domain']]['ns']) && is_array($info_domain[$load['domain']]['ns']))
+				{
+					$get_dns = $info_domain[$load['domain']]['ns'];
+				}
+			}
 
 			if(!$get_dns)
 			{
-				// $get_dns = self::get_from_whois($load['domain']);
+				$get_dns = self::get_from_php_dns_function($load['domain']);
 
 				if(!$get_dns)
 				{
-					// not found
+					// $get_dns = self::get_from_whois($load['domain']);
+
+					if(!$get_dns)
+					{
+						// not found
+					}
 				}
 			}
 		}
