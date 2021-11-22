@@ -166,6 +166,11 @@ class controller
 
 		foreach ($list as $section)
 		{
+			if(\content_site\call_function::is_private($section) === true)
+			{
+				continue;
+			}
+
 			$detail = \content_site\call_function::detail($section);
 
 			if($detail && is_array($detail))
