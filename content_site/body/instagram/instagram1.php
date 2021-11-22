@@ -17,28 +17,41 @@ class instagram1
 			'title'        => T_("Instagram"),
 			'options'      =>
 			[
-				'heading',
-				'instagram',
+				'heading_full',
 
+				'instagram',
+				// 'count_instagram_post',
+
+
+				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
-
 					'height',
-					'radius_full',
+					'container',
 					'background_pack',
-
+					'color_heading',
+					'radius_normal',
+					'coverratio',
 				]),
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
 			[
-				'heading'              => T_("Instagram"),
-				'height'               => 'fullscreen',
-				'use_as_heading'       => 'business_heading',
-				'use_as_description'   => 'business_description',
-				'background_pack'      => 'solid',
-				'background_color'     => '#eeeeee',
+				'heading'               => T_("Instagram"),
+				'post_template'         => 'any',
+				'post_order'            => 'latest',
+				'count'                 => 3,
+
+
+
+				'background_pack'       => 'none',
+				'height'                => 'md',
+				'coverratio'            => '16:9',
+				'color_text'            => '#333333',
+				'heading_position'      => 'center',
+
+				'radius_normal'         => 'none',
 			],
 			'preview_list' =>
 			[
