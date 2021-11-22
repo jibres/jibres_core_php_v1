@@ -18,16 +18,19 @@
   <?php if(\dash\permission::supervisor()) {?>
   <div  class="box">
     <div class="body">
-      <div class="alert2">
-        <p><?php echo T_("Connect to your instagram account.") ?></p>
-      </div>
+      <div class="alert2"><?php echo T_("Connect to your instagram account.") ?></div>
         <?php if(\dash\data::instagramUserId()) {?>
         <p data-token='<?php echo \dash\data::instagramAccessToken() ?>' data-userid='<?php echo \dash\data::instagramUserId() ?>' class="alert2-success"><?php echo T_("Connected.") ?></p>
+
+        <div class="btn-secondary outline" data-ajaxify data-data='{"ig_action": "fetch"}' data-method='post'><?php echo T_("Fetch public posts now") ?></div>
+        <?php if(\dash\data::instagramLastFetch()) {?>
+          <p><?php echo T_("Last fetch"). ': '. \dash\fit::date_human(\dash\data::instagramLastFetch()) ?></p>
+        <?php } //endif ?>
         <?php if(\dash\data::myInstagramPosts()) {?>
           <div class="row">
           <?php foreach (\dash\data::myInstagramPosts() as $key => $value) { ?>
             <div class="c-xs-4 c-sm-4">
-              <img src="<?php echo a($value, 'media_url') ?>" class='w-28'>
+              <img src="<?php echo a($value, 'thumb') ?>" class='w-28'>
             </div>
           <?php } //endif ?>
           </div>

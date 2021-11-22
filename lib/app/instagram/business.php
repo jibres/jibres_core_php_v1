@@ -73,31 +73,34 @@ class business
 	}
 
 
-	public static function get_my_posts()
+	public static function get_my_posts($_fetch = false)
 	{
-		$access_token = self::access_token();
-
-		$user_id      = self::user_id();
-
-		if(!$access_token || !$user_id)
+		if($_fetch)
 		{
-			return [];
-		}
+			$access_token = self::access_token();
+
+			$user_id      = self::user_id();
+
+			if(!$access_token || !$user_id)
+			{
+				return [];
+			}
 
 
-		$args =
-		[
-			'access_token' => $access_token,
-			'user_id'      => $user_id,
-		];
+			$args =
+			[
+				'access_token' => $access_token,
+				'user_id'      => $user_id,
+			];
 
-		$last_fetch = self::last_fetch();
+			$last_fetch = self::last_fetch();
 
-		// check last fetch
-		if(!$last_fetch || (time() - strtotime($last_fetch) > (60))) // need fetch
-		{
-			self::last_fetch(true);
-			self::fetch($args);
+			// check last fetch
+			if(!$last_fetch || (time() - strtotime($last_fetch) > (60))) // need fetch
+			{
+				self::last_fetch(true);
+				self::fetch($args);
+			}
 		}
 
 		$get_instagram_posts = \dash\app\posts\search::list(null, ['type' => 'instagram'],true);
@@ -139,13 +142,14 @@ class business
 				$add_post_args =
 				[
 
-					'cover'           => $media_url, // path
-					'thumb'           => $media_url, // path
-					'title'           => $caption ? $caption : $id,
-					'content'         => $caption ? $caption : $id,
-					'type'            => 'instagram',
-					'subtype'         => 'standard', // ['enum' => ['standard', 'gallery', 'video', 'audio']],
-					'status'          => 'publish', // ['enum' => ['publish','draft', 'pending_review']],
+					'cover'            => $media_url, // path
+					'thumb'            => $media_url, // path
+					'title'            => $caption ? $caption : $id,
+					'content'          => $caption ? $caption : $id,
+					'type'             => 'instagram',
+					'subtype'          => 'standard', // ['enum' => ['standard', 'gallery', 'video', 'audio']],
+					'status'           => 'publish', // ['enum' => ['publish','draft', 'pending_review']],
+					'is_social_module' => true,
 				];
 
 				$insert_socail_posts =

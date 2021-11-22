@@ -6,7 +6,13 @@ class model
 {
 	public static function post()
 	{
-		if(\dash\request::post('ig_action') === 'remove_token')
+		if(\dash\request::post('ig_action') === 'fetch')
+		{
+			\lib\app\instagram\business::get_my_posts(true);
+			\dash\redirect::pwd();
+			return;
+		}
+		elseif(\dash\request::post('ig_action') === 'remove_token')
 		{
 			\lib\app\instagram\business::remove_token();
 			\dash\redirect::pwd();

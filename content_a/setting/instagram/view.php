@@ -18,11 +18,13 @@ class view
 		$instagram_access_token = \lib\app\instagram\business::access_token();
 		\dash\data::instagramAccessToken($instagram_access_token);
 
+		$instagram_last_fetch = \lib\app\instagram\business::last_fetch();
+		\dash\data::instagramLastFetch($instagram_last_fetch);
 
-		if($instagram_access_token)
-		{
-			\lib\app\instagram\business::get_my_posts();
-		}
+		$instagram_posts = \lib\app\instagram\business::get_my_posts();
+		\dash\data::myInstagramPosts($instagram_posts);
+
+
 
 	}
 }
