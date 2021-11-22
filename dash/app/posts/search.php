@@ -95,7 +95,7 @@ class search
 		}
 		else
 		{
-			$and[] = " posts.type !=  'pagebuilder' ";
+			$and[] = " posts.type IN  ('post', 'page') ";
 		}
 
 		if($data['subtype'])

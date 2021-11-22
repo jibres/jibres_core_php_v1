@@ -8,37 +8,38 @@ class check
 	{
 		$condition =
 		[
-			'language'        => 'language',
-			'cover'           => 'string_500', // path
-			'thumb'           => 'string_500', // path
-			'title'           => 'string_200',
-			'seotitle'        => 'seotitle',
-			'excerpt'         => 'string_300',
-			'subtitle'        => 'string_500',
-			'slug'            => 'string_100',
-			'url'             => 'url',
-			'content'         => 'real_html',
-			'type'            => ['enum' => ['post', 'pagebuilder', 'instagram']],
-			'subtype'         => ['enum' => ['standard', 'gallery', 'video', 'audio']],
-			'status'          => ['enum' => ['publish','draft', 'pending_review']],
-			'specialaddress'  => ['enum' => ['independence', 'special', 'under_tag', 'under_page']],
+			'language'         => 'language',
+			'cover'            => 'string_500', // path
+			'thumb'            => 'string_500', // path
+			'title'            => 'string_200',
+			'seotitle'         => 'seotitle',
+			'excerpt'          => 'string_300',
+			'subtitle'         => 'string_500',
+			'slug'             => 'string_100',
+			'url'              => 'url',
+			'content'          => 'real_html',
+			'type'             => ['enum' => ['post', 'pagebuilder', 'instagram']],
+			'subtype'          => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'status'           => ['enum' => ['publish','draft', 'pending_review']],
+			'specialaddress'   => ['enum' => ['independence', 'special', 'under_tag', 'under_page']],
 
-			'comment'         => ['enum' => ['open','closed','default']],
-			'showwriter'      => ['enum' => ['visible','hidden','default']],
-			'showdate'        => ['enum' => ['visible','hidden','default']],
+			'comment'          => ['enum' => ['open','closed','default']],
+			'showwriter'       => ['enum' => ['visible','hidden','default']],
+			'showdate'         => ['enum' => ['visible','hidden','default']],
 
-			'parent'          => 'code',
-			'publishdate'     => 'date',
-			'publishtime'     => 'time',
-			'redirecturl'     => 'url',
-			'creator'         => 'code',
-			'tagurl'          => 'code',
-			'tags'            => 'tag',
-			'set_publishdate' => 'bit',
-			'set_seo'         => 'bit',
+			'parent'           => 'code',
+			'publishdate'      => 'date',
+			'publishtime'      => 'time',
+			'redirecturl'      => 'url',
+			'creator'          => 'code',
+			'tagurl'           => 'code',
+			'tags'             => 'tag',
+			'set_publishdate'  => 'bit',
+			'set_seo'          => 'bit',
 
+			'is_social_module' => 'bit',
 			// just for pagebuilder
-			'template' => ['enum' => ['publish', 'visitcard', 'comingsoon']],
+			'template'         => ['enum' => ['publish', 'visitcard', 'comingsoon']],
 		];
 
 		$require = ['title'];
@@ -77,12 +78,23 @@ class check
 					}
 				}
 			}
+
+			if(!$data['type'] && a($current_post_detail, 'type'))
+			{
+				$data['type'] = $current_post_detail['type'];
+			}
 		}
 
 		if(!$data['type'])
 		{
 			// all record is page
 			$data['type']    = 'post';
+		}
+
+		if(in_array($data['type'], ['instagram']) && !$data['is_social_module'])
+		{
+			\dash\notif::error(T_("Can not modify this post!. This post is automaticaly update by social networking"));
+			return false;
 		}
 
 
@@ -339,6 +351,7 @@ class check
 		unset($data['tagurl']);
 		unset($data['set_seo']);
 		unset($data['template']);
+		unset($data['is_social_module']);
 
 
 

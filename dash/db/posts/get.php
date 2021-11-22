@@ -136,7 +136,7 @@ class get
 				posts
 			WHERE
 				posts.status = '$_status' AND
-				posts.type != 'pagebuilder' AND
+				posts.type IN ('post', 'page') AND
 				posts.datecreated >= '$_enddate'
 			GROUP BY $CASE
 		";
@@ -159,7 +159,7 @@ class get
 				posts
 			WHERE
 				posts.status = '$_status' AND
-				posts.type != 'pagebuilder' AND
+				posts.type IN ('post', 'page') AND
 				posts.datecreated >= '$_enddate'
 			GROUP BY MONTH(posts.datecreated)
 		";
