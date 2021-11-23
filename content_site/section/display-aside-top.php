@@ -90,7 +90,7 @@ else
 
 
  require_once('part/discard.php');
- require_once('part/change_mode.php');
+ require_once('part/section_control.php');
 }
 
 $html .= '</div>';

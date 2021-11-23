@@ -41,7 +41,13 @@ class generate
 			$name = $_class;
 		}
 
-		return '<input type="hidden" name="'.$name.'" value="'. $_value. '">';
+		return self::hidden($name, $_value);
+	}
+
+
+	public static function hidden($_name, $_value = 1)
+	{
+		return '<input type="hidden" name="'.$_name.'" value="'. $_value. '">';
 	}
 
 
