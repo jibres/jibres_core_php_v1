@@ -30,7 +30,8 @@ class controller
 			'text',
 			'separator',
 			'application',
-			'instagram',
+			'socialnetwork',
+			// 'instagram',
 			'html',
 			/* -------------- */
 
