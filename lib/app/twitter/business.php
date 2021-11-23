@@ -134,7 +134,7 @@ class business
 
 					// 'cover'            => $media_url, // path
 					// 'thumb'            => $media_url, // path
-					'title'            => $text ? substr($text, 0, 199) : $id,
+					'title'            => $text ? \dash\text::substr_space($text, 199) : $id,
 					'content'          => $text ? $text : $id,
 					'type'             => 'twitter',
 					'subtype'          => 'standard', // ['enum' => ['standard', 'gallery', 'video', 'audio']],
