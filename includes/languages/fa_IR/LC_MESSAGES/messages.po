@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-11-18 15:38+0330\n"
-"PO-Revision-Date: 2021-11-18 15:41+0330\n"
+"POT-Creation-Date: 2021-11-23 10:10+0330\n"
+"PO-Revision-Date: 2021-11-23 10:15+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -4892,9 +4892,9 @@ msgstr "کد"
 #: content_love/domain/action/display.php:11
 #: content_love/domain/setting/action/display.php:13
 #: content_love/files/view/display.php:20 content_my/domain/irnic/edit/display.php:11
-#: content_site/body/title/option.php:28 content_site/body/title/option.php:30
+#: content_site/body/title/option.php:34 content_site/body/title/option.php:36
 #: content_site/body/title/title1.php:26
-#: content_site/options/caption/caption_gallery.php:27
+#: content_site/options/caption/caption_gallery.php:18
 #: content_site/options/heading/heading_business_footer.php:17
 #: content_site/options/quote/quote_title.php:16 content_site/options/title/title.php:24
 #: dash/layout/comment/comment-add.php:34 includes/languages/trans_static_public.php:194
@@ -5114,7 +5114,7 @@ msgstr "افزودن"
 #: content_a/setting/shipping/package/display.php:101 content_a/units/display.php:78
 #: content_a/units/display.php:138 content_account/address.php:147
 #: content_cms/comments/edit/display.php:39 content_crm/permission/setting/display.php:11
-#: content_crm/permission/user/display.php:11 content_crm/ticket/view/display-live.php:78
+#: content_crm/permission/user/display.php:11 content_crm/ticket/view/display-live.php:87
 #: content_love/changelog/add/display.php:42 content_my/domain/irnic/edit/display.php:25
 #: includes/languages/trans_static_public.php:144 lib/app/category/get.php:463
 #: lib/app/menu/generate.php:87 lib/app/menu/generate2.php:65
@@ -5127,7 +5127,8 @@ msgstr "ویرایش"
 #: content_a/accounting/year/add/display.php:30
 #: content_a/form/analytics/filter/display.php:34
 #: content_a/form/item/choice/display.php:32 content_a/products/bullet/display.php:29
-#: content_a/setting/fund/display.php:40 content_a/setting/menu/item/display.php:122
+#: content_a/setting/fund/display.php:40 content_a/setting/instagram/display.php:45
+#: content_a/setting/menu/item/display.php:122
 #: content_a/setting/menu/setting/display.php:41 content_a/setting/pcpos/display.php:161
 #: content_a/setting/shipping/method/display.php:60
 #: content_a/setting/shipping/package/display.php:97
@@ -6933,7 +6934,8 @@ msgstr "چاپ همه اسناد حسابداری"
 #: content_love/plugin/business/display.php:12 content_love/plugin/business/display.php:37
 #: content_site/options/description/description.php:97
 #: content_site/options/file/file_business_logo.php:86
-#: content_site/options/heading/heading.php:106 content_site/options/menu/menu.php:80
+#: content_site/options/heading/heading.php:106
+#: content_site/options/instagram/instagram.php:42 content_site/options/menu/menu.php:80
 #: content_site/options/socialnetwork/socialnetwork.php:67 dash/engine/pwa.php:63
 #: dash/engine/pwa.php:64 dash/layout/search/search-filter.php:171
 #: dash/layout/search/search-filter.php:206
@@ -7084,7 +7086,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/factor/seller/display.php:55 content_a/setting/fb/display.php:14
 #: content_a/setting/general/address/display.php:53
 #: content_a/setting/general/title/display.php:18 content_a/setting/github/display.php:15
-#: content_a/setting/instagram/display.php:15
+#: content_a/setting/instagram/display.php:14
 #: content_a/setting/legal/choosepage/display.php:25
 #: content_a/setting/linkedin/display.php:15
 #: content_a/setting/order/cartlimit/display.php:25
@@ -7905,7 +7907,7 @@ msgstr "ویرایش عنوان گروه"
 #: lib/app/category/edit.php:179 lib/app/category/edit.php:185
 #: lib/app/category/edit.php:290 lib/app/category/get.php:46 lib/app/category/get.php:53
 #: lib/app/category/get.php:75 lib/app/category/get.php:82 lib/app/category/get.php:104
-#: lib/app/category/get.php:111 lib/app/category/search.php:40 lib/app/menu/check.php:246
+#: lib/app/category/get.php:111 lib/app/category/search.php:40 lib/app/menu/check.php:248
 msgid "Invalid category id"
 msgstr "شناسه دسته‌بندی اشتباه است"
 
@@ -9427,7 +9429,7 @@ msgid "Try to start with add new tag!"
 msgstr "با افزودن تگ جدید تلاشی برای شروع داشته باشید!"
 
 #: content_a/form/tag/edit/controller.php:15 content_a/form/tag/remove/controller.php:16
-#: dash/app/posts/check.php:218 dash/app/terms/remove.php:18 dash/app/terms/remove.php:51
+#: dash/app/posts/check.php:227 dash/app/terms/remove.php:18 dash/app/terms/remove.php:51
 #: dash/app/terms/remove.php:82 lib/app/category/remove.php:35
 #: lib/app/category/remove.php:56 lib/app/category/remove.php:91
 #: lib/app/form/tag/edit.php:17 lib/app/form/tag/get.php:106 lib/app/form/tag/get.php:113
@@ -10098,9 +10100,9 @@ msgstr "عرض"
 #: content_a/setting/shipping/package/display.php:44
 #: content_a/setting/shipping/package/display.php:92
 #: content_site/options/container/container.php:38
-#: content_site/options/height/height.php:22 content_site/options/padding/padding.php:31
-#: content_site/options/radius/radius.php:31 lib/app/product/property.php:66
-#: lib/app/product/property.php:313 lib/app/product/property.php:317
+#: content_site/options/height/height.php:22 content_site/options/radius/radius.php:31
+#: lib/app/product/property.php:66 lib/app/product/property.php:313
+#: lib/app/product/property.php:317
 msgid "Height"
 msgstr "ارتفاع"
 
@@ -11766,11 +11768,11 @@ msgstr "فیس‌بوک"
 #: content_a/setting/fund/controller.php:14 content_a/setting/menu/item/controller.php:13
 #: content_b1/user/budget/detail/view.php:13 content_cms/posts/edit/controller.php:14
 #: content_my/domain/irnic/edit/controller.php:15 content_site/homepage.php:60
-#: content_site/homepage.php:71 dash/app/posts/check.php:62 dash/app/user/email.php:73
+#: content_site/homepage.php:71 dash/app/posts/check.php:63 dash/app/user/email.php:73
 #: dash/app/user/email.php:125 dash/app/user/email.php:256
-#: lib/app/business_domain/dns.php:292 lib/app/business_domain/dns.php:300
-#: lib/app/business_domain/dns.php:357 lib/app/business_domain/dns.php:365
-#: lib/app/business_domain/dns.php:575 lib/app/business_domain/dns.php:583
+#: lib/app/business_domain/dns.php:304 lib/app/business_domain/dns.php:312
+#: lib/app/business_domain/dns.php:369 lib/app/business_domain/dns.php:377
+#: lib/app/business_domain/dns.php:587 lib/app/business_domain/dns.php:595
 #: lib/app/category/edit.php:16 lib/app/discount/get.php:22 lib/app/export/download.php:30
 #: lib/app/factor/edit.php:59 lib/app/form/answer/get.php:108
 #: lib/app/form/answer/remove.php:14 lib/app/form/choice/get.php:24
@@ -11778,7 +11780,7 @@ msgstr "فیس‌بوک"
 #: lib/app/form/item/get.php:22 lib/app/form/item/get.php:176
 #: lib/app/form/item/get.php:210 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
-#: lib/app/menu/check.php:83 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
+#: lib/app/menu/check.php:85 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
 #: lib/app/nic_domain/get.php:456 lib/app/nic_domain/get.php:484
 #: lib/app/nic_domain/get.php:511 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/pos/remove.php:13 lib/app/pos/tools.php:13
@@ -12088,14 +12090,50 @@ msgstr "مدیریت تنظیمات فروش حضوری بیزینس شما"
 msgid "Manage your business social marketing"
 msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزینس شما"
 
-#: content_a/setting/instagram/display.php:8
+#: content_a/setting/instagram/display.php:7
 msgid "Enter your account username in instagram."
 msgstr "نام کاربری شما در اینستاگرام."
+
+#: content_a/setting/instagram/display.php:21
+msgid "Connect to your instagram account."
+msgstr "اتصال به حساب کاربری شما در اینستاگرام"
+
+#: content_a/setting/instagram/display.php:23
+msgid "Connected."
+msgstr "متصل‌شده."
+
+#: content_a/setting/instagram/display.php:25
+msgid "Fetch public posts now"
+msgstr "پست‌های عمومی را هم‌اکنون دریافت کنید"
+
+#: content_a/setting/instagram/display.php:27 content_love/domain/setting/display.php:355
+#: content_my/domain/setting/elements/superdetail.php:10
+#: content_my/domain/setting/elements/superdetail.php:51
+#: content_site/options/instagram/instagram.php:30
+msgid "Last fetch"
+msgstr "آخرین دریافت"
+
+#: content_a/setting/instagram/display.php:50
+#: content_a/setting/thirdparty/onlinepayment/display.php:17
+#: content_a/setting/thirdparty/onlinepayment/display.php:49
+#: content_a/setting/thirdparty/onlinepayment/display.php:82
+#: content_a/setting/thirdparty/onlinepayment/display.php:113
+#: content_a/setting/thirdparty/onlinepayment/display.php:145
+#: content_a/setting/thirdparty/onlinepayment/display.php:177
+#: content_a/setting/thirdparty/onlinepayment/display.php:210
+msgid "Connect"
+msgstr "اتصال"
+
+#: content_a/setting/instagram/model.php:27
+msgid "Instagram connection service is not available at the moment"
+msgstr "سرویس اتصال اینستاگرام در حال حاضر در دسترس نیست"
 
 #: content_a/setting/instagram/view.php:8 content_a/setting/social-old/display.php:16
 #: content_a/setting/social/display.php:15 content_a/setting/social/display.php:16
 #: content_account/my/home/display.php:160 content_account/my/social/display.php:41
-#: content_account/my/social/display.php:44 lib/store.php:493 lib/store.php:531
+#: content_account/my/social/display.php:44 content_site/body/instagram/instagram1.php:17
+#: content_site/body/instagram/instagram1.php:41 content_site/body/instagram/option.php:36
+#: lib/store.php:493 lib/store.php:531
 msgid "Instagram"
 msgstr "اینستاگرام"
 
@@ -12211,8 +12249,8 @@ msgstr "اشاره به"
 msgid "Please select an item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
-#: content_a/setting/menu/item/display.php:18 content_site/body/separator/option.php:28
-#: content_site/body/separator/option.php:30 content_site/body/separator/separator1.php:26
+#: content_a/setting/menu/item/display.php:18 content_site/body/separator/option.php:35
+#: content_site/body/separator/option.php:37 content_site/body/separator/separator1.php:26
 msgid "Separator"
 msgstr "جداکننده"
 
@@ -12909,6 +12947,7 @@ msgstr ""
 
 #: content_a/setting/product/free/display.php:11
 #: content_a/setting/product/viewtext/display.php:13
+#: content_site/options/caption/caption_gallery_button.php:12
 msgid "Button title"
 msgstr "عنوان دکمه"
 
@@ -13694,16 +13733,6 @@ msgstr "کلید اتصال ای‌پی‌آی کاوه‌نگار"
 #: content_a/setting/thirdparty/onlinepayment/display.php:7 dash/utility/pay/get.php:52
 msgid "Mellat payment"
 msgstr "درگاه پرداخت بانک ملت"
-
-#: content_a/setting/thirdparty/onlinepayment/display.php:17
-#: content_a/setting/thirdparty/onlinepayment/display.php:49
-#: content_a/setting/thirdparty/onlinepayment/display.php:82
-#: content_a/setting/thirdparty/onlinepayment/display.php:113
-#: content_a/setting/thirdparty/onlinepayment/display.php:145
-#: content_a/setting/thirdparty/onlinepayment/display.php:177
-#: content_a/setting/thirdparty/onlinepayment/display.php:210
-msgid "Connect"
-msgstr "اتصال"
 
 #: content_a/setting/thirdparty/onlinepayment/display.php:28
 #: content_a/setting/thirdparty/onlinepayment/display.php:60
@@ -14709,6 +14738,7 @@ msgid "Website, Email and Social Networks"
 msgstr "وب‌سایت، رایانامه و شبکه‌های اجتماعی"
 
 #: content_account/my/home/display.php:148 content_account/my/social/view.php:9
+#: content_site/body/instagram/option.php:34
 #: content_site/options/socialnetwork/socialnetwork.php:43
 #: dash/layout/admin/sidebar/sidebar-account.php:8
 msgid "Social Networks"
@@ -15122,6 +15152,7 @@ msgstr "ویندوز"
 msgid "Linux"
 msgstr "لینوکس"
 
+#: content_b1/business/instagram/detail/model.php:22
 #: content_b1/business/plugin/model.php:17 lib/app/nic_usersetting/set.php:67
 msgid "Setting saved"
 msgstr "تنظیمات ذخیره شد"
@@ -15972,7 +16003,7 @@ msgstr "افزودن هشتگ جدید"
 msgid "Hashtags"
 msgstr "هشتگ‌ها"
 
-#: content_cms/hashtag/edit/controller.php:15 lib/app/menu/check.php:273
+#: content_cms/hashtag/edit/controller.php:15 lib/app/menu/check.php:275
 msgid "Invalid hashtag id"
 msgstr "شناسه هشتگ نادرست است"
 
@@ -17784,24 +17815,20 @@ msgstr "این پیام در تیکت جدیدی پاسخ داده شده است
 msgid "See ticket"
 msgstr "مشاهده تیکت"
 
-#: content_crm/ticket/view/display-live.php:67
-msgid "Seen"
-msgstr "مشاهده شد"
-
-#: content_crm/ticket/view/display-live.php:73 content_love/domain/polls/display.php:56
+#: content_crm/ticket/view/display-live.php:82 content_love/domain/polls/display.php:56
 #: content_my/domain/option/display.php:27
 msgid "Note"
 msgstr "یادداشت"
 
-#: content_crm/ticket/view/display-live.php:83
+#: content_crm/ticket/view/display-live.php:92
 msgid "Add this message in new ticket and answer to it?"
 msgstr "آیا می‌خواهید این پیام را به عنوان تیکت جدید ثبت کرده و به آن پاسخ دهید؟"
 
-#: content_crm/ticket/view/display-live.php:83
+#: content_crm/ticket/view/display-live.php:92
 msgid "Answer in new ticket"
 msgstr "پاسخ در تیکت جدید"
 
-#: content_crm/ticket/view/display-live.php:100
+#: content_crm/ticket/view/display-live.php:109
 msgid "Show Attachment"
 msgstr "نمایش ضمیمه‌‌"
 
@@ -18336,7 +18363,7 @@ msgstr "درخواست مجوز لازم را برای اجرا ندارد"
 
 #: content_developers/docs/004-responses.php:96 content_enter/callback/controller.php:12
 #: content_my/domain/buy/controller.php:11 content_my/domain/renew/controller.php:13
-#: content_site/section/controller.php:81 content_v2/check.php:23 content_v2/tools.php:175
+#: content_site/section/controller.php:82 content_v2/check.php:23 content_v2/tools.php:175
 #: dash/validate/url.php:579
 msgid "Invalid url"
 msgstr "آدرس اشتباه"
@@ -18880,26 +18907,27 @@ msgstr ""
 #: content_enter/twostep/controller.php:11 content_enter/twostep/model.php:11
 #: content_enter/twostep/view.php:11 dash/app/ticket/add.php:173
 #: dash/app/ticket/add.php:245 dash/app/user/email.php:79 dash/app/user/email.php:132
-#: dash/app/user/email.php:262 dash/app/user/email.php:328 lib/api/jibres/api.php:29
-#: lib/app/application/queue_search.php:27 lib/app/cart/add.php:64 lib/app/cart/add.php:86
-#: lib/app/cart/add.php:175 lib/app/cart/add.php:282 lib/app/cart/checkout.php:14
-#: lib/app/cart/checkout.php:270 lib/app/cart/checkout.php:340 lib/app/cart/edit.php:19
-#: lib/app/cart/remove.php:36 lib/app/domains/search.php:27
-#: lib/app/gift/lookup/search.php:26 lib/app/gift/search.php:27
-#: lib/app/gift/usage/search.php:24 lib/app/nic_contact/add.php:21
-#: lib/app/nic_contact/add.php:67 lib/app/nic_contact/add.php:189
-#: lib/app/nic_contact/edit.php:110 lib/app/nic_contact/get.php:26
-#: lib/app/nic_contact/search.php:28 lib/app/nic_contact/search.php:183
-#: lib/app/nic_contactdetail/search.php:28 lib/app/nic_contactdetail/search.php:148
-#: lib/app/nic_credit/search.php:128 lib/app/nic_domain/create.php:85
-#: lib/app/nic_domain/get.php:18 lib/app/nic_domain/get.php:450
-#: lib/app/nic_domain/get.php:477 lib/app/nic_domain/get.php:505
-#: lib/app/nic_domain/renew.php:61 lib/app/nic_domain/search.php:27
-#: lib/app/nic_domain/search.php:42 lib/app/nic_domain/search.php:684
-#: lib/app/nic_domain/transfer.php:85 lib/app/nic_domainaction/search.php:11
-#: lib/app/nic_domainaction/search.php:25 lib/app/nic_domainbilling/search.php:11
-#: lib/app/nic_domainstatus/search.php:27 lib/app/nic_domainstatus/search.php:125
-#: lib/app/nic_log/search.php:27 lib/app/nic_poll/get.php:177 lib/app/nic_poll/get.php:190
+#: dash/app/user/email.php:262 dash/app/user/email.php:328 lib/api/jibres/api.php:16
+#: lib/api/jibres/api.php:30 lib/app/application/queue_search.php:27
+#: lib/app/cart/add.php:64 lib/app/cart/add.php:86 lib/app/cart/add.php:175
+#: lib/app/cart/add.php:282 lib/app/cart/checkout.php:14 lib/app/cart/checkout.php:270
+#: lib/app/cart/checkout.php:340 lib/app/cart/edit.php:19 lib/app/cart/remove.php:36
+#: lib/app/domains/search.php:27 lib/app/gift/lookup/search.php:26
+#: lib/app/gift/search.php:27 lib/app/gift/usage/search.php:24
+#: lib/app/nic_contact/add.php:21 lib/app/nic_contact/add.php:67
+#: lib/app/nic_contact/add.php:189 lib/app/nic_contact/edit.php:110
+#: lib/app/nic_contact/get.php:26 lib/app/nic_contact/search.php:28
+#: lib/app/nic_contact/search.php:183 lib/app/nic_contactdetail/search.php:28
+#: lib/app/nic_contactdetail/search.php:148 lib/app/nic_credit/search.php:128
+#: lib/app/nic_domain/create.php:85 lib/app/nic_domain/get.php:18
+#: lib/app/nic_domain/get.php:450 lib/app/nic_domain/get.php:477
+#: lib/app/nic_domain/get.php:505 lib/app/nic_domain/renew.php:61
+#: lib/app/nic_domain/search.php:27 lib/app/nic_domain/search.php:42
+#: lib/app/nic_domain/search.php:684 lib/app/nic_domain/transfer.php:85
+#: lib/app/nic_domainaction/search.php:11 lib/app/nic_domainaction/search.php:25
+#: lib/app/nic_domainbilling/search.php:11 lib/app/nic_domainstatus/search.php:27
+#: lib/app/nic_domainstatus/search.php:125 lib/app/nic_log/search.php:27
+#: lib/app/nic_poll/get.php:177 lib/app/nic_poll/get.php:190
 #: lib/app/nic_poll/search.php:27 lib/app/nic_poll/search.php:123
 #: lib/app/nic_usersetting/get.php:12 lib/app/nic_usersetting/search.php:27
 #: lib/app/nic_usersetting/search.php:134 lib/app/onlinenic/create.php:92
@@ -20596,12 +20624,6 @@ msgstr "دامنه آماده است"
 msgid "Available"
 msgstr "موجود"
 
-#: content_love/domain/setting/display.php:355
-#: content_my/domain/setting/elements/superdetail.php:10
-#: content_my/domain/setting/elements/superdetail.php:51
-msgid "Last fetch"
-msgstr "آخرین دریافت"
-
 #: content_love/domain/setting/display.php:362
 msgid "Remove to check again"
 msgstr "حذف برای بررسی مجدد"
@@ -21370,8 +21392,8 @@ msgstr "بیزینس من را بساز"
 
 #: content_my/business/home/display_pwa.php:59
 #: content_my/business/home/display_site.php:140
-#: content_site/body/application/application1.php:40
-#: content_site/body/application/option.php:28 content_site/body/application/option.php:30
+#: content_site/body/application/application1.php:41
+#: content_site/body/application/option.php:34 content_site/body/application/option.php:36
 #: lib/app/log/caller/application/application_readyToDownload.php:15
 msgid "Application"
 msgstr "برنامه"
@@ -22591,6 +22613,14 @@ msgstr "قدرت گرفته از جیبرس"
 msgid "Please set lock status"
 msgstr "لطفا وضعیت قفل را مشخص کنید"
 
+#: content_r10/jibres/instagram/fetch/view.php:15
+msgid "access_token and user id is required"
+msgstr "کد دسترسی و شناسه کاربر الزامی است"
+
+#: content_r10/jibres/instagram/fetch/view.php:27
+msgid "Can not get instagram data"
+msgstr "نمی‌توانیم اطلاعات را از اینستاگرام دریافت کنیم"
+
 #: content_r10/location/city/view.php:28 content_v2/location/city/view.php:28
 #: dash/utility/location.php:176
 msgid "Please choose city"
@@ -22819,12 +22849,12 @@ msgstr "فرم تماس"
 msgid "Magic Line"
 msgstr "خط جادویی"
 
-#: content_site/body/gallery/g1.php:51 content_site/body/gallery/g2.php:58
+#: content_site/body/gallery/g1.php:52 content_site/body/gallery/g2.php:59
 #: content_site/body/gallery/g6.php:64
 msgid "Image Gallery"
 msgstr "گالری تصویر"
 
-#: content_site/body/gallery/g1.php:94
+#: content_site/body/gallery/g1.php:95
 msgid "Image 1"
 msgstr "تصویر ۱"
 
@@ -22845,23 +22875,23 @@ msgid "Card Slider"
 msgstr "اسلایدر کارتی"
 
 #: content_site/body/gallery/layout.php:105 content_site/body/gallery/layout.php:132
-#: content_site/body/gallery/option.php:582
+#: content_site/body/gallery/option.php:589
 msgid "Image :val"
 msgstr "تصویر :val"
 
-#: content_site/body/gallery/option.php:560
+#: content_site/body/gallery/option.php:567
 msgid "Maximum capacity of this gallery is full"
 msgstr "ظرفیت صفحات این گالری تصویر تکمیل است"
 
-#: content_site/body/gallery/option.php:614 content_site/body/gallery/option.php:692
+#: content_site/body/gallery/option.php:621 content_site/body/gallery/option.php:699
 msgid "Invalid index"
 msgstr "شناسه فهرست اشتباه است"
 
-#: content_site/body/gallery/option.php:711
+#: content_site/body/gallery/option.php:718
 msgid "On this gallery model you need at least :min item"
 msgstr "در این مدل گالری شما باید حداقل :min آیتم داشته باشید"
 
-#: content_site/body/gallery/option.php:715
+#: content_site/body/gallery/option.php:722
 msgid "Can not remove last gallery item"
 msgstr "نمی‌توانید آخرین آیتم یک گالری را حذف کنید"
 
@@ -22937,7 +22967,7 @@ msgstr "حالت کارت ۱"
 msgid "Invalid section"
 msgstr "شناسه بخش اشتباه است"
 
-#: content_site/call_function.php:600
+#: content_site/call_function.php:624
 msgid "Sample :val"
 msgstr "نمونه :val"
 
@@ -22969,7 +22999,7 @@ msgstr "پابرگ سایت استاد رفیعی"
 msgid "Rafiei Footer v2"
 msgstr "پابرگ #رفیعی نسخه ۲"
 
-#: content_site/footer/f_rafiei2_html.php:62
+#: content_site/footer/f_rafiei2_html.php:64
 msgid "Follow us on Social Media"
 msgstr "ما را در شبکه‌های اجتماعی دنبال کنید"
 
@@ -23055,6 +23085,14 @@ msgstr "انتخاب از آیکون‌ها"
 #: content_site/load/body.php:23
 msgid "Please complete your page by adding new sections"
 msgstr "با افزودن بخش جدید صفحه خود را کامل کنید"
+
+#: content_site/options/android/android_apk_link.php:30
+msgid "Display APK download link"
+msgstr "نمایش لینک دانلود مستقیم اپلیکیشن"
+
+#: content_site/options/android/android_apk_link.php:34
+msgid "Manage application"
+msgstr "مدیریت اپلیکیشن"
 
 #: content_site/options/announcement/announcement.php:24
 msgid "Announcement"
@@ -23182,7 +23220,7 @@ msgid "Gradient"
 msgstr "طیف"
 
 #: content_site/options/background/background_pack.php:157
-#: content_site/options/effect/effect.php:97
+#: content_site/options/effect/effect.php:103
 msgid "Gradient colors"
 msgstr "رنگ‌های طیف"
 
@@ -23266,7 +23304,7 @@ msgstr "نمایش دکمه <b>مشاهده همه</b>"
 msgid "Button view all mode"
 msgstr "مدل نمایش دکمه «نمایش همه»"
 
-#: content_site/options/caption/caption.php:25 content_sudo/tg/sendphoto/display.php:24
+#: content_site/options/caption/caption.php:28 content_sudo/tg/sendphoto/display.php:24
 msgid "Caption"
 msgstr "برچسب"
 
@@ -23382,7 +23420,7 @@ msgstr "بزرگنمایی"
 msgid "Light"
 msgstr "روشن"
 
-#: content_site/options/effect/effect.php:40 content_site/options/effect/effect.php:60
+#: content_site/options/effect/effect.php:40 content_site/options/effect/effect.php:62
 #: content_site/options/responsive/responsive_device.php:47
 #: content_site/options/responsive/responsive_device.php:48
 #: content_site/options/responsive/responsive_device.php:49
@@ -23483,7 +23521,7 @@ msgstr "عنوان"
 msgid "Full Screen"
 msgstr "تمام صفحه"
 
-#: content_site/options/height/height.php:89
+#: content_site/options/height/height.php:100
 msgid "Section Height"
 msgstr "ارتفاع بخش"
 
@@ -23504,10 +23542,10 @@ msgstr "افزودن تصویر جدید"
 #: content_site/options/image/image_add2.php:25
 #: content_site/options/quote/quote_add.php:26
 #: content_site/options/responsive/responsive_footer_link_add.php:30
-#: content_site/section/html/model.php:71 content_site/section/model.php:288
-#: content_site/section/model.php:447 content_site/section/model.php:517
-#: content_site/section/model.php:552 content_site/section/model.php:605
-#: content_site/section/model.php:652 content_site/update_record.php:39
+#: content_site/section/html/model.php:71 content_site/section/model.php:293
+#: content_site/section/model.php:452 content_site/section/model.php:522
+#: content_site/section/model.php:557 content_site/section/model.php:610
+#: content_site/section/model.php:657 content_site/update_record.php:39
 msgid "Section not found"
 msgstr "بخش یافت نشد"
 
@@ -23584,13 +23622,25 @@ msgstr "آیا از حذف این بخش تصویر اطمینان دارید؟"
 msgid "Remove image block"
 msgstr "حذف بخش تصویر"
 
+#: content_site/options/instagram/instagram.php:24
+msgid "Connect to your instagram"
+msgstr "اتصال به اینستاگرام شما"
+
+#: content_site/options/instagram/instagram.php:40
+msgid "Fetch posts now"
+msgstr "هم‌اکنون پست‌ها را دریافت کن"
+
 #: content_site/options/link/link_cart.php:23
 msgid "Display cart link"
 msgstr "نمایش لینک سبد خرید"
 
-#: content_site/options/link/link_color.php:58
+#: content_site/options/link/link_color.php:47
 msgid "Link mode"
 msgstr "مدل لینک"
+
+#: content_site/options/link/link_color_magicbox_button.php:29
+msgid "Button color"
+msgstr "رنگ دکمه"
 
 #: content_site/options/link/link_enter.php:23
 msgid "Display enter link"
@@ -23671,9 +23721,17 @@ msgstr "منو ۳"
 msgid "Menu 4"
 msgstr "منو ۴"
 
-#: content_site/options/padding/padding.php:98
-msgid "Section padding"
-msgstr "فاصله از داخل"
+#: content_site/options/padding/padding.php:36
+msgid "Padding"
+msgstr "فاصله داخلی"
+
+#: content_site/options/padding/padding_bottom.php:11
+msgid "Padding bottom"
+msgstr "فاصله داخلی از پایین"
+
+#: content_site/options/padding/padding_top.php:11
+msgid "Padding Top"
+msgstr "فاصله داخلی از بالا"
 
 #: content_site/options/post/post_order.php:11
 #: content_site/options/product/product_order.php:11
@@ -23995,7 +24053,7 @@ msgstr "پوستر ویدیو"
 #: content_site/page/design/model.php:15 content_site/page/factor/view.php:42
 #: content_site/page/model.php:50 content_site/page/model.php:226
 #: content_site/page/settings/model.php:17 content_site/section/html/model.php:36
-#: content_site/section/model.php:783
+#: content_site/section/model.php:788
 msgid "Invali page id"
 msgstr "شماره صفحه نادرست"
 
@@ -24003,7 +24061,7 @@ msgstr "شماره صفحه نادرست"
 msgid "Option key not found!"
 msgstr "کد گزینه یافت نشد!"
 
-#: content_site/page/design/model.php:89 content_site/section/model.php:228
+#: content_site/page/design/model.php:89 content_site/section/model.php:233
 msgid "Please check your input"
 msgstr "لطفا ورودی‌های خود را کنترل کنید"
 
@@ -24053,13 +24111,13 @@ msgid "Data saved"
 msgstr "ذخیره شد"
 
 #: content_site/page/model.php:234 content_site/page/model.php:243
-#: content_site/section/model.php:671 dash/app/posts/gallery.php:280
+#: content_site/section/model.php:676 dash/app/posts/gallery.php:280
 #: lib/app/product/gallery.php:405
 msgid "Invalid sort arguments"
 msgstr "آرگومان مرتب‌سازی اشتباه است"
 
 #: content_site/page/model.php:270 content_site/page/model.php:282
-#: content_site/section/model.php:690 content_site/section/model.php:705
+#: content_site/section/model.php:695 content_site/section/model.php:710
 msgid "Some item have problem in sorting. Need load again"
 msgstr "برخی از اطلاعات اشتباه هستند. لطفا مجددا صفحه را بارگذاری کنید"
 
@@ -24166,29 +24224,29 @@ msgstr "صفحه حذف شد"
 msgid "Invalid section name or preview key"
 msgstr "نام بخش یا کد پیش‌نمایش اشتباه است"
 
-#: content_site/preview/controller.php:35 content_site/section/model.php:661
+#: content_site/preview/controller.php:35 content_site/section/model.php:666
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
-#: content_site/section/controller.php:74
+#: content_site/section/controller.php:75
 msgid "Invalid section name"
 msgstr "نام بخش اشتباه"
 
-#: content_site/section/controller.php:90 content_site/section/controller.php:216
+#: content_site/section/controller.php:91 content_site/section/controller.php:222
 #: content_site/section/html/controller.php:21 content_site/section/model.php:73
 msgid "Invalid section id"
 msgstr "شناسه بخش اشتباه است"
 
-#: content_site/section/controller.php:113 content_site/section/controller.php:129
+#: content_site/section/controller.php:114 content_site/section/controller.php:130
 #: dash/validate/html.php:384
 msgid "Invalid url!"
 msgstr "آدرس اشتباه است!"
 
-#: content_site/section/controller.php:208
+#: content_site/section/controller.php:214
 msgid "Page id or section id not found"
 msgstr "شناسه صفحه یا شناسه بخش یافت نشد"
 
-#: content_site/section/controller.php:228
+#: content_site/section/controller.php:234
 msgid "Invalid section model"
 msgstr "مدل بخش اشتباه است"
 
@@ -24211,11 +24269,7 @@ msgstr "دانلود الگو"
 msgid "Remove section"
 msgstr "حذف بخش"
 
-#: content_site/section/display-aside-bottom.php:99
-msgid "Change Model"
-msgstr "تغییر مدل"
-
-#: content_site/section/display-aside-bottom.php:108
+#: content_site/section/display-aside-bottom.php:97
 msgid "Hide/Show"
 msgstr "نمایان / مخفی"
 
@@ -24253,53 +24307,57 @@ msgstr "کد HTML‌ سفارشی"
 msgid "Save HTML"
 msgstr "ذخیره HTML"
 
-#: content_site/section/model.php:190
+#: content_site/section/model.php:195
 msgid "Invalid option"
 msgstr "شناسه گزینه نامعتبر است"
 
-#: content_site/section/model.php:244 content_site/section/model.php:815
+#: content_site/section/model.php:249 content_site/section/model.php:820
 msgid "Invalid preview_key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:253 content_site/section/model.php:805
+#: content_site/section/model.php:258 content_site/section/model.php:810
 msgid "Invalid model"
 msgstr "مدل اشتباه است"
 
-#: content_site/section/model.php:261 content_site/section/model.php:832
+#: content_site/section/model.php:266 content_site/section/model.php:837
 msgid "Invalid preview key"
 msgstr "کلید پیش‌نمایش نامعتبر است"
 
-#: content_site/section/model.php:332
+#: content_site/section/model.php:337
 msgid "Can not save this index!"
 msgstr "نمی‌توانیم این ایندکس را ذخیره کنیم!"
 
-#: content_site/section/model.php:366
+#: content_site/section/model.php:371
 msgid "Some settings are conflicting!"
 msgstr "برخی از تنظیمات تداخل دارند!"
 
-#: content_site/section/model.php:583
+#: content_site/section/model.php:588
 msgid "Can not remove this block!"
 msgstr "نمی‌توانید این مورد را حذف کنید!"
 
-#: content_site/section/model.php:683
+#: content_site/section/model.php:688
 msgid "This section have not sortable item!"
 msgstr "این بخش امکان مرتب سازی را ندارد!"
 
-#: content_site/section/model.php:795
+#: content_site/section/model.php:800
 msgid "Invalid key"
 msgstr "شناسه نامعتبر"
 
-#: content_site/section/model.php:824
+#: content_site/section/model.php:829
 msgid "Can not chose this section!"
 msgstr "نمی‌توانید این بخش را انتخاب کنید!"
 
-#: content_site/section/model.php:967
+#: content_site/section/model.php:972
 msgid "Maximum capacity of page section is full"
 msgstr "حداکثر ظرفیت بخش‌های قابل استفاده در صفحه تکمیل شده است"
 
-#: content_site/section/model.php:975
+#: content_site/section/model.php:980
 msgid "No way to save data"
 msgstr "هیچ راهی برای ثبت اطلاعات وجود ندارد"
+
+#: content_site/section/part/change_mode.php:15
+msgid "Change to another model"
+msgstr "تغییر به مدل دیگر"
 
 #: content_site/section/part/discard.php:13
 msgid "Discard change"
@@ -25236,7 +25294,7 @@ msgstr "دیدگاه شما با موفقیت اضافه شد"
 msgid "You can not send comment on this page!"
 msgstr "شما نمی‌توانید در این صفحه دیدگاهی ارسال کنید!"
 
-#: dash/app/comment/check.php:41 lib/app/menu/check.php:194
+#: dash/app/comment/check.php:41 lib/app/menu/check.php:196
 msgid "Invalid post id"
 msgstr "شناسه مطلب اشتباه است"
 
@@ -25737,7 +25795,7 @@ msgstr "شناسه سطح دسترسی اشتباه است"
 msgid "Permission removed"
 msgstr "سطح دسترسی حذف شد"
 
-#: dash/app/posts/add.php:27 lib/app/menu/check.php:69
+#: dash/app/posts/add.php:27 lib/app/menu/check.php:71
 msgid "Title is required"
 msgstr "عنوان الزامی است"
 
@@ -25749,53 +25807,59 @@ msgstr "هیچ راهی برای افزودن مطلب وجود ندارد"
 msgid "Post successfuly added"
 msgstr "مطلب با موفقیت اضافه شد"
 
-#: dash/app/posts/check.php:76
+#: dash/app/posts/check.php:77
 msgid "Can not access to edit this post!"
 msgstr "شما دسترسی لازم را برای ویرایش این نوشته را ندارید!"
 
-#: dash/app/posts/check.php:127 lib/app/menu/check.php:279
+#: dash/app/posts/check.php:96
+msgid "Can not modify this post!. This post is automaticaly update by social networking"
+msgstr ""
+"این نوشته را نمی‌توانید ویرایش کنید. این نوشته توسط شبکه‌های اجتماعی به صورت خود ثبت و "
+"ویرایش می‌شوند"
+
+#: dash/app/posts/check.php:136 lib/app/menu/check.php:281
 msgid "Please choose a tag"
 msgstr "لطفا تگ را انتخاب کنید"
 
-#: dash/app/posts/check.php:138
+#: dash/app/posts/check.php:147
 msgid "Please choose a post as parent"
 msgstr "لطفا یک نوشته را به عنوان والد انتخاب کنید"
 
-#: dash/app/posts/check.php:147
+#: dash/app/posts/check.php:156
 msgid "Url is required"
 msgstr "آدرس الزامی است"
 
-#: dash/app/posts/check.php:172
+#: dash/app/posts/check.php:181
 msgid "Invalid parameter parent"
 msgstr "پارامتر والد نامعتبر است"
 
-#: dash/app/posts/check.php:186
+#: dash/app/posts/check.php:195
 msgid "Only post by special address can set as parent of another post"
 msgstr ""
 "تنها نوشته‌هایی که دارای آدرس اختصاصی هستند می‌توانند به عنوان والد برای نوشته‌ای دیگر "
 "قرار گیرند"
 
-#: dash/app/posts/check.php:192
+#: dash/app/posts/check.php:201
 msgid "Parent post have not a special url"
 msgstr "مطلب والد دارای آدرس اختصاصی نیست"
 
-#: dash/app/posts/check.php:198
+#: dash/app/posts/check.php:207
 msgid "Can not set page as parent of self!"
 msgstr "نمی‌توانید صفحه‌ای را به‌عنوان والد خودش ثبت کنید!"
 
-#: dash/app/posts/check.php:233
+#: dash/app/posts/check.php:242
 msgid "Duplicate post url. This post url is already exists in your post list"
 msgstr "آدرس نوشته تکراری است. این آدرس نوشته در لیست نوشته‌های شما وجود دارد"
 
-#: dash/app/posts/check.php:290 lib/app/cart/search.php:293 lib/app/store/edit.php:34
+#: dash/app/posts/check.php:299 lib/app/cart/search.php:293 lib/app/store/edit.php:34
 msgid "Invalid user"
 msgstr "کاربر نامعتبر"
 
-#: dash/app/posts/check.php:311
+#: dash/app/posts/check.php:320
 msgid "Can not set the slug larger than 100 character"
 msgstr "نمی‌توانید نامک را بیشتر از ۱۰۰ کاراکتر تنظیم کنید"
 
-#: dash/app/posts/check.php:317
+#: dash/app/posts/check.php:326
 msgid "Can not set the url larger than 180 character"
 msgstr "نمی‌توانید آدرس را بیشتر از ۱۸۰ کاراکتر تنظیم کنید"
 
@@ -26852,7 +26916,7 @@ msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر م�
 msgid "Second part of string function must be larger than zero!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید بزرگتر از صفر باشد!"
 
-#: dash/cleanse.php:856
+#: dash/cleanse.php:857
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
@@ -26981,7 +27045,7 @@ msgid "Please use famous browser to have better experience!"
 msgstr "لطفا برای بهرمندی از تجربه مطلوب‌تر از مرورگرهای مطرح استفاده کنید!"
 
 #: dash/email/broker.php:37 lib/api/arvancloud/api.php:92 lib/api/email/sendgrid.php:47
-#: lib/api/onlinenic/api.php:100
+#: lib/api/instagram/api.php:143 lib/api/onlinenic/api.php:100
 msgid "Can not connect to Domain server!"
 msgstr "نمی‌توانیم به سرور دامنه‌ها متصل شویم!"
 
@@ -29721,8 +29785,12 @@ msgid "Something in html is wrong!"
 msgstr "برخی از مقادیر ارسال شده در اچ‌تی‌ام‌ال اشتباه هستند!"
 
 #: dash/validate/html.php:390
-msgid "Invalid image url!"
-msgstr "آدرس تصویر اشتباه است!"
+msgid ""
+"In the submitted content, a phrase was found that should only be the address of an "
+"image and we do not allow the registration of any type of address in that section!"
+msgstr ""
+"در محتوای ارسالی شما عبارتی وجود دارد که فقط می‌تواند آدرس یک تصویر باشد و ما اجازه ثبت "
+"هر نوع آدرسی در آن قسمت نمی‌دهیم!"
 
 #: dash/validate/html.php:404
 msgid "We can not support this image host url!"
@@ -29736,7 +29804,7 @@ msgstr "شماره شبا باید دارای کد کشور باشد و دقیق
 msgid "Invalid IBAN. Please enter a valid IBAN"
 msgstr "شماره شبا نامعتبر است"
 
-#: dash/validate/identify.php:61
+#: dash/validate/identify.php:61 dash/validate/identify.php:92
 msgid "Invalid code"
 msgstr "کد اشتباه است"
 
@@ -36343,7 +36411,7 @@ msgstr "برای تایید ایمیل خود در جیبرس"
 msgid "Verify your mail"
 msgstr "نیاز به تایید ایمیل"
 
-#: lib/api/jibres/api.php:21
+#: lib/api/jibres/api.php:22
 msgid "This method works only in business mode"
 msgstr "این متود تنها در حالت بیزینس قابل اجرا است"
 
@@ -36712,101 +36780,101 @@ msgstr "این دامنه در پنل سی‌دی‌ان درحال استفاد
 msgid "Can not add domain to CND panel"
 msgstr "نمی‌توانیم دامنه را در پنل سی‌دی‌ان ثبت کنیم"
 
-#: lib/app/business_domain/dns.php:82
+#: lib/app/business_domain/dns.php:94
 msgid "Can not get DNS detail!"
 msgstr "نمی‌توانیم جزئیات دی‌ان‌اس را دریافت کنیم!"
 
-#: lib/app/business_domain/dns.php:95
+#: lib/app/business_domain/dns.php:107
 msgid "DNS was set on our default DNS record"
 msgstr "دی‌ان‌اس این دامنه بر روی دی‌ان‌اس‌های اختصاصی ما تنظیم شده است"
 
-#: lib/app/business_domain/dns.php:99
+#: lib/app/business_domain/dns.php:111
 msgid "DNS detail saved"
 msgstr "جزئیات دی‌ان‌اس ذخیره شد"
 
-#: lib/app/business_domain/dns.php:216
+#: lib/app/business_domain/dns.php:228
 msgid "Pending Delete"
 msgstr "در انتظار حذف"
 
-#: lib/app/business_domain/dns.php:229 lib/app/business_domain/dns.php:238
+#: lib/app/business_domain/dns.php:241 lib/app/business_domain/dns.php:250
 msgid "Connected to Jibres CDN"
 msgstr "به سی‌دی‌ان جیبرس متصل شده است"
 
-#: lib/app/business_domain/dns.php:324
+#: lib/app/business_domain/dns.php:336
 msgid "Can not remove this dns recrod from your domain"
 msgstr "نمی‌توانید این رکورد را از دامنه خود حذف کنید"
 
-#: lib/app/business_domain/dns.php:334 lib/app/business_domain/dns.php:409
+#: lib/app/business_domain/dns.php:346 lib/app/business_domain/dns.php:421
 msgid "DNS record removed"
 msgstr "رکورد دی‌ان‌اس حذف شد"
 
-#: lib/app/business_domain/dns.php:340 lib/app/business_domain/dns.php:415
-#: lib/app/business_domain/dns.php:684
+#: lib/app/business_domain/dns.php:352 lib/app/business_domain/dns.php:427
+#: lib/app/business_domain/dns.php:696
 msgid "DNS record and domain is is not match!"
 msgstr "شناسه دی‌ان‌اس و دامنه با هم مطابقت ندارد!"
 
-#: lib/app/business_domain/dns.php:346 lib/app/business_domain/dns.php:421
-#: lib/app/business_domain/dns.php:690
+#: lib/app/business_domain/dns.php:358 lib/app/business_domain/dns.php:433
+#: lib/app/business_domain/dns.php:702
 msgid "DNS record not found"
 msgstr "رکورد‌ دی‌ان‌اس یافت نشد"
 
-#: lib/app/business_domain/dns.php:400
+#: lib/app/business_domain/dns.php:412
 msgid "We can not find this record on CDN panel"
 msgstr "ما این دی‌ان‌اس رکورد را در پنل سی‌دی‌ان پیدا نکردیم"
 
-#: lib/app/business_domain/dns.php:497
+#: lib/app/business_domain/dns.php:509
 msgid "Duplicate DNS record"
 msgstr "دی‌ان‌اس تکراری است"
 
-#: lib/app/business_domain/dns.php:505
+#: lib/app/business_domain/dns.php:517
 msgid "Can not add * in dns record"
 msgstr "نمی‌توانید از کاراکتر * در رکورد‌های دی‌ان‌اس استفاده کنید"
 
-#: lib/app/business_domain/dns.php:513
+#: lib/app/business_domain/dns.php:525
 msgid "Can not add @ in dns record"
 msgstr "نمی‌توانید از کاراکتر @ در رکورد‌های دی‌ان‌اس استفاده کنید"
 
-#: lib/app/business_domain/dns.php:524
+#: lib/app/business_domain/dns.php:536
 msgid "Your business domain dns capacity is full!"
 msgstr "ظرفیت تعداد رکورد‌های دی‌ان‌اس این دامنه تکمیل است!"
 
-#: lib/app/business_domain/dns.php:564
+#: lib/app/business_domain/dns.php:576
 msgid "DNS record saved"
 msgstr "رکورد‌های دی‌ان‌اس ذخیره شدند"
 
-#: lib/app/business_domain/dns.php:716
+#: lib/app/business_domain/dns.php:728
 msgid "Can not get DNS record from CDN panel"
 msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
 
-#: lib/app/business_domain/dns.php:723
+#: lib/app/business_domain/dns.php:735
 msgid "Can not connect to CDN panel"
 msgstr "نمی‌توانیم به سرور سی‌دی‌ان متصل شویم"
 
-#: lib/app/business_domain/dns.php:802 lib/app/business_domain/https.php:278
+#: lib/app/business_domain/dns.php:814 lib/app/business_domain/https.php:278
 msgid "No DNS record found by this ip"
 msgstr "هیچ رکورد دی‌ان‌اس با این آی‌پی یافت نشد"
 
-#: lib/app/business_domain/dns.php:920
+#: lib/app/business_domain/dns.php:932
 msgid "No change in dns provider"
 msgstr "تغییری در ارائه دهنده دی‌ان‌اس انجام نشد"
 
-#: lib/app/business_domain/dns.php:926
+#: lib/app/business_domain/dns.php:938
 msgid "Current dns provider not found"
 msgstr "ارائه دهنده فعلی دی‌ان‌اس یافت نشد"
 
-#: lib/app/business_domain/dns.php:951
+#: lib/app/business_domain/dns.php:963
 msgid "DNS provider changed"
 msgstr "ارائه دهنده دی‌ان‌اس تغییر یافت"
 
-#: lib/app/business_domain/dns.php:958
+#: lib/app/business_domain/dns.php:970
 msgid "Invalid dns provider server key!"
 msgstr "شناسه سرور ارائه دهنده دی‌ان‌اس اشتباه است!"
 
-#: lib/app/business_domain/dns.php:988
+#: lib/app/business_domain/dns.php:1000
 msgid "Jibres DNS record added"
 msgstr "رکورد‌های دی‌ان‌اس جیبرس اضافه شدند"
 
-#: lib/app/business_domain/dns.php:1106
+#: lib/app/business_domain/dns.php:1118
 msgid "Fetch DNS successfully"
 msgstr "دریافت دی‌ان‌اس با موفقیت انجام شد"
 
@@ -37221,7 +37289,7 @@ msgstr "نمی‌توانیم دسته‌بندی محصول شما را به‌
 msgid "Category saved without chnage"
 msgstr "دسته‌بندی بدون تغییر ذخیره شد"
 
-#: lib/app/category/edit.php:387 lib/app/menu/edit.php:89 lib/app/menu/edit.php:125
+#: lib/app/category/edit.php:387 lib/app/menu/edit.php:92 lib/app/menu/edit.php:128
 msgid "Sort arguments must be array"
 msgstr "پارامتر مرتب‌سازی باید آرایه باشد"
 
@@ -37590,8 +37658,8 @@ msgstr "خطا در پرداخت"
 msgid "Pay cancel"
 msgstr "انصراف از پرداخت"
 
-#: lib/app/factor/action.php:128 lib/app/factor/edit.php:43 lib/app/menu/edit.php:83
-#: lib/app/menu/edit.php:119
+#: lib/app/factor/action.php:128 lib/app/factor/edit.php:43 lib/app/menu/edit.php:86
+#: lib/app/menu/edit.php:122
 msgid "Id is required"
 msgstr "شناسه الزامی است"
 
@@ -38473,6 +38541,14 @@ msgstr "ناتوان در خواندن فایل"
 msgid "Your file saved."
 msgstr "فایل شما ذخیره شد."
 
+#: lib/app/instagram/business.php:30
+msgid "Connection removed"
+msgstr "اتصال حذف شد"
+
+#: lib/app/instagram/get.php:48
+msgid "Can not add data"
+msgstr "نمی‌توانیم اطلاعات را اضافه کنیم"
+
 #: lib/app/inventory/add.php:21 lib/app/inventory/edit.php:35
 msgid "Duplicate inventory name"
 msgstr "نام انبار تکراری است"
@@ -38817,57 +38893,57 @@ msgstr "سفارش شما رو از طریق پست ارسال کردیم و ب�
 msgid "By opening the following link, you can track the status of sending your order"
 msgstr "با بازکردن لینک زیر می‌تونید وضعیت ارسال سفارش خودتون رو رهگیری کنید"
 
-#: lib/app/menu/add.php:32
+#: lib/app/menu/add.php:34
 msgid "Menu created"
 msgstr "منو ساخته شد"
 
-#: lib/app/menu/check.php:97
+#: lib/app/menu/check.php:99
 msgid "Maximum menu level is 5"
 msgstr "منو حداکثر می‌تواند ۵ لایه باشد"
 
-#: lib/app/menu/check.php:165 lib/app/product/bullet.php:40 lib/app/product/edit.php:112
+#: lib/app/menu/check.php:167 lib/app/product/bullet.php:40 lib/app/product/edit.php:112
 #: lib/app/product/property.php:78 lib/app/product/property.php:111
 #: lib/app/product/property.php:447
 msgid "Invalid product id"
 msgstr "شناسه محصول اشتباه است"
 
-#: lib/app/menu/check.php:171
+#: lib/app/menu/check.php:173
 msgid "Please choose a product"
 msgstr "لطفا یک محصول را انتخاب کنید"
 
-#: lib/app/menu/check.php:200
+#: lib/app/menu/check.php:202
 msgid "Please choose a post"
 msgstr "لطفا یک نوشته را انتخاب کنید"
 
-#: lib/app/menu/check.php:220
+#: lib/app/menu/check.php:222
 msgid "Invalid form id"
 msgstr "شناسه فرم اشتباه است"
 
-#: lib/app/menu/check.php:226
+#: lib/app/menu/check.php:228
 msgid "Please choose a form"
 msgstr "لطفا یکی از فرم‌ها را انتخاب کنید"
 
-#: lib/app/menu/check.php:252
+#: lib/app/menu/check.php:254
 msgid "Please choose a category"
 msgstr "لطفا یک دسته‌بندی را انتخاب کنید"
 
-#: lib/app/menu/check.php:293
+#: lib/app/menu/check.php:295
 msgid "Please choose a social network"
 msgstr "لطفا یکی از شبکه‌های اجتماعی خود را انتخاب کنید"
 
-#: lib/app/menu/check.php:311
+#: lib/app/menu/check.php:313
 msgid "Please set a url"
 msgstr "لطفا آدرس را وارد کنید"
 
-#: lib/app/menu/edit.php:70
+#: lib/app/menu/edit.php:72
 msgid "Menu updated"
 msgstr "فهرست به‌روزرسانی شد"
 
-#: lib/app/menu/edit.php:102
+#: lib/app/menu/edit.php:105
 msgid "No item to sort"
 msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
 
-#: lib/app/menu/edit.php:305
+#: lib/app/menu/edit.php:308
 msgid "Can not save this menu level!"
 msgstr "نمی‌توانیم این سطح از منو را ذخیره کنیم!"
 
@@ -38879,7 +38955,7 @@ msgstr "داده یافت نشد"
 msgid "Can not load this menu in this page"
 msgstr "نمی‌توانید این منو را در این صفحه باز کنید"
 
-#: lib/app/menu/remove.php:24
+#: lib/app/menu/remove.php:26
 msgid "Menu removed"
 msgstr "منو حذف شد"
 
@@ -42123,6 +42199,18 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Seen"
+#~ msgstr "مشاهده شد"
+
+#~ msgid "Section padding"
+#~ msgstr "فاصله از داخل"
+
+#~ msgid "Change Model"
+#~ msgstr "تغییر مدل"
+
+#~ msgid "Invalid image url!"
+#~ msgstr "آدرس تصویر اشتباه است!"
 
 #~ msgid "Capabilities that you need in attracting customers and better service support"
 #~ msgstr "قابلیت‌هایی که در جذب مشتریان و پشتیبانی بهتر از خدمات، به آن‌ها نیاز دارید"
@@ -47553,9 +47641,6 @@ msgstr "یارد"
 #~ msgid "Access to accounting"
 #~ msgstr "دسترسی به حسابداری هوشمند"
 
-#~ msgid "Manage application"
-#~ msgstr "مدیریت اپلیکیشن"
-
 #~ msgid "Access to CRM"
 #~ msgstr "دسترسی به مدیریت ارتباط با مشتریان"
 
@@ -47655,9 +47740,6 @@ msgstr "یارد"
 
 #~ msgid "pending send"
 #~ msgstr "در انتظار ارسال"
-
-#~ msgid "Pending pay"
-#~ msgstr "در انتظار پرداخت"
 
 #~ msgid "Pending send"
 #~ msgstr "در انتظار ارسال"
@@ -48362,9 +48444,6 @@ msgstr "یارد"
 
 #~ msgid "Avalible?"
 #~ msgstr "آیا موجود است؟"
-
-#~ msgid "Change variants model"
-#~ msgstr "تغییر انواع تنوع"
 
 #~ msgid "Add variants products"
 #~ msgstr "افزودن تنوع محصول"
@@ -49804,9 +49883,6 @@ msgstr "یارد"
 
 #~ msgid "Add tag to link articles"
 #~ msgstr "افزودن کلیدواژه برای برقرار ارتباط بین نوشته‌ها"
-
-#~ msgid "Button color"
-#~ msgstr "رنگ دکمه"
 
 #~ msgid "Select button color"
 #~ msgstr "رنگ دکمه را انتخاب کنید"
