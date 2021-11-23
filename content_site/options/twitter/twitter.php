@@ -7,10 +7,7 @@ class twitter
 
 	public static function admin_html()
 	{
-
-
-		$twitter_username = \lib\store::social('twitter');
-		$twitter_username = a($twitter_username, 'user');
+		$twitter_username = \lib\store::social('twitter', true);
 
 
 		$twitter_last_fetch = null; //\lib\app\twitter\business::last_fetch();
