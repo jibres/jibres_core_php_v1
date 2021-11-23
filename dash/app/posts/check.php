@@ -18,7 +18,7 @@ class check
 			'slug'             => 'string_100',
 			'url'              => 'url',
 			'content'          => 'real_html',
-			'type'             => ['enum' => ['post', 'pagebuilder', 'instagram']],
+			'type'             => ['enum' => ['post', 'pagebuilder', 'instagram', 'twitter']],
 			'subtype'          => ['enum' => ['standard', 'gallery', 'video', 'audio']],
 			'status'           => ['enum' => ['publish','draft', 'pending_review']],
 			'specialaddress'   => ['enum' => ['independence', 'special', 'under_tag', 'under_page']],
@@ -91,7 +91,7 @@ class check
 			$data['type']    = 'post';
 		}
 
-		if(in_array($data['type'], ['instagram']) && !$data['is_social_module'])
+		if(in_array($data['type'], ['instagram', 'twitter']) && !$data['is_social_module'])
 		{
 			\dash\notif::error(T_("Can not modify this post!. This post is automaticaly update by social networking"));
 			return false;
