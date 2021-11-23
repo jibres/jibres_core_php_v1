@@ -20,7 +20,7 @@ class twitter1
 				'heading_full',
 
 				'twitter',
-				// 'count_twitter_post',
+				'count_twitter_post',
 
 
 				// sub page
@@ -39,10 +39,8 @@ class twitter1
 			'default'      =>
 			[
 				'heading'               => T_("Twitter"),
-				'post_template'         => 'any',
-				'post_order'            => 'latest',
-				'count'                 => 3,
 
+				'count'                 => 1,
 
 
 				'background_pack'       => 'none',
