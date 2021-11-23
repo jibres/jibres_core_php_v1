@@ -1,5 +1,5 @@
 <?php 
-if(!\dash\request::get('index') && \dash\request::get('sid'))
+if(!\dash\request::get('index') && \dash\request::get('sid') && !\dash\url::subchild())
 {
     $model_url = \dash\url::that(). '/model'. \dash\request::full_get();
 
