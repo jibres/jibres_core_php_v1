@@ -16,7 +16,7 @@ class layout
 	public static function layout($_args)
 	{
 
-		// $blog = \lib\app\twitter\business::get_my_posts();
+		$blog = \lib\app\twitter\business::get_my_posts();
 
 
 		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args, $blog);
