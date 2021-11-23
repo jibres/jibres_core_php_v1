@@ -159,7 +159,7 @@
                     <tr class="text-left">
                       <td class="ltr text-left"><?php echo a($value, 'type'); ?></td>
                       <td class="ltr text-left"><?php echo a($value, 'key'); ?></td>
-                      <td class="ltr text-left"><?php echo a($value, 'value'); ?>
+                      <td class="ltr text-left break-all"><?php echo a($value, 'value'); ?>
                         <?php if(a($value, 'priority')) { ?>
                           <div class="badge" title="Priority"><?php echo a($value, 'priority'); ?></div>
                         <?php }  // end if?>
