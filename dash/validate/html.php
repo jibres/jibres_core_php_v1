@@ -387,7 +387,7 @@ class html
 
 		if(!preg_match("/\.(jpg|png|gif|webp|jpeg)$/", $analyze_url['path']))
 		{
-			\dash\temp::set('check_img_url_path', T_("Invalid image url!"));
+			\dash\temp::set('check_img_url_path', T_("In the submitted content, a phrase was found that should only be the address of an image and we do not allow the registration of any type of address in that section!"));
 			return false;
 		}
 
