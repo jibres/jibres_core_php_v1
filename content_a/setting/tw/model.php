@@ -6,7 +6,12 @@ class model
 {
 	public static function post()
 	{
-
+		if(\dash\request::post('tw_action') === 'fetch')
+		{
+			\lib\app\twitter\business::get_my_posts(true);
+			\dash\redirect::pwd();
+			return;
+		}
 
 		$post =
 		[

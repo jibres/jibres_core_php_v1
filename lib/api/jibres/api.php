@@ -184,5 +184,13 @@ class api
 	}
 
 
+
+	public static function get_twitter_tweet_list($_args)
+	{
+		$result = self::run('twitter/fetch','get', $_args);
+		return $result;
+	}
+
+
 }
 ?>
