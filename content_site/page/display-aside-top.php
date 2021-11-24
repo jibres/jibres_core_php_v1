@@ -34,7 +34,7 @@ foreach ($list as $key => $value)
 }
 
 ?>
-  <nav class="header items">
+  <nav class="header items" data-postMsg>
     <ul>
       <li>
         <a class="item f" href="<?php echo $header_link ?>">
@@ -47,7 +47,7 @@ foreach ($list as $key => $value)
 
   <form method="post" autocomplete="off">
     <input type="hidden" name="set_sort_section" value="1">
-    <nav class="sections items">
+    <nav class="sections items" data-postMsg>
       <ul data-sortable>
         <?php foreach ($body as $key => $value)
         {
@@ -84,7 +84,7 @@ foreach ($list as $key => $value)
     </ul>
   </nav>
 
-  <nav class="header items">
+  <nav class="header items" data-postMsg>
     <ul>
       <li>
         <a class="item f" href="<?php echo $footer_link ?>">
