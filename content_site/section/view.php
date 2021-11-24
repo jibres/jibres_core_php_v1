@@ -534,6 +534,7 @@ class view
 
 		}
 
+		$result['section:list:id']  = \content_site\assemble\tools::section_id_raw($this_model, a($result, 'id'));
 
 		return $result;
 	}
