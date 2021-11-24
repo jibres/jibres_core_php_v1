@@ -48,17 +48,36 @@ class section
 		{
 			$classNames .= ' '. a($_args, 'container_align:class');
 		}
-		if(a($_args, 'container_justify:class'))
+		if(a($_args, 'containe_r_justify:class'))
 		{
 			$classNames .= ' '. a($_args, 'container_justify:class');
 		}
 
 		$html = "<$cnElement data-type='". a($_args, 'model'). "' class='$classNames'$background_style $section_id";
-		if(0)
+		$focusMode = null;
+		$focusMode = 1;
+		if($focusMode)
 		{
-			$html .= " data-focus>";
+			$html .= " data-focus='yes'";
 		}
 		$html .= ">";
+
+		if($focusMode)
+		{
+			$html .= "<div";
+			$html .= " class='focusAction'";
+			$html .= " style='display:none;position:absolute;padding-top:2px;top:3px;margin:0 auto;right:0;left:0;text-align:center;z-index:99;'";
+			$html .= ">";
+			{
+				$linkHref = \dash\url::kingdom();
+				$html .= "<a class='btn-primary btn-sm1 btn-icon' target='_parent' href='". $linkHref. "'>";
+				$html .= \dash\utility\icon::bootstrap('pencil-square');
+				$html .= T_("Edit");
+				$html .= "</a>";
+
+			}
+			$html .= "</div>";
+		}
 
 		return $html;
 	}
