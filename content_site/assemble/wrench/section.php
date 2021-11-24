@@ -68,7 +68,7 @@ class section
 
 		$html .= ">";
 
-		if($focusMode)
+		if(a($_args, 'preview_mode'))
 		{
 			$html .= "<div";
 			$html .= " class='focusAction'";
