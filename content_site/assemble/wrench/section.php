@@ -56,14 +56,24 @@ class section
 		$html = "<$cnElement data-type='". a($_args, 'model'). "' class='$classNames'$background_style $section_id";
 
 
-		$focusMode = \dash\request::get('focus') === a($_args, 'section:id_raw');
-		if($focusMode)
+		if(a($_args, 'preview_mode'))
 		{
-			$html .= " data-focus='yes'";
-		}
-		else
-		{
-			$html .= " data-focus='no'";
+			if(\dash\request::key_exists('focus', 'get'))
+			{
+				$focusMode = \dash\request::get('focus') === a($_args, 'section:id_raw');
+				if($focusMode)
+				{
+					$html .= " data-focus='yes'";
+				}
+				else
+				{
+					$html .= " data-focus='no'";
+				}
+			}
+			else
+			{
+				$html .= " data-focus";
+			}
 		}
 
 		$html .= ">";
