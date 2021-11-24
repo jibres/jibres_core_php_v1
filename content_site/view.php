@@ -44,7 +44,8 @@ class view
 		{
 			$currentSectionDetail = \dash\data::currentSectionDetail();
 
-			$myTitle = ' [ '. a($currentSectionDetail, 'model'). ' ]';
+
+			$myTitle = ' [ '. implode(':', [ a($currentSectionDetail, 'section'), a($currentSectionDetail, 'model'), a($currentSectionDetail, 'preview_key')]). ' ]';
 
 			\dash\face::title(\dash\face::title(). ' '. $myTitle);
 		}

@@ -33,7 +33,11 @@ else
   }
   else
   {
-
+    $html .= '<div class="alert2" id="section-preview-title-id">';
+    {
+      $html .= a(\dash\data::currentSectionDetail(), 'section:preview:title');
+    }
+    $html .= '</div>';
 
     $options_list = \dash\data::currentOptionList();
     $child        = \dash\url::child();

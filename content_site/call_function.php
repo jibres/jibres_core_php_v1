@@ -588,8 +588,6 @@ class call_function
 			}
 			else
 			{
-				$load_model_option = self::_call([$namespace_model, 'option']);
-
 				if(isset($load_model_option['preview_list']) && is_array($load_model_option['preview_list']))
 				{
 					$need_load_preview = $load_model_option['preview_list'];
@@ -620,8 +618,7 @@ class call_function
 					}
 					else
 					{
-						$int_function = preg_replace("/[^\d]/", '', $preview_function);
-						$preview_title = a($section_detail, 'title'). ' - '. a($load_model_option, 'title'). ' - ' . T_("Sample :val", ['val' => \dash\fit::number($int_function)]);
+						$preview_title = self::get_preview_title($_section_key, $model, $preview_function);
 					}
 
 					$premium = self::_call([$namespace_model, 'premium']);
@@ -658,6 +655,20 @@ class call_function
 		}
 
 		return $list;
+	}
+
+
+	public static function get_preview_title($_section_key, $_model, $_preview_key)
+	{
+		$namespace         = self::get_namespace($_section_key);
+		$section_detail    = self::detail($_section_key);
+		$namespace_model   = sprintf($namespace, $_model);
+		$load_model_option = self::_call([$namespace_model, 'option']);
+		$int_function = preg_replace("/[^\d]/", '', $_preview_key);
+
+		$preview_title = a($section_detail, 'title'). ' - '. a($load_model_option, 'title'). ' - ' . T_("Sample :val", ['val' => \dash\fit::number($int_function)]);
+
+		return $preview_title;
 	}
 
 

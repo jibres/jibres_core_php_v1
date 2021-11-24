@@ -534,7 +534,8 @@ class view
 
 		}
 
-		$result['section:list:id']  = \content_site\assemble\tools::section_id_raw($this_model, a($result, 'id'));
+		$result['section:list:id']       = \content_site\assemble\tools::section_id_raw($this_model, a($result, 'id'));
+		$result['section:preview:title'] = \content_site\call_function::get_preview_title(a($result, 'section'), $this_model, a($result, 'preview_key'));
 
 		return $result;
 	}
