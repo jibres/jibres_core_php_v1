@@ -74,7 +74,8 @@ class section
 				$html .= \dash\utility\icon::bootstrap('arrow-up');
 				$html .= "</a>";
 
-				$linkHref = \dash\url::kingdom();
+				$linkHref = a($_args, 'editurl');
+
 				$html .= "<a class='btn-secondary btn-icon mx-1' target='_parent' href='". $linkHref. "'>";
 				$html .= \dash\utility\icon::bootstrap('pencil-square');
 				$html .= T_("Edit");

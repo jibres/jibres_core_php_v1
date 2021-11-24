@@ -443,12 +443,16 @@ class view
 			$force = [];
 		}
 
+		$edit_url = \lib\store::admin_url(). '/site/section/'. a($result, 'section'). '?'. http_build_query(['id' => \dash\coding::encode(a($result, 'related_id')), 'sid' => a($result, 'id')]);
+
+
 		$identify =
 		[
 			'id'          => a($result, 'id'),
 			'section'     => a($result, 'section'),
 			'model'       => $this_model,
 			'preview_key' => a($result, 'preview_key'),
+			'editurl'     => $edit_url,
 		];
 
 		$this_default = array_merge($option_default, $identify, $detail,  $default);
