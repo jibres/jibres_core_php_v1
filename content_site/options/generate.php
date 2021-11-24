@@ -197,9 +197,21 @@ class generate
 
 
 
-	public static function radio_line_itemText($_name, $_value, $_text, $_checked = null, $_fontSizeSmall = null)
+	public static function radio_line_itemText($_name, $_value, $_text, $_checked = null, $_fontSizeSmall = null, $_option = [])
 	{
 		$myId = $_name. '-'. $_value. '-id';
+
+		$attr = null;
+		if(a($_option, 'attr'))
+		{
+			$attr = $_option['attr'];
+		}
+
+		$class = null;
+		if(a($_option, 'class'))
+		{
+			$class = $_option['class'];
+		}
 
 		$html = '';
 		$flexMode = 'flex-1';
@@ -218,14 +230,21 @@ class generate
 			$flexMode = '';
 		}
 
-		$html .= "<li class='filter-switch-item $flexMode relative'>";
+		$html .= "<li class='filter-switch-item $flexMode relative $class' $attr>";
 		{
-			$html .= "<input type='radio' name='$_name' id='$myId' value='$_value' class='sr-only'";
-			if($_checked)
+			if(a($_option, 'input') === false)
 			{
-				$html .= ' checked';
+				// skip generate input
 			}
-			$html .= '>';
+			else
+			{
+				$html .= "<input type='radio' name='$_name' id='$myId' value='$_value' class='sr-only'";
+				if($_checked)
+				{
+					$html .= ' checked';
+				}
+				$html .= '>';
+			}
 
 			$classList = 'block h-7 px-1 md:px-1.5 text-gray-600 rounded-lg shadow bg-white transition overflow-hidden '. $fontSize;
 
