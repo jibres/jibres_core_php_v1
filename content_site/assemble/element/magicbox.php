@@ -184,12 +184,12 @@ class magicbox
 						// use data-src for lazyload
 						if($insideSlider)
 						{
-							$card .= "<img loading='lazy' class='swiper-lazy $imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
+							$card .= "<img loading='lazy' class='swiper-lazy $imgClass' src='' data-src='$myThumb' alt='$myTitle'>";
 							$card .= '<div class="swiper-lazy-preloader"></div>';
 						}
 						else
 						{
-							$card .= "<img loading='lazy' class='$imgClass' src='#' data-src='$myThumb' alt='$myTitle'>";
+							$card .= "<img loading='lazy' class='$imgClass' src='' data-src='$myThumb' alt='$myTitle'>";
 						}
 					}
 				}
@@ -304,7 +304,14 @@ class magicbox
 	{
 		$myTitle   = a($_itemData, 'title');
 		$myDesc    = a($_itemData, 'desc');
+		$myDesc    = strip_tags($myDesc);
 		$myBtnText = a($_itemData, 'btn_title');
+
+		// disable desc for blog and product
+		if(a($_args, 'section') === 'blog' || a($_args, 'section') === 'product')
+		{
+			$myDesc = null;
+		}
 
 		$html = '';
 
