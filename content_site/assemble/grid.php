@@ -33,7 +33,7 @@ class grid
 				{
 					$colStart   = 'col-start-1 md:col-start-3';
 				}
-				$colSpan = 'col-span-12 sm:col-span-6 md:col-span-4';
+				$colSpan = 'col-span-12 sm:col-span-6';
 				break;
 
 			case '3':
