@@ -108,7 +108,7 @@ class card
 				$coverRatio       = a($_args, 'coverratio:class');
 				$card .= "<a class='block $coverRatio'$myLinkHref>";
 				{
-					$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' src='#' data-src='$myThumb' alt='$myTitle'>";
+					$card .= "<img loading='lazy' class='block h-full w-full object-center object-cover' src='' data-src='$myThumb' alt='$myTitle'>";
 				}
 				$card .= "</a>";
 				$card .= '</header>';
@@ -212,7 +212,7 @@ class card
 							{
 								$marginClass = 'ml-2';
 							}
-							$card .= "<img loading='lazy' src='#' data-src='". \dash\fit::img(a($_item, 'user_detail', 'avatar')). "' alt='$writerName' class='inline-block w-12 h-12 rounded-full $marginClass bg-gray-100 overflow-hidden'>";
+							$card .= "<img loading='lazy' src='' data-src='". \dash\fit::img(a($_item, 'user_detail', 'avatar')). "' alt='$writerName' class='inline-block w-12 h-12 rounded-full $marginClass bg-gray-100 overflow-hidden'>";
 							$card .= "<span class='text-2xs mLa5 inline-block'>". $writerName. "</span>";
 						}
 						$card .= '</a>';
