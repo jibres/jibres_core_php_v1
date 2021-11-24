@@ -123,7 +123,11 @@ class view
 
 		$id = a(\dash\data::currentSectionDetail(), 'model'). '-'. a(\dash\data::currentSectionDetail(), 'id');
 
-		$get['focus'] = $id;
+		if(\dash\request::get('sid'))
+		{
+			$get['focus'] = $id;
+		}
+
 
 		$link .= '?'. \dash\request::build_query($get);
 
