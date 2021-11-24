@@ -58,7 +58,7 @@ class section
 		$focusMode = 1;
 		if($focusMode)
 		{
-			$html .= " data-focus='yes'";
+			$html .= " data-focus";
 		}
 		$html .= ">";
 
@@ -69,10 +69,19 @@ class section
 			$html .= " style='display:none;position:absolute;padding-top:2px;top:3px;margin:0 auto;right:0;left:0;text-align:center;z-index:99;'";
 			$html .= ">";
 			{
+
+				$html .= "<a class='btn-secondary'>";
+				$html .= \dash\utility\icon::bootstrap('arrow-up');
+				$html .= "</a>";
+
 				$linkHref = \dash\url::kingdom();
-				$html .= "<a class='btn-primary btn-sm1 btn-icon' target='_parent' href='". $linkHref. "'>";
+				$html .= "<a class='btn-secondary btn-icon mx-1' target='_parent' href='". $linkHref. "'>";
 				$html .= \dash\utility\icon::bootstrap('pencil-square');
 				$html .= T_("Edit");
+				$html .= "</a>";
+
+				$html .= "<a class='btn-secondary'>";
+				$html .= \dash\utility\icon::bootstrap('arrow-down');
 				$html .= "</a>";
 
 			}
