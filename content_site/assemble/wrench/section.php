@@ -55,6 +55,7 @@ class section
 
 		$html = "<$cnElement data-type='". a($_args, 'model'). "' class='$classNames'$background_style $section_id";
 
+		$focusMode = null;
 
 		if(a($_args, 'preview_mode'))
 		{
