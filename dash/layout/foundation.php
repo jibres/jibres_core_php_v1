@@ -89,6 +89,7 @@ if(\dash\data::addons())
  <meta content="<?php echo \dash\face::site(); ?>" name="apple-mobile-web-app-title"/>
  <meta content="Jibres" name="generator"/>
 <?php if(\dash\engine\store::inBusinessWebsite()) {?>
+ <meta content="business-website" name="jibres:zone"/>
  <link href="<?php echo \lib\store::logo();?>?v=1" type="image/png" rel="icon"/>
  <link href="<?php echo \lib\store::logo();?>?v=1" rel="shortcut icon"/>
  <link href="<?php echo \lib\store::logo();?>?v=1" rel="apple-touch-startup-image"/>
