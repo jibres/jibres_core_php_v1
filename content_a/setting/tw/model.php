@@ -10,7 +10,7 @@ class model
 		{
 			\lib\app\twitter\business::get_my_posts(true);
 			\dash\notif::ok_once(T_("Tweets fetched"));
-			\dash\redirect::pwd();
+
 			return;
 		}
 

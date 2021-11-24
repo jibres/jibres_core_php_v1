@@ -35,7 +35,7 @@ class twitter
 
 			$json = json_encode($json);
 
-			$html .= '<a target="_blank" data-method="post" class="btn-primary leading-6 block" data-ajaxify=\''.$json.'\' href="'. \lib\store::admin_url(). '/a/setting/tw">'. T_("Fetch posts now"). ' <i class="sf-external-link pLa5"></i> </a>';
+			$html .= '<div target="_blank" data-method="post" data-data=\'{"tw_action": "fetch"}\' class="btn-primary leading-6 block" data-ajaxify=\''.$json.'\' data-action="'. \lib\store::admin_url(). '/a/setting/tw">'. T_("Fetch posts now"). ' <i class="sf-external-link pLa5"></i> </div>';
 
 			$html .= '<a target="_blank" class="btn-link leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/tw">'. T_("Manage"). ' <i class="sf-external-link pLa5"></i> </a>';
 
