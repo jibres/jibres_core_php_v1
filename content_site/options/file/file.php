@@ -287,7 +287,7 @@ trait file
 				}
 				else
 				{
-					$html .= '<img id="finalImage-'.$option_key.'" src="#" alt="File"">';
+					$html .= '<img id="finalImage-'.$option_key.'" src="" alt="File"">';
 				}
 			}
 			$html .= '</label>';
