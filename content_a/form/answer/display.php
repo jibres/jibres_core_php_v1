@@ -5,9 +5,9 @@
     if(\dash\data::countNotReviewed())
     {
      ?>
-     <div class="f alert-info text-sm">
+     <div class="alert-info text-sm flex align-center mb-2">
        <div class="c font-bold"><?php echo T_("You have :val not reviewed answer", ['val' => \dash\fit::number(\dash\data::countNotReviewed())]) ?></div>
-       <div class="cauto"><div class="btn-primary" data-confirm data-data='{"mark": "all"}'><?php echo T_("Mark all as review") ?></div></div>
+       <div class="cauto"><div class="btn-primary btn-sm" data-confirm data-data='{"mark": "all"}'><?php echo T_("Mark all as review") ?></div></div>
      </div>
       <?php
     }
@@ -41,7 +41,7 @@
 
 <?php function htmlSearchBox() {?>
 
-  <div class="cbox fs12">
+  <div class="cbox text-xs my-2">
     <form method="get" action='<?php echo \dash\url::current(); ?>' >
       <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
       <div class="input">
@@ -89,19 +89,19 @@
 <?php } //endif ?>
 
 <?php function htmlFilter() {?>
-  <p class="f fs14 alert-info">
+  <p class="alert-info text-sm f">
     <span class="c"><?php echo \dash\data::filterBox(); ?></span>
     <a class="cauto" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>"><?php echo T_("Clear filters"); ?></a>
   </p>
 <?php } //endif ?>
 
 <?php function htmlFilterNoResult() {?>
-  <p class="f fs14 alert-warning">
+  <p class="alert-warning f text-sm">
     <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
     <a class="cauto" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>"><?php echo T_("Clear filters"); ?></a>
   </p>
 <?php } //endif ?>
 
 <?php function htmlStartAddNew() {?>
-  <div class="msg fs14 success2"><?php echo T_("Hi!"). ' ' . T_("No anwer found"); ?></div>
+  <div class="alert-success text-sm"><?php echo T_("Hi!"). ' ' . T_("No anwer found"); ?></div>
 <?php } //endif ?>

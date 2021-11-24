@@ -61,8 +61,8 @@ class view
 		else
 		{
 
-			\dash\face::btnInsert('markasreview');
-			\dash\face::btnInsertText(T_("Mark as reviewd"));
+			\dash\face::btnSave('markasreview');
+			\dash\face::btnSaveText(T_("Mark as reviewd"));
 		}
 
 	}

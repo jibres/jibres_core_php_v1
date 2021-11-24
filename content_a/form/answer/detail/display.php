@@ -72,7 +72,7 @@
   </div>
   <?php \dash\utility\pagination::html(); ?>
 
-  <div class="c-xs-12 c-sm-12 c-md-6">
+  <div class="c-xs-12 c-sm-12 c-md-6 p0">
 
      <form method="post" id="markasreview">
       <input type="hidden" name="review" value="review">
@@ -95,7 +95,7 @@
         </div>
         </div>
         <footer class="txtRa">
-          <button class="btn master"><?php echo T_("Save") ?></button>
+          <button class="btn-outline-secondary btn-sm"><?php echo T_("Save") ?></button>
         </footer>
       </div>
     </form>
@@ -127,7 +127,7 @@
         <footer class="f">
 
           <div class="c"></div>
-          <div class="cauto"><button class="btn-success"><?php echo T_("Add comment") ?></button></div>
+          <div class="cauto"><button class="btn-outline-secondary btn-sm"><?php echo T_("Add comment") ?></button></div>
         </footer>
       </div>
     </form>
