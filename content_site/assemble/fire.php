@@ -66,6 +66,7 @@ class fire
 		$_args['color_heading:full_style'] = " style='".$_args['color_heading:style']."'";
 
 		$_args['section:id']           = \content_site\assemble\tools::section_id(a($_args, 'model'), a($_args, 'id'));
+		$_args['section:id_raw']       = \content_site\assemble\tools::section_id_raw(a($_args, 'model'), a($_args, 'id'));
 
 		$_args['heading:class']         = \content_site\options\heading\heading_full::class_name($_args);
 

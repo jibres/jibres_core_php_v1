@@ -120,9 +120,12 @@ class view
 
 		\dash\data::btnPreviewSiteBuilderOneSection($link. '?'. \dash\request::build_query(array_unique(array_merge($get, ['psid' => \dash\request::get('sid')]))));
 
+		$id = a(\dash\data::currentSectionDetail(), 'model'). '-'. a(\dash\data::currentSectionDetail(), 'id');
+
+		$get['focus'] = $id;
+
 		$link .= '?'. \dash\request::build_query($get);
 
-		$id = a(\dash\data::currentSectionDetail(), 'model'). '-'. a(\dash\data::currentSectionDetail(), 'id');
 		$link .= '#'. $id;
 
 

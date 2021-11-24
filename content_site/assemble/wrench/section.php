@@ -55,10 +55,17 @@ class section
 
 		$html = "<$cnElement data-type='". a($_args, 'model'). "' class='$classNames'$background_style $section_id";
 		$focusMode = null;
-		$focusMode = 1;
+
+
+		$focusMode = \dash\request::get('focus') === a($_args, 'section:id_raw');
 		if($focusMode)
 		{
-			$html .= " data-focus";
+			$html .= " data-focus='yes'";
+		}
+		else
+		{
+
+			$html .= " data-focus='no'";
 		}
 		$html .= ">";
 
