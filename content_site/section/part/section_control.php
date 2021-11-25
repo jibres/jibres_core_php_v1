@@ -33,13 +33,13 @@ if(!\dash\request::get('index') && \dash\request::get('sid') && !\dash\url::subc
   =================================*/
   $html .= \content_site\options\generate::form();
   {
-    $checked_hide_show = true;
+    $checked_hide_show = false;
     if(a(\dash\data::currentSectionDetail(), 'status_preview') === 'hidden')
     {
-      $checked_hide_show = false;
+      $checked_hide_show = true;
     }
     $html .= \content_site\options\generate::hidden('hide_view', 'toggle');
-    $html .= \content_site\options\generate::checkbox('hide_view_check', T_("Hide/Show"), $checked_hide_show);
+    $html .= \content_site\options\generate::checkbox('hide_view_check', T_("Hidden"), $checked_hide_show);
   }
   $html .= \content_site\options\generate::_form();
   /*=====  End of View/Hide  ======*/
