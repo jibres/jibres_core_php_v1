@@ -76,10 +76,9 @@ if(!\dash\request::get('index') && \dash\request::get('sid') && !\dash\url::subc
   $remove_title = T_("Are you sure to remove this section?");
 
 
-  $html .= "<div data-confirm data-data='$delete_json' data-title='$remove_title' class='btn-link-danger  mb-2 flex align-center'>";
+  $html .= "<div data-confirm data-data='$delete_json' data-title='$remove_title' class='btn-link-danger'>";
   {
-    $html .= '<img class="w-5 block" src="'. \dash\utility\icon::url('Delete', 'minor'). '" alt="Delete">';
-    $html .= '<span class="px-2">'. T_("Remove section").'</span>';
+    $html .= '<span class="">'. T_("Remove section").'</span>';
   }
   $html .= '</div>';
   /*=====  End of Delete section  ======*/
