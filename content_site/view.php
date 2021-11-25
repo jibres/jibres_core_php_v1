@@ -40,15 +40,12 @@ class view
 			\dash\face::title(\dash\data::currentPageDetail_title());
 		}
 
-		if(\dash\data::currentSectionDetail())
-		{
-			$currentSectionDetail = \dash\data::currentSectionDetail();
-
-
-			$myTitle = ' [ '. implode(':', [ a($currentSectionDetail, 'section'), a($currentSectionDetail, 'model'), a($currentSectionDetail, 'preview_key')]). ' ]';
-
-			\dash\face::title(\dash\face::title(). ' '. $myTitle);
-		}
+		// if(\dash\data::currentSectionDetail())
+		// {
+		// 	$currentSectionDetail = \dash\data::currentSectionDetail();
+		// 	$myTitle = ' [ '. implode(':', [ a($currentSectionDetail, 'section'), a($currentSectionDetail, 'model'), a($currentSectionDetail, 'preview_key')]). ' ]';
+		// 	\dash\face::title(\dash\face::title(). ' '. $myTitle);
+		// }
 
 		/*================================
 		=            Btn save            =
