@@ -47,6 +47,34 @@ class view
 		// 	\dash\face::title(\dash\face::title(). ' '. $myTitle);
 		// }
 
+		if(\dash\url::subchild())
+		{
+			$special_title = null;
+
+			switch (\dash\url::subchild())
+			{
+				case 'style':
+					$special_title = T_("Style");
+					break;
+
+				case 'spacing':
+					$special_title = T_("Spacing");
+					break;
+
+				case 'responsive':
+					$special_title = T_("Responsive");
+					break;
+
+				default:
+					break;
+			}
+
+			if($special_title)
+			{
+				\dash\face::title(\dash\face::title(). ' ['. $special_title. ']');
+			}
+		}
+
 		/*================================
 		=            Btn save            =
 		================================*/
