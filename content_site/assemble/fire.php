@@ -22,6 +22,11 @@ class fire
 			$_args['image_mask:class'] = \content_site\options\image\image_mask::class_name(a($_args, 'image_mask'));
 		}
 
+		if(array_key_exists('padding_top', $_args))
+		{
+			$_args['padding_top:class'] = \content_site\options\padding\padding::class_name(a($_args, 'padding_top'));
+		}
+
 		if(array_key_exists('height', $_args))
 		{
 			$_args['height:class'] = \content_site\options\height\height::class_name(a($_args, 'height'));

@@ -40,6 +40,12 @@ class section
 				$classNames .= ' '. a($_args, 'height:class');
 			}
 		}
+
+		if(a($_args, 'padding_top:class'))
+		{
+			$classNames .= ' '. a($_args, 'padding_top:class');
+		}
+
 		if(a($_args, 'font:class'))
 		{
 			$classNames .= ' '. a($_args, 'font:class');

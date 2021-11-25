@@ -6,49 +6,27 @@ trait padding
 {
 	public static function enum()
 	{
-		$enum   = [];
-		$enum[] = ['key' => 'auto',  'title' => T_("Auto"),    'class' => '', ];
-		$enum[] = ['key' => 'xs',    'title' => T_("S"),	   'class' => 'min-h-1/4 py-5', ];
-		$enum[] = ['key' => 'sm',    'title' => T_("M"), 	   'class' => 'min-h-1/4 py-5', ];
+	$enum   = [];
+		$enum[] = ['key' => '1', 'class' => 'py-1 md:py-1.5 lg:py-2', ];
+		$enum[] = ['key' => '2', 'class' => 'py-2 md:py-3 lg:py-4', ];
+		$enum[] = ['key' => '3', 'class' => 'py-3 md:py-4 lg:py-6', ];
 		$enum[] = ['key' => 'manual','title' => '...',   	   'class' => '', 	'icon' => \dash\utility\icon::svg('three-dots', 'bootstrap'),];
 
-
-		$enum[] = ['key' => 'l',  'class' => 'p-0', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => 'xl',  'class' => 'p-px', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '2xl',  'class' => 'p-0.5', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '3xl',  'class' => 'p-1', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '4xl',  'class' => 'p-1.5', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '5xl',  'class' => 'p-2', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '6xl',  'class' => 'p-2.5', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '7xl',  'class' => 'p-3', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '8xl',  'class' => 'p-3.5', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '9xl',  'class' => 'p-4', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '10xl',  'class' => 'p-5', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '11xl',  'class' => 'p-6', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '12xl',  'class' => 'p-7', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '13xl',  'class' => 'p-8', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '14xl',  'class' => 'p-9', 	'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '15xl',  'class' => 'p-10', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '16xl',  'class' => 'p-11', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '17xl',  'class' => 'p-12', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '18xl',  'class' => 'p-14', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '19xl',  'class' => 'p-16', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '20xl',  'class' => 'p-20', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '21xl',  'class' => 'p-24', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '22xl',  'class' => 'p-28', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '23xl',  'class' => 'p-32', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '24xl',  'class' => 'p-36', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '25xl',  'class' => 'p-40', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '26xl',  'class' => 'p-44', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '27xl',  'class' => 'p-48', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '28xl',  'class' => 'p-52', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '29xl',  'class' => 'p-56', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '30xl',  'class' => 'p-60', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '31xl',  'class' => 'p-64', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '32xl',  'class' => 'p-72', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '33xl',  'class' => 'p-80', 'hide' => true, 'is_range' => true];
-		$enum[] = ['key' => '34xl',  'class' => 'p-96', 'hide' => true, 'is_range' => true];
-
+		$enum[] = ['key' => '0', 'hide' => true, 'is_range' => true, 'class' => 'p-px'];
+		$enum[] = ['key' => '4', 'hide' => true, 'is_range' => true, 'class' => 'py-4 md:py-6 lg:py-8'];
+		$enum[] = ['key' => '6', 'hide' => true, 'is_range' => true, 'class' => 'py-6 md:py-8 lg:py-12'];
+		$enum[] = ['key' => '8', 'hide' => true, 'is_range' => true, 'class' => 'py-8 md:py-10 lg:py-16'];
+		// $enum[] = ['key' => '10', 'hide' => true, 'is_range' => true, 'class' => 'py-10 md:py-6 lg:py-20'];
+		$enum[] = ['key' => '12', 'hide' => true, 'is_range' => true, 'class' => 'py-12 md:py-6 lg:py-24'];
+		// $enum[] = ['key' => '14', 'hide' => true, 'is_range' => true, 'class' => 'py-14 md:py-6 lg:py-28'];
+		$enum[] = ['key' => '16', 'hide' => true, 'is_range' => true, 'class' => 'py-16 md:py-6 lg:py-32'];
+		// $enum[] = ['key' => '20', 'hide' => true, 'is_range' => true, 'class' => 'py-20 md:py-6 lg:py-40'];
+		$enum[] = ['key' => '24', 'hide' => true, 'is_range' => true, 'class' => 'py-24 md:py-6 lg:py-48'];
+		// $enum[] = ['key' => '28', 'hide' => true, 'is_range' => true, 'class' => 'py-28 md:py-6 lg:py-56'];
+		$enum[] = ['key' => '32', 'hide' => true, 'is_range' => true, 'class' => 'py-32 md:py-6 lg:py-64'];
+		// $enum[] = ['key' => '36', 'hide' => true, 'is_range' => true, 'class' => 'py-36 md:py-6 lg:py-72'];
+		// $enum[] = ['key' => '40', 'hide' => true, 'is_range' => true, 'class' => 'py-40 md:py-6 lg:py-80'];
+		$enum[] = ['key' => '48', 'hide' => true, 'is_range' => true, 'class' => 'py-48 md:py-6 lg:py-96'];
 
 		return $enum;
 	}
