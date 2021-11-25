@@ -11,16 +11,15 @@ class height
 		/*====================================
 		=            Hidden value            =
 		====================================*/
-		$enum[] = ['key' => 'sm',          'title' => "S",               'style' => 'min-height: 25vh;', 'class_wo_padding' => 'min-h-1/4',    'class' => 'min-h-1/4 py-5', 'hide' => true];
-		$enum[] = ['key' => 'md',          'title' => "M",               'style' => 'min-height: 50vh;', 'class_wo_padding' => 'min-h-1/2',    'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', 'hide' => true];
-		$enum[] = ['key' => 'lg',          'title' => "L",               'style' => 'min-height: 72vh;', 'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', 'hide' => true];
-		$enum[] = ['key' => 'fullpreview', 'title' => T_("Full Screen"), 'style' => 'min-height: 100vh;', 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5', 'hide' => true ];
+		$enum[] = ['key' => 'sm',          'title' => "S",               'style' => 'min-height: 25vh;',  'hide' => true];
+		$enum[] = ['key' => 'md',          'title' => "M",               'style' => 'min-height: 50vh;',  'hide' => true];
+		$enum[] = ['key' => 'lg',          'title' => "L",               'style' => 'min-height: 72vh;',  'hide' => true];
+		$enum[] = ['key' => 'fullpreview', 'title' => T_("Full Screen"), 'style' => 'min-height: 100vh;', 'hide' => true ];
 		/*=====  End of Hidden value  ======*/
 
 
-		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'style' => '', 'class_wo_padding' => '',             'class' => '',  'hide' => true];
-		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'style' => 'min-height: 100vh;', 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5 md:py-10 lg:py-20',  'hide' => true];
-		// $enum[] = ['key' => 'manual',      'title' => '...',        	 'style' => 'min-height: 10vh;', 'class_wo_padding' => '',             'class' => '', 'icon' => \dash\utility\icon::svg('three-dots', 'bootstrap'), 'hide' => true];
+		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'style' => '',  'hide' => true];
+		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'style' => 'min-height: 100vh;',  'hide' => true];
 
 		for ($i = 5; $i <= 95; $i = $i + 5)
 		{
