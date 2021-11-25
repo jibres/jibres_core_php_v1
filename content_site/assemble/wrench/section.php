@@ -92,26 +92,26 @@ class section
 
 				$sort_up = json_encode(['section' => a($_args, 'id'), 'sorting' => 'up']);
 
-				$html .= "<div class='btn-secondary' data-postMsg='parent' data-postMsg-ajaxify='$sort_up' data-postMsg-action='$editurl'>";
+				$html .= "<div class='btn-secondary btn-sm' data-postMsg='parent' data-postMsg-ajaxify='$sort_up' data-postMsg-action='$editurl'>";
 				$html .= \dash\utility\icon::bootstrap('arrow-up');
 				$html .= "</div>";
 
 
 				if($focusMode)
 				{
-					$html .= "<button class='btn-secondary mx-1'>". T_("Editing..."). '</button>';
+					$html .= "<button class='btn-secondary btn-sm mx-1'>". T_("Editing..."). '</button>';
 
 				}
 				else
 				{
-					$html .= "<a class='btn-secondary btn-icon mx-1' data-postMsg='parent' data-postMsg-href='". $editurl. "'>";
+					$html .= "<a class='btn-secondary btn-sm btn-icon mx-1' data-postMsg='parent' data-postMsg-href='". $editurl. "'>";
 					$html .= \dash\utility\icon::bootstrap('pencil-square');
 					$html .= T_("Edit");
 					$html .= "</a>";
 				}
 
 				$sort_down = json_encode(['section' => a($_args, 'id'), 'sorting' => 'down']);
-				$html .= "<div class='btn-secondary' data-postMsg='parent' data-postMsg-ajaxify='$sort_down' data-action='$editurl'>";
+				$html .= "<div class='btn-secondary btn-sm' data-postMsg='parent' data-postMsg-ajaxify='$sort_down' data-action='$editurl'>";
 				$html .= \dash\utility\icon::bootstrap('arrow-down');
 				$html .= "</div>";
 
