@@ -6,7 +6,15 @@ class section
 {
 	public static function element_start($_args, $_used_for = null)
 	{
-		$background_style = a($_args, 'background:full_style');
+		$background_style = a($_args, 'background:style');
+		$height_style     = a($_args, 'height:style');
+
+		$style = null;
+		if($background_style || $height_style)
+		{
+			$style = ' style="'. trim($background_style. ' '. $height_style). '"';
+		}
+
 		$section_id       = a($_args, 'section:id');
 		$classNames = 'flex overflow-hidden relative';
 
@@ -29,18 +37,6 @@ class section
 			}
 		}
 
-		if(a($_args, 'height:class'))
-		{
-			if(a($_args, 'container_justify:class'))
-			{
-				$classNames .= ' '. a($_args, 'height:class:wo_padding');
-			}
-			else
-			{
-				$classNames .= ' '. a($_args, 'height:class');
-			}
-		}
-
 		if(a($_args, 'padding:class'))
 		{
 			$classNames .= ' '. a($_args, 'padding:class');
@@ -59,7 +55,7 @@ class section
 			$classNames .= ' '. a($_args, 'container_justify:class');
 		}
 
-		$html = "<$cnElement data-type='". a($_args, 'model'). "' class='$classNames'$background_style $section_id";
+		$html = "<$cnElement data-type='". a($_args, 'model'). "' class='$classNames'$style $section_id";
 
 		$focusMode = null;
 

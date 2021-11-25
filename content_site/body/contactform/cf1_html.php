@@ -12,7 +12,7 @@ class cf1_html
 
 		$id               = a($_args, 'id');
 		$type             = a($_args, 'model');
-		$height           = a($_args, 'height:class');
+		$height           = null;
 		$background_style = a($_args, 'background:full_style');
 		$section_id       = a($_args, 'section:id');
 

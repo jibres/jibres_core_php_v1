@@ -34,12 +34,7 @@ class fire
 
 		if(array_key_exists('height', $_args))
 		{
-			$_args['height:class'] = \content_site\options\height\height::class_name(a($_args, 'height'));
-		}
-
-		if(array_key_exists('height', $_args))
-		{
-			$_args['height:class:wo_padding'] = \content_site\options\height\height::class_name_wo_padding(a($_args, 'height'));
+			$_args['height:style'] = \content_site\options\height\height::get_style(a($_args, 'height'));
 		}
 
 		if(array_key_exists('container', $_args))

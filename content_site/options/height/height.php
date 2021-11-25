@@ -11,20 +11,20 @@ class height
 		/*====================================
 		=            Hidden value            =
 		====================================*/
-		$enum[] = ['key' => 'sm',          'title' => "S",               'class_wo_padding' => 'min-h-1/4',    'class' => 'min-h-1/4 py-5', 'hide' => true];
-		$enum[] = ['key' => 'md',          'title' => "M",               'class_wo_padding' => 'min-h-1/2',    'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', 'hide' => true];
-		$enum[] = ['key' => 'lg',          'title' => "L",               'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', 'hide' => true];
-		$enum[] = ['key' => 'fullpreview', 'title' => T_("Full Screen"), 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5', 'hide' => true ];
+		$enum[] = ['key' => 'sm',          'title' => "S",               'style' => 'min-height: 25vh;', 'class_wo_padding' => 'min-h-1/4',    'class' => 'min-h-1/4 py-5', 'hide' => true];
+		$enum[] = ['key' => 'md',          'title' => "M",               'style' => 'min-height: 50vh;', 'class_wo_padding' => 'min-h-1/2',    'class' => 'min-h-1/2 py-5 md:py-10 lg:py-16', 'hide' => true];
+		$enum[] = ['key' => 'lg',          'title' => "L",               'style' => 'min-height: 72vh;', 'class_wo_padding' => 'min-h-3/4',    'class' => 'min-h-3/4 py-5 md:py-20 lg:py-28', 'hide' => true];
+		$enum[] = ['key' => 'fullpreview', 'title' => T_("Full Screen"), 'style' => 'min-height: 100vh;', 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5', 'hide' => true ];
 		/*=====  End of Hidden value  ======*/
 
 
-		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'class_wo_padding' => '',             'class' => '',  'hide' => true];
-		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5 md:py-10 lg:py-20',  'hide' => true];
-		$enum[] = ['key' => 'manual',      'title' => '...',        	 'class_wo_padding' => '',             'class' => '', 'icon' => \dash\utility\icon::svg('three-dots', 'bootstrap'), 'hide' => true];
+		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'style' => '', 'class_wo_padding' => '',             'class' => '',  'hide' => true];
+		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'style' => 'min-height: 100vh;', 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5 md:py-10 lg:py-20',  'hide' => true];
+		// $enum[] = ['key' => 'manual',      'title' => '...',        	 'style' => 'min-height: 10vh;', 'class_wo_padding' => '',             'class' => '', 'icon' => \dash\utility\icon::svg('three-dots', 'bootstrap'), 'hide' => true];
 
 		for ($i = 5; $i <= 95; $i = $i + 5)
 		{
-			$enum[] = ['key' => $i, 'title' => null, 'class' => '', 'hide' => true, 'is_range' => true];
+			$enum[] = ['key' => $i, 'title' => null, 'style' => sprintf('min-height: %svh',$i), 'hide' => true, 'is_range' => true];
 		}
 
 		return $enum;
@@ -57,11 +57,11 @@ class height
 
 	public static function default()
 	{
-		return 'md';
+		return 'auto';
 	}
 
 
-	public static function class_name($_key)
+	public static function get_style($_key)
 	{
 		$enum = self::enum();
 
@@ -71,38 +71,14 @@ class height
 			{
 				if($value['key'] === self::default())
 				{
-					return $value['class'];
+					return $value['style'];
 				}
 			}
 			else
 			{
 				if($value['key'] === $_key)
 				{
-					return $value['class'];
-				}
-			}
-		}
-	}
-
-
-	public static function class_name_wo_padding($_key)
-	{
-		$enum = self::enum();
-
-		foreach ($enum as $key => $value)
-		{
-			if(!$_key)
-			{
-				if($value['key'] === self::default())
-				{
-					return $value['class_wo_padding'];
-				}
-			}
-			else
-			{
-				if($value['key'] === $_key)
-				{
-					return $value['class_wo_padding'];
+					return $value['style'];
 				}
 			}
 		}
