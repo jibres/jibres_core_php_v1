@@ -4,19 +4,19 @@ namespace content_site\assemble\wrench;
 
 class section
 {
-	public static function element_start($_args, $_usedFor = null)
+	public static function element_start($_args, $_used_for = null)
 	{
 		$background_style = a($_args, 'background:full_style');
 		$section_id       = a($_args, 'section:id');
 		$classNames = 'flex overflow-hidden relative';
 
 		$cnElement = 'div';
-		if($_usedFor === 'header')
+		if($_used_for === 'header')
 		{
 			$cnElement = 'header';
 			$classNames = 'relative';
 		}
-		else if($_usedFor === 'footer')
+		else if($_used_for === 'footer')
 		{
 			$cnElement = 'footer';
 			$classNames = 'relative overflow-hidden';
@@ -87,20 +87,26 @@ class section
 			$html .= " style='display:none;position:absolute;padding-top:2px;top:3px;margin:0 auto;right:0;left:0;text-align:center;z-index:99;'";
 			$html .= ">";
 			{
-
 				$editurl = a($_args, 'editurl');
+				$sorting = true;
+				if($_used_for === 'header' || $_used_for === 'footer')
+				{
+					$sorting = false;
+				}
 
-				$sort_up = json_encode(['section' => a($_args, 'id'), 'sorting' => 'up']);
 
-				$html .= "<div class='btn-secondary btn-sm' data-postMsg='parent' data-postMsg-ajaxify='$sort_up' data-postMsg-action='$editurl'>";
-				$html .= \dash\utility\icon::bootstrap('arrow-up');
-				$html .= "</div>";
+				if($sorting)
+				{
+					$sort_up = json_encode(['section' => a($_args, 'id'), 'sorting' => 'up']);
+					$html .= "<div class='btn-secondary btn-sm' data-postMsg='parent' data-postMsg-ajaxify='$sort_up' data-postMsg-action='$editurl'>";
+					$html .= \dash\utility\icon::bootstrap('arrow-up');
+					$html .= "</div>";
+				}
 
 
 				if($focusMode)
 				{
 					$html .= "<button class='btn-secondary btn-sm mx-1'>". T_("Editing..."). '</button>';
-
 				}
 				else
 				{
@@ -110,10 +116,15 @@ class section
 					$html .= "</a>";
 				}
 
-				$sort_down = json_encode(['section' => a($_args, 'id'), 'sorting' => 'down']);
-				$html .= "<div class='btn-secondary btn-sm' data-postMsg='parent' data-postMsg-ajaxify='$sort_down' data-action='$editurl'>";
-				$html .= \dash\utility\icon::bootstrap('arrow-down');
-				$html .= "</div>";
+
+				if($sorting)
+				{
+					$sort_down = json_encode(['section' => a($_args, 'id'), 'sorting' => 'down']);
+					$html .= "<div class='btn-secondary btn-sm' data-postMsg='parent' data-postMsg-ajaxify='$sort_down' data-postMsg-action='$editurl'>";
+					$html .= \dash\utility\icon::bootstrap('arrow-down');
+					$html .= "</div>";
+				}
+
 
 			}
 			$html .= "</div>";
