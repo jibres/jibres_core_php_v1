@@ -18,11 +18,11 @@ class height
 		/*=====  End of Hidden value  ======*/
 
 
-		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'class_wo_padding' => '',             'class' => '', ];
-		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5 md:py-10 lg:py-20', ];
-		$enum[] = ['key' => 'manual',      'title' => '...',        	 'class_wo_padding' => '',             'class' => '', 'icon' => \dash\utility\icon::svg('three-dots', 'bootstrap'),];
+		$enum[] = ['key' => 'auto',        'title' => T_("Auto"),        'class_wo_padding' => '',             'class' => '',  'hide' => true];
+		$enum[] = ['key' => 'fullscreen',  'title' => T_("Full Screen"), 'class_wo_padding' => 'min-h-screen', 'class' => 'min-h-screen py-5 md:py-10 lg:py-20',  'hide' => true];
+		$enum[] = ['key' => 'manual',      'title' => '...',        	 'class_wo_padding' => '',             'class' => '', 'icon' => \dash\utility\icon::svg('three-dots', 'bootstrap'), 'hide' => true];
 
-		for ($i = 10; $i <= 95; $i = $i +5)
+		for ($i = 5; $i <= 95; $i = $i + 5)
 		{
 			$enum[] = ['key' => $i, 'title' => null, 'class' => '', 'hide' => true, 'is_range' => true];
 		}
@@ -111,6 +111,7 @@ class height
 
 	public static function admin_html()
 	{
+
 		$default = \content_site\section\view::get_current_index_detail('height');
 
 		if(!$default)
@@ -118,81 +119,14 @@ class height
 			$default = self::default();
 		}
 
-		$title = T_("Section Height");
+		$name       = 'opt_height';
 
 		$html = '';
-		$html .= '<div class="accordion" id="heightOption">';
+		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::form();
-			{
-
-					$html .= "<label>$title</label>";
-
-					$name       = 'opt_height';
-
-					$radio_html = '';
-
-					foreach (self::enum() as $key => $value)
-					{
-						if(isset($value['hide']) && $value['hide'])
-						{
-							continue;
-						}
-
-						$selected = false;
-
-						if($default === $value['key'])
-						{
-							$selected = true;
-						}
-
-						$my_name = $value['title'];
-						if(a($value, 'icon'))
-						{
-							$my_name = $value['icon'];
-						}
-
-						$option = [];
-
-						if($value['key'] === 'manual')
-						{
-							$option =
-							[
-								'input'        => false,
-								'class'        => 'accordion-collapse ',
-								'attr'         => ' data-bs-toggle="collapse" data-bs-target="#optionShowMore" aria-expanded="true" aria-controls="optionShowMore"',
-							];
-						}
-
-						$radio_html .= \content_site\options\generate::radio_line_itemText($name, $value['key'], $my_name, $selected, null, $option);
-					}
-
-					$html .= \content_site\options\generate::radio_line_add_ul($name, $radio_html);
-
-
-
-			}
-			$html .= \content_site\options\generate::_form();
-
-			$html .= \content_site\options\generate::form();
-			{
-
-					$visible_class = 'show';
-
-					if($default === 'manual' || $default === 'auto' || $default === 'fullscreen')
-					{
-						$visible_class = null;
-					}
-
-					$html .= "<div  id='optionShowMore' class='collapse $visible_class' aria-labelledby='optionHeightMore' data-bs-parent='#heightOption'>";
-					{
-						$html .= \content_site\options\generate::rangeslider($name, self::this_range(), $default, null);
-					}
-					$html .= '</div>';
-			}
-			$html .= \content_site\options\generate::_form();
+			$html .= \content_site\options\generate::rangeslider($name, self::this_range(), $default, T_("Section Height"));
 		}
-		$html .= '</div>';
+		$html .= \content_site\options\generate::_form();
 
 		return $html;
 
