@@ -57,9 +57,9 @@ class section
 
 		$focusMode = null;
 
-		if(a($_args, 'preview_mode'))
+		if(a($_args, 'preview_mode') && \dash\request::key_exists('focus', 'get'))
 		{
-			if(\dash\request::key_exists('focus', 'get'))
+			if(\dash\request::get('focus'))
 			{
 				$focusMode = \dash\request::get('focus') === a($_args, 'section:id_raw');
 				if($focusMode)
@@ -79,7 +79,8 @@ class section
 
 		$html .= ">";
 
-		if(a($_args, 'preview_mode'))
+
+		if(a($_args, 'preview_mode') && \dash\request::key_exists('focus', 'get'))
 		{
 			$html .= "<div";
 			$html .= " class='focusAction'";
