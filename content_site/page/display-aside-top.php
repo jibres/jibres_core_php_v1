@@ -34,7 +34,7 @@ foreach ($list as $key => $value)
 }
 ?>
 
-  <nav class="header items" data-postMsg>
+  <nav class="header items long" data-postMsg>
     <ul>
       <li>
         <a class="item f" href="<?php echo $header_link ?>" id="<?php echo a($header, 'section:list:id'); ?>">
@@ -47,7 +47,7 @@ foreach ($list as $key => $value)
 
   <form method="post" autocomplete="off">
     <input type="hidden" name="set_sort_section" value="1">
-    <nav class="sections items" data-postMsg>
+    <nav class="sections items long" data-postMsg>
       <ul data-sortable>
         <?php foreach ($body as $key => $value)
         {
@@ -74,7 +74,7 @@ foreach ($list as $key => $value)
     </nav>
   </form>
 
-  <nav class="sections items">
+  <nav class="sections items long">
     <ul>
       <li>
         <a class="item f" href="<?php echo \dash\url::here(). '/section'. \dash\request::full_get(['folder' => 'body']); ?>">
@@ -85,7 +85,7 @@ foreach ($list as $key => $value)
     </ul>
   </nav>
 
-  <nav class="header items" data-postMsg>
+  <nav class="header items long" data-postMsg>
     <ul>
       <li>
         <a class="item f" href="<?php echo $footer_link ?>" id="<?php echo a($footer, 'section:list:id'); ?>">
@@ -100,7 +100,7 @@ foreach ($list as $key => $value)
   <?php if($deleted_section) {?>
     <label class="mT25"><?php echo T_("Deleted section") ?> <small><?php echo T_("After saving the page, this section will be deleted completely") ?></small></label>
 
-    <nav class="sections items">
+    <nav class="sections items long">
       <ul data-sortable>
         <?php foreach ($deleted_section as $key => $value) {?>
           <li>
