@@ -123,7 +123,7 @@ class view
 		$id       = null;
 		$fragment = null;
 
-		if($model = a(\dash\data::currentSectionDetail(), 'model') && $section_id = a(\dash\data::currentSectionDetail(), 'id'))
+		if(($model = a(\dash\data::currentSectionDetail(), 'model')) && ($section_id = a(\dash\data::currentSectionDetail(), 'id')))
 		{
 			$id = implode('-', [$model, $section_id]);
 			$fragment = '#'. $id;
