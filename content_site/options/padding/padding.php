@@ -50,7 +50,7 @@ trait padding
 
 	public static function db_key()
 	{
-		return '2';
+		return 'padding';
 	}
 
 
@@ -62,7 +62,7 @@ trait padding
 
 	public static function default()
 	{
-		return 'auto';
+		return '2';
 	}
 
 	private static function find_padding_class($_key)
