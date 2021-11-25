@@ -104,7 +104,7 @@ class section
 				}
 				else
 				{
-					$html .= "<a class='btn-secondary btn-icon mx-1' target='_parent' href='". $editurl. "'>";
+					$html .= "<a class='btn-secondary btn-icon mx-1' data-postMsg='parent' data-postMsg-href='". $editurl. "'>";
 					$html .= \dash\utility\icon::bootstrap('pencil-square');
 					$html .= T_("Edit");
 					$html .= "</a>";
