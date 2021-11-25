@@ -204,7 +204,7 @@ class api
 	 */
 	public static function timelines_by_username($_username, $_args)
 	{
-		$result = [];
+		$tweets = [];
 
 		$args =
 		[
@@ -213,6 +213,7 @@ class api
 			'bearer' => true,
 			'param'  =>
 			[
+				'user.fields' => implode(',', ['created_at','description','entities','id','location','name','pinned_tweet_id','profile_image_url','protected','public_metrics','url','username','verified','withheld']),
 			],
 		];
 
@@ -234,10 +235,14 @@ class api
 				],
 			];
 
-			$result =  self::run($args);
-
+			$tweets =  self::run($args);
 
 		}
+
+		$result = [];
+		$result['user_detail'] = $user_detail;
+		$result['tweets']      = $tweets;
+
 		return $result;
 	}
 
