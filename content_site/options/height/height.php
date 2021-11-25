@@ -24,7 +24,7 @@ class height
 
 		for ($i = 5; $i <= 95; $i = $i + 5)
 		{
-			$enum[] = ['key' => $i, 'title' => null, 'style' => sprintf('min-height: %svh',$i), 'hide' => true, 'is_range' => true];
+			$enum[] = ['key' => "$i", 'title' => null, 'style' => sprintf('min-height: %svh',$i), 'hide' => true, 'is_range' => true];
 		}
 
 		return $enum;
@@ -59,6 +59,7 @@ class height
 	{
 		return 'auto';
 	}
+
 
 
 	public static function get_style($_key)
