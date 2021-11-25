@@ -120,21 +120,28 @@ class view
 
 		\dash\data::btnPreviewSiteBuilderOneSection($link. '?'. \dash\request::build_query(array_unique(array_merge($get, ['psid' => \dash\request::get('sid')]))));
 
-		$id = a(\dash\data::currentSectionDetail(), 'model'). '-'. a(\dash\data::currentSectionDetail(), 'id');
+		$id = null;
+		$fragment = null;
+
+		if($model = a(\dash\data::currentSectionDetail(), 'model') && $section_id = a(\dash\data::currentSectionDetail(), 'id'))
+		{
+			$id = implode('-', [$model, $section_id]);
+			$fragment = '#'. $id;
+		}
 
 		if(\dash\request::get('sid'))
 		{
 			$get['focus'] = $id;
 		}
 
+		// set isiframe to iframe link
 		$get['isiframe'] = 'yes';
+		$iframe_link = $link . '?'. \dash\request::build_query($get). $fragment;
 
-		$iframe_link = $link . '?'. \dash\request::build_query($get). '#'. $id;
-
+		// unset focus and isiframe from click iframe link
 		unset($get['focus']);
 		unset($get['isiframe']);
-
-		$click_iframe_link = $link . '?'. \dash\request::build_query($get). '#'. $id;
+		$click_iframe_link = $link . '?'. \dash\request::build_query($get). $fragment;
 
 
 		\dash\data::siteBuilderIframeLink($iframe_link);
