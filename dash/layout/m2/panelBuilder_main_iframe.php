@@ -1,9 +1,9 @@
 <?php
 
-$iframe_link  = \dash\data::siteBuilderIframeLink();
-$display_link = \dash\data::siteBuilderIframeDisplayLink();
-$click_link   = \dash\data::siteBuilderIframeClickLink();
-
+$iframe_link  = \dash\data::iframeLink();
+$display_link = \dash\data::iframeDisplayLink();
+$click_link   = \dash\data::iframeClickLink();
+$origin_link  = \dash\data::iframeOriginLink();
 
 
 $section_list = [];
@@ -90,7 +90,7 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center px-2 bg-
 $html .= '</div>';
 $html .= '<div class="browserInside h-full relative overflow-x-hidden overflow-y-auto">';
 {
-  $html .= '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $iframe_link. '" style="zoom:0.75"></iframe>';
+  $html .= '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $iframe_link. '" style="zoom:0.75" data-origin="'. $origin_link. '"></iframe>';
   // $html .= $previewHTML;
 }
 $html .= '</div>';

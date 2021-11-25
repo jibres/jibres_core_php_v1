@@ -120,7 +120,7 @@ class view
 
 		\dash\data::btnPreviewSiteBuilderOneSection($link. '?'. \dash\request::build_query(array_unique(array_merge($get, ['psid' => \dash\request::get('sid')]))));
 
-		$id = null;
+		$id       = null;
 		$fragment = null;
 
 		if($model = a(\dash\data::currentSectionDetail(), 'model') && $section_id = a(\dash\data::currentSectionDetail(), 'id'))
@@ -134,9 +134,11 @@ class view
 			$get['focus'] = $id;
 		}
 
+		$origin_link = $link;
+
 		// set isiframe to iframe link
 		$get['isiframe'] = 'yes';
-		$iframe_link = $link . '?'. \dash\request::build_query($get). $fragment;
+		$iframe_link     = $link . '?'. \dash\request::build_query($get). $fragment;
 
 		// unset focus and isiframe from click iframe link
 		unset($get['focus']);
@@ -144,9 +146,10 @@ class view
 		$click_iframe_link = $link . '?'. \dash\request::build_query($get). $fragment;
 
 
-		\dash\data::siteBuilderIframeLink($iframe_link);
-		\dash\data::siteBuilderIframeClickLink($click_iframe_link);
-		\dash\data::siteBuilderIframeDisplayLink($display_link);
+		\dash\data::iframeLink($iframe_link);
+		\dash\data::iframeClickLink($click_iframe_link);
+		\dash\data::iframeDisplayLink($display_link);
+		\dash\data::iframeOriginLink($origin_link);
 
 	}
 
