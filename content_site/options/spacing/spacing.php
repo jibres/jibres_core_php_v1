@@ -20,7 +20,7 @@ class spacing
    		{
       		$html .= "<a class='item f' href='$url'>";
       		{
-        		$html .= '<img alt="Style" class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('distribute-vertical', 'bootstrap'). '">';
+        		$html .= '<img alt="Spacing" class="bg-gray-100 hover:bg-gray-200 p-1" src="'. \dash\utility\icon::url('distribute-vertical', 'bootstrap'). '">';
         		$html .= '<div class="key">'. T_("Spacing"). '</div>';
         		$html .= '<div class="go"></div>';
       		}

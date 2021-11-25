@@ -29,7 +29,7 @@ class responsive
    		{
       		$html .= "<a class='item f' href='$url'>";
       		{
-        		$html .= '<img alt="Style" class="bg-gray-100 hover:bg-gray-200 p-2" src="'. \dash\utility\icon::url('Desktop'). '">';
+        		$html .= '<img alt="Style" class="bg-gray-100 hover:bg-gray-200 p-1" src="'. \dash\utility\icon::url('Desktop'). '">';
         		$html .= '<div class="key">'. T_("Responsive"). '</div>';
         		$html .= '<div class="go"></div>';
       		}

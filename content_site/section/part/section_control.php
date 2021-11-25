@@ -15,13 +15,35 @@ if(!\dash\request::get('index') && \dash\request::get('sid') && !\dash\url::subc
 	      {
 	          $html .= "<a class='item f' href='$model_url'>";
 	          {
-	            $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-2" alt="Replace" src="'. \dash\utility\icon::url('Replace'). '">';
+	            $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-1" alt="Replace" src="'. \dash\utility\icon::url('Replace'). '">';
 	            $html .= '<div class="key">'. T_("Change to another model"). '</div>';
 	            $html .= '<div class="go"></div>';
 	          }
 	          $html .= '</a>';
 	      }
 	      $html .= '</li>';
+        /*====================================
+        =            Download PHP            =
+        ====================================*/
+        if(\dash\url::isLocal() && \dash\permission::supervisor() && !\dash\url::subchild() && \dash\url::child())
+        {
+          $downloadSupervisor = \dash\url::current(). \dash\request::full_get(['downloadjson' => 1]);
+          $myFile = \dash\url::child(). '-'. \dash\request::get('sid'). '.php';
+
+            $html .= '<li>';
+            {
+                $html .= "<a href='$downloadSupervisor' class='item f' title='".T_("Download PHP")."' download='$myFile' target='_blank'>";
+                {
+                  $html .= '<img class="bg-gray-100 hover:bg-gray-200 p-1" alt="Download" src="'. \dash\utility\icon::url('Code'). '">';
+                  $html .= '<div class="key">'. T_("Download Template"). '</div>';
+                  $html .= '<div class="go"></div>';
+                }
+                $html .= '</a>';
+            }
+            $html .= '</li>';
+
+          }
+        /*=====  End of Download PHP  ======*/
 	    }
 	    $html .= '</ul>';
 	}
@@ -54,7 +76,7 @@ if(!\dash\request::get('index') && \dash\request::get('sid') && !\dash\url::subc
   $remove_title = T_("Are you sure to remove this section?");
 
 
-  $html .= "<div data-confirm data-data='$delete_json' data-title='$remove_title' class='btn-outline-danger  mb-2 flex align-center'>";
+  $html .= "<div data-confirm data-data='$delete_json' data-title='$remove_title' class='btn-link-danger  mb-2 flex align-center'>";
   {
     $html .= '<img class="w-5 block" src="'. \dash\utility\icon::url('Delete', 'minor'). '" alt="Delete">';
     $html .= '<span class="px-2">'. T_("Remove section").'</span>';
@@ -66,22 +88,6 @@ if(!\dash\request::get('index') && \dash\request::get('sid') && !\dash\url::subc
 
 
 
-
-
-  /*====================================
-  =            Download PHP            =
-  ====================================*/
-  if(\dash\url::isLocal() && \dash\permission::supervisor() && !\dash\url::subchild() && \dash\url::child())
-  {
-    $downloadSupervisor = \dash\url::current(). \dash\request::full_get(['downloadjson' => 1]);
-
-    $myFile = \dash\url::child(). '-'. \dash\request::get('sid'). '.php';
-    $html .= "<a href='$downloadSupervisor' class='btn-outline-secondary btn-sm mb-2 flex align-center' title='".T_("Download PHP")."' download='$myFile' target='_blank'>";
-    $html .= '<img class="w-5 block" src="'. \dash\utility\icon::url('Code'). '" alt="Download php">';
-        $html .= '<span class="px-2">'. T_("Download Template").'</span>';
-    $html .= '</a>';
-  }
-  /*=====  End of Download PHP  ======*/
 
 
 }
