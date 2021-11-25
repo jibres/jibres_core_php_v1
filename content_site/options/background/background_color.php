@@ -59,7 +59,12 @@ trait background_color
 			$form_class  = null;
 		}
 
-		$input = '<input type="color" class="picker mRa10 mB10 align-middle '.$block_class.'" name="'.$_name. '" id="color-'.$_name.'" value="'.$_default.'">';
+		$input = '<input type="color" class="picker mRa10 mB10 align-middle '.$block_class.'" name="'.$_name. '" id="color-'.$_name.'"';
+		if($_default)
+		{
+			$input = ' value="'. $_default. '"';
+		}
+		$input = '>';
 
 
 		$html = '';
