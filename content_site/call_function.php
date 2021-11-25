@@ -665,7 +665,13 @@ class call_function
 		$namespace_model   = sprintf($namespace, $_model);
 		$load_model_option = self::_call([$namespace_model, 'option']);
 
-		$preview_title = a($section_detail, 'title'). ' - '. a($load_model_option, 'title');
+		$preview_title = '<span class="font-bold text-blue-800">';
+		$preview_title .=  a($section_detail, 'title');
+		$preview_title .= '</span>';
+		$preview_title .= ' ';
+
+		// $preview_title .= ' - ';
+		$preview_title .= a($load_model_option, 'title');
 
 		if($_preview_key)
 		{
