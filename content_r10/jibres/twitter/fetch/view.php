@@ -22,18 +22,7 @@ class view
 			return false;
 		}
 
-		$tweet = \lib\api\twitter\api::timelines_by_username($username, $args);
-
-		if(isset($tweet['data']))
-		{
-			$result = $tweet['data'];
-		}
-		else
-		{
-			\dash\notif::error(T_("Can not get twitter data"));
-
-		}
-
+		$result = \lib\api\twitter\api::timelines_by_username($username, $args);
 
 		\content_r10\tools::say($result);
 	}

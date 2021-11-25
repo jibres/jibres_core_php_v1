@@ -110,12 +110,21 @@ class business
 		$tweet_list = \lib\api\jibres\api::get_twitter_tweet_list($_args);
 
 
+		// $tweet_list = ['result' => json_decode('{"user_detail":{"data":{"username":"RmBiqarar","profile_image_url":"https://pbs.twimg.com/profile_images/1218021289094459393/sxygwdzM_normal.jpg","url":"https://t.co/Sx1vWdIbGa","protected":false,"verified":false,"id":"902618762","created_at":"2012-10-24T21:12:28.000Z","public_metrics":{"followers_count":67,"following_count":359,"tweet_count":57,"listed_count":0},"name":"Reza Mohiti","description":"Developer","location":"Qom","entities":{"url":{"urls":[{"start":0,"end":23,"url":"https://t.co/Sx1vWdIbGa","expanded_url":"http://rezamohiti.ir","display_url":"rezamohiti.ir"}]}}}},"tweets":{"data":[{"id":"1452870345258586113","lang":"fa","created_at":"2021-10-26T05:30:57.000Z","attachments":{"media_keys":["3_1452870202769743879"]},"text":"RT @rafiei_naser: بانویِ مهربانِ جهان اشفعی لنا https://t.co/XZf72cpwGc","source":"Twitter for iPhone","author_id":"902618762"},{"id":"1449043197859188745","lang":"fa","created_at":"2021-10-15T16:03:14.000Z","text":"@ahmadkarimi1991 جیبرس","source":"Twitter for iPhone","author_id":"902618762"},{"id":"1432344697712914432","lang":"fa","created_at":"2021-08-30T14:09:22.000Z","text":"@MrAdib عزت زیاد","source":"Twitter Web App","author_id":"902618762"},{"id":"1430543738309386250","lang":"fa","created_at":"2021-08-25T14:53:00.000Z","text":"RT @Amir_forughi: التماس میکنم\n\nشب ها آب نمک غرغره کنید،بخوابید\nشب ها آب نمک غرغره کنید،بخوابید\nشب ها آب نمک غرغره کنید،بخوابید\nشب ها آب نم…","source":"Twitter Web App","author_id":"902618762"},{"id":"1425406060878340102","lang":"fa","created_at":"2021-08-11T10:37:42.000Z","text":"@voorivex توی php8 این مورد حل شده","source":"Twitter Web App","author_id":"902618762"},{"id":"1405483531132940290","lang":"fa","created_at":"2021-06-17T11:12:41.000Z","text":"@ahmadkarimi1991 عالی. من احساس میکنم همشو دارم.","source":"Twitter for iPhone","author_id":"902618762"},{"id":"1402264266879770630","lang":"fa","created_at":"2021-06-08T14:00:28.000Z","text":"@AbouHatef رفته بودی پارک آب بازی کنی؟؟ 😉","source":"Twitter for iPhone","author_id":"902618762"},{"id":"1401581349333504008","lang":"fa","created_at":"2021-06-06T16:46:48.000Z","text":"@ahmadkarimi1991 بستگی داره","source":"Twitter for iPhone","author_id":"902618762"},{"id":"1401188202724139008","lang":"fa","created_at":"2021-06-05T14:44:35.000Z","text":"@MotherOfLights به مردش + شغلش","source":"Twitter for iPhone","author_id":"902618762"},{"id":"1401187200637751297","lang":"fa","created_at":"2021-06-05T14:40:36.000Z","text":"@MotherOfLights بستگی داره","source":"Twitter for iPhone","author_id":"902618762"}],"meta":{"oldest_id":"1401187200637751297","newest_id":"1452870345258586113","result_count":10,"next_token":"7140dibdnow9c7btw3z0rpjvptolrdle9xgy4hh2ywnjr"}}}', true)];
+
 		if(isset($tweet_list['result']) && $tweet_list['result'] && is_array($tweet_list['result']))
 		{
 
-			$list = $tweet_list['result'];
+			$user_detail = a($tweet_list, 'result', 'user_detail', 'data');
+			$tweets      = a($tweet_list, 'result', 'tweets', 'data');
 
-			foreach ($list as $key => $post_detail)
+			if(!is_array($tweet_list))
+			{
+				$tweet_list = [];
+			}
+
+
+			foreach ($tweets as $key => $post_detail)
 			{
 
 				$id   = a($post_detail, 'id');
@@ -147,9 +156,9 @@ class business
 					'social'          => 'twitter',
 					'request'         => 'fetch',
 					'status'          => null,
-					// 'channel'         => $username,
+					'channel'         => a($user_detail, 'username'),
 					'messageid'       => $id,
-					'data'            => json_encode($post_detail),
+					'data'            => json_encode(['tweet' => $post_detail, 'user_detail' => $user_detail]),
 					'jibresrequestid' => null,
 				];
 
