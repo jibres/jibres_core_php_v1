@@ -92,7 +92,7 @@ class section
 
 				$sort_up = json_encode(['section' => a($_args, 'id'), 'sorting' => 'up']);
 
-				$html .= "<div class='btn-secondary' data-ajaxify data-method='post' data-data='$sort_up' data-action='$editurl'>";
+				$html .= "<div class='btn-secondary' data-postMsg='parent' data-postMsg-ajaxify='$sort_up' data-postMsg-action='$editurl'>";
 				$html .= \dash\utility\icon::bootstrap('arrow-up');
 				$html .= "</div>";
 
@@ -111,7 +111,7 @@ class section
 				}
 
 				$sort_down = json_encode(['section' => a($_args, 'id'), 'sorting' => 'down']);
-				$html .= "<div class='btn-secondary' data-ajaxify data-method='post' data-data='$sort_down' data-action='$editurl'>";
+				$html .= "<div class='btn-secondary' data-postMsg='parent' data-postMsg-ajaxify='$sort_down' data-action='$editurl'>";
 				$html .= \dash\utility\icon::bootstrap('arrow-down');
 				$html .= "</div>";
 
