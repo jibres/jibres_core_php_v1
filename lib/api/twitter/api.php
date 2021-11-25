@@ -137,6 +137,22 @@ class api
 		$getInfo   = curl_getinfo($ch);
 		curl_close ($ch);
 
+		$save_log  =
+		[
+			'store_id'     => \content_r10\tools::get_current_business_id(),
+			'identify'     => json_encode(self::$load_setting),
+			'request_type' => a($_args, 'url'),
+			'user_id'      => null,
+			'username'     => null,
+			'status'       => 'enable',
+			'send'         => json_encode($_args),
+			'receive'      => $response,
+			'meta'         => null,
+			'datecreated'  => date("Y-m-d H:i:s"),
+		];
+
+		\lib\db\twitter\insert::new_record($save_log);
+
 		$log =
 		[
 			'url'             => $url,
