@@ -34,10 +34,15 @@ class quote1
 				[
 					'font',
 
-					'height',
 
 					'background_pack',
 				]),
+				'spacing' =>
+				[
+					'height',
+					'padding_top',
+					'padding_bottom',
+				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>

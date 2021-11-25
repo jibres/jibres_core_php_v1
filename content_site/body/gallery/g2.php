@@ -38,10 +38,7 @@ class g2
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
-					'height',
 					'background_pack',
-					'container_gallery',
-					'magicbox_gap',
 					'radius_full',
 					'coverratio_no_free',
 					'effect',
@@ -49,6 +46,14 @@ class g2
 					'link_color_magicbox_title',
 					'link_color_magicbox_button',
 				]),
+				'spacing' =>
+				[
+					'height',
+					'padding_top',
+					'padding_bottom',
+					'container_gallery',
+					'magicbox_gap',
+				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'break_image_list' => 4,

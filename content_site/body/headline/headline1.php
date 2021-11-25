@@ -33,16 +33,19 @@ class headline1
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
-					'height',
-
-					'container_align',
-					'container_justify',
-
 					'background_effect',
 					'background_pack',
 					'color_heading',
 					'color_text',
 				]),
+				'spacing' =>
+				[
+					'height',
+					'padding_top',
+					'padding_bottom',
+					'container_align',
+					'container_justify',
+				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>

@@ -37,14 +37,20 @@ class p3
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
-					'height',
-					'container_product_p4',
+
 					'background_pack',
 					'color_heading',
 					'radius_normal',
 					'coverratio',
 					'btn_viewall_mode',
 				]),
+				'spacing' =>
+				[
+					'height',
+					'padding_top',
+					'padding_bottom',
+					'container_product_p4',
+				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>

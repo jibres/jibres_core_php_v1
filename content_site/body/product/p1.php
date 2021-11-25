@@ -31,8 +31,6 @@ class p1
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
-					'height',
-					'container',
 					'background_pack',
 					'color_heading',
 					'radius_normal',
@@ -40,6 +38,13 @@ class p1
 					'btn_viewall_mode',
 					'model',
 				]),
+				'spacing' =>
+				[
+					'height',
+					'padding_top',
+					'padding_bottom',
+					'container',
+				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>

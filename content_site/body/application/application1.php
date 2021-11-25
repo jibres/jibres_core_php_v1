@@ -29,11 +29,17 @@ class application1
 				[
 					'font',
 
-					'height',
+
 					'radius_full',
 					'background_pack',
 
 				]),
+				'spacing' =>
+				[
+					'height',
+					'padding_top',
+					'padding_bottom',
+				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>

@@ -41,13 +41,18 @@ class b4
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
-					'height',
 					'background_pack',
 					'color_heading',
 					'color_text',
 					'link_color_post_read_more',
 					'btn_viewall_mode',
 				]),
+				'spacing' =>
+				[
+					'height',
+					'padding_top',
+					'padding_bottom',
+				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 
 			],
