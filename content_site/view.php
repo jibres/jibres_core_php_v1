@@ -127,9 +127,12 @@ class view
 			$get['focus'] = $id;
 		}
 
+		$get['isiframe'] = 'yes';
+
 		$iframe_link = $link . '?'. \dash\request::build_query($get). '#'. $id;
 
 		unset($get['focus']);
+		unset($get['isiframe']);
 
 		$click_iframe_link = $link . '?'. \dash\request::build_query($get). '#'. $id;
 

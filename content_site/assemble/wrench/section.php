@@ -57,7 +57,7 @@ class section
 
 		$focusMode = null;
 
-		if(a($_args, 'preview_mode') && \dash\request::key_exists('focus', 'get'))
+		if(a($_args, 'preview_mode') && \dash\request::key_exists('isiframe', 'get'))
 		{
 			if(\dash\request::get('focus'))
 			{
@@ -80,7 +80,7 @@ class section
 		$html .= ">";
 
 
-		if(a($_args, 'preview_mode') && \dash\request::key_exists('focus', 'get'))
+		if(a($_args, 'preview_mode') && \dash\request::key_exists('isiframe', 'get'))
 		{
 			$html .= "<div";
 			$html .= " class='focusAction'";
