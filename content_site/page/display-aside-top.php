@@ -32,12 +32,12 @@ foreach ($list as $key => $value)
     $footer_link = \dash\url::here(). '/section/'. a($footer, 'section'). \dash\request::full_get(['sid' => a($footer, 'id')]);
   }
 }
-
 ?>
+
   <nav class="header items" data-postMsg>
     <ul>
       <li>
-        <a class="item f" href="<?php echo $header_link ?>">
+        <a class="item f" href="<?php echo $header_link ?>" id="<?php echo a($header, 'section:list:id'); ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2.5" src="<?php echo \dash\utility\icon::url('Header'); ?>">
           <div class="key"><?php echo T_("Header") ?></div>
         </a>
@@ -87,7 +87,7 @@ foreach ($list as $key => $value)
   <nav class="header items" data-postMsg>
     <ul>
       <li>
-        <a class="item f" href="<?php echo $footer_link ?>">
+        <a class="item f" href="<?php echo $footer_link ?>" id="<?php echo a($footer, 'section:list:id'); ?>">
           <img class="bg-gray-100 hover:bg-gray-200 p-2.5" src="<?php echo \dash\utility\icon::url('Footer'); ?>">
           <div class="key"><?php echo T_("Footer") ?></div>
         </a>
