@@ -41,7 +41,7 @@ class model
 			return;
 		}
 
-		\dash\notif::reloadIframeSrc($page_url);
+		\dash\notif::reloadIframeSrc(\dash\data::siteBuilderIframeLink());
 		\dash\notif::reloadIframe();
 	}
 

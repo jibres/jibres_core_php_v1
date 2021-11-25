@@ -1,8 +1,10 @@
 <?php
 
-$page_url = \dash\data::btnPreviewSiteBuilder();
-$page_url_view = strtok($page_url, '?');
-$page_url_click = strtok($page_url, '#');
+$iframe_link  = \dash\data::siteBuilderIframeLink();
+$display_link = \dash\data::siteBuilderIframeDisplayLink();
+$click_link   = \dash\data::siteBuilderIframeClickLink();
+
+
 
 $section_list = [];
 
@@ -40,8 +42,8 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center px-2 bg-
   // address line
   $html .= '<div class="ltr relative flex flex-grow items-center px-2 bg-gray-100 hover:bg-gray-200 rounded-full my-1.5 text-gray-700 transition">';
   {
-    $html .= '<a target="_blank" class="address flex-grow text-xs mx-2" href="'. $page_url_click. '">';
-    $html .= $page_url_view;
+    $html .= '<a target="_blank" class="address flex-grow text-xs mx-2" href="'. $click_link. '">';
+    $html .= $display_link;
     $html .= '</a>';
 
     if(!\lib\store::is_connected_to_domain())
@@ -88,7 +90,7 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center px-2 bg-
 $html .= '</div>';
 $html .= '<div class="browserInside h-full relative overflow-x-hidden overflow-y-auto">';
 {
-  $html .= '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $page_url. '" style="zoom:0.75"></iframe>';
+  $html .= '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $iframe_link. '" style="zoom:0.75"></iframe>';
   // $html .= $previewHTML;
 }
 $html .= '</div>';

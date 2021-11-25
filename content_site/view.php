@@ -102,6 +102,8 @@ class view
 			}
 		}
 
+		$display_link = $link;
+
 		$get = [];
 
 		// if(\dash\data::currentPageDetail_status() !== 'publish')
@@ -125,15 +127,17 @@ class view
 			$get['focus'] = $id;
 		}
 
+		$iframe_link = $link . '?'. \dash\request::build_query($get). '#'. $id;
 
-		$link .= '?'. \dash\request::build_query($get);
+		unset($get['focus']);
 
-		$link .= '#'. $id;
+		$click_iframe_link = $link . '?'. \dash\request::build_query($get). '#'. $id;
 
 
-		\dash\data::btnPreviewSiteBuilder($link);
+		\dash\data::siteBuilderIframeLink($iframe_link);
+		\dash\data::siteBuilderIframeClickLink($click_iframe_link);
+		\dash\data::siteBuilderIframeDisplayLink($display_link);
 
-		return $link;
 	}
 
 }
