@@ -78,8 +78,8 @@ foreach ($list as $key => $value)
     <ul>
       <li>
         <a class="item f" href="<?php echo \dash\url::here(). '/section'. \dash\request::full_get(['folder' => 'body']); ?>">
-          <img class="bg-gray-100 hover:bg-gray-200 p-1" src="<?php echo \dash\utility\icon::url('add'); ?>">
-          <div class="key text-gray-1000"><?php echo T_("Add Section") ?></div>
+          <?php echo \dash\utility\icon::svg('add', null, 'null', 'text-green-800 bg-gray-100 hover:bg-gray-200 p-1'); ?>
+          <div class="key text-green-800 font-bold"><?php echo T_("Add Section") ?></div>
         </a>
       </li>
     </ul>
