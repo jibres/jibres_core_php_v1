@@ -313,6 +313,8 @@ class load
 			$list = [];
 		}
 
+		$section_counter = 0;
+
 		foreach ($list as $key => $value)
 		{
 			if(isset($value['folder']) && isset($value['section']) && is_string($value['section']))
@@ -322,17 +324,26 @@ class load
 					continue;
 				}
 
+				if($value['folder'] === 'body')
+				{
+					$section_counter++;
+				}
+
+				$section_option =
+				[
+					'section_counter' => $section_counter,
+				];
+
 				if($need_explode_homepage_header_footer)
 				{
 					if(floatval(a($value, 'related_id')) === floatval($homepage_id))
 					{
-						self::$homepage_header_footer[$value['folder']][] = \content_site\section\view::ready_section_list($value, true);
+						self::$homepage_header_footer[$value['folder']][] = \content_site\section\view::ready_section_list($value, true, $section_option);
 						continue;
 					}
 				}
 
-				$result[$value['folder']][] = \content_site\section\view::ready_section_list($value, true);
-
+				$result[$value['folder']][] = \content_site\section\view::ready_section_list($value, true, $section_option);
 			}
 		}
 

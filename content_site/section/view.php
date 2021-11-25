@@ -330,7 +330,7 @@ class view
 	 *
 	 * @return     array   ( description_of_the_return_value )
 	 */
-	public static function ready_section_list($_data, $_generate_layout = false)
+	public static function ready_section_list($_data, $_generate_layout = false, $_option = [])
 	{
 		$result = [];
 
@@ -454,11 +454,13 @@ class view
 
 		$identify =
 		[
-			'id'          => a($result, 'id'),
-			'section'     => a($result, 'section'),
-			'model'       => $this_model,
-			'preview_key' => a($result, 'preview_key'),
-			'editurl'     => $edit_url,
+			'id'              => a($result, 'id'),
+			'section'         => a($result, 'section'),
+			'folder'          => a($result, 'folder'),
+			'model'           => $this_model,
+			'preview_key'     => a($result, 'preview_key'),
+			'editurl'         => $edit_url,
+			'section_counter' => a($_option, 'section_counter'),
 		];
 
 		$this_default = array_merge($option_default, $identify, $detail,  $default);

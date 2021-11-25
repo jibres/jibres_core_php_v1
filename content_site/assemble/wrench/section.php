@@ -99,8 +99,15 @@ class section
 
 				if($sorting)
 				{
+					$up_disabled = '';
+
+					if(a($_args, 'section_counter') === 1)
+					{
+						$up_disabled = 'disabled';
+					}
+
 					$sort_up = json_encode(['section' => a($_args, 'id'), 'sorting' => 'up']);
-					$html .= "<div class='btn-secondary btn-sm' data-postMsg='parent' data-postMsg-ajaxify='$sort_up' data-postMsg-action='$editurl'>";
+					$html .= "<div class='btn-secondary btn-sm $up_disabled' data-postMsg='parent' data-postMsg-ajaxify='$sort_up' data-postMsg-action='$editurl'>";
 					$html .= \dash\utility\icon::bootstrap('arrow-up');
 					$html .= "</div>";
 				}
