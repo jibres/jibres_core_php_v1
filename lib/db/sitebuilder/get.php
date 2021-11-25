@@ -29,9 +29,18 @@ class get
 		$param  = [':id' => $_id, ':related_id' => $_related_id];
 		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
-
-
 	}
+
+
+	public static function sort_id_by_related($_related_id)
+	{
+		$query  = "SELECT pagebuilder.id, pagebuilder.sort_preview FROM pagebuilder WHERE pagebuilder.related_id = :related_id AND pagebuilder.folder NOT IN ('header', 'footer') ORDER BY pagebuilder.sort ASC, pagebuilder.id ASC";
+		$param  = [':related_id' => $_related_id];
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+	}
+
+
 
 
 	public static function count_section_in_page($_page_id)

@@ -7,19 +7,26 @@ class model
 	private static $do_nothing_reload = false;
 	public static function post()
 	{
-		/**
-		 * Save option of one section
-		 */
-		if(\dash\url::child())
+		if(\content_site\page\model::sort_up_down())
 		{
-			self::save_options();
+			// sort section
 		}
 		else
 		{
 			/**
-			 * Add or select new option
+			 * Save option of one section
 			 */
-			self::add_new_section();
+			if(\dash\url::child())
+			{
+				self::save_options();
+			}
+			else
+			{
+				/**
+				 * Add or select new option
+				 */
+				self::add_new_section();
+			}
 		}
 
 		\dash\notif::complete();

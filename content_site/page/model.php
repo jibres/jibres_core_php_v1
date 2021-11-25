@@ -210,6 +210,84 @@ class model
 
 	}
 
+
+	public static function sort_up_down()
+	{
+		$section_id = \dash\validate::string_50(\dash\request::post('section'), false);
+		$sorting    = \dash\validate::string_50(\dash\request::post('sorting'), false);
+
+		if($section_id && is_numeric($section_id) && $sorting && in_array($sorting, ['up', 'down']))
+		{
+			$load_section = \lib\db\sitebuilder\get::by_id($section_id);
+			if(!$load_section)
+			{
+				\dash\notif::error(T_("Section not found!"));
+				return true; // need to stop proccess called this function
+			}
+
+			$related_id = a($load_section, 'related_id');
+
+			$sections = \lib\db\sitebuilder\get::sort_id_by_related($related_id);
+
+			if(!is_array($sections))
+			{
+				\dash\notif::error(T_("Section not found!"));
+				return true;
+			}
+
+
+			$sort_preview_counter = 0;
+			foreach ($sections as $key => $value)
+			{
+				$sort_preview_counter += 10;
+				$sections[$key]['sort_preview_counter'] = $sort_preview_counter;
+			}
+
+
+			foreach ($sections as $key => $value)
+			{
+				if(floatval(a($value, 'id')) === floatval($section_id))
+				{
+					if($sorting === 'up')
+					{
+						$sections[$key]['new_sort'] = abs(floatval($value['sort_preview_counter']) - 11);
+					}
+					else
+					{
+						$sections[$key]['new_sort'] = abs(floatval($value['sort_preview_counter']) + 11);
+					}
+
+				}
+				else
+				{
+					$sections[$key]['new_sort'] = floatval(a($value, 'sort_preview_counter'));
+				}
+			}
+
+
+			$sort_index = array_column($sections, 'new_sort');
+
+			array_multisort($sections, SORT_ASC, SORT_NUMERIC, $sort_index);
+
+			$set_sort = [];
+
+			$sorting_counter = 0;
+
+			foreach ($sections as $key => $value)
+			{
+				$sorting_counter += 10;
+				$set_sort[$sorting_counter]	= $value['id'];
+			}
+
+
+			\lib\db\sitebuilder\update::set_sort($set_sort);
+
+			return true;
+		}
+		return false;
+	}
+
+
 	/**
 	 * Set the section order
 	 *
