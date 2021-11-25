@@ -50,7 +50,7 @@ trait padding
 
 	public static function db_key()
 	{
-		return 'padding';
+		return '2';
 	}
 
 
@@ -65,28 +65,42 @@ trait padding
 		return 'auto';
 	}
 
-
-	public static function class_name($_key)
+	private static function find_padding_class($_key)
 	{
-		$enum = self::enum();
-
-		foreach ($enum as $key => $value)
+		foreach (self::enum() as $key => $value)
 		{
-			if(!$_key)
+			if($value['key'] === $_key)
 			{
-				if($value['key'] === self::default())
-				{
-					return $value['class'];
-				}
-			}
-			else
-			{
-				if($value['key'] === $_key)
-				{
-					return $value['class'];
-				}
+				return $value['class'];
 			}
 		}
+
+		return '';
+	}
+
+	public static function class_name($_top, $_bottom)
+	{
+
+		$class = '';
+
+		if(!$_top && !$_bottom)
+		{
+			$class .= self::find_padding_class(self::default());
+		}
+		elseif($_top === $_bottom)
+		{
+			$class .= self::find_padding_class($_top);
+		}
+		else
+		{
+			$class .= str_replace('y', 't', self::find_padding_class($_top));
+			$class .= ' '. str_replace('y', 'b', self::find_padding_class($_bottom));
+		}
+
+		return $class;
+
+
+
 	}
 
 

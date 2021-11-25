@@ -22,9 +22,14 @@ class fire
 			$_args['image_mask:class'] = \content_site\options\image\image_mask::class_name(a($_args, 'image_mask'));
 		}
 
+		if(array_key_exists('padding_top', $_args) || array_key_exists('padding_bottom', $_args))
+		{
+			$_args['padding:class'] = \content_site\options\padding\padding::class_name(a($_args, 'padding_top'), a($_args, 'padding_bottom'));
+		}
+
 		if(array_key_exists('padding_top', $_args))
 		{
-			$_args['padding_top:class'] = \content_site\options\padding\padding::class_name(a($_args, 'padding_top'));
+			$_args['padding_top:class'] = \content_site\options\padding\padding::class_name(a($_args, 'padding_top'), 'top');
 		}
 
 		if(array_key_exists('height', $_args))

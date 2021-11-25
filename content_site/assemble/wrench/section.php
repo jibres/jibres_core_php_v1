@@ -41,9 +41,9 @@ class section
 			}
 		}
 
-		if(a($_args, 'padding_top:class'))
+		if(a($_args, 'padding:class'))
 		{
-			$classNames .= ' '. a($_args, 'padding_top:class');
+			$classNames .= ' '. a($_args, 'padding:class');
 		}
 
 		if(a($_args, 'font:class'))
