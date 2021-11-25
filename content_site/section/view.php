@@ -418,7 +418,13 @@ class view
 		}
 
 		$option_default = [];
-		$options_list = \content_site\call_function::section_options($section_key, $this_model, true);
+		$options_list   = \content_site\call_function::section_options($section_key, $this_model, true);
+
+		if(!$options_list || !is_array($options_list))
+		{
+			$options_list = [];
+		}
+
 		foreach ($options_list as $key => $value)
 		{
 
