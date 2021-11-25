@@ -89,9 +89,15 @@ class search
 			$meta['limit'] = $data['limit'];
 		}
 
+		$is_social_network_post = false;
+
 		if($data['type'])
 		{
 			$and[] = " posts.type =  '$data[type]' ";
+			if(in_array($data['type'], ['twitter', 'instagram']))
+			{
+				$is_social_network_post = true;
+			}
 		}
 		else
 		{
@@ -379,7 +385,23 @@ class search
 						}
 					}
 				}
+			}
+		}
 
+		if($is_social_network_post)
+		{
+			$post_id = array_column($list, 'id');
+			$post_id = array_map('floatval', $post_id);
+			$post_id = array_filter($post_id);
+			$post_id = array_unique($post_id);
+			if($post_id)
+			{
+				if($data['type'] === 'twitter')
+				{
+					// $social_posts_detail = \lib\db\social_posts\get::by_post_id_multi($post_id);
+					// var_dump($social_posts_detail);exit;
+				}
+				// var_dump($list);exit;
 			}
 		}
 
