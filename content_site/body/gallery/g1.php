@@ -30,6 +30,10 @@ class g1
 				[
 					'font',
 					'height',
+
+					'padding_top',
+					'padding_bottom',
+
 					'background_pack',
 					'container_gallery',
 					'magicbox_gap',
