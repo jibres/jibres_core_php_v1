@@ -658,15 +658,20 @@ class call_function
 	}
 
 
-	public static function get_preview_title($_section_key, $_model, $_preview_key)
+	public static function get_preview_title($_section_key, $_model, $_preview_key = null)
 	{
 		$namespace         = self::get_namespace($_section_key);
 		$section_detail    = self::detail($_section_key);
 		$namespace_model   = sprintf($namespace, $_model);
 		$load_model_option = self::_call([$namespace_model, 'option']);
-		$int_function = preg_replace("/[^\d]/", '', $_preview_key);
 
-		$preview_title = a($section_detail, 'title'). ' - '. a($load_model_option, 'title'). ' - ' . T_("Sample :val", ['val' => \dash\fit::number($int_function)]);
+		$preview_title = a($section_detail, 'title'). ' - '. a($load_model_option, 'title');
+
+		if($_preview_key)
+		{
+			$int_function = preg_replace("/[^\d]/", '', $_preview_key);
+			$preview_title .= ' - ' . T_("Sample :val", ['val' => \dash\fit::number($int_function)]);
+		}
 
 		return $preview_title;
 	}
