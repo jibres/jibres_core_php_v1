@@ -4,7 +4,7 @@ namespace content_site\assemble\wrench;
 
 class section
 {
-	public static function element_start($_args, $_used_for = null)
+	public static function element_start($_args, $_used_for = null, $_opt = null)
 	{
 		$background_style = a($_args, 'background:style');
 		$height_style     = a($_args, 'height:style');
@@ -35,6 +35,11 @@ class section
 			{
 				$cnElement = 'section';
 			}
+		}
+
+		if(a($_opt, 'allowOverflow'))
+		{
+			$classNames = str_replace(' overflow-hidden', '', $classNames);
 		}
 
 		if(a($_args, 'padding:class'))

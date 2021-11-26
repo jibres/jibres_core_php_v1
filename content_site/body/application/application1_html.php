@@ -6,7 +6,7 @@ class application1_html
 {
 	public static function html($_args)
 	{
-		$html = \content_site\assemble\wrench\section::element_start($_args);
+		$html = \content_site\assemble\wrench\section::element_start($_args, null, ['allowOverflow' => true]);
 		{
       $html .= \content_site\assemble\wrench\section::container($_args);
       {
