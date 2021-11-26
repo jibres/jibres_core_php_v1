@@ -26,42 +26,7 @@ class separatorSVG_html
 				$html .= ' style="'. $hrStyle. '"';
 				$html .= '>';
 
-				if($text)
-				{
-					$topOffset = str_replace('px', '', $height);
-					$topOffset = round(intval($topOffset) / 2) - 1;
-					$topOffset = $topOffset + 25;
-
-					$textStyle = 'position:relative;display:inline-block;line-height:30px;height:30px;max-width:200px;padding:0 10px;';
-					$textStyle .= 'top:-'. $topOffset.'px;';
-					$textStyle .= 'color:'. $color. ';';
-					$textStyle .= 'font-size:28px;';
-					if(a($_args, 'background:style'))
-					{
-						$textStyle .= a($_args, 'background:style');
-					}
-					else
-					{
-						$textStyle .= 'background-color:#fff';
-					}
-
-					$html .= '<span';
-					$html .= ' style="'. $textStyle. '"';
-					$html .= '>';
-					{
-						if($svg)
-						{
-							$imgStyle = 'max-height:30px;';
-							$svgSrc = 'data:image/svg+xml,'. rawurlencode($svg);
-							$html .= '<img alt="separator" src="'. $svgSrc. '" style="'. $imgStyle. '">';
-						}
-						else
-						{
-							$html .= $text;
-						}
-					}
-					$html .= '</span>';
-				}
+				$html .= addText::el($text, $svg, $height, $color, a($_args, 'background:style'));
 			}
 			$html .= "</div>";
 		}
