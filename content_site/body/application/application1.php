@@ -39,6 +39,7 @@ class application1
 					'height',
 					'padding_top',
 					'padding_bottom',
+					'container',
 				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],

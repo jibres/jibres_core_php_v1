@@ -163,6 +163,10 @@ class section
 		{
 			$classList .= ' '. a($_args, 'container:class');
 		}
+		else
+		{
+			$classList .= ' w-full';
+		}
 		if(a($_opt, 'class'))
 		{
 			$classList .= ' '. a($_opt, 'class');
