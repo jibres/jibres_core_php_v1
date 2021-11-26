@@ -12,19 +12,19 @@ trait padding
 		$enum[] = ['key' => '2', 'class' => 'py-2 md:py-3 lg:py-4', ];
 		$enum[] = ['key' => '3', 'class' => 'py-3 md:py-4 lg:py-6', ];
 		$enum[] = ['key' => '4', 'class' => 'py-4 md:py-6 lg:py-8'];
-		$enum[] = ['key' => '6', 'class' => 'py-6 md:py-8 lg:py-12'];
-		$enum[] = ['key' => '8', 'class' => 'py-8 md:py-10 lg:py-16'];
-		// $enum[] = ['key' => '10', 'class' => 'py-10 md:py-6 lg:py-20'];
-		$enum[] = ['key' => '12', 'class' => 'py-12 md:py-6 lg:py-24'];
-		// $enum[] = ['key' => '14', 'class' => 'py-14 md:py-6 lg:py-28'];
-		$enum[] = ['key' => '16', 'class' => 'py-16 md:py-6 lg:py-32'];
-		// $enum[] = ['key' => '20', 'class' => 'py-20 md:py-6 lg:py-40'];
-		$enum[] = ['key' => '24', 'class' => 'py-24 md:py-6 lg:py-48'];
-		// $enum[] = ['key' => '28', 'class' => 'py-28 md:py-6 lg:py-56'];
-		$enum[] = ['key' => '32', 'class' => 'py-32 md:py-6 lg:py-64'];
-		// $enum[] = ['key' => '36', 'class' => 'py-36 md:py-6 lg:py-72'];
-		// $enum[] = ['key' => '40', 'class' => 'py-40 md:py-6 lg:py-80'];
-		$enum[] = ['key' => '48', 'class' => 'py-48 md:py-6 lg:py-96'];
+		$enum[] = ['key' => '6', 'class' => 'py-6 md:py-9 lg:py-12'];
+		$enum[] = ['key' => '8', 'class' => 'py-8 md:py-12 lg:py-16'];
+		// $enum[] = ['key' => '10', 'class' => 'py-10 md:py-16 lg:py-20'];
+		$enum[] = ['key' => '12', 'class' => 'py-12 md:py-16 lg:py-24'];
+		// $enum[] = ['key' => '14', 'class' => 'py-14 md:py-20 lg:py-28'];
+		$enum[] = ['key' => '16', 'class' => 'py-16 md:py-24 lg:py-32'];
+		// $enum[] = ['key' => '20', 'class' => 'py-20 md:py-28 lg:py-40'];
+		$enum[] = ['key' => '24', 'class' => 'py-24 md:py-36 lg:py-48'];
+		// $enum[] = ['key' => '28', 'class' => 'py-28 md:py-40 lg:py-56'];
+		$enum[] = ['key' => '32', 'class' => 'py-32 md:py-48 lg:py-64'];
+		// $enum[] = ['key' => '36', 'class' => 'py-36 md:py-52 lg:py-72'];
+		// $enum[] = ['key' => '40', 'class' => 'py-40 md:py-60 lg:py-80'];
+		$enum[] = ['key' => '48', 'class' => 'py-48 md:py-72 lg:py-96'];
 
 		return $enum;
 	}

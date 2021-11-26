@@ -8,7 +8,10 @@ class separator1_html
 	{
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 		{
-			$html .= '<hr>';
+			$hrStyle = 'border:none'
+			$html .= '<hr';
+			$html .= ' style="'. $hrStyle. '"';
+			$html .= '>';
 		}
 		$html .= \content_site\assemble\wrench\section::element_end($_args);
 
