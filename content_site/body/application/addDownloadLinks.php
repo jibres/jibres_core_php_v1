@@ -7,7 +7,7 @@ class addDownloadLinks
 	public static function all($_args)
 	{
 		$html = '';
-    $html .= '<nav class="dl my-4">';
+    $html .= '<nav class="dl my-2 lg:my-4">';
     {
       // dl link of all type
       // google play
