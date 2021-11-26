@@ -34,9 +34,11 @@ class addText
 			{
 				if($_svg)
 				{
-					$svgSrc = 'data:image/svg+xml,'. rawurlencode($_svg);
-					$imgStyle = 'max-height:30px;display:block; margin:0 auto;';
-					$html .= '<img alt="separator" src="'. $svgSrc. '" style="'. $imgStyle. '">';
+					// $svgSrc = 'data:image/svg+xml,'. rawurlencode($_svg);
+					// $imgStyle = 'max-height:30px;display:block; margin:0 auto;';
+					// $html .= '<img alt="separator" src="'. $svgSrc. '" style="'. $imgStyle. '">';
+
+					$html .= $_svg;
 				}
 				else
 				{
