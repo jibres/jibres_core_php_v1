@@ -22,6 +22,7 @@ class magicbox
 		$myTitle      = a($_item, 'title');
 		$borderRadius = a($_args, 'radius:class');
 		$effect       = a($_args, 'effect');
+		$effectFamily = $effect;
 		$maskImg      = a($_args, 'image_mask:class');
 
 		$file_index = 'file';
@@ -105,8 +106,12 @@ class magicbox
 			$elAttr = a($_opt, 'attr');
 		}
 
+		if($effect === 'gradient')
+		{
+			$effectFamily = 'zoom';
+		}
 
-		$elementTag = '<'. $myMagicBoxEl. ' data-magicbox="'. $effect. '"';
+		$elementTag = '<'. $myMagicBoxEl. ' data-magicbox="'. $effectFamily. '"';
 		if($myLinkHref)
 		{
 			$elementTag .= ' '. $myLinkHref;
@@ -141,7 +146,7 @@ class magicbox
 				{
 					$mediaBoxClass .= ' '. $borderRadius;
 				}
-				if($effect !== 'zoom')
+				if($effectFamily !== 'zoom')
 				{
 					$mediaBoxClass .= ' overflow-hidden';
 				}
@@ -200,8 +205,10 @@ class magicbox
 					$gradientTo = a($_args, 'effect_gradient_to');
 					$gradientType = a($_args, 'effect_gradient_type');
 					$gradientStyle = 'position:absolute;top:0;bottom:0;right:0;left:0;';
-					$gradientStyle .= 'background:linear-gradient('. $gradientType. ', transparent 10%, '. $gradientTo. ' 80%, '. $gradientTo. ' 100%)';
-					$card .= '<div style="'. $gradientStyle. '">';
+					$gradientStyle .= 'background:linear-gradient('. $gradientType. ', transparent 0%, '. $gradientTo. ' 70%, '. $gradientTo. ' 100%)';
+					$gradientClass = $borderRadius;
+					$card .= '<div class="'. $gradientClass. '" style="'. $gradientStyle. '">';
+
 					$card .= "</div>";
 				}
 
