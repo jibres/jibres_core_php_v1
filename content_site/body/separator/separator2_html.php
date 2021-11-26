@@ -26,9 +26,9 @@ class separator2_html
 				{
 					$topOffset = str_replace('px', '', $height);
 					$topOffset = round(intval($topOffset) / 2) - 1;
-					$topOffset = $topOffset + 20;
+					$topOffset = $topOffset + 25;
 
-					$textStyle = 'position:relative;display:inline-block;line-height:20px;height:20px;max-width:200px;padding:0 10px;';
+					$textStyle = 'position:relative;display:inline-block;line-height:30px;height:30px;max-width:200px;padding:0 10px;';
 					$textStyle .= 'top:-'. $topOffset.'px;';
 					$textStyle .= 'color:'. $color. ';';
 					$textStyle .= 'font-size:28px;';
