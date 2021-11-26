@@ -24,9 +24,15 @@ class application1_html
 
         $html .= '<div class="flex">';
         {
+          $html .= '<div class="w-1/12"></div>';
           $html .= '<div class="w-4/12">';
           {
-            $html .= '<figure><img loading="lazy" data-src="https://cdn.jibres.ir/img/homepage/jibres-app.png" ></figure>';
+            $figureStyle = 'margin-top:-100px;margin-bottom:-80px;';
+            $html .= '<figure style="'. $figureStyle. '">';
+            {
+              $html .= '<img loading="lazy" data-src="https://cdn.jibres.ir/img/homepage/jibres-app.png">';
+            }
+            $html .= '</figure>';
           }
           $html .= '</div>';
 
