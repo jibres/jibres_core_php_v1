@@ -22,11 +22,14 @@ class separatorSVG_html
 				$hrStyle .= 'height:'. $height. ';';
 				$hrStyle .= 'background-image:linear-gradient(to right,rgba(0,0,0,0),'. $color. ',rgba(0,0,0,0));';
 
-				$html .= '<hr';
-				$html .= ' style="'. $hrStyle. '"';
-				$html .= '>';
-
+				$html .= '<div class="relative">';
+				{
+					$html .= '<hr';
+					$html .= ' style="'. $hrStyle. '"';
+					$html .= '>';
+				}
 				$html .= addText::el($text, $svg, $height, $color, a($_args, 'background:style'));
+				$html .= "</div>";
 			}
 			$html .= "</div>";
 		}

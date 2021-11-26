@@ -19,11 +19,14 @@ class separator1_html
 				$hrStyle = 'border:none;width:100%;display:block;margin:10px 0;';
 				$hrStyle .= 'border-bottom:'. $height. ' '. $style. ' '. $color. ';';
 
-				$html .= '<hr';
-				$html .= ' style="'. $hrStyle. '"';
-				$html .= '>';
-
+				$html .= '<div class="relative">';
+				{
+					$html .= '<hr';
+					$html .= ' style="'. $hrStyle. '"';
+					$html .= '>';
+				}
 				$html .= addText::el($text, $svg, $height, $color, a($_args, 'background:style'));
+				$html .= "</div>";
 			}
 			$html .= "</div>";
 		}
