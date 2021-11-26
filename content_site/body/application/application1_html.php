@@ -17,25 +17,25 @@ class application1_html
         $color_heading    = a($_args, 'color_heading:full_style');
 
 
-        $html .= '<div class="flex">';
+        $html .= '<div class="flex flex-wrap">';
         {
-          $html .= '<div class="w-4/12 px-4 md:px-6 lg:px-10">';
+          $html .= '<div class="w-full sm:w-4/12 lg:w-4/12">';
           {
             $figureStyle = 'margin-top:-100px;margin-bottom:-80px;';
             $figureStyle = '';
             $html .= '<figure style="'. $figureStyle. '">';
             {
               $imgSrc = \dash\url::cdn(). '/img/homepage/jibres-app.png';
-              $html .= '<img loading="lazy" data-src="'. $imgSrc. '" class="max-auto w-60">';
+              $html .= '<img loading="lazy" data-src="'. $imgSrc. '" class="mx-auto w-44 sm:w-48 md:w-52 lg:w-60">';
             }
             $html .= '</figure>';
           }
           $html .= '</div>';
 
-          $html .= '<div class="w-8/12 pt-28">';
+          $html .= '<div class="w-full sm:w-8/12 py-2 sm:py-16 lg:py-28 text-center">';
           {
             $html .= '<h2';
-            $html .= ' class="font-bold text-4xl"';
+            $html .= ' class="font-bold text-lg sm:text-2xl md:text-3xl lg:text-4xl"';
             if($color_heading)
             {
               $html .= $color_heading;
@@ -45,7 +45,7 @@ class application1_html
             $html .= '</h2>';
 
             $html .= '<p';
-            $html .= ' class="leading-7"';
+            $html .= ' class="leading-7 text-xs md:text-base"';
             if($color_heading)
             {
               $html .= $color_heading;
