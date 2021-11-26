@@ -14,24 +14,56 @@ class application1_html
   			$desc    = a($_args, 'description');
   			$logoSrc = a($_args, 'logo');
 
+        $color_heading    = a($_args, 'color_heading:full_style');
+
         $link_googleplay  = a($_args, 'link_googleplay');
-        $link_cafebazar   = a($_args, 'link_cafebazar');
-        $link_myket       = a($_args, 'link_myket');
         $android_apk_link = a($_args, 'android_apk_link');
+        $link_myket       = a($_args, 'link_myket');
+        $link_cafebazar   = a($_args, 'link_cafebazar');
 
 
         $html .= '<div class="flex">';
         {
-          $html .= '<div class="w-5/12">';
+          $html .= '<div class="w-4/12">';
           {
-            $html .= '5';
-
+            $html .= '<figure><img loading="lazy" data-src="https://cdn.jibres.ir/img/homepage/jibres-app.png" ></figure>';
           }
           $html .= '</div>';
 
-          $html .= '<div class="w-7/12">';
+          $html .= '<div class="w-7/12 py-36">';
           {
-            $html .= '7';
+            $html .= '<h2';
+            $html .= ' class="font-bold text-3xl"';
+            if($color_heading)
+            {
+              $html .= $color_heading;
+            }
+            $html .= '>';
+            $html .= $title;
+            $html .= '</h2>';
+
+            $html .= '<p';
+            $html .= ' class="leading-7"';
+            if($color_heading)
+            {
+              $html .= $color_heading;
+            }
+            $html .= '>';
+            $html .= $desc;
+            $html .= '</p>';
+
+
+            $html .= '<div class="dl">';
+            {
+              // dl link of all type
+              // google play
+              // direct download
+              // cafebazaar
+              // mayket
+              // pwa
+            }
+            $html .= '</div>';
+
           }
           $html .= '</div>';
 

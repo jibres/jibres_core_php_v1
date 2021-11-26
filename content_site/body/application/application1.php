@@ -29,9 +29,9 @@ class application1
 				[
 					'font',
 
-
 					'radius_full',
 					'background_pack',
+					'color_heading',
 
 				]),
 				'spacing' =>
