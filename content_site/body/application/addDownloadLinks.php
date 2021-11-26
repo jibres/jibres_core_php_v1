@@ -6,13 +6,8 @@ class addDownloadLinks
 {
 	public static function all($_args)
 	{
-    $link_googleplay  = a($_args, 'link_googleplay');
-    $link_directdl    = a($_args, 'android_apk_link');
-    $link_myket       = a($_args, 'link_myket');
-    $link_cafebazar   = a($_args, 'link_cafebazar');
-
 		$html = '';
-    $html .= '<div class="dl">';
+    $html .= '<nav class="dl my-4">';
     {
       // dl link of all type
       // google play
@@ -21,6 +16,7 @@ class addDownloadLinks
       $html .= self::createDlLink('myket', a($_args, 'link_myket'));
       $html .= self::createDlLink('cafebazar', a($_args, 'link_cafebazar'));
     }
+    $html .= '</nav>';
 
 		return $html;
 	}
@@ -32,8 +28,8 @@ class addDownloadLinks
     {
       return null;
     }
-
-    $myEl   = '<a target="_blank" rel="noopener" class="" href="'. $_link. '">';
+    $linkClass = 'inline-block rounded-lg overflow-hidden m-0.5 transition hover:shadow focus:shadow-lg w-36';
+    $myEl   = '<a target="_blank" rel="noopener" class="'. $linkClass. '" href="'. $_link. '">';
     $imgSrc = \dash\url::cdn(). '/img/app/get/'. $_type;
     if(\dash\language::current() === 'fa')
     {
@@ -65,7 +61,8 @@ class addDownloadLinks
         break;
     }
 
-    $myEl .= '<img src="'. $imgSrc. '" alt="'. $imgAlt. '" class="">';
+    $imgClass = 'block rounded-lg';
+    $myEl .= '<img src="'. $imgSrc. '" alt="'. $imgAlt. '" class="'. $imgClass. '">';
     $myEl .= '</a>';
 
     return $myEl;

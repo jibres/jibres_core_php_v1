@@ -31,7 +31,7 @@ class application1_html
           }
           $html .= '</div>';
 
-          $html .= '<div class="w-6/12 pt-28">';
+          $html .= '<div class="w-8/12 pt-28">';
           {
             $html .= '<h2';
             $html .= ' class="font-bold text-4xl"';
