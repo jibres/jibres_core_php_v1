@@ -32,7 +32,6 @@ class application1
 					'radius_full',
 					'background_pack',
 					'color_heading',
-
 				]),
 				'spacing' =>
 				[

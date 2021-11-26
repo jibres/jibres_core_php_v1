@@ -32,7 +32,7 @@ class enterpriseRafiei
 					'radius_full',
 					'background_pack',
 					'color_heading',
-
+					'color_text',
 				]),
 				'spacing' =>
 				[

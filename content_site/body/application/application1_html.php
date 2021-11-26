@@ -19,7 +19,7 @@ class application1_html
 
         $html .= '<div class="flex flex-wrap">';
         {
-          $html .= '<div class="w-full sm:w-4/12 lg:w-4/12">';
+          $html .= '<div class="w-full sm:w-4/12">';
           {
             $figureStyle = 'margin-top:-100px;margin-bottom:-80px;';
             $figureStyle = '';
