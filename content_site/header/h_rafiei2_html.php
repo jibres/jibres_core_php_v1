@@ -26,7 +26,8 @@ class h_rafiei2_html
 
 			$html .= '<div id="bgHeader" class="absolute h-24 w-full mx-auto top-0 right-0 left-0 opacity-30" style="'. $topBgStyle. '"></div>';
 
-			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'pt-3 md:pt-5 lg:pt-10 pb-0.5 sm:pb-1 md:pb-2 lg:pb-4 select-none']);
+
+			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'select-none']);
 			{
 				$html .= '<div class="flex align-center h-20 rounded-lg relative py-2 px-4 overflow-hidden" style="background-color:'. $color. ';">';
 				{

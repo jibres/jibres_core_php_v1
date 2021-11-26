@@ -35,7 +35,12 @@ class h_rafiei2
 				// 	'background_color_header_line',
 				// ]),
 				'responsive' => \content_site\utility::set_responsive_option_header(),
-
+				'spacing' =>
+				[
+					'padding_top',
+					'padding_bottom',
+					// 'container',
+				],
 			],
 			'default'      =>
 			[
@@ -45,6 +50,7 @@ class h_rafiei2
 				// 'link_enter'     => true,
 				// 'link_cart'      => true,
 			],
+
 			'force' =>
 			[
 				'container'             => 'xl',
