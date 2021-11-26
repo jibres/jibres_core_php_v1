@@ -51,6 +51,7 @@ class option
 		return
 		[
 			'separator1',
+			'separator2',
 
 		];
 

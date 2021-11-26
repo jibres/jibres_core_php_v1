@@ -2,7 +2,7 @@
 namespace content_site\body\separator;
 
 
-class separator1_html
+class separator2_html
 {
 	public static function html($_args)
 	{
@@ -14,7 +14,7 @@ class separator1_html
 				$style = 'double';
 				$color = '#999';
 
-				$hrStyle = 'border:none;width:100%;';
+				$hrStyle = 'border:none;width:100%;margin:10px 0;';
 				$hrStyle .= 'border-bottom:'. $width. ' '. $style. ' '. $color. ';';
 
 				$html .= '<hr';
