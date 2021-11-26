@@ -28,7 +28,7 @@ class addDownloadLinks
     {
       return null;
     }
-    $linkClass = 'inline-block rounded-lg overflow-hidden m-0.5 lg:m-1 transition hover:shadow-lg w-36 opacity-80 hover:opacity-90 focus:opacity-100';
+    $linkClass = 'inline-block rounded-lg overflow-hidden m-0.5 lg:m-1 transition hover:shadow-lg w-20 md:w-36 w-40 opacity-80 hover:opacity-90 focus:opacity-100';
     $myEl   = '<a target="_blank" rel="noopener" class="'. $linkClass. '" href="'. $_link. '">';
     $imgSrc = \dash\url::cdn(). '/img/app/get/'. $_type;
     if(\dash\language::current() === 'fa')

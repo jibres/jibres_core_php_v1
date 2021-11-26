@@ -25,7 +25,8 @@ class application1_html
             $figureStyle = '';
             $html .= '<figure style="'. $figureStyle. '">';
             {
-              $html .= '<img loading="lazy" data-src="https://cdn.jibres.ir/img/homepage/jibres-app.png">';
+              $imgSrc = \dash\url::cdn(). '/img/homepage/jibres-app.png';
+              $html .= '<img loading="lazy" data-src="'. $imgSrc. '" class="max-auto w-60">';
             }
             $html .= '</figure>';
           }
