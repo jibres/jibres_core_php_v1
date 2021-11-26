@@ -11,15 +11,16 @@ class separator2_html
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-center']);
 			{
 				$height = '10px';
+				// $style = 'solid';
 				$color = '#004bb0';
 				$text = '§';
 				$svg = null;
 
-				$hrStyle = 'border:none;width:100%;display:block;margin:10px 0;';
+				$hrStyle = 'border:none;width:100%;display:block;margin:15px 0;';
 				$hrStyle .= 'height:'. $height. ';';
 				$hrStyle .= 'background-image:linear-gradient(to right,rgba(0,0,0,0),'. $color. ',rgba(0,0,0,0));';
 
-				$html .= '<div class="relative">';
+				$html .= '<div class="relative overflow-hidden">';
 				{
 					$html .= '<hr';
 					$html .= ' style="'. $hrStyle. '"';

@@ -16,10 +16,10 @@ class separator1_html
 				$text = '§';
 				$svg = null;
 
-				$hrStyle = 'border:none;width:100%;display:block;margin:10px 0;';
+				$hrStyle = 'border:none;width:100%;display:block;margin:15px 0;';
 				$hrStyle .= 'border-bottom:'. $height. ' '. $style. ' '. $color. ';';
 
-				$html .= '<div class="relative">';
+				$html .= '<div class="relative overflow-hidden">';
 				{
 					$html .= '<hr';
 					$html .= ' style="'. $hrStyle. '"';
