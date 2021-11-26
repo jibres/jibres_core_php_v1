@@ -18,9 +18,9 @@ class enterpriseRafiei_html
         $color_text    = a($_args, 'color_text:full_style');
 
 
-        $html .= '<div class="flex flex-wrap align-center">';
+        $html .= '<div class="flex flex-wrap align-center py-1 md:py-2">';
         {
-          $html .= '<div class="w-full sm:w-6/12">';
+          $html .= '<div class="w-full lg:w-4/12">';
           {
             $html .= '<h2';
             $html .= ' class="font-bold text-lg sm:text-xl"';
@@ -45,10 +45,14 @@ class enterpriseRafiei_html
           }
           $html .= '</div>';
 
-          $html .= '<div class="w-full sm:w-6/12 text-center">';
+          $html .= '<div class="w-full lg:w-8/12 txtRa">';
           {
 
-            $html .= addDownloadLinks::all($_args);
+            $dlLinkOpt =
+            [
+              'linkClass' => 'inline-block rounded-lg overflow-hidden m-0.5 lg:m-1 transition hover:shadow-lg w-36 opacity-80 hover:opacity-90 focus:opacity-100',
+            ];
+            $html .= addDownloadLinks::all($_args, $dlLinkOpt);
 
             $html .= '</div>';
 
