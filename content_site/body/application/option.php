@@ -50,6 +50,7 @@ class option
 		return
 		[
 			'application1',
+			'enterpriseRafiei',
 
 		];
 

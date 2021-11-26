@@ -2,7 +2,7 @@
 namespace content_site\body\application;
 
 
-class application1_html
+class enterpriseRafiei_html
 {
 	public static function html($_args)
 	{
