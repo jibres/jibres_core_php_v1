@@ -2,7 +2,7 @@
 namespace content_site\body\separator;
 
 
-class separator2_html
+class separatorSVG_html
 {
 	public static function html($_args)
 	{
@@ -10,7 +10,7 @@ class separator2_html
 		{
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-center']);
 			{
-				$height = '10px';
+				$height = '5px';
 				$color = '#004bb0';
 				$text = '§';
 
