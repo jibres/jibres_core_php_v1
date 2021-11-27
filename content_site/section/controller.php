@@ -24,7 +24,7 @@ class controller
 			'product',
 			// 'contactform',
 			'headline',
-			'title',
+			// 'title',
 			'visitcard',
 			'quote',
 			'text',
