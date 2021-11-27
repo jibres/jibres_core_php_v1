@@ -17,7 +17,7 @@ class b1
 			'title'        => T_("Card Design"),
 			'options'      =>
 			[
-				'heading_full',
+				'heading',
 
 				'post_tag',
 				'post_template',
@@ -35,6 +35,8 @@ class b1
 				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[
+					'heading_justify',
+					'heading_size',
 					'font',
 					'background_pack',
 					'color_heading',
