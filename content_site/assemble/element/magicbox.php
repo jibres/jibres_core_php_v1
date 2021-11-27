@@ -205,7 +205,7 @@ class magicbox
 					$gradientTo = a($_args, 'effect_gradient_to');
 					$gradientType = a($_args, 'effect_gradient_type');
 					$gradientStyle = 'position:absolute;top:0;bottom:0;right:0;left:0;';
-					$gradientStyle .= 'background:linear-gradient('. $gradientType. ', transparent 0%, '. $gradientTo. ' 70%, '. $gradientTo. ' 100%)';
+					$gradientStyle .= 'background:linear-gradient('. $gradientType. ', transparent 20%, '. $gradientTo. ' 100%, '. $gradientTo. ' 100%)';
 					$gradientClass = $borderRadius;
 					$card .= '<div class="'. $gradientClass. '" style="'. $gradientStyle. '">';
 
