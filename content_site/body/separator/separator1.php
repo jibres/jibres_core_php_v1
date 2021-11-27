@@ -14,7 +14,7 @@ class separator1
 	{
 		return
 		[
-			'title'        => T_("Separator 1"),
+			'title'        => T_("Simple"),
 			'options'      =>
 			[
 				'separator_type',

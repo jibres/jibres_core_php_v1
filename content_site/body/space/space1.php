@@ -17,23 +17,14 @@ class space1
 			'title'        => T_("Space"),
 			'options'      =>
 			[
-
 				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[
-					'font',
 					'background_pack',
-					'justify_heading',
-					'heading_size',
-					'color_heading',
-					'color_text',
 				]),
 				'spacing' =>
 				[
 					'height',
-					'padding_top',
-					'padding_bottom',
-					'container',
 				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],

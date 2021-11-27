@@ -14,7 +14,7 @@ class separator2
 	{
 		return
 		[
-			'title'        => T_("Separator 1"),
+			'title'        => T_("Gradient"),
 			'options'      =>
 			[
 				'separator_icon',

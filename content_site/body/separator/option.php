@@ -34,7 +34,7 @@ class option
 		[
 			'separator1',
 			'separator2',
-			'separatorSVG',
+
 
 		];
 
