@@ -123,6 +123,12 @@ class business
 				$tweet_list = [];
 			}
 
+			if(!is_array($tweets))
+			{
+				$tweets = [];
+			}
+
+
 
 			foreach ($tweets as $key => $post_detail)
 			{
