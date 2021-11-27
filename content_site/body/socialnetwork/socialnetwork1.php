@@ -20,15 +20,16 @@ class socialnetwork1
 				'heading',
 
 				'socialnetwork',
+				'socialnetwork_size',
 
 
 				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[
-					'heading_justify',
-					'heading_size',
 					'font',
 					'background_pack',
+					'heading_justify',
+					'heading_size',
 					'color_heading',
 					'color_text',
 				]),
@@ -47,7 +48,7 @@ class socialnetwork1
 				'post_template'         => 'any',
 				'post_order'            => 'latest',
 				'count'                 => 3,
-
+				'use_as_socialnetwork' => 'business_socialnetwork',
 
 
 				'background_pack'       => 'none',
