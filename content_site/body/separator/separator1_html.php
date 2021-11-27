@@ -16,7 +16,7 @@ class separator1_html
 
 				$text = '§';
 
-				$svg = \dash\utility\icon::bootstrap('Asterisk', 'mx-auto', ['height' => 30]);
+				$svg = \dash\utility\icon::bootstrap(a($_args, 'separator_icon'), 'mx-auto', ['height' => 30]);
 
 				$hrStyle = 'border:none;width:100%;display:block;margin:15px 0;';
 				$hrStyle .= 'border-bottom:'. $height. ' '. $style. ' '. $color. ';';

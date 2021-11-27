@@ -38,7 +38,7 @@ trait height_separator
 
 	public static function title()
 	{
-		return T_("Height");
+		return T_("Thickness");
 	}
 
 

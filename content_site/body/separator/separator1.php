@@ -17,18 +17,20 @@ class separator1
 			'title'        => T_("Separator 1"),
 			'options'      =>
 			[
-
-				'container_separator',
-				'height_separator',
 				'separator_type',
+				'separator_icon',
+				'height_separator',
 				'color',
-				'padding_top',
-				'padding_bottom',
 				'style' => \content_site\utility::set_style_option(
 				[
-					'color',
 					'background_pack',
 				]),
+				'spacing' =>
+				[
+					'container_separator',
+					'padding_top',
+					'padding_bottom',
+				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
