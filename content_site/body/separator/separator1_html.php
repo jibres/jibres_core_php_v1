@@ -14,9 +14,15 @@ class separator1_html
 				$style  = a($_args, 'separator_type');
 				$color  = a($_args, 'color');
 
-				$text = '§';
 
-				$svg = \dash\utility\icon::bootstrap(a($_args, 'separator_icon'), 'mx-auto', ['height' => 30]);
+				$text = '§';
+				$text = null;
+
+				$svg = null;
+				if(a($_args, 'separator_icon'))
+				{
+					$svg = \dash\utility\icon::bootstrap(a($_args, 'separator_icon'), 'mx-auto', ['height' => 30]);
+				}
 
 				$hrStyle = 'border:none;width:100%;display:block;margin:15px 0;';
 				$hrStyle .= 'border-bottom:'. $height. ' '. $style. ' '. $color. ';';

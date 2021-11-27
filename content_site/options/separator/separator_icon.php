@@ -8,6 +8,7 @@ class separator_icon
 	{
 
 		$enum   = [];
+		$enum[] = ['key' => ''];
 		$enum[] = ['key' => 'asterisk'];
 		$enum[] = ['key' => 'activity'];
 		$enum[] = ['key' => 'dash-lg'];
