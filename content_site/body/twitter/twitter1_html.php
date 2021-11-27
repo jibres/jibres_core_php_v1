@@ -16,6 +16,9 @@ class twitter1_html
     $twName         = "Javad Adib";
     $twTweet        = "Capture and share Twitter posts as beautiful images. Get started by pasting a tweet URL into the input above.";
     $twDetail       = true;
+    $twStatRetweet  = 152;
+    $twStatQuote    = 8;
+    $twStatLike     = 981;
     // get theme colors
     $themeBgStyle = self::themeColor($theme);
 
@@ -94,34 +97,57 @@ class twitter1_html
               $html .= "<div class='flex'>";
               {
                 // retweets
-                $html .= "<div class='whitespace-nowrap'>";
+                if($twStatRetweet)
                 {
-                  $html .= "<span class='text-gray-900 font-bold mx-1'>";
-                  $html .= "152";
-                  $html .= "</span>";
-                  $html .= T_("Retweets");
+                  $html .= "<div class='whitespace-nowrap'>";
+                  {
+                    $html .= "<span class='text-gray-900 font-bold mx-1'>";
+                    $html .= $twStatRetweet;
+                    $html .= "</span>";
+                    if($twStatRetweet === 1)
+                    {
+                      $html .= T_("Retweet");
+                    }
+                    else
+                    {
+                      $html .= T_("Retweets");
+                    }
+                  }
+                  $html .= "</div>";
                 }
-                $html .= "</div>";
 
                 // Quote Tweet
-                $html .= "<div class='whitespace-nowrap mx-3'>";
+                if($twStatQuote)
                 {
-                  $html .= "<span class='text-gray-900 font-bold mx-1'>";
-                  $html .= "8";
-                  $html .= "</span>";
-                  $html .= T_("Quote Tweet");
+                  $html .= "<div class='whitespace-nowrap mx-3'>";
+                  {
+                    $html .= "<span class='text-gray-900 font-bold mx-1'>";
+                    $html .= $twStatQuote;
+                    $html .= "</span>";
+                    $html .= T_("Quote Tweet");
+                  }
+                  $html .= "</div>";
                 }
-                $html .= "</div>";
 
                 // likes
-                $html .= "<div class='whitespace-nowrap'>";
+                if($twStatLike)
                 {
-                  $html .= "<span class='text-gray-900 font-bold mx-1'>";
-                  $html .= "8";
-                  $html .= "</span>";
-                  $html .= T_("Likes");
+                  $html .= "<div class='whitespace-nowrap'>";
+                  {
+                    $html .= "<span class='text-gray-900 font-bold mx-1'>";
+                    $html .= $twStatLike;
+                    $html .= "</span>";
+                    if($twStatLike === 1)
+                    {
+                      $html .= T_("Like");
+                    }
+                    else
+                    {
+                      $html .= T_("Likes");
+                    }
+                  }
+                  $html .= "</div>";
                 }
-                $html .= "</div>";
               }
               $html .= "</div>";
             }
