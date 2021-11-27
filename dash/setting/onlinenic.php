@@ -71,25 +71,5 @@ class onlinenic
 		return null;
 	}
 
-
-	public static function broker_token()
-	{
-		self::load();
-		if(isset(self::$load['broker_token']))
-		{
-			return self::$load['broker_token'];
-		}
-
-		return null;
-	}
-
-
-
-
-
-
-
-
-
 }
 ?>

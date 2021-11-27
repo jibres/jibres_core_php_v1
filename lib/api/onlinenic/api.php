@@ -63,7 +63,7 @@ class api
 			$post_field = array_merge($post_field, $_body);
 		}
 
-		$post_field['broker_token'] = \dash\setting\onlinenic::broker_token();
+		$post_field['broker_token'] = \dash\setting\tunnel_token::get('onlinenic');
 		$post_field['api_url']      = $url;
 
 
