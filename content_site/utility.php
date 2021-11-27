@@ -324,13 +324,19 @@ class utility
 	 */
 	public static function is_private_enterprise($_enterprise)
 	{
-		if(\lib\store::enterprise() === $_enterprise)
+		if(self::is_enterprise($_enterprise))
 		{
 			return false;
 		}
 
 		return true;
 
+	}
+
+
+	public static function is_enterprise($_enterprise)
+	{
+		return \lib\store::enterprise() === $_enterprise;
 	}
 
 
