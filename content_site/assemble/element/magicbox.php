@@ -329,7 +329,7 @@ class magicbox
 			{
 				if($myTitle)
 				{
-					$titleClass = 'leading-7 line-clamp-3 font-bold';
+					$titleClass = 'leading-7 line-clamp-2 font-bold';
 					if($myDesc)
 					{
 						$titleClass .= ' text-xl';
@@ -344,11 +344,13 @@ class magicbox
 				// show desc
 				if($myDesc)
 				{
-					$html .= "<p class='leading-7 line-clamp-3 text-sm'>";
+					$html .= "<div class='hidden md:block'>";
 					{
+						$html .= "<div class='leading-7 line-clamp-2 text-sm'>";
 						$html .= $myDesc;
+						$html .= '</div>';
 					}
-					$html .= '</p>';
+					$html .= '</div>';
 				}
 			}
 
@@ -363,7 +365,7 @@ class magicbox
 		// show btn
 		if($myBtnText)
 		{
-			$btnLineClass = 'flex-none';
+			$btnLineClass = 'flex-none hidden md:block';
 			$btnClass = 'btn-primary';
 
 			if(a($_args, 'image_count') === 1)
