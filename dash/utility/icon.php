@@ -145,7 +145,13 @@ class icon
 
     public static function bootstrap($_name, $_class = null, $_args = null)
     {
-        return self::svg($_name, 'bootstrap', null, $_class, $_args);
+        $fill = null;
+        if(a($_args, 'fill'))
+        {
+            $fill = a($_args, 'fill');
+        }
+
+        return self::svg($_name, 'bootstrap', $fill, $_class, $_args);
     }
 
 
