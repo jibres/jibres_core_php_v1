@@ -26,6 +26,11 @@ class app1_html
             $html .= '<figure style="'. $figureStyle. '">';
             {
               $imgSrc = \dash\url::cdn(). '/img/homepage/jibres-app.png';
+              if(a($_args, 'file'))
+              {
+                $imgSrc = \lib\filepath::fix($_args['file']);
+              }
+
               $html .= '<img loading="lazy" data-src="'. $imgSrc. '" class="mx-auto w-44 sm:w-48 md:w-52 lg:w-60" alt="'. $title. '">';
             }
             $html .= '</figure>';

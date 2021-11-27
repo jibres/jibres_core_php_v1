@@ -19,6 +19,7 @@ class app1
 			[
 				'heading',
 				'description',
+				'file',
 				'msg' => 'manage',
 
 
