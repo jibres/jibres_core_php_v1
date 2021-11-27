@@ -86,7 +86,9 @@ class section
 
 		$html .= ">";
 
-
+		/*============================================
+		=            Action btn on iframe            =
+		============================================*/
 		if(a($_args, 'preview_mode') && \dash\request::key_exists('isiframe', 'get'))
 		{
 			$html .= "<div";
@@ -120,7 +122,7 @@ class section
 
 				if($focusMode)
 				{
-					$html .= "<button class='btn-secondary btn-sm mx-1'>". T_("Editing..."). '</button>';
+					$html .= "<button class='btn-secondary btn-sm mx-1 disabled'>". T_("Editing..."). '</button>';
 				}
 				else
 				{
@@ -149,6 +151,7 @@ class section
 			}
 			$html .= "</div>";
 		}
+		/*=====  End of Action btn on iframe  ======*/
 
 		return $html;
 	}
