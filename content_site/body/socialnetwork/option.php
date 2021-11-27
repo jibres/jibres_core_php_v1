@@ -5,22 +5,6 @@ namespace content_site\body\socialnetwork;
 class option
 {
 
-	/**
-	 * Call when publish the page
-	 *
-	 * @return     bool  ( description_of_the_return_value )
-	 */
-	public static function premium()
-	{
-		return !\dash\url::isLocal();
-	}
-
-
-	public static function is_private()
-	{
-		return !\dash\url::isLocal();
-	}
-
 
 	/**
 	 * Get detail

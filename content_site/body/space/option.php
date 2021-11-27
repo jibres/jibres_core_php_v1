@@ -6,23 +6,6 @@ class option
 {
 
 	/**
-	 * Call when publish the page
-	 *
-	 * @return     bool  ( description_of_the_return_value )
-	 */
-	public static function premium()
-	{
-		return !\dash\url::isLocal();
-	}
-
-
-	public static function is_private()
-	{
-		return !\dash\url::isLocal();
-	}
-
-
-	/**
 	 * Get detail
 	 *
 	 * @return     array  ( description_of_the_return_value )
@@ -33,7 +16,7 @@ class option
 		[
 			'group'   => T_("Separator"),
 			'section' => 'space',
-			'title'   => T_("Space"),
+			'title'   => T_("Free space"),
 			'icon'    => \dash\utility\icon::url('square', 'bootstrap'),
 		];
 	}
