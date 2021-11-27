@@ -51,7 +51,7 @@ class image_add
 
 
 		$html = '';
-		$html .= '<nav class="items">';
+		$html .= '<nav class="items long">';
 		{
 	  		$html .= '<ul>';
 	  		{

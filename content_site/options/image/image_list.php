@@ -44,7 +44,7 @@ class image_list
 	  		$html .= \content_site\options\generate::opt_hidden(__CLASS__);
 	  		$html .= \content_site\options\generate::specialsave();;
 
-			$html .= '<nav class="items">';
+			$html .= '<nav class="items long">';
 			{
 		  		$html .= '<ul data-sortable>';
 		  		{
