@@ -131,6 +131,12 @@ class api
 		// curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 		curl_setopt($ch, CURLOPT_URL, 'https://tunnel.jibres.com/twitter/');
+
+		if(\dash\url::isLocal())
+		{
+			curl_setopt($ch, CURLOPT_URL, 'https://broker.local/twitter/');
+		}
+
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($broker_detail));
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
