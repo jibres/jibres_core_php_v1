@@ -33,6 +33,7 @@ class controller
 			'socialnetwork',
 			// 'instagram',
 			'twitter',
+			'space',
 			'html',
 			/* -------------- */
 
