@@ -164,6 +164,13 @@ class view
 
 		$origin_link = $link;
 
+		// force remove language from origin
+		if(\dash\validate::language(substr($origin_link, -2), false))
+		{
+			$origin_link = substr($origin_link, 0, -3);
+		}
+
+
 		// set isiframe to iframe link
 		$get['isiframe'] = 'yes';
 		$iframe_link     = $link . '?'. \dash\request::build_query($get). $fragment;
