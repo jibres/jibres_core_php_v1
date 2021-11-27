@@ -11,8 +11,15 @@ class socialnetwork1_html
     {
       $html .= \content_site\assemble\wrench\section::container($_args);
       {
-                // set social media links
-          $html .= \content_site\assemble\wrench\socialnetworks::type1($_args);
+        $html .= \content_site\assemble\wrench\heading::simple1($_args);
+
+        // add links
+        $socialArg =
+        [
+          'navClass'  => 'justify-center',
+          'linkColor' => a($_args, 'color_text'),
+        ];
+        $html .= \content_site\assemble\wrench\socialnetworks::type2(\lib\store::social(), null, $socialArg);
       }
       $html .= "</div>";
     }

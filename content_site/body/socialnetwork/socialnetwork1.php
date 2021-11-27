@@ -30,8 +30,7 @@ class socialnetwork1
 					'font',
 					'background_pack',
 					'color_heading',
-					'radius_normal',
-					'coverratio',
+					'color_text',
 				]),
 				'spacing' =>
 				[
