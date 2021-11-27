@@ -37,7 +37,6 @@ class api
 		$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-		// curl_setopt($ch, CURLOPT_URL, "https://tunnel.jibres.com/domain-broker/");
 		curl_setopt($ch, CURLOPT_URL, "https://tunnel.jibres.com/namecheap/");
 
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_field));

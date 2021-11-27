@@ -17,7 +17,6 @@ class broker
 
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 		curl_setopt($ch, CURLOPT_URL, "https://tunnel.jibres.com/email/send.php");
-		// curl_setopt($ch, CURLOPT_URL, "http://localhost/brokers/email/send.php");
 
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($brokerOpt));
 
