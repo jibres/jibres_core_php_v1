@@ -118,7 +118,7 @@ class api
 		// send all detail to broker
 		$broker_detail =
 		[
-			'broker_token' => 'aa',
+			'broker_token' => \dash\setting\tunnel_token::get('twitter'),
 			'url'          => $url,
 			'header'       => $header,
 			'body'         => $body,
