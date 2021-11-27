@@ -33,9 +33,10 @@ else
   }
   else
   {
-    $html .= '<div class="alert2" id="section-preview-title-id">';
+    $myTitle = implode(':', [ a($currentSectionDetail, 'section'), a($currentSectionDetail, 'model'), a($currentSectionDetail, 'preview_key')]);
+    $html .= '<div class="alert2" id="section-preview-title-id" title="'. $myTitle. '">';
     {
-      $html .= a(\dash\data::currentSectionDetail(), 'section:preview:title');
+      $html .= a($currentSectionDetail, 'section:preview:title');
     }
     $html .= '</div>';
 
