@@ -20,13 +20,15 @@ class heading
 		$heading = '';
 		if(a($_args, 'heading') !== null)
 		{
-			$heading .= '<header>';
+			$headerClass = null;
+			if(array_key_exists('heading_size', $_args))
+			{
+				$headerClass = \content_site\options\heading\heading_size::class_name($_args['heading_size']);
+			}
+
+			$heading .= '<header class="'. $headerClass. '">';
 			{
 				$size = 'text-lg md:text-xl lg:text-2xl';
-				if(array_key_exists('heading_size', $_args))
-				{
-					$size = \content_site\options\heading\heading_size::class_name($_args['heading_size']);
-				}
 				$heading_class .= ' '. $size;
 
 				if($link)

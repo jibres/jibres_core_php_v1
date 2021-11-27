@@ -11,9 +11,9 @@ class heading_size
 		$enum   = [];
 
 
-		$enum[] = ['key' => 'sm', 	 'title' => "S",    'class' => 'text-sm' ];
-		$enum[] = ['key' => 'md', 	 'title' => "M",    'class' => 'text-md'];
-		$enum[] = ['key' => 'lg', 	 'title' => "L",    'class' => 'text-lg'];
+		$enum[] = ['key' => 'sm', 	 'title' => "S",    'class' => 'text-xs' ];
+		$enum[] = ['key' => 'md', 	 'title' => "M",    'class' => ''];
+		$enum[] = ['key' => 'lg', 	 'title' => "L",    'class' => 'text-xl'];
 
 
 		return $enum;
