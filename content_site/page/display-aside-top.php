@@ -105,7 +105,7 @@ foreach ($list as $key => $value)
         <?php foreach ($deleted_section as $key => $value) {?>
           <li>
             <a class="item f opacity-40" href="<?php echo \dash\url::here(). '/section/'. a($value, 'section'). \dash\request::full_get(['sid' => a($value, 'id')]); ?>">
-              <img class="bg-gray-100 hover:bg-gray-200 p-1" src="<?php echo a($value, 'preview', 'icon') ?>">
+              <img class="bg-gray-100 hover:bg-gray-200 p-1" src="<?php echo a($value, 'preview', 'icon') ?>" alt='Footer'>
               <div class="key"><?php if(a($value, 'preview', 'heading') !== null) { echo a($value, 'preview', 'heading'); }else{ echo '<i class="fc-mute">'. T_("Without title"). '</i>';} ?></div>
               <img class="p-2 opacity-70 hover:bg-gray-300" src="<?php echo \dash\utility\icon::url('Delete', 'minor'); ?>">
             </a>

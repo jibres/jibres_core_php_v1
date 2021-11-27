@@ -1,6 +1,6 @@
 <?php
     $html = '';
-    $html .= '<div">';
+    $html .= '<div>';
     {
       $html .= '<a class="btn-outline-dark btn-sm flex align-center" href="'.\dash\url::this(). '/settings'. \dash\request::full_get().'">';
       {
