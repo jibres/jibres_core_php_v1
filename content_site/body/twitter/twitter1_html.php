@@ -51,7 +51,7 @@ class twitter1_html
 
 
           // user line
-          $html .= '<header class="flex items-center mb-4">';
+          $html .= '<header class="flex items-center mb-2 md:mb-4">';
           {
             $avatarSrc = \dash\sample\img::avatar();
             $html .= '<img src="'. $avatarSrc. '" class="w-12 h-12 inline object-cover rounded-full transition">';
@@ -80,7 +80,7 @@ class twitter1_html
           }
           $html .= "</header>";
 
-          $html .= "<div class='tweet-text text-lg leading-6 text-gray-900 mb-4'>";
+          $html .= "<div class='tweet-text text-lg leading-6 text-gray-900 mb-2 md:mb-4'>";
           {
             $html .= $twTweet;
           }
@@ -99,7 +99,7 @@ class twitter1_html
                 // retweets
                 if($twStatRetweet)
                 {
-                  $html .= "<div class='whitespace-nowrap'>";
+                  $html .= "<div class='whitespace-nowrap mRa10'>";
                   {
                     $html .= "<span class='text-gray-900 font-bold mx-1'>";
                     $html .= $twStatRetweet;
@@ -119,7 +119,7 @@ class twitter1_html
                 // Quote Tweet
                 if($twStatQuote)
                 {
-                  $html .= "<div class='whitespace-nowrap mx-3'>";
+                  $html .= "<div class='whitespace-nowrap mRa10'>";
                   {
                     $html .= "<span class='text-gray-900 font-bold mx-1'>";
                     $html .= $twStatQuote;
