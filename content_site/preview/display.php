@@ -68,7 +68,7 @@ if(\dash\data::myPreviewDisplayType() === 'preview_list')
 
 			$html .= '<div class="p-5">';
 			{
-				$html .= '<p class="text-sm font-medium text-gray-900 text-justify">';
+				$html .= '<p class="text-sm font-medium text-gray-900 txtLa">';
 				{
 					$html .= a($value, 'preview_title');
 				}

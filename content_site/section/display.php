@@ -34,7 +34,7 @@ else
 			}
 			$html .= '</div>';
 
-			$html .= '<div class="text-sm font-medium text-gray-900 text-justify p-5">';
+			$html .= '<div class="text-sm font-medium text-gray-900 txtLa p-5">';
 			{
 				$html .= a($value, 'preview_title');
 
