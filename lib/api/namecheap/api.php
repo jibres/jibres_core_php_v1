@@ -30,7 +30,7 @@ class api
 
 		// $post_field['DomainList'] = 'jibres.com';
 
-		$post_field['broker_token'] = \dash\setting\namecheap::broker_token();
+		$post_field['broker_token'] = \dash\setting\tunnel_token::get('namecheap');
 		$post_field['api_url']      = $master_url;
 
 
