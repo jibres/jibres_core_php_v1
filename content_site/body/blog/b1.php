@@ -35,10 +35,10 @@ class b1
 				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[
-					'heading_justify',
-					'heading_size',
 					'font',
 					'background_pack',
+					'heading_justify',
+					'heading_size',
 					'color_heading',
 					'radius_normal',
 					'coverratio',

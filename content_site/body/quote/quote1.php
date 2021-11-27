@@ -32,10 +32,10 @@ class quote1
 
 				'style' => \content_site\utility::set_style_option(
 				[
-					'heading_justify',
-					'heading_size',
 					'font',
 					'background_pack',
+					'heading_justify',
+					'heading_size',
 				]),
 				'spacing' =>
 				[
