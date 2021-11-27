@@ -15,7 +15,7 @@ trait container
 		$enum[] = ['key' => 'lg', 	 'title' => "L",    'hide' => false, 'class' => 'max-w-screen-lg w-full px-2 sm:px-4 lg:px-5'];
 		$enum[] = ['key' => 'xl', 	 'title' => "XL",   'hide' => false, 'class' => 'max-w-screen-xl w-full px-2 sm:px-4 lg:px-5'];
 		$enum[] = ['key' => '2xl', 	 'title' => "2XL",  'hide' => false, 'class' => 'max-w-screen-2xl w-full px-2 sm:px-4 lg:px-5'];
-		$enum[] = ['key' => 'fluid', 	 'title' => "100%", 'hide' => false, 'class' => 'w-full'];
+		$enum[] = ['key' => 'fluid', 'title' => "100%", 'hide' => false, 'class' => 'w-full'];
 
 		return $enum;
 	}
