@@ -15,6 +15,7 @@ class twitter1_html
     $twUsername     = "@MrAdib";
     $twName         = "Javad Adib";
     $twTweet        = "Capture and share Twitter posts as beautiful images. Get started by pasting a tweet URL into the input above.";
+    $twTweetImg     = 'https://pbs.twimg.com/media/FCmhwHTXIAcVqxx?format=jpg&name=small';
     $twDetail       = true;
     $twStatRetweet  = 152;
     $twStatQuote    = 8;
@@ -31,7 +32,7 @@ class twitter1_html
         $html .= \content_site\assemble\wrench\heading::simple1($_args);
 
         $boxStyle = 'background-image:'. $themeBgStyle;
-        $boxClass = 'max-w-prose mx-auto w-full transition relative z-0 overflow-hidden bg-red-200 my-4 p-6 '. $borderRadius;
+        $boxClass = 'max-w-prose mx-auto w-full transition relative z-0 overflow-hidden bg-red-200 p-6 '. $borderRadius;
         if($size === 'lg')
         {
           $boxClass .= ' text-lg';
@@ -83,6 +84,14 @@ class twitter1_html
           $html .= "<div class='tweet-text text-lg leading-6 text-gray-900 mb-2 md:mb-4'>";
           {
             $html .= $twTweet;
+            if($twTweetImg)
+            {
+              $html .= "<div class='w-full relative overflow-hidden rounded-xl mt-2 md:mt-4'>";
+              $html .= "<img src='". $twTweetImg. "' class=''>";
+
+              // https://pbs.twimg.com/media/FCmhwHTXIAcVqxx?format=jpg&name=small
+              $html .= "</div>";
+            }
           }
           $html .= "</div>";
 
@@ -90,6 +99,7 @@ class twitter1_html
           {
             $html .= "<div class='leading-8 mb-2'>";
             $html .= "11:31 AM · 27 Nov, 2021";
+            $html .= \dash\fit::date_time('2021-11-27 11:31', '');
             $html .= "</div>";
 
             if($twDetail)
