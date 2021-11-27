@@ -15,14 +15,29 @@ class addDownloadLinks
       $navClass = a($_opt, 'navClass');
     }
 
+    $appDetail = \lib\app\application\detail::get_android();
+
     $html .= '<nav class="dl '. $navClass. '">';
     {
       // dl link of all type
       // google play
-      $html .= self::createDlLink('googleplay', a($_args, 'link_googleplay'), $_opt);
-      $html .= self::createDlLink('downloadapk', a($_args, 'android_apk_link'), $_opt);
-      $html .= self::createDlLink('myket', a($_args, 'link_myket'), $_opt);
-      $html .= self::createDlLink('cafebazar', a($_args, 'link_cafebazar'), $_opt);
+
+      if(a($appDetail, 'googleplay'))
+      {
+        $html .= self::createDlLink('googleplay', a($appDetail, 'googleplay'), $_opt);
+      }
+
+      $html .= self::createDlLink('downloadapk', \lib\store::android_apk_url(), $_opt);
+
+      if(a($appDetail, 'myket'))
+      {
+        $html .= self::createDlLink('myket', a($appDetail, 'myket'), $_opt);
+      }
+
+      if(a($appDetail, 'cafebazar'))
+      {
+        $html .= self::createDlLink('cafebazar', a($appDetail, 'cafebazar'), $_opt);
+      }
     }
     $html .= '</nav>';
 

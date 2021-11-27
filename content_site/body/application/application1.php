@@ -17,13 +17,10 @@ class application1
 			'title'        => T_("application 1"),
 			'options'      =>
 			[
-				'heading_business',
-				'description_business',
-				'file_business_logo',
-				'android_apk_link',
-				'link_googleplay',
-				'link_cafebazar',
-				'link_myket',
+				'heading',
+				'description',
+				'msg' => 'manage',
+
 
 				'style' => \content_site\utility::set_style_option(
 				[
@@ -57,6 +54,19 @@ class application1
 				'p2'
 			],
 		];
+	}
+
+
+	public static function manage()
+	{
+		$html = '';
+		$html .= '<div class="alert2 mt-3">';
+		{
+			$html .= T_("To manage application download links");
+			$html .= ' <a class="btn-link btn-sm" href="'. \lib\store::admin_url(). '/a/android/download">'. T_("Click here"). '</a>';
+		}
+		$html .= '</div>';
+		return $html;
 	}
 
 
