@@ -6,7 +6,7 @@
   $sectionRequestedDetail = \dash\data::sectionRequestedDetail();
 
   $html .= '<label>'. T_("Plese choose one preview"). '</label>';
-  $html .= '<nav class="sections items">';
+  $html .= '<nav class="sections items long">';
   {
     $html .= '<ul>';
     {
@@ -33,7 +33,7 @@
 
   $sectionRequestedDetail = \dash\data::sectionRequestedDetail();
 
-  $html .= '<nav class="sections items">';
+  $html .= '<nav class="sections items long">';
   {
     $html .= '<ul>';
     {
