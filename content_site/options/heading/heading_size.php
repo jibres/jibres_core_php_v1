@@ -32,7 +32,7 @@ class heading_size
 
 	public static function default()
 	{
-		return 'lg';
+		return 'md';
 	}
 
 
