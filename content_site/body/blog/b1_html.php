@@ -10,7 +10,14 @@ class b1_html
 		{
 			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
-				$html .= \content_site\assemble\wrench\heading::simple1($_args);
+				$link = null;
+
+				if(!a($_args, 'btn_viewall_check') && a($_args, 'btn_viewall_link'))
+				{
+					$link = $_args['btn_viewall_link'];
+				}
+
+				$html .= \content_site\assemble\wrench\heading::simple1($_args, $link);
 
 				$html .= \content_site\assemble\wrench\section::grid_12($_args);
 				{
