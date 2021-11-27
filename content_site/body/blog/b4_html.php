@@ -19,11 +19,30 @@ class b4_html
 					$html .= '<header class="pt-6 pb-8 space-y-2">';
 					{
 						$heading_class    = a($_args, 'heading:class');
+
+						$link = null;
+
+						if(!a($_args, 'btn_viewall_check') && a($_args, 'btn_viewall_link'))
+						{
+							$link = $_args['btn_viewall_link'];
+						}
+
+						if($link)
+						{
+							$html .= '<a href="'. $link . '">';
+						}
+
+
 						$html .= "<h2 class='font-bold text-4xl md:text-5xl lg:text-6xl $heading_class' $color_heading>";
 						{
 							$html .= a($_args, 'heading');
 						}
 						$html .= '</h2>';
+
+						if($link)
+						{
+							$html .= '</a>';
+						}
 
 						$html .= '<p class="text-xl opacity-60"'.$color_text.'>';
 						{

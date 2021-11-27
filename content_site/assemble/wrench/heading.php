@@ -4,10 +4,18 @@ namespace content_site\assemble\wrench;
 
 class heading
 {
-	public static function simple1($_args, $_link = null)
+	public static function simple1($_args)
 	{
 		$color_heading    = a($_args, 'color_heading:full_style');
 		$heading_class    = a($_args, 'heading:class');
+
+		$link = null;
+
+		if(array_key_exists('btn_viewall_check', $_args) && !a($_args, 'btn_viewall_check') && a($_args, 'btn_viewall_link'))
+		{
+			$link = $_args['btn_viewall_link'];
+		}
+
 
 		$heading = '';
 		if(a($_args, 'heading') !== null)
@@ -21,9 +29,9 @@ class heading
 				}
 				$heading_class .= ' '. $size;
 
-				if($_link)
+				if($link)
 				{
-					$heading .= '<a href="'. $_link. '">';
+					$heading .= '<a href="'. $link. '">';
 				}
 
 				$heading .= "<h2 class='font-bold leading-6 mb-5 $heading_class' $color_heading>";
@@ -34,7 +42,7 @@ class heading
 				}
 				$heading .= '</h2>';
 
-				if($_link)
+				if($link)
 				{
 					$heading .= '</a>';
 				}
