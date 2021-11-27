@@ -11,6 +11,7 @@ class broker
 	public static function transfer($_args, $_provider)
 	{
 		$brokerOpt = array_merge($_args, $_provider);
+		$brokerOpt['broker_token'] = \dash\setting\tunnel_token::get('email');
 
 		$ch = curl_init();
 
