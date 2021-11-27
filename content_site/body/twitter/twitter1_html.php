@@ -83,12 +83,47 @@ class twitter1_html
           }
           $html .= "</div>";
 
-          $html .= "<footer>";
+          $html .= "<footer class='text-gray-500 text-sm leading-6'>";
           {
+            $html .= "<div class='leading-8 mb-2'>";
+            $html .= "11:31 AM · 27 Nov, 2021";
+            $html .= "</div>";
 
             if($twDetail)
             {
+              $html .= "<div class='flex'>";
+              {
+                // retweets
+                $html .= "<div class='whitespace-nowrap'>";
+                {
+                  $html .= "<span class='text-gray-900 font-bold mx-1'>";
+                  $html .= "152";
+                  $html .= "</span>";
+                  $html .= T_("Retweets");
+                }
+                $html .= "</div>";
 
+                // Quote Tweet
+                $html .= "<div class='whitespace-nowrap mx-3'>";
+                {
+                  $html .= "<span class='text-gray-900 font-bold mx-1'>";
+                  $html .= "8";
+                  $html .= "</span>";
+                  $html .= T_("Quote Tweet");
+                }
+                $html .= "</div>";
+
+                // likes
+                $html .= "<div class='whitespace-nowrap'>";
+                {
+                  $html .= "<span class='text-gray-900 font-bold mx-1'>";
+                  $html .= "8";
+                  $html .= "</span>";
+                  $html .= T_("Likes");
+                }
+                $html .= "</div>";
+              }
+              $html .= "</div>";
             }
           }
           $html .= "</footer>";
