@@ -14,18 +14,22 @@ class separator2
 	{
 		return
 		[
-			'title'        => T_("Separator 2"),
+			'title'        => T_("Separator 1"),
 			'options'      =>
 			[
-
-				'container',
-				'padding_top',
-				'padding_bottom',
+				'separator_icon',
+				'height_separator',
+				'color',
 				'style' => \content_site\utility::set_style_option(
 				[
-					'color',
 					'background_pack',
 				]),
+				'spacing' =>
+				[
+					'container_separator',
+					'padding_top',
+					'padding_bottom',
+				],
 				'responsive' => \content_site\utility::set_responsive_option(),
 			],
 			'default'      =>
