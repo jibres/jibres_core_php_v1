@@ -108,7 +108,7 @@ trait padding
 	{
 		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 
-		if(!$default)
+		if(is_null($default))
 		{
 			$default = self::default();
 		}
