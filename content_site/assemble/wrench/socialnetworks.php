@@ -118,52 +118,25 @@ class socialnetworks
       }
       $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
 
-
-      if(a($_social, 'linkedin', 'link'))
-      {
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'linkedin', 'link') .'">';
-        $html .= \dash\utility\icon::bootstrap('linkedin', $imgClass);
-        $html .= '</a>';
-      }
-
-      if(a($_social, 'github', 'link'))
-      {
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'github', 'link') .'">';
-        $html .= \dash\utility\icon::bootstrap('github', $imgClass);
-        $html .= '</a>';
-      }
-
-      if(a($_social, 'facebook', 'link'))
-      {
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'facebook', 'link') .'">';
-        $html .= \dash\utility\icon::bootstrap('facebook', $imgClass);
-        $html .= '</a>';
-      }
-
-      if(a($_social, 'twitter', 'link'))
-      {
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'twitter', 'link') .'">';
-        $html .= \dash\utility\icon::bootstrap('twitter', $imgClass);
-        $html .= '</a>';
-      }
-
-      if(a($_social, 'instagram', 'link'))
-      {
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'instagram', 'link') .'">';
-        $html .= \dash\utility\icon::bootstrap('instagram', $imgClass);
-        $html .= '</a>';
-      }
-
-
-      if(a($_social, 'telegram', 'link'))
-      {
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'telegram', 'link') .'">';
-        $html .= \dash\utility\icon::bootstrap('telegram', $imgClass);
-        $html .= '</a>';
-      }
-
+      $html .= self::createLink('linkedin', a($_social, 'linkedin', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('github', a($_social, 'github', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('facebook', a($_social, 'facebook', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('twitter', a($_social, 'twitter', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('instagram', a($_social, 'instagram', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('telegram', a($_social, 'telegram', 'link'), $linkClass, $imgClass);
     }
     $html .= '</nav>';
+
+    return $html;
+  }
+
+
+  private static function createLink($_type, $_link, $_linkClass, $_imgClass)
+  {
+    $html = '';
+    $html .= '<a class="'. $_linkClass. '" target="_blank" href="'. $_link .'">';
+    $html .= \dash\utility\icon::bootstrap($_type, $_imgClass);
+    $html .= '</a>';
 
     return $html;
   }
