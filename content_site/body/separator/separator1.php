@@ -20,6 +20,8 @@ class separator1
 
 				'container_separator',
 				'height_separator',
+				'separator_type',
+				'color',
 				'padding_top',
 				'padding_bottom',
 				'style' => \content_site\utility::set_style_option(

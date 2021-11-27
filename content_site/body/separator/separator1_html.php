@@ -11,8 +11,9 @@ class separator1_html
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-center']);
 			{
 				$height = a($_args, 'height_separator'). 'px';
-				$style = 'solid';
-				$color = '#358ab1';
+				$style  = a($_args, 'separator_type');
+				$color  = a($_args, 'color');
+
 				$text = '§';
 
 				$svg = \dash\utility\icon::bootstrap('Asterisk', 'mx-auto', ['height' => 30]);
