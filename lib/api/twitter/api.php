@@ -114,18 +114,24 @@ class api
 			$header[] = "Authorization: Bearer ". self::bearer();
 		}
 
+
+		// send all detail to broker
+		$broker_detail =
+		[
+			'broker_token' => 'aa',
+			'url'          => $url,
+			'header'       => $header,
+			'body'         => $body,
+			'method'       => $method,
+		];
+
+
 		$ch = curl_init();
 
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, mb_strtoupper($method));
-		curl_setopt($ch, CURLOPT_URL, $url);
-
-		if($body && is_array($body))
-		{
-			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($body));
-		}
-
-
+		// curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+		curl_setopt($ch, CURLOPT_URL, 'https://broker.local/twitter/');
+		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($broker_detail));
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
@@ -136,6 +142,7 @@ class api
 		$CurlError = curl_error($ch);
 		$getInfo   = curl_getinfo($ch);
 		curl_close ($ch);
+
 
 		$save_log  =
 		[
