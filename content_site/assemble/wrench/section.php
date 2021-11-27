@@ -133,8 +133,14 @@ class section
 
 				if($sorting)
 				{
+					$down_disabled = '';
+					if(a($_args, 'end_body_section'))
+					{
+						$down_disabled = 'disabled';
+					}
+
 					$sort_down = json_encode(['section' => a($_args, 'id'), 'sorting' => 'down']);
-					$html .= "<div class='btn-secondary btn-sm' data-postMsg='parent' data-postMsg-ajaxify='$sort_down' data-postMsg-action='$editurl'>";
+					$html .= "<div class='btn-secondary btn-sm $down_disabled' data-postMsg='parent' data-postMsg-ajaxify='$sort_down' data-postMsg-action='$editurl'>";
 					$html .= \dash\utility\icon::bootstrap('arrow-down');
 					$html .= "</div>";
 				}

@@ -454,13 +454,14 @@ class view
 
 		$identify =
 		[
-			'id'              => a($result, 'id'),
-			'section'         => a($result, 'section'),
-			'folder'          => a($result, 'folder'),
-			'model'           => $this_model,
-			'preview_key'     => a($result, 'preview_key'),
-			'editurl'         => $edit_url,
-			'section_counter' => a($_option, 'section_counter'),
+			'id'               => a($result, 'id'),
+			'section'          => a($result, 'section'),
+			'folder'           => a($result, 'folder'),
+			'model'            => $this_model,
+			'preview_key'      => a($result, 'preview_key'),
+			'editurl'          => $edit_url,
+			'section_counter'  => a($_option, 'section_counter'),
+			'end_body_section' => a($_option, 'end_body_section'),
 		];
 
 		$this_default = array_merge($option_default, $identify, $detail,  $default);

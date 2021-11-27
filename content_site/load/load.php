@@ -315,6 +315,7 @@ class load
 
 		$section_counter = 0;
 
+
 		foreach ($list as $key => $value)
 		{
 			if(isset($value['folder']) && isset($value['section']) && is_string($value['section']))
@@ -324,14 +325,22 @@ class load
 					continue;
 				}
 
+				$end_body_section = false;
 				if($value['folder'] === 'body')
 				{
 					$section_counter++;
+
+					$next = a($list, $key + 1);
+					if(!$next || a($next, 'folder') !== 'body')
+					{
+						$end_body_section = true;
+					}
 				}
 
 				$section_option =
 				[
-					'section_counter' => $section_counter,
+					'section_counter'  => $section_counter,
+					'end_body_section' => $end_body_section,
 				];
 
 				if($need_explode_homepage_header_footer)
