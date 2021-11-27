@@ -45,7 +45,7 @@ trait container
 
 	public static function default()
 	{
-		return 'lg';
+		return 'xl';
 	}
 
 
