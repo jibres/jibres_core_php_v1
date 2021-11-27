@@ -14,7 +14,14 @@ class heading
 		{
 			$heading .= '<header>';
 			{
-				$heading .= "<h2 class='text-lg md:text-xl lg:text-2xl font-bold leading-6 mb-5 $heading_class' $color_heading>";
+				$size = 'text-lg md:text-xl lg:text-2xl';
+				if(array_key_exists('heading_size', $_args))
+				{
+					$size = \content_site\options\heading\heading_size::class_name($_args['heading_size']);
+				}
+				$heading_class .= ' '. $size;
+
+				$heading .= "<h2 class='font-bold leading-6 mb-5 $heading_class' $color_heading>";
 				{
 					$heading .= a($_args, 'heading');
 				}
