@@ -211,7 +211,8 @@ class run
 			// send request to nic broker
 			$data          = [];
 			$data['xml']   = $_xml;
-			$data['token'] = \dash\setting\tunnel_token::get('irnic');
+			$data['token'] = \dash\setting\nic::curl_token();
+
 
 			// create a new cURL resource
 			$ch = curl_init();
