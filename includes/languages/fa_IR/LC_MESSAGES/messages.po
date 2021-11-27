@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-11-27 15:30+0330\n"
-"PO-Revision-Date: 2021-11-27 15:31+0330\n"
+"POT-Creation-Date: 2021-11-27 15:37+0330\n"
+"PO-Revision-Date: 2021-11-27 15:40+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -12258,8 +12258,8 @@ msgstr "اشاره به"
 msgid "Please select an item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
-#: content_a/setting/menu/item/display.php:18 content_site/body/separator/option.php:35
-#: content_site/body/separator/option.php:37
+#: content_a/setting/menu/item/display.php:18 content_site/body/separator/option.php:17
+#: content_site/body/separator/option.php:19 content_site/body/space/option.php:17
 msgid "Separator"
 msgstr "جداکننده"
 
@@ -14757,8 +14757,8 @@ msgid "Website, Email and Social Networks"
 msgstr "وب‌سایت، رایانامه و شبکه‌های اجتماعی"
 
 #: content_account/my/home/display.php:148 content_account/my/social/view.php:9
-#: content_site/body/instagram/option.php:34 content_site/body/socialnetwork/option.php:34
-#: content_site/body/socialnetwork/option.php:36
+#: content_site/body/instagram/option.php:34 content_site/body/socialnetwork/option.php:18
+#: content_site/body/socialnetwork/option.php:20
 #: content_site/body/socialnetwork/socialnetwork1.php:17
 #: content_site/body/socialnetwork/socialnetwork1.php:46
 #: content_site/body/twitter/option.php:34
@@ -21423,7 +21423,7 @@ msgstr "بیزینس من را بساز"
 #: content_my/business/home/display_pwa.php:59
 #: content_my/business/home/display_site.php:140 content_site/body/application/app1.php:17
 #: content_site/body/application/app1.php:44 content_site/body/application/app2.php:44
-#: content_site/body/application/option.php:34 content_site/body/application/option.php:36
+#: content_site/body/application/option.php:17 content_site/body/application/option.php:19
 #: lib/app/log/caller/application/application_readyToDownload.php:15
 msgid "Application"
 msgstr "برنامه"
@@ -22980,10 +22980,13 @@ msgstr "نقل قول"
 msgid "Separator 1"
 msgstr "جداکننده ۱"
 
-#: content_site/body/space/option.php:34 content_site/body/space/option.php:36
+#: content_site/body/space/option.php:19
+msgid "Free space"
+msgstr "فضای خالی"
+
 #: content_site/body/space/space1.php:17
 msgid "Space"
-msgstr ""
+msgstr "فضا"
 
 #: content_site/body/text/option.php:24 content_site/body/text/t1.php:17
 #: content_site/body/text/t1.php:62 content_site/body/text/t1.php:80
@@ -22996,19 +22999,19 @@ msgstr "عنوان ۱"
 
 #: content_site/body/twitter/twitter1_html.php:119
 msgid "Retweet"
-msgstr ""
+msgstr "ریتوییت"
 
 #: content_site/body/twitter/twitter1_html.php:123
 msgid "Retweets"
-msgstr ""
+msgstr "ریتوییت"
 
 #: content_site/body/twitter/twitter1_html.php:137
 msgid "Quote Tweet"
-msgstr ""
+msgstr "نقل‌ قول"
 
 #: content_site/body/twitter/twitter1_html.php:156
 msgid "Likes"
-msgstr ""
+msgstr "لایک"
 
 #: content_site/body/visitcard/option.php:28 content_site/body/visitcard/option.php:30
 #: content_site/body/visitcard/visitcard1.php:45
@@ -24019,20 +24022,16 @@ msgid "Page title in mobile"
 msgstr "عنوان صفحه در موبایل"
 
 #: content_site/options/separator/separator_type.php:11
-#, fuzzy
-#| msgid "Solid"
 msgid "solid"
 msgstr "ثابت"
 
 #: content_site/options/separator/separator_type.php:12
 msgid "dotted"
-msgstr ""
+msgstr "نقطه‌چین"
 
 #: content_site/options/separator/separator_type.php:13
-#, fuzzy
-#| msgid "dash"
 msgid "dashed"
-msgstr "دش"
+msgstr "نقطه‌چین"
 
 #: content_site/options/slider/slider_autoplay.php:36
 msgid "Autoplay delay"
