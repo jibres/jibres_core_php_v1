@@ -20,7 +20,7 @@ class sendgrid
 			$post_field = array_merge($post_field, $_body);
 		}
 
-		$post_field['broker_token'] = \dash\setting\sendgrid::broker_token();
+		$post_field['broker_token'] = \dash\setting\tunnel_token::get('sendgrid');
 		$post_field['apikey'] = \dash\setting\sendgrid::apikey();
 
 		$ch = curl_init();
