@@ -10,9 +10,9 @@ class socialnetwork_size
 		$enum   = [];
 
 
-		$enum[] = ['key' => 'sm', 	 'title' => "S",    'class' => 'text-sm' ];
-		$enum[] = ['key' => 'md', 	 'title' => "M",    'class' => 'text-md'];
-		$enum[] = ['key' => 'lg', 	 'title' => "L",    'class' => 'text-lg'];
+		$enum[] = ['key' => 'sm', 	 'title' => "S",    'size' => '5' ];
+		$enum[] = ['key' => 'md', 	 'title' => "M",    'size' => '9'];
+		$enum[] = ['key' => 'lg', 	 'title' => "L",    'size' => '14'];
 
 
 		return $enum;
@@ -22,20 +22,18 @@ class socialnetwork_size
 	public static function validator($_data)
 	{
 		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Size')]);
-
-
 		return $data;
-
 	}
+
 
 
 	public static function default()
 	{
-		return 'lg';
+		return 'md';
 	}
 
 
-	public static function class_name($_key)
+	public static function size($_key)
 	{
 		$enum = self::enum();
 
@@ -45,14 +43,14 @@ class socialnetwork_size
 			{
 				if($value['key'] === self::default())
 				{
-					return $value['class'];
+					return $value['size'];
 				}
 			}
 			else
 			{
 				if($value['key'] === $_key)
 				{
-					return $value['class'];
+					return $value['size'];
 				}
 			}
 		}
@@ -61,7 +59,7 @@ class socialnetwork_size
 
 	public static function db_key()
 	{
-		return 'heading_size';
+		return 'size';
 	}
 
 

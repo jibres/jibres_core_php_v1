@@ -19,7 +19,10 @@ class socialnetwork1_html
           'navClass'  => 'justify-center',
           'linkColor' => a($_args, 'color_text'),
         ];
-        $html .= \content_site\assemble\wrench\socialnetworks::type2($_args, null, $socialArg);
+
+        $size = \content_site\options\socialnetwork\socialnetwork_size::size(a($_args, 'size'));
+
+        $html .= \content_site\assemble\wrench\socialnetworks::type2($_args, $size, $socialArg);
       }
       $html .= "</div>";
     }
