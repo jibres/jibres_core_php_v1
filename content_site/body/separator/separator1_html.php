@@ -33,7 +33,7 @@ class separator1_html
 					$html .= ' style="'. $hrStyle. '"';
 					$html .= '>';
 				}
-				$html .= addText::el($text, $svg, $height, $color, a($_args, 'background:style'));
+				$html .= add_text::el($text, $svg, $height, $color, a($_args, 'background:style'));
 				$html .= "</div>";
 			}
 			$html .= "</div>";

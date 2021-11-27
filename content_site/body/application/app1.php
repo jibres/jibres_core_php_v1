@@ -22,15 +22,14 @@ class app1
 				'file',
 				'msg' => 'manage',
 
-
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',
-
 					'radius_full',
 					'background_pack',
 					'color_heading',
 				]),
+
 				'spacing' =>
 				[
 					'height',
@@ -42,12 +41,11 @@ class app1
 			],
 			'default'      =>
 			[
-				'heading'              => T_("Application"),
-				'height'               => 'fullscreen',
-				'use_as_heading'       => 'business_heading',
-				'use_as_description'   => 'business_description',
-				'background_pack'      => 'solid',
-				'background_color'     => '#eeeeee',
+				'heading'                  => T_("Application"),
+				'background_pack'          => 'gradient',
+				'background_gradient_type' => 'to bottom left',
+				'background_gradient_to'   => '#fa0076',
+				'background_gradient_from' => '#3c0876',
 			],
 			'preview_list' =>
 			[

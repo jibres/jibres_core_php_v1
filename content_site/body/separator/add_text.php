@@ -2,7 +2,7 @@
 namespace content_site\body\separator;
 
 
-class addText
+class add_text
 {
 	public static function el($_text, $_svg, $_height, $_color, $_bg)
 	{

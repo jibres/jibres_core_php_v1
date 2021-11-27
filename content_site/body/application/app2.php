@@ -42,16 +42,13 @@ class app2
 			'default'      =>
 			[
 				'heading'              => T_("Application"),
-				'height'               => 'fullscreen',
-				'use_as_heading'       => 'business_heading',
-				'use_as_description'   => 'business_description',
 				'background_pack'      => 'solid',
 				'background_color'     => '#eeeeee',
 			],
 			'preview_list' =>
 			[
 				'p1',
-				'p2'
+
 			],
 		];
 	}
@@ -73,7 +70,6 @@ class app2
 			'version'        => 1,
 			'options' =>
 			[
-				'radius'               => 'full',
 
 			],
 		];
