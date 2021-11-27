@@ -34,7 +34,7 @@ class quote1
 				[
 					'font',
 					'background_pack',
-					'heading_justify',
+					'justify_heading',
 					'heading_size',
 				]),
 				'spacing' =>

@@ -42,7 +42,7 @@ class b4
 				[
 					'font',
 					'background_pack',
-					'heading_justify',
+					'justify_heading',
 					'heading_size',
 					'color_heading',
 					'color_text',

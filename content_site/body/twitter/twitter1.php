@@ -28,7 +28,7 @@ class twitter1
 				[
 					'font',
 					'background_pack',
-					'heading_justify',
+					'justify_heading',
 					'heading_size',
 					'color_heading',
 					'radius_normal',
