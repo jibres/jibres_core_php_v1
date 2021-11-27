@@ -49,8 +49,8 @@ class option
 	{
 		return
 		[
-			'application1',
-			'enterpriseRafiei',
+			'app1',
+			'app2',
 
 		];
 
@@ -61,7 +61,7 @@ class option
 	{
 		return
 		[
-			'application1:p1',
+			'app1:p1',
 		];
 	}
 

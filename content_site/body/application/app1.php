@@ -2,7 +2,7 @@
 namespace content_site\body\application;
 
 
-class application1
+class app1
 {
 
 	/**
@@ -14,7 +14,7 @@ class application1
 	{
 		return
 		[
-			'title'        => T_("application 1"),
+			'title'        => T_("Application"),
 			'options'      =>
 			[
 				'heading',
@@ -63,7 +63,7 @@ class application1
 		$html .= '<div class="alert2 mt-3">';
 		{
 			$html .= T_("To manage application download links");
-			$html .= ' <a class="btn-link btn-sm" href="'. \lib\store::admin_url(). '/a/android/download">'. T_("Click here"). '</a>';
+			$html .= ' <a class="btn-link btn-sm" target="_blank" href="'. \lib\store::admin_url(). '/a/android/download">'. T_("Click here"). '</a>';
 		}
 		$html .= '</div>';
 		return $html;

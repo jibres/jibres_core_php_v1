@@ -15,6 +15,7 @@ class view
 
 		$app_queue = \lib\app\application\queue::detail();
 
+
 		if(isset($app_queue['status']) && $app_queue['status'])
 		{
 			if(isset($app_queue['status']) && $app_queue['status'] === 'done')

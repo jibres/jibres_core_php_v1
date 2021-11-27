@@ -2,7 +2,7 @@
 namespace content_site\body\application;
 
 
-class addDownloadLinks
+class add_download_links
 {
 	public static function all($_args, $_opt = null)
 	{

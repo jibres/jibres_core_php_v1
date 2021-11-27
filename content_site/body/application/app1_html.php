@@ -2,7 +2,7 @@
 namespace content_site\body\application;
 
 
-class application1_html
+class app1_html
 {
 	public static function html($_args)
 	{
@@ -54,7 +54,7 @@ class application1_html
             $html .= $desc;
             $html .= '</p>';
 
-            $html .= addDownloadLinks::all($_args);
+            $html .= add_download_links::all($_args);
 
             $html .= '</div>';
 

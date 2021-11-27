@@ -2,7 +2,7 @@
 namespace content_site\body\application;
 
 
-class enterpriseRafiei_html
+class app2_html
 {
 	public static function html($_args)
 	{
@@ -52,7 +52,7 @@ class enterpriseRafiei_html
             [
               'linkClass' => 'inline-block rounded-lg overflow-hidden m-0.5 lg:m-1 transition hover:shadow-lg w-36 opacity-80 hover:opacity-90 focus:opacity-100',
             ];
-            $html .= addDownloadLinks::all($_args, $dlLinkOpt);
+            $html .= add_download_links::all($_args, $dlLinkOpt);
 
             $html .= '</div>';
 

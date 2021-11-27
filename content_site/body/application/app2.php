@@ -2,7 +2,7 @@
 namespace content_site\body\application;
 
 
-class enterpriseRafiei
+class app2
 {
 
 	/**
@@ -14,16 +14,13 @@ class enterpriseRafiei
 	{
 		return
 		[
-			'title'        => T_("application Rafiei"),
+			'title'        => T_("Simple"),
 			'options'      =>
 			[
-				'heading_business',
-				'description_business',
-				'file_business_logo',
-				'android_apk_link',
-				'link_googleplay',
-				'link_cafebazar',
-				'link_myket',
+				'heading',
+				'description',
+				'msg' => 'manage',
+
 
 				'style' => \content_site\utility::set_style_option(
 				[
@@ -32,7 +29,6 @@ class enterpriseRafiei
 					'radius_full',
 					'background_pack',
 					'color_heading',
-					'color_text',
 				]),
 				'spacing' =>
 				[
@@ -58,6 +54,12 @@ class enterpriseRafiei
 				'p2'
 			],
 		];
+	}
+
+
+	public static function manage()
+	{
+		return app1::manage();
 	}
 
 
