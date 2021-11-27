@@ -10,7 +10,7 @@ class separator1_html
 		{
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-center']);
 			{
-				$height = '10px';
+				$height = a($_args, 'height_separator'). 'px';
 				$style = 'solid';
 				$color = '#358ab1';
 				$text = '§';
