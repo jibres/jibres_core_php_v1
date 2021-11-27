@@ -30,7 +30,7 @@ class separator1
 			],
 			'default'      =>
 			[
-				'heading' => T_("Separator"),
+
 			],
 			'preview_list' =>
 			[

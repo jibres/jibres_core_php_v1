@@ -61,7 +61,6 @@ class g2
 			'minimum_item'     => 5,
 			'default'          =>
 			[
-				'heading'                 => T_("Image Gallery"),
 				'magicbox_title_position' => 'inside',
 				'coverratio'              => '16:9',
 				'height'                  => 'auto',
