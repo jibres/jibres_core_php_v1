@@ -118,12 +118,36 @@ class socialnetworks
       }
       $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
 
-      $html .= self::createLink('linkedin', a($_social, 'linkedin', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('github', a($_social, 'github', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('facebook', a($_social, 'facebook', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('twitter', a($_social, 'twitter', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('instagram', a($_social, 'instagram', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('telegram', a($_social, 'telegram', 'link'), $linkClass, $imgClass);
+      if(a($_social, 'linkedin', 'link'))
+      {
+        $html .= self::createLink('linkedin', a($_social, 'linkedin', 'link'), $linkClass, $imgClass);
+      }
+
+      if(a($_social, 'github', 'link'))
+      {
+        $html .= self::createLink('github', a($_social, 'github', 'link'), $linkClass, $imgClass);
+      }
+
+      if(a($_social, 'facebook', 'link'))
+      {
+        $html .= self::createLink('facebook', a($_social, 'facebook', 'link'), $linkClass, $imgClass);
+      }
+
+      if(a($_social, 'twitter', 'link'))
+      {
+        $html .= self::createLink('twitter', a($_social, 'twitter', 'link'), $linkClass, $imgClass);
+      }
+
+      if(a($_social, 'instagram', 'link'))
+      {
+        $html .= self::createLink('instagram', a($_social, 'instagram', 'link'), $linkClass, $imgClass);
+      }
+
+      if(a($_social, 'telegram', 'link'))
+      {
+        $html .= self::createLink('telegram', a($_social, 'telegram', 'link'), $linkClass, $imgClass);
+      }
+
     }
     $html .= '</nav>';
 
