@@ -10,9 +10,9 @@ class socialnetwork_size
 		$enum   = [];
 
 
-		$enum[] = ['key' => 'sm', 	 'title' => "S",    'size' => '5' ];
+		$enum[] = ['key' => 'sm', 	 'title' => "S",    'size' => '7' ];
 		$enum[] = ['key' => 'md', 	 'title' => "M",    'size' => '9'];
-		$enum[] = ['key' => 'lg', 	 'title' => "L",    'size' => '14'];
+		$enum[] = ['key' => 'lg', 	 'title' => "L",    'size' => '11'];
 
 
 		return $enum;
