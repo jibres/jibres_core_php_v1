@@ -18,7 +18,7 @@ class p4
 			'title'        => T_("Magic Slider"),
 			'options'      =>
 			[
-				'heading_full',
+				'heading',
 
 				'product_tag',
 				'product_filter_image',
@@ -38,8 +38,9 @@ class p4
 				],
 				'style' => \content_site\utility::set_style_option(
 				[
+					'heading_justify',
+					'heading_size',
 					'font',
-
 					'background_pack',
 					'color_heading',
 					'radius_full',

@@ -17,7 +17,7 @@ class quote1
 			'title'        => T_("Quote 1"),
 			'options'      =>
 			[
-				'heading_full',
+				'heading',
 				'quote_list' =>
 				[
 					'quote_title',
@@ -32,9 +32,9 @@ class quote1
 
 				'style' => \content_site\utility::set_style_option(
 				[
+					'heading_justify',
+					'heading_size',
 					'font',
-
-
 					'background_pack',
 				]),
 				'spacing' =>

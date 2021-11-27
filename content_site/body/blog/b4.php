@@ -28,7 +28,7 @@ class b4
 			'title'        => T_("Premium"),
 			'options'      =>
 			[
-				'heading_full',
+				'heading',
 				'description',
 				'post_tag',
 				'post_template',
@@ -40,6 +40,8 @@ class b4
 				'btn_viewall',
 				'style' => \content_site\utility::set_style_option(
 				[
+					'heading_justify',
+					'heading_size',
 					'font',
 					'background_pack',
 					'color_heading',

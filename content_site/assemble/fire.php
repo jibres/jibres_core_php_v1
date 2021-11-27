@@ -73,7 +73,7 @@ class fire
 		$_args['section:id']           = \content_site\assemble\tools::section_id(a($_args, 'model'), a($_args, 'id'));
 		$_args['section:id_raw']       = \content_site\assemble\tools::section_id_raw(a($_args, 'model'), a($_args, 'id'));
 
-		$_args['heading:class']         = \content_site\options\heading\heading_full::class_name($_args);
+		$_args['heading:class']         = \content_site\options\heading\heading::class_name($_args);
 
 		return $_args;
 

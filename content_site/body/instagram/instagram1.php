@@ -17,7 +17,7 @@ class instagram1
 			'title'        => T_("Instagram"),
 			'options'      =>
 			[
-				'heading_full',
+				'heading',
 
 				'instagram',
 				// 'count_instagram_post',
@@ -26,6 +26,8 @@ class instagram1
 				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[
+					'heading_justify',
+					'heading_size',
 					'font',
 					'background_pack',
 					'color_heading',

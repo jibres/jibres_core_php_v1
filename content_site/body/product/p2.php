@@ -18,7 +18,7 @@ class p2
 			'title'        => T_("Magic Box"),
 			'options'      =>
 			[
-				'heading_full',
+				'heading',
 
 				'product_tag',
 				'product_filter_image',
@@ -30,8 +30,9 @@ class p2
 				'btn_viewall',
 				'style' => \content_site\utility::set_style_option(
 				[
+					'heading_justify',
+					'heading_size',
 					'font',
-
 					'background_pack',
 					'color_heading',
 					'radius_full',

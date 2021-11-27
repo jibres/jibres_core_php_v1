@@ -18,7 +18,7 @@ class b2
 			'title'        => T_("Magic Box"),
 			'options'      =>
 			[
-				'heading_full',
+				'heading',
 				'post_tag',
 				'post_template',
 				'post_order',
@@ -27,6 +27,8 @@ class b2
 				'btn_viewall',
 				'style' => \content_site\utility::set_style_option(
 				[
+					'heading_justify',
+					'heading_size',
 					'font',
 					'background_pack',
 					'color_heading',

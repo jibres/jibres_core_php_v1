@@ -22,11 +22,6 @@ trait heading
 	}
 
 
-	public static function have_text_position()
-	{
-		return false;
-	}
-
 
 	public static function db_key()
 	{
@@ -150,29 +145,9 @@ trait heading
 			$html .= '<div class="input">';
 			{
 	    		$html .= "<input type='text' name='opt_".\content_site\utility::className(__CLASS__)."' value='$default' data-sync='$myId' id='$myId' placeholder=''>";
-
-	    		if(self::have_text_position())
-				{
-	    			$html .= '<label class="addon btn-light" data-kerkere=".showHeadingOption">...</label>';
-	    		}
 			}
 
 			$html .= "</div>";
-
-			// if(self::have_text_position())
-			// {
-			// 	$html .= '<div class="showHeadingOption" data-kerkere-content="hide">';
-			// 	{
-
-			// 		$radio_html = '';
-			// 		$radio_html .= \content_site\options\generate::radio_line_itemText('heading_position', 'left', \dash\utility\icon::svg('TextAlignmentLeft'), (($default_position === 'left')? true : false));
-			// 		$radio_html .= \content_site\options\generate::radio_line_itemText('heading_position', 'center', \dash\utility\icon::svg('TextAlignmentCenter'), (($default_position === 'center' || !$default_position)? true : false));
-			// 		$radio_html .= \content_site\options\generate::radio_line_itemText('heading_position', 'right', \dash\utility\icon::svg('TextAlignmentRight'), (($default_position === 'right')? true : false));
-
-			// 		$html .= \content_site\options\generate::radio_line_add_ul('heading_position', $radio_html, true);
-			// 	}
-			// 	$html .= "</div>";
-			// }
 
 			// close div data-response
 			if(self::include_business_title())

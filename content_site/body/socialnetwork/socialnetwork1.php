@@ -17,7 +17,7 @@ class socialnetwork1
 			'title'        => T_("Social Networks"),
 			'options'      =>
 			[
-				'heading_full',
+				'heading',
 
 				'socialnetwork',
 
@@ -25,8 +25,9 @@ class socialnetwork1
 				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[
+					'heading_justify',
+					'heading_size',
 					'font',
-
 					'background_pack',
 					'color_heading',
 					'radius_normal',

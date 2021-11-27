@@ -17,7 +17,7 @@ class twitter1
 			'title'        => T_("Twitter"),
 			'options'      =>
 			[
-				'heading_full',
+				'heading',
 
 				'twitter',
 				'count_twitter_post',
@@ -26,6 +26,8 @@ class twitter1
 				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[
+					'heading_justify',
+					'heading_size',
 					'font',
 					'background_pack',
 					'color_heading',
