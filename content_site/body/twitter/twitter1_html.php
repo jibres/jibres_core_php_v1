@@ -20,6 +20,7 @@ class twitter1_html
     $twStatRetweet  = 152;
     $twStatQuote    = 8;
     $twStatLike     = 981;
+    $twDateTime     = '2021-11-27 11:31';
     // get theme colors
     $themeBgStyle = self::themeColor($theme);
 
@@ -97,9 +98,17 @@ class twitter1_html
 
           $html .= "<footer class='text-gray-500 text-sm leading-6'>";
           {
+
             $html .= "<div class='leading-8 mb-2'>";
-            $html .= "11:31 AM · 27 Nov, 2021";
-            $html .= \dash\fit::date_time('2021-11-27 11:31', '');
+            // $html .= "11:31 AM · 27 Nov, 2021";
+            if(\dash\language::dir() === 'rtl')
+            {
+              $html .= \dash\fit::date_time($twDateTime, 'G:i · j F Y');
+            }
+            else
+            {
+              $html .= \dash\fit::date_time($twDateTime, 'g:i A · M j, Y');
+            }
             $html .= "</div>";
 
             if($twDetail)
@@ -112,7 +121,7 @@ class twitter1_html
                   $html .= "<div class='whitespace-nowrap mRa10'>";
                   {
                     $html .= "<span class='text-gray-900 font-bold mx-1'>";
-                    $html .= $twStatRetweet;
+                    $html .= \dash\fit::number($twStatRetweet);
                     $html .= "</span>";
                     if($twStatRetweet === 1)
                     {
@@ -132,7 +141,7 @@ class twitter1_html
                   $html .= "<div class='whitespace-nowrap mRa10'>";
                   {
                     $html .= "<span class='text-gray-900 font-bold mx-1'>";
-                    $html .= $twStatQuote;
+                    $html .= \dash\fit::number($twStatQuote);
                     $html .= "</span>";
                     $html .= T_("Quote Tweet");
                   }
@@ -145,7 +154,7 @@ class twitter1_html
                   $html .= "<div class='whitespace-nowrap'>";
                   {
                     $html .= "<span class='text-gray-900 font-bold mx-1'>";
-                    $html .= $twStatLike;
+                    $html .= \dash\fit::number($twStatLike);
                     $html .= "</span>";
                     if($twStatLike === 1)
                     {
