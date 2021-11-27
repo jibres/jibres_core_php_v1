@@ -102,7 +102,7 @@ class exec
 		if($isTunnel)
 		{
 			$apiURL         = "https://tunnel.jibres.com/telegram/";
-			array_push($customHeader, "BROKER-TOKEN: ". \dash\setting\telegram::broker_token());
+			array_push($customHeader, "BROKER-TOKEN: ". \dash\setting\tunnel_token::get('telegram'));
 			// $apiURL = "https://tunnel.ermile.ir";
 			$apiURL .= "?method=". $_method;
 		}
