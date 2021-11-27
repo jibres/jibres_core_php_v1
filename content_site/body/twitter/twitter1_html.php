@@ -14,7 +14,8 @@ class twitter1_html
     $twVerify       = true;
     $twUsername     = "@MrAdib";
     $twName         = "Javad Adib";
-    $twTweet        = "Hi! it's me";
+    $twTweet        = "Capture and share Twitter posts as beautiful images. Get started by pasting a tweet URL into the input above.";
+    $twDetail       = true;
     // get theme colors
     $themeBgStyle = self::themeColor($theme);
 
@@ -26,8 +27,12 @@ class twitter1_html
       {
         $html .= \content_site\assemble\wrench\heading::simple1($_args);
 
-        $boxClass     = 'max-w-prose mx-auto w-full transition relative z-0 overflow-hidden bg-red-200 my-4 p-6 h-40 '. $borderRadius;
-        $boxStyle     = 'background-image:'. $themeBgStyle;
+        $boxStyle = 'background-image:'. $themeBgStyle;
+        $boxClass = 'max-w-prose mx-auto w-full transition relative z-0 overflow-hidden bg-red-200 my-4 p-6 '. $borderRadius;
+        if($size === 'lg')
+        {
+          $boxClass .= ' text-lg';
+        }
 
         $html .= '<div class="'. $boxClass. '" style="'. $boxStyle. '">';
         {
@@ -43,7 +48,7 @@ class twitter1_html
 
 
           // user line
-          $html .= '<div class="flex items-center">';
+          $html .= '<header class="flex items-center mb-4">';
           {
             $avatarSrc = \dash\sample\img::avatar();
             $html .= '<img src="'. $avatarSrc. '" class="w-12 h-12 inline object-cover rounded-full transition">';
@@ -62,26 +67,31 @@ class twitter1_html
               $html .= "</div>";
 
               // twitter user name
-              $html .= '<div dir="ltr" class="whitespace-nowrap line-clamp-1 text-gray-600 leading-5 text-sm txtLa">';
+              $html .= '<div dir="ltr" class="whitespace-nowrap line-clamp-1 text-gray-500 leading-5 text-sm txtLa">';
               $html .= $twUsername;
               $html .= "</div>";
             }
             $html .= "</div>";
 
-            // twitter logo
-            // $twLogoStyle = 'color:#1ea0f1;';
-            // if(\dash\language::dir() === 'rtl')
-            // {
-            //   $twLogoStyle .= 'top:24px;left:24px;';
-            // }
-            // else
-            // {
-            //   $twLogoStyle .= 'top:24px;right:24px;';
-            // }
             $html .= \dash\utility\icon::bootstrap('twitter', 'self-start w-8 h-8', ['fill' => '#1ea0f1']);
+          }
+          $html .= "</header>";
+
+          $html .= "<div class='tweet-text text-lg leading-6 text-gray-900 mb-4'>";
+          {
+            $html .= $twTweet;
           }
           $html .= "</div>";
 
+          $html .= "<footer>";
+          {
+
+            if($twDetail)
+            {
+
+            }
+          }
+          $html .= "</footer>";
         }
         $html .= "</div>";
       }
