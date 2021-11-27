@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-11-25 17:07+0330\n"
-"PO-Revision-Date: 2021-11-25 17:15+0330\n"
+"POT-Creation-Date: 2021-11-27 15:30+0330\n"
+"PO-Revision-Date: 2021-11-27 15:31+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -826,8 +826,8 @@ msgstr "ما توسعه دهنده هستیم، صبور باشید!"
 #: content_my/business/home/display_site.php:135
 #: content_my/business/home/display_site.php:141
 #: content_my/business/home/display_site.php:147
-#: content_my/business/home/display_site.php:153 content_site/body/blog/b3_html.php:98
-#: content_site/body/blog/b4_html.php:98
+#: content_my/business/home/display_site.php:153 content_site/body/blog/b3_html.php:115
+#: content_site/body/blog/b4_html.php:117
 #: content_site/section/html/display-aside-top.php:12 dash/app/changelog.php:23
 msgid "Read more"
 msgstr "بیشتر بخوانید"
@@ -2265,11 +2265,11 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_a/products/edit/view.php:22 content_a/products/home/view.php:11
 #: content_a/setting/home/display.php:18 content_a/setting/menu/item/display.php:20
 #: content_site/body/product/option.php:17 content_site/body/product/option.php:19
-#: content_site/body/product/p1.php:52 content_site/body/product/p1.php:79
-#: content_site/body/product/p3.php:58 content_site/body/product/p3.php:91
-#: content_site/body/product/p3.php:125 content_site/body/product/p3.php:159
-#: content_site/body/product/p3.php:193 content_site/body/product/p3.php:227
-#: content_site/body/product/p3.php:261 content_site/body/product/p3.php:298
+#: content_site/body/product/p1.php:54 content_site/body/product/p1.php:81
+#: content_site/body/product/p3.php:59 content_site/body/product/p3.php:92
+#: content_site/body/product/p3.php:126 content_site/body/product/p3.php:160
+#: content_site/body/product/p3.php:194 content_site/body/product/p3.php:228
+#: content_site/body/product/p3.php:262 content_site/body/product/p3.php:299
 #: content_site/options/link/link_professional.php:108
 #: dash/layout/admin/sidebar/sidebar-a.php:6 dash/layout/m2/sidebar.php:121
 #: dash/panel.php:232 dash/plan_list.php:45 includes/languages/trans_static.php:571
@@ -3227,7 +3227,8 @@ msgid "Download Jibres Logo"
 msgstr "دانلود لوگوی جیبرس"
 
 #: content/logo/section-icon.php:8 content/logo/section-icon.php:60
-#: content/logo/section-icon.php:112
+#: content/logo/section-icon.php:112 content_site/options/separator/separator_icon.php:37
+#: content_site/options/separator/separator_icon.php:58
 msgid "Icon"
 msgstr "آیکن"
 
@@ -4896,6 +4897,7 @@ msgstr "کد"
 #: content_site/body/title/title1.php:33
 #: content_site/options/caption/caption_gallery.php:18
 #: content_site/options/heading/heading_business_footer.php:17
+#: content_site/options/justify/justify.php:71
 #: content_site/options/quote/quote_title.php:16 content_site/options/title/title.php:24
 #: dash/layout/comment/comment-add.php:34 includes/languages/trans_static_public.php:194
 #: lib/app/product/property.php:164
@@ -5116,7 +5118,7 @@ msgstr "افزودن"
 #: content_cms/comments/edit/display.php:39 content_crm/permission/setting/display.php:11
 #: content_crm/permission/user/display.php:11 content_crm/ticket/view/display-live.php:87
 #: content_love/changelog/add/display.php:42 content_my/domain/irnic/edit/display.php:25
-#: content_site/assemble/wrench/section.php:121
+#: content_site/assemble/wrench/section.php:131
 #: includes/languages/trans_static_public.php:144 lib/app/category/get.php:463
 #: lib/app/menu/generate.php:87 lib/app/menu/generate2.php:65
 msgid "Edit"
@@ -6530,11 +6532,12 @@ msgstr "فروش"
 #: content_love/domain/onlineniclog/view/display.php:14
 #: content_love/files/view/display.php:26 content_love/smslog/display.php:21
 #: content_love/smslog/view/display.php:12 content_my/domain/setting/elements/irnic.php:26
-#: dash/app/ticket/filter.php:57 dash/app/ticket/filter.php:58
-#: dash/app/transaction/filter.php:36 dash/app/transaction/filter.php:37
-#: lib/app/application/queue_search.php:66 lib/app/category/add.php:97
-#: lib/app/gift/filter.php:51 lib/app/gift/filter.php:52 lib/app/nic_log/search.php:69
-#: lib/app/onlinenic/log/search.php:69
+#: content_site/options/separator/separator_type.php:21
+#: content_site/options/separator/separator_type.php:42 dash/app/ticket/filter.php:57
+#: dash/app/ticket/filter.php:58 dash/app/transaction/filter.php:36
+#: dash/app/transaction/filter.php:37 lib/app/application/queue_search.php:66
+#: lib/app/category/add.php:97 lib/app/gift/filter.php:51 lib/app/gift/filter.php:52
+#: lib/app/nic_log/search.php:69 lib/app/onlinenic/log/search.php:69
 msgid "Type"
 msgstr "نوع"
 
@@ -6935,7 +6938,7 @@ msgstr "چاپ همه اسناد حسابداری"
 #: content_love/plugin/business/display.php:12 content_love/plugin/business/display.php:37
 #: content_site/options/description/description.php:97
 #: content_site/options/file/file_business_logo.php:86
-#: content_site/options/heading/heading.php:106
+#: content_site/options/heading/heading.php:101
 #: content_site/options/instagram/instagram.php:42 content_site/options/menu/menu.php:80
 #: content_site/options/socialnetwork/socialnetwork.php:67
 #: content_site/options/twitter/twitter.php:40 dash/engine/pwa.php:63
@@ -7661,7 +7664,8 @@ msgstr "افزودن سریع مشتری"
 
 #: content_a/cart/add/display.php:79 content_a/cart/user/display.php:19
 #: content_a/order/address/display.php:57 content_a/sale/display.php:44
-#: content_crm/ticket/assign/display.php:17 lib/app/form/filter/ready.php:60
+#: content_crm/ticket/assign/display.php:17
+#: content_site/body/twitter/twitter1_html.php:152 lib/app/form/filter/ready.php:60
 msgid "Like"
 msgstr "مثل"
 
@@ -9096,7 +9100,7 @@ msgstr "آیا الزامی است؟"
 msgid "Tilti of Choice"
 msgstr "عنوان گزینه"
 
-#: content_a/form/item/choice/display.php:30 content_site/assemble/wrench/section.php:115
+#: content_a/form/item/choice/display.php:30 content_site/assemble/wrench/section.php:125
 msgid "Editing..."
 msgstr "در حال ویرایش..."
 
@@ -10071,7 +10075,7 @@ msgstr "مدیریت بسته‌بندی"
 #: content_a/order/shipping/display.php:55 content_a/order/shipping/display.php:124
 #: content_site/options/description/description.php:109
 #: content_site/options/file/file_business_logo.php:102
-#: content_site/options/heading/heading.php:116
+#: content_site/options/heading/heading.php:111
 #: content_site/options/responsive/responsive_footer.php:73
 #: content_site/options/socialnetwork/socialnetwork.php:78 lib/app/report/sale/get.php:18
 msgid "Custom"
@@ -10103,7 +10107,7 @@ msgstr "عرض"
 #: content_a/setting/shipping/package/display.php:44
 #: content_a/setting/shipping/package/display.php:92
 #: content_site/options/container/container.php:38
-#: content_site/options/height/height.php:54 content_site/options/radius/radius.php:31
+#: content_site/options/height/height.php:53 content_site/options/radius/radius.php:31
 #: lib/app/product/property.php:66 lib/app/product/property.php:313
 #: lib/app/product/property.php:317
 msgid "Height"
@@ -12137,7 +12141,7 @@ msgstr "سرویس اتصال اینستاگرام در حال حاضر در د�
 #: content_a/setting/social/display.php:15 content_a/setting/social/display.php:16
 #: content_account/my/home/display.php:160 content_account/my/social/display.php:41
 #: content_account/my/social/display.php:44 content_site/body/instagram/instagram1.php:17
-#: content_site/body/instagram/instagram1.php:46 content_site/body/instagram/option.php:36
+#: content_site/body/instagram/instagram1.php:48 content_site/body/instagram/option.php:36
 #: lib/store.php:493 lib/store.php:531
 msgid "Instagram"
 msgstr "اینستاگرام"
@@ -12255,7 +12259,7 @@ msgid "Please select an item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
 #: content_a/setting/menu/item/display.php:18 content_site/body/separator/option.php:35
-#: content_site/body/separator/option.php:37 content_site/body/separator/separator1.php:33
+#: content_site/body/separator/option.php:37
 msgid "Separator"
 msgstr "جداکننده"
 
@@ -12333,7 +12337,7 @@ msgid "To manage your social network"
 msgstr "برای مدیریت شبکه‌های اجتماعی"
 
 #: content_a/setting/menu/item/display.php:102
-#: content_my/domain/setting/dns/display.php:22
+#: content_my/domain/setting/dns/display.php:22 content_site/body/application/app1.php:65
 #: content_site/options/link/link_professional.php:166 lib/api/email/send.php:20
 msgid "Click here"
 msgstr "اینجا کلیک کنید"
@@ -13124,7 +13128,7 @@ msgstr "یوتیوب"
 #: content_a/setting/social/display.php:38 content_a/setting/tw/view.php:8
 #: content_account/my/home/display.php:170 content_account/my/social/display.php:27
 #: content_account/my/social/display.php:30 content_site/body/twitter/option.php:36
-#: content_site/body/twitter/twitter1.php:17 content_site/body/twitter/twitter1.php:46
+#: content_site/body/twitter/twitter1.php:17 content_site/body/twitter/twitter1.php:48
 #: lib/store.php:495 lib/store.php:534
 msgid "Twitter"
 msgstr "توییتر"
@@ -15249,22 +15253,27 @@ msgid "No description founded"
 msgstr "هیچ یادداشتی یافت نشد"
 
 #: content_business/app/display.php:14
+#: content_site/body/application/add_download_links.php:73
 msgid "Download from Google Play"
 msgstr "دانلود از گوگل پلی"
 
 #: content_business/app/display.php:18
+#: content_site/body/application/add_download_links.php:81
 msgid "Download from CafeBazar"
 msgstr "دانلود از کافه‌بازار"
 
 #: content_business/app/display.php:22
+#: content_site/body/application/add_download_links.php:77
 msgid "Download from Myket"
 msgstr "دانلود از مایکت"
 
 #: content_business/app/display.php:25
+#: content_site/body/application/add_download_links.php:85
 msgid "Direct download"
 msgstr "دانلود مستقیم"
 
 #: content_business/app/view.php:12
+#: content_site/body/application/add_download_links.php:69
 msgid "Download App"
 msgstr "دانلود برنامه"
 
@@ -15888,7 +15897,8 @@ msgid "Total file count per type"
 msgstr "تعداد فایل‌ها به تفکیک نوع فایل"
 
 #: content_cms/files/home/display.php:48 content_love/files/home/display.php:48
-#: content_sudo/log/display.php:54 includes/languages/trans_static_public.php:196
+#: content_site/options/heading/heading_size.php:25 content_sudo/log/display.php:54
+#: includes/languages/trans_static_public.php:196
 msgid "Size"
 msgstr "اندازه"
 
@@ -16158,34 +16168,34 @@ msgstr "پیکربندی"
 msgid "Smart SEO"
 msgstr "سئو هوشمند"
 
-#: content_cms/home/display.php:161 content_site/body/blog/b1.php:56
-#: content_site/body/blog/b1.php:96 content_site/body/blog/b1.php:125
-#: content_site/body/blog/b1.php:155 content_site/body/blog/b1.php:186
-#: content_site/body/blog/b1.php:214 content_site/body/blog/b1.php:245
-#: content_site/body/blog/b1.php:277 content_site/body/blog/b1.php:309
-#: content_site/body/blog/b1.php:338 content_site/body/blog/b2.php:52
-#: content_site/body/blog/b2.php:94 content_site/body/blog/b2.php:124
-#: content_site/body/blog/b2.php:157 content_site/body/blog/b2.php:190
-#: content_site/body/blog/b2.php:226 content_site/body/blog/b2.php:262
-#: content_site/body/blog/b2.php:297 content_site/body/blog/b2.php:332
-#: content_site/body/blog/b2.php:368 content_site/body/blog/b2.php:404
-#: content_site/body/blog/b2.php:440 content_site/body/blog/b2.php:476
-#: content_site/body/blog/b3.php:50 content_site/body/blog/b3.php:81
-#: content_site/body/blog/b3.php:109 content_site/body/blog/b3.php:138
-#: content_site/body/blog/b3.php:167 content_site/body/blog/b4.php:61
-#: content_site/body/blog/b4.php:92 content_site/body/blog/b4.php:120
-#: content_site/body/blog/b4.php:149 content_site/body/blog/b4.php:178
-#: content_site/body/product/p2.php:56 content_site/body/product/p2.php:97
-#: content_site/body/product/p2.php:127 content_site/body/product/p2.php:159
-#: content_site/body/product/p2.php:191 content_site/body/product/p2.php:226
-#: content_site/body/product/p2.php:261 content_site/body/product/p2.php:295
-#: content_site/body/product/p2.php:329 content_site/body/product/p2.php:364
-#: content_site/body/product/p2.php:399 content_site/body/product/p2.php:434
-#: content_site/body/product/p2.php:469 content_site/body/product/p4.php:63
-#: content_site/body/product/p4.php:99 content_site/body/product/p4.php:135
-#: content_site/body/product/p4.php:171 content_site/body/product/p4.php:207
-#: content_site/body/product/p4.php:243 content_site/body/product/p4.php:282
-#: content_site/body/product/p4.php:321 content_site/template/site/demo_001.php:26
+#: content_cms/home/display.php:161 content_site/body/blog/b1.php:58
+#: content_site/body/blog/b1.php:98 content_site/body/blog/b1.php:127
+#: content_site/body/blog/b1.php:157 content_site/body/blog/b1.php:188
+#: content_site/body/blog/b1.php:216 content_site/body/blog/b1.php:247
+#: content_site/body/blog/b1.php:279 content_site/body/blog/b1.php:311
+#: content_site/body/blog/b1.php:340 content_site/body/blog/b2.php:54
+#: content_site/body/blog/b2.php:96 content_site/body/blog/b2.php:126
+#: content_site/body/blog/b2.php:159 content_site/body/blog/b2.php:192
+#: content_site/body/blog/b2.php:228 content_site/body/blog/b2.php:264
+#: content_site/body/blog/b2.php:299 content_site/body/blog/b2.php:334
+#: content_site/body/blog/b2.php:370 content_site/body/blog/b2.php:406
+#: content_site/body/blog/b2.php:442 content_site/body/blog/b2.php:478
+#: content_site/body/blog/b3.php:52 content_site/body/blog/b3.php:83
+#: content_site/body/blog/b3.php:111 content_site/body/blog/b3.php:140
+#: content_site/body/blog/b3.php:169 content_site/body/blog/b4.php:63
+#: content_site/body/blog/b4.php:94 content_site/body/blog/b4.php:122
+#: content_site/body/blog/b4.php:151 content_site/body/blog/b4.php:180
+#: content_site/body/product/p2.php:57 content_site/body/product/p2.php:98
+#: content_site/body/product/p2.php:128 content_site/body/product/p2.php:160
+#: content_site/body/product/p2.php:192 content_site/body/product/p2.php:227
+#: content_site/body/product/p2.php:262 content_site/body/product/p2.php:296
+#: content_site/body/product/p2.php:330 content_site/body/product/p2.php:365
+#: content_site/body/product/p2.php:400 content_site/body/product/p2.php:435
+#: content_site/body/product/p2.php:470 content_site/body/product/p4.php:64
+#: content_site/body/product/p4.php:100 content_site/body/product/p4.php:136
+#: content_site/body/product/p4.php:172 content_site/body/product/p4.php:208
+#: content_site/body/product/p4.php:244 content_site/body/product/p4.php:283
+#: content_site/body/product/p4.php:322 content_site/template/site/demo_001.php:26
 #: content_site/template/site/demo_001.php:51 content_site/template/site/demo_002.php:26
 msgid "Latest Posts"
 msgstr "آخرین نوشته‌ها"
@@ -16254,7 +16264,7 @@ msgid "Pending review"
 msgstr "در انتظار بررسی"
 
 #: content_cms/posts/advance/display.php:32 content_site/assemble/element/card.php:231
-#: content_site/body/blog/b3_html.php:73 content_site/body/blog/b4_html.php:73
+#: content_site/body/blog/b3_html.php:90 content_site/body/blog/b4_html.php:92
 #: dash/app/posts/filter.php:48 dash/app/posts/ready.php:106
 #: lib/app/discount/filter.php:36
 msgid "Published"
@@ -16579,7 +16589,7 @@ msgid "Visible"
 msgstr "نمایان"
 
 #: content_cms/posts/publishdate/display.php:54 content_cms/posts/writer/display.php:57
-#: content_site/section/part/section_control.php:42
+#: content_site/section/part/section_control.php:64
 msgid "Hidden"
 msgstr "مخفی"
 
@@ -18383,7 +18393,7 @@ msgstr "درخواست مجوز لازم را برای اجرا ندارد"
 
 #: content_developers/docs/004-responses.php:96 content_enter/callback/controller.php:12
 #: content_my/domain/buy/controller.php:11 content_my/domain/renew/controller.php:13
-#: content_site/section/controller.php:84 content_v2/check.php:23 content_v2/tools.php:175
+#: content_site/section/controller.php:85 content_v2/check.php:23 content_v2/tools.php:175
 #: dash/validate/url.php:579
 msgid "Invalid url"
 msgstr "آدرس اشتباه"
@@ -19732,7 +19742,7 @@ msgstr "به‌روزرسانی آمار همه‌ی بیزینس‌ها"
 #: content_love/plugin/business/display.php:7 content_love/smslog/view/display.php:15
 #: content_my/home/display_site.php:9 content_site/options/description/description.php:108
 #: content_site/options/file/file_business_logo.php:101
-#: content_site/options/heading/heading.php:115
+#: content_site/options/heading/heading.php:110
 #: content_site/options/socialnetwork/socialnetwork.php:77
 #: content_sudo/dbversion/display.php:22 content_sudo/dbversion/display.php:35
 #: content_sudo/update/display.php:33 content_sudo/update/display.php:105
@@ -21411,8 +21421,8 @@ msgid "Build my own business"
 msgstr "بیزینس من را بساز"
 
 #: content_my/business/home/display_pwa.php:59
-#: content_my/business/home/display_site.php:140
-#: content_site/body/application/application1.php:47
+#: content_my/business/home/display_site.php:140 content_site/body/application/app1.php:17
+#: content_site/body/application/app1.php:44 content_site/body/application/app2.php:44
 #: content_site/body/application/option.php:34 content_site/body/application/option.php:36
 #: lib/app/log/caller/application/application_readyToDownload.php:15
 msgid "Application"
@@ -22782,47 +22792,52 @@ msgstr "برای غیرفعال سازی ذخیره و انتشار خودکار
 msgid "Setting auto-save and publish"
 msgstr "تنظیمات ذخیره و انتشار خودکار"
 
-#: content_site/body/application/application1.php:17
-msgid "application 1"
-msgstr "برنامه ۱"
+#: content_site/body/application/app1.php:64
+msgid "To manage application download links"
+msgstr "برای مدیریت لینک‌های دانلود اپلیکیشن"
+
+#: content_site/body/application/app2.php:17 content_site/footer/f1.php:17
+#: content_site/header/h1.php:17
+msgid "Simple"
+msgstr "ساده"
 
 #: content_site/body/blog/b1.php:17 content_site/body/product/p1.php:17
 msgid "Card Design"
 msgstr "دیزاین کارت"
 
-#: content_site/body/blog/b1.php:66 content_site/body/blog/b1.php:115
-#: content_site/body/blog/b1.php:144 content_site/body/blog/b1.php:174
-#: content_site/body/blog/b1.php:233 content_site/body/blog/b1.php:264
-#: content_site/body/blog/b1.php:296 content_site/body/blog/b1.php:328
-#: content_site/body/blog/b1.php:357 content_site/body/blog/b2.php:57
-#: content_site/body/blog/b2.php:115 content_site/body/blog/b2.php:146
-#: content_site/body/blog/b2.php:179 content_site/body/blog/b2.php:212
-#: content_site/body/blog/b2.php:248 content_site/body/blog/b2.php:284
-#: content_site/body/blog/b2.php:319 content_site/body/blog/b2.php:354
-#: content_site/body/blog/b2.php:390 content_site/body/blog/b2.php:426
-#: content_site/body/blog/b2.php:462 content_site/body/blog/b2.php:498
-#: content_site/body/blog/b3.php:57 content_site/body/blog/b3.php:100
-#: content_site/body/blog/b3.php:128 content_site/body/blog/b3.php:157
-#: content_site/body/blog/b3.php:187 content_site/body/blog/b4.php:68
-#: content_site/body/blog/b4.php:111 content_site/body/blog/b4.php:139
-#: content_site/body/blog/b4.php:168 content_site/body/blog/b4.php:198
+#: content_site/body/blog/b1.php:68 content_site/body/blog/b1.php:117
+#: content_site/body/blog/b1.php:146 content_site/body/blog/b1.php:176
+#: content_site/body/blog/b1.php:235 content_site/body/blog/b1.php:266
+#: content_site/body/blog/b1.php:298 content_site/body/blog/b1.php:330
+#: content_site/body/blog/b1.php:359 content_site/body/blog/b2.php:59
+#: content_site/body/blog/b2.php:117 content_site/body/blog/b2.php:148
+#: content_site/body/blog/b2.php:181 content_site/body/blog/b2.php:214
+#: content_site/body/blog/b2.php:250 content_site/body/blog/b2.php:286
+#: content_site/body/blog/b2.php:321 content_site/body/blog/b2.php:356
+#: content_site/body/blog/b2.php:392 content_site/body/blog/b2.php:428
+#: content_site/body/blog/b2.php:464 content_site/body/blog/b2.php:500
+#: content_site/body/blog/b3.php:59 content_site/body/blog/b3.php:102
+#: content_site/body/blog/b3.php:130 content_site/body/blog/b3.php:159
+#: content_site/body/blog/b3.php:189 content_site/body/blog/b4.php:70
+#: content_site/body/blog/b4.php:113 content_site/body/blog/b4.php:141
+#: content_site/body/blog/b4.php:170 content_site/body/blog/b4.php:200
 #: content_site/body/blog/layout.php:66 content_site/body/product/layout.php:73
-#: content_site/body/product/p1.php:57 content_site/body/product/p1.php:97
-#: content_site/body/product/p2.php:60 content_site/body/product/p2.php:118
-#: content_site/body/product/p2.php:148 content_site/body/product/p2.php:180
-#: content_site/body/product/p2.php:212 content_site/body/product/p2.php:247
-#: content_site/body/product/p2.php:282 content_site/body/product/p2.php:316
-#: content_site/body/product/p2.php:350 content_site/body/product/p2.php:385
-#: content_site/body/product/p2.php:420 content_site/body/product/p2.php:455
-#: content_site/body/product/p2.php:490 content_site/body/product/p3.php:63
-#: content_site/body/product/p3.php:115 content_site/body/product/p3.php:149
-#: content_site/body/product/p3.php:183 content_site/body/product/p3.php:217
-#: content_site/body/product/p3.php:251 content_site/body/product/p3.php:285
-#: content_site/body/product/p3.php:322 content_site/body/product/p4.php:67
-#: content_site/body/product/p4.php:125 content_site/body/product/p4.php:161
-#: content_site/body/product/p4.php:197 content_site/body/product/p4.php:233
-#: content_site/body/product/p4.php:269 content_site/body/product/p4.php:308
-#: content_site/body/product/p4.php:349 content_site/options/btn/btn_viewall.php:21
+#: content_site/body/product/p1.php:59 content_site/body/product/p1.php:99
+#: content_site/body/product/p2.php:61 content_site/body/product/p2.php:119
+#: content_site/body/product/p2.php:149 content_site/body/product/p2.php:181
+#: content_site/body/product/p2.php:213 content_site/body/product/p2.php:248
+#: content_site/body/product/p2.php:283 content_site/body/product/p2.php:317
+#: content_site/body/product/p2.php:351 content_site/body/product/p2.php:386
+#: content_site/body/product/p2.php:421 content_site/body/product/p2.php:456
+#: content_site/body/product/p2.php:491 content_site/body/product/p3.php:64
+#: content_site/body/product/p3.php:116 content_site/body/product/p3.php:150
+#: content_site/body/product/p3.php:184 content_site/body/product/p3.php:218
+#: content_site/body/product/p3.php:252 content_site/body/product/p3.php:286
+#: content_site/body/product/p3.php:323 content_site/body/product/p4.php:68
+#: content_site/body/product/p4.php:126 content_site/body/product/p4.php:162
+#: content_site/body/product/p4.php:198 content_site/body/product/p4.php:234
+#: content_site/body/product/p4.php:270 content_site/body/product/p4.php:309
+#: content_site/body/product/p4.php:350 content_site/options/btn/btn_viewall.php:21
 #: content_site/template/site/demo_001.php:36 content_site/template/site/demo_001.php:61
 #: content_site/template/site/demo_002.php:36
 msgid "View all"
@@ -22837,7 +22852,7 @@ msgstr "جعبه جادویی"
 msgid "Classic"
 msgstr "کلاسیک"
 
-#: content_site/body/blog/b3_html.php:65 content_site/body/blog/b4_html.php:65
+#: content_site/body/blog/b3_html.php:82 content_site/body/blog/b4_html.php:84
 msgid "Published on"
 msgstr "منتشر شده در"
 
@@ -22873,12 +22888,7 @@ msgstr "فرم تماس"
 msgid "Magic Line"
 msgstr "خط جادویی"
 
-#: content_site/body/gallery/g1.php:57 content_site/body/gallery/g2.php:64
-#: content_site/body/gallery/g6.php:69
-msgid "Image Gallery"
-msgstr "گالری تصویر"
-
-#: content_site/body/gallery/g1.php:100
+#: content_site/body/gallery/g1.php:99
 msgid "Image 1"
 msgstr "تصویر ۱"
 
@@ -22966,8 +22976,14 @@ msgid "quote"
 msgstr "نقل قول"
 
 #: content_site/body/separator/separator1.php:17
+#: content_site/body/separator/separator2.php:17
 msgid "Separator 1"
 msgstr "جداکننده ۱"
+
+#: content_site/body/space/option.php:34 content_site/body/space/option.php:36
+#: content_site/body/space/space1.php:17
+msgid "Space"
+msgstr ""
 
 #: content_site/body/text/option.php:24 content_site/body/text/t1.php:17
 #: content_site/body/text/t1.php:62 content_site/body/text/t1.php:80
@@ -22977,6 +22993,22 @@ msgstr "جعبه متن"
 #: content_site/body/title/title1.php:17
 msgid "Title 1"
 msgstr "عنوان ۱"
+
+#: content_site/body/twitter/twitter1_html.php:119
+msgid "Retweet"
+msgstr ""
+
+#: content_site/body/twitter/twitter1_html.php:123
+msgid "Retweets"
+msgstr ""
+
+#: content_site/body/twitter/twitter1_html.php:137
+msgid "Quote Tweet"
+msgstr ""
+
+#: content_site/body/twitter/twitter1_html.php:156
+msgid "Likes"
+msgstr ""
 
 #: content_site/body/visitcard/option.php:28 content_site/body/visitcard/option.php:30
 #: content_site/body/visitcard/visitcard1.php:45
@@ -23006,10 +23038,6 @@ msgstr "خالی"
 #: content_site/footer/f0.php:36
 msgid "This footer is emtpy. Have not any option!"
 msgstr "این فوتر خالی است و تنظیمات خاصی ندارد!"
-
-#: content_site/footer/f1.php:17 content_site/header/h1.php:17
-msgid "Simple"
-msgstr "ساده"
 
 #: content_site/footer/f3.php:17
 msgid "Shopping Footer"
@@ -23254,12 +23282,12 @@ msgstr "پایین"
 
 #: content_site/options/background/background_position.php:13
 #: content_site/options/container/container_align.php:14
-#: content_site/options/container/container_justify.php:14
+#: content_site/options/justify/justify.php:14
 msgid "Center"
 msgstr "مرکز"
 
 #: content_site/options/background/background_position.php:14
-#: content_site/options/container/container_justify.php:13
+#: content_site/options/justify/justify.php:13
 msgid "Left"
 msgstr "چپ"
 
@@ -23272,7 +23300,7 @@ msgid "Left Top"
 msgstr "چپ بالا"
 
 #: content_site/options/background/background_position.php:17
-#: content_site/options/container/container_justify.php:15
+#: content_site/options/justify/justify.php:15
 msgid "Right"
 msgstr "راست"
 
@@ -23320,7 +23348,7 @@ msgstr "اندازه پس‌زمینه"
 msgid "Background size"
 msgstr "اندازه پس‌زمینه"
 
-#: content_site/options/btn/btn_viewall.php:52
+#: content_site/options/btn/btn_viewall.php:50
 msgid "Show <b>View all</b> button"
 msgstr "نمایش دکمه <b>مشاهده همه</b>"
 
@@ -23401,12 +23429,8 @@ msgstr "پایان"
 msgid "Align"
 msgstr "تراز"
 
-#: content_site/options/container/container_justify.php:25
-#: content_site/options/container/container_justify.php:80
-msgid "Justify"
-msgstr "چینش"
-
 #: content_site/options/count/count.php:15
+#: content_site/options/height/height_separator.php:20
 #: content_site/options/slider/slider_autoplay.php:20
 msgid "This range is not defined!"
 msgstr "این بازه تعریف نشده است!"
@@ -23537,17 +23561,25 @@ msgstr "تغییر سرصفحه"
 msgid "Heading Position"
 msgstr "محل قرارگیری عنوان"
 
-#: content_site/options/heading/heading.php:18 content_site/options/heading/heading.php:62
+#: content_site/options/heading/heading.php:18 content_site/options/heading/heading.php:57
 msgid "Heading"
 msgstr "عنوان"
+
+#: content_site/options/heading/heading_size.php:80
+msgid "Heading size"
+msgstr "اندازه عنوان"
 
 #: content_site/options/height/height.php:17 content_site/options/height/height.php:22
 msgid "Full Screen"
 msgstr "تمام صفحه"
 
-#: content_site/options/height/height.php:121
+#: content_site/options/height/height.php:103
 msgid "Section Height"
 msgstr "ارتفاع بخش"
+
+#: content_site/options/height/height_separator.php:41
+msgid "Thickness"
+msgstr "ضخامت"
 
 #: content_site/options/image/image_add.php:14 content_site/options/image/image_add.php:41
 #: content_site/options/image/image_add2.php:13
@@ -23926,7 +23958,7 @@ msgstr "میزان گرد بودن گوشه‌ها"
 msgid "Set item ratio"
 msgstr "تنظیم نسبت تصویر"
 
-#: content_site/options/responsive/responsive.php:33
+#: content_site/options/responsive/responsive.php:33 content_site/view.php:65
 msgid "Responsive"
 msgstr "رسپانسیو"
 
@@ -23986,6 +24018,22 @@ msgstr "افزودن لینک پابرگ"
 msgid "Page title in mobile"
 msgstr "عنوان صفحه در موبایل"
 
+#: content_site/options/separator/separator_type.php:11
+#, fuzzy
+#| msgid "Solid"
+msgid "solid"
+msgstr "ثابت"
+
+#: content_site/options/separator/separator_type.php:12
+msgid "dotted"
+msgstr ""
+
+#: content_site/options/separator/separator_type.php:13
+#, fuzzy
+#| msgid "dash"
+msgid "dashed"
+msgstr "دش"
+
 #: content_site/options/slider/slider_autoplay.php:36
 msgid "Autoplay delay"
 msgstr "تاخیر پخش خودکار"
@@ -24035,7 +24083,7 @@ msgstr "تنظیمات اسلایدر"
 msgid "Slide size"
 msgstr "اندازه اسلایدر"
 
-#: content_site/options/spacing/spacing.php:24
+#: content_site/options/spacing/spacing.php:24 content_site/view.php:61
 msgid "Spacing"
 msgstr "فاصله گذاری"
 
@@ -24265,35 +24313,35 @@ msgstr "نام بخش یا کد پیش‌نمایش اشتباه است"
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
-#: content_site/section/controller.php:77
+#: content_site/section/controller.php:78
 msgid "Invalid section name"
 msgstr "نام بخش اشتباه"
 
-#: content_site/section/controller.php:93 content_site/section/controller.php:224
+#: content_site/section/controller.php:94 content_site/section/controller.php:225
 #: content_site/section/html/controller.php:21 content_site/section/model.php:80
 msgid "Invalid section id"
 msgstr "شناسه بخش اشتباه است"
 
-#: content_site/section/controller.php:116 content_site/section/controller.php:132
+#: content_site/section/controller.php:117 content_site/section/controller.php:133
 #: dash/validate/html.php:384
 msgid "Invalid url!"
 msgstr "آدرس اشتباه است!"
 
-#: content_site/section/controller.php:216
+#: content_site/section/controller.php:217
 msgid "Page id or section id not found"
 msgstr "شناسه صفحه یا شناسه بخش یافت نشد"
 
-#: content_site/section/controller.php:236
+#: content_site/section/controller.php:237
 msgid "Invalid section model"
 msgstr "مدل بخش اشتباه است"
 
 #: content_site/section/html/display-aside-bottom.php:9
-#: content_site/section/part/section_control.php:54
+#: content_site/section/part/section_control.php:76
 msgid "Are you sure to remove this section?"
 msgstr "آیا از حذف این بخش اطمینان دارید؟"
 
 #: content_site/section/html/display-aside-bottom.php:18
-#: content_site/section/part/section_control.php:60
+#: content_site/section/part/section_control.php:81
 msgid "Remove section"
 msgstr "حذف بخش"
 
@@ -24384,7 +24432,7 @@ msgid "Discard change"
 msgstr "نادیده گرفتن تغییرات"
 
 #: content_site/section/part/download_php.php:17
-#: content_site/section/part/section_control.php:79
+#: content_site/section/part/section_control.php:35
 msgid "Download PHP"
 msgstr "دانلود PHP"
 
@@ -24412,7 +24460,7 @@ msgstr "بازگرداندن بخش"
 msgid "Change to another model"
 msgstr "تغییر به مدل دیگر"
 
-#: content_site/section/part/section_control.php:81
+#: content_site/section/part/section_control.php:38
 msgid "Download Template"
 msgstr "دانلود الگو"
 
@@ -24513,28 +24561,32 @@ msgstr "دمو ۰۰۱"
 msgid "Demo 002"
 msgstr "دمو ۰۰۲"
 
-#: content_site/view.php:56
+#: content_site/view.php:57
+msgid "Style"
+msgstr "سبک"
+
+#: content_site/view.php:84
 msgid "Save & Publish"
 msgstr "ذخیره و انتشار"
 
-#: content_site/view.php:64
+#: content_site/view.php:92
 msgid "Your change will be saved and published automatically"
 msgstr "تغییرات شما به صورت خودکار ذخیره و منتشر خواهند شد"
 
-#: content_site/view.php:65
+#: content_site/view.php:93
 msgid "After any change in your page, data will be saved and published."
 msgstr "بعد از هر تغییری در صفحه شما، اطلاعات ذخیره و منتشر خواهند شد."
 
-#: content_site/view.php:66
+#: content_site/view.php:94
 msgid "If you want to disable auto-save and publish your change manually"
 msgstr ""
 "اگر می‌خواهید ذخیره و انتشار خودکار را غیرفعال کنید و تغییرات را به صورت دستی منتشر کنید"
 
-#: content_site/view.php:68
+#: content_site/view.php:96
 msgid "Go to site builder setting and turn off this feature"
 msgstr "به تنظیمات ذخیره و انتشار خودکار در بخش سایت‌ساز رفته و این امکان را غیرفعال کنید"
 
-#: content_site/view.php:71
+#: content_site/view.php:99
 msgid "Auto Save & Publish"
 msgstr "ذخیره و انتشار خودکار"
 
@@ -36596,7 +36648,7 @@ msgstr "جزئیات فروشگاه اشتباه است"
 msgid "Invalid customer detail"
 msgstr "شناسه مشتری اشتباه است"
 
-#: lib/api/twitter/api.php:169
+#: lib/api/twitter/api.php:176
 msgid "Can not connect to twitter server!"
 msgstr "نمی‌توانیم به سرور تویتر متصل شویم!"
 
@@ -42241,6 +42293,15 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "application 1"
+#~ msgstr "برنامه ۱"
+
+#~ msgid "Image Gallery"
+#~ msgstr "گالری تصویر"
+
+#~ msgid "Justify"
+#~ msgstr "چینش"
+
 #~ msgid "Hide/Show"
 #~ msgstr "نمایان / مخفی"
 
@@ -43700,9 +43761,6 @@ msgstr "یارد"
 #~ msgid "Application box"
 #~ msgstr "جعبه معرفی اپلیکیشن"
 
-#~ msgid "View information and application download links"
-#~ msgstr "نمایش اطلاعات و لینک دانلود اپلیکیشن"
-
 #~ msgid "Add application box"
 #~ msgstr "افزودن جعبه معرفی اپلیکیشن"
 
@@ -44176,9 +44234,6 @@ msgstr "یارد"
 
 #~ msgid "Background opacity"
 #~ msgstr "تیرگی پس‌زمینه"
-
-#~ msgid "Style"
-#~ msgstr "سبک"
 
 #~ msgid "Use as template"
 #~ msgstr "استفاده از قالب"
