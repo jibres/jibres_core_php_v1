@@ -37,9 +37,9 @@ class fire
 			$_args['height:style'] = \content_site\options\height\height::get_style(a($_args, 'height'));
 		}
 
-		if(array_key_exists('container', $_args))
+		// if(array_key_exists('container', $_args))
 		{
-			$_args['container:class'] = \content_site\options\container\container_gallery::class_name(a($_args, 'container'));
+			$_args['container:class'] = \content_site\options\container\container::class_name(a($_args, 'container'));
 		}
 
 		if(array_key_exists('magicbox_gap', $_args))
