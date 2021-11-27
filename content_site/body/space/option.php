@@ -31,7 +31,7 @@ class option
 	{
 		return
 		[
-			'group'   => T_("Space"),
+			'group'   => T_("Separator"),
 			'section' => 'space',
 			'title'   => T_("Space"),
 			'icon'    => \dash\utility\icon::url('square', 'bootstrap'),
