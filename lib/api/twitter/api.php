@@ -251,6 +251,13 @@ class api
 
 			$tweets =  self::run($args);
 
+			if(!is_array($tweets))
+			{
+				$tweets = [];
+			}
+
+			$tweets = array_reverse($tweets);
+
 		}
 
 		$result = [];

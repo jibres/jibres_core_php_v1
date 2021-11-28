@@ -11,14 +11,6 @@ class twitter1_html
       $_blogList = $_blogList[0];
     }
 
-     // 'socialpostdetail' =>
-     //    array (size=5)
-     //      'channel' => string 'RmBiqarar' (length=9)
-     //      'twusername' => string 'RmBiqarar' (length=9)
-     //      'twname' => string 'Reza Mohiti' (length=11)
-     //      'twavatar' => string 'https://pbs.twimg.com/profile_images/1218021289094459393/sxygwdzM_normal.jpg' (length=76)
-     //      'twverified' => boolean
-    // declare vaeiables
     $darkMode       = false;
     $theme          = 1;
     $size           = 'md';
@@ -26,7 +18,10 @@ class twitter1_html
 
     $borderRadius   = a($_args, 'radius:class');
 
-    $twUsername     = "@". a($_blogList, 'socialpostdetail', 'twusername');
+    if($twUsername = a($_blogList, 'socialpostdetail', 'twusername'))
+    {
+      $twUsername     = "@". $twUsername;
+    }
     $twName         = a($_blogList, 'socialpostdetail', 'twname');
 
     $twTweet        = a($_blogList, 'content');
