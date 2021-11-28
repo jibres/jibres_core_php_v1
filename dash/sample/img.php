@@ -42,6 +42,11 @@ class img
 	}
 
 
+	public static function blank()
+	{
+		return \dash\url::cdn(). '/img/gif/blank.gif';
+	}
+
 
 	public static function image()
 	{

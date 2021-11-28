@@ -104,7 +104,7 @@ class video
 		$html .= "<source ";
 		if($playerMode === 'default')
 		{
-			$html .= "src='' ";
+			$html .= "src='". \dash\sample\img::blank(). "' ";
 			$html .= "data-src";
 		}
 		else
