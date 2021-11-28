@@ -32,7 +32,7 @@ class twitter1
 					'heading_size',
 					'color_heading',
 					'radius_normal',
-					'coverratio',
+
 				]),
 				'spacing' =>
 				[
@@ -56,7 +56,7 @@ class twitter1
 				'color_text'            => '#333333',
 				'heading_position'      => 'center',
 
-				'radius_normal'         => 'none',
+				'radius'         => 'normal',
 			],
 			'preview_list' =>
 			[
@@ -77,7 +77,6 @@ class twitter1
 			'version'        => 1,
 			'options' =>
 			[
-				'radius'               => 'full',
 
 			],
 		];

@@ -64,40 +64,52 @@ class business
 	}
 
 
-	public static function get_my_posts($_fetch = false)
+	public static function get_my_posts($_option = [])
 	{
-		$twitter_username = \lib\store::social('twitter', true);
+		// $twitter_username = \lib\store::social('twitter', true);
 
-		if($_fetch)
+		// if($_fetch)
+		// {
+		// 	if(!$twitter_username)
+		// 	{
+		// 		if($_fetch)
+		// 		{
+		// 			\dash\notif::error(T_("Twitter username not set!"));
+		// 		}
+		// 		return [];
+		// 	}
+
+
+		// 	$args =
+		// 	[
+		// 		'username' => $twitter_username,
+		// 		'user_id'  => self::user_id(),
+		// 		'count'    => 1,
+		// 	];
+
+		// 	$last_fetch = self::last_fetch();
+
+		// 	// check last fetch
+		// 	if(!$last_fetch || (time() - strtotime($last_fetch) > (60))) // need fetch
+		// 	{
+		// 		self::last_fetch(true);
+		// 		self::fetch($args);
+		// 	}
+		// }
+
+		if(!is_array($_option))
 		{
-			if(!$twitter_username)
-			{
-				if($_fetch)
-				{
-					\dash\notif::error(T_("Twitter username not set!"));
-				}
-				return [];
-			}
-
-
-			$args =
-			[
-				'username' => $twitter_username,
-				'user_id'  => self::user_id(),
-				'count'    => 5,
-			];
-
-			$last_fetch = self::last_fetch();
-
-			// check last fetch
-			if(!$last_fetch || (time() - strtotime($last_fetch) > (60))) // need fetch
-			{
-				self::last_fetch(true);
-				self::fetch($args);
-			}
+			$_option = [];
 		}
 
-		$get_twitter_posts = \dash\app\posts\search::list(null, ['type' => 'twitter'], true);
+		$default_option =
+		[
+			'type' => 'twitter',
+		];
+
+		$option = array_merge($default_option, $_option);
+
+		$get_twitter_posts = \dash\app\posts\search::list(null, $option, true);
 
 		return $get_twitter_posts;
 

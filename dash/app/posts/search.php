@@ -398,10 +398,46 @@ class search
 			{
 				if($data['type'] === 'twitter')
 				{
-					// $social_posts_detail = \lib\db\social_posts\get::by_post_id_multi($post_id);
-					// var_dump($social_posts_detail);exit;
+					$social_posts = \lib\db\social_posts\get::by_post_id_multi($post_id);
+					if(!is_array($social_posts))
+					{
+						$social_posts = [];
+					}
+
+					$social_posts_pretty = [];
+
+					foreach ($social_posts as $key => $value)
+					{
+						if(isset($value['post_id']) && $value['post_id'])
+						{
+							$temp            = [];
+							$temp['channel'] = a($value, 'channel');
+							$data = json_decode(a($value, 'data'), true);
+
+							if(a($value, 'social') === 'twitter')
+							{
+								$temp['twusername'] = a($data, 'user_detail', 'username');
+								$temp['twname']     = a($data, 'user_detail', 'name');
+								$temp['twavatar']   = a($data, 'user_detail', 'profile_image_url');
+								$temp['twverified'] = a($data, 'user_detail', 'verified');
+								$temp['twcreatedat'] = a($data, 'user_detail', 'created_at');
+
+							}
+
+
+							$social_posts_pretty[$value['post_id']] = $temp;
+						}
+
+					}
+
+					foreach ($list as $key => $value)
+					{
+						if(isset($social_posts_pretty[$value['id']]))
+						{
+							$list[$key]['socialpostdetail'] = $social_posts_pretty[$value['id']];
+						}
+					}
 				}
-				// var_dump($list);exit;
 			}
 		}
 

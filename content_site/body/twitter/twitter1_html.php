@@ -6,21 +6,48 @@ class twitter1_html
 {
 	public static function html($_args, $_blogList)
 	{
+    if(a($_blogList, 0))
+    {
+      $_blogList = $_blogList[0];
+    }
+
+     // 'socialpostdetail' =>
+     //    array (size=5)
+     //      'channel' => string 'RmBiqarar' (length=9)
+     //      'twusername' => string 'RmBiqarar' (length=9)
+     //      'twname' => string 'Reza Mohiti' (length=11)
+     //      'twavatar' => string 'https://pbs.twimg.com/profile_images/1218021289094459393/sxygwdzM_normal.jpg' (length=76)
+     //      'twverified' => boolean
     // declare vaeiables
-    $borderRadius   = a($_args, 'radius:class');
     $darkMode       = false;
     $theme          = 1;
     $size           = 'md';
     $twVerify       = true;
-    $twUsername     = "@MrAdib";
-    $twName         = "Javad Adib";
-    $twTweet        = "Capture and share Twitter posts as beautiful images. Get started by pasting a tweet URL into the input above.";
-    $twTweetImg     = 'https://pbs.twimg.com/media/FCmhwHTXIAcVqxx?format=jpg&name=small';
-    $twDetail       = true;
+
+    $borderRadius   = a($_args, 'radius:class');
+
+    $twUsername     = "@". a($_blogList, 'socialpostdetail', 'twusername');
+    $twName         = a($_blogList, 'socialpostdetail', 'twname');
+
+    $twTweet        = a($_blogList, 'content');
+    $twTweetImg     = null;
+
+    if(a($_blogList, 'thumb'))
+    {
+      $twTweetImg     = \lib\filepath::fix(a($_blogList, 'thumb'));
+    }
+
+    $twAvatar   = a($_blogList, 'socialpostdetail', 'twavatar');
+    $twVerified = a($_blogList, 'socialpostdetail', 'twverified');
+
+
+    $twDetail       = false;
+
     $twStatRetweet  = 152;
     $twStatQuote    = 8;
     $twStatLike     = 981;
-    $twDateTime     = '2021-11-27 11:31';
+
+    $twDateTime     = a($_blogList, 'socialpostdetail', 'twcreatedat');
     // get theme colors
     $themeBgStyle = self::themeColor($theme);
 
@@ -55,7 +82,7 @@ class twitter1_html
           // user line
           $html .= '<header class="flex items-center mb-2 md:mb-4">';
           {
-            $avatarSrc = \dash\sample\img::avatar();
+            $avatarSrc = $twAvatar;
             $html .= '<img src="'. $avatarSrc. '" class="w-12 h-12 inline object-cover rounded-full transition">';
 
             $html .= '<div class="flex-grow px-2">';
@@ -67,7 +94,10 @@ class twitter1_html
                 $html .= $twName;
                 $html .= "</div>";
                 // verify badge
-                $html .= \dash\utility\icon::bootstrap('patch-check-fill', 'self-start w-4 h-4 mx-1', ['fill' => '#1ea0f1']);
+                if($twVerified)
+                {
+                  $html .= \dash\utility\icon::bootstrap('patch-check-fill', 'self-start w-4 h-4 mx-1', ['fill' => '#1ea0f1']);
+                }
               }
               $html .= "</div>";
 
