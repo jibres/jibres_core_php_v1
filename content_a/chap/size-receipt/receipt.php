@@ -103,7 +103,7 @@
   <tbody class="text-sm leading-7">
   <?php foreach (\dash\data::invoiceDetail() as $key => $dataRow) {?>
   <tr class="border-b border-black border-dashed">
-   <td class="txtLa productTitle px-0.5 text-xs font-bold leading-6"><?php if(isset($dataRow['vat']) && $dataRow['vat']) {echo ' * ';} echo ' '. a($dataRow, 'title');?></td>
+   <td class="txtLa productTitle px-0.5 text-xs font-bold leading-6 break-word"><?php if(isset($dataRow['vat']) && $dataRow['vat']) {echo ' * ';} echo ' '. a($dataRow, 'title');?></td>
    <td class="txtLa text-center text-sm"><?php
 if(isset($dataRow['discount']) && $dataRow['discount'])
 {
