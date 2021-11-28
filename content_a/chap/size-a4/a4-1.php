@@ -39,7 +39,9 @@
        <th><?php echo T_("Explanation"); ?></th>
        <th><?php echo T_("Unit price"); ?></th>
        <th><?php echo T_("Qty"); ?></th>
+<?php if(\dash\data::haveUnit()){?>
        <th><?php echo T_("Unit"); ?></th>
+<?php } ?>
 <?php if(\dash\data::invoice_subdiscount()) {?>
        <th><?php echo T_("Total price"); ?></th>
        <th><?php echo T_("Total discount"); ?></th>
@@ -82,7 +84,9 @@ if(is_array(\dash\data::invoiceDetail()))
        <td class="productTitle"><?php echo a($dataRow, 'title');?></td>
        <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'price')); ?></td>
        <td class="valPrice text-center px-1"><?php echo \dash\fit::price(a($dataRow, 'count')); ?></td>
+<?php if(\dash\data::haveUnit()) {?>
        <td class="text-xs"><?php echo a($dataRow, 'unit'); ?></td>
+<?php }//endif ?>
 <?php if(\dash\data::invoice_subdiscount()) {?>
        <td class="valPrice"><?php echo \dash\fit::price($totalPrice); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($totalDiscount); ?></td>
@@ -101,7 +105,9 @@ if(is_array(\dash\data::invoiceDetail()))
        <td colspan="2" class="px-2"><?php echo T_("Sum Total"); ?></td>
        <td></td>
        <td></td>
+<?php if(\dash\data::haveUnit()) {?>
        <td></td>
+<?php } ?>
 <?php if(\dash\data::invoice_subdiscount()) {?>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalPrice']); ?></td>
        <td class="valPrice"><?php echo \dash\fit::price($tableTotal['totalDiscount']); ?></td>

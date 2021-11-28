@@ -26,6 +26,7 @@ class view
 		if(isset($myFactor['factor_detail']) && is_array($myFactor['factor_detail']))
 		{
 			\dash\data::invoiceDetail($myFactor['factor_detail']);
+			\dash\data::haveUnit(array_filter(array_unique(array_column($myFactor['factor_detail'], 'unit'))) != []);
 		}
 
 
