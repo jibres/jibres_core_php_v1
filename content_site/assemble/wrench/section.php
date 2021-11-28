@@ -21,12 +21,12 @@ class section
 		$cnElement = 'div';
 		if($_used_for === 'header')
 		{
-			$cnElement = 'header';
+			// $cnElement = 'header';
 			$classNames = 'relative';
 		}
 		else if($_used_for === 'footer')
 		{
-			$cnElement = 'footer';
+			// $cnElement = 'footer';
 			$classNames = 'relative overflow-hidden';
 		}
 		else
