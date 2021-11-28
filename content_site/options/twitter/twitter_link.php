@@ -80,7 +80,7 @@ class twitter_link
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::not_redirect();
-			$html .= \content_site\options\generate::text('opt_twitter_link', $default, T_("Twitter link"), null, 'ltr', 'url');
+			$html .= \content_site\options\generate::text('opt_twitter_link', $default, T_("Tweet link"), null, 'ltr', 'url');
 		}
   		$html .= \content_site\options\generate::_form();
 		return $html;
