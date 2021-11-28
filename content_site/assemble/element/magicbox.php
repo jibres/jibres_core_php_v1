@@ -189,12 +189,12 @@ class magicbox
 						// use data-src for lazyload
 						if($insideSlider)
 						{
-							$card .= "<img loading='lazy' class='swiper-lazy $imgClass' src='' data-src='$myThumb' alt='$myTitle'>";
+							$card .= "<img loading='lazy' class='swiper-lazy $imgClass' src='". \dash\sample\img::blank(). "' data-src='$myThumb' alt='$myTitle'>";
 							$card .= '<div class="swiper-lazy-preloader"></div>';
 						}
 						else
 						{
-							$card .= "<img loading='lazy' class='$imgClass' src='' data-src='$myThumb' alt='$myTitle'>";
+							$card .= "<img loading='lazy' class='$imgClass' src='". \dash\sample\img::blank(). "' data-src='$myThumb' alt='$myTitle'>";
 						}
 					}
 				}
