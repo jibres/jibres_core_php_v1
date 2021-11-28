@@ -19,7 +19,7 @@ class f1_html
 
 		if(a($_args, 'heading') || a($_args, 'copyright'))
 		{
-			$html .= '<footer class="text-gray-600 body-font text-center shadow-inner">';
+			$html .= '<div class="text-gray-600 body-font text-center shadow-inner">';
 			{
 				$html .= '<div class="container px-5 py-5 mx-auto text-center">';
 				{
@@ -51,7 +51,7 @@ class f1_html
 				}
 				$html .= '</div>';
 			}
-			$html .= '</footer>';
+			$html .= '</div>';
 		}
 
 		return $html;

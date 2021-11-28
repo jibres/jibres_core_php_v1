@@ -21,7 +21,7 @@ class f3_html
 		$style = 'background:url("'. \dash\url::cdn(). '/img/sitebuilder/footer/f3/footer3-bg.svg") right bottom no-repeat,linear-gradient(254.96deg, HSL(257, 32%, 11%) 0%, HSL(314, 33%, 18%) 99.41%);';
 		$style = "style='". $style. "'";
 
-		$html = '<footer id="jFooter3" class="relative py-5" '. $style. '>';
+		$html = '<div id="jFooter3" class="relative py-5" '. $style. '>';
 		{
 			// $html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
 			$html .= \content_site\assemble\wrench\section::container($_args);
@@ -142,7 +142,7 @@ class f3_html
 			}
 			$html .= '</div>';
 		}
-		$html .= '</footer>';
+		$html .= '</div>';
 
 		return $html;
 	}

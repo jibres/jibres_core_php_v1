@@ -67,7 +67,7 @@ class h_rafiei2_html
 			}
 
 		}
-		$html .= '</header>';
+		$html .= '</div>';
 
 		return $html;
 	}

@@ -151,7 +151,7 @@ class f_rafiei_html
 			$html .= '<div id="topLine" class="fixed w-full mx-auto right-0 left-0 z-50" style="'. $topCircleStyle. '"></div>';
 
 		}
-		$html .= '</footer>';
+		$html .= '</div>';
 
 		return $html;
 	}

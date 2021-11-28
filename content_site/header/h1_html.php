@@ -21,7 +21,7 @@ class h1_html
 
 		if(a($_args, 'heading') || a($_args, 'description') || a($_args, 'menu_1'))
 		{
-			$html .= '<header id="jHeader3" class="relative py-5">';
+			$html .= '<div id="jHeader3" class="relative py-5">';
 			{
 				$html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto justify-center text-center">';
 				{
@@ -60,7 +60,7 @@ class h1_html
 				$html .= '</div>';
 
 			}
-			$html .= '</header>';
+			$html .= '</div>';
 
 		} // empty header
 

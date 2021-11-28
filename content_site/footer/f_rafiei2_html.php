@@ -143,7 +143,7 @@ class f_rafiei2_html
 			}
 			$html .= '</div>';
 		}
-		$html .= '</footer>';
+		$html .= '</div>';
 
 		return $html;
 	}

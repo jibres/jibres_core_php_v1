@@ -19,7 +19,7 @@ class h3_html
 
 		$html .= share::announcement($_args);
 
-		$html .= '<header id="jHeader3" class="relative py-5">';
+		$html .= '<div id="jHeader3" class="relative py-5">';
 		{
 			// $html .= '<div class="max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 m-auto">';
 			$html .= \content_site\assemble\wrench\section::container($_args);
@@ -120,7 +120,7 @@ class h3_html
 			$html .= '</div>';
 
 		}
-		$html .= '</header>';
+		$html .= '</div>';
 
 		return $html;
 	}
