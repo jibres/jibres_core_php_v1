@@ -73,8 +73,10 @@ class twitter1_html
           // user line
           $html .= '<header class="flex items-center mb-2 md:mb-4">';
           {
-            $avatarSrc = $twAvatar;
-            $html .= '<img src="'. $avatarSrc. '" class="w-12 h-12 inline object-cover rounded-full transition">';
+            if($twAvatar)
+            {
+              $html .= '<img src="'. \dash\sample\img::blank() . '" data-src="'. $twAvatar. '" class="w-12 h-12 inline object-cover rounded-full transition" alt="'. $twName. '">';
+            }
 
             $html .= '<div class="flex-grow px-2">';
             {
