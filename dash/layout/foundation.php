@@ -128,12 +128,12 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 <?php
 if(\dash\engine\store::inBusinessWebsite())
 {
-  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
+  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet" rel="preload"/>'."\n";
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-migrate-v1.css'). ' rel="stylesheet"/>'."\n";
 }
 else if(\dash\data::include_m2())
 {
-  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
+  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet" rel="preload"/>'."\n";
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-migrate-v1.css'). ' rel="stylesheet"/>'."\n";
 }
 else
