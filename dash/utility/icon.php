@@ -60,19 +60,19 @@ class icon
                 }
                 if(a($_args, 'width'))
                 {
-                    $_data = str_replace('width="16"', 'width="'. a($_args, 'width'). '"', $_data);
+                    $_data = str_replace('width="16"', 'width="'. a($_args, 'width'). '" ', $_data);
                 }
                 else
                 {
-                    $_data = str_replace('width="16"', '', $_data);
+                    $_data = str_replace('width="16" ', '', $_data);
                 }
                 if(a($_args, 'height'))
                 {
-                    $_data = str_replace('height="16"', 'height="'. a($_args, 'height'). '"', $_data);
+                    $_data = str_replace('height="16"', 'height="'. a($_args, 'height'). '" ', $_data);
                 }
                 else
                 {
-                    $_data = str_replace('height="16"', '', $_data);
+                    $_data = str_replace('height="16" ', '', $_data);
                 }
                 break;
 
