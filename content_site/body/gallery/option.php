@@ -495,7 +495,7 @@ class option
 			{
 				if($count_removed < $must_remove)
 				{
-					if(a($value, 'datemodified'))
+					if(a($value, 'customized_by_user'))
 					{
 						// can not beremove
 					}
@@ -628,7 +628,7 @@ class option
 
 		// \lib\app\menu\edit::edit($_args, $index, true);
 
-		self::update_menu_preview($_args, $index);
+		self::update_menu_preview($_args, $index, [], 'edit');
 
 		if(\dash\engine\process::status())
 		{
@@ -639,7 +639,7 @@ class option
 	}
 
 
-	private static function update_menu_preview($_args, $_id, $_meta = [])
+	private static function update_menu_preview($_args, $_id, $_meta = [], $_add_edit_mode = null)
 	{
 		$preview = [];
 
@@ -675,6 +675,11 @@ class option
 		$args = array_merge($preview, $args, $_meta);
 
 		$args['is_preview_menu'] = true;
+
+		if($_add_edit_mode === 'edit')
+		{
+			$args['customized_by_user'] = true;
+		}
 
 		$args = json_encode($args);
 

@@ -49,6 +49,7 @@ class check
 			'video_muted'                   => 'checkbox',
 			'video_clickable'               => 'checkbox',
 			'video_disablepictureinpicture' => 'checkbox',
+			'customized_by_user'            => 'bit',
 		];
 
 		$require = [];
@@ -355,6 +356,8 @@ class check
 		unset($_args['video_controls']);
 		unset($_args['video_autoplay']);
 		unset($_args['btn_title']);
+		unset($_args['customized_by_user']);
+
 
 		unset($_args['video_nodownload']);
 		unset($_args['video_nofullscreen']);
