@@ -118,35 +118,13 @@ class socialnetworks
       }
       $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
 
-      if(a($_social, 'linkedin', 'link'))
-      {
-        $html .= self::createLink('linkedin', a($_social, 'linkedin', 'link'), $linkClass, $imgClass);
-      }
 
-      if(a($_social, 'github', 'link'))
-      {
-        $html .= self::createLink('github', a($_social, 'github', 'link'), $linkClass, $imgClass);
-      }
-
-      if(a($_social, 'facebook', 'link'))
-      {
-        $html .= self::createLink('facebook', a($_social, 'facebook', 'link'), $linkClass, $imgClass);
-      }
-
-      if(a($_social, 'twitter', 'link'))
-      {
-        $html .= self::createLink('twitter', a($_social, 'twitter', 'link'), $linkClass, $imgClass);
-      }
-
-      if(a($_social, 'instagram', 'link'))
-      {
-        $html .= self::createLink('instagram', a($_social, 'instagram', 'link'), $linkClass, $imgClass);
-      }
-
-      if(a($_social, 'telegram', 'link'))
-      {
-        $html .= self::createLink('telegram', a($_social, 'telegram', 'link'), $linkClass, $imgClass);
-      }
+      $html .= self::createLink('linkedin', a($_social, 'linkedin', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('github', a($_social, 'github', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('facebook', a($_social, 'facebook', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('twitter', a($_social, 'twitter', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('instagram', a($_social, 'instagram', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('telegram', a($_social, 'telegram', 'link'), $linkClass, $imgClass);
 
     }
     $html .= '</nav>';
@@ -157,9 +135,15 @@ class socialnetworks
 
   private static function createLink($_type, $_link, $_linkClass, $_imgClass)
   {
+    if(!$_linkClass)
+    {
+      return null;
+    }
+
     $html = '';
-    $html .= '<a class="'. $_linkClass. '" target="_blank" href="'. $_link .'">';
+    $html .= '<a rel="noopener" class="'. $_linkClass. '" target="_blank" href="'. $_link .'">';
     $html .= \dash\utility\icon::bootstrap($_type, $_imgClass);
+
     $html .= '</a>';
 
     return $html;
