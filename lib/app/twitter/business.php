@@ -223,6 +223,7 @@ class business
 				}
 			}
 		}
+		\dash\notif::clean();
 
 	}
 }
