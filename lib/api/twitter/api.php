@@ -243,6 +243,7 @@ class api
 				'bearer' => true,
 				'param'  =>
 				[
+					'max_results' => 5,
 					// 'tweet.fields' =>  implode(',', 'attachments','author_id','context_annotations','conversation_id','created_at','entities','geo','id','in_reply_to_user_id','lang','possibly_sensitive','reply_settings','source','text','withheld'),
 					'tweet.fields' =>  implode(',', ['context_annotations','attachments','author_id','created_at','id','lang','source','text','withheld']),
 				],

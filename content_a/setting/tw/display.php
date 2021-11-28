@@ -2,6 +2,7 @@
   <form method="post" autocomplete="off" id='aThirdParty'>
     <div  class="box">
       <div class="f algin-center text-center">
+        <input type="hidden" name="set_username" value="1">
         <div class="c3"></div>
           <img class="c6" src="<?php echo \dash\url::cdn(); ?>/img/logo/social/twitter.svg" alt='Twitter'>
         <div class="c3"></div>
