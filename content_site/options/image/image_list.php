@@ -109,7 +109,7 @@ class image_list
 				    	{
 				    		$html .= '</ul>';
 				    		$html .= '</nav>';
-				    		$html .= '<nav class="items">';
+				    		$html .= '<nav class="items long">';
 							$html .= '<ul data-sortable>';
 				    	}
 		    		}
