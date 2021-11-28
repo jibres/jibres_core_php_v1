@@ -24,7 +24,7 @@ class h_rafiei2_html
 			$topBgStyle .= 'animation:bgMoveLtr 60s linear infinite;';
 
 
-			$html .= '<div id="bgHeader" class="absolute h-24 w-full mx-auto top-0 right-0 left-0 opacity-30" style="'. $topBgStyle. '"></div>';
+			$html .= '<div id="bgHeaderSymbol" class="absolute h-24 w-full mx-auto top-0 right-0 left-0 opacity-30" style="'. $topBgStyle. '"></div>';
 
 
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'select-none']);
