@@ -4,12 +4,8 @@ namespace content_site\body\twitter;
 
 class twitter1_html
 {
-	public static function html($_args, $_blogList)
+	public static function html($_args, $_tweet)
 	{
-    if(a($_blogList, 0))
-    {
-      $_blogList = $_blogList[0];
-    }
 
     $darkMode       = false;
     $theme          = 1;
@@ -18,22 +14,22 @@ class twitter1_html
 
     $borderRadius   = a($_args, 'radius:class');
 
-    if($twUsername = a($_blogList, 'socialpostdetail', 'twusername'))
+    if($twUsername = a($_tweet, 'twusername'))
     {
       $twUsername     = "@". $twUsername;
     }
-    $twName         = a($_blogList, 'socialpostdetail', 'twname');
+    $twName         = a($_tweet, 'twname');
 
-    $twTweet        = a($_blogList, 'content');
+    $twTweet        = a($_tweet, 'content');
     $twTweetImg     = null;
 
-    if(a($_blogList, 'thumb'))
+    if(a($_tweet, 'thumb'))
     {
-      $twTweetImg     = \lib\filepath::fix(a($_blogList, 'thumb'));
+      $twTweetImg     = \lib\filepath::fix(a($_tweet, 'thumb'));
     }
 
-    $twAvatar   = a($_blogList, 'socialpostdetail', 'twavatar');
-    $twVerified = a($_blogList, 'socialpostdetail', 'twverified');
+    $twAvatar   = a($_tweet, 'twavatar');
+    $twVerified = a($_tweet, 'twverified');
 
 
     $twDetail       = false;
@@ -42,7 +38,7 @@ class twitter1_html
     $twStatQuote    = 8;
     $twStatLike     = 981;
 
-    $twDateTime     = a($_blogList, 'socialpostdetail', 'twcreatedat');
+    $twDateTime     = a($_tweet, 'twcreatedat');
     // get theme colors
     $themeBgStyle = self::themeColor($theme);
 

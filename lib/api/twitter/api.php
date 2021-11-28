@@ -208,6 +208,33 @@ class api
 	}
 
 
+	private static function user_fields()
+	{
+		return implode(',', ['created_at','description','entities','id','location','name','pinned_tweet_id','profile_image_url','protected','public_metrics','url','username','verified','withheld']);
+	}
+
+
+	private static function tweet_fields()
+	{
+		return implode(',', ['context_annotations','attachments','author_id','created_at','id','lang','source','text','withheld']);
+	}
+
+
+	public static function user_lookup($_username)
+	{
+		$args =
+		[
+			'method' => 'get',
+			'url'    => 'users/by/username/'. $_username,
+			'bearer' => true,
+			'param'  =>
+			[
+				'user.fields' => self::user_fields(),
+			],
+		];
+
+		return self::run($args);
+	}
 
 
 	/**
@@ -219,18 +246,7 @@ class api
 	{
 		$tweets = [];
 
-		$args =
-		[
-			'method' => 'get',
-			'url'    => 'users/by/username/'. $_username,
-			'bearer' => true,
-			'param'  =>
-			[
-				'user.fields' => implode(',', ['created_at','description','entities','id','location','name','pinned_tweet_id','profile_image_url','protected','public_metrics','url','username','verified','withheld']),
-			],
-		];
-
-		$user_detail =  self::run($args);
+		$user_detail =  self::user_lookup($_username);
 
 		if(isset($user_detail['data']['id']))
 		{
@@ -245,7 +261,7 @@ class api
 				[
 					'max_results' => 5,
 					// 'tweet.fields' =>  implode(',', 'attachments','author_id','context_annotations','conversation_id','created_at','entities','geo','id','in_reply_to_user_id','lang','possibly_sensitive','reply_settings','source','text','withheld'),
-					'tweet.fields' =>  implode(',', ['context_annotations','attachments','author_id','created_at','id','lang','source','text','withheld']),
+					'tweet.fields' =>  self::tweet_fields(),
 				],
 			];
 
@@ -267,5 +283,38 @@ class api
 		return $result;
 	}
 
+
+
+	public static function lookup_tweet_by_username_id($_username, $_tweet_id)
+	{
+		$user_detail = self::user_lookup($_username);
+
+		$args =
+		[
+			'method' => 'get',
+			'url'    => 'tweets/'.$_tweet_id,
+			'bearer' => true,
+			'param'  =>
+			[
+				// 'tweet.fields' =>  implode(',', 'attachments','author_id','context_annotations','conversation_id','created_at','entities','geo','id','in_reply_to_user_id','lang','possibly_sensitive','reply_settings','source','text','withheld'),
+				'tweet.fields' =>  implode(',', ['context_annotations','attachments','author_id','created_at','id','lang','source','text','withheld']),
+			],
+		];
+
+		$tweet =  self::run($args);
+
+		if(!is_array($tweet))
+		{
+			$tweet = [];
+		}
+
+
+		$result                = [];
+		$result['user_detail'] = $user_detail;
+		$result['tweet']       = $tweet;
+
+		return $result;
+
+	}
 }
 ?>

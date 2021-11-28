@@ -191,6 +191,11 @@ class api
 		return $result;
 	}
 
+	public static function lookup_tweet($_args)
+	{
+		$result = self::run('twitter/lookup','get', $_args);
+		return $result;
+	}
 
 }
 ?>

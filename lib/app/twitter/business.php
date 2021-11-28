@@ -85,6 +85,20 @@ class business
 	}
 
 
+	public static function lookup_tweet($_username, $_tweet_id)
+	{
+		$args =
+		[
+			'tweet_id' => $_tweet_id,
+			'username' => $_username,
+		];
+
+		$tweet = \lib\api\jibres\api::lookup_tweet($args);
+
+		return $tweet;
+	}
+
+
 
 	public static function fetch()
 	{

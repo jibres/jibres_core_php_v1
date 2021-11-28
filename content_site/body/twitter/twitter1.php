@@ -20,7 +20,6 @@ class twitter1
 				'heading',
 
 				'twitter',
-				'count_twitter_post',
 
 
 				// sub page

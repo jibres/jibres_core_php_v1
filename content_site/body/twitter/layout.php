@@ -15,11 +15,35 @@ class layout
 	 */
 	public static function layout($_args)
 	{
+		if(a($_args, 'twitter') === 'myself')
+		{
+			$tweet = \lib\app\twitter\business::get_my_posts(['limit' => 1]);
+			if(isset($tweet[0]))
+			{
+				$tweet = $tweet[0];
+			}
 
-		$blog = \lib\app\twitter\business::get_my_posts(['limit' => 1]);
+			$tweet['twusername']  = a($tweet, 'socialpostdetail', 'twusername');
+			$tweet['twname']      = a($tweet, 'socialpostdetail', 'twname');
+			$tweet['twavatar']    = a($tweet, 'socialpostdetail', 'twavatar');
+			$tweet['twverified']  = a($tweet, 'socialpostdetail', 'twverified');
+			$tweet['twcreatedat'] = a($tweet, 'socialpostdetail', 'twcreatedat');
+		}
+		else
+		{
+			$tweet = [];
+		    $tweet['channel'] = a($_args, 'channel');
+		    $tweet['twname'] = a($_args, 'twname');
+		    $tweet['twusername'] = a($_args, 'twusername');
+		    $tweet['twavatar'] = a($_args, 'twavatar');
+		    $tweet['twverified'] = a($_args, 'twverified');
+		    $tweet['twcreatedat'] = a($_args, 'twcreatedat');
+		    $tweet['content'] = a($_args, 'twcontent');
+		}
 
 
-		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args, $blog);
+
+		return \content_site\call_function::final_html(__NAMESPACE__, a($_args, 'model'), $_args, $tweet);
 	}
 
 
