@@ -6,7 +6,7 @@ class separator1_html
 {
 	public static function html($_args)
 	{
-		$html = \content_site\assemble\wrench\section::element_start($_args);
+		$html = \content_site\assemble\wrench\section::element_start($_args, 'seperator');
 		{
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'text-center']);
 			{
@@ -38,7 +38,7 @@ class separator1_html
 			}
 			$html .= "</div>";
 		}
-		$html .= \content_site\assemble\wrench\section::element_end($_args);
+		$html .= \content_site\assemble\wrench\section::element_end($_args, 'seperator');
 
 		return $html;
 	}
