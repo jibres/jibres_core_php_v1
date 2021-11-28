@@ -329,10 +329,10 @@ class magicbox
 			{
 				if($myTitle)
 				{
-					$titleClass = 'leading-7 line-clamp-2 font-bold';
+					$titleClass = 'leading-5 md:leading-7 line-clamp-2 font-bold';
 					if($myDesc)
 					{
-						$titleClass .= ' text-xl';
+						$titleClass .= ' text-lg md:text-xl';
 					}
 					// show title
 					$html .= "<h3 class='". $titleClass. "'>";
@@ -346,7 +346,7 @@ class magicbox
 				{
 					$html .= "<div class='hidden md:block'>";
 					{
-						$html .= "<div class='leading-7 line-clamp-2 text-sm'>";
+						$html .= "<div class='leading-5 md:leading-7 line-clamp-2 text-sm'>";
 						$html .= $myDesc;
 						$html .= '</div>';
 					}
