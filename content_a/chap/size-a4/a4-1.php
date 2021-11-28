@@ -38,17 +38,17 @@
        <th></th>
        <th><?php echo T_("Explanation"); ?></th>
        <th><?php echo T_("Unit price"); ?></th>
-       <th><?php echo T_("Qty"); ?></th>
+       <th class="px-1"><?php echo T_("Qty"); ?></th>
 <?php if(\dash\data::haveUnit()){?>
-       <th><?php echo T_("Unit"); ?></th>
+       <th class="px-1"><?php echo T_("Unit"); ?></th>
 <?php } ?>
 <?php if(\dash\data::invoice_subdiscount()) {?>
-       <th><?php echo T_("Total price"); ?></th>
-       <th><?php echo T_("Total discount"); ?></th>
+       <th class="px-1"><?php echo T_("Total price"); ?></th>
+       <th class="px-1"><?php echo T_("Total discount"); ?></th>
 <?php }?>
 <?php if(\dash\data::invoice_subvat()) { ?>
-       <th><?php echo T_("Total price after discount"); ?></th>
-       <th><?php echo T_("Total VAT"); ?></th>
+       <th class="px-1"><?php echo T_("Total price after discount"); ?></th>
+       <th class="px-1"><?php echo T_("Total VAT"); ?></th>
 <?php }?>
        <th><?php echo T_("Final Price"); ?> <small class="text-xs px-1">( <?php echo \lib\store::currency(); ?> )</small></th>
       </tr>
