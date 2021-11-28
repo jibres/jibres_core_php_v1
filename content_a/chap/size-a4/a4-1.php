@@ -81,7 +81,7 @@ if(is_array(\dash\data::invoiceDetail()))
        <td class="px-2"><?php echo \dash\fit::number($key + 1); ?></td>
        <td class="productTitle"><?php echo a($dataRow, 'title');?></td>
        <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'price')); ?></td>
-       <td class="valPrice"><?php echo \dash\fit::price(a($dataRow, 'count')); ?></td>
+       <td class="valPrice text-center px-1"><?php echo \dash\fit::price(a($dataRow, 'count')); ?></td>
        <td class="text-xs"><?php echo a($dataRow, 'unit'); ?></td>
 <?php if(\dash\data::invoice_subdiscount()) {?>
        <td class="valPrice"><?php echo \dash\fit::price($totalPrice); ?></td>
