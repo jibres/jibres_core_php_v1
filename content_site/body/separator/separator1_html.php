@@ -21,10 +21,10 @@ class separator1_html
 				$svg = null;
 				if(a($_args, 'separator_icon'))
 				{
-					$svg = \dash\utility\icon::bootstrap(a($_args, 'separator_icon'), 'mx-auto', ['height' => 30]);
+					$svg = \dash\utility\icon::bootstrap(a($_args, 'separator_icon'), 'mx-auto', ['height' => 20]);
 				}
 
-				$hrStyle = 'border:none;width:100%;display:block;margin:15px 0;';
+				$hrStyle = 'border:none;width:100%;display:block;margin:10px 0;';
 				$hrStyle .= 'border-bottom:'. $height. ' '. $style. ' '. $color. ';';
 
 				$html .= '<div class="relative overflow-hidden">';

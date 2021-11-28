@@ -11,12 +11,13 @@ class add_text
 		if($_text || $_svg)
 		{
 			$topOffset = str_replace('px', '', $_height);
-			$topOffset = round(intval($topOffset) / 2) - 1;
+			$topOffset = round(intval($topOffset) / 2);
 			// $topOffset = $topOffset + 25;
 
 			$textStyle = 'position:absolute;top:0;right:0;left:0;margin:0 auto;';
-			$textStyle .= 'display:inline-block;line-height:30px;height:30px;max-width:100px;padding:0 10px;';
+			$textStyle .= 'display:inline-block;line-height:20px;height:20px;max-width:100px;padding:0 10px;';
 			$textStyle .= 'margin-top:'. $topOffset.'px;';
+			// $textStyle .= 'margin-top:0;';
 			$textStyle .= 'color:'. $_color. ';';
 			$textStyle .= 'font-size:28px;';
 			if($_bg)
@@ -35,7 +36,7 @@ class add_text
 				if($_svg)
 				{
 					// $svgSrc = 'data:image/svg+xml,'. rawurlencode($_svg);
-					// $imgStyle = 'max-height:30px;display:block; margin:0 auto;';
+					// $imgStyle = 'max-height:20px;display:block; margin:0 auto;';
 					// $html .= '<img alt="separator" src="'. $svgSrc. '" style="'. $imgStyle. '">';
 
 					$html .= $_svg;

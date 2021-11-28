@@ -22,7 +22,7 @@ class separator2_html
 					}
 					else
 					{
-						$svg = \dash\utility\icon::bootstrap(a($_args, 'separator_icon'), 'mx-auto', ['height' => 30]);
+						$svg = \dash\utility\icon::bootstrap(a($_args, 'separator_icon'), 'mx-auto', ['height' => 20]);
 					}
 				}
 
@@ -30,7 +30,7 @@ class separator2_html
 				$text = '§';
 				$text = null;
 
-				$hrStyle = 'border:none;width:100%;display:block;margin:15px 0;';
+				$hrStyle = 'border:none;width:100%;display:block;margin:10px 0;';
 				$hrStyle .= 'height:'. $height. ';';
 				$hrStyle .= 'background-image:linear-gradient(to right,rgba(0,0,0,0),'. $color. ',rgba(0,0,0,0));';
 
