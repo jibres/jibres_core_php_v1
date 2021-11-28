@@ -43,7 +43,7 @@ class twitter_link
 		$current = 'https://twitter.com/'. $path;
 
 		$save = [];
-		// if($default !== $current)
+		if($default !== $current)
 		{
 			$fetch = \lib\app\twitter\business::lookup_tweet($explode[0], $explode[2]);
 
