@@ -81,10 +81,10 @@ class video
 			$html .= 'muted ';
 		}
 
-		if(a($_args, 'video_disablepictureinpicture'))
-		{
-			$html .= 'disablePictureInPicture ';
-		}
+		// if(a($_args, 'video_disablepictureinpicture'))
+		// {
+		// 	$html .= 'disablePictureInPicture ';
+		// }
 
 		if(a($_args, 'video_poster'))
 		{
@@ -104,6 +104,7 @@ class video
 		$html .= "<source ";
 		if($playerMode === 'default')
 		{
+			$html .= "src='' ";
 			$html .= "data-src";
 		}
 		else
