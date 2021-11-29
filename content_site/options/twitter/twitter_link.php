@@ -61,6 +61,9 @@ class twitter_link
 				$save['twverified']  = a($fetch_result, 'user_detail', 'data', 'verified');
 				$save['twcreatedat'] = a($fetch_result, 'tweet', 'data', 'created_at');
 				$save['twcontent']   = a($fetch_result, 'tweet', 'data', 'text');
+				$save['twlang']      = a($fetch_result, 'tweet', 'data', 'lang');
+				$save['twgallery']   = a($fetch_result, 'tweet', 'includes', 'media');
+
 			}
 		}
 
