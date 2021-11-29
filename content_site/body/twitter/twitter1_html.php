@@ -6,6 +6,12 @@ class twitter1_html
 {
 	public static function html($_args, $_tweet)
 	{
+    $twTweet        = a($_tweet, 'twcontent');
+
+    if(!$twTweet)
+    {
+      return '';
+    }
 
     $darkMode       = a($_args, 'twitter_darkmode');
     $theme          = a($_args, 'twitter_theme');
@@ -20,7 +26,6 @@ class twitter1_html
     }
     $twName         = a($_tweet, 'twname');
 
-    $twTweet        = a($_tweet, 'twcontent');
     $twTweetImg     = null;
 
     if(a($_tweet, 'twthumb'))
