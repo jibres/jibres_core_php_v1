@@ -162,7 +162,7 @@ class static_files
 		$robots .= "Disallow: /*.txt$". "\n\n";
 
 		// allow
-		$robots .= "Sitemap: /sitemap.xml". "\n";
+		$robots .= "Sitemap: ". \dash\url::base() . "/sitemap.xml". "\n";
 
 		// cache 1 day
 		\dash\header::cache(60*60*24);
