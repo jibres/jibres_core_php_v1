@@ -27,13 +27,30 @@ class layout
 				$tweet = $tweet[0];
 			}
 
-			$tweet['twusername']  = a($tweet, 'socialpostdetail', 'twusername');
-			$tweet['twname']      = a($tweet, 'socialpostdetail', 'twname');
-			$tweet['twavatar']    = a($tweet, 'socialpostdetail', 'twavatar');
-			$tweet['twverified']  = a($tweet, 'socialpostdetail', 'twverified');
-			$tweet['twcreatedat'] = a($tweet, 'socialpostdetail', 'twcreatedat');
-			$tweet['twthumb'] = a($tweet, 'thumb');
-			$tweet['twcontent'] = self::remove_t_co_link(a($tweet, 'content'));
+			if(is_array(a($tweet, 'socialpostdetail')))
+			{
+				foreach ($tweet['socialpostdetail'] as $key => $value)
+				{
+					if(substr($key, 0,2) === 'tw')
+					{
+						$tweet[$key] = $value;
+					}
+				}
+			}
+
+			if(is_array(a($tweet, 'socialpostdetail', 'tweet')))
+			{
+				foreach ($tweet['socialpostdetail']['tweet'] as $key => $value)
+				{
+					if(substr($key, 0,2) === 'tw')
+					{
+						$tweet[$key] = $value;
+					}
+				}
+			}
+
+			$tweet['twcontent'] = self::remove_t_co_link(a($tweet, 'twcontent'));
+
 
 		}
 		else

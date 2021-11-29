@@ -56,38 +56,13 @@ class twitter_link
 			{
 				$fetch_result         = $fetch['result'];
 
-				$user_detail = a($fetch, 'result', 'user_detail', 'data');
+				$user_detail = a($fetch, 'result', 'user_detail');
 				$tweet       = a($fetch, 'result', 'tweet');
 
-				$save['channel']        = a($user_detail, 'username');
-				$save['twname']         = a($user_detail, 'name');
-				$save['twusername']     = a($user_detail, 'username');
-				$save['twavatar']       = a($user_detail, 'profile_image_url');
-				$save['twverified']     = a($user_detail, 'verified');
-				$save['twcreatedat']    = a($tweet, 'data', 'created_at');
-				$save['twcontent']      = a($tweet, 'data', 'text');
-				$save['twlang']         = a($tweet, 'data', 'lang');
-				$media        = a($tweet, 'includes', 'media');
-				if(a($media, 0, 'preview_image_url'))
-				{
-					$save['twthumb']        = a($media, 0, 'preview_image_url');
-				}
-				else
-				{
-					$save['twthumb']        = a($media, 0, 'url');
-				}
+				$save = array_merge($save, \lib\app\twitter\extract::user_detail($user_detail));
+				$save = array_merge($save, \lib\app\twitter\extract::tweet_detail($tweet));
 
-				$entities               = a($tweet, 'data', 'entities');
-
-				$save['twurl']          = a($entities, 'urls', 0, 'url');
-
-				$save['twlikescount']   = a($tweet, 'data', 'public_metrics', 'like_count');
-				$save['twreplycount']   = a($tweet, 'data', 'public_metrics', 'reply_count');
-				$save['twretweetcount'] = a($tweet, 'data', 'public_metrics', 'retweet_count');
-				$save['twquotecount']   = a($tweet, 'data', 'public_metrics', 'quote_count');
 			}
-			// var_dump($fetch);
-			// var_dump($save);exit;
 
 		}
 

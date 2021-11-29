@@ -414,16 +414,12 @@ class search
 							$temp['channel'] = a($value, 'channel');
 							$data = json_decode(a($value, 'data'), true);
 
-							if(a($value, 'social') === 'twitter')
+							if(!is_array($data))
 							{
-								$temp['twusername'] = a($data, 'user_detail', 'username');
-								$temp['twname']     = a($data, 'user_detail', 'name');
-								$temp['twavatar']   = a($data, 'user_detail', 'profile_image_url');
-								$temp['twverified'] = a($data, 'user_detail', 'verified');
-								$temp['twcreatedat'] = a($data, 'user_detail', 'created_at');
-
+								$data = [];
 							}
 
+							$temp = array_merge($temp, $data);
 
 							$social_posts_pretty[$value['post_id']] = $temp;
 						}
