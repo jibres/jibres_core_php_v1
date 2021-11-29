@@ -47,7 +47,10 @@ class p1
 					'padding_bottom',
 					'container',
 				],
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 			'default'      =>
 			[

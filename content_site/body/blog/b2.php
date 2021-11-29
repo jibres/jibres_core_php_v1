@@ -47,7 +47,10 @@ class b2
 					'container',
 					'magicbox_gap',
 				],
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 			'default'      =>
 			[

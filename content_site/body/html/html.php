@@ -20,7 +20,10 @@ class html
 			[
 				'heading_raw',
 				'html',
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 
 			'preview_list' =>

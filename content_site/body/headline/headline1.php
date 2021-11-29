@@ -46,7 +46,10 @@ class headline1
 					'container_align',
 					'container_justify',
 				],
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 			'default'      =>
 			[

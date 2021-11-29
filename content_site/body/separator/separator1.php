@@ -31,7 +31,10 @@ class separator1
 					'padding_top',
 					'padding_bottom',
 				],
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 			'default'      =>
 			[

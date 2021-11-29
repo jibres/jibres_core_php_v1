@@ -26,7 +26,10 @@ class space1
 				[
 					'height',
 				],
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 			'default'      =>
 			[

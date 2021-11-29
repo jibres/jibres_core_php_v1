@@ -46,7 +46,10 @@ class g1
 					'container_gallery',
 					'magicbox_gap',
 				],
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 			'maximum_capacity' => 12,
 

@@ -38,7 +38,10 @@ class visitcard1
 					'padding_bottom',
 
 				],
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 			'default'      =>
 			[

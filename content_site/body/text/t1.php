@@ -34,7 +34,10 @@ class t1
 					'padding_bottom',
 					'container_gallery_g4',
 				],
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 			'default'      =>
 			[

@@ -57,7 +57,10 @@ class p4
 					'padding_bottom',
 					'container_product_p4',
 				],
-				'responsive' => ['responsive_device',],
+				'responsive' =>
+				[
+					'responsive_device',
+				],
 			],
 			'default'      =>
 			[
