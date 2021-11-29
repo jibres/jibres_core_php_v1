@@ -10,7 +10,7 @@
 if (\dash\detect\device::detectPWA())
   echo 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0';
 else
-  echo 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.1, user-scalable=0';
+  echo 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5, user-scalable=0';
 ?>" name="viewport"/>
 <?php
 if (!\dash\data::pageWithLogin())
