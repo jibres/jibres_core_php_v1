@@ -260,7 +260,6 @@ class api
 				'param'  =>
 				[
 					'max_results' => 5,
-					// 'tweet.fields' =>  implode(',', 'attachments','author_id','context_annotations','conversation_id','created_at','entities','geo','id','in_reply_to_user_id','lang','possibly_sensitive','reply_settings','source','text','withheld'),
 					'tweet.fields' =>  self::tweet_fields(),
 				],
 			];
@@ -296,10 +295,9 @@ class api
 			'bearer' => true,
 			'param'  =>
 			[
-				// 'tweet.fields' =>  implode(',', 'attachments','author_id','context_annotations','conversation_id','created_at','entities','geo','id','in_reply_to_user_id','lang','possibly_sensitive','reply_settings','source','text','withheld'),
 				'tweet.fields' =>  implode(',', ['context_annotations','attachments','author_id','created_at','id','lang','source','text','withheld']),
-				'media.fields' => implode(',', ['duration_ms', 'height', 'media_key', 'preview_image_url', 'type', 'url', 'width', 'public_metrics', 'non_public_metrics', 'organic_metrics', 'promoted_metrics', 'alt_text']),
-				'expansions'   => 'attachments.media_keys',
+				'media.fields' => implode(',', ['duration_ms', 'height', 'media_key', 'preview_image_url', 'type', 'url', 'width', 'public_metrics', 'alt_text']),
+				'expansions'   => implode(',', ['attachments.media_keys', 'referenced_tweets.id']),
 			],
 		];
 
