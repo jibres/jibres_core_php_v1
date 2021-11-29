@@ -84,7 +84,7 @@ class twitter1_html
           {
             if($twAvatar)
             {
-              $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank">';
+              $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank" class="aspect-w-1 aspect-h-1">';
               {
                 $html .= '<img alt="Twitter user" src="'. \dash\sample\img::blank() . '" data-src="'. $twAvatar. '" class="w-12 h-12 inline object-cover rounded-full transition" alt="'. $twName. '">';
               }
