@@ -84,9 +84,9 @@ class twitter1_html
           {
             if($twAvatar)
             {
-              $html .= '<a href="'. $twprofileurl. '" target="_blank">';
+              $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank">';
               {
-                $html .= '<img src="'. \dash\sample\img::blank() . '" data-src="'. $twAvatar. '" class="w-12 h-12 inline object-cover rounded-full transition" alt="'. $twName. '">';
+                $html .= '<img alt="Twitter user" src="'. \dash\sample\img::blank() . '" data-src="'. $twAvatar. '" class="w-12 h-12 inline object-cover rounded-full transition" alt="'. $twName. '">';
               }
               $html .= '</a>';
             }
@@ -98,7 +98,7 @@ class twitter1_html
               {
                 $html .= '<div class="whitespace-nowrap line-clamp-1">';
                 {
-                  $html .= '<a href="'. $twprofileurl. '" target="_blank">';
+                  $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank">';
                   {
                     $html .= $twName;
                   }
@@ -116,7 +116,7 @@ class twitter1_html
               // twitter user name
               $html .= '<div dir="ltr" class="whitespace-nowrap line-clamp-1 text-gray-500 leading-5 text-sm txtLa">';
               {
-                $html .= '<a href="'. $twprofileurl. '" target="_blank">';
+                $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank">';
                 {
                   $html .= $twUsername;
                 }
@@ -126,7 +126,7 @@ class twitter1_html
             }
             $html .= "</div>";
 
-            $html .= '<a href="'. $twurl. '" target="_blank">';
+            $html .= '<a rel="noopener" href="'. $twurl. '" target="_blank">';
             {
               $html .= \dash\utility\icon::bootstrap('twitter', 'self-start w-8 h-8', ['fill' => '#1ea0f1']);
             }
@@ -141,7 +141,7 @@ class twitter1_html
             if($twTweetImg)
             {
               $html .= "<div class='w-full relative overflow-hidden rounded-xl mt-2 md:mt-4'>";
-              $html .= "<img src='". $twTweetImg. "' class=''>";
+              $html .= "<img src='". $twTweetImg. "' class='' alt='Twiiter'>";
 
               // https://pbs.twimg.com/media/FCmhwHTXIAcVqxx?format=jpg&name=small
               $html .= "</div>";
