@@ -43,7 +43,8 @@ class twitter_link
 		$current = 'https://twitter.com/'. $path;
 
 		$save = [];
-		if($default !== $current)
+
+		// if($default !== $current)
 		{
 			$fetch = \lib\app\twitter\business::lookup_tweet($explode[0], $explode[2]);
 
@@ -62,10 +63,12 @@ class twitter_link
 				$save['twcreatedat'] = a($fetch_result, 'tweet', 'data', 'created_at');
 				$save['twcontent']   = a($fetch_result, 'tweet', 'data', 'text');
 				$save['twlang']      = a($fetch_result, 'tweet', 'data', 'lang');
-				$save['twgallery']   = a($fetch_result, 'tweet', 'includes', 'media');
+				$save['twmedia']     = a($fetch_result, 'tweet', 'includes', 'media');
+				$save['twthumb']     = a($save, 'twmedia', 0, 'url');
 
 			}
 		}
+
 
 		$save['twitter_link'] = $current;
 

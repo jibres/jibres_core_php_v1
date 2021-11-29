@@ -23,9 +23,9 @@ class twitter1_html
     $twTweet        = a($_tweet, 'content');
     $twTweetImg     = null;
 
-    if(a($_tweet, 'thumb'))
+    if(a($_tweet, 'twthumb'))
     {
-      $twTweetImg     = \lib\filepath::fix(a($_tweet, 'thumb'));
+      $twTweetImg     = \lib\filepath::fix(a($_tweet, 'twthumb'));
     }
 
     $twAvatar   = a($_tweet, 'twavatar');
