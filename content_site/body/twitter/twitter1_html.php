@@ -40,7 +40,7 @@ class twitter1_html
 
     $twDateTime     = a($_tweet, 'twcreatedat');
     // get theme colors
-    $themeBgStyle = \content_site\options\twitter\twitter_theme::get_style($theme);
+    $themeBgStyle = a($_args, 'background:style');
 
     $twprofileurl   = 'https://twitter.com/'. a($_tweet, 'twusername');
     $twurl          = a($_tweet, 'twurl');
@@ -54,7 +54,7 @@ class twitter1_html
       {
         $html .= \content_site\assemble\wrench\heading::simple1($_args);
 
-        $boxStyle = 'background-image:'. $themeBgStyle;
+        $boxStyle = /*'background-image:'.*/ $themeBgStyle;
         $boxClass = 'max-w-prose mx-auto w-full transition relative z-0 overflow-hidden bg-red-200 p-6 '. $borderRadius;
         if($size === 'lg')
         {

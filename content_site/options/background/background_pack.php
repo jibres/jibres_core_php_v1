@@ -96,6 +96,8 @@ class background_pack
 
 			'background_gradient_attachment',
 			'background_color_random',
+			'background_gradient_model',
+			'background_gradient_pallet',
 		];
 
 	}
@@ -104,6 +106,7 @@ class background_pack
 
 	public static function admin_html($_section_detail)
 	{
+
 
 		$default = \content_site\section\view::get_current_index_detail('background_pack');
 
@@ -152,13 +155,26 @@ class background_pack
 
 		$html .= '<div data-response="opt_background_pack" data-response-where="gradient" '.(($default === 'gradient') ? null : 'data-response-hide').'>';
 		{
-			$html .= background_gradient_type::admin_html();
+			$html .= background_gradient_model::admin_html();
+			$gradient_model = background_gradient_model::get_value();
 
-			$html .= "<label for='color-opt_background_gradient_from' class='block mT5-f'>". T_("Gradient colors"). "</label>";
-			$html .= background_gradient_from::admin_html();
-			// $html .= background_gradient_via::admin_html();
-			$html .= background_gradient_to::admin_html();
-			$html .= background_color_random::admin_html_gradient();
+			$html .= '<div data-response="opt_background_gradient_model" data-response-where="pallet" '.(($gradient_model === 'pallet') ? null : 'data-response-hide').'>';
+			{
+				$html .= background_gradient_pallet::admin_html();
+			}
+			$html .= '</div>';
+
+			$html .= '<div data-response="background_gradient_model" data-response-where-not="pallet" '.(($gradient_model !== 'pallet') ? null : 'data-response-hide').'>';
+			{
+				$html .= background_gradient_type::admin_html();
+
+				$html .= "<label for='color-opt_background_gradient_from' class='block mT5-f'>". T_("Gradient colors"). "</label>";
+				$html .= background_gradient_from::admin_html();
+				// $html .= background_gradient_via::admin_html();
+				$html .= background_gradient_to::admin_html();
+				$html .= background_color_random::admin_html_gradient();
+			}
+			$html .= '</div>';
 		}
 		$html .= '</div>';
 

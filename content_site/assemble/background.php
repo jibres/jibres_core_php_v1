@@ -105,44 +105,52 @@ class background
 				break;
 
 			case 'gradient';
-				// backgroun gradient type
-				if(!a($_data, 'background_gradient_type'))
+				if(a($_data, 'background_gradient_model') === 'pallet' && a($_data, 'background_gradient_pallet'))
 				{
-					$_data['background_gradient_type'] = \content_site\options\background\background_gradient_type::default();
+					$style[] = "background:". \content_site\options\background\background_gradient_pallet::get_style(a($_data, 'background_gradient_pallet')). ';';
+				}
+				else
+				{
+
+					// backgroun gradient type
+					if(!a($_data, 'background_gradient_type'))
+					{
+						$_data['background_gradient_type'] = \content_site\options\background\background_gradient_type::default();
+					}
+
+					$gradient_type = $_data['background_gradient_type'];
+
+
+					// backgroun gradient from
+					if(!a($_data, 'background_gradient_from'))
+					{
+						$_data['background_gradient_from'] = \content_site\options\background\background_gradient_from::default();
+					}
+
+					$from = $_data['background_gradient_from'];
+					// // backgroun gradient via
+					// if(!a($_data, 'background_gradient_via'))
+					// {
+					// 	$_data['background_gradient_via'] = \content_site\options\background\background_gradient_via::default();
+					// }
+
+					// $via =  $_data['background_gradient_via'];
+
+
+					// backgroun gradient to
+					if(!a($_data, 'background_gradient_to'))
+					{
+						$_data['background_gradient_to'] = \content_site\options\background\background_gradient_to::default();
+					}
+
+					$to = $_data['background_gradient_to'];
+
+					if(is_string($from) && is_string($to) && is_string($gradient_type))
+					{
+						$style[] = "background:linear-gradient($gradient_type,$from,$to);";
+					}
 				}
 
-				$gradient_type = $_data['background_gradient_type'];
-
-
-				// backgroun gradient from
-				if(!a($_data, 'background_gradient_from'))
-				{
-					$_data['background_gradient_from'] = \content_site\options\background\background_gradient_from::default();
-				}
-
-				$from = $_data['background_gradient_from'];
-
-				// // backgroun gradient via
-				// if(!a($_data, 'background_gradient_via'))
-				// {
-				// 	$_data['background_gradient_via'] = \content_site\options\background\background_gradient_via::default();
-				// }
-
-				// $via =  $_data['background_gradient_via'];
-
-
-				// backgroun gradient to
-				if(!a($_data, 'background_gradient_to'))
-				{
-					$_data['background_gradient_to'] = \content_site\options\background\background_gradient_to::default();
-				}
-
-				$to = $_data['background_gradient_to'];
-
-				if(is_string($from) && is_string($to) && is_string($gradient_type))
-				{
-					$style[] = "background:linear-gradient($gradient_type,$from,$to);";
-				}
 
 				break;
 

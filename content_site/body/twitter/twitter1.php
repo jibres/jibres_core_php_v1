@@ -20,7 +20,7 @@ class twitter1
 				'heading',
 
 				'twitter',
-				'twitter_theme',
+
 				'twitter_size',
 				'twitter_darkmode',
 				'twitter_show_detail',
