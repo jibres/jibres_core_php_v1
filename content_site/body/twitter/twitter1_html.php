@@ -60,7 +60,7 @@ class twitter1_html
         $html .= \content_site\assemble\wrench\heading::simple1($_args);
 
         $boxStyle = /*'background-image:'.*/ $themeBgStyle;
-        $boxClass = 'max-w-prose mx-auto w-full transition relative z-0 overflow-hidden bg-red-200 p-6 '. $borderRadius;
+        $boxClass = 'max-w-prose mx-auto w-full transition relative z-0 overflow-hidden bg-blue-200 p-6 '. $borderRadius;
         if($size === 'lg')
         {
           $boxClass .= ' text-lg';
