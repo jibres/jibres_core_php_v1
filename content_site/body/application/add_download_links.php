@@ -94,7 +94,9 @@ class add_download_links
     {
       $imgClass = a($_opt, 'imgClass');
     }
+    $myEl .= '<div class="aspect-w-32 aspect-h-9">';
     $myEl .= '<img src="'. \dash\sample\img::blank() .'" data-src="'. $imgSrc. '" alt="'. $imgAlt. '" class="'. $imgClass. '">';
+    $myEl .= '</div>';
     $myEl .= '</a>';
 
     return $myEl;
