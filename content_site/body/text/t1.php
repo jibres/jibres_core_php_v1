@@ -34,7 +34,7 @@ class t1
 					'padding_bottom',
 					'container_gallery_g4',
 				],
-				'responsive' => \content_site\utility::set_responsive_option(),
+				'responsive' => ['responsive_device',],
 			],
 			'default'      =>
 			[

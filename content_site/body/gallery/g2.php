@@ -54,7 +54,7 @@ class g2
 					'container_gallery',
 					'magicbox_gap',
 				],
-				'responsive' => \content_site\utility::set_responsive_option(),
+				'responsive' => ['responsive_device',],
 			],
 			'break_image_list' => 4,
 			'maximum_capacity' => 14,

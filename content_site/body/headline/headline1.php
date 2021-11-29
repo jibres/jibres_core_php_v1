@@ -46,7 +46,7 @@ class headline1
 					'container_align',
 					'container_justify',
 				],
-				'responsive' => \content_site\utility::set_responsive_option(),
+				'responsive' => ['responsive_device',],
 			],
 			'default'      =>
 			[

@@ -50,7 +50,7 @@ class p2
 					'container',
 					'magicbox_gap',
 				],
-				'responsive' => \content_site\utility::set_responsive_option(),
+				'responsive' => ['responsive_device',],
 			],
 			'default'      =>
 			[

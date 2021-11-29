@@ -41,7 +41,7 @@ class instagram1
 					'padding_bottom',
 					'container',
 				],
-				'responsive' => \content_site\utility::set_responsive_option(),
+				'responsive' => ['responsive_device',],
 			],
 			'default'      =>
 			[
