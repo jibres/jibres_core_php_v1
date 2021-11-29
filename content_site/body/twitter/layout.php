@@ -33,20 +33,21 @@ class layout
 			$tweet['twverified']  = a($tweet, 'socialpostdetail', 'twverified');
 			$tweet['twcreatedat'] = a($tweet, 'socialpostdetail', 'twcreatedat');
 			$tweet['twthumb'] = a($tweet, 'thumb');
-			$tweet['content'] = self::remove_t_co_link(a($tweet, 'content'));
+			$tweet['twcontent'] = self::remove_t_co_link(a($tweet, 'content'));
 
 		}
 		else
 		{
 			$tweet                = [];
+			foreach ($_args as $key => $value)
+			{
+				if(substr($key, 0,2) === 'tw')
+				{
+					$tweet[$key] = $value;
+				}
+			}
 			$tweet['channel']     = a($_args, 'channel');
-			$tweet['twname']      = a($_args, 'twname');
-			$tweet['twusername']  = a($_args, 'twusername');
-			$tweet['twavatar']    = a($_args, 'twavatar');
-			$tweet['twverified']  = a($_args, 'twverified');
-			$tweet['twcreatedat'] = a($_args, 'twcreatedat');
-			$tweet['content']     = self::remove_t_co_link(a($_args, 'twcontent'));
-			$tweet['twthumb']     = a($_args, 'twthumb');
+			$tweet['twcontent']     = self::remove_t_co_link(a($_args, 'twcontent'));
 		}
 
 

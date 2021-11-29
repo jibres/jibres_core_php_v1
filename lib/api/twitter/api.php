@@ -295,11 +295,13 @@ class api
 			'bearer' => true,
 			'param'  =>
 			[
-				'tweet.fields' =>  implode(',', ['context_annotations','attachments','author_id','created_at','id','lang','source','text','withheld']),
+				'tweet.fields' => implode(',' , ['attachments','author_id','context_annotations','conversation_id','created_at','entities','geo','id','in_reply_to_user_id','lang','public_metrics','possibly_sensitive','referenced_tweets','reply_settings','source','text','withheld']),
 				'media.fields' => implode(',', ['duration_ms', 'height', 'media_key', 'preview_image_url', 'type', 'url', 'width', 'public_metrics', 'alt_text']),
 				'expansions'   => implode(',', ['attachments.media_keys', 'referenced_tweets.id']),
 			],
 		];
+
+
 
 
 		$tweet =  self::run($args);

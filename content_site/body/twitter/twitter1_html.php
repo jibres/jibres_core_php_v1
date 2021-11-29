@@ -20,7 +20,7 @@ class twitter1_html
     }
     $twName         = a($_tweet, 'twname');
 
-    $twTweet        = a($_tweet, 'content');
+    $twTweet        = a($_tweet, 'twcontent');
     $twTweetImg     = null;
 
     if(a($_tweet, 'twthumb'))
@@ -32,16 +32,20 @@ class twitter1_html
     $twVerified = a($_tweet, 'twverified');
 
 
-    $twDetail       = false;
+    $twDetail       = true;
 
-    $twStatRetweet  = 152;
-    $twStatQuote    = 8;
-    $twStatLike     = 981;
+    $twStatRetweet  = floatval(a($_tweet, 'twretweetcount'));
+    $twStatQuote    = floatval(a($_tweet, 'twquotecount'));
+    $twStatLike     = floatval(a($_tweet, 'twlikescount'));
 
     $twDateTime     = a($_tweet, 'twcreatedat');
     // get theme colors
     $themeBgStyle = \content_site\options\twitter\twitter_theme::get_style($theme);
 
+    $twprofileurl   = 'https://twitter.com/'. a($_tweet, 'twusername');
+    $twurl          = a($_tweet, 'twurl');
+
+    $twreplycount   = a($_tweet, 'twreplycount');
 
 
     $html = \content_site\assemble\wrench\section::element_start($_args);
@@ -75,7 +79,11 @@ class twitter1_html
           {
             if($twAvatar)
             {
-              $html .= '<img src="'. \dash\sample\img::blank() . '" data-src="'. $twAvatar. '" class="w-12 h-12 inline object-cover rounded-full transition" alt="'. $twName. '">';
+              $html .= '<a href="'. $twprofileurl. '" target="_blank">';
+              {
+                $html .= '<img src="'. \dash\sample\img::blank() . '" data-src="'. $twAvatar. '" class="w-12 h-12 inline object-cover rounded-full transition" alt="'. $twName. '">';
+              }
+              $html .= '</a>';
             }
 
             $html .= '<div class="flex-grow px-2">';
@@ -84,7 +92,13 @@ class twitter1_html
               $html .= '<div class="flex text-sm leading-6 font-bold">';
               {
                 $html .= '<div class="whitespace-nowrap line-clamp-1">';
-                $html .= $twName;
+                {
+                  $html .= '<a href="'. $twprofileurl. '" target="_blank">';
+                  {
+                    $html .= $twName;
+                  }
+                  $html .= '</a>';
+                }
                 $html .= "</div>";
                 // verify badge
                 if($twVerified)
@@ -96,12 +110,23 @@ class twitter1_html
 
               // twitter user name
               $html .= '<div dir="ltr" class="whitespace-nowrap line-clamp-1 text-gray-500 leading-5 text-sm txtLa">';
-              $html .= $twUsername;
+              {
+                $html .= '<a href="'. $twprofileurl. '" target="_blank">';
+                {
+                  $html .= $twUsername;
+                }
+                $html .= '</a>';
+              }
               $html .= "</div>";
             }
             $html .= "</div>";
 
-            $html .= \dash\utility\icon::bootstrap('twitter', 'self-start w-8 h-8', ['fill' => '#1ea0f1']);
+            $html .= '<a href="'. $twurl. '" target="_blank">';
+            {
+              $html .= \dash\utility\icon::bootstrap('twitter', 'self-start w-8 h-8', ['fill' => '#1ea0f1']);
+            }
+            $html .= '</a>';
+
           }
           $html .= "</header>";
 

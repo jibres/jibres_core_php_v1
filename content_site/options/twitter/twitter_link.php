@@ -54,19 +54,32 @@ class twitter_link
 			}
 			else
 			{
-				$fetch_result        = $fetch['result'];
-				$save['channel']     = a($fetch_result, 'user_detail', 'data', 'username');
-				$save['twname']      = a($fetch_result, 'user_detail', 'data', 'name');
-				$save['twusername']  = a($fetch_result, 'user_detail', 'data', 'username');
-				$save['twavatar']    = a($fetch_result, 'user_detail', 'data', 'profile_image_url');
-				$save['twverified']  = a($fetch_result, 'user_detail', 'data', 'verified');
-				$save['twcreatedat'] = a($fetch_result, 'tweet', 'data', 'created_at');
-				$save['twcontent']   = a($fetch_result, 'tweet', 'data', 'text');
-				$save['twlang']      = a($fetch_result, 'tweet', 'data', 'lang');
-				$save['twmedia']     = a($fetch_result, 'tweet', 'includes', 'media');
-				$save['twthumb']     = a($save, 'twmedia', 0, 'url');
+				$fetch_result         = $fetch['result'];
 
+				$user_detail = a($fetch, 'result', 'user_detail', 'data');
+				$tweet       = a($fetch, 'result', 'tweet');
+
+				$save['channel']        = a($user_detail, 'username');
+				$save['twname']         = a($user_detail, 'name');
+				$save['twusername']     = a($user_detail, 'username');
+				$save['twavatar']       = a($user_detail, 'profile_image_url');
+				$save['twverified']     = a($user_detail, 'verified');
+				$save['twcreatedat']    = a($tweet, 'data', 'created_at');
+				$save['twcontent']      = a($tweet, 'data', 'text');
+				$save['twlang']         = a($tweet, 'data', 'lang');
+				$media        = a($tweet, 'includes', 'media');
+				$save['twthumb']        = a($media, 0, 'url');
+
+				$entities               = a($tweet, 'data', 'entities');
+
+				$save['twurl']          = a($entities, 'urls', 0, 'url');
+
+				$save['twlikescount']   = a($tweet, 'data', 'public_metrics', 'like_count');
+				$save['twreplycount']   = a($tweet, 'data', 'public_metrics', 'reply_count');
+				$save['twretweetcount'] = a($tweet, 'data', 'public_metrics', 'retweet_count');
+				$save['twquotecount']   = a($tweet, 'data', 'public_metrics', 'quote_count');
 			}
+
 		}
 
 
