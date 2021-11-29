@@ -94,7 +94,7 @@ class add_download_links
     {
       $imgClass = a($_opt, 'imgClass');
     }
-    $myEl .= '<img src="'. $imgSrc. '" alt="'. $imgAlt. '" class="'. $imgClass. '">';
+    $myEl .= '<img src="'. \dash\sample\img::blank() .'" data-src="'. $imgSrc. '" alt="'. $imgAlt. '" class="'. $imgClass. '">';
     $myEl .= '</a>';
 
     return $myEl;
