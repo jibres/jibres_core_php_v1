@@ -68,7 +68,14 @@ class twitter_link
 				$save['twcontent']      = a($tweet, 'data', 'text');
 				$save['twlang']         = a($tweet, 'data', 'lang');
 				$media        = a($tweet, 'includes', 'media');
-				$save['twthumb']        = a($media, 0, 'url');
+				if(a($media, 0, 'preview_image_url'))
+				{
+					$save['twthumb']        = a($media, 0, 'preview_image_url');
+				}
+				else
+				{
+					$save['twthumb']        = a($media, 0, 'url');
+				}
 
 				$entities               = a($tweet, 'data', 'entities');
 
@@ -79,6 +86,8 @@ class twitter_link
 				$save['twretweetcount'] = a($tweet, 'data', 'public_metrics', 'retweet_count');
 				$save['twquotecount']   = a($tweet, 'data', 'public_metrics', 'quote_count');
 			}
+			// var_dump($fetch);
+			// var_dump($save);exit;
 
 		}
 
