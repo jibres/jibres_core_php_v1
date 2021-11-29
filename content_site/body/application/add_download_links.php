@@ -58,7 +58,7 @@ class add_download_links
     }
 
     $myEl   = '<a target="_blank" rel="noopener" class="'. $linkClass. '" href="'. $_link. '">';
-    $imgSrc = \dash\url::cdn(). '/img/app/get/'. $_type;
+    $imgSrc = \dash\url::cdn(). '/img/app/get-32x9/'. $_type;
     if(\dash\language::current() === 'fa')
     {
       $imgSrc .= '-fa';
