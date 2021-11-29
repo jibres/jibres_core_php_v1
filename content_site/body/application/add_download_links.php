@@ -47,7 +47,7 @@ class add_download_links
 
   private static function createDlLink($_type, $_link, $_opt)
   {
-    if(!$_link && false)
+    if(!$_link)
     {
       return null;
     }
