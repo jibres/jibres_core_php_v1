@@ -350,13 +350,13 @@ class magicbox
 				// show desc
 				if($myDesc)
 				{
-					$html .= "<div class='hidden md:block'>";
+					// $html .= "<div>";
 					{
-						$html .= "<div class='leading-5 md:leading-7 line-clamp-2 text-sm'>";
+						$html .= "<div class='leading-7 line-clamp-1 md:line-clamp-2 text-sm'>";
 						$html .= $myDesc;
 						$html .= '</div>';
 					}
-					$html .= '</div>';
+					// $html .= '</div>';
 				}
 			}
 
