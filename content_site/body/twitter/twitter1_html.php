@@ -32,7 +32,7 @@ class twitter1_html
     $twVerified = a($_tweet, 'twverified');
 
 
-    $twDetail       = true;
+    $twDetail       = a($_args, 'twitter_show_detail') !== false;
 
     $twStatRetweet  = floatval(a($_tweet, 'twretweetcount'));
     $twStatQuote    = floatval(a($_tweet, 'twquotecount'));

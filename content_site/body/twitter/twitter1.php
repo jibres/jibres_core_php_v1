@@ -23,7 +23,7 @@ class twitter1
 				'twitter_theme',
 				'twitter_size',
 				'twitter_darkmode',
-
+				'twitter_show_detail',
 
 				// sub page
 				'style' => \content_site\utility::set_style_option(
