@@ -36,7 +36,7 @@ class f_rafiei2_html
 						{
 							$html .= '<a href="'. \dash\url::kingdom() .'" class="block h-20 lg:h-24 max-w-md siteLogo rounded-lg overflow-hidden mb-6 transition hover:opacity-80 focus:opacity-80">';
 							{
-								$html .= '<img class="block grayscale" src="'. \dash\url::cdn(). '/enterprise/rafiei/header/rafiei-header-v1.png" alt="'. a($_args, 'heading'). '">';
+								$html .= '<img class="block grayscale w-full" src="'. \dash\sample\img::blank() .'" data-src="'. \dash\url::cdn(). '/enterprise/rafiei/header/rafiei-header-v1.png" alt="'. a($_args, 'heading'). '">';
 							}
 							$html .= '</a>';
 
