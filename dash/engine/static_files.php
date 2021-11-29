@@ -137,29 +137,44 @@ class static_files
 	public static function robots()
 	{
 		$robots = "";
+		$robots .= "# Hello!". "\n\n";
+
 		// allow all user agents
 		$robots .= "User-Agent: *". "\n";
 
 		// disallow
 		$robots .= "Disallow: /cgi-bin/". "\n";
-		$robots .= "Disallow: /static/". "\n";
-		$robots .= "Disallow: /enter/". "\n";
-		$robots .= "Disallow: /account/". "\n";
-		$robots .= "Disallow: /a/". "\n";
-		$robots .= "Disallow: /cp/". "\n";
-		$robots .= "Disallow: /su/". "\n";
-		$robots .= "Disallow: /manage/". "\n";
-		$robots .= "Disallow: /admin/". "\n";
-		$robots .= "Disallow: /engine/". "\n";
-		$robots .= "Disallow: /sudo/". "\n";
-		$robots .= "Disallow: /sysadmin/". "\n";
-		$robots .= "Disallow: /management/". "\n";
-		$robots .= "Disallow: /super/". "\n";
-		$robots .= "Disallow: /login/". "\n";
-		$robots .= "Disallow: /crm/". "\n";
-		$robots .= "Disallow: /cms/". "\n";
-		$robots .= "Disallow: /tmp/". "\n";
+		$robots .= "Disallow: /static/*". "\n";
+		$robots .= "Disallow: /enter/*". "\n";
+		$robots .= "Disallow: /account/*". "\n";
+		$robots .= "Disallow: /a/*". "\n";
+		$robots .= "Disallow: /cp/*". "\n";
+		$robots .= "Disallow: /su/*". "\n";
+		$robots .= "Disallow: /sudo/*". "\n";
+		$robots .= "Disallow: /manage/*". "\n";
+		$robots .= "Disallow: /management/*". "\n";
+		$robots .= "Disallow: /admin/*". "\n";
+		$robots .= "Disallow: /engine/*". "\n";
+		$robots .= "Disallow: /sysadmin/*". "\n";
+		$robots .= "Disallow: /super/*". "\n";
+		$robots .= "Disallow: /login/*". "\n";
+		$robots .= "Disallow: /crm/*". "\n";
+		$robots .= "Disallow: /cms/*". "\n";
+		$robots .= "Disallow: /tmp/*". "\n";
+		$robots .= "Disallow: /temp/*". "\n";
+		$robots .= "Disallow: /test/*". "\n";
 		$robots .= "Disallow: /*.txt$". "\n\n";
+
+		// api
+		$robots .= "Disallow: /api/*". "\n";
+
+		// online store pages
+		$robots .= "Disallow: /cart/*". "\n";
+		$robots .= "Disallow: /profile/*". "\n";
+		$robots .= "Disallow: /shipping/*". "\n";
+
+
+		$robots .= "Disallow: /tmp/". "\n";
 
 		// allow
 		$robots .= "Sitemap: ". \dash\url::base() . "/sitemap.xml". "\n";
