@@ -85,7 +85,7 @@ class option
 
 			'video_nodownload_gallery',
 			'video_nofullscreen_gallery',
-			'video_disablepictureinpicture_gallery',
+			// 'video_disablepictureinpicture_gallery',
 			'video_poster_gallery',
 			'caption_gallery',
 			'description_gallery',
