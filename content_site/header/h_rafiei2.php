@@ -34,7 +34,7 @@ class h_rafiei2
 				// 	'link_color',
 				// 	'background_color_header_line',
 				// ]),
-				'responsive' => \content_site\utility::set_responsive_option_header(),
+				'responsive' => share::set_responsive_option_header(),
 				'spacing' =>
 				[
 					'padding_top',

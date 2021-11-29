@@ -25,7 +25,7 @@ class h1
 				[
 					'font',
 				]),
-				'responsive' => \content_site\utility::set_responsive_option_header(),
+				'responsive' => share::set_responsive_option_header(),
 
 			],
 			'default'      =>

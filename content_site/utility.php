@@ -189,14 +189,6 @@ class utility
 
 
 
-	public static function set_responsive_option_header()
-	{
-		return
-		[
-			'responsive_header_title',
-			'responsive_header_search_link',
-		];
-	}
 
 	public static function set_responsive_option()
 	{
