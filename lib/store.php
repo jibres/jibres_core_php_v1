@@ -528,21 +528,74 @@ class store
 		{
 			switch ($key)
 			{
-				case 'instagram': 	$social['instagram'] = ['user' => $value, 'title' => T_("Instagram"), 'link' => 'https://instagram.com/'. $value];  break;
-				case 'telegram': 	$social['telegram']  = ['user' => $value, 'title' => T_("Telegram"), 'link' => 'https://t.me/'. $value];			break;
-				case 'youtube':		$social['youtube']   = ['user' => $value, 'title' => T_("Youtube"), 'link' => 'https://youtube.com/'. $value];	break;
-				case 'twitter':		$social['twitter']   = ['user' => $value, 'title' => T_("Twitter"), 'link' => 'https://twitter.com/'. $value];	break;
-				case 'linkedin':	$social['linkedin']  = ['user' => $value, 'title' => T_("Linkedin"), 'link' => 'https://linkedin.com/in/'. $value];	break;
-				case 'github':		$social['github']    = ['user' => $value, 'title' => T_("Github"), 'link' => 'https://github.com/'. $value];		break;
-				case 'facebook':	$social['facebook']  = ['user' => $value, 'title' => T_("Facebook"), 'link' => 'https://facebook.com/'. $value];	break;
-				case 'whatsapp':	$social['whatsapp']  = ['user' => $value, 'title' => T_("Whatsapp"), 'link' => 'https://wa.me/'. $value];	break;
-				case 'email':		$social['email']     = ['user' => $value, 'title' => T_("Email"), 'link' => 'mailto:'. $value];					break;
+				case 'instagram':
+					if($value)
+					{
+						$social['instagram'] = ['user' => $value, 'title' => T_("Instagram"), 'link' => 'https://instagram.com/'. $value];
+					}
+					break;
+
+				case 'telegram':
+					if($value)
+					{
+						$social['telegram']  = ['user' => $value, 'title' => T_("Telegram"), 'link' => 'https://t.me/'. $value];
+					}
+					break;
+
+				case 'youtube':
+					if($value)
+					{
+						$social['youtube']   = ['user' => $value, 'title' => T_("Youtube"), 'link' => 'https://youtube.com/'. $value];
+					}
+					break;
+
+				case 'twitter':
+					if($value)
+					{
+						$social['twitter']   = ['user' => $value, 'title' => T_("Twitter"), 'link' => 'https://twitter.com/'. $value];
+					}
+					break;
+
+				case 'linkedin':
+					if($value)
+					{
+						$social['linkedin']  = ['user' => $value, 'title' => T_("Linkedin"), 'link' => 'https://linkedin.com/in/'. $value];
+					}
+					break;
+
+				case 'github':
+					if($value)
+					{
+						$social['github']    = ['user' => $value, 'title' => T_("Github"), 'link' => 'https://github.com/'. $value];
+					}
+					break;
+
+				case 'facebook':
+					if($value)
+					{
+						$social['facebook']  = ['user' => $value, 'title' => T_("Facebook"), 'link' => 'https://facebook.com/'. $value];
+					}
+					break;
+
+				case 'whatsapp':
+					if($value)
+					{
+						$social['whatsapp']  = ['user' => $value, 'title' => T_("Whatsapp"), 'link' => 'https://wa.me/'. $value];
+					}
+					break;
+
+				case 'email':
+					if($value)
+					{
+						$social['email']     = ['user' => $value, 'title' => T_("Email"), 'link' => 'mailto:'. $value];
+					}
+					break;
+
 				// case 'aparat':		$social['aparat']    = ['user' => $value, 'title' => T_("Aparat"), 'link' => 'https://aparat.com/'. $value];		break;
 				default:
 					# code...
 					break;
 			}
-
 		}
 
 		if($_need)
