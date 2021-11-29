@@ -42,7 +42,7 @@ class f_rafiei2
 				// 	// 'color_text',
 				// 	// 'link_color',
 				// ]),
-				'responsive' => \content_site\utility::set_responsive_option_footer(),
+				'responsive' => share::set_responsive_option_footer(),
 
 			],
 			'default'      =>

@@ -34,7 +34,7 @@ class f3
 					// 'font',
 					'container',
 				]),
-				'responsive' => \content_site\utility::set_responsive_option_footer(),
+				'responsive' => share::set_responsive_option_footer(),
 
 			],
 			'default'      =>

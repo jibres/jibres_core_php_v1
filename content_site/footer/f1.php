@@ -19,7 +19,7 @@ class f1
 			[
 				'heading_business_header',
 				'description_copyright',
-				'responsive' => \content_site\utility::set_responsive_option_footer(),
+				'responsive' => share::set_responsive_option_footer(),
 
 			],
 			'default'      =>
