@@ -186,6 +186,12 @@ class magicbox
 					}
 					else
 					{
+						// set title for img if is not set
+						if(!$myTitle)
+						{
+							$myTitle = \lib\store::title();
+						}
+
 						// use data-src for lazyload
 						if($insideSlider)
 						{
