@@ -26,7 +26,7 @@ class h_rafiei
 				'heading_business_header',
 				'file_business_logo_header',
 				'menu_1',
-				'announcement' => \content_site\utility::set_announcement(),
+				'announcement' => share::set_announcement(),
 				'style' => \content_site\utility::set_style_option(
 				[
 					'font',

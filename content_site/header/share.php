@@ -6,6 +6,17 @@ class share
 {
 
 
+	public static function set_announcement()
+	{
+		return
+		[
+			'announcement_check',
+			'announcement_description',
+			'announcement_link',
+		];
+	}
+
+
 	public static function announcement($_args)
 	{
 		$html = '';

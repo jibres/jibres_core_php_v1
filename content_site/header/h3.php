@@ -24,7 +24,7 @@ class h3
 				'link_search',
 				'link_cart',
 				'link_enter',
-				'announcement' => \content_site\utility::set_announcement(),
+				'announcement' => share::set_announcement(),
 				'style' => \content_site\utility::set_style_option(
 				[
 					// 'font',
