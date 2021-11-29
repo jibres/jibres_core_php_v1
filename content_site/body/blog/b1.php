@@ -54,6 +54,7 @@ class b1
 				'responsive' =>
 				[
 					'responsive_device',
+					'responsive_grid_magicbox',
 				],
 			],
 			'default'      =>

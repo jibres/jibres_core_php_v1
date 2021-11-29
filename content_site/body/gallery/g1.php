@@ -49,6 +49,7 @@ class g1
 				'responsive' =>
 				[
 					'responsive_device',
+					'responsive_grid_magicbox',
 				],
 			],
 			'maximum_capacity' => 12,
