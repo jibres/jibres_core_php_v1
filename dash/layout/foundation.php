@@ -128,11 +128,13 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 <?php
 if(\dash\engine\store::inBusinessWebsite())
 {
+  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-fonts-v1.css'). ' rel="stylesheet" rel="preload" as="font" crossorigin/>'."\n";
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet" rel="preload"/>'."\n";
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-migrate-v1.css'). ' rel="stylesheet"/>'."\n";
 }
 else if(\dash\data::include_m2())
 {
+  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-fonts-v1.css'). ' rel="stylesheet" rel="preload" as="font" crossorigin/>'."\n";
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet" rel="preload"/>'."\n";
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-migrate-v1.css'). ' rel="stylesheet"/>'."\n";
 }
@@ -140,6 +142,7 @@ else
 {
  if(\dash\user::id())
  {
+  echo ' <link href='. \dash\layout\func::staticmtime('css/magic-fonts-v1.css'). ' rel="stylesheet" rel="preload" as="font" crossorigin/>'."\n";
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
  }
  echo ' <link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>'."\n";
