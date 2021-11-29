@@ -135,7 +135,7 @@ class socialnetworks
 
   private static function createLink($_type, $_link, $_linkClass, $_imgClass)
   {
-    if(!$_linkClass)
+    if(!$_link)
     {
       return null;
     }
