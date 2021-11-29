@@ -141,7 +141,7 @@ class socialnetworks
     }
 
     $html = '';
-    $html .= '<a rel="noopener" class="'. $_linkClass. '" target="_blank" href="'. $_link .'">';
+    $html .= '<a rel="noopener" class="'. $_linkClass. '" target="_blank" href="'. $_link .'" aria-label="'. $_type. '">';
     $html .= '<span class="hidden">'. $_type. '</span>';
     $html .= \dash\utility\icon::bootstrap($_type, $_imgClass);
     $html .= '</a>';
