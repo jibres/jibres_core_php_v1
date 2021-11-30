@@ -9,7 +9,7 @@ class share
 
 	public static function set_responsive_option_footer()
 	{
-		if(\dash\url::isLocal())
+		if(\dash\permission::supervisor())
 		{
 			return
 			[
