@@ -158,9 +158,14 @@ class business
 
 			$tweets = \lib\app\twitter\extract::multi_tweet($tweets_raw);
 
+			$get_one_tweet = true;
 
 			foreach ($tweets as $key => $post_detail)
 			{
+				if($get_one_tweet && $key > 0)
+				{
+					break;
+				}
 
 				$id   = a($post_detail, 'twid');
 				$text = a($post_detail, 'twcontent');

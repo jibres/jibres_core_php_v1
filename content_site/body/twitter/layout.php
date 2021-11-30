@@ -49,6 +49,17 @@ class layout
 				}
 			}
 
+			if(is_array(a($tweet, 'socialpostdetail', 'user_detail')))
+			{
+				foreach ($tweet['socialpostdetail']['user_detail'] as $key => $value)
+				{
+					if(substr($key, 0,2) === 'tw')
+					{
+						$tweet[$key] = $value;
+					}
+				}
+			}
+
 			$tweet['twcontent'] = self::remove_t_co_link(a($tweet, 'twcontent'));
 
 
