@@ -1,6 +1,6 @@
 
 <div class="avand-sm zero">
-  <h2><?php echo T_("Analytics"); ?></h2>
+  <h2 class="leading-9 text-sm font-bold"><?php echo T_("Analytics"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
@@ -21,7 +21,7 @@
     </ul>
   </nav>
 
-    <h2><?php echo T_("Cloud Storage S3"); ?></h2>
+  <h2 class="leading-9 text-sm font-bold"><?php echo T_("Cloud Storage S3"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
@@ -50,7 +50,7 @@
   </nav>
 
 
-  <h2><?php echo T_("Live Chat"); ?></h2>
+  <h2 class="leading-9 text-sm font-bold"><?php echo T_("Live Chat"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
@@ -112,7 +112,7 @@
 
 
 <?php if (\dash\language::current() === 'fa') { ?>
-  <h2><?php echo T_("Certificates"); ?></h2>
+  <h2 class="leading-9 text-sm font-bold"><?php echo T_("Certificates"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
@@ -133,7 +133,7 @@
   </nav>
 <?php } ?>
 <?php if (\dash\language::current() === 'fa') { ?>
-  <h2><?php echo T_("Search engine"); ?></h2>
+  <h2 class="leading-9 text-sm font-bold"><?php echo T_("Search engine"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
@@ -147,7 +147,7 @@
   </nav>
 <?php } ?>
 <?php if (\dash\language::current() === 'fa') { ?>
-  <h2><?php echo T_("Advertise"); ?></h2>
+  <h2 class="leading-9 text-sm font-bold"><?php echo T_("Advertise"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
@@ -160,7 +160,7 @@
     </ul>
   </nav>
 <?php } ?>
-  <h2><?php echo T_("Bank payment"); ?></h2>
+  <h2 class="leading-9 text-sm font-bold"><?php echo T_("Bank payment"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
@@ -194,7 +194,7 @@
     </ul>
   </nav>
 
-  <h2><?php echo T_("Assistant payment"); ?></h2>
+  <h2 class="leading-9 text-sm font-bold"><?php echo T_("Assistant payment"); ?></h2>
   <nav class="items mB25-f">
     <ul>
       <li>
@@ -228,3 +228,7 @@
     </ul>
   </nav>
 </div>
+
+
+
+<br>

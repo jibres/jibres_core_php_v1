@@ -76,7 +76,7 @@ if(!\dash\request::get('index') && \dash\request::get('sid') && !\dash\url::subc
   $remove_title = T_("Are you sure to remove this section?");
 
 
-  $html .= "<div data-confirm data-data='$delete_json' data-title='$remove_title' class='btn-link-danger'>";
+  $html .= "<div data-confirm data-data='$delete_json' data-title='$remove_title' class='btn-link-danger btn-sm mb-2'>";
   {
     $html .= '<span class="">'. T_("Remove section").'</span>';
   }
