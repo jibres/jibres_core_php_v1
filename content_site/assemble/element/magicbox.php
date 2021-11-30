@@ -39,6 +39,13 @@ class magicbox
 		$file_index = 'file';
 		$link_index = 'url';
 
+		// set title for img if is not set
+		if(!$myTitle)
+		{
+			$myTitle = \lib\store::title();
+		}
+
+
 		if(a($_args, 'section') === 'blog')
 		{
 			$file_index = 'thumb';
@@ -126,7 +133,13 @@ class magicbox
 		if($myLinkHref)
 		{
 			$elementTag .= ' '. $myLinkHref;
+
+			if($myTitle)
+			{
+				$elementTag .= ' aria-label="'. $myTitle. '"';
+			}
 		}
+
 		if($elClass)
 		{
 			$elementTag .= ' '. $elClass;
@@ -197,12 +210,6 @@ class magicbox
 					}
 					else
 					{
-						// set title for img if is not set
-						if(!$myTitle)
-						{
-							$myTitle = \lib\store::title();
-						}
-
 						// use data-src for lazyload
 						if($insideSlider)
 						{
