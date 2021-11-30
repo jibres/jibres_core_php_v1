@@ -53,7 +53,7 @@ class p2
 				'responsive' =>
 				[
 					'responsive_device',
-					'responsive_grid_magicbox',
+					'responsive_layout',
 				],
 			],
 			'default'      =>

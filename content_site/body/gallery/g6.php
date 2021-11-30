@@ -62,7 +62,7 @@ class g6
 				'responsive' =>
 				[
 					'responsive_device',
-					'responsive_grid_magicbox',
+					'responsive_layout',
 				],
 			],
 			// 'break_image_list' => 4,

@@ -2,7 +2,7 @@
 namespace content_site\options\responsive;
 
 
-class responsive_grid_magicbox
+class responsive_layout
 {
 
 	public static function enum()
@@ -37,7 +37,7 @@ class responsive_grid_magicbox
 	{
 		$html = '';
 
-		$default = \content_site\section\view::get_current_index_detail('responsive_grid_magicbox');
+		$default = \content_site\section\view::get_current_index_detail('responsive_layout');
 
 		if(!$default)
 		{
@@ -46,7 +46,7 @@ class responsive_grid_magicbox
 
 		$title = T_("Dispaly in mobile");
 
-		$name       = 'opt_responsive_grid_magicbox';
+		$name       = 'opt_responsive_layout';
 
 		$html .= \content_site\options\generate::form();
 		{
