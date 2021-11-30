@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.posts CHANGE `subtype` `subtype` ENUM('standard','gallery','video','audio','helpcenter', 'link', 'quote', 'status') CHARACTER SET utf8mb4  NULL DEFAULT 'standard';
