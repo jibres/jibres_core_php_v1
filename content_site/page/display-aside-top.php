@@ -64,9 +64,9 @@ foreach ($list as $key => $value)
               <input type="hidden" name="sort_section[]" value="<?php echo a($value, 'id') ?>">
               <img class="bg-gray-100 hover:bg-gray-200 p-1" src="<?php echo a($value, 'preview', 'icon') ?>">
               <div class="key" title="<?php if(a($value, 'preview', 'heading') !== null) { echo a($value, 'preview', 'heading'); }else{ echo  T_("Without title");} ?>"><?php echo a($value, 'section:preview:title'); ?></div>
-
+<?php if(0) {?>
               <div class="value">123</div>
-
+<?php }?>
 <?php if(a($value, 'preview', 'device') === 'mobile') {?>
                 <?php echo \dash\utility\icon::bootstrap('phone', 'text-green-500'); ?>
 <?php }?>
