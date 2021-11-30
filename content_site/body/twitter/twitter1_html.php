@@ -80,11 +80,12 @@ class twitter1_html
 
 
           // user line
+          $linkTitle = T_("Twitter"). ' - '. $twName;
           $html .= '<header class="flex items-center mb-2 md:mb-4">';
           {
             if($twAvatar)
             {
-              $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank" class="w-12 h-12">';
+              $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank" class="w-12 h-12" aria-label="'. $linkTitle .'">';
               {
                 $html .= '<img alt="Twitter user" src="'. \dash\sample\img::blank() . '" data-src="'. $twAvatar. '" class="w-12 h-12 inline object-cover rounded-full transition" alt="'. $twName. '">';
               }
@@ -98,7 +99,7 @@ class twitter1_html
               {
                 $html .= '<div class="whitespace-nowrap line-clamp-1">';
                 {
-                  $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank">';
+                  $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank" aria-label="'. $linkTitle. '">';
                   {
                     $html .= $twName;
                   }
@@ -116,7 +117,7 @@ class twitter1_html
               // twitter user name
               $html .= '<div dir="ltr" class="whitespace-nowrap line-clamp-1 text-gray-500 leading-5 text-sm txtLa">';
               {
-                $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank">';
+                $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank" aria-label="'. $linkTitle. '">';
                 {
                   $html .= $twUsername;
                 }
@@ -126,7 +127,7 @@ class twitter1_html
             }
             $html .= "</div>";
 
-            $html .= '<a rel="noopener" href="'. $twurl. '" target="_blank">';
+            $html .= '<a rel="noopener" href="'. $twurl. '" target="_blank" aria-label="'. $linkTitle. '">';
             {
               $html .= \dash\utility\icon::bootstrap('twitter', 'self-start w-8 h-8', ['fill' => '#1ea0f1']);
             }
