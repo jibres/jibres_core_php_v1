@@ -67,12 +67,39 @@ foreach ($list as $key => $value)
 <?php if(0) {?>
               <div class="value">123</div>
 <?php }?>
-<?php if(a($value, 'preview', 'device') === 'mobile') {?>
-                <?php echo \dash\utility\icon::bootstrap('phone', 'text-green-500'); ?>
-<?php }?>
-<?php if(a($value, 'preview', 'device') === 'desktop') {?>
-                <?php echo \dash\utility\icon::bootstrap('pc-display-horizontal', 'text-green-500'); ?>
-<?php }?>
+<?php
+switch (a($value, 'preview', 'os'))
+{
+  case 'windows':
+    echo \dash\utility\icon::bootstrap('windows', 'text-yellow-500');
+    break;
+
+  case 'linux':
+    echo \dash\utility\icon::bootstrap('terminal', 'text-yellow-500');
+    break;
+
+  case 'mac':
+    echo \dash\utility\icon::bootstrap('apple', 'text-yellow-500');
+    break;
+
+  default:
+    break;
+}
+
+switch (a($value, 'preview', 'device'))
+{
+  case 'mobile':
+    echo \dash\utility\icon::bootstrap('phone', 'text-green-500');
+    break;
+
+  case 'desktop':
+    echo \dash\utility\icon::bootstrap('pc-display-horizontal', 'text-green-500');
+    break;
+
+  default:
+    break;
+}
+?>
               <?php if (count($body) > 1) { ?>
                 <img class="p-2 opacity-70 hover:bg-gray-300 sortHandle" data-handle src="<?php echo \dash\utility\icon::url('DragHandle', 'minor'); ?>">
               <?php } ?>
