@@ -4,6 +4,16 @@ namespace lib\api\file;
 class api
 {
 
+	public static function url()
+	{
+		$url = 'https://tunnel.jibres.com/file/';
+		if(\dash\url::isLocal())
+		{
+			$url = 'https://broker.local/file/';
+		}
+
+		return $url;
+	}
 
 
 	/**
@@ -27,12 +37,8 @@ class api
 
 		// curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_URL, 'https://tunnel.jibres.com/file/');
+		curl_setopt($ch, CURLOPT_URL, self::url());
 
-		if(\dash\url::isLocal())
-		{
-			curl_setopt($ch, CURLOPT_URL, 'https://broker.local/file/');
-		}
 
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($body));
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -46,12 +52,9 @@ class api
 		$getInfo   = curl_getinfo($ch);
 		curl_close ($ch);
 
-		var_dump($response, $CurlError, $getInfo);exit;
-
 
 		$log =
 		[
-			'url'             => $url,
 			'func_get_args'   => func_get_args(),
 			'response'        => $response,
 			'response_decode' => json_decode($response, true),
@@ -94,6 +97,15 @@ class api
 	public static function download($_file_path)
 	{
 		$result = self::run($_file_path);
+
+		if(isset($result['folder']) && $result['file'])
+		{
+			$path = self::url(). $result['folder']. '/'. $result['file'];
+			return $path;
+		}
+
+		return null;
+
 
 	}
 }

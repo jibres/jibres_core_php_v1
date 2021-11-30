@@ -33,7 +33,7 @@ class twitter1_html
       $twTweetImg     = \lib\filepath::fix(a($_tweet, 'twthumb'));
     }
 
-    $twAvatar   = a($_tweet, 'twavatar');
+    $twAvatar   = \lib\filepath::fix(a($_tweet, 'twavatar'));
     $twVerified = a($_tweet, 'twverified');
 
 

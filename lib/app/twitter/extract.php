@@ -21,7 +21,7 @@ class extract
 		$user_detail['channel']        = a($_data, 'data', 'username');
 		$user_detail['twname']         = a($_data, 'data', 'name');
 		$user_detail['twusername']     = a($_data, 'data', 'username');
-		$user_detail['twavatar']       = a($_data, 'data', 'profile_image_url');
+		$user_detail['twavatar']       = self::upload_tw_file(a($_data, 'data', 'profile_image_url'));
 		$user_detail['twverified']     = a($_data, 'data', 'verified');
 		return $user_detail;
 	}
@@ -47,11 +47,11 @@ class extract
 		$media        = self::get_media($_data);
 		if(a($media, 0, 'preview_image_url'))
 		{
-			$tweet['twthumb']        = a($media, 0, 'preview_image_url');
+			$tweet['twthumb']        = self::upload_tw_file(a($media, 0, 'preview_image_url'));
 		}
 		else
 		{
-			$tweet['twthumb']        = a($media, 0, 'url');
+			$tweet['twthumb']        = self::upload_tw_file(a($media, 0, 'url'));
 		}
 
 		$entities               = a($my_data, 'entities');
@@ -90,6 +90,38 @@ class extract
 		}
 
 		return $tweets;
+	}
+
+
+
+	private static function upload_tw_file($_file)
+	{
+		if(!$_file)
+		{
+			return $_file;
+		}
+
+		$new_path = \lib\api\file\api::download($_file);
+
+		if(!$new_path)
+		{
+			return $_file;
+		}
+
+		$file_detail = \dash\upload\socialnetwork::get_from_url($new_path);
+
+		if(!$file_detail)
+		{
+			return $_file;
+		}
+
+		if(isset($file_detail['path']) && $file_detail['path'])
+		{
+			return $file_detail['path'];
+		}
+
+		return $_file;
+
 	}
 
 }
