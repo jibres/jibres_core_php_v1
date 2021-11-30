@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-11-29 19:14+0330\n"
-"PO-Revision-Date: 2021-11-29 19:15+0330\n"
+"POT-Creation-Date: 2021-11-30 12:26+0330\n"
+"PO-Revision-Date: 2021-11-30 12:28+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -799,7 +799,7 @@ msgid "Jibres Certificates"
 msgstr "مجوزها و گواهینامه‌های جیبرس"
 
 #: content/certificates/view.php:9 content/home/layout/footer.php:187
-#: content/home/layout/pwa-footer.php:182 content_a/setting/thirdparty/display.php:115
+#: content/home/layout/pwa-footer.php:182 content_a/setting/thirdparty/display.php:119
 msgid "Certificates"
 msgstr "گواهی‌نامه‌ها"
 
@@ -4670,7 +4670,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_site/page/new/view.php:11 content_site/page/settings/view.php:13
 #: content_site/page/view.php:10 content_site/preview/display.php:18
 #: content_site/section/html/view.php:45 content_site/section/view.php:41
-#: content_site/section/view.php:90 content_site/section/view.php:243
+#: content_site/section/view.php:84 content_site/section/view.php:237
 #: content_site/sitemap/view.php:10 content_site/staticfile/view.php:15
 #: content_sudo/apilog/home/view.php:9 content_sudo/apilog/view/view.php:9
 #: content_sudo/backup/display.php:5 content_sudo/backup/view.php:10
@@ -12692,7 +12692,7 @@ msgstr "افزودن دستگاه کارتخوان جدید به فروشگاه 
 msgid "Saderat"
 msgstr "بانک صادرات"
 
-#: content_a/setting/pcpos/display.php:11 content_a/setting/thirdparty/display.php:169
+#: content_a/setting/pcpos/display.php:11 content_a/setting/thirdparty/display.php:177
 #: includes/languages/trans_static_public.php:506 lib/app/quickaccess/setting.php:129
 #: lib/app/quickaccess/setting.php:132
 msgid "Mellat"
@@ -12714,7 +12714,7 @@ msgstr "بانک سپه"
 msgid "Keshavarzi"
 msgstr "بانک کشاورزی"
 
-#: content_a/setting/pcpos/display.php:16 content_a/setting/thirdparty/display.php:183
+#: content_a/setting/pcpos/display.php:16 content_a/setting/thirdparty/display.php:184
 #: content_pay/home/display-transaction.php:217 lib/app/quickaccess/setting.php:147
 #: lib/app/quickaccess/setting.php:150
 msgid "Parsian"
@@ -12814,19 +12814,19 @@ msgstr "بانک مشترک ایران و ونزوئلا"
 msgid "Irkish"
 msgstr "ایران کیش"
 
-#: content_a/setting/pcpos/display.php:40 content_a/setting/thirdparty/display.php:190
+#: content_a/setting/pcpos/display.php:40 content_a/setting/thirdparty/display.php:198
 #: includes/languages/trans_static_public.php:534 lib/app/quickaccess/setting.php:165
 #: lib/app/quickaccess/setting.php:168
 msgid "Asanpardakht"
 msgstr "آسان پرداخت"
 
-#: content_a/setting/pcpos/display.php:41 content_a/setting/thirdparty/display.php:203
+#: content_a/setting/pcpos/display.php:41 content_a/setting/thirdparty/display.php:211
 #: includes/languages/trans_static_public.php:535 lib/app/quickaccess/setting.php:156
 #: lib/app/quickaccess/setting.php:159
 msgid "Zarinpal"
 msgstr "زرین پال"
 
-#: content_a/setting/pcpos/display.php:42 content_a/setting/thirdparty/display.php:224
+#: content_a/setting/pcpos/display.php:42 content_a/setting/thirdparty/display.php:232
 #: includes/languages/trans_static_public.php:536 lib/app/quickaccess/setting.php:184
 #: lib/app/quickaccess/setting.php:187
 msgid "Payir"
@@ -13429,136 +13429,167 @@ msgstr "تجزیه و تحلیل"
 msgid "Google Analytics"
 msgstr "گوگل آنالیتیکس"
 
-#: content_a/setting/thirdparty/display.php:16
+#: content_a/setting/thirdparty/display.php:10
+msgid "Free web analytics service"
+msgstr "سرویس آمارگیر وب رایگان"
+
+#: content_a/setting/thirdparty/display.php:17
 #: content_a/setting/thirdparty/hotjar/view.php:8
 msgid "Hotjar"
 msgstr "Hotjar"
 
-#: content_a/setting/thirdparty/display.php:17
+#: content_a/setting/thirdparty/display.php:18
 msgid "See What Users Really Do"
 msgstr "ببینید کاربران واقعا چه می‌کنند"
 
-#: content_a/setting/thirdparty/display.php:24
+#: content_a/setting/thirdparty/display.php:25
 msgid "Cloud Storage S3"
 msgstr "فضای ذخیره‌سازی ابری S3"
 
-#: content_a/setting/thirdparty/display.php:30
+#: content_a/setting/thirdparty/display.php:31
 msgid "Amazon"
 msgstr "آمازون"
 
-#: content_a/setting/thirdparty/display.php:37 content_cms/files/home/display.php:15
-#: content_love/files/home/display.php:15
-msgid "DigitalOcean"
-msgstr "دیجیتال‌ اوشن"
+#: content_a/setting/thirdparty/display.php:32
+msgid "Pay only for what you use"
+msgstr "فقط برای مقداری که استفاده می‌کنید، بپردازید"
 
-#: content_a/setting/thirdparty/display.php:45 content_cms/files/home/display.php:10
+#: content_a/setting/thirdparty/display.php:39
+msgid "DigitalOcean Space"
+msgstr "فضای ابری دیجیتال اوشن"
+
+#: content_a/setting/thirdparty/display.php:40
+msgid "$5 for 250GB"
+msgstr "۵ دلار برای ۲۵۰ گیگ"
+
+#: content_a/setting/thirdparty/display.php:48 content_cms/files/home/display.php:10
 #: content_love/files/home/display.php:10
 msgid "ArvanCloud"
 msgstr "ابر آروان"
 
-#: content_a/setting/thirdparty/display.php:53
+#: content_a/setting/thirdparty/display.php:49
+msgid "5 GB Free Storage"
+msgstr "۵ گیگ فضای رایگان"
+
+#: content_a/setting/thirdparty/display.php:57
 msgid "Live Chat"
 msgstr "چت آنلاین"
 
-#: content_a/setting/thirdparty/display.php:59
+#: content_a/setting/thirdparty/display.php:63
 msgid "tawk.to"
 msgstr "tawk.to"
 
-#: content_a/setting/thirdparty/display.php:60
+#: content_a/setting/thirdparty/display.php:64
 msgid "100% FREE live chat!"
 msgstr "چت زنده ۱۰۰٪ رایگان!"
 
-#: content_a/setting/thirdparty/display.php:68
+#: content_a/setting/thirdparty/display.php:72
 msgid "Tidio"
 msgstr "Tidio"
 
-#: content_a/setting/thirdparty/display.php:69
+#: content_a/setting/thirdparty/display.php:73
 msgid "The Ultimate Communication Toolbox"
 msgstr "جعبه ابزار ارتباطات بی‌نهایت"
 
-#: content_a/setting/thirdparty/display.php:77
+#: content_a/setting/thirdparty/display.php:81
 msgid "Crisp"
 msgstr "Crisp"
 
-#: content_a/setting/thirdparty/display.php:78
+#: content_a/setting/thirdparty/display.php:82
 msgid "#1 Messaging Platform For Startups & SMB's"
 msgstr "پلتفرم پیام‌رسانی شماره 1 برای استارتاپ‌ها"
 
-#: content_a/setting/thirdparty/display.php:86
+#: content_a/setting/thirdparty/display.php:90
 #: content_a/setting/thirdparty/imber/view.php:8 lib/app/quickaccess/setting.php:100
 #: lib/app/quickaccess/setting.php:104
 msgid "Imber"
 msgstr "ایمبر"
 
-#: content_a/setting/thirdparty/display.php:87
+#: content_a/setting/thirdparty/display.php:91
 msgid "All in One Marketing Automation Platform"
 msgstr "سرویس جامع ارتباط با مشتری"
 
-#: content_a/setting/thirdparty/display.php:96
+#: content_a/setting/thirdparty/display.php:100
 #: content_a/setting/thirdparty/goftino/view.php:8
 msgid "Goftino"
 msgstr "گفتینو"
 
-#: content_a/setting/thirdparty/display.php:97
+#: content_a/setting/thirdparty/display.php:101
 msgid "Online chat and customer relationship system"
 msgstr "سامانه گفتگوی آنلاین و ارتباط با مشتریان"
 
-#: content_a/setting/thirdparty/display.php:104
+#: content_a/setting/thirdparty/display.php:108
 msgid "RayChat"
 msgstr "رایچت"
 
-#: content_a/setting/thirdparty/display.php:105
+#: content_a/setting/thirdparty/display.php:109
 msgid "Online Chat Platform"
 msgstr "پلتفرم گفتگوی آنلاین"
 
-#: content_a/setting/thirdparty/display.php:121
+#: content_a/setting/thirdparty/display.php:125
 #: content_a/setting/thirdparty/enamad/view.php:8 lib/app/quickaccess/setting.php:205
 #: lib/app/quickaccess/setting.php:206 lib/app/quickaccess/setting.php:208
 msgid "Enamad"
 msgstr "نماد اعتماد"
 
-#: content_a/setting/thirdparty/display.php:128 lib/app/quickaccess/setting.php:214
+#: content_a/setting/thirdparty/display.php:126
+msgid "Electronic trust symbol"
+msgstr "نماد اعتماد الکترونیکی"
+
+#: content_a/setting/thirdparty/display.php:133 lib/app/quickaccess/setting.php:214
 #: lib/app/quickaccess/setting.php:215 lib/app/quickaccess/setting.php:217
 msgid "Samandehi"
 msgstr "ساماندهی"
 
-#: content_a/setting/thirdparty/display.php:136
+#: content_a/setting/thirdparty/display.php:134
+msgid "Center for IT and Digital Media"
+msgstr "مرکز رسانه‌های دیجیتال"
+
+#: content_a/setting/thirdparty/display.php:142
 msgid "Search engine"
 msgstr "موتور جستجو"
 
-#: content_a/setting/thirdparty/display.php:142
+#: content_a/setting/thirdparty/display.php:148
 #: content_a/setting/thirdparty/torob/view.php:8
 msgid "Torob"
 msgstr "ترب"
 
-#: content_a/setting/thirdparty/display.php:150
+#: content_a/setting/thirdparty/display.php:149
+msgid "Product search engine"
+msgstr "موتور جستجوی محصولات"
+
+#: content_a/setting/thirdparty/display.php:157
 msgid "Advertise"
 msgstr "تبلیغات"
 
-#: content_a/setting/thirdparty/display.php:156
+#: content_a/setting/thirdparty/display.php:163
 #: content_a/setting/thirdparty/mediaad/view.php:8
 msgid "Media.ad"
 msgstr "مدیااد"
 
-#: content_a/setting/thirdparty/display.php:163
+#: content_a/setting/thirdparty/display.php:164
+msgid "Internet advertising network"
+msgstr "شبکه تبلیغات اینترنتی"
+
+#: content_a/setting/thirdparty/display.php:171
 msgid "Bank payment"
 msgstr "درگاه پرداخت بانک"
 
-#: content_a/setting/thirdparty/display.php:176 lib/app/quickaccess/setting.php:138
+#: content_a/setting/thirdparty/display.php:191 lib/app/quickaccess/setting.php:138
 #: lib/app/quickaccess/setting.php:141
 msgid "IranKish"
 msgstr "ایران‌کیش"
 
-#: content_a/setting/thirdparty/display.php:197
+#: content_a/setting/thirdparty/display.php:205
 msgid "Assistant payment"
 msgstr "درگاه پرداخت‌یار"
 
-#: content_a/setting/thirdparty/display.php:210 lib/app/quickaccess/setting.php:174
+#: content_a/setting/thirdparty/display.php:218 lib/app/quickaccess/setting.php:174
 #: lib/app/quickaccess/setting.php:177
 msgid "IDPay"
 msgstr "آی‌دی‌پی"
 
-#: content_a/setting/thirdparty/display.php:217
+#: content_a/setting/thirdparty/display.php:225
 msgid "PayPing"
 msgstr "پی‌پینگ"
 
@@ -15879,6 +15910,10 @@ msgstr "ویرایش نوشته"
 #: content_cms/files/choose/view.php:64 content_love/files/choose/view.php:57
 msgid "Post setting"
 msgstr "تنظیمات نوشته"
+
+#: content_cms/files/home/display.php:15 content_love/files/home/display.php:15
+msgid "DigitalOcean"
+msgstr "دیجیتال‌ اوشن"
 
 #: content_cms/files/home/display.php:21 content_love/files/home/display.php:21
 msgid "AWS"
@@ -27819,11 +27854,11 @@ msgstr "برای ذخیره کلید F4 را بزنید"
 msgid "Press F4 to add"
 msgstr "برای افزودن کلید F4 را بزنید"
 
-#: dash/layout/m2/panelBuilder_main_iframe.php:51
+#: dash/layout/m2/panelBuilder_main_iframe.php:52
 msgid "Connect to your Domain"
 msgstr "به دامنه خودتان متصل کنید"
 
-#: dash/layout/m2/panelBuilder_main_iframe.php:56
+#: dash/layout/m2/panelBuilder_main_iframe.php:57
 msgid "Live"
 msgstr "زنده"
 

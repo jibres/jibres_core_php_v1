@@ -5,7 +5,7 @@
 	<div class="avand-sm">
 		<div class="box">
 			<div class="pad">
-				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/parsian.png" alt='Parsian'>
+				<img class="block mx-auto" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/parsian.png" alt='Parsian'>
 
 				<div class="switch1 mT20">
 				 <input type="checkbox" name="parsian" id="parsian" <?php if(a($bank, 'parsian', 'status')) { echo 'checked';} ?> >
