@@ -103,12 +103,15 @@ class extract
 
 		$new_path = \lib\api\file\api::download($_file);
 
+		var_dump($new_path);
+
 		if(!$new_path)
 		{
 			return $_file;
 		}
 
 		$file_detail = \dash\upload\socialnetwork::get_from_url($new_path);
+		var_dump($file_detail);exit;
 
 		if(!$file_detail)
 		{

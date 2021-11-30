@@ -32,6 +32,7 @@ class socialnetwork
 
 		curl_close ($ch);
 
+		var_dump($response, $CurlError);
 		if($response)
 		{
 			$new_path = tempnam('/tmp', 'JIBRES_');
