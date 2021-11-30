@@ -44,9 +44,15 @@ class twitter_link
 
 		$save = [];
 
-		// if($default !== $current)
+		$twlastfetch = \content_site\section\view::get_current_index_detail('twitter_link');
+		if(!$twlastfetch)
 		{
-			$save['last_fetch'] = date("Y-m-d H:i:s");
+			$twlastfetch = time();
+		}
+
+		if($default !== $current || (time() - strtotime($twlastfetch) > (60*60)))
+		{
+			$save['twlastfetch'] = date("Y-m-d H:i:s");
 
 			$fetch = \lib\app\twitter\business::lookup_tweet($explode[0], $explode[2]);
 
