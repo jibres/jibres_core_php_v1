@@ -46,6 +46,8 @@ class twitter_link
 
 		// if($default !== $current)
 		{
+			$save['last_fetch'] = date("Y-m-d H:i:s");
+
 			$fetch = \lib\app\twitter\business::lookup_tweet($explode[0], $explode[2]);
 
 			if(!$fetch || !a($fetch, 'result'))
