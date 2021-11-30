@@ -20,7 +20,7 @@
           $html .= '<div class="key">'. T_("All"). '</div>';
           if(\dash\request::get('category') === 'popular' || !\dash\request::get('category')) // selected
           {
-            $html .= '<img class="p-2" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+            $html .= '<img class="p-1" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
           }
           $html .= '</a>';
         }
@@ -49,7 +49,7 @@
             $html .= '<div class="key">'. a($sectionRequestedDetail, 'title'). ' - '. a($item, 'title'). '</div>';
             if(\dash\request::get('category') === a($item, 'model'))
             {
-              $html .= '<img class="p-2" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
+              $html .= '<img class="p-1" src="'. \dash\utility\icon::url('EnableSelection', 'minor'). '">';
             }
             $html .= '</a>';
           }
