@@ -19,7 +19,7 @@ class check
 			'url'              => 'url',
 			'content'          => 'real_html',
 			'type'             => ['enum' => ['post', 'pagebuilder', 'instagram', 'twitter']],
-			'subtype'          => ['enum' => ['standard', 'gallery', 'video', 'audio']],
+			'subtype'          => ['enum' => ['standard', 'gallery', 'video', 'audio', 'helpcenter', 'link', 'quote', 'status',]],
 			'status'           => ['enum' => ['publish','draft', 'pending_review']],
 			'specialaddress'   => ['enum' => ['independence', 'special', 'under_tag', 'under_page']],
 
