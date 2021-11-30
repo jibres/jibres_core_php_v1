@@ -8,6 +8,17 @@ class magicbox
 	{
 		$html = '';
 
+
+		$img_size_args =
+		[
+			'container' => a($_args, 'container'),
+			'count'     => count($_datalist),
+		];
+
+		$_args['image:size'] = \content_site\assemble\image_size::detect($img_size_args);
+
+
+
 		foreach ($_datalist as $key => $item)
 		{
 			$html .= self::eachItem($_args, $_datalist, $_opt, $key, $item);
@@ -44,7 +55,7 @@ class magicbox
 			$_item[$file_index] = \dash\sample\img::image();
 		}
 
-		$myThumb      = \lib\filepath::fix(\dash\fit::img(a($_item, $file_index), 'raw'));
+		$myThumb      = \lib\filepath::fix(\dash\fit::img(a($_item, $file_index), a($_args, 'image:size')));
 
 		$myMagicBoxEl = 'div';
 		$myLinkHref   = '';
