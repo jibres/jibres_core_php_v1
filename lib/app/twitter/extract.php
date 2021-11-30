@@ -27,7 +27,7 @@ class extract
 	}
 
 
-	public static function tweet_detail($_data, $_multiple = false)
+	public static function tweet_detail($_data, $_multiple = false, $_raw = [])
 	{
 		$tweet = [];
 
@@ -40,11 +40,20 @@ class extract
 			$my_data = a($_data, 'data');
 		}
 
-		$tweet['twcreatedat']    = a($my_data, 'created_at');
-		$tweet['twcontent']      = a($my_data, 'text');
-		$tweet['twid']      = a($my_data, 'id');
-		$tweet['twlang']         = a($my_data, 'lang');
-		$media        = self::get_media($_data);
+		$tweet['twcreatedat'] = a($my_data, 'created_at');
+		$tweet['twcontent']   = a($my_data, 'text');
+		$tweet['twid']        = a($my_data, 'id');
+		$tweet['twlang']      = a($my_data, 'lang');
+
+		if($_multiple)
+		{
+			$media = self::get_media($_raw);
+		}
+		else
+		{
+			$media        = self::get_media($_data);
+		}
+
 		if(a($media, 0, 'preview_image_url'))
 		{
 			$tweet['twthumb']        = self::upload_tw_file(a($media, 0, 'preview_image_url'));
@@ -70,10 +79,6 @@ class extract
 
 	public static function multi_tweet($_data)
 	{
-		$media = self::get_media($_data);
-
-		$media = array_combine(array_column($media, 'media_key'), $media);
-
 		$tweets_raw = a($_data, 'data');
 
 		if(!is_array($tweets_raw))
@@ -85,7 +90,8 @@ class extract
 
 		foreach ($tweets_raw as $key => $tweet)
 		{
-			$tweets[$key] = self::tweet_detail($tweet, true);
+			$temp = self::tweet_detail($tweet, true, $_data);
+			$tweets[$key] = $temp;
 			$tweets[$key]['raw'] = $tweet;
 		}
 
