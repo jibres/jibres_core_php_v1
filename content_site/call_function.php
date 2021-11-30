@@ -670,8 +670,10 @@ class call_function
 		$preview_title .= '</span>';
 		$preview_title .= ' ';
 
-		// $preview_title .= ' - ';
-		$preview_title .= a($load_model_option, 'title');
+		if(a($section_detail, 'title') !== a($load_model_option, 'title'))
+		{
+			$preview_title .= a($load_model_option, 'title');
+		}
 
 		if($_preview_key)
 		{
