@@ -67,10 +67,10 @@ foreach ($list as $key => $value)
 
               <div class="value">123</div>
 
-<?php if(a($value, 'device') === 'mobile') {?>
+<?php if(a($value, 'preview', 'device') === 'mobile') {?>
                 <?php echo \dash\utility\icon::bootstrap('phone', 'text-green-500'); ?>
 <?php }?>
-<?php if(a($value, 'device') === 'desktop') {?>
+<?php if(a($value, 'preview', 'device') === 'desktop') {?>
                 <?php echo \dash\utility\icon::bootstrap('pc-display-horizontal', 'text-green-500'); ?>
 <?php }?>
               <?php if (count($body) > 1) { ?>
