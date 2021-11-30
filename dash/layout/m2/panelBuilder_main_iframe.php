@@ -4,6 +4,7 @@ $iframe_link  = \dash\data::iframeLink();
 $display_link = \dash\data::iframeDisplayLink();
 $click_link   = \dash\data::iframeClickLink();
 $origin_link  = \dash\data::iframeOriginLink();
+$setting_url = \lib\store::admin_url(). '/site/setting';
 
 
 $section_list = [];
@@ -74,12 +75,12 @@ $html .= '<div class="toolbar flex-grow-0 flex-none flex content-center px-2 bg-
       $sizeMobileClass .= ' bg-gray-200 hover:bg-gray-200';
     }
 
-    $html .= '<div data-mode="mobile" class="'. $sizeMobileClass. '">';
+    $html .= '<div data-mode="mobile" class="'. $sizeMobileClass. '" data-ajaxify data-method="post" data-action="'.$setting_url.'" data-data=\'{"customize": "display", "viewmode": "mobile"}\'>';
     {
       $html .= '<img class="w-5" src="'. \dash\utility\icon::url('mobile'). '" alt="Mobile">';
     }
     $html .= '</div>';
-    $html .= '<div data-mode="desktop" class="'. $sizeDesktopClass. '">';
+    $html .= '<div data-mode="desktop" class="'. $sizeDesktopClass. '" data-ajaxify data-method="post" data-action="'.$setting_url.'" data-data=\'{"customize": "display", "viewmode": "desktop"}\'>';
     {
       $html .= '<img class="w-5" src="'. \dash\utility\icon::url('desktop'). '" alt="Mobile">';
     }

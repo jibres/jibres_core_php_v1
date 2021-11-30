@@ -296,25 +296,20 @@ class utility
 
 	public static function set_iframe_on($_size = null)
 	{
+		$cookie_name = 'siteiframesize';
 		if($_size)
 		{
-			self::$iframe_size = $_size;
+			\dash\utility\cookie::write($cookie_name, $_size, (60*60*24*7));
 		}
+
+		self::$iframe_size = \dash\utility\cookie::read($cookie_name);
 
 		\dash\data::pageBuilderIframeSize(self::$iframe_size);
 
 		return self::$iframe_size;
 	}
 
-	public static function set_iframe_on_mobile()
-	{
-		return self::set_iframe_on('mobile');
-	}
 
-	public static function set_iframe_on_desktop()
-	{
-		return self::set_iframe_on('desktop');
-	}
 
 }
 ?>

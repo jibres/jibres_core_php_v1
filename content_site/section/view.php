@@ -64,12 +64,6 @@ class view
 			\dash\face::btnSaveAttr(null);
 		}
 
-		// in admin check iframe size
-		if(\dash\url::subchild() === 'responsive')
-		{
-			\content_site\utility::set_iframe_on_mobile();
-		}
-
 	}
 
 
