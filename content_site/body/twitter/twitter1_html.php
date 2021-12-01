@@ -142,7 +142,7 @@ class twitter1_html
             if($twTweetImg)
             {
               $html .= "<div class='w-full relative overflow-hidden rounded-xl mt-2 md:mt-4'>";
-              $html .= "<img src='". $twTweetImg. "' class='' alt='Twiiter'>";
+              $html .= "<img src='". $twTweetImg. "' class='w-full' alt='Twiiter'>";
 
               // https://pbs.twimg.com/media/FCmhwHTXIAcVqxx?format=jpg&name=small
               $html .= "</div>";
