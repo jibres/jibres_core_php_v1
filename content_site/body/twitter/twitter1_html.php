@@ -152,19 +152,6 @@ class twitter1_html
 
           $html .= "<footer class='text-gray-600 text-sm leading-6'>";
           {
-
-            $html .= "<div class='leading-8 mb-2'>";
-            // $html .= "11:31 AM · 27 Nov, 2021";
-            if(\dash\language::dir() === 'rtl')
-            {
-              $html .= \dash\fit::date_time($twDateTime, 'G:i · j F Y');
-            }
-            else
-            {
-              $html .= \dash\fit::date_time($twDateTime, 'g:i A · M j, Y');
-            }
-            $html .= "</div>";
-
             if($twDetail)
             {
               $html .= "<div class='flex'>";
@@ -221,6 +208,22 @@ class twitter1_html
                   }
                   $html .= "</div>";
                 }
+
+                if($twDateTime)
+                {
+                  $html .= "<time class='flex-grow txtRa whitespace-nowrap' datetime='". $twDateTime. "'>";
+                  // $html .= "11:31 AM · 27 Nov, 2021";
+                  if(\dash\language::dir() === 'rtl')
+                  {
+                    $html .= \dash\fit::date_time($twDateTime, 'G:i · j F Y');
+                  }
+                  else
+                  {
+                    $html .= \dash\fit::date_time($twDateTime, 'g:i A · M j, Y');
+                  }
+                  $html .= "</time>";
+                }
+
               }
               $html .= "</div>";
             }
