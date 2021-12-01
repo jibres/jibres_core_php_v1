@@ -115,7 +115,7 @@ class twitter1_html
               $html .= "</div>";
 
               // twitter user name
-              $html .= '<div dir="ltr" class="whitespace-nowrap line-clamp-1 text-gray-500 leading-5 text-sm txtLa">';
+              $html .= '<div dir="ltr" class="whitespace-nowrap line-clamp-1 text-gray-600 leading-5 text-sm txtLa">';
               {
                 $html .= '<a rel="noopener" href="'. $twprofileurl. '" target="_blank" aria-label="'. $linkTitle. '">';
                 {
@@ -150,7 +150,7 @@ class twitter1_html
           }
           $html .= "</div>";
 
-          $html .= "<footer class='text-gray-500 text-sm leading-6'>";
+          $html .= "<footer class='text-gray-600 text-sm leading-6'>";
           {
 
             $html .= "<div class='leading-8 mb-2'>";
