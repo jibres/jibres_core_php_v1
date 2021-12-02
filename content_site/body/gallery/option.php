@@ -495,12 +495,17 @@ class option
 			{
 				if($count_removed < $must_remove)
 				{
-					if(a($value, 'customized_by_user'))
+					if(a($value, 'customized_by_user') === true)
 					{
-						// can not beremove
+						// can not be remove
+					}
+					elseif(a($value, 'file'))
+					{
+						// can not be remove
 					}
 					else
 					{
+
 						$count_removed++;
 
 						\lib\app\menu\remove::remove($value['id'], true);
