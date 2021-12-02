@@ -38,19 +38,22 @@ class homepage
 	{
 		$result = \dash\file::read(self::$dir);
 
-		$result = json_decode($result, true);
-
-		if(!is_array($result))
+		if($result && is_string($result))
 		{
-			$result =
-			[
-			'product'     => 12000,
-			'factor'      => 275000,
-			'sum_factor'  => 3856000000,
-			'last_update' => date("Y-m-d H:i:s"),
-			];
+			$result = json_decode($result, true);
+
+			if(!is_array($result))
+			{
+				$result =
+				[
+				'product'     => 12000,
+				'factor'      => 275000,
+				'sum_factor'  => 3856000000,
+				'last_update' => date("Y-m-d H:i:s"),
+				];
+			}
+			return $result;
 		}
-		return $result;
 	}
 }
 ?>

@@ -365,7 +365,8 @@ class request
 	 */
 	public static function ajax()
 	{
-		if(mb_strtolower(\dash\server::get('HTTP_X_REQUESTED_WITH')) == 'xmlhttprequest')
+		$request_with = \dash\server::get('HTTP_X_REQUESTED_WITH');
+		if($request_with && mb_strtolower($request_with) == 'xmlhttprequest')
 		{
 			return true;
 		}
@@ -395,11 +396,14 @@ class request
 	public static function json_accept()
 	{
 		$result = self::accept("application/json");
+
+		$content_type = \dash\server::get('Content-Type');
+
 		if($result)
 		{
 			return true;
 		}
-		elseif(preg_match("/application\/json/i", \dash\server::get('Content-Type')))
+		elseif($content_type && preg_match("/application\/json/i", $content_type))
 		{
 			return true;
 		}

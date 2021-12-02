@@ -21,13 +21,17 @@ class view
 			\dash\data::global_content('site');
 		}
 
-		$myPage = urldecode(\dash\url::directory());
-		// remove non en char
-		$myPage = preg_replace('/[^\00-\255]+/u', '', $myPage);
-		// remove multi dash
-		$myPage = preg_replace('/\-{2,}/', '', $myPage);
-		// change slash to underscore
-		$myPage = str_replace('/', '_', $myPage);
+		$myPage = null;
+		if(\dash\url::directory())
+		{
+			$myPage = urldecode(\dash\url::directory());
+			// remove non en char
+			$myPage = preg_replace('/[^\00-\255]+/u', '', $myPage);
+			// remove multi dash
+			$myPage = preg_replace('/\-{2,}/', '', $myPage);
+			// change slash to underscore
+			$myPage = str_replace('/', '_', $myPage);
+		}
 
 		\dash\data::global_page($myPage);
 		if(!\dash\data::global_page() && \dash\url::module() === null)
