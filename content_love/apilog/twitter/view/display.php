@@ -1,7 +1,7 @@
 <div class="tblBox ltr">
   <table class="tbl1 v4">
     <tbody>
-    <?php foreach (\dash\data::dataRow() as $key => $value) {?>
+    <?php foreach (\dash\data::dataRow() as $key => $value) { if($key === 'identify'){continue;} ?>
       <tr>
         <td class="collapsing font-14"><?php echo $key ?></td>
         <td>
