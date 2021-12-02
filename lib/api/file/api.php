@@ -9,7 +9,7 @@ class api
 		$url = 'https://tunnel.jibres.com/file/';
 		if(\dash\url::isLocal())
 		{
-			$url = 'https://broker.local/file/';
+			// $url = 'https://broker.local/file/';
 		}
 
 		return $url;
