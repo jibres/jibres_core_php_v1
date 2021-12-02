@@ -122,6 +122,11 @@ class edit
 
 			if(!empty($args))
 			{
+				if(!a($args, 'datemodified'))
+				{
+					$args['datemodified'] = date("Y-m-d H:i:s");
+				}
+
 				\dash\db\posts::update($args, $id);
 			}
 
