@@ -2,9 +2,9 @@
 namespace content_site\options\video;
 
 
-trait video_autoplay
+class video_autoplay extends video_option
 {
-	use video_option;
+
 
 	public static function name()
 	{

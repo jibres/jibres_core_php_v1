@@ -2,9 +2,9 @@
 namespace content_site\options\padding;
 
 
-class padding_bottom
+class padding_bottom extends padding
 {
-	use padding;
+
 
 	public static function title()
 	{

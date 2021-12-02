@@ -2,7 +2,7 @@
 namespace content_site\options\container;
 
 
-trait container_align
+class container_align
 {
 
 	private static function enum()

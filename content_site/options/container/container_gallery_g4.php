@@ -2,9 +2,8 @@
 namespace content_site\options\container;
 
 
-trait container_gallery_g4
+class container_gallery_g4 extends container_gallery
 {
-	use container_gallery;
 
 
 	public static function hide_sm()

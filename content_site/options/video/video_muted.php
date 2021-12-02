@@ -2,9 +2,8 @@
 namespace content_site\options\video;
 
 
-trait video_muted
+class video_muted extends video_option
 {
-	use video_option;
 
 	public static function name()
 	{

@@ -2,7 +2,7 @@
 namespace content_site\options\padding;
 
 
-trait padding
+class padding
 {
 	public static function enum()
 	{

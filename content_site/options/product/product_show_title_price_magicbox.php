@@ -2,7 +2,7 @@
 namespace content_site\options\product;
 
 
-trait product_show_title_price_magicbox
+class product_show_title_price_magicbox
 {
 	public static function validator($_data)
 	{

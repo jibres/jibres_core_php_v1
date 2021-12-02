@@ -2,7 +2,7 @@
 namespace content_site\options\link;
 
 
-trait link_raw
+class link_raw
 {
 	public static function validator($_data)
 	{

@@ -1,10 +1,9 @@
 <?php
 namespace content_site\options\description;
 
-class description_copyright
+class description_copyright extends description
 {
 
-	use description;
 
 	public static function db_key()
 	{

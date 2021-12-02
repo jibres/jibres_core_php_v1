@@ -2,7 +2,7 @@
 namespace content_site\options\justify;
 
 
-trait justify
+class justify
 {
 
 	private static function enum()

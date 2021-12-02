@@ -2,7 +2,7 @@
 namespace content_site\options\count;
 
 
-trait count
+class count
 {
 
 

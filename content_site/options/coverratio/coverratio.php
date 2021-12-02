@@ -2,7 +2,7 @@
 namespace content_site\options\coverratio;
 
 
-trait coverratio
+class coverratio
 {
 
 	private static function enum()

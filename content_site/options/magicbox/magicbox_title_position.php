@@ -2,7 +2,7 @@
 namespace content_site\options\magicbox;
 
 
-trait magicbox_title_position
+class magicbox_title_position
 {
 
 

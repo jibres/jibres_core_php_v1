@@ -2,9 +2,9 @@
 namespace content_site\options\container;
 
 
-trait container_gallery
+class container_gallery extends container
 {
-	use container;
+
 
 }
 ?>

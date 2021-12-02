@@ -1,10 +1,9 @@
 <?php
 namespace content_site\options\description;
 
-class description_business
+class description_business extends description
 {
 
-	use description;
 
 	public static function include_business_desc()
 	{

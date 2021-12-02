@@ -2,10 +2,9 @@
 namespace content_site\options\slider;
 
 
-class slider_effect_full
+class slider_effect_full extends slider_effect
 {
 
-	use slider_effect;
 
 	private static function full_effect()
 	{

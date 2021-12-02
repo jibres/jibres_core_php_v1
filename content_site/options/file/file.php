@@ -2,7 +2,7 @@
 namespace content_site\options\file;
 
 
-trait file
+class file
 {
 	public static function validator($_data)
 	{
@@ -125,7 +125,7 @@ trait file
 	}
 
 
-	public static function admin_html($_section_detail = null)
+	public static function admin_html()
 	{
 		if(!self::visible())
 		{

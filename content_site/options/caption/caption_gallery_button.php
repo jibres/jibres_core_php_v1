@@ -2,9 +2,8 @@
 namespace content_site\options\caption;
 
 
-class caption_gallery_button
+class caption_gallery_button extends caption_gallery
 {
-	use caption_gallery;
 
 
 	public static function title()

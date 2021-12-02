@@ -2,9 +2,8 @@
 namespace content_site\options\heading;
 
 
-class heading_raw
+class heading_raw extends heading
 {
-	use heading;
 
 
 }

@@ -2,9 +2,8 @@
 namespace content_site\options\container;
 
 
-trait container_separator
+class container_separator extends container
 {
-	use container;
 
 
 	public static function hide_sm()

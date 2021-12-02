@@ -2,10 +2,8 @@
 namespace content_site\options\padding;
 
 
-class padding_top
+class padding_top extends padding
 {
-	use padding;
-
 	public static function title()
 	{
 		return T_("Padding Top");

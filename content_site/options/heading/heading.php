@@ -2,7 +2,7 @@
 namespace content_site\options\heading;
 
 
-trait heading
+class heading
 {
 
 	public static function validator($_data)

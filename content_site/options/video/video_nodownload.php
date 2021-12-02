@@ -2,9 +2,9 @@
 namespace content_site\options\video;
 
 
-trait video_nodownload
+class video_nodownload extends video_option
 {
-	use video_option;
+
 
 	public static function name()
 	{

@@ -2,9 +2,8 @@
 namespace content_site\options\caption;
 
 
-trait caption_gallery
+class caption_gallery extends caption
 {
-	use caption;
 
 
 	public static function have_specialsave()

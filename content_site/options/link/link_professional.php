@@ -2,7 +2,7 @@
 namespace content_site\options\link;
 
 
-trait link_professional
+class link_professional
 {
 
 	public static function validator($_data)

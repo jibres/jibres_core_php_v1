@@ -2,9 +2,8 @@
 namespace content_site\options\video;
 
 
-trait video_disablepictureinpicture
+class video_disablepictureinpicture extends video_option
 {
-	use video_option;
 
 	public static function name()
 	{

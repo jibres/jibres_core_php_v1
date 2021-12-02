@@ -2,9 +2,8 @@
 namespace content_site\options\file;
 
 
-class file_gallery
+class file_gallery extends file
 {
-	use file;
 
 
 	public static function db_key()

@@ -2,9 +2,8 @@
 namespace content_site\options\video;
 
 
-class video_disablepictureinpicture_gallery
+class video_disablepictureinpicture_gallery extends video_disablepictureinpicture
 {
-	use video_disablepictureinpicture;
 
 
 	public static function gallery_mode()

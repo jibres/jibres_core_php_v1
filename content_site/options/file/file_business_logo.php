@@ -2,10 +2,8 @@
 namespace content_site\options\file;
 
 
-trait file_business_logo
+class file_business_logo extends file
 {
-	use file;
-
 
 	public static function db_key()
 	{

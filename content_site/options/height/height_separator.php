@@ -2,7 +2,7 @@
 namespace content_site\options\height;
 
 
-trait height_separator
+class height_separator
 {
 
 	public static function this_range()

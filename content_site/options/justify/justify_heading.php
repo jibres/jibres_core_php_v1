@@ -2,9 +2,8 @@
 namespace content_site\options\justify;
 
 
-trait justify_heading
+class justify_heading extends justify
 {
-	use justify;
 
 
 	public static function db_key()

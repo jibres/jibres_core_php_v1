@@ -2,9 +2,9 @@
 namespace content_site\options\link;
 
 
-class link_color_post_read_more
+class link_color_post_read_more extends link_color
 {
-	use link_color;
+
 
 	public static function checked()
 	{

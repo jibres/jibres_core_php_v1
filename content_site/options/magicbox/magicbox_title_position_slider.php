@@ -2,10 +2,9 @@
 namespace content_site\options\magicbox;
 
 
-class magicbox_title_position_slider
+class magicbox_title_position_slider extends magicbox_title_position
 {
 
-	use magicbox_title_position;
 
 	public  static function allow_outsite()
 	{

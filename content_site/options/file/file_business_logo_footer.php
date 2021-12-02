@@ -2,12 +2,8 @@
 namespace content_site\options\file;
 
 
-trait file_business_logo_footer
+class file_business_logo_footer extends file_business_logo
 {
-	use file_business_logo;
-
-
-
 
 	public static function title()
 	{

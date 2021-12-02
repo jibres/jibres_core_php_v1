@@ -2,10 +2,10 @@
 namespace content_site\options\link;
 
 
-class link_gallery
+class link_gallery extends link_professional
 {
 
-	use link_professional;
+
 
 	public static function specialsave($_data)
 	{

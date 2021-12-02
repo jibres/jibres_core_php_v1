@@ -4,7 +4,7 @@ namespace content_site\options\description;
 /**
  * Use in another option
  */
-trait description
+class description
 {
 
 	public static function validator($_data)

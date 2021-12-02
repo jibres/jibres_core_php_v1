@@ -2,7 +2,7 @@
 namespace content_site\options\caption;
 
 
-trait caption
+class caption
 {
 
 	public static function validator($_data)

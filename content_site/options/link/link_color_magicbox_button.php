@@ -2,9 +2,9 @@
 namespace content_site\options\link;
 
 
-class link_color_magicbox_button
+class link_color_magicbox_button extends link_color
 {
-	use link_color;
+
 
 	public static function checked()
 	{

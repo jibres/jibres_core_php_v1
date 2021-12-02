@@ -2,9 +2,8 @@
 namespace content_site\options\heading;
 
 
-class heading_business_footer
+class heading_business_footer extends heading_business
 {
-	use heading_business;
 
 	public static function have_text_position()
 	{

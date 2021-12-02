@@ -2,7 +2,7 @@
 namespace content_site\options\product;
 
 
-trait product_filter_image
+class product_filter_image
 {
 	public static function validator($_data)
 	{

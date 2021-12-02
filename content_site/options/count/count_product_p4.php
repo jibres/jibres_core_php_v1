@@ -2,9 +2,8 @@
 namespace content_site\options\count;
 
 
-class count_product_p4
+class count_product_p4 extends count_product
 {
-	use count_product;
 
 	public static function this_range()
 	{

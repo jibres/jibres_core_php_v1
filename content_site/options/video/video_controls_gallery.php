@@ -2,9 +2,9 @@
 namespace content_site\options\video;
 
 
-class video_controls_gallery
+class video_controls_gallery extends video_controls
 {
-	use video_controls;
+
 
 
 	public static function gallery_mode()

@@ -2,9 +2,8 @@
 namespace content_site\options\container;
 
 
-class container_product_p4
+class container_product_p4 extends container
 {
-	use container;
 
 	public static function hide_sm()
 	{

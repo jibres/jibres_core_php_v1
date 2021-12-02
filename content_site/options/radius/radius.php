@@ -2,7 +2,7 @@
 namespace content_site\options\radius;
 
 
-trait radius
+class radius
 {
 	public static function enum()
 	{

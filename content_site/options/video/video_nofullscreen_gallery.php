@@ -2,9 +2,8 @@
 namespace content_site\options\video;
 
 
-class video_nofullscreen_gallery
+class video_nofullscreen_gallery extends video_nofullscreen
 {
-	use video_nofullscreen;
 
 
 	public static function gallery_mode()

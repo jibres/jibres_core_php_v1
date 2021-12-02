@@ -2,9 +2,8 @@
 namespace content_site\options\menu;
 
 
-class menu_4
+class menu_4 extends menu
 {
-	use menu;
 
 	public static function title()
 	{

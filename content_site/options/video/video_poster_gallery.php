@@ -2,9 +2,9 @@
 namespace content_site\options\video;
 
 
-class video_poster_gallery
+class video_poster_gallery extends video_poster
 {
-	use video_poster;
+
 
 	public static function have_specialsave()
 	{

@@ -2,7 +2,7 @@
 namespace content_site\options\container;
 
 
-trait container
+class container
 {
 
 	private static function enum()

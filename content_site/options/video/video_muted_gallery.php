@@ -2,9 +2,9 @@
 namespace content_site\options\video;
 
 
-class video_muted_gallery
+class video_muted_gallery extends video_muted
 {
-	use video_muted;
+
 
 
 	public static function gallery_mode()

@@ -2,9 +2,8 @@
 namespace content_site\options\heading;
 
 
-trait heading_business
+class heading_business extends heading
 {
-	use heading;
 
 	public static function have_text_position()
 	{

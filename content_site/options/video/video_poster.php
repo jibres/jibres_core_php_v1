@@ -2,9 +2,8 @@
 namespace content_site\options\video;
 
 
-trait video_poster
+class video_poster extends \content_site\options\file\file
 {
-	use \content_site\options\file\file;
 
 	public static function db_key()
 	{

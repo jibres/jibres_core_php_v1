@@ -2,9 +2,9 @@
 namespace content_site\options\link;
 
 
-class link_googleplay
+class link_googleplay extends link_raw
 {
-	use link_raw;
+
 
 	public static function name()
 	{

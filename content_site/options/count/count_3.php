@@ -2,9 +2,8 @@
 namespace content_site\options\count;
 
 
-class count_3
+class count_3 extends count
 {
-	use count;
 
 	public static function this_range()
 	{

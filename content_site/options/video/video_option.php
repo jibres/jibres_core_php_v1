@@ -2,7 +2,7 @@
 namespace content_site\options\video;
 
 
-trait video_option
+class video_option
 {
 
 	public static function name()

@@ -2,9 +2,8 @@
 namespace content_site\options\video;
 
 
-trait video_clickable
+class video_clickable extends video_option
 {
-	use video_option;
 
 	public static function name()
 	{

@@ -2,7 +2,7 @@
 namespace content_site\options\slider;
 
 
-trait slider_effect
+class slider_effect
 {
 
 

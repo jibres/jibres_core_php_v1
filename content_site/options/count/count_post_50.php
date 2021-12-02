@@ -2,9 +2,8 @@
 namespace content_site\options\count;
 
 
-class count_post_50
+class count_post_50  extends count
 {
-	use count;
 
 	public static function this_range()
 	{

@@ -2,9 +2,8 @@
 namespace content_site\options\effect;
 
 
-class effect_gradient_type
+class effect_gradient_type extends \content_site\options\background\background_gradient_type
 {
-	use \content_site\options\background\background_gradient_type;
 
 	public static function name()
 	{

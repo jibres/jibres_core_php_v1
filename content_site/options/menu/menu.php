@@ -2,7 +2,7 @@
 namespace content_site\options\menu;
 
 
-trait menu
+class menu
 {
 	private static function enum()
 	{

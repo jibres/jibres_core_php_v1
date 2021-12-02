@@ -1,10 +1,9 @@
 <?php
 namespace content_site\options\description;
 
-class description_gallery
+class description_gallery extends description
 {
 
-	use description;
 
 	public static function db_key()
 	{

@@ -2,7 +2,7 @@
 namespace content_site\options\product;
 
 
-trait product_show_image
+class product_show_image
 {
 	public static function validator($_data)
 	{

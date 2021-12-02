@@ -2,9 +2,9 @@
 namespace content_site\options\video;
 
 
-class video_autoplay_gallery
+class video_autoplay_gallery extends video_autoplay
 {
-	use video_autoplay;
+
 
 
 	public static function gallery_mode()

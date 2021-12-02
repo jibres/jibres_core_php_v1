@@ -4,7 +4,7 @@ namespace content_site\options\title;
 /**
  * Use in another option
  */
-trait title
+class title
 {
 
 	public static function validator($_data)

@@ -2,7 +2,7 @@
 namespace content_site\options\link;
 
 
-trait link_color
+class link_color
 {
 
 	public static function link_color()
