@@ -125,6 +125,7 @@ class socialnetworks
       $html .= self::createLink('twitter', a($_social, 'twitter', 'link'), $linkClass, $imgClass);
       $html .= self::createLink('instagram', a($_social, 'instagram', 'link'), $linkClass, $imgClass);
       $html .= self::createLink('telegram', a($_social, 'telegram', 'link'), $linkClass, $imgClass);
+      $html .= self::createLink('whatsapp', a($_social, 'whatsapp', 'link'), $linkClass, $imgClass);
 
     }
     $html .= '</nav>';
