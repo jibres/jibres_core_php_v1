@@ -72,9 +72,16 @@ class api
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $_body);
 		}
 
+		if(\dash\url::isLocal() && substr($url, 0, 7) === 'http://')
+		{
+			// nothing
+		}
+		else
+		{
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		}
 
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
