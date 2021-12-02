@@ -340,6 +340,8 @@ class file
 			}
 		}
 
+		$dominant_color = \dash\utility\image::dominant_color($real_addr);
+
 		// if the file uploaded in s3 or scp remove from local
 		if($upload_in_s3 || self::upload_other_server_scp())
 		{
@@ -360,6 +362,8 @@ class file
 			'height'      => $height,
 			'width'       => $width,
 			'ratio'       => $ratio,
+
+			'color'       => $dominant_color,
 
 			'folder'      => $directory['folder'],
 			'path'        => $directory['path'],
