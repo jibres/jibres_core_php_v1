@@ -142,7 +142,7 @@ class business
 		// check last fetch
 		if(!$last_fetch || (time() - strtotime($last_fetch) > (60*60))) // need fetch
 		{
-			self::last_fetch(true);
+			// ok
 		}
 		else
 		{
@@ -156,6 +156,8 @@ class business
 				return false;
 			}
 		}
+
+		self::last_fetch(true);
 
 		$tweet_list = \lib\api\jibres\api::get_twitter_tweet_list($args);
 
@@ -250,6 +252,7 @@ class business
 			}
 		}
 		\dash\notif::clean();
+		\dash\notif::ok(T_("Operation complete"));
 
 	}
 }
