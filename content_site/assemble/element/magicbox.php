@@ -87,7 +87,7 @@ class magicbox
 		else if(a($_opt, 'grid'))
 		{
 			// get grid class name by analyze
-			$elClass = 'flex flex-col max-w-md';
+			$elClass = 'flex flex-col';
 			$elClass .= ' '. \content_site\assemble\grid::className(a($_args, 'count'), count($_datalist), $_key);
 		}
 
