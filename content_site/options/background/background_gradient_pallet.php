@@ -2,7 +2,7 @@
 namespace content_site\options\background;
 
 
-trait background_gradient_pallet
+class background_gradient_pallet
 {
 
 	public static function validator($_data)

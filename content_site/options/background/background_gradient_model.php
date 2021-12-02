@@ -2,7 +2,7 @@
 namespace content_site\options\background;
 
 
-trait background_gradient_model
+class background_gradient_model
 {
 
 	public static function extends_option()

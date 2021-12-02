@@ -2,7 +2,7 @@
 namespace content_site\options\background;
 
 
-trait background_color_random
+class background_color_random
 {
 
 	public static function validator($_data)

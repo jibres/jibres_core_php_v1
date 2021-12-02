@@ -2,9 +2,9 @@
 namespace content_site\options\background;
 
 
-trait background_gradient_to
+class background_gradient_to extends background_color
 {
-	use background_color;
+
 
 	public static function name()
 	{

@@ -2,9 +2,8 @@
 namespace content_site\options\color;
 
 
-class color_text
+class color_text extends \content_site\options\background\background_color
 {
-	use \content_site\options\background\background_color;
 	public static function default()
 	{
 		return '#333333';

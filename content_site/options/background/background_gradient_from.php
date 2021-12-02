@@ -2,9 +2,9 @@
 namespace content_site\options\background;
 
 
-class background_gradient_from
+class background_gradient_from extends background_color
 {
-	use background_color;
+
 
 	public static function admin_html()
 	{

@@ -2,9 +2,9 @@
 namespace content_site\options\background;
 
 
-class background_image
+class background_image extends \content_site\options\file\file
 {
-	use \content_site\options\file\file;
+
 
 
 	public static function db_key()
