@@ -36,9 +36,18 @@ class api
 
 		$apikey = \dash\utility::hasher($apikey);
 
-		$url = \dash\url::jibres_subdomain('core');
-		// $url .= \dash\language::current(). '/';
-		$url .= 'r10/jibres/';
+		if(false)
+		{
+			$url = \dash\url::jibres_subdomain('core');
+			// $url .= \dash\language::current(). '/';
+			$url .= 'r10/jibres/';
+		}
+		else
+		{
+			$url = 'https://core.jibres.'. \dash\url::jibres_tld(). '/r10/jibres/';
+		}
+
+
 		$url .= $_path;
 
 		// set headers
