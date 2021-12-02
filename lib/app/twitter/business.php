@@ -93,9 +93,29 @@ class business
 			'username' => $_username,
 		];
 
-		$tweet = \lib\api\jibres\api::lookup_tweet($args);
+		$save = [];
 
-		return $tweet;
+		$fetch = \lib\api\jibres\api::lookup_tweet($args);
+
+		$save['jibres_api_request_id'] = a($fetch, 'meta', 'jibres_api_request_id');
+
+		if(!$fetch || !a($fetch, 'result'))
+		{
+			\dash\notif::warn(T_("Cannot fetch tweet now!"));
+		}
+		else
+		{
+			$fetch_result         = $fetch['result'];
+
+			$user_detail = a($fetch, 'result', 'user_detail');
+			$tweet       = a($fetch, 'result', 'tweet');
+
+			$save = array_merge($save, \lib\app\twitter\extract::user_detail($user_detail));
+			$save = array_merge($save, \lib\app\twitter\extract::tweet_detail($tweet));
+
+		}
+
+		return $save;
 	}
 
 
@@ -138,6 +158,8 @@ class business
 		}
 
 		$tweet_list = \lib\api\jibres\api::get_twitter_tweet_list($args);
+
+		$jibres_api_request_id = a($tweet_list, 'meta', 'jibres_api_request_id');
 
 		if(isset($tweet_list['result']) && $tweet_list['result'] && is_array($tweet_list['result']))
 		{
@@ -199,7 +221,7 @@ class business
 					'channel'         => a($user_detail, 'username'),
 					'messageid'       => $id,
 					'data'            => json_encode(['tweet' => $post_detail, 'user_detail' => $user_detail]),
-					'jibresrequestid' => null,
+					'jibresrequestid' => $jibres_api_request_id,
 				];
 
 				if(isset($check_duplicate['id']))

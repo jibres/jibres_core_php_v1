@@ -44,6 +44,7 @@ class twitter_link
 
 		$save = [];
 
+
 		$twlastfetch = \content_site\section\view::get_current_index_detail('twitter_link');
 		if(!$twlastfetch)
 		{
@@ -52,26 +53,14 @@ class twitter_link
 
 		if($default !== $current || (time() - strtotime($twlastfetch) > (60*60)))
 		{
+
+			$save = \lib\app\twitter\business::lookup_tweet($explode[0], $explode[2]);
+			if(!is_array($save))
+			{
+				$save = [];
+			}
+
 			$save['twlastfetch'] = date("Y-m-d H:i:s");
-
-			$fetch = \lib\app\twitter\business::lookup_tweet($explode[0], $explode[2]);
-
-			if(!$fetch || !a($fetch, 'result'))
-			{
-				\dash\notif::warn(T_("Cannot fetch tweet now!"));
-			}
-			else
-			{
-				$fetch_result         = $fetch['result'];
-
-				$user_detail = a($fetch, 'result', 'user_detail');
-				$tweet       = a($fetch, 'result', 'tweet');
-
-				$save = array_merge($save, \lib\app\twitter\extract::user_detail($user_detail));
-				$save = array_merge($save, \lib\app\twitter\extract::tweet_detail($tweet));
-
-			}
-
 		}
 
 

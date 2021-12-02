@@ -164,7 +164,9 @@ class api
 			'datecreated'  => date("Y-m-d H:i:s"),
 		];
 
-		\lib\db\twitter\insert::new_record($save_log);
+		$jibres_twitter_api_id = \lib\db\twitter\insert::new_record($save_log);
+
+		\dash\notif::meta(['jibres_api_request_id' => 'api:twitter:'. $jibres_twitter_api_id]);
 
 		$log =
 		[
@@ -176,6 +178,7 @@ class api
 		];
 
 		\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'twitter.log', 'twitter');
+
 
 		if(!$response)
 		{
