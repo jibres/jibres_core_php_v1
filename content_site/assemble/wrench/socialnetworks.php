@@ -11,80 +11,84 @@ class socialnetworks
       $linkClass = 'block transition opacity-60 hover:opacity-80 focus:opacity-100 p-0.5';
       $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
 
-
-      if(a($_social, 'linkedin', 'link'))
+      foreach (\lib\store::all_social_list() as $social_key => $social_detail)
       {
-        $imgSrc = \dash\url::cdn(). '/img/social/type1/linkedin.svg';
-
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'linkedin', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("linkedin"). '">';
-        $html .= '</a>';
+        $html .= self::createLink(a($social_detail, 'bootstrap_icon'), a($_social, $social_key, 'link'), $linkClass, $imgClass);
       }
 
-      if(a($_social, 'github', 'link'))
-      {
-        $imgSrc = \dash\url::cdn(). '/img/social/type1/github.svg';
+      // if(a($_social, 'linkedin', 'link'))
+      // {
+      //   $imgSrc = \dash\url::cdn(). '/img/social/type1/linkedin.svg';
 
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'github', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("github"). '">';
-        $html .= '</a>';
-      }
+      //   $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'linkedin', 'link') .'">';
+      //   $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("linkedin"). '">';
+      //   $html .= '</a>';
+      // }
 
-      if(a($_social, 'facebook', 'link'))
-      {
-        $imgSrc = \dash\url::cdn(). '/img/social/type1/facebook.svg';
+      // if(a($_social, 'github', 'link'))
+      // {
+      //   $imgSrc = \dash\url::cdn(). '/img/social/type1/github.svg';
 
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'facebook', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("facebook"). '">';
-        $html .= '</a>';
-      }
+      //   $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'github', 'link') .'">';
+      //   $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("github"). '">';
+      //   $html .= '</a>';
+      // }
 
-      if(a($_social, 'twitter', 'link'))
-      {
-        $imgSrc = \dash\url::cdn(). '/img/social/type1/twitter.svg';
+      // if(a($_social, 'facebook', 'link'))
+      // {
+      //   $imgSrc = \dash\url::cdn(). '/img/social/type1/facebook.svg';
 
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'twitter', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("twitter"). '">';
-        $html .= '</a>';
-      }
+      //   $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'facebook', 'link') .'">';
+      //   $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("facebook"). '">';
+      //   $html .= '</a>';
+      // }
 
-      if(a($_social, 'email', 'link'))
-      {
-        $imgSrc = \dash\url::cdn(). '/img/social/type1/email.svg';
+      // if(a($_social, 'twitter', 'link'))
+      // {
+      //   $imgSrc = \dash\url::cdn(). '/img/social/type1/twitter.svg';
 
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'email', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("email"). '">';
-        $html .= '</a>';
-      }
+      //   $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'twitter', 'link') .'">';
+      //   $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("twitter"). '">';
+      //   $html .= '</a>';
+      // }
 
-      if(a($_social, 'instagram', 'link'))
-      {
-        $imgSrc = \dash\url::cdn(). '/img/social/type1/instagram.svg';
+      // if(a($_social, 'email', 'link'))
+      // {
+      //   $imgSrc = \dash\url::cdn(). '/img/social/type1/email.svg';
 
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'instagram', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("instagram"). '">';
-        $html .= '</a>';
-      }
+      //   $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'email', 'link') .'">';
+      //   $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("email"). '">';
+      //   $html .= '</a>';
+      // }
+
+      // if(a($_social, 'instagram', 'link'))
+      // {
+      //   $imgSrc = \dash\url::cdn(). '/img/social/type1/instagram.svg';
+
+      //   $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'instagram', 'link') .'">';
+      //   $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("instagram"). '">';
+      //   $html .= '</a>';
+      // }
 
 
-      if(a($_social, 'telegram', 'link'))
-      {
-        $imgSrc = \dash\url::cdn(). '/img/social/type1/telegram.svg';
+      // if(a($_social, 'telegram', 'link'))
+      // {
+      //   $imgSrc = \dash\url::cdn(). '/img/social/type1/telegram.svg';
 
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'telegram', 'link') .'">';
-        $html .= '<img class="'. $imgClass. ' rounded-full" src="'. $imgSrc. '" alt="'. T_("telegram"). '">';
-        $html .= '</a>';
-      }
+      //   $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'telegram', 'link') .'">';
+      //   $html .= '<img class="'. $imgClass. ' rounded-full" src="'. $imgSrc. '" alt="'. T_("telegram"). '">';
+      //   $html .= '</a>';
+      // }
 
 
-      if(a($_social, 'whatsapp', 'link'))
-      {
-        $imgSrc = \dash\url::cdn(). '/img/social/type1/whatsapp.svg';
+      // if(a($_social, 'whatsapp', 'link'))
+      // {
+      //   $imgSrc = \dash\url::cdn(). '/img/social/type1/whatsapp.svg';
 
-        $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'whatsapp', 'link') .'">';
-        $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("Whatsapp"). '">';
-        $html .= '</a>';
-      }
+      //   $html .= '<a class="'. $linkClass. '" target="_blank" href="'. a($_social, 'whatsapp', 'link') .'">';
+      //   $html .= '<img class="'. $imgClass. '" src="'. $imgSrc. '" alt="'. T_("Whatsapp"). '">';
+      //   $html .= '</a>';
+      // }
 
     }
     $html .= '</nav>';
