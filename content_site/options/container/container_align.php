@@ -88,7 +88,7 @@ class container_align
 		{
 			$html .= "<label>$title</label>";
 
-			$name       = 'opt_'. \content_site\utility::className(__CLASS__);
+			$name       = 'opt_'. \content_site\utility::className(get_called_class());
 
 			$radio_html = '';
 			foreach (self::enum() as $key => $value)

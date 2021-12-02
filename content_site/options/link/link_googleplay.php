@@ -8,13 +8,13 @@ class link_googleplay extends link_raw
 
 	public static function name()
 	{
-		return \content_site\utility::className(__CLASS__);
+		return \content_site\utility::className(get_called_class());
 	}
 
 
 	public static function db_key()
 	{
-		return \content_site\utility::className(__CLASS__);
+		return \content_site\utility::className(get_called_class());
 	}
 
 	public static function title()

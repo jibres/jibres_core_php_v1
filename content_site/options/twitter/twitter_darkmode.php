@@ -20,7 +20,7 @@ class twitter_darkmode
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
 			$html .= \content_site\options\generate::checkbox('darkmode', T_('Dark mode'), $default);
 

@@ -103,11 +103,11 @@ class coverratio
 
 		$title = T_("Featured image ratio");
 
-		$name       = 'opt_'. \content_site\utility::className(__CLASS__);
+		$name       = 'opt_'. \content_site\utility::className(get_called_class());
 
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
 		}
 		$html .= \content_site\options\generate::_form();
 

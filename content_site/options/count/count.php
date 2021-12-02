@@ -34,7 +34,7 @@ class count
 
 	public static function admin_html()
 	{
-		$option_name = \content_site\utility::className(__CLASS__);
+		$option_name = \content_site\utility::className(get_called_class());
 
 		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 

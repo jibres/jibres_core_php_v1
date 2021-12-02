@@ -75,7 +75,7 @@ class separator_icon
 						$selected = 'bg-red-500';
 					}
 
-					$json = json_encode(['opt_'. \content_site\utility::className(__CLASS__) => 1, 'multioption' => 'multi', 'separator_icon' => $value['key']]);
+					$json = json_encode(['opt_'. \content_site\utility::className(get_called_class()) => 1, 'multioption' => 'multi', 'separator_icon' => $value['key']]);
 
 					if($value['key'] === 'rafiei')
 					{

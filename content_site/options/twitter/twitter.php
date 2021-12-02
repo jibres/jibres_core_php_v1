@@ -50,7 +50,7 @@ class twitter
 
 		$this_range = array_column(self::enum(), 'key');
 
-		$name       = 'opt_'. \content_site\utility::className(__CLASS__);
+		$name       = 'opt_'. \content_site\utility::className(get_called_class());
 
 		$html = '';
 		$html .= \content_site\options\generate::form();

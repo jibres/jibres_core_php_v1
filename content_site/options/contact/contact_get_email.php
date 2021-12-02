@@ -25,7 +25,7 @@ class contact_get_email
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 	    	$html .= \content_site\options\generate::checkbox('get_email', T_('Get email'), $default);
 		}
 

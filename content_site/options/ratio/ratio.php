@@ -47,7 +47,7 @@ class ratio
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
 		}
   		$html .= \content_site\options\generate::_form();
 

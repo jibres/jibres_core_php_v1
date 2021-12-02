@@ -26,7 +26,7 @@ class android_apk_link
 			$html .= \content_site\options\generate::form();
 			{
 				$html .= \content_site\options\generate::multioption();
-				$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+				$html .= \content_site\options\generate::opt_hidden(get_called_class());
 				$html .= \content_site\options\generate::checkbox(self::db_key() , T_('Display APK download link'), $default);
 			}
   			$html .= \content_site\options\generate::_form();

@@ -32,7 +32,7 @@ class post_show_comment_count
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
 			$html .= \content_site\options\generate::checkbox('comment_count', T_('Display Comment count'), $default);
 		}

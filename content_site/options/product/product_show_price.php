@@ -20,7 +20,7 @@ class product_show_price
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
 			$html .= \content_site\options\generate::checkbox('show_price',  T_('Display product price'), $default);
 

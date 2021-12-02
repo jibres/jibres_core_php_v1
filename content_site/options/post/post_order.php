@@ -35,7 +35,7 @@ class post_order
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(__CLASS__, self::enum(), $default, T_("Order by"));
+			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, T_("Order by"));
 		}
 
   		$html .= \content_site\options\generate::_form();

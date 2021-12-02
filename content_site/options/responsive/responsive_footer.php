@@ -47,7 +47,7 @@ class responsive_footer
 
 			$title = T_("Footer links");
 			$html .= \content_site\options\generate::multioption();
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
 			$name       = 'use_as_footer_link';
 

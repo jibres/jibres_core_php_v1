@@ -33,7 +33,7 @@ class title
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::not_redirect();
-	    	$html .= \content_site\options\generate::text('opt_'. \content_site\utility::className(__CLASS__), $default, self::title());
+	    	$html .= \content_site\options\generate::text('opt_'. \content_site\utility::className(get_called_class()), $default, self::title());
 
 		}
   		$html .= \content_site\options\generate::_form();

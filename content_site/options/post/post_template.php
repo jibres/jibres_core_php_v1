@@ -102,7 +102,7 @@ class post_template
 			}
 			$html .= "</div>";
 
-			$html .= \content_site\options\generate::select(__CLASS__, self::enum_post_template(), $default_post_template);
+			$html .= \content_site\options\generate::select(get_called_class(), self::enum_post_template(), $default_post_template);
 		}
 
   		$html .= \content_site\options\generate::_form();

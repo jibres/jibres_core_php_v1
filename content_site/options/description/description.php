@@ -64,7 +64,7 @@ class description
 		{
 
 			$html .= \content_site\options\generate::multioption();
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
 			if(self::have_specialsave())
 			{

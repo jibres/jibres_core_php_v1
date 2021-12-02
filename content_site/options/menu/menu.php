@@ -37,7 +37,7 @@ class menu
 
 	public static function db_key()
 	{
-		return \content_site\utility::className(__CLASS__);
+		return \content_site\utility::className(get_called_class());
 	}
 
 
@@ -55,7 +55,7 @@ class menu
 	public static function admin_html($_section_detail)
 	{
 
-		$option_key = \content_site\utility::className(__CLASS__);
+		$option_key = \content_site\utility::className(get_called_class());
 
 		$default = \content_site\section\view::get_current_index_detail(self::db_key());
 

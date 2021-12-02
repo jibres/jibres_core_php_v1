@@ -41,7 +41,7 @@ class image_list
 		$html .= \content_site\options\generate::form();
 		{
 
-	  		$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+	  		$html .= \content_site\options\generate::opt_hidden(get_called_class());
 	  		$html .= \content_site\options\generate::specialsave();;
 
 			$html .= '<nav class="items long">';

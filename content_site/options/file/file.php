@@ -12,7 +12,7 @@ class file
 
 	public static function validator_upload_file($_data)
 	{
-		$CLASS = \content_site\utility::className(__CLASS__);
+		$CLASS = \content_site\utility::className(get_called_class());
 
 		if(\dash\request::files($CLASS))
 		{
@@ -159,7 +159,7 @@ class file
 	public static function html_upload_file($_section_detail = null)
 	{
 
-		$option_key = \content_site\utility::className(__CLASS__);
+		$option_key = \content_site\utility::className(get_called_class());
 
 		$db_key     = self::db_key();
 
@@ -192,7 +192,7 @@ class file
 		}
 		// form
 		{
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 			$html .= \content_site\options\generate::multioption();
 
 			// need special save

@@ -58,7 +58,7 @@ class file_video
 
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
 			$html .= '<div class="example">';
 			{

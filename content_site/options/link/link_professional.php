@@ -89,9 +89,9 @@ class link_professional
 				$html .= \content_site\options\generate::specialsave();;
 			}
 
-			$option_key = \content_site\utility::className(__CLASS__);
+			$option_key = \content_site\utility::className(get_called_class());
 
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
 			$html .= "<div class='mb-5'>";
 			{

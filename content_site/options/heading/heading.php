@@ -8,7 +8,7 @@ class heading
 	public static function validator($_data)
 	{
 		$new_data            = [];
-		$heading             = a($_data, \content_site\utility::className(__CLASS__));
+		$heading             = a($_data, \content_site\utility::className(get_called_class()));
 		$new_data['heading'] = \dash\validate::string_100($heading);
 
 		$heading_position             = a($_data, 'heading_position');
@@ -78,7 +78,7 @@ class heading
 			{
 				$name       = 'use_as_heading'
 				;
-				$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+				$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
 				$html .= '<div class="flex">';
 				{
@@ -144,7 +144,7 @@ class heading
 
 			$html .= '<div class="input">';
 			{
-	    		$html .= "<input type='text' name='opt_".\content_site\utility::className(__CLASS__)."' value='$default' data-sync='$myId' id='$myId' placeholder=''>";
+	    		$html .= "<input type='text' name='opt_".\content_site\utility::className(get_called_class())."' value='$default' data-sync='$myId' id='$myId' placeholder=''>";
 			}
 
 			$html .= "</div>";

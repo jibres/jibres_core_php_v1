@@ -40,7 +40,7 @@ class text
 		{
 
 	    	$html .= \content_site\options\generate::not_redirect();
-	    	$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+	    	$html .= \content_site\options\generate::opt_hidden(get_called_class());
 	    	$html .= \content_site\options\generate::multioption();
 	    	$html .= '<div class="h-full">';
 	    	{

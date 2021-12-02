@@ -38,7 +38,7 @@ class product_filter_image
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			$html .= \content_site\options\generate::opt_hidden(__CLASS__);
+			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
 			$html .= \content_site\options\generate::checkbox('filter_image',  T_('Only products with an image'), $default);
 
