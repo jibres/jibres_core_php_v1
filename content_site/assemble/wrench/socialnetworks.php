@@ -118,9 +118,9 @@ class socialnetworks
       }
       $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
 
-      foreach (\lib\store::all_social_list() as $social_key => $useless)
+      foreach (\lib\store::all_social_list() as $social_key => $social_detail)
       {
-        $html .= self::createLink($social_key, a($_social, $social_key, 'link'), $linkClass, $imgClass);
+        $html .= self::createLink(a($social_detail, 'bootstrap_icon'), a($_social, $social_key, 'link'), $linkClass, $imgClass);
       }
 
     }
