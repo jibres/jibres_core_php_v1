@@ -26,12 +26,19 @@ class twitter1_html
     }
     $twName         = a($_tweet, 'twname');
 
-    $twTweetImg     = null;
+    $twTweetThumb     = null;
 
     if(a($_tweet, 'twthumb'))
     {
-      $twTweetImg     = \lib\filepath::fix(a($_tweet, 'twthumb'));
+      $twTweetThumb     = \lib\filepath::fix(a($_tweet, 'twthumb'));
     }
+
+    $twImage = [];
+    if(is_array(a($_tweet, 'twimage')))
+    {
+      $twImage = $_tweet['twimage'];
+    }
+
 
     $twAvatar   = \lib\filepath::fix(a($_tweet, 'twavatar'));
     $twVerified = a($_tweet, 'twverified');
@@ -139,13 +146,35 @@ class twitter1_html
           $html .= "<div class='tweet-text text-lg leading-6 text-gray-900 mb-2 md:mb-4'>";
           {
             $html .= $twTweet;
-            if($twTweetImg)
+            if($twImage)
             {
-              $html .= "<div class='w-full relative overflow-hidden rounded-xl mt-2 md:mt-4'>";
-              $html .= "<img src='". $twTweetImg. "' class='w-full' alt='Twiiter'>";
+              $html .= '<div class="row">';
+              {
+                foreach ($twImage as $key => $value)
+                {
+                  $html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+                  {
+                    $html .= "<div class='w-full relative overflow-hidden rounded-xl mt-2 md:mt-4'>";
+                    {
+                      $html .= "<img src='". \lib\filepath::fix($value). "' class='w-full' alt='Twiiter'>";
+                    }
+                    $html .= "</div>";
+                  }
+                  $html .= '</div>';
+                }
+              }
+              $html .= '</div>';
+            }
+            else
+            {
+              if($twTweetThumb)
+              {
+                $html .= "<div class='w-full relative overflow-hidden rounded-xl mt-2 md:mt-4'>";
+                $html .= "<img src='". $twTweetThumb. "' class='w-full' alt='Twiiter'>";
 
-              // https://pbs.twimg.com/media/FCmhwHTXIAcVqxx?format=jpg&name=small
-              $html .= "</div>";
+                // https://pbs.twimg.com/media/FCmhwHTXIAcVqxx?format=jpg&name=small
+                $html .= "</div>";
+              }
             }
           }
           $html .= "</div>";
