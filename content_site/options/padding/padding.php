@@ -56,7 +56,7 @@ class padding
 
 	public static function validator($_data)
 	{
-		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => self::title()]);
+		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => static::title()]);
 	}
 
 
@@ -85,7 +85,7 @@ class padding
 
 		if(!$_top && !$_bottom)
 		{
-			$class .= self::find_padding_class(self::default());
+			$class .= self::find_padding_class(static::default());
 		}
 		elseif($_top === $_bottom)
 		{
@@ -106,19 +106,19 @@ class padding
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail(self::db_key());
+		$default = \content_site\section\view::get_current_index_detail(static::db_key());
 
 		if(is_null($default))
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
-		$title = self::title();
+		$title = static::title();
 
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::rangeslider('opt_'. self::name(), self::this_range(), $default, self::title());
+			$html .= \content_site\options\generate::rangeslider('opt_'. static::name(), self::this_range(), $default, static::title());
 		}
 		$html .= \content_site\options\generate::_form();
 
