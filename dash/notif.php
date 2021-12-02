@@ -286,9 +286,23 @@ class notif
 	}
 
 
+	/**
+	 * Append meta array
+	 *
+	 * @param      <type>  $_meta  The meta
+	 */
 	public static function meta($_meta)
 	{
-		self::add_detail('meta', $_meta);
+		$meta = [];
+		if(isset(self::$notif['meta']) && is_array(self::$notif['meta']))
+		{
+			$meta = self::$notif['meta'];
+		}
+
+		$meta = array_merge($meta, $_meta);
+
+		self::add_detail('meta', $meta);
+
 	}
 
 
