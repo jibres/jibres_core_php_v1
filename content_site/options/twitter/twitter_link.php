@@ -51,7 +51,9 @@ class twitter_link
 			$twlastfetch = time();
 		}
 
-		if($default !== $current || (time() - strtotime($twlastfetch) > (60*60)))
+		$allow_time = (time() - strtotime($twlastfetch) > (60*60));
+
+		if($default !== $current || $allow_time)
 		{
 
 			$save = \lib\app\twitter\business::lookup_tweet($explode[0], $explode[2]);
@@ -61,6 +63,13 @@ class twitter_link
 			}
 
 			$save['twlastfetch'] = date("Y-m-d H:i:s");
+		}
+		else
+		{
+			if(!$allow_time)
+			{
+				// \dash\notif::warn(T_("You can fetch lastet tweet every 1 hour"));
+			}
 		}
 
 

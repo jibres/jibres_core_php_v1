@@ -139,22 +139,24 @@ class business
 
 		$last_fetch = self::last_fetch();
 
+
+		$life_time = 60 * 60;
+
+		if(\dash\permission::supervisor())
+		{
+			$life_time = 60;
+		}
+
 		// check last fetch
-		if(!$last_fetch || (time() - strtotime($last_fetch) > (60*60))) // need fetch
+		if(!$last_fetch || (time() - strtotime($last_fetch) > $life_time)) // need fetch
 		{
 			// ok
 		}
 		else
 		{
-			if(\dash\permission::supervisor())
-			{
-				\dash\notif::warn(T_("You can fetch latest tweet every 1 hour. This message only show for you"));
-			}
-			else
-			{
-				\dash\notif::error(T_("You can fetch latest tweet every 1 hour"));
-				return false;
-			}
+			\dash\notif::error(T_("You can fetch latest tweet every 1 hour"));
+			return false;
+
 		}
 
 		self::last_fetch(true);
