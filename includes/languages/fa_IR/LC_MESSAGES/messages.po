@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-11-30 12:26+0330\n"
-"PO-Revision-Date: 2021-11-30 12:28+0330\n"
+"POT-Creation-Date: 2021-12-02 11:12+0330\n"
+"PO-Revision-Date: 2021-12-02 11:15+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -6940,8 +6940,7 @@ msgstr "چاپ همه اسناد حسابداری"
 #: content_site/options/file/file_business_logo.php:86
 #: content_site/options/heading/heading.php:101
 #: content_site/options/instagram/instagram.php:42 content_site/options/menu/menu.php:80
-#: content_site/options/socialnetwork/socialnetwork.php:67
-#: content_site/options/twitter/twitter.php:110 dash/engine/pwa.php:63
+#: content_site/options/socialnetwork/socialnetwork.php:67 dash/engine/pwa.php:63
 #: dash/engine/pwa.php:64 dash/layout/search/search-filter.php:171
 #: dash/layout/search/search-filter.php:206
 msgid "Manage"
@@ -7665,7 +7664,7 @@ msgstr "افزودن سریع مشتری"
 #: content_a/cart/add/display.php:79 content_a/cart/user/display.php:19
 #: content_a/order/address/display.php:57 content_a/sale/display.php:44
 #: content_crm/ticket/assign/display.php:17
-#: content_site/body/twitter/twitter1_html.php:214 lib/app/form/filter/ready.php:60
+#: content_site/body/twitter/twitter1_html.php:202 lib/app/form/filter/ready.php:60
 msgid "Like"
 msgstr "مثل"
 
@@ -12118,7 +12117,7 @@ msgstr "پست‌های عمومی را هم‌اکنون دریافت کنید"
 #: content_my/domain/setting/elements/superdetail.php:10
 #: content_my/domain/setting/elements/superdetail.php:51
 #: content_site/options/instagram/instagram.php:30
-#: content_site/options/twitter/twitter.php:98
+#: content_site/options/twitter/twitter.php:119
 msgid "Last fetch"
 msgstr "آخرین دریافت"
 
@@ -13129,6 +13128,7 @@ msgstr "یوتیوب"
 #: content_account/my/home/display.php:170 content_account/my/social/display.php:27
 #: content_account/my/social/display.php:30 content_site/body/twitter/option.php:25
 #: content_site/body/twitter/twitter1.php:17 content_site/body/twitter/twitter1.php:53
+#: content_site/body/twitter/twitter1_html.php:83
 #: content_site/options/twitter/twitter.php:49 lib/store.php:495 lib/store.php:555
 msgid "Twitter"
 msgstr "توییتر"
@@ -17894,7 +17894,7 @@ msgid "Show Attachment"
 msgstr "نمایش ضمیمه‌‌"
 
 #: content_crm/ticket/view/display.php:47 content_site/page/display-aside-top.php:66
-#: content_site/page/display-aside-top.php:109
+#: content_site/page/display-aside-top.php:145
 msgid "Without title"
 msgstr "بدون عنوان"
 
@@ -20668,6 +20668,7 @@ msgid "Last check domain owner with whois"
 msgstr "آخرین بررسی مالک دامنه از طریق هویز"
 
 #: content_love/domain/setting/display.php:216
+#: content_site/options/twitter/twitter.php:111
 msgid "Update now"
 msgstr "هم‌اکنون بروزرسانی کنید"
 
@@ -23034,19 +23035,19 @@ msgstr "جعبه متن"
 msgid "Title 1"
 msgstr "عنوان ۱"
 
-#: content_site/body/twitter/twitter1_html.php:181
+#: content_site/body/twitter/twitter1_html.php:169
 msgid "Retweet"
 msgstr "بازتوییت"
 
-#: content_site/body/twitter/twitter1_html.php:185
+#: content_site/body/twitter/twitter1_html.php:173
 msgid "Retweets"
 msgstr "بازتوییت"
 
-#: content_site/body/twitter/twitter1_html.php:199
+#: content_site/body/twitter/twitter1_html.php:187
 msgid "Quote Tweet"
 msgstr "نقل‌‌توییت"
 
-#: content_site/body/twitter/twitter1_html.php:218
+#: content_site/body/twitter/twitter1_html.php:206
 msgid "Likes"
 msgstr "لایک"
 
@@ -23063,7 +23064,7 @@ msgstr "حالت کارت ۱"
 msgid "Invalid section"
 msgstr "شناسه بخش اشتباه است"
 
-#: content_site/call_function.php:679
+#: content_site/call_function.php:681
 msgid "Sample :val"
 msgstr "نمونه :val"
 
@@ -23096,7 +23097,7 @@ msgid "Follow us on Social Media"
 msgstr "ما را در شبکه‌های اجتماعی دنبال کنید"
 
 #: content_site/footer/option.php:30 content_site/footer/option.php:32
-#: content_site/page/display-aside-top.php:93
+#: content_site/page/display-aside-top.php:129
 msgid "Footer"
 msgstr "فوتر"
 
@@ -23208,7 +23209,7 @@ msgid "Local"
 msgstr "محلی"
 
 #: content_site/options/background/background_attachment.php:14
-#: content_site/options/responsive/responsive_grid_magicbox.php:14
+#: content_site/options/responsive/responsive_layout.php:14
 msgid "Scroll"
 msgstr "اسکرول"
 
@@ -23728,7 +23729,6 @@ msgid "Connect to your instagram"
 msgstr "اتصال به اینستاگرام شما"
 
 #: content_site/options/instagram/instagram.php:40
-#: content_site/options/twitter/twitter.php:108
 msgid "Fetch posts now"
 msgstr "هم‌اکنون پست‌ها را دریافت کن"
 
@@ -24060,25 +24060,25 @@ msgstr "حداکثر ظرفیت برای لینک‌های فوتر تکمیل �
 msgid "Add footer links"
 msgstr "افزودن لینک پابرگ"
 
-#: content_site/options/responsive/responsive_grid_magicbox.php:12
-msgid "Show in one line"
-msgstr "نمایش در یک خط"
-
-#: content_site/options/responsive/responsive_grid_magicbox.php:13
-msgid "Break item"
-msgstr "شکست آیتم‌ها در خط"
-
-#: content_site/options/responsive/responsive_grid_magicbox.php:25
-msgid "Position"
-msgstr "محل قرارگیری"
-
-#: content_site/options/responsive/responsive_grid_magicbox.php:47
-msgid "Dispaly in mobile"
-msgstr "نمایش در موبایل"
-
 #: content_site/options/responsive/responsive_header_title.php:24
 msgid "Page title in mobile"
 msgstr "عنوان صفحه در موبایل"
+
+#: content_site/options/responsive/responsive_layout.php:12
+msgid "Show in one line"
+msgstr "نمایش در یک خط"
+
+#: content_site/options/responsive/responsive_layout.php:13
+msgid "Break item"
+msgstr "شکست آیتم‌ها در خط"
+
+#: content_site/options/responsive/responsive_layout.php:25
+msgid "Position"
+msgstr "محل قرارگیری"
+
+#: content_site/options/responsive/responsive_layout.php:47
+msgid "Dispaly in mobile"
+msgstr "نمایش در موبایل"
 
 #: content_site/options/separator/separator_type.php:11
 msgid "solid"
@@ -24153,9 +24153,25 @@ msgstr "شخصی‌سازی"
 msgid "My self"
 msgstr "خودم"
 
-#: content_site/options/twitter/twitter.php:92
-msgid "Connect to your twitter"
-msgstr "اتصال به تویتر شما"
+#: content_site/options/twitter/twitter.php:98
+msgid "You must first enter your Twitter username in the settings"
+msgstr "شما ابتدا باید نام کاربری توییتر خود را در بخش تنظیمات وارد کنید"
+
+#: content_site/options/twitter/twitter.php:100
+msgid "To set twitter username"
+msgstr "برای تنظیم نام کاربری توییتر خود"
+
+#: content_site/options/twitter/twitter.php:101
+msgid "click herer"
+msgstr "اینجا کلیک کنید"
+
+#: content_site/options/twitter/twitter.php:110
+msgid "You can fetch last twitter posts every one hour"
+msgstr "شما می‌توانید آخرین توییت‌ها را هر یک ساعت به‌روزرسانی کنید"
+
+#: content_site/options/twitter/twitter.php:122
+msgid "Change twitter username"
+msgstr "تغییر نام کاربری توییتر"
 
 #: content_site/options/twitter/twitter_darkmode.php:25
 msgid "Dark mode"
@@ -24166,11 +24182,7 @@ msgstr "مدل تاریک"
 msgid "Please set a valid tweet url"
 msgstr "لطفا آدرس توییت را به صورت صحیح وارد کنید"
 
-#: content_site/options/twitter/twitter_link.php:53
-msgid "Cannot fetch tweet now!"
-msgstr "در حال حاضر نمی‌توانیم این توییت را دریافت کنیم"
-
-#: content_site/options/twitter/twitter_link.php:86
+#: content_site/options/twitter/twitter_link.php:83
 msgid "Tweet link"
 msgstr "لینک توییت"
 
@@ -24245,15 +24257,15 @@ msgstr "تنظیمات صفحه"
 msgid "Change Background"
 msgstr "تغییر پس‌زمینه"
 
-#: content_site/page/display-aside-top.php:82
+#: content_site/page/display-aside-top.php:118
 msgid "Add Section"
 msgstr "افزودن بخش"
 
-#: content_site/page/display-aside-top.php:101
+#: content_site/page/display-aside-top.php:137
 msgid "Deleted section"
 msgstr "بخش‌های حذف شده"
 
-#: content_site/page/display-aside-top.php:101
+#: content_site/page/display-aside-top.php:137
 msgid "After saving the page, this section will be deleted completely"
 msgstr "پس از ذخیره صفحه این بخش‌ به صورت کامل حذف خواهد شد"
 
@@ -36579,6 +36591,10 @@ msgstr "برای تایید ایمیل خود در جیبرس"
 msgid "Verify your mail"
 msgstr "نیاز به تایید ایمیل"
 
+#: lib/api/file/api.php:68
+msgid "Can not connect to file server!"
+msgstr "نمی‌توانیم به سرور فایل‌ها متصل شویم!"
+
 #: lib/api/jibres/api.php:22
 msgid "This method works only in business mode"
 msgstr "این متود تنها در حالت بیزینس قابل اجرا است"
@@ -36731,7 +36747,7 @@ msgstr "جزئیات فروشگاه اشتباه است"
 msgid "Invalid customer detail"
 msgstr "شناسه مشتری اشتباه است"
 
-#: lib/api/twitter/api.php:182
+#: lib/api/twitter/api.php:185
 msgid "Can not connect to twitter server!"
 msgstr "نمی‌توانیم به سرور تویتر متصل شویم!"
 
@@ -41852,17 +41868,21 @@ msgstr "سال مالی با موفقیت ویرایش شد"
 msgid "Can not remove this year. This accounting year already in use"
 msgstr "نمی‌توانید این سال مالی را حذف کنید. این سال مالی هم‌اکنون در حال استفاده است"
 
-#: lib/app/twitter/business.php:109
+#: lib/app/twitter/business.php:104
+msgid "Cannot fetch tweet now!"
+msgstr "در حال حاضر نمی‌توانیم این توییت را دریافت کنیم"
+
+#: lib/app/twitter/business.php:129
 msgid "You must first set twitter username in setting"
 msgstr "شما ابتدا باید شناسه توییتر خود را در بخش تنظیمات وارد کنید"
 
-#: lib/app/twitter/business.php:131
+#: lib/app/twitter/business.php:151
 msgid "You can fetch latest tweet every 1 hour. This message only show for you"
 msgstr ""
 "شما می‌توانید آخرین توییت‌ها را هر یک ساعت به‌روزرسانی کنید. این پیام فقط برای شما صادر "
 "شده است"
 
-#: lib/app/twitter/business.php:135
+#: lib/app/twitter/business.php:155
 msgid "You can fetch latest tweet every 1 hour"
 msgstr "شما می‌توانید آخرین توییت‌ها را هر یک ساعت به‌روزرسانی کنید"
 
@@ -42386,6 +42406,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Connect to your twitter"
+#~ msgstr "اتصال به تویتر شما"
+
 #~ msgid "Connect to your twitter account."
 #~ msgstr "اتصال به حساب کاربری شما در تویتر"
 
@@ -42394,9 +42417,6 @@ msgstr "یارد"
 
 #~ msgid "Separator 1"
 #~ msgstr "جداکننده ۱"
-
-#~ msgid "Twitter username not set!"
-#~ msgstr "نام کاربری شما در تویتر تنظیم نشده است!"
 
 #~ msgid "application 1"
 #~ msgstr "برنامه ۱"
@@ -50618,9 +50638,6 @@ msgstr "یارد"
 
 #~ msgid "Please remove one of them and"
 #~ msgstr "لطفا یکی را حذف کنید و"
-
-#~ msgid "click here"
-#~ msgstr "اینجا کلیک کنید"
 
 #~ msgid "Request delete account"
 #~ msgstr "درخواست حذف حساب کاربری"

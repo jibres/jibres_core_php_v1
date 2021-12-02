@@ -45,7 +45,7 @@ class twitter_link
 		$save = [];
 
 
-		$twlastfetch = \content_site\section\view::get_current_index_detail('twitter_link');
+		$twlastfetch = \content_site\section\view::get_current_index_detail('twlastfetch');
 		if(!$twlastfetch)
 		{
 			$twlastfetch = time();

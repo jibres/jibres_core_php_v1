@@ -81,6 +81,9 @@ class twitter
 		$html .= \content_site\options\generate::_form();
 
 
+		$setting_url = \lib\store::admin_url(). '/a/setting/tw';
+
+
 		$html .= '<div data-response="'.$name.'" data-response-where="myself" '.(($default === 'myself') ? null : 'data-response-hide').'>';
 		{
 			$twitter_username = \lib\store::social('twitter', true);
@@ -89,25 +92,36 @@ class twitter
 
 			if(!$twitter_username)
 			{
-				$html .= '<a target="_blank" class="btn-primary leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/tw">'. T_("Connect to your twitter"). ' <i class="sf-external-link pLa5"></i> </a>';
+				$html .= '<div class="alert2">';
+				{
+					$html .= '';
+					$html .= T_("You must first enter your Twitter username in the settings");
+					$html .= '<br>';
+					$html .= T_("To set twitter username");
+					$html .= '<a target="_blank" class="link-primary" href="'. $setting_url .'"> '. T_("click herer"). ' </a>';
+				}
+				$html .= '</div>';
+
 			}
 			else
 			{
-				if($twitter_last_fetch)
+				$html .= '<div class="alert2">';
 				{
-					$html .= '<div class="alert2">'. T_("Last fetch"). ': '. \dash\fit::date_human($twitter_last_fetch). '</div>';
+					$html .= T_("You can fetch last twitter posts every one hour");
+					$html .= '<div target="_blank" data-ajaxify data-method="post" data-data=\'{"tw_action": "fetch"}\' class="link-primary" data-action="'. $setting_url .'">'. T_("Update now"). '</div>';
 				}
+				$html .= '</div>';
 
-				$json =
-				[
-					'ig_action'   => 'fetch',
-				];
+				$html .= '<div class="alert2">';
+				{
+					if($twitter_last_fetch)
+					{
+						$html .= '<div class="">'. T_("Last fetch"). ': '. \dash\fit::date_human($twitter_last_fetch). '</div>';
+					}
 
-				$json = json_encode($json);
-
-				$html .= '<div target="_blank" data-method="post" data-data=\'{"tw_action": "fetch"}\' class="btn-primary leading-6 block" data-ajaxify=\''.$json.'\' data-action="'. \lib\store::admin_url(). '/a/setting/tw">'. T_("Fetch posts now"). ' <i class="sf-external-link pLa5"></i> </div>';
-
-				$html .= '<a target="_blank" class="btn-link leading-6 block" href="'. \lib\store::admin_url(). '/a/setting/tw">'. T_("Manage"). ' <i class="sf-external-link pLa5"></i> </a>';
+					$html .= '<a target="_blank" class="link-primary" href="'. $setting_url .'"> '. T_("Change twitter username"). ' </a>';
+				}
+				$html .= '</div>';
 			}
 		}
 		$html .= '</div>';
