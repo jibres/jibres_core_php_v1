@@ -54,14 +54,25 @@ class extract
 			$media        = self::get_media($_data);
 		}
 
-		if(a($media, 0, 'preview_image_url'))
+		$tweet['twimage'] = [];
+
+		foreach ($media as $key => $value)
 		{
-			$tweet['twthumb']        = self::upload_tw_file(a($media, 0, 'preview_image_url'));
+			if(a($value, 'preview_image_url'))
+			{
+				$tweet['twimage'][$key] = self::upload_tw_file(a($value, 'preview_image_url'));
+			}
+			else
+			{
+				$tweet['twimage'][$key] = self::upload_tw_file(a($value, 'url'));
+			}
 		}
-		else
+
+		if(a($tweet, 'twimage', 0))
 		{
-			$tweet['twthumb']        = self::upload_tw_file(a($media, 0, 'url'));
+			$tweet['twthumb'] = a($tweet, 'twimage', 0);
 		}
+
 
 		$entities               = a($my_data, 'entities');
 
