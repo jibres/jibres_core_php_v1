@@ -52,7 +52,7 @@
                 </div>
               </div>
               <div class="cauto"><?php echo T_("VAT"); ?></div>
-              <div class="cauto ltr text-left pLR5" id="vatCost"></div>
+              <div class="cauto ltr text-left px-1" id="vatCost"></div>
               <div class="cauto"><?php echo a($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>
@@ -69,7 +69,7 @@
                     <?php }else{ ?>
                     <?php } //endif ?>
                   </div>
-                <div class="c ltr txtRa pLR5 fs16" id="finalPrice"><?php echo a($productDataRow,'finalprice'); ?></div>
+                <div class="c ltr txtRa px-1 fs16" id="finalPrice"><?php echo a($productDataRow,'finalprice'); ?></div>
                 <div class="cauto" id="moneyUnit"><?php echo a($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>

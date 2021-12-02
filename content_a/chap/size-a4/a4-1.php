@@ -38,7 +38,7 @@
        <th></th>
        <th><?php echo T_("Explanation"); ?></th>
        <th><?php echo T_("Unit price"); ?></th>
-       <th class="px-1"><?php echo T_("Qty"); ?></th>
+       <th class="px-1 text-center"><?php echo T_("Qty"); ?></th>
 <?php if(\dash\data::haveUnit()){?>
        <th class="px-1"><?php echo T_("Unit"); ?></th>
 <?php } ?>

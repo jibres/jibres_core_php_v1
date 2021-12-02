@@ -61,7 +61,7 @@ myStores();
       <h2><?php echo a($value, 'title'); ?></h2>
       <div class="f summary">
         <div class="c4"><?php echo \dash\fit::number(a($value, 'product')). ' '. T_("Product"); ?></div>
-        <div class="c4 pLR5"><?php echo \dash\fit::number(a($value, 'customer')). ' '. T_("Customer"); ?></div>
+        <div class="c4 px-1"><?php echo \dash\fit::number(a($value, 'customer')). ' '. T_("Customer"); ?></div>
         <div class="c4"><?php echo \dash\fit::number(a($value, 'factor')). ' '. T_("Factor"); ?></div>
       </div>
       <div class="f meta">
