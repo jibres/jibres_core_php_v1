@@ -501,7 +501,8 @@ class store
 
 		if(\dash\language::current() === 'fa')
 		{
-			// $social['aparat']    = ['user' => null, 'bootstrap_icon' => 'aparat', 'title' => T_("Aparat"), 'link' => 'https://aparat.com/'];
+			$social['aparat']    = ['user' => null, 'bootstrap_icon' => 'camera-reels', 'title' => T_("Aparat"), 'link' => 'https://aparat.com/'];
+			$social['eitaa']    = ['user' => null, 'bootstrap_icon' => 'telegram', 'title' => T_("Eitaa"), 'link' => 'https://eitaa.com/'];
 		}
 		return $social;
 	}
