@@ -115,7 +115,7 @@ class product
 		curl_close ($ch);
 		if($response)
 		{
-			$new_path = tempnam('/tmp', 'JIBRES_');
+			$new_path = tempnam(sys_get_temp_dir(), 'JIBRES_');
 			\dash\file::write($new_path, $response);
 
 			$meta =

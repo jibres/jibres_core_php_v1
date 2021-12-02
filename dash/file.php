@@ -442,7 +442,7 @@ class file
 		$default_options =
 		[
 			'read_size' => 1024 * 5, // 5 MB
-			'tmp_path'  => '/tmp',
+			'tmp_path'  => sys_get_temp_dir(),
 			'max_size'  => $max_size,
 		];
 

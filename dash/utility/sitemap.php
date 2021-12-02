@@ -207,7 +207,7 @@ class sitemap
 			case 'write':
 				if($is_scp)
 				{
-					// $local_tmp_file = tempnam("/tmp", "sitemap_scp_file_". md5($_addr));
+					// $local_tmp_file = tempnam(sys_get_temp_dir(), "sitemap_scp_file_". md5($_addr));
 
 					// file_put_contents($local_tmp_file, 'null');
 
@@ -237,7 +237,7 @@ class sitemap
 			case 'read':
 				if($is_scp)
 				{
-					$local_tmp_file = tempnam("/tmp", "sitemap_scp_file_". md5($_addr));
+					$local_tmp_file = tempnam(sys_get_temp_dir(), "sitemap_scp_file_". md5($_addr));
 
 					\dash\scp::recv($_addr, $local_tmp_file);
 
@@ -412,7 +412,7 @@ class sitemap
 		if($_set_result)
 		{
 
-			$local_tmp_file = tempnam("/tmp", "sitemap_xml_". md5($master_xml));
+			$local_tmp_file = tempnam(sys_get_temp_dir(), "sitemap_xml_". md5($master_xml));
 
 			$sitemap = new \dash\utility\sitemap_xml($local_tmp_file);
 
@@ -491,7 +491,7 @@ class sitemap
 		}
 
 		// create tmp file
-		$local_tmp_file = @tempnam("/tmp", "sitemap_xml_". md5($addr));
+		$local_tmp_file = @tempnam(sys_get_temp_dir(), "sitemap_xml_". md5($addr));
 
 		$sitemap = new \dash\utility\sitemap_xml($local_tmp_file);
 

@@ -20,7 +20,7 @@ class directory
 
 	public static function temp_dir($_prefix)
 	{
-		$tmpfname = tempnam("/tmp", "JIBRES_EXPORT_". mb_strtoupper($_prefix). '_');
+		$tmpfname = tempnam(sys_get_temp_dir(), "JIBRES_EXPORT_". mb_strtoupper($_prefix). '_');
 		return $tmpfname;
 	}
 
