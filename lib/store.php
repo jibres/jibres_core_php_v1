@@ -489,20 +489,20 @@ class store
 	{
 		$social = [];
 
-		$social['telegram']  = ['user' => null, 'bootstrap_icon' => 'telegram', 	'title' => T_("Telegram"), 		'link' => 'https://t.me/'];
-		$social['instagram'] = ['user' => null, 'bootstrap_icon' => 'instagram', 	'title' => T_("Instagram"), 	'link' => 'https://instagram.com/'];
-		$social['email']     = ['user' => null, 'bootstrap_icon' => 'envelope', 	'title' => T_("Email"), 		'link' => 'mailto:'];
-		$social['twitter']   = ['user' => null, 'bootstrap_icon' => 'twitter', 		'title' => T_("Twitter"), 		'link' => 'https://twitter.com/'];
-		$social['facebook']  = ['user' => null, 'bootstrap_icon' => 'facebook', 	'title' => T_("Facebook"), 		'link' => 'https://facebook.com/'];
-		$social['github']    = ['user' => null, 'bootstrap_icon' => 'github', 		'title' => T_("Github"), 		'link' => 'https://github.com/'];
-		$social['linkedin']  = ['user' => null, 'bootstrap_icon' => 'linkedin', 	'title' => T_("Linkedin"), 		'link' => 'https://linkedin.com/in/'];
-		$social['whatsapp']  = ['user' => null, 'bootstrap_icon' => 'whatsapp', 	'title' => T_("Whatsapp"), 		'link' => 'https://wa.me/'];
-		// $social['youtube']   = ['user' => null, 'bootstrap_icon' => 'youtube', 		'title' => T_("Youtube"), 		'link' => 'https://youtube.com/'];
+		$social['telegram']  = ['user' => null, 'icon_pack' => 'bootstrap', 'icon' => 'telegram', 	'title' => T_("Telegram"), 		'link' => 'https://t.me/'];
+		$social['instagram'] = ['user' => null, 'icon_pack' => 'bootstrap', 'icon' => 'instagram', 	'title' => T_("Instagram"), 	'link' => 'https://instagram.com/'];
+		$social['email']     = ['user' => null, 'icon_pack' => 'bootstrap', 'icon' => 'envelope', 	'title' => T_("Email"), 		'link' => 'mailto:'];
+		$social['twitter']   = ['user' => null, 'icon_pack' => 'bootstrap', 'icon' => 'twitter', 		'title' => T_("Twitter"), 		'link' => 'https://twitter.com/'];
+		$social['facebook']  = ['user' => null, 'icon_pack' => 'bootstrap', 'icon' => 'facebook', 	'title' => T_("Facebook"), 		'link' => 'https://facebook.com/'];
+		$social['github']    = ['user' => null, 'icon_pack' => 'bootstrap', 'icon' => 'github', 		'title' => T_("Github"), 		'link' => 'https://github.com/'];
+		$social['linkedin']  = ['user' => null, 'icon_pack' => 'bootstrap', 'icon' => 'linkedin', 	'title' => T_("Linkedin"), 		'link' => 'https://linkedin.com/in/'];
+		$social['whatsapp']  = ['user' => null, 'icon_pack' => 'bootstrap', 'icon' => 'whatsapp', 	'title' => T_("Whatsapp"), 		'link' => 'https://wa.me/'];
+		// $social['youtube']   = ['user' => null, 'icon_pack' => 'bootstrap', 'icon' => 'youtube', 		'title' => T_("Youtube"), 		'link' => 'https://youtube.com/'];
 
 		if(\dash\language::current() === 'fa')
 		{
-			$social['aparat']    = ['user' => null, 'bootstrap_icon' => 'camera-reels', 'title' => T_("Aparat"), 'link' => 'https://aparat.com/'];
-			$social['eitaa']    = ['user' => null, 'bootstrap_icon' => 'telegram', 'title' => T_("Eitaa"), 'link' => 'https://eitaa.com/'];
+			$social['aparat']    = ['user' => null, 'icon_pack' => 'social', 'icon' => 'aparat', 'title' => T_("Aparat"), 'link' => 'https://aparat.com/'];
+			$social['eitaa']    = ['user' => null, 'icon_pack' => 'social', 'icon' => 'eitaa', 'title' => T_("Eitaa"), 'link' => 'https://eitaa.com/'];
 		}
 		return $social;
 	}

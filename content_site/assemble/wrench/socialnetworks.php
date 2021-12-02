@@ -13,7 +13,7 @@ class socialnetworks
 
       foreach (\lib\store::all_social_list() as $social_key => $social_detail)
       {
-        $html .= self::createLink(a($social_detail, 'bootstrap_icon'), a($_social, $social_key, 'link'), $linkClass, $imgClass);
+        $html .= self::createLink(a($social_detail, 'icon'), a($_social, $social_key, 'link'), $linkClass, $imgClass, $social_detail);
       }
 
       // if(a($_social, 'linkedin', 'link'))
@@ -124,7 +124,7 @@ class socialnetworks
 
       foreach (\lib\store::all_social_list() as $social_key => $social_detail)
       {
-        $html .= self::createLink(a($social_detail, 'bootstrap_icon'), a($_social, $social_key, 'link'), $linkClass, $imgClass);
+        $html .= self::createLink(a($social_detail, 'icon'), a($_social, $social_key, 'link'), $linkClass, $imgClass, $social_detail);
       }
 
     }
@@ -134,7 +134,7 @@ class socialnetworks
   }
 
 
-  private static function createLink($_type, $_link, $_linkClass, $_imgClass)
+  private static function createLink($_type, $_link, $_linkClass, $_imgClass, $_meta = [])
   {
     if(!$_link)
     {
@@ -144,7 +144,7 @@ class socialnetworks
     $html = '';
     $html .= '<a rel="noopener" class="'. $_linkClass. '" target="_blank" href="'. $_link .'" aria-label="'. $_type. '">';
     $html .= '<span class="hidden">'. $_type. '</span>';
-    $html .= \dash\utility\icon::bootstrap($_type, $_imgClass);
+    $html .= \dash\utility\icon::svg($_type, a($_meta, 'icon_pack'), null, $_imgClass );
     $html .= '</a>';
 
     return $html;
