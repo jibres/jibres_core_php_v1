@@ -56,6 +56,10 @@ class scp
 				return false;
 			}
 		}
+		else
+		{
+			return true;
+		}
 	}
 
 
