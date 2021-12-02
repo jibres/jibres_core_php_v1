@@ -160,13 +160,13 @@ class permission
 	public static function check($_caller, $_args = null)
 	{
 		// only check group
-		if(substr($_caller, 0, 7) === '_group_')
+		if($_caller && substr($_caller, 0, 7) === '_group_')
 		{
 			return self::check(substr($_caller, 7), ['check_group' => true]);
 		}
 
 		// only check plan
-		if(substr($_caller, 0, 6) === '_plan_')
+		if($_caller && substr($_caller, 0, 6) === '_plan_')
 		{
 			return self::check(substr($_caller, 6), ['check_plan' => true]);
 		}

@@ -197,7 +197,7 @@ class request
 
 	public static function build_query($_args)
 	{
-		return http_build_query($_args, null, '&', PHP_QUERY_RFC3986);
+		return http_build_query($_args, '', '&', PHP_QUERY_RFC3986);
 	}
 
 
