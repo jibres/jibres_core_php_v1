@@ -36,15 +36,16 @@ class api
 
 		$apikey = \dash\utility::hasher($apikey);
 
-		if(false)
+		if(\dash\url::isLocal())
+		{
+			$url = 'https://core.jibres.ir/r10/jibres/';
+			// $url = 'https://core.jibres.local/r10/jibres/';
+		}
+		else
 		{
 			$url = \dash\url::jibres_subdomain('core');
 			// $url .= \dash\language::current(). '/';
 			$url .= 'r10/jibres/';
-		}
-		else
-		{
-			$url = 'https://core.jibres.'. \dash\url::jibres_tld(). '/r10/jibres/';
 		}
 
 
