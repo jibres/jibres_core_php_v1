@@ -68,6 +68,8 @@ class extract
 			}
 		}
 
+		$tweet['twthumb'] = null;
+
 		if(a($tweet, 'twimage', 0))
 		{
 			$tweet['twthumb'] = a($tweet, 'twimage', 0);
