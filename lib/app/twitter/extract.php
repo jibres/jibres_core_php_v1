@@ -56,15 +56,24 @@ class extract
 
 		$tweet['twimage'] = [];
 
+		$media_key = a($my_data, 'attachments', 'media_keys');
+		if(!is_array($media_key))
+		{
+			$media_key = [];
+		}
+
 		foreach ($media as $key => $value)
 		{
-			if(a($value, 'preview_image_url'))
+			if(in_array(a($value, 'media_key'), $media_key))
 			{
-				$tweet['twimage'][$key] = self::upload_tw_file(a($value, 'preview_image_url'));
-			}
-			else
-			{
-				$tweet['twimage'][$key] = self::upload_tw_file(a($value, 'url'));
+				if(a($value, 'preview_image_url'))
+				{
+					$tweet['twimage'][$key] = self::upload_tw_file(a($value, 'preview_image_url'));
+				}
+				else
+				{
+					$tweet['twimage'][$key] = self::upload_tw_file(a($value, 'url'));
+				}
 			}
 		}
 
