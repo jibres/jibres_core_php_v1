@@ -307,7 +307,15 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY posts.id DESC ";
+			if($is_social_network_post)
+			{
+				$order_sort = " ORDER BY posts.datemodified DESC ";
+
+			}
+			else
+			{
+				$order_sort = " ORDER BY posts.id DESC ";
+			}
 		}
 
 		if($data['website_order'])

@@ -5,12 +5,12 @@ namespace content_site\body\twitter;
 class option
 {
 
-
-
 	public static function is_private()
 	{
-		return !\dash\url::isLocal();
+		return !\dash\permission::supervisor();
 	}
+
+
 	/**
 	 * Get detail
 	 *
