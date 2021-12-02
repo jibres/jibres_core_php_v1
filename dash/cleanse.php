@@ -536,7 +536,11 @@ class cleanse
 		}
 		else
 		{
-			$field_title = T_(ucfirst($element));
+			$field_title = null;
+			if($element)
+			{
+				$field_title = T_(ucfirst($element));
+			}
 		}
 
 		// call function stirng_50 or string_500_20
