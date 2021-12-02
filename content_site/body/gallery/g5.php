@@ -248,6 +248,7 @@ class g5
 			'version'        => 1,
 			'options' =>
 			[
+				'image_count' => 3,
 				'radius'                    => 'lg',
 				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => true,

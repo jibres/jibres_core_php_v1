@@ -471,7 +471,11 @@ class option
 
 		$remain = $max - $gallery_items_count;
 
-		if($remain > 0)
+		if($remain === 0)
+		{
+			// nothing to add, nothing to remove
+		}
+		elseif($remain > 0)
 		{
 			$master_id = self::get_master_menu_id($_section_id);
 
