@@ -118,14 +118,10 @@ class socialnetworks
       }
       $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
 
-
-      $html .= self::createLink('linkedin', a($_social, 'linkedin', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('github', a($_social, 'github', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('facebook', a($_social, 'facebook', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('twitter', a($_social, 'twitter', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('instagram', a($_social, 'instagram', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('telegram', a($_social, 'telegram', 'link'), $linkClass, $imgClass);
-      $html .= self::createLink('whatsapp', a($_social, 'whatsapp', 'link'), $linkClass, $imgClass);
+      foreach (\lib\store::all_social_list() as $social_key => $useless)
+      {
+        $html .= self::createLink($social_key, a($_social, $social_key, 'link'), $linkClass, $imgClass);
+      }
 
     }
     $html .= '</nav>';
