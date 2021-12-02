@@ -14,6 +14,11 @@ class fit{
 	{
 		$new_text = $_txt;
 
+		if(is_null($_txt))
+		{
+			return $_txt;
+		}
+
 		// auto format
 		if($_autoFormat)
 		{

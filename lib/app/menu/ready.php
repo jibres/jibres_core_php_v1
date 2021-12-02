@@ -20,7 +20,12 @@ class ready
 			{
 				case 'preview':
 				case 'body':
-					$result[$key] = json_decode($value, true);
+					if($value && is_string($value))
+					{
+						$value = json_decode($value, true);
+					}
+					$result[$key] = $value;
+
 					if(!is_array($result[$key]))
 					{
 						$result[$key] = [];
