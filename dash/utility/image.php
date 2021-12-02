@@ -433,5 +433,56 @@ class image
 
 	}
 
+
+
+	/**
+	 * Get dominant color
+	 *
+	 * @param      <type>  $_path  The path
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function dominant_color($_path)
+	{
+		$image = imagecreatefromjpeg($_path);
+
+		if(!$image)
+		{
+			return false;
+		}
+
+		$total  = 0;
+
+		$rTotal = 0;
+		$gTotal = 0;
+		$bTotal = 0;
+
+		for ($x = 0; $x < imagesx($image); $x++)
+		{
+		    for ($y = 0; $y < imagesy($image); $y++)
+		    {
+		        $rgb = imagecolorat($image,$x,$y);
+		        $r   = ($rgb >> 16) & 0xFF;
+		        $g   = ($rgb >> 8) & 0xFF;
+		        $b   = $rgb & 0xFF;
+
+		        $rTotal += $r;
+		        $gTotal += $g;
+		        $bTotal += $b;
+		        $total++;
+		    }
+		}
+
+		$rAverage = round($rTotal/$total);
+		$gAverage = round($gTotal/$total);
+		$bAverage = round($bTotal/$total);
+
+		$hex = sprintf("#%02x%02x%02x", $rAverage, $gAverage, $bAverage);
+
+		return $hex;
+
+		return implode(',', [$rAverage, $gAverage, $bAverage]);
+	}
+
 }
 ?>
