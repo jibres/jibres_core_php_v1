@@ -2,9 +2,9 @@
 namespace content_site\options\quote;
 
 
-class quote_displayname
+class quote_displayname extends \content_site\options\title\title
 {
-	use \content_site\options\title\title;
+
 
 	public static function db_key()
 	{

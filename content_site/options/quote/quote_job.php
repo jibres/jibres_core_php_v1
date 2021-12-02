@@ -2,9 +2,9 @@
 namespace content_site\options\quote;
 
 
-class quote_job
+class quote_job extends \content_site\options\title\title
 {
-	use \content_site\options\title\title;
+
 
 	public static function db_key()
 	{
