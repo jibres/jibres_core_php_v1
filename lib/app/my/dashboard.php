@@ -32,7 +32,7 @@ class dashboard
 
 		$firstpay     = \dash\db\transactions\get::first_pay_user($user_id);
 
-		$firstrenew   = \lib\db\nic_domainaction\get::firstrenew_user($user_id);
+		// $firstrenew   = \lib\db\nic_domainaction\get::firstrenew_user($user_id);
 
 		$firstproduct = \lib\db\store\get::user_first_product($user_id);
 		$firstorder   = \lib\db\store\get::user_first_order($user_id);
@@ -61,7 +61,7 @@ class dashboard
 			'firstproduct' => $firstproduct ? true : false,
 			'firstorder'   => $firstorder ? true : false,
 			'firstdomain'  => $domain_count ? true : false,
-			'firstrenew'   => $firstrenew ? true : false,
+			// 'firstrenew'   => $firstrenew ? true : false,
 			'firstpay'     => $firstpay ? true : false,
 		];
 

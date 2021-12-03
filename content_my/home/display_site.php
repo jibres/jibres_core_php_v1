@@ -183,12 +183,6 @@ if($listStore_staff && is_array($listStore_staff))
        <div class="go <?php if(a($myData, 'complete_profile', 'firstdomain')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
       </a>
      </li>
-     <li>
-      <a class="f" href="<?php if(a($myData, 'complete_profile', 'firstrenew')){ echo \dash\url::here(). '/domain/search?list=renew'; }else{ echo \dash\url::here(). '/domain/renew'; } ?>">
-       <div class="key"><?php echo T_('Renew Your First Domain');?></div>
-       <div class="go <?php if(a($myData, 'complete_profile', 'firstrenew')){echo 'check ok';}else{echo 'times nok';} ?>"></div>
-      </a>
-     </li>
     </ul>
    </nav>
 
@@ -203,7 +197,7 @@ if($listStore_staff && is_array($listStore_staff))
      </li>
 
      <li>
-      <a class="f" href="<?php echo \dash\url::kingdom(). '/su' ?>">
+      <a class="f" href="<?php echo \dash\url::kingdom(). '/sudo' ?>">
        <div class="key"><i class="sf-cog"></i> <?php echo T_('Supervisor Panel');?></div>
        <div class="go"></div>
       </a>
