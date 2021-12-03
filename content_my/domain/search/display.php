@@ -14,21 +14,21 @@ foreach (\dash\data::dataTable() as $key => $value)
 
     if((string) a($value, 'autorenew') === '1')
     {
-      $result .= '<i class="sf-refresh fc-blue"></i>';
+      $result .= '<i title="'. T_("Auto Renew is Enable"). '" class="sf-refresh fc-blue"></i>';
     }
     elseif((string) a($value, 'autorenew') === '0')
     {
-      $result .= '<i class="sf-refresh fc-mute"></i>';
+      $result .= '<i title="'. T_("Auto Renew is Disable"). '" class="sf-refresh fc-mute"></i>';
     }
     else
     {
          if((string) a($value, 'autorenewdesign') === '1')
         {
-          $result .= '<i class="sf-refresh fc-blue"></i>';
+          $result .= '<i title="'. T_("Auto Renew is Enable"). '" class="sf-refresh fc-blue"></i>';
         }
         elseif((string) a($value, 'autorenewdesign') === '0')
         {
-          $result .= '<i class="sf-refresh fc-mute"></i>';
+          $result .= '<i title="'. T_("Auto Renew is Disable"). '" class="sf-refresh fc-mute"></i>';
         }
 
     }
