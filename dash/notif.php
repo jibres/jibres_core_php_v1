@@ -96,16 +96,17 @@ class notif
 
 		$insert = [];
 
-		$insert['type']        = isset($_add['type']) ? addslashes($_add['type']): null;
-		$insert['message']     = isset($_add['text']) ? addslashes($_add['text']): null;
+		$insert['type']        = a($_add, 'type');
+		$insert['message']     = a($_add, 'text');
 		$insert['messagemd5']  = md5($insert['message']);
-		$insert['meta']        = isset($_add['meta']) ? json_encode($_add['meta'], JSON_UNESCAPED_UNICODE): null;
-		$insert['method']      = addslashes(\dash\request::is());
+		$insert['meta']        = a($_add, 'meta') ? json_encode($_add['meta']) : null;
+		$insert['method']      = \dash\request::is();
 		$insert['user_id']     = null;
-		$insert['urlkingdom']  = addslashes(\dash\url::kingdom());
-		$insert['urldir']      = addslashes(\dash\url::directory());
-		$insert['urlquery']    = addslashes(\dash\url::query());
+		$insert['urlkingdom']  = \dash\url::kingdom();
+		$insert['urldir']      = \dash\url::directory();
+		$insert['urlquery']    = \dash\url::query();
 		$insert['datecreated'] = date("Y-m-d H:i:s");
+
 
 		\dash\db\log_notif\insert::new_record($insert);
 	}
