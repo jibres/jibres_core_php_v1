@@ -11,7 +11,7 @@ class description
 	{
 		$new_data            = [];
 		$description             = a($_data, 'description');
-		$new_data[self::db_key()] = \dash\validate::desc($description);
+		$new_data[static::db_key()] = \dash\validate::desc($description);
 
 
 		$use_as_description             = a($_data, 'use_as_description');
@@ -55,9 +55,9 @@ class description
 	public static function admin_html()
 	{
 
-		$default            = \content_site\section\view::get_current_index_detail(self::db_key());
+		$default            = \content_site\section\view::get_current_index_detail(static::db_key());
 		$use_as_description = \content_site\section\view::get_current_index_detail('use_as_description');
-		$title              = self::title();
+		$title              = static::title();
 
 		$html = '';
 		$html .= \content_site\options\generate::form();
@@ -66,12 +66,12 @@ class description
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
-			if(self::have_specialsave())
+			if(static::have_specialsave())
 			{
 				$html .= \content_site\options\generate::specialsave();
 			}
 
-			if(self::include_business_desc())
+			if(static::include_business_desc())
 			{
 				$name       = 'use_as_description';
 
@@ -125,12 +125,12 @@ class description
 
 			$html .= \content_site\options\generate::not_redirect();
 
-			if(!self::include_business_desc())
+			if(!static::include_business_desc())
 			{
 	    		$html .= '<label for="description">'. $title. '</label>';
 			}
 	    	$html .= '<textarea class="txt" name="description" rows="3" data-rows-min="3" data-autoResize';
-	    	if(self::simple_editor())
+	    	if(static::simple_editor())
 	    	{
 	    		// $html .= ' data-editor="simple"';
 	    	}
@@ -138,7 +138,7 @@ class description
 	    	$html .= $default;
 	    	$html .= '</textarea>';
 
-	    	if(self::include_business_desc())
+	    	if(static::include_business_desc())
 	    	{
 	    		$html .= '</div>';
 	    	}

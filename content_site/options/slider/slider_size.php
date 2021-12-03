@@ -6,7 +6,7 @@ class slider_size
 {
 
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 
@@ -22,7 +22,7 @@ class slider_size
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('size')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('size')]);
 		return $data;
 	}
 
@@ -59,7 +59,7 @@ class slider_size
 
 			$radio_html = '';
 
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				$myValue = $value['key'];
 				$radio_html .= \content_site\options\generate::radio_line_itemText($name, $myValue, $value['title'], (($default === $myValue)? true : false), true);

@@ -5,7 +5,7 @@ namespace content_site\options\container;
 class container_align
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 
@@ -22,7 +22,7 @@ class container_align
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Align')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Align')]);
 
 
 		return $data;
@@ -38,13 +38,13 @@ class container_align
 
 	public static function class_name($_key)
 	{
-		$enum = self::enum();
+		$enum = static::enum();
 
 		foreach ($enum as $key => $value)
 		{
 			if(!$_key)
 			{
-				if($value['key'] === self::default())
+				if($value['key'] === static::default())
 				{
 					return $value['class'];
 				}
@@ -73,13 +73,13 @@ class container_align
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
 		$title = T_("Align");
 
-		$this_range = array_column(self::enum(), 'key');
+		$this_range = array_column(static::enum(), 'key');
 
 
 
@@ -91,7 +91,7 @@ class container_align
 			$name       = 'opt_'. \content_site\utility::className(get_called_class());
 
 			$radio_html = '';
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				if(isset($value['hide']) && $value['hide'])
 				{

@@ -6,7 +6,7 @@ class file
 {
 	public static function validator($_data)
 	{
-		return self::validator_upload_file($_data);
+		return static::validator_upload_file($_data);
 	}
 
 
@@ -16,7 +16,7 @@ class file
 
 		if(\dash\request::files($CLASS))
 		{
-			if(self::upload_video())
+			if(static::upload_video())
 			{
 				$file_path = \dash\upload\website::upload_image_or_video($CLASS);
 			}
@@ -47,7 +47,7 @@ class file
 			{
 				$type = [];
 				$type[] = 'image';
-				if(self::upload_video())
+				if(static::upload_video())
 				{
 					$type[] = 'video';
 				}
@@ -127,12 +127,12 @@ class file
 
 	public static function admin_html()
 	{
-		if(!self::visible())
+		if(!static::visible())
 		{
 			return '';
 		}
 
-		return self::html_upload_file(...func_get_args());
+		return static::html_upload_file(...func_get_args());
 	}
 
 	public static function upload_video()
@@ -161,13 +161,13 @@ class file
 
 		$option_key = \content_site\utility::className(get_called_class());
 
-		$db_key     = self::db_key();
+		$db_key     = static::db_key();
 
 		$default = \content_site\section\view::get_current_index_detail($db_key);
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		if($default)
@@ -186,7 +186,7 @@ class file
 
 		$html = '';
 
-		if(self::add_form_element())
+		if(static::add_form_element())
 		{
 			$html .= \content_site\options\generate::form();
 		}
@@ -196,17 +196,17 @@ class file
 			$html .= \content_site\options\generate::multioption();
 
 			// need special save
-			if(self::have_specialsave())
+			if(static::have_specialsave())
 			{
 				$html .= \content_site\options\generate::specialsave();
 			}
 
 
-			if(self::have_label())
+			if(static::have_label())
 			{
 				$html .= '<label>';
 				{
-					$html .=  self::label();
+					$html .=  static::label();
 				}
 				$html .= '</label>';
 			}
@@ -238,7 +238,7 @@ class file
 				'image/webp',
 			];
 
-			if(self::upload_video())
+			if(static::upload_video())
 			{
 				$accept = array_merge($accept,
 				[
@@ -292,12 +292,12 @@ class file
 			}
 			$html .= '</label>';
 
-			$meta_action                     = self::file_action_meta();
+			$meta_action                     = static::file_action_meta();
 			$meta_action['opt_'.$option_key] = 1;
 			$meta_action['multioption']      = 'multi';
 
 
-			if(self::have_specialsave())
+			if(static::have_specialsave())
 			{
 				$meta_action['specialsave'] = 'specialsave';
 			}
@@ -327,7 +327,7 @@ class file
 			$html .= '</div>';
 		}
 		// form
-		if(self::add_form_element())
+		if(static::add_form_element())
 		{
 			$html .= \content_site\options\generate::_form();
 		}

@@ -36,7 +36,7 @@ class btn_viewall
 		$default = \content_site\section\view::get_current_index_detail('btn_viewall');
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
@@ -51,7 +51,7 @@ class btn_viewall
 
 			$html .= '<div class="mt-5" data-response="btninpucheck" data-response-effect="slide"'.$data_response_hide.'>';
 			{
-				$html .= \content_site\options\generate::text('opt_btn_viewall', $default, null, self::default());
+				$html .= \content_site\options\generate::text('opt_btn_viewall', $default, null, static::default());
 			}
 			$html .= '</div>';
 		}

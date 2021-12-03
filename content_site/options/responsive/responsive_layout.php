@@ -22,7 +22,7 @@ class responsive_layout
 
 	public static function validator($_data)
 	{
-		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Position')]);
+		return \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Position')]);
 	}
 
 
@@ -41,7 +41,7 @@ class responsive_layout
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Dispaly in mobile");
@@ -50,7 +50,7 @@ class responsive_layout
 
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, $title);
 		}
 		$html .= \content_site\options\generate::_form();
 

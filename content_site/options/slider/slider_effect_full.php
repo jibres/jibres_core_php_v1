@@ -6,7 +6,7 @@ class slider_effect_full extends slider_effect
 {
 
 
-	private static function full_effect()
+	public static function full_effect()
 	{
 		return true;
 	}

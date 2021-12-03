@@ -6,7 +6,7 @@ class magicbox_gap
 {
 
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 
@@ -21,7 +21,7 @@ class magicbox_gap
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Gap')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Gap')]);
 		return $data;
 	}
 
@@ -35,13 +35,13 @@ class magicbox_gap
 
 	public static function class_name($_key)
 	{
-		$enum = self::enum();
+		$enum = static::enum();
 
 		foreach ($enum as $key => $value)
 		{
 			if(!$_key)
 			{
-				if($value['key'] === self::default())
+				if($value['key'] === static::default())
 				{
 					return $value['class'];
 				}
@@ -64,7 +64,7 @@ class magicbox_gap
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
@@ -79,7 +79,7 @@ class magicbox_gap
 
 			$radio_html = '';
 
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				$myValue = $value['key'];
 				$radio_html .= \content_site\options\generate::radio_line_itemText($name, $myValue, $value['title'], (($default === $myValue)? true : false), true);

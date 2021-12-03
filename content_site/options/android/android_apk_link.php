@@ -6,7 +6,7 @@ class android_apk_link
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::checkbox(a($_data, self::db_key()));
+		$data = \dash\validate::checkbox(a($_data, static::db_key()));
 		return $data;
 	}
 
@@ -22,12 +22,12 @@ class android_apk_link
 		$html = '';
 		// if(\lib\store::android_apk_url())
 		{
-			$default = \content_site\section\view::get_current_index_detail(self::db_key());
+			$default = \content_site\section\view::get_current_index_detail(static::db_key());
 			$html .= \content_site\options\generate::form();
 			{
 				$html .= \content_site\options\generate::multioption();
 				$html .= \content_site\options\generate::opt_hidden(get_called_class());
-				$html .= \content_site\options\generate::checkbox(self::db_key() , T_('Display APK download link'), $default);
+				$html .= \content_site\options\generate::checkbox(static::db_key() , T_('Display APK download link'), $default);
 			}
   			$html .= \content_site\options\generate::_form();
 		}

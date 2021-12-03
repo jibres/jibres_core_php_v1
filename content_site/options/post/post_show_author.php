@@ -23,7 +23,7 @@ class post_show_author
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 

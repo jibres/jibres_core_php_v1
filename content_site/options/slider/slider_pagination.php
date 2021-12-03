@@ -23,7 +23,7 @@ class slider_pagination
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 

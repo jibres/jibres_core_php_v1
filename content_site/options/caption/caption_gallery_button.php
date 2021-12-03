@@ -20,7 +20,7 @@ class caption_gallery_button extends caption_gallery
 
 	public static function specialsave($_data)
 	{
-		$data = \dash\validate::string_100(a($_data, self::name()));
+		$data = \dash\validate::string_100(a($_data, static::name()));
 
 		return \content_site\body\gallery\option::update_one_gallery_item(['btn_title' => $data]);
 	}

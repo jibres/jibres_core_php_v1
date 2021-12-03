@@ -33,7 +33,7 @@ class height
 	public static function this_range()
 	{
 		$range = ['auto'];
-		foreach (self::enum() as $key => $value)
+		foreach (static::enum() as $key => $value)
 		{
 			if(a($value, 'is_range'))
 			{
@@ -50,7 +50,7 @@ class height
 	public static function validator($_data)
 	{
 
-		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
+		return \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Height')]);
 	}
 
 
@@ -63,13 +63,13 @@ class height
 
 	public static function get_style($_key)
 	{
-		$enum = self::enum();
+		$enum = static::enum();
 
 		foreach ($enum as $key => $value)
 		{
 			if(!$_key)
 			{
-				if($value['key'] === self::default())
+				if($value['key'] === static::default())
 				{
 					return $value['style'];
 				}
@@ -92,7 +92,7 @@ class height
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$name       = 'opt_height';
@@ -100,7 +100,7 @@ class height
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::rangeslider($name, self::this_range(), $default, T_("Section Height"));
+			$html .= \content_site\options\generate::rangeslider($name, static::this_range(), $default, T_("Section Height"));
 		}
 		$html .= \content_site\options\generate::_form();
 

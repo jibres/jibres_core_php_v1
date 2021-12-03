@@ -5,7 +5,7 @@ namespace content_site\options\background;
 class background_attachment
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 
@@ -24,7 +24,7 @@ class background_attachment
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Background Attachment')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Background Attachment')]);
 		return $data;
 	}
 
@@ -41,7 +41,7 @@ class background_attachment
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
@@ -58,7 +58,7 @@ class background_attachment
 
 			$radio_html = '';
 
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				$selected = false;
 

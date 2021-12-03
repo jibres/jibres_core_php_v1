@@ -5,11 +5,11 @@ namespace content_site\options\coverratio;
 class coverratio
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 
-		if(self::have_free_ratio())
+		if(static::have_free_ratio())
 		{
 			// free
 			$enum[] = ['key' => 'free',  'title' => 'Free' ,		'class' => ''];
@@ -42,7 +42,7 @@ class coverratio
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Cover ratio')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Cover ratio')]);
 		return $data;
 	}
 
@@ -60,13 +60,13 @@ class coverratio
 
 	public static function get_class($_key)
 	{
-		$enum = self::enum();
+		$enum = static::enum();
 
 		foreach ($enum as $key => $value)
 		{
 			if(!$_key)
 			{
-				if($value['key'] === self::default())
+				if($value['key'] === static::default())
 				{
 					return $value['class'];
 				}
@@ -94,11 +94,11 @@ class coverratio
 	{
 
 		$html = '';
-		$default = \content_site\section\view::get_current_index_detail(self::db_key());
+		$default = \content_site\section\view::get_current_index_detail(static::db_key());
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Featured image ratio");
@@ -107,7 +107,7 @@ class coverratio
 
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, $title);
 		}
 		$html .= \content_site\options\generate::_form();
 

@@ -37,7 +37,7 @@ class file_video
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		if($default)

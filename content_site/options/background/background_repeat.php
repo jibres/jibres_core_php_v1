@@ -5,7 +5,7 @@ namespace content_site\options\background;
 class background_repeat
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'repeat', 'title' => T_('Yes')];
@@ -19,7 +19,7 @@ class background_repeat
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Background Repeat')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Background Repeat')]);
 		return $data;
 	}
 
@@ -42,7 +42,7 @@ class background_repeat
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Background Repeat");
@@ -55,7 +55,7 @@ class background_repeat
 
 			$radio_html = '';
 
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				$selected = false;
 

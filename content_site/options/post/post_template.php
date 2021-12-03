@@ -33,8 +33,8 @@ class post_template
 	{
 
 		$new_data                   = [];
-		$new_data['post_template']  = \dash\validate::enum(a($_data, 'post_template'), true, ['enum' => array_column(self::enum_post_template(), 'key'), 'field_title' => T_('Post subtype')]);
-		$new_data['post_play_item'] = \dash\validate::enum(a($_data, 'post_play_item'), true, ['enum' => array_column(self::enum_post_play_item(), 'key'), 'field_title' => T_('Play Item')]);
+		$new_data['post_template']  = \dash\validate::enum(a($_data, 'post_template'), true, ['enum' => array_column(static::enum_post_template(), 'key'), 'field_title' => T_('Post subtype')]);
+		$new_data['post_play_item'] = \dash\validate::enum(a($_data, 'post_play_item'), true, ['enum' => array_column(static::enum_post_play_item(), 'key'), 'field_title' => T_('Play Item')]);
 		return $new_data;
 	}
 
@@ -61,7 +61,7 @@ class post_template
 		}
 		else
 		{
-			$default_post_template = self::default();
+			$default_post_template = static::default();
 		}
 
 		if(isset($_section_detail['preview']['post_play_item']) && $_section_detail['preview']['post_play_item'])
@@ -102,7 +102,7 @@ class post_template
 			}
 			$html .= "</div>";
 
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum_post_template(), $default_post_template);
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum_post_template(), $default_post_template);
 		}
 
   		$html .= \content_site\options\generate::_form();

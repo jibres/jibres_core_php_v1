@@ -15,7 +15,7 @@ class slider_autoplay
 	{
 		$data = \dash\validate::string_50($_data);
 
-		if(!in_array($data, self::this_range()))
+		if(!in_array($data, static::this_range()))
 		{
 			\dash\notif::error(T_("This range is not defined!"));
 			return false;
@@ -33,7 +33,7 @@ class slider_autoplay
 
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::rangeslider('opt_slider_autoplay', self::this_range(), $default, T_("Autoplay delay"));
+			$html .= \content_site\options\generate::rangeslider('opt_slider_autoplay', static::this_range(), $default, T_("Autoplay delay"));
 		}
   		$html .= \content_site\options\generate::_form();
 

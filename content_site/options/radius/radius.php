@@ -13,7 +13,7 @@ class radius
 		$enum[] = ['key' => 'lg',   	'title' => 'Large' ,    'class' => 'rounded-lg' ];
 		$enum[] = ['key' => '3xl',   	'title' => '3xl' , 	    'class' => 'rounded-3xl' ];
 
-		if(self::enum_type() === 'full')
+		if(static::enum_type() === 'full')
 		{
 			$enum[] = ['key' => 'full',   'title' => 'Full',      'class' => 'rounded-full' ];
 		}
@@ -28,7 +28,7 @@ class radius
 
 	public static function validator($_data)
 	{
-		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Height')]);
+		return \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Height')]);
 	}
 
 
@@ -44,13 +44,13 @@ class radius
 
 	public static function class_name($_key)
 	{
-		$enum = self::enum();
+		$enum = static::enum();
 
 		foreach ($enum as $key => $value)
 		{
 			if(!$_key)
 			{
-				if($value['key'] === self::default())
+				if($value['key'] === static::default())
 				{
 					return $value['class'];
 				}
@@ -72,7 +72,7 @@ class radius
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Border Radius");
@@ -86,7 +86,7 @@ class radius
 
 			$radio_html = '';
 
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				if(isset($value['system']) && $value['system'])
 				{

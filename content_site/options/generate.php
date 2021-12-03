@@ -41,7 +41,7 @@ class generate
 			$name = $_class;
 		}
 
-		return self::hidden($name, $_value);
+		return static::hidden($name, $_value);
 	}
 
 

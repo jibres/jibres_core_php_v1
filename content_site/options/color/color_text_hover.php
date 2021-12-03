@@ -12,12 +12,12 @@ class color_text_hover extends \content_site\options\background\background_color
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Text Color Hover");
 
-		$html = self::color_html('opt_color_text_hover', $default, $title);
+		$html = static::color_html('opt_color_text_hover', $default, $title);
 
 		return $html;
 	}

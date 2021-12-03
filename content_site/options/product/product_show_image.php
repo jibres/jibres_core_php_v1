@@ -7,7 +7,7 @@ class product_show_image
 	public static function validator($_data)
 	{
 		$data = \dash\validate::checkbox(a($_data, 'show_image'));
-		if(self::check_image_and_title() && !$data)
+		if(static::check_image_and_title() && !$data)
 		{
 			if(!\content_site\section\view::get_current_index_detail('product_show_title'))
 			{
@@ -32,7 +32,7 @@ class product_show_image
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail(self::db_key());
+		$default = \content_site\section\view::get_current_index_detail(static::db_key());
 
 		$html = '';
 		$html .= \content_site\options\generate::form();

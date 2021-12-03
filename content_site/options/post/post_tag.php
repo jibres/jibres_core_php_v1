@@ -27,7 +27,7 @@ class post_tag
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$tagSearchLink = \dash\url::kingdom(). '/cms/posts';

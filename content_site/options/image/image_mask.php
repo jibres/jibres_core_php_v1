@@ -34,7 +34,7 @@ class image_mask
 
 	public static function validator($_data)
 	{
-		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Mask')]);
+		return \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Mask')]);
 	}
 
 
@@ -46,13 +46,13 @@ class image_mask
 
 	public static function class_name($_key)
 	{
-		$enum = self::enum();
+		$enum = static::enum();
 
 		foreach ($enum as $key => $value)
 		{
 			if(!$_key)
 			{
-				if($value['key'] === self::default())
+				if($value['key'] === static::default())
 				{
 					return $value['class'];
 				}
@@ -74,7 +74,7 @@ class image_mask
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Image mask");
@@ -83,7 +83,7 @@ class image_mask
 
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, $title);
 		}
   		$html .= \content_site\options\generate::_form();
 

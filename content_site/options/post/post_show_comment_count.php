@@ -23,7 +23,7 @@ class post_show_comment_count
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 

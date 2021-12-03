@@ -4,7 +4,7 @@ namespace content_site\options\separator;
 
 class separator_icon
 {
-	private static function enum()
+	public static function enum()
 	{
 
 		$enum   = [];
@@ -34,7 +34,7 @@ class separator_icon
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum(a($_data, 'separator_icon'), true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Icon')]);
+		$data = \dash\validate::enum(a($_data, 'separator_icon'), true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Icon')]);
 		return $data;
 	}
 
@@ -51,7 +51,7 @@ class separator_icon
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
@@ -64,7 +64,7 @@ class separator_icon
 			$html .= "<label class='block mT10-f'>". $title. "</label>";
 			$html .= '<div class="relative grid grid-cols-8 gap-1">';
 			{
-				$list = self::enum();
+				$list = static::enum();
 
 				foreach ($list as $key => $value)
 				{
@@ -79,7 +79,7 @@ class separator_icon
 
 					if($value['key'] === 'rafiei')
 					{
-						$svg = self::rafiei_svg();
+						$svg = static::rafiei_svg();
 					}
 					else
 					{

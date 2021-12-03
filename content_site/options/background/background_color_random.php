@@ -12,14 +12,14 @@ class background_color_random
 			// need redirect if random color is called
 			\content_site\utility::need_redirect(true);
 
-			$_data = self::postel_color_solid();
+			$_data = static::postel_color_solid();
 		}
 		elseif($_data === 'random_bg_gradient')
 		{
 			// need redirect if random color is called
 			\content_site\utility::need_redirect(true);
 
-			$_data = self::gradient_sample_color();
+			$_data = static::gradient_sample_color();
 		}
 
 
@@ -107,7 +107,7 @@ class background_color_random
 		];
 
 		$json = json_encode($json);
-		return self::admin_html($json);
+		return static::admin_html($json);
 
 	}
 
@@ -120,7 +120,7 @@ class background_color_random
 
 		$json = json_encode($json);
 
-		return self::admin_html($json);
+		return static::admin_html($json);
 	}
 
 

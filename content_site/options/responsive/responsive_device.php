@@ -44,9 +44,9 @@ class responsive_device
 	public static function validator($_data)
 	{
 		$new_data           = [];
-		$new_data['device'] =  \dash\validate::enum(a($_data, 'device'), true, ['enum' => array_column(self::device(), 'key'), 'field_title' => T_('Effect')]);
-		$new_data['mobile'] =  \dash\validate::enum(a($_data, 'mobile'), true, ['enum' => array_column(self::mobile(), 'key'), 'field_title' => T_('Effect')]);
-		$new_data['os']     =  \dash\validate::enum(a($_data, 'os'), true, ['enum' => array_column(self::os(), 'key'), 'field_title' => T_('Effect')]);
+		$new_data['device'] =  \dash\validate::enum(a($_data, 'device'), true, ['enum' => array_column(static::device(), 'key'), 'field_title' => T_('Effect')]);
+		$new_data['mobile'] =  \dash\validate::enum(a($_data, 'mobile'), true, ['enum' => array_column(static::mobile(), 'key'), 'field_title' => T_('Effect')]);
+		$new_data['os']     =  \dash\validate::enum(a($_data, 'os'), true, ['enum' => array_column(static::os(), 'key'), 'field_title' => T_('Effect')]);
 
 		return $new_data;
 
@@ -98,7 +98,7 @@ class responsive_device
 
 			$radio_html = '';
 
-			foreach (self::device() as $key => $value)
+			foreach (static::device() as $key => $value)
 			{
 				$selected = false;
 
@@ -128,7 +128,7 @@ class responsive_device
 
 			// 	$radio_html = '';
 
-			// 	foreach (self::mobile() as $key => $value)
+			// 	foreach (static::mobile() as $key => $value)
 			// 	{
 			// 		$selected = false;
 
@@ -151,7 +151,7 @@ class responsive_device
 
 			$radio_html = '';
 
-			foreach (self::os() as $key => $value)
+			foreach (static::os() as $key => $value)
 			{
 				$selected = false;
 

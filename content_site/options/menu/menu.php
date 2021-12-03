@@ -4,7 +4,7 @@ namespace content_site\options\menu;
 
 class menu
 {
-	private static function enum()
+	public static function enum()
 	{
 		$menu = \lib\app\menu\get::list_all_menu();
 
@@ -28,7 +28,7 @@ class menu
 			return null;
 		}
 
-		$data = \dash\validate::enum($_data, true, ['enum' => self::enum(), 'field_title' => T_('Menu')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => static::enum(), 'field_title' => T_('Menu')]);
 
 
 		return $data;
@@ -57,9 +57,9 @@ class menu
 
 		$option_key = \content_site\utility::className(get_called_class());
 
-		$default = \content_site\section\view::get_current_index_detail(self::db_key());
+		$default = \content_site\section\view::get_current_index_detail(static::db_key());
 
-		$title           = self::title();
+		$title           = static::title();
 
 		$html = '';
 		$html .= \content_site\options\generate::form();

@@ -68,13 +68,13 @@ class heading
 		$default          = \content_site\section\view::get_current_index_detail('heading');
 		$default_position = \content_site\section\view::get_current_index_detail('heading_position');
 		$use_as_heading   = \content_site\section\view::get_current_index_detail('use_as_heading');
-		$title            = self::title();
+		$title            = static::title();
 
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
 
-			if(self::include_business_title())
+			if(static::include_business_title())
 			{
 				$name       = 'use_as_heading'
 				;
@@ -137,7 +137,7 @@ class heading
 			$html .= \content_site\options\generate::not_redirect();
 
 			// in this model title already exist in html
-			if(!self::include_business_title())
+			if(!static::include_business_title())
 			{
 		    	$html .= '<label for="'.$myId.'">'. $title. '</label>';
 			}
@@ -150,7 +150,7 @@ class heading
 			$html .= "</div>";
 
 			// close div data-response
-			if(self::include_business_title())
+			if(static::include_business_title())
 			{
 				$html .= '</div>';
 			}

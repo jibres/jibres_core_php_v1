@@ -37,7 +37,7 @@ class effect
 			\content_site\utility::need_redirect(true);
 		}
 
-		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Effect')]);
+		return \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Effect')]);
 	}
 
 
@@ -56,7 +56,7 @@ class effect
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Effect");
@@ -65,7 +65,7 @@ class effect
 
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, $title);
 		}
 		$html .= \content_site\options\generate::_form();
 
@@ -75,7 +75,7 @@ class effect
 
 		// 	$radio_html = '';
 
-		// 	foreach (self::enum() as $key => $value)
+		// 	foreach (static::enum() as $key => $value)
 		// 	{
 		// 		if(isset($value['system']) && $value['system'])
 		// 		{

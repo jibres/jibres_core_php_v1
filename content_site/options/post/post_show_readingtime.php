@@ -23,7 +23,7 @@ class post_show_readingtime
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 

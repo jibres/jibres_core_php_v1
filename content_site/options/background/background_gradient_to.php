@@ -20,14 +20,14 @@ class background_gradient_to extends background_color
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail(self::name());
+		$default = \content_site\section\view::get_current_index_detail(static::name());
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
-		$html = self::color_html('opt_'. self::name(), $default, self::title(), true, false);
+		$html = static::color_html('opt_'. static::name(), $default, static::title(), true, false);
 
 		return $html;
 	}

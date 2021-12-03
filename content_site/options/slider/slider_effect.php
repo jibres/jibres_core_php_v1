@@ -6,7 +6,7 @@ class slider_effect
 {
 
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 
@@ -16,7 +16,7 @@ class slider_effect
 		$enum[] = ['key' => 'flip',      'title' => T_("Flip")];
 		$enum[] = ['key' => 'cube',      'title' => T_("Cube")];
 
-		if(self::full_effect())
+		if(static::full_effect())
 		{
 			$enum[] = ['key' => 'cards',     'title' => T_("Cards")];
 		}
@@ -34,7 +34,7 @@ class slider_effect
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Effect')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Effect')]);
 
 		\content_site\utility::need_redirect(true);
 
@@ -67,7 +67,7 @@ class slider_effect
 
 			$radio_html = '';
 
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				$myValue = $value['key'];
 				$radio_html .= \content_site\options\generate::radio_line_itemText($name, $myValue, $value['title'], (($default === $myValue)? true : false), true);

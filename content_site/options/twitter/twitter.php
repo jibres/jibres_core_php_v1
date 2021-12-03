@@ -4,7 +4,7 @@ namespace content_site\options\twitter;
 
 class twitter
 {
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'other','title' => T_("Other"),];
@@ -16,7 +16,7 @@ class twitter
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key')]);
 		return $data;
 	}
 
@@ -43,12 +43,12 @@ class twitter
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Twitter");
 
-		$this_range = array_column(self::enum(), 'key');
+		$this_range = array_column(static::enum(), 'key');
 
 		$name       = 'opt_'. \content_site\utility::className(get_called_class());
 
@@ -59,7 +59,7 @@ class twitter
 
 
 			$radio_html = '';
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				if(isset($value['hide']) && $value['hide'])
 				{

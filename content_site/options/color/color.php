@@ -26,14 +26,14 @@ class color extends \content_site\options\background\background_color
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail(self::db_key());
+		$default = \content_site\section\view::get_current_index_detail(static::db_key());
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
-		$html = self::color_html('opt_'. self::db_key(), $default, self::title());
+		$html = static::color_html('opt_'. static::db_key(), $default, static::title());
 
 		return $html;
 	}

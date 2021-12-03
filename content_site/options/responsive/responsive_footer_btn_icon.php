@@ -6,7 +6,7 @@ class responsive_footer_btn_icon
 {
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum(a($_data, 'icon'), false, ['enum' => self::icon_list()]);
+		$data = \dash\validate::enum(a($_data, 'icon'), false, ['enum' => static::icon_list()]);
 		\content_site\utility::need_redirect(true);
 		return ['icon' => $data];
 	}

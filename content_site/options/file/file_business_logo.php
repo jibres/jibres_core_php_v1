@@ -19,10 +19,10 @@ class file_business_logo extends file
 	{
 		$result = [];
 
-		$file_path = self::validator_upload_file($_data);
+		$file_path = static::validator_upload_file($_data);
 		if($file_path || $file_path === null)
 		{
-			$result[self::db_key()] = $file_path;
+			$result[static::db_key()] = $file_path;
 		}
 
 		$result['use_as_logo'] = \dash\validate::enum(a($_data, 'use_as_logo'), false, ['enum' => ['none', 'business_logo', 'custom_logo']]);
@@ -56,7 +56,7 @@ class file_business_logo extends file
 		$html .= \content_site\options\generate::form();
 		{
 
-			$title = self::title();
+			$title = static::title();
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
@@ -92,7 +92,7 @@ class file_business_logo extends file
 
 			$radio_html = '';
 
-			if(self::have_none())
+			if(static::have_none())
 			{
 				$radio_html .= \content_site\options\generate::radio_line_itemText($name, 'none', T_("None"), (($use_as_logo === 'none')? true : false));
 			}
@@ -111,7 +111,7 @@ class file_business_logo extends file
 
 			$html .= "<div data-response='$name' data-response-where='custom_logo' $data_response_hide>";
 			{
-				$html .= self::html_upload_file(...func_get_args());
+				$html .= static::html_upload_file(...func_get_args());
 			}
 
 			$html .= '</div>';

@@ -30,7 +30,7 @@ class product_tag
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$tagSearchLink = \dash\url::kingdom(). '/a/products';

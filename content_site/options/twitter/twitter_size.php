@@ -6,7 +6,7 @@ class twitter_size
 {
 
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 
@@ -21,7 +21,7 @@ class twitter_size
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Size')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Size')]);
 
 
 		return $data;
@@ -37,13 +37,13 @@ class twitter_size
 
 	public static function class_name($_key)
 	{
-		$enum = self::enum();
+		$enum = static::enum();
 
 		foreach ($enum as $key => $value)
 		{
 			if(!$_key)
 			{
-				if($value['key'] === self::default())
+				if($value['key'] === static::default())
 				{
 					return $value['class'];
 				}
@@ -68,17 +68,17 @@ class twitter_size
 	public static function admin_html()
 	{
 
-		$default = \content_site\section\view::get_current_index_detail(self::db_key());
+		$default = \content_site\section\view::get_current_index_detail(static::db_key());
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
 		$title = T_("Size");
 
-		$this_range = array_column(self::enum(), 'key');
+		$this_range = array_column(static::enum(), 'key');
 
 
 
@@ -90,7 +90,7 @@ class twitter_size
 			$name       = 'opt_'. \content_site\utility::className(get_called_class());
 
 			$radio_html = '';
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				if(isset($value['hide']) && $value['hide'])
 				{

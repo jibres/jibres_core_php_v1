@@ -43,18 +43,18 @@ class link_raw
 
 	public static function admin_html()
 	{
-		if(!self::visible())
+		if(!static::visible())
 		{
 			return '';
 		}
 
-		$default = \content_site\section\view::get_current_index_detail(self::name());
+		$default = \content_site\section\view::get_current_index_detail(static::name());
 
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::not_redirect();
-			$html .= \content_site\options\generate::text('opt_'. self::name(), $default, self::title(), self::placeholder(), 'ltr', 'url');
+			$html .= \content_site\options\generate::text('opt_'. static::name(), $default, static::title(), static::placeholder(), 'ltr', 'url');
 		}
   		$html .= \content_site\options\generate::_form();
 

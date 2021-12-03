@@ -5,7 +5,7 @@ namespace content_site\options\background;
 class background_size
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'auto', 'title' => T_('Auto')];
@@ -18,7 +18,7 @@ class background_size
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Background Size')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Background Size')]);
 		\content_site\utility::need_redirect(true);
 		return $data;
 	}
@@ -41,7 +41,7 @@ class background_size
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		return $default;
@@ -51,7 +51,7 @@ class background_size
 	public static function admin_html()
 	{
 
-		$default = self::get_value();
+		$default = static::get_value();
 
 
 		$title = T_("Background size");
@@ -65,7 +65,7 @@ class background_size
 
 			$radio_html = '';
 
-			foreach (self::enum() as $key => $value)
+			foreach (static::enum() as $key => $value)
 			{
 				$selected = false;
 

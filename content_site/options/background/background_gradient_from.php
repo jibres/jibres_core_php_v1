@@ -12,12 +12,12 @@ class background_gradient_from extends background_color
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Background Gradient from");
 
-		$html = self::color_html('opt_background_gradient_from', $default, $title, true, false);
+		$html = static::color_html('opt_background_gradient_from', $default, $title, true, false);
 
 		return $html;
 	}

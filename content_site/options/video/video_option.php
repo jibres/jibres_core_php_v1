@@ -28,7 +28,7 @@ class video_option
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::checkbox(a($_data, self::name()));
+		$data = \dash\validate::checkbox(a($_data, static::name()));
 		return $data;
 	}
 
@@ -40,9 +40,9 @@ class video_option
 
 	public static function specialsave($_data = [])
 	{
-		$data = \dash\validate::string_200(a($_data, self::name()));
+		$data = \dash\validate::string_200(a($_data, static::name()));
 
-		return \content_site\body\gallery\option::update_one_gallery_item([self::name() => $data]);
+		return \content_site\body\gallery\option::update_one_gallery_item([static::name() => $data]);
 	}
 
 
@@ -74,29 +74,29 @@ class video_option
 
 	public static function admin_html()
 	{
-		if(self::gallery_mode() && !self::visible())
+		if(static::gallery_mode() && !static::visible())
 		{
 			return '';
 		}
 
-		$default = \content_site\section\view::get_current_index_detail(self::name());
+		$default = \content_site\section\view::get_current_index_detail(static::name());
 
 		if(!is_bool($default))
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			if(self::gallery_mode())
+			if(static::gallery_mode())
 			{
 				$html .= \content_site\options\generate::specialsave();
 			}
 
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::opt_hidden(get_called_class());
-			$html .= \content_site\options\generate::checkbox(self::name(),  self::title(), $default);
+			$html .= \content_site\options\generate::checkbox(static::name(),  static::title(), $default);
 		}
 
   		$html .= \content_site\options\generate::_form();

@@ -39,7 +39,7 @@ class link_professional
 		unset($data['description']);
 
 
-		return [self::db_key() => $data];
+		return [static::db_key() => $data];
 	}
 
 
@@ -56,7 +56,7 @@ class link_professional
 
 	public static function admin_html()
 	{
-		if(self::have_specialsave())
+		if(static::have_specialsave())
 		{
 			$url           = \content_site\section\view::get_current_index_detail('url');
 			$pointer       = \content_site\section\view::get_current_index_detail('pointer');
@@ -69,11 +69,11 @@ class link_professional
 		{
 			$my_detail     = \content_site\section\view::get_current_index_detail();
 
-			$url           = a($my_detail, self::db_key(), 'url');
-			$pointer       = a($my_detail, self::db_key(), 'pointer');
-			$target        = a($my_detail, self::db_key(), 'target');
-			$related_id    = a($my_detail, self::db_key(), 'related_id');
-			$socialnetwork = a($my_detail, self::db_key(), 'socialnetwork');
+			$url           = a($my_detail, static::db_key(), 'url');
+			$pointer       = a($my_detail, static::db_key(), 'pointer');
+			$target        = a($my_detail, static::db_key(), 'target');
+			$related_id    = a($my_detail, static::db_key(), 'related_id');
+			$socialnetwork = a($my_detail, static::db_key(), 'socialnetwork');
 
 		}
 
@@ -84,7 +84,7 @@ class link_professional
 		$html .= \content_site\options\generate::form();
 		{
 			$html .= \content_site\options\generate::multioption();
-			if(self::have_specialsave())
+			if(static::have_specialsave())
 			{
 				$html .= \content_site\options\generate::specialsave();;
 			}
@@ -202,7 +202,7 @@ class link_professional
 				      	$html .= "<select name='{$key}_id' class='select22' id='{$key}search'  data-model='html'  data-ajax--delay='100' data-ajax--url='{$kingdom}$value[api_link]' data-shortkey-search data-placeholder='". T_('Search in :val', ['val' => $value['title']]). "'>";
 				      	if($related_id && $pointer === $key)
 				      	{
-				      		$selected = self::fill_selected($pointer, $related_id);
+				      		$selected = static::fill_selected($pointer, $related_id);
 				          	$html .= "<option value='$selected[id]' selected>$selected[title]</option>";
 				      	}
 

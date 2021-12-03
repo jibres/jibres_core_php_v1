@@ -4,7 +4,7 @@ namespace content_site\options\ratio;
 
 class ratio
 {
-	private static function enum()
+	public static function enum()
 	{
 		$list = \lib\ratio::list();
 
@@ -21,7 +21,7 @@ class ratio
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Ratio')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Ratio')]);
 		return $data;
 	}
 
@@ -39,7 +39,7 @@ class ratio
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Set item ratio");
@@ -47,7 +47,7 @@ class ratio
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, $title);
 		}
   		$html .= \content_site\options\generate::_form();
 

@@ -4,7 +4,7 @@ namespace content_site\options\font;
 
 class font
 {
-	private static function enum()
+	public static function enum()
 	{
 
 		$enum   = [];
@@ -37,7 +37,7 @@ class font
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Font')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Font')]);
 		return $data;
 	}
 
@@ -54,7 +54,7 @@ class font
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
@@ -63,7 +63,7 @@ class font
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, $title);
 		}
   		$html .= \content_site\options\generate::_form();
 

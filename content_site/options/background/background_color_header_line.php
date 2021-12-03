@@ -12,7 +12,7 @@ class background_color_header_line extends background_color
 
 		$title = T_("Header line color");
 
-		$html = self::color_html('opt_background_color_header_line', $default, $title);
+		$html = static::color_html('opt_background_color_header_line', $default, $title);
 
 		return $html;
 	}

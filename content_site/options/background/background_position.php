@@ -5,7 +5,7 @@ namespace content_site\options\background;
 class background_position
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 
@@ -30,7 +30,7 @@ class background_position
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Background Position')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Background Position')]);
 		return $data;
 	}
 
@@ -47,7 +47,7 @@ class background_position
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
@@ -56,7 +56,7 @@ class background_position
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, $title);
 		}
   		$html .= \content_site\options\generate::_form();
 

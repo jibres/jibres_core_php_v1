@@ -29,7 +29,7 @@ class background_gradient_type
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Background Gradient Type')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Background Gradient Type')]);
 		return $data;
 	}
 
@@ -55,11 +55,11 @@ class background_gradient_type
 
 	public static function admin_html()
 	{
-		$default = \content_site\section\view::get_current_index_detail(self::name());
+		$default = \content_site\section\view::get_current_index_detail(static::name());
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
@@ -68,7 +68,7 @@ class background_gradient_type
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, self::title());
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, static::title());
 		}
   		$html .= \content_site\options\generate::_form();
 

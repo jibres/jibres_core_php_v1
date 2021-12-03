@@ -20,7 +20,7 @@ class video_poster_gallery extends video_poster
 
 	public static function specialsave($_data = [])
 	{
-		$data = self::validator_upload_file($_data);
+		$data = static::validator_upload_file($_data);
 
 		return \content_site\body\gallery\option::update_one_gallery_item(['video_poster' => $data]);
 	}

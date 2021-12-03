@@ -50,7 +50,7 @@ class quote_add
 			return false;
 		}
 
-		$index = self::generate_random_key();
+		$index = static::generate_random_key();
 
 		$currentSectionDetail['preview']['quote_list'][] =
 		[

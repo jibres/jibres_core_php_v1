@@ -5,7 +5,7 @@ namespace content_site\options\post;
 class post_order
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'latest', 'title' => T_("Newest to Oldest (default)"), ];
@@ -17,7 +17,7 @@ class post_order
 
 	public static function validator($_data)
 	{
-		$data  = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Post subtype')]);
+		$data  = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Post subtype')]);
 		return $data;
 	}
 
@@ -35,7 +35,7 @@ class post_order
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, T_("Order by"));
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, T_("Order by"));
 		}
 
   		$html .= \content_site\options\generate::_form();

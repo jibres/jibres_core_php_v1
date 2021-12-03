@@ -23,7 +23,7 @@ class btn_viewall_mode
 	public static function validator($_data)
 	{
 		\content_site\utility::need_redirect(true);
-		return \dash\validate::enum($_data, false, ['enum' => array_column(self::btn_mode(), 'key')]);
+		return \dash\validate::enum($_data, false, ['enum' => array_column(static::btn_mode(), 'key')]);
 	}
 
 
@@ -43,7 +43,7 @@ class btn_viewall_mode
 				$html .= "<label class='block mT10-f'>". T_("Button view all mode"). "</label>";
 				$html .= '<div class="relative grid grid-cols-8 gap-1">';
 				{
-					$list = self::btn_mode();
+					$list = static::btn_mode();
 
 					foreach ($list as $key => $value)
 					{

@@ -16,12 +16,12 @@ class color_text extends \content_site\options\background\background_color
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Text Color");
 
-		$html = self::color_html('opt_color_text', $default, $title);
+		$html = static::color_html('opt_color_text', $default, $title);
 
 		return $html;
 	}

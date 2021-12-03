@@ -23,7 +23,7 @@ class slider_next_prev
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 

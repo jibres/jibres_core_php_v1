@@ -30,12 +30,12 @@ class background_color
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Background Color");
 
-		$html = self::color_html('opt_background_color', $default, $title, false, true, true);
+		$html = static::color_html('opt_background_color', $default, $title, false, true, true);
 
 		return $html;
 	}

@@ -14,7 +14,7 @@ class background_pack
 	 */
 	public static function current_background_pack_option($_option_list)
 	{
-		self::$current_options = $_option_list;
+		static::$current_options = $_option_list;
 	}
 
 
@@ -26,7 +26,7 @@ class background_pack
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => self::enum(), 'field_title' => T_('Background Pack')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => static::enum(), 'field_title' => T_('Background Pack')]);
 
 		$result                    = [];
 
@@ -112,7 +112,7 @@ class background_pack
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_("Background");

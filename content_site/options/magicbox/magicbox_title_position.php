@@ -6,7 +6,7 @@ class magicbox_title_position
 {
 
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 
@@ -14,7 +14,7 @@ class magicbox_title_position
 		$enum[] = ['key' => 'hide', 'title' => T_("Hide")];
 		$enum[] = ['key' => 'inside', 'title' => T_("Inside")];
 
-		if(self::allow_outsite())
+		if(static::allow_outsite())
 		{
 			$enum[] = ['key' => 'outside', 'title' => T_("Outside")];
 		}
@@ -31,7 +31,7 @@ class magicbox_title_position
 
 	public static function validator($_data)
 	{
-		$data[self::db_key()] = \dash\validate::enum(a($_data, self::db_key()), true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Position title')]);
+		$data[static::db_key()] = \dash\validate::enum(a($_data, static::db_key()), true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Position title')]);
 		return $data;
 	}
 
@@ -57,7 +57,7 @@ class magicbox_title_position
 		{
 			$html .= \content_site\options\generate::multioption();
 			$html .= \content_site\options\generate::opt_hidden(get_called_class());
-			$html .= self::only_el();
+			$html .= static::only_el();
 		}
 		$html .= \content_site\options\generate::_form();
 
@@ -68,22 +68,22 @@ class magicbox_title_position
 	public static function only_el()
 	{
 
-		$default = \content_site\section\view::get_current_index_detail(self::db_key());
+		$default = \content_site\section\view::get_current_index_detail(static::db_key());
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 		$title = T_('Title position');
 		$html = '';
 		$html .= "<label>$title</label>";
 
-		$name       = self::db_key();
+		$name       = static::db_key();
 
 		$radio_html = '';
 
-		foreach (self::enum() as $key => $value)
+		foreach (static::enum() as $key => $value)
 		{
 			$myValue = $value['key'];
 			$radio_html .= \content_site\options\generate::radio_line_itemText($name, $myValue, $value['title'], (($default === $myValue)? true : false), true);

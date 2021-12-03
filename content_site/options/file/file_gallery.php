@@ -27,7 +27,7 @@ class file_gallery extends file
 
 	public static function specialsave($_data)
 	{
-		$file_path = self::validator($_data);
+		$file_path = static::validator($_data);
 
 		if(!\dash\engine\process::status())
 		{

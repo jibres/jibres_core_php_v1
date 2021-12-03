@@ -5,7 +5,7 @@ namespace content_site\options\product;
 class product_order
 {
 
-	private static function enum()
+	public static function enum()
 	{
 		$enum   = [];
 		$enum[] = ['key' => 'newest', 		'title' => T_("Newest to Oldest (default)"),];
@@ -20,7 +20,7 @@ class product_order
 
 	public static function validator($_data)
 	{
-		$data  = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Product order')]);
+		$data  = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Product order')]);
 		return $data;
 	}
 
@@ -39,7 +39,7 @@ class product_order
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, T_("Order by"));
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, T_("Order by"));
 		}
 
   		$html .= \content_site\options\generate::_form();

@@ -7,7 +7,7 @@ class background_gradient_pallet
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::pallet(), 'key'), 'field_title' => T_('Pallet')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::pallet(), 'key'), 'field_title' => T_('Pallet')]);
 		\content_site\utility::need_redirect(true);
 		return $data;
 	}
@@ -40,7 +40,7 @@ class background_gradient_pallet
 
 	public static function get_style($_key)
 	{
-		$enum = self::pallet();
+		$enum = static::pallet();
 
 		foreach ($enum as $key => $value)
 		{
@@ -58,7 +58,7 @@ class background_gradient_pallet
 	{
 		$html = '';
 		$default =  \content_site\section\view::get_current_index_detail('background_gradient_pallet');
-		foreach (self::pallet() as $key => $value)
+		foreach (static::pallet() as $key => $value)
 		{
 			$json =
 			[

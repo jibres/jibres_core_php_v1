@@ -28,7 +28,7 @@ class background_gradient_model
 	public static function admin_html()
 	{
 		$html = '';
-		$gradient_model = self::get_value();
+		$gradient_model = static::get_value();
 		$html .= \content_site\options\generate::form();
 		{
 			$radio_html = '';

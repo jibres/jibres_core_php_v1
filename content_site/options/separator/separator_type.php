@@ -4,7 +4,7 @@ namespace content_site\options\separator;
 
 class separator_type
 {
-	private static function enum()
+	public static function enum()
 	{
 
 		$enum   = [];
@@ -18,7 +18,7 @@ class separator_type
 
 	public static function validator($_data)
 	{
-		$data = \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => T_('Type')]);
+		$data = \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => T_('Type')]);
 		return $data;
 	}
 
@@ -35,7 +35,7 @@ class separator_type
 
 		if(!$default)
 		{
-			$default = self::default();
+			$default = static::default();
 		}
 
 
@@ -44,7 +44,7 @@ class separator_type
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::select(get_called_class(), self::enum(), $default, $title);
+			$html .= \content_site\options\generate::select(get_called_class(), static::enum(), $default, $title);
 		}
   		$html .= \content_site\options\generate::_form();
 

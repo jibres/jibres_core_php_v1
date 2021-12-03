@@ -33,7 +33,7 @@ class padding
 
 	public static function this_range()
 	{
-		return array_column(self::enum(), 'key');
+		return array_column(static::enum(), 'key');
 	}
 
 
@@ -56,7 +56,7 @@ class padding
 
 	public static function validator($_data)
 	{
-		return \dash\validate::enum($_data, true, ['enum' => array_column(self::enum(), 'key'), 'field_title' => static::title()]);
+		return \dash\validate::enum($_data, true, ['enum' => array_column(static::enum(), 'key'), 'field_title' => static::title()]);
 	}
 
 
@@ -67,7 +67,7 @@ class padding
 
 	private static function find_padding_class($_key)
 	{
-		foreach (self::enum() as $key => $value)
+		foreach (static::enum() as $key => $value)
 		{
 			if($value['key'] === $_key)
 			{
@@ -85,16 +85,16 @@ class padding
 
 		if(!$_top && !$_bottom)
 		{
-			$class .= self::find_padding_class(static::default());
+			$class .= static::find_padding_class(static::default());
 		}
 		elseif($_top === $_bottom)
 		{
-			$class .= self::find_padding_class($_top);
+			$class .= static::find_padding_class($_top);
 		}
 		else
 		{
-			$class .= str_replace('y', 't', self::find_padding_class($_top));
-			$class .= ' '. str_replace('y', 'b', self::find_padding_class($_bottom));
+			$class .= str_replace('y', 't', static::find_padding_class($_top));
+			$class .= ' '. str_replace('y', 'b', static::find_padding_class($_bottom));
 		}
 
 		return $class;
@@ -118,7 +118,7 @@ class padding
 		$html = '';
 		$html .= \content_site\options\generate::form();
 		{
-			$html .= \content_site\options\generate::rangeslider('opt_'. static::name(), self::this_range(), $default, static::title());
+			$html .= \content_site\options\generate::rangeslider('opt_'. static::name(), static::this_range(), $default, static::title());
 		}
 		$html .= \content_site\options\generate::_form();
 
