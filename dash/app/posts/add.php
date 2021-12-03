@@ -15,7 +15,7 @@ class add
 			\dash\permission::access('cmsManagePost');
 		}
 		// check args
-		$args = \dash\app\posts\check::variable($_args);
+		$args = \dash\app\posts\check::variable($_args, null, $_force);
 
 		if($args === false || !\dash\engine\process::status())
 		{
