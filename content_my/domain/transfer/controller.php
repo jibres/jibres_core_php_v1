@@ -9,9 +9,10 @@ class controller
 
 
 		$domain = \dash\request::get('domain');
-		$domain = urldecode($domain);
 		if($domain)
 		{
+			$domain = urldecode($domain);
+
 			if(\dash\validate::domain($domain))
 			{
 				if(!\dash\validate::ir_domain($domain, false))
