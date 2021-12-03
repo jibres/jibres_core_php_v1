@@ -524,80 +524,17 @@ class store
 
 		$social = [];
 
-
-		foreach ($detail as $key => $value)
+		$raw_social_list = self::all_social_list();
+		foreach ($raw_social_list as $raw_social_key => $raw_social_detail)
 		{
-			switch ($key)
+			$user = a($detail, $raw_social_key);
+			if($user)
 			{
-				case 'instagram':
-					if($value)
-					{
-						$social['instagram'] = ['user' => $value, 'title' => T_("Instagram"), 'link' => 'https://instagram.com/'. $value];
-					}
-					break;
-
-				case 'telegram':
-					if($value)
-					{
-						$social['telegram']  = ['user' => $value, 'title' => T_("Telegram"), 'link' => 'https://t.me/'. $value];
-					}
-					break;
-
-				case 'youtube':
-					if($value)
-					{
-						$social['youtube']   = ['user' => $value, 'title' => T_("Youtube"), 'link' => 'https://youtube.com/'. $value];
-					}
-					break;
-
-				case 'twitter':
-					if($value)
-					{
-						$social['twitter']   = ['user' => $value, 'title' => T_("Twitter"), 'link' => 'https://twitter.com/'. $value];
-					}
-					break;
-
-				case 'linkedin':
-					if($value)
-					{
-						$social['linkedin']  = ['user' => $value, 'title' => T_("Linkedin"), 'link' => 'https://linkedin.com/in/'. $value];
-					}
-					break;
-
-				case 'github':
-					if($value)
-					{
-						$social['github']    = ['user' => $value, 'title' => T_("Github"), 'link' => 'https://github.com/'. $value];
-					}
-					break;
-
-				case 'facebook':
-					if($value)
-					{
-						$social['facebook']  = ['user' => $value, 'title' => T_("Facebook"), 'link' => 'https://facebook.com/'. $value];
-					}
-					break;
-
-				case 'whatsapp':
-					if($value)
-					{
-						$social['whatsapp']  = ['user' => $value, 'title' => T_("Whatsapp"), 'link' => 'https://wa.me/'. $value];
-					}
-					break;
-
-				case 'email':
-					if($value)
-					{
-						$social['email']     = ['user' => $value, 'title' => T_("Email"), 'link' => 'mailto:'. $value];
-					}
-					break;
-
-				// case 'aparat':		$social['aparat']    = ['user' => $value, 'title' => T_("Aparat"), 'link' => 'https://aparat.com/'. $value];		break;
-				default:
-					# code...
-					break;
+				$temp = ['user' => $user, 'link' => a($raw_social_detail, 'link'). $user];
+				$social[$raw_social_key] = array_merge($raw_social_detail, $temp);
 			}
 		}
+
 
 		if($_need)
 		{
