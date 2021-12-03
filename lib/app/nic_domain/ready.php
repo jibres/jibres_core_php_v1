@@ -140,7 +140,7 @@ class ready
 						if(in_array('irnicRegistrationPendingDomainCheck', $nicstatus))
 						{
 							$status_text = T_("Pending Approved");
-							$status_icon = 'detail ok';
+							$status_icon = 'detail';
 							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Pending Approved").'</span><i class="sf-refresh fc-blue"></i></div>';
 							unset($other_status[array_search('irnicRegistrationPendingDomainCheck', $other_status)]);
 						}
