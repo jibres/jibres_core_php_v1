@@ -67,7 +67,13 @@ class race2
 
 	private static function request_key()
 	{
-		return md5(self::addr()). '-'. \dash\request::is();
+		$addr = self::addr();
+		if(is_null($addr))
+		{
+			$addr = '';
+		}
+
+		return md5($addr). '-'. \dash\request::is();
 	}
 
 

@@ -54,12 +54,16 @@ class controller
 		// save referer
 		// to redirect the user ofter login or signup on the referered address
 		$ref = \dash\request::get('referer');
-		$refDecode = urldecode(urldecode(urldecode($ref)));
-		if(strpos($refDecode, '://') !== false)
+
+		if(!is_null($ref))
 		{
-			// have a link to another location
-			// open redirect bug
-			\dash\header::status(451);
+			$refDecode = urldecode(urldecode(urldecode($ref)));
+			if(strpos($refDecode, '://') !== false)
+			{
+				// have a link to another location
+				// open redirect bug
+				\dash\header::status(451);
+			}
 		}
 
 		// @todo

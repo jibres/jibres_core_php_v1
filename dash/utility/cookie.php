@@ -13,7 +13,7 @@ class cookie
 	const PATH		= '/';
 
 	// @var string		Domain that the cookie is available
-	const DOMAIN	= null;
+	const DOMAIN	= '';
 
 	// @var bool
 	// If true, the cookie should only be transmitted over a secure HTTPS connection from the client
@@ -142,14 +142,14 @@ class cookie
 	 *
 	 * @param string $_name	Name of the cookie
 	 */
-	public static function delete($_name, $_path = null, $_domain = null)
+	public static function delete($_name, $_path = null, $_domain = '')
 	{
 		if(!$_path)
 		{
 			$_path = self::PATH;
 		}
 
-		setcookie($_name, null, time()-3600*30, $_path, $_domain);
+		setcookie($_name, '', time()-3600*30, $_path, $_domain);
 
 		unset($_COOKIE[$_name]);
 		unset(self::$COOKIE[$_name]);

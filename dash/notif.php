@@ -98,7 +98,7 @@ class notif
 
 		$insert['type']        = a($_add, 'type');
 		$insert['message']     = a($_add, 'text');
-		$insert['messagemd5']  = md5($insert['message']);
+		$insert['messagemd5']  = a($insert,'message') ? md5($insert['message']) : md5('');
 		$insert['meta']        = a($_add, 'meta') ? json_encode($_add['meta']) : null;
 		$insert['method']      = \dash\request::is();
 		$insert['user_id']     = null;
