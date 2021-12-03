@@ -11,7 +11,7 @@ class edit
 			\dash\permission::access('_group_setting');
 		}
 
-		$load = \lib\app\menu\get::get($_id);
+		$load = \lib\app\menu\get::public_get($_id);
 		if(!$load)
 		{
 			return false;
