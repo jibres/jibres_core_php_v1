@@ -298,7 +298,16 @@ class detect
 			{
 				$new_detail = [];
 			}
-			$new_detail = array_map('mb_strtolower', $new_detail);
+			foreach ($new_detail as $key => $value)
+			{
+				if(!is_null($value))
+				{
+					$value = mb_strtolower($value);
+				}
+
+				$new_detail[$key] = $value;
+			}
+
 
 			foreach ($allow_field as $field)
 			{
