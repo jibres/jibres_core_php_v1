@@ -337,7 +337,16 @@ class detect
 			}
 
 			$args = array_merge($_detail, $_meta);
-			$args = array_map('mb_strtolower', $args);
+			foreach ($args as $key => $value)
+			{
+				if(!is_null($value))
+				{
+					$value = mb_strtolower($value);
+				}
+
+				$args[$key] = $value;
+			}
+
 
 			$insert = [];
 

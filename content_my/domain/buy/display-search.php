@@ -54,7 +54,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
     <ul class="items">
     <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li>
-      <a href="<?php if(a($value, 'available')) { echo \dash\url::this(). '/buy/'. $key; }else{ if(a($value,'domain_name_valid')) { echo \dash\url::this(). '/whois?domain='. $key; } } //endif ?>" class="f item">
+      <a href="<?php if(a($value, 'available') || a($value,'domain_restricted')) { echo \dash\url::this(). '/buy/'. $key; }else{ if(a($value,'domain_name_valid')) { echo \dash\url::this(). '/whois?domain='. $key; } } //endif ?>" class="f item">
        <div class="key fit fc-mute"><?php echo substr(a($value, 'name'), 0, 15); ?></div>
        <div class="key grow font-bold">.<?php echo a($value, 'tld'); ?></div>
        <?php if(a($value, 'available')) {?>

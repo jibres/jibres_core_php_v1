@@ -123,6 +123,7 @@ class domain_check
 
 
 		$check = self::analyze_domain_check($_domain);
+
 		if(!$check || !is_array($check))
 		{
 			return false;
@@ -143,6 +144,16 @@ class domain_check
 
 		$result              = [];
 		$result['available'] = $available;
+
+		if(isset($detail['reason']))
+		{
+			$result['reason'] = $detail['reason'];
+			if($result['reason'] === 'Domain name is restricted')
+			{
+
+				$result['domain_restricted'] = true;
+			}
+		}
 
 		$set_session = [$_domain => $result, 'time' => time()];
 		\dash\session::set('lastDomainChecked', $set_session);

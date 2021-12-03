@@ -12,8 +12,11 @@ class controller
 		}
 
 		$domain = \dash\url::subchild();
-		$domain = urldecode($domain);
-		$domain = mb_strtolower($domain);
+		if(!is_null($domain))
+		{
+			$domain = urldecode($domain);
+			$domain = mb_strtolower($domain);
+		}
 
 		$q = \dash\validate::search_string();
 		$q = \dash\validate::string($q, false);

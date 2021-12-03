@@ -113,7 +113,7 @@ $master_domain = a($master, 'full');
                         {
                             if(array_key_exists('domain_restricted', $master) && $master['domain_restricted'])
                             {
-                                echo '<div class="btn-light">'. T_("Domain restricted for register"). '</div>' ;
+                                echo '<a class="btn-light" href="'. \dash\url::kingdom(). '/my/domain/buy/'. $master_domain.'">'. T_("Domain restricted for register"). '</a>' ;
                             }
                             elseif(array_key_exists('domain_name_valid', $master) && $master['domain_name_valid'] === false)
                             {

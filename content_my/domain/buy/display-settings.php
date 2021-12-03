@@ -44,7 +44,12 @@
       echo '<div class="alert-danger minimal">'. $message. '</div>';
     }
    } //endif ?>
+ <?php }elseif(a(\dash\data::checkResult(), 'domain_restricted') === true) {?>
+  <div class="msg danger2 text-center">
+    <p><?php echo T_("To register this domain, you must first provide the necessary permissions, otherwise your domain registration request will be canceled"); ?></p>
+   </div>
   <?php }else{ ?>
+
    <div class="msg minimal warn2 text-center font-bold mB0-f fs16">
     <p><?php echo T_("Can not register this domain"); ?></p>
     <?php echo \dash\data::myDomain(); ?>
@@ -56,7 +61,7 @@
 
   <?php if(\dash\data::checkResult()) {?>
 
-   <?php if(\dash\data::checkResult_available()) {?>
+   <?php if(\dash\data::checkResult_available() ||  a(\dash\data::checkResult(), 'domain_restricted') === true) {?>
 
     <form method="post" autocomplete="off">
      <label><?php echo T_("Choose register time"); ?></label>
