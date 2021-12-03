@@ -5,6 +5,8 @@ class view
 {
 	public static function config()
 	{
+		\dash\permission::access('_group_setting');
+
 		\dash\face::title(T_('Sale report'));
 
 		\dash\data::back_text(T_('Back'));
