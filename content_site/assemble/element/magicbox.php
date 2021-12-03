@@ -335,7 +335,10 @@ class magicbox
 	{
 		$myTitle   = a($_itemData, 'title');
 		$myDesc    = a($_itemData, 'desc');
-		$myDesc    = strip_tags($myDesc);
+		if(!is_null($myDesc))
+		{
+			$myDesc    = strip_tags($myDesc);
+		}
 		$myBtnText = a($_itemData, 'btn_title');
 
 		// disable desc for blog and product

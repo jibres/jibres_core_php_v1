@@ -237,6 +237,11 @@ class fit{
 
 	public static function mobile($_number)
 	{
+		if(is_null($_number))
+		{
+			return $_number;
+		}
+
 		$new_text = $_number;
 		if(is_numeric($new_text))
 		{
@@ -290,6 +295,11 @@ class fit{
 
 	public static function img($_src, $_size = null)
 	{
+		if(is_null($_src))
+		{
+			return $_src;
+		}
+
 		if(substr($_src, 0, 28) === 'https://source.unsplash.com/')
 		{
 			return $_src;

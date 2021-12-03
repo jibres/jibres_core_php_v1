@@ -349,58 +349,61 @@ class search
 
 
 		$query_string = \dash\validate::search($_query_string, false);
-
-		if(substr($query_string, 0, 1) === '+' && is_numeric(\dash\number::clean(substr($query_string, 1))))
+		if(!is_null($query_string))
 		{
-			$search         = substr($query_string, 1);
-			$search         = \dash\number::clean($search);
 
-			$and[] = " ( products.finalprice = ". floatval($search). " OR products.price = ". floatval($search). " )";
-
-			$and[] = "products.barcode IS NULL";
-			$and[] = "products.barcode2 IS NULL";
-			$meta['pagination']                  = false;
-
-			$type                         = 'price_factor_count';
-
-			self::$is_filtered = true;
-		}
-		elseif($query_string)
-		{
-			$or[]        = " products.title LIKE '%$query_string%'";
-			// $or['products.slug']     = ["LIKE", "'$query_string%'"];
-
-			$query_string_barcode = \dash\utility\convert::to_barcode($query_string);
-
-			if($query_string_barcode)
+			if(substr($query_string, 0, 1) === '+' && is_numeric(\dash\number::clean(substr($query_string, 1))))
 			{
-				$or[] = " products.barcode = '$query_string'";
-				$or[] = " products.barcode2 = '$query_string'";
+				$search         = substr($query_string, 1);
+				$search         = \dash\number::clean($search);
+
+				$and[] = " ( products.finalprice = ". floatval($search). " OR products.price = ". floatval($search). " )";
+
+				$and[] = "products.barcode IS NULL";
+				$and[] = "products.barcode2 IS NULL";
+				$meta['pagination']                  = false;
+
+				$type                         = 'price_factor_count';
+
+				self::$is_filtered = true;
 			}
-
-			$or[]      = "products.sku = '$query_string'";
-
-			if(is_numeric($query_string) || is_numeric(\dash\utility\convert::to_en_number($query_string)))
+			elseif($query_string)
 			{
-				$search_price = \dash\utility\convert::to_en_number($query_string);
+				$or[]        = " products.title LIKE '%$query_string%'";
+				// $or['products.slug']     = ["LIKE", "'$query_string%'"];
 
-				$or[] = "products.finalprice = ". floatval($search_price);
-				$or[] = "products.price = ". floatval($search_price);
+				$query_string_barcode = \dash\utility\convert::to_barcode($query_string);
 
-				if($search_product_id = \dash\validate::id($search_price, false))
+				if($query_string_barcode)
 				{
-					$or[] = "products.id = ". $search_product_id;
-					$or[] = " (products.id = (SELECT products.parent FROM products WHERE products.id = $search_product_id LIMIT 1)) ";
+					$or[] = " products.barcode = '$query_string'";
+					$or[] = " products.barcode2 = '$query_string'";
 				}
-				// $or[] = "products.parent = ". $search_price;
 
-				// unset($and['parent_is_null']);
-				// unset($_where['parent_is_null']);
+				$or[]      = "products.sku = '$query_string'";
+
+				if(is_numeric($query_string) || is_numeric(\dash\utility\convert::to_en_number($query_string)))
+				{
+					$search_price = \dash\utility\convert::to_en_number($query_string);
+
+					$or[] = "products.finalprice = ". floatval($search_price);
+					$or[] = "products.price = ". floatval($search_price);
+
+					if($search_product_id = \dash\validate::id($search_price, false))
+					{
+						$or[] = "products.id = ". $search_product_id;
+						$or[] = " (products.id = (SELECT products.parent FROM products WHERE products.id = $search_product_id LIMIT 1)) ";
+					}
+					// $or[] = "products.parent = ". $search_price;
+
+					// unset($and['parent_is_null']);
+					// unset($_where['parent_is_null']);
+				}
+
+				self::$is_filtered = true;
 			}
 
-			self::$is_filtered = true;
 		}
-
 
 		$price_desc_sort = "ISNULL(products.%s), IF(products.variant_child, (SELECT MAX(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s)";
 		$price_asc_sort  = "ISNULL(products.%s), IF(products.variant_child, (SELECT MIN(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s)";
