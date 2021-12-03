@@ -1090,7 +1090,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: includes/languages/trans_static_public.php:983 lib/app/form/item/type.php:355
 #: lib/store.php:494 lib/store.php:590
 msgid "Email"
-msgstr "رایانامه"
+msgstr "ایمیل"
 
 #: content/contact/display.php:37
 msgid "Your Message"
@@ -14777,7 +14777,7 @@ msgstr "شبکه‌های اجتماعی"
 
 #: content_account/my/home/display.php:145
 msgid "Website, Email and Social Networks"
-msgstr "وب‌سایت، رایانامه و شبکه‌های اجتماعی"
+msgstr "وب‌سایت، ایمیل و شبکه‌های اجتماعی"
 
 #: content_account/my/home/display.php:148 content_account/my/social/view.php:9
 #: content_site/body/instagram/option.php:34 content_site/body/socialnetwork/option.php:18
@@ -18610,19 +18610,19 @@ msgstr "تایید"
 #: content_enter/pass/display.php:3 content_enter/pass/recovery/display.php:3
 #: content_enter/verify/display.php:3
 msgid "Please enter valid mobile or username or email number"
-msgstr "لطفا نام‌کاربری یا موبایل یا رایانامه معتبری وارد کنید"
+msgstr "لطفا نام‌کاربری یا موبایل یا ایمیل معتبری وارد کنید"
 
 #: content_enter/app/display.php:32 content_enter/home/display.php:15
 #: content_enter/pass/display.php:3 content_enter/pass/recovery/display.php:3
 #: content_enter/verify/display.php:3
 msgid "Username or Mobile or Email"
-msgstr "نام کاربری یا موبایل یا رایانامه"
+msgstr "نام کاربری یا موبایل یا ایمیل"
 
 #: content_enter/app/display.php:40 content_enter/home/display.php:23
 #: content_enter/pass/display.php:11 content_enter/pass/recovery/display.php:3
 #: content_enter/verify/display.php:11
 msgid "Username or Mobile or email"
-msgstr "نام کاربری یا موبایل یا رایانامه"
+msgstr "نام کاربری یا موبایل یا ایمیل"
 
 #: content_enter/app/display.php:55 content_enter/home/display.php:37
 #: content_enter/home/display.php:42 content_enter/pass/display.php:25
@@ -18779,7 +18779,7 @@ msgstr "گذرواژه‌ی اشتباه"
 
 #: content_enter/home/model.php:218
 msgid "Please set the username or mobile or email"
-msgstr "لطفا نام‌کاربری یا موبایل یا رایانامه معتبری وارد کنید"
+msgstr "لطفا نام‌کاربری یا موبایل یا ایمیل معتبری وارد کنید"
 
 #: content_enter/home/model.php:255
 msgid "Username not found"
@@ -22760,7 +22760,7 @@ msgstr "گیت‌هاب"
 #: includes/languages/trans_static.php:212 includes/languages/trans_static.php:342
 #: includes/languages/trans_static_public.php:405
 msgid "email"
-msgstr "رایانامه"
+msgstr "ایمیل"
 
 #: content_site/assemble/wrench/socialnetworks.php:65
 #: includes/languages/trans_static_public.php:424
@@ -30237,7 +30237,7 @@ msgstr "کد تخفیف باید شامل حداقل یک حرف لاتین با
 
 #: dash/validate/text.php:625
 msgid "Email is invalid"
-msgstr "مقدار رایانامه اشتباه است"
+msgstr "مقدار ایمیل اشتباه است"
 
 #: dash/validate/text.php:640
 msgid "Email contain only one @ character!"
@@ -30245,7 +30245,7 @@ msgstr "ایمیل باید فقط یه کاراکتر @ داشته باشد!"
 
 #: dash/validate/text.php:647
 msgid "Invalid email!"
-msgstr "رایانامه اشتباه است!"
+msgstr "ایمیل اشتباه است!"
 
 #: dash/validate/text.php:729
 msgid "Field :val must be exactly 32 character"
@@ -44145,7 +44145,7 @@ msgstr "یارد"
 #, fuzzy
 #~| msgid "Email and Social Networks"
 #~ msgid "Display Social Networks ID"
-#~ msgstr "رایانامه و شبکه‌های اجتماعی"
+#~ msgstr "ایمیل و شبکه‌های اجتماعی"
 
 #~ msgid "Content Width"
 #~ msgstr "عرض محتوا"
@@ -45709,7 +45709,7 @@ msgstr "یارد"
 #~ msgstr "ما راهی برای ارسال کد به شما نیافتیم!"
 
 #~ msgid "You must set a mobile or email to continue"
-#~ msgstr "برای ادامه شما باید تلفن‌همراه یا رایانامه را وارد کنید"
+#~ msgstr "برای ادامه شما باید تلفن‌همراه یا ایمیل را وارد کنید"
 
 #~ msgid "Electronic Wallet"
 #~ msgstr "کیف پول الکترونیکی"
@@ -50115,7 +50115,7 @@ msgstr "یارد"
 #~ msgstr "عنوان خارج از محدوده است!"
 
 #~ msgid "Invalid email address"
-#~ msgstr "رایانامه اشتباه است"
+#~ msgstr "ایمیل اشتباه است"
 
 #~ msgid ":dbtables id not set"
 #~ msgstr "شناسه تنظیم نشده است"
