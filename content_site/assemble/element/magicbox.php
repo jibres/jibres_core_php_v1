@@ -62,7 +62,14 @@ class magicbox
 			$_item[$file_index] = \dash\sample\img::image();
 		}
 
-		$myThumb      = \lib\filepath::fix(\dash\fit::img(a($_item, $file_index), a($_args, 'image:size')));
+		$image_size = 'raw';
+
+		if(a($_args, 'image:size'))
+		{
+			$image_size = a($_args, 'image:size');
+		}
+
+		$myThumb      = \lib\filepath::fix(\dash\fit::img(a($_item, $file_index), $image_size));
 
 		$myMagicBoxEl = 'div';
 		$myLinkHref   = '';
