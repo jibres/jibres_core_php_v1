@@ -160,6 +160,8 @@ class load
 		$homepage_id                  = \content_site\homepage::id();
 
 
+		$template = \dash\engine\template::find();
+
 		// load a post by display of content_n
 		if(\dash\engine\template::$finded_template)
 		{
@@ -207,6 +209,11 @@ class load
 					$page_id = a($file_posts, 'id');
 
 					$page_id = \dash\coding::decode($page_id);
+				}
+				else
+				{
+					$page_id     = null;
+					$homepage_id = null;
 				}
 			}
 			else

@@ -10,6 +10,10 @@ class view
 		\dash\face::logoPWA(\lib\store::logo());
 		\dash\face::specialTitle(true);
 
+		if(\dash\engine\template::$finded_template)
+		{
+			\dash\data::findTempldatePost(true);
+		}
 
 	}
 }
