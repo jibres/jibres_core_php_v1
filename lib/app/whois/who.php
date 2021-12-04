@@ -29,14 +29,11 @@ class who
 		try
 		{
 
-			$phpwhois = new \lib\api\nic\phpwhois\whois($_domain);
+			// $phpwhois = new \lib\api\nic\phpwhois\whois($_domain);
+			$phpwhois = \lib\api\whois\api::get($_domain);
 
-			$answer                  = $phpwhois->info();
-
-			if($phpwhois->isAvailable())
-			{
-				$result['available'] = true;
-			}
+			$answer                  = a($phpwhois, 'answer');
+			$result['available'] = a($phpwhois, 'available');
 
 		}
 		catch (\Exception $e)
