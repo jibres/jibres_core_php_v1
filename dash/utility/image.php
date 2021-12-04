@@ -444,7 +444,14 @@ class image
 	 */
 	public static function dominant_color($_path)
 	{
-		$image = imagecreatefromjpeg($_path);
+		self::load($_path, false);
+
+		$image = self::$img;
+
+		if(!$image)
+		{
+			return null;
+		}
 
 		if(!$image)
 		{
