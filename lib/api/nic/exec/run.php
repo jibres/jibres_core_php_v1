@@ -221,22 +221,22 @@ class run
 			//TRUE to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 
-			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 90); // 90 time out of nic-broker
-			curl_setopt($ch, CURLOPT_TIMEOUT, 90); // 90 time out of nic-broker
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 90); // 90 time out of irnic
+			curl_setopt($ch, CURLOPT_TIMEOUT, 90); // 90 time out of irnic
 
 			curl_setopt($ch, CURLOPT_POST, false);
 			//The URL to fetch.
 			if(\dash\url::isLocal())
 			{
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-				curl_setopt($ch, CURLOPT_URL,"https://tunnel.jibres.ir/nic-broker/");
+				curl_setopt($ch, CURLOPT_URL,"https://tunnel.jibres.ir/irnic/");
 				// curl_setopt($ch, CURLOPT_URL,"https://185.208.180.138/nic-broker/");
 			}
 			else
 			{
 				//FALSE to stop cURL from verifying the peer's certificate
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-				curl_setopt($ch, CURLOPT_URL,"http://7.7.7.138/nic-broker/");
+				curl_setopt($ch, CURLOPT_URL,"http://7.7.7.138/irnic/");
 			}
 
 			//The full data to post in a HTTP "POST" operation.
