@@ -6,7 +6,7 @@ class api
 
 	public static function url()
 	{
-		$url = 'https://tunnel.jibres.com/whois/';
+		$url = 'http://7.7.7.138/whois/';
 		if(\dash\url::isLocal())
 		{
 			$url = 'https://broker.local/whois/';
