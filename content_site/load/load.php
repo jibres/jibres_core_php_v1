@@ -160,7 +160,6 @@ class load
 		$homepage_id                  = \content_site\homepage::id();
 
 
-
 		// load a post by display of content_n
 		if(\dash\engine\template::$finded_template)
 		{
@@ -197,7 +196,24 @@ class load
 		}
 		elseif(\dash\temp::get('InBusinessHomeController'))
 		{
-			$page_id                     = $homepage_id;
+
+			$file_posts = \dash\app\posts\find::post();
+
+			if($file_posts)
+			{
+				if(a($file_posts, 'type') === 'pagebuilder')
+				{
+					// ok. load page builder
+					$page_id = a($file_posts, 'id');
+
+					$page_id = \dash\coding::decode($page_id);
+				}
+			}
+			else
+			{
+				$page_id                     = $homepage_id;
+
+			}
 
 			$homepage_builder          = true;
 

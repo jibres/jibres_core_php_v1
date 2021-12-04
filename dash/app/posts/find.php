@@ -10,6 +10,11 @@ class find
 	public static function post()
 	{
 		$url = \dash\url::directory();
+
+		if(!$url)
+		{
+			return false;
+		}
 		$url = \dash\url::urlfilterer($url);
 
 
