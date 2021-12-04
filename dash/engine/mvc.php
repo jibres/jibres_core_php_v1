@@ -210,32 +210,31 @@ class mvc
 			$real_address = null;
 		}
 
-		if(self::$routed_addr)
-		{
-			// if we are in another address of current routed in controller, double check
-			if(trim(self::$routed_addr, '/') != $real_address)
-			{
-				// if this url has no custom licence, block it
-				if(!\dash\open::license())
-				{
-					$template = self::find_tmplate();
-					if($template)
-					{
-						self::$routed_addr = \dash\url::pwd();
-						return $template;
-					}
-					else
-					{
-						if(!\dash\url::child() && \dash\url::module() && \dash\engine\store::inBusinessDomain())
-						{
-							\lib\app\staticfile\get::business_static_file();
-						}
 
-						\dash\header::status(404, T_("We can't find the page you're looking for!"));
+		// if we are in another address of current routed in controller, double check
+		if(trim((string) self::$routed_addr, '/') != $real_address)
+		{
+			// if this url has no custom licence, block it
+			if(!\dash\open::license())
+			{
+				$template = self::find_tmplate();
+				if($template)
+				{
+					self::$routed_addr = \dash\url::pwd();
+					return $template;
+				}
+				else
+				{
+					if(!\dash\url::child() && \dash\url::module() && \dash\engine\store::inBusinessDomain())
+					{
+						\lib\app\staticfile\get::business_static_file();
 					}
+
+					\dash\header::status(404, T_("We can't find the page you're looking for!"));
 				}
 			}
 		}
+
 
 		// check user not send html if not alowed
 		\dash\allow::check_allow_html();
