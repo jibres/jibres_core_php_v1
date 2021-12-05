@@ -55,13 +55,13 @@ class search
 			$new_list = [];
 			foreach ($list as $key => $value)
 			{
-				if(strpos(a($value, 'title'), $query_string) !== false)
+				if(\dash\str::strpos(a($value, 'title'), $query_string) !== false)
 				{
 					$new_list[] = $value;
 					continue;
 				}
 
-				if(strpos(a($value, 'description'), $query_string) !== false)
+				if(\dash\str::strpos(a($value, 'description'), $query_string) !== false)
 				{
 					$new_list[] = $value;
 					continue;

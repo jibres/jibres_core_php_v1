@@ -134,7 +134,7 @@ class shortcode
 	{
 	    $url = $matches[2];
 
-	    if ( ')' === $matches[3] && strpos( $url, '(' ) )
+	    if ( ')' === $matches[3] && \dash\str::strpos( $url, '(' ) )
 	    {
 	        // If the trailing character is a closing parethesis, and the URL has an opening parenthesis in it,
 	        // add the closing parenthesis to the URL. Then we can let the parenthesis balancer do its thing below.
@@ -164,7 +164,7 @@ class shortcode
 
 	    $rel = 'nofollow noopener noreferrer';
 
-	    if(strpos($url, \dash\url::base()) === 0)
+	    if(\dash\str::strpos($url, \dash\url::base()) === 0)
 	    {
 	    	$rel = '';
 	    }

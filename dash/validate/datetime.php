@@ -70,7 +70,7 @@ class datetime
 		{
 			$time = null;
 
-			if(strpos($format, 'H') !== false)
+			if(\dash\str::strpos($format, 'H') !== false)
 			{
 				$time = date("H:i:s", strtotime($data));
 			}

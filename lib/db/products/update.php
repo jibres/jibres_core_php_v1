@@ -7,7 +7,7 @@ class update
 
 	public static function update_desc($_desc, $_id)
 	{
-		if(strpos($_desc, '\\') !== false)
+		if(\dash\str::strpos($_desc, '\\') !== false)
 		{
 			// Un-quote string quoted with addcslashes()
 			$_desc = stripcslashes($_desc);

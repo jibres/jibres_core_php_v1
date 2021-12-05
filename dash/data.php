@@ -52,9 +52,9 @@ class data
 	{
 		$sub_key  = null;
 
-		if(strpos($_variable, '_') !== false)
+		if(\dash\str::strpos($_variable, '_') !== false)
 		{
-			$sub_key   = substr($_variable, strpos($_variable, '_') + 1);
+			$sub_key   = substr($_variable, \dash\str::strpos($_variable, '_') + 1);
 			$_variable = str_replace('_'. $sub_key, '', $_variable);
 		}
 

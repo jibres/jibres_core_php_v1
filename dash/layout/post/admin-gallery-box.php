@@ -47,12 +47,12 @@ $html .= '<div class="box">';
         }
         $html .= \dash\data::ratioHtml();
 
-        if(strpos($html, 'data-max-w') === false)
+        if(\dash\str::strpos($html, 'data-max-w') === false)
         {
           $html .= 'data-max-w="1600" ';
         }
 
-        if(strpos($html, 'data-max-h') === false)
+        if(\dash\str::strpos($html, 'data-max-h') === false)
         {
           $html .= 'data-max-h="1600" ';
         }

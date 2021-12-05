@@ -753,7 +753,7 @@ class Mobile_Detect
     public function getHttpHeader($header)
     {
         // are we using PHP-flavored headers?
-        if (strpos($header, '_') === false) {
+        if (\dash\str::strpos($header, '_') === false) {
             $header = str_replace('-', '_', $header);
             $header = strtoupper($header);
         }
@@ -1055,7 +1055,7 @@ class Mobile_Detect
             if (isset($this->httpHeaders[$mobileHeader])) {
                 if (is_array($matchType['matches'])) {
                     foreach ($matchType['matches'] as $_match) {
-                        if (strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
+                        if (\dash\str::strpos($this->httpHeaders[$mobileHeader], $_match) !== false) {
                             return true;
                         }
                     }

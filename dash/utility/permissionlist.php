@@ -26,7 +26,7 @@ class permissionlist
 
 			foreach($lines as $num => $line)
 			{
-				if(strpos($line, $find_access) !== false)
+				if(\dash\str::strpos($line, $find_access) !== false)
 				{
 					preg_match("/permission\::access\((\'|\")([\w\d\:\_\-]+)(\'|\")\)/", $line, $split);
 					if(isset($split[2]))
@@ -42,7 +42,7 @@ class permissionlist
 					}
 				}
 
-				if(strpos($line, $find_check) !== false)
+				if(\dash\str::strpos($line, $find_check) !== false)
 				{
 					preg_match("/permission\::check\((\'|\")([\w\d\:\_\-]+)(\'|\")\)/", $line, $split);
 					if(isset($split[2]))

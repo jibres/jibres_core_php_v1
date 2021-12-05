@@ -103,22 +103,22 @@ class headers
 			$referer = null;
 		}
 
-		if($referer && strpos($referer, "'") !== false)
+		if($referer && \dash\str::strpos($referer, "'") !== false)
 		{
 			$referer = null;
 		}
 
-		if($referer && strpos($referer, '"') !== false)
+		if($referer && \dash\str::strpos($referer, '"') !== false)
 		{
 			$referer = null;
 		}
 
-		if($referer && strpos($referer, "\n") !== false)
+		if($referer && \dash\str::strpos($referer, "\n") !== false)
 		{
 			$referer = null;
 		}
 
-		if($referer && strpos($referer, "`") !== false)
+		if($referer && \dash\str::strpos($referer, "`") !== false)
 		{
 			$referer = null;
 		}

@@ -180,7 +180,7 @@ class setting
 				}
 				else
 				{
-					if(strpos($back_url, '?') === false)
+					if(\dash\str::strpos($back_url, '?') === false)
 					{
 						$back_url = $back_url. '?jftoken='. $token;
 					}

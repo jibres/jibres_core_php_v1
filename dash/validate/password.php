@@ -82,7 +82,7 @@ class password
 		}
 
 
-		if(strpos($_data, ' ') !== false)
+		if(\dash\str::strpos($_data, ' ') !== false)
 		{
 			if($_notif)
 			{
@@ -104,7 +104,7 @@ class password
 		}
 
 		// every password have 123456 is crazy
-		if(strpos($data, '123456') !== false)
+		if(\dash\str::strpos($data, '123456') !== false)
 		{
 			if($_notif)
 			{
@@ -128,7 +128,7 @@ class password
 
 		if(isset($_meta['displayname']) && $_meta['displayname'])
 		{
-			if(strpos($data, $_meta['displayname']) !== false)
+			if(\dash\str::strpos($data, $_meta['displayname']) !== false)
 			{
 				if($_notif)
 				{
@@ -141,7 +141,7 @@ class password
 
 		if(isset($_meta['passwd_mobile']) && $_meta['passwd_mobile'])
 		{
-			if(strpos($data, $_meta['passwd_mobile']) !== false)
+			if(\dash\str::strpos($data, $_meta['passwd_mobile']) !== false)
 			{
 				if($_notif)
 				{

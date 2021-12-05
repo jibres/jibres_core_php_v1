@@ -33,7 +33,7 @@ class controller
 					unlink($new_path);
 				}
 
-				if(!is_file($new_path) && strpos($file, '.webp') === false)
+				if(!is_file($new_path) && \dash\str::strpos($file, '.webp') === false)
 				{
 					\dash\utility\image::make_webp_image($file, $new_path, $width);
 				}

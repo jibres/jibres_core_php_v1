@@ -132,7 +132,7 @@ class simple
 		}
 
 		// Generate HTML for image src
-		if ( strpos($_SERVER['SCRIPT_FILENAME'], $_SERVER['DOCUMENT_ROOT']) ) {
+		if ( \dash\str::strpos($_SERVER['SCRIPT_FILENAME'], $_SERVER['DOCUMENT_ROOT']) ) {
 			$image_src = substr(__FILE__, strlen( realpath($_SERVER['DOCUMENT_ROOT']) )) . '?_CAPTCHA&amp;t=' . urlencode(microtime());
 			$image_src = '/' . ltrim(preg_replace('/\\\\/', '/', $image_src), '/');
 		} else {

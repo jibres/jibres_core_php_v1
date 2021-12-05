@@ -64,7 +64,7 @@ class guard
 
 				return true;
 			}
-			elseif(strpos($referer, $enamad) !== false)
+			elseif(\dash\str::strpos($referer, $enamad) !== false)
 			{
 				if(!$_readonly)
 				{
@@ -81,7 +81,7 @@ class guard
 				return true;
 			}
 
-			// if(strpos($referer, '.local/') !== false)
+			// if(\dash\str::strpos($referer, '.local/') !== false)
 			// {
 			// 	if(!$_readonly)
 			// 	{
@@ -498,7 +498,7 @@ class guard
 			}
 
 			// allow bank payment
-			if(strpos($origin, '.shaparak.ir') !== false)
+			if(\dash\str::strpos($origin, '.shaparak.ir') !== false)
 			{
 				$allow_origin = true;
 			}

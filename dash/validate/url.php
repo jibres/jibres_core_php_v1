@@ -178,7 +178,7 @@ class url
 
 		for ($i = 1; $i <= 31 ; $i++)
 		{
-			if(strpos($data, chr($i)) !== false)
+			if(\dash\str::strpos($data, chr($i)) !== false)
 			{
 				if($_notif)
 				{
@@ -189,7 +189,7 @@ class url
 			}
 		}
 
-		if(strpos($data, chr(127)) !== false)
+		if(\dash\str::strpos($data, chr(127)) !== false)
 		{
 			if($_notif)
 			{
@@ -199,7 +199,7 @@ class url
 			return false;
 		}
 
-		if(strpos($data, '>') !== false)
+		if(\dash\str::strpos($data, '>') !== false)
 		{
 			if($_notif)
 			{
@@ -208,7 +208,7 @@ class url
 			}
 			return false;
 		}
-		if(strpos($data, '<') !== false)
+		if(\dash\str::strpos($data, '<') !== false)
 		{
 			if($_notif)
 			{
@@ -230,7 +230,7 @@ class url
 			return $data;
 		}
 
-		if(strpos($data, '.') === false)
+		if(\dash\str::strpos($data, '.') === false)
 		{
 			if($_notif)
 			{
@@ -288,7 +288,7 @@ class url
 			return false;
 		}
 
-		if($data && strpos($data, '>') !== false)
+		if($data && \dash\str::strpos($data, '>') !== false)
 		{
 			if($_notif)
 			{
@@ -297,7 +297,7 @@ class url
 			}
 			return false;
 		}
-		if($data && strpos($data, '<') !== false)
+		if($data && \dash\str::strpos($data, '<') !== false)
 		{
 			if($_notif)
 			{
@@ -515,7 +515,7 @@ class url
 
 		$first_url = $_url;
 
-		if(strpos($_url, '/') !== false)
+		if(\dash\str::strpos($_url, '/') !== false)
 		{
 			$first_url = strtok($_url, '/');
 		}
@@ -652,7 +652,7 @@ class url
 		}
 		else
 		{
-			if(strpos($url, '://') === false)
+			if(\dash\str::strpos($url, '://') === false)
 			{
 				$remove_protocol = true;
 				$url = 'http://'. $url;

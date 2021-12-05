@@ -279,9 +279,9 @@ class log
 	public static function call_fn($_class, $_fn, $_args = [], $_args2 = [])
 	{
 		$folder = null;
-		if(strpos($_class, '_') !== false)
+		if(\dash\str::strpos($_class, '_') !== false)
 		{
-			$folder = substr($_class, 0, strpos($_class, '_'));
+			$folder = substr($_class, 0, \dash\str::strpos($_class, '_'));
 		}
 
 		if($folder)

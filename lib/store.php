@@ -714,7 +714,7 @@ class store
 				$store_domain = substr($store_domain, 7);
 			}
 
-			if(strpos($store_domain, '/') !== false)
+			if(\dash\str::strpos($store_domain, '/') !== false)
 			{
 				$store_domain = strtok($store_domain, '/');
 			}

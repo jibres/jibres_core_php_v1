@@ -137,7 +137,7 @@ class agent
 
 		foreach($botlist as $bot)
 		{
-			if(strpos($agent, $bot) !== false)
+			if(\dash\str::strpos($agent, $bot) !== false)
 			{
 				$robot = true;
 			}

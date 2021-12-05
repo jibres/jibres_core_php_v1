@@ -105,10 +105,10 @@ class fit{
 
 		$new_number = (string) $_number;
 
-		if(strpos($new_number, '.') !== false)
+		if(\dash\str::strpos($new_number, '.') !== false)
 		{
-			$number  = substr($new_number, 0, strpos($new_number, '.'));
-			$decimal = substr($new_number, strpos($new_number, '.') + 1 );
+			$number  = substr($new_number, 0, \dash\str::strpos($new_number, '.'));
+			$decimal = substr($new_number, \dash\str::strpos($new_number, '.') + 1 );
 			$fit = self::number($number, true, $_lang);
 
 			if(preg_match("/[1-9]/", $decimal))
@@ -306,10 +306,10 @@ class fit{
 		}
 
 		if(
-			strpos($_src, 'talambar') !== false ||
-			strpos($_src, 'digitaloceanspaces') !== false ||
-			strpos($_src, 'amazonaws') !== false ||
-			strpos($_src, 'arvanstorage') !== false
+			\dash\str::strpos($_src, 'talambar') !== false ||
+			\dash\str::strpos($_src, 'digitaloceanspaces') !== false ||
+			\dash\str::strpos($_src, 'amazonaws') !== false ||
+			\dash\str::strpos($_src, 'arvanstorage') !== false
 		)
 		{
 			// ok

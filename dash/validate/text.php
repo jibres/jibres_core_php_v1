@@ -248,15 +248,15 @@ class text
 		}
 
 		if(
-			strpos($data, '"') !== false ||
-			strpos($data, '/') !== false ||
-			strpos($data, ':') !== false ||
-			strpos($data, '<') !== false ||
-			strpos($data, '>') !== false ||
-			strpos($data, '?') !== false ||
-			strpos($data, '*') !== false ||
-			strpos($data, '|') !== false ||
-			strpos($data, '\\') !== false
+			\dash\str::strpos($data, '"') !== false ||
+			\dash\str::strpos($data, '/') !== false ||
+			\dash\str::strpos($data, ':') !== false ||
+			\dash\str::strpos($data, '<') !== false ||
+			\dash\str::strpos($data, '>') !== false ||
+			\dash\str::strpos($data, '?') !== false ||
+			\dash\str::strpos($data, '*') !== false ||
+			\dash\str::strpos($data, '|') !== false ||
+			\dash\str::strpos($data, '\\') !== false
 
 		  )
 		{
@@ -281,14 +281,14 @@ class text
 		}
 
 		if(
-			strpos($data, '"') !== false ||
-			strpos($data, ':') !== false ||
-			strpos($data, '<') !== false ||
-			strpos($data, '>') !== false ||
-			strpos($data, '?') !== false ||
-			strpos($data, '*') !== false ||
-			strpos($data, '|') !== false ||
-			strpos($data, '\\') !== false
+			\dash\str::strpos($data, '"') !== false ||
+			\dash\str::strpos($data, ':') !== false ||
+			\dash\str::strpos($data, '<') !== false ||
+			\dash\str::strpos($data, '>') !== false ||
+			\dash\str::strpos($data, '?') !== false ||
+			\dash\str::strpos($data, '*') !== false ||
+			\dash\str::strpos($data, '|') !== false ||
+			\dash\str::strpos($data, '\\') !== false
 
 		  )
 		{
@@ -323,7 +323,7 @@ class text
 			return false;
 		}
 
-		if(strpos($data, '.') !== false)
+		if(\dash\str::strpos($data, '.') !== false)
 		{
 			if(substr_count($data, '.') > 1 )
 			{
@@ -335,7 +335,7 @@ class text
 				return false;
 			}
 
-			if(strpos($data, '.txt') === false && strpos($data, '.text') === false && strpos($data, '.html') === false)
+			if(\dash\str::strpos($data, '.txt') === false && \dash\str::strpos($data, '.text') === false && \dash\str::strpos($data, '.html') === false)
 			{
 				if($_notif)
 				{
@@ -587,17 +587,17 @@ class text
 		}
 
 		$local_part = strtok($data, '@');
-		$domain     = substr($data, strpos($data, '@'));
+		$domain     = substr($data, \dash\str::strpos($data, '@'));
 
 		if($domain === '@gmail.com')
 		{
-			if(strpos($local_part, '.') !== false)
+			if(\dash\str::strpos($local_part, '.') !== false)
 			{
 				$local_part = str_replace('.', '', $local_part);
 			}
 		}
 
-		if(strpos($local_part, '+') !== false)
+		if(\dash\str::strpos($local_part, '+') !== false)
 		{
 			$local_part = strtok($local_part, '+');
 		}

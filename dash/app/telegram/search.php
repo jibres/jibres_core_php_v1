@@ -61,7 +61,7 @@ class search
 		if($query_string)
 		{
 			$filename_search = true;
-			if(substr($query_string, 0, 1) === '.' && strpos($query_string, ' ') === false && mb_strlen($query_string) > 3)
+			if(substr($query_string, 0, 1) === '.' && \dash\str::strpos($query_string, ' ') === false && mb_strlen($query_string) > 3)
 			{
 				$ext = substr($query_string, 1);
 				if(\dash\upload\extentions::is_ext($ext))

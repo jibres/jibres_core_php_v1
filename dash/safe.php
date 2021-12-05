@@ -26,7 +26,7 @@ class safe
 		$trim             = true;
 		$checkPersianChar = null;
 
-		if($_type && strpos($_type, '-') !== false)
+		if($_type && \dash\str::strpos($_type, '-') !== false)
 		{
 			$_type = explode('-', $_type);
 		}

@@ -414,7 +414,7 @@ class prepare
 		// 	$full_target .= '?'. $query_string;
 		// }
 
-		if(strpos($full_target, '?') === false && \dash\request::get())
+		if(\dash\str::strpos($full_target, '?') === false && \dash\request::get())
 		{
 			$full_target .= '?'. \dash\request::fix_get();
 		}

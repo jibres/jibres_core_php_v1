@@ -38,7 +38,7 @@ class polls
 
 		if(a(\dash\session::get('create_business'), 'title'))
 		{
-			if(strpos(a(\dash\session::get('create_business'), 'title'), 'test') !== false)
+			if(\dash\str::strpos(a(\dash\session::get('create_business'), 'title'), 'test') !== false)
 			{
 				$question['selected'] = 3;
 			}

@@ -45,7 +45,7 @@ class only
 	public static function maybe_json($_str)
 	{
 		// if have { in string try to decode json
-		if(strpos($_str, '{') !== false)
+		if(\dash\str::strpos($_str, '{') !== false)
 		{
 			self::json($_str);
 		}

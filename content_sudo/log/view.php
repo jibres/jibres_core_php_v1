@@ -56,7 +56,7 @@ class view
 				$auto_rename = false;
 				if(preg_match("/(.*)_(\d{14})\./", $name))
 				{
-					if(strpos($name, 'archive_') === false)
+					if(\dash\str::strpos($name, 'archive_') === false)
 					{
 						$auto_rename = true;
 					}

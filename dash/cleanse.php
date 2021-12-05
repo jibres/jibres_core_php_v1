@@ -547,7 +547,7 @@ class cleanse
 		// call function enstirng_50 or enstring_500_20
 		if(substr($function, 0, 6) === 'string' || substr($function, 0, 8) === 'enstring' || substr($function, 0, 9) === 'intstring')
 		{
-			if(strpos($function, '_') !== false)
+			if(\dash\str::strpos($function, '_') !== false)
 			{
 				$explode = explode('_', $function);
 				if(isset($explode[0]))

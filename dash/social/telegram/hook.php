@@ -437,11 +437,11 @@ class hook
 		}
 		$text = trim($userInput);
 		// if use callback or inline detect it and change text
-		if(strpos($userInput , 'cb_') === 0)
+		if(\dash\str::strpos($userInput , 'cb_') === 0)
 		{
 			$text = substr($userInput, 3);
 		}
-		elseif(strpos($userInput , 'iq_') === 0)
+		elseif(\dash\str::strpos($userInput , 'iq_') === 0)
 		{
 			$text = substr($userInput, 3);
 		}
@@ -465,7 +465,7 @@ class hook
 		{
 			$cmd['commandRaw'] = $text[0];
 			$cmd['command'] = mb_strtolower(trim($text[0]));
-			if(strpos($cmd['command'], '@') !== false && strpos($cmd['command'], 'bot') !== false)
+			if(\dash\str::strpos($cmd['command'], '@') !== false && \dash\str::strpos($cmd['command'], 'bot') !== false)
 			{
 				$cmd['command'] = strtok($cmd['command'], '@');
 			}

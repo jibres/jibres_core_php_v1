@@ -97,7 +97,7 @@ class ratio
 			$ratio = $_data;
 		}
 
-		if(is_null($ratio) || strpos($ratio, ':') === false)
+		if(is_null($ratio) || \dash\str::strpos($ratio, ':') === false)
 		{
 			$ratio = self::default_ratio('ratio', $_type);
 		}

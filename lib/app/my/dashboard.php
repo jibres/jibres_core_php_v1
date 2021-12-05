@@ -39,7 +39,7 @@ class dashboard
 
 		$avatar = \dash\user::detail('avatar');
 
-		if(strpos($avatar, 'img/avatar/') !== false)
+		if(\dash\str::strpos($avatar, 'img/avatar/') !== false)
 		{
 			$avatar = null;
 		}

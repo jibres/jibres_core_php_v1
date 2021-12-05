@@ -79,7 +79,7 @@ class model
 
 		$ramz = $data['newpassword'];
 
-		if($mobile && strpos($ramz, $mobile) !== false)
+		if($mobile && \dash\str::strpos($ramz, $mobile) !== false)
 		{
 			\dash\notif::error(T_("Please do not use your mobile in password!"), ['element' => ['newpassword', 'mobile']]);
 			return false;

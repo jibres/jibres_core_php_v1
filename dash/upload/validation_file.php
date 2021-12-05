@@ -102,7 +102,7 @@ class validation_file
 		//check file extention with allowed extention list
 		// set file data like name, ext, mime
 		// file with long name does not allowed in our system
-		if(mb_strlen($fileName) > 200 || strpos($fileName, 'htaccess') !== false)
+		if(mb_strlen($fileName) > 200 || \dash\str::strpos($fileName, 'htaccess') !== false)
 		{
 			\dash\notif::error(T_('Exceeded file name limit'));
 			return false;

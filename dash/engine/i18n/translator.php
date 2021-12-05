@@ -466,7 +466,7 @@ function T_($_msgid, $_replace = null)
 		$result = $_msgid;
 	}
 	// do replacement only on strings with replace condition, not for all
-	if($_replace !== false && !is_array($result) && strpos($result, ':') !== false)
+	if($_replace !== false && !is_array($result) && \dash\str::strpos($result, ':') !== false)
 	{
 		$replaceArray = null;
 		// if we have replace in parameter

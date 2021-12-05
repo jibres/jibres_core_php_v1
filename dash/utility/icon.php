@@ -81,7 +81,7 @@ class icon
         }
         if($_class)
         {
-            if(strpos($_data, ' class="') === false)
+            if(\dash\str::strpos($_data, ' class="') === false)
             {
                 $class = '<svg class="'. $_class. '" ';
                 $_data = str_replace('<svg ', $class, $_data);

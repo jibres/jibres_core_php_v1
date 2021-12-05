@@ -498,7 +498,7 @@ class enter
 
 		// have a link to another location
 		// open redirect bug
-		if(strpos($newPath, '://') !== false)
+		if(\dash\str::strpos($newPath, '://') !== false)
 		{
 			\dash\header::status(451);
 		}
@@ -1523,7 +1523,7 @@ class enter
 
 		if($_mobile_or_email)
 		{
-			if(strpos($_password, substr($_mobile_or_email, 2)) !== false)
+			if(\dash\str::strpos($_password, substr($_mobile_or_email, 2)) !== false)
 			{
 				\dash\notif::error(T_("Please do not use your mobile in password!"));
 				return false;

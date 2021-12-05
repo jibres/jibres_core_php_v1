@@ -8,28 +8,28 @@ class block
 	public static function word($_text, $_find)
 	{
 		$myTxt = $_text;
-		if(strpos($myTxt, $_find) !== false)
+		if(\dash\str::strpos($myTxt, $_find) !== false)
 		{
 			\dash\waf\dog::BITE('Disallow l1 '. $_find, 428);
 		}
 
 		if($myTxt !== ($decode2 = urldecode($myTxt)))
 		{
-			if(strpos($decode2, $_find) !== false)
+			if(\dash\str::strpos($decode2, $_find) !== false)
 			{
 				\dash\waf\dog::BITE('Disallow l2 '. $_find, 428);
 			}
 
 			if($decode2 !== ($decode3 = urldecode($decode2)))
 			{
-				if(strpos($decode3, $_find) !== false)
+				if(\dash\str::strpos($decode3, $_find) !== false)
 				{
 					\dash\waf\dog::BITE('Disallow l3 '. $_find, 428);
 				}
 
 				if($decode3 !== ($decode4 = urldecode($decode3)))
 				{
-					if(strpos($decode4, $_find) !== false)
+					if(\dash\str::strpos($decode4, $_find) !== false)
 					{
 						\dash\waf\dog::BITE('Disallow l4 '. $_find, 428);
 					}

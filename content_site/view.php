@@ -139,7 +139,7 @@ class view
 		// 	$get['preview'] = 'yes';
 		// }
 		$referer = \dash\server::referer();
-		if($_include_time || strpos($referer, 'gallery/image_list') !== false)
+		if($_include_time || \dash\str::strpos($referer, 'gallery/image_list') !== false)
 		{
 			$get['time'] = time();
 		}

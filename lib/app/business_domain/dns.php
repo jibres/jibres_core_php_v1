@@ -236,7 +236,7 @@ class dns
 					break;
 
 				default:
-					if(strpos($value, $jibres_ip) !== false)
+					if(\dash\str::strpos($value, $jibres_ip) !== false)
 					{
 						$value = T_("Connected to Jibres CDN");
 					}
@@ -245,7 +245,7 @@ class dns
 						$server_list = \dash\setting\servername::dns_provider();
 						foreach ($server_list as $server_ip => $server_detail)
 						{
-							if(strpos($value, $server_ip) !== false)
+							if(\dash\str::strpos($value, $server_ip) !== false)
 							{
 								$value = T_("Connected to Jibres CDN");
 							}
@@ -1021,7 +1021,7 @@ class dns
 			if(isset($value['type']) && isset($value['key']) && isset($value['value']) && isset($value['status']) && $value['status'] === 'ok')
 			{
 				if(
-					($value['type'] === 'A' && in_array($value['key'], ['@']) && strpos($value['value'], $jibres_ip) !== false) ||
+					($value['type'] === 'A' && in_array($value['key'], ['@']) && \dash\str::strpos($value['value'], $jibres_ip) !== false) ||
 					($value['type'] === 'CNAME' && in_array($value['key'], ['www']))
 				  )
 				{
@@ -1052,7 +1052,7 @@ class dns
 			if(isset($value['type']) && isset($value['key']) && isset($value['value']) && isset($value['status']) && $value['status'] === 'ok')
 			{
 				if(
-					($value['type'] === 'A' && in_array($value['key'], ['@']) && strpos($value['value'], $jibres_ip) !== false) ||
+					($value['type'] === 'A' && in_array($value['key'], ['@']) && \dash\str::strpos($value['value'], $jibres_ip) !== false) ||
 					($value['type'] === 'CNAME' && in_array($value['key'], ['www']))
 				  )
 				{

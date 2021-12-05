@@ -164,7 +164,7 @@ class cloudflare
 			$api_url = self::$api_url;
 			$api_url .= $_args['url'];
 
-			if(strpos($_args['url'], ':zone_identifier') !== false)
+			if(\dash\str::strpos($_args['url'], ':zone_identifier') !== false)
 			{
 				$api_url = str_replace(':zone_identifier', $ZoneID, $api_url);
 			}

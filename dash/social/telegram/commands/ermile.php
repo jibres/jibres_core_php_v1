@@ -145,7 +145,7 @@ class ermile
 		{
 			$extraCmd = substr($_cmd['text'], 7);
 			// check find --lang= and if exist set lang for this user
-			$langExist0 = strpos($extraCmd, '--lang=');
+			$langExist0 = \dash\str::strpos($extraCmd, '--lang=');
 			if($langExist0 !== false)
 			{
 				$langCmd   = substr($extraCmd, $langExist0, 9);

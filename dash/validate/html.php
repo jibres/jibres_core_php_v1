@@ -336,7 +336,7 @@ class html
 		$data = preg_replace("/\>\s{1,}\</", '><', $data);
 		$data = str_replace('> <', '><', $data);
 
-		if(strpos($data, '<svg ') !== false)
+		if(\dash\str::strpos($data, '<svg ') !== false)
 		{
 			$data = str_replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ', $data);
 		}

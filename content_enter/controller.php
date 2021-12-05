@@ -58,7 +58,7 @@ class controller
 		if(!is_null($ref))
 		{
 			$refDecode = urldecode(urldecode(urldecode($ref)));
-			if(strpos($refDecode, '://') !== false)
+			if(\dash\str::strpos($refDecode, '://') !== false)
 			{
 				// have a link to another location
 				// open redirect bug

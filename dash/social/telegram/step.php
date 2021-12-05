@@ -194,7 +194,7 @@ class step
 			// its okay dont find answer because we are in step
 			tg::ok();
 			// clean $_text form botname
-			if(strpos($_text, '@') !== false && strpos($_text, 'bot') !== false)
+			if(\dash\str::strpos($_text, '@') !== false && \dash\str::strpos($_text, 'bot') !== false)
 			{
 				$_text = strtok($_text, '@');
 			}

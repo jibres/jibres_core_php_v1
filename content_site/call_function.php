@@ -88,7 +88,7 @@ class call_function
 	private static function option_namespace($_option = null)
 	{
 		$namespace = '\\content_site\\options\\';
-		if(strpos($_option, '_') !== false)
+		if(\dash\str::strpos($_option, '_') !== false)
 		{
 			$namespace .= strtok($_option, '_'). '\\';
 		}
@@ -563,7 +563,7 @@ class call_function
 		{
 			$model    = null;
 			$preview = null;
-			if(strpos($preview_key, ':') !== false)
+			if(\dash\str::strpos($preview_key, ':') !== false)
 			{
 				$split   = explode(':', $preview_key);
 

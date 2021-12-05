@@ -83,7 +83,7 @@ if(\dash\data::payDetail_final_msg())
 {
 
 	$myTurnBackUrl = \dash\data::payDetail_turn_back();
-	if(strpos($myTurnBackUrl, '?') === false)
+	if(\dash\str::strpos($myTurnBackUrl, '?') === false)
 	{
 		$myTurnBackUrl .= '?token='. \dash\data::dataRow_token();
 	}

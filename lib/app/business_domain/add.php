@@ -180,15 +180,15 @@ class add
 		}
 
 		if(
-			strpos($parse_url['root'], 'jibres') !== false ||
-			strpos($parse_url['domain'], 'jibres') !== false ||
-			strpos($parse_url['subdomain'], 'jibres') !== false)
+			\dash\str::strpos($parse_url['root'], 'jibres') !== false ||
+			\dash\str::strpos($parse_url['domain'], 'jibres') !== false ||
+			\dash\str::strpos($parse_url['subdomain'], 'jibres') !== false)
 		{
 			\dash\notif::error(T_("Can not use jibres keywork in domain!"));
 			return false;
 		}
 
-		if(!\dash\url::isLocal() && strpos($parse_url['domain'], '.local') !== false)
+		if(!\dash\url::isLocal() && \dash\str::strpos($parse_url['domain'], '.local') !== false)
 		{
 			\dash\notif::error(T_("Can not use local domain!"));
 			return false;

@@ -57,9 +57,9 @@ class check
 
 		$myDomainName = $domain;
 
-		if(strpos($domain, '.') !== false)
+		if(\dash\str::strpos($domain, '.') !== false)
 		{
-			$domain_tld = substr($domain, strpos($domain, '.'));
+			$domain_tld = substr($domain, \dash\str::strpos($domain, '.'));
 			$myDomainName = str_replace($domain_tld, '', $domain);
 		}
 

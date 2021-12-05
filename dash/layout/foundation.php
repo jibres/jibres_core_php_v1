@@ -154,7 +154,7 @@ else
     foreach (\dash\face::css() as $key => $value)
     {
       echo " <link href='";
-      if(strpos($value, 'http') === 0)
+      if(\dash\str::strpos($value, 'http') === 0)
       {
         echo $value;
       }

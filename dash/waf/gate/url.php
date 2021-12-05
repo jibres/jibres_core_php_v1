@@ -60,11 +60,11 @@ class url
 	private static function dbl_slash($url)
 	{
 		// if find 2slash together block!
-		if(strpos($url, '//') !== false)
+		if(\dash\str::strpos($url, '//') !== false)
 		{
 			// route url like this
 			// http://dash.local/enter?referer=http://dash.local/cp
-			if(strpos($url, '?') === false || strpos($url, '?') > strpos($url, '//'))
+			if(\dash\str::strpos($url, '?') === false || \dash\str::strpos($url, '?') > \dash\str::strpos($url, '//'))
 			{
 				\dash\waf\gate\toys\block::word($url, '//');
 			}

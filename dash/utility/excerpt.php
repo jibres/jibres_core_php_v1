@@ -110,7 +110,7 @@ class excerpt
 		// If we trimmed from the front add ...
 		if($startpos != 0)
 		{
-			$reltext = $_indicator.substr($reltext, strpos($reltext, " ") + 1); // remove first word
+			$reltext = $_indicator.substr($reltext, \dash\str::strpos($reltext, " ") + 1); // remove first word
 		}
 
 		$reltext = str_replace('&nbsp;', '', $reltext);

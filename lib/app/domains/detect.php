@@ -12,7 +12,7 @@ class detect
 		if($_result)
 		{
 			$meta = [];
-			if(isset($_result['answer']) && strpos($_result['answer'], 'http://whois.nic.ir/') !== false)
+			if(isset($_result['answer']) && \dash\str::strpos($_result['answer'], 'http://whois.nic.ir/') !== false)
 			{
 				$meta['registrar'] = 'irnic';
 			}

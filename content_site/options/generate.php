@@ -32,7 +32,7 @@ class generate
 
 	public static function opt_hidden($_class, $_value = 1)
 	{
-		if(strpos($_class, '\\') !== false)
+		if(\dash\str::strpos($_class, '\\') !== false)
 		{
 			$name = 'opt_'. \content_site\utility::className($_class);
 		}
@@ -135,7 +135,7 @@ class generate
 
 	public static function select($_class, $_enum, $_default, $_lable = null)
 	{
-		if(strpos($_class, '\\') !== false)
+		if(\dash\str::strpos($_class, '\\') !== false)
 		{
 			$name = \content_site\utility::className($_class);
 		}

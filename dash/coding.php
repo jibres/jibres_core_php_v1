@@ -110,7 +110,7 @@ class coding
 
 		for ($i = 0; $i < $len; $i++)
 		{
-			$num = $num * $lenght + strpos($_alphabet, $_str[$i]);
+			$num = $num * $lenght + \dash\str::strpos($_alphabet, $_str[$i]);
 		}
 
 		return $num;

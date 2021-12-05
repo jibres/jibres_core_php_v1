@@ -66,7 +66,7 @@ class dropdown
 			if(isset($value['words']))
 			{
 				$myKeyWords = implode(' , ', $value['words']);
-				if(strpos($myKeyWords, mb_strtolower($_query)) !== false)
+				if(\dash\str::strpos($myKeyWords, mb_strtolower($_query)) !== false)
 				{
 					unset($value['words']);
 					$value['id'] = $key. a($value, 'title');

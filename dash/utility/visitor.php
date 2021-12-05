@@ -120,7 +120,7 @@ class visitor
 				$path                    = str_replace($path, '', $referer);
 				$path                    = strtok($path);
 				$insert_url['path']      = addslashes($path);
-				$insert_url['query']     = strpos($referer, '?') ? addslashes(substr($referer, strpos($referer, '?'))) : null;
+				$insert_url['query']     = \dash\str::strpos($referer, '?') ? addslashes(substr($referer, \dash\str::strpos($referer, '?'))) : null;
 				$insert_url['pwd']       = addslashes($referer);
 
 			}

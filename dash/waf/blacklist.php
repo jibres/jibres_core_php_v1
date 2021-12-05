@@ -9,18 +9,18 @@ class blacklist
 		$path = mb_strtolower($path);
 
 		// files
-		if(strpos($path, '/files') === 0)
+		if(\dash\str::strpos($path, '/files') === 0)
 		{
 			\dash\header::status(404);
 		}
 		// static
-		if(strpos($path, '/static') === 0)
+		if(\dash\str::strpos($path, '/static') === 0)
 		{
 			\dash\header::status(404);
 		}
 
 		// static
-		if(strpos($path, '/index.html') !== false || strpos($path, '/index.php') !== false)
+		if(\dash\str::strpos($path, '/index.html') !== false || \dash\str::strpos($path, '/index.php') !== false)
 		{
 			\dash\header::status(404);
 
@@ -71,13 +71,13 @@ class blacklist
 		}
 
 		// check array in the path
-		if(strpos($path, '[]') !== false)
+		if(\dash\str::strpos($path, '[]') !== false)
 		{
 			\dash\header::status(451);
 		}
 
 		// favicon
-		if(strpos($path, '/favicon.ico') !== false)
+		if(\dash\str::strpos($path, '/favicon.ico') !== false)
 		{
 			\dash\redirect::to(\dash\url::cdn(). '/favicons/favicon.ico');
 		}

@@ -504,7 +504,7 @@ class file
 		    {
 		        $buffer = fgets($handle);
 
-		        if(strpos($buffer, $_text) !== false)
+		        if(\dash\str::strpos($buffer, $_text) !== false)
 		        {
 		            $matches[] = $buffer;
 		        }

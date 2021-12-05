@@ -383,7 +383,7 @@ class request
 	{
 		if(\dash\server::get('HTTP_ACCEPT'))
 		{
-			return (strpos(\dash\server::get('HTTP_ACCEPT'), $name) !== false);
+			return (\dash\str::strpos(\dash\server::get('HTTP_ACCEPT'), $name) !== false);
 		}
 
 		return null;

@@ -1214,9 +1214,9 @@ public static function get_item_version( $pv_browser_user_agent, $pv_search_stri
 	**/
 	for ( $i = 0; $i < 4; $i++ ) {
 		//start the search after the first string occurrence
-		if ( strpos( $pv_browser_user_agent, $pv_search_string, $start_pos ) !== false ) {
+		if ( \dash\str::strpos( $pv_browser_user_agent, $pv_search_string, $start_pos ) !== false ) {
 			// update start position if position found
-			$start_pos = strpos( $pv_browser_user_agent, $pv_search_string, $start_pos ) + mb_strlen( $pv_search_string );
+			$start_pos = \dash\str::strpos( $pv_browser_user_agent, $pv_search_string, $start_pos ) + mb_strlen( $pv_search_string );
 			/**
 			msie (and maybe other userAgents requires special handling because some apps inject
 			a second msie, usually at the beginning, custom modes allow breaking at first instance

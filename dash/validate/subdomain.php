@@ -128,7 +128,7 @@ class subdomain
 		}
 		else
 		{
-			if(strpos($data, 'jibres') !== false)
+			if(\dash\str::strpos($data, 'jibres') !== false)
 			{
 				if($_notif)
 				{
@@ -202,7 +202,7 @@ class subdomain
 		{
 			foreach ($list as $key => $keyword)
 			{
-				if(strpos($_data, $keyword) !== false)
+				if(\dash\str::strpos($_data, $keyword) !== false)
 				{
 					return true;
 				}
@@ -220,7 +220,7 @@ class subdomain
 		{
 			foreach ($list as $key => $keyword)
 			{
-				if(strpos($_data, $keyword) !== false)
+				if(\dash\str::strpos($_data, $keyword) !== false)
 				{
 					return true;
 				}

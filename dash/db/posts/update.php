@@ -9,7 +9,7 @@ class update
 	{
 		if(!is_null($_content))
 		{
-			if(strpos($_content, '\\') !== false)
+			if(\dash\str::strpos($_content, '\\') !== false)
 			{
 				// Un-quote string quoted with addcslashes()
 				$_content = stripcslashes($_content);
