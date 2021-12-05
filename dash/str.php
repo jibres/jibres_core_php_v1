@@ -1,7 +1,7 @@
 <?php
 namespace dash;
 
-class text
+class str
 {
 	public static function substr_space($_string, $_len)
 	{
@@ -15,6 +15,12 @@ class text
 		$last_space_position = strrpos($raw, ' ');
 
 		if($last_space_position === false)
+		{
+			return $raw;
+		}
+
+
+		if(mb_strlen($raw) < $_len)
 		{
 			return $raw;
 		}

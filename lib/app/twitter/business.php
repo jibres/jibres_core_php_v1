@@ -209,7 +209,7 @@ class business
 
 					'cover'            => a($post_detail, 'twthumb'), // path
 					'thumb'            => a($post_detail, 'twthumb'), // path
-					'title'            => $text ? \dash\text::substr_space($text, 199) : $id,
+					'title'            => $text ? \dash\str::substr_space($text, 199) : $id,
 					'content'          => $text ? $text : $id,
 					'type'             => 'twitter',
 					'subtype'          => 'standard', // ['enum' => ['standard', 'gallery', 'video', 'audio']],
