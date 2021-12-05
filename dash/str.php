@@ -30,5 +30,35 @@ class str
 		return $text;
 
 	}
+
+
+	/**
+	 * Check input in strpos
+	 *
+	 * @param      string  $_haystack  The haystack
+	 * @param      string  $_needle    The needle
+	 * @param      int     $_offset    The offset
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function strpos($_haystack, $_needle, $_offset = 0)
+	{
+		if(!is_string($_haystack))
+		{
+			return false;
+		}
+
+		if(!is_string($_needle))
+		{
+			return false;
+		}
+
+		if(!is_int($_offset))
+		{
+			$_offset = intval($_offset);
+		}
+
+		return strpos($_haystack, $_needle, $_offset);
+	}
 }
 ?>
