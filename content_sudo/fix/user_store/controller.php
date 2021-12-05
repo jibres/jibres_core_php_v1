@@ -11,11 +11,13 @@ class controller
 
 		$get_all_staff = \dash\pdo::get("SELECT * FROM store_user WHERE store_user.staff != 'no' ");
 
-		$result                              = [];
-		$result['count_all_staff']           = count($get_all_staff);
-		$result['count_have_permission']     = 0;
-		$result['count_have_not_permission'] = 0;
-		$result['count_not_exist']           = 0;
+		$result                                   = [];
+		$result['count_all_staff']                = count($get_all_staff);
+		$result['count_have_permission']          = 0;
+		$result['count_have_not_permission']      = 0;
+		$result['count_not_exist']                = 0;
+		$result['check_user_have_not_permission'] = [];
+		$result['check_user_not_exists']          = [];
 
 		foreach ($get_all_staff as $key => $staff_detail)
 		{
@@ -36,10 +38,12 @@ class controller
 				if($have_not_permission)
 				{
 					$result['count_have_not_permission']++;
+					$result['check_user_have_not_permission'][] = self::get_mobile($staff_detail);
 				}
 				else
 				{
 					$result['count_not_exist']++;
+					$result['check_user_not_exists'][] = self::get_mobile($staff_detail);
 				}
 			}
 
@@ -52,6 +56,13 @@ class controller
 		var_dump($result);exit;
 
 
+
+	}
+
+
+	private static function get_mobile($staff_detail)
+	{
+		return \dash\pdo::get("SELECT users.mobile FROM users WHERE users.id = :id LIMIT 1", [':id' => a($staff_detail, 'user_id')], 'mobile', true, 'master');
 
 	}
 }
