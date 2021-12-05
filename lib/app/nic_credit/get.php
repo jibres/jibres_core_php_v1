@@ -40,7 +40,12 @@ class get
 			// nic credit have less than 100 unit
 			if(floatval($last['balance']) < 100)
 			{
-				\dash\log::set('domain_creditLow', ['my_balance' => $last['balance']]);
+				$my_code = date("Y-m-d"). '-'. $last['balance'];
+
+				if(!\dash\app\log::check_caller_code('domain_creditLow', $my_code))
+				{
+					\dash\log::set('domain_creditLow', ['code' => $my_code, 'my_balance' => $last['balance']]);
+				}
 			}
 		}
 
