@@ -19,7 +19,7 @@ class controller
 		$domain = \dash\url::subchild();
 		if($domain)
 		{
-			\dash\data::myDomain(urldecode($domain));
+			\dash\data::myDomain(\dash\str::urldecode($domain));
 			$whois = \lib\app\whois\who::is($domain);
 			\dash\data::whoisResult($whois);
 		}
@@ -27,7 +27,7 @@ class controller
 		{
 			$domain = \dash\request::get('domain');
 			$whois = \lib\app\whois\who::is($domain);
-			\dash\data::myDomain(urldecode($domain));
+			\dash\data::myDomain(\dash\str::urldecode($domain));
 			\dash\data::whoisResult($whois);
 		}
 	}

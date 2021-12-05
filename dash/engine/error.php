@@ -107,7 +107,7 @@ class error
 		$my_text .= \dash\user::id(). ' - ';
 		if(is_callable("\dash\url::pwd"))
 		{
-			$my_text .= urldecode(\dash\url::pwd());
+			$my_text .= \dash\str::urldecode(\dash\url::pwd());
 		}
 		$my_text .= "\n";
 

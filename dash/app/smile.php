@@ -35,7 +35,7 @@ class smile
 				$smileLive = \dash\request::post('smileLive');
 				if(is_string($smileLive))
 				{
-					$smileLive = urldecode($smileLive);
+					$smileLive = \dash\str::urldecode($smileLive);
 					$smileLive = json_decode($smileLive, true);
 				}
 				else

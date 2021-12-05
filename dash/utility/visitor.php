@@ -111,7 +111,7 @@ class visitor
 
 			if($_referer)
 			{
-				$referer                 = urldecode($_url);
+				$referer                 = \dash\str::urldecode($_url);
 				$insert_url['urlmd5']    = md5($referer);
 				$insert_url['domain']    = addslashes(parse_url($referer, PHP_URL_SCHEME). '://'. parse_url($referer, PHP_URL_HOST));
 				$insert_url['subdomain'] = \dash\url::subdomain();

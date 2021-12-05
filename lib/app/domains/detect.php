@@ -219,7 +219,7 @@ class detect
 		}
 
 		$_domain = mb_strtolower($_domain);
-		$_domain = urldecode($_domain);
+		$_domain = \dash\str::urldecode($_domain);
 
 		$subdomain = null;
 		$root      = null;

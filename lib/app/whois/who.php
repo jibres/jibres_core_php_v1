@@ -115,7 +115,7 @@ class who
 		$result = [];
 		$answer = null;
 
-		$_domain = urldecode($_domain);
+		$_domain = \dash\str::urldecode($_domain);
 
 		$result['domain']    = $_domain;
 		$result['available'] = false;

@@ -17,7 +17,7 @@ class get
 			return false;
 		}
 
-		$_tag     = urldecode($_tag);
+		$_tag     = \dash\str::urldecode($_tag);
 		$load_tag = \lib\db\form_tag\get::by_slug($_tag);
 		return $load_tag;
 	}

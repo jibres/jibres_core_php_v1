@@ -11,7 +11,7 @@ class controller
 		$domain = \dash\request::get('domain');
 		if($domain)
 		{
-			$domain = urldecode($domain);
+			$domain = \dash\str::urldecode($domain);
 
 			if(\dash\validate::domain($domain))
 			{

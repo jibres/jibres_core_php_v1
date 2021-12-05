@@ -47,7 +47,7 @@ class controller
 
 		if(!is_null(\dash\url::subchild()))
 		{
-			if(\dash\data::dataRow_slug() === urldecode(\dash\url::subchild()))
+			if(\dash\data::dataRow_slug() === \dash\str::urldecode(\dash\url::subchild()))
 			{
 				$allow = true;
 			}

@@ -472,7 +472,7 @@ class enter
 		// if have referer redirect to referer
 		if(\dash\session::get('enter_referer'))
 		{
-			$newPath = '/'. urldecode(\dash\session::get('enter_referer'));
+			$newPath = '/'. \dash\str::urldecode(\dash\session::get('enter_referer'));
 			\dash\session::clean('enter_referer');
 		}
 		elseif(self::get_session('app_mode'))

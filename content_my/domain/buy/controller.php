@@ -14,7 +14,7 @@ class controller
 		$domain = \dash\url::subchild();
 		if(!is_null($domain))
 		{
-			$domain = urldecode($domain);
+			$domain = \dash\str::urldecode($domain);
 			$domain = mb_strtolower($domain);
 		}
 

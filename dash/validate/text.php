@@ -701,7 +701,7 @@ class text
 			return $data;
 		}
 
-		// $data = urldecode($data);
+		// $data = \dash\str::urldecode($data);
 
 		# $data = mb_ereg_replace('/([^ءئؤيكإأةآا-ی۰-۹a-z0-9A-Z\.\@\!\#\$\^\&\-\=\_\+\[\]\(\)]+/', ' ', $data);
 		$data = preg_replace('/[^\p{L}\p{N}\.\@\!\#\$\^\&\-\=\_\+\[\]\(\)]/u', ' ', $data);

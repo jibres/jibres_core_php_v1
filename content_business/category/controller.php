@@ -18,7 +18,7 @@ class controller
 		{
 			$url = implode('/', $dir);
 
-			$url = urldecode($url);
+			$url = \dash\str::urldecode($url);
 
 			$load = \lib\app\category\get::by_url($url);
 

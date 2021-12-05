@@ -216,7 +216,7 @@ class baby
 		$result = null;
 		$status_code = 418;
 		// decode url
-		$_txt = urldecode($_txt);
+		$_txt = \dash\str::urldecode($_txt);
 
 		if(self::blockNonPrintableChar($_txt))
 		{
@@ -242,17 +242,17 @@ class baby
 		}
 		// disallow double encoding
 		// https://owasp.org/www-community/Double_Encoding
-		else if(self::forbidden(urldecode($_txt), $_block_char))
+		else if(self::forbidden(\dash\str::urldecode($_txt), $_block_char))
 		{
 			$result = true;
 		}
 		// disallow triple encoding
-		else if(self::forbidden(urldecode(urldecode($_txt)), $_block_char))
+		else if(self::forbidden(\dash\str::urldecode(\dash\str::urldecode($_txt)), $_block_char))
 		{
 			$result = true;
 		}
 		// disallow fourple encoding
-		else if(self::forbidden(urldecode(urldecode(urldecode($_txt))), $_block_char))
+		else if(self::forbidden(\dash\str::urldecode(\dash\str::urldecode(\dash\str::urldecode($_txt))), $_block_char))
 		{
 			$result = true;
 		}

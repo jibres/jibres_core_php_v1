@@ -57,7 +57,7 @@ class controller
 
 		if(!is_null($ref))
 		{
-			$refDecode = urldecode(urldecode(urldecode($ref)));
+			$refDecode = \dash\str::urldecode(\dash\str::urldecode(\dash\str::urldecode($ref)));
 			if(\dash\str::strpos($refDecode, '://') !== false)
 			{
 				// have a link to another location

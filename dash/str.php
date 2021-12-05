@@ -60,5 +60,17 @@ class str
 
 		return strpos($_haystack, $_needle, $_offset);
 	}
+
+
+
+	public static function urldecode($_str)
+	{
+		if(!is_string($_str))
+		{
+			$_str = '';
+		}
+
+		return urldecode($_str);
+	}
 }
 ?>

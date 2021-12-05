@@ -1176,7 +1176,7 @@ class url
 
 	public static function urlfilterer($_input, $_strip = true)
 	{
-		$_input = urldecode($_input);
+		$_input = \dash\str::urldecode($_input);
 		$_input = str_ireplace(array("\0", '%00', "\x0a", '%0a', "\x1a", '%1a'), '', $_input);
 		if($_strip)
 		{

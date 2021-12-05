@@ -24,7 +24,7 @@ class view
 		$myPage = null;
 		if(\dash\url::directory())
 		{
-			$myPage = urldecode(\dash\url::directory());
+			$myPage = \dash\str::urldecode(\dash\url::directory());
 			// remove non en char
 			$myPage = preg_replace('/[^\00-\255]+/u', '', $myPage);
 			// remove multi dash

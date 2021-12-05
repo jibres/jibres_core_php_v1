@@ -38,13 +38,13 @@ class url
 			return $_text;
 		}
 
-		if($_text !== ($decode1 = urldecode($_text)))
+		if($_text !== ($decode1 = \dash\str::urldecode($_text)))
 		{
-			if($decode1 !== ($decode2 = urldecode($decode1)))
+			if($decode1 !== ($decode2 = \dash\str::urldecode($decode1)))
 			{
-				if($decode2 !== ($decode3 = urldecode($decode2)))
+				if($decode2 !== ($decode3 = \dash\str::urldecode($decode2)))
 				{
-					if($decode3 !== ($decode4 = urldecode($decode3)))
+					if($decode3 !== ($decode4 = \dash\str::urldecode($decode3)))
 					{
 						return false;
 					}
