@@ -11,29 +11,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
-		// sitebuilder::fix_store();
-		// self::fix_email();
 
-
-
-	}
-
-
-	private static function fix_email()
-	{
-		$list = \dash\db::get("SELECT * FROM useremail");
-		foreach ($list as $key => $value)
-		{
-			if(isset($value['email']))
-			{
-				$email_raw = \dash\validate::email_raw($value['email'], false);
-				if($email_raw)
-				{
-					\dash\db\useremail::update(['emailraw' => $email_raw], $value['id']);
-				}
-			}
-		}
-		var_dump('ok');exit();
 	}
 
 
