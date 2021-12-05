@@ -339,10 +339,10 @@ public static function browser_detection( $_which_test = 'full_assoc', $_test_ex
 		strstr instead of stristr, which drops overhead slightly.
 		**/
 		if ( $_external_ua_string ) {
-			$browser_user_agent = mb_strtolower( $_external_ua_string );
+			$browser_user_agent = \dash\str::mb_strtolower( $_external_ua_string );
 		}
 		elseif ( \dash\server::get('HTTP_USER_AGENT' ) ) {
-			$browser_user_agent = mb_strtolower( \dash\server::get('HTTP_USER_AGENT') );
+			$browser_user_agent = \dash\str::mb_strtolower( \dash\server::get('HTTP_USER_AGENT') );
 		}
 		else {
 			$browser_user_agent = '';

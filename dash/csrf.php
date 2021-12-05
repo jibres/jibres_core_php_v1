@@ -8,7 +8,7 @@ class csrf
 	public static function set($_redirect = false)
 	{
 		$request = \dash\request::is();
-		$request = mb_strtolower($request);
+		$request = \dash\str::mb_strtolower($request);
 
 		if($request === 'get')
 		{

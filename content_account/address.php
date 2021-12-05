@@ -115,7 +115,7 @@
 
           <span ><?php echo a($value, 'title'); ?></span>
           </td>
-          <td class="pRa10"><?php if(isset($value['country']) && $value['country']) {?><i class="flag <?php echo mb_strtolower($value['country']); ?>"></i><?php } //endif ?></td>
+          <td class="pRa10"><?php if(isset($value['country']) && $value['country']) {?><i class="flag <?php echo \dash\str::mb_strtolower($value['country']); ?>"></i><?php } //endif ?></td>
           <td class="pRa10">
             <span ><?php echo a($value, 'location_string'); ?></span>
             <div>

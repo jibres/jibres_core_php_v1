@@ -218,7 +218,7 @@ class detect
 			return false;
 		}
 
-		$_domain = mb_strtolower($_domain);
+		$_domain = \dash\str::mb_strtolower($_domain);
 		$_domain = \dash\str::urldecode($_domain);
 
 		$subdomain = null;
@@ -302,7 +302,7 @@ class detect
 			{
 				if(!is_null($value))
 				{
-					$value = mb_strtolower($value);
+					$value = \dash\str::mb_strtolower($value);
 				}
 
 				$new_detail[$key] = $value;
@@ -341,7 +341,7 @@ class detect
 			{
 				if(!is_null($value))
 				{
-					$value = mb_strtolower($value);
+					$value = \dash\str::mb_strtolower($value);
 				}
 
 				$args[$key] = $value;

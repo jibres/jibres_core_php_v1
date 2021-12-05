@@ -18,7 +18,7 @@ class check
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if(mb_strtolower($data['title']) === 'admin' || mb_strtolower($data['title']) === 'supervisor' || \dash\str::strpos(mb_strtolower($data['title']), 'supervisor') !== false)
+		if(\dash\str::mb_strtolower($data['title']) === 'admin' || \dash\str::mb_strtolower($data['title']) === 'supervisor' || \dash\str::strpos(\dash\str::mb_strtolower($data['title']), 'supervisor') !== false)
 		{
 			\dash\notif::error(T_("Can not choose this name in permission title, Try another title"), 'title');
 			return false;

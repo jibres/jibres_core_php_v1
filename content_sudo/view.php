@@ -33,7 +33,7 @@ class view
 			{
 				if($_args->get("sort")[0] == $value)
 				{
-					if(mb_strtolower($_args->get("order")[0]) == mb_strtolower('ASC'))
+					if(\dash\str::mb_strtolower($_args->get("order")[0]) == \dash\str::mb_strtolower('ASC'))
 					{
 						$orderUrl[$value] = "sort=$value/order=desc";
 					}
@@ -76,8 +76,8 @@ class view
 		];
 
 		$get          = array_merge($default_get, $get);
-		$get['order'] = mb_strtolower($get['order']);
-		$get['sort']  = mb_strtolower($get['sort']);
+		$get['order'] = \dash\str::mb_strtolower($get['order']);
+		$get['sort']  = \dash\str::mb_strtolower($get['sort']);
 
 		$link = [];
 

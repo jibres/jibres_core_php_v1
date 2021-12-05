@@ -8,7 +8,7 @@ class pwa
 	public static function manifest()
 	{
 		$siteTitle = \dash\face::siteTitle();
-		// $siteTitle = mb_strtolower($siteTitle);
+		// $siteTitle = \dash\str::mb_strtolower($siteTitle);
 
 		$manifest  =
 		[

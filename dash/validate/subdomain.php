@@ -45,7 +45,7 @@ class subdomain
 		}
 
 		$data = \dash\utility\convert::to_en_number($data);
-		$data = mb_strtolower($data);
+		$data = \dash\str::mb_strtolower($data);
 		$data = preg_replace("/\_{2,}/", "_", $data);
 		$data = preg_replace("/\-{2,}/", "-", $data);
 		$data = trim($data, '-');

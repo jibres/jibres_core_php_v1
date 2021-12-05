@@ -15,7 +15,7 @@ class controller
 		if(!is_null($domain))
 		{
 			$domain = \dash\str::urldecode($domain);
-			$domain = mb_strtolower($domain);
+			$domain = \dash\str::mb_strtolower($domain);
 		}
 
 		$q = \dash\validate::search_string();

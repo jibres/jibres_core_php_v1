@@ -53,7 +53,7 @@ class check
 
 
 		$domain = \dash\str::urldecode($domain);
-		$domain = mb_strtolower($domain);
+		$domain = \dash\str::mb_strtolower($domain);
 
 		$myDomainName = $domain;
 

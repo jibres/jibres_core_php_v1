@@ -71,11 +71,11 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			$sort = mb_strtolower($data['sort']);
+			$sort = \dash\str::mb_strtolower($data['sort']);
 			$order = null;
 			if($data['order'])
 			{
-				$order = mb_strtolower($data['order']);
+				$order = \dash\str::mb_strtolower($data['order']);
 			}
 
 			$order_sort = " ORDER BY $sort $order";

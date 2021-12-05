@@ -432,7 +432,7 @@ class visitors
 			$master_join = $_options['master_join'];
 		}
 
-		if($_options['order'] && !in_array(mb_strtolower($_options['order']), ['asc', 'desc']))
+		if($_options['order'] && !in_array(\dash\str::mb_strtolower($_options['order']), ['asc', 'desc']))
 		{
 			$_options['order'] = 'DESC';
 		}

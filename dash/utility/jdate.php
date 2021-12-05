@@ -447,7 +447,7 @@ class jdate
             'fri' => array(7, 'جمعه')
         );
 
-        $day = substr(mb_strtolower($day), 0, 3);
+        $day = substr(\dash\str::mb_strtolower($day), 0, 3);
         $day = $days[$day];
 
         return ($numeric) ? $day[0] : (($shorten) ? self::substr($day[1], 0, $len) : $day[1]);

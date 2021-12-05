@@ -103,7 +103,7 @@ class recaptcha
 	public static function set($_action = null)
 	{
 		$request = \dash\request::is();
-		$request = mb_strtolower($request);
+		$request = \dash\str::mb_strtolower($request);
 
 		// set action
 		self::action($_action);

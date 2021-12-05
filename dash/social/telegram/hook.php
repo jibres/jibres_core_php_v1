@@ -464,7 +464,7 @@ class hook
 		if(isset($text[0]))
 		{
 			$cmd['commandRaw'] = $text[0];
-			$cmd['command'] = mb_strtolower(trim($text[0]));
+			$cmd['command'] = \dash\str::mb_strtolower(trim($text[0]));
 			if(\dash\str::strpos($cmd['command'], '@') !== false && \dash\str::strpos($cmd['command'], 'bot') !== false)
 			{
 				$cmd['command'] = strtok($cmd['command'], '@');
@@ -473,12 +473,12 @@ class hook
 			if(isset($text[1]))
 			{
 				$cmd['optionalRaw'] = $text[1];
-				$cmd['optional'] = mb_strtolower(trim($text[1]));
+				$cmd['optional'] = \dash\str::mb_strtolower(trim($text[1]));
 				// if we have parameter 3 save it as argument
 				if(isset($text[2]))
 				{
 					$cmd['argumentRaw'] = $text[2];
-					$cmd['argument'] = mb_strtolower(trim($text[2]));
+					$cmd['argument'] = \dash\str::mb_strtolower(trim($text[2]));
 				}
 			}
 		}

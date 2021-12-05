@@ -266,7 +266,7 @@ class url
 	public static function domain_clean($_data, $_notif = false, $_element = null, $_field_title = null)
 	{
 		$data = $_data;
-		$data = mb_strtolower($data);
+		$data = \dash\str::mb_strtolower($data);
 
 		if(substr($data, 0, 8) === 'https://')
 		{

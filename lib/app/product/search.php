@@ -418,10 +418,10 @@ class search
 
 			if($check_order_trust)
 			{
-				$sort = mb_strtolower($data['sort']);
+				$sort = \dash\str::mb_strtolower($data['sort']);
 				if($data['order'])
 				{
-					$order = mb_strtolower($data['order']);
+					$order = \dash\str::mb_strtolower($data['order']);
 				}
 
 				if($sort === 'finalprice' || $sort === 'price' || $sort === 'buyprice' || $sort === 'discount')

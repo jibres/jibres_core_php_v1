@@ -107,9 +107,9 @@ class extentions
 		$myResult = ['allow' => false];
 
 		// if exist in list return it
-		if(array_key_exists(mb_strtolower($_ext), $mimes))
+		if(array_key_exists(\dash\str::mb_strtolower($_ext), $mimes))
 		{
-			$myResult = $mimes[mb_strtolower($_ext)];
+			$myResult = $mimes[\dash\str::mb_strtolower($_ext)];
 		}
 		else
 		{

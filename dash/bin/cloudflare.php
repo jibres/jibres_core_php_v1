@@ -154,7 +154,7 @@ class cloudflare
 
 		if(isset($_args['method']))
 		{
-			self::$method = mb_strtolower($_args['method']);
+			self::$method = \dash\str::mb_strtolower($_args['method']);
 		}
 
 

@@ -203,7 +203,7 @@ class who
 				$value = trim($detect[1]);
 			}
 
-			$key = mb_strtolower($key);
+			$key = \dash\str::mb_strtolower($key);
 
 			if(in_array($key, ['holder-c','admin-c','tech-c','bill-c', 'registrar',]))
 			{

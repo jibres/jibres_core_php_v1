@@ -794,9 +794,9 @@ class slugify
 	 */
 	public function slugify($string, $separator = '-')
 	{
-		$string = mb_strtolower(strtr($string, $this->rules));
+		$string = \dash\str::mb_strtolower(strtr($string, $this->rules));
 		$string = preg_replace($this->regExp, $separator, $string);
-		$string = mb_strtolower($string);
+		$string = \dash\str::mb_strtolower($string);
 		return trim($string, $separator);
 	}
 

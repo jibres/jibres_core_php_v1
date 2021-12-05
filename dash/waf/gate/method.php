@@ -23,7 +23,7 @@ class method
 		// disallow html tags
 		\dash\waf\gate\toys\block::tags($method);
 
-		$method = mb_strtolower($method);
+		$method = \dash\str::mb_strtolower($method);
 
 		$allow_method =
 		[

@@ -6,7 +6,7 @@ class blacklist
 	public static function dont_run_exception()
 	{
 		$path = \dash\url::path();
-		$path = mb_strtolower($path);
+		$path = \dash\str::mb_strtolower($path);
 
 		// files
 		if(\dash\str::strpos($path, '/files') === 0)
@@ -30,7 +30,7 @@ class blacklist
 		}
 
 		$directory = \dash\url::directory();
-		$directory = mb_strtolower($directory); // .PHP .php .Php , ...
+		$directory = \dash\str::mb_strtolower($directory); // .PHP .php .Php , ...
 
 		// block some ext in url
 		if(substr($directory, -4) === '.php')

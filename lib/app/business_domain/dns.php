@@ -161,7 +161,7 @@ class dns
 
 		foreach ($get_dns as $key => $value)
 		{
-			if(isset($value['type']) && mb_strtolower($value['type']) === 'ns' && isset($value['target']))
+			if(isset($value['type']) && \dash\str::mb_strtolower($value['type']) === 'ns' && isset($value['target']))
 			{
 				$dns[] = $value['target'];
 			}

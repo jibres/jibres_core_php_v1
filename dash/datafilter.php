@@ -24,10 +24,10 @@ trait datafilter
 
 	public static function check_allow($_sort, $_order, $_module = null)
 	{
-		$order = mb_strtolower($_order);
+		$order = \dash\str::mb_strtolower($_order);
 		if($order && in_array($order, ['asc', 'desc']))
 		{
-			$sort = mb_strtolower($_sort);
+			$sort = \dash\str::mb_strtolower($_sort);
 			if($sort)
 			{
 				$list     = self::sort_list($_module);

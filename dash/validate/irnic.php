@@ -42,7 +42,7 @@ class irnic
 			$data = $data. '-irnic';
 		}
 
-		$data = mb_strtolower($data);
+		$data = \dash\str::mb_strtolower($data);
 
 		return $data;
 	}

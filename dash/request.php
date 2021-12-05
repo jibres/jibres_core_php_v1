@@ -344,7 +344,7 @@ class request
 
 		if($_name)
 		{
-			if(mb_strtolower($_name) === mb_strtolower($request_method))
+			if(\dash\str::mb_strtolower($_name) === \dash\str::mb_strtolower($request_method))
 			{
 				return true;
 			}
@@ -355,7 +355,7 @@ class request
 		}
 		else
 		{
-			return mb_strtolower($request_method);
+			return \dash\str::mb_strtolower($request_method);
 		}
 	}
 
@@ -366,7 +366,7 @@ class request
 	public static function ajax()
 	{
 		$request_with = \dash\server::get('HTTP_X_REQUESTED_WITH');
-		if($request_with && mb_strtolower($request_with) == 'xmlhttprequest')
+		if($request_with && \dash\str::mb_strtolower($request_with) == 'xmlhttprequest')
 		{
 			return true;
 		}

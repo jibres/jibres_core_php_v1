@@ -278,7 +278,7 @@ else
       {
         echo '<tr>';
 
-        if(mb_strtolower($value) === 'ok')
+        if(\dash\str::mb_strtolower($value) === 'ok')
         {
           echo "<td>".T_("Domain is OK"). "</td>";
         }

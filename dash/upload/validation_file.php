@@ -53,7 +53,7 @@ class validation_file
 		$fileExt = null;
 		if(isset($fileInfo['extension']))
 		{
-			$fileExt = mb_strtolower($fileInfo['extension']);
+			$fileExt = \dash\str::mb_strtolower($fileInfo['extension']);
 
 			if($fileExt === 'jpeg')
 			{

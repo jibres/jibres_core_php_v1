@@ -28,7 +28,7 @@ class start
 
         \dash\utility\pay\setting::load_token($token);
 
-        $bank = mb_strtolower($_args['bank']);
+        $bank = \dash\str::mb_strtolower($_args['bank']);
         if(!$bank)
 		{
 			\dash\notif::error(T_("Please select one of the available ports"));
@@ -299,7 +299,7 @@ class start
 			'plus'             => $_args['amount'],
 			'factor_id'        => $_args['factor_id'],
 			'amount_request'   => $_args['amount'],
-			'payment'          => mb_strtolower($_args['bank']),
+			'payment'          => \dash\str::mb_strtolower($_args['bank']),
 			'user_id'          => $_args['user_id'],
 			'payment_response' => $payment_response,
 		];

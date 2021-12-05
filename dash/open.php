@@ -25,7 +25,7 @@ class open
 	{
 		if(!$_type)
 		{
-			$_type = mb_strtolower(\dash\request::is());
+			$_type = \dash\str::mb_strtolower(\dash\request::is());
 		}
 		if(array_key_exists($_type, self::$function_names))
 		{

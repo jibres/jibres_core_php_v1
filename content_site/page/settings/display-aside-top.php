@@ -147,7 +147,7 @@ echo $html;
       <div class='mT10' data-response='specialaddress' data-response-where-not='independence' <?php if(\dash\data::dataRow_specialaddress() === 'independence') {echo 'data-response-hide';} ?>>
           <label for='seoSlug'><?php echo T_('Url'); ?> <small><?php echo T_('End part of your news url.'); ?></small></label>
           <div class='input ltr'>
-            <input type='text' name='slug' id='seoSlug' placeholder='<?php echo T_('Url'); ?>' value='<?php if(a($dataRow,'slug')) { echo a($dataRow,'slug'); }else{ echo 'page-'. mb_strtolower(a($dataRow, 'id'));} ?>' maxlength='100' minlength='1' pattern='.{1,100}'>
+            <input type='text' name='slug' id='seoSlug' placeholder='<?php echo T_('Url'); ?>' value='<?php if(a($dataRow,'slug')) { echo a($dataRow,'slug'); }else{ echo 'page-'. \dash\str::mb_strtolower(a($dataRow, 'id'));} ?>' maxlength='100' minlength='1' pattern='.{1,100}'>
           </div>
       </div>
 

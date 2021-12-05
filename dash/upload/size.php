@@ -140,7 +140,7 @@ class size
 		$_size = trim($_size);
 		$last  = $_size[mb_strlen($_size)-1];
 		$_size = (float) str_replace($last, '', $_size);
-		$last  = mb_strtolower($last);
+		$last  = \dash\str::mb_strtolower($last);
 
 		switch($last)
 		{

@@ -72,5 +72,18 @@ class str
 
 		return urldecode($_str);
 	}
+
+
+	public static function mb_strtolower($_string)
+	{
+		if(!is_string($_string))
+		{
+			$_string = '';
+		}
+
+		return mb_strtolower($_string);
+	}
+
+
 }
 ?>

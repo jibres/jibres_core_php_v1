@@ -141,7 +141,7 @@ class iban
 			$data    = str_replace($replace, '', $data);
 		}
 
-		$data = mb_strtolower($data);
+		$data = \dash\str::mb_strtolower($data);
 
 		if(!preg_match("/^([a-z]{2})(\d{24})$/", $data))
 		{

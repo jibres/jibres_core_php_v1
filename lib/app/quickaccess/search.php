@@ -113,7 +113,7 @@ class search
 		{
 			if(isset($value['title']))
 			{
-				if(\dash\str::strpos($value['title'], mb_strtolower($_query)) !== false)
+				if(\dash\str::strpos($value['title'], \dash\str::mb_strtolower($_query)) !== false)
 				{
 					unset($value['keywords']);
 					$result[] = $value;
@@ -124,8 +124,8 @@ class search
 			if(isset($value['keywords']))
 			{
 				$myKeykeywords = implode(' , ', $value['keywords']);
-				$myKeykeywords = mb_strtolower($myKeykeywords);
-				if(\dash\str::strpos($myKeykeywords, mb_strtolower($_query)) !== false)
+				$myKeykeywords = \dash\str::mb_strtolower($myKeykeywords);
+				if(\dash\str::strpos($myKeykeywords, \dash\str::mb_strtolower($_query)) !== false)
 				{
 					unset($value['keywords']);
 					$result[] = $value;
@@ -136,8 +136,8 @@ class search
 			if(isset($value['addr']))
 			{
 				$myKeyAddr = implode(' , ', $value['addr']);
-				$myKeyAddr = mb_strtolower($myKeyAddr);
-				if(\dash\str::strpos($myKeyAddr, mb_strtolower($_query)) !== false)
+				$myKeyAddr = \dash\str::mb_strtolower($myKeyAddr);
+				if(\dash\str::strpos($myKeyAddr, \dash\str::mb_strtolower($_query)) !== false)
 				{
 					unset($value['keywords']);
 					$result[] = $value;

@@ -13,7 +13,7 @@ foreach ($dataTable as $key => $row) {
       <div class="panel">
         <div class="f align-center pad">
           <div class="cauto s5 pRa10">
-            <div class="device72" data-device='<?php echo mb_strtolower(a($row, 'os')); ?>'></div>
+            <div class="device72" data-device='<?php echo \dash\str::mb_strtolower(a($row, 'os')); ?>'></div>
           </div>
           <div class="pA5 c s7">
             <div class="mB5"><b><?php echo a($row, 'osName'); ?></b> <?php echo \dash\fit::number(a($row, 'osVer')); ?></div>

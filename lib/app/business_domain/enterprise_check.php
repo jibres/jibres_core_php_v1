@@ -25,7 +25,7 @@ class enterprise_check
 		$CurlError = curl_error($ch);
 		$getInfo   = curl_getinfo($ch);
 
-		$response = mb_strtolower($response);
+		$response = \dash\str::mb_strtolower($response);
 
 		return addslashes($response);
 	}

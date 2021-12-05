@@ -424,7 +424,7 @@ class text
 
 		$data = trim($data, '_-');
 
-		$data = mb_strtolower($data);
+		$data = \dash\str::mb_strtolower($data);
 
 		if(!$data)
 		{
@@ -520,7 +520,7 @@ class text
 
 		$data = trim($data, '_-');
 
-		$data = mb_strtolower($data);
+		$data = \dash\str::mb_strtolower($data);
 
 		if(!$data)
 		{
@@ -804,7 +804,7 @@ class text
 			$data = mb_ereg_replace('([^ءئآا-ی۰-۹a-zA-Z0-9]|-)+', '-', $data);
 			$data = trim($data, '-');
 			$data = trim($data);
-			$data = mb_strtolower($data);
+			$data = \dash\str::mb_strtolower($data);
 		}
 		else
 		{

@@ -21,8 +21,8 @@ class sort
 		];
 
 		$get          = array_merge($default_get, $get);
-		$get['order'] = a($get, 'order') ? mb_strtolower($get['order']) : null;
-		$get['sort']  = a($get, 'sort') ? mb_strtolower($get['sort']) : null;
+		$get['order'] = a($get, 'order') ? \dash\str::mb_strtolower($get['order']) : null;
+		$get['sort']  = a($get, 'sort') ? \dash\str::mb_strtolower($get['sort']) : null;
 
 		$link = [];
 
