@@ -33,7 +33,7 @@ class controller
 			}
 			else
 			{
-				\dash\pdo::query("UPDATE store_user SET store_user.staff = 'no' WHERE store_user.id = :id LIMIT 1", [':id' => a($staff_detail, 'id')], 'master');
+				// \dash\pdo::query("UPDATE store_user SET store_user.staff = 'no' WHERE store_user.id = :id LIMIT 1", [':id' => a($staff_detail, 'id')], 'master');
 
 				$have_not_permission = \dash\pdo::get("SELECT * FROM users WHERE users.jibres_user_id = :jibres_user_id  LIMIT 1", [':jibres_user_id' => a($staff_detail, 'user_id')], null, true);
 
