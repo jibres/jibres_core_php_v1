@@ -447,7 +447,7 @@ class queue
 			// only save log in api log to tracking
 			if($_status === 'info' || $_status === 'error')
 			{
-				\dash\notif::ok(T_("Ok"));
+				// \dash\notif::ok(T_("Ok"));
 				return true;
 			}
 
