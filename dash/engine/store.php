@@ -517,29 +517,32 @@ class store
 		if(isset($_store_detail['id']))
 		{
 			\lib\store::force_clean();
-			self::lock($_store_detail['id'], $_store_detail);
+			self::lock($_store_detail['id'], $_store_detail, true);
 		}
 	}
 
 
-	private static function lock($_store_id, $_store_detail)
+	private static function lock($_store_id, $_store_detail, $_force = false)
 	{
 		if($_store_id)
 		{
 			$db_name           = self::make_database_name($_store_id);
 
-			// check business status
-			if(isset($_store_detail['status']) && $_store_detail['status'] === 'transfer')
+			if(!$_force)
 			{
-				\dash\engine\prepare::html_raw_page('transfer');
-				return false;
-			}
+				// check business status
+				if(isset($_store_detail['status']) && $_store_detail['status'] === 'transfer')
+				{
+					\dash\engine\prepare::html_raw_page('transfer');
+					return false;
+				}
 
-			// check business status
-			if(isset($_store_detail['status']) && $_store_detail['status'] !== 'enable')
-			{
-				\dash\header::status(404, T_("This business is currently unavailable!"));
-				return false;
+				// check business status
+				if(isset($_store_detail['status']) && $_store_detail['status'] !== 'enable')
+				{
+					\dash\header::status(404, T_("This business is currently unavailable!"));
+					return false;
+				}
 			}
 
 
