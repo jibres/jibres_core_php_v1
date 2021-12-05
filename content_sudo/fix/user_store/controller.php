@@ -19,7 +19,7 @@ class controller
 
 		foreach ($get_all_staff as $key => $staff_detail)
 		{
-			$store = \dash\pdo::get("SELECT * FROM store WHERE store.id = :id LIMIT 1", [':id' => a($staff_detail, 'store_id')], null, true);
+			$store = \dash\pdo::get("SELECT * FROM store WHERE store.id = :id LIMIT 1", [':id' => a($staff_detail, 'store_id')], null, true, 'master');
 
 			\dash\engine\store::force_lock($store);
 
@@ -47,6 +47,8 @@ class controller
 			\dash\db::close();
 		}
 
+
+		\dash\log::to_supervisor('user_store_result:'. json_encode($result));
 		var_dump($result);exit;
 
 
