@@ -68,7 +68,12 @@ class whois
 
                     $data = curl_exec($ch);
 
-                    if (curl_error($ch))
+                    $curl_error = curl_error($ch);
+
+                    curl_close($ch);
+
+
+                    if ($curl_error)
                     {
                         return "Connection error!";
                     }
@@ -77,7 +82,6 @@ class whois
                         $string = strip_tags($data);
                     }
 
-                    curl_close($ch);
 
                 }
                 else
@@ -87,6 +91,7 @@ class whois
                     $fp = @fsockopen($whois_server, 43, $errno, $errstr, 10);
                     if (!$fp)
                     {
+                        fclose($fp);
                         return T_("Connection error!") . ' '. $errno. ' - '. $errstr;
                     }
 
@@ -118,6 +123,7 @@ class whois
                         $fp = @fsockopen($whois_server, 43, $errno, $errstr, 10);
                         if (!$fp)
                         {
+                            fclose($fp);
                             return T_("Connection error!");
                         }
 
