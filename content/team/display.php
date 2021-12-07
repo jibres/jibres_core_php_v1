@@ -17,6 +17,6 @@
  <div class="avand text-center">
  	<h2 class="mB20"><?php echo T_('Meet the people behind Jibres'); ?></h2>
 	<div class="browserBox" data-board='https://tejarak.com/ermile'><span></span>
-	<iframe src="https://tejarak.com/fa/ermile?ex=1" frameborder="0" style="border:0"></iframe>
+	<iframe src="https://tejarak.com/fa/ermile?ex=1" style="border:0"></iframe>
 	</div>
  </div>
