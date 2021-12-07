@@ -263,7 +263,7 @@
           <div class="fiveStar"><span></span><span></span><span></span><span></span><span></span></div>
           <div class="from row align-center">
 <?php if(!\dash\agent::isBot()) {?>
-            <div class="c-auto"><img loading="lazy" data-src="<?php echo \dash\url::cdn(); ?>/img/quote/50px/<?php echo $value['avatar']; ?>-50px.jpg" data-srcset="<?php echo \dash\url::cdn(); ?>/img/quote/<?php echo $value['avatar']; ?>.jpg 2x" alt='<?php echo $value['name']; ?>'></div>
+            <div class="c-auto"><img loading="lazy" src="<?php echo \dash\sample\img::blank(); ?>" data-src="<?php echo \dash\url::cdn(); ?>/img/quote/50px/<?php echo $value['avatar']; ?>-50px.jpg" data-srcset="<?php echo \dash\url::cdn(); ?>/img/quote/<?php echo $value['avatar']; ?>.jpg 2x" alt='<?php echo $value['name']; ?>'></div>
 <?php }?>
             <div class="c">
               <div class="name"><?php echo $value['name']; ?></div>
