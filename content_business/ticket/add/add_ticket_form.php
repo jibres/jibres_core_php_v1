@@ -4,7 +4,7 @@
 		<div class="pad">
 			<label for="title"><?php echo T_("Subject") ?></label>
 			<div class="input">
-				<input  type="text" name="title"  maxlength="100" <?php \dash\layout\autofocus::html() ?>>
+				<input  type="text" name="title"  maxlength="100" id="title" <?php \dash\layout\autofocus::html() ?>>
 			</div>
 
 			<textarea class="txt" name="content" rows="4"  placeholder='<?php echo T_("Enter your message ...") ?>'></textarea>
