@@ -126,6 +126,7 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 ?>
 <?php // @todo add rel alternative ?>
 <?php
+echo ' <link href="'. \dash\url::cdn(). '" rel="preconnect"/>'. "\n";
 if(\dash\engine\store::inBusinessWebsite())
 {
   echo ' <link href='. \dash\layout\func::staticmtime('css/magic-fonts-v1.css'). ' rel="preload stylesheet" as="style"/>'."\n";
