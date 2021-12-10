@@ -228,7 +228,7 @@ class pwa_menu
 	 */
 	public static function public_pwa_menu()
 	{
-		return
+		$menu =
 		[
 			'home' =>
 			[
@@ -263,6 +263,19 @@ class pwa_menu
 			],
 		];
 
+		if(\dash\data::nosale())
+		{
+			unset($menu['cart']);
+			unset($menu['category']);
+		}
+
+		if(\lib\store::detail('enterdisallow'))
+		{
+			unset($menu['profile']);
+		}
+
+		return $menu;
+
 	}
 
 
@@ -288,7 +301,7 @@ class pwa_menu
 				}
 			}
 		}
-		elseif($footer === false || $footer === null)
+		elseif($footer === false)
 		{
 			// remove footer
 			$myFooter = [];
