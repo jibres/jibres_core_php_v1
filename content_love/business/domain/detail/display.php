@@ -8,9 +8,12 @@
         </div>
           <?php if(\dash\data::dataRow_store_id()) {?>
           <div class="alert-info"><?php echo T_("This domain connected to Business") ?></div>
-            <div class="alert2"><code><?php echo \dash\data::storeDetail_id(); ?></code></div>
+            <div class="alert2 row">
+              <code class="c-auto"><?php echo \dash\data::storeDetail_id(); ?></code>
+              <div class="c"></div>
+              <a href="<?php echo \dash\url::that(). '/changebusiness?id='. \dash\request::get('id') ?>" class="c-auto"><?php echo T_("Change") ?></a>
+            </div>
             <div class="alert2">
-
               <span><?php echo T_("Buinsess title") ?></span>
               <a href="<?php echo \dash\url::kingdom(). '/'. \dash\store_coding::encode(\dash\data::storeDetail_id()) ?>"><?php echo \dash\data::storeDetail_title(); ?></a>
             </div>

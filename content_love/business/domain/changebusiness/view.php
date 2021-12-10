@@ -1,5 +1,5 @@
 <?php
-namespace content_love\business\domain\detail;
+namespace content_love\business\domain\changebusiness;
 
 
 class view
@@ -25,6 +25,27 @@ class view
 				$user_id = \dash\coding::encode($load_store['owner']);
 				$user_detail = \dash\app\user::get($user_id);
 				\dash\data::ownerDetail($user_detail);
+			}
+		}
+
+
+		if($nbi = \dash\request::get('nbi'))
+		{
+			$nbi = \dash\validate::id($nbi);
+
+			if($nbi)
+			{
+
+				$load_store = \lib\app\store\get::data_by_id($nbi);
+				\dash\data::newStoreDetail($load_store);
+
+				if(isset($load_store['owner']))
+				{
+					$user_id = \dash\coding::encode($load_store['owner']);
+					$user_detail = \dash\app\user::get($user_id);
+					\dash\data::newOwnerDetail($user_detail);
+				}
+
 			}
 		}
 

@@ -80,5 +80,66 @@ class business
 		}
 	}
 
+
+
+	public static function changebusiness($_domain_id, $_old_business_id, $_new_business_id)
+	{
+		$old_business_id = \dash\validate::id($_old_business_id);
+		$new_business_id = \dash\validate::id($_new_business_id);
+
+		if(!$old_business_id || !$new_business_id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+		$old_business_id = floatval($old_business_id);
+		$new_business_id = floatval($new_business_id);
+
+		if($old_business_id === $new_business_id)
+		{
+			\dash\notif::error(T_("Old id and new id is equal"));
+			return false;
+		}
+
+		$load_old_store = \lib\db\store\get::by_id($old_business_id);
+
+		if(!$load_old_store)
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		$load_new_store = \lib\db\store\get::by_id($new_business_id);
+		if(!$load_new_store)
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		$load_domain = \lib\app\business_domain\get::get($_domain_id);
+		if(!$load_domain)
+		{
+			\dash\notif::error(T_("Domain not found"));
+			return false;
+		}
+
+		if(floatval(a($load_domain, 'store_id')) === $old_business_id)
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("This domain is not connected to this store!"));
+			return false;
+		}
+
+		\lib\db\business_domain\update::update(['store_id' => $new_business_id], $load_domain['id']);
+
+		\dash\notif::ok(T_("Domain updated"));
+		return true;
+
+	}
+
 }
 ?>
