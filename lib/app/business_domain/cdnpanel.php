@@ -66,6 +66,36 @@ class cdnpanel
 
 	}
 
+	public static function check_in_cdnpanel($_id)
+	{
+		$load = \lib\app\business_domain\get::get($_id);
+		if(!$load || !isset($load['domain']))
+		{
+			return false;
+		}
+
+
+		$domain = $load['domain'];
+
+		$get_domain = \lib\api\arvancloud\api::get_domain($domain);
+
+		if(isset($get_domain['data']['id']))
+		{
+			// fetch dns record
+			$result_fetch = \lib\api\arvancloud\api::check_dns_record($domain);
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_dns_check', ['meta' => self::meta($result_fetch)]);
+
+			\lib\app\business_domain\action::new_action($_id, 'arvancloud_cdnpanel_force_fetch');
+
+			\lib\app\business_domain\edit::set_date($_id, 'cdnpanel');
+			\dash\notif::ok(T_("Domain successfully added to CDN panel"));
+
+			return true;
+		}
+
+		return false;
+	}
+
 
 	public static function add($_id)
 	{

@@ -38,6 +38,16 @@ class model
 		}
 
 
+
+		if(\dash\request::post('checkincdnpanel') === 'checkincdnpanel')
+		{
+			$result = \lib\app\business_domain\cdnpanel::check_in_cdnpanel(\dash\data::dataRow_id());
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+		}
+
 		if(\dash\request::post('addtocdnpanel') === 'addtocdnpanel')
 		{
 			$result = \lib\app\business_domain\cdnpanel::add(\dash\data::dataRow_id());

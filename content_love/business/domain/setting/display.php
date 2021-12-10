@@ -70,6 +70,7 @@
         <?php }else{ ?>
           <div class="msg minimal"><?php echo T_("Not add to CDN panel yet"); ?></div>
         <?php } //endif ?>
+        <div class="link-secondary" data-ajaxify data-data='{"checkincdnpanel": "checkincdnpanel"}' data-method='post'><?php echo T_("Get domain id. Domain already added to CDN panel. Without API!") ?></div>
       </div>
       <footer class="txtRa">
         <?php if(!\dash\data::dataRow_cdnpanel()) {?>
