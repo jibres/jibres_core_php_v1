@@ -15,8 +15,11 @@ class add
 		}
 	}
 
+
 	public static function apply_to_all($_args)
 	{
+		\dash\permission::access('manageProductCategory');
+
 		$condition =
 		[
 			'category'      => 'string_30',
@@ -297,6 +300,12 @@ class add
 
 	public static function product_cat_plus($_cat_id, $_product_id)
 	{
+		if(!\dash\permission::check('manageProductCategory'))
+		{
+			return false;
+		}
+
+
 		$product_detail = \lib\app\product\get::get($_product_id);
 		if(!$product_detail)
 		{
@@ -335,6 +344,11 @@ class add
 
 	public static function product_cat($_cat, $_product_id)
 	{
+
+		if(!\dash\permission::check('manageProductCategory'))
+		{
+			return false;
+		}
 
 		if(!$_cat)
 		{

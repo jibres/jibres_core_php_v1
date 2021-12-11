@@ -6,6 +6,8 @@ class edit
 {
 	public static function set_sort($_sort)
 	{
+		\dash\permission::access('manageProductCategory');
+
 		$sort = [];
 
 		foreach ($_sort as $key => $value)
@@ -382,6 +384,8 @@ class edit
 
 	public static function sort($_args)
 	{
+		\dash\permission::access('manageProductCategory');
+
 		if(!is_array($_args))
 		{
 			\dash\notif::error(T_("Sort arguments must be array"));

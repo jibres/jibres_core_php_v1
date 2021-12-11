@@ -29,6 +29,8 @@ class search
 			return false;
 		}
 
+		\dash\permission::access('_group_products');
+
 		if($_string)
 		{
 			$_string = \dash\validate::search($_string, false);

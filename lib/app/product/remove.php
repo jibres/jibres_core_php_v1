@@ -5,6 +5,8 @@ class remove
 {
 	public static function product($_id)
 	{
+		\dash\permission::access('ProductDelete');
+
 		if(!\lib\store::in_store())
 		{
 			\dash\notif::error(T_("Your are not in this store!"));

@@ -7,6 +7,8 @@ class remove
 
 	public static function remove_file($_id)
 	{
+		\dash\permission::access('manageProductCategory');
+
 		$load = \lib\app\category\get::inline_get($_id);
 		if($load)
 		{
@@ -18,6 +20,8 @@ class remove
 
 	public static function first_level($_id)
 	{
+		\dash\permission::access('manageProductCategory');
+
 		$load = \lib\app\category\get::inline_get($_id);
 		if($load)
 		{
@@ -28,6 +32,8 @@ class remove
 
 	public static function remove_action($_id, $_action)
 	{
+		\dash\permission::access('manageProductCategory');
+
 		$load = \lib\app\category\get::inline_get($_id);
 
 		if(!isset($load['id']))

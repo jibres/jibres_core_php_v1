@@ -28,6 +28,11 @@ class unit
 			return $get_unit_title;
 		}
 
+		if(!\dash\permission::check('mamageProductUnit'))
+		{
+			return false;
+		}
+
 		$args =
 		[
 			'title' => $_unit,
