@@ -7,7 +7,7 @@ class controller extends \content_a\setting\home\controller
 	{
 		parent::routing();
 
-		\dash\permission::access('_group_setting');
+		\dash\permission::access('settingBusinessEdit');
 
 		\dash\allow::file();
 

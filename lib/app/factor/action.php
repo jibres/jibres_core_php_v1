@@ -144,6 +144,11 @@ class action
 			return false;
 		}
 
+		if(\dash\url::content() === 'a')
+		{
+			\dash\permission::access('manageFactors');
+		}
+
 
 		$remove = \lib\db\factoraction\delete::by_id_factor_id($id, $factor_id);
 

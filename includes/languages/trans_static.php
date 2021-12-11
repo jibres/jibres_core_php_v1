@@ -51,7 +51,7 @@ class TransStatic
 	echo T_("aPermissionAddEdit");
 	echo T_("aPermissionDelete");
 	echo T_("aPermissionView");
-	echo T_("settingEdit");
+	echo T_("settingBusinessEdit");
 	echo T_("settingView");
 	echo T_("aProductEdit");
 	echo T_("aProductAdd");
@@ -136,7 +136,7 @@ class TransStatic
 	echo T_("staffExport");
 	echo T_("customerExport");
 	echo T_("supplierExport");
-	echo T_("settingEdit");
+	echo T_("settingBusinessEdit");
 	echo T_("settingView");
 	echo T_("reportDaily");
 	echo T_("reportMonth");
@@ -153,12 +153,12 @@ class TransStatic
 	echo T_("productCategoryListDelete");
 	echo T_("productUnitListDelete");
 	echo T_("thirdpartyBillingView");
-	echo T_("settingEditPlan");
-	echo T_("settingEditPos");
-	echo T_("settingEditFactor");
-	echo T_("settingEditFund");
-	echo T_("settingEditInventory");
-	echo T_("settingEditLogo");
+	echo T_("settingBusinessEditPlan");
+	echo T_("settingBusinessEditPos");
+	echo T_("settingBusinessEditFactor");
+	echo T_("settingBusinessEditFund");
+	echo T_("settingBusinessEditInventory");
+	echo T_("settingBusinessEditLogo");
 
 	echo T_("trial");
 	echo T_("Trial");

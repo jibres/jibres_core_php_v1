@@ -9,7 +9,7 @@ class controller extends \content_a\setting\home\controller
 
 		\dash\csrf::set();
 
-		\dash\permission::access('settingEdit');
+		\dash\permission::access('settingBusinessEdit');
 
 	}
 }

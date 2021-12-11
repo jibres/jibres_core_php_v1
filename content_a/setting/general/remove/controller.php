@@ -7,7 +7,7 @@ class controller extends \content_a\setting\home\controller
 	{
 		parent::routing();
 
-		\dash\permission::access('settingEdit');
+		\dash\permission::access('settingBusinessEdit');
 
 		\dash\csrf::set();
 

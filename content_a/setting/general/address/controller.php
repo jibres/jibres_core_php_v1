@@ -8,6 +8,8 @@ class controller extends \content_a\setting\home\controller
 	{
 		parent::routing();
 
+		\dash\permission::access('settingBusinessEdit');
+
 		$store_data = \lib\store::detail('store_data');
 		\dash\data::dataRow($store_data);
 	}

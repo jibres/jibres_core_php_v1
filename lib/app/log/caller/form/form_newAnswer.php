@@ -56,6 +56,11 @@ class form_newAnswer
 	}
 
 
+	private static function just_for_not_useless()
+	{
+		// \dash\permission::check('orderNotificationReceiver');
+	}
+
 
 	public static function telegram()
 	{

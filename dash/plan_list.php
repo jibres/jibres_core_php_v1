@@ -163,7 +163,7 @@ class plan_list
 
 
 		// --------------- SETTING
-		$master['settingEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingEdit', 					'title' => T_('Manage business setting'), 'require' => []];
+		$master['settingBusinessEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingBusinessEdit', 					'title' => T_('Manage business setting'), 'require' => []];
 
 
 		// --------------- SITEBUILDER
