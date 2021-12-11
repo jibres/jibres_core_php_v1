@@ -2,10 +2,13 @@
 namespace content_a\setting\menu\item;
 
 
-class controller
+class controller extends \content_a\setting\home\controller
 {
 	public static function routing()
 	{
+
+		parent::routing();
+
 		$menu_detail = \lib\app\menu\get::get_master(\dash\request::get('id'));
 
 		if(!$menu_detail)

@@ -1,8 +1,8 @@
 <div class="f">
   <div class="c5 s12 pRa10">
 
-    <div class="cbox">
-      <form method="post" autocomplete="off">
+    <div class="box">
+      <form method="post" autocomplete="off" class="pad">
         <?php if(\dash\data::editMode()) {?>
           <h2><?php echo T_("Edit fund"); ?></h2>
         <?php }else{ ?>

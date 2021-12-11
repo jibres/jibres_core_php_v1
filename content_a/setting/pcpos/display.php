@@ -1,8 +1,8 @@
 <div class="f">
   <div class="c5 s12 pRa10">
 
-    <div class="cbox">
-     <form method="post" autocomplete="off">
+    <div class="box">
+     <form method="post" autocomplete="off" class="pad">
       <h2><?php echo T_("Add new pos to you store"); ?></h2>
 
       <select name="pos" class="select22">

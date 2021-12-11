@@ -1,10 +1,12 @@
 <?php
 namespace content_a\units;
 
-class controller
+class controller extends \content_a\setting\home\controller
 {
 	public static function routing()
 	{
+		parent::routing();
+
 		if(\dash\url::child() === 'remove' && \dash\request::get('id') && !\dash\url::subchild())
 		{
 			\dash\open::get();

@@ -1,10 +1,12 @@
 <?php
 namespace content_a\setting\fund;
 
-class controller
+class controller extends \content_a\setting\home\controller
 {
 	public static function routing()
 	{
+		parent::routing();
+
 		$id = \dash\request::get('id');
 		if($id)
 		{

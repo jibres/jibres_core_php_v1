@@ -1,12 +1,11 @@
 <?php
 namespace content_a\setting\telegram;
 
-class controller
+class controller extends \content_a\setting\home\controller
 {
 	public static function routing()
 	{
-		\dash\permission::access('_group_setting');
-
+		parent::routing();
 	}
 }
 ?>
