@@ -9,7 +9,7 @@ class model
 
 		if(\dash\request::post('set_logo'))
 		{
-			$result = \lib\app\setting\setup::upload_logo();
+			$result = \lib\app\store\edit::upload_logo();
 			if(\dash\engine\process::status())
 			{
 				\dash\redirect::pwd();

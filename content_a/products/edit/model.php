@@ -161,10 +161,26 @@ class model
 				'scale'   => 1, // \dash\request::post('scale')
 			];
 
-			\lib\app\setting\setup::save_pos($post);
+			$condition =
+			[
+				'barcode' => 'bit',
+				'scale'   => 'bit',
+			];
+
+			$require = [];
+
+			$meta =	[];
+
+			$data = \dash\cleanse::input($post, $condition, $require, $meta);
+
+			foreach ($data as $key => $value)
+			{
+				\lib\app\setting\tools::update('store_setting', $key, $value);
+			}
 
 			\dash\notif::clean();
 			\dash\notif::complete();
+			\lib\store::refresh();
 
 			return true;
 		}
