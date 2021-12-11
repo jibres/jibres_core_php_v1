@@ -42,28 +42,6 @@ class controller
 		{
 			\dash\redirect::to(\dash\url::this(). '/setting/domain/existdomain?'. \dash\request::fix_get());
 		}
-		// self::check_setup_page();
-
-	}
-
-
-	private static function check_setup_page()
-	{
-		$check_once = \dash\session::get('checkStoreSetupOnce_'.\lib\store::id());
-		if(!$check_once)
-		{
-			\dash\session::set('checkStoreSetupOnce_'.\lib\store::id(), true);
-
-			if(\dash\url::module() !== 'setup')
-			{
-				$complete = \lib\app\setting\setup::complete();
-				if(!$complete)
-				{
-					$url = \dash\url::here(). '/setup';
-					\dash\redirect::to($url);
-				}
-			}
-		}
 	}
 }
 ?>
