@@ -264,10 +264,19 @@ class add
 			];
 
 			\lib\db\cart\insert::new_record($new_record);
+
+			\dash\notif::ok(T_("Product added to your cart"));
 		}
 		else
 		{
+
+
 			$new_count = floatval($check_exist_record['count']) + 1;
+
+			if($_mode === 'website')
+			{
+				$new_count = \lib\app\cart\check::max_limit_product($new_count, $load_product, 'update_count');
+			}
 
 			if($data['user_id'])
 			{
@@ -284,7 +293,6 @@ class add
 			}
 		}
 
-		\dash\notif::ok(T_("Product added to your cart"));
 		return true;
 	}
 }
