@@ -17,7 +17,7 @@ class headline1_html
 			$html .= '<div class="sm:max-w-xl p-5 md:p-10 lg:p-14 z-10">';
 			{
 
-				$html .='<h2 class="text-2xl sm:text-3xl md:text-4xl leading-normal sm:md:leading-normal md:leading-normal mb-2 sm:mb-4 md:mb-6" '. $color_heading.'>';
+				$html .='<h2 class="text-2xl sm:text-3xl md:text-4xl leading-normal mb-2 sm:mb-4 md:mb-6" '. $color_heading.'>';
 				{
 					$html .= a($_args, 'heading');
 				}
