@@ -46,10 +46,10 @@ class homepage
 			{
 				$result =
 				[
-				'product'     => 12000,
-				'factor'      => 275000,
-				'sum_factor'  => 3856000000,
-				'last_update' => date("Y-m-d H:i:s"),
+					'product'     => 25783,
+					'factor'      => 491505,
+					'sum_factor'  => 11810316275,
+					'last_update' => date("Y-m-d H:i:s"),
 				];
 			}
 			return $result;
