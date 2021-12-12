@@ -20,7 +20,7 @@ class site_list
 		$meta         = [];
 		$msg          = T_("Product not found."). ' ';
 
-		$query = \dash\validate::search(\dash\validate::search_string(), false);
+		$query = \dash\validate::search_string();
 		if(!$query)
 		{
 			$query = \dash\validate::search(\dash\request::get('term'), false);
@@ -88,6 +88,7 @@ class site_list
 
 	private static function getNeededField($_data)
 	{
+
 		if(\dash\request::get('mode') === 'text')
 		{
 			return
@@ -191,6 +192,12 @@ class site_list
 		{
 			$datalist['discount'] = $_data['discount'];
 			$priceTxt .= ' - '. \dash\fit::number($datalist['discount']). '</span>';
+		}
+
+		$datalist['stock'] = null;
+		if(array_key_exists('stock', $_data))
+		{
+			$datalist['stock'] = $_data['stock'];
 		}
 
 
