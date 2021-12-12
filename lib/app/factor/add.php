@@ -471,7 +471,14 @@ class add
 				\dash\db::commit();
 			}
 
-			\dash\notif::ok(T_("Factor successfuly added"));
+			$msg = T_("Factor successfuly added");
+
+			if(!$_option['customer_mode'])
+			{
+				$msg = '<a href="'. \dash\url::kingdom(). '/a/order/detail?id='. $factor_id. '">'. $msg . '</a>';
+			}
+
+			\dash\notif::ok($msg);
 		}
 
 		return $return;
