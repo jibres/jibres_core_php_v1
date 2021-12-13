@@ -196,5 +196,23 @@ class datetime
 
 	}
 
+
+	/**
+	 * Weekday list
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function weekday_list()
+	{
+		$list = ['monday','tuesday','wednesday','thursday','friday', 'saturday','sunday',];
+
+		if(\dash\language::current() === 'fa')
+		{
+			$list = ['saturday','sunday', 'monday','tuesday','wednesday','thursday','friday',];
+		}
+
+		return $list;
+	}
+
 }
 ?>
