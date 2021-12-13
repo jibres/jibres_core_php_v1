@@ -193,7 +193,7 @@ class search
 			self::$is_filtered              = true;
 			$join[] = "	INNER JOIN 	(SELECT title FROM products GROUP BY title	HAVING COUNT(*) > 1) dup ON products.title = dup.title";
 
-			$order_sort   = 'ORDER BY products.title ASC';
+			$order_sort   = ' products.title ASC';
 		}
 
 
