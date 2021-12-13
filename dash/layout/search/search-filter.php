@@ -60,6 +60,11 @@ if(is_array(\dash\data::listEngine_filter()))
 				$html .= HTML_weekday($value);
 				break;
 
+			case 'factor_type':
+				$apply_filter_btn = true;
+				$html .= HTML_factor_type($value);
+				break;
+
 			case 'product_tag_search':
 				$apply_filter_btn = true;
 				$html .= HTML_product_tag_search($value);
@@ -473,6 +478,40 @@ function HTML_weekday($value)
 			    {
 			      $html .= '<input type="radio" name="weekday" value="'.$weekday.'" id="weekday'.$weekday.'" '. (\dash\request::get('weekday') == $weekday ? 'checked' : null). '>';
 			      $html .= '<label for="weekday'.$weekday.'">'. T_($weekday). '</label>';
+			    }
+			    $html .= '</div>';
+			  }
+			  $html .= '</div>';
+			}
+		}
+		$html .= '</div>';
+	}
+	$html .= '</div>';
+
+	return $html;
+}
+
+
+
+function HTML_factor_type($value)
+{
+
+	$html = '';
+	$factor_type = ['sale', 'buy'];
+
+	$html .= "<div class='mB10'>";
+	{
+		$html .= '<label>'. T_("Type"). '</label>';
+		$html .= '<div class="row">';
+		{
+			foreach ($factor_type as $key => $value)
+			{
+			  $html .= '<div class="c">';
+			  {
+			 	$html .= '<div class="radio3">';
+			    {
+			      $html .= '<input type="radio" name="type" value="'.$value.'" id="type'.$value.'" '. (\dash\request::get('type') == $value ? 'checked' : null). '>';
+			      $html .= '<label for="type'.$value.'">'. T_($value). '</label>';
 			    }
 			    $html .= '</div>';
 			  }

@@ -95,6 +95,7 @@ class filter
 		$list['date']      = ['key' => 'date', 		'group' => T_("Product"),  	'title' => T_('Filter by date'),		'public' => true, 	'mode' => 'date'];
 		$list['time']      = ['key' => 'time', 		'group' => T_("Product"),  	'title' => T_('Filter by time'),		'public' => true, 	'mode' => 'time'];
 		$list['daterange'] = ['key' => 'daterange', 'group' => T_("Product"),  	'title' => T_('Filter by daterange'),	'public' => true, 	'mode' => 'daterange:startdate_enddate'];
+		$list['type']      = ['key' => 'type', 		'group' => T_("Product"),  	'title' => T_('Filter by type'),		'public' => true, 	'mode' => 'factor_type'];
 
 		return $list;
 
