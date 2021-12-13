@@ -12,6 +12,7 @@ class broker
 	{
 		$brokerOpt = array_merge($_args, $_provider);
 		$brokerOpt['broker_token'] = \dash\setting\tunnel_token::get('email');
+		// $brokerOpt['smtp_debug'] = 'lowlevel';
 
 		$ch = curl_init();
 
@@ -20,7 +21,10 @@ class broker
 
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($brokerOpt));
 
-		// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		if(\dash\url::isLocal())
+		{
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		}
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
