@@ -6,16 +6,16 @@ class model
 {
 	public static function post()
 	{
-		$factor_list = self::getPostSaleProduct();
+		$order_items = self::order_items();
 
-		if($factor_list === false)
+		if($order_items === false)
 		{
 			return false;
 		}
 
-		$detail = self::getPostSaleDetail();
+		$detail = self::get_order_detail();
 
-		$factor_detail = \lib\app\factor\add::new_factor($detail, $factor_list);
+		$factor_detail = \lib\app\factor\add::new_factor($detail, $order_items);
 
 		$query_data = [];
 
@@ -78,7 +78,7 @@ class model
 	 *
 	 * @return     array|boolean  The post factor product.
 	 */
-	public static function getPostSaleProduct()
+	public static function order_items()
 	{
 		if(empty(array_filter(\dash\request::post())))
 		{
@@ -100,7 +100,7 @@ class model
 		$count    = array_values($count);
 		$discount = array_values($discount);
 
-		$factor_list = [];
+		$order_items = [];
 
 		foreach ($product as $key => $value)
 		{
@@ -118,7 +118,7 @@ class model
 				}
 			}
 
-			$factor_list[] =
+			$order_items[] =
 			[
 				'product'  => $value,
 				'count'    => array_key_exists($key, $count) ? $count[$key] : null,
@@ -127,7 +127,7 @@ class model
 			];
 		}
 
-		return $factor_list;
+		return $order_items;
 	}
 
 
@@ -136,7 +136,7 @@ class model
 	 *
 	 * @return     array  The post factor detail.
 	 */
-	public static function getPostSaleDetail()
+	public static function get_order_detail()
 	{
 		$detail                = [];
 		$detail['customer']    = \dash\request::post('customer');
