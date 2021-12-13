@@ -51,7 +51,6 @@ class search_filter
 			$html .= '<div class="filterList">';
 
 			$first            = true;
-			$myClass          = null;
 			$lastGroup        = null;
 			$apply_filter_btn = false;
 
@@ -150,21 +149,22 @@ class search_filter
 							$lastGroup = $value['group'];
 						}
 
-						$html .= '<a class="btn'. $myClass;
+						$html .= '<a class="';
 
 						if(a($value, 'is_active'))
 						{
-							$html .= ' primary2';
+							$html .= 'btn-dark ';
 						}
 						else
 						{
-						 $html .= ' light';
+							$html .= 'btn-light ';
 						}
+						$html .= 'mx-1';
 						$html .= '" href="'. \dash\url::current(). '?'. a($value, 'query_string'). '">'. a($value, 'title'). '</a>';
 
 						break;
 				}
-				$myClass = null;
+
 				$first = false;
 			}
 			$html .= '</div>';
