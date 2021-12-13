@@ -85,6 +85,8 @@ if(is_array(\dash\data::listEngine_filter()))
   }
   $html .= '</div>';
 
+  $html .= HTML_apply_cancel_btn($apply_filter_btn);
+
   echo $html;
 }
 
@@ -275,19 +277,46 @@ function HTML_product_status_search($value)
   $html .= '</div>';
   return $html;
 }
-?>
 
-<div class="row align-center mT10">
-  <div class="c">
-    <?php $total_rows = \dash\utility\pagination::get_total_rows(); ?>
-    <div class="fc-mute"><span class="font-bold"><?php echo \dash\fit::number($total_rows); ?></span> <?php echo T_("Record founded") ?></div>
-  </div>
-  <div class="c-auto">
-    <?php if(\dash\request::get()) {?>
-      <a class="btn-outline-secondary" href="<?php if(\dash\data::listEngine_cleanFilterUrl()){ echo \dash\data::listEngine_cleanFilterUrl(); }else{ echo \dash\url::that(); } ?>"><?php echo T_("Clear filters"); ?></a>
-    <?php }//endif ?>
-    <?php if($apply_filter_btn) {?>
-    <button class="btn-outline-primary"><?php echo T_("Apply filter") ?></button>
-  <?php } //endif ?>
-  </div>
-</div>
+
+function HTML_apply_cancel_btn($apply_filter_btn)
+{
+  $html = '';
+  $html .= '<div class="row align-center mT10">';
+  {
+
+    $html .= '<div class="c">';
+    {
+      $total_rows = \dash\utility\pagination::get_total_rows();
+      $html .= '<div class="fc-mute"><span class="font-bold">'. \dash\fit::number($total_rows). '</span> '. T_("Record founded"). '</div>';
+    }
+    $html .= '</div>';
+
+    $html .= '<div class="c-auto">';
+    {
+
+      if(\dash\request::get())
+      {
+        $html .= '<a class="btn-outline-secondary" href="';
+        if(\dash\data::listEngine_cleanFilterUrl())
+        {
+          $html .= \dash\data::listEngine_cleanFilterUrl();
+        }
+        else
+        {
+          $html .= \dash\url::that();
+        }
+        $html .= '"> '. T_("Clear filters"). '</a>';
+      }
+      if($apply_filter_btn)
+      {
+        $html .= '<button class="btn-outline-primary">'. T_("Apply filter"). '</button>';
+      }
+    }
+    $html .= '</div>';
+  }
+  $html .= '</div>';
+
+  return $html;
+}
+?>
