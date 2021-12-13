@@ -87,12 +87,8 @@ class schedule_order
 
 	public static function load()
 	{
-		\dash\data::weekdayList(['monday','tuesday','wednesday','thursday','friday', 'saturday','sunday',]);
+		\dash\data::weekdayList(\dash\datetime::weekday_list());
 
-		if(\dash\language::current() === 'fa')
-		{
-			\dash\data::weekdayList(['saturday','sunday', 'monday','tuesday','wednesday','thursday','friday',]);
-		}
 
 		$load = \lib\store::detail('order_schedule');
 		$load = json_decode($load, true);
