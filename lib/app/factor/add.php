@@ -4,117 +4,6 @@ namespace lib\app\factor;
 
 class add
 {
-	/**
-	 * My array_sum
-	 *
-	 * @param      <type>  $_array   The array
-	 * @param      <type>  $_column  The column
-	 *
-	 * @return     int     ( description_of_the_return_value )
-	 */
-	public static function my_sum($_array, $_column)
-	{
-		$sum = 0;
-
-		if(is_array($_array))
-		{
-			foreach ($_array as $key => $value)
-			{
-				if(isset($value[$_column]))
-				{
-					$sum += floatval($value[$_column]);
-				}
-			}
-		}
-
-		return $sum;
-	}
-
-
-
-	/**
-	 * Gets the shipping price.
-	 *
-	 * @param      <type>  $_total  The total
-	 *
-	 * @return     int     The shipping price.
-	 */
-	public static function get_shipping_price($_total)
-	{
-		$shipping_value = 0;
-
-		$shipping = \lib\app\setting\get::shipping_setting();
-
-		if(isset($shipping['sendbypost']) && $shipping['sendbypost'] && isset($shipping['sendbypostprice']) && $shipping['sendbypostprice'])
-		{
-			if(isset($shipping['freeshipping']) && $shipping['freeshipping'] && isset($shipping['freeshippingprice']) && $shipping['freeshippingprice'])
-			{
-				if(floatval($_total) >= floatval($shipping['freeshippingprice']))
-				{
-					$shipping_value = 0;
-				}
-				else
-				{
-					$shipping_value = floatval($shipping['sendbypostprice']);
-				}
-			}
-			else
-			{
-				$shipping_value = floatval($shipping['sendbypostprice']);
-			}
-		}
-
-		return $shipping_value;
-	}
-
-
-	/**
-	 * Calculates the shipping value.
-	 * if file mode have not shipping value
-	 *
-	 * @param      <type>  $factor   The factor
-	 * @param      array   $_option  The option
-	 *
-	 * @return     <type>  The shipping value.
-	 */
-	public static function calculate_shipping_value($factor, $_option = [])
-	{
-		// in file mode not calculate shipping
-		if(isset($_option['fileMode']) && $_option['fileMode'])
-		{
-			return $factor;
-		}
-
-		$shipping_value = 0;
-
-		if(isset($_option['shipping_value']) &&  is_numeric($_option['shipping_value']))
-		{
-			$shipping_value = floatval($_option['shipping_value']);
-			$factor['shipping'] = $shipping_value;
-		}
-		else
-		{
-			if(a($_option, 'mode') === 'customer')
-			{
-				$shipping_value = self::get_shipping_price($factor['total']);
-			}
-			else
-			{
-				if(isset($_option['load_factor']['shipping']))
-				{
-					$shipping_value = floatval($_option['load_factor']['shipping']);
-
-					$factor['shipping'] = $shipping_value;
-				}
-			}
-		}
-
-
-		$factor['shipping'] = $shipping_value;
-
-		return $factor;
-	}
-
 
 	/**
 	 * add new factor
@@ -255,7 +144,7 @@ class add
 			// change factor mode to customer
 			$mode = 'customer';
 
-			$factor = self::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $fileMode, 'shipping_value' => a($_option, 'force_shipping_value')]);
+			$factor = shipping::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $fileMode, 'shipping_value' => a($_option, 'force_shipping_value')]);
 		}
 
 		$factor['realshipping'] = $factor['shipping'];
@@ -482,6 +371,33 @@ class add
 		}
 
 		return $return;
+	}
+
+
+	/**
+	 * My array_sum
+	 *
+	 * @param      <type>  $_array   The array
+	 * @param      <type>  $_column  The column
+	 *
+	 * @return     int     ( description_of_the_return_value )
+	 */
+	public static function my_sum($_array, $_column)
+	{
+		$sum = 0;
+
+		if(is_array($_array))
+		{
+			foreach ($_array as $key => $value)
+			{
+				if(isset($value[$_column]))
+				{
+					$sum += floatval($value[$_column]);
+				}
+			}
+		}
+
+		return $sum;
 	}
 
 
