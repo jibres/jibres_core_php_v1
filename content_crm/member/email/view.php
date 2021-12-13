@@ -10,6 +10,9 @@ class view
 		\content_crm\member\master::view();
 
 		\dash\face::title(T_('Change customer email address'));
+
+
+		// need load all user email in jibres
 	}
 }
 ?>
