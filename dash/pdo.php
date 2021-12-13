@@ -125,6 +125,7 @@ class pdo
 		{
 			$error = $query_log;
 			$error .= "\n". $e->getMessage();
+			$error .= "\n". json_encode($_param, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
 			\dash\pdo\log::log($error);
 
