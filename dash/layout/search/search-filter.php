@@ -45,6 +45,11 @@ if(is_array(\dash\data::listEngine_filter()))
 				$html .= HTML_daterange($value);
 				break;
 
+			case 'weekday':
+				$apply_filter_btn = true;
+				$html .= HTML_weekday($value);
+				break;
+
 			case 'product_tag_search':
 				$apply_filter_btn = true;
 				$html .= HTML_product_tag_search($value);
@@ -359,6 +364,39 @@ function HTML_product_status_search($value)
 	$html .= '</select>';
 	$html .= '</div>';
 	$html .= '</div>';
+	return $html;
+}
+
+
+function HTML_weekday($value)
+{
+
+	$html = '';
+	$weekday_list = \dash\datetime::weekday_list();
+
+	$html .= "<div class='mB10'>";
+	{
+		$html .= '<label>'. T_("Weekday"). '</label>';
+		$html .= '<div class="row">';
+		{
+			foreach ($weekday_list as $key => $weekday)
+			{
+			  $html .= '<div class="c">';
+			  {
+			 	$html .= '<div class="radio3">';
+			    {
+			      $html .= '<input type="radio" name="weekday" value="'.$weekday.'" id="weekday'.$weekday.'" '. (\dash\request::get('weekday') == $weekday ? 'checked' : null). '>';
+			      $html .= '<label for="weekday'.$weekday.'">'. T_($weekday). '</label>';
+			    }
+			    $html .= '</div>';
+			  }
+			  $html .= '</div>';
+			}
+		}
+		$html .= '</div>';
+	}
+	$html .= '</div>';
+
 	return $html;
 }
 
