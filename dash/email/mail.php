@@ -117,7 +117,9 @@ class mail
 		$provider['via'] = 'smtp';
 		$provider['provider'] = 'sendinblue';
 		// load service secrets
-		$provider['broker_token']  = \dash\setting\whisper::say('email/sendinblue', 'broker_token');
+		// $provider['broker_token']  = \dash\setting\whisper::say('email/sendinblue', 'broker_token');
+		$provider['broker_token']  = \dash\setting\tunnel_token::get('email');
+
 		$provider['smtp_host']     = \dash\setting\whisper::say('email/sendinblue', 'smtp_host');
 		$provider['smtp_username'] = \dash\setting\whisper::say('email/sendinblue', 'smtp_username');
 		$provider['smtp_password'] = \dash\setting\whisper::say('email/sendinblue', 'smtp_password');
