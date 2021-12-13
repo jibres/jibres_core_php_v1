@@ -21,7 +21,6 @@ class filter
 
 		if(\dash\request::get('pay'))					 { $args['pay']       		  = \dash\request::get('pay');				}
 		if(\dash\request::get('customer'))				 { $args['customer']          = \dash\request::get('customer');			}
-		if(\dash\request::get('user'))					 { $args['user']        	  = \dash\request::get('user');				}
 		if(\dash\request::get('type'))					 { $args['type']              = \dash\request::get('type');				}
 		if(\dash\request::get('product'))				 { $args['product']           = \dash\request::get('product');			}
 		if(\dash\request::get('startdate'))				 { $args['startdate']         = \dash\request::get('startdate');		}
@@ -88,7 +87,7 @@ class filter
 
 		$list = [];
 
-		$list['users']      = ['key' => 'users', 		'group' => T_("Users"),  'title' => T_('Customer'),	'public' => true, 'mode' => 'users_search'];
+		$list['users']      = ['key' => 'users', 		'group' => T_("Users"),  'title' => T_('Customer'),	'public' => true, 'mode' => 'users_search:customer'];
 
 		$list['pay'] =
 		[

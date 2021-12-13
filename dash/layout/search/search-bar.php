@@ -1,4 +1,11 @@
-<?php if(\dash\data::listEngine_search()) {?>
+<?php
+/**
+ * This file implements search bar.
+ * Need to fix and convert to php mode
+ * @author     Reza
+ * @since      2021
+ */
+if(\dash\data::listEngine_search()) {?>
 <form method="get" action="<?php echo \dash\data::listEngine_search(); ?>">
 <?php
 $all_get = \dash\request::get();
@@ -20,7 +27,6 @@ if($all_get)
         <a class="btn-light <?php if(\dash\data::isFiltered()) { echo 'apply'; }?>" data-kerkere-icon="close" data-kerkere='.filterBox'><?php echo T_("Filter"); ?></a>
       </div>
 <?php }?>
-
       <div class="c">
         <div>
           <div class="input search <?php if(\dash\validate::search_string()) { echo 'apply'; }?>">

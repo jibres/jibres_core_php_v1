@@ -1,5 +1,6 @@
 <?php
 $html = '';
+
 if(is_array(\dash\data::listEngine_filter()))
 {
   $html .= '<p class="alert-info">'. T_("Organize your data so it's easier to analyze. Filter your data if you only want to display records that meet certain criteria."). '</p>';
@@ -17,6 +18,16 @@ if(is_array(\dash\data::listEngine_filter()))
     {
       $mode = $value['mode'];
     }
+
+    $meta = null;
+
+    if(\dash\str::strpos($mode, ':') !== false)
+    {
+      $explode = explode(':', $mode);
+      $mode = $explode[0];
+      $meta = $explode[1];
+    }
+
     switch ($mode)
     {
       case 'posts_search':
@@ -26,7 +37,7 @@ if(is_array(\dash\data::listEngine_filter()))
 
       case 'users_search':
         $apply_filter_btn = true;
-        $html .= HTML_users_search($value);
+        $html .= HTML_users_search($value, $meta);
         break;
 
       case 'daterange':
@@ -146,15 +157,30 @@ HTML;
 }
 
 
-function HTML_users_search($value)
+/**
+ * Search in user
+ *
+ * @param      <type>  $value  The value
+ * @param      <type>  $_meta  The field name
+ *
+ * @return     string  ( description_of_the_return_value )
+ */
+function HTML_users_search($value, $_meta = null)
 {
+  $request_get_name = 'user';
+
+  if($_meta)
+  {
+    $request_get_name = $_meta;
+  }
+
   $html = '';
   $html .= "<div class='mB10'>";
   $html .= '<label>'. a($value, 'title'). '</label>';
-  $html .= '<select name="user" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
-  if(\dash\request::get('user'))
+  $html .= '<select name="'.$request_get_name.'" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/crm/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
+  if(\dash\request::get($request_get_name))
   {
-    $userselected_detail = \dash\app\user::get(\dash\request::get('user'));
+    $userselected_detail = \dash\app\user::get(\dash\request::get($request_get_name));
     if($userselected_detail)
     {
       $html .= '<option value="'. a($userselected_detail, 'id'). '">';
@@ -170,6 +196,13 @@ function HTML_users_search($value)
 }
 
 
+/**
+ * Search ub product tag
+ *
+ * @param      <type>  $value  The value
+ *
+ * @return     string  ( description_of_the_return_value )
+ */
 function HTML_product_tag_search($value)
 {
   $html = '';
@@ -206,6 +239,13 @@ function HTML_product_tag_search($value)
 
 
 
+/**
+ * Search in product unit
+ *
+ * @param      <type>  $value  The value
+ *
+ * @return     string  ( description_of_the_return_value )
+ */
 function HTML_product_unit_search($value)
 {
   $html = '';
@@ -248,6 +288,14 @@ function HTML_product_unit_search($value)
 }
 
 
+
+/**
+ * Search in product status
+ *
+ * @param      <type>  $value  The value
+ *
+ * @return     string  ( description_of_the_return_value )
+ */
 function HTML_product_status_search($value)
 {
   $html = '';
@@ -279,6 +327,13 @@ function HTML_product_status_search($value)
 }
 
 
+/**
+ * Btn apply and cancel
+ *
+ * @param      <type>  $apply_filter_btn  The apply filter button
+ *
+ * @return     string  ( description_of_the_return_value )
+ */
 function HTML_apply_cancel_btn($apply_filter_btn)
 {
   $html = '';
