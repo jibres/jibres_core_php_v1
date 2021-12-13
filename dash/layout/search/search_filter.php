@@ -7,6 +7,40 @@ namespace dash\layout\search;
  */
 class search_filter
 {
+	/**
+	 * Save form input to not load in input hidden
+	 *
+	 * @var        array
+	 */
+	private static $form_hidden_input = [];
+
+	/**
+	 * When ganerate an input put name of that input in this method
+	 *
+	 * @param      <type>  $_name  The name
+	 */
+	private static function set_input_loaded($_name)
+	{
+		self::$form_hidden_input[] = $_name;
+	}
+
+
+	/**
+	 * Get list of hidden input
+	 *
+	 * @return     <type>  The form hidden input.
+	 */
+	public static function get_form_hidden_input()
+	{
+		return self::$form_hidden_input;
+	}
+
+
+	/**
+	 * Generate filters html
+	 *
+	 * @return     string  The html filters.
+	 */
 	public static function get_html_filters()
 	{
 		$html = '';
@@ -144,6 +178,8 @@ class search_filter
 
 	private static function html_post_search($value)
 	{
+		self::set_input_loaded('post_id');
+
 		$html = '';
 		$html .= "<div class='mB10'>";
 		$html .= '<label>'. a($value, 'title'). '</label>';
@@ -168,6 +204,7 @@ class search_filter
 
 	private static function html_daterange($value, $_specail_name = null)
 	{
+
 		$html = '';
 		$html .= "<div class='mB10'>";
 		{
@@ -193,6 +230,9 @@ class search_filter
 			$end  = \dash\request::get($end_time_name);
 			$from = T_("From date");
 			$to   = T_("To date");
+
+			self::set_input_loaded($start_time_name);
+			self::set_input_loaded($end_time_name);
 
 			$html .= '<div class="row">';
 			{
@@ -255,6 +295,10 @@ class search_filter
 			$placeholder_equal  = a($value, 'title') . ' '. T_("equal");
 			$placeholder_larger = a($value, 'title') . ' '. T_("larger than");
 
+			self::set_input_loaded($name_less);
+			self::set_input_loaded($name_equal);
+			self::set_input_loaded($name_larger);
+
 			$html .= '<div class="row">';
 			{
 				$html .= '<div class="c-xs-4 c-sm-4">';
@@ -301,6 +345,7 @@ class search_filter
 
 	private static function html_date($value)
 	{
+		self::set_input_loaded('date');
 		$html = '';
 		$html .= "<div class='mB10'>";
 		{
@@ -324,6 +369,7 @@ class search_filter
 
 	private static function html_time($value)
 	{
+		self::set_input_loaded('time');
 		$html = '';
 		$html .= "<div class='mB10'>";
 		{
@@ -360,6 +406,8 @@ class search_filter
 			$request_get_name = $_specail_name;
 		}
 
+		self::set_input_loaded($request_get_name);
+
 		$html = '';
 		$html .= "<div class='mB10'>";
 		$html .= '<label>'. a($value, 'title'). '</label>';
@@ -391,6 +439,7 @@ class search_filter
 	 */
 	private static function html_product_tag_search($value)
 	{
+		self::set_input_loaded('catid');
 		$html = '';
 		$html .= "<div class='mB10'>";
 		$html .= '<div class="row align-center">';
@@ -433,6 +482,7 @@ class search_filter
 	 */
 	private static function html_product_search($value)
 	{
+		self::set_input_loaded('product');
 		$html = '';
 		$html .= "<div class='mB10'>";
 		$html .= '<label for="product">'. T_("Product"). '</label>';
@@ -465,6 +515,7 @@ class search_filter
 	 */
 	private static function html_product_unit_search($value)
 	{
+		self::set_input_loaded('unitid');
 		$html = '';
 		$html .= "<div class='mB10'>";
 		$html .= '<div class="row align-center">';
@@ -515,6 +566,7 @@ class search_filter
 	 */
 	private static function html_product_status_search($value)
 	{
+		self::set_input_loaded('status');
 		$html = '';
 		$html .= "<div class='mB10'>";
 		$html .= '<label for="status">'. T_("Status"). '</label>';
@@ -546,7 +598,7 @@ class search_filter
 
 	private static function html_weekday($value)
 	{
-
+		self::set_input_loaded('weekday');
 		$html = '';
 		$weekday_list = \dash\datetime::weekday_list();
 
@@ -580,7 +632,7 @@ class search_filter
 
 	private static function html_factor_type($value)
 	{
-
+		self::set_input_loaded('type');
 		$html = '';
 		$factor_type = ['sale', 'buy'];
 

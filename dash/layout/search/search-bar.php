@@ -6,21 +6,6 @@ $html .= '<form method="get" action="'. \dash\data::listEngine_search(). '" auto
 {
 	if(\dash\data::listEngine_search())
 	{
-		/*=======================================
-		=            Fill hidden GET            =
-		=======================================*/
-		$all_get = \dash\request::get();
-		unset($all_get['page']);
-		unset($all_get['q']);
-		if($all_get)
-		{
-			foreach ($all_get as $key => $value)
-			{
-				$html .= '<input type="hidden" name="'. $key. '" value="'. $value .'">';
-			}
-		}
-		/*=====  End of Fill hidden GET  ======*/
-
 
 		$html .= '<div class="searchBox">';
 		{
@@ -115,6 +100,28 @@ $html .= '<form method="get" action="'. \dash\data::listEngine_search(). '" auto
 		}
 		$html .= '</div>';
 	}
+
+		/*=======================================
+		=            Fill hidden GET            =
+		=======================================*/
+		$all_get = \dash\request::get();
+
+		$input_loaded = \dash\layout\search\search_filter::get_form_hidden_input();
+
+		unset($all_get['page']);
+		unset($all_get['q']);
+
+		if($all_get)
+		{
+			foreach ($all_get as $key => $value)
+			{
+				if(!in_array($key, $input_loaded))
+				{
+					$html .= '<input type="hidden" name="'. $key. '" value="'. $value .'">';
+				}
+			}
+		}
+		/*=====  End of Fill hidden GET  ======*/
 }
 $html .= '</form>';
 
