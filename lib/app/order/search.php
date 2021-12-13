@@ -320,8 +320,8 @@ class search
 
 		if($query_string)
 		{
-			$or[] = " factors.title LIKE '%:factors_query_search_string%' ";
-			$param[':factors_query_search_string'] = $query_string;
+			$or[] = " factors.title LIKE :factors_query_search_string ";
+			$param[':factors_query_search_string'] = '%'. $query_string. '%';
 
 
 			$query_string_barcode = \dash\validate::barcode($query_string, false);
