@@ -85,15 +85,16 @@ class filter
 	private static function list_of_filter()
 	{
 
-		$list = [];
+		$list              = [];
 
-		$list['pay']     = ['key' => 'pay',		'group' => T_("Pay"),		'title' => T_("Payed"),			'query'			 => ['pay' => 'y'],	'public'         => false,	];
-		$list['not_pay'] = ['key' => 'not_pay', 'group' => T_("Pay"),		'title' => T_("Not payed"),		'query'			 => ['pay' => 'n'],	'public'         => false,	];
-		$list['users']   = ['key' => 'users', 	'group' => T_("Users"),  	'title' => T_('Customer'),			'public' => true, 'mode' => 'users_search:customer'];
-		$list['product'] = ['key' => 'product', 'group' => T_("Product"),  	'title' => T_('Filter by product'),	'public' => true, 'mode' => 'product_search'];
-		$list['weekday'] = ['key' => 'weekday', 'group' => T_("Product"),  	'title' => T_('Filter by weekday'),	'public' => true, 'mode' => 'weekday'];
-		$list['date']    = ['key' => 'date', 'group' => T_("Product"),  	'title' => T_('Filter by date'),	'public' => true, 'mode' => 'date'];
-		$list['time']    = ['key' => 'time', 'group' => T_("Product"),  	'title' => T_('Filter by time'),	'public' => true, 'mode' => 'time'];
+		$list['pay']       = ['key' => 'pay',		'group' => T_("Pay"),		'title' => T_("Payed"),					'public' => false, 	'query' => ['pay' => 'y'],];
+		$list['not_pay']   = ['key' => 'not_pay', 	'group' => T_("Pay"),		'title' => T_("Not payed"),				'public' => false, 	'query' => ['pay' => 'n'],];
+		$list['users']     = ['key' => 'users', 	'group' => T_("Users"),  	'title' => T_('Customer'),				'public' => true, 	'mode' => 'users_search:customer'];
+		$list['product']   = ['key' => 'product', 	'group' => T_("Product"),  	'title' => T_('Filter by product'),		'public' => true, 	'mode' => 'product_search'];
+		$list['weekday']   = ['key' => 'weekday', 	'group' => T_("Product"),  	'title' => T_('Filter by weekday'),		'public' => true, 	'mode' => 'weekday'];
+		$list['date']      = ['key' => 'date', 		'group' => T_("Product"),  	'title' => T_('Filter by date'),		'public' => true, 	'mode' => 'date'];
+		$list['time']      = ['key' => 'time', 		'group' => T_("Product"),  	'title' => T_('Filter by time'),		'public' => true, 	'mode' => 'time'];
+		$list['daterange'] = ['key' => 'daterange', 'group' => T_("Product"),  	'title' => T_('Filter by daterange'),	'public' => true, 	'mode' => 'daterange:startdate_enddate'];
 
 		return $list;
 

@@ -42,7 +42,7 @@ if(is_array(\dash\data::listEngine_filter()))
 
 			case 'daterange':
 				$apply_filter_btn = true;
-				$html .= HTML_daterange($value);
+				$html .= HTML_daterange($value, $meta);
 				break;
 
 			case 'date':
@@ -146,32 +146,62 @@ function HTML_post_search($value)
 
 
 
-function HTML_daterange($value)
+function HTML_daterange($value, $_meta = null)
 {
 	$html = '';
 	$html .= "<div class='mB10'>";
-	$html .= '<label>'. a($value, 'title'). '</label>';
-	$std = \dash\request::get('std');
-	$end = \dash\request::get('end');
-	$from = T_("From date");
-	$to = T_("To date");
+	{
+		$start_time_name = 'std';
+		$end_time_name = 'end';
 
-	$HTML = <<<HTML
-		<div class="row">
-			<div class="c-xs-6 c-sm-6">
-				<div class="input">
-					<input type="tel" name="std" value="$std" data-format='date' placeholder="$from">
-				</div>
-			</div>
-			<div class="c-xs-6 c-sm-6">
-				<div class="input">
-					<input type="tel" name="end" value="$end" data-format='date' placeholder="$to">
-				</div>
-			</div>
-		</div>
-HTML;
+		if($_meta)
+		{
+			$explode = explode('_', $_meta);
+			if(a($explode, 0))
+			{
+				$start_time_name = $explode[0];
+			}
 
-	$html .= $HTML;
+			if(a($explode, 1))
+			{
+				$end_time_name = $explode[1];
+			}
+		}
+		$html .= '<label>'. a($value, 'title'). '</label>';
+
+		$std  = \dash\request::get($start_time_name);
+		$end  = \dash\request::get($end_time_name);
+		$from = T_("From date");
+		$to   = T_("To date");
+
+		$html .= '<div class="row">';
+		{
+
+			$html .= '<div class="c-xs-6 c-sm-6">';
+			{
+
+				$html .= '<div class="input">';
+				{
+					$html .= '<input type="tel" name="'.$start_time_name.'" value="'.$std. '" data-format="date" placeholder="'.$from.'">';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
+			$html .= '<div class="c-xs-6 c-sm-6">';
+			{
+
+				$html .= '<div class="input">';
+				{
+					$html .= '<input type="tel" name="'.$end_time_name.'" value="'.$end. '" data-format="date" placeholder="'.$to.'">';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+
+	}
 	$html .= "</div>";
 	return $html;
 }
