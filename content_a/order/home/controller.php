@@ -8,10 +8,6 @@ class controller
 	{
 		\dash\permission::access('_group_orders');
 
-		if(\dash\url::subchild() === 'unprocessed')
-		{
-			var_dump(11);exit();
-		}
 	}
 }
 ?>
