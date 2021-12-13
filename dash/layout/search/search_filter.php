@@ -12,7 +12,7 @@ class search_filter
 	 *
 	 * @var        array
 	 */
-	private static $form_hidden_input = [];
+	private static $form_loaded_input = [];
 
 	/**
 	 * When ganerate an input put name of that input in this method
@@ -21,7 +21,7 @@ class search_filter
 	 */
 	private static function set_input_loaded($_name)
 	{
-		self::$form_hidden_input[] = $_name;
+		self::$form_loaded_input[] = $_name;
 	}
 
 
@@ -30,9 +30,9 @@ class search_filter
 	 *
 	 * @return     <type>  The form hidden input.
 	 */
-	public static function get_form_hidden_input()
+	public static function get_form_loaded_input()
 	{
-		return self::$form_hidden_input;
+		return self::$form_loaded_input;
 	}
 
 
@@ -172,8 +172,10 @@ class search_filter
 			$html .= self::html_apply_cancel_btn($apply_filter_btn);
 
 		}
+
 		return $html;
 	}
+
 
 
 	private static function html_post_search($value)

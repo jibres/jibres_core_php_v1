@@ -106,7 +106,7 @@ $html .= '<form method="get" action="'. \dash\data::listEngine_search(). '" auto
 		=======================================*/
 		$all_get = \dash\request::get();
 
-		$input_loaded = \dash\layout\search\search_filter::get_form_hidden_input();
+		$input_loaded = \dash\layout\search\search_filter::get_form_loaded_input();
 
 		unset($all_get['page']);
 		unset($all_get['q']);
