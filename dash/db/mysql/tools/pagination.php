@@ -32,5 +32,22 @@ class pagination
 			return null;
 		}
 	}
+
+
+	public static function pagination_query_pdo($_query, $_param, $_length = 10, $_fuel = null)
+	{
+		$total_rows = \dash\pdo::get($_query, $_param, 'count', true, $_fuel);
+		$total_rows = floatval($total_rows);
+		$result     = self::pagination($total_rows, $_length);
+
+		if($result)
+		{
+			return "LIMIT ". implode(',', $result);
+		}
+		else
+		{
+			return null;
+		}
+	}
 }
 ?>
