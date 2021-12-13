@@ -92,7 +92,8 @@ class filter
 		$list['users']   = ['key' => 'users', 	'group' => T_("Users"),  	'title' => T_('Customer'),			'public' => true, 'mode' => 'users_search:customer'];
 		$list['product'] = ['key' => 'product', 'group' => T_("Product"),  	'title' => T_('Filter by product'),	'public' => true, 'mode' => 'product_search'];
 		$list['weekday'] = ['key' => 'weekday', 'group' => T_("Product"),  	'title' => T_('Filter by weekday'),	'public' => true, 'mode' => 'weekday'];
-		$list['date'] = ['key' => 'date', 'group' => T_("Product"),  	'title' => T_('Filter by date'),	'public' => true, 'mode' => 'date'];
+		$list['date']    = ['key' => 'date', 'group' => T_("Product"),  	'title' => T_('Filter by date'),	'public' => true, 'mode' => 'date'];
+		$list['time']    = ['key' => 'time', 'group' => T_("Product"),  	'title' => T_('Filter by time'),	'public' => true, 'mode' => 'time'];
 
 		return $list;
 
