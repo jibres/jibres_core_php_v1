@@ -1,52 +1,8 @@
 <?php
-
-require_once('filter.php');
-
-if(\dash\data::dataTable())
-{
-  if(\dash\data::isFiltered())
-  {
-
-    htmlSearchBox();
-    htmlTable();
-    htmlFilter();
-
-  }
-  else
-  {
-    htmlSearchBox();
-    htmlTable();
-  }
-}
-else
-{
-  if(\dash\data::isFiltered())
-  {
-
-    htmlSearchBox();
-    htmlFilterNoResult();
-
-
-  }
-  else
-  {
-    htmlStartAddNew();
-
-  }
-
-}
-?>
-
-
-<?php function htmlTable() {?>
-
-<?php
 $dataTable = \dash\data::dataTable();
-if(!is_array($dataTable))
-{
-  $dataTable = [];
-}
+
 $andType = \dash\request::get('type') ? '&type='. \dash\request::get('type') : null;
+
 $sortLink = \dash\data::sortLink();
 ?>
 <div class="tblBox mt-3">
@@ -170,28 +126,3 @@ $sortLink = \dash\data::sortLink();
   </table>
 </div>
 <?php \dash\utility\pagination::html(); ?>
-<?php } // endfunction ?>
-
-
-<?php function htmlFilter() {?>
-<p class="f fs14 alert-info p-3 rounded-lg mt-3 mT20">
-  <span class="c"></span>
-  <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
-</p>
-<?php } // endfunction ?>
-
-
-<?php function htmlFilterNoResult() {?>
-<p class="f fs14 alert-info p-3 rounded-lg mt-3">
-  <span class="c"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?></span>
-  <a class="cauto" href="<?php echo \dash\url::this(); ?>"><?php echo T_("Clear filters"); ?></a>
-</p>
-<?php } // endfunction ?>
-
-
-<?php function htmlStartAddNew() {?>
-<p class="fs14 alert-success pTB20"><?php echo T_("Hi!"); ?>
-  <?php if(\dash\permission::check('factorSaleAdd')) {?><a href="<?php echo \dash\url::here(); ?>/sale"><?php echo T_("Try to start with add new sale!"); ?></a><?php } // endif ?>
-</p>
-<?php } // endfunction ?>
-

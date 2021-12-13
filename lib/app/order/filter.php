@@ -87,8 +87,8 @@ class filter
 
 		$list                = [];
 
-		$list['pay']         = ['key' => 'pay',			'group' => T_("Pay"),		'title' => T_("Payed"),					'public' => false, 	'query' => ['pay' => 'y'],];
-		$list['not_pay']     = ['key' => 'not_pay', 	'group' => T_("Pay"),		'title' => T_("Not payed"),				'public' => false, 	'query' => ['pay' => 'n'],];
+		// $list['pay']         = ['key' => 'pay',			'group' => T_("Pay"),		'title' => T_("Payed"),					'public' => false, 	'query' => ['pay' => 'y'],];
+		// $list['not_pay']     = ['key' => 'not_pay', 	'group' => T_("Pay"),		'title' => T_("Not payed"),				'public' => false, 	'query' => ['pay' => 'n'],];
 		$list['users']       = ['key' => 'users', 		'group' => T_("Users"),  	'title' => T_('Customer'),				'public' => true, 	'mode' => 'users_search:customer'];
 		$list['product']     = ['key' => 'product', 	'group' => T_("Product"),  	'title' => T_('Filter by product'),		'public' => true, 	'mode' => 'product_search'];
 		$list['weekday']     = ['key' => 'weekday', 	'group' => T_("Product"),  	'title' => T_('Filter by weekday'),		'public' => true, 	'mode' => 'weekday'];
