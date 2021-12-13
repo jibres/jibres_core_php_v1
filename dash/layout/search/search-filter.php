@@ -19,13 +19,13 @@ if(is_array(\dash\data::listEngine_filter()))
 			$mode = $value['mode'];
 		}
 
-		$meta = null;
+		$special_name = null;
 
 		if(\dash\str::strpos($mode, ':') !== false)
 		{
 			$explode = explode(':', $mode);
 			$mode = $explode[0];
-			$meta = $explode[1];
+			$special_name = $explode[1];
 		}
 
 		switch ($mode)
@@ -37,12 +37,17 @@ if(is_array(\dash\data::listEngine_filter()))
 
 			case 'users_search':
 				$apply_filter_btn = true;
-				$html .= HTML_users_search($value, $meta);
+				$html .= HTML_users_search($value, $special_name);
 				break;
 
 			case 'daterange':
 				$apply_filter_btn = true;
-				$html .= HTML_daterange($value, $meta);
+				$html .= HTML_daterange($value, $special_name);
+				break;
+
+			case 'less_equal_large':
+				$apply_filter_btn = true;
+				$html .= HTML_less_equal_large($value, $special_name);
 				break;
 
 			case 'date':
@@ -151,7 +156,7 @@ function HTML_post_search($value)
 
 
 
-function HTML_daterange($value, $_meta = null)
+function HTML_daterange($value, $_specail_name = null)
 {
 	$html = '';
 	$html .= "<div class='mB10'>";
@@ -159,9 +164,9 @@ function HTML_daterange($value, $_meta = null)
 		$start_time_name = 'std';
 		$end_time_name = 'end';
 
-		if($_meta)
+		if($_specail_name)
 		{
-			$explode = explode('_', $_meta);
+			$explode = explode('_', $_specail_name);
 			if(a($explode, 0))
 			{
 				$start_time_name = $explode[0];
@@ -199,6 +204,76 @@ function HTML_daterange($value, $_meta = null)
 				$html .= '<div class="input">';
 				{
 					$html .= '<input type="tel" name="'.$end_time_name.'" value="'.$end. '" data-format="date" placeholder="'.$to.'">';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+
+	}
+	$html .= "</div>";
+	return $html;
+}
+
+
+
+
+function HTML_less_equal_large($value, $_specail_name = null)
+{
+	$html = '';
+	$html .= "<div class='mB10'>";
+	{
+		$name = 'number';
+
+		if($_specail_name)
+		{
+			$name = $_specail_name;
+		}
+
+		$html .= '<label>'. a($value, 'title'). '</label>';
+
+		$name_less    = $name. 'less';
+		$name_equal   = $name. 'equal';
+		$name_larger  = $name. 'larger';
+
+		$value_less   = \dash\request::get($name_less);
+		$value_equal  = \dash\request::get($name_equal);
+		$value_larger = \dash\request::get($name_larger);
+
+		$placeholder_less   = a($value, 'title') . ' '. T_("less than");
+		$placeholder_equal  = a($value, 'title') . ' '. T_("equal");
+		$placeholder_larger = a($value, 'title') . ' '. T_("larger than");
+
+		$html .= '<div class="row">';
+		{
+			$html .= '<div class="c-xs-4 c-sm-4">';
+			{
+				$html .= '<div class="input">';
+				{
+					$html .= '<input type="tel" name="'.$name_less.'" value="'.$value_less. '" data-format="price" placeholder="'.$placeholder_less.'">';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
+			$html .= '<div class="c-xs-4 c-sm-4">';
+			{
+
+				$html .= '<div class="input">';
+				{
+					$html .= '<input type="tel" name="'.$name_equal.'" value="'.$value_equal. '" data-format="price" placeholder="'.$placeholder_equal.'">';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
+			$html .= '<div class="c-xs-4 c-sm-4">';
+			{
+
+				$html .= '<div class="input">';
+				{
+					$html .= '<input type="tel" name="'.$name_larger.'" value="'.$value_larger. '" data-format="price" placeholder="'.$placeholder_larger.'">';
 				}
 				$html .= '</div>';
 			}
@@ -262,17 +337,17 @@ function HTML_time($value)
  * Search in user
  *
  * @param      <type>  $value  The value
- * @param      <type>  $_meta  The field name
+ * @param      <type>  $_specail_name  The field name
  *
  * @return     string  ( description_of_the_return_value )
  */
-function HTML_users_search($value, $_meta = null)
+function HTML_users_search($value, $_specail_name = null)
 {
 	$request_get_name = 'user';
 
-	if($_meta)
+	if($_specail_name)
 	{
-		$request_get_name = $_meta;
+		$request_get_name = $_specail_name;
 	}
 
 	$html = '';

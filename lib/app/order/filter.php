@@ -85,16 +85,23 @@ class filter
 	private static function list_of_filter()
 	{
 
-		$list              = [];
+		$list                = [];
 
-		$list['pay']       = ['key' => 'pay',		'group' => T_("Pay"),		'title' => T_("Payed"),					'public' => false, 	'query' => ['pay' => 'y'],];
-		$list['not_pay']   = ['key' => 'not_pay', 	'group' => T_("Pay"),		'title' => T_("Not payed"),				'public' => false, 	'query' => ['pay' => 'n'],];
-		$list['users']     = ['key' => 'users', 	'group' => T_("Users"),  	'title' => T_('Customer'),				'public' => true, 	'mode' => 'users_search:customer'];
-		$list['product']   = ['key' => 'product', 	'group' => T_("Product"),  	'title' => T_('Filter by product'),		'public' => true, 	'mode' => 'product_search'];
-		$list['weekday']   = ['key' => 'weekday', 	'group' => T_("Product"),  	'title' => T_('Filter by weekday'),		'public' => true, 	'mode' => 'weekday'];
-		$list['date']      = ['key' => 'date', 		'group' => T_("Product"),  	'title' => T_('Filter by date'),		'public' => true, 	'mode' => 'date'];
-		$list['time']      = ['key' => 'time', 		'group' => T_("Product"),  	'title' => T_('Filter by time'),		'public' => true, 	'mode' => 'time'];
-		$list['daterange'] = ['key' => 'daterange', 'group' => T_("Product"),  	'title' => T_('Filter by daterange'),	'public' => true, 	'mode' => 'daterange:startdate_enddate'];
+		$list['pay']         = ['key' => 'pay',			'group' => T_("Pay"),		'title' => T_("Payed"),					'public' => false, 	'query' => ['pay' => 'y'],];
+		$list['not_pay']     = ['key' => 'not_pay', 	'group' => T_("Pay"),		'title' => T_("Not payed"),				'public' => false, 	'query' => ['pay' => 'n'],];
+		$list['users']       = ['key' => 'users', 		'group' => T_("Users"),  	'title' => T_('Customer'),				'public' => true, 	'mode' => 'users_search:customer'];
+		$list['product']     = ['key' => 'product', 	'group' => T_("Product"),  	'title' => T_('Filter by product'),		'public' => true, 	'mode' => 'product_search'];
+		$list['weekday']     = ['key' => 'weekday', 	'group' => T_("Product"),  	'title' => T_('Filter by weekday'),		'public' => true, 	'mode' => 'weekday'];
+		$list['date']        = ['key' => 'date', 		'group' => T_("Product"),  	'title' => T_('Filter by date'),		'public' => true, 	'mode' => 'date'];
+		$list['time']        = ['key' => 'time', 		'group' => T_("Product"),  	'title' => T_('Filter by time'),		'public' => true, 	'mode' => 'time'];
+		$list['daterange']   = ['key' => 'daterange', 	'group' => T_("Product"),  	'title' => T_('Filter by daterange'),	'public' => true, 	'mode' => 'daterange:startdate_enddate'];
+
+		$list['subprice']    = ['key' => 'subprice', 	'group' => T_("Price"),  	'title' => T_('Subprice'),				'public' => true, 	'mode' => 'less_equal_large:subprice'];
+		$list['item']        = ['key' => 'item',	 	'group' => T_("Price"),  	'title' => T_('Item'),					'public' => true, 	'mode' => 'less_equal_large:item'];
+		$list['qty']         = ['key' => 'qty', 		'group' => T_("Price"),  	'title' => T_('Qty'),					'public' => true, 	'mode' => 'less_equal_large:qty'];
+		$list['subtotal']    = ['key' => 'subtotal', 	'group' => T_("Price"),  	'title' => T_('Subtotal'),				'public' => true, 	'mode' => 'less_equal_large:subtotal'];
+		$list['subdiscount'] = ['key' => 'subdiscount', 'group' => T_("Price"),  	'title' => T_('Subdiscount'),			'public' => true, 	'mode' => 'less_equal_large:subdiscount'];
+
 		$list['type']      = ['key' => 'type', 		'group' => T_("Product"),  	'title' => T_('Filter by type'),		'public' => true, 	'mode' => 'factor_type'];
 
 		return $list;
