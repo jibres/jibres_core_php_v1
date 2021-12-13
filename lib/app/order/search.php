@@ -165,22 +165,22 @@ class search
 		}
 		elseif($data['startdate'])
 		{
-			$and[] = " DATE(factors.datecreated) >=  :factor_datecreated_larger_equal ";
-			$param[':factor_datecreated_larger_equal'] = $data['startdate'];
+			$and[] = " DATE(factors.datecreated) >=  :factor_datecreated_equal_larger ";
+			$param[':factor_datecreated_equal_larger'] = $data['startdate'];
 			self::$is_filtered          = true;
 		}
 		elseif($data['enddate'])
 		{
-			$and[] = " DATE(factors.datecreated) <=  :factor_datecreated_less_equal ";
-			$param[':factor_datecreated_less_equal'] = $data['enddate'];
+			$and[] = " DATE(factors.datecreated) <=  :factor_datecreated_equal_less ";
+			$param[':factor_datecreated_equal_less'] = $data['enddate'];
 			self::$is_filtered          = true;
 		}
 
 
 		if($data['date'])
 		{
-			$and[] = " DATE(factors.datecreated) =  :factor_datecreated_equal ";
-			$param[':factor_datecreated_equal'] = $data['date'];
+			$and[] = " DATE(factors.datecreated) =  :factor_datecreated_is_equal ";
+			$param[':factor_datecreated_is_equal'] = $data['date'];
 			self::$is_filtered = true;
 		}
 
@@ -188,8 +188,9 @@ class search
 		{
 			$time  = $data['time'];
 			$and[] =  " HOUR(factors.datecreated) =  HOUR(:factor_hour) ";
-			$and[] =  " MINUTE(factors.datecreated) =  MINUTE(:factor_hour) ";
+			$and[] =  " MINUTE(factors.datecreated) =  MINUTE(:factor_min) ";
 			$param[':factor_hour'] = $time;
+			$param[':factor_min'] = $time;
 
 			self::$is_filtered = true;
 		}
@@ -288,8 +289,8 @@ class search
 
 		if($data['subtotal'])
 		{
-			$and[] = " factors.subtotal =  :factor_subtotal ";
-			$param[':factor_subtotal'] = floatval($data['subtotal']);
+			$and[] = " factors.subtotal =  :factor_is_subtotal ";
+			$param[':factor_is_subtotal'] = floatval($data['subtotal']);
 			self::$is_filtered = true;
 		}
 
@@ -319,8 +320,8 @@ class search
 
 		if($query_string)
 		{
-			$or[] = " factors.title LIKE '%:factors_query_string%' ";
-			$param[':factors_query_string'] = $query_string;
+			$or[] = " factors.title LIKE '%:factors_query_search_string%' ";
+			$param[':factors_query_search_string'] = $query_string;
 
 
 			$query_string_barcode = \dash\validate::barcode($query_string, false);
