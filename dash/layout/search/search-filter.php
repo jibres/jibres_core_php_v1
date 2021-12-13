@@ -55,6 +55,11 @@ if(is_array(\dash\data::listEngine_filter()))
         $html .= HTML_product_unit_search($value);
         break;
 
+      case 'product_search':
+        $apply_filter_btn = true;
+        $html .= HTML_product_search($value);
+        break;
+
       case 'product_status_search':
         $apply_filter_btn = true;
         $html .= HTML_product_status_search($value);
@@ -197,7 +202,7 @@ function HTML_users_search($value, $_meta = null)
 
 
 /**
- * Search ub product tag
+ * Search by product tag
  *
  * @param      <type>  $value  The value
  *
@@ -233,6 +238,37 @@ function HTML_product_tag_search($value)
 
   $html .= '</select>';
   $html .= '</div>';
+  $html .= "</div>";
+  return $html;
+}
+
+
+/**
+ * Search by product tag
+ *
+ * @param      <type>  $value  The value
+ *
+ * @return     string  ( description_of_the_return_value )
+ */
+function HTML_product_search($value)
+{
+  $html = '';
+  $html .= "<div class='mB10'>";
+  $html .= '<label for="product">'. T_("Product"). '</label>';
+
+  $html .= '<select name="product" id="product" class="select22" data-model="tag" data-placeholder="'. T_("Search in product"). '" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/a/products/api?json=true">';
+  if(\dash\request::get('product'))
+  {
+      $html .= '<option value="0">'. T_("None"). '</option>';
+      $loadCategory = \lib\app\product\get::get(\dash\request::get('product'));
+      $html .= '<option value="'. a($loadCategory, 'id'). '" selected>'. a($loadCategory, 'title') .'</option>';
+  }
+  else
+  {
+      $html .= '<option value=""></option>';
+  }
+
+  $html .= '</select>';
   $html .= "</div>";
   return $html;
 }

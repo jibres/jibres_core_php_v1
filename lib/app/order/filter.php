@@ -88,6 +88,7 @@ class filter
 		$list = [];
 
 		$list['users']      = ['key' => 'users', 		'group' => T_("Users"),  'title' => T_('Customer'),	'public' => true, 'mode' => 'users_search:customer'];
+		$list['product']      = ['key' => 'product', 		'group' => T_("Product"),  'title' => T_('Filter by product'),	'public' => true, 'mode' => 'product_search'];
 
 		$list['pay'] =
 		[
