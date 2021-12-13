@@ -6,7 +6,7 @@
  * @since      2021
  */
 if(\dash\data::listEngine_search()) {?>
-<form method="get" action="<?php echo \dash\data::listEngine_search(); ?>">
+<form method="get" action="<?php echo \dash\data::listEngine_search(); ?>" autocomplete='off'>
 <?php
 $all_get = \dash\request::get();
 unset($all_get['page']);

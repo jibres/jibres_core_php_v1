@@ -45,6 +45,11 @@ if(is_array(\dash\data::listEngine_filter()))
 				$html .= HTML_daterange($value);
 				break;
 
+			case 'date':
+				$apply_filter_btn = true;
+				$html .= HTML_date($value);
+				break;
+
 			case 'weekday':
 				$apply_filter_btn = true;
 				$html .= HTML_weekday($value);
@@ -163,6 +168,31 @@ HTML;
 
 	$html .= $HTML;
 	$html .= "</div>";
+	return $html;
+}
+
+
+
+
+function HTML_date($value)
+{
+	$html = '';
+	$html .= "<div class='mB10'>";
+	{
+		$html .= '<label>'. a($value, 'title'). '</label>';
+
+		$date = \dash\request::get('date');
+
+		$from = T_("Date");
+
+		$html .= '<div class="input">';
+		{
+			$html .= '<input type="tel" name="date" value="'.$date.'" data-format="date" placeholder="'.T_("Date").'">';
+		}
+		$html .= '</div>';
+	}
+	$html .= "</div>";
+
 	return $html;
 }
 
