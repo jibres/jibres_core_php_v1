@@ -30,6 +30,7 @@ class search
 			'sort'              => ['enum' => ['date', 'subprice', 'subtotal', 'subdiscount', 'item', 'qty','customer']],
 
 			'customer'          => 'string',
+			'user'          => 'string',
 			'type'              => ['enum' => ['sale', 'buy', 'saleorder']],
 			'product'           => 'id',
 			'guestid'           => 'md5',
@@ -81,6 +82,13 @@ class search
 		{
 			$meta['limit'] = $data['limit'];
 		}
+
+		// convert customer to user search for save old link ?customer=11
+		if($data['user'])
+		{
+			$data['customer'] = $data['user'];
+		}
+
 
 
 		$and[] = " factors.status != 'deleted' ";
