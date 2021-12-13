@@ -132,179 +132,196 @@ class search
 
 		if($data['guestid'])
 		{
-			$and[] = " factors.guestid = '$data[guestid]' ";
+			$and[] = " factors.guestid = :factor_guestid ";
+			$param[':factor_guestid'] = $data['guestid'];
 			self::$is_filtered             = true;
 		}
 
 		if($data['product'])
 		{
 			$join_factordetails               = true;
-			$and[] = " factordetails.product_id = $data[product] ";
+			$and[] = " factordetails.product_id = :factordetails_product_id ";
+			$param[':factordetails_product_id'] = $data['product'];
 			self::$is_filtered                = true;
 		}
 
 		if($data['startdate'] && $data['enddate'])
 		{
-			$and[] = " DATE(factors.datecreated) >=  '$data[startdate]' ";
-			$and[] = " DATE(factors.datecreated) <=  '$data[enddate]' ";
+			$and[] = " DATE(factors.datecreated) >=  :factor_datecreated_larger ";
+			$param[':factor_datecreated_larger'] = $data['startdate'];
+
+			$and[] = " DATE(factors.datecreated) <=  :factor_datecreated_less ";
+			$param[':factor_datecreated_less'] = $data['enddate'];
 
 			self::$is_filtered          = true;
 		}
 		elseif($data['startdate'])
 		{
-			$and[] = " DATE(factors.datecreated) >=  '$data[startdate]' ";
+			$and[] = " DATE(factors.datecreated) >=  :factor_datecreated_larger_equal ";
+			$param[':factor_datecreated_larger_equal'] = $data['startdate'];
 			self::$is_filtered          = true;
 		}
 		elseif($data['enddate'])
 		{
-			$and[] = " DATE(factors.datecreated) <=  '$data[enddate]' ";
+			$and[] = " DATE(factors.datecreated) <=  :factor_datecreated_less_equal ";
+			$param[':factor_datecreated_less_equal'] = $data['enddate'];
 			self::$is_filtered          = true;
 		}
 
 
 		if($data['date'])
 		{
-			$and[] = " DATE(factors.datecreated) =  '$data[date]' ";
+			$and[] = " DATE(factors.datecreated) =  :factor_datecreated_equal ";
+			$param[':factor_datecreated_equal'] = $data['date'];
 			self::$is_filtered = true;
 		}
 
 		if($data['time'])
 		{
 			$time  = $data['time'];
-			$and[] =  " HOUR(factors.datecreated) =  HOUR('$time') ";
-			$and[] =  " MINUTE(factors.datecreated) =  MINUTE('$time') ";
+			$and[] =  " HOUR(factors.datecreated) =  HOUR(:factor_hour) ";
+			$and[] =  " MINUTE(factors.datecreated) =  MINUTE(:factor_hour) ";
+			$param[':factor_hour'] = $time;
 
 			self::$is_filtered = true;
 		}
 
 		if($data['weekday'])
 		{
-			$and[] = " DAYNAME(factors.datecreated) = '$data[weekday]' " ;
+			$and[] = " DAYNAME(factors.datecreated) = :factor_datecreated_dayname " ;
+			$param[':factor_datecreated_dayname'] = $data['weekday'];
 			self::$is_filtered = true;
 		}
 
 		if($data['subpricelarger'])
 		{
-			$and[] = " factors.subprice > $data[subpricelarger] ";
+			$and[] = " factors.subprice > :factor_subprice_larger ";
+			$param[':factor_subprice_larger'] = floatval($data['subpricelarger']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subpriceless'])
 		{
-			$and[] = " factors.subprice <  $data[subpriceless] ";
+			$and[] = " factors.subprice <  :factor_subpriceless ";
+			$param[':factor_subpriceless'] = floatval($data['subpriceless']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subpriceequal'])
 		{
-			$and[] = " factors.subprice =  $data[subpriceequal] ";
+			$and[] = " factors.subprice =  :factor_subpriceequal ";
+			$param[':factor_subpriceequal'] = floatval($data['subpriceequal']);
 			self::$is_filtered = true;
 		}
 
 
 		if($data['itemlarger'])
 		{
-			$and[] = " factors.item > $data[itemlarger] ";
+			$and[] = " factors.item > :factor_itemlarger ";
+			$param[':factor_itemlarger'] = floatval($data['itemlarger']);
 			self::$is_filtered = true;
 		}
 
 		if($data['itemless'])
 		{
-			$and[] = " factors.item <  $data[itemless] ";
+			$and[] = " factors.item <  :factor_itemless ";
+			$param[':factor_itemless'] = floatval($data['itemless']);
 			self::$is_filtered = true;
 		}
 
 		if($data['itemequal'])
 		{
-			$and[] = " factors.item =  $data[itemequal] ";
+			$and[] = " factors.item =  :factor_itemequal ";
+			$param[':factor_itemequal'] = floatval($data['itemequal']);
 			self::$is_filtered = true;
 		}
 
 		if($data['qtylarger'])
 		{
-			$and[] = " factors.qty > $data[qtylarger] ";
+			$and[] = " factors.qty > :factor_qtylarger ";
+			$param[':factor_qtylarger'] = floatval($data['qtylarger']);
 			self::$is_filtered = true;
 		}
 
 		if($data['qtyless'])
 		{
-			$and[] = " factors.qty <  $data[qtyless] ";
+			$and[] = " factors.qty <  :factor_qtyless ";
+			$param[':factor_qtyless'] = floatval($data['qtyless']);
 			self::$is_filtered = true;
 		}
 
 		if($data['qtyequal'])
 		{
-			$and[] = " factors.qty =  $data[qtyequal] ";
+			$and[] = " factors.qty =  :factor_qtyequal ";
+			$param[':factor_qtyequal'] = floatval($data['qtyequal']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subtotallarger'])
 		{
-			$and[] = " factors.subtotal > $data[subtotallarger] ";
+			$and[] = " factors.subtotal > :factor_subtotallarger ";
+			$param[':factor_subtotallarger'] = floatval($data['subtotallarger']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subtotalless'])
 		{
-			$and[] = " factors.subtotal <  $data[subtotalless] ";
+			$and[] = " factors.subtotal <  :factor_subtotalless ";
+			$param[':factor_subtotalless'] = floatval($data['subtotalless']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subtotalequal'])
 		{
-			$and[] = " factors.subtotal =  $data[subtotalequal] ";
+			$and[] = " factors.subtotal =  :factor_subtotalequal ";
+			$param[':factor_subtotalequal'] = floatval($data['subtotalequal']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subtotal'])
 		{
-			$and[] = " factors.subtotal =  $data[subtotal] ";
+			$and[] = " factors.subtotal =  :factor_subtotal ";
+			$param[':factor_subtotal'] = floatval($data['subtotal']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subdiscountlarger'])
 		{
-			$and[] = " factors.subdiscount > $data[subdiscountlarger] ";
+			$and[] = " factors.subdiscount > :factor_subdiscountlarger ";
+			$param[':factor_subdiscountlarger'] = floatval($data['subdiscountlarger']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subdiscountless'])
 		{
-			$and[] = " factors.subdiscount <  $data[subdiscountless] ";
+			$and[] = " factors.subdiscount <  :factor_subdiscountless ";
+			$param[':factor_subdiscountless'] = floatval($data['subdiscountless']);
 			self::$is_filtered = true;
 		}
 
 		if($data['subdiscountequal'])
 		{
-			$and[] = " factors.subdiscount =  $data[subdiscountequal] ";
+			$and[] = " factors.subdiscount =  :factor_subdiscountequal ";
+			$param[':factor_subdiscountequal'] = floatval($data['subdiscountequal']);
 			self::$is_filtered = true;
 		}
 
-		// if($data['pay'] === 'y')
-		// {
-		// 	$and[] = " factors.pay IS NOT NULL ";
-		// 	self::$is_filtered = true;
-		// }
-		// elseif($data['pay'] === 'n')
-		// {
-		// 	$and[] = " factors.pay IS NULL ";
-		// 	self::$is_filtered = true;
-		// }
 
 		$query_string = \dash\validate::search($_query_string, false);
 
 		if($query_string)
 		{
-			$or[] = " factors.title LIKE '%$query_string%' ";
+			$or[] = " factors.title LIKE '%:factors_query_string%' ";
+			$param[':factors_query_string'] = $query_string;
 
 
 			$query_string_barcode = \dash\validate::barcode($query_string, false);
 
 			if($query_string_barcode)
 			{
-				$or[] = " factors.id = '$query_string' ";
+				$or[] = " factors.id = :factors_query_string_id ";
+				$param[':factors_query_string_id'] = floatval($query_string_barcode);
 			}
-
 
 			self::$is_filtered = true;
 		}
@@ -312,7 +329,9 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			$order_sort = " ORDER BY $data[sort] $data[order]";
+			$order_sort      = " ORDER BY :sort :order";
+			$param[':sort']  = $data['sort'];
+			$param[':order'] = $data['order'];
 		}
 
 		if(!$order_sort)
@@ -323,11 +342,11 @@ class search
 
 		if($join_factordetails)
 		{
-			$list = \lib\db\factors\search::list_join_factordetails($and, $or, $order_sort, $meta);
+			$list = \lib\db\orders\search::list_join_by_factordetails($param, $and, $or, $order_sort, $meta);
 		}
 		else
 		{
-			$list = \lib\db\factors\search::list($and, $or, $order_sort, $meta);
+			$list = \lib\db\orders\search::list($param, $and, $or, $order_sort, $meta);
 		}
 
 
