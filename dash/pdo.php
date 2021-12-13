@@ -81,9 +81,20 @@ class pdo
 
 			foreach ($_param as $key => $value)
 			{
+				// check param exist in query string
+				// to fix: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+				if(\dash\str::strpos($_query, $key) === false)
+				{
+					continue;
+				}
+
 				$type = \PDO::PARAM_STR;
 
-				if(is_string($value))
+				if(is_int($value) || is_float($value))
+				{
+					$type = \PDO::PARAM_INT;
+				}
+				elseif(is_string($value))
 				{
 					$type = \PDO::PARAM_STR;
 				}
