@@ -26,7 +26,6 @@ $html .= '<form method="get" action="'. \dash\data::listEngine_search(). '" auto
 		{
 			$html .= '<div class="row">';
 			{
-
 				if(\dash\data::listEngine_filter())
 				{
 					$html .= '<div class="c-auto">';
@@ -108,25 +107,16 @@ $html .= '<form method="get" action="'. \dash\data::listEngine_search(). '" auto
 		$html .= '</div>';
 	}
 
-	echo $html;
-
 	if(\dash\data::listEngine_filter())
 	{
-		echo '<div class="filterBox" data-kerkere-content="hide">';
-		if(\dash\data::listEngine_filter() === true)
+		$html .= '<div class="filterBox" data-kerkere-content="hide">';
 		{
-			$myFilterAddr = str_replace('display.php', 'display-filter.php', \dash\layout\func::display());
-			if(is_file($myFilterAddr))
-			{
-				require_once($myFilterAddr);
-			}
+			$html .= \dash\layout\search\search_filter::get_html_filters();
 		}
-		else
-		{
-			require_once(core. 'layout/search/search-filter.php');
-		}
-		echo '</div>';
+		$html .= '</div>';
 	}
 }
-echo '</form>';
+$html .= '</form>';
+
+echo $html;
 ?>
