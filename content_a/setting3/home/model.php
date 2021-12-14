@@ -35,6 +35,7 @@ class model
 		if(self::in('set_desc'))		{ 	return self::edit_store('desc');			}
 		if(self::in('set_lang'))		{ 	return self::edit_store('lang');			}
 		if(self::in('set_industry'))	{ 	return self::edit_store('industry');		}
+		if(self::in('set_nosale'))		{ 	return self::edit_store('nosale');			}
 
 		if(self::in('set_currency'))	{ 	return self::edit_unit('currency');			}
 		if(self::in('set_mass'))		{ 	return self::edit_unit('mass_unit');		}

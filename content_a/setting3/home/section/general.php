@@ -233,6 +233,30 @@ class general
 		/*=====  End of Business language  ======*/
 
 
+		/*=========================================
+		=            Business allow sale            =
+		=========================================*/
+		$list[] =
+		[
+			'option_mode' => 'input',
+			'title'       => T_("No sale"),
+			'desc'        => T_("Description"),
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_nosale'),
+				[
+					'type'  => 'checkbox',
+					'name'  => 'nosale',
+					'value' => \lib\store::detail('nosale'),
+
+				],
+			],
+		];
+		/*=====  End of Business allow sale  ======*/
+
+
+
+
 
 
 		return $list;

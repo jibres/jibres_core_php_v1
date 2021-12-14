@@ -197,6 +197,30 @@ class input
 	}
 
 
+	/**
+	 * Generate select
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function checkbox(array $_args)
+	{
+		$html = '';
+
+
+		$html .= '<div class="switch1">';
+		{
+	        $html .= "<input id='i".a($_args, 'name')."' type='checkbox' name='".a($_args,'name')."' ". (a($_args, 'value') ? 'checked' : ''). '>';
+	        $html .= "<label for='i".a($_args, 'name')."'></label>";
+			// data-on=' echo T_('Yes');  data-off=' echo T_('No')
+		}
+      	$html .= '</div>';
+
+		return $html;
+	}
+
+
 
 	public static function file(array $_args)
 	{
