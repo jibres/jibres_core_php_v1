@@ -25,6 +25,7 @@
    </tbody>
   </table>
 
+<a data-fancybox data-type="iframe" data-preload="false" class="btn-outline-secondary" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/a/products/add?iframe=sale"><?php echo T_("Add New Product");?></a>
 
   </div>
   <div class="c3 s12">
