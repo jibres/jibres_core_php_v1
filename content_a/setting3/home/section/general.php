@@ -56,7 +56,7 @@ class general
 			'footer2' =>
 			[
 				[
-					'btn_html' => "<div data-confirm data-data='$remove_logo_json' class='link-danger'>". T_("Remove logo"). '</div>',
+					'btn_html' => "<div data-confirm data-data='$remove_logo_json' class='link-danger my-1'>". T_("Remove logo"). '</div>',
 				]
 			],
 

@@ -184,7 +184,7 @@ class option_box
 		}
 		else
 		{
-			return '<a class="link-secondary" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
+			return '<a class="link-secondary my-2" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
 		}
 	}
 
