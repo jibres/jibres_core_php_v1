@@ -32,6 +32,7 @@ class model
 	public static function post()
 	{
 		if(self::in('set_title'))		{ 	return self::edit_store('title');			}
+		if(self::in('set_desc'))		{ 	return self::edit_store('desc');			}
 		if(self::in('set_industry'))	{ 	return self::edit_store('industry');		}
 		if(self::in('set_address'))		{ 	return self::address();						}
 		if(self::in('set_currency'))	{ 	return self::edit_unit('currency');			}

@@ -21,20 +21,11 @@ class category
 		];
 
 
-		$list['a123'] =
+		$list['other'] =
 		[
-			'icon'         => \dash\utility\icon::svg('123', 'bootstrap'),
-			'title'        => T_("Security"),
-			'link'         => \dash\url::this(). '/a123',
-			'special_html' => 'test',
-		];
-
-
-		$list['app'] =
-		[
-			'icon'  => \dash\utility\icon::svg('app', 'bootstrap'),
-			'title' => T_("Application"),
-			'link'  => \dash\url::this(). '/app',
+			'icon'         => \dash\utility\icon::svg('app', 'bootstrap'),
+			'title'        => T_("Other"),
+			'link'         => \dash\url::this(). '/other',
 		];
 
 		return $list;
