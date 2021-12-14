@@ -13,8 +13,13 @@ class controller
 		\dash\data::settingCategory($list);
 
 
-
 		$child          = \dash\url::child();
+		if(!$child)
+		{
+			\dash\redirect::to(\dash\url::this(). '/general');
+			return;
+		}
+
 		$subchild       = \dash\url::subchild();
 		$accepted_child = array_keys($list);
 
