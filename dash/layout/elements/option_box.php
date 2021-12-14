@@ -66,12 +66,13 @@ class option_box
 					switch (a($_args, 'option_mode'))
 					{
 						case 'input':
+						case 'file':
 							$html .= \dash\layout\elements\input::multiple_html($_args['input']);
 							break;
 
 						default:
 						case 'btn':
-							$html .= self::html_btn($_args);
+							$html .= self::action_btn($_args);
 							break;
 					}
 
@@ -79,6 +80,44 @@ class option_box
 				$html .= '</div>';
 			}
 			$html .= '</form>';
+
+			if(a($_args, 'footer1') || a($_args, 'footer2'))
+			{
+				$html .= '<footer>';
+				{
+					$html .= '<div class="row">';
+					{
+						$html .= '<div class="c-auto">';
+						{
+							if(is_array(a($_args, 'footer2')))
+							{
+								foreach ($_args['footer2'] as $key => $value)
+								{
+									$html .= ' '. self::footer_link($value);
+								}
+							}
+						}
+						$html .= '</div>';
+
+						$html .= '<div class="c"></div>';
+
+						$html .= '<div class="c-auto">';
+						{
+							if(is_array(a($_args, 'footer1')))
+							{
+								foreach ($_args['footer1'] as $key => $value)
+								{
+									$html .= ' '. self::footer_link($value);
+								}
+							}
+						}
+						$html .= '</div>';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</footer>';
+
+			}
 		}
 		$html .= '</section>';
 
@@ -95,9 +134,22 @@ class option_box
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
-	private static function html_btn(array $_args)
+	private static function action_btn(array $_args)
 	{
 		return '<a class="btn-primary" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
+	}
+
+
+	private static function footer_link(array $_args)
+	{
+		if(a($_args, 'btn_html'))
+		{
+			return $_args['btn_html'];
+		}
+		else
+		{
+			return '<a class="link-secondary" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
+		}
 	}
 
 

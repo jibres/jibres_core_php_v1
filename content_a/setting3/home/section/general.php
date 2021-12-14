@@ -27,6 +27,37 @@ class general
 			],
 		];
 
+		$list[] =
+		[
+			'option_mode' => 'file',
+			'title'       => T_("Business logo"),
+			'desc'        => T_("Description"),
+
+			'footer1' =>
+			[
+				[
+				],
+			],
+
+			'footer2' =>
+			[
+				[
+					'btn_html' => '<div data-confirm data-data=\'{"remove_business_logo": "logo"}\' class="link-danger">'. T_("Remove logo"). '</div>',
+				]
+			],
+
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_logo'),
+				[
+					'type'  => 'file',
+					'name'  => 'logo',
+					'value' => \lib\store::logo(),
+				],
+			],
+		];
+
+
 
 		$list[] =
 		[

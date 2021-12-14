@@ -26,6 +26,7 @@ class input
 			case 'textarea':
 			case 'hidden':
 			case 'select':
+			case 'file':
 				$html .= self::$_fn($args);
 				break;
 
@@ -196,6 +197,54 @@ class input
 		$html .= '</div>';
 
 		return $html;
+	}
+
+
+
+	public static function file(array $_args)
+	{
+		$html = '';
+		$html .= '<div ';
+		// upload attr
+		$html .= ' data-uploader';
+		$html .= ' data-name="'.a($_args, 'name').'"';
+		$html .= ' data-final="#finalImage-'.a($_args, 'id').'"';
+		$html .= ' data-autoSend';
+		$html .= ' data-file-max-size="'. \dash\data::maxFileSize().'"';
+
+		$html .= ' data-ratio-free';
+		// $html .= ' '. \dash\data::ratioHtml();
+
+		if(a($_args, 'value'))
+		{
+			$html .= " data-fill";
+		}
+
+		if(a($_args, 'class'))
+		{
+			$html .= " class='$_args[class]'";
+		}
+
+		$html .= '>';
+		{
+      		$html .= '<label for="image1">';
+      		{
+      			if(a($_args, 'value'))
+      			{
+      				$html .= '<img id="finalImage" src="'.a($_args, 'value').'">';
+      			}
+      			else
+      			{
+      				$html .= T_('Drag &amp; Drop your files or Browse');
+      			}
+      		}
+      		$html .= '</label>';
+      		$html .= '<input type="file" accept="image/jpeg, image/png" id="image1">';
+		}
+    	$html .= '</div>';
+
+    	return $html;
+
 	}
 
 }
