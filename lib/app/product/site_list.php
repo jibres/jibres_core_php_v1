@@ -201,6 +201,7 @@ class site_list
 			$datalist['stock'] = $_data['stock'];
 		}
 
+		$datalist['editlink'] = a($_data, 'edit_url');
 
 		// add price to name of item
 		$html   .= $priceTxt. '</span>';
@@ -213,7 +214,6 @@ class site_list
 			'id'       => $id,
 			// for extra use and remove double query
 			'datalist' => $datalist,
-			'editlink' => a($_data, 'edit_url'),
 		];
 
 
