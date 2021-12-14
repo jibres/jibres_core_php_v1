@@ -98,6 +98,7 @@ class site_list
 			];
 		}
 
+
 		// $myName = '<img class="ui avatar image" src="'.  $value['avatar'] .'">';
 		// $myName .= '<span class="pRa10">'. \dash\fit::number($value['code']). '</span>';
 		// $myName .= '   '. $value['firstname']. ' <b>'. $value['lastname']. '</b> <small class="badge light mLa5">'. $value['father'].'</small>';
@@ -212,7 +213,9 @@ class site_list
 			'id'       => $id,
 			// for extra use and remove double query
 			'datalist' => $datalist,
+			'editlink' => a($_data, 'edit_url'),
 		];
+
 
 		// $all_field_we_have =
 		// [
