@@ -166,6 +166,51 @@ class general
 		/*=====  End of Business Currency  ======*/
 
 
+		/*=========================================
+		=            Business mass            =
+		=========================================*/
+		$list[] =
+		[
+			'option_mode' => 'input',
+			'title'       => T_("Weight Unit"),
+			'desc'        => T_("Description"),
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_mass'),
+				[
+					'type'  => 'select',
+					'name'  => 'mass_unit',
+					'value' => \lib\store::detail('mass_unit'),
+					'list'  => \lib\units::list_pretty('mass'),
+				],
+			],
+		];
+		/*=====  End of Business mass  ======*/
+
+
+		/*=========================================
+		=            Business mass            =
+		=========================================*/
+		$list[] =
+		[
+			'option_mode' => 'input',
+			'title'       => T_("Dimensions Unit"),
+			'desc'        => T_("Description"),
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_length'),
+				[
+					'type'  => 'select',
+					'name'  => 'length_unit',
+					'value' => \lib\store::detail('length_unit'),
+					'list'  => \lib\units::list_pretty('length'),
+				],
+			],
+		];
+		/*=====  End of Business mass  ======*/
+
+
+
 
 		return $list;
 

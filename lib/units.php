@@ -33,6 +33,34 @@ class units {
 	}
 
 
+	public static function list_pretty(string $_type)
+	{
+		if($_type === 'mass')
+		{
+			$list = self::mass();
+		}
+		elseif($_type === 'length')
+		{
+			$list = self::length();
+		}
+		else
+		{
+			return null;
+		}
+
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			$new_list[$key] = $value['name'];
+		}
+
+		return $new_list;
+	}
+
+
+
 	public static function detail($_key, $_type)
 	{
 		if($_type === 'mass')

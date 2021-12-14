@@ -34,11 +34,19 @@ class model
 		if(self::in('set_title'))		{ 	return self::edit_store('title');			}
 		if(self::in('set_desc'))		{ 	return self::edit_store('desc');			}
 		if(self::in('set_industry'))	{ 	return self::edit_store('industry');		}
-		if(self::in('set_address'))		{ 	return self::address();						}
+
 		if(self::in('set_currency'))	{ 	return self::edit_unit('currency');			}
+		if(self::in('set_mass'))		{ 	return self::edit_unit('mass_unit');		}
+		if(self::in('set_length'))		{ 	return self::edit_unit('length_unit');		}
+
+		if(self::in('set_address'))		{ 	return self::address();						}
+
 		if(self::in('set_logo'))		{ 	return self::set_logo();					}
 		if(self::in('remove_logo'))		{ 	return self::remove_logo();					}
 	}
+
+
+
 
 
 
