@@ -20,7 +20,7 @@
      <th class="headTotal min100"><?php echo T_("Total"); ?></th>
     </tr>
    </thead>
-   <tbody>
+   <tbody class="text-sm">
 
    </tbody>
   </table>
