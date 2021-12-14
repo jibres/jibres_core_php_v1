@@ -118,11 +118,11 @@ class option_box
 
 		foreach ($_args['input'] as $key => $value)
 		{
-			$html .= '<div class="input">';
+			$type = a($value, 'type');
+			if($type)
 			{
-				$html .= '<input type="'. a($value, 'type'). '" placeholder="'. a($value, 'placeholder'). '" value="'. a($value, 'value'). '">';
+				$html .= \dash\layout\elements\input::$type($value);
 			}
-			$html .= '</div>';
 		}
 
 		return $html;
