@@ -3,9 +3,6 @@ namespace dash;
 
 class datetime
 {
-	private static $date_time_zone = null;
-
-
 	/**
 	 * Gets the current time zone.
 	 *
@@ -13,10 +10,23 @@ class datetime
 	 */
 	public static function get_current_timezone()
 	{
+		return 'America/New_York';
+		return 'Asia/Hong_Kong';
 		return 'Asia/Tehran';
-		// return 'America/New_York';
 	}
 
+
+
+	/**
+	 * Sets the default timezone.
+	 */
+	public static function set_default_timezone()
+	{
+		if(self::get_current_timezone() !== date_default_timezone_get())
+		{
+			// date_default_timezone_set(self::get_current_timezone());
+		}
+	}
 
 
 	/**
@@ -34,19 +44,13 @@ class datetime
 			$_time = time();
 		}
 
-		if(!self::$date_time_zone)
-		{
-			// Set the time zone
-			self::$date_time_zone = new \DateTimeZone(self::get_current_timezone());
-		}
-
 		// Create the datetime and set the timestamp
 		$date_time = new \DateTime();
-
 		$date_time->setTimestamp($_time);
 
 		// Convert to timezone
-		$date_time->setTimeZone(self::$date_time_zone);
+		$date_time_zone = new \DateTimeZone(self::get_current_timezone());
+		$date_time->setTimeZone($date_time_zone);
 
 		$my_date = $date_time->format($_format);
 
