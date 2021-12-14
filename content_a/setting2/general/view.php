@@ -7,7 +7,7 @@ class view extends \content_a\setting2\home\view
 	{
 		parent::config();
 
-		\dash\face::title(T_('Setting'));
+		\dash\face::title(T_('General setting'));
 
 		self::general_setting();
 
