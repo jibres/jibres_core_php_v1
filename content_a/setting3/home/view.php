@@ -47,7 +47,7 @@ class view
 	 *
 	 * @return     array   ( description_of_the_return_value )
 	 */
-	public static function switcher($_value, $_html = false)
+	public static function switcher($_value, $_return = false)
 	{
 		$args =
 		[
@@ -56,9 +56,14 @@ class view
 			'value' => $_value,
 		];
 
-		if(!$_html)
+		if(!$_return)
 		{
 			return $args;
+		}
+
+		if($_return === 'array')
+		{
+			return [$args['name'] => $args['value']];
 		}
 
 		return \dash\layout\elements\input::hidden($args);

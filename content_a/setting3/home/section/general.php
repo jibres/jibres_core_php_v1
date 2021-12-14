@@ -27,7 +27,17 @@ class general
 			],
 		];
 
-		$list[] =
+		$logo_src = \lib\store::logo();
+		if(\lib\store::detail('default_logo'))
+		{
+			$logo_src = null;
+		}
+
+		$switcher_remove_logo = \content_a\setting3\home\view::switcher('remove_logo', 'array');
+		$remove_logo_json     = array_merge($switcher_remove_logo, ["remove_business_logo" => "logo"]);
+		$remove_logo_json     = json_encode($remove_logo_json);
+
+		$logo =
 		[
 			'option_mode' => 'file',
 			'title'       => T_("Business logo"),
@@ -42,7 +52,7 @@ class general
 			'footer2' =>
 			[
 				[
-					'btn_html' => '<div data-confirm data-data=\'{"remove_business_logo": "logo"}\' class="link-danger">'. T_("Remove logo"). '</div>',
+					'btn_html' => "<div data-confirm data-data='$remove_logo_json' class='link-danger'>". T_("Remove logo"). '</div>',
 				]
 			],
 
@@ -52,10 +62,17 @@ class general
 				[
 					'type'  => 'file',
 					'name'  => 'logo',
-					'value' => \lib\store::logo(),
+					'value' => $logo_src,
 				],
 			],
 		];
+
+		if(\lib\store::detail('default_logo'))
+		{
+			unset($logo['footer2']);
+		}
+
+		$list[] = $logo;
 
 
 

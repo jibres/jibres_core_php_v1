@@ -31,9 +31,11 @@ class model
 	 */
 	public static function post()
 	{
-		if(self::in('set_title'))		{ 	return self::title();		}
-		if(self::in('set_industry'))	{ 	return self::industry();	}
-		if(self::in('set_address'))		{ 	return self::address();		}
+		if(self::in('set_title'))		{ 	return self::title();			}
+		if(self::in('set_industry'))	{ 	return self::industry();		}
+		if(self::in('set_address'))		{ 	return self::address();			}
+		if(self::in('set_logo'))		{ 	return self::set_logo();		}
+		if(self::in('remove_logo'))		{ 	return self::remove_logo();		}
 	}
 
 
@@ -96,6 +98,26 @@ class model
 			\dash\notif::clean();
 			\dash\notif::complete();
 		}
+	}
+
+
+
+	public static function set_logo()
+	{
+
+		$result = \lib\app\store\edit::upload_logo();
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
+
+	}
+
+	public static function remove_logo()
+	{
+		\lib\app\store\edit::selfedit(['logo' => null]);
+		\dash\redirect::pwd();
+
 	}
 
 

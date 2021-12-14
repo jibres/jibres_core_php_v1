@@ -61,7 +61,13 @@ class option_box
 
 			$html .= '<form class="c4 s12" method="post" data-patch>';
 			{
-				$html .= '<div class="action">';
+				$html .= '<div class="action"';
+				if(a($_args, 'option_mode') === 'file')
+				{
+					$html .= " style='padding:0px;'"; // force remove padding on file
+				}
+
+				$html .= '>';
 				{
 					switch (a($_args, 'option_mode'))
 					{
