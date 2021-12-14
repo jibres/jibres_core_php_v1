@@ -25,12 +25,38 @@ class input
 
 			case 'textarea':
 			case 'hidden':
+			case 'select':
 				$html .= self::$_fn($args);
 				break;
 
 			default:
-				$html .= '';
+				trigger_error("invalid input function");
+				// throw new Exception
 				break;
+		}
+
+		return $html;
+	}
+
+
+	/**
+	 * Generate html input
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function multiple_html(array $_args)
+	{
+		$html  = '';
+
+		foreach ($_args as $key => $value)
+		{
+			$type = a($value, 'type');
+			if($type)
+			{
+				$html .= self::$type($value);
+			}
 		}
 
 		return $html;
@@ -68,6 +94,28 @@ class input
 	}
 
 
+	public static function select(array $_args)
+	{
+		$html = '';
+
+		$html .= '<div>';
+		{
+			$html .= '<select class="select22" name="'. a($_args, 'name'). '" data-placeholder="'. a($_args, 'placeholder'). '">';
+			{
+				if(is_array(a($_args, 'list')))
+				{
+					foreach ($_args['list'] as $key => $value)
+					{
+						$html .= '<option value="'. $key. '">'. $value. '</option>';
+					}
+				}
+			}
+			$html .= '</select>';
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
 
 }
 ?>
