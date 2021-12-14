@@ -63,10 +63,10 @@ class option_box
 			{
 				$html .= '<div class="action">';
 				{
-					switch (a($_args, 'mode'))
+					switch (a($_args, 'option_mode'))
 					{
 						case 'input':
-							$html .= self::html_input($_args);
+							$html .= \dash\layout\elements\input::multiple_html($_args['input']);
 							break;
 
 						default:
@@ -101,31 +101,5 @@ class option_box
 	}
 
 
-	/**
-	 * Generate html input
-	 *
-	 * @param      array   $_args  The arguments
-	 *
-	 * @return     string  ( description_of_the_return_value )
-	 */
-	private static function html_input(array $_args)
-	{
-		$html  = '';
-		if(!is_array(a($_args, 'input')))
-		{
-			return '';
-		}
-
-		foreach ($_args['input'] as $key => $value)
-		{
-			$type = a($value, 'type');
-			if($type)
-			{
-				$html .= \dash\layout\elements\input::$type($value);
-			}
-		}
-
-		return $html;
-	}
 }
 ?>

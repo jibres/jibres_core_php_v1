@@ -21,10 +21,10 @@ class view extends \content_a\setting2\home\view
 
 		$list[] =
 		[
-			'mode' => 'input',
-			'title' => T_("Business title"),
-			'desc' => T_("This title use in your business"),
-			'input'  =>
+			'option_mode' => 'input',
+			'title'       => T_("Business title"),
+			'desc'        => T_("This title use in your business"),
+			'input'       =>
 			[
 				[
 					'type'  => 'hidden',
@@ -43,14 +43,35 @@ class view extends \content_a\setting2\home\view
 
 		$list[] =
 		[
-			'mode' => 'btn',
+			'option_mode' => 'input',
+			'title'       => T_("Business title"),
+			'desc'        => T_("This title use in your business"),
+			'input'       =>
+			[
+				[
+					'type'  => 'hidden',
+					'name'  => 'set_title',
+					'value' => 'set_title',
+				],
+				[
+					'type'  => 'select',
+					'name'  => 'title',
+					'value' => \lib\store::detail('industry'),
+					'list'  => \lib\app\store\check::industry_list(),
+				],
+			],
+		];
+
+
+		$list[] =
+		[
+			'option_mode' => 'btn',
 			'title' => T_("General"),
 			'desc' => T_("Description"),
 			'btn_link'  => \dash\url::this(). '/btn',
 			'btn_title' => T_("General"),
 
 		];
-
 
 
 		\dash\data::settingOptions($list);
