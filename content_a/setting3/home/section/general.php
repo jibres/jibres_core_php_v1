@@ -144,6 +144,29 @@ class general
 		/*=====  End of Business address  ======*/
 
 
+		/*=========================================
+		=            Business Currency            =
+		=========================================*/
+		$list[] =
+		[
+			'option_mode' => 'input',
+			'title'       => T_("Business currency"),
+			'desc'        => T_("Description"),
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_currency'),
+				[
+					'type'  => 'select',
+					'name'  => 'currency',
+					'value' => \lib\store::detail('currency'),
+					'list'  => \lib\currency::list_pretty(),
+				],
+			],
+		];
+		/*=====  End of Business Currency  ======*/
+
+
+
 		return $list;
 
 	}

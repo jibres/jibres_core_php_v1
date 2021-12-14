@@ -137,6 +137,18 @@ class currency {
 	}
 
 
+	public static function list_pretty()
+	{
+		$new_list = [];
+		foreach (self::list() as $key => $value)
+		{
+			$new_list[$key] = a($value, 'name'). ' - '. a($value, 'symbol_native');
+		}
+
+		return $new_list;
+	}
+
+
 	public static function name($_key)
 	{
 		$detail = self::detail($_key);

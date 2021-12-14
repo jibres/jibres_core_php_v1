@@ -31,22 +31,25 @@ class model
 	 */
 	public static function post()
 	{
-		if(self::in('set_title'))		{ 	return self::title();			}
-		if(self::in('set_industry'))	{ 	return self::industry();		}
-		if(self::in('set_address'))		{ 	return self::address();			}
-		if(self::in('set_logo'))		{ 	return self::set_logo();		}
-		if(self::in('remove_logo'))		{ 	return self::remove_logo();		}
+		if(self::in('set_title'))		{ 	return self::edit_store('title');			}
+		if(self::in('set_industry'))	{ 	return self::edit_store('industry');		}
+		if(self::in('set_address'))		{ 	return self::address();						}
+		if(self::in('set_currency'))	{ 	return self::edit_unit('currency');			}
+		if(self::in('set_logo'))		{ 	return self::set_logo();					}
+		if(self::in('remove_logo'))		{ 	return self::remove_logo();					}
 	}
+
+
 
 
 	/**
 	 * Save general setting
 	 */
-	private static function title()
+	private static function edit_store($_key)
 	{
 		$post =
 		[
-			'title'      => \dash\request::post('title'),
+			$_key      => \dash\request::post($_key),
 		];
 
 		\lib\app\store\edit::selfedit($post);
@@ -60,22 +63,23 @@ class model
 	}
 
 
-	private static function industry()
+	private static function edit_unit($_key)
 	{
-		$post =
+		$edit_unit =
 		[
-			'industry'      => \dash\request::post('industry'),
+			$_key => \dash\request::post($_key),
 		];
 
-		\lib\app\store\edit::selfedit($post);
+		\lib\app\setting\set::set_units($edit_unit);
 
 		if(\dash\engine\process::status())
 		{
 			\dash\notif::clean();
 			\dash\notif::complete();
-			\lib\store::refresh();
 		}
 	}
+
+
 
 
 
