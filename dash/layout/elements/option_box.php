@@ -158,7 +158,13 @@ class option_box
 	 */
 	private static function action_btn(array $_args)
 	{
-		return '<a class="btn-primary" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
+		$btn_class = 'btn-primary';
+		if(a($_args, 'btn_class'))
+		{
+			$btn_class = $_args['btn_class'];
+		}
+
+		return '<a class="'.$btn_class.'" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
 	}
 
 
