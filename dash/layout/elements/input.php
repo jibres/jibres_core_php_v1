@@ -68,9 +68,46 @@ class input
 	{
 		$html = '';
 
-		$html .= '<div class="input">';
+		$html .= "<div class='input";
+		if(a($_args, 'parent_class'))
 		{
-			$html .= '<input type="'. a($_args, 'type'). '" name="'. a($_args, 'name'). '" placeholder="'. a($_args, 'placeholder'). '" value="'. a($_args, 'value'). '">';
+			$html .= " $_args[parent_class]";
+		}
+		$html .= "'>";
+		{
+			$html .= '<input';
+
+			if(a($_args, 'type'))
+			{
+				$html .= " type='$_args[type]'";
+			}
+
+			if(a($_args, 'name'))
+			{
+				$html .= " name='$_args[name]'";
+			}
+
+			if(a($_args, 'placeholder'))
+			{
+				$html .= " placeholder='$_args[placeholder]'";
+			}
+
+			if(a($_args, 'value'))
+			{
+				$html .= " value='$_args[value]'";
+			}
+
+			if(a($_args, 'class'))
+			{
+				$html .= " class='$_args[class]'";
+			}
+
+			if(a($_args, 'format'))
+			{
+				$html .= " data-format='$_args[format]'";
+			}
+
+			$html .= '>';
 		}
 		$html .= '</div>';
 
@@ -81,7 +118,37 @@ class input
 	public static function textarea(array $_args)
 	{
 		$html = '';
-		$html .= '<textarea class="txt" type="'. $_type. '" placeholder="'. a($_args, 'placeholder'). '">'. a($_args, 'value'). '</textarea>';
+		$html .= '<textarea';
+
+
+		if(a($_args, 'name'))
+		{
+			$html .= " name='$_args[name]'";
+		}
+
+		if(a($_args, 'placeholder'))
+		{
+			$html .= " placeholder='$_args[placeholder]'";
+		}
+
+		if(a($_args, 'row'))
+		{
+			$html .= " row='$_args[row]'";
+		}
+
+		$html .= " class='txt";
+		if(a($_args, 'class'))
+		{
+			$html .= " $_args[class]";
+		}
+		$html .= "'"; // close class
+
+		$html .= '>';
+		{
+			$html .= a($_args, 'value');
+		}
+		$html .= '</textarea>';
+
 		return $html;
 	}
 
@@ -94,6 +161,13 @@ class input
 	}
 
 
+	/**
+	 * Generate select
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
 	public static function select(array $_args)
 	{
 		$html = '';
@@ -106,7 +180,14 @@ class input
 				{
 					foreach ($_args['list'] as $key => $value)
 					{
-						$html .= '<option value="'. $key. '">'. $value. '</option>';
+						$selected = '';
+
+						if($key === a($_args, 'value'))
+						{
+							$selected = ' selected';
+						}
+
+						$html .= '<option value="'. $key. '"'.$selected.'>'. $value. '</option>';
 					}
 				}
 			}
