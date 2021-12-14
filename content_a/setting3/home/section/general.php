@@ -37,6 +37,8 @@ class general
 		$remove_logo_json     = array_merge($switcher_remove_logo, ["remove_business_logo" => "logo"]);
 		$remove_logo_json     = json_encode($remove_logo_json);
 
+		\dash\allow::file();
+
 		$logo =
 		[
 			'option_mode' => 'file',
