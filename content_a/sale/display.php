@@ -9,9 +9,9 @@
     </div>
 
 
-      <table class="tbl1 v4 text-center text-sm productList" data-item='0'>
+  <table class="tbl1 v4 text-center productList" data-item='0'>
    <thead>
-    <tr class="fs08">
+    <tr class="text-sm">
      <th class="headIndex collapsing"><?php echo T_("Row"); ?></th>
      <th class="headProduct"><?php echo T_("Product"); ?></th>
      <th class="headCount collapsing"><?php echo T_("Count"); ?></th>
