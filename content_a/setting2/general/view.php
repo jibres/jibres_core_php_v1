@@ -62,14 +62,13 @@ class view extends \content_a\setting2\home\view
 			],
 		];
 
-
 		$list[] =
 		[
 			'option_mode' => 'btn',
-			'title'       => T_("General"),
-			'desc'        => T_("Description"),
-			'btn_link'    => \dash\url::this(). '/btn',
-			'btn_title'   => T_("General"),
+			'title'       => T_("Busienss address"),
+			'desc'        => T_("This address will appear on your invoices."),
+			'btn_link'    => \dash\url::that(). '/address',
+			'btn_title'   => T_("Edit address"),
 
 		];
 

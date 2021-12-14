@@ -39,13 +39,22 @@ $html .= '<div class="row">';
 
 	$html .= '<div class="c-xs-12 c-sm-8">';
 	{
-		$list = \dash\data::settingOptions();
-		if(!is_array($list))
+		if(\dash\data::settingDisplayAddr() && is_file(\dash\data::settingDisplayAddr()))
 		{
-			$list = [];
+			echo $html;
+			$html = '';
+			require_once(\dash\data::settingDisplayAddr());
 		}
+		else
+		{
+			$list = \dash\data::settingOptions();
+			if(!is_array($list))
+			{
+				$list = [];
+			}
 
-		$html .= \dash\layout\elements\option_box::multiple_html($list);
+			$html .= \dash\layout\elements\option_box::multiple_html($list);
+		}
 	}
 	$html .= '</div>';
 
