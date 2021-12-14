@@ -28,12 +28,9 @@ class controller
 				$allow = true;
 				\dash\data::myChild($child);
 
-				if(\dash\data::myChild() && is_callable(['\\content_a\\setting3\\home\\view', \dash\data::myChild()]))
-				{
-					$child_detail = call_user_func(['\\content_a\\setting3\\home\\view', \dash\data::myChild()]);
+				$child_detail = call_user_func(['\\content_a\\setting3\\home\\view', \dash\data::myChild()]);
 
-					\dash\data::settingOptions($child_detail);
-				}
+				\dash\data::settingOptions($child_detail);
 
 				if(a($list, $child, 'special_html'))
 				{
