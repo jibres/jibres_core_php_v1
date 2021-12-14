@@ -27,9 +27,15 @@ class view extends \content_a\setting2\home\view
 			'input'  =>
 			[
 				[
+					'type'  => 'hidden',
+					'name'  => 'set_title',
+					'value' => 'set_title',
+				],
+				[
 					'type'        => 'text',
 					'name'        => 'title',
-					'placeholder' => 'Title',
+					'value'       => \lib\store::title(),
+					// 'placeholder' => 'Title',
 				],
 			],
 		];

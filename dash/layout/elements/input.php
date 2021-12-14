@@ -44,7 +44,7 @@ class input
 
 		$html .= '<div class="input">';
 		{
-			$html .= '<input type="'. a($_args, 'type'). '" placeholder="'. a($_args, 'placeholder'). '" value="'. a($_args, 'value'). '">';
+			$html .= '<input type="'. a($_args, 'type'). '" name="'. a($_args, 'name'). '" placeholder="'. a($_args, 'placeholder'). '" value="'. a($_args, 'value'). '">';
 		}
 		$html .= '</div>';
 
