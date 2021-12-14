@@ -43,6 +43,19 @@ class prepare
 	}
 
 
+	/**
+	 * Prepare engine for user
+	 */
+	public static function user()
+	{
+		// set default timezone
+		\dash\datetime::set_default_timezone();
+	}
+
+
+	/**
+	 * Call before end code
+	 */
 	private static function dash_shutdown_function()
 	{
 		// 	register_shutdown_function(['\dash\utility\visitor', 'save']);
