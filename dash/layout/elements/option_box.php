@@ -65,10 +65,13 @@ class option_box
 				{
 					switch (a($_args, 'mode'))
 					{
+						case 'input':
+							$html .= self::html_input($_args);
+							break;
 
 						default:
 						case 'btn':
-							$html .= '<a class="btn-primary" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
+							$html .= self::html_btn($_args);
 							break;
 					}
 
@@ -80,6 +83,47 @@ class option_box
 		$html .= '</section>';
 
 
+
+		return $html;
+	}
+
+
+	/**
+	 * Generate html btn
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	private static function html_btn(array $_args)
+	{
+		return '<a class="btn-primary" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
+	}
+
+
+	/**
+	 * Generate html input
+	 *
+	 * @param      array   $_args  The arguments
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	private static function html_input(array $_args)
+	{
+		$html  = '';
+		if(!is_array(a($_args, 'input')))
+		{
+			return '';
+		}
+
+		foreach ($_args['input'] as $key => $value)
+		{
+			$html .= '<div class="input">';
+			{
+				$html .= '<input type="'. a($value, 'type'). '" placeholder="'. a($value, 'placeholder'). '" value="'. a($value, 'value'). '">';
+			}
+			$html .= '</div>';
+		}
 
 		return $html;
 	}

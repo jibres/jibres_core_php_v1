@@ -5,15 +5,9 @@ class view extends \content_a\setting2\home\view
 {
 	public static function config()
 	{
+		parent::config();
+
 		\dash\face::title(T_('Setting'));
-
-		\dash\data::back_text(T_('Dashboard'));
-		\dash\data::back_link(\dash\url::here());
-
-		\dash\data::include_m2('wide');
-
-
-		self::setting_category();
 
 		self::general_setting();
 
@@ -27,12 +21,17 @@ class view extends \content_a\setting2\home\view
 
 		$list[] =
 		[
-			'mode' => 'btn',
-			'title' => T_("General"),
-			'desc' => T_("Description"),
-			'btn_link'  => \dash\url::this(). '/btn',
-			'btn_title' => T_("General"),
-
+			'mode' => 'input',
+			'title' => T_("Business title"),
+			'desc' => T_("This title use in your business"),
+			'input'  =>
+			[
+				[
+					'type'        => 'text',
+					'name'        => 'title',
+					'placeholder' => 'Title',
+				],
+			],
 		];
 
 

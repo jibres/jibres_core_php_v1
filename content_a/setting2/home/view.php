@@ -7,17 +7,45 @@ class view
 	{
 		\dash\face::title(T_('Setting'));
 
-		\dash\data::back_text(T_('Dashboard'));
-		\dash\data::back_link(\dash\url::here());
-
+		// remove sidebar
 		\dash\data::include_m2('wide');
 
+		// set back link
+		self::set_back_btn();
 
+		// load setting category
 		self::setting_category();
 
 	}
 
 
+	/**
+	 * Detect url and set back link
+	 */
+	private static function set_back_btn()
+	{
+		if(\dash\url::subchild())
+		{
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::that());
+		}
+		elseif(\dash\url::child())
+		{
+			\dash\data::back_text(T_('Back'));
+			\dash\data::back_link(\dash\url::this());
+		}
+		else
+		{
+			\dash\data::back_text(T_('Dashboard'));
+			\dash\data::back_link(\dash\url::here());
+		}
+	}
+
+
+
+	/**
+	 * Make setting category array
+	 */
 	public static function setting_category()
 	{
 		$list = [];
