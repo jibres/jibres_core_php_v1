@@ -8,7 +8,9 @@ class general
 	{
 		$list = [];
 
-
+		/*=====================================
+		=            Business tile            =
+		=====================================*/
 		$list[] =
 		[
 			'option_mode' => 'input',
@@ -26,7 +28,12 @@ class general
 				],
 			],
 		];
+		/*=====  End of Business tile  ======*/
 
+
+		/*=====================================
+		=            Business logo            =
+		=====================================*/
 		$logo_src = \lib\store::logo();
 		if(\lib\store::detail('default_logo'))
 		{
@@ -76,8 +83,14 @@ class general
 
 		$list[] = $logo;
 
+		/*=====  End of Business logo  ======*/
 
 
+
+
+		/*=========================================
+		=            Business industry            =
+		=========================================*/
 		$list[] =
 		[
 			'option_mode' => 'input',
@@ -95,6 +108,13 @@ class general
 			],
 		];
 
+		/*=====  End of Business industry  ======*/
+
+
+
+		/*========================================
+		=            Business address            =
+		========================================*/
 		$list['address'] =
 		[
 			'option_mode'  => 'btn',
@@ -105,6 +125,9 @@ class general
 			'btn_title'    => T_("Edit address"),
 
 		];
+
+		/*=====  End of Business address  ======*/
+
 
 		return $list;
 
