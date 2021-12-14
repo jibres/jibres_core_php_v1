@@ -74,6 +74,30 @@ class jdate
         if ( $timezone !== null ) self::$timezone = $timezone;
     }
 
+
+
+    /**
+     * Sets the timezone.
+     *
+     * @param      <type>  $_timezone  The timezone
+     */
+    public static function set_timezone($_timezone = null)
+    {
+        if(!self::$timezone)
+        {
+            if(!$_timezone)
+            {
+                self::$timezone = \dash\datetime::get_current_timezone();
+            }
+            else
+            {
+                self::$timezone = $_timezone;
+            }
+        }
+    }
+
+
+
     /**
      * jDateTime::Date
      *
@@ -93,6 +117,9 @@ class jdate
      */
     public static function date($format, $stamp = false, $convert = null, $jalali = null, $timezone = null)
     {
+        // set default timezone
+        self::set_timezone($timezone);
+
         //Timestamp + Timezone
         if($stamp !== false)
             $stamp = is_int($stamp)? $stamp: strtotime($stamp);
