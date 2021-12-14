@@ -4,8 +4,15 @@
   <div class="c9 s12 pRa10">
 
     <div class="cbox p0" id="searchInProducts">
-      <select name="product" class="select22 barCode" id="productSearch" multiple='multiple' data-model='html' data-selection='clean' <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::this(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
-      </select>
+      <div class="flex align-center">
+        <div class="flex-grow">
+          <select name="product" class="select22 barCode" id="productSearch" multiple='multiple' data-model='html' data-selection='clean' <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::this(); ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'></select>
+
+        </div>
+        <div class="flex-none pLa5">
+          <a data-fancybox data-type="iframe" data-preload="false" class="btn-light h-9 w-12 flex" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/a/products/add?iframe=sale"><?php echo \dash\utility\icon::svg('CirclePlus') ?></a>
+        </div>
+      </div>
     </div>
 
 
@@ -25,7 +32,6 @@
    </tbody>
   </table>
 
-<a data-fancybox data-type="iframe" data-preload="false" class="btn-outline-secondary" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/a/products/add?iframe=sale"><?php echo T_("Add New Product");?></a>
 
   </div>
   <div class="c3 s12">
@@ -33,7 +39,6 @@
     <div class="cbox p0">
     <div class="flex align-center">
       <div class="flex-grow">
-
         <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
         </select>
       </div>
