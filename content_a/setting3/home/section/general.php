@@ -256,6 +256,104 @@ class general
 
 
 
+		/*=========================================
+		=            Business enterdisallow       =
+		=========================================*/
+		$list[] =
+		[
+			'option_mode' => 'input',
+			'title'       => T_("enterdisallow"),
+			'desc'        => T_("Description"),
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_enterdisallow'),
+				[
+					'type'  => 'checkbox',
+					'name'  => 'enterdisallow',
+					'value' => \lib\store::detail('enterdisallow'),
+
+				],
+			],
+		];
+		/*=====  End of Business enterdisallow  ======*/
+
+
+
+
+		/*=========================================
+		=            Business entersignupdisallow       =
+		=========================================*/
+		$list[] =
+		[
+			'option_mode' => 'input',
+			'title'       => T_("entersignupdisallow"),
+			'desc'        => T_("Description"),
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_entersignupdisallow'),
+				[
+					'type'  => 'checkbox',
+					'name'  => 'entersignupdisallow',
+					'value' => \lib\store::detail('entersignupdisallow'),
+
+				],
+			],
+		];
+		/*=====  End of Business entersignupdisallow  ======*/
+
+
+		/*=========================================
+		=            Business disallowsearchengine       =
+		=========================================*/
+		$list[] =
+		[
+			'option_mode' => 'input',
+			'title'       => T_("disallowsearchengine"),
+			'desc'        => T_("Description"),
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_disallowsearchengine'),
+				[
+					'type'  => 'checkbox',
+					'name'  => 'disallowsearchengine',
+					'value' => \lib\store::detail('disallowsearchengine'),
+
+				],
+			],
+		];
+		/*=====  End of Business disallowsearchengine  ======*/
+
+
+		/*=========================================
+		=            Business forceloginorder       =
+		=========================================*/
+		$list[] =
+		[
+			'option_mode' => 'input',
+			'title'       => T_("forceloginorder"),
+			'desc'        => T_("Description"),
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_forceloginorder'),
+				[
+					'type'  => 'checkbox',
+					'name'  => 'forceloginorder',
+					'value' => \lib\store::detail('forceloginorder'),
+
+				],
+			],
+		];
+		/*=====  End of Business forceloginorder  ======*/
+
+
+
+
+
+
+
+
+
+
 
 
 

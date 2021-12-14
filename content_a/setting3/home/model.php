@@ -31,20 +31,26 @@ class model
 	 */
 	public static function post()
 	{
-		if(self::in('set_title'))		{ 	return self::edit_store('title');			}
-		if(self::in('set_desc'))		{ 	return self::edit_store('desc');			}
-		if(self::in('set_lang'))		{ 	return self::edit_store('lang');			}
-		if(self::in('set_industry'))	{ 	return self::edit_store('industry');		}
-		if(self::in('set_nosale'))		{ 	return self::edit_store('nosale');			}
+		if(self::in('set_title'))						return self::edit_store('title');
+		if(self::in('set_desc'))						return self::edit_store('desc');
+		if(self::in('set_lang'))						return self::edit_store('lang');
+		if(self::in('set_industry'))					return self::edit_store('industry');
+		if(self::in('set_nosale'))						return self::edit_store('nosale');
 
-		if(self::in('set_currency'))	{ 	return self::edit_unit('currency');			}
-		if(self::in('set_mass'))		{ 	return self::edit_unit('mass_unit');		}
-		if(self::in('set_length'))		{ 	return self::edit_unit('length_unit');		}
+		if(self::in('set_currency'))					return self::edit_unit('currency');
+		if(self::in('set_mass'))						return self::edit_unit('mass_unit');
+		if(self::in('set_length'))						return self::edit_unit('length_unit');
 
-		if(self::in('set_address'))		{ 	return self::address();						}
+		if(self::in('set_address'))						return self::address();
 
-		if(self::in('set_logo'))		{ 	return self::set_logo();					}
-		if(self::in('remove_logo'))		{ 	return self::remove_logo();					}
+		if(self::in('set_logo'))						return self::set_logo();
+		if(self::in('remove_logo'))						return self::remove_logo();
+
+
+		if(self::in('set_enterdisallow')) 				return self::edit_store('enterdisallow');
+		if(self::in('set_entersignupdisallow')) 		return self::edit_store('entersignupdisallow');
+		if(self::in('set_disallowsearchengine')) 		return self::disallowsearchengine();
+		if(self::in('set_forceloginorder')) 			return self::edit_store('forceloginorder');
 	}
 
 
@@ -61,6 +67,23 @@ class model
 		$post =
 		[
 			$_key      => \dash\request::post($_key),
+		];
+
+		\lib\app\store\edit::selfedit($post);
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::clean();
+			\dash\notif::complete();
+			\lib\store::refresh();
+		}
+	}
+
+	private static function disallowsearchengine()
+	{
+		$post =
+		[
+			'disallowsearchengine' => \dash\request::post('disallowsearchengine') ? 'yes' : 'no',
 		];
 
 		\lib\app\store\edit::selfedit($post);
