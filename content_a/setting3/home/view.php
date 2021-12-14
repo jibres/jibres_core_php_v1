@@ -30,7 +30,14 @@ class view
 		elseif(\dash\url::child())
 		{
 			\dash\data::back_text(T_('Back'));
-			\dash\data::back_link(\dash\url::this());
+			if(\dash\url::child() === 'general')
+			{
+				\dash\data::back_link(\dash\url::here());
+			}
+			else
+			{
+				\dash\data::back_link(\dash\url::this());
+			}
 		}
 		else
 		{

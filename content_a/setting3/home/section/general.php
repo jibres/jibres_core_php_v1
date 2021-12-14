@@ -8,9 +8,7 @@ class general
 	{
 		$list = [];
 
-		/*=====================================
-		=            Business tile            =
-		=====================================*/
+
 		$list[] =
 		[
 			'option_mode' => 'input',
@@ -28,12 +26,9 @@ class general
 				],
 			],
 		];
-		/*=====  End of Business tile  ======*/
 
 
-		/*=====================================
-		=            Business logo            =
-		=====================================*/
+
 		$logo_src = \lib\store::logo();
 		if(\lib\store::detail('default_logo'))
 		{
@@ -83,14 +78,7 @@ class general
 
 		$list[] = $logo;
 
-		/*=====  End of Business logo  ======*/
 
-
-
-
-		/*=========================================
-		=            Business industry            =
-		=========================================*/
 		$list[] =
 		[
 			'option_mode' => 'input',
@@ -108,19 +96,13 @@ class general
 			],
 		];
 
-		/*=====  End of Business industry  ======*/
 
-
-
-		/*========================================
-		=            Business address            =
-		========================================*/
 		$address =
 		[
-			'option_mode'  => 'btn',
-			'special_html' => 'address',
 			'title'        => T_("Busienss address"),
 			'desc'         => T_("This address will appear on your invoices."),
+			'option_mode'  => 'btn',
+			'special_html' => 'address',
 			'btn_link'     => \dash\url::that(). '/address',
 			'btn_title'    => T_("Edit address"),
 
@@ -130,23 +112,42 @@ class general
 		$temp_address = \lib\store::detail();
 		$temp_address = a($temp_address, 'store_data');
 
-		if(a($temp_address, 'country_detail', 'name')) { $current_address .= '<div class="mB5">'. T_("Country"). ' '. '<b>'. a($temp_address, 'country_detail', 'name') .'</b></div>'; };
-        if(a($temp_address, 'province_detail', 'name')) { $current_address .= '<div class="mB5">'. T_("Province"). ' '. '<b>'. a($temp_address, 'province_detail', 'name') .'</b></div>'; };
-        if(a($temp_address, 'city_detail', 'name')) { $current_address .= '<div class="mB5">'. T_("City"). ' '. '<b>'. a($temp_address, 'city_detail', 'name') .'</b></div>'; };
-        if(a($temp_address, 'postcode')) { $current_address .= '<div class="mB5">'. T_("Postcode"). ' '. '<b>'. \dash\fit::text(a($temp_address, 'postcode')) .'</b></div>'; };
-        if(a($temp_address, 'phone')) { $current_address .= '<div class="mB5">'. T_("Phone"). ' '. '<b>'. \dash\fit::text(a($temp_address, 'phone')) .'</b></div>'; };
-        if(a($temp_address, 'address')) { $current_address .= '<div class="mB5">'. a($temp_address, 'address') .'</div>'; };
+		if(a($temp_address, 'country_detail', 'name'))
+		{
+			$current_address .= '<div class="mB5">'. T_("Country"). ' '. '<b>'. a($temp_address, 'country_detail', 'name') .'</b></div>';
+		};
+
+        if(a($temp_address, 'province_detail', 'name'))
+        {
+        	$current_address .= '<div class="mB5">'. T_("Province"). ' '. '<b>'. a($temp_address, 'province_detail', 'name') .'</b></div>';
+        };
+
+        if(a($temp_address, 'city_detail', 'name'))
+        {
+        	$current_address .= '<div class="mB5">'. T_("City"). ' '. '<b>'. a($temp_address, 'city_detail', 'name') .'</b></div>';
+        };
+
+        if(a($temp_address, 'postcode'))
+        {
+        	$current_address .= '<div class="mB5">'. T_("Postcode"). ' '. '<b>'. \dash\fit::text(a($temp_address, 'postcode')) .'</b></div>';
+        };
+
+        if(a($temp_address, 'phone'))
+        {
+        	$current_address .= '<div class="mB5">'. T_("Phone"). ' '. '<b>'. \dash\fit::text(a($temp_address, 'phone')) .'</b></div>';
+        };
+
+        if(a($temp_address, 'address'))
+        {
+        	$current_address .= '<div class="mB5">'. a($temp_address, 'address') .'</div>';
+        };
+
 
         $address['html'] = $current_address;
 
         $list['address'] = $address;
 
-		/*=====  End of Business address  ======*/
 
-
-		/*=========================================
-		=            Business Currency            =
-		=========================================*/
 		$list[] =
 		[
 			'option_mode' => 'input',
@@ -163,12 +164,9 @@ class general
 				],
 			],
 		];
-		/*=====  End of Business Currency  ======*/
 
 
-		/*=========================================
-		=            Business mass            =
-		=========================================*/
+
 		$list[] =
 		[
 			'option_mode' => 'input',
@@ -185,12 +183,8 @@ class general
 				],
 			],
 		];
-		/*=====  End of Business mass  ======*/
 
 
-		/*=========================================
-		=            Business mass            =
-		=========================================*/
 		$list[] =
 		[
 			'option_mode' => 'input',
@@ -207,13 +201,9 @@ class general
 				],
 			],
 		];
-		/*=====  End of Business mass  ======*/
 
 
 
-		/*=========================================
-		=            Business language            =
-		=========================================*/
 		$list[] =
 		[
 			'option_mode' => 'input',
@@ -230,152 +220,6 @@ class general
 				],
 			],
 		];
-		/*=====  End of Business language  ======*/
-
-
-		/*=========================================
-		=            Business allow sale            =
-		=========================================*/
-		$list[] =
-		[
-			'option_mode' => 'input',
-			'title'       => T_("No sale"),
-			'desc'        => T_("Description"),
-			'input'       =>
-			[
-				\content_a\setting3\home\view::switcher('set_nosale'),
-				[
-					'type'  => 'checkbox',
-					'name'  => 'nosale',
-					'value' => \lib\store::detail('nosale'),
-
-				],
-			],
-		];
-		/*=====  End of Business allow sale  ======*/
-
-
-
-		/*=========================================
-		=            Business enterdisallow       =
-		=========================================*/
-		$list[] =
-		[
-			'option_mode' => 'input',
-			'title'       => T_("enterdisallow"),
-			'desc'        => T_("Description"),
-			'input'       =>
-			[
-				\content_a\setting3\home\view::switcher('set_enterdisallow'),
-				[
-					'type'  => 'checkbox',
-					'name'  => 'enterdisallow',
-					'value' => \lib\store::detail('enterdisallow'),
-
-				],
-			],
-		];
-		/*=====  End of Business enterdisallow  ======*/
-
-
-
-
-		/*=========================================
-		=            Business entersignupdisallow       =
-		=========================================*/
-		$list[] =
-		[
-			'option_mode' => 'input',
-			'title'       => T_("entersignupdisallow"),
-			'desc'        => T_("Description"),
-			'input'       =>
-			[
-				\content_a\setting3\home\view::switcher('set_entersignupdisallow'),
-				[
-					'type'  => 'checkbox',
-					'name'  => 'entersignupdisallow',
-					'value' => \lib\store::detail('entersignupdisallow'),
-
-				],
-			],
-		];
-		/*=====  End of Business entersignupdisallow  ======*/
-
-
-		/*=========================================
-		=            Business disallowsearchengine       =
-		=========================================*/
-		$list[] =
-		[
-			'option_mode' => 'input',
-			'title'       => T_("disallowsearchengine"),
-			'desc'        => T_("Description"),
-			'input'       =>
-			[
-				\content_a\setting3\home\view::switcher('set_disallowsearchengine'),
-				[
-					'type'  => 'checkbox',
-					'name'  => 'disallowsearchengine',
-					'value' => \lib\store::detail('disallowsearchengine'),
-
-				],
-			],
-		];
-		/*=====  End of Business disallowsearchengine  ======*/
-
-
-		/*=========================================
-		=            Business forceloginorder       =
-		=========================================*/
-		$list[] =
-		[
-			'option_mode' => 'input',
-			'title'       => T_("forceloginorder"),
-			'desc'        => T_("Description"),
-			'input'       =>
-			[
-				\content_a\setting3\home\view::switcher('set_forceloginorder'),
-				[
-					'type'  => 'checkbox',
-					'name'  => 'forceloginorder',
-					'value' => \lib\store::detail('forceloginorder'),
-
-				],
-			],
-		];
-		/*=====  End of Business forceloginorder  ======*/
-
-
-
-
-		/*========================================
-		=            Business remove            =
-		========================================*/
-		$remove =
-		[
-			'option_mode'  => 'btn',
-			'special_html' => 'remove',
-			'title'        => T_("Busienss remove"),
-			'desc'         => T_("This remove will appear on your invoices."),
-			'btn_link'     => \dash\url::that(). '/remove',
-			'btn_title'    => T_("Remove"),
-			'btn_class'    => 'btn-danger',
-
-		];
-
-
-
-        $list['remove'] = $remove;
-
-		/*=====  End of Business remove  ======*/
-
-
-
-
-
-
-
-
 
 
 
