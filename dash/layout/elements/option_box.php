@@ -164,7 +164,15 @@ class option_box
 			$btn_class = $_args['btn_class'];
 		}
 
-		return '<a class="'.$btn_class.'" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
+		if(a($_args, 'btn_html'))
+		{
+			return $_args['btn_html'];
+		}
+		else
+		{
+			return '<a class="'.$btn_class.'" href="'. a($_args, 'btn_link') .'">'. a($_args, 'btn_title').'</a>';
+		}
+
 	}
 
 
