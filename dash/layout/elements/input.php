@@ -241,7 +241,15 @@ class input
       		$html .= '</label>';
       		$html .= '<input type="file" accept="image/jpeg, image/png" id="image1">';
 		}
-    	$html .= '</div>';
+
+		if(a($_args, 'not_close_div'))
+		{
+			// nothing
+		}
+		else
+		{
+    		$html .= '</div>';
+		}
 
     	return $html;
 

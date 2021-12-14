@@ -61,29 +61,45 @@ class option_box
 
 			$html .= '<form class="c4 s12" method="post" data-patch>';
 			{
-				$html .= '<div class="action"';
 				if(a($_args, 'option_mode') === 'file')
 				{
-					$html .= " style='padding:0px;'"; // force remove padding on file
-				}
-
-				$html .= '>';
-				{
-					switch (a($_args, 'option_mode'))
+					foreach ($_args['input'] as $key => $value)
 					{
-						case 'input':
-						case 'file':
-							$html .= \dash\layout\elements\input::multiple_html($_args['input']);
+						if(a($value, 'type') === 'file')
+						{
+							$value['class']         = 'action';
+							$value['not_close_div'] = true;
+							$html .= \dash\layout\elements\input::file($value);
+							unset($_args['input'][$key]);
 							break;
-
-						default:
-						case 'btn':
-							$html .= self::action_btn($_args);
-							break;
+						}
 					}
+					$html .= \dash\layout\elements\input::multiple_html($_args['input']);
+
+					// close input file div
+					$html .= '</div>';
 
 				}
-				$html .= '</div>';
+				else
+				{
+					$html .= '<div class="action">';
+					{
+						switch (a($_args, 'option_mode'))
+						{
+							case 'input':
+							case 'file':
+								$html .= \dash\layout\elements\input::multiple_html($_args['input']);
+								break;
+
+							default:
+							case 'btn':
+								$html .= self::action_btn($_args);
+								break;
+						}
+					}
+					$html .= '</div>';
+				}
+
 			}
 			$html .= '</form>';
 
