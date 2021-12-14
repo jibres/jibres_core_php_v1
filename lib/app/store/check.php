@@ -5,6 +5,31 @@ namespace lib\app\store;
 class check
 {
 
+	public static function industry_list()
+	{
+		return
+		[
+			'beauty'           => T_('Beauty'),
+			'clothing'         => T_('Clothing'),
+			'electronics'      => T_('Electronics'),
+			'furniture'        => T_('Furniture'),
+			'handcrafts'       => T_('Handcrafts'),
+			'jewelry'          => T_('Jewelry'),
+			'painting'         => T_('Painting'),
+			'photography'      => T_('Photography'),
+			'restaurants'      => T_('Restaurants'),
+			'groceries'        => T_('Groceries'),
+			'other_food_drink' => T_('Other food &amp; drink'),
+			'sports'           => T_('Sports'),
+			'toys'             => T_('Toys'),
+			'services'         => T_('Services'),
+			'virtual_services' => T_('Virtual services'),
+			'other'            => T_('Other'),
+			'do_not_know'      => T_('I haven’t decided yet'),
+		];
+	}
+
+
 	public static function variable($_args, $_option = [])
 	{
 		$default_option =
