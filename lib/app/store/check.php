@@ -9,6 +9,7 @@ class check
 	{
 		return
 		[
+			'do_not_know'      => T_('I haven’t decided yet'),
 			'beauty'           => T_('Beauty'),
 			'clothing'         => T_('Clothing'),
 			'electronics'      => T_('Electronics'),
@@ -25,7 +26,6 @@ class check
 			'services'         => T_('Services'),
 			'virtual_services' => T_('Virtual services'),
 			'other'            => T_('Other'),
-			'do_not_know'      => T_('I haven’t decided yet'),
 		];
 	}
 
