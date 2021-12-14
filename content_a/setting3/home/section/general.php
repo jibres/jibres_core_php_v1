@@ -115,7 +115,7 @@ class general
 		/*========================================
 		=            Business address            =
 		========================================*/
-		$list['address'] =
+		$address =
 		[
 			'option_mode'  => 'btn',
 			'special_html' => 'address',
@@ -125,6 +125,21 @@ class general
 			'btn_title'    => T_("Edit address"),
 
 		];
+
+		$current_address = '';
+		$temp_address = \lib\store::detail();
+		$temp_address = a($temp_address, 'store_data');
+
+		if(a($temp_address, 'country_detail', 'name')) { $current_address .= '<div class="mB5">'. T_("Country"). ' '. '<b>'. a($temp_address, 'country_detail', 'name') .'</b></div>'; };
+        if(a($temp_address, 'province_detail', 'name')) { $current_address .= '<div class="mB5">'. T_("Province"). ' '. '<b>'. a($temp_address, 'province_detail', 'name') .'</b></div>'; };
+        if(a($temp_address, 'city_detail', 'name')) { $current_address .= '<div class="mB5">'. T_("City"). ' '. '<b>'. a($temp_address, 'city_detail', 'name') .'</b></div>'; };
+        if(a($temp_address, 'postcode')) { $current_address .= '<div class="mB5">'. T_("Postcode"). ' '. '<b>'. \dash\fit::text(a($temp_address, 'postcode')) .'</b></div>'; };
+        if(a($temp_address, 'phone')) { $current_address .= '<div class="mB5">'. T_("Phone"). ' '. '<b>'. \dash\fit::text(a($temp_address, 'phone')) .'</b></div>'; };
+        if(a($temp_address, 'address')) { $current_address .= '<div class="mB5">'. a($temp_address, 'address') .'</div>'; };
+
+        $address['html'] = $current_address;
+
+        $list['address'] = $address;
 
 		/*=====  End of Business address  ======*/
 
