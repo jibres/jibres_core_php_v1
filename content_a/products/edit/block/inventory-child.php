@@ -3,15 +3,9 @@ $storData           = \dash\data::store_store_data();
 $productDataRow     = \dash\data::productDataRow();
 $have_variant_child =\dash\data::productDataRow_variant_child();
 ?>
-
-
 <form method="post" autocomplete="off" id="form1">
   <div class="avand-md">
-
-
-
     <section class="box">
-
       <header><h2><?php echo T_("Inventory"); ?></h2></header>
       <div class="body">
          <div>
@@ -20,13 +14,8 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
           <input type="text" name="sku" id="sku" value="<?php echo a($productDataRow,'sku'); ?>" maxlength="16" class="text-center ltr">
         </div>
       </div>
-
         <div data-response='type' data-response-where='product' <?php if(!$productDataRow || \dash\data::productDataRow_type() === 'product'){}else{ echo 'data-response-hide';}?> >
-
           <div data-response='itrackquantity' <?php if(\dash\data::productDataRow_trackquantity() || (\dash\url::child() === 'add')){}else{ echo 'data-response-hide';} ?>  >
-
-
-
             <?php if(!$have_variant_child) {?>
               <div class="c s12 pRa10">
                 <label for='stock'><?php echo T_("Current Stock Count"); ?> <span class="font-bold pRa10"><?php echo \dash\fit::number(\dash\data::productDataRow_stock()); ?></span>
@@ -55,14 +44,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
           </p>
         </div>
       </div>
-
-
     </div>
-
   </section>
-
-
 </div>
-
-
 </form>
