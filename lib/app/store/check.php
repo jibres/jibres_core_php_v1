@@ -71,6 +71,8 @@ class check
 			'samandehi_link1'                     => 'url',
 			'samandehi_link2'                     => 'url',
 
+			'industry'                            => ['enum' => array_keys(self::industry_list())],
+
 			'redirect_all_domain_to_master'       => 'bit',
 			'redirect_jibres_subdomain_to_master' => 'bit',
 			'special_upload_provider'             => 'bit',

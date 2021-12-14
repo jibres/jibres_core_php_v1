@@ -44,18 +44,18 @@ class view extends \content_a\setting2\home\view
 		$list[] =
 		[
 			'option_mode' => 'input',
-			'title'       => T_("Business title"),
-			'desc'        => T_("This title use in your business"),
+			'title'       => T_("Business industry"),
+			'desc'        => T_("About your industry"),
 			'input'       =>
 			[
 				[
 					'type'  => 'hidden',
-					'name'  => 'set_title',
-					'value' => 'set_title',
+					'name'  => 'set_industry',
+					'value' => 'set_industry',
 				],
 				[
 					'type'  => 'select',
-					'name'  => 'title',
+					'name'  => 'industry',
 					'value' => \lib\store::detail('industry'),
 					'list'  => \lib\app\store\check::industry_list(),
 				],
@@ -66,10 +66,10 @@ class view extends \content_a\setting2\home\view
 		$list[] =
 		[
 			'option_mode' => 'btn',
-			'title' => T_("General"),
-			'desc' => T_("Description"),
-			'btn_link'  => \dash\url::this(). '/btn',
-			'btn_title' => T_("General"),
+			'title'       => T_("General"),
+			'desc'        => T_("Description"),
+			'btn_link'    => \dash\url::this(). '/btn',
+			'btn_title'   => T_("General"),
 
 		];
 

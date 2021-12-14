@@ -20,6 +20,21 @@ class model
 				\lib\store::refresh();
 			}
 		}
+
+		if(\dash\request::post('set_industry') === 'set_industry')
+		{
+			$post =
+			[
+				'industry'      => \dash\request::post('industry'),
+			];
+
+			\lib\app\store\edit::selfedit($post);
+
+			if(\dash\engine\process::status())
+			{
+				\lib\store::refresh();
+			}
+		}
 	}
 
 
