@@ -683,14 +683,14 @@ class set
 
 		if($data['country'] === 'IR' && !$data['province'])
 		{
-			\dash\notif::error(T_("Please choose your province"), 'province');
-			return false;
+			// \dash\notif::error(T_("Please choose your province"), 'province');
+			// return false;
 		}
 
 		if($data['country'] === 'IR' && !$data['city'])
 		{
-			\dash\notif::error(T_("Please choose your city"), 'city');
-			return false;
+			// \dash\notif::error(T_("Please choose your city"), 'city');
+			// return false;
 		}
 
 		$args = \dash\cleanse::patch_mode($_args, $data);
