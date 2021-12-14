@@ -3,6 +3,56 @@ namespace dash;
 
 class datetime
 {
+	private static $date_time_zone = null;
+
+
+	/**
+	 * Gets the current time zone.
+	 *
+	 * @return     string  The current time zone.
+	 */
+	public static function get_current_timezone()
+	{
+		return 'Asia/Tehran';
+		// return 'America/New_York';
+	}
+
+
+
+	/**
+	 * Date by convert timezone
+	 *
+	 * @param      <type>  $_format  The format
+	 * @param      <type>  $_time    The time
+	 *
+	 * @return     \       ( description_of_the_return_value )
+	 */
+	public static function my_date($_format, $_time = null)
+	{
+		if(!$_time)
+		{
+			$_time = time();
+		}
+
+		if(!self::$date_time_zone)
+		{
+			// Set the time zone
+			self::$date_time_zone = new \DateTimeZone(self::get_current_timezone());
+		}
+
+		// Create the datetime and set the timestamp
+		$date_time = new \DateTime();
+
+		$date_time->setTimestamp($_time);
+
+		// Convert to timezone
+		$date_time->setTimeZone(self::$date_time_zone);
+
+		$my_date = $date_time->format($_format);
+
+		return $my_date;
+	}
+
 
 	/**
 	 * return all format supported
@@ -120,7 +170,7 @@ class datetime
 
 			case 'en':
 			default:
-				$finalDate = date($myFormat, $myDatetime);
+				$finalDate = self::my_date($myFormat, $myDatetime);
 				break;
 		}
 
