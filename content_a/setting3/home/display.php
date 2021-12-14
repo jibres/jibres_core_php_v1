@@ -41,7 +41,7 @@ $html .= '<div class="row">';
 	{
 		$special_html_addr = __DIR__ .'/html/'. \dash\data::specialHtml(). '.php';
 
-		if(\dash\data::specialHtml() && is_file($special_html_addr))
+		if(\dash\data::specialHtml())
 		{
 			echo $html;
 			$html = '';
