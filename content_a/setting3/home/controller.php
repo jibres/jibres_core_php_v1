@@ -34,6 +34,11 @@ class controller
 
 					\dash\data::settingOptions($child_detail);
 				}
+
+				if(a($list, $child, 'special_html'))
+				{
+					\dash\data::specialHtml(a($list, $child, 'special_html'));
+				}
 			}
 
 			if($subchild)
@@ -82,9 +87,10 @@ class controller
 
 		$list['a123'] =
 		[
-			'icon'  => \dash\utility\icon::svg('123', 'bootstrap'),
-			'title' => T_("Security"),
-			'link'  => \dash\url::this(). '/a123',
+			'icon'         => \dash\utility\icon::svg('123', 'bootstrap'),
+			'title'        => T_("Security"),
+			'link'         => \dash\url::this(). '/a123',
+			'special_html' => 'test',
 		];
 
 
