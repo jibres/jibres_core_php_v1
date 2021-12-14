@@ -173,28 +173,25 @@ class input
 	{
 		$html = '';
 
-		$html .= '<div>';
+
+		$html .= '<select class="select22" name="'. a($_args, 'name'). '" data-placeholder="'. a($_args, 'placeholder'). '">';
 		{
-			$html .= '<select class="select22" name="'. a($_args, 'name'). '" data-placeholder="'. a($_args, 'placeholder'). '">';
+			if(is_array(a($_args, 'list')))
 			{
-				if(is_array(a($_args, 'list')))
+				foreach ($_args['list'] as $key => $value)
 				{
-					foreach ($_args['list'] as $key => $value)
+					$selected = '';
+
+					if($key === a($_args, 'value'))
 					{
-						$selected = '';
-
-						if($key === a($_args, 'value'))
-						{
-							$selected = ' selected';
-						}
-
-						$html .= '<option value="'. $key. '"'.$selected.'>'. $value. '</option>';
+						$selected = ' selected';
 					}
+
+					$html .= '<option value="'. $key. '"'.$selected.'>'. $value. '</option>';
 				}
 			}
-			$html .= '</select>';
 		}
-		$html .= '</div>';
+		$html .= '</select>';
 
 		return $html;
 	}
