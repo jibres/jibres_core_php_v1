@@ -17,6 +17,8 @@ class model
 
 			if(\dash\engine\process::status())
 			{
+				\dash\notif::clean();
+				\dash\notif::complete();
 				\lib\store::refresh();
 			}
 		}
@@ -32,6 +34,8 @@ class model
 
 			if(\dash\engine\process::status())
 			{
+				\dash\notif::clean();
+				\dash\notif::complete();
 				\lib\store::refresh();
 			}
 		}
