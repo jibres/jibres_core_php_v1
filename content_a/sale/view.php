@@ -23,6 +23,8 @@ class view
 		\dash\face::btnSaveName('save_btn');
 		\dash\face::btnSaveValue('save_next');
 		\dash\face::btnSaveText(T_("Save Factor & Continue"));
+
+		\dash\data::include_m2('wide');
 	}
 }
 ?>
