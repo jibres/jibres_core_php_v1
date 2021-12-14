@@ -211,6 +211,29 @@ class general
 
 
 
+		/*=========================================
+		=            Business language            =
+		=========================================*/
+		$list[] =
+		[
+			'option_mode' => 'input',
+			'title'       => T_("Dimensions language"),
+			'desc'        => T_("Description"),
+			'input'       =>
+			[
+				\content_a\setting3\home\view::switcher('set_lang'),
+				[
+					'type'  => 'select',
+					'name'  => 'lang',
+					'value' => \lib\store::detail('lang'),
+					'list'  => \dash\language::all(true),
+				],
+			],
+		];
+		/*=====  End of Business language  ======*/
+
+
+
 
 		return $list;
 
