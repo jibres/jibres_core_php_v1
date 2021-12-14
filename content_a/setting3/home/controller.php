@@ -80,11 +80,11 @@ class controller
 		];
 
 
-		$list['123'] =
+		$list['a123'] =
 		[
 			'icon'  => \dash\utility\icon::svg('123', 'bootstrap'),
 			'title' => T_("Security"),
-			'link'  => \dash\url::this(). '/122',
+			'link'  => \dash\url::this(). '/a123',
 		];
 
 
