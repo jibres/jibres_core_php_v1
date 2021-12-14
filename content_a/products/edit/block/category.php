@@ -1,3 +1,10 @@
+<?php
+$listSaveCat = \dash\data::listSavedCat();
+if(!is_array($listSaveCat))
+{
+  $listSaveCat = [];
+}
+?>
 <div class="box">
   <div class="pad">
     <div class="mB10">
@@ -7,7 +14,7 @@
       </div>
 
       <select name="category[]" id="category" class="select22" data-model="tag" multiple="multiple" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true'>
-        <?php foreach (\dash\data::listSavedCat() as $key => $value) {?>
+        <?php foreach ($listSaveCat as $key => $value) {?>
           <option value="<?php echo $value; ?>" selected><?php echo $value; ?></option>
         <?php } //endfor ?>
       </select>

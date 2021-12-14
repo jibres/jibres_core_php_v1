@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\add;
+namespace content_a\products\quick;
 
 
 class view
