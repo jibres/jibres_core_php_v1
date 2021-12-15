@@ -7,6 +7,10 @@ class model
 	public static function post()
 	{
 
+		// test
+		\dash\notif::postMsg(['hi' => 'javad']);
+
+
 		$post =
 		[
 			'title'     => \dash\request::post('title'),
@@ -41,7 +45,6 @@ class model
 				}
 			}
 		}
-
 	}
 }
 ?>
