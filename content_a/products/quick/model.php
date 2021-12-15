@@ -6,16 +6,6 @@ class model
 {
 	public static function post()
 	{
-
-		$notif =
-		[
-			'type'    => 'success',
-			'title'   => 'title',
-			'msg'     => 'msg',
-			'timeout' => '',
-			'opt'     => '',
-		];
-
 		\dash\notif::ok('salam');
 		\dash\notif::warn('salam2');
 		\dash\notif::error('salam2', ['alerty' => true]);
@@ -26,7 +16,6 @@ class model
 			'type'   => 'closeAndRun',
 			'fn'     => 'echo',
 			'args'   => 'salam',
-			'alerty' => $notif,
 			'notif'  => \dash\notif::get_msg(),
 		];
 
