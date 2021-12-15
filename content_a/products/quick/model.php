@@ -6,36 +6,8 @@ class model
 {
 	public static function post()
 	{
-		\dash\notif::ok('salam');
-		\dash\notif::warn('salam2');
-		\dash\notif::error('salam2', ['alerty' => true]);
-		// test
-		$msg =
-		[
-			'hello'  => 'everyone!',
-			'type'   => 'closeAndRun',
-			'fn'     => 'echo',
-			'args'   => 'salam',
-			'notif'  => \dash\notif::get_msg(),
-		];
 
-
-
-		\dash\notif::postMsg($msg);
-		return;
-
-
-
-		// test
-		$msg =
-		[
-			'hello' => 'everyone!',
-			// 'type'  => 'closeAndRun',
-			// 'fn'    => 'echo',
-			// 'args'  => 'salam',
-			'say'   => ['title' => 'abc', 'desc' => 'aaaaa'],
-			'notif' => ['title' => 'abc', 'desc' => 'aaaaa'],
-		];
+		$msg =	[];
 
 		$post =
 		[
@@ -83,12 +55,14 @@ class model
 
 
 
-		if(\dash\engine\process::status())
+		if(\dash\request::is_iframe() && \dash\engine\process::status())
 		{
-			$msg['type'] = 'closeAndRun';
+			$msg['type']  = 'closeAndRun';
+			$msg['notif'] = \dash\notif::get_msg();
+
+			\dash\notif::postMsg($msg);
 		}
 
-		\dash\notif::postMsg($msg);
 	}
 }
 ?>
