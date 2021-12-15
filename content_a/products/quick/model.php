@@ -7,6 +7,31 @@ class model
 	public static function post()
 	{
 
+		$notif =
+		[
+			'type'    => 'success',
+			'title'   => 'title',
+			'msg'     => 'msg',
+			'timeout' => '',
+			'opt'     => '',
+		];
+
+		// test
+		$msg =
+		[
+			'hello'  => 'everyone!',
+			'type'   => 'closeAndRun',
+			'fn'     => 'echo',
+			'args'   => 'salam',
+			'alerty' => $notif,
+			// 'notif'  => $notif,
+		];
+
+		\dash\notif::postMsg($msg);
+		return;
+
+
+
 		// test
 		$msg =
 		[
