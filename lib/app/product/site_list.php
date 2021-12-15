@@ -201,7 +201,7 @@ class site_list
 			$datalist['stock'] = $_data['stock'];
 		}
 
-		$datalist['editlink'] = a($_data, 'edit_url');
+		$datalist['editlink'] = a($_data, 'edit_iframe');
 
 		// add price to name of item
 		$html   .= $priceTxt. '</span>';
