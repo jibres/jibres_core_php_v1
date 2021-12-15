@@ -56,7 +56,7 @@ class ready
 					if(\dash\url::content() === 'a')
 					{
 						$result['edit_url'] = \dash\url::here(). '/products/edit?id='. $value;
-						$result['edit_iframe'] = $result['edit_url']. '&iframe=1';
+						$result['edit_iframe'] = \dash\url::here(). '/products/quick?id='. $value;
 					}
 					break;
 
