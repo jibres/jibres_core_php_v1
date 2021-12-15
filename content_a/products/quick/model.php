@@ -16,6 +16,9 @@ class model
 			'opt'     => '',
 		];
 
+		\dash\notif::ok('salam');
+		\dash\notif::warn('salam2');
+		\dash\notif::error('salam2', ['alerty' => true]);
 		// test
 		$msg =
 		[
@@ -24,8 +27,10 @@ class model
 			'fn'     => 'echo',
 			'args'   => 'salam',
 			'alerty' => $notif,
-			// 'notif'  => $notif,
+			'notif'  => \dash\notif::get_msg(),
 		];
+
+
 
 		\dash\notif::postMsg($msg);
 		return;

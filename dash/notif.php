@@ -321,6 +321,16 @@ class notif
 	}
 
 
+	public static function get_msg()
+	{
+		if(isset(self::$notif['msg']))
+		{
+			return self::$notif['msg'];
+		}
+
+		return [];
+	}
+
 	public static function json()
 	{
 		if(count(self::$notif) > 0)
