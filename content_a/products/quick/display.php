@@ -29,6 +29,13 @@ $html .= '<form class="jPage" id="aProductData" method="post" autocomplete="off"
 			require_once(root. 'content_a/products/edit/block/price.php');
 
 
+		}
+		$html .= '</div>';
+
+		$html .= '<div class="c-xs-12 c-sm-6 c-md-4 c-xxl-3">';
+		{
+			echo $html;
+			$html = '';
 			if($have_variant_child)
 			{
 			/*  --------------- All detail for inventory hide when the product is parent of other product*/
@@ -37,14 +44,6 @@ $html .= '<form class="jPage" id="aProductData" method="post" autocomplete="off"
 			{
 			  require_once(root. 'content_a/products/edit/block/barcode.php');
 			}
-		}
-		$html .= '</div>';
-
-		$html .= '<div class="c-xs-12 c-sm-6 c-md-4 c-xxl-3">';
-		{
-			echo $html;
-			$html = '';
-			require_once (root. 'content_a/products/edit/block/category.php');
 		}
 		$html .= '</div>';
 	}
