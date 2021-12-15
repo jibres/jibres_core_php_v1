@@ -10,7 +10,7 @@
 
         </div>
         <div class="flex-none pLa5">
-          <a data-fancybox data-type="iframe" data-preload="false" class="btn-light h-9 w-12 flex" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/a/products/add?iframe=sale"><?php echo \dash\utility\icon::svg('CirclePlus') ?></a>
+          <a data-fancybox data-type="iframe" data-preload="false" class="btn-light h-9 w-12 flex" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/a/products/quick?iframe=sale"><?php echo \dash\utility\icon::svg('CirclePlus') ?></a>
         </div>
       </div>
     </div>
