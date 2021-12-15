@@ -12,8 +12,10 @@ class model
 		[
 			'hello' => 'everyone!',
 			'type'  => 'closeAndRun',
-			'fn'    => 'Jibres',
-			'args'  => '999',
+			'fn'    => 'echo',
+			'args'  => 'salam',
+			'say'   => ['title' => 'abc', 'desc' => 'aaaaa'],
+			'notif' => ['title' => 'abc', 'desc' => 'aaaaa'],
 		];
 		\dash\notif::postMsg($msg);
 
