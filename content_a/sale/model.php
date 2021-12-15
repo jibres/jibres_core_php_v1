@@ -89,6 +89,7 @@ class model
 		$product  = \dash\request::post('products');
 		$count    = \dash\request::post('count');
 		$discount = \dash\request::post('discount');
+		$price    = \dash\request::post('price');
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
@@ -123,7 +124,7 @@ class model
 				'product'  => $value,
 				'count'    => array_key_exists($key, $count) ? $count[$key] : null,
 				'discount' => $my_discount,
-				'price'    => null, // get from product price
+				'price'    => array_key_exists($key, $price) ? $price[$key] : null,
 			];
 		}
 
