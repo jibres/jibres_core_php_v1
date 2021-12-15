@@ -11,14 +11,12 @@ class model
 		$msg =
 		[
 			'hello' => 'everyone!',
-			'type'  => 'closeAndRun',
-			'fn'    => 'echo',
-			'args'  => 'salam',
+			// 'type'  => 'closeAndRun',
+			// 'fn'    => 'echo',
+			// 'args'  => 'salam',
 			'say'   => ['title' => 'abc', 'desc' => 'aaaaa'],
 			'notif' => ['title' => 'abc', 'desc' => 'aaaaa'],
 		];
-		\dash\notif::postMsg($msg);
-
 
 		$post =
 		[
@@ -37,7 +35,9 @@ class model
 
 		if($id)
 		{
-			$result = \lib\app\product\edit::edit($post, $id);
+			$result      = \lib\app\product\edit::edit($post, $id);
+			$msg['fn']   = 'ProductEditedFunction';
+			$msg['args'] = $id;
 		}
 		else
 		{
@@ -45,16 +45,31 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				if(isset($result['id']))
+				$msg['fn']   = 'AddNewProductFunction';
+				$msg['args'] = a($result, 'id');
+
+				if(!\dash\request::is_iframe())
 				{
-					\dash\redirect::to(\dash\url::that(). '?id='. $result['id']);
-				}
-				else
-				{
-					\dash\redirect::to(\dash\url::that());
+					if(isset($result['id']))
+					{
+						\dash\redirect::to(\dash\url::that(). '?id='. $result['id']);
+					}
+					else
+					{
+						\dash\redirect::to(\dash\url::that());
+					}
 				}
 			}
 		}
+
+
+
+		if(\dash\engine\process::status())
+		{
+			$msg['type'] = 'closeAndRun';
+		}
+
+		\dash\notif::postMsg($msg);
 	}
 }
 ?>
