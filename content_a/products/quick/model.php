@@ -13,14 +13,15 @@ class model
 
 		$post =
 		[
-			'title'     => \dash\request::post('title'),
-			'price'     => \dash\request::post('price'),
-			'discount'  => \dash\request::post('discount'),
-			'vat'       => \dash\request::post('vat'),
-			'buyprice'  => \dash\request::post('buyprice'),
-			'barcode'   => \dash\request::post('barcode'),
-			'barcode2'  => \dash\request::post('barcode2'),
-			'scalecode' => \dash\request::post('scalecode'),
+			'title'         => \dash\request::post('title'),
+			'price'         => \dash\request::post('price'),
+			'discount'      => \dash\request::post('discount'),
+			'vat'           => \dash\request::post('vat'),
+			'buyprice'      => \dash\request::post('buyprice'),
+			'barcode'       => \dash\request::post('barcode'),
+			'barcode2'      => \dash\request::post('barcode2'),
+			'trackquantity' => \dash\request::post('trackquantity'),
+			'stock'         => \dash\request::post('stock'),
 		];
 
 		$id = \dash\request::get('id');

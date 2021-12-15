@@ -25,6 +25,70 @@ $html .= '<form class="jPage" id="aProductData" method="post" autocomplete="off"
 			require_once(root. 'content_a/products/edit/block/price.php');
 
 
+
+			$html .= '<section class="box">';
+			{
+
+				$html .= '<header><h2>'. T_("Inventory"). '</h2></header>';
+				$html .= '<div class="body">';
+				{
+
+					$html .= '<div data-response="type" data-response-where="product" ';
+					if(!$productDataRow || \dash\data::productDataRow_type() === 'product')
+					{
+
+					}
+					else
+					{
+						$html .=  'data-response-hide';
+					}
+					$html .= '>';
+					{
+
+						$html .= '<div class="switch1 mB5">';
+						{
+
+							$html .= '<input type="checkbox" name="trackquantity" id="itrackquantity" '. ((\dash\data::productDataRow_trackquantity() || (\dash\data::addMode())) ? 'checked' : ''). '>';
+							$html .= '<label for="itrackquantity"></label>';
+							$html .= '<label for="itrackquantity">'. T_("Track quantity"). '<small></small></label>';
+						}
+						$html .= '</div>';
+						$html .= '<div data-response="itrackquantity" ';
+						if(\dash\data::productDataRow_trackquantity() || (\dash\data::addMode()))
+						{
+
+						}
+						else
+						{
+							$html .= 'data-response-hide';
+						}
+						$html .= '>';
+						{
+
+							if(!$have_variant_child)
+							{
+								$html .= '<div class="c s12 pRa10">';
+								{
+
+									$html .= '<label for="stock">'. T_("Current Stock Count"). ' <span class="font-bold pRa10">' . \dash\fit::number(\dash\data::productDataRow_stock()). '</span></label>';
+									$html .= '<div class="input">';
+									{
+										$html .= '<input type="tel" name="stock" id="stock" data-format="number" placeholder="'.  T_('Current Stock Count'). ' '. \dash\fit::number(\dash\data::productDataRow_stock()). '" maxlength="7">';
+									}
+									$html .= '</div>';
+								}
+								$html .= '</div>';
+							}
+						}
+						$html .= '</div>';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</section>';
+
+
 		}
 		$html .= '</div>';
 
@@ -38,7 +102,8 @@ $html .= '<form class="jPage" id="aProductData" method="post" autocomplete="off"
 			}
 			else
 			{
-			  require_once(root. 'content_a/products/edit/block/barcode.php');
+				$force_remove_scalecode = true;
+				require_once(root. 'content_a/products/edit/block/barcode.php');
 			}
 		}
 		$html .= '</div>';
