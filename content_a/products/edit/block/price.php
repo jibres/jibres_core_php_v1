@@ -58,7 +58,7 @@
           </div>
         <?php } //endif ?>
         <div>
-          <div class="" data-desc>
+          <div class="alert2" data-desc>
             <div class="f align-center">
                 <div class="cauto">
                   <?php echo T_("Final Price"); ?>
