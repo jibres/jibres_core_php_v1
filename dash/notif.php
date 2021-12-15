@@ -217,6 +217,10 @@ class notif
 		self::add_detail('livePosition', $_livePosition);
 	}
 
+	public static function postMsg($_data)
+	{
+		self::add_detail('postMsg', $_data);
+	}
 
 	public static function sound($_sound = null)
 	{
