@@ -102,7 +102,7 @@ $html .= '<form class="jPage" id="aProductData" method="post" autocomplete="off"
 			}
 			else
 			{
-				$force_remove_scalecode = true;
+				$quick_mode = true;
 				require_once(root. 'content_a/products/edit/block/barcode.php');
 			}
 		}
