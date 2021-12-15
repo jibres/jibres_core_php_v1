@@ -20,7 +20,7 @@ class check
 			'photography'      => T_('Photography'),
 			'restaurants'      => T_('Restaurants'),
 			'groceries'        => T_('Groceries'),
-			'other_food_drink' => T_('Other food &amp; drink'),
+			'other_food_drink' => T_('Other food and drink'),
 			'sports'           => T_('Sports'),
 			'toys'             => T_('Toys'),
 			'services'         => T_('Services'),
