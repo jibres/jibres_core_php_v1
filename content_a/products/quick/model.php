@@ -8,7 +8,14 @@ class model
 	{
 
 		// test
-		\dash\notif::postMsg(['hi' => 'javad']);
+		$msg =
+		[
+			'hello' => 'everyone!',
+			'type'  => 'closeAndRun',
+			'fn'    => 'Jibres',
+			'args'  => '999',
+		];
+		\dash\notif::postMsg($msg);
 
 
 		$post =
