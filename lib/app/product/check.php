@@ -102,7 +102,7 @@ class check
 
 		if($data['barcode'] && $data['barcode2'] && $data['barcode'] == $data['barcode2'])
 		{
-			\dash\notif::error(T_("Duplicate barcode in one product"), 'barcode2');
+			\dash\notif::error(T_("Both product barcodes are equal. The first and second product barcodes cannot be equal"), ['element' => ['barcode', 'barcode2']]);
 			return false;
 		}
 
