@@ -2,11 +2,12 @@
   <div class="pad jboxCodes">
     <?php if(isset($quick_mode) && $quick_mode) { ?>
       <div>
+      <div>
     <?php }else{ ?>
-    <div class="mB10" data-kerkere='.showBarcodeBlock' data-kerkere-icon data-ajaxify data-data='{"set_barcodesetting": "save"}'><?php echo T_("Enable barcode"); ?></div>
-  <?php }// endif ?>
+      <div class="mB10" data-kerkere='.showBarcodeBlock' data-kerkere-icon data-ajaxify data-data='{"set_barcodesetting": "save"}'><?php echo T_("Enable barcode"); ?></div>
+      <div class="showBarcodeBlock" <?php if((isset($storData['barcode']) && $storData['barcode'])) {/*nothing*/}else{echo 'data-kerkere-content="hide"';}?>>
+    <?php }// endif ?>
 
-    <div class="showBarcodeBlock" <?php if((isset($storData['barcode']) && $storData['barcode'])) {/*nothing*/}else{echo 'data-kerkere-content="hide"';}?>>
       <div class="f">
         <div class="c s12 pRa5">
           <label for="barcode"><?php echo T_("Barcode"); ?></label>
