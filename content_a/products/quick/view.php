@@ -6,12 +6,13 @@ class view
 {
 	public static function config()
 	{
+		if(!\dash\request::is_iframe())
+		{
+			// back
+			\dash\data::back_text(T_('Products'));
+			\dash\data::back_link(\lib\app\back_btn\link::products());
+		}
 
-
-
-		// back
-		\dash\data::back_text(T_('Products'));
-		\dash\data::back_link(\lib\app\back_btn\link::products());
 
 		if(\dash\data::addMode())
 		{

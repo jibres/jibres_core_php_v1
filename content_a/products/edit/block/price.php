@@ -43,7 +43,7 @@
 
 
         <?php if(isset($storData['tax_status']) && $storData['tax_status']) {?>
-          <div class="" data-desc>
+          <div class="alert2" data-desc>
             <div class="f align-center">
               <div class="c pRa5">
                 <div class="check1 mB0">
@@ -69,7 +69,7 @@
                     <?php }else{ ?>
                     <?php } //endif ?>
                   </div>
-                <div class="c ltr txtRa px-1 fs16" id="finalPrice"><?php echo a($productDataRow,'finalprice'); ?></div>
+                <div class="c ltr txtRa px-1" id="finalPrice"><?php echo a($productDataRow,'finalprice'); ?></div>
                 <div class="cauto" id="moneyUnit"><?php echo a($storData,'currency_detail','symbol_native'); ?></div>
             </div>
           </div>
