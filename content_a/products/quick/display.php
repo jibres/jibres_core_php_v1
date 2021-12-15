@@ -1,14 +1,8 @@
 <?php
-
 $storData           = \dash\data::store_store_data();
 $productDataRow     = \dash\data::productDataRow();
 $have_variant_child = \dash\data::productDataRow_variant_child();
-$child_list         = \dash\data::productDataRow_child();
 
-if(!is_array($child_list))
-{
-	$child_list = [];
-}
 
 $html = '';
 
@@ -24,6 +18,8 @@ $html .= '<form class="jPage" id="aProductData" method="post" autocomplete="off"
 
 			echo $html;
 			$html = '';
+
+			$force_hide_product_title2 = true;
 
 			require_once(root. 'content_a/products/edit/block/title.php');
 			require_once(root. 'content_a/products/edit/block/price.php');

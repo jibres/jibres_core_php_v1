@@ -15,6 +15,11 @@ class model
 			return false;
 		}
 
+		if(!\dash\engine\process::status())
+		{
+			return false;
+		}
+
 		if(isset($result['id']))
 		{
 			self::upload_gallery($result['id']);
