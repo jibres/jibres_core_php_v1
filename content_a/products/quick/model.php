@@ -36,7 +36,7 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				$msg['fn']   = 'AddNewProductFunction';
+				$msg['fn']   = 'addProductByID';
 				$msg['args'] = a($result, 'id');
 
 				if(!\dash\request::is_iframe())
