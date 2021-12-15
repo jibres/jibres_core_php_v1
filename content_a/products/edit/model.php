@@ -6,6 +6,12 @@ class model
 {
 	public static function add()
 	{
+
+		if(self::save_barcode_setting())
+		{
+			return false;
+		}
+
 		$post = self::get_post();
 
 		$result = \lib\app\product\add::add($post);
