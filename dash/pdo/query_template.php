@@ -51,6 +51,31 @@ class query_template
 	}
 
 
+	public static function multi_insert($_table, $_args, $_fuel = null, $_option = [])
+	{
+
+		$args = prepare_query::ready_for_multi_insert($_args);
+		if(!$args)
+		{
+			return false;
+		}
+
+
+		$IGNORE = null;
+
+		if(a($_option, 'ignore'))
+		{
+			$IGNORE = 'IGNORE';
+		}
+
+		$query = "INSERT $IGNORE INTO `$_table` $args[query] ";
+
+		$result = \dash\pdo::query($query, $args['param'], $_fuel, $_option);
+
+		return \dash\pdo::insert_id();
+	}
+
+
 	public static function update($_table, $_args, $_id, $_fuel = null, $_option = [])
 	{
 		if(empty($_args))
