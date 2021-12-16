@@ -250,13 +250,13 @@ class add
 		if($start_transaction)
 		{
 			// start transaction of db
-			\dash\db::transaction();
+			\dash\pdo::transaction();
 		}
 
 		if(!$_option['factor_id'])
 		{
 			$add_new_factor = true;
-			$factor_id = \lib\db\factors\insert::new_record($factor);
+			$factor_id = \lib\db\orders\insert::new_record($factor);
 		}
 		else
 		{
@@ -272,7 +272,7 @@ class add
 
 			if($start_transaction)
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 			}
 
 			return false;
@@ -317,13 +317,13 @@ class add
 		}
 
 		// insert factor detail record
-		$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);
+		$add_detail = \lib\db\orderdetails\insert::multi_insert($factor_detail);
 
 		if(!$add_detail)
 		{
 			if($start_transaction)
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 			}
 			return false;
 		}
@@ -350,7 +350,7 @@ class add
 		{
 			if($start_transaction)
 			{
-				\dash\db::commit();
+				\dash\pdo::commit();
 			}
 
 			$msg = T_("Factor successfuly added");
