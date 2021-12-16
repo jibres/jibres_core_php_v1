@@ -91,6 +91,11 @@ class model
 		$discount = \dash\request::post('discount');
 		$price    = \dash\request::post('price');
 
+		if(!is_array($price))
+		{
+			$price = [];
+		}
+
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
 			\dash\notif::warn(T_("No items have been added for sale"));
