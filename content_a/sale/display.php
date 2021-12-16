@@ -24,7 +24,9 @@
      <th class="headCount collapsing"><?php echo T_("Count"); ?></th>
      <th class="headPrice min100"><?php echo T_("Price"); ?></th>
      <th class="headDiscount collapsing"><?php echo T_("Discount"); ?></th>
-     <th class="headVat collapsing" data-vat-percent='9'><?php echo T_("Vat"); ?></th>
+     <?php if(\dash\data::showVatColum()) {?>
+     <th class="headVat collapsing" data-vat-percent='<?php echo \dash\data::vatDecimal(); ?>'><?php echo T_("Vat"); ?></th>
+     <?php } //endif ?>
      <th class="headTotal min100"><?php echo T_("Total"); ?></th>
     </tr>
    </thead>

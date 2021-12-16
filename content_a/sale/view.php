@@ -25,6 +25,9 @@ class view
 		\dash\face::btnSaveText(T_("Save Factor & Continue"));
 
 		\dash\data::include_m2('wide');
+
+		\dash\data::showVatColum(\lib\store::detail('show_vat_column'));
+		\dash\data::vatDecimal(\lib\vat::decimal());
 	}
 }
 ?>
