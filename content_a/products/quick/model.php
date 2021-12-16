@@ -27,7 +27,7 @@ class model
 		if($id)
 		{
 			$result      = \lib\app\product\edit::edit($post, $id);
-			$msg['fn']   = 'ProductEditedFunction';
+			$msg['fn']   = 'updateProductByID';
 			$msg['args'] = $id;
 		}
 		else
