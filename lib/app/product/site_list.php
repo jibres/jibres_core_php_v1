@@ -333,6 +333,27 @@ class site_list
 			$result['scaleDuplicate'] = $_data['scaleDuplicate'];
 		}
 
+
+		$result['stock'] = null;
+		if(array_key_exists('stock', $_data))
+		{
+			$result['stock'] = $_data['stock'];
+		}
+
+		$result['vatIncluded'] = null;
+		if(isset($_data['vat']) && $_data['vat'])
+		{
+			$result['vatIncluded'] = $_data['vat'];
+		}
+
+		$result['vat'] = null;
+		if(isset($_data['vatprice']))
+		{
+			$result['vat'] = floatval($_data['vatprice']);
+		}
+
+		$result['editlink'] = a($_data, 'edit_iframe');
+
 		return $result;
 
 	}
