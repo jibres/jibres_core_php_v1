@@ -15,7 +15,7 @@ class model
 
 		$detail = self::get_order_detail();
 
-		$factor_detail = \lib\app\factor\add::new_factor($detail, $order_items);
+		$factor_detail = \lib\app\order\add::new_factor($detail, $order_items);
 
 		$query_data = [];
 
