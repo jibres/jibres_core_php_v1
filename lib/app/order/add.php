@@ -118,22 +118,22 @@ class add
 		===========================================*/
 		$check_discount_code = [];
 
-		if($_option['discount_code'] || $_option['discount_id'])
-		{
-			if($_option['discount_code'])
-			{
-				$check_discount_code = \lib\app\discount\discount_check::get_result($_option['discount_code'], $factor, $factor_detail);
-			}
-			else
-			{
-				$check_discount_code = \lib\app\discount\discount_check::get_result_by_discount_id($_option['discount_id'], $factor, $factor_detail);
-			}
+		// if($_option['discount_code'] || $_option['discount_id'])
+		// {
+		// 	if($_option['discount_code'])
+		// 	{
+		// 		$check_discount_code = \lib\app\discount\discount_check::get_result($_option['discount_code'], $factor, $factor_detail);
+		// 	}
+		// 	else
+		// 	{
+		// 		$check_discount_code = \lib\app\discount\discount_check::get_result_by_discount_id($_option['discount_id'], $factor, $factor_detail);
+		// 	}
 
-			// save discount id
-			if(a($check_discount_code, 'discount_id'))
-			{
-				$factor['discount_id'] = $check_discount_code['discount_id'];
-			}
+		// 	// save discount id
+		// 	if(a($check_discount_code, 'discount_id'))
+		// 	{
+		// 		$factor['discount_id'] = $check_discount_code['discount_id'];
+		// 	}
 		}
 		/*=====  End of Check discount code  ======*/
 
