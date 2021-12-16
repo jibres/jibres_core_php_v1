@@ -143,17 +143,17 @@ if(\dash\url::isLocal())
           'container:class'         =>  'max-w-screen-2xl w-full px-2 sm:px-4 lg:px-5',
           'magicbox_gap:class'      =>  'gap-1 sm:gap-2 md:gap-4 lg:gap-6',
       ];
-      $html .= '<div data-type="g1" class="flex overflow-hidden relative py-2 md:py-3 lg:py-4" style="min-height: 25vh;" id="g1-46">';
+      $html .= '<div data-type="g1" class="flex overflow-hidden relative py-2 md:py-3 lg:py-4">';
       {
         $html .= '<div class="m-auto max-w-screen-2xl w-full px-2 sm:px-4 lg:px-5">';
         {
-          $html .= '<div class="grid grid-cols-4 gap-1 sm:gap-2 md:gap-4 lg:gap-6">';
+          $html .= '<div class="grid grid-cols-10 gap-1 sm:gap-2 md:gap-4 lg:gap-6">';
           {
             $html .= \content_site\assemble\element\magicbox::html($args, $category['products'], $optMagicBox);
           }
           $html .= '</div>';
         }
-        $html .= '</div>';
+        // $html .= '</div>';
 
       }
       $html .= '</div>';
