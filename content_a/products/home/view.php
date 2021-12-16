@@ -59,6 +59,7 @@ class view
 		if(\dash\request::get('t')) 	$args['t']    = \dash\request::get('t');
 		if(\dash\request::get('tq')) 	$args['tq']    = \dash\request::get('tq');
 		if(\dash\request::get('pr')) 	$args['pr']    = \dash\request::get('pr');
+		if(\dash\request::get('hvat')) 	$args['hvat']    = \dash\request::get('hvat');
 
 		if(\dash\detect\device::detectPWA())
 		{

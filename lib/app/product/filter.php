@@ -231,6 +231,28 @@ class filter
 		];
 
 
+
+
+		$list['have_vat'] =
+		[
+			'key'            => 'have_vat',
+			'group'          => T_("Vat"),
+			'title'          => T_("Have vat"),
+			'query'			 => ['hvat' => 'y'],
+			'public'         => false,
+		];
+
+
+		$list['have_not_vat'] =
+		[
+			'key'            => 'have_not_vat',
+			'group'          => T_("Vat"),
+			'title'          => T_("Have not vat"),
+			'query'			 => ['hvat' => 'n'],
+			'public'         => false,
+		];
+
+
 		$list['have_variant'] =
 		[
 			'key'            => 'have_variant',

@@ -53,6 +53,7 @@ class search
 			'so'             => 'y_n',
 			'w'              => 'y_n',
 			't'              => 'y_n',
+			'hvat'              => 'y_n',
 			'tq'             => 'y_n',
 			'pr'             => 'y_n', // property
 
@@ -197,6 +198,18 @@ class search
 		}
 
 
+
+		// barcode
+		if(isset($data['hvat']) && $data['hvat'] === 'y')
+		{
+			$and[] = " products.vat = 'yes' ";
+			self::$is_filtered       = true;
+		}
+		elseif(isset($data['hvat']) && $data['hvat'] === 'n')
+		{
+			$and[] = " ( products.vat IS NULL OR products.vat = 'no' )";
+			self::$is_filtered       = true;
+		}
 
 
 		// barcode
