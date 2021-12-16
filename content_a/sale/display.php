@@ -94,5 +94,9 @@
 </form>
 
 
-
+<div>
+  <div data-quick-addProduct="1" class="btn-secondary">
+    test1
+  </div>
+</div>
 
