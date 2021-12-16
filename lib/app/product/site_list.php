@@ -228,6 +228,7 @@ class site_list
 		}
 
 		$datalist['editlink'] = a($_data, 'edit_iframe');
+		$datalist['isProduct'] = true;
 
 		// add price to name of item
 		$html   .= $priceTxt. '</span>';
@@ -353,6 +354,7 @@ class site_list
 		}
 
 		$result['editlink'] = a($_data, 'edit_iframe');
+		$result['isProduct'] = true;
 
 		return $result;
 
