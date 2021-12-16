@@ -73,8 +73,9 @@
       <div class="detail item"><abbr><?php echo T_("Count of items"); ?></abbr> <span>-</span></div>
       <div class="detail count"><abbr><?php echo T_("Sum of counts"); ?></abbr> <span>-</span></div>
       <div class="detail sum"><abbr><?php echo T_("Invoice amount"); ?></abbr> <span>-</span></div>
+      <div class="detail vat"><abbr><?php echo T_("Total VAT"); ?></abbr> <span>-</span></div>
       <div class="detail discountPercent"><abbr><?php echo T_("Discount percent"); ?></abbr> <span>-</span></div>
-      <div class="detail discount" title='<?php echo T_("Press f7 or click to toggle discount"); ?>'><abbr><?php echo T_("Total discount"); ?> <kbd>f7</kbd></abbr> <span>-</span></div>
+      <div class="detail discount" title='<?php echo T_("Press f7 or click to toggle discount"); ?>'><abbr><?php echo T_("Total discount"); ?> <kbd class="bg-gray-600 p-0.5 rounded mx-1">f7</kbd></abbr> <span>-</span></div>
     </div>
 
     <div class="cbox NextBox p0 hide">
