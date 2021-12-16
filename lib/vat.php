@@ -19,5 +19,17 @@ class vat
 		return 9;
 	}
 
+
+	/**
+	 * Vat decimal
+	 *
+	 * @return   0.09
+	 */
+	public static function decimal()
+	{
+		return self::percent() / 100;
+	}
+
+
 }
 ?>
