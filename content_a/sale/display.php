@@ -24,6 +24,7 @@
      <th class="headCount collapsing"><?php echo T_("Count"); ?></th>
      <th class="headPrice min100"><?php echo T_("Price"); ?></th>
      <th class="headDiscount collapsing"><?php echo T_("Discount"); ?></th>
+     <th class="headVat collapsing" data-vat-percent='9'><?php echo T_("Vat"); ?></th>
      <th class="headTotal min100"><?php echo T_("Total"); ?></th>
     </tr>
    </thead>
