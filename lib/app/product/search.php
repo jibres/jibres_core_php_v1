@@ -646,7 +646,10 @@ class search
 
 	public static function list_in_sale($_query_string, $_args)
 	{
-		$_args['limit'] = 25;
+		if(!a($_args, 'limit'))
+		{
+			$_args['limit'] = 25;
+		}
 		$list        = self::products_list('price_factor_count', $_query_string, $_args);
 		return $list;
 	}

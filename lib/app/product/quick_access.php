@@ -5,7 +5,18 @@ class quick_access
 {
 	public static function sale_page()
 	{
-		$category_list = \lib\app\category\search::site_list();
+		$max_count_category = 10;
+		$max_count_product  = 10;
+
+		$category_args =
+		[
+			'firstlevel' => 1,
+			'limit'      => $max_count_product
+		];
+
+
+		$category_list = \lib\app\category\search::list(null, $category_args);
+
 
 		if(!$category_list || !is_array($category_list))
 		{
@@ -20,8 +31,6 @@ class quick_access
 			];
 		}
 
-		$max_count_category = 10;
-		$max_count_product  = 10;
 
 		$new_list = [];
 
@@ -30,7 +39,7 @@ class quick_access
 			$args =
 			[
 				'limit'      => $max_count_product,
-				'pagination' => 'no',
+				// 'pagination' => 'no',
 			];
 
 			if(a($category, 'id'))
@@ -38,8 +47,8 @@ class quick_access
 				$args['cat_id'] = $category['id'];
 			}
 
-
 			$search_product_by_category = search::list_in_sale(null, $args);
+
 			if(!is_array($search_product_by_category))
 			{
 				$search_product_by_category = [];
