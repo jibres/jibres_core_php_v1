@@ -109,7 +109,16 @@ if(\dash\url::isLocal())
   {
     $html .= '<div data-kerkere=".showQuirckAccess'. a($category, 'id'). '" data-kerkere-single>';
     {
-      $html .= a($category, 'title');
+      // $optMagicBox =
+      // [
+      //     'grid' => true,
+      // ];
+      // $html .= \content_site\assemble\element\magicbox::eachItem([], $category, $optMagicBox, null, null, null);
+      $html .= '<div class="btn-primary">';
+      {
+        $html .= a($category, 'title');
+      }
+      $html .= '</div>';
     }
     $html .= '</div>';
 
