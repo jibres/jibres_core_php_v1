@@ -468,7 +468,7 @@ class get
                 {
                     $editlink_args = array_merge(['id' => a($one_item, 'id')], $_option['editlink_args']);
 
-                    $result .= '<div data-ajaxify data-data=\'{"remove": "'.a($one_item, 'id') .'"}\' href="'. $_option['editlink'] .'?'. \dash\request::build_query($editlink_args). '"><i class="sf-trash font-10 fc-red"></i></div>';
+                    $result .= '<div data-ajaxify data-data=\'{"remove": "'.a($one_item, 'id') .'"}\' href="'. $_option['editlink'] .'?'. \dash\request::build_query($editlink_args). '">'.\dash\utility\icon::svg('trash', 'bootstrap', null, 'text-red-500 h-3 w-3 mt-2').'</div>';
                 }
                 $result .= '</div>';
             }
