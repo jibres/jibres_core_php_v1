@@ -14,6 +14,13 @@ class add
 	 */
 	public static function new_factor($_factor, $_factor_detail, $_option = [])
 	{
+		// store not loaded!
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
 		$default_option =
 		[
 			'debug'               => true,
@@ -51,29 +58,46 @@ class add
 		$_option = array_merge($default_option, $_option);
 
 
-		// store not loaded!
-		if(!\lib\store::id())
+		/**
+		 * Factor add by customer
+		 * from website cart checkout module
+		 *
+		 * @var        <type>
+		 */
+		$add_by_customer = $_option['customer_mode'];
+
+
+		// the factor mode
+		$mode = 'admin';
+
+		if($add_by_customer)
 		{
-			\dash\notif::error(T_("Store not found"), 'subdomain');
-			return false;
+			// change factor mode to customer
+			$mode = 'customer';
 		}
 
-		if(!$_option['customer_mode'])
+		// need start transaction and then commit or rollback
+		$start_transaction = $_option['start_transaction'];
+
+		// in admin module need check permission
+		if(!$add_by_customer)
 		{
 			// check permission to add new factor
 			\dash\permission::access('factorSaleAdd');
 		}
 
-		// check args
+		// check factor args
 		$factor          = \lib\app\order\check::factor($_factor, $_option);
-
-		$_option['type'] = $factor['type'];
 
 		if(!$factor || !\dash\engine\process::status())
 		{
 			return false;
 		}
 
+		// save factor type to send to check factor detail function
+		$_option['type'] = $factor['type'];
+
+		// check factor detail function
 		$factor_detail = \lib\app\order\check_detail::factor_detail($_factor_detail, $_option);
 
 		if(!$factor_detail || !\dash\engine\process::status())
@@ -81,8 +105,7 @@ class add
 			return false;
 		}
 
-
-
+		// prepare factor field
 		$factor['subprice']    = self::my_sum($factor_detail, 'sub_price_temp');
 		$factor['subdiscount'] = self::my_sum($factor_detail, 'sub_discount_temp');
 		$factor['subvat']      = self::my_sum($factor_detail, 'sub_vat_temp');
@@ -121,8 +144,11 @@ class add
 			$factor['discount2'] = $check_discount_code['discount2'];
 		}
 
+		// calculate total price
+		// temp calculate total to send to shipping function
 		$factor['total']     = floatval($factor['subtotal']) - floatval($factor['discount']) - floatval($factor['discount2']);
 
+		// check discount less than total price
 		if($factor['discount'])
 		{
 			if(floatval($factor['discount']) + floatval($factor['discount2']) > floatval($factor['subtotal']))
@@ -132,33 +158,37 @@ class add
 			}
 		}
 
-		$fileMode = false;
-		if(array_values(array_filter(array_unique(array_column($factor_detail, 'type')))) === ['file'])
+		// calcuate shipping if in customer mdoe
+		if($add_by_customer)
 		{
-			$fileMode = true;
-		}
-
-		// the factor mode
-		$mode = 'admin';
-
-		if($_option['customer_mode'])
-		{
-			// change factor mode to customer
-			$mode = 'customer';
+			// check all item of factor detail is file or no
+			$fileMode = false;
+			if(array_values(array_filter(array_unique(array_column($factor_detail, 'type')))) === ['file'])
+			{
+				$fileMode = true;
+			}
 
 			$factor = shipping::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $fileMode, 'shipping_value' => a($_option, 'force_shipping_value')]);
 		}
 
 		$factor['realshipping'] = $factor['shipping'];
 
+		// check discount code is freeshipping mode
 		if(a($check_discount_code, 'free_shipping') === true)
 		{
 			$factor['shipping'] = 0;
 		}
 
+		// finaly calculate total by shipping and discount price
 		$factor['total']     = (floatval($factor['subtotal']) - (floatval($factor['discount']) + floatval($factor['discount2']))) + floatval($factor['shipping']);
 
+		// check max input size for factor
+		$factor          = \lib\app\factor\check::value_max_limit($factor, $_option);
 
+		if(!$factor || !\dash\engine\process::status())
+		{
+			return false;
+		}
 
 		/**
 		 * Retrun data.
@@ -170,6 +200,7 @@ class add
 			return $factor;
 		}
 
+
 		if($_option['re_calculate_factor'])
 		{
 			$result                  = [];
@@ -179,6 +210,12 @@ class add
 			return $result;
 		}
 
+
+		$ip_id    = \dash\utility\ip::id();
+		$agent_id = \dash\agent::get(true);
+		// needless to recalculate field.
+		// this field only use in add new factor
+		// according to this set after return re_calculate_factor option
 		$factor['status']    = $factor['status'] ? $factor['status'] : 'registered';
 		$factor['seller']    = \dash\user::id();
 		$factor['date']      = date("Y-m-d H:i:s");
@@ -186,43 +223,19 @@ class add
 		$factor['pre']       = null;
 		$factor['desc']      = $factor['desc'];
 		$factor['mode']      = $mode;
-
-		// check max input size for factor
-		$factor          = \lib\app\factor\check::value_max_limit($factor, $_option);
-
-		if(!$factor || !\dash\engine\process::status())
-		{
-			return false;
-		}
-
-		// only in customer mode check minimum order amount
-		// admin can add order by every amount
-		if($mode === 'customer')
-		{
-			$cart_setting = \lib\app\setting\get::cart_setting();
-			if(isset($cart_setting['minimumorderamount']) && $cart_setting['minimumorderamount'] && is_numeric($cart_setting['minimumorderamount']))
-			{
-				if(floatval($factor['subtotal']) < floatval($cart_setting['minimumorderamount']))
-				{
-					$minimumorderamount_html = T_("Minimum order amount is :val :currency", ['val' => \dash\fit::number($cart_setting['minimumorderamount']), 'currency' => \lib\store::currency()]);
-					$minimumorderamount_html .= '<br>';
-					$minimumorderamount_html .= T_("You must add :val :currency to your cart", ['val' => \dash\fit::number($cart_setting['minimumorderamount'] - $factor['subtotal']), 'currency' => \lib\store::currency()]);
-					\dash\notif::error('1', ['alerty' => true, 'html' => $minimumorderamount_html]);
-					return false;
-				}
-			}
-
-		}
-
-
-		$ip_id    = \dash\utility\ip::id();
-		$agent_id = \dash\agent::get(true);
-
 		$factor['ip_id']    = $ip_id;
 		$factor['agent_id'] = $agent_id;
 
-		if($mode === 'customer')
+
+		// only in customer mode check minimum order amount
+		// admin can add order by every amount
+		if($add_by_customer)
 		{
+			if(!self::check_minimum_cart_setting($factor['subtotal']))
+			{
+				return false;
+			}
+
 			// check rate limit add new order
 			if(!self::check_rate_limit($factor['customer'], $ip_id, $agent_id))
 			{
@@ -231,7 +244,10 @@ class add
 		}
 
 
-		if($_option['start_transaction'])
+		/*=============================================
+		=            Add new factor record            =
+		=============================================*/
+		if($start_transaction)
 		{
 			// start transaction of db
 			\dash\db::transaction();
@@ -254,18 +270,20 @@ class add
 			\dash\log::set('factor:no:way:to:insert:factor');
 			\dash\notif::error(T_("No way to insert factor"));
 
-			if($_option['start_transaction'])
+			if($start_transaction)
 			{
 				\dash\db::rollback();
 			}
 
 			return false;
 		}
+		/*=====  End of Add new factor record  ======*/
 
-		$return              = [];
-		$return['factor_id'] = $factor_id;
-		$return['price']     = floatval($factor['total']);
 
+
+		/*==========================================
+		=            Save factor detail            =
+		==========================================*/
 		$product_discount = [];
 		if(is_array(a($check_discount_code, 'product_discount')))
 		{
@@ -298,17 +316,19 @@ class add
 
 		}
 
+		// insert factor detail record
 		$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);
 
 		if(!$add_detail)
 		{
-			if($_option['start_transaction'])
+			if($start_transaction)
 			{
 				\dash\db::rollback();
 			}
 			return false;
 		}
 
+		// save product inventory
 		foreach ($product_need_track_stock as $key => $value)
 		{
 			\lib\app\product\inventory::set('sale', $value['count'], $value['product_id'], $factor_id);
@@ -321,23 +341,32 @@ class add
 				}
 			}
 		}
+		/*=====  End of Save factor detail  ======*/
+
+
+		// finaly notif and commit
 
 		if(\dash\engine\process::status())
 		{
-			if($_option['start_transaction'])
+			if($start_transaction)
 			{
 				\dash\db::commit();
 			}
 
 			$msg = T_("Factor successfuly added");
 
-			if(!$_option['customer_mode'])
+			if(!$add_by_customer)
 			{
 				$msg = '<a href="'. \dash\url::kingdom(). '/a/order/detail?id='. $factor_id. '">'. $msg . '</a>';
 			}
 
 			\dash\notif::ok($msg);
 		}
+
+		// return result
+		$return              = [];
+		$return['factor_id'] = $factor_id;
+		$return['price']     = floatval($factor['total']);
 
 		return $return;
 	}
@@ -426,6 +455,25 @@ class add
 		}
 
 		// ok
+		return true;
+	}
+
+
+	private static function check_minimum_cart_setting($_subtotal)
+	{
+		$cart_setting = \lib\app\setting\get::cart_setting();
+		if(isset($cart_setting['minimumorderamount']) && $cart_setting['minimumorderamount'] && is_numeric($cart_setting['minimumorderamount']))
+		{
+			if(floatval($_subtotal) < floatval($cart_setting['minimumorderamount']))
+			{
+				$minimumorderamount_html = T_("Minimum order amount is :val :currency", ['val' => \dash\fit::number($cart_setting['minimumorderamount']), 'currency' => \lib\store::currency()]);
+				$minimumorderamount_html .= '<br>';
+				$minimumorderamount_html .= T_("You must add :val :currency to your cart", ['val' => \dash\fit::number($cart_setting['minimumorderamount'] - $_subtotal), 'currency' => \lib\store::currency()]);
+				\dash\notif::error('1', ['alerty' => true, 'html' => $minimumorderamount_html]);
+				return false;
+			}
+		}
+
 		return true;
 	}
 }
