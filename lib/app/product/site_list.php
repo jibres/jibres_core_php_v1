@@ -184,11 +184,6 @@ class site_list
 			$datalist['buyprice'] = floatval($_data['buyprice']);
 		}
 
-		if(isset($_data['vatprice']))
-		{
-			$datalist['vatprice'] = floatval($_data['vatprice']);
-		}
-
 
 		if(isset($_data['price']))
 		{
@@ -215,10 +210,16 @@ class site_list
 			$datalist['stock'] = $_data['stock'];
 		}
 
-		$datalist['vat'] = null;
+		$datalist['vatIncluded'] = null;
 		if(isset($_data['vat']) && $_data['vat'])
 		{
-			$datalist['vat'] = $_data['vat'];
+			$datalist['vatIncluded'] = $_data['vat'];
+		}
+
+		$datalist['vat'] = null;
+		if(isset($_data['vatprice']))
+		{
+			$datalist['vat'] = floatval($_data['vatprice']);
 		}
 
 		$datalist['editlink'] = a($_data, 'edit_iframe');
