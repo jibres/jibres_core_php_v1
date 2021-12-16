@@ -58,7 +58,7 @@ class site_list
 				\dash\code::end();
 			}
 
-			$result = self::getNeededField_barcode($result);
+			$result = self::getNeededField($result, true);
 			\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 			\dash\code::jsonBoom(\dash\notif::get());
 
@@ -68,7 +68,7 @@ class site_list
 			$result = \lib\app\product\get::get($id);
 			if($result)
 			{
-				$result = self::getNeededField_barcode($result);
+				$result = self::getNeededField($result, true);
 			}
 			else
 			{
@@ -99,7 +99,7 @@ class site_list
 
 	}
 
-	private static function getNeededField($_data)
+	private static function getNeededField($_data, $_array = false)
 	{
 
 		if(\dash\request::get('mode') === 'text')
@@ -112,15 +112,12 @@ class site_list
 		}
 
 
-		// $myName = '<img class="ui avatar image" src="'.  $value['avatar'] .'">';
-		// $myName .= '<span class="pRa10">'. \dash\fit::number($value['code']). '</span>';
-		// $myName .= '   '. $value['firstname']. ' <b>'. $value['lastname']. '</b> <small class="badge light mLa5">'. $value['father'].'</small>';
-		// $myName .= '<span class="description">'. \dash\fit::number($value['nationalcode']). '</span>';
-
 		$result   = [];
+
 		$id       = null;
+
 		$html     = '<div class="flex align-center">';
-		$datalist = [];
+
 		$priceTxt = '<span class="description ltr">';
 
 		if(isset($_data['thumb']))
@@ -130,183 +127,66 @@ class site_list
 
 		if(isset($_data['id']))
 		{
-			$id = $_data['id'];
-			$datalist['id'] = $_data['id'];
+			$id              = $_data['id'];
+			$result['id']    = $id;
+			$result['value'] = $id;
 		}
+
 
 		if(isset($_data['title']))
 		{
-			$datalist['title'] = $_data['title'];
+			$result['title'] = $_data['title'];
+
 			$html .= '<span class="mx-1 flex-grow">'. $_data['title']. '</span>';
 
 			if(isset($_data['vat']) && $_data['vat'])
 			{
 				$html .= '*';
 			}
-
-			// if(isset($_data['optionname1']) && isset($_data['optionvalue1']))
-			// {
-			// 	$html .= '<span class="mx-1">'. $_data['optionname1']. ' '. $_data['optionvalue1']. '</span>';
-			// }
-
-			// if(isset($_data['optionname2']) && isset($_data['optionvalue2']))
-			// {
-			// 	$html .= '<span class="mx-1">'. $_data['optionname2']. ' '. $_data['optionvalue2']. '</span>';
-			// }
-
-			// if(isset($_data['optionname3']) && isset($_data['optionvalue3']))
-			// {
-			// 	$html .= '<span class="mx-1">'. $_data['optionname3']. ' '. $_data['optionvalue3']. '</span>';
-			// }
 		}
 
-		if(isset($_data['barcode']))
-		{
-			$datalist['barcode'] = $_data['barcode'];
-			$html .= '<span class="mx-1 px-1 rounded-lg bg-blue-100 text-blue-500">'. T_('Barcode'). '</span>';
-		}
-
-		if(isset($_data['barcode2']))
-		{
-			$datalist['barcode2'] = $_data['barcode2'];
-			$html .= '<span class="mx-1 px-1 rounded-lg bg-blue-100 text-blue-500">'. T_('Iran barcode'). '</span>';
-		}
-
-		if(isset($_data['code']))
-		{
-			$datalist['desc'] = T_("Code"). ' +'. $_data['code'];
-			$html .= '<span class="mx-1 px-1 rounded-lg bg-blue-100 text-blue-600">'. T_('Code'). $_data['code']. '</span>';
-		}
 
 		if(isset($_data['finalprice']) && $_data['finalprice'])
 		{
-			$datalist['finalprice'] = $_data['finalprice'];
-			$priceTxt .= '<span class="font-bold">'. \dash\fit::number($datalist['finalprice']). '</span>';
-		}
-
-		if(isset($_data['buyprice']))
-		{
-			$datalist['buyprice'] = floatval($_data['buyprice']);
-		}
-
-
-		if(isset($_data['price']))
-		{
-			$datalist['price'] = floatval($_data['price']);
-			// if(floatval($datalist['price']) !== floatval($datalist['finalprice']))
-			// {
-			// 	$priceTxt .= ' <span class="badge light mLR10"><i class="sf-bolt"></i> '. \dash\fit::number($datalist['price']);
-			// }
-		}
-		else
-		{
-			$datalist['price'] = null;
-		}
-
-		if(isset($_data['discount']) && $_data['discount'])
-		{
-			$datalist['discount'] = $_data['discount'];
-			$priceTxt .= ' - '. \dash\fit::number($datalist['discount']). '</span>';
-		}
-
-		$datalist['stock'] = null;
-		if(array_key_exists('stock', $_data))
-		{
-			$datalist['stock'] = $_data['stock'];
-		}
-
-		$datalist['vatIncluded'] = null;
-		if(isset($_data['vat']) && $_data['vat'])
-		{
-			$datalist['vatIncluded'] = $_data['vat'];
-		}
-
-		$datalist['vat'] = null;
-		if(isset($_data['vatprice']))
-		{
-			$datalist['vat'] = floatval($_data['vatprice']);
-		}
-
-		$datalist['editlink'] = a($_data, 'edit_iframe');
-		$datalist['isProduct'] = true;
-
-		// add price to name of item
-		$html   .= $priceTxt. '</span>';
-		$html   .= '</div>';
-
-		$result =
-		[
-			// select22
-			'html'     => $html,
-			'id'       => $id,
-			// for extra use and remove double query
-			'datalist' => $datalist,
-		];
-
-
-		// $all_field_we_have =
-		// [
-		// 	'title', 'name', 'cat', 'slug', 'company', 'shortcode', 'unit',
-		// 	'barcode', 'barcode2', 'code', 'buyprice', 'price', 'discount',
-		// 	'discountpercent', 'vat', 'initialbalance', 'minstock', 'maxstock',
-		// 	'status', 'sold', 'stock', 'thumb', 'service', 'checkstock',
-		// 	'factoronline', 'factorstore', 'carton', 'datecreated', 'datemodified', 'desc',
-		// ];
-
-		return $result;
-	}
-
-
-	private static function getNeededField_barcode($_data)
-	{
-		$result = [];
-
-		if(isset($_data['id']))
-		{
-			$result['id'] = $_data['id'];
-			$result['value'] = $_data['id'];
-		}
-
-		if(isset($_data['title']))
-		{
-			$result['title'] = $_data['title'];
-		}
-
-		if(isset($_data['finalprice']) && $_data['finalprice'])
-		{
-			$result['count'] = \dash\fit::number($_data['finalprice']);
+			$result['count']      = \dash\fit::number($_data['finalprice']);
+			$result['finalprice'] = $_data['finalprice'];
+			$priceTxt .= '<span class="font-bold">'. \dash\fit::number($result['finalprice']). '</span>';
 		}
 
 		if(isset($_data['barcode']))
 		{
 			$result['barcode'] = $_data['barcode'];
+			$html .= '<span class="mx-1 px-1 rounded-lg bg-blue-100 text-blue-500">'. T_('Barcode'). '</span>';
 		}
 
 		if(isset($_data['barcode2']))
 		{
 			$result['barcode2'] = $_data['barcode2'];
+			$html .= '<span class="mx-1 px-1 rounded-lg bg-blue-100 text-blue-500">'. T_('Iran barcode'). '</span>';
 		}
 
 
 		if(isset($_data['price']))
 		{
-			$result['price'] = $_data['price'];
+			$result['price'] = floatval($_data['price']);
+		}
+		else
+		{
+			$result['price'] = null;
+
 		}
 
 		if(isset($_data['buyprice']))
 		{
-			$result['buyprice'] = $_data['buyprice'];
+			$result['buyprice'] = floatval($_data['buyprice']);
 		}
 
 		if(isset($_data['discount']))
 		{
-			$result['discount'] = $_data['discount'];
+			$result['discount'] = floatval($_data['discount']);
+			$priceTxt .= ' - '. \dash\fit::number($result['discount']). '</span>';
 		}
 
-		if(isset($_data['code']))
-		{
-			$result['desc'] = T_("Code"). ' /'. $_data['code'];
-		}
 
 		if(isset($_data['price']))
 		{
@@ -356,8 +236,28 @@ class site_list
 		$result['editlink'] = a($_data, 'edit_iframe');
 		$result['isProduct'] = true;
 
-		return $result;
+
+		// add price to name of item
+		$html   .= $priceTxt. '</span>';
+		$html   .= '</div>';
+
+
+		if($_array)
+		{
+			return $result;
+		}
+		else
+		{
+			return
+			[
+				'html'     => $html,
+				'id'       => $id,
+				// for extra use and remove double query
+				'datalist' => $result,
+			];
+		}
 
 	}
+
 }
 ?>
