@@ -39,7 +39,7 @@ class search
 			'cat_id'         => 'id',
 			'tag_with_child' => 'bit',
 			'unit_id'        => 'id',
-			'website_order' => 'string_50',
+			'website_order'  => 'string_50',
 
 			'dup'            => 'bit',
 			'bar'            => 'y_n',
@@ -53,7 +53,7 @@ class search
 			'so'             => 'y_n',
 			'w'              => 'y_n',
 			't'              => 'y_n',
-			'hvat'              => 'y_n',
+			'hvat'           => 'y_n',
 			'tq'             => 'y_n',
 			'pr'             => 'y_n', // property
 
@@ -62,6 +62,7 @@ class search
 
 			'websitemode'    => 'bit',
 
+			'pagination'     => 'yes_no',
 		];
 
 
@@ -87,6 +88,11 @@ class search
 		if(isset($data['limit']))
 		{
 			$meta['limit'] = $data['limit'];
+		}
+
+		if($data['pagination'] === 'no')
+		{
+			$meta['pagination']                  = false;
 		}
 
 		$order_sort  = null;

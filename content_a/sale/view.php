@@ -28,6 +28,9 @@ class view
 
 		\dash\data::showVatColum(\lib\store::detail('show_vat_column'));
 		\dash\data::vatDecimal(\lib\vat::decimal());
+
+		$saleQuickAccess = \lib\app\product\quick_access::sale_page();
+		\dash\data::saleQuickAccess($saleQuickAccess);
 	}
 }
 ?>

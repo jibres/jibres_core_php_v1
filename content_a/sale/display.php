@@ -93,11 +93,40 @@
   </div>
 </form>
 
-<?php if(false) {?>
-<div>
-  <div data-quick-addProduct="1" class="btn-secondary">
-    test1
-  </div>
-</div>
-<?php } //endif ?>
+<?php
+
+$html = '';
+
+if(\dash\url::isLocal())
+{
+  $saleQuickAccess = \dash\data::saleQuickAccess();
+  if(!is_array($saleQuickAccess))
+  {
+    $saleQuickAccess = [];
+  }
+
+  foreach ($saleQuickAccess as $key => $category)
+  {
+    $html .= '<div data-kerkere=".showQuirckAccess'. a($category, 'id'). '" data-kerkere-single>';
+    {
+      $html .= a($category, 'title');
+    }
+    $html .= '</div>';
+
+    $html .= '<div class="showQuirckAccess'. a($category, 'id'). '" data-kerkere-content="hide">';
+    {
+      foreach ($category['products'] as $key => $product)
+      {
+        $html .= '<div data-quick-addProduct="'.a($product, 'id').'" class="btn-secondary">';
+        {
+          $html .= a($product, 'title');
+        }
+        $html .= '</div>';
+      }
+    }
+    $html .= '</div>';
+  }
+}
+echo $html;
+?>
 
