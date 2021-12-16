@@ -23,6 +23,7 @@ class quick_access
 		$max_count_category = 10;
 		$max_count_product  = 10;
 
+		$new_list = [];
 
 		foreach ($category_list as $key => $category)
 		{
@@ -45,9 +46,14 @@ class quick_access
 			}
 
 			$category_list[$key]['products'] = $search_product_by_category;
+
+			if($search_product_by_category)
+			{
+				$new_list[] = $category_list[$key];
+			}
 		}
 
-		return $category_list;
+		return $new_list;
 	}
 }
 ?>
