@@ -468,6 +468,11 @@ class sitemap
 
 	private static function make($_type, $_id, $_field, $_fn)
 	{
+		// skip make sitemap in local
+		if(\dash\url::isLocal())
+		{
+			return;
+		}
 
 		$calculate = self::calculate($_id);
 
