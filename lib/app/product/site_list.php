@@ -58,10 +58,18 @@ class site_list
 			\dash\code::jsonBoom(\dash\notif::get());
 
 		}
-		elseif(\dash\validate::id(\dash\request::get('id'), false))
+		elseif($id = \dash\validate::id(\dash\request::get('id'), false))
 		{
-			$result = \lib\app\product\search::list_in_sale(null, ['id' => \dash\validate::id(\dash\request::get('id'), false)]);
-			$result = self::getNeededField_barcode($result);
+			$result = \lib\app\product\get::get($id);
+			if($result)
+			{
+				$result = self::getNeededField_barcode($result);
+			}
+			else
+			{
+				$result = [];
+			}
+
 			\dash\notif::result(['list' => json_encode($result, JSON_UNESCAPED_UNICODE)]);
 			\dash\code::jsonBoom(\dash\notif::get());
 		}
