@@ -261,7 +261,7 @@ class search
 		// only if have product calculate shipping
 		if(in_array('product', $all_type))
 		{
-			$shipping_value = \lib\app\factor\add::get_shipping_price($subtotal);
+			$shipping_value = \lib\app\factor\shipping::get_shipping_price($subtotal);
 		}
 
 		$result             = [];
