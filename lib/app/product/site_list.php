@@ -38,16 +38,21 @@ class site_list
 			$result = \lib\app\product\find::barcode(\dash\validate::barcode(\dash\request::get('barcode'), false));
 			if(!$result)
 			{
-				$msg .= '<a href="'. \dash\url::here(). '/products/add';
+
+				$quick_add_args = [];
+
 				if(mb_strlen(\dash\request::get('barcode')) === 5)
 				{
 					// do nothing
 				}
 				else
 				{
-					$msg .= '?barcode='. \dash\request::get('barcode');
+					$quick_add_args['barcode'] = \dash\request::get('barcode');
 				}
-				$msg .=  '" target="_blank">'. T_('add as new product'). '</a>';
+				$quick_add_args['iframe'] = 1;
+
+				$quick_add_url = \dash\url::here(). '/products/quick?'. \dash\request::build_query($quick_add_args);
+				$msg .= '<br><a href="'. $quick_add_url. '" data-fancybox data-type="iframe" target="_blank" class="font-bold link-primary">'. T_('add as new product'). '</a>';
 
 				\dash\notif::result(['message' => $msg]);
 				\dash\code::end();
