@@ -17,6 +17,8 @@ class add
 		$default_option =
 		[
 			'debug'               => true,
+
+			// fill if in edit mode
 			'factor_id'           => null,
 
 			// customer try to add new factor by cart and shipping page
@@ -221,58 +223,13 @@ class add
 
 		if($mode === 'customer')
 		{
-			$until = date("Y-m-d H:i:s", (time() - (60*60)));
-
-			if(isset($factor['customer']) && is_numeric($factor['customer']))
+			// check rate limit add new order
+			if(!self::check_rate_limit($factor['customer'], $ip_id, $agent_id))
 			{
-				$count_factor_record_per_user = \lib\db\factors\get::count_factor_record_per_user($factor['customer'], $until);
-
-				if($count_factor_record_per_user > 20)
-				{
-					\dash\notif::error(T_("You have a lot unpaid factors. Please try again later"));
-
-					\dash\waf\ip::isolateIP(1, 'user max factor unpaid 1 hour');
-
-	                return false;
-				}
-			}
-			else
-			{
-				if(!$ip_id || !$agent_id)
-				{
-					\dash\notif::error(T_("Who are you?"));
-
-					\dash\waf\ip::isolateIP(1, 'factor ip or agent id is null!');
-
-		            return false;
-				}
-
-				$count_factor_record_per_ip = \lib\db\factors\get::count_factor_record_per_ip($ip_id, $until);
-
-				if($count_factor_record_per_ip > 10)
-				{
-					\dash\notif::error(T_("You have a lot unpaid factors. Please try again later or login to add more"));
-
-					\dash\waf\ip::isolateIP(1, 'ip max factor unpaid 1 hour');
-
-	                return false;
-				}
-				else
-				{
-					$count_factor_record_per_ip_agent = \lib\db\factors\get::count_factor_record_per_ip_agent($ip_id, $agent_id, $until);
-
-					if($count_factor_record_per_ip_agent > 5)
-					{
-						\dash\notif::error(T_("You have a lot unpaid factors. Please try again later or login to add more"));
-
-						\dash\waf\ip::isolateIP(1, 'ip agent max factor unpaid 1 hour');
-
-						return false;
-					}
-				}
-
+				return false;
 			}
 		}
+
 
 		if($_option['start_transaction'])
 		{
@@ -282,10 +239,12 @@ class add
 
 		if(!$_option['factor_id'])
 		{
+			$add_new_factor = true;
 			$factor_id = \lib\db\factors\insert::new_record($factor);
 		}
 		else
 		{
+			$add_new_factor = false;
 			$factor_id = $_option['factor_id'];
 		}
 
@@ -294,6 +253,12 @@ class add
 		{
 			\dash\log::set('factor:no:way:to:insert:factor');
 			\dash\notif::error(T_("No way to insert factor"));
+
+			if($_option['start_transaction'])
+			{
+				\dash\db::rollback();
+			}
+
 			return false;
 		}
 
@@ -337,6 +302,10 @@ class add
 
 		if(!$add_detail)
 		{
+			if($_option['start_transaction'])
+			{
+				\dash\db::rollback();
+			}
 			return false;
 		}
 
@@ -551,6 +520,65 @@ class add
 
 
 
+	}
+
+
+	private static function check_rate_limit($_customer, $_ip_id, $_agent_id)
+	{
+		$until = date("Y-m-d H:i:s", (time() - (60*60)));
+
+		if(isset($_customer) && is_numeric($_customer))
+		{
+			$count_factor_record_per_user = \lib\db\factors\get::count_factor_record_per_user($_customer, $until);
+
+			if($count_factor_record_per_user > 20)
+			{
+				\dash\notif::error(T_("You have a lot unpaid factors. Please try again later"));
+
+				\dash\waf\ip::isolateIP(1, 'user max factor unpaid 1 hour');
+
+                return false;
+			}
+		}
+		else
+		{
+			if(!$_ip_id || !$_agent_id)
+			{
+				\dash\notif::error(T_("Who are you?"));
+
+				\dash\waf\ip::isolateIP(1, 'factor ip or agent id is null!');
+
+	            return false;
+			}
+
+			$count_factor_record_per_ip = \lib\db\factors\get::count_factor_record_per_ip($_ip_id, $until);
+
+			if($count_factor_record_per_ip > 10)
+			{
+				\dash\notif::error(T_("You have a lot unpaid factors. Please try again later or login to add more"));
+
+				\dash\waf\ip::isolateIP(1, 'ip max factor unpaid 1 hour');
+
+                return false;
+			}
+			else
+			{
+				$count_factor_record_per_ip_agent = \lib\db\factors\get::count_factor_record_per_ip_agent($_ip_id, $_agent_id, $until);
+
+				if($count_factor_record_per_ip_agent > 5)
+				{
+					\dash\notif::error(T_("You have a lot unpaid factors. Please try again later or login to add more"));
+
+					\dash\waf\ip::isolateIP(1, 'ip agent max factor unpaid 1 hour');
+
+					return false;
+				}
+			}
+
+		}
+
+		// ok
+		return true;
 	}
 }
 ?>
