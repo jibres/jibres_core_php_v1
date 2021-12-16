@@ -112,7 +112,29 @@ class site_list
 		}
 
 
-		$result   = [];
+		$result   =
+		[
+			'id'             => null,
+			'value'          => null,
+			'title'          => null,
+			'count'          => null,
+			'finalprice'     => null,
+			'barcode'        => null,
+			'barcode2'       => null,
+			'price'          => null,
+			'buyprice'       => null,
+			'discount'       => null,
+			'desc'           => null,
+			'scale'          => null,
+			'quantity'       => null,
+			'scaleDuplicate' => null,
+			'stock'          => null,
+			'vatIncluded'    => null,
+			'vat'            => null,
+			'editlink'       => null,
+			'isProduct'      => null,
+		];
+
 
 		$id       = null;
 
