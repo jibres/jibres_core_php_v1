@@ -7,7 +7,6 @@ class user
 
 	use \dash\app\user\add;
 	use \dash\app\user\edit;
-	use \dash\app\user\datalist;
 	use \dash\app\user\get;
 
 
