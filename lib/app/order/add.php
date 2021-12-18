@@ -284,64 +284,27 @@ class add
 		/*==========================================
 		=            Save factor detail            =
 		==========================================*/
-		$product_discount = [];
-		if(is_array(a($check_discount_code, 'product_discount')))
-		{
-			$product_discount = $check_discount_code['product_discount'];
-		}
-
-		$product_need_track_stock = [];
-
-		foreach ($factor_detail as $key => $value)
-		{
-			$factor_detail[$key]['factor_id'] = $factor_id;
-			unset($factor_detail[$key]['sub_price_temp']);
-			unset($factor_detail[$key]['sub_discount_temp']);
-			unset($factor_detail[$key]['sub_vat_temp']);
-			unset($factor_detail[$key]['type']);
-
-			if($value['track_stock_temp'])
-			{
-				$product_need_track_stock[] = $value;
-			}
-
-			// save product discount
-			if(isset($product_discount[$value['product_id']]))
-			{
-				$factor_detail[$key]['discount2'] = $product_discount[$value['product_id']];
-
-			}
-
-			unset($factor_detail[$key]['track_stock_temp']);
-
-		}
-
-		// insert factor detail record
-		$add_detail = \lib\db\factordetails\insert::multi_insert($factor_detail);
-
-		if(!$add_detail)
+		$add_order_detail = self::add_order_detail($factor_id, $factor_detail, $check_discount_code);
+		if(!$add_order_detail)
 		{
 			if($start_transaction)
 			{
 				\dash\db::rollback();
 			}
+
 			return false;
 		}
-
-		// save product inventory
-		foreach ($product_need_track_stock as $key => $value)
-		{
-			\lib\app\product\inventory::set('sale', $value['count'], $value['product_id'], $factor_id);
-			$get_stock = \lib\app\product\inventory::get($value['product_id']);
-			if(!is_null($get_stock))
-			{
-				if($get_stock <= 0)
-				{
-					\lib\app\product\edit::out_of_stock($value['product_id']);
-				}
-			}
-		}
 		/*=====  End of Save factor detail  ======*/
+
+
+
+		/*=========================================
+		=            Order transaction            =
+		=========================================*/
+
+
+
+		/*=====  End of Order transaction  ======*/
 
 
 		// finaly notif and commit
@@ -398,6 +361,65 @@ class add
 		return $sum;
 	}
 
+
+	private static function add_order_detail($_factor_id, $_factor_detail, $_check_discount_code)
+	{
+		$product_discount = [];
+		if(is_array(a($_check_discount_code, 'product_discount')))
+		{
+			$product_discount = $_check_discount_code['product_discount'];
+		}
+
+		$product_need_track_stock = [];
+
+		foreach ($_factor_detail as $key => $value)
+		{
+			$_factor_detail[$key]['factor_id'] = $_factor_id;
+			unset($_factor_detail[$key]['sub_price_temp']);
+			unset($_factor_detail[$key]['sub_discount_temp']);
+			unset($_factor_detail[$key]['sub_vat_temp']);
+			unset($_factor_detail[$key]['type']);
+
+			if($value['track_stock_temp'])
+			{
+				$product_need_track_stock[] = $value;
+			}
+
+			// save product discount
+			if(isset($product_discount[$value['product_id']]))
+			{
+				$_factor_detail[$key]['discount2'] = $product_discount[$value['product_id']];
+
+			}
+
+			unset($_factor_detail[$key]['track_stock_temp']);
+
+		}
+
+		// insert factor detail record
+		$add_detail = \lib\db\factordetails\insert::multi_insert($_factor_detail);
+
+		if(!$add_detail)
+		{
+			return false;
+		}
+
+		// save product inventory
+		foreach ($product_need_track_stock as $key => $value)
+		{
+			\lib\app\product\inventory::set('sale', $value['count'], $value['product_id'], $_factor_id);
+			$get_stock = \lib\app\product\inventory::get($value['product_id']);
+			if(!is_null($get_stock))
+			{
+				if($get_stock <= 0)
+				{
+					\lib\app\product\edit::out_of_stock($value['product_id']);
+				}
+			}
+		}
+
+		return true;
+	}
 
 
 	private static function check_rate_limit($_customer, $_ip_id, $_agent_id)
