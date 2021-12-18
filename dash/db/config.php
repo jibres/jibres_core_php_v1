@@ -83,48 +83,6 @@ class config
 	}
 
 
-	public static function public_plus_field($_table, $_id, $_field)
-	{
-		return self::public_change_field('plus', ...func_get_args());
-	}
-
-
-	public static function public_minus_field($_table, $_id, $_field)
-	{
-		return self::public_change_field('minus', ...func_get_args());
-	}
-
-
-	public static function public_change_field($_type, $_table, $_id, $_field)
-	{
-		if(!$_type || !$_table || !$_id || !$_field)
-		{
-			return false;
-		}
-
-		if($_type === 'plus')
-		{
-			$query =
-			"
-			 	UPDATE `$_table`
-			 	SET `$_table`.`$_field` = IF(`$_table`.`$_field` IS NULL OR `$_table`.`$_field` = '', 1, `$_table`.`$_field` + 1)
-			 	WHERE `$_table`.`id` = $_id
-			 	LIMIT 1
-			 ";
-		}
-		else
-		{
-			$query =
-			"
-				UPDATE `$_table`
-				SET `$_table`.`$_field` = IF(`$_table`.`$_field` IS NULL OR `$_table`.`$_field` = '' OR `$_table`.`$_field` = 1 OR `$_table`.`$_field` = 0 , 0, `$_table`.`$_field` - 1)
-				WHERE `$_table`.`id` = $_id
-				LIMIT 1
-			";
-		}
-		return \dash\db::query($query);
-	}
-
 
 	/**
 	 * get multi insert id
@@ -589,19 +547,6 @@ class config
 			return false;
 		}
 		$query = "UPDATE $_table SET $set WHERE $where";
-		return \dash\db::query($query);
-	}
-
-
-	public static function public_delete_where($_table, $_where)
-	{
-		$where = self::make_where($_where);
-
-		if(!$where)
-		{
-			return false;
-		}
-		$query = "DELETE FROM  $_table WHERE $where";
 		return \dash\db::query($query);
 	}
 
