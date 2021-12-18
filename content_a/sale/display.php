@@ -91,16 +91,18 @@
     </div>
 
     <?php if(\dash\url::isLocal()) {?>
-      <div>
-        <div class="radio3">
-          <input type="radio" name="paystatus" value="unpaid" id="paystatusunpaid">
-          <label for="paystatusunpaid"><?php echo T_("Unpaid") ?></label>
+      <?php if(\dash\data::moduleType() === 'sale') {?>
+        <div>
+          <div class="radio3">
+            <input type="radio" name="paystatus" value="unpaid" id="paystatusunpaid">
+            <label for="paystatusunpaid"><?php echo T_("Unpaid") ?></label>
+          </div>
+          <div class="radio3">
+            <input type="radio" name="paystatus" value="successful_payment" id="paystatussuccessful_payment">
+            <label for="paystatussuccessful_payment"><?php echo T_("Payed") ?></label>
+          </div>
         </div>
-        <div class="radio3">
-          <input type="radio" name="paystatus" value="successful_payment" id="paystatussuccessful_payment">
-          <label for="paystatussuccessful_payment"><?php echo T_("Payed") ?></label>
-        </div>
-      </div>
+      <?php } //endif ?>
     <?php } //endif ?>
 
 

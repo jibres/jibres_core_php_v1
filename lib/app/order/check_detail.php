@@ -70,10 +70,10 @@ class check_detail
 			{
 				case 'sale':
 				case 'saleorder':
+				case 'buy':
 					// nothing to save
 					break;
 
-				case 'buy':
 				case 'prefactor':
 				case 'lending':
 				case 'backbuy':

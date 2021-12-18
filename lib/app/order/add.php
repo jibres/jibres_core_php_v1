@@ -284,7 +284,7 @@ class add
 		/*==========================================
 		=            Save factor detail            =
 		==========================================*/
-		$add_order_detail = self::add_order_detail($factor_id, $factor_detail, $check_discount_code);
+		$add_order_detail = self::add_order_detail($factor_id, $factor_detail, $factor, $check_discount_code);
 		if(!$add_order_detail)
 		{
 			if($start_transaction)
@@ -384,7 +384,7 @@ class add
 	 *
 	 * @return     bool    ( description_of_the_return_value )
 	 */
-	private static function add_order_detail($_factor_id, $_factor_detail, $_check_discount_code)
+	private static function add_order_detail($_factor_id, $_factor_detail, $_factor, $_check_discount_code)
 	{
 		$product_discount = [];
 		if(is_array(a($_check_discount_code, 'product_discount')))
@@ -429,7 +429,7 @@ class add
 		// save product inventory
 		foreach ($product_need_track_stock as $key => $value)
 		{
-			\lib\app\product\inventory::set('sale', $value['count'], $value['product_id'], $_factor_id);
+			\lib\app\product\inventory::set($_factor['type'], $value['count'], $value['product_id'], $_factor_id);
 			$get_stock = \lib\app\product\inventory::get($value['product_id']);
 			if(!is_null($get_stock))
 			{
