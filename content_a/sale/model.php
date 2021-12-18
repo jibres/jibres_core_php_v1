@@ -82,7 +82,7 @@ class model
 	{
 		if(empty(array_filter(\dash\request::post())))
 		{
-			\dash\notif::warn(T_("No items have been added for sale"));
+			\dash\notif::warn(T_("No items have been added"));
 			return false;
 		}
 
@@ -98,7 +98,7 @@ class model
 
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
-			\dash\notif::warn(T_("No items have been added for sale"));
+			\dash\notif::warn(T_("No items have been added"));
 			return false;
 		}
 
@@ -151,7 +151,7 @@ class model
 		$detail['displayname'] = \dash\request::post('memberN');
 		$detail['paystatus']   = \dash\request::post('paystatus');
 
-		$detail['type']        = 'sale';
+		$detail['type']        = \dash\data::moduleType();
 		$detail['desc']        = \dash\request::post('desc');
 		return $detail;
 	}

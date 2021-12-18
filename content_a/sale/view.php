@@ -12,11 +12,7 @@ class view
 		\dash\face::title(T_('Sale invoicing'));
 
 		\dash\data::back_text(T_('Factors'));
-		\dash\data::back_link(\dash\url::here(). '/order?type=sale');
-
-		\lib\app\fund\login::check();
-
-		\lib\app\pos\tools::pc_pos_btn();
+		\dash\data::back_link(\dash\url::here(). '/order?type='. \dash\data::moduleType());
 
 
 		\dash\face::btnSave('factorAdd');
@@ -29,7 +25,14 @@ class view
 		\dash\data::showVatColum(\lib\store::detail('show_vat_column'));
 		\dash\data::vatDecimal(\lib\vat::decimal());
 
-		$saleQuickAccess = \lib\app\product\quick_access::sale_page();
+
+		$saleQuickAccess = [];
+		if(\dash\data::moduleType() === 'sale')
+		{
+			\lib\app\fund\login::check();
+			\lib\app\pos\tools::pc_pos_btn();
+			$saleQuickAccess = \lib\app\product\quick_access::sale_page();
+		}
 		\dash\data::saleQuickAccess($saleQuickAccess);
 	}
 }
