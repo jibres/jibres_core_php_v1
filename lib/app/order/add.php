@@ -574,6 +574,32 @@ class add
 			return false;
 		}
 
+
+		if($pay = true)
+		{
+			// plus transaction
+			$insert_transaction =
+			[
+				'user_id'   => $customer,
+				'factor_id' => $_factor_id,
+				'title'     => T_("Plus budget for pay order :val", ['val' => $_factor_id]),
+				'verify'    => 1,
+				'plus'     => floatval($_factor['total']),
+				// 'currency'  => $currency,
+				'type'      => 'money',
+			];
+
+			$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+			if(!$transaction_id)
+			{
+				\dash\notif::error(T_("Can not add transaction"));
+				return false;
+			}
+
+
+		}
+
 		return true;
 	}
 }
