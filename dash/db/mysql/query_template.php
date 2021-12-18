@@ -22,7 +22,7 @@ class query_template
 		foreach ($_args as $key => $value)
 		{
 			$fields[]        = $key;
-			$new_key         = ':'. $key;
+			$new_key         = ':'. mb_strlen($key). $key;
 			$set[$key]       = $new_key;
 			$param[$new_key] = $value;
 		}
