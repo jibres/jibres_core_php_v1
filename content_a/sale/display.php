@@ -42,7 +42,7 @@
     <div class="cbox p0">
     <div class="flex align-center">
       <div class="flex-grow">
-        <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::kingdom(); ?>/crm/api?type=sale&json=true&list=customer' data-shortkey-search data-placeholder='<?php echo T_("Choose customer"); ?>'>
+        <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\data::customerAjaxAddr() ?>' data-shortkey-search data-placeholder='<?php echo \dash\data::customerAjaxInputTitle() ?>'>
         </select>
       </div>
       <div class="flex-none"><div class="btn-light w-12 h-9 flex" data-kerkere='.addNewCustomer'><?php echo \dash\utility\icon::svg('CirclePlus') ?></div></div>

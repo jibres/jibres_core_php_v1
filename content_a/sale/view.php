@@ -14,6 +14,7 @@ class view
 		\dash\data::back_text(T_('Factors'));
 		\dash\data::back_link(\dash\url::here(). '/order?type='. \dash\data::moduleType());
 
+		self::display_ajax_url();
 
 		\dash\face::btnSave('factorAdd');
 		\dash\face::btnSaveName('save_btn');
@@ -34,6 +35,34 @@ class view
 			$saleQuickAccess = \lib\app\product\quick_access::sale_page();
 		}
 		\dash\data::saleQuickAccess($saleQuickAccess);
+	}
+
+
+	private static function display_ajax_url()
+	{
+		$customerAjaxAddr = \dash\url::kingdom(). '/crm/api?';
+
+		$temp         = [];
+		$temp['json'] = 'true';
+		$temp['type'] = \dash\data::moduleType();
+
+		if(\dash\data::moduleType() === 'sale')
+		{
+			$input_title = T_("Choose customer");
+			$temp['list'] = 'customer';
+		}
+		else
+		{
+			$input_title = T_("Choose supplier");
+			$temp['list'] = 'supplier';
+
+		}
+
+		$customerAjaxAddr .= \dash\request::build_query($temp);
+
+		\dash\data::customerAjaxAddr($customerAjaxAddr);
+		\dash\data::customerAjaxInputTitle($input_title);
+
 	}
 }
 ?>
