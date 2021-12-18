@@ -10,9 +10,9 @@ class datetime
 	 */
 	public static function get_current_timezone()
 	{
+		return 'Asia/Tehran';
 		return 'America/New_York';
 		return 'Asia/Hong_Kong';
-		return 'Asia/Tehran';
 	}
 
 
