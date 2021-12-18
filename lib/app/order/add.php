@@ -301,10 +301,23 @@ class add
 		/*=========================================
 		=            Order transaction            =
 		=========================================*/
+		// if have not factor.customer needless to add any transaction
+		if($factor['customer'])
+		{
+			$pay_order = self::pay_order($factor_id, $factor);
 
+			if(!$pay_order)
+			{
+				if($start_transaction)
+				{
+					\dash\db::rollback();
+				}
 
-
+				return false;
+			}
+		}
 		/*=====  End of Order transaction  ======*/
+
 
 
 		// finaly notif and commit
@@ -362,6 +375,15 @@ class add
 	}
 
 
+	/**
+	 * Adds an order detail.
+	 *
+	 * @param      <type>  $_factor_id            The factor identifier
+	 * @param      <type>  $_factor_detail        The factor detail
+	 * @param      <type>  $_check_discount_code  The check discount code
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	private static function add_order_detail($_factor_id, $_factor_detail, $_check_discount_code)
 	{
 		$product_discount = [];
@@ -422,6 +444,15 @@ class add
 	}
 
 
+	/**
+	 * Check rate limit of new order
+	 *
+	 * @param      <type>  $_customer  The customer
+	 * @param      <type>  $_ip_id     The ip identifier
+	 * @param      <type>  $_agent_id  The agent identifier
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
 	private static function check_rate_limit($_customer, $_ip_id, $_agent_id)
 	{
 		$until = date("Y-m-d H:i:s", (time() - (60*60)));
@@ -481,6 +512,13 @@ class add
 	}
 
 
+	/**
+	 * Check minimum price from cart setting
+	 *
+	 * @param      int   $_subtotal  The subtotal
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
 	private static function check_minimum_cart_setting($_subtotal)
 	{
 		$cart_setting = \lib\app\setting\get::cart_setting();
@@ -494,6 +532,46 @@ class add
 				\dash\notif::error('1', ['alerty' => true, 'html' => $minimumorderamount_html]);
 				return false;
 			}
+		}
+
+		return true;
+	}
+
+
+
+	/**
+	 * Add pay detail
+	 *
+	 * @param      <type>  $_factor  The factor
+	 */
+	private static function pay_order($_factor_id, $_factor)
+	{
+		// skip in .com
+		if(!\dash\url::isLocal())
+		{
+			return true;
+		}
+
+		$customer = $_factor['customer'];
+
+		// minus transaction
+		$insert_transaction =
+		[
+			'user_id'   => $customer,
+			'factor_id' => $_factor_id,
+			'title'     => T_("Pay order :val", ['val' => $_factor_id]),
+			'verify'    => 1,
+			'minus'     => floatval($_factor['total']),
+			// 'currency'  => $currency,
+			'type'      => 'money',
+		];
+
+		$transaction_id = \dash\db\transactions::set($insert_transaction);
+
+		if(!$transaction_id)
+		{
+			\dash\notif::error(T_("Can not add transaction"));
+			return false;
 		}
 
 		return true;
