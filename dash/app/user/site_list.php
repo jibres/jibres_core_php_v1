@@ -17,14 +17,16 @@ class site_list
 
 		$notif_result = [];
 		$result       = [];
-		$meta         = [];
+		$args         = [];
 		$msg          = T_("Customer not found."). ' ';
+
+		$args['show_budget']         = \dash\request::get('show_budget');
 
 		$q = \dash\validate::search_string();
 
 		if($q)
 		{
-			$resultRaw    = \dash\app\user::list($q, $meta);
+			$resultRaw    = \dash\app\user\search::list($q, $args);
 
 			foreach ($resultRaw as $key => $value)
 			{
@@ -106,6 +108,11 @@ class site_list
 			$html .= '<span class="flex-none">';
 			$html .= \dash\fit::mobile($_data['mobile']);
 			$html .= '</span>';
+		}
+
+		if(isset($_data['budget']))
+		{
+			$datalist['budget'] = $_data['budget'];
 		}
 
 		$html   .= '</div>';

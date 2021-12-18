@@ -42,9 +42,10 @@ class view
 	{
 		$customerAjaxAddr = \dash\url::kingdom(). '/crm/api?';
 
-		$temp         = [];
-		$temp['json'] = 'true';
-		$temp['type'] = \dash\data::moduleType();
+		$temp                = [];
+		$temp['json']        = 'true';
+		$temp['show_budget'] = 1;
+		$temp['type']        = \dash\data::moduleType();
 
 		if(\dash\data::moduleType() === 'sale')
 		{
