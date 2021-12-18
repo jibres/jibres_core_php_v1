@@ -29,6 +29,8 @@ class db
 	 */
 	public static function query($_qry, $_db_fuel = null, $_options = [])
 	{
+		$fn_args = func_get_args();
+
 		\dash\notif::turn_off_log();
 
 		$default_options =
@@ -107,7 +109,7 @@ class db
 
 			foreach ($sort_param as $param_key)
 			{
-				if(isset($param[$param_key]))
+				if(array_key_exists($param_key, $param))
 				{
 					$new_param[$param_key] = $param[$param_key];
 				}
@@ -258,7 +260,7 @@ class db
 			else
 			{
 				$temp = $save_query . ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail();
-				$temp .= '-- '. json_encode(func_get_args());
+				$temp .= '-- '. json_encode($fn_args);
 
 				\dash\db\mysql\tools\log::log($temp, $qry_exec_time);
 			}
@@ -292,7 +294,7 @@ class db
 			$temp_error .= $error_code. ' - ';
 			$temp_error .= $error_string." */";
 			$temp_error .= ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail();
-			$temp_error .= ' -- '. json_encode(func_get_args());
+			$temp_error .= ' -- '. json_encode($fn_args);
 
 			// General error: 2006 MySQL server has gone away
 			// Error Code: 2013. Lost connection to MySQL server during query
