@@ -575,7 +575,7 @@ class add
 		}
 
 
-		if($pay = true)
+		if($_factor['paystatus'] === 'successful_payment')
 		{
 			// plus transaction
 			$insert_transaction =

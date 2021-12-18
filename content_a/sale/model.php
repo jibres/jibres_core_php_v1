@@ -149,9 +149,10 @@ class model
 		$detail['mobile']      = \dash\request::post('memberTl');
 		$detail['gender']      = \dash\request::post('memberGender') ? \dash\request::post('memberGender') : null;
 		$detail['displayname'] = \dash\request::post('memberN');
+		$detail['paystatus']   = \dash\request::post('paystatus');
 
-		$detail['type']     = 'sale';
-		$detail['desc']     = \dash\request::post('desc');
+		$detail['type']        = 'sale';
+		$detail['desc']        = \dash\request::post('desc');
 		return $detail;
 	}
 }

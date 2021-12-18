@@ -90,6 +90,21 @@
       <button class="btn-secondary cauto block w-full factor_save_btn mt-1" type="submit" name="save_btn" value="save_print" id='save_nextPrint' data-shortkey='120'><?php echo T_("Save & Print"); ?> <kbd class="floatRa mT5">f9</kbd></button>
     </div>
 
+    <?php if(\dash\url::isLocal()) {?>
+      <div>
+        <div class="radio3">
+          <input type="radio" name="paystatus" value="unpaid" id="paystatusunpaid">
+          <label for="paystatusunpaid"><?php echo T_("Unpaid") ?></label>
+        </div>
+        <div class="radio3">
+          <input type="radio" name="paystatus" value="successful_payment" id="paystatussuccessful_payment">
+          <label for="paystatussuccessful_payment"><?php echo T_("Payed") ?></label>
+        </div>
+      </div>
+    <?php } //endif ?>
+
+
+
   </div>
 </form>
 
