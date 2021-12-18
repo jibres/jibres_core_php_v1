@@ -28,25 +28,6 @@ class update
 		return $result;
 	}
 
-	public static function bind_value($_value, $_id)
-	{
-		if($_value)
-		{
-			$_value = stripcslashes($_value);
-		}
-
-		$now = date("Y-m-d H:i:s");
-		$args =
-		[
-			'query' => "UPDATE setting SET setting.datemodified = ? , setting.value = ?  WHERE setting.id = ? LIMIT 1",
-			'mode'  => 'query',
-			'types' => 'ssd',
-			'param' => [$now, $_value, $_id],
-		];
-
-		$result = \dash\db::bind($args);
-		return $result;
-	}
 
 	public static function value($_value, $_id)
 	{
@@ -56,58 +37,6 @@ class update
 		return $result;
 	}
 
-
-	public static function bind_overwirte_platform_cat_key($_value, $_platform, $_cat, $_key)
-	{
-		$now = date("Y-m-d H:i:s");
-		$query = "SELECT setting.id, setting.value FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$check = \dash\db::get($query, null, true);
-
-		if(isset($check['id']))
-		{
-			if(isset($check['value']) && $check['value'] === $_value)
-			{
-				return null;
-			}
-			else
-			{
-				if($_value)
-				{
-					$_value = stripcslashes($_value);
-				}
-
-				$args =
-				[
-					'query' => "UPDATE setting SET setting.datemodified = ? , setting.value = ?  WHERE setting.id = ? LIMIT 1",
-					'mode'  => 'query',
-					'types' => 'ssd',
-					'param' => [$now, $_value, $check['id']],
-				];
-
-				$result = \dash\db::bind($args);
-				return $result;
-			}
-		}
-		else
-		{
-			if($_value)
-			{
-				$_value = stripcslashes($_value);
-			}
-
-			$args =
-			[
-				'query' => "INSERT INTO `setting` (`platform`, `cat`, `key`, `value`) VALUES (?, ?, ?, ?) ",
-				'mode'  => 'query',
-				'types' => 'ssss',
-				'param' => [$_platform, $_cat, $_key, $_value],
-			];
-
-			$result = \dash\db::bind($args);
-
-			return $result;
-		}
-	}
 
 
 	public static function overwirte_platform_cat_key($_value, $_platform, $_cat, $_key)
