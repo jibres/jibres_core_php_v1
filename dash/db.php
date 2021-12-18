@@ -81,29 +81,56 @@ class db
 		$error_string  = null;
 		$buind_success = false;
 
+		$is_bind = false;
+
 		// bind query
 		if($_options['bind'] && is_array($_options['bind']))
 		{
-			$bind_args = $_options['bind'];
-			if(isset($bind_args['types']) && is_string($bind_args['types']) && preg_match("/^[idsb]+$/", $bind_args['types']))
+			$is_bind = true;
+
+			$param     = $_options['bind'];
+
+			$ready_param = [];
+
+			$bind_types = '';
+
+			foreach ($param as $key => $value)
 			{
-				$bind_types = $bind_args['types'];
-			}
-			else
-			{
-				\dash\notif::error("Invalid query bind param");
-				return false;
+				if(\dash\str::strpos($_qry, $key) === false)
+				{
+					continue;
+				}
+
+				if(is_int($value))
+				{
+					$bind_types .= 'i';
+				}
+				elseif(is_float($value))
+				{
+					$bind_types .= 'd';
+				}
+				elseif(is_string($value))
+				{
+					$bind_types .= 's';
+				}
+				elseif(is_numeric($value))
+				{
+					$bind_types .= 's';
+				}
+				elseif(is_null($value))
+				{
+					$bind_types .= 's';
+				}
+				elseif(is_bool($value))
+				{
+					$bind_types .= 'b';
+				}
+
+				$_qry = str_replace($key, '?', $_qry);
+
+				$ready_param[] = $value;
 			}
 
-			if(isset($bind_args['param']) && is_array($bind_args['param']) && $bind_args['param'])
-			{
-				// ok;
-			}
-			else
-			{
-				\dash\notif::error("Empty args bind");
-				return false;
-			}
 
 			$result = false;
 
@@ -111,7 +138,7 @@ class db
 
 			if($stmt)
 			{
-				@mysqli_stmt_bind_param($stmt, $bind_types, ...$bind_args['param']);
+				@mysqli_stmt_bind_param($stmt, $bind_types, ...$ready_param);
 
 				@mysqli_stmt_execute($stmt);
 
@@ -193,6 +220,12 @@ class db
 			}
 		}
 
+		$save_query = $_qry;
+
+		if($is_bind)
+		{
+			$save_query = 'BIND; '. $save_query;
+		}
 
 		// get diff of time after exec
 		$qry_exec_time = microtime(true) - $qry_exec_time;
@@ -206,7 +239,10 @@ class db
 			}
 			else
 			{
-				\dash\db\mysql\tools\log::log($_qry . ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail(), $qry_exec_time);
+				$temp = $save_query . ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail();
+				$temp .= '-- '. json_encode(func_get_args());
+
+				\dash\db\mysql\tools\log::log($temp, $qry_exec_time);
 			}
 		}
 		// calc exex time in ms
@@ -214,19 +250,19 @@ class db
 		// if spend more time, save it in special file
 		if($qry_exec_time_ms > 6000)
 		{
-			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time, 'log-hard-critical.sql');
+			\dash\db\mysql\tools\log::log($save_query, $qry_exec_time, 'log-hard-critical.sql');
 		}
 		elseif($qry_exec_time_ms > 3000)
 		{
-			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time, 'log-critical.sql');
+			\dash\db\mysql\tools\log::log($save_query, $qry_exec_time, 'log-critical.sql');
 		}
 		elseif($qry_exec_time_ms > 1000)
 		{
-			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time, 'log-warn.sql');
+			\dash\db\mysql\tools\log::log($save_query, $qry_exec_time, 'log-warn.sql');
 		}
 		elseif($qry_exec_time_ms > 500)
 		{
-			\dash\db\mysql\tools\log::log($_qry, $qry_exec_time, 'log-check.sql');
+			\dash\db\mysql\tools\log::log($save_query, $qry_exec_time, 'log-check.sql');
 		}
 
 		if($have_error)
@@ -234,7 +270,7 @@ class db
 			// no result exist
 			// save mysql error
 			$temp_error = "#". date("Y-m-d H:i:s") ;
-			$temp_error .= "\n$_qry\n/* \tMYSQL ERROR\n";
+			$temp_error .= "\n$save_query\n/* \tMYSQL ERROR\n";
 			$temp_error .= $error_code. ' - ';
 			$temp_error .= $error_string." */";
 			$temp_error .= ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail();
@@ -299,10 +335,18 @@ class db
 	 *
 	 * @return     <type>  The bind.
 	 */
-	public static function get_bind(array $_args)
+	public static function get_bind($_query, $_param = [], $_column = null, $_onlyOneValue = false, $_db_fuel = true, $_options = [])
 	{
-		$_args['mode'] = 'get';
-		return self::bind($_args);
+		$args                   = [];
+		$args['mode']           = 'get';
+		$args['query']          = $_query;
+		$args['param']          = $_param;
+		$args['column']         = $_column;
+		$args['only_one_value'] = $_onlyOneValue;
+		$args['fuel']           = $_db_fuel;
+		$args['option']         = $_options;
+
+		return self::bind($args);
 	}
 
 
@@ -313,10 +357,16 @@ class db
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function query_bind(array $_args)
+
+	public static function query_bind($_query, $_param = [], $_db_fuel = null, $_options = [])
 	{
-		$_args['mode'] = 'query';
-		return self::bind($_args);
+		$args           = [];
+		$args['mode']   = 'query';
+		$args['query']  = $_query;
+		$args['param']  = $_param;
+		$args['fuel']   = $_db_fuel;
+		$args['option'] = $_options;
+		return self::bind($args);
 	}
 
 
@@ -327,14 +377,13 @@ class db
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function bind(array $_args)
+	private static function bind(array $_args)
 	{
 		$default_bind =
 		[
 			'mode'           => null,
 
 			'query'          => null,
-			'types'          => null,
 			'param'          => null,
 
 			'only_one_value' => false,
@@ -352,11 +401,7 @@ class db
 			$option = [];
 		}
 
-		$option['bind'] =
-		[
-			'types' => $_args['types'],
-			'param' => $_args['param'],
-		];
+		$option['bind'] = $_args['param'];
 
 		if($_args['mode'] === 'get')
 		{
