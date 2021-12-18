@@ -473,7 +473,7 @@ class generator
 
 	private static function html_input_numeric($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="price" ');
@@ -563,7 +563,7 @@ class generator
 
 	private static function html_input_dropdown($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label_raw($value);
 			self::div('mB10');
@@ -590,7 +590,7 @@ class generator
 
 	private static function html_input_date($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('text', $value, ' data-format="date" ');
@@ -602,7 +602,7 @@ class generator
 
 	private static function html_input_birthdate($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('text', $value, ' data-format="date" ');
@@ -679,7 +679,7 @@ class generator
 			{
 				self::div('row');
 				{
-					self::div('c-xs-6 c-sm-6');
+					self::div('c-xs-12 c-sm-6');
 					{
 						self::div('radio3');
 						{
@@ -690,7 +690,7 @@ class generator
 					}
 					self::_div();
 
-					self::div('c-xs-6 c-sm-6');
+					self::div('c-xs-12 c-sm-6');
 					{
 						self::div('radio3');
 						{
@@ -713,7 +713,7 @@ class generator
 
 	private static function html_input_time($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="time" ');
@@ -737,7 +737,7 @@ class generator
 
 	private static function html_input_nationalcode($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="nationalCode" ');
@@ -749,7 +749,7 @@ class generator
 
 	private static function html_input_mobile($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="mobile-enter" ');
@@ -774,7 +774,7 @@ class generator
 
 	private static function html_input_email($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('email', $value);
@@ -786,7 +786,7 @@ class generator
 
 	private static function html_input_website($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('url', $value);
@@ -798,7 +798,7 @@ class generator
 
 	private static function html_input_password($value)
 	{
-		self::div('c-xs-6 c-6');
+		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('password', $value);
@@ -942,7 +942,7 @@ class generator
 				self::label_raw($value);
 				self::div('row');
 				{
-					self::div('c-xs-6 c-sm-6');
+					self::div('c-xs-12 c-sm-6');
 					{
 						self::div('radio3');
 						{
@@ -953,7 +953,7 @@ class generator
 					}
 					self::_div();
 
-					self::div('c-xs-6 c-sm-6');
+					self::div('c-xs-12 c-sm-6');
 					{
 						self::div('radio3');
 						{
