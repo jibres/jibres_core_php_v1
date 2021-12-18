@@ -7,7 +7,11 @@ class address
 	public static function get_count_user_address($_user_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM address WHERE address.user_id = :user_id";
-		$param  = [':user_id' => $_user_id];
+		$param  =
+		[
+			':user_id' => $_user_id,
+		];
+
 		$result = \dash\db::get_bind($query, $param, 'count', true);
 
 		return $result;
@@ -31,30 +35,48 @@ class address
 
 	public static function get_primary_user_address($_user_id)
 	{
-		$query = "SELECT * FROM address WHERE address.user_id = $_user_id AND address.status = 'enable' ORDER BY address.isdefault DESC, address.id ASC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$query = "SELECT * FROM address WHERE address.user_id = :user_id AND address.status = 'enable' ORDER BY address.isdefault DESC, address.id ASC LIMIT 1";
+		$param  =
+		[
+			':user_id' => $_user_id,
+		];
+		$result = \dash\db::get_bind($query, $param, null, true);
 		return $result;
 	}
 
 	public static function get_user_address_active($_user_id, $_id)
 	{
-		$query = "SELECT * FROM address WHERE address.id = $_id AND address.user_id = $_user_id AND address.status = 'enable' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$query = "SELECT * FROM address WHERE address.id = :id AND address.user_id = :user_id AND address.status = 'enable' LIMIT 1";
+		$param  =
+		[
+			':user_id' => $_user_id,
+			':id'      => $_id,
+		];
+
+		$result = \dash\db::get_bind($query, $param, null, true);
 		return $result;
 	}
 
 	public static function user_address_list($_user_id)
 	{
-		$query = "SELECT * FROM address WHERE address.user_id = $_user_id AND address.status = 'enable' ";
-		$result = \dash\db::get($query);
+		$query = "SELECT * FROM address WHERE address.user_id = :user_id AND address.status = 'enable' ";
+		$param  =
+		[
+			':user_id' => $_user_id,
+		];
+		$result = \dash\db::get_bind($query, $param);
 		return $result;
 	}
 
 
 	public static function last_user_address($_user_id)
 	{
-		$query = "SELECT * FROM address WHERE address.user_id = $_user_id AND address.status = 'enable' ORDER BY address.id DESC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$query = "SELECT * FROM address WHERE address.user_id = :user_id AND address.status = 'enable' ORDER BY address.id DESC LIMIT 1";
+		$param  =
+		[
+			':user_id' => $_user_id,
+		];
+		$result = \dash\db::get_bind($query, $param, null, true);
 		return $result;
 	}
 
