@@ -142,6 +142,13 @@ class checkout
 			$cart_list = [];
 		}
 
+
+		$myCart['fileMode'] = false;
+		if(array_values(array_filter(array_unique(array_column($cart_list, 'type')))) === ['file'])
+		{
+			$myCart['fileMode'] = true;
+		}
+
 		$myCart['list'] = $cart_list;
 
 		$cart_setting = \lib\app\setting\get::cart_setting();
