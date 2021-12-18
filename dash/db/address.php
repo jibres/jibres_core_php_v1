@@ -81,10 +81,9 @@ class address
 	}
 
 
-	public static function insert()
+	public static function insert($_args)
 	{
-		\dash\db\config::public_insert('address', ...func_get_args());
-		return \dash\db::insert_id();
+		return \dash\db\mysql\query_template::insert('address', $_args);
 	}
 
 
