@@ -29,14 +29,6 @@ class db
 	 */
 	public static function query($_qry, $_db_fuel = null, $_options = [])
 	{
-		// // check no sql
-		// $nosqlfile = root. 'nosql.conf';
-
-		// if(is_file($nosqlfile))
-		// {
-		// 	return false;
-		// }
-
 		\dash\notif::turn_off_log();
 
 		$default_options =
@@ -80,8 +72,8 @@ class db
 		$error_code    = null;
 		$error_string  = null;
 		$buind_success = false;
+		$is_bind       = false;
 
-		$is_bind = false;
 
 		// bind query
 		if($_options['bind'] && is_array($_options['bind']))
@@ -94,13 +86,35 @@ class db
 
 			$bind_types = '';
 
+			// sort args by position of query string
+			$sort_param = [];
+
 			foreach ($param as $key => $value)
 			{
-				if(\dash\str::strpos($_qry, $key) === false)
+				$strpos = \dash\str::strpos($_qry, $key);
+
+				if($strpos === false)
 				{
 					continue;
 				}
 
+				$sort_param[$strpos] = $key;
+			}
+
+			ksort($sort_param);
+
+			$new_param = [];
+
+			foreach ($sort_param as $param_key)
+			{
+				if(isset($param[$param_key]))
+				{
+					$new_param[$param_key] = $param[$param_key];
+				}
+			}
+
+			foreach ($new_param as $key => $value)
+			{
 				if(is_int($value))
 				{
 					$bind_types .= 'i';
@@ -124,6 +138,10 @@ class db
 				elseif(is_bool($value))
 				{
 					$bind_types .= 'b';
+				}
+				else
+				{
+					$bind_types .= 's';
 				}
 
 				$_qry = str_replace($key, '?', $_qry);
