@@ -70,7 +70,7 @@ class statistics
 		$result['session']             = floatval(\dash\db\login\get::get_count_all());
 		$result['ticket']              = floatval(\dash\db\tickets\get::count_ticket());
 		$result['ticket_message']      = floatval(\dash\db\tickets\get::count_message());
-		$result['comment']             = floatval(\dash\db\comments::get_count());
+		$result['comment']             = floatval(\dash\db\comments\get::get_count());
 		$result['address']             = floatval(\dash\db\address::get_count());
 		$result['transaction']         = floatval(\dash\db\transactions::get_count());
 
