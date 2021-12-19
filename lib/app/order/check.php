@@ -39,10 +39,10 @@ class check
 					'buy',
 					'sale',
 					// 'prefactor',
-					'lending',
-					'backbuy',
+					// 'lending',
+					// 'backbuy',
 					// 'backfactor',
-					'waste',
+					// 'waste',
 					'saleorder'
 				]
 			],
