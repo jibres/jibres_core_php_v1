@@ -89,7 +89,7 @@
         <?php require_once(root. '/content_a/order/summary.php'); ?>
       </div>
     </div>
-        <?php if($customerDebt = \dash\data::customerDebt()) {?>
+        <?php if(($customerDebt = \dash\data::customerDebt()) && (a($customerDebt, 'display_detail')) ) {?>
         <div class="box">
           <div class="pad">
             <div class="tblBox">

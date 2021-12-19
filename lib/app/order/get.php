@@ -24,6 +24,14 @@ class get
 		$result['debt_until_order'] = $debt_until_order;
 		$result['debt_with_order']  = $debt_until_order - floatval($_current_factor_total);
 		$result['current_debt']     = $current_debt;
+		$result['display_detail']   = true;
+
+		if(intval($debt_until_order) === 0 && intval($current_debt) === 0)
+		{
+			$result['display_detail']   = false;
+		}
+
+
 		return $result;
 
 	}
