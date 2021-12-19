@@ -9,7 +9,7 @@ class vat
 	 *
 	 * @return     int   ( description_of_the_return_value )
 	 */
-	public static function percent()
+	public static function percent() : float
 	{
 		/**
 			TODO:
@@ -25,7 +25,7 @@ class vat
 	 *
 	 * @return   0.09
 	 */
-	public static function decimal()
+	public static function decimal() : float
 	{
 		return self::percent() / 100;
 	}
