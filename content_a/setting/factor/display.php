@@ -46,7 +46,7 @@
     <div class="action">
       <div class="switch1">
         <input type="checkbox" name="show_vat_column" id="set_show_vat_column" <?php if(\dash\data::dataRow_show_vat_column()) { echo 'checked'; } ?>>
-         <label for="set_show_vat_column" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
+        <label for="set_show_vat_column" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
       </div>
     </div>
   </form>
@@ -67,7 +67,7 @@
     <div class="action">
       <div class="switch1">
         <input type="checkbox" name="show_discount_column" id="set_show_discount_column" <?php if(\dash\data::dataRow_show_discount_column()) { echo 'checked'; } ?>>
-         <label for="set_show_discount_column" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
+        <label for="set_show_discount_column" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
       </div>
     </div>
   </form>
@@ -78,7 +78,7 @@
     <div class="data">
       <h3><?php echo T_("Do you want to calc tax?"); ?></h3>
       <div class="body">
-      	<p><?php echo T_("If tax is enable, we are add in products and factors based on antoher settings."); ?> <?php echo T_("If you turn it off, we are totally hide tax options from everywhere!"); ?></p>
+        <p><?php echo T_("If tax is enable, we are add in products and factors based on antoher settings."); ?> <?php echo T_("If you turn it off, we are totally hide tax options from everywhere!"); ?></p>
       </div>
     </div>
   </div>
@@ -87,7 +87,7 @@
     <div class="action">
       <div class="switch1">
         <input type="checkbox" name="tax_status" id="tax-status" <?php if(\dash\data::dataRow_tax_status()) { echo 'checked'; } ?>>
-         <label for="tax-status" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
+        <label for="tax-status" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
       </div>
     </div>
   </form>
@@ -97,46 +97,69 @@
 <div data-response='tax-status' <?php if(\dash\data::dataRow_tax_status()) {}else{ echo 'data-response-hide'; } ?>>
 
 
-<section class="f" data-option='setting-factor-vat-default' id="setting-factor-vat-default">
+  <section class="f" data-option='setting-factor-vat-default' id="setting-factor-vat-default">
+    <div class="c8 s12">
+      <div class="data">
+        <h3><?php echo T_("VAT default value for new product"); ?></h3>
+        <div class="body">
+          <p><?php echo T_("You can change default value for VAT on add new product."); ?></p>
+        </div>
+      </div>
+    </div>
+    <form class="c4 s12" method="post" data-patch>
+      <input type="hidden" name="set_tax_calc" value="1">
+      <div class="action">
+        <div class="switch1">
+          <input type="checkbox" name="tax_calc" id="tax-calc" <?php if(\dash\data::dataRow_tax_calc()) { echo 'checked'; } ?>>
+          <label for="tax-calc" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
+        </div>
+      </div>
+    </form>
+  </section>
+
+</div>
+
+
+
+<section class="f" data-option='setting-factor-updateproduct' id="setting-factor-updateproduct">
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("VAT default value for new product"); ?></h3>
+      <h3><?php echo T_("Update product price when prices change on the sales page?"); ?></h3>
       <div class="body">
-      	<p><?php echo T_("You can change default value for VAT on add new product."); ?></p>
+        <p><?php echo T_("If this setting is on, when registering a sales order, by changing the price of a product, in addition to recording that price in the current invoice, the original price of the product will also change.
+Note that the price of the product will be updated only if your employee is allowed to update the product, otherwise will only change the price of the product in the current order."); ?></p>
       </div>
     </div>
   </div>
   <form class="c4 s12" method="post" data-patch>
-    <input type="hidden" name="set_tax_calc" value="1">
+    <input type="hidden" name="set_updatepriceonsalepage" value="1">
     <div class="action">
       <div class="switch1">
-        <input type="checkbox" name="tax_calc" id="tax-calc" <?php if(\dash\data::dataRow_tax_calc()) { echo 'checked'; } ?>>
-        <label for="tax-calc" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
+        <input type="checkbox" name="updatepriceonsalepage" id="updatepriceonsalepage" <?php if(\dash\data::dataRow_updatepriceonsalepage()) { echo 'checked'; } ?>>
+        <label for="updatepriceonsalepage" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
       </div>
     </div>
   </form>
 </section>
 
-</div>
-
 <?php if(false) {?>
 
-<!-- Need to check later -->
+  <!-- Need to check later -->
 
-          <hr>
-          <div class="switch1 fs12">
-           <input type="checkbox" name="tax_calc_all_price" id="tax-calc-all-price" <?php if(\dash\data::dataRow_tax_calc_all_price()) { echo 'checked'; } ?>>
-           <label for="tax-calc-all-price"></label>
-           <label for="tax-calc-all-price"><?php echo T_("Show all prices with tax included"); ?></label>
-          </div>
-          <p class="fc-mute"><?php echo T_("If taxes are charged on shipping rates, then taxes are included in the shipping price."); ?></p>
+  <hr>
+  <div class="switch1 fs12">
+    <input type="checkbox" name="tax_calc_all_price" id="tax-calc-all-price" <?php if(\dash\data::dataRow_tax_calc_all_price()) { echo 'checked'; } ?>>
+    <label for="tax-calc-all-price"></label>
+    <label for="tax-calc-all-price"><?php echo T_("Show all prices with tax included"); ?></label>
+  </div>
+  <p class="fc-mute"><?php echo T_("If taxes are charged on shipping rates, then taxes are included in the shipping price."); ?></p>
 
 
-          <hr>
-          <div class="switch1 fs12">
-           <input type="checkbox" name="tax_shipping" id="tax-shipping" <?php if(\dash\data::dataRow_tax_shipping()) { echo 'checked'; } ?>>
-           <label for="tax-shipping"></label>
-           <label for="tax-shipping"><?php echo T_("Charge tax on shipping rates"); ?></label>
-          </div>
-          <p class="fc-mute"><?php echo T_("Include shipping rates in the tax calculation."); ?></p>
-<?php } //endif ?>
+  <hr>
+  <div class="switch1 fs12">
+    <input type="checkbox" name="tax_shipping" id="tax-shipping" <?php if(\dash\data::dataRow_tax_shipping()) { echo 'checked'; } ?>>
+    <label for="tax-shipping"></label>
+    <label for="tax-shipping"><?php echo T_("Charge tax on shipping rates"); ?></label>
+  </div>
+  <p class="fc-mute"><?php echo T_("Include shipping rates in the tax calculation."); ?></p>
+  <?php } //endif ?>

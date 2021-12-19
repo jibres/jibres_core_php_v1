@@ -29,6 +29,11 @@ class model
 			$post['tax_calc'] = \dash\request::post('tax_calc');
 		}
 
+		if(\dash\request::post('set_updatepriceonsalepage'))
+		{
+			$post['updatepriceonsalepage'] = \dash\request::post('updatepriceonsalepage');
+		}
+
 		\lib\app\setting\set::save_vat($post);
 
 		\dash\notif::ok(T_("Saved"));

@@ -566,12 +566,13 @@ class set
 	{
 		$condition =
 		[
-			'tax_status'           => 'bit',
-			'tax_calc'             => 'bit',
-			'tax_calc_all_price'   => 'bit',
-			'tax_shipping'         => 'bit',
-			'show_vat_column'      => 'bit',
-			'show_discount_column' => 'bit',
+			'tax_status'            => 'bit',
+			'tax_calc'              => 'bit',
+			'tax_calc_all_price'    => 'bit',
+			'tax_shipping'          => 'bit',
+			'show_vat_column'       => 'bit',
+			'show_discount_column'  => 'bit',
+			'updatepriceonsalepage' => 'bit',
 		];
 
 		$require = [];
