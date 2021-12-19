@@ -211,10 +211,6 @@ class config
 			}
 			elseif(is_string($value))
 			{
-				// if(\dash\db::$link)
-				// {
-				// 	$value = \mysqli_real_escape_string(\dash\db::$link, $value);
-				// }
 				$where[] = " $my_field = '$value' ";
 			}
 			elseif(is_numeric($value))
@@ -488,6 +484,12 @@ class config
 			$query = " INSERT INTO $_table $set ";
 			return \dash\db::query($query, $_db_name);
 		}
+	}
+
+
+	public static function public_get_by_id($_table, $_id, $_db_name = true)
+	{
+		return \dash\db\mysql\query_template::get($_table, $_id, $_db_name);
 	}
 
 
