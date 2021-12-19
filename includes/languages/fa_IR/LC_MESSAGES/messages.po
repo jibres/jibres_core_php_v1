@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-12-15 19:24+0330\n"
-"PO-Revision-Date: 2021-12-15 19:31+0330\n"
+"POT-Creation-Date: 2021-12-19 21:01+0330\n"
+"PO-Revision-Date: 2021-12-19 21:09+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -708,7 +708,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/discount/add/display.php:49 content_a/form/item/display.php:144
 #: content_a/form/setting/display.php:15 content_a/form/setting/display.php:16
 #: content_a/form/tag/edit/display.php:12 content_a/order/comment/display.php:13
-#: content_a/order/detail/display.php:75 content_a/products/desc/display.php:8
+#: content_a/order/detail/display.php:74 content_a/products/desc/display.php:8
 #: content_a/products/desc/display.php:11 content_a/setting/fund/display.php:18
 #: content_a/setting/fund/display.php:61 content_a/setting/general/title/display.php:14
 #: content_a/setting/shipping/method/display.php:13
@@ -1051,7 +1051,7 @@ msgstr "نام کامل"
 #: content_a/cart/user/display.php:19 content_a/chap/size-receipt/receipt.php:69
 #: content_a/order/address/display.php:25 content_a/order/address/display.php:57
 #: content_a/order/address/display.php:151 content_a/order/address/display.php:201
-#: content_a/order/detail/display.php:61 content_a/sale/display.php:50
+#: content_a/order/detail/display.php:60 content_a/sale/display.php:53
 #: content_account/address.php:49 content_account/address.php:142
 #: content_account/my/home/display.php:46 content_business/orders/view/display.php:40
 #: content_business/shipping/display.php:27 content_business/shipping/display.php:133
@@ -2910,7 +2910,7 @@ msgstr "ایران، قم"
 
 #: content/investment/display-company-info.php:44
 #: content_a/accounting/report/quarter/display-detail.php:42
-#: content_a/order/address/display.php:184 content_a/order/detail/display.php:47
+#: content_a/order/address/display.php:184 content_a/order/detail/display.php:46
 #: content_a/setting/factor/address/display.php:34 content_a/setting/factor/display.php:22
 #: content_a/setting/general/address/display.php:37
 #: content_a/setting3/home/html/address.php:12 content_account/address.php:33
@@ -3346,7 +3346,7 @@ msgstr "طلایی"
 #: lib/app/order/filter.php:100 lib/app/order/filter.php:101 lib/app/order/filter.php:102
 #: lib/app/order/filter.php:103 lib/app/product/filter.php:151
 #: lib/app/product/filter.php:160 lib/app/product/property.php:198
-#: lib/app/product/site_list.php:286 lib/app/product/updateprice.php:125
+#: lib/app/product/site_list.php:215 lib/app/product/updateprice.php:125
 msgid "Price"
 msgstr "قیمت"
 
@@ -4061,8 +4061,8 @@ msgstr ""
 
 #: content/shipping/irpost/display-calculate.php:7 content_a/order/shipping/display.php:95
 #: content_a/setting/shipping/package/display.php:56
-#: content_a/setting/shipping/package/display.php:93 lib/app/product/filter.php:317
-#: lib/app/product/filter.php:327 lib/app/product/property.php:218
+#: content_a/setting/shipping/package/display.php:93 lib/app/product/filter.php:339
+#: lib/app/product/filter.php:349 lib/app/product/property.php:218
 #: lib/app/product/property.php:287
 msgid "Weight"
 msgstr "وزن"
@@ -4154,7 +4154,9 @@ msgstr "بیمه"
 
 #: content/shipping/irpost/display-calculate.php:125
 #: content_a/accounting/doc/edit/view.php:144 content_a/order/productList.php:29
-#: content_a/order/summary.php:22 content_business/cart/cartSummary.php:29
+#: content_a/order/summary.php:22 content_a/sale/display.php:28
+#: content_business/cart/cartSummary.php:29 lib/app/product/filter.php:239
+#: lib/app/product/filter.php:249
 msgid "Vat"
 msgstr "مالیات بر ارزش افزوده"
 
@@ -4188,7 +4190,7 @@ msgstr "۹٪"
 #: content_a/chap/size-a4/a4-1.php:142 content_a/order/home/display.php:27
 #: content_a/order/links.php:88 content_a/order/productList.php:38
 #: content_a/order/summary.php:60 content_a/report/sale/display.php:180
-#: content_a/sale/display.php:27 content_business/cart/cartSummary.php:46
+#: content_a/sale/display.php:30 content_business/cart/cartSummary.php:46
 #: content_business/orders/display.php:19 dash/utility/pagination.php:484
 msgid "Total"
 msgstr "مجموع"
@@ -4627,7 +4629,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_cms/posts/edit/view.php:40 content_cms/posts/gallerysort/view.php:14
 #: content_cms/posts/publishdate/view.php:10 content_cms/posts/redirecturl/view.php:10
 #: content_cms/posts/seo/view.php:10 content_cms/posts/share/view.php:15
-#: content_cms/posts/writer/view.php:10 content_crm/member/address/view.php:36
+#: content_cms/posts/writer/view.php:10 content_crm/member/address/view.php:32
 #: content_crm/member/master.php:9 content_crm/member/transactions/detail/view.php:11
 #: content_crm/notification/view/view.php:12 content_crm/permission/add/view.php:12
 #: content_crm/permission/advance/view.php:12 content_crm/permission/edit/view.php:12
@@ -4874,8 +4876,7 @@ msgstr "لطفا والد را انتخاب کنید"
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:89 dash/app/files/ready.php:96
 #: includes/languages/trans_static.php:558 lib/app/onlinenic/create.php:75
 #: lib/app/onlinenic/create.php:76 lib/app/onlinenic/transfer.php:66
-#: lib/app/onlinenic/transfer.php:67 lib/app/product/site_list.php:164
-#: lib/app/product/site_list.php:165 lib/app/product/site_list.php:281
+#: lib/app/onlinenic/transfer.php:67
 msgid "Code"
 msgstr "کد"
 
@@ -5042,7 +5043,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/doc/display.php:14 content_a/accounting/factor/display.php:48
 #: content_a/accounting/turnover/display.php:185 content_a/android/apk/display.php:32
 #: content_a/discount/add/display.php:583 content_a/form/answer/export/display.php:42
-#: content_a/form/itemLink.php:14 content_a/order/detail/display.php:30
+#: content_a/form/itemLink.php:14 content_a/order/detail/display.php:29
 #: content_a/products/edit/block/sidebar-menu.php:7
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
 #: content_cms/comments/view/display.php:127 content_crm/member/export/display.php:47
@@ -5073,7 +5074,7 @@ msgstr "غیرفعال"
 #: lib/app/business_domain/search.php:102 lib/app/business_domain/search_dns.php:59
 #: lib/app/discount/filter.php:35 lib/app/discount/filter.php:44
 #: lib/app/gift/filter.php:43 lib/app/gift/filter.php:44 lib/app/gift/filter.php:45
-#: lib/app/gift/filter.php:46 lib/app/product/filter.php:388 lib/app/sms/filter.php:26
+#: lib/app/gift/filter.php:46 lib/app/product/filter.php:410 lib/app/sms/filter.php:26
 #: lib/app/sms/filter.php:27 lib/app/sms/filter.php:28 lib/app/sms/filter.php:29
 #: lib/app/sms/filter.php:30 lib/app/store/filter.php:29 lib/app/store/filter.php:30
 #: lib/app/store/filter.php:31
@@ -5116,7 +5117,7 @@ msgstr "افزودن"
 #: content_a/accounting/year/add/display.php:34
 #: content_a/accounting/year/manage/display.php:14
 #: content_a/category/editgroup/display.php:13 content_a/category/property/display.php:64
-#: content_a/form/item/choice/display.php:11 content_a/order/detail/display.php:39
+#: content_a/form/item/choice/display.php:11 content_a/order/detail/display.php:38
 #: content_a/pricehistory/display.php:9 content_a/products/bullet/display.php:21
 #: content_a/products/bullet/display.php:28 content_a/products/property/add/display.php:56
 #: content_a/products/property/display.php:69
@@ -5882,7 +5883,7 @@ msgstr "تنخواه"
 
 #: content_a/accounting/factor/add/display.php:163
 #: content_a/accounting/factor/add/display.php:168 content_a/setting/pcpos/display.php:123
-#: lib/app/cart/checkout.php:352 lib/app/setting/get.php:47
+#: lib/app/cart/checkout.php:359 lib/app/setting/get.php:47
 msgid "Bank"
 msgstr "بانک"
 
@@ -5905,7 +5906,7 @@ msgstr "مبلغ کل قبل از کسر تخفیف"
 #: content_a/accounting/factor/display.php:52
 #: content_a/accounting/report/quarter/display-list.php:51
 #: content_a/accounting/report/quarter/display-summary.php:20
-#: content_a/chap/size-a4/a4-1.php:47 content_a/sale/display.php:74
+#: content_a/chap/size-a4/a4-1.php:47 content_a/sale/display.php:78
 msgid "Total discount"
 msgstr "جمع تخفیف"
 
@@ -6496,7 +6497,7 @@ msgstr "کدپستی"
 #: content_a/accounting/report/journal_cover.php:44
 #: content_a/chap/size-a4/oneSide-buyer.php:86
 #: content_a/chap/size-a4/oneSide-seller.php:74 content_a/order/address/display.php:158
-#: content_a/order/address/display.php:194 content_a/order/detail/display.php:64
+#: content_a/order/address/display.php:194 content_a/order/detail/display.php:63
 #: content_a/setting/factor/address/display.php:42
 #: content_a/setting/general/address/display.php:45
 #: content_a/setting/general/display.php:59 content_a/setting3/home/html/address.php:20
@@ -6577,7 +6578,7 @@ msgid "Company National ID"
 msgstr "شناسه ملی"
 
 #: content_a/accounting/report/quarter/display-detail.php:44
-#: content_a/order/address/display.php:155 content_a/order/detail/display.php:67
+#: content_a/order/address/display.php:155 content_a/order/detail/display.php:66
 #: content_business/shipping/display.php:31 lib/app/form/item/type.php:273
 msgid "Postalcode"
 msgstr "کد پستی"
@@ -7617,6 +7618,10 @@ msgstr "تنظیم عنوان و لوگوی اپلیکیشن"
 msgid "Application desc"
 msgstr "توضیح برنامه"
 
+#: content_a/buy/view.php:11
+msgid "Buy invoicing"
+msgstr "فاکتور خرید"
+
 #: content_a/cart/add/display.php:32
 msgid "Search in product and add to user cart"
 msgstr "جستجو در محصولات برای افزودن آن به سبد خرید مشتری"
@@ -7657,26 +7662,26 @@ msgstr ""
 "جدیدی ثبت کنید"
 
 #: content_a/cart/add/display.php:71 content_a/cart/user/display.php:11
-#: content_a/order/address/display.php:49 content_a/sale/display.php:42
+#: content_a/order/address/display.php:49 content_a/sale/view.php:59
 #: content_crm/notification/send/display.php:7 content_crm/ticket/assign/display.php:9
 msgid "Choose customer"
 msgstr "انتخاب مشتری"
 
 #: content_a/cart/add/display.php:77 content_a/cart/user/display.php:17
-#: content_a/order/address/display.php:55 content_a/sale/display.php:48
+#: content_a/order/address/display.php:55 content_a/sale/display.php:51
 #: content_crm/ticket/assign/display.php:15
 msgid "Quickly add customer"
 msgstr "افزودن سریع مشتری"
 
 #: content_a/cart/add/display.php:79 content_a/cart/user/display.php:19
-#: content_a/order/address/display.php:57 content_a/sale/display.php:50
+#: content_a/order/address/display.php:57 content_a/sale/display.php:53
 #: content_crm/ticket/assign/display.php:17
 #: content_site/body/twitter/twitter1_html.php:231 lib/app/form/filter/ready.php:60
 msgid "Like"
 msgstr "مثل"
 
 #: content_a/cart/add/display.php:83 content_a/cart/user/display.php:23
-#: content_a/order/address/display.php:61 content_a/sale/display.php:54
+#: content_a/order/address/display.php:61 content_a/sale/display.php:57
 #: content_account/my/home/display.php:109 content_account/my/profile/display.php:34
 #: content_business/profile/detail/display.php:33
 #: content_crm/member/identification/display.php:39
@@ -7685,21 +7690,21 @@ msgid "Gender"
 msgstr "جنسیت"
 
 #: content_a/cart/add/display.php:85 content_a/cart/user/display.php:25
-#: content_a/order/address/display.php:63 content_a/sale/display.php:56
-#: content_crm/ticket/assign/display.php:22 dash/app.php:172 dash/app/user.php:232
+#: content_a/order/address/display.php:63 content_a/sale/display.php:59
+#: content_crm/ticket/assign/display.php:22 dash/app.php:172 dash/app/user.php:231
 #: dash/user.php:200
 msgid "Mr"
 msgstr "آقای"
 
 #: content_a/cart/add/display.php:86 content_a/cart/user/display.php:26
-#: content_a/order/address/display.php:64 content_a/sale/display.php:57
-#: content_crm/ticket/assign/display.php:23 dash/app.php:176 dash/app/user.php:236
+#: content_a/order/address/display.php:64 content_a/sale/display.php:60
+#: content_crm/ticket/assign/display.php:23 dash/app.php:176 dash/app/user.php:235
 #: dash/user.php:204
 msgid "Mrs"
 msgstr "خانم"
 
 #: content_a/cart/add/display.php:90 content_a/cart/user/display.php:30
-#: content_a/order/address/display.php:68 content_a/sale/display.php:61
+#: content_a/order/address/display.php:68 content_a/sale/display.php:64
 #: content_crm/ticket/assign/display.php:26
 msgid "Customer Name"
 msgstr "نام مشتری"
@@ -8112,7 +8117,7 @@ msgstr "تنظیمات محصولات"
 
 #: content_a/category/home/view.php:46 content_a/discount/home/view.php:46
 #: content_a/form/tag/view.php:43 content_a/order/home/view.php:58
-#: content_a/products/home/view.php:95 content_a/setting/domain/view.php:52
+#: content_a/products/home/view.php:96 content_a/setting/domain/view.php:52
 #: content_business/n/view.php:35 content_business/search/view.php:37
 #: content_business/ticket/home/view.php:52 content_cms/comments/home/view.php:52
 #: content_cms/files/choose/view.php:39 content_cms/files/datalist/view.php:42
@@ -8244,7 +8249,7 @@ msgstr "تعداد"
 
 #: content_a/chap/size-a4/a4-1.php:43 content_a/products/property/display.php:124
 #: content_a/units/display.php:113 dash/layout/search/search_filter.php:524
-#: lib/app/product/filter.php:378 lib/app/product/property.php:221
+#: lib/app/product/filter.php:400 lib/app/product/property.php:221
 msgid "Unit"
 msgstr "واحد"
 
@@ -8252,7 +8257,7 @@ msgstr "واحد"
 msgid "Total price after discount"
 msgstr "مبلغ کل پس از تخفیف"
 
-#: content_a/chap/size-a4/a4-1.php:51
+#: content_a/chap/size-a4/a4-1.php:51 content_a/sale/display.php:76
 msgid "Total VAT"
 msgstr "جمع مالیات و عوارض"
 
@@ -8272,7 +8277,7 @@ msgid "Discount code"
 msgstr "کد تخفیف"
 
 #: content_a/chap/size-a4/a4-1.php:162 content_a/chap/size-receipt/receipt.php:168
-#: content_a/sale/display.php:68
+#: content_a/sale/display.php:71
 msgid "Total payable"
 msgstr "جمع مبلغ قابل پرداخت"
 
@@ -8293,8 +8298,8 @@ msgid "Fax"
 msgstr "فکس"
 
 #: content_a/chap/size-receipt/receipt.php:43 content_a/order/address/display.php:17
-#: content_a/order/detail/display.php:17 content_a/order/home/display.php:13
-#: content_crm/notification/send/display.php:5
+#: content_a/order/detail/display.php:16 content_a/order/detail/display.php:100
+#: content_a/order/home/display.php:13 content_crm/notification/send/display.php:5
 #: content_my/business/home/display_site.php:64 content_sudo/smsclient/home/display.php:14
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:32
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:68
@@ -8325,7 +8330,7 @@ msgstr "تاریخ چاپ"
 msgid "Sum"
 msgstr "جمع"
 
-#: content_a/chap/size-receipt/receipt.php:133 content_a/sale/display.php:72
+#: content_a/chap/size-receipt/receipt.php:133 content_a/sale/display.php:75
 msgid "Invoice amount"
 msgstr "مبلغ فاکتور"
 
@@ -8350,12 +8355,12 @@ msgstr "چاپ فاکتور"
 #: lib/app/business_domain/edit.php:100 lib/app/category/add.php:73
 #: lib/app/category/add.php:179 lib/app/category/add.php:254 lib/app/category/edit.php:281
 #: lib/app/category/get.php:65 lib/app/category/get.php:96 lib/app/category/get.php:124
-#: lib/app/category/search.php:28 lib/app/factor/add.php:55 lib/app/factor/get.php:179
-#: lib/app/plan/history.php:113 lib/app/product/edit.php:104 lib/app/product/get.php:45
-#: lib/app/product/get.php:86 lib/app/product/unit.php:68 lib/app/product/unit.php:234
-#: lib/app/product/unit.php:266 lib/app/product/unit.php:360 lib/app/store/edit.php:18
-#: lib/app/store/edit.php:106 lib/app/store/edit.php:145 lib/app/store/edit.php:191
-#: lib/app/store/remove.php:13
+#: lib/app/category/search.php:28 lib/app/factor/add.php:57 lib/app/factor/get.php:179
+#: lib/app/order/add.php:20 lib/app/plan/history.php:113 lib/app/product/edit.php:104
+#: lib/app/product/get.php:45 lib/app/product/get.php:86 lib/app/product/unit.php:68
+#: lib/app/product/unit.php:234 lib/app/product/unit.php:266 lib/app/product/unit.php:360
+#: lib/app/store/edit.php:18 lib/app/store/edit.php:106 lib/app/store/edit.php:145
+#: lib/app/store/edit.php:191 lib/app/store/remove.php:13
 msgid "Store not found"
 msgstr "فروشگاه یافت نشد"
 
@@ -8669,8 +8674,8 @@ msgstr "شناسه پاسخ"
 #: content_a/form/analytics/answer/display.php:54 content_a/form/analytics/pageStep.php:49
 #: content_a/form/analytics/tag/display.php:29 content_a/form/answer/detail/display.php:87
 #: content_love/changelog/add/display.php:19 dash/app/posts/dropdown.php:33
-#: includes/languages/trans_static.php:557 lib/app/product/filter.php:348
-#: lib/app/product/filter.php:358 lib/app/product/filter.php:368
+#: includes/languages/trans_static.php:557 lib/app/product/filter.php:370
+#: lib/app/product/filter.php:380 lib/app/product/filter.php:390
 #: lib/app/store/analytics.php:60
 msgid "Tag"
 msgstr "تگ"
@@ -9749,7 +9754,7 @@ msgid "User not found"
 msgstr "کاربر یافت نشد"
 
 #: content_a/order/address/model.php:55 content_b1/user/address.php:56
-#: dash/app/address.php:24 dash/app/address.php:461
+#: dash/app/address.php:24 dash/app/address.php:460
 msgid "Address not found"
 msgstr "آدرس یافت نشد"
 
@@ -9795,18 +9800,30 @@ msgstr "شناسه سفارش اشتباه است"
 msgid "This order was deleted"
 msgstr "این سفارش حذف شده است"
 
-#: content_a/order/detail/display.php:25
+#: content_a/order/detail/display.php:24
 msgid "Order Type"
 msgstr "نوع سفارش"
 
-#: content_a/order/detail/display.php:35 content_a/order/editdate/display.php:17
+#: content_a/order/detail/display.php:34 content_a/order/editdate/display.php:17
 #: content_business/orders/view/display.php:20
 msgid "Order date"
 msgstr "زمان سفارش"
 
-#: content_a/order/detail/display.php:82
+#: content_a/order/detail/display.php:81
 msgid "Payment status"
 msgstr "وضعیت پرداخت"
+
+#: content_a/order/detail/display.php:108
+msgid "Debt unti this order"
+msgstr "بدهی تا زمان این سفارش"
+
+#: content_a/order/detail/display.php:115
+msgid "Debt whit this order"
+msgstr "بدهی با این سفارش"
+
+#: content_a/order/detail/display.php:122
+msgid "Current debt"
+msgstr "بدهی فعلی"
 
 #: content_a/order/discount/display.php:40
 msgid "Apply discount code"
@@ -10121,8 +10138,8 @@ msgstr "پرداخت تایید نشده"
 msgid "Successful payment"
 msgstr "پرداخت موفقیت‌آمیز"
 
-#: content_a/order/status/display.php:92 lib/app/factor/action.php:58
-#: lib/app/factor/ready.php:101
+#: content_a/order/status/display.php:92 content_a/sale/display.php:98
+#: lib/app/factor/action.php:58 lib/app/factor/ready.php:101
 msgid "Unpaid"
 msgstr "پرداخت نشده"
 
@@ -10424,7 +10441,7 @@ msgid "Enable barcode"
 msgstr "فعال سازی بارکد"
 
 #: content_a/products/edit/block/barcode.php:13 lib/app/product/filter.php:113
-#: lib/app/product/filter.php:122 lib/app/product/site_list.php:153
+#: lib/app/product/filter.php:122 lib/app/product/site_list.php:181
 msgid "Barcode"
 msgstr "بارکد"
 
@@ -10521,8 +10538,8 @@ msgid "Receive recommendations on your products based on your rate of sales."
 msgstr "دریافت توصیه برای خرید محصولات بسته به نرخ فروش آن‌ها."
 
 #: content_a/products/edit/block/inventory-master.php:16
-#: content_a/products/quick/display.php:53 lib/app/product/filter.php:297
-#: lib/app/product/filter.php:307
+#: content_a/products/quick/display.php:53 lib/app/product/filter.php:319
+#: lib/app/product/filter.php:329
 msgid "Track quantity"
 msgstr "رهگیری موجودی"
 
@@ -10884,8 +10901,8 @@ msgstr ""
 msgid "Edit Property"
 msgstr "ویرایش مشخصات"
 
-#: content_a/products/property/view.php:11 lib/app/product/filter.php:257
-#: lib/app/product/filter.php:267
+#: content_a/products/property/view.php:11 lib/app/product/filter.php:279
+#: lib/app/product/filter.php:289
 msgid "Property"
 msgstr "مشخصات"
 
@@ -11203,38 +11220,42 @@ msgstr "ساعت پایان"
 msgid "You can add new empty tab if current tab is filled!"
 msgstr "اگر این برگه پر شود شما می‌توانید یک برگه خالی جدید اضافه کنید!"
 
-#: content_a/sale/display.php:67
+#: content_a/sale/display.php:70
 msgid "Factor Price Detail"
 msgstr "جزئیات قیمت فاکتور"
 
-#: content_a/sale/display.php:70
+#: content_a/sale/display.php:73
 msgid "Count of items"
 msgstr "تعداد اقلام"
 
-#: content_a/sale/display.php:71
+#: content_a/sale/display.php:74
 msgid "Sum of counts"
 msgstr "جمع تعداد"
 
-#: content_a/sale/display.php:73
+#: content_a/sale/display.php:77
 msgid "Discount percent"
 msgstr "درصد تخفیف"
 
-#: content_a/sale/display.php:74
+#: content_a/sale/display.php:78
 msgid "Press f7 or click to toggle discount"
 msgstr "دکمه f7 را بفشارید با برای تغییر وضعیت کلیک کنید"
 
-#: content_a/sale/display.php:86
+#: content_a/sale/display.php:90
 msgid "Save & Print"
 msgstr "ذخیره و چاپ"
+
+#: content_a/sale/display.php:102 lib/app/factor/filter.php:51
+msgid "Payed"
+msgstr "پرداخت شده"
 
 #: content_a/sale/model.php:57 content_sudo/smsclient/edit/model.php:47
 #: content_sudo/smsclient/home/model.php:47 dash/utility/pay/verify.php:54
 msgid "Dont!"
 msgstr "نکن عزیزم!"
 
-#: content_a/sale/model.php:85 content_a/sale/model.php:96
-msgid "No items have been added for sale"
-msgstr "هیچ محصولی برای فروش انتخاب نشده است"
+#: content_a/sale/model.php:85 content_a/sale/model.php:101
+msgid "No items have been added"
+msgstr "هیچ آیتمی برای ثبت انتخاب نشده است"
 
 #: content_a/sale/view.php:12
 msgid "Sale invoicing"
@@ -11248,9 +11269,13 @@ msgstr "صدور فاکتور فروش"
 msgid "Factors"
 msgstr "فاکتورها"
 
-#: content_a/sale/view.php:25
+#: content_a/sale/view.php:22
 msgid "Save Factor & Continue"
 msgstr "ذخیره فاکتور و ادامه"
+
+#: content_a/sale/view.php:64
+msgid "Choose supplier"
+msgstr "انتخاب تامین کننده"
 
 #: content_a/setting/aparat/display.php:8
 msgid "Enter your account username in aparat."
@@ -11455,7 +11480,7 @@ msgstr "لطفا کشور را انتخاب کنید"
 msgid "Please choose province"
 msgstr "لطفا استان را انتخاب کنید"
 
-#: content_a/setting/factor/address/model.php:21 content_a/setting/factor/model.php:34
+#: content_a/setting/factor/address/model.php:21 content_a/setting/factor/model.php:39
 #: content_a/setting/factor/seller/model.php:21 content_a/setting/order/model.php:57
 #: content_site/section/html/model.php:89 dash/app/changelog.php:347
 #: dash/app/permission/edit.php:157 dash/app/permission/edit.php:229
@@ -11490,7 +11515,7 @@ msgid "Address information displayed on the invoice"
 msgstr "اطلاعات آدرس نمایش داده شده در فاکتور"
 
 #: content_a/setting/factor/display.php:30 content_a/setting3/home/section/general.php:107
-#: content_account/address.php:9 content_crm/member/address/view.php:31
+#: content_account/address.php:9 content_crm/member/address/view.php:27
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:28
 msgid "Edit address"
 msgstr "ویرایش آدرس"
@@ -11513,9 +11538,10 @@ msgstr ""
 
 #: content_a/setting/factor/display.php:49 content_a/setting/factor/display.php:70
 #: content_a/setting/factor/display.php:90 content_a/setting/factor/display.php:114
-#: content_a/setting/general/display.php:184 content_a/setting/shipping/display.php:15
-#: content_a/setting/shipping/display.php:40 content_account/address.php:58
-#: content_account/address.php:64 content_crm/member/transactions/plus/display.php:35
+#: content_a/setting/factor/display.php:139 content_a/setting/general/display.php:184
+#: content_a/setting/shipping/display.php:15 content_a/setting/shipping/display.php:40
+#: content_account/address.php:58 content_account/address.php:64
+#: content_crm/member/transactions/plus/display.php:35
 #: content_crm/ticket/view/display.php:229 content_crm/transactions/detail/display.php:60
 #: content_crm/transactions/edit/display.php:37
 #: content_love/domain/setting/display.php:103
@@ -11533,9 +11559,10 @@ msgstr "بله"
 
 #: content_a/setting/factor/display.php:49 content_a/setting/factor/display.php:70
 #: content_a/setting/factor/display.php:90 content_a/setting/factor/display.php:114
-#: content_a/setting/general/display.php:184 content_a/setting/shipping/display.php:15
-#: content_a/setting/shipping/display.php:40 content_account/address.php:58
-#: content_account/address.php:64 content_crm/member/transactions/plus/display.php:35
+#: content_a/setting/factor/display.php:139 content_a/setting/general/display.php:184
+#: content_a/setting/shipping/display.php:15 content_a/setting/shipping/display.php:40
+#: content_account/address.php:58 content_account/address.php:64
+#: content_crm/member/transactions/plus/display.php:35
 #: content_crm/ticket/view/display.php:229 content_crm/transactions/detail/display.php:60
 #: content_crm/transactions/edit/display.php:37
 #: content_love/domain/setting/display.php:107
@@ -11580,22 +11607,40 @@ msgstr "وضعیت پیش‌فرض ارزش افزوده برای محصولات
 msgid "You can change default value for VAT on add new product."
 msgstr "شما می‌توانید وضعیت پیش‌فرض ارزش افزوده را برای افزودن کالاهای جدید تغییر دهید.."
 
-#: content_a/setting/factor/display.php:130
+#: content_a/setting/factor/display.php:127
+msgid "Update product price when prices change on the sales page?"
+msgstr "تغییر قیمت اصل محصول در صفحه ثبت سفارش"
+
+#: content_a/setting/factor/display.php:129
+msgid ""
+"If this setting is on, when registering a sales order, by changing the price of a "
+"product, in addition to recording that price in the current invoice, the original price "
+"of the product will also change.\n"
+"Note that the price of the product will be updated only if your employee is allowed to "
+"update the product, otherwise will only change the price of the product in the current "
+"order."
+msgstr ""
+"در صورت روشن بودن این تنظیم هنگام ثبت سفارش فروش، با تغییر قیمت یک کالا، علاوه بر ثبت "
+"آن قیمت در فاکتور فعلی، قیمت اصلی کالا نیز تغییر می‌کند.\n"
+"توجه داشته باشید که تنها در صورتی که کارمند شما اجازه به‌روزرسانی محصول را داشته باشد، "
+"قیمت محصول به‌روز می‌شود، در غیر این صورت فقط قیمت محصول در سفارش فعلی تغییر می‌کند."
+
+#: content_a/setting/factor/display.php:153
 msgid "Show all prices with tax included"
 msgstr "نمایش تمام هزینه‌ها همراه با مالیات هست"
 
-#: content_a/setting/factor/display.php:132
+#: content_a/setting/factor/display.php:155
 msgid ""
 "If taxes are charged on shipping rates, then taxes are included in the shipping price."
 msgstr ""
 "اگر مالیات بر روی نرخ حمل و نقل اعمال شود، در این‌صورت مالیات شامل نرخ حمل و نقل هم "
 "خواهد بود."
 
-#: content_a/setting/factor/display.php:139
+#: content_a/setting/factor/display.php:162
 msgid "Charge tax on shipping rates"
 msgstr "اعمال مالیات روی نرخ حمل و نقل"
 
-#: content_a/setting/factor/display.php:141
+#: content_a/setting/factor/display.php:164
 msgid "Include shipping rates in the tax calculation."
 msgstr "شامل نرخ حمل و نقل در محاسبه مالیات."
 
@@ -12385,7 +12430,7 @@ msgstr ""
 "سفارش‌های پرداختی با پول نقد به صورت پردازش‌شده ثبت باقی خواهند ماند تا تحویل توسط شما یا "
 "سرویس حمل و نقل انجام پذیرد."
 
-#: content_a/setting/order/display.php:127 lib/app/cart/checkout.php:364
+#: content_a/setting/order/display.php:127 lib/app/cart/checkout.php:371
 #: lib/app/setting/get.php:59
 msgid "Card-to-card"
 msgstr "کارت به کارت"
@@ -14068,7 +14113,7 @@ msgid "Integrated Sales and Online Accounting"
 msgstr "فروش یکپارچه و حسابداری آنلاین"
 
 #: content_account/address.php:13 content_business/shipping/display.php:44
-#: content_crm/member/address/view.php:27 content_crm/member/address/view.php:41
+#: content_crm/member/address/view.php:23 content_crm/member/address/view.php:37
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:26
 msgid "Add new address"
 msgstr "افزودن آدرس جدید"
@@ -14558,7 +14603,7 @@ msgstr "تاریخ تولد"
 #: content_account/my/home/display.php:119 content_account/my/profile/display.php:27
 #: content_account/my/profile/display.php:29
 #: content_business/profile/detail/display.php:28
-#: content_business/profile/detail/display.php:30 dash/app/user.php:322
+#: content_business/profile/detail/display.php:30 dash/app/user.php:321
 msgid "Display name"
 msgstr "نام برای نمایش"
 
@@ -15128,11 +15173,13 @@ msgstr ""
 "همین امروز اپلیکیشن ما رو نصب کن! با برنامه رایگان ما می‌تونید سریع و به سرعت خرید کنید. "
 "از تخفیفات ویژه و جدیدی که بر روی اپ ما ارائه میشه همین الان استفاده کنید"
 
-#: content_business/cart/cartSummary.php:58 lib/app/factor/add.php:205
+#: content_business/cart/cartSummary.php:58 lib/app/factor/add.php:207
+#: lib/app/order/add.php:534
 msgid "Minimum order amount is :val :currency"
 msgstr "حداقل مبلغ سفارش :val :currency است"
 
-#: content_business/cart/cartSummary.php:60 lib/app/factor/add.php:207
+#: content_business/cart/cartSummary.php:60 lib/app/factor/add.php:209
+#: lib/app/order/add.php:536
 msgid "You must add :val :currency to your cart"
 msgstr "شما باید :val :currency دیگر به سبد خرید خود اضافه کنید"
 
@@ -16228,7 +16275,7 @@ msgstr "ویرایش زبان نوشته"
 msgid "You can change your post language"
 msgstr "شما می‌توانید زبان این نوشته را به صورت دستی تغییر دهید"
 
-#: content_cms/posts/advance/display.php:241 dash/plan_list.php:202
+#: content_cms/posts/advance/display.php:241 dash/plan_list.php:209
 msgid "Remove post"
 msgstr "حذف نوشته"
 
@@ -16701,7 +16748,7 @@ msgstr "09120123456 مثل"
 msgid "Add New Customers"
 msgstr "افزودن مشتری جدید"
 
-#: content_crm/member/address/view.php:21
+#: content_crm/member/address/view.php:17
 msgid "Customer addresses"
 msgstr "آدرس‌های مشتری"
 
@@ -17459,7 +17506,7 @@ msgstr "نمایش جزئیات لاگ پیامک"
 msgid "Please choose a permission"
 msgstr "لطفا یک سطح دسترسی را انتخاب کنید"
 
-#: content_crm/staff/add/model.php:19 dash/app/user.php:333
+#: content_crm/staff/add/model.php:19 dash/app/user.php:332
 msgid "Mobile is required"
 msgstr "موبایل الزامی است"
 
@@ -18788,8 +18835,8 @@ msgstr ""
 #: dash/app/user/email.php:262 dash/app/user/email.php:328 lib/api/jibres/api.php:16
 #: lib/api/jibres/api.php:30 lib/app/application/queue_search.php:27
 #: lib/app/cart/add.php:64 lib/app/cart/add.php:86 lib/app/cart/add.php:175
-#: lib/app/cart/add.php:291 lib/app/cart/checkout.php:14 lib/app/cart/checkout.php:270
-#: lib/app/cart/checkout.php:340 lib/app/cart/edit.php:19 lib/app/cart/remove.php:36
+#: lib/app/cart/add.php:291 lib/app/cart/checkout.php:14 lib/app/cart/checkout.php:277
+#: lib/app/cart/checkout.php:347 lib/app/cart/edit.php:19 lib/app/cart/remove.php:36
 #: lib/app/domains/search.php:27 lib/app/gift/lookup/search.php:26
 #: lib/app/gift/search.php:27 lib/app/gift/usage/search.php:24
 #: lib/app/nic_contact/add.php:21 lib/app/nic_contact/add.php:67
@@ -20492,8 +20539,8 @@ msgid "This domain is available for register!"
 msgstr "این دامنه آماده خرید است!"
 
 #: content_love/domain/setting/display.php:59 content_my/domain/review/controller.php:148
-#: dash/app/log/ready.php:89 dash/app/log/ready.php:93 dash/app/user.php:87
-#: dash/app/user.php:129 dash/app/user.php:179 dash/app/visitor.php:112
+#: dash/app/log/ready.php:89 dash/app/log/ready.php:93 dash/app/user.php:86
+#: dash/app/user.php:128 dash/app/user.php:178 dash/app/visitor.php:112
 #: dash/app/visitor.php:141 includes/languages/trans_static.php:543
 #: lib/app/factor/ready.php:87 lib/app/factor/ready.php:126
 #: lib/app/nic_domain/ready.php:62 lib/app/nic_domain/ready.php:64
@@ -22999,7 +23046,7 @@ msgstr "فایل‌های ثابت"
 msgid "Menu"
 msgstr "منو"
 
-#: content_site/home/display.php:19 dash/plan_list.php:171
+#: content_site/home/display.php:19 dash/plan_list.php:178
 msgid "Manage homepage"
 msgstr "مدیریت صفحه نخست"
 
@@ -25244,12 +25291,12 @@ msgstr "هیچ راهی برای افزودن آدرس وجود ندارد"
 msgid "Can not access to edit address"
 msgstr "شما دسترسی لازم برای ویرایش این آدرس را ندارید"
 
-#: dash/app/address.php:411 dash/app/address.php:424 dash/app/address.php:442
-#: dash/app/address.php:455
+#: dash/app/address.php:411 dash/app/address.php:423 dash/app/address.php:441
+#: dash/app/address.php:454
 msgid "Can not access to remove this address"
 msgstr "شما دسترسی لازم برای حذف این آدرس را ندارید"
 
-#: dash/app/address.php:429 dash/app/address.php:466
+#: dash/app/address.php:428 dash/app/address.php:465
 msgid "Address removed"
 msgstr "آدرس حذف شد"
 
@@ -25286,7 +25333,7 @@ msgid "Please wait until your comment was approved"
 msgstr "لطفا صبر کنید تا دیگاه‌های شما تایید شود"
 
 #: dash/app/comment/add.php:49 dash/app/ticket/add.php:72 dash/utility/pay/start.php:219
-#: lib/app/cart/add.php:211 lib/app/factor/add.php:243
+#: lib/app/cart/add.php:211 lib/app/factor/add.php:547 lib/app/order/add.php:482
 msgid "Who are you?"
 msgstr "شما کی هستید؟"
 
@@ -25920,9 +25967,9 @@ msgid "Posts not found."
 msgstr "نوشته یافت نشد."
 
 #: dash/app/posts/dropdown.php:117 dash/app/posts/dropdown.php:128
-#: dash/app/user/site_list.php:39 dash/app/user/site_list.php:55
+#: dash/app/user/site_list.php:41 dash/app/user/site_list.php:57
 #: dash/layout/search/search-empty.php:2 dash/layout/search/search-empty.php:3
-#: lib/app/product/site_list.php:70 lib/app/product/site_list.php:82
+#: lib/app/product/site_list.php:83 lib/app/product/site_list.php:95
 msgid "No result found!"
 msgstr "نتیجه‌ای یافت نشد!"
 
@@ -26522,15 +26569,15 @@ msgstr "آمار"
 msgid "Show statistics of this result"
 msgstr "آمار نتایج فعلی"
 
-#: dash/app/user.php:356
+#: dash/app/user.php:355
 msgid "This accounting detail already in use for another user"
 msgstr "این سرفصل حسابداری متصل به کاربر دیگری است"
 
-#: dash/app/user.php:565
+#: dash/app/user.php:564
 msgid "Can not remove user by permission"
 msgstr "نمی‌توانید کاربری که داری سطح دسترسی هست را حذف کنید"
 
-#: dash/app/user.php:571
+#: dash/app/user.php:570
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
@@ -26550,11 +26597,11 @@ msgstr "هیچ راهی برای ثبت کاربر یافت نشد"
 msgid "User successfuly added"
 msgstr "کاربر با موفقیت اضافه شد"
 
-#: dash/app/user/add.php:224 lib/app/factor/check.php:113
+#: dash/app/user/add.php:224 lib/app/factor/check.php:113 lib/app/order/check.php:113
 msgid "Customer detail is invalid"
 msgstr "اطلاعات مشتری اشتباه است"
 
-#: dash/app/user/add.php:252 lib/app/factor/check.php:141
+#: dash/app/user/add.php:252 lib/app/factor/check.php:141 lib/app/order/check.php:141
 msgid ""
 "This thirdparyt already added to your store. plase set her mobile or change the name"
 msgstr ""
@@ -28033,131 +28080,143 @@ msgstr "مدیریت دسته‌بندی محصولات"
 msgid "Add new sale order"
 msgstr "ثبت سفارش فروش جدید"
 
-#: dash/plan_list.php:160
+#: dash/plan_list.php:162
+msgid "Add new buy order"
+msgstr "ثبت سفارش خرید جدید"
+
+#: dash/plan_list.php:163
+msgid "Change price in sale page"
+msgstr "تغییر قیمت در صفحه ثبت سفارش"
+
+#: dash/plan_list.php:164
+msgid "Change discount in sale page"
+msgstr "تغییر تخفیف در صفحه ثبت سفارش"
+
+#: dash/plan_list.php:167
 msgid "Manage Cart"
 msgstr "مدیریت سبد خرید"
 
-#: dash/plan_list.php:161
+#: dash/plan_list.php:168
 msgid "Manage Factors"
 msgstr "مدیریت سفارشات"
 
-#: dash/plan_list.php:162
+#: dash/plan_list.php:169
 msgid "Order Notification Receiver"
 msgstr "دریافت کننده پیام‌های سفارشات"
 
-#: dash/plan_list.php:166
+#: dash/plan_list.php:173
 msgid "Manage business setting"
 msgstr "مدیریت تنظیمات بیزینس"
 
-#: dash/plan_list.php:170
+#: dash/plan_list.php:177
 msgid "Website setting"
 msgstr "تنظیمات وب‌سایت"
 
-#: dash/plan_list.php:172
+#: dash/plan_list.php:179
 msgid "Remove site builder page"
 msgstr "حذف صفحات سایت‌ساز"
 
-#: dash/plan_list.php:175
+#: dash/plan_list.php:182
 msgid "Manage Form"
 msgstr "مدیریت فرم‌ساز"
 
-#: dash/plan_list.php:176
+#: dash/plan_list.php:183
 msgid "Advance Form Analyze"
 msgstr "تجزیه و تحلیل پیشرفته"
 
-#: dash/plan_list.php:177
+#: dash/plan_list.php:184
 msgid "Manage Form Tags"
 msgstr "مدیریت تگ فرم‌ها"
 
-#: dash/plan_list.php:178
+#: dash/plan_list.php:185
 msgid "Remove form answer"
 msgstr "حذف پاسخ فرم‌ها"
 
-#: dash/plan_list.php:179
+#: dash/plan_list.php:186
 msgid "Form Description"
 msgstr "ثبت توضیحات برای پاسخ‌ فرم‌ها"
 
-#: dash/plan_list.php:184
+#: dash/plan_list.php:191
 msgid "Manage Customers"
 msgstr "مدیریت مشتریان"
 
-#: dash/plan_list.php:185
+#: dash/plan_list.php:192
 msgid "Manage customer payemnts"
 msgstr "مدیریت پرداختی‌های مشتریان"
 
-#: dash/plan_list.php:186
+#: dash/plan_list.php:193
 msgid "Permission Management"
 msgstr "مدیریت سطح دسترسی"
 
-#: dash/plan_list.php:187
+#: dash/plan_list.php:194
 msgid "Show Payemnt List"
 msgstr "نمایش لیست پرداختی‌ها"
 
-#: dash/plan_list.php:188
+#: dash/plan_list.php:195
 msgid "Show logs"
 msgstr "نمایش ردپا"
 
-#: dash/plan_list.php:189
+#: dash/plan_list.php:196
 msgid "Show sms list"
 msgstr "نمایش لیست پیامک‌ها"
 
-#: dash/plan_list.php:190
+#: dash/plan_list.php:197
 msgid "Show Telegram messages list"
 msgstr "نمایش لیست پیام‌های تلگرام"
 
-#: dash/plan_list.php:192
+#: dash/plan_list.php:199
 msgid "Show Tickets List"
 msgstr "نمایش لیست تیکت‌ها"
 
-#: dash/plan_list.php:193
+#: dash/plan_list.php:200
 msgid "Ticket Manager"
 msgstr "مدیریت تیکت"
 
-#: dash/plan_list.php:195
+#: dash/plan_list.php:202
 msgid "Add New Notification"
 msgstr "افزودن پیام جدید"
 
-#: dash/plan_list.php:199
+#: dash/plan_list.php:206
 msgid "Manage Post"
 msgstr "مدیریت نوشته‌ها"
 
-#: dash/plan_list.php:200
+#: dash/plan_list.php:207
 msgid "Manage All Post"
 msgstr "مدیریت تمامی نوشته‌‌ها"
 
-#: dash/plan_list.php:201
+#: dash/plan_list.php:208
 msgid "Publish post"
 msgstr "انتشار نوشته"
 
-#: dash/plan_list.php:203
+#: dash/plan_list.php:210
 msgid "Manage Help Center"
 msgstr "مدیریت مقالات مرکز راهنمایی"
 
-#: dash/plan_list.php:205
+#: dash/plan_list.php:212
 msgid "View Comments"
 msgstr "نمایش نظرات"
 
-#: dash/plan_list.php:206
+#: dash/plan_list.php:213
 msgid "Manage Comments"
 msgstr "مدیریت نظرات"
 
-#: dash/plan_list.php:208
+#: dash/plan_list.php:215
 msgid "Manage Hashtags"
 msgstr "مدیریت هشتگ‌ها"
 
-#: dash/plan_list.php:210
+#: dash/plan_list.php:217
 msgid "View Attachment"
 msgstr "نمایش ضمیمه‌‌ها"
 
-#: dash/plan_list.php:211
+#: dash/plan_list.php:218
 msgid "Add New Attachment"
 msgstr "افزودن فایل ضمیمه جدید"
 
-#: dash/plan_list.php:212
+#: dash/plan_list.php:219
 msgid "Manage Attachments"
 msgstr "مدیریت ضمیمه‌ها"
 
-#: dash/plan_list.php:214
+#: dash/plan_list.php:221
 msgid "CMS customization"
 msgstr "سفارشی‌سازی سیستم مدیریت محتوا"
 
@@ -37203,46 +37262,46 @@ msgstr "شناسه آدرس نامعتبر است!"
 msgid "Your cart is empty"
 msgstr "سبد خرید شما خالی است"
 
-#: lib/app/cart/checkout.php:334
+#: lib/app/cart/checkout.php:341
 msgid "Your cart is empty!"
 msgstr "سبد خرید شما خالی است!"
 
-#: lib/app/cart/checkout.php:355 lib/app/setting/get.php:50
+#: lib/app/cart/checkout.php:362 lib/app/setting/get.php:50
 msgid "Cheque"
 msgstr "چک"
 
-#: lib/app/cart/checkout.php:358 lib/app/setting/get.php:53
+#: lib/app/cart/checkout.php:365 lib/app/setting/get.php:53
 msgid "On deliver"
 msgstr "پرداخت در محل"
 
-#: lib/app/cart/checkout.php:361 lib/app/setting/get.php:56
+#: lib/app/cart/checkout.php:368 lib/app/setting/get.php:56
 msgid "Online"
 msgstr "آنلاین"
 
-#: lib/app/cart/checkout.php:395
+#: lib/app/cart/checkout.php:402
 msgid "Plese set mobile or login to continue"
 msgstr "لطفا برای ادامه موبایل خود را وارد کنید یا وارد سیستم شوید"
 
-#: lib/app/cart/checkout.php:430
+#: lib/app/cart/checkout.php:437
 msgid "Address is required"
 msgstr "آدرس الزامی است"
 
-#: lib/app/cart/checkout.php:455
+#: lib/app/cart/checkout.php:462
 msgid "Can not add your order."
 msgstr "نمی‌توانیم سفارش شما را ایجاد کنیم."
 
-#: lib/app/cart/checkout.php:570
+#: lib/app/cart/checkout.php:577
 msgid "Pay order"
 msgstr "پرداخت سفارش"
 
-#: lib/app/cart/checkout.php:591 lib/app/nic_domain/create.php:550
+#: lib/app/cart/checkout.php:598 lib/app/nic_domain/create.php:550
 #: lib/app/nic_domain/renew.php:352 lib/app/nic_domain/transfer.php:356
 #: lib/app/onlinenic/create.php:416 lib/app/onlinenic/renew.php:262
 #: lib/app/onlinenic/transfer.php:366
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
 
-#: lib/app/cart/checkout.php:667
+#: lib/app/cart/checkout.php:674 lib/app/order/add.php:567
 msgid "Pay order :val"
 msgstr "پرداخت سفارش :val"
 
@@ -37775,7 +37834,7 @@ msgstr "لطفا توضیحات را تکمیل کنید و یا فایلی را
 msgid "Order not found!"
 msgstr "سفارش یافت نشد!"
 
-#: lib/app/factor/action.php:233 lib/app/factor/add.php:447
+#: lib/app/factor/action.php:233 lib/app/factor/add.php:416
 msgid "This order was deleted and can not be update!"
 msgstr "این سفارش حذف شده است و امکان ویرایش آن وجود ندارد!"
 
@@ -37791,88 +37850,89 @@ msgstr "هیچ تغییری در وضعیت سفارش شما رخ نداد"
 msgid "Operation accomplished"
 msgstr "عملیات با موفقیت انجام شد"
 
-#: lib/app/factor/add.php:128
+#: lib/app/factor/add.php:130 lib/app/order/add.php:161
 msgid "Discount is larger than order total"
 msgstr "تخفیف بزرگتر از مبلغ کل سفارش است"
 
-#: lib/app/factor/add.php:232
-msgid "You have a lot unpaid factors. Please try again later"
-msgstr "شما تعدادی سفارش پرداخت نشده دارید. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید"
-
-#: lib/app/factor/add.php:254 lib/app/factor/add.php:266
-msgid "You have a lot unpaid factors. Please try again later or login to add more"
-msgstr "شما تعدادی سفارش پرداخت نشده دارید. برای ثبت سفارش بیشتر وارد سیستم شوید"
-
-#: lib/app/factor/add.php:296
+#: lib/app/factor/add.php:255 lib/app/order/add.php:276
 msgid "No way to insert factor"
 msgstr "هیچ راهی برای ثبت کالا وجود ندارد"
 
-#: lib/app/factor/add.php:363
+#: lib/app/factor/add.php:332 lib/app/order/add.php:337
 msgid "Factor successfuly added"
 msgstr "فاکتور با موفقیت اضافه شد"
 
-#: lib/app/factor/add.php:486 lib/app/factor/edit.php:111
+#: lib/app/factor/add.php:455 lib/app/factor/edit.php:111
 msgid "Data is out of range for column count"
 msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - count"
 
-#: lib/app/factor/add.php:543
+#: lib/app/factor/add.php:512
 msgid "Product added to factor"
 msgstr "محصول به سفارش اضافه شد"
 
-#: lib/app/factor/check.php:181
+#: lib/app/factor/add.php:536 lib/app/order/add.php:471
+msgid "You have a lot unpaid factors. Please try again later"
+msgstr "شما تعدادی سفارش پرداخت نشده دارید. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید"
+
+#: lib/app/factor/add.php:558 lib/app/factor/add.php:570 lib/app/order/add.php:493
+#: lib/app/order/add.php:505
+msgid "You have a lot unpaid factors. Please try again later or login to add more"
+msgstr "شما تعدادی سفارش پرداخت نشده دارید. برای ثبت سفارش بیشتر وارد سیستم شوید"
+
+#: lib/app/factor/check.php:181 lib/app/order/check.php:181
 msgid "Order have not customer and you cannot add address to this"
 msgstr ""
 "این سفارش به مشتری اختصاص داده نشده است و شما نمی‌توانید برای این سفارش آدرس ثبت کنید"
 
-#: lib/app/factor/check.php:191
+#: lib/app/factor/check.php:191 lib/app/order/check.php:191
 msgid "Invalid user address"
 msgstr "شناسه آدرس اشتباه است"
 
-#: lib/app/factor/check.php:212
+#: lib/app/factor/check.php:212 lib/app/order/check.php:212
 msgid "Data is out of range for column qty"
 msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - qty"
 
-#: lib/app/factor/check.php:218
+#: lib/app/factor/check.php:218 lib/app/order/check.php:218
 msgid "Can not save negative value in column qty"
 msgstr "نمی‌توانید مقدار منفی در آیتم‌های سفارش داشته باشید"
 
-#: lib/app/factor/check.php:224
+#: lib/app/factor/check.php:224 lib/app/order/check.php:224
 msgid "Data is out of range for column item"
 msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - item"
 
-#: lib/app/factor/check.php:230
+#: lib/app/factor/check.php:230 lib/app/order/check.php:230
 msgid "Can not save negative value in column item"
 msgstr "نمی‌توانید مقدار منفی در آیتم‌های سفارش داشته باشید"
 
-#: lib/app/factor/check.php:236
+#: lib/app/factor/check.php:236 lib/app/order/check.php:236
 msgid "Data is out of range for column subprice"
 msgstr "اطلاعات وارد شده برای مقدار مجموع ریز قیمت خارج از محدوده است"
 
-#: lib/app/factor/check.php:242
+#: lib/app/factor/check.php:242 lib/app/order/check.php:242
 msgid "Can not save negative value in column subprice"
 msgstr "نمی‌توانید مقدار منفی در جمع فاکتور داشته باشید"
 
-#: lib/app/factor/check.php:248
+#: lib/app/factor/check.php:248 lib/app/order/check.php:248
 msgid "Data is out of range for column subdiscount"
 msgstr "اطلاعات وارد شده برای مقدار مجموع ریز تخفیف خارج از محدوده است"
 
-#: lib/app/factor/check.php:254
+#: lib/app/factor/check.php:254 lib/app/order/check.php:254
 msgid "Can not save negative value in column subdiscount"
 msgstr "نمی‌توانید مقدار منفی در جمع تخفیف‌های فاکتور داشته باشید"
 
-#: lib/app/factor/check.php:260
+#: lib/app/factor/check.php:260 lib/app/order/check.php:260
 msgid "Data is out of range for column subtotal"
 msgstr "اطلاعات وارد شده برای مقدار مجموع ریز قیمت خارج از محدوده است"
 
-#: lib/app/factor/check.php:266
+#: lib/app/factor/check.php:266 lib/app/order/check.php:266
 msgid "Can not save negative value in column subtotal"
 msgstr "نمی‌توانید مقدار منفی در جمع فاکتور داشته باشید"
 
-#: lib/app/factor/check.php:272
+#: lib/app/factor/check.php:272 lib/app/order/check.php:272
 msgid "Data is out of range for column total"
 msgstr "اطلاعات وارد شده برای مقدار مجموع خارج از محدوده است"
 
-#: lib/app/factor/check.php:278
+#: lib/app/factor/check.php:278 lib/app/order/check.php:278
 msgid "Can not save negative value in column total"
 msgstr "نمی‌توانید مقدار منفی در جمع فاکتور داشته باشید"
 
@@ -37880,19 +37940,20 @@ msgstr "نمی‌توانید مقدار منفی در جمع فاکتور دا�
 msgid "Invalid factor type"
 msgstr "نوع فاکتور نامعتبر است"
 
-#: lib/app/factor/check_detail.php:117
+#: lib/app/factor/check_detail.php:117 lib/app/order/check_detail.php:38
 msgid "Duplicate product in one factor founded"
 msgstr "کالای تکراری در یک فاکتور نمی‌تواند ثبت شود"
 
-#: lib/app/factor/check_detail.php:125
+#: lib/app/factor/check_detail.php:125 lib/app/order/check_detail.php:46
 msgid "No valid products found in your list"
 msgstr "هیچ کالای معتبری در لیست این فاکتور پیدا نشد"
 
 #: lib/app/factor/check_detail.php:158 lib/app/factor/check_detail.php:164
+#: lib/app/order/check_detail.php:62 lib/app/order/check_detail.php:92
 msgid "Invalid proudct in factor :key"
 msgstr "خطا در کالای :key در فاکتور"
 
-#: lib/app/factor/check_detail.php:224
+#: lib/app/factor/check_detail.php:224 lib/app/order/check_detail.php:179
 msgid "Can not add factor item price less than 0"
 msgstr "نمی‌توانید قیمت یک آیتم سفارش را زیر صفر وارد کنید"
 
@@ -37989,10 +38050,6 @@ msgstr "تعداد، صعودی"
 #: lib/app/factor/filter.php:31 lib/app/order/filter.php:76
 msgid "Qty DESC"
 msgstr "تعداد، نزولی"
-
-#: lib/app/factor/filter.php:51
-msgid "Payed"
-msgstr "پرداخت شده"
 
 #: lib/app/factor/filter.php:60
 msgid "Not payed"
@@ -39683,6 +39740,22 @@ msgstr "بازگشت هزینه انتقال دامنه :val"
 msgid "Can not transfer your domain"
 msgstr "نمی‌توانیم دامنه را منتقل کنید"
 
+#: lib/app/order/add.php:578 lib/app/order/add.php:601
+msgid "Can not add transaction"
+msgstr "نمی‌توانیم این تراکنش را ثبت کنیم"
+
+#: lib/app/order/add.php:590
+msgid "Plus budget for pay order :val"
+msgstr "افزایش شارژ حساب کاربری بابت پرداخت هزینه سفارش :val"
+
+#: lib/app/order/check_detail.php:77
+msgid "Can not add parent of variant  proudct in order"
+msgstr "نمی‌توانید محصولی که دارای زیر مجموعه است را به سفارش اضافه کنید"
+
+#: lib/app/order/check_detail.php:85
+msgid "Can not add deleted proudct in order"
+msgstr "نمی‌توانید محصول حذف شده را به سفارش اضافه کنید"
+
 #: lib/app/order/filter.php:93
 msgid "Filter by product"
 msgstr "فیلتر بر اساس محصول"
@@ -40055,75 +40128,83 @@ msgstr "بدون موجودی"
 msgid "Negative Inventory"
 msgstr "موجودی منفی"
 
-#: lib/app/product/filter.php:237 lib/app/product/filter.php:247
+#: lib/app/product/filter.php:240
+msgid "Have vat"
+msgstr "دارای مالیات"
+
+#: lib/app/product/filter.php:250
+msgid "Have not vat"
+msgstr "بدون مالیات"
+
+#: lib/app/product/filter.php:259 lib/app/product/filter.php:269
 msgid "Variant"
 msgstr "تنوع محصول"
 
-#: lib/app/product/filter.php:238
+#: lib/app/product/filter.php:260
 msgid "Have variants"
 msgstr "دارای تنوع"
 
-#: lib/app/product/filter.php:248
+#: lib/app/product/filter.php:270
 msgid "Have not variants"
 msgstr "بدون تنوع محصول"
 
-#: lib/app/product/filter.php:258
+#: lib/app/product/filter.php:280
 msgid "Have property"
 msgstr "دارای مشخصات"
 
-#: lib/app/product/filter.php:268
+#: lib/app/product/filter.php:290
 msgid "Have not property"
 msgstr "بدون مشخصات"
 
-#: lib/app/product/filter.php:278 lib/app/product/filter.php:288
+#: lib/app/product/filter.php:300 lib/app/product/filter.php:310
 msgid "Sold"
 msgstr "فروخته‌شده"
 
-#: lib/app/product/filter.php:279
+#: lib/app/product/filter.php:301
 msgid "Have sold"
 msgstr "فروخته شده"
 
-#: lib/app/product/filter.php:289
+#: lib/app/product/filter.php:311
 msgid "Have not sold"
 msgstr "فروخته نشده"
 
-#: lib/app/product/filter.php:298
+#: lib/app/product/filter.php:320
 msgid "Track quantity On"
 msgstr "رهگیری موجودی روشن"
 
-#: lib/app/product/filter.php:308
+#: lib/app/product/filter.php:330
 msgid "Track quantity Off"
 msgstr "رهگیری موجودی خاموش"
 
-#: lib/app/product/filter.php:318
+#: lib/app/product/filter.php:340
 msgid "Have weight"
 msgstr "دارای وزن"
 
-#: lib/app/product/filter.php:328
+#: lib/app/product/filter.php:350
 msgid "Have not weight"
 msgstr "بدون وزن"
 
-#: lib/app/product/filter.php:338 lib/app/product/filter.php:339
+#: lib/app/product/filter.php:360 lib/app/product/filter.php:361
 msgid "Duplicate Title"
 msgstr "عنوان تکراری"
 
-#: lib/app/product/filter.php:349
+#: lib/app/product/filter.php:371
 msgid "Have tag"
 msgstr "دارای تگ"
 
-#: lib/app/product/filter.php:359
+#: lib/app/product/filter.php:381
 msgid "Have not tag"
 msgstr "بدون تگ"
 
-#: lib/app/product/filter.php:369
+#: lib/app/product/filter.php:391
 msgid "Filter by tag"
 msgstr "فلیتر بر اساس تگ"
 
-#: lib/app/product/filter.php:379
+#: lib/app/product/filter.php:401
 msgid "Filter by unit"
 msgstr "فیلتر بر اساس واحد"
 
-#: lib/app/product/filter.php:389
+#: lib/app/product/filter.php:411
 msgid "Filter by status"
 msgstr "فیلتر بر اساس وضعیت"
 
@@ -40228,6 +40309,10 @@ msgstr "مشخصات محصول شما بدون تغییر ذخیره شد"
 msgid "Product property saved"
 msgstr "مشخصات محصول ذخیره شد"
 
+#: lib/app/product/quick_access.php:27
+msgid "Latest sale"
+msgstr "آخرین سفارشات"
+
 #: lib/app/product/ready.php:253 lib/app/product/ready.php:262
 msgid "Tomorrow"
 msgstr "فردا"
@@ -40293,11 +40378,11 @@ msgstr "داده‌ای برای حذف وجود ندارد!"
 msgid "Product not found."
 msgstr "محصول یافت نشد."
 
-#: lib/app/product/site_list.php:50
+#: lib/app/product/site_list.php:55
 msgid "add as new product"
 msgstr "به عنوان یک کالای جدید ثبت کنید"
 
-#: lib/app/product/site_list.php:159
+#: lib/app/product/site_list.php:187
 msgid "Iran barcode"
 msgstr "ایران بارکد"
 
@@ -40899,11 +40984,11 @@ msgstr "تنظیمات سرویس ارائه دهنده خدمات ابری ذخ
 msgid "Mass unit"
 msgstr "واحد وزن"
 
-#: lib/app/setting/set.php:734
+#: lib/app/setting/set.php:735
 msgid "Please choose your province"
 msgstr "لطفا استان خود را انتخاب کنید"
 
-#: lib/app/setting/set.php:740
+#: lib/app/setting/set.php:741
 msgid "Please choose your city"
 msgstr "لطفا شهر خود را انتخاب کنید"
 
@@ -41279,7 +41364,7 @@ msgid "Groceries"
 msgstr "موارد غذایی"
 
 #: lib/app/store/check.php:23
-msgid "Other food &amp; drink"
+msgid "Other food and drink"
 msgstr "سایر موارد غذایی و نوشیدنی"
 
 #: lib/app/store/check.php:24
@@ -44786,9 +44871,6 @@ msgstr "یارد"
 #~ msgid "Customer detail"
 #~ msgstr "جزئیات مشتری"
 
-#~ msgid "Choose seller"
-#~ msgstr "انتخاب فروشنده"
-
 #~ msgid "Save legal detail"
 #~ msgstr "ذخیره اطلاعات حقوقی"
 
@@ -45867,12 +45949,6 @@ msgstr "یارد"
 
 #~ msgid "Have not displayname"
 #~ msgstr "بدون نام"
-
-#~ msgid "Have avatar"
-#~ msgstr "دارای تصویر"
-
-#~ msgid "Have not avatar"
-#~ msgstr "بدون تصویر"
 
 #~ msgid "Have username"
 #~ msgstr "دارای نام کاربری"
@@ -48043,9 +48119,6 @@ msgstr "یارد"
 
 #~ msgid "Access to CMS"
 #~ msgstr "دسترسی به سیستم مدیریت محتوا"
-
-#~ msgid "Buy Invocing"
-#~ msgstr "صدور فاکتور خرید"
 
 #, fuzzy
 #~| msgid "Unsuccessful payment"
