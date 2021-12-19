@@ -1,42 +1,30 @@
 <?php
 namespace dash\db;
 
-/** agents managing **/
+
 class agents
 {
-	/**
-	 * insert new agetn in database and return id of it
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
+
 	public static function insert($_args)
 	{
 		return \dash\db\config::public_insert('agents', $_args);
 	}
 
 
-	/**
-	 * get agent query
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function get($_where)
+	public static function get_count()
 	{
-		return \dash\db\config::public_get('agents', $_where);
+		return \dash\db\config::public_get_full_count('agents');
 	}
 
 
 	public static function get_agent_detail($_md5)
 	{
-		$query = "SELECT * FROM agents WHERE agents.agentmd5 = '$_md5' LIMIT 1";
-		$result = \dash\db::get($query, null, true, null, ['ignore_error' => true]);
+		$query  = "SELECT * FROM agents WHERE agents.agentmd5 = :md5 LIMIT 1";
+		$param  = [':md5' => $_md5];
+		$result = \dash\db::get_bind($query, $param, null, true, null, ['ignore_error' => true]);
 		return $result;
 	}
 
 
-	public static function get_count($_where = [])
-	{
-		return \dash\db\config::public_get_count('agents', $_where);
-	}
 }
 ?>
