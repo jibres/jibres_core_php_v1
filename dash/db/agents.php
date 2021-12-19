@@ -11,9 +11,7 @@ class agents
 	 */
 	public static function insert($_args)
 	{
-		$result = \dash\db\config::public_insert('agents', $_args);
-		$result = \dash\db::insert_id();
-		return $result;
+		return \dash\db\config::public_insert('agents', $_args);
 	}
 
 

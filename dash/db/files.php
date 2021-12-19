@@ -7,8 +7,7 @@ class files
 
 	public static function insert($_args)
 	{
-		\dash\db\config::public_insert('files', $_args);
-		return \dash\db::insert_id();
+		return \dash\db\config::public_insert('files', $_args);
 	}
 
 
