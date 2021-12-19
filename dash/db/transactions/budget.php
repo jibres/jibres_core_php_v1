@@ -89,13 +89,16 @@ trait budget
 			FROM
 				transactions
 			WHERE
-			transactions.user_id = $_user_id AND
+			transactions.user_id = :userid AND
 			transactions.verify  = 1
 			$lock
 		";
 
+		$param = [':userid' => $_user_id];
 
-		$budget = floatval(\dash\db::get($query, 'budget', true));
+		$budget = \dash\db::get_bind($query, $param, 'budget', true);
+
+		$budget = floatval($budget);
 
 		return $budget;
 	}
