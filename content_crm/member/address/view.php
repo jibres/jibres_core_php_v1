@@ -8,12 +8,8 @@ class view
 	{
 		\content_crm\member\master::view();
 
-		$args               = [];
-		$args['user_id']    = \dash\coding::decode(\dash\request::get('id'));
-		$args['pagenation'] = false;
-		$args['status']     = 'enable';
+		$dataTable          = \dash\app\address::user_address_list(\dash\request::get('id'));
 
-		$dataTable          = \dash\app\address::list(null, $args);
 		\dash\data::dataTable($dataTable);
 
 		\dash\data::myUrlAddress(\dash\url::this(). '/address');

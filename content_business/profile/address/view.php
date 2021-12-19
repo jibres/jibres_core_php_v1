@@ -19,13 +19,7 @@ class view
 		\dash\data::back_text(T_('Personal info'));
 		\dash\data::back_link(\dash\url::this());
 
-
-		$args               = [];
-		$args['user_id']    = \dash\user::id();
-		$args['pagenation'] = false;
-		$args['status']     = 'enable';
-
-		$dataTable          = \dash\app\address::list(null, $args);
+		$dataTable          = \dash\app\address::user_address_list(\dash\user::code());
 		\dash\data::dataTable($dataTable);
 
 		self::static_var();

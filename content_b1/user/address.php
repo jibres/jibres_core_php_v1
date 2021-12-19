@@ -81,12 +81,7 @@ class address
 
 	public static function list_address()
 	{
-		$args               = [];
-		$args['user_id']    = self::myUserId();
-		$args['pagenation'] = false;
-		$args['status']     = 'enable';
-		$dataTable          = \dash\app\address::list(null, $args);
-
+		$dataTable          = \dash\app\address::user_address_list(\dash\coding::encode(self::myUserId()));
 		if(!is_array($dataTable))
 		{
 			$dataTable = [];
