@@ -17,7 +17,7 @@ class address
 			return false;
 		}
 
-		$result = \dash\db\address::get(['id' => $id, 'limit' => 1]);
+		$result = \dash\db\address::get_by_id($id);
 
 		if(!$result)
 		{
@@ -96,7 +96,7 @@ class address
 			return false;
 		}
 
-		$result = \dash\db\address::get(['id' => $id, 'user_id' => \dash\user::id(), 'limit' => 1]);
+		$result = \dash\db\address::get_by_id_user_id($id, \dash\user::id());
 
 		$temp = [];
 		if(is_array($result) && $result)
@@ -417,8 +417,7 @@ class address
 			return false;
 		}
 
-		$check = ['user_id' => \dash\user::id(), 'id' => $id, 'limit' => 1];
-		$check = \dash\db\address::get($check);
+		$check = \dash\db\address::get_by_id_user_id($id, \dash\user::id());
 		if(!isset($check['id']))
 		{
 			\dash\notif::error(T_("Can not access to remove this address"));
@@ -448,8 +447,8 @@ class address
 			return false;
 		}
 
-		$check = ['id' => $id, 'limit' => 1];
-		$check = \dash\db\address::get($check);
+		$check = \dash\db\address::get_by_id($id);
+
 		if(!isset($check['id']))
 		{
 			\dash\notif::error(T_("Can not access to remove this address"));

@@ -94,14 +94,29 @@ class address
 	}
 
 
-	public static function get()
+	public static function get_by_id_user_id($_id, $_user_id)
 	{
-		return \dash\db\config::public_get('address', ...func_get_args());
+		$query = "SELECT * FROM address WHERE address.id = :id AND address.user_id = :user_id LIMIT 1";
+		$param  =
+		[
+			':user_id' => $_user_id,
+			':id'      => $_id,
+		];
+
+		$result = \dash\db::get_bind($query, $param, null, true);
+		return $result;
 	}
+
+
+	public static function get_by_id($_id)
+	{
+		return \dash\db\config::public_get_by_id('address', $_id);
+	}
+
 
 	public static function get_count()
 	{
-		return \dash\db\config::public_get_count('address', ...func_get_args());
+		return \dash\db\config::public_get_full_count('address');
 	}
 
 
