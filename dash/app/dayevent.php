@@ -62,7 +62,7 @@ class dayevent
 		$result['urls']                   = floatval(\dash\db\visitors::url_get_count());
 		$result['ticket']                 = floatval(\dash\db\tickets\get::count_ticket());
 		$result['ticket_message']         = floatval(\dash\db\tickets\get::count_message());
-		$result['comment']                = floatval(\dash\db\comments::get_count());
+		$result['comment']                = floatval(\dash\db\comments\get::get_count());
 		$result['address']                = floatval(\dash\db\address::get_count());
 
 		$result['news']                   = floatval(\dash\db\posts::get_count(['type' => 'post']));
