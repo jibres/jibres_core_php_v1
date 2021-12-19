@@ -157,13 +157,21 @@ class plan_list
 
 		// --------------- FACTOR + CART + SALE
 		$master['factorSaleAdd']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorSaleAdd', 				'title' => T_('Add new sale order'), 'require' => []];
+
+		if(\dash\url::isLocal())
+		{
+			$master['factorBuyAdd']             = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'factorBuyAdd', 				'title' => T_('Add new buy order'), 'require' => []];
+			$master['changePriceInSalePage']    = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'changePriceInSalePage', 		'title' => T_('Change price in sale page'), 'require' => []];
+			$master['changeDiscountInSalePage'] = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'changeDiscountInSalePage', 	'title' => T_('Change discount in sale page'), 'require' => []];
+		}
+
 		$master['manageCart']                   = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'manageCart', 				 	'title' => T_('Manage Cart'), 'require' => []];
 		$master['manageFactors']                = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'manageFactors', 			 	'title' => T_('Manage Factors'), 'require' => []];
 		$master['orderNotificationReceiver']    = ['jibres' => false, 'business' => true,  'group' => 'orders', 	'caller' => 'orderNotificationReceiver', 	'title' => T_('Order Notification Receiver'), 'require' => []];
 
 
 		// --------------- SETTING
-		$master['settingBusinessEdit']                  = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingBusinessEdit', 					'title' => T_('Manage business setting'), 'require' => []];
+		$master['settingBusinessEdit']          = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingBusinessEdit', 			'title' => T_('Manage business setting'), 'require' => []];
 
 
 		// --------------- SITEBUILDER
