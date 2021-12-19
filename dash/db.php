@@ -357,16 +357,14 @@ class db
 	 */
 	public static function get_bind($_query, $_param = [], $_column = null, $_onlyOneValue = false, $_db_fuel = true, $_options = [])
 	{
-		$args                   = [];
-		$args['mode']           = 'get';
-		$args['query']          = $_query;
-		$args['param']          = $_param;
-		$args['column']         = $_column;
-		$args['only_one_value'] = $_onlyOneValue;
-		$args['fuel']           = $_db_fuel;
-		$args['option']         = $_options;
+		if(!is_array($_options))
+		{
+			$_options = [];
+		}
 
-		return self::bind($args);
+		$_options['bind']         = $_param;
+
+		return self::get($_query, $_column, $_onlyOneValue, $_db_fuel, $_options);
 	}
 
 
@@ -380,63 +378,17 @@ class db
 
 	public static function query_bind($_query, $_param = [], $_db_fuel = null, $_options = [])
 	{
-		$args           = [];
-		$args['mode']   = 'query';
-		$args['query']  = $_query;
-		$args['param']  = $_param;
-		$args['fuel']   = $_db_fuel;
-		$args['option'] = $_options;
-		return self::bind($args);
+		if(!is_array($_options))
+		{
+			$_options = [];
+		}
+
+		$_options['bind']         = $_param;
+
+		return self::query($_query, $_db_fuel, $_options);
 	}
 
 
-	/**
-	 * Bind query
-	 *
-	 * @param      array    $_args  The arguments
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	private static function bind(array $_args)
-	{
-		$default_bind =
-		[
-			'mode'           => null,
-
-			'query'          => null,
-			'param'          => null,
-
-			'only_one_value' => false,
-			'column'         => null,
-
-			'fuel'           => null,
-			'option'         => [],
-		];
-
-		$_args = array_merge($default_bind, $_args);
-
-		$option = $_args['option'];
-		if(!is_array($option))
-		{
-			$option = [];
-		}
-
-		$option['bind'] = $_args['param'];
-
-		if($_args['mode'] === 'get')
-		{
-			return self::get($_args['query'], $_args['column'], $_args['only_one_value'], $_args['fuel'], $option);
-		}
-		elseif($_args['mode'] === 'query')
-		{
-			return self::query($_args['query'], $_args['fuel'], $option);
-		}
-		else
-		{
-			\dash\notif::error("Invalid bind mode!");
-			return false;
-		}
-	}
 
 
 	/**
