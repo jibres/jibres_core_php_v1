@@ -117,40 +117,55 @@ class db
 
 			foreach ($new_param as $key => $value)
 			{
-				if(is_int($value))
+				$value_is_array = false;
+
+				$temp_bind_type = self::get_stmt_type($value);
+
+				if(is_string($temp_bind_type))
 				{
-					$bind_types .= 'i';
+					$bind_types .= $temp_bind_type;
 				}
-				elseif(is_float($value))
+				elseif(is_array($temp_bind_type))
 				{
-					$bind_types .= 'd';
-				}
-				elseif(is_string($value))
-				{
-					$bind_types .= 's';
-				}
-				elseif(is_numeric($value))
-				{
-					$bind_types .= 's';
-				}
-				elseif(is_null($value))
-				{
-					$bind_types .= 's';
-				}
-				elseif(is_bool($value))
-				{
-					$bind_types .= 'b';
+					$value_is_array = true;
+
+					foreach ($value as $sub_value)
+					{
+						$temp_bind_sub_type = self::get_stmt_type($sub_value);
+
+						if(is_string($temp_bind_sub_type))
+						{
+							$bind_types .= $temp_bind_sub_type;
+						}
+						elseif(is_array($temp_bind_type))
+						{
+							trigger_error('db param key array error 1');
+							return false;
+						}
+					}
 				}
 				else
 				{
-					$bind_types .= 's';
+					trigger_error('db param key array error 2');
+					return false;
 				}
 
-				$_qry = str_replace($key, '?', $_qry);
+				if($value_is_array)
+				{
+					$repeat        = str_repeat('?,', count($value) - 1) . '?';
+					$_qry          = str_replace($key, $repeat, $_qry);
 
-				$ready_param[] = $value;
+					foreach ($value as $sub_value)
+					{
+						$ready_param[] = $sub_value;
+					}
+				}
+				else
+				{
+					$_qry          = str_replace($key, '?', $_qry);
+					$ready_param[] = $value;
+				}
 			}
-
 
 			$result = false;
 
@@ -345,6 +360,46 @@ class db
 
 		// return the mysql result
 		return $result;
+	}
+
+
+	private static function get_stmt_type($_value)
+	{
+		if(is_int($_value))
+		{
+			$type = 'i';
+		}
+		elseif(is_float($_value))
+		{
+			$type = 'd';
+		}
+		elseif(is_string($_value))
+		{
+			$type = 's';
+		}
+		elseif(is_numeric($_value))
+		{
+			$type = 's';
+		}
+		elseif(is_null($_value))
+		{
+			$type = 's';
+		}
+		elseif(is_bool($_value))
+		{
+			$type = 'b';
+		}
+		elseif(is_array($_value))
+		{
+			return [];
+		}
+		else
+		{
+			$type = 's';
+		}
+
+		return $type;
+
 	}
 
 
