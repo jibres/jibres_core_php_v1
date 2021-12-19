@@ -32,6 +32,13 @@ class view
 		{
 			\lib\app\fund\login::check();
 			\lib\app\pos\tools::pc_pos_btn();
+
+			$allowChangePrice                  = [];
+			$allowChangePrice['price']         = \dash\permission::check('changePriceInSalePage');
+			$allowChangePrice['discount']      = \dash\permission::check('changeDiscountInSalePage');
+			$allowChangePrice['updateProduct'] = (\lib\store::detail('updatepriceonsalepage') && \dash\permission::check('ProductEdit'));
+			\dash\data::allowChangePrice($allowChangePrice);
+
 			$saleQuickAccess = \lib\app\product\quick_access::sale_page();
 		}
 		\dash\data::saleQuickAccess($saleQuickAccess);
