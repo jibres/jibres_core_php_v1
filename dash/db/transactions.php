@@ -28,8 +28,7 @@ class transactions
 	 */
 	private static function insert()
 	{
-		\dash\db\config::public_insert('transactions', ...func_get_args());
-		return \dash\db::insert_id();
+		return \dash\db\config::public_insert('transactions', ...func_get_args());
 	}
 
 

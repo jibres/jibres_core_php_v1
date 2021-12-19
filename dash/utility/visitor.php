@@ -47,7 +47,6 @@ class visitor
 		$visitor['avgtime']       = null;
 
 		$result = \dash\db\config::public_insert('visitors', $visitor);
-		$result = \dash\db::insert_id();
 
 		if(is_numeric($result))
 		{
@@ -134,8 +133,7 @@ class visitor
 				$insert_url['pwd']       = addslashes(\dash\url::pwd());
 			}
 
-			$result = \dash\db\config::public_insert('urls', $insert_url);
-			return \dash\db::insert_id();
+			return \dash\db\config::public_insert('urls', $insert_url);
 		}
 	}
 

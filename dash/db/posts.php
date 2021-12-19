@@ -121,8 +121,7 @@ class posts
 	 */
 	public static function insert()
 	{
-		\dash\db\config::public_insert('posts', ...func_get_args());
-		return \dash\db::insert_id();
+		return \dash\db\config::public_insert('posts', ...func_get_args());
 	}
 
 
