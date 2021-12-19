@@ -11,7 +11,7 @@ class view
 		$orderDetail = \dash\data::orderDetail();
 		if(($customer_id = a($orderDetail, 'factor', 'customer')) && \dash\url::isLocal())
 		{
-			$customer_debt = \lib\app\order\get::customer_debt($orderDetail['factor']['id'], $customer_id);
+			$customer_debt = \lib\app\order\get::customer_debt($orderDetail['factor']['id'], $customer_id, $orderDetail['factor']['total']);
 			\dash\data::customerDebt($customer_debt);
         }
 

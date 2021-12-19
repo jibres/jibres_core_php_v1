@@ -5,7 +5,7 @@ namespace lib\app\order;
 class get
 {
 
-	public static function customer_debt($_factor_id, $_customer_id)
+	public static function customer_debt($_factor_id, $_customer_id, $_current_factor_total)
 	{
 		$customer_id = \dash\coding::decode($_customer_id);
 
@@ -22,7 +22,7 @@ class get
 
 		$result                     = [];
 		$result['debt_until_order'] = $debt_until_order;
-		$result['debt_with_order']  = $debt_with_order;
+		$result['debt_with_order']  = $debt_until_order - floatval($_current_factor_total);
 		$result['current_debt']     = $current_debt;
 		return $result;
 
