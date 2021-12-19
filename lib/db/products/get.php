@@ -615,6 +615,30 @@ class get
 	}
 
 
+	/**
+	 * Get ids as array and bidn query
+	 *
+	 * @param      <type>  $_ids   The identifiers
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function by_multi_id_array(array $_ids)
+	{
+		$query  =
+		"
+			SELECT
+				products.*
+			FROM products
+			WHERE products.id IN (:ids)
+		";
+		$param = [':ids' => $_ids];
+
+		$result = \dash\db::get_bind($query, $param);
+
+		return $result;
+	}
+
+
 	public static function some_field_by_multi_id($_ids, $_fields)
 	{
 		$query  = " SELECT $_fields FROM products WHERE products.id IN ($_ids) ";
