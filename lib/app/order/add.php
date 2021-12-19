@@ -48,6 +48,9 @@ class add
 
 			// force set shipping value by admin
 			'force_shipping_value' => null,
+
+			// get from setting
+			'updatepriceonsalepage' => false,
 		];
 
 		if(!is_array($_option))
@@ -57,6 +60,8 @@ class add
 
 		$_option = array_merge($default_option, $_option);
 
+		// load from store setting
+		$_option['updatepriceonsalepage'] = \lib\store::detail('updatepriceonsalepage');
 
 		/**
 		 * Factor add by customer

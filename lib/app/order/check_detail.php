@@ -32,12 +32,6 @@ class check_detail
 		$list    = $data['list'];
 
 
-		// ProductEdit
-		// changePriceInSalePage
-		// changeDiscountInSalePage
-		// updatepriceonsalepage
-
-
 		$allproduct_id    = array_column($list, 'product');
 		if(count($allproduct_id) <> count(array_unique($allproduct_id)))
 		{
@@ -102,7 +96,7 @@ class check_detail
 
 			$factor_detail_record = [];
 
-			if(is_numeric($value['price']))
+			if(is_numeric($value['price']) && \dash\permission::check('changePriceInSalePage'))
 			{
 				$price      = floatval($value['price']);
 			}
@@ -112,7 +106,7 @@ class check_detail
 			}
 
 
-			if(is_numeric($value['discount']))
+			if(is_numeric($value['discount']) && \dash\permission::check('changeDiscountInSalePage'))
 			{
 				$discount      = floatval($value['discount']);
 			}
@@ -120,6 +114,33 @@ class check_detail
 			{
 				$discount      = floatval($this_proudct['discount']);
 			}
+
+
+			/*===============================================================================
+			=            Update product if feature is active and have permission            =
+			===============================================================================*/
+			if($_option['type'] === 'sale' && $_option['updatepriceonsalepage'] && \dash\permission::check('ProductEdit'))
+			{
+				$update_product = [];
+
+				if(floatval($this_proudct['price']) !== floatval($price))
+				{
+					$update_product['price'] = $price;
+				}
+
+				if(floatval($this_proudct['discount']) !== floatval($discount))
+				{
+					$update_product['discount'] = $discount;
+				}
+
+				if(!empty($update_product))
+				{
+					\lib\app\product\edit::edit($update_product, $value['product'], ['debug' => false]);
+				}
+			}
+			/*=====  End of Update product if feature is active and have permission  ======*/
+
+
 
 			$vat        = 0;
 
