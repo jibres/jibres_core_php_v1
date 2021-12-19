@@ -63,24 +63,64 @@ trait budget
 	}
 
 
+
+	/**
+	 * Get budget and lock table
+	 *
+	 * @param      <type>  $_user_id  The user identifier
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function budget_get_lock($_user_id)
 	{
 		return self::budget($_user_id, true);
 	}
 
 
-	public static function budget($_user_id, $_lock = false)
+
+	/**
+	 * Calculate budget before special transaction id
+	 *
+	 * @param      <type>  $_user_id     The user identifier
+	 * @param      <type>  $_special_id  The special identifier
+	 */
+	public static function budget_before_special_id($_user_id, $_special_id)
+	{
+		return self::budget($_user_id, false, ['calculate_before_id' => $_special_id]);
+	}
+
+
+	/**
+	 * Primary function to calculate budget
+	 *
+	 * @param      <type>  $_user_id  The user identifier
+	 * @param      bool    $_lock     The lock
+	 * @param      array   $_options  The options
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function budget($_user_id, $_lock = false, $_options = [])
 	{
 		if(!$_user_id || !is_numeric($_user_id))
 		{
 			return false;
 		}
 
+		$param            = [];
+		$param[':userid'] = $_user_id;
+
 		$lock = null;
 
 		if($_lock)
 		{
 			$lock = ' FOR UPDATE ';
+		}
+
+		$calculate_before_id = null;
+		if(isset($_options['calculate_before_id']) && is_numeric($_options['calculate_before_id']))
+		{
+			$calculate_before_id = ' AND transactions.id < :specialid ';
+			$param[':specialid'] = $_options['calculate_before_id'];
 		}
 
 		$query =
@@ -91,10 +131,10 @@ trait budget
 			WHERE
 			transactions.user_id = :userid AND
 			transactions.verify  = 1
+			$calculate_before_id
 			$lock
 		";
 
-		$param = [':userid' => $_user_id];
 
 		$budget = \dash\db::get_bind($query, $param, 'budget', true);
 
