@@ -22,8 +22,8 @@
      <th class="headIndex collapsing"><?php echo T_("Row"); ?></th>
      <th class="headProduct"><?php echo T_("Product"); ?></th>
      <th class="headCount collapsing"><?php echo T_("Count"); ?></th>
-     <th class="headPrice min100"><?php echo T_("Price"); ?></th>
-     <th class="headDiscount collapsing"><?php echo T_("Discount"); ?></th>
+     <th class="headPrice min100"<?php if(!\dash\permission::check('changePriceInSalePage')) {echo ' data-readonly';} ?>><?php echo T_("Price"); ?></th>
+     <th class="headDiscount collapsing"<?php if(!\dash\permission::check('changeDiscountInSalePage')) {echo ' data-readonly';} ?>><?php echo T_("Discount"); ?></th>
      <?php if(\dash\data::showVatColum()) {?>
      <th class="headVat collapsing" data-vat-percent='<?php echo \dash\data::vatDecimal(); ?>'><?php echo T_("Vat"); ?></th>
      <?php } //endif ?>
