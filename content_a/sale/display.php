@@ -18,7 +18,7 @@
 
   <table class="tbl1 v4 text-center productList" data-item='0'>
    <thead>
-    <tr class="text-sm">
+    <tr class="text-sm select-none">
      <th class="headIndex collapsing"><?php echo T_("Row"); ?></th>
      <th class="headProduct"><?php echo T_("Product"); ?></th>
      <th class="headCount collapsing"><?php echo T_("Count"); ?></th>
@@ -66,7 +66,7 @@
     </div>
   </div>
 
-    <div class="priceBox hide">
+    <div class="priceBox hide select-none">
       <h3><?php echo T_("Factor Price Detail"); ?></h3>
       <div class="final" title='<?php echo T_("Total payable"); ?>'><span>0</span><abbr><?php echo \lib\currency::unit(); ?></abbr></div>
       <div class="desc">-</div>
@@ -76,6 +76,7 @@
       <div class="detail vat"><abbr><?php echo T_("Total VAT"); ?></abbr> <span>-</span></div>
       <div class="detail discountPercent"><abbr><?php echo T_("Discount percent"); ?></abbr> <span>-</span></div>
       <div class="detail discount" title='<?php echo T_("Press f7 or click to toggle discount"); ?>'><abbr><?php echo T_("Total discount"); ?> <kbd class="bg-gray-600 p-0.5 rounded mx-1">f7</kbd></abbr> <span>-</span></div>
+      <div class="detail customerBalance"><abbr><?php echo T_("Customer Balance"); ?></abbr> <span>-</span></div>
     </div>
 
     <div class="cbox NextBox p0 hide">
