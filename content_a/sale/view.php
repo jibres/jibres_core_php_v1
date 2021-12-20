@@ -14,7 +14,6 @@ class view
 		\dash\data::back_text(T_('Factors'));
 		\dash\data::back_link(\dash\url::here(). '/order?type='. \dash\data::moduleType());
 
-		self::display_ajax_url();
 
 		\dash\face::btnSave('factorAdd');
 		\dash\face::btnSaveName('save_btn');
@@ -38,10 +37,14 @@ class view
 			\dash\data::orderdefaultpaystatus(\lib\store::detail('orderdefaultpaystatus'));
 		}
 		\dash\data::saleQuickAccess($saleQuickAccess);
+
+		self::customer_ajax_url();
+		self::product_ajax_url();
+
 	}
 
 
-	private static function display_ajax_url()
+	private static function customer_ajax_url()
 	{
 		$customerAjaxAddr = \dash\url::kingdom(). '/crm/api?';
 
@@ -66,6 +69,22 @@ class view
 
 		\dash\data::customerAjaxAddr($customerAjaxAddr);
 		\dash\data::customerAjaxInputTitle($input_title);
+
+	}
+
+
+
+	private static function product_ajax_url()
+	{
+		$productAjaxAddr = \dash\url::this(). '?';
+
+		$temp                = [];
+		$temp['json']        = 'true';
+		$temp['type']        = \dash\data::moduleType();
+
+		$productAjaxAddr .= \dash\request::build_query($temp);
+
+		\dash\data::productAjaxAddr($productAjaxAddr);
 
 	}
 }
