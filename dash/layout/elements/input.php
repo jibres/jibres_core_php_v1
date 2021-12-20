@@ -47,7 +47,7 @@ class input
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
-	public static function multiple_html(array $_args)
+	public static function multiple_html(array $_args) : string
 	{
 		$html  = '';
 
@@ -65,7 +65,7 @@ class input
 
 
 
-	public static function input(array $_args)
+	public static function input(array $_args) : string
 	{
 		$html = '';
 
@@ -103,6 +103,12 @@ class input
 				$html .= " class='$_args[class]'";
 			}
 
+			if(a($_args, 'form'))
+			{
+				$html .= " form='$_args[form]'";
+			}
+
+
 			if(a($_args, 'format'))
 			{
 				$html .= " data-format='$_args[format]'";
@@ -116,7 +122,7 @@ class input
 	}
 
 
-	public static function textarea(array $_args)
+	public static function textarea(array $_args) : string
 	{
 		$html = '';
 		$html .= '<textarea';
@@ -154,10 +160,15 @@ class input
 	}
 
 
-	public static function hidden(array $_args)
+	public static function hidden(array $_args) : string
 	{
 		$html = '';
-		$html .= '<input type="hidden" name="'.a($_args, 'name').'" value="'. a($_args, 'value'). '">';
+		$html .= '<input';
+		if(a($_args, 'form'))
+		{
+			$html .= " form='$_args[form]'";
+		}
+		$html .= ' type="hidden" name="'.a($_args, 'name').'" value="'. a($_args, 'value'). '">';
 		return $html;
 	}
 
@@ -169,7 +180,7 @@ class input
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
-	public static function select(array $_args)
+	public static function select(array $_args) : string
 	{
 		$html = '';
 
@@ -204,7 +215,7 @@ class input
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
-	public static function checkbox(array $_args)
+	public static function checkbox(array $_args) : string
 	{
 		$html = '';
 
@@ -222,7 +233,7 @@ class input
 
 
 
-	public static function file(array $_args)
+	public static function file(array $_args) : string
 	{
 		$html = '';
 		$html .= '<div ';
