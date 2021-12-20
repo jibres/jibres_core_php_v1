@@ -1,54 +1,60 @@
-<?php if (\dash\detect\device::detectPWA()) { ?>
-<nav class="items pwaMultiLine">
-  <ul>
-    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-     <li>
-      <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo a($value, 'id'); ?>">
-        <img src="<?php echo \dash\fit::img(a($value, 'thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">
-        <div class="key">
-          <div class="line1"><?php echo a($value, 'title'); ?></div>
-          <div class="line2 f">
-          <?php if(isset($value['variants_detail']['stock'])) {?>
-            <div class="cauto stockCount"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
-          <?php } //endif ?>
+<?php
+$html = '';
 
-          <?php if(isset($value['variants_detail']['count'])) {?>
-            <div class="c variantCount"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
-          <?php } //endif ?>
-          <div class="cauto os"><?php echo a($value, 'variant_price'); ?></div>
-          </div>
-        </div>
-      </a>
-     </li>
-    <?php } //endfor ?>
-  </ul>
-</nav>
-<?php } else { ?>
-<nav class="items mt-2">
-  <ul>
-    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-     <li>
-      <a class="f" href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo a($value, 'id'); ?>">
-        <img src="<?php echo \dash\fit::img(a($value, 'thumb')); ?>" alt="<?php echo a($value, 'title'); ?>">
-        <div class="key"><?php echo a($value, 'title'); ?></div>
+foreach (\dash\data::dataTable() as $key => $value)
+{
+	$my_id = 'f'. $key. 'title';
+	$html .= \dash\layout\elements\form::form(['data-patch' => true, 'method' => 'post', 'id' => $my_id]);
+	{
+		$html .= \dash\layout\elements\input::hidden(['name' => 'id', 'value' => a($value, 'id'), 'form' => $my_id]);
+	}
+	$html .= \dash\layout\elements\form::_form();
+}
 
-            <?php if(isset($value['variants_detail']['stock'])) {?>
-              <div class="key"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
-            <?php }elseif(a($value, 'stock')){ ?>
-              <div class="key"><b><?php echo \dash\fit::number($value['stock']); ?></b> <?php echo T_("in stock"); ?></div>
-            <?php } //endif ?>
+$html .= '<div class="tblBox">';
+{
+	$html .= '<table class="tbl1 v1">';
+	{
+		$html .= '<thead>';
+		{
+			$html .= '<tr>';
+			{
+				$html .= '<th>'. T_("Title"). '</th>';
+			}
+			$html .= '</tr>';
+		}
+		$html .= '</thead>';
 
-            <?php if(isset($value['variants_detail']['count'])) {?>
-              <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
-            <?php } //endif ?>
 
-        <div class="value"><?php echo a($value, 'variant_price'); ?></div>
-        <div class="go"></div>
-      </a>
-     </li>
-    <?php } //endfor ?>
-  </ul>
-</nav>
-<?php } ?>
+		$html .= '<tbody>';
+		{
+			foreach (\dash\data::dataTable() as $key => $value)
+			{
+				$html .= '<tr>';
+				{
+					$html .= '<td>';
+					{
+						$my_id = 'f'. $key. 'title';
 
-<?php \dash\utility\pagination::html(); ?>
+						$html .= \dash\layout\elements\input::text(['name' => 'title', 'value' => a($value, 'title'), 'form' => $my_id]);
+						$html .= '<button class="btn" form="'. $my_id. '">'. T_("Save"). '</button>';
+					}
+					$html .= '</td>';
+				}
+				$html .= '</tr>';
+			}
+		}
+		$html .= '</tbody>';
+	}
+	$html .= '</table>';
+
+}
+$html .= '</div>';
+
+
+
+echo $html;
+
+\dash\utility\pagination::html();
+
+?>
