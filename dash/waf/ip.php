@@ -931,6 +931,27 @@ class ip
 		return $fileAddr;
 	}
 
+
+	/**
+	 * Removes an ip file.
+	 *
+	 * @param      <type>  $_ip    { parameter_description }
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function remove_ip_file(string $_ip)
+	{
+		$ipPath = self::find_ip_path($_ip);
+
+		if($ipPath)
+		{
+			return \dash\file::delete($ipPath);
+		}
+
+		return false;
+
+	}
+
 	public static function remove_folder($_mode)
 	{
 		$addr = self::generate_addr_path($_mode);
