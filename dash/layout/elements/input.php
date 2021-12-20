@@ -108,6 +108,10 @@ class input
 				$html .= " form='$_args[form]'";
 			}
 
+			if(a($_args, 'attr'))
+			{
+				$html .= " $_args[attr]";
+			}
 
 			if(a($_args, 'format'))
 			{

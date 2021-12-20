@@ -36,7 +36,7 @@ $html .= '<div class="tblBox">';
 					{
 						$my_id = 'f'. $key. 'title';
 
-						$html .= \dash\layout\elements\input::text(['name' => '_title', 'value' => a($value, 'title'), 'form' => $my_id]);
+						$html .= \dash\layout\elements\input::text(['name' => '_title', 'value' => a($value, 'title'), 'form' => $my_id, 'attr' => 'data-patch']);
 						$html .= '<button class="btn" form="'. $my_id. '">'. T_("Save"). '</button>';
 					}
 					$html .= '</td>';
