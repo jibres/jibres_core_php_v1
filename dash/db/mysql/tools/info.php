@@ -12,6 +12,14 @@ class info
 	}
 
 
+	public static function show_glogal(string $_keyword)
+	{
+		$query = " SHOW GLOBAL VARIABLES LIKE '%$_keyword%'";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
+
 	/**
 	 * read query info and analyse it and return array contain result
 	 * @return [type] [description]
