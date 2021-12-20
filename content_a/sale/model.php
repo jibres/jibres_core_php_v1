@@ -21,18 +21,15 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			// @new
-			// if(isset($factor_detail['factor_id']))
-			// {
-			// 	// $query_data['print'] = 'auto';
-			// 	// $query_data['size']  = 'receipt8';
-			// 	$query_data['id']    = $factor_detail['factor_id'];
-			// 	$redirect_url        = \dash\url::this(). '/opr';
-			// }
-			// else
-			// {
-			// 	$redirect_url = \dash\url::this();
-			// }
+
+			if(isset($factor_detail['factor_id']) && \dash\data::moduleType() === 'buy')
+			{
+				$query_data['id']    = $factor_detail['factor_id'];
+				$redirect_url        = \dash\url::this(). '/opr?'. \dash\request::build_query($query_data);
+				\dash\redirect::to($redirect_url);
+				return;
+			}
+
 
 
 			if(isset($factor_detail['factor_id']))
