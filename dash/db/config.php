@@ -525,14 +525,21 @@ class config
 	 */
 	public static function public_update($_table, $_args, $_id, $_db_name = true)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if($set && $_id && is_numeric($_id))
+		// test bind query in local
+		if(\dash\url::isLocal())
 		{
-			// make update query
-			$query = "UPDATE $_table SET $set WHERE $_table.id = $_id LIMIT 1";
-			return \dash\db::query($query, $_db_name);
+			return \dash\db\mysql\query_template::update($_table, $_args, $_id, $_db_name);
 		}
-		// return \dash\db\mysql\query_template::update($_table, $_args, $_id, $_db_name);
+		else
+		{
+			$set = \dash\db\config::make_set($_args);
+			if($set && $_id && is_numeric($_id))
+			{
+				// make update query
+				$query = "UPDATE $_table SET $set WHERE $_table.id = $_id LIMIT 1";
+				return \dash\db::query($query, $_db_name);
+			}
+		}
 	}
 
 
