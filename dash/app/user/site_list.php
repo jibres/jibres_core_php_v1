@@ -78,10 +78,11 @@ class site_list
 		// $myName .= '   '. $value['firstname']. ' <b>'. $value['lastname']. '</b> <small class="badge light mLa5">'. $value['father'].'</small>';
 		// $myName .= '<span class="description">'. \dash\fit::number($value['nationalcode'], false). '</span>';
 
-		$result   = [];
-		$id       = null;
-		$html     = '<div class="flex align-center">';
-		$datalist = [];
+		$result                 = [];
+		$id                     = null;
+		$html                   = '<div class="flex align-center">';
+		$datalist               = [];
+		$datalist['isCustomer'] = true;
 
 		if(isset($_data['avatar']))
 		{
@@ -90,14 +91,14 @@ class site_list
 
 		if(isset($_data['id']))
 		{
-			$id = $_data['id'];
+			$id             = $_data['id'];
 			$datalist['id'] = $_data['id'];
 		}
 
 		if(isset($_data['displayname']))
 		{
 			$datalist['displayname'] = $_data['displayname'];
-			$html .= '<span class="flex-grow line-clamp-1 px-2">'. $_data['displayname']. '</span>';
+			$html                    .= '<span class="flex-grow line-clamp-1 px-2">'. $_data['displayname']. '</span>';
 		}
 
 
@@ -105,9 +106,9 @@ class site_list
 		{
 			$datalist['desc'] = $_data['mobile'];
 
-			$html .= '<span class="flex-none">';
-			$html .= \dash\fit::mobile($_data['mobile']);
-			$html .= '</span>';
+			$html             .= '<span class="flex-none">';
+			$html             .= \dash\fit::mobile($_data['mobile']);
+			$html             .= '</span>';
 		}
 
 		if(isset($_data['budget']))
@@ -118,9 +119,8 @@ class site_list
 		$html   .= '</div>';
 		$result =
 		[
-			// on list
 			'html'     => $html,
-			'id'    => $id,
+			'id'       => $id,
 			'datalist' => $datalist,
 		];
 
