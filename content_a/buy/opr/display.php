@@ -30,9 +30,6 @@ $html .= \dash\layout\elements\form::form(['method' => 'post']);
 					{
 						$html .= '<td>';
 						{
-
-
-
 							$html .= \dash\layout\elements\input::hidden(['name' => 'product_id[]', 'value' => a($value, 'product_id')]);
 
 							$html .= \dash\layout\elements\input::text(['name' => 'title[]', 'value' => a($value, 'title')]);
