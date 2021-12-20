@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\groupediting;
+namespace content_a\products\bulk;
 
 
 class model

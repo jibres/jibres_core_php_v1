@@ -1,5 +1,5 @@
 <?php
-namespace content_a\products\groupediting;
+namespace content_a\products\bulk;
 
 
 class view extends \content_a\products\home\view
@@ -8,7 +8,7 @@ class view extends \content_a\products\home\view
 	{
 		parent::config();
 
-		\dash\face::title(T_('Group editing products'));
+		\dash\face::title(T_('Buil editor'));
 
 	}
 }
