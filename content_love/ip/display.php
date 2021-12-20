@@ -35,7 +35,12 @@
         <?php } //endif ?>
       </div>
       <footer class="f">
-        <div class="cauto"><?php if(\dash\data::ipDetail()) {?><a href="<?php echo \dash\url::this(). \dash\request::full_get(['download' => 'download']); ?>" data-action target='_blank' class="btn">Download file</a><?php } //endif ?></div>
+        <div class="cauto">
+          <?php if(\dash\data::ipDetail()) {?>
+            <a href="<?php echo \dash\url::this(). \dash\request::full_get(['download' => 'download']); ?>" data-action target='_blank' class="btn">Download file</a>
+            <a data-confirm data-data='{"removefile": "<?php echo \dash\request::get('ip') ?>"}' target='_blank' class="btn-danger">Delete file</a>
+          <?php } //endif ?>
+        </div>
         <div class="c"></div>
         <div class="cauto"><button class="btn master">Check</button></div>
 

@@ -6,6 +6,22 @@ class model
 {
 	public static function post()
 	{
+		if($remove_ip = \dash\request::post('removefile'))
+		{
+			if($remove_ip = \dash\validate::ip($remove_ip))
+			{
+				$result = \dash\waf\ip::remove_ip_file($remove_ip);
+
+				if($result)
+				{
+					\dash\notif::ok(T_("File removed"));
+				}
+				\dash\redirect::pwd();
+			}
+
+			return;
+
+		}
 
 		if(\dash\request::post('remove'))
 		{
