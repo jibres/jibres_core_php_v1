@@ -34,6 +34,12 @@ class model
 			$post['updatepriceonsalepage'] = \dash\request::post('updatepriceonsalepage');
 		}
 
+		if(\dash\request::post('set_orderdefaultpaystatus'))
+		{
+			$post['orderdefaultpaystatus'] = \dash\request::post('orderdefaultpaystatus') ? 'yes' : 'no';
+		}
+
+
 		\lib\app\setting\set::save_vat($post);
 
 		\dash\notif::ok(T_("Saved"));

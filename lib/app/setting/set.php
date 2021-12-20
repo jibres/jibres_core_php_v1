@@ -573,6 +573,7 @@ class set
 			'show_vat_column'       => 'bit',
 			'show_discount_column'  => 'bit',
 			'updatepriceonsalepage' => 'bit',
+			'orderdefaultpaystatus' => 'yes_no',
 		];
 
 		$require = [];

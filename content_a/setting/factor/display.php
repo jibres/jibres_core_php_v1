@@ -134,9 +134,31 @@ Note that the price of the product will be updated only if your employee is allo
   <form class="c4 s12" method="post" data-patch>
     <input type="hidden" name="set_updatepriceonsalepage" value="1">
     <div class="action">
-      <div class="switch1">
+  <div class="switch1">
         <input type="checkbox" name="updatepriceonsalepage" id="updatepriceonsalepage" <?php if(\dash\data::dataRow_updatepriceonsalepage()) { echo 'checked'; } ?>>
         <label for="updatepriceonsalepage" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
+      </div>
+    </div>
+  </form>
+</section>
+
+
+
+<section class="f" data-option='setting-factor-default-pay-status' id="setting-factor-default-pay-status">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Default order in admin set as payed?"); ?></h3>
+      <div class="body">
+
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_orderdefaultpaystatus" value="1">
+    <div class="action">
+      <div class="switch1">
+        <input type="checkbox" name="orderdefaultpaystatus" id="orderdefaultpaystatus" <?php if(\dash\data::dataRow_orderdefaultpaystatus() !== 'no') { echo 'checked'; } ?>>
+        <label for="orderdefaultpaystatus" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
       </div>
     </div>
   </form>
