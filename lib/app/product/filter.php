@@ -6,6 +6,48 @@ class filter
 
 	use \dash\datafilter;
 
+	public static function get_args()
+	{
+		$args =
+		[
+			'order'        => \dash\request::get('order'),
+			'sort'         => \dash\request::get('sort'),
+			'barcode'      => \dash\request::get('barcode'),
+			'status'      => \dash\request::get('status'),
+			// 'price'        => \dash\request::get('price'),
+			// 'buyprice'     => \dash\request::get('buyprice'),
+			// 'cat'          => \dash\request::get('cat'),
+			'cat_id'       => \dash\request::get('catid') ? \dash\request::get('catid') : null,
+
+			// 'discount'     => \dash\request::get('discount'),
+			'unit_id'      => \dash\request::get('unitid') ? \dash\request::get('unitid') : null,
+		];
+
+
+		if(\dash\request::get('dup')) 	$args['dup']  = \dash\request::get('dup');
+		if(\dash\request::get('bar')) 	$args['bar']  = \dash\request::get('bar');
+		if(\dash\request::get('bup')) 	$args['bup']  = \dash\request::get('bup');
+		if(\dash\request::get('p')) 	$args['p']    = \dash\request::get('p');
+		if(\dash\request::get('d')) 	$args['d']    = \dash\request::get('d');
+		if(\dash\request::get('st')) 	$args['st']   = \dash\request::get('st');
+		if(\dash\request::get('nst')) 	$args['nst']  = \dash\request::get('nst');
+		if(\dash\request::get('g')) 	$args['g']    = \dash\request::get('g');
+		if(\dash\request::get('v')) 	$args['v']    = \dash\request::get('v');
+		if(\dash\request::get('so')) 	$args['so']   = \dash\request::get('so');
+		if(\dash\request::get('w')) 	$args['w']    = \dash\request::get('w');
+		if(\dash\request::get('t')) 	$args['t']    = \dash\request::get('t');
+		if(\dash\request::get('tq')) 	$args['tq']    = \dash\request::get('tq');
+		if(\dash\request::get('pr')) 	$args['pr']    = \dash\request::get('pr');
+		if(\dash\request::get('hvat')) 	$args['hvat']    = \dash\request::get('hvat');
+
+		if(\dash\detect\device::detectPWA())
+		{
+			$args['limit'] = 30;
+		}
+
+		return $args;
+	}
+
 	/**
 	 * Filter in /tag page
 	 */
