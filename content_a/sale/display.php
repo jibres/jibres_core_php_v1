@@ -5,9 +5,9 @@ if(\dash\data::moduleType() === 'buy')
 {
   $html .= '<div class="alert-danger">';
   {
-    $html .= '<b>'. T_("You are registering a purchase order"). '</b>';
-    $html .= '<br>'. T_("When registering a purchase order, the purchase price and product inventory are updated");
-    $html .= '<br>'. T_("After registering the purchase order, you can update the sale price and product discount");
+    $html .= '<b>'. T_("You are registering a buy order"). '</b>';
+    $html .= '<br>'. T_("When registering a buy order, the buy price and product inventory are updated");
+    $html .= '<br>'. T_("After registering the buy order, you can update the sale price and product discount");
   }
   $html .= '</div>';
 }
