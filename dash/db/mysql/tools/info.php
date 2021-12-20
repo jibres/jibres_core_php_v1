@@ -19,6 +19,13 @@ class info
 		return $result;
 	}
 
+	public static function show_status(string $_keyword)
+	{
+		$query = " SHOW STATUS LIKE '%$_keyword%'";
+		$result = \dash\db::get($query);
+		return $result;
+	}
+
 
 	/**
 	 * read query info and analyse it and return array contain result

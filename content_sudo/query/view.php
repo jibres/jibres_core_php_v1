@@ -13,8 +13,10 @@ class view
 
 		$a1 = \dash\db\mysql\tools\info::show_glogal('table_definition_cache');
 		$a2 = \dash\db\mysql\tools\info::timeout_setting();
+		$a3 = \dash\db\mysql\tools\info::show_status('open_table');
 
-		\dash\data::mysqlConf(array_merge($a1, $a2));
+
+		\dash\data::mysqlConf(array_merge($a1, $a2, $a3));
 
 
 
