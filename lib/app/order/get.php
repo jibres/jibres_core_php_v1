@@ -38,6 +38,34 @@ class get
 
 
 
+	/**
+	 * Get order detail by order id
+	 *
+	 * @param      <type>  $_factor_id  The factor identifier
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function detail_by_order_id($_factor_id)
+	{
+
+		$factor_id = \dash\validate::id($_factor_id);
+
+		if(!$factor_id)
+		{
+			\dash\notif::error(T_("Invalid id"));
+			return false;
+		}
+
+
+		$list = \lib\db\orderdetails\get::by_order_id($factor_id);
+
+		$list = array_map(['\\lib\\app\\order\\ready', 'detail'], $list);
+
+		return $list;
+	}
+
+
+
 
 
 

@@ -17,7 +17,7 @@ class controller extends \content_a\buy\controller
 			\dash\header::status(403);
 		}
 
-		\dash\data::orderDetail($load_buy_order);
+		\dash\data::dataRow($load_buy_order);
 	}
 }
 ?>

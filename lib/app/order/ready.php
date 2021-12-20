@@ -194,7 +194,11 @@ class ready
 
 				case 'price':
 				case 'discount':
+				case 'buyprice':
 				case 'finalprice':
+				case 'product_price':
+				case 'product_discount':
+				case 'product_buyprice':
 				case 'vat':
 					$value = floatval($value);
 					$result[$key] = $value;
