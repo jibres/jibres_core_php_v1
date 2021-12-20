@@ -119,9 +119,10 @@ class check_detail
 			/*===============================================================================
 			=            Update product if feature is active and have permission            =
 			===============================================================================*/
+			$update_product = [];
+
 			if($_option['type'] === 'sale' && $_option['updatepriceonsalepage'] && \dash\permission::check('ProductEdit'))
 			{
-				$update_product = [];
 
 				if(floatval($this_proudct['price']) !== floatval($price))
 				{
@@ -133,10 +134,19 @@ class check_detail
 					$update_product['discount'] = $discount;
 				}
 
-				if(!empty($update_product))
+			}
+
+			if($_option['type'] === 'buy')
+			{
+				if(floatval($this_proudct['buyprice']) !== floatval($price))
 				{
-					\lib\app\product\edit::edit($update_product, $value['product'], ['debug' => false]);
+					$update_product['buyprice'] = $price;
 				}
+			}
+
+			if(!empty($update_product))
+			{
+				\lib\app\product\edit::edit($update_product, $value['product'], ['debug' => false]);
 			}
 			/*=====  End of Update product if feature is active and have permission  ======*/
 
