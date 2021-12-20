@@ -190,12 +190,14 @@ class site_list
 
 		if(isset($_data['price']))
 		{
-			$result['price'] = floatval($_data['price']);
-		}
-		else
-		{
-			$result['price'] = null;
-
+			if(\dash\request::get('type') === 'buy')
+			{
+				$result['price'] = floatval(a($_data, 'buyprice'));
+			}
+			else
+			{
+				$result['price'] = floatval($_data['price']);
+			}
 		}
 
 		if(isset($_data['buyprice']))
