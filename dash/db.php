@@ -173,7 +173,10 @@ class db
 
 			if($stmt)
 			{
-				@mysqli_stmt_bind_param($stmt, $bind_types, ...$ready_param);
+				if($bind_types && $ready_param)
+				{
+					@mysqli_stmt_bind_param($stmt, $bind_types, ...$ready_param);
+				}
 
 				@mysqli_stmt_execute($stmt);
 
