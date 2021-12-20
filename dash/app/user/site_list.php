@@ -111,9 +111,11 @@ class site_list
 			$html             .= '</span>';
 		}
 
+		$datalist['balance'] = null;
+
 		if(isset($_data['budget']))
 		{
-			$datalist['budget'] = $_data['budget'];
+			$datalist['balance'] = $_data['budget'];
 		}
 
 		$html   .= '</div>';
