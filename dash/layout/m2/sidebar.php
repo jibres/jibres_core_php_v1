@@ -107,6 +107,20 @@ class sidebar
 				'selected' => $module === 'cart',
 			];
 
+			$orders_child['sale'] =
+			[
+				'title'    => T_("Add new sale order"),
+				'url'      => $kingdom. '/a/sale',
+				'selected' => $module === 'sale',
+			];
+
+			$orders_child['buy'] =
+			[
+				'title'    => T_("Add new buy order"),
+				'url'      => $kingdom. '/a/buy',
+				'selected' => $module === 'buy',
+			];
+
 
 			$menu['orders']['child'] = $orders_child;
 		}
