@@ -22,7 +22,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `productcategory` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				$id = \dash\db::insert_id();
 				return $id;
@@ -45,7 +45,7 @@ class insert
 		\dash\db::query($query_delete_current_tag);
 
 		$query = "INSERT INTO `productcategoryusage` (`productcategory_id`,`product_id`) SELECT $_cat_id, products.id FROM products WHERE products.status != 'deleted' ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 
 	}

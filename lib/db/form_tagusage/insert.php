@@ -16,7 +16,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT IGNORE INTO `form_tagusage` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				$id = \dash\db::insert_id();
 				return $id;

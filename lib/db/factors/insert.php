@@ -12,7 +12,7 @@ class insert
 		{
 			$query = " INSERT INTO `factors` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				$id = \dash\db::insert_id();
 				return $id;

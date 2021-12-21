@@ -27,7 +27,7 @@ class dayevent
 		{
 			$query  ="INSERT IGNORE INTO dayevent SET $set ";
 
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			$result = \dash\db::insert_id();
 			return $result;
 		}
@@ -41,7 +41,7 @@ class dayevent
 		{
 			// make update query
 			$query = "UPDATE dayevent SET $set WHERE dayevent.id = $_id LIMIT 1";
-			return \dash\db::query($query);
+			return \dash\pdo::query($query, []);
 		}
 	}
 

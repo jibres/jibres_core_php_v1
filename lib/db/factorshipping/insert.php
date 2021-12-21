@@ -19,7 +19,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `factorshipping` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return true;
 			}

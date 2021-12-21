@@ -15,7 +15,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `form_comment` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return \dash\db::insert_id();;
 			}

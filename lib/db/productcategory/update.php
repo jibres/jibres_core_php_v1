@@ -19,7 +19,7 @@ class update
 	public static function unset_file($_id)
 	{
 		$query  = "UPDATE productcategory SET productcategory.file = NULL WHERE productcategory.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -45,7 +45,7 @@ class update
 				productcategory.parent4 = $_id
 
 		";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -66,7 +66,7 @@ class update
 				productcategory.id = $_id
 			LIMIT 1
 		";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

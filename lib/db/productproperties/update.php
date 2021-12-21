@@ -19,20 +19,20 @@ class update
 	public static function unset_outstanding($_id)
 	{
 		$query = "UPDATE productproperties SET productproperties.outstanding = NULL WHERE productproperties.id = $_id LIMIT 1 ";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 
 	public static function set_outstanding($_id)
 	{
 		$query = "UPDATE productproperties SET productproperties.outstanding = 1 WHERE productproperties.id = $_id LIMIT 1 ";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 
 
 	public static function group_title($_old, $_new, $_id)
 	{
 		$query = "UPDATE productproperties SET productproperties.cat = '$_new' WHERE productproperties.product_id = $_id AND productproperties.cat = '$_old' ";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 }
 ?>

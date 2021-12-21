@@ -16,7 +16,7 @@ class delete
 	public static function all()
 	{
 		$query = " TRUNCATE TABLE `log_notif` ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

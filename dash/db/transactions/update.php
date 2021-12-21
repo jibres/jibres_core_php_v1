@@ -9,7 +9,7 @@ class update
 	{
 		$set    = \dash\db\config::make_set($_args);
 		$query  = "UPDATE transactions SET $set WHERE transactions.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 }

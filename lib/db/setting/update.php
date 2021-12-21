@@ -15,7 +15,7 @@ class update
 	{
 		$now = date("Y-m-d H:i:s");
 		$query = "UPDATE setting SET setting.datemodified = '$now', setting.value = '$_value'  WHERE setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -24,7 +24,7 @@ class update
 	{
 		$now = date("Y-m-d H:i:s");
 		$query = "UPDATE setting SET setting.datemodified = '$now', setting.key = '$_key'  WHERE setting.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -33,7 +33,7 @@ class update
 	{
 		$now = date("Y-m-d H:i:s");
 		$query = "UPDATE setting SET setting.datemodified = '$now', setting.value = '$_value'  WHERE setting.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -54,7 +54,7 @@ class update
 			else
 			{
 				$query = "UPDATE setting SET setting.datemodified = '$now', setting.value = '$_value'  WHERE setting.id = $check[id] LIMIT 1";
-				$result = \dash\db::query($query);
+				$result = \dash\pdo::query($query, []);
 				return $result;
 			}
 		}
@@ -89,7 +89,7 @@ class update
 			else
 			{
 				$query = "UPDATE setting SET setting.datemodified = '$now', setting.value = '$_value'  WHERE setting.id = $check[id] LIMIT 1";
-				$result = \dash\db::query($query);
+				$result = \dash\pdo::query($query, []);
 				return $result;
 			}
 		}
@@ -125,7 +125,7 @@ class update
 			else
 			{
 				$query = "UPDATE setting SET setting.datemodified = '$now', setting.value = '$_value'  WHERE setting.id = $check[id] LIMIT 1";
-				$result = \dash\db::query($query);
+				$result = \dash\pdo::query($query, []);
 				return $result;
 			}
 		}

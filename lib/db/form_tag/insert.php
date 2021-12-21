@@ -49,7 +49,7 @@ class insert
 			";
 		}
 
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -68,7 +68,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `form_tag` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return \dash\db::insert_id();;
 			}

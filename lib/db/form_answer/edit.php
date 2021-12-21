@@ -9,7 +9,7 @@ class edit
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE form_answer SET form_answer.review = '$date' WHERE form_answer.form_id = $_form_id AND form_answer.review IS NULL";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 
 		return $result;
 	}
@@ -18,7 +18,7 @@ class edit
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE form_answer SET form_answer.review = '$date' WHERE form_answer.form_id = $_form_id AND form_answer.id = $_answer_id AND form_answer.review IS NULL";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 
 		return $result;
 	}

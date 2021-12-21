@@ -19,7 +19,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `form_choice` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return \dash\db::insert_id();
 			}

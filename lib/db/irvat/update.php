@@ -14,7 +14,7 @@ class update
 	public static function gallery($_gallery, $_id)
 	{
 		$query  = "UPDATE ir_vat SET ir_vat.file = '$_gallery' WHERE ir_vat.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 }

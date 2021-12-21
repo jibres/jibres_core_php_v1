@@ -59,7 +59,7 @@ class logs
 				logs.expiredate < '$date_now'
 		";
 
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 
 	}
@@ -107,7 +107,7 @@ class logs
 				WHERE
 					logs.id IN ($id)
 			";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 
@@ -128,7 +128,7 @@ class logs
 				logs.id IN ($_ids) AND
 				logs.readdate IS NULL
 		";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -259,7 +259,7 @@ class logs
 		{
 			// make update query
 			$query = "UPDATE logs SET $set WHERE logs.id = $_id";
-			return \dash\db::query($query);
+			return \dash\pdo::query($query, []);
 		}
 	}
 
@@ -274,7 +274,7 @@ class logs
 	{
 		// get id
 		$query = "UPDATE FROM logs SET logs.notification_status = 'expire' WHERE logs.id = $_id ";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 
 

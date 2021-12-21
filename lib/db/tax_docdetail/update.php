@@ -12,7 +12,7 @@ class update
 		if($set)
 		{
 			$query  = "UPDATE tax_docdetail SET $set WHERE tax_docdetail.id = $_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 	}

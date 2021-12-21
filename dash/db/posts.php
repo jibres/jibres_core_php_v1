@@ -170,7 +170,7 @@ class posts
 				WHERE posts.id = $_id
 				";
 
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 
 

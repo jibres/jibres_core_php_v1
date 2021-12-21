@@ -12,7 +12,7 @@ class update
 		if($set)
 		{
 			$query  = "UPDATE crm_email SET $set WHERE crm_email.id = $_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 	}

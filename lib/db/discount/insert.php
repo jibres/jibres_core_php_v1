@@ -11,7 +11,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `discount` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return \dash\db::insert_id();
 			}
@@ -92,7 +92,7 @@ class insert
 			LIMIT 1
 		";
 
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 
 		$new_id = \dash\db::insert_id();
 
@@ -128,7 +128,7 @@ class insert
 				discount_dedicated.discount_id = $_old_id
 		";
 
-		\dash\db::query($query);
+		\dash\pdo::query($query, []);
 
 		return $new_id;
 	}

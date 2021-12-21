@@ -10,7 +10,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `products` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				$id = \dash\db::insert_id();
 				return $id;
@@ -54,7 +54,7 @@ class insert
 		{
 			$set   = \dash\db\config::make_set($set);
 			$query = "UPDATE products  SET $set WHERE products.id = $_new_id	LIMIT 1";
-			\dash\db::query($query);
+			\dash\pdo::query($query, []);
 		}
 
 		$query =
@@ -66,7 +66,7 @@ class insert
 			WHERE productcategoryusage.product_id = $_old_id
 		";
 
-		\dash\db::query($query);
+		\dash\pdo::query($query, []);
 
 
 		$query =
@@ -78,7 +78,7 @@ class insert
 			WHERE producttagusage.product_id = $_old_id
 		";
 
-		\dash\db::query($query);
+		\dash\pdo::query($query, []);
 
 
 		$now = date("Y-m-d H:i:s");
@@ -92,7 +92,7 @@ class insert
 			WHERE productproperties.product_id = $_old_id
 		";
 
-		\dash\db::query($query);
+		\dash\pdo::query($query, []);
 
 	}
 }

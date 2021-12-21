@@ -23,7 +23,7 @@ class insert
 		// if($set)
 		// {
 		// 	$query = " INSERT IGNORE INTO `log_notif` SET $set ";
-		// 	if(\dash\db::query($query))
+		// 	if(\dash\pdo::query($query, []))
 		// 	{
 		// 		return true;
 		// 	}

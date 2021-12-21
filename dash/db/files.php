@@ -107,7 +107,7 @@ class files
 	public static function set_removed($_id)
 	{
 		$query = "UPDATE files SET files.status = 'removed' WHERE files.id = $_id LIMIT 1 ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

@@ -62,7 +62,7 @@ class user_auth
 		}
 
 		$query = "DELETE FROM user_auth WHERE user_auth.id = $_id LIMIT 1";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 
 }

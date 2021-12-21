@@ -9,7 +9,7 @@ class update
 	{
 		$now = date("Y-m-d H:i:s");
 		$query = "UPDATE sync SET sync.status = '$_status', sync.datemodified = '$now' WHERE sync.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

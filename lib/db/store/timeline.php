@@ -13,7 +13,7 @@ class timeline
 		{
 			$query = " INSERT INTO `store_timeline` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				$id = \dash\db::insert_id();
 				return $id;
@@ -35,7 +35,7 @@ class timeline
 		if($set)
 		{
 			$query = " UPDATE `store_timeline` SET $set WHERE store_timeline.id = $_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 		else
@@ -47,7 +47,7 @@ class timeline
 	public static function set_store_id($_id, $_store_id)
 	{
 		$query = " UPDATE `store_timeline` SET store_timeline.store_id = $_store_id WHERE store_timeline.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -58,7 +58,7 @@ class timeline
 		if($set)
 		{
 			$query = " UPDATE `store_timeline` SET $set WHERE store_timeline.store_id = $_store_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 		else

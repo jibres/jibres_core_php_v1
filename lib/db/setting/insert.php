@@ -70,7 +70,7 @@ class insert
 						) LIMIT 1;
 					";
 
-					if(\dash\db::query($query))
+					if(\dash\pdo::query($query, []))
 					{
 						$id = \dash\db::insert_id();
 						return $id;
@@ -90,7 +90,7 @@ class insert
 
 			$query = " INSERT INTO `setting` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				$id = \dash\db::insert_id();
 				return $id;

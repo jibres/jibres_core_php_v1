@@ -63,7 +63,7 @@ class user_android
 		}
 
 		$query = "DELETE FROM user_android WHERE user_android.id = $_id LIMIT 1";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 
 }

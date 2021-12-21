@@ -8,7 +8,7 @@ class update
 	{
 		$ids = implode(',', $_ids);
 		$query = "UPDATE sms_log SET sms_log.status = 'sending' WHERE sms_log.id IN ($ids)";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -20,7 +20,7 @@ class update
 		if($set)
 		{
 			$query = " UPDATE `sms_log` SET $set WHERE sms_log.id = $_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 		else

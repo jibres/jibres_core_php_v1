@@ -19,7 +19,7 @@ class delete
 		}
 
 		$query = "DELETE FROM products WHERE id = $_id LIMIT 1";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 }
 ?>

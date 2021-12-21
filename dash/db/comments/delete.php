@@ -8,10 +8,10 @@ class delete
 	{
 		// remove all child
 		$query  = "DELETE  FROM comments WHERE comments.parent = $_id  ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 
 		$query  = "DELETE  FROM comments WHERE comments.id = $_id  LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 
 		return $result;
 	}
@@ -21,10 +21,10 @@ class delete
 	{
 		// remove all qoute
 		$query  = "DELETE FROM comments WHERE comments.for = 'quote' AND comments.pagebuilder_id = $_id  ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 
 		$query  = "UPDATE comments SET comments.pagebuilder_id = NULL WHERE comments.pagebuilder_id = $_id ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 
 		return $result;
 	}

@@ -11,7 +11,7 @@ class insert
 		{
 			$query = " INSERT INTO `store` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				$id = \dash\db::insert_id();
 				return $id;
@@ -35,7 +35,7 @@ class insert
 		{
 			$query = " INSERT INTO `store_data` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return true;
 			}
@@ -58,7 +58,7 @@ class insert
 		{
 			$query = " INSERT INTO `store_plan` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return true;
 			}
@@ -81,7 +81,7 @@ class insert
 		{
 			$query = " INSERT INTO `store_user` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return true;
 			}
@@ -104,7 +104,7 @@ class insert
 		{
 			$query = " INSERT INTO `store_analytics` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return true;
 			}
@@ -127,7 +127,7 @@ class insert
 		{
 			$query = " INSERT INTO `store_timeline` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return true;
 			}

@@ -34,7 +34,7 @@ class insert
 				form_filter_where
 			WHERE form_filter_where.form_id = $_form_id AND form_filter_where.filter_id = $_old_filter_id
 		";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -52,7 +52,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `form_filter` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return \dash\db::insert_id();
 			}
@@ -74,7 +74,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `form_filter_where` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return \dash\db::insert_id();
 			}

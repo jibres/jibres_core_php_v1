@@ -28,7 +28,7 @@ class update
 					AS `x`
 				)
 		";
-		$remove_duplicate = \dash\db::query($query);
+		$remove_duplicate = \dash\pdo::query($query, []);
 
 
 		$query  =
@@ -41,7 +41,7 @@ class update
 				productcategoryusage.productcategory_id = $_old_id
 
 		";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

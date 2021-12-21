@@ -36,7 +36,7 @@ class update
 		if($set)
 		{
 			$query = " UPDATE `posts` SET $set WHERE posts.id = $_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 		else
@@ -58,7 +58,7 @@ class update
 		{
 			$query  = "UPDATE posts SET posts.thumb = NULL WHERE posts.id = $_id LIMIT 1";
 		}
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -66,14 +66,14 @@ class update
 	public static function gallery($_gallery, $_id)
 	{
 		$query  = "UPDATE posts SET posts.gallery = '$_gallery' WHERE posts.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
 	public static function gallery_set_null($_id)
 	{
 		$query  = "UPDATE posts SET posts.gallery = NULL WHERE posts.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -82,7 +82,7 @@ class update
 	public static function status($_status, $_id)
 	{
 		$query  = "UPDATE posts SET posts.status = '$_status' WHERE posts.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

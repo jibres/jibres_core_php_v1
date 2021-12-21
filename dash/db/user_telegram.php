@@ -62,7 +62,7 @@ class user_telegram
 		}
 
 		$query = "DELETE FROM user_telegram WHERE user_telegram.id = $_id LIMIT 1";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 }
 ?>

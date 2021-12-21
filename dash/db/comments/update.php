@@ -10,7 +10,7 @@ class update
 		$_args['datemodified'] = date("Y-m-d H:i:s");
 		$set    = \dash\db\config::make_set($_args);
 		$query  = "UPDATE comments SET $set WHERE comments.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 }

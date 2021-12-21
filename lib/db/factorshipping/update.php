@@ -8,7 +8,7 @@ class update
 	{
 		$set    = \dash\db\config::make_set($_args);
 		$query  = "UPDATE factorshipping SET $set WHERE factorshipping.factor_id = $_factor_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 }

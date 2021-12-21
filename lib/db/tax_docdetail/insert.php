@@ -37,7 +37,7 @@ class insert
 			FROM tax_docdetail WHERE tax_docdetail.tax_document_id = $_old_id
 		";
 
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -54,7 +54,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `tax_docdetail` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return \dash\db::insert_id();
 			}

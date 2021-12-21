@@ -9,14 +9,14 @@ class update
 	public static function gallery($_gallery, $_id)
 	{
 		$query  = "UPDATE tax_document SET tax_document.gallery = '$_gallery' WHERE tax_document.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
 	public static function gallery_set_null($_id)
 	{
 		$query  = "UPDATE tax_document SET tax_document.gallery = NULL WHERE tax_document.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -39,7 +39,7 @@ class update
 				tax_document.id ASC
 		";
 
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 
 	}
 
@@ -67,7 +67,7 @@ class update
 		if($set)
 		{
 			$query  = "UPDATE tax_document SET $set WHERE tax_document.id = $_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 	}
@@ -88,7 +88,7 @@ class update
 			$query  = "UPDATE tax_document SET tax_document.status = 'draft' WHERE tax_document.id = $_id LIMIT 1";
 		}
 
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

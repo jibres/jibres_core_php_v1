@@ -36,7 +36,7 @@ class changelog
 	public static function delete($_id)
 	{
 		$query = "DELETE FROM changelog WHERE changelog.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

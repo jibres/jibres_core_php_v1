@@ -84,7 +84,7 @@ class users
 		}
 
 		$query = "DELETE FROM users WHERE users.id = $_id LIMIT 1";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 
 

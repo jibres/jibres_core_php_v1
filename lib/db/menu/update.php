@@ -17,7 +17,7 @@ class update
 		if($set)
 		{
 			$query  = "UPDATE menu SET $set WHERE menu.id = $_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 	}
@@ -27,7 +27,7 @@ class update
 	public static function update_related_url_social($_social_network, $_url)
 	{
 		$query  = "UPDATE menu SET menu.url = '$_url' WHERE menu.pointer = 'socialnetwork' AND menu.socialnetwork = '$_social_network' ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -35,7 +35,7 @@ class update
 	public static function update_related_url($_pointer, $_related_id, $_url)
 	{
 		$query  = "UPDATE menu SET menu.url = '$_url' WHERE menu.pointer = '$_pointer' AND menu.related_id = $_related_id ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

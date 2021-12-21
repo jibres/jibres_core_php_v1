@@ -9,7 +9,7 @@ class update
 	{
 		$date = date("Y-m-d H:i:s");
 		$query = "UPDATE csrf SET csrf.status = 'used', csrf.datemodified = '$date' WHERE csrf.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

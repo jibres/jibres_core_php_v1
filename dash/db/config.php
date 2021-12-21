@@ -560,7 +560,7 @@ class config
 			return false;
 		}
 		$query = "UPDATE $_table SET $set WHERE $where";
-		return \dash\db::query($query);
+		return \dash\pdo::query($query, []);
 	}
 
 

@@ -26,7 +26,7 @@ class useremail
 
 		$now = date("Y-m-d H:i:s");
 		$query = "UPDATE useremail SET useremail.verify = 1, useremail.dateverify = '$now' WHERE useremail.id = $_id  LIMIT 1 ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -72,7 +72,7 @@ class useremail
 	public static function remove_all_other_primary($_user_id)
 	{
 		$query = "UPDATE useremail SET useremail.primary = NULL WHERE useremail.user_id = $_user_id ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -84,7 +84,7 @@ class useremail
 	public static function set_primary_id($_id)
 	{
 		$query = "UPDATE useremail SET useremail.primary = 1 WHERE useremail.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -105,7 +105,7 @@ class useremail
 			LIMIT 1
 		";
 
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -116,7 +116,7 @@ class useremail
 		if($set)
 		{
 			$query = " INSERT INTO `useremail` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return \dash\db::insert_id();
 			}

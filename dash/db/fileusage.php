@@ -12,7 +12,7 @@ class fileusage
 		{
 			$query = " INSERT INTO `fileusage` SET $set ";
 
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				$id = \dash\db::insert_id();
 				return $id;
@@ -36,7 +36,7 @@ class fileusage
 	public static function remove_usage($_related, $_related_id)
 	{
 		$query = "DELETE FROM fileusage WHERE fileusage.related = '$_related' AND fileusage.related_id = '$_related_id' LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -44,7 +44,7 @@ class fileusage
 	public static function remove_usage_file_id($_related, $_related_id, $_file_id)
 	{
 		$query = "DELETE FROM fileusage WHERE fileusage.related = '$_related' AND fileusage.related_id = '$_related_id' AND fileusage.file_id = $_file_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -67,7 +67,7 @@ class fileusage
 	public static function update_file_id($_fileusage_id, $_new_file_id)
 	{
 		$query = "UPDATE fileusage SET fileusage.file_id = $_new_file_id WHERE fileusage.id = $_fileusage_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 }

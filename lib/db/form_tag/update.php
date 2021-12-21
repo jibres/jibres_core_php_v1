@@ -8,7 +8,7 @@ class update
 	{
 		$set    = \dash\db\config::make_set($_args);
 		$query  = "UPDATE form_tag SET $set WHERE form_tag.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

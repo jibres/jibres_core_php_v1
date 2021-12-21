@@ -12,7 +12,7 @@ class update
 		if($set)
 		{
 			$query  = "UPDATE form_filter SET $set WHERE form_filter.id = $_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 	}
@@ -24,7 +24,7 @@ class update
 		if($set)
 		{
 			$query  = "UPDATE form_filter_where SET $set WHERE form_filter_where.id = $_id LIMIT 1";
-			$result = \dash\db::query($query);
+			$result = \dash\pdo::query($query, []);
 			return $result;
 		}
 	}

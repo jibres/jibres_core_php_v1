@@ -19,7 +19,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `form_view` SET $set ";
-			if(\dash\db::query($query))
+			if(\dash\pdo::query($query, []))
 			{
 				return \dash\db::insert_id();
 			}
@@ -46,7 +46,7 @@ class insert
 		$fileds = implode(",", $fileds);
 
 		$query  = " CREATE TABLE IF NOT EXISTS `$_table_name` (`id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, $fileds, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 

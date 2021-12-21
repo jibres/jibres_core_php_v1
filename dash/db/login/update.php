@@ -21,7 +21,7 @@ class update
 	{
 		$date = date("Y-m-d H:i:s");
 		$query = "UPDATE login SET login.status = 'logout', login.datemodified = '$date' WHERE login.id = $_id LIMIT 1";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -56,7 +56,7 @@ class update
 	{
 		$date = date("Y-m-d H:i:s");
 		$query = "UPDATE login SET login.status = 'changepassword', login.datemodified = '$date' WHERE login.user_id = $_user_id AND login.status = 'active' AND login.id != $_current_login_id ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -72,7 +72,7 @@ class update
 		}
 
 		$query = "UPDATE login SET login.status = 'deleted', login.datemodified = '$date' WHERE login.user_id = $_user_id AND login.status = 'active' $current_login_id ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -81,7 +81,7 @@ class update
 	{
 		$date = date("Y-m-d H:i:s");
 		$query = "UPDATE login SET login.status = 'deleted', login.datemodified = '$date' WHERE login.id = $_id AND login.user_id = $_user_id AND login.status = 'active' LIMIT 1 ";
-		$result = \dash\db::query($query);
+		$result = \dash\pdo::query($query, []);
 		return $result;
 	}
 
@@ -121,7 +121,7 @@ class update
 
 		";
 
-		$ok = \dash\db::query($query);
+		$ok = \dash\pdo::query($query, []);
 		if($ok)
 		{
 			\dash\log::set('AutoExpireSession', ['countsession' => count($get_list)]);
