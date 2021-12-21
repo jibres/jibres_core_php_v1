@@ -1,6 +1,18 @@
 <?php
 $html = '';
 
+$html .= '<div class="alert-danger">';
+{
+	$html .= T_("On this page you can edit the buy price, sales price and product sales discount");
+	$html .= '<br>'. T_("Products marked with * indicate that more than one item of this product has been found in the buy order and displayed buy price is sugeested.");
+}
+$html .= '</div>';
+
+
+
+
+
+
 
 $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt']);
 {
@@ -35,7 +47,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 							if(a($value, 'suggestion', 'multiple'))
 							{
-								$html .= ' * ';
+								$html .= '<span class="text-red-500 text-xl font-bold"> * </span>';
 							}
 						}
 						$html .= '</td>';
