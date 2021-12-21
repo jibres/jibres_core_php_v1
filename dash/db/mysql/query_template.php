@@ -53,7 +53,7 @@ class query_template
 
 		$result = \dash\pdo::query($query, $param, $_fuel, $_option);
 
-		return \dash\db::insert_id();
+		return \dash\pdo::insert_id();
 	}
 
 
@@ -78,7 +78,7 @@ class query_template
 
 		$result = \dash\pdo::query($query, $args['param'], $_fuel, $_option);
 
-		return \dash\db::insert_id();
+		return \dash\pdo::insert_id();
 	}
 
 

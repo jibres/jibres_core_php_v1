@@ -118,7 +118,7 @@ class useremail
 			$query = " INSERT INTO `useremail` SET $set ";
 			if(\dash\pdo::query($query, []))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

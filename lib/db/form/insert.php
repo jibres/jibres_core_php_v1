@@ -55,7 +55,7 @@ class insert
 
 		if(\dash\pdo::query($new_form, []))
 		{
-			$new_form_id = \dash\db::insert_id();
+			$new_form_id = \dash\pdo::insert_id();
 			if($new_form_id)
 			{
 				$new_form_item =
@@ -116,7 +116,7 @@ class insert
 			$query = " INSERT INTO `form` SET $set ";
 			if(\dash\pdo::query($query, []))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

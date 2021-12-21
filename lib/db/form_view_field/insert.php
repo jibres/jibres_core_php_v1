@@ -25,7 +25,7 @@ class insert
 			$query = " INSERT INTO `form_view_field` SET $set ";
 			if(\dash\pdo::query($query, []))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

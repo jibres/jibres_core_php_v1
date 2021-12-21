@@ -14,7 +14,7 @@ class insert
 			$query = " INSERT INTO `request` SET $set ";
 			if(\dash\pdo::query($query, [], 'shaparak_log'))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

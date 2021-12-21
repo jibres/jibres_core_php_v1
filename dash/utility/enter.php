@@ -447,7 +447,7 @@ class enter
 
 		if($user_id)
 		{
-			$_value = \dash\db::insert_id();
+			$_value = \dash\pdo::insert_id();
 			self::load_user_data($_value, 'user_id');
 		}
 		return $_value;

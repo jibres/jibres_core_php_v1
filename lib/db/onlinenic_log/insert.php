@@ -17,7 +17,7 @@ class insert
 
 			if(\dash\pdo::query($query, [], 'onlinenic_log'))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

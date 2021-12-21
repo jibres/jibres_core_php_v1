@@ -99,7 +99,7 @@ class config
 		}
 		else
 		{
-			$first = \dash\db::insert_id();
+			$first = \dash\pdo::insert_id();
 		}
 
 		$count = count($_args);

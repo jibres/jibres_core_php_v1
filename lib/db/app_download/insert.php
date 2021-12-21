@@ -12,7 +12,7 @@ class insert
 			$query = " INSERT INTO `app_download` SET $set ";
 			if(\dash\pdo::query($query, []))
 			{
-				$id = \dash\db::insert_id();
+				$id = \dash\pdo::insert_id();
 				return $id;
 			}
 			else

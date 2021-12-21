@@ -13,7 +13,7 @@ class insert
 			$query = " INSERT INTO `importexport` SET $set ";
 			if(\dash\pdo::query($query, []))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

@@ -52,7 +52,7 @@ class view
 						$slug = \dash\validate::slug($one_tag['title']);
 						$query = " INSERT INTO productcategory SET productcategory.title = '$one_tag[title]', productcategory.slug = '$slug', productcategory.status = 'enable', productcategory.datecreated = '$date' ";
 						\dash\pdo::query($query, [], $value['fuel'], ['database' => $dbname]);
-						$tag_id = \dash\db::insert_id();
+						$tag_id = \dash\pdo::insert_id();
 					}
 
 					if($tag_id)

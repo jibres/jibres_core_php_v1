@@ -95,7 +95,7 @@ class ip
 			$query = " INSERT INTO `ip` SET $set ";
 			if(\dash\pdo::query($query, [], self::ip_fuel()))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

@@ -13,7 +13,7 @@ class insert
 			$query = " INSERT INTO `discount` SET $set ";
 			if(\dash\pdo::query($query, []))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{
@@ -94,7 +94,7 @@ class insert
 
 		$result = \dash\pdo::query($query, []);
 
-		$new_id = \dash\db::insert_id();
+		$new_id = \dash\pdo::insert_id();
 
 		if(!$new_id)
 		{

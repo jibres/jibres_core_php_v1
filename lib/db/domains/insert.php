@@ -21,7 +21,7 @@ class insert
 			$query = " INSERT INTO `domains` SET $set ";
 			if(\dash\pdo::query($query, [], 'nic_log'))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{
@@ -43,7 +43,7 @@ class insert
 			$query = " INSERT INTO `domainactivity` SET $set ";
 			if(\dash\pdo::query($query, [], 'nic_log'))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

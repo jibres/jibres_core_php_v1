@@ -13,7 +13,7 @@ class insert
 
 			if(\dash\pdo::query($query, []))
 			{
-				$id = \dash\db::insert_id();
+				$id = \dash\pdo::insert_id();
 				return $id;
 			}
 			else
@@ -36,7 +36,7 @@ class insert
 
 			if(\dash\pdo::query($query, [], $_fuel))
 			{
-				$id = \dash\db::insert_id();
+				$id = \dash\pdo::insert_id();
 				return $id;
 			}
 			else

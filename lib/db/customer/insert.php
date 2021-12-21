@@ -31,7 +31,7 @@ class insert
 
 			if(\dash\pdo::query($query, [], $_feul, ['database' => $_database]))
 			{
-				$id = \dash\db::insert_id();
+				$id = \dash\pdo::insert_id();
 				return $id;
 			}
 			else

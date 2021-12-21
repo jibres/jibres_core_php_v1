@@ -31,7 +31,7 @@ class insert
 			$query = " INSERT INTO `tax_coding` SET $set ";
 			if(\dash\pdo::query($query, []))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

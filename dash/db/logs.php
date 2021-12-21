@@ -215,7 +215,7 @@ class logs
 	public static function multi_insert($_args, $_fuel = null)
 	{
 		$result = \dash\db\config::public_multi_insert('logs', $_args, $_fuel);
-		$result = \dash\db::insert_id();
+		$result = \dash\pdo::insert_id();
 		return $result;
 	}
 
@@ -239,7 +239,7 @@ class logs
 			$query  ="INSERT INTO logs SET $set ";
 
 			$result = \dash\pdo::query($query, [], $_fuel);
-			$result = \dash\db::insert_id();
+			$result = \dash\pdo::insert_id();
 			return $result;
 		}
 	}

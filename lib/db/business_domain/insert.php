@@ -21,7 +21,7 @@ class insert
 			$query = " INSERT INTO `business_domain` SET $set ";
 			if(\dash\pdo::query($query, [], 'master'))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{
@@ -43,7 +43,7 @@ class insert
 			$query = " INSERT INTO `business_domain_action` SET $set ";
 			if(\dash\pdo::query($query, [], 'master'))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{
@@ -64,7 +64,7 @@ class insert
 			$query = " INSERT INTO `business_domain_dns` SET $set ";
 			if(\dash\pdo::query($query, [], 'master'))
 			{
-				return \dash\db::insert_id();
+				return \dash\pdo::insert_id();
 			}
 			else
 			{

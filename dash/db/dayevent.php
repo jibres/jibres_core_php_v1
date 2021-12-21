@@ -28,7 +28,7 @@ class dayevent
 			$query  ="INSERT IGNORE INTO dayevent SET $set ";
 
 			$result = \dash\pdo::query($query, []);
-			$result = \dash\db::insert_id();
+			$result = \dash\pdo::insert_id();
 			return $result;
 		}
 	}
