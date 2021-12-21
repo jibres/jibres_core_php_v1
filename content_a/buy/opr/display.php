@@ -13,7 +13,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 {
 	$html .= '<div class="tblBox">';
 	{
-		$html .= '<table class="tbl1 v4">';
+		$html .= '<table class="tbl1 v6">';
 		{
 			$html .= '<thead>';
 			{
@@ -22,9 +22,9 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 					$html .= '<th class="collapsing">'. T_("Count"). '</th>';
 					$html .= '<th>'. T_("Title"). '</th>';
 					$html .= '<th>'. T_("Buy price"). '</th>';
-					$html .= '<th>'. T_("Price"). '</th>';
-					$html .= '<th>'. T_("Discount"). '</th>';
-					$html .= '<th class="collapsing">'. T_("Edit"). '</th>';
+					$html .= '<th>'. T_("Sale Price"). '</th>';
+					$html .= '<th>'. T_("Sale Discount"). '</th>';
+					$html .= '<th class="collapsing"></th>';
 				}
 				$html .= '</tr>';
 			}
@@ -38,7 +38,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 					{
 						$html .= '<td class="collapsing">';
 						{
-							$html .= a($value, 'suggestion', 'count');
+							$html .= \dash\fit::number(a($value, 'suggestion', 'count'));
 
 							if(a($value, 'suggestion', 'multiple'))
 							{
@@ -75,7 +75,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 						$html .= '<td class="collapsing">';
 						{
-							$html .= '<a class="btn" href="'. \dash\url::here(). '/products/edit?id='. a($value, 'product_id'). '">'. T_("Edit"). '</a>';
+							$html .= '<a class="" data-fancybox data-type="iframe" target="_blank" href="'. \dash\url::here(). '/products/quick?id='. a($value, 'product_id'). '&iframe=buy">'. \dash\utility\icon::svg('box-arrow-up-right', 'bootstrap', 'blue', ' h-3 w-3'). '</a>';
 						}
 						$html .= '</td>';
 					}
