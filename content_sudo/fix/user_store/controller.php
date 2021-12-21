@@ -51,7 +51,7 @@ class controller
 			}
 
 
-			\dash\db::close();
+			\dash\pdo::close();
 		}
 
 

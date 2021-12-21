@@ -20,7 +20,7 @@ class model
 
 					\lib\app\store\changefuel::run();
 
-					\dash\db::close();
+					\dash\pdo::close();
 				}
 			}
 		}

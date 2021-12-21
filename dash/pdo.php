@@ -381,6 +381,10 @@ class pdo
 	}
 
 
+	public static function close()
+	{
+		return \dash\pdo\connection::close();
+	}
 
 }
 ?>

@@ -80,7 +80,7 @@ class view
 				}
 			}
 
-			\dash\db::close();
+			\dash\pdo::close();
 		}
 
 		var_dump('ok');

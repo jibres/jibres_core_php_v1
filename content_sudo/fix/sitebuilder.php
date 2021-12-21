@@ -63,7 +63,7 @@ class sitebuilder
 
 			self::conver_one_business();
 
-			\dash\db::close();
+			\dash\pdo::close();
 		}
 
 		\dash\log::to_supervisor('#Convert sitebuilder complete '. date("Y-m-d H:i:s"). ' In :'. (microtime(true) - $start). 's' );
