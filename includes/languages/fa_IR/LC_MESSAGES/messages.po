@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2021-12-21 11:03+0330\n"
-"PO-Revision-Date: 2021-12-21 11:03+0330\n"
+"POT-Creation-Date: 2021-12-21 12:14+0330\n"
+"PO-Revision-Date: 2021-12-21 12:54+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3330,7 +3330,7 @@ msgid "Gold"
 msgstr "طلایی"
 
 #: content/pricing/display.php:46 content/pricing/display.php:69
-#: content/pricing/display.php:98 content_a/buy/opr/display.php:18
+#: content/pricing/display.php:98 content_a/buy/opr/display.php:25
 #: content_a/chap/size-receipt/receipt.php:98 content_a/order/home/display.php:16
 #: content_a/order/products/display.php:50 content_a/order/products/display.php:52
 #: content_a/pricehistory/display.php:8 content_a/pricehistory/display.php:39
@@ -4886,7 +4886,7 @@ msgstr "کد"
 #: content_a/accounting/coding/display.php:80 content_a/accounting/year/add/display.php:5
 #: content_a/android/intro/display.php:17 content_a/android/review/display.php:82
 #: content_a/android/review/display.php:90 content_a/android/review/display.php:97
-#: content_a/buy/opr/display.php:16 content_a/category/add/display.php:5
+#: content_a/buy/opr/display.php:23 content_a/category/add/display.php:5
 #: content_a/category/edit/display.php:6 content_a/form/item/add/display.php:17
 #: content_a/form/item/add/display.php:19 content_a/form/item/display.php:12
 #: content_a/form/setting/display.php:9 content_a/form/tag/add/display.php:6
@@ -5117,8 +5117,8 @@ msgstr "افزودن"
 #: content_a/accounting/doc/add/display-docdetail.php:109
 #: content_a/accounting/doc/add/display-list.php:66
 #: content_a/accounting/year/add/display.php:34
-#: content_a/accounting/year/manage/display.php:14 content_a/buy/opr/display.php:20
-#: content_a/buy/opr/display.php:71 content_a/category/editgroup/display.php:13
+#: content_a/accounting/year/manage/display.php:14 content_a/buy/opr/display.php:27
+#: content_a/buy/opr/display.php:78 content_a/category/editgroup/display.php:13
 #: content_a/category/property/display.php:64 content_a/form/item/choice/display.php:11
 #: content_a/order/detail/display.php:38 content_a/pricehistory/display.php:9
 #: content_a/products/bullet/display.php:21 content_a/products/bullet/display.php:28
@@ -5974,7 +5974,7 @@ msgid "Add income"
 msgstr "افزودن درآمد"
 
 #: content_a/accounting/factor/display.php:8 content_a/accounting/home/display.php:136
-#: content_a/android/home/display.php:117 content_a/buy/opr/display.php:15
+#: content_a/android/home/display.php:117 content_a/buy/opr/display.php:22
 #: content_a/cart/add/display.php:39 content_a/cart/add/display.php:41
 #: content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:54
@@ -6589,7 +6589,7 @@ msgid "Postalcode"
 msgstr "کد پستی"
 
 #: content_a/accounting/report/quarter/display-detail.php:65
-#: content_a/buy/opr/display.php:19 content_a/cart/add/display.php:121
+#: content_a/buy/opr/display.php:26 content_a/cart/add/display.php:121
 #: content_a/order/home/display.php:17 content_a/order/productList.php:21
 #: content_a/order/products/display.php:56 content_a/order/products/display.php:58
 #: content_a/order/summary.php:29 content_a/pricehistory/display.php:40
@@ -7626,7 +7626,19 @@ msgstr "تنظیم عنوان و لوگوی اپلیکیشن"
 msgid "Application desc"
 msgstr "توضیح برنامه"
 
-#: content_a/buy/opr/display.php:17 content_a/pricehistory/display.php:38
+#: content_a/buy/opr/display.php:6
+msgid "On this page you can edit the buy price, sales price and product sales discount"
+msgstr "در این صفحه شما می‌توانید قیمت خرید، قیمت فروش و تخفیف فروش محصولات را ویرایش کنید"
+
+#: content_a/buy/opr/display.php:7
+msgid ""
+"Products marked with * indicate that more than one item of this product has been found "
+"in the buy order and displayed buy price is sugeested."
+msgstr ""
+"محصولاتی که با علامت * مشخص شده‌اند یعنی بیشتر از یک ردیف از آن‌ها در سفارش خرید وجود "
+"داشته است و قیمت خرید نمایش داده شده پیشنهادی است و میانگین قیمت تمام شده شما است"
+
+#: content_a/buy/opr/display.php:24 content_a/pricehistory/display.php:38
 #: content_a/products/child/display.php:88 content_a/products/child/display.php:158
 msgid "Buy price"
 msgstr "قیمت خرید"
@@ -15216,12 +15228,12 @@ msgstr ""
 "از تخفیفات ویژه و جدیدی که بر روی اپ ما ارائه میشه همین الان استفاده کنید"
 
 #: content_business/cart/cartSummary.php:58 lib/app/factor/add.php:207
-#: lib/app/order/add.php:534
+#: lib/app/order/add.php:535
 msgid "Minimum order amount is :val :currency"
 msgstr "حداقل مبلغ سفارش :val :currency است"
 
 #: content_business/cart/cartSummary.php:60 lib/app/factor/add.php:209
-#: lib/app/order/add.php:536
+#: lib/app/order/add.php:537
 msgid "You must add :val :currency to your cart"
 msgstr "شما باید :val :currency دیگر به سبد خرید خود اضافه کنید"
 
@@ -25376,7 +25388,7 @@ msgid "Please wait until your comment was approved"
 msgstr "لطفا صبر کنید تا دیگاه‌های شما تایید شود"
 
 #: dash/app/comment/add.php:49 dash/app/ticket/add.php:72 dash/utility/pay/start.php:219
-#: lib/app/cart/add.php:211 lib/app/factor/add.php:547 lib/app/order/add.php:482
+#: lib/app/cart/add.php:211 lib/app/factor/add.php:547 lib/app/order/add.php:483
 msgid "Who are you?"
 msgstr "شما کی هستید؟"
 
@@ -37344,7 +37356,7 @@ msgstr "پرداخت سفارش"
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
 
-#: lib/app/cart/checkout.php:674 lib/app/order/add.php:567
+#: lib/app/cart/checkout.php:674 lib/app/order/add.php:562
 msgid "Pay order :val"
 msgstr "پرداخت سفارش :val"
 
@@ -37901,7 +37913,7 @@ msgstr "تخفیف بزرگتر از مبلغ کل سفارش است"
 msgid "No way to insert factor"
 msgstr "هیچ راهی برای ثبت کالا وجود ندارد"
 
-#: lib/app/factor/add.php:332 lib/app/order/add.php:337
+#: lib/app/factor/add.php:332 lib/app/order/add.php:338
 msgid "Factor successfuly added"
 msgstr "فاکتور با موفقیت اضافه شد"
 
@@ -37913,12 +37925,12 @@ msgstr "اطلاعات وارد شده خارج از محدوده مجاز اس�
 msgid "Product added to factor"
 msgstr "محصول به سفارش اضافه شد"
 
-#: lib/app/factor/add.php:536 lib/app/order/add.php:471
+#: lib/app/factor/add.php:536 lib/app/order/add.php:472
 msgid "You have a lot unpaid factors. Please try again later"
 msgstr "شما تعدادی سفارش پرداخت نشده دارید. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید"
 
-#: lib/app/factor/add.php:558 lib/app/factor/add.php:570 lib/app/order/add.php:493
-#: lib/app/order/add.php:505
+#: lib/app/factor/add.php:558 lib/app/factor/add.php:570 lib/app/order/add.php:494
+#: lib/app/order/add.php:506
 msgid "You have a lot unpaid factors. Please try again later or login to add more"
 msgstr "شما تعدادی سفارش پرداخت نشده دارید. برای ثبت سفارش بیشتر وارد سیستم شوید"
 
@@ -39783,11 +39795,11 @@ msgstr "بازگشت هزینه انتقال دامنه :val"
 msgid "Can not transfer your domain"
 msgstr "نمی‌توانیم دامنه را منتقل کنید"
 
-#: lib/app/order/add.php:578 lib/app/order/add.php:601
+#: lib/app/order/add.php:573 lib/app/order/add.php:596
 msgid "Can not add transaction"
 msgstr "نمی‌توانیم این تراکنش را ثبت کنیم"
 
-#: lib/app/order/add.php:590
+#: lib/app/order/add.php:585
 msgid "Plus budget for pay order :val"
 msgstr "افزایش شارژ حساب کاربری بابت پرداخت هزینه سفارش :val"
 
