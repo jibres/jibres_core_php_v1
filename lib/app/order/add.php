@@ -255,7 +255,7 @@ class add
 		if($start_transaction)
 		{
 			// start transaction of db
-			\dash\db::transaction();
+			\dash\pdo::transaction();
 		}
 
 		if(!$_option['factor_id'])
@@ -277,7 +277,7 @@ class add
 
 			if($start_transaction)
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 			}
 
 			return false;
@@ -294,7 +294,7 @@ class add
 		{
 			if($start_transaction)
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 			}
 
 			return false;
@@ -316,7 +316,7 @@ class add
 			{
 				if($start_transaction)
 				{
-					\dash\db::rollback();
+					\dash\pdo::rollback();
 				}
 
 				return false;
@@ -332,7 +332,7 @@ class add
 		{
 			if($start_transaction)
 			{
-				\dash\db::commit();
+				\dash\pdo::commit();
 			}
 
 			$msg = T_("Factor successfuly added");

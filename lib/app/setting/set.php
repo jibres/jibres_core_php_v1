@@ -460,7 +460,7 @@ class set
 			}
 
 			$test_connection = true;
-			// \dash\db::transaction();
+			// \dash\pdo::transaction();
 		}
 		else
 		{
@@ -517,7 +517,7 @@ class set
 				\dash\notif::ok(' ', ['alerty' => true, 'html' => T_("The connection was successfully tested <br> From now on, all files uploaded to your service will be stored in this cloud service provider")]);
 			}
 
-			// \dash\db::commit();
+			// \dash\pdo::commit();
 		}
 
 		if(isset($clean_message) && $clean_message)

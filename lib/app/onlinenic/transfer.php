@@ -399,14 +399,14 @@ class transfer
 
 		if($data['minus_transaction'])
 		{
-			\dash\db::transaction();
+			\dash\pdo::transaction();
 			// check budget
 			$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
 
 			if($user_budget < floatval($data['minus_transaction']))
 			{
 				\dash\notif::error(T_("Your budget is low!"));
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 				return false;
 			}
 
@@ -419,7 +419,7 @@ class transfer
 
 			$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
 
-			\dash\db::commit();
+			\dash\pdo::commit();
 
 		}
 

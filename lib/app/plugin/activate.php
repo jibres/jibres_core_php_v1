@@ -399,14 +399,14 @@ class activate
 
 
 
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 		// check budget
 		$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
 
 		if($user_budget < $price)
 		{
 			\dash\notif::ok(T_("This plugin is already activated for your business"));
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 		}
 
 
@@ -427,7 +427,7 @@ class activate
 			if(!$transaction_id || !is_numeric($transaction_id))
 			{
 				\dash\pdo::rollback();
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 				\dash\log::oops('PluginAfterPayCanNotAddMinusTransaction', T_(__LINE__. "Can not add this action. Please contact to administrator"));
 				return false;
 			}
@@ -501,7 +501,7 @@ class activate
 		if(!$action_id)
 		{
 			\dash\pdo::rollback();
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 			\dash\log::oops('ErrorInAddNewPluginAction', T_(__LINE__. "Can not add this action. Please contact to administrator"));
 			return false;
 		}
@@ -519,7 +519,7 @@ class activate
 		];
 		\dash\log::set('business_plugin', $log);
 
-		\dash\db::commit();
+		\dash\pdo::commit();
 
 
 

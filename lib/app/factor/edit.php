@@ -66,7 +66,7 @@ class edit
 		// 	\dash\notif::error(T_("Item not found"));
 		// 	return false;
 		// }
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 		$current_count = floatval(a($check_ok, 'count'));
 
@@ -88,14 +88,14 @@ class edit
 				\lib\db\factordetails\delete::record($id);
 				\lib\app\factor\calculate::again($factor_id);
 				\dash\notif::ok(T_("Item removed"));
-				\dash\db::commit();
+				\dash\pdo::commit();
 				return true;
 
 				break;
 
 			default:
 				\dash\notif::error(T_("Invalid type"));
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 				return false;
 				break;
 		}
@@ -120,13 +120,13 @@ class edit
 
 		if($ok)
 		{
-			\dash\db::commit();
+			\dash\pdo::commit();
 			\dash\notif::ok(T_("Data saved"));
 			return true;
 		}
 		else
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 			return false;
 		}
 
@@ -294,7 +294,7 @@ class edit
 		}
 
 
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 		\lib\db\factors\update::record(['discount_id' => null], $factor_id);
 
@@ -302,12 +302,12 @@ class edit
 
 		if(\dash\engine\process::status())
 		{
-			\dash\db::commit();
+			\dash\pdo::commit();
 			\dash\notif::ok(T_("Discount removed to order"));
 		}
 		else
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 		}
 
 
@@ -333,7 +333,7 @@ class edit
 			return false;
 		}
 
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 		\lib\db\factors\update::record(['discount_id' => $load_discount['id']], $factor_id);
 
@@ -341,12 +341,12 @@ class edit
 
 		if(\dash\engine\process::status())
 		{
-			\dash\db::commit();
+			\dash\pdo::commit();
 			\dash\notif::ok(T_("Discount added to order"));
 		}
 		else
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 		}
 
 
@@ -385,7 +385,7 @@ class edit
 		}
 		else
 		{
-			\dash\db::transaction();
+			\dash\pdo::transaction();
 
 			\lib\db\factors\update::record($args, $load_factor['id']);
 
@@ -405,13 +405,13 @@ class edit
 
 			if($ok)
 			{
-				\dash\db::commit();
+				\dash\pdo::commit();
 				\dash\notif::ok(T_("Data saved"));
 				return true;
 			}
 			else
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 				return false;
 			}
 

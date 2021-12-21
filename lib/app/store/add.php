@@ -151,14 +151,14 @@ class add
 
 		\dash\code::time_limit(600); // 10 min
 
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 		// add store data in jibres database
 		$add_store_data = self::new_store_data($args, $store_id);
 
 		if(!$add_store_data)
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 
 			\dash\log::set('dbCanNotAddStoreData', ['request_subdomain' => $subdomain]);
 
@@ -175,7 +175,7 @@ class add
 
 		if(!$add_store_user)
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 
 			\dash\log::set('dbCanNotAddStoreUser', ['request_subdomain' => $subdomain]);
 
@@ -213,7 +213,7 @@ class add
 			\lib\app\store\config::init($store_id, $fuel, $customer_db_name, $args);
 		}
 
-		\dash\db::commit();
+		\dash\pdo::commit();
 
 		// enable business
 		\lib\db\store\update::set_enable($store_id);
@@ -274,13 +274,13 @@ class add
 
 	private static function new_store_reserved($_subdomain, $_creator, $_fuel)
 	{
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 		$store_id = \lib\db\store\get::reserved_business();
 
 		if(!$store_id || !is_numeric($store_id))
 		{
-			\dash\db::commit();
+			\dash\pdo::commit();
 			return false;
 		}
 
@@ -297,7 +297,7 @@ class add
 
 		\lib\db\store\update::record($update_store, $store_id);
 
-		\dash\db::commit();
+		\dash\pdo::commit();
 
 		return $store_id;
 	}

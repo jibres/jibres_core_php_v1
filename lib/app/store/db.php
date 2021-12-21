@@ -169,7 +169,7 @@ class db
 	{
 		$start = time();
 
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 		$reserve_store                = [];
 		$reserve_store['fuel']        = \dash\engine\fuel::priority(\dash\url::tld());
@@ -186,7 +186,7 @@ class db
 
 		if(!$reserve_store_id)
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 			\dash\log::to_supervisor('can not create reserve business record');
 			return false;
 		}
@@ -197,7 +197,7 @@ class db
 
 		if(!$reserve_store_db)
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 			\dash\log::to_supervisor('can not create reserve business database');
 			return false;
 		}
@@ -207,7 +207,7 @@ class db
 
 		\lib\db\store\update::record($update_store, $reserve_store_id);
 
-		\dash\db::commit();
+		\dash\pdo::commit();
 
 		\dash\log::to_supervisor("#New_business_reserve created. time: ". time() - $start. " second \n ID: ". $reserve_store_id);
 

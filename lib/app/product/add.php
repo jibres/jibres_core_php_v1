@@ -6,7 +6,7 @@ class add
 {
 	public static function for_import($_args, $_overwrite = [])
 	{
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 		foreach ($_args as $key => $value)
 		{
@@ -30,31 +30,31 @@ class add
 
 			if(!\dash\engine\process::status())
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 				return false;
 			}
 		}
 
-		\dash\db::commit();
+		\dash\pdo::commit();
 
 		return true;
 	}
 
 	public static function multi_add($_args)
 	{
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 		foreach ($_args as $key => $value)
 		{
 			$result = self::add($value, ['debug' => false, 'multi_add' => true, 'transaction' => true]);
 			if(!\dash\engine\process::status())
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 				return false;
 			}
 		}
 
-		\dash\db::commit();
+		\dash\pdo::commit();
 
 		return true;
 	}
@@ -117,7 +117,7 @@ class add
 		// the transaction not start. neet to statr
 		if(!$_option['transaction'])
 		{
-			\dash\db::transaction();
+			\dash\pdo::transaction();
 		}
 
 
@@ -197,7 +197,7 @@ class add
 
 			if(!$_option['transaction'])
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 			}
 
 			return false;
@@ -222,7 +222,7 @@ class add
 
 				if(!$_option['transaction'])
 				{
-					\dash\db::rollback();
+					\dash\pdo::rollback();
 				}
 
 				return false;
@@ -270,7 +270,7 @@ class add
 
 				if(!$_option['transaction'])
 				{
-					\dash\db::rollback();
+					\dash\pdo::rollback();
 				}
 
 				return false;
@@ -298,7 +298,7 @@ class add
 
 		if(!$_option['transaction'])
 		{
-			\dash\db::commit();
+			\dash\pdo::commit();
 		}
 
 		// update test by PDO connection after commit

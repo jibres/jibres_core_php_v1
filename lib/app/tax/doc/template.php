@@ -57,7 +57,7 @@ class template
 
 		$_args['template'] = $tax_document['template'];
 
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 
 		if(!a($_args, 'desc'))
@@ -69,7 +69,7 @@ class template
 
 		if(!$edit)
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 			\dash\notif::error_once(T_("Can not edit this document"));
 			return false;
 		}
@@ -121,13 +121,13 @@ class template
 		unset($args['partner']);
 		unset($args['bank_profit']);
 
-		\dash\db::transaction();
+		\dash\pdo::transaction();
 
 		$tax_document_id = \lib\db\tax_document\insert::new_record($args);
 
 		if(!$tax_document_id)
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 
 			\dash\notif::error(T_("Can not add your data"));
 			return false;
@@ -738,7 +738,7 @@ class template
 
 			if(!\dash\engine\process::status())
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 				return false;
 			}
 		}
@@ -749,12 +749,12 @@ class template
 
 		if(\dash\engine\process::status())
 		{
-			\dash\db::commit();
+			\dash\pdo::commit();
 			return true;
 		}
 		else
 		{
-			\dash\db::rollback();
+			\dash\pdo::rollback();
 			return false;
 		}
 	}

@@ -21,7 +21,7 @@ class remove
 		}
 		else
 		{
-			\dash\db::transaction();
+			\dash\pdo::transaction();
 
 			$deleted = \lib\db\factors\update::record(['status' => 'deleted'], $load_detail['id']);
 			if($deleted)
@@ -44,18 +44,18 @@ class remove
 						}
 					}
 
-					\dash\db::commit();
+					\dash\pdo::commit();
 				}
 				else
 				{
-					\dash\db::rollback();
+					\dash\pdo::rollback();
 					\dash\notif::ok(T_("Error in delete order. Please contact to administrator"));
 					return false;
 				}
 			}
 			else
 			{
-				\dash\db::rollback();
+				\dash\pdo::rollback();
 				\dash\notif::ok(T_("Error in delete order. Please contact to administrator"));
 				return false;
 			}

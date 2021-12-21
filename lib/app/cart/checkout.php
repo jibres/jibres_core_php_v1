@@ -450,7 +450,7 @@ class checkout
 		if(isset($_args['shipping_form_answer']) && $_args['shipping_form_answer'])
 		{
 			$factor_option['start_transaction'] = false;
-			\dash\db::transaction();
+			\dash\pdo::transaction();
 		}
 
 
@@ -476,7 +476,7 @@ class checkout
 				return false;
 			}
 
-			\dash\db::commit();
+			\dash\pdo::commit();
 		}
 
 
