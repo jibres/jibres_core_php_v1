@@ -307,7 +307,8 @@ class add
 		=            Order transaction            =
 		=========================================*/
 		// if have not factor.customer needless to add any transaction
-		if($factor['customer'])
+		// only in sale order add transaction
+		if($factor['customer'] && $factor['type'] === 'sale')
 		{
 			$pay_order = self::pay_order($factor_id, $factor);
 
@@ -551,12 +552,6 @@ class add
 	 */
 	private static function pay_order($_factor_id, $_factor)
 	{
-		// skip in .com
-		if(!\dash\url::isLocal())
-		{
-			return true;
-		}
-
 		$customer = $_factor['customer'];
 
 		// minus transaction
