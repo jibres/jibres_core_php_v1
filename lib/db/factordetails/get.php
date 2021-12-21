@@ -199,58 +199,29 @@ class get
 		return $result;
 	}
 
+
+
 	public static function product_ordered_stat($_product_id)
 	{
 		$query =
 		"
 			SELECT
 				SUM(factordetails.count) AS `total`,
-				COUNT(*) AS `count`
+				COUNT(factordetails.id) AS `count`
 			FROM
 				factordetails
+			INNER JOIN factors ON factors.id = factordetails.factor_id
 			WHERE
-				factordetails.product_id = $_product_id AND
+				factordetails.product_id = :product_id AND
+				factors.type  IN ('sale', 'saleorder') AND
 				factordetails.count > 0
 		";
-		$result = \dash\db::get($query, null, true);
+
+		$param  = [':product_id' => $_product_id];
+		$result = \dash\db::get_bind($query, $param, null, true);
+
 		return $result;
 	}
-
-	public static function product_sold($_product_id)
-	{
-		$query =
-		"
-			SELECT
-				SUM(factordetails.count) AS `count`
-			FROM
-				factordetails
-			WHERE
-				factordetails.product_id = $_product_id AND
-				factordetails.count > 0
-		";
-		$result = \dash\db::get($query, 'count', true);
-		return $result;
-	}
-
-
-	public static function product_bougth($_product_id)
-	{
-		$query =
-		"
-			SELECT
-				(SUM(factordetails.count) * -1) AS `count`
-			FROM
-				factordetails
-			WHERE
-				factordetails.product_id = $_product_id AND
-				factordetails.count < 0
-		";
-		$result = \dash\db::get($query, 'count', true);
-		return $result;
-
-	}
-
-
 
 }
 ?>
