@@ -9,11 +9,6 @@ $html .= '<div class="alert-danger">';
 $html .= '</div>';
 
 
-
-
-
-
-
 $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt']);
 {
 	$html .= '<div class="tblBox">';
