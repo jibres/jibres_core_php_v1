@@ -156,7 +156,7 @@ class get
 	{
 		// type: 'sale','buy','presell','lending','backbuy','backsell','waste','saleorder'
 		// status: 'draft','registered','awaiting','confirmed','cancel','expire','preparing','sending','delivered','revert','success','complete','archive','deleted','spam'
-		$result = \dash\db::get(self::unprocessed_order_query(), 'count', true, $_fuel, ['database' => $_db_name]);
+		$result = \dash\pdo::get(self::unprocessed_order_query(), [], 'count', true, $_fuel, ['database' => $_db_name]);
 		return $result;
 	}
 
@@ -164,7 +164,7 @@ class get
 	{
 		// type: 'sale','buy','presell','lending','backbuy','backsell','waste','saleorder'
 		// status: 'draft','registered','awaiting','confirmed','cancel','expire','preparing','sending','delivered','revert','success','complete','archive','deleted','spam'
-		$result = \dash\db::get(self::unprocessed_order_query(), 'count', true);
+		$result = \dash\pdo::get(self::unprocessed_order_query(), [], 'count', true);
 		return $result;
 	}
 

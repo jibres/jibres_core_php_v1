@@ -19,7 +19,7 @@ class pagination
 
 	public static function pagination_query($_query, $_length = 10, $_fuel = null)
 	{
-		$total_rows = \dash\db::get($_query, 'count', true, $_fuel);
+		$total_rows = \dash\pdo::get($_query, [], 'count', true, $_fuel);
 		$total_rows = floatval($total_rows);
 		$result     = self::pagination($total_rows, $_length);
 

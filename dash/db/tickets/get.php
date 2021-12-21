@@ -110,7 +110,7 @@ class get
 				tickets.user_id = $_user_id
 		";
 
-		$count = \dash\db::get($get_count, 'count', true);
+		$count = \dash\pdo::get($get_count, [], 'count', true);
 		return $count;
 
 	}

@@ -122,7 +122,7 @@ class search
 	{
 
 		$category_id_query = " SELECT productcategoryusage.productcategory_id AS `category_id` FROM productcategoryusage WHERE productcategoryusage.product_id IN ($_id , (SELECT products.parent FROM products WHERE products.id = $_id)) ";
-		$category_id = \dash\db::get($category_id_query, 'category_id');
+		$category_id = \dash\pdo::get($category_id_query, [], 'category_id');
 
 		if(!$category_id || !is_array($category_id))
 		{

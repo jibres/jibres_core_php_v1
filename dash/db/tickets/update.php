@@ -55,7 +55,7 @@ class update
 				tickets.datemodified < '$yesterday'
 		";
 
-		$count = \dash\db::get($get_count, 'count', true);
+		$count = \dash\pdo::get($get_count, [], 'count', true);
 		if($count)
 		{
 			\dash\log::set('ticket_AutoCloseSolvedTicket', ['count' => $count]);
@@ -94,7 +94,7 @@ class update
 					comments.ip IN ($ips)
 			";
 
-			$count = \dash\db::get($get_count, 'count', true);
+			$count = \dash\pdo::get($get_count, [], 'count', true);
 
 			if($count)
 			{

@@ -607,7 +607,7 @@ class visitors
 		if($pagenation && !$get_count)
 		{
 			$pagenation_query = "SELECT	COUNT(*) AS `count`	FROM `visitors` $master_join	$where $search ";
-			$pagenation_query = \dash\db::get($pagenation_query, 'count', true);
+			$pagenation_query = \dash\pdo::get($pagenation_query, [], 'count', true);
 
 			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagination((int) $pagenation_query, $limit);
 			$limit = " LIMIT $limit_start, $limit ";

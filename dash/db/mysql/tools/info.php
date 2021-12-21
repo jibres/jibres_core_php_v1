@@ -60,7 +60,7 @@ class info
 			$_link = \dash\db\mysql\tools\connection::link();
 		}
 
-		$result = \dash\db::get("SHOW GLOBAL STATUS;", ['Variable_name', 'Value'], true);
+		$result = \dash\pdo::get("SHOW GLOBAL STATUS;", [], ['Variable_name', 'Value'], true);
 
 		if($_get && is_array($result))
 		{
@@ -103,7 +103,7 @@ class info
 	{
 		$var = 'JIBRES_TEST_CONNECTION';
 
-		$result = \dash\db::get("SELECT '$var'; -- $_fuel ", $var, true, $_fuel, ['database' => $_db_name]);
+		$result = \dash\pdo::get("SELECT '$var'; -- $_fuel ", [], $var, true, $_fuel, ['database' => $_db_name]);
 
 		if($result === $var)
 		{

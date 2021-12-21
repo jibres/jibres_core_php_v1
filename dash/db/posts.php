@@ -194,7 +194,7 @@ class posts
 			$_ids = implode(',', $_ids);
 		}
 
-		$result = \dash\db::get("SELECT * FROM posts WHERE id IN ($_ids)");
+		$result = \dash\pdo::get("SELECT * FROM posts WHERE id IN ($_ids)", []);
 		return $result;
 	}
 
@@ -292,7 +292,7 @@ class posts
 					$where
 			";
 
-			$pagenation_query = \dash\db::get($pagenation_query, 'count', true);
+			$pagenation_query = \dash\pdo::get($pagenation_query, [], 'count', true);
 			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagination((int) $pagenation_query, $_options['limit']);
 			$limit = " LIMIT $limit_start, $limit ";
 		}
@@ -450,7 +450,7 @@ class posts
 
 		";
 
-		$post_term = \dash\db::get($load_post_term, 'id');
+		$post_term = \dash\pdo::get($load_post_term, [], 'id');
 		if(empty($post_term))
 		{
 			return null;
@@ -669,7 +669,7 @@ class posts
 		if($pagenation)
 		{
 			$pagenation_query = "SELECT	COUNT(*) AS `count` FROM posts WHERE $where $search ";
-			$pagenation_query = \dash\db::get($pagenation_query, 'count', true);
+			$pagenation_query = \dash\pdo::get($pagenation_query, [], 'count', true);
 			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagination($pagenation_query, $limit);
 			$limit = " LIMIT $limit_start, $limit ";
 		}

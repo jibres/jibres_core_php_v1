@@ -32,19 +32,19 @@ class insert
 
 		$set = [];
 
-		$get_variants = \dash\db::get("SELECT variants FROM products WHERE id = $_old_id LIMIT 1", 'variants', true);
+		$get_variants = \dash\pdo::get("SELECT variants FROM products WHERE id = $_old_id LIMIT 1", [], 'variants', true);
 		if($get_variants)
 		{
 			$set['variants'] = $get_variants;
 		}
 
-		$get_thumb = \dash\db::get("SELECT thumb FROM products WHERE id = $_old_id LIMIT 1", 'thumb', true);
+		$get_thumb = \dash\pdo::get("SELECT thumb FROM products WHERE id = $_old_id LIMIT 1", [], 'thumb', true);
 		if($get_thumb)
 		{
 			$set['thumb'] = $get_thumb;
 		}
 
-		$get_gallery = \dash\db::get("SELECT gallery FROM products WHERE id = $_old_id LIMIT 1", 'gallery', true);
+		$get_gallery = \dash\pdo::get("SELECT gallery FROM products WHERE id = $_old_id LIMIT 1", [], 'gallery', true);
 		if($get_gallery)
 		{
 			$set['gallery'] = $get_gallery;

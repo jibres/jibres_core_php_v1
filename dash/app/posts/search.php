@@ -558,7 +558,7 @@ class search
 			LIMIT 20
 		";
 
-		$post_term = \dash\db::get($load_post_term, 'id');
+		$post_term = \dash\pdo::get($load_post_term, [], 'id');
 		if(empty($post_term))
 		{
 			return null;

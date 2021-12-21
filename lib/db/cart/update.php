@@ -23,7 +23,7 @@ class update
 			HAVING COUNT(*) > 1
 		";
 
-		$have_duplicate = \dash\db::get($merge_duplicate);
+		$have_duplicate = \dash\pdo::get($merge_duplicate, []);
 
 		if($have_duplicate)
 		{
@@ -31,7 +31,7 @@ class update
 			foreach ($have_duplicate as $key => $value)
 			{
 				$get_duplicate_query = "SELECT * FROM cart WHERE cart.user_id = $_user_id AND cart.product_id = $value[product_id] ";
-				$get_duplicate = \dash\db::get($get_duplicate_query);
+				$get_duplicate = \dash\pdo::get($get_duplicate_query, []);
 				foreach ($get_duplicate as $k => $v)
 				{
 					if($k === 0)

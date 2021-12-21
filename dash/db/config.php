@@ -839,7 +839,7 @@ class config
 				$pagenation_query = "SELECT	COUNT(*) AS `count`	FROM `$_table` $master_join	$where $search $group_by";
 			}
 
-			$pagenation_query = \dash\db::get($pagenation_query, 'count', true, $db_name);
+			$pagenation_query = \dash\pdo::get($pagenation_query, [], 'count', true, $db_name);
 			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagination((int) $pagenation_query, $limit);
 			$limit = " LIMIT $limit_start, $limit ";
 		}
