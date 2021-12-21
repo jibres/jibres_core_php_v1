@@ -7,10 +7,11 @@ class model
 
 	public static function post()
 	{
-		$product_id      = \dash\request::post('product_id');
-		$price    = \dash\request::post('price');
-		$discount = \dash\request::post('discount');
-		$title    = \dash\request::post('title');
+		$product_id = \dash\request::post('product_id');
+		$price      = \dash\request::post('price');
+		$discount   = \dash\request::post('discount');
+		$title      = \dash\request::post('title');
+		$buyprice   = \dash\request::post('buyprice');
 
 		if(!is_array($product_id))
 		{
@@ -25,6 +26,7 @@ class model
 				'title'    => a($title, $key),
 				'price'    => a($price, $key),
 				'discount' => a($discount, $key),
+				'buyprice' => a($buyprice, $key),
 			];
 
 

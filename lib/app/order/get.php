@@ -65,6 +65,64 @@ class get
 	}
 
 
+	public static function buy_opr_merger_duplicate(array $_factor_detail) : array
+	{
+		$new_list = [];
+
+		foreach ($_factor_detail as $key => $value)
+		{
+			if(!isset($new_list[$value['product_id']]))
+			{
+				$new_list[$value['product_id']]              = $value;
+				$new_list[$value['product_id']]['oprmerger'] =
+				[
+					'price'    => [floatval($value['product_price'])],
+					'count'    => [floatval($value['count'])],
+					'buyprice' => [floatval($value['price'])],
+					'discount' => [floatval($value['discount'])],
+					'multiple' => false,
+				];
+			}
+			else
+			{
+				$new_list[$value['product_id']]['oprmerger']['price'][]    = floatval($value['product_price']);
+				$new_list[$value['product_id']]['oprmerger']['count'][]    = floatval($value['count']);
+				$new_list[$value['product_id']]['oprmerger']['buyprice'][] = floatval($value['price']); // in buy order the price is buy price
+				$new_list[$value['product_id']]['oprmerger']['discount'][] = floatval($value['discount']);
+				$new_list[$value['product_id']]['oprmerger']['multiple']   = true;
+			}
+		}
+
+
+		foreach ($new_list as $key => $value)
+		{
+			$suggestion             = [];
+			$suggestion['multiple'] = $value['oprmerger']['multiple'];
+			$suggestion['price']    = max($value['oprmerger']['price']);
+			$suggestion['discount'] = min($value['oprmerger']['discount']);
+
+			$count                  = array_sum($value['oprmerger']['count']);
+			$suggestion['count']    = $count;
+
+			if(!$count)
+			{
+				$count = 1;
+			}
+
+			$buyprice = array_sum($value['oprmerger']['buyprice']);
+			$discount = array_sum($value['oprmerger']['discount']);
+
+			$suggestion['buyprice'] = round(($buyprice - $discount) / $count);
+
+			$new_list[$key]['suggestion'] = $suggestion;
+
+			unset($new_list[$key]['oprmerger']);
+		}
+
+		return $new_list;
+	}
+
+
 
 
 
