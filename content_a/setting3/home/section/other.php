@@ -122,7 +122,6 @@ class other
 			'option_mode'  => 'btn',
 			'special_html' => 'remove',
 			'title'        => T_("Busienss remove"),
-			'desc'         => T_("This remove will appear on your invoices."),
 			'btn_link'     => \dash\url::that(). '/remove',
 			'btn_title'    => T_("Remove"),
 			'btn_class'    => 'btn-danger',

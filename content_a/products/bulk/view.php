@@ -8,7 +8,7 @@ class view extends \content_a\products\home\view
 	{
 		parent::config();
 
-		\dash\face::title(T_('Buil editor'));
+		\dash\face::title(T_('Bulk editor'));
 
 	}
 }
