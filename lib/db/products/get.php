@@ -633,7 +633,7 @@ class get
 		";
 		$param = [':ids' => $_ids];
 
-		$result = \dash\db::get_bind($query, $param);
+		$result = \dash\pdo::get($query, $param);
 
 		return $result;
 	}

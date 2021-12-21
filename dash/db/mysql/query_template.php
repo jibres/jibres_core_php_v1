@@ -51,7 +51,7 @@ class query_template
 
 		$query .= implode(',', $query_set);
 
-		$result = \dash\db::query_bind($query, $param, $_fuel, $_option);
+		$result = \dash\pdo::query($query, $param, $_fuel, $_option);
 
 		return \dash\db::insert_id();
 	}
@@ -76,7 +76,7 @@ class query_template
 
 		$query = "INSERT $IGNORE INTO `$_table` $args[query] ";
 
-		$result = \dash\db::query_bind($query, $args['param'], $_fuel, $_option);
+		$result = \dash\pdo::query($query, $args['param'], $_fuel, $_option);
 
 		return \dash\db::insert_id();
 	}
@@ -115,7 +115,7 @@ class query_template
 
 		$param[':_id'] = $_id;
 
-		$result = \dash\db::query_bind($query, $param, $_fuel, $_option);
+		$result = \dash\pdo::query($query, $param, $_fuel, $_option);
 
 		return $result;
 	}
@@ -128,7 +128,7 @@ class query_template
 
 		$param = [':_id' => $_id];
 
-		$result = \dash\db::get_bind($query, $param, null, true, $_fuel, $_option);
+		$result = \dash\pdo::get($query, $param, null, true, $_fuel, $_option);
 
 		return $result;
 	}
@@ -140,7 +140,7 @@ class query_template
 
 		$param = [':_id' => $_id];
 
-		$result = \dash\db::get_bind($query, $param, null, true, $_fuel, $_option);
+		$result = \dash\pdo::get($query, $param, null, true, $_fuel, $_option);
 
 		return $result;
 	}

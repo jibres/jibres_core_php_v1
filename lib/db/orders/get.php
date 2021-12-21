@@ -25,7 +25,7 @@ class get
 	{
 		$query  = "SELECT MIN(transactions.id) AS `id` FROM transactions WHERE transactions.factor_id = :factorid ";
 		$param  = [':factorid' => $_factor_id];
-		$result = \dash\db::get_bind($query, $param, 'id', true);
+		$result = \dash\pdo::get($query, $param, 'id', true);
 
 		if(!$result || !is_numeric($result))
 		{

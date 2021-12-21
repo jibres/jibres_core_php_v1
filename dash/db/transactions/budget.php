@@ -136,7 +136,7 @@ trait budget
 		";
 
 
-		$budget = \dash\db::get_bind($query, $param, 'budget', true);
+		$budget = \dash\pdo::get($query, $param, 'budget', true);
 
 		$budget = floatval($budget);
 

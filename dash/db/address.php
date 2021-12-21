@@ -45,7 +45,7 @@ class address
 			':user_id' => $_user_id,
 		];
 
-		$result = \dash\db::get_bind($query, $param, 'count', true);
+		$result = \dash\pdo::get($query, $param, 'count', true);
 
 		return $result;
 	}
@@ -60,7 +60,7 @@ class address
 			':id'      => $_id,
 		];
 
-		$result = \dash\db::get_bind($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param, null, true);
 
 		return $result;
 	}
@@ -73,7 +73,7 @@ class address
 		[
 			':user_id' => $_user_id,
 		];
-		$result = \dash\db::get_bind($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 
@@ -87,7 +87,7 @@ class address
 			':id'      => $_id,
 		];
 
-		$result = \dash\db::get_bind($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 
@@ -99,7 +99,7 @@ class address
 		[
 			':user_id' => $_user_id,
 		];
-		$result = \dash\db::get_bind($query, $param);
+		$result = \dash\pdo::get($query, $param);
 		return $result;
 	}
 
@@ -111,7 +111,7 @@ class address
 		[
 			':user_id' => $_user_id,
 		];
-		$result = \dash\db::get_bind($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 
@@ -125,7 +125,7 @@ class address
 			':id'      => $_id,
 		];
 
-		$result = \dash\db::get_bind($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 }

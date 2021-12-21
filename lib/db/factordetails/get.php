@@ -218,7 +218,7 @@ class get
 		";
 
 		$param  = [':product_id' => $_product_id];
-		$result = \dash\db::get_bind($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param, null, true);
 
 		return $result;
 	}
