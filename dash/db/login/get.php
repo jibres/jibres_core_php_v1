@@ -66,7 +66,7 @@ class get
 			ORDER BY login.id DESC
 			LIMIT 100
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -122,7 +122,7 @@ class get
 			ORDER BY COUNT(*) DESC
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 	}

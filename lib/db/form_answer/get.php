@@ -46,7 +46,7 @@ class get
 	public static function need_review_form()
 	{
 		$query = "SELECT COUNT(*) AS `count`, form_answer.form_id FROM form_answer WHERE form_answer.review IS NULL GROUP BY form_answer.form_id";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 	}
@@ -67,7 +67,7 @@ class get
 		$result['answer']        = \dash\db::get($query, null, true);
 
 		$query                   = "SELECT * FROM form_answerdetail WHERE form_answerdetail.answer_id = $_answer_id ";
-		$result['answer_detail'] = \dash\db::get($query);
+		$result['answer_detail'] = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -92,7 +92,7 @@ class get
 	public static function by_form_id($_form_id)
 	{
 		$query = "SELECT * FROM form_answer WHERE form_answer.form_id = $_form_id ORDER BY IFNULL(form_answer.sort, form_answer.id) ASC ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -100,7 +100,7 @@ class get
 	public static function item_id_form_id($_ids, $_form_id)
 	{
 		$query = "SELECT * FROM form_answer WHERE form_answer.form_id = $_form_id AND form_answer.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 	}
@@ -132,7 +132,7 @@ class get
 			LIMIT $_start_limit, $_end_limit
 		";
 
-		$result['answer'] = \dash\db::get($query);
+		$result['answer'] = \dash\pdo::get($query);
 
 		if(is_array($result['answer']))
 		{
@@ -153,7 +153,7 @@ class get
 						form_answerdetail.answer_id IN ($answer_id)
 				";
 
-				$result['answerdetail'] = \dash\db::get($query);
+				$result['answerdetail'] = \dash\pdo::get($query);
 			}
 		}
 
@@ -169,7 +169,7 @@ class get
 			ORDER BY IFNULL(form_item.sort, form_item.id) ASC
 		";
 
-		$result['items'] = \dash\db::get($query);
+		$result['items'] = \dash\pdo::get($query);
 
 
 		$query =
@@ -182,7 +182,7 @@ class get
 				form_choice.form_id = $_form_id
 		";
 
-		$result['choice'] = \dash\db::get($query);
+		$result['choice'] = \dash\pdo::get($query);
 
 		return $result;
 

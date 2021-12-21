@@ -185,7 +185,7 @@ class get
 			GROUP BY `month`
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -207,7 +207,7 @@ class get
 			GROUP BY `month`
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -230,7 +230,7 @@ class get
 	public static function list_reset_number($_year_id)
 	{
 		$query = "SELECT tax_document.id, tax_document.number FROM tax_document WHERE tax_document.year_id = $_year_id ORDER BY tax_document.date ASC, tax_document.subnumber ASC, tax_document.id ASC ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -324,7 +324,7 @@ class get
 			GROUP BY tax_docdetail.details_id
 		";
 
-		$result['normal'] = \dash\db::get($query);
+		$result['normal'] = \dash\pdo::get($query);
 
 		$query =
 		"
@@ -363,7 +363,7 @@ class get
 			GROUP BY tax_docdetail.details_id
 		";
 
-		$result['opening'] = \dash\db::get($query);
+		$result['opening'] = \dash\pdo::get($query);
 
 
 		$query =
@@ -376,7 +376,7 @@ class get
 			ORDER BY tax_coding.parent1 ASC, tax_coding.parent2 ASC, tax_coding.parent3 ASC
 		";
 
-		$result['coding'] = \dash\db::get($query);
+		$result['coding'] = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -441,7 +441,7 @@ class get
 			GROUP BY tax_docdetail.assistant_id
 		";
 
-		$result['normal'] = \dash\db::get($query);
+		$result['normal'] = \dash\pdo::get($query);
 
 		$query =
 		"
@@ -477,7 +477,7 @@ class get
 				$enddate
 			GROUP BY tax_docdetail.assistant_id
 		";
-		$result['opening'] = \dash\db::get($query);
+		$result['opening'] = \dash\pdo::get($query);
 
 
 		$query =
@@ -490,7 +490,7 @@ class get
 			ORDER BY tax_coding.parent1 ASC, tax_coding.parent2 ASC, tax_coding.parent3 ASC
 		";
 
-		$result['coding'] = \dash\db::get($query);
+		$result['coding'] = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -553,7 +553,7 @@ class get
 			GROUP BY tax_coding.parent2
 		";
 
-		$result['normal'] = \dash\db::get($query);
+		$result['normal'] = \dash\pdo::get($query);
 
 
 		$query =
@@ -587,7 +587,7 @@ class get
 				$enddate
 			GROUP BY tax_coding.parent2
 		";
-		$result['opening'] = \dash\db::get($query);
+		$result['opening'] = \dash\pdo::get($query);
 
 
 		$query =
@@ -600,7 +600,7 @@ class get
 			ORDER BY tax_coding.parent1 ASC, tax_coding.parent2 ASC, tax_coding.parent3 ASC
 		";
 
-		$result['coding'] = \dash\db::get($query);
+		$result['coding'] = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -662,7 +662,7 @@ class get
 			GROUP BY tax_coding.parent2
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 
@@ -681,7 +681,7 @@ class get
 			ORDER BY tax_coding.parent1 ASC, tax_coding.parent2 ASC, tax_coding.parent3 ASC
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -736,7 +736,7 @@ class get
 			ORDER BY group.parent1 ASC
 		";
 
-		$result['normal'] = \dash\db::get($query);
+		$result['normal'] = \dash\pdo::get($query);
 
 		$query =
 		"
@@ -763,12 +763,12 @@ class get
 			ORDER BY group.parent1 ASC
 		";
 
-		$result['opening'] = \dash\db::get($query);
+		$result['opening'] = \dash\pdo::get($query);
 
 
 		$query = " SELECT tax_coding.* FROM tax_coding WHERE tax_coding.type = 'group' ";
 
-		$result['coding'] = \dash\db::get($query);
+		$result['coding'] = \dash\pdo::get($query);
 
 
 		return $result;
@@ -826,7 +826,7 @@ class get
 			ORDER BY group.parent1 ASC
 		";
 
-		$result['normal'] = \dash\db::get($query);
+		$result['normal'] = \dash\pdo::get($query);
 
 		$query =
 		"
@@ -855,11 +855,11 @@ class get
 			ORDER BY group.parent1 ASC
 		";
 
-		$result['opening'] = \dash\db::get($query);
+		$result['opening'] = \dash\pdo::get($query);
 
 		$query = " SELECT tax_coding.* FROM tax_coding WHERE tax_coding.type = 'group' ";
 
-		$result['coding'] = \dash\db::get($query);
+		$result['coding'] = \dash\pdo::get($query);
 
 		return $result;
 

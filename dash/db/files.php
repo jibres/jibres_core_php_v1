@@ -14,7 +14,7 @@ class files
 	public static function get_usages($_id)
 	{
 		$query = "SELECT fileusage.* FROM fileusage WHERE fileusage.file_id = $_id";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -50,7 +50,7 @@ class files
 		if($count && is_numeric($count))
 		{
 			$query = "UPDATE fileusage SET fileusage.related_id = $_relate_id WHERE fileusage.user_id = $_user_id AND  fileusage.related = '$_relate' AND fileusage.related_id IS NULL LIMIT $count";
-			$result = \dash\db::get($query);
+			$result = \dash\pdo::get($query);
 			return $result;
 		}
 		return false;
@@ -59,10 +59,10 @@ class files
 	public static function remove($_id)
 	{
 		$query  = "DELETE FROM fileusage WHERE fileusage.file_id = $_id ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		$query  = "DELETE FROM files WHERE files.id = $_id LIMIT 1";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -91,7 +91,7 @@ class files
 	public static function get_by_ids($_ids)
 	{
 		$query = "SELECT * FROM files WHERE files.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -121,7 +121,7 @@ class files
 		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
 
 		$query = " SELECT files.* FROM 	files $q[join] $q[where] $q[order] $limit ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -153,7 +153,7 @@ class files
 				GROUP BY files.type
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

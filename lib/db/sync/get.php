@@ -22,7 +22,7 @@ class get
 	public static function by_cat($_cat)
 	{
 		$query = "SELECT * FROM sync WHERE sync.cat = '$_cat'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

@@ -8,7 +8,7 @@ class get
 	public static function payment()
 	{
 		$query = "SELECT * FROM setting WHERE setting.cat = 'store_setting' AND setting.key LIKE 'payment_%' ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -16,7 +16,7 @@ class get
 	public static function splash()
 	{
 		$query = "SELECT * FROM setting WHERE setting.cat = 'splash' ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -38,7 +38,7 @@ class get
 	public static function by_cat_key_all($_cat, $_key)
 	{
 		$query = "SELECT * FROM setting WHERE setting.cat = '$_cat' AND setting.key = '$_key'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -46,7 +46,7 @@ class get
 	public static function by_cat($_cat)
 	{
 		$query = "SELECT * FROM setting WHERE setting.cat = '$_cat'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -62,7 +62,7 @@ class get
 	public static function platform_cat($_platform, $_cat)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -70,7 +70,7 @@ class get
 	public static function lang_platform_cat($_lang, $_platform, $_cat)
 	{
 		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -78,7 +78,7 @@ class get
 	public static function platform($_platform)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform'  ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -86,7 +86,7 @@ class get
 	public static function lang_platform($_lang, $_platform)
 	{
 		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform'  ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -144,7 +144,7 @@ class get
 			$sort
 
 			";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -169,7 +169,7 @@ class get
 			$sort
 
 			";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -179,14 +179,14 @@ class get
 	public static function platform_cat_key_like($_platform, $_cat, $_key)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key LIKE '$_key' ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
 	public static function lang_platform_cat_key_like($_lang, $_platform, $_cat, $_key)
 	{
 		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key LIKE '$_key' ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -211,7 +211,7 @@ class get
 	{
 		$_keys = implode("','", $_keys);
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key IN ('$_keys')";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -220,7 +220,7 @@ class get
 	{
 		$_keys = implode("','", $_keys);
 		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key IN ('$_keys')";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -228,7 +228,7 @@ class get
 	public static function application_dowload_page()
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = 'android' AND setting.cat = 'setting' AND setting.key IN ('googleplay','cafebazar','myket','downloadtitle','downloaddesc') ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -236,7 +236,7 @@ class get
 	public static function search_value_by_platform($_value, $_platform)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.value = '$_value' ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -244,7 +244,7 @@ class get
 	public static function lang_search_value_by_platform($_lang, $_value, $_platform)
 	{
 		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.value = '$_value' ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

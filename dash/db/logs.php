@@ -9,7 +9,7 @@ class logs
 	public static function notif_not_send()
 	{
 		$query = "SELECT * FROM logs WHERE logs.notif = 1 AND logs.send IS NULL ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

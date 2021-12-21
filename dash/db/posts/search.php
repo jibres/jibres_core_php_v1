@@ -26,7 +26,7 @@ class search
 
 
 		$query = "SELECT $q[fields] FROM posts $q[join] $q[where] $q[order] $limit ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -35,7 +35,7 @@ class search
 	public static function random_help_center($_lang)
 	{
 		$query  = "SELECT * FROM posts WHERE posts.type = 'help' AND posts.status = 'publish' AND posts.language = '$_lang' ORDER BY RAND() LIMIT 5 ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

@@ -9,7 +9,7 @@ class get
 	{
 		$where = \dash\db\config::make_where($_where);
 		$query  = "SELECT * FROM productcategory WHERE $where  ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -17,7 +17,7 @@ class get
 	public static function parent_title_url($_ids)
 	{
 		$query = "SELECT productcategory.id AS `id`, productcategory.title, productcategory.slug FROM productcategory WHERE productcategory.id IN ($_ids) ORDER BY productcategory.sort ASC";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -51,7 +51,7 @@ class get
 				productcategory.id >= $_from AND
 				productcategory.id < $_to
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -86,7 +86,7 @@ class get
 				productcategory.parent3 IS NULL AND
 				productcategory.parent4 IS NULL
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -116,7 +116,7 @@ class get
 			WHERE
 				productcategory.title IN ('$_titles')
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -170,7 +170,7 @@ class get
 				productcategory.parent3 IS NULL
 				$where
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -187,7 +187,7 @@ class get
 	public static function by_muliti_id($_ids)
 	{
 		$query  = "SELECT id, title FROM productcategory WHERE productcategory.id IN ($_ids)";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -225,7 +225,7 @@ class get
 				count DESC
 
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		// j($result);
 
@@ -265,7 +265,7 @@ class get
 				count DESC
 
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -303,7 +303,7 @@ class get
 			ORDER BY productcategory.sort ASC
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

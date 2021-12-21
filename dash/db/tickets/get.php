@@ -182,7 +182,7 @@ class get
 			LIMIT 500
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

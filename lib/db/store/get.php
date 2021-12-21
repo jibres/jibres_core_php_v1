@@ -170,7 +170,7 @@ class get
 			FROM
 				store
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

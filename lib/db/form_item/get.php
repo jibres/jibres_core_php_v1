@@ -17,7 +17,7 @@ class get
 	public static function by_form_id($_form_id)
 	{
 		$query = "SELECT * FROM form_item WHERE form_item.form_id = $_form_id AND (form_item.status IS NULL OR form_item.status != 'deleted') ORDER BY IFNULL(form_item.sort, form_item.id) ASC ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -25,7 +25,7 @@ class get
 	public static function item_id_form_id($_ids, $_form_id)
 	{
 		$query = "SELECT * FROM form_item WHERE form_item.form_id = $_form_id AND form_item.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 	}

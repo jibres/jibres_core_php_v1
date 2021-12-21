@@ -23,7 +23,7 @@ class search
 			LEFT JOIN users ON users.id = transactions.user_id
 			$q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

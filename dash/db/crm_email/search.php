@@ -19,7 +19,7 @@ class search
 
 		$query = " SELECT crm_email.* FROM crm_email $q[join] $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 
 		return $result;

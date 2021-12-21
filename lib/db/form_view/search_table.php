@@ -84,7 +84,7 @@ class search_table
 			$limit
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 
 		return $result;

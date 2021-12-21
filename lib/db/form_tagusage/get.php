@@ -27,7 +27,7 @@ class get
 				form_tag.privacy = 'public' AND
 				form_tagusage.answer_id = $_answer_id
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -55,7 +55,7 @@ class get
 			WHERE
 				form_tagusage.answer_id = $_answer_id
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

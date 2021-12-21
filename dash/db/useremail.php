@@ -8,7 +8,7 @@ class useremail
 	{
 		$query = "SELECT * FROM useremail WHERE useremail.user_id = $_user_id  AND useremail.status = 'enable' ORDER BY  FIELD(useremail.primary, 1), FIELD(useremail.verify, 1) ";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

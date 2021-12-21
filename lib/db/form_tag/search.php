@@ -30,7 +30,7 @@ class search
 
 			FROM form_tag $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

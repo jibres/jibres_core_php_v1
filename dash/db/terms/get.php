@@ -25,7 +25,7 @@ class get
 				$lang
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -57,7 +57,7 @@ class get
 				terms.type = '$_type' AND
 				terms.title IN ('$_titles')
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -91,7 +91,7 @@ class get
 	{
 		$query = "SELECT terms.id, terms.title FROM terms ";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -115,7 +115,7 @@ class get
 			LIMIT 100
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

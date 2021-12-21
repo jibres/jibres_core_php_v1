@@ -50,7 +50,7 @@ class get
 				$lang
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -72,7 +72,7 @@ class get
 	public static function list_all_of_pages($_current_id)
 	{
 		$query  = "SELECT posts.id, posts.title, posts.parent FROM posts WHERE posts.specialaddress = 'special' AND posts.status = 'publish' AND posts.id != $_current_id ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -86,7 +86,7 @@ class get
 	public static function by_ids($_ids)
 	{
 		$query  = "SELECT * FROM posts WHERE posts.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

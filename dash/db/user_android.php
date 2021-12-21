@@ -8,7 +8,7 @@ class user_android
 	public static function get_dataTable($_ids)
 	{
 		$query  = "SELECT user_android.user_id, MAX(user_android.uniquecode) AS `uniquecode` FROM user_android WHERE user_android.user_id IN ($_ids)  GROUP BY user_android.user_id";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

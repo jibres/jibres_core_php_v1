@@ -8,7 +8,7 @@ class get
 	public static function all()
 	{
 		$query = "SELECT * FROM pos";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -23,7 +23,7 @@ class get
 	public static function multi_id($_ids)
 	{
 		$query = "SELECT * FROM pos WHERE id IN ($_ids)";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

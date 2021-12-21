@@ -38,7 +38,7 @@ class get
 			GROUP BY `month`
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -61,7 +61,7 @@ class get
 			GROUP BY `month`
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -144,7 +144,7 @@ class get
 				transactions.verify
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 	}
@@ -166,7 +166,7 @@ class get
 				DATE(transactions.date), transactions.verify
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

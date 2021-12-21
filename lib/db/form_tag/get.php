@@ -8,7 +8,7 @@ class get
 	{
 
 		$query  = "SELECT form_tag.id, form_tag.title FROM form_tag WHERE form_tag.form_id = $_id ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -29,7 +29,7 @@ class get
 				form_tag.form_id = $_form_id AND
 				form_tag.title IN ('$_titles')
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

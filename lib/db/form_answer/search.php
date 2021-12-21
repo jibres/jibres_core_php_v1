@@ -30,7 +30,7 @@ class search
 			$limit
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 
 		return $result;

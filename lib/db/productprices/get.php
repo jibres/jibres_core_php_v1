@@ -27,7 +27,7 @@ class get
 	public static function for_chart($_product_id)
 	{
 		$query  = "SELECT * FROM productprices WHERE `product_id` = $_product_id ORDER BY `datecreated` ASC";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -43,7 +43,7 @@ class get
 			ORDER BY productprices.id DESC
 			LIMIT 50
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

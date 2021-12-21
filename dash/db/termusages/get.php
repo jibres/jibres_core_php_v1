@@ -35,7 +35,7 @@ class get
 				termusages.post_id = $_post_id AND
 				termusages.type = '$_type'
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

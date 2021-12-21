@@ -22,7 +22,7 @@ class get
 	public static function by_factor_id($_factor_id)
 	{
 		$query = "SELECT * FROM productinventory WHERE productinventory.factor_id = $_factor_id ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -30,7 +30,7 @@ class get
 	public static function multi_product_stock($_ids)
 	{
 		$query = "SELECT productinventory.product_id, SUM(productinventory.count) AS `stock` FROM productinventory WHERE productinventory.product_id IN ($_ids) GROUP BY productinventory.product_id ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

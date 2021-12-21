@@ -44,7 +44,7 @@ class report
 			GROUP BY $group_by
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

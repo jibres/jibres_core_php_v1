@@ -32,7 +32,7 @@ class get
 				tax_docdetail.tax_document_id = $_id
 			ORDER BY tax_docdetail.sort ASC
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -68,7 +68,7 @@ class get
 				tax_docdetail.template IN ('thirdparty') AND
 				tax_docdetail.tax_document_id IN ($_ids)
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

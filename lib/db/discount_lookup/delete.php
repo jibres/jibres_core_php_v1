@@ -8,7 +8,7 @@ class delete
 	public static function by_discount_id($_id)
 	{
 		$query  = "DELETE FROM discount_lookup WHERE discount_lookup.discount_id = $_id ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

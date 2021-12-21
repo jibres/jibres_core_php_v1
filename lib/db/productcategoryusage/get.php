@@ -42,7 +42,7 @@ class get
 				productcategoryusage.product_id = $_product_id
 			ORDER BY productcategoryusage.id ASC
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

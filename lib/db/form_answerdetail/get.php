@@ -17,7 +17,7 @@ class get
 	public static function by_form_id($_form_id)
 	{
 		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.form_id = $_form_id ORDER BY IFNULL(form_answerdetail.sort, form_answerdetail.id) ASC ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -25,7 +25,7 @@ class get
 	public static function item_id_form_id($_ids, $_form_id)
 	{
 		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.form_id = $_form_id AND form_answerdetail.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 	}
@@ -102,7 +102,7 @@ class get
 			ORDER BY SUBSTRING(form_answerdetail.answer, 1, 4) DESC
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 	}
@@ -123,7 +123,7 @@ class get
 			ORDER BY COUNT(*) DESC
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -204,7 +204,7 @@ class get
 			";
 		}
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

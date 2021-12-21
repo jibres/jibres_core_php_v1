@@ -24,7 +24,7 @@ class get
 				user_telegram
 			INNER JOIN users ON users.id = user_telegram.user_id
 			WHERE user_telegram.chatid IN ($chatids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

@@ -29,7 +29,7 @@ class get
 			ORDER BY
 				count DESC
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

@@ -63,7 +63,7 @@ class get
 	public static function by_for_id($_for, $_for_id)
 	{
 		$query = "SELECT * FROM menu WHERE menu.for = '$_for' AND menu.for_id = $_for_id AND menu.parent1 IS NOT NULL ORDER BY menu.sort ASC LIMIT 1000";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -121,7 +121,7 @@ class get
 
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -163,7 +163,7 @@ class get
 			ORDER BY
 				menu.sort ASC
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -171,7 +171,7 @@ class get
 	public static function list_all_menu()
 	{
 		$query = "SELECT menu.*, (SELECT COUNT(*) FROM menu AS `cmenu` WHERE cmenu.parent1 = menu.id ) as `count_link` FROM menu WHERE menu.parent1 IS NULL AND menu.for = 'menu' LIMIT 1000";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

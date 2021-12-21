@@ -19,7 +19,7 @@ class get
 				comments.pagebuilder_id = $_pagebuilder_id
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -151,7 +151,7 @@ class get
 	public static function answer_list($_parent)
 	{
 		$query  = "SELECT comments.*, users.displayname AS `user_displayname`, users.mobile AS `user_mobile`, users.avatar AS `avatar` FROM comments  LEFT JOIN users ON users.id = comments.user_id WHERE comments.parent = $_parent ORDER BY comments.id DESC LIMIT 100";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

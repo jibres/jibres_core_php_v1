@@ -16,7 +16,7 @@ class get
 	public static function all()
 	{
 		$query = "SELECT * FROM inventory";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

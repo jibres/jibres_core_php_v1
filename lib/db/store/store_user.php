@@ -26,7 +26,7 @@ class store_user
 			LEFT JOIN store_analytics ON store_analytics.id = store_user.store_id
 			WHERE store_user.user_id = $_user_id AND store.status = 'enable'
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

@@ -7,7 +7,7 @@ class get
 	public static function by_discount_id($_id)
 	{
 		$query = "SELECT * FROM discount_dedicated WHERE discount_dedicated.discount_id = $_id ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

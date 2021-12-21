@@ -41,7 +41,7 @@ class get
 	public static function group_by_status()
 	{
 		$query  = "SELECT COUNT(*) AS `count`, store_app.status FROM store_app GROUP BY store_app.status ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

@@ -7,7 +7,7 @@ class info
 	public static function timeout_setting()
 	{
 		$query = " SHOW GLOBAL VARIABLES LIKE '%wait%'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -15,14 +15,14 @@ class info
 	public static function show_glogal(string $_keyword)
 	{
 		$query = " SHOW GLOBAL VARIABLES LIKE '%$_keyword%'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
 	public static function show_status(string $_keyword)
 	{
 		$query = " SHOW STATUS LIKE '%$_keyword%'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

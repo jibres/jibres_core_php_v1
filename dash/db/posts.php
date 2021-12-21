@@ -26,7 +26,7 @@ class posts
 		}
 
 		$query = "SELECT posts.title, posts.content FROM posts $where";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -150,7 +150,7 @@ class posts
 			GROUP BY posts.type
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -250,7 +250,7 @@ class posts
 			ORDER BY posts.publishdate DESC
 			$limit
 		";
-		return \dash\db::get($query);
+		return \dash\pdo::get($query);
 	}
 
 
@@ -312,7 +312,7 @@ class posts
 			ORDER BY posts.publishdate DESC
 			$limit
 		";
-		return \dash\db::get($query);
+		return \dash\pdo::get($query);
 	}
 
 
@@ -424,7 +424,7 @@ class posts
 			LIMIT $_options[limit]
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -481,7 +481,7 @@ class posts
 			LIMIT 5
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 	}
@@ -696,7 +696,7 @@ class posts
 			$limit
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

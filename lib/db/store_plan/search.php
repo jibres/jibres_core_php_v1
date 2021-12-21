@@ -72,7 +72,7 @@ class search
 
 		$query = "SELECT store_plan.*,store_data.title,store_data.logo FROM store_plan LEFT JOIN store_data ON store_data.id = store_plan.store_id $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

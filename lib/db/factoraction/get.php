@@ -53,7 +53,7 @@ class get
 			WHERE factoraction.factor_id = $_id AND factoraction.action != 'comment'
 			ORDER BY factoraction.id DESC
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -73,7 +73,7 @@ class get
 			WHERE factoraction.factor_id = $_id
 			ORDER BY factoraction.id DESC
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

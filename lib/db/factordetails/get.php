@@ -14,7 +14,7 @@ class get
 	public static function by_multi_factor_id($_ids)
 	{
 		$query = "SELECT * FROM factordetails WHERE factordetails.factor_id IN ($_ids)";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -38,7 +38,7 @@ class get
 	public static function by_factor_id($_id)
 	{
 		$query = "SELECT * FROM factordetails WHERE factordetails.factor_id = $_id";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -68,7 +68,7 @@ class get
 			WHERE
 				factordetails.factor_id = $_factor_id
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -101,7 +101,7 @@ class get
 			WHERE
 				factordetails.factor_id = $_id
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -149,7 +149,7 @@ class get
 			GROUP BY factordetails.product_id
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

@@ -23,7 +23,7 @@ class report
 			GROUP BY
 				DATE(tickets.datecreated)
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 
@@ -50,7 +50,7 @@ class report
 				DATE(tickets.datecreated)
 			ORDER BY DATE(tickets.datecreated) ASC
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -74,7 +74,7 @@ class report
 				DATE(tickets.datecreated)
 			ORDER BY DATE(tickets.datecreated) ASC
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -99,7 +99,7 @@ class report
 				DATE(tickets.datecreated)
 			ORDER BY DATE(tickets.datecreated) ASC
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

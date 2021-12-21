@@ -8,7 +8,7 @@ class user_telegram
 	public static function get_dataTable($_ids)
 	{
 		$query  = "SELECT user_telegram.user_id, MAX(user_telegram.chatid) AS `chatid` FROM user_telegram WHERE user_telegram.user_id IN ($_ids)  GROUP BY user_telegram.user_id";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

@@ -17,7 +17,7 @@ class get
 			ORDER BY DATE(app_download.datedownload) ASC
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

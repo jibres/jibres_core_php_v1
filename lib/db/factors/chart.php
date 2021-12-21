@@ -23,7 +23,7 @@ class chart
 			ORDER BY `key` ASC
 
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

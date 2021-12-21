@@ -24,7 +24,7 @@ class get
 	public static function by_multi_id($_ids)
 	{
 		$query  = "SELECT *  FROM users WHERE users.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -32,7 +32,7 @@ class get
 	public static function by_multi_id_for_view($_ids)
 	{
 		$query  = "SELECT users.id, users.mobile, users.avatar, users.displayname, users.gender  FROM users WHERE users.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -57,7 +57,7 @@ class get
 	public static function all_record_for_export()
 	{
 		$query  = "SELECT * FROM users ORDER BY users.id ASC ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -65,7 +65,7 @@ class get
 	public static function export_list($_start_limit, $_end_limit)
 	{
 		$query  = "SELECT * FROM users ORDER BY users.id ASC LIMIT $_start_limit, $_end_limit";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

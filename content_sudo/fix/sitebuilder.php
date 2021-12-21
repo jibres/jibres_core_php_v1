@@ -104,7 +104,7 @@ class sitebuilder
 		self::counter('i');
 
 		// $query = "	SELECT * FROM posts where posts.type='pagebuilder' ";
-		// $all_page_builder = \dash\db::get($query);
+		// $all_page_builder = \dash\pdo::get($query);
 
 		// $visitcard_pages = [];
 		// $comingsoon_pages = [];
@@ -196,7 +196,7 @@ class sitebuilder
 		$query = "	SELECT * FROM pagebuilder where pagebuilder.folder IS NULL ";
 		$query = "	SELECT * FROM pagebuilder where 1";
 
-		$old_record_pagebuilder = \dash\db::get($query);
+		$old_record_pagebuilder = \dash\pdo::get($query);
 
 		if(!$old_record_pagebuilder)
 		{

@@ -86,7 +86,7 @@ class search
 			$q[where] $q[order] $limit
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 
@@ -117,7 +117,7 @@ class search
 			LEFT JOIN users ON users.id = factors.customer
 			$q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -138,7 +138,7 @@ class search
 				factors.datecreated <= '$_expire_date'
 			";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

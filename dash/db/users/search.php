@@ -13,7 +13,7 @@ class search
 
 		$query = " SELECT $q[fields] FROM users $q[join] $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

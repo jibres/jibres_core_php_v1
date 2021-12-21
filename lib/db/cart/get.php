@@ -120,14 +120,14 @@ class get
 	public static function user_cart($_user_id)
 	{
 		$query  = "SELECT cart.product_id, cart.count, cart.datecreated, products.type FROM cart LEFT JOIN products ON products.id = cart.product_id WHERE cart.user_id = $_user_id";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
 	public static function user_cart_guest($_guestid)
 	{
 		$query  = "SELECT cart.product_id, cart.count, cart.datecreated, products.type FROM cart LEFT JOIN products ON products.id = cart.product_id WHERE cart.guestid = '$_guestid' ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

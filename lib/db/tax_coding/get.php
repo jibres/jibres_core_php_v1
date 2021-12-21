@@ -16,7 +16,7 @@ class get
 	public static function all_to_assistant()
 	{
 		$query = "SELECT tax_coding.* FROM tax_coding WHERE tax_coding.type IN ('group', 'total', 'assistant') ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -76,7 +76,7 @@ class get
 	public static function list_tree()
 	{
 		$query = "SELECT * FROM tax_coding WHERE 1";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -118,7 +118,7 @@ class get
 	public static function by_multi_id($_ids)
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.id IN ($_ids)";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -128,7 +128,7 @@ class get
 	public static function parent_list_details()
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'assistant'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -136,7 +136,7 @@ class get
 	public static function parent_list_total()
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'group'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -144,7 +144,7 @@ class get
 	public static function parent_list_assistant()
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'total'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -153,7 +153,7 @@ class get
 	public static function list_group()
 	{
 		$query = "SELECT * FROM tax_coding WHERE tax_coding.type = 'group'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -168,7 +168,7 @@ class get
 				tax_coding
 			WHERE tax_coding.type = 'total'
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -189,7 +189,7 @@ class get
 				tax_coding
 			WHERE tax_coding.type = 'total' $group
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -208,7 +208,7 @@ class get
 				tax_coding
 			WHERE tax_coding.type = 'assistant'
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -235,7 +235,7 @@ class get
 				tax_coding
 			WHERE tax_coding.type = 'assistant' $group $total
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -263,7 +263,7 @@ class get
 			WHERE tax_coding.type = 'details' ORDER BY tax_coding.code ASC
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

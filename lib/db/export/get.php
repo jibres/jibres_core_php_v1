@@ -16,7 +16,7 @@ class get
 	public static function last_day_complete($_date)
 	{
 		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND  DATE(importexport.datecreated) <= DATE('$_date')";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -52,7 +52,7 @@ class get
 	public static function by_type_related_id($_type, $_related_id)
 	{
 		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND importexport.type = '$_type' AND importexport.status NOT IN ('cancel', 'deleted', 'expire') AND importexport.related_id = $_related_id ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -60,7 +60,7 @@ class get
 	public static function by_type($_type)
 	{
 		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND importexport.type = '$_type' AND importexport.status NOT IN ('cancel', 'deleted', 'expire')";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

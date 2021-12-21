@@ -38,7 +38,7 @@ class business_duplicate_setting_record
 			HAVING
 				mycount > 1
 		";
-		$duplicate = \dash\db::get($query);
+		$duplicate = \dash\pdo::get($query);
 		if($duplicate)
 		{
 			$save = [\content_sudo\check\part\business::who(),$duplicate];

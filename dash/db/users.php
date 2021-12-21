@@ -13,7 +13,7 @@ class users
 	public static function get_by_ids($_ids)
 	{
 		$query = "SELECT * FROM users WHERE users.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -21,7 +21,7 @@ class users
 	public static function get_by_ids_summary($_ids)
 	{
 		$query = "SELECT users.id, users.displayname, users.avatar, users.gender FROM users WHERE users.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -334,7 +334,7 @@ class users
 				users.permission $permission_query
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

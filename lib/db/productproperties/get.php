@@ -119,7 +119,7 @@ class get
 			$parent = " OR productproperties.product_id = $_parent_id ";
 		}
 		$query  = "SELECT * FROM productproperties WHERE productproperties.product_id = $_product_id $parent ORDER BY productproperties.sort ASC ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 

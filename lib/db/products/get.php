@@ -47,7 +47,7 @@ class get
 				products.id >= $_from AND
 				products.id < $_to
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -69,7 +69,7 @@ class get
 				products.parent = $_parent_id AND
 				products.status != 'deleted'
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -184,7 +184,7 @@ class get
 				WHERE
 					products.id IN ($ids)
 			";
-			$result = \dash\db::get($query);
+			$result = \dash\pdo::get($query);
 			return $result;
 		}
 
@@ -317,7 +317,7 @@ class get
 				products.status != 'deleted'
 			ORDER BY `stock`  DESC LIMIT $_limit
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -325,7 +325,7 @@ class get
 	public static function maxsaleprice_list($_limit)
 	{
 		$query   = "SELECT products.*, (SELECT SUM(factordetails.sum) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_price` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_price`  DESC LIMIT $_limit";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -340,7 +340,7 @@ class get
 	public static function maxsale_list($_limit)
 	{
 		$query   = "SELECT products.*, (SELECT SUM(factordetails.count) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_count` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_count`  DESC LIMIT $_limit";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -416,14 +416,14 @@ class get
 	public static function export_list($_start_limit, $_end_limit)
 	{
 		$query  = "SELECT * FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC LIMIT $_start_limit, $_end_limit";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
 	public static function all_record_for_export()
 	{
 		$query  = "SELECT * FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -500,7 +500,7 @@ class get
 				products.status  != 'deleted' AND
 				(products.barcode = '$_barcode' OR products.barcode2 = '$_barcode')
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -610,7 +610,7 @@ class get
 			FROM products
 			WHERE products.id IN ($_ids)
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -642,7 +642,7 @@ class get
 	public static function some_field_by_multi_id($_ids, $_fields)
 	{
 		$query  = " SELECT $_fields FROM products WHERE products.id IN ($_ids) ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -685,7 +685,7 @@ class get
 				products.parent = $_id AND
 				products.status != 'deleted'
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -693,7 +693,7 @@ class get
 	public static function variants_load_family($_id, $_parent_id)
 	{
 		$query  = "SELECT * FROM products WHERE ((products.parent = $_parent_id) OR products.id = $_parent_id) AND products.status != 'deleted' ORDER BY products.id ASC ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -718,7 +718,7 @@ class get
 			GROUP BY products.parent
 		";
 
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -740,7 +740,7 @@ class get
 				products.status != 'deleted'
 			GROUP BY products.parent
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
@@ -755,7 +755,7 @@ class get
 	{
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order, $_meta);
 		$query  = " SELECT products.* FROM products $q[join] $q[where] ORDER BY $q[order] LIMIT $q[limit]";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}

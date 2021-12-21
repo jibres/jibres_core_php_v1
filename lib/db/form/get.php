@@ -8,7 +8,7 @@ class get
 	public static function by_multi_id($_ids)
 	{
 		$query = "SELECT * FROM form WHERE form.id IN ($_ids)";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 
 	}
@@ -28,7 +28,7 @@ class get
 				form.id >= $_from AND
 				form.id < $_to
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -43,7 +43,7 @@ class get
 	public static function show_table($_id)
 	{
 		$query = "SHOW TABLES LIKE 'form_view_table_$_id'";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 }

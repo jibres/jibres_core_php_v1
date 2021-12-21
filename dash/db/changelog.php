@@ -8,7 +8,7 @@ class changelog
 	public static function list_changelog_tags()
 	{
 		$query = "SELECT changelog.tag1, changelog.tag2, changelog.tag3, changelog.tag4, changelog.tag5 FROM changelog ";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
@@ -74,7 +74,7 @@ class changelog
 			$q[order]
 			$limit
 		";
-		$result = \dash\db::get($query);
+		$result = \dash\pdo::get($query);
 
 		return $result;
 	}
