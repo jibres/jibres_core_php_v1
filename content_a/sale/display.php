@@ -97,6 +97,8 @@ echo $html;
     </div>
 
     <div class="cbox NextBox p0 hide">
+      <?php if(\dash\data::moduleType() === 'sale') {?>
+
       <?php if(\dash\data::pcPosLink()) {?>
 
         <div class="f mB10">
@@ -104,8 +106,8 @@ echo $html;
         </div>
       <?php } //endif ?>
 
-
       <button class="btn-secondary cauto block w-full factor_save_btn mt-1" type="submit" name="save_btn" value="save_print" id='save_nextPrint' data-shortkey='120'><?php echo T_("Save & Print"); ?> <kbd class="floatRa mT5">f9</kbd></button>
+    <?php } //endif ?>
     </div>
 
       <?php if(\dash\data::moduleType() === 'sale') {?>
