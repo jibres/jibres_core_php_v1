@@ -110,6 +110,11 @@ class pdo
 				{
 					$type = \PDO::PARAM_BOOL;
 				}
+				else
+				{
+					\dash\db\mysql\tools\log::log(func_get_args(). ' -- Syntax error ', 0, 'error.sql');
+					return false;
+				}
 
 				$sth->bindValue($key, $value, $type);
 			}

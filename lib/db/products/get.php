@@ -624,14 +624,15 @@ class get
 	 */
 	public static function by_multi_id_array(array $_ids)
 	{
+		$ids = implode(',', $_ids);
 		$query  =
 		"
 			SELECT
 				products.*
 			FROM products
-			WHERE products.id IN (:ids)
+			WHERE products.id IN ($ids)
 		";
-		$param = [':ids' => $_ids];
+		$param = [];
 
 		$result = \dash\pdo::get($query, $param);
 
