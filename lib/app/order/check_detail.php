@@ -139,7 +139,8 @@ class check_detail
 				}
 			}
 
-			if(!empty($update_product))
+			// if have duble record of one product in list not update product
+			if(!empty($update_product) && !a($value, 'is_dbl'))
 			{
 				\lib\app\product\edit::edit($update_product, $value['product'], ['debug' => false]);
 			}
@@ -221,11 +222,13 @@ class check_detail
 
 			if(isset($new_list[$dbl_key]))
 			{
-				$new_list[$dbl_key]['count'] += $value['count'];
+				$new_list[$dbl_key]['count']  += $value['count'];
+				$new_list[$dbl_key]['is_dbl'] = true;
 			}
 			else
 			{
-				$new_list[$dbl_key] = $value;
+				$new_list[$dbl_key]           = $value;
+				$new_list[$dbl_key]['is_dbl'] = false;
 			}
 		}
 
