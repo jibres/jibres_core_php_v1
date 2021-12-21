@@ -13,7 +13,7 @@ class update
 		}
 
 		$query  = "UPDATE domains SET $set WHERE domains.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'nic_log');
+		$result = \dash\pdo::query($query, [], 'nic_log');
 		return $result;
 	}
 }

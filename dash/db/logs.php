@@ -175,7 +175,7 @@ class logs
 
 		if(!empty($query))
 		{
-			return \dash\db::query(implode(';', $query), true, ['multi_query' => true]);
+			return \dash\pdo::query(implode(';', $query), [], true, ['multi_query' => true]);
 		}
 	}
 
@@ -238,7 +238,7 @@ class logs
 		{
 			$query  ="INSERT INTO logs SET $set ";
 
-			$result = \dash\db::query($query, $_fuel);
+			$result = \dash\pdo::query($query, [], $_fuel);
 			$result = \dash\db::insert_id();
 			return $result;
 		}

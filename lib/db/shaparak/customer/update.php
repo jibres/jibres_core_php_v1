@@ -12,7 +12,7 @@ class update
 		}
 
 		$query  = "UPDATE customer SET $set WHERE customer.user_id = $_user_id LIMIT 1";
-		$result = \dash\db::query($query, 'shaparak');
+		$result = \dash\pdo::query($query, [], 'shaparak');
 		return $result;
 	}
 

@@ -53,7 +53,7 @@ class insert
 			LIMIT 1
 		";
 
-		if(\dash\db::query($new_form))
+		if(\dash\pdo::query($new_form, []))
 		{
 			$new_form_id = \dash\db::insert_id();
 			if($new_form_id)
@@ -92,7 +92,7 @@ class insert
 						form_item
 					WHERE form_item.form_id = $_old_id
 				";
-				\dash\db::query($new_form_item);
+				\dash\pdo::query($new_form_item, []);
 				return $new_form_id;
 			}
 		}

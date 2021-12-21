@@ -12,7 +12,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `contact` SET $set ";
-			if(\dash\db::query($query, 'nic'))
+			if(\dash\pdo::query($query, [], 'nic'))
 			{
 				return \dash\db::insert_id();
 			}

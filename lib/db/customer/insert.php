@@ -29,7 +29,7 @@ class insert
 
 			$query        = " INSERT INTO `users` SET $set ";
 
-			if(\dash\db::query($query, $_feul, ['database' => $_database]))
+			if(\dash\pdo::query($query, [], $_feul, ['database' => $_database]))
 			{
 				$id = \dash\db::insert_id();
 				return $id;

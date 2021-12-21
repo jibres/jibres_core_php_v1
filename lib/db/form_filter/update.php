@@ -39,7 +39,7 @@ class update
 		}
 
 		$query = implode(';', $query);
-		$result = \dash\db::query($query, null, ['multi_query' => true]);
+		$result = \dash\pdo::query($query, [], null, ['multi_query' => true]);
 		return $result;
 
 	}

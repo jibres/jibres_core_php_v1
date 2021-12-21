@@ -47,7 +47,7 @@ class update
 
 			if(!empty($querys))
 			{
-				\dash\db::query(implode(";", $querys), null, ['multi_query' => true]);
+				\dash\pdo::query(implode(";", $querys), [], null, ['multi_query' => true]);
 			}
 		}
 

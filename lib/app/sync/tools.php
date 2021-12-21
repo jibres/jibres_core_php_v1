@@ -33,13 +33,13 @@ class tools
 			\dash\log::set('dbCanNotAddSync');
 		}
 
-		\dash\db::query("Sync Error");
+		\dash\pdo::query("Sync Error", []);
 	}
 
 
 	public static function run_sync($_query, $_fuel)
 	{
-		$result = \dash\db::query($_query, $_fuel);
+		$result = \dash\pdo::query($_query, [], $_fuel);
 		return $result;
 	}
 

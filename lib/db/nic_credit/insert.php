@@ -12,7 +12,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `credit` SET $set ";
-			if(\dash\db::query($query, 'nic'))
+			if(\dash\pdo::query($query, [], 'nic'))
 			{
 				return \dash\db::insert_id();
 			}
@@ -33,7 +33,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `credit` $set ";
-			return \dash\db::query($query, 'nic');
+			return \dash\pdo::query($query, [], 'nic');
 		}
 	}
 }

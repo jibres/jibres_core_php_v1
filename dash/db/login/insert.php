@@ -34,7 +34,7 @@ class insert
 		{
 			$query = " INSERT INTO `login_ip` SET $set ";
 
-			if(\dash\db::query($query, $_fuel))
+			if(\dash\pdo::query($query, [], $_fuel))
 			{
 				$id = \dash\db::insert_id();
 				return $id;

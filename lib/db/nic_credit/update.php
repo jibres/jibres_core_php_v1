@@ -13,7 +13,7 @@ class update
 		}
 
 		$query  = "UPDATE credit SET $set WHERE credit.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 

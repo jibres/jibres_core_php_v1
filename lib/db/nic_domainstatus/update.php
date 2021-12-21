@@ -13,7 +13,7 @@ class update
 		}
 
 		$query  = "UPDATE domainstatus SET $set WHERE domainstatus.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 
@@ -34,7 +34,7 @@ class update
 
 		$query  = "UPDATE domainstatus SET $set WHERE $where";
 
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 
 		return $result;
 	}

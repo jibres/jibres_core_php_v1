@@ -12,7 +12,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `terminal` SET $set ";
-			if(\dash\db::query($query, 'shaparak'))
+			if(\dash\pdo::query($query, [], 'shaparak'))
 			{
 				return \dash\db::insert_id();
 			}

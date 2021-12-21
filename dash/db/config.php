@@ -490,7 +490,7 @@ class config
 		if($set)
 		{
 			$query = " INSERT INTO $_table $set ";
-			return \dash\db::query($query, $_db_name);
+			return \dash\pdo::query($query, [], $_db_name);
 		}
 	}
 
@@ -537,7 +537,7 @@ class config
 			{
 				// make update query
 				$query = "UPDATE $_table SET $set WHERE $_table.id = $_id LIMIT 1";
-				return \dash\db::query($query, $_db_name);
+				return \dash\pdo::query($query, [], $_db_name);
 			}
 		}
 	}

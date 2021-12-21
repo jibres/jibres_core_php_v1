@@ -13,7 +13,7 @@ class update
 		}
 
 		$query  = "UPDATE poll SET $set WHERE poll.id = $_poll_id LIMIT 1";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 }

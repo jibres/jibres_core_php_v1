@@ -180,7 +180,7 @@ class info
 	public static function create_database($_fuel, $_db_name)
 	{
 		$query = "CREATE DATABASE IF NOT EXISTS `$_db_name` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
-		$result = \dash\db::query($query, $_fuel, ['database' => 'mysql']);
+		$result = \dash\pdo::query($query, [], $_fuel, ['database' => 'mysql']);
 		return $result;
 	}
 
@@ -188,7 +188,7 @@ class info
 	public static function drop_database($_fuel, $_db_name)
 	{
 		$query = "DROP DATABASE `$_db_name`; ";
-		$result = \dash\db::query($query, $_fuel, ['database' => 'mysql']);
+		$result = \dash\pdo::query($query, [], $_fuel, ['database' => 'mysql']);
 		return $result;
 	}
 

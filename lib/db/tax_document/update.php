@@ -22,7 +22,7 @@ class update
 
 	public static function whole_reset_number($_year_id)
 	{
-		\dash\db::query("SET @cnt = 0;");
+		\dash\pdo::query("SET @cnt = 0;", []);
 		$query =
 		"
 			UPDATE
@@ -55,7 +55,7 @@ class update
 
 		$query = implode(";", $query);
 
-		$result = \dash\db::query($query, null, ['multi_query' => true]);
+		$result = \dash\pdo::query($query, [], null, ['multi_query' => true]);
 		return $result;
 	}
 

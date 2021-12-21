@@ -85,7 +85,7 @@ class update
 			UPDATE products SET products.optionname2 = NULL, products.optionvalue2 = NULL WHERE products.parent = $_parent  AND products.optionname2 = '$_optionname' AND products.optionvalue2 = '$_optionvalue' ;
 			UPDATE products SET products.optionname3 = NULL, products.optionvalue3 = NULL WHERE products.parent = $_parent  AND products.optionname3 = '$_optionname' AND products.optionvalue3 = '$_optionvalue' ;
 		";
-		$result = \dash\db::query($query, null, ['multi_query' => true]);
+		$result = \dash\pdo::query($query, [], null, ['multi_query' => true]);
 		return $result;
 	}
 

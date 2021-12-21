@@ -18,7 +18,7 @@ class update
 
 		$query  = "UPDATE temp_stats_monthly SET $set WHERE  temp_stats_monthly.id = $_id LIMIT 1";
 
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 
 		return $result;
 	}

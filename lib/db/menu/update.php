@@ -50,7 +50,7 @@ class update
 
 		if(!empty($query))
 		{
-			\dash\db::query(implode(' ; ', $query), null, ['multi_query' => true]);
+			\dash\pdo::query(implode(' ; ', $query), [], null, ['multi_query' => true]);
 		}
 
 	}
@@ -70,7 +70,7 @@ class update
 
 		if(!empty($query))
 		{
-			\dash\db::query(implode(' ; ', $query), null, ['multi_query' => true]);
+			\dash\pdo::query(implode(' ; ', $query), [], null, ['multi_query' => true]);
 		}
 
 	}

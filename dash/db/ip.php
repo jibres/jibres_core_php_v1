@@ -65,7 +65,7 @@ class ip
 	public static function set_block($_id, $_count_block = null)
 	{
 		$query = "UPDATE ip SET ip.block = 'block', ip.countblock = $_count_block WHERE ip.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, self::ip_fuel());
+		$result = \dash\pdo::query($query, [], self::ip_fuel());
 		return $result;
 	}
 
@@ -73,7 +73,7 @@ class ip
 	public static function set_unblock($_id, $_count_block = null)
 	{
 		$query = "UPDATE ip SET ip.block = 'unblock', ip.countblock = $_count_block WHERE ip.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, self::ip_fuel());
+		$result = \dash\pdo::query($query, [], self::ip_fuel());
 		return $result;
 	}
 
@@ -81,7 +81,7 @@ class ip
 	public static function set_unknown($_id, $_count_block = null)
 	{
 		$query = "UPDATE ip SET ip.block = 'unknown', ip.countblock = $_count_block WHERE ip.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, self::ip_fuel());
+		$result = \dash\pdo::query($query, [], self::ip_fuel());
 		return $result;
 	}
 
@@ -93,7 +93,7 @@ class ip
 		if($set)
 		{
 			$query = " INSERT INTO `ip` SET $set ";
-			if(\dash\db::query($query, self::ip_fuel()))
+			if(\dash\pdo::query($query, [], self::ip_fuel()))
 			{
 				return \dash\db::insert_id();
 			}

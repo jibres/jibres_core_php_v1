@@ -55,7 +55,7 @@ class insert
 		if($query)
 		{
 			$run_query = "INSERT INTO logs (logs.to, $FIELDS) $query ";
-			$result = \dash\db::query($run_query);
+			$result = \dash\pdo::query($run_query, []);
 			return $result;
 		}
 		else

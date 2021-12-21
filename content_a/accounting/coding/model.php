@@ -50,7 +50,7 @@ class model
 
 			// \dash\file::write(__DIR__. '/coding.sql', $sql);
 
-			\dash\db::query($sql, null, ['multi_query' => true]);
+			\dash\pdo::query($sql, [], null, ['multi_query' => true]);
 
 			\dash\notif::ok(T_("Accounting coding imported"));
 			\dash\redirect::pwd();

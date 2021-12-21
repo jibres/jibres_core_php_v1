@@ -11,7 +11,7 @@ class apilog
 		$count       = floatval(\dash\pdo::get($count_query, [], 'count', true, 'api_log'));
 
 		$delete_query = "DELETE FROM apilog WHERE DATE(apilog.datesend) <= DATE('$last_month') ";
-		\dash\db::query($delete_query, 'api_log');
+		\dash\pdo::query($delete_query, [], 'api_log');
 
 		return $count;
 	}
@@ -22,7 +22,7 @@ class apilog
 		if($set)
 		{
 			$query = " INSERT IGNORE INTO `apilog` SET $set ";
-			return \dash\db::query($query, 'api_log');
+			return \dash\pdo::query($query, [], 'api_log');
 		}
 
 	}

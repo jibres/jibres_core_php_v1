@@ -31,7 +31,7 @@ class update
 		$_args['datemodified'] = date("Y-m-d H:i:s");
 		$set    = \dash\db\config::make_set($_args);
 		$query  = "UPDATE login SET $set WHERE login.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, $_fuel);
+		$result = \dash\pdo::query($query, [], $_fuel);
 		return $result;
 	}
 
@@ -47,7 +47,7 @@ class update
 		}
 
 		$query = "UPDATE login SET login.status = 'block', login.datemodified = '$date' $meta WHERE login.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, $_fuel);
+		$result = \dash\pdo::query($query, [], $_fuel);
 		return $result;
 	}
 

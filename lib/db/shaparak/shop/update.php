@@ -12,7 +12,7 @@ class update
 		}
 
 		$query  = "UPDATE shop SET $set WHERE shop.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'shaparak');
+		$result = \dash\pdo::query($query, [], 'shaparak');
 		return $result;
 	}
 

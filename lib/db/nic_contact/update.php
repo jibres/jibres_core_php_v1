@@ -13,7 +13,7 @@ class update
 		}
 
 		$query  = "UPDATE contact SET $set WHERE contact.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 
@@ -21,7 +21,7 @@ class update
 	public static function remove_old_default($_user_id)
 	{
 		$query  = "UPDATE contact SET contact.isdefault = NULL WHERE contact.user_id = $_user_id";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 }

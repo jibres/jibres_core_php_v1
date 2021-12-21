@@ -11,7 +11,7 @@ class update
 		if($set)
 		{
 			$query  = "UPDATE store SET $set WHERE store.id = $_id LIMIT 1";
-			$result = \dash\db::query($query, 'master');
+			$result = \dash\pdo::query($query, [], 'master');
 			return $result;
 		}
 	}
@@ -19,7 +19,7 @@ class update
 	public static function store_data($_field, $_value, $_store_id)
 	{
 		$query  = "UPDATE store_data SET store_data.$_field = '$_value' WHERE store_data.id = $_store_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 
 	}
@@ -31,7 +31,7 @@ class update
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE store_data SET store_data.owner = '$_owner', store_data.datemodified = '$date' WHERE store_data.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -39,7 +39,7 @@ class update
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE store SET store.subdomain = '$_subdomain', store.datemodified = '$date' WHERE store.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -48,7 +48,7 @@ class update
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE store SET store.status = 'deleted', store.datemodified = '$date' WHERE store.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -57,7 +57,7 @@ class update
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE store SET store.status = 'transfer', store.datemodified = '$date' WHERE store.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -67,7 +67,7 @@ class update
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE store SET store.status = 'enable', store.datemodified = '$date' WHERE store.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -76,7 +76,7 @@ class update
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE store SET store.fuel = '$_new_fuel', store.datemodified = '$date' WHERE store.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -92,7 +92,7 @@ class update
 			$enterprise = " store_data.enterprise = NULL ";
 		}
 		$query  = "UPDATE store_data SET $enterprise, store_data.datemodified = '$date' WHERE store_data.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 
 	}
@@ -102,7 +102,7 @@ class update
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE store_data SET store_data.storage = $_storage , store_data.datemodified = '$date' WHERE store_data.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -111,7 +111,7 @@ class update
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE store_data SET store_data.uploadsize = $_uploadsize , store_data.datemodified = '$date' WHERE store_data.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -121,7 +121,7 @@ class update
 	{
 		$date   = date("Y-m-d H:i:s");
 		$query  = "UPDATE store_data SET store_data.branding = '$_expire_branding' , store_data.datemodified = '$date' WHERE store_data.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 

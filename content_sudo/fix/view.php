@@ -51,7 +51,7 @@ class view
 						$date = $one_tag['datecreated'];
 						$slug = \dash\validate::slug($one_tag['title']);
 						$query = " INSERT INTO productcategory SET productcategory.title = '$one_tag[title]', productcategory.slug = '$slug', productcategory.status = 'enable', productcategory.datecreated = '$date' ";
-						\dash\db::query($query, $value['fuel'], ['database' => $dbname]);
+						\dash\pdo::query($query, [], $value['fuel'], ['database' => $dbname]);
 						$tag_id = \dash\db::insert_id();
 					}
 
@@ -73,7 +73,7 @@ class view
 							else
 							{
 								$query = " INSERT INTO productcategoryusage SET productcategoryusage.productcategory_id = '$tag_id', productcategoryusage.product_id = '$old_usage_tag[product_id]' ";
-								\dash\db::query($query, $value['fuel'], ['database' => $dbname]);
+								\dash\pdo::query($query, [], $value['fuel'], ['database' => $dbname]);
 							}
 						}
 					}

@@ -8,7 +8,7 @@ class update
 	public static function set_status($_id, $_status)
 	{
 		$query  = "UPDATE store_app SET store_app.status = '$_status' WHERE  store_app.id = $_id  LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -16,7 +16,7 @@ class update
 	public static function set_field($_id, $_field, $_value)
 	{
 		$query  = "UPDATE store_app SET store_app.$_field = '$_value' WHERE store_app.id = $_id  LIMIT 1";
-		$result = \dash\db::query($query, 'master');
+		$result = \dash\pdo::query($query, [], 'master');
 		return $result;
 	}
 
@@ -28,7 +28,7 @@ class update
 		{
 			// make update query
 			$query = "UPDATE store_app SET $set WHERE store_app.id = $_id LIMIT 1";
-			return \dash\db::query($query, 'master');
+			return \dash\pdo::query($query, [], 'master');
 		}
 	}
 

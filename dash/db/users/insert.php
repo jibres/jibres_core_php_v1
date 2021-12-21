@@ -10,7 +10,7 @@ class insert
 		$set = \dash\db\config::make_set($_set);
 
 		$query = "INSERT INTO `$_database`.`users` SET $set";
-		$result = \dash\db::query($query, $_fuel, ['database' => $_database]);
+		$result = \dash\pdo::query($query, [], $_fuel, ['database' => $_database]);
 		return $result;
 	}
 
@@ -102,7 +102,7 @@ class insert
 		{
 			$query = " INSERT INTO `users` SET $set ";
 
-			if(\dash\db::query($query, 'master'))
+			if(\dash\pdo::query($query, [], 'master'))
 			{
 				$id = \dash\db::insert_id();
 				return $id;

@@ -19,7 +19,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `temp_stats_monthly` SET $set ";
-			if(\dash\db::query($query, 'master'))
+			if(\dash\pdo::query($query, [], 'master'))
 			{
 				return true;
 			}

@@ -16,7 +16,7 @@ class update
 		}
 
 		$query  = "UPDATE domain SET $set WHERE domain.name = '$_domain' ";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 
@@ -30,7 +30,7 @@ class update
 		}
 
 		$query  = "UPDATE domain SET $set WHERE domain.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 
@@ -43,7 +43,7 @@ class update
 		}
 
 		$query  = "UPDATE domain SET $set WHERE domain.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 
@@ -57,7 +57,7 @@ class update
 			return false;
 		}
 		$query  = "UPDATE domain SET $set WHERE domain.name = '$_domain' ";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 
@@ -65,7 +65,7 @@ class update
 	public static function remove_lastfetch_domain($_domain)
 	{
 		$query  = "UPDATE domain SET domain.lastfetch = NULL WHERE domain.name = '$_domain' ";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 
@@ -74,7 +74,7 @@ class update
 	public static function remove_old_default($_user_id)
 	{
 		$query  = "UPDATE domain SET domain.isdefault = NULL WHERE domain.user_id = $_user_id";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 
@@ -82,7 +82,7 @@ class update
 	public static function remove_verify_from_all($_domain)
 	{
 		$query  = "UPDATE domain SET domain.verify = NULL, domain.email = NULL, domain.mobile = NULL WHERE domain.name = '$_domain' ";
-		$result = \dash\db::query($query, 'nic');
+		$result = \dash\pdo::query($query, [], 'nic');
 		return $result;
 	}
 

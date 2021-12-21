@@ -19,7 +19,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `business_domain` SET $set ";
-			if(\dash\db::query($query, 'master'))
+			if(\dash\pdo::query($query, [], 'master'))
 			{
 				return \dash\db::insert_id();
 			}
@@ -41,7 +41,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `business_domain_action` SET $set ";
-			if(\dash\db::query($query, 'master'))
+			if(\dash\pdo::query($query, [], 'master'))
 			{
 				return \dash\db::insert_id();
 			}
@@ -62,7 +62,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `business_domain_dns` SET $set ";
-			if(\dash\db::query($query, 'master'))
+			if(\dash\pdo::query($query, [], 'master'))
 			{
 				return \dash\db::insert_id();
 			}
@@ -83,7 +83,7 @@ class insert
 		if($set)
 		{
 			$query = " INSERT INTO `business_domain_dns` $set ";
-			return \dash\db::query($query, 'master');
+			return \dash\pdo::query($query, [], 'master');
 		}
 	}
 

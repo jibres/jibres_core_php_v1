@@ -154,7 +154,7 @@ class update
 		if($check)
 		{
 			$query = "UPDATE setting SET setting.datemodified = '$now', setting.value = '$_value'  WHERE setting.id = $check LIMIT 1";
-			$result = \dash\db::query($query, $_fuel, ['database' => $_database]);
+			$result = \dash\pdo::query($query, [], $_fuel, ['database' => $_database]);
 			return $result;
 		}
 		else
@@ -180,7 +180,7 @@ class update
 		if($check)
 		{
 			$query = "UPDATE setting SET setting.datemodified = '$now', setting.value = '$_value'  WHERE setting.id = $check LIMIT 1";
-			$result = \dash\db::query($query, $_fuel, ['database' => $_database]);
+			$result = \dash\pdo::query($query, [], $_fuel, ['database' => $_database]);
 			return $result;
 		}
 		else

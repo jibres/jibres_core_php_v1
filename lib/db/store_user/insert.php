@@ -11,7 +11,7 @@ class insert
 		{
 			$query = " INSERT INTO `store_user` SET $set ";
 
-			if(\dash\db::query($query, 'master'))
+			if(\dash\pdo::query($query, [], 'master'))
 			{
 				$id = \dash\db::insert_id();
 				return $id;

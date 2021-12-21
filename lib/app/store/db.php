@@ -99,7 +99,7 @@ class db
 
 	private static function run_query($_query, $_fuel, $_database)
 	{
-		$result = \dash\db::query($_query, $_fuel, ['database' => $_database, 'multi_query' => true]);
+		$result = \dash\pdo::query($_query, [], $_fuel, ['database' => $_database, 'multi_query' => true]);
 		return $result;
 	}
 
@@ -156,7 +156,7 @@ class db
 			{
 				$last_db_version = $split[1];
 				$query = \lib\db\store\get_string::update_db_version($last_db_version, date("Y-m-d H:i:s"), $_store_id);
-				$result = \dash\db::query($query, 'master');
+				$result = \dash\pdo::query($query, [], 'master');
 
 			}
 		}

@@ -12,7 +12,7 @@ class update
 		}
 
 		$query  = "UPDATE contract SET $set WHERE contract.id = $_id LIMIT 1";
-		$result = \dash\db::query($query, 'shaparak');
+		$result = \dash\pdo::query($query, [], 'shaparak');
 		return $result;
 	}
 

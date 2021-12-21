@@ -15,7 +15,7 @@ class insert
 		{
 			$query = " INSERT INTO `log` SET $set ";
 
-			if(\dash\db::query($query, 'onlinenic_log'))
+			if(\dash\pdo::query($query, [], 'onlinenic_log'))
 			{
 				return \dash\db::insert_id();
 			}

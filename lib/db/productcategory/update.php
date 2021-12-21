@@ -79,7 +79,7 @@ class update
 			$query[] = "UPDATE productcategory SET productcategory.sort = $sort WHERE productcategory.id = $id LIMIT 1 ";
 		}
 
-		$result = \dash\db::query(implode(';', $query), null, ['multi_query' => true]);
+		$result = \dash\pdo::query(implode(';', $query), [], null, ['multi_query' => true]);
 		return $result;
 	}
 
@@ -98,7 +98,7 @@ class update
 
 		if(!empty($query))
 		{
-			\dash\db::query(implode(' ; ', $query), null, ['multi_query' => true]);
+			\dash\pdo::query(implode(' ; ', $query), [], null, ['multi_query' => true]);
 		}
 
 	}

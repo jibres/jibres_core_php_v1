@@ -9,7 +9,7 @@ class update
 	{
 		$_send = addslashes($_send);
 		$query  = "UPDATE log SET log.send = '$_send' WHERE log.id = $_log_id LIMIT 1";
-		$result = \dash\db::query($query, 'onlinenic_log');
+		$result = \dash\pdo::query($query, [], 'onlinenic_log');
 		return $result;
 	}
 
@@ -22,7 +22,7 @@ class update
 		}
 
 		$query  = "UPDATE log SET $set WHERE log.id = $_log_id LIMIT 1";
-		$result = \dash\db::query($query, 'onlinenic_log');
+		$result = \dash\pdo::query($query, [], 'onlinenic_log');
 		return $result;
 	}
 }
