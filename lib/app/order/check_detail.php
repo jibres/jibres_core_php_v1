@@ -31,16 +31,11 @@ class check_detail
 		$data    = \dash\cleanse::input(['list' => $_args], $condition, $require, $meta);
 		$list    = $data['list'];
 
+		// merge duplicate product
+		$list = self::merger($list);
 
-		$allproduct_id    = array_column($list, 'product');
-		if(count($allproduct_id) <> count(array_unique($allproduct_id)))
-		{
-			\dash\notif::error(T_("Duplicate product in one factor founded"));
-			return false;
-		}
-
-
-		$allproduct_id      = array_unique($allproduct_id);
+		$allproduct_id = array_column($list, 'product');
+		$allproduct_id = array_unique($allproduct_id);
 		if(empty($allproduct_id))
 		{
 			\dash\notif::error(T_("No valid products found in your list"));
@@ -208,6 +203,33 @@ class check_detail
 		}
 
 		return $factor_detail;
+	}
+
+
+	public static function merger(array $_list) : array
+	{
+		$new_list = [];
+
+		foreach ($_list as $key => $value)
+		{
+			$dbl_key = '';
+			$dbl_key .= strval($value['product']);
+			$dbl_key .= '-';
+			$dbl_key .= strval($value['price']);
+			$dbl_key .= '-';
+			$dbl_key .= strval($value['discount']);
+
+			if(isset($new_list[$dbl_key]))
+			{
+				$new_list[$dbl_key]['count'] += $value['count'];
+			}
+			else
+			{
+				$new_list[$dbl_key] = $value;
+			}
+		}
+
+		return array_values($new_list);
 	}
 }
 ?>
