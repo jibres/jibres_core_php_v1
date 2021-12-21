@@ -30,7 +30,7 @@ class search
 			$limit
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -49,7 +49,7 @@ class search
 
 		$query = "SELECT business_domain_action.*, business_domain.domain FROM business_domain_action $q[join] $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -69,7 +69,7 @@ class search
 
 		$query = "SELECT business_domain_dns.*, business_domain.domain FROM business_domain_dns $q[join] $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}

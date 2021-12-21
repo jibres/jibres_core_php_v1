@@ -28,7 +28,7 @@ class search
 			$limit
 		";
 
-		$result = \dash\db::get($query, null, false);
+		$result = \dash\pdo::get($query, [], null, false);
 
 		return $result;
 	}
@@ -59,7 +59,7 @@ class search
 			$limit
 		";
 
-		$result = \dash\db::get($query, null, false);
+		$result = \dash\pdo::get($query, [], null, false);
 
 		return $result;
 	}

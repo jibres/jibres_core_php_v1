@@ -18,7 +18,7 @@ class logs
 	{
 		$ip     = \dash\server::iplong();
 		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE logs.caller = '$_caller' AND logs.ip = '$ip' AND DATE(logs.datecreated) >= DATE('$_start_date') AND DATE(logs.datecreated) <= DATE('$_end_date') ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		if(!is_numeric($result))
 		{
 			$result = 0;
@@ -33,7 +33,7 @@ class logs
 		$where = \dash\db\config::make_where($_where);
 
 		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE $where AND logs.datecreated >= '$_date_time' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		if(!is_numeric($result))
 		{
 			$result = 0;
@@ -68,7 +68,7 @@ class logs
 	{
 		$lastYear = date("Y-m-d", strtotime("-365 days"));
 		$query = "SELECT count(*) AS `count`, DATE(logs.datecreated) AS `date` FROM logs WHERE DATE(logs.datecreated) > DATE('$lastYear') GROUP BY DATE(logs.datecreated) ";
-		$result = \dash\db::get($query, null, false);
+		$result = \dash\pdo::get($query, [], null, false);
 		return $result;
 	}
 
@@ -91,7 +91,7 @@ class logs
 				logs.readdate = logs.readdate IS NULL
 		";
 
-		$get_result = \dash\db::get($query, 'id', false);
+		$get_result = \dash\pdo::get($query, [], 'id', false);
 		if($get_result)
 		{
 
@@ -149,7 +149,7 @@ class logs
 				logs.to     = $_user_id AND
 				logs.status = 'notif'
 		";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -201,7 +201,7 @@ class logs
 		}
 
 		$query = "SELECT count(*) AS `count`, logs.caller AS `caller` FROM logs $date GROUP BY logs.caller ORDER BY count(*) DESC";
-		$result = \dash\db::get($query, ['caller', 'count'], false);
+		$result = \dash\pdo::get($query, [], ['caller', 'count'], false);
 		return $result;
 	}
 	/**

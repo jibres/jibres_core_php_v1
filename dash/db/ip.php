@@ -25,7 +25,7 @@ class ip
 	public static function get_by_id($_id)
 	{
 		$query  = "SELECT * FROM ip WHERE ip.id = '$_id' LIMIT 1";
-		$result = \dash\db::get($query, null, true, self::ip_fuel());
+		$result = \dash\pdo::get($query, [], null, true, self::ip_fuel());
 		return $result;
 	}
 
@@ -33,7 +33,7 @@ class ip
 	public static function get_ipv4($_ip)
 	{
 		$query  = "SELECT * FROM ip WHERE ip.ipv4 = '$_ip' LIMIT 1";
-		$result = \dash\db::get($query, null, true, self::ip_fuel());
+		$result = \dash\pdo::get($query, [], null, true, self::ip_fuel());
 		return $result;
 	}
 
@@ -41,7 +41,7 @@ class ip
 	public static function get_ipv6($_ip)
 	{
 		$query  = "SELECT * FROM ip WHERE ip.ipv6 = '$_ip' LIMIT 1";
-		$result = \dash\db::get($query, null, true, self::ip_fuel());
+		$result = \dash\pdo::get($query, [], null, true, self::ip_fuel());
 		return $result;
 	}
 
@@ -49,7 +49,7 @@ class ip
 	public static function count_modified_date($_date)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM ip WHERE DATE(ip.datemodified) = DATE('$_date') ";
-		$result = \dash\db::get($query, 'count', true, self::ip_fuel());
+		$result = \dash\pdo::get($query, [], 'count', true, self::ip_fuel());
 		return $result;
 	}
 
@@ -57,7 +57,7 @@ class ip
 	public static function new_list()
 	{
 		$query  = "SELECT * FROM ip WHERE ip.block = 'new' LIMIT 1000";
-		$result = \dash\db::get($query, null, false, self::ip_fuel());
+		$result = \dash\pdo::get($query, [], null, false, self::ip_fuel());
 		return $result;
 	}
 
@@ -126,7 +126,7 @@ class ip
 
 		$query = "SELECT ip.* FROM ip $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, self::ip_fuel());
+		$result = \dash\pdo::get($query, [], null, false, self::ip_fuel());
 
 		return $result;
 	}

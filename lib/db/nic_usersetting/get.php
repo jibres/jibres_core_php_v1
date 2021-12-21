@@ -14,7 +14,7 @@ class get
 		}
 
 		$query  = "SELECT *  FROM usersetting WHERE usersetting.user_id = $_user_id LIMIT 1";
-		$result = \dash\db::get($query, null, true, 'nic');
+		$result = \dash\pdo::get($query, [], null, true, 'nic');
 
 		self::$usersetting[$_user_id] = $result;
 

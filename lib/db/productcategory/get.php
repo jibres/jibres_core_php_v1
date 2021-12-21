@@ -25,14 +25,14 @@ class get
 	public static function all_child_id($_id)
 	{
 		$query = "SELECT productcategory.id AS `id` FROM productcategory WHERE productcategory.id = $_id OR productcategory.parent1 = $_id OR productcategory.parent2 = $_id OR productcategory.parent3 = $_id OR productcategory.parent4 = $_id ";
-		$result = \dash\db::get($query, 'id');
+		$result = \dash\pdo::get($query, [], 'id');
 		return $result;
 	}
 
 	public static function last_sort()
 	{
 		$query  = "SELECT productcategory.sort AS `sort` FROM productcategory ORDER BY productcategory.sort DESC LIMIT 1 ";
-		$result = \dash\db::get($query, 'sort', true);
+		$result = \dash\pdo::get($query, [], 'sort', true);
 		return $result;
 	}
 
@@ -58,14 +58,14 @@ class get
 	public static function check_duplicate_title($_title)
 	{
 		$query  = "SELECT * FROM productcategory WHERE productcategory.title = '$_title'  LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function count_all()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM productcategory ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -96,7 +96,7 @@ class get
 	public static function multi_properties($_ids)
 	{
 		$query  = "SELECT productcategory.properties FROM productcategory WHERE productcategory.id IN ($_ids) AND productcategory.properties IS NOT NULL ORDER BY FIELD(productcategory.id, $_ids) ";
-		$result = \dash\db::get($query, 'properties');
+		$result = \dash\pdo::get($query, [], 'properties');
 		return $result;
 	}
 
@@ -134,14 +134,14 @@ class get
 
 		$where  = \dash\db\config::make_where($where);
 		$query  = "SELECT * FROM productcategory WHERE $where LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function check_unique_slug($_slug)
 	{
 		$query  = "SELECT * FROM productcategory WHERE productcategory.slug = '$_slug' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -149,7 +149,7 @@ class get
 	public static function have_child($_id)
 	{
 		$query  = "SELECT id FROM productcategory WHERE productcategory.parent1 = $_id OR productcategory.parent2 = $_id OR productcategory.parent3 = $_id LIMIT 1";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 
@@ -178,7 +178,7 @@ class get
 	public static function get_count_product($_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM productcategoryusage WHERE  productcategoryusage.productcategory_id = $_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -283,7 +283,7 @@ class get
 			 FROM productcategory
 			 WHERE  productcategory.id = $_id LIMIT 1
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -320,7 +320,7 @@ class get
 			 WHERE  productcategory.slug = '$_url' LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -340,7 +340,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

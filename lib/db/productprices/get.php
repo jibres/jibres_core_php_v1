@@ -10,7 +10,7 @@ class get
 	public static function count_all()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM productprices ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -19,7 +19,7 @@ class get
 	{
 		// $query  = "SELECT * FROM productprices WHERE `product_id` = $_product_id AND `last` = 'yes' AND `enddate` IS NULL ORDER BY `id` DESC LIMIT 1";
 		$query  = "SELECT * FROM productprices WHERE `product_id` = $_product_id ORDER BY `id` DESC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

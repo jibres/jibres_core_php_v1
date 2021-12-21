@@ -16,7 +16,7 @@ class get
 				`year_month`
 		";
 
-		$result = \dash\db::get($query, null, false, $_fuel, ['database' => $_dbname]);
+		$result = \dash\pdo::get($query, [], null, false, $_fuel, ['database' => $_dbname]);
 
 		return $result;
 	}
@@ -26,7 +26,7 @@ class get
 	{
 		$where = \dash\db\config::make_where($_args);
 		$query  = "SELECT * FROM products WHERE $where LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -77,7 +77,7 @@ class get
 	public static function check_all_is_child($_id, $_childs)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE products.parent = $_id AND products.id IN ($_childs)";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -107,7 +107,7 @@ class get
 					products.status != 'deleted'
 			) AS `myTable`
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}
@@ -115,7 +115,7 @@ class get
 	public static function last_productprice_id($_products_id)
 	{
 		$query  = "SELECT productprices.id AS `id` FROM productprices WHERE productprices.product_id = $_products_id ORDER BY productprices.id DESC LIMIT 1";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 
 		if(!is_numeric($result))
 		{
@@ -130,7 +130,7 @@ class get
 	public static function expensive()
 	{
 		$query   = "SELECT * FROM products WHERE products.status != 'deleted' ORDER BY products.finalprice DESC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -150,7 +150,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 
 	}
@@ -169,7 +169,7 @@ class get
 			LIMIT $_limit
 		";
 
-		$result = \dash\db::get($query, 'product_id');
+		$result = \dash\pdo::get($query, [], 'product_id');
 
 
 		if($result)
@@ -206,7 +206,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 
 		if($result)
@@ -222,7 +222,7 @@ class get
 					products.id  = $result[product_id]
 				LIMIT 1
 			";
-			$result = \dash\db::get($query, null, true);
+			$result = \dash\pdo::get($query, [], null, true);
 			return $result;
 		}
 
@@ -245,7 +245,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 
 		if($result)
@@ -261,7 +261,7 @@ class get
 					products.id  = $result[product_id]
 				LIMIT 1
 			";
-			$result = \dash\db::get($query, null, true);
+			$result = \dash\pdo::get($query, [], null, true);
 			return $result;
 		}
 
@@ -273,7 +273,7 @@ class get
 	public static function maxsaleprice()
 	{
 		$query   = "SELECT products.*, (SELECT SUM(factordetails.sum) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_price` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_price`  DESC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -281,7 +281,7 @@ class get
 	public static function count_have_variants()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM	products WHERE products.variant_child = 1 AND products.status != 'deleted' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -299,7 +299,7 @@ class get
 				products.status != 'deleted'
 			ORDER BY `stock`  DESC LIMIT 1
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -333,7 +333,7 @@ class get
 	public static function maxsale()
 	{
 		$query   = "SELECT products.*, (SELECT SUM(factordetails.count) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_count` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_count`  DESC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -347,7 +347,7 @@ class get
 	public static function average_finalprice()
 	{
 		$query   = "SELECT AVG(products.finalprice) AS `finalprice` FROM products WHERE products.status != 'deleted' ";
-		$result = \dash\db::get($query, 'finalprice', true);
+		$result = \dash\pdo::get($query, [], 'finalprice', true);
 		return $result;
 	}
 
@@ -366,7 +366,7 @@ class get
 			ORDER BY products.finalprice DESC
 			LIMIT $_limit
 		";
-		$result = \dash\db::get($query, null);
+		$result = \dash\pdo::get($query, [], null);
 		return $result;
 	}
 
@@ -385,7 +385,7 @@ class get
 			ORDER BY products.finalprice ASC
 			LIMIT $_limit
 		";
-		$result = \dash\db::get($query, null);
+		$result = \dash\pdo::get($query, [], null);
 		return $result;
 	}
 
@@ -393,7 +393,7 @@ class get
 	public static function inexpensive()
 	{
 		$query   = "SELECT * FROM products WHERE products.status != 'deleted' AND products.finalprice != 0 AND products.finalprice IS NOT NULL ORDER BY products.finalprice ASC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -402,14 +402,14 @@ class get
 	public static function variant_min_max_price($_id)
 	{
 		$query  = "SELECT MIN(products.finalprice) AS `min_price`, MAX(products.finalprice) AS `max_price` FROM products WHERE products.status != 'deleted' AND products.parent = $_id ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function check_duplicate_title($_title, $_id)
 	{
 		$query  = "SELECT * FROM products WHERE products.status != 'deleted' AND products.title = '$_title' AND products.id != $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -430,7 +430,7 @@ class get
 	public static function first_product_id()
 	{
 		$query  = "SELECT products.id AS `id` FROM products WHERE products.status != 'deleted' ORDER BY products.id ASC LIMIT 1 ";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 
@@ -438,7 +438,7 @@ class get
 	public static function end_product_id()
 	{
 		$query  = "SELECT products.id AS `id` FROM products WHERE products.status != 'deleted' ORDER BY products.id DESC LIMIT 1 ";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 
@@ -447,7 +447,7 @@ class get
 	public static function check_import_id($_ids)
 	{
 		$query  = "SELECT products.id AS `id` FROM products WHERE products.id IN ($_ids) ";
-		$result = \dash\db::get($query, 'id');
+		$result = \dash\pdo::get($query, [], 'id');
 		return $result;
 	}
 
@@ -455,7 +455,7 @@ class get
 	public static function count_all_for_dashboard()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM products WHERE products.status NOT IN ('deleted', 'archive') AND products.parent IS NULL ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -464,7 +464,7 @@ class get
 	public static function count_all()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM products WHERE products.status != 'deleted' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -472,14 +472,14 @@ class get
 	public static function prev($_id)
 	{
 		$query  = "SELECT products.id AS `id` FROM products WHERE products.id = (SELECT MAX(products.id) FROM products WHERE products.status NOT IN ('deleted', 'archive') AND products.parent IS NULL AND products.id < $_id) LIMIT 1 ";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 
 	public static function next($_id)
 	{
 		$query  = "SELECT products.id AS `id` FROM products WHERE products.id = (SELECT MIN(products.id) FROM products WHERE products.status NOT IN ('deleted', 'archive') AND products.parent IS NULL AND products.id > $_id) LIMIT 1 ";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 
@@ -518,7 +518,7 @@ class get
 				(products.barcode = '$_barcode' OR products.barcode2 = '$_barcode')
 			LIMIT 1
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -537,7 +537,7 @@ class get
 				products.scalecode = '$_scalecode'
 			LIMIT 1
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -546,7 +546,7 @@ class get
 	public static function one_field($_id, $_field)
 	{
 		$query  = "SELECT products.$_field FROM products WHERE products.id = $_id  LIMIT 1";
-		$result = \dash\db::get($query, $_field, true);
+		$result = \dash\pdo::get($query, [], $_field, true);
 		return $result;
 	}
 
@@ -568,7 +568,7 @@ class get
 				products.id = $_id
 			LIMIT 1
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -587,7 +587,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}
@@ -651,7 +651,7 @@ class get
 	public static function check_unique_sku($_sku)
 	{
 		$query = "SELECT `id`, `sku` FROM products WHERE products.sku = '$_sku' AND products.status  != 'deleted' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -659,7 +659,7 @@ class get
 	public static function one($_id)
 	{
 		$query  = "SELECT * FROM products WHERE products.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -667,7 +667,7 @@ class get
 	public static function variants_have_child($_id)
 	{
 		$query  = "SELECT products.id AS `id` FROM products WHERE products.parent = $_id AND products.status != 'deleted' LIMIT 1";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 

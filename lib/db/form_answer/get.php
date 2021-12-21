@@ -55,7 +55,7 @@ class get
 	public static function need_review_form_id($_form_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id AND form_answer.review IS NULL ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -64,7 +64,7 @@ class get
 	{
 		$result                  = [];
 		$query                   = "SELECT * FROM form_answer WHERE form_answer.id = $_answer_id LIMIT 1";
-		$result['answer']        = \dash\db::get($query, null, true);
+		$result['answer']        = \dash\pdo::get($query, [], null, true);
 
 		$query                   = "SELECT * FROM form_answerdetail WHERE form_answerdetail.answer_id = $_answer_id ";
 		$result['answer_detail'] = \dash\pdo::get($query);
@@ -76,14 +76,14 @@ class get
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM form_answer WHERE form_answer.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function count_all($_form_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -108,7 +108,7 @@ class get
 	public static function count_by_form_id($_form_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 

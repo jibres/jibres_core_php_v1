@@ -102,7 +102,7 @@ class update
 				login.datecreated < '$date'
 		";
 
-		$get_list = \dash\db::get($query, 'id', false);
+		$get_list = \dash\pdo::get($query, [], 'id', false);
 		if(!$get_list || !is_array($get_list) || empty($get_list))
 		{
 			return true;

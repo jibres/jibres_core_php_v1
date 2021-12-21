@@ -52,14 +52,14 @@ class fileusage
 	public static function duplicate_whit_file_id($_related, $_related_id, $_file_id)
 	{
 		$query = "SELECT * FROM fileusage WHERE fileusage.related = '$_related' AND fileusage.related_id = '$_related_id' AND fileusage.file_id = $_file_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function duplicate($_related, $_related_id)
 	{
 		$query = "SELECT * FROM fileusage WHERE fileusage.related = '$_related' AND fileusage.related_id = '$_related_id' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

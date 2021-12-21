@@ -16,7 +16,7 @@ class useremail
 	public static function get_count_by_user_id($_user_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM useremail WHERE useremail.user_id = $_user_id AND useremail.status = 'enable' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -34,7 +34,7 @@ class useremail
 	public static function get_user_email_primary($_user_id)
 	{
 		$query = "SELECT * FROM useremail WHERE useremail.user_id = $_user_id AND useremail.status = 'enable' ORDER BY useremail.id DESC, FIELD(useremail.verify, 1), FIELD(useremail.primary, 1) LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -42,21 +42,21 @@ class useremail
 	public static function check_is_verify_for_other($_email)
 	{
 		$query = "SELECT * FROM useremail WHERE useremail.emailraw = '$_email' AND useremail.verify = 1 LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function check_is_my_email_raw($_emailraw, $_user_id)
 	{
 		$query = "SELECT * FROM useremail WHERE useremail.emailraw = '$_emailraw' AND useremail.user_id = $_user_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function check_is_my_email_id($_id, $_user_id)
 	{
 		$query = "SELECT * FROM useremail WHERE useremail.id = '$_id' AND useremail.user_id = $_user_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -64,7 +64,7 @@ class useremail
 	public static function check_duplicate_email($_email, $_user_id)
 	{
 		$query = "SELECT * FROM useremail WHERE useremail.emailraw = '$_email' AND useremail.user_id = $_user_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

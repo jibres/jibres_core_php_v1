@@ -72,7 +72,7 @@ class search
 
 		$query = "SELECT domainaction.*, domain.name, domain.verify FROM domainaction LEFT JOIN domain ON domain.id = domainaction.domain_id $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 
 		return $result;
 	}

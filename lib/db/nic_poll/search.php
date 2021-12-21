@@ -72,7 +72,7 @@ class search
 
 		$query = "SELECT * FROM poll $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 
 		return $result;
 	}

@@ -28,7 +28,7 @@ class search
 			$limit
 		";
 
-		$result = \dash\db::get($query, null, false,  'api_log');
+		$result = \dash\pdo::get($query, [], null, false,  'api_log');
 
 
 		return $result;

@@ -18,7 +18,7 @@ class insert
 		if(isset($_args['code']))
 		{
 			$query = "SELECT * FROM tax_coding WHERE tax_coding.code = '$_args[code]' LIMIT 1";
-			$result = \dash\db::get($query, null, true);
+			$result = \dash\pdo::get($query, [], null, true);
 			if(isset($result['id']))
 			{
 				\dash\notif::error(T_("Duplicate code"));

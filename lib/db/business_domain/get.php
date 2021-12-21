@@ -8,7 +8,7 @@ class get
 	public static function check_is_customer_domain($_domain)
 	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.domain = '$_domain' AND business_domain.status NOT IN ('deleted', 'pending_delete') LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -16,7 +16,7 @@ class get
 	public static function check_is_customer_domain_full($_domain)
 	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.domain = '$_domain' LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -24,7 +24,7 @@ class get
 	public static function all_domain_store_id($_store_id)
 	{
 		$query  = " SELECT business_domain.domain, business_domain.master FROM business_domain WHERE business_domain.store_id = '$_store_id' AND business_domain.status NOT IN ('deleted', 'pending_delete', 'failed') ";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -32,14 +32,14 @@ class get
 	public static function count_store_domain($_store_id)
 	{
 		$query  = " SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.store_id = $_store_id ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return floatval($result);
 	}
 
 	public static function count_domain_dns($_domain_id)
 	{
 		$query  = " SELECT COUNT(*) AS `count` FROM business_domain_dns WHERE business_domain_dns.business_domain_id = $_domain_id ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return floatval($result);
 	}
 
@@ -58,7 +58,7 @@ class get
 				business_domain.cdn = 'arvancloud' AND
 				business_domain.subdomain IS NULL
 		";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return floatval($result);
 	}
 
@@ -69,7 +69,7 @@ class get
 			SELECT * from business_domain where business_domain.subdomain is null and business_domain.id NOT in (select business_domain_dns.business_domain_id from business_domain_dns WHERE business_domain_dns.type = 'CNAME' and business_domain_dns.status = 'ok')
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -81,7 +81,7 @@ class get
 			SELECT * from business_domain where business_domain.subdomain is null and business_domain.id  in (select business_domain_dns.business_domain_id from business_domain_dns WHERE  business_domain_dns.key = 'www' and business_domain_dns.type = 'A')
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -102,7 +102,7 @@ class get
 			LIMIT 1000
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -135,7 +135,7 @@ class get
 				)
 			LIMIT 200
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -144,7 +144,7 @@ class get
 	public static function have_pending_domain()
 	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.status = 'pending' LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -177,7 +177,7 @@ class get
 				business_domain.datemodified ASC
 			LIMIT 10
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -197,7 +197,7 @@ class get
 				business_domain_dns.datemodified ASC
 			LIMIT 6
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -215,7 +215,7 @@ class get
 				business_domain_dns.datemodified ASC
 			LIMIT 6
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -236,7 +236,7 @@ class get
 				business_domain.datemodified ASC
 			LIMIT 1
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -260,7 +260,7 @@ class get
 				business_domain.datemodified ASC
 			LIMIT 1
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -284,7 +284,7 @@ class get
 				business_domain.datemodified ASC
 			LIMIT 2
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -308,7 +308,7 @@ class get
 				business_domain.datemodified ASC
 			LIMIT 3
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -335,7 +335,7 @@ class get
 			LIMIT 5
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -359,7 +359,7 @@ class get
 				business_domain.datemodified ASC
 			LIMIT 10
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -376,7 +376,7 @@ class get
 	public static function by_store_id_master_domain($_store_id)
 	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id AND business_domain.master = 1 AND business_domain.status NOT IN ('deleted', 'pending_delete') LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -384,7 +384,7 @@ class get
 	public static function by_store_id($_store_id)
 	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id AND business_domain.status NOT IN ('deleted', 'pending_delete') ";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -392,7 +392,7 @@ class get
 	public static function by_store_id_domain($_store_id, $_domain)
 	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.store_id = $_store_id AND business_domain.domain = '$_domain' LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -400,7 +400,7 @@ class get
 	public static function by_domain($_domain)
 	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.domain = '$_domain' LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -408,7 +408,7 @@ class get
 	public static function by_id($_id)
 	{
 		$query  = " SELECT * FROM business_domain WHERE business_domain.id = $_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -416,7 +416,7 @@ class get
 	public static function action_count($_id)
 	{
 		$query  = " SELECT COUNT(*) AS `count` FROM business_domain_action WHERE business_domain_action.business_domain_id = $_id ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
@@ -424,21 +424,21 @@ class get
 	public static function dns_count($_id)
 	{
 		$query  = " SELECT COUNT(*) AS `count` FROM business_domain_dns WHERE business_domain_dns.business_domain_id = $_id ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
 	public static function dns_list($_id)
 	{
 		$query  = " SELECT * FROM business_domain_dns WHERE business_domain_dns.business_domain_id = $_id ORDER BY business_domain_dns.id DESC";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
 	public static function dns_record($_id)
 	{
 		$query  = " SELECT * FROM business_domain_dns WHERE business_domain_dns.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -447,7 +447,7 @@ class get
 	{
 		$where = \dash\db\config::make_where($_where);
 		$query  = " SELECT * FROM business_domain_dns WHERE $where LIMIT 1";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -456,14 +456,14 @@ class get
 	public static function count_all()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM business_domain";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
 	public static function count_ok()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.status = 'ok' ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
@@ -471,7 +471,7 @@ class get
 	public static function count_pending()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.status = 'pending' ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
@@ -479,7 +479,7 @@ class get
 	public static function count_failed()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.status = 'failed' ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
@@ -487,56 +487,56 @@ class get
 	public static function count_action()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM business_domain_action";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
 	public static function count_cdn_ok()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.cdnpanel IS NOT NULL ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
 	public static function count_cdn_nok()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.cdnpanel IS NULL ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
 	public static function count_dns_resolved()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.checkdns IS NOT NULL ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
 	public static function count_dns_notresolved()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.checkdns IS NULL ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
 	public static function count_https_request()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.httpsrequest IS NOT NULL ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
 	public static function count_https_request_ok()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM business_domain WHERE business_domain.httpsverify IS NOT NULL ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
 	public static function count_all_dns_record()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM business_domain_dns ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
@@ -544,7 +544,7 @@ class get
 	public static function count_all_dns_record_status($_status)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM business_domain_dns WHERE business_domain_dns.status = '$_status' ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 

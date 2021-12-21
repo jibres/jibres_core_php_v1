@@ -43,7 +43,7 @@ class update
 	{
 		$now = date("Y-m-d H:i:s");
 		$query = "SELECT setting.id, setting.value FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$check = \dash\db::get($query, null, true);
+		$check = \dash\pdo::get($query, [], null, true);
 
 		if(isset($check['id']))
 		{
@@ -78,7 +78,7 @@ class update
 	{
 		$now = date("Y-m-d H:i:s");
 		$query = "SELECT setting.id, setting.value FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$check = \dash\db::get($query, null, true);
+		$check = \dash\pdo::get($query, [], null, true);
 
 		if(isset($check['id']))
 		{
@@ -114,7 +114,7 @@ class update
 	{
 		$now = date("Y-m-d H:i:s");
 		$query = "SELECT setting.id, setting.value FROM setting WHERE setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$check = \dash\db::get($query, null, true);
+		$check = \dash\pdo::get($query, [], null, true);
 
 		if(isset($check['id']))
 		{
@@ -150,7 +150,7 @@ class update
 	{
 		$now = date("Y-m-d H:i:s");
 		$query = "SELECT setting.id AS `id` FROM setting WHERE setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$check = \dash\db::get($query, 'id', true, $_fuel, ['database' => $_database]);
+		$check = \dash\pdo::get($query, [], 'id', true, $_fuel, ['database' => $_database]);
 		if($check)
 		{
 			$query = "UPDATE setting SET setting.datemodified = '$now', setting.value = '$_value'  WHERE setting.id = $check LIMIT 1";
@@ -176,7 +176,7 @@ class update
 	{
 		$now = date("Y-m-d H:i:s");
 		$query = "SELECT setting.id AS `id` FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$check = \dash\db::get($query, 'id', true, $_fuel, ['database' => $_database]);
+		$check = \dash\pdo::get($query, [], 'id', true, $_fuel, ['database' => $_database]);
 		if($check)
 		{
 			$query = "UPDATE setting SET setting.datemodified = '$now', setting.value = '$_value'  WHERE setting.id = $check LIMIT 1";

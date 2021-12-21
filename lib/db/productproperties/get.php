@@ -6,14 +6,14 @@ class get
 	public static function all_cat_name()
 	{
 		$query = "SELECT DISTINCT productproperties.cat AS `cat` FROM productproperties ORDER BY CHAR_LENGTH(productproperties.cat) ASC";
-		$result = \dash\db::get($query, 'cat');
+		$result = \dash\pdo::get($query, [], 'cat');
 		return $result;
 	}
 
 	public static function all_key_name()
 	{
 		$query = "SELECT DISTINCT productproperties.key AS `key` FROM productproperties ORDER BY CHAR_LENGTH(productproperties.key) ASC";
-		$result = \dash\db::get($query, 'key');
+		$result = \dash\pdo::get($query, [], 'key');
 		return $result;
 	}
 
@@ -21,14 +21,14 @@ class get
 	public static function last_sort_cat($_product_id, $_cat)
 	{
 		$query  = "SELECT IFNULL(productproperties.sort, 0) AS `sort` FROM productproperties WHERE productproperties.product_id = $_product_id AND productproperties.cat = '$_cat' ORDER BY productproperties.sort DESC LIMIT 1 ";
-		$result = \dash\db::get($query, 'sort', true);
+		$result = \dash\pdo::get($query, [], 'sort', true);
 		return $result;
 	}
 
 	public static function count_product($_product_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM productproperties WHERE productproperties.product_id = $_product_id  ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -45,7 +45,7 @@ class get
 			WHERE
 				productcategoryusage.productcategory_id = $_category_id
 		";
-		$result = \dash\db::get($query, 'cat');
+		$result = \dash\pdo::get($query, [], 'cat');
 		return $result;
 	}
 
@@ -62,7 +62,7 @@ class get
 			WHERE
 				productcategoryusage.productcategory_id = $_category_id
 		";
-		$result = \dash\db::get($query, 'key');
+		$result = \dash\pdo::get($query, [], 'key');
 		return $result;
 	}
 
@@ -79,7 +79,7 @@ class get
 				productproperties.key = '$_key'
 			LIMIT 1
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -97,7 +97,7 @@ class get
 				productproperties.value = '$_value'
 			LIMIT 1
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -105,7 +105,7 @@ class get
 	public static function one($_id, $_product_id)
 	{
 		$query  = "SELECT * FROM productproperties WHERE productproperties.id = $_id AND productproperties.product_id = $_product_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

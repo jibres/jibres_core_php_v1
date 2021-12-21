@@ -31,7 +31,7 @@ class apilog
 	public static function get_count()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM apilog ";
-		$result = \dash\db::get($query, 'count', true, 'api_log');
+		$result = \dash\pdo::get($query, [], 'count', true, 'api_log');
 		return $result;
 	}
 

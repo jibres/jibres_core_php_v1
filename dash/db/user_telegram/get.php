@@ -33,7 +33,7 @@ class get
 	public static function load_user_chatid($_user_id)
 	{
 		$query  = "SELECT * FROM user_telegram WHERE user_telegram.user_id = $_user_id ORDER BY user_telegram.id DESC LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}

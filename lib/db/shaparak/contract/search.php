@@ -73,7 +73,7 @@ class search
 
 		$query = "SELECT dns.*, (SELECT COUNT(*) FROM contract WHERE contract.dns = dns.id AND contract.status = 'enable') AS `count_usage` FROM dns $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 
 		return $result;
 	}

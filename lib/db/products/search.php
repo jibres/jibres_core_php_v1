@@ -72,7 +72,7 @@ class search
 				productcategoryusage.product_id = $_id OR productcategoryusage.product_id = (SELECT products.parent FROM products WHERE products.id = $_id LIMIT 1)
 		";
 
-		$ids = \dash\db::get($query, 'productcategory_id');
+		$ids = \dash\pdo::get($query, [], 'productcategory_id');
 
 		if(!$ids || !is_array($ids))
 		{

@@ -8,7 +8,7 @@ class get
 	public static function count_cart_record_per_user($_user_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.user_id = $_user_id";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -16,7 +16,7 @@ class get
 	public static function count_cart_record_per_ip($_ip_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.ip_id = $_ip_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -24,7 +24,7 @@ class get
 	public static function count_cart_record_per_ip_agent($_ip_id, $_agent_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.ip_id = $_ip_id AND cart.agent_id = $_agent_id";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -33,7 +33,7 @@ class get
 	public static function must_deleted_expired($_date)
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM cart WHERE cart.user_id IS NULL AND cart.datecreated < '$_date' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -41,14 +41,14 @@ class get
 	public static function count_all()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM cart ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function product_user($_product_id, $_user_id)
 	{
 		$query  = "SELECT * FROM cart WHERE cart.product_id = $_product_id AND cart.user_id = $_user_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -56,7 +56,7 @@ class get
 	public static function product_user_guest($_product_id, $_guestid)
 	{
 		$query  = "SELECT * FROM cart WHERE cart.product_id = $_product_id AND cart.guestid = '$_guestid' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -66,7 +66,7 @@ class get
 	public static function multi_product_user($_product_ids, $_user_id)
 	{
 		$query  = "SELECT cart.product_id AS `product_id` FROM cart WHERE cart.product_id IN ($_product_ids) AND cart.user_id = $_user_id";
-		$result = \dash\db::get($query, 'product_id');
+		$result = \dash\pdo::get($query, [], 'product_id');
 		return $result;
 	}
 
@@ -82,7 +82,7 @@ class get
 			FROM
 				cart
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -95,7 +95,7 @@ class get
 			FROM
 				cart
 		";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 
 		return $result;
 	}
@@ -104,14 +104,14 @@ class get
 	public static function user_cart_count($_user_id)
 	{
 		$query  = "SELECT SUM(cart.count) AS `count` FROM cart WHERE cart.user_id = $_user_id";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function user_cart_count_guest($_guestid)
 	{
 		$query  = "SELECT SUM(cart.count) AS `count` FROM cart WHERE cart.guestid = '$_guestid' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 

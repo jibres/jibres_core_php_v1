@@ -23,14 +23,14 @@ class get
 	public static function count_by_cat($_cat)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM setting WHERE setting.cat = '$_cat' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function by_cat_key($_cat, $_key)
 	{
 		$query = "SELECT * FROM setting WHERE setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -54,7 +54,7 @@ class get
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM setting WHERE setting.id = '$_id' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -94,7 +94,7 @@ class get
 	public static function platform_cat_key($_platform, $_cat, $_key)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -102,14 +102,14 @@ class get
 	public static function lang_platform_cat_key($_lang, $_platform, $_cat, $_key)
 	{
 		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function count_lang_platform_cat_key($_lang, $_platform, $_cat, $_key)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -117,7 +117,7 @@ class get
 	public static function count_platform_cat_key($_platform, $_cat, $_key)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -194,7 +194,7 @@ class get
 	public static function platform_cat_id($_platform, $_cat, $_id)
 	{
 		$query = "SELECT * FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.id = '$_id' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -202,7 +202,7 @@ class get
 	public static function lang_platform_cat_id($_lang, $_platform, $_cat, $_id)
 	{
 		$query = "SELECT * FROM setting WHERE setting.lang = '$_lang' AND setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.id = '$_id' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

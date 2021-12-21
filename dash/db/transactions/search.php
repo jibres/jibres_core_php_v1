@@ -50,7 +50,7 @@ class search
 			$q[where]
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}

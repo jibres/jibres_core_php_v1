@@ -70,7 +70,7 @@ class timeline
 	public static function get_by_store_id($_store_id)
 	{
 		$query = "SELECT * FROM `store_timeline`WHERE store_timeline.store_id = $_store_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

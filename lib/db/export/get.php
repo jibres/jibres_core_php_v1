@@ -8,7 +8,7 @@ class get
 	public static function count_all()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM importexport ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -25,7 +25,7 @@ class get
 	{
 		$where = \dash\db\config::make_where($_where);
 		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND $where AND importexport.status IN ('request', 'running') ORDER BY importexport.id DESC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -33,7 +33,7 @@ class get
 	public static function check_duplicate($_type)
 	{
 		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND importexport.type = '$_type' AND importexport.status IN ('request', 'running') ORDER BY importexport.id DESC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -41,7 +41,7 @@ class get
 	public static function check_day_limit($_type, $_date)
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM importexport WHERE importexport.mode = 'export' AND importexport.type = '$_type' AND DATE(importexport.datecreated) = DATE('$_date')";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -68,7 +68,7 @@ class get
 	public static function by_id($_id)
 	{
 		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND importexport.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -76,14 +76,14 @@ class get
 	public static function any_running()
 	{
 		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND importexport.status = 'running' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function any_request()
 	{
 		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND importexport.status = 'request' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

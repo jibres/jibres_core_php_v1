@@ -73,7 +73,7 @@ class search
 
 		$query = "SELECT dns.*, (SELECT COUNT(*) FROM wallet WHERE wallet.dns = dns.id AND wallet.status = 'enable') AS `count_usage` FROM dns $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 
 		return $result;
 	}

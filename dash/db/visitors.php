@@ -43,7 +43,7 @@ class visitors
 			WHERE urls.pwd LIKE '$_url'
 			$where
 		";
-		$result = \dash\db::get($query, null, false);
+		$result = \dash\pdo::get($query, [], null, false);
 		return $result;
 	}
 
@@ -76,7 +76,7 @@ class visitors
 			) AS `myTable`
 		";
 
-		$result = \dash\db::get($query, 'myCount', true);
+		$result = \dash\pdo::get($query, [], 'myCount', true);
 
 		return $result;
 
@@ -118,7 +118,7 @@ class visitors
 		}
 
 		$query = "SELECT COUNT(*) AS `count` FROM visitors WHERE visitors.date >= '$start_time'";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -145,7 +145,7 @@ class visitors
 			) AS `myTable`
 		";
 
-		$result = \dash\db::get($query, 'myCount', true);
+		$result = \dash\pdo::get($query, [], 'myCount', true);
 
 		return $result;
 	}
@@ -160,7 +160,7 @@ class visitors
 
 		$query = "SELECT AVG(visitors.avgtime) AS `avg` FROM visitors WHERE visitors.avgtime IS NOT NULL AND visitors.date >= '$start_time' ";
 
-		$result = \dash\db::get($query, 'avg', true);
+		$result = \dash\pdo::get($query, [], 'avg', true);
 
 		return $result;
 	}
@@ -184,7 +184,7 @@ class visitors
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		if(isset($result['date']) && isset($result['hour']))
 		{
 			return $result['date']. ' '. $result['hour'];
@@ -250,7 +250,7 @@ class visitors
 			GROUP BY myTable.myDate
 		";
 
-		$result_visitor = \dash\db::get($query, ['myDate', 'myCount'], false);
+		$result_visitor = \dash\pdo::get($query, [], ['myDate', 'myCount'], false);
 
 
 		$query =
@@ -266,7 +266,7 @@ class visitors
 			GROUP BY myDate
 		";
 
-		$result_visit = \dash\db::get($query, ['myDate', 'count'], false);
+		$result_visit = \dash\pdo::get($query, [], ['myDate', 'count'], false);
 
 		return ['visitor' => $result_visitor, 'visit' => $result_visit];
 
@@ -290,7 +290,7 @@ class visitors
 				visitors.date >= '$start_time'
 			GROUP BY visitors.country
 		";
-		$result = \dash\db::get($query, ['country', 'count'], false);
+		$result = \dash\pdo::get($query, [], ['country', 'count'], false);
 		return $result;
 
 	}
@@ -315,7 +315,7 @@ class visitors
 				visitors.date >= '$start_time'
 			GROUP BY agents.name
 		";
-		$result = \dash\db::get($query, ['name', 'count'], false);
+		$result = \dash\pdo::get($query, [], ['name', 'count'], false);
 
 		return $result;
 	}
@@ -340,7 +340,7 @@ class visitors
 				visitors.date >= '$start_time'
 			GROUP BY agents.os
 		";
-		$result = \dash\db::get($query, ['os', 'count'], false);
+		$result = \dash\pdo::get($query, [], ['os', 'count'], false);
 		return $result;
 	}
 
@@ -631,11 +631,11 @@ class visitors
 
 		if(!$only_one_value)
 		{
-			$result = \dash\db::get($query, null, false);
+			$result = \dash\pdo::get($query, [], null, false);
 		}
 		else
 		{
-			$result = \dash\db::get($query, 'searchcount', true);
+			$result = \dash\pdo::get($query, [], 'searchcount', true);
 		}
 
 		return $result;

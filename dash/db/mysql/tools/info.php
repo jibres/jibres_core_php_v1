@@ -94,7 +94,7 @@ class info
 				INFORMATION_SCHEMA.TABLES
 			WHERE TABLE_SCHEMA = '$db_name'
 		";
-		$result = \dash\db::get($query, 'size', true);
+		$result = \dash\pdo::get($query, [], 'size', true);
 		return $result;
 	}
 
@@ -119,7 +119,7 @@ class info
 	public static function show_databases($_fuel)
 	{
 		$query = "SHOW DATABASES;";
-		$result = \dash\db::get($query,null, false, $_fuel, ['database' => 'mysql']);
+		$result = \dash\pdo::get($query, [],null, false, $_fuel, ['database' => 'mysql']);
 		return $result;
 	}
 
@@ -136,7 +136,7 @@ class info
 				TABLE_SCHEMA = '$_db_name'
 		";
 
-		$result = \dash\db::get($query, 'count', true, $_fuel, ['database' => $_db_name]);
+		$result = \dash\pdo::get($query, [], 'count', true, $_fuel, ['database' => $_db_name]);
 
 		return floatval($result);
 	}
@@ -155,7 +155,7 @@ class info
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, 'SCHEMA_NAME', true, $_fuel, ['database' => 'mysql']);
+		$result = \dash\pdo::get($query, [], 'SCHEMA_NAME', true, $_fuel, ['database' => 'mysql']);
 
 		if($result)
 		{

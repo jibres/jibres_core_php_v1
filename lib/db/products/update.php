@@ -113,7 +113,7 @@ class update
 	public static function variant_child_calc($_id)
 	{
 		$query  = "SELECT products.id AS `id` FROM products WHERE products.status != 'deleted' AND products.parent = $_id LIMIT 1";
-		$have_child = \dash\db::get($query, 'id', true);
+		$have_child = \dash\pdo::get($query, [], 'id', true);
 
 		$have_child = $have_child ? 1 : null;
 		if(!$have_child)

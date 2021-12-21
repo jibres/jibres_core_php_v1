@@ -27,21 +27,21 @@ class get
 	public static function count_awaiting_comment_per_user($_user_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.status = 'awaiting' AND comments.user_id = $_user_id";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
 	public static function count_awaiting_comment_per_ip($_ip_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.status = 'awaiting' AND comments.ip_id = $_ip_id";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
 	public static function count_awaiting_comment_per_ip_agent($_ip_id, $_agent_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.status = 'awaiting' AND comments.ip_id = $_ip_id AND comments.agent_id = $_agent_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -70,7 +70,7 @@ class get
 				)
 
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}
@@ -96,7 +96,7 @@ class get
 				comments.post_id = $_post_id
 
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}
@@ -105,7 +105,7 @@ class get
 	public static function product_comment_count($_product_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.product_id = $_product_id";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -113,7 +113,7 @@ class get
 	public static function by_id($_id)
 	{
 		$query  = "SELECT * FROM comments WHERE comments.id = $_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -140,7 +140,7 @@ class get
 				comments.id = $_id
 			LIMIT 1
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 
 		return $result;
@@ -159,7 +159,7 @@ class get
 	public static function answer_count($_parent)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM comments WHERE comments.parent = $_parent";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -169,7 +169,7 @@ class get
 	{
 		$where  = \dash\db\config::make_where($_args);
 		$query  = "SELECT * FROM comments WHERE $where LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

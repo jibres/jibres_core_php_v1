@@ -30,7 +30,7 @@ class get
 			FROM
 				store_analytics
 		";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 
 		return $result;
 	}
@@ -52,7 +52,7 @@ class get
 			WHERE
 				store_timeline.store_id IS NOT NULL
 		";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 
 		return $result;
 	}
@@ -75,7 +75,7 @@ class get
 			GROUP BY store_analytics.question$_index
 		";
 
-		$result = \dash\db::get($query, ['q', 'count'], true, 'master');
+		$result = \dash\pdo::get($query, [], ['q', 'count'], true, 'master');
 		return $result;
 	}
 
@@ -92,7 +92,7 @@ class get
 				store_analytics
 		";
 
-		$result['total'] = \dash\db::get($query, 'count', true, 'master');
+		$result['total'] = \dash\pdo::get($query, [], 'count', true, 'master');
 
 		$query =
 		"
@@ -106,7 +106,7 @@ class get
 				store_analytics.question3 IS NOT NULL
 		";
 
-		$result['answer_all'] = \dash\db::get($query, 'count', true, 'master');
+		$result['answer_all'] = \dash\pdo::get($query, [], 'count', true, 'master');
 
 		$query =
 		"
@@ -120,7 +120,7 @@ class get
 				store_analytics.question3 IS NULL
 		";
 
-		$result['skip_all'] = \dash\db::get($query, 'count', true, 'master');
+		$result['skip_all'] = \dash\pdo::get($query, [], 'count', true, 'master');
 
 
 		$query =
@@ -135,7 +135,7 @@ class get
 				store_analytics.question3 IS NOT NULL
 		";
 
-		$result['som_answer'] = \dash\db::get($query, 'count', true, 'master');
+		$result['som_answer'] = \dash\pdo::get($query, [], 'count', true, 'master');
 
 		return $result;
 	}

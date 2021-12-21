@@ -69,7 +69,7 @@ class get
 	public static function count_awating_transaction_per_user($_user_id, $_start_date)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM transactions WHERE transactions.date >= '$_start_date' AND (transactions.verify IS NULL OR transactions.verify = 0) AND transactions.user_id = $_user_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -77,7 +77,7 @@ class get
 	public static function count_transaction_per_ip($_ip_id, $_start_date)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM transactions WHERE transactions.date >= '$_start_date' AND (transactions.verify IS NULL OR transactions.verify = 0) AND transactions.ip_id = $_ip_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -85,7 +85,7 @@ class get
 	public static function count_transaction_per_ip_agent($_ip_id, $_agent_id, $_start_date)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM transactions WHERE transactions.date >= '$_start_date' AND (transactions.verify IS NULL OR transactions.verify = 0) AND transactions.ip_id = $_ip_id AND transactions.agent_id = $_agent_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -94,14 +94,14 @@ class get
 	public static function total_paid_user($_user_id)
 	{
 		$query = "SELECT SUM(transactions.plus) AS `total_paid` FROM transactions WHERE transactions.user_id = $_user_id AND transactions.verify = 1 ";
-		$result = \dash\db::get($query, 'total_paid', true);
+		$result = \dash\pdo::get($query, [], 'total_paid', true);
 		return $result;
 	}
 
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM transactions WHERE transactions.id = $_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -109,7 +109,7 @@ class get
 	public static function last_payment_user($_user_id)
 	{
 		$query = "SELECT transactions.plus FROM transactions WHERE transactions.user_id = $_user_id AND transactions.verify = 1 AND transactions.plus IS NOT NULL ORDER BY transactions.id DESC LIMIT 1";
-		$result = \dash\db::get($query, 'plus', true);
+		$result = \dash\pdo::get($query, [], 'plus', true);
 		return $result;
 	}
 
@@ -118,7 +118,7 @@ class get
 	public static function first_pay_user($_user_id)
 	{
 		$query = "SELECT * FROM transactions WHERE transactions.user_id = $_user_id AND transactions.verify = 1 LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

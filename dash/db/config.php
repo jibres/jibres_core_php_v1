@@ -147,7 +147,7 @@ class config
 
 		if($query)
 		{
-			$result = \dash\db::get($query, $field, $only_one_record, $_db_name);
+			$result = \dash\pdo::get($query, [], $field, $only_one_record, $_db_name);
 			return floatval($result);
 		}
 		return 0;
@@ -469,7 +469,7 @@ class config
 			if($where)
 			{
 				$query = "SELECT $_options[public_show_field] FROM $_table $_options[master_join] WHERE $where $_options[order] $limit";
-				$result = \dash\db::get($query, null, $only_one_value, $_options['db_name']);
+				$result = \dash\pdo::get($query, [], null, $only_one_value, $_options['db_name']);
 				return $result;
 			}
 
@@ -862,11 +862,11 @@ class config
 
 		if(!$only_one_value)
 		{
-			$result = \dash\db::get($query, null, false, $db_name);
+			$result = \dash\pdo::get($query, [], null, false, $db_name);
 		}
 		else
 		{
-			$result = \dash\db::get($query, 'searchcount', true);
+			$result = \dash\pdo::get($query, [], 'searchcount', true);
 		}
 
 		return $result;

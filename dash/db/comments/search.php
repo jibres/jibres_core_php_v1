@@ -61,7 +61,7 @@ class search
 			$q[where]
 			$q[order]
 		";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 
 		return $result;
 	}

@@ -41,7 +41,7 @@ class users
 
 		$query = "SELECT users.mobile AS `mobile` FROM users WHERE users.mobile IS NOT NULL  $where";
 
-		return \dash\db::get($query, 'mobile');
+		return \dash\pdo::get($query, [], 'mobile');
 	}
 
 	/**
@@ -51,14 +51,14 @@ class users
 	public static function count_ok_users()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM users WHERE users.status NOT IN ('removed', 'unreachable') ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function count_users_have_permission()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM users WHERE users.status NOT IN ('removed', 'unreachable') AND users.permission IS NOT NULL ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -94,7 +94,7 @@ class users
 		if($where)
 		{
 			$query = "SELECT COUNT(*) AS `count` FROM users WHERE $where ";
-			return \dash\db::get($query, 'count', true);
+			return \dash\pdo::get($query, [], 'count', true);
 		}
 	}
 
@@ -102,40 +102,40 @@ class users
 	public static function get_by_mobile($_mobile)
 	{
 		$query = "SELECT * FROM users WHERE users.mobile = '$_mobile' ORDER BY users.id ASC LIMIT 1";
-		return \dash\db::get($query, null, true);
+		return \dash\pdo::get($query, [], null, true);
 	}
 
 
 	public static function get_by_jibres_user_id($_user_id)
 	{
 		$query = "SELECT * FROM users WHERE users.jibres_user_id = '$_user_id' LIMIT 1";
-		return \dash\db::get($query, null, true);
+		return \dash\pdo::get($query, [], null, true);
 	}
 
 	public static function jibres_get_by_id($_id)
 	{
 		$query = "SELECT * FROM users WHERE users.id = $_id  LIMIT 1";
-		return \dash\db::get($query, null, true, 'master');
+		return \dash\pdo::get($query, [], null, true, 'master');
 	}
 
 	public static function jibres_get_by_mobile($_mobile)
 	{
 		$query = "SELECT * FROM users WHERE users.mobile = '$_mobile' ORDER BY users.id ASC LIMIT 1";
-		return \dash\db::get($query, null, true, 'master');
+		return \dash\pdo::get($query, [], null, true, 'master');
 	}
 
 
 	public static function jibres_get_by_email($_email)
 	{
 		$query = "SELECT * FROM users WHERE users.email = '$_email' ORDER BY users.id ASC LIMIT 1 ";
-		return \dash\db::get($query, null, true, 'master');
+		return \dash\pdo::get($query, [], null, true, 'master');
 	}
 
 
 	public static function jibres_get_by_username($_username)
 	{
 		$query = "SELECT * FROM users WHERE users.username = '$_username' ORDER BY users.id ASC LIMIT 1";
-		return \dash\db::get($query, null, true, 'master');
+		return \dash\pdo::get($query, [], null, true, 'master');
 	}
 
 
@@ -144,28 +144,28 @@ class users
 	public static function get_by_displayname($_displayname)
 	{
 		$query = "SELECT * FROM users WHERE users.displayname = '$_displayname' LIMIT 1";
-		return \dash\db::get($query, null, true);
+		return \dash\pdo::get($query, [], null, true);
 	}
 
 
 	public static function get_by_id($_user_id)
 	{
 		$query = "SELECT * FROM users WHERE users.id = '$_user_id' LIMIT 1";
-		return \dash\db::get($query, null, true);
+		return \dash\pdo::get($query, [], null, true);
 	}
 
 
 	public static function get_by_email($_email)
 	{
 		$query = "SELECT * FROM users WHERE users.email = '$_email' ORDER BY users.id ASC LIMIT 1 ";
-		return \dash\db::get($query, null, true);
+		return \dash\pdo::get($query, [], null, true);
 	}
 
 
 	public static function get_by_username($_username)
 	{
 		$query = "SELECT * FROM users WHERE users.username = '$_username' ORDER BY users.id ASC LIMIT 1";
-		return \dash\db::get($query, null, true);
+		return \dash\pdo::get($query, [], null, true);
 	}
 
 	public static function search($_string = null, $_options = [])
@@ -304,7 +304,7 @@ class users
 	public static function permission_group()
 	{
 		$query = "SELECT COUNT(*) AS `count`, users.permission AS `permission` FROM users GROUP BY users.permission";
-		return \dash\db::get($query, ['permission', 'count']);
+		return \dash\pdo::get($query, [], ['permission', 'count']);
 	}
 
 	public static function get_by_permission($_permission)
@@ -350,7 +350,7 @@ class users
 				users
 			GROUP BY users.gender
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -366,7 +366,7 @@ class users
 				users
 			GROUP BY users.status
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -388,7 +388,7 @@ class users
 				SELECT COUNT(*) AS `count`, 'android' 	AS `type`	FROM user_android
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -423,7 +423,7 @@ class users
 			return false;
 		}
 
-		$find_user = \dash\db::get($query, null, true);
+		$find_user = \dash\pdo::get($query, [], null, true);
 
 		if($find_user)
 		{

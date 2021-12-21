@@ -27,7 +27,7 @@ class update
 				store.id != $_current_store_id
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		if($result)
 		{
@@ -59,7 +59,7 @@ class update
 				store_user.user_id = $_user_id
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		if($result)
 		{

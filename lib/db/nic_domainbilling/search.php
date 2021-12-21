@@ -72,7 +72,7 @@ class search
 
 		$query = "SELECT domainbilling.*, domain.name, domain.verify FROM domainbilling LEFT JOIN domain ON domain.id = domainbilling.domain_id $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 
 		return $result;
 	}
@@ -104,7 +104,7 @@ class search
 				COUNT(domain.id) AS `domain_count`
 			FROM domainbilling LEFT JOIN domain ON domain.id = domainbilling.domain_id $q[where]  GROUP BY domainbilling.user_id $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 
 
 		return $result;

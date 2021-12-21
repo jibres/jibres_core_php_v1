@@ -25,7 +25,7 @@ class search
 
 			$q[where] $q[order] $limit";
 
-		$result = \dash\db::get($query, null, false);
+		$result = \dash\pdo::get($query, [], null, false);
 
 		return $result;
 	}
@@ -55,7 +55,7 @@ class search
 
 			$q[where] $q[order] $limit";
 
-		$result = \dash\db::get($query, null, false);
+		$result = \dash\pdo::get($query, [], null, false);
 
 		return $result;
 	}
@@ -82,7 +82,7 @@ class search
 
 			$q[where] $q[order] $limit";
 
-		$result = \dash\db::get($query, null, false);
+		$result = \dash\pdo::get($query, [], null, false);
 
 		return $result;
 	}

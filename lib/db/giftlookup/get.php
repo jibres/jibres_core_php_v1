@@ -9,7 +9,7 @@ class get
 	public static function count_lookup()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM giftlookup ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -17,21 +17,21 @@ class get
 	public static function count_lookup_id($_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM giftlookup WHERE giftlookup.gift_id = $_id";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function count_lookup_id_valid($_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM giftlookup WHERE giftlookup.gift_id = $_id AND giftlookup.valid = 'yes' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function count_lookup_id_invalid($_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM giftlookup WHERE giftlookup.gift_id = $_id AND giftlookup.valid != 'yes' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -40,7 +40,7 @@ class get
 	public static function count_lookupfaild()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM giftlookup WHERE giftlookup.valid != 'yes' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -66,7 +66,7 @@ class get
 				giftlookup.datecreated >= '$_enddate'
 			GROUP BY $CASE
 		";
-		$result = \dash\db::get($query, ['month', 'count']);
+		$result = \dash\pdo::get($query, [], ['month', 'count']);
 		return $result;
 	}
 
@@ -87,7 +87,7 @@ class get
 			GROUP BY MONTH(giftlookup.datecreated)
 		";
 
-		$result = \dash\db::get($query, ['month', 'count']);
+		$result = \dash\pdo::get($query, [], ['month', 'count']);
 
 		return $result;
 	}

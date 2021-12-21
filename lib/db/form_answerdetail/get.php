@@ -8,7 +8,7 @@ class get
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -36,21 +36,21 @@ class get
 	public static function by_items_id_answer($_item_ids, $_answer)
 	{
 		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.item_id IN ($_item_ids) AND form_answerdetail.answer IN ('$_answer') LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function by_item_id_answer($_item_id, $_answer)
 	{
 		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.item_id = $_item_id AND form_answerdetail.answer = '$_answer' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function by_item_id($_item_id)
 	{
 		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.item_id = $_item_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -58,7 +58,7 @@ class get
 	{
 		$where = \dash\db\config::make_where($_where);
 		$query = "SELECT * FROM form_answerdetail WHERE $where LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -78,7 +78,7 @@ class get
 				form_answerdetail.item_id = $_item_id
 		";
 
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 
 		return $result;
 
@@ -141,7 +141,7 @@ class get
 				form_answerdetail.item_id = $_item_id
 		";
 
-		$result = \dash\db::get($query, 'answer');
+		$result = \dash\pdo::get($query, [], 'answer');
 		return $result;
 	}
 

@@ -23,7 +23,7 @@ class search
 				$q[order]
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}

@@ -14,7 +14,7 @@ trait total_paid
 			WHERE
 				transactions.verify = 1
 		";
-		return \dash\db::get($query, 'total', true);
+		return \dash\pdo::get($query, [], 'total', true);
 	}
 
 
@@ -29,7 +29,7 @@ trait total_paid
 			WHERE
 				transactions.verify = 1
 		";
-		return \dash\db::get($query, 'total', true);
+		return \dash\pdo::get($query, [], 'total', true);
 	}
 
 
@@ -56,7 +56,7 @@ trait total_paid
 				transactions.verify = 1
 				$where
 		";
-		return \dash\db::get($query, 'total', true);
+		return \dash\pdo::get($query, [], 'total', true);
 	}
 
 
@@ -85,7 +85,7 @@ trait total_paid
 
 		";
 
-		return \dash\db::get($query, 'total', true);
+		return \dash\pdo::get($query, [], 'total', true);
 	}
 
 
@@ -111,7 +111,7 @@ trait total_paid
 				transactions.verify = 1
 				$where
 		";
-		return \dash\db::get($query, 'total', true);
+		return \dash\pdo::get($query, [], 'total', true);
 	}
 }
 ?>

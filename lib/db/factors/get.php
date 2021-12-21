@@ -6,14 +6,14 @@ class get
 	public static function count_by_customer($_user_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id AND factors.status != 'deleted' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
 	public static function check_used_discount_id($_discount_id)
 	{
 		$query = "SELECT factors.id FROM factors WHERE factors.discount_id = $_discount_id AND factors.status != 'deleted' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return floatval($result);
 	}
 
@@ -21,7 +21,7 @@ class get
 	public static function user_discount_usage_count($_discount_id, $_user_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id AND factors.discount_id = $_discount_id AND factors.status != 'deleted' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -29,7 +29,7 @@ class get
 	public static function discount_usage_total_count($_discount_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.discount_id = $_discount_id AND factors.status != 'deleted' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -50,7 +50,7 @@ class get
 				`year_month`
 		";
 
-		$result = \dash\db::get($query, null, false, $_fuel, ['database' => $_dbname]);
+		$result = \dash\pdo::get($query, [], null, false, $_fuel, ['database' => $_dbname]);
 
 		return $result;
 	}
@@ -59,7 +59,7 @@ class get
 	public static function count_factor_record_per_user($_user_id, $_start_date)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.customer = $_user_id AND factors.status = 'registered' AND factors.date > '$_start_date' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -67,7 +67,7 @@ class get
 	public static function count_factor_record_per_ip($_ip_id, $_start_date)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.status = 'registered' AND factors.date > '$_start_date' AND factors.ip_id = $_ip_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -75,7 +75,7 @@ class get
 	public static function count_factor_record_per_ip_agent($_ip_id, $_agent_id, $_start_date)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM factors WHERE factors.status = 'registered' AND factors.date > '$_start_date' AND factors.ip_id = $_ip_id AND factors.agent_id = $_agent_id  ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -83,7 +83,7 @@ class get
 	public static function sum_all()
 	{
 		$query   = "SELECT SUM(factors.total) AS `sum` FROM factors where factors.status != 'deleted' ";
-		$result = \dash\db::get($query, 'sum', true);
+		$result = \dash\pdo::get($query, [], 'sum', true);
 		return $result;
 	}
 
@@ -91,14 +91,14 @@ class get
 	public static function count_all()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM factors where factors.status != 'deleted' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function count_all_buy()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM factors where factors.status != 'deleted' AND factors.type = 'buy' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -106,7 +106,7 @@ class get
 	public static function count_all_sale()
 	{
 		$query   = "SELECT COUNT(*) AS `count` FROM factors where factors.status != 'deleted' AND factors.type = 'sale' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -114,7 +114,7 @@ class get
 	public static function last_order($_user_id)
 	{
 		$query = "SELECT factors.*  FROM factors WHERE factors.type = 'sale' AND factors.customer = $_user_id ORDER BY factors.id DESC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result ? $result : null;
 	}
 
@@ -124,7 +124,7 @@ class get
 	public static function total_order_user_count($_user_id)
 	{
 		$query = "SELECT COUNT(*) as `count`  FROM factors WHERE factors.type = 'sale' AND factors.customer = $_user_id AND factors.status != 'deleted' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result ? $result : null;
 	}
 
@@ -132,7 +132,7 @@ class get
 	public static function average_order_pay_user($_user_id)
 	{
 		$query = "SELECT AVG(factors.total) as `avg`  FROM factors WHERE factors.type = 'sale' AND factors.customer = $_user_id AND factors.status != 'deleted' ";
-		$result = \dash\db::get($query, 'avg', true);
+		$result = \dash\pdo::get($query, [], 'avg', true);
 		return $result ? $result : null;
 	}
 
@@ -140,7 +140,7 @@ class get
 	public static function total_order_pay_user($_user_id)
 	{
 		$query = "SELECT SUM(factors.total) as `sum`  FROM factors WHERE factors.type = 'sale' AND factors.customer = $_user_id AND factors.status != 'deleted' ";
-		$result = \dash\db::get($query, 'sum', true);
+		$result = \dash\pdo::get($query, [], 'sum', true);
 		return $result ? $result : null;
 	}
 
@@ -174,14 +174,14 @@ class get
 	public static function last_sale_date()
 	{
 		$query = "SELECT factors.datecreated AS `datecreated` FROM factors WHERE factors.type = 'sale' ORDER BY factors.id LIMIT 1";
-		$result = \dash\db::get($query, 'datecreated', true);
+		$result = \dash\pdo::get($query, [], 'datecreated', true);
 		return $result ? $result : null;
 	}
 
 	public static function last_buy_date()
 	{
 		$query = "SELECT factors.datecreated AS `datecreated` FROM factors WHERE factors.type = 'buy' ORDER BY factors.id LIMIT 1";
-		$result = \dash\db::get($query, 'datecreated', true);
+		$result = \dash\pdo::get($query, [], 'datecreated', true);
 		return $result ? $result : null;
 	}
 
@@ -189,14 +189,14 @@ class get
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM factors WHERE factors.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function by_id_user_id($_id, $_user_id)
 	{
 		$query = "SELECT * FROM factors WHERE factors.id = $_id AND factors.customer = $_user_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -204,7 +204,7 @@ class get
 	public static function first_factor_id()
 	{
 		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.status != 'deleted' ORDER BY factors.id ASC LIMIT 1 ";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 
@@ -212,7 +212,7 @@ class get
 	public static function end_factor_id()
 	{
 		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.status != 'deleted' ORDER BY factors.id DESC LIMIT 1 ";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 
@@ -221,14 +221,14 @@ class get
 	public static function prev($_id)
 	{
 		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.id = (SELECT MAX(factors.id) FROM factors WHERE factors.status != 'deleted' AND factors.id < $_id) LIMIT 1 ";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 
 	public static function next($_id)
 	{
 		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.id = (SELECT MIN(factors.id) FROM factors WHERE factors.status != 'deleted' AND factors.id > $_id) LIMIT 1 ";
-		$result = \dash\db::get($query, 'id', true);
+		$result = \dash\pdo::get($query, [], 'id', true);
 		return $result;
 	}
 
@@ -259,7 +259,7 @@ class get
 				$guestid
 			LIMIT 1
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 

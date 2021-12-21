@@ -14,7 +14,7 @@ class dayevent
 	public static function get_all()
 	{
 		$query = "SELECT * FROM dayevent";
-		$result = \dash\db::get($query, null, false);
+		$result = \dash\pdo::get($query, [], null, false);
 		return $result;
 	}
 

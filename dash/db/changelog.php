@@ -15,7 +15,7 @@ class changelog
 	public static function get_by_id($_id)
 	{
 		$query = "SELECT * FROM changelog WHERE changelog.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

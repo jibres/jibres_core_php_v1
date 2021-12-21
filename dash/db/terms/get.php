@@ -72,7 +72,7 @@ class get
 		}
 
 		$query  = "SELECT * FROM terms WHERE terms.url = '$_url' $check_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -80,7 +80,7 @@ class get
 	{
 		$query = "SELECT terms.*, (SELECT COUNT(*) FROM termusages WHERE termusages.term_id = terms.id) AS `count` FROM terms WHERE terms.id = $_id LIMIT 1 ";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}

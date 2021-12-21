@@ -8,7 +8,7 @@ class get
 	public static function get_count_all()
 	{
 		$query = "SELECT COUNT(*) AS `termusages` ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 

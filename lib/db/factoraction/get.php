@@ -8,7 +8,7 @@ class get
 	public static function one($_id)
 	{
 		$query = "SELECT * FROM factoraction WHERE id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -16,7 +16,7 @@ class get
 	public static function by_id_factor_id($_id, $_factor_id)
 	{
 		$query = "SELECT * FROM factoraction WHERE id = $_id AND factoraction.factor_id = $_factor_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -24,14 +24,14 @@ class get
 	public static function count_by_factor_id($_factor_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM factoraction WHERE factoraction.factor_id = $_factor_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function by_action_factor_id($_factor_id, $_action)
 	{
 		$query = "SELECT * FROM factoraction WHERE factoraction.factor_id = $_factor_id AND factoraction.action = '$_action' LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

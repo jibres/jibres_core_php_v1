@@ -62,7 +62,7 @@ class insert
 		if(isset($_args['jibres_user_id']) && $_args['jibres_user_id'] && is_numeric($_args['jibres_user_id']))
 		{
 			$query = " SELECT users.id AS `id` FROM users WHERE users.jibres_user_id = $_args[jibres_user_id] LIMIT 1";
-			$result = \dash\db::get($query, 'id', true, $_feul, ['database' => $_database]);
+			$result = \dash\pdo::get($query, [], 'id', true, $_feul, ['database' => $_database]);
 			return $result;
 		}
 

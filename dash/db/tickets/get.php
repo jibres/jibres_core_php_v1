@@ -7,7 +7,7 @@ class get
 	public static function count_unanswered_user_ticket($_user_id)
 	{
 		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'awaiting' AND tickets.user_id = $_user_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -15,7 +15,7 @@ class get
 	public static function count_unanswered_ip_ticket($_ip)
 	{
 		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'awaiting' AND tickets.ip = '$_ip' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -23,7 +23,7 @@ class get
 	public static function count_unanswered_ip_agent_ticket($_ip, $_agent_id)
 	{
 		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'awaiting' AND tickets.ip = '$_ip' AND tickets.agent_id = $_agent_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -31,7 +31,7 @@ class get
 	public static function count_user_message($_parent)
 	{
 		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_parent AND  tickets.user_id = (SELECT tickets.user_id FROM tickets WHERE tickets.id = $_parent LIMIT 1) ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -39,14 +39,14 @@ class get
 	public static function count_admin_message($_parent)
 	{
 		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_parent AND  tickets.user_id != (SELECT tickets.user_id FROM tickets WHERE tickets.id = $_parent LIMIT 1) ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
 	public static function count_user_message_guest($_parent)
 	{
 		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_parent AND  tickets.user_id IS NULL ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -54,7 +54,7 @@ class get
 	public static function count_admin_message_guest($_parent)
 	{
 		$query = " SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_parent AND  tickets.user_id IS NOT NULL ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -75,7 +75,7 @@ class get
 				tickets.status = 'awaiting'
 		";
 
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 
 	}
@@ -92,7 +92,7 @@ class get
 				tickets.parent  = $_id
 		";
 
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 
 	}
@@ -130,7 +130,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true, $_fuel, ['database' => $_db_name]);
+		$result = \dash\pdo::get($query, [], null, true, $_fuel, ['database' => $_db_name]);
 		return $result;
 
 	}
@@ -152,7 +152,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true, $_fuel, ['database' => $_db_name]);
+		$result = \dash\pdo::get($query, [], null, true, $_fuel, ['database' => $_db_name]);
 		return $result;
 
 	}
@@ -206,7 +206,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}
@@ -232,7 +232,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}
@@ -255,7 +255,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}
@@ -265,7 +265,7 @@ class get
 	public static function conversation_count($_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent = $_id OR tickets.id = $_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -274,7 +274,7 @@ class get
 	public static function count_awaiting()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'awaiting' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -282,7 +282,7 @@ class get
 	public static function count_ticket()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status NOT IN ('deleted', 'spam') ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -290,7 +290,7 @@ class get
 	public static function count_message()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.status NOT IN ('deleted', 'spam') ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -298,7 +298,7 @@ class get
 	public static function count_close()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.parent IS NULL AND tickets.status = 'close' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -306,7 +306,7 @@ class get
 	public static function count_solved()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE  tickets.status NOT IN ('deleted', 'spam') AND tickets.parent IS NULL AND tickets.solved = 1 ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -314,7 +314,7 @@ class get
 	public static function count_unsolved()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM tickets WHERE tickets.status NOT IN ('deleted', 'spam') AND tickets.parent IS NULL AND (tickets.solved = 0 OR tickets.solved IS NULL) ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return floatval($result);
 	}
 
@@ -323,7 +323,7 @@ class get
 	public static function avg_answertime()
 	{
 		$query = "SELECT AVG(tickets.answertime) AS `answertime` FROM tickets WHERE tickets.status NOT IN ('deleted', 'spam') AND tickets.parent IS NULL AND tickets.answertime IS NOT NULL ";
-		$result = \dash\db::get($query, 'answertime', true);
+		$result = \dash\pdo::get($query, [], 'answertime', true);
 		return floatval($result);
 	}
 
@@ -357,7 +357,7 @@ class get
 				$where
 			GROUP BY $CASE
 		";
-		$result = \dash\db::get($query, ['month', 'count']);
+		$result = \dash\pdo::get($query, [], ['month', 'count']);
 		return $result;
 	}
 
@@ -385,7 +385,7 @@ class get
 			GROUP BY MONTH(tickets.datecreated)
 		";
 
-		$result = \dash\db::get($query, ['month', 'count']);
+		$result = \dash\pdo::get($query, [], ['month', 'count']);
 
 		return $result;
 	}

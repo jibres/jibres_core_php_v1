@@ -7,14 +7,14 @@ class get
 	public static function load_code($_code)
 	{
 		$query = "SELECT * FROM login WHERE login.code = '$_code' LIMIT 1";
-		$result = \dash\db::get($query, null, true, null, ['ignore_error' => true]);
+		$result = \dash\pdo::get($query, [], null, true, null, ['ignore_error' => true]);
 		return $result;
 	}
 
 	public static function last_login($_user_id)
 	{
 		$query = "SELECT login.* FROM login WHERE login.user_id = $_user_id ORDER BY login.id DESC LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -33,14 +33,14 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function load_code_force_jibres($_code)
 	{
 		$query = "SELECT * FROM login WHERE login.code = '$_code' LIMIT 1";
-		$result = \dash\db::get($query, null, true, 'master', ['ignore_error' => true]);
+		$result = \dash\pdo::get($query, [], null, true, 'master', ['ignore_error' => true]);
 		return $result;
 	}
 
@@ -74,7 +74,7 @@ class get
 	public static function get_count_all()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM login";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		$result = floatval($result);
 		return $result;
 	}
@@ -97,7 +97,7 @@ class get
 				login_ip.ip
 		";
 
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 
 	}

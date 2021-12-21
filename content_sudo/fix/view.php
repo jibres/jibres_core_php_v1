@@ -32,7 +32,7 @@ class view
 			$query = "	SELECT * FROM producttag where producttag.id in (select producttagusage.producttag_id from producttagusage) ";
 			$store_id = $value['id'];
 			$dbname = \dash\engine\store::make_database_name($store_id);
-			$resutl = \dash\db::get($query, null, false, $value['fuel'], ['database' => $dbname]);
+			$resutl = \dash\pdo::get($query, [], null, false, $value['fuel'], ['database' => $dbname]);
 
 			if($resutl)
 			{
@@ -40,7 +40,7 @@ class view
 				{
 
 					$query = "	SELECT *  FROM productcategory where productcategory.title  = '$one_tag[title]' LIMIT 1 ";
-					$category_detail = \dash\db::get($query, null, true, $value['fuel'], ['database' => $dbname]);
+					$category_detail = \dash\pdo::get($query, [], null, true, $value['fuel'], ['database' => $dbname]);
 
 					if(isset($category_detail['id']))
 					{
@@ -59,12 +59,12 @@ class view
 					{
 						$old_tag_id = $one_tag['id'];
 						$query = "	SELECT *  FROM producttagusage where producttagusage.producttag_id  = '$old_tag_id' ";
-						$all_old_usage_tag = \dash\db::get($query, null, false, $value['fuel'], ['database' => $dbname]);
+						$all_old_usage_tag = \dash\pdo::get($query, [], null, false, $value['fuel'], ['database' => $dbname]);
 
 						foreach ($all_old_usage_tag as $old_usage_tag)
 						{
 							$query = "	SELECT *  FROM productcategoryusage where productcategoryusage.productcategory_id  = '$tag_id' AND productcategoryusage.product_id = '$old_usage_tag[product_id]' LIMIT 1 ";
-							$tag_usage_detail = \dash\db::get($query, null, true, $value['fuel'], ['database' => $dbname]);
+							$tag_usage_detail = \dash\pdo::get($query, [], null, true, $value['fuel'], ['database' => $dbname]);
 
 							if(isset($tag_usage_detail['product_id']))
 							{

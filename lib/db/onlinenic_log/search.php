@@ -72,7 +72,7 @@ class search
 
 		$query = "SELECT log.* FROM log $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'onlinenic_log');
+		$result = \dash\pdo::get($query, [], null, false, 'onlinenic_log');
 
 		return $result;
 	}

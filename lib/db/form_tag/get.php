@@ -50,7 +50,7 @@ class get
 		";
 
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		return $result;
 	}
@@ -60,21 +60,21 @@ class get
 	public static function get_count_answer($_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM form_tagusage WHERE  form_tagusage.form_tag_id = $_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function by_id($_id)
 	{
 		$query  = "SELECT * FROM form_tag WHERE form_tag.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function by_title($_title, $_form_id)
 	{
 		$query  = "SELECT * FROM form_tag WHERE form_tag.title = '$_title' AND form_tag.form_id = $_form_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -82,7 +82,7 @@ class get
 	public static function by_slug($_slug)
 	{
 		$query  = "SELECT * FROM form_tag WHERE form_tag.slug = '$_slug' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -90,21 +90,21 @@ class get
 	public static function count_all()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM form_tag ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function check_unique_slug($_slug, $_form_id)
 	{
 		$query  = "SELECT * FROM form_tag WHERE form_tag.slug = '$_slug' AND form_tag.form_id = $_form_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function check_duplicate($_slug, $_language)
 	{
 		$query  = "SELECT * FROM form_tag WHERE form_tag.slug = '$_slug' AND form_tag.language = '$_language' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -113,7 +113,7 @@ class get
 	public static function check_duplicate_title($_title, $_form_id)
 	{
 		$query  = "SELECT * FROM form_tag WHERE form_tag.title = '$_title' AND form_tag.form_id = $_form_id  LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 }

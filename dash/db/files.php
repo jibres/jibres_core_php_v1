@@ -21,14 +21,14 @@ class files
 	public static function count_all()
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM files ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function total_size()
 	{
 		$query = "SELECT SUM(files.totalsize) AS `sum` FROM files ";
-		$result = \dash\db::get($query, 'sum', true);
+		$result = \dash\pdo::get($query, [], 'sum', true);
 		return $result;
 	}
 
@@ -37,7 +37,7 @@ class files
 	public static function get_usages_count($_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM fileusage WHERE fileusage.file_id = $_id";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -45,7 +45,7 @@ class files
 	public static function set_unknown_fileusage($_relate, $_user_id, $_relate_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM fileusage WHERE fileusage.user_id = $_user_id AND  fileusage.related = '$_relate' AND fileusage.related_id IS NULL";
-		$count = \dash\db::get($query, 'count', true);
+		$count = \dash\pdo::get($query, [], 'count', true);
 
 		if($count && is_numeric($count))
 		{
@@ -71,7 +71,7 @@ class files
 	public static function attachment_count()
 	{
 		$query = "SELECT COUNT(*) AS 'count' FROM files ";
-		$count = \dash\db::get($query,'count', true);
+		$count = \dash\pdo::get($query, [],'count', true);
 		return $count;
 	}
 
@@ -83,7 +83,7 @@ class files
 	public static function duplicate($_md5)
 	{
 		$query = "SELECT * FROM files WHERE files.md5 = '$_md5' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -98,7 +98,7 @@ class files
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM files WHERE files.id = $_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

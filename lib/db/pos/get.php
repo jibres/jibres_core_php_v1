@@ -15,7 +15,7 @@ class get
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM pos WHERE id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -32,7 +32,7 @@ class get
 	public static function default_pos()
 	{
 		$query = "SELECT * FROM pos WHERE pos.isdefault = 1 LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 }

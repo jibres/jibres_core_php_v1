@@ -7,7 +7,7 @@ class get
 	public static function by_id_type(int $_id, string $_type)
 	{
 		$query  = "SELECT * FROM posts WHERE posts.id = $_id AND posts.type = '$_type' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -15,14 +15,14 @@ class get
 	public static function have_any_published_post()
 	{
 		$query  = "SELECT * FROM posts WHERE posts.status = 'publish' AND posts.type != 'pagebuilder' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function have_any_pagebuilder()
 	{
 		$query  = "SELECT * FROM posts WHERE posts.type = 'pagebuilder' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -65,7 +65,7 @@ class get
 		}
 
 		$query  = "SELECT * FROM posts WHERE posts.url = '$_url' $check_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -79,7 +79,7 @@ class get
 	public static function by_id($_id)
 	{
 		$query  = "SELECT * FROM posts WHERE posts.id = $_id  LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -94,14 +94,14 @@ class get
 	public static function check_duplicate($_slug, $_language)
 	{
 		$query  = "SELECT * FROM posts WHERE posts.slug = '$_slug' AND posts.language = '$_language' LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function check_duplicate_slug($_slug)
 	{
 		$query  = "SELECT * FROM posts WHERE posts.slug = '$_slug' LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -110,7 +110,7 @@ class get
 	{
 		$where  = \dash\db\config::make_where($_args);
 		$query  = "SELECT * FROM posts WHERE $where LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -141,7 +141,7 @@ class get
 			GROUP BY $CASE
 		";
 
-		$result = \dash\db::get($query, ['month', 'count']);
+		$result = \dash\pdo::get($query, [], ['month', 'count']);
 
 		return $result;
 	}
@@ -164,7 +164,7 @@ class get
 			GROUP BY MONTH(posts.datecreated)
 		";
 
-		$result = \dash\db::get($query, ['month', 'count']);
+		$result = \dash\pdo::get($query, [], ['month', 'count']);
 
 		return $result;
 	}

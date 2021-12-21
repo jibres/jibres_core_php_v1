@@ -9,7 +9,7 @@ class get
 	public static function count_all()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM productunit ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -40,7 +40,7 @@ class get
 	public static function one($_id)
 	{
 		$query  = "SELECT productunit.*, (SELECT COUNT(*) FROM products WHERE products.unit_id = $_id) AS `count` FROM productunit WHERE  productunit.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -48,7 +48,7 @@ class get
 	public static function count_unit($_id)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE products.unit_id = $_id ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -68,7 +68,7 @@ class get
 			LIMIT 1
 		";
 
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 }

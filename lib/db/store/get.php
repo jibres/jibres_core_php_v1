@@ -18,7 +18,7 @@ class get
 				`year_month`
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -37,7 +37,7 @@ class get
 				`year`
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -57,7 +57,7 @@ class get
 			ORDER BY myDate ASC
 		";
 
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 
 		return $result;
 	}
@@ -66,14 +66,14 @@ class get
 	public static function reserved_business()
 	{
 		$query  = "SELECT store.id AS `id` FROM store WHERE store.status = 'awaiting' AND store.creator IS NULL AND store.subdomain IS NULL ORDER BY store.id ASC LIMIT 1 FOR UPDATE";
-		$result = \dash\db::get($query, 'id', true, 'master');
+		$result = \dash\pdo::get($query, [], 'id', true, 'master');
 		return $result;
 	}
 
 	public static function count_reserved_business()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM store WHERE store.status = 'awaiting' AND store.creator IS NULL AND store.subdomain IS NULL ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
@@ -90,7 +90,7 @@ class get
 			WHERE
 				store_data.owner = $_user_id
 		";
-		$result = \dash\db::get($query, 'sum', true, 'master');
+		$result = \dash\pdo::get($query, [], 'sum', true, 'master');
 
 		return $result;
 	}
@@ -108,7 +108,7 @@ class get
 			WHERE
 				store_data.owner = $_user_id
 		";
-		$result = \dash\db::get($query, 'sum', true, 'master');
+		$result = \dash\pdo::get($query, [], 'sum', true, 'master');
 
 		return $result;
 	}
@@ -117,7 +117,7 @@ class get
 	public static function count_store_analytics_product()
 	{
 		$query = "SELECT SUM(store_analytics.product) AS `product` FROM store_analytics ";
-		$result = \dash\db::get($query, 'product', true);
+		$result = \dash\pdo::get($query, [], 'product', true);
 		return floatval($result);
 	}
 
@@ -125,7 +125,7 @@ class get
 	public static function count_store_analytics_factor()
 	{
 		$query = "SELECT SUM(store_analytics.factor) AS `factor` FROM store_analytics ";
-		$result = \dash\db::get($query, 'factor', true);
+		$result = \dash\pdo::get($query, [], 'factor', true);
 		return floatval($result);
 	}
 
@@ -133,7 +133,7 @@ class get
 	public static function sum_store_analytics_factor()
 	{
 		$query = "SELECT SUM(store_analytics.sumfactor) AS `sumfactor` FROM store_analytics WHERE (store_analytics.sumfactor / store_analytics.factor) < 50000000 ";
-		$result = \dash\db::get($query, 'sumfactor', true);
+		$result = \dash\pdo::get($query, [], 'sumfactor', true);
 		return floatval($result);
 	}
 
@@ -152,7 +152,7 @@ class get
 			INNER JOIN store_data ON store_data.id = store.id
 			ORDER BY store.id ASC
 		";
-		$result = \dash\db::get($query, null, false, 'master');
+		$result = \dash\pdo::get($query, [], null, false, 'master');
 		return $result;
 	}
 
@@ -178,21 +178,21 @@ class get
 	public static function all_version()
 	{
 		$query = "SELECT dbversion FROM store ";
-		$result = \dash\db::get($query, 'dbversion');
+		$result = \dash\pdo::get($query, [], 'dbversion');
 		return $result;
 	}
 
 	public static function subdomain_exist($_subdomain)
 	{
 		$query = "SELECT * FROM store WHERE store.subdomain = '$_subdomain' LIMIT 1";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
 	public static function detail($_store_id)
 	{
 		$query = "SELECT * FROM store WHERE store.id = $_store_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -200,7 +200,7 @@ class get
 	public static function data($_store_id)
 	{
 		$query = "SELECT * FROM store_data WHERE store_data.id = $_store_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -208,7 +208,7 @@ class get
 	public static function count_free_trial($_user_id)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM store WHERE store.creator = $_user_id ";
-		$result = \dash\db::get($query, 'count', true, 'master');
+		$result = \dash\pdo::get($query, [], 'count', true, 'master');
 		return $result;
 	}
 
@@ -216,7 +216,7 @@ class get
 	public static function subdomain($_subdomain)
 	{
 		$query = "SELECT * FROM store WHERE store.subdomain = '$_subdomain' LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
@@ -224,14 +224,14 @@ class get
 	public static function subdomain_detail($_subdomain)
 	{
 		$query = "SELECT * FROM store WHERE store.subdomain = '$_subdomain' LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM store WHERE store.id = $_id LIMIT 1 ";
-		$result = \dash\db::get($query, null, true, 'master');
+		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
 }

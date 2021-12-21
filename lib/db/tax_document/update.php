@@ -77,7 +77,7 @@ class update
 	{
 		$query = "SELECT (SUM(tax_docdetail.debtor) - SUM(tax_docdetail.creditor)) AS `balance` FROM tax_docdetail WHERE tax_docdetail.tax_document_id = $_id ";
 
-		$result = \dash\db::get($query, 'balance', true);
+		$result = \dash\pdo::get($query, [], 'balance', true);
 
 		if($result === '0.0000')
 		{

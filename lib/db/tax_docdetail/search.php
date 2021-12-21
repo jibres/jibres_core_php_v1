@@ -77,7 +77,7 @@ class search
 			$q[where]
 			$q[order]
 		";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 
 		unset($_and['special_type']);
 
@@ -97,7 +97,7 @@ class search
 			$q[where]
 			$q[order]
 		";
-		$result_opening = \dash\db::get($query, null, true);
+		$result_opening = \dash\pdo::get($query, [], null, true);
 
 		if(is_array($result_opening) && is_array($result))
 		{

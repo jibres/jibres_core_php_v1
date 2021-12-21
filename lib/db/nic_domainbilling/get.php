@@ -17,7 +17,7 @@ class get
 				domainbilling.action = 'register'
 		";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 		return $result;
 	}
 
@@ -31,7 +31,7 @@ class get
 
 		$query  = "SELECT SUM(domainbilling.finalprice) AS `price` FROM domainbilling WHERE domainbilling.user_id = $_user_id $date";
 
-		$result = \dash\db::get($query, 'price', true, 'nic');
+		$result = \dash\pdo::get($query, [], 'price', true, 'nic');
 
 		return $result;
 	}
@@ -50,7 +50,7 @@ class get
 				domainbilling.action
 		";
 
-		$result = \dash\db::get($query, ['action', 'count'], false, 'nic');
+		$result = \dash\pdo::get($query, [], ['action', 'count'], false, 'nic');
 		return $result;
 	}
 
@@ -67,7 +67,7 @@ class get
 				domainbilling
 		";
 
-		$result = \dash\db::get($query, null, true, 'nic');
+		$result = \dash\pdo::get($query, [], null, true, 'nic');
 
 		return $result;
 	}
@@ -88,7 +88,7 @@ class get
 				`mydate`
 		";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 		return $result;
 	}
 
@@ -109,7 +109,7 @@ class get
 				`month`,`year`
 		";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 		return $result;
 	}
 
@@ -131,7 +131,7 @@ class get
 
 		$query  = "SELECT COUNT(*) AS `count` FROM domainbilling WHERE 1 $date";
 
-		$result = \dash\db::get($query, 'count', true, 'nic');
+		$result = \dash\pdo::get($query, [], 'count', true, 'nic');
 
 		return $result;
 	}
@@ -141,7 +141,7 @@ class get
 	public static function count_group_by_action()
 	{
 		$query  = "SELECT COUNT(*) AS `count`, domainbilling.action FROM domainbilling  GROUP BY domainbilling.action";
-		$result = \dash\db::get($query, ['action', 'count'], false, 'nic');
+		$result = \dash\pdo::get($query, [], ['action', 'count'], false, 'nic');
 		return $result;
 	}
 
@@ -163,7 +163,7 @@ class get
 				DATE(domainbilling.datecreated)
 		";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 		return $result;
 	}
 }

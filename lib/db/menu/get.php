@@ -13,7 +13,7 @@ class get
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM menu WHERE menu.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -21,14 +21,14 @@ class get
 	public static function master_by_id($_id)
 	{
 		$query = "SELECT * FROM menu WHERE menu.id = $_id AND menu.parent1 IS NULL AND menu.parent2 IS NULL AND menu.parent3 IS NULL AND menu.parent4 IS NULL AND menu.parent5 IS NULL LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
 	public static function child_by_master_id($_master_id, $_id)
 	{
 		$query = "SELECT * FROM menu WHERE menu.id = $_id AND menu.parent1 = $_master_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -41,7 +41,7 @@ class get
 	public static function load_one_by_for_id($_for, $_for_id, $_menu_id)
 	{
 		$query = "SELECT * FROM menu WHERE menu.id = $_menu_id AND menu.for = '$_for' AND menu.for_id = $_for_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -52,7 +52,7 @@ class get
 	public static function parent_by_for_id($_for, $_for_id)
 	{
 		$query = "SELECT * FROM menu WHERE menu.for = '$_for' AND menu.for_id = $_for_id AND menu.parent1 IS NULL LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -71,7 +71,7 @@ class get
 	public static function get_used_social($_social_network)
 	{
 		$query = "SELECT * FROM menu WHERE menu.pointer = 'socialnetwork' AND menu.socialnetwork = '$_social_network' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -79,7 +79,7 @@ class get
 	public static function get_used($_pointer, $_related_id)
 	{
 		$query = "SELECT * FROM menu WHERE menu.pointer = '$_pointer' AND menu.related_id = $_related_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -140,7 +140,7 @@ class get
 				menu.parent4 = $_id OR
 				menu.parent5 = $_id
 		";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 

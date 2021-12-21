@@ -9,7 +9,7 @@ class search
 	{
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 		$query = "SELECT COUNT(*) AS `count` FROM domain $q[join] $q[where] ";
-		$result = \dash\db::get($query, 'count', true, 'nic');
+		$result = \dash\pdo::get($query, [], 'count', true, 'nic');
 		return $result;
 	}
 
@@ -21,7 +21,7 @@ class search
 
 		$query = "SELECT domain.dateexpire, domain.id, domain.registrar, domain.name FROM domain $q[join] $q[where] $q[order] ";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 
 		return $result;
 	}
@@ -48,7 +48,7 @@ class search
 
 		$query = "SELECT $q[fields] FROM domain $q[join] $q[where] $q[order] $limit ";
 
-		$result = \dash\db::get($query, null, false, 'nic');
+		$result = \dash\pdo::get($query, [], null, false, 'nic');
 
 		return $result;
 	}

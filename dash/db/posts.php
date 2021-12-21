@@ -53,7 +53,7 @@ class posts
 			GROUP BY posts.status
 		";
 
-		$result = \dash\db::get($query, ['status', 'count']);
+		$result = \dash\pdo::get($query, [], ['status', 'count']);
 		return $result;
 
 	}
@@ -68,14 +68,14 @@ class posts
 	public static function get_active_count()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function avg_seorank()
 	{
 		$query  = "SELECT AVG(posts.seorank) AS `rank` FROM posts WHERE posts.status = 'publish' AND posts.type IN ('post', 'page') ";
-		$result = \dash\db::get($query, 'rank', true);
+		$result = \dash\pdo::get($query, [], 'rank', true);
 		return $result;
 	}
 
@@ -86,7 +86,7 @@ class posts
 	public static function get_active_count_subtype($_subtype)
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') AND posts.subtype = '$_subtype' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -94,21 +94,21 @@ class posts
 	public static function get_count_special_address()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') AND posts.specialaddress != 'independence' ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function get_count_have_cover()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') AND posts.cover IS NOT NULL ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
 	public static function get_count_published()
 	{
 		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status = 'publish' AND posts.type IN ('post', 'page') ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 

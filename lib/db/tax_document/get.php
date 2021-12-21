@@ -83,7 +83,7 @@ class get
 			$type
 		";
 
-		$result = \dash\db::get($query, 'balance', true);
+		$result = \dash\pdo::get($query, [], 'balance', true);
 
 		return $result;
 
@@ -110,7 +110,7 @@ class get
 			GROUP BY tax_document.template
 		";
 
-		$result = \dash\db::get($query, ['template', 'count']);
+		$result = \dash\pdo::get($query, [], ['template', 'count']);
 		return $result;
 	}
 
@@ -126,7 +126,7 @@ class get
 
 		$query  = " SELECT count(*) AS `count` FROM tax_document WHERE tax_document.status IN ('draft', 'lock') AND tax_document.gallery IS NULL $year_id ";
 
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -141,7 +141,7 @@ class get
 
 		$query  = " SELECT count(*) AS `count` FROM tax_document WHERE tax_document.status = 'lock' $year_id ";
 
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -156,7 +156,7 @@ class get
 
 		$query  = " SELECT count(*) AS `count` FROM tax_document WHERE tax_document.status NOT IN ('deleted') $year_id ";
 
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -215,7 +215,7 @@ class get
 	public static function check_duplicate_type($_year_id, $_type)
 	{
 		$query = "SELECT * FROM tax_document WHERE tax_document.year_id = $_year_id AND tax_document.type = '$_type' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -223,7 +223,7 @@ class get
 	public static function opening_doc($_year_id)
 	{
 		$query = "SELECT * FROM tax_document WHERE tax_document.year_id = $_year_id AND tax_document.type = 'opening' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -244,14 +244,14 @@ class get
 		}
 		$query = "SELECT MAX(tax_document.number) as `number` FROM tax_document $year_id";
 
-		$result = \dash\db::get($query, 'number', true);
+		$result = \dash\pdo::get($query, [], 'number', true);
 		return $result;
 	}
 
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM tax_document WHERE tax_document.id = $_id LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
@@ -259,7 +259,7 @@ class get
 	public static function check_duplicate_number($_number, $_year_id)
 	{
 		$query = "SELECT * FROM tax_document WHERE tax_document.number = $_number AND tax_document.year_id = $_year_id AND tax_document.status = 'lock' LIMIT 1";
-		$result = \dash\db::get($query, null, true);
+		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 

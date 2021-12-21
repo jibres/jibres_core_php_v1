@@ -8,7 +8,7 @@ class search_table
 	public static function get_count_all($_table)
 	{
 		$query = "SELECT COUNT(*) AS `count`	FROM `$_table` ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
 
@@ -16,7 +16,7 @@ class search_table
 	{
 		$where = implode(' AND ', $_where);
 		$query = "SELECT COUNT(*) AS `count`	FROM `$_table` WHERE $where ";
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 		if(!is_numeric($result))
 		{
 			return 0;
@@ -43,7 +43,7 @@ class search_table
 
 		";
 
-		$result = \dash\db::get($query, 'count', true);
+		$result = \dash\pdo::get($query, [], 'count', true);
 
 
 		return $result;
