@@ -41,16 +41,9 @@ class model
 					'currency'      => a($value, 'currency') ? 1 : null,
 				];
 
-				$set = \dash\db\config::make_set($temp, ['type' => 'insert']);
+				\dash\pdo\query_template::insert('tax_coding', $temp);
 
-				$insert[] = " INSERT INTO tax_coding SET $set ";
 			}
-
-			$sql = implode("; \n", $insert);
-
-			// \dash\file::write(__DIR__. '/coding.sql', $sql);
-
-			\dash\pdo::query($sql, [], null, ['multi_query' => true]);
 
 			\dash\notif::ok(T_("Accounting coding imported"));
 			\dash\redirect::pwd();
