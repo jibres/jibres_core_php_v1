@@ -188,7 +188,7 @@ class scp
 
 		if(is_null($_mode))
 		{
-			$_mode = 0775;
+			$_mode = \dash\file::folder_permission();
 		}
 
 		try

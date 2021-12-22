@@ -40,6 +40,11 @@ namespace dash;
 /** Files management : write, read, delete, upload... **/
 class file
 {
+	public static function folder_permission()
+	{
+		return 0754;
+	}
+
 
 	/**
 	 * Reads a file and returns its content
@@ -95,11 +100,11 @@ class file
 	 * @param bool $_recursive	Creates the dir recursively
 	 * @return bool	True on success, false on failure
 	 */
-	public static function makeDir($_dirpath, $_mode = 0775, $_recursive = false )
+	public static function makeDir($_dirpath, $_mode = null, $_recursive = false )
 	{
 		if(!$_mode)
 		{
-			$_mode = 0775;
+			$_mode = self::folder_permission();
 		}
 		if(!file_exists($_dirpath))
 		{

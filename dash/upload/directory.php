@@ -83,7 +83,7 @@ class directory
 		{
 			if($folder_loc && !is_dir($folder_loc))
 			{
-				\dash\file::makeDir($folder_loc, 0775, true);
+				\dash\file::makeDir($folder_loc, \dash\file::folder_permission(), true);
 			}
 		}
 
@@ -123,7 +123,7 @@ class directory
 		{
 			if($folder_loc && !is_dir($folder_loc))
 			{
-				\dash\file::makeDir($folder_loc, 0775, true);
+				\dash\file::makeDir($folder_loc, \dash\file::folder_permission(), true);
 			}
 		}
 

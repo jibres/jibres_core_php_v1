@@ -77,7 +77,7 @@ class file
 		// if dir is not created, create it
 		if(!is_dir($fileDest))
 		{
-			\dash\file::makeDir($fileDest, 0775, true);
+			\dash\file::makeDir($fileDest, \dash\file::folder_permission(), true);
 		}
 		// add file name and ext
 		if($_prefix)
