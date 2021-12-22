@@ -68,7 +68,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
 		$query = "SELECT dns.*, (SELECT COUNT(*) FROM customer WHERE customer.dns = dns.id AND customer.status = 'enable') AS `count_usage` FROM dns $q[where] $q[order] $limit ";

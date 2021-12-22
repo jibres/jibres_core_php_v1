@@ -1,5 +1,5 @@
 <?php
-namespace dash\db\mysql\tools;
+namespace dash\db;
 
 class pagination
 {

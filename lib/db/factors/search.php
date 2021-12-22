@@ -68,7 +68,7 @@ class search
 			$q[where]
 		";
 
-		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
+		$limit = \dash\db\pagination::pagination_query($pagination_query);
 
 		$query =
 		"
@@ -100,7 +100,7 @@ class search
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM factors $q[where] ";
 
-		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query);
+		$limit = \dash\db\pagination::pagination_query($pagination_query);
 
 		$query =
 		"

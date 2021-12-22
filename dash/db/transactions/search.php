@@ -9,7 +9,7 @@ class search
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM transactions LEFT JOIN users ON users.id = transactions.user_id $q[where]  ";
 
-		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+		$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
 
 		$query =
 		"

@@ -43,7 +43,7 @@ class search
 		}
 		else
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
 		$query = "SELECT $q[fields] FROM domain $q[join] $q[where] $q[order] $limit ";

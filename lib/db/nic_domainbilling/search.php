@@ -67,7 +67,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
 		$query = "SELECT domainbilling.*, domain.name, domain.verify FROM domainbilling LEFT JOIN domain ON domain.id = domainbilling.domain_id $q[where] $q[order] $limit ";
@@ -89,7 +89,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
 		}
 
 		$query =

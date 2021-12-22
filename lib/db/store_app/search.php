@@ -67,7 +67,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
 		$query = "SELECT store_app.*,store_data.title,store_data.logo FROM store_app LEFT JOIN store_data ON store_data.id = store_app.store_id $q[where] $q[order] $limit ";

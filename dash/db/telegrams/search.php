@@ -21,7 +21,7 @@ class search
 		else
 		{
 			$pagination_query = "SELECT COUNT(*) AS `count` FROM telegrams $q[join] $q[where]  ";
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
 
@@ -41,7 +41,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
 		$query =

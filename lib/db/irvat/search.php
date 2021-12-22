@@ -65,7 +65,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
 		}
 
 		$query = "SELECT ir_vat.* FROM ir_vat $q[where] $q[order] $limit ";

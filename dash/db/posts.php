@@ -293,7 +293,7 @@ class posts
 			";
 
 			$pagenation_query = \dash\pdo::get($pagenation_query, [], 'count', true);
-			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagination((int) $pagenation_query, $_options['limit']);
+			list($limit_start, $limit) = \dash\db\pagination::pagination((int) $pagenation_query, $_options['limit']);
 			$limit = " LIMIT $limit_start, $limit ";
 		}
 
@@ -670,7 +670,7 @@ class posts
 		{
 			$pagenation_query = "SELECT	COUNT(*) AS `count` FROM posts WHERE $where $search ";
 			$pagenation_query = \dash\pdo::get($pagenation_query, [], 'count', true);
-			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagination($pagenation_query, $limit);
+			list($limit_start, $limit) = \dash\db\pagination::pagination($pagenation_query, $limit);
 			$limit = " LIMIT $limit_start, $limit ";
 		}
 		else

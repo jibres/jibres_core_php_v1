@@ -836,7 +836,7 @@ class config
 			}
 
 			$pagenation_query = \dash\pdo::get($pagenation_query, [], 'count', true, $db_name);
-			list($limit_start, $limit) = \dash\db\mysql\tools\pagination::pagination((int) $pagenation_query, $limit);
+			list($limit_start, $limit) = \dash\db\pagination::pagination((int) $pagenation_query, $limit);
 			$limit = " LIMIT $limit_start, $limit ";
 		}
 		else

@@ -118,7 +118,7 @@ class files
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM files $q[join] $q[where]  ";
 
-		$limit = \dash\db\mysql\tools\pagination::pagination_query($pagination_query, $q['limit']);
+		$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
 
 		$query = " SELECT files.* FROM 	files $q[join] $q[where] $q[order] $limit ";
 		$result = \dash\pdo::get($query);
