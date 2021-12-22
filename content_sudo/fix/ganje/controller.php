@@ -8,13 +8,14 @@ class controller
 	{
 		\dash\code::time_limit(0);
 
-		$files = glob('E:\Jibres\ProductData\test11\*');
+		$files     = glob('E:\Jibres\ProductData\test33\*');
+		$ganjePath = "E:\Jibres\ProductData\ganje\\";
+
 		$index = 0;
 		foreach ($files as $file)
 		{
-			$ext = substr($file, -3);
-
-			$extlen     = mb_strlen($ext);
+			$ext    = substr($file, -3);
+			$extlen = mb_strlen($ext);
 
 			if(!in_array($ext, ['jpg', 'png', 'gif']))
 			{
@@ -25,10 +26,12 @@ class controller
 
 			$fileMd5 = md5_file($file);
 			$file_without_ext = substr($file, 0, -$extlen-1);
+			$fileNewLocationJPG = $ganjePath. $fileMd5;
 
 			foreach ($width_list as $width)
 			{
-				$new_path = $file_without_ext . '-w'. $width. '.webp';
+				// $new_path = $file_without_ext . '-w'. $width. '.webp';
+				$new_path = $fileNewLocationJPG. '-w'. $width. '.webp';
 
 				if(is_file($new_path))
 				{
@@ -42,7 +45,7 @@ class controller
 			}
 
 			// save compressed file
-			$tmpNewLocation = YARD. 'jibres_temp/ganje-tmp.jpg';
+			$tmpNewLocation = YARD. 'jibres_temp/ganje-tmp.'. $ext;
 			\dash\utility\image::setQuality(95);
 			\dash\utility\image::load($file);
 			\dash\utility\image::save_loaded_img($tmpNewLocation);
@@ -50,22 +53,21 @@ class controller
 			// calc file size
 			$fileSizeInit = filesize($file);
 			$fileSizeCompressed = filesize($tmpNewLocation);
+
+			$sourceFileAddr = $file;
 			if($fileSizeInit > $fileSizeCompressed)
 			{
 				// good compress
 				// use compressed image
 
-				var_dump($file);
-				var_dump($tmpNewLocation);
+				$sourceFileAddr = $tmpNewLocation;
 
-				\dash\file::move($tmpNewLocation, $file, true);
 			}
-			var_dump($tmpNewLocation);
-			var_dump($fileSizeInit);
-			var_dump($fileSizeCompressed);
+
+			// copy file to new location
+			\dash\file::copy($sourceFileAddr, $fileNewLocationJPG.'.'. $ext, true);
 
 
-			exit();
 
 			// add data of old and new file name to csv
 			$csvData = $index.','. basename($file). ','. $fileMd5. "\n";
