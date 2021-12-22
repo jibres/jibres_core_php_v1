@@ -18,7 +18,7 @@ class apilog
 
 	public static function insert($_args)
 	{
-		// return \dash\pdo\query_template::insert('api_log', $_args, 'api_log');
+		return \dash\pdo\query_template::insert('apilog', $_args, 'api_log');
 	}
 
 
