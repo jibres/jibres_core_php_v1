@@ -76,6 +76,7 @@ class check
 			'cat_id'          => 'int',
 			'unit'            => 'string_50', // in add manual user send the unit
 			'unit_id'         => 'id', // in add by variant we have the unit id
+			'gallery_raw'     => 'bit', // just need to check
 		];
 
 		$require = [];
@@ -219,6 +220,27 @@ class check
 			$data['finalprice']      = floatval($data['finalprice']);
 			$data['vatprice']        = floatval($data['vatprice']);
 		}
+
+		if(\dash\url::is_api() && $data['gallery_raw'])
+		{
+			$temp_gallery_raw_from_api = [];
+
+			if(is_array($_args['gallery_raw']))
+			{
+				foreach ($_args['gallery_raw'] as $key => $value)
+				{
+					if(is_string($value) && substr($value, 0, 26) === 'https://ganje.talambar.ir/')
+					{
+						$temp_gallery_raw_from_api[] = ['path' => $value];
+					}
+				}
+			}
+
+			\dash\temp::set('temp_gallery_raw_from_api', $temp_gallery_raw_from_api);
+		}
+
+		unset($data['gallery_raw']);
+
 
 		return $data;
 	}

@@ -277,6 +277,14 @@ class add
 			}
 		}
 
+		if(\dash\temp::get('temp_gallery_raw_from_api'))
+		{
+			foreach (\dash\temp::get('temp_gallery_raw_from_api') as $key => $value)
+			{
+				gallery::gallery($product_id, $value, 'add');
+			}
+		}
+
 		$return     = [];
 		$args['ok'] = true;
 

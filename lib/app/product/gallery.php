@@ -262,7 +262,7 @@ class gallery
 				{
 					if(isset($one_file['path']) && $one_file['path'] === $file_path)
 					{
-						\dash\notif::error(T_("Duplicate file in this gallery"));
+						\dash\notif::warn(T_("Duplicate file in this gallery"));
 						return false;
 					}
 				}
