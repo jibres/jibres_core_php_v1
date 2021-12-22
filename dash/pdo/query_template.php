@@ -24,6 +24,12 @@ class query_template
 			$fields[]        = $key;
 			$new_key         = ':'. $key;
 			$set[$key]       = $new_key;
+
+			if($value === '')
+			{
+				$value = null;
+			}
+
 			$param[$new_key] = $value;
 		}
 
