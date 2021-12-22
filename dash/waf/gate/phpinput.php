@@ -39,7 +39,7 @@ class phpinput
 						foreach ($value as $k => $v)
 						{
 							post::check_key($k);
-							post::check_key($v);
+							post::check_value($v);
 						}
 					}
 					else
