@@ -89,7 +89,7 @@ class ip
 
 	public static function insert($_args)
 	{
-		return \dash\pdo\query_template::insert('ip', $_args);
+		return \dash\pdo\query_template::insert('ip', $_args, self::ip_fuel());
 	}
 
 
