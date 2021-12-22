@@ -25,8 +25,15 @@ class controller
 			$width_list = \dash\utility\image::responsive_image_size();
 
 			$fileMd5 = md5_file($file);
+			$folderMd5 = substr($fileMd5, 0, 2);
 			$file_without_ext = substr($file, 0, -$extlen-1);
-			$fileNewLocationJPG = $ganjePath. $fileMd5;
+
+			// check new location
+			$fileNewLocationJPG = $ganjePath. $folderMd5. '/';
+			\dash\file::makeDir($fileNewLocationJPG);
+
+			// add file md5
+			$fileNewLocationJPG .= $fileMd5;
 
 			foreach ($width_list as $width)
 			{
