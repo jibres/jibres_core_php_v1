@@ -6,7 +6,7 @@ class controller
 
 	public static function routing()
 	{
-		$addr = 'E:\Jibres\ProductData\SuperMarket\Arayeshi\V02-Arayeshi\V01';
+		$addr = 'E:\Jibres\ProductData\SuperMarket';
 		$dirs = self::get_all_folders($addr);
 
 		foreach ($dirs as $myFolderAddr => $value)
