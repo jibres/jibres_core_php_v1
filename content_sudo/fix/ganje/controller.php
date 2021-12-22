@@ -6,9 +6,16 @@ class controller
 
 	public static function routing()
 	{
+		$addr = 'E:\Jibres\ProductData\test44\*';
+		self::convert_folder($addr);
+	}
+
+
+	private static function convert_folder($_addr)
+	{
 		\dash\code::time_limit(0);
 
-		$files     = glob('E:\Jibres\ProductData\test44\*');
+		$files     = glob($_addr);
 		$ganjePath = "E:\Jibres\ProductData\ganje\\";
 
 		$index = 0;
@@ -83,7 +90,7 @@ class controller
 
 			// add data of old and new file name to csv
 			$csvData = $index.','. basename($file). ','. $fileMd5. "\n";
-			file_put_contents(root.'test1.csv', $csvData, FILE_APPEND);
+			file_put_contents($ganjePath.'result.csv', $csvData, FILE_APPEND);
 			$index++;
 		}
 
