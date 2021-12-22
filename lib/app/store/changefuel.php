@@ -356,7 +356,7 @@ class changefuel
 		$db_name = \dash\engine\store::make_database_name($store_id);
 
 		// test current fuel connection
-		$current_fuel_connection = \dash\db\mysql\tools\info::test_connection($current_fuel, $db_name);
+		$current_fuel_connection = \dash\pdo\sys_query::test_connection($current_fuel, $db_name);
 
 		if(!$current_fuel_connection)
 		{
@@ -365,7 +365,7 @@ class changefuel
 		}
 
 		// test new fuel connection
-		$new_fuel_connection = \dash\db\mysql\tools\info::test_connection($new_fuel);
+		$new_fuel_connection = \dash\pdo\sys_query::test_connection($new_fuel);
 
 		if(!$new_fuel_connection)
 		{
@@ -374,7 +374,7 @@ class changefuel
 		}
 
 		// check business database is not exist in new fuel
-		$check_database_exist = \dash\db\mysql\tools\info::database_exist($new_fuel, $db_name);
+		$check_database_exist = \dash\pdo\sys_query::database_exist($new_fuel, $db_name);
 
 		if($check_database_exist)
 		{
@@ -382,7 +382,7 @@ class changefuel
 			return false;
 		}
 
-		$current_table_count = \dash\db\mysql\tools\info::count_table($current_fuel, $db_name);
+		$current_table_count = \dash\pdo\sys_query::count_table($current_fuel, $db_name);
 		if(!$current_table_count)
 		{
 			self::end_log('Count table is null!', $store_detail);
@@ -432,7 +432,7 @@ class changefuel
 
 
 		// test count table is equal by old count table
-		$new_table_count = \dash\db\mysql\tools\info::count_table($new_fuel, $db_name);
+		$new_table_count = \dash\pdo\sys_query::count_table($new_fuel, $db_name);
 		if(!$new_table_count)
 		{
 			self::end_log('Count table is null!', $store_detail);
@@ -496,7 +496,7 @@ class changefuel
 		self::log(implode("\n", $output));
 		self::log($sh);
 
-		$create_new_database = \dash\db\mysql\tools\info::create_database($_fuel, $_new_db_name);
+		$create_new_database = \dash\pdo\sys_query::create_database($_fuel, $_new_db_name);
 		$import = \dash\engine\backup\database::import_cmd($fuel_detail, $_new_db_name);
 		$import .= " '$_new_db_name' < " . $rename_addr;
 
@@ -506,7 +506,7 @@ class changefuel
 		self::log($sh);
 
 		// drop database
-		$drop_database = \dash\db\mysql\tools\info::drop_database($_fuel, $db_name);
+		$drop_database = \dash\pdo\sys_query::drop_database($_fuel, $db_name);
 		self::log('drop old database');
 
 

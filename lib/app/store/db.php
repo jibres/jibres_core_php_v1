@@ -19,7 +19,7 @@ class db
 		// and then connect to customer database
 		$fuel = $_args['fuel'];
 
-		$create_database = \dash\db\mysql\tools\info::create_database($fuel, $customer_db_name);
+		$create_database = \dash\pdo\sys_query::create_database($fuel, $customer_db_name);
 		if(!$create_database)
 		{
 			\dash\log::set('errorInstallCustomerDbCreateDatabase', ['args' => $_args]);
