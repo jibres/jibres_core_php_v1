@@ -6,8 +6,32 @@ class controller
 
 	public static function routing()
 	{
-		$addr = 'E:\Jibres\ProductData\test44\*';
-		self::convert_folder($addr);
+		$addr = 'E:\Jibres\ProductData\SuperMarket\Arayeshi\V02-Arayeshi\V01';
+		$dirs = self::get_all_folders($addr);
+
+		foreach ($dirs as $myFolderAddr => $value)
+		{
+			self::convert_folder($myFolderAddr);
+		}
+	}
+
+
+	private static function get_all_folders($_folder='')
+	{
+		$dirs = [];
+		$folders = glob($_folder.'\*', GLOB_MARK|GLOB_ONLYDIR|GLOB_NOSORT);
+
+		// add to dir list
+		if(is_array($folders) && count($folders))
+		{
+			foreach ($folders as $myFolder)
+			{
+				$dirs[$myFolder] = '1';
+				$level2 = self::get_all_folders($myFolder);
+				$dirs = array_merge($dirs, $level2);
+			}
+		}
+		return $dirs;
 	}
 
 
@@ -15,7 +39,8 @@ class controller
 	{
 		\dash\code::time_limit(0);
 
-		$files     = glob($_addr);
+		$files = glob($_addr. '\*');
+
 		$ganjePath = "E:\Jibres\ProductData\ganje\\";
 
 		$index = 0;
@@ -94,7 +119,7 @@ class controller
 			$index++;
 		}
 
-		var_dump($files);exit();
+		// var_dump($files);exit();
 	}
 }
 ?>
