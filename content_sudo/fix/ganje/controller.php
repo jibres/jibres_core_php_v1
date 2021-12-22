@@ -8,7 +8,7 @@ class controller
 	{
 		\dash\code::time_limit(0);
 
-		$files     = glob('E:\Jibres\ProductData\test33\*');
+		$files     = glob('E:\Jibres\ProductData\test44\*');
 		$ganjePath = "E:\Jibres\ProductData\ganje\\";
 
 		$index = 0;
@@ -34,6 +34,11 @@ class controller
 
 			// add file md5
 			$fileNewLocationJPG .= $fileMd5;
+			$fileNewLocationJPF_desc = $fileNewLocationJPG.'.'. $ext;
+			if(file_exists($fileNewLocationJPF_desc))
+			{
+				continue;
+			}
 
 			foreach ($width_list as $width)
 			{
@@ -72,7 +77,7 @@ class controller
 			}
 
 			// copy file to new location
-			\dash\file::copy($sourceFileAddr, $fileNewLocationJPG.'.'. $ext, true);
+			\dash\file::copy($sourceFileAddr, $fileNewLocationJPF_desc, true);
 
 
 
