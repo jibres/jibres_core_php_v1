@@ -6,25 +6,7 @@ class insert
 {
 	public static function new_record($_args)
 	{
-		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
-		if($set)
-		{
-			$query = " INSERT INTO `csrf` SET $set ";
-
-			if(\dash\pdo::query($query, [], null, ['ignore_error' => true]))
-			{
-				$id = \dash\pdo::insert_id();
-				return $id;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
+		return \dash\pdo\query_template::insert('csrf', $_args, null, ['ignore_error' => true]);
 	}
 }
 ?>

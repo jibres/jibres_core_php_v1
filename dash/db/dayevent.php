@@ -21,16 +21,7 @@ class dayevent
 
 	public static function insert($_args)
 	{
-
-		$set = \dash\db\config::make_set($_args);
-		if($set)
-		{
-			$query  ="INSERT IGNORE INTO dayevent SET $set ";
-
-			$result = \dash\pdo::query($query, []);
-			$result = \dash\pdo::insert_id();
-			return $result;
-		}
+		return \dash\pdo\query_template::insert('dayevent', $_args, null, ['ignore' => true]);
 	}
 
 

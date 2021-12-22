@@ -15,27 +15,7 @@ class insert
 	 */
 	public static function new_record($_args)
 	{
-
 		return \dash\pdo\query_template::insert('log_notif', $_args, null, ['ignore' => true]);
-
-
-		// $set = \dash\db\config::make_set($_args, ['type' => 'insert']);
-		// if($set)
-		// {
-		// 	$query = " INSERT IGNORE INTO `log_notif` SET $set ";
-		// 	if(\dash\pdo::query($query, []))
-		// 	{
-		// 		return true;
-		// 	}
-		// 	else
-		// 	{
-		// 		return false;
-		// 	}
-		// }
-		// else
-		// {
-		// 	return false;
-		// }
 	}
 
 }

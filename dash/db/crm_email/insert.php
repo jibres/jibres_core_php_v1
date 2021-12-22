@@ -14,36 +14,7 @@ class insert
 	 */
 	public static function new_record($_args)
 	{
-		if(empty($_args))
-		{
-			return false;
-		}
-
-		$set   = [];
-		$param = [];
-
-		foreach ($_args as $key => $value)
-		{
-			$fields[]        = $key;
-			$new_key         = ':'. $key;
-			$set[$key]       = $new_key;
-			$param[$new_key] = $value;
-		}
-
-		$query = "INSERT INTO `crm_email` SET ";
-
-		$query_set = [];
-
-		foreach ($set as $key => $value)
-		{
-			$query_set[] = " crm_email.$key = $value ";
-		}
-
-		$query .= implode(',', $query_set);
-
-		$result = \dash\pdo::query($query, $param);
-
-		return $result;
+		return \dash\pdo\query_template::insert('crm_email', $_args);
 	}
 
 }

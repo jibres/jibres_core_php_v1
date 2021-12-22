@@ -232,16 +232,7 @@ class logs
 	 */
 	public static function insert($_args, $_fuel = null)
 	{
-
-		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
-		if($set)
-		{
-			$query  ="INSERT INTO logs SET $set ";
-
-			$result = \dash\pdo::query($query, [], $_fuel);
-			$result = \dash\pdo::insert_id();
-			return $result;
-		}
+		return \dash\pdo\query_template::insert('logs', $_args, $_fuel);
 	}
 
 

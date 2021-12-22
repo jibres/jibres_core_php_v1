@@ -18,13 +18,7 @@ class apilog
 
 	public static function insert($_args)
 	{
-		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
-		if($set)
-		{
-			$query = " INSERT IGNORE INTO `apilog` SET $set ";
-			return \dash\pdo::query($query, [], 'api_log');
-		}
-
+		return \dash\pdo\query_template::insert('api_log', $_args, 'api_log');
 	}
 
 
