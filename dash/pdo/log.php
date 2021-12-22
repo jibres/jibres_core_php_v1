@@ -8,7 +8,7 @@ class log
 	 * @param  [type] $_text [description]
 	 * @return [type]        [description]
 	 */
-	public static function log($_text, $_time = null, $_name = 'pdo.sql', $_type = 'sql')
+	public static function log($_text, $_time = null, $_name = 'log.sql', $_type = 'sql')
 	{
 		// start saving
 		$fileAddr = YARD.'jibres_log/database/';
