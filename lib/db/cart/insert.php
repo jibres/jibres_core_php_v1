@@ -15,23 +15,7 @@ class insert
 	 */
 	public static function new_record($_args)
 	{
-		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
-		if($set)
-		{
-			$query = " INSERT INTO `cart` SET $set ";
-			if(\dash\pdo::query($query, []))
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
+		return \dash\pdo\query_template::insert('cart', $_args);
 	}
 
 	public static function multi_insert()
