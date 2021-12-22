@@ -60,6 +60,11 @@ class add
 
 		$return  = [];
 
+		if(!$args['status'])
+		{
+			$args['status'] = 'enable';
+		}
+
 		$term_id = \dash\db\terms\insert::new_record($args);
 
 		if(!$term_id)
