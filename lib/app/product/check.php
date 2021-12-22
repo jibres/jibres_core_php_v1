@@ -288,7 +288,7 @@ class check
 
 						// \dash\log::set('app:product:barcode:is:duplicate');
 
-						\dash\notif::error(T_("Duplicate barcode"), ['element' => $element]);
+						\dash\notif::error(T_("Duplicate barcode"), ['element' => $element, 'code' => 'business:barcode:duplicate:1']);
 						\dash\notif::info($msg);
 						return false;
 					}
