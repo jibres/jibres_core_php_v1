@@ -222,7 +222,7 @@ class users
 
 	private static function insert()
 	{
-		return \dash\db\config::public_insert('users', ...func_get_args());
+		return \dash\pdo\query_template::insert('users', ...func_get_args());
 	}
 
 

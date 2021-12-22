@@ -121,7 +121,7 @@ class posts
 	 */
 	public static function insert()
 	{
-		return \dash\db\config::public_insert('posts', ...func_get_args());
+		return \dash\pdo\query_template::insert('posts', ...func_get_args());
 	}
 
 

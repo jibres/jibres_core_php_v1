@@ -7,7 +7,7 @@ class files
 
 	public static function insert($_args)
 	{
-		return \dash\db\config::public_insert('files', $_args);
+		return \dash\pdo\query_template::insert('files', $_args);
 	}
 
 

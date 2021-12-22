@@ -15,7 +15,7 @@ class user_telegram
 
 	public static function insert()
 	{
-		return \dash\db\config::public_insert('user_telegram', ...func_get_args());
+		return \dash\pdo\query_template::insert('user_telegram', ...func_get_args());
 	}
 
 

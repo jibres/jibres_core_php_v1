@@ -497,19 +497,6 @@ class config
 	}
 
 
-	/**
-	 * insert public
-	 *
-	 * @param      <type>  $_table  The table
-	 * @param      <type>  $_args   The arguments
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function public_insert($_table, $_args, $_db_name = true)
-	{
-		return \dash\pdo\query_template::insert($_table, $_args, $_db_name);
-	}
-
 
 	/**
 	 * update public

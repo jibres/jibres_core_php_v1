@@ -7,7 +7,7 @@ class agents
 
 	public static function insert($_args)
 	{
-		return \dash\db\config::public_insert('agents', $_args);
+		return \dash\pdo\query_template::insert('agents', $_args);
 	}
 
 

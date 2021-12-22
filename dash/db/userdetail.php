@@ -8,7 +8,7 @@ class userdetail
 
 	public static function insert()
 	{
-		\dash\db\config::public_insert('userdetail', ...func_get_args());
+		\dash\pdo\query_template::insert('userdetail', ...func_get_args());
 	}
 
 

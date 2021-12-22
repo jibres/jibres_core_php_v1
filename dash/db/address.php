@@ -15,7 +15,7 @@ class address
 
 	public static function insert($_args)
 	{
-		return \dash\db\config::public_insert('address', $_args);
+		return \dash\pdo\query_template::insert('address', $_args);
 	}
 
 

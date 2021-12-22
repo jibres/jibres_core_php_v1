@@ -28,7 +28,7 @@ class transactions
 	 */
 	private static function insert()
 	{
-		return \dash\db\config::public_insert('transactions', ...func_get_args());
+		return \dash\pdo\query_template::insert('transactions', ...func_get_args());
 	}
 
 

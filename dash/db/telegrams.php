@@ -7,7 +7,7 @@ class telegrams
 	public static function insert($_args)
 	{
 		$_args = \dash\safe::safe($_args, 'raw-nottrim');
-		return \dash\db\config::public_insert('telegrams', $_args);
+		return \dash\pdo\query_template::insert('telegrams', $_args);
 	}
 
 

@@ -46,7 +46,7 @@ class visitor
 		$visitor['method']        = \dash\server::get('REQUEST_METHOD');
 		$visitor['avgtime']       = null;
 
-		$result = \dash\db\config::public_insert('visitors', $visitor);
+		$result = \dash\pdo\query_template::insert('visitors', $visitor);
 
 		if(is_numeric($result))
 		{
@@ -133,7 +133,7 @@ class visitor
 				$insert_url['pwd']       = addslashes(\dash\url::pwd());
 			}
 
-			return \dash\db\config::public_insert('urls', $insert_url);
+			return \dash\pdo\query_template::insert('urls', $insert_url);
 		}
 	}
 

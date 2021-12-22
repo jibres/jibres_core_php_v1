@@ -7,7 +7,7 @@ class user_auth
 
 	public static function insert()
 	{
-		return \dash\db\config::public_insert('user_auth', ...func_get_args());
+		return \dash\pdo\query_template::insert('user_auth', ...func_get_args());
 	}
 
 
