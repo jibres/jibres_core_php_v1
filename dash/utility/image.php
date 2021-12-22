@@ -141,6 +141,12 @@ class image
 	}
 
 
+	public static function save_loaded_img($_new_file_path)
+	{
+		self::save(self::$img, $_new_file_path);
+	}
+
+
 	/**
 	 * Set the quality of the image (JPEG only)
 	 *

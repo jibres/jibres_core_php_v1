@@ -24,12 +24,10 @@ class controller
 			$width_list = \dash\utility\image::responsive_image_size();
 
 			$fileMd5 = md5_file($file);
+			$file_without_ext = substr($file, 0, -$extlen-1);
 
 			foreach ($width_list as $width)
 			{
-
-				$file_without_ext = substr($file, 0, -$extlen-1);
-
 				$new_path = $file_without_ext . '-w'. $width. '.webp';
 
 				if(is_file($new_path))
@@ -41,10 +39,33 @@ class controller
 				{
 					\dash\utility\image::make_webp_image($file, $new_path, $width);
 				}
-
-
 			}
 
+			// save compressed file
+			$tmpNewLocation = YARD. 'jibres_temp/ganje-tmp.jpg';
+			\dash\utility\image::setQuality(95);
+			\dash\utility\image::load($file);
+			\dash\utility\image::save_loaded_img($tmpNewLocation);
+
+			// calc file size
+			$fileSizeInit = filesize($file);
+			$fileSizeCompressed = filesize($tmpNewLocation);
+			if($fileSizeInit > $fileSizeCompressed)
+			{
+				// good compress
+				// use compressed image
+
+				var_dump($file);
+				var_dump($tmpNewLocation);
+
+				\dash\file::move($tmpNewLocation, $file, true);
+			}
+			var_dump($tmpNewLocation);
+			var_dump($fileSizeInit);
+			var_dump($fileSizeCompressed);
+
+
+			exit();
 
 			// add data of old and new file name to csv
 			$csvData = $index.','. basename($file). ','. $fileMd5. "\n";
