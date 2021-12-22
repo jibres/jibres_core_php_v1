@@ -27,7 +27,7 @@ class model
 		if(\dash\request::isset_input_body('sku')) 				$post['sku']          = \dash\request::input_body('sku');
 		if(\dash\request::isset_input_body('barcode')) 			$post['barcode']      = \dash\request::input_body('barcode');
 		if(\dash\request::isset_input_body('barcode2')) 		$post['barcode2']     = \dash\request::input_body('barcode2');
-		if(\dash\request::isset_input_body('trackquantity')) 		$post['trackquantity']     = \dash\request::input_body('trackquantity');
+		if(\dash\request::isset_input_body('trackquantity')) 	$post['trackquantity']= \dash\request::input_body('trackquantity');
 		if(\dash\request::isset_input_body('weight')) 			$post['weight']       = \dash\request::input_body('weight');
 		if(\dash\request::isset_input_body('seotitle')) 		$post['seotitle']     = \dash\request::input_body('seotitle');
 		if(\dash\request::isset_input_body('slug')) 			$post['slug']         = \dash\request::input_body('slug');
@@ -44,7 +44,7 @@ class model
 		if(\dash\request::isset_input_body('salestep')) 		$post['salestep']     = \dash\request::input_body('salestep');
 		if(\dash\request::isset_input_body('oversale')) 		$post['oversale']     = \dash\request::input_body('oversale');
 		if(\dash\request::isset_input_body('unit')) 			$post['unit']         = \dash\request::input_body('unit');
-		// if(\dash\request::isset_input_body('tag')) 				$post['tag_id']       = \dash\request::input_body('tag');
+		if(\dash\request::isset_input_body('category')) 		$post['category']     = \dash\request::input_body('category');
 		if(\dash\request::isset_input_body('minstock')) 		$post['minstock']     = \dash\request::input_body('minstock');
 		if(\dash\request::isset_input_body('maxstock')) 		$post['maxstock']     = \dash\request::input_body('maxstock');
 		if(\dash\request::isset_input_body('length')) 			$post['length']       = \dash\request::input_body('length');
