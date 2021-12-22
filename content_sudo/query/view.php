@@ -25,7 +25,7 @@ class view
 		\dash\data::showDatabases_400(\dash\pdo\sys_query::show_databases('400'));
 		\dash\data::showDatabases_101(\dash\pdo\sys_query::show_databases('jibres101'));
 
-		$all_connection = \dash\db\mysql\tools\connection::link_open();
+		$all_connection = \dash\pdo\connection::link_open();
 		\dash\data::allConnection($all_connection);
 
 

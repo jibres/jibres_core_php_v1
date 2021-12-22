@@ -66,7 +66,7 @@ class prepare
 		register_shutdown_function(['\dash\scp', 'disconnect']);
 
 		// close all mysql connection
-		register_shutdown_function(['\dash\db\mysql\tools\connection', 'close']);
+		register_shutdown_function(['\dash\pdo\connection', 'close']);
 
 		register_shutdown_function(['\dash\engine\prepare', 'engine_time']);
 	}

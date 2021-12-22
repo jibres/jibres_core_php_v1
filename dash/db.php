@@ -280,7 +280,7 @@ class db
 				$temp = $save_query . ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail();
 				$temp .= '-- '. json_encode($fn_args);
 
-				\dash\db\mysql\tools\log::log($temp, $qry_exec_time);
+				\dash\pdo\log::log($temp, $qry_exec_time);
 			}
 		}
 		// calc exex time in ms
@@ -288,19 +288,19 @@ class db
 		// if spend more time, save it in special file
 		if($qry_exec_time_ms > 6000)
 		{
-			\dash\db\mysql\tools\log::log($save_query, $qry_exec_time, 'log-hard-critical.sql');
+			\dash\pdo\log::log($save_query, $qry_exec_time, 'log-hard-critical.sql');
 		}
 		elseif($qry_exec_time_ms > 3000)
 		{
-			\dash\db\mysql\tools\log::log($save_query, $qry_exec_time, 'log-critical.sql');
+			\dash\pdo\log::log($save_query, $qry_exec_time, 'log-critical.sql');
 		}
 		elseif($qry_exec_time_ms > 1000)
 		{
-			\dash\db\mysql\tools\log::log($save_query, $qry_exec_time, 'log-warn.sql');
+			\dash\pdo\log::log($save_query, $qry_exec_time, 'log-warn.sql');
 		}
 		elseif($qry_exec_time_ms > 500)
 		{
-			\dash\db\mysql\tools\log::log($save_query, $qry_exec_time, 'log-check.sql');
+			\dash\pdo\log::log($save_query, $qry_exec_time, 'log-check.sql');
 		}
 
 		if($have_error)
@@ -321,7 +321,7 @@ class db
 			{
 				if(self::$connection_again)
 				{
-					\dash\db\mysql\tools\log::log("Mysql Error 2006 after connection again  -- ", $qry_exec_time, 'error.sql');
+					\dash\pdo\log::log("Mysql Error 2006 after connection again  -- ", $qry_exec_time, 'error.sql');
 				}
 				else
 				{
@@ -337,13 +337,13 @@ class db
 			{
 				// @Reza @Javad Need to fix Cronjob error null sql
 				// At this time I disable the log of null sql error to check other error
-				\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error_cronjob.sql');
+				\dash\pdo\log::log($temp_error, $qry_exec_time, 'error_cronjob.sql');
 			}
 			else
 			{
 				// $temp_error .= @mysqli_errno(\dash\db\mysql\tools\connection::link()). ' - ';
 				// $temp_error .= @mysqli_error(\dash\db\mysql\tools\connection::link())." */";
-				\dash\db\mysql\tools\log::log($temp_error, $qry_exec_time, 'error.sql');
+				\dash\pdo\log::log($temp_error, $qry_exec_time, 'error.sql');
 			}
 
 			if(\dash\url::isLocal())

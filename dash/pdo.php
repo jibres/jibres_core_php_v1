@@ -112,7 +112,7 @@ class pdo
 				}
 				else
 				{
-					\dash\db\mysql\tools\log::log(func_get_args(). ' -- Syntax error ', 0, 'error.sql');
+					\dash\pdo\log::log(func_get_args(). ' -- Syntax error ', 0, 'error.sql');
 					return false;
 				}
 
@@ -149,7 +149,7 @@ class pdo
 			}
 			else
 			{
-				\dash\db\mysql\tools\log::log($query_log . ' -- '. \dash\db\mysql\tools\connection::get_last_fuel_detail(), $qry_exec_time);
+				\dash\pdo\log::log($query_log . ' -- '. \dash\pdo\connection::get_last_fuel_detail(), $qry_exec_time);
 			}
 		}
 		// calc exex time in ms
@@ -157,19 +157,19 @@ class pdo
 		// if spend more time, save it in special file
 		if($qry_exec_time_ms > 6000)
 		{
-			\dash\db\mysql\tools\log::log($query_log, $qry_exec_time, 'log-hard-critical.sql');
+			\dash\pdo\log::log($query_log, $qry_exec_time, 'log-hard-critical.sql');
 		}
 		elseif($qry_exec_time_ms > 3000)
 		{
-			\dash\db\mysql\tools\log::log($query_log, $qry_exec_time, 'log-critical.sql');
+			\dash\pdo\log::log($query_log, $qry_exec_time, 'log-critical.sql');
 		}
 		elseif($qry_exec_time_ms > 1000)
 		{
-			\dash\db\mysql\tools\log::log($query_log, $qry_exec_time, 'log-warn.sql');
+			\dash\pdo\log::log($query_log, $qry_exec_time, 'log-warn.sql');
 		}
 		elseif($qry_exec_time_ms > 500)
 		{
-			\dash\db\mysql\tools\log::log($query_log, $qry_exec_time, 'log-check.sql');
+			\dash\pdo\log::log($query_log, $qry_exec_time, 'log-check.sql');
 		}
 
 		\dash\notif::turn_on_log();
