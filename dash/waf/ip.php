@@ -488,7 +488,10 @@ class ip
 		// block
 		if($_ratelimit['remaining'] <= 0)
 		{
-			\dash\header::status(429, 'Rate limit exceeded.');
+			if(!\dash\url::isLocal())
+			{
+				\dash\header::status(429, 'Rate limit exceeded.');
+			}
 		}
 
 		return $_ratelimit;
