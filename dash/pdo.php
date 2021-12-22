@@ -132,7 +132,20 @@ class pdo
 			$error .= "\n". $e->getMessage();
 			$error .= "\n". json_encode($_param, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
-			\dash\pdo\log::log($error);
+			// no result exist
+			// save mysql error
+			$temp_error = "#". date("Y-m-d H:i:s") ;
+			$temp_error .= $error. ' - ';
+			$temp_error .= ' -- '. \dash\pdo\connection::get_last_fuel_detail();
+
+			\dash\pdo\log::log($temp_error, $qry_exec_time, 'error.sql');
+
+			if(\dash\url::isLocal())
+			{
+				\dash\notif::warn(nl2br($error));
+			}
+
+			\dash\notif::turn_on_log();
 
 			return false;
 		}
