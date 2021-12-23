@@ -167,11 +167,7 @@ class add
 		if($add_by_customer)
 		{
 			// check all item of factor detail is file or no
-			$fileMode = false;
-			if(array_values(array_filter(array_unique(array_column($factor_detail, 'type')))) === ['file'])
-			{
-				$fileMode = true;
-			}
+			$fileMode = \lib\app\cart\get::detect_hide_address($factor_detail);
 
 			$factor = shipping::calculate_shipping_value($factor, ['mode' => $mode, 'fileMode' => $fileMode, 'shipping_value' => a($_option, 'force_shipping_value')]);
 		}
