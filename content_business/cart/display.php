@@ -43,9 +43,15 @@
          <div class="itemOperation">
           <div class="productCount">
            <div class="input">
-            <label class="addon btn-light" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>+</label>
+            <?php if(a($value, 'type') !== 'file') {?>
+              <label class="addon btn-light" data-ajaxify data-method="post" data-data='{"type": "plus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>+</label>
+            <?php } //endif ?>
             <input type="number" name="count" value="<?php echo a($value, 'count'); ?>" readonly data-format='int'>
-            <label class="addon btn-light" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>-</label>
+            <?php if(a($value, 'type') !== 'file') {?>
+              <label class="addon btn-light" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'>-</label>
+            <?php }else{ ?>
+              <label class="addon btn-light" data-ajaxify data-method="post" data-data='{"type": "minus_cart", "product_id": "<?php echo a($value, 'product_id') ?>"}'><?php echo \dash\utility\icon::svg('trash', 'bootstrap') ?></label>
+            <?php } //endif ?>
            </div>
 
           </div>
