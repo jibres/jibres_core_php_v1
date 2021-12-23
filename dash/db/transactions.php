@@ -26,9 +26,14 @@ class transactions
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	private static function insert()
+	private static function insert($_args)
 	{
-		return \dash\pdo\query_template::insert('transactions', ...func_get_args());
+		if(a($_args, 'status') === null)
+		{
+			$_args['status'] = 'enable';
+		}
+
+		return \dash\pdo\query_template::insert('transactions', $_args);
 	}
 
 
