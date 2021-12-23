@@ -4,7 +4,7 @@ namespace lib\db\products;
 class search
 {
 
-	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
+	public static function list($_param, $_and, $_or, $_order_sort = null, $_meta = [])
 	{
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
@@ -13,19 +13,19 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query_pdo($pagination_query, $_param, $q['limit']);
 		}
 
 		$query = "SELECT products.* FROM products $q[join] $q[where] $q[order] $limit ";
 
-		$result = \dash\pdo::get($query);
+		$result = \dash\pdo::get($query, $_param);
 
 		return $result;
 	}
 
 
 
-	public static function list_join_price_factor_count($_and, $_or, $_order_sort = null, $_meta = [])
+	public static function list_join_price_factor_count($_param, $_and, $_or, $_order_sort = null, $_meta = [])
 	{
 
 		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
@@ -35,7 +35,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query_pdo($pagination_query, $_param, $q['limit']);
 		}
 
 
@@ -51,7 +51,7 @@ class search
 		";
 
 
-		$result = \dash\pdo::get($query);
+		$result = \dash\pdo::get($query, $_param);
 
 
 		return $result;

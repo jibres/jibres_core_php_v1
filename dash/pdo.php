@@ -53,7 +53,14 @@ class pdo
 			'ignore_error' => $_options['ignore_error'],
 		];
 
-		$query_log = 'PDO; '. $_query;
+		$query_log = '';
+
+		if($_param)
+		{
+			$query_log = 'BIND; ';
+		}
+
+		$query_log .= $_query;
 		$query_log .= ' -- '. json_encode(func_get_args());
 
 		// get time before execute query

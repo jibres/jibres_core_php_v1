@@ -69,7 +69,8 @@ class search
 
 
 		$require = [];
-		$meta    =	[];
+		$meta    = [];
+		$param   = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
@@ -100,25 +101,29 @@ class search
 
 		if($data['barcode'])
 		{
-			$and[] = " products.barcode  = '$data[barcode]' ";
+			$and[] = " products.barcode  = :s_barcode  ";
+			$param[':s_barcode'] = $data['barcode'];
 			self::$is_filtered       = true;
 		}
 
 		if($data['price'])
 		{
-			$and[] = " products.price = $data[price] ";
+			$and[] = " products.price = :s_price ";
+			$param[':s_price'] = $data['price'];
 		}
 
 		if($data['buyprice'])
 		{
-			$and[] = " products.buyprice = $data[buyprice] ";
+			$and[] = " products.buyprice = :s_buyprice ";
+			$param[':s_buyprice'] = $data['buyprice'];
 			self::$is_filtered        = true;
 		}
 
 
 		if($data['discount'])
 		{
-			$and[] = " products.discount = $data[discount] ";
+			$and[] = " products.discount = :s_discount ";
+			$param[':s_discount'] = $data['discount'];
 			self::$is_filtered        = true;
 		}
 
@@ -144,7 +149,9 @@ class search
 			}
 			else
 			{
-				$and[]   = " productcategoryusage.productcategory_id =  $data[cat_id] ";
+				$and[]   = " productcategoryusage.productcategory_id =  :s_j_cat_id ";
+				$param['s_j_cat_id'] = $data['cat_id'];
+
 				$join[] = ' INNER JOIN productcategoryusage ON productcategoryusage.product_id = products.id ';
 				$type = 'catusage';
 				self::$is_filtered        = true;
@@ -187,7 +194,8 @@ class search
 
 		if($data['unit_id'])
 		{
-			$and[] = "products.unit_id = $data[unit_id] ";
+			$and[] = "products.unit_id = :s_unit_id ";
+			$param[':s_unit_id'] = $data['unit_id'];
 			self::$is_filtered = true;
 		}
 
@@ -226,7 +234,7 @@ class search
 		}
 		elseif(isset($data['bar']) && $data['bar'] === 'n')
 		{
-			$and[] = " ( products.barcode IS NULL OR products.barcode2 IS NULL )";
+			$and[] = " ( products.barcode IS NULL AND products.barcode2 IS NULL )";
 			self::$is_filtered       = true;
 		}
 
@@ -352,7 +360,9 @@ class search
 
 		if($data['status'])
 		{
-			$and[] = " products.status = '$data[status]' ";
+			$and[] = " products.status = :s_status ";
+			$param[':s_status'] = $data['status'];
+
 			self::$is_filtered           = true;
 		}
 		else
@@ -376,7 +386,9 @@ class search
 				$search         = substr($query_string, 1);
 				$search         = \dash\number::clean($search);
 
-				$and[] = " ( products.finalprice = ". floatval($search). " OR products.price = ". floatval($search). " )";
+				$and[]                    = " ( products.finalprice = :s_2_finalprice OR products.price = :s_2_price )";
+				$param[':s_2_finalprice'] = floatval($search);
+				$param[':s_2_price']      = floatval($search);
 
 				$and[] = "products.barcode IS NULL";
 				$and[] = "products.barcode2 IS NULL";
@@ -388,30 +400,42 @@ class search
 			}
 			elseif($query_string)
 			{
-				$or[]        = " products.title LIKE '%$query_string%'";
+				$or[]        = " products.title LIKE :query_string ";
+				$param[':query_string'] = '%'. $query_string. '%';
+
 				// $or['products.slug']     = ["LIKE", "'$query_string%'"];
 
 				$query_string_barcode = \dash\utility\convert::to_barcode($query_string);
 
 				if($query_string_barcode)
 				{
-					$or[] = " products.barcode = '$query_string'";
-					$or[] = " products.barcode2 = '$query_string'";
+					$or[]                        = " products.barcode = :products_barcode ";
+					$or[]                        = " products.barcode2 = :products_barcode2 ";
+
+					$param[':products_barcode']  = $query_string;
+					$param[':products_barcode2'] = $query_string;
 				}
 
-				$or[]      = "products.sku = '$query_string'";
+				$or[]      = "products.sku = :products_sku ";
+				$param[':products_sku'] = $query_string;
 
 				if(is_numeric($query_string) || is_numeric(\dash\utility\convert::to_en_number($query_string)))
 				{
 					$search_price = \dash\utility\convert::to_en_number($query_string);
 
-					$or[] = "products.finalprice = ". floatval($search_price);
-					$or[] = "products.price = ". floatval($search_price);
+					$or[] = "products.finalprice = :s_3_finalprice ";
+					$or[] = "products.price = :s_3_price ";
+
+					$param[':s_3_finalprice'] = floatval($search_price);
+					$param[':s_3_price']      = floatval($search_price);
 
 					if($search_product_id = \dash\validate::id($search_price, false))
 					{
-						$or[] = "products.id = ". $search_product_id;
-						$or[] = " (products.id = (SELECT products.parent FROM products WHERE products.id = $search_product_id LIMIT 1)) ";
+						$or[] = "products.id = :search_by_product_id";
+						$param[':search_by_product_id'] = $search_product_id;
+
+						$or[] = " (products.id = (SELECT products.parent FROM products WHERE products.id = :search_2_by_product_id LIMIT 1)) ";
+						$param[':search_2_by_product_id'] = $search_product_id;
 					}
 					// $or[] = "products.parent = ". $search_price;
 
@@ -530,7 +554,7 @@ class search
 		switch ($type)
 		{
 			case 'price_factor_count':
-				$list = \lib\db\products\search::list_join_price_factor_count($and, $or, $order_sort, $meta);
+				$list = \lib\db\products\search::list_join_price_factor_count($param, $and, $or, $order_sort, $meta);
 				break;
 
 
@@ -540,9 +564,10 @@ class search
 				break;
 
 			default:
-				$list = \lib\db\products\search::list($and, $or, $order_sort, $meta);
+				$list = \lib\db\products\search::list($param, $and, $or, $order_sort, $meta);
 				break;
 		}
+
 
 		if(is_array($list) && $list)
 		{
