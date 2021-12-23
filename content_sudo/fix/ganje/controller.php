@@ -38,6 +38,8 @@ class controller
 	private static function convert_folder($_addr)
 	{
 		\dash\code::time_limit(0);
+		ini_set("memory_limit","1000M");
+
 
 		$files = glob($_addr. '\*');
 

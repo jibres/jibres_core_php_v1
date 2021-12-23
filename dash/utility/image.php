@@ -65,34 +65,34 @@ class image
 
 		list(self::$width, self::$height, $type) = @getimagesize($filepath);
 
-		self::$img = null;
+		$loadedImg = null;
 
 		if($type == IMAGETYPE_JPEG)
 		{
-			self::$img = @imagecreatefromjpeg($filepath);
+			$loadedImg = @imagecreatefromjpeg($filepath);
 		}
 		else if($type == IMAGETYPE_GIF)
 		{
-			self::$img = @imagecreatefromgif($filepath);
+			$loadedImg = @imagecreatefromgif($filepath);
 		}
 		else if($type == IMAGETYPE_PNG)
 		{
-			self::$img = @imagecreatefrompng($filepath);
+			$loadedImg = @imagecreatefrompng($filepath);
 		}
 		elseif($type == IMAGETYPE_WBMP)
 		{
-			self::$img = @imagecreatefromwbmp($filepath);
+			$loadedImg = @imagecreatefromwbmp($filepath);
 		}
 		elseif($type == IMAGETYPE_WEBP)
 		{
-			self::$img = @imagecreatefromwebp($filepath);
+			$loadedImg = @imagecreatefromwebp($filepath);
 		}
 		else
 		{
 			return false;
 		}
 
-		if(!isset(self::$img) || is_bool(self::$img) || !self::$img)
+		if(!isset($loadedImg) || is_bool($loadedImg) || !$loadedImg)
 		{
 			return false;
 		}
@@ -102,11 +102,16 @@ class image
 		// Preservation of the transparence / alpha for PNG and GIF
 		if($type == IMAGETYPE_GIF || $type == IMAGETYPE_PNG)
 		{
-			@imagealphablending(self::$img, false);
-			@imagesavealpha(self::$img, true);
+			@imagealphablending($loadedImg, false);
+			@imagesavealpha($loadedImg, true);
 		}
 
 		self::$loaded = true;
+		self::$img = $loadedImg;
+		// try to free memory
+		imagedestroy($loadedImg);
+
+		return self::$img;
 	}
 
 
@@ -138,6 +143,8 @@ class image
 		{
 			@imagewbmp($img, $filepath);
 		}
+		// destroy image to free memory after create image
+		@imagedestroy($img);
 	}
 
 
