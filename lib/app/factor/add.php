@@ -132,11 +132,8 @@ class add
 			}
 		}
 
-		$fileMode = false;
-		if(array_values(array_filter(array_unique(array_column($factor_detail, 'type')))) === ['file'])
-		{
-			$fileMode = true;
-		}
+		// file mode needless to calculate shipping value
+		$fileMode = \lib\app\cart\get::detect_hide_address($factor_detail);
 
 		// the factor mode
 		$mode = 'admin';
