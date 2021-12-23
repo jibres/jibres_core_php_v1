@@ -11,7 +11,7 @@ $myCart = \dash\data::myCart();
     <div class="row">
       <div class="c-xs-12 c-sm-12 c-lg-8">
         <?php if(\dash\user::login()) {?>
-          <?php if(\dash\data::addressDataTable() && !\dash\data::myCart_fileMode()) {?>
+          <?php if(\dash\data::addressDataTable() && !\dash\data::myCart_hideAddress()) {?>
             <div class="box">
                 <h2><?php echo T_("Please choose your address"); ?></h2>
                 <div class="row">
@@ -137,7 +137,7 @@ $myCart = \dash\data::myCart();
         </div>
       </div>
 
-      <?php if(!\dash\data::myCart_fileMode()) {?>
+      <?php if(!\dash\data::myCart_hideAddress()) {?>
       <div class="mB10 <?php if(\dash\data::shippingSettingSaved_sendoutcountry()) {}else{ echo 'hide'; \dash\data::dataRowAddress_country('ir'); }?>">
         <label for='country'><?php echo T_("Country"); ?></label>
         <select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='<?php echo \dash\data::dataRowAddress_province(); ?>'>

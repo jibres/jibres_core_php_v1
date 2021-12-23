@@ -4,6 +4,19 @@ namespace lib\app\cart;
 
 class get
 {
+	public static function detect_hide_address($_data)
+	{
+		$unique_type = array_values(array_filter(array_unique(array_column($_data, 'type'))));
+
+		if($unique_type === ['file'] || $unique_type === ['service'] || $unique_type === ['file', 'service'] || $unique_type === ['service', 'file'])
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
 	public static function my_cart_count()
 	{
 		$guest = \dash\user::get_user_guest();

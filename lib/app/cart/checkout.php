@@ -143,12 +143,7 @@ class checkout
 		}
 
 
-		$myCart['fileMode'] = false;
-		if(array_values(array_filter(array_unique(array_column($cart_list, 'type')))) === ['file'])
-		{
-			$myCart['fileMode'] = true;
-		}
-
+		$myCart['hideAddress'] = \lib\app\cart\get::detect_hide_address($cart_list);
 		$myCart['list'] = $cart_list;
 
 		$cart_setting = \lib\app\setting\get::cart_setting();
@@ -410,13 +405,13 @@ class checkout
 		$factor['discount'] = null;
 
 
-		$fileMode = true;
+		$hideAddress = true;
 		$factor_detail = [];
 		foreach ($user_cart as $key => $value)
 		{
-			if(isset($value['type']) && $value['type'] != 'file')
+			if(isset($value['type']) && $value['type'] === 'product')
 			{
-				$fileMode = false;
+				$hideAddress = false;
 			}
 
 			$factor_detail[] =
@@ -430,7 +425,7 @@ class checkout
 		}
 
 
-		if(!$fileMode && $need_address_text)
+		if(!$hideAddress && $need_address_text)
 		{
 			if(!$data['address'])
 			{
