@@ -490,7 +490,14 @@ class ip
 		{
 			if(!\dash\url::isLocal())
 			{
-				\dash\header::status(429, 'Rate limit exceeded.');
+				if(in_array(self::validateIP(), ['151.238.149.136']))
+				{
+					// jibres office ip
+				}
+				else
+				{
+					\dash\header::status(429, 'Rate limit exceeded.');
+				}
 			}
 		}
 
