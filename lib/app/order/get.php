@@ -118,7 +118,7 @@ class get
 
 			$new_list[$key]['suggestion'] = $suggestion;
 
-			unset($new_list[$key]['oprmerger']);
+			// unset($new_list[$key]['oprmerger']);
 		}
 
 
