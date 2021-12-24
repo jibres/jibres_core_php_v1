@@ -14,7 +14,7 @@ class telegrams
 	public static function multi_insert($_args)
 	{
 		$_args = \dash\safe::safe($_args, 'raw-nottrim');
-		return \dash\db\config::public_multi_insert('telegrams', $_args);
+		return \dash\pdo\query_template::multi_insert('telegrams', $_args);
 	}
 
 

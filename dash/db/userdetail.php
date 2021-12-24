@@ -14,7 +14,7 @@ class userdetail
 
 	public static function insert_multi()
 	{
-		return \dash\db\config::public_multi_insert('userdetail', ...func_get_args());
+		return \dash\pdo\query_template::multi_insert('userdetail', ...func_get_args());
 	}
 
 

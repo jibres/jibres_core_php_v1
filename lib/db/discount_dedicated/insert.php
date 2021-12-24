@@ -6,7 +6,7 @@ class insert
 {
 	public static function multi_insert()
 	{
-		return \dash\db\config::public_multi_insert('discount_dedicated', ...func_get_args());
+		return \dash\pdo\query_template::multi_insert('discount_dedicated', ...func_get_args());
 	}
 
 

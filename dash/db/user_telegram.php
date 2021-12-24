@@ -21,7 +21,7 @@ class user_telegram
 
 	public static function multi_insert()
 	{
-		return \dash\db\config::public_multi_insert('user_telegram', ...func_get_args());
+		return \dash\pdo\query_template::multi_insert('user_telegram', ...func_get_args());
 	}
 
 

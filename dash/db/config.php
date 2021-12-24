@@ -474,22 +474,6 @@ class config
 	}
 
 
-	/**
-	 * make multi insert
-	 *
-	 * @param      <type>  $_table  The table
-	 * @param      <type>  $_args   The arguments
-	 */
-	public static function public_multi_insert($_table, $_args, $_db_name = true)
-	{
-		$set = \dash\db\config::make_multi_insert($_args);
-		if($set)
-		{
-			$query = " INSERT INTO $_table $set ";
-			return \dash\pdo::query($query, [], $_db_name);
-		}
-	}
-
 
 	public static function public_get_by_id($_table, $_id, $_db_name = true)
 	{
