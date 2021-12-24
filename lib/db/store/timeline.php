@@ -8,25 +8,7 @@ class timeline
 
 	public static function insert($_args)
 	{
-		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
-		if($set)
-		{
-			$query = " INSERT INTO `store_timeline` SET $set ";
-
-			if(\dash\pdo::query($query, []))
-			{
-				$id = \dash\pdo::insert_id();
-				return $id;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
+		return \dash\pdo\query_template::insert('store_timeline', $_args);
 	}
 
 	public static function update($_args, $_id)
