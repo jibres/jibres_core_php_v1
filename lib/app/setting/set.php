@@ -336,6 +336,13 @@ class set
 		];
 
 
+		$nextpay =
+		[
+			'status' => 'bit',
+			'apikey' => 'string_100',
+		];
+
+
 		$data = [];
 
 		if(!is_array($_args))
@@ -348,7 +355,7 @@ class set
 		{
 			unset($value['empty']);
 
-			if(in_array($key, ['zarinpal','asanpardakht','irkish','parsian','payir','mellat', 'idpay', 'payping']))
+			if(in_array($key, ['zarinpal','asanpardakht','irkish','parsian','payir','mellat', 'idpay', 'payping', 'nextpay']))
 			{
 				$data[$key] = \dash\cleanse::input($value, $$key, [], []);
 
@@ -360,6 +367,7 @@ class set
 				}
 			}
 		}
+
 
 		$cat  = 'bank_payment_setting';
 

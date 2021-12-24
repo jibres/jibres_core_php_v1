@@ -26,7 +26,8 @@ class model
 			$payment['parsian']      = [];
 			$payment['payir']        = [];
 			$payment['mellat']       = [];
-			$payment['payping']       = [];
+			$payment['payping']      = [];
+			$payment['nextpay']      = [];
 		}
 
 		// zarinpal
@@ -153,6 +154,22 @@ class model
 				$payment['irkish']['status']     = \dash\request::post('irkish') ? true : false;
 				$payment['irkish']['merchantId'] = \dash\request::post('imerchantId');
 				$payment['irkish']['sha1']       = \dash\request::post('sha1');
+			}
+		}
+
+
+		// irnakish
+		{
+			if(\dash\request::post('set_nextpay_payment_status'))
+			{
+				$payment['nextpay']['status']       = \dash\request::post('nextpay_payment_status');
+			}
+
+			if(\dash\request::post('set_nextpay'))
+			{
+				$payment['nextpay']['status'] = \dash\request::post('nextpay') ? true : false;
+				$payment['nextpay']['apikey'] = \dash\request::post('apikey');
+
 			}
 		}
 
