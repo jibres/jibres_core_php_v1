@@ -99,7 +99,14 @@ class check
 
 		if(!$data['slug'])
 		{
-			$data['slug'] = \dash\validate::slug($data['title'], false);
+			if($data['title2'])
+			{
+				$data['slug'] = \dash\validate::slug($data['title2'], false);
+			}
+			else
+			{
+				$data['slug'] = \dash\validate::slug($data['title'], false);
+			}
 		}
 
 		if($data['barcode'] && $data['barcode2'] && $data['barcode'] == $data['barcode2'])
