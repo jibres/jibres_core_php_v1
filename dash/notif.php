@@ -8,6 +8,23 @@ class notif
 	private static $notif = [];
 
 
+	/**
+	 * Check active notif
+	 * in some moudle need to disalbe generate notif
+	 *
+	 * @var        bool
+	 */
+	private static $active = true;
+
+
+	/**
+	 * Save log notif
+	 *
+	 * @var        boolean
+	 */
+	private static $notif_log_status = true;
+
+
 	private static function add($_type, $_text, $_meta)
 	{
 		self::$notif['ok'] = \dash\engine\process::status();
@@ -35,7 +52,22 @@ class notif
 
 		self::log_notif($add);
 
-		array_push(self::$notif['msg'], $add);
+		if(self::$active)
+		{
+			array_push(self::$notif['msg'], $add);
+		}
+
+	}
+
+
+	public static function active()
+	{
+		self::$active = true;
+	}
+
+	public static function inactive()
+	{
+		self::$active = false;
 	}
 
 
@@ -65,12 +97,6 @@ class notif
 	}
 
 
-	/**
-	 * Save log notif
-	 *
-	 * @var        boolean
-	 */
-	private static $notif_log_status = true;
 
 	public static function turn_off_log()
 	{
