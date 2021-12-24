@@ -49,12 +49,6 @@ class config
 	}
 
 
-	public static function public_get_full_count(string $_table, $_db_name = true) : float
-	{
-		$query  = "SELECT COUNT(*) AS 'count' FROM `$_table`";
-		$result = \dash\pdo::get($query, [], 'count', true, $_db_name);
-		return floatval($result);
-	}
 
 
 

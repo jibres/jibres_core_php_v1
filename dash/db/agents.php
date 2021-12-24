@@ -13,7 +13,7 @@ class agents
 
 	public static function get_count()
 	{
-		return \dash\db\config::public_get_full_count('agents');
+		return \dash\pdo\query_template::table_rows('agents');
 	}
 
 

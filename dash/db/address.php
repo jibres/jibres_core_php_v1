@@ -33,7 +33,7 @@ class address
 
 	public static function get_count()
 	{
-		return \dash\db\config::public_get_full_count('address');
+		return \dash\pdo\query_template::table_rows('address');
 	}
 
 

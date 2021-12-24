@@ -163,5 +163,13 @@ class query_template
 	}
 
 
+	public static function table_rows(string $_table, $_db_name = true) : float
+	{
+		$query  = "SELECT COUNT(*) AS 'count' FROM `$_table`";
+		$result = \dash\pdo::get($query, [], 'count', true, $_db_name);
+		return floatval($result);
+	}
+
+
 }
 ?>
