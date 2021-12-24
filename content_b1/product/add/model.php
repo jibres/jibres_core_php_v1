@@ -52,6 +52,7 @@ class model
 		if(\dash\request::isset_input_body('filesize')) 		$post['filesize']     = \dash\request::input_body('filesize');
 		if(\dash\request::isset_input_body('fileaddress')) 		$post['fileaddress']  = \dash\request::input_body('fileaddress');
 		if(\dash\request::isset_input_body('gallery_raw')) 		$post['gallery_raw']  = \dash\request::input_body('gallery_raw');
+		if(\dash\request::isset_input_body('property')) 		$post['property']  = \dash\request::input_body('property');
 
 		return $post;
 	}

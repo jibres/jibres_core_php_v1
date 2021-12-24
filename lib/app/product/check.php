@@ -77,6 +77,7 @@ class check
 			'unit'            => 'string_50', // in add manual user send the unit
 			'unit_id'         => 'id', // in add by variant we have the unit id
 			'gallery_raw'     => 'bit', // just need to check
+			'property'        => 'bit', // just need to check
 		];
 
 		$require = [];
@@ -248,7 +249,15 @@ class check
 			\dash\temp::set('temp_gallery_raw_from_api', $new_gallery);
 		}
 
+
+		if($data['property'] && is_array($_args['property']))
+		{
+			\dash\temp::set('temp_property_raw_from_api', $_args['property']);
+		}
+
+
 		unset($data['gallery_raw']);
+		unset($data['property']);
 
 
 		return $data;

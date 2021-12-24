@@ -654,9 +654,15 @@ class property
 
 		$_edit_id = \dash\validate::id($_edit_id, false);
 
-		$require = ['cat', 'key', 'value'];
-		$meta    =	['field_title' => ['cat' => T_("Property group")]];
+		$require = ['key', 'value'];
+		$meta    = ['field_title' => ['cat' => T_("Property group")]];
 		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(!$data['cat'])
+		{
+			$data['cat'] = T_("General property");
+		}
+
 		$id      = \dash\validate::id($_id);
 
 		$load_product = \lib\app\product\get::inline_get($id);
