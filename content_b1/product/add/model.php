@@ -36,7 +36,6 @@ class model
 		if(\dash\request::isset_input_body('saleonline')) 		$post['saleonline']   = \dash\request::input_body('saleonline');
 		if(\dash\request::isset_input_body('saletelegram')) 	$post['saletelegram'] = \dash\request::input_body('saletelegram');
 		if(\dash\request::isset_input_body('saleapp')) 			$post['saleapp']      = \dash\request::input_body('saleapp');
-		if(\dash\request::isset_input_body('company')) 			$post['company']      = \dash\request::input_body('company');
 		if(\dash\request::isset_input_body('scalecode')) 		$post['scalecode']    = \dash\request::input_body('scalecode');
 		if(\dash\request::isset_input_body('status')) 			$post['status']       = \dash\request::input_body('status');
 		if(\dash\request::isset_input_body('minsale')) 			$post['minsale']      = \dash\request::input_body('minsale');

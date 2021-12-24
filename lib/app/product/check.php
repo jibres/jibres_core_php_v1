@@ -223,20 +223,22 @@ class check
 
 		if(\dash\url::is_api() && $data['gallery_raw'])
 		{
-			$temp_gallery_raw_from_api = [];
+			$new_gallery = [];
 
-			if(is_array($_args['gallery_raw']))
+			$temp_gallery_raw_from_api = explode(',', $_args['gallery_raw']);
+
+			if(is_array($temp_gallery_raw_from_api))
 			{
-				foreach ($_args['gallery_raw'] as $key => $value)
+				foreach ($temp_gallery_raw_from_api as $key => $value)
 				{
-					if(is_string($value) && substr($value, 0, 26) === 'https://ganje.talambar.ir/')
+					if($value && is_string($value) && \dash\validate::uploaded_in_allowed_url($value))
 					{
-						$temp_gallery_raw_from_api[] = ['path' => $value];
+						$new_gallery[] = ['path' => $value];
 					}
 				}
 			}
 
-			\dash\temp::set('temp_gallery_raw_from_api', $temp_gallery_raw_from_api);
+			\dash\temp::set('temp_gallery_raw_from_api', $new_gallery);
 		}
 
 		unset($data['gallery_raw']);

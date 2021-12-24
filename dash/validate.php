@@ -133,5 +133,39 @@ class validate
 		}
 		return true;
 	}
+
+
+	public static function uploaded_in_allowed_url(string $_path)
+	{
+		if(!$_path)
+		{
+			return null;
+		}
+
+
+		$allow_upload_provider =
+		[
+			'talambar',
+			'arvanstorage',
+			'digitaloceanspaces',
+			'amazonaws',
+		];
+
+
+
+		$analyze_url = \dash\validate\url::parseUrl($_path);
+
+		if(!isset($analyze_url['root']) || !isset($analyze_url['path']))
+		{
+			return false;
+		}
+
+		if(!in_array($analyze_url['root'], $allow_upload_provider))
+		{
+			return false;
+		}
+
+		return true;
+	}
 }
 ?>
