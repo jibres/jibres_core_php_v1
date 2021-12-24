@@ -447,7 +447,7 @@ class add
 			}
 			$have_term_to_save_log = true;
 			$first_id    = \lib\db\productcategory\insert::multi_insert($multi_insert_cat);
-			$all_cats_id = array_merge($all_cats_id, \dash\db\config::multi_insert_id($multi_insert_cat, $first_id));
+			$all_cats_id = array_merge($all_cats_id, \dash\pdo\tools::multi_insert_id($multi_insert_cat, $first_id));
 		}
 
 		$category_id = $all_cats_id;

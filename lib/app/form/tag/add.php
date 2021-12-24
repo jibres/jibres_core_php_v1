@@ -324,7 +324,7 @@ class add
 			}
 			$have_term_to_save_log = true;
 			$first_id    = \lib\db\form_tag\insert::multi_insert($multi_insert_tag);
-			$all_tags_id = array_merge($all_tags_id, \dash\db\config::multi_insert_id($multi_insert_tag, $first_id));
+			$all_tags_id = array_merge($all_tags_id, \dash\pdo\tools::multi_insert_id($multi_insert_tag, $first_id));
 		}
 
 		$category_id = $all_tags_id;
