@@ -8,16 +8,28 @@ class set
 
 	public static function platform_cat_key_value($_platform, $_cat, $_key, $_value)
 	{
-		$query = "INSERT INTO setting SET setting.platform = '$_platform', setting.cat = '$_cat', setting.key = '$_key', setting.value = '$_value' ";
-		$result = \dash\pdo::query($query, []);
-		return $result;
+		$_args =
+		[
+			'platform' => $_platform,
+			'cat'      => $_cat,
+			'key'      => $_key,
+			'value'    => $_value,
+		];
+
+		return \dash\pdo\query_template::insert('setting', $_args);
 	}
+
 
 	public static function cat_key_value($_cat, $_key, $_value)
 	{
-		$query = "INSERT INTO setting SET setting.cat = '$_cat', setting.key = '$_key', setting.value = '$_value' ";
-		$result = \dash\pdo::query($query, []);
-		return $result;
+		$_args =
+		[
+			'cat'      => $_cat,
+			'key'      => $_key,
+			'value'    => $_value,
+		];
+
+		return \dash\pdo\query_template::insert('setting', $_args);
 	}
 
 

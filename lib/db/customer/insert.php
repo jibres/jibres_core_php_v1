@@ -9,35 +9,25 @@ class insert
 	 * Call from loginas module in enter
 	 *
 	 * @param      <type>   $_args      The arguments
-	 * @param      <type>   $_feul      The feul
+	 * @param      <type>   $_fuel      The fuel
 	 * @param      <type>   $_database  The database
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function user($_args, $_feul, $_database)
+	public static function user($_args, $_fuel, $_database)
 	{
 		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
 
 		if($set)
 		{
-			$check_unique = self::check_unique($_args, $_feul, $_database);
+			$check_unique = self::check_unique($_args, $_fuel, $_database);
 
 			if($check_unique)
 			{
 				return $check_unique;
 			}
 
-			$query        = " INSERT INTO `users` SET $set ";
-
-			if(\dash\pdo::query($query, [], $_feul, ['database' => $_database]))
-			{
-				$id = \dash\pdo::insert_id();
-				return $id;
-			}
-			else
-			{
-				return false;
-			}
+			return \dash\pdo\query_template::insert('users', $_args, $_fuel, ['database' => $_database]);
 		}
 		else
 		{
@@ -52,17 +42,17 @@ class insert
 	 * Private function call only in this file
 	 *
 	 * @param      <type>   $_args      The arguments
-	 * @param      <type>   $_feul      The feul
+	 * @param      <type>   $_fuel      The fuel
 	 * @param      <type>   $_database  The database
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	private static function check_unique($_args, $_feul, $_database)
+	private static function check_unique($_args, $_fuel, $_database)
 	{
 		if(isset($_args['jibres_user_id']) && $_args['jibres_user_id'] && is_numeric($_args['jibres_user_id']))
 		{
 			$query = " SELECT users.id AS `id` FROM users WHERE users.jibres_user_id = $_args[jibres_user_id] LIMIT 1";
-			$result = \dash\pdo::get($query, [], 'id', true, $_feul, ['database' => $_database]);
+			$result = \dash\pdo::get($query, [], 'id', true, $_fuel, ['database' => $_database]);
 			return $result;
 		}
 
