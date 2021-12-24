@@ -270,6 +270,12 @@ if(!$selected && \dash\engine\store::inStore())
 			<label for='payping'><img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payping.png" alt='PayPing'></label>
 			</div>
 			<?php } //endif ?>
+			<?php if(isset($myPayment['nextpay']['status']) && $myPayment['nextpay']['status']) {?>
+			<div class="radioGateway">
+			<input type="radio" name="bank" value="nextpay" id="nextpay" <?php if($selected === 'nextpay') { echo 'checked';} ?>>
+			<label for='nextpay'><img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/nextpay.png" alt='Nextpay'></label>
+			</div>
+			<?php } //endif ?>
 
 			<?php if(isset($myPayment['sep']['status']) && $myPayment['sep']['status']) {?>
 			<div class="radioGateway">

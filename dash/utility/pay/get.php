@@ -37,6 +37,7 @@ class get
 		\dash\data::myPayment_sep(\dash\setting\sep::get());
 		\dash\data::myPayment_idpay(\dash\setting\idpay::get());
 		\dash\data::myPayment_payping(\dash\setting\payping::get());
+		\dash\data::myPayment_nextpay(\dash\setting\nextpay::get());
 
 	}
 
@@ -52,6 +53,7 @@ class get
 		$payment['mellat']       = ['title' => T_('Mellat payment'), 				'key' => 'mellat', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/mellat-logo.svg'];
 		$payment['sep']          = ['title' => T_('Sep payment'), 					'key' => 'sep', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/parsian.png'];
 		$payment['idpay']        = ['title' => T_('IDPay payment'), 				'key' => 'idpay', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/idpay-icon.png'];
+		$payment['nextpay']        = ['title' => T_('NextPay'), 					'key' => 'nextpay', 'icon' => \dash\url::cdn(). '/img/thirdparty/bank/nextpay.png'];
 
 		return $payment;
 
@@ -71,6 +73,7 @@ class get
 		$payment['mellat']       = \dash\setting\mellat::get();
 		$payment['sep']          = \dash\setting\sep::get();
 		$payment['idpay']        = \dash\setting\idpay::get();
+		$payment['nextpay']      = \dash\setting\nextpay::get();
 
 		$detail = self::list();
 
