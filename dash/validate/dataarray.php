@@ -116,6 +116,17 @@ class dataarray
 
 
 
+	public static function tag_string($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		if(is_string($_data))
+		{
+			$_data = explode(',', $_data);
+		}
+
+		return self::tag($_data, $_notif, $_element, $_field_title, $_meta);
+	}
+
+
 	public static function tag($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		$data = $_data;
