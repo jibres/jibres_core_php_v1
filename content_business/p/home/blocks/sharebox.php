@@ -11,7 +11,7 @@ $html .= '<div class="box shareBox">';
         $html .= T_("Product Code");
         $html .= ' <span class="font-bold">';
         {
-          $html .= \dash\fit::number(\dash\data::dataRow_id());
+          $html .= \dash\fit::text(\dash\data::dataRow_id());
         }
         $html .= '</span>';
       }
