@@ -7,11 +7,7 @@ class insert
 
 	public static function jibres_customer_users_insert($_database, $_fuel, $_set)
 	{
-		$set = \dash\db\config::make_set($_set);
-
-		$query = "INSERT INTO `$_database`.`users` SET $set";
-		$result = \dash\pdo::query($query, [], $_fuel, ['database' => $_database]);
-		return $result;
+		return \dash\pdo\query_template::insert('users', $_set, $_fuel, ['database' => $_database]);
 	}
 
 	public static function insert($_args)
