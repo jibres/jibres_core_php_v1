@@ -119,7 +119,7 @@ class pdo
 				}
 				else
 				{
-					\dash\pdo\log::log(func_get_args(). ' -- Syntax error ', 0, 'error.sql');
+					\dash\pdo\log::log(json_encode(func_get_args()). ' -- Syntax error ', 0, 'error.sql');
 					return false;
 				}
 

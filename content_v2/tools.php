@@ -138,7 +138,6 @@ class tools
 		$get =
 		[
 			'status'  => 'enable',
-			'user_id' => [" IS ", " NOT NULL "],
 			'type'    => 'member',
 			'auth'    => $apikey,
 			'limit'   => 1,
@@ -146,7 +145,7 @@ class tools
 
 		$get = \dash\db\user_auth::get($get);
 
-		if(!isset($get['id']) || !isset($get['datecreated']) || !isset($get['user_id']))
+		if(!isset($get['id']) || !isset($get['datecreated']) || !isset($get['user_id']) || !a($get, 'user_id'))
 		{
 			self::stop(401, T_("Invalid apikey"));
 		}

@@ -70,7 +70,7 @@ class view
 		// 	if($load)
 		// 	{
 		// 		$load = implode(',', $load);
-		// 		$load = \dash\db\users::get(['chatid' => ["IN", "($load)"]]);
+		// 		$load = \dash\db\users::get();
 
 		// 		foreach ($load as $key => $value)
 		// 		{
