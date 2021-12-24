@@ -6,16 +6,12 @@ class controller
 {
 	public static function routing()
 	{
-		self::check_subdomain_and_content();
-
-		// load appkey if exist
-		// load apikey if exist
-		// check not loaded store
-		\content_b1\tools::master_check();
+		// nothing
 	}
 
 
-	private static function check_subdomain_and_content()
+
+	public static function routed()
 	{
 		$subdomain = \dash\url::subdomain();
 
@@ -38,6 +34,13 @@ class controller
 
 		// save api log
 		\dash\app\apilog::start();
+
+
+		// load appkey if exist
+		// load apikey if exist
+		// check not loaded store
+		\content_b1\tools::master_check();
 	}
+
 }
 ?>
