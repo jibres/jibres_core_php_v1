@@ -76,7 +76,7 @@ class check
 			'cat_id'          => 'int',
 			'unit'            => 'string_50', // in add manual user send the unit
 			'unit_id'         => 'id', // in add by variant we have the unit id
-			'gallery_raw'     => 'string', // just need to check
+			'gallery_raw'     => 'bit', // just need to check
 		];
 
 		$require = [];
@@ -225,7 +225,14 @@ class check
 		{
 			$new_gallery = [];
 
-			$temp_gallery_raw_from_api = explode(',', $data['gallery_raw']);
+			if(is_array($_args['gallery_raw']))
+			{
+				$temp_gallery_raw_from_api = $_args['gallery_raw'];
+			}
+			else
+			{
+				$temp_gallery_raw_from_api = explode(',', $data['gallery_raw']);
+			}
 
 			if(is_array($temp_gallery_raw_from_api))
 			{
