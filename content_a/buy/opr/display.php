@@ -57,18 +57,21 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 						$html .= '<td>';
 						{
 							$html .= \dash\layout\elements\input::text(['name' => 'buyprice[]', 'value' => a($value, 'suggestion', 'buyprice')]);
+							$html .= html_show_min_max_avg($value, 'buyprice');
 						}
 						$html .= '</td>';
 
 						$html .= '<td>';
 						{
 							$html .= \dash\layout\elements\input::text(['name' => 'price[]', 'value' => a($value, 'suggestion', 'price')]);
+							$html .= html_show_min_max_avg($value, 'price');
 						}
 						$html .= '</td>';
 
 						$html .= '<td>';
 						{
 							$html .= \dash\layout\elements\input::text(['name' => 'discount[]', 'value' => a($value, 'suggestion', 'discount')]);
+							$html .= html_show_min_max_avg($value, 'discount');
 						}
 						$html .= '</td>';
 
@@ -79,6 +82,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 						$html .= '</td>';
 					}
 					$html .= '</tr>';
+
 				}
 			}
 			$html .= '</tbody>';
@@ -96,4 +100,21 @@ $html .= \dash\layout\elements\form::_form();
 echo $html;
 
 
+function html_show_min_max_avg($_value, $_field)
+{
+	$html = '';
+	if(a($_value, 'oprmerger', 'multiple_count') > 1)
+	{
+
+		$html .= '<div class="text-sm">';
+		{
+			$html .= '<div class="row"><div class="c">'. T_("Minimum"). '</div><div class="c text-left ml-5">'. \dash\fit::number(min(a($_value, 'oprmerger', $_field))). '</div></div>';
+			$html .= '<div class="row"><div class="c">'. T_("Average"). '</div><div class="c text-left ml-5">'. \dash\fit::number(array_sum(a($_value, 'oprmerger', $_field)) / count(a($_value, 'oprmerger', $_field))). '</div></div>';
+			$html .= '<div class="row"><div class="c">'. T_("Maximum"). '</div><div class="c text-left ml-5">'. \dash\fit::number(max(a($_value, 'oprmerger', $_field))). '</div></div>';
+		}
+		$html .= '</div>';
+
+	}
+	return $html;
+}
 ?>

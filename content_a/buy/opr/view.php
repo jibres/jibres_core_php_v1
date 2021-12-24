@@ -18,6 +18,7 @@ class view
 		\dash\data::back_text(T_('Factors'));
 		\dash\data::back_link(\dash\url::here(). '/order?type=buy');
 
+		// var_dump($load_order_detail);exit;
 
 
 		\dash\face::btnSave('saveOpt');

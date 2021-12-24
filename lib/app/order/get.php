@@ -82,6 +82,7 @@ class get
 					'discount'       => [floatval($value['discount'])],
 					'price_per_item' => [floatval($value['price']) * floatval($value['count'])],
 					'multiple'       => false,
+					'multiple_count' => 1,
 				];
 			}
 			else
@@ -92,6 +93,7 @@ class get
 				$new_list[$value['product_id']]['oprmerger']['discount'][]       = floatval($value['discount']);
 				$new_list[$value['product_id']]['oprmerger']['price_per_item'][] = floatval($value['price']) * floatval($value['count']);
 				$new_list[$value['product_id']]['oprmerger']['multiple']         = true;
+				$new_list[$value['product_id']]['oprmerger']['multiple_count']++;
 			}
 		}
 
