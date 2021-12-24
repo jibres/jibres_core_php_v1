@@ -15,12 +15,7 @@ class insert
 
 	public static function multi_insert($_args)
 	{
-		$set = \dash\db\config::make_multi_insert($_args);
-		if($set)
-		{
-			$query = " INSERT INTO `domainstatus` $set ";
-			return \dash\pdo::query($query, [], 'nic');
-		}
+		return \dash\pdo\query_template::multi_insert('domainstatus', $_args, 'nic');
 	}
 }
 ?>

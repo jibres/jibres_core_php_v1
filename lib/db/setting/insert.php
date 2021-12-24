@@ -43,10 +43,7 @@ class insert
 
 	public static function insert_fuel($_set, $_fuel, $_database)
 	{
-		$set_setting = \dash\db\config::make_multi_insert($_set);
-
-		$query = "INSERT INTO `$_database`.`setting` $set_setting";
-		$result = \dash\pdo::query($query, [], $_fuel, ['database' => $_database]);
+		return \dash\pdo\query_template::multi_insert('setting', $_set, $_fuel, ['database' => $_database]);
 	}
 
 

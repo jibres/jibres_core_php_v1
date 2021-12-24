@@ -33,12 +33,7 @@ class insert
 
 	public static function multi_dns($_args)
 	{
-		$set = \dash\db\config::make_multi_insert($_args);
-		if($set)
-		{
-			$query = " INSERT INTO `business_domain_dns` $set ";
-			return \dash\pdo::query($query, [], 'master');
-		}
+		return \dash\pdo\query_template::multi_insert('business_domain_dns', $_args, 'master');
 	}
 
 }
