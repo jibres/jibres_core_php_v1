@@ -29,6 +29,10 @@ class query_template
 			{
 				$value = null;
 			}
+			elseif(is_bool($value) && !$value)
+			{
+				$value = null;
+			}
 
 			$param[$new_key] = $value;
 		}
@@ -53,7 +57,15 @@ class query_template
 
 		$result = \dash\pdo::query($query, $param, $_fuel, $_option);
 
-		return \dash\pdo::insert_id();
+		$insert_id = \dash\pdo::insert_id();
+
+		// have not AUTO INCREMENT id
+		if($result && !$insert_id)
+		{
+			return $result;
+		}
+
+		return $insert_id;
 	}
 
 
@@ -94,6 +106,11 @@ class query_template
 
 		foreach ($_args as $key => $value)
 		{
+			if(is_bool($value) && !$value)
+			{
+				$value = null;
+			}
+
 			$fields[]        = $key;
 			$new_key         = ':'. $key;
 			$set[$key]       = $new_key;
