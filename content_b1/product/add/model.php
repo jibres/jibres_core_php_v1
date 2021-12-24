@@ -19,6 +19,7 @@ class model
 	public static function get_post()
 	{
 		if(\dash\request::isset_input_body('title')) 			$post['title']        = \dash\request::input_body('title');
+		if(\dash\request::isset_input_body('title2')) 			$post['title2']        = \dash\request::input_body('title2');
 		if(\dash\request::isset_input_body('desc')) 			$post['desc']         = \dash\request::input_body('desc');
 		if(\dash\request::isset_input_body('buyprice')) 		$post['buyprice']     = \dash\request::input_body('buyprice');
 		if(\dash\request::isset_input_body('price')) 			$post['price']        = \dash\request::input_body('price');
