@@ -45,7 +45,7 @@ if(\dash\data::propertyList())
 
 			            if(is_numeric($value['value']))
 			            {
-			            	$html .=  \dash\fit::number($value['value']);
+			            	$html .=  \dash\fit::text($value['value']);
 			            }
 			            else
 			            {
