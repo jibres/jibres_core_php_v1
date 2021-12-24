@@ -235,6 +235,16 @@ class mvc
 			}
 		}
 
+		// call routed function after check 404 page
+		if(is_callable([$content_controller, 'routed']))
+		{
+			$content_controller::routed();
+		}
+
+		if(is_callable([$my_controller, 'routed']))
+		{
+			$my_controller::routed();
+		}
 
 		// check user not send html if not alowed
 		\dash\allow::check_allow_html();
