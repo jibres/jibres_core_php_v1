@@ -134,7 +134,7 @@ class posts
 	 */
 	public static function update()
 	{
-		return \dash\db\config::public_update('posts', ...func_get_args());
+		return \dash\pdo\query_template::update('posts', ...func_get_args());
 	}
 
 

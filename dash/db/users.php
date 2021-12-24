@@ -289,7 +289,7 @@ class users
 			}
 		}
 
-		return \dash\db\config::public_update('users', $_args, $_id);
+		return \dash\pdo\query_template::update('users', $_args, $_id);
 	}
 
 

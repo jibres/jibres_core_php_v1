@@ -27,7 +27,7 @@ class user_android
 
 	public static function update()
 	{
-		return \dash\db\config::public_update('user_android', ...func_get_args());
+		return \dash\pdo\query_template::update('user_android', ...func_get_args());
 	}
 
 

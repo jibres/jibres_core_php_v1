@@ -6,7 +6,7 @@ class update
 {
 	public static function record()
 	{
-		$result = \dash\db\config::public_update('inventory', ...func_get_args());
+		$result = \dash\pdo\query_template::update('inventory', ...func_get_args());
 		return $result;
 	}
 

@@ -67,7 +67,7 @@ class visitor
 			if($last_time)
 			{
 				$avgtime = time() - intval($last_time);
-				\dash\db\config::public_update('visitors', ['avgtime' => $avgtime], self::id());
+				\dash\pdo\query_template::update('visitors', ['avgtime' => $avgtime], self::id());
 			}
 		}
 	}

@@ -19,7 +19,7 @@ class user_auth
 
 	public static function update()
 	{
-		return \dash\db\config::public_update('user_auth', ...func_get_args());
+		return \dash\pdo\query_template::update('user_auth', ...func_get_args());
 	}
 
 

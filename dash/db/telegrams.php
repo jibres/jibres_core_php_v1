@@ -21,7 +21,7 @@ class telegrams
 	public static function update($_args, $_id)
 	{
 		$_args = \dash\safe::safe($_args, 'raw-nottrim');
-		return \dash\db\config::public_update('telegrams', $_args, $_id);
+		return \dash\pdo\query_template::update('telegrams', $_args, $_id);
 	}
 
 

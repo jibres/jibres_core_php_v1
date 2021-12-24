@@ -50,7 +50,7 @@ class transactions
 	 */
 	public static function update()
 	{
-		return \dash\db\config::public_update('transactions', ...func_get_args());
+		return \dash\pdo\query_template::update('transactions', ...func_get_args());
 	}
 
 

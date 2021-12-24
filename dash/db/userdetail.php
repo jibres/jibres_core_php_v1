@@ -20,7 +20,7 @@ class userdetail
 
 	public static function update()
 	{
-		return \dash\db\config::public_update('userdetail', ...func_get_args());
+		return \dash\pdo\query_template::update('userdetail', ...func_get_args());
 	}
 
 

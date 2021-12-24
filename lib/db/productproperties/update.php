@@ -11,7 +11,7 @@ class update
 	 */
 	public static function record()
 	{
-		$result = \dash\db\config::public_update('productproperties', ...func_get_args());
+		$result = \dash\pdo\query_template::update('productproperties', ...func_get_args());
 		return $result;
 	}
 

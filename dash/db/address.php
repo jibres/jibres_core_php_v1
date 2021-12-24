@@ -21,13 +21,13 @@ class address
 
 	public static function update()
 	{
-		return \dash\db\config::public_update('address', ...func_get_args());
+		return \dash\pdo\query_template::update('address', ...func_get_args());
 	}
 
 
 	public static function get_by_id($_id)
 	{
-		return \dash\db\config::public_get_by_id('address', $_id);
+		return \dash\pdo\query_template::get('address', $_id);
 	}
 
 

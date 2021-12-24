@@ -27,7 +27,7 @@ class user_telegram
 
 	public static function update()
 	{
-		return \dash\db\config::public_update('user_telegram', ...func_get_args());
+		return \dash\pdo\query_template::update('user_telegram', ...func_get_args());
 	}
 
 	public static function update_where()

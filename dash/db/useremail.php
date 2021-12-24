@@ -78,7 +78,7 @@ class useremail
 
 	public static function update()
 	{
-		return \dash\db\config::public_update('useremail', ...func_get_args());
+		return \dash\pdo\query_template::update('useremail', ...func_get_args());
 	}
 
 	public static function set_primary_id($_id)

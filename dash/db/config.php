@@ -287,26 +287,6 @@ class config
 
 
 
-	public static function public_get_by_id($_table, $_id, $_db_name = true)
-	{
-		return \dash\pdo\query_template::get($_table, $_id, $_db_name);
-	}
-
-
-
-	/**
-	 * update public
-	 *
-	 * @param      <type>  $_args  The arguments
-	 * @param      <type>  $_id    The identifier
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function public_update($_table, $_args, $_id, $_db_name = true)
-	{
-		return \dash\pdo\query_template::update($_table, $_args, $_id, $_db_name);
-	}
-
 
 	/**
 	 * update record by where
