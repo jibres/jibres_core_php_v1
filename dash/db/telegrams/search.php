@@ -5,7 +5,7 @@ class search
 {
 	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		if($q['pagination'] === false)
 		{
@@ -34,7 +34,7 @@ class search
 
 	public static function conversation_list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query = "SELECT COUNT(child.chatid) AS `count` FROM (SELECT telegrams.chatid AS `chatid` FROM telegrams $q[join] $q[where] GROUP BY telegrams.chatid) AS `child` ";
 

@@ -67,6 +67,7 @@ class config
 			$fields = $_meta['fields'];
 		}
 
+
 		$result =
 		[
 			'where'       => $where,

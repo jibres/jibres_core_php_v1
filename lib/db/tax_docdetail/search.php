@@ -6,7 +6,7 @@ class search
 {
 	public static function list($_and = null, $_or = null, $_order_sort = null, $_meta = [], $_where_date = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM tax_docdetail INNER JOIN tax_document ON tax_document.id = tax_docdetail.tax_document_id $q[join] $q[where] ";
 
@@ -63,7 +63,7 @@ class search
 	{
 		$_and['special_type'] = "tax_document.type != 'opening' ";
 
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$query =
 		"
@@ -83,7 +83,7 @@ class search
 
 		$_and['special_type'] = "tax_document.type = 'opening' ";
 
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$query =
 		"

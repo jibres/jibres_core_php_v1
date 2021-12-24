@@ -6,7 +6,7 @@ class search
 
 	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM business_domain $q[join] $q[where] ";
 
@@ -37,7 +37,7 @@ class search
 
 	public static function list_action($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM business_domain_action $q[join] $q[where] ";
 
@@ -57,7 +57,7 @@ class search
 
 	public static function list_dns($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM business_domain_dns $q[join] $q[where] ";
 

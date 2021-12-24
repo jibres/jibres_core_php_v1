@@ -5,7 +5,7 @@ class search
 {
 	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM transactions LEFT JOIN users ON users.id = transactions.user_id $q[where]  ";
 
@@ -31,7 +31,7 @@ class search
 
 	public static function list_sum($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 
 		$query =

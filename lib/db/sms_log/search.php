@@ -6,7 +6,7 @@ class search
 
 	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM sms_log $q[join] $q[where] ";
 
@@ -35,7 +35,7 @@ class search
 
 	public static function conversation_list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query = "SELECT COUNT(child.mobile) AS `count` FROM (SELECT sms_log.mobile AS `mobile` FROM sms_log $q[join] $q[where] GROUP BY sms_log.mobile) AS `child` ";
 

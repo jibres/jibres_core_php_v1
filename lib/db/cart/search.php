@@ -9,7 +9,7 @@ class search
 	public static function list($_and = null, $_or = null, $_order_sort = null, $_meta = [])
 	{
 
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query =
 		"
@@ -64,7 +64,7 @@ class search
 	public static function detail($_and = null, $_or = null, $_order_sort = null, $_meta = [])
 	{
 
-		$q = \dash\db\config::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 
 		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM cart INNER JOIN users ON cart.user_id = users.id INNER JOIN products ON products.id = cart.product_id $q[where]";

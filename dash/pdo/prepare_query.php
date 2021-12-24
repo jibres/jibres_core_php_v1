@@ -66,6 +66,7 @@ class prepare_query
 	}
 
 
+
 	/**
 	 * Ready args for search
 	 *
@@ -76,7 +77,7 @@ class prepare_query
 	 *
 	 * @return     array   ( description_of_the_return_value )
 	 */
-	public static function ready_pdo_query_args($_and, $_or, $_order_sort = null, $_meta = [])
+	public static function ready_to_sql($_and, $_or, $_order_sort = null, $_meta = [])
 	{
 		$where = null;
 		$q     = [];
