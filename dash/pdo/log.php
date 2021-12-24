@@ -25,7 +25,9 @@ class log
 			// $my_text .= "--- ". $_time. " s";
 			$my_text .= " --- ". $time_ms . " ms";
 		}
-		$my_text .= " | ". str_repeat("-", 5). ' '. \dash\url::pwd();
+		$my_text .= " | ". str_repeat("-", 5). ' ';
+		$my_text .= mb_strtoupper(\dash\request::is()). ':';
+		$my_text .= \dash\url::pwd();
 		//$my_text .= "\n---". mysqli_info(self::$link);
 		// $my_text .= "\n";
 		if($time_ms > 1000)
