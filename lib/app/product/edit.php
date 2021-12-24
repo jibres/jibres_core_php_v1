@@ -342,13 +342,31 @@ class edit
 				}
 
 
+
 				if(\dash\temp::get('temp_gallery_raw_from_api'))
 				{
 					foreach (\dash\temp::get('temp_gallery_raw_from_api') as $key => $value)
 					{
-						gallery::gallery($id, $value, 'add');
+						\dash\notif::inactive();
+
+						gallery::gallery($product_id, $value, 'add');
+
+						\dash\notif::active();
 					}
 				}
+
+				if(\dash\temp::get('temp_property_raw_from_api'))
+				{
+					foreach (\dash\temp::get('temp_property_raw_from_api') as $key => $value)
+					{
+						\dash\notif::inactive();
+
+						property::add($value, $product_id);
+
+						\dash\notif::active();
+					}
+				}
+
 
 				if(\dash\engine\process::status())
 				{
