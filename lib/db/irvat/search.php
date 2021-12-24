@@ -58,7 +58,7 @@ class search
 	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
 	{
 
-		$q = self::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM ir_vat $q[where] ";
 
@@ -79,7 +79,7 @@ class search
 	public static function summary($_and, $_or)
 	{
 
-		$q = self::ready_to_sql($_and, $_or, null, []);
+		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, null, []);
 
 
 		$query =
