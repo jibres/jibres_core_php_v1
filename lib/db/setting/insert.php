@@ -49,57 +49,49 @@ class insert
 
 	public static function new_record($_args, $_check_duplicate_cat_key = false)
 	{
-		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
-		if($set)
+		if(!$_args)
 		{
-			if($_check_duplicate_cat_key && a($_args, 'cat') && a($_args, 'key'))
+			return false;
+		}
+
+		$setting_field = ['id', 'platform', 'user_id', 'lang', 'datemodified', 'cat', 'key', 'value'];
+
+		if($_check_duplicate_cat_key && a($_args, 'cat') && a($_args, 'key'))
+		{
+			$param       = [];
+			$insert_args = [];
+			$select_args = [];
+
+			foreach ($_args as $key => $value)
 			{
-				$insert_ready = \dash\db\config::make_multi_insert([$_args], true);
-				if(a($insert_ready, 'fields') && a($insert_ready, 'values'))
-				{
-					$query =
-					"
-						INSERT INTO `setting` ($insert_ready[fields])
-						SELECT * FROM (SELECT $insert_ready[values]) AS tmp
-						WHERE NOT EXISTS
-						(
-						    SELECT check_setting.id FROM `setting` as `check_setting` WHERE  check_setting.cat = '$_args[cat]' AND check_setting.key = '$_args[key]'
-						) LIMIT 1;
-					";
+				$insert_args[]      = " setting.$key ";
+				// $param[':'. $key]   = $value;
 
-					if(\dash\pdo::query($query, []))
-					{
-						$id = \dash\pdo::insert_id();
-						return $id;
-					}
-					else
-					{
-						return false;
-					}
-
-
-				}
-				else
-				{
-					return false;
-				}
+				$select_args[]      = " :w_{$key} ";
+				$param[':w_'. $key] = $value;
 			}
 
-			$query = " INSERT INTO `setting` SET $set ";
+			$insert_args = implode(',', $insert_args);
+			$select_args = implode(',', $select_args);
 
-			if(\dash\pdo::query($query, []))
-			{
-				$id = \dash\pdo::insert_id();
-				return $id;
-			}
-			else
-			{
-				return false;
-			}
+			$query =
+			"
+				INSERT INTO `setting` ($insert_args)
+				SELECT * FROM (SELECT $select_args) AS tmp
+				WHERE NOT EXISTS
+				(
+				    SELECT check_setting.id FROM `setting` as `check_setting` WHERE  check_setting.cat = :scat AND check_setting.key = :skey
+				) LIMIT 1;
+			";
+
+			$param[':scat'] = $_args['cat'];
+			$param[':skey'] = $_args['key'];
+
+			return \dash\pdo::query($query, $param);
 		}
 		else
 		{
-			return false;
+			return \dash\pdo\query_template::insert('setting', $_args);
 		}
 
 	}
