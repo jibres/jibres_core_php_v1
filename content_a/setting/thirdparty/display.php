@@ -233,7 +233,7 @@
           <div class="go"></div>
         </a>
       </li>
-      <li class="hide">
+      <li>
         <a class="f" href="<?php echo \dash\url::that(); ?>/irnextpay">
           <img src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/nextpay.png" alt='Nextpay'>
           <div class="key"><?php echo T_("NextPay"); ?></div>
