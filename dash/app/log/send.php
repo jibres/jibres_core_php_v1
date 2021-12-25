@@ -60,6 +60,8 @@ class send
 
 	private static function send_telegram($_data)
 	{
+		\dash\log::to_supervisor(date("Y-m-d H:i:s"). '-TEST-'. strval(\dash\social\telegram\tg::setting('status')));
+
 		if(!\dash\social\telegram\tg::setting('status'))
 		{
 			return false;
