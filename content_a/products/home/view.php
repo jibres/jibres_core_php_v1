@@ -69,12 +69,12 @@ class view
 
 		if(!$myProductList)
 		{
-			$ganje = \lib\app\product\ganje::search($search_string);
-			if($ganje)
-			{
-				\dash\data::listEngine_after(__DIR__ .'/ganje.php');
-			}
-			\dash\data::ganjeSearch($ganje);
+			// $ganje = \lib\app\product\ganje::search($search_string);
+			// if($ganje)
+			// {
+			// 	\dash\data::listEngine_after(__DIR__ .'/ganje.php');
+			// }
+			// \dash\data::ganjeSearch($ganje);
 
 		}
 
