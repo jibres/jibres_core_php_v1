@@ -447,7 +447,7 @@ class log
 
 					if($telegram_text_temp)
 					{
-						$new_args[$key]['telegram'] = addslashes(json_encode($telegram_text_temp, JSON_UNESCAPED_UNICODE));
+						$new_args[$key]['telegram'] = json_encode($telegram_text_temp, JSON_UNESCAPED_UNICODE);
 					}
 				}
 			}
