@@ -28,7 +28,7 @@ class history
 			'user_id'      => null,
 			'ip'           => null,
 			'ip_id'        => null,
-			'ip_md5'       => null,
+			// 'ip_md5'       => null,
 			'agent_id'     => null,
 			'line'         => null,
 			'apikey'       => null,
