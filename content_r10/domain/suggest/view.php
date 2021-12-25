@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\domain\check;
+namespace content_r10\domain\suggest;
 
 
 class view
