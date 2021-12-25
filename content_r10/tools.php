@@ -30,6 +30,7 @@ class tools
 
 		if(\dash\url::module() === 'domain')
 		{
+			self::check_appkey();
 			self::appkey_required();
 			self::accesstoken_required();
 		}
