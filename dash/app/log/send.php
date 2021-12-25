@@ -22,7 +22,6 @@ class send
 
 		$start = time();
 
-		\dash\log::to_supervisor(date("Y-m-d H:i:s"). '-TEST-'. \dash\app\log\protector::cronjob($start));
 
 		foreach ($not_send as $key => $value)
 		{
@@ -34,6 +33,7 @@ class send
 			if(isset($value['telegram']))
 			{
 				$telegram = json_decode($value['telegram'], true);
+				\dash\log::to_supervisor(date("Y-m-d H:i:s"). '-TEST11-'. json_encode($telegram));
 
 				if($telegram)
 				{
