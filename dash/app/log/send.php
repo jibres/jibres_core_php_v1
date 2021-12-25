@@ -33,6 +33,10 @@ class send
 			if(isset($value['telegram']))
 			{
 				$telegram = json_decode($value['telegram'], true);
+				if(!$telegram)
+				{
+					$telegram = json_decode(stripslashes($value['telegram']));
+				}
 
 				if($telegram)
 				{
