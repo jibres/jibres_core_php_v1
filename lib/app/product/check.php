@@ -78,6 +78,9 @@ class check
 			'unit_id'         => 'id', // in add by variant we have the unit id
 			'gallery_raw'     => 'bit', // just need to check
 			'property'        => 'bit', // just need to check
+
+			'ganje_id'        => 'id',
+			'ganje_lastfetch' => 'datetime',
 		];
 
 		$require = [];
