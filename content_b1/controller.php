@@ -6,13 +6,6 @@ class controller
 {
 	public static function routing()
 	{
-		// nothing
-	}
-
-
-
-	public static function routed()
-	{
 		$subdomain = \dash\url::subdomain();
 
 		// replace business form content to subdomain
@@ -40,6 +33,7 @@ class controller
 		// load apikey if exist
 		// check not loaded store
 		\content_b1\tools::master_check();
+
 	}
 
 }
