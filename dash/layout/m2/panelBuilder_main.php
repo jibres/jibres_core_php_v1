@@ -40,6 +40,11 @@ else
 		    require_once(core. 'layout/tools/display-start.php');
 		  }
 		}
+
+		if(\dash\data::listEngine_after() && is_string(\dash\data::listEngine_after()) && is_file(\dash\data::listEngine_after()))
+		{
+			require_once \dash\data::listEngine_after();
+		}
 	}
 	else
 	{
