@@ -7,11 +7,7 @@ class telegrams
 	public static function insert($_args)
 	{
 		$_args = \dash\safe::safe($_args, 'raw-nottrim');
-		$result = \dash\pdo\query_template::insert('telegrams', $_args);
-
-		\dash\log::to_supervisor(date("Y-m-d H:i:s"). '--'. count($_args));
-
-		return $result;
+		return \dash\pdo\query_template::insert('telegrams', $_args);
 	}
 
 
