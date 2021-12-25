@@ -25,7 +25,9 @@ $html .= '<div class="mt-10">';
 
 						$html .= '<div class="cauto">';
 						{
-							$html .= '<div class="btn-primary" data-ajaxify data-method="post" data-data=\'{"add_from": "ganje", "ganje_id": "'.a($value, 'id').'"}\'>'. T_("Add"). '</div>';
+							$add_url = \dash\url::this(). '/quick?gid='. a($value, 'id');
+
+							$html .= '<a href="'.$add_url.'" class="btn-primary">'. T_("Add"). '</a>';
 						}
 						$html .= '</div>';
 					}

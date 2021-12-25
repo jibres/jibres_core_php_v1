@@ -66,16 +66,19 @@ class view
 		\dash\data::listUnits($unit_list);
 
 
-
-		if(!$myProductList)
+		if(\dash\url::isLocal())
 		{
-			// $ganje = \lib\app\product\ganje::search($search_string);
-			// if($ganje)
-			// {
-			// 	\dash\data::listEngine_after(__DIR__ .'/ganje.php');
-			// }
-			// \dash\data::ganjeSearch($ganje);
+			if(!$myProductList)
+			{
+				$ganje = \lib\app\product\ganje::search($search_string);
 
+				if($ganje)
+				{
+					\dash\data::listEngine_after(__DIR__ .'/ganje.php');
+				}
+				\dash\data::ganjeSearch($ganje);
+
+			}
 		}
 
 	}

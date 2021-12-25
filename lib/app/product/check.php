@@ -25,6 +25,10 @@ class check
 
 		$title = null;
 
+
+		$_args = \lib\app\product\ganje::fill_args($_args);
+
+
 		$condition =
 		[
 			'title'           => 'title',
@@ -81,6 +85,7 @@ class check
 
 			'ganje_id'        => 'id',
 			'ganje_lastfetch' => 'datetime',
+			'add_from_ganje_id' => 'id',
 		];
 
 		$require = [];
@@ -268,7 +273,7 @@ class check
 
 		unset($data['gallery_raw']);
 		unset($data['property']);
-
+		unset($data['add_from_ganje_id']);
 
 		return $data;
 	}

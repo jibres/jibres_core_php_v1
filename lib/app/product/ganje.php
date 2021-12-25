@@ -25,7 +25,7 @@ class ganje
 	}
 
 
-	public static function add_from_id($_id)
+	public static function fetch_by_id($_id)
 	{
 		$id = \dash\validate::id($_id);
 		if(!$id)
@@ -43,6 +43,17 @@ class ganje
 
 		$ganje_product = $ganje['result'];
 
+		return $ganje_product;
+	}
+
+
+	public static function add_from_id($_id)
+	{
+		$ganje_product = self::fetch_by_id($_id);
+		if(!$ganje_product)
+		{
+			return false;
+		}
 
 		$gallery_raw = [];
 		if(a($ganje_product, 'gallery_array'))
@@ -73,6 +84,59 @@ class ganje
 
 		return $result;
 
+	}
+
+
+	public static function fill_args(array $_args) : array
+	{
+		if(!isset($_args['add_from_ganje_id']))
+		{
+			return $_args;
+		}
+
+		if(!\dash\validate::id($_args['add_from_ganje_id'], false))
+		{
+			return $_args;
+		}
+
+		$ganje_product = \lib\app\product\ganje::fetch_by_id($_args['add_from_ganje_id']);
+		if($ganje_product)
+		{
+
+			$_args['ganje_id']        = a($ganje_product, 'id');
+			$_args['ganje_lastfetch'] = date("Y-m-d H:i:s");
+
+
+			$ganje_gallery_raw = [];
+			if(a($ganje_product, 'gallery_array'))
+			{
+				$ganje_gallery_raw = array_column($ganje_product['gallery_array'], 'path');
+			}
+
+			$_args['gallery_raw'] = $ganje_gallery_raw;
+
+
+			$ganje_category = [];
+			if(a($ganje_product, 'category'))
+			{
+				$ganje_category = array_column($ganje_product['category'], 'title');
+			}
+
+			$_args['category'] = $ganje_category;
+
+
+			if(a($ganje_product, 'property'))
+			{
+				$_args['property'] = $ganje_product['property'];
+			}
+
+
+			$_args['title2'] = a($ganje_product, 'title2');
+			$_args['slug']   = a($ganje_product, 'slug');
+
+		}
+
+		return $_args;
 	}
 }
 ?>

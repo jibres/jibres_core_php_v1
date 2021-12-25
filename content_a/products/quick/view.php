@@ -30,6 +30,16 @@ class view
 		}
 
 
+		if(\dash\request::get('gid'))
+		{
+			$load_ganje_detail = \lib\app\product\ganje::fetch_by_id(\dash\request::get('gid'));
+			if(\dash\data::addMode())
+			{
+				\dash\data::productDataRow($load_ganje_detail);
+			}
+
+		}
+
 	}
 }
 ?>
