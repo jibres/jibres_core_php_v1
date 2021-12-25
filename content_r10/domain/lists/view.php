@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\domain\fetch;
+namespace content_r10\domain\lists;
 
 
 class view
