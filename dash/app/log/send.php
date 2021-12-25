@@ -8,6 +8,7 @@ class send
 
 	public static function notification()
 	{
+		\dash\log::to_supervisor(date("Y-m-d H:i:s"). '--'. 'start');
 		if(\dash\url::isLocal())
 		{
 			return false;
@@ -19,6 +20,7 @@ class send
 			// nothing to send
 			return true;
 		}
+		\dash\log::to_supervisor(date("Y-m-d H:i:s"). '--'. count($not_send));
 
 		$start = time();
 
