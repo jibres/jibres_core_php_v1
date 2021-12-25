@@ -490,7 +490,7 @@ class ip
 		{
 			if(!\dash\url::isLocal())
 			{
-				if(in_array(self::validateIP(), ['151.238.149.136']))
+				if(in_array(self::validateIP(), ['151.238.149.136', '147.182.137.236']))
 				{
 					// jibres office ip
 				}
