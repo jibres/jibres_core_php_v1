@@ -103,6 +103,57 @@ class property
 	}
 
 
+	public static function get_api_pretty($_id, $_admin = false)
+	{
+		$id = \dash\validate::id($_id, false);
+		if(!$id)
+		{
+			\dash\notif::error(T_("Invalid product id"));
+			return false;
+		}
+
+		$load = \lib\app\product\get::get($id);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		$load_parent = [];
+		$parent_id = null;
+
+		if(isset($load['parent']) && $load['parent'])
+		{
+			$parent_id = $load['parent'];
+			$load_parent = \lib\app\product\get::get($parent_id);
+		}
+
+		$saved_property = \lib\db\productproperties\get::product_property_list($id, $parent_id);
+
+		if(!is_array($saved_property))
+		{
+			$saved_property = [];
+		}
+
+		$result = [];
+
+		foreach ($saved_property as $key => $value)
+		{
+			$result[] =
+			[
+				'cat'   => a($value, 'cat'),
+				'key'   => a($value, 'key'),
+				'value' => a($value, 'value'),
+			];
+		}
+
+		return $result;
+
+
+	}
+
+
+
 	public static function get_pretty($_id, $_admin = false)
 	{
 		$id = \dash\validate::id($_id, false);
