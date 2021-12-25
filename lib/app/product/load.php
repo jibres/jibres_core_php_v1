@@ -140,7 +140,7 @@ class load
 
 
 	// load one product by id in site
-	public static function site($_id)
+	public static function site($_id, $_option = [])
 	{
 		// load detail
 		$detail = \lib\app\product\get::site($_id, ['load_gallery' => true]);
@@ -151,9 +151,6 @@ class load
 		}
 
 
-
-		$property_list = \lib\app\product\property::get_pretty($_id);
-		\dash\data::propertyList($property_list);
 
 
 		$cat = \dash\temp::get('TempProductLoadedTagList');
@@ -194,6 +191,22 @@ class load
 			}
 		}
 
+		if(a($_option, 'api_mode'))
+		{
+			$property_list      = \lib\app\product\property::get_api_pretty($_id);
+			$detail['property'] = $property_list;
+
+
+			$category_list      = \lib\app\category\get::product_cat_api($_id);
+
+			$detail['category'] = $category_list;
+		}
+		else
+		{
+
+			$property_list = \lib\app\product\property::get_pretty($_id);
+			\dash\data::propertyList($property_list);
+		}
 
 
 		// sed dataRow to load detail in html
