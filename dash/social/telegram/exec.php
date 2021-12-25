@@ -165,6 +165,9 @@ class exec
 			return T_('Empty server response');
 		}
 		curl_close($ch);
+
+		\dash\log::to_supervisor(date("Y-m-d H:i:s"). '--'. mb_strlen($result));
+
 		if(substr($result, 0,1) === "{")
 		{
 			$result = json_decode($result, true);
