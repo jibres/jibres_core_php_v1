@@ -30,6 +30,29 @@ class get
 
 
 
+	public static function product_cat_api($_product_id) : array
+	{
+		$list = self::product_cat($_product_id);
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$result = [];
+
+		foreach ($list as $key => $value)
+		{
+			$result[] =
+			[
+				'title' => a($value, 'title'),
+				'slug' => a($value, 'slug'),
+			];
+		}
+
+		return $result;
+	}
+
+
 	public static function product_cat($_product_id)
 	{
 		$get_usage = \lib\db\productcategoryusage\get::usage($_product_id);
