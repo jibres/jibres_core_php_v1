@@ -31,6 +31,7 @@ class send
 
 			if(isset($value['telegram']))
 			{
+				\dash\log::to_supervisor(date("Y-m-d H:i:s"). '-TEST-'. json_encode($value));
 				$telegram = json_decode($value['telegram'], true);
 
 				if($telegram)
@@ -60,7 +61,6 @@ class send
 
 	private static function send_telegram($_data)
 	{
-		\dash\log::to_supervisor(date("Y-m-d H:i:s"). '-TEST-'. strval(\dash\social\telegram\tg::setting('status')));
 
 		if(!\dash\social\telegram\tg::setting('status'))
 		{
@@ -78,7 +78,6 @@ class send
 			else
 			{
 				$myResult = \dash\social\telegram\tg::sendMessage($value);
-				\dash\log::to_supervisor(date("Y-m-d H:i:s"). '-TEST-'. count($myResult));
 			}
 		}
 
