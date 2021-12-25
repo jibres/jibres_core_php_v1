@@ -316,8 +316,11 @@ class add
 		{
 			$return['id']       = $product_id;
 
-			// create sitemap
-			\dash\utility\sitemap::products($product_id);
+			if(!\dash\url::is_api())
+			{
+				// create sitemap
+				\dash\utility\sitemap::products($product_id);
+			}
 		}
 
 		if(!$_option['transaction'])
