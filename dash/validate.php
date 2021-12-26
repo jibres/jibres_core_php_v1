@@ -58,7 +58,7 @@ class validate
 			return false;
 		}
 
-		if(is_string($_a) && is_string($_b) && (string) $_a === (string) $_b)
+		if(is_string($_a) && is_string($_b) && strval($_a) === strval($_b))
 		{
 			return true;
 		}
