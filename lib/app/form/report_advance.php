@@ -22,12 +22,6 @@ class chart
 		$answerterm_id = array_filter($answerterm_id);
 		$answerterm_id = array_unique($answerterm_id);
 		$answerterm_text = [];
-		if(!empty($answerterm_id))
-		{
-			$answerterm_id = implode(',', $answerterm_id);
-			$answerterm_text = \lib\db\answerterms::get(['id' => ["IN", "($answerterm_id)"]]);
-			$answerterm_text = array_combine(array_column($answerterm_text, 'id'), array_column($answerterm_text, 'text'));
-		}
 
 		$question1_choise = \lib\db\questions::get(['id' => $_question1, 'limit' => 1]);
 		$question1_choise = \lib\app\question::ready($question1_choise);
