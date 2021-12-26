@@ -49,23 +49,5 @@ class dayevent
 		return \dash\db\config::public_get('dayevent', $_args, $_options);
 	}
 
-
-	public static function search($_string = null, $_options = [])
-	{
-		$default =
-		[
-
-		];
-
-		if(!is_array($_options))
-		{
-			$_options = [];
-		}
-
-		$_options = array_merge($default, $_options);
-		$result   = \dash\db\config::public_search('dayevent', $_string, $_options);
-
-		return $result;
-	}
 }
 ?>
