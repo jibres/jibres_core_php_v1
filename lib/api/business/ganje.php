@@ -73,7 +73,6 @@ class ganje
 		curl_close ($ch);
 
 
-
 		if(!$response)
 		{
 			return false;
@@ -113,6 +112,13 @@ class ganje
 	public static function detail($_id)
 	{
 		$result = self::run('product/detail','get', ['id' => $_id]);
+		return $result;
+	}
+
+
+	public static function barcode($_barcode)
+	{
+		$result = self::run('product/detail','get', ['barcode' => $_barcode]);
 		return $result;
 	}
 
