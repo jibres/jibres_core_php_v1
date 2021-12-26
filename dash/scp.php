@@ -167,6 +167,12 @@ class scp
 		try
 		{
 			$sftp   = self::_ssh2_sftp();
+
+			if(!$sftp)
+			{
+				return false;
+			}
+
 			$result = @ssh2_sftp_unlink($sftp, $_remote_file);
 			return $result;
 		}
@@ -194,6 +200,12 @@ class scp
 		try
 		{
 			$sftp   = ssh2_sftp(self::$connection);
+
+			if(!$sftp)
+			{
+				return false;
+			}
+
 			$result = @ssh2_sftp_mkdir($sftp, dirname($_path), $_mode, $_recursive);
 			return $result;
 		}
@@ -216,6 +228,12 @@ class scp
 		try
 		{
 			$sftp   = self::_ssh2_sftp();
+
+			if(!$sftp)
+			{
+				return false;
+			}
+
 			$result = file_exists('ssh2.sftp://' . $sftp . dirname($_path));
 			return $result;
 		}
