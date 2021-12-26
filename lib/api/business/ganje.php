@@ -5,17 +5,60 @@ namespace lib\api\business;
 class ganje
 {
 
-	private static $apikey            = '0502755e684b813585ddda0f57ad3efa';
+	/**
+	 * Gets the ganje store identifier.
+	 *
+	 * @return     float|int  The ganje store identifier.
+	 */
+	public static function ganje_business_id() : float
+	{
+		if(\dash\url::isLocal())
+		{
+			return 1000900;
+		}
 
-	private static $business_code     = '$jbj52';
+		return 1000964;
+	}
+
+
+	/**
+	 * Gets the ganje store code.
+	 *
+	 * @return    string  The ganje store code.
+	 */
+	public static function ganje_business_code() : string
+	{
+		if(\dash\url::isLocal())
+		{
+			return '$jbjfs';
+		}
+
+		return '$jbj52';
+	}
+
+
+	/**
+	 * Gets the ganje apikey.
+	 *
+	 * @return     string  The ganje apikey.
+	 */
+	public static function ganje_apikey() : string
+	{
+		if(\dash\url::isLocal())
+		{
+			return '3ab3f2f67ad1f9f0be532fcb4f94950c';
+		}
+
+		return '0502755e684b813585ddda0f57ad3efa';
+	}
 
 
 	/**
 	 * Gets the lastupdate.
 	 *
-	 * @param      bool    $_get_time  The get time
+	 * @param      bool        $_get_time  The get time
 	 *
-	 * @return     string  The lastupdate.
+	 * @return     int|string  The lastupdate.
 	 */
 	public static function get_lastupdate($_get_time = false)
 	{
@@ -31,6 +74,23 @@ class ganje
 
 
 
+	/**
+	 * Get API url
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function api_url() : string
+	{
+		if(\dash\url::isLocal())
+		{
+			return 'https://business.jibres.local/fa/%s/b1/';
+		}
+
+		return 'https://business.jibres.ir/%s/b1/';
+	}
+
+
+
 	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])
 	{
 		if(!\dash\url::isLocal())
@@ -38,22 +98,12 @@ class ganje
 			return false;
 		}
 
-		$apikey        = self::$apikey;
-		$business_code = self::$business_code;
-		$url           = 'https://business.jibres.ir/'.$business_code.'/b1/';
-
-		if(\dash\url::isLocal())
-		{
-			$apikey = '3ab3f2f67ad1f9f0be532fcb4f94950c';
-			$business_code = '$jbjfs';
-			$url = 'https://business.jibres.local/fa/'.$business_code.'/b1/';
-		}
-
+		$url = sprintf(self::api_url(), self::ganje_business_code());
 		$url .= $_path;
 
 		// set headers
 		$header   = [];
-		$header[] = 'apikey: '. $apikey;
+		$header[] = 'apikey: '. self::ganje_apikey();
 
 		if($_body)
 		{
