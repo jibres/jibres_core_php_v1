@@ -97,6 +97,8 @@ class config
 
 			if(is_array($value))
 			{
+				\dash\log::file(json_encode($_where), 'depricated_array', 'database');
+
 				if(isset($value[0]) && isset($value[1]) && is_string($value[0]) && is_string($value[1]))
 				{
 					$where[] = " $my_field $value[0] $value[1] ";
@@ -530,6 +532,7 @@ class config
 			{
 				if(isset($value[0]) && isset($value[1]) && is_string($value[0]) && is_string($value[1]))
 				{
+					\dash\log::file(json_encode($_options), 'depricated_array', 'database');
 					// for similar "search.`field` LIKE '%valud%'"
 					$where[] = " $fkey $value[0] $value[1] ";
 				}
