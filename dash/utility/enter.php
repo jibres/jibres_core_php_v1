@@ -953,14 +953,7 @@ class enter
 			if(self::user_data('id'))
 			{
 				// 'enable','disable','expire','deliver','awaiting','deleted','cancel','block','notif','notifread','notifexpire'
-				$where =
-				[
-					'caller' => 'enter_VerificationCode',
-					'to'     => self::user_data('id'),
-					'status' => ["IN", "('enable', 'notif', 'notifread')"],
-					'limit'  => 1,
-				];
-				$log_code = \dash\db\logs::get($where);
+				$log_code = \dash\db\logs::is_active_code('enter_VerificationCode', self::user_data('id'));
 
 				if($log_code)
 				{

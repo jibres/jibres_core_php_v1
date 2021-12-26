@@ -6,6 +6,20 @@ class logs
 {
 	private static $logUpdate = [];
 
+
+	public static function is_active_code($_caller, $_to)
+	{
+		$query = "SELECT * FROM logs WHERE logs.caller = :caller AND logs.to = :to AND logs.status IN ('enable', 'notif', 'notifread') LIMIT 1 ";
+		$param =
+		[
+			':caller' => $_caller,
+			':to'     => $_to,
+		];
+
+		return \dash\pdo::get($query, $param, null, true);
+	}
+
+
 	public static function notif_not_send()
 	{
 		$query = "SELECT * FROM logs WHERE logs.notif = 1 AND logs.send IS NULL ";
