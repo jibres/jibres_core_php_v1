@@ -9,7 +9,26 @@ class ganje
 
 	private static $business_code     = '$jbj52';
 
-	private static $ganje_last_update = '2021-12-25 00:00:00';
+
+	/**
+	 * Gets the lastupdate.
+	 *
+	 * @param      bool    $_get_time  The get time
+	 *
+	 * @return     string  The lastupdate.
+	 */
+	public static function get_lastupdate($_get_time = false)
+	{
+		$ganje_last_update = '2021-12-25 00:00:00';
+
+		if($_get_time)
+		{
+			return strtotime($ganje_last_update);
+		}
+
+		return $ganje_last_update;
+	}
+
 
 
 	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])

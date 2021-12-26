@@ -200,5 +200,21 @@ class ganje
 
 		return $_args;
 	}
+
+
+
+	public static function detect_update(array $_proudct_detail)
+	{
+		if(a($_proudct_detail, 'ganje_lastfetch'))
+		{
+			if(strtotime($_proudct_detail['ganje_lastfetch']) >= \lib\api\business\ganje::get_lastupdate(true))
+			{
+				return null;
+			}
+		}
+
+
+		// var_dump($_proudct_detail);exit;
+	}
 }
 ?>
