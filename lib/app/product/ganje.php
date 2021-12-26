@@ -11,7 +11,7 @@ class ganje
 	 *
 	 * @return     array   ( description_of_the_return_value )
 	 */
-	public static function search(string $_search) : array
+	public static function search($_search) : array
 	{
 		if(!$_search)
 		{
