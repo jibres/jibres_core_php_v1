@@ -1,6 +1,7 @@
 <?php
 $html = '';
-$html .= '<div class="mt-10">';
+$html .= '<div class="flex mt-10">';
+$html .= '<div class="m-auto w-96">';
 {
 	if(\dash\data::ganjeSearch())
 	{
@@ -47,6 +48,7 @@ $html .= '<div class="mt-10">';
 	}
 
 }
+$html .= '</div>';
 $html .= '</div>';
 
 echo $html;
