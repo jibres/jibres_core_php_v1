@@ -157,49 +157,6 @@ class transactions
 
 
 	/**
-	 * Searches for the first match.
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function search($_string = null, $_options = [])
-	{
-		if(!is_array($_options))
-		{
-			$_options = [];
-		}
-
-		$en_number = \dash\utility\convert::to_en_number($_string);
-
-		$default_option =
-		[
-			'search_field' =>
-			"
-				(
-					users.mobile LIKE '%__string__%' OR
-					transactions.plus LIKE '%$en_number%' OR
-					transactions.minus LIKE '%$en_number%' OR
-					transactions.title LIKE '%__string__%'
-				)
-
-			",
-			'public_show_field' =>
-				"
-					transactions.*,
-					users.mobile      AS `mobile`,
-					users.displayname AS `displayname`,
-					users.avatar AS `avatar`
-				",
-			'master_join'         => " LEFT JOIN users ON users.id = transactions.user_id ",
-		];
-
-		$_options = array_merge($default_option, $_options);
-
-		$result = \dash\db\config::public_search('transactions', $_string, $_options);
-		$result = self::ready($result, true);
-		return $result;
-	}
-
-	/**
 	 * change some field to show
 	 *
 	 * @param      <type>  $_result  The result

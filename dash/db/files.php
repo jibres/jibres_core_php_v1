@@ -126,12 +126,6 @@ class files
 		return $result;
 	}
 
-	public static function search()
-	{
-
-		$result = \dash\db\config::public_search('files', ...func_get_args());
-		return $result;
-	}
 
 	public static function get()
 	{

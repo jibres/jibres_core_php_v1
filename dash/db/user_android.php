@@ -48,12 +48,6 @@ class user_android
 	}
 
 
-	public static function search()
-	{
-		$result = \dash\db\config::public_search('user_android', ...func_get_args());
-		return $result;
-	}
-
 
 	public static function hard_delete($_id)
 	{

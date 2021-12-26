@@ -48,15 +48,8 @@ class user
 
 	public static function lates_user($_args = [])
 	{
-		if(!isset($_args['limit']))
-		{
-			$_args['limit'] = 5;
-		}
 
-		$_args['order_raw'] = 'users.id DESC';
-		$_args['pagenation'] = false;
-
-		$list = \dash\db\users::search(null, $_args);
+		$list = \dash\db\users\get::lates_user();
 
 		if(is_array($list))
 		{

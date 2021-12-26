@@ -42,23 +42,6 @@ class userdetail
 	}
 
 
-	public static function search($_string = null, $_option = [])
-	{
-		$defalut =
-		[
-			'public_show_field' => " userdetail.*, cU.displayname",
-			'master_join' => " LEFT JOIN users AS  `cU` ON cU.id = userdetail.creator",
-		];
-
-		if(!is_array($_option))
-		{
-			$_option = [];
-		}
-
-		$_option = array_merge($defalut, $_option);
-
-		return \dash\db\config::public_search('userdetail', $_string, $_option);
-	}
 
 }
 ?>

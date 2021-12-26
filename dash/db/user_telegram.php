@@ -47,13 +47,6 @@ class user_telegram
 	}
 
 
-	public static function search()
-	{
-		$result = \dash\db\config::public_search('user_telegram', ...func_get_args());
-		return $result;
-	}
-
-
 	public static function hard_delete($_id)
 	{
 		if(!$_id || !is_numeric($_id))

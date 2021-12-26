@@ -225,55 +225,6 @@ class users
 		return \dash\pdo::get($query, [], null, true);
 	}
 
-	public static function search($_string = null, $_options = [])
-	{
-		if(!is_array($_options))
-		{
-			$_options = [];
-		}
-		$default_options = [];
-
-
-		if($_string)
-		{
-			$search_field =
-			"
-				(
-					users.nationalcode = '__string__' OR
-					users.displayname LIKE '%__string__%'
-				)
-			";
-
-			$mobile = \dash\validate::mobile($_string, false);
-			if($mobile || is_numeric($_string))
-			{
-				$search_field =
-				"
-					(
-						users.mobile = '$mobile' OR
-						users.nationalcode = '__string__'
-					)
-				";
-			}
-			else
-			{
-				$search_field =
-				"
-					(
-						users.displayname LIKE '%__string__%'
-					)
-				";
-			}
-
-			$default_options['search_field'] = $search_field;
-
-		}
-
-		$_options = array_merge($default_options, $_options);
-
-		// public_show_field
-		return \dash\db\config::public_search('users', $_string, $_options);
-	}
 
 
 

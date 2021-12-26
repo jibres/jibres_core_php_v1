@@ -217,62 +217,6 @@ class user_telegram
 	}
 
 
-	public static function list($_string = null, $_args = [])
-	{
-
-		if(!\dash\user::id())
-		{
-			return false;
-		}
-
-		$default_args =
-		[
-			'order' => null,
-			'sort'  => null,
-		];
-
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
-
-		$option = [];
-		$option = array_merge($default_args, $_args);
-
-		if($option['order'])
-		{
-			if(!in_array($option['order'], ['asc', 'desc']))
-			{
-				unset($option['order']);
-			}
-		}
-
-		if($option['sort'])
-		{
-			if(!in_array($option['sort'], self::$sort_field))
-			{
-				unset($option['sort']);
-			}
-		}
-
-		$field             = [];
-
-		$result = \dash\db\user_telegram::search($_string, $option, $field);
-
-		$temp            = [];
-
-
-		foreach ($result as $key => $value)
-		{
-			$check = self::ready($value);
-			if($check)
-			{
-				$temp[] = $check;
-			}
-		}
-
-		return $temp;
-	}
 
 
 	public static function edit($_args, $_id)

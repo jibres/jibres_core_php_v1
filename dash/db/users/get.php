@@ -12,6 +12,14 @@ class get
 	}
 
 
+	public static function lates_user()
+	{
+		$query  = "SELECT * FROM users WHERE users.status != 'removed' ORDER BY users.id DESC LIMIT 5";
+		$result = \dash\pdo::get($query, []);
+		return $result;
+	}
+
+
 
 	public static function jibres_user_id($_mobile)
 	{

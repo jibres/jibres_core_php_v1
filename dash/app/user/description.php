@@ -89,30 +89,6 @@ class description
 	}
 
 
-	public static function list($_user_id)
-	{
-
-		$args              = [];
-		$args['user_id']   = \dash\coding::decode($_user_id);
-		$args['userdetail.status']   = 'enable';
-
-		if(!$args['user_id'])
-		{
-			return [];
-		}
-
-		$dataTable         = \dash\db\userdetail::search(null, $args);
-
-		if(!is_array($dataTable))
-		{
-			$dataTable = [];
-		}
-
-		$dataTable = array_map(['self', 'ready'], $dataTable);
-
-		return $dataTable;
-
-	}
 
 }
 ?>
