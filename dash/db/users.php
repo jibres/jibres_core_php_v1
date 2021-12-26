@@ -10,6 +10,48 @@ class users
 	public static $user_id;
 
 
+	public static function get_count_have_mobile()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM users WHERE users.mobile IS NOT NULL ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+	}
+
+
+	public static function get_count_have_email()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM users WHERE users.email IS NOT NULL ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+	}
+
+
+	public static function get_count_have_username()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM users WHERE users.username IS NOT NULL ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+	}
+
+
+
+	public static function get_count_not_removed()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM users WHERE users.status != 'removed' ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+	}
+
+
+	public static function get_count_have_permission()
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM users WHERE users.permission IS NOT NULL ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+
+	}
+
+
 	public static function get_by_multi_id($_ids)
 	{
 		$query = "SELECT * FROM users WHERE users.id IN ($_ids) ";

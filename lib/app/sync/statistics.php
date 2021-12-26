@@ -29,9 +29,9 @@ class statistics
 	{
 		$result                        = [];
 		$result['user']                = floatval(\dash\db\users::get_count());
-		$result['user_mobile']         = floatval(\dash\db\users::get_count(['mobile' => ['IS NOT', 'NULL']]));
-		$result['user_email']          = floatval(\dash\db\users::get_count(['email' => ['IS NOT', 'NULL']]));
-		$result['user_username']       = floatval(\dash\db\users::get_count(['username' => ['IS NOT', 'NULL']]));
+		$result['user_mobile']         = floatval(\dash\db\users::get_count_have_mobile());
+		$result['user_email']          = floatval(\dash\db\users::get_count_have_email());
+		$result['user_username']       = floatval(\dash\db\users::get_count_have_username());
 		$result['user_awaiting']       = floatval(\dash\db\users::get_count(['status' => 'awaiting']));
 		$result['user_removed']        = floatval(\dash\db\users::get_count(['status' => 'removed']));
 		$result['user_filter']         = floatval(\dash\db\users::get_count(['status' => 'filter']));
@@ -48,8 +48,8 @@ class statistics
 		$result['dbtrafic']            = null;
 		$result['dbsize']              = null;
 
-		$result['customer']            = floatval(\dash\db\users::get_count(['status' => [' != ', "'removed'"]]));
-		$result['staff']               = floatval(\dash\db\users::get_count(['permission' => ['IS NOT', 'NULL']]));
+		$result['customer']            = floatval(\dash\db\users::get_count_not_removed());
+		$result['staff']               = floatval(\dash\db\users::get_count_have_permission());
 
 		$result['sumplustransaction']  = floatval(\dash\db\transactions::sum_plus());
 		$result['summinustransaction'] = floatval(\dash\db\transactions::sum_minus());
@@ -78,7 +78,7 @@ class statistics
 		$result['page']                = floatval(\dash\db\posts::get_count(['type' => 'page']));
 		$result['help']                = floatval(\dash\db\posts::get_count(['type' => 'help']));
 		$result['attachment']          = floatval(\dash\db\posts::get_count(['type' => 'attachment']));
-		$result['post']                = floatval(\dash\db\posts::get_count(['type' => ['NOT IN ',"('post', 'page', 'help', 'attachment')"]]));
+		$result['post']                = floatval(\dash\db\posts::get_count(['type' => 'post']));
 
 		$result['term']                = floatval(\dash\db\terms\get::get_count());
 		$result['tag']                 = floatval(\dash\db\terms\get::get_count(['type' => 'tag']));
@@ -92,7 +92,7 @@ class statistics
 		$result['user_android']        = floatval(\dash\db\user_android::get_count());
 
 
-		$result['user_permission']      = floatval(\dash\db\users::get_count(['permission' => ['IS NOT', 'NULL']]));
+		$result['user_permission']      = floatval(\dash\db\users::get_count_have_permission());
 		$result['app_download']         = floatval(\dash\db\config::public_get_count('app_download'));
 		$result['csrf']                 = floatval(\dash\db\config::public_get_count('csrf'));
 		$result['dayevent']             = floatval(\dash\db\config::public_get_count('dayevent'));

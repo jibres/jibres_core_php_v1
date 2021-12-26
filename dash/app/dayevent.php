@@ -69,7 +69,7 @@ class dayevent
 		$result['page']                   = floatval(\dash\db\posts::get_count(['type' => 'page']));
 		$result['help']                   = floatval(\dash\db\posts::get_count(['type' => 'help']));
 		$result['attachment']             = floatval(\dash\db\posts::get_count(['type' => 'attachment']));
-		$result['post']                   = floatval(\dash\db\posts::get_count(['type' => ['NOT IN ',"('post', 'page', 'help', 'attachment')"]]));
+		$result['post']                   = floatval(\dash\db\posts::get_count(['type' => 'post']));
 
 		$result['transaction']            = floatval(\dash\db\transactions::get_count());
 
@@ -81,13 +81,13 @@ class dayevent
 
 		$result['termusages']             = floatval(\dash\db\termusages\get::get_count_all());
 
-		$result['user_mobile']            = floatval(\dash\db\users::get_count(['mobile' => ['IS NOT', 'NULL']]));
-		$result['user_email']             = floatval(\dash\db\users::get_count(['email' => ['IS NOT', 'NULL']]));
-		$result['user_username']          = floatval(\dash\db\users::get_count(['username' => ['IS NOT', 'NULL']]));
+		$result['user_mobile']            = floatval(\dash\db\users::get_count_have_mobile());
+		$result['user_email']             = floatval(\dash\db\users::get_count_have_email());
+		$result['user_username']          = floatval(\dash\db\users::get_count_have_username());
 		$result['user_chatid']            = floatval(\dash\db\user_telegram::get_count());
 		$result['user_android']           = floatval(\dash\db\user_android::get_count());
 
-		$result['user_permission']        = floatval(\dash\db\users::get_count(['permission' => ['IS NOT', 'NULL']]));
+		$result['user_permission']        = floatval(\dash\db\users::get_count_have_permission());
 
 
 		$result['apilog']                 = floatval(\dash\db\config::public_get_count('apilog'));
