@@ -101,9 +101,10 @@ class search
 
 		if($data['barcode'])
 		{
-			$and[] = " products.barcode  = :s_barcode  ";
-			$param[':s_barcode'] = $data['barcode'];
-			self::$is_filtered       = true;
+			$and[] = " ( products.barcode  = :s_barcode OR products.barcode2 = :s_2barcode ) ";
+			$param[':s_barcode']  = $data['barcode'];
+			$param[':s_2barcode'] = $data['barcode'];
+			self::$is_filtered    = true;
 		}
 
 		if($data['price'])
