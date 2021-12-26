@@ -583,7 +583,7 @@ class log
 				$fuel = $_option['fuel'];
 			}
 
-			$temp = \dash\db\users::get(['permission' => ["IN", "('$permission_list')"], 'status' => 'active'], ['public_show_field' => $public_show_field, 'db_name' => $fuel]);
+			$temp = \dash\db\users::get_by_permission_list_active($permission_list, $fuel);
 			$all_user_detail = array_merge($all_user_detail, $temp);
 		}
 
