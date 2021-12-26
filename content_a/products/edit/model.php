@@ -382,7 +382,8 @@ class model
 	public static function remove_gallery($_id)
 	{
 		$fileid = \dash\request::post('fileid');
-		\lib\app\product\gallery::gallery($_id, $fileid, 'remove');
+		$filepath = \dash\request::post('filepath');
+		\lib\app\product\gallery::gallery($_id, $fileid, 'remove', $filepath);
 		\dash\notif::ok(T_("File removed"));
 		// \dash\redirect::pwd();
 	}

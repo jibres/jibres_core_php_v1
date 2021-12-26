@@ -145,7 +145,7 @@ $html .= '<div class="box">';
             $html .= '<div>';
             if(!$gallery_lockMode)
             {
-              $html .= '<div class="imageDel" data-ajaxify data-data=\'{"fileaction": "remove", "fileid" : "'. a($value, 'id').'"}\'></div>';
+              $html .= '<div class="imageDel" data-ajaxify data-data=\'{"fileaction": "remove", "fileid" : "'. a($value, 'id').'", "filepath" : "'. a($value, 'path').'"}\'></div>';
             }
             $html .= '</div>';
             $html .= '</div>';

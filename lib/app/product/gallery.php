@@ -223,7 +223,7 @@ class gallery
 	}
 
 
-	public static function gallery($_product_id, $_file_detail, $_type = 'add')
+	public static function gallery($_product_id, $_file_detail, $_type = 'add', $_raw_file_path = null)
 	{
 		if(!\lib\store::in_store())
 		{
@@ -303,10 +303,18 @@ class gallery
 			$fileid = \dash\validate::code($fileid);
 			$fileid = \dash\coding::decode($fileid);
 
+			$remove_file_by_path = false;
 			if(!$fileid)
 			{
-				\dash\notif::error(T_("Invalid file id"));
-				return false;
+				if($_raw_file_path)
+				{
+					$remove_file_by_path = true;
+				}
+				else
+				{
+					\dash\notif::error(T_("Invalid file id"));
+					return false;
+				}
 			}
 
 			if(isset($product_gallery_field['files']) && is_array($product_gallery_field['files']))
@@ -315,11 +323,22 @@ class gallery
 				$remove_file_id = null;
 				foreach ($product_gallery_field['files'] as $key => $one_file)
 				{
-					if(isset($one_file['id']) && floatval($one_file['id']) === floatval($fileid))
+					if($remove_file_by_path)
 					{
-						$remove_file_id = $one_file['id'];
-						$find_in_gallery = true;
-						unset($product_gallery_field['files'][$key]);
+						if(isset($one_file['path']) && $one_file['path'] === $_raw_file_path)
+						{
+							$find_in_gallery = true;
+							unset($product_gallery_field['files'][$key]);
+						}
+					}
+					else
+					{
+						if(isset($one_file['id']) && floatval($one_file['id']) === floatval($fileid))
+						{
+							$remove_file_id = $one_file['id'];
+							$find_in_gallery = true;
+							unset($product_gallery_field['files'][$key]);
+						}
 					}
 				}
 
@@ -334,9 +353,16 @@ class gallery
 					\dash\upload\product::remove_product_gallery($product_id, $remove_file_id);
 				}
 
-				if(isset($product_detail['thumb']) && isset($product_gallery_field['thumbid']) && floatval($product_gallery_field['thumbid']) === floatval($fileid))
+				if($remove_file_by_path)
 				{
-					$product_detail['thumb'] = null;
+					// nothing
+				}
+				else
+				{
+					if(isset($product_detail['thumb']) && isset($product_gallery_field['thumbid']) && floatval($product_gallery_field['thumbid']) === floatval($fileid))
+					{
+						$product_detail['thumb'] = null;
+					}
 				}
 
 				$next_image = null;
