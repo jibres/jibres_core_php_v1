@@ -10,6 +10,13 @@ class users
 	public static $user_id;
 
 
+	public static function get_by_multi_id($_ids)
+	{
+		$query = "SELECT * FROM users WHERE users.id IN ($_ids) ";
+		$result = \dash\pdo::get($query, []);
+		return $result;
+	}
+
 	public static function get_by_permission_list_active($_permission_string_list, $_fuel)
 	{
 		$query = "SELECT users.id, users.mobile, users.displayname, users.email, users.language FROM users WHERE users.status = 'active' AND users.permission IN ('$_permission_string_list') ";

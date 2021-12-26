@@ -352,7 +352,8 @@ class log
 			if($to)
 			{
 				$to = implode(',', $to);
-				$to = \dash\db\users::get(['id' => ["IN", "($to)"]]);
+				$to = \dash\db\users::get_by_multi_id($to);
+
 				if($to && is_array($to))
 				{
 					foreach ($to as $key => $value)
