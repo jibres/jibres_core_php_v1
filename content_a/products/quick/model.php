@@ -58,7 +58,11 @@ class model
 
 				if(!\dash\request::is_iframe())
 				{
-					if(isset($result['id']))
+					if(\dash\request::get('barcodepage'))
+					{
+						\dash\redirect::to(\dash\url::this(). '/barcode');
+					}
+					elseif(isset($result['id']))
 					{
 						\dash\redirect::to(\dash\url::that(). '?id='. $result['id']);
 					}

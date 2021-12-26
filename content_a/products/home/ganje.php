@@ -25,7 +25,13 @@ $html .= '<div class="mt-10">';
 
 						$html .= '<div class="cauto">';
 						{
+
 							$add_url = \dash\url::this(). '/quick?gid='. a($value, 'id');
+
+							if(isset($is_barcode_page) && $is_barcode_page)
+							{
+								$add_url .= '&barcodepage=1';
+							}
 
 							$html .= '<a href="'.$add_url.'" class="btn-primary">'. T_("Add"). '</a>';
 						}
