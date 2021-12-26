@@ -27,6 +27,7 @@ class search
 			'from'      => 'id',
 			'caller'    => 'string_200',
 			'notif'     => 'bit',
+			'active_status' => 'bit',
 		];
 
 		$require = [];
@@ -79,6 +80,11 @@ class search
 				$and[] = " logs.to =  $user ";
 			}
 
+		}
+
+		if($data['active_status'])
+		{
+			$and[] = " logs.status IN ('notif', 'notifread') ";
 		}
 
 		if($data['notif'])

@@ -32,23 +32,21 @@ class view
 			$args['order'] = 'desc';
 		}
 
-		$date_now = date("Y-m-d H:i:s");
 
 		$args['to']     = \dash\user::id();
 
-		if(\dash\url::child() === 'archive')
-		{
-			$args['logs.notif'] = 1;
-		}
-		else
-		{
-			$args['logs.status'] = ['IN', "('notif', 'notifread')"];
-		}
+		$args['notif'] = true;
 
+		if(\dash\url::child() !== 'archive')
+		{
+			$args['active_status'] = true;
+		}
 
 		$search_string   = \dash\validate::search_string();
 
-		$dataTable = \dash\app\log::list($search_string, $args);
+		$dataTable = \dash\app\log\search::list($search_string, $args);
+
+		// var_dump($dataTable);exit;
 		// select  and then update
 		\dash\app\log::set_readdate($dataTable, true);
 

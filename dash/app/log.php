@@ -57,48 +57,6 @@ class log
 		return intval($count);
 	}
 
-	/**
-	 * Gets the course.
-	 *
-	 * @param      <type>  $_args  The arguments
-	 *
-	 * @return     <type>  The course.
-	 */
-	public static function list($_string = null, $_args = [])
-	{
-
-		$default_meta =
-		[
-			'sort'  => null,
-			'order' => null,
-		];
-
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
-
-		$_args = array_merge($default_meta, $_args);
-
-
-		$_args['sort'] = null;
-
-
-
-		$result            = \dash\db\logs::search($_string, $_args);
-		$temp              = [];
-
-		foreach ($result as $key => $value)
-		{
-			$check = self::ready($value);
-			if($check)
-			{
-				$temp[] = $check;
-			}
-		}
-
-		return $temp;
-	}
 
 
 	public static function check_caller_code($_caller, $_code)

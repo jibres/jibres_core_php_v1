@@ -405,43 +405,5 @@ class logs
 		return \dash\db\config::public_get('logs', $_args, $_options);
 	}
 
-
-
-	/**
-	 * Searches for the first match.
-	 *
-	 * @param      <type>  $_string   The string
-	 * @param      array   $_options  The options
-	 */
-	public static function search($_string = null, $_options = [])
-	{
-		$default =
-		[
-
-			"public_show_field" =>
-			"
-				logs.*,
-				users.displayname,
-				users.mobile,
-				users.avatar
-
-			",
-			"master_join"       =>
-			"
-				LEFT JOIN users ON users.id = logs.from
-			",
-			"search_field" => " ( logs.caller = '__string__') ",
-		];
-
-		if(!is_array($_options))
-		{
-			$_options = [];
-		}
-
-		$_options = array_merge($default, $_options);
-		$result = \dash\db\config::public_search('logs', $_string, $_options);
-
-		return $result;
-	}
 }
 ?>

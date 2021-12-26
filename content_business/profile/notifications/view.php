@@ -23,16 +23,14 @@ class view
 
 		$args['to']     = \dash\user::id();
 
-		if(\dash\url::child() === 'archive')
+		$args['notif'] = true;
+		if(\dash\url::child() !== 'archive')
 		{
-			$args['logs.notif'] = 1;
-		}
-		else
-		{
-			$args['logs.status'] = ['IN', "('notif', 'notifread')"];
+			$args['active_status'] = true;
 		}
 
-		$dataTable = \dash\app\log::list(null, $args);
+		$dataTable = \dash\app\log\search::list(null, $args);
+
 
 		\dash\data::dataTable($dataTable);
 
