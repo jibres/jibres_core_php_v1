@@ -38,21 +38,7 @@ class apilog
 
 	public static function search($_string = null, $_args = [])
 	{
-		$default =
-		[
-
-		];
-		if(!is_array($_args))
-		{
-			$_args = [];
-		}
-
-		$_args = array_merge($default, $_args);
-
-		$_args['db_name'] = 'api_log';
-
-		$result = \dash\db\config::public_search('apilog', $_string, $_args);
-		return $result;
+		return \dash\pdo\query_template::list_pagenation('apilog', 'api_log');
 	}
 
 }
