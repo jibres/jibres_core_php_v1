@@ -213,8 +213,81 @@ class ganje
 			}
 		}
 
+		$ganje_identify = null;
+		$ganje_type     = null;
 
-		// var_dump($_proudct_detail);exit;
+		if(a($_proudct_detail, 'barcode'))
+		{
+			$ganje_identify = $_proudct_detail['barcode'];
+			$ganje_type     = 'barcode';
+		}
+		elseif(a($_proudct_detail, 'barcode2'))
+		{
+			$ganje_identify = $_proudct_detail['barcode2'];
+			$ganje_type     = 'barcode';
+		}
+		elseif(a($_proudct_detail, 'ganje_id'))
+		{
+			$ganje_identify = $_proudct_detail['ganje_id'];
+			$ganje_type     = 'id';
+		}
+		elseif(a($_proudct_detail, 'title'))
+		{
+			$ganje_identify = $_proudct_detail['title'];
+			$ganje_type     = 'title';
+		}
+		elseif(a($_proudct_detail, 'title2'))
+		{
+			$ganje_identify = $_proudct_detail['title2'];
+			$ganje_type     = 'title';
+		}
+		else
+		{
+			// nothing detect fo search in ganje
+			return null;
+		}
+
+		$ganje_product = [];
+
+		switch ($ganje_type)
+		{
+			case 'barcode':
+				$ganje_product = self::fetch_by_barcode($ganje_identify);
+				break;
+
+			case 'id':
+				$ganje_product = self::fetch_by_id($ganje_identify);
+				break;
+
+			case 'title':
+				// $ganje_product = self::fetch_by_title($ganje_identify);
+				return null;
+				break;
+
+			default:
+				return null;
+				break;
+		}
+
+		\lib\db\products\update::ganje_lastfetch($_proudct_detail['id']);
+
+		/**
+
+			TODO:
+			- compare title
+			- compare gallery
+			- compare category
+			- compare property
+			- compare desc
+		 */
+
+		return;
+
+		var_dump($ganje_product);
+
+		var_dump($ganje_identify, $ganje_type);exit;
+
+		var_dump($_proudct_detail);exit;
 	}
 }
 ?>

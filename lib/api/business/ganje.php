@@ -19,7 +19,7 @@ class ganje
 	 */
 	public static function get_lastupdate($_get_time = false)
 	{
-		$ganje_last_update = '2021-12-25 00:00:00';
+		$ganje_last_update = '2021-12-27 00:00:00';
 
 		if($_get_time)
 		{

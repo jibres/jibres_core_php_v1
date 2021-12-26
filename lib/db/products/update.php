@@ -5,6 +5,19 @@ namespace lib\db\products;
 class update
 {
 
+	public static function ganje_lastfetch($_id) : void
+	{
+		$query = "UPDATE products SET products.ganje_lastfetch = :ganje_lastfetch WHERE products.id = :id LIMIT 1 ";
+		$param =
+		[
+			':ganje_lastfetch' => date("Y-m-d H:i:s"),
+			':id'              => $_id,
+		];
+
+		\dash\pdo::query($query, $param);
+	}
+
+
 	public static function update_desc($_desc, $_id)
 	{
 		if(\dash\str::strpos($_desc, '\\') !== false)
