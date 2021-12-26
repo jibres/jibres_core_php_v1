@@ -4,6 +4,13 @@ namespace lib\app\product;
 
 class ganje
 {
+
+	private static function in_ganje_store() : bool
+	{
+		return floatval(\lib\store::id()) === \lib\api\business\ganje::ganje_business_id();
+	}
+
+
 	/**
 	 * Searches for the first match.
 	 *
@@ -16,6 +23,11 @@ class ganje
 		if(!$_search)
 		{
 			return [];
+		}
+
+		if(self::in_ganje_store())
+		{
+			return null;
 		}
 
 		$ganje = \lib\api\business\ganje::search($_search);
@@ -41,6 +53,12 @@ class ganje
 	 */
 	public static function fetch_by_id($_id)
 	{
+
+		if(self::in_ganje_store())
+		{
+			return null;
+		}
+
 		$id = \dash\validate::id($_id);
 		if(!$id)
 		{
@@ -69,6 +87,12 @@ class ganje
 	 */
 	public static function fetch_by_barcode($_barcode)
 	{
+
+		if(self::in_ganje_store())
+		{
+			return null;
+		}
+
 		$barcode = \dash\validate::string_100($_barcode);
 		if(!$barcode)
 		{
@@ -104,6 +128,12 @@ class ganje
 	 */
 	public static function fetch_by_id_barcode($_id, $_barcode)
 	{
+		if(self::in_ganje_store())
+		{
+			return null;
+		}
+
+
 		if($_id)
 		{
 			return self::fetch_by_id($_id);
@@ -128,6 +158,13 @@ class ganje
 		{
 			return $_args;
 		}
+
+
+		if(self::in_ganje_store())
+		{
+			return $_args;
+		}
+
 
 		// detect and load ganje product
 		if(a($_args, 'add_from_ganje_type') === 'id')
@@ -210,6 +247,11 @@ class ganje
 			return null;
 		}
 
+		if(self::in_ganje_store())
+		{
+			return null;
+		}
+
 		if(a($_proudct_detail, 'ganje_lastfetch'))
 		{
 			if(strtotime($_proudct_detail['ganje_lastfetch']) >= \lib\api\business\ganje::get_lastupdate(true))
@@ -274,6 +316,13 @@ class ganje
 				break;
 		}
 
+		// can not load ganje product
+		if(!is_array($ganje_product))
+		{
+			return null;
+		}
+
+		// update last fetch date
 		\lib\db\products\update::ganje_lastfetch($_proudct_detail['id']);
 
 		/**
@@ -286,11 +335,39 @@ class ganje
 			- compare desc
 		 */
 
+		$need_update = [];
+
+		if(!\dash\validate::is_equal(a($_proudct_detail, 'title') , a($ganje_product, 'title')))
+		{
+			$need_update['title'] = $ganje_product['title'];
+		}
+
+		if(!\dash\validate::is_equal(a($_proudct_detail, 'title2') , a($ganje_product, 'title2')))
+		{
+			$need_update['title2'] = $ganje_product['title2'];
+		}
+
+		if(!\dash\validate::is_equal(a($_proudct_detail, 'desc') , a($ganje_product, 'desc')))
+		{
+			$need_update['desc'] = $ganje_product['desc'];
+		}
+
+		if(!\dash\validate::is_equal(a($_proudct_detail, 'barcode') , a($ganje_product, 'barcode')))
+		{
+			$need_update['barcode'] = $ganje_product['barcode'];
+		}
+
+		if(!\dash\validate::is_equal(a($_proudct_detail, 'barcode2') , a($ganje_product, 'barcode2')))
+		{
+			$need_update['barcode2'] = $ganje_product['barcode2'];
+		}
+
 		return;
 
-		var_dump($ganje_product);
 
-		var_dump($ganje_identify, $ganje_type);exit;
+		var_dump($need_update);
+
+		var_dump($ganje_product);
 
 		var_dump($_proudct_detail);exit;
 	}
