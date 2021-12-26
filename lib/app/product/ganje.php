@@ -205,6 +205,11 @@ class ganje
 
 	public static function detect_update(array $_proudct_detail)
 	{
+		if(!\dash\url::isLocal())
+		{
+			return null;
+		}
+
 		if(a($_proudct_detail, 'ganje_lastfetch'))
 		{
 			if(strtotime($_proudct_detail['ganje_lastfetch']) >= \lib\api\business\ganje::get_lastupdate(true))
