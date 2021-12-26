@@ -52,7 +52,6 @@ class view
 			$args['sort'] = 'telegrams.id';
 		}
 
-		$args['telegrams.user_id'] = [" IS NOT ", " NULL "];
 		$args['group_by_chatid'] = true;
 
 		unset($args['page']);
