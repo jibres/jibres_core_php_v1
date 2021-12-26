@@ -85,7 +85,9 @@ class check
 
 			'ganje_id'        => 'id',
 			'ganje_lastfetch' => 'datetime',
-			'add_from_ganje_id' => 'id',
+			'add_from_ganje'  => 'string',
+			'add_from_ganje_type' => ['enum' => ['id', 'barcode']],
+
 		];
 
 		$require = [];
@@ -270,10 +272,10 @@ class check
 			\dash\temp::set('temp_property_raw_from_api', $_args['property']);
 		}
 
-
 		unset($data['gallery_raw']);
 		unset($data['property']);
-		unset($data['add_from_ganje_id']);
+		unset($data['add_from_ganje']);
+		unset($data['add_from_ganje_type']);
 
 		return $data;
 	}

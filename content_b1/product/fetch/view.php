@@ -12,11 +12,11 @@ class view
 			'sort'   => \dash\request::get('sort'),
 		];
 
-		// $tag = \dash\request::get('tag');
-		// if($tag)
-		// {
-		// 	$args['tag_id'] = $tag;
-		// }
+		$barcode = \dash\request::get('barcode');
+		if($barcode)
+		{
+			$args['barcode'] = $barcode;
+		}
 
 		$search_query = \dash\validate::search_string();
 

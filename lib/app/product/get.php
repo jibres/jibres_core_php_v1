@@ -109,6 +109,38 @@ class get
 	}
 
 
+
+	public static function by_barcode($_barcode, $_options = [])
+	{
+		if(!\lib\store::id())
+		{
+			\dash\notif::error(T_("Store not found"));
+			return false;
+		}
+
+		$_barcode = \dash\validate::barcode($_barcode);
+		if(!$_barcode)
+		{
+			\dash\notif::error(T_("Product id not set"));
+			return false;
+		}
+
+		$result = \lib\db\products\get::by_barcode_for_site($_barcode);
+
+
+		if(!$result)
+		{
+			\dash\notif::error(T_("Product detail not found"));
+			return false;
+		}
+
+		$result = \lib\app\product\ready::row($result, $_options);
+
+
+		return $result;
+	}
+
+
 	/**
 	 * Get some prodcut
 	 *

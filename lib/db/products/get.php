@@ -543,14 +543,6 @@ class get
 
 
 
-	public static function one_field($_id, $_field)
-	{
-		$query  = "SELECT products.$_field FROM products WHERE products.id = $_id  LIMIT 1";
-		$result = \dash\pdo::get($query, [], $_field, true);
-		return $result;
-	}
-
-
 
 
 	public static function by_id_for_site($_id)
@@ -565,10 +557,35 @@ class get
   			FROM
 				products
 			WHERE
-				products.id = $_id
+				products.id = :id
 			LIMIT 1
 		";
-		$result = \dash\pdo::get($query, [], null, true);
+		$param = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+	}
+
+
+
+
+	public static function by_barcode_for_site($_barcode)
+	{
+		$query  =
+		"
+			SELECT
+				products.*,
+				(IF(products.thumb IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.thumb FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.thumb)) AS `thumb`,
+				(IF(products.gallery IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.gallery FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.gallery)) AS `gallery`,
+				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`
+  			FROM
+				products
+			WHERE
+				products.barcode = :barcode OR products.barcode = :2barcode
+			LIMIT 1
+		";
+		$param = [':barcode' => $_barcode, ':2barcode' => $_barcode];
+
+		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 

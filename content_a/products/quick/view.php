@@ -30,9 +30,9 @@ class view
 		}
 
 
-		if(\dash\request::get('gid'))
+		if(\dash\request::get('gid') || \dash\request::get('barcode'))
 		{
-			$load_ganje_detail = \lib\app\product\ganje::fetch_by_id(\dash\request::get('gid'));
+			$load_ganje_detail = \lib\app\product\ganje::fetch_by_id_barcode(\dash\request::get('gid'), \dash\request::get('barcode'));
 			if(\dash\data::addMode())
 			{
 				\dash\data::productDataRow($load_ganje_detail);

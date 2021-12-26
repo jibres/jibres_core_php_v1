@@ -136,19 +136,33 @@ class load
 	}
 
 
+	public static function site_by_barcode($_barcode, $_option = [])
+	{
+		$_option['load_by_barcode'] = $_barcode;
+		return self::site(null, $_option);
+	}
 
 
 
 	// load one product by id in site
 	public static function site($_id, $_option = [])
 	{
+		if(isset($_option['load_by_barcode']) && !$_id)
+		{
+			$detail = \lib\app\product\get::by_barcode($_option['load_by_barcode'], ['load_gallery' => true]);
+		}
+		else
+		{
+			$detail = \lib\app\product\get::site($_id, ['load_gallery' => true]);
+		}
 		// load detail
-		$detail = \lib\app\product\get::site($_id, ['load_gallery' => true]);
 		if(!$detail)
 		{
 			// access denied or invalid id
 			return false;
 		}
+
+		$id = a($detail, 'id');
 
 
 
@@ -174,11 +188,11 @@ class load
 		$load_child = [];
 		if(isset($detail['variant_child']) && $detail['variant_child'])
 		{
-			$load_child = \lib\db\products\get::variants_load_child($_id);
+			$load_child = \lib\db\products\get::variants_load_child($id);
 		}
 		elseif(isset($detail['parent']) && $detail['parent'])
 		{
-			$load_child = \lib\db\products\get::variants_load_family($_id, $detail['parent']);
+			$load_child = \lib\db\products\get::variants_load_family($id, $detail['parent']);
 		}
 
 		if($load_child && is_array($load_child))
@@ -193,18 +207,18 @@ class load
 
 		if(a($_option, 'api_mode'))
 		{
-			$property_list      = \lib\app\product\property::get_api_pretty($_id);
+			$property_list      = \lib\app\product\property::get_api_pretty($id);
 			$detail['property'] = $property_list;
 
 
-			$category_list      = \lib\app\category\get::product_cat_api($_id);
+			$category_list      = \lib\app\category\get::product_cat_api($id);
 
 			$detail['category'] = $category_list;
 		}
 		else
 		{
 
-			$property_list = \lib\app\product\property::get_pretty($_id);
+			$property_list = \lib\app\product\property::get_pretty($id);
 			\dash\data::propertyList($property_list);
 		}
 
