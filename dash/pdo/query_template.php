@@ -163,11 +163,27 @@ class query_template
 	}
 
 
-	public static function table_rows(string $_table, $_db_name = true) : float
+	public static function table_rows(string $_table, $_fuel = null) : float
 	{
 		$query  = "SELECT COUNT(*) AS 'count' FROM `$_table`";
-		$result = \dash\pdo::get($query, [], 'count', true, $_db_name);
+		$result = \dash\pdo::get($query, [], 'count', true, $_fuel);
 		return floatval($result);
+	}
+
+
+
+	public static function list_pagenation(string $_table, $_fuel = null)
+	{
+		$pagination_query = "SELECT COUNT(*) AS `count` FROM $_table ";
+
+		$limit = \dash\db\pagination::pagination_query($pagination_query, 10, $_fuel);
+
+		$query = "SELECT * FROM $_table $limit ";
+
+		$result = \dash\pdo::get($query, [], null, false, $_fuel);
+
+		return $result;
+
 	}
 
 
