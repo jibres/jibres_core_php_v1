@@ -20,7 +20,7 @@ class dayevent
 			return false;
 		}
 
-		$get_today = \dash\db\dayevent::get(['date' => date("Y-m-d"), 'limit' => 1]);
+		$get_today = \dash\db\dayevent::get_by_date(date("Y-m-d"));
 
 		if(!isset($get_today['id']))
 		{
@@ -206,8 +206,8 @@ class dayevent
 		$today         = date("Y-m-d", strtotime("-1 days"));
 		$yesterday     = date("Y-m-d", strtotime("-2 days"));
 
-		$get_today     = \dash\db\dayevent::get(['date' => $today, 'limit' => 1]);
-		$get_yesterday = \dash\db\dayevent::get(['date' => $yesterday, 'limit' => 1]);
+		$get_today     = \dash\db\dayevent::get_by_date($today);
+		$get_yesterday = \dash\db\dayevent::get_by_date($yesterday);
 
 		if(!is_array($get_today) || !is_array($get_yesterday))
 		{

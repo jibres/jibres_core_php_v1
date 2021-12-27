@@ -31,16 +31,15 @@ class dayevent
 	}
 
 
-	public static function get($_args, $_options = [])
+	public static function get_by_date($_date)
 	{
-		$default =
-		[
+		$query = "SELECT * FROM dayevent WHERE dayevent.date = :mydate LIMIT 1 ";
 
-		];
+		$param = [':mydate' => $_date];
 
-		$_options = array_merge($default, $_options);
+		$result = \dash\pdo::get($query, $param, null, true);
 
-		return \dash\db\config::public_get('dayevent', $_args, $_options);
+		return $result;
 	}
 
 }
