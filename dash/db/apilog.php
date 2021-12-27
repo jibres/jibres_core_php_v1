@@ -30,9 +30,9 @@ class apilog
 	}
 
 
-	public static function get($_where)
+	public static function get($_id)
 	{
-		return \dash\db\config::public_get('apilog', $_where, ['db_name' => 'api_log']);
+		return \dash\pdo\query_template::get('apilog', $_id, 'api_log');
 	}
 
 

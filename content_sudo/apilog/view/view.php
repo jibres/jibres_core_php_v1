@@ -19,7 +19,7 @@ class view
 		\dash\data::action_link(\dash\url::this());
 
 
-		$load = \dash\db\apilog::get(['id' => \dash\request::get('id'), 'limit' => 1]);
+		$load = \dash\db\apilog::get(\dash\request::get('id'));
 
 		\dash\data::dataRow($load);
 

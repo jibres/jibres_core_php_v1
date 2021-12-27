@@ -8,7 +8,7 @@ class controller
 	{
 		$addr = __DIR__. '/myRecord.me.json';
 
-		$load = \dash\db\apilog::get(['id' => \dash\request::get('id'), 'limit' => 1]);
+		$load = \dash\db\apilog::get(\dash\request::get('id'));
 		foreach ($load as $key => $value)
 		{
 			if(is_string($value) && in_array(substr($value, 0, 1), ['{', '[']))
