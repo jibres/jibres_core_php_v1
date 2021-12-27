@@ -47,12 +47,16 @@ class logs
 	}
 
 
-	public static function count_where_date($_where, $_date_time)
+	public static function count_where_date($_where, $_date_time) : float
 	{
-		$where = \dash\db\config::make_where($_where);
+		$q = \dash\pdo\prepare_query::generate_where('logs', $_where);
 
-		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE $where AND logs.datecreated >= '$_date_time' ";
-		$result = \dash\pdo::get($query, [], 'count', true);
+		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE $q[where] AND logs.datecreated >= :mydatetime ";
+
+		$param = array_merge($q['param'], [':mydatetime' => $_date_time]);
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
+
 		if(!is_numeric($result))
 		{
 			$result = 0;
