@@ -235,6 +235,7 @@ class changelog
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$and           = [];
+		$param         = [];
 		$meta          = [];
 		$meta['join']  = [];
 		$or            = [];
@@ -248,19 +249,26 @@ class changelog
 
 		if($data['language'])
 		{
-			$and[] = " changelog.language = '$data[language]' ";
+			$and[] = " changelog.language = :lang ";
+			$param[':lang'] = $data['language'];
 		}
 
 		if($data['tag'])
 		{
 			$and[] =
 			"
-				(changelog.tag1 = '$data[tag]' OR
-				changelog.tag2  = '$data[tag]' OR
-				changelog.tag3  = '$data[tag]' OR
-				changelog.tag4  = '$data[tag]' OR
-				changelog.tag5  = '$data[tag]')
+				(changelog.tag1 = :tag1 OR
+				changelog.tag2  = :tag2 OR
+				changelog.tag3  = :tag3 OR
+				changelog.tag4  = :tag4 OR
+				changelog.tag5  = :tag5)
 			";
+
+			$param[':tag1'] = $data['tag'];
+			$param[':tag2'] = $data['tag'];
+			$param[':tag3'] = $data['tag'];
+			$param[':tag4'] = $data['tag'];
+			$param[':tag5'] = $data['tag'];
 
 			self::$is_filtered = true;
 		}
@@ -269,12 +277,19 @@ class changelog
 
 		if($query_string)
 		{
-			$or[] = " changelog.title LIKE '%$query_string%' ";
-			$or[] = " changelog.tag1 LIKE '%$query_string%' ";
-			$or[] = " changelog.tag2 LIKE '%$query_string%' ";
-			$or[] = " changelog.tag3 LIKE '%$query_string%' ";
-			$or[] = " changelog.tag4 LIKE '%$query_string%' ";
-			$or[] = " changelog.tag5 LIKE '%$query_string%' ";
+			$or[] = " changelog.title LIKE :stitle ";
+			$or[] = " changelog.tag1 LIKE :stag1 ";
+			$or[] = " changelog.tag2 LIKE :stag2 ";
+			$or[] = " changelog.tag3 LIKE :stag3 ";
+			$or[] = " changelog.tag4 LIKE :stag4 ";
+			$or[] = " changelog.tag5 LIKE :stag5 ";
+
+			$param[':stitle'] = '%'. $data['query_string']. '%';
+			$param[':stag1']  = '%'. $data['query_string']. '%';
+			$param[':stag2']  = '%'. $data['query_string']. '%';
+			$param[':stag3']  = '%'. $data['query_string']. '%';
+			$param[':stag4']  = '%'. $data['query_string']. '%';
+			$param[':stag5']  = '%'. $data['query_string']. '%';
 
 			self::$is_filtered = true;
 		}
@@ -282,7 +297,7 @@ class changelog
 		$order_sort = " ORDER BY changelog.date IS NULL DESC, changelog.date DESC, changelog.id DESC ";
 
 
-		$list = \dash\db\changelog::list($and, $or, $order_sort, $meta);
+		$list = \dash\db\changelog::list($param, $and, $or, $order_sort, $meta);
 
 		if(is_array($list))
 		{

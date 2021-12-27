@@ -66,6 +66,17 @@ class prepare_query
 	}
 
 
+	/**
+	 * This function in alise of ready_to_sql function
+	 * To find binded query in source
+	 * This function must be remove when all query convert to bind query
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function binded_ready_to_sql()
+	{
+		return self::ready_to_sql(...func_get_args());
+	}
 
 	/**
 	 * Ready args for search

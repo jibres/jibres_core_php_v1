@@ -1,7 +1,15 @@
 <?php
 namespace dash\db;
 
-
+/**
+ * This class describes an changelog.
+ *
+ * @author Reza
+ *
+ * All functions in this class became query bind PDO
+ * @date 2021-12-27 15:00:05
+ *
+ */
 class changelog
 {
 
@@ -43,9 +51,9 @@ class changelog
 	}
 
 
-	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
+	public static function list($_param, $_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::binded_ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		if($q['pagination'] === false)
 		{
@@ -61,22 +69,11 @@ class changelog
 		else
 		{
 			$pagination_query = "SELECT COUNT(*) AS `count` FROM changelog $q[join] $q[where]  ";
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query_pdo($pagination_query, $_param, $q['limit']);
 		}
 
-
-		$query =
-		"
-			SELECT
-				changelog.*
-			FROM
-				changelog
-			$q[join]
-			$q[where]
-			$q[order]
-			$limit
-		";
-		$result = \dash\pdo::get($query);
+		$query = " SELECT changelog.* FROM changelog $q[join] $q[where] $q[order] $limit ";
+		$result = \dash\pdo::get($query, $_param);
 
 		return $result;
 	}
