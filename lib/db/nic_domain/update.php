@@ -9,14 +9,15 @@ class update
 	public static function update_by_domain($_args, $_domain)
 	{
 		$_args['datemodified'] = date("Y-m-d H:i:s");
-		$set = \dash\db\config::make_set($_args);
-		if(!$set)
-		{
-			return false;
-		}
 
-		$query  = "UPDATE domain SET $set WHERE domain.name = '$_domain' ";
-		$result = \dash\pdo::query($query, [], 'nic');
+		$q      = \dash\pdo\prepare_query::generate_set('domain', $_args);
+
+		$query  = "UPDATE domain SET $q[set] WHERE domain.name = :domain ";
+
+		$param  = array_merge($q['param'], [':domain' => $_domain]);
+
+		$result = \dash\pdo::query($query, $param, 'nic');
+
 		return $result;
 	}
 
@@ -36,14 +37,18 @@ class update
 	public static function update_by_dumain($_args, $_domain)
 	{
 		$_args['datemodified'] = date("Y-m-d H:i:s");
-		$set = \dash\db\config::make_set($_args);
-		if(!$set)
-		{
-			return false;
-		}
-		$query  = "UPDATE domain SET $set WHERE domain.name = '$_domain' ";
-		$result = \dash\pdo::query($query, [], 'nic');
+
+		$q      = \dash\pdo\prepare_query::generate_set('domain', $_args);
+
+		$query  = "UPDATE domain SET $q[set] WHERE domain.name = :domain ";
+
+		$param  = array_merge($q['param'], [':domain' => $_domain]);
+
+		$result = \dash\pdo::query($query, $param, 'nic');
+
 		return $result;
+
+
 	}
 
 

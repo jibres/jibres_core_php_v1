@@ -35,9 +35,13 @@ class insert
 
 		if($set)
 		{
-			$set   = \dash\db\config::make_set($set);
-			$query = "UPDATE products  SET $set WHERE products.id = $_new_id	LIMIT 1";
-			\dash\pdo::query($query, []);
+			$q     = \dash\pdo\prepare_query::generate_set('products', $set);
+
+			$query = "UPDATE products  SET $q[set] WHERE products.id = :new_id	LIMIT 1";
+
+			$param = array_merge($q['param'], [':new_id' => $_new_id]);
+
+			\dash\pdo::query($query, $param);
 		}
 
 		$query =

@@ -17,16 +17,16 @@ class update
 
 	public static function update_id_store_id($_args, $_id, $_store_id)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if($set)
-		{
-			$query = " UPDATE `business_domain` SET $set WHERE business_domain.id = $_id AND business_domain.store_id = $_store_id LIMIT 1 ";
-			return \dash\pdo::query($query, [], 'master');
-		}
-		else
-		{
-			return false;
-		}
+		$q      = \dash\pdo\prepare_query::generate_set('business_domain', $_args);
+
+		$query  = "UPDATE `business_domain` SET $q[set] WHERE business_domain.id = :id AND business_domain.store_id = :store_id LIMIT 1 ";
+
+		$param  = array_merge($q['param'], [':id' => $_id, ':store_id' => $_store_id]);
+
+		$result = \dash\pdo::query($query, $param, 'master');
+
+		return $result;
+
 	}
 
 	public static function reset_all_master_store($_store_id)

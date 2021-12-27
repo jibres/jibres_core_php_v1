@@ -49,19 +49,18 @@ class update
 	}
 
 
-	public static function edit_option($_set, $_parent)
+	public static function edit_option($_args, $_parent)
 	{
-		$set = \dash\db\config::make_set($_set, ['type' => 'update']);
-		if($set)
-		{
-			$query = " UPDATE `products` SET $set WHERE products.parent = $_parent";
-			$result = \dash\pdo::query($query, []);
-			return $result;
-		}
-		else
-		{
-			return false;
-		}
+
+		$q      = \dash\pdo\prepare_query::generate_set('products', $_args);
+
+		$query  = "UPDATE `products` SET $q[set] WHERE products.parent = :parent";
+
+		$param  = array_merge($q['param'], [':parent' => $_parent]);
+
+		$result = \dash\pdo::query($query, $param);
+
+		return $result;
 
 	}
 
@@ -220,13 +219,19 @@ class update
 	}
 
 
-	public static function variants_update_all_child($_parent_id, $_update)
+	public static function variants_update_all_child($_parent_id, $_args)
 	{
 		if(!empty($_update))
 		{
-			$set    = \dash\db\config::make_set($_update);
-			$query  = "UPDATE products SET $set WHERE products.parent = $_parent_id";
-			$result = \dash\pdo::query($query, []);
+
+			$q      = \dash\pdo\prepare_query::generate_set('products', $_args);
+
+			$query  = "UPDATE `products` SET $q[set] WHERE products.parent = :parent";
+
+			$param  = array_merge($q['param'], [':parent' => $_parent_id]);
+
+			$result = \dash\pdo::query($query, $param);
+
 			return $result;
 		}
 

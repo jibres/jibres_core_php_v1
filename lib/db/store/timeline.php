@@ -26,17 +26,17 @@ class timeline
 
 	public static function update_by_store_id($_args, $_store_id)
 	{
-		$set = \dash\db\config::make_set($_args, ['type' => 'update']);
-		if($set)
-		{
-			$query = " UPDATE `store_timeline` SET $set WHERE store_timeline.store_id = $_store_id LIMIT 1";
-			$result = \dash\pdo::query($query, []);
-			return $result;
-		}
-		else
-		{
-			return false;
-		}
+
+		$q      = \dash\pdo\prepare_query::generate_set('store_timeline', $_args);
+
+		$query  = "UPDATE `store_timeline` SET $set WHERE store_timeline.store_id = :store_id LIMIT 1";
+
+		$param  = array_merge($q['param'], [':store_id' => $_store_id]);
+
+		$result = \dash\pdo::query($query, $param);
+
+		return $result;
+
 	}
 
 	public static function get_by_store_id($_store_id)

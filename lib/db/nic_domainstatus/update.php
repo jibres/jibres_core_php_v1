@@ -12,19 +12,12 @@ class update
 
 	public static function update_by_domain_status($_args, $_domain, $_status)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if(!$set)
-		{
-			return false;
-		}
+
+		$q      = \dash\pdo\prepare_query::generate_set('domainstatus', $_args);
 
 		$query  = "UPDATE domainstatus SET $set WHERE domain = :domain AND active = 1 AND status = :status ";
 
-		$param =
-		[
-			':domain' => $_domain,
-			':status' => $_status,
-		];
+		$param  = array_merge($q['param'], [':domain' => $_domain, ':status' => $_status]);
 
 		$result = \dash\pdo::query($query, $param, 'nic');
 

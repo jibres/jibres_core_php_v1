@@ -33,19 +33,17 @@ class user_telegram
 
 	public static function update_by_chat_id($_args, $_chat_id)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if(!$set)
-		{
-			return false;
-		}
+		$q     = \dash\pdo\prepare_query::generate_set('user_telegram', $_args);
 
-		$query  = "UPDATE user_telegram SET $set WHERE user_telegram.chatid = :chatid ";
+		$query = "UPDATE user_telegram SET $q[set] WHERE user_telegram.chatid = :chatid ";
 
-		$param = [':chatid' => $_chat_id];
+		$param = array_merge($q['param'], [':chatid' => $_chat_id]);
 
 		$result = \dash\pdo::query($query, $param);
 
 		return $result;
+
+
 	}
 
 
