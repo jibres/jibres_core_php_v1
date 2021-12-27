@@ -576,8 +576,6 @@ class log
 				$permission_list = implode("','", $permission_list);
 			}
 
-			$public_show_field = "users.id, users.mobile, users.displayname, users.email, users.language";
-
 			$fuel = null;
 			if(isset($_option['fuel']) && $_option['fuel'])
 			{

@@ -364,38 +364,6 @@ class logs
 	 */
 	public static function get($_args, $_options = [])
 	{
-		if(isset($_options['join_user']))
-		{
-
-			$default =
-			[
-
-				"public_show_field" =>
-				"
-					logs.*,
-					users.displayname,
-					users.mobile,
-					users.avatar
-
-				",
-				"master_join"       =>
-				"
-					LEFT JOIN users ON users.id = logs.from
-				",
-			];
-
-
-		}
-		else
-		{
-			$default =
-			[
-			];
-
-		}
-
-		$_options            = array_merge($default, $_options);
-
 		unset($_options['join_user']);
 
 		return \dash\db\config::public_get('logs', $_args, $_options);
