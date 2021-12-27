@@ -7,15 +7,16 @@ class changelog
 
 	public static function list_changelog_tags()
 	{
-		$query = "SELECT changelog.tag1, changelog.tag2, changelog.tag3, changelog.tag4, changelog.tag5 FROM changelog ";
+		$query  = "SELECT changelog.tag1, changelog.tag2, changelog.tag3, changelog.tag4, changelog.tag5 FROM changelog ";
 		$result = \dash\pdo::get($query);
 		return $result;
 	}
 
 	public static function get_by_id($_id)
 	{
-		$query = "SELECT * FROM changelog WHERE changelog.id = $_id LIMIT 1";
-		$result = \dash\pdo::get($query, [], null, true);
+		$query  = "SELECT * FROM changelog WHERE changelog.id = :id LIMIT 1";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 
@@ -35,8 +36,9 @@ class changelog
 
 	public static function delete($_id)
 	{
-		$query = "DELETE FROM changelog WHERE changelog.id = $_id LIMIT 1";
-		$result = \dash\pdo::query($query, []);
+		$query  = "DELETE FROM changelog WHERE changelog.id = :id LIMIT 1";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::query($query, $param);
 		return $result;
 	}
 

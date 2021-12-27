@@ -2,16 +2,28 @@
 namespace dash\db;
 
 
+/**
+ * This class describes an address.
+ *
+ * @author Reza
+ *
+ * All functions in this class became query bind PDO
+ * @date 2021-12-19 16:32:22
+ *
+ */
 class apilog
 {
 	public static function remove_last_month()
 	{
-		$last_month  = date("Y-m-d", strtotime("-30 days"));
-		$count_query = "SELECT COUNT(*) AS `count` FROM apilog WHERE DATE(apilog.datesend) <= DATE('$last_month') ";
-		$count       = floatval(\dash\pdo::get($count_query, [], 'count', true, 'api_log'));
+		$last_month      = date("Y-m-d", strtotime("-30 days"));
+		$param[':month'] = $last_month;
 
-		$delete_query = "DELETE FROM apilog WHERE DATE(apilog.datesend) <= DATE('$last_month') ";
-		\dash\pdo::query($delete_query, [], 'api_log');
+		$count_query = "SELECT COUNT(*) AS `count` FROM apilog WHERE DATE(apilog.datesend) <= DATE(:month) ";
+
+		$count       = floatval(\dash\pdo::get($count_query, $param, 'count', true, 'api_log'));
+
+		$delete_query = "DELETE FROM apilog WHERE DATE(apilog.datesend) <= DATE(:month) ";
+		\dash\pdo::query($delete_query, $param, 'api_log');
 
 		return $count;
 	}

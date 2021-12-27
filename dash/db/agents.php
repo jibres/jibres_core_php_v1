@@ -1,7 +1,14 @@
 <?php
 namespace dash\db;
 
-
+/**
+ * This class describes agents.
+ *
+ * @author Reza
+ *
+ * All functions in this class became query bind PDO
+ * @date 2021-12-27 14:41:07
+ */
 class agents
 {
 

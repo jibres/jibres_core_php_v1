@@ -6,7 +6,7 @@ namespace dash\db;
  *
  * @author Reza
  *
- * All function of this class convert to mysql bind param query
+ * All functions in this class became query bind PDO
  * @date 2021-12-19 16:32:22
  *
  */
