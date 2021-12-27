@@ -397,8 +397,7 @@ class get
 			foreach ($must_remove as $key => $value)
 			{
 				$update = ['active' => 0, 'datemodified' => date("Y-m-d H:i:s")];
-				$where  = ['domain' => $_domain, 'active' => 1, 'status' => $value];
-				\lib\db\nic_domainstatus\update::update_where($update, $where);
+				\lib\db\nic_domainstatus\update::update_by_domain_status($update, $_domain, $value);
 			}
 		}
 

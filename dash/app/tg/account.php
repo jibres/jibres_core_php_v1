@@ -36,7 +36,7 @@ class account
 				// @reza
 				// need to set jibres_user_id
 				\dash\app\user::quick_update(['mobile' => $mobile], \dash\user::id());
-				\dash\db\user_telegram::update_where(['user_id' => \dash\user::id()], ['chatid' => $_chat_id]);
+				\dash\db\user_telegram::update_by_chat_id(['user_id' => \dash\user::id()], $_chat_id);
 				self::relogin();
 			}
 			else
@@ -53,7 +53,7 @@ class account
 				];
 
 				$new_user_id = \dash\app\user::quick_add($new_signup);
-				\dash\db\user_telegram::update_where(['user_id' => $new_user_id], ['chatid' => $_chat_id]);
+				\dash\db\user_telegram::update_by_chat_id(['user_id' => $new_user_id], $_chat_id);
 				// to loadmobile and some other field
 				self::relogin($new_user_id);
 			}
@@ -106,7 +106,7 @@ class account
 			$update_user_telegram['lastname']  = $_args['last_name'];
 			$update_user_telegram['username']  = $_args['username'];
 			$update_user_telegram              = \dash\safe::safe($update_user_telegram);
-			\dash\db\user_telegram::update_where($update_user_telegram, ['chatid' => $_chat_id]);
+			\dash\db\user_telegram::update_by_chat_id($update_user_telegram, $_chat_id);
 
 
 			$update_new_user                   = \dash\safe::safe($update_new_user);

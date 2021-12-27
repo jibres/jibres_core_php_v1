@@ -31,11 +31,6 @@ class user_android
 	}
 
 
-	public static function update_where()
-	{
-		return \dash\db\config::public_update_where('user_android', ...func_get_args());
-	}
-
 
 	public static function get()
 	{

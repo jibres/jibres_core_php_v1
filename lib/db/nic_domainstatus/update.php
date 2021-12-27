@@ -18,7 +18,7 @@ class update
 	}
 
 
-	public static function update_where($_args, $_where)
+	public static function update_by_domain_status($_args, $_domain, $_status)
 	{
 		$set = \dash\db\config::make_set($_args);
 		if(!$set)
@@ -26,15 +26,15 @@ class update
 			return false;
 		}
 
-		$where = \dash\db\config::make_where($_where);
-		if(!$where)
-		{
-			return false;
-		}
+		$query  = "UPDATE domainstatus SET $set WHERE domain = :domain AND active = 1 AND status = :status ";
 
-		$query  = "UPDATE domainstatus SET $set WHERE $where";
+		$param =
+		[
+			':domain' => $_domain,
+			':status' => $_status,
+		];
 
-		$result = \dash\pdo::query($query, [], 'nic');
+		$result = \dash\pdo::query($query, $param, 'nic');
 
 		return $result;
 	}

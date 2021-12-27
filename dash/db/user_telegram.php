@@ -30,9 +30,22 @@ class user_telegram
 		return \dash\pdo\query_template::update('user_telegram', ...func_get_args());
 	}
 
-	public static function update_where()
+
+	public static function update_by_chat_id($_args, $_chat_id)
 	{
-		return \dash\db\config::public_update_where('user_telegram', ...func_get_args());
+		$set = \dash\db\config::make_set($_args);
+		if(!$set)
+		{
+			return false;
+		}
+
+		$query  = "UPDATE user_telegram SET $set WHERE user_telegram.chatid = :chatid ";
+
+		$param = [':chatid' => $_chat_id];
+
+		$result = \dash\pdo::query($query, $param);
+
+		return $result;
 	}
 
 

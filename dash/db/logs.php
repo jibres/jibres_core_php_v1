@@ -234,10 +234,6 @@ class logs
 	}
 
 
-	public static function update_where()
-	{
-		return \dash\db\config::public_update_where('logs', ...func_get_args());
-	}
 
 	/**
 	 * insert new recrod in logs table

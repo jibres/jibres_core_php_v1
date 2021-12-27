@@ -120,11 +120,6 @@ class users
 	}
 
 
-	public static function update_where($_set, $_where)
-	{
-		return \dash\db\config::public_update_where('users', ...func_get_args());
-	}
-
 
 	public static function get()
 	{

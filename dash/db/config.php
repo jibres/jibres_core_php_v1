@@ -288,27 +288,5 @@ class config
 	}
 
 
-
-
-	/**
-	 * update record by where
-	 * not by record id
-	 *
-	 * @param      <type>  $_table  The table
-	 * @param      <type>  $_set    The set
-	 * @param      <type>  $_where  The where
-	 */
-	public static function public_update_where($_table, $_set, $_where)
-	{
-		$set = self::make_set($_set);
-		$where = self::make_where($_where);
-		if(!$set || !$where)
-		{
-			return false;
-		}
-		$query = "UPDATE $_table SET $set WHERE $where";
-		return \dash\pdo::query($query, []);
-	}
-
 }
 ?>

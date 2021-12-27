@@ -23,11 +23,6 @@ class user_auth
 	}
 
 
-	public static function update_where()
-	{
-		return \dash\db\config::public_update_where('user_auth', ...func_get_args());
-	}
-
 
 	public static function get()
 	{
