@@ -27,13 +27,7 @@ class dayevent
 
 	public static function update($_args, $_id)
 	{
-		$set  = \dash\db\config::make_set($_args);
-		if($set)
-		{
-			// make update query
-			$query = "UPDATE dayevent SET $set WHERE dayevent.id = $_id LIMIT 1";
-			return \dash\pdo::query($query, []);
-		}
+		return \dash\pdo\query_template::update('dayevent', $_args, $_id);
 	}
 
 

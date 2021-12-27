@@ -15,15 +15,7 @@ class update
 
 	public static function update($_args, $_log_id)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if(!$set)
-		{
-			return false;
-		}
-
-		$query  = "UPDATE log SET $set WHERE log.id = $_log_id LIMIT 1";
-		$result = \dash\pdo::query($query, [], 'onlinenic_log');
-		return $result;
+		return \dash\pdo\query_template::update('log', $_args, $_id, 'onlinenic_log');
 	}
 }
 ?>

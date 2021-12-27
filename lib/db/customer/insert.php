@@ -16,9 +16,7 @@ class insert
 	 */
 	public static function user($_args, $_fuel, $_database)
 	{
-		$set = \dash\db\config::make_set($_args, ['type' => 'insert']);
-
-		if($set)
+		if($_args)
 		{
 			$check_unique = self::check_unique($_args, $_fuel, $_database);
 

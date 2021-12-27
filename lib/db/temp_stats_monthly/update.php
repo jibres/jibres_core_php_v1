@@ -12,15 +12,10 @@ class update
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function record($_set, $_id)
+	public static function record($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_set);
+		return \dash\pdo\query_template::update('temp_stats_monthly', $_args, $_id);
 
-		$query  = "UPDATE temp_stats_monthly SET $set WHERE  temp_stats_monthly.id = $_id LIMIT 1";
-
-		$result = \dash\pdo::query($query, [], 'master');
-
-		return $result;
 	}
 
 }

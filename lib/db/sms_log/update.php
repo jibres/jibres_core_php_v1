@@ -16,17 +16,7 @@ class update
 
 	public static function record($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_args, ['type' => 'update']);
-		if($set)
-		{
-			$query = " UPDATE `sms_log` SET $set WHERE sms_log.id = $_id LIMIT 1";
-			$result = \dash\pdo::query($query, []);
-			return $result;
-		}
-		else
-		{
-			return false;
-		}
+		return \dash\pdo\query_template::update('sms_log', $_args, $_id);
 	}
 
 

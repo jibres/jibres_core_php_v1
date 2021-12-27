@@ -13,17 +13,7 @@ class timeline
 
 	public static function update($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_args, ['type' => 'update']);
-		if($set)
-		{
-			$query = " UPDATE `store_timeline` SET $set WHERE store_timeline.id = $_id LIMIT 1";
-			$result = \dash\pdo::query($query, []);
-			return $result;
-		}
-		else
-		{
-			return false;
-		}
+		return \dash\pdo\query_template::update('store_timeline', $_args, $_id);
 	}
 
 	public static function set_store_id($_id, $_store_id)

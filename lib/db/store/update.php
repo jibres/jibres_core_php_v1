@@ -6,14 +6,8 @@ class update
 {
 	public static function record($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_args);
+		return \dash\pdo\query_template::update('store', $_args, $_id, 'master');
 
-		if($set)
-		{
-			$query  = "UPDATE store SET $set WHERE store.id = $_id LIMIT 1";
-			$result = \dash\pdo::query($query, [], 'master');
-			return $result;
-		}
 	}
 
 	public static function store_data($_field, $_value, $_store_id)

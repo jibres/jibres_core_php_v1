@@ -255,13 +255,7 @@ class logs
 	 */
 	public static function update($_args, $_id)
 	{
-		$set  = \dash\db\config::make_set($_args);
-		if($set)
-		{
-			// make update query
-			$query = "UPDATE logs SET $set WHERE logs.id = $_id";
-			return \dash\pdo::query($query, []);
-		}
+		return \dash\pdo\query_template::update('logs', $_args, $_id);
 	}
 
 

@@ -23,13 +23,8 @@ class update
 
 	public static function record($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if($set && $_id && is_numeric($_id))
-		{
-			// make update query
-			$query = "UPDATE store_plan SET $set WHERE store_plan.id = $_id LIMIT 1";
-			return \dash\pdo::query($query, [], 'master');
-		}
+		return \dash\pdo\query_template::update('store_plan', $_args, $_id, 'master');
+
 	}
 
 }

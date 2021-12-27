@@ -29,10 +29,8 @@ class update
 	public static function update($_args, $_id, $_fuel = null)
 	{
 		$_args['datemodified'] = date("Y-m-d H:i:s");
-		$set    = \dash\db\config::make_set($_args);
-		$query  = "UPDATE login SET $set WHERE login.id = $_id LIMIT 1";
-		$result = \dash\pdo::query($query, [], $_fuel);
-		return $result;
+
+		return \dash\pdo\query_template::update('login', $_args, $_id, $_fuel);
 	}
 
 

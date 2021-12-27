@@ -6,31 +6,13 @@ class update
 {
 	public static function update($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if($set)
-		{
-			$query = " UPDATE `business_domain` SET $set WHERE business_domain.id = $_id LIMIT 1 ";
-			return \dash\pdo::query($query, [], 'master');
-		}
-		else
-		{
-			return false;
-		}
+		return \dash\pdo\query_template::update('business_domain', $_args, $_id, 'master');
 	}
 
 
 	public static function update_dns($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if($set)
-		{
-			$query = " UPDATE `business_domain_dns` SET $set WHERE business_domain_dns.id = $_id LIMIT 1 ";
-			return \dash\pdo::query($query, [], 'master');
-		}
-		else
-		{
-			return false;
-		}
+		return \dash\pdo\query_template::update('business_domain_dns', $_args, $_id, 'master');
 	}
 
 	public static function update_id_store_id($_args, $_id, $_store_id)

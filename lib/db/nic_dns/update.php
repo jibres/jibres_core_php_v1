@@ -6,15 +6,7 @@ class update
 {
 	public static function update($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if(!$set)
-		{
-			return false;
-		}
-
-		$query  = "UPDATE dns SET $set WHERE dns.id = $_id LIMIT 1";
-		$result = \dash\pdo::query($query, [], 'nic');
-		return $result;
+		return \dash\pdo\query_template::update('dns', $_args, $_id, 'nic');
 	}
 
 

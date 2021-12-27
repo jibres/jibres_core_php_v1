@@ -7,14 +7,7 @@ class update
 
 	public static function update($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_args);
-
-		if($set)
-		{
-			$query  = "UPDATE form_choice SET $set WHERE form_choice.id = $_id LIMIT 1";
-			$result = \dash\pdo::query($query, []);
-			return $result;
-		}
+		return \dash\pdo\query_template::update('form_choice', $_args, $_id);
 	}
 
 

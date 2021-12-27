@@ -23,28 +23,13 @@ class update
 	public static function update($_args, $_id)
 	{
 		$_args['datemodified'] = date("Y-m-d H:i:s");
-		$set = \dash\db\config::make_set($_args);
-		if(!$set)
-		{
-			return false;
-		}
 
-		$query  = "UPDATE domain SET $set WHERE domain.id = $_id LIMIT 1";
-		$result = \dash\pdo::query($query, [], 'nic');
-		return $result;
+		return \dash\pdo\query_template::update('domain', $_args, $_id, 'nic');
 	}
 
 	public static function record($_args, $_id)
 	{
-		$set = \dash\db\config::make_set($_args);
-		if(!$set)
-		{
-			return false;
-		}
-
-		$query  = "UPDATE domain SET $set WHERE domain.id = $_id LIMIT 1";
-		$result = \dash\pdo::query($query, [], 'nic');
-		return $result;
+		return \dash\pdo\query_template::update('domain', $_args, $_id, 'nic');
 	}
 
 
