@@ -35,9 +35,10 @@ class search
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$param = [];
+		$and   = [];
+		$meta  = [];
+		$or    = [];
 
 
 		if($data['type'])
@@ -48,7 +49,8 @@ class search
 			}
 			else
 			{
-				$and[] = " files.type = '$data[type]' ";
+				$and[] = " files.type = :type ";
+				$param[':type'] = $data['type'];
 			}
 
 			self::$is_filtered = true;
@@ -60,7 +62,8 @@ class search
 
 			if(isset($get_ratio['ratio_round']))
 			{
-				$and[] = " files.ratio = $get_ratio[ratio_round] ";
+				$and[] = " files.ratio = :ratio ";
+				$param[':ratio'] = $get_ratio['ratio_round'];
 				self::$is_filtered = true;
 			}
 		}
@@ -91,14 +94,16 @@ class search
 				$ext = substr($query_string, 1);
 				if(\dash\upload\extentions::is_ext($ext))
 				{
-					$and[] = " files.ext = '$ext' ";
+					$and[] = " files.ext = :ext ";
+					$param[':ext'] = $ext;
 					$filename_search = false;
 				}
 			}
 
 			if($filename_search)
 			{
-				$or[]        = " files.filename LIKE '%$query_string%'";
+				$or[]        = " files.filename LIKE :query_string ";
+				$param[':query_string'] = '%'. $query_string. '%';
 			}
 
 			self::$is_filtered = true;
@@ -109,7 +114,9 @@ class search
 		{
 			if(\dash\app\files\filter::check_allow($data['sort'], $data['order']))
 			{
-				$order_sort = " ORDER BY $data[sort] $data[order] ";
+				$order_sort = " ORDER BY :sort :order ";
+				$param[':sort'] = $data['sort'];
+				$param[':order'] = $data['order'];
 			}
 
 		}
@@ -121,7 +128,7 @@ class search
 
 		$and[] = " files.status != 'deleted' ";
 
-		$list = \dash\db\files::list($and, $or, $order_sort, $meta);
+		$list = \dash\db\files::list($param, $and, $or, $order_sort, $meta);
 
 
 		if(is_array($list))

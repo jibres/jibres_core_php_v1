@@ -1,7 +1,15 @@
 <?php
 namespace dash\db;
 
-
+/**
+ * This class describes an files.
+ *
+ * @author Reza
+ *
+ * All functions in this class became query bind PDO
+ * @date 2021-12-27 15:32:22
+ *
+ */
 class files
 {
 
@@ -123,16 +131,16 @@ class files
 	}
 
 
-	public static function list($_and, $_or, $_order_sort = null, $_meta = [])
+	public static function list($_param, $_and, $_or, $_order_sort = null, $_meta = [])
 	{
-		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::binded_ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM files $q[join] $q[where]  ";
 
-		$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
+		$limit = \dash\db\pagination::pagination_query_pdo($pagination_query, $_param, $q['limit']);
 
 		$query = " SELECT files.* FROM 	files $q[join] $q[where] $q[order] $limit ";
-		$result = \dash\pdo::get($query);
+		$result = \dash\pdo::get($query, $_param);
 
 		return $result;
 	}
