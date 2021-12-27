@@ -167,9 +167,12 @@ class get
 
 	public static function get_one($_args)
 	{
-		$where  = \dash\db\config::make_where($_args);
-		$query  = "SELECT * FROM comments WHERE $where LIMIT 1";
-		$result = \dash\pdo::get($query, [], null, true);
+		$q  = \dash\pdo\prepare_query::generate_where('comments', $_args);
+
+		$query  = "SELECT * FROM comments WHERE $q[where] LIMIT 1";
+		$param  = $q['param'];
+		$result = \dash\pdo::get($query, $param, null, true);
+
 		return $result;
 	}
 
