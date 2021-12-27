@@ -15,15 +15,7 @@ class controller
 
 		$code = \dash\validate::string_64_64($code);
 
-
-		$find_log =
-		[
-			'caller' => 'verifyEmail',
-			'code'   => $code,
-			// 'status' => 'enable',
-		];
-
-		$find_log = \dash\db\logs::get($find_log);
+		$find_log = \dash\db\logs::get_by_caller_code('verifyEmail', $code);
 
 		if(!$find_log || !is_array($find_log))
 		{

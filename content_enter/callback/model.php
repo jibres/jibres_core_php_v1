@@ -81,15 +81,7 @@ class model
 
 		$user_id = $user_data['id'];
 
-		$find_log =
-		[
-			'caller' => 'enterGetSmsFromUser',
-			'to'     => $user_id,
-			'code'   => $message,
-			'status' => 'enable',
-		];
-
-		$find_log = \dash\db\logs::get($find_log);
+		$find_log = \dash\db\logs::get_caller_code_to_status('enterGetSmsFromUser', $message, $user_id, 'enable');
 
 		$log_detail = ['from' => $user_id];
 

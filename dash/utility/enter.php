@@ -1043,7 +1043,7 @@ class enter
 
 				if($log_id)
 				{
-					$get_log_detail = \dash\db\logs::get(['id' => $log_id, 'limit' => 1]);
+					$get_log_detail = \dash\db\logs::get_by_id($log_id);
 					if(!$get_log_detail || !isset($get_log_detail['status']))
 					{
 						\dash\db\logs::set('enter:verify:sendsmsm:log:not:found', self::user_data('id'), $log_meta);

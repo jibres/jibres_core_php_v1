@@ -19,7 +19,7 @@ class view
 			\dash\header::status(404);
 		}
 
-		$dataRow = \dash\db\logs::get(['id' => $log_id, 'limit' => 1]);
+		$dataRow = \dash\db\logs::get_by_id($log_id);
 		\dash\data::dataRow($dataRow);
 
 	}

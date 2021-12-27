@@ -7,6 +7,11 @@ class logs
 	private static $logUpdate = [];
 
 
+	public static function get_by_id($_id)
+	{
+		return \dash\pdo\query_template::get('logs', $_id);
+	}
+
 	public static function is_active_code($_caller, $_to)
 	{
 		$query = "SELECT * FROM logs WHERE logs.caller = :caller AND logs.to = :to AND logs.status IN ('enable', 'notif', 'notifread') LIMIT 1 ";
@@ -349,18 +354,32 @@ class logs
 	}
 
 
-	/**
-	 * get log
-	 *
-	 * @param      <type>   $_args  The arguments
-	 *
-	 * @return     boolean  ( description_of_the_return_value )
-	 */
-	public static function get($_args, $_options = [])
+	public static function get_by_caller_code($_caller, $_code)
 	{
-		unset($_options['join_user']);
+		$query = "SELECT * FROM logs WHERE logs.caller = :caller AND logs.code = :code  ";
+		$param =
+		[
+			':caller' => $_caller,
+			':code'     => $_code,
+		];
 
-		return \dash\db\config::public_get('logs', $_args, $_options);
+		return \dash\pdo::get($query, $param);
+	}
+
+
+
+	public static function get_caller_code_to_status($_caller, $_code, $_to, $_status)
+	{
+		$query = "SELECT * FROM logs WHERE logs.caller = :caller AND logs.code = :code AND logs.to = :to AND logs.status = :status  ";
+		$param =
+		[
+			':caller' => $_caller,
+			':code'   => $_code,
+			':to'     => $_to,
+			':status' => $_status,
+		];
+
+		return \dash\pdo::get($query, $param);
 	}
 
 }
