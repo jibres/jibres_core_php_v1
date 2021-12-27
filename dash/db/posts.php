@@ -200,20 +200,6 @@ class posts
 
 
 
-
-	/**
-	 * get list of polls
-	 * @param  [type] $_user_id set userid
-	 * @param  [type] $_return  set return field value
-	 * @param  string $_type    set type of post
-	 * @return [type]           an array or number
-	 */
-	public static function get()
-	{
-		return \dash\db\config::public_get('posts', ...func_get_args());
-	}
-
-
 	public static function get_special_post($_options = [])
 	{
 		$limit = "LIMIT $_options[limit]";

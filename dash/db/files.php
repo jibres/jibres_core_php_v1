@@ -127,12 +127,6 @@ class files
 	}
 
 
-	public static function get()
-	{
-		$result = \dash\db\config::public_get('files', ...func_get_args());
-		return $result;
-	}
-
 
 
 	public static function chart_count_size_per_type()

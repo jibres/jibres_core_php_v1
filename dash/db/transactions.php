@@ -143,17 +143,6 @@ class transactions
 
 
 
-	/**
-	 * get the transaction record
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function get()
-	{
-		$result = \dash\db\config::public_get('transactions', ...func_get_args());
-		$result = self::ready($result);
-		return $result;
-	}
 
 
 	/**

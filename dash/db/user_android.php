@@ -32,11 +32,6 @@ class user_android
 
 
 
-	public static function get()
-	{
-		return \dash\db\config::public_get('user_android', ...func_get_args());
-	}
-
 	public static function get_count()
 	{
 		return \dash\pdo\query_template::get_count('user_android', ...func_get_args());
