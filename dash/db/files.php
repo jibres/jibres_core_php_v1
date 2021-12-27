@@ -13,8 +13,9 @@ class files
 
 	public static function get_usages($_id)
 	{
-		$query = "SELECT fileusage.* FROM fileusage WHERE fileusage.file_id = $_id";
-		$result = \dash\pdo::get($query);
+		$query  = "SELECT fileusage.* FROM fileusage WHERE fileusage.file_id = :id ";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param);
 		return $result;
 	}
 
@@ -36,21 +37,32 @@ class files
 
 	public static function get_usages_count($_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM fileusage WHERE fileusage.file_id = $_id";
-		$result = \dash\pdo::get($query, [], 'count', true);
+		$query = "SELECT COUNT(*) AS `count` FROM fileusage WHERE fileusage.file_id = :id ";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, 'count', true);
 		return $result;
 	}
 
 
 	public static function set_unknown_fileusage($_relate, $_user_id, $_relate_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM fileusage WHERE fileusage.user_id = $_user_id AND  fileusage.related = '$_relate' AND fileusage.related_id IS NULL";
-		$count = \dash\pdo::get($query, [], 'count', true);
+		$query = "SELECT COUNT(*) AS `count` FROM fileusage WHERE fileusage.user_id = :user_id AND  fileusage.related = :relate AND fileusage.related_id IS NULL";
+		$param =
+		[
+			':user_id' => $_user_id,
+			':relate'  => $_relate,
+		];
+
+		$count = \dash\pdo::get($query, $param, 'count', true);
 
 		if($count && is_numeric($count))
 		{
-			$query = "UPDATE fileusage SET fileusage.related_id = $_relate_id WHERE fileusage.user_id = $_user_id AND  fileusage.related = '$_relate' AND fileusage.related_id IS NULL LIMIT $count";
-			$result = \dash\pdo::get($query);
+			$param[':limit'] = $count;
+
+			$query = "UPDATE fileusage SET fileusage.related_id = $_relate_id WHERE fileusage.user_id = :user_id AND  fileusage.related = :relate AND fileusage.related_id IS NULL LIMIT :limit";
+
+			$result = \dash\pdo::get($query, $param);
+
 			return $result;
 		}
 		return false;
@@ -58,11 +70,13 @@ class files
 
 	public static function remove($_id)
 	{
-		$query  = "DELETE FROM fileusage WHERE fileusage.file_id = $_id ";
-		$result = \dash\pdo::get($query);
+		$param  = [':id' => $_id];
 
-		$query  = "DELETE FROM files WHERE files.id = $_id LIMIT 1";
-		$result = \dash\pdo::get($query);
+		$query  = "DELETE FROM fileusage WHERE fileusage.file_id = :id ";
+		$result = \dash\pdo::get($query, $param);
+
+		$query  = "DELETE FROM files WHERE files.id = :id LIMIT 1";
+		$result = \dash\pdo::get($query, $param);
 
 		return $result;
 	}
@@ -82,23 +96,19 @@ class files
 	 */
 	public static function duplicate($_md5)
 	{
-		$query = "SELECT * FROM files WHERE files.md5 = '$_md5' LIMIT 1";
-		$result = \dash\pdo::get($query, [], null, true);
+		$query = "SELECT * FROM files WHERE files.md5 = :md5 LIMIT 1";
+		$param  = [':md5' => $_md5];
+		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 
 
-	public static function get_by_ids($_ids)
-	{
-		$query = "SELECT * FROM files WHERE files.id IN ($_ids) ";
-		$result = \dash\pdo::get($query);
-		return $result;
-	}
 
 	public static function by_id($_id)
 	{
-		$query = "SELECT * FROM files WHERE files.id = $_id LIMIT 1 ";
-		$result = \dash\pdo::get($query, [], null, true);
+		$query  = "SELECT * FROM files WHERE files.id = :id LIMIT 1 ";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 
@@ -106,8 +116,9 @@ class files
 
 	public static function set_removed($_id)
 	{
-		$query = "UPDATE files SET files.status = 'removed' WHERE files.id = $_id LIMIT 1 ";
-		$result = \dash\pdo::query($query, []);
+		$query = "UPDATE files SET files.status = 'removed' WHERE files.id = :id LIMIT 1 ";
+		$param  = [':id' => $_id];
+		$result = \dash\pdo::query($query, $param);
 		return $result;
 	}
 

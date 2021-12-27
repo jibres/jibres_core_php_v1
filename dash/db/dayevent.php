@@ -1,7 +1,15 @@
 <?php
 namespace dash\db;
 
-
+/**
+ * This class describes an dayevent.
+ *
+ * @author Reza
+ *
+ * All functions in this class became query bind PDO
+ * @date 2021-12-27 15:02:05
+ *
+ */
 class dayevent
 {
 
