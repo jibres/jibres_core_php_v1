@@ -12,14 +12,15 @@ class delete
 	}
 
 
-	public static function hard_delete($_where)
+	public static function hard_delete($_args)
 	{
-		$where = \dash\db\config::make_where($_where);
-		if($where)
-		{
-			$query = "DELETE FROM form_tagusage WHERE $where ";
-			return \dash\pdo::query($query, []);
-		}
+		$q  = \dash\pdo\prepare_query::generate_where('form_tagusage', $_args);
+
+		$query  = "DELETE FROM form_tagusage WHERE $q[where] ";
+		$param  = $q['param'];
+		$result = \dash\pdo::query($query, $param);
+
+		return $result;
 	}
 
 	public static function hard_delete_answer_tag($_form_tag_id, $_answer_id)

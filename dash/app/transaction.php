@@ -4,24 +4,7 @@ namespace dash\app;
 class transaction
 {
 
-	public static function total_paid($_where = null)
-	{
-		$total_paid = \dash\db\transactions::total_paid($_where);
-		return floatval($total_paid);
-	}
 
-	public static function total_paid_count($_where = null)
-	{
-		$total_paid = \dash\db\transactions::total_paid_count($_where);
-		return floatval($total_paid);
-	}
-
-
-	public static function total_paid_date($_date, $_where = null)
-	{
-		$total_paid = \dash\db\transactions::total_paid_date($_date, $_where);
-		return floatval($total_paid);
-	}
 
 
 	public static function ready($_data)

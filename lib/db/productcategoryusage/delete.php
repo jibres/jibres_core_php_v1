@@ -14,16 +14,6 @@ class delete
 
 
 
-	public static function hard_delete($_where)
-	{
-		$where = \dash\db\config::make_where($_where);
-		if($where)
-		{
-			$query = "DELETE FROM productcategoryusage WHERE $where ";
-			return \dash\pdo::query($query, []);
-		}
-	}
-
 
 	public static function hard_delete_product_category($_product_category_ids, $_product_id)
 	{

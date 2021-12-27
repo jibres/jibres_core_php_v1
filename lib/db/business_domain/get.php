@@ -443,12 +443,16 @@ class get
 	}
 
 
-	public static function dns_where_one($_where)
+	public static function dns_where_one($_args)
 	{
-		$where = \dash\db\config::make_where($_where);
-		$query  = " SELECT * FROM business_domain_dns WHERE $where LIMIT 1";
-		$result = \dash\pdo::get($query, [], null, true, 'master');
+		$q  = \dash\pdo\prepare_query::generate_where('business_domain_dns', $_args);
+
+		$query  = "SELECT * FROM business_domain_dns WHERE $q[where] LIMIT 1";
+		$param  = $q['param'];
+		$result = \dash\pdo::get($query, $param, null, true, 'master');
+
 		return $result;
+
 	}
 
 

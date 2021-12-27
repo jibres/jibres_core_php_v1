@@ -5,12 +5,17 @@ namespace lib\db\productcategory;
 class get
 {
 
-	public static function load_child($_where)
+	public static function load_child($_args)
 	{
-		$where = \dash\db\config::make_where($_where);
-		$query  = "SELECT * FROM productcategory WHERE $where  ";
-		$result = \dash\pdo::get($query);
+		$q  = \dash\pdo\prepare_query::generate_where('productcategory', $_args);
+
+		$query  = "SELECT * FROM productcategory WHERE $q[where]  ";
+		$param  = $q['param'];
+		$result = \dash\pdo::get($query, $param);
+
 		return $result;
+
+
 	}
 
 
@@ -132,10 +137,14 @@ class get
 			'parent3' => $_parent3,
 		];
 
-		$where  = \dash\db\config::make_where($where);
-		$query  = "SELECT * FROM productcategory WHERE $where LIMIT 1";
-		$result = \dash\pdo::get($query, [], null, true);
+		$q  = \dash\pdo\prepare_query::generate_where('productcategory', $where);
+
+		$query  = "SELECT * FROM productcategory WHERE $q[where] LIMIT 1 ";
+		$param  = $q['param'];
+		$result = \dash\pdo::get($query, $param, null, true);
+
 		return $result;
+
 	}
 
 	public static function check_unique_slug($_slug)
@@ -191,84 +200,6 @@ class get
 		return $result;
 	}
 
-
-	public static function list($_string = null, $_args = [])
-	{
-		$and = [];
-
-		if($_string)
-		{
-			$and[] = " productcategory.title LIKE '%$_string%' ";
-		}
-
-		if($_args)
-		{
-			$and[] =  \dash\db\config::make_where($_args);
-		}
-
-		$where = null;
-
-		if(!empty($and))
-		{
-			$where = ' WHERE '. implode(' AND ', $and);
-		}
-
-
-		$query =
-		"
-			SELECT
-				productcategory.*
-			FROM
-				productcategory
-				$where
-			ORDER BY
-				count DESC
-
-		";
-		$result = \dash\pdo::get($query);
-
-		// j($result);
-
-		return $result;
-	}
-
-
-
-	public static function list_child($_category_id, $_parent_field,  $_string = null, $_parent_where = [])
-	{
-		$where = null;
-
-		if($_string)
-		{
-			$where = " AND productcategory.title LIKE '%$_string%' ";
-		}
-
-
-		$parent_where = null;
-		if($_parent_where)
-		{
-			$parent_where = " AND ". \dash\db\config::make_where($_parent_where);
-		}
-
-		$query =
-		"
-			SELECT
-				(SELECT COUNT(*) AS `count` FROM productcategoryusage WHERE  productcategoryusage.productcategory_id = productcategory.id) AS `count`,
-				productcategory.*
-			FROM
-				productcategory
-			WHERE
-				productcategory.$_parent_field = $_category_id
-				$parent_where
-				$where
-			ORDER BY
-				count DESC
-
-		";
-		$result = \dash\pdo::get($query);
-
-		return $result;
-	}
 
 
 

@@ -65,12 +65,17 @@ class get
 		return $result;
 	}
 
-	public static function check_duplicate_title($_where)
+	public static function check_duplicate_title($_args)
 	{
-		$make_where = \dash\db\config::make_where($_where);
-		$query = "SELECT * FROM tax_coding WHERE $make_where LIMIT 1";
-		$result = \dash\pdo::get($query, [], null, true);
+
+		$q  = \dash\pdo\prepare_query::generate_where('tax_coding', $_args);
+
+		$query  = "SELECT * FROM tax_coding WHERE $q[where] LIMIT 1";
+		$param  = $q['param'];
+		$result = \dash\pdo::get($query, $param, null, true);
+
 		return $result;
+
 	}
 
 	public static function list_tree()

@@ -24,10 +24,14 @@ class get
 
 	public static function check_duplicate_variants_add($_args)
 	{
-		$where = \dash\db\config::make_where($_args);
-		$query  = "SELECT * FROM products WHERE $where LIMIT 1";
-		$result = \dash\pdo::get($query, [], null, true);
+		$q  = \dash\pdo\prepare_query::generate_where('products', $_args);
+
+		$query  = "SELECT * FROM products WHERE $q[where] LIMIT 1";
+		$param  = $q['param'];
+		$result = \dash\pdo::get($query, $param, null, true);
+
 		return $result;
+
 	}
 
 

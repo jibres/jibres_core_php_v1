@@ -54,12 +54,16 @@ class get
 		return $result;
 	}
 
-	public static function get_where($_where)
+	public static function get_where($_args)
 	{
-		$where = \dash\db\config::make_where($_where);
-		$query = "SELECT * FROM form_answerdetail WHERE $where LIMIT 1 ";
-		$result = \dash\pdo::get($query, [], null, true);
+		$q  = \dash\pdo\prepare_query::generate_where('form_answerdetail', $_args);
+
+		$query  = "SELECT * FROM form_answerdetail WHERE $q[where] LIMIT 1 ";
+		$param  = $q['param'];
+		$result = \dash\pdo::get($query, $param, null, true);
+
 		return $result;
+
 	}
 
 

@@ -21,11 +21,14 @@ class get
 	}
 
 
-	public static function check_duplicate_where($_where)
+	public static function check_duplicate_where($_args)
 	{
-		$where = \dash\db\config::make_where($_where);
-		$query   = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND $where AND importexport.status IN ('request', 'running') ORDER BY importexport.id DESC LIMIT 1";
-		$result = \dash\pdo::get($query, [], null, true);
+		$q  = \dash\pdo\prepare_query::generate_where('importexport', $_args);
+
+		$query  = "SELECT * FROM importexport WHERE importexport.mode = 'export' AND $q[where] AND importexport.status IN ('request', 'running') ORDER BY importexport.id DESC LIMIT 1";
+		$param  = $q['param'];
+		$result = \dash\pdo::get($query, $param, null, true);
+
 		return $result;
 	}
 
