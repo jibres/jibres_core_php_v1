@@ -197,10 +197,6 @@ class query_template
 
 		$q = prepare_query::generate_where($_table, $_where);
 
-		if(!$q)
-		{
-			return floatval(0);
-		}
 		$query  = "SELECT COUNT(*) AS 'count' FROM `$_table` WHERE $q[where] ";
 
 		$param = $q['param'];
@@ -263,10 +259,6 @@ class query_template
 
 		$q = prepare_query::generate_where($_table, $_where);
 
-		if(!$q)
-		{
-			return null;
-		}
 
 		$param  = array_merge($param, $q['param']);
 		$query  = "SELECT * FROM $_table WHERE $q[where] $limit ";
