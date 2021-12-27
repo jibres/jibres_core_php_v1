@@ -177,12 +177,12 @@ class prepare_query
 
 			$my_field = "`$_table`.`$field`";
 
-			$my_field_key = ':'. $i. '_'. mb_strlen($field). $field;
-
 			if(preg_match("/\./", $field))
 			{
 				$my_field = "$field";
 			}
+
+			$my_field_key = ':'. $i. '_'. mb_strlen($field). $field;
 
 			if($value === null || is_null($value) || $value === '')
 			{
