@@ -205,5 +205,59 @@ class prepare_query
 
 	}
 
+
+
+	public static function generate_set(string $_table, array $_args) : array
+	{
+
+		$set   = [];
+		$param = [];
+		$i     = 0;
+
+		foreach ($_args as $field => $value)
+		{
+
+			$i++;
+
+			$my_field = "`$_table`.`$field`";
+
+			$my_field_key = ':'. $i. mb_strlen($field). $field;
+
+
+			if($value === null || is_null($value) || $value === '')
+			{
+				$set[] = " $my_field = NULL ";
+			}
+			elseif(is_bool($value))
+			{
+				if($value)
+				{
+					$set[] = " $my_field = 1 ";
+				}
+				else
+				{
+					$set[] = " $my_field = NULL ";
+				}
+			}
+			elseif(is_string($value) || is_numeric($value))
+			{
+				$set[] = " $my_field = $my_field_key ";
+				$param[$my_field_key] = $value;
+			}
+			else
+			{
+				// make error
+				\dash\log::file(json_encode(func_get_args()), 'depricated_array_v2', 'database');
+
+			}
+		}
+
+		$result          = [];
+		$result['set']   = implode(', ', $set);
+		$result['param'] = $param;
+
+		return $result;
+	}
+
 }
 ?>
