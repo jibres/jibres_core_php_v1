@@ -22,17 +22,6 @@ class delete
 
 
 
-	public static function hard_delete($_where)
-	{
-		$where = \dash\db\config::make_where($_where);
-		if($where)
-		{
-			$query = "DELETE FROM termusages WHERE $where ";
-			return \dash\pdo::query($query, []);
-		}
-	}
-
-
 	public static function hard_delete_category($_term_ids, $_post_id)
 	{
 		$query = "DELETE FROM termusages WHERE termusages.term_id IN ($_term_ids) AND termusages.post_id = $_post_id ";

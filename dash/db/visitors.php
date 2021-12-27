@@ -17,70 +17,7 @@ class visitors
 		return \dash\pdo\query_template::get_count('urls', $_where);
 	}
 
-	public static function get_url_like($_url, $_where = [])
-	{
-		$where = null;
-		if($_where)
-		{
-			$where = \dash\db\config::make_where($_where);
-			if($where)
-			{
-				$where = " AND $where";
-			}
-		}
 
-		$query =
-		"
-			SELECT
-				visitors.*,
-				urls.pwd,
-				urls.subdomain,
-				urls.domain,
-				urls.path
-			FROM
-				visitors
-			LEFT JOIN urls ON urls.id = visitors.url_id
-			WHERE urls.pwd LIKE '$_url'
-			$where
-		";
-		$result = \dash\pdo::get($query, [], null, false);
-		return $result;
-	}
-
-	public static function visitor_page($_url, $_where = [])
-	{
-		$where = null;
-		if($_where)
-		{
-			$where = \dash\db\config::make_where($_where);
-			if($where)
-			{
-				$where = " AND $where";
-			}
-		}
-
-		$query =
-		"
-			SELECT COUNT(myTable.count) AS `myCount`
-			FROM
-			(
-				SELECT
-					COUNT(*) AS `count`,
-					IF(visitors.user_id IS NULL, visitors.session_id , visitors.user_id) AS `myUser`
-				FROM visitors
-				LEFT JOIN urls ON urls.id = visitors.url_id
-				WHERE
-					urls.pwd = '$_url'
-					$where
-				GROUP BY myUser
-			) AS `myTable`
-		";
-
-		$result = \dash\pdo::get($query, [], 'myCount', true);
-
-		return $result;
-
-	}
 
 
 	private static function calc_start_time($_args)

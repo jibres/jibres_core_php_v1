@@ -83,23 +83,6 @@ class users
 	}
 
 
-	public static function all_user_mobile($_where = null)
-	{
-		$where = null;
-
-		if($_where)
-		{
-			$where = \dash\db\config::make_where($_where);
-			if($where)
-			{
-				$where = " AND $where";
-			}
-		}
-
-		$query = "SELECT users.mobile AS `mobile` FROM users WHERE users.mobile IS NOT NULL  $where";
-
-		return \dash\pdo::get($query, [], 'mobile');
-	}
 
 	/**
 	 * Counts the number of ok users.
@@ -139,16 +122,6 @@ class users
 		return \dash\pdo::query($query, []);
 	}
 
-
-	public static function get_ref_count($_args)
-	{
-		$where = \dash\db\config::make_where($_args);
-		if($where)
-		{
-			$query = "SELECT COUNT(*) AS `count` FROM users WHERE $where ";
-			return \dash\pdo::get($query, [], 'count', true);
-		}
-	}
 
 
 	public static function get_by_mobile($_mobile)
