@@ -26,14 +26,14 @@ class user_auth
 
 	public static function get()
 	{
-		return \dash\db\config::public_get('user_auth', ...func_get_args());
+		return \dash\pdo\query_template::get_where('user_auth', ...func_get_args());
 	}
 
 
 	public static function jibres_get($_where)
 	{
 		// db_name = fuel
-		return \dash\db\config::public_get('user_auth', $_where, ['db_name' => 'master']);
+		return \dash\pdo\query_template::get_where('user_auth', $_where, ['db_name' => 'master']);
 	}
 
 	public static function get_count()

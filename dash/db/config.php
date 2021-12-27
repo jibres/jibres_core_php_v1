@@ -186,60 +186,6 @@ class config
 
 
 
-	/**
-	 * public get from tables
-	 *
-	 * @param      <type>  $_table  The table
-	 * @param      <type>  $_where   The arguments
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
-	public static function public_get($_table, $_where, $_options = [])
-	{
-		if($_where && $_table)
-		{
-			$default_options =
-			[
-				'order'             => null,
-				'table_name'        => null,
-				'db_name'           => true,
-			];
-
-			if(!is_array($_options))
-			{
-				$_options = [];
-			}
-			$_options = array_merge($default_options, $_options);
-
-			$only_one_value = false;
-			$limit          = null;
-
-			if(isset($_where['limit']))
-			{
-				if($_where['limit'] === 1)
-				{
-					$only_one_value = true;
-				}
-
-				$limit = " LIMIT $_where[limit] ";
-			}
-
-			if(is_array($_where))
-			{
-				unset($_where['limit']);
-			}
-
-			$where = \dash\db\config::make_where($_where, $_options);
-			if($where)
-			{
-				$query = "SELECT * FROM $_table  WHERE $where $_options[order] $limit";
-				$result = \dash\pdo::get($query, [], null, $only_one_value, $_options['db_name']);
-				return $result;
-			}
-
-		}
-		return false;
-	}
 
 
 }

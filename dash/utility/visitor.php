@@ -98,7 +98,7 @@ class visitor
 
 	private static function url_db($_url, $_referer = false)
 	{
-		$result = \dash\db\config::public_get('urls', ['urlmd5' => md5($_url), 'limit' => 1]);
+		$result = \dash\pdo\query_template::get_where('urls', ['urlmd5' => md5($_url), 'limit' => 1]);
 		if(isset($result['id']))
 		{
 			return floatval($result['id']);

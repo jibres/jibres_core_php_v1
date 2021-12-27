@@ -32,7 +32,7 @@ class get
 
 	public static function get_raw()
 	{
-		return \dash\db\config::public_get('terms', ...func_get_args());
+		return \dash\pdo\query_template::get_where('terms', ...func_get_args());
 	}
 
 	public static function get_count()

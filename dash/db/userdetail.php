@@ -27,7 +27,7 @@ class userdetail
 
 	public static function get()
 	{
-		return \dash\db\config::public_get('userdetail', ...func_get_args());
+		return \dash\pdo\query_template::get_where('userdetail', ...func_get_args());
 	}
 
 

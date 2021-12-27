@@ -123,7 +123,7 @@ class users
 
 	public static function get()
 	{
-		$result = \dash\db\config::public_get('users', ...func_get_args());
+		$result = \dash\pdo\query_template::get_where('users', ...func_get_args());
 		return $result;
 	}
 

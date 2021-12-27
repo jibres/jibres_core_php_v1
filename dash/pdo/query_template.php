@@ -234,5 +234,45 @@ class query_template
 	}
 
 
+	/**
+	 * public get from tables
+	 *
+	 * @param      <type>  $_table  The table
+	 * @param      <type>  $_where   The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function get_where(string $_table,  array $_where = [], $_fuel = null)
+	{
+		$param          = [];
+		$only_one_value = false;
+		$limit          = null;
+
+		if(isset($_where['limit']))
+		{
+			if($_where['limit'] === 1)
+			{
+				$only_one_value = true;
+			}
+
+			$limit = " LIMIT :_limit ";
+			$param[':_limit'] = $_where['limit'];
+		}
+
+		unset($_where['limit']);
+
+		$q = prepare_query::generate_where($_table, $_where);
+
+		if(!$q)
+		{
+			return null;
+		}
+
+		$param  = array_merge($param, $q['param']);
+		$query  = "SELECT * FROM $_table WHERE $q[where] $limit ";
+		$result = \dash\pdo::get($query, $param, null, $only_one_value, $_fuel);
+
+		return $result;
+	}
 }
 ?>

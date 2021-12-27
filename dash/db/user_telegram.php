@@ -51,7 +51,7 @@ class user_telegram
 
 	public static function get()
 	{
-		return \dash\db\config::public_get('user_telegram', ...func_get_args());
+		return \dash\pdo\query_template::get_where('user_telegram', ...func_get_args());
 	}
 
 	public static function get_count()
