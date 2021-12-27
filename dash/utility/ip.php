@@ -299,19 +299,20 @@ class ip
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$and           = [];
-		$meta          = [];
-		$or            = [];
-
-
-
+		$and   = [];
+		$meta  = [];
+		$or    = [];
+		$param = [];
 
 		$query_string = \dash\validate::search($_query_string, false);
 
 
 		if($query_string)
 		{
-			$or[]        = " ip.ipv4 LIKE '%$query_string%' OR ip.ipv6 LIKE '%$query_string%' ";
+			$or[]        = " ip.ipv4 LIKE :query_string OR ip.ipv6 LIKE :query_string2 ";
+
+			$param[':query_string'] = '%'.$query_string.'%';
+			$param[':query_string2'] = '%'.$query_string.'%';
 
 		}
 
@@ -319,7 +320,7 @@ class ip
 
 		$order_sort    = " ORDER BY ip.id DESC";
 
-		$list = \dash\db\ip::list($and, $or, $order_sort, $meta);
+		$list = \dash\db\ip::list($param, $and, $or, $order_sort, $meta);
 
 		if(!is_array($list))
 		{
