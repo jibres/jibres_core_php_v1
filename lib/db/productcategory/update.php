@@ -89,16 +89,7 @@ class update
 		$query = [];
 		foreach ($_update as $id => $set)
 		{
-			$make_set = \dash\db\config::make_set($set);
-			if($make_set)
-			{
-				$query[] = "UPDATE productcategory SET $make_set WHERE productcategory.id = $id LIMIT 1";
-			}
-		}
-
-		if(!empty($query))
-		{
-			\dash\pdo::query(implode(' ; ', $query), [], null, ['multi_query' => true]);
+			\dash\pdo\query_template::update('productcategory', $set, $id);
 		}
 
 	}

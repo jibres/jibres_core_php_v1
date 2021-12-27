@@ -32,12 +32,18 @@ class insert
 		return $result;
 	}
 
-	public static function single_insert_fuel($_set, $_fuel, $_database)
+	public static function single_insert_fuel($_args, $_fuel, $_database)
 	{
-		$set_setting = \dash\db\config::make_set($_set);
+		$q      = \dash\pdo\prepare_query::generate_set('setting', $_args);
 
-		$query = "INSERT INTO `$_database`.`setting` SET $set_setting";
-		$result = \dash\pdo::query($query, [], $_fuel, ['database' => $_database]);
+		$query  = "INSERT INTO `$_database`.`setting` SET $q[set]";
+
+		$param  = $q['param'];
+
+		$result = \dash\pdo::query($query, $param, $_fuel, ['database' => $_database]);
+
+		return $result;
+
 	}
 
 
