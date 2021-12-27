@@ -90,52 +90,52 @@ class dayevent
 		$result['user_permission']        = floatval(\dash\db\users::get_count_have_permission());
 
 
-		$result['apilog']                 = floatval(\dash\db\config::public_get_count('apilog'));
-		$result['business_domain']        = floatval(\dash\db\config::public_get_count('business_domain'));
-		$result['business_domain_action'] = floatval(\dash\db\config::public_get_count('business_domain_action'));
-		$result['business_domain_dns']    = floatval(\dash\db\config::public_get_count('business_domain_dns'));
-		$result['csrf']                   = floatval(\dash\db\config::public_get_count('csrf'));
-		$result['files']                  = floatval(\dash\db\config::public_get_count('files'));
-		$result['fileusage']              = floatval(\dash\db\config::public_get_count('fileusage'));
-		$result['gift']                   = floatval(\dash\db\config::public_get_count('gift'));
-		$result['giftusage']              = floatval(\dash\db\config::public_get_count('giftusage'));
-		$result['log_notif']              = floatval(\dash\db\config::public_get_count('log_notif'));
-		$result['login']                  = floatval(\dash\db\config::public_get_count('login'));
-		$result['login_ip']               = floatval(\dash\db\config::public_get_count('login_ip'));
-		$result['setting']                = floatval(\dash\db\config::public_get_count('setting'));
-		$result['store']                  = floatval(\dash\db\config::public_get_count('store'));
-		$result['store_analytics']        = floatval(\dash\db\config::public_get_count('store_analytics'));
-		$result['store_app']              = floatval(\dash\db\config::public_get_count('store_app'));
-		$result['store_data']             = floatval(\dash\db\config::public_get_count('store_data'));
-		$result['store_domain']           = floatval(\dash\db\config::public_get_count('store_domain'));
-		$result['store_file']             = floatval(\dash\db\config::public_get_count('store_file'));
-		$result['store_plan']             = floatval(\dash\db\config::public_get_count('store_plan'));
-		$result['store_timeline']         = floatval(\dash\db\config::public_get_count('store_timeline'));
-		$result['store_user']             = floatval(\dash\db\config::public_get_count('store_user'));
-		$result['telegrams']              = floatval(\dash\db\config::public_get_count('telegrams'));
-		$result['user_auth']              = floatval(\dash\db\config::public_get_count('user_auth'));
-		$result['user_telegram']          = floatval(\dash\db\config::public_get_count('user_telegram'));
-		$result['userdetail']             = floatval(\dash\db\config::public_get_count('userdetail'));
-		$result['useremail']              = floatval(\dash\db\config::public_get_count('useremail'));
+		$result['apilog']                 = floatval(\dash\pdo\query_template::get_count('apilog'));
+		$result['business_domain']        = floatval(\dash\pdo\query_template::get_count('business_domain'));
+		$result['business_domain_action'] = floatval(\dash\pdo\query_template::get_count('business_domain_action'));
+		$result['business_domain_dns']    = floatval(\dash\pdo\query_template::get_count('business_domain_dns'));
+		$result['csrf']                   = floatval(\dash\pdo\query_template::get_count('csrf'));
+		$result['files']                  = floatval(\dash\pdo\query_template::get_count('files'));
+		$result['fileusage']              = floatval(\dash\pdo\query_template::get_count('fileusage'));
+		$result['gift']                   = floatval(\dash\pdo\query_template::get_count('gift'));
+		$result['giftusage']              = floatval(\dash\pdo\query_template::get_count('giftusage'));
+		$result['log_notif']              = floatval(\dash\pdo\query_template::get_count('log_notif'));
+		$result['login']                  = floatval(\dash\pdo\query_template::get_count('login'));
+		$result['login_ip']               = floatval(\dash\pdo\query_template::get_count('login_ip'));
+		$result['setting']                = floatval(\dash\pdo\query_template::get_count('setting'));
+		$result['store']                  = floatval(\dash\pdo\query_template::get_count('store'));
+		$result['store_analytics']        = floatval(\dash\pdo\query_template::get_count('store_analytics'));
+		$result['store_app']              = floatval(\dash\pdo\query_template::get_count('store_app'));
+		$result['store_data']             = floatval(\dash\pdo\query_template::get_count('store_data'));
+		$result['store_domain']           = floatval(\dash\pdo\query_template::get_count('store_domain'));
+		$result['store_file']             = floatval(\dash\pdo\query_template::get_count('store_file'));
+		$result['store_plan']             = floatval(\dash\pdo\query_template::get_count('store_plan'));
+		$result['store_timeline']         = floatval(\dash\pdo\query_template::get_count('store_timeline'));
+		$result['store_user']             = floatval(\dash\pdo\query_template::get_count('store_user'));
+		$result['telegrams']              = floatval(\dash\pdo\query_template::get_count('telegrams'));
+		$result['user_auth']              = floatval(\dash\pdo\query_template::get_count('user_auth'));
+		$result['user_telegram']          = floatval(\dash\pdo\query_template::get_count('user_telegram'));
+		$result['userdetail']             = floatval(\dash\pdo\query_template::get_count('userdetail'));
+		$result['useremail']              = floatval(\dash\pdo\query_template::get_count('useremail'));
 
-		$result['nic_contact']            = floatval(\dash\db\config::public_get_count('contact', null, 'nic'));
-		$result['nic_contactdetail']      = floatval(\dash\db\config::public_get_count('contactdetail', null, 'nic'));
-		$result['nic_credit']             = floatval(\dash\db\config::public_get_count('credit', null, 'nic'));
-		$result['nic_dns']                = floatval(\dash\db\config::public_get_count('dns', null, 'nic'));
-		$result['nic_domain']             = floatval(\dash\db\config::public_get_count('domain', null, 'nic'));
-		$result['nic_domainaction']       = floatval(\dash\db\config::public_get_count('domainaction', null, 'nic'));
-		$result['nic_domainbilling']      = floatval(\dash\db\config::public_get_count('domainbilling', null, 'nic'));
-		$result['nic_domainstatus']       = floatval(\dash\db\config::public_get_count('domainstatus', null, 'nic'));
-		$result['nic_poll']               = floatval(\dash\db\config::public_get_count('poll', null, 'nic'));
-		$result['nic_usersetting']        = floatval(\dash\db\config::public_get_count('usersetting', null, 'nic'));
+		$result['nic_contact']            = floatval(\dash\pdo\query_template::get_count('contact', null, 'nic'));
+		$result['nic_contactdetail']      = floatval(\dash\pdo\query_template::get_count('contactdetail', null, 'nic'));
+		$result['nic_credit']             = floatval(\dash\pdo\query_template::get_count('credit', null, 'nic'));
+		$result['nic_dns']                = floatval(\dash\pdo\query_template::get_count('dns', null, 'nic'));
+		$result['nic_domain']             = floatval(\dash\pdo\query_template::get_count('domain', null, 'nic'));
+		$result['nic_domainaction']       = floatval(\dash\pdo\query_template::get_count('domainaction', null, 'nic'));
+		$result['nic_domainbilling']      = floatval(\dash\pdo\query_template::get_count('domainbilling', null, 'nic'));
+		$result['nic_domainstatus']       = floatval(\dash\pdo\query_template::get_count('domainstatus', null, 'nic'));
+		$result['nic_poll']               = floatval(\dash\pdo\query_template::get_count('poll', null, 'nic'));
+		$result['nic_usersetting']        = floatval(\dash\pdo\query_template::get_count('usersetting', null, 'nic'));
 
-		$result['nic_log_domainactivity'] = floatval(\dash\db\config::public_get_count('domainactivity', null, 'nic_log'));
-		$result['nic_log_domains']        = floatval(\dash\db\config::public_get_count('domains', null, 'nic_log'));
-		$result['nic_log_log']            = floatval(\dash\db\config::public_get_count('log', null, 'nic_log'));
+		$result['nic_log_domainactivity'] = floatval(\dash\pdo\query_template::get_count('domainactivity', null, 'nic_log'));
+		$result['nic_log_domains']        = floatval(\dash\pdo\query_template::get_count('domains', null, 'nic_log'));
+		$result['nic_log_log']            = floatval(\dash\pdo\query_template::get_count('log', null, 'nic_log'));
 
-		$result['onlinenic_log_log']      = floatval(\dash\db\config::public_get_count('log', null, 'onlinenic_log'));
+		$result['onlinenic_log_log']      = floatval(\dash\pdo\query_template::get_count('log', null, 'onlinenic_log'));
 
-		$result['visitor_ip']             = floatval(\dash\db\config::public_get_count('ip', null, 'visitor'));
+		$result['visitor_ip']             = floatval(\dash\pdo\query_template::get_count('ip', null, 'visitor'));
 
 		return $result;
 	}

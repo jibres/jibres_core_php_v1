@@ -38,7 +38,7 @@ class user_auth
 
 	public static function get_count()
 	{
-		return \dash\db\config::public_get_count('user_auth', ...func_get_args());
+		return \dash\pdo\query_template::get_count('user_auth', ...func_get_args());
 	}
 
 

@@ -202,7 +202,7 @@ class logs
 
 	public static function get_count($_where = null)
 	{
-		return \dash\db\config::public_get_count('logs', $_where);
+		return \dash\pdo\query_template::get_count('logs', $_where);
 	}
 
 

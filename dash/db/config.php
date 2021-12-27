@@ -7,50 +7,6 @@ class config
 
 
 
-	/**
-	 * Gets the count of users
-	 * set $_type null to get all users by status and validstatus
-	 *
-	 * @param      <type>  $_type  The type
-	 *
-	 * @return     <type>  The count.
-	 */
-	public static function public_get_count($_table, $_where = null, $_db_name = true)
-	{
-		if(!$_table || !is_string($_table))
-		{
-			return false;
-		}
-
-		$query           = null;
-		$field           = 'count';
-		$only_one_record = true;
-
-		if($_where)
-		{
-			$where = \dash\db\config::make_where($_where);
-			if(!$where)
-			{
-				return false;
-			}
-			$query = "SELECT COUNT(*) AS 'count' FROM `$_table` WHERE $where ";
-		}
-		else
-		{
-			$query = "SELECT COUNT(*) AS 'count' FROM `$_table`";
-		}
-
-		if($query)
-		{
-			$result = \dash\pdo::get($query, [], $field, $only_one_record, $_db_name);
-			return floatval($result);
-		}
-		return 0;
-	}
-
-
-
-
 
 	/**
 	 * Makes a where.

@@ -155,5 +155,55 @@ class prepare_query
 		return $result;
 	}
 
+
+	/**
+	 * Generate where
+	 *
+	 * @param      string  $_table  The table
+	 * @param      array   $_where  The where
+	 *
+	 * @return     array   ( description_of_the_return_value )
+	 */
+	public static function generate_where(string $_table, array $_where) : array
+	{
+
+		$where = [];
+		$param = [];
+		$i     = 0;
+
+		foreach ($_where as $field => $value)
+		{
+			$i++;
+
+			$my_field = "`$_table`.`$field`";
+
+			$my_field_key = ':'. $i. '_'. mb_strlen($field). $field;
+
+			if(preg_match("/\./", $field))
+			{
+				$my_field = "$field";
+			}
+
+			if($value === null || is_null($value) || $value === '')
+			{
+				$where[] = " $my_field IS NULL ";
+			}
+			elseif(is_string($value) || is_numeric($value))
+			{
+				$where[] = " $my_field = $my_field_key ";
+
+				$param[$my_field_key] = $value;
+			}
+		}
+
+		$result          = [];
+		$result['where'] = implode(' AND ', $where);
+		$result['param'] = $param;
+
+		return $result;
+
+
+	}
+
 }
 ?>

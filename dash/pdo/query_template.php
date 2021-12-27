@@ -163,6 +163,14 @@ class query_template
 	}
 
 
+	/**
+	 * Get full table ros
+	 *
+	 * @param      string  $_table  The table
+	 * @param      <type>  $_fuel   The fuel
+	 *
+	 * @return     float   ( description_of_the_return_value )
+	 */
 	public static function table_rows(string $_table, $_fuel = null) : float
 	{
 		$query  = "SELECT COUNT(*) AS 'count' FROM `$_table`";
@@ -171,7 +179,46 @@ class query_template
 	}
 
 
+	/**
+	 * Get count
+	 *
+	 * @param      string  $_table  The table
+	 * @param      array   $_where  The where
+	 * @param      <type>  $_fuel   The fuel
+	 *
+	 * @return     float   The count.
+	 */
+	public static function get_count(string $_table, $_where = [], $_fuel = null) : float
+	{
+		if(!$_where || !is_array($_where))
+		{
+			return self::table_rows($_table, $_fuel);
+		}
 
+		$q = prepare_query::generate_where($_table, $_where);
+
+		if(!$q)
+		{
+			return floatval(0);
+		}
+		$query  = "SELECT COUNT(*) AS 'count' FROM `$_table` WHERE $q[where] ";
+
+		$param = $q['param'];
+
+		$result = \dash\pdo::get($query, $param, 'count', true, $_fuel);
+
+		return floatval($result);
+	}
+
+
+	/**
+	 * Simple list by pagenation
+	 *
+	 * @param      string  $_table  The table
+	 * @param      <type>  $_fuel   The fuel
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function list_pagenation(string $_table, $_fuel = null)
 	{
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM $_table ";

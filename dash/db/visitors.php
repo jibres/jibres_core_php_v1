@@ -8,13 +8,13 @@ class visitors
 
 	public static function get_count($_where = [])
 	{
-		return \dash\db\config::public_get_count('visitors', $_where);
+		return \dash\pdo\query_template::get_count('visitors', $_where);
 	}
 
 
 	public static function url_get_count($_where = [])
 	{
-		return \dash\db\config::public_get_count('urls', $_where);
+		return \dash\pdo\query_template::get_count('urls', $_where);
 	}
 
 	public static function get_url_like($_url, $_where = [])

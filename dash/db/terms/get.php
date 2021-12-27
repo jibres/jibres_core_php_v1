@@ -37,7 +37,7 @@ class get
 
 	public static function get_count()
 	{
-		return \dash\db\config::public_get_count('terms', ...func_get_args());
+		return \dash\pdo\query_template::get_count('terms', ...func_get_args());
 	}
 
 	public static function mulit_title($_titles, $_type)
