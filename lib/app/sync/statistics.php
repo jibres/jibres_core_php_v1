@@ -17,8 +17,6 @@ class statistics
 			$calc  = self::calc();
 
 			$query = self::make_query($calc, \lib\store::id());
-
-			\lib\app\sync\tools::add($query, 'master');
 		}
 	}
 
@@ -140,11 +138,24 @@ class statistics
 	}
 
 
-	private static function make_query($_set, $_store_id)
+	private static function make_query($_args, $_store_id)
 	{
-		$make_set = \dash\db\config::make_set($_set);
-		$query = "INSERT INTO store_analytics SET $make_set, store_analytics.id = $_store_id ON DUPLICATE KEY UPDATE $make_set";
-		return $query;
+		$query    = "SELECT store_analytics.id FROM store_analytics WHERE store_analytics.id = :store_id LIMIT 1";
+		$param    = [':store_id' => $_store_id];
+
+		$check = \dash\pdo::get($query, $param, null, true, 'master');
+
+
+		if($check)
+		{
+			return \dash\pdo\query_template::update('store_analytics', $_args, $_store_id, 'master');
+		}
+		else
+		{
+			$_args['id'] = $_store_id;
+			return \dash\pdo\query_template::insert('store_analytics', $_args, 'master');
+		}
+
 	}
 }
 ?>
