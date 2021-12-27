@@ -176,32 +176,6 @@ class logs
 		return $result;
 	}
 
-	public static function save_temp_update()
-	{
-		if(empty(self::$logUpdate) || !is_array(self::$logUpdate))
-		{
-			return;
-		}
-
-		$query = [];
-
-		foreach (self::$logUpdate as $key => $value)
-		{
-			$set = \dash\db\config::make_set($value['set']);
-			if($set)
-			{
-				$query[] = " UPDATE logs SET $set WHERE logs.id = $value[id] LIMIT 1 ";
-			}
-		}
-
-		self::$logUpdate = [];
-
-		if(!empty($query))
-		{
-			return \dash\pdo::query(implode(';', $query), [], true, ['multi_query' => true]);
-		}
-	}
-
 
 	public static function update_temp($_set, $_id)
 	{
