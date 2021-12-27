@@ -30,6 +30,10 @@ class get
 		return $result;
 	}
 
+	public static function get_raw()
+	{
+		return \dash\db\config::public_get('terms', ...func_get_args());
+	}
 
 	public static function get_count()
 	{
