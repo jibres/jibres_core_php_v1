@@ -25,9 +25,9 @@ class telegrams
 	}
 
 
-	public static function get($_where, $_option = [])
+	public static function get($_id)
 	{
-		return \dash\db\config::public_get('telegrams', $_where);
+		return \dash\pdo\query_template::get('telegrams', $_id);
 	}
 
 

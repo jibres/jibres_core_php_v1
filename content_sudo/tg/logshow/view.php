@@ -15,7 +15,7 @@ class view
 		\dash\data::action_link(\dash\url::this() .'/log');
 
 
-		$load = \dash\db\telegrams::get(['id' => \dash\request::get('id'), 'limit' => 1]);
+		$load = \dash\db\telegrams::get(\dash\request::get('id'));
 		// if(is_array($load))
 		// {
 		// 	$new = [];
@@ -37,8 +37,6 @@ class view
 		// }
 		\dash\data::dataRow($load);
 
-		// \dash\db\telegrams::get(['key' => 'value', 'key2' => 'value2']);
-		// \dash\db\telegrams::get(['key' => 'value', 'key2' => 'value2', 'limit' => 1]); // return array by size 1
 		// \dash\db\telegrams::insert(['key' => 'value', 'key2' => 'value2']);
 		// \dash\db\telegrams::update(['key' => 'value', 'key2' => 'value2'], 10); // where id = 10 update
 	}
