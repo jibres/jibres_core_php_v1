@@ -161,7 +161,7 @@ class get
 
 	public static function last_sort($_args)
 	{
-		$q  = \dash\pdo\prepare_query::generate_where('products', $_args);
+		$q  = \dash\pdo\prepare_query::generate_where('pagebuilder', $_args);
 
 		$query  = "SELECT pagebuilder.sort AS `sort` FROM pagebuilder WHERE $q[where] ORDER BY pagebuilder.sort DESC, pagebuilder.id DESC LIMIT 1";
 		$param  = $q['param'];
