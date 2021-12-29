@@ -186,7 +186,35 @@ class api
 		return self::run($_domain. '/https', 'get');
 	}
 
+	public static function get_ssl($_domain)
+	{
+		return self::run($_domain. '/ssl', 'get');
+	}
 
+
+	/**
+	 * Sets the arvan request ssl.
+	 * New version
+	 *
+	 * @param      string  $_domain  The domain
+	 * @param      <type>  $_args    The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function set_arvan_request_ssl($_domain, $_args)
+	{
+		return self::run($_domain. '/ssl', 'patch', null, $_args);
+	}
+
+
+	/**
+	 * Old verison
+	 *
+	 * @param      string  $_domain  The domain
+	 * @param      <type>  $_args    The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function set_arvan_request_https($_domain, $_args)
 	{
 		return self::run($_domain. '/https', 'patch', null, $_args);

@@ -113,14 +113,14 @@ class https
 			{
 				if(isset($get_https_setting['data']['f_ssl_status']) && $get_https_setting['data']['f_ssl_status'])
 				{
-					// need to update f_ssl_redirect.
+					// need to update https_redirect.
 					// arvan can not enable this option on first request https
 					$update_https_args =
 					[
-						"f_ssl_redirect" => true,
+						"https_redirect" => true,
 					];
 
-					\lib\api\arvancloud\api::set_arvan_request_https($domain, $update_https_args);
+					\lib\api\arvancloud\api::set_arvan_request_ssl($domain, $update_https_args);
 
 					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
 
@@ -172,11 +172,11 @@ class https
 
 			$add_https_args =
 			[
-				"f_ssl_type"     => "arvan",
-				"f_ssl_redirect" => true,
+				"ssl_status"     => true,
+				"https_redirect" => true,
 			];
 
-			$set_https['ssl_type'] = \lib\api\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
+			$set_https['ssl_type'] = \lib\api\arvancloud\api::set_arvan_request_ssl($domain, $add_https_args);
 
 
 			$add_https_args =
@@ -196,7 +196,7 @@ class https
 
 
 	/**
-	 * Force enable f_ssl_redirect
+	 * Force enable https_redirect
 	 *
 	 * @param      <type>  $_id    The identifier
 	 *
@@ -227,21 +227,21 @@ class https
 			}
 			elseif(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'arvan')
 			{
-				if(isset($get_https_setting['data']['f_ssl_redirect']) && $get_https_setting['data']['f_ssl_redirect'])
+				if(isset($get_https_setting['data']['https_redirect']) && $get_https_setting['data']['https_redirect'])
 				{
 					\dash\notif::ok(T_("SSL redirect is already activated"));
 					return true;
 				}
 				else
 				{
-					// need to update f_ssl_redirect.
+					// need to update https_redirect.
 					// arvan can not enable this option on first request https
 					$update_https_args =
 					[
-						"f_ssl_redirect" => true,
+						"https_redirect" => true,
 					];
 
-					\lib\api\arvancloud\api::set_arvan_request_https($domain, $update_https_args);
+					\lib\api\arvancloud\api::set_arvan_request_ssl($domain, $update_https_args);
 
 					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
 
@@ -295,10 +295,10 @@ class https
 
 			$add_https_args =
 			[
-				"f_ssl_redirect"      => true,
+				"https_redirect"      => true,
 			];
 
-			\lib\api\arvancloud\api::set_arvan_request_https($domain, $add_https_args);
+			\lib\api\arvancloud\api::set_arvan_request_ssl($domain, $add_https_args);
 
 			\lib\api\arvancloud\api::https_upstram($domain, 'auto');
 
