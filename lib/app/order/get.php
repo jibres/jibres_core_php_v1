@@ -71,32 +71,44 @@ class get
 
 		foreach ($_factor_detail as $key => $value)
 		{
+			$product_price  = floatval($value['product_price']);
+			$count          = floatval($value['count']);
+			$discount       = floatval($value['discount']);
+			$price          = floatval($value['price']);
+			$profit         = $discount * $count;
+			$price_per_item = ($price - $discount) * $count;
+
+
 			if(!isset($new_list[$value['product_id']]))
 			{
 				$new_list[$value['product_id']]              = $value;
 				$new_list[$value['product_id']]['oprmerger'] =
 				[
-					'price'          => [floatval($value['product_price'])],
-					'count'          => [floatval($value['count'])],
-					'buyprice'       => [floatval($value['price'])],
-					'discount'       => [floatval($value['discount'])],
-					'price_per_item' => [floatval($value['price']) * floatval($value['count'])],
+					'price'          => [$product_price],
+					'count'          => [$count],
+					'buyprice'       => [$price],
+					'profit'         => [$profit],
+					'discount'       => [$discount],
+					'price_per_item' => [$price_per_item],
 					'multiple'       => false,
 					'multiple_count' => 1,
 				];
 			}
 			else
 			{
-				$new_list[$value['product_id']]['oprmerger']['price'][]          = floatval($value['product_price']);
-				$new_list[$value['product_id']]['oprmerger']['count'][]          = floatval($value['count']);
-				$new_list[$value['product_id']]['oprmerger']['buyprice'][]       = floatval($value['price']); // in buy order the price is buy price
+				$new_list[$value['product_id']]['oprmerger']['price'][]          = $product_price;
+				$new_list[$value['product_id']]['oprmerger']['count'][]          = $count;
+				$new_list[$value['product_id']]['oprmerger']['buyprice'][]       = $price; // in buy order the price is buy price
 				$new_list[$value['product_id']]['oprmerger']['discount'][]       = floatval($value['discount']);
-				$new_list[$value['product_id']]['oprmerger']['price_per_item'][] = floatval($value['price']) * floatval($value['count']);
+				$new_list[$value['product_id']]['oprmerger']['profit'][]         = floatval($value['discount']) * floatval($value['count']);
+
+				$new_list[$value['product_id']]['oprmerger']['price_per_item'][] = (floatval($value['price']) - floatval($value['discount'])) * floatval($value['count']);
 				$new_list[$value['product_id']]['oprmerger']['multiple']         = true;
 				$new_list[$value['product_id']]['oprmerger']['multiple_count']++;
 			}
 		}
 
+		$total_profit = 0;
 
 		foreach ($new_list as $key => $value)
 		{
@@ -104,6 +116,9 @@ class get
 			$suggestion['multiple'] = $value['oprmerger']['multiple'];
 			$suggestion['price']    = max($value['oprmerger']['price']);
 			$suggestion['discount'] = min($value['oprmerger']['discount']);
+			$suggestion['profit']   = array_sum($value['oprmerger']['profit']);
+
+			$total_profit += $suggestion['profit'];
 
 			$count                  = array_sum($value['oprmerger']['count']);
 			$suggestion['count']    = $count;
@@ -114,9 +129,8 @@ class get
 			}
 
 			$price_per_item = array_sum($value['oprmerger']['price_per_item']);
-			$discount = array_sum($value['oprmerger']['discount']);
 
-			$suggestion['buyprice'] = round(($price_per_item - $discount) / $count);
+			$suggestion['buyprice'] = round(($price_per_item) / $count);
 
 			$new_list[$key]['suggestion'] = $suggestion;
 
@@ -124,6 +138,7 @@ class get
 		}
 
 
+		// var_dump($new_list);exit;
 		return $new_list;
 	}
 
