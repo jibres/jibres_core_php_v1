@@ -183,6 +183,7 @@ class check
 		unset($data['defaultvalue']);
 		unset($data['link']);
 		unset($data['targetblank']);
+		unset($data['maxlen2']);
 		return $data;
 	}
 }
