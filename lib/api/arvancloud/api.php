@@ -184,7 +184,7 @@ class api
 
 	public static function get_arvan_request($_domain)
 	{
-		return self::run($_domain. '/https', 'get');
+		return self::run($_domain. '/ssl', 'get');
 	}
 
 	public static function get_ssl($_domain)

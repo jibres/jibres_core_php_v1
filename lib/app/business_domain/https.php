@@ -105,49 +105,42 @@ class https
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_result', ['meta' => self::meta($get_https_setting)]);
 
-			if(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'off')
+			if(array_key_exists('ssl_status', $get_https_setting['data']) && $get_https_setting['data']['ssl_status'] === false)
 			{
 				$send_request = true;
 			}
-			elseif(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'arvan')
+			elseif(array_key_exists('ssl_status', $get_https_setting['data']) && $get_https_setting['data']['ssl_status'] === true)
 			{
-				if(isset($get_https_setting['data']['f_ssl_status']) && $get_https_setting['data']['f_ssl_status'])
+				// need to update https_redirect.
+				// arvan can not enable this option on first request https
+				$update_https_args =
+				[
+					"https_redirect" => true,
+				];
+
+				\lib\api\arvancloud\api::set_arvan_request_ssl($domain, $update_https_args);
+
+				\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
+
+				\lib\app\business_domain\edit::edit_raw(['status' => 'ok', 'httpsverify' => 1, 'httpsrequest' => date("Y-m-d H:i:s")], $_id);
+
+				\dash\notif::ok(T_("HTTPS request is OK"));
+
+				$send_log              = [];
+				$send_log['my_domain'] = $load['domain'];
+
+				if(isset($load['user_id']) && $load['user_id'])
 				{
-					// need to update https_redirect.
-					// arvan can not enable this option on first request https
-					$update_https_args =
-					[
-						"https_redirect" => true,
-					];
-
-					\lib\api\arvancloud\api::set_arvan_request_ssl($domain, $update_https_args);
-
-					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_ok', ['meta' => self::meta($get_https_setting)]);
-
-					\lib\app\business_domain\edit::edit_raw(['status' => 'ok', 'httpsverify' => 1, 'httpsrequest' => date("Y-m-d H:i:s")], $_id);
-
-					\dash\notif::ok(T_("HTTPS request is OK"));
-
-					$send_log              = [];
-					$send_log['my_domain'] = $load['domain'];
-
-					if(isset($load['user_id']) && $load['user_id'])
-					{
-						$send_log['to'] = $load['user_id'];
-						\dash\log::set('domain_successfullConnected', $send_log);
-					}
-
-					unset($send_log['to']);
-
-					\dash\log::set('domain_successfullConnectedSu', $send_log);
-
-					return true;
+					$send_log['to'] = $load['user_id'];
+					\dash\log::set('domain_successfullConnected', $send_log);
 				}
-				else
-				{
-					\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_request_not_ok', ['meta' => self::meta($get_https_setting)]);
-					$send_request = true;
-				}
+
+				unset($send_log['to']);
+
+				\dash\log::set('domain_successfullConnectedSu', $send_log);
+
+				return true;
+
 			}
 			else
 			{
@@ -220,12 +213,12 @@ class https
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_https_result', ['meta' => self::meta($get_https_setting)]);
 
-			if(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'off')
+			if(array_key_exists('ssl_status', $get_https_setting['data']) && $get_https_setting['data']['ssl_status'] === false)
 			{
 				\dash\notif::error(T_("SSL of this domain is off!"));
 				return false;
 			}
-			elseif(array_key_exists('f_ssl_type', $get_https_setting['data']) && $get_https_setting['data']['f_ssl_type'] === 'arvan')
+			elseif(array_key_exists('ssl_status', $get_https_setting['data']) && $get_https_setting['data']['ssl_status'] === true)
 			{
 				if(isset($get_https_setting['data']['https_redirect']) && $get_https_setting['data']['https_redirect'])
 				{
