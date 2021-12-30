@@ -1,7 +1,15 @@
 <?php
 namespace dash\db;
 
-/** logs managing **/
+/**
+ * This class describes an log.
+ *
+ * @author Reza
+ *
+ * All functions in this class became query bind PDO
+ * @date 2021-12-30 15:37:07
+ *
+ */
 class logs
 {
 	private static $logUpdate = [];
@@ -11,6 +19,7 @@ class logs
 	{
 		return \dash\pdo\query_template::get('logs', $_id);
 	}
+
 
 	public static function is_active_code($_caller, $_to)
 	{
@@ -33,11 +42,22 @@ class logs
 	}
 
 
-	public static function count_caller_ip_date($_caller, $_start_date, $_end_date)
+	public static function count_caller_ip_date($_caller, $_start_date, $_end_date) : float
 	{
 		$ip     = \dash\server::iplong();
-		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE logs.caller = '$_caller' AND logs.ip = '$ip' AND DATE(logs.datecreated) >= DATE('$_start_date') AND DATE(logs.datecreated) <= DATE('$_end_date') ";
-		$result = \dash\pdo::get($query, [], 'count', true);
+
+		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE logs.caller = :caller AND logs.ip = :ip AND DATE(logs.datecreated) >= DATE(:start_date) AND DATE(logs.datecreated) <= DATE(:end_date) ";
+
+		$param =
+		[
+			':caller'     => $_caller,
+			':ip'         => $ip,
+			':start_date' => $_start_date,
+			':end_date'   => $_end_date,
+		];
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
+
 		if(!is_numeric($result))
 		{
 			$result = 0;
@@ -79,21 +99,33 @@ class logs
 			WHERE
 				logs.status != 'notifexpire' AND
 				logs.notif  = 1 AND
-				logs.expiredate < '$date_now'
+				logs.expiredate < :datenow
 		";
 
-		$result = \dash\pdo::query($query, []);
-		return $result;
+		$param =
+		[
+			':datenow' => $date_now,
+		];
 
+		$result = \dash\pdo::query($query, $param);
+		return $result;
 	}
+
+
 
 	public static function get_chart_date()
 	{
 		$lastYear = date("Y-m-d", strtotime("-365 days"));
-		$query = "SELECT count(*) AS `count`, DATE(logs.datecreated) AS `date` FROM logs WHERE DATE(logs.datecreated) > DATE('$lastYear') GROUP BY DATE(logs.datecreated) ";
-		$result = \dash\pdo::get($query, [], null, false);
+		$query = "SELECT count(*) AS `count`, DATE(logs.datecreated) AS `date` FROM logs WHERE DATE(logs.datecreated) > DATE(:lastyear) GROUP BY DATE(logs.datecreated) ";
+		$param =
+		[
+			':lastyear' => $lastYear,
+		];
+		$result = \dash\pdo::get($query, $param, null, false);
 		return $result;
 	}
+
+
 
 	public static function set_readdate_user($_user_id)
 	{
@@ -109,12 +141,17 @@ class logs
 			FROM
 				logs
 			WHERE
-				logs.to = $_user_id AND
+				logs.to = :user_id AND
 				logs.status   = 'notif' AND
 				logs.readdate = logs.readdate IS NULL
 		";
 
-		$get_result = \dash\pdo::get($query, [], 'id', false);
+		$param =
+		[
+			':user_id' => $_user_id,
+		];
+
+		$get_result = \dash\pdo::get($query, $param, 'id', false);
 		if($get_result)
 		{
 
@@ -155,6 +192,7 @@ class logs
 		return $result;
 	}
 
+
 	public static function my_notif_count($_user_id)
 	{
 		if(!$_user_id || !is_numeric($_user_id))
@@ -169,10 +207,13 @@ class logs
 			FROM
 				logs
 			WHERE
-				logs.to     = $_user_id AND
+				logs.to     = :user_id AND
 				logs.status = 'notif'
 		";
-		$result = \dash\pdo::get($query, [], 'count', true);
+
+		$param = [':user_id' => $_user_id];
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
 		return $result;
 	}
 
@@ -191,22 +232,18 @@ class logs
 
 	public static function get_caller_group($_date = null)
 	{
+		$param = [];
 		$date = null;
 		if($_date)
 		{
-			$date = " WHERE logs.datecreated >= '$_date' ";
+			$date = " WHERE logs.datecreated >= :fromdate ";
+			$param[':fromdate'] = $_date;
 		}
 
 		$query = "SELECT count(*) AS `count`, logs.caller AS `caller` FROM logs $date GROUP BY logs.caller ORDER BY count(*) DESC";
-		$result = \dash\pdo::get($query, [], ['caller', 'count'], false);
+		$result = \dash\pdo::get($query, $param, ['caller', 'count'], false);
 		return $result;
 	}
-	/**
-	 * this library work with logs table
-	 * v1.0
-	 */
-
-	public static $fields =	" * ";
 
 
 	public static function multi_insert($_args, $_fuel = null)
@@ -218,41 +255,25 @@ class logs
 
 
 
-	/**
-	 * insert new recrod in logs table
-	 * @param array $_args fields data
-	 * @return mysql result
-	 */
 	public static function insert($_args, $_fuel = null)
 	{
 		return \dash\pdo\query_template::insert('logs', $_args, $_fuel);
 	}
 
 
-	/**
-	 * update field from logs table
-	 * get fields and value to update
-	 * @param array $_args fields data
-	 * @param string || int $_id record id
-	 * @return mysql result
-	 */
+
 	public static function update($_args, $_id)
 	{
 		return \dash\pdo\query_template::update('logs', $_args, $_id);
 	}
 
 
-	/**
-	 * we can not delete a record from database
-	 * we just update field status to 'deleted' or 'disable' or set this record to black list
-	 * @param string || int $_id record id
-	 * @return mysql result
-	 */
 	public static function delete($_id)
 	{
 		// get id
-		$query = "UPDATE FROM logs SET logs.notification_status = 'expire' WHERE logs.id = $_id ";
-		return \dash\pdo::query($query, []);
+		$query = "UPDATE FROM logs SET logs.notification_status = 'expire' WHERE logs.id = :id ";
+		$param = [':id' => $_id];
+		return \dash\pdo::query($query, $param);
 	}
 
 
@@ -287,7 +308,7 @@ class logs
 
 			if(is_array($_options['meta']) || is_object($_options['meta']))
 			{
-				$_options['meta'] = json_encode($_options['meta'], JSON_UNESCAPED_UNICODE);
+				$_options['meta'] = json_encode($_options['meta']);
 			}
 		}
 		else

@@ -25,6 +25,7 @@ class log
 		{
 
 			$ids = array_column($_data, 'id_raw');
+			$ids = array_map('floatval', $ids);
 			$ids = array_filter($ids);
 			$ids = array_unique($ids);
 
