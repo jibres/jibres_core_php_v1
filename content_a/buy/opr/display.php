@@ -131,7 +131,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 				if(a($value, 'suggestion', 'multiple'))
 				{
-					$html .= '<div class="alert-primary mt-2"> * '. T_("More than one row of this product is registered in the order").' </div>';
+					$html .= '<div class="alert-primary mt-2">'. \dash\utility\icon::svg('asterisk', 'bootstrap', null, 'w-3 inline-block mx-3') . T_("More than one row of this product is registered in the order").' </div>';
 
 					$html .= '<div class="tblBox px-5">';
 					{
@@ -204,10 +204,11 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 							if(a($value, 'suggestion', 'new_buyprice') != a($value, 'suggestion', 'buyprice'))
 							{
-								$html .= ' (';
-								$html .= T_("Buy price based on the prize in the order");
-								$html .= \dash\fit::number(round(a($value, 'suggestion', 'new_buyprice')));
-								$html .= ') ';
+								$html .= ' <span class="text-gray-500"> (';
+								$html .= T_("Buy price based on the prize in the order"). ' ';
+								$html .= '<b>'. \dash\fit::number(round(a($value, 'suggestion', 'new_buyprice'))). ' </b>';
+								$html .= ' '. \lib\store::currency();
+								$html .= ') <span> ';
 							}
 
 						}
