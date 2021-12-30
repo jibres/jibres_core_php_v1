@@ -78,10 +78,10 @@ class get
 			$profit        = $discount * $count;
 			$finalprice    = ($price - $discount) * $count;
 
-			$eshantion = false;
+			$eshantion = 0;
 			if($price === $discount && $price && $finalprice == 0)
 			{
-				$eshantion = true;
+				$eshantion = ($price * $count);
 			}
 
 
@@ -95,7 +95,7 @@ class get
 					'buyprice'       => [$price],
 					'profit'         => [$profit],
 					'discount'       => [$discount],
-					'finalprice' => [$finalprice],
+					'finalprice'     => [$finalprice],
 					'multiple'       => false,
 					'eshantion'      => [$eshantion],
 					'multiple_count' => 1,
@@ -103,20 +103,22 @@ class get
 			}
 			else
 			{
-				$new_list[$value['product_id']]['oprmerger']['price'][]          = $product_price;
-				$new_list[$value['product_id']]['oprmerger']['count'][]          = $count;
-				$new_list[$value['product_id']]['oprmerger']['buyprice'][]       = $price; // in buy order the price is buy price
-				$new_list[$value['product_id']]['oprmerger']['discount'][]       = floatval($value['discount']);
-				$new_list[$value['product_id']]['oprmerger']['profit'][]         = floatval($value['discount']) * floatval($value['count']);
+				$new_list[$value['product_id']]['oprmerger']['price'][]      = $product_price;
+				$new_list[$value['product_id']]['oprmerger']['count'][]      = $count;
+				$new_list[$value['product_id']]['oprmerger']['buyprice'][]   = $price; // in buy order the price is buy price
+				$new_list[$value['product_id']]['oprmerger']['discount'][]   = floatval($value['discount']);
+				$new_list[$value['product_id']]['oprmerger']['profit'][]     = floatval($value['discount']) * floatval($value['count']);
 
 				$new_list[$value['product_id']]['oprmerger']['finalprice'][] = (floatval($value['price']) - floatval($value['discount'])) * floatval($value['count']);
-				$new_list[$value['product_id']]['oprmerger']['multiple']         = true;
-				$new_list[$value['product_id']]['oprmerger']['eshantion'][]      = $eshantion;
+				$new_list[$value['product_id']]['oprmerger']['multiple']     = true;
+				$new_list[$value['product_id']]['oprmerger']['eshantion'][]  = $eshantion;
 				$new_list[$value['product_id']]['oprmerger']['multiple_count']++;
 			}
 		}
 
-		$total_profit = 0;
+		$total_profit     = 0;
+		$total_eshantion  = 0;
+		$total_finalprice = 0;
 
 		foreach ($new_list as $key => $value)
 		{
@@ -125,8 +127,10 @@ class get
 			$suggestion['price']    = max($value['oprmerger']['price']);
 			$suggestion['discount'] = min($value['oprmerger']['discount']);
 			$suggestion['profit']   = array_sum($value['oprmerger']['profit']);
+			$suggestion['eshantion']   = array_sum($value['oprmerger']['eshantion']);
 
 			$total_profit += $suggestion['profit'];
+			$total_eshantion += $suggestion['eshantion'];
 
 			$count                  = array_sum($value['oprmerger']['count']);
 			$suggestion['count']    = $count;
@@ -138,16 +142,41 @@ class get
 
 			$finalprice = array_sum($value['oprmerger']['finalprice']);
 
+			$suggestion['finalprice'] = $finalprice;
+
+			$total_finalprice += $finalprice;
+
 			$suggestion['buyprice'] = round(($finalprice) / $count);
 
 			$new_list[$key]['suggestion'] = $suggestion;
+		}
 
-			// unset($new_list[$key]['oprmerger']);
+		if($total_eshantion)
+		{
+			foreach ($new_list as $key => $value)
+			{
+				$this_finalprice = a($value, 'suggestion', 'finalprice');
+				$percent = \dash\number::percent($this_finalprice, $total_finalprice);
+
+				$new_list[$key]['suggestion']['percent'] = $percent;
+				$new_list[$key]['suggestion']['new_buyprice'] = a($value, 'suggestion', 'buyprice') - (($percent * a($value, 'suggestion', 'buyprice')) / 100);
+
+			}
 		}
 
 
-		// var_dump($new_list);exit;
-		return $new_list;
+		$result                = [];
+		$result['detail'] =
+		[
+			'profit'    => $total_profit,
+			'eshantion' => $total_eshantion,
+		];
+
+		$result['list']        = $new_list;
+
+		// var_dump($result);exit();
+		return $result;
+
 	}
 
 

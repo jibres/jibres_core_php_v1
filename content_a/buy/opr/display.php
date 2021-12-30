@@ -1,4 +1,6 @@
 <?php
+$orderMeta = \dash\data::orderMeta();
+
 $html = '';
 
 $html .= '<div class="alert-danger">';
@@ -8,6 +10,28 @@ $html .= '<div class="alert-danger">';
 }
 $html .= '</div>';
 
+
+// if(a($orderMeta, 'profit'))
+// {
+// 	$html .= '<div class="alert-success">';
+// 	{
+// 		$html .= T_("Total profit on this order");
+// 		$html .= '<span class="font-bold"> '. \dash\fit::number($orderMeta['profit']). ' </span>';
+// 		$html .= \lib\store::currency();
+// 	}
+// 	$html .= '</div>';
+// }
+
+// if(a($orderMeta, 'eshantion'))
+// {
+// 	$html .= '<div class="alert-primary">';
+// 	{
+// 		$html .= T_("Total prize on this order");
+// 		$html .= '<span class="font-bold"> '. \dash\fit::number($orderMeta['eshantion']). ' </span>';
+// 		$html .= \lib\store::currency();
+// 	}
+// 	$html .= '</div>';
+// }
 
 $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt']);
 {
@@ -23,7 +47,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 					{
 						$html .= '<div class="c-auto">';
 						{
-							$html .= '<img class="w-20" src="'. a($value, 'thumb') .'" alt="'. a($value, 'title') .'">';
+							$html .= '<img class="w-20 rounded-lg" src="'. a($value, 'thumb') .'" alt="'. a($value, 'title') .'">';
 						}
 						$html .= '</div>';
 
@@ -41,7 +65,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 							if(a($value, 'suggestion', 'discount'))
 							{
-									$html .= '<div class="fc-mute mB5 text-sm">';
+								$html .= '<div class="fc-mute mB5 text-sm">';
 								{
 									$html .= '<span class="">'. T_("Discount") .'</span>';
 									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'suggestion', 'discount')) .'</span>';
@@ -174,7 +198,21 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 				{
 					$html .= '<div class="c">';
 					{
-						$html .= '<label>'. T_("Buy price"). '</label>';
+						$html .= '<label>';
+						{
+							$html .= T_("Buy price");
+
+							if(a($value, 'suggestion', 'new_buyprice') != a($value, 'suggestion', 'buyprice'))
+							{
+								$html .= ' (';
+								$html .= T_("Purchase price based on the prize in the invoice");
+								$html .= \dash\fit::number(round(a($value, 'suggestion', 'new_buyprice')));
+								$html .= ') ';
+							}
+
+						}
+						$html .= '</label>';
+
 						$html .= \dash\layout\elements\input::text(['name' => 'buyprice[]', 'value' => a($value, 'suggestion', 'buyprice')]);
 					}
 					$html .= '</div>';
@@ -182,7 +220,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 					$html .= '<div class="c">';
 					{
 						$html .= '<label>'. T_("Sale Price"). '</label>';
-						$html .= \dash\layout\elements\input::text(['name' => 'price[]', 'value' => a($value, 'suggestion', 'price')]);
+						$html .= \dash\layout\elements\input::text(['name' => 'price[]', 'value' => a($value, 'suggestion', 'price'), 'placeholder' => a($value, 'suggestion', 'price')]);
 
 					}
 					$html .= '</div>';
@@ -206,6 +244,8 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 	}
 }
 $html .= \dash\layout\elements\form::_form();
+
+
 
 
 
