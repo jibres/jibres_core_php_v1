@@ -1,5 +1,6 @@
 <?php
 $orderMeta = \dash\data::orderMeta();
+$currency = \lib\store::currency();
 
 $eshantion_html = '<span class="text-green-700">'. T_("This product is a bonus"). '</span>';
 $html = '';
@@ -18,7 +19,7 @@ $html .= '</div>';
 // 	{
 // 		$html .= T_("Total profit on this order");
 // 		$html .= '<span class="font-bold"> '. \dash\fit::number($orderMeta['profit']). ' </span>';
-// 		$html .= \lib\store::currency();
+// 		$html .= $currency;
 // 	}
 // 	$html .= '</div>';
 // }
@@ -29,7 +30,7 @@ $html .= '</div>';
 // 	{
 // 		$html .= T_("Total prize on this order");
 // 		$html .= '<span class="font-bold"> '. \dash\fit::number($orderMeta['eshantion']). ' </span>';
-// 		$html .= \lib\store::currency();
+// 		$html .= $currency;
 // 	}
 // 	$html .= '</div>';
 // }
@@ -60,7 +61,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 							{
 
 								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'price')) .'</span>';
-								$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
+								$html .= '<span class="unit"> '. $currency .'</span>';
 							}
 							$html .= '</div>';
 
@@ -70,7 +71,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								{
 									$html .= '<span class="">'. T_("Discount") .'</span>';
 									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'discount')) .'</span>';
-									$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
+									$html .= '<span class="unit"> '. $currency .'</span>';
 								}
 								$html .= '</div>';
 							}
@@ -81,7 +82,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								{
 									$html .= '<span class="">'. T_("Vat") .'</span>';
 									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'suggestion', 'vat')) .'</span>';
-									$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
+									$html .= '<span class="unit"> '. $currency .'</span>';
 								}
 								$html .= '</div>';
 							}
@@ -124,7 +125,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 							{
 								$html .= '<span class="">'. T_("Total") .'</span>';
 								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'sum')) .'</span>';
-								$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
+								$html .= '<span class="unit"> '. $currency .'</span>';
 							}
 							$html .= '</div>';
 						}
@@ -136,9 +137,9 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 				if(a($value, 'suggestion', 'multiple'))
 				{
-					$html .= '<div class="alert-primary mt-2">'. \dash\utility\icon::svg('asterisk', 'bootstrap', null, 'w-3 inline-block mx-3') . T_("More than one row of this product is registered in the order").' </div>';
+					$html .= '<div data-kerkere=".showMore" data-kerkere-icon="close" class="alert-primary mt-2">'. \dash\utility\icon::svg('asterisk', 'bootstrap', null, 'w-3 inline-block mx-3') . T_("More than one row of this product is registered in the order").' </div>';
 
-					$html .= '<div class="tblBox px-5">';
+					$html .= '<div class="showMore tblBox px-5" data-kerkere-content="hide">';
 					{
 						$html .= '<table class="tbl1 v4">';
 						{
@@ -171,10 +172,10 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 									$html .= '<tr class="'. $tr_class.'">';
 									{
 										$html .= '<td class="collapsing">'. \dash\fit::number($i + 1). '</td>';
-										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'buyprice', $i)). '</td>';
-										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'discount', $i)). '</td>';
+										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'buyprice', $i)). ' '. $currency. '</td>';
+										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'discount', $i)). ' '. $currency. '</td>';
 										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'count', $i)). '</td>';
-										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'finalprice', $i)). '</td>';
+										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'finalprice', $i)). ' '. $currency. '</td>';
 
 										$html .= '<td>';
 										{
@@ -212,29 +213,46 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								$html .= ' <span class="text-gray-500"> (';
 								$html .= T_("Buy price based on the prize in the order"). ' ';
 								$html .= '<b>'. \dash\fit::number(round(a($value, 'suggestion', 'new_buyprice'))). ' </b>';
-								$html .= ' '. \lib\store::currency();
+								$html .= ' '. $currency;
 								$html .= ') <span> ';
 							}
 
 						}
 						$html .= '</label>';
 
-						$html .= \dash\layout\elements\input::text(['name' => 'buyprice[]', 'value' => a($value, 'suggestion', 'buyprice')]);
+						$html .= '<div class="input">';
+						{
+							$html .= '<input type="tel" name="buyprice[]">';
+							$html .= '<label class="addon">'. $currency. '</label>';
+						}
+						$html .= '</div>';
+
 					}
 					$html .= '</div>';
 
 					$html .= '<div class="c">';
 					{
 						$html .= '<label>'. T_("Sale Price"). '</label>';
-						$html .= \dash\layout\elements\input::text(['name' => 'price[]', 'value' => a($value, 'suggestion', 'price'), 'placeholder' => a($value, 'suggestion', 'price')]);
 
+						$html .= '<div class="input">';
+						{
+							$html .= '<input type="tel" name="price[]" value="'. a($value, 'suggestion', 'price').'" placeholder="'. a($value, 'suggestion', 'price').'">';
+							$html .= '<label class="addon">'. $currency. '</label>';
+						}
+						$html .= '</div>';
 					}
 					$html .= '</div>';
 
 					$html .= '<div class="c">';
 					{
 						$html .= '<label>'. T_("Discount"). '</label>';
-						$html .= \dash\layout\elements\input::text(['name' => 'discount[]', 'value' => a($value, 'suggestion', 'discount')]);
+
+						$html .= '<div class="input">';
+						{
+							$html .= '<input type="tel" name="discount[]" value="'. a($value, 'suggestion', 'discount').'" placeholder="'. a($value, 'suggestion', 'discount').'">';
+							$html .= '<label class="addon">'. $currency. '</label>';
+						}
+						$html .= '</div>';
 
 					}
 					$html .= '</div>';
