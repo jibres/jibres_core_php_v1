@@ -59,7 +59,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 							$html .= '<div class="priceShow" data-cart>';
 							{
 
-								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'suggestion', 'price')) .'</span>';
+								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'price')) .'</span>';
 								$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
 							}
 							$html .= '</div>';
@@ -69,7 +69,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								$html .= '<div class="fc-mute mB5 text-sm">';
 								{
 									$html .= '<span class="">'. T_("Discount") .'</span>';
-									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'suggestion', 'discount')) .'</span>';
+									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'discount')) .'</span>';
 									$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
 								}
 								$html .= '</div>';
@@ -207,7 +207,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 						{
 							$html .= T_("Buy price");
 
-							if(a($value, 'suggestion', 'new_buyprice') != a($value, 'suggestion', 'buyprice'))
+							if(a($value, 'suggestion', 'new_buyprice') && a($value, 'suggestion', 'new_buyprice') != a($value, 'suggestion', 'buyprice'))
 							{
 								$html .= ' <span class="text-gray-500"> (';
 								$html .= T_("Buy price based on the prize in the order"). ' ';
