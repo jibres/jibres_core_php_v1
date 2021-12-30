@@ -116,6 +116,7 @@ class https
 				$update_https_args =
 				[
 					"https_redirect" => true,
+					"certificate"    => "managed",
 				];
 
 				\lib\api\arvancloud\api::set_arvan_request_ssl($domain, $update_https_args);
@@ -167,6 +168,8 @@ class https
 			[
 				"ssl_status"     => true,
 				"https_redirect" => true,
+				"certificate"    => "managed",
+
 			];
 
 			$set_https['ssl_type'] = \lib\api\arvancloud\api::set_arvan_request_ssl($domain, $add_https_args);
@@ -232,6 +235,7 @@ class https
 					$update_https_args =
 					[
 						"https_redirect" => true,
+						"certificate"    => "managed",
 					];
 
 					\lib\api\arvancloud\api::set_arvan_request_ssl($domain, $update_https_args);
@@ -288,7 +292,8 @@ class https
 
 			$add_https_args =
 			[
-				"https_redirect"      => true,
+				"https_redirect" => true,
+				"certificate"    => "managed",
 			];
 
 			\lib\api\arvancloud\api::set_arvan_request_ssl($domain, $add_https_args);
