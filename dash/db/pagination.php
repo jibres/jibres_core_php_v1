@@ -1,6 +1,15 @@
 <?php
 namespace dash\db;
 
+/**
+ * This class describes an pagination.
+ *
+ * @author Reza
+ *
+ * All functions in this class became query bind PDO
+ * @date 2021-12-30 16:04:49
+ *
+ */
 class pagination
 {
 

@@ -4,6 +4,7 @@ namespace dash\db;
 /** work with posts **/
 class posts
 {
+
 	public static function pdo_get_by_id_lock($_id)
 	{
 		$query = "SELECT * FROM posts WHERE posts.id = :id LIMIT 1 FOR UPDATE";
@@ -12,11 +13,11 @@ class posts
 		return $result;
 	}
 
+
 	public static function pdo_update($_args, $_id)
 	{
 		return \dash\pdo\query_template::update('posts', $_args, $_id);
 	}
-
 
 
 	public static function get_count()
@@ -32,6 +33,7 @@ class posts
 		return $result;
 	}
 
+
 	public static function avg_seorank()
 	{
 		$query  = "SELECT AVG(posts.seorank) AS `rank` FROM posts WHERE posts.status = 'publish' AND posts.type IN ('post', 'page') ";
@@ -40,13 +42,15 @@ class posts
 	}
 
 
-
-
-
 	public static function get_active_count_subtype($_subtype)
 	{
-		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') AND posts.subtype = '$_subtype' ";
-		$result = \dash\pdo::get($query, [], 'count', true);
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') AND posts.subtype = :subtype ";
+		$param =
+		[
+			':subtype' => $_subtype,
+		];
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
 		return $result;
 	}
 
