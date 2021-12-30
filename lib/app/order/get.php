@@ -78,6 +78,12 @@ class get
 			$profit         = $discount * $count;
 			$price_per_item = ($price - $discount) * $count;
 
+			$eshantion = false;
+			if($price === $discount && $price && $price_per_item == 0)
+			{
+				$eshantion = true;
+			}
+
 
 			if(!isset($new_list[$value['product_id']]))
 			{
@@ -91,6 +97,7 @@ class get
 					'discount'       => [$discount],
 					'price_per_item' => [$price_per_item],
 					'multiple'       => false,
+					'eshantion'      => [$eshantion],
 					'multiple_count' => 1,
 				];
 			}
@@ -104,6 +111,7 @@ class get
 
 				$new_list[$value['product_id']]['oprmerger']['price_per_item'][] = (floatval($value['price']) - floatval($value['discount'])) * floatval($value['count']);
 				$new_list[$value['product_id']]['oprmerger']['multiple']         = true;
+				$new_list[$value['product_id']]['oprmerger']['eshantion'][]      = $eshantion;
 				$new_list[$value['product_id']]['oprmerger']['multiple_count']++;
 			}
 		}

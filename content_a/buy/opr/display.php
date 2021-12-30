@@ -11,89 +11,145 @@ $html .= '</div>';
 
 $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt']);
 {
-	$html .= '<div class="tblBox">';
+	foreach (\dash\data::orderDetail() as $key => $value)
 	{
-		$html .= '<table class="tbl1 v6">';
+		$html .= '<div class="box cartPage">';
 		{
-			$html .= '<thead>';
+			$html .= '<div class="pad">';
 			{
-				$html .= '<tr>';
+				$html .= '<div class="cartItem2">';
 				{
-					$html .= '<th class="collapsing">'. T_("Count"). '</th>';
-					$html .= '<th>'. T_("Title"). '</th>';
-					$html .= '<th>'. T_("Buy price"). '</th>';
-					$html .= '<th>'. T_("Sale Price"). '</th>';
-					$html .= '<th>'. T_("Sale Discount"). '</th>';
-					$html .= '<th class="collapsing"></th>';
-				}
-				$html .= '</tr>';
-			}
-			$html .= '</thead>';
-
-			$html .= '<tbody>';
-			{
-				foreach (\dash\data::orderDetail() as $key => $value)
-				{
-					$html .= '<tr>';
+					$html .= '<div class="row align-center">';
 					{
-						$html .= '<td class="collapsing">';
+						$html .= '<div class="c-auto">';
 						{
-							$html .= \dash\fit::number(a($value, 'suggestion', 'count'));
+							$html .= '<img class="w-20" src="'. a($value, 'thumb') .'" alt="'. a($value, 'title') .'">';
+						}
+						$html .= '</div>';
 
-							if(a($value, 'suggestion', 'multiple'))
+						$html .= '<div class="c">';
+						{
+
+							$html .= '<h3 class="title"><a href="'. a($value, 'edit_url') .'">'. a($value, 'title') .'</a></h3>';
+							$html .= '<div class="priceShow" data-cart>';
 							{
-								$html .= '<span class="text-red-500 text-xl font-bold"> * </span>';
+
+								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'price')) .'</span>';
+								$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
 							}
-						}
-						$html .= '</td>';
+							$html .= '</div>';
 
-						$html .= '<td>';
-						{
-							$html .= \dash\layout\elements\input::hidden(['name' => 'product_id[]', 'value' => a($value, 'product_id')]);
-							$html .= '<span>'. a($value, 'title'). '</a>';
-						}
-						$html .= '</td>';
+							if(a($value, 'discount'))
+							{
+									$html .= '<div class="fc-mute mB5 text-sm">';
+								{
+									$html .= '<span class="">'. T_("Discount") .'</span>';
+									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'discount')) .'</span>';
+									$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
+								}
+								$html .= '</div>';
+							}
 
-						$html .= '<td>';
-						{
-							$html .= \dash\layout\elements\input::text(['name' => 'buyprice[]', 'value' => a($value, 'suggestion', 'buyprice')]);
-							$html .= html_show_min_max_avg($value, 'buyprice');
-						}
-						$html .= '</td>';
+							if(a($value, 'vat'))
+							{
+								$html .= '<div class="fc-mute mB5 text-sm">';
+								{
+									$html .= '<span class="">'. T_("Vat") .'</span>';
+									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'vat')) .'</span>';
+									$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
+								}
+								$html .= '</div>';
+							}
 
-						$html .= '<td>';
-						{
-							$html .= \dash\layout\elements\input::text(['name' => 'price[]', 'value' => a($value, 'suggestion', 'price')]);
-							$html .= html_show_min_max_avg($value, 'price');
+							$html .= '<span class="compact ltr fc-mute text-sm">'. \dash\fit::date_time(a($value, 'datecreated')) .'</span>';
 						}
-						$html .= '</td>';
+						$html .= '</div>';
 
-						$html .= '<td>';
-						{
-							$html .= \dash\layout\elements\input::text(['name' => 'discount[]', 'value' => a($value, 'suggestion', 'discount')]);
-							$html .= html_show_min_max_avg($value, 'discount');
-						}
-						$html .= '</td>';
 
-						$html .= '<td class="collapsing">';
+						$html .= '<div class="c">';
 						{
-							$html .= '<a class="" data-fancybox data-type="iframe" target="_blank" href="'. \dash\url::here(). '/products/quick?id='. a($value, 'product_id'). '&iframe=buy">'. \dash\utility\icon::svg('box-arrow-up-right', 'bootstrap', 'blue', ' h-3 w-3'). '</a>';
+
+							$html .= '<div class="itemOperation">';
+							{
+								$html .= '<div class="productCount">';
+								{
+									$html .= '<span class="font-bold">';
+									{
+										$html .= \dash\fit::number(a($value, 'count'));
+									}
+									$html .= '</span> ';
+									$html .= a($value, 'unit');
+								}
+								$html .= '</div>';
+
+							}
+							$html .= '</div>';
 						}
-						$html .= '</td>';
+						$html .= '</div>';
+
+
+						$html .= '<div class="c">';
+						{
+							$html .= '<div class="priceShow" data-cart>';
+							{
+								$html .= '<span class="">'. T_("Total") .'</span>';
+								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'sum')) .'</span>';
+								$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
+							}
+							$html .= '</div>';
+						}
+						$html .= '</div>';
+
 					}
-					$html .= '</tr>';
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+
+				if(a($value, 'suggestion', 'multiple'))
+				{
+					$html .= '<div class="alert-primary mt-2"> * '. T_("Multiple product in this order").' </div>';
+				}
+
+
+				$html .= \dash\layout\elements\input::hidden(['name' => 'product_id[]', 'value' => a($value, 'product_id')]);
+
+				$html .= '<div class="row">';
+				{
+					$html .= '<div class="c">';
+					{
+						$html .= '<label>'. T_("Buy price"). '</label>';
+						$html .= \dash\layout\elements\input::text(['name' => 'buyprice[]', 'value' => a($value, 'suggestion', 'buyprice')]);
+					}
+					$html .= '</div>';
+
+					$html .= '<div class="c">';
+					{
+						$html .= '<label>'. T_("Sale Price"). '</label>';
+						$html .= \dash\layout\elements\input::text(['name' => 'price[]', 'value' => a($value, 'suggestion', 'price')]);
+
+					}
+					$html .= '</div>';
+
+					$html .= '<div class="c">';
+					{
+						$html .= '<label>'. T_("Discount"). '</label>';
+						$html .= \dash\layout\elements\input::text(['name' => 'discount[]', 'value' => a($value, 'suggestion', 'discount')]);
+
+					}
+					$html .= '</div>';
 
 				}
+				$html .= '</div>';
+
 			}
-			$html .= '</tbody>';
+			$html .= '</div>';
+
 		}
-		$html .= '</table>';
-
+		$html .= '</div>';
 	}
-	$html .= '</div>';
-
 }
 $html .= \dash\layout\elements\form::_form();
+
 
 
 
