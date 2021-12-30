@@ -4,6 +4,30 @@ namespace dash;
 
 class number
 {
+
+	/**
+	 * Calculate Percent
+	 *
+	 * @param      <type>     $_a     { parameter_description }
+	 * @param      <type>     $_b     { parameter_description }
+	 *
+	 * @return     float|int  ( description_of_the_return_value )
+	 */
+	public static function percent($_a, $_b) : float
+	{
+		$a = floatval($_a);
+		$b = floatval($_b);
+
+		if(!$b)
+		{
+			$b = 1;
+		}
+
+		return ($a * 100) / $b;
+	}
+
+
+
 	public static function clean($_number)
 	{
 
