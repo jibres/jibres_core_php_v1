@@ -21,7 +21,7 @@ class search
 		else
 		{
 			$pagination_query = "SELECT COUNT(*) AS `count` FROM comments $q[join] $q[where]  ";
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query($pagination_query, [], $q['limit']);
 		}
 
 

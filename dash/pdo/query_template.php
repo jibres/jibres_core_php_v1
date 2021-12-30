@@ -219,7 +219,7 @@ class query_template
 	{
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM $_table ";
 
-		$limit = \dash\db\pagination::pagination_query($pagination_query, 10, $_fuel);
+		$limit = \dash\db\pagination::pagination_query($pagination_query, [], 10, $_fuel);
 
 		$query = "SELECT * FROM $_table $limit ";
 

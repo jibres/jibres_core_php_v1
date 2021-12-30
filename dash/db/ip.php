@@ -122,7 +122,7 @@ class ip
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query_pdo($pagination_query, $_param, $q['limit'], self::ip_fuel());
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $_param, $q['limit'], self::ip_fuel());
 		}
 
 		$query = "SELECT ip.* FROM ip $q[where] $q[order] $limit ";

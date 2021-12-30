@@ -15,7 +15,7 @@ class search
 			$q[where]
 		";
 
-		$limit = \dash\db\pagination::pagination_query_pdo($pagination_query, $_param);
+		$limit = \dash\db\pagination::pagination_query($pagination_query, $_param);
 
 		$query =
 		"
@@ -47,7 +47,7 @@ class search
 
 		$pagination_query = "SELECT COUNT(*) AS `count` FROM factors $q[where] ";
 
-		$limit = \dash\db\pagination::pagination_query_pdo($pagination_query, $_param);
+		$limit = \dash\db\pagination::pagination_query($pagination_query, $_param);
 
 		$query =
 		"

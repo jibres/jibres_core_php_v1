@@ -14,7 +14,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'nic');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, [], $q['limit'], 'nic');
 		}
 
 		$query = "SELECT * FROM poll $q[where] $q[order] $limit ";

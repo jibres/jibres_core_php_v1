@@ -16,7 +16,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query($pagination_query, [], $q['limit']);
 		}
 
 		$query =

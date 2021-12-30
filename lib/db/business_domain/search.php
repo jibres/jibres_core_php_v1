@@ -13,7 +13,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'master');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, [], $q['limit'], 'master');
 		}
 
 		$query =
@@ -44,7 +44,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'master');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, [], $q['limit'], 'master');
 		}
 
 		$query = "SELECT business_domain_action.*, business_domain.domain FROM business_domain_action $q[join] $q[where] $q[order] $limit ";
@@ -64,7 +64,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'master');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, [], $q['limit'], 'master');
 		}
 
 		$query = "SELECT business_domain_dns.*, business_domain.domain FROM business_domain_dns $q[join] $q[where] $q[order] $limit ";

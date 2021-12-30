@@ -13,7 +13,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query_pdo($pagination_query, $_param, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $_param, $q['limit']);
 		}
 
 		$query = "SELECT products.* FROM products $q[join] $q[where] $q[order] $limit ";
@@ -35,7 +35,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query_pdo($pagination_query, $_param, $q['limit']);
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $_param, $q['limit']);
 		}
 
 

@@ -17,7 +17,7 @@ class search
 			$q[where]
 		";
 
-		$limit = \dash\db\pagination::pagination_query($pagination_query);
+		$limit = \dash\db\pagination::pagination_query($pagination_query, []);
 
 		$query =
 		"

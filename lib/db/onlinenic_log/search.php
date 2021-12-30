@@ -15,7 +15,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'onlinenic_log');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, [], $q['limit'], 'onlinenic_log');
 		}
 
 		$query = "SELECT log.* FROM log $q[where] $q[order] $limit ";

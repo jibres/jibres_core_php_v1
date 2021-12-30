@@ -16,7 +16,7 @@ class search
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, $q['limit'], 'nic_log');
+			$limit = \dash\db\pagination::pagination_query($pagination_query, [], $q['limit'], 'nic_log');
 		}
 
 		$query = "SELECT domains.* FROM domains $q[where] $q[order] $limit ";
