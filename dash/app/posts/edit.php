@@ -127,7 +127,7 @@ class edit
 					$args['datemodified'] = date("Y-m-d H:i:s");
 				}
 
-				\dash\db\posts::update($args, $id);
+				\dash\db\posts\update::record($args, $id);
 			}
 
 			if($content !== false)
@@ -177,7 +177,7 @@ class edit
 
 				if(isset($seoAnalyze['rank']))
 				{
-					\dash\db\posts::update(['seorank' => $seoAnalyze['rank']], $id);
+					\dash\db\posts\update::record(['seorank' => $seoAnalyze['rank']], $id);
 				}
 
 				\dash\notif::ok(T_("Post successfully updated"));

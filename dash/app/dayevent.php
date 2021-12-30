@@ -65,11 +65,11 @@ class dayevent
 		$result['comment']                = floatval(\dash\db\comments\get::get_count());
 		$result['address']                = floatval(\dash\db\address::get_count());
 
-		$result['news']                   = floatval(\dash\db\posts::get_count(['type' => 'post']));
-		$result['page']                   = floatval(\dash\db\posts::get_count(['type' => 'page']));
-		$result['help']                   = floatval(\dash\db\posts::get_count(['type' => 'help']));
-		$result['attachment']             = floatval(\dash\db\posts::get_count(['type' => 'attachment']));
-		$result['post']                   = floatval(\dash\db\posts::get_count(['type' => 'post']));
+		$result['news']                   = floatval(\dash\db\posts\get::get_count(['type' => 'post']));
+		$result['page']                   = floatval(\dash\db\posts\get::get_count(['type' => 'page']));
+		$result['help']                   = floatval(\dash\db\posts\get::get_count(['type' => 'help']));
+		$result['attachment']             = floatval(\dash\db\posts\get::get_count(['type' => 'attachment']));
+		$result['post']                   = floatval(\dash\db\posts\get::get_count(['type' => 'post']));
 
 		$result['transaction']            = floatval(\dash\db\transactions::get_count());
 

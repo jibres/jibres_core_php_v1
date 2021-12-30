@@ -72,7 +72,7 @@ class add
 		$post_id = null;
 		if(!empty($args))
 		{
-			$post_id = \dash\db\posts::insert($args);
+			$post_id = \dash\db\posts\insert::new_record($args);
 		}
 
 		if(!$post_id)

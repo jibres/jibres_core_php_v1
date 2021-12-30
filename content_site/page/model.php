@@ -84,7 +84,7 @@ class model
 
 		\dash\pdo::transaction();
 
-		$post_detail = \dash\db\posts::pdo_get_by_id_lock($page_id);
+		$post_detail = \dash\db\posts\get::pdo_get_by_id_lock($page_id);
 
 		if(!$post_detail)
 		{
@@ -111,7 +111,7 @@ class model
 
 			$meta = json_encode($meta);
 
-			\dash\db\posts::pdo_update(['meta' => $meta], $page_id);
+			\dash\db\posts\update::record(['meta' => $meta], $page_id);
 
 			\dash\pdo::commit();
 		}

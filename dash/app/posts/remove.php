@@ -51,7 +51,7 @@ class remove
 		}
 		else
 		{
-			\dash\db\posts::update(['status' => 'deleted'], $load['id']);
+			\dash\db\posts\update::record(['status' => 'deleted'], $load['id']);
 			\dash\notif::ok(T_("Post move to trash"));
 		}
 

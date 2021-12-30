@@ -7,16 +7,16 @@ class dashboard
 	public static function detail()
 	{
 
-		$total_post = floatval(\dash\db\posts::get_active_count());
+		$total_post = floatval(\dash\db\posts\get::get_active_count());
 
 		$dashboard_detail                      = [];
 
 		$dashboard_detail['post']              = $total_post;
 
-		$dashboard_detail['standard']          = floatval(\dash\db\posts::get_active_count_subtype('standard'));
-		$dashboard_detail['gallery']           = floatval(\dash\db\posts::get_active_count_subtype('gallery'));
-		$dashboard_detail['video']             = floatval(\dash\db\posts::get_active_count_subtype('video'));
-		$dashboard_detail['audio']             = floatval(\dash\db\posts::get_active_count_subtype('audio'));
+		$dashboard_detail['standard']          = floatval(\dash\db\posts\get::get_active_count_subtype('standard'));
+		$dashboard_detail['gallery']           = floatval(\dash\db\posts\get::get_active_count_subtype('gallery'));
+		$dashboard_detail['video']             = floatval(\dash\db\posts\get::get_active_count_subtype('video'));
+		$dashboard_detail['audio']             = floatval(\dash\db\posts\get::get_active_count_subtype('audio'));
 
 		$dashboard_detail['comments']          = floatval(\dash\app\comment\search::get_count_all());
 
@@ -26,7 +26,7 @@ class dashboard
 
 
 		$dashboard_detail['files']             = floatval(\dash\db\files::count_all());
-		$dashboard_detail['avg_seorank']       = floatval(\dash\db\posts::avg_seorank());
+		$dashboard_detail['avg_seorank']       = floatval(\dash\db\posts\get::avg_seorank());
 		$star = round(($dashboard_detail['avg_seorank'] * 5 / 100), 1);
 		$dashboard_detail['seostar_html']      = \dash\seo::star_html($star);
 
@@ -41,13 +41,13 @@ class dashboard
 			$total_post = 1;
 		}
 
-		$specialaddress_percent = floatval(\dash\db\posts::get_count_special_address());
+		$specialaddress_percent = floatval(\dash\db\posts\get::get_count_special_address());
 		$specialaddress_percent = round(($specialaddress_percent * 100) / $total_post);
 
-		$havecover_percent      = floatval(\dash\db\posts::get_count_have_cover());
+		$havecover_percent      = floatval(\dash\db\posts\get::get_count_have_cover());
 		$havecover_percent      = round(($havecover_percent * 100) / $total_post);
 
-		$publish_percent        = floatval(\dash\db\posts::get_count_published());
+		$publish_percent        = floatval(\dash\db\posts\get::get_count_published());
 		$publish_percent        = round(($publish_percent * 100) / $total_post);
 
 
@@ -70,7 +70,7 @@ class dashboard
 	{
 		$seo_dashboard                      = [];
 
-		$seo_dashboard['avg_seorank']       = floatval(\dash\db\posts::avg_seorank());
+		$seo_dashboard['avg_seorank']       = floatval(\dash\db\posts\get::avg_seorank());
 		$seo_dashboard['seostar_html']      = \dash\seo::star_html(round(($seo_dashboard['avg_seorank'] * 5 / 100), 1));
 		return $seo_dashboard;
 	}

@@ -4,6 +4,73 @@ namespace dash\db\posts;
 
 class get
 {
+
+
+	public static function pdo_get_by_id_lock($_id)
+	{
+		$query = "SELECT * FROM posts WHERE posts.id = :id LIMIT 1 FOR UPDATE";
+		$param = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+	}
+
+	public static function get_count()
+	{
+		return \dash\pdo\query_template::get_count('posts', ...func_get_args());
+	}
+
+
+	public static function get_active_count()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+	}
+
+
+	public static function avg_seorank()
+	{
+		$query  = "SELECT AVG(posts.seorank) AS `rank` FROM posts WHERE posts.status = 'publish' AND posts.type IN ('post', 'page') ";
+		$result = \dash\pdo::get($query, [], 'rank', true);
+		return $result;
+	}
+
+
+	public static function get_active_count_subtype($_subtype)
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') AND posts.subtype = :subtype ";
+		$param =
+		[
+			':subtype' => $_subtype,
+		];
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
+		return $result;
+	}
+
+
+	public static function get_count_special_address()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') AND posts.specialaddress != 'independence' ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+	}
+
+	public static function get_count_have_cover()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status != 'deleted' AND posts.type IN ('post', 'page') AND posts.cover IS NOT NULL ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+	}
+
+	public static function get_count_published()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM posts WHERE posts.status = 'publish' AND posts.type IN ('post', 'page') ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+	}
+
+
 	public static function by_id_type(int $_id, string $_type)
 	{
 		$query  = "SELECT * FROM posts WHERE posts.id = $_id AND posts.type = '$_type' LIMIT 1";
