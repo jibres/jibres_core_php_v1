@@ -34,28 +34,28 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 							$html .= '<div class="priceShow" data-cart>';
 							{
 
-								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'price')) .'</span>';
+								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'suggestion', 'price')) .'</span>';
 								$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
 							}
 							$html .= '</div>';
 
-							if(a($value, 'discount'))
+							if(a($value, 'suggestion', 'discount'))
 							{
 									$html .= '<div class="fc-mute mB5 text-sm">';
 								{
 									$html .= '<span class="">'. T_("Discount") .'</span>';
-									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'discount')) .'</span>';
+									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'suggestion', 'discount')) .'</span>';
 									$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
 								}
 								$html .= '</div>';
 							}
 
-							if(a($value, 'vat'))
+							if(a($value, 'suggestion', 'vat'))
 							{
 								$html .= '<div class="fc-mute mB5 text-sm">';
 								{
 									$html .= '<span class="">'. T_("Vat") .'</span>';
-									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'vat')) .'</span>';
+									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'suggestion', 'vat')) .'</span>';
 									$html .= '<span class="unit"> '. \lib\store::currency() .'</span>';
 								}
 								$html .= '</div>';
@@ -75,7 +75,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								{
 									$html .= '<span class="font-bold">';
 									{
-										$html .= \dash\fit::number(a($value, 'count'));
+										$html .= \dash\fit::number(a($value, 'suggestion', 'count'));
 									}
 									$html .= '</span> ';
 									$html .= a($value, 'unit');
@@ -165,7 +165,6 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 					}
 					$html .= '</div>';
 
-					// var_dump($value);exit;
 				}
 
 
