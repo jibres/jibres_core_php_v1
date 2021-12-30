@@ -23,6 +23,7 @@ class view
 		\dash\face::btnSave('saveOpt');
 		\dash\face::btnSaveText(T_("Save"));
 
+		// var_dump($load_order_detail);exit;
 
 	}
 }

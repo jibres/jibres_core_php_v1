@@ -1,6 +1,7 @@
 <?php
 $orderMeta = \dash\data::orderMeta();
 
+$eshantion_html = '<span class="text-green-700">'. T_("This product is a bonus"). '</span>';
 $html = '';
 
 $html .= '<div class="alert-danger">';
@@ -106,6 +107,11 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								}
 								$html .= '</div>';
 
+								if(a($value, 'oprmerger', 'multiple_count') < 2 && a($value, 'suggestion', 'eshantion'))
+								{
+									$html .= $eshantion_html;
+								}
+
 							}
 							$html .= '</div>';
 						}
@@ -154,7 +160,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 							$html .= '<tbody>';
 							{
-								for ($i=0; $i < a($value, 'oprmerger', 'multiple_count') ; $i++)
+								for ($i = 0; $i < a($value, 'oprmerger', 'multiple_count') ; $i++)
 								{
 									$tr_class = null;
 
@@ -175,7 +181,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 										{
 											if(a($value, 'oprmerger', 'eshantion', $i))
 											{
-												$html .= '<span class="text-green-700">'. T_("This product is a bonus"). '</div>';
+												$html .= $eshantion_html;
 											}
 										}
 										$html .= '</td>';
