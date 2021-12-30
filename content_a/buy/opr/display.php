@@ -108,6 +108,64 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 				if(a($value, 'suggestion', 'multiple'))
 				{
 					$html .= '<div class="alert-primary mt-2"> * '. T_("Multiple product in this order").' </div>';
+
+					$html .= '<div class="tblBox px-5">';
+					{
+						$html .= '<table class="tbl1 v4">';
+						{
+							$html .= '<thead>';
+							{
+								$html .= '<tr>';
+								{
+									$html .= '<th class="collapsing">#</th>';
+									$html .= '<th>'. T_("Buy price"). '</th>';
+									$html .= '<th>'. T_("Discount"). '</th>';
+									$html .= '<th>'. T_("Count"). '</th>';
+									$html .= '<th>'. T_("Final price"). '</th>';
+									$html .= '<th></th>';
+								}
+								$html .= '</tr>';
+							}
+							$html .= '</thead>';
+
+							$html .= '<tbody>';
+							{
+								for ($i=0; $i < a($value, 'oprmerger', 'multiple_count') ; $i++)
+								{
+									$tr_class = null;
+
+									if(a($value, 'oprmerger', 'eshantion', $i))
+									{
+										$tr_class = 'positive';
+									}
+
+									$html .= '<tr class="'. $tr_class.'">';
+									{
+										$html .= '<td class="collapsing">'. \dash\fit::number($i + 1). '</td>';
+										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'buyprice', $i)). '</td>';
+										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'discount', $i)). '</td>';
+										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'count', $i)). '</td>';
+										$html .= '<td>'. \dash\fit::number(a($value, 'oprmerger', 'finalprice', $i)). '</td>';
+
+										$html .= '<td>';
+										{
+											if(a($value, 'oprmerger', 'eshantion', $i))
+											{
+												$html .= '<span class="text-green-700">'. T_("This record is eshantion"). '</div>';
+											}
+										}
+										$html .= '</td>';
+									}
+									$html .= '</tr>';
+								}
+							}
+							$html .= '</tbody>';
+						}
+						$html .= '</table>';
+					}
+					$html .= '</div>';
+
+					// var_dump($value);exit;
 				}
 
 

@@ -71,15 +71,15 @@ class get
 
 		foreach ($_factor_detail as $key => $value)
 		{
-			$product_price  = floatval($value['product_price']);
-			$count          = floatval($value['count']);
-			$discount       = floatval($value['discount']);
-			$price          = floatval($value['price']);
-			$profit         = $discount * $count;
-			$price_per_item = ($price - $discount) * $count;
+			$product_price = floatval($value['product_price']);
+			$count         = floatval($value['count']);
+			$discount      = floatval($value['discount']);
+			$price         = floatval($value['price']);
+			$profit        = $discount * $count;
+			$finalprice    = ($price - $discount) * $count;
 
 			$eshantion = false;
-			if($price === $discount && $price && $price_per_item == 0)
+			if($price === $discount && $price && $finalprice == 0)
 			{
 				$eshantion = true;
 			}
@@ -95,7 +95,7 @@ class get
 					'buyprice'       => [$price],
 					'profit'         => [$profit],
 					'discount'       => [$discount],
-					'price_per_item' => [$price_per_item],
+					'finalprice' => [$finalprice],
 					'multiple'       => false,
 					'eshantion'      => [$eshantion],
 					'multiple_count' => 1,
@@ -109,7 +109,7 @@ class get
 				$new_list[$value['product_id']]['oprmerger']['discount'][]       = floatval($value['discount']);
 				$new_list[$value['product_id']]['oprmerger']['profit'][]         = floatval($value['discount']) * floatval($value['count']);
 
-				$new_list[$value['product_id']]['oprmerger']['price_per_item'][] = (floatval($value['price']) - floatval($value['discount'])) * floatval($value['count']);
+				$new_list[$value['product_id']]['oprmerger']['finalprice'][] = (floatval($value['price']) - floatval($value['discount'])) * floatval($value['count']);
 				$new_list[$value['product_id']]['oprmerger']['multiple']         = true;
 				$new_list[$value['product_id']]['oprmerger']['eshantion'][]      = $eshantion;
 				$new_list[$value['product_id']]['oprmerger']['multiple_count']++;
@@ -136,9 +136,9 @@ class get
 				$count = 1;
 			}
 
-			$price_per_item = array_sum($value['oprmerger']['price_per_item']);
+			$finalprice = array_sum($value['oprmerger']['finalprice']);
 
-			$suggestion['buyprice'] = round(($price_per_item) / $count);
+			$suggestion['buyprice'] = round(($finalprice) / $count);
 
 			$new_list[$key]['suggestion'] = $suggestion;
 
