@@ -131,7 +131,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 				if(a($value, 'suggestion', 'multiple'))
 				{
-					$html .= '<div class="alert-primary mt-2"> * '. T_("Multiple product in this order").' </div>';
+					$html .= '<div class="alert-primary mt-2"> * '. T_("More than one row of this product is registered in the order").' </div>';
 
 					$html .= '<div class="tblBox px-5">';
 					{
@@ -175,7 +175,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 										{
 											if(a($value, 'oprmerger', 'eshantion', $i))
 											{
-												$html .= '<span class="text-green-700">'. T_("This record is eshantion"). '</div>';
+												$html .= '<span class="text-green-700">'. T_("This product is a bonus"). '</div>';
 											}
 										}
 										$html .= '</td>';
@@ -205,7 +205,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 							if(a($value, 'suggestion', 'new_buyprice') != a($value, 'suggestion', 'buyprice'))
 							{
 								$html .= ' (';
-								$html .= T_("Purchase price based on the prize in the invoice");
+								$html .= T_("Buy price based on the prize in the order");
 								$html .= \dash\fit::number(round(a($value, 'suggestion', 'new_buyprice')));
 								$html .= ') ';
 							}
