@@ -129,7 +129,6 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 							$html .= '</div>';
 						}
 						$html .= '</div>';
-
 					}
 					$html .= '</div>';
 				}
