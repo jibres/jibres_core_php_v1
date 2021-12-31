@@ -19,6 +19,10 @@ class view
 		\dash\data::back_text(T_('Factors'));
 		\dash\data::back_link(\dash\url::here(). '/order?type=buy');
 
+		\dash\face::btnView(\dash\url::here(). '/order/detail?id='. \dash\request::get('id'));
+
+
+
 
 		\dash\face::btnSave('saveOpt');
 		\dash\face::btnSaveText(T_("Save"));

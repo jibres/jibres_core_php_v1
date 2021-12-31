@@ -100,7 +100,12 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 							{
 								$html .= '<div class="productCount">';
 								{
-									$html .= '<span class="font-bold">';
+									$html .= ' <span class="text-gray-500">';
+									{
+										$html .= T_("Count");
+									}
+									$html .= '</span> ';
+									$html .= ' <span class="font-bold">';
 									{
 										$html .= \dash\fit::number(a($value, 'suggestion', 'count'));
 									}
@@ -207,17 +212,17 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 					{
 						$html .= '<label>';
 						{
-							$buyprice = a($value, 'product_buyprice');
+							$buyprice = round(a($value, 'product_buyprice'));
 
-							if(a($value, 'suggestion', 'new_buyprice'))
+							if(is_numeric(a($value, 'suggestion', 'new_buyprice')))
 							{
-								$buyprice = a($value, 'suggestion', 'new_buyprice');
+								$buyprice = round(a($value, 'suggestion', 'new_buyprice'));
 
 								$html .= T_("Buy price");
 
 								$html .= ' <span class="text-gray-500"> ( ';
 								$html .= T_("Based on the prize in the order"). ' ';
-								$html .= '<b>'. \dash\fit::number(round($buyprice)). ' </b>';
+								$html .= '<b>'. \dash\fit::number($buyprice). ' </b>';
 								$html .= ' '. $currency;
 								$html .= ' ) <span> ';
 
@@ -232,7 +237,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								$html .= ' '. $currency;
 								$html .= ' ) <span> ';
 
-								$buyprice = a($value, 'suggestion', 'buyprice');
+								$buyprice = round(a($value, 'suggestion', 'buyprice'));
 							}
 							else
 							{

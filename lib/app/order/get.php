@@ -131,12 +131,12 @@ class get
 			$suggestion['eshantion'] = array_sum($value['oprmerger']['eshantion']);
 
 			$total_profit += $suggestion['profit'];
-			$total_eshantion += $suggestion['eshantion'];
 
 			$suggestion['other_eshantion'] = false;
 
 			if(!a($value, 'oprmerger', 'multiple') && $suggestion['eshantion'])
 			{
+				$total_eshantion += $suggestion['eshantion'];
 				$suggestion['other_eshantion'] = $suggestion['eshantion'];
 				$other_eshantion = true;
 			}
@@ -163,13 +163,24 @@ class get
 		if($total_eshantion && $other_eshantion)
 		{
 			$percent = \dash\number::percent($total_eshantion, $total_finalprice);
+			// if($percent > 100)
+			// {
+			// 	$percent = 100;
+			// }
 
 			foreach ($new_list as $key => $value)
 			{
 				if(a($value, 'suggestion', 'other_eshantion') === false)
 				{
 					$new_list[$key]['suggestion']['percent'] = $percent;
-					$new_list[$key]['suggestion']['new_buyprice'] = a($value, 'suggestion', 'buyprice') - (($percent * a($value, 'suggestion', 'buyprice')) / 100);
+					$new_buy_price = a($value, 'suggestion', 'buyprice') - (($percent * a($value, 'suggestion', 'buyprice')) / 100);
+
+					if($new_buy_price < 0)
+					{
+						$new_buy_price = 0;
+					}
+
+					$new_list[$key]['suggestion']['new_buyprice'] = $new_buy_price;
 				}
 
 			}
