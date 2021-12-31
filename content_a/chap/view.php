@@ -131,6 +131,14 @@ class view
 
 		\dash\face::btnNext(\dash\url::here(). '/order/next/'. \dash\request::get('id'). '?c='. \dash\url::child());
 		\dash\face::btnPrev(\dash\url::here(). '/order/prev/'. \dash\request::get('id'). '?c='. \dash\url::child());
+
+
+
+		if(($customer_id = a($myFactor, 'factor', 'customer')) && \dash\url::isLocal())
+		{
+			$customer_debt = \lib\app\order\get::customer_debt($myFactor['factor']['id'], $customer_id, $myFactor['factor']['total']);
+			\dash\data::customerDebt($customer_debt);
+        }
 	}
 }
 ?>

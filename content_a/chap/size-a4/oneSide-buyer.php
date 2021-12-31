@@ -107,6 +107,29 @@ else if($fax)
 ?></div>
           </div>
 
+
+          <?php if(a(\dash\data::customerDebt(), 'debt_until_order')) {?>
+<div>
+  <span class="self-center"><?php echo T_("Debt unti this order") ?></span>
+  <span class="font-black"><?php echo \dash\fit::number(a(\dash\data::customerDebt(), 'debt_until_order')); ?> <small><?php echo \lib\store::currency() ?></small></span>
+</div>
+<?php } //endif ?>
+<?php if(a(\dash\data::customerDebt(), 'debt_with_order')) {?>
+<div>
+  <span class="self-center"><?php echo T_("Debt whit this order") ?></span>
+  <span class="font-black"><?php echo \dash\fit::number(a(\dash\data::customerDebt(), 'debt_with_order')); ?> <small><?php echo \lib\store::currency() ?></small></span>
+</div>
+<?php } //endif ?>
+
+<?php if(a(\dash\data::customerDebt(), 'current_debt') && a(\dash\data::customerDebt(), 'current_debt') != a(\dash\data::customerDebt(), 'debt_with_order')) {?>
+<div>
+  <span class="self-center"><?php echo T_("Current debt") ?></span>
+  <span class="font-black"><?php echo \dash\fit::number(a(\dash\data::customerDebt(), 'current_debt')); ?> <small><?php echo \lib\store::currency() ?></small></span>
+</div>
+<?php } //endif ?>
+
+
+
         </div>
       </div>
     </div>
