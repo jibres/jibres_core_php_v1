@@ -169,7 +169,7 @@ trait edit
 			}
 			else
 			{
-				\dash\notif::warn(T_("Please set mobile to this user and then change the permission"));
+				// \dash\notif::warn(T_("Please set mobile to this user and then change the permission"));
 			}
 		}
 	}
