@@ -22,10 +22,11 @@ class view
 		\dash\face::btnView(\dash\url::here(). '/order/detail?id='. \dash\request::get('id'));
 
 
-
-
 		\dash\face::btnSave('saveOpt');
 		\dash\face::btnSaveText(T_("Save"));
+
+		\dash\face::btnNext(\dash\url::this(). '/next/'. \dash\request::get('id'). '?c='. \dash\url::child());
+		\dash\face::btnPrev(\dash\url::this(). '/prev/'. \dash\request::get('id'). '?c='. \dash\url::child());
 
 	}
 }
