@@ -49,6 +49,9 @@ class check_detail
 
 		$factor_detail = [];
 
+
+		$dbl_update_warning = false;
+
 		foreach ($list as $key => $value)
 		{
 			// product not found in database!
@@ -140,9 +143,16 @@ class check_detail
 			}
 
 			// if have duble record of one product in list not update product
-			if(!empty($update_product) && !a($value, 'is_dbl'))
+			if(!empty($update_product))
 			{
-				\lib\app\product\edit::edit($update_product, $value['product'], ['debug' => false]);
+				if(a($value, 'is_dbl_product'))
+				{
+					$dbl_update_warning = true;
+				}
+				else
+				{
+					\lib\app\product\edit::edit($update_product, $value['product'], ['debug' => false]);
+				}
 			}
 			/*=====  End of Update product if feature is active and have permission  ======*/
 
@@ -203,13 +213,38 @@ class check_detail
 			$factor_detail[] = $factor_detail_record;
 		}
 
+		if($dbl_update_warning)
+		{
+			\dash\notif::warn(T_("Some products of this order are registered in the list more than one item, and this issue causes the purchase and sale prices and discounts not to be updated automatically, and you have to manually check the prices of these products."), ['alerty' => true]);
+		}
+
+
 		return $factor_detail;
 	}
 
 
-	public static function merger(array $_list) : array
+	private static function merger(array $_list) : array
 	{
 		$new_list = [];
+		$dbl_product = [];
+
+
+		foreach ($_list as $key => $value)
+		{
+			$dbl_key = '';
+			$dbl_key .= strval($value['product']);
+
+			if(isset($dbl_product[$dbl_key]))
+			{
+
+				$dbl_product[$dbl_key]['is_dbl_product'] = true;
+			}
+			else
+			{
+				$dbl_product[$dbl_key]['is_dbl_product'] = false;
+			}
+		}
+
 
 		foreach ($_list as $key => $value)
 		{
@@ -222,14 +257,17 @@ class check_detail
 
 			if(isset($new_list[$dbl_key]))
 			{
-				$new_list[$dbl_key]['count']  += $value['count'];
-				$new_list[$dbl_key]['is_dbl'] = true;
+				$new_list[$dbl_key]['count']                         += $value['count'];
+				$new_list[$dbl_key]['is_dbl_product_price_discount'] = true;
+				$new_list[$dbl_key]['is_dbl_product']                = a($dbl_product, $value['product'], 'is_dbl_product');
 			}
 			else
 			{
-				$new_list[$dbl_key]           = $value;
-				$new_list[$dbl_key]['is_dbl'] = false;
+				$new_list[$dbl_key]                                  = $value;
+				$new_list[$dbl_key]['is_dbl_product_price_discount'] = false;
+				$new_list[$dbl_key]['is_dbl_product']                = a($dbl_product, $value['product'], 'is_dbl_product');
 			}
+
 		}
 
 		return array_values($new_list);
