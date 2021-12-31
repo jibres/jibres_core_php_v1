@@ -60,6 +60,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 							$html .= '<div class="priceShow" data-cart>';
 							{
 
+								$html .= '<span class="">'. T_("Current buy price") .'</span>';
 								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'price')) .'</span>';
 								$html .= '<span class="unit"> '. $currency .'</span>';
 							}
@@ -123,7 +124,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 						{
 							$html .= '<div class="priceShow" data-cart>';
 							{
-								$html .= '<span class="">'. T_("Total") .'</span>';
+								$html .= '<span class="">'. T_("Total payed in this order") .'</span>';
 								$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'sum')) .'</span>';
 								$html .= '<span class="unit"> '. $currency .'</span>';
 							}
@@ -206,15 +207,21 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 					{
 						$html .= '<label>';
 						{
-							$html .= T_("Buy price");
+							$buyprice = a($value, 'product_buyprice');
 
 							if(a($value, 'suggestion', 'new_buyprice') && a($value, 'suggestion', 'new_buyprice') != a($value, 'suggestion', 'buyprice'))
 							{
-								$html .= ' <span class="text-gray-500"> (';
+								$html .= ' <span class="text-gray-500"> ';
 								$html .= T_("Buy price based on the prize in the order"). ' ';
 								$html .= '<b>'. \dash\fit::number(round(a($value, 'suggestion', 'new_buyprice'))). ' </b>';
 								$html .= ' '. $currency;
-								$html .= ') <span> ';
+								$html .= ' <span> ';
+
+								$buyprice = a($value, 'suggestion', 'new_buyprice');
+							}
+							else
+							{
+								$html .= T_("Buy price");
 							}
 
 						}
@@ -222,7 +229,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="buyprice[]">';
+							$html .= '<input type="tel" name="buyprice[]" value="'.$buyprice.'">';
 							$html .= '<label class="addon">'. $currency. '</label>';
 						}
 						$html .= '</div>';
@@ -236,7 +243,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="price[]" value="'. a($value, 'suggestion', 'price').'" placeholder="'. a($value, 'suggestion', 'price').'">';
+							$html .= '<input type="tel" name="price[]" value="'. a($value, 'product_price').'" placeholder="'. a($value, 'product_price').'">';
 							$html .= '<label class="addon">'. $currency. '</label>';
 						}
 						$html .= '</div>';
@@ -245,11 +252,11 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 					$html .= '<div class="c">';
 					{
-						$html .= '<label>'. T_("Discount"). '</label>';
+						$html .= '<label>'. T_("Sale Discount"). '</label>';
 
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="discount[]" value="'. a($value, 'suggestion', 'discount').'" placeholder="'. a($value, 'suggestion', 'discount').'">';
+							$html .= '<input type="tel" name="discount[]" value="'. a($value, 'product_discount').'" placeholder="'. a($value, 'product_discount').'">';
 							$html .= '<label class="addon">'. $currency. '</label>';
 						}
 						$html .= '</div>';
