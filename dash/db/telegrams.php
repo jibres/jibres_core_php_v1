@@ -1,7 +1,15 @@
 <?php
 namespace dash\db;
 
-/** telegrams managing **/
+/**
+ * This class describes an pagination.
+ *
+ * @author Reza
+ *
+ * All functions in this class became query bind PDO
+ * @date 2021-12-31 18:20:04
+ *
+ */
 class telegrams
 {
 	public static function insert($_args)
