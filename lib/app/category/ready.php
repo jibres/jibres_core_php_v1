@@ -39,7 +39,12 @@ class ready
 					break;
 
 				case 'properties':
-					$result[$key] = json_decode($value, true);
+					if($value)
+					{
+						$value = json_decode($value, true);
+					}
+
+					$result[$key] = $value;
 					break;
 
 				case 'file':
