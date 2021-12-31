@@ -151,18 +151,18 @@ class get
 			$new_list[$key]['suggestion'] = $suggestion;
 		}
 
-		if($total_eshantion && count($new_list) > 1)
-		{
-			$percent = \dash\number::percent($total_eshantion, $total_finalprice);
+		// if($total_eshantion)
+		// {
+		// 	$percent = \dash\number::percent($total_eshantion, $total_finalprice);
 
-			foreach ($new_list as $key => $value)
-			{
+		// 	foreach ($new_list as $key => $value)
+		// 	{
 
-				$new_list[$key]['suggestion']['percent'] = $percent;
-				$new_list[$key]['suggestion']['new_buyprice'] = a($value, 'suggestion', 'buyprice') - (($percent * a($value, 'suggestion', 'buyprice')) / 100);
+		// 		$new_list[$key]['suggestion']['percent'] = $percent;
+		// 		$new_list[$key]['suggestion']['new_buyprice'] = a($value, 'suggestion', 'buyprice') - (($percent * a($value, 'suggestion', 'buyprice')) / 100);
 
-			}
-		}
+		// 	}
+		// }
 
 
 		$result                = [];

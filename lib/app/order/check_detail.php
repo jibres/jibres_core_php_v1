@@ -218,7 +218,6 @@ class check_detail
 			\dash\notif::warn(T_("Some products of this order are registered in the list more than one item, and this issue causes the purchase and sale prices and discounts not to be updated automatically, and you have to manually check the prices of these products."), ['alerty' => true]);
 		}
 
-
 		return $factor_detail;
 	}
 

@@ -150,9 +150,9 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								{
 									$html .= '<th class="collapsing">#</th>';
 									$html .= '<th>'. T_("Buy price"). '</th>';
-									$html .= '<th>'. T_("Discount"). '</th>';
+									$html .= '<th>'. T_("Buy Discount"). '</th>';
 									$html .= '<th>'. T_("Count"). '</th>';
-									$html .= '<th>'. T_("Final price"). '</th>';
+									$html .= '<th>'. T_("Total"). '</th>';
 									$html .= '<th></th>';
 								}
 								$html .= '</tr>';
@@ -209,15 +209,17 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 						{
 							$buyprice = a($value, 'product_buyprice');
 
-							if(a($value, 'suggestion', 'new_buyprice') && a($value, 'suggestion', 'new_buyprice') != a($value, 'suggestion', 'buyprice'))
+							if(a($value, 'suggestion', 'buyprice'))
 							{
-								$html .= ' <span class="text-gray-500"> ';
-								$html .= T_("Buy price based on the prize in the order"). ' ';
-								$html .= '<b>'. \dash\fit::number(round(a($value, 'suggestion', 'new_buyprice'))). ' </b>';
-								$html .= ' '. $currency;
-								$html .= ' <span> ';
+								$html .= T_("Buy price");
 
-								$buyprice = a($value, 'suggestion', 'new_buyprice');
+								$html .= ' <span class="text-gray-500"> ( ';
+								$html .= T_("Based on the prize in the order"). ' ';
+								$html .= '<b>'. \dash\fit::number(round(a($value, 'suggestion', 'buyprice'))). ' </b>';
+								$html .= ' '. $currency;
+								$html .= ' ) <span> ';
+
+								$buyprice = a($value, 'suggestion', 'buyprice');
 							}
 							else
 							{
