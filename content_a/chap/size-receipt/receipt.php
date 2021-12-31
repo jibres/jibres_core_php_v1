@@ -33,8 +33,10 @@
 
 <?php } //endif ?>
 
-
-
+<?php if(\dash\data::customer_displayname()) {?>
+<span class="self-center "><?php echo T_("Buyer"); ?></span>
+<span class="font-black"><?php echo \dash\data::customer_displayname(); ?></span>
+<?php } //endif ?>
 
 
 <?php $address = \dash\data::address() ?>
