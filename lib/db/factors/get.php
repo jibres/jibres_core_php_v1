@@ -201,37 +201,6 @@ class get
 	}
 
 
-	public static function first_factor_id()
-	{
-		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.status != 'deleted' ORDER BY factors.id ASC LIMIT 1 ";
-		$result = \dash\pdo::get($query, [], 'id', true);
-		return $result;
-	}
-
-
-	public static function end_factor_id()
-	{
-		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.status != 'deleted' ORDER BY factors.id DESC LIMIT 1 ";
-		$result = \dash\pdo::get($query, [], 'id', true);
-		return $result;
-	}
-
-
-
-	public static function prev($_id)
-	{
-		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.id = (SELECT MAX(factors.id) FROM factors WHERE factors.status != 'deleted' AND factors.id < $_id) LIMIT 1 ";
-		$result = \dash\pdo::get($query, [], 'id', true);
-		return $result;
-	}
-
-	public static function next($_id)
-	{
-		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.id = (SELECT MIN(factors.id) FROM factors WHERE factors.status != 'deleted' AND factors.id > $_id) LIMIT 1 ";
-		$result = \dash\pdo::get($query, [], 'id', true);
-		return $result;
-	}
-
 
 	private static function load_my_order_detail($_id, $_user_id, $_guestid)
 	{

@@ -39,11 +39,11 @@ class get
 			$param[':type'] = $_type;
 		}
 
-		$query  = "SELECT factors.id AS `id` FROM factors WHERE factors.id = :factorid $type LIMIT 1 ";
+		$query  = "SELECT factors.id AS `id`, factors.type FROM factors WHERE factors.id = :factorid $type LIMIT 1 ";
 
 		$param[':factorid'] = $_factor_id;
 
-		$result = \dash\pdo::get($query, $param, 'id', true);
+		$result = \dash\pdo::get($query, $param, null, true);
 
 		return $result;
 	}

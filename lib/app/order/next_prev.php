@@ -42,6 +42,46 @@ class next_prev
 	}
 
 
+	public static function detect_next_prev()
+	{
+		if(\dash\url::dir(3))
+		{
+			return;
+		}
+
+		$subchild = \dash\url::subchild();
+		$subchild = \dash\validate::factor_id($subchild, false);
+
+		if(!$subchild)
+		{
+			return null;
+		}
+
+		$args =
+		[
+			'module' => \dash\url::module(),
+			'child'  => \dash\request::get('c'),
+		];
+
+		$new_url = \dash\url::this();
+
+		if(\dash\url::child() === 'next')
+		{
+			$new_url = \lib\app\order\next_prev::next($subchild, $args);
+		}
+		elseif(\dash\url::child() === 'prev')
+		{
+			$new_url = \lib\app\order\next_prev::prev($subchild, $args);
+		}
+
+		if($new_url)
+		{
+			\dash\redirect::to($new_url);
+		}
+
+	}
+
+
 	private static function detect_addr($_args) : string
 	{
 		$addr   = [];
@@ -83,20 +123,20 @@ class next_prev
 
 		if($_opr === 'next')
 		{
-			$new_id = \lib\db\orders\get::next($result, a($_args, 'order_type'));
+			$new_id = \lib\db\orders\get::next($result['id'], $result['type']);
 
 			if(!$new_id)
 			{
-				$new_id = \lib\db\orders\get::first_factor_id(a($_args, 'order_type'));
+				$new_id = \lib\db\orders\get::first_factor_id($result['type']);
 			}
 		}
 		else
 		{
-			$new_id = \lib\db\orders\get::prev($result, a($_args, 'order_type'));
+			$new_id = \lib\db\orders\get::prev($result['id'], $result['type']);
 
 			if(!$new_id)
 			{
-				$new_id = \lib\db\orders\get::end_factor_id(a($_args, 'order_type'));
+				$new_id = \lib\db\orders\get::end_factor_id($result['type']);
 			}
 		}
 

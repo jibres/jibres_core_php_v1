@@ -8,6 +8,7 @@ class controller
 	{
 		\dash\permission::access('_group_orders');
 
+		\lib\app\order\next_prev::detect_next_prev();
 	}
 }
 ?>
