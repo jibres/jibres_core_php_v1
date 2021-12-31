@@ -119,18 +119,24 @@ class get
 		$total_profit     = 0;
 		$total_eshantion  = 0;
 		$total_finalprice = 0;
+		$other_eshantion  = false;
 
 		foreach ($new_list as $key => $value)
 		{
-			$suggestion             = [];
-			$suggestion['multiple'] = $value['oprmerger']['multiple'];
-			$suggestion['price']    = max($value['oprmerger']['price']);
-			$suggestion['discount'] = min($value['oprmerger']['discount']);
-			$suggestion['profit']   = array_sum($value['oprmerger']['profit']);
-			$suggestion['eshantion']   = array_sum($value['oprmerger']['eshantion']);
+			$suggestion              = [];
+			$suggestion['multiple']  = $value['oprmerger']['multiple'];
+			$suggestion['price']     = max($value['oprmerger']['price']);
+			$suggestion['discount']  = min($value['oprmerger']['discount']);
+			$suggestion['profit']    = array_sum($value['oprmerger']['profit']);
+			$suggestion['eshantion'] = array_sum($value['oprmerger']['eshantion']);
 
 			$total_profit += $suggestion['profit'];
 			$total_eshantion += $suggestion['eshantion'];
+
+			if(!a($value, 'oprmerger', 'multiple') && $suggestion['eshantion'])
+			{
+				$other_eshantion = true;
+			}
 
 			$count                  = array_sum($value['oprmerger']['count']);
 			$suggestion['count']    = $count;
@@ -168,8 +174,9 @@ class get
 		$result                = [];
 		$result['detail'] =
 		[
-			'profit'    => $total_profit,
-			'eshantion' => $total_eshantion,
+			'profit'          => $total_profit,
+			'eshantion'       => $total_eshantion,
+			'other_eshantion' => $other_eshantion,
 		];
 
 		$result['list']        = $new_list;

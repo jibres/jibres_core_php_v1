@@ -70,7 +70,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 							{
 								$html .= '<div class="fc-mute mB5 text-sm">';
 								{
-									$html .= '<span class="">'. T_("Discount") .'</span>';
+									$html .= '<span class="">'. T_("Buy Discount") .'</span>';
 									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'discount')) .'</span>';
 									$html .= '<span class="unit"> '. $currency .'</span>';
 								}
@@ -209,7 +209,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 						{
 							$buyprice = a($value, 'product_buyprice');
 
-							if(a($value, 'suggestion', 'buyprice'))
+							if(a($value, 'suggestion', 'eshantion'))
 							{
 								$html .= T_("Buy price");
 
