@@ -209,7 +209,20 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 						{
 							$buyprice = a($value, 'product_buyprice');
 
-							if(a($value, 'suggestion', 'eshantion'))
+							if(a($value, 'suggestion', 'new_buyprice'))
+							{
+								$buyprice = a($value, 'suggestion', 'new_buyprice');
+
+								$html .= T_("Buy price");
+
+								$html .= ' <span class="text-gray-500"> ( ';
+								$html .= T_("Based on the prize in the order"). ' ';
+								$html .= '<b>'. \dash\fit::number(round($buyprice)). ' </b>';
+								$html .= ' '. $currency;
+								$html .= ' ) <span> ';
+
+							}
+							elseif(a($value, 'suggestion', 'eshantion') && !a($value, 'suggestion', 'other_eshantion'))
 							{
 								$html .= T_("Buy price");
 
