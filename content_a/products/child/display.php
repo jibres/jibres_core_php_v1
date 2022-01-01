@@ -112,7 +112,7 @@ if($myChildList)
                         </td>
 
                         <td>
-                          <div data-confirm data-data='{"remove": "remove", "id": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red fs12"></i></div>
+                          <div data-confirm data-data='{"remove": "remove", "id": "<?php echo a($value, 'id'); ?>"}'><?php echo \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3') ?></div>
                         </td>
 
                       </tr>

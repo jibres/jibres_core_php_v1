@@ -28,7 +28,12 @@ if(!is_numeric($remain_count))
           <div class="example">
             <div class="mA5"><?php echo $key ?></div>
             <?php foreach ($value as $v) {?>
-              <div class="ibtn"><i class="sf-trash fc-red fs14" data-confirm data-data='{"remove":"option", "optionname": "<?php echo $key ?>", "optionvalue": "<?php echo $v; ?>", "index": "<?php echo $i ?>"}' data2-title2 data-msg='<?php echo T_("Remove all variants by :val :color?", ['val' => $key, 'color' => $v]) ?>'></i> <span><?php echo $v; ?></span></div>
+              <div class="p-3 m-1 bg-gray-200 rounded-lg inline-block">
+                <div class="row">
+                  <div class="c-auto"><span><?php echo $v; ?></span></div>
+                  <div class="c-auto" data-confirm data-data='{"remove":"option", "optionname": "<?php echo $key ?>", "optionvalue": "<?php echo $v; ?>", "index": "<?php echo $i ?>"}' data2-title2 data-msg='<?php echo T_("Remove all variants by :val :color?", ['val' => $key, 'color' => $v]) ?>'><?php echo \dash\utility\icon::svg('trash', 'bootstrap', null, ' w-4 mt-2 text-red-500'); ?> </div>
+                </div>
+              </div>
             <?php } //endif ?>
           </div>
         <?php } //endfor ?>
