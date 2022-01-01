@@ -7,12 +7,6 @@ class remove
 	{
 		\dash\permission::access('ProductDelete');
 
-		if(!\lib\store::in_store())
-		{
-			\dash\notif::error(T_("Your are not in this store!"));
-			return false;
-		}
-
 		$product_detail = \lib\app\product\get::inline_get($_id);
 		if(!isset($product_detail['id']))
 		{
