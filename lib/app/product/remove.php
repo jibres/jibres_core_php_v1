@@ -13,17 +13,17 @@ class remove
 			return false;
 		}
 
-		if(isset($product_detail['variant_child']) && $product_detail['variant_child'])
-		{
-			\dash\notif::error(T_("This product have some child and can not be remove!"));
-			return false;
-		}
 
 		$used_in_menu = \lib\app\menu\update::product($_id);
 		if($used_in_menu)
 		{
 			\dash\notif::error(T_("This product used in menu item and can not be remove"));
 			return false;
+		}
+
+		if(isset($product_detail['variant_child']) && $product_detail['variant_child'])
+		{
+			\lib\db\products\update::status_by_parent('deleted', $_id);
 		}
 
 		$parent_id = null;
