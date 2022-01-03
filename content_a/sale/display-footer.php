@@ -6,11 +6,11 @@ if(\dash\url::isLocal())
   $saleQuickAccess = \dash\data::saleQuickAccess();
   if(is_array($saleQuickAccess))
   {
-    $html .= '<ul class="nav nav-tabs">';
-    $html .= '<li class="nav-item"><div class="nav-link" href="#">Link</div></li>';
-    $html .= '<li class="nav-item"><div class="nav-link" href="#">Link</div></li>';
-    $html .= '<li class="nav-item"><div class="nav-link" href="#">Link</div></li>';
+    $columns = array_column($saleQuickAccess, 'title');
 
+    $html .= '<div class="">';
+
+    $html .= '<ul class="nav nav-tabs text-sm leading-7">';
     foreach ($saleQuickAccess as $key => $category)
     {
       $html .= '<li class="nav-item" data-kerkere=".showQuirckAccess'. a($category, 'id'). '" data-kerkere-single>';
@@ -26,6 +26,14 @@ if(\dash\url::isLocal())
         $html .= '</div>';
       }
       $html .= '</li>';
+
+    }
+    $html .= '</ul>';
+
+
+
+    foreach ($saleQuickAccess as $key => $category)
+    {
 
       $html .= '<div class="showQuirckAccess'. a($category, 'id'). '" data-kerkere-content="hide">';
       {
@@ -73,7 +81,8 @@ if(\dash\url::isLocal())
       }
       $html .= '</div>';
     }
-    $html .= '</ul>';
+    // close footer box
+    $html .= '</div">';
   }
 
 }
