@@ -34,7 +34,7 @@ if(\dash\url::isLocal())
 
 
     $oneActive = null;
-    $html .= '<div class="h-32 m-1 text-xs leading-5">';
+    $html .= '<div class="bg-white h-36 p-1 text-xs leading-5">';
     foreach ($saleQuickAccess as $key => $category)
     {
       $html .= '<div class="showQuickAccess-'. a($category, 'id'). '"';
@@ -65,7 +65,7 @@ if(\dash\url::isLocal())
             $currency = a($product, 'currency');
             if($img)
             {
-              $html .= '<div class="h-32 w-32 rounded relative overflow-hidden p-1"';
+              $html .= '<div class="h-32 w-32 rounded relative overflow-hidden m-1 cursor-pointer transition shadow-sm hover:shadow-lg"';
               $html .= ' data-quick-addProduct="'. $id .'"';
               $html .= '>';
               {
