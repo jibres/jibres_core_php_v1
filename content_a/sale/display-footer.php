@@ -8,18 +8,20 @@ if(\dash\url::isLocal())
   {
     $columns = array_column($saleQuickAccess, 'title');
 
-    $html .= '<div class="">';
+    $html .= '<div class="footerQuickAddProduct">';
 
-    $html .= '<ul class="nav nav-tabs text-sm leading-7">';
+    $html .= '<ul class="nav nav-tabs text-xs leading-8">';
+    $oneActive = null;
     foreach ($saleQuickAccess as $key => $category)
     {
-      $html .= '<li class="nav-item" data-kerkere=".showQuirckAccess'. a($category, 'id'). '" data-kerkere-single>';
+      $html .= '<li class="nav-item" data-kerkere=".showQuickAccess-'. a($category, 'id'). '" data-kerkere-single>';
       {
         $isActive = true;
         $html .= '<div class="nav-link';
-        if($isActive)
+        if($isActive &&  !$oneActive)
         {
           $html .= ' active';
+          $oneActive = true;
         }
         $html .= '">';
         $html .= a($category, 'title');
@@ -31,14 +33,22 @@ if(\dash\url::isLocal())
     $html .= '</ul>';
 
 
-
+    $oneActive = null;
     foreach ($saleQuickAccess as $key => $category)
     {
-
-      $html .= '<div class="showQuirckAccess'. a($category, 'id'). '" data-kerkere-content="hide">';
+      $html .= '<div class="showQuickAccess-'. a($category, 'id'). '"';
+      if(!$oneActive)
       {
+        $oneActive = true;
+        $html .= ' data-kerkere-content="open"';
+      }
+      else
+      {
+        $html .= ' data-kerkere-content="hide"';
+      }
+      $html .= '>';
 
-
+      {
         $optMagicBox =
         [
             'grid' => true,
