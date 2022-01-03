@@ -32,6 +32,15 @@ class find
 						break;
 				}
 		}
+		else if(\dash\data::include_m2())
+		{
+			self::header();
+			// echo '<div class="pageCenter">';
+			self::sidebar();
+			self::main();
+			// echo '</div>';
+			self::footer();
+		}
 		else
 		{
 			self::header();
@@ -256,6 +265,7 @@ class find
 			}
 			elseif(\dash\data::include_m2())
 			{
+				\dash\data::include_adminPanelFooter(true);
 				$myFooter = core.'layout/m2/panelBuilder_footer.php';
 			}
 		}
