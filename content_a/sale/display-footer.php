@@ -59,14 +59,29 @@ if(\dash\url::isLocal())
           // loop to draw one product item
           $img = a($product, 'thumb');
           $title = a($product, 'title');
+          $price = a($product, 'finalprice');
+          $currency = a($product, 'currency');
           if($img)
           {
             $html .= '<div class="h-32 w-32 rounded relative overflow-hidden p-1">';
-            $html .= '<img class="block rounded" src="'. $img. '" alt="'. $title.'">';
-            $html .= '<div class="absolute inset-x-0 bottom-0 overflow-hidden p-2">';
-            $html .= '<h4 class="line-clamp-2 text-gray-700">'. $title. '</h4>';
-            $html .= '</div>';
+            {
+              $html .= '<img class="block rounded" src="'. $img. '" alt="'. $title.'">';
+              $html .= '<div class="absolute inset-x-0 bottom-0 overflow-hidden p-2">';
+              if($title)
+              {
+                $html .= '<h4 class="line-clamp-2 text-gray-700">'. $title. '</h4>';
+              }
+              if($price)
+              {
+                $html .= '<div class="line-clamp-1 text-gray-900">';
+                $html .= "<span class='font-bold text-lg'>". \dash\fit::price($price). "</span>";
+                $html .= ' ';
+                $html .= $currency;
+                $html .= '</div>';
 
+              }
+              $html .= '</div>';
+            }
             $html .= '</div>';
           }
         }
