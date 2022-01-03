@@ -35,7 +35,7 @@ class find
 		else if(\dash\data::include_m2() and true)
 		{
 			self::header();
-			echo '<div id="pageCenter">';
+			echo '<div id="pageCenter" data-xhr="pageCenter">';
 			self::sidebar();
 			self::main();
 			echo '</div>';
