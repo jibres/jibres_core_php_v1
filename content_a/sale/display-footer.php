@@ -34,7 +34,7 @@ if(\dash\url::isLocal())
 
 
     $oneActive = null;
-    $html .= '<div class="h-32 m-1">';
+    $html .= '<div class="h-32 m-1 text-xs leading-5">';
     foreach ($saleQuickAccess as $key => $category)
     {
       $html .= '<div class="showQuickAccess-'. a($category, 'id'). '"';
@@ -63,6 +63,10 @@ if(\dash\url::isLocal())
           {
             $html .= '<div class="h-32 w-32 rounded relative overflow-hidden p-1">';
             $html .= '<img class="block rounded" src="'. $img. '" alt="'. $title.'">';
+            $html .= '<div class="absolute inset-x-0 bottom-0 overflow-hidden p-2">';
+            $html .= '<h4 class="line-clamp-2 text-gray-700">'. $title. '</h4>';
+            $html .= '</div>';
+
             $html .= '</div>';
           }
         }
