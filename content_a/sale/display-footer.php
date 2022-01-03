@@ -8,7 +8,7 @@ if(\dash\url::isLocal())
   {
     $columns = array_column($saleQuickAccess, 'title');
 
-    $html .= '<div class="footerQuickAddProduct">';
+    $html .= '<nav class="footerQuickAddProduct">';
 
     $html .= '<ul class="nav nav-tabs text-xs leading-8">';
     $oneActive = null;
@@ -83,7 +83,7 @@ if(\dash\url::isLocal())
             }
             $html .= '</div>';
           }
-          // $html .= '</div>';
+          $html .= '</div>';
 
         }
         $html .= '</div>';
@@ -92,7 +92,7 @@ if(\dash\url::isLocal())
       $html .= '</div>';
     }
     // close footer box
-    $html .= '</div">';
+    $html .= '</nav>';
   }
 
 }
