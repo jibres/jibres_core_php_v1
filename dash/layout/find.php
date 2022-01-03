@@ -254,10 +254,10 @@ class find
 				// 	$myFooter = root.'content_business/home/layout/footer.php';
 				// }
 			}
-			// elseif(\dash\data::include_m2())
-			// {
-			// 	$myFooter = core.'layout/m2/panelBuilder_footer.php';
-			// }
+			elseif(\dash\data::include_m2())
+			{
+				$myFooter = core.'layout/m2/panelBuilder_footer.php';
+			}
 		}
 
 
