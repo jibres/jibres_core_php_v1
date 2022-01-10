@@ -76,11 +76,16 @@ class excerpt
 	{
 		if($_strip)
 		{
+			$_fulltext = str_replace('<', " <", $_fulltext);
 			$_fulltext = str_replace('<br>', "\n", $_fulltext);
+			$_fulltext = str_replace("\n", ' ', $_fulltext);
+			$_fulltext = str_replace("\r", ' ', $_fulltext);
+			$_fulltext = str_replace("\t", ' ', $_fulltext);
+			$_fulltext = str_replace(PHP_EOL, ' ', $_fulltext);
 			$_fulltext = strip_tags($_fulltext);
-			$_fulltext = str_replace(array("\n", "\r", "\t"), ' ', $_fulltext);
 			$_fulltext = preg_replace('/\s+/', ' ', $_fulltext);
 		}
+
 		$textlength = mb_strlen($_fulltext);
 		if($textlength <= $_rellength)
 		{
@@ -130,8 +135,9 @@ class excerpt
 	{
 		if($_strip)
 		{
+			$_str = str_replace(array("\n", "\r", "\t", PHP_EOL), ' ', $_str);
+			$_str = str_replace('<', ' <', $_str);
 			$_str = strip_tags($_str);
-			$_str = str_replace(array("\n", "\r", "\t"), ' ', $_str);
 			$_str = preg_replace('/\s+/', ' ', $_str);
 		}
 
