@@ -169,7 +169,11 @@ class get
 		{
 			$count = 1;
 		}
-		$result['avg'] = round($result['avg'], 1);
+
+		if($result['avg'])
+		{
+			$result['avg'] = round($result['avg'], 1);
+		}
 		$result['star_1_percent'] = round((floatval($result['star_1']) * 100) / $count);
 		$result['star_2_percent'] = round((floatval($result['star_2']) * 100) / $count);
 		$result['star_3_percent'] = round((floatval($result['star_3']) * 100) / $count);

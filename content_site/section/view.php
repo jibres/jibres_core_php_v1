@@ -552,7 +552,14 @@ class view
 	 */
 	private static function load_preview_mode()
 	{
-		return \dash\request::get('preview') === md5(\dash\data::currentPageDetail_datecreated());
+		if(\dash\data::currentPageDetail_datecreated())
+		{
+			return \dash\request::get('preview') === md5(\dash\data::currentPageDetail_datecreated());
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 
