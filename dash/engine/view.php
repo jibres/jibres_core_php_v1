@@ -297,15 +297,23 @@ class view
 			\dash\face::titlePWA(\dash\face::title());
 		}
 
+		if(\dash\face::headTitle())
+		{
+			$filteredTitle = str_replace('"', '', \dash\face::headTitle());
+			\dash\face::headTitle($filteredTitle);
+		}
 
-		$filteredTitle = str_replace('"', '', \dash\face::headTitle());
-		\dash\face::headTitle($filteredTitle);
+		if(\dash\face::seo())
+		{
+			$filteredSEO = str_replace('"', '', \dash\face::seo());
+			\dash\face::seo($filteredSEO);
+		}
 
-		$filteredSEO = str_replace('"', '', \dash\face::seo());
-		\dash\face::seo($filteredSEO);
-
-		$filteredDesc = str_replace('"', '', \dash\face::desc());
-		\dash\face::desc($filteredDesc);
+		if(\dash\face::desc())
+		{
+			$filteredDesc = str_replace('"', '', \dash\face::desc());
+			\dash\face::desc($filteredDesc);
+		}
 	}
 
 }
