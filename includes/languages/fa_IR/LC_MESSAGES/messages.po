@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-12 14:04+0330\n"
-"PO-Revision-Date: 2022-01-12 14:05+0330\n"
+"POT-Creation-Date: 2022-01-12 18:16+0330\n"
+"PO-Revision-Date: 2022-01-12 18:18+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5090,7 +5090,8 @@ msgstr "وضعیت"
 #: content_a/accounting/doc/add/display-docdetail.php:111
 #: content_a/accounting/year/add/display.php:40 content_a/cart/add/display.php:54
 #: content_a/category/add/display.php:11 content_a/category/edit/display.php:93
-#: content_a/category/property/display.php:55 content_a/category/sort/display.php:29
+#: content_a/category/property/display.php:55
+#: content_a/category/quickaccess/display.php:56 content_a/category/sort/display.php:29
 #: content_a/form/analytics/addfilter/display.php:11
 #: content_a/form/item/choice/display.php:11 content_a/form/tag/add/display.php:12
 #: content_a/order/products/display.php:66 content_a/products/add/view.php:18
@@ -5122,9 +5123,10 @@ msgstr "افزودن"
 #: content_a/accounting/year/add/display.php:34
 #: content_a/accounting/year/manage/display.php:14
 #: content_a/category/editgroup/display.php:13 content_a/category/property/display.php:64
-#: content_a/form/item/choice/display.php:11 content_a/order/detail/display.php:38
-#: content_a/pricehistory/display.php:9 content_a/products/bullet/display.php:21
-#: content_a/products/bullet/display.php:28 content_a/products/property/add/display.php:56
+#: content_a/category/quickaccess/display.php:30 content_a/form/item/choice/display.php:11
+#: content_a/order/detail/display.php:38 content_a/pricehistory/display.php:9
+#: content_a/products/bullet/display.php:21 content_a/products/bullet/display.php:28
+#: content_a/products/property/add/display.php:56
 #: content_a/products/property/display.php:69
 #: content_a/products/property/edit/display.php:17 content_a/products/quick/view.php:28
 #: content_a/setting/fund/display.php:39 content_a/setting/legal/display.php:19
@@ -5139,7 +5141,7 @@ msgstr "افزودن"
 #: content_crm/permission/user/display.php:11 content_crm/ticket/view/display-live.php:87
 #: content_love/changelog/add/display.php:42 content_my/domain/irnic/edit/display.php:25
 #: content_site/assemble/wrench/section.php:131
-#: includes/languages/trans_static_public.php:144 lib/app/category/get.php:486
+#: includes/languages/trans_static_public.php:144 lib/app/category/get.php:487
 #: lib/app/menu/generate.php:87 lib/app/menu/generate2.php:65
 msgid "Edit"
 msgstr "ویرایش"
@@ -8269,6 +8271,24 @@ msgstr "همچنین شما می‌توانید تمامی خصوصیات سای
 msgid "Copy from other category"
 msgstr "کپی از دسته‌بندی دیگر"
 
+#: content_a/category/quickaccess/display.php:48
+msgid "Add a category to the Quick Access section of the New Order Registration page"
+msgstr "دسته‌های پرکاربرد خود را به بخش دسترسی سریع در صفحه ثبت سفارش اضافه کنید"
+
+#: content_a/category/quickaccess/display.php:51 content_a/category/sort/display.php:24
+msgid "Choose category"
+msgstr "انتخاب دسته‌بندی"
+
+#: content_a/category/quickaccess/view.php:8
+msgid "Set quick access to category in sale page"
+msgstr "تنظیم دسترسی سریع به دسته‌بندی‌های پر کاربرد در صفحه ثبت سفارش"
+
+#: content_a/category/quickaccess/view.php:10 content_a/fund/view.php:12
+#: includes/languages/trans_static.php:35 includes/languages/trans_static.php:515
+#: lib/app/factor/ready.php:79 lib/app/order/ready.php:79
+msgid "Sale"
+msgstr "فروش"
+
 #: content_a/category/remove/display.php:8
 msgid ":val products by this category founded"
 msgstr ":val محصول با این دسته‌بندی یافت شد"
@@ -8319,10 +8339,6 @@ msgid ""
 msgstr ""
 "با افزودن دسته‌بندی به این لیست می‌توانید آنها را مرتب کنید و یک دسته‌بندی را به عنوان "
 "زیرمجموعه دیگری قرار دهید"
-
-#: content_a/category/sort/display.php:24
-msgid "Choose category"
-msgstr "انتخاب دسته‌بندی"
 
 #: content_a/category/sort/view.php:8
 msgid "Sort Product categories"
@@ -9695,12 +9711,6 @@ msgstr "شما کجا هستید؟"
 #: content_a/fund/view.php:10
 msgid "Choose fund"
 msgstr "انتخاب صندوق"
-
-#: content_a/fund/view.php:12 includes/languages/trans_static.php:35
-#: includes/languages/trans_static.php:515 lib/app/factor/ready.php:79
-#: lib/app/order/ready.php:79
-msgid "Sale"
-msgstr "فروش"
 
 #: content_a/home/display.php:8
 msgid "You have :val Unprocessed order"
@@ -40436,10 +40446,6 @@ msgstr "مشخصات محصول شما بدون تغییر ذخیره شد"
 msgid "Product property saved"
 msgstr "مشخصات محصول ذخیره شد"
 
-#: lib/app/product/quick_access.php:27
-msgid "Latest sale"
-msgstr "آخرین سفارشات"
-
 #: lib/app/product/ready.php:253 lib/app/product/ready.php:262
 msgid "Tomorrow"
 msgstr "فردا"
@@ -42597,6 +42603,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Latest sale"
+#~ msgstr "آخرین سفارشات"
 
 #~ msgid "Manage free product button"
 #~ msgstr "تنظیمات محصولات رایگان"
