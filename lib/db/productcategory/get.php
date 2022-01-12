@@ -5,6 +5,23 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function have_any_category()
+	{
+		$query =
+		"
+			SELECT
+				productcategory.title,
+				productcategory.id
+			FROM
+				productcategory
+			LIMIT 1
+		";
+
+		$result = \dash\pdo::get($query, [], null, true);
+
+		return $result;
+	}
+
 	public static function quickaccess_list(array $_ids)
 	{
 		$string_ids = implode(',', $_ids);

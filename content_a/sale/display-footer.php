@@ -1,7 +1,7 @@
 <?php
 $html = '';
 
-if(\dash\url::isLocal())
+if(\dash\data::haveAnyCategory())
 {
   $saleQuickAccess = \dash\data::saleQuickAccess();
   if(is_array($saleQuickAccess))

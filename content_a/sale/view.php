@@ -34,6 +34,15 @@ class view
 
 			$saleQuickAccess = \lib\app\category\quickaccess::list_in_sale_page();
 
+			if($saleQuickAccess)
+			{
+				\dash\data::haveAnyCategory(true);
+			}
+			else
+			{
+				\dash\data::haveAnyCategory(\lib\app\category\quickaccess::have_any_category());
+			}
+
 			\dash\data::orderdefaultpaystatus(\lib\store::detail('orderdefaultpaystatus'));
 		}
 		\dash\data::saleQuickAccess($saleQuickAccess);

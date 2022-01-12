@@ -26,6 +26,20 @@ class quickaccess
 	}
 
 
+	public static function have_any_category()
+	{
+		$have = \lib\db\productcategory\get::have_any_category();
+		if($have)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
 
 	public static function set_sort($_args)
 	{
