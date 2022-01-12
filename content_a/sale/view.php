@@ -32,7 +32,7 @@ class view
 			\lib\app\fund\login::check();
 			\lib\app\pos\tools::pc_pos_btn();
 
-			$saleQuickAccess = \lib\app\product\quick_access::sale_page();
+			$saleQuickAccess = \lib\app\category\quickaccess::list_in_sale_page();
 
 			\dash\data::orderdefaultpaystatus(\lib\store::detail('orderdefaultpaystatus'));
 		}

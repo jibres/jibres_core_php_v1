@@ -7,8 +7,8 @@ class view
 	{
 		\dash\face::title(T_('Set quick access to category in sale page'));
 
-		\dash\data::back_text(T_('Categories'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_text(T_('Sale'));
+		\dash\data::back_link(\dash\url::here(). '/sale');
 
 	}
 }

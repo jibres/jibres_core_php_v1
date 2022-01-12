@@ -45,7 +45,7 @@ if(!is_array($dataTable))
     <div class="box">
       <div class="pad">
         <p>
-          <?php echo T_("By adding category to list you can sort it and set one category as child of another") ?>
+          <?php echo T_("ssssssssssssssssss") ?>
         </p>
        <div>
         <select name="category" class="select22" data-model='tag' data-placeholder="<?php echo T_("Choose category"); ?>" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true&getid=1'>

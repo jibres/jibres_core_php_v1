@@ -30,6 +30,14 @@ if(\dash\url::isLocal())
       $html .= '</li>';
 
     }
+    $html .= '<li class="nav-item">';
+    {
+      $html .= '<a href="'.\dash\url::here().'/category/quickaccess" class="nav-link active">';
+      $html .= \dash\utility\icon::svg('gear', 'bootstrap', null, 'w-6 h-6');
+      $html .= '</a>';
+    }
+    $html .= '</li>';
+
     $html .= '</ul>';
 
 
