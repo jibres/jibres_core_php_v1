@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-12 18:19+0330\n"
-"PO-Revision-Date: 2022-01-12 18:19+0330\n"
+"POT-Creation-Date: 2022-01-12 18:30+0330\n"
+"PO-Revision-Date: 2022-01-12 18:31+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7772,7 +7772,7 @@ msgstr ""
 "جدیدی ثبت کنید"
 
 #: content_a/cart/add/display.php:71 content_a/cart/user/display.php:11
-#: content_a/order/address/display.php:49 content_a/sale/view.php:58
+#: content_a/order/address/display.php:49 content_a/sale/view.php:67
 #: content_crm/notification/send/display.php:7 content_crm/ticket/assign/display.php:9
 msgid "Choose customer"
 msgstr "انتخاب مشتری"
@@ -11327,6 +11327,10 @@ msgstr "ساعت شروع"
 msgid "End time"
 msgstr "ساعت پایان"
 
+#: content_a/sale/display-footer.php:68
+msgid "There are no products in this category"
+msgstr "هیچ محصولی در این دسته‌بندی قرار ندارد"
+
 #: content_a/sale/display.php:8
 msgid "You are registering a buy order"
 msgstr "شما در حال ثبت سفارش خرید هستید"
@@ -11394,7 +11398,7 @@ msgstr "صدور فاکتور فروش"
 msgid "Save Factor & Continue"
 msgstr "ذخیره فاکتور و ادامه"
 
-#: content_a/sale/view.php:63
+#: content_a/sale/view.php:72
 msgid "Choose supplier"
 msgstr "انتخاب تامین کننده"
 
