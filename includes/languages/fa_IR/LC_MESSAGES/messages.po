@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-12 18:16+0330\n"
-"PO-Revision-Date: 2022-01-12 18:18+0330\n"
+"POT-Creation-Date: 2022-01-12 18:19+0330\n"
+"PO-Revision-Date: 2022-01-12 18:19+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -8280,8 +8280,8 @@ msgid "Choose category"
 msgstr "انتخاب دسته‌بندی"
 
 #: content_a/category/quickaccess/view.php:8
-msgid "Set quick access to category in sale page"
-msgstr "تنظیم دسترسی سریع به دسته‌بندی‌های پر کاربرد در صفحه ثبت سفارش"
+msgid "Quick access"
+msgstr "دسترسی سریع"
 
 #: content_a/category/quickaccess/view.php:10 content_a/fund/view.php:12
 #: includes/languages/trans_static.php:35 includes/languages/trans_static.php:515
@@ -42603,6 +42603,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Set quick access to category in sale page"
+#~ msgstr "تنظیم دسترسی سریع به دسته‌بندی‌های پر کاربرد در صفحه ثبت سفارش"
 
 #~ msgid "Latest sale"
 #~ msgstr "آخرین سفارشات"
