@@ -14,7 +14,7 @@ class ganje
 	{
 		if(\dash\url::isLocal())
 		{
-			return 1000900;
+			return 1000003;
 		}
 
 		return 1000964;
@@ -30,7 +30,7 @@ class ganje
 	{
 		if(\dash\url::isLocal())
 		{
-			return '$jbjfs';
+			return '$jb2jw';
 		}
 
 		return '$jbj52';
