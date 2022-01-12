@@ -457,6 +457,7 @@ class get
             {
     			$result .= '<i class="sf-thumbnails sortHandle" data-handle>';
                 {
+                	$result .= \dash\utility\icon::svg('list', 'bootstrap', null, 'text-blue-500 h-6 w-6');
                     $result .= '<input type="hidden" name="sort[]" data-id="'. a($one_item, 'id'). '">';
                 }
                 $result .= '</i>';

@@ -5,6 +5,29 @@ namespace lib\db\productcategory;
 class get
 {
 
+	public static function quickaccess_list(array $_ids)
+	{
+		$string_ids = implode(',', $_ids);
+
+		$query =
+		"
+			SELECT
+				productcategory.title,
+				productcategory.id
+			FROM
+				productcategory
+			WHERE
+				productcategory.id IN ($string_ids)
+			ORDER BY FIELD(productcategory.id, $string_ids)
+		";
+
+		$result = \dash\pdo::get($query);
+
+		return $result;
+
+	}
+
+
 	public static function load_child($_args)
 	{
 		$q  = \dash\pdo\prepare_query::generate_where('productcategory', $_args);
