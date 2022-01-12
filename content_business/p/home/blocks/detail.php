@@ -61,11 +61,7 @@ $html .= '<div class="row align-center">';
         }
         $html .= '</div>';
       }
-      elseif((string) \dash\data::dataRow_finalprice() === '0')
-      {
-        $html .= '<span class="font-bold fc-green">'. T_("Free"). '</span>';
-      }
-      elseif(is_null(\dash\data::dataRow_finalprice()))
+      elseif(is_null(\dash\data::dataRow_finalprice()) || (is_null(\dash\data::dataRow_price()) && is_null(\dash\data::dataRow_discount())))
       {
         if(a($productSettingSaved, 'free_button_title') && a($productSettingSaved, 'free_button_link'))
         {
@@ -73,6 +69,10 @@ $html .= '<div class="row align-center">';
           \dash\data::pawContactUsShopBtn(['title' => a($productSettingSaved, 'free_button_title'), 'link' => a($productSettingSaved, 'free_button_link')]);
           $html .= '<a class="btnBuy" href="'. a($productSettingSaved, 'free_button_link'). '" target="_blank">'. a($productSettingSaved, 'free_button_title'). '</a>';
         }
+      }
+      elseif((string) \dash\data::dataRow_finalprice() === '0')
+      {
+        $html .= '<span class="font-bold fc-green">'. T_("Free"). '</span>';
       }
     }
     $html .= '</div>';
