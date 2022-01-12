@@ -119,7 +119,7 @@ class quickaccess
 
 			$category_list[$key]['products'] = $search_product_by_category;
 
-			if($search_product_by_category)
+			// if($search_product_by_category)
 			{
 				$new_list[] = $category_list[$key];
 			}

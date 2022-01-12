@@ -63,6 +63,10 @@ if(\dash\data::haveAnyCategory())
           // $html .= $key;
           // we have some products
           $myProducts = $category['products'];
+          if(!$myProducts)
+          {
+            $html .= '<div class="alert-secondary">'. T_("There are no products in this category"). '</div>';
+          }
           foreach ($myProducts as $key2 => $product)
           {
             // loop to draw one product item
