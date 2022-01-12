@@ -43,6 +43,11 @@ class view
 				\dash\data::haveAnyCategory(\lib\app\category\quickaccess::have_any_category());
 			}
 
+			if(!\dash\url::isLocal())
+			{
+				\dash\data::haveAnyCategory(false);
+			}
+
 			\dash\data::orderdefaultpaystatus(\lib\store::detail('orderdefaultpaystatus'));
 		}
 		\dash\data::saleQuickAccess($saleQuickAccess);
