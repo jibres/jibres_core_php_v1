@@ -221,7 +221,7 @@ class check
 
 			if($data['vat'] === 'yes')
 			{
-				$vatprice_percent = 9; // 9% in iran. need to get from setting
+				$vatprice_percent = \lib\vat::percent();
 				if($vatprice_percent)
 				{
 					$new_finalprice = $data['finalprice'] + (($data['finalprice'] * $vatprice_percent) / 100);
@@ -230,10 +230,21 @@ class check
 				}
 			}
 
+			if(isset($data['buyprice']))
+			{
+				$data['buyprice']        = floatval($data['buyprice']);
+			}
 
-			$data['buyprice']        = floatval($data['buyprice']);
-			$data['price']           = floatval($data['price']);
-			$data['discount']        = floatval($data['discount']);
+			if(isset($data['price']))
+			{
+				$data['price']           = floatval($data['price']);
+			}
+
+			if(isset($data['discount']))
+			{
+				$data['discount']        = floatval($data['discount']);
+			}
+
 			$data['discountpercent'] = floatval($discountpercent);
 			$data['finalprice']      = floatval($data['finalprice']);
 			$data['vatprice']        = floatval($data['vatprice']);
