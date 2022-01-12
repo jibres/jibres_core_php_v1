@@ -104,12 +104,12 @@ class view
 			}
 			elseif(floatval($summary['debtor']) > floatval($summary['creditor']))
 			{
-				\dash\data::deptorICON('<i class="mLR5 sf-chevron-up fc-green"></i>');
+				\dash\data::deptorICON('<i class="mLR5 sf-chevron-up text-green-700"></i>');
 				\dash\data::creditorICON('<i class="mLR5 sf-chevron-down"></i>');
 			}
 			elseif(floatval($summary['debtor']) < floatval($summary['creditor']))
 			{
-				\dash\data::creditorICON('<i class="mLR5 sf-chevron-up fc-green"></i>');
+				\dash\data::creditorICON('<i class="mLR5 sf-chevron-up text-green-700"></i>');
 				\dash\data::deptorICON('<i class="mLR5 sf-chevron-down"></i>');
 			}
 

@@ -46,7 +46,7 @@
             <?php wow_number(a($value, 'sum_debtor_on_page'), $borderPosClass ) ?>
             <?php wow_number_creditor(a($value, 'sum_creditor_on_page'), $borderPosClass) ?>
             <?php if(false) {?>
-              <td class="border-solid <?php echo $borderPosClass; ?> border-r-2 border-gray-400 font-14" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><code class="ltr text-right fc-green font-bold"><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
+              <td class="border-solid <?php echo $borderPosClass; ?> border-r-2 border-gray-400 font-14" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_debtor_on_page'); ?>'><code class="ltr text-right text-green-700 font-bold"><?php echo \dash\fit::number(a($value, 'sum_debtor_on_page'), true, 'en') ?></code></td>
               <td class="border-solid <?php echo $borderPosClass; ?> border-r-2 border-gray-400 font-14" style="line-height:70px;" data-copy='<?php echo a($value, 'sum_creditor_on_page'); ?>'><code class="ltr text-right fc-red font-bold"><?php echo \dash\fit::number(a($value, 'sum_creditor_on_page'), true, 'en') ?></code></td>
             <?php }// endif ?>
           <?php }else{ ?>
@@ -71,7 +71,7 @@
             <?php echo  wow_number(a($value, 'show_value')); ?>
             <?php echo  wow_number_creditor(null); ?>
             <?php if(false) {?>
-            <td class="border-solid border-r-2 border-gray-400 font-14" data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr text-right fc-green"><code class="font-bold"><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
+            <td class="border-solid border-r-2 border-gray-400 font-14" data-copy='<?php echo a($value, 'show_value'); ?>' class="ltr text-right text-green-700"><code class="font-bold"><?php echo \dash\fit::number(a($value, 'show_value'), true, 'en') ?></code></td>
             <?php } //endif ?>
 
           <?php }elseif(a($value, 'mode') === 'creditor') {?>

@@ -29,7 +29,7 @@
 
 		<div class="mLa10 c5 m12 s12">
 			<div class="f msg align-center">
-				<div class="cauto mRa10"><i class="sf-database fs14 fc-green"></i></div>
+				<div class="cauto mRa10"><i class="sf-database fs14 text-green-700"></i></div>
 				<div class="c sauto"><?php echo \dash\fit::date($value['datecreated']); ?></div>
 				<div class="c s12"><?php echo \dash\fit::date_human($value['datecreated']); ?></div>
 				<?php if(isset($value['status']) && $value['status'] == 'request') {?>

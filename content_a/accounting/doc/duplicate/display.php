@@ -8,7 +8,7 @@
           <div class="input mB0-f">
           <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="date" id="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?>" autocomplete='off' required>
           </div>
-          <label for="number"><?php echo T_("New Accounting document number"); ?><span class="fc-green">*</span></label>
+          <label for="number"><?php echo T_("New Accounting document number"); ?><span class="text-green-700">*</span></label>
           <div class="input">
            <input type="tel" name="number" id="number" placeholder='<?php echo \dash\data::productDataRow_title(); ?>' value='<?php echo \dash\data::newNumber(); ?>' <?php \dash\layout\autofocus::html(); ?> data-format>
           </div>

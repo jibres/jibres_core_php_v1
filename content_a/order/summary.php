@@ -51,7 +51,7 @@
               		<?php if(a($orderDetail, 'factor', 'shipping')) {?>
                   		<td colspan="3"><?php echo \dash\fit::number(a($orderDetail, 'factor', 'shipping')). ' '. \lib\store::currency(); ?></td>
 	              	<?php }else{ ?>
-	              		<td colspan="3"><span class="fc-green"><?php echo T_("Free") ?></span></td>
+	              		<td colspan="3"><span class="text-green-700"><?php echo T_("Free") ?></span></td>
 	              	<?php } //endif ?>
                 </tr>
 

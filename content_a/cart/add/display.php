@@ -128,7 +128,7 @@ $have_user = false;
             <?php if(\dash\data::cartSummary_shipping()) {?>
               <dd><?php echo \dash\fit::number(\dash\data::cartSummary_shipping()); ?> <?php echo \lib\store::currency(); ?> </dd>
             <?php }else{ ?>
-              <dd class="fc-green"><span class="font-bold" ><?php echo T_("Free") ?></span> <i class="sf-gift"></i></dd>
+              <dd class="text-green-700"><span class="font-bold" ><?php echo T_("Free") ?></span> <i class="sf-gift"></i></dd>
             <?php }//endif ?>
           </dl>
 

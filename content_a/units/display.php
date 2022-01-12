@@ -31,7 +31,7 @@
 
   <?php if(\dash\data::editMode()) {?>
 
-		<h3><?php echo T_("Edit unit"); ?> <span class="fc-green font-bold"><?php echo \dash\data::dataRow_title(); ?></span></h3>
+		<h3><?php echo T_("Edit unit"); ?> <span class="text-green-700 font-bold"><?php echo \dash\data::dataRow_title(); ?></span></h3>
 
   <?php }else{ ?>
 
@@ -133,7 +133,7 @@
           <td class="text-center">
             <a href="<?php echo \dash\url::here(); ?>/products?unitid=<?php echo a($value, 'id'); ?>" title='<?php echo T_("Click to check products in this unit"); ?>'><?php echo \dash\fit::number(a($value, 'count')); ?></a>
           </td>
-          <td class="text-center"><?php if(isset($value['int']) && $value['int']) { ?><i class="sf-check fc-green"></i><?php }else{ echo '-';} ?></td>
+          <td class="text-center"><?php if(isset($value['int']) && $value['int']) { ?><i class="sf-check text-green-700"></i><?php }else{ echo '-';} ?></td>
           <td class="collapsing">
             <a class="block" href="<?php echo \dash\url::this(); ?>?id=<?php echo a($value, 'id'); ?>"><i class="sf-edit fs11  mRa10"></i><span class="sm"><?php echo T_("Edit"); ?></span></a>
             <a class="block" href="<?php echo \dash\url::this(); ?>/remove?id=<?php echo a($value, 'id'); ?>"><i class="sf-trash mRa10  fs11 fc-red"></i><span class="sm"><?php echo T_("Remove"); ?></span></a>

@@ -314,7 +314,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
                 <td data-copy='<?php echo $totaldiscount; ?>' class="text-sm ltr fc-black"><code><?php echo \dash\fit::number($totaldiscount, true, 'en') ?></code></td>
                 <td data-copy='<?php echo $total_after_discount; ?>' class="text-sm ltr fc-black"><code><?php echo \dash\fit::number($total_after_discount, true, 'en') ?></code></td>
                 <td data-copy='<?php echo $totalvat; ?>' class="text-sm ltr fc-red"><code><?php echo \dash\fit::number($totalvat, true, 'en') ?></code></td>
-                <td data-copy='<?php echo $final; ?>' class="text-sm ltr font-bold fc-green"><code><?php echo \dash\fit::number($final, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $final; ?>' class="text-sm ltr font-bold text-green-700"><code><?php echo \dash\fit::number($final, true, 'en') ?></code></td>
               </tr>
             </tbody>
           </table>
@@ -327,7 +327,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
                   <li>
                     <a class="item f">
                       <div class="key"><?php echo T_("Total taxable amount") ?></div>
-                      <div class="value" data-copy='<?php echo a($dataRow, 'tax_document', 'totalincludevat'); ?>' class="text-sm ltr font-bold fc-green"><code><?php echo \dash\fit::number(a($dataRow, 'tax_document', 'totalincludevat'), true, 'en') ?></code></div>
+                      <div class="value" data-copy='<?php echo a($dataRow, 'tax_document', 'totalincludevat'); ?>' class="text-sm ltr font-bold text-green-700"><code><?php echo \dash\fit::number(a($dataRow, 'tax_document', 'totalincludevat'), true, 'en') ?></code></div>
                     </a>
                   </li>
                 </ul>
@@ -339,7 +339,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
                   <li>
                     <a class="item f">
                       <div class="key"><?php echo T_("Total amount exempt from tax") ?></div>
-                      <div class="value" data-copy='<?php echo a($dataRow, 'tax_document', 'totalnotincludevat'); ?>' class="text-sm ltr font-bold fc-green"><code><?php echo \dash\fit::number(a($dataRow, 'tax_document', 'totalnotincludevat'), true, 'en') ?></code></div>
+                      <div class="value" data-copy='<?php echo a($dataRow, 'tax_document', 'totalnotincludevat'); ?>' class="text-sm ltr font-bold text-green-700"><code><?php echo \dash\fit::number(a($dataRow, 'tax_document', 'totalnotincludevat'), true, 'en') ?></code></div>
                     </a>
                   </li>
                 </ul>

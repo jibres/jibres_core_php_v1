@@ -65,7 +65,7 @@
                     <?php if(is_null(a($productDataRow,'finalprice')) && \dash\url::child() !== 'add') {?>
                       <a class="link text-left" href="<?php echo \dash\url::here(). '/setting/product/free'; ?>"><?php echo T_("Manage free product button") ?></a>
                     <?php }elseif((string) a($productDataRow,'finalprice') === '0') {?>
-                      <span class="fc-green font-bold"><?php echo T_("Free") ?></span>
+                      <span class="text-green-700 font-bold"><?php echo T_("Free") ?></span>
                     <?php }else{ ?>
                     <?php } //endif ?>
                   </div>

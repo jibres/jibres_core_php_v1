@@ -56,7 +56,7 @@
                <?php if(!\dash\data::descEmpty()) {?>
                   <td class="collapsing"><?php echo a($value, 'desc') ?></td>
                <?php } //endif ?>
-              <td data-copy='<?php echo a($value, 'debtor'); ?>' class="ltr text-right fc-green"><code class="font-bold"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
+              <td data-copy='<?php echo a($value, 'debtor'); ?>' class="ltr text-right text-green-700"><code class="font-bold"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
               <td data-copy='<?php echo a($value, 'creditor'); ?>' class="ltr text-right fc-red"><code class="font-bold"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
               <?php if($locDelMode) {}else{?>
               <td class="p0 txtRa">
@@ -96,7 +96,7 @@
     </div>
     <footer class="hide">
       <div class="f">
-        <div class="cauto"><?php echo \dash\data::deptorICON(); ?><?php echo T_("Total"). ' '. T_("Debtor"); ?> <span class="font-bold fc-green"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor()); ?> </span></div>
+        <div class="cauto"><?php echo \dash\data::deptorICON(); ?><?php echo T_("Total"). ' '. T_("Debtor"); ?> <span class="font-bold text-green-700"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor()); ?> </span></div>
         <div class="c text-center"><?php echo \dash\data::equalICON(); ?></div>
         <div class="cauto"><?php echo T_("Total"). ' '.T_("Creditor"); ?> <span class="font-bold fc-red"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor()); ?></span> <?php echo \dash\data::creditorICON(); ?></div>
       </div>

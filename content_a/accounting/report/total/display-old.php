@@ -40,20 +40,20 @@
           <td class="collapsing"><?php echo \dash\fit::number(floatval($key) + 1); ?></td>
           <td><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id')]); ?>"><?php echo a($value, 'total_title') ?></a></td>
           <?php if(\dash\request::get('show') === 'col6') {?>
-            <td class="text-sm ltr text-right fc-green"><code><?php echo \dash\fit::number(a($value, 'opening_debtor'), true, 'en') ?></code></td>
+            <td class="text-sm ltr text-right text-green-700"><code><?php echo \dash\fit::number(a($value, 'opening_debtor'), true, 'en') ?></code></td>
             <td class="text-sm ltr text-right fc-red"><code><?php echo \dash\fit::number(a($value, 'opening_creditor'), true, 'en') ?></code></td>
-            <td class="text-sm ltr text-right fc-green"><code><?php echo \dash\fit::number(a($value, 'debtor'), true, 'en') ?></code></td>
+            <td class="text-sm ltr text-right text-green-700"><code><?php echo \dash\fit::number(a($value, 'debtor'), true, 'en') ?></code></td>
             <td class="text-sm ltr text-right fc-red"><code><?php echo \dash\fit::number(a($value, 'creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
           <?php if(\dash\request::get('show') === 'col4' || !\dash\request::get('show')) {?>
-            <td class="text-sm ltr text-right fc-green"><code><?php echo \dash\fit::number(a($value, 'sum_debtor'), true, 'en') ?></code></td>
+            <td class="text-sm ltr text-right text-green-700"><code><?php echo \dash\fit::number(a($value, 'sum_debtor'), true, 'en') ?></code></td>
             <td class="text-sm ltr text-right fc-red"><code><?php echo \dash\fit::number(a($value, 'sum_creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
           <?php if(\dash\request::get('show') === 'balancesheet') {?>
             <td data-copy="<?php echo a($value, 'opening') ?>" class="text-sm ltr text-right fc-black"></i><code><?php echo \dash\fit::number(a($value, 'opening'), true, 'en') ?></code></td>
             <td data-copy="<?php echo a($value, 'current') ?>" class="text-sm ltr text-right fc-black"></i><code><?php echo \dash\fit::number(a($value, 'current'), true, 'en') ?></code></td>
           <?php }else{ ?>
-            <td class="text-sm ltr text-right fc-green"><code><?php echo \dash\fit::number(a($value, 'remain_debtor'), true, 'en') ?></code></td>
+            <td class="text-sm ltr text-right text-green-700"><code><?php echo \dash\fit::number(a($value, 'remain_debtor'), true, 'en') ?></code></td>
             <td class="text-sm ltr text-right fc-red"><code><?php echo \dash\fit::number(a($value, 'remain_creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
         </tr>
