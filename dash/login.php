@@ -92,6 +92,7 @@ class login
 
 						$user_detail['jibres_user_id']    = $user_detail['id'];
 						$user_detail['id']                = $in_store_user['id'];
+						$user_detail['jibres_permission'] = $user_detail['permission'];
 
 						if(isset($user_detail['permission']) && $user_detail['permission'] === 'supervisor')
 						{
@@ -100,7 +101,6 @@ class login
 						}
 						else
 						{
-							$user_detail['jibres_permission'] = $user_detail['permission'];
 							$user_detail['permission']        = $in_store_user['permission'];
 						}
 					}
