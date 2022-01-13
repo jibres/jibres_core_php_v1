@@ -66,9 +66,9 @@ class view
 		\dash\data::listUnits($unit_list);
 
 
-		if(\dash\url::isLocal())
+		if(\dash\permission::supervisor())
 		{
-			if(!$myProductList)
+			if(!$myProductList && $search_string)
 			{
 				$ganje = \lib\app\product\ganje::search($search_string);
 
