@@ -15,17 +15,24 @@ class apilog
 {
 	public static function remove_last_month()
 	{
-		$last_month      = date("Y-m-d", strtotime("-30 days"));
-		$param[':month'] = $last_month;
+		$delete_query = "TRUNCATE apilog";
+		\dash\pdo::query($delete_query, [], 'api_log');
+		return 0;
 
-		$count_query = "SELECT COUNT(*) AS `count` FROM apilog WHERE DATE(apilog.datesend) <= DATE(:month) ";
+		// $param = [];
+		// $last_month      = date("Y-m-d", strtotime("-30 days"));
+		// $param[':month'] = $last_month;
 
-		$count       = floatval(\dash\pdo::get($count_query, $param, 'count', true, 'api_log'));
+		// $delete_query = "SELECT apilog.id FROM apilog WHERE DATE(apilog.datesend) > DATE('$last_month') LIMIT 1";
+		// $id = \dash\pdo::get($delete_query, $param, 'id', true, 'api_log');
 
-		$delete_query = "DELETE FROM apilog WHERE DATE(apilog.datesend) <= DATE(:month) ";
-		\dash\pdo::query($delete_query, $param, 'api_log');
-
-		return $count;
+		// if($id)
+		// {
+		// 	$delete_query = "DELETE FROM apilog WHERE apilog.id <= :id ";
+		// 	$param['id'] = $id;
+		// 	\dash\pdo::query($delete_query, $param, 'api_log');
+		// }
+		// return 0;
 	}
 
 	public static function insert($_args)

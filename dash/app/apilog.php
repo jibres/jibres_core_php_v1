@@ -154,7 +154,7 @@ class apilog
 			// need to add api log table to customer database
 			if(\dash\engine\store::inStore())
 			{
-				return;
+				// return;
 			}
 
 			\dash\db\apilog::insert(self::$apilog);
