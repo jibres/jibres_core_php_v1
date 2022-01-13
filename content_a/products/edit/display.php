@@ -15,7 +15,11 @@ if(!is_array($child_list))
   <div class="row">
     <button class="hide" name="submitall" type="submit" value="master"><?php echo T_("Save"); ?></button>
     <input type="hidden" name="havevariantchild" value="<?php if($have_variant_child){echo 1;}else{echo 0;};  ?>">
+  <?php if(\dash\url::child() == 'edit') {?>
     <div class="c-xs-12 c-sm-12 c-md-8 c-xxl-9">
+    <?php }else{ /*in add mode hide the sidebar*/ ?>
+    <div class="c-xs-12 c-sm-12 c-md-12 c-xxl-12">
+    <?php } //endif ?>
 <?php
 require_once('block/title.php');
 require_once('block/price.php');
@@ -47,15 +51,18 @@ if(\dash\data::editMode())
 }
 
 ?>
+
     </div>
+  <?php if(\dash\url::child() == 'edit') {?>
     <div class="c-xs-12 c-sm-12 c-md-4 c-xxl-3">
       <?php require_once ('block/sidebar-menu.php'); ?>
     </div>
+  <?php } //endif ?>
+
   </div>
 </form>
 
 <?php if(\dash\url::child() !== 'add') {?>
-
 <div class="btn-outline-secondary text-sm" data-confirm data-data='{"archive": "product"}'><?php echo T_("Archive product") ?></div>
 <div class="btn-outline-danger text-sm" data-confirm data-data='{"delete": "product"}'><?php echo T_("Delete product") ?></div>
 <?php } //endif ?>
