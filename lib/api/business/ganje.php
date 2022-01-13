@@ -93,10 +93,10 @@ class ganje
 
 	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])
 	{
-		if(!\dash\url::isLocal())
-		{
-			return false;
-		}
+		// if(!\dash\url::isLocal())
+		// {
+		// 	return false;
+		// }
 
 		$url = sprintf(self::api_url(), self::ganje_business_code());
 		$url .= $_path;
