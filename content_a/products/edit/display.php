@@ -24,8 +24,8 @@ if(!is_array($child_list))
 require_once('block/title.php');
 require_once('block/price.php');
 require_once('block/category.php');
-require_once('block/desc.php');
 require_once('block/gallery.php');
+require_once('block/desc.php');
 if($have_variant_child)
 {
 /*  --------------- All detail for inventory hide when the product is parent of other product*/
