@@ -23,6 +23,16 @@ class view
 
 		\content_a\products\edit\view::product_ratio();
 
+		if(\dash\request::get('gid') || \dash\request::get('barcode'))
+		{
+			$load_ganje_detail = \lib\app\product\ganje::fetch_by_id_barcode(\dash\request::get('gid'), \dash\request::get('barcode'));
+			\dash\data::productDataRow($load_ganje_detail);
+			if(a($load_ganje_detail, 'category') && is_array($load_ganje_detail['category']))
+			{
+				\dash\data::listSavedCat(array_column($load_ganje_detail['category'], 'title'));
+			}
+		}
+
 	}
 }
 ?>

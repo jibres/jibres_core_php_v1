@@ -27,14 +27,19 @@ $html .= '<div class="m-auto w-96">';
 						$html .= '<div class="cauto">';
 						{
 
-							$add_url = \dash\url::this(). '/quick?gid='. a($value, 'id');
+							$add_url         = \dash\url::this(). '/add?';
+							$add_args        = [];
+							$add_args['gid'] = a($value, 'id');
 
 							if(isset($is_barcode_page) && $is_barcode_page)
 							{
-								$add_url .= '&barcodepage=1';
+								$add_args['barcodepage'] = 1;
 							}
+							$add_args['iframe'] = 1;
 
-							$html .= '<a href="'.$add_url.'" class="btn-primary">'. T_("Add"). '</a>';
+							$add_url .= \dash\request::build_query($add_args);
+
+							$html .= '<a href="'.$add_url.'" target="_blank" data-type="iframe" data-preload="false" data-fancybox class="btn-primary">'. T_("Add"). '</a>';
 						}
 						$html .= '</div>';
 					}
