@@ -14,6 +14,25 @@ class model
 
 		$post = self::get_post();
 
+		$ganje_identify = null;
+		$ganje_type     = null;
+
+		if(\dash\request::get('gid'))
+		{
+			$ganje_identify = \dash\request::get('gid');
+			$ganje_type     = 'id';
+		}
+		elseif(\dash\request::get('barcode'))
+		{
+			$ganje_identify = \dash\request::get('barcode');
+			$ganje_type     = 'barcode';
+		}
+
+
+		$post['add_from_ganje']      = $ganje_identify;
+		$post['add_from_ganje_type'] = $ganje_type;
+
+
 		$result = \lib\app\product\add::add($post);
 
 		if(!$result)
@@ -78,6 +97,7 @@ class model
 		$post['saleonline']    = \dash\request::post('saleonline');
 		$post['minstock']      = \dash\request::post('minstock');
 		$post['maxstock']      = \dash\request::post('maxstock');
+
 
 
 		return $post;
