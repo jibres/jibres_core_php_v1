@@ -4,6 +4,24 @@ namespace lib\api\business;
 
 class ganje
 {
+	/**
+	 * Check ganje run in local or no
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
+	private static function local_ganje() : bool
+	{
+		if(\dash\url::isLocal())
+		{
+			if(gethostname() === 'reza-jibres')
+			{
+				return true;
+			}
+
+		}
+
+		return false;
+	}
 
 	/**
 	 * Gets the ganje store identifier.
@@ -12,7 +30,7 @@ class ganje
 	 */
 	public static function ganje_business_id() : float
 	{
-		if(\dash\url::isLocal())
+		if(self::local_ganje())
 		{
 			return 1000003;
 		}
@@ -28,7 +46,7 @@ class ganje
 	 */
 	public static function ganje_business_code() : string
 	{
-		if(\dash\url::isLocal())
+		if(self::local_ganje())
 		{
 			return '$jb2jw';
 		}
@@ -44,7 +62,7 @@ class ganje
 	 */
 	public static function ganje_apikey() : string
 	{
-		if(\dash\url::isLocal())
+		if(self::local_ganje())
 		{
 			return '0502755e684b813585ddda0f57ad3efa';
 		}
@@ -81,7 +99,7 @@ class ganje
 	 */
 	public static function api_url() : string
 	{
-		if(\dash\url::isLocal())
+		if(self::local_ganje())
 		{
 			return 'https://business.jibres.local/fa/%s/b1/';
 		}
@@ -93,7 +111,7 @@ class ganje
 
 	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])
 	{
-		// if(!\dash\url::isLocal())
+		// if(!self::local_ganje())
 		// {
 		// 	return false;
 		// }
@@ -151,7 +169,7 @@ class ganje
 
 		if(!is_array($result))
 		{
-			if(\dash\url::isLocal())
+			if(self::local_ganje())
 			{
 				var_dump($response);exit;
 			}
