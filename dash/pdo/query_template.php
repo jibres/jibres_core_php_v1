@@ -221,7 +221,7 @@ class query_template
 
 		$limit = \dash\db\pagination::pagination_query($pagination_query, [], 10, $_fuel);
 
-		$query = "SELECT * FROM $_table $limit ";
+		$query = "SELECT * FROM $_table ORDER BY $_table.id DESC $limit";
 
 		$result = \dash\pdo::get($query, [], null, false, $_fuel);
 
