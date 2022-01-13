@@ -97,9 +97,12 @@ class pdo
 
 				$type = \PDO::PARAM_STR;
 
-				if(is_int($value) || is_float($value))
+				if(is_int($value))
 				{
-					// $type = \PDO::PARAM_INT;
+					$type = \PDO::PARAM_INT;
+				}
+				elseif(is_float($value))
+				{
 					$type = \PDO::PARAM_STR;
 				}
 				elseif(is_string($value))
@@ -108,7 +111,6 @@ class pdo
 				}
 				elseif(is_numeric($value))
 				{
-					// $type = \PDO::PARAM_INT;
 					$type = \PDO::PARAM_STR;
 				}
 				elseif(is_null($value))
