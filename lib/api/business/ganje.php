@@ -46,7 +46,7 @@ class ganje
 	{
 		if(\dash\url::isLocal())
 		{
-			return '3ab3f2f67ad1f9f0be532fcb4f94950c';
+			return '0502755e684b813585ddda0f57ad3efa';
 		}
 
 		return '0502755e684b813585ddda0f57ad3efa';
