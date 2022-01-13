@@ -38,11 +38,11 @@ class apilog
 		self::$apilog['apikey']         = null; // 100
 		self::$apilog['appkey']         = null; // 100
 		self::$apilog['zoneid']         = null; // 100
-		self::$apilog['url']            = addslashes(substr(\dash\url::pwd(), 0, 2000));
-		self::$apilog['method']         = addslashes(substr(\dash\request::is(), 0, 200));
-		self::$apilog['header']         = $headerjson = addslashes(self::jsonEncode(\dash\header::get()));
+		self::$apilog['url']            = (substr(\dash\url::pwd(), 0, 2000));
+		self::$apilog['method']         = (substr(\dash\request::is(), 0, 200));
+		self::$apilog['header']         = $headerjson = (self::jsonEncode(\dash\header::get()));
 		self::$apilog['headerlen']      = mb_strlen($headerjson);
-		self::$apilog['body']           = $body = addslashes(self::getBody());
+		self::$apilog['body']           = $body = (self::getBody());
 		self::$apilog['bodylen']        = mb_strlen($body);
 		self::$apilog['datesend']       = date("Y-m-d H:i:s");
 
@@ -54,8 +54,8 @@ class apilog
 
 		self::$apilog['notif']          = null;
 		self::$apilog['responselen']    = null;
-		self::$apilog['version']        = addslashes(substr(\dash\url::module(), 0, 100));
-		self::$apilog['subdomain']      = addslashes(\dash\url::subdomain());
+		self::$apilog['version']        = (substr(\dash\url::module(), 0, 100));
+		self::$apilog['subdomain']      = (\dash\url::subdomain());
 		self::$apilog['urlmd5']         = md5(\dash\url::current());
 
 	}
@@ -80,10 +80,10 @@ class apilog
 		self::$apilog['zoneid']         = self::static_var('zoneid'); // 100
 		self::$apilog['pagestatus']     = \http_response_code();  // 100
 		self::$apilog['resultstatus']   = \dash\engine\process::status() ? 'true' : 'false'; // 100
-		self::$apilog['responseheader'] = addslashes(self::jsonEncode(\headers_list()));
-		self::$apilog['responsebody']   = self::$save_detail ? addslashes($_result) : null;
-		self::$apilog['notif']          = addslashes(self::jsonEncode(\dash\notif::get()));
-		self::$apilog['responselen']    = mb_strlen($_result);
+		self::$apilog['responseheader'] = (self::jsonEncode(\headers_list()));
+		self::$apilog['responsebody']   = self::$save_detail ? ($_result) : null;
+		self::$apilog['notif']          = (self::jsonEncode(\dash\notif::get()));
+		self::$apilog['responselen']    = is_string($_result) ? mb_strlen($_result) : null;
 		self::$apilog['dateresponse']   = date("Y-m-d H:i:s");
 
 		// save ip id

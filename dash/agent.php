@@ -6,6 +6,12 @@ class agent
 	public static function get($_id = false)
 	{
 		$agent = self::agent(true);
+
+		if(!$agent)
+		{
+			return null;
+		}
+
 		if($_id)
 		{
 			$check_exits_agent = \dash\db\agents::get_agent_detail(md5($agent));
@@ -61,12 +67,16 @@ class agent
 	public static function agent($_encode = true)
 	{
 		$agent = \dash\server::get('HTTP_USER_AGENT');
-		// always trim for someone with misconfig
-		$agent = trim($agent, '"');
-		$agent = trim($agent, "'");
+
+		if($agent)
+		{
+			// always trim for someone with misconfig
+			$agent = trim($agent, '"');
+			$agent = trim($agent, "'");
+		}
 
 		// if user want encode referer
-		if($_encode)
+		if($_encode && $agent)
 		{
 			$agent = urlencode($agent);
 		}
