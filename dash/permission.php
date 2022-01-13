@@ -129,6 +129,13 @@ class permission
 			return true;
 		}
 
+		$jibres_permission = \dash\user::detail('jibres_permission');
+
+		if($jibres_permission === 'supervisor')
+		{
+			return true;
+		}
+
 		return false;
 	}
 
