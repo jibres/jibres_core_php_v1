@@ -29,6 +29,15 @@ class model
 		if(isset($result['id']))
 		{
 			self::upload_gallery($result['id']);
+
+			if(\dash\request::get('ganje') && \dash\request::is_iframe())
+			{
+				$msg          = [];
+				$msg['type']  = 'closeAndRun';
+				$msg['notif'] = \dash\notif::get_msg();
+				\dash\notif::postMsg($msg);
+			}
+
 			\dash\redirect::to(\dash\url::this(). '/edit?id='. $result['id']);
 		}
 		else

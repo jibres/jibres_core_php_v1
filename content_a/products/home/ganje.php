@@ -36,6 +36,7 @@ $html .= '<div class="m-auto w-96">';
 								$add_args['barcodepage'] = 1;
 							}
 							$add_args['iframe'] = 1;
+							$add_args['ganje'] = 1;
 
 							$add_url .= \dash\request::build_query($add_args);
 
