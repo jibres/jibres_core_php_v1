@@ -9,10 +9,12 @@ class view
 
 		\dash\face::title(T_("Add new product"));
 
-
-		// back
-		\dash\data::back_text(T_('Products'));
-		\dash\data::back_link(\lib\app\back_btn\link::products());
+		if(!\dash\request::is_iframe())
+		{
+			// back
+			\dash\data::back_text(T_('Products'));
+			\dash\data::back_link(\lib\app\back_btn\link::products());
+		}
 
 		\dash\face::btnInsert('aProductData');
 		\dash\face::btnInsertText(T_("Add"));
