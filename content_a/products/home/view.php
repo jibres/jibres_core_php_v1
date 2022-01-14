@@ -66,7 +66,7 @@ class view
 		\dash\data::listUnits($unit_list);
 
 
-		if(\dash\permission::supervisor())
+		// if(\dash\permission::supervisor())
 		{
 			if(!$myProductList && $search_string)
 			{
