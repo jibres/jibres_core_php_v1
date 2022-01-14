@@ -8,8 +8,9 @@ class view
 	{
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
+			'order'             => \dash\request::get('order'),
+			'sort'              => \dash\request::get('sort'),
+			'included_category' => \dash\request::get('included_category'),
 		];
 
 		$barcode = \dash\request::get('barcode');

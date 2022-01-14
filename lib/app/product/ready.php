@@ -297,8 +297,11 @@ class ready
 			}
 		}
 
+		if(!is_array(a($result, 'category_list')))
+		{
+			$result['category_list'] = [];
+		}
 
-		$result['category_list'] = [];
 
 		// set null on return final price to show contact us button
 		if(

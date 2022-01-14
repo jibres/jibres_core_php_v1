@@ -47,6 +47,32 @@ class get
 	}
 
 
+	public static function multi_usage($_product_ids)
+	{
+		if(!$_product_ids)
+		{
+			return false;
+		}
+
+		$query =
+		"
+			SELECT
+				productcategory.id AS `productcategory_id`,
+				productcategory.title,
+				productcategory.slug,
+				productcategoryusage.product_id
+			FROM
+				productcategoryusage
+			INNER JOIN productcategory ON productcategory.id = productcategoryusage.productcategory_id
+			WHERE
+				productcategoryusage.product_id IN ($_product_ids)
+		";
+		$result = \dash\pdo::get($query);
+
+		return $result;
+	}
+
+
 	public static function check_usage_category($_category_id)
 	{
 		$query  = "SELECT * FROM productcategoryusage WHERE productcategoryusage.productcategory_id = $_category_id LIMIT 1 ";
