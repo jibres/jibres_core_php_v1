@@ -63,6 +63,7 @@ class search
 			'websitemode'    => 'bit',
 
 			'pagination'     => 'yes_no',
+			'included_category'     => 'bit',
 		];
 
 
@@ -573,6 +574,12 @@ class search
 		if(is_array($list) && $list)
 		{
 			self::find_stock_list($list);
+
+			if($data['included_category'])
+			{
+				self::load_category($list);
+			}
+
 			$list = array_map(['\\lib\\app\\product\\ready', 'row'], $list);
 		}
 		else
@@ -609,6 +616,41 @@ class search
 				$myList[$productID]['stock'] = $load_multi_stock[$productID]['stock'];
 			}
 		}
+
+		$list = array_values($myList);
+	}
+
+
+	private static function load_category(&$list)
+	{
+		// stock
+		$ids = array_column($list, 'id');
+
+		$myList = array_combine(array_column($list, 'id'), $list);
+
+		$ids = implode(',', $ids);
+
+
+		$load_multi_category = \lib\db\productcategoryusage\get::multi_usage($ids);
+
+		if(!is_array($load_multi_category))
+		{
+			$load_multi_category = [];
+		}
+
+		$load_multi_category = array_combine(array_column($load_multi_category, 'product_id'), $load_multi_category);
+
+		foreach ($load_multi_category as $key => $value)
+		{
+			if(!is_array(a($myList, $value['product_id'], 'category_list')))
+			{
+				$myList[$value['product_id']]['category_list'] = [];
+			}
+
+			$myList[$value['product_id']]['category_list'][] = ['title' => $value['title'], 'slug' => $value['slug']];
+
+		}
+
 
 		$list = array_values($myList);
 	}
