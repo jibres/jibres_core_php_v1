@@ -190,7 +190,7 @@ class ganje
 
 	public static function search(string $_string)
 	{
-		$result = self::run('product/fetch','get', ['q' => $_string]);
+		$result = self::run('product/fetch','get', ['q' => $_string, 'included_category' => true]);
 		return $result;
 	}
 
