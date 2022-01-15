@@ -36,7 +36,7 @@ class view
 
 			\dash\engine\store::force_lock($value);
 
-			$query = "	SELECT * FROM agents where agents.md5= :md5 LIMIT 1 ";
+			$query = "	SELECT * FROM agents where agents.agentmd5= :md5 LIMIT 1 ";
 
 			$find_agnet = \dash\pdo::get($query, $param, null, true);
 			if($find_agnet)
