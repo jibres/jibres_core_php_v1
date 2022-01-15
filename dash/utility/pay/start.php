@@ -293,7 +293,7 @@ class start
 		$insert_transaction =
 		[
 			'caller'           => 'payment',
-			'title'            => $_args['title'] ? $_args['title'] : T_("Pay whith :bank",['bank' => T_(ucfirst($_args['bank']))]),
+			'title'            => $_args['title'] ? $_args['title'] : T_("Pay whith :bank",['bank' => T_(ucfirst(strval($_args['bank'])))]),
 			'currency'         => $_args['currency'],
 			'type'             => $_args['type'] ? $_args['type'] : 'money',
 			'plus'             => $_args['amount'],

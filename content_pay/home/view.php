@@ -75,7 +75,7 @@ class view
 		{
 			foreach ($result as $key => $value)
 			{
-				if(in_array($key, ['payment_response', 'payment_response1', 'payment_response2', 'payment_response3', 'payment_response4']))
+				if(in_array($key, ['payment_response', 'payment_response1', 'payment_response2', 'payment_response3', 'payment_response4']) && $value)
 				{
 					$result[$key] = json_decode($value, true);
 				}

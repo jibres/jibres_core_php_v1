@@ -43,7 +43,7 @@ class apilog
 		self::$apilog['header']         = $headerjson = (self::jsonEncode(\dash\header::get()));
 		self::$apilog['headerlen']      = mb_strlen($headerjson);
 		self::$apilog['body']           = $body = (self::getBody());
-		self::$apilog['bodylen']        = mb_strlen($body);
+		self::$apilog['bodylen']        = $body ? mb_strlen(strval($body)) : null;
 		self::$apilog['datesend']       = date("Y-m-d H:i:s");
 
 		self::$apilog['pagestatus']     = null; // 100
