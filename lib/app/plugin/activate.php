@@ -245,6 +245,7 @@ class activate
 			}
 			else
 			{
+				\dash\pdo::rollback();
 				\dash\log::oops('generate_pay_plugin_error', T_("Oh!, We cannot complete your request. Please contact to administrator"));
 				return false;
 			}
@@ -259,6 +260,7 @@ class activate
 			}
 			else
 			{
+				\dash\pdo::rollback();
 				\dash\log::oops('pluginAfterPayError', T_("Oh!, We cannot complete your request. Please contact to administrator"));
 				return false;
 			}
@@ -369,6 +371,7 @@ class activate
 
 		if(!is_numeric($price))
 		{
+			\dash\pdo::rollback();
 			\dash\notif::error(T_("Invalid periodic key!"));
 			return false;
 		}
@@ -398,15 +401,14 @@ class activate
 		];
 
 
-
-		\dash\pdo::transaction();
 		// check budget
 		$user_budget = \dash\app\transaction\budget::get_and_lock($user_id);
 
 		if($user_budget < $price)
 		{
-			\dash\notif::ok(T_("This plugin is already activated for your business"));
 			\dash\pdo::rollback();
+			\dash\notif::ok(T_("This plugin is already activated for your business"));
+			return true;
 		}
 
 
@@ -426,7 +428,6 @@ class activate
 
 			if(!$transaction_id || !is_numeric($transaction_id))
 			{
-				\dash\pdo::rollback();
 				\dash\pdo::rollback();
 				\dash\log::oops('PluginAfterPayCanNotAddMinusTransaction', T_(__LINE__. "Can not add this action. Please contact to administrator"));
 				return false;
@@ -501,7 +502,6 @@ class activate
 		if(!$action_id)
 		{
 			\dash\pdo::rollback();
-			\dash\pdo::rollback();
 			\dash\log::oops('ErrorInAddNewPluginAction', T_(__LINE__. "Can not add this action. Please contact to administrator"));
 			return false;
 		}
@@ -518,10 +518,6 @@ class activate
 
 		];
 		\dash\log::set('business_plugin', $log);
-
-		\dash\pdo::commit();
-
-
 
 		\dash\pdo::commit();
 

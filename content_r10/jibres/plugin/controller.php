@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\jibres\premium;
+namespace content_r10\jibres\plugin;
 
 
 class controller

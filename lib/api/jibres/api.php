@@ -39,7 +39,7 @@ class api
 		if(\dash\url::isLocal())
 		{
 			// $url = 'https://core.jibres.ir/r10/jibres/';
-			$url = 'https://core.jibres.local/fa/r10/jibres/';
+			$url = 'https://core.jibres.local/r10/jibres/';
 		}
 		else
 		{
