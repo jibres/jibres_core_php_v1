@@ -7,7 +7,7 @@ class controller
 	public static function routing()
 	{
 		// if the user login redirect to base
-		if(\dash\permission::check('EnterByAnother'))
+		if(\dash\permission::check('EnterByAnother') && !\dash\request::get('referer'))
 		{
 			// the admin can login by another session
 			// never redirect to main
@@ -17,7 +17,14 @@ class controller
 			if(\dash\user::login())
 			{
 				\dash\notif::info(T_("You are login"));
-				$url = \dash\url::kingdom();
+
+				$url = \dash\utility\enter::find_redirect_url();
+
+				if(!$url || $url === \dash\url::pwd())
+				{
+					$url = \dash\url::kingdom();
+				}
+
 				\dash\redirect::to($url);
 				return;
 			}
