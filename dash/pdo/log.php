@@ -5,6 +5,26 @@ class log
 {
 
 	/**
+	 * Save log if debug mode is on
+	 */
+	public static function log_if_debug($_text, $_time = null, $_name = 'log.sql', $_type = 'sql')
+	{
+		// if debug mod is true save all string query
+		if(\dash\engine\error::debug_mode() && !\dash\temp::get('force_stop_query_log'))
+		{
+			if(\dash\url::directory() === 'smile')
+			{
+				// nothing
+			}
+			else
+			{
+				self::log($_text, $_time, $_name, $_type);
+			}
+		}
+	}
+
+
+	/**
 	 * Save error log in error.sql
 	 */
 	public static function log_error($_text, $_time = null, $_name = 'error.sql', $_type = 'sql')
