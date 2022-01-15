@@ -127,7 +127,7 @@ class connection
 
 			\dash\pdo\log::log($e->getMessage());
 
-			return self::make_error(503, T_("Can not create PDO link!"), $_option);
+			return self::make_error(503, T_("Please contact administrator!"). ' 1001', $_option);
 		}
 
 
