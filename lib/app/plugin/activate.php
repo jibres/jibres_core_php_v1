@@ -490,7 +490,7 @@ class activate
 
 			if(a($plugin_detail, 'max_period'))
 			{
-				if(strtotime($insert_action['expiredate']) > (time() + strtotime($plugin_detail['max_period'])))
+				if(strtotime($insert_action['expiredate']) > (strtotime($plugin_detail['max_period'])))
 				{
 					\dash\pdo::rollback();
 					\dash\notif::error(T_("Can not active this plugin more than this time!"));
