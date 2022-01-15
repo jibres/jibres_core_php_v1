@@ -125,7 +125,7 @@ class connection
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log($e->getMessage());
+			\dash\pdo\log::log($e->getMessage(), 0, 'error.sql');
 
 			return self::make_error(503, T_("Please contact administrator!"). ' 1001', $_option);
 		}
