@@ -486,8 +486,12 @@ function T_($_msgid, $_replace = null)
 		{
 			foreach ($replaceArray as $key => $value)
 			{
-				$result = str_replace(':'.$key, T_($value, false), $result);
-				// if we are in index 0, use ucfirst for english langs
+				$temp = T_($value, false);
+				if($temp)
+				{
+					$result = str_replace(':'.$key, $temp, $result);
+					// if we are in index 0, use ucfirst for english langs
+				}
 			}
 		}
 	}
