@@ -50,6 +50,8 @@ class view
 
 		\dash\log::to_supervisor('#Convert sitebuilder complete '. date("Y-m-d H:i:s"). ' In :'. (microtime(true) - $start). 's' );
 
+		\dash\log::to_supervisor('user_store_result:'. json_encode($result));
+
 		var_dump($result);
 
 		var_dump(microtime(true) - $start);
