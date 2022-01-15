@@ -32,7 +32,7 @@ if(\dash\request::get())
 /*========================================
 =            search in plugin            =
 ========================================*/
-$html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'">';
+$html .= '<form method="get" class="mt-5 mb-5" autocomplete="off" action="'.\dash\url::that().'">';
 {
   $html .= '<div class="input">';
   {

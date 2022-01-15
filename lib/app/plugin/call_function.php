@@ -43,6 +43,10 @@ class call_function
 				$result = call_user_func([$namespace, $_function]);
 				return $result;
 			}
+			else
+			{
+				trigger_error('Plugin function not exists! ('. $_function. ')');
+			}
 
 		}
 
