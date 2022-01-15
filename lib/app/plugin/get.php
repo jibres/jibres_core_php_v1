@@ -202,11 +202,7 @@ class get
 	{
 		$detail = \lib\app\plugin\call_function::detail($_plugin);
 
-		$title = floatval(a($detail, 'title'));
-		if(!$title || !is_numeric($title))
-		{
-			$title = null;
-		}
+		$title = a($detail, 'title');
 
 		return $title;
 	}
