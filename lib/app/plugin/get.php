@@ -24,6 +24,8 @@ class get
 			/* Discount code */
 			'discount_profesional',
 
+			'ganje_product',
+
 
 			/*=====  End of Admin plugins  ======*/
 
