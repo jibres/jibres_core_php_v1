@@ -9,6 +9,7 @@ class remove_brand
 		return
 		[
 			'type'          => 'periodic',
+			'max_period'    => '2year', // use in strtotime
 			'comperatprice' => 200000,
 			'price'         => 100000,
 			'price_list'  =>

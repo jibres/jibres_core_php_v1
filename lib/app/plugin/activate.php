@@ -159,6 +159,8 @@ class activate
 		}
 		else
 		{
+
+			// print_r($_args); print_r($exist_plugin_record); print_r($plugin_detail); exit;
 			// in request activate needless to save start date and end date
 			// // calculate start date and end date and fill the $insert_action
 		}
@@ -387,11 +389,6 @@ class activate
 			$plus_day  = \lib\app\plugin\get::plus_day($plugin, $periodic);
 		}
 
-		if($plus_day)
-		{
-			$max_day = 365;
-			// check max day
-		}
 
 		// update plugin
 		$update_plugin =
@@ -490,6 +487,16 @@ class activate
 			$insert_action['plusday']    = $plus_day;
 			$insert_action['expiredate'] = date("Y-m-d H:i:s", $datestart + \lib\app\plugin\get::day_to_time($plus_day));
 			$insert_action['desc']       = $action_description;
+
+			if(a($plugin_detail, 'max_period'))
+			{
+				if(strtotime($insert_action['expiredate']) > (time() + strtotime($plugin_detail['max_period'])))
+				{
+					\dash\pdo::rollback();
+					\dash\notif::error(T_("Can not active this plugin more than this time!"));
+					return false;
+				}
+			}
 
 			$update_plugin['expiredate'] = $insert_action['expiredate'];
 		}
