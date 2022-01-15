@@ -598,7 +598,7 @@ class sidebar
 			$menu["plugins"] =
 			[
 				'title'     => T_("Plugins"),
-				'url'       => \dash\url::kingdom().'/a/plugins',
+				'url'       => \dash\url::kingdom().'/a/plugin',
 				'icon'      => 'Apps',
 				'iconColor' => '#da9e51',
 			];
