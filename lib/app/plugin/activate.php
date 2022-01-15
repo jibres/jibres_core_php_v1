@@ -160,9 +160,22 @@ class activate
 		else
 		{
 
-			// print_r($_args); print_r($exist_plugin_record); print_r($plugin_detail); exit;
-			// in request activate needless to save start date and end date
-			// // calculate start date and end date and fill the $insert_action
+
+			$plus_day  = \lib\app\plugin\get::plus_day($plugin, $data['periodic']);
+
+			list($datestart, $action_description) = self::detect_plugin_date_start($plugin_id, $exist_plugin_record);
+
+			$new_date_expire = date("Y-m-d H:i:s", $datestart + \lib\app\plugin\get::day_to_time($plus_day));
+
+			if(a($plugin_detail, 'max_period'))
+			{
+				if(strtotime($new_date_expire) > (strtotime($plugin_detail['max_period'])))
+				{
+					\dash\pdo::rollback();
+					\dash\notif::error(T_("Can not active this plugin more than this time!"));
+					return false;
+				}
+			}
 		}
 
 
@@ -454,31 +467,8 @@ class activate
 			// calculate start date and end date and fill the $insert_action
 			$action_description = null;
 
-			$get_max_expiredate = \lib\db\store_plugin_action\get::max_expire_date($plugin_id);
-			if(!$get_max_expiredate || !is_string($get_max_expiredate) || strtotime($get_max_expiredate) === false)
-			{
-				$action_description = 'Max expiredate not found or is not valid datetime';
-				$datestart = time();
-			}
-			elseif(a($exist_plugin_record, 'status') !== 'enable')
-			{
-				$action_description = 'Master plugin record is not enable! start date set on today';
-				$datestart = time();
-			}
-			else
-			{
-				$get_max_expiredate_time = strtotime($get_max_expiredate);
-				if($get_max_expiredate_time >= time())
-				{
-					$action_description = 'Start date set after last expire date';
-					$datestart = $get_max_expiredate_time;
-				}
-				else
-				{
-					$action_description = 'The start date was set today because the last expiration date has passed';
-					$datestart = time();
-				}
-			}
+
+			list($datestart, $action_description) = self::detect_plugin_date_start($plugin_id, $exist_plugin_record);
 
 			$plus_day  = \lib\app\plugin\get::plus_day($plugin, $periodic);
 
@@ -536,6 +526,48 @@ class activate
 
 	}
 
+
+	/**
+	 * Detect max expire date and return the new start date
+	 *
+	 * @param      <type>  $_plugin_id  The plugin identifier
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	private static function detect_plugin_date_start($_plugin_id, $_exist_plugin_record) : array
+	{
+		$action_description = null;
+		$datestart          = null;
+
+		$get_max_expiredate = \lib\db\store_plugin_action\get::max_expire_date($_plugin_id);
+		if(!$get_max_expiredate || !is_string($get_max_expiredate) || strtotime($get_max_expiredate) === false)
+		{
+			$action_description = 'Max expiredate not found or is not valid datetime';
+			$datestart = time();
+		}
+		elseif(a($_exist_plugin_record, 'status') !== 'enable')
+		{
+			$action_description = 'Master plugin record is not enable! start date set on today';
+			$datestart = time();
+		}
+		else
+		{
+			$get_max_expiredate_time = strtotime($get_max_expiredate);
+			if($get_max_expiredate_time >= time())
+			{
+				$action_description = 'Start date set after last expire date';
+				$datestart = $get_max_expiredate_time;
+			}
+			else
+			{
+				$action_description = 'The start date was set today because the last expiration date has passed';
+				$datestart = time();
+			}
+		}
+
+		return [$datestart, $action_description];
+
+	}
 
 	/**
 	 * Admin can add force one plugin to business
