@@ -9,7 +9,12 @@ class log
 	 */
 	public static function log_error($_text, $_time = null, $_name = 'error.sql', $_type = 'sql')
 	{
-		return self::log($_text, $_time, $_name, $_type);
+		self::log($_text, $_time, $_name, $_type);
+
+		if(\dash\url::isLocal())
+		{
+			self::log(json_encode(debug_backtrace(), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT), $_time, $_name, $_type);
+		}
 	}
 
 
