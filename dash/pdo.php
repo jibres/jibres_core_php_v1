@@ -123,7 +123,7 @@ class pdo
 				}
 				else
 				{
-					\dash\pdo\log::log(json_encode(func_get_args()). ' -- Syntax error ', 0, 'error.sql');
+					\dash\pdo\log::log_error(json_encode(func_get_args()). ' -- Syntax error ', 0, 'error.sql');
 					return false;
 				}
 
@@ -149,7 +149,7 @@ class pdo
 			$temp_error .= $error. ' - ';
 			$temp_error .= ' -- '. \dash\pdo\connection::get_last_fuel_detail();
 
-			\dash\pdo\log::log($temp_error, $qry_exec_time, 'error.sql');
+			\dash\pdo\log::log_error($temp_error, $qry_exec_time, 'error.sql');
 
 			if(\dash\url::isLocal())
 			{
@@ -302,9 +302,9 @@ class pdo
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log($e->getMessage());
+			\dash\pdo\log::log_error($e->getMessage());
 
-			\dash\notif::error(T_("Can not start transaction on PDO link!"));
+			\dash\notif::error(T_("Can not start your request!"). ' T1001');
 
 			return false;
 		}
@@ -333,9 +333,9 @@ class pdo
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log($e->getMessage());
+			\dash\pdo\log::log_error($e->getMessage());
 
-			\dash\notif::error(T_("Can not commit PDO link!"));
+			\dash\notif::error(T_("Can not save your request!"). ' C1001');
 
 			return false;
 		}
@@ -363,9 +363,9 @@ class pdo
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log($e->getMessage());
+			\dash\pdo\log::log_error($e->getMessage());
 
-			\dash\notif::error(T_("Can not rollback PDO link!"));
+			\dash\notif::error(T_("Can not close your request!"). ' R1001');
 
 			return false;
 		}
@@ -398,9 +398,9 @@ class pdo
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log($e->getMessage());
+			\dash\pdo\log::log_error($e->getMessage());
 
-			\dash\notif::error(T_("Can not get insert id in PDO link!"));
+			\dash\notif::error(T_("Can not get id!"). ' I1001');
 
 			return false;
 		}

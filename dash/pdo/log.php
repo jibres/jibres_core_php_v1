@@ -3,6 +3,16 @@ namespace dash\pdo;
 
 class log
 {
+
+	/**
+	 * Save error log in error.sql
+	 */
+	public static function log_error($_text, $_time = null, $_name = 'error.sql', $_type = 'sql')
+	{
+		return self::log($_text, $_time, $_name, $_type);
+	}
+
+
 	/**
 	 * save log of sql request into file for debug
 	 * @param  [type] $_text [description]
