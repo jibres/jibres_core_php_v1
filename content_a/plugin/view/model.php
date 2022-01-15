@@ -30,12 +30,6 @@ class model
 			\dash\redirect::pwd();
 			return;
 		}
-		else
-		{
-			\dash\notif::generate_jibres_api_notif($result);
-			return false;
-		}
-
 
 	}
 }

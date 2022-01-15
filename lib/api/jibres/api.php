@@ -138,13 +138,8 @@ class api
 			\dash\notif::error('Jibres: Can not parse JSON!');
 			return false;
 		}
-		else
-		{
-			if(\dash\permission::supervisor())
-			{
-				\dash\notif::generate_jibres_api_notif($result);
-			}
-		}
+
+		\dash\notif::generate_jibres_api_notif($result);
 
 		return $result;
 
