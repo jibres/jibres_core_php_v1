@@ -173,9 +173,10 @@ class pdo
 			}
 			else
 			{
-				\dash\pdo\log::log($query_log . ' -- '. \dash\pdo\connection::get_last_fuel_detail(), $qry_exec_time);
+				\dash\pdo\log::log_if_debug($query_log . ' -- '. \dash\pdo\connection::get_last_fuel_detail(), $qry_exec_time);
 			}
 		}
+
 		// calc exex time in ms
 		$qry_exec_time_ms = round($qry_exec_time*1000);
 		// if spend more time, save it in special file
@@ -297,7 +298,11 @@ class pdo
 
 		try
 		{
-			return $link->beginTransaction();
+			$result = $link->beginTransaction();
+
+			\dash\pdo\log::log_if_debug('START TRANSACTION');
+
+			return $result;
 		}
 		catch (\Exception $e)
 		{
@@ -328,7 +333,11 @@ class pdo
 
 		try
 		{
-			return $link->commit();
+			$result = $link->commit();
+
+			\dash\pdo\log::log_if_debug('COMMIT');
+
+			return $result;
 		}
 		catch (\Exception $e)
 		{
@@ -358,7 +367,11 @@ class pdo
 
 		try
 		{
-			return $link->rollBack();
+			$result = $link->rollBack();
+
+			\dash\pdo\log::log_if_debug('ROLLBACK');
+
+			return $result;
 		}
 		catch (\Exception $e)
 		{
