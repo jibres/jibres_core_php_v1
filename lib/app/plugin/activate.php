@@ -503,6 +503,7 @@ class activate
 			return false;
 		}
 
+		\dash\pdo::commit();
 		// send notif to supervisor
 		$log =
 		[
@@ -512,11 +513,9 @@ class activate
 			'my_page_url'       => a($_args, 'page_url'),
 			'my_business_title' => a($load_busness_detail, 'title'),
 			'my_price'          => $price,
-
 		];
 		\dash\log::set('business_plugin', $log);
 
-		\dash\pdo::commit();
 
 		// send request to api.busisness.jibres to alert him the plugin is payed
 
