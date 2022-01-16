@@ -20,20 +20,20 @@ class get
 
 			'ganje_product',
 
-			// test period plugin
-			'remove_brand',
+			// // test period plugin
+			// 'remove_brand',
 
-			/* Discount code */
-			'discount_profesional',
+			// /* Discount code */
+			// 'discount_profesional',
 
-			/* Site blog  */
-			'site_body_blog_b4',
+			// /* Site blog  */
+			// 'site_body_blog_b4',
 
-			/* Responsive */
-			'site_options_responsive_footer',
+			// /* Responsive */
+			// 'site_options_responsive_footer',
 
-			// test free plugin
-			'site_body_blog_free',
+			// // test free plugin
+			// 'site_body_blog_free',
 
 
 
