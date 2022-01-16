@@ -19,6 +19,7 @@ class ganje_product
 			'icon'          => ['gem', 'bootstrap'],
 			'description'   => self::desc(),
 			'keywords'      => [T_("ganje"), T_("product"), T_("barcode")],
+			'currency'      => \lib\currency::jibres_currency(true),
 		];
 
 	}

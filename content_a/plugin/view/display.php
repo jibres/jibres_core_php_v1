@@ -52,9 +52,9 @@ $html .= '<div class="">';
 					$html .= '</div>';
 				}
 
-				$html .= '<div class="rounded-lg p-1">';
+				$html .= '<div class="alert-info">';
 				{
-					$html .= T_("Price");
+					$html .= '<span class=""> '.  T_("Price"). ' </span>';
 
 					if(a($pluginDetail, 'type') === 'periodic' && is_array(a($pluginDetail, 'price_list')))
 					{
@@ -79,14 +79,24 @@ $html .= '<div class="">';
 					{
 						if(a($pluginDetail, 'price') === 0)
 						{
-							$html .= '<div class="text-green-500">'.  T_("Free"). '</div>';
+							$html .= '<span class="text-green-500">'.  T_("Free"). '</span>';
 						}
 						else
 						{
-							$html .= '<div class="">'.  \dash\fit::number(a($pluginDetail, 'price')). '</div>';
+							$html .= '<span class="">';
+							{
+								$html .= \dash\fit::number(a($pluginDetail, 'price'));
+
+								$html .= '<small class=""> ';
+								{
+									$html .= a($pluginDetail, 'currency');
+								}
+								$html .= '</small>';
+
+							}
+							$html .= '</span>';
 						}
 					}
-
 				}
 				$html .= '</div>';
 
@@ -124,7 +134,7 @@ $html .= '<div class="">';
 				}
 				else
 				{
-					$html .= '<div class="text-green-500 font-bold">'.  T_('Activated'). '</div>';
+					$html .= '<div class="alert-success mt-4 font-bold">'.  T_('This plugin is active in your business'). '</div>';
 				}
 
 
