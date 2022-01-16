@@ -53,23 +53,7 @@ $html .= '<div class="">';
 					$html .= $more_detail;
 				}
 
-				if(a($pluginDetail, 'keywords'))
-				{
-					$html .= '<div class="my-3">';
-					{
-						foreach ($pluginDetail['keywords'] as $tag)
-						{
-							$link = \dash\url::this(). \dash\request::full_get(['category' => $tag]);
 
-							$html .= '<a href="'.$link.'" class="link-primary p-3">';
-							{
-								$html .= '#'. $tag;
-							}
-							$html .= '</a>';
-						}
-					}
-					$html .= '</div>';
-				}
 
 				$html .= '<div class="alert-info">';
 				{
@@ -156,26 +140,57 @@ $html .= '<div class="">';
 				{
 					$html .= '<div class="alert-success mt-4 font-bold">'.  T_('This plugin is active in your business'). '</div>';
 				}
-
-
 			}
 			$html .= '</div>';
 
-			if($payable)
+			$html .= '<div class="row">';
 			{
-				$html .= '<div class="p-4">';
+				$html .= '<div class="c-auto">';
 				{
-					if(a($pluginDetail, 'price'))
+
+					if($payable)
 					{
-						$html .= '<button class="btn-success">'. T_("Buy now"). '</button>';
+						$html .= '<div class="p-4">';
+						{
+							if(a($pluginDetail, 'price'))
+							{
+								$html .= '<button class="btn-success">'. T_("Buy now"). '</button>';
+							}
+							else
+							{
+								$html .= '<button class="btn-success">'. T_("Get it for free"). '</button>';
+							}
+						}
+						$html .= '</div>';
 					}
-					else
+				}
+				$html .= '</div>';
+
+				$html .= '<div class="c"></div>';
+				$html .= '<div class="c-auto">';
+				{
+					if(a($pluginDetail, 'keywords'))
 					{
-						$html .= '<button class="btn-success">'. T_("Get it for free"). '</button>';
+						$html .= '<div class="p-4">';
+						{
+							foreach ($pluginDetail['keywords'] as $tag)
+							{
+								$link = \dash\url::this(). \dash\request::full_get(['category' => $tag]);
+
+								$html .= '<a href="'.$link.'" class="link-primary p-2">';
+								{
+									$html .= '#'. $tag;
+								}
+								$html .= '</a>';
+							}
+						}
+						$html .= '</div>';
 					}
 				}
 				$html .= '</div>';
 			}
+			$html .= '</div>';
+
 
 		}
 		$html .= '</div>';
