@@ -50,59 +50,64 @@ $html .= '<div class="">';
 
 				if($more_detail = \lib\app\plugin\get::more_detail(a($pluginDetail, 'name')))
 				{
-					$html .= $more_detail;
+					$html .= '<div class="mb-4">';
+					{
+						$html .= $more_detail;
+					}
+					$html .= '</div>';
 				}
 
-
-
-				$html .= '<div class="alert-info">';
+				if($payable)
 				{
-					$html .= '<span class=""> '.  T_("Price"). ' </span>';
-
-					if(a($pluginDetail, 'type') === 'periodic' && is_array(a($pluginDetail, 'price_list')))
+					$html .= '<div class="alert-info">';
 					{
-						foreach ($pluginDetail['price_list'] as $key => $value)
-						{
+						$html .= '<span class=""> '.  T_("Price"). ' </span>';
 
-							$html .= '<div class="radio3">';
+						if(a($pluginDetail, 'type') === 'periodic' && is_array(a($pluginDetail, 'price_list')))
+						{
+							foreach ($pluginDetail['price_list'] as $key => $value)
 							{
-								$checked = null;
-								if(a($value, 'default'))
-								{
-									$checked = 'checked';
-								}
 
-								$html .= '<input type="radio" name="periodic" value="'.a($value, 'key').'" id="periodic_'.a($value, 'key').'" '.$checked.'>';
-								$html .= '<label for="periodic_'.a($value, 'key').'">'.a($value, 'title').'</label>';
+								$html .= '<div class="radio3">';
+								{
+									$checked = null;
+									if(a($value, 'default'))
+									{
+										$checked = 'checked';
+									}
+
+									$html .= '<input type="radio" name="periodic" value="'.a($value, 'key').'" id="periodic_'.a($value, 'key').'" '.$checked.'>';
+									$html .= '<label for="periodic_'.a($value, 'key').'">'.a($value, 'title').'</label>';
+								}
+								$html .= '</div>';
 							}
-							$html .= '</div>';
-						}
-					}
-					else
-					{
-						if(a($pluginDetail, 'price') === 0)
-						{
-							$html .= '<span class="text-green-500">'.  T_("Free"). '</span>';
 						}
 						else
 						{
-							$html .= '<span class="">';
+							if(a($pluginDetail, 'price') === 0)
 							{
-								$html .= \dash\fit::number(a($pluginDetail, 'price'));
-
-								$html .= '<small class=""> ';
-								{
-									$html .= a($pluginDetail, 'currency');
-								}
-								$html .= '</small>';
-
+								$html .= '<span class="text-green-500">'.  T_("Free"). '</span>';
 							}
-							$html .= '</span>';
+							else
+							{
+								$html .= '<span class="">';
+								{
+									$html .= \dash\fit::number(a($pluginDetail, 'price'));
+
+									$html .= '<small class=""> ';
+									{
+										$html .= a($pluginDetail, 'currency');
+									}
+									$html .= '</small>';
+
+								}
+								$html .= '</span>';
+							}
 						}
 					}
-				}
-				$html .= '</div>';
+					$html .= '</div>';
 
+				}
 
 				if($payable)
 				{
