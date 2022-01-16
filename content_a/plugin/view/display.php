@@ -13,7 +13,7 @@ $html .= '<div class="">';
 {
 	$html .= '<form method="post" autocomplete="off" id="pluginadd">';
 	{
-		$html .= '<div class="bg-white">';
+		$html .= '<div class="bg-white rounded-lg">';
 		{
 			$html .= '<div class="p-4">';
 			{
@@ -32,6 +32,24 @@ $html .= '<div class="">';
 				if($more_detail = \lib\app\plugin\get::more_detail(a($pluginDetail, 'name')))
 				{
 					$html .= $more_detail;
+				}
+
+				if(a($pluginDetail, 'keywords'))
+				{
+					$html .= '<div class="mt-3">';
+					{
+						foreach ($pluginDetail['keywords'] as $tag)
+						{
+							$link = \dash\url::this(). \dash\request::full_get(['category' => $tag]);
+
+							$html .= '<a href="'.$link.'" class="link-primary p-3">';
+							{
+								$html .= '#'. $tag;
+							}
+							$html .= '</a>';
+						}
+					}
+					$html .= '</div>';
 				}
 
 				$html .= '<div class="rounded-lg p-1">';
