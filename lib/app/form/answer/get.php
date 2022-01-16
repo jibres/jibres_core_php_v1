@@ -123,7 +123,16 @@ class get
 	public static function HTMLshowDetaiRecrod($value)
 	{
 		$result = '';
-		if(a($value, 'province_name') || a($value, 'city_name'))
+
+		if(a($value, 'item_type') === 'country')
+		{
+			if(a($value, 'answer'))
+			{
+				$result .= \dash\utility\location\countres::get_localname($value['answer']);
+			}
+
+		}
+		elseif(a($value, 'province_name') || a($value, 'city_name'))
 		{
 			$result.= a($value, 'province_name');
 			$result.= a($value, 'city_name');
