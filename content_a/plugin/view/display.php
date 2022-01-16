@@ -8,77 +8,94 @@ $is_activated = \lib\app\plugin\business::is_activated(\dash\data::pluginKey());
 $payable      = (!$is_activated || a($pluginDetail, 'type') !== 'once');
 
 $html = '';
-$html .= '<div class="max-w-xl m-auto">';
+$html .= '<div class="">';
 {
 	$html .= '<form method="post" autocomplete="off" id="pluginadd">';
 	{
-		/*=====================================
-		=            plugin                  =
-		=====================================*/
-		$html .= '<div class="box">';
+		$html .= '<div class="bg-white">';
 		{
-			$html .= '<div class="body">';
+			$html .= '<div class="p-4">';
 			{
-				$html .= a($pluginDetail, 'title');
-				$html .= '<br>';
-				$html .= a($pluginDetail, 'description');
-
-				$html .= '<br>';
-				$html .= 'Price';
-				$html .= '<br>';
-
-				if(a($pluginDetail, 'type') === 'periodic' && is_array(a($pluginDetail, 'price_list')))
+				$html .= '<h1 class="text-3xl">';
 				{
-					foreach ($pluginDetail['price_list'] as $key => $value)
-					{
-
-						$html .= '<div class="radio3">';
-						{
-							$checked = null;
-							if(a($value, 'default'))
-							{
-								$checked = 'checked';
-							}
-
-							$html .= '<input type="radio" name="periodic" value="'.a($value, 'key').'" id="periodic_'.a($value, 'key').'" '.$checked.'>';
-							$html .= '<label for="periodic_'.a($value, 'key').'">'.a($value, 'title').'</label>';
-						}
-						$html .= '</div>';
-					}
+					$html .= a($pluginDetail, 'title');
 				}
-				else
+				$html .= '</h1>';
+
+				$html .= '<p class="mb-4">';
 				{
-					if(a($pluginDetail, 'price') === 0)
+					$html .= a($pluginDetail, 'description');
+				}
+				$html .= '</p>';
+
+				$html .= '<div class="rounded-lg p-1">';
+				{
+					$html .= T_("Price");
+
+					if(a($pluginDetail, 'type') === 'periodic' && is_array(a($pluginDetail, 'price_list')))
 					{
-						$html .= '<div class="text-green-500">'.  T_("Free"). '</div>';
+						foreach ($pluginDetail['price_list'] as $key => $value)
+						{
+
+							$html .= '<div class="radio3">';
+							{
+								$checked = null;
+								if(a($value, 'default'))
+								{
+									$checked = 'checked';
+								}
+
+								$html .= '<input type="radio" name="periodic" value="'.a($value, 'key').'" id="periodic_'.a($value, 'key').'" '.$checked.'>';
+								$html .= '<label for="periodic_'.a($value, 'key').'">'.a($value, 'title').'</label>';
+							}
+							$html .= '</div>';
+						}
 					}
 					else
 					{
-						$html .= '<div class="">'.  \dash\fit::number(a($pluginDetail, 'price')). '</div>';
+						if(a($pluginDetail, 'price') === 0)
+						{
+							$html .= '<div class="text-green-500">'.  T_("Free"). '</div>';
+						}
+						else
+						{
+							$html .= '<div class="">'.  \dash\fit::number(a($pluginDetail, 'price')). '</div>';
+						}
 					}
+
 				}
+				$html .= '</div>';
+
 
 				if($payable)
 				{
 					if(\dash\data::myBudget() && a($pluginDetail, 'price'))
 					{
-						$html .= '<div class="alert2">';
+						$html .= '<div class=" rounded-lg">';
 						{
-							$html .= 'Your jibres budget';
-							$html .= '<br>';
-							$html .= \dash\data::myBudget_budget();
-							$html .= '<br>';
-							$html .= \dash\data::myBudget_currency();
+
+							$html .= '<div class="check1">';
+							{
+								$html .= '<input type="checkbox" name="use_budget" id="use_budget">';
+								$html .= '<label for="use_budget">';
+								{
+									$html .= T_('Use from budget');
+									$html .= '( ';
+									{
+										$html .= \dash\fit::number(\dash\data::myBudget_budget());
+										$html .= ' ';
+										$html .= \dash\data::myBudget_currency();
+									}
+									$html .= ' )';
+
+								}
+								$html .= '</label>';
+							}
+							$html .= '</div>';
 						}
 						$html .= '</div>';
 
 
-						$html .= '<div class="check1">';
-						{
-							$html .= '<input type="checkbox" name="use_budget" id="use_budget">';
-							$html .= '<label for="use_budget">Use budget</label>';
-						}
-						$html .= '</div>';
 					}
 				}
 				else
@@ -92,18 +109,18 @@ $html .= '<div class="max-w-xl m-auto">';
 
 			if($payable)
 			{
-				$html .= '<footer>';
+				$html .= '<div class="p-4">';
 				{
 					if(a($pluginDetail, 'price'))
 					{
-						$html .= '<button class="btn-danger">'. T_("Buy"). '</button>';
+						$html .= '<button class="btn-success">'. T_("Buy"). '</button>';
 					}
 					else
 					{
 						$html .= '<button class="btn-success">'. T_("Get it for free"). '</button>';
 					}
 				}
-				$html .= '</footer>';
+				$html .= '</div>';
 			}
 
 		}
