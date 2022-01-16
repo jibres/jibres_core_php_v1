@@ -56,9 +56,9 @@ class permission
 	// make an array to draw permission list in quick view
 	public static function categorize_list()
 	{
-		$list     = \dash\plan::public_show_master_contain();
+		$list     = \dash\plan_list::public_show_master_contain();
 
-		$group    = \dash\plan::group_permission();
+		$group    = \dash\plan_list::group_permission();
 
 		$business = \dash\engine\store::inStore();
 
