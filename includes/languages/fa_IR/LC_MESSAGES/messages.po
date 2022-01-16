@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-12 18:30+0330\n"
-"PO-Revision-Date: 2022-01-12 18:31+0330\n"
+"POT-Creation-Date: 2022-01-16 16:28+0330\n"
+"PO-Revision-Date: 2022-01-16 16:34+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -731,7 +731,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:83
 #: includes/languages/trans_static_public.php:193
 #: lib/app/plugin/items/discount/discount_profesional.php:17
-#: lib/app/plugin/items/remove/remove_brand.php:35
+#: lib/app/plugin/items/remove/remove_brand.php:36
 #: lib/app/plugin/items/site/site_body_blog_b4.php:18
 #: lib/app/plugin/items/site/site_body_blog_free.php:18
 msgid "Description"
@@ -1105,7 +1105,7 @@ msgstr "ایمیل"
 msgid "Your Message"
 msgstr "پیام شما"
 
-#: content/contact/display.php:63 lib/app/plugin/items/remove/remove_brand.php:36
+#: content/contact/display.php:63 lib/app/plugin/items/remove/remove_brand.php:37
 msgid "jibres"
 msgstr "جیبرس"
 
@@ -2173,10 +2173,10 @@ msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی د
 #: content/home/display.php:35 content/pricing/display.php:38
 #: content/pricing/priceTable.php:7 content/pricing/priceTable.php:18
 #: content_a/cart/add/display.php:131 content_a/order/summary.php:54
-#: content_a/plugin/home/display.php:75 content_a/plugin/view/display.php:53
-#: content_a/products/edit/block/price.php:68 content_business/cart/cartSummary.php:40
-#: content_business/p/home/blocks/detail.php:75 content_love/plugin/all/display.php:65
-#: content_love/plugin/view/display.php:29 content_site/assemble/wrench/price.php:36
+#: content_a/plugin/view/display.php:89 content_a/products/edit/block/price.php:68
+#: content_business/cart/cartSummary.php:40 content_business/p/home/blocks/detail.php:75
+#: content_love/plugin/all/display.php:65 content_love/plugin/view/display.php:29
+#: content_site/assemble/wrench/price.php:36
 msgid "Free"
 msgstr "رایگان"
 
@@ -2271,7 +2271,7 @@ msgstr "صد البته با عشق ساختیمش 😍"
 msgid "Jibres has created for futuristic entrepreneurs"
 msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته شده است"
 
-#: content/home/display.php:100 content_a/products/add/view.php:14
+#: content/home/display.php:100 content_a/products/add/view.php:15
 #: content_a/products/edit/view.php:22 content_a/products/home/view.php:11
 #: content_a/products/quick/view.php:12 content_a/setting/home/display.php:18
 #: content_a/setting/menu/item/display.php:20 content_site/body/product/option.php:17
@@ -3333,10 +3333,11 @@ msgstr "طلایی"
 #: content/pricing/display.php:46 content/pricing/display.php:69
 #: content/pricing/display.php:98 content_a/chap/size-receipt/receipt.php:123
 #: content_a/order/home/display.php:16 content_a/order/products/display.php:50
-#: content_a/order/products/display.php:52 content_a/pricehistory/display.php:8
-#: content_a/pricehistory/display.php:39 content_a/pricehistory/display.php:77
-#: content_a/products/child/display.php:95 content_a/products/child/display.php:165
-#: content_a/products/share/display.php:32 content_a/products/share/model.php:62
+#: content_a/order/products/display.php:52 content_a/plugin/view/display.php:64
+#: content_a/pricehistory/display.php:8 content_a/pricehistory/display.php:39
+#: content_a/pricehistory/display.php:77 content_a/products/child/display.php:95
+#: content_a/products/child/display.php:165 content_a/products/share/display.php:32
+#: content_a/products/share/model.php:62
 #: content_a/products/variants/display-add-product.php:30
 #: content_a/products/variants/display-add-product.php:69 content_a/sale/display.php:42
 #: content_business/p/home/blocks/detail.php:56 content_business/p/home/view.php:106
@@ -5048,7 +5049,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/turnover/display.php:185 content_a/android/apk/display.php:32
 #: content_a/discount/add/display.php:583 content_a/form/answer/export/display.php:42
 #: content_a/form/itemLink.php:14 content_a/order/detail/display.php:29
-#: content_a/products/edit/block/sidebar-menu.php:7
+#: content_a/products/edit/block/sidebar-menu.php:5
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
 #: content_cms/comments/view/display.php:127 content_crm/member/export/display.php:47
 #: content_crm/member/glance/display.php:270 content_crm/sms/view/display.php:30
@@ -5094,8 +5095,8 @@ msgstr "وضعیت"
 #: content_a/category/quickaccess/display.php:56 content_a/category/sort/display.php:29
 #: content_a/form/analytics/addfilter/display.php:11
 #: content_a/form/item/choice/display.php:11 content_a/form/tag/add/display.php:12
-#: content_a/order/products/display.php:66 content_a/products/add/view.php:18
-#: content_a/products/bullet/display.php:21 content_a/products/home/ganje.php:37
+#: content_a/order/products/display.php:66 content_a/products/add/view.php:20
+#: content_a/products/bullet/display.php:21 content_a/products/home/ganje.php:129
 #: content_a/products/property/add/display.php:60
 #: content_a/products/property/display.php:73 content_a/products/quick/view.php:21
 #: content_a/products/variants/display-add-new-child.php:63
@@ -5739,13 +5740,13 @@ msgstr "کپی"
 msgid "Make copy from accounting document"
 msgstr "ساخت یک نسخه کپی از سند حسابداری"
 
-#: content_a/accounting/doc/edit/model.php:152 content_a/products/edit/model.php:370
+#: content_a/accounting/doc/edit/model.php:152 content_a/products/edit/model.php:399
 #: content_cms/files/add/model.php:35 content_cms/files/remove/model.php:32
 #: content_cms/posts/edit/model.php:144 content_love/files/remove/model.php:32
 msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
-#: content_a/accounting/doc/edit/model.php:171 content_a/products/edit/model.php:387
+#: content_a/accounting/doc/edit/model.php:171 content_a/products/edit/model.php:416
 #: content_cms/posts/edit/model.php:106 content_love/ip/model.php:17
 #: lib/app/staticfile/remove.php:37
 msgid "File removed"
@@ -5764,7 +5765,7 @@ msgstr "سند اختتامیه"
 
 #: content_a/accounting/doc/edit/view.php:23 content_a/accounting/filter.php:26
 #: content_a/products/advance/view.php:23 content_a/products/child/view.php:23
-#: content_a/products/edit/block/sidebar-menu.php:16
+#: content_a/products/edit/block/sidebar-menu.php:14
 #: content_cms/posts/advance/display.php:39
 #: content_love/business/domain/setting/display.php:128
 #: content_love/domain/setting/display.php:127 dash/app/ticket/filter.php:45
@@ -6043,7 +6044,7 @@ msgstr "انتخاب وضعیت"
 
 #: content_a/accounting/filter.php:23 content_a/discount/add/display.php:588
 #: content_a/form/status/display.php:17 content_a/order/status/display.php:44
-#: content_a/products/edit/block/sidebar-menu.php:10 content_cms/home/display.php:7
+#: content_a/products/edit/block/sidebar-menu.php:8 content_cms/home/display.php:7
 #: content_cms/posts/advance/display.php:22 dash/app/posts/filter.php:57
 #: dash/app/posts/ready.php:101 includes/languages/trans_static.php:523
 #: lib/app/discount/filter.php:45 lib/app/factor/action.php:61
@@ -6104,8 +6105,7 @@ msgid "Reset document number?"
 msgstr "شماره‌گذاری مجدد اسناد حسابداری؟"
 
 #: content_a/accounting/filter.php:124 content_a/accounting/filter_only_year.php:19
-#: content_a/accounting/turnover/display.php:119 content_a/plugin/home/display.php:27
-#: content_love/plugin/all/display.php:28
+#: content_a/accounting/turnover/display.php:119 content_love/plugin/all/display.php:28
 msgid "Clear filter"
 msgstr "پاک‌سازی فیلترها"
 
@@ -6530,9 +6530,9 @@ msgid "Remain"
 msgstr "مانده"
 
 #: content_a/accounting/report/quarter/display-detail.php:9
-#: content_a/plugin/view/display.php:99 dash/layout/pwa/pwa_menu.php:408
-#: includes/languages/trans_static.php:36 includes/languages/trans_static.php:516
-#: lib/app/factor/ready.php:80 lib/app/order/ready.php:80 lib/app/tax/doc/template.php:235
+#: dash/layout/pwa/pwa_menu.php:408 includes/languages/trans_static.php:36
+#: includes/languages/trans_static.php:516 lib/app/factor/ready.php:80
+#: lib/app/order/ready.php:80 lib/app/tax/doc/template.php:235
 msgid "Buy"
 msgstr "خرید"
 
@@ -8682,16 +8682,16 @@ msgid "Edit discount code"
 msgstr "ویرایش کد تخفیف"
 
 #: content_a/discount/home/display.php:13 content_a/pricehistory/display.php:16
-#: content_business/n/display.php:16 content_cms/posts/home/display.php:7
-#: content_love/domain/all/display.php:12 content_love/domain/fetch/display.php:64
-#: content_love/domain/setting/display.php:314 content_love/log/home/logTable.php:98
-#: content_love/plugin/manage/display.php:14 content_site/home/display.php:42
+#: content_cms/posts/home/display.php:7 content_love/domain/all/display.php:12
+#: content_love/domain/fetch/display.php:64 content_love/domain/setting/display.php:314
+#: content_love/log/home/logTable.php:98 content_love/plugin/manage/display.php:14
+#: content_site/home/display.php:42
 msgid "Date modified"
 msgstr "تاریخ ویرایش"
 
-#: content_a/discount/home/display.php:17 content_business/n/display.php:20
-#: content_cms/posts/advance/display.php:156 content_cms/posts/home/display.php:11
-#: content_cms/posts/publishdate/display.php:37 content_site/home/display.php:46
+#: content_a/discount/home/display.php:17 content_cms/posts/advance/display.php:156
+#: content_cms/posts/home/display.php:11 content_cms/posts/publishdate/display.php:37
+#: content_site/home/display.php:46
 msgid "Publish date"
 msgstr "تاریخ انتشار"
 
@@ -10202,7 +10202,7 @@ msgstr "بازگشت داده شده"
 msgid "Success"
 msgstr "موفقیت‌آمیز"
 
-#: content_a/order/status/display.php:55 content_a/products/edit/block/sidebar-menu.php:13
+#: content_a/order/status/display.php:55 content_a/products/edit/block/sidebar-menu.php:11
 #: dash/app/files/ready.php:61 includes/languages/trans_static.php:999
 #: lib/app/factor/action.php:72 lib/app/factor/ready.php:123 lib/app/order/ready.php:123
 msgid "Archive"
@@ -10315,10 +10315,17 @@ msgstr "افزودن سفارش"
 msgid "Order Edit"
 msgstr "ویرایش سفارش"
 
-#: content_a/plugin/home/display.php:29 content_a/plugin/home/display.php:70
-#: content_a/plugin/view/display.php:86
+#: content_a/plugin/home/display.php:85
 msgid "Activated"
 msgstr "فعال شده"
+
+#: content_a/plugin/home/display.php:143
+msgid "View detail"
+msgstr "مشاهده جزئیات"
+
+#: content_a/plugin/home/display.php:148
+msgid "Add plugin"
+msgstr "افزودن پلاگین‌"
 
 #: content_a/plugin/home/view.php:9
 msgid "Jibres plugins"
@@ -10328,7 +10335,20 @@ msgstr "پلاگین‌های جیبرس"
 msgid "plugin key is invalid"
 msgstr "کلید پلاگین اشتباه است"
 
-#: content_a/plugin/view/display.php:103
+#: content_a/plugin/view/display.php:125
+msgid "Use from budget"
+msgstr "استفاده از شارژ حساب کاربری"
+
+#: content_a/plugin/view/display.php:146
+msgid "This plugin is active in your business"
+msgstr "این پلاگین در حال حاضر در بیزینس شما فعال شده است"
+
+#: content_a/plugin/view/display.php:162 lib/app/product/ready.php:439
+#: lib/app/product/ready.php:450 lib/app/product/ready.php:456
+msgid "Buy now"
+msgstr "همین الان بخر"
+
+#: content_a/plugin/view/display.php:166
 msgid "Get it for free"
 msgstr "رایگان دریافت کنید"
 
@@ -10421,7 +10441,7 @@ msgid "Choose another product"
 msgstr "انتخاب محصول دیگر"
 
 #: content_a/products/advance/display.php:17 content_a/products/advance/view.php:11
-#: content_a/products/edit/block/sidebar-menu.php:63
+#: content_a/products/edit/block/sidebar-menu.php:61
 #: content_crm/permission/edit/display.php:84 dash/layout/admin/admin-titlebox.php:30
 #: dash/layout/m2/admin-titlebox.php:34 dash/layout/m2/pageNav.php:31
 #: lib/app/quickaccess/setting.php:507
@@ -10526,7 +10546,7 @@ msgid "Manage product variants"
 msgstr "مدیریت تنوع محصول"
 
 #: content_a/products/comment/view.php:23
-#: content_a/products/edit/block/sidebar-menu.php:80 content_cms/comments/home/view.php:9
+#: content_a/products/edit/block/sidebar-menu.php:78 content_cms/comments/home/view.php:9
 #: content_cms/comments/view/view.php:14 content_crm/member/glance/display.php:393
 #: dash/app/posts/filter.php:203 dash/app/posts/filter.php:213
 #: dash/layout/m2/sidebar.php:296 includes/languages/trans_static.php:574
@@ -10707,50 +10727,50 @@ msgstr "سود ناخالص"
 msgid "End part of your product url."
 msgstr "آخرین قسمت آدرس محصول شما."
 
-#: content_a/products/edit/block/sidebar-menu.php:11
+#: content_a/products/edit/block/sidebar-menu.php:9
 #: content_a/setting/order/schedule/display.php:9 content_crm/member/status/display.php:17
 #: includes/languages/trans_static.php:491
 msgid "Active"
 msgstr "فعال"
 
-#: content_a/products/edit/block/sidebar-menu.php:22
+#: content_a/products/edit/block/sidebar-menu.php:20
 msgid "Active in Online Store"
 msgstr "فعال در فروشگاه آنلاین"
 
-#: content_a/products/edit/block/sidebar-menu.php:31
+#: content_a/products/edit/block/sidebar-menu.php:29
 msgid ":total items of this product have been sold in :count factors"
 msgstr "تعداد :total مورد از این محصول در :count فاکتور به فروش رسیده است"
 
-#: content_a/products/edit/block/sidebar-menu.php:33
+#: content_a/products/edit/block/sidebar-menu.php:31
 msgid "View factors"
 msgstr "نمایش فاکتور‌ها"
 
-#: content_a/products/edit/block/sidebar-menu.php:36
+#: content_a/products/edit/block/sidebar-menu.php:34
 msgid "This product has not been sold yet!"
 msgstr "این محصول هنوز به فروش نرفته است!"
 
-#: content_a/products/edit/block/sidebar-menu.php:47
+#: content_a/products/edit/block/sidebar-menu.php:45
 msgid "Edit Description"
 msgstr "ویرایش توضیحات"
 
-#: content_a/products/edit/block/sidebar-menu.php:55
+#: content_a/products/edit/block/sidebar-menu.php:53
 msgid "Product Properties"
 msgstr "مشخصات محصول"
 
-#: content_a/products/edit/block/sidebar-menu.php:88
+#: content_a/products/edit/block/sidebar-menu.php:86
 msgid "Price change chart"
 msgstr "نمودار تغییر قیمت محصول"
 
-#: content_a/products/edit/block/sidebar-menu.php:100
+#: content_a/products/edit/block/sidebar-menu.php:98
 #: content_cms/posts/edit/display.php:140 content_cms/posts/edit/display.php:148
 msgid "Smart Share"
 msgstr "اشتراک‌گذاری هوشمند"
 
-#: content_a/products/edit/block/sidebar-menu.php:114
+#: content_a/products/edit/block/sidebar-menu.php:112
 msgid "Make product variants"
 msgstr "ثبت تنوع محصول"
 
-#: content_a/products/edit/block/sidebar-menu.php:128
+#: content_a/products/edit/block/sidebar-menu.php:126
 msgid "Manage variants"
 msgstr "مدیریت تنوع محصول"
 
@@ -10763,15 +10783,15 @@ msgstr "عنوان محصول"
 msgid "Technical title"
 msgstr "عنوان فنی"
 
-#: content_a/products/edit/display.php:59
+#: content_a/products/edit/display.php:66
 msgid "Archive product"
 msgstr "آرشیو کردن محصول"
 
-#: content_a/products/edit/display.php:60 dash/plan_list.php:153
+#: content_a/products/edit/display.php:67 dash/plan_list.php:153
 msgid "Delete product"
 msgstr "حذف محصول"
 
-#: content_a/products/edit/model.php:398 content_b1/product/gallery/thumb/model.php:26
+#: content_a/products/edit/model.php:427 content_b1/product/gallery/thumb/model.php:26
 msgid "Product thumb set"
 msgstr "تصویر شاخص محصول تنظیم شد"
 
@@ -10865,6 +10885,11 @@ msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
 #: content_a/products/gallerysort/view.php:11 content_cms/posts/gallerysort/view.php:10
 msgid "Sort images in gallery"
 msgstr "مرتب سازی تصاویر در گالری"
+
+#: content_a/products/home/ganje.php:93 dash/app/posts/filter.php:95
+#: lib/app/product/filter.php:260
+msgid "Have gallery"
+msgstr "دارای گالری تصاویر"
 
 #: content_a/products/home/view.php:18 dash/layout/m2/sidebar.php:159
 msgid "Add product"
@@ -15403,13 +15428,6 @@ msgstr "تایید"
 msgid "Post not found"
 msgstr "مطلب یافت نشد"
 
-#: content_business/n/display.php:31 content_cms/files/choose/display.php:5
-#: content_cms/files/datalist/display.php:6 content_cms/posts/home/display.php:17
-#: content_love/files/choose/display.php:5 content_love/files/datalist/display.php:6
-#: content_site/gallery/display.php:10 content_site/home/display.php:53
-msgid "Post image"
-msgstr "تصویر نوشته"
-
 #: content_business/orders/display.php:54
 msgid "No orders found"
 msgstr "هیچ سفارشی یافت نشد"
@@ -15879,6 +15897,13 @@ msgstr "بارگذاری"
 #: lib/app/store/analytics.php:116
 msgid "Files"
 msgstr "فایل‌ها"
+
+#: content_cms/files/choose/display.php:5 content_cms/files/datalist/display.php:6
+#: content_cms/posts/home/display.php:17 content_love/files/choose/display.php:5
+#: content_love/files/datalist/display.php:6 content_site/gallery/display.php:10
+#: content_site/home/display.php:53
+msgid "Post image"
+msgstr "تصویر نوشته"
 
 #: content_cms/files/choose/model.php:16 content_love/files/choose/model.php:16
 msgid "Please choose a file"
@@ -26182,10 +26207,6 @@ msgstr "در انتظار بررسی"
 msgid "Publish in the future"
 msgstr "انتشار در آینده"
 
-#: dash/app/posts/filter.php:95 lib/app/product/filter.php:260
-msgid "Have gallery"
-msgstr "دارای گالری تصاویر"
-
 #: dash/app/posts/filter.php:105 lib/app/product/filter.php:270
 msgid "Have not gallery"
 msgstr "بدون گالری تصاویر"
@@ -28048,21 +28069,21 @@ msgstr "کتابخانه فایل"
 msgid "Add new file"
 msgstr "افزودن فایل جدید"
 
-#: dash/pdo.php:303
-msgid "Can not start transaction on PDO link!"
-msgstr "نمی‌توانیم لینک PDO را شروع کنیم!"
+#: dash/pdo.php:312
+msgid "Can not start your request!"
+msgstr "نمی‌توانیم درخواست شما را شروع کنیم!"
 
-#: dash/pdo.php:334
-msgid "Can not commit PDO link!"
-msgstr "نمی‌توانیم لینک PDO را تایید کنیم!"
+#: dash/pdo.php:347
+msgid "Can not save your request!"
+msgstr "نمی‌توانیم درخواست شما را ذخیره کنیم!"
 
-#: dash/pdo.php:364
-msgid "Can not rollback PDO link!"
-msgstr "نمی‌توانیم لینک PDO را لغو کنیم!"
+#: dash/pdo.php:381
+msgid "Can not close your request!"
+msgstr "نمی‌توانیم درخواست شما را تکمیل کنیم!"
 
-#: dash/pdo.php:399
-msgid "Can not get insert id in PDO link!"
-msgstr "نمی‌توانیم شناسه ردیف جدید را از PDO دریافت کنیم!"
+#: dash/pdo.php:416
+msgid "Can not get id!"
+msgstr "نمی‌توانیم شناسه را دریافت کنیم!"
 
 #: dash/pdo/connection.php:63
 msgid "We dont have Love!"
@@ -28096,9 +28117,9 @@ msgstr "درب ورود کجاست!"
 msgid "Where is that bed room!"
 msgstr "اتاق خواب کجاست!"
 
-#: dash/pdo/connection.php:130
-msgid "Can not create PDO link!"
-msgstr "نمی‌توانیم لینک به سرویس PDO بسازیم!"
+#: dash/pdo/connection.php:130 dash/pdo/connection.php:167
+msgid "Please contact administrator!"
+msgstr "لطفا با مدیر سیستم تماس بگیرید!"
 
 #: dash/pdo/connection.php:136
 msgid "Error in connecting to database!"
@@ -28111,10 +28132,6 @@ msgstr "ما نمی‌توانیم به سرویس دیتابیس متصل شو�
 #: dash/pdo/connection.php:161
 msgid "Unable to connect to this store at this time"
 msgstr "در حال حاضر امکان اتصال به این فروشگاه وجود ندارد"
-
-#: dash/pdo/connection.php:167
-msgid "Please contact administrator!"
-msgstr "لطفا با مدیر سیستم تماس بگیرید!"
 
 #: dash/pdo/connection.php:179 dash/pdo/connection.php:185
 #: dash/social/telegram/commands/ermile.php:175
@@ -28131,7 +28148,7 @@ msgstr "خطا در اتصال به SSL!"
 msgid "Connection error!"
 msgstr "خطا در اتصال!"
 
-#: dash/permission.php:358
+#: dash/permission.php:365
 msgid "Permission denied"
 msgstr "دسترسی غیر مجاز"
 
@@ -31370,7 +31387,7 @@ msgstr "نام برای نمایش عمومی"
 msgid "permission"
 msgstr "سطح دسترسی"
 
-#: includes/languages/trans_static.php:354
+#: includes/languages/trans_static.php:354 lib/app/plugin/items/ganje/ganje_product.php:21
 msgid "barcode"
 msgstr "بارکد"
 
@@ -31398,8 +31415,8 @@ msgstr "مجرد"
 msgid "married"
 msgstr "متاهل"
 
-#: includes/languages/trans_static.php:370 lib/app/quickaccess/setting.php:459
-#: lib/app/quickaccess/setting.php:473
+#: includes/languages/trans_static.php:370 lib/app/plugin/items/ganje/ganje_product.php:21
+#: lib/app/quickaccess/setting.php:459 lib/app/quickaccess/setting.php:473
 msgid "product"
 msgstr "محصول"
 
@@ -38306,7 +38323,7 @@ msgstr "شما هیچ پاسخی برای خروجی گرفتن ندارید"
 msgid "Answer not found"
 msgstr "پاسخی یافت نشد"
 
-#: lib/app/form/answer/get.php:133
+#: lib/app/form/answer/get.php:142
 msgid "Show file"
 msgstr "نمایش فایل"
 
@@ -39961,7 +39978,7 @@ msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کن
 msgid "Invalid plugin!"
 msgstr "پلاگین اشتباه است!"
 
-#: lib/app/plugin/activate.php:75 lib/app/plugin/activate.php:372
+#: lib/app/plugin/activate.php:75 lib/app/plugin/activate.php:390
 msgid "Invalid periodic key!"
 msgstr "بازه زمانی نامعتبر است!"
 
@@ -39969,80 +39986,84 @@ msgstr "بازه زمانی نامعتبر است!"
 msgid "Can not add this plugin. Please contact to administrator"
 msgstr "نمی‌توانیم این پلاگین را اضافه کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:156 lib/app/plugin/activate.php:356
-#: lib/app/plugin/activate.php:408
+#: lib/app/plugin/activate.php:156 lib/app/plugin/activate.php:373
+#: lib/app/plugin/activate.php:420
 msgid "This plugin is already activated for your business"
 msgstr "این پلاگین در حال حاضر فعال شده است"
 
-#: lib/app/plugin/activate.php:173 lib/app/plugin/activate.php:431
-#: lib/app/plugin/activate.php:505
+#: lib/app/plugin/activate.php:175 lib/app/plugin/activate.php:486
+msgid "Can not active this plugin more than this time!"
+msgstr "نمی‌توانید این افزونه را بیش از این تاریخ تمدید کنید!"
+
+#: lib/app/plugin/activate.php:188 lib/app/plugin/activate.php:442
+#: lib/app/plugin/activate.php:502
 msgid "Can not add this action. Please contact to administrator"
 msgstr "نمی‌توانیم این فعالیت را ثبت کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:226 lib/app/plugin/activate.php:421
+#: lib/app/plugin/activate.php:241 lib/app/plugin/activate.php:433
 msgid "Activate plugin :val"
 msgstr "فعال سازی پلاگین :val"
 
-#: lib/app/plugin/activate.php:248 lib/app/plugin/activate.php:262
+#: lib/app/plugin/activate.php:264 lib/app/plugin/activate.php:279
 msgid "Oh!, We cannot complete your request. Please contact to administrator"
 msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:323
+#: lib/app/plugin/activate.php:340
 msgid "Can not find your activate plugin request. Please contact to administrator"
 msgstr ""
 "نمی‌توانید اطلاعات مربوط به درخواست فرایند فعال سازی را پیدا کنیم. لطفا با مدیر سیستم "
 "تماس بگیرید"
 
-#: lib/app/plugin/activate.php:333
+#: lib/app/plugin/activate.php:350
 msgid "Can not find your activate action. Please contact to administrator"
 msgstr ""
 "نمی‌توانید اطلاعات مربوط به فرایند فعال سازی را پیدا کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:343
+#: lib/app/plugin/activate.php:360
 msgid "Plugin not found. Please contact to administrator"
 msgstr "پلاگین یافت نشد. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:553 lib/app/plugin/activate.php:627
+#: lib/app/plugin/activate.php:588 lib/app/plugin/activate.php:662
 msgid "Business or plugin is required"
 msgstr "شناسه بیزینس یا کد پلاگین الزامی است"
 
-#: lib/app/plugin/activate.php:563
+#: lib/app/plugin/activate.php:598
 msgid "This plugin already enable on this business"
 msgstr "در حال حاضر این پلاگین در این بیزینس فعال است"
 
-#: lib/app/plugin/activate.php:569
+#: lib/app/plugin/activate.php:604
 msgid "Plugin exist. Re Enabled"
 msgstr "پلاگین وجود داشت. مجددا فعال شد"
 
-#: lib/app/plugin/activate.php:590
+#: lib/app/plugin/activate.php:625
 msgid "Plugin added"
 msgstr "پلاگین اضافه شد"
 
-#: lib/app/plugin/activate.php:600 lib/app/plugin/activate.php:660
+#: lib/app/plugin/activate.php:635 lib/app/plugin/activate.php:695
 msgid "Sync request sended to business"
 msgstr "درخواست یکپارچه‌سازی امکانات به بیزینس اعلام شد"
 
-#: lib/app/plugin/activate.php:638
+#: lib/app/plugin/activate.php:673
 msgid "Plugin removed"
 msgstr "پلاگین حذف شد"
 
-#: lib/app/plugin/activate.php:642
+#: lib/app/plugin/activate.php:677
 msgid "Plugin already removed"
 msgstr "پلاگین در حال حاضر حذف شده است"
 
-#: lib/app/plugin/activate.php:650
+#: lib/app/plugin/activate.php:685
 msgid "Plugin not exist"
 msgstr "پلاگین وجود ندارد"
 
-#: lib/app/plugin/get.php:113 lib/app/plugin/get.php:155
+#: lib/app/plugin/get.php:103 lib/app/plugin/get.php:145
 msgid "Please choose one periodic"
 msgstr "لطفا یک دوره زمانی را انتخاب کنید"
 
-#: lib/app/plugin/get.php:120 lib/app/plugin/get.php:162
+#: lib/app/plugin/get.php:110 lib/app/plugin/get.php:152
 msgid "Can not complete your request. Please contact to administrator"
 msgstr "ما نتونستیم درخواست شما رو تکمیل کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/get.php:148
+#: lib/app/plugin/get.php:138
 msgid "This plugin is not periodically"
 msgstr "این پلاگین قابلیت ثبت دوره‌ای را ندارد"
 
@@ -40054,19 +40075,50 @@ msgstr "کد تخفیف حرفه‌ای"
 msgid "discount code"
 msgstr "کد تخفیف"
 
-#: lib/app/plugin/items/remove/remove_brand.php:19
+#: lib/app/plugin/items/ganje/ganje_product.php:12
+msgid "Ganje"
+msgstr "گنجه"
+
+#: lib/app/plugin/items/ganje/ganje_product.php:21
+msgid "ganje"
+msgstr "گنجه"
+
+#: lib/app/plugin/items/ganje/ganje_product.php:34
+msgid ""
+"By purchasing this plugin, this feature will be created for your business so that the "
+"edit load of each product, if your product information is found in Ganje repositories, "
+"you can update them with one click."
+msgstr ""
+"با خرید این افزونه، این قابلیت برای کسب و کار شما ایجاد می‌شود تا در هنگام ویرایش هر "
+"محصول، اگر اطلاعات محصول شما در مخازن گنجه یافت شد، می‌توانید با یک کلیک آنها را به "
+"روزرسانی کنید."
+
+#: lib/app/plugin/items/ganje/ganje_product.php:45
+msgid ""
+"This repository includes more than 68,000 supermarket products along with name, "
+"barcode, category, technical title and quality image, which were provided to you after "
+"refinement and sorting. You can simply get the product detail from the list of Ganje "
+"products by scanning the barcode or searching for the product name and easily add it to "
+"your product list."
+msgstr ""
+"این مخزن شامل بیش از ۶۸ هزار محصول سوپرمارکتی به همراه نام، بارکد، دسته‌بندی، عنوان فنی "
+"و تصویر با کیفیت است که پس از اصلاح و مرتب سازی در اختیار شما قرار گرفته است. شما "
+"می‌توانید به سادگی با اسکن بارکد یا جستجوی نام محصول، جزئیات محصول را از گنجه دریافت "
+"کرده و به راحتی به لیست محصولات خود اضافه کنید."
+
+#: lib/app/plugin/items/remove/remove_brand.php:20
 msgid "One month"
 msgstr "یک ماه"
 
-#: lib/app/plugin/items/remove/remove_brand.php:26
+#: lib/app/plugin/items/remove/remove_brand.php:27
 msgid "One year"
 msgstr "یک سال"
 
-#: lib/app/plugin/items/remove/remove_brand.php:34
+#: lib/app/plugin/items/remove/remove_brand.php:35
 msgid "Remove jibres branding"
 msgstr "حذف نشان تجاری جیبرس"
 
-#: lib/app/plugin/items/remove/remove_brand.php:36
+#: lib/app/plugin/items/remove/remove_brand.php:37
 msgid "brand"
 msgstr "نام تجاری"
 
@@ -40458,32 +40510,27 @@ msgstr "فردا"
 msgid "Today"
 msgstr "امروز"
 
-#: lib/app/product/ready.php:416
+#: lib/app/product/ready.php:419
 msgid "Product is not available for shop"
 msgstr "محصول برای فروش موجود نیست"
 
-#: lib/app/product/ready.php:425
+#: lib/app/product/ready.php:428
 msgid "Product is ready for shop"
 msgstr "محصول برای فروش آماده است"
 
-#: lib/app/product/ready.php:436 lib/app/product/ready.php:447
-#: lib/app/product/ready.php:453
-msgid "Buy now"
-msgstr "همین الان بخر"
-
-#: lib/app/product/ready.php:441
+#: lib/app/product/ready.php:444
 msgid "Temporary out of stock"
 msgstr "موجودی این محصول به طور موقت به اتمام رسیده است"
 
-#: lib/app/product/ready.php:464
+#: lib/app/product/ready.php:467
 msgid "Product was deleted"
 msgstr "محصول حذف شد"
 
-#: lib/app/product/ready.php:468
+#: lib/app/product/ready.php:471
 msgid "Product is not available"
 msgstr "محصول موجود نیست"
 
-#: lib/app/product/ready.php:477
+#: lib/app/product/ready.php:480
 msgid "Please choose a variants of this product to buy"
 msgstr "لطفا یکی از انواع این محصول را برای خرید انتخاب کنید"
 
@@ -42607,6 +42654,21 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Can not start transaction on PDO link!"
+#~ msgstr "نمی‌توانیم لینک PDO را شروع کنیم!"
+
+#~ msgid "Can not commit PDO link!"
+#~ msgstr "نمی‌توانیم لینک PDO را تایید کنیم!"
+
+#~ msgid "Can not rollback PDO link!"
+#~ msgstr "نمی‌توانیم لینک PDO را لغو کنیم!"
+
+#~ msgid "Can not get insert id in PDO link!"
+#~ msgstr "نمی‌توانیم شناسه ردیف جدید را از PDO دریافت کنیم!"
+
+#~ msgid "Can not create PDO link!"
+#~ msgstr "نمی‌توانیم لینک به سرویس PDO بسازیم!"
 
 #~ msgid "Set quick access to category in sale page"
 #~ msgstr "تنظیم دسترسی سریع به دسته‌بندی‌های پر کاربرد در صفحه ثبت سفارش"
@@ -49914,9 +49976,6 @@ msgstr "یارد"
 
 #~ msgid "How many days to expire the remaining domain to automatically renew it?"
 #~ msgstr "چند روز مانده به منقضی شدن دامنه به صورت خودکار آن را تمدید کنیم؟"
-
-#~ msgid "Use from your budget"
-#~ msgstr "استفاده از شارژ حساب کاربری"
 
 #~ msgid "Domain renew ok"
 #~ msgstr "تمدید دامنه انجام شد"
