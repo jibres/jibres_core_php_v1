@@ -172,12 +172,6 @@ class permission
 			return self::check(substr($_caller, 7), ['check_group' => true]);
 		}
 
-		// only check plan
-		if($_caller && substr($_caller, 0, 6) === '_plan_')
-		{
-			return self::check(substr($_caller, 6), ['check_plan' => true]);
-		}
-
 		if(self::supervisor())
 		{
 			return true;
@@ -239,20 +233,6 @@ class permission
 			{
 				return false;
 			}
-		}
-
-		$check_plan = \dash\plan::check($_caller);
-
-		// we have not this caller to this plan
-		if($check_plan === false)
-		{
-			return false;
-		}
-
-		if(isset($_args['check_plan']) && $_args['check_plan'] === true)
-		{
-			// only check plan and this caller is exists on this plan
-			return true;
 		}
 
 		// admin access to everything
