@@ -41,7 +41,7 @@ class ganje_product
 
 	private static function desc() : string
 	{
-		return T_("This repository includes more than 68,000 supermarket products along with name, barcode, category, technical title and quality image, which were provided to you after refinement and sorting. You can simply get the product detail from the list of Ganjeh products by scanning the barcode or searching for the product name and easily add it to your product list.");
+		return T_("This repository includes more than 68,000 supermarket products along with name, barcode, category, technical title and quality image, which were provided to you after refinement and sorting. You can simply get the product detail from the list of Ganje products by scanning the barcode or searching for the product name and easily add it to your product list.");
 	}
 
 
