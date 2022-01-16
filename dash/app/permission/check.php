@@ -9,7 +9,7 @@ class check
 	{
 		$condition =
 		[
-			'title'      => 'title',
+			'title'      => 'string_50',
 		];
 
 		$require = ['title'];
