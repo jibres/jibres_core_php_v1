@@ -172,10 +172,16 @@ class currency {
 	}
 
 
-	public static function jibres_currency()
+	public static function jibres_currency($_get_name = false)
 	{
-		return 'IRT'; // in jibres default currency is IRT
-		return 'IRHT'; // in jibres default currency is IRHT
+		$currency = 'IRT'; // in jibres default currency is IRT
+
+		if($_get_name)
+		{
+			return self::name($currency);
+		}
+
+		return $currency;
 	}
 
 
