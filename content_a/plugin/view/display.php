@@ -17,11 +17,30 @@ $html .= '<div class="">';
 		{
 			$html .= '<div class="p-4">';
 			{
-				$html .= '<h1 class="text-3xl">';
+				$html .= '<div class="flex">';
 				{
-					$html .= a($pluginDetail, 'title');
+					$html .= '<div class="flex-grow">';
+					{
+
+						$html .= '<h1 class="text-3xl">';
+						{
+							$html .= a($pluginDetail, 'title');
+						}
+						$html .= '</h1>';
+					}
+					$html .= '</div>';
+
+					$html .= '<div class="w-16 text-indigo-500 ">';
+					{
+						if(a($pluginDetail, 'icon'))
+						{
+							$icon = $pluginDetail['icon'];
+							$html .= \dash\utility\icon::svg(...$icon);
+						}
+					}
+					$html .= '</div>';
 				}
-				$html .= '</h1>';
+				$html .= '</div>';
 
 				$html .= '<p class="mb-4">';
 				{
@@ -36,7 +55,7 @@ $html .= '<div class="">';
 
 				if(a($pluginDetail, 'keywords'))
 				{
-					$html .= '<div class="mt-3">';
+					$html .= '<div class="my-3">';
 					{
 						foreach ($pluginDetail['keywords'] as $tag)
 						{
@@ -105,12 +124,13 @@ $html .= '<div class="">';
 				{
 					if(\dash\data::myBudget() && a($pluginDetail, 'price'))
 					{
-						$html .= '<div class=" rounded-lg">';
+						$html .= '<div class="alert-success">';
 						{
 
-							$html .= '<div class="check1">';
+							$html .= '<div class="switch1">';
 							{
 								$html .= '<input type="checkbox" name="use_budget" id="use_budget">';
+								$html .= '<label for="use_budget"></label>';
 								$html .= '<label for="use_budget">';
 								{
 									$html .= T_('Use from budget');
@@ -147,7 +167,7 @@ $html .= '<div class="">';
 				{
 					if(a($pluginDetail, 'price'))
 					{
-						$html .= '<button class="btn-success">'. T_("Buy"). '</button>';
+						$html .= '<button class="btn-success">'. T_("Buy now"). '</button>';
 					}
 					else
 					{
