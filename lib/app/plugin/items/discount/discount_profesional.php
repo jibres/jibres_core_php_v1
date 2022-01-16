@@ -16,6 +16,7 @@ class discount_profesional
 			'title'         => T_("Profesional discount"),
 			'description'   => T_("Description"),
 			'keywords'      => [T_("discount"), T_("discount code")],
+			'icon'          => ['piggy-bank', 'bootstrap'],
 
 		];
 

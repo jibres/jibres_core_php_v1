@@ -17,6 +17,7 @@ class site_options_responsive_footer
 			'title'         => T_("Customize footer in for application (Responsive)"),
 			'description'   => T_("Customize footer in for application (Responsive) description ..."),
 			'keywords'      => [T_("site"), T_("blog")],
+			'icon'          => ['binoculars', 'bootstrap'],
 
 		];
 

@@ -35,6 +35,7 @@ class remove_brand
 			'title'       => T_("Remove jibres branding"),
 			'description' => T_("Description"),
 			'keywords'    => [T_("brand"), T_("jibres")],
+			'icon'          => ['stars', 'bootstrap'],
 
 		];
 

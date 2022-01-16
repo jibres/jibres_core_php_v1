@@ -16,6 +16,7 @@ class ganje_product
 			'title'         => T_("Fetch product detail from ganje"),
 			'description'   => T_("Ganje contain more than 68,000 product with barcode and beautiful gallery"),
 			'keywords'      => [T_("ganje"), T_("product")],
+			'icon'          => ['gem', 'bootstrap'],
 
 		];
 

@@ -17,6 +17,7 @@ class site_body_blog_b4
 			'title'         => T_("Body blog b4"),
 			'description'   => T_("Description"),
 			'keywords'      => [T_("site"), T_("blog")],
+			'icon'          => ['binoculars', 'bootstrap'],
 
 		];
 
