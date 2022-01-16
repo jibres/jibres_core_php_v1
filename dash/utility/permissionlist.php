@@ -82,7 +82,7 @@ class permissionlist
 		$permission_caller = self::find($mypath);
 
 
-		$list_raw_project = \dash\plan_list::public_show_master_contain();
+		$list_raw_project = \dash\permission_caller::public_show_master_contain();
 		$list_raw_project = array_keys($list_raw_project);
 
 		$useless_permission = array_diff($list_raw_project, $permission_caller);

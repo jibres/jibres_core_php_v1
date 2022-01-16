@@ -1,7 +1,7 @@
 <?php
 namespace dash;
 
-class plan_list
+class permission_caller
 {
 	/**
 	 * All permission caller used in system
