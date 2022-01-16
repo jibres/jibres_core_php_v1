@@ -2,47 +2,65 @@
 if(\dash\data::displayShowPostList())
 {
 	$html = '';
-	$html .= '<nav class="items">';
+	$html .= '<div class="postBlock">';
 	{
-
-	  $html .= '<ul>';
-	  {
-
-	    foreach (\dash\data::dataTable() as $key => $value)
-	    {
-	      $date_title = '';
-	      if(a($value, 'datemodified'))
-	      {
-	        $date_title .= T_("Date modified"). ': '. \dash\fit::date_time(a($value, 'datemodified')). "\n";
-	      }
-	      if(a($value, 'publishdate'))
-	      {
-	        $date_title .= T_("Publish date"). ': '. \dash\fit::date_time(a($value, 'publishdate'));
-	      }
-
-	     $html .= '<li>';
-	     {
-
-		     $html .= '<a class="item f align-center" href="'.  a($value, 'link') . '">';
-		     {
-
-				if(a($value, 'thumb'))
+ 		$html .= '<div class="avand">';
+ 		{
+			$html .= '<div class="postList">';
+			{
+				foreach (\dash\data::dataTable() as $key => $value)
 				{
-			        $html .= '<img src="'. \dash\fit::img(a($value, 'thumb')). '" alt="'. T_("Post image"). '">';
-				}
+					$html .= '<div class="text">';
+					{
 
-		        $html .= '<div class="key">'.  a($value, 'title'). '</div>';
-		        $html .= '<time class="value" datatime="'. $date_title. '">'. \dash\fit::date_time(a($value, 'datecreated')). '</time>';
-		        $html .= '<div class="go '. $value['icon_list']. '"></div>';
-		     }
-		     $html .= '</a>';
-	     }
-	     $html .= '</li>';
-	    } // endfi
-	  }
-	  $html .= '</ul>';
+						$html .= '<section class="f">';
+						{
+
+							$html .= '<div class="cauto s12 pRa10 text-center">';
+							{
+
+								$html .= '<a href="'.a($value, 'link').'">';
+								{
+									if(a($value, 'thumb'))
+									{
+										$html .= '<img src="'.a($value, 'thumb').'" alt="'.a($value, 'title').'">';
+									}
+								}
+								$html .= '</a>';
+							}
+							$html .= '</div>';
+
+							$html .= '<div class="c s12">';
+							{
+
+								$html .= '<h3>';
+								{
+									$html .= '<a href="'.a($value, 'link').'">';
+									{
+										$html .= a($value, 'title');
+									}
+									$html .= '</a>';
+								}
+								$html .= '</h3>';
+								$html .= '<p> ';
+								{
+									$html .= a($value, 'excerpt');
+								}
+								$html .= '</p>';
+							}
+							$html .= '</div>';
+						}
+						$html .= '</section>';
+					}
+					$html .= '</div>';
+
+				} // endfi
+			}
+			$html .= '</div> ';
+ 		}
+		$html .= '</div>';
 	}
-	$html .= '</nav>';
+	$html .= '</div>';
 
 	echo $html;
 
