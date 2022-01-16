@@ -17,36 +17,24 @@ class get
 		 */
 		$keys =
 		[
-			/*=====================================
-			=            Admin plugins            =
-			=====================================*/
+
+			'ganje_product',
+
+			// test period plugin
+			'remove_brand',
 
 			/* Discount code */
 			'discount_profesional',
 
-			'ganje_product',
-
-
-			/*=====  End of Admin plugins  ======*/
-
-
-			/*====================================
-			=            Site plugins            =
-			====================================*/
-
 			/* Site blog  */
-
 			'site_body_blog_b4',
 
 			/* Responsive */
-
 			'site_options_responsive_footer',
 
 			// test free plugin
 			'site_body_blog_free',
 
-			// test period plugin
-			'remove_brand',
 
 
 			/*=====  End of Site plugins  ======*/
@@ -205,6 +193,14 @@ class get
 		$title = a($detail, 'title');
 
 		return $title;
+	}
+
+
+	public static function more_detail($_plugin)
+	{
+		$detail = \lib\app\plugin\call_function::more_detail($_plugin);
+
+		return $detail;
 	}
 
 

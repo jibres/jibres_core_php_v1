@@ -4,10 +4,12 @@ namespace lib\app\plugin\items\ganje;
 
 class ganje_product
 {
-	public static function detail()
+
+	public static function detail() : array
 	{
 		return
 		[
+			'name'          => 'ganje_product',
 			'type'          => 'once',
 			'comperatprice' => 200000,
 			'price'         => 100000,
@@ -19,6 +21,16 @@ class ganje_product
 			'icon'          => ['gem', 'bootstrap'],
 
 		];
+
+	}
+
+
+	public static function more_detail() : string
+	{
+		$html  = '';
+		$html .= 'Hi More detail';
+
+		return $html;
 
 	}
 

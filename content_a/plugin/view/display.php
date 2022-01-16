@@ -1,6 +1,7 @@
 <?php
 
 $pluginDetail = \dash\data::pluginDetail();
+
 $currency     = \lib\store::currency();
 
 $is_activated = \lib\app\plugin\business::is_activated(\dash\data::pluginKey());
@@ -27,6 +28,11 @@ $html .= '<div class="">';
 					$html .= a($pluginDetail, 'description');
 				}
 				$html .= '</p>';
+
+				if($more_detail = \lib\app\plugin\get::more_detail(a($pluginDetail, 'name')))
+				{
+					$html .= $more_detail;
+				}
 
 				$html .= '<div class="rounded-lg p-1">';
 				{

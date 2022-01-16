@@ -58,10 +58,9 @@ $html .= '<section class="text-gray-600 body-font">';
 		{
 			$html .= '<div class="c-xs-12 c-sm-12 c-md-12 c-lg-6">';
 			{
-
 				$is_activated = \lib\app\plugin\business::is_activated(a($value, 'plugin'));
 
-				$html .= '<div class="bg-white mt-2">';
+				$html .= '<div class="bg-white mt-2 rounded-lg">';
 				{
 
 					$html .= '<div class="p-4 flex">';
@@ -88,6 +87,11 @@ $html .= '<section class="text-gray-600 body-font">';
 									$html .= \dash\utility\icon::svg('check-circle-fill', 'bootstrap', 'green');
 								}
 								$html .= '</div>';
+							}
+							else
+							{
+								$html .= '<div class="w-8 h-8 inline-flex items-center justify-center rounded-full mb-4 flex-shrink-0 p-1"></div>';
+
 							}
 						}
 						$html .= '</div>';
