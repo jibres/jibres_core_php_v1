@@ -367,7 +367,7 @@ class url
 		}
 		else
 		{
-			$url .= 'jibres.store';
+			$url .= 'myjibres.ir';
 		}
 
 		if(self::lang())
