@@ -1,5 +1,5 @@
 <?php
-namespace content_love\plugin\view;
+namespace content_love\plugin\all\view;
 
 
 class controller
@@ -7,7 +7,7 @@ class controller
 
 	public static function routing()
 	{
-		$plugin = \dash\url::subchild();
+		$plugin = \dash\url::dir(3);
 
 		if(!$plugin)
 		{

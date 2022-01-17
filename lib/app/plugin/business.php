@@ -251,6 +251,11 @@ class business
 
 	public static function is_activated($_plugin)
 	{
+		// not check is active plugin in jibres!
+		if(!\dash\engine\store::inStore())
+		{
+			return false;
+		}
 
 		self::load_once();
 

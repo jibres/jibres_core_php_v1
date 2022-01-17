@@ -1,5 +1,5 @@
 <?php
-namespace content_love\plugin\view;
+namespace content_love\plugin\all\view;
 
 
 class view
