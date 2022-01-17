@@ -36,7 +36,7 @@ class recaptcha
 			return 'jibres';
 		}
 
-		if(in_array($domain, ['myjibres.com', 'jibres.store', 'myjibres.local']))
+		if(in_array($domain, ['myjibres.com', 'jibres.store', 'myjibres.ir', 'myjibres.local']))
 		{
 			return 'business';
 		}
