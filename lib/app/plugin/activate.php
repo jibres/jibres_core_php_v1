@@ -668,6 +668,10 @@ class activate
 			if(a($check, 'status') === 'enable')
 			{
 				\lib\db\store_plugin\update::record(['status' => 'deleted', 'datemodified' => date("Y-m-d H:i:s")], a($check, 'id'));
+
+				// update all activated history status
+				\lib\db\store_plugin_action\update::set_status_by_plugin_id('deleted', $check['id']);
+
 				\dash\notif::ok(T_("Plugin removed"));
 			}
 			else
