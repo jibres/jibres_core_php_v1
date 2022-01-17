@@ -1,5 +1,6 @@
 <?php
 
+return;
 if(!\dash\data::productOnGanje())
 {
     return;

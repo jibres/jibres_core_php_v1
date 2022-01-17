@@ -18,6 +18,8 @@ class ganje
 	 */
 	public static function limited()
 	{
+		return false;
+
 		if(\lib\app\plugin\business::is_activated('ganje_product'))
 		{
 			return false;
