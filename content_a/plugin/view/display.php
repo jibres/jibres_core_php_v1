@@ -1,12 +1,20 @@
 <?php
 
-$pluginDetail = \dash\data::pluginDetail();
+$pluginDetail           = \dash\data::pluginDetail();
 
-$currency     = \lib\store::currency();
+$currency               = \lib\store::currency();
 
-$is_activated = \lib\app\plugin\business::is_activated(\dash\data::pluginKey());
+$plugin                 = \dash\data::pluginKey();
 
-$payable      = (!$is_activated || a($pluginDetail, 'type') !== 'once');
+$is_activated           = \lib\app\plugin\business::is_activated($plugin);
+
+$business_plugin_detail = \lib\app\plugin\business::detail($plugin);
+
+$in_discount_time       = \lib\app\plugin\get::in_discount_time($plugin);
+
+$payable                = \lib\app\plugin\get::can_start_new_pay($is_activated, $plugin, $business_plugin_detail);
+
+
 
 $html = '';
 $html .= '<div class="">';
@@ -57,6 +65,32 @@ $html .= '<div class="">';
 					$html .= '</div>';
 				}
 
+				if($in_discount_time && $payable)
+				{
+					$html .= '<div class="alert-success font-bold">';
+					{
+						$html .= '<div>';
+						{
+							$html .= T_("All plugin are offered with a 90% discount up to one week after their release date");
+						}
+						$html .= '</div>';
+
+						$html .= '<div>';
+						{
+							$html .= T_("You are currently in the 90% discount period");
+						}
+						$html .= '</div>';
+
+						$html .= '<div>';
+						{
+							$html .= T_("So do not miss the opportunity and get the plugin right now");
+						}
+						$html .= '</div>';
+					}
+					$html .= '</div>';
+
+				}
+
 				if($payable)
 				{
 						$html .= '<div class="mb-2"> '.  T_("Price"). ' </div>';
@@ -96,7 +130,7 @@ $html .= '<div class="">';
 											}
 											$html .= '<span>';
 											{
-												$html .= \dash\fit::number(a($value, 'price'));
+												$html .= \dash\fit::number(\lib\app\plugin\get::payable_price($plugin, a($value, 'price')));
 											}
 											$html .= '</span>';
 
@@ -127,7 +161,7 @@ $html .= '<div class="">';
 								{
 									$html .= '<span class="">';
 									{
-										$html .= \dash\fit::number(a($pluginDetail, 'price'));
+										$html .= \dash\fit::number(\lib\app\plugin\get::payable_price($plugin, a($pluginDetail, 'price')));
 
 										$html .= '<small class=""> ';
 										{
@@ -176,7 +210,8 @@ $html .= '<div class="">';
 
 					}
 				}
-				else
+
+				if($is_activated)
 				{
 					$html .= '<div class="alert-success mt-4 font-bold">'.  T_('This plugin is active in your business'). '</div>';
 				}

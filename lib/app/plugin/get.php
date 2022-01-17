@@ -163,6 +163,31 @@ class get
 	}
 
 
+	public static function can_start_new_pay($_is_activated, $_plugin, $_expire_date = null)
+	{
+		$load = self::detail($_plugin);
+
+		$payable = true;
+
+		if($_is_activated && a($load, 'type') === 'once')
+		{
+			$payable = false;
+		}
+		else
+		{
+			if($_expire_date && a($load, 'max_period'))
+			{
+				if(strtotime($load['max_period']) > strtotime($_expire_date))
+				{
+					$payable = false;
+				}
+			}
+		}
+
+		return $payable;
+	}
+
+
 
 	public static function plus_day($_plugin, $_periodic)
 	{
