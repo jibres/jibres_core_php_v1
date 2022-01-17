@@ -594,7 +594,7 @@ class call_function
 				}
 			}
 
-			$demo_url = 'https://demo.jibres.store';
+			$demo_url = 'https://demo.myjibres.ir';
 
 			if(\dash\url::isLocal())
 			{
