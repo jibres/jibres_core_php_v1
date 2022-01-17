@@ -42,7 +42,7 @@ class business_plugin
 	{
 		$msg                    = '';
 
-		$my_plugin_key          = a($_args, 'data', 'my_plugin_key');
+		$my_plugin_key          = a($_args, 'data', 'my_plugin');
 		$my_business_id         = a($_args, 'data', 'my_business_id');
 		$my_user_id             = a($_args, 'data', 'my_user_id');
 		$my_page_url            = a($_args, 'data', 'my_page_url');
@@ -70,7 +70,7 @@ class business_plugin
 			$msg .= T_("Feature") . ' '. \lib\app\plugin\get::title($my_plugin_key). "\n";
 			$msg .= T_("Business") . ' '. $my_business_title. "\n";
 			$msg .= T_("Price") . ' '. \dash\fit::number($my_price). "\n";
-			$msg .= T_("Page Url") . "\n". $my_page_url. "\n";
+			// $msg .= T_("Page Url") . "\n". $my_page_url. "\n";
 
 		}
 
