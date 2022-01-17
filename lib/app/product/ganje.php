@@ -573,7 +573,7 @@ class ganje
 						{
 							if($_in_edit_module)
 							{
-								$html .= '<div data-ajaxify data-data=\'{"update_from":"ganje", "ganje_id": "'.a($_data, 'id').'"}\' class="btn-info">'. T_("Update"). '</div>';
+								$html .= '<div data-ajaxify data-data=\'{"gid": "'.a($_data, 'id').'"}\' class="btn-info">'. T_("Update"). '</div>';
 							}
 							else
 							{
