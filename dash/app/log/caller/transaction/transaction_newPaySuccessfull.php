@@ -50,9 +50,9 @@ class transaction_newPaySuccessfull
 		}
 
 		$currency = null;
-		if(isset($_args['data']['my_detail']['currecy_name']))
+		if(isset($_args['data']['my_detail']['currency_name']))
 		{
-			$currency = $_args['data']['my_detail']['currecy_name'];
+			$currency = $_args['data']['my_detail']['currency_name'];
 		}
 
 		$title = null;
