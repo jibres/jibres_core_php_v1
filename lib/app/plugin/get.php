@@ -122,6 +122,43 @@ class get
 			}
 		}
 
+		return self::payable_price($_plugin, $price);
+	}
+
+
+
+	public static function in_discount_time($_plugin)
+	{
+		$load = self::detail($_plugin);
+
+		if(a($load, 'relase_date') && (a($load, 'price') || a($load, 'price_list')))
+		{
+			if(time() - strtotime($load['relase_date']) < (60*60*24*7))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+
+	public static function payable_price($_plugin, $_price)
+	{
+		$discount_percent = 0;
+
+		if(self::in_discount_time($_plugin))
+		{
+			$discount_percent = 90;
+		}
+
+		$price = floatval($_price);
+
+		if($discount_percent)
+		{
+			$price = $price - round(($price * $discount_percent) / 100);
+		}
+
 		return $price;
 	}
 
