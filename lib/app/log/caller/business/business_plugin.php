@@ -124,7 +124,7 @@ class business_plugin
 
 		$tg_msg .= " 🎉 \n";
 
-		$tg_msg .= T_("New business created");
+		$tg_msg .= T_("New plugin unlocked");
 
 		$tg_msg .= "\n";
 
