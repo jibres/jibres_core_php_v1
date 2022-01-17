@@ -69,13 +69,13 @@ $html .= '<div class="">';
 					{
 						$html .= '<div>';
 						{
-							$html .= T_("All plugin are offered with a 90% discount up to one week after their release date");
+							$html .= T_("All plugin are offered with a %90 discount up to one week after their release date");
 						}
 						$html .= '</div>';
 
 						$html .= '<div>';
 						{
-							$html .= T_("You are currently in the 90% discount period");
+							$html .= T_("You are currently in the %90 discount period");
 						}
 						$html .= '</div>';
 
