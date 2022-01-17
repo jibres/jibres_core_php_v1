@@ -213,10 +213,13 @@ $html .= '<div class="">';
 				{
 					if($business_plugin_detail !== 'enable')
 					{
-						$html .= '<div class="alert-primary mt-4 font-bold">'.  T_('Your plugin is activated until :date', ['date' => \dash\fit::date($business_plugin_detail)]). '</div>';
+						$html .= '<div class="alert-success mt-4 font-bold">'.  T_('Your plugin is activated until :date', ['date' => \dash\fit::date($business_plugin_detail, 'j F Y')]). '</div>';
+					}
+					else
+					{
+						$html .= '<div class="alert-success mt-4 font-bold">'.  T_('This plugin is active in your business'). '</div>';
 					}
 
-					$html .= '<div class="alert-success mt-4 font-bold">'.  T_('This plugin is active in your business'). '</div>';
 				}
 			}
 			$html .= '</div>';
