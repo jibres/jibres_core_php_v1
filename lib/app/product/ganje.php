@@ -12,6 +12,29 @@ class ganje
 
 
 	/**
+	 * Check limited
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
+	public static function limited()
+	{
+		if(\lib\app\plugin\business::is_activated('ganje_product'))
+		{
+			return false;
+		}
+
+		$count_added_by_ganje = \lib\db\products\get::count_added_by_ganje();
+
+		if(floatval($count_added_by_ganje) >= 10)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
+	/**
 	 * Searches for the first match.
 	 *
 	 * @param      string  $_search  The search
@@ -27,7 +50,7 @@ class ganje
 
 		if(self::in_ganje_store())
 		{
-			return null;
+			return [];
 		}
 
 		$ganje = \lib\api\business\ganje::search($_search);
@@ -38,6 +61,15 @@ class ganje
 		{
 			$list = $ganje['result'];
 		}
+
+		if(self::limited())
+		{
+			foreach ($list as $key => $value)
+			{
+				$list[$key]['limited'] = true;
+			}
+		}
+
 
 		return $list;
 
@@ -61,6 +93,11 @@ class ganje
 
 		$id = \dash\validate::id($_id);
 		if(!$id)
+		{
+			return false;
+		}
+
+		if(self::limited())
 		{
 			return false;
 		}
@@ -95,6 +132,11 @@ class ganje
 
 		$barcode = \dash\validate::string_100($_barcode);
 		if(!$barcode)
+		{
+			return false;
+		}
+
+		if(self::limited())
 		{
 			return false;
 		}
@@ -162,6 +204,12 @@ class ganje
 
 		if(self::in_ganje_store())
 		{
+			return $_args;
+		}
+
+		if(self::limited())
+		{
+			$_args['ganje_id'] = null;
 			return $_args;
 		}
 

@@ -35,6 +35,15 @@ class get
 	}
 
 
+	public static function count_added_by_ganje()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM products WHERE products.ganje_id IS NOT NULL  ";
+		$result = \dash\pdo::get($query, [], 'count', true);
+		return $result;
+
+	}
+
+
 	public static function sitemap_list($_from, $_to)
 	{
 		$query  =

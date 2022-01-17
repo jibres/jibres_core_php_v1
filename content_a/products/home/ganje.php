@@ -112,21 +112,29 @@ $html .= '<div class="lg:w-2/4 w-11/12 m-auto">';
 						$html .= '</div>';
 						$html .= '<div class="flex-none p-1">';
 						{
-
-							$add_url         = \dash\url::this(). '/add?';
-							$add_args        = [];
-							$add_args['gid'] = a($value, 'id');
-
-							if(isset($is_barcode_page) && $is_barcode_page)
+							if(a($value, 'limited'))
 							{
-								$add_args['barcodepage'] = 1;
+								$html .= '<a href="'.\dash\url::here(). '/plugin/view/ganje_product" class="btn-success">'. T_("Buy ganje plugin"). '</a>';
 							}
-							$add_args['iframe'] = 1;
-							$add_args['ganje'] = 1;
+							else
+							{
 
-							$add_url .= \dash\request::build_query($add_args);
+								$add_url         = \dash\url::this(). '/add?';
+								$add_args        = [];
+								$add_args['gid'] = a($value, 'id');
 
-							$html .= '<a href="'.$add_url.'" target="_blank" data-type="iframe" data-preload="false" data-fancybox class="btn-primary">'. T_("Add"). '</a>';
+								if(isset($is_barcode_page) && $is_barcode_page)
+								{
+									$add_args['barcodepage'] = 1;
+								}
+								$add_args['iframe'] = 1;
+								$add_args['ganje'] = 1;
+
+								$add_url .= \dash\request::build_query($add_args);
+
+								$html .= '<a href="'.$add_url.'" target="_blank" data-type="iframe" data-preload="false" data-fancybox class="btn-primary">'. T_("Add"). '</a>';
+
+							}
 						}
 						$html .= '</div>';
 					}
