@@ -177,7 +177,7 @@ class get
 		{
 			if($_expire_date && a($load, 'max_period'))
 			{
-				if(strtotime($load['max_period']) > strtotime($_expire_date))
+				if(strtotime($load['max_period']) < strtotime($_expire_date))
 				{
 					$payable = false;
 				}

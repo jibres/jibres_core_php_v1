@@ -47,7 +47,6 @@ class activate
 		 * In the future manage refund and expire plugin in this function
 		 */
 
-
 		$plugin = $data['plugin'];
 
 		// load plugin detail
@@ -159,9 +158,8 @@ class activate
 		}
 		else
 		{
-
-
 			$plus_day  = \lib\app\plugin\get::plus_day($plugin, $data['periodic']);
+
 
 			list($datestart, $action_description) = self::detect_plugin_date_start($plugin_id, $exist_plugin_record);
 
@@ -539,6 +537,7 @@ class activate
 		$datestart          = null;
 
 		$get_max_expiredate = \lib\db\store_plugin_action\get::max_expire_date($_plugin_id);
+
 		if(!$get_max_expiredate || !is_string($get_max_expiredate) || strtotime($get_max_expiredate) === false)
 		{
 			$action_description = 'Max expiredate not found or is not valid datetime';
