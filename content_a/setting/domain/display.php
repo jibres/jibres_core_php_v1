@@ -1,4 +1,4 @@
-<?php $domain = (\dash\url::tld() === 'com') ? '.myjibres.com': '.jibres.store'; ?>
+<?php $domain = (\dash\url::tld() === 'com') ? '.myjibres.com': '.myjibres.ir'; ?>
 <div class="avand-md">
   <nav class="items">
     <ul>
