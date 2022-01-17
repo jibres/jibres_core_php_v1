@@ -32,6 +32,7 @@ class text
 		if(isset($section_detail['text_preview']) && $section_detail['text_preview'])
 		{
 			$text_html = $section_detail['text_preview'];
+			$text_html = htmlentities($text_html);
 		}
 
 
@@ -44,7 +45,7 @@ class text
 	    	$html .= \content_site\options\generate::multioption();
 	    	$html .= '<div class="h-full">';
 	    	{
-	    		$html .= '<textarea data-editor name="html" class="txt ltr txt-l h-full">'. htmlentities($text_html) .'</textarea>';
+	    		$html .= '<textarea data-editor name="html" class="txt ltr txt-l h-full">'. $text_html .'</textarea>';
 	    	}
 	    	$html .= '</div>';
 	    }
