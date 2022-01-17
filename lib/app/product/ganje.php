@@ -25,7 +25,7 @@ class ganje
 
 		$count_added_by_ganje = \lib\db\products\get::count_added_by_ganje();
 
-		if(floatval($count_added_by_ganje) >= 10)
+		if(floatval($count_added_by_ganje) >= 100)
 		{
 			return true;
 		}
@@ -122,7 +122,7 @@ class ganje
 	 *
 	 * @return     bool    The by barcode.
 	 */
-	public static function fetch_by_barcode($_barcode)
+	public static function fetch_by_barcode($_barcode, $_force = false)
 	{
 
 		if(self::in_ganje_store())
@@ -136,7 +136,7 @@ class ganje
 			return false;
 		}
 
-		if(self::limited())
+		if(self::limited() && !$_force)
 		{
 			return false;
 		}
@@ -287,53 +287,89 @@ class ganje
 	}
 
 
-
-	public static function detect_update(array $_proudct_detail)
+	public static function check_product(array $_product_detail)
 	{
-		if(!\dash\url::isLocal())
-		{
-			return null;
-		}
-
 		if(self::in_ganje_store())
 		{
 			return null;
 		}
 
-		if(a($_proudct_detail, 'ganje_lastfetch'))
+		if(a($_product_detail, 'ganje_id'))
 		{
-			if(strtotime($_proudct_detail['ganje_lastfetch']) >= \lib\api\business\ganje::get_lastupdate(true))
+			if(a($_product_detail, 'ganje_lastfetch'))
+			{
+				if(strtotime($_product_detail['ganje_lastfetch']) >= \lib\api\business\ganje::get_lastupdate(true))
+				{
+					return null;
+				}
+			}
+			else
+			{
+				return self::detect_update($_product_detail);
+			}
+		}
+		else
+		{
+			if(a($_product_detail, 'barcode'))
+			{
+				$ganje_product = self::fetch_by_barcode($_product_detail['barcode'], true);
+			}
+			elseif(a($_product_detail, 'barcode2'))
+			{
+				$ganje_product = self::fetch_by_barcode($_product_detail['barcode2'], true);
+			}
+			else
 			{
 				return null;
 			}
+
+			if(!$ganje_product)
+			{
+				return null;
+			}
+
+			if(self::limited())
+			{
+				$ganje_product['limited'] = true;
+			}
+
+			return $ganje_product;
+
 		}
+
+	}
+
+
+	public static function detect_update(array $_product_detail)
+	{
+
 
 		$ganje_identify = null;
 		$ganje_type     = null;
 
-		if(a($_proudct_detail, 'barcode'))
+		if(a($_product_detail, 'barcode'))
 		{
-			$ganje_identify = $_proudct_detail['barcode'];
+			$ganje_identify = $_product_detail['barcode'];
 			$ganje_type     = 'barcode';
 		}
-		elseif(a($_proudct_detail, 'barcode2'))
+		elseif(a($_product_detail, 'barcode2'))
 		{
-			$ganje_identify = $_proudct_detail['barcode2'];
+			$ganje_identify = $_product_detail['barcode2'];
 			$ganje_type     = 'barcode';
 		}
-		elseif(a($_proudct_detail, 'ganje_id'))
+		elseif(a($_product_detail, 'ganje_id'))
 		{
-			$ganje_identify = $_proudct_detail['ganje_id'];
+			$ganje_identify = $_product_detail['ganje_id'];
 			$ganje_type     = 'id';
 		}
-		elseif(a($_proudct_detail, 'title'))
+		elseif(a($_product_detail, 'title'))
 		{
-			$ganje_identify = $_proudct_detail['title'];
+			$ganje_identify = $_product_detail['title'];
 			$ganje_type     = 'title';
 		}
-		elseif(a($_proudct_detail, 'title2'))
+		elseif(a($_product_detail, 'title2'))
 		{
-			$ganje_identify = $_proudct_detail['title2'];
+			$ganje_identify = $_product_detail['title2'];
 			$ganje_type     = 'title';
 		}
 		else
@@ -371,7 +407,7 @@ class ganje
 		}
 
 		// update last fetch date
-		\lib\db\products\update::ganje_lastfetch($_proudct_detail['id']);
+		\lib\db\products\update::ganje_lastfetch($_product_detail['id']);
 
 		/**
 
@@ -385,27 +421,27 @@ class ganje
 
 		$need_update = [];
 
-		if(!\dash\validate::is_equal(a($_proudct_detail, 'title') , a($ganje_product, 'title')))
+		if(!\dash\validate::is_equal(a($_product_detail, 'title') , a($ganje_product, 'title')))
 		{
 			$need_update['title'] = $ganje_product['title'];
 		}
 
-		if(!\dash\validate::is_equal(a($_proudct_detail, 'title2') , a($ganje_product, 'title2')))
+		if(!\dash\validate::is_equal(a($_product_detail, 'title2') , a($ganje_product, 'title2')))
 		{
 			$need_update['title2'] = $ganje_product['title2'];
 		}
 
-		if(!\dash\validate::is_equal(a($_proudct_detail, 'desc') , a($ganje_product, 'desc')))
+		if(!\dash\validate::is_equal(a($_product_detail, 'desc') , a($ganje_product, 'desc')))
 		{
 			$need_update['desc'] = $ganje_product['desc'];
 		}
 
-		if(!\dash\validate::is_equal(a($_proudct_detail, 'barcode') , a($ganje_product, 'barcode')))
+		if(!\dash\validate::is_equal(a($_product_detail, 'barcode') , a($ganje_product, 'barcode')))
 		{
 			$need_update['barcode'] = $ganje_product['barcode'];
 		}
 
-		if(!\dash\validate::is_equal(a($_proudct_detail, 'barcode2') , a($ganje_product, 'barcode2')))
+		if(!\dash\validate::is_equal(a($_product_detail, 'barcode2') , a($ganje_product, 'barcode2')))
 		{
 			$need_update['barcode2'] = $ganje_product['barcode2'];
 		}
@@ -417,7 +453,158 @@ class ganje
 
 		var_dump($ganje_product);
 
-		var_dump($_proudct_detail);exit;
+		var_dump($_product_detail);exit;
+	}
+
+
+
+	public static function product_html($_data, $_in_edit_module = false)
+	{
+		$html = '';
+
+		$html .= '<div class="flex flex-row bg-white mt-2 rounded-lg">';
+		{
+
+			$html .= '<div class="w-36 h-36 hidden md:block">';
+			{
+				if(a($_data, 'thumb'))
+				{
+					$html .= '<img class="object-cover w-36 h-36 rounded-lg " src="'. a($_data, 'thumb'). '" alt="'.a($_data, 'title').'">';
+				}
+			}
+			$html .= '</div>';
+
+			$html .= '<div class="flex-grow flex flex-col">';
+			{
+
+				$html .= '<div class="flex-grow">';
+				{
+
+					$html .= '<div class="flex flex-row">';
+					{
+						$html .= '<div class="flex-grow">';
+						{
+							$html .= '<div class="p-3">';
+							{
+								$html .= a($_data, 'title');
+
+								if(a($_data, 'title2'))
+								{
+									$html .= '<div class="text-gray-500">';
+									{
+										$html .= a($_data, 'title2');
+									}
+									$html .= '</div>';
+								}
+
+
+								if(a($_data, 'category_list') && is_array($_data['category_list']))
+								{
+									$html .= '<div class="mt-1">';
+									{
+										foreach ($_data['category_list'] as $category)
+										{
+											$html .= '<span class="p-1 m-1 rounded-lg bg-gray-200">';
+											{
+												$html .= '#'. a($category, 'title');
+											}
+											$html .= '</span>';
+										}
+									}
+									$html .= '</div>';
+								}
+
+							}
+							$html .= '</div>';
+
+						}
+						$html .= '</div>';
+
+						$html .= '<div class="flex-none">';
+						{
+							if(a($_data, 'barcode') || a($_data, 'barcode2'))
+							{
+								$barcode = null;
+								if(a($_data, 'barcode'))
+								{
+									$barcode .= ''. $_data['barcode'];
+								}
+								if(a($_data, 'barcode2'))
+								{
+									$barcode .= '|'. $_data['barcode2'];
+								}
+
+								$html .= '<div class="p-1" title="'.$barcode.'">';
+								{
+									$html .= \dash\utility\icon::svg('upc', 'bootstrap', 'DarkGray', 'w-6 h-6');
+								}
+								$html .= '</div>';
+							}
+
+							if(a($_data, 'gallery_array', 'files'))
+							{
+								$html .= '<div class="p-1" title="'.T_("Have gallery").'">';
+								{
+									$html .= \dash\utility\icon::svg('images', 'bootstrap', 'DarkGray', 'w-5 h-5');
+								}
+								$html .= '</div>';
+							}
+						}
+						$html .= '</div>';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+
+				$html .= '<div class="flex-none flex flex-row">';
+				{
+					$html .= '<div class="flex-grow">';
+					{
+
+					}
+					$html .= '</div>';
+					$html .= '<div class="flex-none p-1">';
+					{
+						if(a($_data, 'limited'))
+						{
+							$html .= '<a href="'.\dash\url::here(). '/plugin/view/ganje_product" class="btn-success">'. T_("Buy ganje plugin"). '</a>';
+						}
+						else
+						{
+							if($_in_edit_module)
+							{
+								$html .= '<div data-ajaxify data-data=\'{"update_from":"ganje", "ganje_id": "'.a($_data, 'id').'"}\' class="btn-info">'. T_("Update"). '</div>';
+							}
+							else
+							{
+								$add_url         = \dash\url::this(). '/add?';
+								$add_args        = [];
+								$add_args['gid'] = a($_data, 'id');
+
+								if(isset($is_barcode_page) && $is_barcode_page)
+								{
+									$add_args['barcodepage'] = 1;
+								}
+								$add_args['iframe'] = 1;
+								$add_args['ganje'] = 1;
+
+								$add_url .= \dash\request::build_query($add_args);
+
+								$html .= '<a href="'.$add_url.'" target="_blank" data-type="iframe" data-preload="false" data-fancybox class="btn-primary">'. T_("Add"). '</a>';
+							}
+
+						}
+					}
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+
+		return $html;
 	}
 }
 ?>

@@ -95,8 +95,9 @@ class view
 
 		self::product_ratio();
 
-		$ganje_update = \lib\app\product\ganje::detect_update(\dash\data::productDataRow());
-		\dash\data::ganjeUpdate($ganje_update);
+		$productOnGanje = \lib\app\product\ganje::check_product(\dash\data::productDataRow());
+
+		\dash\data::productOnGanje($productOnGanje);
 	}
 
 

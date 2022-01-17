@@ -56,6 +56,7 @@ if(\dash\data::editMode())
   <?php if(\dash\url::child() == 'edit') {?>
     <div class="c-xs-12 c-sm-12 c-md-4 c-xxl-3">
       <?php require_once ('block/sidebar-menu.php'); ?>
+      <?php require_once ('block/ganje.php'); ?>
     </div>
   <?php } //endif ?>
 
