@@ -316,12 +316,12 @@ class baby
 			return true;
 		}
 
-		if(preg_match("/alert(.*)\(/i", $_txt))
+		if(preg_match("/alert(.{0,5})\(/i", $_txt))
 		{
 			self::$level = 5;
 			return true;
 		}
-		if(preg_match("/prompt(.*)\(/i", $_txt))
+		if(preg_match("/prompt(.{0,5})\(/i", $_txt))
 		{
 			self::$level = 5;
 			return true;
@@ -358,9 +358,9 @@ class baby
 			}
 		}
 
-		if(preg_match("/eval(.*)\(/i", $_txt))
+		if(preg_match("/eval(.{0,5})\(/i", $_txt))
 		{
-			self::$level = 0;
+			self::$level = 1;
 			return true;
 		}
 		// if(preg_match("/sleep(.*)\((.*)\)/i", $_txt))
@@ -368,7 +368,7 @@ class baby
 		// 	self::$level = 2;
 		// 	return true;
 		// }
-		if(preg_match("/extractvalue(.*)\(/i", $_txt))
+		if(preg_match("/extractvalue(.{0,5})\(/i", $_txt))
 		{
 			self::$level = 3;
 			return true;
@@ -388,7 +388,7 @@ class baby
 			self::$level = 4;
 			return true;
 		}
-		if(preg_match("/xmltype(.*)\(/i", $_txt))
+		if(preg_match("/xmltype(.{0,5})\(/i", $_txt))
 		{
 			self::$level = 4;
 			return true;
