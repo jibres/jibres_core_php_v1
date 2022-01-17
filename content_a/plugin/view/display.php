@@ -91,10 +91,10 @@ $html .= '<div class="">';
 
 				if($payable)
 				{
-						$html .= '<div class="mb-2"> '.  T_("Price"). ' </div>';
 
 						if(a($pluginDetail, 'type') === 'periodic' && is_array(a($pluginDetail, 'price_list')))
 						{
+							$html .= '<div class="mb-2"> '.  T_("Please choose one periodic"). ' </div>';
 							foreach ($pluginDetail['price_list'] as $key => $value)
 							{
 								$checked = null;
@@ -148,6 +148,8 @@ $html .= '<div class="">';
 						}
 						else
 						{
+							$html .= '<div class="mb-2"> '.  T_("Price"). ' </div>';
+
 							$html .= '<div class="alert-info">';
 							{
 
