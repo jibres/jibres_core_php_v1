@@ -11,15 +11,32 @@ class ganje_product
 		[
 			'title'         => T_("Ganje"),
 			'name'          => 'ganje_product',
-			'type'          => 'once',
-			'comperatprice' => 200000,
-			'price'         => 100000,
-			'relase_date'   => '2022-01-16',
-			'last_update'   => '2022-01-16',
-			'icon'          => ['gem', 'bootstrap'],
-			'description'   => self::desc(),
-			'keywords'      => [T_("ganje"), T_("product"), T_("barcode")],
-			'currency'      => \lib\currency::jibres_currency(true),
+			'type'          => 'periodic',
+			'price_list'  =>
+			[
+				[
+					'key'           => 'monthly',
+					'plus_day'      => 31, // day
+					'title'         => T_("One month"),
+					'comperatprice' => 50000,
+					'price'         => 20000,
+				],
+				[
+					'key'           => 'yearly',
+					'plus_day'      => 366, // day
+					'title'         => T_("One year"),
+					'default'       => true,
+					'comperatprice' => 200000,
+					'price'         => 150000,
+				],
+			],
+			'max_period'  => '+400day', // +400 day 366+31 = 397 ~ 400
+			'relase_date' => '2022-01-16',
+			'last_update' => '2022-01-16',
+			'icon'        => ['gem', 'bootstrap'],
+			'description' => self::desc(),
+			'keywords'    => [T_("ganje"), T_("product"), T_("barcode")],
+			'currency'    => \lib\currency::jibres_currency(true),
 		];
 
 	}

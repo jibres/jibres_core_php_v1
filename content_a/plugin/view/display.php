@@ -59,53 +59,88 @@ $html .= '<div class="">';
 
 				if($payable)
 				{
-					$html .= '<div class="alert-info">';
-					{
-						$html .= '<span class=""> '.  T_("Price"). ' </span>';
+						$html .= '<div class="mb-2"> '.  T_("Price"). ' </div>';
 
 						if(a($pluginDetail, 'type') === 'periodic' && is_array(a($pluginDetail, 'price_list')))
 						{
 							foreach ($pluginDetail['price_list'] as $key => $value)
 							{
-
-								$html .= '<div class="radio3">';
+								$checked = null;
+								if(a($value, 'default'))
 								{
-									$checked = null;
-									if(a($value, 'default'))
-									{
-										$checked = 'checked';
-									}
+									$checked = 'checked';
+								}
 
-									$html .= '<input type="radio" name="periodic" value="'.a($value, 'key').'" id="periodic_'.a($value, 'key').'" '.$checked.'>';
-									$html .= '<label for="periodic_'.a($value, 'key').'">'.a($value, 'title').'</label>';
+								$html .= '<div class="radio4">';
+								{
+
+									$html .= '<input id="periodic'.$key.'" type="radio" name="periodic" value="'.a($value, 'key').'" '. $checked. '>';
+
+									$html .= '<label for="periodic'.$key.'">';
+									{
+										$html .= '<div>';
+										{
+											$html .= '<span class="font-bold mx-2">';
+											{
+												$html .= a($value, 'title');
+											}
+											$html .= '</span>';
+
+											if(a($value, 'comperatprice') and 0)
+											{
+												$html .= '<span class="mx-2 line-through decoration-red-700" style="text-decoration-color: red; text-decoration-thickness: 2px;">';
+												{
+													$html .= \dash\fit::number(a($value, 'comperatprice'));
+												}
+												$html .= '</span>';
+											}
+											$html .= '<span>';
+											{
+												$html .= \dash\fit::number(a($value, 'price'));
+											}
+											$html .= '</span>';
+
+											$html .= '<span class="mx-2">';
+											{
+												$html .= a($pluginDetail, 'currency');
+											}
+											$html .= '</span>';
+
+										}
+										$html .= '</div>';
+									}
+									$html .= '</label>';
 								}
 								$html .= '</div>';
 							}
 						}
 						else
 						{
-							if(a($pluginDetail, 'price') === 0)
+							$html .= '<div class="alert-info">';
 							{
-								$html .= '<span class="text-green-500">'.  T_("Free"). '</span>';
-							}
-							else
-							{
-								$html .= '<span class="">';
+
+								if(a($pluginDetail, 'price') === 0)
 								{
-									$html .= \dash\fit::number(a($pluginDetail, 'price'));
-
-									$html .= '<small class=""> ';
-									{
-										$html .= a($pluginDetail, 'currency');
-									}
-									$html .= '</small>';
-
+									$html .= '<span class="text-green-500">'.  T_("Free"). '</span>';
 								}
-								$html .= '</span>';
+								else
+								{
+									$html .= '<span class="">';
+									{
+										$html .= \dash\fit::number(a($pluginDetail, 'price'));
+
+										$html .= '<small class=""> ';
+										{
+											$html .= a($pluginDetail, 'currency');
+										}
+										$html .= '</small>';
+
+									}
+									$html .= '</span>';
+								}
 							}
+							$html .= '</div>';
 						}
-					}
-					$html .= '</div>';
 
 				}
 
@@ -157,7 +192,7 @@ $html .= '<div class="">';
 					{
 						$html .= '<div class="p-4">';
 						{
-							if(a($pluginDetail, 'price'))
+							if(a($pluginDetail, 'price') || a($pluginDetail, 'price_list'))
 							{
 								$html .= '<button class="btn-success">'. T_("Buy now"). '</button>';
 							}
