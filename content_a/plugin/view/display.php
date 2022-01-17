@@ -180,9 +180,9 @@ $html .= '<div class="">';
 
 				if($payable)
 				{
-					if(\dash\data::myBudget() && a($pluginDetail, 'price'))
+					if(\dash\data::myBudget())
 					{
-						$html .= '<div class="alert-success">';
+						$html .= '<div class="p-2">';
 						{
 
 							$html .= '<div class="switch1">';
@@ -192,7 +192,7 @@ $html .= '<div class="">';
 								$html .= '<label for="use_budget">';
 								{
 									$html .= T_('Use from budget');
-									$html .= '( ';
+									$html .= ' ( ';
 									{
 										$html .= \dash\fit::number(\dash\data::myBudget_budget());
 										$html .= ' ';
