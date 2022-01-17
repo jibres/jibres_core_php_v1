@@ -1,7 +1,7 @@
 <?php
 $html = '';
 
-$html .= '<div class="w-2/4 m-auto">';
+$html .= '<div class="lg:w-2/4 w-11/12 m-auto">';
 {
 	if(\dash\data::ganjeSearch())
 	{
@@ -12,7 +12,7 @@ $html .= '<div class="w-2/4 m-auto">';
 			$html .= '<div class="flex flex-row bg-white mt-5 rounded-lg">';
 			{
 
-				$html .= '<div class="w-36 h-36">';
+				$html .= '<div class="w-36 h-36 hidden md:block">';
 				{
 					if(a($value, 'thumb'))
 					{
