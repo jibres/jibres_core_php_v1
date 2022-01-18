@@ -611,10 +611,10 @@ class activate
 				'plugin'      => $plugin,
 				'zone'        => \lib\app\plugin\get::zone($plugin),
 				'status'      => 'enable',
-				'addedby'     => 'admin',
-				'user_id'     => \dash\user::id(),
-				'price'       => $price,
-				'finalprice'  => 0,
+				// 'addedby'     => 'admin',
+				// 'user_id'     => \dash\user::id(),
+				// 'price'       => $price,
+				// 'finalprice'  => 0,
 				'datecreated' => date("Y-m-d H:i:s"),
 			];
 
