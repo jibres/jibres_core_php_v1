@@ -593,7 +593,7 @@ class get
   			FROM
 				products
 			WHERE
-				products.barcode = :barcode OR products.barcode = :2barcode
+				products.barcode = :barcode OR products.barcode2 = :2barcode
 			LIMIT 1
 		";
 		$param = [':barcode' => $_barcode, ':2barcode' => $_barcode];
