@@ -150,8 +150,9 @@ class edit
 
 		if(a($_args, 'add_from_ganje') && a($_args, 'add_from_ganje_type') === 'id')
 		{
-			$exception[] = 'ganje_id';
-			$exception[] = 'ganje_lastfetch';
+			$exception = array_merge($exception, array_keys(array_filter($args)));
+			// $exception[] = 'ganje_id';
+			// $exception[] = 'ganje_lastfetch';
 		}
 
 		$args = \dash\cleanse::patch_mode($_args, $args, $exception);
