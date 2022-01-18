@@ -209,7 +209,6 @@ class ganje
 
 		if(self::limited())
 		{
-			$_args['ganje_id'] = null;
 			return $_args;
 		}
 

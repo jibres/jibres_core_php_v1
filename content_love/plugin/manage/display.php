@@ -7,7 +7,6 @@
       <tr>
         <th><?php echo T_("Feature") ?></th>
         <th><?php echo T_("Status") ?></th>
-        <!-- <th><?php echo T_("Price") ?></th> -->
         <th><?php echo T_("Added by") ?></th>
         <th><?php echo T_("Datecreated") ?></th>
         <th><?php echo T_("Expire date") ?></th>
@@ -18,16 +17,14 @@
     <tbody>
       <?php foreach (\dash\data::pluginList() as $key => $value) {?>
         <tr>
-          <td><?php echo a($value, 'plugin') ?></td>
-          <td><?php echo T_(a($value, 'status')) ?></td>
-          <!-- <td><?php echo \dash\fit::number(a($value, 'price')) ?></td> -->
+          <td><?php echo a($value, 'plugin_title') ?></td>
+          <td><?php echo T_(a($value, 'tstatus')) ?></td>
           <td><?php echo T_(a($value, 'addedby')) ?></td>
           <td><?php if(a($value, 'datecreated')) {echo \dash\fit::date_time(a($value, 'datecreated'));}else{echo '-';}  ?></td>
           <td><?php if(a($value, 'expiredate')) {echo \dash\fit::date_time(a($value, 'expiredate'));}else{echo '-';}  ?></td>
           <td><?php if(a($value, 'datemodified')) {echo \dash\fit::date_time(a($value, 'datemodified'));}else{echo '-';}  ?></td>
           <td class="collapsing">
-            <?php if(a($value, 'status') === 'enable') {?><div data-confirm data-data='{"remove": "plugin", "plugin": "<?php echo a($value, 'plugin') ?>"}'><i class="sf-trash fc-red font-18"></i></div><?php } //endif ?>
-            <?php if(a($value, 'status') !== 'enable') {?><div data-confirm data-data='{"addplugin": "1", "plugin": "<?php echo a($value, 'plugin') ?>"}'><i class="sf-refresh fc-green font-18"></i></div><?php } //endif ?>
+            <a href="<?php echo \dash\url::this(). '/edit?pid='. a($value, 'id'). '&id='. \dash\request::get('id'); ?>" class="btn-primary"><?php echo T_("Edit") ?></a>
           </td>
         </tr>
       <?php } //endfor ?>

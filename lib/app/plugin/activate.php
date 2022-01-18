@@ -714,5 +714,87 @@ class activate
 
 	}
 
+
+
+	public static function admin_edit($_args, $_plugin_id)
+	{
+
+		$plugin_id = \dash\validate::id($_plugin_id);
+
+
+		if(!$plugin_id)
+		{
+			\dash\notif::error(T_("Id not set"));
+			return false;
+		}
+
+		$check = \lib\db\store_plugin\get::by_id($plugin_id);
+
+		if(isset($check['id']))
+		{
+			// ok
+		}
+		else
+		{
+			\dash\notif::error(T_("Plugin not exist"));
+			return false;
+		}
+
+		$condition =
+		[
+			'status'      => ['enum' => ['enable', 'deleted']],
+			'expiredate'    => 'date',
+
+		];
+
+		$require = ['status'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		\lib\db\store_plugin\update::record($data, $plugin_id);
+
+		\lib\db\store_plugin_action\update::set_status_by_plugin_id('deleted', $check['id']);
+
+		$insert_action =
+		[
+			'plugin_id'      => $plugin_id,
+			'action'         => 'admin_edit',
+			'addedby'        => 'admin',
+			// 'type'           => 'edit',
+			'user_id'        => \dash\user::id(),
+			'status'         => 'enable',
+			'datecreated'    => date("Y-m-d H:i:s"),
+		];
+
+		$action_id = \lib\db\store_plugin_action\insert::new_record($insert_action);
+
+
+		// send request to api.busisness.jibres to alert him the plugin is payed
+
+		\lib\api\business\api::sync_required($check['store_id']);
+
+		\dash\notif::ok(T_("Sync request sended to business"));
+
+
+
+		// // send notif to supervisor
+		// $load_busness_detail = \lib\app\store\get::data_by_id($business_id);
+		// $log =
+		// [
+		// 	'my_plugin_removed' => true,
+		// 	'my_plugin'     => $plugin,
+		// 	'my_business_id'     => $business_id,
+		// 	'my_user_id'         => \dash\user::id(),
+		// 	'my_business_title'  => a($load_busness_detail, 'title'),
+
+		// ];
+
+		// \dash\log::set('business_plugin', $log);
+
+
+	}
+
 }
 ?>

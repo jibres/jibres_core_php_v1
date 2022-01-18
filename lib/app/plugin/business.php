@@ -78,9 +78,32 @@ class business
 			$business_plugin_list = [];
 		}
 
+		$business_plugin_list = array_map(['\\lib\\app\\plugin\\action\\ready', 'row'], $business_plugin_list);
 
 		return $business_plugin_list;
 
+	}
+
+
+
+	public static function load_by_id($_id)
+	{
+		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$load = \lib\db\store_plugin\get::by_id($id);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		$load = \lib\app\plugin\action\ready::row($load);
+
+		return $load;
 	}
 
 

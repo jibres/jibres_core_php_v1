@@ -4,6 +4,10 @@ namespace lib\db\store_plugin;
 
 class get
 {
+	public static function by_id($_id)
+	{
+		return \dash\pdo\query_template::get('store_plugin', $_id);
+	}
 
 	public static function group_by_plugin()
 	{
