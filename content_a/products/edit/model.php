@@ -169,6 +169,20 @@ class model
 		{
 
 			$post = self::get_post();
+
+			$ganje_identify = null;
+			$ganje_type     = null;
+
+			if(\dash\request::post('gid'))
+			{
+				$ganje_identify = \dash\request::post('gid');
+				$ganje_type     = 'id';
+				$post           = [];
+			}
+
+			$post['add_from_ganje']      = $ganje_identify;
+			$post['add_from_ganje_type'] = $ganje_type;
+
 			$result = \lib\app\product\edit::edit($post, $id);
 		}
 

@@ -127,6 +127,8 @@ class edit
 
 		$args = \lib\app\product\check::variable($_args, $id, $_option);
 
+
+
 		if(!$args || !\dash\engine\process::status())
 		{
 			return false;
@@ -144,9 +146,15 @@ class edit
 			$_args['vatprice']        = $args['vatprice'];
 		}
 
+		$exception = [];
 
-		$args = \dash\cleanse::patch_mode($_args, $args);
+		if(a($_args, 'add_from_ganje') && a($_args, 'add_from_ganje_type') === 'id')
+		{
+			$exception[] = 'ganje_id';
+			$exception[] = 'ganje_lastfetch';
+		}
 
+		$args = \dash\cleanse::patch_mode($_args, $args, $exception);
 
 		if(array_key_exists('unit', $args))
 		{
@@ -286,8 +294,6 @@ class edit
 		}
 
 
-
-
 		if(!empty($args))
 		{
 			foreach ($args as $key => $value)
@@ -345,26 +351,26 @@ class edit
 
 				if(\dash\temp::get('temp_gallery_raw_from_api'))
 				{
+					\dash\notif::inactive();
+
 					foreach (\dash\temp::get('temp_gallery_raw_from_api') as $key => $value)
 					{
-						\dash\notif::inactive();
-
-						gallery::gallery($product_id, $value, 'add');
-
-						\dash\notif::active();
+						gallery::gallery($id, $value, 'add');
 					}
+
+					\dash\notif::active();
 				}
 
 				if(\dash\temp::get('temp_property_raw_from_api'))
 				{
+					\dash\notif::inactive();
+
 					foreach (\dash\temp::get('temp_property_raw_from_api') as $key => $value)
 					{
-						\dash\notif::inactive();
-
-						property::add($value, $product_id);
-
-						\dash\notif::active();
+						property::add($value, $id);
 					}
+
+					\dash\notif::active();
 				}
 
 

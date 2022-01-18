@@ -18,8 +18,6 @@ class ganje
 	 */
 	public static function limited()
 	{
-		return false;
-
 		if(\lib\app\plugin\business::is_activated('ganje_product'))
 		{
 			return false;
@@ -282,6 +280,16 @@ class ganje
 			if(!a($_args, 'desc'))
 			{
 				$_args['desc']   = a($ganje_product, 'desc');
+			}
+
+			if(!a($_args, 'barcode'))
+			{
+				$_args['barcode']   = a($ganje_product, 'barcode');
+			}
+
+			if(!a($_args, 'barcode2'))
+			{
+				$_args['barcode2']   = a($ganje_product, 'barcode2');
 			}
 		}
 
