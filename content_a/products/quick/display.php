@@ -88,6 +88,12 @@ $html .= '<form class="jPage" id="aProductData" method="post" autocomplete="off"
 			}
 			$html .= '</section>';
 
+			echo $html;
+			$html = '';
+			$quick_mode = true;
+			require_once(root. 'content_a/products/edit/block/gallery.php');
+			$html = '';
+
 
 		}
 		$html .= '</div>';

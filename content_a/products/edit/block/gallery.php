@@ -22,6 +22,12 @@
   $is_auto_send  = \dash\url::child() === 'edit';
   $gallery_array = $gallery;
 
+  if(isset($quick_mode) && $quick_mode)
+  {
+    $gallery_lockMode = true;
+    $no_footer = true;
+  }
+
   require_once(root. 'dash/layout/post/admin-gallery-box.php');
 
     if(false)
