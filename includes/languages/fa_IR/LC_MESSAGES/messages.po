@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-17 15:18+0330\n"
-"PO-Revision-Date: 2022-01-17 15:18+0330\n"
+"POT-Creation-Date: 2022-01-18 08:11+0330\n"
+"PO-Revision-Date: 2022-01-18 08:13+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2174,7 +2174,7 @@ msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی د
 #: content/home/display.php:35 content/pricing/display.php:38
 #: content/pricing/priceTable.php:7 content/pricing/priceTable.php:18
 #: content_a/cart/add/display.php:131 content_a/order/summary.php:54
-#: content_a/plugin/view/display.php:156 content_a/products/edit/block/price.php:68
+#: content_a/plugin/view/display.php:158 content_a/products/edit/block/price.php:68
 #: content_business/cart/cartSummary.php:40 content_business/p/home/blocks/detail.php:75
 #: content_site/assemble/wrench/price.php:36
 msgid "Free"
@@ -3334,7 +3334,7 @@ msgstr "طلایی"
 #: content/pricing/display.php:46 content/pricing/display.php:69
 #: content/pricing/display.php:98 content_a/chap/size-receipt/receipt.php:123
 #: content_a/order/home/display.php:16 content_a/order/products/display.php:50
-#: content_a/order/products/display.php:52 content_a/plugin/view/display.php:94
+#: content_a/order/products/display.php:52 content_a/plugin/view/display.php:151
 #: content_a/pricehistory/display.php:8 content_a/pricehistory/display.php:39
 #: content_a/pricehistory/display.php:77 content_a/products/child/display.php:95
 #: content_a/products/child/display.php:165 content_a/products/share/display.php:32
@@ -5098,8 +5098,7 @@ msgstr "وضعیت"
 #: content_a/form/analytics/addfilter/display.php:11
 #: content_a/form/item/choice/display.php:11 content_a/form/tag/add/display.php:12
 #: content_a/order/products/display.php:66 content_a/products/add/view.php:20
-#: content_a/products/bullet/display.php:21 content_a/products/home/ganje.php:129
-#: content_a/products/property/add/display.php:60
+#: content_a/products/bullet/display.php:21 content_a/products/property/add/display.php:60
 #: content_a/products/property/display.php:73 content_a/products/quick/view.php:21
 #: content_a/products/variants/display-add-new-child.php:63
 #: content_a/setting/menu/item/display.php:124
@@ -5112,7 +5111,7 @@ msgstr "وضعیت"
 #: content_site/page/new/display.php:17 content_site/staticfile/display.php:24
 #: dash/layout/admin/admin-titlebox.php:95 dash/layout/m2/admin-titlebox.php:115
 #: dash/layout/m2/pageNav.php:225 dash/layout/pwa/pwa-header.php:152
-#: includes/languages/trans_static_public.php:143
+#: includes/languages/trans_static_public.php:143 lib/app/product/ganje.php:603
 msgid "Add"
 msgstr "افزودن"
 
@@ -5742,13 +5741,13 @@ msgstr "کپی"
 msgid "Make copy from accounting document"
 msgstr "ساخت یک نسخه کپی از سند حسابداری"
 
-#: content_a/accounting/doc/edit/model.php:152 content_a/products/edit/model.php:399
+#: content_a/accounting/doc/edit/model.php:152 content_a/products/edit/model.php:413
 #: content_cms/files/add/model.php:35 content_cms/files/remove/model.php:32
 #: content_cms/posts/edit/model.php:144 content_love/files/remove/model.php:32
 msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
-#: content_a/accounting/doc/edit/model.php:171 content_a/products/edit/model.php:416
+#: content_a/accounting/doc/edit/model.php:171 content_a/products/edit/model.php:430
 #: content_cms/posts/edit/model.php:106 content_love/ip/model.php:17
 #: lib/app/staticfile/remove.php:37
 msgid "File removed"
@@ -10350,24 +10349,29 @@ msgstr "شما در بازه زمانی ۹۰٪ تخفیف قرار دارید"
 msgid "So do not miss the opportunity and get the plugin right now"
 msgstr "پس فرصت رو از دست ندید و همین الان این افزونه رو تهیه کنید"
 
-#: content_a/plugin/view/display.php:192
+#: content_a/plugin/view/display.php:97 lib/app/plugin/get.php:103
+#: lib/app/plugin/get.php:207
+msgid "Please choose one periodic"
+msgstr "لطفا یک دوره زمانی را انتخاب کنید"
+
+#: content_a/plugin/view/display.php:194
 msgid "Use from budget"
 msgstr "استفاده از شارژ حساب کاربری"
 
-#: content_a/plugin/view/display.php:216
+#: content_a/plugin/view/display.php:218
 msgid "Your plugin is activated until :date"
 msgstr "این پلاگین برای بیزینس شما تا تاریخ :date فعال است"
 
-#: content_a/plugin/view/display.php:219
+#: content_a/plugin/view/display.php:222
 msgid "This plugin is active in your business"
 msgstr "این پلاگین در حال حاضر در بیزینس شما فعال شده است"
 
-#: content_a/plugin/view/display.php:235 lib/app/product/ready.php:439
+#: content_a/plugin/view/display.php:240 lib/app/product/ready.php:439
 #: lib/app/product/ready.php:450 lib/app/product/ready.php:456
 msgid "Buy now"
 msgstr "همین الان بخر"
 
-#: content_a/plugin/view/display.php:239
+#: content_a/plugin/view/display.php:244
 msgid "Get it for free"
 msgstr "رایگان دریافت کنید"
 
@@ -10634,6 +10638,14 @@ msgstr "توضیحاتی در مورد این محصول"
 msgid "Load suggest image"
 msgstr "در حال بارگذاری تصاویر پیشنهادی"
 
+#: content_a/products/edit/block/ganje.php:12
+msgid ""
+"Your product was exist in our ganje service. You can update your product detail by one "
+"click!"
+msgstr ""
+"مشخصات محصول شما در سرویس گنجه یافت شد. شما می‌توانید با یک کلید اطلاعات محصول خود را "
+"به‌روزرسانی کنید!"
+
 #: content_a/products/edit/block/inventory-child.php:9
 #: content_a/products/edit/block/inventory-master.php:13
 #: content_a/products/quick/display.php:32
@@ -10802,15 +10814,15 @@ msgstr "عنوان محصول"
 msgid "Technical title"
 msgstr "عنوان فنی"
 
-#: content_a/products/edit/display.php:66
+#: content_a/products/edit/display.php:67
 msgid "Archive product"
 msgstr "آرشیو کردن محصول"
 
-#: content_a/products/edit/display.php:67 dash/permission_caller.php:153
+#: content_a/products/edit/display.php:68 dash/permission_caller.php:153
 msgid "Delete product"
 msgstr "حذف محصول"
 
-#: content_a/products/edit/model.php:427 content_b1/product/gallery/thumb/model.php:26
+#: content_a/products/edit/model.php:441 content_b1/product/gallery/thumb/model.php:26
 msgid "Product thumb set"
 msgstr "تصویر شاخص محصول تنظیم شد"
 
@@ -10904,11 +10916,6 @@ msgstr "اطلاعاتی برای مرتب سازی یافت نشد"
 #: content_a/products/gallerysort/view.php:11 content_cms/posts/gallerysort/view.php:10
 msgid "Sort images in gallery"
 msgstr "مرتب سازی تصاویر در گالری"
-
-#: content_a/products/home/ganje.php:93 dash/app/posts/filter.php:95
-#: lib/app/product/filter.php:260
-msgid "Have gallery"
-msgstr "دارای گالری تصاویر"
 
 #: content_a/products/home/view.php:18 dash/layout/m2/sidebar.php:159
 msgid "Add product"
@@ -18092,7 +18099,7 @@ msgstr "آیا تراکنش معتبر است؟"
 #: content_my/domain/setting/holder/display.php:30 content_sudo/home/display.php:73
 #: content_v2/android/update/display.php:4 content_v2/android/update/view.php:9
 #: dash/layout/admin/sidebar/sidebar-su.php:14
-#: includes/languages/trans_static_public.php:146
+#: includes/languages/trans_static_public.php:146 lib/app/product/ganje.php:586
 msgid "Update"
 msgstr "بروزرسانی"
 
@@ -26231,6 +26238,11 @@ msgstr "در انتظار بررسی"
 #: dash/app/posts/filter.php:85
 msgid "Publish in the future"
 msgstr "انتشار در آینده"
+
+#: dash/app/posts/filter.php:95 lib/app/product/filter.php:260
+#: lib/app/product/ganje.php:556
+msgid "Have gallery"
+msgstr "دارای گالری تصاویر"
 
 #: dash/app/posts/filter.php:105 lib/app/product/filter.php:270
 msgid "Have not gallery"
@@ -38917,7 +38929,6 @@ msgstr "برای دانلود فایل کلیک کنید"
 
 #: lib/app/log/caller/business/business_createNew.php:16
 #: lib/app/log/caller/business/business_createNew.php:114
-#: lib/app/log/caller/business/business_plugin.php:127
 msgid "New business created"
 msgstr "بیزینس جدید ساخته شد"
 
@@ -38982,6 +38993,7 @@ msgid "Features locked"
 msgstr "ویژگی قفل شد"
 
 #: lib/app/log/caller/business/business_plugin.php:26
+#: lib/app/log/caller/business/business_plugin.php:127
 msgid "New plugin unlocked"
 msgstr "قفل پلاگین جدید باز شد"
 
@@ -38996,10 +39008,6 @@ msgstr "اضافه شده توسط مدیر"
 #: lib/app/log/caller/business/business_plugin.php:65
 msgid "Removed by admin from Business"
 msgstr "حذف شد توسط مدیر از بیزینس"
-
-#: lib/app/log/caller/business/business_plugin.php:73
-msgid "Page Url"
-msgstr "آدرس صفحه"
 
 #: lib/app/log/caller/domain/domain_AutoRenewAlert.php:12
 msgid "Domain Auto renew alert"
@@ -40032,25 +40040,21 @@ msgstr "پلاگین وجود داشت. مجددا فعال شد"
 msgid "Plugin added"
 msgstr "پلاگین اضافه شد"
 
-#: lib/app/plugin/activate.php:633 lib/app/plugin/activate.php:693
+#: lib/app/plugin/activate.php:633 lib/app/plugin/activate.php:697
 msgid "Sync request sended to business"
 msgstr "درخواست یکپارچه‌سازی امکانات به بیزینس اعلام شد"
 
-#: lib/app/plugin/activate.php:671
+#: lib/app/plugin/activate.php:675
 msgid "Plugin removed"
 msgstr "پلاگین حذف شد"
 
-#: lib/app/plugin/activate.php:675
+#: lib/app/plugin/activate.php:679
 msgid "Plugin already removed"
 msgstr "پلاگین در حال حاضر حذف شده است"
 
-#: lib/app/plugin/activate.php:683
+#: lib/app/plugin/activate.php:687
 msgid "Plugin not exist"
 msgstr "پلاگین وجود ندارد"
-
-#: lib/app/plugin/get.php:103 lib/app/plugin/get.php:207
-msgid "Please choose one periodic"
-msgstr "لطفا یک دوره زمانی را انتخاب کنید"
 
 #: lib/app/plugin/get.php:110 lib/app/plugin/get.php:214
 msgid "Can not complete your request. Please contact to administrator"
@@ -40222,23 +40226,23 @@ msgstr "بیش از دو محصول با این بارکد به ثبت رسید�
 msgid "Some detail is wrong!"
 msgstr "برخی از جزئیات اشتباه هستند!"
 
-#: lib/app/product/edit.php:249
+#: lib/app/product/edit.php:257
 msgid "Title of product can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/edit.php:319
+#: lib/app/product/edit.php:325
 msgid "Can not update product"
 msgstr "نمی‌توانیم محصول را به‌روزرسانی کنیم"
 
-#: lib/app/product/edit.php:393 lib/app/product/edit.php:403
+#: lib/app/product/edit.php:399 lib/app/product/edit.php:409
 msgid "Your product successfully updated"
 msgstr "محصول با موفقیت به‌روزرسانی شد"
 
-#: lib/app/product/edit.php:412
+#: lib/app/product/edit.php:418
 msgid "Your product saved without change"
 msgstr "محصول شما بدون تغییر ذخیره شد"
 
-#: lib/app/product/edit.php:421
+#: lib/app/product/edit.php:427
 msgid "No value found for editing"
 msgstr "هیچ مقداری برای ویرایش وجود ندارد"
 
@@ -40420,6 +40424,10 @@ msgstr "حداکثر تعداد فایل در گالری ۱۰ فایل است"
 #: lib/app/product/gallery.php:476
 msgid "Please reload page to sort all image in this product gallery"
 msgstr "لطفا برای مرتب سازی همه تصاویر موجود در این محصول صفحه را مجددا بارگذاری نمایید"
+
+#: lib/app/product/ganje.php:580
+msgid "Buy ganje plugin"
+msgstr "خرید افزونه گنجه"
 
 #: lib/app/product/get.php:52 lib/app/product/get.php:93 lib/app/product/get.php:124
 msgid "Product id not set"
@@ -42649,6 +42657,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Page Url"
+#~ msgstr "آدرس صفحه"
 
 #~ msgid "1 Month"
 #~ msgstr "یک ماه"
