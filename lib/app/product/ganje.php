@@ -25,7 +25,7 @@ class ganje
 
 		$count_added_by_ganje = \lib\db\products\get::count_added_by_ganje();
 
-		if(floatval($count_added_by_ganje) >= 100)
+		if(floatval($count_added_by_ganje) >= 10)
 		{
 			return true;
 		}
