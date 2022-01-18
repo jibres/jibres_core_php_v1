@@ -19,15 +19,15 @@ class ganje_product
 					'plus_day'      => 31, // day
 					'title'         => T_("One month"),
 					'comperatprice' => 50000,
-					'price'         => 20000,
+					'price'         => 50000,
 				],
 				[
 					'key'           => 'yearly',
 					'plus_day'      => 366, // day
 					'title'         => T_("One year"),
 					'default'       => true,
-					'comperatprice' => 200000,
-					'price'         => 150000,
+					'comperatprice' => 600000,
+					'price'         => 300000,
 				],
 			],
 			'max_period'  => '+400day', // +400 day 366+31 = 397 ~ 400
