@@ -65,7 +65,7 @@ $html .= '<div class="">';
 
 				if($in_discount_time && $payable)
 				{
-					$html .= '<div class="alert-success font-bold">';
+					$html .= '<div class="alert-primary font-bold">';
 					{
 						$html .= '<div>';
 						{
@@ -118,25 +118,32 @@ $html .= '<div class="">';
 											}
 											$html .= '</span>';
 
-											if(a($value, 'comperatprice') and 0)
-											{
-												$html .= '<span class="mx-2 line-through decoration-red-700" style="text-decoration-color: red; text-decoration-thickness: 2px;">';
-												{
-													$html .= \dash\fit::number(a($value, 'comperatprice'));
-												}
-												$html .= '</span>';
-											}
+
 											$html .= '<span>';
 											{
 												$html .= \dash\fit::number(\lib\app\plugin\get::payable_price($plugin, a($value, 'price')));
 											}
 											$html .= '</span>';
 
+											if(a($value, 'comperatprice') && a($value, 'comperatprice') > \lib\app\plugin\get::payable_price($plugin, a($value, 'price')))
+											{
+												$html .= '<span class="mx-2 line-through decoration-red-700" style="text-decoration-color: red; text-decoration-thickness: 1px;">';
+												{
+													$html .= \dash\fit::number(a($value, 'comperatprice'));
+												}
+												$html .= '</span>';
+											}
+
 											$html .= '<span class="mx-2">';
 											{
 												$html .= a($pluginDetail, 'currency');
 											}
 											$html .= '</span>';
+
+											// if($in_discount_time)
+											// {
+											// 	$html .= '('.\dash\fit::number(90). T_("%"). ' '.T_("Discount").')';
+											// }
 
 										}
 										$html .= '</div>';
