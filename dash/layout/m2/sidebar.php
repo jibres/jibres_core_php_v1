@@ -583,26 +583,19 @@ class sidebar
 
 
 
+		$menu["seperator2"] =
+		[
+			'seperator' => true,
+			'desc' => 123,
+		];
 
-
-
-		if(\dash\url::isLocal())
-		{
-
-			$menu["seperator2"] =
-			[
-				'seperator' => true,
-				'desc' => 123,
-			];
-
-			$menu["plugins"] =
-			[
-				'title'     => T_("Plugins"),
-				'url'       => \dash\url::kingdom().'/a/plugin',
-				'icon'      => 'Apps',
-				'iconColor' => '#da9e51',
-			];
-		}
+		$menu["plugins"] =
+		[
+			'title'     => T_("Plugins"),
+			'url'       => \dash\url::kingdom().'/a/plugin',
+			'icon'      => 'Apps',
+			'iconColor' => '#da9e51',
+		];
 
 
 
