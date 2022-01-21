@@ -59,7 +59,7 @@
                     <td><?php echo T_(ucfirst(a($value, 'weekday'))) ?></td>
                     <td><?php echo \dash\fit::text(substr(a($value, 'start'), 0 , 5)); ?></td>
                     <td><?php echo \dash\fit::text(substr(a($value, 'end'), 0 , 5)); ?></td>
-                    <td><div class="" data-ajaxify data-data='{"remove": "time", "index" : "<?php echo $key ?>"}'><i class="sf-trash fc-red"></i></div></td>
+                    <td><div class="" data-ajaxify data-data='{"remove": "time", "index" : "<?php echo $key ?>"}'><?php echo \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3 h-3') ?></div></td>
                   </tr>
                 <?php } //endfor ?>
 
