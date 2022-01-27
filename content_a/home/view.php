@@ -13,10 +13,18 @@ class view
 		\dash\data::dashboardData(\lib\app\admin_dashboard\get::get());
 
 		\dash\face::specialTitle(true);
-		// back
-		\dash\data::back_text(T_('Control Center'));
-		\dash\data::back_link(\dash\url::sitelang(). '/my');
-		\dash\data::back_direct(true);
+
+		if(!\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain())
+		{
+			// hide back btn
+		}
+		else
+		{
+			// back
+			\dash\data::back_text(T_('Control Center'));
+			\dash\data::back_link(\dash\url::sitelang(). '/my');
+			\dash\data::back_direct(true);
+		}
 	}
 }
 ?>
