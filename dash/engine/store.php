@@ -178,7 +178,12 @@ class store
 	{
 		if(\lib\app\plugin\business::is_activated('admin_domain'))
 		{
-			return true;
+			$master_domain = \lib\store::master_domain();
+
+			if($master_domain === \dash\url::base())
+			{
+				return true;
+			}
 		}
 
 		return false;
@@ -240,6 +245,7 @@ class store
 			$allow_content[] = 'crm';
 			$allow_content[] = 'hook'; // cronjob need this
 			$allow_content[] = 'account'; // we have one link from business to account. in accoutn controller redirect
+			$allow_content[] = 'my'; // we have one link from business to account. in accoutn controller redirect
 		}
 
 		if(in_array($content, $allow_content))
