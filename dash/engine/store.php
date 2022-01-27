@@ -329,14 +329,7 @@ class store
 				}
 				else
 				{
-					if(self::enable_plugin_admin_special_domain())
-					{
-						// ok
-					}
-					else
-					{
-						\dash\header::status(409, T_("Can not route this address from your domain!"));
-					}
+					\dash\header::status(409, T_("Can not route this address from your domain!"));
 				}
 			}
 		}
