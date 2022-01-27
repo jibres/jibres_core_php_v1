@@ -51,19 +51,30 @@ class header
 
       if(\dash\user::id())
       {
+        $in_customer_specail_domain = false;
+        $account_profile_url = \dash\url::kingdom(). '/account';
+        if(\dash\engine\store::inStore() && !\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain())
+        {
+          $in_customer_specail_domain = true;
+          $account_profile_url = \dash\url::kingdom(). '/profile/detail';
+        }
+
         $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg orders" href="'. \dash\url::kingdom(). '/a/order/unprocessed" title="'. T_("Unprocessed Orders"). '">';
         $html .= \dash\utility\icon::bootstrap('App indicator', 'text-gray-500');
         // $html .= \dash\utility\icon::svg('First Order');
         $html .= '</a>';
 
-        // notification
-        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg notification" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '" data-direct>';
-        // $html .= \dash\utility\icon::svg('Notification');
-        $html .= \dash\utility\icon::bootstrap('envelope', 'text-gray-500');
-        $html .= '</a>';
+        if(!$in_customer_specail_domain)
+        {
+          // notification
+          $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg notification" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '" data-direct>';
+          // $html .= \dash\utility\icon::svg('Notification');
+          $html .= \dash\utility\icon::bootstrap('envelope', 'text-gray-500');
+          $html .= '</a>';
+        }
 
         // avatar
-        $html .= '<a class="flex-none h-12 w-12 p-1 mx-1 btn-light transition rounded-lg" href="'. \dash\url::kingdom(). '/account" title="'. \dash\user::detail('displayname'). '">';
+        $html .= '<a class="flex-none h-12 w-12 p-1 mx-1 btn-light transition rounded-lg" ' . $targetLink . ' href="'. $account_profile_url .'" title="'. \dash\user::detail('displayname'). '">';
         if(\dash\user::detail('avatar'))
         {
           $html .= '<img class="rounded-full" src="'. \dash\fit::img(\dash\user::detail('avatar')). '" alt="'. \dash\user::detail('displayname'). '">';
