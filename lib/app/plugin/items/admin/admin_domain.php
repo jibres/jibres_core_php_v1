@@ -35,7 +35,7 @@ class admin_domain
 			'last_update' => '2022-01-27',
 			'icon'        => ['globe2', 'bootstrap'],
 			'description' => self::desc(),
-			'keywords'    => [T_("domain"), T_("admin"), T_("dedicated")],
+			'keywords'    => [T_("domain"), T_("Management"), T_("dedicated")],
 			'currency'    => \lib\currency::jibres_currency(true),
 		];
 

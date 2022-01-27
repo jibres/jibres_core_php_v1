@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-27 15:59+0330\n"
-"PO-Revision-Date: 2022-01-27 15:59+0330\n"
+"POT-Creation-Date: 2022-01-27 16:09+0330\n"
+"PO-Revision-Date: 2022-01-27 16:10+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -33622,7 +33622,6 @@ msgstr "صفحه نخست"
 
 #: includes/languages/trans_static_public.php:73
 #: includes/languages/trans_static_public.php:151
-#: lib/app/plugin/items/admin/admin_domain.php:38
 msgid "admin"
 msgstr "مدیر"
 
@@ -40095,6 +40094,10 @@ msgstr "یک ماه"
 #: lib/app/plugin/items/remove/remove_brand.php:25
 msgid "One year"
 msgstr "یک سال"
+
+#: lib/app/plugin/items/admin/admin_domain.php:38
+msgid "Management"
+msgstr "مدیریت"
 
 #: lib/app/plugin/items/admin/admin_domain.php:38
 msgid "dedicated"
