@@ -1,4 +1,12 @@
 <?php if(\dash\user::login()) {?>
+  <?php if(\dash\engine\store::inStore() && !\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain()) {?>
+
+<nav class="items">
+ <ul>
+   <li><a class="f" href="<?php echo \dash\url::kingdom();?>/a" target="_blank"><div class="key"><?php echo T_('Admin panel');?></div><div class="go"></div></a></li>
+ </ul>
+</nav>
+  <?php } //endif ?>
 <nav class="items">
  <ul>
    <li><a class="f" href="<?php echo \dash\url::here();?>/profile/detail"><div class="key"><?php echo T_('Profile');?></div><div class="go"></div></a></li>
