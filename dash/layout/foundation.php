@@ -224,9 +224,7 @@ if(\dash\data::bodyMasterFont())
 echo " data-preload";
 ?>><?php
 \dash\layout\find::allBlocks();
-?>
-
- <div class="js">
+?><div class="js">
   <script async src="<?php echo \dash\layout\func::staticmtime('js/jibres.min.js');?>"></script>
 <?php
 // load pageScript
@@ -244,9 +242,7 @@ if (\dash\user::id())
 // @todo Javad check browser and show live or dead
 // <div class="line warn fs20">YOU ARE DEAD!</div>
 
-?>
-<?php \dash\layout\find::allNotifs(); ?>
-
+\dash\layout\find::allNotifs(); ?>
  </div>
 </body>
 </html>
