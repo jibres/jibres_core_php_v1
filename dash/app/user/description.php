@@ -90,5 +90,44 @@ class description
 
 
 
+	public static function list($_user_id)
+	{
+
+
+		$and            = [];
+		$meta           = [];
+		$meta['join']   = [];
+		$or             = [];
+		$order_sort     = null;
+		$meta['limit']  = 100;
+
+
+		if(!($user_id = \dash\coding::decode($_user_id)))
+		{
+			return [];
+		}
+
+		$and[] = " user_id =  $user_id ";
+		$and[] = "userdetail.status = 'enable' ";
+
+		$order_sort = " ORDER BY userdetail.id DESC ";
+
+		$list = \dash\db\userdetail::list([], $and, $or, $order_sort, $meta);
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+
+		$list = array_map(['self', 'ready'], $list);
+
+		return $list;
+
+	}
+
+
+
+
 }
 ?>

@@ -2,7 +2,7 @@
 <section class="sTimeline">
 	<?php if(!\dash\request::get('page') || \dash\request::get('page') == 1) {?>
 	<div class="event">
-		<div class="box">
+		<div class="box p-5">
 			<form method="post" autocomplete="off" >
 				<h2><?php echo T_("Add note"); ?></h2>
 				<input type="hidden" name="redirecturl" value="<?php echo \dash\url::pwd(); ?>">
@@ -14,7 +14,7 @@
 <?php } //endif ?>
 	<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 		<div class="event" data-done>
-			<div class="box">
+			<div class="box p-1">
 				<div class="detail f">
 					<div class="cauto"><i class="sf-certificate"></i><?php echo a($value, 'displayname'); ?></div>
 					<div class="cauto os">
