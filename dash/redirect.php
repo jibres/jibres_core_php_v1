@@ -155,6 +155,11 @@ class redirect
 
 			\dash\redirect::to(\dash\url::site(). $path);
 		}
+
+		if(\dash\engine\store::inStore())
+		{
+			\dash\redirect::to('https://jibres.'. \dash\url::jibres_tld());
+		}
 	}
 
 

@@ -16,6 +16,7 @@ class controller
 		}
 
 		\dash\redirect::remove_subdomain();
+		\dash\redirect::remove_store();
 
 		if(\dash\request::get('utm_campaign') === 'pwa' && \dash\detect\device::detectPWA())
 		{
