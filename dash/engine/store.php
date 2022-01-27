@@ -176,7 +176,7 @@ class store
 
 	public static function enable_plugin_admin_special_domain()
 	{
-		if(\dash\url::isLocal())
+		if(\lib\app\plugin\business::is_activated('admin_domain'))
 		{
 			return true;
 		}
