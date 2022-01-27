@@ -6,17 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-
-
-		if(!\dash\url::store())
-		{
-			\dash\redirect::to(\dash\url::kingdom());
-		}
-
-		if(!\lib\store::id())
-		{
-			\dash\header::status(404, T_("Store not found"));
-		}
+		\dash\engine\store::gate('a');
 
 		// check user is login
 		\dash\redirect::to_login();

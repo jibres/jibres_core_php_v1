@@ -173,6 +173,44 @@ class store
 	}
 
 
+
+	public static function enable_plugin_admin_special_domain()
+	{
+		if(\dash\url::isLocal())
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * This function all in all master controller in contents
+	 */
+	public static function gate($_content = null)
+	{
+		// check store id loaded by any way. Subdomain, specail domain, url, id ,...
+
+		if(!\lib\store::id())
+		{
+			\dash\header::status(404, T_("Store not found"));
+		}
+
+		if(self::enable_plugin_admin_special_domain())
+		{
+			// ok can load in any model
+		}
+		else
+		{
+			if(!\dash\url::store())
+			{
+				\dash\redirect::to(\dash\url::kingdom());
+			}
+		}
+	}
+
+
 	/**
 	 * This content allow to route by customer domain
 	 *
@@ -189,10 +227,16 @@ class store
 		$allow_content[] = 'n';
 		$allow_content[] = 'api'; // cronjob need this
 
+		if(self::enable_plugin_admin_special_domain())
+		{
+			$_admin_mode = true;
+		}
+
 		if($_admin_mode)
 		{
 			$allow_content[] = 'a';
 			$allow_content[] = 'cms';
+			$allow_content[] = 'site';
 			$allow_content[] = 'crm';
 			$allow_content[] = 'hook'; // cronjob need this
 			$allow_content[] = 'account'; // we have one link from business to account. in accoutn controller redirect
@@ -285,7 +329,14 @@ class store
 				}
 				else
 				{
-					\dash\header::status(409, T_("Can not route this address from your domain!"));
+					if(self::enable_plugin_admin_special_domain())
+					{
+						// ok
+					}
+					else
+					{
+						\dash\header::status(409, T_("Can not route this address from your domain!"));
+					}
 				}
 			}
 		}

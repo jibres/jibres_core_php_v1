@@ -9,10 +9,7 @@ class controller
 
 		if(\dash\engine\store::inStore())
 		{
-			if(!\dash\url::store())
-			{
-				\dash\redirect::to(\dash\url::kingdom());
-			}
+			\dash\engine\store::gate('crm');
 		}
 
 
