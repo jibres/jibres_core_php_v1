@@ -597,6 +597,11 @@ class store
 
 	public static function admin_url()
 	{
+		if(!\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain())
+		{
+			return \dash\url::kingdom();
+		}
+
 		$tld = \dash\url::tld() === 'ir' ? 'ir' : 'com';
 
 		if(\dash\language::current() === 'fa')
