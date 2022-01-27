@@ -20,6 +20,7 @@ class get
 
 			'ganje_product',
 
+			'admin_domain',
 			// // test period plugin
 			// 'remove_brand',
 
