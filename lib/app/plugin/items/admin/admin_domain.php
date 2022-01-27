@@ -9,7 +9,7 @@ class admin_domain
 	{
 		return
 		[
-			'title'         => T_("Dedicated domain for admin panel"),
+			'title'         => T_("Manage your business in your own domain"),
 			'name'          => 'admin_domain',
 			'type'          => 'periodic',
 			'price_list'  =>
@@ -48,7 +48,8 @@ class admin_domain
 
 		$html .= '<div>';
 		{
-
+			$html .= T_("By activating this plugin, all activities related to your business will be performed in a dedicated domain connected to your business, and you will introduce only your own dedicated domain to your employees and managers.
+This will make your brand stronger");
 		}
 		$html .= '</div>';
 
