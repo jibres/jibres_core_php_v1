@@ -33,7 +33,7 @@ class filter
 		[
 			'key'            => 'published',
 			'group'          => T_("Status"),
-			'title'          => T_("Published"),
+			'title'          => T_("Enable"),
 			'query'			 => ['status' => 'enable'],
 			'public'         => false,
 		];

@@ -60,7 +60,7 @@ $myCart = \dash\data::myCart();
                 <button class="btn addon success" form="discountform"><?php echo T_("Apply") ?></button>
               </div>
               <?php if(a($myCart, 'discount_code', 'msg')) {?>
-                <div class="msg mT10 <?php echo a($myCart, 'discount_code', 'msg_class') ?>"><?php echo a($myCart, 'discount_code', 'msg') ?></div>
+                <div class="alert mT10 <?php echo a($myCart, 'discount_code', 'msg_class') ?>"><?php echo a($myCart, 'discount_code', 'msg') ?></div>
               <?php } // ebduf ?>
             </div>
           </div>

@@ -37,7 +37,7 @@ class get
 
 	public static function by_code($_code)
 	{
-		$query = "SELECT * FROM discount WHERE discount.code = :code LIMIT 1";
+		$query = "SELECT * FROM discount WHERE discount.code = :code AND discount.status = 'enable' LIMIT 1";
 		$param = [':code' => $_code];
 		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;

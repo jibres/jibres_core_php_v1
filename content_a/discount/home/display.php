@@ -21,8 +21,8 @@ foreach (\dash\data::dataTable() as $key => $value)
     $html .= '<a class="item f align-center" href="'. \dash\url::this(). '/edit?id='.  a($value, 'id'). '">';
 
     $html .= '<div class="key">'.  a($value, 'code'). '</div>';
+    $html .= '<div class="value">'. a($value, 'tstatus'). '</div>';
     $html .= '<time class="value" datatime="'. $date_title. '">'. \dash\fit::date_time(a($value, 'datecreated')). '</time>';
-    $html .= '<div class="value">'. a($value, 'status'). '</div>';
     $html .= '<div class="go"></div>';
     $html .= '</a>';
     $html .= '</li>';
