@@ -19,13 +19,17 @@ class remove
 
 		if($check_usage)
 		{
-			\dash\notif::error(T_("Can not remove discount because this discount is used in some orders"));
-			return false;
+			// \dash\notif::error(T_("Can not remove discount because this discount is used in some orders"));
+			\lib\db\discount\update::update(['status' => 'deleted', 'datemodified' => date("Y-m-d H:i:s")], $load['id']);
+			return true;
 		}
+		else
+		{
 
-		\lib\db\discount_lookup\delete::by_discount_id($load['id']);
-		\lib\db\discount_dedicated\delete::by_discount_id($load['id']);
-		\lib\db\discount\delete::by_id($load['id']);
+			\lib\db\discount_lookup\delete::by_discount_id($load['id']);
+			\lib\db\discount_dedicated\delete::by_discount_id($load['id']);
+			\lib\db\discount\delete::by_id($load['id']);
+		}
 
 		return true;
 	}

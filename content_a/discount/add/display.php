@@ -10,6 +10,14 @@ $html .= '<div class="max-w-xl m-auto">';
 {
 	$html .= '<form method="post" autocomplete="off" id="discountadd">';
 	{
+		if(a($dataRow, 'status') === 'deleted')
+		{
+			$html .= '<div class="alert-danger font-bold">';
+			{
+				$html .= T_("This discount code was deleted");
+			}
+			$html .= '</div>';
+		}
 		/*=====================================
 		=            Discount code            =
 		=====================================*/
@@ -589,12 +597,22 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
-				$html .= '<div class="radio1">';
+				$html .= '<div class="radio1 green">';
 				{
 					$html .= '<input type="radio" name="status" value="enable" id="status-enable" '.(a($dataRow, 'status') === 'enable' ? 'checked' : '').'>';
 					$html .= '<label for="status-enable">'. T_("Enable"). '</label>';
 				}
 				$html .= '</div>';
+
+				if(a($dataRow, 'status') === 'deleted')
+				{
+					$html .= '<div class="radio1 red">';
+					{
+						$html .= '<input type="radio" name="status" value="deleted" id="status-deleted" '.(a($dataRow, 'status') === 'deleted' ? 'checked' : '').'>';
+						$html .= '<label for="status-deleted">'. T_("Deleted"). '</label>';
+					}
+					$html .= '</div>';
+				}
 			}
 			$html .= '</div>';
 		}
@@ -604,7 +622,7 @@ $html .= '<div class="max-w-xl m-auto">';
 	}
 	$html .= '</form>';
 
-	if(\dash\data::editMode())
+	if(\dash\data::editMode() && a($dataRow, 'status') !== 'deleted')
 	{
 		$html .= '<button class="btn-outline-danger mb-5" data-confirm data-data=\'{"remove": "remove"}\'>'. T_("Remove Discount code"). '</button>';
 	}
@@ -619,7 +637,7 @@ function HTML_discount_profesional_is_not_activate()
 
 	if(!$plugin_discount_is_activated)
 	{
-		return '<a class="alert alert-danger content-center p-3 block" href="'. \dash\url::kingdom(). '/a/plugin/view/'. $plugin_key.'" data-direct target="_blank">'. T_("Need to activate this plugin"). '</a>';
+		return '<a class="alert2 alert-danger content-center p-3 block" href="'. \dash\url::kingdom(). '/a/plugin/view/'. $plugin_key.'" data-direct target="_blank">'. T_("Need to activate discount plugin"). '</a>';
 	}
 
 	return null;
