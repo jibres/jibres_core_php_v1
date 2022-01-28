@@ -25,7 +25,7 @@ class get
 			// 'remove_brand',
 
 			// /* Discount code */
-			// 'discount_profesional',
+			'discount_profesional',
 
 			// /* Site blog  */
 			// 'site_body_blog_b4',
