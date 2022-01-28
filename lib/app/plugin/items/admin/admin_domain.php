@@ -18,16 +18,16 @@ class admin_domain
 					'key'           => 'monthly',
 					'plus_day'      => 31, // day
 					'title'         => T_("One month"),
-					'comperatprice' => 50000,
-					'price'         => 50000,
+					'comperatprice' => 100000,
+					'price'         => 100000,
 				],
 				[
 					'key'           => 'yearly',
 					'plus_day'      => 366, // day
 					'title'         => T_("One year"),
 					'default'       => true,
-					'comperatprice' => 600000,
-					'price'         => 300000,
+					'comperatprice' => 1200000,
+					'price'         => 1000000,
 				],
 			],
 			'max_period'  => '+400day', // +400 day 366+31 = 397 ~ 400
