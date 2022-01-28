@@ -63,7 +63,7 @@ $html .= '<div class="max-w-xl m-auto">';
 		{
 			$html .= '<div class="body">';
 			{
-				$html .= '<h2>'. T_("Types"). '</h2>';
+				$html .= '<h2>'. T_("Type"). '</h2>';
 
 				$html .= '<div class="radio1">';
 				{
@@ -147,7 +147,7 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<label for="fixedamount">'. T_("Discount value"). ' ('.  $currency. ') </label>';
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="fixedamount" id="fixedamount" value="'.a($dataRow, 'fixedamount').'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
+							$html .= '<input type="tel" name="fixedamount" id="fixedamount" value="'.round(floatval(a($dataRow, 'fixedamount'))).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
 						}
 						$html .= '</div>';
 					}
@@ -619,7 +619,7 @@ function HTML_discount_profesional_is_not_activate()
 
 	if(!$plugin_discount_is_activated)
 	{
-		return '<a class="jalert alert-error content-center p-3 block" href="'. \dash\url::kingdom(). '/a/plugin/view/'. $plugin_key.'" data-direct target="_blank">'. T_("Need to activate this plugin"). '</a>';
+		return '<a class="alert alert-danger content-center p-3 block" href="'. \dash\url::kingdom(). '/a/plugin/view/'. $plugin_key.'" data-direct target="_blank">'. T_("Need to activate this plugin"). '</a>';
 	}
 
 	return null;

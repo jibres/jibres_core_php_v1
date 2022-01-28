@@ -54,8 +54,9 @@ $myCart = \dash\data::myCart();
          <?php if(\dash\url::isLocal()) {?>
           <div class="box">
             <div class="body">
+              <label for="discountcode"><?php echo T_("Discount code"); ?></label>
               <div class="input">
-                <input type="text" name="discount" autocomplete="off" form="discountform" value="<?php echo \dash\request::get('discount'); ?>">
+                <input type="text" name="discount" autocomplete="off" id="discountcode" form="discountform" value="<?php echo \dash\request::get('discount'); ?>">
                 <button class="btn addon success" form="discountform"><?php echo T_("Apply") ?></button>
               </div>
               <?php if(a($myCart, 'discount_code', 'msg')) {?>
