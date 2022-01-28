@@ -24,20 +24,6 @@ class edit
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
-		$check_duplicate_code = \lib\db\discount\get::check_duplicate_code($args['code']);
-
-		if(isset($check_duplicate_code['id']))
-		{
-			if(floatval($check_duplicate_code['id']) === floatval($load['id']))
-			{
-				// ok. nothing
-			}
-			else
-			{
-				\dash\notif::error(T_("This discount code is exist in your list. Try another"));
-				return false;
-			}
-		}
 
 		$temp_args = $args;
 
