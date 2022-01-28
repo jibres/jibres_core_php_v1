@@ -252,7 +252,7 @@ class number
 	{
 		$data = self::number($_data, $_notif, $_element, $_field_title, ['min' => 0, 'max' => 100]);
 
-		if(floatval($data) !== floatval(round($data)))
+		if(is_numeric($data) && floatval($data) !== floatval(round($data)))
 		{
 			$data = round($data, 2);
 		}
