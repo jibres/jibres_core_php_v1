@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-27 16:09+0330\n"
-"PO-Revision-Date: 2022-01-27 16:10+0330\n"
+"POT-Creation-Date: 2022-01-28 13:09+0330\n"
+"PO-Revision-Date: 2022-01-28 13:10+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1033,7 +1033,7 @@ msgstr ""
 #: content/contact/display.php:22 content_a/chap/size-receipt/receipt.php:122
 #: content_a/order/address/display.php:177 content_a/setting/fund/display.php:60
 #: content_a/setting/pcpos/display.php:124 content_account/address.php:25
-#: content_business/shipping/display.php:126 content_cms/comments/edit/display.php:11
+#: content_business/shipping/display.php:127 content_cms/comments/edit/display.php:11
 #: content_cms/comments/view/display.php:17 content_crm/member/add/display.php:5
 #: content_crm/member/identification/display.php:8
 #: content_crm/member/identification/display.php:10 content_crm/staff/add/display.php:5
@@ -1055,7 +1055,7 @@ msgstr "نام کامل"
 #: content_a/order/detail/display.php:60 content_a/sale/display.php:70
 #: content_account/address.php:49 content_account/address.php:142
 #: content_account/my/home/display.php:46 content_business/orders/view/display.php:40
-#: content_business/shipping/display.php:27 content_business/shipping/display.php:133
+#: content_business/shipping/display.php:27 content_business/shipping/display.php:134
 #: content_cms/comments/edit/display.php:6 content_cms/comments/view/display.php:26
 #: content_crm/member/add/display.php:9 content_crm/member/glance/display.php:249
 #: content_crm/member/mobile/display.php:6 content_crm/sms/send/display.php:5
@@ -2718,7 +2718,7 @@ msgstr "چرا رایگان؟"
 msgid "Help Center"
 msgstr "مرکز راهنمایی"
 
-#: content/home/layout/header.php:27 content_a/home/view.php:17 content_my/home/view.php:9
+#: content/home/layout/header.php:27 content_a/home/view.php:24 content_my/home/view.php:9
 #: dash/layout/pwa/pwa_menu.php:86 dash/panel.php:33
 msgid "Control Center"
 msgstr "مرکز کنترل"
@@ -2917,7 +2917,7 @@ msgstr "ایران، قم"
 #: content_a/setting/general/address/display.php:37
 #: content_a/setting3/home/html/address.php:12 content_account/address.php:33
 #: content_business/orders/view/display.php:28
-#: content_business/profile/display-menu.php:14 content_business/shipping/display.php:167
+#: content_business/profile/display-menu.php:14 content_business/shipping/display.php:168
 #: content_love/domain/nicdetail/display.php:14 content_my/domain/irnic/add/display.php:82
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:57
 #: dash/layout/admin/sidebar/sidebar-account.php:9 lib/app/quickaccess/setting.php:438
@@ -3160,7 +3160,7 @@ msgstr "آی‌پی"
 #: content_a/setting/general/address/display.php:9
 #: content_a/setting/general/display.php:55
 #: content_a/setting3/home/section/general.php:117
-#: content_business/shipping/display.php:142 content_my/domain/irnic/add/display.php:55
+#: content_business/shipping/display.php:143 content_my/domain/irnic/add/display.php:55
 #: dash/utility/location.php:32 lib/app/form/item/type.php:224
 msgid "Country"
 msgstr "کشور"
@@ -3173,7 +3173,7 @@ msgstr "کشور"
 #: content_a/setting/general/address/display.php:22
 #: content_a/setting/general/display.php:56
 #: content_a/setting3/home/section/general.php:122
-#: content_business/shipping/display.php:153 dash/utility/location.php:111
+#: content_business/shipping/display.php:154 dash/utility/location.php:111
 #: lib/app/form/item/type.php:242
 msgid "Province"
 msgstr "استان"
@@ -3186,7 +3186,7 @@ msgstr "استان"
 #: content_a/setting/general/address/display.php:31
 #: content_a/setting/general/display.php:57
 #: content_a/setting3/home/section/general.php:127
-#: content_business/shipping/display.php:161 content_my/domain/irnic/add/display.php:72
+#: content_business/shipping/display.php:162 content_my/domain/irnic/add/display.php:72
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:49 dash/utility/location.php:181
 #: lib/app/form/answer/add.php:256
 msgid "City"
@@ -6114,7 +6114,7 @@ msgstr "پاک‌سازی فیلترها"
 
 #: content_a/accounting/filter.php:126 content_a/accounting/filter_only_year.php:21
 #: content_a/accounting/turnover/display.php:121 content_a/report/sale/display.php:145
-#: content_business/shipping/display.php:59 content_my/domain/review/display.php:141
+#: content_business/shipping/display.php:60 content_my/domain/review/display.php:141
 msgid "Apply"
 msgstr "اعمال‌کردن"
 
@@ -6515,7 +6515,7 @@ msgstr "کدپستی"
 #: content_a/setting/general/display.php:59 content_a/setting3/home/html/address.php:20
 #: content_a/setting3/home/section/general.php:137 content_account/address.php:43
 #: content_account/address.php:137 content_business/orders/view/display.php:37
-#: content_business/shipping/display.php:34 content_business/shipping/display.php:179
+#: content_business/shipping/display.php:34 content_business/shipping/display.php:180
 #: content_love/domain/nicdetail/display.php:16
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:94 lib/app/form/item/type.php:288
 msgid "Phone"
@@ -6545,8 +6545,8 @@ msgstr "فروش"
 
 #: content_a/accounting/report/quarter/display-detail.php:15
 #: content_a/category/property/display.php:39 content_a/category/property/display.php:43
-#: content_a/form/report/display.php:7 content_a/order/home/display.php:32
-#: content_a/products/property/add/display.php:32
+#: content_a/discount/add/display.php:66 content_a/form/report/display.php:7
+#: content_a/order/home/display.php:32 content_a/products/property/add/display.php:32
 #: content_a/products/property/add/display.php:36
 #: content_a/products/property/display.php:45 content_a/products/property/display.php:49
 #: content_cms/files/view/display.php:26 content_crm/ticket/view/display.php:125
@@ -8400,6 +8400,7 @@ msgstr "جمع کل"
 #: content_a/discount/add/display.php:24 content_a/discount/duplicate/display.php:24
 #: content_a/discount/home/view.php:9 content_a/order/discount/display.php:34
 #: content_a/order/summary.php:37 content_business/cart/cartSummary.php:22
+#: content_business/shipping/display.php:57
 msgid "Discount code"
 msgstr "کد تخفیف"
 
@@ -8504,10 +8505,6 @@ msgstr "مثل SPRINGSALE"
 #: content_a/discount/add/display.php:45
 msgid "Customers will enter this discount code at checkout."
 msgstr "مشتریان هنگام پرداخت این کد را وارد می‌کنند."
-
-#: content_a/discount/add/display.php:66
-msgid "Types"
-msgstr "انواع"
 
 #: content_a/discount/add/display.php:71
 msgid "Percentage"
@@ -8649,7 +8646,7 @@ msgstr "حذف کد تخفیف"
 
 #: content_a/discount/add/display.php:622
 msgid "Need to activate this plugin"
-msgstr "نیاز به فعال سازی این پلاگین"
+msgstr "نیاز به فعال سازی این افزونه"
 
 #: content_a/discount/add/view.php:9
 msgid "Add new discount code"
@@ -9840,14 +9837,14 @@ msgid "Name of person in this address"
 msgstr "نام شخصی که در این آدرس حضور دارد"
 
 #: content_a/order/address/display.php:184 content_account/address.php:33
-#: content_business/shipping/display.php:133 content_business/shipping/display.php:167
+#: content_business/shipping/display.php:134 content_business/shipping/display.php:168
 msgid "Require"
 msgstr "الزامی"
 
 #: content_a/order/address/display.php:187 content_a/setting/factor/address/display.php:37
 #: content_a/setting/general/address/display.php:40
 #: content_a/setting3/home/html/address.php:15 content_account/address.php:36
-#: content_business/shipping/display.php:173 content_my/domain/irnic/add/display.php:85
+#: content_business/shipping/display.php:174 content_my/domain/irnic/add/display.php:85
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:63
 msgid "Post code"
 msgstr "کدپستی"
@@ -10312,15 +10309,15 @@ msgstr "مشاهده جزئیات"
 
 #: content_a/plugin/home/display.php:148
 msgid "Add plugin"
-msgstr "افزودن پلاگین‌"
+msgstr "افزودن افزونه‌"
 
 #: content_a/plugin/home/view.php:9
 msgid "Jibres plugins"
-msgstr "پلاگین‌های جیبرس"
+msgstr "افزونه‌های جیبرس"
 
 #: content_a/plugin/view/controller.php:21 content_love/plugin/all/view/controller.php:21
 msgid "plugin key is invalid"
-msgstr "کلید پلاگین اشتباه است"
+msgstr "کلید افزونه اشتباه است"
 
 #: content_a/plugin/view/display.php:72
 msgid "All plugin are offered with a %90 discount up to one week after their release date"
@@ -10345,11 +10342,11 @@ msgstr "استفاده از شارژ حساب کاربری"
 
 #: content_a/plugin/view/display.php:225
 msgid "Your plugin is activated until :date"
-msgstr "این پلاگین برای بیزینس شما تا تاریخ :date فعال است"
+msgstr "این افزونه برای بیزینس شما تا تاریخ :date فعال است"
 
 #: content_a/plugin/view/display.php:229
 msgid "This plugin is active in your business"
-msgstr "این پلاگین در حال حاضر در بیزینس شما فعال شده است"
+msgstr "این افزونه در حال حاضر در بیزینس شما فعال شده است"
 
 #: content_a/plugin/view/display.php:247 lib/app/product/ready.php:439
 #: lib/app/product/ready.php:450 lib/app/product/ready.php:456
@@ -10362,11 +10359,11 @@ msgstr "رایگان دریافت کنید"
 
 #: content_a/plugin/view/model.php:29 content_love/plugin/all/view/model.php:27
 msgid "This plugin is already activated"
-msgstr "این پلاگین در حال حاضر فعال شده است"
+msgstr "این افزونه در حال حاضر فعال شده است"
 
 #: content_a/plugin/view/view.php:9 content_love/plugin/all/view/view.php:9
 msgid "Vidw plugin"
-msgstr "نمایش پلاگین"
+msgstr "نمایش افزونه"
 
 #: content_a/pricehistory/choose/display.php:6 content_a/pricehistory/choose/view.php:9
 msgid "Choose product"
@@ -11620,7 +11617,7 @@ msgstr "تنظیمات دامنه"
 
 #: content_a/setting/factor/address/display.php:8
 #: content_a/setting/general/address/display.php:11
-#: content_business/shipping/display.php:144
+#: content_business/shipping/display.php:145
 #: content_crm/member/identification/display.php:63
 #: content_my/domain/irnic/add/display.php:57
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:34 dash/utility/location.php:44
@@ -11629,14 +11626,14 @@ msgstr "کشور خود را انتخاب کنید"
 
 #: content_a/setting/factor/address/display.php:21
 #: content_a/setting/general/address/display.php:24
-#: content_business/shipping/display.php:155 content_r10/location/country/view.php:22
+#: content_business/shipping/display.php:156 content_r10/location/country/view.php:22
 #: content_v2/location/country/view.php:22
 msgid "Please choose country"
 msgstr "لطفا کشور را انتخاب کنید"
 
 #: content_a/setting/factor/address/display.php:30
 #: content_a/setting/general/address/display.php:33
-#: content_business/shipping/display.php:163 content_r10/location/province/view.php:28
+#: content_business/shipping/display.php:164 content_r10/location/province/view.php:28
 #: content_v2/location/province/view.php:28 dash/utility/location.php:124
 msgid "Please choose province"
 msgstr "لطفا استان را انتخاب کنید"
@@ -12152,11 +12149,11 @@ msgstr "اتصال به سایر سرویس‌ها مثل گوگل آنالیت�
 #: content_a/setting/home/display.php:74 content_love/home/display.php:154
 #: content_love/plugin/history/display.php:9
 msgid "Plugin"
-msgstr "پلاگین"
+msgstr "افزونه"
 
 #: content_a/setting/home/display.php:75
 msgid "Plugin and failures"
-msgstr "پلاگین‌ها و امکانات"
+msgstr "افزونه‌ها و امکانات"
 
 #: content_a/setting/home/display.php:93
 msgid "Manage your business accounting"
@@ -15271,7 +15268,7 @@ msgid "Please set store code in url"
 msgstr "لطفا کد‌ فروشگاه را در آدرس وارد کنید"
 
 #: content_b1/tools.php:43 content_business/controller.php:17 content_r10/tools.php:135
-#: content_v2/controller.php:19 dash/engine/store.php:197 dash/engine/store.php:364
+#: content_v2/controller.php:19 dash/engine/store.php:202 dash/engine/store.php:363
 #: lib/app/application/queue.php:12 lib/app/application/queue.php:243
 #: lib/app/business_domain/add.php:68 lib/app/business_domain/business.php:109
 #: lib/app/business_domain/business.php:116 lib/app/business_domain/edit.php:100
@@ -15651,20 +15648,20 @@ msgstr "پیام‌های من"
 msgid "Please choose your address"
 msgstr "لطفا آدرس خود را انتخاب کنید"
 
-#: content_business/shipping/display.php:73
+#: content_business/shipping/display.php:74
 msgid "Choose Payment"
 msgstr "انتخاب روش پرداخت"
 
-#: content_business/shipping/display.php:82
+#: content_business/shipping/display.php:83
 msgid "Order descripion"
 msgstr "توضیحات‌ سفارش"
 
-#: content_business/shipping/display.php:83
+#: content_business/shipping/display.php:84
 msgid "If you have note about this order enter it here"
 msgstr ""
 "اگر مایل به ثبت یادداشتی درباره این سفارش برای ما هستید، آن را در این بخش وارد کنید"
 
-#: content_business/shipping/display.php:106
+#: content_business/shipping/display.php:107
 msgid "No product in your cart"
 msgstr "هیچ کالایی در سبد خرید شما یافت نشد"
 
@@ -21326,7 +21323,7 @@ msgstr "نمایش عناوین لاگ‌ها"
 
 #: content_love/plugin/all/view.php:9
 msgid "All plugin"
-msgstr "همه پلاگین‌ها"
+msgstr "همه افزونه‌ها"
 
 #: content_love/plugin/business/display.php:9 content_love/plugin/manage/display.php:8
 #: lib/app/log/caller/business/business_plugin.php:57
@@ -21337,27 +21334,27 @@ msgstr "ویژگی"
 
 #: content_love/plugin/business/view.php:9 content_love/plugin/home/display.php:15
 msgid "Business plugin"
-msgstr "پلاگین‌های بیزینس"
+msgstr "افزونه‌های بیزینس"
 
 #: content_love/plugin/edit/controller.php:26
 msgid "Plugin id not found"
-msgstr "شناسه پلاگین یافت نشد"
+msgstr "شناسه افزونه یافت نشد"
 
 #: content_love/plugin/edit/view.php:9
 msgid "Edit plugin"
-msgstr "ویرایش پلاگین"
+msgstr "ویرایش افزونه"
 
 #: content_love/plugin/history/view.php:9
 msgid "Business plugin history"
-msgstr "تاریخچه پلاگین‌های بیزینس"
+msgstr "تاریخچه افزونه‌های بیزینس"
 
 #: content_love/plugin/home/display.php:6
 msgid "All plugin list"
-msgstr "لیست‌ همه پلاگین‌ها"
+msgstr "لیست‌ همه افزونه‌ها"
 
 #: content_love/plugin/home/view.php:9
 msgid "Business plugin list"
-msgstr "لیست پلاگین‌های بیزینس"
+msgstr "لیست افزونه‌های بیزینس"
 
 #: content_love/plugin/manage/display.php:10
 msgid "Added by"
@@ -21369,11 +21366,11 @@ msgstr "تاریخ‌ایجاد"
 
 #: content_love/plugin/manage/display.php:41
 msgid "Add new plugin to this business"
-msgstr "افزودن پلاگین جدید به این بیزینس"
+msgstr "افزودن افزونه جدید به این بیزینس"
 
 #: content_love/plugin/manage/view.php:9
 msgid "Manage Business plugin"
-msgstr "مدیریت پلاگین بیزینس"
+msgstr "مدیریت افزونه بیزینس"
 
 #: content_love/smslog/display.php:22 content_love/smslog/view/display.php:11
 msgid "Mode"
@@ -27314,15 +27311,15 @@ msgstr "سلام، مستندات را بخوان و پروژه خودتو شر�
 msgid "We can't find the page you're looking for!"
 msgstr "ما صفحه‌ای که به‌دنبال آن هستید را نمی‌یابیم!"
 
-#: dash/engine/store.php:299
+#: dash/engine/store.php:305
 msgid "Subdomain and store code conflict!"
 msgstr "زیردامنه و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:314
+#: dash/engine/store.php:320
 msgid "Can not route subdomain in your domain!"
 msgstr "به زیردامنه‌های شما در حالت دامنه اختصاصی پاسخ داده نخواهد شد!"
 
-#: dash/engine/store.php:320
+#: dash/engine/store.php:326
 msgid "Domain and store code conflict!"
 msgstr "دامنه اختصاصی و کد فروشگاه باهم تداخل دارند!"
 
@@ -27330,7 +27327,7 @@ msgstr "دامنه اختصاصی و کد فروشگاه باهم تداخل د�
 msgid "Can not route this address from your domain!"
 msgstr "نمی‌توانیم به درخواست از این آدرس در این دامنه پاسخ دهیم!"
 
-#: dash/engine/store.php:594
+#: dash/engine/store.php:593
 msgid "This business is currently unavailable!"
 msgstr "این بیزینس در حال حاضر در دسترس نیست!"
 
@@ -27926,8 +27923,8 @@ msgid "Form builder"
 msgstr "فرم‌ساز"
 
 #: dash/layout/m2/sidebar.php:389
-msgid "Discounts"
-msgstr "تخفیف‌ها"
+msgid "Discount Code"
+msgstr "کد تخفیف"
 
 #: dash/layout/m2/sidebar.php:443
 msgid "Sales Channels"
@@ -27947,7 +27944,7 @@ msgstr "اپلیکیشن موبایل"
 
 #: dash/layout/m2/sidebar.php:594
 msgid "Plugins"
-msgstr "پلاگین‌ها"
+msgstr "افزونه‌ها"
 
 #: dash/layout/post/admin-gallery-box.php:34
 msgid "Gallery is full!"
@@ -39000,7 +38997,7 @@ msgstr "ساخت بیزینس جدید در حال انجام است"
 
 #: lib/app/log/caller/business/business_plugin.php:18
 msgid "New plugin unlocked by admin"
-msgstr "قفل پلاگین جدید توسط مدیر باز شد"
+msgstr "قفل افزونه جدید توسط مدیر باز شد"
 
 #: lib/app/log/caller/business/business_plugin.php:22
 msgid "Features locked"
@@ -39009,7 +39006,7 @@ msgstr "ویژگی قفل شد"
 #: lib/app/log/caller/business/business_plugin.php:26
 #: lib/app/log/caller/business/business_plugin.php:127
 msgid "New plugin unlocked"
-msgstr "قفل پلاگین جدید باز شد"
+msgstr "قفل افزونه جدید باز شد"
 
 #: lib/app/log/caller/business/business_plugin.php:31
 msgid "Features"
@@ -39991,7 +39988,7 @@ msgstr "فعال سازی انجام شد"
 
 #: lib/app/plugin/activate.php:56
 msgid "Invalid plugin!"
-msgstr "پلاگین اشتباه است!"
+msgstr "افزونه اشتباه است!"
 
 #: lib/app/plugin/activate.php:74 lib/app/plugin/activate.php:388
 msgid "Invalid periodic key!"
@@ -39999,12 +39996,12 @@ msgstr "بازه زمانی نامعتبر است!"
 
 #: lib/app/plugin/activate.php:121
 msgid "Can not add this plugin. Please contact to administrator"
-msgstr "نمی‌توانیم این پلاگین را اضافه کنیم. لطفا با مدیر سیستم تماس بگیرید"
+msgstr "نمی‌توانیم این افزونه را اضافه کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
 #: lib/app/plugin/activate.php:155 lib/app/plugin/activate.php:371
 #: lib/app/plugin/activate.php:418
 msgid "This plugin is already activated for your business"
-msgstr "این پلاگین در حال حاضر فعال شده است"
+msgstr "این افزونه در حال حاضر فعال شده است"
 
 #: lib/app/plugin/activate.php:173 lib/app/plugin/activate.php:484
 msgid "Can not active this plugin more than this time!"
@@ -40017,7 +40014,7 @@ msgstr "نمی‌توانیم این فعالیت را ثبت کنیم. لطفا
 
 #: lib/app/plugin/activate.php:239 lib/app/plugin/activate.php:431
 msgid "Activate plugin :val"
-msgstr "فعال سازی پلاگین :val"
+msgstr "فعال سازی افزونه :val"
 
 #: lib/app/plugin/activate.php:262 lib/app/plugin/activate.php:277
 msgid "Oh!, We cannot complete your request. Please contact to administrator"
@@ -40036,23 +40033,23 @@ msgstr ""
 
 #: lib/app/plugin/activate.php:358
 msgid "Plugin not found. Please contact to administrator"
-msgstr "پلاگین یافت نشد. لطفا با مدیر سیستم تماس بگیرید"
+msgstr "افزونه یافت نشد. لطفا با مدیر سیستم تماس بگیرید"
 
 #: lib/app/plugin/activate.php:586 lib/app/plugin/activate.php:660
 msgid "Business or plugin is required"
-msgstr "شناسه بیزینس یا کد پلاگین الزامی است"
+msgstr "شناسه بیزینس یا کد افزونه الزامی است"
 
 #: lib/app/plugin/activate.php:596
 msgid "This plugin already enable on this business"
-msgstr "در حال حاضر این پلاگین در این بیزینس فعال است"
+msgstr "در حال حاضر این افزونه در این بیزینس فعال است"
 
 #: lib/app/plugin/activate.php:602
 msgid "Plugin exist. Re Enabled"
-msgstr "پلاگین وجود داشت. مجددا فعال شد"
+msgstr "افزونه وجود داشت. مجددا فعال شد"
 
 #: lib/app/plugin/activate.php:623
 msgid "Plugin added"
-msgstr "پلاگین اضافه شد"
+msgstr "افزونه اضافه شد"
 
 #: lib/app/plugin/activate.php:633 lib/app/plugin/activate.php:697
 #: lib/app/plugin/activate.php:778
@@ -40061,15 +40058,15 @@ msgstr "درخواست یکپارچه‌سازی امکانات به بیزین�
 
 #: lib/app/plugin/activate.php:675
 msgid "Plugin removed"
-msgstr "پلاگین حذف شد"
+msgstr "افزونه حذف شد"
 
 #: lib/app/plugin/activate.php:679
 msgid "Plugin already removed"
-msgstr "پلاگین در حال حاضر حذف شده است"
+msgstr "افزونه در حال حاضر حذف شده است"
 
 #: lib/app/plugin/activate.php:687 lib/app/plugin/activate.php:739
 msgid "Plugin not exist"
-msgstr "پلاگین وجود ندارد"
+msgstr "افزونه وجود ندارد"
 
 #: lib/app/plugin/get.php:111 lib/app/plugin/get.php:215
 msgid "Can not complete your request. Please contact to administrator"
@@ -40077,7 +40074,7 @@ msgstr "ما نتونستیم درخواست شما رو تکمیل کنیم. ل
 
 #: lib/app/plugin/get.php:201
 msgid "This plugin is not periodically"
-msgstr "این پلاگین قابلیت ثبت دوره‌ای را ندارد"
+msgstr "این افزونه قابلیت ثبت دوره‌ای را ندارد"
 
 #: lib/app/plugin/items/admin/admin_domain.php:12
 msgid "Manage your business in your own domain"
@@ -42709,6 +42706,12 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Types"
+#~ msgstr "انواع"
+
+#~ msgid "Discounts"
+#~ msgstr "تخفیف‌ها"
+
 #~ msgid "Dedicated domain for admin panel"
 #~ msgstr "مدیریت بیزینس در دامنه اختصاصی شما"
 
@@ -43078,13 +43081,13 @@ msgstr "یارد"
 #~ msgstr "جستجو در تنظیمات"
 
 #~ msgid "No plugin to pay!"
-#~ msgstr "پلاگینی برای پرداخت یافت نشد"
+#~ msgstr "افزونهی برای پرداخت یافت نشد"
 
 #~ msgid "Too meany plugin!"
-#~ msgstr "درخواست پلاگین‌های بیش از اندازه!"
+#~ msgstr "درخواست افزونه‌های بیش از اندازه!"
 
 #~ msgid "Can not edit this plugin. Please contact to administrator"
-#~ msgstr "نمی‌توانیم این پلاگین را ویرایش کنیم. لطفا با مدیر سیستم تماس بگیرید"
+#~ msgstr "نمی‌توانیم این افزونه را ویرایش کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
 #~ msgid "Count enable"
 #~ msgstr "تعداد فعال‌ها"
