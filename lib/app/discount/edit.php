@@ -46,6 +46,23 @@ class edit
 		unset($args['customer_group']);
 		unset($args['special_customer']);
 
+		if(a($args, 'code') && a($args, 'status') === 'enable')
+		{
+			$check_duplicate_title = \lib\db\discount\get::check_duplicate_code($args['code']);
+
+			if(isset($check_duplicate_title['id']))
+			{
+				if(floatval($check_duplicate_title['id']) === floatval($load['id']))
+				{
+					// nothing
+				}
+				else
+				{
+					\dash\notif::error(T_("This discount code is exist in your list. Try another"));
+					return false;
+				}
+			}
+		}
 
 		foreach ($args as $key => $value)
 		{
@@ -71,6 +88,7 @@ class edit
 
 		if(!empty($args))
 		{
+
 			//
 			$args['datemodified'] = date("Y-m-d H:i:s");
 

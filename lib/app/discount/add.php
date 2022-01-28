@@ -15,13 +15,13 @@ class add
 			return false;
 		}
 
-		$check_duplicate_title = \lib\db\discount\get::check_duplicate_code($args['code']);
+		// $check_duplicate_title = \lib\db\discount\get::check_duplicate_code($args['code']);
 
-		if(isset($check_duplicate_title['id']))
-		{
-			\dash\notif::error(T_("This discount code is exist in your list. Try another"));
-			return false;
-		}
+		// if(isset($check_duplicate_title['id']))
+		// {
+		// 	\dash\notif::error(T_("This discount code is exist in your list. Try another"));
+		// 	return false;
+		// }
 
 		$args['status']      = 'draft';
 		$args['creator']     = \dash\user::id();

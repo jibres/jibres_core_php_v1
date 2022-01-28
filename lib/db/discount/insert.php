@@ -72,11 +72,13 @@ class insert
 			FROM
 				discount
 			WHERE
-				discount.id = $_old_id
+				discount.id = :old_id
 			LIMIT 1
 		";
 
-		$result = \dash\pdo::query($query, []);
+		$param = [':old_id' => $_old_id];
+
+		$result = \dash\pdo::query($query, $param);
 
 		$new_id = \dash\pdo::insert_id();
 
@@ -109,10 +111,10 @@ class insert
 			FROM
 				discount_dedicated
 			WHERE
-				discount_dedicated.discount_id = $_old_id
+				discount_dedicated.discount_id = :old_id
 		";
 
-		\dash\pdo::query($query, []);
+		\dash\pdo::query($query, $param);
 
 		return $new_id;
 	}
