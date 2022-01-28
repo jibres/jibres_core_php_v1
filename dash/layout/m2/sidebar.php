@@ -386,7 +386,7 @@ class sidebar
 		{
 			$menu["discounts"] =
 			[
-				'title'     => T_("Discounts"),
+				'title'     => T_("Discount Code"),
 				'url'       => \dash\url::kingdom().'/a/discount',
 				'icon'      => 'Discounts',
 				'iconColor' => '#a1b2c3',
