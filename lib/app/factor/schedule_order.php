@@ -118,7 +118,7 @@ class schedule_order
 
 		if(a($load, 'status') === 'deactive')
 		{
-			$html .= '<div class="msg  fs14 danger2">'. T_("Receiving the order is temporarily disabled") . '</div>';
+			$html .= '<div class="alert alert-danger p-2 rounded-lg mb-1  fs14 danger2">'. T_("Receiving the order is temporarily disabled") . '</div>';
 		}
 		elseif(!self::check())
 		{
@@ -143,11 +143,11 @@ class schedule_order
 
 			if(empty($active_time_today))
 			{
-				$html .= '<div class="msg  fs14 danger2">'. T_("Can not get order today") . '</div>';
+				$html .= '<div class="alert alert-danger p-2 rounded-lg mb-1  fs14 danger2">'. T_("Can not get order today") . '</div>';
 			}
 			else
 			{
-				$html .= '<div class="msg  fs14 danger2">'. T_("Today order time is :val", ['val' => '<br>'. implode("<br>", $active_time_today)]) . '</div>';
+				$html .= '<div class="alert alert-danger p-2 rounded-lg mb-1  fs14 danger2">'. T_("Today order time is :val", ['val' => '<br>'. implode("<br>", $active_time_today)]) . '</div>';
 
 			}
 
