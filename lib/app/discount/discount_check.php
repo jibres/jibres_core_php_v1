@@ -94,7 +94,7 @@ class discount_check
 	{
 		self::save_lookup($_msg, $_ciritical);
 
-		self::$result['msg_class'] = 'danger';
+		self::$result['msg_class'] = 'alert-danger p-2 rounded-lg';
 		self::$result['msg']       = $_msg;
 	}
 
