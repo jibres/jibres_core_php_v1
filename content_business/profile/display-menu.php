@@ -1,6 +1,5 @@
 <?php if(\dash\user::login()) {?>
-  <?php if(\dash\engine\store::inStore() && !\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain()) {?>
-
+  <?php if(\dash\engine\store::inStore() && !\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain() && \dash\permission::has_permission()) {?>
 <nav class="items">
  <ul>
    <li><a class="f" href="<?php echo \dash\url::kingdom();?>/a" target="_blank"><div class="key"><?php echo T_('Admin panel');?></div><div class="go"></div></a></li>
