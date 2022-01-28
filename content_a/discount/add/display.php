@@ -29,7 +29,7 @@ $html .= '<div class="max-w-xl m-auto">';
 					{
 						$html .= '<div class="">';
 						{
-							$html .= '<button class="link-secondary text-xs" for="code">'. T_("Generate code"). '</button>';
+							$html .= '<button class="link-secondary text-xs" for="code">'. T_("Generate code"). ' Only in local mode </button>';
 						}
 						$html .= '</div>';
 					}
@@ -129,7 +129,7 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<label for="maxamount">'. T_("Maximum amount"). '</label>';
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="maxamount" id="maxamount" value="'.round(a($dataRow, 'maxamount')).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
+							$html .= '<input type="tel" name="maxamount" id="maxamount" value="'.round(floatval(a($dataRow, 'maxamount'))).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
 						}
 						$html .= '</div>';
 
@@ -297,7 +297,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				{
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="minpurchase" value="'. round(a($dataRow, 'minpurchase')). '" placeholder="'. $currency.'" data-format="price" maxlength="18">';
+							$html .= '<input type="tel" name="minpurchase" value="'. round(floatval(a($dataRow, 'minpurchase'))). '" placeholder="'. $currency.'" data-format="price" maxlength="18">';
 						}
 						$html .= '</div>';
 				}
