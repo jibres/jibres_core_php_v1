@@ -129,7 +129,8 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<label for="percentage">'. T_("Discount value"). ' ('. T_("%") . ') </label>';
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="percentage" id="percentage" value="'.a($dataRow,'percentage').'" placeholder="'.T_("%").'" maxlength="3">';
+							$html .= '<input type="tel" name="percentage" id="percentage" value="'.a($dataRow,'percentage').'"  maxlength="3">';
+							$html .= '<label for="percentage" class="addon" >'. T_("%").'</lable>';
 						}
 						$html .= '</div>';
 
@@ -138,6 +139,8 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<div class="input">';
 						{
 							$html .= '<input type="tel" name="maxamount" id="maxamount" value="'.round(floatval(a($dataRow, 'maxamount'))).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
+							$html .= '<label for="maxamount" class="addon" >'. $currency.'</lable>';
+
 						}
 						$html .= '</div>';
 
@@ -156,6 +159,7 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<div class="input">';
 						{
 							$html .= '<input type="tel" name="fixedamount" id="fixedamount" value="'.round(floatval(a($dataRow, 'fixedamount'))).'" placeholder="'. $currency.'" data-format="price" maxlength="18">';
+							$html .= '<label for="fixedamount" class="addon" >'. $currency.'</lable>';
 						}
 						$html .= '</div>';
 					}
@@ -306,6 +310,7 @@ $html .= '<div class="max-w-xl m-auto">';
 						$html .= '<div class="input">';
 						{
 							$html .= '<input type="tel" name="minpurchase" value="'. round(floatval(a($dataRow, 'minpurchase'))). '" placeholder="'. $currency.'" data-format="price" maxlength="18">';
+							$html .= '<label for="minpurchase" class="addon" >'. $currency.'</lable>';
 						}
 						$html .= '</div>';
 				}
@@ -472,7 +477,8 @@ $html .= '<div class="max-w-xl m-auto">';
 				{
 						$html .= '<div class="input">';
 						{
-							$html .= '<input type="tel" name="usagetotal" value="'.a($dataRow, 'usagetotal').'" data-format="price" maxlength="9">';
+							$html .= '<input type="tel" id="usagetotal" name="usagetotal" value="'.a($dataRow, 'usagetotal').'" data-format="price" maxlength="9">';
+							$html .= '<label for="usagetotal" class="addon" >'. T_("Times").'</lable>';
 						}
 						$html .= '</div>';
 				}
