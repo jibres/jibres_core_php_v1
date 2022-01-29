@@ -94,29 +94,8 @@ class check
 
 		if($data['status'] === 'enable')
 		{
-			// check some thing on enable discount code
-			if($data['type'] === 'percentage' && !$data['percentage'])
+			if(!self::before_enable($data))
 			{
-				\dash\notif::error(T_("Percentage is required"), 'percentage');
-				return false;
-			}
-
-			if($data['type'] === 'fixed_amount' && !$data['fixedamount'])
-			{
-				\dash\notif::error(T_("Fixed amount is required"), 'fixedamount');
-				return false;
-			}
-
-
-			if($data['minrequirements'] === 'amount' && !$data['minpurchase'])
-			{
-				\dash\notif::error(T_("Minimum purchase is required"), 'minpurchase');
-				return false;
-			}
-
-			if($data['minrequirements'] === 'quantity' && !$data['minquantity'])
-			{
-				\dash\notif::error(T_("Minimum quantity is required"), 'minquantity');
 				return false;
 			}
 
@@ -166,6 +145,38 @@ class check
 
 		return $data;
 
+	}
+
+
+	public static function before_enable($_data)
+	{
+		// check some thing on enable discount code
+		if($_data['type'] === 'percentage' && !$_data['percentage'])
+		{
+			\dash\notif::error(T_("Percentage is required"), 'percentage');
+			return false;
+		}
+
+		if($_data['type'] === 'fixed_amount' && !$_data['fixedamount'])
+		{
+			\dash\notif::error(T_("Fixed amount is required"), 'fixedamount');
+			return false;
+		}
+
+
+		if($_data['minrequirements'] === 'amount' && !$_data['minpurchase'])
+		{
+			\dash\notif::error(T_("Minimum purchase is required"), 'minpurchase');
+			return false;
+		}
+
+		if($_data['minrequirements'] === 'quantity' && !$_data['minquantity'])
+		{
+			\dash\notif::error(T_("Minimum quantity is required"), 'minquantity');
+			return false;
+		}
+
+		return true;
 	}
 
 }

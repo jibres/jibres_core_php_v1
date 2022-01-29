@@ -26,6 +26,14 @@ class edit
 
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
+		if(a($args, 'status') === 'enable')
+		{
+			if(!\lib\app\discount\check::before_enable(array_merge($load, $args)))
+			{
+				return false;
+			}
+		}
+
 
 		$temp_args = $args;
 
