@@ -26,7 +26,7 @@
     <?php if(a($orderDetail, 'factor', 'discount_id')) {?>
 
     <?php }else{ ?>
-      <?php if(\dash\url::isLocal()) {?>
+
        <form method="post" autocomplete="off">
         <input type="hidden" name="adddiscount" value="adddiscount">
         <div class="box">
@@ -41,7 +41,7 @@
           </footer>
         </div>
       </form>
-    <?php } //endif ?>
+
     <?php } // endif ?>
   </div>
 </div>

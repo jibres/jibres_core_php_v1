@@ -33,7 +33,7 @@ $html .= '<div class="max-w-xl m-auto">';
 					}
 					$html .= '</div>';
 
-					if(\dash\url::isLocal())
+					if(false)
 					{
 						$html .= '<div class="">';
 						{

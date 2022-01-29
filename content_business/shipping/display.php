@@ -1,10 +1,10 @@
 <?php
 $myCart = \dash\data::myCart();
 ?>
-<?php if(\dash\url::isLocal()) {?>
+
 <form method="get" id='discountform' class="hide" autocomplete="new-password" action="<?php echo \dash\url::current(); ?>">
 </form>
-<?php } //endif ?>
+
 
 <form method="post" id='shippingForm' autocomplete="new-password">
   <div class="avand shippingPage">
@@ -51,7 +51,7 @@ $myCart = \dash\data::myCart();
 
         <?php addNewAddress(\dash\data::addressDataTable()); ?>
 
-         <?php if(\dash\url::isLocal()) {?>
+
           <div class="box">
             <div class="body">
               <label for="discountcode"><?php echo T_("Discount code"); ?></label>
@@ -64,7 +64,7 @@ $myCart = \dash\data::myCart();
               <?php } // ebduf ?>
             </div>
           </div>
-        <?php } //endif ?>
+
 
         <?php if(\dash\data::shippingSurveyForm()) { echo \lib\app\form\generator::shipping_survey(\dash\data::shippingSurveyForm());} ?>
         <div class="box">
