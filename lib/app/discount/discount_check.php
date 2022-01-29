@@ -567,7 +567,15 @@ class discount_check
 
 
 		self::$result['msg_class'] = 'alert-success p-2 rounded-lg';
-		self::$result['msg']       = T_("Discount code applied");
+		if(a($load, 'msgsuccess'))
+		{
+			self::$result['msg']       = $load['msgsuccess'];
+
+		}
+		else
+		{
+			self::$result['msg']       = T_("Discount code applied");
+		}
 
 		self::save_lookup(T_("Ok"));
 

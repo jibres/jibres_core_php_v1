@@ -43,6 +43,7 @@ class model
 			'enddate'          => \dash\request::post('enddate'),
 			'endtime'          => \dash\request::post('endtime'),
 			'status'           => \dash\request::post('status'),
+			'msgsuccess'       => \dash\request::post('msgsuccess'),
 		];
 
 		if(\dash\request::post('setstatus'))

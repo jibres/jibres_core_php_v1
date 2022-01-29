@@ -595,6 +595,21 @@ $html .= '<div class="max-w-xl m-auto">';
 		$html .= '</div>';
 		/*=====  End of Active date  ======*/
 
+
+		$html .= '<div class="box">';
+		{
+			$html .= '<div class="body">';
+			{
+				$html .= '<h2>'. T_("Message after applying the discount code"). '</h2>';
+
+				$html .= '<textarea name="msgsuccess" rows="2" class="txt" placeholder="'.T_("Discount code applied").'">'. a($dataRow, 'msgsuccess'). '</textarea>';
+				$html .= '<div class="text-gray-400">'. T_("This message displayed after applying discount by customer"). '</div>';
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+
+
 		/*==============================
 		=            Status            =
 		==============================*/
