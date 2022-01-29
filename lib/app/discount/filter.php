@@ -48,6 +48,16 @@ class filter
 		];
 
 
+		$list['deleted'] =
+		[
+			'key'            => 'deleted',
+			'group'          => T_("Status"),
+			'title'          => T_("Deleted"),
+			'query'			 => ['status' => 'deleted'],
+			'public'         => false,
+		];
+
+
 
 		return $list;
 

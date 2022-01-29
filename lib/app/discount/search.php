@@ -22,7 +22,7 @@ class search
 		[
 			'order'  => 'order',
 			'sort'   => 'string_100',
-			'status' => ['enum' => ['enable', 'draft']],
+			'status' => ['enum' => ['enable', 'draft', 'deleted']],
 		];
 
 		$require = [];
@@ -31,9 +31,10 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$param = [];
+		$and   = [];
+		$meta  = [];
+		$or    = [];
 
 		$meta['limit'] = 20;
 		// $meta['pagination'] = false;
@@ -44,15 +45,22 @@ class search
 
 		if($query_string)
 		{
-			$or[] = " discount.code LIKE '$query_string%' ";
+			$or[] = " discount.code LIKE :search_string ";
+			$param[':search_string'] = '%'. $query_string. '%';
 			self::$is_filtered = true;
 		}
 
 
 		if($data['status'])
 		{
-			$and[] = " discount.status = '$data[status]' ";
+			$and[] = " discount.status = :status ";
+			$param[':status'] = $data['status'];
 			self::$is_filtered = true;
+		}
+		else
+		{
+			$and[] = " discount.status != :status ";
+			$param[':status'] = 'deleted';
 		}
 
 
@@ -61,7 +69,9 @@ class search
 		{
 			if(\lib\app\discount\filter::check_allow($data['sort'], $data['order']))
 			{
-				$order_sort = " ORDER BY $data[sort] $data[order]";
+				$order_sort = " ORDER BY :sort :order ";
+				$param[':sort'] = $data['sort'];
+				$param[':order'] = $data['order'];
 			}
 		}
 
@@ -70,7 +80,7 @@ class search
 			$order_sort = " ORDER BY discount.id ASC";
 		}
 
-		$list = \lib\db\discount\search::list($and, $or, $order_sort, $meta);
+		$list = \lib\db\discount\search::list($param, $and, $or, $order_sort, $meta);
 
 		if(!is_array($list))
 		{
