@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-29 13:48+0330\n"
-"PO-Revision-Date: 2022-01-29 13:50+0330\n"
+"POT-Creation-Date: 2022-01-29 15:10+0330\n"
+"PO-Revision-Date: 2022-01-29 15:11+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2282,7 +2282,7 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 #: content_site/body/product/p3.php:303
 #: content_site/options/link/link_professional.php:108
 #: dash/layout/admin/sidebar/sidebar-a.php:6 dash/layout/m2/sidebar.php:135
-#: dash/panel.php:232 dash/permission_caller.php:45
+#: dash/panel.php:232 dash/permission_caller.php:44
 #: includes/languages/trans_static.php:571 lib/app/export/product.php:57
 #: lib/app/quickaccess/products.php:27 lib/app/quickaccess/setting.php:463
 #: lib/app/quickaccess/setting.php:478 lib/app/quickaccess/setting.php:492
@@ -3014,7 +3014,7 @@ msgstr "PWA ساز"
 #: content_crm/sms/datalist/view.php:15 content_crm/sms/home/view.php:12
 #: content_crm/telegram/datalist/view.php:12 content_crm/telegram/home/view.php:12
 #: content_crm/ticket/home/view.php:12 content_crm/transactions/view.php:11
-#: content_love/home/display.php:86 dash/permission_caller.php:105
+#: content_love/home/display.php:86 dash/permission_caller.php:104
 #: includes/languages/trans_static_public.php:1113 lib/app/quickaccess/forms.php:30
 msgid "CRM"
 msgstr "مدیریت ارتباط با مشتریان"
@@ -8201,7 +8201,7 @@ msgstr "عنوان نزولی"
 
 #: content_a/category/home/display.php:141 content_a/products/add/view.php:10
 #: content_a/products/export/display.php:19
-#: dash/layout/admin/sidebar/sidebar-api-v2.php:74 dash/permission_caller.php:151
+#: dash/layout/admin/sidebar/sidebar-api-v2.php:74 dash/permission_caller.php:150
 #: lib/app/quickaccess/setting.php:469 lib/app/quickaccess/setting.php:478
 msgid "Add new product"
 msgstr "افزودن محصول جدید"
@@ -8521,7 +8521,7 @@ msgstr "درصد"
 msgid "Fixed amount"
 msgstr "مبلغ ثابت"
 
-#: content_a/discount/add/display.php:101 lib/app/discount/get.php:84
+#: content_a/discount/add/display.php:101 lib/app/discount/get.php:88
 msgid "Free shipping"
 msgstr "ارسال رایگان"
 
@@ -8563,7 +8563,7 @@ msgstr "مقدار تخفیف"
 #: content_love/gift/view/display.php:14 content_my/domain/review/display.php:206
 #: dash/layout/comment/comment-list.php:21 dash/layout/comment/comment-list.php:26
 #: dash/layout/comment/comment-list.php:31 dash/layout/comment/comment-list.php:36
-#: dash/layout/comment/comment-list.php:41 lib/app/discount/get.php:72
+#: dash/layout/comment/comment-list.php:41 lib/app/discount/get.php:76
 msgid "%"
 msgstr "٪"
 
@@ -8603,7 +8603,7 @@ msgstr "حداقل تعداد اقلام"
 msgid "Customer eligibility"
 msgstr "اختصاص به مشتری"
 
-#: content_a/discount/add/display.php:371 lib/app/discount/get.php:121
+#: content_a/discount/add/display.php:371 lib/app/discount/get.php:125
 msgid "Everyone"
 msgstr "هرکس"
 
@@ -10298,7 +10298,7 @@ msgstr "حذف کد تخفیف"
 #: content_a/order/view.php:9 content_a/setting/home/display.php:51
 #: content_crm/member/glance/display.php:318 dash/layout/admin/admin-header.php:21
 #: dash/layout/m2/sidebar.php:75 dash/layout/pwa/pwa_menu.php:176 dash/panel.php:222
-#: dash/permission_caller.php:53 lib/app/quickaccess/factors.php:30
+#: dash/permission_caller.php:52 lib/app/quickaccess/factors.php:30
 msgid "Orders"
 msgstr "سفارشات"
 
@@ -10811,7 +10811,7 @@ msgstr "عنوان فنی"
 msgid "Archive product"
 msgstr "آرشیو کردن محصول"
 
-#: content_a/products/edit/display.php:68 dash/permission_caller.php:153
+#: content_a/products/edit/display.php:68 dash/permission_caller.php:152
 msgid "Delete product"
 msgstr "حذف محصول"
 
@@ -11857,7 +11857,7 @@ msgstr "فیس‌بوک"
 #: lib/app/business_domain/dns.php:312 lib/app/business_domain/dns.php:369
 #: lib/app/business_domain/dns.php:377 lib/app/business_domain/dns.php:587
 #: lib/app/business_domain/dns.php:595 lib/app/category/edit.php:18
-#: lib/app/discount/get.php:22 lib/app/export/download.php:30 lib/app/factor/edit.php:59
+#: lib/app/discount/get.php:24 lib/app/export/download.php:30 lib/app/factor/edit.php:59
 #: lib/app/form/answer/get.php:108 lib/app/form/answer/remove.php:14
 #: lib/app/form/choice/get.php:24 lib/app/form/filter/get.php:24
 #: lib/app/form/form/get.php:44 lib/app/form/item/get.php:22 lib/app/form/item/get.php:176
@@ -12157,7 +12157,7 @@ msgstr "سرویس‌های افزودنی دیگران"
 msgid "Connect to other services like google analytics, live chat"
 msgstr "اتصال به سایر سرویس‌ها مثل گوگل آنالیتیکز، چت آنلاین، کد ساماندهی و اینماد"
 
-#: content_a/setting/home/display.php:73 dash/layout/m2/sidebar.php:590
+#: content_a/setting/home/display.php:73 dash/layout/m2/sidebar.php:593
 msgid "Plugins"
 msgstr "افزونه‌ها"
 
@@ -14469,7 +14469,7 @@ msgid "Welcome"
 msgstr "خوش آمدید"
 
 #: content_account/home/display.php:14 dash/app/address.php:228
-#: includes/languages/trans_static_public.php:33 lib/app/discount/get.php:143
+#: includes/languages/trans_static_public.php:33 lib/app/discount/get.php:147
 #: lib/app/factor/get.php:312 lib/app/product/property.php:327
 msgid ","
 msgstr "،"
@@ -15785,7 +15785,7 @@ msgstr "تایید نشده"
 #: content_cms/posts/home/view.php:45 content_cms/seo/view.php:10
 #: content_love/files/choose/view.php:62 content_love/files/home/view.php:14
 #: content_site/body/blog/option.php:19 dash/layout/admin/admin-sidebar-frame.php:17
-#: dash/permission_caller.php:113 lib/app/quickaccess/hashtags.php:29
+#: dash/permission_caller.php:112 lib/app/quickaccess/hashtags.php:29
 #: lib/app/store/analytics.php:54 lib/app/store/analytics.php:55
 #: lib/app/store/analytics.php:56 lib/app/store/analytics.php:57
 #: lib/app/store/analytics.php:58 lib/app/store/analytics.php:59
@@ -19994,7 +19994,7 @@ msgstr "نقشه سایت برای همه بیزینس‌ها ساخته شد"
 
 #: content_love/business/sitemap/view.php:8 content_site/home/display-aside-top.php:43
 #: content_site/sitemap/view.php:8 dash/app/posts/dropdown.php:51
-#: dash/layout/m2/sidebar.php:493 lib/app/quickaccess/setting.php:237
+#: dash/layout/m2/sidebar.php:496 lib/app/quickaccess/setting.php:237
 msgid "Sitemap"
 msgstr "نقشه‌ی سایت"
 
@@ -21051,7 +21051,7 @@ msgid "any"
 msgstr "همه"
 
 #: content_love/gift/create/usage/display.php:27 content_love/gift/edit/display.php:72
-#: content_site/home/display-aside-top.php:54 dash/layout/m2/sidebar.php:482
+#: content_site/home/display-aside-top.php:54 dash/layout/m2/sidebar.php:485
 #: includes/languages/trans_static.php:665 lib/app/plugin/items/admin/admin_domain.php:38
 msgid "domain"
 msgstr "دامنه"
@@ -21870,7 +21870,7 @@ msgstr "انتقال دامنه"
 msgid "Buy 3 letter domains"
 msgstr "خرید دامنه‌های ۳ حرفی"
 
-#: content_my/domain/home/display.php:120 dash/layout/m2/sidebar.php:410
+#: content_my/domain/home/display.php:120 dash/layout/m2/sidebar.php:413
 #: dash/panel.php:288
 msgid "Settings"
 msgstr "تنظیمات"
@@ -22921,7 +22921,7 @@ msgid "To disable auto-save and publish Click herer"
 msgstr "برای غیرفعال سازی ذخیره و انتشار خودکار کلیک کنید"
 
 #: content_site/autosave/view.php:8 content_site/home/display-aside-top.php:88
-#: dash/layout/m2/sidebar.php:530
+#: dash/layout/m2/sidebar.php:533
 msgid "Setting auto-save and publish"
 msgstr "تنظیمات ذخیره و انتشار خودکار"
 
@@ -23234,12 +23234,12 @@ msgstr "سیستم مدیریت محتوا"
 msgid "Legal pages"
 msgstr "صفحات حقوقی"
 
-#: content_site/home/display-aside-top.php:66 dash/layout/m2/sidebar.php:506
+#: content_site/home/display-aside-top.php:66 dash/layout/m2/sidebar.php:509
 msgid "Static file"
 msgstr "فایل‌های ثابت"
 
 #: content_site/home/display-aside-top.php:78 content_site/options/menu/menu.php:31
-#: content_site/options/menu/menu.php:51 dash/layout/m2/sidebar.php:519
+#: content_site/options/menu/menu.php:51 dash/layout/m2/sidebar.php:522
 msgid "Menu"
 msgstr "منو"
 
@@ -27684,7 +27684,7 @@ msgstr "تنظیم وضعیت تیکت"
 msgid "Set ticket solved"
 msgstr "تنظیم تیکت به عنوان حل شده"
 
-#: dash/layout/admin/sidebar/sidebar-api-v2.php:75 dash/permission_caller.php:152
+#: dash/layout/admin/sidebar/sidebar-api-v2.php:75 dash/permission_caller.php:151
 msgid "Edit product"
 msgstr "ویرایش محصول"
 
@@ -27905,11 +27905,11 @@ msgstr "همه سفارشات"
 msgid "Unprocessed Order"
 msgstr "سفارشات پردازش نشده"
 
-#: dash/layout/m2/sidebar.php:112 dash/permission_caller.php:159
+#: dash/layout/m2/sidebar.php:112 dash/permission_caller.php:158
 msgid "Add new sale order"
 msgstr "ثبت سفارش فروش جدید"
 
-#: dash/layout/m2/sidebar.php:119 dash/permission_caller.php:162
+#: dash/layout/m2/sidebar.php:119 dash/permission_caller.php:161
 msgid "Add new buy order"
 msgstr "ثبت سفارش خرید جدید"
 
@@ -27925,28 +27925,28 @@ msgstr "واحدها"
 msgid "All customers"
 msgstr "همه مشتریان"
 
-#: dash/layout/m2/sidebar.php:224 dash/permission_caller.php:62
+#: dash/layout/m2/sidebar.php:224 dash/permission_caller.php:61
 #: lib/app/export/form_answer.php:74 lib/app/quickaccess/forms.php:30
 msgid "Form builder"
 msgstr "فرم‌ساز"
 
-#: dash/layout/m2/sidebar.php:387
+#: dash/layout/m2/sidebar.php:389
 msgid "Discount Code"
 msgstr "کد تخفیف"
 
-#: dash/layout/m2/sidebar.php:439
+#: dash/layout/m2/sidebar.php:442
 msgid "Sales Channels"
 msgstr "کانال‌های فروش"
 
-#: dash/layout/m2/sidebar.php:455
+#: dash/layout/m2/sidebar.php:458
 msgid "Online Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
-#: dash/layout/m2/sidebar.php:471
+#: dash/layout/m2/sidebar.php:474
 msgid "Site builder"
 msgstr "سایت‌ساز"
 
-#: dash/layout/m2/sidebar.php:553
+#: dash/layout/m2/sidebar.php:556
 msgid "Mobile App"
 msgstr "اپلیکیشن موبایل"
 
@@ -28204,7 +28204,7 @@ msgstr "خطا در اتصال!"
 msgid "Permission denied"
 msgstr "دسترسی غیر مجاز"
 
-#: dash/permission_caller.php:46
+#: dash/permission_caller.php:45
 msgid ""
 "Access to display and edit products as well as items such as product, categories and "
 "anything about the products."
@@ -28212,85 +28212,89 @@ msgstr ""
 "دسترسی به نمایش محصولات، ویرایش آنها و هر چیزی که مرتبط با محصولات باشد مانند دسته "
 "بندی‌ها و ..."
 
-#: dash/permission_caller.php:54
+#: dash/permission_caller.php:53
 msgid ""
 "Access to view and manage orders as well as view and manage customers' shopping cart"
 msgstr ""
 "دسترسی به نمایش و مدیریت سفارشات شامل مدیریت کامل سفارشات و مدیریت سبد خرید مشتریان"
 
-#: dash/permission_caller.php:63
+#: dash/permission_caller.php:62
 msgid "Access to form builder, Add new from, Manage form answer, ..."
 msgstr "دسترسی به فرم‌ساز، افزودن فرم جدید، مدیریت فرم‌ها و پاسخ‌ها و ..."
 
-#: dash/permission_caller.php:70 lib/app/quickaccess/setting.php:671
+#: dash/permission_caller.php:69 lib/app/quickaccess/setting.php:671
 msgid "accounting"
 msgstr "حسابداری"
 
-#: dash/permission_caller.php:88
+#: dash/permission_caller.php:87
 msgid "Manage Setting"
 msgstr "مدیریت تنظیمات"
 
-#: dash/permission_caller.php:89
+#: dash/permission_caller.php:88
 msgid "Access to change and manage business settings"
 msgstr "دسترسی به تغییر و مدیریت تنظیمات بیزینس"
 
-#: dash/permission_caller.php:97
+#: dash/permission_caller.php:96
 msgid "Sitebuilder"
 msgstr "سایت‌ساز"
 
-#: dash/permission_caller.php:98
+#: dash/permission_caller.php:97
 msgid "Access to manage business website builder"
 msgstr "دسترسی به بخش مدیریت سایت‌ساز"
 
-#: dash/permission_caller.php:106
+#: dash/permission_caller.php:105
 msgid ""
 "Customer relationship management includes customer management, settings for access "
 "levels and ..."
 msgstr "مدیریت ارتباط با مشتریان شامل مدیریت مشتریان و تنظیم سطوح دسترسی و ..."
 
-#: dash/permission_caller.php:114
+#: dash/permission_caller.php:113
 msgid "Manage media and business content such as news and site pages"
 msgstr "مدیریت محتوای بیزینس مانند اخبار و صفحات ثابت سایت"
 
-#: dash/permission_caller.php:121
+#: dash/permission_caller.php:120
 msgid "Manage support center"
 msgstr "مدیریت مرکز پشتیبانی"
 
-#: dash/permission_caller.php:122
+#: dash/permission_caller.php:121
 msgid "Access the support section and the business help center and ticket answering"
 msgstr "دسترسی به بخش پشتیبانی و مدیریت مرکز راهنمایی و پاسخگویی به تیکت‌ها"
 
-#: dash/permission_caller.php:154
+#: dash/permission_caller.php:153
 msgid "Mamage Product Unit"
 msgstr "مدیریت واحد‌های محصولات"
 
-#: dash/permission_caller.php:155
+#: dash/permission_caller.php:154
 msgid "Manage product categories"
 msgstr "مدیریت دسته‌بندی محصولات"
 
-#: dash/permission_caller.php:163
+#: dash/permission_caller.php:162
 msgid "Change price in sale page"
 msgstr "تغییر قیمت در صفحه ثبت سفارش"
 
-#: dash/permission_caller.php:164
+#: dash/permission_caller.php:163
 msgid "Change discount in sale page"
 msgstr "تغییر تخفیف در صفحه ثبت سفارش"
 
-#: dash/permission_caller.php:167
+#: dash/permission_caller.php:166
 msgid "Manage Cart"
 msgstr "مدیریت سبد خرید"
 
-#: dash/permission_caller.php:168
+#: dash/permission_caller.php:167
 msgid "Manage Factors"
 msgstr "مدیریت سفارشات"
 
-#: dash/permission_caller.php:169
+#: dash/permission_caller.php:168
 msgid "Order Notification Receiver"
 msgstr "دریافت کننده پیام‌های سفارشات"
 
-#: dash/permission_caller.php:173
+#: dash/permission_caller.php:172
 msgid "Manage business setting"
 msgstr "مدیریت تنظیمات بیزینس"
+
+#: dash/permission_caller.php:173
+msgid "Manage Discount code"
+msgstr "مدیریت بخش کد تخفیف"
 
 #: dash/permission_caller.php:177
 msgid "Website setting"
@@ -37667,15 +37671,15 @@ msgstr "تعدادی از محصولات با این تگ ذخیره شده‌ا
 msgid "Category successfully removed"
 msgstr "دسته‌بندی با موفقیت حذف شد"
 
-#: lib/app/discount/add.php:67 lib/app/discount/edit.php:47
+#: lib/app/discount/add.php:68 lib/app/discount/edit.php:49
 msgid "This discount code is exist in your list. Try another"
 msgstr "این کد تخفیف قبلا ثبت شده است. لطفا کد دیگری را انتخاب کنید"
 
-#: lib/app/discount/add.php:75
+#: lib/app/discount/add.php:76
 msgid "Can not create duplicate from your discount code"
 msgstr "نمی‌توانیم یک نسخه کپی از کد تخفیف تولید کنیم"
 
-#: lib/app/discount/add.php:79
+#: lib/app/discount/add.php:80
 msgid "Discount was duplicate"
 msgstr "کد تخفیف کپی شد"
 
@@ -37800,7 +37804,7 @@ msgstr "بفرمایید :) "
 msgid "Discount code applied"
 msgstr "کد تخفیف اعمال شد"
 
-#: lib/app/discount/edit.php:67
+#: lib/app/discount/edit.php:69
 msgid "After use discount code, can not edit type or discount value!"
 msgstr ""
 "بعد از اینکه از کد تخفیف در سفارشات استفاده شد امکان ویرایش نوع و یا مقدار تخفیف وجود "
@@ -37814,75 +37818,75 @@ msgstr "کد،‌ صعودی"
 msgid "Code DESC"
 msgstr "کد، نزولی"
 
-#: lib/app/discount/get.php:72
+#: lib/app/discount/get.php:76
 msgid "off"
 msgstr "تخفیف"
 
-#: lib/app/discount/get.php:79
+#: lib/app/discount/get.php:83
 msgid ":val :currency off"
 msgstr ":val :currency تخفیف"
 
-#: lib/app/discount/get.php:90
+#: lib/app/discount/get.php:94
 msgid "all prodcut"
 msgstr "همه محصولات"
 
-#: lib/app/discount/get.php:94
+#: lib/app/discount/get.php:98
 msgid "special category of products"
 msgstr "دسته‌بندی خاص از محصولات"
 
-#: lib/app/discount/get.php:99
+#: lib/app/discount/get.php:103
 msgid "special products"
 msgstr "محصولات خاص"
 
-#: lib/app/discount/get.php:108
+#: lib/app/discount/get.php:112
 msgid "Minimum purchase :val :currency"
 msgstr "حداقل مبلغ خرید :val :currency"
 
-#: lib/app/discount/get.php:115
+#: lib/app/discount/get.php:119
 msgid "Minimum purchase of :val items"
 msgstr "حداقل خرید :val قلم"
 
-#: lib/app/discount/get.php:126
+#: lib/app/discount/get.php:130
 msgid "For special customer group"
 msgstr "مشتریان گروه خاصی از مشتریان"
 
-#: lib/app/discount/get.php:130
+#: lib/app/discount/get.php:134
 msgid "For special customer"
 msgstr "برای مشتریان خاص"
 
-#: lib/app/discount/get.php:136
+#: lib/app/discount/get.php:140
 msgid "Limit of :val uses"
 msgstr "محدود به :val بار استفاده"
 
-#: lib/app/discount/get.php:143 lib/app/discount/get.php:147
+#: lib/app/discount/get.php:147 lib/app/discount/get.php:151
 msgid "one per customer"
 msgstr "یکی برای هر مشتری"
 
-#: lib/app/discount/get.php:158
+#: lib/app/discount/get.php:162
 msgid "Active from :val"
 msgstr "فعال از :val"
 
-#: lib/app/discount/get.php:166
+#: lib/app/discount/get.php:170
 msgid "Active until :val"
 msgstr "فعال تا :val"
 
-#: lib/app/discount/get.php:170
+#: lib/app/discount/get.php:174
 msgid "Was expire at :val"
 msgstr "منقضی شده در :val"
 
-#: lib/app/discount/get.php:176
+#: lib/app/discount/get.php:180
 msgid "Active now"
 msgstr "هم اکنون فعال"
 
-#: lib/app/discount/get.php:184
+#: lib/app/discount/get.php:188
 msgid "Disabled"
 msgstr "غیرفعال شده"
 
-#: lib/app/discount/get.php:189
+#: lib/app/discount/get.php:193
 msgid ":val lookup"
 msgstr ":val فراخوانی"
 
-#: lib/app/discount/get.php:194
+#: lib/app/discount/get.php:198
 msgid ":val used"
 msgstr ":val استفاده"
 
