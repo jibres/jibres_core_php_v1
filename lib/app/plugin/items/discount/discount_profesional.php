@@ -34,7 +34,7 @@ class discount_profesional
 			'max_period'  => '+400day', // +400 day 366+31 = 397 ~ 400
 			'relase_date' => '2022-01-27',
 			'last_update' => '2022-01-27',
-			'icon'        => ['piggy-bank', 'bootstrap'],
+			'icon'        => ['Discounts', 'major', '#6366f1', 'text-indigo-500'],
 			'description' => self::desc(),
 			'keywords'    => [T_("discount code"), T_("Management")],
 			'currency'    => \lib\currency::jibres_currency(true),
