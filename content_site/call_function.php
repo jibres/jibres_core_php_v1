@@ -127,10 +127,6 @@ class call_function
 		}
 		else
 		{
-			if(\dash\url::isLocal())
-			{
-				// var_dump(func_get_args());exit;
-			}
 			return null;
 		}
 	}

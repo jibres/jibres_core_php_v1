@@ -15,7 +15,7 @@ class view
 
 		$search_string = \dash\validate::search_string();
 
-		if(\dash\url::isLocal())
+		if($search_string)
 		{
 			$ganje = \lib\app\product\ganje::search($search_string);
 
