@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-28 14:02+0330\n"
-"PO-Revision-Date: 2022-01-28 14:05+0330\n"
+"POT-Creation-Date: 2022-01-29 13:22+0330\n"
+"PO-Revision-Date: 2022-01-29 13:22+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2162,7 +2162,7 @@ msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
 #: content/home/display.php:34 content/home/view.php:12 content/view.php:18
-#: content_a/setting/home/display.php:122
+#: content_a/setting/home/display.php:121
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
@@ -2192,7 +2192,7 @@ msgstr "، "
 msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
-#: content/home/display.php:41 content_a/setting/home/display.php:132
+#: content/home/display.php:41 content_a/setting/home/display.php:131
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
@@ -2217,7 +2217,7 @@ msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
 #: content/home/display.php:48 content/home/view.php:13 content/view.php:19
-#: content_a/setting/home/display.php:142
+#: content_a/setting/home/display.php:141
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
@@ -2986,7 +2986,7 @@ msgid "E-commerce"
 msgstr "تجارت الکترونیک"
 
 #: content/investment/display-company-info.php:83 content_a/setting/domain/view.php:11
-#: content_a/setting/home/display.php:111 content_a/setting/legal/view.php:11
+#: content_a/setting/home/display.php:110 content_a/setting/legal/view.php:11
 #: content_a/setting/menu/view.php:13 dash/panel.php:265
 msgid "Website Builder"
 msgstr "سایت‌ساز"
@@ -3029,7 +3029,7 @@ msgstr "سیستم مدیریت محتوا"
 msgid "Form Builder"
 msgstr "فرم‌ساز"
 
-#: content/investment/display-company-info.php:92 content_a/setting/home/display.php:92
+#: content/investment/display-company-info.php:92 content_a/setting/home/display.php:91
 #: lib/app/quickaccess/setting.php:677 lib/app/store/analytics.php:91
 #: lib/app/store/analytics.php:92 lib/app/store/analytics.php:93
 #: lib/app/store/analytics.php:94 lib/app/store/analytics.php:95
@@ -5079,11 +5079,11 @@ msgstr "غیرفعال"
 #: dash/layout/search/search_filter.php:574 lib/app/business_domain/filter.php:34
 #: lib/app/business_domain/search.php:102 lib/app/business_domain/search_dns.php:59
 #: lib/app/discount/filter.php:35 lib/app/discount/filter.php:44
-#: lib/app/gift/filter.php:43 lib/app/gift/filter.php:44 lib/app/gift/filter.php:45
-#: lib/app/gift/filter.php:46 lib/app/product/filter.php:452 lib/app/sms/filter.php:26
-#: lib/app/sms/filter.php:27 lib/app/sms/filter.php:28 lib/app/sms/filter.php:29
-#: lib/app/sms/filter.php:30 lib/app/store/filter.php:29 lib/app/store/filter.php:30
-#: lib/app/store/filter.php:31
+#: lib/app/discount/filter.php:54 lib/app/gift/filter.php:43 lib/app/gift/filter.php:44
+#: lib/app/gift/filter.php:45 lib/app/gift/filter.php:46 lib/app/product/filter.php:452
+#: lib/app/sms/filter.php:26 lib/app/sms/filter.php:27 lib/app/sms/filter.php:28
+#: lib/app/sms/filter.php:29 lib/app/sms/filter.php:30 lib/app/store/filter.php:29
+#: lib/app/store/filter.php:30 lib/app/store/filter.php:31
 msgid "Status"
 msgstr "وضعیت"
 
@@ -5771,9 +5771,9 @@ msgstr "سند اختتامیه"
 #: content_love/business/domain/setting/display.php:128
 #: content_love/domain/setting/display.php:127 content_love/plugin/edit/display.php:26
 #: dash/app/ticket/filter.php:45 includes/languages/trans_static.php:507
-#: includes/languages/trans_static_public.php:1107 lib/app/factor/action.php:73
-#: lib/app/factor/ready.php:124 lib/app/order/ready.php:124 lib/app/product/load.php:132
-#: lib/app/store/filter.php:30
+#: includes/languages/trans_static_public.php:1107 lib/app/discount/filter.php:55
+#: lib/app/factor/action.php:73 lib/app/factor/ready.php:124 lib/app/order/ready.php:124
+#: lib/app/product/load.php:132 lib/app/store/filter.php:30
 msgid "Deleted"
 msgstr "حذف شده"
 
@@ -8881,7 +8881,7 @@ msgstr "همین الان بساز"
 #: content_love/business/domain/setting/display.php:126
 #: includes/languages/trans_static.php:539 includes/languages/trans_static_public.php:935
 #: lib/app/business_domain/search.php:178 lib/app/business_domain/search_dns.php:123
-#: lib/app/discount/discount_check.php:567 lib/app/import/product.php:17
+#: lib/app/discount/discount_check.php:572 lib/app/import/product.php:17
 msgid "Ok"
 msgstr "بسیار خب"
 
@@ -12149,32 +12149,31 @@ msgstr "سرویس‌های افزودنی دیگران"
 msgid "Connect to other services like google analytics, live chat"
 msgstr "اتصال به سایر سرویس‌ها مثل گوگل آنالیتیکز، چت آنلاین، کد ساماندهی و اینماد"
 
-#: content_a/setting/home/display.php:74 content_love/home/display.php:154
-#: content_love/plugin/history/display.php:9
-msgid "Plugin"
-msgstr "افزونه"
+#: content_a/setting/home/display.php:73 dash/layout/m2/sidebar.php:590
+msgid "Plugins"
+msgstr "افزونه‌ها"
 
-#: content_a/setting/home/display.php:75
+#: content_a/setting/home/display.php:74
 msgid "Plugin and failures"
 msgstr "افزونه‌ها و امکانات"
 
-#: content_a/setting/home/display.php:93
+#: content_a/setting/home/display.php:92
 msgid "Manage your business accounting"
 msgstr "مدیریت حسابداری بیزینس شما"
 
-#: content_a/setting/home/display.php:112
+#: content_a/setting/home/display.php:111
 msgid "Manage your business website settings"
 msgstr "مدیریت تنظیمات وب‌سایت بیزینس شما"
 
-#: content_a/setting/home/display.php:123
+#: content_a/setting/home/display.php:122
 msgid "Manage your business app settings"
 msgstr "مدیریت تنظیمات اپلیکیشن بیزینس شما"
 
-#: content_a/setting/home/display.php:133
+#: content_a/setting/home/display.php:132
 msgid "Manage your business pos configuration"
 msgstr "مدیریت تنظیمات فروش حضوری بیزینس شما"
 
-#: content_a/setting/home/display.php:143
+#: content_a/setting/home/display.php:142
 msgid "Manage your business social marketing"
 msgstr "مدیریت تنظیمات شبکه‌های اجتماعی بیزینس شما"
 
@@ -15271,7 +15270,7 @@ msgid "Please set store code in url"
 msgstr "لطفا کد‌ فروشگاه را در آدرس وارد کنید"
 
 #: content_b1/tools.php:43 content_business/controller.php:17 content_r10/tools.php:135
-#: content_v2/controller.php:19 dash/engine/store.php:202 dash/engine/store.php:363
+#: content_v2/controller.php:19 dash/engine/store.php:202 dash/engine/store.php:361
 #: lib/app/application/queue.php:12 lib/app/application/queue.php:243
 #: lib/app/business_domain/add.php:68 lib/app/business_domain/business.php:109
 #: lib/app/business_domain/business.php:116 lib/app/business_domain/edit.php:100
@@ -19002,27 +19001,26 @@ msgstr ""
 #: content_enter/twostep/controller.php:11 content_enter/twostep/model.php:11
 #: content_enter/twostep/view.php:11 dash/app/ticket/add.php:173
 #: dash/app/ticket/add.php:245 dash/app/user/email.php:79 dash/app/user/email.php:132
-#: dash/app/user/email.php:262 dash/app/user/email.php:328 lib/api/jibres/api.php:16
-#: lib/api/jibres/api.php:30 lib/app/application/queue_search.php:27
-#: lib/app/cart/add.php:64 lib/app/cart/add.php:86 lib/app/cart/add.php:175
-#: lib/app/cart/add.php:291 lib/app/cart/checkout.php:14 lib/app/cart/checkout.php:272
-#: lib/app/cart/checkout.php:342 lib/app/cart/edit.php:19 lib/app/cart/remove.php:36
-#: lib/app/domains/search.php:27 lib/app/gift/lookup/search.php:26
-#: lib/app/gift/search.php:27 lib/app/gift/usage/search.php:24
-#: lib/app/nic_contact/add.php:21 lib/app/nic_contact/add.php:67
-#: lib/app/nic_contact/add.php:189 lib/app/nic_contact/edit.php:110
-#: lib/app/nic_contact/get.php:26 lib/app/nic_contact/search.php:28
-#: lib/app/nic_contact/search.php:183 lib/app/nic_contactdetail/search.php:28
-#: lib/app/nic_contactdetail/search.php:148 lib/app/nic_credit/search.php:128
-#: lib/app/nic_domain/create.php:85 lib/app/nic_domain/get.php:18
-#: lib/app/nic_domain/get.php:449 lib/app/nic_domain/get.php:476
-#: lib/app/nic_domain/get.php:504 lib/app/nic_domain/renew.php:61
-#: lib/app/nic_domain/search.php:27 lib/app/nic_domain/search.php:42
-#: lib/app/nic_domain/search.php:684 lib/app/nic_domain/transfer.php:85
-#: lib/app/nic_domainaction/search.php:11 lib/app/nic_domainaction/search.php:25
-#: lib/app/nic_domainbilling/search.php:11 lib/app/nic_domainstatus/search.php:27
-#: lib/app/nic_domainstatus/search.php:125 lib/app/nic_log/search.php:27
-#: lib/app/nic_poll/get.php:177 lib/app/nic_poll/get.php:190
+#: dash/app/user/email.php:262 dash/app/user/email.php:328 lib/api/jibres/api.php:30
+#: lib/app/application/queue_search.php:27 lib/app/cart/add.php:64 lib/app/cart/add.php:86
+#: lib/app/cart/add.php:175 lib/app/cart/add.php:291 lib/app/cart/checkout.php:14
+#: lib/app/cart/checkout.php:272 lib/app/cart/checkout.php:342 lib/app/cart/edit.php:19
+#: lib/app/cart/remove.php:36 lib/app/domains/search.php:27
+#: lib/app/gift/lookup/search.php:26 lib/app/gift/search.php:27
+#: lib/app/gift/usage/search.php:24 lib/app/nic_contact/add.php:21
+#: lib/app/nic_contact/add.php:67 lib/app/nic_contact/add.php:189
+#: lib/app/nic_contact/edit.php:110 lib/app/nic_contact/get.php:26
+#: lib/app/nic_contact/search.php:28 lib/app/nic_contact/search.php:183
+#: lib/app/nic_contactdetail/search.php:28 lib/app/nic_contactdetail/search.php:148
+#: lib/app/nic_credit/search.php:128 lib/app/nic_domain/create.php:85
+#: lib/app/nic_domain/get.php:18 lib/app/nic_domain/get.php:449
+#: lib/app/nic_domain/get.php:476 lib/app/nic_domain/get.php:504
+#: lib/app/nic_domain/renew.php:61 lib/app/nic_domain/search.php:27
+#: lib/app/nic_domain/search.php:42 lib/app/nic_domain/search.php:684
+#: lib/app/nic_domain/transfer.php:85 lib/app/nic_domainaction/search.php:11
+#: lib/app/nic_domainaction/search.php:25 lib/app/nic_domainbilling/search.php:11
+#: lib/app/nic_domainstatus/search.php:27 lib/app/nic_domainstatus/search.php:125
+#: lib/app/nic_log/search.php:27 lib/app/nic_poll/get.php:177 lib/app/nic_poll/get.php:190
 #: lib/app/nic_poll/search.php:27 lib/app/nic_poll/search.php:123
 #: lib/app/nic_usersetting/get.php:12 lib/app/nic_usersetting/search.php:27
 #: lib/app/nic_usersetting/search.php:134 lib/app/onlinenic/create.php:92
@@ -19988,7 +19986,7 @@ msgstr "نقشه سایت برای همه بیزینس‌ها ساخته شد"
 
 #: content_love/business/sitemap/view.php:8 content_site/home/display-aside-top.php:43
 #: content_site/sitemap/view.php:8 dash/app/posts/dropdown.php:51
-#: dash/layout/m2/sidebar.php:497 lib/app/quickaccess/setting.php:237
+#: dash/layout/m2/sidebar.php:493 lib/app/quickaccess/setting.php:237
 msgid "Sitemap"
 msgstr "نقشه‌ی سایت"
 
@@ -21049,7 +21047,7 @@ msgid "any"
 msgstr "همه"
 
 #: content_love/gift/create/usage/display.php:27 content_love/gift/edit/display.php:72
-#: content_site/home/display-aside-top.php:54 dash/layout/m2/sidebar.php:486
+#: content_site/home/display-aside-top.php:54 dash/layout/m2/sidebar.php:482
 #: includes/languages/trans_static.php:665 lib/app/plugin/items/admin/admin_domain.php:38
 msgid "domain"
 msgstr "دامنه"
@@ -21260,6 +21258,10 @@ msgstr "کارت‌ هدیه"
 #: content_love/home/display.php:106
 msgid "Sms Log"
 msgstr "لاگ پیامک"
+
+#: content_love/home/display.php:154 content_love/plugin/history/display.php:9
+msgid "Plugin"
+msgstr "افزونه"
 
 #: content_love/home/display.php:163 lib/app/store/analytics.php:100
 msgid "Api log"
@@ -21864,7 +21866,7 @@ msgstr "انتقال دامنه"
 msgid "Buy 3 letter domains"
 msgstr "خرید دامنه‌های ۳ حرفی"
 
-#: content_my/domain/home/display.php:120 dash/layout/m2/sidebar.php:414
+#: content_my/domain/home/display.php:120 dash/layout/m2/sidebar.php:410
 #: dash/panel.php:288
 msgid "Settings"
 msgstr "تنظیمات"
@@ -22915,7 +22917,7 @@ msgid "To disable auto-save and publish Click herer"
 msgstr "برای غیرفعال سازی ذخیره و انتشار خودکار کلیک کنید"
 
 #: content_site/autosave/view.php:8 content_site/home/display-aside-top.php:88
-#: dash/layout/m2/sidebar.php:534
+#: dash/layout/m2/sidebar.php:530
 msgid "Setting auto-save and publish"
 msgstr "تنظیمات ذخیره و انتشار خودکار"
 
@@ -23150,11 +23152,11 @@ msgstr "کارت ویزیت"
 msgid "visitcard 1"
 msgstr "حالت کارت ۱"
 
-#: content_site/call_function.php:168
+#: content_site/call_function.php:164
 msgid "Invalid section"
 msgstr "شناسه بخش اشتباه است"
 
-#: content_site/call_function.php:681
+#: content_site/call_function.php:677
 msgid "Sample :val"
 msgstr "نمونه :val"
 
@@ -23228,12 +23230,12 @@ msgstr "سیستم مدیریت محتوا"
 msgid "Legal pages"
 msgstr "صفحات حقوقی"
 
-#: content_site/home/display-aside-top.php:66 dash/layout/m2/sidebar.php:510
+#: content_site/home/display-aside-top.php:66 dash/layout/m2/sidebar.php:506
 msgid "Static file"
 msgstr "فایل‌های ثابت"
 
 #: content_site/home/display-aside-top.php:78 content_site/options/menu/menu.php:31
-#: content_site/options/menu/menu.php:51 dash/layout/m2/sidebar.php:523
+#: content_site/options/menu/menu.php:51 dash/layout/m2/sidebar.php:519
 msgid "Menu"
 msgstr "منو"
 
@@ -27313,23 +27315,23 @@ msgstr "سلام، مستندات را بخوان و پروژه خودتو شر�
 msgid "We can't find the page you're looking for!"
 msgstr "ما صفحه‌ای که به‌دنبال آن هستید را نمی‌یابیم!"
 
-#: dash/engine/store.php:305
+#: dash/engine/store.php:303
 msgid "Subdomain and store code conflict!"
 msgstr "زیردامنه و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:320
+#: dash/engine/store.php:318
 msgid "Can not route subdomain in your domain!"
 msgstr "به زیردامنه‌های شما در حالت دامنه اختصاصی پاسخ داده نخواهد شد!"
 
-#: dash/engine/store.php:326
+#: dash/engine/store.php:324
 msgid "Domain and store code conflict!"
 msgstr "دامنه اختصاصی و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:338
+#: dash/engine/store.php:336
 msgid "Can not route this address from your domain!"
 msgstr "نمی‌توانیم به درخواست از این آدرس در این دامنه پاسخ دهیم!"
 
-#: dash/engine/store.php:593
+#: dash/engine/store.php:591
 msgid "This business is currently unavailable!"
 msgstr "این بیزینس در حال حاضر در دسترس نیست!"
 
@@ -27924,29 +27926,25 @@ msgstr "همه مشتریان"
 msgid "Form builder"
 msgstr "فرم‌ساز"
 
-#: dash/layout/m2/sidebar.php:389
+#: dash/layout/m2/sidebar.php:387
 msgid "Discount Code"
 msgstr "کد تخفیف"
 
-#: dash/layout/m2/sidebar.php:443
+#: dash/layout/m2/sidebar.php:439
 msgid "Sales Channels"
 msgstr "کانال‌های فروش"
 
-#: dash/layout/m2/sidebar.php:459
+#: dash/layout/m2/sidebar.php:455
 msgid "Online Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
-#: dash/layout/m2/sidebar.php:475
+#: dash/layout/m2/sidebar.php:471
 msgid "Site builder"
 msgstr "سایت‌ساز"
 
-#: dash/layout/m2/sidebar.php:557
+#: dash/layout/m2/sidebar.php:553
 msgid "Mobile App"
 msgstr "اپلیکیشن موبایل"
-
-#: dash/layout/m2/sidebar.php:594
-msgid "Plugins"
-msgstr "افزونه‌ها"
 
 #: dash/layout/post/admin-gallery-box.php:34
 msgid "Gallery is full!"
@@ -37793,6 +37791,10 @@ msgstr "نوع کد تخفیف اشتباه است!"
 #: lib/app/discount/discount_check.php:565
 msgid "here you are :) "
 msgstr "بفرمایید :) "
+
+#: lib/app/discount/discount_check.php:570
+msgid "Discount code applied"
+msgstr "کد تخفیف اعمال شد"
 
 #: lib/app/discount/edit.php:67
 msgid "After use discount code, can not edit type or discount value!"
