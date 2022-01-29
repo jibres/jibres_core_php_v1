@@ -261,8 +261,6 @@ class store
 
 	public static function config()
 	{
-		\dash\engine\prepare::check_domain();
-
 		self::privacy_domain_check();
 
 		$store     = \dash\url::store();

@@ -22,6 +22,9 @@ class power
 		// check waf
 		\dash\waf\protection::start();
 
+
+		\dash\engine\prepare::check_domain();
+
 		// find store detail and set to connect to true store
 		\dash\engine\store::config();
 
