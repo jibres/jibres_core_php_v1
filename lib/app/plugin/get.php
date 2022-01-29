@@ -21,8 +21,8 @@ class get
 			'ganje_product',
 
 			'admin_domain',
-			// // test period plugin
-			// 'remove_brand',
+
+			'remove_brand',
 
 			// /* Discount code */
 			'discount_profesional',

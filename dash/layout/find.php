@@ -283,6 +283,8 @@ class find
 		$footerPWA = \dash\layout\pwa\footer2::html();
 		echo $footerPWA;
 
+		self::jibres_brand();
+
 		echo "</footer>";
 	}
 
@@ -320,5 +322,51 @@ class find
 			echo "<div data-pagescript='". \dash\data::global_scriptPage(). "'></div>";
 		}
 	}
+
+
+	private static function jibres_brand()
+	{
+		if(!\dash\url::isLocal())
+		{
+			return;
+		}
+
+		if(!\dash\engine\store::inStore())
+		{
+			return;
+		}
+
+		if(\lib\app\plugin\business::is_activated('remove_brand'))
+		{
+			return;
+		}
+
+		$link   = 'https://jibres.'. \dash\url::jibres_tld();
+		$msg    = T_("Powered by Jibres");
+		$target = 'target="_blank"';
+
+		if(in_array(\dash\url::content(), ['a', 'crm', 'cms', 'site']))
+		{
+			$link   = \dash\url::kingdom(). '/a/plugin/view/remove_brand';
+			$msg    = T_("Powered by Jibres");
+			$msg    .= ' '. T_("You can remove jibres brand");
+			$target = '';
+		}
+
+		$html = '';
+		$html .= '<a href="'.$link.'" '. $target .'>';
+		{
+			$html .= '<div class="alert-danger justify-center text-center">';
+			{
+				$html .= $msg;
+			}
+			$html .= '</div>';
+		}
+		$html .= '</a>';
+
+		echo $html;
+
+	}
+
 }
 ?>
