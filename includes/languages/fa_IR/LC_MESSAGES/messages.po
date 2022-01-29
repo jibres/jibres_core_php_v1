@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-29 15:10+0330\n"
-"PO-Revision-Date: 2022-01-29 15:11+0330\n"
+"POT-Creation-Date: 2022-01-29 15:23+0330\n"
+"PO-Revision-Date: 2022-01-29 15:24+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5001,7 +5001,7 @@ msgid "followup"
 msgstr "پیگیری"
 
 #: content_a/accounting/coding/add/display-add.php:139
-#: content_a/discount/add/display.php:617 content_a/setting/order/display.php:57
+#: content_a/discount/add/display.php:632 content_a/setting/order/display.php:57
 #: content_a/setting/order/display.php:116 content_a/setting/order/display.php:138
 #: content_a/setting/shipping/method/display.php:18
 #: content_a/setting/shipping/method/display.php:50
@@ -5048,7 +5048,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/doc/add/display-list.php:111
 #: content_a/accounting/doc/display.php:14 content_a/accounting/factor/display.php:48
 #: content_a/accounting/turnover/display.php:185 content_a/android/apk/display.php:32
-#: content_a/discount/add/display.php:605 content_a/form/answer/export/display.php:42
+#: content_a/discount/add/display.php:620 content_a/form/answer/export/display.php:42
 #: content_a/form/itemLink.php:14 content_a/order/detail/display.php:29
 #: content_a/products/edit/block/sidebar-menu.php:5
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
@@ -5765,7 +5765,7 @@ msgid "Closing Document"
 msgstr "سند اختتامیه"
 
 #: content_a/accounting/doc/edit/view.php:23 content_a/accounting/filter.php:26
-#: content_a/discount/add/display.php:626 content_a/products/advance/view.php:23
+#: content_a/discount/add/display.php:641 content_a/products/advance/view.php:23
 #: content_a/products/child/view.php:23 content_a/products/edit/block/sidebar-menu.php:14
 #: content_cms/posts/advance/display.php:39
 #: content_love/business/domain/setting/display.php:128
@@ -6044,7 +6044,7 @@ msgstr "لطفا ماه را انتخاب کنید"
 msgid "Choose status"
 msgstr "انتخاب وضعیت"
 
-#: content_a/accounting/filter.php:23 content_a/discount/add/display.php:610
+#: content_a/accounting/filter.php:23 content_a/discount/add/display.php:625
 #: content_a/form/status/display.php:17 content_a/order/status/display.php:44
 #: content_a/products/edit/block/sidebar-menu.php:8 content_cms/home/display.php:7
 #: content_cms/posts/advance/display.php:22 dash/app/posts/filter.php:57
@@ -8651,11 +8651,23 @@ msgstr "زمان"
 msgid "Set end date"
 msgstr "تنظیم تاریخ پایان"
 
-#: content_a/discount/add/display.php:641
+#: content_a/discount/add/display.php:603
+msgid "Message after applying the discount code"
+msgstr "بیام بعد از اعمال کد تخفیف"
+
+#: content_a/discount/add/display.php:605 lib/app/discount/discount_check.php:577
+msgid "Discount code applied"
+msgstr "کد تخفیف اعمال شد"
+
+#: content_a/discount/add/display.php:606
+msgid "This message displayed after applying discount by customer"
+msgstr "این پیام بعد از استفاده مشتریان از کد تخفیف نمایش داده می‌شود"
+
+#: content_a/discount/add/display.php:656
 msgid "Remove Discount code"
 msgstr "حذف کد تخفیف"
 
-#: content_a/discount/add/display.php:654
+#: content_a/discount/add/display.php:669
 msgid "Need to activate discount plugin"
 msgstr "نیاز به فعال سازی این افزونه کد تخفیف حرفه‌ای"
 
@@ -8889,7 +8901,7 @@ msgstr "همین الان بساز"
 #: content_love/business/domain/setting/display.php:126
 #: includes/languages/trans_static.php:539 includes/languages/trans_static_public.php:935
 #: lib/app/business_domain/search.php:178 lib/app/business_domain/search_dns.php:123
-#: lib/app/discount/discount_check.php:572 lib/app/import/product.php:17
+#: lib/app/discount/discount_check.php:580 lib/app/import/product.php:17
 msgid "Ok"
 msgstr "بسیار خب"
 
@@ -37799,10 +37811,6 @@ msgstr "نوع کد تخفیف اشتباه است!"
 #: lib/app/discount/discount_check.php:565
 msgid "here you are :) "
 msgstr "بفرمایید :) "
-
-#: lib/app/discount/discount_check.php:570
-msgid "Discount code applied"
-msgstr "کد تخفیف اعمال شد"
 
 #: lib/app/discount/edit.php:69
 msgid "After use discount code, can not edit type or discount value!"
