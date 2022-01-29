@@ -18,6 +18,14 @@ $html .= '<div class="max-w-xl m-auto">';
 			}
 			$html .= '</div>';
 		}
+		elseif(a($dataRow, 'status') === 'draft')
+		{
+			$html .= '<div class="alert-primary" data-ajaxify data-data=\'{"status" : "enable", "setstatus" : "1"}\' data-method="post">';
+			{
+				$html .= T_("To publish discount code click here");
+			}
+			$html .= '</div>';
+		}
 		/*=====================================
 		=            Discount code            =
 		=====================================*/

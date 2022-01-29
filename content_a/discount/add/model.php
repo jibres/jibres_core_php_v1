@@ -45,9 +45,18 @@ class model
 			'status'           => \dash\request::post('status'),
 		];
 
+		if(\dash\request::post('setstatus'))
+		{
+			$post = ['status' => \dash\request::post('status')];
+		}
+
 		if(\dash\data::editMode())
 		{
 			$result = \lib\app\discount\edit::edit($post, \dash\request::get('id'));
+			if(\dash\request::post('setstatus') && \dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
 
 		}
 		else
