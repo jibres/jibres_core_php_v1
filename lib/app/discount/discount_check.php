@@ -74,7 +74,7 @@ class discount_check
 
 			if($get_count_invalid_lookup > 10)
 			{
-				\dash\waf\ip::isolateIP(1, 'invalid_discount_code');
+				\dash\waf\ip::isolateIP(1, 'invalid_discount_code > 10');
 			}
 			elseif($get_count_invalid_lookup > 50)
 			{
@@ -563,6 +563,11 @@ class discount_check
 		self::$result['discount_id']      = $discount_id;
 		self::$result['product_discount'] = $product_discount;
 		self::$result['success_msg']      = T_("here you are :) ");
+
+
+
+		self::$result['msg_class'] = 'alert-success p-2 rounded-lg';
+		self::$result['msg']       = T_("Discount code applied");
 
 		self::save_lookup(T_("Ok"));
 
