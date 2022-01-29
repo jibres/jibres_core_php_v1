@@ -13,7 +13,7 @@ class api
 	{
 		if(!\dash\user::login())
 		{
-			\dash\notif::error_once(T_("Please login to continue"));
+			// \dash\notif::error_once(T_("Please login to continue"));
 			return false;
 		}
 
