@@ -6,6 +6,8 @@ class controller
 {
 	public static function routing()
 	{
+		\dash\permission::access('manageDiscountCode');
+
 		$id = \dash\request::get('id');
 
 		$load = \lib\app\discount\get::get($id);

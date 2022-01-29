@@ -7,6 +7,7 @@ class add
 
 	public static function add($_args)
 	{
+		\dash\permission::access('manageDiscountCode');
 
 		$args = \lib\app\discount\check::variable($_args);
 

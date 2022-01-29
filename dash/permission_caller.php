@@ -19,7 +19,6 @@ class permission_caller
 			'form',
 			'accounting',
 			'application',
-			'setting',
 			'sitebuilder',
 			'crm',
 			'cms',
@@ -171,6 +170,7 @@ class permission_caller
 
 		// --------------- SETTING
 		$master['settingBusinessEdit']       = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'settingBusinessEdit', 			'title' => T_('Manage business setting'), 'require' => []];
+		$master['manageDiscountCode']      	 = ['jibres' => false, 'business' => true,  'group' => 'setting', 	'caller' => 'manageDiscountCode', 			'title' => T_('Manage Discount code'), 'require' => []];
 
 
 		// --------------- SITEBUILDER

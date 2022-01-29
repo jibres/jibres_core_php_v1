@@ -7,6 +7,8 @@ class remove
 
 	public static function remove($_id)
 	{
+		\dash\permission::access('manageDiscountCode');
+
 		$load = \lib\app\discount\get::get($_id);
 
 		if(!$load || !isset($load['id']))

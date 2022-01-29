@@ -8,6 +8,8 @@ class get
 
 	public static function get($_id)
 	{
+		\dash\permission::access('manageDiscountCode');
+
 		$id = \dash\validate::id($_id);
 
 		if(!$id)
@@ -53,6 +55,8 @@ class get
 
 	public static function summary($_id, $_detail)
 	{
+		\dash\permission::access('manageDiscountCode');
+
 		$id = \dash\validate::id($_id, false);
 		if(!$id)
 		{

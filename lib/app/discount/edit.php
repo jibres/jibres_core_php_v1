@@ -7,6 +7,8 @@ class edit
 
 	public static function edit($_args, $_id)
 	{
+		\dash\permission::access('manageDiscountCode');
+
 		$load = \lib\app\discount\get::get($_id);
 
 		if(!$load || !isset($load['id']))

@@ -382,18 +382,21 @@ class sidebar
 		/*================================
 		=            Discount            =
 		================================*/
-		$menu["discounts"] =
-		[
-			'title'     => T_("Discount Code"),
-			'url'       => \dash\url::kingdom().'/a/discount',
-			'icon'      => 'Discounts',
-			'iconColor' => '#a1b2c3',
-		];
-
-		if(in_array($module, ['discount']))
+		if(\dash\permission::check('manageDiscountCode'))
 		{
-			$menu['discounts']['iconColor'] = $blue;
-			$menu['discounts']['selected']  = true;
+			$menu["discounts"] =
+			[
+				'title'     => T_("Discount Code"),
+				'url'       => \dash\url::kingdom().'/a/discount',
+				'icon'      => 'Discounts',
+				'iconColor' => '#a1b2c3',
+			];
+
+			if(in_array($module, ['discount']))
+			{
+				$menu['discounts']['iconColor'] = $blue;
+				$menu['discounts']['selected']  = true;
+			}
 		}
 		/*=====  End of Discount  ======*/
 

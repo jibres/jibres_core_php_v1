@@ -18,6 +18,8 @@ class search
 	public static function list($_query_string, $_args)
 	{
 
+		\dash\permission::access('manageDiscountCode');
+
 		$condition =
 		[
 			'order'  => 'order',
