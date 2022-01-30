@@ -12,6 +12,12 @@ class view extends \content_site\page\view
 
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). \dash\request::full_get());
+
+
+		if(\dash\request::get('downloadjson') && \dash\permission::supervisor())
+		{
+			\content_site\utility::multiple_downloadjson(\dash\data::currentSectionList());
+		}
 	}
 }
 ?>
