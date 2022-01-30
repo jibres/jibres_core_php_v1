@@ -39,8 +39,12 @@ class order_adminNewOrderAfterPay
 		{
 			$msg .= "\n";
 			$msg .= \lib\store::admin_url(). '/:'. $my_id;
-			$msg .= "\n";
-			$msg .= ' '. T_("Jibres; Sell and enjoy");
+
+			if(!\lib\app\plugin\business::is_activated('remove_brand'))
+			{
+				$msg .= "\n";
+				$msg .= ' '. T_("Jibres; Sell and enjoy");
+			}
 		}
 		return $msg;
 	}
