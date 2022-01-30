@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-29 15:23+0330\n"
-"PO-Revision-Date: 2022-01-29 15:24+0330\n"
+"POT-Creation-Date: 2022-01-30 13:16+0330\n"
+"PO-Revision-Date: 2022-01-30 13:17+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -168,7 +168,7 @@ msgstr ""
 #: dash/layout/html/lockMode.php:15 dash/layout/schema.php:5
 #: includes/languages/trans_static.php:7 includes/languages/trans_static_domain.php:6
 #: lib/app/nic_log/search.php:194 lib/app/onlinenic/log/search.php:191
-#: lib/app/sms/send.php:48
+#: lib/app/plugin/items/remove/remove_brand.php:43 lib/app/sms/send.php:48
 msgid "Jibres"
 msgstr "جیبرس"
 
@@ -731,7 +731,6 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_site/options/description/description.php:33
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:83
 #: includes/languages/trans_static_public.php:193
-#: lib/app/plugin/items/remove/remove_brand.php:34
 #: lib/app/plugin/items/site/site_body_blog_b4.php:18
 #: lib/app/plugin/items/site/site_body_blog_free.php:18
 msgid "Description"
@@ -1105,7 +1104,7 @@ msgstr "ایمیل"
 msgid "Your Message"
 msgstr "پیام شما"
 
-#: content/contact/display.php:63 lib/app/plugin/items/remove/remove_brand.php:35
+#: content/contact/display.php:63
 msgid "jibres"
 msgstr "جیبرس"
 
@@ -2173,7 +2172,7 @@ msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی د
 #: content/home/display.php:35 content/pricing/display.php:38
 #: content/pricing/priceTable.php:7 content/pricing/priceTable.php:18
 #: content_a/cart/add/display.php:131 content_a/order/summary.php:54
-#: content_a/plugin/view/display.php:165 content_a/products/edit/block/price.php:68
+#: content_a/plugin/view/display.php:169 content_a/products/edit/block/price.php:68
 #: content_business/cart/cartSummary.php:40 content_business/p/home/blocks/detail.php:75
 #: content_site/assemble/wrench/price.php:36
 msgid "Free"
@@ -3333,7 +3332,7 @@ msgstr "طلایی"
 #: content/pricing/display.php:46 content/pricing/display.php:69
 #: content/pricing/display.php:98 content_a/chap/size-receipt/receipt.php:123
 #: content_a/order/home/display.php:16 content_a/order/products/display.php:50
-#: content_a/order/products/display.php:52 content_a/plugin/view/display.php:158
+#: content_a/order/products/display.php:52 content_a/plugin/view/display.php:162
 #: content_a/pricehistory/display.php:8 content_a/pricehistory/display.php:39
 #: content_a/pricehistory/display.php:77 content_a/products/child/display.php:95
 #: content_a/products/child/display.php:165 content_a/products/share/display.php:32
@@ -10322,15 +10321,15 @@ msgstr "افزودن سفارش"
 msgid "Order Edit"
 msgstr "ویرایش سفارش"
 
-#: content_a/plugin/home/display.php:85
+#: content_a/plugin/home/display.php:89
 msgid "Activated"
 msgstr "فعال شده"
 
-#: content_a/plugin/home/display.php:143
+#: content_a/plugin/home/display.php:147
 msgid "View detail"
 msgstr "مشاهده جزئیات"
 
-#: content_a/plugin/home/display.php:148
+#: content_a/plugin/home/display.php:152
 msgid "Add plugin"
 msgstr "افزودن افزونه‌"
 
@@ -10342,41 +10341,41 @@ msgstr "افزونه‌های جیبرس"
 msgid "plugin key is invalid"
 msgstr "کلید افزونه اشتباه است"
 
-#: content_a/plugin/view/display.php:72
+#: content_a/plugin/view/display.php:76
 msgid "All plugin are offered with a %90 discount up to one week after their release date"
 msgstr "همه افزونه‌ها تا یک هفته بعد از تاریخ انتشار با ۹۰٪ تخفیف ارائه می‌شوند"
 
-#: content_a/plugin/view/display.php:78
+#: content_a/plugin/view/display.php:82
 msgid "You are currently in the %90 discount period"
 msgstr "شما در بازه زمانی ۹۰٪ تخفیف قرار دارید"
 
-#: content_a/plugin/view/display.php:84
+#: content_a/plugin/view/display.php:88
 msgid "So do not miss the opportunity and get the plugin right now"
 msgstr "پس فرصت رو از دست ندید و همین الان این افزونه رو تهیه کنید"
 
-#: content_a/plugin/view/display.php:97 lib/app/plugin/get.php:104
+#: content_a/plugin/view/display.php:101 lib/app/plugin/get.php:104
 #: lib/app/plugin/get.php:208
 msgid "Please choose one periodic"
 msgstr "لطفا یک دوره زمانی را انتخاب کنید"
 
-#: content_a/plugin/view/display.php:201
+#: content_a/plugin/view/display.php:205
 msgid "Use from budget"
 msgstr "استفاده از شارژ حساب کاربری"
 
-#: content_a/plugin/view/display.php:225
+#: content_a/plugin/view/display.php:229
 msgid "Your plugin is activated until :date"
 msgstr "این افزونه برای بیزینس شما تا تاریخ :date فعال است"
 
-#: content_a/plugin/view/display.php:229
+#: content_a/plugin/view/display.php:233
 msgid "This plugin is active in your business"
 msgstr "این افزونه در حال حاضر در بیزینس شما فعال شده است"
 
-#: content_a/plugin/view/display.php:247 lib/app/product/ready.php:439
+#: content_a/plugin/view/display.php:251 lib/app/product/ready.php:439
 #: lib/app/product/ready.php:450 lib/app/product/ready.php:456
 msgid "Buy now"
 msgstr "همین الان بخر"
 
-#: content_a/plugin/view/display.php:251
+#: content_a/plugin/view/display.php:255
 msgid "Get it for free"
 msgstr "رایگان دریافت کنید"
 
@@ -22797,6 +22796,7 @@ msgid "Choose your language"
 msgstr "زبان خود را انتخاب کنید"
 
 #: content_r10/android/splash/view.php:15 content_v2/android/splash/view.php:22
+#: dash/layout/find.php:345 dash/layout/find.php:351
 msgid "Powered by Jibres"
 msgstr "قدرت گرفته از جیبرس"
 
@@ -27811,6 +27811,10 @@ msgstr "نظر خودتون رو در مورد این نوشته بنویسید 
 #: dash/layout/comment/comment-list.php:4
 msgid "User reviews"
 msgstr "نظرات کاربران"
+
+#: dash/layout/find.php:352
+msgid "You can remove jibres brand"
+msgstr "شما می‌توانید نشان تجاری جیبرس را از وب‌سایت خود حذف کنید"
 
 #: dash/layout/foundation.php:237
 msgid "JavaScript is required to use our service."
@@ -37683,7 +37687,7 @@ msgstr "تعدادی از محصولات با این تگ ذخیره شده‌ا
 msgid "Category successfully removed"
 msgstr "دسته‌بندی با موفقیت حذف شد"
 
-#: lib/app/discount/add.php:68 lib/app/discount/edit.php:49
+#: lib/app/discount/add.php:68 lib/app/discount/edit.php:57
 msgid "This discount code is exist in your list. Try another"
 msgstr "این کد تخفیف قبلا ثبت شده است. لطفا کد دیگری را انتخاب کنید"
 
@@ -37699,19 +37703,19 @@ msgstr "کد تخفیف کپی شد"
 msgid "Start date must be less than end date!"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد!"
 
-#: lib/app/discount/check.php:100
+#: lib/app/discount/check.php:156
 msgid "Percentage is required"
 msgstr "درصد تخفیف الزامی است"
 
-#: lib/app/discount/check.php:106
+#: lib/app/discount/check.php:162
 msgid "Fixed amount is required"
 msgstr "مبلغ ثابت الزامی است"
 
-#: lib/app/discount/check.php:113
+#: lib/app/discount/check.php:169
 msgid "Minimum purchase is required"
 msgstr "حداقل مبلغ خرید الزامی است"
 
-#: lib/app/discount/check.php:119
+#: lib/app/discount/check.php:175
 msgid "Minimum quantity is required"
 msgstr "حداقل تعداد خرید الزامی است"
 
@@ -37812,7 +37816,7 @@ msgstr "نوع کد تخفیف اشتباه است!"
 msgid "here you are :) "
 msgstr "بفرمایید :) "
 
-#: lib/app/discount/edit.php:69
+#: lib/app/discount/edit.php:77
 msgid "After use discount code, can not edit type or discount value!"
 msgstr ""
 "بعد از اینکه از کد تخفیف در سفارشات استفاده شد امکان ویرایش نوع و یا مقدار تخفیف وجود "
@@ -39212,7 +39216,7 @@ msgid "Show order"
 msgstr "نمایش سفارش"
 
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:22
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:43
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:46
 msgid "Jibres; Sell and enjoy"
 msgstr "جیبرس؛ بفروش و لذت ببر"
 
@@ -40098,14 +40102,14 @@ msgstr "مدیریت بیزینس در دامنه اختصاصی شما"
 #: lib/app/plugin/items/admin/admin_domain.php:20
 #: lib/app/plugin/items/discount/discount_profesional.php:21
 #: lib/app/plugin/items/ganje/ganje_product.php:20
-#: lib/app/plugin/items/remove/remove_brand.php:18
+#: lib/app/plugin/items/remove/remove_brand.php:25
 msgid "One month"
 msgstr "یک ماه"
 
 #: lib/app/plugin/items/admin/admin_domain.php:27
 #: lib/app/plugin/items/discount/discount_profesional.php:28
 #: lib/app/plugin/items/ganje/ganje_product.php:27
-#: lib/app/plugin/items/remove/remove_brand.php:25
+#: lib/app/plugin/items/remove/remove_brand.php:32
 msgid "One year"
 msgstr "یک سال"
 
@@ -40210,13 +40214,17 @@ msgstr ""
 "می‌توانید به سادگی با اسکن بارکد یا جستجوی نام محصول، جزئیات محصول را از گنجه دریافت "
 "کرده و به راحتی به لیست محصولات خود اضافه کنید."
 
-#: lib/app/plugin/items/remove/remove_brand.php:33
-msgid "Remove jibres branding"
+#: lib/app/plugin/items/remove/remove_brand.php:17
+msgid "Remove jibres brand"
 msgstr "حذف نشان تجاری جیبرس"
 
-#: lib/app/plugin/items/remove/remove_brand.php:35
+#: lib/app/plugin/items/remove/remove_brand.php:43
 msgid "brand"
 msgstr "نام تجاری"
+
+#: lib/app/plugin/items/remove/remove_brand.php:79
+msgid "Remove jibres brand from footer of website"
+msgstr "حذف نشان تجاری جیبرس از پابرگ وب‌سایت"
 
 #: lib/app/plugin/items/site/site_body_blog_b4.php:17
 #: lib/app/plugin/items/site/site_body_blog_free.php:17
@@ -42788,9 +42796,6 @@ msgstr "یارد"
 
 #~ msgid "Invalid plan"
 #~ msgstr "پلن انتخابی اشتباه است"
-
-#~ msgid "Remove jibres branding for :val "
-#~ msgstr "حذف نشان تجاری جیبرس برای :val "
 
 #~ msgid "Can not register plan more than 1.5 year"
 #~ msgstr "نمی‌توانید بیشتر از بازه زمانی یک سال و نیم پلن خریداری کنید"
