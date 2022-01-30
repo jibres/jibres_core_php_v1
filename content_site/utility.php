@@ -81,9 +81,16 @@ class utility
 	}
 
 
-	public static function downloadjson()
+	public static function downloadjson($_section_detail = null, $_multiple = true)
 	{
-		$section_detail = \dash\data::currentSectionDetail();
+		if(!$_section_detail)
+		{
+			$section_detail = \dash\data::currentSectionDetail();
+		}
+		else
+		{
+			$section_detail = $_section_detail;
+		}
 
 		$load = \lib\db\sitebuilder\get::by_id(a($section_detail, 'id'));
 
@@ -115,12 +122,31 @@ class utility
 
 		krsort($preview);
 
-		$max_len = 0;
-		foreach ($preview as $key => $value)
+
+		if($_multiple)
 		{
-			if(mb_strlen($key) > $max_len)
+			$need_unset = [];
+
+			$preview['_mode']        = a($section_detail, 'mode');
+			$preview['_folder']      = a($section_detail, 'folder');
+			$preview['_section']     = a($section_detail, 'section');
+			$preview['_model']       = a($section_detail, 'model');
+			$preview['_preview_key'] = a($section_detail, 'preview_key');
+		}
+
+		if(\dash\temp::get('maxArrayKeyLen'))
+		{
+			$max_len = \dash\temp::get('maxArrayKeyLen');
+		}
+		else
+		{
+			$max_len = 0;
+			foreach ($preview as $key => $value)
 			{
-				$max_len = mb_strlen($key);
+				if(mb_strlen($key) > $max_len)
+				{
+					$max_len = mb_strlen($key);
+				}
 			}
 		}
 
@@ -129,13 +155,16 @@ class utility
 		$model       = a($section_detail, 'model');
 
 		$code = '';
-		$code .= '<?php ';
-		$code .= "\n";
-		$code .= "/** \n";
-		$code .= " * This is options of one preview function \n";
-		$code .= " * Put this code on content_site/$folder/$section_key/$model.php \n";
-		$code .= " */ ";
-		$code .= "\n\n\n";
+		if(!$_multiple)
+		{
+			$code .= '<?php ';
+			$code .= "\n";
+			$code .= "/** \n";
+			$code .= " * This is options of one preview function \n";
+			$code .= " * Put this code on content_site/$folder/$section_key/$model.php \n";
+			$code .= " */ ";
+			$code .= "\n\n\n";
+		}
 		$code .= "\t\t\t[";
 		$code .= "\n";
 
@@ -164,7 +193,7 @@ class utility
 				{
 					$myValue = 'T_("View all")';
 				}
-				elseif($key === 'heading')
+				elseif($key === 'heading' && !$_multiple)
 				{
 					$myValue = '$_title';
 				}
@@ -179,10 +208,59 @@ class utility
 			}
 		}
 		$code .= "\t\t\t],";
-		$code .= "\n\n\n";
-		$code .= '?>';
+		$code .= "\n";
+
+		if(!$_multiple)
+		{
+			$code .= "\n\n";
+			$code .= '?>';
+		}
+
+		if($_multiple)
+		{
+			return $code;
+		}
 
 		\dash\code::jsonBoom($code);
+	}
+
+
+	public static function multiple_downloadjson($_list)
+	{
+
+		$list = $_list;
+
+		if(is_array($list))
+		{
+
+			$max_len = 0;
+			foreach ($list as $value)
+			{
+				if(is_array(a($value, 'preview')))
+				{
+					foreach ($value['preview'] as $key => $v)
+					{
+						if(mb_strlen($key) > $max_len)
+						{
+							$max_len = mb_strlen($key);
+						}
+					}
+				}
+			}
+
+			\dash\temp::set('maxArrayKeyLen', $max_len);
+
+			$result = '<?php '. PHP_EOL;
+
+			foreach ($list as $key => $value)
+			{
+				$result .= \content_site\utility::downloadjson($value, true);
+			}
+
+			$result .= PHP_EOL. '?>';
+
+			\dash\code::jsonBoom($result);
+		}
 	}
 
 
