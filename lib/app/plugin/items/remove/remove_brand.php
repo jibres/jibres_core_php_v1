@@ -38,7 +38,7 @@ class remove_brand
 			'max_period'  => '+400day', // +400 day 366+31 = 397 ~ 400
 			'relase_date' => '2022-01-27',
 			'last_update' => '2022-01-27',
-			'icon'        => ['jibres',],
+			'icon'        => '<img src="'. \dash\url::icon(). '">',
 			'description' => self::desc(),
 			'keywords'    => [T_("brand"), T_("Jibres")],
 			'currency'    => \lib\currency::jibres_currency(true),

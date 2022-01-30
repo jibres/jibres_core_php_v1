@@ -38,10 +38,14 @@ $html .= '<div class="">';
 
 					$html .= '<div class="w-16 text-indigo-500 ">';
 					{
-						if(a($pluginDetail, 'icon'))
+						if(a($pluginDetail, 'icon') && is_array($pluginDetail['icon']))
 						{
 							$icon = $pluginDetail['icon'];
 							$html .= \dash\utility\icon::svg(...$icon);
+						}
+						elseif(a($pluginDetail, 'icon') && is_string($pluginDetail['icon']))
+						{
+							$html .= $pluginDetail['icon'];
 						}
 					}
 					$html .= '</div>';

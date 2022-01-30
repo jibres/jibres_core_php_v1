@@ -76,6 +76,10 @@ $html .= '<section class="text-gray-600 body-font">';
 								{
 									$html .= \dash\utility\icon::svg(...$icon);
 								}
+								elseif(is_string($icon))
+								{
+									$html .= $icon;
+								}
 
 							}
 							$html .= '</div>';
