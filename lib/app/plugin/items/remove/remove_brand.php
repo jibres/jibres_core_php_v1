@@ -36,8 +36,8 @@ class remove_brand
 				],
 			],
 			'max_period'  => '+400day', // +400 day 366+31 = 397 ~ 400
-			'relase_date' => '2022-01-27',
-			'last_update' => '2022-01-27',
+			'relase_date' => '2022-01-30',
+			'last_update' => '2022-01-30',
 			'icon'        => '<img src="'. \dash\url::icon(). '">',
 			'description' => self::desc(),
 			'keywords'    => [T_("brand"), T_("Jibres")],
@@ -76,7 +76,7 @@ class remove_brand
 
 	private static function desc() : string
 	{
-		return T_("Remove jibres brand");
+		return T_("Remove jibres brand from footer of website");
 	}
 
 
