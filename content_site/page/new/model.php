@@ -2,9 +2,9 @@
 namespace content_site\page\new;
 
 
-class model
+class model extends model_new
 {
-	public static function post()
+	public static function post_old()
 	{
 		$post =
 		[

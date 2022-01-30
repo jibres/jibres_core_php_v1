@@ -1,3 +1,7 @@
+<?php
+require_once('display-new.php');
+return;
+ ?>
 <div class="avand-sm">
   <form method="post" autocomplete="off" id="formAddPost">
     <div class="box">

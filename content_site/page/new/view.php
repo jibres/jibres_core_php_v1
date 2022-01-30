@@ -20,8 +20,8 @@ class view
 
 		\dash\data::include_adminPanelBuilder(true);
 
-		// $template_list = \content_site\template\preview::list();
-		// \dash\data::templateList($template_list);
+		$template_list = \content_site\template\preview::list();
+		\dash\data::templateList($template_list);
 
 	}
 }

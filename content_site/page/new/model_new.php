@@ -2,7 +2,7 @@
 namespace content_site\page\new;
 
 
-class model
+class model_new
 {
 	public static function post()
 	{
@@ -71,17 +71,31 @@ class model
 			return false;
 		}
 
+
 		$insert_pagebuilder_record = [];
 
 		foreach ($records as $key => $value)
 		{
 			$insert                   = [];
-			$insert['mode']           = a($value, 'mode');
-			$insert['type']           = a($value, 'preview', 'type');
+
+			$insert['mode']        = a($value, '_mode');
+			$insert['folder']      = a($value, '_folder');
+			$insert['section']     = a($value, '_section');
+			$insert['model']       = a($value, '_model');
+			$insert['preview_key'] = a($value, '_preview_key');
+
+			unset($value['_model']);
+			unset($value['_folder']);
+			unset($value['_section']);
+			unset($value['_model']);
+			unset($value['_preview_key']);
+
+
+
 			$insert['related']        = 'posts';
 			$insert['related_id']     = $page_id;
 			$insert['title']          = null;
-			$insert['preview']        = json_encode(a($value, 'preview'));
+			$insert['preview']        = json_encode($value);
 			$insert['status']         = 'draft';
 			$insert['status_preview'] = 'draft';
 			$insert['datecreated']    = date("Y-m-d H:i:s");

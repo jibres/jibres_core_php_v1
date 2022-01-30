@@ -10,7 +10,7 @@ class preview
 
 		$list   = [];
 		$list[] = site\demo_001::detail();
-		$list[] = site\demo_002::detail();
+		// $list[] = site\demo_002::detail();
 
 		$new_list = [];
 		foreach ($list as $key => $value)
