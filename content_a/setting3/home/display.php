@@ -39,10 +39,9 @@ $html .= '<div class="row">';
 
 	$html .= '<div class="c-xs-12 c-sm-8">';
 	{
-		$special_html_addr = __DIR__ .'/html/'. \dash\data::specialHtml(). '.php';
-
 		if(\dash\data::specialHtml())
 		{
+			$special_html_addr = __DIR__ .'/html/'. \dash\data::specialHtml(). '.php';
 			echo $html;
 			$html = '';
 			require_once($special_html_addr);
