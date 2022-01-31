@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-31 15:45+0330\n"
-"PO-Revision-Date: 2022-01-31 15:46+0330\n"
+"POT-Creation-Date: 2022-01-31 17:41+0330\n"
+"PO-Revision-Date: 2022-01-31 17:41+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -41177,6 +41177,10 @@ msgstr "اتصال بیزینس به دامنه اختصاصی"
 #: lib/app/setting/business_checklist.php:56
 msgid "First sale"
 msgstr "اولین فروش"
+
+#: lib/app/setting/business_checklist.php:63
+msgid "First post"
+msgstr "اولین نوشته"
 
 #: lib/app/setting/get.php:96
 msgid "Tipax"
