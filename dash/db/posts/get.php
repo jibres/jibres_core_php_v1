@@ -78,6 +78,13 @@ class get
 		return $result;
 	}
 
+	public static function have_any_post()
+	{
+		$query  = "SELECT * FROM posts WHERE posts.type != 'pagebuilder' LIMIT 1";
+		$result = \dash\pdo::get($query, [], null, true);
+		return $result;
+	}
+
 
 	public static function have_any_published_post()
 	{

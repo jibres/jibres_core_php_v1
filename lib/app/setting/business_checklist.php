@@ -58,8 +58,16 @@ class business_checklist
 			'ok'    => boolval(\lib\db\factors\get::have_any_factor()),
 		];
 
+		$list[] =
+		[
+			'title' => T_("First post"),
+			'link'  => \dash\url::kingdom(). '/cms/posts/add',
+			'ok'    => boolval(\dash\db\posts\get::have_any_post()),
+		];
+
 
 		$percent = (100* count(array_filter(array_column($list, 'ok')))) / count($list);
+
 		if($percent > 100)
 		{
 			$percent = 100;
