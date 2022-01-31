@@ -16,13 +16,15 @@
 $html = '';
 $html .= '<div class="row">';
 {
-  $html .= '<div class="c-xs-12 c-sm-4">';
+  $html .= '<div class="c-xs-12 c-sm-6 c-md-4">';
   {
     $json = json_encode(['key' => 'blank']);
     $html .= "<div class='' data-ajaxify data-data='$json'>";
     {
       $html .= T_("Blank page");
-      $html .= '<img src="'. \dash\sample\img::background(). '" alt="'. T_("Blank page"). '">';
+      $image_url = \dash\url::cdn(). '/img/sitebuilder/template/blank.jpg';
+      $html .= '<img src="'. $image_url. '" alt="'. T_("Blank page"). '">';
+      // $html .= '<img src="'. \dash\sample\img::background(). '" alt="'. T_("Blank page"). '">';
     }
     $html .= '</div>';
   }
@@ -32,14 +34,22 @@ $html .= '<div class="row">';
     {
      foreach (\dash\data::templateList_preview() as $key => $value)
      {
-      $html .= '<div class="c-xs-12 c-sm-4">';
+      $html .= '<div class="c-xs-12 c-sm-6 c-md-4">';
       {
         $json = json_encode(['key' => a($value, 'key')]);
 
         $html .= "<div class='' data-ajaxify data-data='$json'>";
         {
           $html .= a($value, 'title');
-          $html .= '<img src="'. a($value, 'image'). '" alt="'. a($value, 'title'). '">';
+          if(a($value, 'image'))
+          {
+              $image_url = $value['image'];
+          }
+          else
+          {
+            $image_url = \dash\url::cdn(). '/img/sitebuilder/template/'. a($value, 'key'). '.jpg';
+          }
+          $html .= '<img src="'. $image_url. '" alt="'. a($value, 'title'). '">';
         }
         $html .= '</div>';
       }

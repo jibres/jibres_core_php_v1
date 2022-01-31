@@ -11,7 +11,7 @@ class demo_001
 			'key'   => 'demo_001',
 			'title' => T_("Demo 001"),
 			'category' => 'category1',
-			'image' => \dash\sample\img::background(),
+
 		];
 	}
 
