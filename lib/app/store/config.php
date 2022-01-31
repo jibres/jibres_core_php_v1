@@ -103,6 +103,7 @@ class config
 		// \lib\pagebuilder\tools\first_init::init();
 
 		// self::add_example_product();
+		\content_site\page\new\model::init_homepage();
 
 		self::add_example_page();
 
