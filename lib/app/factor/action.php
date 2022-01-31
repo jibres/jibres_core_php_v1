@@ -290,7 +290,7 @@ class action
 
 				if(isset($load_factor['paystatus']) && $load_factor['paystatus'] === $data['action'])
 				{
-					\dash\notif::info(T_("No change in order payment status"));
+					// \dash\notif::info(T_("No change in order payment status"));
 					return true;
 				}
 				break;

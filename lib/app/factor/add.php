@@ -153,8 +153,21 @@ class add
 			$factor['shipping'] = 0;
 		}
 
-		$factor['total']     = (floatval($factor['subtotal']) - (floatval($factor['discount']) + floatval($factor['discount2']))) + floatval($factor['shipping']);
+		$factor['total']   = (floatval($factor['subtotal']) - (floatval($factor['discount']) + floatval($factor['discount2']))) + floatval($factor['shipping']);
+		$factor['payable'] = $factor['total'];
 
+		$budget = 0;
+		if(a($factor, 'customer'))
+		{
+			$budget = \dash\app\transaction\budget::user($factor['customer']);
+			$factor['payable'] = $factor['payable'] - $budget;
+			if($factor['payable'] < 0)
+			{
+				$factor['payable'] = 0;
+			}
+		}
+
+		$payable = $factor['payable'];
 
 
 		/**
@@ -164,6 +177,7 @@ class add
 		if($_option['only_calculate'])
 		{
 			$factor['discount_code'] = $check_discount_code;
+			$factor['budget']        = $budget;
 			return $factor;
 		}
 
@@ -173,6 +187,7 @@ class add
 			$result['factor']        = $factor;
 			$result['factor_detail'] = $factor_detail;
 			$result['discount_code'] = $check_discount_code;
+			$factor['budget']        = $budget;
 			return $result;
 		}
 
@@ -183,6 +198,8 @@ class add
 		$factor['pre']       = null;
 		$factor['desc']      = $factor['desc'];
 		$factor['mode']      = $mode;
+
+		unset($factor['payable']);
 
 		// check max input size for factor
 		$factor          = \lib\app\factor\check::value_max_limit($factor, $_option);
@@ -259,9 +276,11 @@ class add
 			return false;
 		}
 
-		$return              = [];
-		$return['factor_id'] = $factor_id;
-		$return['price']     = floatval($factor['total']);
+		$return                 = [];
+		$return['factor_id']    = $factor_id;
+		$return['price']        = floatval($factor['total']);
+		$return['factor_total'] = floatval($factor['total']);
+		$return['payable']      = floatval($payable);
 
 		$product_discount = [];
 		if(is_array(a($check_discount_code, 'product_discount')))

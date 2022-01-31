@@ -193,6 +193,8 @@ class checkout
 			'shipping'  => a($result, 'shipping'),
 			'total'     => a($result, 'total'),
 			'discount2' => a($result, 'discount2'),
+			'budget'    => a($result, 'budget'),
+			'payable'    => a($result, 'payable'),
 		];
 
 		$myCart['payableString'] = \dash\fit::number($myCart['summary']['total']). ' '. \lib\store::currency() ;
@@ -452,7 +454,7 @@ class checkout
 		$result = \lib\app\factor\add::new_factor($factor, $factor_detail, $factor_option);
 
 		// check can add new factor
-		if(!isset($result['factor_id']) || !isset($result['price']))
+		if(!isset($result['factor_id']) || !isset($result['factor_total']))
 		{
 			\dash\notif::error_once(T_("Can not add your order."));
 			\dash\log::set('orderErrorInsert');
@@ -548,19 +550,20 @@ class checkout
 		}
 
 
-		\dash\log::set('order_adminNewOrderBeforePay', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
+		\dash\log::set('order_adminNewOrderBeforePay', ['my_id' => $result['factor_id'], 'my_id' => $result['factor_id'], 'my_amount' => $result['factor_total'], 'my_currency' => \lib\store::currency()]);
 
 
 		if($data['payway'] === 'online')
 		{
 			$final_fn_args =
 			[
-				'factor_id' => $result['factor_id'],
-				'user_id'   => $factor_user_id,
-				'amount'    => abs($result['price']),
+				'factor_id'    => $result['factor_id'],
+				'user_id'      => $factor_user_id,
+				'amount'       => abs($result['payable']),
+				'factor_total' => abs($result['factor_total']),
 			];
 
-			if($result['price'])
+			if($result['payable'])
 			{
 
 				// set status on pending_pay
@@ -575,7 +578,7 @@ class checkout
 					'final_msg'     => true,
 					'turn_back'     => \dash\url::kingdom(). '/orders/view?id='. $result['factor_id'],
 					'user_id'       => $factor_user_id,
-					'amount'        => abs($result['price']),
+					'amount'        => abs($result['payable']),
 					'currency'      => \lib\store::currency('code'),
 					'factor_id'     => $result['factor_id'],
 					'final_fn'      => ['/lib/app/cart/checkout', 'after_pay'],
@@ -608,6 +611,9 @@ class checkout
 			}
 			else
 			{
+
+				self::after_pay($final_fn_args);
+
 				\lib\app\factor\action::set('successful_payment', $factor_id);
 
 				// free price
@@ -634,7 +640,7 @@ class checkout
 
 		if($factor_user_id)
 		{
-			\dash\log::set('order_customerNewOrder', ['to' => $factor_user_id, 'my_id' => $result['factor_id'], 'my_amount' => $result['price'], 'my_currency' => \lib\store::currency()]);
+			\dash\log::set('order_customerNewOrder', ['to' => $factor_user_id, 'my_id' => $result['factor_id'], 'my_amount' => $result['factor_total'], 'my_currency' => \lib\store::currency()]);
 		}
 
 		return $return;
@@ -668,7 +674,7 @@ class checkout
 						'factor_id' => $factor_id,
 						'title'     => T_("Pay order :val", ['val' => $factor_id]),
 						'verify'    => 1,
-						'minus'     => floatval($_args['amount']),
+						'minus'     => floatval($_args['factor_total']),
 						'currency'  => $currency,
 						'type'      => 'money',
 					];

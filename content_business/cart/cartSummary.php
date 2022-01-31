@@ -24,7 +24,7 @@ $myCartSummary = \dash\data::myCart_summary();
      </dl>
    <?php } //endif ?>
 
-     <?php if(a($myCartSummary, 'subvat')) {?>
+    <?php if(a($myCartSummary, 'subvat')) {?>
      <dl class="subvat">
       <dt><?php echo T_("Vat"); ?></dt>
       <dd><?php echo \dash\fit::number(a($myCartSummary, 'subvat')); ?> <?php echo $currency; ?> </dd>
@@ -42,10 +42,24 @@ $myCartSummary = \dash\data::myCart_summary();
      </dl>
     <?php }//endif ?>
 
+    <?php if(a($myCartSummary, 'budget')) {?>
+     <dl class="budget">
+      <dt><?php echo T_("Your Balance"); ?></dt>
+      <dd><?php echo \dash\fit::number(a($myCartSummary, 'budget')); ?> <?php echo $currency; ?> </dd>
+     </dl>
+   <?php } //endif ?>
+
+
      <dl class="total">
       <dt><?php echo T_("Total"); ?></dt>
       <dd><?php echo \dash\fit::number(a($myCartSummary, 'total')); ?> <?php echo $currency; ?> </dd>
      </dl>
+    <?php if(floatval(a($myCartSummary, 'payable')) !== floatval(a($myCartSummary, 'total'))) {?>
+     <dl class="total">
+      <dt><?php echo T_("Payable"); ?></dt>
+      <dd><?php echo \dash\fit::number(a($myCartSummary, 'payable')); ?> <?php echo $currency; ?> </dd>
+     </dl>
+   <?php } //endif ?>
     </div>
     <?php
      $cart_setting = \dash\data::myCart_setting();
@@ -68,7 +82,7 @@ $myCartSummary = \dash\data::myCart_summary();
 
     ?>
 
-      <button type="submit" class="btn-danger lg block " ><?php echo T_("Pay"). ' ( '. \dash\fit::number(a($myCartSummary, 'total')). ' )'; ?></button>
+      <button type="submit" class="btn-danger lg block " ><?php echo T_("Pay"). ' ( '. \dash\fit::number(a($myCartSummary, 'payable')). ' )'; ?></button>
     <?php }else{ ?>
       <a class="btn-danger lg block " href="<?php echo \dash\url::here() . '/shipping' ?>"><?php echo T_("BUY"). ' ( '. \dash\fit::number(\dash\data::myCart_count()). ' )'; ?></a>
     <?php } //endif ?>
