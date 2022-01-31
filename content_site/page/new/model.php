@@ -62,6 +62,8 @@ class model
 			'status' => 'publish',
 		];
 
+		$have_any_pagebuilder = \dash\app\posts\get::have_any_pagebuilder();
+
 		$post_detail = \dash\app\posts\add::add($post, true);
 
 		if(\dash\engine\process::status() && isset($post_detail['post_id']))
@@ -72,6 +74,14 @@ class model
 			\dash\notif::ok(T_("Page successfully created"));
 
 			$page_id = \dash\coding::decode($post_detail['post_id']);
+
+
+
+			if(!$have_any_pagebuilder)
+			{
+				\content_site\homepage::set_as_homepage($post_detail['post_id']);
+			}
+
 		}
 		else
 		{
