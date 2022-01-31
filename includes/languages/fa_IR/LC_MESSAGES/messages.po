@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-31 14:22+0330\n"
-"PO-Revision-Date: 2022-01-31 14:22+0330\n"
+"POT-Creation-Date: 2022-01-31 15:45+0330\n"
+"PO-Revision-Date: 2022-01-31 15:46+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2716,7 +2716,7 @@ msgstr "چرا رایگان؟"
 msgid "Help Center"
 msgstr "مرکز راهنمایی"
 
-#: content/home/layout/header.php:27 content_a/home/view.php:24 content_my/home/view.php:9
+#: content/home/layout/header.php:27 content_a/home/view.php:28 content_my/home/view.php:9
 #: dash/layout/pwa/pwa_menu.php:86 dash/panel.php:33
 msgid "Control Center"
 msgstr "مرکز کنترل"
@@ -5983,7 +5983,7 @@ msgstr "افزودن درآمد"
 #: content_a/android/home/display.php:117 content_a/buy/opr/display.php:105
 #: content_a/buy/opr/display.php:159 content_a/cart/add/display.php:39
 #: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
-#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:54
+#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:55
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
 #: content_a/report/sale/display.php:178 content_a/sale/display.php:41
 #: content_cms/files/home/display.php:36 content_crm/home/display.php:6
@@ -9718,33 +9718,37 @@ msgstr "شما کجا هستید؟"
 msgid "Choose fund"
 msgstr "انتخاب صندوق"
 
-#: content_a/home/display.php:8
+#: content_a/home/display.php:11
 msgid "You have :val Unprocessed order"
 msgstr "شما :val سفارش جدید دارید"
 
-#: content_a/home/display.php:15
+#: content_a/home/display.php:18
 msgid "You have :val Unanswered ticket"
 msgstr "شما :val تیکت در انتظار پاسخ دارید"
 
-#: content_a/home/display.php:22
+#: content_a/home/display.php:25
 msgid "You have :val awaiting comment"
 msgstr "شما :val نظر در انتظار تایید دارید"
 
-#: content_a/home/display.php:29 content_hook/smile/controller.php:17
+#: content_a/home/display.php:32 content_hook/smile/controller.php:17
 msgid "You have :val new message!"
 msgstr "شما :val پیام جدید دارید!"
 
-#: content_a/home/display.php:37
+#: content_a/home/display.php:40
 msgid "You have :val not reviewed answer in :form"
 msgstr "شما :val پاسخ از فرم :form دریافت کرده‌اید که هنوز بررسی نشده‌اند"
 
-#: content_a/home/display.php:52
+#: content_a/home/display.php:53
 msgid "Sum factor price and count of it group by hours"
 msgstr "جمع مبالغ فاکتور و تعداد آن به تفکیک ساعت"
 
-#: content_a/home/display.php:53
+#: content_a/home/display.php:54
 msgid "Sum price"
 msgstr "جمع مبالغ"
+
+#: content_a/home/display.php:64
+msgid "Business setup"
+msgstr "راه‌اندازی کسب و کار"
 
 #: content_a/home/view.php:11
 msgid ""
@@ -10922,6 +10926,7 @@ msgid "Sort images in gallery"
 msgstr "مرتب سازی تصاویر در گالری"
 
 #: content_a/products/home/view.php:18 dash/layout/m2/sidebar.php:159
+#: lib/app/setting/business_checklist.php:41
 msgid "Add product"
 msgstr "افزودن محصول"
 
@@ -12093,7 +12098,7 @@ msgstr "تایید و حذف بیزینس"
 #: content_a/setting/general/title/view.php:8
 #: content_a/setting3/home/section/general.php:15
 #: lib/app/log/caller/business/business_createNew.php:36
-#: lib/app/quickaccess/setting.php:289
+#: lib/app/quickaccess/setting.php:289 lib/app/setting/business_checklist.php:20
 msgid "Business title"
 msgstr "عنوان بیزینس"
 
@@ -14077,6 +14082,7 @@ msgid "This title use in your business"
 msgstr "این عنوان در بیزینس شما استفاده می‌شود"
 
 #: content_a/setting3/home/section/general.php:47 lib/app/quickaccess/setting.php:313
+#: lib/app/setting/business_checklist.php:27
 msgid "Business logo"
 msgstr "لوگوی بیزینس"
 
@@ -14104,7 +14110,7 @@ msgstr "واحد‌ مالی بیزینس"
 msgid "Dimensions language"
 msgstr "زبان ابعاد"
 
-#: content_a/setting3/home/section/other.php:14
+#: content_a/setting3/home/section/other.php:14 lib/app/setting/business_checklist.php:34
 msgid "Business description"
 msgstr "توضیحات‌ بیزینس"
 
@@ -41163,6 +41169,14 @@ msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان 
 #: lib/app/report/sale/get.php:268
 msgid "Only 1,000 record in result can be show"
 msgstr "تنها ۱۰۰۰ ردیف در خروجی قابل نمایش است"
+
+#: lib/app/setting/business_checklist.php:49
+msgid "Connect to Domain"
+msgstr "اتصال بیزینس به دامنه اختصاصی"
+
+#: lib/app/setting/business_checklist.php:56
+msgid "First sale"
+msgstr "اولین فروش"
 
 #: lib/app/setting/get.php:96
 msgid "Tipax"
