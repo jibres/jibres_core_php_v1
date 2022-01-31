@@ -283,6 +283,16 @@ class get
 	}
 
 
+	public static function have_any_product()
+	{
+		$query = " SELECT products.id FROM products LIMIT 1";
+
+		$result = \dash\pdo::get($query, [], null, true);
+
+		return $result;
+	}
+
+
 	public static function maxsaleprice()
 	{
 		$query   = "SELECT products.*, (SELECT SUM(factordetails.sum) FROM factordetails WHERE factordetails.product_id = products.id) AS `sold_price` FROM products WHERE products.status != 'deleted'  ORDER BY `sold_price`  DESC LIMIT 1";
