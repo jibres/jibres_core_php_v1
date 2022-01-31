@@ -4,9 +4,10 @@ namespace lib\db\factors;
 
 class update
 {
-	public static function record()
+	public static function record($_args, $_id)
 	{
-		$result = \dash\pdo\query_template::update('factors', ...func_get_args());
+		unset($_args['payable']);
+		$result = \dash\pdo\query_template::update('factors', $_args, $_id);
 		return $result;
 	}
 }
