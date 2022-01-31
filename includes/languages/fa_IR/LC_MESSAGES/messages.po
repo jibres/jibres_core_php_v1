@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-30 13:16+0330\n"
-"PO-Revision-Date: 2022-01-30 13:17+0330\n"
+"POT-Creation-Date: 2022-01-31 14:22+0330\n"
+"PO-Revision-Date: 2022-01-31 14:22+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4192,7 +4192,7 @@ msgstr "۹٪"
 #: content_a/order/home/display.php:27 content_a/order/links.php:88
 #: content_a/order/productList.php:38 content_a/order/summary.php:60
 #: content_a/report/sale/display.php:180 content_a/sale/display.php:47
-#: content_business/cart/cartSummary.php:46 content_business/orders/display.php:19
+#: content_business/cart/cartSummary.php:54 content_business/orders/display.php:19
 #: dash/utility/pagination.php:484
 msgid "Total"
 msgstr "مجموع"
@@ -5106,7 +5106,7 @@ msgstr "وضعیت"
 #: content_crm/staff/add/display.php:25 content_love/business/domain/add/display.php:18
 #: content_love/changelog/add/display.php:44 content_love/changelog/view.php:16
 #: content_love/plugin/manage/display.php:53 content_site/options/menu/menu.php:84
-#: content_site/page/new/display.php:17 content_site/staticfile/display.php:24
+#: content_site/page/new/display.php:21 content_site/staticfile/display.php:24
 #: dash/layout/admin/admin-titlebox.php:95 dash/layout/m2/admin-titlebox.php:115
 #: dash/layout/m2/pageNav.php:225 dash/layout/pwa/pwa-header.php:152
 #: includes/languages/trans_static_public.php:143 lib/app/product/ganje.php:602
@@ -5702,8 +5702,8 @@ msgid "Add accounting doc"
 msgstr "افزودن سند حسابداری"
 
 #: content_a/accounting/doc/display.php:12 content_a/accounting/factor/display.php:46
-#: content_a/accounting/turnover/display.php:176 lib/app/store/config.php:129
-#: lib/app/store/config.php:159
+#: content_a/accounting/turnover/display.php:176 lib/app/store/config.php:130
+#: lib/app/store/config.php:160
 msgid "Number"
 msgstr "شماره"
 
@@ -5893,7 +5893,7 @@ msgstr "تنخواه"
 
 #: content_a/accounting/factor/add/display.php:163
 #: content_a/accounting/factor/add/display.php:168 content_a/setting/pcpos/display.php:123
-#: lib/app/cart/checkout.php:354 lib/app/setting/get.php:47
+#: lib/app/cart/checkout.php:356 lib/app/setting/get.php:47
 msgid "Bank"
 msgstr "بانک"
 
@@ -8762,8 +8762,8 @@ msgstr "کوچکتر از"
 #: content_love/business/domain/changebusiness/display.php:59
 #: content_love/store/owner/display.php:29 content_my/business/ask/display.php:52
 #: content_my/business/ask/view.php:21 content_my/business/start/display.php:51
-#: content_my/business/start/view.php:19 content_my/business/subdomain/display.php:27
-#: content_my/business/subdomain/view.php:16 content_my/domain/review/display.php:249
+#: content_my/business/start/view.php:19 content_my/business/subdomain-old/display.php:27
+#: content_my/business/subdomain-old/view.php:16 content_my/domain/review/display.php:249
 #: content_pay/home/display-transaction.php:42
 #: content_pay/home/display-transaction.php:152
 #: dash/social/telegram/commands/step_ticketAnswer.php:42
@@ -12606,7 +12606,7 @@ msgstr ""
 "سفارش‌های پرداختی با پول نقد به صورت پردازش‌شده ثبت باقی خواهند ماند تا تحویل توسط شما یا "
 "سرویس حمل و نقل انجام پذیرد."
 
-#: content_a/setting/order/display.php:127 lib/app/cart/checkout.php:366
+#: content_a/setting/order/display.php:127 lib/app/cart/checkout.php:368
 #: lib/app/setting/get.php:59
 msgid "Card-to-card"
 msgstr "کارت به کارت"
@@ -15373,17 +15373,25 @@ msgstr ""
 "همین امروز اپلیکیشن ما رو نصب کن! با برنامه رایگان ما می‌تونید سریع و به سرعت خرید کنید. "
 "از تخفیفات ویژه و جدیدی که بر روی اپ ما ارائه میشه همین الان استفاده کنید"
 
-#: content_business/cart/cartSummary.php:58 lib/app/factor/add.php:204
+#: content_business/cart/cartSummary.php:47
+msgid "Your Balance"
+msgstr "بالانس مالی شما"
+
+#: content_business/cart/cartSummary.php:59
+msgid "Payable"
+msgstr "قابل پرداخت"
+
+#: content_business/cart/cartSummary.php:72 lib/app/factor/add.php:221
 #: lib/app/order/add.php:531
 msgid "Minimum order amount is :val :currency"
 msgstr "حداقل مبلغ سفارش :val :currency است"
 
-#: content_business/cart/cartSummary.php:60 lib/app/factor/add.php:206
+#: content_business/cart/cartSummary.php:74 lib/app/factor/add.php:223
 #: lib/app/order/add.php:533
 msgid "You must add :val :currency to your cart"
 msgstr "شما باید :val :currency دیگر به سبد خرید خود اضافه کنید"
 
-#: content_business/cart/cartSummary.php:71 content_business/shipping/view.php:11
+#: content_business/cart/cartSummary.php:85 content_business/shipping/view.php:11
 #: content_love/domain/action/display.php:35
 #: content_love/domain/setting/action/display.php:37 content_my/domain/stepGuide.php:65
 #: content_pay/home/display-donate.php:19 content_pay/home/display-transaction.php:18
@@ -15394,7 +15402,7 @@ msgstr "شما باید :val :currency دیگر به سبد خرید خود اض
 msgid "Pay"
 msgstr "پرداخت"
 
-#: content_business/cart/cartSummary.php:73
+#: content_business/cart/cartSummary.php:87
 msgid "BUY"
 msgstr "خرید"
 
@@ -16292,8 +16300,7 @@ msgstr "سئو هوشمند"
 #: content_site/body/product/p4.php:104 content_site/body/product/p4.php:140
 #: content_site/body/product/p4.php:176 content_site/body/product/p4.php:212
 #: content_site/body/product/p4.php:248 content_site/body/product/p4.php:287
-#: content_site/body/product/p4.php:326 content_site/template/site/demo_001.php:26
-#: content_site/template/site/demo_001.php:51 content_site/template/site/demo_002.php:26
+#: content_site/body/product/p4.php:326
 msgid "Latest Posts"
 msgstr "آخرین نوشته‌ها"
 
@@ -19023,7 +19030,7 @@ msgstr ""
 #: dash/app/user/email.php:262 dash/app/user/email.php:328 lib/api/jibres/api.php:30
 #: lib/app/application/queue_search.php:27 lib/app/cart/add.php:64 lib/app/cart/add.php:86
 #: lib/app/cart/add.php:175 lib/app/cart/add.php:291 lib/app/cart/checkout.php:14
-#: lib/app/cart/checkout.php:272 lib/app/cart/checkout.php:342 lib/app/cart/edit.php:19
+#: lib/app/cart/checkout.php:274 lib/app/cart/checkout.php:344 lib/app/cart/edit.php:19
 #: lib/app/cart/remove.php:36 lib/app/domains/search.php:27
 #: lib/app/gift/lookup/search.php:26 lib/app/gift/search.php:27
 #: lib/app/gift/usage/search.php:24 lib/app/nic_contact/add.php:21
@@ -21657,15 +21664,15 @@ msgstr "نمی‌توانید بیزینس جدیدی را اضافه کنید!"
 msgid "By press Create button, you're agreeing to our :term."
 msgstr "با فشردن دکمه ساخت فروشگاه، شما موافقت خود با :term ما اعلام خواهید کرد."
 
-#: content_my/business/subdomain/display.php:5
+#: content_my/business/subdomain-old/display.php:5
 msgid "Choose your online address"
 msgstr "آدرس فروشگاه آنلاین خود را انتخاب کنید"
 
-#: content_my/business/subdomain/display.php:6
+#: content_my/business/subdomain-old/display.php:6
 msgid "Your online business has online address on Jibres domain."
 msgstr "بیزینس شما دارای یک آدرس آنلاین بر روی دامنه جیبرس است."
 
-#: content_my/business/subdomain/display.php:6
+#: content_my/business/subdomain-old/display.php:6
 msgid ""
 "Although you can connect your domain into business but to finish setup we need to set "
 "it."
@@ -21673,28 +21680,28 @@ msgstr ""
 "اگرچه می‌توانید دامنه اختصاصی خودتان را به بیزینس متصل کنید اما برای تکمیل عملیات، ما به "
 "ساختن آن روی زیردامنه‌ی جیبرس داریم."
 
-#: content_my/business/subdomain/display.php:7
+#: content_my/business/subdomain-old/display.php:7
 msgid "Set it carefully, you can not change it."
 msgstr "در آینده قادر به تغییر نیستید؛ با دقت تنظیم کنید."
 
-#: content_my/business/subdomain/display.php:12
+#: content_my/business/subdomain-old/display.php:12
 msgid "Your subdomain"
 msgstr "آدرس فروشگاه شما"
 
-#: content_my/business/subdomain/display.php:20
+#: content_my/business/subdomain-old/display.php:20
 msgid "Build my online business"
 msgstr "بیزینس آنلاین منو بساز"
 
-#: content_my/business/subdomain/display.php:24
+#: content_my/business/subdomain-old/display.php:24
 msgid "choose subdomain on Jibres"
 msgstr "زیردامنه‌ خودتان را بر روی جیبرس انتخاب کنید"
 
-#: content_my/business/subdomain/model.php:28 lib/app/store/add.php:92
+#: content_my/business/subdomain-old/model.php:28 lib/app/store/add.php:92
 #: lib/app/store/edit.php:98 lib/app/store/subdomain.php:23
 msgid "This subdomain is already occupied"
 msgstr "این زیر دامنه قبلاً گرفته شده است"
 
-#: content_my/business/subdomain/view.php:9 lib/app/quickaccess/setting.php:424
+#: content_my/business/subdomain-old/view.php:9 lib/app/quickaccess/setting.php:424
 msgid "Business address"
 msgstr "آدرس‌ بیزینس"
 
@@ -22651,7 +22658,7 @@ msgid "Jibres Services"
 msgstr "سرویس‌های جیبرس"
 
 #: content_my/home/display_pwa.php:29 content_site/options/link/link_professional.php:107
-#: includes/languages/trans_static_public.php:72
+#: content_site/page/new/model.php:144 includes/languages/trans_static_public.php:72
 msgid "Homepage"
 msgstr "صفحه نخست"
 
@@ -22983,8 +22990,7 @@ msgstr "دیزاین کارت"
 #: content_site/body/product/p4.php:202 content_site/body/product/p4.php:238
 #: content_site/body/product/p4.php:274 content_site/body/product/p4.php:313
 #: content_site/body/product/p4.php:354 content_site/options/btn/btn_viewall.php:21
-#: content_site/template/site/demo_001.php:36 content_site/template/site/demo_001.php:61
-#: content_site/template/site/demo_002.php:36
+#: content_site/template/site/demo_001.php:73 content_site/template/site/demo_001.php:122
 msgid "View all"
 msgstr "نمایش همه"
 
@@ -24396,40 +24402,40 @@ msgstr "آرگومان مرتب‌سازی اشتباه است"
 msgid "Some item have problem in sorting. Need load again"
 msgstr "برخی از اطلاعات اشتباه هستند. لطفا مجددا صفحه را بارگذاری کنید"
 
-#: content_site/page/new/display-new.php:7 content_site/page/new/display.php:8
+#: content_site/page/new/display-new.php:7 content_site/page/new/display.php:12
 msgid "Page Title"
 msgstr "عنوان صفحه"
 
-#: content_site/page/new/display-new.php:8 content_site/page/new/display.php:9
+#: content_site/page/new/display-new.php:8 content_site/page/new/display.php:13
 msgid "Enter Page Title"
 msgstr "عنوان صفحه را وارد کنید"
 
-#: content_site/page/new/display-new.php:24 content_site/page/new/display-new.php:25
+#: content_site/page/new/display-new.php:24 content_site/page/new/display-new.php:26
 msgid "Blank page"
 msgstr "صفحه خالی"
 
-#: content_site/page/new/display.php:13
+#: content_site/page/new/display.php:17
 msgid "First type main title and save as draft, then complete and publish it."
 msgstr ""
 "در ابتدا عنوان را وارد کرده و به‌عنوان پیش‌نویس ذخیره کنید، سپس آن را تکمیل و منتشر کنید."
 
-#: content_site/page/new/model-new.php:20
+#: content_site/page/new/model.php:22
 msgid "Untitled page"
 msgstr "صفحه بدون نام"
 
-#: content_site/page/new/model-new.php:27
+#: content_site/page/new/model.php:29
 msgid "Please select one template"
 msgstr "لطفا یک قالب را انتخاب کنید"
 
-#: content_site/page/new/model-new.php:42
+#: content_site/page/new/model.php:50
 msgid "Invalid template key"
 msgstr "کلید قالب اشتباه است"
 
-#: content_site/page/new/model-new.php:64 content_site/page/new/model.php:28
+#: content_site/page/new/model.php:74
 msgid "Page successfully created"
 msgstr "صفحه با موفقیت ایجاد شد"
 
-#: content_site/page/new/model-new.php:70
+#: content_site/page/new/model.php:88
 msgid "Can not add your page!"
 msgstr "نمی‌توانیم صفحه شما را اضافه کنیم!"
 
@@ -24486,6 +24492,12 @@ msgstr "آیا از حذف این صفحه اطمینان دارید؟"
 #: content_site/page/settings/display-aside-top.php:192
 msgid "All section on this page will be removed and can not be restore"
 msgstr "تمام بخش‌های این صفحه به‌صورت غیرقابل بازگشت پاک خواهند شد"
+
+#: content_site/page/settings/display-aside-top.php:213
+#: content_site/section/part/download_php.php:17
+#: content_site/section/part/section_control.php:35
+msgid "Download PHP"
+msgstr "دانلود PHP"
 
 #: content_site/page/settings/model.php:113
 msgid "Can not remove homepage"
@@ -24621,11 +24633,6 @@ msgstr "هیچ راهی برای ثبت اطلاعات وجود ندارد"
 msgid "Discard change"
 msgstr "نادیده گرفتن تغییرات"
 
-#: content_site/section/part/download_php.php:17
-#: content_site/section/part/section_control.php:35
-msgid "Download PHP"
-msgstr "دانلود PHP"
-
 #: content_site/section/part/preview_list.php:8
 msgid "Plese choose one preview"
 msgstr "لطفا یک پیش‌نمایش را انتخاب کنید"
@@ -24746,10 +24753,6 @@ msgstr "دسته‌بندی ۲"
 #: content_site/template/site/demo_001.php:12
 msgid "Demo 001"
 msgstr "دمو ۰۰۱"
-
-#: content_site/template/site/demo_002.php:12
-msgid "Demo 002"
-msgstr "دمو ۰۰۲"
 
 #: content_site/view.php:57
 msgid "Style"
@@ -25542,7 +25545,7 @@ msgid "Please wait until your comment was approved"
 msgstr "لطفا صبر کنید تا دیگاه‌های شما تایید شود"
 
 #: dash/app/comment/add.php:49 dash/app/ticket/add.php:72 dash/utility/pay/start.php:219
-#: lib/app/cart/add.php:211 lib/app/factor/add.php:544 lib/app/order/add.php:479
+#: lib/app/cart/add.php:211 lib/app/factor/add.php:563 lib/app/order/add.php:479
 msgid "Who are you?"
 msgstr "شما کی هستید؟"
 
@@ -28900,7 +28903,7 @@ msgstr "همگام‌سازی با وب‌سایت"
 
 #: dash/social/telegram/commands/ermile.php:332
 #: dash/social/telegram/commands/ermile.php:528
-#: dash/social/telegram/commands/ermileInline.php:76 lib/app/store/config.php:183
+#: dash/social/telegram/commands/ermileInline.php:76 lib/app/store/config.php:184
 msgid "About"
 msgstr "درباره"
 
@@ -37485,46 +37488,46 @@ msgstr "شناسه آدرس نامعتبر است!"
 msgid "Your cart is empty"
 msgstr "سبد خرید شما خالی است"
 
-#: lib/app/cart/checkout.php:336
+#: lib/app/cart/checkout.php:338
 msgid "Your cart is empty!"
 msgstr "سبد خرید شما خالی است!"
 
-#: lib/app/cart/checkout.php:357 lib/app/setting/get.php:50
+#: lib/app/cart/checkout.php:359 lib/app/setting/get.php:50
 msgid "Cheque"
 msgstr "چک"
 
-#: lib/app/cart/checkout.php:360 lib/app/setting/get.php:53
+#: lib/app/cart/checkout.php:362 lib/app/setting/get.php:53
 msgid "On deliver"
 msgstr "پرداخت در محل"
 
-#: lib/app/cart/checkout.php:363 lib/app/setting/get.php:56
+#: lib/app/cart/checkout.php:365 lib/app/setting/get.php:56
 msgid "Online"
 msgstr "آنلاین"
 
-#: lib/app/cart/checkout.php:397
+#: lib/app/cart/checkout.php:399
 msgid "Plese set mobile or login to continue"
 msgstr "لطفا برای ادامه موبایل خود را وارد کنید یا وارد سیستم شوید"
 
-#: lib/app/cart/checkout.php:432
+#: lib/app/cart/checkout.php:434
 msgid "Address is required"
 msgstr "آدرس الزامی است"
 
-#: lib/app/cart/checkout.php:457
+#: lib/app/cart/checkout.php:459
 msgid "Can not add your order."
 msgstr "نمی‌توانیم سفارش شما را ایجاد کنیم."
 
-#: lib/app/cart/checkout.php:572
+#: lib/app/cart/checkout.php:575
 msgid "Pay order"
 msgstr "پرداخت سفارش"
 
-#: lib/app/cart/checkout.php:593 lib/app/nic_domain/create.php:550
+#: lib/app/cart/checkout.php:596 lib/app/nic_domain/create.php:550
 #: lib/app/nic_domain/renew.php:352 lib/app/nic_domain/transfer.php:356
 #: lib/app/onlinenic/create.php:416 lib/app/onlinenic/renew.php:262
 #: lib/app/onlinenic/transfer.php:366
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
 
-#: lib/app/cart/checkout.php:669 lib/app/order/add.php:558
+#: lib/app/cart/checkout.php:675 lib/app/order/add.php:558
 msgid "Pay order :val"
 msgstr "پرداخت سفارش :val"
 
@@ -38045,17 +38048,13 @@ msgstr "لطفا توضیحات را تکمیل کنید و یا فایلی را
 msgid "Order not found!"
 msgstr "سفارش یافت نشد!"
 
-#: lib/app/factor/action.php:233 lib/app/factor/add.php:413
+#: lib/app/factor/action.php:233 lib/app/factor/add.php:432
 msgid "This order was deleted and can not be update!"
 msgstr "این سفارش حذف شده است و امکان ویرایش آن وجود ندارد!"
 
 #: lib/app/factor/action.php:245
 msgid "Maximum capacity of order action is full!"
 msgstr "حداکثر ظرفیت عملیات‌ برای این سفارش تکمیل شده است!"
-
-#: lib/app/factor/action.php:293
-msgid "No change in order payment status"
-msgstr "هیچ تغییری در وضعیت سفارش شما رخ نداد"
 
 #: lib/app/factor/action.php:318
 msgid "Operation accomplished"
@@ -38065,27 +38064,27 @@ msgstr "عملیات با موفقیت انجام شد"
 msgid "Discount is larger than order total"
 msgstr "تخفیف بزرگتر از مبلغ کل سفارش است"
 
-#: lib/app/factor/add.php:252 lib/app/order/add.php:272
+#: lib/app/factor/add.php:269 lib/app/order/add.php:272
 msgid "No way to insert factor"
 msgstr "هیچ راهی برای ثبت کالا وجود ندارد"
 
-#: lib/app/factor/add.php:329 lib/app/order/add.php:334
+#: lib/app/factor/add.php:348 lib/app/order/add.php:334
 msgid "Factor successfuly added"
 msgstr "فاکتور با موفقیت اضافه شد"
 
-#: lib/app/factor/add.php:452 lib/app/factor/edit.php:111
+#: lib/app/factor/add.php:471 lib/app/factor/edit.php:111
 msgid "Data is out of range for column count"
 msgstr "اطلاعات وارد شده خارج از محدوده مجاز است - count"
 
-#: lib/app/factor/add.php:509
+#: lib/app/factor/add.php:528
 msgid "Product added to factor"
 msgstr "محصول به سفارش اضافه شد"
 
-#: lib/app/factor/add.php:533 lib/app/order/add.php:468
+#: lib/app/factor/add.php:552 lib/app/order/add.php:468
 msgid "You have a lot unpaid factors. Please try again later"
 msgstr "شما تعدادی سفارش پرداخت نشده دارید. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید"
 
-#: lib/app/factor/add.php:555 lib/app/factor/add.php:567 lib/app/order/add.php:490
+#: lib/app/factor/add.php:574 lib/app/factor/add.php:586 lib/app/order/add.php:490
 #: lib/app/order/add.php:502
 msgid "You have a lot unpaid factors. Please try again later or login to add more"
 msgstr "شما تعدادی سفارش پرداخت نشده دارید. برای ثبت سفارش بیشتر وارد سیستم شوید"
@@ -41341,7 +41340,7 @@ msgstr "نمی‌توانیم فروشگاه شما را ایجاد کنیم"
 msgid "We can not create your store!"
 msgstr "ما نمی‌توانیم فروشگاه شما را ایجاد کنیم!"
 
-#: lib/app/store/add.php:231
+#: lib/app/store/add.php:240
 msgid "Your store successfully created"
 msgstr "فروشگاه شما با موفقیت ساخته شد"
 
@@ -41675,43 +41674,43 @@ msgstr "خدمات مجازی"
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
-#: lib/app/store/config.php:118
+#: lib/app/store/config.php:119
 msgid "Example product 1"
 msgstr "محصول نمونه ۱"
 
-#: lib/app/store/config.php:121
+#: lib/app/store/config.php:122
 msgid "Description of example product 1"
 msgstr "توضیحاتی در مورد محصول نمونه ۱"
 
-#: lib/app/store/config.php:124 lib/app/store/config.php:154
+#: lib/app/store/config.php:125 lib/app/store/config.php:155
 msgid "Share this product by this text"
 msgstr "با این متن محصول خود را به اشتراک بگذارید"
 
-#: lib/app/store/config.php:128 lib/app/store/config.php:158
+#: lib/app/store/config.php:129 lib/app/store/config.php:159
 msgid "Example tag 1"
 msgstr "تگ نمونه ۱"
 
-#: lib/app/store/config.php:128 lib/app/store/config.php:158
+#: lib/app/store/config.php:129 lib/app/store/config.php:159
 msgid "Example tag 2"
 msgstr "تگ نمونه ۲"
 
-#: lib/app/store/config.php:148
+#: lib/app/store/config.php:149
 msgid "Example product 2"
 msgstr "محصول نمونه ۲"
 
-#: lib/app/store/config.php:151
+#: lib/app/store/config.php:152
 msgid "Description of example product 2"
 msgstr "توضیحاتی در مورد محصول نمونه ۲"
 
-#: lib/app/store/config.php:187
+#: lib/app/store/config.php:188
 msgid "Sample about page"
 msgstr "نمونه‌ای از صفحه درباره ما"
 
-#: lib/app/store/config.php:199
+#: lib/app/store/config.php:200
 msgid "Contact US"
 msgstr "تماس با ما"
 
-#: lib/app/store/config.php:203
+#: lib/app/store/config.php:204
 msgid "Sample contact page"
 msgstr "نمونه‌ای از صفحه ارتباط با ما"
 
@@ -42762,6 +42761,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Demo 002"
+#~ msgstr "دمو ۰۰۲"
+
+#~ msgid "No change in order payment status"
+#~ msgstr "هیچ تغییری در وضعیت سفارش شما رخ نداد"
 
 #~ msgid "Can not remove discount because this discount is used in some orders"
 #~ msgstr ""
