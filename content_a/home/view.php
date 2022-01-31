@@ -14,6 +14,23 @@ class view
 
 		\dash\face::specialTitle(true);
 
+		$businessCheckLisst =
+		[
+			'visible' => false,
+			'percent' => 10,
+			'list' =>
+			[
+				[
+					'title' => T_("Add product"),
+					'link'  => \dash\url::kingdom(). '/a/products/add',
+					'ok'    => true,
+				],
+			]
+		];
+
+		\dash\data::businessCheckLisst($businessCheckLisst);
+
+
 		if(!\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain())
 		{
 			// hide back btn
