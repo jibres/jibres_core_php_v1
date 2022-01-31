@@ -735,8 +735,20 @@ class store
 	}
 
 
-	public static function logo()
+	public static function logo($_raw = false)
 	{
+		if($_raw)
+		{
+			$logo = self::detail('logo');
+
+			if($logo && substr($logo,  -11) === 'default.png')
+			{
+				return null;
+			}
+
+			return $logo;
+
+		}
 		return self::detail('logo');
 	}
 
