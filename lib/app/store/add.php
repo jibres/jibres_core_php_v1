@@ -218,6 +218,15 @@ class add
 		// enable business
 		\lib\db\store\update::set_enable($store_id);
 
+		// change storesubdomain
+		$store_code = \dash\store_coding::encode_raw($store_id);
+		$subdomain = 'b'. $store_code;
+
+		\lib\app\store\edit::change_subdomain($subdomain, $store_id);
+
+
+
+
 		$create_detail_file = self::create_detail_file($store_id);
 
 		$create_subdomain_file = self::create_subdomain_file($store_id, $subdomain);

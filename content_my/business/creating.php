@@ -260,7 +260,7 @@ class creating
 				return;
 			}
 
-			if(isset($get_session['step']) && in_array($get_session['step'], ['ask']))
+			if(isset($get_session['step']) && in_array($get_session['step'], ['ask', 'start']))
 			{
 				// ok
 			}
@@ -319,7 +319,7 @@ class creating
 				self::go_to_first_page();
 			}
 
-			if(isset($get_session['step']) && in_array($get_session['step'], ['subdomain']))
+			if(isset($get_session['step']) && in_array($get_session['step'], ['subdomain', 'ask']))
 			{
 				// ok
 			}
@@ -342,9 +342,9 @@ class creating
 		{
 			self::check_busy();
 
-			if(isset($get_session['step']) && $get_session['step'] && in_array($get_session['step'], ['subdomain']))
+			if(isset($get_session['step']) && $get_session['step'] && in_array($get_session['step'], ['subdomain', 'ask']))
 			{
-				if($get_session['step'] === 'subdomain')
+				if($get_session['step'] === 'subdomain' || $get_session['step'] === 'ask')
 				{
 					// ok
 				}
