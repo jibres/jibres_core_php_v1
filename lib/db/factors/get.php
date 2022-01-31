@@ -34,6 +34,18 @@ class get
 	}
 
 
+
+	public static function have_any_factor()
+	{
+		$query = " SELECT factors.id FROM factors LIMIT 1";
+
+		$result = \dash\pdo::get($query, [], null, true);
+
+		return $result;
+	}
+
+
+
 	public static function count_group_by_month_fuel($_fuel, $_dbname)
 	{
 		$query  =
