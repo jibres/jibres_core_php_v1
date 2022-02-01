@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-01-31 17:41+0330\n"
-"PO-Revision-Date: 2022-01-31 17:41+0330\n"
+"POT-Creation-Date: 2022-02-01 11:16+0330\n"
+"PO-Revision-Date: 2022-02-01 11:17+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4089,7 +4089,7 @@ msgstr "وزن"
 #: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
 #: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
 #: content_crm/telegram/send/display.php:5 content_site/staticfile/display.php:11
-#: lib/app/form/generator.php:184
+#: lib/app/form/generator.php:249
 msgid "Required"
 msgstr "الزامی"
 
@@ -5517,6 +5517,7 @@ msgstr "افزودن تفصیل جدید"
 #: content_site/options/background/background_effect.php:13
 #: content_site/options/effect/effect.php:12
 #: content_site/options/file/file_business_logo.php:97
+#: content_site/options/formbuilder/formbuilder.php:72
 #: content_site/options/image/image_mask.php:11
 #: content_site/options/magicbox/magicbox_gap.php:13
 #: content_site/options/post/post_template.php:24
@@ -6964,6 +6965,7 @@ msgstr "چاپ همه اسناد حسابداری"
 #: content_love/plugin/business/display.php:12 content_love/plugin/business/display.php:37
 #: content_site/options/description/description.php:97
 #: content_site/options/file/file_business_logo.php:84
+#: content_site/options/formbuilder/formbuilder.php:64
 #: content_site/options/heading/heading.php:101
 #: content_site/options/instagram/instagram.php:42 content_site/options/menu/menu.php:80
 #: content_site/options/socialnetwork/socialnetwork.php:71 dash/engine/pwa.php:63
@@ -7546,7 +7548,7 @@ msgstr "صفحه اول مقدمه"
 #: content_love/files/home/display.php:49 content_love/home/display.php:115
 #: content_site/options/file/file.php:285 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
-#: includes/languages/trans_static.php:500 lib/app/form/generator.php:829
+#: includes/languages/trans_static.php:500 lib/app/form/generator.php:894
 msgid "File"
 msgstr "فایل"
 
@@ -11729,7 +11731,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/commands/step_ticketCreate.php:111
-#: includes/languages/trans_static.php:508 lib/app/form/generator.php:950
+#: includes/languages/trans_static.php:508 lib/app/form/generator.php:1015
 msgid "Yes"
 msgstr "بله"
 
@@ -11747,7 +11749,7 @@ msgstr "بله"
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
 #: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
-#: lib/app/form/generator.php:961
+#: lib/app/form/generator.php:1026
 msgid "No"
 msgstr "خیر"
 
@@ -12003,7 +12005,7 @@ msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب 
 #: content_a/setting/general/display.php:160 content_account/my/profile/display.php:36
 #: content_business/profile/detail/display.php:35
 #: content_love/plugin/manage/display.php:43 content_love/plugin/manage/display.php:44
-#: lib/app/form/generator.php:256
+#: lib/app/form/generator.php:321
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -15463,7 +15465,7 @@ msgstr "هیچ دسته‌بندی یافت نشد!"
 msgid "Search products"
 msgstr "جستجو در محصولات"
 
-#: content_business/f/home/controller.php:67
+#: content_business/f/home/controller.php:75
 msgid "This form is private form!"
 msgstr "این فرم یه فرم خصوصی است!"
 
@@ -15475,7 +15477,8 @@ msgstr "کد رهگیری شما"
 msgid "Your form is not publish. Only you can view this form."
 msgstr "فرم شما منتشر نشده است. فقط شما می‌توانید این فرم را ببینید."
 
-#: content_business/f/home/display-form.php:31 lib/app/form/generator.php:86
+#: content_business/f/home/display-form.php:31 lib/app/form/generator.php:91
+#: lib/app/form/generator.php:151
 msgid "Submit"
 msgstr "تایید"
 
@@ -18489,7 +18492,7 @@ msgstr "درخواست مجوز لازم را برای اجرا ندارد"
 
 #: content_developers/docs/004-responses.php:96 content_enter/callback/controller.php:12
 #: content_my/domain/buy/controller.php:11 content_my/domain/renew/controller.php:13
-#: content_site/section/controller.php:85 content_v2/check.php:23 content_v2/tools.php:174
+#: content_site/section/controller.php:86 content_v2/check.php:23 content_v2/tools.php:174
 #: dash/validate/url.php:579
 msgid "Invalid url"
 msgstr "آدرس اشتباه"
@@ -23041,6 +23044,12 @@ msgstr "در :val بخوانید"
 msgid "Contact Form"
 msgstr "فرم تماس"
 
+#: content_site/body/formbuilder/option.php:17 content_site/body/formbuilder/option.php:19
+#: dash/layout/m2/sidebar.php:224 dash/permission_caller.php:61
+#: lib/app/export/form_answer.php:74 lib/app/quickaccess/forms.php:30
+msgid "Form builder"
+msgstr "فرم‌ساز"
+
 #: content_site/body/gallery/g1.php:18
 msgid "Magic Line"
 msgstr "خط جادویی"
@@ -23710,6 +23719,11 @@ msgstr "تاهوما"
 #: content_site/options/font/font.php:40 content_site/options/font/font.php:61
 msgid "Font"
 msgstr "فونت"
+
+#: content_site/options/formbuilder/formbuilder.php:48
+#: content_site/options/formbuilder/formbuilder.php:70
+msgid "Choose form"
+msgstr "انتخاب فرم"
 
 #: content_site/options/google/google_map_embed.php:40
 msgid "Can not support this url on google map Embed"
@@ -24521,25 +24535,25 @@ msgstr "نام بخش یا کد پیش‌نمایش اشتباه است"
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
-#: content_site/section/controller.php:78
+#: content_site/section/controller.php:79
 msgid "Invalid section name"
 msgstr "نام بخش اشتباه"
 
-#: content_site/section/controller.php:94 content_site/section/controller.php:225
+#: content_site/section/controller.php:95 content_site/section/controller.php:226
 #: content_site/section/html/controller.php:21 content_site/section/model.php:80
 msgid "Invalid section id"
 msgstr "شناسه بخش اشتباه است"
 
-#: content_site/section/controller.php:117 content_site/section/controller.php:133
+#: content_site/section/controller.php:118 content_site/section/controller.php:134
 #: dash/validate/html.php:382
 msgid "Invalid url!"
 msgstr "آدرس اشتباه است!"
 
-#: content_site/section/controller.php:217
+#: content_site/section/controller.php:218
 msgid "Page id or section id not found"
 msgstr "شناسه صفحه یا شناسه بخش یافت نشد"
 
-#: content_site/section/controller.php:237
+#: content_site/section/controller.php:238
 msgid "Invalid section model"
 msgstr "مدل بخش اشتباه است"
 
@@ -27949,11 +27963,6 @@ msgstr "واحدها"
 #: dash/layout/m2/sidebar.php:209
 msgid "All customers"
 msgstr "همه مشتریان"
-
-#: dash/layout/m2/sidebar.php:224 dash/permission_caller.php:61
-#: lib/app/export/form_answer.php:74 lib/app/quickaccess/forms.php:30
-msgid "Form builder"
-msgstr "فرم‌ساز"
 
 #: dash/layout/m2/sidebar.php:389
 msgid "Discount Code"
@@ -38478,11 +38487,11 @@ msgstr "این فرم در منو استفاده شده و امکان حذف آ�
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
-#: lib/app/form/generator.php:687
+#: lib/app/form/generator.php:752
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: lib/app/form/generator.php:698
+#: lib/app/form/generator.php:763
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
@@ -41181,6 +41190,10 @@ msgstr "اولین فروش"
 #: lib/app/setting/business_checklist.php:63
 msgid "First post"
 msgstr "اولین نوشته"
+
+#: lib/app/setting/business_checklist.php:85
+msgid "Setup website homepage"
+msgstr "تنظیم صفحه نخست وب‌سایت"
 
 #: lib/app/setting/get.php:96
 msgid "Tipax"
@@ -44037,9 +44050,6 @@ msgstr "یارد"
 #~ msgid "Customize footer"
 #~ msgstr "سفارشی‌سازی فوتر"
 
-#~ msgid "Choose footer"
-#~ msgstr "انتخاب فوتر"
-
 #~ msgid "Build your page"
 #~ msgstr "صفحه خود را بسازید"
 
@@ -44070,9 +44080,6 @@ msgstr "یارد"
 
 #~ msgid "Current Template"
 #~ msgstr "قالب فعلی"
-
-#~ msgid "Manage website homepage"
-#~ msgstr "مدیریت صفحه نخست وب‌سایت"
 
 #~ msgid "Page Builder"
 #~ msgstr "صفحه‌ساز"
