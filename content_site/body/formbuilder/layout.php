@@ -15,11 +15,14 @@ class layout
 	{
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 	    {
-			if(a($_args, 'formbuilder') && is_numeric($_args['formbuilder']))
-			{
-				$html .= \lib\app\form\generator::sitebuilder_full_html($_args['formbuilder']);
-			}
-	    	// free formbuilder !
+	    	$html .= \content_site\assemble\wrench\section::container($_args);
+	    	{
+				if(a($_args, 'formbuilder') && is_numeric($_args['formbuilder']))
+				{
+					$html .= \lib\app\form\generator::sitebuilder_full_html($_args['formbuilder']);
+				}
+	    	}
+	    	$html .= '</div>';
 	    }
 	    $html .= \content_site\assemble\wrench\section::element_end($_args);
 

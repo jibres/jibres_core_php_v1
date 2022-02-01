@@ -26,6 +26,9 @@ class formbuilder1
 				'spacing' =>
 				[
 					'height',
+					'padding_top',
+					'padding_bottom',
+					'container',
 				],
 				'responsive' =>
 				[

@@ -59,7 +59,7 @@ class generator
 
 		self::$html .= '<form method="post" autocomplete="off" action="'. $action.'" data-clear>';
 		{
-			self::$html .= '<div class="w-screen p-10">';
+			self::$html .= '<div class="">';
 			{
 				self::$html .= '<div class="box">';
 				{
