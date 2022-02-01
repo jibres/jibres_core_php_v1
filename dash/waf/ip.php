@@ -143,7 +143,7 @@ class ip
 		{
 			// save agent if not exist
 			$myAgent = \dash\agent::agent(false);
-			$myAgentMd5 = md5($myAgent);
+			$myAgentMd5 = md5(strval($myAgent));
 			if(isset($data['agent'][$myAgentMd5]['name']))
 			{
 				// do nothing yet
