@@ -16,6 +16,8 @@ class generator
 			return null;
 		}
 
+		self::$html = '';
+
 		$load_items = \lib\app\form\item\get::items($_form_id);
 
 		self::$html .= '<div class="box">';
@@ -56,6 +58,8 @@ class generator
 		$load_items = \lib\app\form\item\get::items($_form_id);
 
 		$action = \dash\url::kingdom(). '/f/'. $_form_id;
+
+		self::$html = '';
 
 		self::$html .= '<form method="post" autocomplete="off" action="'. $action.'" data-clear>';
 		{
@@ -114,6 +118,8 @@ class generator
 		}
 
 		$load_items = \lib\app\form\item\get::items($_form_id);
+
+		self::$html = '';
 
 		self::$html .= '<form method="post" autocomplete="off">';
 		{
