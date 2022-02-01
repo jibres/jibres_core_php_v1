@@ -78,8 +78,8 @@ class ip
 
 	public static function set_block($_id, $_count_block = null)
 	{
-		$query = "UPDATE ip SET ip.block = 'block', ip.countblock = :count_block WHERE ip.id = :id LIMIT 1";
-		$param = [':id' => $_id, ':count_block' => $_count_block];
+		$query = "UPDATE ip SET ip.block = 'block', ip.countblock = :count_block , ip.datemodified = :datemodified WHERE ip.id = :id LIMIT 1";
+		$param = [':id' => $_id, ':count_block' => $_count_block, ':datemodified' => date("Y-m-d H:i:s")];
 		$result = \dash\pdo::query($query, $param, self::ip_fuel());
 		return $result;
 	}
@@ -87,8 +87,8 @@ class ip
 
 	public static function set_unblock($_id, $_count_block = null)
 	{
-		$query = "UPDATE ip SET ip.block = 'unblock', ip.countblock = :count_block WHERE ip.id = :id LIMIT 1";
-		$param = [':id' => $_id, ':count_block' => $_count_block];
+		$query = "UPDATE ip SET ip.block = 'unblock', ip.countblock = :count_block , ip.datemodified = :datemodified WHERE ip.id = :id LIMIT 1";
+		$param = [':id' => $_id, ':count_block' => $_count_block, ':datemodified' => date("Y-m-d H:i:s")];
 		$result = \dash\pdo::query($query, $param, self::ip_fuel());
 		return $result;
 	}
@@ -96,8 +96,8 @@ class ip
 
 	public static function set_unknown($_id, $_count_block = null)
 	{
-		$query = "UPDATE ip SET ip.block = 'unknown', ip.countblock = :count_block WHERE ip.id = :id LIMIT 1";
-		$param = [':id' => $_id, ':count_block' => $_count_block];
+		$query = "UPDATE ip SET ip.block = 'unknown', ip.countblock = :count_block , ip.datemodified = :datemodified WHERE ip.id = :id LIMIT 1";
+		$param = [':id' => $_id, ':count_block' => $_count_block, ':datemodified' => date("Y-m-d H:i:s")];
 		$result = \dash\pdo::query($query, $param, self::ip_fuel());
 		return $result;
 	}
