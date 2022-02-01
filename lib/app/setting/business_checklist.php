@@ -66,6 +66,29 @@ class business_checklist
 		];
 
 
+		$homepage      = \content_site\homepage::code();
+
+		$homepage_link = \dash\url::kingdom(). '/site';
+
+		if($homepage)
+		{
+			$homepage_link .= '/page?id='. $homepage;
+		}
+		else
+		{
+
+			$homepage_link .= '/page/new';
+		}
+
+		$list[] =
+		[
+			'title' => T_("Setup website homepage"),
+			'link'  => $homepage_link,
+			'ok'    => boolval($homepage),
+		];
+
+
+
 		$percent = (100* count(array_filter(array_column($list, 'ok')))) / count($list);
 
 		if($percent > 100)
