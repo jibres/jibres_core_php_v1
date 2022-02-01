@@ -6,8 +6,12 @@ class controller
 {
 	public static function routing()
 	{
+		$args =
+		[
+			'only_public_form' => true,
+		];
 		// show dropdown of product list
-		$result = \lib\app\form\form\search::list(\dash\validate::search_string(), []);
+		$result = \lib\app\form\form\search::list(\dash\validate::search_string(), $args);
 
 		if(!is_array($result))
 		{

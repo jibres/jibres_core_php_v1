@@ -36,9 +36,11 @@ class search
 
 		$condition =
 		[
-			'order'   => 'order',
-			'sort'    => ['enum' => ['title', 'id']],
-			'status'    => ['enum' => ['publish']],
+			'order'            => 'order',
+			'sort'             => ['enum' => ['title', 'id']],
+			'status'           => ['enum' => ['publish']],
+			'privacy'          => ['enum' => ['public', 'private']],
+			'only_public_form' => 'bit',
 		];
 
 		$require = [];
@@ -75,6 +77,18 @@ class search
 		{
 			$and[] = " form.status != 'deleted' ";
 
+		}
+
+		if($data['privacy'])
+		{
+			$and[] = " form.privacy = '$data[privacy]' ";
+			self::$is_filtered = true;
+		}
+
+		if($data['only_public_form'])
+		{
+			$and[] = " ( form.privacy != 'private' OR form.privacy IS NULL ) ";
+			self::$is_filtered = true;
 		}
 
 		if($data['sort'] && !$order_sort)
