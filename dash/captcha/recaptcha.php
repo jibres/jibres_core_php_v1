@@ -287,9 +287,9 @@ class recaptcha
 	{
 		$result = '';
 		$result .= '<div class="hide">';
-		$result .= '<input type="hidden" name="recaptcha_sitekey" value="'. self::sitekey_v3(). '">';
-		$result .= '<input type="hidden" name="recaptcha_action" value="'. self::action(). '">';
-		$result .= '<input type="hidden" name="recaptcha_token" value="">';
+		$result .= '<input type="hidden" name="recaptcha_sitekey" value="'. self::sitekey_v3(). '" data-unclear>';
+		$result .= '<input type="hidden" name="recaptcha_action" value="'. self::action(). '" data-unclear>';
+		$result .= '<input type="hidden" name="recaptcha_token" value="" data-unclear>';
 		$result .= '</div>';
 
 		return $result;
