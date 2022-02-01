@@ -17,12 +17,7 @@ class layout
 	    {
 			if(a($_args, 'formbuilder') && is_numeric($_args['formbuilder']))
 			{
-
-				$addon = \dash\csrf::html();
-				$addon .= \dash\captcha\recaptcha::html();
-				$addon .= '<input type="hidden" name="notredirect" value="1">';
-
-				$html .= \lib\app\form\generator::full_html($_args['formbuilder'], $addon);
+				$html .= \lib\app\form\generator::sitebuilder_full_html($_args['formbuilder']);
 			}
 	    	// free formbuilder !
 	    }

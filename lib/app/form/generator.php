@@ -44,7 +44,7 @@ class generator
 		return self::$html;
 	}
 
-	public static function full_html($_form_id, $_addon_html = null)
+	public static function sitebuilder_full_html($_form_id)
 	{
 		$load_form = \lib\app\form\form\get::public_get($_form_id);
 
@@ -55,9 +55,67 @@ class generator
 
 		$load_items = \lib\app\form\item\get::items($_form_id);
 
-		$action = \lib\store::url(). '/f/'. $_form_id;
+		$action = \dash\url::kingdom(). '/f/'. $_form_id;
 
 		self::$html .= '<form method="post" autocomplete="off" action="'. $action.'" data-clear>';
+		{
+			self::$html .= '<div class="w-screen p-10">';
+			{
+				self::$html .= '<div class="box">';
+				{
+					self::$html .= \dash\csrf::html();
+					self::$html .= \dash\captcha\recaptcha::html();
+					self::$html .= '<input type="hidden" name="notredirect" value="1">';
+
+					self::$html .= '<header class="c-xs-0"><h2>'. a($load_form, 'title'). '</h2></header>';
+					self::$html .= '<div class="body" data-jform>';
+					{
+						self::$html .= '<input type="hidden" name="startdate" value="'. date("Y-m-d H:i:s"). '">';
+						self::$html .= '<input type="hidden" name="answerform" value="answerform">';
+
+						if(a($load_form, 'file'))
+						{
+							self::$html .= '<img class="mB10" src="'. a($load_form, 'file'). '" alt="'. a($load_form, 'title'). '">';
+						}
+						if(a($load_form, 'desc'))
+						{
+							self::$html .= '<div class="mB20">'. a($load_form, 'desc'). '</div>';
+						}
+
+						\lib\app\form\generator::items($load_items);
+					}
+					self::$html .= '</div>';
+
+					self::$html .= '<footer class="txtRa">';
+					{
+						self::$html .= '<button class="btn master">'. T_("Submit"). '</button>';
+					}
+					self::$html .= '</footer>';
+				}
+				self::$html .= '</div>';
+			}
+			self::$html .= '</div>';
+
+		}
+		self::$html .= '</form>';
+
+		return self::$html;
+	}
+
+
+
+	public static function full_html($_form_id)
+	{
+		$load_form = \lib\app\form\form\get::public_get($_form_id);
+
+		if(!$load_form)
+		{
+			return null;
+		}
+
+		$load_items = \lib\app\form\item\get::items($_form_id);
+
+		self::$html .= '<form method="post" autocomplete="off">';
 		{
 			if($_addon_html)
 			{
