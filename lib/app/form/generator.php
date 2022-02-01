@@ -69,7 +69,7 @@ class generator
 				{
 					self::$html .= \dash\csrf::html();
 					self::$html .= \dash\captcha\recaptcha::html();
-					self::$html .= '<input type="hidden" name="notredirect" value="1">';
+					self::$html .= '<input type="hidden" name="notredirect" value="1" data-unclear>';
 
 					self::$html .= '<header class="c-xs-0"><h2>'. a($load_form, 'title'). '</h2></header>';
 					self::$html .= '<div class="body" data-jform>';
