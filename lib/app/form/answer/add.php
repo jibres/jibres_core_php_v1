@@ -514,7 +514,7 @@ class add
 			$data['startdate'] = date("Y-m-d H:i:s");
 		}
 
-		if(time() - strtotime($startdate) > (60*60*1))
+		if($startdate && time() - strtotime($startdate) > (60*60*1))
 		{
 			$data['startdate'] = date("Y-m-d H:i:s", time() - (60*60*1));
 		}
