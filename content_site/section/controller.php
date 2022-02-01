@@ -23,6 +23,7 @@ class controller
 			'gallery',
 			'product',
 			// 'contactform',
+			'formbuilder',
 			'headline',
 			// 'title',
 			'visitcard',

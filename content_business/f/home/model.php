@@ -32,7 +32,14 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::pwd();
+			if(a($post, 'notredirect'))
+			{
+				// nothing
+			}
+			else
+			{
+				\dash\redirect::pwd();
+			}
 		}
 	}
 }

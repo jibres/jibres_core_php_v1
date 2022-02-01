@@ -27,7 +27,15 @@ class controller
 		}
 		else
 		{
-			\dash\csrf::set();
+			if(\dash\server::referer() && \dash\server::referer() !== \dash\url::pwd())
+			{
+				// not check csrf.
+				// form loaded in sitebuilder
+			}
+			else
+			{
+				\dash\csrf::set();
+			}
 			\dash\captcha\recaptcha::set();
 		}
 

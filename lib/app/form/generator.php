@@ -44,7 +44,7 @@ class generator
 		return self::$html;
 	}
 
-	public static function full_html($_form_id)
+	public static function full_html($_form_id, $_addon_html = null)
 	{
 		$load_form = \lib\app\form\form\get::public_get($_form_id);
 
@@ -55,8 +55,15 @@ class generator
 
 		$load_items = \lib\app\form\item\get::items($_form_id);
 
-		self::$html .= '<form method="post" autocomplete="off">';
+		$action = \lib\store::url(). '/f/'. $_form_id;
+
+		self::$html .= '<form method="post" autocomplete="off" action="'. $action.'" data-clear>';
 		{
+			if($_addon_html)
+			{
+				self::$html .= $_addon_html;
+			}
+
 			self::$html .= '<div class="">';
 			{
 
