@@ -19,18 +19,19 @@ class next_prev
 
 			'order' =>
 			[
-				'detail'   => [],
-				'products' => [],
-				'comment'  => [],
-				'address'  => [],
-				'status'   => [],
-				'discount' => [],
+				'detail'       => [],
+				'products'     => [],
+				'comment'      => [],
+				'address'      => [],
+				'status'       => [],
+				'discount'     => [],
+				'printaddress' => [],
 			],
 
 			'chap' =>
 			[
 				'a4'      => [],
-				'a4'      => [],
+				'a5'      => [],
 				'receipt' => [],
 
 			],
@@ -44,6 +45,7 @@ class next_prev
 
 	public static function detect_next_prev()
 	{
+
 		if(\dash\url::dir(3))
 		{
 			return;

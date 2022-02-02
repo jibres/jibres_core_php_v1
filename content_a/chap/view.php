@@ -129,8 +129,8 @@ class view
 		\dash\data::pageSize(\dash\request::get('size'));
 		\dash\face::btnPrint(true);
 
-		\dash\face::btnNext(\dash\url::here(). '/order/next/'. \dash\request::get('id'). '?c='. \dash\url::child());
-		\dash\face::btnPrev(\dash\url::here(). '/order/prev/'. \dash\request::get('id'). '?c='. \dash\url::child());
+		\dash\face::btnNext(\dash\url::here(). '/chap/next/'. \dash\request::get('id'). '?c='. \dash\url::child());
+		\dash\face::btnPrev(\dash\url::here(). '/chap/prev/'. \dash\request::get('id'). '?c='. \dash\url::child());
 
 
 
