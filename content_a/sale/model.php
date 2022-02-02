@@ -44,7 +44,12 @@ class model
 				elseif(\dash\request::post('save_btn') === 'save_print')
 				{
 					$query_data['id']    = $factor_detail['factor_id'];
-					$query_data['print'] = 'auto';
+
+					if(\lib\store::detail('factorautoprint') !== 'no')
+					{
+						$query_data['print'] = 'auto';
+					}
+
 					// $redirect_url        = \dash\url::here(). '/chap/receipt';
 					$redirect_url        = \dash\url::here(). '/chap';
 

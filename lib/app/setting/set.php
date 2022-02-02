@@ -582,6 +582,7 @@ class set
 			'show_discount_column'  => 'bit',
 			'updatepriceonsalepage' => 'bit',
 			'orderdefaultpaystatus' => 'yes_no',
+			'factorautoprint'       => 'yes_no',
 		];
 
 		$require = [];

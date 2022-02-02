@@ -39,6 +39,10 @@ class model
 			$post['orderdefaultpaystatus'] = \dash\request::post('orderdefaultpaystatus') ? 'yes' : 'no';
 		}
 
+		if(\dash\request::post('set_factorautoprint'))
+		{
+			$post['factorautoprint'] = \dash\request::post('factorautoprint') ? 'yes' : 'no';
+		}
 
 		\lib\app\setting\set::save_vat($post);
 

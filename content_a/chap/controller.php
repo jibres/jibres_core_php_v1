@@ -12,7 +12,7 @@ class controller
 		}
 		elseif(\dash\url::child() === null)
 		{
-			\dash\redirect::to(\dash\url::this(). '/receipt?print=auto&id='. \dash\request::get('id'));
+			\dash\redirect::to(\dash\url::this(). '/receipt?'. \dash\url::query());
 		}
 
 		\dash\permission::access('_group_orders');

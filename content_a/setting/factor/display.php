@@ -164,6 +164,30 @@ Note that the price of the product will be updated only if your employee is allo
   </form>
 </section>
 
+
+
+<section class="f" data-option='setting-factor-auto-print' id="setting-factor-auto-print">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Load print page automatically?"); ?></h3>
+      <div class="body">
+        <p>
+          <?php echo T_("This option use in quick sale") ?>
+        </p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_factorautoprint" value="1">
+    <div class="action">
+      <div class="switch1">
+        <input type="checkbox" name="factorautoprint" id="factorautoprint" <?php if(\dash\data::dataRow_factorautoprint() !== 'no') { echo 'checked'; } ?>>
+        <label for="factorautoprint" data-on='<?php echo T_("Yes") ?>' data-off="<?php echo T_("No") ?>"></label>
+      </div>
+    </div>
+  </form>
+</section>
+
 <?php if(false) {?>
 
   <!-- Need to check later -->
