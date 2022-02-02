@@ -29,6 +29,9 @@ class imagetext1
 				'style' => \content_site\utility::set_style_option(
 				[
 					'background_pack',
+					'image_mask',
+					'coverratio',
+					'radius_full',
 				]),
 				'spacing' =>
 				[

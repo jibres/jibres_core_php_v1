@@ -17,6 +17,7 @@ class layout
 		if(a($_args, 'file'))
 		{
 			$image = '<img src="'. \lib\filepath::fix($_args['file']). '">';
+			$image = \content_site\assemble\element\magicbox::html($_args, [['file' => $_args['file']]]);
 		}
 
 		$html = \content_site\assemble\wrench\section::element_start($_args);
