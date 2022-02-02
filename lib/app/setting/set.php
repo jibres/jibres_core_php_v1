@@ -583,6 +583,7 @@ class set
 			'updatepriceonsalepage' => 'bit',
 			'orderdefaultpaystatus' => 'yes_no',
 			'factorautoprint'       => 'yes_no',
+			'factordefaultprint'    => ['enum' => ['receipt', 'a4_portrait', 'a4_landscape', 'a5_portrait','a5_landscape']],
 		];
 
 		$require = [];

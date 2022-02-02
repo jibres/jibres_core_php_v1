@@ -188,6 +188,30 @@ Note that the price of the product will be updated only if your employee is allo
   </form>
 </section>
 
+
+<section class="f" data-option='setting-factor-default-print-size' id="setting-factor-default-print-size">
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Default print size"); ?></h3>
+      <div class="body">
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_factordefaultprint" value="1">
+    <div class="action">
+      <select class="select22" name="factordefaultprint">
+        <option value="receipt" <?php if(\dash\data::dataRow_factordefaultprint() === 'receipt') { echo 'selected'; } ?>><?php echo T_("Receipt") ?></option>
+        <option value="a4_portrait" <?php if(\dash\data::dataRow_factordefaultprint() === 'a4_portrait') { echo 'selected'; } ?>><?php echo T_("A4 Portrait") ?></option>
+        <option value="a4_landscape" <?php if(\dash\data::dataRow_factordefaultprint() === 'a4_landscape') { echo 'selected'; } ?>><?php echo T_("A4 Landscape") ?></option>
+        <option value="a5_portrait" <?php if(\dash\data::dataRow_factordefaultprint() === 'a5_portrait') { echo 'selected'; } ?>><?php echo T_("A5 Portrait") ?></option>
+        <option value="a5_landscape" <?php if(\dash\data::dataRow_factordefaultprint() === 'a5_landscape') { echo 'selected'; } ?>><?php echo T_("A5 Landscape") ?></option>
+
+      </select>
+    </div>
+  </form>
+</section>
+
 <?php if(false) {?>
 
   <!-- Need to check later -->

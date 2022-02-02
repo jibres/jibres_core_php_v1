@@ -44,6 +44,13 @@ class model
 			$post['factorautoprint'] = \dash\request::post('factorautoprint') ? 'yes' : 'no';
 		}
 
+		if(\dash\request::post('set_factordefaultprint'))
+		{
+			$post['factordefaultprint'] = \dash\request::post('factordefaultprint');
+		}
+
+
+
 		\lib\app\setting\set::save_vat($post);
 
 		\dash\notif::ok(T_("Saved"));
