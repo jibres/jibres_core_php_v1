@@ -47,19 +47,18 @@ class imagetext1
 			],
 			'default'      =>
 			[
-				'post_template'         => 'any',
-				'post_order'            => 'latest',
-				'count'                 => 3,
+
+				'background_pack' => 'none',
+				'height'          => 'md',
+				'coverratio'      => '16:9',
+				'position'        => 'left',
+				'radius'          => '3xl',
+
+				'file'            => \dash\sample\img::background(),
+				'html_text'       => T_("Your text"),
 
 
 
-				'background_pack'       => 'none',
-				'height'                => 'md',
-				'coverratio'            => '16:9',
-				'color_text'            => '#333333',
-				'heading_position'      => 'center',
-
-				'radius_normal'         => 'none',
 			],
 			'preview_list' =>
 			[
@@ -80,7 +79,7 @@ class imagetext1
 			'version'        => 1,
 			'options' =>
 			[
-				'radius'               => 'full',
+
 
 			],
 		];
