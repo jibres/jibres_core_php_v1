@@ -19,6 +19,7 @@ class imagetext1
 			'options'      =>
 			[
 				'file',
+				'position',
 				'text_link',
 				'text' =>
 				[
