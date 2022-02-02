@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-02 14:16+0330\n"
-"PO-Revision-Date: 2022-02-02 14:17+0330\n"
+"POT-Creation-Date: 2022-02-02 16:01+0330\n"
+"PO-Revision-Date: 2022-02-02 16:01+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -23117,6 +23117,10 @@ msgstr "HTML"
 msgid "Raw HTML"
 msgstr "HTML خام"
 
+#: content_site/body/imagetext/imagetext1.php:58
+msgid "Your text"
+msgstr "متن شما"
+
 #: content_site/body/imagetext/option.php:25
 msgid "Image With Text"
 msgstr "تصویر با متن"
@@ -24217,6 +24221,10 @@ msgstr "شکست آیتم‌ها در خط"
 #: content_site/options/responsive/responsive_layout.php:47
 msgid "Dispaly in mobile"
 msgstr "نمایش در موبایل"
+
+#: content_site/options/reverse/reverse.php:32
+msgid "Reverse"
+msgstr "معکوس"
 
 #: content_site/options/separator/separator_type.php:11
 msgid "solid"
@@ -47580,9 +47588,6 @@ msgstr "یارد"
 
 #~ msgid "Know about our stories and events"
 #~ msgstr "درباره داستان ها و رویدادهای ما بدانید"
-
-#~ msgid "Your rate"
-#~ msgstr "امتیاز شما"
 
 #~ msgid "Write your comment..."
 #~ msgstr "لطفا دیدگاه خود را بنویسید..."
