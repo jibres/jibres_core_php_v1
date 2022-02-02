@@ -16,9 +16,18 @@ class layout
 		$image = null;
 		if(a($_args, 'file'))
 		{
-			$image = '<img src="'. \lib\filepath::fix($_args['file']). '">';
 			$image = \content_site\assemble\element\magicbox::html($_args, [['file' => $_args['file']]]);
 		}
+
+		$text = null;
+
+		$text .= '<div>';
+		{
+			$text .= a($_args, 'html_text');
+		}
+		$text .= '</div>';
+
+
 
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 	    {
@@ -30,9 +39,9 @@ class layout
 		    		{
 		    			$html .= '<div class="row">';
 			    		{
-							$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+							$html .= '<div class="c-xs-12 c-sm-6 c-md-6 flex items-center">';
 							{
-								$html .= a($_args, 'html_text');
+								$html .= $text;
 							}
 							$html .= '</div>';
 							$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
@@ -52,9 +61,9 @@ class layout
 								$html .= $image;
 							}
 							$html .= '</div>';
-							$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+							$html .= '<div class="c-xs-12 c-sm-6 c-md-6 flex items-center">';
 							{
-								$html .= a($_args, 'html_text');
+								$html .= $text;
 							}
 							$html .= '</div>';
 			    		}
@@ -68,9 +77,9 @@ class layout
 							$html .= $image;
 						}
 						$html .= '</div>';
-						$html .= '<div class="">';
+						$html .= '<div class="flex justify-center">';
 						{
-							$html .= a($_args, 'html_text');
+							$html .= $text;
 						}
 						$html .= '</div>';
 
@@ -78,9 +87,9 @@ class layout
 		    		elseif(a($_args, 'position') === 'down')
 		    		{
 
-						$html .= '<div class="">';
+						$html .= '<div class="flex justify-center">';
 						{
-							$html .= a($_args, 'html_text');
+							$html .= $text;
 						}
 						$html .= '</div>';
 						$html .= '<div class="">';
