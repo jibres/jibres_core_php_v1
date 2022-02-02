@@ -8,10 +8,10 @@ class position
 	{
 		$enum   = [];
 
-		$enum[] = ['key' => 'up',   'title' => T_("up") ,     ];
-		$enum[] = ['key' => 'down', 'title' => T_("down") ,   ];
-		$enum[] = ['key' => 'left',   	'title' => T_("left") ,    ];
-		$enum[] = ['key' => 'right',   	'title' => T_("right") , 	    ];
+		$enum[] = ['key' => 'up',   'title' => T_("Up") ,     ];
+		$enum[] = ['key' => 'down', 'title' => T_("Down") ,   ];
+		$enum[] = ['key' => 'left',   	'title' => T_("Left") ,    ];
+		$enum[] = ['key' => 'right',   	'title' => T_("Right") , 	    ];
 
 
 		return $enum;
@@ -44,7 +44,7 @@ class position
 			$default = static::default();
 		}
 
-		$title = T_("Border Radius");
+		$title = T_("Position");
 
 		$html = '';
 		$html .= \content_site\options\generate::form();

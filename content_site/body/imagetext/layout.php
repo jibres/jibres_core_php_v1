@@ -23,70 +23,74 @@ class layout
 	    {
 	    	$html .= \content_site\assemble\wrench\section::container($_args);
 	    	{
-	    		if(a($_args, 'position') === 'left')
-	    		{
-	    			$html .= '<div class="row">';
+		    	$html .= '<div class="content-center m-auto">';
+		    	{
+		    		if(a($_args, 'position') === 'left')
 		    		{
-						$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
-						{
-							$html .= a($_args, 'html_text');
-						}
-						$html .= '</div>';
-						$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+		    			$html .= '<div class="row">';
+			    		{
+							$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+							{
+								$html .= a($_args, 'html_text');
+							}
+							$html .= '</div>';
+							$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+							{
+								$html .= $image;
+							}
+							$html .= '</div>';
+			    		}
+			    		$html .= '</div>';
+		    		}
+		    		elseif(a($_args, 'position') === 'right')
+		    		{
+			    		$html .= '<div class="row">';
+			    		{
+							$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+							{
+								$html .= $image;
+							}
+							$html .= '</div>';
+							$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+							{
+								$html .= a($_args, 'html_text');
+							}
+							$html .= '</div>';
+			    		}
+			    		$html .= '</div>';
+		    		}
+		    		elseif(a($_args, 'position') === 'up')
+		    		{
+
+						$html .= '<div class="">';
 						{
 							$html .= $image;
 						}
 						$html .= '</div>';
-		    		}
-		    		$html .= '</div>';
-	    		}
-	    		elseif(a($_args, 'position') === 'right')
-	    		{
-		    		$html .= '<div class="row">';
-		    		{
-						$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
-						{
-							$html .= $image;
-						}
-						$html .= '</div>';
-						$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+						$html .= '<div class="">';
 						{
 							$html .= a($_args, 'html_text');
 						}
 						$html .= '</div>';
+
 		    		}
-		    		$html .= '</div>';
+		    		elseif(a($_args, 'position') === 'down')
+		    		{
+
+						$html .= '<div class="">';
+						{
+							$html .= a($_args, 'html_text');
+						}
+						$html .= '</div>';
+						$html .= '<div class="">';
+						{
+							$html .= $image;
+						}
+						$html .= '</div>';
+
+		    		}
 	    		}
-	    		elseif(a($_args, 'position') === 'up')
-	    		{
-
-					$html .= '<div class="">';
-					{
-						$html .= $image;
-					}
-					$html .= '</div>';
-					$html .= '<div class="">';
-					{
-						$html .= a($_args, 'html_text');
-					}
-					$html .= '</div>';
-
-	    		}
-	    		elseif(a($_args, 'position') === 'down')
-	    		{
-
-					$html .= '<div class="">';
-					{
-						$html .= a($_args, 'html_text');
-					}
-					$html .= '</div>';
-					$html .= '<div class="">';
-					{
-						$html .= $image;
-					}
-					$html .= '</div>';
-
-	    		}
+	    		$html .= '</div>';
 	    	}
 	    	$html .= '</div>';
 	    }
