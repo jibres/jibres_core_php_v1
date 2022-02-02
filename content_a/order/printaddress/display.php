@@ -64,15 +64,47 @@ $html .= '<div class="m-4 p-4 box">';
 			$html .= '</span>';
 		}
 
+		$html .= '<p class="text-xl">';
+		{
+			$html .= \dash\data::address_address();
+		}
+		$html .= '</p>';
 
-		$html .= '<div class="w-3/12 flex ">';
 
-		$phone = \dash\data::address_phone();
-		$fax = \dash\data::address_fax();
+		$html .= '<div class="row">';
+
+		$phone    = \dash\data::address_phone();
+		$fax      = \dash\data::address_fax();
+		$mobile   = \dash\data::address_mobile();
+		$postcode = \dash\data::address_postcode();
+
+		if($mobile)
+		{
+			$html .= '<span class="c-auto">'. T_('Mobile'). '</span>'. ' ';
+			$html .= '<code class="font-bold tracking-widest">';
+			{
+				// $html .= $fax;
+				$html .= $mobile;
+			}
+			$html .= '</code>';
+			$html .= '<div class="c-12"></div>';
+		}
+
+		if($postcode)
+		{
+			$html .= '<span class="c-auto">'. T_('Postal code'). '</span>'. ' ';
+			$html .= '<code class="font-bold tracking-widest">';
+			{
+				// $html .= $fax;
+				$html .= $postcode;
+			}
+			$html .= '</code>';
+			$html .= '<div class="c-12"></div>';
+		}
 
 		if($phone)
 		{
-			$html .= '<span class="flex-grow">'. T_('Phone'). '</span>'. ' ';
+			$html .= '<span class="c-auto">'. T_('Phone'). '</span>'. ' ';
 			$html .= '<code class="font-bold tracking-widest">';
 			{
 				// $html .= $phone;
@@ -83,18 +115,7 @@ $html .= '<div class="m-4 p-4 box">';
 
 		if($fax)
 		{
-			$html .= '<span class="flex-grow">'. T_('Fax'). '</span>'. ' ';
-			$html .= '<code class="font-bold tracking-widest">';
-			{
-				// $html .= $fax;
-				$html .= $fax;
-			}
-			$html .= '</code>';
-		}
-
-		if($fax)
-		{
-			$html .= '<span class="flex-grow">'. T_('Fax'). '</span>'. ' ';
+			$html .= '<span class="c-auto">'. T_('Fax'). '</span>'. ' ';
 			$html .= '<code class="font-bold tracking-widest">';
 			{
 				// $html .= $fax;
