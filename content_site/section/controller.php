@@ -21,6 +21,7 @@ class controller
 			/* ---- body ---- */
 			'blog',
 			'gallery',
+			'imagetext',
 			'product',
 			// 'contactform',
 			'formbuilder',
@@ -99,6 +100,7 @@ class controller
 		$current_section_detail = \dash\data::currentSectionDetail();
 
 		$options = \content_site\call_function::option($child, a($current_section_detail, 'model'));
+
 
 		$subchild = \dash\url::subchild();
 		$dir3     = \dash\url::dir(3);

@@ -51,7 +51,7 @@ class view
 			\content_site\utility::downloadjson();
 		}
 
-		if(\dash\url::child() === 'text' && !\dash\url::subchild())
+		if((\dash\url::child() === 'text' && !\dash\url::subchild()) || (\dash\url::child() === 'imagetext' && \dash\url::subchild() === 'text'))
 		{
 			\dash\data::include_adminPanelBuilder(true);
 			\dash\data::displayIncludeTextEditor(true);
@@ -477,7 +477,7 @@ class view
 			{
 				if($_generate_layout)
 				{
-					if(isset($result['text_preview']) && ($section_key === 'html' || $section_key === 'text'))
+					if(isset($result['text_preview']) && (in_array($section_key, ['html','text', 'imagetext'])))
 					{
 						$result['preview']['html_text'] = $result['text_preview'];
 					}
@@ -520,7 +520,7 @@ class view
 				}
 				else
 				{
-					if(isset($result['text']) && ($section_key === 'html' || $section_key === 'text'))
+					if(isset($result['text']) && (in_array($section_key, ['html','text', 'imagetext'])))
 					{
 						$result['body']['html_text'] = $result['text'];
 					}
