@@ -80,7 +80,13 @@ class button
 			}
 			else
 			{
-				$html .= "<button class='$btnSave_class' form='$btnSave_form_id' name='$btnSave_name' value='$btnSave_value' $btnSave_attr>$btnSave_text</button>";
+				$connect_to_form = " form='$btnSave_form_id'";
+				if(is_bool($btnSave_form_id))
+				{
+					$connect_to_form = null;
+				}
+
+				$html .= "<button class='$btnSave_class'$connect_to_form name='$btnSave_name' value='$btnSave_value' $btnSave_attr>$btnSave_text</button>";
 			}
 
 			return $html;
