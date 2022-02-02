@@ -19,7 +19,7 @@ class imagetext1
 			'options'      =>
 			[
 				'file',
-				'position',
+				'reverse',
 				'text_link',
 				'text' =>
 				[
@@ -51,14 +51,11 @@ class imagetext1
 				'background_pack' => 'none',
 				'height'          => 'md',
 				'coverratio'      => '16:9',
-				'position'        => 'left',
+
 				'radius'          => '3xl',
 
 				'file'            => \dash\sample\img::background(),
 				'html_text'       => T_("Your text"),
-
-
-
 			],
 			'preview_list' =>
 			[

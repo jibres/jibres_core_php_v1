@@ -28,79 +28,29 @@ class layout
 		$text .= '</div>';
 
 
-
 		$html = \content_site\assemble\wrench\section::element_start($_args);
 	    {
 	    	$html .= \content_site\assemble\wrench\section::container($_args);
 	    	{
-		    	$html .= '<div class="content-center m-auto">';
+		    	$html .= '<div class="row';
+		    	if(a($_args, 'reverse'))
 		    	{
-		    		if(a($_args, 'position') === 'left')
-		    		{
-		    			$html .= '<div class="row">';
-			    		{
-							$html .= '<div class="c-xs-12 c-sm-6 c-md-6 flex items-center">';
-							{
-								$html .= $text;
-							}
-							$html .= '</div>';
-							$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
-							{
-								$html .= $image;
-							}
-							$html .= '</div>';
-			    		}
-			    		$html .= '</div>';
-		    		}
-		    		elseif(a($_args, 'position') === 'right')
-		    		{
-			    		$html .= '<div class="row">';
-			    		{
-							$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
-							{
-								$html .= $image;
-							}
-							$html .= '</div>';
-							$html .= '<div class="c-xs-12 c-sm-6 c-md-6 flex items-center">';
-							{
-								$html .= $text;
-							}
-							$html .= '</div>';
-			    		}
-			    		$html .= '</div>';
-		    		}
-		    		elseif(a($_args, 'position') === 'up')
-		    		{
-
-						$html .= '<div class="">';
-						{
-							$html .= $image;
-						}
-						$html .= '</div>';
-						$html .= '<div class="flex justify-center">';
-						{
-							$html .= $text;
-						}
-						$html .= '</div>';
-
-		    		}
-		    		elseif(a($_args, 'position') === 'down')
-		    		{
-
-						$html .= '<div class="flex justify-center">';
-						{
-							$html .= $text;
-						}
-						$html .= '</div>';
-						$html .= '<div class="">';
-						{
-							$html .= $image;
-						}
-						$html .= '</div>';
-
-		    		}
-	    		}
-	    		$html .= '</div>';
+		    		$html .= ' flex-row-reverse';
+		    	}
+		    	$html .= '">';
+		    	{
+					$html .= '<div class="c-xs-12 c-sm-6 c-md-6 flex items-center">';
+					{
+						$html .= $text;
+					}
+					$html .= '</div>';
+					$html .= '<div class="c-xs-12 c-sm-6 c-md-6">';
+					{
+						$html .= $image;
+					}
+					$html .= '</div>';
+				}
+			    $html .= '</div>';
 	    	}
 	    	$html .= '</div>';
 	    }
