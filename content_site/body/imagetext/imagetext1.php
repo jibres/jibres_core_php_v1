@@ -20,11 +20,11 @@ class imagetext1
 			[
 				'file',
 				'reverse',
-				'text_link',
 				'text' =>
 				[
 					'text'
 				],
+				'text_link',
 				// sub page
 				'style' => \content_site\utility::set_style_option(
 				[
