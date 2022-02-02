@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-01 11:16+0330\n"
-"PO-Revision-Date: 2022-02-01 11:17+0330\n"
+"POT-Creation-Date: 2022-02-02 14:16+0330\n"
+"PO-Revision-Date: 2022-02-02 14:17+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4089,7 +4089,7 @@ msgstr "وزن"
 #: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
 #: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
 #: content_crm/telegram/send/display.php:5 content_site/staticfile/display.php:11
-#: lib/app/form/generator.php:249
+#: lib/app/form/generator.php:255
 msgid "Required"
 msgstr "الزامی"
 
@@ -7399,6 +7399,7 @@ msgstr "صفحه"
 #: content_cms/files/images/display.php:11 content_cms/files/remove/display.php:11
 #: content_love/files/home/display.php:92 content_love/files/images/display.php:11
 #: content_love/files/remove/display.php:11 content_site/body/gallery/option.php:28
+#: content_site/body/imagetext/option.php:23
 #: content_site/options/background/background_pack.php:143
 #: content_site/options/file/file.php:273 content_site/options/image/image_add2.php:48
 #: content_site/options/quote/quote_add.php:59 dash/app/files/filter.php:35
@@ -7548,7 +7549,7 @@ msgstr "صفحه اول مقدمه"
 #: content_love/files/home/display.php:49 content_love/home/display.php:115
 #: content_site/options/file/file.php:285 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
-#: includes/languages/trans_static.php:500 lib/app/form/generator.php:894
+#: includes/languages/trans_static.php:500 lib/app/form/generator.php:900
 msgid "File"
 msgstr "فایل"
 
@@ -11731,7 +11732,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/commands/step_ticketCreate.php:111
-#: includes/languages/trans_static.php:508 lib/app/form/generator.php:1015
+#: includes/languages/trans_static.php:508 lib/app/form/generator.php:1021
 msgid "Yes"
 msgstr "بله"
 
@@ -11749,7 +11750,7 @@ msgstr "بله"
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
 #: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
-#: lib/app/form/generator.php:1026
+#: lib/app/form/generator.php:1032
 msgid "No"
 msgstr "خیر"
 
@@ -12005,7 +12006,7 @@ msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب 
 #: content_a/setting/general/display.php:160 content_account/my/profile/display.php:36
 #: content_business/profile/detail/display.php:35
 #: content_love/plugin/manage/display.php:43 content_love/plugin/manage/display.php:44
-#: lib/app/form/generator.php:321
+#: lib/app/form/generator.php:327
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -15477,8 +15478,8 @@ msgstr "کد رهگیری شما"
 msgid "Your form is not publish. Only you can view this form."
 msgstr "فرم شما منتشر نشده است. فقط شما می‌توانید این فرم را ببینید."
 
-#: content_business/f/home/display-form.php:31 lib/app/form/generator.php:91
-#: lib/app/form/generator.php:151
+#: content_business/f/home/display-form.php:31 lib/app/form/generator.php:95
+#: lib/app/form/generator.php:157
 msgid "Submit"
 msgstr "تایید"
 
@@ -18492,7 +18493,7 @@ msgstr "درخواست مجوز لازم را برای اجرا ندارد"
 
 #: content_developers/docs/004-responses.php:96 content_enter/callback/controller.php:12
 #: content_my/domain/buy/controller.php:11 content_my/domain/renew/controller.php:13
-#: content_site/section/controller.php:86 content_v2/check.php:23 content_v2/tools.php:174
+#: content_site/section/controller.php:87 content_v2/check.php:23 content_v2/tools.php:174
 #: dash/validate/url.php:579
 msgid "Invalid url"
 msgstr "آدرس اشتباه"
@@ -23116,6 +23117,10 @@ msgstr "HTML"
 msgid "Raw HTML"
 msgstr "HTML خام"
 
+#: content_site/body/imagetext/option.php:25
+msgid "Image With Text"
+msgstr "تصویر با متن"
+
 #: content_site/body/product/layout.php:126
 msgid "Your product’s title"
 msgstr "عنوان محصول شما"
@@ -23463,6 +23468,7 @@ msgstr "مرکز"
 
 #: content_site/options/background/background_position.php:14
 #: content_site/options/justify/justify.php:13
+#: content_site/options/position/position.php:13
 msgid "Left"
 msgstr "چپ"
 
@@ -23476,6 +23482,7 @@ msgstr "چپ بالا"
 
 #: content_site/options/background/background_position.php:17
 #: content_site/options/justify/justify.php:15
+#: content_site/options/position/position.php:14
 msgid "Right"
 msgstr "راست"
 
@@ -23957,6 +23964,20 @@ msgstr "فاصله داخلی از پایین"
 msgid "Padding Top"
 msgstr "فاصله داخلی از بالا"
 
+#: content_site/options/position/position.php:11
+msgid "Up"
+msgstr "بالا"
+
+#: content_site/options/position/position.php:12
+msgid "Down"
+msgstr "پایین"
+
+#: content_site/options/position/position.php:22
+#: content_site/options/position/position.php:47
+#: content_site/options/responsive/responsive_layout.php:25
+msgid "Position"
+msgstr "محل قرارگیری"
+
 #: content_site/options/post/post_order.php:11
 #: content_site/options/product/product_order.php:11
 msgid "Newest to Oldest (default)"
@@ -24193,10 +24214,6 @@ msgstr "نمایش در یک خط"
 msgid "Break item"
 msgstr "شکست آیتم‌ها در خط"
 
-#: content_site/options/responsive/responsive_layout.php:25
-msgid "Position"
-msgstr "محل قرارگیری"
-
 #: content_site/options/responsive/responsive_layout.php:47
 msgid "Dispaly in mobile"
 msgstr "نمایش در موبایل"
@@ -24269,6 +24286,10 @@ msgstr "فاصله گذاری"
 #: content_site/options/style/style.php:24 content_site/page/display-aside-bottom.php:15
 msgid "Personalize"
 msgstr "شخصی‌سازی"
+
+#: content_site/options/text/text_link.php:24
+msgid "Edit text"
+msgstr "ویرایش متن"
 
 #: content_site/options/twitter/twitter.php:11
 msgid "My self"
@@ -24535,25 +24556,25 @@ msgstr "نام بخش یا کد پیش‌نمایش اشتباه است"
 msgid "Invalid preview detail"
 msgstr "جزئیات پیش‌نمایش نامعتبر است"
 
-#: content_site/section/controller.php:79
+#: content_site/section/controller.php:80
 msgid "Invalid section name"
 msgstr "نام بخش اشتباه"
 
-#: content_site/section/controller.php:95 content_site/section/controller.php:226
+#: content_site/section/controller.php:96 content_site/section/controller.php:228
 #: content_site/section/html/controller.php:21 content_site/section/model.php:80
 msgid "Invalid section id"
 msgstr "شناسه بخش اشتباه است"
 
-#: content_site/section/controller.php:118 content_site/section/controller.php:134
+#: content_site/section/controller.php:120 content_site/section/controller.php:136
 #: dash/validate/html.php:382
 msgid "Invalid url!"
 msgstr "آدرس اشتباه است!"
 
-#: content_site/section/controller.php:218
+#: content_site/section/controller.php:220
 msgid "Page id or section id not found"
 msgstr "شناسه صفحه یا شناسه بخش یافت نشد"
 
-#: content_site/section/controller.php:238
+#: content_site/section/controller.php:240
 msgid "Invalid section model"
 msgstr "مدل بخش اشتباه است"
 
@@ -38487,11 +38508,11 @@ msgstr "این فرم در منو استفاده شده و امکان حذف آ�
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
-#: lib/app/form/generator.php:752
+#: lib/app/form/generator.php:758
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: lib/app/form/generator.php:763
+#: lib/app/form/generator.php:769
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
@@ -44846,9 +44867,6 @@ msgstr "یارد"
 
 #~ msgid "Magic Gallery box"
 #~ msgstr "گالری تصویر جادویی"
-
-#~ msgid "Image with text"
-#~ msgstr "تصویر با متن"
 
 #~ msgid "Image with text overlay"
 #~ msgstr "تصویر با همپوشانی متن"
