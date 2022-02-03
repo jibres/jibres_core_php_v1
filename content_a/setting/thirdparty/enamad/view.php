@@ -31,6 +31,12 @@ class view
 				\dash\data::enamadCode($explode_enamad[1]);
 			}
 		}
+
+		$get = \lib\app\setting\tools::get('enamad', 'enamad_static_file');
+		if(isset($get['value']))
+		{
+			\dash\data::enamadStaticFile($get['value']);
+		}
 	}
 }
 ?>

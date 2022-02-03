@@ -8,6 +8,14 @@
           <div class="alert2">
             <p><?php echo T_("Any company or individual that wants to sell their products or services online via its own website, should acquire the eNAMAD, which is the official indicator for an approved and trusted online vendor. To secure an eNAMAD certificate, E-commerce Development Center of Iran requires businesses to meet 38 different conditions."); ?></p>
           </div>
+          <hr>
+          <div class="alert2">
+            <p><?php echo T_("To verify your website choose verify by static file in enamad website and set the file name here"); ?></p>
+            <div class="input ltr">
+              <input type="text" name="enamad_static_file" value="<?php echo \dash\data::enamadStaticFile() ?>">
+            </div>
+          </div>
+
 
           <?php if(a($storeData, 'enamad')) {?>
             <div class="alert-success minimal"><?php echo T_("Your enamad detail was saved") ?></div>
@@ -33,7 +41,7 @@
           <?php if(!a($storeData, 'enamad')) {?>
 
             <label for="ienamad"><?php echo T_("Enamad code"); ?> <span class="fc-red">*</span></label>
-            <textarea class="txt ltr text-left" rows="5" name="html" id="ienamad" <?php \dash\layout\autofocus::html() ?> maxlength='5000' minlength="1" placeholder2="https://trustseal.enamad.ir?id=[...]&code=[...]" required placeholder='<?php echo T_("Paste you Enamad code here") ?>'></textarea>
+            <textarea class="txt ltr text-left" rows="5" name="html" id="ienamad" <?php \dash\layout\autofocus::html() ?> maxlength='5000' minlength="1" placeholder2="https://trustseal.enamad.ir?id=[...]&code=[...]"  placeholder='<?php echo T_("Paste you Enamad code here") ?>'></textarea>
           <?php } //endif ?>
         </div>
         <footer class="txtRa">
