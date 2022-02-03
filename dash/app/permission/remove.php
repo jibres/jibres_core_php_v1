@@ -15,6 +15,11 @@ class remove
 
 		// check user count
 
+		if(a($load, 'key'))
+		{
+			\dash\db\users\update::remove_old_permission($load['key']);
+		}
+
 		\lib\db\setting\delete::record($_id);
 
 		\dash\notif::ok(T_("Permission removed"));

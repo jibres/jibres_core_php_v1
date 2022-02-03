@@ -12,6 +12,15 @@ class update
 	}
 
 
+	public static function remove_old_permission($_old_permission)
+	{
+		$query  = "UPDATE users SET users.permission = null WHERE users.permission = :permission ";
+		$param = [':permission' => $_old_permission];
+		$result = \dash\pdo::query($query, $param);
+		return $result;
+	}
+
+
 	public static function jibres_password_in_other_store($_password, $_jibres_user_id, $_current_store_id)
 	{
 		$query  =
