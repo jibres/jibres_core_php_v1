@@ -197,7 +197,7 @@ class shortcode
 			return $_data;
 		}
 
-		if(\dash\url::content() === 'a' || \dash\url::content() === 'cms')
+		if(\dash\url::content() === 'a' || \dash\url::content() === 'cms' || \dash\url::content() === 'site')
 		{
 			return $_data;
 		}

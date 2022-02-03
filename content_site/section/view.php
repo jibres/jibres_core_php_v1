@@ -479,7 +479,7 @@ class view
 				{
 					if(isset($result['text_preview']) && (in_array($section_key, ['html','text', 'imagetext'])))
 					{
-						$result['preview']['html_text'] = $result['text_preview'];
+						$result['preview']['html_text'] = \lib\shortcode::analyze_desc_html($result['text_preview']);
 					}
 
 					$result['preview'] = \content_site\assemble\fire::me($result['preview']);
@@ -522,7 +522,7 @@ class view
 				{
 					if(isset($result['text']) && (in_array($section_key, ['html','text', 'imagetext'])))
 					{
-						$result['body']['html_text'] = $result['text'];
+						$result['body']['html_text'] = \lib\shortcode::analyze_desc_html($result['text']);
 					}
 
 
