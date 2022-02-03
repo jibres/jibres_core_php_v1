@@ -202,6 +202,18 @@ class shortcode
 			return $_data;
 		}
 
+		$_data = self::detect_video_short_code($_data);
+		$_data = self::detect_formbuilder_code($_data);
+
+		// return $_data;
+		return self::make_clickable($_data);
+
+	}
+
+
+
+	public static function detect_video_short_code($_data)
+	{
 		while(preg_match("/\[(video)\s+(from\=)([^\[\]\s]*)\s+(code\=)([^\[\]\s]*)\]/", $_data, $split))
 		{
 			$videoService = $split[3];
@@ -245,9 +257,26 @@ class shortcode
 
 		}
 
-		// return $_data;
-		return self::make_clickable($_data);
+		return $_data;
+	}
 
+
+
+
+	public static function detect_formbuilder_code($_data)
+	{
+		while(preg_match("/\[(form)\s+(id\=)(\d+)\]/", $_data, $split))
+		{
+			$form_id = $split[3];
+			if($form_id)
+			{
+				$fomr_html = \lib\app\form\generator::sitebuilder_full_html($form_id);
+
+				$_data = str_replace($split[0], strval($fomr_html), $_data);
+			}
+		}
+
+		return $_data;
 	}
 
 }
