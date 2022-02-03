@@ -17,7 +17,15 @@ class remove
 
 		if(a($load, 'key'))
 		{
-			\dash\db\users\update::remove_old_permission($load['key']);
+			$list = \dash\db\users\get::who_have_permission($load['key']);
+
+			if($list && is_array($list))
+			{
+				foreach ($list as $key => $value)
+				{
+					\dash\app\user::quick_update(['permission' => null], $value['id']);
+				}
+			}
 		}
 
 		\lib\db\setting\delete::record($_id);

@@ -53,6 +53,15 @@ class get
 	}
 
 
+	public static function who_have_permission($_permission)
+	{
+		$query  = "SELECT * FROM users WHERE users.permission = :permission ";
+		$param = [':permission' => $_permission];
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+	}
+
+
 
 	public static function count_all()
 	{
