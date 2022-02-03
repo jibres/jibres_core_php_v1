@@ -11,6 +11,7 @@
 			<div class="font-bold">
 				<?php echo \dash\data::dataRow_title(); ?>
 			</div>
+
 		</div>
 	</div>
 
@@ -28,5 +29,13 @@
 			 </ul>
 			</nav>
 	<?php }// endif ?>
+
+	<div class="text-gray-500 text-sm">
+				<div>
+					<?php echo T_("Using this short code, you can use this form in the description of the product or post or site builder") ?>
+				</div>
+				<?php $short_code = "[form id=". \dash\request::get('id'). "]" ?>
+				<code data-copy="<?php echo $short_code ?>"><?php echo $short_code ?></code>
+			</div>
 	</div>
 </div>
