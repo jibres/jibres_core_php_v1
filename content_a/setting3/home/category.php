@@ -20,6 +20,12 @@ class category
 			'link'  => \dash\url::this(). '/general',
 		];
 
+		$list['security'] =
+		[
+			'icon'         => \dash\utility\icon::svg('shield-lock', 'bootstrap'),
+			'title'        => T_("Security"),
+			'link'         => \dash\url::this(). '/security',
+		];
 
 		$list['other'] =
 		[

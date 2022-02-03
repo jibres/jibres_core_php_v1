@@ -22,7 +22,14 @@ $html .= '<div class="row">';
 							$html .= '<div class="key">'.a($value,'title').'</div>';
 							if(\dash\url::child() === $key)
 							{
-								$html .= \dash\utility\icon::bootstrap('check-circle', 'text-green-500');
+								if(\dash\language::dir() === 'rtl')
+								{
+									$html .= \dash\utility\icon::bootstrap('caret-left-fill', 'text-blue-500');
+								}
+								else
+								{
+									$html .= \dash\utility\icon::bootstrap('caret-right-fill', 'text-blue-500');
+								}
 							}
 						}
 						$html .= '</a>';
