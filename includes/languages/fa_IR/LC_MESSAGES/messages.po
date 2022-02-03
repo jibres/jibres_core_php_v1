@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-03 13:31+0330\n"
-"PO-Revision-Date: 2022-02-03 13:32+0330\n"
+"POT-Creation-Date: 2022-02-03 14:50+0330\n"
+"PO-Revision-Date: 2022-02-03 14:52+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7150,7 +7150,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/thirdparty/awss3/display.php:41
 #: content_a/setting/thirdparty/crisp/display.php:19
 #: content_a/setting/thirdparty/digitaloceans3/display.php:41
-#: content_a/setting/thirdparty/enamad/display.php:41
+#: content_a/setting/thirdparty/enamad/display.php:49
 #: content_a/setting/thirdparty/goftino/display.php:19
 #: content_a/setting/thirdparty/gtag/display.php:19
 #: content_a/setting/thirdparty/hotjar/display.php:20
@@ -13752,31 +13752,35 @@ msgstr ""
 "دریافت درگاه مستقیم بانکی را می‌دهد."
 
 #: content_a/setting/thirdparty/enamad/display.php:13
+msgid ""
+"To verify your website choose verify by static file in enamad website and set the file "
+"name here"
+msgstr ""
+"برای تایید دامنه خود لطفا گزینه «اعتبار سنجی از طریق فایل» را در سایت اینماد انتخاب "
+"کنید و سپس نام فایل را که از اینماد دریافت کردید در این قسمت وارد کنید"
+
+#: content_a/setting/thirdparty/enamad/display.php:21
 msgid "Your enamad detail was saved"
 msgstr "مشخصات گواهی نماد اعتماد شما ذخیره شده است"
 
-#: content_a/setting/thirdparty/enamad/display.php:19
+#: content_a/setting/thirdparty/enamad/display.php:27
 msgid "Enamad ID"
 msgstr "شناسه نماد اعتماد"
 
-#: content_a/setting/thirdparty/enamad/display.php:28
-#: content_a/setting/thirdparty/enamad/display.php:35
+#: content_a/setting/thirdparty/enamad/display.php:36
+#: content_a/setting/thirdparty/enamad/display.php:43
 msgid "Enamad code"
 msgstr "کد نماد اعتماد"
 
-#: content_a/setting/thirdparty/enamad/display.php:36
+#: content_a/setting/thirdparty/enamad/display.php:44
 msgid "Paste you Enamad code here"
 msgstr "کد اینماد خود را اینجا کپی کنید"
 
-#: content_a/setting/thirdparty/enamad/display.php:43
+#: content_a/setting/thirdparty/enamad/display.php:51
 msgid "Remove enamad setting"
 msgstr "حذف تنظیمات نماد اعتماد"
 
-#: content_a/setting/thirdparty/enamad/model.php:23
-msgid "Enamad Script is required"
-msgstr "کد نماد اعتماد الزامی است"
-
-#: content_a/setting/thirdparty/enamad/model.php:34
+#: content_a/setting/thirdparty/enamad/model.php:64
 msgid ""
 "The text of enamad contains a series of special characters that are not in your text"
 msgstr "کد نماد اعتماد دارای کلمات مشخصی است که در کد ارسالی توسط شما یافت نشد"
@@ -42876,6 +42880,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Enamad Script is required"
+#~ msgstr "کد نماد اعتماد الزامی است"
 
 #~ msgid "Demo 002"
 #~ msgstr "دمو ۰۰۲"
