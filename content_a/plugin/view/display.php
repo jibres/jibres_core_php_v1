@@ -96,106 +96,106 @@ $html .= '<div class="">';
 				if($payable)
 				{
 
-						if(in_array(a($pluginDetail, 'type'), ['periodic', 'counting_package']) && is_array(a($pluginDetail, 'price_list')))
+					if(in_array(a($pluginDetail, 'type'), ['periodic', 'counting_package']) && is_array(a($pluginDetail, 'price_list')))
+					{
+						if(a($pluginDetail, 'type') === 'periodic')
 						{
-							if(a($pluginDetail, 'type') === 'periodic')
-							{
-								$html .= '<div class="mb-2"> '.  T_("Please choose one periodic"). ' </div>';
-								$select_name = 'periodic';
-							}
-							else
-							{
-								$html .= '<div class="mb-2"> '.  T_("Please choose one package"). ' </div>';
-								$select_name = 'package';
-							}
-
-							foreach ($pluginDetail['price_list'] as $key => $value)
-							{
-								$checked = null;
-								if(a($value, 'default'))
-								{
-									$checked = 'checked';
-								}
-
-								$html .= '<div class="radio4">';
-								{
-
-									$html .= '<input id="'.$select_name. $key.'" type="radio" name="'.$select_name.'" value="'.a($value, 'key').'" '. $checked. '>';
-
-									$html .= '<label for="'.$select_name. $key.'">';
-									{
-										$html .= '<div>';
-										{
-											$html .= '<span class="font-bold mx-2">';
-											{
-												$html .= a($value, 'title');
-											}
-											$html .= '</span>';
-
-
-											$html .= '<span>';
-											{
-												$html .= \dash\fit::number(\lib\app\plugin\get::payable_price($plugin, a($value, 'price')));
-											}
-											$html .= '</span>';
-
-											if(a($value, 'comperatprice') && a($value, 'comperatprice') > \lib\app\plugin\get::payable_price($plugin, a($value, 'price')))
-											{
-												$html .= '<span class="mx-2 line-through decoration-red-700" style="text-decoration-color: red; text-decoration-thickness: 1px;">';
-												{
-													$html .= \dash\fit::number(a($value, 'comperatprice'));
-												}
-												$html .= '</span>';
-											}
-
-											$html .= '<span class="mx-2">';
-											{
-												$html .= a($pluginDetail, 'currency');
-											}
-											$html .= '</span>';
-
-											// if($in_discount_time)
-											// {
-											// 	$html .= '('.\dash\fit::number(90). T_("%"). ' '.T_("Discount").')';
-											// }
-
-										}
-										$html .= '</div>';
-									}
-									$html .= '</label>';
-								}
-								$html .= '</div>';
-							}
+							$html .= '<div class="mb-2"> '.  T_("Please choose one periodic"). ' </div>';
+							$select_name = 'periodic';
 						}
 						else
 						{
-							$html .= '<div class="mb-2"> '.  T_("Price"). ' </div>';
+							$html .= '<div class="mb-2"> '.  T_("Please choose one package"). ' </div>';
+							$select_name = 'package';
+						}
 
-							$html .= '<div class="alert-info">';
+						foreach ($pluginDetail['price_list'] as $key => $value)
+						{
+							$checked = null;
+							if(a($value, 'default'))
+							{
+								$checked = 'checked';
+							}
+
+							$html .= '<div class="radio4">';
 							{
 
-								if(a($pluginDetail, 'price') === 0)
-								{
-									$html .= '<span class="text-green-500">'.  T_("Free"). '</span>';
-								}
-								else
-								{
-									$html .= '<span class="">';
-									{
-										$html .= \dash\fit::number(\lib\app\plugin\get::payable_price($plugin, a($pluginDetail, 'price')));
+								$html .= '<input id="'.$select_name. $key.'" type="radio" name="'.$select_name.'" value="'.a($value, 'key').'" '. $checked. '>';
 
-										$html .= '<small class=""> ';
+								$html .= '<label for="'.$select_name. $key.'">';
+								{
+									$html .= '<div>';
+									{
+										$html .= '<span class="font-bold mx-2">';
+										{
+											$html .= a($value, 'title');
+										}
+										$html .= '</span>';
+
+
+										$html .= '<span>';
+										{
+											$html .= \dash\fit::number(\lib\app\plugin\get::payable_price($plugin, a($value, 'price')));
+										}
+										$html .= '</span>';
+
+										if(a($value, 'comperatprice') && a($value, 'comperatprice') > \lib\app\plugin\get::payable_price($plugin, a($value, 'price')))
+										{
+											$html .= '<span class="mx-2 line-through decoration-red-700" style="text-decoration-color: red; text-decoration-thickness: 1px;">';
+											{
+												$html .= \dash\fit::number(a($value, 'comperatprice'));
+											}
+											$html .= '</span>';
+										}
+
+										$html .= '<span class="mx-2">';
 										{
 											$html .= a($pluginDetail, 'currency');
 										}
-										$html .= '</small>';
+										$html .= '</span>';
+
+										// if($in_discount_time)
+										// {
+										// 	$html .= '('.\dash\fit::number(90). T_("%"). ' '.T_("Discount").')';
+										// }
 
 									}
-									$html .= '</span>';
+									$html .= '</div>';
 								}
+								$html .= '</label>';
 							}
 							$html .= '</div>';
 						}
+					}
+					else
+					{
+						$html .= '<div class="mb-2"> '.  T_("Price"). ' </div>';
+
+						$html .= '<div class="alert-info">';
+						{
+
+							if(a($pluginDetail, 'price') === 0)
+							{
+								$html .= '<span class="text-green-500">'.  T_("Free"). '</span>';
+							}
+							else
+							{
+								$html .= '<span class="">';
+								{
+									$html .= \dash\fit::number(\lib\app\plugin\get::payable_price($plugin, a($pluginDetail, 'price')));
+
+									$html .= '<small class=""> ';
+									{
+										$html .= a($pluginDetail, 'currency');
+									}
+									$html .= '</small>';
+
+								}
+								$html .= '</span>';
+							}
+						}
+						$html .= '</div>';
+					}
 
 				}
 
