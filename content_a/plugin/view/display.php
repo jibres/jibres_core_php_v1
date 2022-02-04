@@ -96,9 +96,17 @@ $html .= '<div class="">';
 				if($payable)
 				{
 
-						if(a($pluginDetail, 'type') === 'periodic' && is_array(a($pluginDetail, 'price_list')))
+						if(in_array(a($pluginDetail, 'type'), ['periodic', 'counting_package']) && is_array(a($pluginDetail, 'price_list')))
 						{
-							$html .= '<div class="mb-2"> '.  T_("Please choose one periodic"). ' </div>';
+							if(a($pluginDetail, 'type') === 'periodic')
+							{
+								$html .= '<div class="mb-2"> '.  T_("Please choose one periodic"). ' </div>';
+							}
+							else
+							{
+								$html .= '<div class="mb-2"> '.  T_("Please choose one package"). ' </div>';
+							}
+
 							foreach ($pluginDetail['price_list'] as $key => $value)
 							{
 								$checked = null;

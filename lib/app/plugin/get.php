@@ -18,6 +18,8 @@ class get
 		$keys =
 		[
 
+			'sms_pack',
+
 			'ganje_product',
 
 			'admin_domain',
@@ -42,6 +44,10 @@ class get
 
 		];
 
+		if(!\dash\url::isLocal())
+		{
+			unset($keys[array_search('sms_pack', $keys)]);
+		}
 
 
 
@@ -131,6 +137,12 @@ class get
 	public static function in_discount_time($_plugin)
 	{
 		$load = self::detail($_plugin);
+
+		// force disable auto discount. For example sms_package
+		if(a($load, 'disable_auto_discount') === true)
+		{
+			return false;
+		}
 
 		if(a($load, 'relase_date') && (a($load, 'price') || a($load, 'price_list')))
 		{
