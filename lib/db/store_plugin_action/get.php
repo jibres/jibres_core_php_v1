@@ -14,7 +14,8 @@ class get
 				store_plugin_action
 			WHERE
 				store_plugin_action.plugin_id = :plugin_id AND
-				store_plugin_action.status    IN ('enable', 'used')
+				store_plugin_action.action = 'activate_complete' AND
+				store_plugin_action.status  IN ('enable', 'used')
 		";
 
 		$param =
