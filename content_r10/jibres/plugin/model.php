@@ -13,6 +13,7 @@ class model
 		[
 			'plugin'     => \dash\request::input_body('plugin'),
 			'periodic'   => \dash\request::input_body('periodic'),
+			'package'    => \dash\request::input_body('package'),
 			'use_budget' => \dash\request::input_body('use_budget'),
 			'turn_back'  => \dash\request::input_body('turn_back'),
 		];

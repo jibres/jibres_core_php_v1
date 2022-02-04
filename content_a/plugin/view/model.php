@@ -10,6 +10,7 @@ class model
 		$args               = [];
 		$args['use_budget'] = \dash\request::post('use_budget');
 		$args['periodic']   = \dash\request::post('periodic');
+		$args['package']    = \dash\request::post('package');
 
 		$args['turn_back']  = \dash\url::pwd();
 		$args['page_url']   = \dash\data::currentPageDetail_link();

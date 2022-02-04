@@ -101,10 +101,12 @@ $html .= '<div class="">';
 							if(a($pluginDetail, 'type') === 'periodic')
 							{
 								$html .= '<div class="mb-2"> '.  T_("Please choose one periodic"). ' </div>';
+								$select_name = 'periodic';
 							}
 							else
 							{
 								$html .= '<div class="mb-2"> '.  T_("Please choose one package"). ' </div>';
+								$select_name = 'package';
 							}
 
 							foreach ($pluginDetail['price_list'] as $key => $value)
@@ -118,9 +120,9 @@ $html .= '<div class="">';
 								$html .= '<div class="radio4">';
 								{
 
-									$html .= '<input id="periodic'.$key.'" type="radio" name="periodic" value="'.a($value, 'key').'" '. $checked. '>';
+									$html .= '<input id="'.$select_name. $key.'" type="radio" name="'.$select_name.'" value="'.a($value, 'key').'" '. $checked. '>';
 
-									$html .= '<label for="periodic'.$key.'">';
+									$html .= '<label for="'.$select_name. $key.'">';
 									{
 										$html .= '<div>';
 										{
