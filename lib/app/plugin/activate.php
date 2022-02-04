@@ -66,9 +66,22 @@ class activate
 			$plugin_type = $plugin_detail['type'];
 		}
 
+		$price = null;
 
-		// --------------- Load price
-		$price = \lib\app\plugin\get::price($plugin, $data['periodic']);
+		if($plugin_type === 'once')
+		{
+			$price = \lib\app\plugin\get::price($plugin);
+		}
+		elseif($plugin_type === 'periodic')
+		{
+			$price = \lib\app\plugin\get::price($plugin, $data['periodic']);
+		}
+		elseif($plugin_type === 'counting_package')
+		{
+			$price = \lib\app\plugin\get::price($plugin, $data['package']);
+		}
+
+
 
 		if(!is_numeric($price))
 		{
@@ -159,13 +172,25 @@ class activate
 		}
 		elseif($plugin_type === 'counting_package')
 		{
-			\dash\notif::error(T_("Not ready"));
-			return false;
+			$package_count  = \lib\app\plugin\get::package_count($plugin, $data['package']);
+
+			$currnet_count = \lib\db\store_plugin_action\get::active_plugin_package_count($plugin_id);
+
+			if(a($plugin_detail, 'max_count'))
+			{
+				if((floatval($package_count) + floatval($package_count)) >= floatval($plugin_detail['max_count']))
+				{
+					\dash\pdo::rollback();
+					\dash\notif::error(T_("The maximum package activation capacity has been completed for you"));
+					return false;
+				}
+			}
+
+			$insert_action['packagecount'] = $package_count;
 		}
 		else
 		{
 			$plus_day  = \lib\app\plugin\get::plus_day($plugin, $data['periodic']);
-
 
 			list($datestart, $action_description) = self::detect_plugin_date_start($plugin_id, $exist_plugin_record);
 
@@ -232,6 +257,7 @@ class activate
 		$temp_args['plugin_id']   = $plugin_id;
 		$temp_args['action_id']   = $action_id;
 		$temp_args['periodic']    = $data['periodic'];
+		$temp_args['package']     = $data['package'];
 		$temp_args['user_id']     = $user_id;
 
 		if($pay_price > 0)
@@ -365,8 +391,15 @@ class activate
 			return false;
 		}
 
+		$plugin_type        = a($plugin_detail, 'type');
+		$periodic           = a($_args, 'periodic');
+		$package            = a($_args, 'package');
+		$action_description = null;
+		$plus_day           = null;
+		$package_count      = null;
+		$price              = null;
+		$datestart          = null;
 
-		$plugin_type = a($plugin_detail, 'type');
 
 		if(a($exist_plugin_record, 'status') === 'enable')
 		{
@@ -377,21 +410,52 @@ class activate
 				\dash\notif::ok(T_("This plugin is already activated for your business"));
 				return true;
 			}
-			else
-			{
-				// check max time
-			}
 		}
 
-		$periodic = a($_args, 'periodic');
+		if($plugin_type === 'counting_package')
+		{
+			$package_count  = \lib\app\plugin\get::package_count($plugin, $package);
 
-		// --------------- Get price
-		$price  = \lib\app\plugin\get::price($plugin, $periodic);
+			$currnet_count = \lib\db\store_plugin_action\get::active_plugin_package_count($plugin_id);
+
+			if(a($plugin_detail, 'max_count'))
+			{
+				if((floatval($package_count) + floatval($package_count)) >= floatval($plugin_detail['max_count']))
+				{
+					\dash\pdo::rollback();
+					\dash\notif::error(T_("The maximum package activation capacity has been completed for you"));
+					return false;
+				}
+			}
+
+			$price  = \lib\app\plugin\get::price($plugin, $package);
+
+		}
+		elseif($plugin_type === 'periodic')
+		{
+			$plus_day  = \lib\app\plugin\get::plus_day($plugin, $periodic);
+
+			list($datestart, $action_description) = self::detect_plugin_date_start($plugin_id, $exist_plugin_record);
+
+			$new_date_expire = date("Y-m-d H:i:s", $datestart + \lib\app\plugin\get::day_to_time($plus_day));
+
+			if(a($plugin_detail, 'max_period'))
+			{
+				if(strtotime($new_date_expire) > (strtotime($plugin_detail['max_period'])))
+				{
+					\dash\pdo::rollback();
+					\dash\notif::error(T_("Can not active this plugin more than this time!"));
+					return false;
+				}
+			}
+
+			$price  = \lib\app\plugin\get::price($plugin, $periodic);
+		}
 
 		if(!is_numeric($price))
 		{
 			\dash\pdo::rollback();
-			\dash\notif::error(T_("Invalid periodic key!"));
+			\dash\notif::error(T_("Invalid plugin price!"));
 			return false;
 		}
 
@@ -463,36 +527,22 @@ class activate
 			'finalprice'     => $price,
 			'status'         => 'enable',
 			'datecreated'    => date("Y-m-d H:i:s"),
+			'desc'           => $action_description,
 		];
 
 
 		if($plus_day)
 		{
-			// calculate start date and end date and fill the $insert_action
-			$action_description = null;
-
-
-			list($datestart, $action_description) = self::detect_plugin_date_start($plugin_id, $exist_plugin_record);
-
-			$plus_day  = \lib\app\plugin\get::plus_day($plugin, $periodic);
-
-
 			$insert_action['datestart']  = date("Y-m-d H:i:s", $datestart);
 			$insert_action['plusday']    = $plus_day;
 			$insert_action['expiredate'] = date("Y-m-d H:i:s", $datestart + \lib\app\plugin\get::day_to_time($plus_day));
-			$insert_action['desc']       = $action_description;
-
-			if(a($plugin_detail, 'max_period'))
-			{
-				if(strtotime($insert_action['expiredate']) > (strtotime($plugin_detail['max_period'])))
-				{
-					\dash\pdo::rollback();
-					\dash\notif::error(T_("Can not active this plugin more than this time!"));
-					return false;
-				}
-			}
 
 			$update_plugin['expiredate'] = $insert_action['expiredate'];
+		}
+
+		if($package_count)
+		{
+			$insert_action['packagecount'] = $package_count;
 		}
 
 		// enable plugin
@@ -517,6 +567,7 @@ class activate
 			'my_page_url'       => a($_args, 'page_url'),
 			'my_business_title' => a($load_busness_detail, 'title'),
 			'my_price'          => $price,
+			'my_package_count'  => $package_count,
 		];
 		\dash\log::set('business_plugin', $log);
 

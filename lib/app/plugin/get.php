@@ -103,10 +103,6 @@ class get
 		{
 			$price = a($detail, 'price');
 		}
-		elseif(a($detail, 'type') === 'counting_package')
-		{
-			$price = a($detail, 'price');
-		}
 		else
 		{
 			if(!$_periodic)
@@ -244,6 +240,46 @@ class get
 		}
 
 		return $plus_day;
+	}
+
+
+	public static function package_count($_plugin, $_package)
+	{
+		$detail = \lib\app\plugin\call_function::detail($_plugin);
+
+		$package_count = null;
+
+		if(a($detail, 'type') === 'once')
+		{
+			\dash\notif::error(T_("This plugin is not counting package"));
+			return false;
+		}
+		else
+		{
+			if(!$_package)
+			{
+				\dash\notif::error(T_("Please choose one package"));
+				return false;
+			}
+
+			$price_list = a($detail, 'price_list');
+			if(!is_array($price_list) || !$price_list)
+			{
+				\dash\log::oops('ErrorPluginPriceList', T_("Can not complete your request. Please contact to administrator"));
+				return false;
+			}
+
+			foreach ($price_list as $key => $value)
+			{
+				if(a($value, 'key') === $_package)
+				{
+					$package_count = a($value, 'package_count');
+					break;
+				}
+			}
+		}
+
+		return $package_count;
 	}
 
 	public static function zone($_plugin)

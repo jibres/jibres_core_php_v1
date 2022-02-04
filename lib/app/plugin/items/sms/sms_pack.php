@@ -16,21 +16,21 @@ class sms_pack
 			[
 				[
 					'key'           => 'pack_1000',
-					'count'         => 1000,
+					'package_count' => 1000,
 					'title'         => T_("A package of :val SMS", ['val' => \dash\fit::number(1000)]),
 					'comperatprice' => 50000,
 					'price'         => 50000,
 				],
 				[
 					'key'           => 'pack_5000',
-					'count'         => 5000,
+					'package_count' => 5000,
 					'title'         => T_("A package of :val SMS", ['val' => \dash\fit::number(5000)]),
 					'comperatprice' => 200000,
 					'price'         => 200000,
 				],
 				[
 					'key'           => 'pack_10000',
-					'count'         => 10000,
+					'package_count' => 10000,
 					'title'         => T_("A package of :val SMS", ['val' => \dash\fit::number(10000)]),
 					'comperatprice' => 400000,
 					'price'         => 400000,
