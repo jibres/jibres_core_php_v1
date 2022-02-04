@@ -103,6 +103,10 @@ class get
 		{
 			$price = a($detail, 'price');
 		}
+		elseif(a($detail, 'type') === 'counting_package')
+		{
+			$price = a($detail, 'price');
+		}
 		else
 		{
 			if(!$_periodic)

@@ -22,6 +22,7 @@ class activate
 		[
 			'plugin'     => 'string_200',
 			'periodic'   => 'string_200',
+			'package'    => 'string_200',
 			'use_budget' => 'bit',
 			'turn_back'  => 'string_2000',
 		];
@@ -155,6 +156,11 @@ class activate
 				\dash\notif::ok(T_("This plugin is already activated for your business"));
 				return true;
 			}
+		}
+		elseif($plugin_type === 'counting_package')
+		{
+			\dash\notif::error(T_("Not ready"));
+			return false;
 		}
 		else
 		{
