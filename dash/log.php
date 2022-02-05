@@ -583,6 +583,12 @@ class log
 			}
 
 			$temp = \dash\db\users::get_by_permission_list_active($permission_list, $fuel);
+
+			if(!is_array($temp))
+			{
+				$temp = [];
+			}
+
 			$all_user_detail = array_merge($all_user_detail, $temp);
 		}
 

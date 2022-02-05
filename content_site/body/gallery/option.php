@@ -260,6 +260,11 @@ class option
 			return false;
 		}
 
+		if(!is_array($menu['preview']))
+		{
+			$menu['preview'] = [];
+		}
+
 		$menu = array_merge($menu, $menu['preview']);
 
 		// if(is_array(a($menu, 'preview', 'meta')))

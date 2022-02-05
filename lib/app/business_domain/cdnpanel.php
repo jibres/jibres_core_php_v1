@@ -190,6 +190,11 @@ class cdnpanel
 
 			$get_domain = \lib\api\arvancloud\api::get_domain($domain);
 
+			if(!is_array($get_domain))
+			{
+				$get_domain = [];
+			}
+
 			if(isset($get_domain['data']['id']))
 			{
 				// fetch dns record
