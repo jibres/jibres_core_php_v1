@@ -7,7 +7,15 @@ class controller
 	public static function routing()
 	{
 		\dash\permission::access('crmSms');
-		\dash\redirect::to(\dash\url::this(). '/datalist');
+
+		if(\dash\url::isLocal())
+		{
+			// nothing
+		}
+		else
+		{
+			\dash\redirect::to(\dash\url::this(). '/datalist');
+		}
 	}
 }
 ?>
