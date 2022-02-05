@@ -12,6 +12,8 @@ class tools
 	 */
 	public static function master_check()
 	{
+		\dash\temp::set('isApi', true);
+
 		if(\dash\url::store())
 		{
 			self::stop(404, T_("Can not set store in url"));
@@ -21,7 +23,7 @@ class tools
 		// check jibres module
 		if(\dash\url::module() === 'jibres')
 		{
-			self::check_jpi_token();
+			self::check_jibres_api_token();
 			return false;
 
 		}
@@ -34,8 +36,6 @@ class tools
 			self::appkey_required();
 			self::accesstoken_required();
 		}
-
-		\dash\temp::set('isApi', true);
 	}
 
 
@@ -45,7 +45,7 @@ class tools
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	private static function check_jpi_token()
+	private static function check_jibres_api_token()
 	{
 		$Authorization = \dash\header::get('HTTP_AUTHORIZATION');
 
@@ -80,10 +80,46 @@ class tools
 			return false;
 		}
 
-		$jibres_user_code = \dash\header::get('HTTP_X_JUSER');
-		$business_user    = \dash\header::get('HTTP_X_BUSER');
+
+		// check business
 		$business         = \dash\header::get('HTTP_X_BUSISNESS');
 
+
+		if(!$business)
+		{
+			self::stop(400, T_("Business code is required"));
+			return false;
+		}
+
+		$business_id = \dash\store_coding::decode($business);
+
+		if(!$business_id)
+		{
+			self::stop(400, T_("Invalid business id"));
+			return false;
+		}
+
+
+		$load_store = \lib\app\store\get::by_id($business_id);
+		if(!$load_store)
+		{
+			self::stop(403, T_("Store not found"));
+			return false;
+		}
+
+		self::$lock_on_store = $load_store;
+
+
+		if(in_array(\dash\url::child(), ['ip', 'sms']))
+		{
+			// needless to check user login
+			return true;
+		}
+
+
+		// check user login
+		$jibres_user_code = \dash\header::get('HTTP_X_JUSER');
+		$business_user    = \dash\header::get('HTTP_X_BUSER');
 
 		// check jibres user code
 		if(!$jibres_user_code)
@@ -106,20 +142,6 @@ class tools
 			return false;
 		}
 
-		if(!$business)
-		{
-			self::stop(400, T_("Business code is required"));
-			return false;
-		}
-
-		$business_id = \dash\store_coding::decode($business);
-
-		if(!$business_id)
-		{
-			self::stop(400, T_("Invalid business id"));
-			return false;
-		}
-
 		\dash\user::init($jibres_user, 'api_core');
 
 		if(!\dash\user::id())
@@ -129,14 +151,6 @@ class tools
 		}
 
 
-		$load_store = \lib\app\store\get::by_id($business_id);
-		if(!$load_store)
-		{
-			self::stop(403, T_("Store not found"));
-			return false;
-		}
-
-		self::$lock_on_store = $load_store;
 	}
 
 
