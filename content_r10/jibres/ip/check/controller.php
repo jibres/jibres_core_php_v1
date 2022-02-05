@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\ip\check;
+namespace content_r10\jibres\ip\check;
 
 
 class controller
