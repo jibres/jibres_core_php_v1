@@ -32,16 +32,41 @@ class queue
 		$args['agent_id']    = \dash\agent::get(true);
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
-		$sms_id = \lib\db\sms_log\insert::new_record($args);
+		$sms_local_id = \lib\db\sms_log\insert::new_record($args);
 
-		if(!$sms_id)
+		if(!$sms_local_id)
 		{
 			// \dash\notif::error(T_("Can not add your sms"));
 			return false;
 		}
 
+		$jibres_sms =
+		[
+			'local_id'    => $sms_local_id,
+			'mobile'      => a($args, 'mobile'),
+			'message'     => a($args, 'message'),
+			'sender'      => a($args, 'sender'),
+			'len'         => a($args, 'len'),
+			'smscount'    => a($args, 'smscount'),
+			'status'      => a($args, 'status'),
+			'type'        => a($args, 'type'),
+			'mode'        => a($args, 'mode'),
+		];
+
+		// if(\dash\engine\store::inStore())
+		// {
+		// 	$jibres_sms['store_id'] = \lib\store::id();
+		// 	// curl to jibres to save
+		// 	$jibres_sms_result = \lib\api\jibres\api::add_store_sms($jibres_sms);
+		// }
+		// else
+		// {
+		// 	// save db
+		// 	\lib\db\store_sms\insert::new_record($jibres_sms);
+		// }
+
 		$result       = [];
-		$result['id'] = $sms_id;
+		$result['id'] = $sms_local_id;
 
 		// \dash\notif::ok(T_("Sms successfully added"));
 		return $result;
