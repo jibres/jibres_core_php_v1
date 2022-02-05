@@ -240,13 +240,25 @@ class api
 
 
 
-
+	/**
+	 * Public api. Get ip detail
+	 *
+	 * @param      <type>  $_ip    { parameter_description }
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
 	public static function check_ip($_ip)
 	{
 		$result = self::run('ip/check','post', [], ['ip' => $_ip], ['not_check_login' => true, 'special_folder' => '']);
 		return $result;
 	}
 
+
+	public static function add_store_sms(array $_args)
+	{
+		$result = self::run('sms','post', [], $_args, ['not_check_login' => true]);
+		return $result;
+	}
 
 }
 ?>
