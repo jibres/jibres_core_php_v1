@@ -124,6 +124,9 @@ class model
 
 		}
 
+		// update all body detail by preview detail
+		\content_site\page\model::save_page($post_detail['post_id']);
+
 		\dash\session::set('mySiteBuilderPageTitle', null);
 
 		if(\dash\temp::get('initHomepageArgs'))
@@ -148,6 +151,8 @@ class model
 		\dash\temp::set('initHomepageArgs', $args);
 
 		self::post();
+
+
 
 		\dash\notif::clean();
 
