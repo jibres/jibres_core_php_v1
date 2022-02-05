@@ -4,17 +4,31 @@ namespace lib\api\jibres;
 /**
  * Jibres API
  * This class describes a jibres_api.
- * Execute module content_r10/jibres/plugin
  */
 class api
 {
 
 	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])
 	{
-		if(!\dash\user::login())
+		if(a($_option, 'not_check_login'))
 		{
-			// \dash\notif::error_once(T_("Please login to continue"));
-			return false;
+			// needless to check login
+		}
+		else
+		{
+			if(!\dash\user::login())
+			{
+				// \dash\notif::error_once(T_("Please login to continue"));
+				return false;
+			}
+
+			$jibres_user_id = \dash\user::detail('jibres_user_id');
+
+			if(!$jibres_user_id)
+			{
+				\dash\notif::error_once(T_("Please login to continue"));
+				return false;
+			}
 		}
 
 		if(!\dash\engine\store::inStore())
@@ -23,40 +37,63 @@ class api
 			return false;
 		}
 
-		$jibres_user_id = \dash\user::detail('jibres_user_id');
+		// detect url
 
-		if(!$jibres_user_id)
+		$array_url = [];
+
+		if(\dash\url::isLocal())
 		{
-			\dash\notif::error_once(T_("Please login to continue"));
-			return false;
+			$array_url[] = 'https://core.jibres.local';
 		}
+		else
+		{
+			$array_url[] = \dash\url::jibres_subdomain('core');
+		}
+
+		$array_url[] = 'r10';
+
+
+		$folder = null;
+
+		if(a($_option, 'special_folder'))
+		{
+			if(is_string(a($_option, 'folder')) && $_option['folder'])
+			{
+				$folder = $_option['folder'];
+			}
+		}
+		else
+		{
+			$array_url[] = 'jibres';
+		}
+
+		$array_url[] = $_path;
+
+		$array_url = array_filter($array_url);
+
+		$url = implode('/', $array_url);
 
 
 		$apikey = \dash\setting\whisper::say('jibres_api', 'token');
 
 		$apikey = \dash\utility::hasher($apikey);
 
-		if(\dash\url::isLocal())
-		{
-			// $url = 'https://core.jibres.ir/r10/jibres/';
-			$url = 'https://core.jibres.local/r10/jibres/';
-		}
-		else
-		{
-			$url = \dash\url::jibres_subdomain('core');
-			// $url .= \dash\language::current(). '/';
-			$url .= 'r10/jibres/';
-		}
 
-
-		$url .= $_path;
 
 		// set headers
 		$header   = [];
 		$header[] = 'Authorization: '. $apikey;
 		$header[] = 'x-busisness: '. \lib\store::code();
-		$header[] = 'x-buser: '. \dash\user::code();
-		$header[] = 'x-juser: '. \dash\coding::encode(\dash\user::jibres_user());
+
+		if(a($_option, 'not_check_login'))
+		{
+			// needless to send login detail in header
+		}
+		else
+		{
+			$header[] = 'x-buser: '. \dash\user::code();
+			$header[] = 'x-juser: '. \dash\coding::encode(\dash\user::jibres_user());
+		}
 
 		if($_body)
 		{
@@ -200,6 +237,16 @@ class api
 		$result = self::run('twitter/lookup','get', $_args);
 		return $result;
 	}
+
+
+
+
+	public static function check_ip($_ip)
+	{
+		$result = self::run('ip/check','post', [], ['ip' => $_ip], ['not_check_login' => true, 'special_folder' => '']);
+		return $result;
+	}
+
 
 }
 ?>
