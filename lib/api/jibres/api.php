@@ -47,11 +47,10 @@ class api
 		}
 		else
 		{
-			$array_url[] = \dash\url::jibres_subdomain('core');
+			$array_url[] = substr(\dash\url::jibres_subdomain('core'), 0, -1);
 		}
 
 		$array_url[] = 'r10';
-
 
 		$folder = null;
 
