@@ -20,7 +20,6 @@ class history
 		[
 			'mode'         => null,
 			'mobile'       => null,
-			'mobiles'      => null,
 			'message'      => null,
 			'urlmd5'       => null,
 			'url'          => null,
