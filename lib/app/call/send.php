@@ -84,7 +84,6 @@ class send
 		[
 			'mode'         => 'tts',
 			'mobile'       => $mobile,
-			'mobiles'      => null,
 			'message'      => $_message,
 			'line'         => self::line(),
 			'datesend'     => $datesend,
