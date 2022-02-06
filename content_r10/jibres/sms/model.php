@@ -20,13 +20,12 @@ class model
 			'status'      => a($post, 'status'),
 			'type'        => a($post, 'type'),
 			'mode'        => a($post, 'mode'),
-			'datecreated' => date("Y-m-d H:i:s"),
 		];
 
 		// save db
-		$jibres_sms_id = \lib\db\store_sms\insert::new_record($jibres_sms);
+		$jibres_sms_id = \lib\db\sms\insert::new_record($jibres_sms);
 
-		$result = ['jibres_id' => $jibres_sms_id];
+		$result = ['jibres_sms_id' => $jibres_sms_id];
 
 		\content_r10\tools::say($result);
 

@@ -40,29 +40,41 @@ class queue
 			return false;
 		}
 
-		$jibres_sms =
-		[
-			'local_id'    => $sms_local_id,
-			'mobile'      => a($args, 'mobile'),
-			'message'     => a($args, 'message'),
-			'sender'      => a($args, 'sender'),
-			'len'         => a($args, 'len'),
-			'smscount'    => a($args, 'smscount'),
-			'status'      => a($args, 'status'),
-			'type'        => a($args, 'type'),
-			'mode'        => a($args, 'mode'),
-		];
+		// $jibres_sms =
+		// [
+		// 	'local_id'    => $sms_local_id,
+		// 	'mobile'      => a($args, 'mobile'),
+		// 	'message'     => a($args, 'message'),
+		// 	'sender'      => a($args, 'sender'),
+		// 	'len'         => a($args, 'len'),
+		// 	'smscount'    => a($args, 'smscount'),
+		// 	'status'      => a($args, 'status'),
+		// 	'type'        => a($args, 'type'),
+		// 	'mode'        => a($args, 'mode'),
+		// ];
 
+		// $jibres_sms_id = null;
 		// if(\dash\engine\store::inStore())
 		// {
 		// 	$jibres_sms['store_id'] = \lib\store::id();
 		// 	// curl to jibres to save
 		// 	$jibres_sms_result = \lib\api\jibres\api::add_store_sms($jibres_sms);
+
+		// 	if(isset($jibres_sms_result['result']['jibres_sms_id']) && is_numeric($jibres_sms_result['result']['jibres_sms_id']))
+		// 	{
+		// 		$jibres_sms_id = floatval($jibres_sms_result['result']['jibres_sms_id']);
+		// 	}
 		// }
 		// else
 		// {
 		// 	// save db
-		// 	\lib\db\store_sms\insert::new_record($jibres_sms);
+		// 	$jibres_sms_id = self::add_new_sms_record($jibres_sms);
+		// }
+
+		// // update local status from pending to register
+		// if(!$jibres_sms_id)
+		// {
+		// 	\lib\db\sms_log\update::record(['status' => 'register'], $sms_local_id);
 		// }
 
 		$result       = [];
@@ -71,6 +83,59 @@ class queue
 		// \dash\notif::ok(T_("Sms successfully added"));
 		return $result;
 	}
+
+
+	/**
+	 * Adds a new sms record.
+	 * Call from api and self
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function add_new_sms_record($_args)
+	{
+
+		$condition =
+		[
+			'local_id'    => 'id',
+			'store_id'    => 'id',
+			'mobile'      => 'mobile',
+			'message'     => 'string',
+			'sender'      => ['enum' => ['system', 'admin', 'customer']],
+			'len'         => 'int',
+			'smscount'    => 'int',
+			'status'      => 'string',
+			'type'        => 'string',
+			'mode'        => 'string',
+
+		];
+
+		$require = ['mobile'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$jibres_sms =
+		[
+			'local_id'    => a($data, 'local_id'),
+			'mobile'      => a($data, 'mobile'),
+			'message'     => a($data, 'message'),
+			'sender'      => a($data, 'sender'),
+			'len'         => a($data, 'len'),
+			'smscount'    => a($data, 'smscount'),
+			'status'      => a($data, 'status'),
+			'type'        => a($data, 'type'),
+			'mode'        => a($data, 'mode'),
+		];
+
+		$jibres_sms_id = \lib\db\sms\insert::new_record($jibres_sms);
+
+		return $jibres_sms_id;
+	}
+
 
 
 	public static function send()
