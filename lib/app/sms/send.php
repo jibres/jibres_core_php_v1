@@ -147,7 +147,6 @@ class send
 		$insert_kavenegar_log =
 		[
 			'mobile'       => $mobile,
-			'mobiles'      => null,
 			'message'      => $message,
 			'line'         => $_options['line'],
 			'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
@@ -318,7 +317,6 @@ class send
 		$insert_kavenegar_log =
 		[
 			'mobile'       => null,
-			'mobiles'      => json_decode($accepted_mobile),
 			'message'      => $message,
 			'line'         => $_options['line'],
 			'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
