@@ -69,7 +69,6 @@ CREATE TABLE IF NOT EXISTS jibres_api_log.sms_sending (
 `sms_id` bigint UNSIGNED NOT NULL,
 `status` enum('pending','sending','done') DEFAULT NULL,
 `datecreated` timestamp NULL,
-`datemodified` timestamp NULL,
 PRIMARY KEY (`id`),
 INDEX `sms_sending_status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
