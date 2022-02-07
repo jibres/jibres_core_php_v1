@@ -131,10 +131,10 @@ class api
 
 		$log =
 		[
+			'response'        => $response,
 			'header'          => $header,
 			'url'             => $url,
 			'func_get_args'   => func_get_args(),
-			'response'        => $response,
 			'response_decode' => json_decode($response, true),
 			'CurlError'       => $CurlError,
 			'Info'            => $getInfo,

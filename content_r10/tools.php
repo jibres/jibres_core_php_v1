@@ -161,7 +161,7 @@ class tools
 			return self::$lock_on_store['id'];
 		}
 
-		return false;
+		return null;
 	}
 
 

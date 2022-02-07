@@ -32,53 +32,63 @@ class queue
 		$args['agent_id']    = \dash\agent::get(true);
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
-		$sms_local_id = \lib\db\sms_log\insert::new_record($args);
+		$sms_store_smslog_id = \lib\db\sms_log\insert::new_record($args);
 
-		if(!$sms_local_id)
+		if(!$sms_store_smslog_id)
 		{
 			// \dash\notif::error(T_("Can not add your sms"));
 			return false;
 		}
 
-		// $jibres_sms =
-		// [
-		// 	'local_id'    => $sms_local_id,
-		// 	'mobile'      => a($args, 'mobile'),
-		// 	'message'     => a($args, 'message'),
-		// 	'sender'      => a($args, 'sender'),
-		// 	'len'         => a($args, 'len'),
-		// 	'smscount'    => a($args, 'smscount'),
-		// 	'status'      => a($args, 'status'),
-		// 	'type'        => a($args, 'type'),
-		// 	'mode'        => a($args, 'mode'),
-		// ];
+		$jibres_sms =
+		[
+			'store_smslog_id'    => $sms_store_smslog_id,
+			'mobile'      => a($args, 'mobile'),
+			'message'     => a($args, 'message'),
+			'sender'      => a($args, 'sender'),
+			'len'         => a($args, 'len'),
+			'smscount'    => a($args, 'smscount'),
+			'status'      => a($args, 'status'),
+			'type'        => a($args, 'type'),
+			'mode'        => a($args, 'mode'),
+		];
 
-		// $jibres_sms_id = null;
-		// if(\dash\engine\store::inStore())
-		// {
-		// 	$jibres_sms['store_id'] = \lib\store::id();
-		// 	// curl to jibres to save
-		// 	$jibres_sms_result = \lib\api\jibres\api::add_store_sms($jibres_sms);
+		$jibres_sms_id = null;
+		if(\dash\engine\store::inStore())
+		{
+			$jibres_sms['store_id'] = \lib\store::id();
+			// curl to jibres to save
+			$jibres_sms_result = \lib\api\jibres\api::add_store_sms($jibres_sms);
 
-		// 	if(isset($jibres_sms_result['result']['jibres_sms_id']) && is_numeric($jibres_sms_result['result']['jibres_sms_id']))
-		// 	{
-		// 		$jibres_sms_id = floatval($jibres_sms_result['result']['jibres_sms_id']);
-		// 	}
-		// }
-		// else
-		// {
-		// 	// save db
-		// 	$jibres_sms_id = self::add_new_sms_record($jibres_sms);
-		// }
+			if(isset($jibres_sms_result['result']['jibres_sms_id']) && is_numeric($jibres_sms_result['result']['jibres_sms_id']))
+			{
+				$jibres_sms_id = floatval($jibres_sms_result['result']['jibres_sms_id']);
+			}
+		}
+		else
+		{
+			// save db
+			$jibres_sms_id = self::add_new_sms_record($jibres_sms);
+		}
 
-		// // update local status from pending to register
-		// if(!$jibres_sms_id)
-		// {
-		// 	\lib\db\sms_log\update::record(['status' => 'register'], $sms_local_id);
-		// }
+		$update_sms = [];
+		// update local status from pending to register
+		if(!$jibres_sms_id)
+		{
+			$update_sms['status'] = 'register';
+		}
+		else
+		{
+			$update_sms['jibres_sms_id'] = $jibres_sms_id;
+		}
+
+		if(!empty($update_sms))
+		{
+			\lib\db\sms_log\update::record($update_sms, $sms_store_smslog_id);
+		}
 
 		$result       = [];
-		$result['id'] = $sms_local_id;
+		$result['id'] = $sms_store_smslog_id;
 
 		// \dash\notif::ok(T_("Sms successfully added"));
 		return $result;
@@ -98,16 +108,16 @@ class queue
 
 		$condition =
 		[
-			'local_id'    => 'id',
-			'store_id'    => 'id',
-			'mobile'      => 'mobile',
-			'message'     => 'string',
-			'sender'      => ['enum' => ['system', 'admin', 'customer']],
-			'len'         => 'int',
-			'smscount'    => 'int',
-			'status'      => 'string',
-			'type'        => 'string',
-			'mode'        => 'string',
+			'store_smslog_id' => 'id',
+			'store_id'        => 'id',
+			'mobile'          => 'mobile',
+			'message'         => 'string',
+			'sender'          => ['enum' => ['system', 'admin', 'customer']],
+			'len'             => 'int',
+			'smscount'        => 'int',
+			'status'          => 'string',
+			'type'            => 'string',
+			'mode'            => 'string',
 
 		];
 
@@ -120,18 +130,36 @@ class queue
 
 		$jibres_sms =
 		[
-			'local_id'    => a($data, 'local_id'),
-			'mobile'      => a($data, 'mobile'),
-			'message'     => a($data, 'message'),
-			'sender'      => a($data, 'sender'),
-			'len'         => a($data, 'len'),
-			'smscount'    => a($data, 'smscount'),
-			'status'      => a($data, 'status'),
-			'type'        => a($data, 'type'),
-			'mode'        => a($data, 'mode'),
+			'store_smslog_id' => a($data, 'store_smslog_id'),
+			'mobile'          => a($data, 'mobile'),
+			'store_id'        => a($data, 'store_id'),
+			'message'         => a($data, 'message'),
+			'sender'          => a($data, 'sender'),
+			'len'             => a($data, 'len'),
+			'smscount'        => a($data, 'smscount'),
+			'status'          => a($data, 'status'),
+			'type'            => a($data, 'type'),
+			'mode'            => a($data, 'mode'),
+			'datecreated'     => date("Y-m-d H:i:s"),
 		];
 
 		$jibres_sms_id = \lib\db\sms\insert::new_record($jibres_sms);
+
+		if($jibres_sms_id)
+		{
+			$sms_sending =
+			[
+				'sms_id'      => $jibres_sms_id,
+				'status'      => 'pending',
+				'datecreated' => date("Y-m-d H:i:s"),
+			];
+
+			\lib\db\sms\insert::new_record_sending($sms_sending);
+		}
+		else
+		{
+			\dash\log::oops('errorAddNewSMS');
+		}
 
 		return $jibres_sms_id;
 	}

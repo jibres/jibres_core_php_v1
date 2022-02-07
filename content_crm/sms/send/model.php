@@ -15,7 +15,8 @@ class model
 
 		if(isset($result['id']))
 		{
-			\dash\redirect::to(\dash\url::this(). '/view?id='. $result['id']);
+			\dash\notif::ok(T_("Saved"));
+			// \dash\redirect::to(\dash\url::this(). '/view?id='. $result['id']);
 		}
 
 

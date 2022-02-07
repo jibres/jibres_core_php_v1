@@ -10,20 +10,21 @@ class model
 
 		$jibres_sms =
 		[
-			'local_id'    => a($post, 'local_id'),
-			'store_id'    => \content_r10\tools::get_current_business_id(),
-			'mobile'      => a($post, 'mobile'),
-			'message'     => a($post, 'message'),
-			'sender'      => a($post, 'sender'),
-			'len'         => a($post, 'len'),
-			'smscount'    => a($post, 'smscount'),
-			'status'      => a($post, 'status'),
-			'type'        => a($post, 'type'),
-			'mode'        => a($post, 'mode'),
+			'store_smslog_id' => a($post, 'store_smslog_id'),
+			'store_id'        => \content_r10\tools::get_current_business_id(),
+			'mobile'          => a($post, 'mobile'),
+			'message'         => a($post, 'message'),
+			'sender'          => a($post, 'sender'),
+			'len'             => a($post, 'len'),
+			'smscount'        => a($post, 'smscount'),
+			'status'          => a($post, 'status'),
+			'type'            => a($post, 'type'),
+			'mode'            => a($post, 'mode'),
 		];
 
+
 		// save db
-		$jibres_sms_id = \lib\db\sms\insert::new_record($jibres_sms);
+		$jibres_sms_id = \lib\app\sms\queue::add_new_sms_record($jibres_sms);
 
 		$result = ['jibres_sms_id' => $jibres_sms_id];
 
