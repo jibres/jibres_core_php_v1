@@ -149,5 +149,109 @@ class search
 
 		return $list;
 	}
+
+
+
+
+	public static function jibres_list($_query_string, $_args)
+	{
+		$condition =
+		[
+			'order'        => 'order',
+			'sort'         => 'string_100',
+			'store_id'     => 'id',
+			'status'       => ['enum' => ['pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other']],
+			// 'type'      => ['enum' => []],
+			'mobile'       => 'mobile',
+		];
+
+
+
+		$require = [];
+		$meta    =	[];
+
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+
+		$and         = [];
+		$meta        = [];
+		$or          = [];
+		$meta['join'] = [];
+
+		$meta['limit'] = 20;
+
+
+		$order_sort  = null;
+
+
+		if($data['store_id'])
+		{
+			$and[] = " sms.store_id = $data[store_id] ";
+		}
+
+		if($data['mobile'])
+		{
+			$and[] = " sms.mobile = '$data[mobile]' ";
+			self::$is_filtered = true;
+		}
+
+		if($data['status'])
+		{
+			if($data['status'] === 'other')
+			{
+				$and[] = " sms.status NOT IN ('pending', 'sending', 'send') ";
+
+			}
+			else
+			{
+				$and[] = " sms.status = '$data[status]' ";
+			}
+			self::$is_filtered = true;
+		}
+
+		$query_string = \dash\validate::search($_query_string, false);
+
+		if($query_string)
+		{
+			$mobile = \dash\validate::mobile($query_string, false);
+			if($mobile)
+			{
+				$or[]        = " sms.mobile = '$mobile'";
+			}
+			else
+			{
+				$or[]        = " sms.mobile LIKE '%$query_string%'";
+			}
+			self::$is_filtered = true;
+		}
+
+
+		if($data['sort'] && !$order_sort)
+		{
+			if(\lib\app\sms\filter::check_allow($data['sort'], $data['order']))
+			{
+				$order_sort = " ORDER BY $data[sort] $data[order]";
+			}
+		}
+
+		if(!$order_sort)
+		{
+			$order_sort = " ORDER BY sms.id DESC";
+		}
+
+		$list = \lib\db\sms\search::list($and, $or, $order_sort, $meta);
+
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+
+		$list = array_map(['\\lib\\app\\sms\\ready', 'row'], $list);
+
+		return $list;
+	}
 }
 ?>
