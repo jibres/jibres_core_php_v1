@@ -32,19 +32,17 @@
 
     <tr>
       <td class="collapsing">
-
-          <a class="btn-outline-primary" href="<?php echo \dash\url::this(). '/view?id='. $value['id'] ?>">
-            <i class="sf-eye"></i>
-            <code><?php echo $value['id'] ?></code>
-          </a>
-
+        <a class="btn-outline-primary" href="<?php echo \dash\url::this(). '/view?id='. $value['id'] ?>">
+          <i class="sf-eye"></i>
+          <code><?php echo $value['id'] ?></code>
+        </a>
       </td>
       <td class="collapsing">
           <?php echo \dash\fit::mobile($value['mobile']); ?>
       </td>
       <td><?php echo $value['message']; ?></td>
-
       <td class="collapsing">
+        <div><?php echo $value['status']; ?></div>
         <div><?php echo $value['type']; ?></div>
         <div><?php echo $value['mode']; ?></div>
       </td>
