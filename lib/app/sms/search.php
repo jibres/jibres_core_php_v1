@@ -253,5 +253,52 @@ class search
 
 		return $list;
 	}
+
+
+
+
+	public static function sms_sending_list($_query_string, $_args)
+	{
+		$condition =
+		[
+			'order'        => 'order',
+			'sort'         => 'string_100',
+			'store_id'     => 'id',
+			'status'       => ['enum' => ['pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other']],
+			// 'type'      => ['enum' => []],
+			'mobile'       => 'mobile',
+		];
+
+
+
+		$require = [];
+		$meta    =	[];
+
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+
+		$and         = [];
+		$meta        = [];
+		$or          = [];
+		$meta['join'] = [];
+
+		$meta['limit'] = 20;
+
+
+		$order_sort = " ORDER BY id DESC";
+
+
+		$list = \lib\db\sms\search::sms_sending_list($and, $or, $order_sort, $meta);
+
+
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+
+		return $list;
+	}
 }
 ?>
