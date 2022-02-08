@@ -207,14 +207,17 @@ class queue
 		{
 			if(isset($sms['mobile']) && isset($sms['message']))
 			{
-				$option = [];
-
-				if(isset($sms['sender']) && $sms['sender'] === 'admin')
+				if(a($sms, 'mode') === 'sms')
 				{
-					$option['line'] = '10002000200251';
-				}
+					$option = [];
 
-				$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], $option, $sms['id']);
+					if(isset($sms['sender']) && $sms['sender'] === 'admin')
+					{
+						$option['line'] = '10002000200251';
+					}
+
+					$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], $option, $sms['id']);
+				}
 			}
 		}
 
