@@ -7,19 +7,29 @@ class check
 	{
 		$condition =
 		[
-			'mobile'  => 'mobile',
-			'message' => 'desc',
-			'sender'  => ['enum' => ['system', 'admin', 'customer']],
+			'mobile'   => 'mobile',
+			'message'  => 'desc',
+			'sender'   => ['enum' => ['system', 'admin', 'customer']],
+			'provider' => 'string_50',
+			'mode'     => ['enum' => ['sms','call','tts', 'verification', 'receive', 'lookup']],
+			'type'     => ['enum' => ['signup','login','twostep','twostepset','twostepunset','deleteaccount','recovermobile','callback_signup','changepassword','notif','other']],
+			'status'   => ['enum' => ['register','pending','sending','expired','moneylow','unknown','send','sended','delivered','queue','failed','undelivered','cancel','block','other']],
+			'sender'   => ['enum' => ['system','admin','customer']],
+			'template' => 'string_100',
+			'meta'     => 'json'
 		];
 
-		$require = ['mobile', 'message'];
+		$require = ['mobile'];
 
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$data['len']      = mb_strlen($data['message']);
-		$data['smscount'] = ceil($data['len'] / 70);
+		if($data['message'])
+		{
+			$data['len']      = mb_strlen($data['message']);
+			$data['smscount'] = ceil($data['len'] / 70);
+		}
 
 		return $data;
 	}

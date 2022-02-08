@@ -105,16 +105,78 @@ class model
 				$sms_setting = \lib\app\setting\get::sms_setting();
 				if(isset($sms_setting['kavenegar_apikey']) && $sms_setting['kavenegar_apikey'])
 				{
+					$add_sms =
+					[
+						'mobile'  => $my_mobile,
+						'message' => $msg,
+						'sender'  => 'customer',
+						'mode'    => 'verification',
+						'type'    => 'login',
+					];
+
+					$add_sms_result = \lib\app\sms\queue::add_one($add_sms);
+
+					if($add_sms_result)
+					{
+						$kavenegar_send_result = true;
+					}
+
+					// need to remove it after send sms by queue
 					$kavenegar_send_result = \lib\app\sms\send::send($my_mobile, $msg, $sms_option);
 				}
 				else
 				{
 					$token2 = \lib\store::title();
+
+					$add_sms =
+					[
+						'mobile'   => $my_mobile,
+						'template' => $template,
+						'mode'     => 'verification',
+						'type'     => 'login',
+						'meta'     => json_encode(
+						[
+							'token' => $token,
+							'token2' => $token2,
+						]),
+						'message' => null,
+						'sender'  => 'customer',
+					];
+
+					$add_sms_result = \lib\app\sms\queue::add_one($add_sms);
+
+					if($add_sms_result)
+					{
+						$kavenegar_send_result = true;
+					}
+
+
 					$kavenegar_send_result = \lib\app\sms\send::verification_code($my_mobile, $template, $token, null, null, null, $token2);
 				}
 			}
 			else
 			{
+				$add_sms =
+				[
+					'mobile'   => $my_mobile,
+					'template' => $template,
+					'mode'     => 'verification',
+					'type'     => 'login',
+					'meta'     => json_encode(
+					[
+						'token' => $token,
+					]),
+					'message' => null,
+					'sender'  => 'customer',
+				];
+
+				$add_sms_result = \lib\app\sms\queue::add_one($add_sms);
+
+				if($add_sms_result)
+				{
+					$kavenegar_send_result = true;
+				}
+
 				$kavenegar_send_result = \lib\app\sms\send::verification_code($my_mobile, $template, $token);
 			}
 

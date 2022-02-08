@@ -15,9 +15,20 @@ class queue
 		$myIp   = \dash\server::ip();
 		$ip_id  = \dash\utility\ip::id($myIp);
 
-		$args['status']      = 'pending';
-		$args['type']        = 'notif';
-		$args['mode']        = 'sms';
+		if(!a($args, 'status'))
+		{
+			$args['status']      = 'pending';
+		}
+
+		if(!a($args, 'type'))
+		{
+			$args['type']        = 'notif';
+		}
+
+		if(!a($args, 'mode'))
+		{
+			$args['mode']        = 'sms';
+		}
 
 		if(!$args['sender'])
 		{
@@ -31,6 +42,7 @@ class queue
 		$args['ip_id']       = $ip_id;
 		$args['agent_id']    = \dash\agent::get(true);
 		$args['datecreated'] = date("Y-m-d H:i:s");
+
 
 		$sms_store_smslog_id = \lib\db\sms_log\insert::new_record($args);
 
