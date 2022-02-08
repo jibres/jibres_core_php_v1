@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.sms_log CHANGE `mode` `mode` ENUM('sms','call','tts', 'verification', 'receive', 'lookup') CHARACTER SET utf8mb4  NULL DEFAULT NULL;
