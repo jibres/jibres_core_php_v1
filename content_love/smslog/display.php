@@ -42,13 +42,12 @@
       </td>
       <td class="collapsing">
           <?php echo \dash\fit::mobile($value['mobile']); ?>
-          <?php if($value['mobiles']) {?>
-            <i class="fc-red"><?php echo T_("Multiple mobiles") ?></i>
-          <?php } // ?>
+
       </td>
       <td><?php echo $value['message']; ?></td>
 
       <td class="collapsing">
+        <div><?php echo $value['status']; ?></div>
         <div><?php echo $value['type']; ?></div>
         <div><?php echo $value['mode']; ?></div>
       </td>
