@@ -1,0 +1,1 @@
+ALTER TABLE jibres.sms_log ADD `meta` text  NULL DEFAULT NULL;
