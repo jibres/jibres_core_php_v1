@@ -94,7 +94,7 @@ class api
 
 			if($CurlError)
 			{
-				\dash\notif::error(' CURL Error: '. $CurlError);
+				// \dash\notif::error(' CURL Error: '. $CurlError);
 			}
 			return false;
 		}
