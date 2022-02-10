@@ -139,6 +139,7 @@ class queue
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		$add_sending_record = false;
 
 		$jibres_sms =
 		[
@@ -155,9 +156,19 @@ class queue
 			'datecreated'     => date("Y-m-d H:i:s"),
 		];
 
+		if(a($jibres_sms, 'store_id'))
+		{
+			// check store package remain
+			$add_sending_record = \lib\app\sms\package::check($jibres_sms);
+		}
+		else
+		{
+			$add_sending_record = true;
+		}
+
 		$jibres_sms_id = \lib\db\sms\insert::new_record($jibres_sms);
 
-		if($jibres_sms_id)
+		if($jibres_sms_id && $add_sending_record)
 		{
 			$sms_sending =
 			[
@@ -167,6 +178,7 @@ class queue
 			];
 
 			\lib\db\sms\insert::new_record_sending($sms_sending);
+
 		}
 		else
 		{
