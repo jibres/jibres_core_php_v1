@@ -109,12 +109,26 @@ class activate
 		// action id
 		$action_id = null;
 
-		if(isset($exist_plugin_record['id']))
+		$add_new_plugin = false;
+
+		if($plugin_type === 'counting_package')
 		{
-			// set plugin id
-			$plugin_id = $exist_plugin_record['id'];
+			$add_new_plugin = true;
 		}
 		else
+		{
+			if(isset($exist_plugin_record['id']))
+			{
+				// set plugin id
+				$plugin_id = $exist_plugin_record['id'];
+			}
+			else
+			{
+				$add_new_plugin = true;
+			}
+		}
+
+		if($add_new_plugin)
 		{
 			// need to add new record in store plugin
 
@@ -136,6 +150,7 @@ class activate
 				return false;
 			}
 		}
+
 
 		$action_description = null;
 		if($data['use_budget'])
