@@ -24,9 +24,13 @@ class model
 
 
 		// save db
-		$jibres_sms_id = \lib\app\sms\queue::add_new_sms_record($jibres_sms);
+		$jibres_sms_result = \lib\app\sms\queue::add_new_sms_record($jibres_sms);
 
-		$result = ['jibres_sms_id' => $jibres_sms_id];
+		$result =
+		[
+			'jibres_sms_id' => a($jibres_sms_result, 'id'),
+			'status'        => a($jibres_sms_result, 'status'),
+		];
 
 		\content_r10\tools::say($result);
 

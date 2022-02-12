@@ -5,9 +5,14 @@ class package
 {
 	public static function check(&$_sms_detail)
 	{
-		// var_dump($_sms_detail);exit;
+		if(!\dash\url::isLocal())
+		{
+			return true;
+		}
 
-		return true;
+		$_sms_detail['status'] = 'moneylow';
+
+		return false;
 
 	}
 

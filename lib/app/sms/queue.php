@@ -65,7 +65,10 @@ class queue
 			'mode'        => a($args, 'mode'),
 		];
 
+		$update_sms    = [];
 		$jibres_sms_id = null;
+		$new_status    = null;
+
 		if(\dash\engine\store::inStore())
 		{
 			$jibres_sms['store_id'] = \lib\store::id();
@@ -76,14 +79,26 @@ class queue
 			{
 				$jibres_sms_id = floatval($jibres_sms_result['result']['jibres_sms_id']);
 			}
+
+			if(isset($jibres_sms_result['result']['status']) && $jibres_sms_result['result']['status'])
+			{
+				$new_status = $jibres_sms_result['result']['status'];
+			}
 		}
 		else
 		{
 			// save db
-			$jibres_sms_id = self::add_new_sms_record($jibres_sms);
+			$jibres_sms_result = self::add_new_sms_record($jibres_sms);
+			$jibres_sms_id     = a($jibres_sms_result, 'id');
+			$new_status        = a($jibres_sms_result, 'status');
+
 		}
 
-		$update_sms = [];
+		if(in_array($new_status, ['register','pending','sending','expired','moneylow','unknown','send','sended','delivered','queue','failed','undelivered','cancel','block','other']))
+		{
+			$update_sms['status'] = $new_status;
+		}
+
 		// update local status from pending to register
 		if(!$jibres_sms_id)
 		{
@@ -178,14 +193,19 @@ class queue
 			];
 
 			\lib\db\sms\insert::new_record_sending($sms_sending);
-
 		}
 		else
 		{
-			\dash\log::oops('errorAddNewSMS');
+			// needless to add to sending table
 		}
 
-		return $jibres_sms_id;
+		$result =
+		[
+			'id'     => $jibres_sms_id,
+			'status' => a($jibres_sms, 'status'),
+		];
+
+		return $result;
 	}
 
 
