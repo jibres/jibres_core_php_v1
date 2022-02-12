@@ -500,7 +500,7 @@ class add
 
 					if($my_send_sms && $my_sms_text && $user_id && isset($value['mobile']))
 					{
-						\dash\log::send_sms($user_id, $my_sms_text);
+						\dash\log::send_notif($user_id, $my_sms_text);
 					}
 				}
 			}

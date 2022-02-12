@@ -54,6 +54,18 @@ class log
 	}
 
 
+	public static function send_notif($_user_id, $_text)
+	{
+		$log =
+		[
+			'to' => $_user_id,
+			'my_text' => $_text,
+		];
+
+		\dash\log::set('sendNotif', $log);
+	}
+
+
 	public static function to_supervisor($_text)
 	{
 		$log =

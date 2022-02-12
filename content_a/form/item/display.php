@@ -256,10 +256,10 @@ if(!is_array($saved_filetype))
 function settingSendSms($value) {?>
 <div class="check1 mT25">
 	<input type="checkbox" name="item_send_sms_<?php echo a($value, 'id') ?>" id="send_sms<?php echo a($value, 'id'); ?>" <?php if(a($value, 'setting', a($value,'type') , 'send_sms')) { echo 'checked';} ?>>
-	<label for="send_sms<?php echo a($value, 'id'); ?>"><?php echo T_("Send sms after complete form?"); ?></label>
+	<label for="send_sms<?php echo a($value, 'id'); ?>"><?php echo T_("Send notification after complete form?"); ?></label>
 </div>
 <div data-response="item_send_sms_<?php echo a($value, 'id') ?>" <?php if(a($value, 'setting', a($value,'type') , 'send_sms')) {}else{ echo 'data-response-hide';} ?>>
-<label for="item_sms_text_<?php echo a($value, 'id') ?>"><?php echo T_("Sms text") ?></label>
+<label for="item_sms_text_<?php echo a($value, 'id') ?>"><?php echo T_("Notification text") ?></label>
 <textarea class="txt" rows="2" name="item_sms_text_<?php echo a($value, 'id') ?>" id="item_sms_text_<?php echo a($value, 'id') ?>"><?php echo a($value, 'setting', a($value,'type') , 'sms_text'); ?></textarea>
 </div>
 <?php } // endfunction
