@@ -16,7 +16,7 @@
         </select>
       </div>
       <div class="check1">
-        <input type="checkbox" name="saleonline" id="saleonline" <?php if(\dash\data::productDataRow_saleonline() === 'yes' || \dash\data::productDataRow_saleonline() || !\dash\data::productDataRow()) {echo 'checked';} ?>>
+        <input type="checkbox" name="saleonline" id="saleonline" <?php if(\dash\data::productDataRow_saleonline() === 'yes' ||  !\dash\data::productDataRow()) {echo 'checked';} ?>>
         <label for="saleonline"><?php echo T_("Active in Online Store") ?></label>
       </div>
 
