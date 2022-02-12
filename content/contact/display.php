@@ -71,7 +71,6 @@ if (\dash\language::current() === 'fa')
       <div class="block mB10 email ltr">info [at] jibres [.] com</div>
       <a class="block mB10 tel ltr" href="tel:+982536505281"><?php echo \dash\fit::text('(+98) 25 3650 5281'); ?></a>
       <a class="block mB10 tel ltr" href="tel:+982536505460"><?php echo \dash\fit::text('(+98) 25 3650 5460'); ?></a>
-      <a class="block tel ltr mT10" href="tel:+982128422590"><?php echo \dash\fit::text('(+98) 21 2842 2590'); ?></a>
      </address>
 
     </div>

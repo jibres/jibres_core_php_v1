@@ -52,10 +52,6 @@
     <td class="txtRa"><?php echo T_("Primary Company Phone Number"); ?></td>
     <td class="font-bold ltr"><a href="tel:+982536505281"><?php echo \dash\fit::number("+98-25-3650-5281", false); ?></a></td>
    </tr>
-   <tr>
-    <td class="txtRa"><?php echo T_("Tehran Office Number"); ?></td>
-    <td class="font-bold ltr"><a href="tel:+982128422590"><?php echo \dash\fit::number("+98-21-2842-2590", false); ?></a></td>
-   </tr>
 <?php } ?>
    <tr>
     <td class="txtRa"><?php echo T_("Website"); ?></td>
