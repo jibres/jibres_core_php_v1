@@ -27,7 +27,7 @@
     <li>
       <a class="f item">
         <div class="key">IP</div>
-        <div class="value font-bold"><?php echo long2ip($dataRow['ip']) ?></div>
+        <div class="value font-bold"><?php if(is_numeric($dataRow['ip'])) {echo long2ip($dataRow['ip']); }else{ echo $dataRow['ip']; } ?></div>
       </a>
     </li>
     <li>
