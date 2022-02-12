@@ -50,6 +50,16 @@
     <nav class="items">
       <ul>
         <li>
+          <a class="f item" href="<?php echo \dash\url::here(). '/plugin/manage?id='.a($dataRow, 'id');?>">
+            <div class="key"><?php echo T_("Plugins") ?></div>
+            <div class="value ltr"><?php echo \dash\store_coding::encode(a($dataRow, 'id'));  ?></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <nav class="items">
+      <ul>
+        <li>
           <a class="f item" href="<?php echo \dash\url::kingdom(). '/'.\dash\store_coding::encode(a($dataRow, 'id'));?>">
             <div class="key"><?php echo T_("Go to admin") ?></div>
             <div class="value ltr"><?php echo \dash\store_coding::encode(a($dataRow, 'id'));  ?></div>
