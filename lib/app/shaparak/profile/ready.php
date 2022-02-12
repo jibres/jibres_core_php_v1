@@ -175,7 +175,7 @@ class ready
 				$result['telephoneNumber'] = $_data['pre_phone'];
 
 				// @TODO @Reza must convert phone to this format
-				$result['telephoneNumber'] = '025-36505460';
+				$result['telephoneNumber'] = '025-36505281';
 			}
 		}
 
