@@ -93,7 +93,7 @@ class ready
 						// pendingRenew
 						// pendingUpdate
 						// irnicRegistered
-						// irnicLocked
+						// irnicLocked									-- Domain locked need to unlock pay
 						// irnicExpired
 						// irnicRegistrationApproved
 						// irnicRegistrationRejected
