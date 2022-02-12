@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-10 11:07+0330\n"
-"PO-Revision-Date: 2022-02-10 11:10+0330\n"
+"POT-Creation-Date: 2022-02-12 12:12+0330\n"
+"PO-Revision-Date: 2022-02-12 12:13+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1135,7 +1135,7 @@ msgstr "ساختمان یاس، طبقه دوم"
 msgid "Postal Code"
 msgstr "کد پستی"
 
-#: content/contact/display.php:80
+#: content/contact/display.php:78
 msgid "Our location on map"
 msgstr "موقعیت ما در نقشه"
 
@@ -2749,7 +2749,7 @@ msgstr "رابط برنامه‌نویسی توسعه‌دهندگان API"
 msgid "All-in-One Ecommerce Software"
 msgstr "همه‌ی نیازهای تجارت الکترونیک در یک نرم‌افزار"
 
-#: content/home/view.php:14 content/investment/display-company-info.php:86
+#: content/home/view.php:14 content/investment/display-company-info.php:82
 #: content/view.php:20
 msgid "POS Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
@@ -2938,11 +2938,7 @@ msgstr "خیابان هفت تیر، کوچه یکم، ساختمان یاس، �
 msgid "Primary Company Phone Number"
 msgstr "شماره تلفن مرکز اصلی شرکت"
 
-#: content/investment/display-company-info.php:56
-msgid "Tehran Office Number"
-msgstr "شماره دفتر تهران"
-
-#: content/investment/display-company-info.php:61
+#: content/investment/display-company-info.php:57
 #: content_a/setting/factor/seller/display.php:29 content_account/my/home/display.php:154
 #: content_account/my/social/display.php:12 content_cms/posts/share/display.php:46
 #: content_crm/member/legal/display.php:32 content_my/business/home/display_pwa.php:53
@@ -2952,68 +2948,68 @@ msgstr "شماره دفتر تهران"
 msgid "Website"
 msgstr "وب‌سایت"
 
-#: content/investment/display-company-info.php:65
+#: content/investment/display-company-info.php:61
 #: content_my/domain/irnic/add/display.php:103
 msgid "Email Address"
 msgstr "آدرس ایمیل"
 
-#: content/investment/display-company-info.php:70
+#: content/investment/display-company-info.php:66
 #: content_a/setting/factor/seller/display.php:25 content_crm/member/legal/display.php:26
 msgid "CEO"
 msgstr "مدیرعامل"
 
-#: content/investment/display-company-info.php:71
+#: content/investment/display-company-info.php:67
 msgid "Mr. Javad Adib"
 msgstr "آقای مهندس جواد ادیب"
 
-#: content/investment/display-company-info.php:75
+#: content/investment/display-company-info.php:71
 msgid "Activity"
 msgstr "فعالیت"
 
-#: content/investment/display-company-info.php:76
+#: content/investment/display-company-info.php:72
 msgid "eCommerce Platform"
 msgstr "پلتفرم تجارت الکترونیک"
 
-#: content/investment/display-company-info.php:76
+#: content/investment/display-company-info.php:72
 msgid "Financial technology"
 msgstr "فناوری‌های مالی"
 
-#: content/investment/display-company-info.php:76
-#: content/investment/display-company-info.php:81
+#: content/investment/display-company-info.php:72
+#: content/investment/display-company-info.php:77
 msgid "Fintech"
 msgstr "فین‌تک"
 
-#: content/investment/display-company-info.php:79 dash/panel.php:151
+#: content/investment/display-company-info.php:75 dash/panel.php:151
 msgid "Keywords"
 msgstr "کلیدواژه‌ها"
 
-#: content/investment/display-company-info.php:82
+#: content/investment/display-company-info.php:78
 msgid "E-commerce"
 msgstr "تجارت الکترونیک"
 
-#: content/investment/display-company-info.php:83 content_a/setting/domain/view.php:11
+#: content/investment/display-company-info.php:79 content_a/setting/domain/view.php:11
 #: content_a/setting/home/display.php:110 content_a/setting/legal/view.php:11
 #: content_a/setting/menu/view.php:13 dash/panel.php:265
 msgid "Website Builder"
 msgstr "سایت‌ساز"
 
-#: content/investment/display-company-info.php:84
+#: content/investment/display-company-info.php:80
 msgid "App Builder"
 msgstr "اپ ساز"
 
-#: content/investment/display-company-info.php:85
+#: content/investment/display-company-info.php:81
 msgid "Telegram Seller"
 msgstr "ربات فروشنده تلگرام"
 
-#: content/investment/display-company-info.php:87
+#: content/investment/display-company-info.php:83
 msgid "Instagram Sell Assistant"
 msgstr "دستیار فروش اینستاگرام"
 
-#: content/investment/display-company-info.php:88
+#: content/investment/display-company-info.php:84
 msgid "PWA Builder"
 msgstr "PWA ساز"
 
-#: content/investment/display-company-info.php:89 content_crm/home/view.php:8
+#: content/investment/display-company-info.php:85 content_crm/home/view.php:8
 #: content_crm/log/enter/view.php:11 content_crm/log/home/view.php:11
 #: content_crm/log/home/view.php:20 content_crm/log/notif/view.php:11
 #: content_crm/member/home/view.php:16 content_crm/notification/home/view.php:12
@@ -3025,24 +3021,24 @@ msgstr "PWA ساز"
 msgid "CRM"
 msgstr "مدیریت ارتباط با مشتریان"
 
-#: content/investment/display-company-info.php:90 content_cms/home/view.php:9
+#: content/investment/display-company-info.php:86 content_cms/home/view.php:9
 #: dash/panel.php:125 lib/app/quickaccess/setting.php:240
 msgid "Content Management System"
 msgstr "سیستم مدیریت محتوا"
 
-#: content/investment/display-company-info.php:91 content_a/form/home/view.php:9
+#: content/investment/display-company-info.php:87 content_a/form/home/view.php:9
 #: content_crm/home/display.php:136
 msgid "Form Builder"
 msgstr "فرم‌ساز"
 
-#: content/investment/display-company-info.php:92 content_a/setting/home/display.php:91
+#: content/investment/display-company-info.php:88 content_a/setting/home/display.php:91
 #: lib/app/quickaccess/setting.php:677 lib/app/store/analytics.php:91
 #: lib/app/store/analytics.php:92 lib/app/store/analytics.php:93
 #: lib/app/store/analytics.php:94 lib/app/store/analytics.php:95
 msgid "Accounting"
 msgstr "حسابداری"
 
-#: content/investment/display-company-info.php:96
+#: content/investment/display-company-info.php:92
 msgid "Public release date"
 msgstr "تاریخ انتشار عمومی"
 
@@ -9346,12 +9342,12 @@ msgid "Any file"
 msgstr "هرفایلی"
 
 #: content_a/form/item/display.php:259
-msgid "Send sms after complete form?"
-msgstr "آیا بعد از تکمیل فرم پیامک ارسال شود؟"
+msgid "Send notification after complete form?"
+msgstr "آیا بعد از تکمیل فرم پیام اطلاع‌رسانی ارسال شود؟"
 
 #: content_a/form/item/display.php:262
-msgid "Sms text"
-msgstr "متن پیامک"
+msgid "Notification text"
+msgstr "متن پیام"
 
 #: content_a/form/item/display.php:275
 msgid "Signup user by this item?"
@@ -17752,8 +17748,8 @@ msgstr "تاریخچه پیامک‌های ارسال شده"
 #: content_crm/sms/home/display.php:8 content_crm/telegram/home/display.php:8
 #: content_crm/ticket/home/display.php:8 content_love/sms/display.php:19
 #: content_love/smslog/display.php:19 content_love/smslog/view/display.php:10
-#: content_sudo/tg/sendmessage/display.php:11 dash/app/log/caller/sendNotifBySms.php:18
-#: lib/app/form/item/type.php:429
+#: content_sudo/tg/sendmessage/display.php:11 dash/app/log/caller/sendNotif.php:18
+#: dash/app/log/caller/sendNotifBySms.php:18 lib/app/form/item/type.php:429
 msgid "Message"
 msgstr "پیام"
 
@@ -25895,11 +25891,12 @@ msgstr "شما می‌توانید نشست‌های فعال خود را :val �
 msgid "Or change your password more securely."
 msgstr "یا برای امنیت بیشتر رمز‌عبور خود را تغییر دهید."
 
-#: dash/app/log/caller/sendNotifBySms.php:15
+#: dash/app/log/caller/sendNotif.php:15 dash/app/log/caller/sendNotifBySms.php:15
 msgid "Alert"
 msgstr "هشدار"
 
-#: dash/app/log/caller/sendNotifBySms.php:35 dash/app/log/caller/sendToSupervisor.php:35
+#: dash/app/log/caller/sendNotif.php:35 dash/app/log/caller/sendNotifBySms.php:35
+#: dash/app/log/caller/sendToSupervisor.php:35
 msgid "Empty message!"
 msgstr "پیام خالی است!"
 
@@ -42933,6 +42930,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Tehran Office Number"
+#~ msgstr "شماره دفتر تهران"
+
+#~ msgid "Sms text"
+#~ msgstr "متن پیامک"
 
 #~ msgid "Multiple mobiles"
 #~ msgstr "چند موبایلی"
