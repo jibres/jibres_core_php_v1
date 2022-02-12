@@ -72,7 +72,7 @@ class get
 
 	public static function by_business_id($_business_id)
 	{
-		$query = "SELECT * FROM store_plugin WHERE store_plugin.store_id = :id ";
+		$query = "SELECT * FROM store_plugin WHERE store_plugin.store_id = :id ORDER BY store_plugin.id DESC";
 		$param = [':id' => $_business_id];
 
 		$result = \dash\pdo::get($query, $param);
