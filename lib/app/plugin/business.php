@@ -173,9 +173,6 @@ class business
 			}
 		}
 
-		// var_dump($sync_required);
-		// var_dump(\lib\app\setting\get::plugin_list());exit;
-
 
 		if($sync_required)
 		{
