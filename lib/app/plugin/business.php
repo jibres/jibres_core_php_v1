@@ -327,5 +327,48 @@ class business
 
 		return false;
 	}
+
+
+
+
+
+	public static function activated_list($_plugin)
+	{
+		// not check is active plugin in jibres!
+		if(!\dash\engine\store::inStore())
+		{
+			return false;
+		}
+
+		self::load_once(true);
+
+		var_dump(func_get_args());exit;
+
+
+		if(isset(self::$business_plugin_list[$_plugin]))
+		{
+			if(self::$business_plugin_list[$_plugin] === 'enable')
+			{
+				return true;
+			}
+			elseif(($myTime = strtotime(self::$business_plugin_list[$_plugin])) !== false)
+			{
+				if($myTime > time())
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		return false;
+	}
 }
 ?>

@@ -21,6 +21,14 @@ class view
 
 
 		\dash\data::myBudget($my_jibres_budget);
+
+
+		// if(\dash\data::pluginDetail_type() === 'counting_package')
+		// {
+		// 	$activated_list = \lib\app\plugin\business::activated_list(\dash\data::pluginDetail_type());
+		// 	\dash\data::activatedList($activated_list);
+		// }
+
 	}
 }
 ?>
