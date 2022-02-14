@@ -10,9 +10,11 @@ $is_activated           = \lib\app\plugin\business::is_activated($plugin);
 
 $business_plugin_detail = \lib\app\plugin\business::detail($plugin);
 
+$expiredate = a($business_plugin_detail, 'expiredate');
+
 $in_discount_time       = \lib\app\plugin\get::in_discount_time($plugin);
 
-$payable                = \lib\app\plugin\get::can_start_new_pay($is_activated, $plugin, $business_plugin_detail);
+$payable                = \lib\app\plugin\get::can_start_new_pay($is_activated, $plugin, $expiredate);
 
 $html = '';
 $html .= '<div class="">';
@@ -234,9 +236,10 @@ $html .= '<div class="">';
 
 				if($is_activated)
 				{
-					if($business_plugin_detail !== 'enable')
+
+					if($expiredate)
 					{
-						$html .= '<div class="alert-success mt-4 font-bold">'.  T_('Your plugin is activated until :date', ['date' => \dash\fit::date($business_plugin_detail, 'j F Y')]). '</div>';
+						$html .= '<div class="alert-success mt-4 font-bold">'.  T_('Your plugin is activated until :date', ['date' => \dash\fit::date($expiredate, 'j F Y')]). '</div>';
 					}
 					else
 					{
@@ -306,6 +309,23 @@ $html .= '<div class="">';
 
 }
 $html .= '</div>';
+
+if(\dash\data::activatedList())
+{
+	$html .= '<div>';
+	{
+		foreach (\dash\data::activatedList() as $key => $value)
+		{
+			$html .= '<div class="alert-info">';
+			{
+				$html .= \dash\fit::date_time(a($value, 'datecreated'));
+			}
+			$html .= '</div>';
+
+		}
+	}
+	$html .= '</div>';
+}
 
 
 echo $html;

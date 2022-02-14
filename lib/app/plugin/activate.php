@@ -596,6 +596,27 @@ class activate
 	}
 
 
+	public static function sync_all_business()
+	{
+		$get_all_business_active_plugin = \lib\db\store_plugin\get::all_business_id_activated_plugin();
+
+		$count = 0;
+
+		if(is_array($get_all_business_active_plugin))
+		{
+			foreach ($get_all_business_active_plugin as $key => $value)
+			{
+				$count++;
+
+				\lib\api\business\api::sync_required($value);
+			}
+		}
+
+		\dash\notif::ok(T_("Send to :count business", ['count' => \dash\fit::number($count)]));
+		return true;
+	}
+
+
 	/**
 	 * Detect max expire date and return the new start date
 	 *

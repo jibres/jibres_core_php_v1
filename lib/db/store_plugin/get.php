@@ -69,6 +69,15 @@ class get
 		return $result;
 	}
 
+	public static function all_business_id_activated_plugin()
+	{
+		$query = "SELECT DISTINCT store_plugin.store_id AS `id` FROM store_plugin ";
+		$param = [];
+		$result = \dash\pdo::get($query, $param, 'id');
+		return $result;
+	}
+
+
 
 	public static function by_business_id($_business_id)
 	{

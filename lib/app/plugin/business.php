@@ -35,9 +35,12 @@ class business
 		{
 			$new_list[] =
 			[
-				'plugin'     => a($value, 'plugin'),
-				'status'     => a($value, 'status'),
-				'expiredate' => a($value, 'expiredate'),
+				'id'           => a($value, 'id'),
+				'plugin'       => a($value, 'plugin'),
+				'status'       => a($value, 'status'),
+				'expiredate'   => a($value, 'expiredate'),
+				'datecreated'  => a($value, 'datecreated'),
+				'packagecount' => a($value, 'packagecount'),
 			];
 		}
 
@@ -111,15 +114,29 @@ class business
 	 * Load business plugin once
 	 * If need sync business plugin by jibres connect to jibres api and get business plugin
 	 */
-	private static function load_once()
+	private static function load_once($_live_check = false)
 	{
 		// check fill once
-		if(!empty(self::$business_plugin_list))
+		if(!empty(self::$business_plugin_list) && !$_live_check)
 		{
 			return;
 		}
 
-		$get_all_plugin_setting = \lib\app\setting\get::plugin();
+		// check quick time
+		$life_time = (60*60*24);
+
+		if($_live_check)
+		{
+			$life_time = (60*5);
+
+			if(\dash\url::isLocal())
+			{
+				$life_time = 1;
+			}
+		}
+
+
+		$get_all_plugin_setting = \lib\app\setting\get::plugin_setting();
 
 		$sync_required = false;
 
@@ -129,7 +146,7 @@ class business
 
 			if(($sync_time = strtotime($synced)) !== false)
 			{
-				if(time() - $sync_time > (60*60*24))
+				if(time() - $sync_time > $life_time)
 				{
 					$sync_required = true;
 				}
@@ -156,6 +173,8 @@ class business
 			}
 		}
 
+		// var_dump($sync_required);
+		// var_dump(\lib\app\setting\get::plugin_list());exit;
 
 
 		if($sync_required)
@@ -179,13 +198,12 @@ class business
 				else
 				{
 					// can not connect to jibres api token. Keep current plugin list;
-					self::$business_plugin_list = $get_all_plugin_setting;
+					self::$business_plugin_list = \lib\app\setting\get::plugin_list();
 					return;
 				}
 			}
 
 			$added_plugin = [];
-
 
 			$new_plugin = array_column($plugin_list, 'plugin');
 
@@ -200,50 +218,67 @@ class business
 					continue;
 				}
 
-				$current_plugin[] = $value;
-			}
+				$myValue = [];
 
-			if(empty($current_plugin))
-			{
-				foreach ($plugin_list as $key => $value)
+				if(a($value, 'value'))
 				{
-					if(a($value, 'plugin'))
+					$myValue = json_decode($value['value'], true);
+
+					if(!is_array($myValue))
 					{
-						self::added_plugin_to_setting($value);
+						$myValue = [];
 					}
 				}
+
+				$myValue['setting_record']        = [];
+				$myValue['setting_record']['id']  = a($value, 'id');
+				$myValue['setting_record']['cat'] = a($value, 'cat');
+				$myValue['setting_record']['key'] = a($value, 'key');
+
+
+				$current_plugin[] = $myValue;
 			}
-			else
+
+
+			$saved_plugin_id = array_column($current_plugin, 'id');
+
+			foreach ($plugin_list as $key => $value)
 			{
-				foreach ($current_plugin as $key => $value)
+				$plugin_key = $value['plugin']. '_'. a($value, 'id');
+
+				unset($value['setting_record']);
+
+				$myValue = json_encode($value);
+
+				if(in_array(a($value, 'id'), $saved_plugin_id))
 				{
-					if(in_array(a($value, 'key'), $new_plugin))
-					{
-						foreach ($plugin_list as $plugin_detail)
-						{
-							if(a($value, 'key') === a($plugin_detail, 'plugin'))
-							{
-								$added_plugin[] = $plugin_detail['plugin'];
-
-								self::added_plugin_to_setting($plugin_detail);
-
-							}
-						}
-					}
-					else
-					{
-						\lib\db\setting\delete::by_cat_key('plugin', a($value, 'key'));
-					}
+					\lib\app\setting\tools::update('plugin', $plugin_key, $myValue);
+				}
+				else
+				{
+					\lib\app\setting\tools::save('plugin', $plugin_key, $myValue);
 				}
 			}
 
-			foreach ($plugin_list as $plugin_detail)
+			$new_plugin_id = array_column($plugin_list, 'id');
+
+			foreach ($current_plugin as $key => $value)
 			{
-				if(!in_array(a($plugin_detail, 'plugin'), $added_plugin))
+				if(!in_array(a($value, 'id'), $new_plugin_id))
 				{
-					self::added_plugin_to_setting($plugin_detail);
+					if(a($value, 'setting_record', 'id'))
+					{
+						\lib\db\setting\delete::record(a($value, 'setting_record', 'id'));
+					}
+				}
+
+				// need to remove after update all business data
+				if(a($value, 'setting_record', 'key') && !preg_match("/\w+\_\d+/", $value['setting_record']['key']))
+				{
+					\lib\db\setting\delete::record(a($value, 'setting_record', 'id'));
 				}
 			}
+
 
 			\lib\app\setting\tools::update('plugin', 'synced', date("Y-m-d H:i:s"));
 
@@ -251,23 +286,11 @@ class business
 
 			\lib\app\setting\get::reset_setting_cache('plugin');
 
-			$get_all_plugin_setting = \lib\app\setting\get::plugin();
 		}
 
-		self::$business_plugin_list = $get_all_plugin_setting;
-	}
+		$get_all_plugin_list = \lib\app\setting\get::plugin_list();
 
-
-	private static function added_plugin_to_setting($_data)
-	{
-		$myValue = a($_data, 'status');
-
-		if(a($_data, 'expiredate'))
-		{
-			$myValue = $_data['expiredate'];
-		}
-
-		\lib\app\setting\tools::update('plugin', $_data['plugin'], $myValue);
+		self::$business_plugin_list = $get_all_plugin_list;
 	}
 
 
@@ -282,9 +305,25 @@ class business
 
 		self::load_once();
 
-		if(isset(self::$business_plugin_list[$_plugin]))
+		$plugin_detail = \lib\app\plugin\get::detail($_plugin);
+
+		foreach (self::$business_plugin_list as $key => $value)
 		{
-			return self::$business_plugin_list[$_plugin];
+			if($_plugin === a($value, 'plugin'))
+			{
+				if($plugin_detail['type'] === 'once')
+				{
+					return $value;
+				}
+				elseif($plugin_detail['type'] === 'periodic')
+				{
+					return $value;
+				}
+				elseif($plugin_detail['type'] === 'counting_package')
+				{
+					return $value;
+				}
+			}
 		}
 
 		return null;
@@ -292,7 +331,7 @@ class business
 
 
 
-	public static function is_activated($_plugin)
+	public static function is_activated(string $_plugin) : bool
 	{
 		// not check is active plugin in jibres!
 		if(!\dash\engine\store::inStore())
@@ -302,37 +341,68 @@ class business
 
 		self::load_once();
 
-		if(isset(self::$business_plugin_list[$_plugin]))
+		$plugin_detail = \lib\app\plugin\get::detail($_plugin);
+
+		if($plugin_detail['type'] === 'once' || $plugin_detail['type'] === 'periodic')
 		{
-			if(self::$business_plugin_list[$_plugin] === 'enable')
+			foreach (self::$business_plugin_list as $key => $value)
 			{
-				return true;
-			}
-			elseif(($myTime = strtotime(self::$business_plugin_list[$_plugin])) !== false)
-			{
-				if($myTime > time())
+
+				if($_plugin === a($value, 'plugin'))
 				{
-					return true;
+					if($plugin_detail['type'] === 'once')
+					{
+						if($value['status'] === 'enable')
+						{
+							return true;
+						}
+						else
+						{
+							return false;
+						}
+					}
+					elseif($plugin_detail['type'] === 'periodic')
+					{
+						if(a($value, 'expiredate') && ($myTime = strtotime($value['expiredate'])) !== false)
+						{
+							if($myTime > time())
+							{
+								return true;
+							}
+							else
+							{
+								return false;
+							}
+						}
+						else
+						{
+							return false;
+						}
+					}
+					elseif($plugin_detail['type'] === 'counting_package')
+					{
+						if($value['status'] === 'enable')
+						{
+							return true;
+						}
+						else
+						{
+							return false;
+						}
+					}
 				}
-				else
-				{
-					return false;
-				}
-			}
-			else
-			{
-				return false;
 			}
 		}
 
 		return false;
+
 	}
 
 
 
 
 
-	public static function activated_list($_plugin)
+	public static function activated_list(string $_plugin)
 	{
 		// not check is active plugin in jibres!
 		if(!\dash\engine\store::inStore())
@@ -342,33 +412,21 @@ class business
 
 		self::load_once(true);
 
-		var_dump(func_get_args());exit;
+		$list = [];
 
-
-		if(isset(self::$business_plugin_list[$_plugin]))
+		if(is_array(self::$business_plugin_list))
 		{
-			if(self::$business_plugin_list[$_plugin] === 'enable')
+			foreach (self::$business_plugin_list as $key => $value)
 			{
-				return true;
-			}
-			elseif(($myTime = strtotime(self::$business_plugin_list[$_plugin])) !== false)
-			{
-				if($myTime > time())
+				if($_plugin === a($value, 'plugin'))
 				{
-					return true;
-				}
-				else
-				{
-					return false;
+					$list[] = $value;
 				}
 			}
-			else
-			{
-				return false;
-			}
+
 		}
 
-		return false;
+		return $list;
 	}
 }
 ?>

@@ -461,7 +461,7 @@ class get
 
 
 
-	public static function plugin()
+	public static function plugin_setting()
 	{
 		$cat   = 'plugin';
 
@@ -477,7 +477,56 @@ class get
 		{
 			if(isset($value['key']) && array_key_exists('value', $value))
 			{
-				$setting[$value['key']] = $value['value'];
+				if(in_array(a($value, 'key'), ['synced', 'sync_required']))
+				{
+					$setting[$value['key']] = $value['value'];
+				}
+				else
+				{
+					continue;
+				}
+
+			}
+		}
+
+		return $setting;
+
+	}
+
+
+	public static function plugin_list()
+	{
+		$cat   = 'plugin';
+
+		$result = self::load_setting_once($cat);
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+
+		$setting = [];
+
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['key']) && array_key_exists('value', $value))
+			{
+				if(in_array(a($value, 'key'), ['synced', 'sync_required']))
+				{
+					continue;
+				}
+				else
+				{
+					$temp = json_decode($value['value'], true);
+					if(!is_array($temp))
+					{
+						$temp = [];
+					}
+					$temp['setting_record'] = $value;
+
+					$setting[] = $temp;
+
+				}
+
 			}
 		}
 
