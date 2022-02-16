@@ -12,7 +12,7 @@
 				</div>
 				<label for="amount"><?php echo T_("Amount") ?></label>
 				<div class="input">
-					<input type="tel" id="amount" name="amount" value="<?php echo \dash\data::myAmount() ?>" data-format='price' maxlength="8">
+					<input type="tel" id="amount" name="amount" value="<?php echo \dash\data::myAmount() ?>" data-format='price' maxlength="12">
 				</div>
 			</div>
 			<footer>
