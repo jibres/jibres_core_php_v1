@@ -18,7 +18,7 @@ class price
 	}
 
 
-	public static function renew($_period, $_expire_date = null)
+	public static function renew($_period, $_expire_date = null, $_domain_is_locked = false)
 	{
 		$price = 0;
 		if($_period === '5year')
@@ -43,7 +43,10 @@ class price
 
 			if($diff >= $_30_days && $diff <= $_60_days)
 			{
-				$price = $price * 2;
+				if($_domain_is_locked)
+				{
+					$price = $price * 2;
+				}
 			}
 		}
 

@@ -180,7 +180,14 @@ class renew
 			return false;
 		}
 
-		$price = \lib\app\nic_domain\price::renew($period, $current_date_expire);
+		$domain_is_locked = false;
+		if(is_array(a($get_domain_info, 'status')) && in_array('irnicLocked', $get_domain_info['status']))
+		{
+			$domain_is_locked = true;
+		}
+
+		$price = \lib\app\nic_domain\price::renew($period, $current_date_expire, $domain_is_locked);
+
 
 		$reseller = isset($get_domain_info['reseller']) ? $get_domain_info['reseller'] : null;
 		$bill     = isset($get_domain_info['bill']) ? $get_domain_info['bill'] : null;
