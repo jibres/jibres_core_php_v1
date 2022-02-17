@@ -111,9 +111,12 @@ class activate
 
 		$add_new_plugin = false;
 
+		$package_count = null;
+
 		if($plugin_type === 'counting_package')
 		{
 			$add_new_plugin = true;
+			$package_count  = \lib\app\plugin\get::package_count($plugin, $data['package']);
 		}
 		else
 		{
@@ -134,11 +137,12 @@ class activate
 
 			$insert =
 			[
-				'store_id'    => $_business_id,
-				'plugin'      => $plugin,
-				'zone'        => \lib\app\plugin\get::zone($plugin),
-				'status'      => 'pending',
-				'datecreated' => date("Y-m-d H:i:s"),
+				'store_id'     => $_business_id,
+				'plugin'       => $plugin,
+				'zone'         => \lib\app\plugin\get::zone($plugin),
+				'status'       => 'pending',
+				'datecreated'  => date("Y-m-d H:i:s"),
+				'packagecount' => $package_count,
 			];
 
 			$plugin_id = \lib\db\store_plugin\insert::new_record($insert);

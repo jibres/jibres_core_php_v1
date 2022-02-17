@@ -312,13 +312,25 @@ $html .= '</div>';
 
 if(\dash\data::activatedList())
 {
-	$html .= '<div>';
+	$html .= '<div class="mt-4">';
 	{
 		foreach (\dash\data::activatedList() as $key => $value)
 		{
-			$html .= '<div class="alert-info">';
+			$html .= '<div class="alert-info row">';
 			{
-				$html .= \dash\fit::date_time(a($value, 'datecreated'));
+				$html .= '<div class="c">';
+				{
+					$html .= \dash\fit::date_time(a($value, 'datecreated'));
+				}
+				$html .= '</div>';
+
+				$html .= '<div class="c">';
+				{
+
+					$html .= \dash\fit::number(a($value, 'packagecount'));
+				}
+				$html .= '</div>';
+
 			}
 			$html .= '</div>';
 

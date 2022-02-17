@@ -340,16 +340,26 @@ class business
 
 		$plugin_detail = \lib\app\plugin\get::detail($_plugin);
 
-		if($plugin_detail['type'] === 'once' || $plugin_detail['type'] === 'periodic')
+		foreach (self::$business_plugin_list as $key => $value)
 		{
-			foreach (self::$business_plugin_list as $key => $value)
+			if($_plugin === a($value, 'plugin'))
 			{
-
-				if($_plugin === a($value, 'plugin'))
+				if($plugin_detail['type'] === 'once')
 				{
-					if($plugin_detail['type'] === 'once')
+					if($value['status'] === 'enable')
 					{
-						if($value['status'] === 'enable')
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				}
+				elseif($plugin_detail['type'] === 'periodic')
+				{
+					if(a($value, 'expiredate') && ($myTime = strtotime($value['expiredate'])) !== false)
+					{
+						if($myTime > time())
 						{
 							return true;
 						}
@@ -358,38 +368,25 @@ class business
 							return false;
 						}
 					}
-					elseif($plugin_detail['type'] === 'periodic')
+					else
 					{
-						if(a($value, 'expiredate') && ($myTime = strtotime($value['expiredate'])) !== false)
-						{
-							if($myTime > time())
-							{
-								return true;
-							}
-							else
-							{
-								return false;
-							}
-						}
-						else
-						{
-							return false;
-						}
+						return false;
 					}
-					elseif($plugin_detail['type'] === 'counting_package')
+				}
+				elseif($plugin_detail['type'] === 'counting_package')
+				{
+					if($value['status'] === 'enable')
 					{
-						if($value['status'] === 'enable')
-						{
-							return true;
-						}
-						else
-						{
-							return false;
-						}
+						return true;
+					}
+					else
+					{
+						return false;
 					}
 				}
 			}
 		}
+
 
 		return false;
 
