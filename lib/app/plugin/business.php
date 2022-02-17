@@ -33,14 +33,31 @@ class business
 
 		foreach ($business_plugin_list as $key => $value)
 		{
+			$remain_count = null;
+			$usage_count  = null;
+
+			$plugin = a($value, 'plugin');
+
+			$plugin_detail = \lib\app\plugin\get::detail($plugin);
+
+			if(a($plugin_detail, 'type') === 'counting_package')
+			{
+				$usage_count = \lib\db\sms\get::sum_sms_sended_by_package_id($business_id, $value['id']);
+				$usage_count = floatval($usage_count);
+
+				$remain_count = floatval(a($value, 'packagecount')) - $usage_count;
+			}
+
 			$new_list[] =
 			[
 				'id'           => a($value, 'id'),
-				'plugin'       => a($value, 'plugin'),
+				'plugin'       => $plugin,
 				'status'       => a($value, 'status'),
 				'expiredate'   => a($value, 'expiredate'),
 				'datecreated'  => a($value, 'datecreated'),
 				'packagecount' => a($value, 'packagecount'),
+				'remaincount'  => $remain_count,
+				'usagecount'   => $usage_count,
 			];
 		}
 

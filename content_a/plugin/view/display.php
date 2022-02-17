@@ -314,27 +314,39 @@ if(\dash\data::activatedList())
 {
 	$html .= '<div class="mt-4">';
 	{
-		foreach (\dash\data::activatedList() as $key => $value)
+
+		$html .= '<table class="tbl1 v4">';
 		{
-			$html .= '<div class="alert-info row">';
+			$html .= '<thead>';
 			{
-				$html .= '<div class="c">';
+				$html .= '<tr>';
 				{
-					$html .= \dash\fit::date_time(a($value, 'datecreated'));
+					$html .= '<th>'. T_("Date register").'</th>';
+					$html .= '<th>'. T_("Package count").'</th>';
+					$html .= '<th>'. T_("Usage count").'</th>';
+					$html .= '<th>'. T_("Remain count").'</th>';
 				}
-				$html .= '</div>';
-
-				$html .= '<div class="c">';
-				{
-
-					$html .= \dash\fit::number(a($value, 'packagecount'));
-				}
-				$html .= '</div>';
-
+				$html .= '</tr>';
 			}
-			$html .= '</div>';
+			$html .= '</thead>';
 
+			$html .= '<tbody>';
+			{
+				foreach (\dash\data::activatedList() as $key => $value)
+				{
+					$html .= '<tr>';
+					{
+						$html .= '<td>'. \dash\fit::date_time(a($value, 'datecreated')) .'</td>';
+						$html .= '<td>'. \dash\fit::number(a($value, 'packagecount')) .'</td>';
+						$html .= '<td>'. \dash\fit::number(a($value, 'usagecount')) .'</td>';
+						$html .= '<td>'. \dash\fit::number(a($value, 'remaincount')) .'</td>';
+					}
+					$html .= '</tr>';
+				}
+			}
+			$html .= '</tbody>';
 		}
+		$html .= '</table>';
 	}
 	$html .= '</div>';
 }

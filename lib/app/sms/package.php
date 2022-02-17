@@ -58,6 +58,9 @@ class package
 
 			if($usage_count + floatval(a($sms_detail, 'smscount')) > floatval(a($value, 'packagecount')))
 			{
+				// todo
+				// check remain sms count
+				// if have 1 sms and this sms count is 2 we lost 1 sms!
 				// need to deactive this package
 				\lib\db\store_plugin\update::record(['status' => 'expired'], $value['id']);
 			}
