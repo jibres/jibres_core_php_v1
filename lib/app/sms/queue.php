@@ -258,7 +258,7 @@ class queue
 
 	public static function send_real_time()
 	{
-		file_put_contents(__DIR__. '/xxxxxxxx.me.log', date("Y-m-d H:i:s"). PHP_EOL, FILE_APPEND);
+
 	}
 
 
