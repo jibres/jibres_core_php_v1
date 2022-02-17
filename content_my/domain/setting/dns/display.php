@@ -19,7 +19,7 @@ if(\dash\data::domainDetail_jibres_dns())
             <div class="cauto"><img class="avatar mRa10" src="<?php echo \dash\url::icon() ?>" alt="<?php echo T_("Jibres") ?>"></div>
             <div class="c">
               <?php echo T_("If you want to set your domain Nameserver as our jibres dns record") ?>
-              <div data-confirm data-data='{"jibresdns":"jibresdns"}' data-title='<?php echo T_("Are you sure to set your domain Nameserver record on Jibres Nameserver?") ?>' class="btn-link"><?php echo T_("Click here") ?></div>
+              <div data-confirm data-data='{"jibresdns":"jibresdns"<?php echo \dash\csrf::get_json() ?>}' data-title='<?php echo T_("Are you sure to set your domain Nameserver record on Jibres Nameserver?") ?>' class="btn-link"><?php echo T_("Click here") ?></div>
             </div>
           </div>
 
