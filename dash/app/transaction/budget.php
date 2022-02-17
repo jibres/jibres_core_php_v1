@@ -147,7 +147,7 @@ class budget
 
 			\dash\log::set('transaction_addTransactionManualy', $log);
 
-			\dash\notif::ok(T_("Transaction inserted"));
+			// \dash\notif::ok(T_("Transaction inserted"));
 
 			if($data['type'] === 'plus' && $data['dblm'])
 			{
