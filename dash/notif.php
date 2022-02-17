@@ -112,7 +112,7 @@ class notif
 	{
 		if(\dash\url::content() === 'hook')
 		{
-			return;
+			// return;
 		}
 
 		if(!self::$notif_log_status)
