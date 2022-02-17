@@ -31,15 +31,18 @@ function cronjob_server()
 		return false;
 	}
 
-	if(!in_array($argv, ['php_run_jibres_cronjob', 'php_run_business_cronjob_once', 'php_run_business_cronjob_force']))
+	if(!in_array($argv, ['php_run_jibres_cronjob', 'php_run_business_cronjob_once', 'php_run_business_cronjob_force', 'php_run_loop']))
 	{
 		return false;
 	}
 
+	$host = 'jibres.ir';
+	// $host = 'jibres.local';
+
 	$newServer =
 	[
-		'HTTP_HOST'       => 'jibres.ir',
-		'SERVER_NAME'     => 'jibres.ir',
+		'HTTP_HOST'       => $host,
+		'SERVER_NAME'     => $host,
 		'SERVER_PORT'     => '443',
 		'SERVER_PROTOCOL' => 'HTTP/1.1',
 		'REQUEST_URI'     => '/hook/job',
