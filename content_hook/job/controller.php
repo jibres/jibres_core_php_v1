@@ -25,8 +25,7 @@ class controller
 
 		self::cronjob_run();
 
-		\dash\notif::ok("Ok ;)");
-		\dash\notif::ok("Time: ". date("Y-m-d H:i:s"));
+		\dash\notif::ok("Cronjob ended. Time: ". date("Y-m-d H:i:s"));
 
 		\dash\code::jsonBoom(\dash\notif::get());
 	}
@@ -95,6 +94,7 @@ class controller
 		if(CRONJOB_MODE === 'php_run_loop')
 		{
 			\lib\app\loop\run::fire();
+			\dash\notif::ok("Run loop cronjob ended. Time: ". date("Y-m-d H:i:s"));
 		}
 
 		if(CRONJOB_MODE === 'php_run_jibres_cronjob')
@@ -164,6 +164,8 @@ class controller
 		self::public_cronjob();
 
 		\lib\app\store\reserve::create_business_as_reserved();
+
+		\dash\notif::ok("Run jibres cronjob ended. Time: ". date("Y-m-d H:i:s"));
 	}
 
 
@@ -184,6 +186,9 @@ class controller
 			\content_hook\job\business::run_once($fn, 'public_cronjob');
 
 		}
+
+
+		\dash\notif::ok("Run business cronjob ended. Time: ". date("Y-m-d H:i:s"));
 
 
 		// check and auto expire order
