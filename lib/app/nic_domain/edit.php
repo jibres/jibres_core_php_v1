@@ -4,7 +4,7 @@ namespace lib\app\nic_domain;
 
 class edit
 {
-	public static function domain($_args, $_id, $_type = null, $_only_update_database = false)
+	public static function domain($_args, $_id, $_type = null, $_only_update_database = false, $_admin_edit = false)
 	{
 		$_id = \dash\validate::code($_id);
 		if(!$_id)
@@ -40,8 +40,15 @@ class edit
 		}
 		else
 		{
-			\dash\notif::error(T_("You can not edit this domain setting"));
-			return false;
+			if($_admin_edit)
+			{
+				// ok
+			}
+			else
+			{
+				\dash\notif::error(T_("You can not edit this domain setting"));
+				return false;
+			}
 		}
 
 
