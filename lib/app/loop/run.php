@@ -14,6 +14,20 @@ class run
 			{
 				\dash\utility\busy::set_free('jibres_loop_while_true');
 			}
+			else
+			{
+				$status = self::status();
+
+				if($status && is_string($status))
+				{
+					$last_date = substr($status, 0, 19);
+
+					if(time() - strtotime($last_date) > (120))
+					{
+						\dash\log::to_supervisor('#cronjob More than 120 seconds have passed since the last loop time! Please check cronjob while true status!');
+					}
+				}
+			}
 			return;
 		}
 
@@ -27,14 +41,14 @@ class run
 
 		self::run();
 
-		// never set free this cronjob
-
 	}
 
 
 	private static function run()
 	{
 		$i = 0;
+
+		self::status('Started');
 
 		while (true)
 		{
@@ -49,9 +63,13 @@ class run
 				if(self::force_stop())
 				{
 					// save log and exit loop
+					self::status('Exited -- count '. \dash\fit::number_en($i));
 					\dash\code::boom();
 					return;
 				}
+
+				self::status('Running -- count '. \dash\fit::number_en($i));
+
 			}
 
 			sleep(1);
@@ -59,20 +77,65 @@ class run
 	}
 
 
-
-	private static function force_stop()
+	/**
+	 * Get current status
+	 *
+	 * @param      <type>  $_status  The status
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function status($_status = null)
 	{
-		$setting = \lib\app\setting\tools::get('cronjob', 'jibres_loop_while_true');
-
-		if(isset($setting['value']))
+		if($_status)
 		{
-			if($setting['value'] === 'force_stop')
+			$_status = date("Y-m-d H:i:s"). ' '. $_status;
+
+			\lib\app\setting\tools::update('cronjob', 'jibres_loop_while_true_status', $_status);
+		}
+		else
+		{
+			$setting = \lib\app\setting\tools::get('cronjob', 'jibres_loop_while_true_status');
+
+			if(isset($setting['value']))
 			{
-				return true;
+				return $setting['value'];
 			}
 		}
 
-		return false;
+	}
+
+
+	/**
+	 * Force stop
+	 *
+	 * @param      bool  $_action  The action
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
+	public static function force_stop($_action = null)
+	{
+		if($_action === true)
+		{
+			\lib\app\setting\tools::update('cronjob', 'jibres_loop_while_true', 'force_stop');
+		}
+		elseif($_action === false)
+		{
+			\lib\app\setting\tools::update('cronjob', 'jibres_loop_while_true', 'running');
+		}
+		else
+		{
+			$setting = \lib\app\setting\tools::get('cronjob', 'jibres_loop_while_true');
+
+			if(isset($setting['value']))
+			{
+				if($setting['value'] === 'running')
+				{
+					return false;
+				}
+			}
+		}
+
+		return true;
 	}
 }
 ?>
