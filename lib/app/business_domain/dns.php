@@ -21,7 +21,7 @@ class dns
 				$log['jibres_dns']             = a($_detail, 'jibres_dns');
 				$log['business_domain_status'] = a($get, 'status');
 
-				\dash\log::to_supervisor('#Remove_domain_from_cdn Domain <b>'. $_domain .'</b> removed from ArvanCloud CDN panel. <br> ``` '. json_encode($log, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT). '```');
+				\dash\log::to_supervisor('#Remove_domain_from_cdn Domain <b>'. $_domain .'</b> removed from ArvanCloud CDN panel. <br>'. PHP_EOL. '```'.PHP_EOL. json_encode($log, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT). PHP_EOL. '```');
 
 			}
 		}
@@ -48,6 +48,8 @@ class dns
 		{
 			return false;
 		}
+
+		$domain = $load['domain'];
 
 		$get_dns = self::search_in_our_domain_record($load['domain']);
 
@@ -91,7 +93,7 @@ class dns
 
 			\lib\app\business_domain\edit::set_date($_id, 'datemodified');
 			\lib\app\business_domain\action::new_action($_id, 'dns_failed', ['meta' => json_encode($get_dns)]);
-			\dash\notif::error(T_("Can not get DNS detail!"));
+			\dash\notif::error(T_("Can not get DNS detail!"), ['domain_name' => $domain]);
 			return false;
 		}
 
@@ -108,7 +110,7 @@ class dns
 		}
 
 
-		\dash\notif::ok(T_("DNS detail saved"));
+		\dash\notif::ok(T_("DNS detail saved"), ['domain_name' => $domain]);
 		return true;
 	}
 
@@ -333,7 +335,7 @@ class dns
 		{
 			if(!\dash\temp::get('force_remove_dns_change_provider'))
 			{
-				\dash\notif::error(T_("Can not remove this dns recrod from your domain"));
+				\dash\notif::error(T_("Can not remove this dns recrod from your domain"), ['domain_name' => $domain]);
 				return false;
 			}
 		}
@@ -343,19 +345,19 @@ class dns
 			if(isset($load_dns_record['business_domain_id']) && floatval($load_dns_record['business_domain_id']) === floatval($id) )
 			{
 				$delete = \lib\db\business_domain\delete::dns_record_by_user($dns_id);
-				\dash\notif::delete(T_("DNS record removed"));
+				\dash\notif::delete(T_("DNS record removed"), ['domain_name' => $domain]);
 				return true;
 
 			}
 			else
 			{
-				\dash\notif::error(T_("DNS record and domain is is not match!"));
+				\dash\notif::error(T_("DNS record and domain is is not match!"), ['domain_name' => $domain]);
 				return false;
 			}
 		}
 		else
 		{
-			\dash\notif::error(T_("DNS record not found"));
+			\dash\notif::error(T_("DNS record not found"), ['domain_name' => $domain]);
 			return false;
 		}
 	}
@@ -409,7 +411,7 @@ class dns
 
 					if(!$cdn_id)
 					{
-						\dash\notif::warn(T_("We can not find this record on CDN panel"));
+						\dash\notif::warn(T_("We can not find this record on CDN panel"), ['domain_name' => $domain]);
 					}
 
 					$result_remove = \lib\api\arvancloud\api::remove_dns_record($domain, $cdn_id);
@@ -424,13 +426,13 @@ class dns
 			}
 			else
 			{
-				\dash\notif::error(T_("DNS record and domain is is not match!"));
+				\dash\notif::error(T_("DNS record and domain is is not match!"), ['domain_name' => $domain]);
 				return false;
 			}
 		}
 		else
 		{
-			\dash\notif::error(T_("DNS record not found"));
+			\dash\notif::error(T_("DNS record not found"), ['domain_name' => $domain]);
 			return false;
 		}
 	}
@@ -725,14 +727,14 @@ class dns
 		if(array_key_exists('status', $get_dns_record) && $get_dns_record['status'] === false)
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_fetch_dns_error', ['meta' => self::meta($get_dns_record)]);
-			\dash\notif::warn(T_("Can not get DNS record from CDN panel"));
+			\dash\notif::warn(T_("Can not get DNS record from CDN panel"), ['domain_name' => $domain]);
 			return [];
 		}
 
 		if(!isset($get_dns_record['data']))
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_fetch_dns_error', ['meta' => self::meta($get_dns_record)]);
-			\dash\notif::error(T_("Can not connect to CDN panel"));
+			\dash\notif::error(T_("Can not connect to CDN panel"), ['domain_name' => $domain]);
 			return false;
 		}
 

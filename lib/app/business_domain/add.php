@@ -162,7 +162,7 @@ class add
 				{
 					if(self::$debug)
 					{
-						\dash\notif::error($msg, ['element' => 'domain', 'alerty' => true]);
+						\dash\notif::error($msg, ['element' => 'domain', 'alerty' => true, 'domain_name' => $domain]);
 					}
 					return false;
 				}
@@ -286,7 +286,7 @@ class add
 
 		if(self::$debug)
 		{
-			\dash\notif::create(T_("Domain added"));
+			\dash\notif::create(T_("Domain added"), ['domain_name' => $domain]);
 		}
 
 

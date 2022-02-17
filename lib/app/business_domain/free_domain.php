@@ -13,6 +13,8 @@ class free_domain
 			return false;
 		}
 
+		$domain = $load['domain'];
+
 		$result = \lib\app\business_domain\enterprise_check::is_connected_to_jibres($load['domain']);
 
 		if(\dash\str::strpos($result, 'x-powered-by: jibres') !== false)
@@ -31,7 +33,7 @@ class free_domain
 		}
 		else
 		{
-			\dash\notif::error(T_("This domain was not connected to Jibres"));
+			\dash\notif::error(T_("This domain was not connected to Jibres"), ['domain_name' => $domain]);
 			\lib\app\business_domain\action::new_action($_id, 'enterprise_not_connected');
 			return false;
 		}

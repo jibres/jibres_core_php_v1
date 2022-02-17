@@ -41,13 +41,13 @@ class cdnpanel
 		else
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_delete_domain_not_founde', ['desc' => "can not load domain detail", 'meta' => self::meta($check_exist_domain_on_cdn_panel)]);
-			\dash\notif::error(T_("ID of this domain is not found in CDN panel"));
+			\dash\notif::error(T_("ID of this domain is not found in CDN panel"), ['domain_name' => $domain]);
 		}
 
 
 		\lib\app\business_domain\edit::edit_raw(['status' => 'deleted', 'httpsverify' => 0, 'httpsrequest' => null, 'cdnpanel' => null], $_id);
 
-		\dash\notif::ok(T_("Domain successfully removed from CDN panel"));
+		\dash\notif::ok(T_("Domain successfully removed from CDN panel"), ['domain_name' => $domain]);
 		return true;
 	}
 
@@ -88,7 +88,7 @@ class cdnpanel
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_cdnpanel_force_fetch');
 
 			\lib\app\business_domain\edit::set_date($_id, 'cdnpanel');
-			\dash\notif::ok(T_("Domain successfully added to CDN panel"));
+			\dash\notif::ok(T_("Domain successfully added to CDN panel"), ['domain_name' => $domain]);
 
 			return true;
 		}
@@ -105,13 +105,15 @@ class cdnpanel
 			return false;
 		}
 
+		$domain = $load['domain'];
+
 		if(isset($load['checkdns']) && $load['checkdns'])
 		{
 			// ok DNS is ok
 		}
 		else
 		{
-			\dash\notif::warn(T_("DNS record of this domain is not set on our DNS!"));
+			\dash\notif::warn(T_("DNS record of this domain is not set on our DNS!"), ['domain_name' => $domain]);
 			// return false;
 		}
 
@@ -121,18 +123,17 @@ class cdnpanel
 		}
 		else
 		{
-			\dash\notif::error(T_("CDN field is not valid"));
+			\dash\notif::error(T_("CDN field is not valid"), ['domain_name' => $domain]);
 			return false;
 		}
 
-		$domain = $load['domain'];
 
 		$check_exist_domain_on_cdn_panel = \lib\api\arvancloud\api::get_domain($domain);
 
 		if(!$check_exist_domain_on_cdn_panel || !is_array($check_exist_domain_on_cdn_panel))
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_error', ['desc' => "arvancloud not responded"]);
-			\dash\notif::error(T_("Sorry, Can not connect to CDN API to connect your domain. Please Try again"));
+			\dash\notif::error(T_("Sorry, Can not connect to CDN API to connect your domain. Please Try again"), ['domain_name' => $domain]);
 			return false;
 		}
 
@@ -151,13 +152,13 @@ class cdnpanel
 				\lib\app\business_domain\edit::set_date($_id, 'cdnpanel');
 
 				\lib\app\business_domain\action::new_action($_id, 'arvancloud_domain_add_duplicate', ['desc' => "This domain is already added to CDN panel", 'meta' => self::meta($check_exist_domain_on_cdn_panel)]);
-				\dash\notif::info(T_("This domain already added in CDN panel"));
+				\dash\notif::info(T_("This domain already added in CDN panel"), ['domain_name' => $domain]);
 				return true;
 			}
 			else
 			{
 				\lib\app\business_domain\action::new_action($_id, 'arvancloud_error', ['desc' => "arvancloud not responded", 'meta' => self::meta($check_exist_domain_on_cdn_panel)]);
-				\dash\notif::error(T_("Oops! Unknown error!"));
+				\dash\notif::error(T_("Oops! Unknown error!"), ['domain_name' => $domain]);
 				return false;
 			}
 		}
@@ -177,7 +178,7 @@ class cdnpanel
 
 
 			\lib\app\business_domain\edit::set_date($_id, 'cdnpanel');
-			\dash\notif::ok(T_("Domain successfully added to CDN panel"));
+			\dash\notif::ok(T_("Domain successfully added to CDN panel"), ['domain_name' => $domain]);
 
 			self::remove_all_dns_record($domain);
 
@@ -203,7 +204,7 @@ class cdnpanel
 
 
 				\lib\app\business_domain\edit::set_date($_id, 'cdnpanel');
-				\dash\notif::ok(T_("Domain successfully added to CDN panel"));
+				\dash\notif::ok(T_("Domain successfully added to CDN panel"), ['domain_name' => $domain]);
 
 				self::remove_all_dns_record($domain);
 
@@ -223,7 +224,7 @@ class cdnpanel
 				}
 			}
 
-			\dash\notif::error(T_("This domain is already in use in CDN panel"));
+			\dash\notif::error(T_("This domain is already in use in CDN panel"), ['domain_name' => $domain]);
 
 			self::remove_all_dns_record($domain);
 
@@ -232,7 +233,7 @@ class cdnpanel
 		else
 		{
 			\lib\app\business_domain\action::new_action($_id, 'arvancloud_error', ['desc' => "Can not add domain to CND panel", 'meta' => self::meta($add_domain)]);
-			\dash\notif::error(T_("Can not add domain to CND panel"));
+			\dash\notif::error(T_("Can not add domain to CND panel"), ['domain_name' => $domain]);
 
 			self::remove_all_dns_record($domain);
 
