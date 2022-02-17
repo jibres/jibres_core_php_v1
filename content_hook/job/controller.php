@@ -113,7 +113,13 @@ class controller
 
 		\lib\app\domains\owner::check();
 
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
+
 		\lib\app\business_domain\run::run();
+
+
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
+
 
 		// to not check every min all backup setting!
 		// the backup setting have special schedule
@@ -128,6 +134,9 @@ class controller
 			\lib\app\nic_domain\notif_expire::run();
 		}
 
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
+
+
 		// fetch credit of nic
 		if(self::every_hour())
 		{
@@ -135,16 +144,19 @@ class controller
 			\lib\app\nic_credit\get::check_refund();
 		}
 
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
 		// from 8 to 20
 		if(intval(date("H")) > 8 && intval(date("H")) < 20)
 		{
 			\lib\app\nic_domain\autorenew::run();
 		}
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
 
 		if(self::in_hour(['07', '09', '11', '13', '15', '17', '19', '21', '23']))
 		{
 			\dash\app\ticket\get::check_unanswer_ticket();
 		}
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
 
 		// get nic pull request every 10 min
 		if(self::every_10_min())
@@ -152,18 +164,23 @@ class controller
 			\lib\app\nic_poll\get::cronjob_list();
 		}
 
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
 		if(self::daily_on('03'))
 		{
 			// sync every statistics between stores and jibres
 			\lib\app\sync\statistics::fire();
 		}
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
 
 		if(self::daily_on('01'))
 		{
 			\dash\app\dayevent::save();
 		}
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
 
 		self::public_cronjob();
+
+		\dash\notif::ok(__LINE__. " Time: ". date("Y-m-d H:i:s"));
 
 		\lib\app\store\reserve::create_business_as_reserved();
 
