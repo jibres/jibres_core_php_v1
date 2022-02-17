@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-17 09:46+0330\n"
-"PO-Revision-Date: 2022-02-17 09:48+0330\n"
+"POT-Creation-Date: 2022-02-17 12:54+0330\n"
+"PO-Revision-Date: 2022-02-17 12:56+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -747,7 +747,8 @@ msgstr "آسیب‌پذیری چیست؟ در مراحلی روشن، چگونه
 #: content_love/plugin/sync/display.php:16 content_love/subscribe/display.php:24
 #: content_site/body/contactform/cf1_html.php:101
 #: content_sudo/tg/sendmessage/display.php:20 content_sudo/tg/sendphoto/display.php:27
-#: dash/layout/comment/comment-add.php:58 lib/app/sms/filter.php:28
+#: dash/layout/comment/comment-add.php:58 includes/languages/trans_static.php:1054
+#: lib/app/sms/filter.php:28
 msgid "Send"
 msgstr "ارسال"
 
@@ -1828,6 +1829,7 @@ msgid "TLD"
 msgstr "TLD"
 
 #: content/domains/pricing/display.php:54 content_love/domain/home/display.php:240
+#: includes/languages/trans_static.php:1048
 msgid "Register"
 msgstr "ثبت"
 
@@ -8788,8 +8790,8 @@ msgstr "کوچکتر از"
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/step.php:212 dash/social/telegram/step.php:367
 #: dash/social/telegram/step.php:382 includes/languages/trans_static.php:532
-#: includes/languages/trans_static_public.php:86 lib/app/factor/action.php:65
-#: lib/app/factor/ready.php:116 lib/app/order/ready.php:116
+#: includes/languages/trans_static.php:1060 includes/languages/trans_static_public.php:86
+#: lib/app/factor/action.php:65 lib/app/factor/ready.php:116 lib/app/order/ready.php:116
 msgid "Cancel"
 msgstr "انصراف"
 
@@ -10230,13 +10232,14 @@ msgstr "تایید شده"
 msgid "Preparing"
 msgstr "درحال آماده سازی"
 
-#: content_a/order/status/display.php:51 lib/app/factor/action.php:68
-#: lib/app/factor/ready.php:119 lib/app/order/ready.php:119 lib/app/sms/filter.php:27
+#: content_a/order/status/display.php:51 includes/languages/trans_static.php:1050
+#: lib/app/factor/action.php:68 lib/app/factor/ready.php:119 lib/app/order/ready.php:119
+#: lib/app/sms/filter.php:27
 msgid "Sending"
 msgstr "درحال ارسال"
 
-#: content_a/order/status/display.php:52 lib/app/factor/action.php:69
-#: lib/app/factor/ready.php:120 lib/app/order/ready.php:120
+#: content_a/order/status/display.php:52 includes/languages/trans_static.php:1056
+#: lib/app/factor/action.php:69 lib/app/factor/ready.php:120 lib/app/order/ready.php:120
 msgid "Delivered"
 msgstr "تحویل داده شده"
 
@@ -10424,6 +10427,23 @@ msgstr "همین الان بخر"
 #: content_a/plugin/view/display.php:268
 msgid "Get it for free"
 msgstr "رایگان دریافت کنید"
+
+#: content_a/plugin/view/display.php:324
+msgid "Date register"
+msgstr "تاریخ ثبت"
+
+#: content_a/plugin/view/display.php:325
+msgid "Package count"
+msgstr "تعداد بسته"
+
+#: content_a/plugin/view/display.php:326 content_cms/files/view/display.php:106
+#: content_love/files/view/display.php:103
+msgid "Usage count"
+msgstr "تعداد موارد استفاده شده"
+
+#: content_a/plugin/view/display.php:327
+msgid "Remain count"
+msgstr "تعداد باقی‌مانده"
 
 #: content_a/plugin/view/model.php:30 content_love/plugin/all/view/model.php:27
 msgid "This plugin is already activated"
@@ -14149,8 +14169,9 @@ msgstr "امنیتی"
 #: content_site/options/link/link_professional.php:115
 #: content_site/options/twitter/twitter.php:10 dash/app/files/filter.php:46
 #: dash/app/telegram/filter.php:40 includes/languages/trans_static.php:541
-#: lib/app/form/item/type.php:305 lib/app/form/item/type.php:432
-#: lib/app/form/item/type.php:449 lib/app/form/item/type.php:466 lib/app/sms/filter.php:30
+#: includes/languages/trans_static.php:1062 lib/app/form/item/type.php:305
+#: lib/app/form/item/type.php:432 lib/app/form/item/type.php:449
+#: lib/app/form/item/type.php:466 lib/app/sms/filter.php:30
 #: lib/app/store/analytics.php:114 lib/app/store/analytics.php:115
 #: lib/app/store/analytics.php:116 lib/app/store/analytics.php:117
 #: lib/app/store/analytics.php:118 lib/app/store/analytics.php:119
@@ -16186,10 +16207,6 @@ msgstr "اندازه کل"
 msgid "Ratio"
 msgstr "نسبت"
 
-#: content_cms/files/view/display.php:106 content_love/files/view/display.php:103
-msgid "Usage count"
-msgstr "تعداد موارد استفاده شده"
-
 #: content_cms/files/view/display.php:118 content_love/files/view/display.php:115
 msgid "Remove file"
 msgstr "حذف فایل"
@@ -17529,7 +17546,7 @@ msgid "Unverify"
 msgstr "تایید نشده"
 
 #: content_crm/member/status/display.php:20 content_sudo/ip/display.php:60
-#: includes/languages/trans_static.php:530
+#: includes/languages/trans_static.php:530 includes/languages/trans_static.php:1061
 msgid "Block"
 msgstr "قفل شده"
 
@@ -19895,13 +19912,13 @@ msgstr "شما می‌توانید وضعیت این دامنه را به صور
 
 #: content_love/business/domain/setting/display.php:124
 #: content_love/domain/setting/display.php:124 includes/languages/trans_static.php:593
-#: lib/app/sms/filter.php:26
+#: includes/languages/trans_static.php:1049 lib/app/sms/filter.php:26
 msgid "Pending"
 msgstr "در انتظار"
 
 #: content_love/business/domain/setting/display.php:125
 #: content_love/domain/setting/display.php:123 includes/languages/trans_static.php:540
-#: lib/app/sms/filter.php:29
+#: includes/languages/trans_static.php:1058 lib/app/sms/filter.php:29
 msgid "Failed"
 msgstr "ناموفق"
 
@@ -20826,9 +20843,9 @@ msgstr "این دامنه آماده خرید است!"
 #: dash/app/log/ready.php:89 dash/app/log/ready.php:93 dash/app/user.php:79
 #: dash/app/user.php:121 dash/app/user.php:171 dash/app/visitor.php:112
 #: dash/app/visitor.php:141 includes/languages/trans_static.php:543
-#: lib/app/factor/ready.php:87 lib/app/factor/ready.php:126
-#: lib/app/nic_domain/ready.php:62 lib/app/nic_domain/ready.php:64
-#: lib/app/order/ready.php:87 lib/app/order/ready.php:126
+#: includes/languages/trans_static.php:1053 lib/app/factor/ready.php:87
+#: lib/app/factor/ready.php:126 lib/app/nic_domain/ready.php:62
+#: lib/app/nic_domain/ready.php:64 lib/app/order/ready.php:87 lib/app/order/ready.php:126
 msgid "Unknown"
 msgstr "ناشناس"
 
@@ -21537,7 +21554,8 @@ msgstr "نماینده"
 msgid "response"
 msgstr "پاسخ"
 
-#: content_love/smslog/view/display.php:24 includes/languages/trans_static_public.php:279
+#: content_love/smslog/view/display.php:24 includes/languages/trans_static.php:1037
+#: includes/languages/trans_static_public.php:279
 msgid "send"
 msgstr "ارسال"
 
@@ -26837,10 +26855,6 @@ msgstr "کاربر یافت نشد"
 msgid "Please set your store currency first"
 msgstr "لطفا ابتدا واحد مالی بیزینس خود را تنظیم کنید"
 
-#: dash/app/transaction/budget.php:150
-msgid "Transaction inserted"
-msgstr "تراکنش افزوده شد"
-
 #: dash/app/transaction/edit.php:31
 msgid "This request cannot be verified again!"
 msgstr "این درخواست امکان بررسی مجدد برای اعتبار سنجی را ندارد!"
@@ -28944,7 +28958,7 @@ msgid "email"
 msgstr "ایمیل"
 
 #: dash/social/telegram/commands/ermile.php:98 dash/social/telegram/step.php:333
-#: includes/languages/trans_static_public.php:68
+#: includes/languages/trans_static.php:1031 includes/languages/trans_static_public.php:68
 msgid "register"
 msgstr "ثبت نام"
 
@@ -29270,7 +29284,7 @@ msgid "debug mode is off!"
 msgstr "حالت اشکال‌زدایی خاموش است!"
 
 #: dash/social/telegram/step.php:211 includes/languages/trans_static.php:403
-#: includes/languages/trans_static_public.php:893
+#: includes/languages/trans_static.php:1043 includes/languages/trans_static_public.php:893
 msgid "cancel"
 msgstr "انصراف"
 
@@ -31682,7 +31696,8 @@ msgstr "زباله‌دان"
 msgid "answered"
 msgstr "پاسخ‌داده‌شده"
 
-#: includes/languages/trans_static.php:401 includes/languages/trans_static_public.php:858
+#: includes/languages/trans_static.php:401 includes/languages/trans_static.php:1044
+#: includes/languages/trans_static_public.php:858
 msgid "block"
 msgstr "قفل شده"
 
@@ -31714,11 +31729,12 @@ msgstr "خروج از سیستم"
 msgid "ok"
 msgstr "باشه"
 
-#: includes/languages/trans_static.php:411
+#: includes/languages/trans_static.php:411 includes/languages/trans_static.php:1041
 msgid "failed"
 msgstr "ناموفق"
 
-#: includes/languages/trans_static.php:412 includes/languages/trans_static_public.php:902
+#: includes/languages/trans_static.php:412 includes/languages/trans_static.php:1045
+#: includes/languages/trans_static_public.php:902
 msgid "other"
 msgstr "سایر"
 
@@ -31726,7 +31742,7 @@ msgstr "سایر"
 msgid "bot"
 msgstr "ربات"
 
-#: includes/languages/trans_static.php:414
+#: includes/languages/trans_static.php:414 includes/languages/trans_static.php:1036
 msgid "unknown"
 msgstr "نامشخص"
 
@@ -31788,7 +31804,8 @@ msgstr "تگ مجله"
 msgid "help_tag"
 msgstr "تگ راهنمایی"
 
-#: includes/languages/trans_static.php:436 includes/languages/trans_static_public.php:921
+#: includes/languages/trans_static.php:436 includes/languages/trans_static.php:1034
+#: includes/languages/trans_static_public.php:921
 msgid "expired"
 msgstr "منقضی‌شده"
 
@@ -31868,7 +31885,8 @@ msgstr "درخواست"
 msgid "redirect"
 msgstr "تغییر مسیر"
 
-#: includes/languages/trans_static.php:464 includes/languages/trans_static_public.php:927
+#: includes/languages/trans_static.php:464 includes/languages/trans_static.php:1032
+#: includes/languages/trans_static_public.php:927
 msgid "pending"
 msgstr "در انتظار"
 
@@ -32017,8 +32035,9 @@ msgstr "تگ مجله"
 msgid "Help_tag"
 msgstr "تگ راهنمایی"
 
-#: includes/languages/trans_static.php:565 lib/app/gift/filter.php:46
-#: lib/app/nic_domain/ready.php:175 lib/app/nic_domain/ready.php:177
+#: includes/languages/trans_static.php:565 includes/languages/trans_static.php:1051
+#: lib/app/gift/filter.php:46 lib/app/nic_domain/ready.php:175
+#: lib/app/nic_domain/ready.php:177
 msgid "Expired"
 msgstr "منقضی‌شده"
 
@@ -32303,11 +32322,11 @@ msgstr "درخواست لغو دامنه توسط رابط لغو شد"
 msgid "period"
 msgstr "زمان"
 
-#: includes/languages/trans_static.php:666
+#: includes/languages/trans_static.php:666 includes/languages/trans_static.php:1040
 msgid "queue"
 msgstr "در صف"
 
-#: includes/languages/trans_static.php:667
+#: includes/languages/trans_static.php:667 includes/languages/trans_static.php:1057
 msgid "Queue"
 msgstr "در صف"
 
@@ -33568,11 +33587,11 @@ msgstr "سفارش فروش"
 msgid "Saleorder"
 msgstr "سفارش فروش"
 
-#: includes/languages/trans_static.php:1016
+#: includes/languages/trans_static.php:1016 includes/languages/trans_static.php:1038
 msgid "sended"
 msgstr "ارسال شده"
 
-#: includes/languages/trans_static.php:1017
+#: includes/languages/trans_static.php:1017 includes/languages/trans_static.php:1055
 msgid "Sended"
 msgstr "ارسال شده"
 
@@ -33604,6 +33623,30 @@ msgstr "هزینه"
 #: includes/languages/trans_static.php:1028
 msgid "income"
 msgstr "درآمد"
+
+#: includes/languages/trans_static.php:1033
+msgid "sending"
+msgstr "درحال ارسال"
+
+#: includes/languages/trans_static.php:1035
+msgid "moneylow"
+msgstr "اعتبار کافی نیست"
+
+#: includes/languages/trans_static.php:1039
+msgid "delivered"
+msgstr "تحویل داده شده"
+
+#: includes/languages/trans_static.php:1042
+msgid "undelivered"
+msgstr "تحویل داده نشده"
+
+#: includes/languages/trans_static.php:1052
+msgid "Moneylow"
+msgstr "اعتبار کافی نیست"
+
+#: includes/languages/trans_static.php:1059
+msgid "Undelivered"
+msgstr "تحویل داده نشده"
 
 #: includes/languages/trans_static_domain.php:7
 msgid "contact_check"
@@ -38549,7 +38592,7 @@ msgstr "گزینه حذف شد"
 msgid "Your comment was saved"
 msgstr "دیدگاه شما ذخیره شد"
 
-#: lib/app/form/comment/get.php:63 lib/app/plugin/activate.php:820
+#: lib/app/form/comment/get.php:63 lib/app/plugin/activate.php:824
 msgid "Id not set"
 msgstr "شناسه تنظیم نشده است"
 
@@ -40151,89 +40194,89 @@ msgstr "افزونه اشتباه است!"
 msgid "Invalid periodic key!"
 msgstr "بازه زمانی نامعتبر است!"
 
-#: lib/app/plugin/activate.php:149
+#: lib/app/plugin/activate.php:153
 msgid "Can not add this plugin. Please contact to administrator"
 msgstr "نمی‌توانیم این افزونه را اضافه کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:184 lib/app/plugin/activate.php:425
-#: lib/app/plugin/activate.php:503
+#: lib/app/plugin/activate.php:188 lib/app/plugin/activate.php:429
+#: lib/app/plugin/activate.php:507
 msgid "This plugin is already activated for your business"
 msgstr "این افزونه در حال حاضر فعال شده است"
 
-#: lib/app/plugin/activate.php:199 lib/app/plugin/activate.php:441
+#: lib/app/plugin/activate.php:203 lib/app/plugin/activate.php:445
 msgid "The maximum package activation capacity has been completed for you"
 msgstr "حداکثر استفاده از ظرفیت پیام کوتاه برای شما تکمیل شده است"
 
-#: lib/app/plugin/activate.php:219 lib/app/plugin/activate.php:462
+#: lib/app/plugin/activate.php:223 lib/app/plugin/activate.php:466
 msgid "Can not active this plugin more than this time!"
 msgstr "نمی‌توانید این افزونه را بیش از این تاریخ تمدید کنید!"
 
-#: lib/app/plugin/activate.php:232 lib/app/plugin/activate.php:525
-#: lib/app/plugin/activate.php:571
+#: lib/app/plugin/activate.php:236 lib/app/plugin/activate.php:529
+#: lib/app/plugin/activate.php:575
 msgid "Can not add this action. Please contact to administrator"
 msgstr "نمی‌توانیم این فعالیت را ثبت کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:286 lib/app/plugin/activate.php:516
+#: lib/app/plugin/activate.php:290 lib/app/plugin/activate.php:520
 msgid "Activate plugin :val"
 msgstr "فعال سازی افزونه :val"
 
-#: lib/app/plugin/activate.php:309 lib/app/plugin/activate.php:324
+#: lib/app/plugin/activate.php:313 lib/app/plugin/activate.php:328
 msgid "Oh!, We cannot complete your request. Please contact to administrator"
 msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:385
+#: lib/app/plugin/activate.php:389
 msgid "Can not find your activate plugin request. Please contact to administrator"
 msgstr ""
 "نمی‌توانید اطلاعات مربوط به درخواست فرایند فعال سازی را پیدا کنیم. لطفا با مدیر سیستم "
 "تماس بگیرید"
 
-#: lib/app/plugin/activate.php:395
+#: lib/app/plugin/activate.php:399
 msgid "Can not find your activate action. Please contact to administrator"
 msgstr ""
 "نمی‌توانید اطلاعات مربوط به فرایند فعال سازی را پیدا کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:405
+#: lib/app/plugin/activate.php:409
 msgid "Plugin not found. Please contact to administrator"
 msgstr "افزونه یافت نشد. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/plugin/activate.php:473
+#: lib/app/plugin/activate.php:477
 msgid "Invalid plugin price!"
 msgstr "قیمت افزونه اشتباه است!"
 
-#: lib/app/plugin/activate.php:615
+#: lib/app/plugin/activate.php:619
 msgid "Send to :count business"
 msgstr "درخواست به :val بیزینس اعلام شد"
 
-#: lib/app/plugin/activate.php:679 lib/app/plugin/activate.php:753
+#: lib/app/plugin/activate.php:683 lib/app/plugin/activate.php:757
 msgid "Business or plugin is required"
 msgstr "شناسه بیزینس یا کد افزونه الزامی است"
 
-#: lib/app/plugin/activate.php:689
+#: lib/app/plugin/activate.php:693
 msgid "This plugin already enable on this business"
 msgstr "در حال حاضر این افزونه در این بیزینس فعال است"
 
-#: lib/app/plugin/activate.php:695
+#: lib/app/plugin/activate.php:699
 msgid "Plugin exist. Re Enabled"
 msgstr "افزونه وجود داشت. مجددا فعال شد"
 
-#: lib/app/plugin/activate.php:716
+#: lib/app/plugin/activate.php:720
 msgid "Plugin added"
 msgstr "افزونه اضافه شد"
 
-#: lib/app/plugin/activate.php:726 lib/app/plugin/activate.php:790
-#: lib/app/plugin/activate.php:871
+#: lib/app/plugin/activate.php:730 lib/app/plugin/activate.php:794
+#: lib/app/plugin/activate.php:875
 msgid "Sync request sended to business"
 msgstr "درخواست یکپارچه‌سازی امکانات به بیزینس اعلام شد"
 
-#: lib/app/plugin/activate.php:768
+#: lib/app/plugin/activate.php:772
 msgid "Plugin removed"
 msgstr "افزونه حذف شد"
 
-#: lib/app/plugin/activate.php:772
+#: lib/app/plugin/activate.php:776
 msgid "Plugin already removed"
 msgstr "افزونه در حال حاضر حذف شده است"
 
-#: lib/app/plugin/activate.php:780 lib/app/plugin/activate.php:832
+#: lib/app/plugin/activate.php:784 lib/app/plugin/activate.php:836
 msgid "Plugin not exist"
 msgstr "افزونه وجود ندارد"
 
@@ -42951,6 +42994,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Transaction inserted"
+#~ msgstr "تراکنش افزوده شد"
 
 #~ msgid "Tehran Office Number"
 #~ msgstr "شماره دفتر تهران"
@@ -47067,9 +47113,6 @@ msgstr "یارد"
 #~ msgid "Expredate DESC"
 #~ msgstr "بر اساس تاریخ انقضا، نزولی"
 
-#~ msgid "Date register ASC"
-#~ msgstr "تاریخ ثبت،‌ صعودی"
-
 #~ msgid "Date register DESC"
 #~ msgstr "تاریخ ثبت، نزولی"
 
@@ -48748,9 +48791,6 @@ msgstr "یارد"
 
 #~ msgid "pay verified"
 #~ msgstr "پراخت تایید شد"
-
-#~ msgid "sending"
-#~ msgstr "درحال ارسال"
 
 #~ msgid "pending pay"
 #~ msgstr "در انتظار پرداخت"

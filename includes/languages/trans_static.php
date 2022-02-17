@@ -1027,6 +1027,40 @@ class TransStatic
 	echo T_("cost");
 	echo T_("income");
 
+
+	echo T_('register');
+	echo T_('pending');
+	echo T_('sending');
+	echo T_('expired');
+	echo T_('moneylow');
+	echo T_('unknown');
+	echo T_('send');
+	echo T_('sended');
+	echo T_('delivered');
+	echo T_('queue');
+	echo T_('failed');
+	echo T_('undelivered');
+	echo T_('cancel');
+	echo T_('block');
+	echo T_('other');
+
+
+	echo T_('Register');
+	echo T_('Pending');
+	echo T_('Sending');
+	echo T_('Expired');
+	echo T_('Moneylow');
+	echo T_('Unknown');
+	echo T_('Send');
+	echo T_('Sended');
+	echo T_('Delivered');
+	echo T_('Queue');
+	echo T_('Failed');
+	echo T_('Undelivered');
+	echo T_('Cancel');
+	echo T_('Block');
+	echo T_('Other');
+
  }
 }
 ?>
