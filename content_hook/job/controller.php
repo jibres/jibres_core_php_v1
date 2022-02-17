@@ -18,11 +18,6 @@ class controller
 		// not run in local
 		if(is_file(root. 'islocal.me.conf'))
 		{
-			if(CRONJOB_MODE === 'php_run_loop')
-			{
-				\lib\app\loop\run::fire();
-			}
-
 			\dash\code::boom('job local!');
 			return;
 		}
@@ -96,6 +91,11 @@ class controller
 
 	private static function run_jibres()
 	{
+
+		if(CRONJOB_MODE === 'php_run_loop')
+		{
+			\lib\app\loop\run::fire();
+		}
 
 		if(CRONJOB_MODE === 'php_run_jibres_cronjob')
 		{
