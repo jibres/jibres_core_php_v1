@@ -102,5 +102,17 @@ class get
 	}
 
 
+
+	public static function active_by_business_id_plugin($_business_id, $_plugin)
+	{
+		$query = "SELECT * FROM store_plugin WHERE store_plugin.store_id = :id AND store_plugin.plugin = :plugin AND store_plugin.status = 'enable' ORDER BY store_plugin.id ASC ";
+		$param = [':id' => $_business_id, ':plugin' => $_plugin];
+
+		$result = \dash\pdo::get($query, $param);
+
+		return $result;
+	}
+
+
 }
 ?>

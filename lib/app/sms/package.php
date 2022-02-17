@@ -31,13 +31,62 @@ class package
 
 		 */
 
+		$get_store_package_list = \lib\db\store_plugin\get::active_by_business_id_plugin($store_id, 'sms_pack');
 
-		// var_dump($store_id);exit;
-		// $sms_detail['status'] = 'moneylow';
+		if(!is_array($get_store_package_list))
+		{
+			$get_store_package_list = [];
+		}
 
-		return false;
+		foreach ($get_store_package_list as $key => $value)
+		{
+			/**
+			 * $value['id'] = package_id
+			 */
 
+			$usage_count = \lib\db\sms\get::sum_sms_sended_by_package_id($store_id, $value['id']);
+
+
+			if(!is_numeric($usage_count))
+			{
+				$usage_count = 0;
+			}
+			else
+			{
+				$usage_count = floatval($usage_count);
+			}
+
+			if($usage_count + floatval(a($sms_detail, 'smscount')) > floatval(a($value, 'packagecount')))
+			{
+				// need to deactive this package
+				\lib\db\store_plugin\update::record(['status' => 'expired'], $value['id']);
+			}
+			else
+			{
+				$sms_detail['package_id'] = $value['id'];
+				break;
+			}
+		}
+
+		if(a($sms_detail, 'package_id'))
+		{
+			$sms_detail['status'] = 'pending';
+			return true;
+		}
+		else
+		{
+			if($get_store_package_list)
+			{
+
+			}
+			else
+			{
+
+			}
+
+			$sms_detail['status'] = 'moneylow';
+			return false;
+		}
 	}
-
 }
 ?>

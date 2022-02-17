@@ -14,5 +14,17 @@ class get
 		return $result;
 	}
 
+
+	public static function sum_sms_sended_by_package_id($_business_id, $_package_id)
+	{
+		$query  = "SELECT SUM(sms.smscount) AS `sum_sms_count` FROM sms WHERE  sms.store_id = :store_id AND sms.package_id = :package_id";
+
+		$param  = [':store_id' => $_business_id, ':package_id' => $_package_id];
+
+		$result = \dash\pdo::get($query, $param, 'sum_sms_count', true, 'api_log');
+
+		return $result;
+	}
+
 }
 ?>
