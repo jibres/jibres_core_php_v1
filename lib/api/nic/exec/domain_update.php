@@ -51,6 +51,40 @@ class domain_update
 // <domain:add><domain:ns><domain:hostAttr><domain:hostName>ns2.example.net</domain:hostName><domain:hostAddr ip="v4">192.0.2.2</domain:hostAddr></domain:hostAttr></domain:ns></domain:add>
 // <domain:rem><domain:ns><domain:hostAttr><domain:hostName>ns1.JIBRES-SAMPLE-DOMAIN.IR</domain:hostName></domain:hostAttr></domain:ns></domain:rem>
 
+		// bug fix remove old dns record 2022-02-17
+		if(a($_args, 'old_ns1') === a($_args, 'old_ns2'))
+		{
+			unset($_args['old_ns2']);
+		}
+
+		if(a($_args, 'old_ns1') === a($_args, 'old_ns3'))
+		{
+			unset($_args['old_ns3']);
+		}
+
+		if(a($_args, 'old_ns1') === a($_args, 'old_ns4'))
+		{
+			unset($_args['old_ns4']);
+		}
+
+
+		if(a($_args, 'old_ip1') === a($_args, 'old_ip2'))
+		{
+			unset($_args['old_ip2']);
+		}
+
+		if(a($_args, 'old_ip1') === a($_args, 'old_ip3'))
+		{
+			unset($_args['old_ip3']);
+		}
+
+		if(a($_args, 'old_ip1') === a($_args, 'old_ip4'))
+		{
+			unset($_args['old_ip4']);
+		}
+
+
+
 
 		if(
 			isset($_args['old_ns1']) && $_args['old_ns1'] ||
