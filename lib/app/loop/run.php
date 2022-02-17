@@ -24,7 +24,7 @@ class run
 
 					if(time() - strtotime($last_date) > (120))
 					{
-						\dash\log::to_supervisor('#cronjob More than 120 seconds have passed since the last loop time! Please check cronjob while true status!');
+						// \dash\log::to_supervisor('#cronjob More than 120 seconds have passed since the last loop time! Please check cronjob while true status!');
 					}
 				}
 			}
