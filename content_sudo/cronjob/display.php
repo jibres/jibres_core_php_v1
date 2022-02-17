@@ -28,6 +28,27 @@
     Is busy cronjob?
 <?php var_dump(\dash\utility\busy::is_busy('cronjob_business_once')); ?>
   </div>
+
+
+
+  <div class="box ltr">
+    <div class="body">
+      <h2>Jibres Loop while true!</h2>
+    <?php if(\lib\app\loop\run::force_stop()) {?>
+      <div class="msg danger">Force stoped</div>
+      <div class="btn success" data-confirm data-data='{"jibres_while_true" : "start"}'>Start while true</div>
+    <?php }else{ ?>
+      <div class="msg success">Is running</div>
+      <div class="btn danger" data-confirm data-data='{"jibres_while_true" : "force_stop"}'>Stop while true</div>
+    <?php } //endif ?>
+    <div class="msg warn mT20">
+      Current status
+<pre>
+<?php echo \lib\app\loop\run::status(); ?>
+</pre>
+    </div>
+    </div>
+  </div>
 </div>
 
 

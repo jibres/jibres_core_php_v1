@@ -5,6 +5,22 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('jibres_while_true'))
+		{
+			if(\dash\request::post('jibres_while_true') === 'force_stop')
+			{
+				\lib\app\loop\run::force_stop(true);
+			}
+
+			if(\dash\request::post('jibres_while_true') === 'start')
+			{
+				\lib\app\loop\run::force_stop(false);
+			}
+			\dash\redirect::pwd();
+
+			return ;
+		}
+
 		$post = \dash\request::post();
 
 		if(\dash\request::post('active'))
