@@ -11,7 +11,7 @@
             <?php echo \dash\csrf::html(); ?>
            <div class="input pA5">
             <label class="addon" for="amount-number"><?php echo \lib\currency::unit(); ?></label>
-            <input id="amount-number" type="number" name="amount" value="<?php echo \dash\data::amount(); ?>" placeholder='<?php echo T_("Enter an amount to charge your account"); ?>' required min=0 max="9999999999">
+            <input id="amount-number" type="tel" name="amount" value="<?php echo \dash\data::amount(); ?>" placeholder='<?php echo T_("Enter an amount to charge your account"); ?>' required maxlength="12" data-format="price">
             <button class="addon btn-primary"><?php echo T_("Checkout"); ?></button>
            </div>
           </form>
