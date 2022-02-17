@@ -17,6 +17,7 @@ $exec   = [];
 $exec[] = 'php '. $index_php_addr. " php_run_jibres_cronjob $index_php_addr ";
 $exec[] = 'php '. $index_php_addr. " php_run_business_cronjob_once $index_php_addr ";
 $exec[] = 'php '. $index_php_addr. " php_run_business_cronjob_force $index_php_addr ";
+$exec[] = 'php '. $index_php_addr. " php_run_loop $index_php_addr ";
 
 $exec = implode(' & ', $exec);
 
