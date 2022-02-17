@@ -21,7 +21,8 @@ class view
 
 	private static function config_donate_mode()
 	{
-		\dash\face::title(T_('Pay'));
+		\dash\face::title(T_('Quick Pay'));
+		\dash\face::desc(T_('Through this page, you can make your payment quickly'));
 
 		if(\dash\request::get('amount'))
 		{
