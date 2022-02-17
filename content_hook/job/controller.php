@@ -179,6 +179,7 @@ class controller
 
 			\content_hook\job\business::run_once($fn, 'business_once');
 
+			\dash\notif::ok("Run business cronjob once ended. Time: ". date("Y-m-d H:i:s"));
 
 		}
 		elseif(CRONJOB_MODE === 'php_run_business_cronjob_force')
@@ -187,10 +188,10 @@ class controller
 
 			\content_hook\job\business::run_once($fn, 'public_cronjob');
 
+			\dash\notif::ok("Run business cronjob force ended. Time: ". date("Y-m-d H:i:s"));
 		}
 
 
-		\dash\notif::ok("Run business cronjob ended. Time: ". date("Y-m-d H:i:s"));
 
 
 		// check and auto expire order
