@@ -107,6 +107,8 @@ class controller
 			return;
 		}
 
+		\dash\notif::ok("Run jibres cronjob started. Time: ". date("Y-m-d H:i:s"));
+
 		// \lib\app\store\changefuel::run();
 
 		\lib\app\domains\owner::check();
