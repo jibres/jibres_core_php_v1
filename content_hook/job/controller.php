@@ -25,7 +25,7 @@ class controller
 
 		self::cronjob_run();
 
-		\dash\notif::ok("Cronjob ended. Time: ". date("Y-m-d H:i:s"));
+		\dash\notif::ok("Cronjob ended. Date: ". date("Y-m-d"), ['end_time' => date("H:i:s")]);
 
 		\dash\code::jsonBoom(\dash\notif::get());
 	}
