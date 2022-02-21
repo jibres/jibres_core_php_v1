@@ -23,8 +23,8 @@ class dns
 
 		if(a($load, 'nextactivity') && (time() - strtotime($load['nextactivity'])) < 0)
 		{
-			\dash\notif::error(T_("We couldn't find your verification token in your domain's TXT records. Sometimes DNS changes can take a while to appear. Please wait a few hours, then reopen your domain in business."), ['alerty' => true]);
-			return false;
+			// \dash\notif::error(T_("We couldn't find your verification token in your domain's TXT records. Sometimes DNS changes can take a while to appear. Please wait a few hours, then reopen your domain in business."), ['alerty' => true]);
+			// return false;
 		}
 
 		$domain = $load['domain'];
