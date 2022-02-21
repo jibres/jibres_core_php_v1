@@ -113,7 +113,7 @@ class remove
 
 		if($force_remove)
 		{
-			self::remove($_id);
+			self::remove_full($_id);
 			\dash\notif::clean();
 			\dash\engine\process::continue();
 		}
