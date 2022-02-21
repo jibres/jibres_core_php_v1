@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-21 14:44+0330\n"
-"PO-Revision-Date: 2022-02-21 14:48+0330\n"
+"POT-Creation-Date: 2022-02-21 14:50+0330\n"
+"PO-Revision-Date: 2022-02-21 14:52+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -37375,6 +37375,16 @@ msgid "Can not load your domain verify process detail! Please contact to adminis
 msgstr ""
 "نمی‌توانید اطلاعات مربوط به فرایند فعال سازی دامنه را پیدا کنیم. لطفا با مدیر سیستم تماس "
 "بگیرید"
+
+#: lib/app/business_domain/dns.php:26 lib/app/business_domain/dns.php:62
+msgid ""
+"We couldn't find your verification token in your domain's TXT records. Sometimes DNS "
+"changes can take a while to appear. Please wait a few hours, then reopen your domain in "
+"business."
+msgstr ""
+"ما نتوانستیم کد تأیید را در سوابق TXT دامنه شما پیدا کنیم. گاهی اوقات تغییرات DNS ممکن "
+"است کمی طول بکشد تا ظاهر شوند. لطفاً چند ساعت صبر کنید، سپس مجددا درخواست تایید را ارسال "
+"کنید"
 
 #: lib/app/business_domain/dns.php:160
 msgid "Can not get DNS detail!"

@@ -23,7 +23,7 @@ class dns
 
 		if(a($load, 'nextactivity') && (time() - strtotime($load['nextactivity'])) < 0)
 		{
-			\dash\notif::error("We couldn't find your verification token in your domain's TXT records. Sometimes DNS changes can take a while to appear. Please wait a few hours, then reopen your domain in business.", ['alerty' => true]);
+			\dash\notif::error(T_("We couldn't find your verification token in your domain's TXT records. Sometimes DNS changes can take a while to appear. Please wait a few hours, then reopen your domain in business."), ['alerty' => true]);
 			return false;
 		}
 
@@ -59,7 +59,7 @@ class dns
 		{
 			\lib\app\business_domain\edit::edit_raw(['lastactivity' => date("Y-m-d H:i:s"), 'nextactivity' => date("Y-m-d H:i:s", time() + (60*5))], $_id);
 
-			\dash\notif::error("We couldn't find your verification token in your domain's TXT records. Sometimes DNS changes can take a while to appear. Please wait a few hours, then reopen your domain in business.", ['alerty' => true]);
+			\dash\notif::error(T_("We couldn't find your verification token in your domain's TXT records. Sometimes DNS changes can take a while to appear. Please wait a few hours, then reopen your domain in business."), ['alerty' => true]);
 			return false;
 
 		}
