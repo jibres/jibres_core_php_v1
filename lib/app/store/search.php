@@ -55,7 +55,7 @@ class search
 			$user_id = \dash\coding::decode($data['user']);
 			if($user_id)
 			{
-				$and[] = " store.creator = $user_id ";
+				$and[] = " store_data.owner = $user_id ";
 				self::$is_filtered = true;
 			}
 		}
@@ -69,6 +69,7 @@ class search
 		"
 			store.*,
 			store.status AS `store_status`,
+			store_data.owner AS `owner`,
 			store_data.*,
 			store.id AS `id`
 		";
@@ -150,7 +151,7 @@ class search
 		}
 
 
-		$users_id = array_column($list, 'creator');
+		$users_id = array_column($list, 'owner');
 		$users_id = array_filter($users_id);
 		$users_id = array_unique($users_id);
 
@@ -162,9 +163,9 @@ class search
 				$load_some_user = array_combine(array_column($load_some_user, 'id'), $load_some_user);
 				foreach ($list as $key => $value)
 				{
-					if(isset($value['creator']) && $value['creator'] && isset($load_some_user[$value['creator']]))
+					if(isset($value['owner']) && $value['owner'] && isset($load_some_user[$value['owner']]))
 					{
-						$user_detail = $load_some_user[$value['creator']];
+						$user_detail = $load_some_user[$value['owner']];
 						$user_detail = \dash\app\user::ready($user_detail);
 						$list[$key]['user_detail'] = $user_detail;
 					}

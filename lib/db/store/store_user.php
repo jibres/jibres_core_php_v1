@@ -53,8 +53,8 @@ class store_user
 			SELECT
 				COUNT(*) AS `count`
 			FROM
-				store
-			WHERE store.creator = $_user_id
+				store_data
+			WHERE store_data.owner = $_user_id
 		";
 		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
