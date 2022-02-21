@@ -33,6 +33,7 @@ class free_domain
 		}
 		else
 		{
+			// check
 			\dash\notif::error(T_("This domain was not connected to Jibres"), ['domain_name' => $domain]);
 			\lib\app\business_domain\action::new_action($_id, 'enterprise_not_connected');
 			return false;
