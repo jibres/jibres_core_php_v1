@@ -46,6 +46,7 @@ class model
 			'turn_back' => \dash\url::pwd(),
 			'user_id'   => \dash\user::id(),
 			'amount'    => \dash\request::post('amount'),
+			'auto_back' => true,
 		];
 
 		\dash\utility\pay\start::site($meta);
