@@ -58,7 +58,7 @@ class dns
 		{
 			\lib\app\business_domain\edit::set_date($_id, 'checkdns');
 			\lib\app\business_domain\action::new_action($_id, 'txt_dns_resolved', ['meta' => json_encode($get_dns)]);
-			\lib\app\business_domain\edit::edit_raw(['status' => 'ok'], $_id);
+			\lib\app\business_domain\edit::edit_raw(['status' => 'pending'], $_id);
 			\dash\notif::ok("Domain verified!");
 			return true;
 		}
