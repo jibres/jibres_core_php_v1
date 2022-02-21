@@ -40,9 +40,10 @@
   </div>
 
   <?php } //endif ?>
-  <?php if(\dash\data::domainDetail_status() === 'pending' && (\dash\data::domainDetail_subdomain() && \dash\data::domainDetail_cdn() !== 'enterprise')) {?>
+  <?php if(in_array(\dash\data::domainDetail_status() , ['pending', 'pending_verify']) && (\dash\data::domainDetail_subdomain() && \dash\data::domainDetail_cdn() !== 'enterprise')) {?>
   <div class="box">
     <div class="body">
+      <h2><?php echo T_("Connect domain to your business via DNS record") ?></h2>
       <p>
         <?php echo T_("To connect a subdomain, you must log in to your domain management panel and set CNAME record for that subdomain at the following address:") ?>
         <table class="tbl1 v4 minimal ltr text-left">
