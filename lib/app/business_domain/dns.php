@@ -29,7 +29,10 @@ class dns
 
 		$domain = $load['domain'];
 
+		$domain = a($verifyprocess, 'domain');
+
 		$get_dns = \lib\app\business_domain\dns_broker::get($domain, 'DNS_TXT');
+
 
 		if(!$get_dns)
 		{
@@ -44,7 +47,7 @@ class dns
 		$finded = false;
 		foreach ($get_dns as $key => $value)
 		{
-			if($value === a($verifyprocess, 'txt_record_content'))
+			if($value === a($verifyprocess, 'txt_record_content') || a($value, 'txt') === a($verifyprocess, 'txt_record_content'))
 			{
 				$finded = true;
 				break;
