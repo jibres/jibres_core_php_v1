@@ -147,6 +147,7 @@ class run
 		{
 			\lib\app\business_domain\edit::set_date($value['id'], 'datemodified');
 			\lib\app\business_domain\cdnpanel::add($value['id']);
+			\lib\app\business_domain\dns::check_if_not_exist_add($value['id']);
 		}
 	}
 
