@@ -5,7 +5,7 @@ namespace lib\app\business_domain;
 class dns_broker
 {
 
-	public static function get($_domain, $_type = 'DNS_NS')
+	public static function get($_domain, $_type = 'DNS_NS', $_via = null)
 	{
 
 		$header   = [];
@@ -13,6 +13,7 @@ class dns_broker
 		$post_field                 = [];
 		$post_field['domain']       = $_domain;
 		$post_field['type']         = $_type;
+		$post_field['via']          = $_via;
 		$post_field['broker_token'] = \dash\setting\tunnel_token::get('checkdns');
 
 
