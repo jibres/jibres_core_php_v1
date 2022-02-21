@@ -198,7 +198,7 @@ class https
 	 *
 	 * @return     bool    ( description_of_the_return_value )
 	 */
-	public static function f_ssl_redirect($_id)
+	public static function ssl_redirect($_id)
 	{
 		$load = \lib\app\business_domain\get::get($_id);
 		if(!$load || !isset($load['domain']))

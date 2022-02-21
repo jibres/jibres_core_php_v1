@@ -30,9 +30,9 @@ class model
 			}
 		}
 
-		if(\dash\request::post('f_ssl_redirect'))
+		if(\dash\request::post('ssl_redirect'))
 		{
-			$result = \lib\app\business_domain\https::f_ssl_redirect(\dash\data::dataRow_id());
+			$result = \lib\app\business_domain\https::ssl_redirect(\dash\data::dataRow_id());
 			\dash\redirect::pwd();
 
 		}

@@ -228,8 +228,6 @@ class add
 				$add_by_update['httpsverify']         = null;
 				$add_by_update['dnsok']               = null;
 				$add_by_update['arvan_result']        = null;
-				$add_by_update['f_ssl_https_upstram'] = null;
-				$add_by_update['f_ssl_redirect']      = null;
 
 			}
 
