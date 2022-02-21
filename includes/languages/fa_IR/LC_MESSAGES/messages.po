@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-21 14:50+0330\n"
-"PO-Revision-Date: 2022-02-21 14:52+0330\n"
+"POT-Creation-Date: 2022-02-21 14:58+0330\n"
+"PO-Revision-Date: 2022-02-21 14:59+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -11551,7 +11551,7 @@ msgstr "اتصال دامنه‌هایی که با جیبرس خریداری ک�
 msgid "Add new domain"
 msgstr "افزودن دامنه جدید"
 
-#: content_a/setting/domain/display.php:8 lib/app/business_domain/ready.php:24
+#: content_a/setting/domain/display.php:8 lib/app/business_domain/ready.php:33
 msgid "Connected"
 msgstr "متصل‌شده"
 
@@ -19773,7 +19773,7 @@ msgid "Not added to CDN panel"
 msgstr "به پنل سی‌دی‌ان اضافه نشده است"
 
 #: content_love/business/domain/display.php:65 lib/app/business_domain/filter.php:74
-#: lib/app/business_domain/filter.php:79
+#: lib/app/business_domain/filter.php:79 lib/app/business_domain/ready.php:41
 msgid "DNS not resolved"
 msgstr "دی‌ان‌اس شناسایی نشده است"
 
@@ -20868,9 +20868,10 @@ msgstr "این دامنه آماده خرید است!"
 #: dash/app/log/ready.php:89 dash/app/log/ready.php:93 dash/app/user.php:79
 #: dash/app/user.php:121 dash/app/user.php:171 dash/app/visitor.php:112
 #: dash/app/visitor.php:141 includes/languages/trans_static.php:543
-#: includes/languages/trans_static.php:1053 lib/app/factor/ready.php:87
-#: lib/app/factor/ready.php:126 lib/app/nic_domain/ready.php:62
-#: lib/app/nic_domain/ready.php:64 lib/app/order/ready.php:87 lib/app/order/ready.php:126
+#: includes/languages/trans_static.php:1053 lib/app/business_domain/ready.php:49
+#: lib/app/factor/ready.php:87 lib/app/factor/ready.php:126
+#: lib/app/nic_domain/ready.php:62 lib/app/nic_domain/ready.php:64
+#: lib/app/order/ready.php:87 lib/app/order/ready.php:126
 msgid "Unknown"
 msgstr "ناشناس"
 
@@ -37610,6 +37611,14 @@ msgstr "SSL این دامنه خاموش است!"
 msgid "SSL redirect is already activated"
 msgstr "انتقال از http به https در حال حاضر فعال است"
 
+#: lib/app/business_domain/ready.php:37
+msgid "Deleting"
+msgstr "در حال حذف"
+
+#: lib/app/business_domain/ready.php:45
+msgid "Pending verify"
+msgstr "در انتظار تایید"
+
 #: lib/app/business_domain/remove.php:35 lib/app/business_domain/remove.php:58
 #: lib/app/business_domain/remove.php:125 lib/app/nic_domain/edit.php:476
 #: lib/app/nic_domain/remove.php:34
@@ -48835,9 +48844,6 @@ msgstr "یارد"
 
 #~ msgid "pending pay"
 #~ msgstr "در انتظار پرداخت"
-
-#~ msgid "pending verify"
-#~ msgstr "در انتظار تایید"
 
 #~ msgid "pending prepare"
 #~ msgstr "در انتظار آماده سازی"
