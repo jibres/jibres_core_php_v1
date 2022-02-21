@@ -6,6 +6,16 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('checkverifydns') === 'dns')
+		{
+			$result = \lib\app\business_domain\dns::check_verify_txt_record(\dash\data::domainID());
+			if($result)
+			{
+				\dash\redirect::pwd();
+			}
+			return;
+		}
+
 		if(\dash\request::post('adddns') === 'adddns')
 		{
 			$post =

@@ -188,7 +188,7 @@ class add
 			return false;
 		}
 
-		if(!\dash\url::isLocal() && \dash\str::strpos($parse_url['domain'], '.local') !== false)
+		if(!\dash\url::isLocal() && \dash\str::strpos($parse_url['tld'], 'local') !== false)
 		{
 			\dash\notif::error(T_("Can not use local domain!"));
 			return false;
@@ -214,9 +214,9 @@ class add
 		{
 			$add_by_update =
 			[
-				'status'              => 'pending',
-				'store_id'            => $data['store_id'],
-				'master'              => $master_domain,
+				'status'   => 'pending',
+				'store_id' => $data['store_id'],
+				'master'   => $master_domain,
 			];
 
 			// if my dns is not ok remove it
@@ -246,6 +246,7 @@ class add
 				$return_domain = $parse_url['domain'];
 			}
 
+
 			$insert =
 			[
 				'domain'      => $parse_url['domain'],
@@ -260,6 +261,24 @@ class add
 				'cdn'         => $cdn,
 				'datecreated' => date("Y-m-d H:i:s"),
 			];
+
+			// all subdomain need to verify
+			if($insert['subdomain'])
+			{
+				$base_domain = $parse_url['root']. '.'. $parse_url['tld'];
+
+				$insert['status'] = 'pending_verify';
+
+				$json_verify_process =
+				[
+					'domain'             => $base_domain,
+					'verifytype'         => 'txtrecord',
+					'txt_record_name'    => '@',
+					'txt_record_content' => 'jibres-site-verification='. md5(json_encode(array_merge($insert, ['time' => microtime()]))),
+				];
+
+				$insert['verifyprocess'] = json_encode($json_verify_process);
+			}
 
 			$business_domain_id = \lib\db\business_domain\insert::new_record($insert);
 

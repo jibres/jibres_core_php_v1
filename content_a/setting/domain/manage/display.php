@@ -13,7 +13,33 @@
 
     </div>
   </div>
+  <?php if(\dash\data::domainDetail_status() === 'pending_verify' && (\dash\data::domainDetail_subdomain() && \dash\data::domainDetail_cdn() !== 'enterprise')) {
+    $verifyprocess = \dash\data::domainDetail_verifyprocess();
+    $verifyprocess = json_decode($verifyprocess, true);
+?>
+  <div class="box">
+    <div class="body">
+      <h2><?php echo T_("Verify domain ownership via DNS record") ?></h2>
 
+        <p>
+          <?php echo T_("1. Sign in to your domain name provider (e.g. cloudflare.com or namecheap.com)"); ?>
+          <br>
+          <?php echo T_("2. Copy the TXT record below into the DNS configuration for :domain", ['domain' => '<b>'. a($verifyprocess, 'domain'). '</b>']); ?>
+          <div class="msg">
+            <div class="input ltr">
+              <input type="text" value="<?php echo a($verifyprocess, 'txt_record_content') ?>" data-copy="<?php echo a($verifyprocess, 'txt_record_content') ?>">
+              <button class="btn addon" data-copy="<?php echo a($verifyprocess, 'txt_record_content') ?>">Copy</button>
+            </div>
+          </div>
+          <?php echo T_("3. Press verify below"); ?>
+          <br>
+          <?php echo T_("Note: DNS changes may take some time to apply. If Jibres doesn’t find the record immediately, wait a day and then try to verify again"); ?>
+          </p>
+        <div class="btn" data-ajaxify data-data='{"checkverifydns":"dns"}' data-method='post'><?php echo T_("Verify") ?></div>
+    </div>
+  </div>
+
+  <?php } //endif ?>
   <?php if(\dash\data::domainDetail_status() === 'pending' && (\dash\data::domainDetail_subdomain() && \dash\data::domainDetail_cdn() !== 'enterprise')) {?>
   <div class="box">
     <div class="body">

@@ -5,14 +5,14 @@ namespace lib\app\business_domain;
 class dns_broker
 {
 
-	public static function get($_doamin)
+	public static function get($_doamin, $_type = 'DNS_NS')
 	{
 
 		$header   = [];
 
 		$post_field                 = [];
 		$post_field['domain']       = $_doamin;
-		$post_field['type']         = 'DNS_NS';
+		$post_field['type']         = $_type;
 		$post_field['broker_token'] = \dash\setting\tunnel_token::get('checkdns');
 
 
@@ -61,7 +61,7 @@ class dns_broker
 	{
 		try
 		{
-			$dns_record = @dns_get_record($_doamin, DNS_ALL);
+			$dns_record = @dns_get_record($_doamin, DNS_TXT);
 			if($dns_record === false)
 			{
 				\dash\notif::error('can not get dns record. Result is false!');

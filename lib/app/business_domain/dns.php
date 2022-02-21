@@ -3,6 +3,70 @@ namespace lib\app\business_domain;
 
 class dns
 {
+	public static function check_verify_txt_record($_id)
+	{
+		$load = \lib\app\business_domain\get::get($_id);
+		if(!$load || !isset($load['domain']))
+		{
+			return false;
+		}
+
+		$verifyprocess = a($load, 'verifyprocess');
+		$verifyprocess = json_decode($verifyprocess, true);
+
+		if(!is_array($verifyprocess))
+		{
+			\dash\notif::error(T_("Can not load your domain verify process detail! Please contact to administrator"));
+			return false;
+		}
+
+
+		if(a($load, 'nextactivity') && (time() - strtotime($load['nextactivity'])) < 0)
+		{
+			\dash\notif::error("We couldn't find your verification token in your domain's TXT records. Sometimes DNS changes can take a while to appear. Please wait a few hours, then reopen your domain in business.", ['alerty' => true]);
+			return false;
+		}
+
+		$domain = $load['domain'];
+
+		$get_dns = \lib\app\business_domain\dns_broker::get($domain, 'DNS_TXT');
+
+		if(!is_array($get_dns))
+		{
+			$get_dns = [];
+		}
+
+		$finded = false;
+		foreach ($get_dns as $key => $value)
+		{
+			if(a($value, 'txt') === a($verifyprocess, 'txt_record_content'))
+			{
+				$finded = true;
+				break;
+			}
+		}
+
+
+		if($finded)
+		{
+			\lib\app\business_domain\edit::set_date($_id, 'checkdns');
+			\lib\app\business_domain\action::new_action($_id, 'txt_dns_resolved', ['meta' => json_encode($get_dns)]);
+			\lib\app\business_domain\edit::edit_raw(['status' => 'ok'], $_id);
+			\dash\notif::ok("Domain verified!");
+			return true;
+		}
+		else
+		{
+			\lib\app\business_domain\edit::edit_raw(['lastactivity' => date("Y-m-d H:i:s"), 'nextactivity' => date("Y-m-d H:i:s", time() + (60*5))], $_id);
+
+			\dash\notif::error("We couldn't find your verification token in your domain's TXT records. Sometimes DNS changes can take a while to appear. Please wait a few hours, then reopen your domain in business.", ['alerty' => true]);
+			return false;
+
+		}
+
+	}
+
+
 	public static function check_remove($_domain, $_detail = [])
 	{
 
@@ -21,7 +85,7 @@ class dns
 				$log['jibres_dns']             = a($_detail, 'jibres_dns');
 				$log['business_domain_status'] = a($get, 'status');
 
-				\dash\log::to_supervisor('#Remove_domain_from_cdn Domain <b>'. $_domain .'</b> removed from ArvanCloud CDN panel. <br>'. PHP_EOL. '```'.PHP_EOL. json_encode($log, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT). PHP_EOL. '```');
+				\dash\log::to_supervisor('#Remove_domain_from_cdn Domain <b>'. $_domain .'</b> removed from ArvanCloud CDN panel. <br>'. PHP_EOL. '```'. json_encode($log, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT). PHP_EOL. '```');
 
 			}
 		}
