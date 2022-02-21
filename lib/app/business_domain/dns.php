@@ -32,6 +32,10 @@ class dns
 		// $get_dns = \lib\app\business_domain\dns_broker::get($domain, 'DNS_TXT');
 		$get_dns = \lib\app\business_domain\dns_broker::dig($domain, 'DNS_TXT');
 
+		if(\dash\user::mobile() === '989109610612')
+		{
+			var_dump($get_dns);exit;
+		}
 		if(!is_array($get_dns))
 		{
 			$get_dns = [];

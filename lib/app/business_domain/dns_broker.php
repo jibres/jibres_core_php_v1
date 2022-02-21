@@ -5,13 +5,13 @@ namespace lib\app\business_domain;
 class dns_broker
 {
 
-	public static function get($_doamin, $_type = 'DNS_NS')
+	public static function get($_domain, $_type = 'DNS_NS')
 	{
 
 		$header   = [];
 
 		$post_field                 = [];
-		$post_field['domain']       = $_doamin;
+		$post_field['domain']       = $_domain;
 		$post_field['type']         = $_type;
 		$post_field['broker_token'] = \dash\setting\tunnel_token::get('checkdns');
 
@@ -57,11 +57,11 @@ class dns_broker
 
 
 
-	public static function local_get($_doamin)
+	public static function local_get($_domain)
 	{
 		try
 		{
-			$dns_record = @dns_get_record($_doamin, DNS_TXT);
+			$dns_record = @dns_get_record($_domain, DNS_TXT);
 			if($dns_record === false)
 			{
 				\dash\notif::error('can not get dns record. Result is false!');
@@ -78,31 +78,35 @@ class dns_broker
 
 
 
-	public static function dig($_doamin, $_type)
+	public static function dig($_domain, $_type)
 	{
-		$domain = \dash\validate::domain($_doamin);
+		$domain = \dash\validate::domain($_domain);
 		if(!$domain)
 		{
 			return false;
 		}
 
-		$cmd = 'dig txt '. $doamin;
+		$cmd = 'dig txt '. $domain;
 
 		$result = shell_exec($cmd);
 
-		return self::dig_result($doamin, $result, 'TXT');
+		return self::dig_result($domain, $result, 'TXT');
 	}
 
 
-	public static function dig_result($_doamin, $_text, $_type)
+	public static function dig_result($_domain, $_text, $_type)
 	{
+		if(!$_text)
+		{
+			return false;
+		}
 		$explode = explode(PHP_EOL, $_text);
 
 		$record = [];
 
 		foreach ($explode as $key => $line)
 		{
-			if(substr($line, 0, mb_strlen($_doamin) + 1) === $_doamin. '.')
+			if(substr($line, 0, mb_strlen($_domain) + 1) === $_domain. '.')
 			{
 				$line = explode(' ', preg_replace('/\s+/', ' ', $line));
 
