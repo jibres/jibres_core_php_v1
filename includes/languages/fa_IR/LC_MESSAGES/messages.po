@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-21 14:58+0330\n"
-"PO-Revision-Date: 2022-02-21 14:59+0330\n"
+"POT-Creation-Date: 2022-02-21 15:52+0330\n"
+"PO-Revision-Date: 2022-02-21 15:53+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -11598,7 +11598,11 @@ msgstr ""
 msgid "Verify"
 msgstr "اعتبارسنجی"
 
-#: content_a/setting/domain/manage/display.php:47
+#: content_a/setting/domain/manage/display.php:46
+msgid "Connect domain to your business via DNS record"
+msgstr "اتصال دامنه به بیزینس شما از طریق DNS رکورد"
+
+#: content_a/setting/domain/manage/display.php:48
 msgid ""
 "To connect a subdomain, you must log in to your domain management panel and set CNAME "
 "record for that subdomain at the following address:"
@@ -11606,34 +11610,34 @@ msgstr ""
 "برای اتصال زیر دامنه به بیزینس خود باید وارد پنل مدیریت دامنه خود شده و یک رکورد CNAME "
 "به آدرس زیر برای‌ آن زیردامنه ثبت کنید:"
 
-#: content_a/setting/domain/manage/display.php:75
+#: content_a/setting/domain/manage/display.php:76
 msgid "The process of connecting a domain to a business may take several minutes"
 msgstr "فرایند اتصال دامنه به بیزینس شما ممکن است چند دقیقه طول بکشد"
 
-#: content_a/setting/domain/manage/display.php:77
+#: content_a/setting/domain/manage/display.php:78
 #: content_love/business/domain/display.php:59 lib/app/business_domain/filter.php:73
 #: lib/app/business_domain/filter.php:78
 msgid "DNS resolved"
 msgstr "دی‌ان‌اس شناسایی شده است"
 
-#: content_a/setting/domain/manage/display.php:78
+#: content_a/setting/domain/manage/display.php:79
 msgid "Add to CDN panel"
 msgstr "اضافه شدن به پنل سی‌دی‌ان"
 
-#: content_a/setting/domain/manage/display.php:79
+#: content_a/setting/domain/manage/display.php:80
 msgid "HTTPS Request"
 msgstr "درخواست اچ‌تی‌تی‌پی‌اس"
 
-#: content_a/setting/domain/manage/display.php:80
+#: content_a/setting/domain/manage/display.php:81
 msgid "HTTPS verify"
 msgstr "تایید اچ‌تی‌تی‌پی‌اس"
 
-#: content_a/setting/domain/manage/display.php:85
+#: content_a/setting/domain/manage/display.php:86
 msgid "To connect domain to jibres change your domain name server to below value"
 msgstr ""
 "برای اتصال دامنه خود به جیبرس باید نام سرور‌های دامنه خود را به مقادیر زیر تغییر دهید"
 
-#: content_a/setting/domain/manage/display.php:102
+#: content_a/setting/domain/manage/display.php:103
 msgid ""
 "To connect domain, all DNS servers must identify your domain DNS. The following link "
 "can show you the DNS status of your domain"
@@ -11641,21 +11645,21 @@ msgstr ""
 "برای اتصال دامنه، تمامی سرورهای دنیا باید به‌درستی دی‌ان‌اس DNS دامنه شما را شناسایی کنند. "
 "از طریق لینک زیر می‌توانید وضعیت دامنه را بررسی کنید"
 
-#: content_a/setting/domain/manage/display.php:103
+#: content_a/setting/domain/manage/display.php:104
 #: content_love/business/domain/setting/display.php:51
 msgid "Check DNS"
 msgstr "بررسی دی‌ان‌اس"
 
-#: content_a/setting/domain/manage/display.php:114
+#: content_a/setting/domain/manage/display.php:115
 msgid "DNS records"
 msgstr "رکورد‌های دی‌ان‌اس"
 
-#: content_a/setting/domain/manage/display.php:216
+#: content_a/setting/domain/manage/display.php:217
 #: content_a/setting/domain/remove/display.php:22
 msgid "Remove domain from your business"
 msgstr "حذف دامنه از بیزینس"
 
-#: content_a/setting/domain/manage/display.php:220
+#: content_a/setting/domain/manage/display.php:221
 #: content_a/setting/domain/remove/display.php:32
 #: content_love/business/domain/setting/display.php:162
 #: content_my/domain/setting/elements/remove.php:5
