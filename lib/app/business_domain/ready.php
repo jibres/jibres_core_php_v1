@@ -19,13 +19,35 @@ class ready
 				case 'status':
 					$result[$key] = $value;
 
-					if($value === 'ok')
-					{
-						$result['tstatus'] = T_("Connected");
-					}
-					else
-					{
-						$result['tstatus'] = T_(ucfirst($value));
+					switch ($value) {
+
+						case 'pending':
+						case 'failed':
+						case 'deleted':
+						case 'inprogress':
+						case 'cancel':
+							$result['tstatus'] = T_(ucfirst($value));
+							break;
+
+						case 'ok':
+							$result['tstatus'] = T_("Connected");
+							break;
+
+						case 'pending_delete':
+							$result['tstatus'] = T_("Deleting");
+							break;
+
+						case 'dns_not_resolved':
+							$result['tstatus'] = T_("DNS not resolved");
+							break;
+
+						case 'pending_verify':
+							$result['tstatus'] = T_("Pending verify");
+							break;
+
+						default:
+							$result['tstatus'] = T_("Unknown");
+							break;
 					}
 					break;
 				default:
