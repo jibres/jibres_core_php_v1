@@ -29,12 +29,12 @@ class dns
 
 		$domain = $load['domain'];
 
-		$get_dns = \lib\app\business_domain\dns_broker::get($domain, 'DNS_TXT', 'dig');
+		$get_dns = \lib\app\business_domain\dns_broker::get($domain, 'DNS_TXT');
 
-		// if(!$get_dns)
-		// {
-		// 	$get_dns = \lib\app\business_domain\dns_broker::dig($domain, 'DNS_TXT');
-		// }
+		if(!$get_dns)
+		{
+			$get_dns = \lib\app\business_domain\dns_broker::dig($domain, 'txt');
+		}
 
 		if(!is_array($get_dns))
 		{
