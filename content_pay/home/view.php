@@ -55,33 +55,54 @@ class view
 
 	private static function config_transaction_mode()
 	{
-		\dash\face::desc(T_('Pay'));
+		\dash\face::title(T_('Pay'));
 
 
-		\dash\utility\pay\get::set_payment_setting();
+		$transactionDetail = \dash\data::dataRow();
+
+		\dash\face::desc(T_('Pay'). ' '. \dash\fit::number(a($transactionDetail, 'plus')). ' '. a($transactionDetail, 'currency_name'));
 
 
+		$payment_setting = \dash\utility\pay\get::set_payment_setting();
+		\dash\data::myPayment(a($payment_setting, 'list'));
+		\dash\data::myPaymentDefault(a($payment_setting, 'default'));
 
-		$result = \dash\data::dataRow();
-		if(isset($result['payment_response']))
+		if(a($payment_setting, 'count_active') === 1 && \dash\data::myPaymentDefault() && a($transactionDetail, 'condition') === 'request')
 		{
-			if(is_string($result['payment_response']))
+			// \dash\data::global_scriptPage('pay_formsubmit.js');
+			$args          = [];
+			$args['token'] = \dash\url::module();
+			$args['bank']  = \dash\data::myPaymentDefault();
+
+			\dash\utility\pay\start::bank($args);
+
+			return; // redirect to bank
+		}
+
+
+
+
+		if(isset($transactionDetail['payment_response']))
+		{
+			if(is_string($transactionDetail['payment_response']))
 			{
-				$payment_response = json_decode($result['payment_response'], true);
+				$payment_response = json_decode($transactionDetail['payment_response'], true);
 				\dash\data::payDetail($payment_response);
 			}
 		}
 
+
+
 		if(\dash\permission::supervisor())
 		{
-			foreach ($result as $key => $value)
+			foreach ($transactionDetail as $key => $value)
 			{
 				if(in_array($key, ['payment_response', 'payment_response1', 'payment_response2', 'payment_response3', 'payment_response4']) && $value)
 				{
-					$result[$key] = json_decode($value, true);
+					$transactionDetail[$key] = json_decode($value, true);
 				}
 			}
-			\dash\data::dataRow($result);
+			\dash\data::dataRow($transactionDetail);
 
 		}
 	}

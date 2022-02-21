@@ -134,7 +134,8 @@ if(\dash\data::payDetail_final_msg())
 			<?php } ?>
 
 
-			<form method="post">
+			<form method="post" autocomplete="off">
+
 				<?php if(\dash\data::dataRow_condition() === 'request' || \dash\data::dataRow_condition() === 'redirect') {?>
 
 					<?php echo \dash\csrf::html(); ?>
@@ -192,9 +193,15 @@ $dp = \dash\request::get('dp'); // default payment
 $dp = \dash\validate::string_100($dp, false);
 
 $selected = $dp;
-if(!\dash\engine\store::inStore())
+
+// if(!\dash\engine\store::inStore())
+// {
+// 	$selected = 'zarinpal';
+// }
+
+if(!$selected && \dash\data::myPaymentDefault())
 {
-	$selected = 'zarinpal';
+	$selected = \dash\data::myPaymentDefault();
 }
 
 if(!$selected && \dash\engine\store::inStore())

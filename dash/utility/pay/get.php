@@ -28,16 +28,44 @@ class get
 	 */
 	public static function set_payment_setting()
 	{
-		\dash\data::myPayment_parsian(\dash\setting\parsian::get());
-		\dash\data::myPayment_asanpardakht(\dash\setting\asanpardakht::get());
-		\dash\data::myPayment_irkish(\dash\setting\irkish::get());
-		\dash\data::myPayment_zarinpal(\dash\setting\zarinpal::get());
-		\dash\data::myPayment_payir(\dash\setting\payir::get());
-		\dash\data::myPayment_mellat(\dash\setting\mellat::get());
-		\dash\data::myPayment_sep(\dash\setting\sep::get());
-		\dash\data::myPayment_idpay(\dash\setting\idpay::get());
-		\dash\data::myPayment_payping(\dash\setting\payping::get());
-		\dash\data::myPayment_nextpay(\dash\setting\nextpay::get());
+		$payment_list                 = [];
+
+		$payment_list['parsian']      = \dash\setting\parsian::get();
+		$payment_list['asanpardakht'] = \dash\setting\asanpardakht::get();
+		$payment_list['irkish']       = \dash\setting\irkish::get();
+		$payment_list['zarinpal']     = \dash\setting\zarinpal::get();
+		$payment_list['payir']        = \dash\setting\payir::get();
+		$payment_list['mellat']       = \dash\setting\mellat::get();
+		$payment_list['sep']          = \dash\setting\sep::get();
+		$payment_list['idpay']        = \dash\setting\idpay::get();
+		$payment_list['payping']      = \dash\setting\payping::get();
+		$payment_list['nextpay']      = \dash\setting\nextpay::get();
+
+		$default = null;
+		$count_active = 0;
+
+		foreach ($payment_list as $key => $value)
+		{
+			if(a($value, 'status'))
+			{
+				$count_active++;
+				$default = $key;
+			}
+		}
+
+		if($count_active > 1)
+		{
+			$default = null;
+		}
+
+		return
+		[
+			'list'         => $payment_list,
+			'count_active' => $count_active,
+			'default'      => $default,
+		];
+
+
 
 	}
 
