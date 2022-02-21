@@ -76,5 +76,54 @@ class dns_broker
 		}
 	}
 
+
+
+	public static function dig($_doamin, $_type)
+	{
+		$cmd = 'dig txt '. $_doamin;
+
+		$result = shell_exec($cmd);
+
+		return self::dig_result($_doamin, $result, 'TXT');
+	}
+
+
+	public static function dig_result($_doamin, $_text, $_type)
+	{
+		$explode = explode(PHP_EOL, $_text);
+
+		$record = [];
+
+		foreach ($explode as $key => $line)
+		{
+			if(substr($line, 0, mb_strlen($_doamin) + 1) === $_doamin. '.')
+			{
+				$line = explode(' ', preg_replace('/\s+/', ' ', $line));
+
+				if(a($line, 3) !== $_type)
+				{
+					continue;
+				}
+
+				if($_type === 'TXT')
+				{
+					$temp = $line;
+					unset($temp[0]);
+					unset($temp[1]);
+					unset($temp[2]);
+					unset($temp[3]);
+					$temp = trim(implode(' ', $temp), '"');
+					$record[] = $temp;
+				}
+				else
+				{
+					$record[] = $line;
+				}
+			}
+		}
+
+		return $record;
+	}
+
 }
 ?>
