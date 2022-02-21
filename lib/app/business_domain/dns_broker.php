@@ -80,11 +80,17 @@ class dns_broker
 
 	public static function dig($_doamin, $_type)
 	{
-		$cmd = 'dig txt '. $_doamin;
+		$domain = \dash\validate::domain($_doamin);
+		if(!$domain)
+		{
+			return false;
+		}
+
+		$cmd = 'dig txt '. $doamin;
 
 		$result = shell_exec($cmd);
 
-		return self::dig_result($_doamin, $result, 'TXT');
+		return self::dig_result($doamin, $result, 'TXT');
 	}
 
 
