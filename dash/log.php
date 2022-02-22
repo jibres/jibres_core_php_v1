@@ -70,8 +70,9 @@ class log
 	{
 		$log =
 		[
-			'my_text'   => $_text,
-			'my_domain' => \dash\url::domain(),
+			'my_text'    => $_text,
+			'my_domain'  => \dash\url::domain(),
+			'active_bot' => 'jibres_bot',
 		];
 
 		\dash\log::set('sendToSupervisor', $log, ['fuel' => 'master']);

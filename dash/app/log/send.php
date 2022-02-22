@@ -44,7 +44,7 @@ class send
 					{
 						break;
 					}
-					self::send_telegram($telegram);
+					self::send_telegram($telegram, $value);
 				}
 			}
 
@@ -63,7 +63,7 @@ class send
 	}
 
 
-	private static function send_telegram($_data)
+	private static function send_telegram($_data, $_meta = [])
 	{
 
 		if(!\dash\social\telegram\tg::setting('status'))
@@ -73,6 +73,19 @@ class send
 
 		foreach ($_data as $key => $value)
 		{
+			$active_bot = 'master';
+
+			if(is_string(a($_meta, 'data')))
+			{
+				$meta = json_decode($_meta['data'], true);
+				if(a($meta, 'active_bot'))
+				{
+					$active_bot = $meta['active_bot'];
+				}
+			}
+
+			\dash\setting\telegram::active_bot($active_bot);
+
 			if(isset($value['method']))
 			{
 				$method   = $value['method'];
