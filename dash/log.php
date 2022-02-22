@@ -220,10 +220,19 @@ class log
 
 		$new_args         = $field;
 
+		$active_bot = self::call_fn($_caller, 'active_bot');
+
+		if($active_bot)
+		{
+			$data['active_bot'] = $active_bot;
+		}
+
 		if(!empty($data))
 		{
 			$new_args['data'] = $data;
 		}
+
+
 
 		if($is_notif)
 		{

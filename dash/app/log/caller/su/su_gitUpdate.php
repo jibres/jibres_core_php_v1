@@ -30,6 +30,11 @@ class su_gitUpdate
 	}
 
 
+	public static function active_bot()
+	{
+		return 'jibres_bot';
+	}
+
 	private static function get_domain_name($_args)
 	{
 		if(isset($_args['data']['my_domain']))
