@@ -30,6 +30,12 @@ class su_cdnUpdate
 		return $result;
 	}
 
+
+	public static function active_bot()
+	{
+		return 'jibres_bot';
+	}
+
 	public static function send_to()
 	{
 		return ['supervisor'];

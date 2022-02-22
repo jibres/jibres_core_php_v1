@@ -39,6 +39,11 @@ class su_sqlError
 	}
 
 
+	public static function active_bot()
+	{
+		return 'jibres_bot';
+	}
+
 
 	public static function send_to()
 	{
