@@ -7,6 +7,8 @@ class telegram
 
 	private static $load = null;
 
+	private static $active_bot = 'master';
+
 
 	private static function load()
 	{
@@ -29,6 +31,18 @@ class telegram
 	}
 
 
+	public static function active_bot($_set = null)
+	{
+		if($_set)
+		{
+			self::$active_bot = $_set;
+		}
+
+		return self::$active_bot;
+	}
+
+
+
 	public static function __callStatic($_key, $_value)
 	{
 
@@ -36,12 +50,12 @@ class telegram
 
 		if($_key === 'all')
 		{
-			return self::$load;
+			return a(self::$load, self::active_bot());
 		}
 
-		if(array_key_exists($_key, self::$load))
+		if(array_key_exists($_key, a(self::$load, self::active_bot())))
 		{
-			return self::$load[$_key];
+			return self::$load[self::active_bot()][$_key];
 		}
 
 		return null;
@@ -52,9 +66,9 @@ class telegram
 	public static function broker_token()
 	{
 		self::load();
-		if(isset(self::$load['broker_token']))
+		if(isset(self::$load[self::active_bot()]['broker_token']))
 		{
-			return self::$load['broker_token'];
+			return self::$load[self::active_bot()]['broker_token'];
 		}
 
 		return null;
