@@ -279,7 +279,7 @@ class queue
 
 		$ids = array_column($get_sending_list, 'id');
 
-		// \lib\db\sms\update::set_sending_list(implode(',', $ids));
+		\lib\db\sms\update::set_sending_list(implode(',', $ids));
 
 		$sms_ids = array_column($get_sending_list, 'sms_id');
 
@@ -356,7 +356,7 @@ class queue
 
 					'provider'           => 'kavenegar',
 					'response'           => json_encode($sms_result, true),
-					'response_code'      => 200,
+					'responsecode'      => 200,
 					'provider_status'    => a($sms_result, 'status'),
 					'provider_messageid' => a($sms_result, 'messageid'),
 					'provider_sender'    => a($sms_result, 'sender'),
