@@ -16,6 +16,9 @@ class check
 			'status'   => ['enum' => ['register','pending','sending','expired','moneylow','unknown','send','sended','delivered','queue','failed','undelivered','cancel','block','other']],
 			'sender'   => ['enum' => ['system','admin','customer']],
 			'template' => 'string_100',
+			'token'    => 'string_100',
+			'token2'   => 'string_100',
+			'token3'   => 'string_100',
 			'meta'     => 'json'
 		];
 
