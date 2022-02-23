@@ -20,6 +20,9 @@ class model
 			'status'          => a($post, 'status'),
 			'type'            => a($post, 'type'),
 			'mode'            => a($post, 'mode'),
+			'token'           => a($post, 'token'),
+			'token2'          => a($post, 'token2'),
+			'template'        => a($post, 'template'),
 		];
 
 
