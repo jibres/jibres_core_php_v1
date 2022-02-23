@@ -115,6 +115,11 @@ class controller
 
 		\lib\app\business_domain\run::run();
 
+		if(self::daily_on('17'))
+		{
+			\lib\app\business_domain\run::re_pending_dns_not_active();
+		}
+
 		// to not check every min all backup setting!
 		// the backup setting have special schedule
 		// if(self::every_hour())

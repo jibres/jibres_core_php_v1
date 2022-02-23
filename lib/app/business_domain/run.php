@@ -230,5 +230,12 @@ class run
 			\lib\app\business_domain\free_domain::check($value['id']);
 		}
 	}
+
+
+
+	public static function re_pending_dns_not_active()
+	{
+		\lib\db\business_domain\update::re_pending_dns_not_active();
+	}
 }
 ?>

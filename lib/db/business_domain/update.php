@@ -45,6 +45,14 @@ class update
 	}
 
 
+	public static function re_pending_dns_not_active()
+	{
+		$query = " UPDATE `business_domain` SET business_domain.status = 'pending' WHERE business_domain.status = 'dns_not_resolved' ";
+		$result = \dash\pdo::query($query, [], 'master');
+		return $result;
+	}
+
+
 
 
 
