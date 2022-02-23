@@ -43,6 +43,36 @@ class queue
 		$args['agent_id']    = \dash\agent::get(true);
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
+		if(a($args, 'token') || a($args, 'token2') || a($args, 'token3'))
+		{
+			$args['meta'] = json_encode(
+			[
+				'token' => a($args, 'token'),
+				'token2' => a($args, 'token2'),
+				'token3' => a($args, 'token3'),
+			]);
+		}
+
+		$jibres_sms =
+		[
+			'store_smslog_id' => null,
+			'mobile'          => a($args, 'mobile'),
+			'message'         => a($args, 'message'),
+			'sender'          => a($args, 'sender'),
+			'len'             => a($args, 'len'),
+			'smscount'        => a($args, 'smscount'),
+			'status'          => a($args, 'status'),
+			'type'            => a($args, 'type'),
+			'mode'            => a($args, 'mode'),
+			'token'           => a($args, 'token'),
+			'token2'          => a($args, 'token2'),
+			'token3'          => a($args, 'token3'),
+
+		];
+
+		unset($args['token']);
+		unset($args['token2']);
+		unset($args['token3']);
 
 		$sms_store_smslog_id = \lib\db\sms_log\insert::new_record($args);
 
@@ -52,18 +82,7 @@ class queue
 			return false;
 		}
 
-		$jibres_sms =
-		[
-			'store_smslog_id'    => $sms_store_smslog_id,
-			'mobile'      => a($args, 'mobile'),
-			'message'     => a($args, 'message'),
-			'sender'      => a($args, 'sender'),
-			'len'         => a($args, 'len'),
-			'smscount'    => a($args, 'smscount'),
-			'status'      => a($args, 'status'),
-			'type'        => a($args, 'type'),
-			'mode'        => a($args, 'mode'),
-		];
+		$jibres_sms['store_smslog_id'] = $sms_store_smslog_id;
 
 		$update_sms    = [];
 		$jibres_sms_id = null;
@@ -145,6 +164,11 @@ class queue
 			'status'          => 'string',
 			'type'            => 'string',
 			'mode'            => 'string',
+			'template'        => 'string',
+			'token'           => 'string',
+			'token2'          => 'string',
+			'token3'          => 'string',
+
 
 		];
 
@@ -170,6 +194,16 @@ class queue
 			'mode'            => a($data, 'mode'),
 			'datecreated'     => date("Y-m-d H:i:s"),
 		];
+
+		if(a($data, 'token') || a($data, 'token2') || a($data, 'token3'))
+		{
+			$jibres_sms['meta'] = json_encode(
+			[
+				'token'  => a($data, 'token'),
+				'token2' => a($data, 'token2'),
+				'token3' => a($data, 'token3'),
+			]);
+		}
 
 		if(a($jibres_sms, 'store_id'))
 		{
@@ -256,6 +290,12 @@ class queue
 	}
 
 
+	/**
+	 * Sends a real time.
+	 * Call every 1 secound
+	 *
+	 * @return     bool  ( description_of_the_return_value )
+	 */
 	public static function send_real_time()
 	{
 		if(!\dash\url::isLocal())
@@ -279,7 +319,8 @@ class queue
 
 		$ids = array_column($get_sending_list, 'id');
 
-		\lib\db\sms\update::set_sending_list(implode(',', $ids));
+		// update all status of this list as sending to not load in another session
+		// \lib\db\sms\update::set_sending_list(implode(',', $ids));
 
 		$sms_ids = array_column($get_sending_list, 'sms_id');
 
@@ -296,7 +337,7 @@ class queue
 		}
 
 		$normal_sms = [];
-		$lookup_sms = [];
+		$verification_sms = [];
 
 		foreach ($sms_list as $key => $sms)
 		{
@@ -305,7 +346,6 @@ class queue
 			if(a($sms, 'status') !== 'pending')
 			{
 				// sms was sended manually
-				self::update_sms($sms_id, ['meta' => 'status is not pending!']);
 				continue;
 			}
 
@@ -318,13 +358,25 @@ class queue
 			if(isset($sms['mobile']) && isset($sms['message']) && a($sms, 'mode') === 'sms')
 			{
 				$normal_sms[] = $sms;
+				continue;
 			}
 
+			if(a($sms, 'mode') === 'verification')
+			{
+				if(time() - strtotime($sms['datecreated']) > (60*6))
+				{
+					self::update_sms($sms_id, ['status' => 'expired']);
+					continue;
+				}
 
-
+				$verification_sms[] = $sms;
+				continue;
+			}
 		}
+		var_dump($verification_sms, $normal_sms);
+		var_dump($sms_list);exit;
 
-		if($lookup_sms)
+		if($verification_sms)
 		{
 
 		}
