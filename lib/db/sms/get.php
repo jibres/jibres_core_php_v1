@@ -15,6 +15,16 @@ class get
 	}
 
 
+	public static function by_multi_id(string $_ids)
+	{
+		$query  = "SELECT * FROM sms WHERE  sms.id IN ($_ids)";
+		$result = \dash\pdo::get($query, [], null, false, 'api_log');
+		return $result;
+	}
+
+
+
+
 	public static function sum_sms_sended_by_package_id($_business_id, $_package_id)
 	{
 		$query  = "SELECT SUM(sms.smscount) AS `sum_sms_count` FROM sms WHERE  sms.store_id = :store_id AND sms.package_id = :package_id";
@@ -23,6 +33,18 @@ class get
 
 		$result = \dash\pdo::get($query, $param, 'sum_sms_count', true, 'api_log');
 
+		return $result;
+	}
+
+
+
+	/**
+	 * Get last 200 sms pending to send from sms_sending table
+	 */
+	public static function not_sended_list()
+	{
+		$query  = "SELECT * FROM sms_sending WHERE  sms_sending.status = 'pending' LIMIT 200";
+		$result = \dash\pdo::get($query, [], null, false, 'api_log');
 		return $result;
 	}
 

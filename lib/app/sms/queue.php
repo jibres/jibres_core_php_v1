@@ -258,9 +258,135 @@ class queue
 
 	public static function send_real_time()
 	{
+		if(!\dash\url::isLocal())
+		{
+			return;
+		}
+		// \dash\pdo::transaction('api_log');
+
+		$get_sending_list = \lib\db\sms\get::not_sended_list();
+
+		if(!is_array($get_sending_list))
+		{
+			$get_sending_list = [];
+		}
+
+		// nothing to send
+		if(!$get_sending_list)
+		{
+			return false;
+		}
+
+		$ids = array_column($get_sending_list, 'id');
+
+		// \lib\db\sms\update::set_sending_list(implode(',', $ids));
+
+		$sms_ids = array_column($get_sending_list, 'sms_id');
+
+		$sms_list = \lib\db\sms\get::by_multi_id(implode(',', $sms_ids));
+
+		if(!is_array($sms_list))
+		{
+			$sms_list = [];
+		}
+
+		if(!$sms_list)
+		{
+			return false;
+		}
+
+		$normal_sms = [];
+		$lookup_sms = [];
+
+		foreach ($sms_list as $key => $sms)
+		{
+			$sms_id = a($sms, 'id');
+
+			if(a($sms, 'status') !== 'pending')
+			{
+				// sms was sended manually
+				self::update_sms($sms_id, ['meta' => 'status is not pending!']);
+				continue;
+			}
+
+			if(time() - strtotime($sms['datecreated']) > (60*60*12))
+			{
+				self::update_sms($sms_id, ['status' => 'expired']);
+				continue;
+			}
+
+			if(isset($sms['mobile']) && isset($sms['message']) && a($sms, 'mode') === 'sms')
+			{
+				$normal_sms[] = $sms;
+			}
+
+
+
+		}
+
+		if($lookup_sms)
+		{
+
+		}
+
+		if($normal_sms)
+		{
+			foreach ($normal_sms as $key => $sms)
+			{
+				$option = [];
+
+				if(isset($sms['sender']) && $sms['sender'] === 'admin')
+				{
+					$option['line'] = '10002000200251';
+				}
+
+
+				$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], $option, $sms['id']);
+
+				$provider_date = null;
+
+				if(is_numeric(a($sms_result, 'date')))
+				{
+					$provider_date = date("Y-m-d H:i:s", strtotime($sms_result['date']));
+				}
+
+				$update_sms =
+				[
+					'status'             => 'sended',
+
+					'provider'           => 'kavenegar',
+					'response'           => json_encode($sms_result, true),
+					'response_code'      => 200,
+					'provider_status'    => a($sms_result, 'status'),
+					'provider_messageid' => a($sms_result, 'messageid'),
+					'provider_sender'    => a($sms_result, 'sender'),
+					'provider_receptor'  => a($sms_result, 'receptor'),
+					'provider_date'      => $provider_date,
+					'provider_cost'      => a($sms_result, 'cost'),
+					'provider_currency'  => 'IRR',
+				];
+
+				self::update_sms($sms['id'], $update_sms);
+			}
+		}
+
+
+		\lib\db\sms\delete::sending_by_multi_id(implode(',', $ids));
 
 	}
 
+
+	private static function update_sms($_id, $_update)
+	{
+		$defalt =
+		[
+			'datemodified' => date("Y-m-d H:i:s"),
+		];
+
+		$update = array_merge($defalt, $_update);
+
+		\lib\db\sms\update::record($update, $_id);
+	}
 
 }
 ?>
