@@ -134,13 +134,10 @@ class model
 						'template' => $template,
 						'mode'     => 'verification',
 						'type'     => 'login',
-						'meta'     => json_encode(
-						[
-							'token' => $token,
-							'token2' => $token2,
-						]),
-						'message' => null,
-						'sender'  => 'customer',
+						'token'    => $token,
+						'token2'   => $token2,
+						'message'  => null,
+						'sender'   => 'customer',
 					];
 
 					$add_sms_result = \lib\app\sms\queue::add_one($add_sms);
@@ -162,12 +159,9 @@ class model
 					'template' => $template,
 					'mode'     => 'verification',
 					'type'     => 'login',
-					'meta'     => json_encode(
-					[
-						'token' => $token,
-					]),
-					'message' => null,
-					'sender'  => 'customer',
+					'token'    => $token,
+					'message'  => null,
+					'sender'   => 'customer',
 				];
 
 				$add_sms_result = \lib\app\sms\queue::add_one($add_sms);
