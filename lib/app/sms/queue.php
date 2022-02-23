@@ -67,6 +67,7 @@ class queue
 			'token'           => a($args, 'token'),
 			'token2'          => a($args, 'token2'),
 			'token3'          => a($args, 'token3'),
+			'template'        => a($args, 'template'),
 
 		];
 
@@ -192,6 +193,7 @@ class queue
 			'status'          => a($data, 'status'),
 			'type'            => a($data, 'type'),
 			'mode'            => a($data, 'mode'),
+			'template'        => a($data, 'template'),
 			'datecreated'     => date("Y-m-d H:i:s"),
 		];
 
@@ -320,7 +322,7 @@ class queue
 		$ids = array_column($get_sending_list, 'id');
 
 		// update all status of this list as sending to not load in another session
-		// \lib\db\sms\update::set_sending_list(implode(',', $ids));
+		\lib\db\sms\update::set_sending_list(implode(',', $ids));
 
 		$sms_ids = array_column($get_sending_list, 'sms_id');
 
@@ -373,13 +375,37 @@ class queue
 				continue;
 			}
 		}
-		var_dump($verification_sms, $normal_sms);
-		var_dump($sms_list);exit;
+
 
 		if($verification_sms)
 		{
+			foreach ($verification_sms as $key => $sms)
+			{
+				$meta = [];
+				if(a($sms, 'meta'))
+				{
+					$meta = json_decode($sms['meta'], true);
+				}
 
+				$mobile = $sms['mobile'];
+
+				$kavenegar_send_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'));
+// 				0 =>
+// 				   'messageid' => int 1061844314
+//       'message' => string 'code 11111
+// این کد فعال‌سازی شماست.
+
+// رضا مارکت' (length=73)
+//       'status' => int 5
+//       'statustext' => string 'ارسال به مخابرات' (length=30)
+//       'sender' => string '10002216' (length=8)
+//       'receptor' => string '09109610612' (length=11)
+//       'date' => int 1645643272
+//       'cost' => int 205
+// 				var_dump($kavenegar_send_result);exit;
+			}
 		}
+
 
 		if($normal_sms)
 		{
