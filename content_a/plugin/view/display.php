@@ -17,6 +17,53 @@ $in_discount_time       = \lib\app\plugin\get::in_discount_time($plugin);
 $payable                = \lib\app\plugin\get::can_start_new_pay($is_activated, $plugin, $expiredate);
 
 $html = '';
+
+
+if(\dash\data::activatedList())
+{
+	$html .= '<div class="mt-4">';
+	{
+		$html .= '<table class="tbl1 v9">';
+		{
+			$html .= '<thead>';
+			{
+				$html .= '<tr>';
+				{
+					$html .= '<th colspan="4">'. T_("Active package").'</th>';
+				}
+				$html .= '</tr>';
+				$html .= '<tr>';
+				{
+					$html .= '<th>'. T_("Date register").'</th>';
+					$html .= '<th>'. T_("Package count").'</th>';
+					$html .= '<th>'. T_("Usage count").'</th>';
+					$html .= '<th>'. T_("Remain count").'</th>';
+				}
+				$html .= '</tr>';
+			}
+			$html .= '</thead>';
+
+			$html .= '<tbody>';
+			{
+				foreach (\dash\data::activatedList() as $key => $value)
+				{
+					$html .= '<tr>';
+					{
+						$html .= '<td>'. \dash\fit::date_time(a($value, 'datecreated')) .'</td>';
+						$html .= '<td>'. \dash\fit::number(a($value, 'packagecount')) .'</td>';
+						$html .= '<td>'. \dash\fit::number(a($value, 'usagecount')) .'</td>';
+						$html .= '<td>'. \dash\fit::number(a($value, 'remaincount')) .'</td>';
+					}
+					$html .= '</tr>';
+				}
+			}
+			$html .= '</tbody>';
+		}
+		$html .= '</table>';
+	}
+	$html .= '</div>';
+}
+
 $html .= '<div class="">';
 {
 	$html .= '<form method="post" autocomplete="off" id="pluginadd">';
@@ -309,47 +356,6 @@ $html .= '<div class="">';
 
 }
 $html .= '</div>';
-
-if(\dash\data::activatedList())
-{
-	$html .= '<div class="mt-4">';
-	{
-
-		$html .= '<table class="tbl1 v4">';
-		{
-			$html .= '<thead>';
-			{
-				$html .= '<tr>';
-				{
-					$html .= '<th>'. T_("Date register").'</th>';
-					$html .= '<th>'. T_("Package count").'</th>';
-					$html .= '<th>'. T_("Usage count").'</th>';
-					$html .= '<th>'. T_("Remain count").'</th>';
-				}
-				$html .= '</tr>';
-			}
-			$html .= '</thead>';
-
-			$html .= '<tbody>';
-			{
-				foreach (\dash\data::activatedList() as $key => $value)
-				{
-					$html .= '<tr>';
-					{
-						$html .= '<td>'. \dash\fit::date_time(a($value, 'datecreated')) .'</td>';
-						$html .= '<td>'. \dash\fit::number(a($value, 'packagecount')) .'</td>';
-						$html .= '<td>'. \dash\fit::number(a($value, 'usagecount')) .'</td>';
-						$html .= '<td>'. \dash\fit::number(a($value, 'remaincount')) .'</td>';
-					}
-					$html .= '</tr>';
-				}
-			}
-			$html .= '</tbody>';
-		}
-		$html .= '</table>';
-	}
-	$html .= '</div>';
-}
 
 
 echo $html;

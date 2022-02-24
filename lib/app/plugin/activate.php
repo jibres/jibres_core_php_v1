@@ -193,11 +193,11 @@ class activate
 		{
 			$package_count  = \lib\app\plugin\get::package_count($plugin, $data['package']);
 
-			$currnet_count = \lib\db\store_plugin_action\get::active_plugin_package_count($plugin_id);
+			$current_count = \lib\db\store_plugin_action\get::active_plugin_package_count($plugin, $_business_id);
 
 			if(a($plugin_detail, 'max_count'))
 			{
-				if((floatval($package_count) + floatval($package_count)) >= floatval($plugin_detail['max_count']))
+				if((floatval($package_count) + floatval($current_count)) >= floatval($plugin_detail['max_count']))
 				{
 					\dash\pdo::rollback();
 					\dash\notif::error(T_("The maximum package activation capacity has been completed for you"));
@@ -435,11 +435,11 @@ class activate
 		{
 			$package_count  = \lib\app\plugin\get::package_count($plugin, $package);
 
-			$currnet_count = \lib\db\store_plugin_action\get::active_plugin_package_count($plugin_id);
+			$current_count = \lib\db\store_plugin_action\get::active_plugin_package_count($plugin, $business_id);
 
 			if(a($plugin_detail, 'max_count'))
 			{
-				if((floatval($package_count) + floatval($package_count)) >= floatval($plugin_detail['max_count']))
+				if((floatval($package_count) + floatval($current_count)) >= floatval($plugin_detail['max_count']))
 				{
 					\dash\pdo::rollback();
 					\dash\notif::error(T_("The maximum package activation capacity has been completed for you"));

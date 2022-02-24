@@ -4,23 +4,24 @@ namespace lib\db\store_plugin_action;
 
 class get
 {
-	public static function active_plugin_package_count($_plugin_id)
+	public static function active_plugin_package_count($_plugin, $_store_id)
 	{
 		$query =
 		"
 			SELECT
-				SUM(IFNULL(store_plugin_action.packagecount, 0)) AS `packagecount`
+				SUM(IFNULL(store_plugin.packagecount, 0)) AS `packagecount`
 			FROM
-				store_plugin_action
+				store_plugin
 			WHERE
-				store_plugin_action.plugin_id = :plugin_id AND
-				store_plugin_action.action = 'activate_complete' AND
-				store_plugin_action.status  IN ('enable', 'used')
+				store_plugin.plugin = :plugin AND
+				store_plugin.store_id = :store_id AND
+				store_plugin.status IN ('enable')
 		";
 
 		$param =
 		[
-			':plugin_id' => $_plugin_id,
+			':plugin' => $_plugin,
+			':store_id' => $_store_id,
 		];
 
 		$result = \dash\pdo::get($query, $param, 'packagecount', true);

@@ -36,7 +36,7 @@ class sms_pack
 					'price'         => 400000,
 				],
 			],
-			'max_count'             => 100000, // +100,000
+			'max_count'             => 50000, // +100,000
 			'relase_date'           => '2022-02-05',
 			'last_update'           => '2022-02-05',
 			'disable_auto_discount' => true,

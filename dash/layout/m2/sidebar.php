@@ -600,7 +600,7 @@ class sidebar
 
 		if(\dash\permission::supervisor())
 		{
-			$menu["seperator2"] =
+			$menu["seperator3"] =
 			[
 				'seperator' => true,
 			];
