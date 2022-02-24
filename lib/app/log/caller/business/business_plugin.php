@@ -42,6 +42,8 @@ class business_plugin
 	{
 		$msg                    = '';
 
+		// var_dump($_args);exit;
+
 		$my_plugin_key          = a($_args, 'data', 'my_plugin');
 		$my_business_id         = a($_args, 'data', 'my_business_id');
 		$my_user_id             = a($_args, 'data', 'my_user_id');
@@ -50,6 +52,9 @@ class business_plugin
 		$my_price               = a($_args, 'data', 'my_price');
 		$my_plugin_add_by_admin = a($_args, 'data', 'my_plugin_add_by_admin');
 		$my_plugin_removed      = a($_args, 'data', 'my_plugin_removed');
+		$my_package_count      = a($_args, 'data', 'my_package_count');
+
+
 
 		if($my_plugin_add_by_admin)
 		{
@@ -69,7 +74,12 @@ class business_plugin
 			$msg .= "\n#$my_plugin_key\n";
 			$msg .= T_("Feature") . ' '. \lib\app\plugin\get::title($my_plugin_key). "\n";
 			$msg .= T_("Business") . ' '. $my_business_title. "\n";
+			if($my_package_count)
+			{
+				$msg .= T_("Count") . ' '. \dash\fit::number($my_package_count). "\n";
+			}
 			$msg .= T_("Price") . ' '. \dash\fit::number($my_price). "\n";
+
 			// $msg .= T_("Page Url") . "\n". $my_page_url. "\n";
 
 		}
