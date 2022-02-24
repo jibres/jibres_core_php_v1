@@ -475,7 +475,7 @@ class queue
 
 				if(isset($sms['store_id']) && $sms['store_id'])
 				{
-					$option['line'] = '10002000200251';
+					$option['line'] = '10002216';
 				}
 				else
 				{
