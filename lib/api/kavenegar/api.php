@@ -18,44 +18,27 @@ class api
 	 *
 	 * @return     integer  ( description_of_the_return_value )
 	 */
-	private static function execute($_apikey, $_url, $_data, $_long_time_out = false)
+	private static function execute($_apikey, $_module, $_method, $_data = [])
 	{
-		$headers = array (
-			'Accept: application/json',
-			'Content-Type: application/x-www-form-urlencoded',
-			'charset: utf-8'
-		);
-
-		$fields_string = null;
-		if(is_array($_data))
-		{
-			$fields_string = \dash\request::build_query($_data);
-		}
-
-		\dash\temp::set('rawKavenegrarSendParam', json_encode($_data, JSON_UNESCAPED_UNICODE));
-
-		// for debug you can uncomment below line to see the send parameters
-		if($_long_time_out || true)
-		{
-			$CONNECTTIMEOUT = 30;
-			$TIMEOUT        = 40;
-
-		}
-		else
-		{
-			$CONNECTTIMEOUT = 5;
-			$TIMEOUT        = 10;
-		}
-
-		//======================================================================================//
 		if(!function_exists('curl_init'))
 		{
 			return false;
 		}
 
-		$url = sprintf(self::$api_url, $_apikey, $_url);
+		$headers =
+		[
+			'Accept: application/json',
+			'Content-Type: application/x-www-form-urlencoded',
+			'charset: utf-8'
+		];
 
-		var_dump($url);exit;
+		$post_field = null;
+		if(is_array($_data))
+		{
+			$post_field = \dash\request::build_query($_data);
+		}
+
+		$url = sprintf(self::$api_url, $_apikey, $_module, $_method);
 
 		$handle   = curl_init();
 		curl_setopt($handle, CURLOPT_URL, $url);
@@ -64,32 +47,57 @@ class api
 		curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($handle, CURLOPT_POST, true);
-		curl_setopt($handle, CURLOPT_POSTFIELDS, $fields_string);
-
-		// add timer to ajax request
-		curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, $CONNECTTIMEOUT);
-		curl_setopt($handle, CURLOPT_TIMEOUT, $TIMEOUT);
+		curl_setopt($handle, CURLOPT_POSTFIELDS, $post_field);
+		curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 30);
+		curl_setopt($handle, CURLOPT_TIMEOUT, 40);
 
 		$response = curl_exec($handle);
 		$mycode   = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-		// check mycode in special situation, if has default code with status handle it
-		curl_close ($handle);
-		//=====================================================================================//
-		// for debug you can uncomment below line to see the result get from server
 
-		\dash\temp::set('rawKavenegrarResult', $response);
+		curl_close ($handle);
 
 		if(!$response)
 		{
 			return false;
 		}
 
-
 		$json_data		= json_decode($response, true);
 
 		return $json_data;
 	}
 
+
+	private static function detect_api_key($_option)
+	{
+		if(a($_option, 'apikey'))
+		{
+			return $_option['apikey'];
+		}
+		else
+		{
+			return \dash\setting\kavenegar::apikey(a($_option, 'business_mode'));
+		}
+	}
+
+
+	public static function send_tts($_mobile, $_message, $_option = [])
+	{
+
+		$apikey = self::detect_api_key($_option);
+
+
+		$localid = a($_option, 'localid');
+
+		$params 	=
+		[
+			"receptor" => $_mobile,
+			"message"  => $_message,
+			// "date"  => null,
+			"localid"  => $localid,
+		];
+
+		return self::execute($apikey, 'call', 'maketts', $params);
+	}
 
 	/**
 	 * send sms
