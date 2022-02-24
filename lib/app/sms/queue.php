@@ -439,6 +439,7 @@ class queue
 		{
 			foreach ($verification_sms as $key => $sms)
 			{
+
 				$meta = [];
 				if(a($sms, 'meta'))
 				{
@@ -447,28 +448,53 @@ class queue
 
 				$business_mode = a($sms, 'store_id') ? true : false;
 
+				$sms_result = \lib\api\kavenegar\api::verification($sms['mobile'], $sms['template'], a($meta, 'token'), ['token2' => a($meta, 'token2'), 'business_mode' => $business_mode]);
 
-				$mobile = $sms['mobile'];
+				$provider_date = null;
 
-				$sms_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'), null, null, $business_mode);
+				if(is_numeric(a($sms_result, 'entries', 0, 'date')))
+				{
+					$provider_date = date("Y-m-d H:i:s", strtotime($sms_result['entries'][0]['date']));
+				}
 
 				$update_sms =
 				[
 					'status'             => 'sended',
-
 					'provider'           => 'kavenegar',
 					'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
-					'responsecode'      => 200,
-					'provider_status'    => a($sms_result, 'status'),
-					'provider_messageid' => a($sms_result, 'messageid'),
-					'provider_sender'    => a($sms_result, 'sender'),
-					'provider_receptor'  => a($sms_result, 'receptor'),
+					'responsecode'       => a($sms_result, 'return', 'status'),
+					'provider_status'    => a($sms_result, 'entries', 0, 'status'),
+					'provider_messageid' => a($sms_result, 'entries', 0, 'messageid'),
+					'provider_sender'    => a($sms_result, 'entries', 0, 'sender'),
+					'provider_receptor'  => a($sms_result, 'entries', 0, 'receptor'),
 					'provider_date'      => $provider_date,
-					'provider_cost'      => a($sms_result, 'cost'),
+					'provider_cost'      => a($sms_result, 'entries', 0, 'cost'),
 					'provider_currency'  => 'IRR',
 				];
 
 				self::update_sms($sms['id'], $update_sms);
+
+
+
+				// $sms_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'), null, null, $business_mode);
+
+				// $update_sms =
+				// [
+				// 	'status'             => 'sended',
+
+				// 	'provider'           => 'kavenegar',
+				// 	'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
+				// 	'responsecode'      => 200,
+				// 	'provider_status'    => a($sms_result, 'status'),
+				// 	'provider_messageid' => a($sms_result, 'messageid'),
+				// 	'provider_sender'    => a($sms_result, 'sender'),
+				// 	'provider_receptor'  => a($sms_result, 'receptor'),
+				// 	'provider_date'      => $provider_date,
+				// 	'provider_cost'      => a($sms_result, 'cost'),
+				// 	'provider_currency'  => 'IRR',
+				// ];
+
+				// self::update_sms($sms['id'], $update_sms);
 
 			}
 		}

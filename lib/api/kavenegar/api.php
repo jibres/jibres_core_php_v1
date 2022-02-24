@@ -161,143 +161,42 @@ class api
 
 
 	/**
-	 * send array
+	 * send sms
 	 *
-	 * @param      <type>   $_sender    The sender
-	 * @param      <type>   $_receptor  The receptor
-	 * @param      <type>   $_message   The message
-	 * @param      integer  $_type      The type
-	 * @param      integer  $_date      The date
-	 *
-	 * @return     <type>   ( description_of_the_return_value )
+	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public function sendarray($_sender, $_receptor, $_message, $_type= 1, $_date= 0)
+	public static function verification($_mobile, $_template, $_token, $_option = [])
 	{
-		$sender         = [];
-		$message        = [];
-		$type           = [];
-		$receptor_count = count($_receptor);
+		$apikey = self::detect_api_key($_option);
 
-		if(is_array($_sender))
-		{
-			$sender = $_sender;
-		}
-		else
-		{
-			for ($i = 0; $i < $receptor_count; $i++)
-			{
-				array_push($sender, $_sender);
-			}
-		}
 
-		if(is_array($_message))
-		{
-			$message = $_message;
-		}
-		else
-		{
-			for ($i = 0; $i < $receptor_count; $i++)
-			{
-				array_push($message, $_message);
-			}
-		}
-
-		if(is_array($_type))
-		{
-			$type 	= $_type;
-		}
-		else
-		{
-			for ($i = 0; $i < $receptor_count; $i++)
-			{
-				array_push($type, $_type);
-			}
-		}
-
-		$path 		= $this->get_path(__FUNCTION__);
-		$params 	=
+		$params =
 		[
-			"receptor" => json_encode($_receptor),
-			"sender"   => json_encode($sender),
-			"message"  => json_encode($message),
-			"type"     => json_encode($type),
-			"date"     => $_date,
-		];
-
-		$json = $this->execute($path, $params);
-
-		if(!is_array($json))
-		{
-			return $this->status;
-		}
-
-		return $json;
-	}
-
-
-
-	/**
-	 * lookup verification code
-	 *
-	 * @param      <type>  $_receptor  The receptor
-	 * @param      <type>  $_token     The token
-	 * @param      <type>  $_token2    The token 2
-	 * @param      <type>  $_token3    The token 3
-	 * @param      <type>  $_template  The template
-	 * @param      string  $_type      The type
-	 */
-	public function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_token10 = null, $_token20 = null, $_template = null, $_type = 'sms')
-	{
-
-		$path = $this->get_path('lookup','verify');
-		$parameters =
-		[
-			'receptor' => $_mobile,
-			'token'    => $_token,
-			'template' => $_template,
-
-		];
-
-		if(!is_null($_type)) $parameters['token2']     = $_type;
-		if(!is_null($_token2)) $parameters['token2']   = $_token2;
-		if(!is_null($_token3)) $parameters['token3']   = $_token3;
-		if(!is_null($_token10)) $parameters['token10'] = $_token10;
-		if(!is_null($_token20)) $parameters['token20'] = $_token20;
-
-		$json = $this->execute($path, $parameters);
-
-		if(!is_array($json))
-		{
-			return $this->status;
-		}
-
-		return $json;
-	}
-
-	public function tts($_mobile, $_message)
-	{
-
-		$path = $this->get_path('maketts','call');
-		$parameters =
-		[
-			'receptor' => $_mobile,
-			'message'  => $_message,
-			'date'     => null,
-			'localid'  => null,
-			'repeat'   => null,
-
+			"receptor" => $_mobile,
+			"template" => $_template,
+			"token"    => $_token,
 		];
 
 
-		$json = $this->execute($path, $parameters);
-
-		if(!is_array($json))
+		if(a($_option, 'token2'))
 		{
-			return $this->status;
+			$params['token2'] = $_option['token2'];
 		}
 
-		return $json;
+		if(a($_option, 'token3'))
+		{
+			$params['token3'] = $_option['token3'];
+		}
+
+		if(a($_option, 'type'))
+		{
+			$params['type'] = $_option['type'];
+		}
+
+		return self::execute($apikey, 'verify', 'lookup', $params);
+
 	}
+
 
 
 
