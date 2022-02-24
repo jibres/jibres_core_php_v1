@@ -27,10 +27,8 @@ class view
 		{
 			$activated_list = \lib\app\plugin\business::activated_list(\dash\data::pluginDetail_name());
 
-			if(\dash\url::isLocal())
-			{
-				\dash\data::activatedList($activated_list);
-			}
+			\dash\data::activatedList($activated_list);
+
 		}
 
 	}
