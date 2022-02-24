@@ -806,7 +806,7 @@ class enter
 			// send sms is not active for business login
 			if(\dash\engine\store::inStore())
 			{
-				if(\lib\app\plugin\business::is_activated('sms_pack'))
+				// if(\lib\app\plugin\business::is_activated('sms_pack'))
 				{
 					array_push($way, 'sms');
 				}
