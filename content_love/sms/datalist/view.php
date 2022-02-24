@@ -13,6 +13,14 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 
+
+		\dash\data::listEngine_start(true);
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(\lib\app\sms\filter::list());
+
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\lib\app\sms\filter::sort_list());
+
 		$args =
 		[
 			'order'  => \dash\request::get('order'),
@@ -22,16 +30,12 @@ class view
 
 		$search_string = \dash\validate::search_string();
 
+
 		$list = \lib\app\sms\search::jibres_list($search_string, $args);
 
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
-		\dash\data::sortLink($sortLink);
-
-
-
-		$isFiltered = \lib\app\sms\search::is_filtered();
+		$isFiltered = \dash\app\changelog::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 
@@ -39,6 +43,8 @@ class view
 		{
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
+
+
 
 	}
 }
