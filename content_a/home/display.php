@@ -1,9 +1,17 @@
+
 <?php $dashboardData = \dash\data::dashboardData(); ?>
   <?php if(\dash\data::businessCheckLisst_visible()) {?>
 <div class="row">
     <div class="c-xs-12 c-sm-12 c-md-9">
     <?php } //endif ?>
 
+    <?php if(!\lib\app\plugin\business::is_activated('sms_pack') && \dash\url::isLocal()) { ?>
+        <a href="<?php echo \dash\url::here(). '/plugin/view/sms_pack' ?>">
+          <div class="alert-danger mb-3 font-bold">
+            <?php echo T_("Your SMS package is over. To send your SMS, please purchase the SMS package") ?>
+          </div>
+        </a>
+    <?php } //endif ?>
     <div class="text-sm">
       <?php if(a($dashboardData, 'new_order')) {?>
         <a href="<?php echo \dash\url::here(). '/order/unprocessed' ?>">
