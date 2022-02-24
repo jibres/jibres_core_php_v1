@@ -24,7 +24,7 @@ class view
 		{
 			$sendWayCod = array_values($sendWayCod);
 			$sendWayCod = $sendWayCod[0];
-			if(in_array($sendWayCod, ['sms', 'call', 'telegram']))
+			if(in_array($sendWayCod, ['sms', 'call', 'telegram', 'sendsms']))
 			{
 
 				$OnlyOneWay =

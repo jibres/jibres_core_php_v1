@@ -801,11 +801,20 @@ class enter
 
 		if($mobile && \dash\validate::mobile($mobile, false))
 		{
-			array_push($way, 'sms');
+
 
 			// send sms is not active for business login
-			if(!\dash\engine\store::inStore())
+			if(\dash\engine\store::inStore())
 			{
+				if(\lib\app\plugin\business::is_activated('sms_pack'))
+				{
+					array_push($way, 'sms');
+				}
+			}
+			else
+			{
+				// jibres allow sms and call
+				array_push($way, 'sms');
 				array_push($way, 'call');
 			}
 

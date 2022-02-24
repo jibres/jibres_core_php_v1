@@ -32,7 +32,7 @@ class view
 			}
 			\dash\data::codeSendMsg(T_('Send ":code" to :num',
 				[
-					'code' => \dash\data::codeSend(),
+					'code' => \dash\data::codeSendView(),
 					'num'  => '<b><code>'. \dash\data::codeSendNumLtr(). '</code></b>'
 				]
 				));
