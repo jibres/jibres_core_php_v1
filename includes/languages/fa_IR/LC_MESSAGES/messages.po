@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-24 13:38+0330\n"
-"PO-Revision-Date: 2022-02-24 13:39+0330\n"
+"POT-Creation-Date: 2022-02-24 16:29+0330\n"
+"PO-Revision-Date: 2022-02-24 16:29+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5061,7 +5061,7 @@ msgstr "غیرفعال"
 #: content_a/products/edit/block/sidebar-menu.php:5
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
 #: content_cms/comments/view/display.php:127 content_crm/member/export/display.php:47
-#: content_crm/member/glance/display.php:270 content_crm/sms/view/display.php:30
+#: content_crm/member/glance/display.php:270 content_crm/sms/view/display.php:40
 #: content_crm/ticket/view/display.php:187 content_developers/docs/004-responses.php:58
 #: content_love/application/home/display.php:76
 #: content_love/business/domain/detail/display.php:30
@@ -10135,7 +10135,7 @@ msgstr "بسته‌بندی دلخواه"
 
 #: content_a/order/shipping/display.php:69
 #: content_a/setting/shipping/package/display.php:30
-#: content_a/setting/shipping/package/display.php:90 content_crm/sms/view/display.php:38
+#: content_a/setting/shipping/package/display.php:90 content_crm/sms/view/display.php:49
 #: lib/app/product/property.php:64 lib/app/product/property.php:344
 #: lib/app/product/property.php:348
 msgid "Length"
@@ -10509,7 +10509,7 @@ msgstr "تنظیمات"
 
 #: content_a/pricehistory/display.php:15 content_cms/comments/view/display.php:65
 #: content_cms/files/view/display.php:98 content_crm/notification/view/display.php:38
-#: content_crm/sms/view/display.php:54 content_crm/transactions/detail/display.php:75
+#: content_crm/sms/view/display.php:68 content_crm/transactions/detail/display.php:75
 #: content_love/business/domain/detail/display.php:31
 #: content_love/business/domain/dnslist/display.php:27
 #: content_love/domain/setting/display.php:313 content_love/files/view/display.php:95
@@ -17802,6 +17802,10 @@ msgstr "افزودن سطح دسترسی جدید"
 msgid "Conversation"
 msgstr "گفت‌و‌گو"
 
+#: content_crm/sms/datalist/display.php:17
+msgid "verification sms"
+msgstr "پیامک اعتبارسنجی"
+
 #: content_crm/sms/datalist/view.php:9 content_crm/sms/home/display.php:24
 msgid "Send sms history"
 msgstr "تاریخچه پیامک‌های ارسال شده"
@@ -17830,15 +17834,20 @@ msgid ""
 msgstr ""
 "بعد از ثبت،‌ پیامک شما در صف ارسال قرار خواهد گرفت و تا چند دقیقه بعد ارسال خواهد شد"
 
-#: content_crm/sms/view/display.php:22
+#: content_crm/sms/view/display.php:23
 msgid "Line"
 msgstr "خط"
 
-#: content_crm/sms/view/display.php:39
+#: content_crm/sms/view/display.php:32 content_love/sms/datalist/display.php:9
+#: content_love/smslog/display.php:22 content_love/smslog/view/display.php:11
+msgid "Mode"
+msgstr "مدل"
+
+#: content_crm/sms/view/display.php:50
 msgid "Character"
 msgstr "کاراکتر"
 
-#: content_crm/sms/view/display.php:46
+#: content_crm/sms/view/display.php:59
 msgid "Count sms"
 msgstr "تعداد پیامک‌ها"
 
@@ -18802,7 +18811,7 @@ msgstr "هشدار!"
 msgid "What are you doing?"
 msgstr "اینجا چیکار می‌کنی عزیز جان!؟"
 
-#: content_enter/alert/view.php:28 content_enter/callback/model.php:171
+#: content_enter/alert/view.php:28 content_enter/callback/model.php:170
 #: includes/languages/trans_static_public.php:542
 msgid "OK"
 msgstr "تایید"
@@ -18918,19 +18927,19 @@ msgstr "سرویس اشتباه"
 msgid "Message is empty"
 msgstr "پیام خالی است"
 
-#: content_enter/callback/model.php:69
+#: content_enter/callback/model.php:68
 msgid "Mobile not set"
 msgstr "موبایل تنظیم نشده است"
 
-#: content_enter/callback/model.php:114
+#: content_enter/callback/model.php:113
 msgid "User signup by sms"
 msgstr "کاربر با ارسال پیامک ثبت نام شد"
 
-#: content_enter/callback/model.php:146
+#: content_enter/callback/model.php:145
 msgid "Log not found"
 msgstr "لاگ یافت نشد"
 
-#: content_enter/callback/model.php:160
+#: content_enter/callback/model.php:159
 msgid "More than one log found"
 msgstr "بیشتر از یک لاگ یافت شد"
 
@@ -21543,11 +21552,6 @@ msgstr "مدیریت افزونه بیزینس"
 #: content_love/plugin/sync/display.php:11
 msgid "Send sync request to all business"
 msgstr "ارسال درخواست یکپارچه‌سازی امکانات به همه بیزینس‌ها"
-
-#: content_love/sms/datalist/display.php:9 content_love/smslog/display.php:22
-#: content_love/smslog/view/display.php:11
-msgid "Mode"
-msgstr "مدل"
 
 #: content_love/sms/datalist/view.php:9 content_love/sms/home/view.php:9
 #: content_love/smslog/view.php:9
