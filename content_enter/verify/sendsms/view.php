@@ -16,9 +16,10 @@ class view
 		if(\dash\utility\enter::get_session('sendsms_code'))
 		{
 			\dash\data::codeSend(\dash\utility\enter::get_session('sendsms_code'));
+			\dash\data::codeSendView(\dash\data::codeSend());
 			if(\dash\engine\store::inStore())
 			{
-				\dash\data::codeSend(\lib\store::code_raw(). '-'. \dash\data::codeSend());
+				\dash\data::codeSendView(\lib\store::code_raw(). '-'. \dash\data::codeSend());
 			}
 			\dash\data::codeSendNum('+98 1000 2000 9');
 			\dash\data::codeSendNumSMS('+98100020009');

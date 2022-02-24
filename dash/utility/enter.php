@@ -807,16 +807,16 @@ class enter
 			if(!\dash\engine\store::inStore())
 			{
 				array_push($way, 'call');
+			}
 
-				if(self::get_session('verify_from') === 'signup')
-				{
-					// we can not get sms from user when user try to singup
-					// because the user record is not added to database and we need userid to save log
-				}
-				else
-				{
-					array_push($way, 'sendsms');
-				}
+			if(self::get_session('verify_from') === 'signup')
+			{
+				// we can not get sms from user when user try to singup
+				// because the user record is not added to database and we need userid to save log
+			}
+			else
+			{
+				array_push($way, 'sendsms');
 			}
 		}
 

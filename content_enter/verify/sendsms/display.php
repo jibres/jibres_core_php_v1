@@ -1,12 +1,13 @@
 
 
+    <input name="code" type='hidden'  value="<?php echo \dash\data::codeSend(); ?>">
 <div class='flex fix' id='ecodeSend'>
     <label for='code'>Code</label>
-    <input id='code' name="code" type='text' readonly placeholder='<?php echo T_("Code"); ?>' title='<?php echo T_("Send this code to our number!"); ?>' value="<?php echo \dash\data::codeSend(); ?>">
+    <input id='code'  type='text' readonly placeholder='<?php echo T_("Code"); ?>' title='<?php echo T_("Send this code to our number!"); ?>' value="<?php echo \dash\data::codeSendView(); ?>">
    </div>
 
 <div class='flex fix' id='enumberSend'>
-    <label for='ErmileMobileNumber'><a href="sms://<?php echo \dash\data::codeSendNumSMS(); ?>;?&body=<?php echo \dash\data::codeSend(); ?>">SMS </a></label>
+    <label for='ErmileMobileNumber'><a href="sms://<?php echo \dash\data::codeSendNumSMS(); ?>;?&body=<?php echo \dash\data::codeSendView(); ?>">SMS </a></label>
     <input id='ErmileMobileNumber' name="ErmileMobileNumber" type='tel' readonly placeholder='<?php echo T_("send to this number"); ?>' title='<?php echo T_("Send code to this number!"); ?>' value="<?php echo \dash\data::codeSendNum(); ?>">
    </div>
 

@@ -140,5 +140,13 @@ class api
 
 
 
+	public static function enter_verification_sms_receive($_business_id, $_args)
+	{
+		$result = self::run($_business_id, 'verification','post', null, $_args);
+		return $result;
+	}
+
+
+
 }
 ?>

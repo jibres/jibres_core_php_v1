@@ -20,6 +20,12 @@ class model
 
 	public static function kavenegar()
 	{
+		// not route this module in store
+		if(\dash\engine\store::inStore())
+		{
+			return false;
+		}
+
 		if(\dash\request::request('type') === 'delivery')
 		{
 		// too many request for delivery. needless to save anything
@@ -64,14 +70,63 @@ class model
 			return false;
 		}
 
-		$user_data = \dash\db\users::get_by_mobile($mobile);
+		// login in business
+		if(preg_match("/^([a-z0-9]{5})\-(\d{5})$/", $message, $c))
+		{
+			return self::business_login($c[1], $mobile, $c[2]);
+		}
+
+		return self::check_sms_receive($mobile, $message);
+
+
+		// {
+		// 	"get":"service=kavenegar&type=recieve&uid=201700001",
+		// 	"post":
+		// 		{
+		// 			"messageid":"308404060",
+		// 			"from":"09109610612",
+		// 			"to":"10006660066600",
+		// 			"message":"Salamq"
+		// 		}
+		// 	}
+	}
+
+
+	/**
+	 * singup user and send the regirster sms to he
+	 */
+	private static function first_signup_sms($_mobile)
+	{
+
+
+		$signup =
+		[
+			'mobile'      => $_mobile,
+			'password'    => null,
+			'displayname' => null,
+			'datecreated' => date("Y-m-d H:i:s"),
+		];
+
+		$user_id = \dash\app\user::quick_add($signup);
+
+		\dash\log::set('enter:callback:signup:by:sms');
+
+		\dash\notif::ok(T_("User signup by sms"));
+
+
+	}
+
+
+	public static function check_sms_receive($_mobile, $_verification_code)
+	{
+		$user_data = \dash\db\users::get_by_mobile($_mobile);
 
 		if(!$user_data || !isset($user_data['id']))
 		{
 			return self::first_signup_sms($mobile);
 		}
 
-		$message = \dash\validate::verification_code($message);
+		$message = \dash\validate::verification_code($_verification_code);
 
 		// the message is not a verification code
 		if(!$message)
@@ -117,42 +172,43 @@ class model
 				return true;
 			}
 		}
-
-		// {
-		// 	"get":"service=kavenegar&type=recieve&uid=201700001",
-		// 	"post":
-		// 		{
-		// 			"messageid":"308404060",
-		// 			"from":"09109610612",
-		// 			"to":"10006660066600",
-		// 			"message":"Salamq"
-		// 		}
-		// 	}
 	}
 
 
-	/**
-	 * singup user and send the regirster sms to he
-	 */
-	private static function first_signup_sms($_mobile)
+	private static function business_login($_business_code, $_mobile, $_verification_code)
 	{
+		// if(!\dash\store_coding::is($_business_code))
+		// {
+		// 	\dash\log::set('enter:callback:invalid:store:code');
+		// 	return false;
+		// }
 
+		$store_id = \dash\store_coding::decode_raw($_business_code);
+		if(!$store_id)
+		{
+			return false;
+		}
 
-		$signup =
+		$load_store = \lib\db\store\get::by_id($store_id);
+		if(a($load_store, 'status') === 'enable')
+		{
+			// ok
+		}
+		else
+		{
+			\dash\log::set('enter:callback:store:not:found');
+			return false;
+		}
+
+		$args =
 		[
-			'mobile'      => $_mobile,
-			'password'    => null,
-			'displayname' => null,
-			'datecreated' => date("Y-m-d H:i:s"),
+			'mobile'            => $_mobile,
+			'verification_code' => $_verification_code,
 		];
 
-		$user_id = \dash\app\user::quick_add($signup);
+		$result = \lib\api\business\api::enter_verification_sms_receive($store_id, $args);
 
-		\dash\log::set('enter:callback:signup:by:sms');
-
-		\dash\notif::ok(T_("User signup by sms"));
-
-
+		return;
 	}
 }
 ?>
