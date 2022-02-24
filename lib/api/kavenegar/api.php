@@ -188,6 +188,12 @@ class api
 			$params['token3'] = $_option['token3'];
 		}
 
+		if(a($_option, 'token20'))
+		{
+			$params['token20'] = $_option['token20'];
+		}
+
+
 		if(a($_option, 'type'))
 		{
 			$params['type'] = $_option['type'];

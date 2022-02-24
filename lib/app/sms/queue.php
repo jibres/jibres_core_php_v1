@@ -448,7 +448,7 @@ class queue
 
 				$business_mode = a($sms, 'store_id') ? true : false;
 
-				$sms_result = \lib\api\kavenegar\api::verification($sms['mobile'], $sms['template'], a($meta, 'token'), ['token2' => a($meta, 'token2'), 'business_mode' => $business_mode]);
+				$sms_result = \lib\api\kavenegar\api::verification($sms['mobile'], $sms['template'], a($meta, 'token'), ['token20' => a($meta, 'token2'), 'business_mode' => $business_mode]);
 
 				$provider_date = null;
 
@@ -476,25 +476,6 @@ class queue
 
 
 
-				// $sms_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'), null, null, $business_mode);
-
-				// $update_sms =
-				// [
-				// 	'status'             => 'sended',
-
-				// 	'provider'           => 'kavenegar',
-				// 	'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
-				// 	'responsecode'      => 200,
-				// 	'provider_status'    => a($sms_result, 'status'),
-				// 	'provider_messageid' => a($sms_result, 'messageid'),
-				// 	'provider_sender'    => a($sms_result, 'sender'),
-				// 	'provider_receptor'  => a($sms_result, 'receptor'),
-				// 	'provider_date'      => $provider_date,
-				// 	'provider_cost'      => a($sms_result, 'cost'),
-				// 	'provider_currency'  => 'IRR',
-				// ];
-
-				// self::update_sms($sms['id'], $update_sms);
 
 			}
 		}
