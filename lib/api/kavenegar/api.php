@@ -80,6 +80,20 @@ class api
 	}
 
 
+
+	private static function detect_line_number($_option)
+	{
+		if(a($_option, 'linenumber'))
+		{
+			return $_option['linenumber'];
+		}
+		else
+		{
+			return \dash\setting\kavenegar::line(a($_option, 'business_mode'));
+		}
+	}
+
+
 	public static function send_tts($_mobile, $_message, $_option = [])
 	{
 
@@ -104,18 +118,19 @@ class api
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function send(array $_args)
+	public static function send($_mobile, $_message, $_option = [])
 	{
+		$apikey = self::detect_api_key($_option);
 
-		$apikey         = a($_args, 'apikey');
+		$linenumber = self::detect_line_number($_option);
 
-		$mobile         = a($_args, 'mobile');
-		$message        = a($_args, 'message');
-		$linenumber     = a($_args, 'linenumber');
-		$LocalMessageid = a($_args, 'LocalMessageid');
-		$date           = a($_args, 'date');
+		$localid = a($_option, 'localid');
 
-		$type           = a($_args, 'type');
+
+		$localid    = a($_option, 'localid');
+		$date       = a($_option, 'date');
+
+		$type       = a($_option, 'type');
 
 		if(!$type)
 		{
@@ -124,20 +139,23 @@ class api
 
 		$params 	=
 		[
-			"receptor"       => $mobile,
-			"sender"         => $linenumber,
-			"message"        => $message,
-			"type"           => $type,
-			// "date"           => $_date,
-			"LocalMessageid" => $LocalMessageid,
+			"receptor" => $_mobile,
+			"message"  => $_message,
+			"type"     => $type,
+			"localid"  => $localid,
 		];
+
+		if($linenumber)
+		{
+			$params['sender'] = $linenumber;
+		}
 
 		if($date)
 		{
 			$params['date'] = $date;
 		}
 
-		return self::execute($apikey, 'sms', $params);
+		return self::execute($apikey, 'sms', 'send', $params);
 
 	}
 

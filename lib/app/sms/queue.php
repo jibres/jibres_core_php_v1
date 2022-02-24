@@ -404,7 +404,7 @@ class queue
 			{
 				$business_mode = a($sms, 'store_id') ? true : false;
 
-				$sms_result = \lib\api\kavenegar\api::send_tts($sms['mobile'], $sms['message'], ['localid' => $sms['id']]);
+				$sms_result = \lib\api\kavenegar\api::send_tts($sms['mobile'], $sms['message'], ['localid' => $sms['id'], 'business_mode' => $business_mode]);
 
 				$provider_date = null;
 
@@ -433,7 +433,6 @@ class queue
 			}
 		}
 
-		// var_dump($tts, $verification_sms, $normal_sms);exit;
 
 
 		if($verification_sms)
@@ -479,43 +478,29 @@ class queue
 		{
 			foreach ($normal_sms as $key => $sms)
 			{
-				$option = [];
-
 				$business_mode = a($sms, 'store_id') ? true : false;
 
-
-				if(isset($sms['store_id']) && $sms['store_id'])
-				{
-					$option['line'] = '10002216';
-				}
-				else
-				{
-					$option['line'] = '100020009';
-				}
-
-
-				$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], $option, $sms['id'], $business_mode);
+				$sms_result = \lib\api\kavenegar\api::send($sms['mobile'], $sms['message'], ['localid' => $sms['id'], 'business_mode' => $business_mode]);
 
 				$provider_date = null;
 
-				if(is_numeric(a($sms_result, 'date')))
+				if(is_numeric(a($sms_result, 'entries', 0, 'date')))
 				{
-					$provider_date = date("Y-m-d H:i:s", strtotime($sms_result['date']));
+					$provider_date = date("Y-m-d H:i:s", strtotime($sms_result['entries'][0]['date']));
 				}
 
 				$update_sms =
 				[
 					'status'             => 'sended',
-
 					'provider'           => 'kavenegar',
 					'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
-					'responsecode'      => 200,
-					'provider_status'    => a($sms_result, 'status'),
-					'provider_messageid' => a($sms_result, 'messageid'),
-					'provider_sender'    => a($sms_result, 'sender'),
-					'provider_receptor'  => a($sms_result, 'receptor'),
+					'responsecode'       => a($sms_result, 'return', 'status'),
+					'provider_status'    => a($sms_result, 'entries', 0, 'status'),
+					'provider_messageid' => a($sms_result, 'entries', 0, 'messageid'),
+					'provider_sender'    => a($sms_result, 'entries', 0, 'sender'),
+					'provider_receptor'  => a($sms_result, 'entries', 0, 'receptor'),
 					'provider_date'      => $provider_date,
-					'provider_cost'      => a($sms_result, 'cost'),
+					'provider_cost'      => a($sms_result, 'entries', 0, 'cost'),
 					'provider_currency'  => 'IRR',
 				];
 
