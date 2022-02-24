@@ -577,8 +577,6 @@ class prepare
 				// 	return;
 				// 	break;
 
-				case 'myjibres.ir':
-				case 'jibres.store':
 				case 'jibres.me':
 				// case 'myjibres.com':
 				case 'myjibres.local':
@@ -586,6 +584,8 @@ class prepare
 					return;
 					break;
 
+				case 'myjibres.ir':
+				case 'jibres.store':
 				case 'jibres.ir':
 				case 'jibres.com':
 				case 'jibres.local':
@@ -736,7 +736,7 @@ class prepare
 			case 'ir':
 			default:
 				// $url .= '.jibres.store';
-				$url .= '.jibres.me';
+				$url .= '.'. \dash\engine\store::active_domain_for_business();
 				break;
 		}
 		if(\dash\url::path())
