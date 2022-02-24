@@ -91,10 +91,10 @@ class model
 			}
 
 			$business = null;
-			if(\dash\engine\store::inStore())
-			{
-				$business = '-business';
-			}
+			// if(\dash\engine\store::inStore())
+			// {
+			// 	$business = '-business';
+			// }
 
 			$template = 'jibres'. $business. '-enter-'. $lang;
 
