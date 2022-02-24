@@ -406,7 +406,7 @@ class queue
 					'status'             => 'sended',
 
 					'provider'           => 'kavenegar',
-					// 'response'           => json_encode($sms_result, true),
+					'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
 					'responsecode'      => 200,
 					'provider_status'    => a($sms_result, 'status'),
 					'provider_messageid' => a($sms_result, 'messageid'),
@@ -442,7 +442,7 @@ class queue
 					'status'             => 'sended',
 
 					'provider'           => 'kavenegar',
-					// 'response'           => json_encode($sms_result, true),
+					'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
 					'responsecode'      => 200,
 					'provider_status'    => a($sms_result, 'status'),
 					'provider_messageid' => a($sms_result, 'messageid'),
@@ -489,7 +489,7 @@ class queue
 					'status'             => 'sended',
 
 					'provider'           => 'kavenegar',
-					'response'           => json_encode($sms_result, true),
+					'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
 					'responsecode'      => 200,
 					'provider_status'    => a($sms_result, 'status'),
 					'provider_messageid' => a($sms_result, 'messageid'),
