@@ -38,7 +38,7 @@ class store_coding
 	{
 		$id = \dash\coding::decode($_code, 'store');
 
-		if($id && intval($id) > 1000000 && intval($id) < 1100000)
+		if($id && intval($id) > 1000000 && intval($id) < 9999999)
 		{
 			return $id;
 		}
