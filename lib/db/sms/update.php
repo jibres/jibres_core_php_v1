@@ -18,8 +18,8 @@ class update
 	 */
 	public static function set_sending_list($_ids)
 	{
-		$query  = "UPDATE  sms_sending SET sms_sending.status = 'sending', sms_sending.datemodified = :mydate WHERE sms_sending.id IN ($_ids)";
-		$param = [':mydate' => date("Y-m-d H:i:s")];
+		$query  = "UPDATE  sms_sending SET sms_sending.status = 'sending' WHERE sms_sending.id IN ($_ids)";
+		$param = [];
 		$result = \dash\pdo::query($query, $param, 'api_log');
 		return $result;
 	}
