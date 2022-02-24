@@ -73,16 +73,16 @@ class send
 			return false;
 		}
 
-		$add_sms =
-		[
-			'mobile'  => $_mobile,
-			'message' => $_message,
-			'mode'    => 'tts',
-			'type'    => 'login',
-			'sender'  => 'customer',
-		];
+		// $add_sms =
+		// [
+		// 	'mobile'  => $_mobile,
+		// 	'message' => $_message,
+		// 	'mode'    => 'tts',
+		// 	'type'    => 'login',
+		// 	'sender'  => 'customer',
+		// ];
 
-		$add_sms_result = \lib\app\sms\queue::add_one($add_sms);
+		// $add_sms_result = \lib\app\sms\queue::add_one($add_sms);
 
 
 		$datesend = date("Y-m-d H:i:s");
