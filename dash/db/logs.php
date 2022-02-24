@@ -23,11 +23,12 @@ class logs
 
 	public static function is_active_code($_caller, $_to)
 	{
-		$query = "SELECT * FROM logs WHERE logs.caller = :caller AND logs.to = :to AND logs.status IN ('enable', 'notif', 'notifread') LIMIT 1 ";
+		$query = "SELECT * FROM logs WHERE logs.caller = :caller AND logs.to = :to AND logs.status IN ('enable', 'notif', 'notifread') AND logs.datecreated >= :yesterday LIMIT 1 ";
 		$param =
 		[
-			':caller' => $_caller,
-			':to'     => $_to,
+			':caller'    => $_caller,
+			':to'        => $_to,
+			':yesterday' => date("Y-m-d H:i:s", strtotime('yesterday')),
 		];
 
 		return \dash\pdo::get($query, $param, null, true);
@@ -46,14 +47,14 @@ class logs
 	{
 		$ip     = \dash\server::iplong();
 
-		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE logs.caller = :caller AND logs.ip = :ip AND DATE(logs.datecreated) >= DATE(:start_date) AND DATE(logs.datecreated) <= DATE(:end_date) ";
+		$query  = "SELECT COUNT(*) AS `count` FROM logs WHERE logs.caller = :caller AND logs.ip = :ip AND logs.datecreated >= :start_date AND logs.datecreated <= :end_date ";
 
 		$param =
 		[
 			':caller'     => $_caller,
 			':ip'         => $ip,
-			':start_date' => $_start_date,
-			':end_date'   => $_end_date,
+			':start_date' => $_start_date. ' 00:00:00',
+			':end_date'   => $_end_date. ' 23:59:59',
 		];
 
 		$result = \dash\pdo::get($query, $param, 'count', true);
