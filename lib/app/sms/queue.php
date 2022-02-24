@@ -298,13 +298,9 @@ class queue
 	 *
 	 * @return     bool  ( description_of_the_return_value )
 	 */
-	public static function send_real_time()
+	public static function send_real_time($_debug = false)
 	{
-		if(!\dash\url::isLocal())
-		{
-			return;
-		}
-		// \dash\pdo::transaction('api_log');
+		$result = [];
 
 		$get_sending_list = \lib\db\sms\get::not_sended_list();
 
@@ -313,9 +309,16 @@ class queue
 			$get_sending_list = [];
 		}
 
+		$result['sending_list'] = $get_sending_list;
+
 		// nothing to send
 		if(!$get_sending_list)
 		{
+			if($_debug)
+			{
+				return $result;
+			}
+
 			return false;
 		}
 
@@ -338,8 +341,9 @@ class queue
 			return false;
 		}
 
-		$normal_sms = [];
+		$normal_sms       = [];
 		$verification_sms = [];
+		$tts              = [];
 
 		foreach ($sms_list as $key => $sms)
 		{
@@ -374,6 +378,48 @@ class queue
 				$verification_sms[] = $sms;
 				continue;
 			}
+
+
+			if(a($sms, 'mode') === 'tts')
+			{
+				if(time() - strtotime($sms['datecreated']) > (60*6))
+				{
+					self::update_sms($sms_id, ['status' => 'expired']);
+					continue;
+				}
+
+				$tts[] = $sms;
+				continue;
+			}
+		}
+
+		// var_dump($tts, $verification_sms, $normal_sms);exit;
+
+		if($tts)
+		{
+			foreach ($tts as $key => $sms)
+			{
+				$sms_result = \lib\app\call\send::send_tts($sms['mobile'], $sms['message']);
+
+				$update_sms =
+				[
+					'status'             => 'sended',
+
+					'provider'           => 'kavenegar',
+					'response'           => json_encode($sms_result, true),
+					'responsecode'      => 200,
+					'provider_status'    => a($sms_result, 'status'),
+					'provider_messageid' => a($sms_result, 'messageid'),
+					'provider_sender'    => a($sms_result, 'sender'),
+					'provider_receptor'  => a($sms_result, 'receptor'),
+					'provider_date'      => $provider_date,
+					'provider_cost'      => a($sms_result, 'cost'),
+					'provider_currency'  => 'IRR',
+				];
+
+				self::update_sms($sms['id'], $update_sms);
+
+			}
 		}
 
 
@@ -389,20 +435,26 @@ class queue
 
 				$mobile = $sms['mobile'];
 
-				$kavenegar_send_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'));
-// 				0 =>
-// 				   'messageid' => int 1061844314
-//       'message' => string 'code 11111
-// این کد فعال‌سازی شماست.
+				$sms_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'));
 
-// رضا مارکت' (length=73)
-//       'status' => int 5
-//       'statustext' => string 'ارسال به مخابرات' (length=30)
-//       'sender' => string '10002216' (length=8)
-//       'receptor' => string '09109610612' (length=11)
-//       'date' => int 1645643272
-//       'cost' => int 205
-// 				var_dump($kavenegar_send_result);exit;
+				$update_sms =
+				[
+					'status'             => 'sended',
+
+					'provider'           => 'kavenegar',
+					'response'           => json_encode($sms_result, true),
+					'responsecode'      => 200,
+					'provider_status'    => a($sms_result, 'status'),
+					'provider_messageid' => a($sms_result, 'messageid'),
+					'provider_sender'    => a($sms_result, 'sender'),
+					'provider_receptor'  => a($sms_result, 'receptor'),
+					'provider_date'      => $provider_date,
+					'provider_cost'      => a($sms_result, 'cost'),
+					'provider_currency'  => 'IRR',
+				];
+
+				self::update_sms($sms['id'], $update_sms);
+
 			}
 		}
 
@@ -413,9 +465,13 @@ class queue
 			{
 				$option = [];
 
-				if(isset($sms['sender']) && $sms['sender'] === 'admin')
+				if(isset($sms['store_id']) && $sms['store_id'])
 				{
 					$option['line'] = '10002000200251';
+				}
+				else
+				{
+					$option['line'] = '100020009';
 				}
 
 

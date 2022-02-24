@@ -46,7 +46,7 @@ class get
 
 		if(!\dash\url::isLocal())
 		{
-			unset($keys[array_search('sms_pack', $keys)]);
+			// unset($keys[array_search('sms_pack', $keys)]);
 		}
 
 

@@ -122,7 +122,7 @@ class model
 					}
 
 					// need to remove it after send sms by queue
-					$kavenegar_send_result = \lib\app\sms\send::send($my_mobile, $msg, $sms_option);
+					// $kavenegar_send_result = \lib\app\sms\send::send($my_mobile, $msg, $sms_option);
 				}
 				else
 				{
@@ -148,7 +148,7 @@ class model
 					}
 
 
-					$kavenegar_send_result = \lib\app\sms\send::verification_code($my_mobile, $template, $token, null, null, null, $token2);
+					// $kavenegar_send_result = \lib\app\sms\send::verification_code($my_mobile, $template, $token, null, null, null, $token2);
 				}
 			}
 			else
@@ -171,7 +171,7 @@ class model
 					$kavenegar_send_result = true;
 				}
 
-				$kavenegar_send_result = \lib\app\sms\send::verification_code($my_mobile, $template, $token);
+				// $kavenegar_send_result = \lib\app\sms\send::verification_code($my_mobile, $template, $token);
 			}
 
 		}

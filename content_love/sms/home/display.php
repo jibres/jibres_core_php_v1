@@ -16,4 +16,13 @@
       </div>
     </a>
   </div>
+
+   <div class="c6">
+    <a class="dcard x1" href='<?php echo \dash\url::this(); ?>/sending?manual=run'>
+      <div class="statistic pink">
+        <div class="value"><?php echo \dash\utility\icon::svg('radioactive', 'bootstrap' , null, 'p-4') ?></div>
+        <div class="label"><?php echo T_("Manual run"); ?></div>
+      </div>
+    </a>
+  </div>
 </div>

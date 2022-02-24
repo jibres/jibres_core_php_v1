@@ -40,6 +40,12 @@ class view
 			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
 		}
 
+		if(\dash\request::get('manual') === 'run')
+		{
+			$result = \lib\app\sms\queue::send_real_time(true);
+			\dash\code::jsonBoom($result);
+		}
+
 	}
 }
 ?>

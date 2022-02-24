@@ -5,7 +5,7 @@
     <div class="c-xs-12 c-sm-12 c-md-9">
     <?php } //endif ?>
 
-    <?php if(!\lib\app\plugin\business::is_activated('sms_pack') && \dash\url::isLocal()) { ?>
+    <?php if(!\lib\app\plugin\business::is_activated('sms_pack')) { ?>
         <a href="<?php echo \dash\url::here(). '/plugin/view/sms_pack' ?>">
           <div class="alert-danger mb-3 font-bold">
             <?php echo T_("Your SMS package is over. To send your SMS, please purchase the SMS package") ?>

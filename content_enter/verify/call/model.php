@@ -62,7 +62,7 @@ class model
 		{
 			$kavenegar_send_result = true;
 		}
-		else
+		// else
 		{
 			\dash\log::set('call');
 
@@ -87,8 +87,26 @@ class model
 				$message = "Your verification code is $code";
 
 			}
-			\dash\utility\enter::set_kavenegar_log_type();
-			$kavenegar_send_result = \lib\app\call\send::send_tts($my_mobile, $message);
+
+			$add_sms =
+			[
+				'mobile'   => $my_mobile,
+				'mode'     => 'tts',
+				'type'     => 'login',
+				'message'  => $message,
+				'sender'   => 'customer',
+			];
+
+			$add_sms_result = \lib\app\sms\queue::add_one($add_sms);
+
+			if($add_sms_result)
+			{
+				$kavenegar_send_result = true;
+			}
+
+			// \dash\utility\enter::set_kavenegar_log_type();
+
+			// $kavenegar_send_result = \lib\app\call\send::send_tts($my_mobile, $message);
 		}
 
 		if($kavenegar_send_result === 411 && substr($my_mobile, 0, 2) === '98')
