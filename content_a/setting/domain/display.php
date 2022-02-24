@@ -1,10 +1,10 @@
-<?php $domain = (\dash\url::tld() === 'com') ? '.myjibres.com': '.myjibres.ir'; ?>
+<?php $domain =  \dash\engine\store::active_domain_for_business(); ?>
 <div class="avand-md">
   <nav class="items">
     <ul>
       <li>
-        <a class="f item" href="<?php  echo 'https://'. \lib\store::detail('subdomain'). $domain; ?>" target='_blank'>
-          <div class="key"><?php echo \lib\store::detail('subdomain'). $domain; ?></div>
+        <a class="f item" href="<?php  echo 'https://'. \lib\store::detail('subdomain'). '.'. $domain; ?>" target='_blank'>
+          <div class="key"><?php echo \lib\store::detail('subdomain'). '.'. $domain; ?></div>
           <div class="value"><?php echo T_("Connected"); ?></div>
           <div class="go"></div>
         </a>

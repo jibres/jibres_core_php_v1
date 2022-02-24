@@ -361,14 +361,23 @@ class url
 		$url .= self::protocol(). '://';
 		$url .= $_subdomain. '.';
 
-		if(self::tld() === 'com' || self::tld() === 'local')
+		if(self::tld() === 'local')
 		{
 			$url .= 'myjibres.'. self::tld();
 		}
 		else
 		{
-			$url .= 'myjibres.ir';
+			$url .= \dash\engine\store::active_domain_for_business();
 		}
+
+		// if(self::tld() === 'com' || self::tld() === 'local')
+		// {
+		// 	$url .= 'myjibres.'. self::tld();
+		// }
+		// else
+		// {
+		// 	$url .= 'myjibres.ir';
+		// }
 
 		if(self::lang())
 		{

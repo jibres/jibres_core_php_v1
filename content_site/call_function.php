@@ -590,7 +590,7 @@ class call_function
 				}
 			}
 
-			$demo_url = 'https://demo.myjibres.ir';
+			$demo_url = 'https://demo.'. \dash\engine\store::active_domain_for_business();
 
 			if(\dash\url::isLocal())
 			{

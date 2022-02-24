@@ -174,6 +174,13 @@ class store
 
 
 
+	public static function active_domain_for_business()
+	{
+		return 'jibres.me';
+	}
+
+
+
 	public static function enable_plugin_admin_special_domain()
 	{
 		if(\lib\app\plugin\business::is_activated('admin_domain'))

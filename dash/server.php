@@ -113,6 +113,7 @@ class server
 			// cloudflare
 			case 'jibres.ir':
 			case 'jibres.store':
+			case 'jibres.me':
 			case 'myjibres.ir':
 				if (isset($_SERVER["HTTP_AR_REAL_IP"]))
 				{
