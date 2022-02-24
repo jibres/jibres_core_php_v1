@@ -248,46 +248,48 @@ class queue
 
 	public static function send()
 	{
-		if(\dash\url::isLocal())
-		{
-			return false;
-		}
+		// disable old send notif
+		return false;
 
-		$limit = 20;
-		// get 20 not sended sms
-		$queue = \lib\db\sms_log\get::not_sended($limit);
+		// if(\dash\url::isLocal())
+		// {
+		// }
 
-		// no queue
-		if(!$queue || !is_array($queue))
-		{
-			return;
-		}
+		// $limit = 20;
+		// // get 20 not sended sms
+		// $queue = \lib\db\sms_log\get::not_sended($limit);
 
-		$queue = array_map(['\\lib\\app\\sms\\ready', 'row'], $queue);
+		// // no queue
+		// if(!$queue || !is_array($queue))
+		// {
+		// 	return;
+		// }
 
-		$ids = array_column($queue, 'id');
-		if($ids)
-		{
-			\lib\db\sms_log\update::set_multi_sending($ids);
-		}
+		// $queue = array_map(['\\lib\\app\\sms\\ready', 'row'], $queue);
 
-		foreach ($queue as $key => $sms)
-		{
-			if(isset($sms['mobile']) && isset($sms['message']))
-			{
-				if(a($sms, 'mode') === 'sms')
-				{
-					$option = [];
+		// $ids = array_column($queue, 'id');
+		// if($ids)
+		// {
+		// 	\lib\db\sms_log\update::set_multi_sending($ids);
+		// }
 
-					if(isset($sms['sender']) && $sms['sender'] === 'admin')
-					{
-						$option['line'] = '10002000200251';
-					}
+		// foreach ($queue as $key => $sms)
+		// {
+		// 	if(isset($sms['mobile']) && isset($sms['message']))
+		// 	{
+		// 		if(a($sms, 'mode') === 'sms')
+		// 		{
+		// 			$option = [];
 
-					$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], $option, $sms['id']);
-				}
-			}
-		}
+		// 			if(isset($sms['sender']) && $sms['sender'] === 'admin')
+		// 			{
+		// 				$option['line'] = '10002000200251';
+		// 			}
+
+		// 			$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], $option, $sms['id']);
+		// 		}
+		// 	}
+		// }
 
 	}
 
