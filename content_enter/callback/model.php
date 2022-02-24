@@ -60,7 +60,6 @@ class model
 			return false;
 		}
 
-
 		$mobile = $data['from'];
 
 		if(!$mobile)
@@ -71,9 +70,9 @@ class model
 		}
 
 		// login in business
-		if(preg_match("/^([a-z0-9]{5})\-(\d{5})$/", $message, $c))
+		if(preg_match("/^([a-z0-9]{5})\-(\d{5})$/", mb_strtolower($message), $c))
 		{
-			return self::business_login($c[1], $mobile, $c[2]);
+			return self::business_login(mb_strtolower($c[1]), $mobile, $c[2]);
 		}
 
 		return self::check_sms_receive($mobile, $message);
