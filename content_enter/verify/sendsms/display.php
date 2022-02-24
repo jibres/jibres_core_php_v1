@@ -2,7 +2,7 @@
 
 <div class='flex fix' id='ecodeSend'>
     <label for='code'>Code</label>
-    <input id='code' name="code" type='number' readonly placeholder='<?php echo T_("Code"); ?>' title='<?php echo T_("Send this code to our number!"); ?>' value="<?php echo \dash\data::codeSend(); ?>">
+    <input id='code' name="code" type='text' readonly placeholder='<?php echo T_("Code"); ?>' title='<?php echo T_("Send this code to our number!"); ?>' value="<?php echo \dash\data::codeSend(); ?>">
    </div>
 
 <div class='flex fix' id='enumberSend'>
@@ -12,7 +12,7 @@
 
 
 <p><?php echo \dash\data::codeSendMsg(); ?></p>
-<p><?php echo \dash\data::codeSendSMS(); ?></p>
+
 
  <div class='flex' id='egoCheck'>
     <button type="submit"><?php echo T_("Go and check it"); ?></button>

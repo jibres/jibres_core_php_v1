@@ -16,12 +16,23 @@ class view
 		if(\dash\utility\enter::get_session('sendsms_code'))
 		{
 			\dash\data::codeSend(\dash\utility\enter::get_session('sendsms_code'));
+			if(\dash\engine\store::inStore())
+			{
+				\dash\data::codeSend(\lib\store::code_raw(). '-'. \dash\data::codeSend());
+			}
 			\dash\data::codeSendNum('+98 1000 2000 9');
 			\dash\data::codeSendNumSMS('+98100020009');
+
+			\dash\data::codeSendNumLtr(\dash\data::codeSendNum());
+
+			if(\dash\language::current() === 'fa')
+			{
+				\dash\data::codeSendNumLtr('9 2000 1000 98+');
+			}
 			\dash\data::codeSendMsg(T_('Send ":code" to :num',
 				[
 					'code' => \dash\data::codeSend(),
-					'num'  => '<b><code>'. \dash\data::codeSendNum(). '</code></b>'
+					'num'  => '<b><code>'. \dash\data::codeSendNumLtr(). '</code></b>'
 				]
 				));
 
