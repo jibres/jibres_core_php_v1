@@ -62,7 +62,7 @@ class model
 		{
 			$kavenegar_send_result = true;
 		}
-		// else
+		else
 		{
 			\dash\log::set('call');
 
