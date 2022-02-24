@@ -579,6 +579,7 @@ class prepare
 
 				case 'myjibres.ir':
 				case 'jibres.store':
+				case 'jibres.me':
 				// case 'myjibres.com':
 				case 'myjibres.local':
 					// nothing
@@ -588,7 +589,7 @@ class prepare
 				case 'jibres.ir':
 				case 'jibres.com':
 				case 'jibres.local':
-					self::go_to_myjibres();
+					self::go_to_business_domain();
 					return;
 					break;
 			}
@@ -605,6 +606,7 @@ class prepare
 					break;
 
 				case 'jibres.store':
+				case 'jibres.me':
 				case 'myjibres.ir':
 				// case 'myjibres.com':
 				case 'myjibres.local':
@@ -641,7 +643,7 @@ class prepare
 		[
 			'jibres.xyz',
 			'jibres.icu',
-			'jibres.me',
+			// 'jibres.me',
 		];
 
 		if(in_array($domain, $emergency_domain))
@@ -709,6 +711,7 @@ class prepare
 				break;
 
 			case 'store':
+			case 'me':
 			default:
 				$url .= 'ir';
 				break;
@@ -719,20 +722,21 @@ class prepare
 
 
 
-	private static function go_to_myjibres()
+	private static function go_to_business_domain()
 	{
 		$url = \dash\url::protocol(). '://';
 		$url .= \dash\url::subdomain();
 		switch (\dash\url::tld())
 		{
-			case 'com':
 			case 'local':
 				$url .= '.myjibres.'. \dash\url::tld();
 				break;
 
+			case 'com':
 			case 'ir':
 			default:
-				$url .= '.jibres.store';
+				// $url .= '.jibres.store';
+				$url .= '.jibres.me';
 				break;
 		}
 		if(\dash\url::path())
