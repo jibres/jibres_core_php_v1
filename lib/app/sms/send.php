@@ -191,7 +191,7 @@ class send
 
 		$default_option =
 		[
-			'line'           => self::line(),
+			'line'           => self::line($_business_mode),
 		];
 
 		$_options = [];

@@ -440,7 +440,7 @@ class queue
 
 				$mobile = $sms['mobile'];
 
-				$sms_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'), null, $business_mode);
+				$sms_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'), null, null, $business_mode);
 
 				$update_sms =
 				[
