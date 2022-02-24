@@ -399,7 +399,9 @@ class queue
 		{
 			foreach ($tts as $key => $sms)
 			{
-				$sms_result = \lib\app\call\send::send_tts($sms['mobile'], $sms['message']);
+				$business_mode = a($sms, 'store_id') ? true : false;
+
+				$sms_result = \lib\app\call\send::send_tts($sms['mobile'], $sms['message'], $business_mode);
 
 				$update_sms =
 				[
@@ -433,9 +435,12 @@ class queue
 					$meta = json_decode($sms['meta'], true);
 				}
 
+				$business_mode = a($sms, 'store_id') ? true : false;
+
+
 				$mobile = $sms['mobile'];
 
-				$sms_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'));
+				$sms_result = \lib\app\sms\send::verification_code($sms['mobile'], $sms['template'], a($meta, 'token'), null, null, null, a($meta, 'token2'), $business_mode);
 
 				$update_sms =
 				[
@@ -465,6 +470,9 @@ class queue
 			{
 				$option = [];
 
+				$business_mode = a($sms, 'store_id') ? true : false;
+
+
 				if(isset($sms['store_id']) && $sms['store_id'])
 				{
 					$option['line'] = '10002000200251';
@@ -475,7 +483,7 @@ class queue
 				}
 
 
-				$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], $option, $sms['id']);
+				$sms_result = \lib\app\sms\send::send($sms['mobile'], $sms['message'], $option, $sms['id'], $business_mode);
 
 				$provider_date = null;
 

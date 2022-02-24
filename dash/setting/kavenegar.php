@@ -46,9 +46,15 @@ class kavenegar
 	}
 
 
-	public static function apikey()
+	public static function apikey($_business_mode = false)
 	{
 		self::load();
+
+		if($_business_mode)
+		{
+			return a(self::$load, 'business_apikey');
+		}
+
 		if(isset(self::$load['apikey']))
 		{
 			return self::$load['apikey'];
@@ -58,9 +64,15 @@ class kavenegar
 	}
 
 
-	public static function line()
+	public static function line($_business_mode = false)
 	{
 		self::load();
+
+		if($_business_mode)
+		{
+			return a(self::$load, 'business_line');
+		}
+
 		if(isset(self::$load['line']))
 		{
 			return self::$load['line'];

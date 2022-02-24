@@ -5,14 +5,14 @@ namespace lib\app\sms;
 /** Sms management class **/
 class send
 {
-	private static function kavenegar_auth()
+	private static function kavenegar_auth($_business_mode = false)
 	{
-		return \dash\setting\kavenegar::apikey();
+		return \dash\setting\kavenegar::apikey($_business_mode);
 	}
 
-	private static function line()
+	private static function line($_business_mode = false)
 	{
-		return \dash\setting\kavenegar::line();
+		return \dash\setting\kavenegar::line($_business_mode);
 	}
 
 	/**
@@ -105,7 +105,7 @@ class send
 	 *
 	 * @return     \|boolean  ( description_of_the_return_value )
 	 */
-	public static function send($_mobile, $_message, $_options = [], $_log_id = null)
+	public static function send($_mobile, $_message, $_options = [], $_log_id = null, $_business_mode = false)
 	{
 		if(!$_mobile || !$_message || !trim($_message))
 		{
@@ -114,7 +114,7 @@ class send
 
 		$default_option =
 		[
-			'line'           => self::line(),
+			'line'           => self::line($_business_mode),
 			'type'           => 1,
 			'date'           => 0,
 			'LocalMessageid' => null,
@@ -141,7 +141,7 @@ class send
 		$datesend = date("Y-m-d H:i:s");
 
 		// send sms
-		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
+		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth($_business_mode), $_options['line']);
 		$result    = $myApiData->send($mobile, $message, $_options['type'], $_options['date'], $_options['LocalMessageid']);
 
 		$insert_kavenegar_log =
@@ -182,7 +182,7 @@ class send
 	}
 
 
-	public static function verification_code($_mobile, $_template, $_token, $_token2 = null, $_token3 = null, $_token10 = null, $_token20 = null, $_type = null, $_log_id = null)
+	public static function verification_code($_mobile, $_template, $_token, $_token2 = null, $_token3 = null, $_token10 = null, $_token20 = null, $_type = null, $_log_id = null, $_business_mode = false)
 	{
 		if(!$_mobile || !$_token || !$_template)
 		{
@@ -208,7 +208,7 @@ class send
 		$datesend = date("Y-m-d H:i:s");
 
 		// send sms
-		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
+		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth($_business_mode), $_options['line']);
 		$result    = $myApiData->verify($mobile, $_token, $_token2, $_token3, $_token10, $_token20, $_template, $_type);
 
 		$insert_kavenegar_log =
@@ -217,7 +217,7 @@ class send
 			'line'         => $_options['line'],
 			'datesend'     => $datesend,
 			'dateresponse' => date("Y-m-d H:i:s"),
-			'apikey'       => self::kavenegar_auth(),
+			'apikey'       => self::kavenegar_auth($_business_mode),
 		];
 
 		if($_log_id)

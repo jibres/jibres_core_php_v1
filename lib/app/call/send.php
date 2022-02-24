@@ -5,14 +5,14 @@ namespace lib\app\call;
 /** call management class **/
 class send
 {
-	private static function kavenegar_auth()
+	private static function kavenegar_auth($_business_mode = false)
 	{
-		return \dash\setting\kavenegar::apikey();
+		return \dash\setting\kavenegar::apikey($_business_mode);
 	}
 
-	private static function line()
+	private static function line($_business_mode = false)
 	{
-		return \dash\setting\kavenegar::line();
+		return \dash\setting\kavenegar::line($_business_mode);
 	}
 
 	/**
@@ -25,7 +25,7 @@ class send
 	 *
 	 * @return     \|boolean  ( description_of_the_return_value )
 	 */
-	public static function send($_mobile, $_template, $_token, $_options = [])
+	public static function send($_mobile, $_template, $_token, $_options = [], $_business_mode = false)
 	{
 		if(!$_mobile || !$_template || !isset($_token))
 		{
@@ -54,13 +54,13 @@ class send
 		}
 
 		// function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_template = null, $_type = 'sms')
-		$api    = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
+		$api    = new \dash\utility\kavenegar_api(self::kavenegar_auth($_business_mode), $_options['line']);
 		$result = $api->verify($mobile, $_token, $_options['token2'], $_options['token3'], $_template, $_options['type']);
 		return $result;
 	}
 
 
-	public static function send_tts($_mobile, $_message)
+	public static function send_tts($_mobile, $_message, $_business_mode = false)
 	{
 		if(!$_mobile || !$_message)
 		{
@@ -88,7 +88,7 @@ class send
 		$datesend = date("Y-m-d H:i:s");
 
 		// function verify($_mobile, $_token, $_token2 = null, $_token3 = null, $_text = null, $_type = 'sms')
-		$api    = new \dash\utility\kavenegar_api(self::kavenegar_auth(), self::line());
+		$api    = new \dash\utility\kavenegar_api(self::kavenegar_auth($_business_mode), self::line($_business_mode));
 		$result = $api->tts($mobile, $_message);
 
 		$insert_kavenegar_log =
