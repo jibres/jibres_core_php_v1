@@ -1,0 +1,1 @@
+TRUNCATE jibres_api_log.sms_sending;
