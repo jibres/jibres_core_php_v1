@@ -241,7 +241,7 @@ class create
 				'email'    => $data['email'],
 			];
 
-			\lib\app\nic_usersetting\set::set($create_new_contact);
+			\lib\app\nic_usersetting\set::set($create_new_contact, false);
 
 			$create_new_contact =
 			[

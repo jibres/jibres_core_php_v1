@@ -4,7 +4,7 @@ namespace lib\app\nic_usersetting;
 
 class set
 {
-	public static function set($_args)
+	public static function set($_args, $_debug = true)
 	{
 		if(!\dash\user::id())
 		{
@@ -64,7 +64,10 @@ class set
 			\lib\db\nic_usersetting\insert::new_record($args);
 		}
 
-		\dash\notif::ok(T_("Setting saved"));
+		if($_debug)
+		{
+			\dash\notif::ok(T_("Setting saved"));
+		}
 
 
 	}
