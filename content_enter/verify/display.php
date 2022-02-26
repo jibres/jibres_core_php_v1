@@ -63,6 +63,11 @@ $sendWayCod = \dash\data::sendWayCod();
     <button type="submit"><?php echo T_("Go"); ?></button>
    </div>
 
+
+
+<?php if(\dash\data::startNewMobile()) { ?>
+		<a class="c link" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Restart with new mobile"); ?></a>
+	<?php }//endif ?>
 <?php
 if (\dash\data::rememberLink())
 {
