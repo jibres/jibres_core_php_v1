@@ -30,6 +30,7 @@ class view
 			{
 				\dash\data::codeSendNumLtr('9 2000 1000 98+');
 			}
+
 			\dash\data::codeSendMsg(T_('Send ":code" to :num',
 				[
 					'code' => \dash\data::codeSendView(),
