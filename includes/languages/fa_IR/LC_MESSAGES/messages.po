@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-24 16:29+0330\n"
-"PO-Revision-Date: 2022-02-24 16:29+0330\n"
+"POT-Creation-Date: 2022-02-26 14:47+0330\n"
+"PO-Revision-Date: 2022-02-26 14:47+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1066,7 +1066,8 @@ msgstr "نام کامل"
 #: content_enter/pass/change/display.php:6 content_enter/pass/display.php:3
 #: content_enter/pass/recovery/display.php:3 content_enter/pass/set/display.php:7
 #: content_enter/pass/signup/display.php:7 content_enter/signup/display.php:5
-#: content_enter/verify/display.php:3 content_love/domain/domainbuy/display.php:7
+#: content_enter/verify/call/display.php:3 content_enter/verify/display.php:3
+#: content_enter/verify/sms/display.php:3 content_love/domain/domainbuy/display.php:7
 #: content_love/domain/setting/display.php:207 content_love/log/home/logTable.php:30
 #: content_love/sms/datalist/display.php:5 content_love/smslog/display.php:18
 #: content_love/smslog/view/display.php:8 content_love/subscribe/display.php:11
@@ -2142,8 +2143,8 @@ msgstr "شماره موبایل خود را وارد کنید"
 #: content_a/pricehistory/display.php:23
 #: content_a/setting/domain/existdomain/display.php:19 content_enter/app/display.php:60
 #: content_enter/home/display.php:47 content_enter/pass/change/display.php:17
-#: content_enter/verify/call/display.php:9 content_enter/verify/display.php:63
-#: content_enter/verify/sms/display.php:9 content_enter/verify/telegram/display.php:9
+#: content_enter/verify/call/display.php:28 content_enter/verify/display.php:63
+#: content_enter/verify/sms/display.php:29 content_enter/verify/telegram/display.php:9
 #: content_pay/redirect/display.php:21 content_sudo/passwd/display.php:11
 msgid "Go"
 msgstr "برو"
@@ -3350,7 +3351,7 @@ msgstr "طلایی"
 #: content_love/domain/billing/display.php:92
 #: content_love/domain/setting/action/display.php:44 content_love/gift/usage/display.php:7
 #: content_love/plugin/history/display.php:12
-#: lib/app/log/caller/business/business_plugin.php:72 lib/app/order/filter.php:99
+#: lib/app/log/caller/business/business_plugin.php:81 lib/app/order/filter.php:99
 #: lib/app/order/filter.php:100 lib/app/order/filter.php:101 lib/app/order/filter.php:102
 #: lib/app/order/filter.php:103 lib/app/product/filter.php:193
 #: lib/app/product/filter.php:202 lib/app/product/property.php:249
@@ -5995,7 +5996,7 @@ msgstr "افزودن درآمد"
 #: content_a/android/home/display.php:117 content_a/buy/opr/display.php:105
 #: content_a/buy/opr/display.php:159 content_a/cart/add/display.php:39
 #: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
-#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:63
+#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:70
 #: content_a/order/products/display.php:41 content_a/order/products/display.php:43
 #: content_a/report/sale/display.php:178 content_a/sale/display.php:41
 #: content_cms/files/home/display.php:36 content_crm/home/display.php:6
@@ -6006,6 +6007,7 @@ msgstr "افزودن درآمد"
 #: content_love/domain/home/display.php:242 content_love/files/home/display.php:36
 #: content_love/gift/home/display.php:7 content_sudo/tg/system/display.php:10
 #: content_sudo/tg/users/display.php:85 includes/languages/trans_static_public.php:899
+#: lib/app/log/caller/business/business_plugin.php:79
 msgid "Count"
 msgstr "تعداد"
 
@@ -9744,40 +9746,43 @@ msgstr "شما کجا هستید؟"
 msgid "Choose fund"
 msgstr "انتخاب صندوق"
 
-#: content_a/home/display.php:11
-msgid "Your SMS package is over. To send your SMS, please purchase the SMS package"
+#: content_a/home/display.php:13
+msgid ""
+"If you wish, by purchasing an SMS package, you can be aware of it after receiving the "
+"order and add the ability to log in to your site via SMS."
 msgstr ""
-"بسته پیامک شما به اتمام رسیده است. جهت ارسال پیامک‌ها لطفا بسته پیامک جدید تهیه کنید"
+"در صورت تمایل با خرید بسته پیامکی می‌توانید پس از دریافت سفارش، از آن آگاه شوید و قابلیت "
+"ورود با پیامک را به سایت خودتون اضافه کنید."
 
-#: content_a/home/display.php:19
+#: content_a/home/display.php:26
 msgid "You have :val Unprocessed order"
 msgstr "شما :val سفارش جدید دارید"
 
-#: content_a/home/display.php:26
+#: content_a/home/display.php:33
 msgid "You have :val Unanswered ticket"
 msgstr "شما :val تیکت در انتظار پاسخ دارید"
 
-#: content_a/home/display.php:33
+#: content_a/home/display.php:40
 msgid "You have :val awaiting comment"
 msgstr "شما :val نظر در انتظار تایید دارید"
 
-#: content_a/home/display.php:40 content_hook/smile/controller.php:17
+#: content_a/home/display.php:47 content_hook/smile/controller.php:17
 msgid "You have :val new message!"
 msgstr "شما :val پیام جدید دارید!"
 
-#: content_a/home/display.php:48
+#: content_a/home/display.php:55
 msgid "You have :val not reviewed answer in :form"
 msgstr "شما :val پاسخ از فرم :form دریافت کرده‌اید که هنوز بررسی نشده‌اند"
 
-#: content_a/home/display.php:61
+#: content_a/home/display.php:68
 msgid "Sum factor price and count of it group by hours"
 msgstr "جمع مبالغ فاکتور و تعداد آن به تفکیک ساعت"
 
-#: content_a/home/display.php:62
+#: content_a/home/display.php:69
 msgid "Sum price"
 msgstr "جمع مبالغ"
 
-#: content_a/home/display.php:72
+#: content_a/home/display.php:79
 msgid "Business setup"
 msgstr "راه‌اندازی کسب و کار"
 
@@ -18818,19 +18823,22 @@ msgstr "تایید"
 
 #: content_enter/app/display.php:32 content_enter/home/display.php:15
 #: content_enter/pass/display.php:3 content_enter/pass/recovery/display.php:3
-#: content_enter/verify/display.php:3
+#: content_enter/verify/call/display.php:3 content_enter/verify/display.php:3
+#: content_enter/verify/sms/display.php:3
 msgid "Please enter valid mobile or username or email number"
 msgstr "لطفا نام‌کاربری یا موبایل یا ایمیل معتبری وارد کنید"
 
 #: content_enter/app/display.php:32 content_enter/home/display.php:15
 #: content_enter/pass/display.php:3 content_enter/pass/recovery/display.php:3
-#: content_enter/verify/display.php:3
+#: content_enter/verify/call/display.php:3 content_enter/verify/display.php:3
+#: content_enter/verify/sms/display.php:3
 msgid "Username or Mobile or Email"
 msgstr "نام کاربری یا موبایل یا ایمیل"
 
 #: content_enter/app/display.php:40 content_enter/home/display.php:23
 #: content_enter/pass/display.php:11 content_enter/pass/recovery/display.php:3
-#: content_enter/verify/display.php:11
+#: content_enter/verify/call/display.php:11 content_enter/verify/display.php:11
+#: content_enter/verify/sms/display.php:11
 msgid "Username or Mobile or email"
 msgstr "نام کاربری یا موبایل یا ایمیل"
 
@@ -19079,7 +19087,7 @@ msgstr "رمزعبور‌ی اشتباه، دوباره تلاش کنید"
 msgid "Recovery password"
 msgstr "بازیابی رمزعبور"
 
-#: content_enter/pass/recovery/display.php:20 content_enter/verify/display.php:71
+#: content_enter/pass/recovery/display.php:20 content_enter/verify/display.php:76
 msgid "Remembered your password?"
 msgstr "رمز‌عبور خود را به خاطر آوردید!؟"
 
@@ -19244,18 +19252,19 @@ msgstr "ورود دو مرحله ای"
 msgid "You can trun it on or off"
 msgstr "شما می‌توانید آن را خاموش یا روشن کنید"
 
-#: content_enter/verify/call/display.php:4 content_enter/verify/sms/display.php:4
+#: content_enter/verify/call/display.php:23 content_enter/verify/sms/display.php:24
 #: content_enter/verify/telegram/display.php:4
 msgid "Verify Code"
 msgstr "کد اعتبارسنجی"
 
-#: content_enter/verify/call/display.php:16 content_enter/verify/sendsms/display.php:28
-#: content_enter/verify/sms/display.php:16 content_enter/verify/telegram/display.php:16
+#: content_enter/verify/call/display.php:35 content_enter/verify/display.php:69
+#: content_enter/verify/sendsms/display.php:28 content_enter/verify/sms/display.php:36
+#: content_enter/verify/telegram/display.php:16
 msgid "Restart with new mobile"
 msgstr "شروع دوباره با موبایل جدید"
 
-#: content_enter/verify/call/display.php:19 content_enter/verify/sendsms/display.php:31
-#: content_enter/verify/sms/display.php:19 content_enter/verify/telegram/display.php:19
+#: content_enter/verify/call/display.php:38 content_enter/verify/sendsms/display.php:31
+#: content_enter/verify/sms/display.php:39 content_enter/verify/telegram/display.php:19
 msgid "Go back"
 msgstr "برگرد"
 
@@ -19299,7 +19308,7 @@ msgstr "کد را به این شماره ارسال کنید!"
 msgid "Go and check it"
 msgstr "برو و چک کن"
 
-#: content_enter/verify/sendsms/view.php:33
+#: content_enter/verify/sendsms/view.php:34
 msgid "Send \":code\" to :num"
 msgstr "ارسال \":code\" به :num"
 
@@ -20032,8 +20041,8 @@ msgstr "به‌روزرسانی آمار همه‌ی بیزینس‌ها"
 #: lib/app/business_domain/filter.php:70
 #: lib/app/log/caller/business/business_createNew.php:19
 #: lib/app/log/caller/business/business_creatingNew.php:19
-#: lib/app/log/caller/business/business_plugin.php:58
-#: lib/app/log/caller/business/business_plugin.php:71
+#: lib/app/log/caller/business/business_plugin.php:63
+#: lib/app/log/caller/business/business_plugin.php:76
 msgid "Business"
 msgstr "بیزینس"
 
@@ -21499,9 +21508,9 @@ msgid "All plugin"
 msgstr "همه افزونه‌ها"
 
 #: content_love/plugin/business/display.php:9 content_love/plugin/manage/display.php:8
-#: lib/app/log/caller/business/business_plugin.php:57
-#: lib/app/log/caller/business/business_plugin.php:64
-#: lib/app/log/caller/business/business_plugin.php:70
+#: lib/app/log/caller/business/business_plugin.php:62
+#: lib/app/log/caller/business/business_plugin.php:69
+#: lib/app/log/caller/business/business_plugin.php:75
 msgid "Feature"
 msgstr "ویژگی"
 
@@ -39284,7 +39293,7 @@ msgid "Features locked"
 msgstr "ویژگی قفل شد"
 
 #: lib/app/log/caller/business/business_plugin.php:26
-#: lib/app/log/caller/business/business_plugin.php:127
+#: lib/app/log/caller/business/business_plugin.php:137
 msgid "New plugin unlocked"
 msgstr "قفل افزونه جدید باز شد"
 
@@ -39292,11 +39301,11 @@ msgstr "قفل افزونه جدید باز شد"
 msgid "Features"
 msgstr "امکانات"
 
-#: lib/app/log/caller/business/business_plugin.php:59
+#: lib/app/log/caller/business/business_plugin.php:64
 msgid "Add by admin"
 msgstr "اضافه شده توسط مدیر"
 
-#: lib/app/log/caller/business/business_plugin.php:65
+#: lib/app/log/caller/business/business_plugin.php:70
 msgid "Removed by admin from Business"
 msgstr "حذف شد توسط مدیر از بیزینس"
 
@@ -43073,6 +43082,10 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Your SMS package is over. To send your SMS, please purchase the SMS package"
+#~ msgstr ""
+#~ "بسته پیامک شما به اتمام رسیده است. جهت ارسال پیامک‌ها لطفا بسته پیامک جدید تهیه کنید"
 
 #~ msgid "Transaction inserted"
 #~ msgstr "تراکنش افزوده شد"
