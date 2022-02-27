@@ -5,10 +5,6 @@ class package
 {
 	public static function check(&$sms_detail)
 	{
-		// all sms send whitout check package
-		// need remove this line after test day
-		return true;
-
 
 		$store_id = a($sms_detail, 'store_id');
 
