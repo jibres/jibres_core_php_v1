@@ -37,8 +37,11 @@ class order_adminNewOrderAfterPay
 		$msg .= "💰  ". T_("A final order and the amount of :amount :currency was paid in :business :)", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::title()]);
 		if($_link)
 		{
-			$msg .= "\n";
-			$msg .= \lib\store::admin_url(). '/:'. $my_id;
+			if(!a($_args, 'data', 'my_hide_link'))
+			{
+				$msg .= "\n";
+				$msg .= \lib\store::admin_url(). '/:'. $my_id;
+			}
 
 			if(!\lib\app\plugin\business::is_activated('remove_brand'))
 			{

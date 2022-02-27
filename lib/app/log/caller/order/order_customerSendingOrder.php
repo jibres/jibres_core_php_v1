@@ -33,8 +33,11 @@ class order_customerSendingOrder
 		$msg .= "🚚  ". T_("We have sent your order by post and it will be delivered to you soon.");
 		if($_link)
 		{
-			$msg .= "\n";
-			$msg .= \lib\store::url(). '/:'. $my_id;
+			if(!a($_args, 'data', 'my_hide_link'))
+			{
+				$msg .= "\n";
+				$msg .= \lib\store::url(). '/:'. $my_id;
+			}
 		}
 		$msg .= ' '. \lib\store::title();
 

@@ -46,11 +46,49 @@ class sms_pack
 	{
 		$html  = '';
 
-		$html .= '<div>';
+		$html .= '<div class="mb-2">';
 		{
 			$html .= T_("Each package contains a certain number of SMS and you can purchase several packages at the same time");
 		}
 		$html .= '</div>';
+
+		$args =
+		[
+			'data' =>
+			[
+				'my_id'            => '...',
+				'my_amount'        => '...',
+				'my_currency'      => \lib\store::currency(),
+				'my_tackingnumber' => '...',
+				'my_hide_link'     => true,
+			],
+		];
+
+		$html .= '<div class="mb-2">';
+		{
+			$html .= T_("Below you can see examples of text messages that the system sends to the business manager or customers in different situations.");
+		}
+		$html .= '</div>';
+
+		$sample =
+		[
+			T_("Before pay") => \lib\app\log\caller\order\order_adminNewOrderBeforePay::get_msg($args),
+			T_("After pay") => \lib\app\log\caller\order\order_adminNewOrderAfterPay::get_msg($args),
+			T_("New order") => \lib\app\log\caller\order\order_customerNewOrder::get_msg($args),
+			T_("Sending order") => \lib\app\log\caller\order\order_customerSendingOrder::get_msg($args),
+			T_("Tracking number") => \lib\app\log\caller\order\order_customerTrackingNumber::get_msg($args),
+		];
+
+		foreach ($sample as $event => $text)
+		{
+			$html .= '<div class="alert-info text-sm">';
+			{
+				$html .= '<b>' .$event. '</b>';
+				$html .= '<br>';
+				$html .= $text;
+			}
+			$html .= '</div>';
+		}
 
 		return $html;
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-26 14:47+0330\n"
-"PO-Revision-Date: 2022-02-26 14:47+0330\n"
+"POT-Creation-Date: 2022-02-27 13:05+0330\n"
+"PO-Revision-Date: 2022-02-27 13:06+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -10318,6 +10318,7 @@ msgstr "پرداخت نشده"
 
 #: content_a/order/status/display.php:107
 #: lib/app/log/caller/order/order_customerTrackingNumber.php:13
+#: lib/app/plugin/items/sms/sms_pack.php:79
 msgid "Tracking number"
 msgstr "شماره رهگیری"
 
@@ -15395,7 +15396,7 @@ msgid "Linux"
 msgstr "لینوکس"
 
 #: content_b1/business/instagram/detail/model.php:22
-#: content_b1/business/plugin/model.php:17 lib/app/nic_usersetting/set.php:67
+#: content_b1/business/plugin/model.php:17 lib/app/nic_usersetting/set.php:69
 msgid "Setting saved"
 msgstr "تنظیمات ذخیره شد"
 
@@ -39486,7 +39487,7 @@ msgid "Show order"
 msgstr "نمایش سفارش"
 
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:22
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:46
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:49
 msgid "Jibres; Sell and enjoy"
 msgstr "جیبرس؛ بفروش و لذت ببر"
 
@@ -40543,7 +40544,31 @@ msgid ""
 msgstr ""
 "هر بسته شامل تعداد مشخصی پیامک هست و شما می‌توانید چندین بسته رو به صورت همزمان فعال کنید"
 
-#: lib/app/plugin/items/sms/sms_pack.php:62
+#: lib/app/plugin/items/sms/sms_pack.php:69
+msgid ""
+"Below you can see examples of text messages that the system sends to the business "
+"manager or customers in different situations."
+msgstr ""
+"در زیر نمونه‌هایی از پیامک‌هایی را مشاهده می‌کنید که سیستم در شرایط مختلف برای مدیر بیزینس "
+"یا مشتریان ارسال می‌کند."
+
+#: lib/app/plugin/items/sms/sms_pack.php:75
+msgid "Before pay"
+msgstr "قبل از پرداخت"
+
+#: lib/app/plugin/items/sms/sms_pack.php:76
+msgid "After pay"
+msgstr "بعد از پرداخت"
+
+#: lib/app/plugin/items/sms/sms_pack.php:77
+msgid "New order"
+msgstr "سفارش جدید"
+
+#: lib/app/plugin/items/sms/sms_pack.php:78
+msgid "Sending order"
+msgstr "ارسال سفارش"
+
+#: lib/app/plugin/items/sms/sms_pack.php:100
 msgid ""
 "You can send informational and service SMS in your website by purchasing an SMS package."
 msgstr ""
@@ -43083,6 +43108,27 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Event"
+#~ msgstr "رویداد"
+
+#~ msgid "SMS text"
+#~ msgstr "متن پیامک"
+
+#~ msgid "Send to administrator before pay new order"
+#~ msgstr "این پیامک قبل از پرداخت سفارش جدید برای مدیر بیزینس ارسال می‌شود"
+
+#~ msgid "Send to administrator after pay new order"
+#~ msgstr "این پیامک بعد از ثبت و پرداخت سفارش جدید برای مدیر بیزینس ارسال می‌شود"
+
+#~ msgid "Send to customer after register new order"
+#~ msgstr "این پیامک پس از ثبت سفارش جدید برای مشتری ارسال می‌شود"
+
+#~ msgid "Send to customer after change order status to sending"
+#~ msgstr "این پیامک بعد از تغییر وضعیت سفارش به «درحال ارسال» برای مشتری ارسال می‌شود"
+
+#~ msgid "Send to customer when set order tracking number"
+#~ msgstr "این پیامک هنگام تنظیم شماره پیگیری سفارش برای مشتری ارسال می‌شود"
+
 #~ msgid "Your SMS package is over. To send your SMS, please purchase the SMS package"
 #~ msgstr ""
 #~ "بسته پیامک شما به اتمام رسیده است. جهت ارسال پیامک‌ها لطفا بسته پیامک جدید تهیه کنید"
@@ -43092,9 +43138,6 @@ msgstr "یارد"
 
 #~ msgid "Tehran Office Number"
 #~ msgstr "شماره دفتر تهران"
-
-#~ msgid "Sms text"
-#~ msgstr "متن پیامک"
 
 #~ msgid "Multiple mobiles"
 #~ msgstr "چند موبایلی"

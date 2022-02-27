@@ -35,8 +35,11 @@ class order_customerTrackingNumber
 
 		if($_link)
 		{
-			$msg .= "\n";
-			$msg .= \lib\store::url(). '/:'. $my_id. 't';
+			if(!a($_args, 'data', 'my_hide_link'))
+			{
+				$msg .= "\n";
+				$msg .= \lib\store::url(). '/:'. $my_id. 't';
+			}
 		}
 		$msg .= "\n";
 		$msg .= ' '. \lib\store::title();
