@@ -144,7 +144,9 @@
                     <div class="c"><?php echo a($value, 'displayname'); ?></div>
                     <div class="c"><?php echo T_(ucfirst(a($value, 'privacy'))); ?></div>
                     <div class="c"><?php echo \dash\fit::date_time(a($value, 'datecreated'));?></div>
-                    <div class="c-auto"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo a($value, 'id') ?>"}' class=""><?php echo \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3') ?></div></div>
+                    <?php if(\dash\permission::check('FormRemoveAnswer')) {?>
+                      <div class="c-auto"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo a($value, 'id') ?>"}' class=""><?php echo \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3') ?></div></div>
+                    <?php }//endif ?>
                   </div>
                 </div>
 
