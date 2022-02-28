@@ -134,32 +134,22 @@
 
     <?php if(\dash\data::commentList()) {?>
       <div class="box">
-        <header><h2><?php echo T_("Answer comment") ?></h2></header>
         <div class="pad">
-          <div class="tblBox">
-            <table class="tbl1 v4">
-              <thead>
-                <tr>
-                  <th><?php echo T_("Comment") ?></th>
-                  <th class="collapsing"><?php echo T_("Privacy") ?></th>
-                  <th class="collapsing"><?php echo T_("Date") ?></th>
-                  <th class="collapsing"></th>
-                </tr>
-              </thead>
-              <tbody>
+          <h2><?php echo T_("Answer comment") ?></h2>
 
               <?php foreach (\dash\data::commentList() as $key => $value) {?>
-                  <tr>
-                    <td><?php echo a($value, 'content'); ?></td>
-                    <td class="collapsing"><?php echo T_(ucfirst(a($value, 'privacy'))); ?></td>
-                    <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated'));?></td>
-                    <td class="collapsing"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo a($value, 'id') ?>"}' class=""><i class="sf-trash fc-red"></i></div></td>
-                  </tr>
+                <div class="alert-secondary">
+                  <div class="m-2"><?php echo a($value, 'content') ?></div>
+                  <div class="row">
+                    <div class="c"><?php echo a($value, 'displayname'); ?></div>
+                    <div class="c"><?php echo T_(ucfirst(a($value, 'privacy'))); ?></div>
+                    <div class="c"><?php echo \dash\fit::date_time(a($value, 'datecreated'));?></div>
+                    <div class="c-auto"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo a($value, 'id') ?>"}' class=""><?php echo \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3') ?></div></div>
+                  </div>
+                </div>
+
               <?php } //endfor ?>
 
-              </tbody>
-            </table>
-          </div>
         </div>
 
       </div>
