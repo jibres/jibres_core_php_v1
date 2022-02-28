@@ -65,9 +65,7 @@ class files
 
 		if($count && is_numeric($count))
 		{
-			$param[':limit'] = $count;
-
-			$query = "UPDATE fileusage SET fileusage.related_id = $_relate_id WHERE fileusage.user_id = :user_id AND  fileusage.related = :relate AND fileusage.related_id IS NULL LIMIT :limit";
+			$query = "UPDATE fileusage SET fileusage.related_id = $_relate_id WHERE fileusage.user_id = :user_id AND  fileusage.related = :relate AND fileusage.related_id IS NULL LIMIT $count";
 
 			$result = \dash\pdo::get($query, $param);
 
