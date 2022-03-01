@@ -229,8 +229,6 @@ class controller
 
 	public static function public_cronjob()
 	{
-		\lib\app\sms\queue::send();
-
 		\dash\app\log\send::notification();
 
 
