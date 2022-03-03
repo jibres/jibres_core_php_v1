@@ -36,7 +36,7 @@ class order_customerSendingOrder
 			if(!a($_args, 'data', 'my_hide_link'))
 			{
 				$msg .= "\n";
-				$msg .= \lib\store::url(). '/:'. $my_id;
+				$msg .= \lib\store::url('raw'). '/:'. $my_id;
 			}
 		}
 		$msg .= ' '. \lib\store::title();
