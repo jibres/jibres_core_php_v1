@@ -599,31 +599,36 @@ class store
 	{
 		if(!\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain())
 		{
-			return \dash\url::kingdom();
-		}
-
-		$tld = \dash\url::tld() === 'ir' ? 'ir' : 'com';
-
-		if(\dash\language::current() === 'fa')
-		{
-			$tld = 'ir';
+			$url = \dash\url::kingdom();
 		}
 		else
 		{
-			$tld = 'com';
-		}
 
-		if(\dash\url::isLocal())
-		{
-			$tld = 'local';
-		}
+			$tld = \dash\url::tld() === 'ir' ? 'ir' : 'com';
 
-		$lang = null;
-		if(\dash\url::lang())
-		{
-			$lang = '/'. \dash\url::lang();
+			if(\dash\language::current() === 'fa')
+			{
+				$tld = 'ir';
+			}
+			else
+			{
+				$tld = 'com';
+			}
+
+			if(\dash\url::isLocal())
+			{
+				$tld = 'local';
+			}
+
+			$lang = null;
+			if(\dash\url::lang())
+			{
+				$lang = '/'. \dash\url::lang();
+			}
+
+			$url = \dash\url::protocol(). '://jibres.'.$tld. $lang. '/'. self::code();
+
 		}
-		$url = \dash\url::protocol(). '://jibres.'.$tld. $lang. '/'. self::code();
 
 		if($_mode === 'raw')
 		{
