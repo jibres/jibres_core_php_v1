@@ -123,10 +123,6 @@ class generator
 
 		self::$html .= '<form method="post" autocomplete="off">';
 		{
-			if($_addon_html)
-			{
-				self::$html .= $_addon_html;
-			}
 
 			self::$html .= '<div class="">';
 			{
