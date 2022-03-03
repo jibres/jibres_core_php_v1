@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-02-27 13:05+0330\n"
-"PO-Revision-Date: 2022-02-27 13:06+0330\n"
+"POT-Creation-Date: 2022-03-03 15:35+0330\n"
+"PO-Revision-Date: 2022-03-03 15:36+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -853,8 +853,8 @@ msgstr "بیشتر بخوانید"
 #: content_a/accounting/report/ledger/display.php:19
 #: content_a/accounting/turnover/display.php:183 content_a/cart/home/display.php:171
 #: content_a/chap/size-a4/a4-1.php:26 content_a/form/analytics/answer/display.php:110
-#: content_a/form/answer/detail/display.php:145 content_a/order/editdate/display.php:31
-#: content_a/report/sale/display.php:177 content_business/orders/display.php:20
+#: content_a/order/editdate/display.php:31 content_a/report/sale/display.php:177
+#: content_business/orders/display.php:20
 #: content_crm/member/transactions/minus/display.php:14
 #: content_crm/member/transactions/plus/display.php:14
 #: content_crm/transactions/detail/display.php:67 content_love/changelog/add/display.php:9
@@ -5116,7 +5116,7 @@ msgstr "وضعیت"
 #: content_crm/member/add/display.php:15 content_crm/permission/add/display.php:11
 #: content_crm/staff/add/display.php:25 content_love/business/domain/add/display.php:18
 #: content_love/changelog/add/display.php:44 content_love/changelog/view.php:16
-#: content_love/plugin/manage/display.php:53 content_site/options/menu/menu.php:84
+#: content_love/plugin/manage/display.php:57 content_site/options/menu/menu.php:84
 #: content_site/page/new/display.php:21 content_site/staticfile/display.php:24
 #: dash/layout/admin/admin-titlebox.php:95 dash/layout/m2/admin-titlebox.php:115
 #: dash/layout/m2/pageNav.php:225 dash/layout/pwa/pwa-header.php:152
@@ -5151,7 +5151,7 @@ msgstr "افزودن"
 #: content_cms/comments/edit/display.php:39 content_crm/permission/setting/display.php:11
 #: content_crm/permission/user/display.php:11 content_crm/ticket/view/display-live.php:87
 #: content_love/changelog/add/display.php:42 content_love/plugin/edit/display.php:34
-#: content_love/plugin/manage/display.php:27 content_my/domain/irnic/edit/display.php:25
+#: content_love/plugin/manage/display.php:31 content_my/domain/irnic/edit/display.php:25
 #: content_site/assemble/wrench/section.php:131
 #: includes/languages/trans_static_public.php:144 lib/app/category/get.php:487
 #: lib/app/menu/generate.php:87 lib/app/menu/generate2.php:65
@@ -6542,6 +6542,7 @@ msgstr "تشخیص"
 #: content_a/accounting/turnover/display.php:192
 #: content_a/form/analytics/chart/view.php:33 content_a/form/analytics/chart2/view.php:33
 #: content_a/form/analytics/filter/display.php:51
+#: content_love/plugin/manage/display.php:14
 msgid "Remain"
 msgstr "مانده"
 
@@ -7726,11 +7727,12 @@ msgstr "ورودی باید به صورت آرایه باشد"
 
 #: content_a/buy/opr/model.php:41 content_a/setting/factor/address/model.php:21
 #: content_a/setting/factor/model.php:56 content_a/setting/factor/seller/model.php:21
-#: content_a/setting/order/model.php:57 content_crm/sms/send/model.php:18
-#: content_site/section/html/model.php:89 dash/app/changelog.php:362
-#: dash/app/permission/edit.php:157 dash/app/permission/edit.php:229
-#: lib/app/category/edit.php:93 lib/app/category/edit.php:166
-#: lib/app/product/property.php:746 lib/app/setting/policy_page.php:35
+#: content_a/setting/notification/model.php:15 content_a/setting/order/model.php:57
+#: content_crm/sms/send/model.php:18 content_site/section/html/model.php:89
+#: dash/app/changelog.php:362 dash/app/permission/edit.php:157
+#: dash/app/permission/edit.php:229 lib/app/category/edit.php:93
+#: lib/app/category/edit.php:166 lib/app/product/property.php:746
+#: lib/app/setting/policy_page.php:35
 msgid "Saved"
 msgstr "ذخیره شد"
 
@@ -8709,7 +8711,7 @@ msgstr "ویرایش کد تخفیف"
 #: content_a/discount/home/display.php:13 content_a/pricehistory/display.php:16
 #: content_cms/posts/home/display.php:7 content_love/domain/all/display.php:12
 #: content_love/domain/fetch/display.php:64 content_love/domain/setting/display.php:314
-#: content_love/log/home/logTable.php:98 content_love/plugin/manage/display.php:13
+#: content_love/log/home/logTable.php:98 content_love/plugin/manage/display.php:15
 #: content_site/home/display.php:42
 msgid "Date modified"
 msgstr "تاریخ ویرایش"
@@ -8867,18 +8869,16 @@ msgid "Add comment"
 msgstr "افزودن یادداشت"
 
 #: content_a/form/analytics/answer/display.php:102
-#: content_a/form/answer/detail/display.php:137
+#: content_a/form/answer/detail/display.php:138
 msgid "Answer comment"
 msgstr "نظرات"
 
 #: content_a/form/analytics/answer/display.php:108
-#: content_a/form/answer/detail/display.php:143 content_cms/posts/advance/display.php:122
-#: lib/app/store/analytics.php:29
+#: content_cms/posts/advance/display.php:122 lib/app/store/analytics.php:29
 msgid "Comment"
 msgstr "دیدگاه"
 
-#: content_a/form/analytics/answer/display.php:109
-#: content_a/form/answer/detail/display.php:144 content_a/form/tag/edit/display.php:17
+#: content_a/form/analytics/answer/display.php:109 content_a/form/tag/edit/display.php:17
 #: includes/languages/trans_static.php:1003
 msgid "Privacy"
 msgstr "حریم خصوصی"
@@ -10318,7 +10318,7 @@ msgstr "پرداخت نشده"
 
 #: content_a/order/status/display.php:107
 #: lib/app/log/caller/order/order_customerTrackingNumber.php:13
-#: lib/app/plugin/items/sms/sms_pack.php:79
+#: lib/app/setting/notification.php:59
 msgid "Tracking number"
 msgstr "شماره رهگیری"
 
@@ -10405,7 +10405,7 @@ msgstr "بسته‌های فعال"
 msgid "Date register"
 msgstr "تاریخ ثبت"
 
-#: content_a/plugin/view/display.php:38
+#: content_a/plugin/view/display.php:38 content_love/plugin/manage/display.php:13
 msgid "Package count"
 msgstr "تعداد بسته"
 
@@ -10479,11 +10479,11 @@ msgstr "لطفا محصول را انتخاب کنید"
 #: content_a/setting/domain/setting/view.php:8 content_a/setting/domain/view.php:8
 #: content_a/setting/factor/view.php:13 content_a/setting/fund/view.php:8
 #: content_a/setting/general/view.php:10 content_a/setting/home/view.php:8
-#: content_a/setting/order/view.php:11 content_a/setting/pcpos/view.php:8
-#: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
-#: content_a/setting/shipping/text/view.php:11 content_a/setting/social/view.php:10
-#: content_a/setting/thirdparty/view.php:10 content_a/setting3/home/view.php:8
-#: content_love/business/datalist/display.php:15
+#: content_a/setting/notification/view.php:11 content_a/setting/order/view.php:11
+#: content_a/setting/pcpos/view.php:8 content_a/setting/pos/view.php:8
+#: content_a/setting/product/view.php:10 content_a/setting/shipping/text/view.php:11
+#: content_a/setting/social/view.php:10 content_a/setting/thirdparty/view.php:10
+#: content_a/setting3/home/view.php:8 content_love/business/datalist/display.php:15
 #: content_love/business/datalist/display.php:48
 #: content_love/business/domain/pageStep.php:23 content_love/gift/create/stepGuide.php:93
 #: content_love/store/display.php:27 content_love/store/display.php:60
@@ -12142,7 +12142,7 @@ msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب 
 
 #: content_a/setting/general/display.php:160 content_account/my/profile/display.php:36
 #: content_business/profile/detail/display.php:35
-#: content_love/plugin/manage/display.php:43 content_love/plugin/manage/display.php:44
+#: content_love/plugin/manage/display.php:47 content_love/plugin/manage/display.php:48
 #: lib/app/form/generator.php:327
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
@@ -12635,6 +12635,30 @@ msgstr "مرتب سازی آیتم‌های فهرست"
 #: content_a/setting/menu/view.php:10
 msgid "Menu list"
 msgstr "لیست فهرست‌ها"
+
+#: content_a/setting/notification/display.php:10
+msgid "You must get the sms pack plugin to active this notification"
+msgstr "برای ارسال پیام‌های اطلاع رسانی زیر شما باید ابتدا بسته پیامکی خریداری کنید"
+
+#: content_a/setting/notification/display.php:25 content_crm/sms/home/display.php:45
+#: content_crm/sms/send/view.php:9
+msgid "Send sms"
+msgstr "ارسال پیام"
+
+#: content_a/setting/notification/display.php:41 content_account/security/display.php:45
+#: content_account/security/display.php:52
+msgid "On"
+msgstr "روشن"
+
+#: content_a/setting/notification/display.php:41 content_account/security/display.php:45
+#: content_account/security/display.php:52 content_love/domain/detail/display.php:101
+#: content_love/domain/setting/display.php:83
+msgid "Off"
+msgstr "خاموش"
+
+#: content_a/setting/notification/view.php:9
+msgid "Notification setting"
+msgstr "تنظیمات اطلاع‌رسانی"
 
 #: content_a/setting/order/cartlimit/display.php:6
 msgid "Set Cart Text"
@@ -15230,15 +15254,6 @@ msgstr "رمز‌عبور"
 msgid "2-Step Verification"
 msgstr "اعتبارسنجی دو مرحله‌ای"
 
-#: content_account/security/display.php:45 content_account/security/display.php:52
-msgid "On"
-msgstr "روشن"
-
-#: content_account/security/display.php:45 content_account/security/display.php:52
-#: content_love/domain/detail/display.php:101 content_love/domain/setting/display.php:83
-msgid "Off"
-msgstr "خاموش"
-
 #: content_account/security/display.php:51
 msgid "Remember me"
 msgstr "مرا به خاطر بسپار"
@@ -17828,10 +17843,6 @@ msgstr "پیام"
 #: content_crm/ticket/home/display.php:10
 msgid "Thicket and message in last years"
 msgstr "تیکت‌ها و پاسخ‌ها در یک‌سال گذشته"
-
-#: content_crm/sms/home/display.php:45 content_crm/sms/send/view.php:9
-msgid "Send sms"
-msgstr "ارسال پیام"
 
 #: content_crm/sms/send/display.php:11
 msgid ""
@@ -21551,7 +21562,7 @@ msgstr "اضافه شده توسط"
 msgid "Datecreated"
 msgstr "تاریخ‌ایجاد"
 
-#: content_love/plugin/manage/display.php:41
+#: content_love/plugin/manage/display.php:45
 msgid "Add new plugin to this business"
 msgstr "افزودن افزونه جدید به این بیزینس"
 
@@ -40544,7 +40555,7 @@ msgid ""
 msgstr ""
 "هر بسته شامل تعداد مشخصی پیامک هست و شما می‌توانید چندین بسته رو به صورت همزمان فعال کنید"
 
-#: lib/app/plugin/items/sms/sms_pack.php:69
+#: lib/app/plugin/items/sms/sms_pack.php:58
 msgid ""
 "Below you can see examples of text messages that the system sends to the business "
 "manager or customers in different situations."
@@ -40552,23 +40563,11 @@ msgstr ""
 "در زیر نمونه‌هایی از پیامک‌هایی را مشاهده می‌کنید که سیستم در شرایط مختلف برای مدیر بیزینس "
 "یا مشتریان ارسال می‌کند."
 
-#: lib/app/plugin/items/sms/sms_pack.php:75
-msgid "Before pay"
-msgstr "قبل از پرداخت"
+#: lib/app/plugin/items/sms/sms_pack.php:86
+msgid "To manage sms setting click here"
+msgstr "برای مدیریت ارسال پیامک‌های اطلاع‌رسانی کلیک کنید"
 
-#: lib/app/plugin/items/sms/sms_pack.php:76
-msgid "After pay"
-msgstr "بعد از پرداخت"
-
-#: lib/app/plugin/items/sms/sms_pack.php:77
-msgid "New order"
-msgstr "سفارش جدید"
-
-#: lib/app/plugin/items/sms/sms_pack.php:78
-msgid "Sending order"
-msgstr "ارسال سفارش"
-
-#: lib/app/plugin/items/sms/sms_pack.php:100
+#: lib/app/plugin/items/sms/sms_pack.php:101
 msgid ""
 "You can send informational and service SMS in your website by purchasing an SMS package."
 msgstr ""
@@ -41513,6 +41512,22 @@ msgstr "تنظیم صفحه نخست وب‌سایت"
 #: lib/app/setting/get.php:96
 msgid "Tipax"
 msgstr "تیپاکس"
+
+#: lib/app/setting/notification.php:31
+msgid "Before pay"
+msgstr "قبل از پرداخت"
+
+#: lib/app/setting/notification.php:38
+msgid "After pay"
+msgstr "بعد از پرداخت"
+
+#: lib/app/setting/notification.php:45
+msgid "New order"
+msgstr "سفارش جدید"
+
+#: lib/app/setting/notification.php:52
+msgid "Sending order"
+msgstr "ارسال سفارش"
 
 #: lib/app/setting/package.php:66 lib/app/setting/shipping_method.php:66
 msgid "Record not found"
@@ -43169,9 +43184,6 @@ msgstr "یارد"
 
 #~ msgid "1 Month"
 #~ msgstr "یک ماه"
-
-#~ msgid "You must first pay a plan to deactive jibres branding"
-#~ msgstr "برای غیرفعال‌سازی نشان تجاری لطفا ابتدا یک پلن خریداری کنید"
 
 #~ msgid "Jibres branding was active in your website"
 #~ msgstr "نمایش برند جیبرس در وب‌سایت شما فعال شد"
@@ -47209,9 +47221,6 @@ msgstr "یارد"
 #~ msgid "Send answer"
 #~ msgstr "ارسال پاسخ"
 
-#~ msgid "To set subject click here"
-#~ msgstr "برای تنظیم موضوع کلیک کنید"
-
 #~ msgid "Solved status"
 #~ msgstr "وضعیت حل شدن تیکت"
 
@@ -47399,9 +47408,6 @@ msgstr "یارد"
 
 #~ msgid "Administrator notification"
 #~ msgstr "پیام مدیر سیستم"
-
-#~ msgid "Notification sended"
-#~ msgstr "پیام ارسال شد"
 
 #~ msgid "Add new notification"
 #~ msgstr "افزودن پیام جدید"

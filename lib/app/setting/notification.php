@@ -86,7 +86,7 @@ class notification
 	public static function is_enable($_event)
 	{
 		$get_setting = self::get_setting();
-		return a($get_setting, $_event);
+		return boolval(a($get_setting, $_event));
 	}
 
 
