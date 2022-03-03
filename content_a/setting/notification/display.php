@@ -1,7 +1,7 @@
 <?php
 $html = '';
 
-if(!\lib\app\plugin\business::is_activated('sms_pack') || 1)
+if(!\lib\app\plugin\business::is_activated('sms_pack'))
 {
   $html .= '<a href="'. \dash\url::kingdom(). '/a/plugin/view/sms_pack">';
   {
@@ -22,7 +22,7 @@ foreach ($sample as $event => $value)
   $html .= '<section class="f" data-option="setting-notification-print-show-vat" id="setting-notification-print-show-vat">';
     $html .= '<div class="c8 s12">';
       $html .= '<div class="data">';
-        $html .= '<h3>'. a($value, 'title').'</h3>';
+        $html .= '<h3>'. T_("Send sms") . ' '. a($value, 'title').'</h3>';
         $html .= '<div class="body">';
           $html .= '<p>'. a($value, 'text').'</p>';
         $html .= '</div>';

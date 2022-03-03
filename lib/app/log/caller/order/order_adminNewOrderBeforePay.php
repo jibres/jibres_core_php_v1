@@ -68,7 +68,8 @@ class order_adminNewOrderBeforePay
 
 	public static function sms()
 	{
-		return true;
+		return \lib\app\setting\notification::is_enable('before_pay');
+
 	}
 
 	public static function sms_text($_args, $_mobile)

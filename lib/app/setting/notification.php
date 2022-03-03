@@ -20,15 +20,7 @@ class notification
 		  ],
 		];
 
-		$setting = \lib\app\setting\tools::get_cat('notification');
-		if($setting && is_array($setting))
-		{
-			$setting = array_column($setting, 'value', 'key');
-		}
-		else
-		{
-			$setting = [];
-		}
+		$setting = self::get_setting();
 
 
 		$sample =
@@ -72,6 +64,29 @@ class notification
 		];
 
 		return $sample;
+	}
+
+
+	public static function get_setting()
+	{
+		$setting = \lib\app\setting\tools::get_cat('notification');
+		if($setting && is_array($setting))
+		{
+			$setting = array_column($setting, 'value', 'key');
+		}
+		else
+		{
+			$setting = [];
+		}
+
+		return $setting;
+	}
+
+
+	public static function is_enable($_event)
+	{
+		$get_setting = self::get_setting();
+		return a($get_setting, $_event);
 	}
 
 

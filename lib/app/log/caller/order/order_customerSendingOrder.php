@@ -66,7 +66,7 @@ class order_customerSendingOrder
 
 	public static function sms()
 	{
-		return true;
+		return \lib\app\setting\notification::is_enable('sending_order');
 	}
 
 	public static function sms_text($_args, $_mobile)
