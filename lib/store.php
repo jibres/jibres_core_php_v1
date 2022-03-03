@@ -595,7 +595,7 @@ class store
 
 	}
 
-	public static function admin_url()
+	public static function admin_url($_mode = null)
 	{
 		if(!\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain())
 		{
@@ -623,7 +623,22 @@ class store
 		{
 			$lang = '/'. \dash\url::lang();
 		}
-		return \dash\url::protocol(). '://jibres.'.$tld. $lang. '/'. self::code();
+		$url = \dash\url::protocol(). '://jibres.'.$tld. $lang. '/'. self::code();
+
+		if($_mode === 'raw')
+		{
+			if(substr($url, 0, 8) === 'https://')
+			{
+				$url = substr($url, 8);
+			}
+
+			if(substr($url, 0, 7) === 'http://')
+			{
+				$url = substr($url, 7);
+			}
+		}
+
+		return $url;
 	}
 
 
