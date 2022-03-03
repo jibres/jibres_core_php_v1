@@ -100,6 +100,16 @@ class business
 
 		$business_plugin_list = array_map(['\\lib\\app\\plugin\\action\\ready', 'row'], $business_plugin_list);
 
+		foreach ($business_plugin_list as $key => $value)
+		{
+			if(a($value, 'plugin') === 'sms_pack' && a($value, 'status') === 'enable')
+			{
+				$count_usage = \lib\db\sms\get::sum_sms_sended_by_package_id(a($value, 'store_id'), a($value, 'id'));
+				$business_plugin_list[$key]['usage'] = floatval($count_usage);
+				$business_plugin_list[$key]['remain'] = floatval(a($value, 'packagecount')) - floatval($count_usage);
+			}
+		}
+
 		return $business_plugin_list;
 
 	}
