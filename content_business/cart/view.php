@@ -15,8 +15,15 @@ class view
 		\dash\face::title($title);
 
 
-		// btn
-		\dash\data::back_link(\dash\url::kingdom());
+		if(\dash\user::login())
+		{
+			\dash\data::back_link(\dash\url::kingdom(). '/profile');
+		}
+		else
+		{
+			\dash\data::back_link(\dash\url::kingdom());
+		}
+
 
 	}
 }
