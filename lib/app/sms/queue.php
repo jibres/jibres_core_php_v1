@@ -158,7 +158,7 @@ class queue
 			'store_smslog_id' => 'id',
 			'store_id'        => 'id',
 			'mobile'          => 'mobile',
-			'message'         => 'string',
+			'message'         => 'desc',
 			'sender'          => ['enum' => ['system', 'admin', 'customer']],
 			'len'             => 'int',
 			'smscount'        => 'int',
