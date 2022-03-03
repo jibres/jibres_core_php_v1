@@ -20,13 +20,13 @@ class view
 
 		$args =
 		[
-			'plugin' => 1,
-			'order'    => \dash\request::get('order'),
-			'sort'     => \dash\request::get('sort'),
-			'user'     => \dash\request::get('user'),
-			'fstatus' => \dash\request::get('fstatus'),
-			'plugin' => \dash\request::get('plugin'),
+			'order'       => \dash\request::get('order'),
+			'sort'        => \dash\request::get('sort'),
+			'user'        => \dash\request::get('user'),
+			'fstatus'     => \dash\request::get('fstatus'),
+			'plugin'      => \dash\request::get('plugin'),
 			'business_id' => \dash\request::get('business_id'),
+			'plugin_list' => true,
 
 		];
 

@@ -27,10 +27,10 @@ class search
 			'order'       => 'order',
 			'sort'        => ['enum' => ['name','id']],
 			'user'        => 'code',
-			'plugin'    => 'bit',
 			'fstatus'     => 'string_100',
-			'plugin' => 'string_100',
+			'plugin'      => 'string_100',
 			'business_id' => 'id',
+			'plugin_list' => 'bit',
 		];
 
 		$require = [];
@@ -74,10 +74,10 @@ class search
 			store.id AS `id`
 		";
 
-		if($data['plugin'])
+		if($data['plugin_list'])
 		{
 			$meta['fields'] = "store.*, store_plugin.*, store.status AS `store_status`, store_data.*, store.id AS `id`";
-			$meta['join'][] = " INNER JOIN store_plugin ON store_plugin.store_id = store.id ";
+			$meta['join'][] = " RIGHT JOIN store_plugin ON store_plugin.store_id = store.id ";
 
 			if($data['business_id'])
 			{
