@@ -68,7 +68,7 @@ class order_customerNewOrder
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 		$title = self::get_msg($_args);
 		$title .= "\n";
-		$title .= \lib\store::url(). '/:'. $my_id;
+		$title .= \lib\store::url('raw'). '/:'. $my_id;
 
 		$sms =
 		[

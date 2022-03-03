@@ -77,7 +77,7 @@ class order_adminNewOrderBeforePay
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 		$title = self::get_msg($_args);
 		$title .= "\n";
-		$title .= \lib\store::admin_url(). '/:'. $my_id;
+		$title .= \lib\store::admin_url('raw'). '/:'. $my_id;
 
 		$sms =
 		[
