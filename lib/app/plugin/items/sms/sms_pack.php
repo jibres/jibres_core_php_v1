@@ -52,17 +52,6 @@ class sms_pack
 		}
 		$html .= '</div>';
 
-		$args =
-		[
-			'data' =>
-			[
-				'my_id'            => '...',
-				'my_amount'        => '...',
-				'my_currency'      => \lib\store::currency(),
-				'my_tackingnumber' => '...',
-				'my_hide_link'     => true,
-			],
-		];
 
 		$html .= '<div class="mb-2">';
 		{
@@ -70,24 +59,36 @@ class sms_pack
 		}
 		$html .= '</div>';
 
-		$sample =
-		[
-			T_("Before pay") => \lib\app\log\caller\order\order_adminNewOrderBeforePay::get_msg($args),
-			T_("After pay") => \lib\app\log\caller\order\order_adminNewOrderAfterPay::get_msg($args),
-			T_("New order") => \lib\app\log\caller\order\order_customerNewOrder::get_msg($args),
-			T_("Sending order") => \lib\app\log\caller\order\order_customerSendingOrder::get_msg($args),
-			T_("Tracking number") => \lib\app\log\caller\order\order_customerTrackingNumber::get_msg($args),
-		];
+		$sample  = \lib\app\setting\notification::get_sample();
 
-		foreach ($sample as $event => $text)
+		foreach ($sample as $event => $value)
 		{
 			$html .= '<div class="alert-info text-sm">';
 			{
-				$html .= '<b>' .$event. '</b>';
+				$html .= '<b>' .a($value, 'title'). '</b>';
 				$html .= '<br>';
-				$html .= $text;
+				$html .= a($value, 'text');
 			}
 			$html .= '</div>';
+		}
+
+		if(\lib\app\plugin\business::is_activated('sms_pack'))
+		{
+			$html .= '<div class="alert-primary text-sm flex">';
+			{
+				$html .= '<div>';
+				{
+					$html .= \dash\utility\icon::svg('gear-fill', 'bootstrap', null, 'w-4');
+				}
+				$html .= '</div>';
+				$html .= '<div class="mx-3">';
+				{
+					$html .= '<a href="'. \dash\url::kingdom(). '/a/setting/notification">' .T_("To manage sms setting click here"). '</a>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
 		}
 
 		return $html;
