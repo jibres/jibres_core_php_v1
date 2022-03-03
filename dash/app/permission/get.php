@@ -190,5 +190,57 @@ class get
 		return $load['value'];
 	}
 
+
+
+	public static function load_allow_permission_caller($_permission_name)
+	{
+		$all_contain = \dash\app\permission\get::load_permission($_permission_name);
+
+		$callers = [];
+
+		// permission not founded
+		if(!$all_contain)
+		{
+			return $callers;
+		}
+
+
+		foreach ($all_contain as $group => $detail)
+		{
+			if(isset($detail['allow_access_title']) && $detail['allow_access_title'])
+			{
+				if(array_key_exists('status', $detail))
+				{
+					if($detail['status'])
+					{
+						foreach ($detail['allow_access_title'] as $access_caller => $title)
+						{
+							$callers[] = $access_caller;
+						}
+					}
+				}
+			}
+
+			if(isset($detail['disallow_access_title']) && $detail['disallow_access_title'])
+			{
+				if(isset($detail['access']) && $detail['access'] === 'full')
+				{
+					if(array_key_exists('status', $detail))
+					{
+						if($detail['status'])
+						{
+							foreach ($detail['disallow_access_title'] as $access_caller => $title)
+							{
+								$callers[] = $access_caller;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return $callers;
+	}
+
 }
 ?>

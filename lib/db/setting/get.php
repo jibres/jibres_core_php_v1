@@ -114,6 +114,22 @@ class get
 	}
 
 
+	public static function by_cat_key_user_id($_cat, $_key, $_user_id)
+	{
+		$query = "SELECT * FROM setting WHERE setting.cat = :cat AND setting.key = :key AND setting.user_id = :user_id LIMIT 1";
+		$param =
+		[
+			':cat'     => $_cat,
+			':key'     => $_key,
+			':user_id' => $_user_id,
+		];
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+
+	}
+
+
+
 	public static function count_platform_cat_key($_platform, $_cat, $_key)
 	{
 		$query = "SELECT COUNT(*) AS `count` FROM setting WHERE setting.platform = '$_platform' AND setting.cat = '$_cat' AND setting.key = '$_key' ";

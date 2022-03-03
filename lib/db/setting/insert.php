@@ -101,5 +101,55 @@ class insert
 		}
 
 	}
+
+	public static function new_record_user($_args, $_check_duplicate_cat_key = false)
+	{
+		if(!$_args)
+		{
+			return false;
+		}
+
+		$setting_field = ['id', 'platform', 'user_id', 'lang', 'datemodified', 'cat', 'key', 'value'];
+
+		if($_check_duplicate_cat_key && a($_args, 'cat') && a($_args, 'key'))
+		{
+			$param       = [];
+			$insert_args = [];
+			$select_args = [];
+
+			foreach ($_args as $key => $value)
+			{
+				$insert_args[]      = " setting.$key ";
+				// $param[':'. $key]   = $value;
+
+				$select_args[]      = " :w_{$key} ";
+				$param[':w_'. $key] = $value;
+			}
+
+			$insert_args = implode(',', $insert_args);
+			$select_args = implode(',', $select_args);
+
+			$query =
+			"
+				INSERT INTO `setting` ($insert_args)
+				SELECT * FROM (SELECT $select_args) AS tmp
+				WHERE NOT EXISTS
+				(
+				    SELECT check_setting.id FROM `setting` as `check_setting` WHERE  check_setting.cat = :scat AND check_setting.key = :skey AND check_setting.user_id = :suser_id
+				) LIMIT 1;
+			";
+
+			$param[':scat']  = $_args['cat'];
+			$param[':skey']  = $_args['key'];
+			$param[':suser_id'] = $_args['user_id'];
+
+			return \dash\pdo::query($query, $param);
+		}
+		else
+		{
+			return \dash\pdo\query_template::insert('setting', $_args);
+		}
+
+	}
 }
 ?>

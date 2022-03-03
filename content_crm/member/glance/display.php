@@ -367,6 +367,12 @@ if(a($dataRowMember,  'status') === 'ban')
     <nav class="items long">
       <ul>
         <li>
+          <a class="item f" href="<?php echo \dash\url::this(). '/notification'. $myID ?>">
+            <div class="key"><?php echo T_("Notification setting") ?></div>
+            <div class="go"></div>
+          </a>
+        </li>
+        <li>
           <a class="item f" href="<?php echo \dash\url::here(). '/ticket/datalist?user='. \dash\request::get('id') ?>">
             <div class="key"><?php echo T_("Tickets") ?></div>
             <div class="go"></div>
