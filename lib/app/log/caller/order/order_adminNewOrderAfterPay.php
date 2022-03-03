@@ -84,6 +84,12 @@ class order_adminNewOrderAfterPay
 		return \lib\app\setting\notification::is_enable('after_pay');
 	}
 
+
+	public static function sms_user($_user_id)
+	{
+		return \lib\app\setting\notification::is_enable_user('after_pay', $_user_id);
+	}
+
 	public static function sms_text($_args, $_mobile)
 	{
 		$title = self::get_msg($_args);

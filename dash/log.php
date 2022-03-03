@@ -493,6 +493,13 @@ class log
 						}
 					}
 
+					$sms_user      = self::call_fn($_caller, 'sms_user', $value['id']);
+
+					if($sms_user === false)
+					{
+						continue;
+					}
+
 					$current_lang = \dash\language::current();
 
 					if(isset($value['language']) && mb_strlen($value['language']) === 2 && $value['language'] !== $current_lang)

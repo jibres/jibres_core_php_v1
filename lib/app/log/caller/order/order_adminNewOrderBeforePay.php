@@ -69,7 +69,12 @@ class order_adminNewOrderBeforePay
 	public static function sms()
 	{
 		return \lib\app\setting\notification::is_enable('before_pay');
+	}
 
+
+	public static function sms_user($_user_id)
+	{
+		return \lib\app\setting\notification::is_enable_user('before_pay', $_user_id);
 	}
 
 	public static function sms_text($_args, $_mobile)

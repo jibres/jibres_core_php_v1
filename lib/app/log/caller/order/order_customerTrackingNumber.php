@@ -75,6 +75,13 @@ class order_customerTrackingNumber
 		return \lib\app\setting\notification::is_enable('tracking_number');
 	}
 
+
+
+	public static function sms_user($_user_id)
+	{
+		return \lib\app\setting\notification::is_enable_user('tracking_number', $_user_id);
+	}
+
 	public static function sms_text($_args, $_mobile)
 	{
 		$title = self::get_msg($_args);

@@ -69,6 +69,12 @@ class order_customerSendingOrder
 		return \lib\app\setting\notification::is_enable('sending_order');
 	}
 
+
+	public static function sms_user($_user_id)
+	{
+		return \lib\app\setting\notification::is_enable_user('sending_order', $_user_id);
+	}
+
 	public static function sms_text($_args, $_mobile)
 	{
 		$title = self::get_msg($_args);

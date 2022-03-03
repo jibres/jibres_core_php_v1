@@ -63,6 +63,13 @@ class order_customerNewOrder
 		return \lib\app\setting\notification::is_enable('new_order');
 	}
 
+
+
+	public static function sms_user($_user_id)
+	{
+		return \lib\app\setting\notification::is_enable_user('new_order', $_user_id);
+	}
+
 	public static function sms_text($_args, $_mobile)
 	{
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
