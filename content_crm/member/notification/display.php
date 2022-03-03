@@ -54,7 +54,7 @@ foreach ($sample as $event => $value)
           {
             $html .= 'class="disabled" ';
           }
-          if(a($value, 'user_active'))
+          if(a($value, 'user_active') && a($value, 'active'))
           {
             $html .= 'checked';
           }
