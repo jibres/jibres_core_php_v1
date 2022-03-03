@@ -1,3 +1,16 @@
+<?php
+if(\dash\url::module() === 'profile' && !\dash\url::child())
+{
+  $hide_in_sm = null;
+}
+else
+{
+
+  $hide_in_sm = 'hidden md:block';
+}
+?>
+<div class="<?php echo $hide_in_sm ?>">
+
 <?php if(\dash\user::login()) {?>
   <?php if(\dash\engine\store::inStore() && !\dash\url::store() && \dash\engine\store::enable_plugin_admin_special_domain() && \dash\permission::has_permission()) {?>
 <nav class="items">
@@ -62,3 +75,4 @@
  </ul>
 </nav>
 <?php } //endif ?>
+</div>
