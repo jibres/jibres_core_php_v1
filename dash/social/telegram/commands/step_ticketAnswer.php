@@ -105,7 +105,7 @@ class step_ticketAnswer
 			return false;
 		}
 
-		if($_accept === T_('Yes') || $_accept === 'y' || $_accept === 'ok')
+		if(($_accept === T_('Yes') || $_accept === 'y' || $_accept === 'ok') && step::get('ticketTxtAnswer'))
 		{
 			\dash\app\tg\ticket::answer(step::get('ticketNo'), step::get('ticketTxtAnswer'));
 		}
