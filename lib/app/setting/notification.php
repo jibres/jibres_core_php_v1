@@ -5,6 +5,7 @@ namespace lib\app\setting;
 class notification
 {
 	private static $setting = false;
+	private static $template = false;
 
 	public static function get_sample()
 	{
@@ -26,44 +27,53 @@ class notification
 		  'before_pay' =>
 		  [
 			'title'  => T_("Before pay"),
-			'text'   => \lib\app\log\caller\order\order_adminNewOrderBeforePay::get_msg($args),
-			'active' => self::is_enable('before_pay'),
 			'fn'     => '\\lib\\app\\log\\caller\\order\\order_adminNewOrderBeforePay',
 		  ],
 
 		  'after_pay' =>
 		  [
 			'title'  => T_("After pay"),
-			'text'   => \lib\app\log\caller\order\order_adminNewOrderAfterPay::get_msg($args),
-			'active' => self::is_enable('after_pay'),
 			'fn'     => '\\lib\\app\\log\\caller\\order\\order_adminNewOrderAfterPay',
 		  ],
 
 		  'new_order' =>
 		  [
 			'title'  => T_("New order"),
-			'text'   => \lib\app\log\caller\order\order_customerNewOrder::get_msg($args),
-			'active' => self::is_enable('new_order'),
 			'fn'     => '\\lib\\app\\log\\caller\\order\\order_customerNewOrder',
 		  ],
 
 		  'sending_order' =>
 		  [
 			'title'  => T_("Sending order"),
-			'text'   => \lib\app\log\caller\order\order_customerSendingOrder::get_msg($args),
-			'active' => self::is_enable('sending_order'),
 			'fn'     => '\\lib\\app\\log\\caller\\order\\order_customerSendingOrder',
 		  ],
 
 		  'tracking_number' =>
 		  [
 			'title'  => T_("Tracking number"),
-			'text'   => \lib\app\log\caller\order\order_customerTrackingNumber::get_msg($args),
-			'active' => self::is_enable('tracking_number'),
 			'fn'     => '\\lib\\app\\log\\caller\\order\\order_customerTrackingNumber',
 		  ],
 
 		];
+
+		$template = self::get_template();
+
+
+		foreach ($sample as $key => $value)
+		{
+			$args['data']['template'] = a($template, $key);
+			$sample[$key]['text'] = call_user_func([$value['fn'], 'get_msg'], $args);
+			$sample[$key]['active'] = self::is_enable($key);
+
+			if(is_callable([$value['fn'], 'template_list']))
+			{
+				$template = call_user_func([$value['fn'], 'template_list'], $args);
+
+				$sample[$key]['template'] = $template;
+			}
+
+
+		}
 
 		return $sample;
 	}
@@ -234,6 +244,62 @@ class notification
 
 		return true;
 
+	}
+
+
+	public static function get_template($_event = null)
+	{
+		if(self::$template === false)
+		{
+			$template = \lib\app\setting\tools::get_cat('notification_template');
+			if($template && is_array($template))
+			{
+				$template = array_column($template, 'value', 'key');
+			}
+			else
+			{
+				$template = [];
+			}
+
+			self::$template = $template;
+		}
+
+
+		if($_event)
+		{
+			return a(self::$template, $_event);
+		}
+
+
+		return self::$template;
+	}
+
+
+
+	public static function set_template($_event, $_template)
+	{
+
+		$list = self::get_sample();
+
+		$update = [];
+
+		foreach ($list as $key => $value)
+		{
+			if($_event === $key)
+			{
+				if(isset($value['template'][$_template]))
+				{
+					\lib\app\setting\tools::update('notification_template', $key, intval($_template));
+				}
+				else
+				{
+					\dash\notif::error(T_("Invalid template id"));
+					return false;
+				}
+			}
+		}
+
+		return true;
 	}
 }
 ?>
