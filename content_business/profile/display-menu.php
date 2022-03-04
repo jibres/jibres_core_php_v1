@@ -24,10 +24,11 @@ else
    <li><a class="f" href="<?php echo \dash\url::here();?>/profile/detail"><div class="key"><?php echo T_('Profile');?></div><div class="go"></div></a></li>
    <li><a class="f" href="<?php echo \dash\url::here();?>/profile/avatar"><div class="key"><?php echo T_('Avatar');?></div><div class="go"></div></a></li>
    <li><a class="f" href="<?php echo \dash\url::here();?>/profile/address"><div class="key"><?php echo T_('Address');?></div><div class="go"></div></a></li>
-   <li><a class="f" href="<?php echo \dash\url::here();?>/profile/notifications"><div class="key"><?php echo T_('Notifications');?></div><div class="go"></div></a></li>
    <?php if(!\dash\data::nosale()) {?>
       <li><a class="f" href="<?php echo \dash\url::here();?>/orders"><div class="key"><?php echo T_('My orders');?></div><div class="go"></div></a></li>
    <?php } //endif ?>
+   <li><a class="f" href="<?php echo \dash\url::here();?>/profile/notifications"><div class="key"><?php echo T_('Notifications');?></div><div class="go"></div></a></li>
+   <li><a class="f" href="<?php echo \dash\url::here();?>/profile/notifications/setting"><div class="key"><?php echo T_('Notification setting');?></div><div class="go"></div></a></li>
 
  </ul>
 </nav>
