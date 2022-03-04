@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-03-04 12:09+0330\n"
-"PO-Revision-Date: 2022-03-04 12:11+0330\n"
+"POT-Creation-Date: 2022-03-04 12:31+0330\n"
+"PO-Revision-Date: 2022-03-04 12:32+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4624,7 +4624,8 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/setting/linkedin/view.php:10 content_a/setting/menu/add/view.php:13
 #: content_a/setting/menu/edit/view.php:12 content_a/setting/menu/item/view.php:15
 #: content_a/setting/menu/roster/view.php:15 content_a/setting/menu/setting/view.php:14
-#: content_a/setting/pcpos/view.php:12 content_a/setting/shipping/irpost/view.php:11
+#: content_a/setting/notification/view.php:11 content_a/setting/pcpos/view.php:12
+#: content_a/setting/shipping/irpost/view.php:11
 #: content_a/setting/shipping/method/view.php:11
 #: content_a/setting/shipping/package/view.php:11 content_a/setting/shipping/view.php:11
 #: content_a/setting/telegram/view.php:10 content_a/setting/tw/view.php:10
@@ -10479,11 +10480,11 @@ msgstr "لطفا محصول را انتخاب کنید"
 #: content_a/setting/domain/setting/view.php:8 content_a/setting/domain/view.php:8
 #: content_a/setting/factor/view.php:13 content_a/setting/fund/view.php:8
 #: content_a/setting/general/view.php:10 content_a/setting/home/view.php:8
-#: content_a/setting/notification/view.php:11 content_a/setting/order/view.php:11
-#: content_a/setting/pcpos/view.php:8 content_a/setting/pos/view.php:8
-#: content_a/setting/product/view.php:10 content_a/setting/shipping/text/view.php:11
-#: content_a/setting/social/view.php:10 content_a/setting/thirdparty/view.php:10
-#: content_a/setting3/home/view.php:8 content_love/business/datalist/display.php:15
+#: content_a/setting/order/view.php:11 content_a/setting/pcpos/view.php:8
+#: content_a/setting/pos/view.php:8 content_a/setting/product/view.php:10
+#: content_a/setting/shipping/text/view.php:11 content_a/setting/social/view.php:10
+#: content_a/setting/thirdparty/view.php:10 content_a/setting3/home/view.php:8
+#: content_love/business/datalist/display.php:15
 #: content_love/business/datalist/display.php:48
 #: content_love/business/domain/pageStep.php:23 content_love/gift/create/stepGuide.php:93
 #: content_love/store/display.php:27 content_love/store/display.php:60
@@ -12669,6 +12670,22 @@ msgstr "روشن"
 #: content_love/domain/detail/display.php:101 content_love/domain/setting/display.php:83
 msgid "Off"
 msgstr "خاموش"
+
+#: content_a/setting/notification/display.php:71
+msgid ""
+"If you want to change the text of the SMS template, you can let us know via the ticket "
+"so that we can define a new template for you."
+msgstr ""
+"در صورت تمایل به تغییر متن قالب پیامکی می‌توانید این موضوع را از طریق تیکت به ما اطلاع "
+"دهید تا قالب جدیدی برای شما تعریف کنیم."
+
+#: content_a/setting/notification/display.php:72
+msgid "SMS template"
+msgstr "الگوی پیامک"
+
+#: content_a/setting/notification/display.php:74
+msgid "Send ticket"
+msgstr "ارسال تیکت"
 
 #: content_a/setting/notification/view.php:9 content_business/profile/display-menu.php:31
 #: content_business/profile/notifications/setting/view.php:9
@@ -17831,9 +17848,14 @@ msgstr "افزودن سطح دسترسی جدید"
 msgid "Conversation"
 msgstr "گفت‌و‌گو"
 
-#: content_crm/sms/datalist/display.php:17
+#: content_crm/sms/datalist/display.php:11
 msgid "verification sms"
 msgstr "پیامک اعتبارسنجی"
+
+#: content_crm/sms/datalist/display.php:21 content_site/footer/f0.php:17
+#: content_site/header/h0.php:17
+msgid "Empty"
+msgstr "خالی"
 
 #: content_crm/sms/datalist/view.php:9 content_crm/sms/home/display.php:24
 msgid "Send sms history"
@@ -23409,10 +23431,6 @@ msgstr "نمونه :val"
 #: content_site/controller.php:60 content_site/controller.php:73
 msgid "Invalid page id"
 msgstr "شماره صفحه نادرست"
-
-#: content_site/footer/f0.php:17 content_site/header/h0.php:17
-msgid "Empty"
-msgstr "خالی"
 
 #: content_site/footer/f0.php:36
 msgid "This footer is emtpy. Have not any option!"
@@ -44850,9 +44868,6 @@ msgstr "یارد"
 #~ msgid "Special tag"
 #~ msgstr "تگ خاص"
 
-#~ msgid "Post template"
-#~ msgstr "قالب نوشته"
-
 #~ msgid "Any post"
 #~ msgstr "هر نوشته‌ای"
 
@@ -47255,9 +47270,6 @@ msgstr "یارد"
 #~ msgstr ""
 #~ "مشتریان یادداشت‌های شما را مشاهده نمی‌کنند و فقط مدیران سیستم می‌توانند این یادداشت‌ها "
 #~ "را مشاهده کنند"
-
-#~ msgid "Send ticket"
-#~ msgstr "ارسال تیکت"
 
 #~ msgid "Send answer"
 #~ msgstr "ارسال پاسخ"
