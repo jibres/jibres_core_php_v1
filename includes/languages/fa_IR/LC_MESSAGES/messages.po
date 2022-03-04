@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-03-03 19:57+0330\n"
-"PO-Revision-Date: 2022-03-03 19:58+0330\n"
+"POT-Creation-Date: 2022-03-04 12:09+0330\n"
+"PO-Revision-Date: 2022-03-04 12:11+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7726,7 +7726,8 @@ msgstr "ورودی باید به صورت آرایه باشد"
 
 #: content_a/buy/opr/model.php:41 content_a/setting/factor/address/model.php:21
 #: content_a/setting/factor/model.php:56 content_a/setting/factor/seller/model.php:21
-#: content_a/setting/notification/model.php:15 content_a/setting/order/model.php:57
+#: content_a/setting/notification/model.php:21 content_a/setting/order/model.php:57
+#: content_business/profile/notifications/setting/model.php:15
 #: content_crm/member/notification/model.php:15 content_crm/sms/send/model.php:18
 #: content_site/section/html/model.php:89 dash/app/changelog.php:362
 #: dash/app/permission/edit.php:157 dash/app/permission/edit.php:229
@@ -10317,7 +10318,7 @@ msgstr "پرداخت نشده"
 
 #: content_a/order/status/display.php:107
 #: lib/app/log/caller/order/order_customerTrackingNumber.php:13
-#: lib/app/setting/notification.php:60
+#: lib/app/setting/notification.php:53
 msgid "Tracking number"
 msgstr "شماره رهگیری"
 
@@ -12636,30 +12637,42 @@ msgid "Menu list"
 msgstr "لیست فهرست‌ها"
 
 #: content_a/setting/notification/display.php:10
+#: content_business/profile/notifications/setting/display.php:17
 #: content_crm/member/notification/display.php:11
 msgid "You must get the sms pack plugin to active this notification"
 msgstr "برای ارسال پیام‌های اطلاع رسانی زیر شما باید ابتدا بسته پیامکی خریداری کنید"
 
 #: content_a/setting/notification/display.php:25
+#: content_business/profile/notifications/setting/display.php:41
+#: content_business/profile/notifications/setting/display.php:45
 #: content_crm/member/notification/display.php:29
 #: content_crm/member/notification/display.php:33 content_crm/sms/home/display.php:45
 #: content_crm/sms/send/view.php:9
 msgid "Send sms"
 msgstr "ارسال پیام"
 
-#: content_a/setting/notification/display.php:41 content_account/security/display.php:45
-#: content_account/security/display.php:52 content_crm/member/notification/display.php:62
+#: content_a/setting/notification/display.php:31
+msgid "Change template"
+msgstr "ویرایش قالب"
+
+#: content_a/setting/notification/display.php:60 content_account/security/display.php:45
+#: content_account/security/display.php:52
+#: content_business/profile/notifications/setting/display.php:74
+#: content_crm/member/notification/display.php:62
 msgid "On"
 msgstr "روشن"
 
-#: content_a/setting/notification/display.php:41 content_account/security/display.php:45
-#: content_account/security/display.php:52 content_crm/member/notification/display.php:62
+#: content_a/setting/notification/display.php:60 content_account/security/display.php:45
+#: content_account/security/display.php:52
+#: content_business/profile/notifications/setting/display.php:74
+#: content_crm/member/notification/display.php:62
 #: content_love/domain/detail/display.php:101 content_love/domain/setting/display.php:83
 msgid "Off"
 msgstr "خاموش"
 
-#: content_a/setting/notification/view.php:9 content_crm/member/glance/display.php:371
-#: content_crm/member/notification/view.php:12
+#: content_a/setting/notification/view.php:9 content_business/profile/display-menu.php:31
+#: content_business/profile/notifications/setting/view.php:9
+#: content_crm/member/glance/display.php:371 content_crm/member/notification/view.php:12
 msgid "Notification setting"
 msgstr "تنظیمات اطلاع‌رسانی"
 
@@ -14728,7 +14741,7 @@ msgid "Manage your data & personalization"
 msgstr "مدیریت داده‌های شما و شخصی‌سازی آن‌ها"
 
 #: content_account/home/display.php:88 content_account/home/display.php:92
-#: content_account/notification/view.php:9 content_business/profile/display-menu.php:27
+#: content_account/notification/view.php:9 content_business/profile/display-menu.php:30
 #: content_crm/home/display.php:122 content_crm/notification/datalist/view.php:9
 #: content_crm/notification/datalist/view.php:12 content_crm/notification/home/view.php:9
 #: content_crm/notification/me/view.php:14 content_crm/notification/send/view.php:12
@@ -14754,7 +14767,7 @@ msgid "Get expert answers and advice on our service or contact our legendary sup
 msgstr ""
 "دریافت پاسخ‌های کاشناسی و مشاوره درباره خدمات و یا تماس با تیم پشتیبانی افسانه‌ای ما"
 
-#: content_account/home/display.php:117 content_business/profile/display-menu.php:60
+#: content_account/home/display.php:117 content_business/profile/display-menu.php:61
 #: content_business/ticket/add/view.php:13 content_business/ticket/home/view.php:11
 #: content_business/ticket/view/view.php:21 content_crm/home/display.php:113
 #: content_crm/member/glance/display.php:52 content_crm/member/glance/display.php:79
@@ -14787,7 +14800,7 @@ msgstr "بررسی"
 msgid "Logout from your account!"
 msgstr "خروج از حساب کاربری!"
 
-#: content_account/home/display.php:157 content_business/profile/display-menu.php:67
+#: content_account/home/display.php:157 content_business/profile/display-menu.php:68
 #: content_enter/app/display.php:20 includes/languages/trans_static.php:538
 #: includes/languages/trans_static_public.php:100
 msgid "Logout"
@@ -15645,8 +15658,8 @@ msgid "Tracking Order"
 msgstr "رهگیری سفارش"
 
 #: content_business/orders/view.php:9 content_business/orders/view/view.php:9
-#: content_business/profile/display-menu.php:29
-#: content_business/profile/display-menu.php:53
+#: content_business/profile/display-menu.php:28
+#: content_business/profile/display-menu.php:54
 msgid "My orders"
 msgstr "سفارشات من"
 
@@ -15798,16 +15811,16 @@ msgstr "پروفایل من"
 msgid "Admin panel"
 msgstr "پنل مدیریت"
 
-#: content_business/profile/display-menu.php:39
-#: content_business/profile/display-menu.php:52
+#: content_business/profile/display-menu.php:40
+#: content_business/profile/display-menu.php:53
 msgid "My cart"
 msgstr "سبد خرید من"
 
-#: content_business/profile/display-menu.php:40
+#: content_business/profile/display-menu.php:41
 msgid "Change your password"
 msgstr "تغییر رمز‌عبور"
 
-#: content_business/profile/display-menu.php:61 content_business/ticket/add/view.php:9
+#: content_business/profile/display-menu.php:62 content_business/ticket/add/view.php:9
 #: content_crm/ticket/add/view.php:9 content_crm/ticket/datalist/view.php:15
 #: content_crm/ticket/home/display.php:32 content_crm/ticket/home/view.php:15
 #: dash/layout/admin/sidebar/sidebar-api-v2.php:63
@@ -15816,11 +15829,16 @@ msgstr "تغییر رمز‌عبور"
 msgid "Add new ticket"
 msgstr "افزودن تیکت جدید"
 
-#: content_business/profile/display-menu.php:74 content_enter/home/display.php:62
+#: content_business/profile/display-menu.php:75 content_enter/home/display.php:62
 #: content_enter/signup/display.php:63 includes/languages/trans_static_public.php:166
 #: lib/app/store/analytics.php:120
 msgid "Login"
 msgstr "ورود به سیستم"
+
+#: content_business/profile/notifications/setting/display.php:51
+#: content_crm/member/notification/display.php:39
+msgid "Disabled from sms setting"
+msgstr "از بخش تنظیمات اطلاع‌رسانی بیزینس غیرفعال شده است"
 
 #: content_business/profile/notifications/view.php:9
 #: content_crm/notification/home/display.php:7
@@ -17510,10 +17528,6 @@ msgstr "نوه"
 #: content_crm/member/mobile/view.php:11
 msgid "Change customer mobile phone number"
 msgstr "ویرایش شماره تلفن همراه مشتری"
-
-#: content_crm/member/notification/display.php:39
-msgid "Disabled from sms setting"
-msgstr "از بخش تنظیمات اطلاع‌رسانی بیزینس غیرفعال شده است"
 
 #: content_crm/member/permission/display.php:5
 msgid "Change Permission"
@@ -39496,11 +39510,15 @@ msgid "Show order"
 msgstr "نمایش سفارش"
 
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:22
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:49
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:68
 msgid "Jibres; Sell and enjoy"
 msgstr "جیبرس؛ بفروش و لذت ببر"
 
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:37
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:46
+msgid "A new order was paid in the :business"
+msgstr "یک سفارش جدید در :business ثبت و پرداخت شد"
+
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:53
 msgid "A final order and the amount of :amount :currency was paid in :business :)"
 msgstr "یک سفارش نهایی و مبلغ :amount :currency در :business پرداخت شد :)"
 
@@ -39509,7 +39527,11 @@ msgstr "یک سفارش نهایی و مبلغ :amount :currency در :business 
 msgid "Your order was registered"
 msgstr "سفارش شما ثبت شد"
 
-#: lib/app/log/caller/order/order_adminNewOrderBeforePay.php:37
+#: lib/app/log/caller/order/order_adminNewOrderBeforePay.php:47
+msgid "A new order was registered in :business"
+msgstr "یک سفارش جدید در :business ثبت شد"
+
+#: lib/app/log/caller/order/order_adminNewOrderBeforePay.php:54
 msgid ""
 "A new order in the amount of :amount :currency was registered in :business. We, like "
 "you, are waiting to inform you after completing the payment"
@@ -39517,7 +39539,11 @@ msgstr ""
 "یک سفارش جدید به مبلغ:amount :currency در :business ثبت شد. ما هم مثل شما منتظریم تا پس "
 "از تکمیل پرداخت به شما اطلاع دهیم"
 
-#: lib/app/log/caller/order/order_customerNewOrder.php:36
+#: lib/app/log/caller/order/order_customerNewOrder.php:47
+msgid "Your order was registered in :business"
+msgstr "سفارش شما در :business ثبت شد"
+
+#: lib/app/log/caller/order/order_customerNewOrder.php:54
 msgid ""
 "Your order in the amount of :amount :currency was registered in :business and we are "
 "preparing your order with the speed of light"
@@ -39525,11 +39551,19 @@ msgstr ""
 "سفارش شما به مبلغ :amount :currency در :business ثبت شد و ما با سرعت نور در حال "
 "آماده‌سازی سفارش شما هستیم"
 
-#: lib/app/log/caller/order/order_customerSendingOrder.php:33
+#: lib/app/log/caller/order/order_customerSendingOrder.php:45
+msgid "We have sent your order and it will be delivered to you soon."
+msgstr "سفارش شما رو ارسال کردیم و بزودی به‌دست شما خواهد رسید."
+
+#: lib/app/log/caller/order/order_customerSendingOrder.php:52
 msgid "We have sent your order by post and it will be delivered to you soon."
 msgstr "سفارش شما رو از طریق پست ارسال کردیم و بزودی به‌دست شما خواهد رسید."
 
-#: lib/app/log/caller/order/order_customerTrackingNumber.php:34
+#: lib/app/log/caller/order/order_customerTrackingNumber.php:46
+msgid "Your order tracking number is"
+msgstr "کد رهگیری سفارش شما"
+
+#: lib/app/log/caller/order/order_customerTrackingNumber.php:53
 msgid "By opening the following link, you can track the status of sending your order"
 msgstr "با بازکردن لینک زیر می‌تونید وضعیت ارسال سفارش خودتون رو رهگیری کنید"
 
@@ -41511,25 +41545,29 @@ msgstr "تنظیم صفحه نخست وب‌سایت"
 msgid "Tipax"
 msgstr "تیپاکس"
 
-#: lib/app/setting/notification.php:28
+#: lib/app/setting/notification.php:29
 msgid "Before pay"
 msgstr "قبل از پرداخت"
 
-#: lib/app/setting/notification.php:36
+#: lib/app/setting/notification.php:35
 msgid "After pay"
 msgstr "بعد از پرداخت"
 
-#: lib/app/setting/notification.php:44
+#: lib/app/setting/notification.php:41
 msgid "New order"
 msgstr "سفارش جدید"
 
-#: lib/app/setting/notification.php:52
+#: lib/app/setting/notification.php:47
 msgid "Sending order"
 msgstr "ارسال سفارش"
 
-#: lib/app/setting/notification.php:218
+#: lib/app/setting/notification.php:228
 msgid "No notification found to send to this user"
 msgstr "هیچ پیام اطلاع رسانی برای ارسال به این کاربر یافت نشد"
+
+#: lib/app/setting/notification.php:296
+msgid "Invalid template id"
+msgstr "کلید قالب اشتباه است"
 
 #: lib/app/setting/package.php:66 lib/app/setting/shipping_method.php:66
 msgid "Record not found"
@@ -44666,9 +44704,6 @@ msgstr "یارد"
 #~ "شما می‌توانید فوتر وب‌سایت خود را به‌شکل کامل طراحی کنید. ما امکان شخصی‌سازی کاملی را "
 #~ "برای شما فراهم کرده‌ایم. طراحی و ساخت وب‌سایتی با کیفیت و زیبا توسط خود شما امکان پذیر "
 #~ "است."
-
-#~ msgid "Change Footer Template"
-#~ msgstr "تغییر قالب فوتر"
 
 #~ msgid "Set footer Main text"
 #~ msgstr "تنظیم متن اصلی فوتر"
