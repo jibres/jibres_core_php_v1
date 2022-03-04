@@ -1,0 +1,2 @@
+ALTER TABLE jibres_XXXXXXX.setting ADD `user_id` INT NULL DEFAULT NULL;
+
