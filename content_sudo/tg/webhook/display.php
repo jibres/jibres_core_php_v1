@@ -1,7 +1,8 @@
 
 <?php
 $tg = \dash\data::tg();
-// $hook = \dash\data::hook();
+$hook = \dash\data::hook();
+
 ?>
 
 <form class="cbox" method="post" autocomplete="off">
@@ -18,7 +19,7 @@ $tg = \dash\data::tg();
   <button class="btn-danger block"><?php echo T_("Set Webhook"); ?></button>
 </form>
 
-<pre class="alert-info fs16"></pre>
+<pre class="alert-info fs16"><?php echo $hook; ?></pre>
 
 
 
