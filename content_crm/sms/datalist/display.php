@@ -6,17 +6,22 @@
 
         <div class="key">
           <?php
-            if(a($value, 'message'))
+            if(a($value, 'mode') === 'verification' || a($value, 'mode') === 'tts')
             {
-              echo \dash\str::substr_space($value['message'], 200);
+              echo '<i class="text-gray-400">'. T_("verification sms"). '</i>';
             }
             else
             {
-              if(a($value, 'mode') === 'verification')
+              if(a($value, 'message'))
               {
-                echo '<i class="text-gray-400">'. T_("verification sms"). '</i>';
+                echo \dash\str::substr_space($value['message'], 200);
+              }
+              else
+              {
+                echo '<i class="text-gray-400">'. T_("Empty"). '</i>';
               }
             }
+
           ?>
 
           </div>
