@@ -43,12 +43,15 @@ class get
 	}
 
 
-	public static function inline_get($_id)
+	public static function inline_get($_id, $_debug = true)
 	{
 		$_id = \dash\validate::string_50($_id);
 		if(!$_id)
 		{
-			\dash\notif::error(T_("Factor id not set"));
+			if($_debug)
+			{
+				\dash\notif::error(T_("Factor id not set"));
+			}
 			return false;
 		}
 
@@ -56,7 +59,10 @@ class get
 
 		if(!\dash\validate::id($_id))
 		{
-			\dash\notif::error(T_("Invalid factor id"));
+			if($_debug)
+			{
+				\dash\notif::error(T_("Invalid factor id"));
+			}
 			return false;
 		}
 
@@ -64,9 +70,41 @@ class get
 
 		if(!$result)
 		{
-			\dash\notif::error(T_("Factor not found"));
+			if($_debug)
+			{
+				\dash\notif::error(T_("Factor not found"));
+			}
 			return false;
 		}
+
+		return $result;
+	}
+
+	public static function inline_get_by_detail($_id)
+	{
+		$factor = self::inline_get($_id, false);
+		if(!$factor)
+		{
+			return false;
+		}
+
+		$id = self::fix_id($_id);
+
+		if(!$id)
+		{
+			return false;
+		}
+
+		$factor_detail = \lib\db\factordetails\get::by_factor_id_join_product($id);
+
+		if($factor_detail)
+		{
+			$factor_detail = array_map(['\\lib\\app\\factor\\ready', 'detail'], $factor_detail);
+		}
+
+		$result = [];
+		$result['factor'] = $factor;
+		$result['factor_detail'] = $factor_detail;
 
 		return $result;
 	}

@@ -42,6 +42,12 @@ class order_adminNewOrderBeforePay
 
 		switch ($my_template)
 		{
+			case '3':
+			case 3:
+				$msg .= T_("A new order was registered in :business", ['business' => \lib\store::title()]);
+				$msg .= order_adminNewOrderAfterPay::get_msg_by_product_detail($my_id, $my_currency);
+				break;
+
 			case '2':
 			case 2:
 				$msg .= T_("A new order was registered in :business", ['business' => \lib\store::title()]);
@@ -84,7 +90,7 @@ class order_adminNewOrderBeforePay
 	{
 		$template_list = [];
 
-		foreach ([1, 2] as $key => $value)
+		foreach ([1, 2, 3] as $key => $value)
 		{
 			$_args['data']['template'] = $value;
 			$template_list[$value] = self::get_msg($_args);

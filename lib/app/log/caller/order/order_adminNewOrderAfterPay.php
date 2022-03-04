@@ -41,6 +41,12 @@ class order_adminNewOrderAfterPay
 
 		switch ($my_template)
 		{
+			case '3':
+			case 3:
+				$msg .= T_("A new order was paid in the :business", ['business' => \lib\store::title()]);
+				$msg .= self::get_msg_by_product_detail($my_id, $my_currency);
+				break;
+
 			case '2':
 			case 2:
 				$msg .= T_("A new order was paid in the :business", ['business' => \lib\store::title()]);
@@ -76,13 +82,55 @@ class order_adminNewOrderAfterPay
 	{
 		$template_list = [];
 
-		foreach ([1, 2] as $key => $value)
+		foreach ([1, 2, 3] as $key => $value)
 		{
 			$_args['data']['template'] = $value;
 			$template_list[$value] = self::get_msg($_args);
 		}
 
 		return $template_list;
+	}
+
+
+	public static function get_msg_by_product_detail($my_id, $my_currency)
+	{
+		$msg = '';
+		if($my_id && is_numeric(\lib\app\factor\get::fix_id($my_id)))
+		{
+			$load_factor = \lib\app\factor\get::inline_get_by_detail($my_id);
+			if(is_array($load_factor) && is_array(a($load_factor, 'factor_detail')))
+			{
+				foreach ($load_factor['factor_detail'] as $key => $value)
+				{
+					$msg .= "\n";
+					$msg .= a($value, 'title');
+					if(floatval(a($value, 'count')) > 1)
+					{
+						$msg .= " ";
+						$msg .= \dash\fit::number($value['count']). ' '. a($value, 'unit');
+					}
+
+				}
+			}
+
+			$msg .= "\n";
+			$msg .= T_("Total"). ' '. \dash\fit::number(a($load_factor, 'factor', 'total'));
+			$msg .= " ";
+			$msg .= $my_currency;
+
+		}
+		elseif($my_id === '...')
+		{
+			$msg .= "\n";
+			$msg .= T_("Product"). \dash\fit::number(1). "\n";
+			$msg .= T_("Product"). \dash\fit::number(2). " ". \dash\fit::number(3). ' '. T_("Unit");
+			$msg .= "\n";
+			$msg .= T_("Total"). ' ...';
+			$msg .= " ";
+			$msg .= $my_currency;
+		}
+
+		return $msg;
 	}
 
 
