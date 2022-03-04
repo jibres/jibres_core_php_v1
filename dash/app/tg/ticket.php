@@ -25,7 +25,7 @@ class ticket
 			'via' => 'telegram',
 			'content' => $_content,
 		];
-		\dash\app\ticket\add\add($args);
+		\dash\app\ticket\add::add($args);
 	}
 
 
