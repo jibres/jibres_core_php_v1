@@ -25,6 +25,25 @@ foreach ($sample as $event => $value)
         $html .= '<h3>'. T_("Send sms") . ' '. a($value, 'title').'</h3>';
         $html .= '<div class="body">';
           $html .= '<p>'. a($value, 'text').'</p>';
+
+          if(is_array(a($value , 'template')) && a($value, 'active'))
+          {
+            $html .= '<div data-kerkere=".showTemplete'.$event.'" data-kerkere-icon class="btn-light btn-sm">' . T_("Change template"). '</div>';
+            $html .= '<div class="showTemplete'.$event.'" data-kerkere-content="hide">';
+            {
+              foreach ($value['template'] as $k => $v)
+              {
+                $html .= '<div class="alert-primary mt-2" data-ajaxify data-method="post" data-data=\'{"set_template":"set", "event" : "'.$event.'", "template":"'.$k.'"}\'>';
+                {
+                  $html .= $v;
+                }
+                $html .= '</div>';
+
+              }
+            }
+            $html .= '</div>';
+          }
+
         $html .= '</div>';
       $html .= '</div>';
     $html .= '</div>';
