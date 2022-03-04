@@ -72,7 +72,7 @@ class sms_pack
 			$html .= '</div>';
 		}
 
-		if(\lib\app\plugin\business::is_activated('sms_pack'))
+		// if(\lib\app\plugin\business::is_activated('sms_pack'))
 		{
 			$html .= '<div class="alert-primary text-sm flex">';
 			{
