@@ -33,7 +33,27 @@ class order_customerNewOrder
 		$my_amount   = isset($_args['data']['my_amount']) ? \dash\fit::number($_args['data']['my_amount']) : null;
 		$my_currency = isset($_args['data']['my_currency']) ? $_args['data']['my_currency'] : null;
 
-		$msg .= "❤️ ". T_("Your order in the amount of :amount :currency was registered in :business and we are preparing your order with the speed of light", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::title()]);
+		$my_template = isset($_args['data']['template']) ? $_args['data']['template'] : null;
+
+		if($my_template === null)
+		{
+			$my_template = \lib\app\setting\notification::get_template('new_order');
+		}
+
+		switch ($my_template)
+		{
+			case '2':
+			case 2:
+				$msg .= T_("Your order was registered in :business", ['business' => \lib\store::title()]);
+				// code...
+				break;
+
+			default:
+			case '1':
+			case 1:
+				$msg .= "❤️ ". T_("Your order in the amount of :amount :currency was registered in :business and we are preparing your order with the speed of light", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::	title()]);
+				break;
+		}
 
 		return $msg;
 	}
@@ -56,6 +76,23 @@ class order_customerNewOrder
 	{
 		return true;
 	}
+
+
+
+	public static function template_list($_args)
+	{
+		$template_list = [];
+
+		foreach ([1, 2] as $key => $value)
+		{
+			$_args['data']['template'] = $value;
+			$template_list[$value] = self::get_msg($_args);
+		}
+
+		return $template_list;
+	}
+
+
 
 
 	public static function sms()

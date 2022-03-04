@@ -31,7 +31,29 @@ class order_customerTrackingNumber
 		$my_id            = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 		$my_tackingnumber = isset($_args['data']['my_tackingnumber']) ? $_args['data']['my_tackingnumber'] : null;
 		$msg         = '';
-		$msg .= "✈️ ". T_("By opening the following link, you can track the status of sending your order");
+
+		$my_template = isset($_args['data']['template']) ? $_args['data']['template'] : null;
+
+		// if($my_template === null)
+		// {
+		// 	$my_template = \lib\app\setting\notification::get_template('tracking_number');
+		// }
+
+		switch ($my_template)
+		{
+			case '2':
+			case 2:
+				$msg .= T_("Your order tracking number is");
+				// code...
+				break;
+
+			default:
+			case '1':
+			case 1:
+				$msg .= "✈️ ". T_("By opening the following link, you can track the status of sending your order");
+				break;
+		}
+
 
 		if($_link)
 		{
@@ -68,6 +90,20 @@ class order_customerTrackingNumber
 	{
 		return true;
 	}
+
+	// public static function template_list($_args)
+	// {
+	// 	$template_list = [];
+
+	// 	foreach ([1, 2] as $key => $value)
+	// 	{
+	// 		$_args['data']['template'] = $value;
+	// 		$template_list[$value] = self::get_msg($_args);
+	// 	}
+
+	// 	return $template_list;
+	// }
+
 
 
 	public static function sms()

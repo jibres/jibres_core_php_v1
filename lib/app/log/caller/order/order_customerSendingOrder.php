@@ -30,7 +30,28 @@ class order_customerSendingOrder
 	{
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 		$msg         = '';
-		$msg .= "🚚  ". T_("We have sent your order by post and it will be delivered to you soon.");
+
+		$my_template = isset($_args['data']['template']) ? $_args['data']['template'] : null;
+
+		if($my_template === null)
+		{
+			$my_template = \lib\app\setting\notification::get_template('sending_order');
+		}
+
+		switch ($my_template)
+		{
+			case '2':
+			case 2:
+				$msg .= T_("We have sent your order and it will be delivered to you soon.");
+				// code...
+				break;
+
+			default:
+			case '1':
+			case 1:
+				$msg .= "🚚  ". T_("We have sent your order by post and it will be delivered to you soon.");
+				break;
+		}
 		if($_link)
 		{
 			if(!a($_args, 'data', 'my_hide_link'))
@@ -68,6 +89,22 @@ class order_customerSendingOrder
 	{
 		return \lib\app\setting\notification::is_enable('sending_order');
 	}
+
+
+
+	public static function template_list($_args)
+	{
+		$template_list = [];
+
+		foreach ([1, 2] as $key => $value)
+		{
+			$_args['data']['template'] = $value;
+			$template_list[$value] = self::get_msg($_args);
+		}
+
+		return $template_list;
+	}
+
 
 
 	public static function sms_user($_user_id)
