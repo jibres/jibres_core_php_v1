@@ -32,9 +32,28 @@ class order_adminNewOrderAfterPay
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
 		$my_amount   = isset($_args['data']['my_amount']) ? \dash\fit::number($_args['data']['my_amount']) : null;
 		$my_currency = isset($_args['data']['my_currency']) ? $_args['data']['my_currency'] : null;
+		$my_template = isset($_args['data']['template']) ? $_args['data']['template'] : null;
 
+		if($my_template === null)
+		{
+			$my_template = \lib\app\setting\notification::get_template('after_pay');
+		}
 
-		$msg .= "💰  ". T_("A final order and the amount of :amount :currency was paid in :business :)", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::title()]);
+		switch ($my_template)
+		{
+			case '2':
+			case 2:
+				$msg .= T_("A new order was paid in the :business", ['business' => \lib\store::title()]);
+				// code...
+				break;
+
+			default:
+			case '1':
+			case 1:
+				$msg .= "💰  ". T_("A final order and the amount of :amount :currency was paid in :business :)", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::title()]);
+				break;
+		}
+
 		if($_link)
 		{
 			if(!a($_args, 'data', 'my_hide_link'))
@@ -51,6 +70,21 @@ class order_adminNewOrderAfterPay
 		}
 		return $msg;
 	}
+
+
+	public static function template_list($_args)
+	{
+		$template_list = [];
+
+		foreach ([1, 2] as $key => $value)
+		{
+			$_args['data']['template'] = $value;
+			$template_list[$value] = self::get_msg($_args);
+		}
+
+		return $template_list;
+	}
+
 
 
 	public static function expire()
