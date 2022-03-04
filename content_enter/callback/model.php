@@ -28,7 +28,9 @@ class model
 
 		if(\dash\request::request('type') === 'delivery')
 		{
-		// too many request for delivery. needless to save anything
+			\dash\log::set('smsHookDelivery', ['my_data' => \dash\request::request()]);
+
+			// too many request for delivery. needless to save anything
 			return;
 		}
 
