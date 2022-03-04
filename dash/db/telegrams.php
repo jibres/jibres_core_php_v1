@@ -39,6 +39,13 @@ class telegrams
 	}
 
 
+	public static function search()
+	{
+		return \dash\pdo\query_template::list_pagenation('telegrams');
+	}
+
+
+
 
 }
 ?>

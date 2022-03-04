@@ -413,13 +413,17 @@ class hook
 			$myDetection = 'type_venue';
 		}
 
-		if($_removeBotName && tg::$name)
+		if($_removeBotName && tg::$name && $myDetection)
 		{
 			// remove @bot_name
 			$myDetection = str_replace('@'.tg::$name, '', $myDetection);
 		}
-		// trim text
-		$myDetection = trim($myDetection);
+
+		if($myDetection)
+		{
+			// trim text
+			$myDetection = trim($myDetection);
+		}
 
 		return $myDetection;
 	}
