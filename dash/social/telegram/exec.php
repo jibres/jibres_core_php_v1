@@ -36,7 +36,7 @@ class exec
 		}
 
 		// if api key is not set get it from options
-		if(!tg::$api_token)
+		// if(!tg::$api_token)
 		{
 			tg::$api_token = \dash\social\telegram\tg::setting('token');
 		}
