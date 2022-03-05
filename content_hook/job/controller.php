@@ -229,7 +229,7 @@ class controller
 
 	public static function public_cronjob()
 	{
-		\dash\app\log\send::notification();
+		// \dash\app\log\send::notification();
 
 
 		// remove all expire session
