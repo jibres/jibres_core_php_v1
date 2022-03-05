@@ -35,12 +35,13 @@
      </li>
   </ul>
 </nav>
-
+<?php if(a($data, 'sendtext')) {?>
 <div class="box">
   <div class="pad">
       <p><?php echo nl2br(a($data, 'sendtext')); ?></p>
   </div>
 </div>
+<?php } //endif ?>
 <div class="showResponse" data-kerkere-content='hide'>
 <pre><?php print_r(a($data, 'response')) ?></pre>
 </div>
