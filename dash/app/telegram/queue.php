@@ -128,10 +128,10 @@ class queue
 
 			\dash\setting\telegram::active_bot($active_bot);
 
-			if(isset($value['method']))
+			if(isset($send['method']))
 			{
-				$method   = $value['method'];
-				unset($value['method']);
+				$method   = $send['method'];
+				unset($send['method']);
 				$myResult = \dash\social\telegram\tg::$method($send);
 			}
 			else
