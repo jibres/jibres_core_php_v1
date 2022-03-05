@@ -13,10 +13,17 @@
               echo '<td>';
             if(substr(strval($value), 0, 1) === '[' || substr(strval($value), 0, 1) === '{')
             {
-              $value = json_decode($value, true);
-              echo '<pre>';
-              echo json_encode($value, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-              echo '</pre>';
+              $temp = json_decode($value, true);
+              if(!is_array($temp))
+              {
+                echo $value;
+              }
+              else
+              {
+                echo '<pre>';
+                echo json_encode($temp, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+                echo '</pre>';
+              }
 
             }
             else
