@@ -259,5 +259,12 @@ class api
 		return $result;
 	}
 
+
+	public static function send_multiple_notif(array $_args)
+	{
+		$result = self::run('multiplenotif','post', [], $_args, ['not_check_login' => true]);
+		return $result;
+	}
+
 }
 ?>
