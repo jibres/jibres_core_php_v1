@@ -193,7 +193,7 @@ class connection
 
 
 			default:
-				return self::make_error(503, T_("Connection error!"). " PDO ", $_option);
+				return self::make_error(503, T_("Connection error!"). " 1408 ", $_option);
 				break;
 		}
 
