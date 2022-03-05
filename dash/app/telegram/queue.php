@@ -1,0 +1,76 @@
+<?php
+namespace dash\app\telegram;
+
+
+class queue
+{
+	public static function add_one($_mobile, $_telegram_message_array, $_meta = [])
+	{
+		if(!$_mobile || !$_telegram_message_array || !is_array($_telegram_message_array))
+		{
+			return false;
+		}
+
+		$load_user = \dash\db\users::get_by_mobile($_mobile);
+
+		if(!$load_user || !isset($load_user['id']))
+		{
+			return false;
+		}
+
+
+		$user_chatid = \dash\db\user_telegram::get(['user_id' => $load_user['id']]);
+
+		if(!$user_chatid || !is_array($user_chatid))
+		{
+			return;
+		}
+
+
+		foreach ($user_chatid as $key => $value)
+		{
+			if(array_key_exists('chat_id', $_telegram_message_array))
+			{
+				$method = 'sendMessage';
+
+				if(a($_telegram_message_array, 'method'))
+				{
+					$method = $_telegram_message_array['method'];
+				}
+
+				$_telegram_message_array['chat_id'] = $value['chatid'];
+
+				$insert_telegram_queue =
+				[
+					'store_id'             => a($_meta, 'store_id'),
+					'store_telegramlog_id' => null,
+					'chatid'               => $value['chatid'],
+					'type'                 => null,
+					'status'               => 'pending',
+					'method'               => $method,
+					'send'                 => json_encode($_telegram_message_array),
+					'dateregister'         => date("Y-m-d H:i:s"),
+					'datecreated'          => date("Y-m-d H:i:s"),
+				];
+
+				$telegram_queue_id = \dash\db\telegrams\insert::insert_telegram_api_log($insert_telegram_queue);
+				if($telegram_queue_id)
+				{
+
+					$insert_telegram_queue_sending =
+					[
+						'telegram_id' => $telegram_queue_id,
+						'status'      => 'pending',
+						'datecreated' => date("Y-m-d H:i:s"),
+					];
+
+					\dash\db\telegrams\insert::insert_telegram_sending_api_log($insert_telegram_queue_sending);
+				}
+			}
+		}
+
+		return true;
+
+	}
+}
+?>
