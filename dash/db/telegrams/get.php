@@ -29,5 +29,14 @@ class get
 	}
 
 
+	public static function api_by_id($_id)
+	{
+		$query  = "SELECT * FROM telegram WHERE telegram.id = $_id  LIMIT 1 ";
+		$result = \dash\pdo::get($query, [], null, true, 'api_log');
+		return $result;
+	}
+
+
+
 }
 ?>

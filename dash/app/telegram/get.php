@@ -49,5 +49,15 @@ class get
 	}
 
 
+	public static function api_telegram_get($_id)
+	{
+		if(is_numeric($_id))
+		{
+			$result = \dash\db\telegrams\get::api_by_id($_id);
+			return $result;
+		}
+	}
+
+
 }
 ?>

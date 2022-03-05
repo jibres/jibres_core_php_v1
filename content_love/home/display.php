@@ -82,6 +82,16 @@
 	</div>
 
 
+	<div class="c2 s6">
+		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/telegram/datalist'>
+			<div class="statistic blue">
+				<div class="value"><i class="sf-paper-plane"></i></div>
+				<div class="label"><?php echo T_("Telegram Log"); ?></div>
+			</div>
+		</a>
+	</div>
+
+
 
 	<div class="c2 s6">
 		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/email'>

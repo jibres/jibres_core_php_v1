@@ -25,6 +25,7 @@ class search
 			'pagination'   => 'bit',
 			'chatid'       => 'string_100',
 			'conversation' => 'bit',
+			'api_list' => 'bit',
 		];
 
 		$require = [];
@@ -89,14 +90,29 @@ class search
 
 		}
 
-		if(!$order_sort)
+		if($data['api_list'])
 		{
-			$order_sort = " ORDER BY telegrams.id DESC";
+			if(!$order_sort)
+			{
+				$order_sort = " ORDER BY telegram.id DESC";
+			}
+		}
+		else
+		{
+			if(!$order_sort)
+			{
+				$order_sort = " ORDER BY telegrams.id DESC";
+			}
 		}
 
 		if($data['conversation'])
 		{
 			$list = \dash\db\telegrams\search::conversation_list($and, $or, $order_sort, $meta);
+		}
+		elseif($data['api_list'])
+		{
+			$list = \dash\db\telegrams\search::api_list($and, $or, $order_sort, $meta);
+
 		}
 		else
 		{
