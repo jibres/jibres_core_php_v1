@@ -48,6 +48,7 @@ class queue
 					'type'                 => null,
 					'status'               => 'pending',
 					'method'               => $method,
+					'bot'                  => a($_meta, 'active_bot'),
 					'send'                 => json_encode($_telegram_message_array),
 					'dateregister'         => date("Y-m-d H:i:s"),
 					'datecreated'          => date("Y-m-d H:i:s"),
@@ -110,14 +111,12 @@ class queue
 		{
 			$active_bot = 'master';
 
-			// if(is_string(a($_meta, 'data')))
-			// {
-			// 	$meta = json_decode($_meta['data'], true);
-			// 	if(a($meta, 'active_bot'))
-			// 	{
-			// 		$active_bot = $meta['active_bot'];
-			// 	}
-			// }
+
+			if(isset($value['bot']) && $value['bot'])
+			{
+				$active_bot = $value['bot'];
+			}
+
 
 			$send = json_decode($value['send'], true);
 

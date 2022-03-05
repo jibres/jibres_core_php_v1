@@ -15,7 +15,13 @@ class model
 				if(isset($value['mobile']) && isset($value['telegram']['text']))
 				{
 					// save into telegram send
-					\dash\app\telegram\queue::add_one($value['mobile'], $value['telegram'], ['store_id' => \content_r10\tools::get_current_business_id()]);
+					$meta =
+					[
+						'store_id'   => \content_r10\tools::get_current_business_id(),
+						'active_bot' => a($value, 'active_bot'),
+					];
+
+					\dash\app\telegram\queue::add_one($value['mobile'], $value['telegram'], $meta);
 				}
 			}
 		}

@@ -829,7 +829,18 @@ class log
 
 			if(isset($value['telegram']) && $value['telegram'])
 			{
-				$sending_queue['telegram'][] = ['mobile' => $user_mobile, 'telegram' => json_decode($value['telegram'], true)];
+				$data = [];
+				if(isset($value['data']) && $value['data'])
+				{
+					$data = json_decode($value['data'], true);
+				}
+
+				$sending_queue['telegram'][] =
+				[
+					'mobile'     => $user_mobile,
+					'active_bot' => a($data, 'active_bot'),
+					'telegram'   => json_decode($value['telegram'], true)
+				];
 			}
 
 			if(isset($value['email']) && $value['email'])
@@ -859,7 +870,7 @@ class log
 				if(isset($value['mobile']) && isset($value['telegram']['text']))
 				{
 					// save into telegram send
-					\dash\app\telegram\queue::add_one($value['mobile'], $value['telegram']);
+					\dash\app\telegram\queue::add_one($value['mobile'], $value['telegram'], ['active_bot' => a($value, 'active_bot')]);
 				}
 			}
 
