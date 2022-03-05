@@ -24,7 +24,7 @@ class get
 	public static function not_sended_list()
 	{
 		$query  = "SELECT * FROM telegram_sending WHERE telegram_sending.status = 'pending'  LIMIT 100 ";
-		$result = \dash\pdo::get($query, [], null, true, 'api_log');
+		$result = \dash\pdo::get($query, [], null, false, 'api_log');
 		return $result;
 	}
 
