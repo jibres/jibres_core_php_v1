@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS jibres_api_log.telegram (
 `chatid` varchar(100) NULL DEFAULT NULL,
 `type` varchar(100) NULL,
 `status` enum('register', 'pending','sending','expired', 'moneylow', 'unknown', 'send', 'sended','queue','failed','cancel','block','other') DEFAULT NULL,
+`bot` varchar(100) NULL DEFAULT NULL,
 `method` varchar(100) NULL DEFAULT NULL,
 `send` mediumtext NULL DEFAULT NULL,
 `response` mediumtext NULL DEFAULT NULL,
