@@ -38,7 +38,7 @@ class get
 		if(isset($last['balance']) && is_numeric($last['balance']))
 		{
 			// nic credit have less than 100 unit
-			if(floatval($last['balance']) < 200)
+			if(floatval($last['balance']) < 300)
 			{
 				$my_code = date("Y-m-d"). '-'. $last['balance'];
 

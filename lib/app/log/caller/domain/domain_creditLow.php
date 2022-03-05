@@ -67,9 +67,21 @@ class domain_creditLow
 		$tg_msg = '';
 		$tg_msg .= "#Domain #IRNIC #Credit ";
 
-		$tg_msg .= " 🔴 \n";
+		$my_balance = isset($_args['data']['my_balance']) ? $_args['data']['my_balance'] : null;
 
-		$tg_msg .= T_("Domain credit low!");
+		if($my_balance < 150)
+		{
+			$tg_msg .= " 🔴🔴🔴🔴🔴 \n";
+			$tg_msg .= T_("Domain credit low!");
+			$tg_msg .= "\n";
+			$tg_msg .= T_("Recharge now!");
+		}
+		else
+		{
+			$tg_msg .= " 🔴 \n";
+			$tg_msg .= T_("Domain credit low!");
+		}
+
 
 		$tg_msg .= "\n";
 
