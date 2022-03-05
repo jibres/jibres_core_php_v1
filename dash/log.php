@@ -867,7 +867,7 @@ class log
 			// save telegram db record
 			foreach ($sending_queue['telegram'] as $key => $value)
 			{
-				if(isset($value['mobile']) && isset($value['telegram']['text']))
+				if(isset($value['mobile']) && isset($value['telegram']))
 				{
 					// save into telegram send
 					\dash\app\telegram\queue::add_one($value['mobile'], $value['telegram'], ['active_bot' => a($value, 'active_bot')]);
