@@ -912,6 +912,17 @@ class url
 	}
 
 
+	public static function is_our_api()
+	{
+		if(self::is_api() && in_array(\dash\url::module(), ['jibres']))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
 	/**
 	 * Get the curren and real protocol
 	 *
