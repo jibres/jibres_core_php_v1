@@ -72,5 +72,82 @@ class queue
 		return true;
 
 	}
+
+
+
+	public static function send_real_time($_debug = false)
+	{
+		$get_sending_list = \dash\db\telegrams\get::not_sended_list();
+
+		if(!$get_sending_list)
+		{
+			return;
+		}
+
+		// \dash\pdo::transaction('api_log');
+
+		$ids = array_column($get_sending_list, 'id');
+
+		// update all status of this list as sending to not load in another session
+		\dash\db\telegrams\update::set_sending_list(implode(',', $ids));
+
+		$telegram_ids = array_column($get_sending_list, 'telegram_id');
+
+		$telegram_list = \dash\db\telegrams\get::by_multi_id(implode(',', $telegram_ids));
+
+		if(!is_array($telegram_list))
+		{
+			$telegram_list = [];
+		}
+
+		if(!$telegram_list)
+		{
+			return false;
+		}
+
+
+		foreach ($telegram_list as $key => $value)
+		{
+			$active_bot = 'master';
+
+			// if(is_string(a($_meta, 'data')))
+			// {
+			// 	$meta = json_decode($_meta['data'], true);
+			// 	if(a($meta, 'active_bot'))
+			// 	{
+			// 		$active_bot = $meta['active_bot'];
+			// 	}
+			// }
+
+			$send = json_decode($value['send'], true);
+
+			\dash\setting\telegram::active_bot($active_bot);
+
+			if(isset($value['method']))
+			{
+				$method   = $value['method'];
+				unset($value['method']);
+				$myResult = \dash\social\telegram\tg::$method($send);
+			}
+			else
+			{
+				$myResult = \dash\social\telegram\tg::sendMessage($send);
+			}
+
+			$update =
+			[
+				'status'       => 'sended',
+				'response'     => json_encode($myResult),
+				'dateresponse' => date("Y-m-d H:i:s"),
+				'datemodified' => date("Y-m-d H:i:s"),
+			];
+
+			\dash\db\telegrams\update::record_api_log($update, $value['id']);
+
+		}
+
+		\lib\db\sms\delete::sending_by_multi_id(implode(',', $ids));
+
+	}
 }
 ?>

@@ -57,6 +57,8 @@ class run
 			// run code
 			\lib\app\sms\queue::send_real_time();
 
+			\dash\app\telegram\queue::send_real_time();
+
 			// check force stop
 			if(($i % 60) == 0 || date("s") === '00')
 			{
