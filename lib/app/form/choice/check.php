@@ -10,6 +10,7 @@ class check
 		[
 			'title'        => 'title',
 			'desc'         => 'desc',
+			'price'         => 'price',
 		];
 
 		$require = ['title'];

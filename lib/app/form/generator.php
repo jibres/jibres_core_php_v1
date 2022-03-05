@@ -208,6 +208,9 @@ class generator
 				case 'agree':				self::html_input_agree($item);break;
 				case 'hidden':				self::html_input_hidden($item);break;
 				case 'postalcode':			self::html_input_postalcode($item);break;
+				case 'manual_amount':		self::html_input_manual_amount($item);break;
+				case 'list_amount':			self::html_input_list_amount($item);break;
+				case 'hidden_amount':		self::html_input_hidden_amount($item);break;
 
 				default:
 					# code...
@@ -346,6 +349,14 @@ class generator
 			else
 			{
 				self::$html .= ' value="'. $value['user_answer']. '"';
+			}
+		}
+		else
+		{
+			if(isset($value['type']) && isset($value['setting'][$value['type']]['defaultvalue']) && is_numeric($value['setting'][$value['type']]['defaultvalue']))
+			{
+
+				self::$html .= ' value="'. $value['setting'][$value['type']]['defaultvalue']. '"';
 			}
 		}
 	}
@@ -536,6 +547,17 @@ class generator
 	}
 
 
+	private static function html_input_manual_amount($value)
+	{
+		self::div('c-xs-12 c-6');
+		{
+			self::label($value);
+			self::input('tel', $value, ' data-format="price" ');
+			self::HtmlDesc($value);
+		}
+		self::_div();
+	}
+
 
 
 	private static function html_input_numeric($value)
@@ -626,6 +648,32 @@ class generator
 	}
 
 
+
+	private static function html_input_list_amount($value)
+	{
+		self::div('c-xs-12 c-6');
+		{
+			self::label_raw($value);
+			self::div('mB10');
+			{
+				self::$html .= '<select class="select22" id="'; self::myID($value); self::$html .= '" name="'; self::myName($value); self::$html .= '" data-placeholder="'; self::HtmlPlaceholder($value, true); self::$html .= '">';
+				{
+					self::$html .= '<option value="">'; self::HtmlPlaceholder($value, true); self::$html .= '</option>';
+					if(isset($value['choice']) && is_array($value['choice']))
+					{
+						foreach ($value['choice'] as $k => $v)
+						{
+							self::$html .= '<option value="'. round(floatval(a($v, 'price'))). '">'. a($v, 'title'). '</option>';
+						}
+					}
+				}
+				self::$html .= '</select>';
+			}
+			self::HtmlDesc($value);
+			self::_div();
+		}
+		self::_div();
+	}
 
 
 	private static function html_input_dropdown($value)
@@ -1046,6 +1094,18 @@ class generator
 		if(isset($value['setting']['hidden']['defaultvalue']))
 		{
 			$my_value = $value['setting']['hidden']['defaultvalue'];
+		}
+		self::$html .= '<input type="hidden" name="'. self::myName($value, true). '" value="'. $my_value. '">';
+	}
+
+
+
+	private static function html_input_hidden_amount($value)
+	{
+		$my_value = null;
+		if(isset($value['setting']['hidden_amount']['defaultvalue']))
+		{
+			$my_value = $value['setting']['hidden_amount']['defaultvalue'];
 		}
 		self::$html .= '<input type="hidden" name="'. self::myName($value, true). '" value="'. $my_value. '">';
 	}

@@ -471,6 +471,61 @@ class type
 		];
 
 
+
+
+
+		$type['manual_amount'] =
+		[
+			'key'          => 'manual_amount',
+			'title'        => T_('Manual amount'),
+			'chart' 	   => false,
+			'compare'      => false,
+			'chart_type'   => 'bar',
+			'group'        => T_('Price'),
+			'placeholder'  => true,
+			'min'          => true,
+			'max'          => true,
+			'defaultvalue' => true,
+			'default_load' =>
+			[
+			],
+		];
+
+
+
+		$type['list_amount'] =
+		[
+			'key'          => 'list_amount',
+			'title'        => T_('List amount'),
+			'chart' 	   => false,
+			'compare'      => false,
+			'chart_type'   => 'bar',
+			'group'        => T_('Price'),
+			'choice'       => true,
+			'default_load' =>
+			[
+			],
+		];
+
+
+
+		$type['hidden_amount'] =
+		[
+			'key'          => 'hidden_amount',
+			'title'        => T_('Hidden amount'),
+			'chart' 	   => false,
+			'compare'      => false,
+			'chart_type'   => 'bar',
+			'group'        => T_('Price'),
+			'defaultvalue' => true,
+			'default_load' =>
+			[
+			],
+		];
+
+
+
+
 		return $type;
 	}
 

@@ -175,7 +175,7 @@ class api
 			return false;
 		}
 
-		\dash\notif::generate_jibres_api_notif($result);
+		// \dash\notif::generate_jibres_api_notif($result);
 
 		return $result;
 

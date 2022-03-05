@@ -6,6 +6,13 @@
         <div class="input">
           <input type="text" name="title" required <?php \dash\layout\autofocus::html(); ?> value="<?php echo \dash\data::choiceDataRow_title() ?>">
         </div>
+        <?php if(a(\dash\data::itemDetail(), 'type') === 'list_amount') {?>
+          <label for="iprice"><?php echo T_("Price") ?></label>
+          <div class="input">
+            <input type="tel" name="price" required <?php \dash\layout\autofocus::html(); ?> value="<?php echo round(\dash\data::choiceDataRow_price()) ?>" data-format="price"  maxlength="15">
+          </div>
+        <?php } // endif ?>
+
       </div>
       <footer class="txtRa">
         <button class="btn master"><?php if(\dash\data::editMode()) { echo T_("Edit"); }else{ echo T_("Add"); } ?></button>
@@ -24,7 +31,22 @@
                 <td class="collapsing sortHandle" data-handle ><i class="sf-sort"></i>
                   <input type="hidden" name="sort[]" value="<?php echo a($value, 'id') ?>">
                 </td>
-                <td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['cid' => a($value, 'id')]) ?>"><i class="sf-edit"></i> <?php echo a($value, 'title') ?></a></td>
+                <td><a href="<?php echo \dash\url::current(). '?'. \dash\request::fix_get(['cid' => a($value, 'id')]) ?>"><i class="sf-edit"></i> <?php echo a($value, 'title');
+
+                  if(a($value, 'price'))
+                  {
+                    echo '<span class="px-4 text-gray-400">';
+
+                    echo \dash\fit::number($value['price']). ' '. \lib\store::currency();
+                    echo '</span>';
+
+                  }
+                ?>
+
+              </a>
+
+
+                </td>
                 <td class="collapsing">
                   <?php if(a($value, 'id') === \dash\request::get('cid')) {?>
                     <div class="fc-mute"><i><?php echo T_("Editing...") ?></i></div>

@@ -16,6 +16,7 @@ class add
 		];
 
 
+
 		$require = ['form_id'];
 
 		$meta = [];
@@ -28,6 +29,7 @@ class add
 
 		$signup_user_args   = [];
 		$signup_user        = false;
+		$total_price        = 0;
 		$send_sms           = [];
 		$sms_text           = [];
 		$requred_not_answer = [];
@@ -167,6 +169,14 @@ class add
 				case 'numeric':
 					$my_answer        = \dash\validate::number($my_answer, true, array_merge($validate_meta, ['min' => $min, 'max' => $max]));
 					$answer[$item_id] = ['answer' => $my_answer];
+					break;
+
+				case 'manual_amount':
+				case 'hidden_amount':
+				case 'list_amount':
+					$my_answer        = \dash\validate::price($my_answer, true, array_merge($validate_meta, ['min' => $min, 'max' => $max]));
+					$answer[$item_id] = ['answer' => $my_answer];
+					$total_price += $my_answer;
 					break;
 
 				case 'single_choice':
@@ -590,8 +600,39 @@ class add
 			}
 		}
 
+		$redirect = null;
+
+		if(isset($load_form['redirect']) && $load_form['redirect'])
+		{
+			$redirect = $load_form['redirect'];
+		}
+
 		if($insert_answerdetail)
 		{
+			if($total_price && !$data['factor_id'])
+			{
+				$meta =
+				[
+					'turn_back' => $redirect ? $redirect : \dash\url::pwd(),
+					// 'user_id'   => \dash\user::id(),
+					'amount'    => $total_price,
+					'auto_back' => true,
+				];
+
+				// go to pay
+				$transaction_detail = \dash\utility\pay\start::api($meta);
+
+				if(isset($transaction_detail['transaction_id']))
+				{
+					$add_answer_args['transaction_id'] = \dash\coding::decode($transaction_detail['transaction_id']);
+				}
+
+				if(isset($transaction_detail['url']))
+				{
+					$redirect = $transaction_detail['url'];
+				}
+
+			}
 			// save ip id
 			$add_answer_args['ip_id']    = \dash\utility\ip::id();
 
@@ -630,10 +671,11 @@ class add
 		}
 
 
-		if(isset($load_form['redirect']) && $load_form['redirect'])
+		if($redirect)
 		{
-			\dash\redirect::to($load_form['redirect']);
+			\dash\redirect::to($redirect);
 		}
+
 
 		return true;
 	}

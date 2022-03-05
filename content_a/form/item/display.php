@@ -141,8 +141,8 @@ function settingRecord($value)
 }
 
  function settingDesc($value) {?>
-<label for="item_desc_<?php echo a($value, 'id') ?>"><?php echo T_("Description") ?></label>
-<textarea class="txt" rows="2" name="item_desc_<?php echo a($value, 'id') ?>" id="item_desc_<?php echo a($value, 'id') ?>"><?php echo a($value, 'desc'); ?></textarea>
+<label class="" for="item_desc_<?php echo a($value, 'id') ?>"><?php echo T_("Description") ?></label>
+<textarea class="txt mb-4" rows="2" name="item_desc_<?php echo a($value, 'id') ?>" id="item_desc_<?php echo a($value, 'id') ?>"><?php echo a($value, 'desc'); ?></textarea>
 
 <?php } //endif
  function settingMaxLen($value) {?>
@@ -329,7 +329,7 @@ function settingDefaultvalue($value) {?>
 
 
  function settingChoice($value) {?>
- 	<div class="alert2">
+ 	<div class="alert2 mt-4">
 		<div class="f">
 			<div class="c s12">
 				<?php echo T_("Choices") ?>
@@ -349,6 +349,16 @@ function settingDefaultvalue($value) {?>
             	<tr>
 	            	<td class="collapsing"><?php echo \dash\fit::number($key + 1) ?></td>
 	                <td><?php echo a($value, 'title') ?></td>
+
+	                <td>
+	                	<?php if(a($value, 'price'))
+	                	{
+	                		echo \dash\fit::number(a($value, 'price')) . ' '. \lib\store::currency();
+	                	}
+	                	?>
+
+
+	                	</td>
               </tr>
             <?php } //endfor ?>
           </tbody>

@@ -54,6 +54,12 @@ class view
 
 		$load_answer = \lib\app\form\answer\get::by_id(\dash\request::get('aid'));
 		\dash\data::answerDetail($load_answer);
+
+		if(isset($load_answer['transaction_id']) && $load_answer['transaction_id'])
+		{
+			\dash\data::answerTransactionDetail(\dash\app\transaction\get::get(($load_answer['transaction_id'])));
+		}
+
 		if(isset($load_answer['review']) && $load_answer['review'])
 		{
 			// nothing

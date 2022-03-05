@@ -50,6 +50,33 @@
       </div>
     </div>
 
+    <?php if(\dash\data::answerTransactionDetail()) {?>
+
+        <a href="<?php echo \dash\url::kingdom(). '/crm/transactions/detail?id='. \dash\data::answerDetail_transaction_id() ?>">
+          <div class="<?php if(\dash\data::answerTransactionDetail_verify()) {echo 'alert-success';}else{echo 'alert-danger';} ?>">
+            <div class="row">
+
+              <div class="c-auto">
+                <?php echo T_("Total amount") ?>
+                <span class="font-bold mx-4"><?php echo \dash\fit::number(\dash\data::answerTransactionDetail_plus()). ' '. \lib\store::currency() ?> </span>
+              </div>
+
+              <div class="c"></div>
+
+              <div class="c-auto">
+
+              <?php if(\dash\data::answerTransactionDetail_verify()) { ?>
+                <?php echo T_("Successful payment"); ?>
+              <?php }else{ ?>
+                <?php echo T_("Unsuccess"); ?>
+              <?php } // endif ?>
+              </div>
+            </div>
+
+          </div>
+        </a>
+      <?php } // endif ?>
+
       <?php if(a(\dash\data::answerDetail(), 'factor_id')) {?>
     <div class="alert-info text-left ltr font-bold text-sm">
         <a href="<?php echo \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'); ?>"><?php echo T_("View Order") ?></a>

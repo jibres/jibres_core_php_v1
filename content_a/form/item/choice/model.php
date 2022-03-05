@@ -31,6 +31,7 @@ class model
 		$post =
 		[
 			'title' => \dash\request::post('title'),
+			'price' => \dash\request::post('price'),
 		];
 
 		if(\dash\data::editMode())

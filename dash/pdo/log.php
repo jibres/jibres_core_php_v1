@@ -33,7 +33,7 @@ class log
 
 		if(\dash\url::isLocal())
 		{
-			self::log(json_encode(debug_backtrace(), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT), $_time, $_name, $_type);
+			// self::log(json_encode(debug_backtrace(), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT), $_time, $_name, $_type);
 		}
 	}
 
