@@ -24,38 +24,41 @@ class phpinput
 
 			$phpinput = \dash\waf\gate\toys\only::json($phpinput);
 
-			foreach ($phpinput as $key => $value)
+			if(!\dash\url::is_our_api())
 			{
-				post::check_key($key);
+				foreach ($phpinput as $key => $value)
+				{
+					post::check_key($key);
 
-				if($key === 'html')
-				{
-					post::check_value($value, $key, true);
-				}
-				else
-				{
-					if(is_array($value))
+					if($key === 'html')
 					{
-						foreach ($value as $k => $v)
-						{
-							if(is_array($v))
-							{
-								foreach ($v as $k2 => $v2)
-								{
-									post::check_key($k2);
-									post::check_value($v2);
-								}
-							}
-							else
-							{
-								post::check_key($k);
-								post::check_value($v);
-							}
-						}
+						post::check_value($value, $key, true);
 					}
 					else
 					{
-						post::check_value($value, $key);
+						if(is_array($value))
+						{
+							foreach ($value as $k => $v)
+							{
+								if(is_array($v))
+								{
+									foreach ($v as $k2 => $v2)
+									{
+										post::check_key($k2);
+										post::check_value($v2);
+									}
+								}
+								else
+								{
+									post::check_key($k);
+									post::check_value($v);
+								}
+							}
+						}
+						else
+						{
+							post::check_value($value, $key);
+						}
 					}
 				}
 			}
