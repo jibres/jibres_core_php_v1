@@ -89,6 +89,12 @@ class queue
 
 		$ids = array_column($get_sending_list, 'id');
 
+		if(!$ids)
+		{
+			return;
+		}
+
+
 		// update all status of this list as sending to not load in another session
 		\dash\db\telegrams\update::set_sending_list(implode(',', $ids));
 
