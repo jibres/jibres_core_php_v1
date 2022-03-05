@@ -10,6 +10,10 @@ class exec
 	 */
 	private static $hit = 0;
 
+	public static function reset_hit()
+	{
+		self::$hit = 0;
+	}
 
 	/**
 	 * Execute cURL call

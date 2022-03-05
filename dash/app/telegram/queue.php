@@ -128,6 +128,8 @@ class queue
 
 			\dash\setting\telegram::active_bot($active_bot);
 
+			\dash\social\telegram\exec::reset_hit();
+
 			if(isset($send['method']))
 			{
 				$method   = $send['method'];
