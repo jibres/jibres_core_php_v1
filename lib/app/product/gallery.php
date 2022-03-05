@@ -438,6 +438,10 @@ class gallery
 			{
 				$sort[$key] = \dash\coding::decode($value);
 			}
+			elseif(is_numeric($key) && is_string($value))
+			{
+				$sort[$key] = $value;
+			}
 		}
 
 		$load_product = \lib\app\product\get::get($_id);
@@ -479,11 +483,16 @@ class gallery
 
 		$new_gallery = [];
 
+
 		foreach ($sort as $sort_index => $sort_id)
 		{
 			foreach ($gallery_array as $gallery)
 			{
 				if(isset($gallery['id']) && floatval($gallery['id']) === floatval($sort_id))
+				{
+					$new_gallery[] = $gallery;
+				}
+				elseif(isset($gallery['path']) && strval($gallery['path']) === strval($sort_id))
 				{
 					$new_gallery[] = $gallery;
 				}
@@ -493,14 +502,14 @@ class gallery
 		$save_gallery = [];
 
 
-		if(isset($new_gallery[0]['id']) && isset($new_gallery[0]['path']))
+		if(a($new_gallery, 0, 'id') || a($new_gallery, 0, 'path'))
 		{
-			$ext = substr(strrchr($new_gallery[0]['path'], '.'), 1);
+			$ext = substr(strrchr(a($new_gallery, 0, 'path'), '.'), 1);
 			$mime_detail = \dash\upload\extentions::get_mime_ext($ext);
 			if(isset($mime_detail['type']) && $mime_detail['type'] === 'image')
 			{
-				\lib\db\products\update::thumb($new_gallery[0]['path'], $_id);
-				$save_gallery['thumbid'] = $new_gallery[0]['id'];
+				\lib\db\products\update::thumb(a($new_gallery, 0, 'path'), $_id);
+				$save_gallery['thumbid'] = a($new_gallery, 0, 'id');
 			}
 			else
 			{

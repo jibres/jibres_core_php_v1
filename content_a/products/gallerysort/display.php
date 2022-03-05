@@ -13,7 +13,7 @@
 <?php foreach ($gallery as $key => $value) {?>
   <div class="roundedBox sortHandle" data-handle <?php if(a($value, 'type') !== 'image') {echo 'data-gr="'. rand(1, 20). '"'; }  ?>>
     <figure class="overlay" >
-    	<input type="hidden" name="sort[]" value="<?php echo a($value, 'id'); ?>">
+      <input type="hidden" name="sort[]" value="<?php if(a($value, 'id')) { echo $value['id'];}else{ echo a($value, 'path');} ?>">
       <?php if(a($value, 'type') === 'image') {?>
         <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo T_("File :val", ['val' => \dash\fit::number($key)]); ?>" data-gr="3">
       <?php }else{ ?>
