@@ -17,7 +17,7 @@ echo $html;
 ?>
 
 
-<form method="post" autocomplete="off" class="f" id='factorAdd' data-disallowEnter data-msgNewError='<?php echo T_("You can add new empty tab if current tab is filled!"); ?>' <?php if(\dash\request::get('extra') == 'true') {?> data-autoClose=2000 <?php } //endif ?>>
+<form method="post" autocomplete="off" class="f" id='factorAdd' data-currency="<?php echo \lib\store::currency(); ?>" data-disallowEnter data-msgNewError='<?php echo T_("You can add new empty tab if current tab is filled!"); ?>' <?php if(\dash\request::get('extra') == 'true') {?> data-autoClose=2000 <?php } //endif ?>>
   <div class="c9 s12 pRa10">
 
     <div class="cbox p0" id="searchInProducts">
