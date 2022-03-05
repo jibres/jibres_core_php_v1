@@ -44,6 +44,11 @@ class verify
 
 	        \dash\log::set('transaction_newPaySuccessfull', ['my_detail' => $detail]);
 
+	        if(!\dash\engine\store::inStore() && floatval(a($detail, 'plus')) >= 100000)
+	        {
+	        	\dash\log::set('transaction_newPaySuccessfullSupervisor', ['my_detail' => $detail]);
+	        }
+
 	        self::call_final_fn();
 
 	        // \dash\utility\pay\transactions::final_verify($_transaction_id);
