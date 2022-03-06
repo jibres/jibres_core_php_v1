@@ -204,6 +204,7 @@ class shortcode
 
 		$_data = self::detect_video_short_code($_data);
 		$_data = self::detect_formbuilder_code($_data);
+		// $_data = self::detect_button_code($_data);
 
 		// return $_data;
 		return self::make_clickable($_data);
@@ -346,6 +347,41 @@ class shortcode
 		return $_data;
 	}
 
+
+
+	public static function detect_button_code($_data)
+	{
+		//[button mode=primary title=View link=https://getbootstrap.com/docs/4.0/components/buttons/  class=btn-lg]
+		//[button mode=secondary title=View link=https://getbootstrap.com/docs/4.0/components/buttons/  class=btn-lg]
+		$i = 0;
+
+		while($split = self::check_short_code_param('button', ['link', 'title', 'class', 'mode'], $_data))
+		{
+			$i++;
+
+			$detect_code = a($split, 'detect');
+			$link        = a($split, 'link');
+			$mode        = a($split, 'mode');
+			$title       = a($split, 'title');
+			$class       = a($split, 'class');
+
+			$html = '<a class="btn-'. $mode. ' '.$class.'" href="'.$link.'" target="_blank">';
+			{
+				$html .= $title;
+			}
+			$html .= '</a>';
+
+			$_data = str_replace($detect_code, $html, $_data);
+
+
+			if($i > 100)
+			{
+				break;
+			}
+		}
+
+		return $_data;
+	}
 
 }
 ?>
