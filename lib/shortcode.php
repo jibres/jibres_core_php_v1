@@ -214,10 +214,26 @@ class shortcode
 
 	public static function detect_video_short_code($_data)
 	{
-		while(preg_match("/\[(video)\s+(from\=)([^\[\]\s]*)\s+(code\=)([^\[\]\s]*)\]/", $_data, $split))
+
+		$i = 0;
+
+		while(preg_match("/\[(video)\s+((from|code)\s{0,}\=\s{0,})([^\[\]\s]*)\s+((code|from)\s{0,}\=\s{0,})([^\[\]\s]*)\]/u", $_data, $split))
 		{
-			$videoService = $split[3];
-			$videoSrc = $split[5];
+			$i++;
+
+			foreach ($split as $key => $value)
+			{
+				if($value === 'code')
+				{
+					$videoSrc = $split[$key + 1];
+				}
+
+				if($value === 'from')
+				{
+					$videoService = $split[$key + 1];
+				}
+			}
+
 			if($videoService)
 			{
 				switch ($videoService)
@@ -255,6 +271,10 @@ class shortcode
 				}
 			}
 
+			if($i > 100)
+			{
+				break;
+			}
 		}
 
 		return $_data;
