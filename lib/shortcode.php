@@ -211,28 +211,66 @@ class shortcode
 	}
 
 
+	private static function check_short_code_param(string $_element, array $_allow_args,  $_string)
+	{
+
+		$result = [];
+
+		$_string = strval($_string);
+
+		$args = implode('|', $_allow_args);
+
+
+		$preg = "/\[\s{0,}".$_element."\s+(((".$args.")\s{0,}\=\s{0,})([^\[\]\s]*)\s{0,}){1,}\s{0,}\]/u";
+
+		if(preg_match($preg, $_string, $split))
+		{
+			$code = $split[0];
+
+			$result['detect'] = $code;
+
+			$code_char = "/\[|\]|\s|\=/u";
+
+			$split_by_code_char = preg_split($code_char, $code);
+
+			$code_array = [];
+
+			foreach ($split_by_code_char as $key => $value)
+			{
+				$temp = preg_replace($code_char, '', $value);
+
+				if($temp && !$temp !== $_element)
+				{
+					$code_array[] = $temp;
+				}
+			}
+
+			foreach ($_allow_args as $key => $value)
+			{
+				$key_search = array_search($value, $code_array);
+				if($key_search !== false && is_numeric($key_search))
+				{
+					$result[$value] = a($code_array, $key_search + 1);
+				}
+			}
+		}
+
+		return $result;
+	}
+
 
 	public static function detect_video_short_code($_data)
 	{
 
 		$i = 0;
 
-		while(preg_match("/\[(video)\s+((from|code)\s{0,}\=\s{0,})([^\[\]\s]*)\s+((code|from)\s{0,}\=\s{0,})([^\[\]\s]*)\]/u", $_data, $split))
+		while($split = self::check_short_code_param('video', ['code', 'from'], $_data))
 		{
 			$i++;
 
-			foreach ($split as $key => $value)
-			{
-				if($value === 'code')
-				{
-					$videoSrc = $split[$key + 1];
-				}
-
-				if($value === 'from')
-				{
-					$videoService = $split[$key + 1];
-				}
-			}
+			$detect_code  = a($split, 'detect');
+			$videoSrc     = a($split, 'code');
+			$videoService = a($split, 'from');
 
 			if($videoService)
 			{
@@ -242,34 +280,32 @@ class shortcode
 						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="aparat">';
 						$iframe .= '<iframe src="https://www.aparat.com/video/video/embed/videohash/'. $videoSrc .'/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>';
 						$iframe .= '</div>';
-						$_data = str_replace($split[0], $iframe, $_data);
 						break;
 
 					case 'youtube':
 						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="youtube">';
 						$iframe .= '<iframe src="https://www.youtube.com/embed/'. $videoSrc.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 						$iframe .= '</div>';
-						$_data = str_replace($split[0], $iframe, $_data);
 						break;
 
 					case 'vimeo':
 						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="vimeo">';
 						$iframe .= '<iframe src="https://player.vimeo.com/video/'. $videoSrc.'" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
 						$iframe .= '</div>';
-						$_data = str_replace($split[0], $iframe, $_data);
 						break;
 
 					case 'dailymotion':
 						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="dailymotion">';
 						$iframe .= '<iframe src="https://www.dailymotion.com/embed/video/'. $videoSrc.'" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
 						$iframe .= '</div>';
-						$_data = str_replace($split[0], $iframe, $_data);
 						break;
 
 					default:
 						break;
 				}
 			}
+
+			$_data = str_replace($detect_code, $iframe, $_data);
 
 			if($i > 100)
 			{
@@ -285,19 +321,31 @@ class shortcode
 
 	public static function detect_formbuilder_code($_data)
 	{
-		while(preg_match("/\[(form)\s+(id\=)(\d+)\]/", $_data, $split))
+		$i = 0;
+
+		while($split = self::check_short_code_param('form', ['id'], $_data))
 		{
-			$form_id = $split[3];
+			$i++;
+
+			$form_id = a($split, 'id');
+
 			if($form_id)
 			{
 				$fomr_html = \lib\app\form\generator::sitebuilder_full_html($form_id);
 
-				$_data = str_replace($split[0], strval($fomr_html), $_data);
+				$_data = str_replace(a($split, 'detect'), strval($fomr_html), $_data);
+			}
+
+			if($i > 100)
+			{
+				break;
 			}
 		}
 
+
 		return $_data;
 	}
+
 
 }
 ?>
