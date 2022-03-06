@@ -12,7 +12,8 @@ class exec
 
 	public static function reset_hit()
 	{
-		self::$hit = 0;
+		self::$hit    = 0;
+		log::$logData = [];
 	}
 
 	/**
