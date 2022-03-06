@@ -614,7 +614,7 @@ class add
 				$meta =
 				[
 					'turn_back' => $redirect ? $redirect : \dash\url::pwd(),
-					// 'user_id'   => \dash\user::id(),
+					'user_id'   => $data['user_id'],
 					'amount'    => $total_price,
 					'auto_back' => true,
 				];
