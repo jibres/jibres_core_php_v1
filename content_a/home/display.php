@@ -6,7 +6,7 @@
     <?php } //endif ?>
 
     <?php if(!\lib\app\plugin\business::is_activated('sms_pack') && !\lib\app\setting\tools::get('admin_notification', 'sms_pack_alert_hide')) { ?>
-      <div class="alert-info mb-3 font-bold" data-removeElement>
+      <div class="alert-info text-xs" data-removeElement>
         <div class="row">
           <div class="c">
             <a href="<?php echo \dash\url::here(). '/plugin/view/sms_pack' ?>">
@@ -14,7 +14,7 @@
             </a>
           </div>
           <div class="c-auto" >
-            <div data-ajaxify data-data='{"hide":"sms_notif"}' data-metho='post' data-removeElTrigger ><?php echo \dash\utility\icon::svg('x', 'bootstrap', null, 'w-6'); ?></div>
+            <div data-ajaxify data-data='{"hide":"sms_notif"}' data-metho='post' data-removeElTrigger ><?php echo \dash\utility\icon::svg('x', 'bootstrap', null, 'w-4'); ?></div>
           </div>
         </div>
       </div>
