@@ -75,6 +75,7 @@ echo $html;
           <option value="0">-</option>
           <option value="male"><?php echo T_("Mr"); ?></option>
           <option value="female"><?php echo T_("Mrs"); ?></option>
+          <option value="company"><?php echo T_("Company"); ?></option>
         </select>
 
         <div class="input mt-1">

@@ -434,6 +434,14 @@ class user
 							{
 								$avatar = \dash\app::static_avatar_url('male');
 							}
+							elseif($_data['gender'] === 'female')
+							{
+								$avatar = \dash\app::static_avatar_url('female');
+							}
+							elseif($_data['gender'] === 'company')
+							{
+								$avatar = \dash\app::static_avatar_url('company');
+							}
 							else
 							{
 								$avatar = \dash\app::static_avatar_url('female');

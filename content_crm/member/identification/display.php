@@ -41,6 +41,7 @@
 								<option value="" readonly><?php echo T_("Please select one itme"); ?></option>
 								<option value="male" <?php if(\dash\data::dataRowMember_gender() == 'male') { echo 'selected';} ?> ><?php echo T_("Male"); ?></option>
 								<option value="female" <?php if(\dash\data::dataRowMember_gender() == 'female') { echo 'selected';} ?> ><?php echo T_("Female"); ?></option>
+								<option value="company" <?php if(\dash\data::dataRowMember_gender() == 'company') { echo 'selected';} ?> ><?php echo T_("Company"); ?></option>
 							</select>
 						</div>
 					</div>

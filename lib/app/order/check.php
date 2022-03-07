@@ -86,7 +86,7 @@ class check
 			'address_id'  => 'code',
 			'mobile'      => 'mobile',
 			'displayname' => 'displayname',
-			'gender'      => ['enum' => ['male', 'female']],
+			'gender'      => ['enum' => ['male', 'female', 'company']],
 		];
 
 

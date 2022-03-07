@@ -49,6 +49,10 @@ class app
 				$url .= 'img/avatar/woman.png';
 				break;
 
+			case 'company':
+				$url .= 'img/avatar/man-simple.png';
+				break;
+
 			case 'unknown':
 				// $url .= 'img/avatar/unknown.png';
 				$url .= 'img/avatar/default.png';
@@ -119,6 +123,10 @@ class app
 							{
 								$avatar = \dash\app::static_avatar_url('female');
 							}
+							elseif($_data['gender'] === 'company')
+							{
+								$avatar = \dash\app::static_avatar_url('company');
+							}
 							else
 							{
 								$avatar = \dash\app::static_avatar_url();
@@ -175,6 +183,10 @@ class app
 					{
 						$result['gender_string'] = T_("Mrs");
 					}
+					elseif($value === 'company')
+					{
+						$result['gender_string'] = T_("Company");
+					}
 					else
 					{
 						$result['gender_string'] = null;
@@ -214,6 +226,10 @@ class app
 							elseif($_data['gender'] === 'female')
 							{
 								$avatar = \dash\app::static_avatar_url('female');
+							}
+							elseif($_data['gender'] === 'company')
+							{
+								$avatar = \dash\app::static_avatar_url('company');
 							}
 							else
 							{

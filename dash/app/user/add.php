@@ -203,7 +203,7 @@ trait add
 			'customer'    => 'code',
 			'mobile'      => 'mobile',
 			'displayname' => 'displayname',
-			'gender'      => ['enum' => ['male', 'female']],
+			'gender'      => ['enum' => ['male', 'female', 'company']],
 		];
 
 		$require = [];
