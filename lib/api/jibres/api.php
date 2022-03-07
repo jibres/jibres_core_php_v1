@@ -43,7 +43,7 @@ class api
 
 		if(\dash\url::isLocal())
 		{
-			$array_url[] = 'https://core.jibres.local';
+			$array_url[] = \dash\url::protocol(). '://core.jibres.local';
 		}
 		else
 		{
