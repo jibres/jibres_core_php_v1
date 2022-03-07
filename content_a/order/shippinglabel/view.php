@@ -1,12 +1,11 @@
 <?php
-namespace content_a\order\printaddress;
+namespace content_a\order\shippinglabel;
 
 
 class view
 {
 	public static function config()
 	{
-
 		\content_a\order\view::master_order_view();
 
 		$id = \dash\request::get('id');

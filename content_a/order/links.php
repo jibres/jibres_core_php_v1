@@ -44,9 +44,9 @@
     </li>
     <?php if(a(\dash\data::orderDetail(), 'factor', 'customer')) {?>
     <li>
-      <a class="f item" href="<?php echo \dash\url::this(). '/printaddress?id='. \dash\request::get('id'); ?>">
-        <?php echo \dash\utility\icon::svg('Package', 'major'); ?>
-        <div class="key"><?php echo T_("Print"). ' '. T_('Address');?></div>
+      <a class="f item" href="<?php echo \dash\url::this(). '/shippinglabel?id='. \dash\request::get('id'); ?>">
+        <?php echo \dash\utility\icon::svg('label printer'); ?>
+        <div class="key"><?php echo T_("Print"). ' '. T_('Shipping Label');?></div>
         <div class="go"></div>
       </a>
     </li>

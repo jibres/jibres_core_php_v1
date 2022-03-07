@@ -1,5 +1,5 @@
 <?php
-namespace content_a\order\printaddress;
+namespace content_a\order\shippinglabel;
 
 
 class controller
