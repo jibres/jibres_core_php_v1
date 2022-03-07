@@ -65,11 +65,12 @@ class enter_VerificationCodeViaTelegram
 
 	public static function telegram_text($_args, $_chat_id)
 	{
+		$my_code         = isset($_args['data']['my_code']) ? $_args['data']['my_code'] : null;
+
 		$tg_msg = '';
 		$tg_msg .= "#Enter #Verification ";
 
-		$my_code         = isset($_args['data']['my_code']) ? $_args['data']['my_code'] : null;
-
+		$tg_msg .= "\n\n";
 
 		$tg_msg .= T_("Your login code is :code", ['code' => '<code>'. $my_code. '</code>']);
 		$tg_msg .= "\n\n". T_("This code can be used to log in to your account. Do not give it to anyone!"). ' ' . T_("If you didn't request this code, ignore this message.");
