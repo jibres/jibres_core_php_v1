@@ -463,44 +463,6 @@ class log
 			}
 		}
 
-		// if($telegram)
-		// {
-		// 	foreach ($_user_detail as $key => $value)
-		// 	{
-		// 		// find user chatid
-		// 		$user_chatid = \dash\db\user_telegram::get(['user_id' => $key]);
-
-		// 		if($user_chatid && is_array($user_chatid))
-		// 		{
-		// 			$telegram_text_temp = [];
-
-		// 			foreach ($user_chatid as $index_user_chatid => $user_telegram_value)
-		// 			{
-		// 				if(isset($user_telegram_value['chatid']))
-		// 				{
-		// 					$current_lang = \dash\language::current();
-
-		// 					if(isset($user_telegram_value['language']) && mb_strlen($user_telegram_value['language']) === 2 && $user_telegram_value['language'] !== $current_lang)
-		// 					{
-		// 						\dash\language::set_language($user_telegram_value['language']);
-		// 					}
-
-		// 					$temp_tg_text = self::call_fn($_caller, 'telegram_text', $_args, $user_telegram_value['chatid']);
-
-		// 					if($temp_tg_text)
-		// 					{
-		// 						$telegram_text_temp[] = $temp_tg_text;
-		// 					}
-		// 				}
-		// 			}
-
-		// 			if($telegram_text_temp)
-		// 			{
-		// 				$new_args[$key]['telegram'] = json_encode($telegram_text_temp, JSON_UNESCAPED_UNICODE);
-		// 			}
-		// 		}
-		// 	}
-		// }
 
 		$sms      = self::call_fn($_caller, 'sms', $_args);
 
@@ -530,12 +492,12 @@ class log
 						$new_args[$key]['sms'] = $sms_text;
 					}
 
-					$sms_text_array = json_decode($sms_text, true);
-					if(isset($sms_text_array['mobile']) && isset($sms_text_array['text']))
-					{
-						// save into sms send
-						\lib\app\sms\queue::add_one(['mobile' => $sms_text_array['mobile'], 'message' => $sms_text_array['text']]);
-					}
+					// $sms_text_array = json_decode($sms_text, true);
+					// if(isset($sms_text_array['mobile']) && isset($sms_text_array['text']))
+					// {
+					// 	// save into sms send
+					// 	\lib\app\sms\queue::add_one(['mobile' => $sms_text_array['mobile'], 'message' => $sms_text_array['text']]);
+					// }
 				}
 			}
 		}
@@ -778,7 +740,7 @@ class log
 			{
 				$log_id = \dash\db\logs::multi_insert($multi_record, $fuel);
 
-				self::detect_sending_job($multi_record);
+				self::detect_sending_queue($multi_record);
 
 				return $log_id;
 			}
@@ -787,14 +749,14 @@ class log
 		{
 			$log_id = \dash\db\logs::insert($insert_log, $fuel);
 
-			self::detect_sending_job([$insert_log]);
+			self::detect_sending_queue([$insert_log]);
 
 			return $log_id;
 		}
 	}
 
 
-	private static function detect_sending_job($_args)
+	private static function detect_sending_queue($_args)
 	{
 		$sending_queue =
 		[
@@ -855,14 +817,14 @@ class log
 			// save db record
 
 			// save sms db record
-			// foreach ($sending_queue['sms'] as $key => $value)
-			// {
-			// 	if(isset($value['sms']['mobile']) && isset($value['sms']['text']))
-			// 	{
-			// 		// save into sms send
-			// 		\lib\app\sms\queue::add_one(['mobile' => $value['sms']['mobile'], 'message' => $value['sms']['text']]);
-			// 	}
-			// }
+			foreach ($sending_queue['sms'] as $key => $value)
+			{
+				if(isset($value['sms']['mobile']) && isset($value['sms']['text']))
+				{
+					// save into sms send
+					\lib\app\sms\queue::add_one(['mobile' => $value['sms']['mobile'], 'message' => $value['sms']['text']]);
+				}
+			}
 
 			// save telegram db record
 			foreach ($sending_queue['telegram'] as $key => $value)
@@ -874,12 +836,149 @@ class log
 				}
 			}
 
-			// var_dump($sending_queue);exit;
-
 		}
 		else
 		{
-			\lib\api\jibres\api::send_multiple_notif($sending_queue);
+
+			// save sms db record
+			foreach ($sending_queue['sms'] as $key => $value)
+			{
+				if(isset($value['sms']['mobile']) && isset($value['sms']['text']))
+				{
+					// save into sms send
+					$sending_queue['sms'][$key]['sms_param'] = \lib\app\sms\queue::add_one(['mobile' => $value['sms']['mobile'], 'message' => $value['sms']['text']], ['return_args' => true]);
+				}
+			}
+
+			$result = \lib\api\jibres\api::send_multiple_notif($sending_queue);
+
+			self::save_multiple_notif_result($result);
+		}
+
+	}
+
+
+	/**
+	 * Saves a multiple notif result.
+	 *
+	 * @param      <type>  $_result  The result
+	 */
+	private static function save_multiple_notif_result($_result)
+	{
+		$result = $_result;
+
+		if(!$result || !is_array($result))
+		{
+			return;
+		}
+
+		$telegram = a($result, 'result', 'telegram');
+
+		if(!is_array($telegram))
+		{
+			$telegram = [];
+		}
+
+		$sms = a($result, 'result', 'sms');
+
+		if(!is_array($sms))
+		{
+			$sms = [];
+		}
+
+		foreach ($telegram as $key => $value)
+		{
+			if(a($value, 'result') && ($mobile = a($value, 'args', 'mobile')))
+			{
+				$user_detail = \dash\db\users::get_by_mobile($mobile);
+
+				if(isset($user_detail['id']))
+				{
+					$user_chat_ids = \dash\db\user_telegram::get(['user_id' => $user_detail['id']]);
+
+					if(!$user_chat_ids)
+					{
+						foreach (a($value, 'result') as $k => $v)
+						{
+							$insert_chat_id =
+							[
+								'user_id'    => $user_detail['id'],
+								'chatid'     => a($v, 'chatid'),
+								'firstname'  => a($v, 'firstname'),
+								'lastname'   => a($v, 'lastname'),
+								'username'   => a($v, 'username'),
+								'language'   => a($v, 'language'),
+								'status'     => a($v, 'status'),
+								'lastupdate' => a($v, 'lastupdate'),
+							];
+
+							\dash\db\user_telegram::insert($insert_chat_id);
+						}
+					}
+					else
+					{
+
+						foreach ($user_chat_ids as $saved_chat_id)
+						{
+							foreach ($value['result'] as $jibres_chat_id)
+							{
+								if(strval(a($jibres_chat_id, 'chatid')) === strval(a($saved_chat_id, 'chatid')))
+								{
+									$must_update = [];
+
+									if(a($jibres_chat_id, 'firstname') != a($saved_chat_id, 'firstname'))
+									{
+										$must_update['firstname'] = $jibres_chat_id['firstname'];
+									}
+
+									if(a($jibres_chat_id, 'lastname') != a($saved_chat_id, 'lastname'))
+									{
+										$must_update['lastname'] = $jibres_chat_id['lastname'];
+									}
+
+									if(a($jibres_chat_id, 'username') != a($saved_chat_id, 'username'))
+									{
+										$must_update['username'] = $jibres_chat_id['username'];
+									}
+
+									if(a($jibres_chat_id, 'language') != a($saved_chat_id, 'language'))
+									{
+										$must_update['language'] = $jibres_chat_id['language'];
+									}
+
+									if(a($jibres_chat_id, 'status') != a($saved_chat_id, 'status'))
+									{
+										$must_update['status'] = $jibres_chat_id['status'];
+									}
+
+									if(a($jibres_chat_id, 'lastupdate') != a($saved_chat_id, 'lastupdate'))
+									{
+										$must_update['lastupdate'] = $jibres_chat_id['lastupdate'];
+									}
+
+
+									if(!empty($must_update))
+									{
+										\dash\db\user_telegram::update($must_update, $saved_chat_id['id']);
+									}
+
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		foreach ($sms as $key => $value)
+		{
+			if(($jibres_sms_id = a($value, 'result', 'id')) && ($sms_store_smslog_id = a($value, 'args', 'sms_param', 'store_smslog_id')) && ($jibres_sms_status = a($value, 'result', 'status')))
+			{
+				$update_sms                  = [];
+				$update_sms['status']        = $jibres_sms_status;
+				$update_sms['jibres_sms_id'] = $jibres_sms_id;
+				\lib\db\sms_log\update::record($update_sms, $sms_store_smslog_id);
+			}
 		}
 
 

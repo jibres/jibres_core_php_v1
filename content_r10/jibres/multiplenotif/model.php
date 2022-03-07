@@ -8,6 +8,14 @@ class model
 	{
 		$post = \dash\request::input_body();
 
+		$result =
+		[
+			'telegram' => [],
+			'sms'      => [],
+			'email'    => [],
+		];
+
+
 		if(is_array(a($post, 'telegram')))
 		{
 			foreach ($post['telegram'] as $key => $value)
@@ -21,46 +29,49 @@ class model
 						'active_bot' => a($value, 'active_bot'),
 					];
 
-					\dash\app\telegram\queue::add_one($value['mobile'], $value['telegram'], $meta);
+					$result['telegram'][] =
+					[
+						'args' => $value,
+						'result' => \dash\app\telegram\queue::add_one($value['mobile'], $value['telegram'], $meta)
+					];
+
+					\dash\engine\process::continue();
 				}
 			}
 		}
 
-		$result = ['ok'];
 
-		// if(is_array(a($post, 'sms')))
-		// {
-		// 	foreach ($post['sms'] as $key => $value)
-		// 	{
-		// 		// code...
-		// 	}
-		// }
-		// $jibres_sms =
-		// [
-		// 	'store_smslog_id' => a($post, 'store_smslog_id'),
-		// 	'store_id'        => \content_r10\tools::get_current_business_id(),
-		// 	'mobile'          => a($post, 'mobile'),
-		// 	'message'         => a($post, 'message'),
-		// 	'sender'          => a($post, 'sender'),
-		// 	'len'             => a($post, 'len'),
-		// 	'smscount'        => a($post, 'smscount'),
-		// 	'status'          => a($post, 'status'),
-		// 	'type'            => a($post, 'type'),
-		// 	'mode'            => a($post, 'mode'),
-		// 	'token'           => a($post, 'token'),
-		// 	'token2'          => a($post, 'token2'),
-		// 	'template'        => a($post, 'template'),
-		// ];
+		if(is_array(a($post, 'sms')))
+		{
+			foreach ($post['sms'] as $key => $value)
+			{
+				$jibres_sms =
+				[
+					'store_smslog_id' => a($value, 'sms_param', 'store_smslog_id'),
+					'store_id'        => \content_r10\tools::get_current_business_id(),
+					'mobile'          => a($value, 'sms_param', 'mobile'),
+					'message'         => a($value, 'sms_param', 'message'),
+					'sender'          => a($value, 'sms_param', 'sender'),
+					'len'             => a($value, 'sms_param', 'len'),
+					'smscount'        => a($value, 'sms_param', 'smscount'),
+					'status'          => a($value, 'sms_param', 'status'),
+					'type'            => a($value, 'sms_param', 'type'),
+					'mode'            => a($value, 'sms_param', 'mode'),
+					'token'           => a($value, 'sms_param', 'token'),
+					'token2'          => a($value, 'sms_param', 'token2'),
+					'template'        => a($value, 'sms_param', 'template'),
+				];
+
+				$result['sms'][] =
+				[
+					'args'   => $value,
+					'result' => \lib\app\sms\queue::add_new_sms_record($jibres_sms),
+				];
+				\dash\engine\process::continue();
+			}
+		}
 
 
-		// // save db
-		// $jibres_sms_result = \lib\app\sms\queue::add_new_sms_record($jibres_sms);
-
-		// $result =
-		// [
-		// 	'jibres_sms_id' => a($jibres_sms_result, 'id'),
-		// 	'status'        => a($jibres_sms_result, 'status'),
-		// ];
 
 		\content_r10\tools::say($result);
 

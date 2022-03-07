@@ -4,7 +4,7 @@ namespace lib\app\sms;
 class queue
 {
 
-	public static function add_one($_args)
+	public static function add_one($_args, $_options = [])
 	{
 		$args = \lib\app\sms\check::variable($_args);
 		if(!$args)
@@ -92,6 +92,12 @@ class queue
 		if(\dash\engine\store::inStore())
 		{
 			$jibres_sms['store_id'] = \lib\store::id();
+
+			if(isset($_options['return_args']) && $_options['return_args'] === true)
+			{
+				return $jibres_sms;
+			}
+
 			// curl to jibres to save
 			$jibres_sms_result = \lib\api\jibres\api::add_store_sms($jibres_sms);
 

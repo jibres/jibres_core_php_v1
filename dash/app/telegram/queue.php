@@ -23,7 +23,7 @@ class queue
 
 		if(!$user_chatid || !is_array($user_chatid))
 		{
-			return;
+			return false;
 		}
 
 
@@ -70,7 +70,24 @@ class queue
 			}
 		}
 
-		return true;
+		$result_chat_id = [];
+
+		foreach ($user_chatid as $key => $value)
+		{
+			$result_chat_id[] =
+			[
+				'chatid'      => a($value, 'chatid'),
+				'firstname'   => a($value, 'firstname'),
+				'lastname'    => a($value, 'lastname'),
+				'username'    => a($value, 'username'),
+				'language'    => a($value, 'language'),
+				'status'      => a($value, 'status'),
+				'lastupdate'  => a($value, 'lastupdate'),
+			];
+
+		}
+
+		return $result_chat_id;
 
 	}
 
