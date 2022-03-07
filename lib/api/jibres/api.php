@@ -146,8 +146,8 @@ class api
 		{
 			if($CurlError)
 			{
-				\dash\log::to_supervisor('#jibres_api #CURL_Error: '. $CurlError);
-				\dash\log::oops();
+				// \dash\log::to_supervisor('#jibres_api #CURL_Error: '. $CurlError);
+				// \dash\log::oops();
 			}
 			return false;
 		}
