@@ -326,6 +326,8 @@ class find
 
 	private static function jibres_brand()
 	{
+		return;
+
 		if(!\dash\url::isLocal())
 		{
 			return;
