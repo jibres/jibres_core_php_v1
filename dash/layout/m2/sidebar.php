@@ -316,6 +316,7 @@ class sidebar
 				'url'      => $kingdom. '/cms/files',
 				'title'    => T_("Files"),
 				'icon'      => 'Attachment',
+				'iconColor' => '#a1b2c3',
 			];
 
 		  	if(in_array($content, ['cms']) && $module === 'files')

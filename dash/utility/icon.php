@@ -47,6 +47,7 @@ class icon
         {
             case 'major':
             case 'minor':
+            default:
                 if($_fill)
                 {
                     $_data = str_replace('#5C5F62', $_fill, $_data);
@@ -76,8 +77,6 @@ class icon
                 }
                 break;
 
-            default:
-                break;
         }
         if($_class)
         {
