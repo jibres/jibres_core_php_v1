@@ -784,6 +784,15 @@ class log
 				}
 			}
 
+			if(!$user_mobile && a($value, 'to'))
+			{
+				$load_user_mobile = \dash\db\users::get_by_id($value['to']);
+				if(isset($load_user_mobile['mobile']))
+				{
+					$user_mobile = $load_user_mobile['mobile'];
+				}
+			}
+
 			if(isset($value['sms']) && $value['sms'])
 			{
 				$sending_queue['sms'][] = ['mobile' => $user_mobile, 'sms' => json_decode($value['sms'], true)];
