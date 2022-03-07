@@ -40,6 +40,8 @@ class model
 
 		\dash\notif::clean();
 
+		$post = [];
+
 		if(\dash\request::post('remove') === 'remove')
 		{
 			$post['enamad'] = null;
@@ -56,7 +58,6 @@ class model
 			{
 				if(preg_match("/trustseal\.enamad\.ir\/\?id\=(\d+)(\&amp\;|\&)Code\=([^\"]+)/", $enamad, $split))
 				{
-					$post = [];
 					$post['enamad'] = $split[1]. '_'. $split[3];
 				}
 				else
@@ -65,12 +66,12 @@ class model
 					return false;
 				}
 
-				\lib\app\store\edit::selfedit($post);
 
 			}
 
 		}
 
+		\lib\app\store\edit::selfedit($post);
 
 
 

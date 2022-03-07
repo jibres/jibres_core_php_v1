@@ -44,12 +44,16 @@
             <textarea class="txt ltr text-left" rows="5" name="html" id="ienamad" <?php \dash\layout\autofocus::html() ?> maxlength='5000' minlength="1" placeholder2="https://trustseal.enamad.ir?id=[...]&code=[...]"  placeholder='<?php echo T_("Paste you Enamad code here") ?>'></textarea>
           <?php } //endif ?>
         </div>
-        <footer class="txtRa">
-          <?php if(!a($storeData, 'enamad')) {?>
-          <button  class="btn-success" ><?php echo T_("Save"); ?></div>
-          <?php }else{ ?>
-            <button class="btn-link-danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove enamad setting") ?></button>
-          <?php } //endif ?>
+        <footer class="">
+            <div class="f">
+              <div class="cauto"><?php if(a($storeData, 'enamad')) {?><button class="btn-danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></button><?php } //endif ?></div>
+              <div class="c"></div>
+              <div class="cauto"><button  class="btn-success" ><?php echo T_("Save"); ?></button></div>
+            </div>
+
+
+
+
         </footer>
     </div>
   </form>
