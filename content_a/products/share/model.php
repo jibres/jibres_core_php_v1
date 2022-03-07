@@ -61,7 +61,7 @@ class model
 		// price
 		$txt .= '💰 '. T_("Price");
 		$txt .= ' <code>'. \dash\fit::price_old(\dash\data::productDataRow_finalprice(), true). '</code> ';
-		$txt .= \lib\currency::unit(). "\n\n";
+		$txt .= \lib\store::currency(). "\n\n";
 
 		if(\dash\data::propStr())
 		{
