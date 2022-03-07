@@ -190,7 +190,7 @@ else
 
 <?php } //endif ?>
    <tr class="bg-black text-white factorSum">
-     <th class="txtLa w-full text-xs px-1"><?php echo T_("Total payable"); ?> <small class="text-sm">( <?php echo \lib\currency::unit(); ?> )</small></th>
+     <th class="txtLa w-full text-xs px-1"><?php echo T_("Total payable"); ?> <small class="text-sm">( <?php echo \lib\store::currency(); ?> )</small></th>
      <td class="txtLa px-1 font-bold"><?php echo \dash\fit::number_en(\dash\data::invoice_total()); ?></td>
    </tr>
   </tbody>
