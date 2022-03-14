@@ -28,6 +28,9 @@ class enter_NewAccountLogin
 		$msg = '';
 
 		$msg.= T_("We have noticed a new login to your account");
+
+		$msg .= \dash\app\log\msg::footer_business_sign($_args);
+
 		// $msg .= "\n";
 		// $msg.= T_("Were you yourself?");
 		// $msg .= "\n";
@@ -86,6 +89,7 @@ class enter_NewAccountLogin
 		$tg_msg .= " ⚠️ \n";
 
 		$tg_msg .= self::get_msg($_args);
+
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 
 		$tg                 = [];

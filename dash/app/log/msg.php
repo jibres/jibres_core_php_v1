@@ -4,6 +4,38 @@ namespace dash\app\log;
 class msg
 {
 
+	public static function footer_business_sign($_args, $_mode = null)
+	{
+		$my_business_title         = isset($_args['data']['my_business_title']) ? $_args['data']['my_business_title'] : null;
+
+		if(!$my_business_title && \dash\engine\store::inStore())
+		{
+			$my_business_title = \lib\store::title();
+		}
+
+		$msg = '';
+
+		if($my_business_title)
+		{
+			if($_mode === 'telegram')
+			{
+				$msg .= PHP_EOL. $my_business_title. PHP_EOL;
+
+			}
+			elseif($_mode === 'sms')
+			{
+				$msg .= PHP_EOL. $my_business_title;
+			}
+			else
+			{
+				$msg .= PHP_EOL. $my_business_title;
+			}
+		}
+
+		return $msg;
+	}
+
+
 	public static function myStripTags($_string)
 	{
 		if($_string)
