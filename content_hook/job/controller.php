@@ -229,8 +229,6 @@ class controller
 
 	public static function public_cronjob()
 	{
-		// \dash\app\log\send::notification();
-
 
 		// remove all expire session
 		// clean csrf token used or expired
