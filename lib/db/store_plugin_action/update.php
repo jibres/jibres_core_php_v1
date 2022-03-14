@@ -22,6 +22,32 @@ class update
 	}
 
 
+	public static function reset_all_old_notif_alert($_plugin, $_store_id)
+	{
+		$query =
+		"
+			UPDATE
+				store_plugin
+			SET
+				store_plugin.alerton = NULL
+			WHERE
+				store_plugin.plugin = :plugin AND
+				store_plugin.store_id = :store_id AND
+				store_plugin.status IN ('enable')
+		";
+
+		$param =
+		[
+			':plugin' => $_plugin,
+			':store_id' => $_store_id,
+		];
+
+		$result = \dash\pdo::query($query, $param);
+
+		return $result;
+	}
+
+
 
 }
 ?>

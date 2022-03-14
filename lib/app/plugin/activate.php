@@ -195,9 +195,11 @@ class activate
 
 			$current_count = \lib\db\store_plugin_action\get::active_plugin_package_count($plugin, $_business_id);
 
+			$new_package_count = (floatval($package_count) + floatval($current_count));
+
 			if(a($plugin_detail, 'max_count'))
 			{
-				if((floatval($package_count) + floatval($current_count)) >= floatval($plugin_detail['max_count']))
+				if($new_package_count >= floatval($plugin_detail['max_count']))
 				{
 					\dash\pdo::rollback();
 					\dash\notif::error(T_("The maximum package activation capacity has been completed for you"));
@@ -437,15 +439,29 @@ class activate
 
 			$current_count = \lib\db\store_plugin_action\get::active_plugin_package_count($plugin, $business_id);
 
+			$new_package_count = (floatval($package_count) + floatval($current_count));
+
 			if(a($plugin_detail, 'max_count'))
 			{
-				if((floatval($package_count) + floatval($current_count)) >= floatval($plugin_detail['max_count']))
+				if($new_package_count >= floatval($plugin_detail['max_count']))
 				{
 					\dash\pdo::rollback();
 					\dash\notif::error(T_("The maximum package activation capacity has been completed for you"));
 					return false;
 				}
 			}
+
+
+			// reset all old notif alert
+			\lib\db\store_plugin_action\update::reset_all_old_notif_alert($plugin, $business_id);
+
+			$update_plugin =
+			[
+				'alerton'   => round($new_package_count / 2),
+				'alerttime' => null,
+			];
+
+			\lib\db\store_plugin\update::record($update_plugin, $plugin_id);
 
 			$price  = \lib\app\plugin\get::price($plugin, $package);
 
