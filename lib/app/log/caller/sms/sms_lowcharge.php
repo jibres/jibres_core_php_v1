@@ -27,7 +27,7 @@ class sms_lowcharge
 
 
 
-	public static function get_msg($_args = [], $_avatar = false)
+	public static function get_msg($_args = [], $_sms = false)
 	{
 		$msg                    = '';
 
@@ -35,9 +35,10 @@ class sms_lowcharge
 		$my_business_title         = isset($_args['data']['my_business_title']) ? $_args['data']['my_business_title'] : null;
 		$my_remain_count         = isset($_args['data']['my_remain_count']) ? $_args['data']['my_remain_count'] : null;
 
-
-		$msg .= "\n#sms #low_charge\n";
-		$msg .= T_("Your SMS package is running out");
+		if($_sms)
+		{
+			$msg .= T_("Your SMS package is running out"). "\n";
+		}
 		$msg .= T_("Please purchase a new SMS package in :val Business", ['val' => $my_business_title]);
 
 
@@ -80,7 +81,7 @@ class sms_lowcharge
 
 	public static function sms_text($_args, $_mobile)
 	{
-		$title = self::get_msg($_args);
+		$title = self::get_msg($_args, true);
 
 		$sms =
 		[
@@ -100,15 +101,15 @@ class sms_lowcharge
 	public static function telegram_text($_args, $_chat_id)
 	{
 		$tg_msg = '';
-		$tg_msg .= "#Business #New ";
+		$tg_msg .= "#sms #low_charge ";
 
-		$tg_msg .= " 🎉 \n";
+		$tg_msg .= " ⌛️ \n";
 
-		$tg_msg .= T_("New plugin unlocked");
+		$tg_msg .= T_("Your SMS package is running out");
 
 		$tg_msg .= "\n";
 
-		$tg_msg .= self::get_msg($_args, true);
+		$tg_msg .= self::get_msg($_args);
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 
 		$tg                 = [];
