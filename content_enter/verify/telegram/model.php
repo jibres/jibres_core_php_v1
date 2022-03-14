@@ -11,6 +11,30 @@ class model
 	}
 
 
+	public static function detect_user_chat_id()
+	{
+		$my_chat_id = null;
+
+		$user_id    = null;
+
+		if(\dash\utility\enter::user_data('id'))
+		{
+			$my_chat_id = \dash\utility\enter::load_chat_id(\dash\utility\enter::user_data('id'));
+			$user_id = \dash\utility\enter::user_data('id');
+		}
+		elseif(\dash\user::id())
+		{
+			$my_chat_id = \dash\utility\enter::load_chat_id(\dash\user::id());
+			$user_id = \dash\user::id();
+		}
+
+
+		return [$my_chat_id, $user_id];
+
+
+	}
+
+
 	/**
 	 * send verification code to the user telegram
 	 *
@@ -27,26 +51,7 @@ class model
 		// 	return false;
 		// }
 
-		$my_chat_id = null;
-
-		$user_id = null;
-
-		if(\dash\utility\enter::user_data('id'))
-		{
-			$my_chat_id = \dash\utility\enter::load_chat_id(\dash\utility\enter::user_data('id'));
-			$user_id = \dash\utility\enter::user_data('id');
-		}
-		elseif(\dash\user::id())
-		{
-			$my_chat_id = \dash\utility\enter::load_chat_id(\dash\user::id());
-			$user_id = \dash\user::id();
-		}
-
-		if(!$my_chat_id)
-		{
-			return false;
-		}
-
+		list($my_chat_id, $user_id) = self::detect_user_chat_id();
 
 		\dash\utility\enter::generate_verification_code();
 

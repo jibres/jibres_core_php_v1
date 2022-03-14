@@ -10,8 +10,7 @@ class model
 		\dash\utility\enter::check_code('sms');
 	}
 
-
-	public static function send_sms_code()
+	public static function detect_mobile()
 	{
 		$my_mobile = null;
 		if(\dash\utility\enter::user_data('mobile'))
@@ -34,6 +33,14 @@ class model
 		{
 			$my_mobile = \dash\user::detail('mobile');
 		}
+
+		return $my_mobile;
+	}
+
+
+	public static function send_sms_code()
+	{
+		$my_mobile = self::detect_mobile();
 
 		if(!$my_mobile)
 		{
