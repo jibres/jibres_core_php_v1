@@ -52,7 +52,9 @@ class package
 				$usage_count = floatval($usage_count);
 			}
 
-			if($usage_count + floatval(a($sms_detail, 'smscount')) > floatval(a($value, 'packagecount')))
+			$new_usage_count = $usage_count + floatval(a($sms_detail, 'smscount'));
+
+			if($new_usage_count > floatval(a($value, 'packagecount')))
 			{
 				// todo
 				// check remain sms count
@@ -63,6 +65,32 @@ class package
 			else
 			{
 				$sms_detail['package_id'] = $value['id'];
+
+				if(a($value, 'alerton') && !a($value, 'alerttime'))
+				{
+					if(floatval($new_usage_count) >= floatval($value['alerton']))
+					{
+						\lib\db\store_plugin\update::record(['alerttime' => date("Y-m-d H:i:s")], $value['id']);
+
+						// send notif to owner of business
+
+						$business_data = \lib\db\store\get::data($value['store_id']);
+
+						if(a($business_data, 'owner'))
+						{
+							$log =
+							[
+								'to'                => $business_data['owner'],
+								'my_business_id'    => $value['store_id'],
+								'my_business_title' => a($business_data, 'title'),
+								'my_remain_count'   => (floatval(a($value, 'packagecount')) - $new_usage_count)
+							];
+							\dash\log::set('sms_lowcharge', $log);
+						}
+
+					}
+				}
+
 				break;
 			}
 		}
@@ -70,6 +98,7 @@ class package
 		if(a($sms_detail, 'package_id'))
 		{
 			$sms_detail['status'] = 'pending';
+
 			return true;
 		}
 		else
