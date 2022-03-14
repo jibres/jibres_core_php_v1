@@ -266,5 +266,10 @@ class api
 		return $result;
 	}
 
+	public static function fetch_telegram_chat_id(array $_args)
+	{
+		$result = self::run('telegram','post', [], $_args, ['not_check_login' => true]);
+		return $result;
+	}
 }
 ?>
