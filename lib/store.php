@@ -665,6 +665,7 @@ class store
 						a($value, 'subdomain')
 					) &&
 					a($value, 'status') !== 'deleted' &&
+					a($value, 'status') !== 'pending_verify' &&
 					a($value, 'status') !== 'pending_delete'
 				  )
 				{
