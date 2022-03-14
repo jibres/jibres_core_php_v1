@@ -415,6 +415,7 @@ class activate
 		$plugin_type        = a($plugin_detail, 'type');
 		$periodic           = a($_args, 'periodic');
 		$package            = a($_args, 'package');
+		$update_plugin      = [];
 		$action_description = null;
 		$plus_day           = null;
 		$package_count      = null;
@@ -455,13 +456,7 @@ class activate
 			// reset all old notif alert
 			\lib\db\store_plugin_action\update::reset_all_old_notif_alert($plugin, $business_id);
 
-			$update_plugin =
-			[
-				'alerton'   => round($new_package_count / 2),
-				'alerttime' => null,
-			];
-
-			\lib\db\store_plugin\update::record($update_plugin, $plugin_id);
+			$update_plugin['alerton'] = round($package_count / 2);
 
 			$price  = \lib\app\plugin\get::price($plugin, $package);
 
@@ -507,11 +502,8 @@ class activate
 
 
 		// update plugin
-		$update_plugin =
-		[
-			'status'       => 'enable',
-			'datemodified' => date("Y-m-d H:i:s"),
-		];
+		$update_plugin['status']       = 'enable';
+		$update_plugin['datemodified'] = date("Y-m-d H:i:s");
 
 
 		// check budget
