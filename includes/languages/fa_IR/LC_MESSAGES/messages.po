@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-03-14 10:56+0330\n"
-"PO-Revision-Date: 2022-03-14 10:57+0330\n"
+"POT-Creation-Date: 2022-03-14 17:55+0330\n"
+"PO-Revision-Date: 2022-03-14 17:57+0330\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -8932,7 +8932,7 @@ msgstr "همین الان بساز"
 
 #: content_a/form/analytics/create/model.php:14 content_a/form/analytics/model.php:14
 #: content_a/form/analytics/table/model.php:14 content_crm/ticket/view/model.php:26
-#: content_enter/pass/change/model.php:54 content_enter/verify/tg/display.php:9
+#: content_enter/pass/change/model.php:54 content_enter/verify/tg/display.php:20
 #: content_love/business/domain/setting/display.php:126
 #: includes/languages/trans_static.php:539 includes/languages/trans_static_public.php:935
 #: lib/app/business_domain/search.php:178 lib/app/business_domain/search_dns.php:123
@@ -10094,7 +10094,7 @@ msgstr "فیش پرینتر"
 
 #: content_a/order/links.php:49
 msgid "Shipping Label"
-msgstr ""
+msgstr "برچسب حمل و نقل"
 
 #: content_a/order/links.php:62
 msgid "Edit products"
@@ -19382,13 +19382,13 @@ msgstr "برو و چک کن"
 msgid "Send \":code\" to :num"
 msgstr "ارسال \":code\" به :num"
 
-#: content_enter/verify/sms/model.php:63
+#: content_enter/verify/sms/model.php:70
 msgid ":code is your verification code."
 msgstr ""
 ":code\n"
 "این کد فعال‌سازی اکانت شماست."
 
-#: content_enter/verify/sms/model.php:69
+#: content_enter/verify/sms/model.php:76
 msgid ":code is your Jibres verification code."
 msgstr ""
 ":code\n"
@@ -19398,10 +19398,22 @@ msgstr ""
 msgid "Do you know you can connect your account with our Telegram bot"
 msgstr "<b>آیا می‌دانید</b> می‌توانید حساب کاربری خود را به ربات تلگرام ما وصل کنید"
 
-#: content_enter/verify/tg/display.php:5
+#: content_enter/verify/tg/display.php:7
 msgid "Just need to start bot in Telegram and sync your account via /sync."
 msgstr ""
 "تنها کافی‌است ربات را شروع کرده و حساب خود را از طریق دستور /sync به وب‌سایت متصل کنید."
+
+#: content_enter/verify/tg/display.php:14
+msgid "I did it"
+msgstr "من این کار را انجام دادم"
+
+#: content_enter/verify/tg/model.php:12
+msgid "Please start the telegram bot and send /sync request"
+msgstr "لطفا ربات تلگرام را استارت کنید و دستور /sync را ارسال کنید"
+
+#: content_enter/verify/tg/model.php:37
+msgid "Can not detect your mobile"
+msgstr "نمی‌توانیم شماره تلفن همراه شما را پیدا کنیم"
 
 #: content_enter/verify/view.php:56
 msgid "Please verify yourself."
@@ -23077,6 +23089,18 @@ msgstr "کد دسترسی و شناسه کاربر الزامی است"
 #: content_r10/jibres/instagram/fetch/view.php:27
 msgid "Can not get instagram data"
 msgstr "نمی‌توانیم اطلاعات را از اینستاگرام دریافت کنیم"
+
+#: content_r10/jibres/telegram/model.php:14
+msgid "Invalid mobile"
+msgstr "شماره‌ی تلفن همراه نامعتبر است"
+
+#: content_r10/jibres/telegram/model.php:22
+msgid "You have not yet start the Telegram robot and have not sent the sync request!"
+msgstr "شما هنوز ربات تلگرام را استارت نکرده‌اید و دستور همگام‌سازی را ارسال نکرده اید!"
+
+#: content_r10/jibres/telegram/model.php:31
+msgid "You have not yet start the Telegram robot and have not sent the sync request"
+msgstr "شما هنوز ربات تلگرام را استارت نکرده‌اید و دستور همگام‌سازی را ارسال نکرده اید"
 
 #: content_r10/jibres/twitter/fetch/view.php:21
 #: content_r10/jibres/twitter/lookup/view.php:17
@@ -39399,7 +39423,6 @@ msgstr "ویژگی قفل شد"
 
 #: lib/app/log/caller/business/business_plugin.php:26
 #: lib/app/log/caller/business/business_plugin.php:137
-#: lib/app/log/caller/sms/sms_lowcharge.php:107
 msgid "New plugin unlocked"
 msgstr "قفل افزونه جدید باز شد"
 
@@ -39658,10 +39681,11 @@ msgid "By opening the following link, you can track the status of sending your o
 msgstr "با بازکردن لینک زیر می‌تونید وضعیت ارسال سفارش خودتون رو رهگیری کنید"
 
 #: lib/app/log/caller/sms/sms_lowcharge.php:16 lib/app/log/caller/sms/sms_lowcharge.php:40
+#: lib/app/log/caller/sms/sms_lowcharge.php:108
 msgid "Your SMS package is running out"
 msgstr "بسته پیامکی شما رو به اتمام است"
 
-#: lib/app/log/caller/sms/sms_lowcharge.php:41
+#: lib/app/log/caller/sms/sms_lowcharge.php:42
 msgid "Please purchase a new SMS package in :val Business"
 msgstr "لطفا نسبت به خرید بسته پیامکی جدید در بیزینس :val اقدام کنید"
 
@@ -47171,9 +47195,6 @@ msgstr "یارد"
 
 #~ msgid "A verification code was sended to user before"
 #~ msgstr "کد اعتبارسنجی قبلا برای این کاربر ارسال شده است"
-
-#~ msgid "Invalid mobile"
-#~ msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
 #~ msgid "Invalid verifycode"
 #~ msgstr "کد اعتبارسنجی نامعتبر است"
