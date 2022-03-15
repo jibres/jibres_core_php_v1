@@ -25,7 +25,7 @@ class business_checklist
 		$list[] =
 		[
 			'title' => T_("Business logo"),
-			'link'  => \dash\url::kingdom(). '/a/setting/general/logo',
+			'link'  => \dash\url::kingdom(). '/a/setting/general',
 			'ok'    => boolval(\lib\store::logo(true)),
 		];
 
