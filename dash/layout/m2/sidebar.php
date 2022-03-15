@@ -659,18 +659,12 @@ class sidebar
 		$menu['home'] =
 		[
 			'title'     => T_("Control Center"),
-			'url'       => \dash\url::kingdom().'/a',
+			'url'       => \dash\url::kingdom().'/my',
 			'icon'      => 'home',
 			'iconColor' => '#a1b2c3',
 			'class'     => null,
 			'selected'  => false,
 		];
-
-		if($content === 'a' && !$module)
-		{
-			$menu['home']['selected'] = true;
-			$menu['home']['iconColor'] = $blue;
-		}
 
 
 		if(\dash\permission::supervisor())
@@ -679,10 +673,48 @@ class sidebar
 			[
 				'title'     => "CRM". ' - '. T_("Customers"),
 				'url'       => $kingdom. '/crm',
-				'icon'      => 'Customers',
+				'icon'      => 'customers',
 				'iconColor' => '#a1b2c3',
 			];
 		}
+
+		$menu["seperator1"] =
+		[
+			'seperator' => true,
+		];
+
+
+		$menu['domain'] =
+		[
+			'title'     => T_("Domain Center"),
+			'url'       => \dash\url::kingdom().'/my/domain',
+			'icon'      => 'globe',
+			'iconColor' => '#a1b2c3',
+			'class'     => null,
+			'selected'  => false,
+		];
+
+		$menu['business'] =
+		[
+			'title'     => T_("My Business"),
+			'url'       => \dash\url::kingdom().'/my/business',
+			'icon'      => 'ManagedStore',
+			'iconColor' => '#a1b2c3',
+			'class'     => null,
+			'selected'  => false,
+		];
+
+
+		$menu['account'] =
+		[
+			'title'     => T_("My Account"),
+			'url'       => \dash\url::kingdom().'/account',
+			'icon'      => 'profile',
+			'iconColor' => '#a1b2c3',
+			'class'     => null,
+			'selected'  => false,
+		];
+
 
 
 		return $menu;
