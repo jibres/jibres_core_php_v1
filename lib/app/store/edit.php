@@ -117,7 +117,7 @@ class edit
 
 		\dash\log::set('businessSubdomainUpdate', ['old_subdomain' => $load_store['subdomain'], 'new_subdomain' => $subdomain ]);
 
-		\dash\notif::ok(T_("Subdomain was changed"));
+		// \dash\notif::ok(T_("Subdomain was changed"));
 
 		return true;
 	}
