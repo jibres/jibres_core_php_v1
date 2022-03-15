@@ -10,8 +10,16 @@ class sidebar
 	 */
 	public static function html()
 	{
-		// generate html of sidebar
-		$sidebar_menu = self::sidebar_menu();
+		if(in_array(\dash\url::content(), ['a', 'crm', 'cms', 'site']))
+		{
+			// generate html of sidebar
+			$sidebar_menu = self::business_sidebar_menu();
+		}
+		else
+		{
+			$sidebar_menu = self::jibres_sidebar_menu();
+
+		}
 
 		$sidebar_menu =
 		[
@@ -33,7 +41,7 @@ class sidebar
 	 *
 	 * @return     array  ( description_of_the_return_value )
 	 */
-	private static function sidebar_menu()
+	private static function business_sidebar_menu()
 	{
 		/**
 		 * Define
@@ -621,6 +629,66 @@ class sidebar
 
 		return $menu;
 	}
+
+
+
+
+
+
+	/**
+	 * Generate menu items
+	 *
+	 * @return     array  ( description_of_the_return_value )
+	 */
+	private static function jibres_sidebar_menu()
+	{
+		/**
+		 * Define
+		 */
+		$menu    = [];
+		$kingdom = \dash\url::kingdom();
+		$content = \dash\url::content();
+		$module  = \dash\url::module();
+		$child   = \dash\url::child();
+		$blue    = '#009ef7';
+
+
+		/*========================================
+		=            Home / Dashboard            =
+		========================================*/
+		$menu['home'] =
+		[
+			'title'     => T_("Control Center"),
+			'url'       => \dash\url::kingdom().'/a',
+			'icon'      => 'home',
+			'iconColor' => '#a1b2c3',
+			'class'     => null,
+			'selected'  => false,
+		];
+
+		if($content === 'a' && !$module)
+		{
+			$menu['home']['selected'] = true;
+			$menu['home']['iconColor'] = $blue;
+		}
+
+
+		if(\dash\permission::supervisor())
+		{
+			$menu["crm"] =
+			[
+				'title'     => "CRM". ' - '. T_("Customers"),
+				'url'       => $kingdom. '/crm',
+				'icon'      => 'Customers',
+				'iconColor' => '#a1b2c3',
+			];
+		}
+
+
+		return $menu;
+
+	}
+
 
 }
 ?>

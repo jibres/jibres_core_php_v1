@@ -7,6 +7,7 @@ class view
 	public static function config()
 	{
 		\dash\data::include_adminPanel(true);
+		// \dash\data::include_m2(true);
 
 		\dash\upload\size::set_default_file_size('my');
 		if(\dash\url::module() === null || \dash\url::module() === 'business')
@@ -14,6 +15,8 @@ class view
 			$myStore = \lib\app\store\mystore::list();
 			\dash\data::listStore($myStore);
 		}
+
+
 	}
 }
 ?>
