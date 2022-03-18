@@ -186,6 +186,45 @@ class update
 	}
 
 
+
+	public static function child_detail_by_parent_id($_args, $_parent_id)
+	{
+		$set   = [];
+		$param = [];
+
+		foreach ($_args as $key => $value)
+		{
+			if(is_bool($value) && !$value)
+			{
+				$value = null;
+			}
+
+			$fields[]        = $key;
+			$new_key         = ':'. $key;
+			$set[$key]       = $new_key;
+			$param[$new_key] = $value;
+		}
+
+		$query = "UPDATE `products` SET ";
+
+		$query_set = [];
+
+		foreach ($set as $key => $value)
+		{
+			$query_set[] = " products.$key = $value ";
+		}
+
+		$query .= implode(',', $query_set);
+
+		$query .= " WHERE products.parent = :parent  ";
+
+		$param[':parent'] = $_parent_id;
+
+		$result = \dash\pdo::query($query, $param);
+
+		return $result;
+	}
+
 	public static function update_all_unit($_new_unit_id, $_old_unit_id)
 	{
 

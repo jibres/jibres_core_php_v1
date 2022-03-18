@@ -235,10 +235,19 @@ class edit
 			}
 		}
 
+
+		if(array_key_exists('title', $args) && !$args['title'] && $args['title'] !== '0')
+		{
+			\dash\notif::error(T_("Title of product can not be null"), 'title');
+			return false;
+		}
+
+		$is_parent = false;
 		// the parent
 		// if the product have child the type of product locked!
 		if(isset($product_detail['variant_child']) && $product_detail['variant_child'])
 		{
+			$is_parent = true;
 			// unset($args['desc']);
 			unset($args['type']);
 		}
@@ -253,10 +262,22 @@ class edit
 			}
 		}
 
-		if(array_key_exists('title', $args) && !$args['title'] && $args['title'] !== '0')
+		if($is_parent)
 		{
-			\dash\notif::error(T_("Title of product can not be null"), 'title');
-			return false;
+			$update_child_detail = [];
+
+			foreach ($parent_field as $must_update_in_child)
+			{
+				if(array_key_exists($must_update_in_child, $args))
+				{
+					$update_child_detail[$must_update_in_child] = $args[$must_update_in_child];
+				}
+			}
+
+			if(!empty($update_child_detail))
+			{
+				\lib\db\products\update::child_detail_by_parent_id($update_child_detail, $id);
+			}
 		}
 
 
