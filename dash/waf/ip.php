@@ -254,36 +254,44 @@ class ip
 				break;
 
 			case 'isolation':
-				// check limit of isolation
-				self::checkIsolationLimit($_info);
 
-				if(\dash\request::is('post'))
+				if(\dash\url::is_api())
 				{
-					$recaptchaResponse = \dash\request::post('g-recaptcha-response');
-					if($recaptchaResponse)
+					// do nothing
+				}
+				else
+				{
+					// check limit of isolation
+					self::checkIsolationLimit($_info);
+
+					if(\dash\request::is('post'))
 					{
-						// check recaptcha
-						$check_verify = \dash\captcha\recaptcha::verify_v2($recaptchaResponse);
-
-						// remove isolation Data if exist
-						self::unsetData($_info, 'isolateRefresh');
-
-						if($check_verify)
+						$recaptchaResponse = \dash\request::post('g-recaptcha-response');
+						if($recaptchaResponse)
 						{
-							self::do_revalidate($_info, 'recaptcha solved');
-							self::plusData($_info, 'recaptchaSolvedCounter');
+							// check recaptcha
+							$check_verify = \dash\captcha\recaptcha::verify_v2($recaptchaResponse);
+
+							// remove isolation Data if exist
+							self::unsetData($_info, 'isolateRefresh');
+
+							if($check_verify)
+							{
+								self::do_revalidate($_info, 'recaptcha solved');
+								self::plusData($_info, 'recaptchaSolvedCounter');
+							}
+							else
+							{
+								// block 1 minute
+								self::do_block($_info, 'recaptcha invalid!', 1);
+							}
 						}
 						else
 						{
-							// block 1 minute
-							self::do_block($_info, 'recaptcha invalid!', 1);
+							// block!
+							// self::do_block($_info);
+							// first time we are not here, it's live mode
 						}
-					}
-					else
-					{
-						// block!
-						// self::do_block($_info);
-						// first time we are not here, it's live mode
 					}
 				}
 				break;
@@ -334,8 +342,15 @@ class ip
 				break;
 
 			case 'isolation':
-				// show ip isolation page
-				self::showIpProtectionPage();
+				if(\dash\url::is_api())
+				{
+					// do nothing
+				}
+				else
+				{
+					// show ip isolation page
+					self::showIpProtectionPage();
+				}
 				break;
 
 			case 'ban':
