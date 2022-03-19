@@ -595,6 +595,7 @@ class call_function
 			if(\dash\url::isLocal())
 			{
 				$demo_url = \dash\url::protocol(). '://demo.myjibres.local';
+				$demo_url = 'https://demo.jibres.me';
 			}
 
 			$preview_url = \dash\url::here();
