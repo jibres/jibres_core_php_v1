@@ -42,7 +42,7 @@
           <tr>
             <td><a target="_blank" href="<?php echo \lib\store::url(). '/'. $key; ?>"><?php echo \dash\utility\icon::bootstrap('box arrow up right', 'h-3 w-3') ?> </a></td>
             <td class="collapsing"><?php echo $key; ?></td>
-            <td><div class="overflow-hidden text-ellipsis w-full max-w-xs "><?php echo $value;?></div></td>
+            <td><div class="overflow-hidden overflow-ellipsis text-ellipsis w-full max-w-xs "><?php echo $value;?></div></td>
             <td><div class="" data-confirm data-data='{"remove": "file", "name": "<?php echo $key; ?>", "content" : "<?php echo $value; ?>"}'><div class="w-10 p-3 flex"><?php echo \dash\utility\icon::svg('Delete', null, '#bd2130') ?></div></div></td>
           </tr>
         <?php } //endfor ?>

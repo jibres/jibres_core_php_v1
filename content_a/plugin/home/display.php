@@ -68,7 +68,7 @@ $html .= '<section class="text-gray-600 body-font">';
 
 						$html .= '<div class="flex flex-col">';
 						{
-							$html .= '<div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4 shrink-0 p-1">';
+							$html .= '<div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4 flex-shrink-0 shrink-0 p-1">';
 							{
 								$icon = a($value, 'icon');
 
@@ -86,7 +86,7 @@ $html .= '<section class="text-gray-600 body-font">';
 
 							if($is_activated)
 							{
-								$html .= '<div class="w-8 h-8 inline-flex items-center justify-center rounded-full mb-4 shrink-0 p-1" title="'.T_("Activated").'">';
+								$html .= '<div class="w-8 h-8 inline-flex items-center justify-center rounded-full mb-4 flex-shrink-0 shrink-0 p-1" title="'.T_("Activated").'">';
 								{
 									$html .= \dash\utility\icon::svg('check-circle-fill', 'bootstrap', 'green');
 								}
@@ -94,7 +94,7 @@ $html .= '<section class="text-gray-600 body-font">';
 							}
 							else
 							{
-								$html .= '<div class="w-8 h-8 inline-flex items-center justify-center rounded-full mb-4 shrink-0 p-1"></div>';
+								$html .= '<div class="w-8 h-8 inline-flex items-center justify-center rounded-full mb-4 flex-shrink-0 shrink-0 p-1"></div>';
 
 							}
 						}
