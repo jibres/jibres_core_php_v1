@@ -595,7 +595,12 @@ class call_function
 			if(\dash\url::isLocal())
 			{
 				$demo_url = \dash\url::protocol(). '://demo.myjibres.local';
-				$demo_url = 'https://demo.jibres.me';
+
+				if(gethostname() !== 'reza-jibres')
+				{
+					$demo_url = 'https://demo.jibres.me';
+				}
+
 			}
 
 			$preview_url = \dash\url::here();
@@ -646,7 +651,7 @@ class call_function
 						'opt_model'     => $model,
 						'price'         => $price,
 						'premium'       => $premium,
-						'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $model. '/'. $preview_function,
+						'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $model. '/'. $preview_function. '?lock',
 						'preview_url'   => $preview_url  .'/preview/'. $_section_key. '/'. $model. '/'. $preview_function. '?lock',
 						'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $model, $model. '-'. $preview_function, $version),
 					];
