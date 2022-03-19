@@ -278,25 +278,25 @@ class shortcode
 				switch ($videoService)
 				{
 					case 'aparat':
-						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="aparat">';
+						$iframe = '<div class="shortcode aspect-[16/9] rounded overflow-hidden" type="video" from="aparat">';
 						$iframe .= '<iframe src="https://www.aparat.com/video/video/embed/videohash/'. $videoSrc .'/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>';
 						$iframe .= '</div>';
 						break;
 
 					case 'youtube':
-						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="youtube">';
+						$iframe = '<div class="shortcode aspect-[16/9] rounded overflow-hidden" type="video" from="youtube">';
 						$iframe .= '<iframe src="https://www.youtube.com/embed/'. $videoSrc.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 						$iframe .= '</div>';
 						break;
 
 					case 'vimeo':
-						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="vimeo">';
+						$iframe = '<div class="shortcode aspect-[16/9] rounded overflow-hidden" type="video" from="vimeo">';
 						$iframe .= '<iframe src="https://player.vimeo.com/video/'. $videoSrc.'" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
 						$iframe .= '</div>';
 						break;
 
 					case 'dailymotion':
-						$iframe = '<div class="shortcode aspect-w-16 aspect-h-9 rounded overflow-hidden" type="video" from="dailymotion">';
+						$iframe = '<div class="shortcode aspect-[16/9] rounded overflow-hidden" type="video" from="dailymotion">';
 						$iframe .= '<iframe src="https://www.dailymotion.com/embed/video/'. $videoSrc.'" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
 						$iframe .= '</div>';
 						break;
