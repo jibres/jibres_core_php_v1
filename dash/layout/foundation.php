@@ -7,7 +7,7 @@
  <meta content="<?php echo \dash\face::desc(); ?>" name="description"/>
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
 <?php if(\dash\data::demoOnlineLoadPreviewSection()) {?>
- <meta content="preview" name="site:preview"/>
+ <meta content="yes" name="jibres:sitebuilder:preview"/>
 <?php }else{ ?>
  <meta content="<?php
 if (\dash\detect\device::detectPWA())
