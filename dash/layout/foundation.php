@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" translate="no" prefix="og: http://ogp.me/ns#"<?php if ((\dash\permission::supervisor() && !\dash\detect\device::detectPWA() ) || \dash\url::tld() === 'local') echo ' data-debugger';?><?php if (\dash\data::HtmlPointerEventsNone()) echo ' class="pointer-events-none1 select-none"';?><?php if (\dash\detect\device::detectPWA()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}else{echo " data-desktop";}?>>
+<html lang="<?php echo \dash\language::current();?>" dir="<?php echo \dash\language::dir();?>" translate="no" prefix="og: http://ogp.me/ns#"<?php if ((\dash\permission::supervisor() && !\dash\detect\device::detectPWA() ) || \dash\url::tld() === 'local') echo ' data-debugger';?><?php if (\dash\data::HtmlPointerEventsNone()) echo ' class="pointer-events-none1 select-none"';?><?php if (\dash\detect\device::detectPWA() && !\dash\data::demoOnlineLoadPreviewSection()) {echo " data-pwa='". \dash\detect\device::detectPWA(). "'";}else{echo " data-desktop";}?>>
 <head>
  <meta charset="UTF-8"/>
  <base href="<?php echo \dash\url::base();?>"/>
  <title><?php echo \dash\face::headTitle(); ?></title>
  <meta content="<?php echo \dash\face::desc(); ?>" name="description"/>
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
+<?php if(!\dash\data::demoOnlineLoadPreviewSection()) {?>
  <meta content="<?php
 if (\dash\detect\device::detectPWA())
 {
@@ -23,6 +24,7 @@ else
   echo 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5';
 }
 ?>" name="viewport"/>
+<?php } //endif ?>
 <?php
 if (!\dash\data::pageWithLogin())
 {
