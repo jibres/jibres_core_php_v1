@@ -30,7 +30,7 @@ if($myDisplayMode)
 $html = '';
 
 $html .= "<div class='browserFrame h-full mx-auto shadow-lg overflow-hidden rounded-t-2xl rounded-b-md flex flex-col bg-white transition' $data_size>";
-$html .= '<div class="toolbar flex-grow-0 flex-none flex content-center px-2 bg-gray-50">';
+$html .= '<div class="toolbar grow-0 flex-none flex content-center px-2 bg-gray-50">';
 {
   // dots
   $html .= '<div class="relative flex flex-none items-center px-2">';

@@ -140,7 +140,7 @@ elseif(\dash\data::myPreviewDisplayType() === 'group_list')
 			    $html .= '<div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">';
 			    {
 
-			      $html .= '<div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">';
+			      $html .= '<div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 shrink-0">';
 			      {
 					$html .= '<img class="h-32 w-32 p-10" src="'. a($item, 'icon'). '">';
 

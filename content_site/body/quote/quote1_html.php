@@ -49,7 +49,7 @@ class quote1_html
 								if(a($value, 'avatar'))
 								{
 									$avatar = \lib\filepath::fix(a($value, 'avatar'));
-									$html .= "<img alt='author' src='$avatar' class='w-12 h-12 rounded-full flex-shrink-0 object-cover object-center'>";
+									$html .= "<img alt='author' src='$avatar' class='w-12 h-12 rounded-full shrink-0 object-cover object-center'>";
 								}
 
 								$html .= "<span class='flex-grow flex flex-col pl-4 pr-4'>";
