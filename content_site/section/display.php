@@ -31,7 +31,7 @@ else
 			$html .= '<div class="relative bg-gray-100 border-b overflow-hidden">';
 			{
 				// $html .= '<img src="'. a($value, 'preview_image'). '" alt="'.a($value, 'key').'">';
-				$html .= '<iframe class="w-full aspect-video" data-src="'. a($value, 'demo_url'). '"></iframe>';
+				$html .= '<iframe class="w-full aspect-video" data-src="'. a($value, 'preview_url'). '"></iframe>';
 			}
 			$html .= '</div>';
 

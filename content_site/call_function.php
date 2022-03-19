@@ -597,6 +597,8 @@ class call_function
 				$demo_url = \dash\url::protocol(). '://demo.myjibres.local';
 			}
 
+			$preview_url = \dash\url::here();
+
 			foreach ($need_load_preview as $preview_function)
 			{
 				if(self::_call([$namespace_model, 'is_private']) === true)
@@ -644,6 +646,7 @@ class call_function
 						'price'         => $price,
 						'premium'       => $premium,
 						'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $model. '/'. $preview_function,
+						'preview_url'   => $preview_url  .'/preview/'. $_section_key. '/'. $model. '/'. $preview_function. '?lock',
 						'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $model, $model. '-'. $preview_function, $version),
 					];
 				}
