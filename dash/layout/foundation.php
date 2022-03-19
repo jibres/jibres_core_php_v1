@@ -8,9 +8,20 @@
  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
  <meta content="<?php
 if (\dash\detect\device::detectPWA())
-  echo 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0';
+{
+  if(\dash\user::id())
+  {
+    echo 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0';
+  }
+  else
+  {
+    echo 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5';
+  }
+}
 else
+{
   echo 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5';
+}
 ?>" name="viewport"/>
 <?php
 if (!\dash\data::pageWithLogin())
