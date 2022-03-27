@@ -179,7 +179,7 @@ class ermile
 		$result['text'] .= T_(\dash\face::siteSlogan()). "\n\n";
 		// $result['text'] .= bot::website(). "\n";
 		$result['text'] .= '/help'. "\n";
-		// $result['text'] .= T_('Made by @Ermile');
+		$result['text'] .= T_('Made by @Ermile');
 
 		$result['disable_web_page_preview'] = false;
 
@@ -200,7 +200,11 @@ class ermile
 
 		$result = [];
 		$result['method']  = "sendPhoto";
-		$result['photo']   = \dash\url::logo();
+		$result['photo']   = \dash\url::cdn(). '/images/logo.png';
+		if(\dash\url::isLocal())
+		{
+			$result['photo']   = \dash\url::protocol(). '://'. \dash\url::root() .'.com/static/images/logo.png';
+		}
 		$result['caption'] = $msg;
 		$result['reply_markup'] =
 		[
