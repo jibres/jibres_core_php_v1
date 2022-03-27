@@ -181,7 +181,7 @@ class tg
 
 	public static function website()
 	{
-		return \dash\url::base(). '/'. \dash\language::current();
+		return \dash\url::sitelang();
 	}
 
 

@@ -200,10 +200,10 @@ class ermile
 
 		$result = [];
 		$result['method']  = "sendPhoto";
-		$result['photo']   = \dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-2048.png';
+		$result['photo']   = \dash\url::cdn(). '/logo/en/png/Jibres-Logo-en-2048.png';
 		if(\dash\url::isLocal())
 		{
-			$result['photo']   = \dash\url::protocol(). '://'. \dash\url::root() .'.com/static//logo/icon/png/Jibres-Logo-icon-2048.png';
+			$result['photo']   = \dash\url::protocol(). '://'. \dash\url::root() .'.com/static/logo/en/png/Jibres-Logo-en-2048.png';
 		}
 		$result['caption'] = $msg;
 		$result['reply_markup'] =
