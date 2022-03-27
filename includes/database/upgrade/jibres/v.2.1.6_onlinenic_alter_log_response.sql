@@ -1,0 +1,1 @@
+ALTER TABLE jibres_onlinenic_log.log MODIFY  `response` LONGTEXT;
