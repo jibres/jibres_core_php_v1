@@ -75,7 +75,7 @@ class ermileInline
 					'id'                    => 1,
 					'title'                 => T_('About'). ' '. $siteTitle ,
 					'description'           => $siteSlogan,
-					'thumb_url'             =>\dash\url::cdn(). '/images/logo.png',
+					'thumb_url'             =>\dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-2048.png',
 					'input_message_content' =>
 					[
 						'message_text' => $msg,
@@ -123,7 +123,7 @@ class ermileInline
 					'description'           => T_('Read more about us'),
 					'address'               => $msg,
 					'foursquare_id'         => '5bd1d8293b8307002bdb5dbb',
-					'thumb_url'             =>\dash\url::cdn(). '/images/logo.png',
+					'thumb_url'             =>\dash\url::cdn(). '/logo/icon/png/Jibres-Logo-icon-2048.png',
 					'reply_markup' =>
 					[
 						'inline_keyboard' =>
