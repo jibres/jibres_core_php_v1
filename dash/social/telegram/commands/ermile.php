@@ -453,11 +453,11 @@ class ermile
 		{
 			case 'fa':
 				$msg .= '🇮🇷 '. 'لطفا زبان خود را انتخاب کنید'. "\n";
-				$msg .= '🇬🇪 '. "Please choose your language". "\n";
+				$msg .= '🇺🇸 '. "Please choose your language". "\n";
 				break;
 
 			case 'en':
-				$msg .= '🇬🇪 '. "Please choose your language". "\n";
+				$msg .= '🇺🇸 '. "Please choose your language". "\n";
 				$msg .= '🇮🇷 '. 'لطفا زبان خود را انتخاب کنید'. "\n";
 				break;
 
@@ -479,8 +479,8 @@ class ermile
 			}
 			elseif($key === 'en')
 			{
-				$msg .= "/english 🇬🇪". "\n";
-				$keyboard[] = [ $value['iso']. " ". $value['localname']." 🇬🇪"];
+				$msg .= "/english 🇺🇸". "\n";
+				$keyboard[] = [ $value['iso']. " ". $value['localname']." 🇺🇸"];
 			}
 			elseif($key === 'ar')
 			{
