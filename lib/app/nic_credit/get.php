@@ -4,7 +4,7 @@ namespace lib\app\nic_credit;
 
 class get
 {
-	public static function fetch()
+	public static function fetch($_silent_notif = false)
 	{
 		$result = \lib\api\nic\exec\contact_credit::credit();
 
@@ -34,17 +34,20 @@ class get
 		}
 
 
-		$last = self::last();
-		if(isset($last['balance']) && is_numeric($last['balance']))
+		if(!$_silent_notif)
 		{
-			// nic credit have less than 100 unit
-			if(floatval($last['balance']) < 300)
+			$last = self::last();
+			if(isset($last['balance']) && is_numeric($last['balance']))
 			{
-				$my_code = date("Y-m-d"). '-'. $last['balance'];
-
-				if(!\dash\app\log::check_caller_code('domain_creditLow', $my_code))
+				// nic credit have less than 100 unit
+				if(floatval($last['balance']) < 300)
 				{
-					\dash\log::set('domain_creditLow', ['code' => $my_code, 'my_balance' => $last['balance']]);
+					$my_code = date("Y-m-d"). '-'. $last['balance'];
+
+					if(!\dash\app\log::check_caller_code('domain_creditLow', $my_code))
+					{
+						\dash\log::set('domain_creditLow', ['code' => $my_code, 'my_balance' => $last['balance']]);
+					}
 				}
 			}
 		}
