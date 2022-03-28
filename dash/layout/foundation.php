@@ -142,22 +142,9 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 <?php // @todo add rel alternative ?>
 <?php
 echo ' <link href="'. \dash\url::cdn(). '" rel="preconnect"/>'. "\n";
-if(\dash\engine\store::inBusinessWebsite())
-{
-  echo ' <link href='. \dash\layout\func::staticmtime('css/siftal-v3.min.css'). ' rel="preload stylesheet" as="style"/>'."\n";
-}
-else if(\dash\data::include_m2())
-{
-  echo ' <link href='. \dash\layout\func::staticmtime('css/siftal-v3.min.css'). ' rel="preload stylesheet" as="style"/>'."\n";
-}
-else
-{
- if(\dash\user::id())
- {
-  echo ' <link href='. \dash\layout\func::staticmtime('css/siftal-v3.min.css'). ' rel="preload stylesheet" as="style"/>'."\n";
- }
- echo ' <link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>'."\n";
-}
+// add one css for everything!
+// try to seperate it later
+echo ' <link href='. \dash\layout\func::staticmtime('css/siftal-v3.min.css'). ' rel="preload stylesheet" as="style"/>'."\n";
 ?>
 <?php
   if(\dash\face::css() && is_array(\dash\face::css()))
