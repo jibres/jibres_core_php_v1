@@ -7,7 +7,7 @@ class view
 	public static function config()
 	{
 		// \dash\data::include_adminPanel(true);
-		\dash\data::include_m2('black');
+		\dash\data::include_m2('dark');
 
 		\dash\upload\size::set_default_file_size('my');
 		if(\dash\url::module() === null || \dash\url::module() === 'business')

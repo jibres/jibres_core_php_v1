@@ -14,11 +14,19 @@ class header
       $masterUrl  = \lib\store::url();
       $targetLink = ' target="_blank"';
     }
+    // btn class
+    $btnClass = 'btn-light transition rounded-lg h-12 flex-none flex items-center';
+    $btnIconClass = 'text-gray-500';
+    if(\dash\data::include_m2() === 'dark')
+    {
+      $btnClass = 'btn-dark transition rounded-lg h-12 flex-none flex items-center';
+      $btnIconClass = 'text-gray-200';
+    }
 
     $html .= '<div class="h-full flex content-center align-center px-3">';
     {
       // logo
-      $html .= '<a class="btn-light transition flex-none rounded-lg h-12 flex align-center max-w-sm overflow-hidden logo mx-1" href="'. $masterUrl. '"';
+      $html .= '<a class="'. $btnClass. ' align-center max-w-sm overflow-hidden logo mx-1" href="'. $masterUrl. '"';
       if($targetLink)
       {
         $html .= $targetLink;
@@ -56,8 +64,8 @@ class header
 
       if(\dash\url::support())
       {
-        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::support(). '" target="_blank" title="'. T_("Help Center"). '">';
-        $html .= \dash\utility\icon::bootstrap('info-circle', 'text-gray-500');
+        $html .= '<a class="'. $btnClass. ' w-12 p-3 mx-1" href="'. \dash\url::support(). '" target="_blank" title="'. T_("Help Center"). '">';
+        $html .= \dash\utility\icon::bootstrap('info-circle', $btnIconClass);
         $html .= '</a>';
       }
 
@@ -71,22 +79,22 @@ class header
           $account_profile_url = \dash\url::kingdom(). '/profile/detail';
         }
 
-        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg orders" href="'. \dash\url::kingdom(). '/a/order/unprocessed" title="'. T_("Unprocessed Orders"). '">';
-        $html .= \dash\utility\icon::bootstrap('App indicator', 'text-gray-500');
+        $html .= '<a class="'. $btnClass. ' w-12 p-3 mx-1 orders" href="'. \dash\url::kingdom(). '/a/order/unprocessed" title="'. T_("Unprocessed Orders"). '">';
+        $html .= \dash\utility\icon::bootstrap('App indicator', $btnIconClass);
         // $html .= \dash\utility\icon::svg('First Order');
         $html .= '</a>';
 
         if(!$in_customer_specail_domain)
         {
           // notification
-          $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg notification" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '" data-direct>';
+          $html .= '<a class="'. $btnClass. ' w-12 p-3 mx-1 notification" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '" data-direct>';
           // $html .= \dash\utility\icon::svg('Notification');
-          $html .= \dash\utility\icon::bootstrap('envelope', 'text-gray-500');
+          $html .= \dash\utility\icon::bootstrap('envelope', $btnIconClass);
           $html .= '</a>';
         }
 
         // avatar
-        $html .= '<a class="flex-none h-12 w-12 p-1 mx-1 btn-light transition rounded-lg" ' . $targetLink . ' href="'. $account_profile_url .'" title="'. \dash\user::detail('displayname'). '">';
+        $html .= '<a class="'. $btnClass. ' w-12 p-1 mx-1 avatar" ' . $targetLink . ' href="'. $account_profile_url .'" title="'. \dash\user::detail('displayname'). '">';
         if(\dash\user::detail('avatar'))
         {
           $html .= '<img class="rounded-full" src="'. \dash\fit::img(\dash\user::detail('avatar')). '" alt="'. \dash\user::detail('displayname'). '">';
@@ -102,7 +110,7 @@ class header
       else
       {
         // enter to jibres
-        $html .= '<a class="flex-none h-12 w-12 p-3 mx-1 btn-light transition rounded-lg" href="'. \dash\url::kingdom(). '/enter?referer='. urlencode(\dash\url::location()). '" title="'. T_("Enter to have better experience"). '">';
+        $html .= '<a class="'. $btnClass. ' w-12 p-3 mx-1" href="'. \dash\url::kingdom(). '/enter?referer='. urlencode(\dash\url::location()). '" title="'. T_("Enter to have better experience"). '">';
         $html .= \dash\utility\icon::svg('Circle Alert', null, '#c80a5a');
         $html .= '</a>';
       }
