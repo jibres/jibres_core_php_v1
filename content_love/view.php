@@ -11,7 +11,7 @@ class view
 		\dash\face::slogan(T_("Integrated Sales and Online Accounting"));
 
 
-		\dash\data::include_m2('black');
+		\dash\data::include_m2('dark');
 	}
 }
 ?>
