@@ -89,13 +89,13 @@ else
                 </a>
               </li>
               <li>
-                <a class="item f" data-direct href="<?php echo $kingdom; ?>/my/domain/transfer">
+                <a class="item f" href="<?php echo $kingdom; ?>/my/domain/transfer">
                 <div class="key"><?php echo T_('Transfer Domain'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>
               <li>
-                <a class="item f" data-direct href="<?php echo $kingdom; ?>/my/domain/renew">
+                <a class="item f" href="<?php echo $kingdom; ?>/my/domain/renew">
                 <div class="key"><?php echo T_('Renew your Domain'); ?></div>
                 <div class="go"></div>
                 </a>
@@ -139,7 +139,7 @@ else
                 </a>
               </li>
               <li>
-                <a class="item f" data-direct href="<?php echo $kingdom; ?>/my/ticket/add?type=feedback">
+                <a class="item f" href="<?php echo $kingdom; ?>/my/ticket/add?type=feedback">
                 <div class="key"><?php echo T_('Send us Feedback'); ?></div>
                 <div class="go"></div>
                 </a>

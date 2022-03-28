@@ -12,7 +12,7 @@ class view
 		\dash\data::action_link(\dash\url::this(). '/page/new');
 
 		\dash\data::back_text(T_('Dashboard'));
-		\dash\data::back_direct(true);
+		// \dash\data::back_direct(true);
 		\dash\data::back_link(\dash\url::kingdom(). '/a');
 
 		\dash\data::include_adminPanelBuilder(true);

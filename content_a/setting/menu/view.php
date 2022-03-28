@@ -12,7 +12,7 @@ class view
 		// back
 		\dash\data::back_text(T_('Website Builder'));
 		\dash\data::back_link(\dash\url::kingdom(). '/site');
-		\dash\data::back_direct(true);
+		// \dash\data::back_direct(true);
 
 		\dash\data::action_text(T_('Add new menu'));
 		\dash\data::action_icon('plus');

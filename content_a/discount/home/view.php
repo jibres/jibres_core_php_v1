@@ -14,7 +14,7 @@ class view
 		// back
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
-		\dash\data::back_direct(true);
+		// \dash\data::back_direct(true);
 
 		\dash\data::include_m2(true);
 
