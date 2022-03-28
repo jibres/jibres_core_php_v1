@@ -32,21 +32,13 @@ class find
 						break;
 				}
 		}
-		else if(\dash\data::include_m2() and true)
+		else
 		{
 			self::header();
 			echo '<div id="pageCenter" data-xhr="pageCenter">';
 			self::sidebar();
 			self::main();
 			echo '</div>';
-			self::footer();
-		}
-		else
-		{
-			self::header();
-			self::sidebar();
-			// self::nav();
-			self::main();
 			self::footer();
 		}
 	}
