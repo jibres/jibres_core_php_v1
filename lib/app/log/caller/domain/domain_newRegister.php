@@ -44,6 +44,10 @@ class domain_newRegister
 		$my_type         = isset($_args['data']['my_type']) ? $_args['data']['my_type'] : null;
 		$my_giftusage_id = isset($_args['data']['my_giftusage_id']) ? $_args['data']['my_giftusage_id'] : null;
 		$my_finalprice   = isset($_args['data']['my_finalprice']) ? $_args['data']['my_finalprice'] : null;
+		$my_nic_credit   = isset($_args['data']['my_nic_credit']) ? $_args['data']['my_nic_credit'] : null;
+		$my_user_budget   = isset($_args['data']['my_user_budget']) ? $_args['data']['my_user_budget'] : null;
+
+
 
 		$msg = T_("New domain :domain was registered.", ['domain' => $my_domain]);
 
@@ -59,23 +63,29 @@ class domain_newRegister
 
 		if(intval($my_period) === 12)
 		{
-			$msg .= ' '. T_("For 1 year.");
+			$msg .= PHP_EOL. T_("For 1 year.");
 
 		}
 		elseif($my_period === (12*5))
 		{
-			$msg .= ' '. T_("For 5 year.");
+			$msg .= PHP_EOL. T_("For 5 year.");
 		}
 
 		if($my_giftusage_id)
 		{
-			$msg .= ' '. T_("Used from a gift card.");
+			$msg .= PHP_EOL. T_("Used from a gift card.");
 		}
 
 		if($my_finalprice)
 		{
-			$msg .= ' '. T_("Total payed :val ", ['val' => \dash\fit::number($my_finalprice)]);
+			$msg .= PHP_EOL. T_("Total payed :val ", ['val' => \dash\fit::number($my_finalprice)]);
 		}
+
+		if($my_user_budget)
+		{
+			$msg .= PHP_EOL. T_("Current user budget :val ", ['val' => \dash\fit::number($my_user_budget)]);
+		}
+
 
 		if(isset($_args['data']['log_user_detail']['fullname']))
 		{
@@ -84,6 +94,11 @@ class domain_newRegister
 		if(isset($_args['data']['log_user_detail']['mobile']) && $_args['data']['log_user_detail']['mobile'])
 		{
 			$msg .= ' '. \dash\fit::mobile($_args['data']['log_user_detail']['mobile']). ' ';
+		}
+
+		if($my_nic_credit)
+		{
+			$msg .= PHP_EOL. T_("Current nic credit is :val ", ['val' => \dash\fit::number($my_nic_credit)]);
 		}
 
 		return $msg;
