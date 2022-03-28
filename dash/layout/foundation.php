@@ -144,18 +144,10 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 echo ' <link href="'. \dash\url::cdn(). '" rel="preconnect"/>'. "\n";
 if(\dash\engine\store::inBusinessWebsite())
 {
-  // echo ' <link href='. \dash\layout\func::staticmtime('css/magic-fonts-v1.css'). ' rel="preload stylesheet" as="style"/>'."\n";
-  // echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="preload stylesheet" as="style"/>'."\n";
-  // echo ' <link href='. \dash\layout\func::staticmtime('css/magic-migrate-v1.css'). ' rel="stylesheet"/>'."\n";
-
   echo ' <link href='. \dash\layout\func::staticmtime('css/siftal-v3.min.css'). ' rel="preload stylesheet" as="style"/>'."\n";
 }
 else if(\dash\data::include_m2())
 {
-  // echo ' <link href='. \dash\layout\func::staticmtime('css/magic-fonts-v1.css'). ' rel="preload stylesheet" as="style"/>'."\n";
-  // echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="preload stylesheet" as="style"/>'."\n";
-  // echo ' <link href='. \dash\layout\func::staticmtime('css/magic-migrate-v1.css'). ' rel="stylesheet"/>'."\n";
-
   echo ' <link href='. \dash\layout\func::staticmtime('css/siftal-v3.min.css'). ' rel="preload stylesheet" as="style"/>'."\n";
 }
 else
@@ -163,8 +155,6 @@ else
  if(\dash\user::id())
  {
   echo ' <link href='. \dash\layout\func::staticmtime('css/siftal-v3.min.css'). ' rel="preload stylesheet" as="style"/>'."\n";
-  // echo ' <link href='. \dash\layout\func::staticmtime('css/magic-fonts-v1.css'). ' rel="preload stylesheet" as="style"/>'."\n";
-  // echo ' <link href='. \dash\layout\func::staticmtime('css/magic-v1.css'). ' rel="stylesheet"/>'."\n";
  }
  echo ' <link href='. \dash\layout\func::staticmtime('css/jibres.min.css'). ' rel="stylesheet"/>'."\n";
 }
