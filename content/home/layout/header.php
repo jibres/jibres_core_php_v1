@@ -24,7 +24,7 @@ else
      <div class="cauto"><?php
 if (\dash\user::id())
 {
-  echo '<a class="master" href="'. \dash\url::sitelang(). '/my">'. T_("Control Center"). '</a>';
+  echo '<a class="master" data-direct href="'. \dash\url::sitelang(). '/my">'. T_("Control Center"). '</a>';
 }
 else
 {
