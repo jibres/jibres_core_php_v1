@@ -31,15 +31,27 @@ class header
       $html .= '</a>';
 
       // empty
-      $html .= '<div class="mx-1 flex-grow flex-shrink1 search">';
+      if(\dash\data::include_m2_search())
       {
-        $html .= '<div class="mx-auto max-w-md">';
-        $html .= '<select class="select22 rounded-lg mx-auto" data-model="html" data-ajax--url="'. \dash\url::here(). '/setting/search/full" data-shortkey-search data-placeholder="'. T_("Search"). '"></select>';
+        $placeHolder = \dash\data::include_m2_searchPlaceHolder();
+        if(!$placeHolder)
+        {
+          $placeHolder = T_("Search");
+        }
+
+        $html .= '<div class="mx-1 flex-grow flex-shrink1 search">';
+        {
+          $html .= '<div class="mx-auto max-w-md">';
+          $html .= '<select class="select22 rounded-lg mx-auto" data-model="html" data-ajax--url="'. \dash\data::include_m2_search(). '" data-shortkey-search data-placeholder="'. $placeHolder. '"></select>';
+          $html .= '</div>';
+        }
         $html .= '</div>';
       }
-      $html .= '</div>';
-      // $html .= '<div class="flex-grow">';
-      // $html .= '</div>';
+      else
+      {
+        $html .= '<div class="flex-grow">';
+        $html .= '</div>';
+      }
 
 
       if(\dash\url::support())

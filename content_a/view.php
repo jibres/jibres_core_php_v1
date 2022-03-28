@@ -38,6 +38,8 @@ class view
 		\dash\upload\size::set_default_file_size();
 
 		\dash\data::include_m2(true);
+		\dash\data::include_m2_search(\dash\url::kingdom(). '/a/setting/search/full');
+		\dash\data::include_m2_searchPlaceHolder(T_('Search'));
 
 		// hide sidebar on accounting
 		switch (\dash\url::module())
