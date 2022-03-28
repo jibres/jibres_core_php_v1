@@ -46,14 +46,15 @@ class budget
 	{
 		$condition =
 		[
-			'title'   => 'string_200',
-			'amount'  => 'price',
-			'date'    => 'date',
-			'time'    => 'time',
-			'user_id' => 'id',
-			'user_code' => 'code',
-			'dblm'    => 'bit',
-			'type'    => ['enum' => ['minus', 'plus']],
+			'title'        => 'string_200',
+			'amount'       => 'price',
+			'date'         => 'date',
+			'time'         => 'time',
+			'user_id'      => 'id',
+			'user_code'    => 'code',
+			'dblm'         => 'bit',
+			'type'         => ['enum' => ['minus', 'plus']],
+			'silent_notif' => 'bit',
 		];
 
 		$require = ['title',  'amount', 'type',];
@@ -145,7 +146,10 @@ class budget
 				'my_for_user_mobile' => \dash\data::dataRowMember_mobile(),
 			];
 
-			\dash\log::set('transaction_addTransactionManualy', $log);
+			if(!$data['silent_notif'])
+			{
+				\dash\log::set('transaction_addTransactionManualy', $log);
+			}
 
 			// \dash\notif::ok(T_("Transaction inserted"));
 
