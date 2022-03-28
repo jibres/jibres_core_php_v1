@@ -151,21 +151,21 @@
     <div class="row">
       <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="<?php echo \dash\url::kingdom(); ?>">
-          <i class="sf-lamp"></i>
+          <i><?php echo \dash\utility\icon::bootstrap('lightbulb'); ?></i>
           <h4><?php echo T_("SEO Optimized"); ?></h4>
           <p><?php echo T_("Billions of searches are conducted online every single day. Many people search for specific products and services with the intent to pay for these things."); ?></p>
         </a>
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="<?php echo \dash\url::kingdom(); ?>">
-          <i class="sf-database"></i>
+          <i><?php echo \dash\utility\icon::bootstrap('server'); ?></i>
           <h4><?php echo T_("Fully Hosted"); ?></h4>
           <p><?php echo T_("We are maintain your store files and data in the cloud. You would not need to setup your own server, we are storing your data for you."); ?></p>
         </a>
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="<?php echo \dash\url::kingdom(); ?>">
-          <i class="sf-unlock-alt"></i>
+          <i><?php echo \dash\utility\icon::bootstrap('unlock-fill'); ?></i>
           <h4><?php echo T_("Free SSL Certificate"); ?></h4>
           <p><?php echo T_("SSL Protection For Anyone."); ?></p><p><?php echo T_("Protect your information, generate trust and improve Search Engine Ranking.") ?></p>
         </a>
@@ -174,21 +174,21 @@
     <div class="row">
       <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="<?php echo \dash\url::kingdom(); ?>">
-          <i class="sf-card"></i>
+          <i><?php echo \dash\utility\icon::bootstrap('credit-card'); ?></i>
           <h4><?php echo T_("Accept Credit Cards"); ?></h4>
           <p><?php echo T_("It's easy to accept various payment options in Jibres, including PayPal, Credit Cards, and other offline methods."); ?></p>
         </a>
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="<?php echo \dash\url::kingdom(); ?>">
-          <i class="sf-server-accept"></i>
+          <i><?php echo \dash\utility\icon::bootstrap('recycle'); ?></i>
           <h4><?php echo T_("Fully API"); ?></h4>
           <p><?php echo T_("API gives you full creative control to add Jibres buying experiences anywhere your customers are, including websites, apps, and social networks."); ?></p>
         </a>
       </div>
       <div class="item c-xs-12 c-sm-12 c-md-4">
         <a href="<?php echo \dash\url::kingdom(); ?>">
-          <i class="sf-heart"></i>
+          <i><?php echo \dash\utility\icon::bootstrap('chat-square-heart'); ?></i>
           <h4><?php echo T_("Premium Support"); ?></h4>
           <p><?php echo T_("With the Most Helpful Humans in the world, You're Never Alone."); ?></p><p><?php echo T_("Rely on our 24/7/365 Human Support.") ?></p>
         </a>
@@ -204,7 +204,7 @@
       <div class="c-xs-0 c-sm-0 c-lg-5"><figure><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/homepage/jibres-app.png" alt='<?php echo T_("Download Jibres App") ?>'></figure></div>
       <div class="c-xs-12 c-sm-12 c-lg-7 text">
         <h2><?php echo T_("Jibres Mobile App"); ?></h2>
-        <p><?php echo T_("No matter where you are, Jibres stays in sync across all of your devices."); ?></p>
+        <p class="leading-loose mb-4"><?php echo T_("No matter where you are, Jibres stays in sync across all of your devices."); ?></p>
 
         <div class="dl">
           <a href="<?php echo \dash\url::kingdom(); ?>/app/android" title='<?php echo T_("Download Jibres App from Google play") ?>' target="_blank" rel="noopener">
