@@ -66,8 +66,8 @@ else
               </li>
               <li>
                 <a class="item f" href="<?php echo \dash\url::api('developers'); ?>/" target="_blank" rel='noopener'>
-                  <div class="key">API <i class="sf-external-link"></i></div>
-                  <div class="go"></div>
+                  <div class="key">API</div>
+                  <div class="go external"></div>
                 </a>
               </li>
             </ul>
@@ -114,8 +114,14 @@ else
               <li class="title"><?php echo T_('Support'); ?></li>
               <li>
                 <a class="item f" href="<?php echo \dash\url::support(); ?>" target="_blank" rel='follow'>
-                <div class="key"><?php echo T_('Support Center'); ?> <i class="sf-external-link"></i></div>
-                <div class="go"></div>
+                <div class="key"><?php echo T_('Support Center'); ?></div>
+                <div class="go external"></div>
+                </a>
+              </li>
+              <li>
+                <a class="item f" href="<?php echo $kingdom; ?>/uptime" target="_blank" rel='nofollow noopener'>
+                <div class="key"><?php echo T_('System Status'); ?></div>
+                <div class="go external"></div>
                 </a>
               </li>
               <li>
@@ -132,12 +138,6 @@ else
                 </a>
               </li>
 <?php }?>
-              <li>
-                <a class="item f" href="<?php echo $kingdom; ?>/uptime" target="_blank" rel='nofollow noopener'>
-                <div class="key"><?php echo T_('System Status'); ?> <i class="sf-external-link"></i></div>
-                <div class="go"></div>
-                </a>
-              </li>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/my/ticket/add?type=feedback">
                 <div class="key"><?php echo T_('Send us Feedback'); ?></div>
