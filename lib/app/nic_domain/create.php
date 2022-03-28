@@ -585,9 +585,10 @@ class create
 
 			$insert_transaction =
 			[
-				'user_id' => $user_id,
-				'title'   => T_("Buy domian :val", ['val' => $domain]),
-				'amount'  => floatval($data['minus_transaction']),
+				'user_id'      => $user_id,
+				'title'        => T_("Buy domian :val", ['val' => $domain]),
+				'amount'       => floatval($data['minus_transaction']),
+				'silent_notif' => true,
 			];
 
 			$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
@@ -698,12 +699,24 @@ class create
 
 			$domain_action_id = \lib\db\nic_domainbilling\insert::new_record($insert_billing);
 
+			\lib\app\nic_credit\get::fetch(true);
+
 			\dash\notif::ok(T_("Domain :domain was registered in your name", ['domain' => $domain]), ['alerty' => true]);
 
-			\dash\log::set('domain_newRegister', ['my_domain' => $domain, 'my_period' => $period_month, 'my_type' => 'register', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice]);
+			$log =
+			[
+				'my_domain'       => $domain,
+				'my_period'       => $period_month,
+				'my_type'         => 'register',
+				'my_giftusage_id' => $gift_usage_id,
+				'my_finalprice'   => $finalprice,
+				'my_nic_credit'   => a(\lib\app\nic_credit\get::last(), 'balance'),
+				'my_user_budget'  => \dash\app\transaction\budget::user($user_id),
+			];
+
+			\dash\log::set('domain_newRegister', $log);
 
 			// fetch nic credit after register domain
-			\lib\app\nic_credit\get::fetch();
 
 			\lib\app\nic_domain\get::force_fetch($domain);
 
