@@ -15,11 +15,11 @@ class header
       $targetLink = ' target="_blank"';
     }
     // btn class
-    $btnClass = 'btn-light transition rounded-lg h-12 flex-none flex items-center';
+    $btnClass = 'btn-light transition rounded-lg overflow-hidden h-12 flex-none flex items-center';
     $btnIconClass = 'text-gray-500';
     if(\dash\data::include_m2() === 'dark')
     {
-      $btnClass = 'btn-dark transition rounded-lg h-12 flex-none flex items-center';
+      $btnClass = 'btn-dark transition rounded-lg overflow-hidden h-12 flex-none flex items-center';
       $btnIconClass = 'text-gray-200';
     }
 
