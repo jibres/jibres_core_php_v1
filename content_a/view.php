@@ -23,7 +23,6 @@ class view
 			\dash\data::include_m2(true);
 		}
 
-		\dash\data::include_adminPanel(true);
 		// use old version of chart until new version is being stable
 
 		\dash\face::site(\lib\store::title());

@@ -6,19 +6,6 @@ class view
 	public static function config()
 	{
 
-
-		// if(\dash\engine\store::inStore())
-		// {
-		// 	// \dash\data::include_m2(true);
-		// 	// \dash\data::userToggleSidebar(false);
-		// 	// \dash\data::include_adminPanel(true);
-		// }
-		// else
-		// {
-		// 	\dash\data::include_adminPanel(true);
-		// }
-
-
 		if(\dash\engine\store::inStore())
 		{
 			$store_title = \lib\store::detail('title');
