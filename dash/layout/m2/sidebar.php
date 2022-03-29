@@ -12,8 +12,15 @@ class sidebar
 	{
 		if(in_array(\dash\url::content(), ['a', 'crm', 'cms', 'site']))
 		{
-			// generate html of sidebar
-			$sidebar_menu = self::business_sidebar_menu();
+			if(\dash\url::content() && !\dash\engine\store::inStore())
+			{
+				$sidebar_menu = self::jibres_sidebar_menu();
+			}
+			else
+			{
+				// generate html of sidebar
+				$sidebar_menu = self::business_sidebar_menu();
+			}
 		}
 		else
 		{
