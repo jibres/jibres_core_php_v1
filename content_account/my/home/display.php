@@ -28,15 +28,15 @@ else
           <div class="flex flex-wrap">
             <div class="grow">
               <h3 class="text-lg font-bold leading-loose"><?php echo T_("Account"); ?></h3>
-              <p class="text-zinc-500 leading-5 text-xs"><?php echo T_("You can enter to your account with username and mobile."); ?></p>
+              <p class="text-zinc-500 leading-loose text-xs"><?php echo T_("You can enter to your account with username and mobile."); ?></p>
             </div>
-            <div class="flex-none order-first">
-              <img class="w-64" src="<?php echo \dash\url::cdn(); ?>/img/account/profile-dashboard.png" alt='<?php echo T_("Profile"); ?>'>
+            <div class="flex-none order-first basis-full lg:basis-auto">
+              <img class="w-64 mx-auto" src="<?php echo \dash\url::cdn(); ?>/img/account/profile-dashboard.png" alt='<?php echo T_("Profile"); ?>'>
             </div>
           </div>
         </div>
 
-        <nav class="items mx-2">
+        <nav class="items insideBox">
           <ul>
             <li>
               <a class="item flex">
@@ -147,7 +147,7 @@ else
               <p class="text-zinc-500 leading-5 text-xs"><?php echo T_("Website, Email and Social Networks"); ?></p>
             </div>
             <div class="cauto s12">
-              <img class="w-64" src="<?php echo \dash\url::cdn(); ?>/img/account/social.svg" alt='<?php echo T_("Social Networks"); ?>'>
+              <img class="w-64 mx-auto" src="<?php echo \dash\url::cdn(); ?>/img/account/social.svg" alt='<?php echo T_("Social Networks"); ?>'>
             </div>
           </div>
         </div>
