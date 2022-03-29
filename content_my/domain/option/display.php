@@ -7,6 +7,7 @@
       <h3><?php echo T_("Domain parking");?></h3>
       <div class="body">
         <p><?php echo T_("With domain parking you can connect all your free domains to one business");?></p>
+        <p><?php echo T_("All domains that you own and their DNS are set to Jibres values and are not currently in use in any business will be connected to this business");?></p>
       </div>
     </div>
   </div>
@@ -25,6 +26,12 @@
         <?php } ?>
     </div>
   </form>
+  <?php if(\dash\language::current() === 'fa') {?>
+    <footer class="txtRa">
+     <a target="_blank" href="https://help.jibres.ir/n/K" class="link-primary block p-1"><?php echo T_("Read more"); ?></a>
+    </footer>
+
+  <?php } //endif ?>
 </section>
 
 
