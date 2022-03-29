@@ -160,7 +160,7 @@ else
             <a class="btn-outline-danger sm" href="<?php echo \dash\url::kingdom(); ?>/enter/delete"  target="_blank"><?php echo T_("Delete my Account"); ?></a>
           </div>
           <div class="cauto os">
-            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/account-delete.png" alt='<?php echo T_("Security Event"); ?>'>
+            <img class="w-24" src="<?php echo \dash\url::cdn(); ?>/img/account/account-delete.png" alt='<?php echo T_("Security Event"); ?>'>
           </div>
         </div>
       </div>

@@ -5,9 +5,9 @@
   <div class="avatar mb-2">
     <a href="<?php echo \dash\url::here(); ?>/my/avatar" class="inline-block">
 <?php if(\dash\user::detail('avatar'))  {?>
-      <img class="box100 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
+      <img class="w-24 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
 <?php }elseif(\dash\user::id()) {?>
-      <img class="box100 rounded-full" src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
+      <img class="w-24 rounded-full" src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
 <?php } // endif ?>
     </a>
   </div>
@@ -29,7 +29,7 @@
           <p><?php echo T_("Basic info, like your name and photo, that you use on our services"); ?></p>
         </div>
         <div class="c3">
-          <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/profile.png" alt='<?php echo T_("profile"); ?>'>
+          <img class="w-24" src="<?php echo \dash\url::cdn(); ?>/img/account/profile.png" alt='<?php echo T_("profile"); ?>'>
         </div>
       </div>
       <hr>
@@ -48,7 +48,7 @@
             <p><?php echo T_("Settings and recommendations to help you keep your account secure"); ?></p>
           </div>
           <div class="c3">
-            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/security.png" alt='<?php echo T_("Security"); ?>'>
+            <img class="w-24" src="<?php echo \dash\url::cdn(); ?>/img/account/security.png" alt='<?php echo T_("Security"); ?>'>
           </div>
         </div>
         <hr>
@@ -69,7 +69,7 @@
             <p><?php echo T_("See the data in your account and choose what activity is saved to personalize your experience"); ?></p>
           </div>
           <div class="c3">
-            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/personalization.png" alt='<?php echo T_("Personalization"); ?>'>
+            <img class="w-24" src="<?php echo \dash\url::cdn(); ?>/img/account/personalization.png" alt='<?php echo T_("Personalization"); ?>'>
           </div>
         </div>
         <hr>
@@ -89,7 +89,7 @@
             <p><?php echo T_("Check your last messages."); ?> <?php echo T_("Maybe some messages need your action!"); ?></p>
           </div>
           <div class="c3">
-            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/notification.png" alt='<?php echo T_("Notifications"); ?>'>
+            <img class="w-24" src="<?php echo \dash\url::cdn(); ?>/img/account/notification.png" alt='<?php echo T_("Notifications"); ?>'>
           </div>
         </div>
         <hr>
@@ -109,7 +109,7 @@
             <p><?php echo T_("Get expert answers and advice on our service or contact our legendary support team"); ?></p>
           </div>
           <div class="c3">
-            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/support.png" alt='<?php echo T_("Support"); ?>'>
+            <img class="w-24" src="<?php echo \dash\url::cdn(); ?>/img/account/support.png" alt='<?php echo T_("Support"); ?>'>
           </div>
         </div>
         <hr>
@@ -129,7 +129,7 @@
             <p><?php echo T_("Check your account balance, charge your account, and bill your invoices!"); ?></p>
           </div>
           <div class="c3">
-            <img class="box100" src="<?php echo \dash\url::cdn(); ?>/img/account/billing.png" alt='<?php echo T_("Billing"); ?>'>
+            <img class="w-24" src="<?php echo \dash\url::cdn(); ?>/img/account/billing.png" alt='<?php echo T_("Billing"); ?>'>
           </div>
         </div>
         <hr>
