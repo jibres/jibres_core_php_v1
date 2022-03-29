@@ -79,10 +79,13 @@ class header
           $account_profile_url = \dash\url::kingdom(). '/profile/detail';
         }
 
-        $html .= '<a class="'. $btnClass. ' w-12 p-3 mx-1 orders" href="'. \dash\url::kingdom(). '/a/order/unprocessed" title="'. T_("Unprocessed Orders"). '">';
-        $html .= \dash\utility\icon::bootstrap('App indicator', $btnIconClass);
-        // $html .= \dash\utility\icon::svg('First Order');
-        $html .= '</a>';
+        if(\dash\engine\store::inStore())
+        {
+          $html .= '<a class="'. $btnClass. ' w-12 p-3 mx-1 orders" href="'. \dash\url::kingdom(). '/a/order/unprocessed" title="'. T_("Unprocessed Orders"). '">';
+          $html .= \dash\utility\icon::bootstrap('App indicator', $btnIconClass);
+          // $html .= \dash\utility\icon::svg('First Order');
+          $html .= '</a>';
+        }
 
         if(!$in_customer_specail_domain)
         {
