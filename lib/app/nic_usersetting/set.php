@@ -43,12 +43,29 @@ class set
 			'postcode'        => 'enstring_20',
 			'address'         => 'enstring_50',
 			'mobile'          => 'mobile',
-			'defaultautorenew' => 'bit',
+			'defaultautorenew'=> 'bit',
+			'domain_parking'  => 'string_100',
 		];
 
 		$data = \dash\cleanse::input($_args, $condition, [], []);
 
+		if($data['domain_parking'])
+		{
+			$load_store_user_id = \lib\db\store\get::get_by_subdomain_user_id($data['domain_parking'], \dash\user::id());
+			if(isset($load_store_user_id['id']))
+			{
+				$data['domain_parking'] = $load_store_user_id['id'];
+			}
+			else
+			{
+				\dash\notif::error(T_("Your are not owner of thsi business"));
+				return false;
+			}
+
+		}
+
 		$args = \dash\cleanse::patch_mode($_args, $data);
+
 
 
 		$load = \lib\db\nic_usersetting\get::my_setting(\dash\user::id());

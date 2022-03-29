@@ -9,6 +9,20 @@ class model
 		$post = [];
 
 
+		if(\dash\request::post('set_domain_parking'))
+		{
+			$post['domain_parking'] = \dash\request::post('domain_parking');
+			$update = \lib\app\nic_usersetting\set::set($post);
+			if(\dash\engine\process::status())
+			{
+				\dash\notif::clean();
+				\dash\notif::ok(T_("Setting of default auto renew saved"));
+			}
+			return;
+		}
+
+
+
 		if(\dash\request::post('set_defaultautorenew'))
 		{
 			$post['defaultautorenew'] = \dash\request::post('defaultautorenew');

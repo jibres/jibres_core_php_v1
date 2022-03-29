@@ -1,3 +1,34 @@
+
+
+
+<section class="f" data-option='domain-park'>
+  <div class="c8 s12">
+    <div class="data">
+      <h3><?php echo T_("Park domain");?></h3>
+      <div class="body">
+        <p><?php echo T_("Park domain");?></p>
+      </div>
+    </div>
+  </div>
+  <form class="c4 s12" method="post" data-patch>
+    <input type="hidden" name="set_domain_parking" value="1">
+    <div class="action">
+        <?php if(\dash\data::listStore()) {?>
+          <select name="domain_parking" class="select22" data-placeholder='<?php echo T_("Choose one business") ?>'>
+            <option value=""></option>
+            <?php foreach (\dash\data::listStore() as $key => $value) {?>
+                <option value="<?php echo a($value, 'subdomain'); ?>" <?php if(floatval(a($value, 'store_id')) === floatval(a(\dash\data::dataRow(), 'domain_parking')) ) { echo "selected";} ?>><?php echo a($value, 'title') ?></option>
+            <?php } ?>
+          </select>
+        <?php }else{ ?>
+          <a href="<?php echo \dash\url::here(). '/business/start' ?>" class="btn-secondary w200"><?php echo T_("Create new business"); ?></a>
+        <?php } ?>
+    </div>
+  </form>
+</section>
+
+
+
 <section class="f" data-option='renew-remain'>
   <div class="c8 s12">
     <div class="data">

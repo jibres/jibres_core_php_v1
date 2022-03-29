@@ -18,6 +18,14 @@ class view
 		$list          = \lib\app\nic_contact\search::my_list();
 
 		\dash\data::contactList($list);
+
+		$myStore = \lib\app\store\mystore::list();
+
+		if(isset($myStore['owner']) && $myStore['owner'])
+		{
+			\dash\data::listStore($myStore['owner']);
+		}
+
 	}
 }
 ?>

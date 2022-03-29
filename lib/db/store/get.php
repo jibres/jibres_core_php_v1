@@ -196,6 +196,31 @@ class get
 		return $result;
 	}
 
+	public static function get_by_subdomain_user_id($_subdomain, $_owner)
+	{
+		$query =
+		"
+			SELECT
+				*
+			FROM
+				store
+			INNER JOIN store_data ON store_data.id = store.id
+			WHERE
+				store.subdomain = :subdomain AND
+				store_data.owner = :owner
+			 LIMIT 1
+		";
+
+		$param =
+		[
+			':subdomain' => $_subdomain,
+			':owner'     => $_owner,
+		];
+
+		$result = \dash\pdo::get($query, $param, null, true, 'master');
+		return $result;
+	}
+
 
 	public static function data($_store_id)
 	{
