@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-03-29 17:46+0430\n"
-"PO-Revision-Date: 2022-03-29 17:49+0430\n"
+"POT-Creation-Date: 2022-03-29 18:20+0430\n"
+"PO-Revision-Date: 2022-03-29 18:24+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -2609,7 +2609,7 @@ msgid "Whois Lookup"
 msgstr "جستجوی‌ دامنه"
 
 #: content/home/layout/footer.php:114 content/home/layout/pwa-footer.php:112
-#: content_account/home/display.php:99 content_account/home/display.php:103
+#: content_account/home/display.php:97 content_account/home/display.php:101
 #: dash/app/log/caller/ticket/ticket_AddNoteTicket.php:13
 #: dash/app/log/caller/ticket/ticket_AddToTicket.php:13
 #: dash/app/log/caller/ticket/ticket_AnswerTicket.php:13
@@ -14290,8 +14290,8 @@ msgstr "شماره تلفن همراه خود که روی آن واتساپ دا
 msgid "Enter your account username in youtube."
 msgstr "نام کاربری شما در یوتیوب."
 
-#: content_a/setting3/home/category.php:26 content_account/home/display.php:42
-#: content_account/home/display.php:46 content_account/security/rememberme/view.php:13
+#: content_a/setting3/home/category.php:26 content_account/home/display.php:45
+#: content_account/home/display.php:49 content_account/security/rememberme/view.php:13
 #: content_account/security/sessions/view.php:13 content_account/security/view.php:10
 #: dash/layout/admin/sidebar/sidebar-account.php:10
 msgid "Security"
@@ -14714,27 +14714,27 @@ msgstr "آواتار شما"
 msgid "Default Avatar"
 msgstr "تصویر پیش‌فرض"
 
-#: content_account/home/display.php:10
+#: content_account/home/display.php:11
 msgid "Welcome"
 msgstr "خوش آمدید"
 
-#: content_account/home/display.php:10 dash/app/address.php:228
+#: content_account/home/display.php:11 dash/app/address.php:228
 #: includes/languages/trans_static_public.php:33 lib/app/discount/get.php:147
 #: lib/app/factor/get.php:350 lib/app/product/property.php:327
 msgid ","
 msgstr "،"
 
-#: content_account/home/display.php:11
+#: content_account/home/display.php:12
 msgid "Manage your info, privacy, and security to make us work better for you"
 msgstr ""
 "اطلاعات کاربری، حریم خصوصی و تنظیمات امنیتی خود را مدیریت کنید تا بتوانیم بهتر به شما "
 "خدمت‌رسانی کنیم"
 
-#: content_account/home/display.php:15
+#: content_account/home/display.php:17
 msgid "Your account is not verify! Please verify your mobile number."
 msgstr "حساب کاربری شما تایید نشده است! لطفا شماره تلفن همراه خود را تایید کنید."
 
-#: content_account/home/display.php:24 content_account/my/address/view.php:16
+#: content_account/home/display.php:27 content_account/my/address/view.php:16
 #: content_account/my/address/view.php:20 content_account/my/avatar/view.php:14
 #: content_account/my/email/view.php:13 content_account/my/home/display.php:16
 #: content_account/my/home/view.php:10 content_account/my/profile/view.php:13
@@ -14745,45 +14745,45 @@ msgstr "حساب کاربری شما تایید نشده است! لطفا شما
 msgid "Personal info"
 msgstr "اطلاعات شخصی"
 
-#: content_account/home/display.php:25 content_account/my/home/display.php:18
+#: content_account/home/display.php:28 content_account/my/home/display.php:18
 msgid "Basic info, like your name and photo, that you use on our services"
 msgstr "اطلاعات اولیه مثل نام و عکس که در سرویس ما از آن‌ها استفاده می‌کنید"
 
-#: content_account/home/display.php:28 includes/languages/trans_static_public.php:208
+#: content_account/home/display.php:31 includes/languages/trans_static_public.php:208
 msgid "profile"
 msgstr "پروفایل"
 
-#: content_account/home/display.php:32
+#: content_account/home/display.php:35
 msgid "Manage profile"
 msgstr "مدیریت پروفایل"
 
-#: content_account/home/display.php:43
+#: content_account/home/display.php:46
 msgid "Settings and recommendations to help you keep your account secure"
 msgstr "تنظیمات و پیشنهاداتی برای کمک به شما تا حساب کاربری خود را ایمن نگه دارید"
 
-#: content_account/home/display.php:50
+#: content_account/home/display.php:53
 msgid "Keep your account protected"
 msgstr "حساب کاربری خود را امن نگه دارید"
 
-#: content_account/home/display.php:61 content_account/home/display.php:65
+#: content_account/home/display.php:62 content_account/home/display.php:66
 #: dash/layout/admin/sidebar/sidebar-account.php:4 lib/app/nic_contact/search.php:100
 msgid "Billing"
 msgstr "مالی"
 
-#: content_account/home/display.php:62
+#: content_account/home/display.php:63
 msgid "Check your account balance, charge your account, and bill your invoices!"
 msgstr ""
 "موجودی حساب کاربری خود را بررسی کنید، حساب کاربری خود را شارژ کنید و صورتحساب‌ها را "
 "بپردازید!"
 
-#: content_account/home/display.php:69
+#: content_account/home/display.php:70
 #: content_love/business/domain/changebusiness/display.php:61
 #: content_love/store/owner/display.php:39 content_my/domain/irnic/edit/display.php:88
 #: content_sudo/home/display.php:164
 msgid "Check"
 msgstr "بررسی"
 
-#: content_account/home/display.php:80 content_account/home/display.php:84
+#: content_account/home/display.php:79 content_account/home/display.php:83
 #: content_account/notification/view.php:9 content_business/profile/display-menu.php:30
 #: content_crm/home/display.php:122 content_crm/notification/datalist/view.php:9
 #: content_crm/notification/datalist/view.php:12 content_crm/notification/home/view.php:9
@@ -14793,24 +14793,24 @@ msgstr "بررسی"
 msgid "Notifications"
 msgstr "اطلاع‌رسانی‌ها"
 
-#: content_account/home/display.php:81
+#: content_account/home/display.php:80
 msgid "Check your last messages."
 msgstr "آخرین پیام‌های خود را بررسی کنید."
 
-#: content_account/home/display.php:81
+#: content_account/home/display.php:80
 msgid "Maybe some messages need your action!"
 msgstr "شاید برخی از آنان نیاز به اقدامی از جانب شما داشته باشند!"
 
-#: content_account/home/display.php:88
+#: content_account/home/display.php:87
 msgid "Read your messages"
 msgstr "پیام‌های خود را بخوانید"
 
-#: content_account/home/display.php:100
+#: content_account/home/display.php:98
 msgid "Get expert answers and advice on our service or contact our legendary support team"
 msgstr ""
 "دریافت پاسخ‌های کاشناسی و مشاوره درباره خدمات و یا تماس با تیم پشتیبانی افسانه‌ای ما"
 
-#: content_account/home/display.php:107 content_business/profile/display-menu.php:61
+#: content_account/home/display.php:105 content_business/profile/display-menu.php:61
 #: content_business/ticket/add/view.php:13 content_business/ticket/home/view.php:11
 #: content_business/ticket/view/view.php:21 content_crm/home/display.php:113
 #: content_crm/member/glance/display.php:52 content_crm/member/glance/display.php:79
@@ -14821,25 +14821,38 @@ msgstr ""
 msgid "Tickets"
 msgstr "تیکت‌ها"
 
-#: content_account/home/display.php:118
-msgid "Logout from your account!"
-msgstr "خروج از حساب کاربری!"
+#: content_account/home/display.php:116
+msgid "Do you wanna go?"
+msgstr "میخوای بری؟"
 
-#: content_account/home/display.php:126 content_business/profile/display-menu.php:68
+#: content_account/home/display.php:117
+msgid ""
+"If you finish, you can log out so that no one else can access your account without "
+"permission."
+msgstr ""
+"اگر کار شما تموم شده از حساب‌کاربری خارج بشید تا کسی نتونه بدون اجازه به حساب شما دسترسی "
+"داشته باشه."
+
+#: content_account/home/display.php:120 includes/languages/trans_static.php:409
+#: includes/languages/trans_static_public.php:206
+msgid "logout"
+msgstr "خروج از سیستم"
+
+#: content_account/home/display.php:124 content_business/profile/display-menu.php:68
 #: content_enter/app/display.php:20 includes/languages/trans_static.php:538
 #: includes/languages/trans_static_public.php:100
 msgid "Logout"
 msgstr "خروج از سیستم"
 
-#: content_account/home/display.php:135
+#: content_account/home/display.php:132
 msgid "Only you can see your settings."
 msgstr "تنها شما می‌توانید تنظیمات خود را ببینید."
 
-#: content_account/home/display.php:135
+#: content_account/home/display.php:132
 msgid "We are committed to protecting your privacy and security."
 msgstr "ما متعهد به محافظت از حریم خصوصی و امنیت شما هستیم."
 
-#: content_account/home/display.php:135 content_account/my/home/display.php:82
+#: content_account/home/display.php:132 content_account/my/home/display.php:82
 msgid "Learn more"
 msgstr "بیشتر بدانید"
 
@@ -31906,10 +31919,6 @@ msgstr "از بین رفته"
 msgid "changed"
 msgstr "تغییر یافته"
 
-#: includes/languages/trans_static.php:409 includes/languages/trans_static_public.php:206
-msgid "logout"
-msgstr "خروج از سیستم"
-
 #: includes/languages/trans_static.php:410 includes/languages/trans_static_public.php:931
 msgid "ok"
 msgstr "باشه"
@@ -43295,6 +43304,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Logout from your account!"
+#~ msgstr "خروج از حساب کاربری!"
 
 #~ msgid ""
 #~ "See the data in your account and choose what activity is saved to personalize your "

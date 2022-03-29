@@ -128,6 +128,6 @@
 
 </div>
 
-<footer class="text-center text-sm m-2 select-none leading-7">
+<footer class="text-center text-sm p-2 overflow-hidden select-none leading-7">
   <div class="alert-secondary"><?php echo T_("Only you can see your settings."); ?> <?php echo T_("We are committed to protecting your privacy and security."); ?> <a class="alert-link" href="<?php echo \dash\url::kingdom(); ?>/privacy" target="_blank"><?php echo T_("Learn more"); ?></a></div>
 </footer>
