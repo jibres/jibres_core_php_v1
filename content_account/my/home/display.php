@@ -107,7 +107,7 @@ else
         </tr>
         <tr>
           <th><?php echo T_("Gender"); ?></th>
-          <td><?php echo T_(ucfirst(\dash\data::dataRow_gender())); ?></td>
+          <td><?php if(\dash\data::dataRow_gender()) { echo T_(ucfirst(\dash\data::dataRow_gender())); } ?></td>
           <td class="collapsing txtRa"><a href="<?php echo \dash\url::this(); ?>/profile" class="block <?php echo $arrow; ?>"></a></td>
         </tr>
         <tr>
@@ -122,7 +122,7 @@ else
         </tr>
         <tr>
           <th><?php echo T_("Bio"); ?></th>
-          <td><?php echo nl2br(\dash\data::dataRow_bio()); ?></td>
+          <td><?php if(\dash\data::dataRow_bio()) { echo nl2br(\dash\data::dataRow_bio()); } ?></td>
           <td class="collapsing txtRa"><a href="<?php echo \dash\url::this(); ?>/profile" class="block <?php echo $arrow; ?>"></a></td>
         </tr>
       </table>
