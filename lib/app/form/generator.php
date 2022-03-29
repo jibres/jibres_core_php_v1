@@ -33,7 +33,7 @@ class generator
 				}
 				if(a($load_form, 'desc'))
 				{
-					self::$html .= '<div class="mB20">'. a($load_form, 'desc'). '</div>';
+					self::$html .= '<div class="mb-4">'. a($load_form, 'desc'). '</div>';
 				}
 
 				\lib\app\form\generator::items($load_items);
@@ -83,7 +83,7 @@ class generator
 						}
 						if(a($load_form, 'desc'))
 						{
-							self::$html .= '<div class="mB20">'. a($load_form, 'desc'). '</div>';
+							self::$html .= '<div class="mb-4">'. a($load_form, 'desc'). '</div>';
 						}
 
 						\lib\app\form\generator::items($load_items);
@@ -141,7 +141,7 @@ class generator
 						}
 						if(a($load_form, 'desc'))
 						{
-							self::$html .= '<div class="mB20">'. a($load_form, 'desc'). '</div>';
+							self::$html .= '<div class="mb-4">'. a($load_form, 'desc'). '</div>';
 						}
 
 						\lib\app\form\generator::items($load_items);

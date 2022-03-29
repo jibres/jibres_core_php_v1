@@ -12,12 +12,12 @@ $myUrlStatic = \dash\url::cdn();
       </div>
 
       <div class="standardPNG-icon fs08" data-kerkere-content='hide'>
-        <div class="mB20">
+        <div class="mb-4">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon/svg/Jibres-Logo-icon.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon/pdf/Jibres-Logo-icon.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon/ai/Jibres-Logo-icon.ai"><?php echo T_("Jibres Logo"); ?> - AI</a>
         </div>
-        <div class="mB20">
+        <div class="mb-4">
           <hr>
           <h5 class="fs10">PNG</h5>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon/png/Jibres-Logo-icon-32.png"><span class="hide">Jibres Logo </span>32px</a>
@@ -64,12 +64,12 @@ $myUrlStatic = \dash\url::cdn();
       </div>
 
       <div class="standardBlackPNG-icon fs08" data-kerkere-content='hide'>
-        <div class="mB20">
+        <div class="mb-4">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-black/svg/Jibres-Logo-icon-black.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-black/pdf/Jibres-Logo-icon-black.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-black/ai/Jibres-Logo-icon-black.ai"><?php echo T_("Jibres Logo"); ?> - AI</a>
         </div>
-        <div class="mB20">
+        <div class="mb-4">
           <hr>
           <h5 class="fs10">PNG</h5>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-black/png/Jibres-Logo-icon-black-32.png"><span class="hide">Jibres Logo </span>32px</a>
@@ -116,7 +116,7 @@ $myUrlStatic = \dash\url::cdn();
       </div>
 
       <div class="standardWhitePNG-icon fs08" data-kerkere-content='hide'>
-        <div class="mB20">
+        <div class="mb-4">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-white/svg/Jibres-Logo-icon-white.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-white/pdf/Jibres-Logo-icon-white.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/icon-white/ai/Jibres-Logo-icon-white.ai"><?php echo T_("Jibres Logo"); ?> - AI</a>

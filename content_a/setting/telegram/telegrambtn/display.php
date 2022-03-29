@@ -7,7 +7,7 @@
       <div class="body">
         <p><?php echo T_("When posting on the Telegram channel, you can put a few buttons below it, each of which is connected to one of your social networks. Here you can set which buttons you want to be under your Telegram post.");?></p>
 
-        <a class="btn-link mB20" href="<?php echo \dash\url::this() ?>/social"><?php echo T_("Config Social networks id") ?></a>
+        <a class="btn-link mb-4" href="<?php echo \dash\url::this() ?>/social"><?php echo T_("Config Social networks id") ?></a>
 
           <div class="action f">
           <?php $social = \lib\store::social(); if(!is_array($social)) { $social = []; } ?>

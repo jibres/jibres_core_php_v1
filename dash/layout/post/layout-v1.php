@@ -27,7 +27,7 @@ require_once('gallery-box.php');
 
 if(\dash\data::dataRow_datemodified())
 {
-  echo '<div class="msg simple f mT20">';
+  echo '<div class="msg simple f mt-4">';
   echo '<div class="c">';
   if(\dash\data::dataRow_showdate() === 'visible' || a($cmsSetting, 'defaultshowdate') === 'visible')
   {

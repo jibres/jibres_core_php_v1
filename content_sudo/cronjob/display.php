@@ -41,7 +41,7 @@
       <div class="msg success">Is running</div>
       <div class="btn danger" data-confirm data-data='{"jibres_while_true" : "force_stop"}'>Stop while true</div>
     <?php } //endif ?>
-    <div class="msg warn mT20">
+    <div class="msg warn mt-4">
       Current status
 <pre>
 <?php echo \lib\app\loop\run::status(); ?>

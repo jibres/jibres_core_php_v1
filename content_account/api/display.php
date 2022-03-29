@@ -2,7 +2,7 @@
   <div class="box">
     <div class="body">
       <a target="_blank" href="https://jibres.<?php echo \dash\url::tld(); ?>/api" class="btn block outline"><?php echo \dash\data::myTitle(); ?></a>
-      <div class="alert-danger mT20">
+      <div class="alert-danger mt-4">
         <div><?php echo T_("Protect this key like a password!"); ?></div>
         <div><?php echo T_("By this key you can access to your account"); ?></div>
       </div>

@@ -7,7 +7,7 @@
 			<div class="pad">
 				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/asanpardasht-logo.svg" alt='Asanpardasht'>
 				<br>
-				<div class="switch1 mT20">
+				<div class="switch1 mt-4">
 				 <input type="checkbox" name="asanpardakht" id="asanpardakht" <?php if(a($bank, 'asanpardakht', 'status')) { echo 'checked';} ?> >
 				 <label for="asanpardakht"></label>
 				 <label for="asanpardakht"><?php echo T_("Enable asanpardakht payment"); ?></label>

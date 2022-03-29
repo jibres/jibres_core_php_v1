@@ -6,7 +6,7 @@
 		<div class="box">
 			<div class="pad">
 				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/idpay-logo.svg" alt='IDPay'>
-				<div class="switch1 mT20">
+				<div class="switch1 mt-4">
 				 <input type="checkbox" name="idpay" id="idpay" <?php if(a($bank, 'idpay', 'status')) { echo 'checked';} ?> >
 				 <label for="idpay"></label>
 				 <label for="idpay"><?php echo T_("Enable idpay payment"); ?></label>

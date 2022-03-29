@@ -47,7 +47,7 @@
       <div class="pad">
         <div class="font-bold mB10"><?php echo T_("Filter") ?></div>
         <form method="get" action="<?php echo \dash\url::that(); ?>">
-          <div class="searchBox mB20">
+          <div class="searchBox mb-4">
             <div class="input search <?php if(\dash\validate::search_string()) { echo 'apply'; }?>">
               <input type="search" name="q" placeholder='<?php echo T_("Search products"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>"  autocomplete='off' >
               <button class="addon btn-light3 s0"><i class="sf-search"></i></button>

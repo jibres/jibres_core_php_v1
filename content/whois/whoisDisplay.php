@@ -4,7 +4,7 @@ if(\dash\data::whoisResult())
 ?>
 
 
-<div class="f justify-center mT20">
+<div class="f justify-center mt-4">
 
 	<div class="c12 s12 mT10">
 

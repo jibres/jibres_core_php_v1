@@ -132,7 +132,7 @@
         <header><h2><?php echo T_("Add comment to this answer") ?></h2></header>
         <div class="body padLess">
           <input type="hidden" name="formcomment" value="formcomment">
-          <div class="mB20">
+          <div class="mb-4">
             <textarea id="comment" name="comment" class="txt" rows="3"></textarea>
           </div>
           <div class="row">

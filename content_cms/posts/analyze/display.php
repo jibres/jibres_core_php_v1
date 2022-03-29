@@ -23,7 +23,7 @@
 <?php if(\dash\data::seoAnalyze()) { $seoAnalyze = \dash\data::seoAnalyze(); ?>
 <div class="box">
   <div class="pad">
-    <div class="seoRank text-center mT20" data-size='normal'>
+    <div class="seoRank text-center mt-4" data-size='normal'>
       <?php echo a($seoAnalyze, 'star_html') ?>
     </div>
     <div class="text-center">

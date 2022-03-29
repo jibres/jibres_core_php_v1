@@ -13,7 +13,7 @@
       </div>
       <form method="post" autocomplete="off">
           <?php echo \dash\csrf::html(); ?>
-          <div class="switch1 mT20">
+          <div class="switch1 mt-4">
            <input type="checkbox" name="sidebar" id="isidebar" <?php if(\dash\user::detail('sidebar')) { echo "checked"; }?>>
            <label for="isidebar"></label>
            <label for="isidebar"><?php echo T_("Are your need side bar?"); ?></label>

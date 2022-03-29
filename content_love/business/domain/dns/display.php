@@ -42,7 +42,7 @@
           </div>
 
           <div class="c-xs-auto c-sm-auto">
-            <div class="check1 mT20">
+            <div class="check1 mt-4">
               <input type="checkbox" name="cloud" value="1" id="cloud" checked>
               <label for="cloud"><?php echo T_("Cloud") ?></label>
             </div>

@@ -17,7 +17,7 @@
         </div>
 
         <label><?php echo T_("Tag"); ?></label>
-        <select name="tag[]" id="tag" class="select22 mB20" data-model="tag" multiple="multiple">
+        <select name="tag[]" id="tag" class="select22 mb-4" data-model="tag" multiple="multiple">
           <?php foreach (\dash\data::listChangelogTag() as $key => $value) {?>
             <option value="<?php echo $value; ?>" <?php if(is_array(\dash\data::currentTag()) && in_array($value, \dash\data::currentTag())) {echo 'selected'; } ?>><?php echo $value; ?></option>
           <?php } //endfor ?>

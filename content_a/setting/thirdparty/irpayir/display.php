@@ -7,7 +7,7 @@
 			<div class="pad">
 				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payir.png" alt='Payir'>
 
-				<div class="switch1 mT20">
+				<div class="switch1 mt-4">
 				 <input type="checkbox" name="payir" id="payir" <?php if(a($bank, 'payir', 'status')) { echo 'checked';} ?> >
 				 <label for="payir"></label>
 				 <label for="payir"><?php echo T_("Enable payir payment"); ?></label>

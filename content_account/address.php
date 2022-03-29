@@ -53,13 +53,13 @@
       </div>
     </div>
 
-    <div class="switch1 mT20">
+    <div class="switch1 mt-4">
      <input type="checkbox" name="company" id="company" <?php if(\dash\data::dataRowAddress_company())  { echo 'checked'; } ?>>
      <label for="company" data-on='<?php echo T_("Yes"); ?>' data-off='<?php echo T_("No"); ?>'></label>
      <label for="company" ><?php echo T_("Is this a company's address?"); ?></label>
     </div>
 
-     <div class="switch1 mB20 mT20">
+     <div class="switch1 mB20 mt-4">
      <input type="checkbox" name="isdefault" id="isdefault" <?php if(\dash\data::dataRowAddress_isdefault())  { echo 'checked'; } ?>>
      <label for="isdefault" data-on='<?php echo T_("Yes"); ?>' data-off='<?php echo T_("No"); ?>'></label>
      <label for="isdefault" ><?php echo T_("Set as default address?"); ?></label>

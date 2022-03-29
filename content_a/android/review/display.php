@@ -61,7 +61,7 @@ else
 
 
 
-    <div class="mB20">
+    <div class="mb-4">
 
 
       <a href="<?php echo \dash\url::this(). '/logo'; ?>" class="checklist fc-black" <?php if(\dash\data::appDetail_logo()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Application logo"); ?></a>

@@ -74,7 +74,7 @@
     <div class="box">
       <div class="body">
         <p><?php echo T_("The process of connecting a domain to a business may take several minutes") ?></p>
-        <div class="mB20">
+        <div class="mb-4">
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_checkdns()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("DNS resolved"); ?></a>
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_cdnpanel()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("Add to CDN panel"); ?></a>
           <a class="checklist fc-black" <?php if(\dash\data::domainDetail_httpsrequest()) { echo 'data-okay';}else{echo 'data-fail';} ?>><?php echo T_("HTTPS Request"); ?></a>

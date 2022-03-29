@@ -1,6 +1,6 @@
 <?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
 
-<div class="f fs14 mT10 mB20">
+<div class="f fs14 mT10 mb-4">
  <div class="c6 s12 pRa5">
 
   <div class="panel mB10">

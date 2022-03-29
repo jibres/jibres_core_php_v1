@@ -23,7 +23,7 @@
               <input type="text" name="domain" placeholder='<?php echo T_("Domain"); ?>' value="<?php echo \dash\request::get('domain'); ?>" maxlength=80>
             </div>
 
-            <div class="input ltr mB20">
+            <div class="input ltr mb-4">
               <input type="text" name="pin" placeholder='<?php echo T_("Transfer code"); ?>' >
             </div>
             <?php if(\dash\data::internationalDomain()) {?>
@@ -39,7 +39,7 @@
               <div class="input ltr">
                 <input type="text" name="irnicid-new" id="irnicid" maxlength="15" value="<?php echo \dash\data::myContactListDefault(); ?>">
               </div>
-              <div class="check1 mT20">
+              <div class="check1 mt-4">
                 <input type="checkbox" id="sChk1" name="agree">
                 <label for="sChk1"><?php
                 echo T_("By clicking Register, you are indicating that you have read the :nic and agree to the :terms.",

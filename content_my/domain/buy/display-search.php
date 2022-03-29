@@ -49,7 +49,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
 <div class="row ltr">
   <div class="c-xs-12 c-sm-6 <?php if(\dash\url::content() === 'my') { echo 'c-md-4'; } ?>">
   <?php if(isset($result['ir_list']) && is_array($result['ir_list'])){?>
-    <h5 class="font-bold mT20"><?php echo T_("Dot IR TLD"); ?></h5>
+    <h5 class="font-bold mt-4"><?php echo T_("Dot IR TLD"); ?></h5>
     <?php if($result['ir_list']) {?>
     <ul class="items">
     <?php foreach ($result['ir_list'] as $key => $value) {?>
@@ -93,7 +93,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
   </div>
    <div class="c-xs-12 c-sm-6 <?php if(\dash\url::content() === 'my') { echo 'c-md-4'; } ?>">
   <?php if(isset($result['com_list']) && is_array($result['com_list'])){?>
-    <h5 class="font-bold mT20"><?php echo T_("International TLD"); ?></h5>
+    <h5 class="font-bold mt-4"><?php echo T_("International TLD"); ?></h5>
     <ul class="items">
     <?php foreach ($result['com_list'] as $key => $value) {?>
      <li>
@@ -134,7 +134,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
   <?php if(\dash\url::content() === 'my') {?>
    <div class="c-xs-12 c-sm-6 <?php if(\dash\url::content() === 'my') { echo 'c-md-4'; } ?>">
   <?php if(\dash\data::domainSuggestion()) {?>
-    <h5 class="font-bold mT20"><?php echo T_("Our short suggestion"); ?></h5>
+    <h5 class="font-bold mt-4"><?php echo T_("Our short suggestion"); ?></h5>
     <ul class="items">
     <?php foreach (\dash\data::domainSuggestion() as $key => $value) {?>
      <li>

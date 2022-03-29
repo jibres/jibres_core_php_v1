@@ -39,7 +39,7 @@
         <header><h2><?php echo T_("Add comment to this order") ?></h2></header>
         <div class="body padLess">
           <input type="hidden" name="orderaction" value="comment">
-          <div class="mB20">
+          <div class="mb-4">
             <textarea rows="3" data-rows-min="3" data-autoResize id="desc" name="cdesc" class="txt" rows="3" placeholder="<?php echo T_("Anything about this order") ?>"></textarea>
           </div>
           <div class="fc-mute text-sm mB10">

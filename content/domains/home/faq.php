@@ -1,5 +1,5 @@
 
- <div class="avand impact mT20">
+ <div class="avand impact mt-4">
   <section class="faq">
    <h3><?php echo T_('Frequently Asked Questions'); ?></h3>
 

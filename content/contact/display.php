@@ -61,7 +61,7 @@ if (\dash\language::current() === 'fa')
     <div class="c8 s12 pRa10">
      <address class="vcard2">
       <div class="author author_name hide"><span class="fn"><?php echo T_("jibres"); ?></span></div>
-      <div class="adr mB20">
+      <div class="adr mb-4">
         <div class="compact country-name"><?php echo T_("Iran"); ?></div>
         <div class="compact locality"><?php echo T_("Qom"); ?></div>
         <div class="compact street-address"><?php echo T_("1st alley, Haft-e-tir St"); ?></div>

@@ -98,7 +98,7 @@ $country_list =
 
 	</div>
 </div>
-<div class="alert-danger mT20">
+<div class="alert-danger mt-4">
 	<p><?php echo T_("Please enter the email you have access to. After registering any international domain, you must confirm the domain registration process by this image. Please be careful") ?></p>
 	<label for="iemail">Email</label>
 	<div class="input ltr">

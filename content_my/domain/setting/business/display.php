@@ -21,7 +21,7 @@
     <?php } //endif ?>
   <?php }else{ ?>
     <?php if(\dash\data::myBusinessList()) {?>
-      <h5 class="font-bold mT20"><?php echo T_("To create your website You can add domain to your business or create new business"); ?></h5>
+      <h5 class="font-bold mt-4"><?php echo T_("To create your website You can add domain to your business or create new business"); ?></h5>
       <nav class="items">
         <ul>
           <?php foreach (\dash\data::myBusinessList() as $key => $value) {?>

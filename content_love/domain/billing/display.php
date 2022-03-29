@@ -78,7 +78,7 @@ else
 
 
 <?php function htmlTable() {?>
-<div class="fs14 mT20">
+<div class="fs14 mt-4">
 
 
     <?php if(\dash\data::dataTable()) {?>

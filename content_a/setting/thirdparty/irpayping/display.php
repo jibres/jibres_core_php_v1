@@ -7,7 +7,7 @@
 				<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/payping-banner.jpg" alt='PayPing'>
 			<div class="pad">
 
-				<div class="switch1 mT20">
+				<div class="switch1 mt-4">
 				 <input type="checkbox" name="payping" id="payping" <?php if(a($bank, 'payping', 'status')) { echo 'checked';} ?> >
 				 <label for="payping"></label>
 				 <label for="payping"><?php echo T_("Enable payping payment"); ?></label>

@@ -56,7 +56,7 @@ if(!is_array($formItems))
 
 				<div class="body" data-jform>
 					<?php if(\dash\data::formDetail_inquirymsg()) {?>
-						<div class="mB20"><?php echo \dash\data::formDetail_inquirymsg() ?></div>
+						<div class="mb-4"><?php echo \dash\data::formDetail_inquirymsg() ?></div>
 					<?php } // endif ?>
 					<?php \lib\app\form\inquiry::items(\dash\data::formDetail(), $formItems);?>
 				</div>

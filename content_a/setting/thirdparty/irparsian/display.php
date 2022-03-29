@@ -7,7 +7,7 @@
 			<div class="pad">
 				<img class="block mx-auto" src="<?php echo \dash\url::cdn(); ?>/img/thirdparty/bank/parsian.png" alt='Parsian'>
 
-				<div class="switch1 mT20">
+				<div class="switch1 mt-4">
 				 <input type="checkbox" name="parsian" id="parsian" <?php if(a($bank, 'parsian', 'status')) { echo 'checked';} ?> >
 				 <label for="parsian"></label>
 				 <label for="parsian"><?php echo T_("Enable parsian payment"); ?></label>

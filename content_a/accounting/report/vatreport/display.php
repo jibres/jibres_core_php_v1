@@ -50,7 +50,7 @@ if(!$thisQurarter)
 			}
 			?>
 			<?php if(!$thisQurarter) {?><hr><h2><?php echo T_("Quarter $key") ?></h2><?php } //endif ?>
-			<div class="mA20">
+			<div class="m-4">
 				<h5><?php echo T_("Table #1. Sale product report and service") ?></h5>
 				<table class="tbl1 v1 minimal">
 					<thead>
@@ -94,7 +94,7 @@ if(!$thisQurarter)
 					</tbody>
 				</table>
 			</div>
-			<div class="mA20">
+			<div class="m-4">
 				<h5><?php echo T_("Table #2. Buy product report and service") ?></h5>
 				<table class="tbl1 v1 minimal">
 					<thead>
@@ -147,7 +147,7 @@ if(!$thisQurarter)
 					</tbody>
 				</table>
 			</div>
-			<div class="mA20">
+			<div class="m-4">
 				<h5><?php echo T_("Table #3. Calculate remain vat") ?></h5>
 				<table class="tbl1 v1 minimal">
 					<thead>
@@ -182,7 +182,7 @@ if(!$thisQurarter)
 					</tbody>
 				</table>
 			</div>
-			<div class="mA20">
+			<div class="m-4">
 				<h5><?php echo T_("B. Calculate remain vat") ?></h5>
 				<table class="tbl1 v1 minimal">
 					<thead>
@@ -223,7 +223,7 @@ if(!$thisQurarter)
 					</tbody>
 				</table>
 			</div>
-			<div class="mA20">
+			<div class="m-4">
 
 				<?php
 				$vatsetting = \dash\data::dataRow_vatsetting();

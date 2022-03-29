@@ -8,7 +8,7 @@
 			<div class="box">
 				<div class="pad">
 					<p><?php echo T_("The query feature allows you to inform the recipient of your result or response by referring to the form and entering your information.") ?></p>
-					<div class="switch1 mB20">
+					<div class="switch1 mb-4">
 						<input type="checkbox" name="inquiry" id="inquiry" <?php if(\dash\data::dataRow_inquiry()){ echo 'checked'; } ?>>
 						<label for="inquiry"></label>
 						<label for="inquiry"><?php echo T_("Enable inquiry") ?></label>

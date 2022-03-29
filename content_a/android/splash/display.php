@@ -4,7 +4,7 @@
       <form method="post" autocomplete="off" class="box impact">
         <header><h2><?php echo T_("Application Splash setting"); ?></h2></header>
         <div class="body">
-          <div class="colors mB20">
+          <div class="colors mb-4">
 <?php foreach (\dash\data::themeColor() as $key => $value) {?>
             <div class="radio3 colored">
               <input type="radio" name="theme" value="<?php echo a($value, 'start').'_'. a($value, 'end'). '_'. a($value, 'text_color'). '_'. a($value, 'meta_color'); ?>" <?php if(\dash\data::splashSaved_key() == a($value, 'key')) { echo 'checked';} ?>  id="<?php echo 'splash_'. $key; ?>">

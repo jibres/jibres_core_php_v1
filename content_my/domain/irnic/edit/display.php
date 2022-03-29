@@ -51,7 +51,7 @@
 					 if(\dash\data::dataRow_address()) 			{ echo '<li>'. 'Address '		. '<b>' .  \dash\data::dataRow_address() 		. '</b></li>'; }
 					?>
 				</ul>
-				<div class="f mT20">
+				<div class="f mt-4">
 					<div class="c">
 						<div class="ibtn wide">
 							<?php echo '<span>'.T_("Holder"). '</span>'; if(\dash\data::dataRow_holder()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?>
@@ -74,7 +74,7 @@
 					</div>
 				</div>
 
-				<p class="mT20">
+				<p class="mt-4">
 					<?php echo T_("If you update your contact detail in nic.ir website") ?>
 					<br>
 					<?php echo T_("You can Check data from IRNIC server and update contact"); ?>

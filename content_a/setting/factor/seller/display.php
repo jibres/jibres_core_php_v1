@@ -4,7 +4,7 @@
 		<div class="box">
 			<div class="pad">
 				<p><?php echo T_("If you want to issue an official invoice, complete your legal information."); ?> <?php echo T_("It's totaly optional!"); ?></p>
-				<div class="row mB20">
+				<div class="row mb-4">
 					<div class="c-xs-12 c-sm-6">
 						<div class="radio3">
 							<input type="radio" name="seller_type" value="real" id="accounttypereal" <?php if(a($datRow, 'seller_type') === 'real') { echo 'checked'; } ?>>

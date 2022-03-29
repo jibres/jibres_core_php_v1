@@ -7,19 +7,19 @@
  	<div class="f">
  		<div class="c s12 pA5">
  			<a href="<?php echo \dash\url::kingdom();?>/values">
- 				<img class="block mB20" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-values-2.jpg" alt="<?php echo T_('Jibres Values'); ?>">
+ 				<img class="block mb-4" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-values-2.jpg" alt="<?php echo T_('Jibres Values'); ?>">
  				<h2 class="mB0"><?php echo T_('Jibres Values'); ?></h2>
  			</a>
  		</div>
  		<div class="c s12 pA5">
  			<a href="<?php echo \dash\url::kingdom();?>/mission">
- 				<img class="block mB20" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-mission-2.jpg" alt="<?php echo T_('Jibres Mission'); ?>">
+ 				<img class="block mb-4" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-mission-2.jpg" alt="<?php echo T_('Jibres Mission'); ?>">
  				<h2 class="mB0"><?php echo T_('Jibres Mission'); ?></h2>
  			</a>
  		</div>
  		<div class="c s12 pA5">
  			<a href="<?php echo \dash\url::kingdom();?>/vision">
- 				<img class="block mB20" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-vision-2.jpg" alt="<?php echo T_('Jibres Vision'); ?>">
+ 				<img class="block mb-4" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-vision-2.jpg" alt="<?php echo T_('Jibres Vision'); ?>">
  				<h2 class="mB0"><?php echo T_('Jibres Vision'); ?></h2>
  			</a>
  		</div>

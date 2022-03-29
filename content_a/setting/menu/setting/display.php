@@ -28,7 +28,7 @@
               <a href="<?php echo \dash\url::this(). a($value, 'link'); ?>" class="badge pA20 fs11"><?php echo a($value, 'title') ?></a>
             <?php } //endforeach ?>
           <?php }else{ ?>
-            <p class="mT20">
+            <p class="mt-4">
               <?php echo T_("This menu not use anywhere. You can remove it") ?>
             </p>
           <?php }//endif ?>

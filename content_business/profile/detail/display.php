@@ -40,7 +40,7 @@
 						</select>
 
 
-						<div class="txtRa mT20">
+						<div class="txtRa mt-4">
 							<button class="btn-success"><?php echo T_("Save"); ?></button>
 						</div>
 

@@ -15,13 +15,13 @@
         <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="dateexpire" value="<?php echo \dash\data::dataRow_dateexpire_raw(); ?>" id="dateexpire" value="<?php echo \dash\request::get('date'); ?>" autocomplete='off'>
         </div>
 
-        <div class="switch1 mB20">
+        <div class="switch1 mb-4">
          <input type="checkbox" name="physical" id="physical"  <?php if(\dash\data::dataRow_physical()) { echo 'checked'; } ?> >
          <label for="physical" data-on="<?php echo T_("YES") ?>" data-off="<?php echo T_("NO") ?>"></label>
          <label for="physical"><?php echo T_("Physical card?"); ?></label>
         </div>
 
-        <div class="switch1 mB20">
+        <div class="switch1 mb-4">
          <input type="checkbox" name="chap" id="chap"  <?php if(\dash\data::dataRow_chap()) { echo 'checked'; } ?> >
          <label for="chap" data-on="<?php echo T_("YES") ?>" data-off="<?php echo T_("NO") ?>"></label>
          <label for="chap"><?php echo T_("Are you want to print this gift card?"); ?></label>

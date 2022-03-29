@@ -18,7 +18,7 @@
 </div>
 
 
-<div class="avand-md zero mT20">
+<div class="avand-md zero mt-4">
   <h6><?php echo T_("Top post SEO rank") ?></h6>
   <nav class="items">
     <ul>

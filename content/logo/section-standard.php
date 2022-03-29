@@ -13,12 +13,12 @@ $myUrlStatic = \dash\url::cdn();
       </div>
 
       <div class="standardPNG fs08" data-kerkere-content='hide'>
-        <div class="mB20">
+        <div class="mb-4">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en/svg/Jibres-Logo-en.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en/pdf/Jibres-Logo-en.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en/ai/Jibres-Logo-en.ai"><?php echo T_("Jibres Logo"); ?> - AI</a>
         </div>
-        <div class="mB20">
+        <div class="mb-4">
           <hr>
           <h5 class="fs10">PNG</h5>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en/png/Jibres-Logo-en-96.png"><span class="hide">Jibres Logo </span>96px</a>
@@ -61,12 +61,12 @@ $myUrlStatic = \dash\url::cdn();
       </div>
 
       <div class="standardBlackPNG fs08" data-kerkere-content='hide'>
-        <div class="mB20">
+        <div class="mb-4">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-black/svg/Jibres-Logo-en-black.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-black/pdf/Jibres-Logo-en-black.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-black/ai/Jibres-Logo-en-black.ai"><?php echo T_("Jibres Logo"); ?> - AI</a>
         </div>
-        <div class="mB20">
+        <div class="mb-4">
           <hr>
           <h5 class="fs10">PNG</h5>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-black/png/Jibres-Logo-en-black-96.png"><span class="hide">Jibres Logo </span>96px</a>
@@ -109,7 +109,7 @@ $myUrlStatic = \dash\url::cdn();
       </div>
 
       <div class="standardWhitePNG fs08" data-kerkere-content='hide'>
-        <div class="mB20">
+        <div class="mb-4">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-white/svg/Jibres-Logo-en-white.svg"><?php echo T_("Jibres Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-white/pdf/Jibres-Logo-en-white.pdf"><?php echo T_("Jibres Logo"); ?> - PDF</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/en-white/ai/Jibres-Logo-en-white.ai"><?php echo T_("Jibres Logo"); ?> - AI</a>
@@ -146,12 +146,12 @@ if(\dash\language::current() === 'fa')
       </div>
 
       <div class="standardFaPNG fs08" data-kerkere-content='hide'>
-        <div class="mB20">
+        <div class="mb-4">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa/svg/Jibres-Logo-fa.svg"><?php echo T_("Jibres Persian Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa/pdf/Jibres-Logo-fa.pdf"><?php echo T_("Jibres Persian Logo"); ?> - PDF</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa/ai/Jibres-Logo-fa.ai"><?php echo T_("Jibres Persian Logo"); ?> - AI</a>
         </div>
-        <div class="mB20">
+        <div class="mb-4">
           <hr>
           <h5 class="fs10">PNG</h5>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa/png/Jibres-Logo-fa-96.png"><span class="hide">Jibres Persian Logo </span>96px</a>
@@ -194,12 +194,12 @@ if(\dash\language::current() === 'fa')
       </div>
 
       <div class="standardFaBlackPNG fs08" data-kerkere-content='hide'>
-        <div class="mB20">
+        <div class="mb-4">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-black/svg/Jibres-Logo-fa-black.svg"><?php echo T_("Jibres Persian Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-black/pdf/Jibres-Logo-fa-black.pdf"><?php echo T_("Jibres Persian Logo"); ?> - PDF</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-black/ai/Jibres-Logo-fa-black.ai"><?php echo T_("Jibres Persian Logo"); ?> - AI</a>
         </div>
-        <div class="mB20">
+        <div class="mb-4">
           <hr>
           <h5 class="fs10">PNG</h5>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-black/png/Jibres-Logo-fa-black-96.png"><span class="hide">Jibres Persian Logo </span>96px</a>
@@ -242,7 +242,7 @@ if(\dash\language::current() === 'fa')
       </div>
 
       <div class="standardFaWhitePNG fs08" data-kerkere-content='hide'>
-        <div class="mB20">
+        <div class="mb-4">
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-white/svg/Jibres-Logo-fa-white.svg"><?php echo T_("Jibres Persian Logo"); ?> - SVG</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-white/pdf/Jibres-Logo-fa-white.pdf"><?php echo T_("Jibres Persian Logo"); ?> - PDF</a>
           <a target="_blank" class="btn mA2" href="<?php echo $myUrlStatic; ?>/logo/fa-white/ai/Jibres-Logo-fa-white.ai"><?php echo T_("Jibres Persian Logo"); ?> - AI</a>

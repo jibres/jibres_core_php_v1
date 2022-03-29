@@ -20,7 +20,7 @@ else
 </div>
 
 <div class="fs14">
-  <section class="mB20">
+  <section class="mb-4">
 
 
     <div class="panel">
@@ -59,7 +59,7 @@ else
 
   </section>
 
-  <section class="mB20">
+  <section class="mb-4">
 
     <div class="panel">
       <div class="body pad">
@@ -89,7 +89,7 @@ else
 
   </section>
 
-  <section class="mB20">
+  <section class="mb-4">
 
     <div class="panel">
       <div class="body pad">
@@ -109,7 +109,7 @@ else
 
   </section>
 
-  <section class="mB20">
+  <section class="mb-4">
 
     <div class="panel">
       <div class="body pad">
@@ -127,7 +127,7 @@ else
 
   </section>
 
-  <section class="mB20">
+  <section class="mb-4">
 
     <div class="panel">
       <div class="body pad">
@@ -149,7 +149,7 @@ else
   </section>
 
 
-  <section class="mB20">
+  <section class="mb-4">
 
     <div class="panel">
       <div class="body pad">

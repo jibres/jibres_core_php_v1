@@ -117,7 +117,7 @@
 
 
 
-     <div class="f mT20">
+     <div class="f mt-4">
       <div class="c6 s12">
        <label for="ns1"><?php echo T_("DNS #1"); ?></label>
        <div class="input ltr">
@@ -160,7 +160,7 @@
 
 
 
-     <div class="check1 mT20">
+     <div class="check1 mt-4">
       <input type="checkbox" id="sChk1" name="agree" checked>
       <label for="sChk1"><?php
       echo T_("By clicking Register, you are indicating that you have read the :nic and agree to the :terms.",

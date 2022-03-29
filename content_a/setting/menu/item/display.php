@@ -94,7 +94,7 @@ $addChildMode = \dash\data::addChildMode();
               <option value="<?php echo $key ?>" <?php if(\dash\data::dataRow_socialnetwork() === $key) {echo 'selected';} ?>><?php echo a($value, 'title'); ?></option>
             <?php } //endfor ?>
           </select>
-          <div class="msg mT20">
+          <div class="msg mt-4">
             <p>
               <?php echo T_("Only the networks you have set up are displayed") ?>
               <br>

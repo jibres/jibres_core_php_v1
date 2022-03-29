@@ -73,7 +73,7 @@
 
       <?php } //endif ?>
 
-       <div class="f mT20">
+       <div class="f mt-4">
           <div class="c pRa10">
             <button class="btn outline warn block"><?php echo T_("Edit"); ?></button>
           </div>
@@ -84,7 +84,7 @@
 
     <?php }else{ ?>
 
-       <button class="btn-primary block mT20"><?php echo T_("Add"); ?></button>
+       <button class="btn-primary block mt-4"><?php echo T_("Add"); ?></button>
 
     <?php }// endif ?>
   </form>
@@ -199,7 +199,7 @@
 
                 <input type="hidden" name="whattodo" value="non-unit">
 
-                <div class="f mT20">
+                <div class="f mt-4">
                   <div class="c pRa10">
                     <button class="btn-outline-danger block hauto" type="submit"><?php echo T_("Set all products by this unit as a non product unit and remove this unit"); ?></button>
                   </div>
@@ -254,7 +254,7 @@
 
               <div data-response='whattodo' data-response-where='new-unit|non-unit' data-response-hide>
 
-                <div class="f mT20">
+                <div class="f mt-4">
                   <div class="c pRa10">
                     <button class="btn-outline-danger block" type="submit"><?php echo T_("Save and remove unit"); ?></button>
                   </div>
@@ -280,7 +280,7 @@
           </div>
           <form method="post">
             <input type="hidden" name="type" value="remove">
-            <button  class="btn-outline-danger block mT20" type="submit"><?php echo T_("Remove unit"); ?></button>
+            <button  class="btn-outline-danger block mt-4" type="submit"><?php echo T_("Remove unit"); ?></button>
           </form>
 
         <?php } //endif ?>

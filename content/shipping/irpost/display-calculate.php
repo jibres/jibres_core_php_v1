@@ -49,7 +49,7 @@
 								</div>
 							</div>
 						</div>
-						<div data-response='sendtype' data-response-where='otherprovince' <?php if(\dash\request::get('sendtype') === 'otherprovince' || !\dash\request::get('sendtype')) {}else{echo 'data-response-hide';} ?>  class="mB20">
+						<div data-response='sendtype' data-response-where='otherprovince' <?php if(\dash\request::get('sendtype') === 'otherprovince' || !\dash\request::get('sendtype')) {}else{echo 'data-response-hide';} ?>  class="mb-4">
 							<div class="row">
 								<div class="c-xs-6 c-sm-6">
 									<label><?php echo T_("Send to") ?></label>
@@ -164,7 +164,7 @@
 			<?php } //endif ?>
 
 <div class="avand-md">
-	<div class="msg minimal success2 mT20">
+	<div class="msg minimal success2 mt-4">
 		<?php $api_link = "<a target='_blank' href='". \dash\url::set_subdomain('core'). '/r10/irpost'. "'>API</a>"; ?>
 		<?php echo T_("Also available this module from :API", ['API' => $api_link]) ?>
 	</div>

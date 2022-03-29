@@ -34,7 +34,7 @@
 
    <div class="f">
     <div class="c6 s12 pRa10">
-     <h5 class="font-bold mT20"><?php echo T_("Business that you are owner"); ?></h5>
+     <h5 class="font-bold mt-4"><?php echo T_("Business that you are owner"); ?></h5>
 <?php
 $listStore_owner = \dash\data::listStore_owner();
 if($listStore_owner && is_array($listStore_owner))
@@ -71,7 +71,7 @@ if($listStore_owner && is_array($listStore_owner))
     </div>
 
     <div class="c6 s12">
-     <h5 class="font-bold mT20"><?php echo T_("Business that you are staff"); ?></h5>
+     <h5 class="font-bold mt-4"><?php echo T_("Business that you are staff"); ?></h5>
      <nav class="items">
       <ul>
 <?php
