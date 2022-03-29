@@ -21,6 +21,16 @@ class update
 		return $result;
 	}
 
+
+	public static function set_verify_by_email($_email, $_user_id)
+	{
+		$query  = "UPDATE domain SET domain.verify = 1 WHERE domain.user_id = :user_id AND domain.email = :email ";
+		$param  = [':user_id' => $_user_id, ':email' => $_email];
+		$result = \dash\pdo::query($query, $param, 'nic');
+		return $result;
+	}
+
+
 	public static function update($_args, $_id)
 	{
 		$_args['datemodified'] = date("Y-m-d H:i:s");

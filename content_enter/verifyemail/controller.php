@@ -64,7 +64,7 @@ class controller
 							}
 							else
 							{
-								\dash\db\useremail::set_verify($email_detail['useremail_id']);
+								\dash\app\user\email::set_verify_email($email_detail['emailraw'], $email_detail['useremail_id']);
 								\dash\data::verifyMesssage(T_("Email was verified"));
 							}
 						}

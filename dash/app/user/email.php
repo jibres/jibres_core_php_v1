@@ -65,6 +65,18 @@ class email
 		return $result;
 	}
 
+
+	public static function set_verify_email($_email, $_user_id)
+	{
+		\dash\db\useremail::set_verify($_user_id);
+
+		// set domain verify email
+
+		\lib\db\nic_domain\update::set_verify_by_email($_email, $_user_id);
+	}
+
+
+
 	public static function remove($_id)
 	{
 		$id = \dash\validate::id($_id);
