@@ -132,6 +132,22 @@ trait edit
 				}
 			}
 		}
+		else
+		{
+			// in jibres
+			// we never change user mobile
+			if(array_key_exists('mobile', $_args))
+			{
+				\dash\notif::error(T_("Can not change customer mobile in jibres!"));
+
+				unset($_args['mobile']);
+
+				if(empty($_args))
+				{
+					return;
+				}
+			}
+		}
 
 		\dash\log::set('editUser', ['code' => $_id]);
 
