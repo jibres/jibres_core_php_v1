@@ -192,6 +192,8 @@ class search
 		}
 		elseif($data['predict'])
 		{
+			$expire_at = date("Y-m-d", strtotime("+1 month"));
+
 			// $meta['join'][] = "LEFT JOIN domainstatus ON domainstatus.domain = domain.name ";
 			// $meta['fields'] = " DISTINCT domain.* ";
 			if($data['autorenew_mode'])
