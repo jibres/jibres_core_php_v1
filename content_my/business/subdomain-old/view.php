@@ -8,7 +8,7 @@ class view
 	{
 		\dash\face::title(T_("Business address"));
 
-		\dash\data::userToggleSidebar(false);
+		\dash\data::include_m2('wide');
 
 		// if(\dash\detect\device::detectPWA())
 		{

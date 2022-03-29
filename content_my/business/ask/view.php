@@ -11,8 +11,7 @@ class view
 		$polls = \lib\app\store\polls::all();
 		\dash\data::polls($polls);
 
-		\dash\data::userToggleSidebar(false);
-
+		\dash\data::include_m2('wide');
 
 		// if(\dash\detect\device::detectPWA())
 		{

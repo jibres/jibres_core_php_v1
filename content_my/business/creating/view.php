@@ -8,7 +8,7 @@ class view
 	{
 		\dash\face::title(T_("Creating your business"));
 
-		\dash\data::userToggleSidebar(false);
+		\dash\data::include_m2('wide');
 
 		\dash\data::global_scriptPage('store_creating.js');
 	}

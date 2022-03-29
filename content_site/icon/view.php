@@ -11,7 +11,7 @@ class view
 		\dash\data::back_text(T_("Back"));
 		\dash\data::back_link(\dash\request::get('callback'));
 
-		\dash\data::userToggleSidebar(false);
+		\dash\data::include_m2('wide');
 
 		\dash\data::include_adminPanelBuilder(true);
 

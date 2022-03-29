@@ -8,7 +8,7 @@ class view
 	{
 		\dash\face::title(T_("Oops!"));
 
-		\dash\data::userToggleSidebar(false);
+		\dash\data::include_m2('wide');
 
 		$error = \dash\session::get('createNewStore_error', 'CreateNewStore');
 

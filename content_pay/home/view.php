@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\data::userToggleSidebar(false);
+		\dash\data::include_m2('wide');
 
 		if(\dash\data::transactionMode())
 		{
