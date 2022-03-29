@@ -138,7 +138,7 @@
             <?php if(isset($value['pcpos']) && $value['pcpos']) {?>
 
           <span class="badge primary"><?php echo T_("PcPos"); ?></span>
-            <div class="mT10 s0">
+            <div class="mt-2 s0">
               <?php if(isset($value['setting']) && is_array($value['setting'])) {?>
 
                 <?php foreach ($value['setting'] as $k => $v) {?>

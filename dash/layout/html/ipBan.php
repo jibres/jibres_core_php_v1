@@ -28,7 +28,7 @@ if(isset($_unblockDate) && $_unblockDate)
       <p><?php echo T_("We are using a security service to protect ourselves from online attacks. The action you just performed triggered the security solution. Several actions could trigger this block including submitting a certain word or phrase, a SQL command, or malformed data."); ?></p>
 
       <h2 class="font-bold font-18"><?php echo T_("What can i do to resolve this?"); ?></h2>
-      <p class="mB0"><?php echo T_("You can email us to let them know you were blocked. Please include what you were doing when this page came up and your IP address is shown on this page."); ?></p>
+      <p class="mb-0"><?php echo T_("You can email us to let them know you were blocked. Please include what you were doing when this page came up and your IP address is shown on this page."); ?></p>
     </div>
  	</section>
  </body>

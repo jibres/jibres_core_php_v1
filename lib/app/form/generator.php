@@ -265,7 +265,7 @@ class generator
 	{
 		if(a($value, 'desc'))
 		{
-		 	self::$html .= ' <div class="fc-mute mB20 fs09">'.  a($value, 'desc'). '</div> ';
+		 	self::$html .= ' <div class="fc-mute mb-4 fs09">'.  a($value, 'desc'). '</div> ';
 		}
 	}
 

@@ -67,7 +67,7 @@ class background_gradient_pallet
 
 			$json = json_encode($json);
 
-			$html .= "<button data-ajaxify data-data='$json' class='picker reset2 w-10 h-10 inline-block rounded-lg align-middle mRa10 mB10 border-none2' style='background: $value[style]'>";
+			$html .= "<button data-ajaxify data-data='$json' class='picker reset2 w-10 h-10 inline-block rounded-lg align-middle mRa10 mb-2 border-none2' style='background: $value[style]'>";
 			{
 				if($default == $value['key'])
 				{

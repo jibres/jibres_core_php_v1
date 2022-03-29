@@ -36,7 +36,7 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 mB0">
+      <table class="tbl1 v4 mb-0">
         <tr>
           <th class="s0"><?php echo T_("Username"); ?></th>
           <td><?php echo \dash\data::dataRow_username(); ?></td>
@@ -84,7 +84,7 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 mB0">
+      <table class="tbl1 v4 mb-0">
         <tr>
           <th><?php echo T_("Avatar"); ?></th>
           <td>
@@ -149,7 +149,7 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 mB0">
+      <table class="tbl1 v4 mb-0">
         <tr>
           <th><?php echo T_("Website"); ?></th>
           <td><?php echo \dash\data::dataRow_website(); ?></td>

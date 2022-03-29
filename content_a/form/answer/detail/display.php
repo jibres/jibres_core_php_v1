@@ -9,7 +9,7 @@
         </div>
         <div class="c"></div>
         <div class="cauto">
-          <a class="font-14 p0" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => null]) ?>"><?php echo T_("Back") ?></a>
+          <a class="font-14 p-0" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => null]) ?>"><?php echo T_("Back") ?></a>
         </div>
       </div>
 
@@ -99,7 +99,7 @@
   </div>
   <?php \dash\utility\pagination::html(); ?>
 
-  <div class="c-xs-12 c-sm-12 c-md-6 p0">
+  <div class="c-xs-12 c-sm-12 c-md-6 p-0">
 
      <form method="post" id="markasreview">
       <input type="hidden" name="review" value="review">

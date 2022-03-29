@@ -43,7 +43,7 @@ $have_user = false;
             <input type="number" name="count" placeholder="<?php echo T_("Count"); ?>" value="1" step="0.001" id="count">
           </div>
 
-          <div data-kerkere='.showAdvanceOrder' class="mB10 link"><?php echo T_("Special price and discount") ?></div>
+          <div data-kerkere='.showAdvanceOrder' class="mb-2 link"><?php echo T_("Special price and discount") ?></div>
           <div class="showAdvanceOrder" data-kerkere-content='hide'>
             <div class="row">
               <div class="c-xs-12 c-sm-6">

@@ -95,15 +95,15 @@
   <div class="avand">
     <h3 class="text-center font-bold mb-16 text-3xl" title="<?php echo T_('Of course Made with love 😍'); ?>"><?php echo T_('Jibres has created for futuristic entrepreneurs'); ?><span class="emoji">❤️</span></h3>
     <div class="f text-center">
-      <div class="c s12 pA10">
+      <div class="c s12 p-2">
           <div class="ltr text-xl lg:text-4xl"><?php echo \dash\utility\convert::to_en_number(\dash\fit::stats(\dash\data::homepagenumber_product(), true)) ?>+</div>
           <div class="text-lg"><?php echo T_('Products'); ?></div>
       </div>
-      <div class="c s12 pA10">
+      <div class="c s12 p-2">
           <div class="ltr text-xl lg:text-4xl"><?php echo \dash\utility\convert::to_en_number(\dash\fit::stats(\dash\data::homepagenumber_factor(), true)) ?>+</div>
           <div class="text-lg"><?php echo T_('Factor'); ?></div>
       </div>
-      <div class="c s12 pA10">
+      <div class="c s12 p-2">
           <div class="ltr text-xl lg:text-4xl"><?php echo \dash\utility\convert::to_en_number(\dash\fit::stats(\dash\data::homepagenumber_sum_factor(), true)) ?>+</div>
           <div class="text-lg"><?php echo T_('Sold on Jibres'); ?></div>
       </div>

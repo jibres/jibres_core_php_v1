@@ -4,11 +4,11 @@
 <?php require_once (root. 'content_love/domain/setting/pageStep.php'); ?>
 
 
-<div class="f fs14 mT10 mb-4">
+<div class="f fs14 mt-2 mb-4">
  <div class="c6 s12 pRa5">
 
   <div class="panel mb-2">
-    <table class="tbl1 v4 mB0">
+    <table class="tbl1 v4 mb-0">
      <tr>
       <th><?php echo T_('Domain') ?> <a class="link mLa5" target="_blank" rel="nofollow" href="http://<?php echo \dash\data::domainDetail_name(); ?>"><i class=" mRa5 sf-link"></i></a></th>
       <td class="ltr txtRa font-bold"><?php echo \dash\data::domainDetail_name(); ?></td>
@@ -151,7 +151,7 @@ else
 
  <div class="c6 s12 pLa5">
   <div class="panel mb-2">
-    <table class="tbl1 v4 mB0">
+    <table class="tbl1 v4 mb-0">
      <tr>
       <td>
         <?php if(\dash\data::domainDetail_verify()) {?>
@@ -194,7 +194,7 @@ else
   </div>
 
   <div class="panel mb-2">
-    <table class="tbl1 v4 mB0">
+    <table class="tbl1 v4 mb-0">
       <tr>
         <td colspan="2" ><?php echo T_("This detail was founded in whois answer") ?></td>
       </tr>
@@ -223,7 +223,7 @@ else
   </div>
 
   <div class="panel mb-2">
-    <table class="tbl1 v4 mB0">
+    <table class="tbl1 v4 mb-0">
      <tr>
       <td>
         <?php if(\dash\data::domainDetail_verify()) {?>
@@ -270,7 +270,7 @@ else
 
 <?php if(\dash\data::domainDetail_nicstatus_array()) {?>
 <div class="panel mb-2">
- <table class="tbl1 v4 mB0">
+ <table class="tbl1 v4 mb-0">
   <?php
    if(\dash\data::domainDetail_nicstatus_array())
     {
@@ -305,7 +305,7 @@ else
 <?php if(\dash\data::NICdomainStatus()) {?>
   <div class="c6 s12 pLa5">
     <div class="panel mb-2">
-      <table class="tbl1 v4 mB0">
+      <table class="tbl1 v4 mb-0">
         <thead>
           <th class="collapsing"></th>
           <th class="fs08"><?php echo T_("Status") ?></th>
@@ -335,7 +335,7 @@ else
 
   <?php if(\dash\permission::supervisor()) {?>
   <div class="panel mb-2">
-    <table class="tbl1 v4 mB0">
+    <table class="tbl1 v4 mb-0">
       <tr>
       <td>
         <?php echo T_("Available"); ?>

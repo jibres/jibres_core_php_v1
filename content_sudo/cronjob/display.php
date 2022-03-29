@@ -24,7 +24,7 @@
     <?php echo nl2br(\dash\data::unixcrontab()); ?>
   </div>
   <br>
-  <div class="mT20 ltr">
+  <div class="mt-4 ltr">
     Is busy cronjob?
 <?php var_dump(\dash\utility\busy::is_busy('cronjob_business_once')); ?>
   </div>

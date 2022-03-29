@@ -4,7 +4,7 @@
     <div class="cbox">
       <div class="msg f">
        <div class="cauto">
-        <span class="<?php if(\dash\user::detail('sidebar')) { echo 'sf-monitor'; }else{ echo 'sf-display'; } ?> fs40 pA10 pRa25 vlbottom"></span>
+        <span class="<?php if(\dash\user::detail('sidebar')) { echo 'sf-monitor'; }else{ echo 'sf-display'; } ?> fs40 p-2 pRa25 vlbottom"></span>
        </div>
         <div class="c">
          <h3><?php echo T_("Toggle side bar"); ?></h3>

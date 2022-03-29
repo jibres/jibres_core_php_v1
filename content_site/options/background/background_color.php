@@ -59,7 +59,7 @@ class background_color
 			$form_class  = null;
 		}
 
-		$input = '<input type="color" class="picker mRa10 mB10 align-middle '.$block_class.'" name="'.$_name. '" id="color-'.$_name.'"';
+		$input = '<input type="color" class="picker mRa10 mb-2 align-middle '.$block_class.'" name="'.$_name. '" id="color-'.$_name.'"';
 		if($_default)
 		{
 			$input .= ' value="'. $_default. '"';

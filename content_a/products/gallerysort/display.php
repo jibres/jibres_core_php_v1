@@ -17,7 +17,7 @@
       <?php if(a($value, 'type') === 'image') {?>
         <img src="<?php echo a($value, 'path'); ?>" alt="<?php echo T_("File :val", ['val' => \dash\fit::number($key)]); ?>" data-gr="3">
       <?php }else{ ?>
-        <div class="text-center mT10 font-bold">
+        <div class="text-center mt-2 font-bold">
           <span><?php echo a($value, 'type') ?></span>
         </div>
         <img src="<?php echo \dash\app::static_image_url(); ?>" alt="<?php echo T_("File :val", ['val' => \dash\fit::number($key)]); ?>" data-gr="2">

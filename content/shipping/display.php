@@ -36,7 +36,7 @@
 
  <div class="avand-lg impact zero">
  	<img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-shipping-1.jpg" alt='<?php echo \dash\face::title();?>'>
- 	<div class="pA20">
+ 	<div class="p-4">
 	 	<h3 class="font-bold"><?php echo T_("Pack properly") ?></h3>
 	 	<p><?php echo T_("Remember, your packing style not only affects the safety of the items you ship, but also customer perceptions about your store. Instead of wasting material securing products so they don't get damaged in big boxes, purchase envelopes and boxes in variety packs with different size options. This will also help you avoid dreaded dimensional surcharges from the carriers when the package size is what you pay for rather than just the weight.") ?></p>
 

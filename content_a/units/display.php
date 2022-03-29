@@ -62,11 +62,11 @@
 
       <?php if(\dash\data::dataRow_count()) {?>
 
-        <p class="msg mT10 <?php if(\dash\data::dataRow_count() > 10) { echo 'danger';} else { echo 'warn2'; } ?> "><?php echo T_("By update name of this unit all product will be update to new value."); ?> <a class="badge" href='<?php echo \dash\url::here(); ?>/products?unitid=<?php echo \dash\data::dataRow_id(); ?>' title='<?php echo T_("Click to check list of this product"); ?>'><?php echo \dash\fit::number(\dash\data::dataRow_count()); ?> <?php echo T_("Product"); ?></a></p>
+        <p class="msg mt-2 <?php if(\dash\data::dataRow_count() > 10) { echo 'danger';} else { echo 'warn2'; } ?> "><?php echo T_("By update name of this unit all product will be update to new value."); ?> <a class="badge" href='<?php echo \dash\url::here(); ?>/products?unitid=<?php echo \dash\data::dataRow_id(); ?>' title='<?php echo T_("Click to check list of this product"); ?>'><?php echo \dash\fit::number(\dash\data::dataRow_count()); ?> <?php echo T_("Product"); ?></a></p>
 
       <?php }else{ ?>
 
-        <p class="msg mT10 info2"><?php echo T_("No product in this unit"); ?>
+        <p class="msg mt-2 info2"><?php echo T_("No product in this unit"); ?>
           <span class="font-bold"><?php echo T_("You can delete it now!"); ?></span>
           <a href="<?php echo \dash\url::this(); ?>/remove?id=<?php echo \dash\request::get('id'); ?>" class="badge danger mLa5"><?php echo T_("Remove"); ?></a>
         </p>

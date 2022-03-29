@@ -10,7 +10,7 @@
 
       <div class="body">
 
-        <div class="mB10 msg">
+        <div class="mb-2 msg">
           <?php echo T_("Choose type of your gift card"); ?>
         </div>
 

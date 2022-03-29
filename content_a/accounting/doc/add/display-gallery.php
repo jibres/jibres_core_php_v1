@@ -13,7 +13,7 @@
   $no_footer        = true;
   $gallery_array       = $gallery;
 
-  echo '<form method="post" class="p0">';
+  echo '<form method="post" class="p-0">';
   {
     echo '<input type="hidden" name="uploaddoc" value="uploaddoc">';
     require_once(root. 'dash/layout/post/admin-gallery-box.php');

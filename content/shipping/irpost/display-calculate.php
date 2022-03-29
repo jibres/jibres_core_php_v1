@@ -151,7 +151,7 @@
 
 				<?php if(a($result, 'price')) {?>
 					<div class="text-center">
-						<div class="btn text-center mT20 master xl font-20" data-copy='https://jibres.ir/shipping/irpost?<?php echo \dash\request::fix_get(); ?>'>
+						<div class="btn text-center mt-4 master xl font-20" data-copy='https://jibres.ir/shipping/irpost?<?php echo \dash\request::fix_get(); ?>'>
 							<?php echo \dash\fit::number(a($result, 'price')) ?> <small><?php echo $currency ?></small>
 						</div>
 					</div>

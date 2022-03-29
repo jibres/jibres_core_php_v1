@@ -6,7 +6,7 @@
 <?php } ?>
 
  <div class="avand-md impact zero text-center">
- 	<table class="tbl1 v3 mB0">
+ 	<table class="tbl1 v3 mb-0">
  		<tr>
  			<th><?php echo T_("IP"); ?></th>
  			<td class="font-bold" data-copy='<?php echo T_(\dash\data::ip_ip()); ?>'><?php echo T_(\dash\data::ip_ip()); ?></td>
@@ -73,20 +73,20 @@
 
 <?php if(\dash\data::ip_dbip()) {?>
  <div class="avand-md impact zero">
- 	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ip_dbip()) ?></pre>
+ 	<pre class="mb-0"><?php \dash\code::jsonPretty(\dash\data::ip_dbip()) ?></pre>
  </div>
 <?php }?>
 
 
 <?php if(\dash\data::ip_ipgeolocation()) {?>
  <div class="avand-md impact zero">
- 	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ip_ipgeolocation()) ?></pre>
+ 	<pre class="mb-0"><?php \dash\code::jsonPretty(\dash\data::ip_ipgeolocation()) ?></pre>
  </div>
 <?php }?>
 
 
 <?php if(\dash\data::ipStatus()) {?>
  <div class="avand-md impact zero">
- 	<pre class="mB0"><?php \dash\code::jsonPretty(\dash\data::ipStatus()) ?></pre>
+ 	<pre class="mb-0"><?php \dash\code::jsonPretty(\dash\data::ipStatus()) ?></pre>
  </div>
 <?php }?>

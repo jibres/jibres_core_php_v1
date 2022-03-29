@@ -41,7 +41,7 @@ if($result)
 }
 elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
 {
-  echo '<div class="alert-warning text-center mB0">'. T_("Please enter valid domain name!"). "</div>";
+  echo '<div class="alert-warning text-center mb-0">'. T_("Please enter valid domain name!"). "</div>";
 }
 ?>
 

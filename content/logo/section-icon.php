@@ -107,7 +107,7 @@ $myUrlStatic = \dash\url::cdn();
 
 
 
-    <div class="dl vertical msg minimal mB0">
+    <div class="dl vertical msg minimal mb-0">
       <div class="f align-center" data-kerkere=".standardWhitePNG-icon">
         <div class="c s12"><h4 class="fs10 font-bold mb-2"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("Icon"); ?> / <?php echo T_("White"); ?></h4></div>
         <div class="cauto os s12">

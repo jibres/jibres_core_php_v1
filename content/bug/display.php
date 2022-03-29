@@ -16,7 +16,7 @@
 <div class="avand impact">
 	<p><?php echo T_("A software bug that would allow an attacker to perform an action in violation of an expressed security policy. A bug that enables escalated access or privilege is a vulnerability. Design flaws and failures to adhere to security best practices may qualify as vulnerabilities. Weaknesses exploited by viruses, malicious code, and social engineering are not considered vulnerabilities"); ?></p>
 
-	<p class="mB0"><?php echo T_("If you believe you have found a vulnerability, please submit a Report here. The Report should include a detailed description of your discovery with clear, concise reproducible steps or a working proof-of-concept. If you don't explain the vulnerability in detail, there may be significant delays in the disclosure process, which is undesirable for everyone. We are use CVSS v.3 calculator on Jibres."); ?> <a href="https://www.first.org/cvss/calculator/3.0"><?php echo T_("Learn more about CVSS v3 rating"); ?></a></p>
+	<p class="mb-0"><?php echo T_("If you believe you have found a vulnerability, please submit a Report here. The Report should include a detailed description of your discovery with clear, concise reproducible steps or a working proof-of-concept. If you don't explain the vulnerability in detail, there may be significant delays in the disclosure process, which is undesirable for everyone. We are use CVSS v.3 calculator on Jibres."); ?> <a href="https://www.first.org/cvss/calculator/3.0"><?php echo T_("Learn more about CVSS v3 rating"); ?></a></p>
 </div>
 
 <div class="avand impact">
@@ -68,7 +68,7 @@
 	<p><?php echo T_("Medium severity issues allow an attacker to read or modify limited amounts of data that they are not authorized to access. They generally grant access to less sensitive information than high severity issues."); ?></p>
 
 	<div class="font-bold"><?php echo T_("Low"); ?></div>
-	<p class="mB0"><?php echo T_("Low severity issues allow an attacker to access extremely limited amounts of data. They may violate an expectation for how something is intended to work, but it allows nearly no escalation of privilege or ability to trigger unintended behavior by an attacker."); ?></p>
+	<p class="mb-0"><?php echo T_("Low severity issues allow an attacker to access extremely limited amounts of data. They may violate an expectation for how something is intended to work, but it allows nearly no escalation of privilege or ability to trigger unintended behavior by an attacker."); ?></p>
 </div>
 
 

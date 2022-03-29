@@ -1,5 +1,5 @@
 <div class="f justify-center">
-  <div class="c8 s12 m10 x6 pA20">
+  <div class="c8 s12 m10 x6 p-4">
     <nav class="items">
       <ul>
 	    <li><a class="f" href="<?php echo \dash\url::this(); ?>/pcpos"><div class="key"><?php echo T_("PC-POS setting"); ?></div><div class="go"></div></a></li>

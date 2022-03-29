@@ -29,7 +29,7 @@
   </div>
 
 <?php if(\dash\data::history() && is_array(\dash\data::history())) {?>
-    <h3 id="billing-history" class="pA10"><?php echo T_("Billing History"); ?></h3>
+    <h3 id="billing-history" class="p-2"><?php echo T_("Billing History"); ?></h3>
 
     <ul class="items">
 

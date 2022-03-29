@@ -95,7 +95,7 @@ function HTML_tag_filter()
       }
 
 
-      echo '<a class="btn mB20 mLa5 '. $myClass;
+      echo '<a class="btn mb-4 mLa5 '. $myClass;
 
       if(a($value, 'is_active'))
       {

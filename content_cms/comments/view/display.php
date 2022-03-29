@@ -146,8 +146,8 @@
 <?php
 if(a($dataRow, 'status') === 'unapproved')
 {
-  echo '<div class="msg minimal info2 mB10 mt-2">'. T_("Click on Approve to make a comment publicly visible on your website.") . '</div>';
-  echo '<div class="msg minimal warn2 mB0">'. T_("If you see a comment that looks or feel spammy, then you can mark it as Spam.") . '</div>';
+  echo '<div class="msg minimal info2 mb-2 mt-2">'. T_("Click on Approve to make a comment publicly visible on your website.") . '</div>';
+  echo '<div class="msg minimal warn2 mb-0">'. T_("If you see a comment that looks or feel spammy, then you can mark it as Spam.") . '</div>';
 }
 ?>
   </div>

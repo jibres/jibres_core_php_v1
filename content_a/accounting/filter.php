@@ -1,4 +1,4 @@
-<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="p0">
+<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="p-0">
   <?php if(\dash\request::get('contain')) {?><input type="hidden" name="contain" value="<?php echo \dash\request::get('contain'); ?>"><?php }//endif ?>
   <div class="box">
     <div class="pad">
@@ -113,7 +113,7 @@
             </div>
           </div>
         <?php } //endif ?>
-        <div class="c-xs-12 c-sm-auto p0">
+        <div class="c-xs-12 c-sm-auto p-0">
           <div class="mT25 txtRa">
             <?php if(\dash\url::subchild() != 'balancesheet') {?>
               <?php if(\dash\request::get('year_id') || \lib\app\tax\year\get::default_year('id')) {?>

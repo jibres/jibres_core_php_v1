@@ -89,7 +89,7 @@ if($listStore_staff && is_array($listStore_staff))
        </li>
 <?php }//endfor ?>
 <?php } else { //endif ?>
-       <li><div class="msg mB0"><?php echo T_("You are not staff yet!"); ?></div></li>
+       <li><div class="msg mb-0"><?php echo T_("You are not staff yet!"); ?></div></li>
 <?php }//endif ?>
       </ul>
      </nav>

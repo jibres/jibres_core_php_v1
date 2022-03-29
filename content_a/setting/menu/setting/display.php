@@ -25,7 +25,7 @@
             <?php if(\dash\data::usageList()) {?>
             <p><?php echo T_("Usage menu list") ?></p>
             <?php foreach (\dash\data::usageList() as $key => $value) {?>
-              <a href="<?php echo \dash\url::this(). a($value, 'link'); ?>" class="badge pA20 fs11"><?php echo a($value, 'title') ?></a>
+              <a href="<?php echo \dash\url::this(). a($value, 'link'); ?>" class="badge p-4 fs11"><?php echo a($value, 'title') ?></a>
             <?php } //endforeach ?>
           <?php }else{ ?>
             <p class="mt-4">

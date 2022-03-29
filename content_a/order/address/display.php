@@ -52,7 +52,7 @@
             <div class="cauto"><i data-kerkere='.addNewCustomer' class="sf-plus btn outline mLa5 pLR10"></i></div>
           </div>
           <div class="addNewCustomer" data-kerkere-content='hide'>
-            <div class="alert-info mT10 mB0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
+            <div class="alert-info mt-2 mb-0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
             <div class="input mTB5">
               <input type="tel" name="memberTl" id="memberTl" placeholder='<?php echo T_("Mobile"); ?> <?php echo T_("Like"); ?> <?php echo \dash\fit::mobile('09120123456'); ?>' <?php \dash\layout\autofocus::html() ?>  maxlength='30' data-response-realtime>
             </div>
@@ -100,7 +100,7 @@
 
           <div class="viewCustomerLegalInformation" data-kerkere-content='hide'>
             <?php $isNotSet = '<small class="fc-mute">'. T_("Not set"). '</small>'; ?>
-            <div class="pA10">
+            <div class="p-2">
               <div class="tblBox">
                 <table class="tbl1 v4">
                   <tbody>
@@ -182,7 +182,7 @@
           <?php echo \dash\utility\location::pack(\dash\data::dataRowAddress_country(), \dash\data::dataRowAddress_province(), \dash\data::dataRowAddress_city()); ?>
 
           <label for="address"><?php echo T_("Address"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
-          <textarea class="txt mB10 pB25" name="address"  maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
+          <textarea class="txt mb-2 pB25" name="address"  maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
 
           <label for="postcode"><?php echo T_("Post code"); ?></label>
           <div class="input ltr">

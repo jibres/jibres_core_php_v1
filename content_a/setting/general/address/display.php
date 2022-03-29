@@ -35,7 +35,7 @@
 				</div>
 
 				<label for="address"><?php echo T_("Address"); ?></label>
-				<textarea class="txt mB10 pB25" name="address" id="address" maxlength='300' rows="2"><?php echo \dash\data::dataRow_address(); ?></textarea>
+				<textarea class="txt mb-2 pB25" name="address" id="address" maxlength='300' rows="2"><?php echo \dash\data::dataRow_address(); ?></textarea>
 
 				<label for="postcode"><?php echo T_("Post code"); ?></label>
 				<div class="input">

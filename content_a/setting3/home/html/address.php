@@ -10,7 +10,7 @@ $store_data = \lib\store::detail('store_data');
 				<p><?php echo T_("Based on your country some of our options will be changed."); ?></p>
 				<?php echo \dash\utility\location::pack(\dash\data::dataRow_country(), \dash\data::dataRow_province(), \dash\data::dataRow_city()); ?>
 				<label for="address"><?php echo T_("Address"); ?></label>
-				<textarea class="txt mB10 pB25" name="address" id="address" maxlength='300' rows="2"><?php echo \dash\data::dataRow_address(); ?></textarea>
+				<textarea class="txt mb-2 pB25" name="address" id="address" maxlength='300' rows="2"><?php echo \dash\data::dataRow_address(); ?></textarea>
 
 				<label for="postcode"><?php echo T_("Post code"); ?></label>
 				<div class="input">

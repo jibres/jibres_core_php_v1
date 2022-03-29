@@ -6,7 +6,7 @@
         <div><?php echo T_("Your domain was conncted to") ?></div>
         <a class="mB25 fcWhite900 fs20"><?php echo a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'title') ?></a>
         <div class="f">
-          <div class="pA5"><a href="<?php echo a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'url'). '/a/setting/domain/manage?domain='. \dash\data::domainDetail_name() ?>" class="link"><div class="grShadow pA10 text-center"><?php echo T_("Manage Domain") ?></div></a></div>
+          <div class="pA5"><a href="<?php echo a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'url'). '/a/setting/domain/manage?domain='. \dash\data::domainDetail_name() ?>" class="link"><div class="grShadow p-2 text-center"><?php echo T_("Manage Domain") ?></div></a></div>
         </div>
       </div>
     <?php }else{ ?>

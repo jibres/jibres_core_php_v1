@@ -11,7 +11,7 @@
 	<video class="block" controls preload="metadata">
 		<source type="video/mp4" src="<?php echo \dash\url::cdn(); ?>/video/WorldSkills-SkillsChangeLives.mp4">
 	</video>
-	<p class="alert2 font-14 text-center mT10 mB0-f">این ویدیوی رسمی مسابقات جهانی مهارت هست و به‌راستی که مهارت زندگی را تغییر می‌دهد.</p>
+	<p class="alert2 font-14 text-center mt-2 mB0-f">این ویدیوی رسمی مسابقات جهانی مهارت هست و به‌راستی که مهارت زندگی را تغییر می‌دهد.</p>
  </div>
 
  <div class="avand-md impact font-16 pB25-f">

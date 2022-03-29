@@ -43,7 +43,7 @@ $have_user = false;
 
 
           <?php if(!$have_user && $dataTable) {?>
-            <div class="fc-mute pA10"><?php echo T_("This shopping cart is not assigned to the customer and the customer has added the shopping cart without logging in. Click here if you want to dedicate this shopping cart to a specific customer") ?> <span data-kerkere='.assignUser' class="btn-link"><?php echo T_("Assign to customer") ?></span></div>
+            <div class="fc-mute p-2"><?php echo T_("This shopping cart is not assigned to the customer and the customer has added the shopping cart without logging in. Click here if you want to dedicate this shopping cart to a specific customer") ?> <span data-kerkere='.assignUser' class="btn-link"><?php echo T_("Assign to customer") ?></span></div>
           <?php } //endif ?>
 
         </div>
@@ -74,7 +74,7 @@ $have_user = false;
                 <div class="cauto"><div data-kerkere='.addNewCustomer' class="btn-light"><?php echo \dash\utility\icon::svg('plus-square-dotted', 'bootstrap') ?></div></div>
               </div>
               <div class="addNewCustomer" data-kerkere-content='hide'>
-                <div class="alert-info mT10 mB0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
+                <div class="alert-info mt-2 mb-0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
                 <div class="input mTB5">
                   <input type="tel" name="memberTl" id="memberTl" placeholder='<?php echo T_("Mobile"); ?> <?php echo T_("Like"); ?> <?php echo \dash\fit::mobile('09120123456'); ?>'  maxlength='30' data-response-realtime>
                 </div>

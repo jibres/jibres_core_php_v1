@@ -9,7 +9,7 @@
 
 
 	<div class="avand pT50">
-		<div class="c6 s12 pA10">
+		<div class="c6 s12 p-2">
 				<div class="box">
 					<div class="body f">
 						<p class="c"><?php echo T_("jibres domain SDK for php"); ?></p>

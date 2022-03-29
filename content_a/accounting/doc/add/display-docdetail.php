@@ -2,7 +2,7 @@
 
 
 
-  <form method="post" autocomplete="off" class="box p0">
+  <form method="post" autocomplete="off" class="box p-0">
 	 <input type="hidden" name="row" value="row">
     <div class="pad">
       <div class="row">
@@ -106,9 +106,9 @@ foreach (\dash\data::assistantList() as $key => $value)
         </div>
         <div class="c-auto">
           <?php if(\dash\data::editModeDetail()) {?>
-        	 <button class="btn mT10 master save"><?php echo T_("Edit") ?></button>
+        	 <button class="btn mt-2 master save"><?php echo T_("Edit") ?></button>
           <?php }else{ ?>
-           <button class="btn mT10 master add"><?php echo T_("Add") ?></button>
+           <button class="btn mt-2 master add"><?php echo T_("Add") ?></button>
           <?php } //endif ?>
         </div>
       </div>

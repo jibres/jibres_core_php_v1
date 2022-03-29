@@ -46,7 +46,7 @@
           <div class="alert2" data-desc>
             <div class="f align-center">
               <div class="c pRa5">
-                <div class="check1 mB0">
+                <div class="check1 mb-0">
                   <input type="checkbox" name="vat" id="vat" data-rate='0.09' data-run-input='calcProductMargin' <?php if(\dash\data::productDataRow_vat()) { echo 'checked'; } ?> >
                   <label for="vat"><?php echo T_("Charge taxes"); ?><span class="compact mLa10 font-bold"><?php echo \dash\fit::number(\lib\vat::percent()); ?>%</span></label>
                 </div>

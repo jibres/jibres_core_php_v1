@@ -34,7 +34,7 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 mB0">
+      <table class="tbl1 v4 mb-0">
         <tr>
           <th><?php echo T_("Password"); ?></th>
           <td></td>
@@ -73,7 +73,7 @@ else
           </div>
         </div>
       </div>
-      <table class="tbl1 v4 mB0">
+      <table class="tbl1 v4 mb-0">
         <tr>
           <th class="s0"><?php echo T_("Recovery email"); ?></th>
           <td><?php echo \dash\data::dataRow_email(); ?></td>

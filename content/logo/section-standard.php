@@ -100,7 +100,7 @@ $myUrlStatic = \dash\url::cdn();
 
 
 
-    <div class="dl msg minimal mB0">
+    <div class="dl msg minimal mb-0">
       <div class="f align-center" data-kerkere=".standardWhitePNG">
         <div class="c s12"><h4 class="fs10 font-bold mb-2"><?php echo T_("Download Jibres Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("White"); ?></h4></div>
         <div class="cauto os s12">
@@ -233,7 +233,7 @@ if(\dash\language::current() === 'fa')
 
 
 
-    <div class="dl msg minimal mB0">
+    <div class="dl msg minimal mb-0">
       <div class="f align-center" data-kerkere=".standardFaWhitePNG">
         <div class="c s12"><h4 class="fs10 font-bold mb-2"><?php echo T_("Download Jibres Persian Logo"); ?> / <?php echo T_("STANDARD LOCKUP"); ?> / <?php echo T_("White"); ?></h4></div>
         <div class="cauto os s12">

@@ -47,7 +47,7 @@ if(!is_array($permissionList))
           <?php } /*endfor*/ } //endif ?>
           </div>
         <?php } //endif ?>
-        <div class="msg minimal danger2 mB0">
+        <div class="msg minimal danger2 mb-0">
 
           <span><?php echo T_("Disallow to") ?></span>
            <?php if(isset($savedPerm[$key]['disallow_access_title'])) { foreach ($savedPerm[$key]['disallow_access_title'] as $disallow_access_title) {?>

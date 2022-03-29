@@ -8,7 +8,7 @@
     </div>
     <?php if(isset($force_hide_product_title2) && $force_hide_product_title2) {/*Hidden title2*/}else{ ?>
     <div class="subTitle" data-kerkere-content='<?php if(\dash\data::productDataRow_title2()) {echo 'show'; }else{ echo 'hide'; } ?>'>
-      <div class="input mT10 ltr">
+      <div class="input mt-2 ltr">
         <input type="text" name="title2" id="title2" placeholder='Technical Title' value="<?php echo \dash\data::productDataRow_title2(); ?>" maxlength='300' minlength="1" pattern=".{1,300}">
       </div>
     </div>

@@ -2,7 +2,7 @@
 	<div class="avand">
 		<div class="f text-center pT50 pB100">
 
-			<div class="c4 s12 pA10">
+			<div class="c4 s12 p-2">
 				<div class="box hasCover">
 					<img class="cover" src="<?php echo \dash\url::cdn();?>/img/developers/jibres-guides-1.jpg" alt='<?php echo T_("Jibres Guides"); ?>'>
 					<div class="body">
@@ -13,7 +13,7 @@
 				</div>
 			</div>
 
-			<div class="c4 s12 pA10">
+			<div class="c4 s12 p-2">
 				<div class="box hasCover">
 					<img class="cover" src="<?php echo \dash\url::cdn();?>/img/developers/jibres-libraries-1.jpg" alt='<?php echo T_("Jibres Libraries"); ?>'>
 					<div class="body">
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 
-			<div class="c4 s12 pA10">
+			<div class="c4 s12 p-2">
 				<div class="box hasCover">
 					<img class="cover" src="<?php echo \dash\url::cdn();?>/img/developers/jibres-docs-1.jpg" alt='<?php echo T_("Jibres Docs"); ?>'>
 					<div class="body">

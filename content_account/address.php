@@ -31,7 +31,7 @@
 
 
       <label for="address"><?php echo T_("Address"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
-      <textarea class="txt mB10 pB25" name="address" required maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
+      <textarea class="txt mb-2 pB25" name="address" required maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
 
       <label for="postcode"><?php echo T_("Post code"); ?></label>
       <div class="input ltr">
@@ -59,7 +59,7 @@
      <label for="company" ><?php echo T_("Is this a company's address?"); ?></label>
     </div>
 
-     <div class="switch1 mB20 mt-4">
+     <div class="switch1 mb-4 mt-4">
      <input type="checkbox" name="isdefault" id="isdefault" <?php if(\dash\data::dataRowAddress_isdefault())  { echo 'checked'; } ?>>
      <label for="isdefault" data-on='<?php echo T_("Yes"); ?>' data-off='<?php echo T_("No"); ?>'></label>
      <label for="isdefault" ><?php echo T_("Set as default address?"); ?></label>

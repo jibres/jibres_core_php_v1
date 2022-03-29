@@ -12,7 +12,7 @@
           <div class="cauto"><i data-kerkere='.addNewCustomer' class="sf-plus btn outline mLa5 pLR10"></i></div>
         </div>
         <div class="addNewCustomer" data-kerkere-content='hide'>
-          <div class="alert-info mT10 mB0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
+          <div class="alert-info mt-2 mb-0 pTB5"><?php echo T_("Quickly add customer"); ?></div>
           <div class="input mTB5">
             <input type="tel" name="memberTl" id="memberTl" placeholder='<?php echo T_("Mobile"); ?> <?php echo T_("Like"); ?> <?php echo \dash\fit::mobile('09120123456'); ?>'  maxlength='30' data-response-realtime>
           </div>

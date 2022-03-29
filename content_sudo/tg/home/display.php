@@ -3,7 +3,7 @@ $tg = \dash\data::tg();
 ?>
 <div class="f mB25">
   <div class="c3 s12">
-    <div class="dcard x4 mB10 ">
+    <div class="dcard x4 mb-2 ">
       <h2><a href="https://t.me/<?php echo a($tg, 'info', 'bot'); ?>" target="_blank"><?php echo a($tg, 'info', 'bot'); ?></a></h2>
       <pre class="mT25"><?php echo a($tg, 'info', 'token'); ?></pre>
       <a class="btn-outline-dark mT25" href="<?php echo \dash\url::this(); ?>/log"><?php echo T_("Logs"); ?></a>

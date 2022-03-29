@@ -13,7 +13,7 @@
 
 		<div class="f">
 
-			<div class="c6 s12 pA10">
+			<div class="c6 s12 p-2">
 				<div class="box">
 					<header><h3><?php echo T_("Business API");?></h3></header>
 					<div class="body">
@@ -25,7 +25,7 @@
 
 
 
-			<div class="c6 s12 pA10">
+			<div class="c6 s12 p-2">
 				<div class="box">
 					<header><h3><?php echo T_("Domains");?></h3></header>
 					<div class="body">

@@ -14,7 +14,7 @@
     <div class="pad2">
       <div class="tblBox">
 
-       <table class="tbl1 v6 repeatHead minimal mB0">
+       <table class="tbl1 v6 repeatHead minimal mb-0">
          <thead>
            <tr class="text-sm">
 
@@ -27,7 +27,7 @@
              <th class="collapsing text-right"><?php echo T_("Debtor") ?></th>
              <th class="collapsing text-right"><?php echo T_("Creditor") ?></th>
              <?php if($locDelMode) {}else{?>
-             <th class="collapsing p0"></th>
+             <th class="collapsing p-0"></th>
              <?php } //endif ?>
            </tr>
          </thead>
@@ -106,9 +106,9 @@
 
 <?php if(!\dash\data::printAllMode()) {?>
   <?php if( \dash\data::summary_debtor() && \dash\data::summary_creditor() && floatval(\dash\data::summary_debtor()) === floatval(\dash\data::summary_creditor())) {?>
-    <div class="msg p0 mT20 success font-bold text-center fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
+    <div class="msg p0 mt-4 success font-bold text-center fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }else{ ?>
-    <div class="msg p0 mT20 danger font-bold text-center fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
+    <div class="msg p0 mt-4 danger font-bold text-center fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }//endif ?>
   <?php }//endif ?>
 

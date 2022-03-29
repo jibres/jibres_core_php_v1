@@ -21,7 +21,7 @@
         <div data-kerkere-content="hide" class="showField">
 
           <?php if(\dash\data::fields()) {?>
-            <div class="pA10">
+            <div class="p-2">
 
               <?php foreach (\dash\data::fields() as $key => $value) { if($value['field'] === 'f_answer_id') {continue;} ?>
               <div class="check1">

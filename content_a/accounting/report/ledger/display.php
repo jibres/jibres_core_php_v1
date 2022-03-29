@@ -78,7 +78,7 @@
       <?php } //endif ?>
     </tbody>
   </table>
-  <div class="msg mT10 f align-center">
+  <div class="msg mt-2 f align-center">
     <div class="cauto pRa10"><?php echo T_("Ledger"); ?></div>
     <div class="cauto pRa10"><?php echo \lib\store::title(); ?></div>
     <div class="c pRa10"><?php echo a(\dash\data::currentYearDetail(), 'title'); ?></div>

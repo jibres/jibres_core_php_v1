@@ -11,14 +11,14 @@
 
   <section class="tripleDomainService">
    <div class="f">
-    <div class="c4 s12 mB10 pRa10">
+    <div class="c4 s12 mb-2 pRa10">
      <div class="item f f-column">
       <h3><?php echo T_('Register Domain'); ?></h3>
       <p class="flex-1"><?php echo T_('Been dreaming of a .com or .dev that says exactly what you want to say about your business? Find that perfect domain name and get it registered today!'); ?></p>
       <a class="btn block light" href="<?php echo \dash\url::kingdom() ?>/domains/search"><?php echo T_('Find my Domain'); ?></a>
      </div>
     </div>
-    <div class="c4 s12 mB10 pRa10">
+    <div class="c4 s12 mb-2 pRa10">
      <div class="item f f-column">
       <h3><?php echo T_('Transfer'); ?></h3>
       <p class="flex-1"><?php echo T_('Transfer your domains to Jibres and save on renewals. Most domains come with an extra year of registration added during the transfer process free of charge.'); ?></p>

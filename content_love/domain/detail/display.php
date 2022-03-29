@@ -1,10 +1,10 @@
 <?php require_once (root. 'content_my/domain/setting/pageStep.php'); ?>
 
-<div class="f fs14 mT10 mb-4">
+<div class="f fs14 mt-2 mb-4">
  <div class="c6 s12 pRa5">
 
   <div class="panel mb-2">
-    <table class="tbl1 v4 mB0">
+    <table class="tbl1 v4 mb-0">
      <tr>
       <th><?php echo T_('Domain') ?> <a class="link mLa5" target="_blank" rel="nofollow" href="http://<?php echo \dash\data::domainDetail_name(); ?>"><i class=" mRa5 sf-link"></i></a></th>
       <td class="ltr txtRa font-bold"><?php echo \dash\data::domainDetail_name(); ?></td>
@@ -108,7 +108,7 @@ else
 
  <div class="c6 s12 pLa5">
   <div class="panel mb-2">
-    <table class="tbl1 v4 mB0">
+    <table class="tbl1 v4 mb-0">
      <tr>
       <td>
         <?php if(\dash\data::domainDetail_verify()) {?>
@@ -148,7 +148,7 @@ else
   </div>
 
   <div class="panel mb-2">
-    <table class="tbl1 v4 mB0">
+    <table class="tbl1 v4 mb-0">
      <tr>
       <td>
         <?php if(\dash\data::domainDetail_verify()) {?>
@@ -187,7 +187,7 @@ else
 
   <?php if(\dash\data::domainDetail_status() === 'disable') {?>
   <div class="panel mb-2">
-    <table class="tbl1 v4 mB0">
+    <table class="tbl1 v4 mb-0">
      <tr>
       <td>
         <?php echo T_("Remove this domain from your account"); ?>

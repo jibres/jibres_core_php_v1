@@ -60,7 +60,7 @@ $myCart = \dash\data::myCart();
                 <button class="btn addon success" form="discountform"><?php echo T_("Apply") ?></button>
               </div>
               <?php if(a($myCart, 'discount_code', 'msg')) {?>
-                <div class="alert mT10 <?php echo a($myCart, 'discount_code', 'msg_class') ?>"><?php echo a($myCart, 'discount_code', 'msg') ?></div>
+                <div class="alert mt-2 <?php echo a($myCart, 'discount_code', 'msg_class') ?>"><?php echo a($myCart, 'discount_code', 'msg') ?></div>
               <?php } // ebduf ?>
             </div>
           </div>
@@ -139,7 +139,7 @@ $myCart = \dash\data::myCart();
       </div>
 
       <?php if(!\dash\data::myCart_hideAddress()) {?>
-      <div class="mB10 <?php if(\dash\data::shippingSettingSaved_sendoutcountry()) {}else{ echo 'hide'; \dash\data::dataRowAddress_country('ir'); }?>">
+      <div class="mb-2 <?php if(\dash\data::shippingSettingSaved_sendoutcountry()) {}else{ echo 'hide'; \dash\data::dataRowAddress_country('ir'); }?>">
         <label for='country'><?php echo T_("Country"); ?></label>
         <select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='<?php echo \dash\data::dataRowAddress_province(); ?>'>
           <option value=""><?php echo T_("Choose your country"); ?></option>
@@ -150,7 +150,7 @@ $myCart = \dash\data::myCart();
       </div>
 
 
-      <div class="mB10 <?php if(\dash\data::shippingSettingSaved_sendoutprovince()) {}else{ echo 'hide';}?>" data-status='<?php if(\dash\data::shippingSettingSaved_sendoutcountry()) {echo 'hide';}?>'>
+      <div class="mb-2 <?php if(\dash\data::shippingSettingSaved_sendoutprovince()) {}else{ echo 'hide';}?>" data-status='<?php if(\dash\data::shippingSettingSaved_sendoutcountry()) {echo 'hide';}?>'>
         <label for='province'><?php echo T_("Province"); ?></label>
         <select name="province" id="province" class="select22" data-next='#city' data-next-default='<?php echo \dash\data::dataRowAddress_city(); ?>'>
           <option value="0"><?php echo T_("Please choose country"); ?></option>
@@ -158,7 +158,7 @@ $myCart = \dash\data::myCart();
         </select>
       </div>
 
-      <div class="mB10 <?php if(\dash\data::shippingSettingSaved_sendoutcity()) {}else{ echo 'hide';}?>" data-status='<?php if(\dash\data::shippingSettingSaved_sendoutprovince()) {echo 'hide';}?>'>
+      <div class="mb-2 <?php if(\dash\data::shippingSettingSaved_sendoutcity()) {}else{ echo 'hide';}?>" data-status='<?php if(\dash\data::shippingSettingSaved_sendoutprovince()) {echo 'hide';}?>'>
         <label for='city'><?php echo T_("City"); ?></label>
         <select name="city" id="city" class="select22">
           <option value=""><?php echo T_("Please choose province"); ?></option>
@@ -166,7 +166,7 @@ $myCart = \dash\data::myCart();
       </div>
 
       <label for="xad"><?php echo T_("Address"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
-      <textarea class="txt mB10 pB25" name="xad"  maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
+      <textarea class="txt mb-2 pB25" name="xad"  maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
 
 
       <div class="row">

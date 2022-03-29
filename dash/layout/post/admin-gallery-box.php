@@ -31,7 +31,7 @@ $html .= '<div class="box">';
   {
       if(is_array($gallery_array) && count($gallery_array) > $gallery_capacity)
       {
-        $html .= '<div class="msg minimal mB0 warn2">'. T_("Gallery is full!"). '</div>';
+        $html .= '<div class="msg minimal mb-0 warn2">'. T_("Gallery is full!"). '</div>';
       }
       else
       {

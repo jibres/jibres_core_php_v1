@@ -5,7 +5,7 @@
 
     <div class="avand-lg zero impact">
         <?php if(\dash\request::get('tag')) {?>
-            <div class="alert-dark mB0">
+            <div class="alert-dark mb-0">
                 <div class="row align-center">
                     <div class="c-auto"><?php echo T_("You are watching the changelog of the project with the :tag tag", ['tag' => '#'.\dash\request::get('tag')]) ?></div>
                     <div class="c"></div>
@@ -17,7 +17,7 @@
         <?php if(\dash\data::myTable() || \dash\request::get()) {?>
             <?php foreach (\dash\data::myTable() as $year => $year_detail) { ?>
                 <div class="avand-lg impact zero">
-                    <table class="tbl1 v10 fs09 mB0 responsive">
+                    <table class="tbl1 v10 fs09 mb-0 responsive">
                         <tbody>
                             <?php if($year === 'soon') {?>
                             <tr>
@@ -48,7 +48,7 @@
  <div class="avand-lg impact zero">
 
 
-        <table class="tbl1 v10 fs09 mB0">
+        <table class="tbl1 v10 fs09 mb-0">
             <thead>
                 <tr>
                     <th class="collapsing"><?php echo T_("Date"); ?></th>

@@ -20,7 +20,7 @@
 <?php }//endif ?>
 
 <div class="f fs14">
-  <div class="c6 x4 s12 pA10">
+  <div class="c6 x4 s12 p-2">
 
     <div class="panel">
       <div class="body pad f align-center">
@@ -40,7 +40,7 @@
   </div>
 
 
-  <div class="c6 x4 s12 pA10">
+  <div class="c6 x4 s12 p-2">
       <div class="panel">
         <div class="body pad f align-center">
           <div class="c9">
@@ -60,7 +60,7 @@
   </div>
 
 
-  <div class="c6 x4 s12 pA10">
+  <div class="c6 x4 s12 p-2">
 
       <div class="panel">
         <div class="body pad f align-center">
@@ -80,7 +80,7 @@
 
 
   </div>
-  <div class="c6 x4 s12 pA10">
+  <div class="c6 x4 s12 p-2">
 
       <div class="panel">
         <div class="body pad f align-center">
@@ -100,7 +100,7 @@
   </div>
 
 
-  <div class="c6 x4 s12 pA10">
+  <div class="c6 x4 s12 p-2">
 
       <div class="panel">
         <div class="body pad f align-center">
@@ -120,7 +120,7 @@
 
   </div>
 
-  <div class="c6 x4 s12 pA10">
+  <div class="c6 x4 s12 p-2">
 
       <div class="panel">
         <div class="body pad f align-center">
@@ -140,7 +140,7 @@
 
   </div>
 
-     <div class="c6 x4 s12 pA10">
+     <div class="c6 x4 s12 p-2">
         <div class="panel">
           <div class="body pad f">
             <div class="c">
@@ -163,5 +163,5 @@
 </div>
 
 <div class="text-center fs14 mT5 pLR10">
-  <div class="msg mB0"><?php echo T_("Only you can see your settings."); ?> <?php echo T_("We are committed to protecting your privacy and security."); ?> <a href="<?php echo \dash\url::kingdom(); ?>/privacy" target="_blank"><?php echo T_("Learn more"); ?></a></div>
+  <div class="msg mb-0"><?php echo T_("Only you can see your settings."); ?> <?php echo T_("We are committed to protecting your privacy and security."); ?> <a href="<?php echo \dash\url::kingdom(); ?>/privacy" target="_blank"><?php echo T_("Learn more"); ?></a></div>
 </div>
