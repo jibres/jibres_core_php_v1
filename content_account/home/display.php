@@ -1,14 +1,16 @@
 
-<section class="text-center my-2 select-none">
-  <a href="<?php echo \dash\url::here(); ?>/my/avatar" class="inline-block mb-2 rounded-full">
+<section class="flex items-center my-2 px-2 select-none">
+  <a class="inline-block mb-2 rounded-full flex-none" href="<?php echo \dash\url::here(); ?>/my/avatar">
     <?php if(\dash\user::detail('avatar'))  {?>
-      <img class="w-24 h-24 lg:w-36 lg:h-36 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
+      <img class="w-20 h-20 lg:w-24 lg:h-24 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
     <?php }elseif(\dash\user::id()) {?>
-      <img class="w-24 h-24 lg:w-36 lg:h-36 rounded-full" src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
+      <img class="w-20 h-20 lg:w-24 lg:h-24 rounded-full" src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
     <?php } // endif ?>
   </a>
-  <h2 class="leading-loose text-lg"><?php echo T_("Welcome"); ?><?php echo T_(","); ?> <span class="font-bold"><?php echo \dash\user::detail('fullname'); ?></span></h2>
-  <p class="leading-loose text-xs text-zinc-600"><?php echo T_("Manage your info, privacy, and security to make us work better for you"); ?></p>
+  <div class="px-2 lg:px-4 grow">
+    <h2 class="leading-7 text-lg"><?php echo T_("Welcome"); ?><?php echo T_(","); ?> <span class="font-bold"><?php echo \dash\user::detail('fullname'); ?></span></h2>
+    <p class="text-xs text-zinc-600"><?php echo T_("Manage your info, privacy, and security to make us work better for you"); ?></p>
+  </div>
 </section>
 
 <?php if(!\dash\user::detail('verifymobile'))  {?>
@@ -115,7 +117,7 @@
           <p class="text-zinc-500 leading-5"><?php echo T_("If you finish, you can log out so that no one else can access your account without permission."); ?></p>
         </div>
         <div class="flex-none">
-          <img class="w-16 h-16" src="<?php echo \dash\utility\icon::url('door-closed', 'bootstrap'); ?>" alt='<?php echo T_("logout"); ?>'>
+          <img class="w-16 h-16" src="<?php echo \dash\url::cdn(); ?>/img/account/logout.png" alt='<?php echo T_("logout"); ?>'>
         </div>
       </div>
       <footer class="border-t">
