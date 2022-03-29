@@ -2,15 +2,15 @@
 <div class="avand-md">
 
 <?php if(a($dataRow, 'type') === 'video') { ?>
-	  <video class="block mB10" controls>
+	  <video class="block mb-2" controls>
 	    <source src="<?php echo a($dataRow, 'path'); ?>" type="<?php echo a($dataRow, 'mime'); ?>">
 	  </video>
 <?php } else if(a($dataRow, 'type') === 'audio') { ?>
-  <audio class="block mB10" controls>
+  <audio class="block mb-2" controls>
     <source src="<?php echo a($dataRow, 'path'); ?>" type="<?php echo a($dataRow, 'mime'); ?>">
   </audio>
 <?php } else if(a($dataRow, 'type') === 'image') { ?>
-			<img class="block mB10" src="<?php echo a($dataRow, 'thumb_raw'); ?>" alt="<?php echo a($dataRow, 'title') ?>">
+			<img class="block mb-2" src="<?php echo a($dataRow, 'thumb_raw'); ?>" alt="<?php echo a($dataRow, 'title') ?>">
 <?php } else { ?>
 <?php } ?>
 	<nav class="items long">

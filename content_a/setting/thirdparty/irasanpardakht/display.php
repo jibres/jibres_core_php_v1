@@ -13,7 +13,7 @@
 				 <label for="asanpardakht"><?php echo T_("Enable asanpardakht payment"); ?></label>
 				</div>
 
-				<div class="ltr mT10" data-response='asanpardakht' <?php if(a($bank, 'asanpardakht', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+				<div class="ltr mt-2" data-response='asanpardakht' <?php if(a($bank, 'asanpardakht', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 
 
 					<label for="MerchantID">MerchantID</label>

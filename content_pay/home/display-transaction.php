@@ -216,7 +216,7 @@ if(!$selected && \dash\engine\store::inStore())
 
 ?>
 	<?php if(!array_filter($myPayment)) {?>
-		<p class="font-bold text-center mT10"><?php echo T_("No payment gateway was founded") ?></p>
+		<p class="font-bold text-center mt-2"><?php echo T_("No payment gateway was founded") ?></p>
 	<?php }else{ ?>
 		<div class="pb-2"><?php echo T_("Choose a gateway"); ?></div>
 		<div class="pb-2">
@@ -306,7 +306,7 @@ if(!$selected && \dash\engine\store::inStore())
 
 <?php if(!\dash\permission::supervisor()) {return;}?>
 
-<h3 data-kerkere='.iDetailKerkere' class="msg mT10" data-kerkere-icon='close'><?php echo T_("Detail"); ?></h3>
+<h3 data-kerkere='.iDetailKerkere' class="msg mt-2" data-kerkere-icon='close'><?php echo T_("Detail"); ?></h3>
 <div class="iDetailKerkere ltr" data-kerkere-content='hide'>
 	<div class="cbox">
 		<div class="f">

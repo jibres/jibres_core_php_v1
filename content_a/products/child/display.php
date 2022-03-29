@@ -43,7 +43,7 @@ if($myChildList)
 
           <input type="hidden" name="wholeeditchild" value="wholeeditchild">
 
-              <div class="tblBox mT10">
+              <div class="tblBox mt-2">
                 <table class="tbl1 v5 fs09 responsive">
                   <tbody>
                     <?php foreach ($myChildList as $key => $value) {?>

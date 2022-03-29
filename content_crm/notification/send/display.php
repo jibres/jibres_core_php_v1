@@ -10,7 +10,7 @@
             <?php } //endif ?>
           </select>
         </div>
-        <textarea name="text" class="txt mB10" rows="3" placeholder="<?php echo T_("Message text ...") ?>"></textarea>
+        <textarea name="text" class="txt mb-2" rows="3" placeholder="<?php echo T_("Message text ...") ?>"></textarea>
         <?php if(!\dash\engine\store::inStore() && \dash\permission::supervisor()) {?>
           <div class="check1">
             <input type="checkbox" name="sendsms" id="sendsms">

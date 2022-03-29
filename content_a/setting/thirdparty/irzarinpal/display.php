@@ -13,7 +13,7 @@
 					<label for="zarinpal"><?php echo T_("Enable zarinpal payment"); ?></label>
 				</div>
 
-				<div class="ltr mT10" data-response='zarinpal' <?php if(a($bank, 'zarinpal', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+				<div class="ltr mt-2" data-response='zarinpal' <?php if(a($bank, 'zarinpal', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 
 					<label for="zMerchantID">MerchantID</label>
 					<div class="input">

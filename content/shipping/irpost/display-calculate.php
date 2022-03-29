@@ -11,7 +11,7 @@
 						</div>
 
 						<label><?php echo T_("Choose order type") ?></label>
-						<div class="row mB10">
+						<div class="row mb-2">
 							<div class="c-xs-6 c-sm-6">
 								<div class="radio3">
 									<input type="radio" name="t" value="pishtaz" id="pishtaz" <?php if(\dash\request::get('t') === 'pishtaz' || !\dash\request::get('t')) {echo 'checked';} ?>>
@@ -25,7 +25,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="row mB10">
+						<div class="row mb-2">
 							<div class="c-xs-6 c-sm-6">
 								<label><?php echo T_("Sender location") ?></label>
 								<?php echo \dash\utility\location::provinceSelectorHtml('IR', \dash\request::get('p1'),  \dash\request::get('c1'), 'p1', 'p1', 'c1', 'c1'); ?>
@@ -35,7 +35,7 @@
 							</div>
 						</div>
 						<label><?php echo T_("Send to") ?></label>
-						<div class="row mB10">
+						<div class="row mb-2">
 							<div class="c-xs-6 c-sm-6">
 								<div class="radio3">
 									<input type="radio" name="sendtype" value="otherprovince" id="otherprovince" <?php if(\dash\request::get('sendtype') === 'otherprovince' || !\dash\request::get('sendtype')) {echo 'checked';} ?>>

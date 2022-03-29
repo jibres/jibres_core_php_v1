@@ -10,7 +10,7 @@
       <div class="body">
 
 
-        <div class="f mB10">
+        <div class="f mb-2">
 
           <div class="c s6">
             <a href="<?php echo \dash\url::that(); ?>/add?type=cost" class="stat">

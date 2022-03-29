@@ -66,7 +66,7 @@
     <form method="post" autocomplete="off">
      <label><?php echo T_("Choose register time"); ?></label>
 
-     <div class="f mB10">
+     <div class="f mb-2">
       <div class="c pB10 pRa5">
        <div class="radio3">
         <input type="radio" name="period" value="1year" id="period1year" <?php if(\dash\data::userSetting_autorenewperiod() === '1year') { echo 'checked';} ?>>
@@ -172,7 +172,7 @@
       </div>
 
 
-      <div class="txtRa mT10">
+      <div class="txtRa mt-2">
        <button class="btn-success"><?php echo T_("Review Detail"); ?></button>
       </div>
 

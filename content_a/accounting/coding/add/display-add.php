@@ -104,29 +104,29 @@
 
             <?php if(\dash\data::myType() === 'assistant' ) {?>
 
-              <div class="check1 mT10">
+              <div class="check1 mt-2">
                 <input type="checkbox" name="naturecontrol" id="naturecontrol"  <?php if(\dash\data::dataRow_naturecontrol()) {echo 'checked';}?> >
                 <label for="naturecontrol"><?php echo T_("naturecontrol"); ?></label>
               </div>
 
-              <div class="check1 mT10">
+              <div class="check1 mt-2">
                 <input type="checkbox" name="currency" id="currency"  <?php if(\dash\data::dataRow_currency()) {echo 'checked';}?> >
                 <label for="currency"><?php echo T_("Accounting currency"); ?></label>
               </div>
 
-              <div class="check1 mT10">
+              <div class="check1 mt-2">
                 <input type="checkbox" name="exchangeable" id="exchangeable"  <?php if(\dash\data::dataRow_exchangeable()) {echo 'checked';}?> >
                 <label for="exchangeable"><?php echo T_("exchangeable"); ?></label>
               </div>
 
               <?php if(\dash\data::myType() === 'assistant' ) {?>
-                <div class="check1 mT10">
+                <div class="check1 mt-2">
                   <input type="checkbox" name="detailable" id="detailable"  <?php if(\dash\data::dataRow_detailable()) {echo 'checked';}?> >
                   <label for="detailable"><?php echo T_("Detailable?"); ?></label>
                 </div>
               <?php } // endif ?>
 
-              <div class="check1 mT10">
+              <div class="check1 mt-2">
                 <input type="checkbox" name="followup" id="followup"  <?php if(\dash\data::dataRow_followup()) {echo 'checked';}?> >
                 <label for="followup"><?php echo T_("followup"); ?></label>
               </div>
@@ -134,7 +134,7 @@
             <?php } //endif ?>
 
 
-            <div class="switch1 mT10">
+            <div class="switch1 mt-2">
               <input type="checkbox" name="status" id="status"  <?php if(\dash\data::dataRow_status() === 'enable' || !\dash\data::dataRow()) {echo 'checked';}?> >
               <label for="status" data-on="<?php echo T_("Enable") ?>" data-off="<?php echo T_("Disable") ?>"></label>
               <label for="status"><?php echo T_("Status"); ?></label>

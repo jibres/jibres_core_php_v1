@@ -3,11 +3,11 @@
 
 <div class="f justify-center text-center mB50">
 	<div class="c6 s12 fs18">
-		<div class="mB10"><?php echo T_("Start lock"); ?></div>
+		<div class="mb-2"><?php echo T_("Start lock"); ?></div>
 		<br>
-		<div class="mB10"><?php echo \dash\fit::date(\dash\data::startLock()); ?></div>
+		<div class="mb-2"><?php echo \dash\fit::date(\dash\data::startLock()); ?></div>
 		<br>
-		<div class="mB10"><?php echo \dash\fit::date(\dash\data::startLock()); ?></div>
+		<div class="mb-2"><?php echo \dash\fit::date(\dash\data::startLock()); ?></div>
 
 	</div>
 </div>

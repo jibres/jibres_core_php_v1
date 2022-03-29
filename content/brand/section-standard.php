@@ -4,7 +4,7 @@ $myUrlStatic = \dash\url::cdn();
 
   <section class="avand-xl impact pTB4x">
    <div class="">
-    <div class="f align-center mB10">
+    <div class="f align-center mb-2">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("STANDARD LOCKUP"); ?></h3>
         <p><?php echo T_("Our standard horizontal lockup is our official logotype, consisting of the icon and our wordmark. If you aren't sure which logo to use in your materials, use this one."); ?></p>

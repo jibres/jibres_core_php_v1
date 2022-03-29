@@ -19,14 +19,14 @@
                 </div>
               </a>
             </div>
-            <div class="c1 mB10"></div>
+            <div class="c1 mb-2"></div>
             <div class="cauto s12">
               <div>
                 <span class="fc-mute"><?php echo T_("Mobile") ?></span>
                 <span class="font-bold ltr compact"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')) ?></span>
               </div>
             </div>
-            <div class="c mB10"></div>
+            <div class="c mb-2"></div>
             <div class="cauto s12">
               <div class="link" data-kerkere='.changecustomerForm'><?php echo T_("Change customer") ?></div>
             </div>
@@ -138,7 +138,7 @@
 
       <div class="box">
         <div class="pad">
-          <div class="font-bold mB10"><?php echo T_("Replace order address by customer saved address") ?></div>
+          <div class="font-bold mb-2"><?php echo T_("Replace order address by customer saved address") ?></div>
 
               <?php foreach (\dash\data::customerAddressList() as $key => $value) {?>
                <div class="c-xs-12 c-sm-6 c-md-4 c-xl-3" data-confirm data-data='{"updateaddress": "<?php echo a($value, 'id') ?>"}'>

@@ -45,7 +45,7 @@
   <div class="c-xs-12 c-sm-12 c-md-3">
     <div class="box">
       <div class="pad">
-        <div class="font-bold mB10"><?php echo T_("Filter") ?></div>
+        <div class="font-bold mb-2"><?php echo T_("Filter") ?></div>
         <form method="get" action="<?php echo \dash\url::that(); ?>">
           <div class="searchBox mb-4">
             <div class="input search <?php if(\dash\validate::search_string()) { echo 'apply'; }?>">

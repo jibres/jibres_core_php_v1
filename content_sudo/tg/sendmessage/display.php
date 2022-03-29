@@ -3,13 +3,13 @@ $tg = \dash\data::tg();
 ?>
 
 <form class="cbox" method="post" autocomplete="off">
-  <div class="input ltr mB10">
+  <div class="input ltr mb-2">
     <label for="chatid"><?php echo T_("Chat id or username"); ?></label>
     <input type="text" name="chatid" id="chatid" value="46898544" placeholder='<?php echo T_("Unique identifier for the target chat or username of the target channel (in the format @channelusername)"); ?>' required>
   </div>
 
   <label for="text"><?php echo T_("Message"); ?></label>
-  <textarea class="txt mB10" name="text" id="text" rows="7" placeholder='<?php echo T_("Text of the message to be sent"); ?>' required>
+  <textarea class="txt mb-2" name="text" id="text" rows="7" placeholder='<?php echo T_("Text of the message to be sent"); ?>' required>
     <?php echo \dash\face::site(); ?>
 
     <?php echo \dash\fit::date(date("Y-m-d")); ?>

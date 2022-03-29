@@ -7,7 +7,7 @@
 <div class="f fs14 mT10 mb-4">
  <div class="c6 s12 pRa5">
 
-  <div class="panel mB10">
+  <div class="panel mb-2">
     <table class="tbl1 v4 mB0">
      <tr>
       <th><?php echo T_('Domain') ?> <a class="link mLa5" target="_blank" rel="nofollow" href="http://<?php echo \dash\data::domainDetail_name(); ?>"><i class=" mRa5 sf-link"></i></a></th>
@@ -150,7 +150,7 @@ else
 
 
  <div class="c6 s12 pLa5">
-  <div class="panel mB10">
+  <div class="panel mb-2">
     <table class="tbl1 v4 mB0">
      <tr>
       <td>
@@ -193,7 +193,7 @@ else
     </table>
   </div>
 
-  <div class="panel mB10">
+  <div class="panel mb-2">
     <table class="tbl1 v4 mB0">
       <tr>
         <td colspan="2" ><?php echo T_("This detail was founded in whois answer") ?></td>
@@ -222,7 +222,7 @@ else
     </table>
   </div>
 
-  <div class="panel mB10">
+  <div class="panel mb-2">
     <table class="tbl1 v4 mB0">
      <tr>
       <td>
@@ -269,7 +269,7 @@ else
 
 
 <?php if(\dash\data::domainDetail_nicstatus_array()) {?>
-<div class="panel mB10">
+<div class="panel mb-2">
  <table class="tbl1 v4 mB0">
   <?php
    if(\dash\data::domainDetail_nicstatus_array())
@@ -304,7 +304,7 @@ else
 
 <?php if(\dash\data::NICdomainStatus()) {?>
   <div class="c6 s12 pLa5">
-    <div class="panel mB10">
+    <div class="panel mb-2">
       <table class="tbl1 v4 mB0">
         <thead>
           <th class="collapsing"></th>
@@ -334,7 +334,7 @@ else
 
 
   <?php if(\dash\permission::supervisor()) {?>
-  <div class="panel mB10">
+  <div class="panel mb-2">
     <table class="tbl1 v4 mB0">
       <tr>
       <td>

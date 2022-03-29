@@ -41,7 +41,7 @@
           </select>
 
 
-          <label for="bio" class="mT10"><?php echo T_("Bio"); ?></label>
+          <label for="bio" class="mt-2"><?php echo T_("Bio"); ?></label>
           <textarea class="txt mB20 pB25" name="bio" id="bio" placeholder='<?php echo T_("Bio"); ?>' maxlength='300' rows="3"><?php echo \dash\data::dataRow_bio(); ?></textarea>
 
         <div class="txtRa">

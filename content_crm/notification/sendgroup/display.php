@@ -11,7 +11,7 @@
             <?php } //endif ?>
           </select>
         </div>
-        <textarea name="text" class="txt mB10" rows="3" placeholder="<?php echo T_("Message text ...") ?>"></textarea>
+        <textarea name="text" class="txt mb-2" rows="3" placeholder="<?php echo T_("Message text ...") ?>"></textarea>
       </div>
       <footer class="txtRa">
         <button class="btn master"><?php echo T_("Send") ?></button>

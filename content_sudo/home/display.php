@@ -19,7 +19,7 @@
 
       <div class="dcard x1">
        <div class="statistic sm olive">
-        <div class="value mB10"><i class="mRa5 sf-heart"></i> <?php echo T_("Uptime"); ?></div>
+        <div class="value mb-2"><i class="mRa5 sf-heart"></i> <?php echo T_("Uptime"); ?></div>
         <div class="label ltr"><?php echo \dash\data::su_uptime(); ?></div>
        </div>
       </div>
@@ -30,7 +30,7 @@
 
       <div class="dcard x1">
        <div class="statistic sm">
-        <div class="value mB10"><?php echo \dash\data::su_disk(); ?></div>
+        <div class="value mb-2"><?php echo \dash\data::su_disk(); ?></div>
         <div class="label"><i class="mRa5 sf-battery-full"></i> <?php echo T_("Disk space"); ?></div>
        </div>
       </div>
@@ -40,7 +40,7 @@
 
       <div class="dcard x1">
        <div class="statistic sm">
-        <div class="value mB10"><?php echo \dash\data::su_diskFree(); ?></div>
+        <div class="value mb-2"><?php echo \dash\data::su_diskFree(); ?></div>
         <div class="label"><i class="mRa5 sf-battery-half"></i> <?php echo T_("Disk Free space"); ?></div>
        </div>
       </div>

@@ -32,7 +32,7 @@ $have_user = false;
       <div class="box">
         <div class="pad">
           <p><?php echo T_("Search in product and add to order") ?></p>
-          <div class="mB10">
+          <div class="mb-2">
 
             <select name="product_id" class="select22" id="productSearch"  data-model='html' <?php \dash\layout\autofocus::html() ?>  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/products/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'>
             </select>

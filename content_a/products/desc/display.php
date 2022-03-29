@@ -10,7 +10,7 @@ require_once(root. 'content_a/products/productName.php');
             <form method="post" autocomplete="off">
                <textarea name="html" data-editor class="txt" rows="6" maxlength="2000" data-placeholder='<?php echo T_("Description"); ?>'><?php echo a(\dash\data::productDataRow(),'desc'); ?></textarea>
               <div class="txtRa">
-                <button class="btn master mT10" ><?php echo T_("Save"); ?></button>
+                <button class="btn master mt-2" ><?php echo T_("Save"); ?></button>
               </div>
             </form>
           </div>

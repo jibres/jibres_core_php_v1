@@ -18,7 +18,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
           <p><i class="sf-arrows-out"></i> <?php echo T_("Change Order status") ?>
           <br><small class="fc-mute"><?php echo T_("Change order status by click on custome status") ?></small>
         </p>
-        <div class="row mB10">
+        <div class="row mb-2">
           <div class="c-auto">
             <div class="btn mB5 <?php if($orderStatus === 'preparing') { echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "preparing"}'><?php echo T_("Set as preparing") ?></div>
           </div>
@@ -68,7 +68,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
           <i class="sf-money-banknote"></i> <?php echo T_("Change order payment status") ?>
           <br><small class="fc-mute"><?php echo T_("Change order payment status by click on custome status") ?></small>
         </p>
-        <div class="row mB10">
+        <div class="row mb-2">
           <div class="c-auto">
             <div class="btn mB5 <?php if($orderPayStatus === 'awaiting_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "awaiting_payment"}'><?php echo T_('Awaiting payment') ?></div>
           </div>
@@ -108,7 +108,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
         <div class="input ltr">
           <input type="tel" maxlength="30" name="trackingnumber" id="itrackingnumber" value="<?php echo \dash\data::myTrackingNumber(); ?>">
         </div>
-        <div class="fc-mute mT10">
+        <div class="fc-mute mt-2">
           <?php echo T_("Save Tracking number for this order") ?>.
           <?php echo T_("After saving the tracking code, we will send it to the customer") ?>
 

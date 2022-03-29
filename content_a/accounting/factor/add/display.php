@@ -131,14 +131,14 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
                     <?php htmlDetailsSelectList('put_on'); ?>
                 </select>
               </div>
-              <div class="mT10">
+              <div class="mt-2">
                 <label for="thirdparty"><?php if($myType === 'income'){echo T_("Buyer");}else{ echo T_("Seller"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{ echo T_("If the seller is not selected, a direct payment document will be made"); }  ?></small> <?php htmlTurnoverLink('thirdparty') ?></label>
                 <select class="select22" name="thirdparty" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Thirdparty") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
                   <?php htmlDetailsSelectList('thirdparty'); ?>
                 </select>
               </div>
-              <div class="mT10">
+              <div class="mt-2">
                 <label for="pay_from"><?php if($myType === 'income'){echo T_("Recipient of money");}else{ echo T_("Payer"); } ?> <small><?php if($myType === 'income'){/*some message if have not buy from*/}else{  echo T_("In case of non-payment, the credit document will be registered"); }  ?></small> <?php htmlTurnoverLink('pay_from') ?></label>
                 <select class="select22" name="pay_from" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Payer") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
@@ -147,7 +147,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
               </div>
             <?php } //endif ?>
             <?php if(in_array($myType, ['petty_cash', 'partner'])) {?>
-              <div class="mT10">
+              <div class="mt-2">
                 <label for="petty_cash"><?php echo T_("Petty cash") ?> <?php htmlTurnoverLink('petty_cash') ?></label>
                 <select class="select22" name="petty_cash" <?php echo $disableInput; ?> data-placeholder='<?php echo T_("Petty cash") ?>'>
                   <option value="0"><?php echo T_("None") ?></option>
@@ -157,7 +157,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
             <?php } // endif ?>
 
             <?php if(in_array($myType, ['petty_cash', 'bank_partner', 'bank_profit'])) {?>
-              <div class="mT10">
+              <div class="mt-2">
                  <div class="row">
                   <div class="c-auto">
                     <label for="bank"><?php echo T_("Bank") ?> <?php htmlTurnoverLink('bank') ?></label>
@@ -174,7 +174,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
             <?php } // endif ?>
 
             <?php if(in_array($myType, ['bank_profit'])) {?>
-              <div class="mT10">
+              <div class="mt-2">
                  <div class="row">
                   <div class="c-auto">
                     <label for="bank_profit"><?php echo T_("Bank profit") ?> <?php htmlTurnoverLink('profit') ?></label>
@@ -192,7 +192,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
 
 
             <?php if(in_array($myType, ['partner', 'bank_partner'])) {?>
-              <div class="mT10">
+              <div class="mt-2">
                  <div class="row">
                   <div class="c-auto">
                     <label for="partner"><?php echo T_("Accounting Partner") ?> <?php htmlTurnoverLink('partner') ?></label>
@@ -208,7 +208,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
 
             <?php } // endif ?>
           <?php } // endif ?>
-          <div class="mT10"></div>
+          <div class="mt-2"></div>
 
           <div class="row">
             <div class="c">

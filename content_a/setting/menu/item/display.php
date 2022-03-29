@@ -10,7 +10,7 @@ $addChildMode = \dash\data::addChildMode();
   <form method="post" class="box" autocomplete="off">
     <header><h2><?php echo \dash\data::myFullPageTitle() ?></h2></header>
       <div class="body">
-        <div class="mB10">
+        <div class="mb-2">
           <label for="pointer"><?php echo T_("Hint to") ?></label>
           <select name="pointer" class="select22">
             <option value=""><?php echo T_("Please select an item") ?></option>

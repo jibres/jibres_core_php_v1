@@ -8,7 +8,7 @@
           <?php echo T_("You can also place a button under each product and redirect it to a page") ?>
         </p>
         <label for="view_text"><?php echo T_("Text"); ?></label>
-        <textarea name="view_text" id="view_text" class="txt mB10" rows="5"><?php echo \dash\data::productSettingSaved_view_text(); ?></textarea>
+        <textarea name="view_text" id="view_text" class="txt mb-2" rows="5"><?php echo \dash\data::productSettingSaved_view_text(); ?></textarea>
 
         <label for="button_title"><?php echo T_("Button title"); ?></label>
         <div class="input">

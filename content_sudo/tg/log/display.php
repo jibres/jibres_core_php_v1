@@ -111,7 +111,7 @@ if(!is_array($dataTable))
       <td>
         <?php if(isset($value['hook']) && $value['hook']) {?>
 
-        <div class="mB10">
+        <div class="mb-2">
           <a href="<?php echo \dash\url::that(); ?>?hooktext=<?php echo a($value, 'hooktext'); ?>"><?php echo a($value, 'hooktext'); ?></a>
         </div>
         <div class="f fs09">
@@ -146,7 +146,7 @@ if(!is_array($dataTable))
           <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo a($value, 'id'); ?>#sendmesageid" class="badge" title='<?php echo T_("Message id"); ?>'><?php echo a($value, 'sendmesageid'); ?></a>
         <?php } //endif ?>
         </div>
-        <div class="mB10">
+        <div class="mb-2">
           <a href="<?php echo \dash\url::that(); ?>?sendtext=<?php echo a($value, 'sendtext'); ?>"><?php echo a($value, 'sendtext'); ?></a>
         </div>
         <div class="f fs09">

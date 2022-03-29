@@ -8,7 +8,7 @@
     <header><h2><?php echo T_("Add tag to all answer");?></h2></header>
       <div class="body">
         <p><?php echo T_("Your can add tag to all answers");?></p>
-          <div class="row mB10">
+          <div class="row mb-2">
             <div class="c-xs-6 c-sm-6">
               <div class="radio3">
                 <input type="radio" name="type" value="include" checked id="typeinclude">

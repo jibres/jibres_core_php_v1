@@ -13,7 +13,7 @@
           <?php echo T_("You can remove this tag from all form or change it to another tag"); ?>
         </p>
 
-        <div class="row mB10">
+        <div class="row mb-2">
           <div class="c-xs-12 c-sm-6">
             <div class="radio3">
               <input type="radio" name="wd" value="wde" id="wde">
@@ -30,7 +30,7 @@
 
         <div data-response='wd' data-response-where='wdn' data-response-hide>
 
-        <div class="mB10">
+        <div class="mb-2">
           <label for='tag'><?php echo T_("New Tag"); ?></label>
            <select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one tag") ?>">
             <?php if(\dash\request::get('tagid')) {?>

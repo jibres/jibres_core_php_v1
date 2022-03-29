@@ -66,7 +66,7 @@ switch (\dash\data::dataRow_status())
 <form method="post" autocomplete="off" id="formEditPost">
   <div class="box">
     <div class="pad">
-      <div class="input mB10">
+      <div class="input mb-2">
         <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter title here"); ?> *' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1" pattern=".{1,200}">
       </div>
       <div class="postBlock">

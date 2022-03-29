@@ -3,7 +3,7 @@
     <div class="body">
       <a target="_blank" href="https://jibres.<?php echo \dash\url::tld(); ?>/api" class="btn block outline"><?php echo \dash\data::myTitle(); ?></a>
       <?php if(!\dash\user::detail('verifymobile')) {?>
-        <a href="<?php echo \dash\url::kingdom(); ?>/enter/verify?referer=<?php echo urlencode(\dash\url::location()); ?>" target="_blank"  class="msg block warn font-bold text-center mT10"><?php echo T_("To make your appkey you must verify your mobile"); ?></a>
+        <a href="<?php echo \dash\url::kingdom(); ?>/enter/verify?referer=<?php echo urlencode(\dash\url::location()); ?>" target="_blank"  class="msg block warn font-bold text-center mt-2"><?php echo T_("To make your appkey you must verify your mobile"); ?></a>
       <?php }else{ ?>
         <div class="alert-warning mt-4">
           <div><?php echo T_("Protect this key like a password!"); ?></div>

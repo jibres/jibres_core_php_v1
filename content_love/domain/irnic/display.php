@@ -56,7 +56,7 @@ else
 
                     <a href="<?php echo \dash\url::that(); ?>/edit?id=<?php echo a($value, 'id'); ?>" class="link"><code><?php echo a($value, 'nic_id'); ?></code></a>
                     <?php if(isset($value['isdefault']) && $value['isdefault']) {?> <span class="badge success mLR10"><?php echo T_("Default"); ?></span> <?php }// endif ?>
-                    <div class="mT10"><?php echo substr(a($value, 'title'), 0, 50); ?></div>
+                    <div class="mt-2"><?php echo substr(a($value, 'title'), 0, 50); ?></div>
 
                 </td>
                 <td class="collapsing">

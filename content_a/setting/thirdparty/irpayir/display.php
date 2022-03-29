@@ -13,7 +13,7 @@
 				 <label for="payir"><?php echo T_("Enable payir payment"); ?></label>
 				</div>
 
-				<div class="ltr mT10" data-response='payir' <?php if(a($bank, 'payir', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+				<div class="ltr mt-2" data-response='payir' <?php if(a($bank, 'payir', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 
 					<label for="api">Api</label>
 					<div class="input">

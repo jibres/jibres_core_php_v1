@@ -6,7 +6,7 @@
     $myJson           = json_encode($myJson);
   ?>
     <div class="c-xs-6 c-sm-4 c-md-2">
-      <div data-ajaxify data-action='<?php echo \dash\url::site().  \dash\request::get('callback'); ?>' data-data='<?php echo $myJson ?>' class="vcard mB10">
+      <div data-ajaxify data-action='<?php echo \dash\url::site().  \dash\request::get('callback'); ?>' data-data='<?php echo $myJson ?>' class="vcard mb-2">
         <img src="<?php echo a($value, 'thumb'); ?>" alt="<?php echo T_("Post image") ?>">
       </div>
     </div>

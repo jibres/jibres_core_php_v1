@@ -19,7 +19,7 @@
      <a href="<?php echo(\dash\url::sitelang()); ?>" class='btn lg light outline'><?php if(function_exists('T_')) { echo T_("Return to Homepage"); } else { echo "Return to Homepage"; }?></a>
     </div>
     <div class="cauto os s12">
-     <a href="<?php echo(\dash\url::sitelang()); ?>" id='ermileBadge' class="f mT10">
+     <a href="<?php echo(\dash\url::sitelang()); ?>" id='ermileBadge' class="f mt-2">
       <div class="cauto">
        <img src="<?php echo(\dash\url::icon()); ?>" alt='Jibres logo icon' class="cauto">
       </div>

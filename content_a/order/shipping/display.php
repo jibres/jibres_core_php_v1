@@ -36,7 +36,7 @@ if(\lib\store::detail('mass_unit'))
             <small class="fc-mute"><?php echo T_("Change order Shipping method, date send and something else") ?></small>
           </p>
 
-          <div class="mB10">
+          <div class="mb-2">
             <div class="row">
               <div class="c-auto">
                 <label for="package"><?php echo T_("Package") ?></label>
@@ -106,7 +106,7 @@ if(\lib\store::detail('mass_unit'))
 
           </div>
 
-          <div class="mB10">
+          <div class="mb-2">
             <div class="row">
               <div class="c-auto">
                 <label for="method"><?php echo T_("Choos Shipping method") ?></label>
@@ -130,7 +130,7 @@ if(\lib\store::detail('mass_unit'))
             <?php } // endif ?>
           </div>
 
-          <div class="mB10">
+          <div class="mb-2">
              <label for="shippingdate"><?php echo T_("Shipping date") ?></label>
               <div class="input">
                 <input type="text" name="shippingdate" id="shippingdate" data-format='date'>

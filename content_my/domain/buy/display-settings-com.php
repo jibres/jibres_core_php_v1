@@ -72,14 +72,14 @@
             </div>
 
 
-            <p class="fc-mute mT10"><?php
+            <p class="fc-mute mt-2"><?php
             echo T_("By submit this form, you are indicating that you have agree to the :terms.",
               [
                 'terms' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms">'. T_('Jibres Terms of Service') .'</a>'
               ])
               ?></p>
 
-              <div class="txtRa mT10">
+              <div class="txtRa mt-2">
                 <button class="btn-success"><?php echo T_("Review Detail"); ?></button>
               </div>
 

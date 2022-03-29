@@ -7,7 +7,7 @@
 			$myPath = \lib\filepath::fix(str_replace('.'. \dash\data::dataRow_ext(), '-w'. $size. '.webp', \dash\data::dataRow_path()));
 		?>
 			<div class="c-xs-12 c-sm-6 c-md-4">
-				<div class="vcard mA10">
+				<div class="vcard m-2">
 					<img alt="<?php echo T_("Image") ?>" src="<?php echo $myPath ?>">
         	<div class="content">
             <div class="header">

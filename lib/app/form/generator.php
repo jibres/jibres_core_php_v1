@@ -29,7 +29,7 @@ class generator
 
 				if(a($load_form, 'file'))
 				{
-					self::$html .= '<img class="mB10" src="'. a($load_form, 'file'). '" alt="'. a($load_form, 'title'). '">';
+					self::$html .= '<img class="mb-2" src="'. a($load_form, 'file'). '" alt="'. a($load_form, 'title'). '">';
 				}
 				if(a($load_form, 'desc'))
 				{
@@ -79,7 +79,7 @@ class generator
 
 						if(a($load_form, 'file'))
 						{
-							self::$html .= '<img class="mB10" src="'. a($load_form, 'file'). '" alt="'. a($load_form, 'title'). '">';
+							self::$html .= '<img class="mb-2" src="'. a($load_form, 'file'). '" alt="'. a($load_form, 'title'). '">';
 						}
 						if(a($load_form, 'desc'))
 						{
@@ -137,7 +137,7 @@ class generator
 
 						if(a($load_form, 'file'))
 						{
-							self::$html .= '<img class="mB10" src="'. a($load_form, 'file'). '" alt="'. a($load_form, 'title'). '">';
+							self::$html .= '<img class="mb-2" src="'. a($load_form, 'file'). '" alt="'. a($load_form, 'title'). '">';
 						}
 						if(a($load_form, 'desc'))
 						{

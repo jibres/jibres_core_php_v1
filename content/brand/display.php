@@ -5,7 +5,7 @@
 
   <section class="avand-xl impact pTB5x">
    <div class="">
-    <div class="f align-center mB10">
+    <div class="f align-center mb-2">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("MEET THE LOGO"); ?></h3>
         <p><?php echo T_("Our logo represents simplicity, vivacity, agility, scalability and reliability; Values that we believe them as a company."); ?></p>

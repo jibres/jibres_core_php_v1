@@ -99,8 +99,8 @@
                   <?php if(a($value, 'fileaddress')) {?>
                     <a data-action class="btn-success" href="<?php echo a($value, 'fileaddress') ?>" download target="_blank"><?php echo T_("Download file") ?></a>
                     <?php if(\dash\request::is_pwa()) {?>
-                      <div class="msg mT10"><?php echo T_("File Address"). ' '. a($value, 'fileaddress') ?>
-                        <a class="btn master mT10" data-copy="<?php echo a($value, 'fileaddress') ?>"><?php echo T_("Copy To Download") ?></a>
+                      <div class="msg mt-2"><?php echo T_("File Address"). ' '. a($value, 'fileaddress') ?>
+                        <a class="btn master mt-2" data-copy="<?php echo a($value, 'fileaddress') ?>"><?php echo T_("Copy To Download") ?></a>
                       </div>
                     <?php } //endif ?>
                   <?php }else{ ?>

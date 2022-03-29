@@ -11,7 +11,7 @@ foreach (\dash\data::specialTLD() as $tld => $value) {
       <div class="cbox mB10-f">
         <div class="tld font-35 font-bold ltr txtLa"><?php echo $tld ?></div>
         <div class="fc-mute font-16"><?php echo T_("Registration") ?></div>
-        <div class="price font-20 mT10"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></div>
+        <div class="price font-20 mt-2"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></div>
       </div>
     </div>
 <?php } } ?>
@@ -20,7 +20,7 @@ foreach (\dash\data::specialTLD() as $tld => $value) {
  </div>
 
  <div class="avand impact">
-  <div class="row mB10">
+  <div class="row mb-2">
 <?php
 for ($i=1; $i <= 10; $i++)
 {

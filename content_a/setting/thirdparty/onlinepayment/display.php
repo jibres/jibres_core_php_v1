@@ -237,7 +237,7 @@
  <label for="irkish"><?php echo T_("Enable irkish payment"); ?></label>
 </div>
 
-<div class="f mT10" data-response='irkish' <?php if(a($bank, 'irkish', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+<div class="f mt-2" data-response='irkish' <?php if(a($bank, 'irkish', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 	<div class="c4 pLa5">
 		<label for="merchantId">merchantId</label>
 		<div class="input">
@@ -270,7 +270,7 @@
  <label for="idpay"><?php echo T_("Enable idpay payment"); ?></label>
 </div>
 
-<div class="f mT10" data-response='idpay' <?php if(a($bank, 'idpay', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+<div class="f mt-2" data-response='idpay' <?php if(a($bank, 'idpay', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 	<div class="c12 mLa5">
 		<label for="apikey">API KEY</label>
 		<div class="input">

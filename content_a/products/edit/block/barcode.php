@@ -4,7 +4,7 @@
       <div>
       <div>
     <?php }else{ ?>
-      <div class="mB10" data-kerkere='.showBarcodeBlock' data-kerkere-icon data-ajaxify data-data='{"set_barcodesetting": "save"}'><?php echo T_("Enable barcode"); ?></div>
+      <div class="mb-2" data-kerkere='.showBarcodeBlock' data-kerkere-icon data-ajaxify data-data='{"set_barcodesetting": "save"}'><?php echo T_("Enable barcode"); ?></div>
       <div class="showBarcodeBlock" <?php if((isset($storData['barcode']) && $storData['barcode'])) {/*nothing*/}else{echo 'data-kerkere-content="hide"';}?>>
     <?php }// endif ?>
 
@@ -15,7 +15,7 @@
             <input type="text" name="barcode" id="barcode" placeholder='<?php echo T_("Scan Barcode here..."); ?>' value="<?php if(\dash\data::productDataRow_barcode()) { echo \dash\data::productDataRow_barcode(); }elseif(\dash\request::get('barcode')){ echo \dash\request::get('barcode');} ?>" class="barCode text-center ltr" data-lock autocomplete="off" maxlength="30">
             <span class="addon flag"><img class="none" src="<?php echo \dash\url::icon(); ?>" alt="Jibres"/></span>
           </div>
-          <div class="text-center mB10">
+          <div class="text-center mb-2">
             <svg class="barcodePrev" data-val="#barcode"></svg>
           </div>
         </div>
@@ -25,7 +25,7 @@
             <input type="text" name="barcode2" id="barcode2" placeholder='<?php echo T_("Scan Barcode2 here..."); ?>' value="<?php echo a($productDataRow,'barcode2'); ?>" class="barCode text-center ltr" data-lock autocomplete="off" maxlength="30">
             <span class="addon flag"><img class="none" src="<?php echo \dash\url::icon(); ?>" alt="Jibres"/></span>
           </div>
-          <div class="text-center mB10">
+          <div class="text-center mb-2">
             <svg class="barcodePrev" data-val="#barcode2"></svg>
           </div>
         </div>

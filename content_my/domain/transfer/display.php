@@ -3,7 +3,7 @@
     <div class="avand-sm">
       <div class="box">
         <div class="body">
-          <div class="input ltr mB10">
+          <div class="input ltr mb-2">
             <input type="text" name="domain" placeholder='<?php echo T_("Domain"); ?>' value="<?php echo \dash\request::get('domain'); ?>" maxlength=80 required>
           </div>
         </div>
@@ -19,7 +19,7 @@
       <div class="avand-sm">
         <div class="box">
           <div class="body">
-            <div class="input ltr mB10">
+            <div class="input ltr mb-2">
               <input type="text" name="domain" placeholder='<?php echo T_("Domain"); ?>' value="<?php echo \dash\request::get('domain'); ?>" maxlength=80>
             </div>
 
@@ -50,7 +50,7 @@
                   ?></label>
                 </div>
               <?php }else{ ?>
-                <p class="fc-mute mT10"><?php
+                <p class="fc-mute mt-2"><?php
                 echo T_("By submit this form, you are indicating that you have agree to the :terms.",
                   [
                     'terms' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms">'. T_('Jibres Terms of Service') .'</a>'

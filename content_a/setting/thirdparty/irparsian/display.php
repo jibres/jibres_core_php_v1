@@ -13,7 +13,7 @@
 				 <label for="parsian"><?php echo T_("Enable parsian payment"); ?></label>
 				</div>
 
-				<div class="ltr mT10" data-response='parsian' <?php if(a($bank, 'parsian', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+				<div class="ltr mt-2" data-response='parsian' <?php if(a($bank, 'parsian', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 
 					<label for="LoginAccount">LoginAccount</label>
 					<div class="input">

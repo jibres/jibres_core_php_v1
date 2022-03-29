@@ -71,9 +71,9 @@ $myCart = \dash\data::myCart();
           <input type="hidden" name="payway" value="online">
 
             <?php if(\dash\data::paymentWay()) { $checked = 'online'; if(!in_array('online', array_keys(\dash\data::paymentWay()))){ $checked = key(\dash\data::paymentWay()); } ?>
-              <div class="mB10"><?php echo T_("Choose Payment") ?></div>
+              <div class="mb-2"><?php echo T_("Choose Payment") ?></div>
               <?php foreach (\dash\data::paymentWay() as $key => $value) {?>
-                <div class="radio3 mB10">
+                <div class="radio3 mb-2">
                   <input  id="payway<?php echo $key; ?>" type="radio" name="payway" value="<?php echo a($value, 'key'); ?>" <?php if($key === $checked) { echo 'checked';} ?>>
                   <label for="payway<?php echo $key; ?>"><?php echo a($value, 'title'); ?></label>
                 </div>

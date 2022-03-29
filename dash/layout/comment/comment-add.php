@@ -12,7 +12,7 @@
 
     <?php if(!\dash\user::id()) { ?>
           <div class="row">
-            <div class="c c-xs-12 mB10">
+            <div class="c c-xs-12 mb-2">
 
               <div class="input">
                <label class="addon" for="name"><?php echo T_("Name"); ?></label>
@@ -20,7 +20,7 @@
               </div>
 
             </div>
-            <div class="c c-xs-12 mB10">
+            <div class="c c-xs-12 mb-2">
               <div class="input">
                <label class="addon" for="mobile"><?php echo T_("Mobile"); ?></label>
                <input type="tel" name="mobile" id="mobile" placeholder='<?php echo T_("Mobile"); ?>' maxlength="13" autocomplete="off" data-validity='<?php echo T_("Please enter valid mobile number. `:val` is incorrect"); ?>' value="<?php echo \dash\user::detail('mobile'); ?>">
@@ -30,10 +30,10 @@
             <input type="text" name="username" class="hide" value="">
           </div>
     <?php } // endif?>
-      <div class="input mB10">
+      <div class="input mb-2">
        <input type="text" name="title" id="title" placeholder='<?php echo T_("Title"); ?>' maxlength='40' >
       </div>
-      <div class="mB10">
+      <div class="mb-2">
         <textarea name="content" class="txt" rows="4" placeholder='<?php echo T_("Write your review about this post..."); ?>'></textarea>
       </div>
 

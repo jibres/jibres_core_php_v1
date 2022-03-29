@@ -2,7 +2,7 @@
 	<div class="avand-md">
 		<div class="box">
 			<div class="pad">
-				<div class="mB10">
+				<div class="mb-2">
 					<label for='country'><?php echo T_("Country"); ?></label>
 					<select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='<?php echo \dash\data::dataRow_factor_province(); ?>'>
 						<option value=""><?php echo T_("Choose your country"); ?></option>
@@ -15,7 +15,7 @@
 				</div>
 
 
-				<div class="mB10" data-status='hide'>
+				<div class="mb-2" data-status='hide'>
 					<label for='province'><?php echo T_("Province"); ?></label>
 					<select name="province" id="province" class="select22" data-next='#city' data-next-default='<?php echo \dash\data::dataRow_factor_city(); ?>'>
 						<option value="0"><?php echo T_("Please choose country"); ?></option>
@@ -24,7 +24,7 @@
 				</div>
 
 
-				<div class="mB10" data-status='hide'>
+				<div class="mb-2" data-status='hide'>
 					<label for='city'><?php echo T_("City"); ?></label>
 					<select name="city" id="city" class="select22">
 						<option value=""><?php echo T_("Please choose province"); ?></option>

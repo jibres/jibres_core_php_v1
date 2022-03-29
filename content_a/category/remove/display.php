@@ -14,7 +14,7 @@
           <?php echo T_("You can remove this category from all product or change it to another category"); ?>
         </p>
 
-        <div class="row mB10">
+        <div class="row mb-2">
           <div class="c-xs-12 c-sm-6">
             <div class="radio3">
               <input type="radio" name="wd" value="wde" id="wde">
@@ -31,7 +31,7 @@
 
         <div data-response='wd' data-response-where='wdn' data-response-hide>
 
-        <div class="mB10">
+        <div class="mb-2">
           <label for='cat'><?php echo T_("New category"); ?></label>
            <select name="catid" id="cat" class="select22" data-model="tag" data-placeholder="<?php echo T_("Select one category") ?>" data-ajax--delay="100" data-ajax--url='<?php echo \dash\url::kingdom(). '/a/category/api'; ?>?json=true&getid=1'>
             <?php if(\dash\request::get('catid')) {?>

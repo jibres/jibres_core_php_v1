@@ -35,7 +35,7 @@
 
 				<div class="row">
 					<div class="c-xs-12 c-sm-6">
-						<div class="mB10">
+						<div class="mb-2">
 							<label for="gender"><?php echo T_("Gender"); ?></label>
 							<select name="gender" class="select22">
 								<option value="" readonly><?php echo T_("Please select one itme"); ?></option>
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 					<div class="c-xs-12 c-sm-6">
-						<div class="mB10">
+						<div class="mb-2">
 							<label for="marital"><?php echo T_("Marital"); ?></label>
 							<select name="marital" class="select22">
 								<option value="" readonly><?php echo T_("Please select one itme"); ?></option>
@@ -58,7 +58,7 @@
 				</div>
 
 
-				<div class="mB10">
+				<div class="mb-2">
 					<label for='country'><?php echo T_("Nationality"); ?></label>
 					<select class="select22" name="nationality" id="country" data-model='country' >
 						<option value=""><?php echo T_("Choose your country"); ?></option>
@@ -100,7 +100,7 @@
 
 				<?php $detail = \dash\data::dataRowMember_detail(); ?>
 
-				<div class="mB10">
+				<div class="mb-2">
 					<label for="file1"><?php echo T_("ID card image"); ?></label>
 					<div data-uploader data-name='file1' data-final='#finalImagefile1' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
 						<input type="file" accept="image/*" id="file1">
@@ -112,7 +112,7 @@
 				<?php if(isset($detail['file1'])) {?><a href="<?php echo a($detail, 'file1'); ?>" target="_blank"><img class="size-we200 block mLRa" src="<?php echo a($detail, 'file1'); ?>"></a><?php } // endif ?>
 
 
-				<div class="mB10">
+				<div class="mb-2">
 					<label for="file2"><?php echo T_("National card photo"); ?></label>
 					<div data-uploader data-name='file2' data-final='#finalImagefile2' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
 						<input type="file" accept="image/*" id="file2">

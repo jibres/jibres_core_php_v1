@@ -8,7 +8,7 @@
 
           <form method="post" autocomplete="off">
             <?php echo \dash\csrf::html(); ?>
-            <div class="input fix mB10">
+            <div class="input fix mb-2">
               <input type="text" name="sd" id="sd" placeholder='<?php echo T_("Your subdomain"); ?>' maxlength="40" class="ltr" value="<?php echo \dash\data::tempSubdomain(); ?>" <?php \dash\layout\autofocus::html() ?> required>
 <?php if(\dash\url::tld() === 'ir') {?>
               <label class="addon ltr" for="sd">.MyJibres.ir</label>

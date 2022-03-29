@@ -3,7 +3,7 @@
   <div class="avand-sm">
     <div class="box">
       <div class="body">
-          <div class="input ltr mB10">
+          <div class="input ltr mb-2">
             <input type="text" name="domain" placeholder='<?php echo T_("Domain"); ?>' value="<?php echo \dash\request::get('domain'); ?>" maxlength=80 required>
           </div>
       </div>
@@ -20,7 +20,7 @@
   <div class="box">
     <div class="body">
 
-      <div class="input ltr mB10">
+      <div class="input ltr mb-2">
           <input type="text" name="domain" placeholder='<?php echo T_("Domain"); ?>' value="<?php echo \dash\request::get('domain'); ?>" disabled maxlength=80>
       </div>
 
@@ -49,7 +49,7 @@
 
           <label><?php echo T_("Choose register time"); ?></label>
 
-          <div class="f mB10">
+          <div class="f mb-2">
             <div class="c pB10 pRa5">
              <div class="radio3">
             <input type="radio" name="period" value="1year" id="period1year" <?php if(\dash\data::autorenewperiod() === '1year') { echo 'checked';} ?>>
@@ -65,7 +65,7 @@
           </div>
 
 
-      <div class="check1 mT10">
+      <div class="check1 mt-2">
         <input type="checkbox" id="sChk1" name="agree" checked>
         <label for="sChk1"><?php
         echo T_("By clicking Renew, you are indicating that you have read the :nic and agree to the :terms.",

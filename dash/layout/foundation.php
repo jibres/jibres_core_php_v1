@@ -230,7 +230,7 @@ echo " data-preload";
 if (\dash\user::id())
 {
   echo "\n  ";
-  echo '<noscript><div class="line top danger fs12"><span class="font-bold mB10">';
+  echo '<noscript><div class="line top danger fs12"><span class="font-bold mb-2">';
   echo T_('JavaScript is required to use our service.');
   echo '</span> ';
   echo T_('Enable JavaScript in your browser or use one which supports it.');

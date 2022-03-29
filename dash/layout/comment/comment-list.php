@@ -67,7 +67,7 @@
         </div>
       </div>
        <?php if(isset($value['answers']) && is_array($value['answers'])) {?>
-        <div class="mA10">
+        <div class="m-2">
 
             <?php foreach ($value['answers'] as $k => $v) {?>
               <div class="row align-center">

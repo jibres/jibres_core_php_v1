@@ -13,7 +13,7 @@
 				 <label for="irkish"><?php echo T_("Enable irkish payment"); ?></label>
 				</div>
 
-				<div class="ltr mT10" data-response='irkish' <?php if(a($bank, 'irkish', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+				<div class="ltr mt-2" data-response='irkish' <?php if(a($bank, 'irkish', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 					<label for="merchantId">merchantId</label>
 					<div class="input">
 						<input type="text" name="imerchantId" id="merchantId" placeholder='merchantId' value="<?php echo a($bank, 'irkish','merchantId'); ?>" maxlength='300'>

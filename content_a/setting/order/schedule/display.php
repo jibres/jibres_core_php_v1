@@ -66,7 +66,7 @@
               </tbody>
             </table>
           <?php } //endif ?>
-          <label class="mT10"><?php echo T_("Add your active time in every day") ?></label>
+          <label class="mt-2"><?php echo T_("Add your active time in every day") ?></label>
             <div class="row">
               <div class="c-xs-12 c-sm-4">
                 <select name="weekday" class="select22">

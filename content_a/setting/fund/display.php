@@ -36,12 +36,12 @@
 
         <?php if(\dash\data::editMode()) {?>
           <div class="f">
-            <div class="c"><button class="btn block primary mT10"><?php echo T_("Edit"); ?></button></div>
-            <div class="cauto mLa5"><div data-confirm data-data='{"remove": "remove"}' class="btn-danger mT10"><?php echo T_("Remove"); ?></div></div>
+            <div class="c"><button class="btn block primary mt-2"><?php echo T_("Edit"); ?></button></div>
+            <div class="cauto mLa5"><div data-confirm data-data='{"remove": "remove"}' class="btn-danger mt-2"><?php echo T_("Remove"); ?></div></div>
           </div>
 
         <?php }else{ ?>
-          <button class="btn block success mT10"><?php echo T_("Add fund"); ?></button>
+          <button class="btn block success mt-2"><?php echo T_("Add fund"); ?></button>
         <?php } //endif ?>
       </form>
     </div>

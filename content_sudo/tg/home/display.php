@@ -10,24 +10,24 @@ $tg = \dash\data::tg();
       <a class="btn-outline-dark mT25" href="<?php echo \dash\url::this(); ?>/users"><?php echo T_("Users"); ?></a>
       <a class="btn-outline-dark mT25" href="<?php echo \dash\url::this(); ?>/system"><?php echo T_("System"); ?></a>
     <?php if(\dash\user::id() === 1) {?>
-      <a class="btn-outline-danger mT10" href="<?php echo \dash\url::this(); ?>/webhook"><?php echo T_("Webhook"); ?></a>
+      <a class="btn-outline-danger mt-2" href="<?php echo \dash\url::this(); ?>/webhook"><?php echo T_("Webhook"); ?></a>
     <?php } ?>
     </div>
   </div>
   <div class="c s12">
-    <div class="dcard x2 mB10">
+    <div class="dcard x2 mb-2">
       <a class="btn-primary" href="<?php echo \dash\url::this(); ?>/sendmessage"><?php echo T_("Send message"); ?></a>
     </div>
-    <div class="dcard x2 mB10">
+    <div class="dcard x2 mb-2">
       salam
     </div>
 
   </div>
   <div class="c s12">
-    <div class="dcard x2 mB10">
+    <div class="dcard x2 mb-2">
       <a class="btn" href="<?php echo \dash\url::this(); ?>/sendphoto"><?php echo T_("Send photo"); ?></a>
     </div>
-    <div class="dcard x2 mB10">
+    <div class="dcard x2 mb-2">
       salam
     </div>
   </div>

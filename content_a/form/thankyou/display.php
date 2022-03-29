@@ -13,7 +13,7 @@
 						<input type="url" name="redirect" value="<?php echo \dash\data::dataRow_redirect(); ?>">
 					</div>
 
-					<div class="mB10">
+					<div class="mb-2">
 						<label for="endmessage"><?php echo T_("End message") ?></label>
 						<textarea name="endmessage" class="txt" rows="3" id="endmessage" placeholder="<?php echo T_("End message") ?>"><?php echo \dash\data::dataRow_endmessage(); ?></textarea>
 					</div>

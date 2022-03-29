@@ -7,7 +7,7 @@ if(!is_array($listSaveCat))
 ?>
 <div class="box">
   <div class="pad">
-    <div class="mB10">
+    <div class="mb-2">
       <div class="row align-center">
         <div class="c"><label for='category'><?php echo T_("Category"); ?></label></div>
         <div class="c-auto os"><a class="text-sm"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(); ?>/category"><span><?php echo T_("Manage"); ?></span> <?php echo \dash\utility\icon::svg('External', 'minor', null, 'h-3 w-3 inline-block'); ?></a></div>

@@ -10,7 +10,7 @@
             <div class="cauto"><?php echo $myType['title']; ?></div>
           </div>
         <label for="condition"><?php echo T_("Operator") ?></label>
-        <select class="select22 mB10" name="condition">
+        <select class="select22 mb-2" name="condition">
           <option value=""><?php echo T_("Please select on item") ?></option>
           <option value="isnull"><?php echo T_("Not answered") ?></option>
           <option value="isnotnull"><?php echo T_("Answered") ?></option>
@@ -23,7 +23,7 @@
         </select>
 
 
-        <div class="mB10" data-response='condition' data-response-hide data-response-where='equal|notequal|larger|less|like'>
+        <div class="mb-2" data-response='condition' data-response-hide data-response-where='equal|notequal|larger|less|like'>
           <label for="value"><?php echo T_("Value") ?></label>
            <select name="value" id="vaue" class="select22" data-model='tag'>
             <option value=""><?php echo T_("Value"); ?></option>

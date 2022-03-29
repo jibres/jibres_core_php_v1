@@ -102,7 +102,7 @@ echo $html;
 
       <?php if(\dash\data::pcPosLink()) {?>
 
-        <div class="f mB10">
+        <div class="f mb-2">
           <div class="btn pcPos" data-link='<?php echo \dash\data::pcPosLink_link(); ?>' data-shortkey='121'><?php echo \dash\data::pcPosLink_title(); ?> <kbd>f10</kbd></div>
         </div>
       <?php } //endif ?>

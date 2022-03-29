@@ -12,7 +12,7 @@ $storeData = \dash\data::store_store_data();
           <input type="text" name="title" id="ititle"  value="<?php echo a($storeData, 'title'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
         </div>
         <label for="desc"><?php echo T_("Description"); ?></label>
-        <textarea class="txt mB10" name="desc"  maxlength='2000' rows="3"><?php echo a($storeData, 'desc'); ?></textarea>
+        <textarea class="txt mb-2" name="desc"  maxlength='2000' rows="3"><?php echo a($storeData, 'desc'); ?></textarea>
       </div>
         <footer class="txtRa">
           <button class="btn-success"><?php echo T_("Save"); ?></button>

@@ -28,7 +28,7 @@ if(!isset($gMaxGift))
 				<h3><?php echo T_("Sell & Enjoy"); ?></h3>
 			</div>
 			<div class="cauto os pLa20 pTB10 meta">
-				<div class="f mB10">
+				<div class="f mb-2">
 					<abbr class="c"><?php echo T_("Max Gift");?></abbr>
 					<span class="c5"><?php echo \dash\fit::number($gMaxGift). ' '. \lib\currency::unit();?></span>
 				</div>
@@ -37,7 +37,7 @@ if(!isset($gMaxGift))
 					<span class="c5"><?php echo $gExpireDate; ?></span>
 				</div>
 <?php if (isset($gUsageperuser)) { ?>
-				<div class="f mT10">
+				<div class="f mt-2">
 					<abbr class="c"><?php echo T_("Total Usage for you");?></abbr>
 					<span class="c5"><?php echo \dash\fit::number($gUsageperuser). ' '. T_('Times');?></span>
 				</div>

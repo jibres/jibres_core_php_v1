@@ -5,7 +5,7 @@
 
 			<form method="post" autocomplete="off">
 				<input type="hidden" name="editdisplayname" value="editdisplayname">
-				<div class="input mB10">
+				<div class="input mb-2">
 					<input type="text" name="displayname" value="<?php echo \dash\data::dataRowMember_displayname() ?>" maxlength="50">
 					<button class="btn master addon"><?php echo T_("Save") ?></button>
 				</div>

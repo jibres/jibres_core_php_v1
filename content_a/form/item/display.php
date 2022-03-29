@@ -25,7 +25,7 @@
 
 			</div>
 
-			<div class="mT10">
+			<div class="mt-2">
 				<input type="hidden" name="item_checkrequire_<?php echo $myKey ?>" value="1">
 			<div class="switch1">
 				<input type="checkbox" name="item_require_<?php echo $myKey ?>" id="check1<?php echo $myKey; ?>" <?php if(a($value, 'require')) { echo 'checked';} ?>>

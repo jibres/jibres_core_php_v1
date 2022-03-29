@@ -25,7 +25,7 @@
       <a class="btn block light" href="<?php echo \dash\url::kingdom() ?>/my/domain/transfer"><?php echo T_('Transfer Now'); ?></a>
      </div>
     </div>
-    <div class="c4 s12 mB10">
+    <div class="c4 s12 mb-2">
      <div class="item f f-column">
       <h3><?php echo T_('Renew'); ?></h3>
       <p class="flex-1"><?php echo T_("Searching for the lowest domain renew price? That's it. Jibres offer exclusive offer on renew domains at prices that won't break your budget. We are the best of best:)"); ?></p>

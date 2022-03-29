@@ -6,12 +6,12 @@ $hook = \dash\data::hook();
 ?>
 
 <form class="cbox" method="post" autocomplete="off">
-  <div class="input ltr mB10">
+  <div class="input ltr mb-2">
     <label for="url"><?php echo T_("Chat id or username"); ?></label>
     <input type="url" name="url" id="url" placeholder='<?php echo T_("HTTPS url to send updates to. Use an empty string to remove webhook integration"); ?>' value="">
   </div>
 
-  <div class="input ltr mB10">
+  <div class="input ltr mb-2">
     <label for="max_connections"><?php echo T_("Max Connections"); ?></label>
     <input type="number" name="max_connections" id="max_connections" min="0" max="200" placeholder='<?php echo T_("Defaults to 40"); ?>'>
   </div>

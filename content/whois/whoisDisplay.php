@@ -6,7 +6,7 @@ if(\dash\data::whoisResult())
 
 <div class="f justify-center mt-4">
 
-	<div class="c12 s12 mT10">
+	<div class="c12 s12 mt-2">
 
 		<?php if(\dash\data::whoisResult_available()) {?>
 			<div class="f alert-success">

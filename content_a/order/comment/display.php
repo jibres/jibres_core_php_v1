@@ -42,7 +42,7 @@
           <div class="mb-4">
             <textarea rows="3" data-rows-min="3" data-autoResize id="desc" name="cdesc" class="txt" rows="3" placeholder="<?php echo T_("Anything about this order") ?>"></textarea>
           </div>
-          <div class="fc-mute text-sm mB10">
+          <div class="fc-mute text-sm mb-2">
             <?php echo T_("Enter anything such as payment method, tracking number, additional details, customer conversations, and anything related to this order in this field.") ?>
           </div>
 

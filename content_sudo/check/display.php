@@ -7,7 +7,7 @@ $html .= '<div class="fs14">';
 {
 	foreach ($list as $key => $value)
 	{
-		$html .= '<a class="block mB10" href="'. \dash\url::this(). '?check='. $key. '">';
+		$html .= '<a class="block mb-2" href="'. \dash\url::this(). '?check='. $key. '">';
 		{
 			$html .= $value;
 		}
@@ -17,7 +17,7 @@ $html .= '<div class="fs14">';
 
 		if(is_file($dir))
 		{
-			$html .= '<a class="block mB10" href="'. \dash\url::this(). '?file='. $key. '">';
+			$html .= '<a class="block mb-2" href="'. \dash\url::this(). '?file='. $key. '">';
 			{
 				$html .= 'Download file';
 			}

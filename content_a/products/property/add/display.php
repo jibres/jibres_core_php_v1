@@ -10,7 +10,7 @@ require_once(root. 'content_a/products/productName.php');
       <input type="hidden" name="addmode" value="1">
       <div class="body">
 
-          <div class="mB10">
+          <div class="mb-2">
             <?php if(!\dash\data::catList()) {?>
               <div class="input">
                 <input type="text" name="cat" placeholder="<?php echo T_("Group"); ?>" id="title" maxlength="100" value="<?php echo a(\dash\data::dataRow(), 'cat'); ?>">
@@ -26,7 +26,7 @@ require_once(root. 'content_a/products/productName.php');
               </div>
             <?php } //endif ?>
           </div>
-          <div class="mB10">
+          <div class="mb-2">
             <?php if(!\dash\data::keyList()) {?>
               <div class="input">
                 <input type="text" name="key" placeholder="<?php echo T_("Type"); ?>" id="title" maxlength="100" value="<?php echo a(\dash\data::dataRow(), 'key'); ?>">
@@ -42,7 +42,7 @@ require_once(root. 'content_a/products/productName.php');
               </div>
             <?php } //endif ?>
           </div>
-          <div class="mB10">
+          <div class="mb-2">
             <div class="input">
               <input type="text" name="value" placeholder="<?php echo T_("Value"); ?>" id="title" maxlength="100" value="<?php echo a(\dash\data::dataRow(), 'value'); ?>">
             </div>

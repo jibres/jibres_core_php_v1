@@ -12,7 +12,7 @@
 				 <label for="mellat"></label>
 				 <label for="mellat"><?php echo T_("Enable mellat payment"); ?></label>
 				</div>
-				<div class="ltr mT10" data-response='mellat' <?php if(a($bank, 'mellat', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+				<div class="ltr mt-2" data-response='mellat' <?php if(a($bank, 'mellat', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 					<label for="TerminalId">TerminalId</label>
 					<div class="input">
 						<input type="text" name="TerminalId" id="TerminalId" placeholder='TerminalId' value="<?php echo a($bank, 'mellat','TerminalId'); ?>" maxlength='300'>

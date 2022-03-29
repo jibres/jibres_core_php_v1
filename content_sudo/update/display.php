@@ -9,25 +9,25 @@
 
 <div class="f">
   <div class="c s12">
-    <div class="dcard x1 mB10" data-confirm data-data='{"type" : "lock"}'>
+    <div class="dcard x1 mb-2" data-confirm data-data='{"type" : "lock"}'>
       <div class="statistic red">
-        <div class="value font-30 mB10"><?php echo T_("Lock"); ?></div>
+        <div class="value font-30 mb-2"><?php echo T_("Lock"); ?></div>
         <div class="label"><?php echo T_("Lock service"); ?></div>
       </div>
     </div>
   </div>
   <div class="c s12">
-    <div class="dcard x1 mB10" data-confirm data-data='{"type" : "pull"}'>
+    <div class="dcard x1 mb-2" data-confirm data-data='{"type" : "pull"}'>
       <div class="statistic yellow">
-        <div class="value font-30 mB10"><?php echo T_("Pull"); ?></div>
+        <div class="value font-30 mb-2"><?php echo T_("Pull"); ?></div>
         <div class="label"><?php echo T_("Pull service"); ?> </div>
       </div>
     </div>
   </div>
   <div class="c s12">
-    <div class="dcard x1 mB10" data-confirm data-data='{"type" : "upgrade"}'>
+    <div class="dcard x1 mb-2" data-confirm data-data='{"type" : "upgrade"}'>
       <div class="statistic blue">
-        <div class="value font-30 mB10"><?php echo T_("Upgrade"); ?></div>
+        <div class="value font-30 mb-2"><?php echo T_("Upgrade"); ?></div>
         <div class="label mT5-f">
           <span><?php echo T_("Jibres"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_jibres()) ?></b></span> /
           <span><?php echo T_("Business"); ?> <b><?php echo \dash\fit::text(\dash\data::lastDBVersion_store()) ?></b></span>
@@ -36,9 +36,9 @@
     </div>
   </div>
   <div class="c s12">
-    <div class="dcard x1 mB10" data-confirm data-data='{"type" : "unlock"}'>
+    <div class="dcard x1 mb-2" data-confirm data-data='{"type" : "unlock"}'>
       <div class="statistic green">
-        <div class="value font-30 mB10"><?php echo T_("Unlock"); ?></div>
+        <div class="value font-30 mb-2"><?php echo T_("Unlock"); ?></div>
         <div class="label"><?php echo T_("Unlock service"); ?></div>
       </div>
     </div>

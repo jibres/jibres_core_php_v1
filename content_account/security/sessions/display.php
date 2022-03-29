@@ -40,7 +40,7 @@
 
       ?>
 
-      <div class="panel mB10">
+      <div class="panel mb-2">
         <div class="f align-center pad">
           <div class="cauto s5 pRa10">
             <div class="device72" data-device='<?php echo \dash\str::mb_strtolower(a($row, 'os')); ?>'></div>
@@ -57,7 +57,7 @@
 
           </div>
           <div class="pA5 c s12 fs08">
-            <div class="mB10"><b><?php echo a($row, 'browser'); ?></b> <?php echo \dash\fit::number(a($row, 'browserVer')); ?></div>
+            <div class="mb-2"><b><?php echo a($row, 'browser'); ?></b> <?php echo \dash\fit::number(a($row, 'browserVer')); ?></div>
             <div><?php echo \dash\fit::date_human(a($row, 'last')); ?></div>
           </div>
           <div class="pA5 c3 s12">

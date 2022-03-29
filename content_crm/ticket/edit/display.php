@@ -3,7 +3,7 @@
     <div class="pad">
       <textarea class="txt" name="content" rows="10" data-rows-min="10" data-autoResize placeholder='<?php echo T_("Answer to ticket") ?>'><?php echo \dash\data::dataRow_content_raw() ?></textarea>
       <?php if(\dash\data::dataRow_file()) {?>
-        <div class="msg mT10" data-removeElement>
+        <div class="msg mt-2" data-removeElement>
 
         <div class="row">
           <div class="cauto"><?php echo T_("You can change the file by upload new file or remove file") ?></div>
@@ -13,7 +13,7 @@
         </div>
         </div>
       <?php } //endif ?>
-      <div class="mT10" data-uploader data-name='file' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
+      <div class="mt-2" data-uploader data-name='file' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
         <input type="file"  id="file1">
         <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
       </div>

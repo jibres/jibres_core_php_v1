@@ -44,14 +44,14 @@
 							<input type="text" id="messagenf" name="inquiry_msg_not_founded" value="<?php echo a($inquerySetting, 'inquiry_msg_not_founded'); ?>">
 						</div>
 
-						<div class="mB10">
+						<div class="mb-2">
 							<label for="inquirymsg"><?php echo T_("Inquiry Message") ?></label>
 							<textarea name="inquirymsg" class="txt" rows="3" id="inquirymsg" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_inquirymsg(); ?></textarea>
 						</div>
 
 
 
-					<div class="mB10">
+					<div class="mb-2">
 						<div data-uploader data-name='file' data-final='#finalImagefile1'>
 							<input type="file" accept="image/*" id="file1" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
 							<label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>

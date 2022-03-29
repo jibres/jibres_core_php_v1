@@ -20,7 +20,7 @@ require_once(root. 'content_a/products/productName.php');
 
               <div class="txtRa">
 
-                <button class="btn master mT10" ><?php echo T_("Save"); ?></button>
+                <button class="btn master mt-2" ><?php echo T_("Save"); ?></button>
               </div>
             </form>
 

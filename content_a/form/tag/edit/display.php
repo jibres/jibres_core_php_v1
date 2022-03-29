@@ -8,14 +8,14 @@
             <input type="text" name="title" id="itagname" placeholder='<?php echo T_("Tag name"); ?>' value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1" required>
           </div>
 
-          <div class="mB10">
+          <div class="mb-2">
               <label for="desc"><?php echo T_("Description") ?></label>
               <textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
             </div>
 
 
           <label class=""><?php echo T_("Privacy") ?></label>
-         <div class="row mB10">
+         <div class="row mb-2">
             <div class="c-xs-6 c-sm-6">
               <div class="radio3">
                 <input type="radio" name="privacy" value="public" <?php if(\dash\data::dataRow_privacy() === 'public') {echo 'checked';} ?>  id="privacypublic">

@@ -11,7 +11,7 @@
 				 <label for="nextpay"></label>
 				 <label for="nextpay"><?php echo T_("Enable nextpay payment"); ?></label>
 				</div>
-				<div class="ltr mT10" data-response='nextpay' <?php if(a($bank, 'nextpay', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+				<div class="ltr mt-2" data-response='nextpay' <?php if(a($bank, 'nextpay', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 					<label for="apikey">API KEY</label>
 					<div class="input">
 					  <input type="text" name="apikey" id="apikey" placeholder='apikey' value="<?php echo a($bank, 'nextpay','apikey'); ?>" maxlength='300'>

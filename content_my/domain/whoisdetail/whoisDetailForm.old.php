@@ -28,7 +28,7 @@ $country_list =
 ];
 ?>
 
-<div class="mB10">
+<div class="mb-2">
 	<label for='country'>Country <small class="fc-red">* Required</small></label>
 	<select class="select22 ltr" name="country" id="country" >
 		<option value=""><?php echo T_("Choose your country"); ?></option>

@@ -7,7 +7,7 @@ return;
     <div class="box">
       <div class="body">
 
-        <div class="mB10">
+        <div class="mb-2">
           <div class="input">
             <label><?php echo T_("Page Title") ?></label>
             <input type="text" name="title" id="title" placeholder='<?php echo T_("Enter Page Title"); ?> *'  <?php \dash\layout\autofocus::html() ?> required maxlength='200' minlength="1" pattern=".{1,200}">

@@ -13,7 +13,7 @@
 				 <label for="payping"><?php echo T_("Enable payping payment"); ?></label>
 				</div>
 
-				<div class="ltr mT10" data-response='payping' <?php if(a($bank, 'payping', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
+				<div class="ltr mt-2" data-response='payping' <?php if(a($bank, 'payping', 'status')) { /* nothing */}else{ echo ' data-response-hide ';} ?> >
 
 					<label for="token">Token</label>
 					<div class="input">

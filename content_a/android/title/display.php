@@ -16,7 +16,7 @@
           </div>
 
           <label for="desc"><?php echo T_("Application desc"); ?></label>
-          <textarea class="txt mB10" name="desc" maxlength="150" rows="3" id="desc" ><?php echo \dash\data::appDetail_desc(); ?></textarea>
+          <textarea class="txt mb-2" name="desc" maxlength="150" rows="3" id="desc" ><?php echo \dash\data::appDetail_desc(); ?></textarea>
 
       </div>
       <footer class="f">

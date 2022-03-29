@@ -24,7 +24,7 @@ foreach ($dataTable as $key => $row) {
 
           </div>
           <div class="pA5 c s12 fs08">
-            <div class="mB10"><b><?php echo a($row, 'browser'); ?></b> <?php echo \dash\fit::number(a($row, 'browserVer')); ?></div>
+            <div class="mb-2"><b><?php echo a($row, 'browser'); ?></b> <?php echo \dash\fit::number(a($row, 'browserVer')); ?></div>
             <div><?php echo \dash\fit::date_human(a($row, 'last')); ?></div>
           </div>
           <div class="pA5 c3 s12">

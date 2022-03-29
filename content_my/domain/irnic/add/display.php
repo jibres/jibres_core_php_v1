@@ -51,7 +51,7 @@
 
 
     <h3><?php echo T_('Street Infromation'); ?></h3>
-    <div class="mB10">
+    <div class="mb-2">
       <label for='country'><?php echo T_("Country"); ?></label>
       <select class="select22" name="country" id="country" data-model='country'>
         <option value=""><?php echo T_("Choose your country"); ?></option>
@@ -80,7 +80,7 @@
 
 
     <label for="address"><?php echo T_("Address"); ?> <small class="fc-mute"><?php echo T_("Enter in Latin characters"); ?></small></label>
-    <textarea class="txt ltr mB10" name="address" id="address" maxlength='300' rows="1"></textarea>
+    <textarea class="txt ltr mb-2" name="address" id="address" maxlength='300' rows="1"></textarea>
 
     <label for="postcode"><?php echo T_("Post code"); ?></label>
     <div class="input">

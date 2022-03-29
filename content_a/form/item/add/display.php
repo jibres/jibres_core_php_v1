@@ -18,7 +18,7 @@
 				<div class="input">
 					<input type="text" name="new_title" placeholder="<?php echo T_("Title") ?>" value="<?php echo \dash\data::dataRowd_title(); ?>" <?php \dash\layout\autofocus::html() ?>>
 				</div>
-				<div class="switch1 mT10">
+				<div class="switch1 mt-2">
 					<input type="checkbox" name="new_require" id="check1">
 					<label for="check1"><?php echo T_("Required"); ?></label>
 					<label for="check1"><?php echo T_("Is required?"); ?></label>

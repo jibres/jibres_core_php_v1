@@ -18,7 +18,7 @@
 
 
               <input type="hidden" name="setvariants" value="1">
-              <div class="tblBox mT10">
+              <div class="tblBox mt-2">
                 <table class="tbl1 v4 fs09">
                   <thead>
                     <tr>

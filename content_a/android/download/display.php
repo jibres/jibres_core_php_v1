@@ -18,7 +18,7 @@
           </div>
 
           <label for="desc"><?php echo T_("Download description"); ?></label>
-          <textarea class="txt mB10" name="desc" maxlength="150" rows="3" id="desc" ><?php echo \dash\data::appDetail_downloaddesc(); ?></textarea>
+          <textarea class="txt mb-2" name="desc" maxlength="150" rows="3" id="desc" ><?php echo \dash\data::appDetail_downloaddesc(); ?></textarea>
 
 
           <label for="googleplay"><?php echo T_("Google Play Store"); ?></label>

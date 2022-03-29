@@ -9,7 +9,7 @@ class header_change
 	public static function admin_html()
 	{
 		$html = '';
-		$html .= '<nav class="items mT10">';
+		$html .= '<nav class="items mt-2">';
 		{
 	  		$html .= '<ul>';
 	  		{

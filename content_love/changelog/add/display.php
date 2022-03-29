@@ -23,7 +23,7 @@
           <?php } //endfor ?>
         </select>
 
-        <div class="check1 mT10">
+        <div class="check1 mt-2">
           <input type="checkbox" name="sendtg" id="sendtg">
           <label for="sendtg"><?php echo T_("Send in Telegram"); ?></label>
         </div>

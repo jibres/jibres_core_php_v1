@@ -7,7 +7,7 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
 ?>
  <div class="box hide d-print-block">
   <div class="pad">
-    <div class="row align-center mB10">
+    <div class="row align-center mb-2">
       <div class="c font-bold"><?php echo \lib\store::title(); ?></div>
       <div class="c-auto"><?php echo \dash\data::dataRow_tstatus() ?></div>
       <div class="c-auto"><?php echo T_("Date"); ?> <b><?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?></b></div>
@@ -90,10 +90,10 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
               </div>
             <?php }else{ ?>
               <div class="c-xs c-auto p0">
-                <div class="btn-link-danger mT10" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
+                <div class="btn-link-danger mt-2" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
               </div>
               <div class="c-xs-auto c-auto p0">
-                <button class="btn-outline-secondary mT10"><?php echo T_("Edit") ?></button>
+                <button class="btn-outline-secondary mt-2"><?php echo T_("Edit") ?></button>
               </div>
             <?php }//endif ?>
         <?php } //endif ?>
@@ -106,7 +106,7 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
     </div>
 
       <?php if(\dash\data::dataRow_template()) {?>
-       <nav class="items long mT10">
+       <nav class="items long mt-2">
           <ul>
             <li>
               <a class="item f" href="<?php echo \dash\url::this(). '/factor/edit?id='. \dash\request::get('id'); ?>">

@@ -675,7 +675,7 @@ class search_filter
 	private static function html_apply_cancel_btn($apply_filter_btn)
 	{
 		$html = '';
-		$html .= '<div class="row align-center mT10">';
+		$html .= '<div class="row align-center mt-2">';
 		{
 
 			$html .= '<div class="c">';

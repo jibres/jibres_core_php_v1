@@ -9,8 +9,8 @@
     </div>
     <footer class="">
       <div class="row">
-        <div class="c-auto mLa10 mB10"><a class="link fc-green" href=""><?php echo T_("Approve") ?></a></div>
-        <div class="c-auto mLa10 mB10"><a class="link fc-brown" href=""><?php echo T_("Unapprove") ?></a></div>
+        <div class="c-auto mLa10 mb-2"><a class="link fc-green" href=""><?php echo T_("Approve") ?></a></div>
+        <div class="c-auto mLa10 mb-2"><a class="link fc-brown" href=""><?php echo T_("Unapprove") ?></a></div>
 
       </div>
     </footer>

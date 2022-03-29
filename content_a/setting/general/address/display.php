@@ -5,7 +5,7 @@
 			<div class="pad">
 				<p><?php echo T_("Based on your country some of our options will be changed."); ?></p>
 
-				<div class="mB10">
+				<div class="mb-2">
 					<label for='country'><?php echo T_("Country"); ?></label>
 					<select class="select22" name="country" id="country" data-model='country' data-next='#province' data-next-default='<?php echo \dash\data::dataRow_province(); ?>'>
 						<option value=""><?php echo T_("Choose your country"); ?></option>
@@ -18,7 +18,7 @@
 				</div>
 
 
-				<div class="mB10" data-status='hide'>
+				<div class="mb-2" data-status='hide'>
 					<label for='province'><?php echo T_("Province"); ?></label>
 					<select name="province" id="province" class="select22" data-next='#city' data-next-default='<?php echo \dash\data::dataRow_city(); ?>'>
 						<option value="0"><?php echo T_("Please choose country"); ?></option>
@@ -27,7 +27,7 @@
 				</div>
 
 
-				<div class="mB10" data-status='hide'>
+				<div class="mb-2" data-status='hide'>
 					<label for='city'><?php echo T_("City"); ?></label>
 					<select name="city" id="city" class="select22">
 						<option value=""><?php echo T_("Please choose province"); ?></option>

@@ -8,7 +8,7 @@
         </p>
 
         <?php if(\dash\data::dataRow_status() !== 'publish'){?>
-          <div class="row mB10">
+          <div class="row mb-2">
             <div class="c-xs-12 c-sm-6">
               <div class="radio3">
                 <input type="radio" name="PDT" id="publishdatetypeonpublish" value="publishdatetypeonpublish" <?php if(!\dash\data::dataRow_publishdate()){ echo 'checked'; } ?>>

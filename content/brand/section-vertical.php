@@ -4,7 +4,7 @@ $myUrlStatic = \dash\url::cdn();
 
   <section class="avand-xl impact pTB4x">
    <div class="">
-    <div class="f align-center mB10">
+    <div class="f align-center mb-2">
       <div class="c4 m6 s12">
         <h3 class="mB50"><?php echo T_("VERTICAL LOCKUP"); ?></h3>
         <p><?php echo T_("The vertical lockup can be used when the provided space is square and use of the horizontal lockup will make the logo look too small."); ?></p>

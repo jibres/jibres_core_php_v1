@@ -27,9 +27,9 @@
      <li>چنانچه هر یک از اطلاعات تکمیل شده در شناسه کاربری نادرست یا غیر دقیق بوده یا به روزرسانی نشود، طبق بند ۶-۴ موافقتنامه ثبت دامنه، امتیاز دامنه لغو می‌گردد.</li>
     </ul>
    </li>
-   <li class="mB10">موافقتنامه ثبت و تمامی ضمایم آن دارای دو متن فارسی و انگلیسی هستند. در صورت اختلاف در مفاد متن، متن  <a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir" >  انگلیسی  </a> معتبر است. </li>
-   <li class="mB10">چنانچه شخص ثالث مدعی وجود حق بر دامنه ثبت شده توسط متقاضی باشد حق مراجعه به <a target="_blank" rel="sponsored" href="https://www.nic.ir/Dispute_Resolution_Providers_ir"> مرجع حل اختلاف </a> و اقامه دعوا طبق <a target="_blank" rel="sponsored" href="https://www.nic.ir/Dispute_Resolution_Policy_ir">توافقنامه حل اختلاف </a> را دارد. </li>
-   <li class="mB10">
+   <li class="mb-2">موافقتنامه ثبت و تمامی ضمایم آن دارای دو متن فارسی و انگلیسی هستند. در صورت اختلاف در مفاد متن، متن  <a target="_blank" rel="sponsored" href="https://www.nic.ir/Terms_and_Conditions_ir" >  انگلیسی  </a> معتبر است. </li>
+   <li class="mb-2">چنانچه شخص ثالث مدعی وجود حق بر دامنه ثبت شده توسط متقاضی باشد حق مراجعه به <a target="_blank" rel="sponsored" href="https://www.nic.ir/Dispute_Resolution_Providers_ir"> مرجع حل اختلاف </a> و اقامه دعوا طبق <a target="_blank" rel="sponsored" href="https://www.nic.ir/Dispute_Resolution_Policy_ir">توافقنامه حل اختلاف </a> را دارد. </li>
+   <li class="mb-2">
    <span class="badge danger">جدید</span>
    چنانچه مشخص شود نام دامنه ثبت شده، در زمان ثبت، نام شهر یا شهرستانی واقع در ایران بوده است، مرکز ثبت دامنه در هرزمان حق دارد راسا نسبت به انتقال دامنه ثبت شده به نام شهرداری یا فرمانداری آن شهر یا شهرستان اقدام نماید.
    </li>

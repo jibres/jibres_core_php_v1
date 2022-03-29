@@ -51,7 +51,7 @@
       <div class="alert2">
 
       <small><?php echo T_("Sometimes employees sell some product with decimal unit and if you are force this unit to give integer value, we are not allow them to enter invalid value"); ?></small>
-      <div class="switch1 mT10">
+      <div class="switch1 mt-2">
        <input type="checkbox" name="int" id="int" <?php if(\dash\data::dataRow_int()) { echo 'checked'; } ?> >
        <label for="int"></label>
        <label for="int"><?php echo T_("Only accept integer value?"); ?></label>
@@ -210,7 +210,7 @@
 
             <?php }else{ ?>
 
-              <div class="f mB10">
+              <div class="f mb-2">
               <h4><?php echo T_("What do you want to do?"); ?></h4>
                 <div class="c">
                   <div class="radio3 mB5">

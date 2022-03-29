@@ -11,12 +11,12 @@
 						<input type="text" id="ititle" name="title" value="<?php echo \dash\data::dataRow_title(); ?>">
 					</div>
 
-					<div class="mB10">
+					<div class="mb-2">
 						<label for="desc"><?php echo T_("Description") ?></label>
 						<textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Description") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
 					</div>
 
-					<div class="mB10">
+					<div class="mb-2">
 						<div data-uploader data-name='file' data-final='#finalImagefile1' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
 							<input type="file" accept="image/*" id="file1">
 							<label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
