@@ -2,7 +2,7 @@
 $myUrlStatic = \dash\url::cdn();
 ?>
 
-  <section class="avand-xl impact pTB4x">
+  <section class="avand-xl impact py-24">
    <div class="">
     <div class="f align-center mb-2">
       <div class="c4 m6 s12">

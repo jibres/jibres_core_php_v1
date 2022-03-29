@@ -12,9 +12,8 @@ else
 }
 ?>
 
-
 <div class="text-center fs14 mTB25">
-  <img class="box700 mB20-f" src="<?php echo \dash\url::cdn(); ?>/img/account/profile-cover.png" alt='<?php echo T_("Personal info"); ?>'>
+  <img class="mB20-f" src="<?php echo \dash\url::cdn(); ?>/img/account/profile-cover.png" alt='<?php echo T_("Personal info"); ?>'>
   <h2><?php echo \dash\face::title(); ?></h2>
   <p><?php echo T_('Basic info, like your name and photo, that you use on our services'); ?></p>
 </div>
@@ -32,7 +31,7 @@ else
             <p><?php echo T_("You can enter to your account with username and mobile."); ?></p>
           </div>
           <div class="cauto s12">
-            <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/profile-dashboard.png" alt='<?php echo T_("Profile"); ?>'>
+            <img class="w-72" src="<?php echo \dash\url::cdn(); ?>/img/account/profile-dashboard.png" alt='<?php echo T_("Profile"); ?>'>
           </div>
         </div>
       </div>
@@ -145,7 +144,7 @@ else
             <p><?php echo T_("Website, Email and Social Networks"); ?></p>
           </div>
           <div class="cauto s12">
-            <img class="box300" src="<?php echo \dash\url::cdn(); ?>/img/account/social.svg" alt='<?php echo T_("Social Networks"); ?>'>
+            <img class="w-72" src="<?php echo \dash\url::cdn(); ?>/img/account/social.svg" alt='<?php echo T_("Social Networks"); ?>'>
           </div>
         </div>
       </div>

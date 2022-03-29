@@ -119,7 +119,7 @@
         </tr>
         <?php if(a($value, 'meta')) {?>
           <tr class="ltr">
-            <td colspan="10" class="ltr txtL"><span class="ltr"><?php echo a($value, 'meta') ?></span></td>
+            <td colspan="10" class="ltr text-left"><span class="ltr"><?php echo a($value, 'meta') ?></span></td>
           </tr>
       <?php }//endif ?>
       <?php } //endif ?>
