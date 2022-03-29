@@ -15,7 +15,8 @@ class get
 				domain
 			WHERE
 				domain.name   = :domain AND
-				domain.verify = 1
+				domain.verify = 1 AND
+				domain.status != 'deleted'
 		";
 
 		$param = [':domain' => $_domain];
@@ -34,7 +35,8 @@ class get
 				domain
 			WHERE
 				domain.name   = :domain AND
-				domain.verify = 1
+				domain.verify = 1 AND
+				domain.status != 'deleted'
 		";
 
 		$param = [':domain' => $_domain];
