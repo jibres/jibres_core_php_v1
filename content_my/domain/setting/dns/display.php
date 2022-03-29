@@ -30,13 +30,13 @@ if(\dash\data::domainDetail_jibres_dns())
         <label for="ns1"><?php echo T_("Nameserver #1"); ?></label>
         <div class="input ltr">
           <input type="text" name="ns1" id="ns1" maxlength="50" value="<?php echo \dash\data::domainDetail_ns1(); ?>" >
-          <?php if(\dash\data::domainDetail_jibres_dns()) {?><label class="addon"><img class="avatar" src="<?php echo \dash\url::icon() ?>"></label><?php }//endif ?>
+          <?php if(\dash\data::domainDetail_jibres_dns()) {?><label class="addon"><img class="w-6" src="<?php echo \dash\url::icon() ?>"></label><?php }//endif ?>
         </div>
 
         <label for="ns2"><?php echo T_("Nameserver #2"); ?></label>
         <div class="input ltr">
           <input type="text" name="ns2" id="ns2" maxlength="50" value="<?php echo \dash\data::domainDetail_ns2(); ?>" >
-          <?php if(\dash\data::domainDetail_jibres_dns()) {?><label class="addon"><img class="avatar" src="<?php echo \dash\url::icon() ?>"></label><?php }//endif ?>
+          <?php if(\dash\data::domainDetail_jibres_dns()) {?><label class="addon"><img class="w-6" src="<?php echo \dash\url::icon() ?>"></label><?php }//endif ?>
         </div>
       </div>
       <footer class="txtRa">
