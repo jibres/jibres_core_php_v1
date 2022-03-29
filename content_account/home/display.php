@@ -2,14 +2,17 @@
 <header class="flex items-center my-2 px-2 select-none">
   <a class="inline-block mb-2 rounded-full flex-none" href="<?php echo \dash\url::here(); ?>/my/avatar">
     <?php if(\dash\user::detail('avatar'))  {?>
-      <img class="w-20 h-20 lg:w-24 lg:h-24 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
+      <img class="w-16 h-16 lg:w-24 lg:h-24 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
     <?php }elseif(\dash\user::id()) {?>
-      <img class="w-20 h-20 lg:w-24 lg:h-24 rounded-full" src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
+      <img class="w-16 h-16 lg:w-24 lg:h-24 rounded-full" src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
     <?php } // endif ?>
   </a>
-  <div class="px-2 lg:px-4 grow">
-    <h2 class="leading-7 text-lg"><?php echo T_("Welcome"); ?><?php echo T_(","); ?> <span class="font-bold"><?php echo \dash\user::detail('fullname'); ?></span></h2>
-    <p class="text-xs text-zinc-600"><?php echo T_("Manage your info, privacy, and security to make us work better for you"); ?></p>
+  <div class="px-3 lg:px-6 grow">
+    <h2 class="text-lg">
+      <span class="block lg:inline-block text-sm"><?php echo T_("Welcome"); ?></span><span class="hidden lg:inline-block"><?php echo T_(","); ?></span>
+      <strong class="font-bold leading-7"><?php echo \dash\user::detail('fullname'); ?></strong>
+    </h2>
+    <p class="hidden lg:block text-xs text-zinc-600"><?php echo T_("Manage your info, privacy, and security to make us work better for you"); ?></p>
   </div>
 </header>
 
