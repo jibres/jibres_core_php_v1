@@ -28,6 +28,7 @@ class search
 			'caller'    => 'string_200',
 			'notif'     => 'bit',
 			'active_status' => 'bit',
+			'include_expired' => 'bit',
 		];
 
 		$require = [];
@@ -36,6 +37,7 @@ class search
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$and           = [];
+		$param         = [];
 		$meta          = [];
 		$or            = [];
 		$order_sort    = null;
@@ -49,7 +51,8 @@ class search
 
 		if($data['caller'])
 		{
-			$and[] = " logs.caller = '$data[caller]' ";
+			$and[] = " logs.caller = :caller ";
+			$param[':caller'] = $data['caller'];
 		}
 
 		if($data['show_type'] === 'user')
@@ -63,13 +66,15 @@ class search
 
 		if($data['from'])
 		{
-			$and[] = " logs.from =  $data[from] ";
+			$and[] = " logs.from =  :from ";
+			$param[':from'] = $data['from'];
 		}
 
 
 		if($data['to'])
 		{
-			$and[] = " logs.to =  $data[to] ";
+			$and[] = " logs.to =  :to ";
+			$param[':to'] = $data['to'];
 		}
 
 		if($data['touser'])
@@ -77,7 +82,8 @@ class search
 			$user = \dash\coding::decode($data['touser']);
 			if($user)
 			{
-				$and[] = " logs.to =  $user ";
+				$and[] = " logs.to =  :user ";
+				$param[':user'] = $user;
 			}
 
 		}
@@ -93,11 +99,20 @@ class search
 		}
 
 
+		if(!$data['include_expired'])
+		{
+			$and[] = " logs.expiredate > :datenow ";
+			$param[':datenow'] = date("Y-m-d H:i:s");
+
+		}
+
+
 		$query_string = \dash\validate::search($_query_string, false);
 
 		if($query_string)
 		{
-			$or[] = " logs.caller = '$query_string' ";
+			$or[] = " logs.caller = :s_caller ";
+			$param[':s_caller'] = $query_string;
 			self::$is_filtered = true;
 		}
 
@@ -112,7 +127,7 @@ class search
 			$order_sort = " ORDER BY logs.id DESC ";
 		}
 
-		$list = \dash\db\logs\search::list($and, $or, $order_sort, $meta);
+		$list = \dash\db\logs\search::list($param, $and, $or, $order_sort, $meta);
 
 		if(is_array($list))
 		{
