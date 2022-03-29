@@ -962,10 +962,10 @@ class generator
 				{
 					switch ($value['setting']['message']['color'])
 					{
-						case 'red':		$class = 'danger2'; break;
-						case 'green':	$class = 'success2'; break;
-						case 'blue':	$class = 'primary2'; break;
-						case 'yellow':	$class = 'warn2'; break;
+						case 'red':		$class = 'danger'; break;
+						case 'green':	$class = 'success'; break;
+						case 'blue':	$class = 'primary'; break;
+						case 'yellow':	$class = 'warning'; break;
 						default: break;
 					}
 				}
@@ -982,7 +982,7 @@ class generator
 					$targetblank = $value['setting']['message']['targetblank'];
 				}
 
-				self::$html .= '<div class="msg '. $class .'">';
+				self::$html .= '<div class="alert-'. $class .'">';
 
 				if($link)
 				{
@@ -1024,14 +1024,14 @@ class generator
 					$class = null;
 					switch ($value['setting']['agree']['color'])
 					{
-						case 'red':		$class = 'danger2'; break;
-						case 'green':	$class = 'success2'; break;
-						case 'blue':	$class = 'primary2'; break;
-						case 'yellow':	$class = 'warn2'; break;
+						case 'red':		$class = 'danger'; break;
+						case 'green':	$class = 'success'; break;
+						case 'blue':	$class = 'primary'; break;
+						case 'yellow':	$class = 'warning'; break;
 						default: break;
 					}
 				}
-				self::$html .= '<div class="msg '. $class .'">';
+				self::$html .= '<div class="alert-'. $class .'">';
 					if(isset($value['desc']))
 					{
 						self::$html .= '<p>'. $value['desc'] .'</p>';
