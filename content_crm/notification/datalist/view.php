@@ -24,6 +24,7 @@ class view
 			'sort'   => \dash\request::get('sort'),
 			'notif' => 1,
 			'touser' => \dash\request::get('touser'),
+			'include_expired' => true,
 
 		];
 

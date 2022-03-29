@@ -32,6 +32,7 @@ class view
 		[
 			'sort'  => \dash\request::get('sort'),
 			'order' => \dash\request::get('order'),
+			'include_expired' => true,
 		];
 
 		if($_args && is_array($_args))
@@ -77,11 +78,6 @@ class view
 		\dash\data::dataTable($dataTable);
 
 
-		$filterArray = $args;
-
-		// set dataFilter
-		$dataFilter = \dash\app\sort::createFilterMsg($search_string, $filterArray);
-		\dash\data::dataFilter($dataFilter);
 	}
 }
 ?>
