@@ -1,5 +1,5 @@
 
-<header class="flex items-center my-2 px-2 select-none">
+<header class="flex items-center p-2 select-none">
   <a class="inline-block mb-2 rounded-full flex-none" href="<?php echo \dash\url::here(); ?>/my/avatar">
     <?php if(\dash\user::detail('avatar'))  {?>
       <img class="w-16 h-16 lg:w-24 lg:h-24 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
@@ -124,7 +124,7 @@
         </div>
       </div>
       <footer class="border-t">
-        <a class="px-4 py-2 block btn-outline-primary transition rounded-b-lg" href="<?php echo \dash\url::kingdom(). '/logout'; ?>"><?php echo T_("Logout"); ?></a>
+        <a class="px-4 py-2 block btn-outline-danger transition rounded-b-lg" href="<?php echo \dash\url::kingdom(). '/logout'; ?>"><?php echo T_("Logout"); ?></a>
       </footer>
     </section>
   </div>
