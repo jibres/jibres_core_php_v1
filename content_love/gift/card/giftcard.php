@@ -51,7 +51,7 @@ if(!isset($gMaxGift))
 				<abbr><?php echo T_("Jibres Gift Code"); ?></abbr>
 				<span class="block"><?php echo $gCode; ?></span>
 			</div>
-			<code class="circle"><span class="percent"><?php echo $gPercent; ?></span><span>%</span></code>
+			<code class="rounded-full"><span class="percent"><?php echo $gPercent; ?></span><span>%</span></code>
 		</div>
 	</div>
 	<div class="text-center fs14 mt-4">
