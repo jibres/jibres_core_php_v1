@@ -1,5 +1,5 @@
 
-<section class="flex items-center my-2 px-2 select-none">
+<header class="flex items-center my-2 px-2 select-none">
   <a class="inline-block mb-2 rounded-full flex-none" href="<?php echo \dash\url::here(); ?>/my/avatar">
     <?php if(\dash\user::detail('avatar'))  {?>
       <img class="w-20 h-20 lg:w-24 lg:h-24 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
@@ -11,7 +11,7 @@
     <h2 class="leading-7 text-lg"><?php echo T_("Welcome"); ?><?php echo T_(","); ?> <span class="font-bold"><?php echo \dash\user::detail('fullname'); ?></span></h2>
     <p class="text-xs text-zinc-600"><?php echo T_("Manage your info, privacy, and security to make us work better for you"); ?></p>
   </div>
-</section>
+</header>
 
 <?php if(!\dash\user::detail('verifymobile'))  {?>
   <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="alert-warning text-center font-bold block mb-2"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
@@ -128,6 +128,6 @@
 
 </div>
 
-<div class="text-center text-sm m-2 select-none leading-7">
+<footer class="text-center text-sm m-2 select-none leading-7">
   <div class="alert-secondary"><?php echo T_("Only you can see your settings."); ?> <?php echo T_("We are committed to protecting your privacy and security."); ?> <a class="alert-link" href="<?php echo \dash\url::kingdom(); ?>/privacy" target="_blank"><?php echo T_("Learn more"); ?></a></div>
-</div>
+</footer>
