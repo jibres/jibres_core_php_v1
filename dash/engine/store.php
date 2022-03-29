@@ -726,6 +726,7 @@ class store
 		}
 
 
+
 		self::$customerDomainDetail = $load_detail;
 
 		if($load_detail && isset($load_detail['store_id']))
@@ -766,7 +767,33 @@ class store
 		}
 		elseif(isset($load_detail['domain_id']))
 		{
-			\dash\engine\prepare::html_raw_page('domainRegistered');
+			$load_default_parking_page = true;
+			// check verified domain only by one user
+			if(floatval(\lib\db\nic_domain\get::count_verified_user_domain($_domain)) === floatval(1))
+			{
+				$domain_detail = \lib\db\nic_domain\get::verified_user_domain($_domain);
+
+				if(a($domain_detail, 'user_id'))
+				{
+					$load_user_setting = \lib\db\nic_usersetting\get::my_setting($domain_detail['user_id']);
+					if(a($load_user_setting, 'domain_parking'))
+					{
+						$load_default_parking_page = false;
+
+						$load_detail['store_id']         = $load_user_setting['domain_parking'];
+						$load_detail['domain_parking']   = $load_user_setting['domain_parking'];
+						$load_detail['redirecttomaster'] = '0';
+						return self::set_customer_domain($load_detail);
+
+					}
+				}
+			}
+
+
+			if($load_default_parking_page)
+			{
+				\dash\engine\prepare::html_raw_page('domainRegistered');
+			}
 		}
 		elseif(isset($load_detail['id']))
 		{

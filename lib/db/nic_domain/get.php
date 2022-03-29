@@ -5,6 +5,44 @@ namespace lib\db\nic_domain;
 class get
 {
 
+	public static function count_verified_user_domain($_domain)
+	{
+		$query =
+		"
+			SELECT
+				COUNT(*) AS `count`
+			FROM
+				domain
+			WHERE
+				domain.name   = :domain AND
+				domain.verify = 1
+		";
+
+		$param = [':domain' => $_domain];
+
+		$result = \dash\pdo::get($query, $param, 'count', true, 'nic');
+		return $result;
+	}
+
+	public static function verified_user_domain($_domain)
+	{
+		$query =
+		"
+			SELECT
+				*
+			FROM
+				domain
+			WHERE
+				domain.name   = :domain AND
+				domain.verify = 1
+		";
+
+		$param = [':domain' => $_domain];
+
+		$result = \dash\pdo::get($query, $param, null, true, 'nic');
+		return $result;
+	}
+
 	public static function search_in_our_domain_record($_domain)
 	{
 		$query  =
