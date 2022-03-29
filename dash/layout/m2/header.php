@@ -90,7 +90,7 @@ class header
         if(!$in_customer_specail_domain)
         {
           // notification
-          $html .= '<a class="'. $btnClass. ' w-12 p-3 mx-1 notification" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '" data-direct>';
+          $html .= '<a class="'. $btnClass. ' w-12 p-3 mx-1 notification" href="'. \dash\url::sitelang(). '/account/notification" title="'. T_("Notifications"). '">';
           // $html .= \dash\utility\icon::svg('Notification');
           $html .= \dash\utility\icon::bootstrap('envelope', $btnIconClass);
           $html .= '</a>';
