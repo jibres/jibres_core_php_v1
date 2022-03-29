@@ -1,25 +1,23 @@
 
 
 
-<div class="font-12 text-center">
-  <div class="avatar mb-2">
-    <a href="<?php echo \dash\url::here(); ?>/my/avatar" class="inline-block">
+<section class="text-center mb-4">
+  <a href="<?php echo \dash\url::here(); ?>/my/avatar" class="inline-block mb-2">
 <?php if(\dash\user::detail('avatar'))  {?>
-      <img class="w-24 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
+    <img class="w-36 rounded-full" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
 <?php }elseif(\dash\user::id()) {?>
-      <img class="w-24 rounded-full" src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
+    <img class="w-36 rounded-full" src="<?php echo \dash\url::siftal(); ?>/images/default/avatar.png" alt='<?php echo T_("Default Avatar"); ?>'>
 <?php } // endif ?>
-    </a>
-  </div>
-  <h2><?php echo T_("Welcome"); ?><?php echo T_(","); ?> <span class="font-bold"><?php echo \dash\user::detail('fullname'); ?></span></h2>
-  <p class="font-14"><?php echo T_("Manage your info, privacy, and security to make us work better for you"); ?></p>
-</div>
+  </a>
+  <h2 class="leading-loose text-lg"><?php echo T_("Welcome"); ?><?php echo T_(","); ?> <span class="font-bold"><?php echo \dash\user::detail('fullname'); ?></span></h2>
+  <p class="leading-loose text-sm"><?php echo T_("Manage your info, privacy, and security to make us work better for you"); ?></p>
+</section>
 
 <?php if(!\dash\user::detail('verifymobile'))  {?>
-  <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="alert-warning text-center font-bold fs14 block"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
+  <a href="<?php echo \dash\url::kingdom(). '/enter/verify'; ?>" target="_blank" class="alert-warning text-center font-bold block mb-2"><?php echo T_("Your account is not verify! Please verify your mobile number."); ?></a>
 <?php }//endif ?>
 
-<div class="f fs14">
+<div class="f text-sm">
   <div class="c6 x4 s12 p-2">
 
     <div class="panel">
