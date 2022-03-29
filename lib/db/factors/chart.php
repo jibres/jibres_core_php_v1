@@ -5,8 +5,8 @@ class chart
 {
 	public static function time_chart($_type)
 	{
-		$date     = date("Y-m-d", strtotime("-30 day"));
-		$date_now = date("Y-m-d");
+		$date     = date("Y-m-d H:i:s", strtotime("-30 day"));
+		$date_now = date("Y-m-d 00:00:00");
 		$query =
 		"
 			SELECT
@@ -16,14 +16,18 @@ class chart
 			FROM
 				factors
 			WHERE
-				DATE(factors.date) > DATE('$date') AND
-				DATE(factors.date) != DATE('$date_now')
-
+				factors.date >= :start_date
 			GROUP BY `key`
 			ORDER BY `key` ASC
 
 		";
-		$result = \dash\pdo::get($query);
+
+		$param =
+		[
+			':start_date' => $date,
+		];
+
+		$result = \dash\pdo::get($query, $param);
 		return $result;
 	}
 }
