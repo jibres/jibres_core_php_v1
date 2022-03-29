@@ -23,9 +23,7 @@ else
 
 
   <div class="text-sm">
-    <section class="mb-4">
-
-      <div class="bg-white rounded-lg border">
+    <section class="mb-4 bg-white rounded-lg border">
         <div class="p-2 lg:p-4">
           <div class="flex flex-wrap">
             <div class="grow">
@@ -37,40 +35,43 @@ else
             </div>
           </div>
         </div>
-        <table class="tbl1 v4 mb-0">
-          <tr>
-            <th class="s0"><?php echo T_("Username"); ?></th>
-            <td><?php echo \dash\data::dataRow_username(); ?></td>
-            <td class="collapsing txtRa ltr"><a href="<?php echo \dash\url::this(); ?>/username" class="block <?php echo $arrow; ?>"></a></td>
-          </tr>
-          <tr>
-            <th class="s0"><?php echo T_("Mobile"); ?></th>
-            <td><?php echo \dash\fit::text(\dash\data::dataRow_mobile()); ?></td>
-            <td></td>
-          </tr>
 
-           <tr>
-            <th class="s0"><?php echo T_("Email"); ?></th>
-            <td><?php echo \dash\data::myMasterEmail(); ?></td>
-            <td class="collapsing txtRa"><a href="<?php echo \dash\url::this(); ?>/email" class="block <?php echo $arrow; ?>"></a></td>
-          </tr>
+        <nav class="items mx-2">
+          <ul>
+            <li>
+              <a class="item flex">
+                <div class="key grow"><?php echo T_("Mobile"); ?></div>
+                <div class="value ltr"><?php echo \dash\data::dataRow_mobile(); ?></div>
+                <div class="go detail"></div>
+              </a>
+            </li>
 
-          <?php if(\dash\data::dataRow_permission()) {?>
+            <li>
+              <a class="item flex">
+                <div class="key grow"><?php echo T_("Permission"); ?></div>
+                <div class="value ltr"><?php echo \dash\data::permName(); ?></div>
+                <div class="go detail"></div>
+              </a>
+            </li>
 
-          <tr>
-            <th class="s0"><?php echo T_("Permission"); ?></th>
-            <td><?php echo \dash\data::permName(); ?></td>
-            <td class="collapsing txtRa"></td>
-          </tr>
+            <li>
+              <a class="item flex" href="<?php echo \dash\url::this(); ?>/username">
+                <div class="key grow"><?php echo T_("Username"); ?></div>
+                <div class="value ltr"><?php echo \dash\data::dataRow_username(); ?></div>
+                <div class="go"></div>
+              </a>
+            </li>
 
-          <?php }//endif ?>
+            <li>
+              <a class="item flex" href="<?php echo \dash\url::this(); ?>/email">
+                <div class="key grow"><?php echo T_("Email"); ?></div>
+                <div class="value ltr"><?php echo \dash\data::myMasterEmail(); ?></div>
+                <div class="go"></div>
+              </a>
+            </li>
 
-        </table>
-      </div>
-
-
-
-
+          </ul>
+        </nav>
     </section>
 
     <section class="mb-4">
