@@ -17,7 +17,14 @@
         <?php if(\dash\data::listStore()) {?>
           <select name="domain_parking" class="select22" data-placeholder='<?php echo T_("Choose one business") ?>'>
             <option value=""></option>
-            <?php foreach (\dash\data::listStore() as $key => $value) {?>
+            <?php
+            if(a(\dash\data::dataRow(), 'domain_parking'))
+            {
+              echo '<option value="0">'.T_("None").'</option>';
+
+            }
+            foreach (\dash\data::listStore() as $key => $value) {
+              ?>
                 <option value="<?php echo a($value, 'subdomain'); ?>" <?php if(floatval(a($value, 'store_id')) === floatval(a(\dash\data::dataRow(), 'domain_parking')) ) { echo "selected";} ?>><?php echo a($value, 'title') ?></option>
             <?php } ?>
           </select>
