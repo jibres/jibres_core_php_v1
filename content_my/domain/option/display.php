@@ -4,9 +4,9 @@
 <section class="f" data-option='domain-park'>
   <div class="c8 s12">
     <div class="data">
-      <h3><?php echo T_("Park domain");?></h3>
+      <h3><?php echo T_("Domain parking");?></h3>
       <div class="body">
-        <p><?php echo T_("Park domain");?></p>
+        <p><?php echo T_("With domain parking you can connect all your free domains to one business");?></p>
       </div>
     </div>
   </div>
