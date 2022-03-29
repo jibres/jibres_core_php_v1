@@ -17,7 +17,7 @@
  	<div class="f">
 		 <div class="c12">
 
-      <div class="dcard x1">
+      <div class="block bg-white p-2 m-2">
        <div class="statistic sm olive">
         <div class="value mb-2"><i class="mRa5 sf-heart"></i> <?php echo T_("Uptime"); ?></div>
         <div class="label ltr"><?php echo \dash\data::su_uptime(); ?></div>
@@ -28,7 +28,7 @@
 		 <div class="c6">
 
 
-      <div class="dcard x1">
+      <div class="block bg-white p-2 m-2">
        <div class="statistic sm">
         <div class="value mb-2"><?php echo \dash\data::su_disk(); ?></div>
         <div class="label"><i class="mRa5 sf-battery-full"></i> <?php echo T_("Disk space"); ?></div>
@@ -38,7 +38,7 @@
      </div>
 		 <div class="c6">
 
-      <div class="dcard x1">
+      <div class="block bg-white p-2 m-2">
        <div class="statistic sm">
         <div class="value mb-2"><?php echo \dash\data::su_diskFree(); ?></div>
         <div class="label"><i class="mRa5 sf-battery-half"></i> <?php echo T_("Disk Free space"); ?></div>
@@ -50,7 +50,7 @@
  </div>
  <div class="c4 s12">
 
-   <a class="dcard x2" href="<?php echo \dash\url::here(); ?>/update">
+   <a class="block bg-white p-2 m-2" href="<?php echo \dash\url::here(); ?>/update">
     <div class="statistic blue">
       <div class="value"><span><?php echo \dash\fit::date_human(\dash\data::su_lastUpdate()); ?></span></div>
       <div class="label"><?php echo T_("Last update"); ?></div>

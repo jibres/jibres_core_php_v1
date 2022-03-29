@@ -1,7 +1,7 @@
 <div class="f">
 <?php if(\dash\permission::supervisor()) {?>
 	<div class="c12 s6">
-		<a class="dcard x2" href='<?php echo \dash\url::sitelang(); ?>/sudo'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::sitelang(); ?>/sudo'>
 			<div class="statistic pink">
 				<div class="value"><i class="sf-heartbeat"></i></div>
 				<div class="label"><?php echo T_("Supervisor Panel"); ?></div>
@@ -11,7 +11,7 @@
 <?php } ?>
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/store'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::here(); ?>/store'>
 			<div class="statistic green">
 				<div class="value"><i class="sf-shop"></i></div>
 				<div class="label"><?php echo T_("Store list"); ?></div>
@@ -20,7 +20,7 @@
 	</div>
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/business'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::here(); ?>/business'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-analytics-chart-graph"></i></div>
 				<div class="label"><?php echo T_("Store analytics"); ?></div>
@@ -31,7 +31,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/domain'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::here(); ?>/domain'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-list-ul"></i></div>
 				<div class="label"><?php echo T_("Domains"); ?></div>
@@ -42,7 +42,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/business/domain'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::here(); ?>/business/domain'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-globe"></i></div>
 				<div class="label"><?php echo T_("Business domains"); ?></div>
@@ -53,7 +53,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/notiflog'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::here(); ?>/notiflog'>
 			<div class="statistic red">
 				<div class="value"><i class="sf-camera-surveillance"></i></div>
 				<div class="label"><?php echo T_("Notif log"); ?></div>
@@ -63,7 +63,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/log'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::this(); ?>/log'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-database"></i></div>
 				<div class="label"><?php echo T_("Logs"); ?></div>
@@ -73,7 +73,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/sms'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::this(); ?>/sms'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-envelope"></i></div>
 				<div class="label"><?php echo T_("Sms Log"); ?></div>
@@ -83,7 +83,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/telegram/datalist'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::this(); ?>/telegram/datalist'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-paper-plane"></i></div>
 				<div class="label"><?php echo T_("Telegram Log"); ?></div>
@@ -94,7 +94,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/email'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::this(); ?>/email'>
 			<div class="statistic purple">
 				<div class="value"><i class="sf-envelope"></i></div>
 				<div class="label"><?php echo T_("Email"); ?></div>
@@ -103,7 +103,7 @@
 	</div>
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/apilog/twitter'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::this(); ?>/apilog/twitter'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-plug"></i></div>
 				<div class="label"><?php echo T_("Api log"); ?></div>
@@ -112,7 +112,7 @@
 	</div>
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/files'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::this(); ?>/files'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-file"></i></div>
 				<div class="label"><?php echo T_("File"); ?></div>
@@ -123,7 +123,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/application'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::here(); ?>/application'>
 			<div class="statistic green">
 				<div class="value"><i class="sf-android"></i></div>
 				<div class="label"><?php echo T_("Android application queue"); ?></div>
@@ -133,7 +133,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::here(); ?>/gift'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::here(); ?>/gift'>
 			<div class="statistic red">
 				<div class="value"><i class="sf-gift"></i></div>
 				<div class="label"><?php echo T_("Gift card"); ?></div>
@@ -146,7 +146,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::kingdom(); ?>/crm'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::kingdom(); ?>/crm'>
 			<div class="statistic blue">
 				<div class="value"><i class="sf-users"></i></div>
 				<div class="label"><?php echo T_("CRM"); ?></div>
@@ -158,7 +158,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/ip'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::this(); ?>/ip'>
 			<div class="statistic red">
 				<div class="value"><i class="sf-internet"></i></div>
 				<div class="label"><?php echo T_("IP"); ?></div>
@@ -169,7 +169,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/changelog'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::this(); ?>/changelog'>
 			<div class="statistic green">
 				<div class="value"><i class="sf-tree"></i></div>
 				<div class="label"><?php echo T_("Changelog"); ?></div>
@@ -179,7 +179,7 @@
 
 
 	<div class="c2 s6">
-		<a class="dcard x1" href='<?php echo \dash\url::this(); ?>/plugin'>
+		<a class="bg-white p-2 block m-2" href='<?php echo \dash\url::this(); ?>/plugin'>
 			<div class="statistic green">
 				<div class="value"><i class="sf-money-banknote"></i></div>
 				<div class="label"><?php echo T_("Plugin"); ?></div>
