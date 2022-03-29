@@ -62,11 +62,11 @@ if (\dash\language::current() === 'fa')
      <address class="vcard2">
       <div class="author author_name hide"><span class="fn"><?php echo T_("jibres"); ?></span></div>
       <div class="adr mb-4">
-        <div class="compact country-name"><?php echo T_("Iran"); ?></div>
-        <div class="compact locality"><?php echo T_("Qom"); ?></div>
-        <div class="compact street-address"><?php echo T_("1st alley, Haft-e-tir St"); ?></div>
-        <div class="compact extended-address"><?php echo T_("Floor2, Yas Building"); ?></div>
-        <div class="compact postal-code"><?php echo T_("Postal Code"). ' '. \dash\fit::text("37196-17540"); ?></div>
+        <div class="inline-block country-name"><?php echo T_("Iran"); ?></div>
+        <div class="inline-block locality"><?php echo T_("Qom"); ?></div>
+        <div class="inline-block street-address"><?php echo T_("1st alley, Haft-e-tir St"); ?></div>
+        <div class="inline-block extended-address"><?php echo T_("Floor2, Yas Building"); ?></div>
+        <div class="inline-block postal-code"><?php echo T_("Postal Code"). ' '. \dash\fit::text("37196-17540"); ?></div>
       </div>
       <div class="block mb-2 email ltr">info [at] jibres [.] com</div>
       <a class="block mb-2 tel ltr" href="tel:+982536505281"><?php echo \dash\fit::text('(+98) 25 3650 5281'); ?></a>

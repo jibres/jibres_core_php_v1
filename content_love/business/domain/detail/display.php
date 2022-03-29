@@ -31,9 +31,9 @@
         <div class="msg minimal"><?php echo T_("Date created") ?> <span class="font-bold"><?php echo \dash\fit::date_time(\dash\data::dataRow_datecreated()) ?></span></div>
 
         <?php if(\dash\data::dataRow_checkdns()) {?>
-          <div class="msg minimal f"><div class="c"><?php echo T_("DNS Resolved") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_checkdns()); ?></div></div>
+          <div class="msg minimal f"><div class="c"><?php echo T_("DNS Resolved") ?></div> <div class="cauto ltr text-left inline-block"><?php echo \dash\fit::date_time(\dash\data::dataRow_checkdns()); ?></div></div>
           <?php if(\dash\data::dataRow_dnsok()) {?>
-            <div class="alert-success f"><div class="c"><?php echo T_("DNS was set on our DNS record") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_dnsok()); ?></div></div>
+            <div class="alert-success f"><div class="c"><?php echo T_("DNS was set on our DNS record") ?></div> <div class="cauto ltr text-left inline-block"><?php echo \dash\fit::date_time(\dash\data::dataRow_dnsok()); ?></div></div>
           <?php }else{ ?>
             <div class="msg minimal danger2"><?php echo T_("DNS was is not set on our dns record") ?></div>
           <?php } //endif ?>
@@ -42,13 +42,13 @@
         <?php } //endif ?>
 
          <?php if(\dash\data::dataRow_cdnpanel()) {?>
-          <div class="alert-success f"><div class="c"><?php echo T_("Added to CDN panel") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_cdnpanel()); ?></div></div>
+          <div class="alert-success f"><div class="c"><?php echo T_("Added to CDN panel") ?></div> <div class="cauto ltr text-left inline-block"><?php echo \dash\fit::date_time(\dash\data::dataRow_cdnpanel()); ?></div></div>
         <?php }else{ ?>
           <div class="msg minimal"><?php echo T_("Not add to CDN panel yet"); ?></div>
         <?php } //endif ?>
 
          <?php if(\dash\data::dataRow_httpsrequest()) {?>
-          <div class="msg minimal f"><div class="c"><?php echo T_("Last HTTPS request date") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_httpsrequest()); ?></div></div>
+          <div class="msg minimal f"><div class="c"><?php echo T_("Last HTTPS request date") ?></div> <div class="cauto ltr text-left inline-block"><?php echo \dash\fit::date_time(\dash\data::dataRow_httpsrequest()); ?></div></div>
         <?php }else{ ?>
           <div class="msg minimal"><?php echo T_("Not send HTTPS request to CDN panel yet"); ?></div>
         <?php } //endif ?>

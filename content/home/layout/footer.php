@@ -272,11 +272,11 @@ else
       <nav class="c s12 pLR10 langlist"><?php
         if(\dash\language::current() == 'fa')
         {
-          echo "<a hreflang='en' target='_blank' rel='noopener' href='https://jibres.com'>English <span class='compact mLa5 sf-external-link'></span></a>";
+          echo "<a hreflang='en' target='_blank' rel='noopener' href='https://jibres.com'>English <span class='inline-block mLa5 sf-external-link'></span></a>";
         }
         else
         {
-          echo "<a hreflang='fa' target='_blank' rel='noopener' href='https://jibres.ir'>فارسی <span class='compact mLa5 sf-external-link'></span></a>";
+          echo "<a hreflang='fa' target='_blank' rel='noopener' href='https://jibres.ir'>فارسی <span class='inline-block mLa5 sf-external-link'></span></a>";
         }
       ?></nav>
       <nav class="cauto s12 os share1">

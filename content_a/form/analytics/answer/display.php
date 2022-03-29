@@ -3,9 +3,9 @@
     <table class="tbl1 v6 repeatHead">
       <thead>
         <tr>
-          <td colspan="2"><?php echo \dash\data::formDetail_title() ?> <span class="compact font-bold"><?php echo \dash\fit::text(\dash\request::get('id')); ?></span></td>
-          <td><?php echo T_("Filter ID") ?> <span class="compact font-bold"><?php echo \dash\fit::text(\dash\request::get('fid')); ?></span></td>
-          <td><?php echo T_("Answer ID") ?> <span class="compact font-bold"><?php echo \dash\fit::text($key) ?></span></td>
+          <td colspan="2"><?php echo \dash\data::formDetail_title() ?> <span class="inline-block font-bold"><?php echo \dash\fit::text(\dash\request::get('id')); ?></span></td>
+          <td><?php echo T_("Filter ID") ?> <span class="inline-block font-bold"><?php echo \dash\fit::text(\dash\request::get('fid')); ?></span></td>
+          <td><?php echo T_("Answer ID") ?> <span class="inline-block font-bold"><?php echo \dash\fit::text($key) ?></span></td>
 
         </tr>
       </thead>

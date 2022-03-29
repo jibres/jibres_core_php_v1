@@ -59,8 +59,8 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
        <div class="key grow font-bold">.<?php echo a($value, 'tld'); ?></div>
        <?php if(a($value, 'available')) {?>
         <div class="value">
-          <span class="compact font-10"><?php echo a($value, 'unit');?></span>
-          <span class="compact"><?php echo \dash\fit::number(a($value, 'price_1year'));?></span>
+          <span class="inline-block font-10"><?php echo a($value, 'unit');?></span>
+          <span class="inline-block"><?php echo \dash\fit::number(a($value, 'price_1year'));?></span>
         </div>
        <?php }else{ ?>
         <?php if(a($value,'domain_restricted')) {?>
@@ -106,8 +106,8 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
        <div class="key grow font-bold">.<?php echo a($value, 'tld'); ?></div>
        <?php if(a($value, 'available') && !a($value, 'domain_premium')) {?>
         <div class="value">
-          <span class="compact font-10"><?php echo a($value, 'unit');?></span>
-          <span class="compact"><?php echo \dash\fit::number(a($value, 'price_1year'));?></span>
+          <span class="inline-block font-10"><?php echo a($value, 'unit');?></span>
+          <span class="inline-block"><?php echo \dash\fit::number(a($value, 'price_1year'));?></span>
         </div>
        <?php }else{ ?>
         <?php if(a($value, 'domain_premium')) {?>
@@ -143,8 +143,8 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
        <div class="key grow fc-mute">.<?php echo a($value, 'tld'); ?></div>
 
          <div class="value">
-          <span class="compact font-10"><?php echo \lib\currency::unit();?></span>
-          <span class="compact"><?php echo \dash\fit::number(\dash\data::irOneYearPrice());?></span>
+          <span class="inline-block font-10"><?php echo \lib\currency::unit();?></span>
+          <span class="inline-block"><?php echo \dash\fit::number(\dash\data::irOneYearPrice());?></span>
         </div>
         <div class="go ok"></div>
       </a>

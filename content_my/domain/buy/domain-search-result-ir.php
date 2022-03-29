@@ -57,15 +57,15 @@ $master_domain = a($master, 'full');
                             {
                                 if(isset($master['unit']))
                                 {
-                                    echo '<span class="compact unit">'. $master['unit']. '</span>';
+                                    echo '<span class="inline-block unit">'. $master['unit']. '</span>';
                                 }
-                                echo ' <span class="compact price">'. \dash\fit::number($master['price_1year']). '</span>';
+                                echo ' <span class="inline-block price">'. \dash\fit::number($master['price_1year']). '</span>';
                             }
                             if(isset($master['compareAtPrice_1year']))
                             {
-                                echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($master['compareAtPrice_1year']). '</del>';
+                                echo ' / <del class="inline-block compareAtPrice">'. \dash\fit::number($master['compareAtPrice_1year']). '</del>';
                             }
-                            echo '<span class="compact period pLR10">'. T_("1 Year"). '</span>';
+                            echo '<span class="inline-block period pLR10">'. T_("1 Year"). '</span>';
                         echo '</div>';
 
                         echo '<div>';
@@ -73,15 +73,15 @@ $master_domain = a($master, 'full');
                             {
                                 if(isset($master['unit']))
                                 {
-                                    echo '<span class="compact unit">'. $master['unit']. '</span>';
+                                    echo '<span class="inline-block unit">'. $master['unit']. '</span>';
                                 }
-                                echo ' <span class="compact price">'. \dash\fit::number($master['price_5year']). '</span>';
+                                echo ' <span class="inline-block price">'. \dash\fit::number($master['price_5year']). '</span>';
                             }
                             if(isset($master['compareAtPrice_5year']))
                             {
-                                echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($master['compareAtPrice_5year']). '</del>';
+                                echo ' / <del class="inline-block compareAtPrice">'. \dash\fit::number($master['compareAtPrice_5year']). '</del>';
                             }
-                            echo '<span class="compact period pLR10">'. T_("5 Year"). '</span>';
+                            echo '<span class="inline-block period pLR10">'. T_("5 Year"). '</span>';
                         echo '</div>';
                     echo '</div>';
                 }

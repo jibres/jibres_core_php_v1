@@ -16,7 +16,7 @@
                   <td class="collapsing fc-mute"><?php echo T_("Customer") ?></td>
                   <td>
                     <?php echo a($orderDetail, 'factor', 'customer_detail', 'displayname'); ?>
-                    <span class="ltr compact"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')); ?></span>
+                    <span class="ltr inline-block"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')); ?></span>
                   </td>
                 </tr>
               <?php } // endif ?>
@@ -57,13 +57,13 @@
 
                       <div class="addr"><?php echo a($address, 'address'); ?></div>
                       <?php if(a($address, 'mobile')) {?>
-                        <div class="mobile"><?php echo T_("Mobile") ?> <b class="ltr compact"><?php echo \dash\fit::mobile(a($address, 'mobile')); ?></b></div>
+                        <div class="mobile"><?php echo T_("Mobile") ?> <b class="ltr inline-block"><?php echo \dash\fit::mobile(a($address, 'mobile')); ?></b></div>
                       <?php } //endif ?>
                       <?php if(a($address, 'phone')) {?>
-                        <div class="phone"><?php echo T_("Phone") ?> <b class="ltr compact"><?php echo \dash\fit::text(a($address, 'phone')); ?></b></div>
+                        <div class="phone"><?php echo T_("Phone") ?> <b class="ltr inline-block"><?php echo \dash\fit::text(a($address, 'phone')); ?></b></div>
                       <?php } //endif ?>
                       <?php if(a($address, 'postcode')) {?>
-                        <div class="postalcode"><?php echo T_("Postalcode") ?> <b class="ltr compact"><?php echo \dash\fit::text(a($address, 'postcode')); ?></b></div>
+                        <div class="postalcode"><?php echo T_("Postalcode") ?> <b class="ltr inline-block"><?php echo \dash\fit::text(a($address, 'postcode')); ?></b></div>
                       <?php } //endif ?>
                     </address>
                   </td>
@@ -100,7 +100,7 @@
                       <td class="collapsing fc-mute"><?php echo T_("Customer") ?></td>
                       <td>
                         <?php echo a($orderDetail, 'factor', 'customer_detail', 'displayname'); ?>
-                        <span class="ltr compact"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')); ?></span>
+                        <span class="ltr inline-block"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')); ?></span>
                       </td>
                     </tr>
 

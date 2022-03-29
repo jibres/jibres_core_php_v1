@@ -46,7 +46,7 @@
                 <div class="text-sm">
                   <a href="<?php echo \dash\url::this(). '/coding?view='. a($value, 'assistant_id') ?>"><code><?php echo a($value, 'assistant_code'); ?></code></a>
                   <a class="link" target="_blank" href="<?php echo \dash\url::this(). '/turnover?contain='. a($value, 'assistant_id') ?>"><i class="sf-retweet" title="<?php echo T_("Turnover") ?>"></i> </a>
-                  <span class="compact"> <?php echo a($value, 'total_title') . ' - '. a($value, 'assistant_title'); ?> </span>
+                  <span class="inline-block"> <?php echo a($value, 'total_title') . ' - '. a($value, 'assistant_title'); ?> </span>
                 </div>
                 <div class="text-xs pLa10"><?php echo a($value, 'details_title'); ?>
 
@@ -84,7 +84,7 @@
               <?php if($locDelMode) {}else{?>
                 <td class="p0 txtRa font-bold">
                    <?php $remain_doc = \dash\data::summary_debtor() - \dash\data::summary_creditor(); if($remain_doc != 0) {?>
-                  <a class="fc-white  block" href="<?php $myType = 'debtor'; if($remain_doc > 0){ $myType = 'creditor';} echo \dash\url::current(). '?id='. \dash\request::get('id'). '&value='. abs($remain_doc). '&type='. $myType;  ?>"><span class="compact mRa10"><?php echo T_("Diff"); ?></span><span class="compact ltr"><?php echo  \dash\fit::number_decimal($remain_doc, 'en'); ?></span></a>
+                  <a class="fc-white  block" href="<?php $myType = 'debtor'; if($remain_doc > 0){ $myType = 'creditor';} echo \dash\url::current(). '?id='. \dash\request::get('id'). '&value='. abs($remain_doc). '&type='. $myType;  ?>"><span class="inline-block mRa10"><?php echo T_("Diff"); ?></span><span class="inline-block ltr"><?php echo  \dash\fit::number_decimal($remain_doc, 'en'); ?></span></a>
                 <?php } //endif ?>
                 </td>
               <?php } //endif ?>

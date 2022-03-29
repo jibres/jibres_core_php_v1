@@ -88,7 +88,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								$html .= '</div>';
 							}
 
-							$html .= '<span class="compact ltr fc-mute text-sm">'. \dash\fit::date_time(a($value, 'datecreated')) .'</span>';
+							$html .= '<span class="inline-block ltr fc-mute text-sm">'. \dash\fit::date_time(a($value, 'datecreated')) .'</span>';
 						}
 						$html .= '</div>';
 

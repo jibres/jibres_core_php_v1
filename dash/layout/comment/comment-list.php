@@ -8,7 +8,7 @@
       <div class="c-auto c-xs-0">
         <div class="ratingAvg"><?php echo \dash\fit::text(\dash\data::customerReview_avg()); ?></div>
         <div class="ratingSummary">
-          <div class="starRating compact" data-star='<?php echo \dash\data::customerReview_avg(); ?>' data-gold>
+          <div class="starRating inline-block" data-star='<?php echo \dash\data::customerReview_avg(); ?>' data-gold>
             <i></i><i></i><i></i><i></i><i></i>
           </div>
           <span><?php echo \dash\fit::number(\dash\data::customerReview_count()); ?></span>

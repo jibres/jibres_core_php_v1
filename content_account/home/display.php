@@ -3,7 +3,7 @@
 
 <div class="font-12 text-center">
   <div class="avatar mb-2">
-    <a href="<?php echo \dash\url::here(); ?>/my/avatar" class="compact">
+    <a href="<?php echo \dash\url::here(); ?>/my/avatar" class="inline-block">
 <?php if(\dash\user::detail('avatar'))  {?>
       <img class="box100 circle" src="<?php echo \dash\user::detail('avatar'); ?>" alt='<?php echo T_("Avatar of you"); ?> <?php echo \dash\user::detail('displayname'); ?>'>
 <?php }elseif(\dash\user::id()) {?>

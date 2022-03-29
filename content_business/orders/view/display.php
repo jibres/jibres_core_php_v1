@@ -30,7 +30,7 @@
             <span ><?php echo a($address, 'location_string'); ?></span>
             <span><?php echo a($address, 'address'); ?></span>
             <?php if(isset($address['postcode']) && $address['postcode']) {?>
-              <span title='<?php echo T_("Postal code"); ?>' class="compact"><?php echo \dash\fit::text($address['postcode']); ?><i class="sf-crosshairs mRL5"></i></span>
+              <span title='<?php echo T_("Postal code"); ?>' class="inline-block"><?php echo \dash\fit::text($address['postcode']); ?><i class="sf-crosshairs mRL5"></i></span>
             <?php }//endif ?>
             <?php echo a($address, 'name'); ?>
             <?php if(isset($address['phone']) && $address['phone']) {?>

@@ -16,7 +16,7 @@ $html .= '<div class="productReviewShort">';
 
   if(\dash\data::customerReview_count())
   {
-    $html .= '<div class="starRating compact" data-star='. \dash\data::customerReview_avg(). ' data-gold>';
+    $html .= '<div class="starRating inline-block" data-star='. \dash\data::customerReview_avg(). ' data-gold>';
     {
       $html .= '<i></i><i></i><i></i><i></i><i></i>';
     }

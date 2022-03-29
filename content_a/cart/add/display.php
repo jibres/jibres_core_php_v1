@@ -175,7 +175,7 @@ $have_user = false;
                 <span class="price"><?php echo \dash\fit::number(a($value, 'price')); ?></span>
                 <span class="unit"><?php echo \lib\store::currency(); ?></span>
               </div>
-              <span class="compact ltr fc-mute text-sm"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></span>
+              <span class="inline-block ltr fc-mute text-sm"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></span>
             </div>
 
 

@@ -7,7 +7,7 @@
       <h3><?php echo T_("IRNIC status") ?></h3>
       <div class="body">
         <?php if(\dash\data::domainDetail_lastfetch()) {?>
-        <p><?php echo T_("Last fetch") ?> <time class="compact"><?php echo \dash\fit::date_time(\dash\data::domainDetail_lastfetch()); ?></time></p>
+        <p><?php echo T_("Last fetch") ?> <time class="inline-block"><?php echo \dash\fit::date_time(\dash\data::domainDetail_lastfetch()); ?></time></p>
       <?php } //endif ?>
       </div>
     </div>
@@ -48,7 +48,7 @@
       <h3><?php echo T_("Whois") ?></h3>
       <div class="body">
         <?php if(\dash\data::domainDetail_ownercheckdate()) {?>
-        <p><?php echo T_("Last fetch") ?> <time class="compact"><?php echo \dash\fit::date_time(\dash\data::domainDetail_ownercheckdate()); ?></time></p>
+        <p><?php echo T_("Last fetch") ?> <time class="inline-block"><?php echo \dash\fit::date_time(\dash\data::domainDetail_ownercheckdate()); ?></time></p>
       <?php } //endif ?>
       </div>
     </div>

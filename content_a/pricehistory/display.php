@@ -12,8 +12,8 @@
 
 		<?php if(\dash\data::productDataRow_datecreated()) {?>
 			<div class="row">
-				<div class="c-md-6"><div title="<?php echo \dash\data::productDataRow_datecreated(); ?>" class="alert2"><?php echo T_("Date created") ?>: <span class="text-left ltr compact"><?php echo \dash\fit::date_time(\dash\data::productDataRow_datecreated()); ?></span></div></div>
-				<div class="c-md-6"><div title="<?php echo \dash\data::productDataRow_datemodified(); ?>" class="alert2"><?php echo T_("Date modified") ?>: <span class="text-left ltr compact"><?php echo \dash\fit::date_time(\dash\data::productDataRow_datemodified()); ?></span></div></div>
+				<div class="c-md-6"><div title="<?php echo \dash\data::productDataRow_datecreated(); ?>" class="alert2"><?php echo T_("Date created") ?>: <span class="text-left ltr inline-block"><?php echo \dash\fit::date_time(\dash\data::productDataRow_datecreated()); ?></span></div></div>
+				<div class="c-md-6"><div title="<?php echo \dash\data::productDataRow_datemodified(); ?>" class="alert2"><?php echo T_("Date modified") ?>: <span class="text-left ltr inline-block"><?php echo \dash\fit::date_time(\dash\data::productDataRow_datemodified()); ?></span></div></div>
 			</div>
 		<?php }//endif ?>
 

@@ -107,7 +107,7 @@ class seo
 				}
 			}
 		}
-		$result = '<div class="ltr compact flex"><div class="flex-1"></div><div class="flex">'. $result. '</div><div class="flex-1"></div></div>';
+		$result = '<div class="ltr inline-block flex"><div class="flex-1"></div><div class="flex">'. $result. '</div><div class="flex-1"></div></div>';
 		return $result;
 	}
 

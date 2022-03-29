@@ -31,7 +31,7 @@ if(\dash\data::dataRow_datemodified())
   echo '<div class="c">';
   if(\dash\data::dataRow_showdate() === 'visible' || a($cmsSetting, 'defaultshowdate') === 'visible')
   {
-    echo '<time class="ltr compact" datetime="'. \dash\data::dataRow_datemodified(). '">'. \dash\fit::date_time(\dash\data::dataRow_publishdate()). '</time>';
+    echo '<time class="ltr inline-block" datetime="'. \dash\data::dataRow_datemodified(). '">'. \dash\fit::date_time(\dash\data::dataRow_publishdate()). '</time>';
   }
 
   echo '</div>';

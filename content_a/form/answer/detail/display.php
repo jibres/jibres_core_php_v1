@@ -5,7 +5,7 @@
       <div class="f">
         <div class="cauto">
           <span><?php echo T_("Answer ID") ?></span>
-          <span><code class="compact font-bold"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
+          <span><code class="inline-block font-bold"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
         </div>
         <div class="c"></div>
         <div class="cauto">
@@ -41,7 +41,7 @@
       <div class="f">
         <div class="cauto">
           <span><?php echo T_("Answer ID") ?></span>
-          <span><code class="compact font-bold"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
+          <span><code class="inline-block font-bold"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
         </div>
         <div class="c"></div>
         <div class="cauto">

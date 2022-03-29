@@ -317,7 +317,7 @@ class part
 		{
 			if(\dash\data::dataRow_publishdate())
 			{
-				$html .= '<time class="ltr compact"';
+				$html .= '<time class="ltr inline-block"';
 				$html .= ' datetime="'. \dash\data::dataRow_publishdate(). '"';
 				$html .= ' title="'. T_("This post published at :val", ['val' => \dash\fit::datetime_full(\dash\data::dataRow_publishdate()) ]). '"';
 				$html .= '>';

@@ -123,7 +123,7 @@
 
               <?php if(isset($value['postcode']) && $value['postcode']) {?>
 
-                <span title='<?php echo T_("Postal code"); ?>' class="compact"><?php echo \dash\fit::text($value['postcode']); ?><i class="sf-crosshairs mRL5"></i></span>
+                <span title='<?php echo T_("Postal code"); ?>' class="inline-block"><?php echo \dash\fit::text($value['postcode']); ?><i class="sf-crosshairs mRL5"></i></span>
 
               <?php }//endif ?>
 

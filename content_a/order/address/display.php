@@ -23,7 +23,7 @@
             <div class="cauto s12">
               <div>
                 <span class="fc-mute"><?php echo T_("Mobile") ?></span>
-                <span class="font-bold ltr compact"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')) ?></span>
+                <span class="font-bold ltr inline-block"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')) ?></span>
               </div>
             </div>
             <div class="c mb-2"></div>

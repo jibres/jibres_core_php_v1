@@ -52,13 +52,13 @@ if(\dash\data::infoResult())
                     {
                         if(isset($value['unit']))
                         {
-                            echo '<span class="compact unit">'. $value['unit']. '</span>';
+                            echo '<span class="inline-block unit">'. $value['unit']. '</span>';
                         }
-                        echo ' <span class="compact price">'. \dash\fit::number($value['price']). '</span>';
+                        echo ' <span class="inline-block price">'. \dash\fit::number($value['price']). '</span>';
                     }
                     if(isset($value['compareAtPrice']))
                     {
-                        echo ' / <del class="compact compareAtPrice">'. \dash\fit::number($value['compareAtPrice']). '</del>';
+                        echo ' / <del class="inline-block compareAtPrice">'. \dash\fit::number($value['compareAtPrice']). '</del>';
                     }
                     echo '</div>';
 

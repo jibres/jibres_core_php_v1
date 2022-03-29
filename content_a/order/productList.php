@@ -31,7 +31,7 @@
                     <span class="unit"><?php echo \lib\store::currency(); ?></span>
                   </div>
                 <?php } //endif ?>
-              <span class="compact ltr fc-mute text-sm"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></span>
+              <span class="inline-block ltr fc-mute text-sm"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></span>
             </div>
             <div class="c">
               <div class="priceShow" data-cart>
