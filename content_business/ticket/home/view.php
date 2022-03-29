@@ -14,14 +14,23 @@ class view
 
 
 		// btn
-		\dash\data::back_text(T_('Back'));
 
 		if(\dash\user::login())
 		{
-			\dash\data::back_link(\dash\url::kingdom(). '/profile');
+			if(\lib\store::in_store())
+			{
+				\dash\data::back_text(T_('Profile'));
+				\dash\data::back_link(\dash\url::kingdom(). '/profile');
+			}
+			else
+			{
+				\dash\data::back_text(T_('Account'));
+				\dash\data::back_link(\dash\url::kingdom(). '/account');
+			}
 		}
 		else
 		{
+			\dash\data::back_text(T_('Back'));
 			\dash\data::back_link(\dash\url::here());
 		}
 
