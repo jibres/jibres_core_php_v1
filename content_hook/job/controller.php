@@ -240,7 +240,6 @@ class controller
 
 		if(self::every_10_min())
 		{
-			\dash\db\logs::expire_notif();
 			\dash\db\tickets\update::close_solved_ticket();
 			\dash\utility\ip::block_new_ip();
 			\dash\db\tickets\update::spam_by_block_ip();
