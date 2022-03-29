@@ -7,12 +7,12 @@ if(!is_array($listStore_owner))
 }
 
 
-if(\dash\detect\device::detectPWA())
-{
   require_once('display_pwa.php');
-}
-else
-{
-  require_once('display_site.php');
-}
+// if(\dash\detect\device::detectPWA())
+// {
+// }
+// else
+// {
+//   require_once('display_site.php');
+// }
 ?>
