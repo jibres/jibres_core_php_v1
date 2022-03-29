@@ -11,9 +11,39 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
+		self::fix_email();
+
 
 	}
 
+
+	private static function fix_email()
+	{
+		$query = "SELECT *  FROM useremail where useremail.verify = 1 ";
+		$all_email = \dash\pdo::get($query, [], null, false);
+
+		$count = 0;
+
+		foreach ($all_email as $key => $value)
+		{
+			$query = "SELECT COUNT(*) AS `count`  FROM domain where domain.user_id = :user_id AND domain.email = :email ";
+
+			$this_count = floatval(\dash\pdo::get($query, [':user_id' => $value['user_id'], 'email' => $value['email']], 'count', true, 'nic'));
+
+			$count += $this_count;
+
+			$query = "UPDATE domain SET domain.verify = 1  where domain.user_id = :user_id AND domain.email = :email ";
+			\dash\pdo::query($query, [':user_id' => $value['user_id'], 'email' => $value['email']], 'nic');
+
+
+
+		}
+
+		var_dump($count);exit;
+		var_dump($all_email);exit;
+
+
+	}
 
 	private static function fix_store()
 	{
