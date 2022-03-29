@@ -88,30 +88,6 @@ class logs
 
 
 
-	public static function expire_notif()
-	{
-		$date_now = date("Y-m-d H:i:s");
-		$query =
-		"
-			UPDATE
-				logs
-			SET
-				logs.status   = 'notifexpire'
-			WHERE
-				logs.status != 'notifexpire' AND
-				logs.notif  = 1 AND
-				logs.expiredate < :datenow
-		";
-
-		$param =
-		[
-			':datenow' => $date_now,
-		];
-
-		$result = \dash\pdo::query($query, $param);
-		return $result;
-	}
-
 
 
 	public static function get_chart_date()
@@ -144,7 +120,7 @@ class logs
 			WHERE
 				logs.to = :user_id AND
 				logs.status   = 'notif' AND
-				logs.readdate = logs.readdate IS NULL
+				logs.readdate IS NULL
 		";
 
 		$param =
