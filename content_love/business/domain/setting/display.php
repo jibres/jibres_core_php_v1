@@ -37,7 +37,7 @@
         <?php if(\dash\data::dataRow_checkdns()) {?>
           <div class="msg minimal f"><div class="c"><?php echo T_("DNS Resolved") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_checkdns()); ?></div></div>
           <?php if(\dash\data::dataRow_dnsok()) {?>
-            <div class="msg minimal success2 f"><div class="c"><?php echo T_("DNS was set on our DNS record") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_dnsok()); ?></div></div>
+            <div class="alert-success f"><div class="c"><?php echo T_("DNS was set on our DNS record") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_dnsok()); ?></div></div>
           <?php }else{ ?>
             <div class="msg minimal danger2"><?php echo T_("DNS was is not set on our dns record") ?></div>
           <?php } //endif ?>
@@ -66,7 +66,7 @@
       <header><h2><?php echo T_("CDN panel status") ?></h2></header>
       <div class="body">
         <?php if(\dash\data::dataRow_cdnpanel()) {?>
-          <div class="msg minimal success2 f"><div class="c"><?php echo T_("Added to CDN panel") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_cdnpanel()); ?></div></div>
+          <div class="alert-success f"><div class="c"><?php echo T_("Added to CDN panel") ?></div> <div class="cauto ltr text-left compact"><?php echo \dash\fit::date_time(\dash\data::dataRow_cdnpanel()); ?></div></div>
         <?php }else{ ?>
           <div class="msg minimal"><?php echo T_("Not add to CDN panel yet"); ?></div>
         <?php } //endif ?>
@@ -96,7 +96,7 @@
         <?php } //endif ?>
 
         <?php if(\dash\data::dataRow_httpsverify()) {?>
-          <div class="msg minimal success2"><?php echo T_("HTTPS ok") ?></div>
+          <div class="alert-success"><?php echo T_("HTTPS ok") ?></div>
         <?php }else{ ?>
           <div class="msg minimal danger2"><?php echo T_("HTTPS not ok!") ?></div>
         <?php } //endif ?>

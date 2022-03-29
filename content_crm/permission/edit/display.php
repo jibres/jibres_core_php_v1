@@ -39,7 +39,7 @@ if(!is_array($permissionList))
 
         <?php if(isset($savedPerm[$key]['access']) && $savedPerm[$key]['access'] === 'customized') {?>
           <?php if(isset($savedPerm[$key]['allow_access_title']) && $savedPerm[$key]['allow_access_title']) { ?>
-          <div class="msg minimal success2">
+          <div class="alert-success">
 
           <span><?php echo T_("Access to") ?></span>
           <?php if(isset($savedPerm[$key]['allow_access_title'])) { foreach ($savedPerm[$key]['allow_access_title'] as $allow_access_title) {?>

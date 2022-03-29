@@ -3,7 +3,7 @@
     <div class="body">
 
       <?php if(\dash\data::checkResult_available()) {?>
-        <div class="msg minimal success2 text-center font-bold mB10-f fs16">
+        <div class="alert-success text-center font-bold mB10-f fs16">
           <?php echo \dash\data::myDomain(); ?>
         </div>
       <?php }else{ ?>

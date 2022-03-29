@@ -59,7 +59,7 @@
         <?php if(!\dash\data::redirectAllDomainToMaster()) { ?>
           <div class="msg minimal warn2"><?php echo T_("Be careful in this case you are at risk in terms of content and SEO") ?></div>
         <?php }else{ ?>
-          <div class="msg minimal success2"><?php echo T_("All sites linked to your business will be redirected to the main domain") ?></div>
+          <div class="alert-success"><?php echo T_("All sites linked to your business will be redirected to the main domain") ?></div>
         <?php } // endif ?>
       </div>
     </div>

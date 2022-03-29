@@ -59,7 +59,7 @@ echo "<div class='btn ". $btnclass. "' data-ajaxify data-data='". $json . "' dat
 <?php
 if(\dash\data::dataRow_solved())
 {
-  echo '<div class="msg minimal success2">'. T_("This ticket is solved"). '<br>';
+  echo '<div class="alert-success">'. T_("This ticket is solved"). '<br>';
   echo T_("If your problem is not solved yet, please set this ticket as unsolved");
   echo '</div>';
 }
