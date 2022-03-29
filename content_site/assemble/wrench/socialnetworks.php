@@ -8,7 +8,7 @@ class socialnetworks
   {
     $html = '<nav class="social flex flex-row justify-center mt-5 mb-2">';
     {
-      $linkClass = 'block transition opacity-60 hover:opacity-80 focus:opacity-100 p-0.5';
+      $linkClass = 'block transition opacity-60 hover:opacity-80 focus:opacity-100 p-1';
       $imgClass = 'block overflow-hidden rounded h-'. $_size. ' w-'. $_size;
 
       foreach (\lib\store::all_social_list() as $social_key => $social_detail)
