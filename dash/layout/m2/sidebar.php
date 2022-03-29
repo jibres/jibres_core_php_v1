@@ -715,6 +715,26 @@ class sidebar
 			'selected'  => false,
 		];
 
+		if(\dash\permission::supervisor())
+		{
+			$menu["seperator2"] =
+			[
+				'seperator' => true,
+			];
+
+			$menu['love'] =
+			[
+				'title'     => T_("Supervisor panel"),
+				'url'       => \dash\url::kingdom().'/love',
+				'icon'      => 'heart',
+				'iconColor' => '#a1b2c3',
+				'class'     => null,
+				'selected'  => false,
+			];
+
+
+		}
+
 
 
 		return $menu;
