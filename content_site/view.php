@@ -26,6 +26,8 @@ class view
 		\dash\upload\size::set_default_file_size();
 
 		\dash\data::pageBuilderIframeSize(\content_site\utility::set_iframe_on());
+
+		\dash\data::global_scriptPage('a_site_builder.js');
 	}
 
 

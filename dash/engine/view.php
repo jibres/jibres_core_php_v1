@@ -288,7 +288,6 @@ class view
 			\dash\data::global_panel(null);
 			\dash\data::global_siteBuilder('');
 			\dash\data::include_adminPanel(false);
-			\dash\data::global_scriptPage('a_site_builder.js');
 		}
 		else
 		{
