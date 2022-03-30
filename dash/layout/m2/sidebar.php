@@ -670,7 +670,7 @@ class sidebar
 			'icon'      => 'home',
 			'iconColor' => '#a1b2c3',
 			'class'     => null,
-			'selected'  => false,
+			'selected'  => ($content === 'my' && $module !== 'domain' && $module !== 'business'),
 		];
 
 
@@ -682,6 +682,7 @@ class sidebar
 				'url'       => $kingdom. '/crm',
 				'icon'      => 'customers',
 				'iconColor' => '#a1b2c3',
+				'selected' => ($content === 'crm')
 			];
 		}
 
@@ -698,7 +699,7 @@ class sidebar
 			'icon'      => 'globe',
 			'iconColor' => '#a1b2c3',
 			'class'     => null,
-			'selected'  => false,
+			'selected'  => ($content === 'my' && $module === 'domain'),
 		];
 
 		$menu['business'] =
@@ -708,7 +709,7 @@ class sidebar
 			'icon'      => 'ManagedStore',
 			'iconColor' => '#a1b2c3',
 			'class'     => null,
-			'selected'  => false,
+			'selected'  => ($content === 'my' && $module === 'business'),
 		];
 
 
@@ -719,7 +720,7 @@ class sidebar
 			'icon'      => 'profile',
 			'iconColor' => '#a1b2c3',
 			'class'     => null,
-			'selected'  => false,
+			'selected'  => ($content === 'account'),
 		];
 
 		if(\dash\permission::supervisor())
@@ -736,7 +737,7 @@ class sidebar
 				'icon'      => 'heart',
 				'iconColor' => '#a1b2c3',
 				'class'     => null,
-				'selected'  => false,
+				'selected'  => ($content === 'love' || $content === 'sudo'),
 			];
 
 
