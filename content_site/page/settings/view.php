@@ -18,6 +18,11 @@ class view extends \content_site\page\view
 		{
 			\content_site\utility::multiple_downloadjson(\dash\data::currentSectionList());
 		}
+
+		if(\dash\request::get('exportpreview') && \dash\permission::supervisor())
+		{
+			\content_site\utility::all_preview_export_json();
+		}
 	}
 }
 ?>

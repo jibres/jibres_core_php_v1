@@ -9,7 +9,7 @@ class controller
 	 *
 	 * @return     <model>  ( description_of_the_return_value )
 	 */
-	private static function all_section_name()
+	public static function all_section_name()
 	{
 		$all =
 		[

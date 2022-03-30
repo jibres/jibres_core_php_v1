@@ -264,6 +264,39 @@ class utility
 	}
 
 
+	public static function all_preview_export_json()
+	{
+		$list = \content_site\section\controller::all_section_name();
+
+
+
+
+		$section_list = [];
+
+		foreach ($list as $section)
+		{
+			$detail = \content_site\call_function::preview_list($section);
+
+			$section_list[$section] = [];
+
+			if(is_array($detail))
+			{
+				foreach ($detail as $value)
+				{
+					if(!isset($section_list[$section][$value['opt_model']]))
+					{
+						$section_list[$section][$value['opt_model']] = [];
+					}
+
+					$section_list[$section][$value['opt_model']][] = $value['preview_key'];
+				}
+			}
+		}
+
+		\dash\code::jsonBoom($section_list, true);
+	}
+
+
 
 
 	/**
