@@ -11,35 +11,38 @@ class answer
 
 	public static function finder($_cmd = null)
 	{
-		if(!$_cmd)
+		if(tg::isPrivate())
 		{
-			$_cmd = hook::cmd();
-		}
-		// check for step
-		step::check(hook::text());
-		if(tg::isOkay())
-		{
-			return true;
-		}
-
-		// try to run classes based on order list
-		foreach (tg::$AnswerOrder as $myClass)
-		{
-			if(substr($myClass, 0, 5) === 'dash:')
+			if(!$_cmd)
 			{
-				$myClass = '\\' .__NAMESPACE__.'\commands\\'. substr($myClass, 5);
+				$_cmd = hook::cmd();
+			}
+			// check for step
+			step::check(hook::text());
+			if(tg::isOkay())
+			{
+				return true;
 			}
 
-			$funcName = $myClass.'::run';
-			// generate func name
-			if(is_callable($funcName))
+			// try to run classes based on order list
+			foreach (tg::$AnswerOrder as $myClass)
 			{
-				// call this class main fn
-				call_user_func($funcName, $_cmd);
-				// if answer generated do not continue
-				if(tg::isOkay())
+				if(substr($myClass, 0, 5) === 'dash:')
 				{
-					break;
+					$myClass = '\\' .__NAMESPACE__.'\commands\\'. substr($myClass, 5);
+				}
+
+				$funcName = $myClass.'::run';
+				// generate func name
+				if(is_callable($funcName))
+				{
+					// call this class main fn
+					call_user_func($funcName, $_cmd);
+					// if answer generated do not continue
+					if(tg::isOkay())
+					{
+						break;
+					}
 				}
 			}
 		}
