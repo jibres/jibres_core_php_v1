@@ -29,7 +29,7 @@
  <div class='flex fix' id='eramz'>
     <label for='ramz' title='<?php echo T_("Password"); ?>'>
 
-      <?php echo \dash\utility\icon::svg('shield-lock', 'bootstrap', '#eee', 'm-2') ?>
+      <?php echo \dash\utility\icon::svg('shield-lock', 'bootstrap', '#eee', 'm-3') ?>
     </label>
     <input id='ramz' name="ramz" type='password' placeholder='<?php echo T_("Password"); ?>' autocomplete="off" minlength="6" maxlength="40" pattern=".{6,40}" autofocus required>
    </div>
