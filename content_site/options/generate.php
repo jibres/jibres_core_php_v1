@@ -215,11 +215,11 @@ class generate
 
 		$html = '';
 		$flexMode = 'flex-1';
-		$fontSize = 'leading-8 text-sm';
+		$fontSize = 'leading-7 text-sm';
 
 		if($_fontSizeSmall)
 		{
-			$fontSize = 'leading-9 text-xs';
+			$fontSize = 'leading-7 text-xs';
 		}
 		if(substr($_text, 0, 4) === '<svg')
 		{
