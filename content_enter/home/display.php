@@ -74,7 +74,7 @@ else
 
 
  <a href="<?php echo \dash\url::kingdom(); ?>/enter/signup" id='ebusername' class="c <?php echo $isUserNameClass; ?>" title='<?php echo T_("No account?"); ?> <?php echo T_("Create for yourself"); ?>'>
-      <i class="sf-user-plus"></i>
+      <i><?php echo \dash\utility\icon::bootstrap('person-plus', 'p-2'); ?></i>
      <span><?php echo T_("Create Account"); ?></span>
    </a>
 

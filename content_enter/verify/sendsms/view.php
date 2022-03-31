@@ -26,15 +26,10 @@ class view
 
 			\dash\data::codeSendNumLtr(\dash\data::codeSendNum());
 
-			if(\dash\language::current() === 'fa')
-			{
-				\dash\data::codeSendNumLtr('9 2000 1000 98+');
-			}
-
 			\dash\data::codeSendMsg(T_('Send ":code" to :num',
 				[
 					'code' => \dash\data::codeSendView(),
-					'num'  => '<b><code>'. \dash\data::codeSendNumLtr(). '</code></b>'
+					'num'  => '<b><code class="ltr inline-block">'. \dash\data::codeSendNumLtr(). '</code></b>'
 				]
 				));
 

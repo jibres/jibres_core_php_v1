@@ -12,12 +12,14 @@
    </div>
 
 
-<p><?php echo \dash\data::codeSendMsg(); ?></p>
+   <a href="sms://<?php echo \dash\data::codeSendNumSMS(); ?>;?&body=<?php echo \dash\data::codeSendView(); ?>">
+    <code class="text-sm ltr"><?php echo \dash\data::codeSendMsg(); ?></code>
+   </a>
 
 
  <div class='flex' id='egoCheck'>
     <button type="submit"><?php echo T_("Go and check it"); ?></button>
-   </div>
+</div>
 
 
 
