@@ -144,7 +144,7 @@ if (\dash\url::root() === 'jibres' && \dash\url::tld() !== 'store')
 echo ' <link href="'. \dash\url::cdn(). '" rel="preconnect"/>'. "\n";
 // add one css for everything!
 // try to seperate it later
-echo ' <link href='. \dash\layout\func::staticmtime('css/siftal-v3.min.css'). ' rel="preload stylesheet" as="style"/>'."\n";
+echo ' <link href="'. \dash\layout\func::staticmtime('css/siftal-v3.min.css'). '" rel="preload stylesheet" as="style"/>'."\n";
 ?>
 <?php
   if(\dash\face::css() && is_array(\dash\face::css()))
