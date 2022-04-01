@@ -89,7 +89,7 @@ $html .= '<div class="toolbar flex-grow-0 grow-0 flex-none flex content-center p
   $html .= '</div>';
 }
 $html .= '</div>';
-$html .= '<div class="browserInside h-full relative overflow-x-hidden overflow-y-auto">';
+$html .= '<div class="browserInside h-full relative overflow-hidden">';
 {
   $html .= '<iframe id="liveIframe" class="flex-grow w-full h-full" src="'. $iframe_link. '" style="zoom:0.75" data-origin="'. $origin_link. '"></iframe>';
   // $html .= $previewHTML;
