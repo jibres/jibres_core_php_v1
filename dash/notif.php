@@ -269,6 +269,19 @@ class notif
 	}
 
 
+	public static function tada($_selector, $_html, $_replace = null)
+	{
+		self::add_detail('tadaSelector', $_selector);
+		if($_replace)
+		{
+			self::add_detail('tadaReplace', $_html);
+		}
+		else
+		{
+			self::add_detail('tadaHtml', $_html);
+		}
+	}
+
 
 
 	public static function replaceState($_replaceState = true)
