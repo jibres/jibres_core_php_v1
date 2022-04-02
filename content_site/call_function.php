@@ -653,7 +653,7 @@ class call_function
 						'premium'       => $premium,
 						'demo_url'      => $demo_url  .'/preview/'. $_section_key. '/'. $model. '/'. $preview_function. '?lock',
 						'preview_url'   => $preview_url  .'/preview/'. $_section_key. '/'. $model. '/'. $preview_function. '?lock',
-						'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder/%s/%s/%s.jpg?v=%s', $_section_key, $model, $model. '-'. $preview_function, $version),
+						'preview_image' => \dash\url::cdn(). sprintf('/img/sitebuilder-preview/pack/%s/%s/%s.webp?v=%s', $_section_key, $model, $model. '-'. $preview_function, $version),
 					];
 				}
 			}
