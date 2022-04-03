@@ -101,7 +101,7 @@ class connection
 		{
 			$option =
 			[
-				// \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+			// \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
 			];
 		}
 		else
@@ -113,7 +113,14 @@ class connection
 				\PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
 
 			];
+
 		}
+
+		if(\dash\request::get('test_connection'))
+		{
+			$option[\PDO::ATTR_TIMEOUT]  = 5; // in seconds
+		}
+
 
 		$link = null;
 
