@@ -25,6 +25,10 @@ class check
 
 		$title = null;
 
+		if(!is_array($_args))
+		{
+			$_args = [];
+		}
 
 		$_args = \lib\app\product\ganje::fill_args($_args);
 
