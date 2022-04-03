@@ -144,9 +144,9 @@ class api
 
 		if(!$response)
 		{
+				\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jibres_api_error.log', 'jibres_api');
 			if($CurlError)
 			{
-				\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jibres_api_error.log', 'jibres_api');
 				// \dash\log::to_supervisor('#jibres_api #CURL_Error: '. $CurlError);
 				// \dash\log::oops();
 			}
