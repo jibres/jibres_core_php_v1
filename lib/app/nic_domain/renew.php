@@ -11,7 +11,7 @@ class renew
 		[
 			'domain'            => 'ir_domain',
 			'agree'             => 'bit',
-			'period'            => ['enum' => ['1year', '5year']],
+			'period'            => ['enum' => ['1year', '5year', '1', '5']],
 			'register_now'      => 'bit',
 			'gift'              => 'string_100',
 			'usebudget'         => 'bit',
@@ -45,6 +45,16 @@ class renew
 		}
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(strval($data['period']) === '1')
+		{
+			$data['period'] = '1year';
+		}
+
+		if(strval($data['period']) === '5')
+		{
+			$data['period'] = '5year';
+		}
 
 		\dash\temp::set('ji128-irnic-not-allow', null);
 

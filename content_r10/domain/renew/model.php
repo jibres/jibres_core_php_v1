@@ -8,9 +8,10 @@ class model
 	{
 		$post =
 		[
-			'domain'      => \dash\request::input_body('domain'),
-			'period'      => \dash\request::input_body('period'),
-			'agree'       => \dash\request::input_body('agree'),
+			'domain'    => \dash\request::input_body('domain'),
+			'period'    => \dash\request::input_body('period'),
+			'agree'     => \dash\request::input_body('agree'),
+			'usebudget' => \dash\request::input_body('use_budget'),
 			'register_now' => true,
 		];
 

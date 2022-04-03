@@ -44,6 +44,8 @@ class model
 
 			'register_now' => true,
 
+			'usebudget'        => \dash\request::input_body('use_budget'),
+
 		];
 
 		$result = \lib\app\domains\create::new_domain($post);

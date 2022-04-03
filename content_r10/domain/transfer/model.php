@@ -31,6 +31,7 @@ class model
 			'email'        => \dash\request::input_body('email'),
 
 			'agree'        => \dash\request::input_body('agree'),
+			'usebudget'        => \dash\request::input_body('use_budget'),
 
 			'register_now' => true,
 

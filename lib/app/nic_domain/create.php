@@ -10,7 +10,7 @@ class create
 		[
 			'domain'               => 'ir_domain',
 			'nic_id'               => 'irnic_id',
-			'period'               => ['enum' => ['1year', '5year']],
+			'period'               => ['enum' => ['1year', '5year', '1', '5']],
 			'whoistype'            => ['enum' => ['jibreswhoisgard', 'customizedetail']],
 
 			'ns1'                  => 'dns',
@@ -66,6 +66,16 @@ class create
 		}
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		if(strval($data['period']) === '1')
+		{
+			$data['period'] = '1year';
+		}
+
+		if(strval($data['period']) === '5')
+		{
+			$data['period'] = '5year';
+		}
 
 		// after pay get user id from args
 		$user_id = $data['user_id'];
