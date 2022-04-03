@@ -116,7 +116,7 @@ class connection
 
 		}
 
-		if(\dash\request::get('test_connection'))
+		// if(\dash\request::get('test_connection'))
 		{
 			$option[\PDO::ATTR_TIMEOUT]  = 2; // in seconds
 		}
