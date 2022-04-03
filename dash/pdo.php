@@ -43,8 +43,6 @@ class pdo
 
 		$_options = array_merge($default_options, $_options);
 
-		// get time before execute query
-		$qry_exec_time = microtime(true);
 
 		$myDbFuel =
 		[
@@ -53,22 +51,18 @@ class pdo
 			'ignore_error' => $_options['ignore_error'],
 		];
 
-		$query_log = '';
-
-		if($_param)
-		{
-			$query_log = 'BIND; ';
-		}
-
-		$query_log .= $_query;
-		$query_log .= ' -- '. json_encode(func_get_args());
 
 		// get time before execute query
-		$qry_exec_time = microtime(true);
+		$connection_exec_time = microtime(true);
 
 		\dash\pdo\connection::connect($myDbFuel);
 
 		$link = \dash\pdo\connection::link();
+
+		$connection_exec_time = microtime(true) - $connection_exec_time;
+
+		// get time before execute query
+		$qry_exec_time = microtime(true);
 
 		if($_options['transaction_mode'])
 		{
@@ -81,6 +75,18 @@ class pdo
 			\dash\notif::turn_on_log();
 			return null;
 		}
+
+		$query_log = '';
+
+		if($_param)
+		{
+			$query_log = 'BIND; ';
+		}
+
+		$query_log .= ' -- connection_time: '. round($connection_exec_time*1000). ' ms | '. PHP_EOL;
+		$query_log .= $_query;
+
+		$query_log .= ' -- '. json_encode(func_get_args());
 
 		try
 		{
@@ -178,7 +184,7 @@ class pdo
 		}
 
 		// calc exex time in ms
-		$qry_exec_time_ms = round($qry_exec_time*1000);
+		$qry_exec_time_ms = round(($qry_exec_time+$connection_exec_time)*1000);
 		// if spend more time, save it in special file
 		if($qry_exec_time_ms > 6000)
 		{
