@@ -14,9 +14,9 @@ class view
 		$a1 = \dash\pdo\sys_query::show_glogal('table_definition_cache');
 		$a2 = \dash\pdo\sys_query::timeout_setting();
 		$a3 = \dash\pdo\sys_query::show_status('open_table');
+		$a4 = \dash\pdo::get(" show status where `variable_name` = 'Threads_connected';");
 
-
-		\dash\data::mysqlConf(array_merge($a1, $a2, $a3));
+		\dash\data::mysqlConf(array_merge($a1, $a2, $a3, $a4));
 
 
 
