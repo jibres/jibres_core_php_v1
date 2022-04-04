@@ -30,12 +30,35 @@
 			</nav>
 	<?php }// endif ?>
 
+
+
+
+
 	<div class="text-gray-500 text-sm">
-				<div>
-					<?php echo T_("Using this short code, you can use this form in the description of the product or post or site builder") ?>
-				</div>
-				<?php $short_code = "[form id=". \dash\request::get('id'). "]" ?>
-				<code data-copy="<?php echo $short_code ?>"><?php echo $short_code ?></code>
-			</div>
+	<?php if(\dash\data::dataRow_privacy() === 'private') {?>
+		<div>
+			<?php
+			 echo T_("This is a private form. Cannot use independently"). '<br>';
+
+			if(floatval(\dash\request::get('id')) === floatval(\lib\store::detail('shipping_survey')))
+			{
+				echo T_("This form used in shipping page");
+			}
+			elseif(floatval(\dash\request::get('id')) === floatval(\lib\store::detail('satisfaction_survey')))
+			{
+				echo T_("This form used for satisfaction after register order");
+			}
+
+			?>
+
+		</div>
+		<?php }else{ ?>
+		<div>
+			<?php echo T_("Using this short code, you can use this form in the description of the product or post or site builder") ?>
+		</div>
+		<?php $short_code = "[form id=". \dash\request::get('id'). "]" ?>
+		<code data-copy="<?php echo $short_code ?>"><?php echo $short_code ?></code>
+	<?php } //endif ?>
+	</div>
 	</div>
 </div>
