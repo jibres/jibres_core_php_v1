@@ -5,6 +5,11 @@ class controller
 {
 	public static function routing()
 	{
+		if(!\dash\url::isLocal())
+		{
+			\dash\header::status(404, 'Hi!');
+		}
+
 		\dash\permission::access('_group_setting');
 
 		// load setting category
