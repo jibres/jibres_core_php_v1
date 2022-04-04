@@ -10,6 +10,7 @@ class model
 
 		if(\dash\request::isset_input_body('tech'))  		$patch['tech']   	= \dash\request::input_body('tech');
 		if(\dash\request::isset_input_body('bill'))  		$patch['bill']   	    = \dash\request::input_body('bill');
+		if(\dash\request::isset_input_body('reseller'))  		$patch['reseller']   	    = \dash\request::input_body('reseller');
 
 
 

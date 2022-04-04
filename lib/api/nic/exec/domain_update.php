@@ -393,6 +393,11 @@ class domain_update
 				$temp_xml .= '<domain:contact type="bill">'. $_args['bill'].'</domain:contact>';
 			}
 
+			if(isset($_args['reseller']))
+			{
+				$temp_xml .= '<domain:contact type="reseller">'. $_args['reseller'].'</domain:contact>';
+			}
+
     		$temp_xml.= '</domain:chg><domain:authInfo>';
 
 			$xml = str_replace('<domain:authInfo>', $temp_xml, $xml);
