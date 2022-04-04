@@ -89,7 +89,7 @@ class edit
 			'holder' => 'irnic_id',
 			'tech'   => 'irnic_id',
 			'bill'   => 'irnic_id',
-			'reseller'   => 'irnic_id',
+			// 'reseller'   => 'irnic_id',
 		];
 
 		$require = [];
@@ -121,7 +121,7 @@ class edit
 		$admin  = $data['admin'];
 		$tech   = $data['tech'];
 		$bill   = $data['bill'];
-		$reseller   = $data['reseller'];
+		// $reseller   = $data['reseller'];
 
 		\lib\app\domains\detect::domain('update', $load_domain['name']);
 		\lib\app\domains\detect::dns($ns1);
@@ -274,14 +274,14 @@ class edit
 				$update_holder                       = true;
 			}
 
-			if(array_key_exists('reseller', $load_domain) && $load_domain['reseller'] != $reseller)
-			{
-				$args['reseller']                        = $reseller;
-				$update_domian_record['reseller']        = $reseller;
-				$update_holder_detail['old']['reseller'] = $load_domain['reseller'];
-				$update_holder_detail['new']['reseller'] = $reseller;
-				$update_holder                       = true;
-			}
+			// if(array_key_exists('reseller', $load_domain) && $load_domain['reseller'] != $reseller)
+			// {
+			// 	$args['reseller']                        = $reseller;
+			// 	$update_domian_record['reseller']        = $reseller;
+			// 	$update_holder_detail['old']['reseller'] = $load_domain['reseller'];
+			// 	$update_holder_detail['new']['reseller'] = $reseller;
+			// 	$update_holder                       = true;
+			// }
 		}
 
 		if(empty($args))
