@@ -17,13 +17,8 @@ class model
 		}
 		else
 		{
-			// if(!\dash\request::post('agree'))
-			// {
-			// 	\dash\notif::warn(T_("Please view the privacy policy and check 'I agree' check box"), 'agree');
-			// 	return false;
-			// }
 
-			\dash\notif::warn(T_("Please go to nic.ir and create your account in that site"));
+			\dash\notif::error(T_("Please go to nic.ir and create your account in that site"));
 			return false;
 
 			$post =

@@ -83,7 +83,7 @@ class edit
 
 		if($load['status'] === $data['status'])
 		{
-			\dash\notif::warn(T_("This status already set on this document"));
+			\dash\notif::error(T_("This status already set on this document"));
 			return false;
 		}
 

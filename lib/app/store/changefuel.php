@@ -228,7 +228,7 @@ class changefuel
 		// nothing in queue
 		if(!$store_conf)
 		{
-			\dash\notif::warn("Nothing to transfer");
+			\dash\notif::error("Nothing to transfer");
 			return;
 		}
 

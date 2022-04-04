@@ -262,7 +262,7 @@ class gallery
 				{
 					if(isset($one_file['path']) && $one_file['path'] === $file_path)
 					{
-						\dash\notif::warn(T_("Duplicate file in this gallery"));
+						\dash\notif::error(T_("Duplicate file in this gallery"));
 						return false;
 					}
 				}
@@ -477,7 +477,7 @@ class gallery
 		}
 		else
 		{
-			\dash\notif::warn(T_("Please reload page to sort all image in this product gallery"));
+			\dash\notif::error(T_("Please reload page to sort all image in this product gallery"));
 			return false;
 		}
 

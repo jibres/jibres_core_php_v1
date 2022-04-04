@@ -699,7 +699,7 @@ class model
 
 		if(count($sort_child) !== count($preview[$subchild]))
 		{
-			\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+			\dash\notif::error(T_("Some item have problem in sorting. Need load again"));
 			\dash\pdo::rollback();
 			\dash\redirect::pwd();
 			return false;
@@ -714,7 +714,7 @@ class model
 			}
 			else
 			{
-				\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+				\dash\notif::error(T_("Some item have problem in sorting. Need load again"));
 				\dash\pdo::rollback();
 				\dash\redirect::pwd();
 				return false;

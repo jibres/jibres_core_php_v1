@@ -317,7 +317,7 @@ class gallery
 		}
 		else
 		{
-			\dash\notif::warn(T_("Please reload page to sort all image in this post gallery"));
+			\dash\notif::error(T_("Please reload page to sort all image in this post gallery"));
 			return false;
 		}
 

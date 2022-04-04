@@ -412,7 +412,7 @@ class add
 				$is_answer_befor = \lib\db\form_answerdetail\get::get_where($check_unique_args_new);
 				if(isset($is_answer_befor['id']))
 				{
-					\dash\notif::warn(T_("You are answer to this form before"));
+					\dash\notif::error(T_("You are answer to this form before"));
 					return false;
 				}
 			}
@@ -667,7 +667,7 @@ class add
 		}
 		else
 		{
-			\dash\notif::warn(T_("No answer received"));
+			\dash\notif::error(T_("No answer received"));
 		}
 
 

@@ -286,7 +286,7 @@ class closing
 		}
 		else
 		{
-			\dash\notif::warn(T_("Needless to create document close accumulated"));
+			\dash\notif::error(T_("Needless to create document close accumulated"));
 			return false;
 		}
 

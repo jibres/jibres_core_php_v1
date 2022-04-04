@@ -51,7 +51,7 @@ class edit
 
 		if(empty($args))
 		{
-			\dash\notif::warn(T_("No data receive for update!"));
+			\dash\notif::error(T_("No data receive for update!"));
 			return;
 		}
 

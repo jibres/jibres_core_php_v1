@@ -52,14 +52,14 @@ class model
 		{
 			\dash\log::set('userHitSignup3>30m');
 
-			\dash\notif::warn(T_("You do not have permission to register for up to ten minutes"). ":)");
+			\dash\notif::error(T_("You do not have permission to register for up to ten minutes"). ":)");
 			return false;
 		}
 
 		if($data['password'])
 		{
 			\dash\log::set('hiddenPasswordFieldIsFull');
-			\dash\notif::warn(T_("Your browser has sent a saved password. Delete it and continue"));
+			\dash\notif::error(T_("Your browser has sent a saved password. Delete it and continue"));
 			$get          = \dash\request::get();
 			$get['clean'] = '1';
 			\dash\redirect::to(\dash\url::this(). '?'. http_build_query($get));

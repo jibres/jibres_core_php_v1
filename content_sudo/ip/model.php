@@ -18,7 +18,7 @@ class model
 
 			if(\dash\file::search($addr, $ip))
 			{
-				\dash\notif::warn(T_("This string is exist in file"));
+				\dash\notif::ok(T_("This string is exist in file"));
 				return false;
 			}
 			else

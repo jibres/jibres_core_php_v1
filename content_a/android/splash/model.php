@@ -14,7 +14,7 @@ class model
 
 		if(!$post['theme'])
 		{
-			\dash\notif::warn(T_("Please choose your theme"));
+			\dash\notif::error(T_("Please choose your theme"));
 			return false;
 		}
 

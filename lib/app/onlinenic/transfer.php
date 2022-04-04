@@ -558,7 +558,7 @@ class transfer
 
 			\lib\app\nic_domainaction\action::set('transfer_failed', $domain_action_detail);
 
-			\dash\notif::warn(T_("Can not transfer your domain"));
+			\dash\notif::error(T_("Can not transfer your domain"));
 		}
 	}
 }

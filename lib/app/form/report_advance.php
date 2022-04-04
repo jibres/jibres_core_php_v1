@@ -30,7 +30,7 @@ class chart
 		$question1_choise = array_column($question1_choise, 'title');
 		if(empty($question1_choise))
 		{
-			\dash\notif::warn(T_("The question 1 is not choiceable"), 'q1');
+			\dash\notif::error(T_("The question 1 is not choiceable"), 'q1');
 			return false;
 		}
 
@@ -54,7 +54,7 @@ class chart
 		$question2_choise = array_column($question2_choise, 'title');
 		if(empty($question2_choise))
 		{
-			\dash\notif::warn(T_("The question 2 is not choiceable"), 'q2');
+			\dash\notif::error(T_("The question 2 is not choiceable"), 'q2');
 			return false;
 		}
 
@@ -81,7 +81,7 @@ class chart
 			$question3_choise = array_column($question3_choise, 'title');
 			if(empty($question3_choise))
 			{
-				\dash\notif::warn(T_("The question 3 is not choiceable"), 'q3');
+				\dash\notif::error(T_("The question 3 is not choiceable"), 'q3');
 				return false;
 			}
 

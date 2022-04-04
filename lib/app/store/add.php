@@ -69,7 +69,7 @@ class add
 		$user_id = \dash\user::id();
 		if(!$user_id)
 		{
-			\dash\notif::warn(T_("Please login to continue"));
+			\dash\notif::error(T_("Please login to continue"));
 			return false;
 		}
 

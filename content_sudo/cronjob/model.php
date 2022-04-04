@@ -33,7 +33,7 @@ class model
 		{
 			\dash\log::set('cronJobDeactive');
 			\dash\engine\cronjob\options::deactive();
-			\dash\notif::warn(T_("Your cronjob is deactived"));
+			\dash\notif::ok(T_("Your cronjob is deactived"));
 		}
 
 		\dash\redirect::pwd();

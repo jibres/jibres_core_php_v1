@@ -526,7 +526,7 @@ class enter
 		if(!$user_id)
 		{
 			\dash\log::set('loginNoUserIdWasFounded');
-			\dash\notif::warn(T_("User id not found to save your session"));
+			\dash\notif::error(T_("User id not found to save your session"));
 			return;
 		}
 

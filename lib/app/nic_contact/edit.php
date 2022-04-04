@@ -97,7 +97,7 @@ class edit
 		}
 		else
 		{
-			\dash\notif::warn(T_("Can not update your account at this time"));
+			\dash\notif::error(T_("Can not update your account at this time"));
 			return false;
 		}
 	}

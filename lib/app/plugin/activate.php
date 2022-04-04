@@ -781,7 +781,7 @@ class activate
 			}
 			else
 			{
-				\dash\notif::warn(T_("Plugin already removed"));
+				\dash\notif::error(T_("Plugin already removed"));
 				return false;
 			}
 

@@ -218,7 +218,7 @@ class lock
 			}
 			else
 			{
-				\dash\notif::warn(T_("Can not get domain tranfer code"));
+				\dash\notif::error(T_("Can not get domain tranfer code"));
 			}
 
 

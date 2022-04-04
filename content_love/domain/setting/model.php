@@ -55,7 +55,7 @@ class model
 			return;
 		}
 
-		\dash\notif::warn("This action needs to work!");
+		\dash\notif::error("This action needs to work!");
 
 	}
 }

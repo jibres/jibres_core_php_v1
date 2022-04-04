@@ -323,7 +323,7 @@ class add
 
 		if($check_product_have_cat)
 		{
-			\dash\notif::warn(T_("This product have this category"));
+			\dash\notif::error(T_("This product have this category"));
 			return true;
 		}
 		else

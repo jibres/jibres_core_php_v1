@@ -345,7 +345,7 @@ class model
 
 		if(count($currentSectionList) !== count($sort))
 		{
-			\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+			\dash\notif::error(T_("Some item have problem in sorting. Need load again"));
 			\dash\redirect::pwd();
 		}
 
@@ -357,7 +357,7 @@ class model
 			}
 			else
 			{
-				\dash\notif::warn(T_("Some item have problem in sorting. Need load again"));
+				\dash\notif::error(T_("Some item have problem in sorting. Need load again"));
 				\dash\redirect::pwd();
 				return;
 			}

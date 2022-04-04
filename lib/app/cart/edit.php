@@ -102,7 +102,7 @@ class edit
 
 		if(!isset($check_exist_record['count']))
 		{
-			\dash\notif::warn(T_("This product not exists in you cart"));
+			\dash\notif::error(T_("This product not exists in you cart"));
 			return null;
 		}
 		else
