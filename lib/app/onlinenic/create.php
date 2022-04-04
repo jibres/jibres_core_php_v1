@@ -620,7 +620,7 @@ class create
 
 			\lib\app\nic_domainaction\action::set('register_failed', $domain_action_detail);
 
-			\dash\notif::warn(T_("Can not register your domain"));
+			\dash\notif::error(T_("Can not register your domain"));
 
 			\dash\log::set('domain_newRegisterError', ['my_domain' => $domain, 'my_period' => $period, 'my_type' => 'register', 'my_giftusage_id' => $gift_usage_id, 'my_finalprice' => $finalprice, 'my_result' => $result]);
 		}

@@ -777,7 +777,7 @@ class create
 
 			\dash\log::to_supervisor('failed to register domain '. $domain);
 
-			\dash\notif::warn(T_("Can not register your domain"));
+			\dash\notif::error(T_("Can not register your domain"));
 		}
 	}
 }
