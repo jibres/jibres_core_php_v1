@@ -23,7 +23,7 @@ class get
 		$load_domain = \lib\db\nic_domain\get::load_domain_user($_domain, \dash\user::id());
 		if(!isset($load_domain['id']))
 		{
-			\dash\notif::error(T_("Invalid domain"));
+			\dash\notif::error(T_("Domain not found!"));
 			return false;
 		}
 
@@ -77,6 +77,8 @@ class get
 		{
 			self::ir_domain_fetch($_domain, $_load_domain);
 		}
+
+		\dash\temp::set('disableDomainFetch', true);
 
 		$load_domain = \lib\app\nic_domain\ready::row($_load_domain);
 
