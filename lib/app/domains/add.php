@@ -25,7 +25,7 @@ class add
 		if($load_domain)
 		{
 			\dash\notif::error(T_("This domain already exist in your domain list"));
-			return false;
+			return $load_domain;
 		}
 
 		$user_id = \dash\user::id();
