@@ -121,8 +121,8 @@ class api
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 2);
 
 		$response  = curl_exec($ch);
 		$CurlError = curl_error($ch);
