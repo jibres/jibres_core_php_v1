@@ -36,7 +36,7 @@ class insert
 				form.slug,
 				form.lang,
 				form.password,
-				form.privacy,
+				'public',
 				form.status,
 				form.redirect,
 				form.desc,
