@@ -11,7 +11,9 @@ class model
 		if(\dash\request::isset_input_body('tech'))  		$patch['tech']   	= \dash\request::input_body('tech');
 		if(\dash\request::isset_input_body('bill'))  		$patch['bill']   	    = \dash\request::input_body('bill');
 
-		$result = \lib\app\nic_domain\edit::domain($patch, \dash\request::get('id'), 'holder');
+
+
+		$result = \lib\app\nic_domain\edit::domain($patch, \lib\app\domains\get::my_domain_id_api(), 'holder');
 
 		\content_r10\tools::say($result);
 	}

@@ -16,7 +16,7 @@ class model
 
 		if(\dash\request::isset_input_body('autorenew'))  		$patch['autorenew']   	= \dash\request::input_body('autorenew');
 
-		$result = \lib\app\nic_domain\edit::edit($patch, \dash\request::get('id'));
+		$result = \lib\app\nic_domain\edit::edit($patch, \lib\app\domains\get::my_domain_id_api());
 
 		\content_r10\tools::say($result);
 	}
@@ -32,7 +32,7 @@ class model
 
 		$lock = \dash\request::input_body('lock');
 
-		$load_domain = \lib\app\nic_domain\get::get(\dash\request::get('id'));
+		$load_domain = \lib\app\nic_domain\get::get(\lib\app\domains\get::my_domain_id_api());
 
 		if(!isset($load_domain['name']))
 		{

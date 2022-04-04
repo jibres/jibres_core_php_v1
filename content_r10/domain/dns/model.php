@@ -17,7 +17,8 @@ class model
 		if(\dash\request::isset_input_body('ip3'))  $patch['ip3'] = \dash\request::input_body('ip3');
 		if(\dash\request::isset_input_body('ip4'))  $patch['ip4'] = \dash\request::input_body('ip4');
 
-		$result = \lib\app\domains\edit::dns($patch, \dash\request::get('id'));
+
+		$result = \lib\app\domains\edit::dns($patch, \lib\app\domains\get::my_domain_id_api());
 
 		\content_r10\tools::say($result);
 	}

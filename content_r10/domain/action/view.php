@@ -11,8 +11,9 @@ class view
 		$args =
 		[
 			'user_id' => \dash\user::id(),
-			'domain_id' => $id,
+			'domain_id' => \lib\app\domains\get::my_domain_id_api(),
 		];
+
 
 		$list = \lib\app\nic_domainaction\search::list(null, $args);
 
