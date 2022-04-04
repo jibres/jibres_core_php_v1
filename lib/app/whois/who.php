@@ -296,6 +296,9 @@ class who
 						{
 							$pre[$group][$group_index][$key] = $value;
 						}
+
+
+
 					}
 					else
 					{
@@ -312,6 +315,11 @@ class who
 				}
 			}
 
+		}
+
+		if(isset($pre['registrar']) && is_array($pre['registrar']))
+		{
+			$pre['registrar'] = array_values($pre['registrar']);
 		}
 
 		$result = array_merge($pre, $result);
