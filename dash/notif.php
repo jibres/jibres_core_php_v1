@@ -47,7 +47,18 @@ class notif
 				$_meta = ['element' => $_meta];
 			}
 
-			$add['meta'] = $_meta;
+			if(array_key_exists('element', $_meta) && $_meta['element'] === null)
+			{
+				// remove null element passed from somewhere
+				// also we must NOT pass null value to element
+				unset($_meta['element']);
+			}
+
+			// add meta if exist, because maybe we are remove null element sometimes
+			if(count($_meta))
+			{
+				$add['meta'] = $_meta;
+			}
 		}
 
 		self::log_notif($add);
