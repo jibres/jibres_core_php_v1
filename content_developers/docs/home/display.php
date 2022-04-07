@@ -7,7 +7,7 @@
 
 
 
-	<div class="avand pT50">
+	<div class="avand pt-4">
 
 
 
@@ -17,8 +17,8 @@
 				<div class="box">
 					<header><h3><?php echo T_("Business API");?></h3></header>
 					<div class="body">
-						<p><?php echo T_("Programmatically manage all of your business data with Jibres RESTful API including user data, products, invoices."); ?></p>
-						<a class="btn2 blue" href="<?php echo \dash\url::this(). '/api-doc' ?>" target="_blank" data-direct><?php echo T_("View API v1 Documentations"); ?></a>
+						<p class="mb-4"><?php echo T_("Programmatically manage all of your business data with Jibres RESTful API including user data, products, invoices."); ?></p>
+						<a class="btn-primary" href="<?php echo \dash\url::this(). '/api-doc' ?>" target="_blank" data-direct><?php echo T_("View API v1 Documentations"); ?></a>
 					</div>
 				</div>
 			</div>
@@ -29,8 +29,8 @@
 				<div class="box">
 					<header><h3><?php echo T_("Domains");?></h3></header>
 					<div class="body">
-						<p><?php echo T_("This is a simple and secure method for authenticating users and allowing third party access to Jibres domain center."); ?></p>
-						<a class="btn2 green" href="<?php echo \dash\url::this(). '/domain-api' ?>" target="_blank" data-direct><?php echo T_("View Domain v10 Documentations"); ?></a>
+						<p class="mb-4"><?php echo T_("This is a simple and secure method for authenticating users and allowing third party access to Jibres domain center."); ?></p>
+						<a class="btn-primary" href="<?php echo \dash\url::this(). '/domain-api' ?>" target="_blank" data-direct><?php echo T_("View Domain v10 Documentations"); ?></a>
 					</div>
 				</div>
 			</div>
