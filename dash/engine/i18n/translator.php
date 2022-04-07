@@ -492,6 +492,10 @@ function T_($_msgid, $_replace = null)
 					$result = str_replace(':'.$key, $temp, $result);
 					// if we are in index 0, use ucfirst for english langs
 				}
+				else if($temp === null)
+				{
+					$result = str_replace(':'.$key, '???', $result);
+				}
 			}
 		}
 	}
