@@ -12,7 +12,7 @@
       <?php } //endif ?>
       <div class="input">
         <label><?php echo T_("YOUR APPKEY"); ?></label>
-        <input type="text" name="appkey" value="<?php echo \dash\data::appkey_auth(); ?>" readonly  class="text-center" placeholder='<?php echo T_("GENERATE YOUR APPKEY"); ?>'>
+        <input type="text" name="appkey" value="<?php echo \dash\data::appkey_auth(); ?>" readonly  class="text-center" placeholder='<?php echo T_("GENERATE YOUR APPKEY"); ?>' data-copy="<?php echo \dash\data::appkey_auth(); ?>">
       </div>
       <?php if(\dash\data::appkey_auth()) {?>
         <div class="alert-info mt-4">
@@ -27,20 +27,20 @@
 <?php if(\dash\data::listStore_owner() && is_array(\dash\data::listStore_owner())) {?>
   <div class="box">
     <div class="body">
-      <h3><?php echo T_("Your Stores code to use in api"); ?></h3>
+      <h3 class="mb-4"><?php echo T_("Your Stores code to use in api"); ?></h3>
+      <nav class="items">
        <?php foreach (\dash\data::listStore_owner() as $key => $value) {?>
-         <div class="">
-          <div href='<?php echo a($value, 'url'); ?>/a' class="scard">
+        <ul class="item">
+         <li>
+          <div href='<?php echo a($value, 'url'); ?>/a' class="item f">
             <img src="<?php echo a($value, 'logo'); ?>" alt="<?php echo a($value, 'title'); ?>">
-            <div class="body">
-              <h2><?php echo a($value, 'title'); ?></h2>
-              <div class="position txtRa">
-                <code class="ltr"><?php echo a($value, 'store_code'); ?></code>
-              </div>
-            </div>
+            <div class="key"><?php echo a($value, 'title'); ?></div>
+            <code class="value"><?php echo a($value, 'store_code'); ?></code>
           </div>
-        </div>
+         </li>
+        </ul>
       <?php } //endfor ?>
+      </nav>
     </div>
   </div>
 <?php } //endif ?>
