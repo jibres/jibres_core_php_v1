@@ -3,7 +3,7 @@
 
  <div class="body" id="requests">
 
-   <p><?php echo T_("Any tool that is fluent in HTTP can communicate with the API simply by requesting the correct URI."); ?> <?php echo T_("Requests should be made using the HTTPS protocol so that traffic is encrypted."); ?> <?php echo T_("The interface responds to different methods depending on the action required."); ?></p>
+   <p class="leading-relaxed mb-4"><?php echo T_("Any tool that is fluent in HTTP can communicate with the API simply by requesting the correct URI."); ?> <?php echo T_("Requests should be made using the HTTPS protocol so that traffic is encrypted."); ?> <?php echo T_("The interface responds to different methods depending on the action required."); ?></p>
 
 
     <table class="tbl1 v6 mB0-f responsive">

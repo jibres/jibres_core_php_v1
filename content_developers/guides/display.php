@@ -6,7 +6,7 @@
   </section>
 
 
-	<div class="avand pT50">
+	<div class="avand pt-4">
 <?php
 require_once(root. 'content_developers/docs/001-intro.php');
 require_once(root. 'content_developers/docs/002-endpoint.php');

@@ -3,8 +3,8 @@
 
   <div class="body" id="responses">
 
-      <p><?php echo T_("Each response is a JSON object."); ?></p>
-      <ul class="list mB50-f">
+      <p class="leading-relaxed mb-2"><?php echo T_("Each response is a JSON object."); ?></p>
+      <ul class="list-disc list-inside list mb-4">
         <li><?php echo T_("The data requested is wrapped in the <code>result</code> tag."); ?></li>
         <li><?php echo T_("If you have a response, it will always be within the <code>result</code> field."); ?></li>
         <li><?php echo T_("We also include a <code>ok</code> flag and an array of <code>msg</code> in the response."); ?></li>
@@ -13,8 +13,8 @@
       </ul>
 
 
-      <h3><?php echo T_("Success Response"); ?> <small><?php echo T_("example"); ?></small></h3>
-  <samp class="mB25">
+      <h3 class="text-lg font-bold leading-relaxed"><?php echo T_("Success Response"); ?> <small><?php echo T_("example"); ?></small></h3>
+  <samp class="mb-6">
   {
     "ok": true,
     "result":
@@ -33,8 +33,8 @@
   </samp>
 
 
-      <h3><?php echo T_("Error Response"); ?> <small><?php echo T_("example"); ?></small></h3>
-  <samp class="mB25">
+      <h3 class="text-lg font-bold leading-relaxed"><?php echo T_("Error Response"); ?> <small><?php echo T_("example"); ?></small></h3>
+  <samp class="mb-6">
   {
     "ok": false,
     "msg":
@@ -48,8 +48,8 @@
   </samp>
 
 
-      <h3><?php echo T_("HTTP response codes"); ?></h3>
-      <p><?php echo T_("The status of a response can be determined from the HTTP status code."); ?></p>
+      <h3 class="text-lg font-bold leading-relaxed"><?php echo T_("HTTP response codes"); ?></h3>
+      <p class="leading-relaxed mb-2"><?php echo T_("The status of a response can be determined from the HTTP status code."); ?></p>
       <div class="tblBox">
         <table class="tbl1 v6 mB0-f">
           <thead>
