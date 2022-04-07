@@ -198,7 +198,7 @@ class tools
 	{
 		$appkey = \dash\header::get('appkey');
 
-		$appkey = \dash\validate::md5($appkey);
+		$appkey = \dash\validate::md5($appkey, true, ['field_title' => 'appkey']);
 
 		if(!$appkey)
 		{

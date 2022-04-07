@@ -44,7 +44,7 @@ class tools
 	{
 		$appkey = \dash\header::get('appkey');
 
-		$appkey = \dash\validate::md5($appkey);
+		$appkey = \dash\validate::md5($appkey, true, ['field_title' => 'appkey']);
 
 		if(!$appkey)
 		{
@@ -77,7 +77,7 @@ class tools
 	public static function check_token()
 	{
 		$token = \dash\header::get('token');
-		$token = \dash\validate::md5($token);
+		$token = \dash\validate::md5($token, true, ['field_title' => 'token']);
 
 		if(!$token)
 		{
@@ -126,7 +126,7 @@ class tools
 	public static function check_apikey()
 	{
 		$apikey = \dash\header::get('apikey');
-		$apikey = \dash\validate::md5($apikey);
+		$apikey = \dash\validate::md5($apikey, true, ['field_title' => 'apikey']);
 
 		if(!$apikey)
 		{
