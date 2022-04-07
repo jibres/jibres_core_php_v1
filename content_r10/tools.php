@@ -239,7 +239,7 @@ class tools
 	{
 		$accesstoken = \dash\header::get('accesstoken');
 
-		$accesstoken = \dash\validate::md5($accesstoken);
+		$accesstoken = \dash\validate::md5($accesstoken, true, ['field_title' => 'accesstoken']);
 
 		if(!$accesstoken)
 		{
