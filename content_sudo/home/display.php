@@ -6,7 +6,7 @@
 <?php } //endif ?>
 
 <div class="cbox pA0">
-    <div class="chart x310" id='usageChart' data-abc='su/live_monitor' data-abc-v='3'></div>
+    <div class="chart h-64" id='usageChart' data-abc='su/live_monitor' data-abc-v='3'></div>
 </div>
 <div class="hide">
   <div id="hereurl"><?php echo \dash\url::here() ?></div>
@@ -19,7 +19,7 @@
 
       <div class="block bg-white p-2 m-2">
        <div class="statistic sm olive">
-        <div class="value mb-2"><i class="mRa5 sf-heart"></i> <?php echo T_("Uptime"); ?></div>
+        <div class="value mb-2"><?php echo T_("Uptime"); ?></div>
         <div class="label ltr"><?php echo \dash\data::su_uptime(); ?></div>
        </div>
       </div>

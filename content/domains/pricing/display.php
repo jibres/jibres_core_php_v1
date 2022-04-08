@@ -57,7 +57,7 @@ for ($i=1; $i <= 10; $i++)
       <tbody>
         <?php $count = 0; foreach (\dash\data::dataTable() as $key => $value) { $count++;?>
           <tr>
-            <td class="ltr font-bold"><?php echo a($value, 'TLD') ?></td>
+            <td class="ltr text-left font-bold"><?php echo a($value, 'TLD') ?></td>
             <td data-order="<?php echo a($value, 'register'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register'), true); ?></td>
             <td data-order="<?php echo a($value, 'renew'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'renew'), true) ?></td>
             <td data-order="<?php echo a($value, 'transfer'); ?>"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'transfer'), true) ?></td>
