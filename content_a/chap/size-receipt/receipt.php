@@ -9,8 +9,8 @@
    </div>
 <?php } //endif ?>
    <div class="flex-grow">
-    <h1 class="leading-7 font-black"><?php echo \dash\data::storeData_title(); ?></h1>
-    <h2 class="leading-7 text-2xs"><?php echo \dash\data::storeData_desc(); ?></h2>
+    <h1 class="leading-relaxed text-lg font-black"><?php echo \dash\data::storeData_title(); ?></h1>
+    <h2 class="leading-relaxed text-2xs"><?php echo \dash\data::storeData_desc(); ?></h2>
    </div>
   </div>
 
