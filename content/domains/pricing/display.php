@@ -20,7 +20,7 @@ foreach (\dash\data::specialTLD() as $tld => $value) {
  </div>
 
  <div class="avand impact">
-  <div class="row mb-2">
+  <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-1 mb-2">
 <?php
 for ($i=1; $i <= 10; $i++)
 {
@@ -33,15 +33,13 @@ for ($i=1; $i <= 10; $i++)
   $choosenYr = intval(\dash\request::get('yr'));
   if($choosenYr === $i || ($choosenYr === 0 && $i === 1))
   {
-    $classList = 'btn block primary';
+    $classList = 'btn-primary';
   }
   else
   {
-    $classList = 'btn block outline';
+    $classList = 'btn-outline-secondary ';
   }
-    echo '<div class="c-xs-4 c-sm-3 c-md pA5">';
     echo '<a class="'. $classList. '" href="'. $link. '">'. \dash\fit::number($i). ' '. T_('Year'). '</a>';
-    echo '</div>';
 }
 ?>
 
