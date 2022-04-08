@@ -1,17 +1,17 @@
 <div class="jibresBanner">
 
  <div class="avand">
-  <div class="row">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
 <?php
 foreach (\dash\data::specialTLD() as $tld => $value) {
   if(a($value, 'register'))
   {
 ?>
-    <div class="c-2 c-xs-6 c-sm-4 c-md-4 c-lg-2 pA5">
-      <div class="cbox mB10-f">
-        <div class="tld font-35 font-bold ltr txtLa"><?php echo $tld ?></div>
-        <div class="fc-mute font-16"><?php echo T_("Registration") ?></div>
-        <div class="price font-20 mt-2"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></div>
+    <div class="">
+      <div class="bg-white rounded-lg mb-6 p-2">
+        <div class="tld text-3xl font-bold ltr text-left"><?php echo $tld ?></div>
+        <div class="text-sm text-zinc-400 mb-4"><?php echo T_("Registration") ?></div>
+        <div class="price text-base md:text-lg lg:text-xl leading-relaxed"><?php echo \content\domains\pricing\controller::priceEl(a($value, 'register')); ?></div>
       </div>
     </div>
 <?php } } ?>
