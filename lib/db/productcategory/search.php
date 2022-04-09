@@ -25,7 +25,17 @@ class search
 		"
 			SELECT
 				productcategory.*,
-				(SELECT COUNT(*) FROM productcategoryusage WHERE productcategoryusage.productcategory_id = productcategory.id) AS `count`
+				(
+					SELECT
+						COUNT(DISTINCT productcategoryusage.id)
+					FROM
+						productcategoryusage
+					INNER JOIN products ON products.id = productcategoryusage.product_id
+					WHERE
+						productcategoryusage.productcategory_id = productcategory.id AND
+						products.status != 'deleted'
+
+				) AS `count`
 			FROM
 				productcategory
 				$q[where]

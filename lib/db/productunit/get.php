@@ -23,7 +23,7 @@ class get
 				productunit.id,
 				productunit.title,
 				productunit.int,
-				(SELECT COUNT(*) FROM products WHERE products.unit_id = productunit.id) AS `count`
+				(SELECT COUNT(*) FROM products WHERE products.unit_id = productunit.id AND products.status != 'deleted') AS `count`
 			FROM
 				productunit
 			ORDER BY
