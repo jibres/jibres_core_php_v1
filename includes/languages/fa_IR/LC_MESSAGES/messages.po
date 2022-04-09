@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-04-04 13:19+0430\n"
-"PO-Revision-Date: 2022-04-04 13:21+0430\n"
+"POT-Creation-Date: 2022-04-09 12:52+0430\n"
+"PO-Revision-Date: 2022-04-09 12:53+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -158,7 +158,7 @@ msgstr ""
 #: content_r10/android/intro/view.php:29 content_r10/android/splash/view.php:13
 #: content_r10/android/view.php:12 content_site/view.php:9
 #: content_sudo/dbversion/display.php:14 content_sudo/dbversion/display.php:34
-#: content_sudo/update/display.php:32 content_sudo/update/display.php:97
+#: content_sudo/update/display.php:27 content_sudo/update/display.php:89
 #: content_v2/android/splash/view.php:20 content_v2/android/view.php:26
 #: dash/email/mail.php:160 dash/email/template.php:12 dash/email/template.php:66
 #: dash/email/template.php:69 dash/engine/view.php:16
@@ -1456,7 +1456,7 @@ msgstr ""
 msgid "Find my Domain"
 msgstr "دامنه من را بیاب"
 
-#: content/domains/home/domain-topBox.php:23 content/domains/pricing/display.php:56
+#: content/domains/home/domain-topBox.php:23 content/domains/pricing/display.php:54
 #: content_love/domain/detail/pageStep.php:34 content_love/domain/home/display.php:238
 #: content_love/domain/setting/pageStep.php:35 includes/languages/trans_static.php:588
 #: lib/app/store/filter.php:31
@@ -1476,7 +1476,7 @@ msgstr ""
 msgid "Transfer Now"
 msgstr "همین الان منتقل کن"
 
-#: content/domains/home/domain-topBox.php:30 content/domains/pricing/display.php:55
+#: content/domains/home/domain-topBox.php:30 content/domains/pricing/display.php:53
 #: content_love/domain/home/display.php:239
 #: content_my/domain/setting/elements/detail.php:51
 msgid "Renew"
@@ -1814,7 +1814,7 @@ msgstr "هزار تومان"
 msgid "Registration"
 msgstr "ثبت"
 
-#: content/domains/pricing/display.php:43 content_love/business/monthly/display.php:13
+#: content/domains/pricing/display.php:42 content_love/business/monthly/display.php:13
 #: content_sudo/backup/display.php:149 lib/app/domains/filter.php:62
 #: lib/app/form/report.php:177 lib/app/nic_domainaction/ready.php:60
 #: lib/app/nic_domainbilling/ready.php:62 lib/app/nic_domainbilling/ready.php:66
@@ -1822,11 +1822,11 @@ msgstr "ثبت"
 msgid "Year"
 msgstr "سال"
 
-#: content/domains/pricing/display.php:53
+#: content/domains/pricing/display.php:51
 msgid "TLD"
 msgstr "TLD"
 
-#: content/domains/pricing/display.php:54 content_love/domain/home/display.php:240
+#: content/domains/pricing/display.php:52 content_love/domain/home/display.php:240
 #: includes/languages/trans_static.php:1048
 msgid "Register"
 msgstr "ثبت"
@@ -5028,10 +5028,10 @@ msgstr "پیگیری"
 #: content_love/domain/setting/display.php:125 content_love/plugin/edit/display.php:20
 #: content_my/domain/setting/elements/renew.php:20 includes/languages/trans_static.php:510
 #: lib/app/discount/filter.php:36 lib/app/gift/filter.php:44
-#: lib/app/nic_domain/ready.php:150 lib/app/nic_domain/ready.php:152
-#: lib/app/nic_domain/ready.php:158 lib/app/nic_domain/ready.php:160
-#: lib/app/nic_domain/ready.php:236 lib/app/nic_domain/ready.php:238
-#: lib/app/nic_domain/ready.php:418 lib/app/store/filter.php:29
+#: lib/app/nic_domain/ready.php:155 lib/app/nic_domain/ready.php:157
+#: lib/app/nic_domain/ready.php:163 lib/app/nic_domain/ready.php:165
+#: lib/app/nic_domain/ready.php:241 lib/app/nic_domain/ready.php:243
+#: lib/app/nic_domain/ready.php:423 lib/app/store/filter.php:29
 msgid "Enable"
 msgstr "فعال"
 
@@ -5796,14 +5796,14 @@ msgstr "حذف شده"
 
 #: content_a/accounting/doc/edit/view.php:39 content_a/accounting/filter.php:24
 #: content_a/setting/product/display.php:93 content_my/domain/setting/elements/lock.php:21
-#: content_sudo/update/display.php:14 includes/languages/trans_static.php:605
+#: content_sudo/update/display.php:13 includes/languages/trans_static.php:605
 #: lib/app/domains/filter.php:53 lib/app/domains/filter.php:54
 #: lib/app/domains/filter.php:55
 msgid "Lock"
 msgstr "قفل"
 
 #: content_a/accounting/doc/edit/view.php:45 content_a/accounting/factor/edit/view.php:31
-#: content_my/domain/setting/elements/lock.php:21 content_sudo/update/display.php:41
+#: content_my/domain/setting/elements/lock.php:21 content_sudo/update/display.php:34
 msgid "Unlock"
 msgstr "بازکردن قفل"
 
@@ -12065,8 +12065,8 @@ msgstr "فیس‌بوک"
 #: lib/app/form/item/get.php:210 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
 #: lib/app/menu/check.php:86 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
-#: lib/app/nic_domain/get.php:455 lib/app/nic_domain/get.php:483
-#: lib/app/nic_domain/get.php:510 lib/app/nic_log/get.php:13
+#: lib/app/nic_domain/get.php:457 lib/app/nic_domain/get.php:485
+#: lib/app/nic_domain/get.php:512 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/order/get.php:22 lib/app/order/get.php:55
 #: lib/app/pos/remove.php:13 lib/app/pos/tools.php:13 lib/app/product/edit.php:25
 #: lib/app/product/edit.php:35 lib/app/setting/package.php:72
@@ -18878,10 +18878,10 @@ msgid "Jibres on Github"
 msgstr "جیبرس در گیت‌هاب"
 
 #: content_developers/libraries/display.php:15
-msgid "jibres domain SDK for php"
+msgid "Jibres domain SDK for php"
 msgstr "نمونه کد آماده یا اس‌دی‌کا با زبان پی‌اچ‌پی برای ای‌پی‌آی دامنه‌ها"
 
-#: content_developers/libraries/display.php:16
+#: content_developers/libraries/display.php:17
 msgid "Visit on Github"
 msgstr "نمایش در گیت‌هاب"
 
@@ -19280,8 +19280,8 @@ msgstr ""
 #: lib/app/nic_contact/search.php:28 lib/app/nic_contact/search.php:183
 #: lib/app/nic_contactdetail/search.php:28 lib/app/nic_contactdetail/search.php:148
 #: lib/app/nic_credit/search.php:128 lib/app/nic_domain/create.php:95
-#: lib/app/nic_domain/get.php:18 lib/app/nic_domain/get.php:449
-#: lib/app/nic_domain/get.php:476 lib/app/nic_domain/get.php:504
+#: lib/app/nic_domain/get.php:18 lib/app/nic_domain/get.php:451
+#: lib/app/nic_domain/get.php:478 lib/app/nic_domain/get.php:506
 #: lib/app/nic_domain/renew.php:71 lib/app/nic_domain/search.php:27
 #: lib/app/nic_domain/search.php:42 lib/app/nic_domain/search.php:686
 #: lib/app/nic_domain/transfer.php:85 lib/app/nic_domainaction/search.php:11
@@ -20120,7 +20120,7 @@ msgstr "به‌روزرسانی آمار همه‌ی بیزینس‌ها"
 #: content_site/options/heading/heading.php:110
 #: content_site/options/socialnetwork/socialnetwork.php:81
 #: content_sudo/dbversion/display.php:22 content_sudo/dbversion/display.php:35
-#: content_sudo/update/display.php:33 content_sudo/update/display.php:105
+#: content_sudo/update/display.php:28 content_sudo/update/display.php:97
 #: dash/layout/pwa/pwa_menu.php:99 lib/app/business_domain/filter.php:69
 #: lib/app/business_domain/filter.php:70
 #: lib/app/log/caller/business/business_createNew.php:19
@@ -20427,8 +20427,8 @@ msgid "Transfer lock"
 msgstr "قفل انتقال دامنه"
 
 #: content_love/domain/detail/display.php:76 content_love/domain/setting/display.php:51
-#: includes/languages/trans_static_public.php:581 lib/app/nic_domain/ready.php:166
-#: lib/app/nic_domain/ready.php:168
+#: includes/languages/trans_static_public.php:581 lib/app/nic_domain/ready.php:171
+#: lib/app/nic_domain/ready.php:173
 msgid "Locked"
 msgstr "قفل شده"
 
@@ -20658,7 +20658,7 @@ msgstr "مدت زمانی که مایلید این دامنه را بخرید ا
 #: content_my/domain/option/display.php:81 content_my/domain/option/model.php:51
 #: content_my/domain/renew/display.php:34 content_my/domain/renew/display.php:56
 #: content_my/domain/review/controller.php:102 content_my/domain/review/controller.php:152
-#: lib/app/onlinenic/price.php:195
+#: lib/app/onlinenic/price.php:196
 msgid "1 Year"
 msgstr "یک ساله"
 
@@ -20668,7 +20668,7 @@ msgstr "یک ساله"
 #: content_my/domain/option/display.php:86 content_my/domain/option/model.php:55
 #: content_my/domain/renew/display.php:38 content_my/domain/renew/display.php:62
 #: content_my/domain/review/controller.php:107 content_my/domain/review/controller.php:156
-#: lib/app/onlinenic/price.php:199
+#: lib/app/onlinenic/price.php:200
 msgid "5 Year"
 msgstr "پنج ساله"
 
@@ -20985,7 +20985,7 @@ msgstr "این دامنه آماده خرید است!"
 #: dash/app/visitor.php:141 includes/languages/trans_static.php:543
 #: includes/languages/trans_static.php:1053 lib/app/business_domain/ready.php:49
 #: lib/app/factor/ready.php:87 lib/app/factor/ready.php:126
-#: lib/app/nic_domain/ready.php:62 lib/app/nic_domain/ready.php:64
+#: lib/app/nic_domain/ready.php:67 lib/app/nic_domain/ready.php:69
 #: lib/app/order/ready.php:87 lib/app/order/ready.php:126
 msgid "Unknown"
 msgstr "ناشناس"
@@ -22167,8 +22167,8 @@ msgstr "رابط برنامه‌نویسی دامنه‌ها"
 msgid "Buy your dream domain"
 msgstr "دامنه‌ی رویایی خودتان را بیابید"
 
-#: content_my/domain/home/view.php:45 lib/app/nic_domain/create.php:714
-#: lib/app/onlinenic/create.php:560
+#: content_my/domain/home/view.php:45 lib/app/nic_domain/create.php:720
+#: lib/app/onlinenic/create.php:566
 msgid "Domain :domain was registered in your name"
 msgstr "دامنه :domain با موفقیت ثبت شد"
 
@@ -22286,7 +22286,7 @@ msgstr "ثبت‌نام شناسه ایرنیک"
 msgid "Add IRNIC handle"
 msgstr "افزودن شناسه ایرنیک"
 
-#: content_my/domain/irnic/add/model.php:26
+#: content_my/domain/irnic/add/model.php:21
 msgid "Please go to nic.ir and create your account in that site"
 msgstr "لطفا وارد سایت nic.ir شده و یک حساب کاربری در آن سایت بسازید"
 
@@ -22504,42 +22504,42 @@ msgid "Choose renew time"
 msgstr "مدت زمانی که مایلید این دامنه را تمدید کنید انتخاب کنید"
 
 #: content_my/domain/renew/display.php:35 content_my/domain/review/controller.php:153
-#: lib/app/onlinenic/price.php:196
+#: lib/app/onlinenic/price.php:197
 msgid "2 Year"
 msgstr "دو ساله"
 
 #: content_my/domain/renew/display.php:36 content_my/domain/review/controller.php:154
-#: lib/app/onlinenic/price.php:197
+#: lib/app/onlinenic/price.php:198
 msgid "3 Year"
 msgstr "سه سال"
 
 #: content_my/domain/renew/display.php:37 content_my/domain/review/controller.php:155
-#: lib/app/onlinenic/price.php:198
+#: lib/app/onlinenic/price.php:199
 msgid "4 Year"
 msgstr "چهار ساله"
 
 #: content_my/domain/renew/display.php:39 content_my/domain/review/controller.php:157
-#: lib/app/onlinenic/price.php:200
+#: lib/app/onlinenic/price.php:201
 msgid "6 Year"
 msgstr "شش ساله"
 
 #: content_my/domain/renew/display.php:40 content_my/domain/review/controller.php:158
-#: lib/app/onlinenic/price.php:201
+#: lib/app/onlinenic/price.php:202
 msgid "7 Year"
 msgstr "هفت ساله"
 
 #: content_my/domain/renew/display.php:41 content_my/domain/review/controller.php:159
-#: lib/app/onlinenic/price.php:202
+#: lib/app/onlinenic/price.php:203
 msgid "8 Year"
 msgstr "هشت ساله"
 
 #: content_my/domain/renew/display.php:42 content_my/domain/review/controller.php:160
-#: lib/app/onlinenic/price.php:203
+#: lib/app/onlinenic/price.php:204
 msgid "9 Year"
 msgstr "نه ساله"
 
 #: content_my/domain/renew/display.php:43 content_my/domain/review/controller.php:161
-#: lib/app/onlinenic/price.php:204
+#: lib/app/onlinenic/price.php:205
 msgid "10 Year"
 msgstr "ده ساله"
 
@@ -22572,7 +22572,7 @@ msgid "We can not detect the reseller or billing contact of this account"
 msgstr "ما نتوانستیم اطلاعات مربوط به نماینده یا رابط مالی دامنه شما را شناسایی کنیم"
 
 #: content_my/domain/review/display.php:127 lib/app/nic_domain/renew.php:228
-#: lib/app/nic_domain/renew.php:582
+#: lib/app/nic_domain/renew.php:588
 msgid ""
 "If you are administrator of this domain Your must go to nic.ir and set billing holder "
 "of this domain on 'ji128-irnic' "
@@ -22674,6 +22674,7 @@ msgid "Connect domain to business"
 msgstr "اتصال دامنه به بیزینس"
 
 #: content_my/domain/setting/controller.php:36 content_my/domain/setting/controller.php:49
+#: lib/app/domains/get.php:30
 msgid "Can not change this domain detail"
 msgstr "نمی‌توانید جزئیات دامنه را ویرایش کنید"
 
@@ -25313,17 +25314,17 @@ msgstr "کرون جاب فعال است"
 msgid "Your cronjob is deactived"
 msgstr "کرون جاب غیر فعال است"
 
-#: content_sudo/dbversion/display.php:9 content_sudo/update/display.php:92
+#: content_sudo/dbversion/display.php:9 content_sudo/update/display.php:84
 msgid "Database need to upgrade"
 msgstr "پایگاه داده نیاز به به‌روزرسانی دارد"
 
 #: content_sudo/dbversion/display.php:15 content_sudo/dbversion/display.php:23
-#: content_sudo/update/display.php:98 content_sudo/update/display.php:106
+#: content_sudo/update/display.php:90 content_sudo/update/display.php:98
 msgid "current version"
 msgstr "نسخه فعلی"
 
 #: content_sudo/dbversion/display.php:16 content_sudo/dbversion/display.php:24
-#: content_sudo/update/display.php:99 content_sudo/update/display.php:107
+#: content_sudo/update/display.php:91 content_sudo/update/display.php:99
 msgid "new version"
 msgstr "نسخه جدید"
 
@@ -25717,51 +25718,51 @@ msgstr "سیستم قفل شده است!"
 msgid "Service is Running!"
 msgstr "سیستم در حال کار است!"
 
-#: content_sudo/update/display.php:15
+#: content_sudo/update/display.php:14
 msgid "Lock service"
 msgstr "قفل کردن سیستم"
 
-#: content_sudo/update/display.php:22
+#: content_sudo/update/display.php:19
 msgid "Pull"
 msgstr "دریافت"
 
-#: content_sudo/update/display.php:23
+#: content_sudo/update/display.php:20
 msgid "Pull service"
 msgstr "دریافت سرویس"
 
-#: content_sudo/update/display.php:30 includes/languages/trans_static.php:608
+#: content_sudo/update/display.php:25 includes/languages/trans_static.php:608
 msgid "Upgrade"
 msgstr "ارتقا"
 
-#: content_sudo/update/display.php:42
+#: content_sudo/update/display.php:35
 msgid "Unlock service"
 msgstr "بازکردن قفل سیستم"
 
-#: content_sudo/update/display.php:52
+#: content_sudo/update/display.php:44
 msgid "Pull git repository"
 msgstr "دریافت مخازن گیت"
 
-#: content_sudo/update/display.php:65
+#: content_sudo/update/display.php:57
 msgid "Pull CDN repository"
 msgstr "به‌روزرسانی مخازن گیت سی‌دی‌ان"
 
-#: content_sudo/update/display.php:66
+#: content_sudo/update/display.php:58
 msgid "Temp files"
 msgstr "فایل‌های موقتی"
 
-#: content_sudo/update/display.php:77 content_sudo/update/display.php:78
+#: content_sudo/update/display.php:69 content_sudo/update/display.php:70
 msgid "Force unlock page"
 msgstr "صفحه بازکردن قفل به اجبار"
 
-#: content_sudo/update/display.php:115
+#: content_sudo/update/display.php:107
 msgid "Run all step by one click"
 msgstr "اجرای همه مراحل با یک دکمه"
 
-#: content_sudo/update/display.php:115
+#: content_sudo/update/display.php:107
 msgid "For when you don't have heavy updates"
 msgstr "برای زمانی که آپدیت سنگین ندارید"
 
-#: content_sudo/update/display.php:117
+#: content_sudo/update/display.php:109
 msgid "Update & Upgrade all"
 msgstr "به‌روزرسانی و ارتقاء همه"
 
@@ -30831,9 +30832,9 @@ msgid "Domain must be less than 63 character"
 msgstr "دامنه باید کمتر از ۶۳ حرف باشد"
 
 #: dash/validate/url.php:324 dash/validate/url.php:334 lib/app/business_domain/add.php:178
-#: lib/app/business_domain/edit.php:85 lib/app/nic_domain/get.php:26
-#: lib/app/nic_domain/lock.php:52 lib/app/nic_domain/lock.php:154
-#: lib/app/onlinenic/lock.php:52 lib/app/onlinenic/lock.php:155
+#: lib/app/business_domain/edit.php:85 lib/app/nic_domain/lock.php:52
+#: lib/app/nic_domain/lock.php:154 lib/app/onlinenic/lock.php:52
+#: lib/app/onlinenic/lock.php:155
 msgid "Invalid domain"
 msgstr "دامنه اشتباه است"
 
@@ -32249,8 +32250,8 @@ msgid "Help_tag"
 msgstr "تگ راهنمایی"
 
 #: includes/languages/trans_static.php:565 includes/languages/trans_static.php:1051
-#: lib/app/gift/filter.php:46 lib/app/nic_domain/ready.php:175
-#: lib/app/nic_domain/ready.php:177
+#: lib/app/gift/filter.php:46 lib/app/nic_domain/ready.php:180
+#: lib/app/nic_domain/ready.php:182
 msgid "Expired"
 msgstr "منقضی‌شده"
 
@@ -37503,8 +37504,8 @@ msgid "Old id and new id is equal"
 msgstr "شناسه قدیم با شناسه جدید باهم برابر است"
 
 #: lib/app/business_domain/business.php:123 lib/app/nic_domain/check.php:40
-#: lib/app/nic_domain/edit.php:387 lib/app/nic_domain/get.php:463
-#: lib/app/nic_domain/get.php:491 lib/app/nic_domain/get.php:518
+#: lib/app/nic_domain/edit.php:398 lib/app/nic_domain/get.php:465
+#: lib/app/nic_domain/get.php:493 lib/app/nic_domain/get.php:520
 #: lib/app/nic_log/get.php:21 lib/app/onlinenic/log/get.php:21
 msgid "Domain not found"
 msgstr "دامنه یافت نشد"
@@ -37807,7 +37808,7 @@ msgid "Pending verify"
 msgstr "در انتظار تایید"
 
 #: lib/app/business_domain/remove.php:35 lib/app/business_domain/remove.php:58
-#: lib/app/business_domain/remove.php:125 lib/app/nic_domain/edit.php:476
+#: lib/app/business_domain/remove.php:125 lib/app/nic_domain/edit.php:487
 #: lib/app/nic_domain/remove.php:34
 msgid "Domain removed"
 msgstr "دامنه حذف شد"
@@ -37939,10 +37940,10 @@ msgstr "نمی‌توانیم سفارش شما را ایجاد کنیم."
 msgid "Pay order"
 msgstr "پرداخت سفارش"
 
-#: lib/app/cart/checkout.php:596 lib/app/nic_domain/create.php:560
-#: lib/app/nic_domain/renew.php:369 lib/app/nic_domain/transfer.php:356
-#: lib/app/onlinenic/create.php:416 lib/app/onlinenic/renew.php:262
-#: lib/app/onlinenic/transfer.php:366
+#: lib/app/cart/checkout.php:596 lib/app/nic_domain/create.php:566
+#: lib/app/nic_domain/renew.php:375 lib/app/nic_domain/transfer.php:362
+#: lib/app/onlinenic/create.php:422 lib/app/onlinenic/renew.php:268
+#: lib/app/onlinenic/transfer.php:372
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
 
@@ -38324,14 +38325,18 @@ msgstr ":val فراخوانی"
 msgid ":val used"
 msgstr ":val استفاده"
 
-#: lib/app/domains/check.php:14
-msgid "Please enter a valid domain for check"
-msgstr "لطفا دامنه را به صورت صحیح وارد کنید"
-
-#: lib/app/domains/create.php:11 lib/app/domains/renew.php:11
+#: lib/app/domains/add.php:11 lib/app/domains/create.php:11 lib/app/domains/renew.php:11
 #: lib/app/domains/transfer.php:11
 msgid "Please set the domain"
 msgstr "لطفا دامنه را وارد کنید"
+
+#: lib/app/domains/add.php:27
+msgid "This domain already exist in your domain list"
+msgstr "این دامنه هم‌اکنون در لیست دامنه‌های شما موجود است"
+
+#: lib/app/domains/check.php:14
+msgid "Please enter a valid domain for check"
+msgstr "لطفا دامنه را به صورت صحیح وارد کنید"
 
 #: lib/app/domains/filter.php:13
 msgid "Name ASC"
@@ -39987,29 +39992,35 @@ msgstr "دامنه آماده ثبت است"
 msgid "Please verify mobile to continue"
 msgstr "لطفا برای ادامه مراحل موبایل خود را تایید کنید"
 
-#: lib/app/nic_domain/create.php:532
+#: lib/app/nic_domain/create.php:517 lib/app/nic_domain/renew.php:325
+#: lib/app/nic_domain/transfer.php:313 lib/app/onlinenic/create.php:374
+#: lib/app/onlinenic/renew.php:220 lib/app/onlinenic/transfer.php:325
+msgid "Your account credit is not sufficient. Please charge your account"
+msgstr "اعتبار حساب شما کافی نیست. لطفا نسبت به شارژ حساب خود اقدام کنید"
+
+#: lib/app/nic_domain/create.php:538
 msgid "Buy :domain For :year year by IRNIC handle :nic_id"
 msgstr "خرید دامنه :domain برای :year سال با شناسه ایرنیک  :nic_id"
 
-#: lib/app/nic_domain/create.php:591 lib/app/nic_domain/renew.php:399
-#: lib/app/nic_domain/transfer.php:387 lib/app/onlinenic/create.php:466
-#: lib/app/onlinenic/renew.php:307 lib/app/onlinenic/transfer.php:408
+#: lib/app/nic_domain/create.php:597 lib/app/nic_domain/renew.php:405
+#: lib/app/nic_domain/transfer.php:393 lib/app/onlinenic/create.php:472
+#: lib/app/onlinenic/renew.php:313 lib/app/onlinenic/transfer.php:414
 msgid "Your budget is low!"
 msgstr "موجودی حساب شما کافی نیست!"
 
-#: lib/app/nic_domain/create.php:599
+#: lib/app/nic_domain/create.php:605
 msgid "Buy domian :val"
 msgstr "خرید دامنه :val"
 
-#: lib/app/nic_domain/create.php:752
+#: lib/app/nic_domain/create.php:758
 msgid "Back money for cancel register domian :val"
 msgstr "بازگشت هزینه به دلیل لغو خرید دامنه :val"
 
-#: lib/app/nic_domain/create.php:780 lib/app/onlinenic/create.php:623
+#: lib/app/nic_domain/create.php:786 lib/app/onlinenic/create.php:629
 msgid "Can not register your domain"
 msgstr "نمی‌توانیم دامنه شما را ثبت کنیم"
 
-#: lib/app/nic_domain/edit.php:33 lib/app/nic_domain/edit.php:278
+#: lib/app/nic_domain/edit.php:33 lib/app/nic_domain/edit.php:289
 #: lib/app/onlinenic/edit.php:25 lib/app/onlinenic/edit.php:242
 msgid "No change in domain"
 msgstr "تغییری در دامنه انجام نشد"
@@ -40027,25 +40038,29 @@ msgstr "شما نمی‌توانید تنظیمات این دامنه را وی�
 msgid "Can not change international domain holder"
 msgstr "نمی‌توانیم رابط‌های دامنه‌‌های بین‌المللی را تغییر دهیم"
 
-#: lib/app/nic_domain/edit.php:293 lib/app/onlinenic/edit.php:251
+#: lib/app/nic_domain/edit.php:304 lib/app/onlinenic/edit.php:251
 msgid "Can not update your domain detail now!"
 msgstr "در حال حاضر نمی‌توانیم جزئیات دامنه را بروزرسانی کنیم!"
 
-#: lib/app/nic_domain/edit.php:362 lib/app/onlinenic/edit.php:217
+#: lib/app/nic_domain/edit.php:373 lib/app/onlinenic/edit.php:217
 msgid "Domain detail updated"
 msgstr "جزئیات دامنه بروزرسانی شد"
 
-#: lib/app/nic_domain/edit.php:367 lib/app/onlinenic/edit.php:263
+#: lib/app/nic_domain/edit.php:378 lib/app/onlinenic/edit.php:263
 msgid "No change in you domain detail"
 msgstr "تغییری در جزئیات دامنه انجام نشد"
 
-#: lib/app/nic_domain/edit.php:481
+#: lib/app/nic_domain/edit.php:492
 msgid "Detail updated"
 msgstr "جزئیات به‌روزرسانی شد"
 
 #: lib/app/nic_domain/get.php:12
 msgid "Please fill domain"
 msgstr "لطفا دامنه را وارد کنید"
+
+#: lib/app/nic_domain/get.php:26 lib/app/nic_domain/remove.php:25
+msgid "Domain not found!"
+msgstr "دامنه یافت نشد!"
 
 #: lib/app/nic_domain/import.php:17
 msgid "Please fill your domain list"
@@ -40111,33 +40126,29 @@ msgstr "دامنه از حالت قفل خارج شده است"
 msgid "Can not unlock your domain"
 msgstr "نمی‌توانید دامنه را از حالت قفل خارج کنید"
 
-#: lib/app/nic_domain/ready.php:133 lib/app/nic_domain/ready.php:136
+#: lib/app/nic_domain/ready.php:138 lib/app/nic_domain/ready.php:141
 msgid "Reject"
 msgstr "رد شده"
 
-#: lib/app/nic_domain/ready.php:142 lib/app/nic_domain/ready.php:144
+#: lib/app/nic_domain/ready.php:147 lib/app/nic_domain/ready.php:149
 msgid "Pending Approved"
 msgstr "در انتظار تایید توسط واحد ثبت"
 
-#: lib/app/nic_domain/ready.php:184 lib/app/nic_domain/ready.php:186
+#: lib/app/nic_domain/ready.php:189 lib/app/nic_domain/ready.php:191
 msgid "Document required"
 msgstr "نیاز به ارائه مستندات"
 
-#: lib/app/nic_domain/ready.php:192 lib/app/nic_domain/ready.php:194
+#: lib/app/nic_domain/ready.php:197 lib/app/nic_domain/ready.php:199
 msgid "Register Approved"
 msgstr "ثبت دامنه تایید شد"
 
-#: lib/app/nic_domain/ready.php:206 lib/app/nic_domain/ready.php:208
+#: lib/app/nic_domain/ready.php:211 lib/app/nic_domain/ready.php:213
 msgid "Domain Approved"
 msgstr "ثبت دامنه تایید شد"
 
-#: lib/app/nic_domain/ready.php:394
+#: lib/app/nic_domain/ready.php:399
 msgid "Register now"
 msgstr "هم‌اکنون ثبت‌نام کنید"
-
-#: lib/app/nic_domain/remove.php:25
-msgid "Domain not found!"
-msgstr "دامنه یافت نشد!"
 
 #: lib/app/nic_domain/renew.php:146
 msgid "Domain is pending to renew"
@@ -40165,7 +40176,7 @@ msgstr ""
 "انتخاب کردید و تاریخ اعتبار دامنه،‌ دامنه شما بعد از تمدید بیش از شش سال اعتبار خواهد "
 "داشت و این موضوع قابل انجام نیست."
 
-#: lib/app/nic_domain/renew.php:226 lib/app/nic_domain/renew.php:580
+#: lib/app/nic_domain/renew.php:226 lib/app/nic_domain/renew.php:586
 msgid ""
 "We can not renew this domain because the bill holder of IRNIC can not access to renew"
 msgstr ""
@@ -40176,37 +40187,37 @@ msgstr ""
 msgid "Domain ready to renew"
 msgstr "دامنه آماده تمدید است"
 
-#: lib/app/nic_domain/renew.php:341 lib/app/onlinenic/renew.php:234
+#: lib/app/nic_domain/renew.php:347 lib/app/onlinenic/renew.php:240
 msgid "Renew :domain For :year year"
 msgstr "تمدید دامنه :domain برای :year سال"
 
-#: lib/app/nic_domain/renew.php:407 lib/app/onlinenic/renew.php:315
+#: lib/app/nic_domain/renew.php:413 lib/app/onlinenic/renew.php:321
 msgid "Renew domian :val"
 msgstr "تمدید دامنه :val"
 
-#: lib/app/nic_domain/renew.php:510 lib/app/onlinenic/renew.php:404
+#: lib/app/nic_domain/renew.php:516 lib/app/onlinenic/renew.php:410
 msgid "Domain :domain was renewed"
 msgstr "تمدید دامنه :domain انجام شد"
 
-#: lib/app/nic_domain/renew.php:512 lib/app/onlinenic/renew.php:406
+#: lib/app/nic_domain/renew.php:518 lib/app/onlinenic/renew.php:412
 msgid "Domain date expire:"
 msgstr "تاریخ انقضای دامنه:"
 
-#: lib/app/nic_domain/renew.php:565
+#: lib/app/nic_domain/renew.php:571
 msgid "Back money for cancel renew domian :val"
 msgstr "بازگشت هزینه به دلیل لغو تمدید دامنه :val"
 
-#: lib/app/nic_domain/renew.php:584
+#: lib/app/nic_domain/renew.php:590
 msgid "After change this problem you can try again"
 msgstr "بعد از انجام اقدامات ذکر شده می‌توانید مجددا تلاش کنید"
 
-#: lib/app/nic_domain/renew.php:586 lib/app/onlinenic/renew.php:473
+#: lib/app/nic_domain/renew.php:592 lib/app/onlinenic/renew.php:479
 msgid "If you pay any amount, Your amount is saved in your account"
 msgstr ""
 "اگر مبلغی را پرداخت کرده باشید، آن مبلغ در حساب کاربری شما ذخیره شده است و می‌توانید از "
 "آن استفاده کنید"
 
-#: lib/app/nic_domain/renew.php:591 lib/app/onlinenic/renew.php:478
+#: lib/app/nic_domain/renew.php:597 lib/app/onlinenic/renew.php:484
 msgid "Don't worry! Your gift is ok and not used. You can use it again"
 msgstr ""
 "نگران کارت هدیه خود نباشید! کارت هدیه شما از بین نرفته است و می‌توانید مجددا از آن "
@@ -40248,23 +40259,23 @@ msgstr "تمدید دامنه :domain"
 msgid "Domain ready to transfer"
 msgstr "دامنه برای انتقال آماده است"
 
-#: lib/app/nic_domain/transfer.php:329 lib/app/onlinenic/transfer.php:339
+#: lib/app/nic_domain/transfer.php:335 lib/app/onlinenic/transfer.php:345
 msgid "Transfer :domain"
 msgstr "انتقال دامنه :domain"
 
-#: lib/app/nic_domain/transfer.php:395 lib/app/onlinenic/transfer.php:416
+#: lib/app/nic_domain/transfer.php:401 lib/app/onlinenic/transfer.php:422
 msgid "Transfer domian :val"
 msgstr "انتقال دامنه :val"
 
-#: lib/app/nic_domain/transfer.php:460
+#: lib/app/nic_domain/transfer.php:466
 msgid "Your domain was transfered"
 msgstr "دامنه شما انتقال یافت"
 
-#: lib/app/nic_domain/transfer.php:492
+#: lib/app/nic_domain/transfer.php:498
 msgid "Back money for cancel transfer domian :val"
 msgstr "بازگشت هزینه به دلیل لغو انتقال دامنه :val"
 
-#: lib/app/nic_domain/transfer.php:509
+#: lib/app/nic_domain/transfer.php:515
 msgid "Can not transfer this domain"
 msgstr "نمی‌توان این دامنه را انتقال داد"
 
@@ -40360,15 +40371,15 @@ msgstr "خطا! برخی از اطلاعات نادرست است. نمی‌تو�
 msgid "Can not save your whois detail at this time. Please try later"
 msgstr "در حال حاضر نمی‌توانیم اطلاعات دامنه‌ شما را ذخیره کنیم. لطفا مجددا تلاش کنید"
 
-#: lib/app/onlinenic/create.php:388
+#: lib/app/onlinenic/create.php:394
 msgid "Buy :domain For :year"
 msgstr "خرید دامنه :domain برای :year سال"
 
-#: lib/app/onlinenic/create.php:474
+#: lib/app/onlinenic/create.php:480
 msgid "Register domian :val"
 msgstr "ثبت دامنه :val"
 
-#: lib/app/onlinenic/create.php:579
+#: lib/app/onlinenic/create.php:585
 msgid "Refund money for register domian :val"
 msgstr "بازگشت هزینه خرید دامنه :val"
 
@@ -40384,11 +40395,11 @@ msgstr "در حال حاضر نمی‌توانیم جزئیات دی‌ان‌ا
 msgid "Can not get domain tranfer code"
 msgstr "نمی‌توانیم کد انتقال دامنه را دریافت کنیم"
 
-#: lib/app/onlinenic/price.php:123 lib/app/onlinenic/price.php:176
+#: lib/app/onlinenic/price.php:124 lib/app/onlinenic/price.php:177
 msgid "Error in load domain price detail"
 msgstr "خطا در دریافت هزینه‌های مربوط به دامنه"
 
-#: lib/app/onlinenic/price.php:137
+#: lib/app/onlinenic/price.php:138
 msgid "This period of domain have not price!"
 msgstr "این بازه زمانی برای دامنه قیمت مشخصی ندارد!"
 
@@ -40402,11 +40413,11 @@ msgstr ""
 "انتخاب کردید و تاریخ اعتبار دامنه،‌ دامنه شما بعد از تمدید بیش از ده سال اعتبار خواهد "
 "داشت و این موضوع قابل انجام نیست."
 
-#: lib/app/onlinenic/renew.php:438
+#: lib/app/onlinenic/renew.php:444
 msgid "Refund money for renew domian :val"
 msgstr "بازگشت هزینه تمدید دامنه :val"
 
-#: lib/app/onlinenic/renew.php:472
+#: lib/app/onlinenic/renew.php:478
 msgid "We can not renew this domain."
 msgstr "نمی‌توانم این دامنه را تمدید کرد."
 
@@ -40414,15 +40425,15 @@ msgstr "نمی‌توانم این دامنه را تمدید کرد."
 msgid "Can not load domain price"
 msgstr "نمی‌توانیم اطلاعات مالی دامنه را دریافت کنیم"
 
-#: lib/app/onlinenic/transfer.php:502
+#: lib/app/onlinenic/transfer.php:508
 msgid "Domain :domain was transfered in your name"
 msgstr "دامنه :domain با موفقیت منتقل شد"
 
-#: lib/app/onlinenic/transfer.php:521
+#: lib/app/onlinenic/transfer.php:527
 msgid "Refund money for cancel transfer domian :val"
 msgstr "بازگشت هزینه انتقال دامنه :val"
 
-#: lib/app/onlinenic/transfer.php:561
+#: lib/app/onlinenic/transfer.php:567
 msgid "Can not transfer your domain"
 msgstr "نمی‌توانیم دامنه را منتقل کنید"
 
