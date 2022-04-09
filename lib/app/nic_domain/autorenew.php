@@ -141,6 +141,7 @@ class autorenew
 			}
 			else
 			{
+				$renew['period'] = substr($renew['period'], 0, 1);
 				$result = \lib\app\onlinenic\renew::renew($renew);
 			}
 
