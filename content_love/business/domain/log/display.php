@@ -24,7 +24,7 @@
               <td class="collapsing">
                 <?php if(a($value, 'meta')) {?>
                 <span data-kerkere=".showDetail<?php echo a($value, 'id'); ?>">
-                  <i class="sf-list-ul"></i>
+                  <?php echo \dash\utility\icon::svg('CircleInformation', 'major'); ?>
                 </span>
               <?php } //endif ?>
               </td>
