@@ -98,6 +98,11 @@ class model
 			$price = [];
 		}
 
+		if(!is_array($discount))
+		{
+			$discount = [];
+		}
+
 		if(!is_array($product) || !is_array($count) || !is_array($discount))
 		{
 			\dash\notif::error(T_("No items have been added"));
