@@ -214,6 +214,12 @@ class renew
 				{
 					$pay_amount_bank                = $remain_amount;
 				}
+
+				if(\dash\url::is_api() && $data['usebudget'] && $remain_amount > 0)
+				{
+					\dash\notif::error(T_("Your account credit is not sufficient. Please charge your account"), ['code' => 3000]);
+					return false;
+				}
 			}
 
 			if($remain_amount > 0)
