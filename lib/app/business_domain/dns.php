@@ -1078,35 +1078,6 @@ class dns
 
 	public static function check_if_not_exist_add($_id)
 	{
-		$local_list = \lib\db\business_domain\get::dns_list($_id);
-		if(!is_array($local_list))
-		{
-			$local_list = [];
-		}
-
-
-		$jibres_ip = \dash\setting\dns_server::ip();
-
-
-		$count_founded = 0;
-		foreach ($local_list as $key => $value)
-		{
-			if(isset($value['type']) && isset($value['key']) && isset($value['value']) && isset($value['status']) && $value['status'] === 'ok')
-			{
-				if(
-					($value['type'] === 'A' && in_array($value['key'], ['@']) && \dash\str::strpos($value['value'], $jibres_ip) !== false) ||
-					($value['type'] === 'CNAME' && in_array($value['key'], ['www']))
-				  )
-				{
-					$count_founded++;
-				}
-			}
-		}
-
-		if($count_founded >= 2)
-		{
-			return true;
-		}
 
 		self::fetch($_id);
 
