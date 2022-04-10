@@ -71,8 +71,8 @@ class email
 		\dash\db\useremail::set_verify($_user_id);
 
 		// set domain verify email
-
-		\lib\db\nic_domain\update::set_verify_by_email($_email, $_user_id);
+		// by last update we never set verify after verify email 2022-04-10 15:15:20
+		// \lib\db\nic_domain\update::set_verify_by_email($_email, $_user_id);
 	}
 
 
