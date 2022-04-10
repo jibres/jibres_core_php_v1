@@ -8,8 +8,8 @@ class model
 	{
 		$post =
 		[
-			'holder' => \dash\request::post('holder'),
-			'admin' => \dash\request::post('admin'),
+			// 'holder' => \dash\request::post('holder'),
+			// 'admin' => \dash\request::post('admin'),
 			'tech'  => \dash\request::post('tech'),
 			'bill'  => \dash\request::post('bill'),
 		];

@@ -237,23 +237,23 @@ class edit
 
 		if($_type == 'holder')
 		{
-			if(isset($load_domain['holder']) && $load_domain['holder'] != $holder)
-			{
-				$args['holder']                        = $holder;
-				$update_domian_record['holder']        = $holder;
-				$update_holder_detail['old']['holder'] = $load_domain['holder'];
-				$update_holder_detail['new']['holder'] = $holder;
-				$update_holder                         = true;
-			}
+			// if(isset($load_domain['holder']) && $load_domain['holder'] != $holder)
+			// {
+			// 	$args['holder']                        = $holder;
+			// 	$update_domian_record['holder']        = $holder;
+			// 	$update_holder_detail['old']['holder'] = $load_domain['holder'];
+			// 	$update_holder_detail['new']['holder'] = $holder;
+			// 	$update_holder                         = true;
+			// }
 
-			if(isset($load_domain['admin']) && $load_domain['admin'] != $admin)
-			{
-				$args['admin']                        = $admin;
-				$update_domian_record['admin']        = $admin;
-				$update_holder_detail['old']['admin'] = $load_domain['admin'];
-				$update_holder_detail['new']['admin'] = $admin;
-				$update_holder                        = true;
-			}
+			// if(isset($load_domain['admin']) && $load_domain['admin'] != $admin)
+			// {
+			// 	$args['admin']                        = $admin;
+			// 	$update_domian_record['admin']        = $admin;
+			// 	$update_holder_detail['old']['admin'] = $load_domain['admin'];
+			// 	$update_holder_detail['new']['admin'] = $admin;
+			// 	$update_holder                        = true;
+			// }
 
 			if(array_key_exists('tech', $load_domain) && $load_domain['tech'] != $tech)
 			{
