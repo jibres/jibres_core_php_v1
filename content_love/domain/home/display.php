@@ -222,6 +222,12 @@ $myData = \dash\data::dashboardDetail();
             <div class="go"></div>
           </a>
        </li>
+       <li>
+          <a class="f" href="<?php echo \dash\url::this();?>/contactinfo">
+            <div class="key"><?php echo T_('Contact info');?></div>
+            <div class="go"></div>
+          </a>
+       </li>
      </ul>
    </nav>
 

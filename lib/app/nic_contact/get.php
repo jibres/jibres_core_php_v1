@@ -41,5 +41,30 @@ class get
 		return $get;
 
 	}
+
+
+
+
+	public static function info($_irnic_id)
+	{
+		if(!\dash\user::id())
+		{
+			\dash\notif::error(T_("Please login to continue"));
+			return false;
+		}
+
+		$irnic_id = \dash\validate::irnic_id($_irnic_id);
+
+
+		if(!$irnic_id)
+		{
+			\dash\notif::error(T_("Invalid irnic id"));
+			return false;
+		}
+
+		$contact_info =  \lib\api\nic\exec\contact_check::info($irnic_id);
+
+		return $contact_info;
+	}
 }
 ?>
