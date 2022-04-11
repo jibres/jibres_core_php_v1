@@ -314,8 +314,8 @@ class search
 
 			if($emails && $mobile)
 			{
-				$mobile_emails_query = " OR domain.mobile = '$mobile' OR domain.email IN ('$emails') ";
-				$mobile_emails_not_query = " ( (domain.mobile IS NULL OR domain.mobile != '$mobile') AND (domain.email IS NULL OR domain.email NOT IN ('$emails')) ) ";
+				$mobile_emails_query = " OR domain.mobile = '$mobile' OR domain.email IN ('$emails') OR domain.email_tech IN ('$emails') ";
+				$mobile_emails_not_query = " ( (domain.mobile IS NULL OR domain.mobile != '$mobile') AND (domain.email IS NULL OR domain.email NOT IN ('$emails')) AND (domain.email_tech IS NULL OR domain.email_tech NOT IN ('$emails')) ) ";
 			}
 			elseif($mobile)
 			{
@@ -325,8 +325,8 @@ class search
 			}
 			elseif($emails)
 			{
-				$mobile_emails_query = " OR  domain.email IN ('$emails') ";
-				$mobile_emails_not_query = "  (domain.email IS NULL OR  domain.email NOT IN ('$emails')) ";
+				$mobile_emails_query = " OR  domain.email IN ('$emails') OR domain.email_tech IN ('$emails') ";
+				$mobile_emails_not_query = "  (domain.email IS NULL OR  domain.email NOT IN ('$emails')) AND (domain.email_tech IS NULL OR  domain.email_tech NOT IN ('$emails')) ";
 			}
 
 
@@ -562,8 +562,11 @@ class search
 	private static function need_verify_email($list, $_user_id)
 	{
 		$all_email = array_column($list, 'email');
-		$all_email = array_filter($all_email);
+		$all_email_tech = array_column($list, 'email_tech');
+
+		$all_email = array_merge($all_email, $all_email_tech);
 		$all_email = array_unique($all_email);
+		$all_email = array_filter($all_email);
 
 		if(!$all_email)
 		{
