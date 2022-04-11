@@ -1,14 +1,25 @@
 <?php
-if(\dash\data::myUserID())
+if(\dash\data::myUserID() === false)
 {
-  $myID = \dash\data::myUserID();
+  // we have not user id
+  $myID = null;
 }
 else
 {
-  $myID   = \dash\request::get('id');
+  if(\dash\data::myUserID())
+  {
+    $myID = \dash\data::myUserID();
+  }
+  else
+  {
+    $myID   = \dash\request::get('id');
+  }
 }
 
-$myID = '?id='. $myID;
+if($myID)
+{
+  $myID = '?id='. $myID;
+}
 
 $myIcon = 'check';
 
@@ -23,6 +34,9 @@ switch (\dash\data::dataRowMember_status())
   case 'removed' :     $myIcon = 'ban nok'; break;
   case 'ban' :         $myIcon = 'ban'; break;
 }
+
+if($myID)
+{
 ?>
   <nav class="items long">
     <ul>
@@ -38,4 +52,4 @@ switch (\dash\data::dataRowMember_status())
       </li>
     </ul>
   </nav>
-
+<?php } // endif ?>
