@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-04-11 15:41+0430\n"
-"PO-Revision-Date: 2022-04-11 15:42+0430\n"
+"POT-Creation-Date: 2022-04-11 16:50+0430\n"
+"PO-Revision-Date: 2022-04-11 16:50+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5033,7 +5033,7 @@ msgstr "پیگیری"
 #: lib/app/nic_domain/ready.php:155 lib/app/nic_domain/ready.php:157
 #: lib/app/nic_domain/ready.php:163 lib/app/nic_domain/ready.php:165
 #: lib/app/nic_domain/ready.php:241 lib/app/nic_domain/ready.php:243
-#: lib/app/nic_domain/ready.php:423 lib/app/store/filter.php:29
+#: lib/app/nic_domain/ready.php:434 lib/app/store/filter.php:29
 msgid "Enable"
 msgstr "فعال"
 
@@ -12067,8 +12067,8 @@ msgstr "فیس‌بوک"
 #: lib/app/form/item/get.php:210 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
 #: lib/app/menu/check.php:86 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
-#: lib/app/nic_domain/get.php:457 lib/app/nic_domain/get.php:485
-#: lib/app/nic_domain/get.php:512 lib/app/nic_log/get.php:13
+#: lib/app/nic_domain/get.php:477 lib/app/nic_domain/get.php:505
+#: lib/app/nic_domain/get.php:532 lib/app/nic_log/get.php:13
 #: lib/app/onlinenic/log/get.php:13 lib/app/order/get.php:22 lib/app/order/get.php:55
 #: lib/app/pos/remove.php:13 lib/app/pos/tools.php:13 lib/app/product/edit.php:25
 #: lib/app/product/edit.php:35 lib/app/setting/package.php:72
@@ -19283,10 +19283,10 @@ msgstr ""
 #: lib/app/nic_contact/search.php:183 lib/app/nic_contactdetail/search.php:28
 #: lib/app/nic_contactdetail/search.php:148 lib/app/nic_credit/search.php:128
 #: lib/app/nic_domain/create.php:95 lib/app/nic_domain/get.php:18
-#: lib/app/nic_domain/get.php:451 lib/app/nic_domain/get.php:478
-#: lib/app/nic_domain/get.php:506 lib/app/nic_domain/renew.php:71
+#: lib/app/nic_domain/get.php:471 lib/app/nic_domain/get.php:498
+#: lib/app/nic_domain/get.php:526 lib/app/nic_domain/renew.php:71
 #: lib/app/nic_domain/search.php:27 lib/app/nic_domain/search.php:42
-#: lib/app/nic_domain/search.php:686 lib/app/nic_domain/transfer.php:85
+#: lib/app/nic_domain/search.php:689 lib/app/nic_domain/transfer.php:85
 #: lib/app/nic_domainaction/search.php:11 lib/app/nic_domainaction/search.php:25
 #: lib/app/nic_domainbilling/search.php:11 lib/app/nic_domainstatus/search.php:27
 #: lib/app/nic_domainstatus/search.php:125 lib/app/nic_log/search.php:27
@@ -22873,6 +22873,10 @@ msgstr "ترجمه"
 #: content_my/domain/setting/elements/superdetail.php:58
 msgid "Fetch now"
 msgstr "هم‌اکنون دریافت کن"
+
+#: content_my/domain/setting/elements/superdetail.php:80
+msgid "Technical Email"
+msgstr "ایمیل رابط فنی"
 
 #: content_my/domain/setting/holder/view.php:9
 msgid "Domain holder"
@@ -37517,8 +37521,8 @@ msgid "Old id and new id is equal"
 msgstr "شناسه قدیم با شناسه جدید باهم برابر است"
 
 #: lib/app/business_domain/business.php:123 lib/app/nic_domain/check.php:40
-#: lib/app/nic_domain/edit.php:398 lib/app/nic_domain/get.php:465
-#: lib/app/nic_domain/get.php:493 lib/app/nic_domain/get.php:520
+#: lib/app/nic_domain/edit.php:398 lib/app/nic_domain/get.php:485
+#: lib/app/nic_domain/get.php:513 lib/app/nic_domain/get.php:540
 #: lib/app/nic_log/get.php:21 lib/app/onlinenic/log/get.php:21
 msgid "Domain not found"
 msgstr "دامنه یافت نشد"
@@ -40163,7 +40167,7 @@ msgstr "ثبت دامنه تایید شد"
 msgid "Domain Approved"
 msgstr "ثبت دامنه تایید شد"
 
-#: lib/app/nic_domain/ready.php:399
+#: lib/app/nic_domain/ready.php:410
 msgid "Register now"
 msgstr "هم‌اکنون ثبت‌نام کنید"
 
@@ -40240,15 +40244,15 @@ msgstr ""
 "نگران کارت هدیه خود نباشید! کارت هدیه شما از بین نرفته است و می‌توانید مجددا از آن "
 "استفاده کنید"
 
-#: lib/app/nic_domain/search.php:671
+#: lib/app/nic_domain/search.php:674
 msgid "Pay in next week"
 msgstr "مبلغ پرداختی در یک هفته آینده"
 
-#: lib/app/nic_domain/search.php:672
+#: lib/app/nic_domain/search.php:675
 msgid "Pay in next month"
 msgstr "مبلغ پرداختی در یک ماه آینده"
 
-#: lib/app/nic_domain/search.php:673
+#: lib/app/nic_domain/search.php:676
 msgid "Pay in next year"
 msgstr "مبلغ پرداختی در یک سال آینده"
 
