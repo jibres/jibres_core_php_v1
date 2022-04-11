@@ -95,7 +95,7 @@
     <div class="cauto pRa10"><?php echo \dash\fit::date_human(\dash\data::dataRow_dateresponse()); ?> /</div>
     <div class="cauto"><?php echo \dash\fit::date_time(\dash\data::dataRow_dateresponse()); ?></div>
   </header>
-  <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_response()); ?></samp>
+  <samp class="fs09"><?php if(\dash\data::dataRow_response())  { echo htmlspecialchars(\dash\data::dataRow_response()); } ?></samp>
 </div>
 
 
