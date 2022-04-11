@@ -358,6 +358,11 @@ class ready
 					{
 						$result['verify'] = 1;
 					}
+
+					if(isset($result['email_tech']) && in_array($result['email_tech'], $have_emails))
+					{
+						$result['verify_tech'] = 1;
+					}
 				}
 
 				$result['needverifyemail'] = [];
@@ -490,10 +495,16 @@ class ready
 
 
 
-	public static function is_verify($_detail)
+	public static function is_verify($_detail, $_module = null)
 	{
 		$detail = self::row($_detail);
 		if(isset($detail['verify']) && $detail['verify'])
+		{
+			return true;
+		}
+
+
+		if(in_array($_module, ['lock', 'dns']) && a($detail, 'verify_tech'))
 		{
 			return true;
 		}

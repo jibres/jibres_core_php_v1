@@ -34,7 +34,7 @@ class edit
 			return true;
 		}
 
-		if(\lib\app\nic_domain\ready::is_verify($load_domain))
+		if(\lib\app\nic_domain\ready::is_verify($load_domain, $_type))
 		{
 			// no problem
 		}
