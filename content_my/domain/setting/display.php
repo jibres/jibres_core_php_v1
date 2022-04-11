@@ -17,7 +17,7 @@ $result = '';
 
 if(\dash\data::domainDetail_needverifyemail())
 {
-  \dash\data::needVerifyEmail([\dash\data::domainDetail_needverifyemail()]);
+  \dash\data::needVerifyEmail(\dash\data::domainDetail_needverifyemail());
   require_once(root. 'content_my/domain/need_verify_email.php');
 }
 

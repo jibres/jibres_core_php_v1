@@ -360,10 +360,16 @@ class ready
 					}
 				}
 
+				$result['needverifyemail'] = [];
 
 				if(!$result['verify'] && isset($result['email']) && $result['email'])
 				{
-					$result['needverifyemail'] = $result['email'];
+					$result['needverifyemail'][] = $result['email'];
+				}
+
+				if(!$result['verify'] && isset($result['email_tech']) && $result['email_tech'])
+				{
+					$result['needverifyemail'][] = $result['email_tech'];
 				}
 
 			}

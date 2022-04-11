@@ -76,6 +76,11 @@
           <td><?php echo \dash\data::domainDetail_email(); ?></td>
         </tr>
 
+        <tr>
+          <td><?php echo T_("Technical Email") ?></td>
+          <td><?php echo \dash\data::domainDetail_email_tech(); ?></td>
+        </tr>
+
     </tbody>
   </table>
 </section>
