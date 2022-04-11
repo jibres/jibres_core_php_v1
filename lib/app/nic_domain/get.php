@@ -281,6 +281,26 @@ class get
 			}
 		}
 
+		if(isset($update_domain['holder']) && $update_domain['holder'])
+		{
+			// fetch holder info
+			$holder_info = \lib\app\nic_contact\get::info($update_domain['holder']);
+			if(isset($holder_info['email']))
+			{
+				$update_domain['email'] = mb_strtolower($holder_info['email']);
+			}
+		}
+
+		if(isset($update_domain['tech']) && $update_domain['tech'])
+		{
+			// fetch tech info
+			$tech_info = \lib\app\nic_contact\get::info($update_domain['tech']);
+			if(isset($tech_info['email']))
+			{
+				$update_domain['email_tech'] = mb_strtolower($tech_info['email']);
+			}
+		}
+
 
 
 		if(isset($fetch['ns'][0]))
