@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-04-09 12:52+0430\n"
-"PO-Revision-Date: 2022-04-09 12:53+0430\n"
+"POT-Creation-Date: 2022-04-11 15:41+0430\n"
+"PO-Revision-Date: 2022-04-11 15:42+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1457,7 +1457,7 @@ msgid "Find my Domain"
 msgstr "دامنه من را بیاب"
 
 #: content/domains/home/domain-topBox.php:23 content/domains/pricing/display.php:54
-#: content_love/domain/detail/pageStep.php:34 content_love/domain/home/display.php:238
+#: content_love/domain/detail/pageStep.php:34 content_love/domain/home/display.php:244
 #: content_love/domain/setting/pageStep.php:35 includes/languages/trans_static.php:588
 #: lib/app/store/filter.php:31
 msgid "Transfer"
@@ -1477,7 +1477,7 @@ msgid "Transfer Now"
 msgstr "همین الان منتقل کن"
 
 #: content/domains/home/domain-topBox.php:30 content/domains/pricing/display.php:53
-#: content_love/domain/home/display.php:239
+#: content_love/domain/home/display.php:245
 #: content_my/domain/setting/elements/detail.php:51
 msgid "Renew"
 msgstr "تمدید"
@@ -1826,7 +1826,7 @@ msgstr "سال"
 msgid "TLD"
 msgstr "TLD"
 
-#: content/domains/pricing/display.php:52 content_love/domain/home/display.php:240
+#: content/domains/pricing/display.php:52 content_love/domain/home/display.php:246
 #: includes/languages/trans_static.php:1048
 msgid "Register"
 msgstr "ثبت"
@@ -2632,6 +2632,7 @@ msgid "System Status"
 msgstr "وضعیت سیستم"
 
 #: content/home/layout/footer.php:129 content/home/layout/pwa-footer.php:121
+#: content_love/domain/contactinfo/display.php:5
 #: content_site/body/contactform/option.php:23
 #: dash/social/telegram/commands/ermile.php:528 includes/languages/trans_static.php:600
 msgid "Contact"
@@ -2780,18 +2781,19 @@ msgstr "بیشتر و بیشتر بفروش."
 #: content_love/business/home/view.php:13 content_love/domain/action/view.php:12
 #: content_love/domain/all/view.php:12 content_love/domain/autorenew/view.php:12
 #: content_love/domain/billing/view.php:12 content_love/domain/buyers/view.php:12
-#: content_love/domain/credit/view.php:12 content_love/domain/domainbuy/view.php:12
-#: content_love/domain/domaincheck/view.php:12 content_love/domain/domaininfo/view.php:12
-#: content_love/domain/fetch/view.php:12 content_love/domain/home/view.php:12
-#: content_love/domain/irnic/view.php:12 content_love/domain/log/view.php:12
-#: content_love/domain/nicdetail/view.php:12 content_love/domain/onlineniclog/view.php:12
-#: content_love/domain/polls/view.php:12 content_love/gift/all/view.php:12
-#: content_love/ip/view.php:11 content_love/log/home/view.php:15
-#: content_love/plugin/home/view.php:13 content_love/sms/home/view.php:13
-#: content_love/smslog/view.php:12 content_love/store/view.php:12
-#: content_love/telegram/home/view.php:13 content_my/branding/view.php:12
-#: content_my/business/home/view.php:12 content_my/domain/home/view.php:13
-#: content_site/home/view.php:14 dash/layout/admin/sidebar/sidebar-a.php:4
+#: content_love/domain/contactinfo/view.php:12 content_love/domain/credit/view.php:12
+#: content_love/domain/domainbuy/view.php:12 content_love/domain/domaincheck/view.php:12
+#: content_love/domain/domaininfo/view.php:12 content_love/domain/fetch/view.php:12
+#: content_love/domain/home/view.php:12 content_love/domain/irnic/view.php:12
+#: content_love/domain/log/view.php:12 content_love/domain/nicdetail/view.php:12
+#: content_love/domain/onlineniclog/view.php:12 content_love/domain/polls/view.php:12
+#: content_love/gift/all/view.php:12 content_love/ip/view.php:11
+#: content_love/log/home/view.php:15 content_love/plugin/home/view.php:13
+#: content_love/sms/home/view.php:13 content_love/smslog/view.php:12
+#: content_love/store/view.php:12 content_love/telegram/home/view.php:13
+#: content_my/branding/view.php:12 content_my/business/home/view.php:12
+#: content_my/domain/home/view.php:13 content_site/home/view.php:14
+#: dash/layout/admin/sidebar/sidebar-a.php:4
 #: dash/layout/admin/sidebar/sidebar-domain.php:4
 #: dash/layout/admin/sidebar/sidebar-m.php:1 dash/layout/m2/sidebar.php:69
 #: dash/layout/pwa/pwa_menu.php:162 includes/languages/trans_static_public.php:89
@@ -6009,7 +6011,7 @@ msgstr "افزودن درآمد"
 #: content_crm/ticket/home/display.php:6
 #: content_crm/transactions/display-statistics.php:21
 #: content_crm/transactions/display-statistics.php:37
-#: content_love/domain/home/display.php:242 content_love/files/home/display.php:36
+#: content_love/domain/home/display.php:248 content_love/files/home/display.php:36
 #: content_love/gift/home/display.php:7 content_sudo/tg/system/display.php:10
 #: content_sudo/tg/users/display.php:85 includes/languages/trans_static_public.php:899
 #: lib/app/log/caller/business/business_plugin.php:79
@@ -11568,7 +11570,7 @@ msgstr "پرداخت شده"
 msgid "Dont!"
 msgstr "نکن عزیزم!"
 
-#: content_a/sale/model.php:87 content_a/sale/model.php:103
+#: content_a/sale/model.php:87 content_a/sale/model.php:108
 msgid "No items have been added"
 msgstr "هیچ آیتمی برای ثبت انتخاب نشده است"
 
@@ -17153,7 +17155,7 @@ msgstr ""
 
 #: content_crm/log/home/view.php:8 content_love/apilog/twitter/view/view.php:9
 #: content_love/business/domain/pageStep.php:17 content_love/domain/fetch/view.php:15
-#: content_love/domain/home/display.php:247 content_love/domain/home/view.php:15
+#: content_love/domain/home/display.php:253 content_love/domain/home/view.php:15
 #: content_love/domain/log/view/view.php:12
 #: content_love/domain/onlineniclog/view/view.php:12 content_love/log/caller/view.php:9
 #: content_love/log/home/view.php:9 content_love/log/show/view.php:9
@@ -19277,17 +19279,18 @@ msgstr ""
 #: lib/app/gift/usage/search.php:24 lib/app/nic_contact/add.php:21
 #: lib/app/nic_contact/add.php:67 lib/app/nic_contact/add.php:189
 #: lib/app/nic_contact/edit.php:110 lib/app/nic_contact/get.php:26
-#: lib/app/nic_contact/search.php:28 lib/app/nic_contact/search.php:183
-#: lib/app/nic_contactdetail/search.php:28 lib/app/nic_contactdetail/search.php:148
-#: lib/app/nic_credit/search.php:128 lib/app/nic_domain/create.php:95
-#: lib/app/nic_domain/get.php:18 lib/app/nic_domain/get.php:451
-#: lib/app/nic_domain/get.php:478 lib/app/nic_domain/get.php:506
-#: lib/app/nic_domain/renew.php:71 lib/app/nic_domain/search.php:27
-#: lib/app/nic_domain/search.php:42 lib/app/nic_domain/search.php:686
-#: lib/app/nic_domain/transfer.php:85 lib/app/nic_domainaction/search.php:11
-#: lib/app/nic_domainaction/search.php:25 lib/app/nic_domainbilling/search.php:11
-#: lib/app/nic_domainstatus/search.php:27 lib/app/nic_domainstatus/search.php:125
-#: lib/app/nic_log/search.php:27 lib/app/nic_poll/get.php:177 lib/app/nic_poll/get.php:190
+#: lib/app/nic_contact/get.php:52 lib/app/nic_contact/search.php:28
+#: lib/app/nic_contact/search.php:183 lib/app/nic_contactdetail/search.php:28
+#: lib/app/nic_contactdetail/search.php:148 lib/app/nic_credit/search.php:128
+#: lib/app/nic_domain/create.php:95 lib/app/nic_domain/get.php:18
+#: lib/app/nic_domain/get.php:451 lib/app/nic_domain/get.php:478
+#: lib/app/nic_domain/get.php:506 lib/app/nic_domain/renew.php:71
+#: lib/app/nic_domain/search.php:27 lib/app/nic_domain/search.php:42
+#: lib/app/nic_domain/search.php:686 lib/app/nic_domain/transfer.php:85
+#: lib/app/nic_domainaction/search.php:11 lib/app/nic_domainaction/search.php:25
+#: lib/app/nic_domainbilling/search.php:11 lib/app/nic_domainstatus/search.php:27
+#: lib/app/nic_domainstatus/search.php:125 lib/app/nic_log/search.php:27
+#: lib/app/nic_poll/get.php:177 lib/app/nic_poll/get.php:190
 #: lib/app/nic_poll/search.php:27 lib/app/nic_poll/search.php:123
 #: lib/app/nic_usersetting/get.php:12 lib/app/nic_usersetting/search.php:27
 #: lib/app/nic_usersetting/search.php:134 lib/app/onlinenic/create.php:92
@@ -20361,6 +20364,26 @@ msgstr "تعداد دامنه‌ها"
 msgid "Domain buyers"
 msgstr "خریداران دامنه"
 
+#: content_love/domain/contactinfo/display.php:6
+#: content_love/domain/domaincheck/display.php:6
+#: content_love/domain/domaininfo/display.php:6
+msgid "Get Info"
+msgstr "دریافت جزئیات"
+
+#: content_love/domain/contactinfo/view.php:9 content_love/domain/home/display.php:227
+msgid "Contact info"
+msgstr "جزئیات مخاطب"
+
+#: content_love/domain/contactinfo/view.php:25 content_love/domain/credit/view.php:45
+#: content_love/domain/domaincheck/view.php:26 content_love/domain/domaininfo/view.php:25
+#: content_love/domain/domaininfo/view.php:35
+msgid "Show log"
+msgstr "نمایش ردپا"
+
+#: content_love/domain/contactinfo/view.php:31
+msgid "Invalid contact id"
+msgstr "شناسه مخاطب اشتباه است"
+
 #: content_love/domain/credit/display.php:4
 msgid "Last amount"
 msgstr "آخرین مبلغ"
@@ -20382,11 +20405,6 @@ msgstr "تاریخچه دریافت اعتبار نیک خالی است"
 #: content_love/domain/credit/view.php:9
 msgid "IRNIC Credit info"
 msgstr "اطلاعات اعتبار ایرنیک"
-
-#: content_love/domain/credit/view.php:45 content_love/domain/domaincheck/view.php:26
-#: content_love/domain/domaininfo/view.php:25 content_love/domain/domaininfo/view.php:35
-msgid "Show log"
-msgstr "نمایش ردپا"
 
 #: content_love/domain/detail/display.php:13 content_love/domain/detail/display.php:23
 #: content_love/domain/detail/display.php:38 content_love/domain/setting/display.php:17
@@ -20742,11 +20760,6 @@ msgstr "لطفا حساب کاربری این کاربر را شارژ کنید 
 msgid "Domain buy"
 msgstr "خرید دامنه"
 
-#: content_love/domain/domaincheck/display.php:6
-#: content_love/domain/domaininfo/display.php:6
-msgid "Get Info"
-msgstr "دریافت جزئیات"
-
 #: content_love/domain/domaincheck/view.php:9 content_love/domain/home/display.php:215
 msgid "Domain check"
 msgstr "بررسی دامنه"
@@ -20848,15 +20861,15 @@ msgstr "دامنه‌های کوتاه"
 msgid "Force register domain"
 msgstr "ثبت فورس دامنه"
 
-#: content_love/domain/home/display.php:233
+#: content_love/domain/home/display.php:239
 msgid "Domain buy & renew & transfer & whois & total buy in lasy 30 days"
 msgstr "خرید،‌ تمدید،‌ انتقال دامنه در ۳۰ روز گذشته"
 
-#: content_love/domain/home/display.php:244
+#: content_love/domain/home/display.php:250
 msgid "All API request in 60 last days"
 msgstr "تمام لاگ‌های ثبت شده در ۶۰ روز گذشته"
 
-#: content_love/domain/home/display.php:250
+#: content_love/domain/home/display.php:256
 msgid "All API request in 60 last days By Onlinenic"
 msgstr "تمام لاگ‌های ثبت شده در ۶۰ روز گذشته توسط آنلاین‌نیک"
 
@@ -37669,7 +37682,7 @@ msgstr "شناسه سرور ارائه دهنده دی‌ان‌اس اشتبا�
 msgid "Jibres DNS record added"
 msgstr "رکورد‌های دی‌ان‌اس جیبرس اضافه شدند"
 
-#: lib/app/business_domain/dns.php:1191
+#: lib/app/business_domain/dns.php:1162
 msgid "Fetch DNS successfully"
 msgstr "دریافت دی‌ان‌اس با موفقیت انجام شد"
 
@@ -39898,6 +39911,10 @@ msgstr "مخاطب به‌روزرسانی شد"
 #: lib/app/nic_contact/edit.php:169
 msgid "No way to update data"
 msgstr "هیچ راهی برای به‌روزرسانی اطلاعات وجود ندارد"
+
+#: lib/app/nic_contact/get.php:61
+msgid "Invalid irnic id"
+msgstr "شناسه ایرنیک نامعتبر است"
 
 #: lib/app/nic_domain/create.php:64 lib/app/nic_domain/renew.php:43
 #: lib/app/nic_domain/transfer.php:69
