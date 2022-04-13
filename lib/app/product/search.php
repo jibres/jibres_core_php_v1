@@ -142,6 +142,8 @@ class search
 
 				$get_all_child_id[] = $data['cat_id'];
 
+				$get_all_child_id = array_unique($get_all_child_id);
+
 				$all_child_id = implode(",", $get_all_child_id);
 
 				$and[]   = " productcategoryusage.productcategory_id IN ($all_child_id) ";
