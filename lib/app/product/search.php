@@ -458,6 +458,9 @@ class search
 
 		$order = null;
 
+		$inexpensive = null;
+
+
 		if($data['sort'] && !$order_sort)
 		{
 
@@ -475,10 +478,12 @@ class search
 				{
 					if($order === 'asc')
 					{
+						$inexpensive = false;
 						$order_sort = sprintf($price_asc_sort, $sort, $sort, $sort);
 					}
 					else
 					{
+						$inexpensive = true;
 						$order_sort = sprintf($price_desc_sort, $sort, $sort, $sort);
 					}
 				}
@@ -489,6 +494,7 @@ class search
 
 			}
 		}
+
 
 		if(!$order_sort)
 		{
@@ -535,6 +541,7 @@ class search
 			$sort       = 'finalprice';
 			$order      = 'desc';
 			$order_sort = sprintf($price_desc_sort, $sort, $sort, $sort);
+			$inexpensive = true;
 		}
 		elseif($data['exp'] === 'n')
 		{
@@ -547,6 +554,8 @@ class search
 		{
 			$order_sort = " $instock_first, $order_sort";
 		}
+
+		\dash\temp::set('productSearchInexpensive', $inexpensive);
 
 		$order_sort = " ORDER BY $order_sort $order";
 
@@ -833,7 +842,15 @@ class search
 			return;
 		}
 
-		$load_min_value = \lib\db\products\get::variants_load_min_value(implode(',', $have_variant));
+		if(\dash\temp::get('productSearchInexpensive'))
+		{
+			$load_min_value = \lib\db\products\get::variants_load_max_value(implode(',', $have_variant));
+		}
+		else
+		{
+			$load_min_value = \lib\db\products\get::variants_load_min_value(implode(',', $have_variant));
+		}
+
 
 		if(empty($load_min_value) || !is_array($load_min_value))
 		{

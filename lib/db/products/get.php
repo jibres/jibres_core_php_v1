@@ -739,6 +739,32 @@ class get
 	}
 
 
+	public static function variants_load_max_value($_ids)
+	{
+		$query  =
+		"
+			SELECT
+				MAX(products.id) AS `id`,
+				products.parent,
+				MAX(products.slug) AS `slug`,
+				MAX(products.price) AS `price`,
+				MAX(products.finalprice) AS `finalprice`,
+				MAX(products.discount) AS `discount`,
+				MAX(products.discountpercent) AS `discountpercent`
+			FROM
+				products
+			WHERE
+				products.parent IN ($_ids) AND
+				products.finalprice = (SELECT MAX(min_products.finalprice) FROM products AS `min_products` WHERE min_products.parent = products.parent AND min_products.status != 'deleted' AND min_products.instock = 1)
+			GROUP BY products.parent
+		";
+
+		$result = \dash\pdo::get($query);
+
+		return $result;
+	}
+
+
 	public static function variants_load_min_value($_ids)
 	{
 		$query  =
