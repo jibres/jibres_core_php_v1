@@ -1,0 +1,1 @@
+UPDATE jibres_XXXXXXX.products AS `child_product` SET child_product.status = (SELECT x.status FROM (SELECT * FROM jibres_XXXXXXX.products) AS `x` WHERE x.id = child_product.parent) WHERE child_product.parent IS NOT NULL;
