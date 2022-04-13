@@ -119,23 +119,10 @@ class product
 
 		self::$result['allErrorCount'] = 0;
 
+
 		foreach ($load as $key => $value)
 		{
-			$index = $key + 1;
-
-			\dash\temp::set('clesnse_not_check_needless_args', true);
-			\dash\temp::set('clesnse_not_end_with_error', true);
-
-			$check = \lib\app\product\check::variable($value);
-
-			if(!$check || !\dash\engine\process::status())
-			{
-				self::save_notif_error($index);
-				\dash\notif::clean();
-				\dash\engine\process::continue();
-				continue;
-			}
-
+			$my_id = null;
 			// raw id
 			if(isset($value['id']) && \dash\number::is($value['id']))
 			{
@@ -147,6 +134,23 @@ class product
 			{
 				$value['id'] = $value['﻿id'];
 			}
+			$my_id = a($value, 'id');
+
+			$index = $key + 1;
+
+			\dash\temp::set('clesnse_not_check_needless_args', true);
+			\dash\temp::set('clesnse_not_end_with_error', true);
+
+			$check = \lib\app\product\check::variable($value, $my_id);
+
+			if(!$check || !\dash\engine\process::status())
+			{
+				self::save_notif_error($index);
+				\dash\notif::clean();
+				\dash\engine\process::continue();
+				continue;
+			}
+
 
 			$avalible[] = $value;
 		}

@@ -81,8 +81,10 @@ $awaitingImport = \dash\data::awaitingImport();
 			<br>
 			<?php echo T_("Count record have ID"); ?> <b><?php echo \dash\fit::number($awaitingImport['meta']['overwrite_count']); ?></b>
 			<br>
+			<?php if(is_array(a($awaitingImport, 'meta', 'overwrite')) && a($awaitingImport, 'meta', 'overwrite')) {?>
 			<small data-copy="#haveId"><?php echo T_("Founded id"); ?></small>
-			<textarea class="txt" rows="2" id="haveId"><?php @implode(',', a($awaitingImport, 'meta', 'overwrite')); ?></textarea>
+			<textarea class="txt" rows="2" id="haveId"><?php echo implode(',', a($awaitingImport, 'meta', 'overwrite')); ?></textarea>
+		<?php } //endif ?>
 
 		</div>
 	<?php } //endif ?>
