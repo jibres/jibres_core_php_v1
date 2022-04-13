@@ -37,6 +37,8 @@ class owner
 		$whois_detail = \lib\app\whois\who::is($_domain);
 
 		self::update_owner_detail($whois_detail, $_domain);
+
+		\lib\app\nic_domain\get::force_fetch($_domain);
 	}
 
 
