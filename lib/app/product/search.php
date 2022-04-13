@@ -452,8 +452,8 @@ class search
 
 		}
 
-		$price_desc_sort = "ISNULL(products.%s), IF(products.variant_child, (SELECT MAX(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s)";
-		$price_asc_sort  = "ISNULL(products.%s), IF(products.variant_child, (SELECT MIN(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s)";
+		$price_desc_sort = "IF(products.variant_child, (SELECT MAX(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s)";
+		$price_asc_sort  = "IF(products.variant_child, (SELECT MIN(mSP.%s) FROM products AS `mSP` WHERE mSP.status = 'active' AND mSP.parent = products.id) ,products.%s)";
 		$instock_first   = "FIELD(products.instock, 'yes', NULL, 'no')";
 
 		$order = null;
@@ -554,6 +554,7 @@ class search
 
 		$meta['join'] = $join;
 		// var_dump($and, $or, $meta);exit();
+		// var_dump($and, $or, $meta, $order_sort);exit;
 
 		switch ($type)
 		{
