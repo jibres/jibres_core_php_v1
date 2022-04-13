@@ -40,3 +40,4 @@
 
    <a class="link" href="<?php echo \dash\url::kingdom(); ?>/enter/pass/recovery"><?php echo T_("Can't access your account?"); ?></a>
 
+   <a class="c link" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Restart with new mobile"); ?></a>

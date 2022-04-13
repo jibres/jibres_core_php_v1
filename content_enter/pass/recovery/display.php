@@ -19,3 +19,5 @@
 
    <a class='link' href="<?php echo \dash\url::kingdom(); ?>/enter/pass"><?php echo T_("Remembered your password?"); ?></a>
 
+   <a class="c link" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Restart with new mobile"); ?></a>
+
