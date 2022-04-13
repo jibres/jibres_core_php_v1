@@ -20,7 +20,7 @@ class view
 		self::verifyPageTitle();
 
 		$sendWayCod = \dash\data::sendWayCod();
-		if(is_array($sendWayCod) && count($sendWayCod) === 1)
+		if(is_array($sendWayCod) && count($sendWayCod) === 1 && !\dash\request::get('n'))
 		{
 			$sendWayCod = array_values($sendWayCod);
 			$sendWayCod = $sendWayCod[0];

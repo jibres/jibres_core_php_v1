@@ -8,14 +8,11 @@
   </div>
 
 <?php if(\dash\engine\store::inStore()) {?>
-  <form method="post" autocomplete="off">
-    <input type="hidden" name="ididit" value="yes">
-    <div class='flex' id='ego'>
-      <button type="submit"><?php echo T_("I did it"); ?></button>
-    </div>
-  </form>
+      <div data-ajaxify data-method='post' data-data='{"ididit" : "yes"}' class="btn-primary block" type="submit"><?php echo T_("I did it"); ?></div>
 <?php } // endif ?>
 
-<footer class='f'>
-  <a class="link cauto" href="<?php echo \dash\url::here(); ?>/verify"><?php echo T_("Ok"); ?></a>
-</footer>
+  <a class="link block mt-2" href="<?php echo \dash\url::here(); ?>/verify?n=1"><?php echo T_("Ok"); ?></a>
+
+
+
+<a class="block link" href="<?php echo \dash\url::kingdom(); ?>/enter"><?php echo T_("Restart with new mobile"); ?></a>
