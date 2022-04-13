@@ -349,6 +349,9 @@ class option
 			return $menu['id'];
 		}
 
+		return self::add_menu_for_gallery($_section_id);
+
+
 		return false;
 	}
 
