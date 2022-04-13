@@ -369,12 +369,18 @@ class ready
 
 				if(!$result['verify'] && isset($result['email']) && $result['email'])
 				{
-					$result['needverifyemail'][] = $result['email'];
+					if(!in_array($result['email'], $have_emails))
+					{
+						$result['needverifyemail'][] = $result['email'];
+					}
 				}
 
 				if(!$result['verify'] && isset($result['email_tech']) && $result['email_tech'])
 				{
-					$result['needverifyemail'][] = $result['email_tech'];
+					if(!in_array($result['email_tech'], $have_emails))
+					{
+						$result['needverifyemail'][] = $result['email_tech'];
+					}
 				}
 
 			}

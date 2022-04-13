@@ -31,7 +31,11 @@ class controller
 				}
 				else
 				{
-					if(in_array(\dash\url::subchild(), ['holder', 'dns', 'transfer']))
+					if(in_array(\dash\url::subchild(), ['dns', 'transfer']) && a($load_domain, 'verify_tech'))
+					{
+						// ok
+					}
+					elseif(in_array(\dash\url::subchild(), ['holder', 'dns', 'transfer']))
 					{
 						\dash\header::status(403, T_("Can not change this domain detail"));
 					}
@@ -44,7 +48,11 @@ class controller
 
 				if(isset($load_domain['status']) && $load_domain['status'] === 'disable')
 				{
-					if(in_array(\dash\url::subchild(), ['holder', 'dns', 'transfer']))
+					if(in_array(\dash\url::subchild(), ['dns', 'transfer']) && a($load_domain, 'verify_tech'))
+					{
+						// ok
+					}
+					elseif(in_array(\dash\url::subchild(), ['holder', 'dns', 'transfer']))
 					{
 						\dash\header::status(403, T_("Can not change this domain detail"));
 					}

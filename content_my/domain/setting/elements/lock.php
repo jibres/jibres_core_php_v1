@@ -1,4 +1,4 @@
-<?php if(\dash\data::domainDetail_verify() && \dash\data::domainDetail_verifychangelock()){ ?>
+<?php if((\dash\data::domainDetail_verify() && \dash\data::domainDetail_verifychangelock()) || (\dash\data::domainDetail_verify_tech())){ ?>
 <section class="f" data-option='domain-lock'>
   <div class="c8 s12">
     <div class="data">
