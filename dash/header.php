@@ -242,7 +242,7 @@ class header
 		$header_log .= $log_seperator;
 		$header_log .= $status_header;
 		$header_log .= $log_seperator;
-		$header_log .= \dash\url::pwd();
+		$header_log .= mb_strtoupper(\dash\request::is()). ':'. \dash\url::pwd();
 		$header_log .= $log_seperator;
 		$header_log .= $_text;
 
