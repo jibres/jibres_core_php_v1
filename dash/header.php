@@ -230,7 +230,21 @@ class header
 			@header($status_header, true, $_code);
 		}
 
-		$header_log = $status_header. ' -- '. $_text;
+		// save header log
+
+		$log_seperator = ' | ';
+		$header_log = '';
+		$header_log .= date("Y-m-d H:i:s");
+		$header_log .= $log_seperator;
+		$header_log .= 'ip:'.\dash\server::ip();
+		$header_log .= $log_seperator;
+		$header_log .= 'user:'.\dash\user::id();
+		$header_log .= $log_seperator;
+		$header_log .= $status_header;
+		$header_log .= $log_seperator;
+		$header_log .= \dash\url::pwd();
+		$header_log .= $log_seperator;
+		$header_log .= $_text;
 
 		if(intval($_code) >= 500)
 		{
@@ -238,9 +252,8 @@ class header
 			$header_log = json_encode($_SERVER, JSON_UNESCAPED_UNICODE);
 		}
 
-		\dash\log::file($header_log, "$_code.log", 'header');
+		\dash\log::file($header_log, "$_code.log", 'header', true);
 		// \dash\log::file(json_encode(debug_backtrace()), "$_code.log", 'header');
-
 
 		// translate desc of header if in this level T_ fn is defined!
 		$translatedDesc = $desc;
