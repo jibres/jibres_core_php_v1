@@ -30,7 +30,7 @@ class add
 
 		$id = \lib\db\form_item\insert::new_record($args);
 
-		\dash\notif::ok(T_("Contact form successfully added"));
+		\dash\notif::ok(T_("Form item successfully added"));
 
 		return ['id' => $id];
 	}
