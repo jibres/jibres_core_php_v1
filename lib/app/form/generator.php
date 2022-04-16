@@ -83,7 +83,7 @@ class generator
 						}
 						if(a($load_form, 'desc'))
 						{
-							self::$html .= '<div class="mb-4">'. a($load_form, 'desc'). '</div>';
+							self::$html .= '<div class="mb-4">'. nl2br(a($load_form, 'desc')). '</div>';
 						}
 
 						\lib\app\form\generator::items($load_items);
@@ -141,7 +141,7 @@ class generator
 						}
 						if(a($load_form, 'desc'))
 						{
-							self::$html .= '<div class="mb-4">'. a($load_form, 'desc'). '</div>';
+							self::$html .= '<div class="mb-4">'. nl2br(a($load_form, 'desc')). '</div>';
 						}
 
 						\lib\app\form\generator::items($load_items);
@@ -251,7 +251,7 @@ class generator
 		{
 			if($_html)
 			{
-		 		self::$html .= ' <small class="fc-red">* '.  T_("Required"). '</small>';
+		 		self::$html .= ' <small class="text-red-800">* '.  T_("Required"). '</small>';
 			}
 			else
 			{
@@ -265,7 +265,7 @@ class generator
 	{
 		if(a($value, 'desc'))
 		{
-		 	self::$html .= ' <div class="fc-mute mb-4 fs09">'.  a($value, 'desc'). '</div> ';
+		 	self::$html .= ' <div class="text-gray-400 mb-4 text-sm">'.  a($value, 'desc'). '</div> ';
 		}
 	}
 

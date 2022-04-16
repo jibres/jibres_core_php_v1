@@ -22,7 +22,7 @@ if(!is_array($formItems))
 					<img class="mb-2" src="<?php echo \dash\data::formDetail_file() ?>" alt="<?php echo \dash\data::formDetail_title(); ?>">
 				<?php } // endif ?>
 				<?php if(\dash\data::formDetail_desc()) {?>
-					<div class="mb-4"><?php echo \dash\data::formDetail_desc() ?></div>
+					<div class="mb-4"><?php echo nl2br(\dash\data::formDetail_desc()) ?></div>
 				<?php } // endif ?>
 				<?php if(\dash\data::accessLoadItem()) {echo \lib\app\form\generator::items($formItems);} ?>
 			</div>
