@@ -46,7 +46,9 @@
 					</div>
 
 				<?php } //endfor ?>
-
+				<div class="txtRa">
+					<button class="btn-primary"><?php echo T_("Add") ?></button>
+				</div>
 			</div>
 		</div>
 	</form>

@@ -166,7 +166,7 @@ class pageNav
   {
     $html = '';
     $desc = T_("Press F4 to save");
-    $html .= '<button class="btn-success btnSave min-w-24" data-shortkey="115" title="'. $desc. '"';
+    $html .= '<button class="btn-success btnSave min-w-24 mx-1" data-shortkey="115" title="'. $desc. '"';
     if(\dash\face::btnSave())
     {
       $html .= ' form="'. \dash\face::btnSave(). '"';

@@ -14,7 +14,7 @@ class view
 
 		$form_id = \dash\request::get('id');
 
-		\dash\face::btnInsert('form1');
+		// \dash\face::btnInsert('form1');
 
 		\dash\data::itemType(\lib\app\form\item\type::get_group());
 

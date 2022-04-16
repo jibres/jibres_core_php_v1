@@ -12,8 +12,8 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
 
-		// \dash\data::action_text(T_('Add new item'));
-		// \dash\data::action_link(\dash\url::this(). '/item/add?id='. \dash\request::get('id'));
+		\dash\data::action_text(T_('Add new item'));
+		\dash\data::action_link(\dash\url::this(). '/item/add?id='. \dash\request::get('id'));
 
 		$form_id = \dash\request::get('id');
 
