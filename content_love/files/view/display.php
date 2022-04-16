@@ -113,7 +113,7 @@ echo "<i class='sf-". $fType. "' title='". a($dataRow, 't_type'). "'>". "</i>";
 			<li>
 				<a data-confirm data-data='{"remove": "remove"}' class="f item">
 					<div class="key"><?php echo T_("Remove file") ?></div>
-					<i class="sf-trash fc-red"></i>
+					<i class="sf-trash text-red-800"></i>
 				</a>
 			</li>
 		</ul>

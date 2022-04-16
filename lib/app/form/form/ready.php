@@ -44,19 +44,19 @@ class ready
 							break;
 
 						case 'expire':
-							$status_class = 'sf-clock fc-red';
+							$status_class = 'sf-clock text-red-800';
 							break;
 
 						case 'deleted':
-							$status_class = 'sf-trash-can fc-red';
+							$status_class = 'sf-trash-can text-red-800';
 							break;
 
 						case 'lock':
-							$status_class = 'sf-lock fc-red';
+							$status_class = 'sf-lock text-red-800';
 							break;
 
 						case 'block':
-							$status_class = 'sf-time fc-red';
+							$status_class = 'sf-time text-red-800';
 							break;
 
 

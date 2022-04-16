@@ -104,7 +104,7 @@
                       </div>
                     <?php } //endif ?>
                   <?php }else{ ?>
-                    <div class="fc-red"><?php echo T_("File have not address!") ?></div>
+                    <div class="text-red-800"><?php echo T_("File have not address!") ?></div>
                   <?php } //endif ?>
                 <?php } //endif ?>
               <?php } // endif ?>

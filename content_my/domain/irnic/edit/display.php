@@ -54,22 +54,22 @@
 				<div class="f mt-4">
 					<div class="c">
 						<div class="ibtn wide">
-							<?php echo '<span>'.T_("Holder"). '</span>'; if(\dash\data::dataRow_holder()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?>
+							<?php echo '<span>'.T_("Holder"). '</span>'; if(\dash\data::dataRow_holder()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times text-red-800"></i>'; }?>
 						</div>
 					</div>
 					<div class="c">
 						<div class="ibtn wide">
-							<?php echo '<span>'.T_("Admin"). '</span>'; if(\dash\data::dataRow_admin()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?>
+							<?php echo '<span>'.T_("Admin"). '</span>'; if(\dash\data::dataRow_admin()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times text-red-800"></i>'; }?>
 						</div>
 					</div>
 					<div class="c">
 						<div class="ibtn wide">
-							<?php echo '<span>'.T_("Technical"). '</span>'; if(\dash\data::dataRow_tech()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?>
+							<?php echo '<span>'.T_("Technical"). '</span>'; if(\dash\data::dataRow_tech()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times text-red-800"></i>'; }?>
 						</div>
 					</div>
 					<div class="c">
 						<div class="ibtn wide">
-							<?php echo '<span>'.T_("billing"). '</span>'; if(\dash\data::dataRow_bill()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?>
+							<?php echo '<span>'.T_("billing"). '</span>'; if(\dash\data::dataRow_bill()) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times text-red-800"></i>'; }?>
 						</div>
 					</div>
 				</div>

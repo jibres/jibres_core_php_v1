@@ -74,7 +74,7 @@
                     <div class="c mLa10"><?php echo $v?></div>
                   </div>
 
-                  <div class="value" data-ajaxify data-data='{"remove":"remove", "index": "<?php echo $k; ?>"}'><i class="sf-trash fc-red"></i></div>
+                  <div class="value" data-ajaxify data-data='{"remove":"remove", "index": "<?php echo $k; ?>"}'><i class="sf-trash text-red-800"></i></div>
                 </div>
               </li>
             <?php } //endif ?>

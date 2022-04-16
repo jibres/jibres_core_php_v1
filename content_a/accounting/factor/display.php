@@ -63,7 +63,7 @@
               </td>
               <td class="font-bold"><a href="<?php echo \dash\url::that(). \dash\request::full_get(['startdate' => \dash\fit::date_en(a($value, 'date')), 'enddate' => \dash\fit::date_en(a($value, 'date'))]) ?>"><?php echo \dash\fit::date(a($value, 'date')) ?></a></td>
               <td class="">
-                <?php if(a($value, 'status') === 'lock') { echo '<i class="inline-block sf-lock fc-red mRa10"></i>';} else { echo '<i class="inline-block sf-unlock text-green-700 mRa10"></i>';}  ?>
+                <?php if(a($value, 'status') === 'lock') { echo '<i class="inline-block sf-lock text-red-800 mRa10"></i>';} else { echo '<i class="inline-block sf-unlock text-green-700 mRa10"></i>';}  ?>
                 <a href="<?php echo \dash\url::that(). '?status='. a($value, 'status'); ?>"><?php echo T_(a($value, 'tstatus')) ?></a>
                 <?php if(a($value, 'type') === 'opening') { echo '<i class="fc-mute font-bold">'. T_("Opening Document"). '</i>';} ?>
               </td>
@@ -71,10 +71,10 @@
               <td class=""><?php echo T_(a($value, 'template_title')) ?></td>
 
               <td class="font-14 text-green-700"><span class="text-right font-bold"><?php echo \dash\fit::number_decimal(a($value, 'total'), 'en') ?></span></td>
-              <td class="font-14 fc-red"><span class="text-right font-bold"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>
-              <td class="font-14 fc-red"><span class="text-right font-bold"><?php echo \dash\fit::number_decimal(a($value, 'totalvat'), 'en') ?></span></td>
-              <td class="font-14 fc-red"><span class="text-right font-bold"><?php echo \dash\fit::number_decimal(floatval(a($value, 'total')) - floatval(a($value, 'discount')) + floatval(a($value, 'totalvat')), 'en') ?></span></td>
-              <td class="txtRa"><?php if(a($value, 'quarterlyreport') === 'yes') { echo '<a href="'.\dash\url::that(). \dash\request::full_get(['quarterlyreport' => 'yes']). '"><i class="sf-check text-green-700"></i></a>'; }else{ echo '<a href="'.\dash\url::that(). \dash\request::full_get(['quarterlyreport' => 'no']). '"><i class="sf-times fc-red"></i></a>'; } //endif ?></td>
+              <td class="font-14 text-red-800"><span class="text-right font-bold"><?php echo \dash\fit::number_decimal(a($value, 'totaldiscount'), 'en') ?></span></td>
+              <td class="font-14 text-red-800"><span class="text-right font-bold"><?php echo \dash\fit::number_decimal(a($value, 'totalvat'), 'en') ?></span></td>
+              <td class="font-14 text-red-800"><span class="text-right font-bold"><?php echo \dash\fit::number_decimal(floatval(a($value, 'total')) - floatval(a($value, 'discount')) + floatval(a($value, 'totalvat')), 'en') ?></span></td>
+              <td class="txtRa"><?php if(a($value, 'quarterlyreport') === 'yes') { echo '<a href="'.\dash\url::that(). \dash\request::full_get(['quarterlyreport' => 'yes']). '"><i class="sf-check text-green-700"></i></a>'; }else{ echo '<a href="'.\dash\url::that(). \dash\request::full_get(['quarterlyreport' => 'no']). '"><i class="sf-times text-red-800"></i></a>'; } //endif ?></td>
             </tr>
             <tr>
               <td class="pTB5-f" colspan="10"><?php if(a($value, 'gallery')) { echo '<i class="inline-block mRa10 sf-attach"></i>';} ?><?php echo a($value, 'desc') ?></td>

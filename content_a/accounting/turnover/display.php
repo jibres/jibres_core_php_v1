@@ -230,9 +230,9 @@
 
 
 					<td data-copy='<?php echo a($value, 'debtor') ?>' class="text-right ltr font-14 text-green-700"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></td>
-					<td data-copy='<?php echo a($value, 'creditor') ?>' class="text-right ltr font-14 fc-red"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></td>
+					<td data-copy='<?php echo a($value, 'creditor') ?>' class="text-right ltr font-14 text-red-800"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></td>
 					<?php if(\dash\url::subchild() === 'detail' or true) {?>
-					<td data-copy='<?php echo a($value, 'balance_now') ?>' class="text-right ltr font-14 font-bold <?php if(a($value, 'balance_now') < 0){ echo 'fc-red'; }else{ echo 'text-green-700';} ?>"><?php echo \dash\fit::number_decimal(a($value, 'balance_now'), 'en') ?></td>
+					<td data-copy='<?php echo a($value, 'balance_now') ?>' class="text-right ltr font-14 font-bold <?php if(a($value, 'balance_now') < 0){ echo 'text-red-800'; }else{ echo 'text-green-700';} ?>"><?php echo \dash\fit::number_decimal(a($value, 'balance_now'), 'en') ?></td>
 					<?php } //endif ?>
 
 				</tr>

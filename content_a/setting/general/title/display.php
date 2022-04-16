@@ -7,7 +7,7 @@ $storeData = \dash\data::store_store_data();
   <div class="avand-md">
     <div class="box">
       <div class="pad">
-        <label for="ititle"><?php echo T_("Title"); ?> <span class="fc-red">*</span></label>
+        <label for="ititle"><?php echo T_("Title"); ?> <span class="text-red-800">*</span></label>
         <div class="input">
           <input type="text" name="title" id="ititle"  value="<?php echo a($storeData, 'title'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1"  required>
         </div>

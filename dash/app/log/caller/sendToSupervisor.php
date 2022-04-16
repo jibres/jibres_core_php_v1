@@ -16,7 +16,7 @@ class sendToSupervisor
 
 		$result['icon']      = 'flag';
 		$result['cat']       = T_("Supervisor");
-		$result['iconClass'] = 'fc-red';
+		$result['iconClass'] = 'text-red-800';
 		$result['txt']       = self::get_msg($_args);
 		return $result;
 

@@ -77,7 +77,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
           <?php if(a($value,'domain_restricted')) {?>
             <div class="go ban nok"></div>
           <?php }elseif(!a($value,'domain_name_valid')) {?>
-            <div class="go invalid fc-red"></div>
+            <div class="go invalid text-red-800"></div>
           <?php }else{ ?>
             <div class="go detail nok"></div>
           <?php } //endif ?>

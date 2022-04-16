@@ -52,11 +52,11 @@ if(\dash\data::domainDetail_lock())
 }
 elseif(\dash\data::domainDetail_lock() == '0')
 {
- echo '<div class="fc-red"><span>'.T_("Unlocked"). '</span>'. '<i class="sf-unlock"></i></div>';
+ echo '<div class="text-red-800"><span>'.T_("Unlocked"). '</span>'. '<i class="sf-unlock"></i></div>';
 }
 else
 {
- echo '<div class="fc-red"><span>'.T_("Unknown"). '</span>'. '<i class="sf-question"></i></div>';
+ echo '<div class="text-red-800"><span>'.T_("Unknown"). '</span>'. '<i class="sf-question"></i></div>';
 
 }
 ?></div></td>
@@ -80,7 +80,7 @@ if(\dash\data::domainDetail_autorenew())
 }
 else
 {
- echo "<div class='ibtn wide fc-red'><span>". T_('Off'). "</span><i class='sf-times'></i></div>";
+ echo "<div class='ibtn wide text-red-800'><span>". T_('Off'). "</span><i class='sf-times'></i></div>";
 }
 ?></td>
      </tr>
@@ -104,7 +104,7 @@ if(\dash\data::domainDetail_verify())
 }
 else
 {
- echo "<div class='ibtn wide fc-red'><span>". T_('No'). "</span><i class='sf-times'></i></div>";
+ echo "<div class='ibtn wide text-red-800'><span>". T_('No'). "</span><i class='sf-times'></i></div>";
 }
 ?></td>
 
@@ -316,7 +316,7 @@ else
         <tbody>
           <?php foreach (\dash\data::NICdomainStatus() as $key => $value) {?>
             <tr <?php if(a($value, 'active')) {echo 'class="positive"';}else{echo 'class="negative"';} ?>>
-              <td><?php if(a($value, 'active')) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } ?></td>
+              <td><?php if(a($value, 'active')) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times text-red-800"></i><?php } ?></td>
               <td><?php echo a($value, 'status'); ?></td>
               <td><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></td>
               <td><?php echo \dash\fit::date_time(a($value, 'datemodified')); ?></td>
@@ -340,7 +340,7 @@ else
       <td>
         <?php echo T_("Available"); ?>
       </td>
-      <td class="txtRa ltr"><?php if(\dash\data::domainDetail_available()) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times fc-red"></i><?php } ?></td>
+      <td class="txtRa ltr"><?php if(\dash\data::domainDetail_available()) {?><i class="sf-check fc-green"></i><?php }else{ ?><i class="sf-times text-red-800"></i><?php } ?></td>
      </tr>
 
       <tr>

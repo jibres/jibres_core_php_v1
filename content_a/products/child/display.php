@@ -121,7 +121,7 @@ if($myChildList)
                     <?php } //endfor ?>
 
                      <tr class="addNewLine" data-kerkere-content='hide'>
-                        <td class="collapsing"><i class="sf-asterisk fc-red"></i></td>
+                        <td class="collapsing"><i class="sf-asterisk text-red-800"></i></td>
                         <?php if(a($value, 'optionname1')) {?>
                           <td>
                           <div class="input">

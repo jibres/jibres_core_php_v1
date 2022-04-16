@@ -11,7 +11,7 @@ class ticket_addNewTicket
 		$result['title']     = T_("New ticket");
 		$result['icon']      = 'life-ring';
 		$result['cat']       = T_("Support");
-		$result['iconClass'] = 'fc-red';
+		$result['iconClass'] = 'text-red-800';
 
 		$via = \dash\app\log\support_tools::via($_args);
 

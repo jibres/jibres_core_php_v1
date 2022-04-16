@@ -4,7 +4,7 @@
 				<div class="<?php if(\dash\url::content() === 'a') {echo 'box';} ?>">
 
 					<div class="body">
-						<label for="weight"><?php echo T_("Weight") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
+						<label for="weight"><?php echo T_("Weight") ?> <small class="text-red-800">* <?php echo T_("Required") ?></small></label>
 						<div class="input">
 							<input type="tel" id="weight" name="w" value="<?php echo \dash\request::get('w') ?>" data-format='weight' maxlength="7" required>
 							<label for="weight" class="addon"><?php echo T_("Gram") ?></label>

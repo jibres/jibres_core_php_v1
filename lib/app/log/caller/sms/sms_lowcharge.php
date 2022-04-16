@@ -18,7 +18,7 @@ class sms_lowcharge
 
 		$result['icon']      = 'battery-empty';
 		$result['cat']       = T_("SMS");
-		$result['iconClass'] = 'fc-red';
+		$result['iconClass'] = 'text-red-800';
 		$result['txt']       = self::get_msg($_args);
 		return $result;
 

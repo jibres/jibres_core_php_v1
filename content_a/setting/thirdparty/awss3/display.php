@@ -15,22 +15,22 @@
           <label for="istatus"><?php echo T_("Upload your file to AWS S3 platform") ?></label>
         </div>
         <div class="ltr" data-response='status' <?php if(!a($awss3, 'status')) { echo 'data-response-hide'; }; ?>>
-          <label for="iaccesskey">Accesskey <span class="fc-red">*</span></label>
+          <label for="iaccesskey">Accesskey <span class="text-red-800">*</span></label>
           <div class="input ltr">
             <input type="text" name="accesskey" id="iaccesskey" value="<?php echo a($awss3, 'accesskey'); ?>" maxlength='300' minlength="1">
           </div>
 
-          <label for="isecretkey">Secretkey <span class="fc-red">*</span></label>
+          <label for="isecretkey">Secretkey <span class="text-red-800">*</span></label>
           <div class="input ltr">
             <input type="text" name="secretkey" id="isecretkey" value="<?php echo a($awss3, 'secretkey'); ?>" maxlength='300' minlength="1">
           </div>
 
-          <label for="iendpoint">Endpoint <span class="fc-red">*</span></label>
+          <label for="iendpoint">Endpoint <span class="text-red-800">*</span></label>
           <div class="input ltr">
             <input type="text" name="endpoint" id="iendpoint" value="<?php echo a($awss3, 'endpoint'); ?>" maxlength='300' minlength="1">
           </div>
 
-          <label for="ibucket">Bucket <span class="fc-red">*</span></label>
+          <label for="ibucket">Bucket <span class="text-red-800">*</span></label>
           <div class="input ltr">
             <input type="text" name="bucket" id="ibucket" value="<?php echo a($awss3, 'bucket'); ?>" maxlength='300' minlength="1">
           </div>

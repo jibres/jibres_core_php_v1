@@ -197,7 +197,7 @@ class search
 
 		if($type === 'group')
 		{
-			$jsTree['icon'] = "sf-database fs14 fc-red";
+			$jsTree['icon'] = "sf-database fs14 text-red-800";
 		}
 
 		if($type === 'total')
@@ -331,7 +331,7 @@ class search
 		}
 		if(isset($_data['detailable']))
 		{
-			// $jsTree['icon'] = "sf-asterisk fc-red";
+			// $jsTree['icon'] = "sf-asterisk text-red-800";
 			$html .= ' <span title="'. T_("Detailable"). '" class="sf-asterisk"></span> ';
 		}
 

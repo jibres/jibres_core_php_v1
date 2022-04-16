@@ -48,20 +48,20 @@
             </td>
           <?php if(\dash\request::get('show') === 'col6') {?>
             <td data-copy='<?php echo a($value, 'opening_debtor'); ?>' class="text-sm ltr text-right text-green-700"><code><?php echo \dash\fit::number(a($value, 'opening_debtor'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a($value, 'opening_creditor'); ?>' class="text-sm ltr text-right fc-red"><code><?php echo \dash\fit::number(a($value, 'opening_creditor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a($value, 'opening_creditor'); ?>' class="text-sm ltr text-right text-red-800"><code><?php echo \dash\fit::number(a($value, 'opening_creditor'), true, 'en') ?></code></td>
             <td data-copy='<?php echo a($value, 'debtor'); ?>' class="text-sm ltr text-right text-green-700"><code><?php echo \dash\fit::number(a($value, 'debtor'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a($value, 'creditor'); ?>' class="text-sm ltr text-right fc-red"><code><?php echo \dash\fit::number(a($value, 'creditor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a($value, 'creditor'); ?>' class="text-sm ltr text-right text-red-800"><code><?php echo \dash\fit::number(a($value, 'creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
           <?php if(\dash\request::get('show') === 'col4' || !\dash\request::get('show')) {?>
             <td data-copy='<?php echo a($value, 'sum_debtor'); ?>' class="text-sm ltr text-right text-green-700"><code><?php echo \dash\fit::number(a($value, 'sum_debtor'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a($value, 'sum_creditor'); ?>' class="text-sm ltr text-right fc-red"><code><?php echo \dash\fit::number(a($value, 'sum_creditor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a($value, 'sum_creditor'); ?>' class="text-sm ltr text-right text-red-800"><code><?php echo \dash\fit::number(a($value, 'sum_creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
           <?php if(\dash\request::get('show') === 'balancesheet') {?>
             <td data-copy="<?php echo a($value, 'end_value') ?>" class="text-sm ltr text-right fc-black"></i><code><?php echo \dash\fit::number(a($value, 'end_value'), true, 'en') ?></code></td>
             <td data-copy="<?php echo a($value, 'opening') ?>" class="text-sm ltr text-right fc-black"></i><code><?php echo \dash\fit::number(a($value, 'opening'), true, 'en') ?></code></td>
           <?php }else{ ?>
             <td data-copy='<?php echo a($value, 'remain_debtor'); ?>' class="text-sm ltr text-right text-green-700"><code><?php echo \dash\fit::number(a($value, 'remain_debtor'), true, 'en') ?></code></td>
-            <td data-copy='<?php echo a($value, 'remain_creditor'); ?>' class="text-sm ltr text-right fc-red"><code><?php echo \dash\fit::number(a($value, 'remain_creditor'), true, 'en') ?></code></td>
+            <td data-copy='<?php echo a($value, 'remain_creditor'); ?>' class="text-sm ltr text-right text-red-800"><code><?php echo \dash\fit::number(a($value, 'remain_creditor'), true, 'en') ?></code></td>
           <?php } //endif ?>
         </tr>
       <?php } //endif ?>

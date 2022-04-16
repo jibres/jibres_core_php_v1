@@ -39,7 +39,7 @@ foreach (\dash\data::dataTable() as $key => $value)
     }
     elseif(isset($value['lock']) && $value['lock'] == 0)
     {
-      $result .= '<i class="sf-unlock s0 fc-red" title="'. T_("Domain is Unlock").'"></i>';
+      $result .= '<i class="sf-unlock s0 text-red-800" title="'. T_("Domain is Unlock").'"></i>';
     }
     else
     {

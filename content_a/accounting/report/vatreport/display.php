@@ -161,7 +161,7 @@ if(!$thisQurarter)
 					<tbody>
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(1) ?></td>
-							<td class=""><?php echo T_("<b>Total</b> vat payed") ?> <small class="fc-red"><?php echo T_("This section calculate automatic") ?></small></td>
+							<td class=""><?php echo T_("<b>Total</b> vat payed") ?> <small class="text-red-800"><?php echo T_("This section calculate automatic") ?></small></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?>"></div></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?>"></div></td>
 
@@ -174,7 +174,7 @@ if(!$thisQurarter)
 						</tr>
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(3) ?></td>
-							<td class=""><?php echo T_("<b>Remain</b> vat refundable") ?> <small class="fc-red"><?php echo T_("This section calculate automatic") ?></small></td>
+							<td class=""><?php echo T_("<b>Remain</b> vat refundable") ?> <small class="text-red-800"><?php echo T_("This section calculate automatic") ?></small></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?>"></div></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?>"></div></td>
 
@@ -216,7 +216,7 @@ if(!$thisQurarter)
 						</tr>
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(4) ?></td>
-							<td class=""><?php echo T_("Total remain. Negative number if creditor") ?> <small class="fc-red"><?php echo T_("This section calculate automatic") ?></small></td>
+							<td class=""><?php echo T_("Total remain. Negative number if creditor") ?> <small class="text-red-800"><?php echo T_("This section calculate automatic") ?></small></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'remainvat6'); ?>'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'remainvat6'), true, 'en') ?>"></div></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'remainvat3'); ?>'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'remainvat3'), true, 'en') ?>"></div></td>
 						</tr>

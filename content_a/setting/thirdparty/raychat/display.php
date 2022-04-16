@@ -9,7 +9,7 @@
             <p><?php echo T_("Raychat is a free customer messaging platform. Chat with your customers and make them a loyal customer.") ?></p>
           </div>
 
-          <label for="iraychat"><?php echo T_("Raychat Token"); ?> <span class="fc-red">*</span></label>
+          <label for="iraychat"><?php echo T_("Raychat Token"); ?> <span class="text-red-800">*</span></label>
           <div class="input ltr">
             <input type="text" name="addon_raychat" id="iraychat" value="<?php echo a($storeData, 'addon_raychat'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1">
           </div>

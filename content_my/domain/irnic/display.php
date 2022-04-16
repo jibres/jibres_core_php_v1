@@ -60,13 +60,13 @@ else
 
 				</td>
 				<td class="collapsing">
-					<div class="ibtn wide"><?php echo '<span>'.T_("Holder"). '</span>'; if(isset($value['holder']) && $value['holder']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div></td>
+					<div class="ibtn wide"><?php echo '<span>'.T_("Holder"). '</span>'; if(isset($value['holder']) && $value['holder']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times text-red-800"></i>'; }?></div></td>
 				<td class="collapsing">
-					<div class="ibtn wide"><?php echo '<span>'.T_("Admin"). '</span>'; if(isset($value['admin']) && $value['admin']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div></td>
+					<div class="ibtn wide"><?php echo '<span>'.T_("Admin"). '</span>'; if(isset($value['admin']) && $value['admin']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times text-red-800"></i>'; }?></div></td>
 				<td class="collapsing">
-					<div class="ibtn wide"><?php echo '<span>'.T_("Technical"). '</span>'; if(isset($value['tech']) && $value['tech']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div></td>
+					<div class="ibtn wide"><?php echo '<span>'.T_("Technical"). '</span>'; if(isset($value['tech']) && $value['tech']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times text-red-800"></i>'; }?></div></td>
 				<td class="collapsing">
-					<div class="ibtn wide"><?php echo '<span>'.T_("billing"). '</span>'; if(isset($value['bill']) && $value['bill']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times fc-red"></i>'; }?></div>
+					<div class="ibtn wide"><?php echo '<span>'.T_("billing"). '</span>'; if(isset($value['bill']) && $value['bill']) { echo '<i class="sf-check fc-green"></i>'; } else{ echo '<i class="sf-times text-red-800"></i>'; }?></div>
 				</td>
 			</tr>
 			<?php } //endfor ?>

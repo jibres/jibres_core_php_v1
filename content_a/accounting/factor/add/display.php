@@ -313,7 +313,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
                 <td data-copy='<?php echo $total; ?>' class="text-sm ltr fc-black"><code><?php echo \dash\fit::number($total, true, 'en') ?></code></td>
                 <td data-copy='<?php echo $totaldiscount; ?>' class="text-sm ltr fc-black"><code><?php echo \dash\fit::number($totaldiscount, true, 'en') ?></code></td>
                 <td data-copy='<?php echo $total_after_discount; ?>' class="text-sm ltr fc-black"><code><?php echo \dash\fit::number($total_after_discount, true, 'en') ?></code></td>
-                <td data-copy='<?php echo $totalvat; ?>' class="text-sm ltr fc-red"><code><?php echo \dash\fit::number($totalvat, true, 'en') ?></code></td>
+                <td data-copy='<?php echo $totalvat; ?>' class="text-sm ltr text-red-800"><code><?php echo \dash\fit::number($totalvat, true, 'en') ?></code></td>
                 <td data-copy='<?php echo $final; ?>' class="text-sm ltr font-bold text-green-700"><code><?php echo \dash\fit::number($final, true, 'en') ?></code></td>
               </tr>
             </tbody>

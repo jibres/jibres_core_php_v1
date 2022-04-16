@@ -10,7 +10,7 @@
             <p><?php echo T_("By adding Tidio Chat to your store you empower your customers with the quickest and most effective form of contact. Research shows that live chat can boost sales by as much as 40%. Next time your customer faces an issue, they won’t go to the competitors or waste time - they’ll contact you."); ?></p>
           </div>
 
-          <label for="itidio">Tidio Project ID <span class="fc-red">*</span></label>
+          <label for="itidio">Tidio Project ID <span class="text-red-800">*</span></label>
           <div class="input ltr">
             <input type="text" name="addon_tidio" id="itidio" value="<?php echo a($storeData, 'addon_tidio'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1">
           </div>

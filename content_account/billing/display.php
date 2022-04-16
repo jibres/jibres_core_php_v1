@@ -47,7 +47,7 @@ if(a($value, 'token') && !a($value, 'verify_again'))
 <?php if(isset($value['verify']) && $value['verify']) {?>
           <i class="sf-check fc-green"></i>
 <?php }else{ ?>
-          <i class="sf-times fc-red"></i>
+          <i class="sf-times text-red-800"></i>
 <?php } //endif ?>
           <div class="key"><?php echo a($value, 'title'); ?>
           </div>

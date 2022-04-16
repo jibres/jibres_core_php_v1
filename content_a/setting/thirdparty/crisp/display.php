@@ -9,7 +9,7 @@
             <p><?php echo T_("Crisp Live Chat is a free and beautiful chat for your website. Crisp allows you to embed a free live chat module to your website and let site visitors chat with you."); ?></p>
           </div>
 
-          <label for="itawk">Crisp Website ID <span class="fc-red">*</span></label>
+          <label for="itawk">Crisp Website ID <span class="text-red-800">*</span></label>
           <div class="input ltr">
             <input type="text" name="addon_crisp" id="itawk" value="<?php echo a($storeData, 'addon_crisp'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1">
           </div>

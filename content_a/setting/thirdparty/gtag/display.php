@@ -9,7 +9,7 @@
           <p><?php echo T_("Google Analytics is a web analytics service offered by Google that tracks and reports website traffic, currently as a platform inside the Google Marketing Platform brand. As of 2019, Google Analytics is the most widely used web analytics service on the web. Google Analytics provides an SDK that allows gathering usage data from iOS and Android app, known as Google Analytics for Mobile Apps."); ?></p>
         </div>
 
-          <label for="igoogleanalytics"><?php echo T_("Your Google Analytics Tracking ID"); ?> <span class="fc-red">*</span></label>
+          <label for="igoogleanalytics"><?php echo T_("Your Google Analytics Tracking ID"); ?> <span class="text-red-800">*</span></label>
           <div class="input ltr">
             <input type="text" name="google_analytics" id="igoogleanalytics" placeholder="UA-123456789-0"  value="<?php echo a($storeData, 'google_analytics'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='20' minlength="1">
           </div>

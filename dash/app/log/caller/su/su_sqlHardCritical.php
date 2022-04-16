@@ -12,7 +12,7 @@ class su_sqlHardCritical
 		$result['title']     = T_("Critical query!");
 		$result['icon']      = 'bug-2';
 		$result['cat']       = T_("Query");
-		$result['iconClass'] = 'fc-red';
+		$result['iconClass'] = 'text-red-800';
 
 		$excerpt .= ' ';
 		$excerpt .=	'<a class="badge warn" href="'.\dash\url::kingdom(). '/sudo/log">';

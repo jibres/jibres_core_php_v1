@@ -30,7 +30,7 @@
 <?php echo \dash\utility\location::pack(\dash\data::dataRowAddress_country(), \dash\data::dataRowAddress_province(), \dash\data::dataRowAddress_city()); ?>
 
 
-      <label for="address"><?php echo T_("Address"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
+      <label for="address"><?php echo T_("Address"); ?> <small class="text-red-800"><?php echo T_("Require"); ?></small></label>
       <textarea class="txt mb-2 pB25" name="address" required maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
 
       <label for="postcode"><?php echo T_("Post code"); ?></label>

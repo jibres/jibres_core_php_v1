@@ -118,7 +118,7 @@
                     <td><?php echo a($value, 'content'); ?></td>
                     <td class="collapsing"><?php echo T_(ucfirst(a($value, 'privacy'))); ?></td>
                     <td class="collapsing"><?php echo \dash\fit::date_time(a($value, 'datecreated'));?></td>
-                    <td class="collapsing"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo a($value, 'id') ?>"}' class=""><i class="sf-trash fc-red"></i></div></td>
+                    <td class="collapsing"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo a($value, 'id') ?>"}' class=""><i class="sf-trash text-red-800"></i></div></td>
                   </tr>
               <?php } //endfor ?>
 

@@ -18,7 +18,7 @@
 				<div class="detail f">
 					<div class="cauto"><i class="sf-certificate"></i><?php echo a($value, 'displayname'); ?></div>
 					<div class="cauto os">
-						<span data-confirm data-data='{"removenote": "removenote", "noteid" : "<?php echo a($value, 'id') ?>"}'><i class="sf-trash fc-red font-16"></i></span>
+						<span data-confirm data-data='{"removenote": "removenote", "noteid" : "<?php echo a($value, 'id') ?>"}'><i class="sf-trash text-red-800 font-16"></i></span>
 						<i class="sf-calendar-o pRa5"></i><?php echo \dash\fit::date_time($value['datecreated']); ?>
 					</div>
 				</div>

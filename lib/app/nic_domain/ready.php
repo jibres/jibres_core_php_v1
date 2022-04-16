@@ -138,7 +138,7 @@ class ready
 							$status_text = T_("Reject");
 							$status_icon = 'times nok';
 
-							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Reject").'</span><i class="sf-times fc-red"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Reject").'</span><i class="sf-times text-red-800"></i></div>';
 							unset($other_status[array_search('irnicRegistrationRejected', $other_status)]);
 						}
 
@@ -170,7 +170,7 @@ class ready
 						{
 							$status_text = T_("Locked");
 							$status_icon = 'detail nok';
-							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Locked").'</span><i class="sf-lock fc-red"></i></div>';
+							$status_html =  '<div class="ibtn x30 wide"><span>'. T_("Locked").'</span><i class="sf-lock text-red-800"></i></div>';
 							unset($other_status[array_search('irnicLocked', $other_status)]);
 						}
 

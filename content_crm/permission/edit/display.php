@@ -51,7 +51,7 @@ if(!is_array($permissionList))
 
           <span><?php echo T_("Disallow to") ?></span>
            <?php if(isset($savedPerm[$key]['disallow_access_title'])) { foreach ($savedPerm[$key]['disallow_access_title'] as $disallow_access_title) {?>
-            <span class="badge light fc-red"><?php echo $disallow_access_title ?></span>
+            <span class="badge light text-red-800"><?php echo $disallow_access_title ?></span>
           <?php } /*endfor*/ } //endif ?>
         </div>
 

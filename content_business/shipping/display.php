@@ -131,7 +131,7 @@ $myCart = \dash\data::myCart();
         </div>
 
         <div class="c-6 c-xs-12">
-          <label for="xmd"><?php echo T_("Mobile"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
+          <label for="xmd"><?php echo T_("Mobile"); ?> <small class="text-red-800"><?php echo T_("Require"); ?></small></label>
           <div class="input">
             <input type="tel" name="xmd" id="xmd" value="<?php if(\dash\data::dataRowAddress_mobile()) { echo \dash\data::dataRowAddress_mobile(); }elseif(\dash\data::dataRowMember_mobile()){ echo \dash\data::dataRowMember_mobile();}elseif(!\dash\data::dataRowAddress()){ echo \dash\user::detail('mobile');} ?>" data-format="tel">
           </div>
@@ -165,7 +165,7 @@ $myCart = \dash\data::myCart();
         </select>
       </div>
 
-      <label for="xad"><?php echo T_("Address"); ?> <small class="fc-red"><?php echo T_("Require"); ?></small></label>
+      <label for="xad"><?php echo T_("Address"); ?> <small class="text-red-800"><?php echo T_("Require"); ?></small></label>
       <textarea class="txt mb-2 pB25" name="xad"  maxlength='300' rows="2"><?php echo \dash\data::dataRowAddress_address(); ?></textarea>
 
 

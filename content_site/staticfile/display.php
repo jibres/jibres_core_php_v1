@@ -8,7 +8,7 @@
         </p>
         <div class="row ">
           <div class="c-xs-12 c">
-            <label for="filename"><?php echo T_("File name"); ?> <span class="fc-red">* <?php echo T_("Required") ?></span></label>
+            <label for="filename"><?php echo T_("File name"); ?> <span class="text-red-800">* <?php echo T_("Required") ?></span></label>
             <div class="input ltr">
               <input placeholder="For example: 123456.html" type="text" name="filename" id="filename" <?php \dash\layout\autofocus::html() ?> required maxlength='50' minlength="1" >
             </div>

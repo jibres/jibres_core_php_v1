@@ -33,7 +33,7 @@
           <?php } //endif ?>
           <?php if(!a($storeData, 'samandehi_link1')) {?>
 
-            <label for="isamandehi"><?php echo T_("Samandehi Script"); ?> <span class="fc-red">*</span></label>
+            <label for="isamandehi"><?php echo T_("Samandehi Script"); ?> <span class="text-red-800">*</span></label>
             <textarea class="txt ltr text-left" rows="5" name="html" id="isamandehi" <?php \dash\layout\autofocus::html() ?> maxlength='5000' minlength="1"  required placeholder='<?php echo T_("Paste you Samandehi code here") ?>'></textarea>
           <?php } //endif ?>
         </div>

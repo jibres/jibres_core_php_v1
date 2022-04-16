@@ -257,7 +257,7 @@ $storeData = \dash\data::store_store_data();
     <div class="data">
       <h3><?php echo T_("Disallow search engines to index website");?></h3>
       <div class="body">
-        <p class="fc-red"><?php echo T_("If this feature is turned on, the search engine will be asked not to check your site");?></p>
+        <p class="text-red-800"><?php echo T_("If this feature is turned on, the search engine will be asked not to check your site");?></p>
       </div>
     </div>
   </div>

@@ -48,7 +48,7 @@ if(\dash\data::dataTableAll())
 
 			if(floatval($summary['debtor']) === floatval($summary['creditor']))
 			{
-				\dash\data::equalICON('<i class="mLR5 sf-check-circle fc-red fs12 p-0"></i>');
+				\dash\data::equalICON('<i class="mLR5 sf-check-circle text-red-800 fs12 p-0"></i>');
 			}
 			elseif(floatval($summary['debtor']) > floatval($summary['creditor']))
 			{

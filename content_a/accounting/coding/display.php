@@ -95,12 +95,12 @@
         <tr class="hide">
           <td colspan="4">
           	<?php if(false) {?>
-              <div class="badge light"><?php if(\dash\data::loadDetail_naturecontrol()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("naturecontrol"); ?></span></div>
+              <div class="badge light"><?php if(\dash\data::loadDetail_naturecontrol()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times text-red-800"></i>';} ?> <span><?php echo T_("naturecontrol"); ?></span></div>
           <?php } //endif ?>
-              <div class="badge light"><?php if(\dash\data::loadDetail_exchangeable()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("exchangeable"); ?></span></div>
-              <div class="badge light"><?php if(\dash\data::loadDetail_followup()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("followup"); ?></span></div>
-              <div class="badge light"><?php if(\dash\data::loadDetail_currency()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("Accounting currency"); ?></span></div>
-              <div class="badge light"><?php if(\dash\data::loadDetail_detailable()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times fc-red"></i>';} ?> <span><?php echo T_("Detailable"); ?></span></div>
+              <div class="badge light"><?php if(\dash\data::loadDetail_exchangeable()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times text-red-800"></i>';} ?> <span><?php echo T_("exchangeable"); ?></span></div>
+              <div class="badge light"><?php if(\dash\data::loadDetail_followup()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times text-red-800"></i>';} ?> <span><?php echo T_("followup"); ?></span></div>
+              <div class="badge light"><?php if(\dash\data::loadDetail_currency()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times text-red-800"></i>';} ?> <span><?php echo T_("Accounting currency"); ?></span></div>
+              <div class="badge light"><?php if(\dash\data::loadDetail_detailable()) {echo '<i class="sf-check text-green-700"></i>';}else{echo '<i class="sf-times text-red-800"></i>';} ?> <span><?php echo T_("Detailable"); ?></span></div>
           </td>
 
         </tr>
@@ -151,11 +151,11 @@
 								<?php if(\dash\data::loadDetail_type() === 'assistant' ) {?>
 									<tr>
 										<td colspan="2">
-											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_naturecontrol()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("naturecontrol"); ?></span></div>
-											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_exchangeable()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("exchangeable"); ?></span></div>
-											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_followup()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("followup"); ?></span></div>
-											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_currency()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("Accounting currency"); ?></span></div>
-											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_detailable()) {echo '<i class="sf-check fc-red"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("Detailable"); ?></span></div>
+											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_naturecontrol()) {echo '<i class="sf-check text-red-800"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("naturecontrol"); ?></span></div>
+											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_exchangeable()) {echo '<i class="sf-check text-red-800"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("exchangeable"); ?></span></div>
+											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_followup()) {echo '<i class="sf-check text-red-800"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("followup"); ?></span></div>
+											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_currency()) {echo '<i class="sf-check text-red-800"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("Accounting currency"); ?></span></div>
+											<div class="ibtn mT5"><?php if(\dash\data::loadDetail_detailable()) {echo '<i class="sf-check text-red-800"></i>';}else{echo '<i class="sf-times text-green-700"></i>';} ?> <span><?php echo T_("Detailable"); ?></span></div>
 										</td>
 									</tr>
 								<?php } //endif ?>

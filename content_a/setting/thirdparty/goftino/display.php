@@ -8,7 +8,7 @@
           <div class="alert2">
             <p><?php echo T_("Goftino is a communication service to chat with customers on your website and answer questions upon their behaviors.") ?></p>
           </div>
-          <label for="igoftino"><?php echo T_("Goftino ID"); ?> <span class="fc-red">*</span></label>
+          <label for="igoftino"><?php echo T_("Goftino ID"); ?> <span class="text-red-800">*</span></label>
           <div class="input ltr">
             <input type="text" name="addon_goftino" id="igoftino" value="<?php echo a($storeData, 'addon_goftino'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1">
           </div>

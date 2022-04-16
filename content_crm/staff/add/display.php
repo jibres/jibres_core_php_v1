@@ -2,7 +2,7 @@
 <div class="avand-sm">
 	<div class="box">
 		<div class="body">
-			<label for="displayname"><?php echo T_("Name"); ?> <b class="fc-red">*</b></label>
+			<label for="displayname"><?php echo T_("Name"); ?> <b class="text-red-800">*</b></label>
 			<div class="input">
 			  <input type="text" name="displayname" id="displayname"  maxlength='50' required>
 			</div>

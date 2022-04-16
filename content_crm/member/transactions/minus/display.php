@@ -6,7 +6,7 @@
         <div class="alert-danger minimal">
           <p class=""><?php echo T_("You try to Reduce account recharge to customer account") ?></p>
         </div>
-        <label for="title"><?php echo T_("Title") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
+        <label for="title"><?php echo T_("Title") ?> <small class="text-red-800">* <?php echo T_("Required") ?></small></label>
         <div class="input">
           <input type="text" name="title" required  maxlength="200">
         </div>
@@ -24,7 +24,7 @@
           </div>
 
 
-        <label for="amount"><?php echo T_("Amount") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
+        <label for="amount"><?php echo T_("Amount") ?> <small class="text-red-800">* <?php echo T_("Required") ?></small></label>
         <div class="input">
           <input type="tel" name="amount" required data-format='price' maxlength="15">
         </div>

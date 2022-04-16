@@ -183,7 +183,7 @@ echo $html;
 <?php if(!$is_homepage && \dash\permission::check('removeSiteBuilderPage')) {?>
   <div class='mt-10'>
     <hr class='mb-5'>
-    <div class='fc-red'><?php echo T_('Remove page and all section') ?></div>
+    <div class='text-red-800'><?php echo T_('Remove page and all section') ?></div>
     <div class='check1'>
       <input type='checkbox' name='readydelete' id='readydelete'>
       <label for='readydelete'><?php echo T_('Are you sure to remove this page?'); ?></label>

@@ -6,7 +6,7 @@
 		<form method="post" autocomplete="off" id="form1">
 			<div class="box">
 				<div class="pad">
-					<label for="ititle"><?php echo T_("Title") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
+					<label for="ititle"><?php echo T_("Title") ?> <small class="text-red-800">* <?php echo T_("Required") ?></small></label>
 					<div class="input">
 						<input type="text" id="ititle" name="title" value="<?php echo \dash\data::dataRow_title(); ?>">
 					</div>

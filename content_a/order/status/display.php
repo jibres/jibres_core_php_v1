@@ -125,7 +125,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="body">
-        <h6 class="fc-red"><?php echo T_("Remove order") ?></h6>
+        <h6 class="text-red-800"><?php echo T_("Remove order") ?></h6>
         <div><?php echo T_("It is not possible to return the order after deleting it. Order information is locked and only visible") ?></div>
       </div>
       <footer class="txtRa">

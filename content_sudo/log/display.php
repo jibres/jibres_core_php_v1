@@ -4,7 +4,7 @@
     <?php foreach (\dash\data::logList() as $key => $value) {?>
 
       <div class="c4 s12">
-          <a class="dcard x1 fc-red"  href='<?php echo \dash\url::this(); ?>?folder=<?php echo a($value, 'name'); ?>'>
+          <a class="dcard x1 text-red-800"  href='<?php echo \dash\url::this(); ?>?folder=<?php echo a($value, 'name'); ?>'>
            <div class="statistic ">
             <div class="value "><i class="sf-<?php echo a($value, 'icon'); ?>"></i></div>
             <div class="label"><?php echo a($value, 'name'); ?></div>

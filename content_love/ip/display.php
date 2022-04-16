@@ -7,7 +7,7 @@
   <div class="c">
     <a href="<?php echo \dash\url::this(). '?folder='. $key ?>" class="stat">
 
-      <h3><?php echo $key ?> <i data-confirm data-data='{"remove":"<?php echo $key ?>"}' class="sf-trash fc-red"></i></h3>
+      <h3><?php echo $key ?> <i data-confirm data-data='{"remove":"<?php echo $key ?>"}' class="sf-trash text-red-800"></i></h3>
       <div class="val"><?php echo \dash\fit::number_en($value);?></div>
     </a>
   </div>

@@ -27,7 +27,7 @@ function rutime($ru, $rus, $index) {
     return ($ru["ru_$index.tv_sec"]*1000 + intval($ru["ru_$index.tv_usec"]/1000))
      -  ($rus["ru_$index.tv_sec"]*1000 + intval($rus["ru_$index.tv_usec"]/1000));
 }
-echo "<pre class='box fc-red pA20'>";
+echo "<pre class='box text-red-800 pA20'>";
 
 echo "This process used " . rutime($dat, $rustart, "utime") .
     " ms for its computations\n";

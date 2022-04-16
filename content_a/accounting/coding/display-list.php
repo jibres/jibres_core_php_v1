@@ -120,7 +120,7 @@
           <td class="collapsing"><span class="font-bold"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
           <td><?php echo a($value, 'title') ?></td>
           <td><?php echo a($value, 'nature') ?></td>
-          <td><?php if(a($value, 'detailable')){?><i class="sf-check fc-red"></i><?php }// endif ?></td>
+          <td><?php if(a($value, 'detailable')){?><i class="sf-check text-red-800"></i><?php }// endif ?></td>
           <td class="collapsing"><a class="btn-link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>"><?php echo T_("Edit") ?></a></td>
         </tr>
       <?php } //endif ?>

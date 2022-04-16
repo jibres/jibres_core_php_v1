@@ -110,7 +110,7 @@ echo "<div class='btn ". $btnclass. "' data-ajaxify data-data='". $json . "' dat
     <div class="data">
       <h3><?php echo T_("Remove ticket");?></h3>
       <div class="body">
-        <p class="fc-red">
+        <p class="text-red-800">
           <?php echo T_("Remove ticket with all conversations") ?>
         </p>
       </div>

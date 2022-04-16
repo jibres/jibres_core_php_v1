@@ -57,14 +57,14 @@
                   <td class="collapsing"><?php echo a($value, 'desc') ?></td>
                <?php } //endif ?>
               <td data-copy='<?php echo a($value, 'debtor'); ?>' class="ltr text-right text-green-700"><code class="font-bold"><?php echo \dash\fit::number_decimal(a($value, 'debtor'), 'en') ?></code></td>
-              <td data-copy='<?php echo a($value, 'creditor'); ?>' class="ltr text-right fc-red"><code class="font-bold"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
+              <td data-copy='<?php echo a($value, 'creditor'); ?>' class="ltr text-right text-red-800"><code class="font-bold"><?php echo \dash\fit::number_decimal(a($value, 'creditor'), 'en') ?></code></td>
               <?php if($locDelMode) {}else{?>
               <td class="p0 txtRa">
                 <?php if(\dash\request::get('did') == a($value, 'id')) {?>
                   <span class="fc-mute"><i><?php echo T_("Editing") ?>...</i></span>
                 <?php }else{ ?>
                 <a class="btn-link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. a($value, 'id') ?>"><?php echo T_("Edit") ?></a>
-                <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo a($value, 'id') ?>"}'><i class="sf-trash fc-red fs12"></i></sapn>
+                <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo a($value, 'id') ?>"}'><i class="sf-trash text-red-800 fs12"></i></sapn>
               <?php } //endif ?>
               </td>
               <?php } //endif ?>
@@ -98,7 +98,7 @@
       <div class="f">
         <div class="cauto"><?php echo \dash\data::deptorICON(); ?><?php echo T_("Total"). ' '. T_("Debtor"); ?> <span class="font-bold text-green-700"><?php echo \dash\fit::number_decimal(\dash\data::summary_debtor()); ?> </span></div>
         <div class="c text-center"><?php echo \dash\data::equalICON(); ?></div>
-        <div class="cauto"><?php echo T_("Total"). ' '.T_("Creditor"); ?> <span class="font-bold fc-red"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor()); ?></span> <?php echo \dash\data::creditorICON(); ?></div>
+        <div class="cauto"><?php echo T_("Total"). ' '.T_("Creditor"); ?> <span class="font-bold text-red-800"><?php echo \dash\fit::number_decimal(\dash\data::summary_creditor()); ?></span> <?php echo \dash\data::creditorICON(); ?></div>
       </div>
     </footer>
   </form>

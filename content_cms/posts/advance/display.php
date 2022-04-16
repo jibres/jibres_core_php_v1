@@ -71,7 +71,7 @@ $myID = '?id='. \dash\request::get('id');
       <div class="c"></div>
       <div class="cauto">
         <?php if(\dash\data::dataRow_cover()) {?>
-         <div data-confirm data-data='{"remove_cover": "remove_cover"}' class="link fc-red"><?php echo T_("Remove post cover") ?></div>
+         <div data-confirm data-data='{"remove_cover": "remove_cover"}' class="link text-red-800"><?php echo T_("Remove post cover") ?></div>
         <?php } //endif ?>
       </div>
     </div>
@@ -241,7 +241,7 @@ $myID = '?id='. \dash\request::get('id');
         <h3><?php echo T_("Remove post"); ?></h3>
         <div class="body">
         <?php if(\dash\data::dataRow_status() === 'publish') {?>
-          <p class="fc-red"><?php echo T_("Can not remove post when published. You must be change your post status to draft and then can remove it.");?></p>
+          <p class="text-red-800"><?php echo T_("Can not remove post when published. You must be change your post status to draft and then can remove it.");?></p>
         <?php }else{ ?>
           <p><?php echo T_("Are your sure to remove this post?");?></p>
         <?php } ?>

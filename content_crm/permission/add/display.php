@@ -2,7 +2,7 @@
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="pad">
-        <label for="title"><?php echo T_("Permission Title") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
+        <label for="title"><?php echo T_("Permission Title") ?> <small class="text-red-800">* <?php echo T_("Required") ?></small></label>
         <div class="input">
           <input type="text" name="title" id="title" required>
         </div>

@@ -105,7 +105,7 @@ class ready
 
 						case 'domain_unlock':
 							$result['title'] = T_("Unlock domain");
-							$result['icon']    = '<i class="sf-unlock fc-red"></i>';
+							$result['icon']    = '<i class="sf-unlock text-red-800"></i>';
 							break;
 
 						case 'domain_lock':
@@ -116,7 +116,7 @@ class ready
 
 						case 'changedns':
 							$result['title'] = T_("Change domain dns");
-							$result['icon']    = '<i class="sf-cogs fc-red"></i>';
+							$result['icon']    = '<i class="sf-cogs text-red-800"></i>';
 							break;
 
 						case 'updateholder':
@@ -136,7 +136,7 @@ class ready
 
 						case 'register_failed':
 							$result['title'] = T_("Register domain failed");
-							$result['icon']    = '<i class="sf-info-circle fs12 fc-red"></i>';
+							$result['icon']    = '<i class="sf-info-circle fs12 text-red-800"></i>';
 							break;
 
 						case 'domain_enable_autorenew':
@@ -146,7 +146,7 @@ class ready
 
 						case 'domain_disable_autorenew':
 							$result['title'] = T_("Disable domain auto renew");
-							$result['icon']    = '<i class="sf-info-circle fs12 fc-red"></i>';
+							$result['icon']    = '<i class="sf-info-circle fs12 text-red-800"></i>';
 							break;
 
 						case 'domain_tranfer_pay_link':
@@ -167,7 +167,7 @@ class ready
 						case 'renew_failed':
 						case 'renew_faled':
 							$result['title'] = T_("Renew domain failed");
-							$result['icon']    = '<i class="sf-info-circle fs12 fc-red"></i>';
+							$result['icon']    = '<i class="sf-info-circle fs12 text-red-800"></i>';
 							break;
 
 						case 'domain_transfer_ready':
@@ -182,7 +182,7 @@ class ready
 
 						case 'transfer_failed':
 							$result['title'] = T_("Transfer domain failed");
-							$result['icon']    = '<i class="sf-info-circle fs12 fc-red"></i>';
+							$result['icon']    = '<i class="sf-info-circle fs12 text-red-800"></i>';
 							break;
 
 						case 'nic_contact_default_set':
@@ -197,7 +197,7 @@ class ready
 
 						case 'autorenew_failed':
 							$result['title'] = T_("Auto renew failed");
-							$result['icon']    = '<i class="sf-refresh fs12 fc-red"></i>';
+							$result['icon']    = '<i class="sf-refresh fs12 text-red-800"></i>';
 							break;
 
 						case 'domain_transfer_pay_link':

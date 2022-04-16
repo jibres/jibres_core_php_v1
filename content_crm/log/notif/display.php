@@ -41,7 +41,7 @@
 
               </div>
               <?php if(\dash\permission::supervisor()) {?>
-              <div class="cauto fc-red">
+              <div class="cauto text-red-800">
                 <?php echo a($value, 'urlkingdom'). '/'. a($value, 'urldir'); ?>
               </div>
             <?php } //endif ?>

@@ -1,9 +1,9 @@
 <div class="ltr">
-	<label for="fullname">Full name <small class="fc-red">* Required</small></label>
+	<label for="fullname">Full name <small class="text-red-800">* Required</small></label>
 	<div class="input ltr">
 		<input type="text" name="fullname" value="<?php echo \dash\data::userSettingDataRow_fullname(); ?>" placeholder2="<?php echo T_("Full name"); ?>" id="fullname" maxlength="60">
 	</div>
-	<label for="iemail">Email <small class="fc-red">* Required</small></label>
+	<label for="iemail">Email <small class="text-red-800">* Required</small></label>
 	<div class="input ltr">
 		<input type="email" name="email" value="<?php echo \dash\data::userSettingDataRow_email(); ?>" placeholder2="<?php echo T_("Email"); ?>" id="iemail" maxlength="60">
 	</div>

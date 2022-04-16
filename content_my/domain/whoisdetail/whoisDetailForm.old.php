@@ -8,13 +8,13 @@
 <?php } //endif ?>
 <div class="f">
 	<div class="c6 s12 pLa5">
-		<label for="fullname">Full name <small class="fc-red">* Required</small></label>
+		<label for="fullname">Full name <small class="text-red-800">* Required</small></label>
 		<div class="input ltr">
 			<input type="text" name="fullname" value="<?php echo \dash\data::userSettingDataRow_fullname(); ?>" placeholder2="<?php echo T_("Full name"); ?>" id="fullname" maxlength="60">
 		</div>
 	</div>
 	<div class="c6 s12">
-		<label for="org">Organization <small class="fc-red">* Required</small></label>
+		<label for="org">Organization <small class="text-red-800">* Required</small></label>
 		<div class="input ltr">
 			<input type="text" name="org" value="<?php echo \dash\data::userSettingDataRow_company(); ?>" placeholder2="<?php echo T_("Organization"); ?>" id="org" maxlength="60">
 		</div>
@@ -29,7 +29,7 @@ $country_list =
 ?>
 
 <div class="mb-2">
-	<label for='country'>Country <small class="fc-red">* Required</small></label>
+	<label for='country'>Country <small class="text-red-800">* Required</small></label>
 	<select class="select22 ltr" name="country" id="country" >
 		<option value=""><?php echo T_("Choose your country"); ?></option>
 		<?php foreach ($country_list as $key => $value) {?><option value="<?php echo $key ?>"<?php if(\dash\data::userSettingDataRow_country() == $key) { echo ' selected '; } ?>><?php echo $value ?></option><?php }//endif ?>
@@ -38,13 +38,13 @@ $country_list =
 
 <div class="f">
 	<div class="c6 s12 pLa5">
-		<label for="province">State/Province <small class="fc-red">* Required</small></label>
+		<label for="province">State/Province <small class="text-red-800">* Required</small></label>
 		<div class="input ltr">
 			<input type="text" name="province" value="<?php echo \dash\data::userSettingDataRow_province(); ?>" placeholder2="<?php echo T_("State/Province"); ?>" id="province" maxlength="50">
 		</div>
 	</div>
 	<div class="c6 s12">
-		<label for="city">City <small class="fc-red">* Required</small></label>
+		<label for="city">City <small class="text-red-800">* Required</small></label>
 		<div class="input ltr">
 			<input type="text" name="city" value="<?php echo \dash\data::userSettingDataRow_city(); ?>" placeholder2="<?php echo T_("City"); ?>" id="city" maxlength="50">
 		</div>
@@ -52,13 +52,13 @@ $country_list =
 </div>
 <div class="f">
 	<div class="c6 s12 pLa5">
-		<label for="address">Address <small class="fc-red">* Required</small></label>
+		<label for="address">Address <small class="text-red-800">* Required</small></label>
 <div class="input ltr">
 	<input type="text" placeholder2="<?php echo T_("Address"); ?>" name="address" value="<?php echo \dash\data::userSettingDataRow_address(); ?>" id="address" maxlength='60'>
 </div>
 	</div>
 	<div class="c6 s12">
-		<label for="postcode">Post code <small class="fc-red">* Required</small></label>
+		<label for="postcode">Post code <small class="text-red-800">* Required</small></label>
 		<div class="input">
 			<input type="text" placeholder2="<?php echo T_("Post code"); ?>" name="postcode" value="<?php echo \dash\data::userSettingDataRow_postcode(); ?>" id="postcode" data-format="postalCode">
 		</div>
@@ -66,7 +66,7 @@ $country_list =
 </div>
 <div class="f">
 	<div class="c6 s12 pLa5">
-		<label for="ifaxcc">Fax <small class="fc-red">* Required</small></label>
+		<label for="ifaxcc">Fax <small class="text-red-800">* Required</small></label>
 		<div class="f">
 			<div class="cauto">
 				<div class="input ltr">
@@ -82,7 +82,7 @@ $country_list =
 
 	</div>
 	<div class="c6 s12 pLa5">
-		<label for="iphonecc">Phone number <small class="fc-red">* Required</small></label>
+		<label for="iphonecc">Phone number <small class="text-red-800">* Required</small></label>
 		<div class="f">
 			<div class="cauto">
 				<div class="input ltr">

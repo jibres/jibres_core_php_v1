@@ -162,7 +162,7 @@ if(!is_array($dataTable))
 
 <?php }else{ ?>
 
-        <i class="sf-chain-broken fc-red" title='<?php echo T_("Without response"); ?>'></i>
+        <i class="sf-chain-broken text-red-800" title='<?php echo T_("Without response"); ?>'></i>
 <?php } ?>
       </td>
 

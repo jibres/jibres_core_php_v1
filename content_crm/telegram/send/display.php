@@ -2,7 +2,7 @@
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="pad">
-        <label for="mobile"><?php echo T_("Mobile") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
+        <label for="mobile"><?php echo T_("Mobile") ?> <small class="text-red-800">* <?php echo T_("Required") ?></small></label>
         <div class="input">
           <input type="tel" name="mobile" data-format='mobile-enter' maxlength="15">
         </div>

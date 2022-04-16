@@ -2,7 +2,7 @@
   <form method="post" autocomplete="off">
     <div class="box">
       <div class="pad">
-        <label for="user"><?php echo T_("Group user") ?> <small class="fc-red">* <?php echo T_("Required") ?></small></label>
+        <label for="user"><?php echo T_("Group user") ?> <small class="text-red-800">* <?php echo T_("Required") ?></small></label>
         <div>
           <select name="group" class="select22" data-placeholder='<?php echo T_("Please choose one group") ?>'>
             <option value="" readonly><?php echo T_("Please choose one group") ?></option>

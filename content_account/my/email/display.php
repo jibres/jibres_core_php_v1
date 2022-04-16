@@ -28,7 +28,7 @@
         <a class="item f">
           <i class="sf-envelope s0"></i>
           <div class="key font-bold"><?php echo a($value, 'email');?></div>
-          <i data-confirm data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash fc-red fs14"></i>
+          <i data-confirm data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash text-red-800 fs14"></i>
         </a>
        </li>
       <?php } //endfor ?>
@@ -46,7 +46,7 @@
           <i class="sf-mail s0"></i>
           <div class="key"><?php echo a($value, 'email');?></div>
           <i class="sf-asterisk fc-blue" data-title="<?php echo T_("Set as primary email") ?>" data-confirm data-data='{"primary":"primary","id":"<?php echo a($value, 'id') ?>"}' title="<?php echo T_("Set as primary email") ?>"></i>
-          <i data-confirm  data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash fc-red fs14"></i>
+          <i data-confirm  data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash text-red-800 fs14"></i>
         </a>
        </li>
       <?php } //endfor ?>
@@ -69,7 +69,7 @@
           <?php }else{ ?>
           <div  class="value s0"><?php echo T_("Verify email sent") ?></div>
           <?php } //endif ?>
-          <i data-confirm data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash fc-red fs14"></i>
+          <i data-confirm data-data='{"remove":"remove","id":"<?php echo a($value, 'id') ?>"}' class="sf-trash text-red-800 fs14"></i>
         </a>
        </li>
       <?php } //endfor ?>

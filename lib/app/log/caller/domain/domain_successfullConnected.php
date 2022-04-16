@@ -12,7 +12,7 @@ class domain_successfullConnected
 		$result['title']     = T_("Domain");
 		$result['icon']      = 'flag';
 		$result['cat']       = T_("Domain");
-		$result['iconClass'] = 'fc-red';
+		$result['iconClass'] = 'text-red-800';
 		$result['txt']       = self::get_msg($_args);
 		return $result;
 	}

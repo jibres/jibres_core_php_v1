@@ -17,7 +17,7 @@
 		<tr class="<?php if($value) {echo 'positive2';} else  {echo 'negative';}?>">
 			<th><?php echo $key; ?></th>
 			<td><code><?php echo $value; ?></code></td>
-			<td><span class="<?php if($value) {echo 'sf-check fc-green';} else  {echo 'sf-times fc-red';}?>"></span></td>
+			<td><span class="<?php if($value) {echo 'sf-check fc-green';} else  {echo 'sf-times text-red-800';}?>"></span></td>
 		</tr>
 	 	<?php } ?>
 	</table>

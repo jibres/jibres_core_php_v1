@@ -46,7 +46,7 @@
 
 <div class="box">
   <div class="body">
-    <div class="fc-red"><?php echo T_("Remove this filter. All condition of this filter will be removed") ?></div>
+    <div class="text-red-800"><?php echo T_("Remove this filter. All condition of this filter will be removed") ?></div>
   </div>
   <footer class="txtRa">
     <div data-confirm data-data='{"removefilter": "removefilter"}' class="btn-link-danger" ><?php echo T_("Remove filter"); ?></div>

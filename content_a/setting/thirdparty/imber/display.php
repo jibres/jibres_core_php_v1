@@ -8,7 +8,7 @@
           <div class="alert2">
             <p><?php echo T_("Imber is an all-in-one marketing automation platform built for customer support with live chat, sales, and marketing. All together. 7 day free trial.") ?></p>
           </div>
-            <label for="iimber"><?php echo T_("Imber Token"); ?> <span class="fc-red">*</span></label>
+            <label for="iimber"><?php echo T_("Imber Token"); ?> <span class="text-red-800">*</span></label>
             <div class="input ltr">
             <input type="text" name="addon_imber" id="iimber" value="<?php echo a($storeData, 'addon_imber'); ?>" <?php \dash\layout\autofocus::html() ?> maxlength='50' minlength="1">
             </div>

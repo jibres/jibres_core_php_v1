@@ -13,7 +13,7 @@
           <?php if(\dash\data::dataRow_plus()) { ?>
           <label for="amount" class="addon  fc-green"><?php echo T_("Plus") ?></label>
           <?php }else{ ?>
-          <label for="amount" class="addon  fc-red"><?php echo T_("Minus") ?></label>
+          <label for="amount" class="addon  text-red-800"><?php echo T_("Minus") ?></label>
           <?php  } ?>
           <input type="tel" name="amount" value="<?php if(\dash\data::dataRow_plus()) { echo \dash\data::dataRow_plus(); }else{ echo \dash\data::dataRow_minus(); } ?>" data-format='price' maxlength="19">
         </div>

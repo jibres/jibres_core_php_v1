@@ -5,7 +5,7 @@
       <header><h2><?php echo T_("Set your application title and slogan"); ?></h2></header>
       <div class="body">
 
-          <label for="title"><?php echo T_("Application title"); ?> <small class="fc-red fs08"><?php echo T_("Required"); ?></small></label>
+          <label for="title"><?php echo T_("Application title"); ?> <small class="text-red-800 fs08"><?php echo T_("Required"); ?></small></label>
           <div class="input">
             <input type="text" name="title" id="title" value="<?php echo \dash\data::appDetail_title(); ?>" maxlength="20" required>
           </div>

@@ -77,7 +77,7 @@ if(\dash\data::domainDetail_lock())
 }
 else
 {
- echo '<div class="fc-red"><span>'.T_("Unlocked"). '</span>'. '<i class="sf-unlock"></i></div>';
+ echo '<div class="text-red-800"><span>'.T_("Unlocked"). '</span>'. '<i class="sf-unlock"></i></div>';
 }?></div></td>
      </tr>
      <tr>
@@ -98,7 +98,7 @@ if(\dash\data::domainDetail_autorenew())
 }
 else
 {
- echo "<div class='ibtn wide fc-red'><span>". T_('Off'). "</span><i class='sf-times'></i></div>";
+ echo "<div class='ibtn wide text-red-800'><span>". T_('Off'). "</span><i class='sf-times'></i></div>";
 }
 ?></td>
      </tr>

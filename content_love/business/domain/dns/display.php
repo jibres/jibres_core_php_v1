@@ -114,7 +114,7 @@
               <td><?php echo a($value, 'key'); ?></td>
               <td><?php echo a($value, 'value'); ?></td>
               <td><?php echo a($value, 'status'); ?></td>
-              <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div></td>
+              <td class="collapsing"><div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash text-red-800 font-14"></i></div></td>
             </tr>
           <?php } // endif ?>
         </tbody>

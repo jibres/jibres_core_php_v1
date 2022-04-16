@@ -37,7 +37,7 @@
         <div class="c"></div>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <div class="cauto">
-          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="link fc-red"><?php echo T_("Remove audio") ?></div>
+          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="link text-red-800"><?php echo T_("Remove audio") ?></div>
         </div>
       <?php } //endif ?>
       </div>
@@ -77,7 +77,7 @@ if(a($dataRow, 'subtype') === 'video') {?>
         <div class="c"></div>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <div class="cauto">
-          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="link fc-red"><?php echo T_("Remove video") ?></div>
+          <div data-confirm data-data='{"redirect":"yes", "fileaction": "remove", "fileid" : "<?php echo a($dataRow, 'gallery_array', 0, 'id'); ?>"}' class="link text-red-800"><?php echo T_("Remove video") ?></div>
         </div>
       <?php } //endif ?>
       </div>
@@ -147,7 +147,7 @@ if(\dash\data::dataRow_thumbFromContent())
         <div class="c"></div>
         <div class="c-auto">
           <?php if($thumbUrl) {?>
-            <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="link fc-red"><?php echo T_("Remove featured image") ?></div>
+            <div data-confirm data-data='{"remove_thumb": "remove_thumb"}' class="link text-red-800"><?php echo T_("Remove featured image") ?></div>
           <?php } //endif ?>
         </div>
       </div>

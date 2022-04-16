@@ -194,7 +194,7 @@
                       <td class="ltr text-left s0"><?php echo a($value, 'status'); ?></td>
                       <td class="ltr text-left">
                         <?php if(a($value, 'status') !== 'pending_delete') {?>
-                            <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash fc-red font-14"></i></div>
+                            <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash text-red-800 font-14"></i></div>
                           <?php } //endif ?>
                       </td>
                       <?php } //endif ?>

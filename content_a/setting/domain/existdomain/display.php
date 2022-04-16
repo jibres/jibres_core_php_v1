@@ -9,7 +9,7 @@
           <?php echo T_("You can connect one or more domains to your business. After connecting the domains") ?>
         </p>
 
-        <label for="idomain"><?php echo T_("Domain"); ?> <span class="fc-red">*</span></label>
+        <label for="idomain"><?php echo T_("Domain"); ?> <span class="text-red-800">*</span></label>
         <div class="input ltr">
           <input type="text" name="domain" id="idomain" value="<?php echo \dash\request::get('domain') ?>" <?php \dash\layout\autofocus::html() ?> required maxlength='100' minlength="1"  >
         </div>

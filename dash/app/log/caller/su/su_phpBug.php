@@ -12,7 +12,7 @@ class su_phpBug
 		$result['title']     = T_("PHP bug!");
 		$result['icon']      = 'bug-2';
 		$result['cat']       = T_("Bug");
-		$result['iconClass'] = 'fc-red';
+		$result['iconClass'] = 'text-red-800';
 
 		$excerpt .= ' ';
 		$excerpt .=	'<a class="badge warn" href="'.\dash\url::kingdom(). '/sudo/log">';
