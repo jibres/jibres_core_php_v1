@@ -33,7 +33,7 @@ if(\lib\store::detail('mass_unit'))
           <p>
             <i class="sf-box"></i> <?php echo T_("Shipping order") ?>
             <br>
-            <small class="fc-mute"><?php echo T_("Change order Shipping method, date send and something else") ?></small>
+            <small class="text-gray-400"><?php echo T_("Change order Shipping method, date send and something else") ?></small>
           </p>
 
           <div class="mb-2">

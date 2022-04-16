@@ -35,7 +35,7 @@
           <label for="dblm" data-on='<?php echo T_("Yes") ?>' data-off='<?php echo T_("No") ?>'></label>
           <label for="dblm"><?php echo T_("Minus transaction after create?") ?></label>
         </div>
-        <p class="fc-mute">
+        <p class="text-gray-400">
           <?php echo T_("If you want this amount to be automatically deducted from the person's account as soon as it is added to the account,  activate this option.") ?>
         </p>
 

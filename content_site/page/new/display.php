@@ -14,7 +14,7 @@ return;
           </div>
         </div>
 
-        <p class="fc-mute mB0-f s0"><?php echo T_("First type main title and save as draft, then complete and publish it."); ?></p>
+        <p class="text-gray-400 mB0-f s0"><?php echo T_("First type main title and save as draft, then complete and publish it."); ?></p>
       </div>
 <?php if(!\dash\detect\device::detectPWA()) {?>
       <footer class="txtRa">

@@ -681,7 +681,7 @@ class search_filter
 			$html .= '<div class="c">';
 			{
 				$total_rows = \dash\utility\pagination::get_total_rows();
-				$html .= '<div class="fc-mute"><span class="font-bold">'. \dash\fit::number($total_rows). '</span> '. T_("Record founded"). '</div>';
+				$html .= '<div class="text-gray-400"><span class="font-bold">'. \dash\fit::number($total_rows). '</span> '. T_("Record founded"). '</div>';
 			}
 			$html .= '</div>';
 

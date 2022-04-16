@@ -222,7 +222,7 @@ Note that the price of the product will be updated only if your employee is allo
     <label for="tax-calc-all-price"></label>
     <label for="tax-calc-all-price"><?php echo T_("Show all prices with tax included"); ?></label>
   </div>
-  <p class="fc-mute"><?php echo T_("If taxes are charged on shipping rates, then taxes are included in the shipping price."); ?></p>
+  <p class="text-gray-400"><?php echo T_("If taxes are charged on shipping rates, then taxes are included in the shipping price."); ?></p>
 
 
   <hr>
@@ -231,5 +231,5 @@ Note that the price of the product will be updated only if your employee is allo
     <label for="tax-shipping"></label>
     <label for="tax-shipping"><?php echo T_("Charge tax on shipping rates"); ?></label>
   </div>
-  <p class="fc-mute"><?php echo T_("Include shipping rates in the tax calculation."); ?></p>
+  <p class="text-gray-400"><?php echo T_("Include shipping rates in the tax calculation."); ?></p>
   <?php } //endif ?>

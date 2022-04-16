@@ -23,7 +23,7 @@
  	<p><?php echo T_("Remember to come up with words that are easy to spell and reflect the purpose of your website. Ask friends and family for their opinions - the more the merrier in your search for the perfect website domain name. Once you've come up with an exciting idea, it's time to see if your domain name has been taken.") ?></p>
 
 
- 	<p class="fc-mute hide"><?php echo T_('*ICANN (the Internet Corporation for Assigned Names and Numbers) charges a mandatory annual fee of $0.18 for each domain registration, renewal or transfer. This will be added to the listed price for some domains, at the time of purchase.'); ?></p>
+ 	<p class="text-gray-400 hide"><?php echo T_('*ICANN (the Internet Corporation for Assigned Names and Numbers) charges a mandatory annual fee of $0.18 for each domain registration, renewal or transfer. This will be added to the listed price for some domains, at the time of purchase.'); ?></p>
 
  </div>
 

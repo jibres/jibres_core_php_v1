@@ -210,7 +210,7 @@ $giftCode = \dash\data::giftDetail_discount();
             </th>
             <td class="txtRa">
               <span><?php echo \dash\fit::number($giftCode);?></span>
-              <span class="fc-mute mLa5"><?php echo \lib\currency::unit();?></span>
+              <span class="text-gray-400 mLa5"><?php echo \lib\currency::unit();?></span>
             </td>
 
            </tr>
@@ -228,7 +228,7 @@ $giftCode = \dash\data::giftDetail_discount();
             </th>
             <td class="txtRa">
               <span><?php echo \dash\fit::number(\dash\data::userBudget());?></span>
-              <span class="fc-mute mLa5"><?php echo \lib\currency::unit();?></span>
+              <span class="text-gray-400 mLa5"><?php echo \lib\currency::unit();?></span>
             </td>
            </tr>
 <?php } //endif ?>
@@ -237,7 +237,7 @@ $giftCode = \dash\data::giftDetail_discount();
             <th><?php echo T_("Amount payable") ?></th>
             <td class="txtRa collapsing">
               <span class="font-bold fs20" id='domainPayablePrice'><?php echo \dash\fit::number($mypayedprice) ?></span>
-              <span class="fc-mute mLa5"><?php echo \lib\currency::unit();?></span>
+              <span class="text-gray-400 mLa5"><?php echo \lib\currency::unit();?></span>
             </td>
            </tr>
 

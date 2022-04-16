@@ -49,7 +49,7 @@
                 </td>
                 <td class="collapsing">
                   <?php if(a($value, 'id') === \dash\request::get('cid')) {?>
-                    <div class="fc-mute"><i><?php echo T_("Editing...") ?></i></div>
+                    <div class="text-gray-400"><i><?php echo T_("Editing...") ?></i></div>
                   <?php }else{ ?>
                     <div class="btn-link-danger" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div>
                   <?php } //endif ?>

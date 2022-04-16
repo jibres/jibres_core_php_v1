@@ -44,6 +44,6 @@
 			</div>
 		</section>
 		<?php if(false) {?>
-		<div class="txtRa font-16 fc-mute"><?php echo T_("Learn more about :val", ['val' => '<a class="link" href="'. \dash\face::help(). '">'. \dash\face::title(). '</a>'] ); ?><i class="inline-block sf-question-circle mLa5"></i></div>
+		<div class="txtRa font-16 text-gray-400"><?php echo T_("Learn more about :val", ['val' => '<a class="link" href="'. \dash\face::help(). '">'. \dash\face::title(). '</a>'] ); ?><i class="inline-block sf-question-circle mLa5"></i></div>
 		<?php }?>
 	<?php } //endif ?>

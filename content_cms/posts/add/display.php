@@ -38,7 +38,7 @@
 					</div>
 				</div>
 				<textarea class="txt mb-2" data-editor id='descInput' name="html" placeholder='<?php echo T_("Write your post ..."); ?>' maxlength='100000' rows="10"></textarea>
-				<p class="fc-mute mB0-f s0"><?php echo T_("First type main text and save as draft, then complete and publish it."); ?></p>
+				<p class="text-gray-400 mB0-f s0"><?php echo T_("First type main text and save as draft, then complete and publish it."); ?></p>
 			</div>
 <?php if(!\dash\detect\device::detectPWA()) {?>
 			<footer class="txtRa">

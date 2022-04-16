@@ -13,7 +13,7 @@
             <tbody>
               <?php if (a($orderDetail, 'factor', 'customer')) {?>
                 <tr>
-                  <td class="collapsing fc-mute"><?php echo T_("Customer") ?></td>
+                  <td class="collapsing text-gray-400"><?php echo T_("Customer") ?></td>
                   <td>
                     <?php echo a($orderDetail, 'factor', 'customer_detail', 'displayname'); ?>
                     <span class="ltr inline-block"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')); ?></span>
@@ -21,20 +21,20 @@
                 </tr>
               <?php } // endif ?>
               <tr>
-                <td class="collapsing fc-mute"><?php echo T_("Order Type") ?></td>
+                <td class="collapsing text-gray-400"><?php echo T_("Order Type") ?></td>
                 <td><?php echo a($orderDetail, 'factor', 't_type'); ?></td>
               </tr>
               <?php if(a($orderDetail, 'factor', 'status') !== 'draft') {?>
                 <tr>
-                  <td class="collapsing fc-mute"><?php echo T_("Status") ?></td>
+                  <td class="collapsing text-gray-400"><?php echo T_("Status") ?></td>
                   <td><?php echo a($orderDetail, 'factor', 't_status'); ?></td>
                 </tr>
               <?php } //endif ?>
               <tr>
-                <td class="collapsing fc-mute"><?php echo T_("Order date") ?></td>
+                <td class="collapsing text-gray-400"><?php echo T_("Order date") ?></td>
                 <td>
                   <?php echo \dash\fit::date_time(a($orderDetail, 'factor', 'date')); ?>
-                  <small class="fc-mute mLa20"><?php echo \dash\fit::date_human(a($orderDetail, 'factor', 'date')) ?></small>
+                  <small class="text-gray-400 mLa20"><?php echo \dash\fit::date_human(a($orderDetail, 'factor', 'date')) ?></small>
                   <a href="<?php echo \dash\url::this(). '/editdate?id='. \dash\request::get('id') ?>" class="bg-gray-200 p-2  rounded-lg text-xs"><?php echo T_("Edit") ?></a>
                 </td>
               </tr>
@@ -43,7 +43,7 @@
               <?php $address = a(\dash\data::orderDetail(), 'address'); ?>
               <?php if($address) {?>
                 <tr>
-                  <td class="collapsing fc-mute"><?php echo T_("Address") ?></td>
+                  <td class="collapsing text-gray-400"><?php echo T_("Address") ?></td>
                   <td>
 
                     <address>
@@ -97,7 +97,7 @@
                 <tbody>
 
                     <tr>
-                      <td class="collapsing fc-mute"><?php echo T_("Customer") ?></td>
+                      <td class="collapsing text-gray-400"><?php echo T_("Customer") ?></td>
                       <td>
                         <?php echo a($orderDetail, 'factor', 'customer_detail', 'displayname'); ?>
                         <span class="ltr inline-block"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')); ?></span>
@@ -105,21 +105,21 @@
                     </tr>
 
                     <tr>
-                      <td class="collapsing fc-mute"><?php echo T_("Debt unti this order") ?></td>
+                      <td class="collapsing text-gray-400"><?php echo T_("Debt unti this order") ?></td>
                       <td>
                         <?php echo \dash\fit::number(a($customerDebt, 'debt_until_order')); ?>
                       </td>
                     </tr>
 
                     <tr>
-                      <td class="collapsing fc-mute"><?php echo T_("Debt whit this order") ?></td>
+                      <td class="collapsing text-gray-400"><?php echo T_("Debt whit this order") ?></td>
                       <td>
                         <?php echo \dash\fit::number(a($customerDebt, 'debt_with_order')); ?>
                       </td>
                     </tr>
 
                     <tr>
-                      <td class="collapsing fc-mute"><?php echo T_("Current debt") ?></td>
+                      <td class="collapsing text-gray-400"><?php echo T_("Current debt") ?></td>
                       <td>
                         <?php echo \dash\fit::number(a($customerDebt, 'current_debt')); ?>
                       </td>

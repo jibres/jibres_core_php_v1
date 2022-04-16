@@ -14,7 +14,7 @@
             <div class="cauto s12">
               <a class="item f" href="<?php echo \dash\url::kingdom(). '/crm/member/glance?id='. a($orderDetail, 'factor', 'customer') ;?>">
                 <div>
-                    <span class="fc-mute"><?php echo T_("Customer") ?></span>
+                    <span class="text-gray-400"><?php echo T_("Customer") ?></span>
                     <span class="font-bold"><?php echo a($orderDetail, 'factor', 'customer_detail', 'displayname') ?></span>
                 </div>
               </a>
@@ -22,7 +22,7 @@
             <div class="c1 mb-2"></div>
             <div class="cauto s12">
               <div>
-                <span class="fc-mute"><?php echo T_("Mobile") ?></span>
+                <span class="text-gray-400"><?php echo T_("Mobile") ?></span>
                 <span class="font-bold ltr inline-block"><?php echo \dash\fit::mobile(a($orderDetail, 'factor', 'customer_detail', 'mobile')) ?></span>
               </div>
             </div>
@@ -99,25 +99,25 @@
           </div>
 
           <div class="viewCustomerLegalInformation" data-kerkere-content='hide'>
-            <?php $isNotSet = '<small class="fc-mute">'. T_("Not set"). '</small>'; ?>
+            <?php $isNotSet = '<small class="text-gray-400">'. T_("Not set"). '</small>'; ?>
             <div class="p-2">
               <div class="tblBox">
                 <table class="tbl1 v4">
                   <tbody>
                     <tr>
-                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Company name") ?></div></td>
+                      <td class="collapsing"><div class="text-gray-400"><?php echo T_("Company name") ?></div></td>
                       <td><?php $data = a($orderDetail, 'factor', 'customer_detail', 'companyname'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
                     </tr>
                     <tr>
-                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Economic code") ?></div></td>
+                      <td class="collapsing"><div class="text-gray-400"><?php echo T_("Economic code") ?></div></td>
                       <td><?php $data = a($orderDetail, 'factor', 'customer_detail', 'companyeconomiccode'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
                     </tr>
                     <tr>
-                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Company national id") ?></div></td>
+                      <td class="collapsing"><div class="text-gray-400"><?php echo T_("Company national id") ?></div></td>
                       <td><?php $data = a($orderDetail, 'factor', 'customer_detail', 'companynationalid'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
                     </tr>
                     <tr>
-                      <td class="collapsing"><div class="fc-mute"><?php echo T_("Company register number") ?></div></td>
+                      <td class="collapsing"><div class="text-gray-400"><?php echo T_("Company register number") ?></div></td>
                       <td><?php $data = a($orderDetail, 'factor', 'customer_detail', 'companyregisternumber'); if($data) { echo '<b>' .$data. '</b>'; }else{ echo $isNotSet; } ?></td>
                     </tr>
 

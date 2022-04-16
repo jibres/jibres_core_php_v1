@@ -23,7 +23,7 @@
       <tbody>
         <?php foreach (\dash\data::monthlyList() as $key => $value) {?>
           <tr>
-            <td class="collapsing fc-mute"><?php echo $key + 1 ?></td>
+            <td class="collapsing text-gray-400"><?php echo $key + 1 ?></td>
             <td class="collapsing font-bold"><?php echo a($value, 'year') ?></td>
             <td class=" font-bold"><?php echo \dash\fit::number_en(a($value, 'month')) ?></td>
             <td><?php echo \dash\fit::number_en(a($value, 'count_store')) ?></td>

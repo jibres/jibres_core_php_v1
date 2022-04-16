@@ -53,7 +53,7 @@
             <input type="checkbox" name="addtocdnpaneldns" value="1" id="iaddtocdnpaneldns" checked>
             <label for="iaddtocdnpaneldns"><?php echo T_("Also add to CDN panel DNS record") ?></label>
           </div>
-          <div class="fc-mute">
+          <div class="text-gray-400">
             <?php echo T_("If you do not add to the panel, the system will automatically add to the panel after a few minutes, but if you sync in the meantime, this information will be deleted."); ?>
           </div>
 
@@ -109,7 +109,7 @@
         <tbody>
           <?php foreach (\dash\data::dnsList() as $key => $value) {?>
             <tr>
-              <td class="collapsing"><?php if(a($value, 'cloud')) {?><i title="<?php echo T_("Cloud") ?>" class="sf-cloud fc-green"></i><?php }else{ ?><i title="<?php echo T_("Raw") ?>" class="sf-cloud fc-mute"></i><?php } //endif ?></td>
+              <td class="collapsing"><?php if(a($value, 'cloud')) {?><i title="<?php echo T_("Cloud") ?>" class="sf-cloud fc-green"></i><?php }else{ ?><i title="<?php echo T_("Raw") ?>" class="sf-cloud text-gray-400"></i><?php } //endif ?></td>
               <td><?php echo a($value, 'type'); ?></td>
               <td><?php echo a($value, 'key'); ?></td>
               <td><?php echo a($value, 'value'); ?></td>

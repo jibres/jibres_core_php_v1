@@ -68,7 +68,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 							if(a($value, 'suggestion', 'discount'))
 							{
-								$html .= '<div class="fc-mute mB5 text-sm">';
+								$html .= '<div class="text-gray-400 mB5 text-sm">';
 								{
 									$html .= '<span class="">'. T_("Buy Discount") .'</span>';
 									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'discount')) .'</span>';
@@ -79,7 +79,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 
 							if(a($value, 'suggestion', 'vat'))
 							{
-								$html .= '<div class="fc-mute mB5 text-sm">';
+								$html .= '<div class="text-gray-400 mB5 text-sm">';
 								{
 									$html .= '<span class="">'. T_("Vat") .'</span>';
 									$html .= '<span class="price font-bold"> '. \dash\fit::number(a($value, 'suggestion', 'vat')) .'</span>';
@@ -88,7 +88,7 @@ $html .= \dash\layout\elements\form::form(['method' => 'post', 'id' => 'saveOpt'
 								$html .= '</div>';
 							}
 
-							$html .= '<span class="inline-block ltr fc-mute text-sm">'. \dash\fit::date_time(a($value, 'datecreated')) .'</span>';
+							$html .= '<span class="inline-block ltr text-gray-400 text-sm">'. \dash\fit::date_time(a($value, 'datecreated')) .'</span>';
 						}
 						$html .= '</div>';
 

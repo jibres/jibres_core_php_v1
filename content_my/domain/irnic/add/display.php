@@ -19,7 +19,7 @@
    <div class="cbox">
    <form method="post" autocomplete="off">
     <div class="msg fs09 info2"><?php echo T_('This form used to register iranian persons on nic.ir system and all fields is require because IRNIC need them. If you want to create another type of account or you are not iranian, please go to nic.ir website and directly create IRNIC handle.'); ?></div>
-    <p class="alert-danger fc-mute fs09"><?php echo T_("Enter fill all data in English!"); ?></p>
+    <p class="alert-danger text-gray-400 fs09"><?php echo T_("Enter fill all data in English!"); ?></p>
 
     <h3><?php echo T_('Basic Information'); ?></h3>
     <div class="hide">
@@ -79,7 +79,7 @@
 
 
 
-    <label for="address"><?php echo T_("Address"); ?> <small class="fc-mute"><?php echo T_("Enter in Latin characters"); ?></small></label>
+    <label for="address"><?php echo T_("Address"); ?> <small class="text-gray-400"><?php echo T_("Enter in Latin characters"); ?></small></label>
     <textarea class="txt ltr mb-2" name="address" id="address" maxlength='300' rows="1"></textarea>
 
     <label for="postcode"><?php echo T_("Post code"); ?></label>
@@ -107,7 +107,7 @@
      </div>
     </div>
 
-    <p class="fc-mute"><?php
+    <p class="text-gray-400"><?php
   echo T_("By clicking Create IRNIC Handle, you are indicating that you have read the :nic and agree to the :terms.",
     [
       'nic' => '<a rel="nofollow" target="_blank" href="'. \dash\url::kingdom(). '/terms/irnic">'. T_('IRNIC agreement') .'</a>',
@@ -134,8 +134,8 @@
      <div class="input ltr">
       <input type="text" name="oldcontact" id="ioldcontact">
      </div>
-     <p class="fc-mute"><?php echo T_('Please enter your IRNIC handle that registerd on nic.ir'); ?></p>
-     <p class="fc-mute"><?php echo T_("If you don't know about IRNIC, you can register via Jibres or directly on nic.ir website."); ?> <a href="<?php echo \dash\url::current(); ?>?type=new"><?php echo T_('Register IRNIC handle'); ?></a></p>
+     <p class="text-gray-400"><?php echo T_('Please enter your IRNIC handle that registerd on nic.ir'); ?></p>
+     <p class="text-gray-400"><?php echo T_("If you don't know about IRNIC, you can register via Jibres or directly on nic.ir website."); ?> <a href="<?php echo \dash\url::current(); ?>?type=new"><?php echo T_('Register IRNIC handle'); ?></a></p>
 
      <div class="txtRa">
       <button class="btn-success"><?php echo T_("Add IRNIC handle"); ?></button>

@@ -97,7 +97,7 @@
         <div class="key"><?php echo T_("Total"); ?></div>
         <div class="value">
           <span class="fc-blue font-bold"><?php echo \dash\fit::number(a(\dash\data::orderDetail(), 'factor', 'total')); ?></span>
-          <small class="fc-mute"><?php echo \lib\store::currency() ?></small>
+          <small class="text-gray-400"><?php echo \lib\store::currency() ?></small>
         </div>
       </a>
     </li>

@@ -47,13 +47,13 @@ $have_user = false;
           <div class="showAdvanceOrder" data-kerkere-content='hide'>
             <div class="row">
               <div class="c-xs-12 c-sm-6">
-                <label for="price"><?php echo T_("Price") ?> <small class="fc-mute"><?php echo T_("Leave null to get from product price") ?></small></label>
+                <label for="price"><?php echo T_("Price") ?> <small class="text-gray-400"><?php echo T_("Leave null to get from product price") ?></small></label>
                 <div class="input mB20-f">
                   <input type="number" name="price" placeholder="<?php echo T_("Price"); ?>"  id="price">
                 </div>
               </div>
               <div class="c-xs-12 c-sm-6">
-                <label for="discount"><?php echo T_("Discount") ?> <small class="fc-mute"><?php echo T_("Leave null to get from product discount") ?></small></label>
+                <label for="discount"><?php echo T_("Discount") ?> <small class="text-gray-400"><?php echo T_("Leave null to get from product discount") ?></small></label>
                 <div class="input mB20-f">
                   <input type="number" name="discount" placeholder="<?php echo T_("Discount"); ?>"  id="discount">
                 </div>

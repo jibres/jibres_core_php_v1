@@ -31,7 +31,7 @@ foreach (\dash\data::dataTable() as $key => $value)
     }
     else
     {
-      $result .= '<div title="'. T_("Autorenew is deactive").'" class="value s0"><i class="sf-refresh fc-mute"></i></div>';
+      $result .= '<div title="'. T_("Autorenew is deactive").'" class="value s0"><i class="sf-refresh text-gray-400"></i></div>';
     }
 
     $result .= '<time class="value datetime s0" title="'.T_("Expire date").'">'. \dash\fit::date(a($value, 'dateexpire')). '</time>';

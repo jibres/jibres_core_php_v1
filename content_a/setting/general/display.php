@@ -9,7 +9,7 @@ $storeData = \dash\data::store_store_data();
       <h3><?php echo T_("Business Title");?></h3>
       <div class="body">
         <p class="font-bold"><?php echo a($storeData, 'title') ?></p>
-        <p class="fc-mute"><?php echo a($storeData, 'desc') ?></p>
+        <p class="text-gray-400"><?php echo a($storeData, 'desc') ?></p>
 
       </div>
     </div>

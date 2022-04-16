@@ -90,7 +90,7 @@ $html .= '<div class="box">';
         $html .= '<label for="file1">';
         $html .= '<span class="block">'. T_("Gallery"). '</span>';
           $html .= '<abbr>'. $chooseTxt. '</abbr>';
-          $html .= '<small class="fc-mute block">'. T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(). '</small>';
+          $html .= '<small class="text-gray-400 block">'. T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(). '</small>';
         $html .= '</label>';
         }
         if($gallery_array)

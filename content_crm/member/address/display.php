@@ -19,7 +19,7 @@
 	      <a class="f" href="<?php echo \dash\data::myUrlAddress(). '?addressid='. a($value, 'id'); if(\dash\request::get('id')) { echo '&id='. \dash\request::get('id'); }?>">
 	        <div class="key">
 	          <span class="fc-blue"><?php echo a($value, 'title'); ?></span>
-	          <span class="fc-mute"><?php echo a($value, 'location_string'); ?></span>
+	          <span class="text-gray-400"><?php echo a($value, 'location_string'); ?></span>
 	          <span class="font-bold"><?php echo a($value, 'address'); ?></span>
 	        </div>
 	        <div class="value ltr"><?php echo \dash\fit::mobile($value['postcode']); ?></div>

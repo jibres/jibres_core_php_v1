@@ -44,7 +44,7 @@ if(\dash\data::dataRow_title())
 }
 else
 {
-  echo '<div class="key fc-mute">'. T_("Without title"). '</div>';
+  echo '<div class="key text-gray-400">'. T_("Without title"). '</div>';
 }
 ?>
             <div class="value"><?php echo T_("Subject") ?></div>

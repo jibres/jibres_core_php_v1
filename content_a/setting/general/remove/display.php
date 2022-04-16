@@ -25,7 +25,7 @@ $storeData = \dash\data::store_store_data();
           <div class="input ltr">
             <input type="text" name="subdomain" id="subdomain">
           </div>
-          <div class="fc-mute">
+          <div class="text-gray-400">
             <?php echo T_("Your business subdomain is :val", ['val' => '<b>'. \lib\store::detail('subdomain'). '</b>']); ?>
           </div>
         </div>

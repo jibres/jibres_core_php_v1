@@ -77,7 +77,7 @@
       <div class="mb-2" data-response='specialaddress' data-response-where='under_page' <?php if(\dash\data::dataRow_specialaddress() === 'under_page') {}else{ echo 'data-response-hide';} ?>>
         <div class="mb-2 text-sm">
           <div class="mb-2"><?php echo T_("You can set this page as a subset of another page") ?></div>
-          <div class="fc-mute"><?php echo T_("Only published page can set as page parent") ?></div>
+          <div class="text-gray-400"><?php echo T_("Only published page can set as page parent") ?></div>
         </div>
         <div class="mb-2">
           <select class="select22" name="parent" id="parent" data-placeholder="<?php echo T_("Choose a post") ?>">

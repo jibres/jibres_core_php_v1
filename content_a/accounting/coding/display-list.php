@@ -115,7 +115,7 @@
     <tbody>
       <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>
-          <td class="collapsing"><span class="fc-mute"><?php echo \dash\fit::text(a($value, 'id')) ?></span></td>
+          <td class="collapsing"><span class="text-gray-400"><?php echo \dash\fit::text(a($value, 'id')) ?></span></td>
 
           <td class="collapsing"><span class="font-bold"><?php echo \dash\fit::text(a($value, 'code')) ?></span></td>
           <td><?php echo a($value, 'title') ?></td>

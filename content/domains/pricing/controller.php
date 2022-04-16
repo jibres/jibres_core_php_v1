@@ -96,7 +96,7 @@ class controller
 		$html = '<div class="">';
 		if($currency === '$')
 		{
-			$html .= '<span class="fc-mute">';
+			$html .= '<span class="text-gray-400">';
 			$html .= '$';
 			$html .= '</span>';
 			$html .= \dash\fit::number($_val, false);
@@ -107,11 +107,11 @@ class controller
 			$html .= \dash\fit::number($_val);
 			if($_optimizeForMobile)
 			{
-				$html .= '<small class="fc-mute s0">';
+				$html .= '<small class="text-gray-400 s0">';
 			}
 			else
 			{
-				$html .= '<small class="fc-mute">';
+				$html .= '<small class="text-gray-400">';
 			}
 			$html .= ' '. T_("Hezar Toman");
 			$html .= '</small>';

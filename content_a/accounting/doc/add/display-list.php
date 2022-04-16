@@ -61,7 +61,7 @@
               <?php if($locDelMode) {}else{?>
               <td class="p0 txtRa">
                 <?php if(\dash\request::get('did') == a($value, 'id')) {?>
-                  <span class="fc-mute"><i><?php echo T_("Editing") ?>...</i></span>
+                  <span class="text-gray-400"><i><?php echo T_("Editing") ?>...</i></span>
                 <?php }else{ ?>
                 <a class="btn-link mRa5" href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'). '&did='. a($value, 'id') ?>"><?php echo T_("Edit") ?></a>
                 <sapn data-confirm data-data='{"remove":"removedetail", "docdetailid" : "<?php echo a($value, 'id') ?>"}'><i class="sf-trash text-red-800 fs12"></i></sapn>

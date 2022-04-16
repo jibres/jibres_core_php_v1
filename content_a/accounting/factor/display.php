@@ -65,7 +65,7 @@
               <td class="">
                 <?php if(a($value, 'status') === 'lock') { echo '<i class="inline-block sf-lock text-red-800 mRa10"></i>';} else { echo '<i class="inline-block sf-unlock text-green-700 mRa10"></i>';}  ?>
                 <a href="<?php echo \dash\url::that(). '?status='. a($value, 'status'); ?>"><?php echo T_(a($value, 'tstatus')) ?></a>
-                <?php if(a($value, 'type') === 'opening') { echo '<i class="fc-mute font-bold">'. T_("Opening Document"). '</i>';} ?>
+                <?php if(a($value, 'type') === 'opening') { echo '<i class="text-gray-400 font-bold">'. T_("Opening Document"). '</i>';} ?>
               </td>
               <td class=""><?php echo \dash\fit::number(a($value, 'item_count')) ?></td>
               <td class=""><?php echo T_(a($value, 'template_title')) ?></td>

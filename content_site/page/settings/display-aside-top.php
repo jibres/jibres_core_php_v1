@@ -54,7 +54,7 @@ $html .= "<form method='post' autocomplete='off' data-patch>";
   $html .= "</div>";
   if ($is_homepage)
   {
-    $html .= '<div class="fc-mute text-sm">';
+    $html .= '<div class="text-gray-400 text-sm">';
     {
       $html .= T_("This is the homepage and this title only use in admin panel");
     }
@@ -142,7 +142,7 @@ echo $html;
         <?php } //endif ?>
         </div>
       </div>
-      <?php if($is_homepage) {?><div class="fc-mute text-sm"><?php echo T_("In homepage page url is your domain") ?></div><?php } //endif ?>
+      <?php if($is_homepage) {?><div class="text-gray-400 text-sm"><?php echo T_("In homepage page url is your domain") ?></div><?php } //endif ?>
 
       <div class='mT10' data-response='specialaddress' data-response-where-not='independence' <?php if(\dash\data::dataRow_specialaddress() === 'independence') {echo 'data-response-hide';} ?>>
           <label for='seoSlug'><?php echo T_('Url'); ?> <small><?php echo T_('End part of your news url.'); ?></small></label>
@@ -154,7 +154,7 @@ echo $html;
       <div class='mb-5' data-response='specialaddress' data-response-where='under_page' <?php if(\dash\data::dataRow_specialaddress() === 'under_page') {}else{ echo 'data-response-hide';} ?>>
         <div class='mb-5 text-sm'>
           <div class='mb-5'><?php echo T_('You can set this page as a subset of another page') ?></div>
-          <div class='fc-mute'><?php echo T_('Only published page can set as page parent') ?></div>
+          <div class='text-gray-400'><?php echo T_('Only published page can set as page parent') ?></div>
         </div>
         <div class='mb-5'>
           <select class='select22' name='parent' id='parent' data-placeholder='<?php echo T_('Choose a post') ?>'>

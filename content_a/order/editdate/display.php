@@ -14,13 +14,13 @@
           <table class="tbl1 v4">
             <tbody>
               <tr>
-                <td class="collapsing fc-mute"><?php echo T_("Order date") ?></td>
+                <td class="collapsing text-gray-400"><?php echo T_("Order date") ?></td>
                 <td>
                   <?php echo \dash\fit::date_time(a($orderDetail, 'factor', 'date')); ?>
                 </td>
               </tr>
               <tr>
-                <td class="collapsing fc-mute"><?php echo T_("Last date modified") ?></td>
+                <td class="collapsing text-gray-400"><?php echo T_("Last date modified") ?></td>
                 <td>
                   <?php echo \dash\fit::date_time(a($orderDetail, 'factor', 'datemodified')); ?>
                 </td>

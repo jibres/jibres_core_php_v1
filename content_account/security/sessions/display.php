@@ -47,7 +47,7 @@
           </div>
           <div class="pA5 c s7">
             <div class="mB5"><b><?php echo a($row, 'osName'); ?></b> <?php echo \dash\fit::number(a($row, 'osVer')); ?></div>
-            <div class="fc-mute ltr inline-block font-12"><?php  echo \dash\fit::date_time(a($row, 'datecreated')) ?></div>
+            <div class="text-gray-400 ltr inline-block font-12"><?php  echo \dash\fit::date_time(a($row, 'datecreated')) ?></div>
 
             <?php if(isset($row['current_session']) && $row['current_session']) {?>
 

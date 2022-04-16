@@ -42,7 +42,7 @@
           <div class="mb-4">
             <textarea rows="3" data-rows-min="3" data-autoResize id="desc" name="cdesc" class="txt" rows="3" placeholder="<?php echo T_("Anything about this order") ?>"></textarea>
           </div>
-          <div class="fc-mute text-sm mb-2">
+          <div class="text-gray-400 text-sm mb-2">
             <?php echo T_("Enter anything such as payment method, tracking number, additional details, customer conversations, and anything related to this order in this field.") ?>
           </div>
 
@@ -78,7 +78,7 @@
                 <?php } //endif ?>
 
               </td>
-              <td class="collapsing fc-mute"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></td>
+              <td class="collapsing text-gray-400"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></td>
               <td class="collapsing">
                   <div class="productDel font-14" data-confirm data-data='{"removeaction": "removeaction", "actionid" : "<?php echo a($value, 'id') ?>"}' title='<?php echo T_("Delete") ?>'><i class="sf-trash-o"></i></div>
               </td>

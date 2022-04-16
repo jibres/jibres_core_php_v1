@@ -22,7 +22,7 @@ $option =
     <div class="body">
       <div class="row">
         <div class="c font-bold"><?php echo \dash\data::menuDetail_title() ?></div>
-        <div class="c-auto os fc-mute text-sm"><?php echo \dash\fit::number(\dash\data::menuChilCount()). ' '. T_("Link"); ?></div>
+        <div class="c-auto os text-gray-400 text-sm"><?php echo \dash\fit::number(\dash\data::menuChilCount()). ' '. T_("Link"); ?></div>
       </div>
     </div>
   </div>

@@ -55,7 +55,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
     <?php foreach ($result['ir_list'] as $key => $value) {?>
      <li>
       <a href="<?php if(a($value, 'available') || a($value,'domain_restricted')) { echo \dash\url::this(). '/buy/'. $key; }else{ if(a($value,'domain_name_valid')) { echo \dash\url::this(). '/whois?domain='. $key; } } //endif ?>" class="f item">
-       <div class="key fit fc-mute"><?php echo substr(a($value, 'name'), 0, 15); ?></div>
+       <div class="key fit text-gray-400"><?php echo substr(a($value, 'name'), 0, 15); ?></div>
        <div class="key grow font-bold">.<?php echo a($value, 'tld'); ?></div>
        <?php if(a($value, 'available')) {?>
         <div class="value">
@@ -102,7 +102,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
 <?php } else { ?>
       <a href="<?php echo \dash\url::this(). '/whois?domain='. $key; ?>" class="f item" target="_blank">
 <?php } ?>
-       <div class="key fit fc-mute"><?php echo substr(a($value, 'name'), 0, 15); ?></div>
+       <div class="key fit text-gray-400"><?php echo substr(a($value, 'name'), 0, 15); ?></div>
        <div class="key grow font-bold">.<?php echo a($value, 'tld'); ?></div>
        <?php if(a($value, 'available') && !a($value, 'domain_premium')) {?>
         <div class="value">
@@ -140,7 +140,7 @@ elseif(!\dash\data::InvalidDomain() && \dash\validate::search_string())
      <li>
       <a href="<?php echo \dash\url::this(). '/buy/'. a($value, 'domain') ?>" class="f item">
        <div class="key fit font-bold"><?php echo a($value, 'root'); ?></div>
-       <div class="key grow fc-mute">.<?php echo a($value, 'tld'); ?></div>
+       <div class="key grow text-gray-400">.<?php echo a($value, 'tld'); ?></div>
 
          <div class="value">
           <span class="inline-block font-10"><?php echo \lib\currency::unit();?></span>

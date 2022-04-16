@@ -84,7 +84,7 @@
      </div>
     </form>
    </div>
-   <p class="text-center fc-mute"><?php echo T_('Every website starts with a great domain name. Jibres offers cheap domain names with the most reliable service. Buy domain names with Jibres and see why we are cool!'); ?></p>
+   <p class="text-center text-gray-400"><?php echo T_('Every website starts with a great domain name. Jibres offers cheap domain names with the most reliable service. Buy domain names with Jibres and see why we are cool!'); ?></p>
   </div>
 </section>
 <?php }?>

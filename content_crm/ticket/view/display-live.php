@@ -79,7 +79,7 @@ foreach (\dash\data::conversation() as $key => $value)
 <?php
        if(a($value, 'type') === 'note')
        {
-        echo '<div class="c-auto fc-mute">'. T_("Note"). '</div>';
+        echo '<div class="c-auto text-gray-400">'. T_("Note"). '</div>';
        }
 ?>
         <div class="c"></div>

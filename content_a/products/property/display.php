@@ -159,7 +159,7 @@ require_once(root. 'content_a/products/productName.php');
         <?php  } // end for category ?>
       <?php if($have_any_id) {?>
         <p class="mA10-f">
-          <?php echo T_("By click on ") ?><i class="sf-check-circle fc-mute fs12"></i>
+          <?php echo T_("By click on ") ?><i class="sf-check-circle text-gray-400 fs12"></i>
           <?php echo T_("You can set one property as outstanding property or unset it") ?>
         </p>
       <?php } //endif ?>

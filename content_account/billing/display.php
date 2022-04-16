@@ -69,7 +69,7 @@ elseif(isset($value['minus']) && $value['minus'])
   echo \dash\fit::number($value['minus']);
   echo ' '. \lib\currency::unit();
   echo '</div>';
-  echo '<i class="sf-minus-circle fc-mute"></i>';
+  echo '<i class="sf-minus-circle text-gray-400"></i>';
 }
 ?>
           <time class="value s0" datetime='<?php echo \dash\fit::text(a($value, 'datecreated')); ?>'><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></time>

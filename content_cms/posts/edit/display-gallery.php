@@ -14,7 +14,7 @@
       <h3><?php echo T_("Podcast")?></h3>
       <div class="body">
         <p><?php echo T_("We enable you to upload audio clips and share them with the world. Sharing your talent is simple!") ?></p>
-        <p class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></p>
+        <p class="text-gray-400 block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></p>
       </div>
     </div>
   </div>
@@ -54,7 +54,7 @@ if(a($dataRow, 'subtype') === 'video') {?>
       <h3><?php echo T_("Video")?></h3>
       <div class="body">
         <p><?php echo T_("Share your video with the world.") ?></p>
-        <p class="fc-mute block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></p>
+        <p class="text-gray-400 block"><?php echo T_("Maximum file size"). ' '. \dash\data::maxFileSizeTitle(); ?></p>
       </div>
     </div>
   </div>

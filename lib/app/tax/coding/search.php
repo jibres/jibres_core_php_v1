@@ -326,7 +326,7 @@ class search
 			}
 			else
 			{
-				$html .= ' <span class="fc-mute"> ('.T_(ucfirst($_data['nature'])).') </span> ';
+				$html .= ' <span class="text-gray-400"> ('.T_(ucfirst($_data['nature'])).') </span> ';
 			}
 		}
 		if(isset($_data['detailable']))
@@ -337,7 +337,7 @@ class search
 
 		if(isset($_data['status']) && $_data['status'] === 'disable')
 		{
-			$html .= ' <span class="fc-mute"> ('.T_("Disable").') </span> ';
+			$html .= ' <span class="text-gray-400"> ('.T_("Disable").') </span> ';
 		}
 
 		$html .= '</a>';

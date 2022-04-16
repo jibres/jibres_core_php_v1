@@ -18,7 +18,7 @@ foreach (\dash\data::dataTable() as $key => $value)
     }
     elseif((string) a($value, 'autorenew') === '0')
     {
-      $result .= '<i title="'. T_("Auto Renew is Disable"). '" class="sf-refresh fc-mute"></i>';
+      $result .= '<i title="'. T_("Auto Renew is Disable"). '" class="sf-refresh text-gray-400"></i>';
     }
     else
     {
@@ -28,7 +28,7 @@ foreach (\dash\data::dataTable() as $key => $value)
         }
         elseif((string) a($value, 'autorenewdesign') === '0')
         {
-          $result .= '<i title="'. T_("Auto Renew is Disable"). '" class="sf-refresh fc-mute"></i>';
+          $result .= '<i title="'. T_("Auto Renew is Disable"). '" class="sf-refresh text-gray-400"></i>';
         }
 
     }

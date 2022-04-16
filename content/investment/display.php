@@ -22,7 +22,7 @@
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/pitchdeck.svg" alt="Jibres PitchDeck"></div>
           <h2 class="title"><?php echo T_("Pitch Deck"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Brief but informative overview of Jibres") ?></div>
+          <div class="text-gray-400"><?php echo T_("Brief but informative overview of Jibres") ?></div>
         </div>
       </a>
     </div>
@@ -35,7 +35,7 @@
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/pitchdeck-presentation.svg" alt="Jibres PitchDeck Presentation"></div>
           <h2 class="title"><?php echo T_("Pitch Deck Slides"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Presentation that helps potential investors") ?></div>
+          <div class="text-gray-400"><?php echo T_("Presentation that helps potential investors") ?></div>
         </div>
       </a>
     </div>
@@ -45,7 +45,7 @@
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/financial-growth.svg" alt="Jibres "></div>
           <h2 class="title"><?php echo T_("Financial Projection"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Forecast of future revenues and expenses") ?></div>
+          <div class="text-gray-400"><?php echo T_("Forecast of future revenues and expenses") ?></div>
         </div>
       </a>
     </div>
@@ -55,7 +55,7 @@
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/business-model-canvas.svg" alt="Jibres Business Plan"></div>
           <h2 class="title"><?php echo T_("Business Model Canvas"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Strategic management tool to define concept") ?></div>
+          <div class="text-gray-400"><?php echo T_("Strategic management tool to define concept") ?></div>
         </div>
       </a>
     </div>
@@ -65,7 +65,7 @@
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/swot.svg" alt="Jibres SWOT"></div>
           <h2 class="title"><?php echo T_("SWOT Analysis"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Strengths, Weaknesses, Opportunities, and Threats") ?></div>
+          <div class="text-gray-400"><?php echo T_("Strengths, Weaknesses, Opportunities, and Threats") ?></div>
         </div>
       </a>
     </div>
@@ -75,7 +75,7 @@
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/onepage-bp.svg" alt="Jibres OnePage Business Plan"></div>
           <h2 class="title"><?php echo T_("One Page Business Plan"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Essential information about Jibres strategy") ?></div>
+          <div class="text-gray-400"><?php echo T_("Essential information about Jibres strategy") ?></div>
         </div>
       </a>
     </div>
@@ -85,7 +85,7 @@
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/bp.svg" alt="Jibres Business Plan"></div>
           <h2 class="title"><?php echo T_("Business Plan"); ?></h2>
-          <div class="fc-mute"><?php echo T_("A business plan is more than a document") ?></div>
+          <div class="text-gray-400"><?php echo T_("A business plan is more than a document") ?></div>
         </div>
       </a>
     </div>
@@ -95,7 +95,7 @@
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::icon(); ?>" alt="Jibres Brand"></div>
           <h2 class="title"><?php echo T_("Brand Style Guide"); ?></h2>
-          <div class="fc-mute"><?php echo T_("MEET THE LOGO") ?></div>
+          <div class="text-gray-400"><?php echo T_("MEET THE LOGO") ?></div>
         </div>
       </a>
     </div>
@@ -105,7 +105,7 @@
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/catalog.svg" alt="Jibres Catalog"></div>
           <h2 class="title"><?php echo T_("Jibres Catalog"); ?></h2>
-          <div class="fc-mute"><?php echo T_("Jibres museum") ?></div>
+          <div class="text-gray-400"><?php echo T_("Jibres museum") ?></div>
         </div>
       </a>
     </div>

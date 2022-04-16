@@ -7,7 +7,7 @@
           <input type="tel" name="mobile" data-format='mobile-enter' maxlength="15">
         </div>
         <textarea name="message" class="txt mb-2" rows="3" placeholder="<?php echo T_("Message text ...") ?>"></textarea>
-        <div class="fc-mute ">
+        <div class="text-gray-400 ">
           <?php echo T_("After registering the Message, your request will be placed in the sending queue and you will send it in a few minutes") ?>
         </div>
       </div>

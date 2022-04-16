@@ -2,7 +2,7 @@
   <div class="box">
     <div class="body">
       <div class="f">
-        <div class="cauto fc-mute"><?php echo \dash\data::domainDetail_tstatus(); ?></div>
+        <div class="cauto text-gray-400"><?php echo \dash\data::domainDetail_tstatus(); ?></div>
         <div class="c"></div>
         <div class="cauto">
           <div class="font-bold ltr">

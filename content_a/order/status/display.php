@@ -16,7 +16,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
       <div class="box">
         <div class="pad">
           <p><i class="sf-arrows-out"></i> <?php echo T_("Change Order status") ?>
-          <br><small class="fc-mute"><?php echo T_("Change order status by click on custome status") ?></small>
+          <br><small class="text-gray-400"><?php echo T_("Change order status by click on custome status") ?></small>
         </p>
         <div class="row mb-2">
           <div class="c-auto">
@@ -66,7 +66,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
       <div class="pad">
         <p>
           <i class="sf-money-banknote"></i> <?php echo T_("Change order payment status") ?>
-          <br><small class="fc-mute"><?php echo T_("Change order payment status by click on custome status") ?></small>
+          <br><small class="text-gray-400"><?php echo T_("Change order payment status by click on custome status") ?></small>
         </p>
         <div class="row mb-2">
           <div class="c-auto">
@@ -108,7 +108,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
         <div class="input ltr">
           <input type="tel" maxlength="30" name="trackingnumber" id="itrackingnumber" value="<?php echo \dash\data::myTrackingNumber(); ?>">
         </div>
-        <div class="fc-mute mt-2">
+        <div class="text-gray-400 mt-2">
           <?php echo T_("Save Tracking number for this order") ?>.
           <?php echo T_("After saving the tracking code, we will send it to the customer") ?>
 
@@ -149,7 +149,7 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
             <td>
               <?php echo a($value, 'desc') ?>
             </td>
-            <td class="collapsing fc-mute"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></td>
+            <td class="collapsing text-gray-400"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></td>
           </tr>
         <?php } //endfor ?>
       </tbody>

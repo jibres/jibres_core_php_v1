@@ -467,7 +467,7 @@ class get
     			$result .= '<div class="key">'. a($one_item, 'title');
     			if(a($one_item, 'target'))
     			{
-    				$result .= '<i class="sf-external-link fc-mute"></i>';
+    				$result .= '<i class="sf-external-link text-gray-400"></i>';
     			}
     			$result .= '</div>';
 
