@@ -17,7 +17,7 @@ class file
 
 		\dash\waf\gate\toys\only::array($file);
 
-		\dash\waf\gate\toys\general::array_count($file, 1, 3);
+		// \dash\waf\gate\toys\general::array_count($file, 1, 3);
 
 		foreach ($file as $file_name => $file_detail)
 		{
