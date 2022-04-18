@@ -39,6 +39,12 @@ class number
 			return false;
 		}
 
+
+		if(isset($_meta['number_string']) && $_meta['number_string'])
+		{
+			return strval($data);
+		}
+
 		// infinity number
 		if(is_infinite($data))
 		{
@@ -206,6 +212,52 @@ class number
 
 		return $data;
 	}
+
+
+	public static function irshaba($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['number_string' => true]);
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(mb_strlen($data) != 24)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Shaba number must exactly 24 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
+
+
+	public static function ircard($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$data = self::number($_data, $_notif, $_element, $_field_title, ['number_string' => true]);
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+		if(mb_strlen($data) != 16)
+		{
+			if($_notif)
+			{
+				\dash\notif::error(T_("Card number must exactly 16 character"), ['element' => $_element]);
+				\dash\cleanse::$status = false;
+			}
+			return false;
+		}
+
+		return $data;
+	}
+
 
 
 	public static function phone($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])

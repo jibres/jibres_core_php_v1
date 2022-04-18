@@ -185,6 +185,16 @@ class add
 					$answer[$item_id] = ['answer' => $my_answer];
 					break;
 
+				case 'ircard':
+					$my_answer        = \dash\validate::ircard($my_answer, true, $validate_meta);
+					$answer[$item_id] = ['answer' => $my_answer];
+					break;
+
+				case 'irshaba':
+					$my_answer        = \dash\validate::irshaba($my_answer, true, $validate_meta);
+					$answer[$item_id] = ['answer' => $my_answer];
+					break;
+
 				case 'manual_amount':
 				case 'hidden_amount':
 				case 'list_amount':

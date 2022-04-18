@@ -196,6 +196,8 @@ class generator
 				case 'province_city':		self::html_input_province_city($item);break;
 				case 'gender':				self::html_input_gender($item);break;
 				case 'time':				self::html_input_time($item);break;
+				case 'ircard':				self::html_input_ircard($item);break;
+				case 'irshaba':				self::html_input_irshaba($item);break;
 				case 'tel':					self::html_input_tel($item);break;
 				case 'file':				self::html_input_file($item);break;
 				case 'nationalcode':		self::html_input_nationalcode($item);break;
@@ -832,6 +834,35 @@ class generator
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="time" ');
+			self::HtmlDesc($value);
+		}
+		self::_div();
+	}
+
+
+	private static function html_input_ircard($value)
+	{
+		self::div('c-xs-12 c-6');
+		{
+			self::label($value);
+			self::input('tel', $value, ' data-format="creditCard" ');
+			self::HtmlDesc($value);
+		}
+		self::_div();
+	}
+
+
+	private static function html_input_irshaba($value)
+	{
+		self::div('c-xs-12 c-6');
+		{
+			self::label($value);
+			self::div('input');
+			{
+				self::input_raw('tel', $value, self::myName($value, true), self::myID($value, true),  ' data-format="irshaba" ');
+				self::$html .= '<label class="addon">IR</label>';
+			}
+			self::_div();
 			self::HtmlDesc($value);
 		}
 		self::_div();

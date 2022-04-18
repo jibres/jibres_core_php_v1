@@ -101,6 +101,63 @@ class type
 			],
 		];
 
+		$type['tel'] =
+		[
+			'key'          => 'tel',
+			'placeholder'  => true,
+			'chart' 	   => false,
+			'chart_type'   => null,
+			'title'        => T_('Phone'),
+			'group'        => T_('Numberic'),
+			'default_load' =>
+			[
+				'placeholder' => T_("Phone number"),
+			],
+		];
+
+		$type['nationalcode'] =
+		[
+			'key'          => 'nationalcode',
+			'placeholder'  => true,
+			'chart' 	   => false,
+			'chart_type'   => null,
+			'check_unique' => true,
+			'title'        => T_('Nationalcode'),
+			'group'        => T_('Numberic'),
+			'default_load' =>
+			[
+				'placeholder' => T_("Enter nationalcode"),
+			],
+		];
+
+
+
+
+		if(\dash\language::current() === 'fa')
+		{
+			$type['ircard'] =
+			[
+				'key'          => 'ircard',
+				'title'        => T_('Card Number'),
+				'group'        => T_('Numberic'),
+				'placeholder'  => true,
+				'default_load' =>
+				[
+				],
+			];
+
+			$type['irshaba'] =
+			[
+				'key'          => 'irshaba',
+				'title'        => T_('Shaba Number'),
+				'group'        => T_('Numberic'),
+				'placeholder'  => true,
+				'default_load' =>
+				[
+				],
+			];
+
+		}
 
 		$type['yes_no'] =
 		[
@@ -283,20 +340,6 @@ class type
 		];
 
 
-		$type['tel'] =
-		[
-			'key'          => 'tel',
-			'placeholder'  => true,
-			'chart' 	   => false,
-			'chart_type'   => null,
-			'title'        => T_('Phone'),
-			'group'        => T_('Numberic'),
-			'default_load' =>
-			[
-				'placeholder' => T_("Phone number"),
-			],
-		];
-
 
 
 		$type['file'] =
@@ -315,20 +358,7 @@ class type
 		];
 
 
-		$type['nationalcode'] =
-		[
-			'key'          => 'nationalcode',
-			'placeholder'  => true,
-			'chart' 	   => false,
-			'chart_type'   => null,
-			'check_unique' => true,
-			'title'        => T_('Nationalcode'),
-			'group'        => T_('Numberic'),
-			'default_load' =>
-			[
-				'placeholder' => T_("Enter nationalcode"),
-			],
-		];
+
 
 
 		$type['mobile'] =
