@@ -216,6 +216,12 @@ class number
 
 	public static function irshaba($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
+		// remove ir from first index
+		if($_data && is_string($_data) && mb_strtoupper(substr($_data, 0, 2)) === 'IR')
+		{
+			$_data = substr($_data, 2);
+		}
+
 		$data = self::number($_data, $_notif, $_element, $_field_title, ['number_string' => true]);
 		if($data === false || $data === null)
 		{
