@@ -23,10 +23,41 @@ class model
 
 		$whole_edit = [];
 
+		$allTypes =
+		[
+			'title',
+			'desc',
+			'filetype',
+			'color',
+			'type',
+			'require',
+			'checkrequire',
+			'maxlen',
+			'placeholder',
+			'choice',
+			'choiceinline',
+			'random',
+			'check_unique',
+			'min',
+			'max',
+			'mindate',
+			'maxdate',
+			'choice',
+			'send_sms',
+			'sms_text',
+			'signup',
+			'defaultvalue',
+			'link',
+			'targetblank'
+		];
+
+		$typeString = implode('|', $allTypes);
+
+		$preg = "/^item_(".$typeString.")_(\d+)$/";
 
 		foreach ($all_post as $key => $value)
 		{
-			if(preg_match("/^item_(title|desc|filetype|color|type|require|checkrequire|maxlen|placeholder|choice|choiceinline|random|check_unique|min|max|choice|send_sms|sms_text|signup|defaultvalue|link|targetblank)_(\d+)$/", $key, $split))
+			if(preg_match($preg, $key, $split))
 			{
 				if(!isset($whole_edit[$split[2]]))
 				{
@@ -49,9 +80,9 @@ class model
 		if(\dash\engine\process::status())
 		{
 			\dash\notif::ok(T_("Form items successfully edited"));
+			\dash\redirect::pwd();
 		}
 
-		\dash\redirect::pwd();
 	}
 }
 ?>

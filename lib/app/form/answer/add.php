@@ -78,6 +78,9 @@ class add
 			$min               = 0;
 			$max               = 99999999999999;
 
+			$mindate           = null;
+			$maxdate           = null;
+
 			if(isset($item_detail['maxlen']) && is_numeric($item_detail['maxlen']) && floatval($item_detail['maxlen']) < 200)
 			{
 				$maxlen = floatval($item_detail['maxlen']);
@@ -91,6 +94,17 @@ class add
 			if(isset($item_detail['setting'][$type]['max']) && is_numeric($item_detail['setting'][$type]['max']) && floatval($item_detail['setting'][$type]['max']) < $max)
 			{
 				$max = floatval($item_detail['setting'][$type]['max']);
+			}
+
+
+			if(isset($item_detail['setting'][$type]['mindate']) && $item_detail['setting'][$type]['mindate'] && strtotime($item_detail['setting'][$type]['mindate']))
+			{
+				$mindate = strtotime(\dash\utility\jdate::to_gregorian($item_detail['setting'][$type]['mindate']));
+			}
+
+			if(isset($item_detail['setting'][$type]['maxdate']) && $item_detail['setting'][$type]['maxdate'] && strtotime($item_detail['setting'][$type]['maxdate']))
+			{
+				$maxdate = strtotime(\dash\utility\jdate::to_gregorian($item_detail['setting'][$type]['maxdate']));
 			}
 
 
@@ -226,11 +240,25 @@ class add
 
 				case 'date':
 					$my_answer        = \dash\validate::date($my_answer, true, $validate_meta);
+
+					if(!self::check_min_max_date($my_answer, $mindate, $maxdate))
+					{
+						\dash\notif::error(T_("Your date is not in allowd range"), ['title' => a($item_detail, 'title')]);
+						return false;
+					}
+
 					$answer[$item_id] = ['answer' => $my_answer];
 					break;
 
 				case 'birthdate':
 					$my_answer                    = \dash\validate::birthdate($my_answer, true, $validate_meta);
+
+					if(!self::check_min_max_date($my_answer, $mindate, $maxdate))
+					{
+						\dash\notif::error(T_("Your date is not in allowd range"), ['title' => a($item_detail, 'title')]);
+						return false;
+					}
+
 					$answer[$item_id] = ['answer' => $my_answer];
 					$signup_user_args['birthday'][] = $my_answer;
 					break;
@@ -700,6 +728,35 @@ class add
 		}
 
 		return null;
+	}
+
+
+	public static function check_min_max_date($_value, $_mindate, $_maxdate)
+	{
+		if(!$_value)
+		{
+			return true;
+		}
+
+
+		$value = strtotime($_value);
+		if(!$value)
+		{
+			return true;
+		}
+
+
+		if($_mindate && $value < $_mindate)
+		{
+			return false;
+		}
+
+		if($_maxdate && $value > $_maxdate)
+		{
+			return false;
+		}
+
+		return true;
 	}
 }
 ?>

@@ -46,6 +46,16 @@ class ready
 			}
 		}
 
+		if(isset($result['setting'][$result['type']]['mindate']))
+		{
+			$result['setting'][$result['type']]['mindate'] = \dash\fit::date_en($result['setting'][$result['type']]['mindate']);
+		}
+
+		if(isset($result['setting'][$result['type']]['maxdate']))
+		{
+			$result['setting'][$result['type']]['maxdate'] = \dash\fit::date_en($result['setting'][$result['type']]['maxdate']);
+		}
+
 		$random_choice = false;
 		if(isset($result['setting']) && is_array($result['setting']))
 		{

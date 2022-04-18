@@ -81,6 +81,16 @@ function settingRecord($value)
 		settingMax($value);
 	}
 
+	if(isset($value['type_detail']['mindate']) && $value['type_detail']['mindate'])
+	{
+		settingMindate($value);
+	}
+
+	if(isset($value['type_detail']['maxdate']) && $value['type_detail']['maxdate'])
+	{
+		settingMaxdate($value);
+	}
+
 
 
 	if(isset($value['type_detail']['choiceinline']) && $value['type_detail']['choiceinline'])
@@ -161,6 +171,24 @@ function settingMin($value) {?>
 <label for="item_min_<?php echo a($value, 'id') ?>"><?php echo T_("Minimum") ?></label>
 <div class="input">
 	<input type="text" name="item_min_<?php echo a($value, 'id') ?>" id="item_min_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'min'); ?>">
+</div>
+<?php } //endif
+
+
+
+
+function settingMindate($value) {?>
+<label for="item_mindate_<?php echo a($value, 'id') ?>"><?php echo T_("Minimum date") ?></label>
+<div class="input">
+	<input type="tel" name="item_mindate_<?php echo a($value, 'id') ?>" id="item_mindate_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'mindate'); ?>" data-format='date'>
+</div>
+<?php } //endif
+
+
+function settingMaxdate($value) {?>
+<label for="item_maxdate_<?php echo a($value, 'id') ?>"><?php echo T_("Maximum date") ?></label>
+<div class="input">
+	<input type="tel" name="item_maxdate_<?php echo a($value, 'id') ?>" id="item_maxdate_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'maxdate'); ?>" data-format='date'>
 </div>
 <?php } //endif
 

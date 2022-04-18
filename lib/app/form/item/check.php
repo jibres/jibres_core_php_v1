@@ -24,6 +24,8 @@ class check
 			'check_unique' => 'bit',
 			'min'          => 'intstring_50',
 			'max'          => 'intstring_50',
+			'mindate'      => 'date',
+			'maxdate'      => 'date',
 			'filetype'     => 'tag',
 			'send_sms'     => 'bit',
 			'sms_text'     => 'string_210',
@@ -79,6 +81,34 @@ class check
 				}
 			}
 		}
+
+
+		if(a($_current_detail, 'type_detail', 'mindate'))
+		{
+			$setting[$data['type']]['mindate'] = $data['mindate'];
+		}
+
+		if(a($_current_detail, 'type_detail', 'maxdate'))
+		{
+			$setting[$data['type']]['maxdate'] = $data['maxdate'];
+		}
+
+
+		if(isset($setting[$data['type']]['mindate']) && isset($setting[$data['type']]['maxdate']))
+		{
+			$mindate = strtotime($setting[$data['type']]['mindate']);
+			$maxdate = strtotime($setting[$data['type']]['maxdate']);
+			if($mindate || $maxdate)
+			{
+				if($mindate > $maxdate)
+				{
+					\dash\notif::error(T_("Minimum date is larger than Maximum date!"));
+					return false;
+				}
+			}
+		}
+
+
 
 
 		if(a($_current_detail, 'type_detail', 'choiceinline'))
@@ -175,6 +205,8 @@ class check
 		unset($data['check_unique']);
 		unset($data['min']);
 		unset($data['max']);
+		unset($data['mindate']);
+		unset($data['maxdate']);
 		unset($data['color']);
 		unset($data['filetype']);
 		unset($data['send_sms']);

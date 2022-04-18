@@ -177,6 +177,8 @@ class type
 			'chart_type'   => 'wordcloud',
 			'title'        => T_('Date'),
 			'group'        => T_('Date & time'),
+			'mindate'          => true,
+			'maxdate'          => true,
 			'default_load' =>
 			[
 
@@ -192,6 +194,8 @@ class type
 			'chart_type'   => 'pie',
 			'title'        => T_('Birthdate'),
 			'group'        => T_('Date & time'),
+			'mindate'          => true,
+			'maxdate'          => true,
 			'default_load' =>
 			[
 
