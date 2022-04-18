@@ -83,7 +83,7 @@ class generator
 						}
 						if(a($load_form, 'desc'))
 						{
-							self::$html .= '<div class="mb-4">'. nl2br(a($load_form, 'desc')). '</div>';
+							self::$html .= '<div class="mb-4 leading-relaxed">'. nl2br(a($load_form, 'desc')). '</div>';
 						}
 
 						\lib\app\form\generator::items($load_items);
@@ -967,7 +967,7 @@ class generator
 				$accept = "*";
 			}
 
-			self::$html .= '<div data-uploader data-file-max-size="'. \dash\data::maxFileSize() .'" data-name="'. self::myName($value, true). '" data-ratio-free data-final="#finalImage'. self::myID($value, true). '">';
+			self::$html .= '<div data-uploader class="mb-2" data-file-max-size="'. \dash\data::maxFileSize() .'" data-name="'. self::myName($value, true). '" data-ratio-free data-final="#finalImage'. self::myID($value, true). '">';
 			{
 				self::$html .= '<input type="file" accept="'. $accept.  '" id="'. self::myID($value, true). '">';
 				// T_('Drag &amp; Drop your files or Browse')
