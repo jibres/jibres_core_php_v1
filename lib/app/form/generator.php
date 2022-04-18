@@ -859,7 +859,7 @@ class generator
 			self::label($value);
 			self::div('input');
 			{
-				self::input_raw('tel', $value, self::myName($value, true), self::myID($value, true),  ' data-format="irshaba" ');
+				self::input_raw('tel', $value, self::myName($value, true), self::myID($value, true),  ' data-format="shaba" ');
 				self::$html .= '<label class="addon">IR</label>';
 			}
 			self::_div();
