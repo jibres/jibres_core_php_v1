@@ -32,7 +32,7 @@ class su_gitUpdate
 
 	public static function active_bot()
 	{
-		return 'jibres_bot';
+		return 'JibresRobot';
 	}
 
 	private static function get_domain_name($_args)

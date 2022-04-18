@@ -33,7 +33,7 @@ class su_cdnUpdate
 
 	public static function active_bot()
 	{
-		return 'jibres_bot';
+		return 'JibresRobot';
 	}
 
 	public static function send_to()
