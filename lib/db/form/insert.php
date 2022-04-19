@@ -33,7 +33,7 @@ class insert
 				NULL,
 				form.user_id,
 				'$_title',
-				form.slug,
+				CONCAT(form.slug, FLOOR( RAND() * (200-100) + 100)),
 				form.lang,
 				form.password,
 				'public',

@@ -56,8 +56,16 @@ class check
 				}
 				else
 				{
-					\dash\notif::warn(T_("Your form slug is duplicate"));
-					$data['slug'] = $data['slug']. rand(111, 999);
+					if(is_null($_id))
+					{
+						$data['slug'] = $data['slug']. rand(111, 999);
+						// in add mode
+					}
+					else
+					{
+						\dash\notif::error(T_("Duplicate form slug. Try another name"));
+						return false;
+					}
 				}
 			}
 		}
