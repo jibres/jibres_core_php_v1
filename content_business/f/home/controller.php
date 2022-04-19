@@ -41,14 +41,14 @@ class controller
 
 		if($child)
 		{
-			$load_form = \lib\app\form\form\get::public_get($child);
+			$load_form = \lib\app\form\form\get::public_get(urldecode($child));
 			if(!$load_form || !isset($load_form['id']))
 			{
 				\dash\header::status(404);
 			}
 
 			// redirect to slug
-			if(a($load_form, 'url') && $load_form['url'] !== \dash\url::current() && \dash\request::is('get'))
+			if(a($load_form, 'url') && urldecode($load_form['url']) !== urldecode(\dash\url::current()) && \dash\request::is('get'))
 			{
 				\dash\redirect::to($load_form['url']);
 			}
