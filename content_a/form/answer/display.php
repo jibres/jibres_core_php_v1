@@ -77,7 +77,7 @@
           <td><?php echo \dash\fit::date_time(a($value, 'enddate')); ?></td>
           <td><?php echo \dash\fit::number(a($value, 'count_answer')); ?></td>
           <td class="collapsing"><?php if(a($value, 'factor_id')) {?><a href="<?php echo \dash\url::kingdom(). '/a/order/comment?id='. a($value, 'factor_id'); ?>"><?php echo T_("View Order") ?></a><?php } //endif ?></td>
-          <td class="collapsing"><?php if(a($value, 'review')){echo "<i class='sf-check fc-black'></i>";}else{echo "<i class='sf-times text-gray-400'></i>";} ?></td>
+          <td class="collapsing"><?php if(a($value, 'review')){echo \dash\utility\icon::svg('check-circle', 'bootstrap', 'green', 'w-4') ;}else{echo \dash\utility\icon::svg('question-circle', 'bootstrap', '#D3D3D3', 'w-4');} ?></td>
           <td class="collapsing"><a class="btn-link" href="<?php echo \dash\url::that(). '/detail?id='. \dash\request::get('id'). '&aid='. a($value, 'id'); ?>"><?php echo T_("Detail") ?></a></td>
         </tr>
       <?php } //endif ?>

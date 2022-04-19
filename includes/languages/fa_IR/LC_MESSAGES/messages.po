@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-04-18 15:10+0430\n"
-"PO-Revision-Date: 2022-04-18 15:12+0430\n"
+"POT-Creation-Date: 2022-04-19 14:40+0430\n"
+"PO-Revision-Date: 2022-04-19 14:41+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2137,7 +2137,7 @@ msgid "Enter your mobile number"
 msgstr "شماره موبایل خود را وارد کنید"
 
 #: content/home/display.php:12 content_a/cart/user/display.php:37
-#: content_a/form/itemLink.php:58 content_a/pricehistory/choose/display.php:13
+#: content_a/form/itemLink.php:59 content_a/pricehistory/choose/display.php:13
 #: content_a/pricehistory/display.php:23
 #: content_a/setting/domain/existdomain/display.php:19 content_enter/app/display.php:60
 #: content_enter/home/display.php:47 content_enter/pass/change/display.php:17
@@ -7574,7 +7574,7 @@ msgstr "صفحه اول مقدمه"
 #: content_love/files/home/display.php:49 content_love/home/display.php:118
 #: content_site/options/file/file.php:285 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
-#: includes/languages/trans_static.php:500 lib/app/form/generator.php:975
+#: includes/languages/trans_static.php:500 lib/app/form/generator.php:974
 msgid "File"
 msgstr "فایل"
 
@@ -8913,6 +8913,12 @@ msgstr "جزئیات پاسخ"
 msgid "Filter chart"
 msgstr "نمودار فیلتر"
 
+#: content_a/form/analytics/controller.php:31 lib/app/form/view/create.php:36
+msgid "This feature available when count of your answer count more than 1,000 answer"
+msgstr ""
+"این قابلیت زمانی فعال خواهد شد که تعداد پاسخ‌های دریافت شده در فرم شما بیش از ۱۰۰۰ پاسخ "
+"باشد"
+
 #: content_a/form/analytics/create/display.php:2 content_a/form/analytics/display.php:3
 #: content_a/form/analytics/table/display.php:112
 msgid "Create now"
@@ -9127,8 +9133,8 @@ msgid "Tag saved"
 msgstr "تگ ذخیره شد"
 
 #: content_a/form/answer/detail/view.php:71
-msgid "Mark as reviewd"
-msgstr "به عنوان بررسی شده ذخیره شد"
+msgid "Mark as reviewed"
+msgstr "تنظیم به عنوان بررسی شده"
 
 #: content_a/form/answer/display.php:9
 msgid "You have :val not reviewed answer"
@@ -9270,7 +9276,7 @@ msgstr "با فرم تماس از مشتریان خود نظرسنجی کنید"
 msgid "Add contact form now!"
 msgstr "همین الان یک فرم تماس ایجاد کنید!"
 
-#: content_a/form/home/model.php:12 content_a/form/itemLink.php:54
+#: content_a/form/home/model.php:12 content_a/form/itemLink.php:55
 msgid "Answer id"
 msgstr "کد پاسخ"
 
@@ -9508,11 +9514,11 @@ msgstr "استعلام"
 msgid "Analyze answers"
 msgstr "تجزیه و تحلیل اطلاعات"
 
-#: content_a/form/itemLink.php:42
+#: content_a/form/itemLink.php:43
 msgid "Add new question"
 msgstr "افزودن سوال جدید"
 
-#: content_a/form/itemLink.php:52
+#: content_a/form/itemLink.php:53
 msgid "Find answer detail by id"
 msgstr "یافتن پاسخ با داشتن کد پاسخ"
 
@@ -11897,7 +11903,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketAnswer.php:108
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/commands/step_ticketCreate.php:111
-#: includes/languages/trans_static.php:508 lib/app/form/generator.php:1096
+#: includes/languages/trans_static.php:508 lib/app/form/generator.php:1095
 msgid "Yes"
 msgstr "بله"
 
@@ -11916,7 +11922,7 @@ msgstr "بله"
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
 #: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
-#: lib/app/form/generator.php:1107
+#: lib/app/form/generator.php:1106
 msgid "No"
 msgstr "خیر"
 
@@ -30603,19 +30609,19 @@ msgstr "کد پستی باید کمتر از ۱۰ کاراکتر باشد"
 msgid "Post code must be exactly 10 character"
 msgstr "کدپستی باید دقیقا ۱۰ رقم باشد"
 
-#: dash/validate/number.php:229
+#: dash/validate/number.php:235
 msgid "Shaba number must exactly 24 character"
 msgstr "شماره شبا باید ۲۴ رقم باشد"
 
-#: dash/validate/number.php:252
+#: dash/validate/number.php:258
 msgid "Card number must exactly 16 character"
 msgstr "شماره کارت باید ۱۶ رقم باشد"
 
-#: dash/validate/number.php:277
+#: dash/validate/number.php:283
 msgid "Phone number must be larger than 8 character"
 msgstr "شماره تلفن باید بزرگتر از ۸ کاراکتر باشد"
 
-#: dash/validate/number.php:288
+#: dash/validate/number.php:294
 msgid "Phone number must be less than 14 character"
 msgstr "شماره تلفن باید کمتر از ۱۴ کاراکتر باشد"
 
