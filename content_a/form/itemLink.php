@@ -27,12 +27,13 @@
 </nav>
 
 
-
+<?php if(\content_a\form\analytics\controller::check_count_answer_1000()) {?>
 <nav class="items">
  <ul>
       <li><a class="f item" href="<?php echo \dash\url::this(). '/analytics?id='. \dash\request::get('id'); ?>"><i class="sf-atom"></i><div class="key"><?php echo T_("Analyze answers");?></div><div class="go"></div></a></li>
  </ul>
 </nav>
+<?php } //endif ?>
 
 <nav class="items">
  <ul>

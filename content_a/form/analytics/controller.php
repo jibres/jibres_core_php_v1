@@ -9,6 +9,32 @@ class controller
 	public static function routing()
 	{
 		self::form_id();
+		self::check_count_answer_1000(true);
+	}
+
+
+	public static function check_count_answer_1000($_block = false)
+	{
+		$form_id = \dash\request::get('id');
+
+		if(!$form_id)
+		{
+			return false;
+		}
+
+		$count_answer = \lib\db\form_answer\get::count_by_form_id($form_id);
+
+		if(!$count_answer || floatval($count_answer) < 1000)
+		{
+			if($_block)
+			{
+				\dash\header::status(403, T_("This feature available when count of your answer count more than 1,000 answer"));
+			}
+			return false;
+		}
+
+		return true;
+
 	}
 
 

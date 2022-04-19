@@ -31,6 +31,13 @@ class create
 		}
 
 
+		if(floatval($count_answer) < 1000)
+		{
+			\dash\notif::error(T_("This feature available when count of your answer count more than 1,000 answer"));
+			return false;
+		}
+
+
 		$table_name = 'form_view_table_'. $_form_id;
 
 
