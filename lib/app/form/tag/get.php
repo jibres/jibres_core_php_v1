@@ -56,19 +56,19 @@ class get
 				switch ($value['color'])
 				{
 					case 'red':
-						$get_usage[$key]['class'] = 'danger2';
+						$get_usage[$key]['class'] = 'alert-danger';
 						break;
 
 					case 'green':
-						$get_usage[$key]['class'] = 'success2';
+						$get_usage[$key]['class'] = 'alert-success';
 						break;
 
 					case 'blue':
-						$get_usage[$key]['class'] = 'primary2';
+						$get_usage[$key]['class'] = 'alert-primary';
 						break;
 
 					case 'black':
-						$get_usage[$key]['class'] = 'secondary2';
+						$get_usage[$key]['class'] = 'alert-secondary';
 						break;
 
 					default:

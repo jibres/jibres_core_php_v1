@@ -22,7 +22,7 @@ if(!is_array($formItems))
 					<div class="pad">
 
 						<?php if(\dash\data::answerID()) {?>
-							<div class="msg minimal">
+							<div class="p-2 mb-4 rounded-sm alert-success">
 								<?php echo T_("Your tracking numbert is") ?> <code><?php echo \dash\data::answerID() ?></code>
 							</div>
 						<?php } //endif ?>
@@ -30,7 +30,7 @@ if(!is_array($formItems))
 
 					<?php if(\dash\data::tagList()) {?>
 						<?php foreach (\dash\data::tagList() as $key => $value) {?>
-							<div class="msg minimal <?php echo a($value, 'class') ?>">
+							<div class="p-2 rounded-sm alert <?php echo a($value, 'class') ?>">
 								<?php if(a($value, 'desc')) {?><p><?php echo a($value, 'desc') ?></p><?php } //endif ?>
 							</div>
 						<?php } //endfor ?>
@@ -38,7 +38,7 @@ if(!is_array($formItems))
 
 					<?php if(\dash\data::commentList()) {?>
 						<?php foreach (\dash\data::commentList() as $key => $value) {?>
-							<div class="msg f">
+							<div class="p-2 mt-2 rounded-sm alert-primary f">
 								<div class="c"><?php echo a($value, 'content') ?></div>
 								<div class="cauto"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></div>
 
