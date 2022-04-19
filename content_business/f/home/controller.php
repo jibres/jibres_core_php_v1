@@ -48,7 +48,7 @@ class controller
 			}
 
 			// redirect to slug
-			if(a($load_form, 'url') && $load_form['url'] !== \dash\url::current())
+			if(a($load_form, 'url') && $load_form['url'] !== \dash\url::current() && \dash\request::is('get'))
 			{
 				\dash\redirect::to($load_form['url']);
 			}
