@@ -2,10 +2,12 @@
 namespace content_a\form\analytics\table;
 
 
-class controller
+class controller extends \content_a\form\analytics\controller
 {
 	public static function routing()
 	{
+		parent::routing();
+
 
 		$form_id = \dash\request::get('id');
 

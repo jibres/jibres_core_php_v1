@@ -4,6 +4,8 @@ namespace content_a\form\analytics;
 
 class controller
 {
+	private static $from_detail = [];
+
 	public static function routing()
 	{
 		self::form_id();
@@ -12,16 +14,20 @@ class controller
 
 	public static function form_id()
 	{
-
-		$form_id = \dash\request::get('id');
-
-		$load = \lib\app\form\form\get::get($form_id);
-		if(!$load)
+		if(!self::$from_detail)
 		{
-			\dash\header::status(404);
+			$form_id = \dash\request::get('id');
+
+			$load = \lib\app\form\form\get::get($form_id);
+			if(!$load)
+			{
+				\dash\header::status(404);
+			}
+
+			self::$from_detail = $load;
 		}
 
-		\dash\data::formDetail($load);
+		\dash\data::formDetail(self::$from_detail);
 	}
 
 
