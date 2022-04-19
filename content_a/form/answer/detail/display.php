@@ -47,6 +47,9 @@
         <div class="cauto">
           <a class="font-14" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => 1]) ?>"><i class="sf-print"></i></a>
         </div>
+        <div class="cauto">
+          <a class="btn-primary btn-sm" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => 1]) ?>"><?php echo T_("Edit") ?></a>
+        </div>
       </div>
     </div>
 
@@ -84,7 +87,7 @@
       <?php } //endif ?>
 
 
-  <table class="tbl1 v6">
+  <table class="tbl1 v6 responsive">
     <tbody class="text-sm">
 <?php foreach (\dash\data::dataTable() as $key => $value) {?>
         <tr>

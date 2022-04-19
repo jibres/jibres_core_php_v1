@@ -100,14 +100,15 @@
 </div>
 <?php } //endif ?>
 
-<p class="hide"><?php if(\dash\data::dataRow_response() && is_string(\dash\data::dataRow_response())) { echo md5(\dash\data::dataRow_response());} ?></p>
+<p class="hide"><?php if(\dash\data::dataRow_response() && is_string(\dash\data::dataRow_response())) { echo md5(\dash\data::dataRow_response()). '<br>'. \dash\data::dataRow_response(); } ?></p>
 
 
 
 <?php
 function fix_show_json_onlinenic($_string)
 {
-  $decode = json_decode($_string);
+  $_string = stripslashes($_string);
+  $decode = json_decode($_string, true);
   $encode = json_encode($decode, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
   return $encode;
 }
