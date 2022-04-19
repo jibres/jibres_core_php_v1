@@ -455,17 +455,18 @@ class notif
 					switch ($value['type'])
 					{
 						case 'error':
-							$class = 'danger2';
+							$class = 'alert-danger';
 							break;
 
 						case 'ok':
-							$class = 'success2';
+							$class = 'alert-success';
 							break;
 						case 'warn':
-							$class = 'warn2';
+							$class = 'alert-warn';
 							break;
 
 						case 'info':
+							$class = 'alert-info';
 							// $class = 'info2';
 							break;
 
@@ -474,7 +475,7 @@ class notif
 							break;
 					}
 
-					echo '<div class="msg '. $class. '">'. $value['text']. '</div>';
+					echo '<div class="alert p-2 rounded-lg mb-1 '. $class. '">'. $value['text']. '</div>';
 				}
 			}
 		}
