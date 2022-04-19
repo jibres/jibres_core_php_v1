@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-04-19 14:40+0430\n"
-"PO-Revision-Date: 2022-04-19 14:41+0430\n"
+"POT-Creation-Date: 2022-04-19 18:18+0430\n"
+"PO-Revision-Date: 2022-04-19 18:18+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -705,7 +705,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/category/edit/display.php:10 content_a/category/edit/display.php:11
 #: content_a/discount/add/display.php:65 content_a/form/item/display.php:154
-#: content_a/form/setting/display.php:15 content_a/form/setting/display.php:16
+#: content_a/form/setting/display.php:21 content_a/form/setting/display.php:22
 #: content_a/form/tag/edit/display.php:12 content_a/order/comment/display.php:13
 #: content_a/order/detail/display.php:74 content_a/products/desc/display.php:8
 #: content_a/products/desc/display.php:11 content_a/setting/fund/display.php:18
@@ -5140,7 +5140,8 @@ msgstr "افزودن"
 #: content_a/accounting/year/add/display.php:34
 #: content_a/accounting/year/manage/display.php:14
 #: content_a/category/editgroup/display.php:13 content_a/category/property/display.php:64
-#: content_a/category/quickaccess/display.php:30 content_a/form/item/choice/display.php:18
+#: content_a/category/quickaccess/display.php:30
+#: content_a/form/answer/detail/display.php:51 content_a/form/item/choice/display.php:18
 #: content_a/order/detail/display.php:38 content_a/pricehistory/display.php:9
 #: content_a/products/bullet/display.php:21 content_a/products/bullet/display.php:28
 #: content_a/products/property/add/display.php:56
@@ -6983,7 +6984,7 @@ msgstr "چاپ همه اسناد حسابداری"
 
 #: content_a/accounting/year/display.php:19 content_a/form/analytics/answer/display.php:55
 #: content_a/form/analytics/tag/display.php:30
-#: content_a/form/answer/detail/display.php:115
+#: content_a/form/answer/detail/display.php:118
 #: content_a/products/edit/block/category.php:13
 #: content_a/setting/product/category/display.php:12
 #: content_love/domain/detail/display.php:72 content_love/domain/setting/display.php:47
@@ -7132,7 +7133,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/form/analytics/answer/display.php:65
 #: content_a/form/analytics/setting/display.php:38
 #: content_a/form/analytics/tag/display.php:41
-#: content_a/form/answer/detail/display.php:125 content_a/order/address/display.php:77
+#: content_a/form/answer/detail/display.php:128 content_a/order/address/display.php:77
 #: content_a/order/comment/display.php:17 content_a/order/discount/display.php:21
 #: content_a/order/editdate/display.php:46 content_a/order/productList.php:68
 #: content_a/order/shipping/display.php:143 content_a/order/status/display.php:118
@@ -7483,7 +7484,7 @@ msgid "Set your application logo"
 msgstr "تنظیم لوگوی برنامه"
 
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
-#: content_a/form/inquiry/display.php:57 content_a/form/setting/display.php:22
+#: content_a/form/inquiry/display.php:57 content_a/form/setting/display.php:28
 #: content_a/order/comment/display.php:53 content_a/setting/general/display.php:37
 #: content_business/ticket/add/add_ticket_form.php:15 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
@@ -7566,7 +7567,7 @@ msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
 #: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:58
-#: content_a/form/setting/display.php:23 content_a/products/advance/display.php:38
+#: content_a/form/setting/display.php:29 content_a/products/advance/display.php:38
 #: content_cms/files/home/display.php:37 content_cms/files/home/display.php:49
 #: content_crm/member/identification/display.php:108
 #: content_crm/member/identification/display.php:120
@@ -8095,8 +8096,8 @@ msgstr "عنوان برای موتورهای جستجو"
 msgid "Recommended being more than 40 character."
 msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر باشد."
 
-#: content_a/category/edit/display.php:41 content_a/products/edit/block/seo.php:22
-#: content_a/products/edit/block/seo.php:24
+#: content_a/category/edit/display.php:41 content_a/form/setting/display.php:14
+#: content_a/products/edit/block/seo.php:22 content_a/products/edit/block/seo.php:24
 msgid "Slug"
 msgstr "نامک"
 
@@ -8854,7 +8855,7 @@ msgstr "شناسه پاسخ"
 
 #: content_a/form/analytics/answer/display.php:54 content_a/form/analytics/pageStep.php:49
 #: content_a/form/analytics/tag/display.php:29
-#: content_a/form/answer/detail/display.php:114 content_love/changelog/add/display.php:19
+#: content_a/form/answer/detail/display.php:117 content_love/changelog/add/display.php:19
 #: dash/app/posts/dropdown.php:33 includes/languages/trans_static.php:557
 #: lib/app/product/filter.php:412 lib/app/product/filter.php:422
 #: lib/app/product/filter.php:432 lib/app/store/analytics.php:60
@@ -8862,29 +8863,29 @@ msgid "Tag"
 msgstr "تگ"
 
 #: content_a/form/analytics/answer/display.php:72
-#: content_a/form/answer/detail/display.php:132
+#: content_a/form/answer/detail/display.php:135
 msgid "Add comment to this answer"
 msgstr "افزودن دیدگاه به این پاسخ"
 
 #: content_a/form/analytics/answer/display.php:82
-#: content_a/form/answer/detail/display.php:142 content_a/form/tag/edit/display.php:22
+#: content_a/form/answer/detail/display.php:145 content_a/form/tag/edit/display.php:22
 #: includes/languages/trans_static.php:1006
 msgid "Public"
 msgstr "عمومی"
 
 #: content_a/form/analytics/answer/display.php:88
-#: content_a/form/answer/detail/display.php:148 content_a/form/tag/edit/display.php:28
+#: content_a/form/answer/detail/display.php:151 content_a/form/tag/edit/display.php:28
 #: includes/languages/trans_static.php:1009
 msgid "Private"
 msgstr "خصوصی"
 
 #: content_a/form/analytics/answer/display.php:95
-#: content_a/form/answer/detail/display.php:157 content_a/order/comment/display.php:60
+#: content_a/form/answer/detail/display.php:160 content_a/order/comment/display.php:60
 msgid "Add comment"
 msgstr "افزودن یادداشت"
 
 #: content_a/form/analytics/answer/display.php:102
-#: content_a/form/answer/detail/display.php:165
+#: content_a/form/answer/detail/display.php:168
 msgid "Answer comment"
 msgstr "نظرات"
 
@@ -9109,22 +9110,22 @@ msgstr "غیر مشمول"
 msgid "Enter new tag or select one tag"
 msgstr "تگ جدید وارد کنید یا یک تگ انتخاب کنید"
 
-#: content_a/form/answer/detail/display.php:60
+#: content_a/form/answer/detail/display.php:63
 msgid "Total amount"
 msgstr "مبلغ کل"
 
-#: content_a/form/answer/detail/display.php:69 content_a/order/status/display.php:88
+#: content_a/form/answer/detail/display.php:72 content_a/order/status/display.php:88
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:14
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:14
 #: lib/app/factor/action.php:82 lib/app/factor/ready.php:100 lib/app/order/ready.php:100
 msgid "Successful payment"
 msgstr "پرداخت موفقیت‌آمیز"
 
-#: content_a/form/answer/detail/display.php:71
+#: content_a/form/answer/detail/display.php:74
 msgid "Unsuccess"
 msgstr "ناموفق"
 
-#: content_a/form/answer/detail/display.php:82 content_a/form/answer/display.php:79
+#: content_a/form/answer/detail/display.php:85 content_a/form/answer/display.php:79
 msgid "View Order"
 msgstr "نمایش سفارش"
 
@@ -15696,7 +15697,7 @@ msgstr "هیچ دسته‌بندی یافت نشد!"
 msgid "Search products"
 msgstr "جستجو در محصولات"
 
-#: content_business/f/home/controller.php:75
+#: content_business/f/home/controller.php:82
 msgid "This form is private form!"
 msgstr "این فرم یه فرم خصوصی است!"
 
@@ -22198,7 +22199,7 @@ msgid "Buy your dream domain"
 msgstr "دامنه‌ی رویایی خودتان را بیابید"
 
 #: content_my/domain/home/view.php:45 lib/app/nic_domain/create.php:720
-#: lib/app/onlinenic/create.php:566
+#: lib/app/onlinenic/create.php:574
 msgid "Domain :domain was registered in your name"
 msgstr "دامنه :domain با موفقیت ثبت شد"
 
@@ -37984,7 +37985,7 @@ msgstr "پرداخت سفارش"
 
 #: lib/app/cart/checkout.php:596 lib/app/nic_domain/create.php:566
 #: lib/app/nic_domain/renew.php:375 lib/app/nic_domain/transfer.php:362
-#: lib/app/onlinenic/create.php:422 lib/app/onlinenic/renew.php:268
+#: lib/app/onlinenic/create.php:430 lib/app/onlinenic/renew.php:268
 #: lib/app/onlinenic/transfer.php:372
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
@@ -38835,11 +38836,11 @@ msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 msgid "Please fill the required field"
 msgstr "لطفا موارد الزامی را تکمیل کنید"
 
-#: lib/app/form/answer/add.php:701
+#: lib/app/form/answer/add.php:709
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
-#: lib/app/form/answer/add.php:708
+#: lib/app/form/answer/add.php:716
 msgid "No answer received"
 msgstr "هیچ پاسخی دریافت نشد"
 
@@ -38867,7 +38868,7 @@ msgstr "نمایش فایل"
 msgid "Choice successfully added"
 msgstr "گزینه با موفقیت اضافه شد"
 
-#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:34
+#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:35
 #: lib/app/form/item/edit.php:100 lib/app/menu/edit.php:60
 msgid "No data to change"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
@@ -38934,11 +38935,15 @@ msgstr "فرم تماس با موفقیت اضافه شد"
 msgid "Can not duplicate this form"
 msgstr "نمی‌توانیم این فرم را کپی کنیم"
 
-#: lib/app/form/form/edit.php:43
+#: lib/app/form/form/check.php:66
+msgid "Duplicate form slug. Try another name"
+msgstr "نامک فرم تکراری است. لطفا نامک دیگری را وارد کنید"
+
+#: lib/app/form/form/edit.php:44
 msgid "This form used in menu and can not be remove"
 msgstr "این فرم در منو استفاده شده و امکان حذف آن وجود ندارد"
 
-#: lib/app/form/form/edit.php:66
+#: lib/app/form/form/edit.php:67
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
@@ -40041,17 +40046,17 @@ msgstr ""
 "اجازه دسترسی نمی‌دهد. لازم است تا به وب‌سایت ایرنیک مراجعه کرده و جیبرس را به عنوان "
 "نماینده خودتون ثبت کنید"
 
-#: lib/app/nic_domain/create.php:339 lib/app/onlinenic/create.php:150
+#: lib/app/nic_domain/create.php:339 lib/app/onlinenic/create.php:158
 #: lib/app/onlinenic/transfer.php:113
 msgid "This domain is already in your list"
 msgstr "این دامنه در حال حاضر در لیست شما وجود دارد"
 
-#: lib/app/nic_domain/create.php:421 lib/app/onlinenic/create.php:217
+#: lib/app/nic_domain/create.php:421 lib/app/onlinenic/create.php:225
 #: lib/app/onlinenic/transfer.php:171
 msgid "Error! Can not create your domain data"
 msgstr "خطا! نمی‌توانیم داده وب‌سایت را بسازیم"
 
-#: lib/app/nic_domain/create.php:448 lib/app/onlinenic/create.php:310
+#: lib/app/nic_domain/create.php:448 lib/app/onlinenic/create.php:318
 msgid "Domain ready to register"
 msgstr "دامنه آماده ثبت است"
 
@@ -40060,7 +40065,7 @@ msgid "Please verify mobile to continue"
 msgstr "لطفا برای ادامه مراحل موبایل خود را تایید کنید"
 
 #: lib/app/nic_domain/create.php:517 lib/app/nic_domain/renew.php:325
-#: lib/app/nic_domain/transfer.php:313 lib/app/onlinenic/create.php:374
+#: lib/app/nic_domain/transfer.php:313 lib/app/onlinenic/create.php:382
 #: lib/app/onlinenic/renew.php:220 lib/app/onlinenic/transfer.php:325
 msgid "Your account credit is not sufficient. Please charge your account"
 msgstr "اعتبار حساب شما کافی نیست. لطفا نسبت به شارژ حساب خود اقدام کنید"
@@ -40070,7 +40075,7 @@ msgid "Buy :domain For :year year by IRNIC handle :nic_id"
 msgstr "خرید دامنه :domain برای :year سال با شناسه ایرنیک  :nic_id"
 
 #: lib/app/nic_domain/create.php:597 lib/app/nic_domain/renew.php:405
-#: lib/app/nic_domain/transfer.php:393 lib/app/onlinenic/create.php:472
+#: lib/app/nic_domain/transfer.php:393 lib/app/onlinenic/create.php:480
 #: lib/app/onlinenic/renew.php:313 lib/app/onlinenic/transfer.php:414
 msgid "Your budget is low!"
 msgstr "موجودی حساب شما کافی نیست!"
@@ -40083,7 +40088,7 @@ msgstr "خرید دامنه :val"
 msgid "Back money for cancel register domian :val"
 msgstr "بازگشت هزینه به دلیل لغو خرید دامنه :val"
 
-#: lib/app/nic_domain/create.php:786 lib/app/onlinenic/create.php:629
+#: lib/app/nic_domain/create.php:786 lib/app/onlinenic/create.php:637
 msgid "Can not register your domain"
 msgstr "نمی‌توانیم دامنه شما را ثبت کنیم"
 
@@ -40430,23 +40435,27 @@ msgstr "شما مالک این بیزینس نیستید"
 msgid "Please indicate the duration of the domain purchase?"
 msgstr "لطفا مشخص کنید که دامنه را با چه مدت زمانی خریداری خواهید کرد؟"
 
-#: lib/app/onlinenic/create.php:270 lib/app/onlinenic/transfer.php:224
+#: lib/app/onlinenic/create.php:135
+msgid "Domain exist!"
+msgstr "دامنه وجود دارد!"
+
+#: lib/app/onlinenic/create.php:278 lib/app/onlinenic/transfer.php:224
 msgid "Some detail is wrong!. We can not create your whois detail"
 msgstr "خطا! برخی از اطلاعات نادرست است. نمی‌توانیم اطلاعات کاربری دامنه شما را ثبت کنیم"
 
-#: lib/app/onlinenic/create.php:276 lib/app/onlinenic/transfer.php:230
+#: lib/app/onlinenic/create.php:284 lib/app/onlinenic/transfer.php:230
 msgid "Can not save your whois detail at this time. Please try later"
 msgstr "در حال حاضر نمی‌توانیم اطلاعات دامنه‌ شما را ذخیره کنیم. لطفا مجددا تلاش کنید"
 
-#: lib/app/onlinenic/create.php:394
+#: lib/app/onlinenic/create.php:402
 msgid "Buy :domain For :year"
 msgstr "خرید دامنه :domain برای :year سال"
 
-#: lib/app/onlinenic/create.php:480
+#: lib/app/onlinenic/create.php:488
 msgid "Register domian :val"
 msgstr "ثبت دامنه :val"
 
-#: lib/app/onlinenic/create.php:585
+#: lib/app/onlinenic/create.php:593
 msgid "Refund money for register domian :val"
 msgstr "بازگشت هزینه خرید دامنه :val"
 
