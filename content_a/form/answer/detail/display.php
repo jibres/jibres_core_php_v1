@@ -47,7 +47,7 @@
         <div class="cauto">
           <a class="font-14" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => 1]) ?>"><i class="sf-print"></i></a>
         </div>
-        <div class="cauto">
+        <div class="cauto hidden">
           <a class="btn-primary btn-sm" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => 1]) ?>"><?php echo T_("Edit") ?></a>
         </div>
       </div>
