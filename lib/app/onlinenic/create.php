@@ -128,6 +128,14 @@ class create
 
 		$transaction_id = null;
 
+		$info = \lib\app\onlinenic\check::check($domain, 'register');
+
+		if(strval(a($info, 'avail')) === '0')
+		{
+			\dash\notif::error(T_("Domain exist!"));
+			return false;
+		}
+
 		$price        = \lib\app\onlinenic\price::get_price($domain, $period, 'register');
 
 		if(!$price)
