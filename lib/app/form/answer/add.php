@@ -548,7 +548,15 @@ class add
 
 					if($my_send_sms && $my_sms_text && $user_id && isset($value['mobile']))
 					{
-						\dash\log::send_notif($user_id, $my_sms_text);
+						// send notif by sms for nabarvari.khadije.com
+						if(intval(\lib\store::id()) === 1000089)
+						{
+							\dash\log::send_sms($user_id, $my_sms_text);
+						}
+						else
+						{
+							\dash\log::send_notif($user_id, $my_sms_text);
+						}
 					}
 				}
 			}
