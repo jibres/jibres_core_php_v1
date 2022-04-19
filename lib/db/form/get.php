@@ -40,6 +40,24 @@ class get
 	}
 
 
+	public static function load_public_form($_slug_or_id)
+	{
+		$query = "SELECT * FROM form WHERE form.slug = :slug OR form.id = :id LIMIT 1";
+		$param = [':slug' => $_slug_or_id, ':id' => $_slug_or_id];
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+	}
+
+
+	public static function by_slug($_slug)
+	{
+		$query = "SELECT * FROM form WHERE form.slug = :slug LIMIT 1";
+		$param = [':slug' => $_slug];
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+	}
+
+
 	public static function show_table($_id)
 	{
 		$query = "SHOW TABLES LIKE 'form_view_table_$_id'";

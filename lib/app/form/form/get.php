@@ -30,14 +30,14 @@ class get
 	public static function public_get($_id)
 	{
 
-		$id = \dash\validate::id($_id);
+		$id = \dash\validate::string_200($_id);
 
 		if(!$id)
 		{
 			return false;
 		}
 
-		$load = \lib\db\form\get::by_id($id);
+		$load = \lib\db\form\get::load_public_form($id);
 
 		if(!$load)
 		{

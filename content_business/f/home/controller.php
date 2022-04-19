@@ -47,6 +47,13 @@ class controller
 				\dash\header::status(404);
 			}
 
+			// redirect to slug
+			if(a($load_form, 'url') && $load_form['url'] !== \dash\url::current())
+			{
+				\dash\redirect::to($load_form['url']);
+			}
+
+
 			$form_id = $load_form['id'];
 			\dash\open::get();
 
@@ -74,6 +81,7 @@ class controller
 			{
 				\dash\header::status(403, T_("This form is private form!"));
 			}
+
 
 			$load_items = \lib\app\form\item\get::items($form_id);
 

@@ -87,6 +87,11 @@ class ready
 			}
 		}
 
+		if(a($result, 'slug'))
+		{
+			$result['url'] = \lib\store::url(). '/f/'. $result['slug'];
+		}
+
 
 		return $result;
 	}

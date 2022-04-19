@@ -4,7 +4,7 @@ namespace lib\app\form\form;
 
 class check
 {
-	public static function variable($_args)
+	public static function variable($_args, $_id = null)
 	{
 		$condition =
 		[
@@ -43,6 +43,23 @@ class check
 		if(!$data['slug'])
 		{
 			$data['slug'] = \dash\validate::slug($data['title']);
+		}
+
+		if($data['slug'])
+		{
+			$check_duplicate = \lib\db\form\get::by_slug($data['slug']);
+			if(isset($check_duplicate['id']))
+			{
+				if(intval($check_duplicate['id']) === intval($_id))
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::warn(T_("Your form slug is duplicate"));
+					$data['slug'] = $data['slug']. rand(111, 999);
+				}
+			}
 		}
 
 

@@ -11,9 +11,15 @@
 						<input type="text" id="ititle" name="title" value="<?php echo \dash\data::dataRow_title(); ?>">
 					</div>
 
+					<label for="islug"><?php echo T_("Slug") ?></label>
+					<div class="input ltr">
+						<label for="islug" class="addon"><?php echo \lib\store::url('raw'). '/f/' ?></label>
+						<input type="text" id="islug" name="slug" value="<?php echo \dash\data::dataRow_slug(); ?>">
+					</div>
+
 					<div class="mb-2">
 						<label for="desc"><?php echo T_("Description") ?></label>
-						<textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Description") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
+						<textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Description") ?>"><?php if(\dash\data::dataRow_desc()) { echo strip_tags(\dash\data::dataRow_desc()); } ?></textarea>
 					</div>
 
 					<div class="mb-2">

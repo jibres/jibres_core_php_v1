@@ -15,7 +15,7 @@ class edit
 		}
 
 
-		$args = \lib\app\form\form\check::variable($_args);
+		$args = \lib\app\form\form\check::variable($_args, $_id);
 
 		if(!$args)
 		{
