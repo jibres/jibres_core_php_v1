@@ -171,8 +171,8 @@ class file
 
 		if(!\dash\upload\storage::have_space($myFile['size']))
 		{
-			\dash\notif::error(T_("Your storage space is full. Please contact support"));
-			return false;
+			// \dash\notif::error(T_("Your storage space is full. Please contact support"));
+			// return false;
 		}
 
 		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif', 'webp']))
