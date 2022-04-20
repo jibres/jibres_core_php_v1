@@ -165,14 +165,14 @@ class file
 		$check_size = \dash\upload\size::ok($myFile['size'], $_meta);
 		if(!$check_size)
 		{
-			// \dash\notif::error(T_("File size is greater than allowed"));
-			// return false;
+			\dash\notif::error(T_("File size is greater than allowed"));
+			return false;
 		}
 
 		if(!\dash\upload\storage::have_space($myFile['size']))
 		{
-			// \dash\notif::error(T_("Your storage space is full. Please contact support"));
-			// return false;
+			\dash\notif::error(T_("Your storage space is full. Please contact support"));
+			return false;
 		}
 
 		if(in_array($myFile['ext'], ['jpg','jpeg','png','gif', 'webp']))
