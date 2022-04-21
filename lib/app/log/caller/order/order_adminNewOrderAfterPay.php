@@ -5,6 +5,7 @@ namespace lib\app\log\caller\order;
 
 class order_adminNewOrderAfterPay
 {
+	private static $load_once_factor_detail = null;
 
 	public static function site($_args = [])
 	{
@@ -41,6 +42,14 @@ class order_adminNewOrderAfterPay
 
 		switch ($my_template)
 		{
+			case '4':
+			case 4:
+				$msg .= T_("A new order was paid in the :business", ['business' => \lib\store::title()]);
+				$msg .= self::get_msg_by_product_detail($my_id, $my_currency);
+				$msg .= self::msg_fill_customer_detail($my_id);
+				$msg .= self::msg_fill_customer_address($my_id);
+				break;
+
 			case '3':
 			case 3:
 				$msg .= T_("A new order was paid in the :business", ['business' => \lib\store::title()]);
@@ -74,6 +83,7 @@ class order_adminNewOrderAfterPay
 				$msg .= ' '. T_("Jibres; Sell and enjoy");
 			}
 		}
+
 		return $msg;
 	}
 
@@ -82,7 +92,7 @@ class order_adminNewOrderAfterPay
 	{
 		$template_list = [];
 
-		foreach ([1, 2, 3] as $key => $value)
+		foreach ([1, 2, 3, 4] as $key => $value)
 		{
 			$_args['data']['template'] = $value;
 			$template_list[$value] = self::get_msg($_args);
@@ -91,13 +101,32 @@ class order_adminNewOrderAfterPay
 		return $template_list;
 	}
 
+	private static function load_once_factor_detail($my_id)
+	{
+		if(self::$load_once_factor_detail === null)
+		{
+			$option =
+			[
+				'skipp_check_permission'  => true,
+				'include_order_detail'    => true,
+				'include_customer_detail' => true,
+				'include_shipping_detail' => true,
+				'include_action_detail'   => false,
+				'include_discount_detail' => false,
+			];
+			self::$load_once_factor_detail = \lib\app\factor\get::full($my_id, $option);
+		}
+
+		return self::$load_once_factor_detail;
+	}
+
 
 	public static function get_msg_by_product_detail($my_id, $my_currency)
 	{
 		$msg = '';
 		if($my_id && is_numeric(\lib\app\factor\get::fix_id($my_id)))
 		{
-			$load_factor = \lib\app\factor\get::inline_get_by_detail($my_id);
+			$load_factor = self::load_once_factor_detail($my_id);
 			if(is_array($load_factor) && is_array(a($load_factor, 'factor_detail')))
 			{
 				foreach ($load_factor['factor_detail'] as $key => $value)
@@ -128,6 +157,98 @@ class order_adminNewOrderAfterPay
 			$msg .= T_("Total"). ' ...';
 			$msg .= " ";
 			$msg .= $my_currency;
+		}
+
+		return $msg;
+	}
+
+
+
+	public static function msg_fill_customer_detail($my_id)
+	{
+		$msg = '';
+
+		if($my_id && is_numeric(\lib\app\factor\get::fix_id($my_id)))
+		{
+			$load_factor = self::load_once_factor_detail($my_id);
+
+			$customer_detail = a($load_factor, 'factor', 'customer_detail');
+
+			if(a($customer_detail, 'displayname') || a($customer_detail, 'mobile'))
+			{
+				$msg .= PHP_EOL;
+				$msg .= T_("Customer"). PHP_EOL;
+
+				if(a($customer_detail, 'displayname'))
+				{
+					$msg .= $customer_detail['displayname']. PHP_EOL;
+				}
+
+				if(a($customer_detail, 'mobile'))
+				{
+					$msg .= \dash\fit::mobile($customer_detail['mobile']). PHP_EOL;
+				}
+
+				$msg .= " ";
+
+			}
+		}
+		elseif($my_id === '...')
+		{
+
+			$msg .= PHP_EOL;
+			$msg .= T_("Customer"). PHP_EOL;
+			$msg .= T_("Name"). PHP_EOL;
+			$msg .= T_("Mobile"). PHP_EOL;
+			$msg .= " ";
+		}
+
+		return $msg;
+	}
+
+	public static function msg_fill_customer_address($my_id)
+	{
+		$msg = '';
+
+		if($my_id && is_numeric(\lib\app\factor\get::fix_id($my_id)))
+		{
+			$load_factor = self::load_once_factor_detail($my_id);
+
+			$address = a($load_factor, 'address');
+
+
+			if(a($address, 'address') || a($address, 'phone') || a($address, 'postcode'))
+			{
+				$msg .= PHP_EOL;
+				$msg .= T_("Address"). PHP_EOL;
+
+				if(a($address, 'address'))
+				{
+					$msg .= $address['address']. PHP_EOL;
+				}
+
+				if(a($address, 'phone'))
+				{
+					$msg .= T_("Phone"). ' '. \dash\fit::text($address['phone']). PHP_EOL;
+				}
+
+				if(a($address, 'postcode'))
+				{
+					$msg .= T_("Postcode"). ' '. \dash\fit::text($address['postcode']). PHP_EOL;
+				}
+
+				$msg .= " ";
+
+			}
+		}
+		elseif($my_id === '...')
+		{
+
+			$msg .= PHP_EOL;
+			$msg .= T_("Address"). PHP_EOL;
+			$msg .= T_("Phone"). PHP_EOL;
+			$msg .= T_("Postcode"). PHP_EOL;
+			$msg .= " ";
 		}
 
 		return $msg;
