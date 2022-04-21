@@ -116,7 +116,7 @@ class get
 	 *
 	 * @return     <type>  The factor.
 	 */
-	public static function one($_id)
+	public static function one($_id, $_force = false)
 	{
 
 		if(!\lib\store::id())
@@ -125,7 +125,10 @@ class get
 			return false;
 		}
 
-		\dash\permission::access('_group_orders');
+		if(!$_force)
+		{
+			\dash\permission::access('_group_orders');
+		}
 
 		$_id = \dash\validate::string_50($_id);
 		if(!$_id)
@@ -256,10 +259,31 @@ class get
 
 	}
 
-	public static function full($_id)
+	public static function full($_id, $_option = [])
 	{
+		$default_option =
+		[
+			'skipp_check_permission'  => false,
+			'include_order_detail'    => true,
+			'include_customer_detail' => true,
+			'include_shipping_detail' => true,
+			'include_action_detail'   => true,
+			'include_discount_detail' => true,
+		];
+
+		if(!is_array($_option))
+		{
+			$_option = [];
+		}
+
+		$_option = array_merge($default_option, $_option);
+		$factor_address = [];
+		$factor_action  = [];
+		$discount_code  = [];
+		$factor_detail  = [];
+
 		// load factor
-		$factor = self::one($_id);
+		$factor = self::one($_id, $_option['skipp_check_permission']);
 		if(!$factor)
 		{
 			\dash\header::status(404, T_("Factor not found"));
@@ -268,16 +292,19 @@ class get
 
 		$_id = self::fix_id($_id);
 
-		// load factor detail
-		$factor_detail = \lib\db\factordetails\get::by_factor_id_join_product($_id);
-
-		if($factor_detail)
+		if($_option['include_order_detail'])
 		{
-			$factor_detail = array_map(['\\lib\\app\\factor\\ready', 'detail'], $factor_detail);
+			// load factor detail
+			$factor_detail = \lib\db\factordetails\get::by_factor_id_join_product($_id);
+
+			if($factor_detail)
+			{
+				$factor_detail = array_map(['\\lib\\app\\factor\\ready', 'detail'], $factor_detail);
+			}
 		}
 
 		// load customer detail
-		if(isset($factor['customer']) && $factor['customer'])
+		if($_option['include_customer_detail'] && isset($factor['customer']) && $factor['customer'])
 		{
 			$customer_id = \dash\coding::decode($factor['customer']);
 			$load_customer = \dash\db\users::get_by_id($customer_id);
@@ -317,63 +344,71 @@ class get
 			$factor['customer_detail'] = $customer_detail;
 		}
 
-		// load address saved on this factor
-		$factor_address = \lib\db\factorshipping\get::by_factor_id($_id);
-
-		if(!is_array($factor_address))
+		if($_option['include_shipping_detail'])
 		{
-			$factor_address = [];
+			// load address saved on this factor
+			$factor_address = \lib\db\factorshipping\get::by_factor_id($_id);
+
+			if(!is_array($factor_address))
+			{
+				$factor_address = [];
+			}
+
+			$factor_address['location_string'] = [];
+
+			if(isset($factor_address['country']) && $factor_address['country'])
+			{
+				$factor_address['country_name'] = \dash\utility\location\countres::get_localname($factor_address['country']);
+				$factor_address['location_string'][] = $factor_address['country_name'];
+			}
+
+			if(isset($factor_address['province']) && $factor_address['province'])
+			{
+				$factor_address['province_name'] = \dash\utility\location\provinces::get_localname($factor_address['province']);
+				$factor_address['location_string'][] = $factor_address['province_name'];
+			}
+
+			if(isset($factor_address['city']) && $factor_address['city'])
+			{
+				$factor_address['city_name'] = \dash\utility\location\cites::get_localname($factor_address['city']);
+				$factor_address['location_string'][] = $factor_address['city_name'];
+			}
+
+			if($factor_address['location_string'])
+			{
+				$factor_address['location_string'] = implode(T_(","). ' ', $factor_address['location_string']);
+			}
+			else
+			{
+				// unset to set address as empty array
+				unset($factor_address['location_string']);
+			}
+
+
+
+			if(!a($factor_address, 'name') && a($factor, 'customer_displayname'))
+			{
+				$factor_address['name'] = $factor['customer_displayname'];
+			}
+
+			if(!a($factor_address, 'mobile') && a($factor, 'customer_mobile'))
+			{
+				$factor_address['mobile'] = $factor['customer_mobile'];
+			}
 		}
 
-		$factor_address['location_string'] = [];
-
-		if(isset($factor_address['country']) && $factor_address['country'])
+		if($_option['include_action_detail'])
 		{
-			$factor_address['country_name'] = \dash\utility\location\countres::get_localname($factor_address['country']);
-			$factor_address['location_string'][] = $factor_address['country_name'];
-		}
-
-		if(isset($factor_address['province']) && $factor_address['province'])
-		{
-			$factor_address['province_name'] = \dash\utility\location\provinces::get_localname($factor_address['province']);
-			$factor_address['location_string'][] = $factor_address['province_name'];
-		}
-
-		if(isset($factor_address['city']) && $factor_address['city'])
-		{
-			$factor_address['city_name'] = \dash\utility\location\cites::get_localname($factor_address['city']);
-			$factor_address['location_string'][] = $factor_address['city_name'];
-		}
-
-		if($factor_address['location_string'])
-		{
-			$factor_address['location_string'] = implode(T_(","). ' ', $factor_address['location_string']);
-		}
-		else
-		{
-			// unset to set address as empty array
-			unset($factor_address['location_string']);
+			$factor_action = \lib\app\factor\action::get_by_factor_id($_id);
 		}
 
 
-
-		if(!a($factor_address, 'name') && a($factor, 'customer_displayname'))
+		if($_option['include_discount_detail'])
 		{
-			$factor_address['name'] = $factor['customer_displayname'];
-		}
-
-		if(!a($factor_address, 'mobile') && a($factor, 'customer_mobile'))
-		{
-			$factor_address['mobile'] = $factor['customer_mobile'];
-		}
-
-		$factor_action = \lib\app\factor\action::get_by_factor_id($_id);
-
-		$discount_code = [];
-
-		if(a($factor, 'discount_id'))
-		{
-			$discount_code = \lib\app\discount\get::get($factor['discount_id']);
+			if(a($factor, 'discount_id'))
+			{
+				$discount_code = \lib\app\discount\get::get($factor['discount_id']);
+			}
 		}
 
 
