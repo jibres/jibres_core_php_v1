@@ -30,9 +30,9 @@
               </td>
             </tr>
             <?php if(a($value, 'meta')) {?>
-            <tr class=" w-fit showDetail<?php echo a($value, 'id'); ?>" data-kerkere-content='hide'>
+            <tr >
               <td colspan="4">
-<samp class="text-left block"><?php
+<samp class="text-left showDetail<?php echo a($value, 'id'); ?>" data-kerkere-content='hide'><?php
   if(is_string($value['meta']))
   {
     $value['meta'] = json_decode(stripslashes($value['meta']), true);
