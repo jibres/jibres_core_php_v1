@@ -115,7 +115,7 @@ class controller
 
 		\lib\app\business_domain\run::run();
 
-		if(self::daily_on('17'))
+		if(self::in_hour(['00', '03', '06', '09', '12', '15', '18', '21']))
 		{
 			\lib\app\business_domain\run::re_pending_dns_not_active();
 		}
