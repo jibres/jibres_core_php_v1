@@ -21,7 +21,7 @@ if(!is_array($dataTable))
         <?php foreach ($result as $key => $value) {?>
           <li>
             <div class="f item">
-              <i class="sf-thumbnails sortHandle" data-handle>
+              <i class="sortHandle" data-handle>
                 <?php echo \dash\utility\icon::svg('list', 'bootstrap', null, 'text-blue-500 h-6 w-6') ?>
                 <input type="hidden" name="sort[]" value="<?php echo a($value, 'id') ?>">
               </i>

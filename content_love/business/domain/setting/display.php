@@ -89,6 +89,9 @@
     <div class="box">
       <header><h2><?php echo T_("HTTPS") ?></h2></header>
       <div class="body">
+        <div class="alert-info text-left" data-ajaxify data-data='{"fetch_ssl": "fetch_ssl"}' data-method='post'>
+          Get SSL Info
+        </div>
         <?php if(\dash\data::dataRow_httpsrequest()) {?>
           <div class="msg minimal f"><div class="c"><?php echo T_("Last HTTPS request date") ?></div> <div class="cauto ltr text-left inline-block"><?php echo \dash\fit::date_time(\dash\data::dataRow_httpsrequest()); ?></div></div>
         <?php }else{ ?>
