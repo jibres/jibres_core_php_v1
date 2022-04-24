@@ -32,8 +32,7 @@
             <?php if(a($value, 'meta')) {?>
             <tr class="contents showDetail<?php echo a($value, 'id'); ?>" data-kerkere-content='hide'>
               <td colspan="4" class="text-left ltr">
-                <samp>
-<?php
+<samp><?php
   if(is_string($value['meta']))
   {
     $value['meta'] = json_decode(stripslashes($value['meta']), true);
@@ -46,8 +45,7 @@
   {
     echo htmlspecialchars(stripslashes($value['meta']));
   }
-?>
-                </samp>
+?></samp>
               </td>
             </tr>
             <?php } //endif ?>
