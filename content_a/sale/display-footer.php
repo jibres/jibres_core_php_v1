@@ -102,7 +102,7 @@ if(\dash\data::haveAnyCategory())
                   $html .= '<div class="absolute inset-x-0 bottom-0 overflow-hidden p-2">';
                   if($title)
                   {
-                    $html .= '<h4 class="line-clamp-2 text-gray-700 leading-4 mb-1">'. $title. '</h4>';
+                    $html .= '<h4 class="line-clamp-2 text-gray-700 leading-5 mb-1">'. $title. '</h4>';
                   }
                   if($price)
                   {
@@ -132,26 +132,26 @@ if(\dash\data::haveAnyCategory())
       // numpad
       $html .= '<div class="grid grid-cols-3 gap-1 bg-white p-2">';
       {
-        // $html .= '<kbd data-kbd-press="-" class="btn-secondary leading-4">'. '-' .'</kbd>';
-        // $html .= '<kbd data-kbd-press="*" class="btn-secondary leading-4">'. '*' .'</kbd>';
-        // $html .= '<kbd data-kbd-press="/" class="btn-secondary leading-4">'. '/' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="-" class="btn-secondary leading-5">'. '-' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="*" class="btn-secondary leading-5">'. '*' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="/" class="btn-secondary leading-5">'. '/' .'</kbd>';
 
-        // $html .= '<kbd data-kbd-press="+" class="btn-secondary leading-4 row-span-4 max-h-full">'. '+' .'</kbd>';
-        $html .= '<kbd data-kbd-press="9" class="btn-secondary leading-4">'. 9 .'</kbd>';
-        $html .= '<kbd data-kbd-press="8" class="btn-secondary leading-4">'. 8 .'</kbd>';
-        $html .= '<kbd data-kbd-press="7" class="btn-secondary leading-4">'. 7 .'</kbd>';
+        // $html .= '<kbd data-kbd-press="+" class="btn-secondary leading-5 row-span-4 max-h-full">'. '+' .'</kbd>';
+        $html .= '<kbd data-kbd-press="9" class="btn-secondary leading-5">'. 9 .'</kbd>';
+        $html .= '<kbd data-kbd-press="8" class="btn-secondary leading-5">'. 8 .'</kbd>';
+        $html .= '<kbd data-kbd-press="7" class="btn-secondary leading-5">'. 7 .'</kbd>';
 
-        $html .= '<kbd data-kbd-press="6" class="btn-secondary leading-4">'. 6 .'</kbd>';
-        $html .= '<kbd data-kbd-press="5" class="btn-secondary leading-4">'. 5 .'</kbd>';
-        $html .= '<kbd data-kbd-press="4" class="btn-secondary leading-4">'. 4 .'</kbd>';
+        $html .= '<kbd data-kbd-press="6" class="btn-secondary leading-5">'. 6 .'</kbd>';
+        $html .= '<kbd data-kbd-press="5" class="btn-secondary leading-5">'. 5 .'</kbd>';
+        $html .= '<kbd data-kbd-press="4" class="btn-secondary leading-5">'. 4 .'</kbd>';
 
-        $html .= '<kbd data-kbd-press="3" class="btn-secondary leading-4">'. 3 .'</kbd>';
-        $html .= '<kbd data-kbd-press="2" class="btn-secondary leading-4">'. 2 .'</kbd>';
-        $html .= '<kbd data-kbd-press="1" class="btn-secondary leading-4">'. 1 .'</kbd>';
+        $html .= '<kbd data-kbd-press="3" class="btn-secondary leading-5">'. 3 .'</kbd>';
+        $html .= '<kbd data-kbd-press="2" class="btn-secondary leading-5">'. 2 .'</kbd>';
+        $html .= '<kbd data-kbd-press="1" class="btn-secondary leading-5">'. 1 .'</kbd>';
 
-        $html .= '<kbd data-kbd-press="clr" class="btn-secondary leading-4">'. 'CLR' .'</kbd>';
-        $html .= '<kbd data-kbd-press="." class="btn-secondary leading-4">'. '.' .'</kbd>';
-        $html .= '<kbd data-kbd-press="0" class="btn-secondary leading-4">'. 0 .'</kbd>';
+        $html .= '<kbd data-kbd-press="clr" class="btn-secondary leading-5">'. 'CLR' .'</kbd>';
+        $html .= '<kbd data-kbd-press="." class="btn-secondary leading-5">'. '.' .'</kbd>';
+        $html .= '<kbd data-kbd-press="0" class="btn-secondary leading-5">'. 0 .'</kbd>';
       }
       $html .= '</div>';
     }
