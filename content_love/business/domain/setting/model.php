@@ -15,6 +15,14 @@ class model
 			}
 		}
 
+		if(\dash\request::post('fetch_ssl') === 'fetch_ssl')
+		{
+			$result = \lib\app\business_domain\https::fetch(\dash\data::dataRow_id());
+			return;
+		}
+
+
+
 		if(\dash\request::post('changecdn') === 'changecdn')
 		{
 			$post =
