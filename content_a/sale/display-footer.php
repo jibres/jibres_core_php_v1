@@ -8,9 +8,9 @@ if(\dash\data::haveAnyCategory())
   {
     $columns = array_column($saleQuickAccess, 'title');
 
-    $html .= '<div class="flex flex-wrap">';
+    $html .= '<div class="flex flex-nowrap">';
     {
-      $html .= '<nav class="grow footerQuickAddProduct">';
+      $html .= '<nav class="flex-1 grow footerQuickAddProduct">';
 
       $html .= '<ul class="nav nav-tabs text-xs leading-6 items-end px-2">';
       $oneActive = null;
@@ -74,7 +74,7 @@ if(\dash\data::haveAnyCategory())
         }
         $html .= '>';
         {
-          $html .= '<div class="flex00 flex-wrap00 overflow-x-auto">';
+          $html .= '<div class="overflow-x-auto flex">';
           if(isset($category['products']) && is_array($category['products']))
           {
             // $html .= $key;
@@ -130,28 +130,28 @@ if(\dash\data::haveAnyCategory())
 
 
       // numpad
-      $html .= '<div class="grid grid-cols-3 gap-1 bg-white p-2">';
+      $html .= '<div class="flex-none grid grid-cols-3 gap-1 bg-white p-2">';
       {
-        // $html .= '<kbd data-kbd-press="-" class="btn-secondary leading-5">'. '-' .'</kbd>';
-        // $html .= '<kbd data-kbd-press="*" class="btn-secondary leading-5">'. '*' .'</kbd>';
-        // $html .= '<kbd data-kbd-press="/" class="btn-secondary leading-5">'. '/' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="-" class="btn-secondary w-12 leading-5">'. '-' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="*" class="btn-secondary w-12 leading-5">'. '*' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="/" class="btn-secondary w-12 leading-5">'. '/' .'</kbd>';
 
-        // $html .= '<kbd data-kbd-press="+" class="btn-secondary leading-5 row-span-4 max-h-full">'. '+' .'</kbd>';
-        $html .= '<kbd data-kbd-press="9" class="btn-secondary leading-5">'. 9 .'</kbd>';
-        $html .= '<kbd data-kbd-press="8" class="btn-secondary leading-5">'. 8 .'</kbd>';
-        $html .= '<kbd data-kbd-press="7" class="btn-secondary leading-5">'. 7 .'</kbd>';
+        // $html .= '<kbd data-kbd-press="+" class="btn-secondary w-12 leading-5 row-span-4 max-h-full">'. '+' .'</kbd>';
+        $html .= '<kbd data-kbd-press="9" class="btn-secondary w-12 leading-5">'. 9 .'</kbd>';
+        $html .= '<kbd data-kbd-press="8" class="btn-secondary w-12 leading-5">'. 8 .'</kbd>';
+        $html .= '<kbd data-kbd-press="7" class="btn-secondary w-12 leading-5">'. 7 .'</kbd>';
 
-        $html .= '<kbd data-kbd-press="6" class="btn-secondary leading-5">'. 6 .'</kbd>';
-        $html .= '<kbd data-kbd-press="5" class="btn-secondary leading-5">'. 5 .'</kbd>';
-        $html .= '<kbd data-kbd-press="4" class="btn-secondary leading-5">'. 4 .'</kbd>';
+        $html .= '<kbd data-kbd-press="6" class="btn-secondary w-12 leading-5">'. 6 .'</kbd>';
+        $html .= '<kbd data-kbd-press="5" class="btn-secondary w-12 leading-5">'. 5 .'</kbd>';
+        $html .= '<kbd data-kbd-press="4" class="btn-secondary w-12 leading-5">'. 4 .'</kbd>';
 
-        $html .= '<kbd data-kbd-press="3" class="btn-secondary leading-5">'. 3 .'</kbd>';
-        $html .= '<kbd data-kbd-press="2" class="btn-secondary leading-5">'. 2 .'</kbd>';
-        $html .= '<kbd data-kbd-press="1" class="btn-secondary leading-5">'. 1 .'</kbd>';
+        $html .= '<kbd data-kbd-press="3" class="btn-secondary w-12 leading-5">'. 3 .'</kbd>';
+        $html .= '<kbd data-kbd-press="2" class="btn-secondary w-12 leading-5">'. 2 .'</kbd>';
+        $html .= '<kbd data-kbd-press="1" class="btn-secondary w-12 leading-5">'. 1 .'</kbd>';
 
-        $html .= '<kbd data-kbd-press="clr" class="btn-secondary leading-5">'. 'CLR' .'</kbd>';
-        $html .= '<kbd data-kbd-press="." class="btn-secondary leading-5">'. '.' .'</kbd>';
-        $html .= '<kbd data-kbd-press="0" class="btn-secondary leading-5">'. 0 .'</kbd>';
+        $html .= '<kbd data-kbd-press="clr" class="btn-secondary w-12 leading-5">'. 'CLR' .'</kbd>';
+        $html .= '<kbd data-kbd-press="." class="btn-secondary w-12 leading-5">'. '.' .'</kbd>';
+        $html .= '<kbd data-kbd-press="0" class="btn-secondary w-12 leading-5">'. 0 .'</kbd>';
       }
       $html .= '</div>';
     }
