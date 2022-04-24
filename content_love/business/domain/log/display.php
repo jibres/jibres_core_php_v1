@@ -24,15 +24,15 @@
               <td class="collapsing">
                 <?php if(a($value, 'meta')) {?>
                 <span data-kerkere=".showDetail<?php echo a($value, 'id'); ?>">
-                  <?php echo \dash\utility\icon::svg('CircleInformation', 'major'); ?>
+                  <?php echo \dash\utility\icon::svg('CircleInformation', 'major', 'black', 'w-4'); ?>
                 </span>
               <?php } //endif ?>
               </td>
             </tr>
             <?php if(a($value, 'meta')) {?>
-            <tr class="contents showDetail<?php echo a($value, 'id'); ?>" data-kerkere-content='hide'>
-              <td colspan="4" class="text-left ltr">
-<samp><?php
+            <tr class=" w-fit showDetail<?php echo a($value, 'id'); ?>" data-kerkere-content='hide'>
+              <td colspan="4">
+<samp class="text-left block"><?php
   if(is_string($value['meta']))
   {
     $value['meta'] = json_decode(stripslashes($value['meta']), true);
