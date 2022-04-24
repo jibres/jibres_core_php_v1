@@ -710,7 +710,7 @@ class generator
 		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
-			self::input('text', $value, ' data-format="date" ');
+			self::input('tel', $value, ' data-format="date" ');
 			self::HtmlDesc($value);
 		}
 		self::_div();
@@ -722,7 +722,7 @@ class generator
 		self::div('c-xs-12 c-6');
 		{
 			self::label($value);
-			self::input('text', $value, ' data-format="date" ');
+			self::input('tel', $value, ' data-format="date" ');
 			self::HtmlDesc($value);
 		}
 		self::_div();
