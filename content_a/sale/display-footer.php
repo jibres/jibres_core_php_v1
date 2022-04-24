@@ -130,14 +130,13 @@ if(\dash\data::haveAnyCategory())
 
 
       // numpad
-      $html .= '<div class="grid grid-cols-4 gap-1 bg-white p-2">';
+      $html .= '<div class="grid grid-cols-3 gap-1 bg-white p-2">';
       {
-        $html .= '<kbd data-kbd-press="-" class="btn-secondary leading-4">'. '-' .'</kbd>';
-        $html .= '<kbd data-kbd-press="*" class="btn-secondary leading-4">'. '*' .'</kbd>';
-        $html .= '<kbd data-kbd-press="/" class="btn-secondary leading-4">'. '/' .'</kbd>';
-        $html .= '<kbd data-kbd-press="clr" class="btn-secondary leading-4">'. 'CLR' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="-" class="btn-secondary leading-4">'. '-' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="*" class="btn-secondary leading-4">'. '*' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="/" class="btn-secondary leading-4">'. '/' .'</kbd>';
 
-        $html .= '<kbd data-kbd-press="+" class="btn-secondary leading-4 row-span-4 max-h-full">'. '+' .'</kbd>';
+        // $html .= '<kbd data-kbd-press="+" class="btn-secondary leading-4 row-span-4 max-h-full">'. '+' .'</kbd>';
         $html .= '<kbd data-kbd-press="9" class="btn-secondary leading-4">'. 9 .'</kbd>';
         $html .= '<kbd data-kbd-press="8" class="btn-secondary leading-4">'. 8 .'</kbd>';
         $html .= '<kbd data-kbd-press="7" class="btn-secondary leading-4">'. 7 .'</kbd>';
@@ -149,8 +148,10 @@ if(\dash\data::haveAnyCategory())
         $html .= '<kbd data-kbd-press="3" class="btn-secondary leading-4">'. 3 .'</kbd>';
         $html .= '<kbd data-kbd-press="2" class="btn-secondary leading-4">'. 2 .'</kbd>';
         $html .= '<kbd data-kbd-press="1" class="btn-secondary leading-4">'. 1 .'</kbd>';
+
+        $html .= '<kbd data-kbd-press="clr" class="btn-secondary leading-4">'. 'CLR' .'</kbd>';
         $html .= '<kbd data-kbd-press="." class="btn-secondary leading-4">'. '.' .'</kbd>';
-        $html .= '<kbd data-kbd-press="0" class="btn-secondary leading-4 col-span-2">'. 0 .'</kbd>';
+        $html .= '<kbd data-kbd-press="0" class="btn-secondary leading-4">'. 0 .'</kbd>';
       }
       $html .= '</div>';
     }
