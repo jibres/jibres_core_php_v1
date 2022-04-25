@@ -79,7 +79,7 @@ class domain_successfullConnected
 	public static function telegram_text($_args, $_chat_id)
 	{
 		$tg_msg = '';
-		$tg_msg .= "#Domain #Business ";
+		$tg_msg .= "#Domain ";
 
 		$tg_msg .= " 🎉 \n";
 

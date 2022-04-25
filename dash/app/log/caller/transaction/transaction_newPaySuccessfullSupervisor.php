@@ -7,7 +7,7 @@ class transaction_newPaySuccessfullSupervisor extends transaction_newPaySuccessf
 
 	public static function active_bot()
 	{
-		return 'jibres_bot';
+		return 'JibresBillingBot';
 	}
 
 }

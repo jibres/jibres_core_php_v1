@@ -79,6 +79,17 @@ class transaction_newPaySuccessfull
 		return ['supervisor', 'admin'];
 	}
 
+
+	public static function active_bot()
+	{
+		// send business notif by default bot
+		if(!\dash\engine\store::inStore())
+		{
+			return 'JibresBillingBot';
+		}
+	}
+
+
 	public static function save_user_detail()
 	{
 		return true;

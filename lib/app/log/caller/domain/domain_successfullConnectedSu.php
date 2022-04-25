@@ -22,5 +22,10 @@ class domain_successfullConnectedSu extends \lib\app\log\caller\domain\domain_su
 	{
 		return ['supervisor'];
 	}
+
+	public static function active_bot()
+	{
+		return 'JibresDomainBot';
+	}
 }
 ?>

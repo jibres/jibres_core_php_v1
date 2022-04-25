@@ -110,6 +110,10 @@ class domain_newRegister
 		return ['supervisor'];
 	}
 
+	public static function active_bot()
+	{
+		return 'JibresDomainBot';
+	}
 
 	public static function expire()
 	{

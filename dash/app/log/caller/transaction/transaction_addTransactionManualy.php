@@ -110,6 +110,13 @@ class transaction_addTransactionManualy
 		return ['supervisor', 'admin'];
 	}
 
+	public static function active_bot()
+	{
+		return 'JibresBillingBot';
+	}
+
+
+
 	public static function save_user_detail()
 	{
 		return true;
