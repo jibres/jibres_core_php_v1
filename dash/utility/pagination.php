@@ -475,14 +475,16 @@ class pagination
 	/**
 	 * Make html of pagination
 	 */
-	public static function html()
+	public static function html($_return = false)
 	{
+		$html = '';
+
 		$page_number = self::page_number();
 		if($page_number)
 		{
-			echo "<nav class='pagination f fs11 mTB5' data-xhr='pagination'>";
-			echo "<a class='cauto s0' title='". self::detail('desc'). "'>". T_("Total") ." <span class='font-bold'>". \dash\fit::number(self::get_total_rows()) ."</span></a>";
-			echo "<div class='c flex justify-center'>";
+			$html .= "<nav class='pagination f fs11 mTB5' data-xhr='pagination'>";
+			$html .= "<a class='cauto s0' title='". self::detail('desc'). "'>". T_("Total") ." <span class='font-bold'>". \dash\fit::number(self::get_total_rows()) ."</span></a>";
+			$html .= "<div class='c flex justify-center'>";
 			foreach ($page_number as $key => $value)
 			{
 				$link = '';
@@ -507,11 +509,20 @@ class pagination
 				$link .= $value['text'];
 				$link .= '</a>';
 
-				echo $link;
+				$html .= $link;
 
 			}
 
-			echo "</div></nav>";
+			$html .= "</div></nav>";
+		}
+
+		if($_return)
+		{
+			return $html;
+		}
+		else
+		{
+			echo $html;
 		}
 	}
 }
