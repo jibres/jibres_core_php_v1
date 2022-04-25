@@ -253,6 +253,11 @@ class get
 				{
 					switch ($item['type'])
 					{
+
+						case 'ircard';
+						case 'irshaba';
+						case 'manual_amount';
+						case 'hidden_amount';
 						case 'short_answer':
 						case 'displayname':
 						case 'numeric':
@@ -269,13 +274,10 @@ class get
 						case 'email':
 						case 'website':
 						case 'password':
-						case 'yes_no':
 						case 'message':
 						case 'agree':
 						case 'hidden':
 						case 'postalcode':
-						case 'single_choice':
-						case 'dropdown':
 							$items[$key]['user_answer'] = $one_answer['answer'];
 							break;
 
@@ -283,7 +285,11 @@ class get
 							$items[$key]['user_answer'] = $one_answer['textarea'];
 							break;
 
+						case 'list_amount';
 						case 'file':
+						case 'dropdown':
+						case 'single_choice':
+						case 'yes_no':
 						case 'multiple_choice':
 							if(!isset($items[$key]['user_answer']))
 							{
