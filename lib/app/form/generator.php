@@ -6,6 +6,9 @@ class generator
 {
 	private static $html = '';
 
+	private static $answer_detail = [];
+	private static $load_answer   = false;
+
 
 	public static function shipping_survey($_form_id)
 	{
@@ -45,6 +48,7 @@ class generator
 
 		return self::$html;
 	}
+
 
 	public static function sitebuilder_full_html($_form_id)
 	{
@@ -143,6 +147,73 @@ class generator
 						{
 							self::$html .= '<div class="mb-4">'. nl2br(a($load_form, 'desc')). '</div>';
 						}
+
+						\lib\app\form\generator::items($load_items);
+					}
+					self::$html .= '</div>';
+
+					self::$html .= '<footer class="txtRa">';
+					{
+						self::$html .= '<button class="btn master">'. T_("Submit"). '</button>';
+					}
+					self::$html .= '</footer>';
+				}
+				self::$html .= '</div>';
+			}
+			self::$html .= '</div>';
+
+		}
+		self::$html .= '</form>';
+
+		return self::$html;
+	}
+
+
+	/**
+	 * Edit from
+	 *
+	 * @param      <type>  $_form_id    The form identifier
+	 * @param      <type>  $_answer_id  The answer identifier
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function edit_html($_form_id, $_answer_id = null)
+	{
+		$load_form = \lib\app\form\form\get::public_get($_form_id);
+
+		if(!$load_form)
+		{
+			return null;
+		}
+
+		$load_items = \lib\app\form\item\get::items($_form_id);
+
+		if($_answer_id)
+		{
+			self::$load_answer = true;
+
+			$answer = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'));
+
+			var_dump($answer);
+			var_dump($_answer_id);exit;
+		}
+
+		self::$html = '';
+
+		self::$html .= '<form method="post" autocomplete="off">';
+		{
+
+			self::$html .= '<div class="">';
+			{
+
+				self::$html .= '<div class="box">';
+				{
+					self::$html .= '<header class="c-xs-0"><h2>'. a($load_form, 'title'). '</h2></header>';
+					self::$html .= '<div class="body" data-jform>';
+					{
+						self::$html .= '<input type="hidden" name="startdate" value="'. date("Y-m-d H:i:s"). '">';
+						self::$html .= '<input type="hidden" name="answerform" value="answerform">';
+
 
 						\lib\app\form\generator::items($load_items);
 					}
