@@ -102,7 +102,7 @@ else
 
 					$html .= '<div class="cauto">';
 					{
-						$html .= '<a class="btn-primary btn-sm" href="'. \dash\url::current(). \dash\request::full_get(['print' => 1]). '">'. T_("Edit"). '</a>';
+						// $html .= '<a class="btn-primary btn-sm mx-2" href="'. \dash\url::that(). '/edit'. \dash\request::full_get(). '">'. T_("Edit"). '</a>';
 					}
 					$html .= '</div>';
 				}
@@ -194,10 +194,10 @@ else
 				$html .= '</tbody>';
 			}
 			$html .= '</table>';
+			$html .= \dash\utility\pagination::html(true);
 		}
 		$html .= '</div>';
 
-		$html .= \dash\utility\pagination::html(true);
 
 
 		$html .= '<div class="c-xs-12 c-sm-12 c-md-6 p-0">';
