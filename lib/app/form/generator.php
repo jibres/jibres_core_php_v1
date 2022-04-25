@@ -880,13 +880,13 @@ class generator
 				self::label($value);
 				self::div();
 				{
-					self::$html .= \dash\utility\location::provinceSelectorHtml('IR', a($value, 'user_answer'), null, self::myName($value, true). '[]', self::myID($value, true), self::myName($value, true). '[]', self::myID($value, true). '_city');
+					self::$html .= \dash\utility\location::provinceSelectorHtml('IR', substr(strval(a($value, 'user_answer')), 0,5), substr(strval(a($value, 'user_answer')), 6), self::myName($value, true). '[]', self::myID($value, true), self::myName($value, true). '[]', self::myID($value, true). '_city');
 				}
 				self::_div();
 
 				self::div();
 				{
-					self::$html .= \dash\utility\location::citySelectorHtml(null, self::myName($value, true). '[]', self::myID($value, true). '_city');
+					self::$html .= \dash\utility\location::citySelectorHtml(substr(strval(a($value, 'user_answer')), 6), self::myName($value, true). '[]', self::myID($value, true). '_city');
 				}
 				self::_div();
 
