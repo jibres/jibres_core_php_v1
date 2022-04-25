@@ -49,7 +49,7 @@ if(\dash\data::haveAnyCategory())
 
       $html .= '<li class="nav-item justify-self-end place-content-end">';
       {
-        $html .= '<div class="nav-link active">';
+        $html .= '<div class="nav-link active" data-ajaxify data-method="post" data-data=\'{"setkeyboard" : "yes"}\'>';
         $html .= \dash\utility\icon::svg('keyboard', 'bootstrap', null, 'w-6 h-6');
         $html .= '</div>';
       }
@@ -129,31 +129,19 @@ if(\dash\data::haveAnyCategory())
       $html .= '</nav>';
 
 
-      // numpad
-      $html .= '<div class="flex-none grid grid-cols-3 gap-1 bg-white p-2">';
+      $keyboard_visible_class = 'hide';
+      $keyboard_status = \lib\app\setting\get::quick_get('sale_page', 'on_screen_kerboard');
+      if($keyboard_status === 'yes')
       {
-        // $html .= '<kbd data-kbd-press="-" class="btn-secondary w-12 leading-5">'. '-' .'</kbd>';
-        // $html .= '<kbd data-kbd-press="*" class="btn-secondary w-12 leading-5">'. '*' .'</kbd>';
-        // $html .= '<kbd data-kbd-press="/" class="btn-secondary w-12 leading-5">'. '/' .'</kbd>';
+        $keyboard_visible_class = '';
+      }
 
-        // $html .= '<kbd data-kbd-press="+" class="btn-secondary w-12 leading-5 row-span-4 max-h-full">'. '+' .'</kbd>';
-        $html .= '<kbd data-kbd-press="9" class="btn-secondary w-12 leading-5">'. 9 .'</kbd>';
-        $html .= '<kbd data-kbd-press="8" class="btn-secondary w-12 leading-5">'. 8 .'</kbd>';
-        $html .= '<kbd data-kbd-press="7" class="btn-secondary w-12 leading-5">'. 7 .'</kbd>';
-
-        $html .= '<kbd data-kbd-press="6" class="btn-secondary w-12 leading-5">'. 6 .'</kbd>';
-        $html .= '<kbd data-kbd-press="5" class="btn-secondary w-12 leading-5">'. 5 .'</kbd>';
-        $html .= '<kbd data-kbd-press="4" class="btn-secondary w-12 leading-5">'. 4 .'</kbd>';
-
-        $html .= '<kbd data-kbd-press="3" class="btn-secondary w-12 leading-5">'. 3 .'</kbd>';
-        $html .= '<kbd data-kbd-press="2" class="btn-secondary w-12 leading-5">'. 2 .'</kbd>';
-        $html .= '<kbd data-kbd-press="1" class="btn-secondary w-12 leading-5">'. 1 .'</kbd>';
-
-        $html .= '<kbd data-kbd-press="clr" class="btn-secondary w-12 leading-5">'. 'CLR' .'</kbd>';
-        $html .= '<kbd data-kbd-press="." class="btn-secondary w-12 leading-5">'. '.' .'</kbd>';
-        $html .= '<kbd data-kbd-press="0" class="btn-secondary w-12 leading-5">'. 0 .'</kbd>';
+      $html .= '<div id="salePageScreenKeyboard">';
+      {
+          $html .= \content_a\sale\view::keyboard_html($keyboard_visible_class);
       }
       $html .= '</div>';
+      // numpad
     }
     $html .= '</div>';
   }

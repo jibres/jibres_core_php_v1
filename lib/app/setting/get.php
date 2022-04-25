@@ -31,6 +31,32 @@ class get
 		}
 	}
 
+
+
+	public static function quick_get($_cat, $_key)
+	{
+		$cat = \dash\validate::string_100($_cat);
+		$key = \dash\validate::string_100($_key);
+
+		if($cat && $key)
+		{
+			$result = \lib\db\setting\get::by_cat_key($cat, $key);
+
+			if(isset($result['value']))
+			{
+				return $result['value'];
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	public static function payment()
 	{
 		$payment = \lib\db\setting\get::payment();

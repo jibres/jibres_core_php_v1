@@ -6,6 +6,12 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('setkeyboard') === 'yes')
+		{
+			return self::set_sale_page_keyboard();
+		}
+
+
 		$order_items = self::order_items();
 
 		if($order_items === false)
@@ -161,6 +167,27 @@ class model
 		$detail['type']        = \dash\data::moduleType();
 		$detail['desc']        = \dash\request::post('desc');
 		return $detail;
+	}
+
+
+	private static function set_sale_page_keyboard()
+	{
+
+		$keyboard_status = \lib\app\setting\get::quick_get('sale_page', 'on_screen_kerboard');
+
+		if($keyboard_status === 'yes')
+		{
+			\lib\app\setting\set::quick_set('sale_page', 'on_screen_kerboard', 'no');
+			\dash\notif::tada('#salePageScreenKeyboard', '<div id="salePageScreenKeyboard"></div>', true);
+		}
+		else
+		{
+			\lib\app\setting\set::quick_set('sale_page', 'on_screen_kerboard', 'yes');
+			\dash\notif::tada('#salePageScreenKeyboard', '<div id="salePageScreenKeyboard">'. view::keyboard_html(''). '</div>', true);
+		}
+
+		\dash\notif::complete();
+
 	}
 }
 ?>

@@ -4,6 +4,21 @@ namespace lib\app\setting;
 
 class set
 {
+	/**
+	 * Quick set setting
+	 *
+	 * @param      <type>  $_cat    The cat
+	 * @param      <type>  $_key    The key
+	 * @param      <type>  $_value  The value
+	 *
+	 * @return     <type>  ( description_of_the_return_value )
+	 */
+	public static function quick_set($_cat, $_key, $_value)
+	{
+		return tools::update($_cat, $_key, $_value);
+	}
+
+
 	public static function cms_setting($_args)
 	{
 		\dash\permission::access('cmsConfig');
