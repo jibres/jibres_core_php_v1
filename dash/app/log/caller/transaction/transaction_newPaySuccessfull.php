@@ -87,6 +87,7 @@ class transaction_newPaySuccessfull
 		{
 			return 'JibresBillingBot';
 		}
+		return 'master';
 	}
 
 
