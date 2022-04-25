@@ -178,12 +178,12 @@ class model
 		if($keyboard_status === 'yes')
 		{
 			\lib\app\setting\set::quick_set('sale_page', 'on_screen_kerboard', 'no');
-			\dash\notif::tada('#salePageScreenKeyboard', '<div id="salePageScreenKeyboard"></div>', true);
+			\dash\notif::tada('#salePageScreenKeyboard', '');
 		}
 		else
 		{
 			\lib\app\setting\set::quick_set('sale_page', 'on_screen_kerboard', 'yes');
-			\dash\notif::tada('#salePageScreenKeyboard', '<div id="salePageScreenKeyboard">'. view::keyboard_html(''). '</div>', true);
+			\dash\notif::tada('#salePageScreenKeyboard',  view::keyboard_html(''));
 		}
 
 		\dash\notif::complete();
