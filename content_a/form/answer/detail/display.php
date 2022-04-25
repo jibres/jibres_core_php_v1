@@ -102,7 +102,7 @@ else
 
 					$html .= '<div class="cauto">';
 					{
-						// $html .= '<a class="btn-primary btn-sm mx-2" href="'. \dash\url::that(). '/edit'. \dash\request::full_get(). '">'. T_("Edit"). '</a>';
+						$html .= '<a class="btn-primary btn-sm mx-2" href="'. \dash\url::that(). '/edit'. \dash\request::full_get(). '">'. T_("Edit"). '</a>';
 					}
 					$html .= '</div>';
 				}
@@ -124,7 +124,7 @@ else
 					{
 						$html .= 'alert-danger';
 					}
-					$html .= '>';
+					$html .= '">';
 					{
 						$html .= '<div class="row">';
 						{
@@ -364,17 +364,11 @@ else
 
 				}
 				$html .= '</div>';
-
-
 			}
-
-
 		}
 		$html .= '</div>';
-
 	}
 	$html .= '</div>';
-
 }
 
 echo $html;

@@ -186,16 +186,23 @@ class generator
 			return null;
 		}
 
-		$load_items = \lib\app\form\item\get::items($_form_id);
+		$load_items = [];
 
 		if($_answer_id)
 		{
 			self::$load_answer = true;
 
-			$answer = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'));
+			$load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'));
 
-			var_dump($answer);
-			var_dump($_answer_id);exit;
+			if(is_array($load_items))
+			{
+				self::$answer_detail = $load_items;
+			}
+		}
+
+		if(!$load_items)
+		{
+			$load_items = \lib\app\form\item\get::items($_form_id);
 		}
 
 		self::$html = '';
@@ -543,6 +550,7 @@ class generator
 		self::HtmlMaxLen($value);
 		self::HtmlMin($value);
 		self::HtmlMax($value);
+		self::HtmlValue($value);
 
 
 		self::$html .= $_meta;
@@ -663,7 +671,16 @@ class generator
 							{
 								self::div('radio3');
 								{
-									self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). $k, ' value="'. a($v, 'title'). '" ');
+									$checked = '';
+									if(is_array(a($value, 'user_answer')))
+									{
+										if(in_array($k, array_column($value['user_answer'], 'choice_id')))
+										{
+											$checked = ' checked';
+										}
+									}
+
+									self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). $k, ' value="'. a($v, 'title'). '" '. $checked);
 									self::label_checkbox($value, a($v, 'title'), self::myID($value, true). $k);
 								}
 								self::_div();
@@ -702,7 +719,16 @@ class generator
 							{
 								self::div('check1');
 								{
-									self::input_raw('checkbox', $value, self::myName($value, true). '[]', self::myID($value, true). $k, ' value="'. a($v, 'title'). '" ');
+									$checked = '';
+									if(is_array(a($value, 'user_answer')))
+									{
+										if(in_array($k, array_column($value['user_answer'], 'choice_id')))
+										{
+											$checked = ' checked';
+										}
+									}
+
+									self::input_raw('checkbox', $value, self::myName($value, true). '[]', self::myID($value, true). $k, ' value="'. a($v, 'title'). '" '. $checked);
 									self::label_checkbox($value, a($v, 'title'), self::myID($value, true). $k);
 								}
 								self::_div();
@@ -736,7 +762,13 @@ class generator
 					{
 						foreach ($value['choice'] as $k => $v)
 						{
-							self::$html .= '<option value="'. round(floatval(a($v, 'price'))). '">'. a($v, 'title'). '</option>';
+							$selected = '';
+							if(floatval(a($v, 'price')) === floatval(a($value, 'user_answer')))
+							{
+								$selected = ' selected';
+							}
+
+							self::$html .= '<option value="'. round(floatval(a($v, 'price'))). '"'. $selected. '>'. a($v, 'title'). '</option>';
 						}
 					}
 				}
@@ -763,7 +795,16 @@ class generator
 					{
 						foreach ($value['choice'] as $k => $v)
 						{
-							self::$html .= '<option value="'. a($v, 'title'). '">'. a($v, 'title'). '</option>';
+							$selected = '';
+							if(is_array(a($value, 'user_answer')))
+							{
+								if(in_array($k, array_column($value['user_answer'], 'choice_id')))
+								{
+									$selected = ' selected';
+								}
+							}
+
+							self::$html .= '<option value="'. a($v, 'title'). '"'. $selected.'>'. a($v, 'title'). '</option>';
 						}
 					}
 				}
@@ -807,7 +848,7 @@ class generator
 			self::div('mB10');
 			{
 				self::label($value);
-				self::$html .= \dash\utility\location::countrySelectorHtml(null, null, self::myName($value, true), self::myID($value, true));
+				self::$html .= \dash\utility\location::countrySelectorHtml(a($value, 'user_answer'), null, self::myName($value, true), self::myID($value, true));
 				self::HtmlDesc($value);
 			}
 			self::_div();
@@ -821,7 +862,7 @@ class generator
 		self::div('c-xs-12 c-12');
 		{
 			self::label($value);
-			self::$html .= \dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true), self::myID($value, true));
+			self::$html .= \dash\utility\location::provinceSelectorHtml('IR', a($value, 'user_answer'), null, self::myName($value, true), self::myID($value, true));
 			self::HtmlDesc($value);
 		}
 		self::_div();
@@ -839,7 +880,7 @@ class generator
 				self::label($value);
 				self::div();
 				{
-					self::$html .= \dash\utility\location::provinceSelectorHtml('IR', null, null, self::myName($value, true). '[]', self::myID($value, true), self::myName($value, true). '[]', self::myID($value, true). '_city');
+					self::$html .= \dash\utility\location::provinceSelectorHtml('IR', a($value, 'user_answer'), null, self::myName($value, true). '[]', self::myID($value, true), self::myName($value, true). '[]', self::myID($value, true). '_city');
 				}
 				self::_div();
 
@@ -871,7 +912,12 @@ class generator
 					{
 						self::div('radio3');
 						{
-							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'male', ' value="male" ');
+							$checked = '';
+							if(a($value, 'user_answer') === 'male')
+							{
+								$checked = ' checked';
+							}
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'male', ' value="male" '. $checked);
 							self::label_checkbox($value, T_("I'm Male"), self::myID($value, true). 'male');
 						}
 						self::_div();
@@ -882,7 +928,13 @@ class generator
 					{
 						self::div('radio3');
 						{
-							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'female', ' value="female" ');
+							$checked = '';
+							if(a($value, 'user_answer') === 'female')
+							{
+								$checked = ' checked';
+							}
+
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'female', ' value="female" '. $checked);
 							self::label_checkbox($value, T_("I'm Female"), self::myID($value, true). 'female');
 						}
 						self::_div();
@@ -1046,6 +1098,11 @@ class generator
 			}
 			self::$html .= '</div>';
 
+			if(a($value, 'user_answer'))
+			{
+				self::$html .= '<a class="btn-secondary" target="_blank" href="'. \lib\filepath::fix($value['user_answer']). '">'. T_("Show file"). '</a>';
+			}
+
 			self::HtmlDesc($value);
 		}
 		self::_div();
@@ -1120,9 +1177,9 @@ class generator
 		{
 			self::div('c-xs-12 c-12');
 			{
+				$class = null;
 				if(isset($value['setting']['agree']['color']) && $value['setting']['agree']['color'])
 				{
-					$class = null;
 					switch ($value['setting']['agree']['color'])
 					{
 						case 'red':		$class = 'danger'; break;
@@ -1138,8 +1195,16 @@ class generator
 						self::$html .= '<p>'. $value['desc'] .'</p>';
 					}
 					self::$html .= '<div class="check1">';
-						self::$html .= '<input type="checkbox" name="'; self::myName($value); self::$html .= '" id="'; self::myID($value); self::$html .= '" value="1">';
+					{
+						$checked = '';
+						if(strval(a($value, 'user_answer')) === '1')
+						{
+							$checked = ' checked';
+						}
+
+						self::$html .= '<input type="checkbox" name="'; self::myName($value); self::$html .= '" id="'; self::myID($value); self::$html .= '" value="1" '. $checked.'>';
 						self::$html .= '<label for="'; self::myID($value); self::$html .= '">'. $value['title'].'</label>';
+					}
 					self::$html .= '</div>';
 				self::$html .= '</div>';
 			}
@@ -1162,7 +1227,13 @@ class generator
 					{
 						self::div('radio3');
 						{
-							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'yes', ' value="yes" ');
+							$checked = '';
+							if(a($value, 'user_answer') === 'yes')
+							{
+								$checked = ' checked';
+							}
+
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'yes', ' value="yes" '. $checked);
 							self::label_checkbox($value, T_("Yes"), self::myID($value, true). 'yes');
 						}
 						self::_div();
@@ -1173,7 +1244,14 @@ class generator
 					{
 						self::div('radio3');
 						{
-							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'no', ' value="no" ');
+							$checked = '';
+							if(a($value, 'user_answer') === 'no')
+							{
+								$checked = ' checked';
+							}
+
+
+							self::input_raw('radio', $value, self::myName($value, true), self::myID($value, true). 'no', ' value="no" '. $checked);
 							self::label_checkbox($value, T_("No"), self::myID($value, true). 'no');
 						}
 						self::_div();

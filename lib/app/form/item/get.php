@@ -270,6 +270,7 @@ class get
 						case 'time':
 						case 'tel':
 						case 'nationalcode':
+						case 'yes_no':
 						case 'mobile':
 						case 'email':
 						case 'website':
@@ -278,6 +279,8 @@ class get
 						case 'agree':
 						case 'hidden':
 						case 'postalcode':
+						case 'file':
+						case 'list_amount';
 							$items[$key]['user_answer'] = $one_answer['answer'];
 							break;
 
@@ -285,11 +288,8 @@ class get
 							$items[$key]['user_answer'] = $one_answer['textarea'];
 							break;
 
-						case 'list_amount';
-						case 'file':
 						case 'dropdown':
 						case 'single_choice':
-						case 'yes_no':
 						case 'multiple_choice':
 							if(!isset($items[$key]['user_answer']))
 							{

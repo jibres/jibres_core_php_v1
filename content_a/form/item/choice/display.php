@@ -9,7 +9,8 @@
         <?php if(a(\dash\data::itemDetail(), 'type') === 'list_amount') {?>
           <label for="iprice"><?php echo T_("Price") ?></label>
           <div class="input">
-            <input type="tel" name="price" required <?php \dash\layout\autofocus::html(); ?> value="<?php echo round(\dash\data::choiceDataRow_price()) ?>" data-format="price"  maxlength="15">
+
+            <input type="tel" name="price" required  value="<?php echo round(floatval(\dash\data::choiceDataRow_price())) ?>" data-format="price"  maxlength="15">
           </div>
         <?php } // endif ?>
 
