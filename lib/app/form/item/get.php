@@ -251,53 +251,26 @@ class get
 			{
 				if($one_answer['item_id'] === $item['id'])
 				{
-					switch ($item['type'])
+					if(!isset($items[$key]['user_answer']))
 					{
-
-						case 'ircard';
-						case 'irshaba';
-						case 'manual_amount';
-						case 'hidden_amount';
-						case 'short_answer':
-						case 'displayname':
-						case 'numeric':
-						case 'date':
-						case 'birthdate':
-						case 'country':
-						case 'province':
-						case 'province_city':
-						case 'gender':
-						case 'time':
-						case 'tel':
-						case 'nationalcode':
-						case 'yes_no':
-						case 'mobile':
-						case 'email':
-						case 'website':
-						case 'password':
-						case 'message':
-						case 'agree':
-						case 'hidden':
-						case 'postalcode':
-						case 'file':
-						case 'list_amount';
-							$items[$key]['user_answer'] = $one_answer['answer'];
-							break;
-
-						case 'descriptive_answer':
-							$items[$key]['user_answer'] = $one_answer['textarea'];
-							break;
-
-						case 'dropdown':
-						case 'single_choice':
-						case 'multiple_choice':
-							if(!isset($items[$key]['user_answer']))
-							{
-								$items[$key]['user_answer'] = [];
-							}
-							$items[$key]['user_answer'][] = ['title' => $one_answer['answer'], 'choice_id' => $one_answer['choice_id']];
-							break;
+						$items[$key]['user_answer'] = [];
 					}
+
+					if($item['type'] === 'descriptive_answer')
+					{
+						$this_answer = $one_answer['textarea'];
+					}
+					else
+					{
+						$this_answer = $one_answer['answer'];
+					}
+
+					$items[$key]['user_answer'][] =
+					[
+						'answer_detail_id' => a($one_answer, 'id'),
+						'answer'           => $this_answer,
+						'choice_id'        => $one_answer['choice_id'],
+					];
 				}
 
 			}

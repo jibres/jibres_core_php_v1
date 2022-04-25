@@ -420,15 +420,15 @@ class generator
 
 	private static function HtmlValue($value, $_raw = false)
 	{
-		if(isset($value['user_answer']) && is_string($value['user_answer']))
+		if(isset($value['user_answer'][0]['answer']) && is_string($value['user_answer'][0]['answer']))
 		{
 			if($_raw)
 			{
-				self::$html .= $value['user_answer'];
+				self::$html .= $value['user_answer'][0]['answer'];
 			}
 			else
 			{
-				self::$html .= ' value="'. $value['user_answer']. '"';
+				self::$html .= ' value="'. $value['user_answer'][0]['answer']. '"';
 			}
 		}
 		else
@@ -763,7 +763,7 @@ class generator
 						foreach ($value['choice'] as $k => $v)
 						{
 							$selected = '';
-							if(floatval(a($v, 'price')) === floatval(a($value, 'user_answer')))
+							if(floatval(a($v, 'price')) === floatval(a($value, 'user_answer', 0, 'answer')))
 							{
 								$selected = ' selected';
 							}
@@ -848,7 +848,7 @@ class generator
 			self::div('mB10');
 			{
 				self::label($value);
-				self::$html .= \dash\utility\location::countrySelectorHtml(a($value, 'user_answer'), null, self::myName($value, true), self::myID($value, true));
+				self::$html .= \dash\utility\location::countrySelectorHtml(a($value, 'user_answer', 0, 'answer'), null, self::myName($value, true), self::myID($value, true));
 				self::HtmlDesc($value);
 			}
 			self::_div();
@@ -862,7 +862,7 @@ class generator
 		self::div('c-xs-12 c-12');
 		{
 			self::label($value);
-			self::$html .= \dash\utility\location::provinceSelectorHtml('IR', a($value, 'user_answer'), null, self::myName($value, true), self::myID($value, true));
+			self::$html .= \dash\utility\location::provinceSelectorHtml('IR', a($value, 'user_answer', 0, 'answer'), null, self::myName($value, true), self::myID($value, true));
 			self::HtmlDesc($value);
 		}
 		self::_div();
@@ -880,13 +880,13 @@ class generator
 				self::label($value);
 				self::div();
 				{
-					self::$html .= \dash\utility\location::provinceSelectorHtml('IR', substr(strval(a($value, 'user_answer')), 0,5), substr(strval(a($value, 'user_answer')), 6), self::myName($value, true). '[]', self::myID($value, true), self::myName($value, true). '[]', self::myID($value, true). '_city');
+					self::$html .= \dash\utility\location::provinceSelectorHtml('IR', substr(strval(a($value, 'user_answer', 0, 'answer')), 0,5), substr(strval(a($value, 'user_answer', 0, 'answer')), 6), self::myName($value, true). '[]', self::myID($value, true), self::myName($value, true). '[]', self::myID($value, true). '_city');
 				}
 				self::_div();
 
 				self::div();
 				{
-					self::$html .= \dash\utility\location::citySelectorHtml(substr(strval(a($value, 'user_answer')), 6), self::myName($value, true). '[]', self::myID($value, true). '_city');
+					self::$html .= \dash\utility\location::citySelectorHtml(substr(strval(a($value, 'user_answer', 0, 'answer')), 6), self::myName($value, true). '[]', self::myID($value, true). '_city');
 				}
 				self::_div();
 
@@ -913,7 +913,7 @@ class generator
 						self::div('radio3');
 						{
 							$checked = '';
-							if(a($value, 'user_answer') === 'male')
+							if(a($value, 'user_answer', 0, 'answer') === 'male')
 							{
 								$checked = ' checked';
 							}
@@ -929,7 +929,7 @@ class generator
 						self::div('radio3');
 						{
 							$checked = '';
-							if(a($value, 'user_answer') === 'female')
+							if(a($value, 'user_answer', 0, 'answer') === 'female')
 							{
 								$checked = ' checked';
 							}
@@ -1098,9 +1098,9 @@ class generator
 			}
 			self::$html .= '</div>';
 
-			if(a($value, 'user_answer'))
+			if(a($value, 'user_answer', 0, 'answer'))
 			{
-				self::$html .= '<a class="btn-secondary" target="_blank" href="'. \lib\filepath::fix($value['user_answer']). '">'. T_("Show file"). '</a>';
+				self::$html .= '<a class="btn-secondary" target="_blank" href="'. \lib\filepath::fix($value['user_answer'][0]['answer']). '">'. T_("Show file"). '</a>';
 			}
 
 			self::HtmlDesc($value);
@@ -1197,7 +1197,7 @@ class generator
 					self::$html .= '<div class="check1">';
 					{
 						$checked = '';
-						if(strval(a($value, 'user_answer')) === '1')
+						if(strval(a($value, 'user_answer', 0, 'answer')) === '1')
 						{
 							$checked = ' checked';
 						}
@@ -1228,7 +1228,7 @@ class generator
 						self::div('radio3');
 						{
 							$checked = '';
-							if(a($value, 'user_answer') === 'yes')
+							if(a($value, 'user_answer', 0, 'answer') === 'yes')
 							{
 								$checked = ' checked';
 							}
@@ -1245,7 +1245,7 @@ class generator
 						self::div('radio3');
 						{
 							$checked = '';
-							if(a($value, 'user_answer') === 'no')
+							if(a($value, 'user_answer', 0, 'answer') === 'no')
 							{
 								$checked = ' checked';
 							}
