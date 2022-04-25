@@ -3,6 +3,11 @@ namespace content_business\f\home;
 
 class model
 {
+	public static function edit_mode()
+	{
+		return false;
+	}
+
 	public static function post()
 	{
 		$post  = \dash\request::post();
@@ -28,7 +33,16 @@ class model
 			}
 		}
 
-		\lib\app\form\answer\add::public_new_answer($answer);
+		$meta = [];
+
+		if(static::edit_mode())
+		{
+			$meta['edit_mode'] = true;
+			$meta['answer_id'] = \dash\request::get('aid');
+			$answer['form_id'] = \dash\request::get('id');
+		}
+
+		\lib\app\form\answer\add::public_new_answer($answer, $meta);
 
 		if(\dash\engine\process::status())
 		{

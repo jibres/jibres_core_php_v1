@@ -4,7 +4,7 @@ namespace lib\app\form\answer;
 
 class add
 {
-	public static function public_new_answer($_args)
+	public static function public_new_answer($_args, $_meta = [])
 	{
 		$condition =
 		[
@@ -22,6 +22,7 @@ class add
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
 
 		$form_id = $data['form_id'];
 
