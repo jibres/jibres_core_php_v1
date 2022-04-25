@@ -1,193 +1,381 @@
-<?php if(\dash\request::get('print')) {?>
+<?php
+$html = '';
 
-   <div class="printArea" data-size='A4'>
-      <div class="alert-info text-left ltr font-bold text-sm">
-      <div class="f">
-        <div class="cauto">
-          <span><?php echo T_("Answer ID") ?></span>
-          <span><code class="inline-block font-bold"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
-        </div>
-        <div class="c"></div>
-        <div class="cauto">
-          <a class="font-14 p-0" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => null]) ?>"><?php echo T_("Back") ?></a>
-        </div>
-      </div>
+if(\dash\request::get('print'))
+{
 
+	$html .= '<div class="printArea" data-size="A4">';
+	{
 
-    </div>
-  <table class="tbl1 v6">
-    <tbody class="text-sm">
-<?php $i=0; foreach (\dash\data::dataTable() as $key => $value) { $i++;  ?>
-      <?php  if($i % 2) { ?>
-        <tr>
-      <?php } //endif ?>
-          <th class=""><?php echo a($value, 'item_title'); ?></th>
-          <td class="">
-            <?php  echo \lib\app\form\answer\get::HTMLshowDetaiRecrod($value) ?>
-          </td>
-      <?php  if(!($i % 2)) { ?>
-        </tr>
-      <?php } //endif ?>
-<?php } //endif ?>
-    </tbody>
-  </table>
-  </div>
-  <?php \dash\utility\pagination::html(); ?>
-<?php }else{ ?>
+		$html .= '<div class="alert-info text-left ltr font-bold text-sm">';
+		{
 
-<div class="row">
-   <div class="c-xs-12 c-sm-12 c-md-6">
-    <div class="alert-info text-left ltr font-bold text-sm">
-      <div class="f">
-        <div class="cauto">
-          <span><?php echo T_("Answer ID") ?></span>
-          <span><code class="inline-block font-bold"><?php echo \dash\request::get('id'). '_'.\dash\request::get('aid'); ?></code></span>
-        </div>
-        <div class="c"></div>
-        <div class="cauto">
-          <a class="font-14" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => 1]) ?>"><i class="sf-print"></i></a>
-        </div>
-        <div class="cauto hidden">
-          <a class="btn-primary btn-sm" href="<?php echo \dash\url::current(). \dash\request::full_get(['print' => 1]) ?>"><?php echo T_("Edit") ?></a>
-        </div>
-      </div>
-    </div>
+			$html .= '<div class="f">';
+			{
 
-    <?php if(\dash\data::answerTransactionDetail()) {?>
+				$html .= '<div class="cauto">';
+				{
 
-        <a href="<?php echo \dash\url::kingdom(). '/crm/transactions/detail?id='. \dash\data::answerDetail_transaction_id() ?>">
-          <div class="<?php if(\dash\data::answerTransactionDetail_verify()) {echo 'alert-success';}else{echo 'alert-danger';} ?>">
-            <div class="row">
+					$html .= '<span>'. T_("Answer ID"). '</span>';
+					$html .= '<span><code class="inline-block font-bold">' . \dash\request::get('id'). '_'.\dash\request::get('aid'). '</code></span>';
+				}
+				$html .= '</div>';
 
-              <div class="c-auto">
-                <?php echo T_("Total amount") ?>
-                <span class="font-bold mx-4"><?php echo \dash\fit::number(\dash\data::answerTransactionDetail_plus()). ' '. \lib\store::currency() ?> </span>
-              </div>
+				$html .= '<div class="c"></div>';
 
-              <div class="c"></div>
+				$html .= '<div class="cauto">';
+				{
+					$html .= '<a class="font-14 p-0" href="'. \dash\url::current(). \dash\request::full_get(['print' => null]) . '">'.  T_("Back") .'</a>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
 
-              <div class="c-auto">
+		$html .= '<table class="tbl1 v6">';
+		{
 
-              <?php if(\dash\data::answerTransactionDetail_verify()) { ?>
-                <?php echo T_("Successful payment"); ?>
-              <?php }else{ ?>
-                <?php echo T_("Unsuccess"); ?>
-              <?php } // endif ?>
-              </div>
-            </div>
+			$html .= '<tbody class="text-sm">';
+			{
 
-          </div>
-        </a>
-      <?php } // endif ?>
+				$i=0;
+				foreach (\dash\data::dataTable() as $key => $value)
+				{
+					$i++;
+					if($i % 2)
+					{
+						$html .= '<tr>';
+					}
 
-      <?php if(a(\dash\data::answerDetail(), 'factor_id')) {?>
-    <div class="alert-info text-left ltr font-bold text-sm">
-        <a href="<?php echo \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'); ?>"><?php echo T_("View Order") ?></a>
-      </div>
-      <?php } //endif ?>
+					$html .= '<th class="">'. a($value, 'item_title'). '</th>';
+					$html .= '<td class="">';
+					{
+						$html .= \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
+					}
+					$html .= '</td>';
+					if(!($i % 2))
+					{
+						$html .= '</tr>';
+					}
+				}
+			}
+			$html .= '</tbody>';
+		}
+		$html .= '</table>';
+
+	}
+	$html .= '</div>';
+
+	$html .= \dash\utility\pagination::html(true);
 
 
-  <table class="tbl1 v6 responsive">
-    <tbody class="text-sm">
-<?php foreach (\dash\data::dataTable() as $key => $value) {?>
-        <tr>
-          <th class=""><?php echo a($value, 'item_title'); ?></th>
-          <td class="">
-            <?php echo \lib\app\form\answer\get::HTMLshowDetaiRecrod($value); ?>
-            </td>
-        </tr>
-<?php } //endif ?>
-    </tbody>
-  </table>
-  </div>
-  <?php \dash\utility\pagination::html(); ?>
+}
+else
+{
 
-  <div class="c-xs-12 c-sm-12 c-md-6 p-0">
+	$html .= '<div class="row">';
+	{
 
-     <form method="post" id="markasreview">
-      <input type="hidden" name="review" value="review">
-    </form>
+		$html .= '<div class="c-xs-12 c-sm-12 c-md-6">';
+		{
 
-    <form method="post" id="form1">
-      <input type="hidden" name="addtag" value="addtag">
-      <div class="box">
-        <div class="pad">
-           <div>
-          <div class="row align-center">
-            <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
-            <div class="c-auto os"><a class="text-sm"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?> href="<?php echo \dash\url::here(). '/form/tag'. \dash\request::full_get() ?>"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
-          </div>
-          <select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">
-            <?php foreach (\dash\data::allTagList() as $key => $value) {?>
-              <option value="<?php echo $value['title']; ?>" <?php if(in_array($value['title'], \dash\data::tagsSavedTitle())) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
-            <?php } //endfor ?>
-          </select>
-        </div>
-        </div>
-        <footer class="txtRa">
-          <button class="btn-outline-secondary btn-sm"><?php echo T_("Save") ?></button>
-        </footer>
-      </div>
-    </form>
+			$html .= '<div class="alert-info text-left ltr font-bold text-sm">';
+			{
 
-       <form method="post" autocomplete="off">
-      <div class="box">
-        <header><h2><?php echo T_("Add comment to this answer") ?></h2></header>
-        <div class="body padLess">
-          <input type="hidden" name="formcomment" value="formcomment">
-          <div class="mb-4">
-            <textarea id="comment" name="comment" class="txt" rows="3"></textarea>
-          </div>
-          <div class="row">
-            <div class="c-xs-6 c-sm-6">
-              <div class="radio3">
-                <input type="radio" name="privacy" value="public" checked id="privacypublic">
-                <label for="privacypublic"><?php echo T_("Public") ?></label>
-              </div>
-            </div>
-            <div class="c-xs-6 c-sm-6">
-              <div class="radio3">
-                <input type="radio" name="privacy" value="private" id="privacyprivate">
-                <label for="privacyprivate"><?php echo T_("Private") ?></label>
-              </div>
-            </div>
-          </div>
+				$html .= '<div class="f">';
+				{
+					$html .= '<div class="cauto">';
+					{
+						$html .= '<span>'. T_("Answer ID"). '</span>';
+						$html .= '<span><code class="inline-block font-bold">'. \dash\request::get('id'). '_'.\dash\request::get('aid'). '</code></span>';
+					}
+					$html .= '</div>';
 
-        </div>
-        <footer class="f">
+					$html .= '<div class="c"></div>';
 
-          <div class="c"></div>
-          <div class="cauto"><button class="btn-outline-secondary btn-sm"><?php echo T_("Add comment") ?></button></div>
-        </footer>
-      </div>
-    </form>
+					$html .= '<div class="cauto">';
+					{
+						$html .= '<a class="font-14" href="'. \dash\url::current(). \dash\request::full_get(['print' => 1]). '"><i class="sf-print"></i></a>';
+					}
+					$html .= '</div>';
 
-    <?php if(\dash\data::commentList()) {?>
-      <div class="box">
-        <div class="pad">
-          <h2><?php echo T_("Answer comment") ?></h2>
+					$html .= '<div class="cauto">';
+					{
+						$html .= '<a class="btn-primary btn-sm" href="'. \dash\url::current(). \dash\request::full_get(['print' => 1]). '">'. T_("Edit"). '</a>';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
 
-              <?php foreach (\dash\data::commentList() as $key => $value) {?>
-                <div class="alert-secondary">
-                  <div class="m-2"><?php echo a($value, 'content') ?></div>
-                  <div class="row">
-                    <div class="c"><?php echo a($value, 'displayname'); ?></div>
-                    <div class="c"><?php echo T_(ucfirst(a($value, 'privacy'))); ?></div>
-                    <div class="c"><?php echo \dash\fit::date_time(a($value, 'datecreated'));?></div>
-                    <?php if(\dash\permission::check('FormRemoveAnswer')) {?>
-                      <div class="c-auto"><div data-confirm data-data='{"removecomment" : "removecomment", "id" : "<?php echo a($value, 'id') ?>"}' class=""><?php echo \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3') ?></div></div>
-                    <?php }//endif ?>
-                  </div>
-                </div>
+			if(\dash\data::answerTransactionDetail())
+			{
 
-              <?php } //endfor ?>
+				$html .= '<a href="'. \dash\url::kingdom(). '/crm/transactions/detail?id='. \dash\data::answerDetail_transaction_id(). '">';
+				{
+					$html .= '<div class="';
+					if(\dash\data::answerTransactionDetail_verify())
+					{
+						$html .= 'alert-success';
+					}
+					else
+					{
+						$html .= 'alert-danger';
+					}
+					$html .= '>';
+					{
+						$html .= '<div class="row">';
+						{
+							$html .= '<div class="c-auto">';
+							{
+								$html .= T_("Total amount");
+								$html .= '<span class="font-bold mx-4">'.  \dash\fit::number(\dash\data::answerTransactionDetail_plus()). ' '. \lib\store::currency(). '</span>';
+							}
+							$html .= '</div>';
 
-        </div>
+							$html .= '<div class="c"></div>';
 
-      </div>
+							$html .= '<div class="c-auto">';
+							{
+								if(\dash\data::answerTransactionDetail_verify())
+								{
+									$html .= T_("Successful payment");
+								}
+								else
+								{
+									$html .= T_("Unsuccess");
+								}
+							}
+							$html .= '</div>';
+						}
+						$html .= '</div>';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</a>';
+			}
+
+			if(a(\dash\data::answerDetail(), 'factor_id'))
+			{
+				$html .= '<div class="alert-info text-left ltr font-bold text-sm">';
+				{
+					$html .= '<a href="'. \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'). '">'. T_("View Order"). '</a>';
+				}
+				$html .= '</div>';
+			}
 
 
-  <?php } //endif ?>
-  </div>
-</div>
-<?php } //endif ?>
+			$html .= '<table class="tbl1 v6 responsive">';
+			{
+
+				$html .= '<tbody class="text-sm">';
+				{
+					foreach (\dash\data::dataTable() as $key => $value)
+					{
+						$html .= '<tr>';
+						{
+							$html .= '<th class="">';
+							{
+								$html .= a($value, 'item_title');
+							}
+							$html .= '</th>';
+
+							$html .= '<td class="">';
+							{
+								$html .=  \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
+							}
+							$html .= '</td>';
+						}
+						$html .= '</tr>';
+					}
+				}
+				$html .= '</tbody>';
+			}
+			$html .= '</table>';
+		}
+		$html .= '</div>';
+
+		$html .= \dash\utility\pagination::html(true);
+
+
+		$html .= '<div class="c-xs-12 c-sm-12 c-md-6 p-0">';
+		{
+			$html .= '<form method="post" id="markasreview">';
+			{
+				$html .= '<input type="hidden" name="review" value="review">';
+			}
+			$html .= '</form>';
+
+			$html .= '<form method="post" id="form1">';
+			{
+				$html .= '<input type="hidden" name="addtag" value="addtag">';
+				$html .= '<div class="box">';
+				{
+					$html .= '<div class="pad">';
+					{
+
+						$html .= '<div class="row align-center">';
+						{
+							$html .= '<div class="c">';
+							{
+								$html .= '<label for="tag">'. T_("Tag"). '</label>';
+							}
+							$html .= '</div>';
+
+							$html .= '<div class="c-auto os">';
+							{
+								$html .= '<a class="text-sm" ';
+								if(!\dash\detect\device::detectPWA())
+								{
+									$html .= " target='_blank' ";
+								}
+								$html .= ' href="'. \dash\url::here(). '/form/tag'. \dash\request::full_get(). '">'. T_("Manage"). ' <i class="sf-link-external"></i></a>';
+							}
+							$html .= '</div>';
+						}
+						$html .= '</div>';
+
+						$html .= '<select name="tag[]" id="tag" class="select22" data-model="tag" multiple="multiple">';
+						{
+							foreach (\dash\data::allTagList() as $key => $value)
+							{
+								$html .= '<option value="'. $value['title']. '"' ;
+								if(in_array($value['title'], \dash\data::tagsSavedTitle()))
+								{
+									$html .= ' selected';
+								}
+								$html .= '>';
+								$html .= $value['title'];
+								$html .= '</option>';
+							}
+						}
+						$html .= '</select>';
+
+					}
+					$html .= '</div>';
+					$html .= '<footer class="txtRa">';
+					$html .= '<button class="btn-outline-secondary btn-sm">'. T_("Save"). '</button>';
+					$html .= '</footer>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</form>';
+
+
+
+
+			$html .= '<form method="post" autocomplete="off">';
+			{
+
+				$html .= '<div class="box">';
+				{
+
+					$html .= '<header><h2>'. T_("Add comment to this answer"). '</h2></header>';
+					$html .= '<div class="body padLess">';
+					{
+
+						$html .= '<input type="hidden" name="formcomment" value="formcomment">';
+
+						$html .= '<div class="mb-4">';
+						{
+							$html .= '<textarea id="comment" name="comment" class="txt" rows="3"></textarea>';
+						}
+						$html .= '</div>';
+
+						$html .= '<div class="row">';
+						{
+							$html .= '<div class="c-xs-6 c-sm-6">';
+							{
+								$html .= '<div class="radio3">';
+								{
+									$html .= '<input type="radio" name="privacy" value="public" checked id="privacypublic">';
+									$html .= '<label for="privacypublic">'. T_("Public") . '</label>';
+								}
+								$html .= '</div>';
+							}
+							$html .= '</div>';
+
+							$html .= '<div class="c-xs-6 c-sm-6">';
+							{
+								$html .= '<div class="radio3">';
+								{
+									$html .= '<input type="radio" name="privacy" value="private" id="privacyprivate">';
+									$html .= '<label for="privacyprivate">'. T_("Private") . '</label>';
+								}
+								$html .= '</div>';
+							}
+							$html .= '</div>';
+						}
+						$html .= '</div>';
+
+					}
+					$html .= '</div>';
+
+					$html .= '<footer class="f">';
+					{
+						$html .= '<div class="c"></div>';
+						$html .= '<div class="cauto">';
+							$html .= '<button class="btn-outline-secondary btn-sm">'. T_("Add comment") . '</button>';
+						$html .= '</div>';
+					}
+					$html .= '</footer>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</form>';
+
+
+
+			if(\dash\data::commentList())
+			{
+				$html .= '<div class="box">';
+				{
+
+					$html .= '<div class="pad">';
+					{
+
+						$html .= '<h2>' . T_("Answer comment"). '</h2>';
+
+						foreach (\dash\data::commentList() as $key => $value)
+						{
+							$html .= '<div class="alert-secondary">';
+							{
+								$html .= '<div class="m-2">'. a($value, 'content'). '</div>';
+								$html .= '<div class="row">';
+								{
+									$html .= '<div class="c">' . a($value, 'displayname'). '</div>';
+									$html .= '<div class="c">' . T_(ucfirst(a($value, 'privacy'))). '</div>';
+									$html .= '<div class="c">' . \dash\fit::date_time(a($value, 'datecreated')). '</div>';
+									if(\dash\permission::check('FormRemoveAnswer'))
+									{
+										$html .= '<div class="c-auto"><div data-confirm data-data=\'{"removecomment" : "removecomment", "id" : "'.  a($value, 'id'). '"}\' class="">'. \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3'). '</div></div>';
+									}
+								}
+								$html .= '</div>';
+							}
+							$html .= '</div>';
+
+						}
+
+					}
+					$html .= '</div>';
+
+				}
+				$html .= '</div>';
+
+
+			}
+
+
+		}
+		$html .= '</div>';
+
+	}
+	$html .= '</div>';
+
+}
+
+echo $html;
+?>
