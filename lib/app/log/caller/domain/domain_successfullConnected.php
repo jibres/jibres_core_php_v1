@@ -51,7 +51,7 @@ class domain_successfullConnected
 
 	public static function sms()
 	{
-		return true;
+		return false;
 	}
 
 
