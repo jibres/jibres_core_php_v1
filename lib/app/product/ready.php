@@ -328,7 +328,35 @@ class ready
 
 		$result['link'] = a($result, 'url');
 
+		self::detect_thumb($result);
+
 		return $result;
+	}
+
+
+	/**
+	 * Bug fix old thumb error
+	 * Need to fit it
+	 * https://jibres.ir/$jbjfv/a/products/edit?id=232
+	 *
+	 * @param      <type>  $result  The result
+	 */
+	private static function detect_thumb(&$result)
+	{
+		if(a($result, 'thumb') && is_array(a($result, 'gallery_array')))
+		{
+			if(!in_array($result['thumb'], array_column($result['gallery_array'], 'path')))
+			{
+				foreach ($result['gallery_array'] as $key => $value)
+				{
+					if(a($value, 'type') === 'image')
+					{
+						$result['thumb'] = $value['path'];
+						return;
+					}
+				}
+			}
+		}
 	}
 
 
