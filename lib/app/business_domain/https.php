@@ -134,7 +134,7 @@ class https
 				$have_active_cert = false;
 				if(is_array(a($get_https_setting, 'data', 'certificates')))
 				{
-					foreach ($get_https_setting['data']['certificate'] as $cert_detail)
+					foreach ($get_https_setting['data']['certificates'] as $cert_detail)
 					{
 						if(a($cert_detail, 'active'))
 						{
