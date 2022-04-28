@@ -47,5 +47,17 @@ class edit
 		return true;
 
 	}
+
+
+	/**
+	 * Edit form answer
+	 *
+	 * @param      <type>  $_new_answer  The new answer
+	 * @param      <type>  $_old_answer  The old answer
+	 */
+	public static function answer($_new_answer, $_old_answer)
+	{
+		var_dump($_new_answer, $_old_answer);exit;
+	}
 }
 ?>

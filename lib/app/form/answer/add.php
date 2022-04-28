@@ -23,13 +23,13 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-
 		$form_id = $data['form_id'];
 
 		$multiple_choice_answer = [];
 
 		$signup_user_args   = [];
 		$signup_user        = false;
+		$edit_mode          = false;
 		$total_price        = 0;
 		$send_sms           = [];
 		$sms_text           = [];
@@ -49,7 +49,16 @@ class add
 			return false;
 		}
 
-		$check_true_item = \lib\app\form\item\get::items($form_id);
+		if(a($_meta, 'edit_mode') === true && a($_meta, 'answer_id'))
+		{
+			$check_true_item = \lib\app\form\item\get::items_answer($form_id, $_meta['answer_id']);
+			$edit_mode = true;
+		}
+		else
+		{
+			$check_true_item = \lib\app\form\item\get::items($form_id);
+		}
+
 
 		if(!$check_true_item || !is_array($check_true_item))
 		{
@@ -451,8 +460,16 @@ class add
 				$is_answer_befor = \lib\db\form_answerdetail\get::get_where($check_unique_args_new);
 				if(isset($is_answer_befor['id']))
 				{
-					\dash\notif::error(T_("You are answer to this form before"));
-					return false;
+					if($edit_mode && floatval($_meta['answer_id']) === floatval($is_answer_befor['id']))
+					{
+						// nothing
+						// just update current answer
+					}
+					else
+					{
+						\dash\notif::error(T_("You are answer to this form before"));
+						return false;
+					}
 				}
 			}
 		}
@@ -547,7 +564,7 @@ class add
 
 					$user_id = \dash\db\users\insert::signup($value);
 
-					if($my_send_sms && $my_sms_text && $user_id && isset($value['mobile']))
+					if(!$edit_mode && $my_send_sms && $my_sms_text && $user_id && isset($value['mobile']))
 					{
 						// send notif by sms for nabarvari.khadije.com
 						if(intval(\lib\store::id()) === 1000089)
@@ -571,7 +588,7 @@ class add
 			$data['startdate'] = date("Y-m-d H:i:s");
 		}
 
-		if($startdate && time() - strtotime($startdate) > (60*60*1))
+		if(!$edit_mode && $startdate && time() - strtotime($startdate) > (60*60*1))
 		{
 			$data['startdate'] = date("Y-m-d H:i:s", time() - (60*60*1));
 		}
@@ -680,26 +697,48 @@ class add
 				}
 
 			}
-			// save ip id
-			$add_answer_args['ip_id']    = \dash\utility\ip::id();
 
-			// save agent id
-			$add_answer_args['agent_id'] = \dash\agent::get(true);
-
-			$add_answer = \lib\db\form_answer\insert::new_record($add_answer_args);
-
-			if(!$add_answer)
+			if(!$edit_mode)
 			{
-				\dash\log::oops('formAddAnswer');
-				return false;
+				// save ip id
+				$add_answer_args['ip_id']    = \dash\utility\ip::id();
+
+				// save agent id
+				$add_answer_args['agent_id'] = \dash\agent::get(true);
+
+
+				$add_answer = \lib\db\form_answer\insert::new_record($add_answer_args);
+
+				if(!$add_answer)
+				{
+					\dash\log::oops('formAddAnswer');
+					\dash\notif::error(T_("Can not save your answer. Please contact to administrator"));
+					return false;
+				}
+
+				foreach ($insert_answerdetail as $key => $value)
+				{
+					$insert_answerdetail[$key]['answer_id'] = $add_answer;
+				}
+
+				$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
+
+				\dash\log::set('form_newAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $add_answer]);
+			}
+			else
+			{
+				$edit = edit::answer($insert_answerdetail, $check_true_item);
+
+				if(!$edit)
+				{
+					\dash\log::oops('formAddAnswer');
+					\dash\notif::error(T_("Can not edit your answer. Please contact to administrator"));
+					return false;
+				}
+
+				\dash\log::set('form_editAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $add_answer]);
 			}
 
-			foreach ($insert_answerdetail as $key => $value)
-			{
-				$insert_answerdetail[$key]['answer_id'] = $add_answer;
-			}
-
-			$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
 
 			if(isset($load_form['endmessage']) && $load_form['endmessage'])
 			{
@@ -710,7 +749,6 @@ class add
 				\dash\notif::ok(T_("Your answer was saved"), ['alerty' => true]);
 			}
 
-			\dash\log::set('form_newAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $add_answer]);
 		}
 		else
 		{
@@ -718,7 +756,7 @@ class add
 		}
 
 
-		if($redirect)
+		if($redirect && !$edit_mode)
 		{
 			\dash\redirect::to($redirect);
 		}

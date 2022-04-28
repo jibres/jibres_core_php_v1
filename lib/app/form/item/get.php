@@ -268,6 +268,7 @@ class get
 					$items[$key]['user_answer'][] =
 					[
 						'answer_detail_id' => a($one_answer, 'id'),
+						'item_id'          => $item['id'],
 						'answer'           => $this_answer,
 						'choice_id'        => $one_answer['choice_id'],
 					];
