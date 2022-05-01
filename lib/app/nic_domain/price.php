@@ -33,15 +33,15 @@ class price
 		if($_expire_date)
 		{
 			// $expire_date = strtotime(date("Y-m-d", strtotime("-29 days"))); // for test
-			$expire_date = strtotime($_expire_date);
-			$now         = strtotime(date("Y-m-d"));
+			// $expire_date = strtotime($_expire_date);
+			// $now         = strtotime(date("Y-m-d"));
 
-			$_30_days    = 60*60*24*30;
-			$_60_days    = 60*60*24*60;
+			// $_30_days    = 60*60*24*30;
+			// $_60_days    = 60*60*24*60;
 
-			$diff = $now - $expire_date;
+			// $diff = $now - $expire_date;
 
-			if($diff >= $_30_days && $diff <= $_60_days)
+			// if($diff >= $_30_days && $diff <= $_60_days)
 			{
 				if($_domain_is_locked)
 				{
