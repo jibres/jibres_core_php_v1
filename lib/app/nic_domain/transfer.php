@@ -138,10 +138,10 @@ class transfer
 			$transfer_self = true;
 		}
 
-		if(isset($get_domain_detail['admin']) && $data['irnic_new'] === $get_domain_detail['admin'])
-		{
-			$transfer_self = true;
-		}
+		// if(isset($get_domain_detail['admin']) && $data['irnic_new'] === $get_domain_detail['admin'])
+		// {
+		// 	$transfer_self = true;
+		// }
 
 		if($transfer_self)
 		{
