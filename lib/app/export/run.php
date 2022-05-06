@@ -8,6 +8,7 @@ class run
 	{
 		// expire old export
 		// self::expire();
+		// \dash\pdo::transaction();
 
 		// check have running
 		// if have any record as runing skip other export

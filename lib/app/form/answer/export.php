@@ -278,7 +278,68 @@ class export
 			}
 		}
 
-		return $new_export;
+		$replace_item_id_to_item_title = [];
+
+		foreach ($new_export as $answer_id => $answer_detail)
+		{
+			$temp = [];
+
+			foreach ($answer_detail as $key => $value)
+			{
+
+				$item_id      = null;
+				$choice_id    = null;
+				$choice_title = null;
+
+				if(preg_match("/^\d+\_\d+$/", $key))
+				{
+					$split     = explode('_', $key);
+					$item_id   = $split[0];
+					$choice_id = $split[1];
+				}
+				elseif(is_numeric($key))
+				{
+					$item_id = $key;
+				}
+				else
+				{
+					$temp[$key] = $value;
+					continue;
+				}
+
+				$item_title = a($items, $item_id, 'title');
+
+				if($choice_id)
+				{
+					if(is_array(a($allChoice, $item_id)))
+					{
+						foreach ($allChoice[$item_id] as $k => $v)
+						{
+							if(a($v, 'id') == $choice_id)
+							{
+								$choice_title = a($v, 'title');
+								break;
+							}
+						}
+					}
+				}
+
+				$new_key = $key. '_'. $item_title;
+
+				if($choice_title)
+				{
+					$new_key .= '_'. $choice_title;
+				}
+
+				$temp[$new_key] = $value;
+			}
+
+			$replace_item_id_to_item_title[$answer_id] = $temp;
+		}
+
+
+		return $replace_item_id_to_item_title;
+
 	}
 
 
