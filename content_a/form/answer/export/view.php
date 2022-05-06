@@ -29,6 +29,9 @@ class view
 
 		$list = \lib\app\form\answer\export::list($form_id);
 		\dash\data::exportList($list);
+
+
+		// \lib\app\export\run::crontab();
 	}
 }
 ?>

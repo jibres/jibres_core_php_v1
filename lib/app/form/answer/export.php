@@ -225,6 +225,7 @@ class export
 				$export[$my_answer_id] = $template;
 			}
 
+
 			if($this_item_detail['type'] === 'multiple_choice')
 			{
 				if(array_key_exists($one_answer['choice_id'] , $export[$my_answer_id][$this_item_id]))
@@ -244,14 +245,21 @@ class export
 			{
 				$export[$my_answer_id][$this_item_id] = $one_answer['file'];
 			}
+			elseif($this_item_detail['type'] === 'date' || $this_item_detail['type'] === 'birthdate')
+			{
+				$export[$my_answer_id][$this_item_id] = \dash\fit::date_en($one_answer['answer']);
+			}
 			else
 			{
 				$export[$my_answer_id][$this_item_id] = $one_answer['answer'];
 			}
+
+			$export[$my_answer_id]['date'] = \dash\utility\convert::to_en_number(\dash\fit::date_time($one_answer['datecreated']));
 		}
 
 
 		$new_export = [];
+
 
 		foreach ($export as $answer_id => $answer_detail)
 		{
@@ -271,9 +279,13 @@ class export
 						$new_export[$answer_id][$items[$item_id]['id']. '_'. $choice] = $choice_answer;
 					}
 				}
-				else
+				elseif(is_numeric($item_id))
 				{
 					$new_export[$answer_id][$items[$item_id]['id']] = $answer;
+				}
+				else
+				{
+					$new_export[$answer_id][$item_id] = $answer;
 				}
 			}
 		}
