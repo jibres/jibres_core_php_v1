@@ -4,6 +4,28 @@ namespace lib\db\form_comment;
 
 class get
 {
+
+	public static function string_all_comment($_answer_id)
+	{
+
+		$query  =
+		"
+			SELECT
+				GROUP_CONCAT(form_comment.content) AS `content`
+			FROM
+				form_comment
+			WHERE
+				form_comment.answer_id = :id
+		";
+
+		$param = [':id' => $_answer_id];
+
+		$result = \dash\pdo::get($query, $param, 'content', true);
+
+		return $result;
+
+	}
+
 	public static function get_by_answer_id($_answer_id)
 	{
 		$query =

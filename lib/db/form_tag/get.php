@@ -4,6 +4,25 @@ namespace lib\db\form_tag;
 
 class get
 {
+	public static function string_all_tag($_answer_id)
+	{
+		$query  =
+		"
+			SELECT
+				GROUP_CONCAT(form_tag.title) AS `title`
+			FROM
+				form_tag
+			INNER JOIN form_tagusage ON form_tagusage.form_tag_id = form_tag.id
+			WHERE
+				form_tagusage.answer_id = :id
+		";
+
+		$param = [':id' => $_answer_id];
+
+		$result = \dash\pdo::get($query, $param, 'title', true);
+		return $result;
+	}
+
 	public static function all_tag($_id)
 	{
 

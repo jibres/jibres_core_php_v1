@@ -334,8 +334,15 @@ class export
 				$temp[$new_key] = $value;
 			}
 
+			$load_tags        = \lib\db\form_tag\get::string_all_tag($answer_id);
+			$load_comments    = \lib\db\form_comment\get::string_all_comment($answer_id);
+			$temp['tags']     = $load_tags;
+			$temp['comments'] = $load_comments;
+
 			$replace_item_id_to_item_title[$answer_id] = $temp;
 		}
+
+
 
 
 		return $replace_item_id_to_item_title;
