@@ -293,8 +293,8 @@ else
 							{
 								$html .= '<div class="radio3">';
 								{
-									$html .= '<input type="radio" name="privacy" value="public" checked id="privacypublic">';
-									$html .= '<label for="privacypublic">'. T_("Public") . '</label>';
+									$html .= '<input type="radio" name="privacy" value="private" checked id="privacyprivate">';
+									$html .= '<label for="privacyprivate">'. T_("Private") . '</label>';
 								}
 								$html .= '</div>';
 							}
@@ -304,8 +304,8 @@ else
 							{
 								$html .= '<div class="radio3">';
 								{
-									$html .= '<input type="radio" name="privacy" value="private" id="privacyprivate">';
-									$html .= '<label for="privacyprivate">'. T_("Private") . '</label>';
+									$html .= '<input type="radio" name="privacy" value="public"  id="privacypublic">';
+									$html .= '<label for="privacypublic">'. T_("Public") . '</label>';
 								}
 								$html .= '</div>';
 							}
