@@ -19,7 +19,8 @@
           <div class="c-sm-6">
             <label for="date" ><?php echo T_("End Date"); ?> <b><?php echo T_("yyyy/mm/dd"); ?></b></label>
             <div class="input">
-              <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="enddate" id="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_enddate())); ?>" autocomplete='off' <?php if(\dash\data::editMode())  {echo 'disabled';}else{echo 'required';}?>>
+              <input class="ltr" type="text" placeholder="yyyy/mm/dd" data-format="date" name="enddate" id="date" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_enddate())); ?>" autocomplete='off' <?php // if(\dash\data::editMode())  {echo 'disabled';}else{echo 'required';}?>
+              >
             </div>
           </div>
         </div>

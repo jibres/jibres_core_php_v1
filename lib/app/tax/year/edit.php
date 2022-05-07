@@ -38,7 +38,7 @@ class edit
 		}
 
 		unset($args['startdate']);
-		unset($args['enddate']);
+		// unset($args['enddate']);
 
 		$exception = [];
 

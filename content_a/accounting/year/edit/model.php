@@ -19,7 +19,8 @@ class model
 
 		$post =
 		[
-			'title'     => \dash\request::post('title'),
+			'title'   => \dash\request::post('title'),
+			'enddate' => \dash\request::post('enddate'),
 		];
 
 		$result = \lib\app\tax\year\edit::edit($post, \dash\request::get('id'));
