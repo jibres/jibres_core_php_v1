@@ -46,7 +46,7 @@
             <select class="select22" name="year_id">
               <option value=""><?php echo T_("Please choose year") ?></option>
               <?php foreach (\dash\data::accountingYear() as $key => $value) {?>
-                <option value="<?php echo a($value, 'id') ?>" <?php if((!\dash\request::get('year_id') && a($value, 'isdefault')) || (a($value, 'id') === \dash\request::get('year_id'))) { echo 'selected';} ?>><?php echo a($value, 'title'); ?></option>
+                <option value="<?php echo a($value, 'id') ?>" <?php if((!\dash\request::get('year_id') && a($value, 'isdefault')) || (a($value, 'id') == \dash\request::get('year_id'))) { echo 'selected';} ?>><?php echo a($value, 'title'); ?></option>
               <?php } // endfor ?>
             </select>
           </div>
