@@ -48,7 +48,7 @@ if(\dash\data::dataTableAll())
 
 			if(floatval($summary['debtor']) === floatval($summary['creditor']))
 			{
-				\dash\data::equalICON('<i class="mLR5 sf-check-circle text-red-800 fs12 p-0"></i>');
+				\dash\data::equalICON('<i class="mLR5 sf-check-circle text-red-800 fs12 print:hidden"></i>');
 			}
 			elseif(floatval($summary['debtor']) > floatval($summary['creditor']))
 			{
@@ -87,7 +87,7 @@ if(\dash\data::dataTableAll())
 		echo "</div>";
 	}
 
-	echo '<div class="p-0">';
+	echo '<div class="print:hidden">';
 	{
 		\dash\utility\pagination::html();
 	}

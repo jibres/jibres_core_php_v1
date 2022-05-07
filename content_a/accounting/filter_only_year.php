@@ -1,4 +1,4 @@
-<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="p-0">
+<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="print:hidden">
   <div class="box">
     <div class="pad">
       <div class="row">
@@ -13,7 +13,7 @@
             </select>
           </div>
         <?php } // endif ?>
-        <div class="c-xs-12 c-sm-auto p-0">
+        <div class="c-xs-12 c-sm-auto print:hidden">
           <div class="mt-6 mt-6 txtRa">
         <?php if(\dash\request::get()) {?>
           <a href="<?php echo \dash\url::current() ?>" class="btn-outline-secondary"><?php echo T_("Clear filter") ?></a>

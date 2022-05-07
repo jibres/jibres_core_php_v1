@@ -27,7 +27,7 @@
              <th class="collapsing text-right"><?php echo T_("Debtor") ?></th>
              <th class="collapsing text-right"><?php echo T_("Creditor") ?></th>
              <?php if($locDelMode) {}else{?>
-             <th class="collapsing p-0"></th>
+             <th class="collapsing print:hidden"></th>
              <?php } //endif ?>
            </tr>
          </thead>
