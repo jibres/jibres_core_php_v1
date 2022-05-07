@@ -108,6 +108,13 @@ class journal
 
 		$year_jalali = \dash\utility\jdate::date("Y", strtotime($year. '-05-01 00:00:00'), false);
 
+		$end_of_year = 29;
+
+		if( ($year_jalali % 4) == 3)
+		{
+			$end_of_year = 30;
+		}
+
 		if($data['daily'])
 		{
 			$month_list = [];
@@ -120,7 +127,7 @@ class journal
 						continue;
 					}
 
-					if($i == 12 && $j > 29)
+					if($i == 12 && $j > $end_of_year)
 					{
 						continue;
 					}
@@ -159,7 +166,7 @@ class journal
 				[$year_jalali. '-09-01', $year_jalali. '-09-30'],
 				[$year_jalali. '-10-01', $year_jalali. '-10-30'],
 				[$year_jalali. '-11-01', $year_jalali. '-11-30'],
-				[$year_jalali. '-12-01', $year_jalali. '-12-29'],
+				[$year_jalali. '-12-01', $year_jalali. '-12-'. $end_of_year],
 			];
 
 		}

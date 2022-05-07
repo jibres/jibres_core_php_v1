@@ -31,7 +31,7 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
 
       </div>
     <?php } //endif ?>
-    <div class="row align-end">
+    <div class="row">
       <div class="c-xs-12 c-sm-6 c-md-3 c-lg-3 c-xl-2 p-0">
         <?php $defaultYear = null; ?>
 
