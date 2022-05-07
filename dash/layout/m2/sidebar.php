@@ -628,6 +628,14 @@ class sidebar
 				'icon'      => 'heart',
 				'iconColor' => '#da9e51',
 			];
+
+			$menu["managestore"] =
+			[
+				'title'     => T_("Business setting"),
+				'url'       => \dash\url::jibres().'/love/store/setting?id='. \lib\store::id(),
+				'icon'      => 'settings',
+				'iconColor' => '#da9e51',
+			];
 		}
 
 
