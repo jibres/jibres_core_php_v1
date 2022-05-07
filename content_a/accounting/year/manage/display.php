@@ -5,7 +5,7 @@
     <div class="data">
       <h3><?php echo T_("Edit year title") ?></h3>
       <div class="body">
-        <p></p>
+        <p><?php echo \dash\data::dataRow_title() ?></p>
       </div>
     </div>
   </div>
