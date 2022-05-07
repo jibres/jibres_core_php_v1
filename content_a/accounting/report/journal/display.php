@@ -10,12 +10,12 @@
     <div class="msg f align-center text-center font-16">
       <div class="c3"></div>
       <div class="c6"><h2 class="font-bold"><?php echo T_("General Journal"); ?></h2></div>
-      <div class="c3"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
+      <div class="c3"><span class="inline-block w-16 h-8 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
     </div>
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-right-blue-500">
     <thead class="text-center font-20">
       <tr>
-        <th class="w-8 h-32 text-xs border-solid border-b-2 border-r border-gray-400" rowspan="2"><span class="rotate-90 inline-block" style="--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); white-space: nowrap; --tw-rotate: 270deg; --tw-translate-x: 2rem;"><?php echo T_("General Journal Number") ?></span></th>
+        <th class="w-8 h-24 text-xs border-solid border-b-2 border-r border-gray-400" rowspan="2"><span class="rotate-90 inline-block" style="--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); white-space: nowrap; --tw-rotate: 270deg; --tw-translate-x: 2rem;"><?php echo T_("General Journal Number") ?></span></th>
         <th class="w-16 font-14 border-solid border-b border-r border-gray-400 bg-gray-200" colspan="2"><?php echo T_("Date") ?></th>
         <th class="w-8 text-xs border-solid border-b-2 border-r border-gray-400" rowspan="2"><span class="rotate-90 block  " style="--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); white-space: nowrap; --tw-rotate: 270deg; --tw-translate-y: -2rem;"><?php echo T_("Ledger Number") ?></span></th>
         <th class="border-solid border-b-2 border-r border-gray-400" rowspan="2"><?php echo T_("Explanation") ?></th>
@@ -41,7 +41,7 @@
             <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400 bg-gray-200"></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400 bg-gray-200"></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400"></td>
-            <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400 text-blue-900 txtRa pRa10 font-black" style="line-height:70px;"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400 text-blue-900 txtRa pRa10 font-black" style="line-height:32px;"><?php echo a($value, 'message') ?></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400"></td>
             <?php wow_number(a($value, 'sum_debtor_on_page'), $borderPosClass ) ?>
             <?php wow_number_creditor(a($value, 'sum_creditor_on_page'), $borderPosClass) ?>

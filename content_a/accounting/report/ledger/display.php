@@ -10,18 +10,18 @@
     <div class="msg f align-center font-16">
       <div class="c5"><span><?php echo \dash\fit::number(a($one_page, 1, 'total_code')); ?></span> <span><?php echo a($one_page, 1, 'total_title'); ?></span></div>
       <div class="c2 text-center"><h2 class="font-bold"><?php echo T_("Ledger"); ?></h2></div>
-      <div class="c5 text-center"><span class="inline-block w-16 h-16 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
+      <div class="c5 text-center"><span class="inline-block w-16 h-8 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
     </div>
     <table class="table-fixed border-collapse w-full border-solid border-double border-4 border-right-blue-500">
     <thead class="text-center font-20">
       <tr>
-        <th class="w-8 h-32 text-xs border-solid border-b-2 border-r border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap " style="--tw-rotate: 270deg; --tw-translate-x: 2rem;"><?php echo T_("General Journal Number"); ?></span></th>
+        <th class="w-8 h-16 text-xs border-solid border-b-2 border-r border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap " style="--tw-rotate: 270deg; --tw-translate-x: 2rem;"><?php echo T_("General Journal Number"); ?></span></th>
         <th class="w-16 font-14 border-solid border-b border-r border-gray-400 bg-gray-200" colspan="2"><?php echo T_("Date") ?></th>
 
         <th class="border-solid border-b-2 border-r border-gray-400" rowspan="2"><?php echo T_("Explanation") ?></th>
         <th class="border-solid border-b border-r border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Debtor") ?></th>
         <th class="border-solid border-b border-r border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Creditor") ?></th>
-        <th class="w-8 h-32 text-xs border-solid border-b-2 border-r border-l border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap " style="--tw-rotate: 270deg; --tw-translate-x: 1rem;"><?php echo T_("Diagnosis") ?></span></th>
+        <th class="w-8 h-16 text-xs border-solid border-b-2 border-r border-l border-gray-400" rowspan="2"><span class="transform rotate-90 inline-block whitespace-nowrap " style="--tw-rotate: 270deg; --tw-translate-x: 1rem;"><?php echo T_("Diagnosis") ?></span></th>
         <th class="border-solid border-b border-gray-700" colspan="14" style="width:140px;"><?php echo T_("Remain") ?></th>
       </tr>
       <tr>
@@ -42,7 +42,7 @@
             <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400 bg-gray-200"></td>
             <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400 bg-gray-200"></td>
 
-            <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400 text-blue-900 txtRa  pRa10 font-black" style="line-height:70px;"><?php echo a($value, 'message') ?></td>
+            <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400 text-blue-900 txtRa  pRa10 font-black" style="line-height:50px;"><?php echo a($value, 'message') ?></td>
             <?php wow_number(a($value, 'sum_debtor_on_page'), $borderPosClass ) ?>
             <?php wow_number_creditor(a($value, 'sum_creditor_on_page'), $borderPosClass) ?>
             <td class="border-solid <?php echo $borderPosClass; ?> border-r border-gray-400"></td>
