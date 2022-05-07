@@ -11,7 +11,7 @@ class controller
 		$load = \lib\app\tax\doc\get::get($id);
 		if(!$load)
 		{
-			\dash\header::status(404);
+			\dash\header::status(404, T_("Tax document not found"));
 		}
 
 		\dash\data::dataRow($load);
