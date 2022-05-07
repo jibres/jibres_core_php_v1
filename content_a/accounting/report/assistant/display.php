@@ -6,7 +6,7 @@
 <?php }else{ ?>
   <?php foreach (\dash\data::reportDetail_pretty() as $group) {?>
    <div class="break-inside-avoid">
-    <h5 class="mT25 font-black"><?php echo a($group, 'detail', 'title'); ?></h5>
+    <h5 class="mt-6 font-black"><?php echo a($group, 'detail', 'title'); ?></h5>
     <table class="tbl1 v4 text-xs minimal">
     <thead>
       <tr class="text-xs">
@@ -99,7 +99,7 @@
    </div>
 
   <?php } //endfor ?>
-  <h5 class="mT25 font-black"><?php echo T_("Total") ?></h5>
+  <h5 class="mt-6 font-black"><?php echo T_("Total") ?></h5>
     <table class="tbl1 v6 text-xs break-inside-avoid minimal">
     <thead>
       <tr class="text-xs">

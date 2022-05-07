@@ -5,10 +5,10 @@ $tg = \dash\data::tg();
   <div class="c3 s12">
     <div class="dcard x4 mb-2 ">
       <h2><a href="https://t.me/<?php echo a($tg, 'info', 'bot'); ?>" target="_blank"><?php echo a($tg, 'info', 'bot'); ?></a></h2>
-      <pre class="mT25"><?php echo a($tg, 'info', 'token'); ?></pre>
-      <a class="btn-outline-dark mT25" href="<?php echo \dash\url::this(); ?>/log"><?php echo T_("Logs"); ?></a>
-      <a class="btn-outline-dark mT25" href="<?php echo \dash\url::this(); ?>/users"><?php echo T_("Users"); ?></a>
-      <a class="btn-outline-dark mT25" href="<?php echo \dash\url::this(); ?>/system"><?php echo T_("System"); ?></a>
+      <pre class="mt-6"><?php echo a($tg, 'info', 'token'); ?></pre>
+      <a class="btn-outline-dark mt-6" href="<?php echo \dash\url::this(); ?>/log"><?php echo T_("Logs"); ?></a>
+      <a class="btn-outline-dark mt-6" href="<?php echo \dash\url::this(); ?>/users"><?php echo T_("Users"); ?></a>
+      <a class="btn-outline-dark mt-6" href="<?php echo \dash\url::this(); ?>/system"><?php echo T_("System"); ?></a>
     <?php if(\dash\user::id() === 1) {?>
       <a class="btn-outline-danger mt-2" href="<?php echo \dash\url::this(); ?>/webhook"><?php echo T_("Webhook"); ?></a>
     <?php } ?>

@@ -223,7 +223,7 @@ function settingMaxdate($value) {?>
 
 
  function settingChoiceInline($value) {?>
-<div class="check1 mT25">
+<div class="check1 mt-6">
 	<input type="checkbox" name="item_choiceinline_<?php echo a($value, 'id') ?>" id="checkinline<?php echo a($value, 'id'); ?>" <?php if(a($value, 'setting', a($value,'type') , 'choiceinline')) { echo 'checked';} ?>>
 	<label for="checkinline<?php echo a($value, 'id'); ?>"><?php echo T_("Put every choice in one line"); ?></label>
 </div>
@@ -234,7 +234,7 @@ function settingMaxdate($value) {?>
 
 
  function settingRandom($value) {?>
-<div class="check1 mT25">
+<div class="check1 mt-6">
 	<input type="checkbox" name="item_random_<?php echo a($value, 'id') ?>" id="checkrandom<?php echo a($value, 'id'); ?>" <?php if(a($value, 'setting', a($value,'type') , 'random')) { echo 'checked';} ?>>
 	<label for="checkrandom<?php echo a($value, 'id'); ?>"><?php echo T_("Random choice"); ?></label>
 </div>
@@ -246,7 +246,7 @@ function settingMaxdate($value) {?>
 
 
  function settingCheckUnique($value) {?>
-<div class="check1 mT25">
+<div class="check1 mt-6">
 	<input type="checkbox" name="item_check_unique_<?php echo a($value, 'id') ?>" id="checkunique<?php echo a($value, 'id'); ?>" <?php if(a($value, 'setting', a($value,'type') , 'check_unique')) { echo 'checked';} ?>>
 	<label for="checkunique<?php echo a($value, 'id'); ?>"><?php echo T_("Check unique"); ?></label>
 </div>
@@ -282,7 +282,7 @@ if(!is_array($saved_filetype))
 
 
 function settingSendSms($value) {?>
-<div class="check1 mT25">
+<div class="check1 mt-6">
 	<input type="checkbox" name="item_send_sms_<?php echo a($value, 'id') ?>" id="send_sms<?php echo a($value, 'id'); ?>" <?php if(a($value, 'setting', a($value,'type') , 'send_sms')) { echo 'checked';} ?>>
 	<label for="send_sms<?php echo a($value, 'id'); ?>"><?php echo T_("Send notification after complete form?"); ?></label>
 </div>
@@ -298,7 +298,7 @@ function settingSendSms($value) {?>
 
 
  function settingSignup($value) {?>
-<div class="check1 mT25">
+<div class="check1 mt-6">
 	<input type="checkbox" name="item_signup_<?php echo a($value, 'id') ?>" id="signup<?php echo a($value, 'id'); ?>" <?php if(a($value, 'setting', a($value,'type') , 'signup')) { echo 'checked';} ?>>
 	<label for="signup<?php echo a($value, 'id'); ?>"><?php echo T_("Signup user by this item?"); ?></label>
 </div>
@@ -348,7 +348,7 @@ function settingDefaultvalue($value) {?>
 <div class="input">
 	<input type="text" name="item_link_<?php echo a($value, 'id') ?>" id="item_link_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'link'); ?>">
 </div>
-<div class="check1 mT25">
+<div class="check1 mt-6">
 	<input type="checkbox" name="item_targetblank_<?php echo a($value, 'id') ?>" id="targetblank<?php echo a($value, 'id'); ?>" <?php if(a($value, 'setting', a($value,'type') , 'targetblank')) { echo 'checked';} ?>>
 	<label for="targetblank<?php echo a($value, 'id'); ?>"><?php echo T_("Open in blank page?"); ?></label>
 </div>

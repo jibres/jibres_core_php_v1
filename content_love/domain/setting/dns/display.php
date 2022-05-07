@@ -63,7 +63,7 @@
        </div>
 
 
-    <div class="txtRa mT25">
+    <div class="txtRa mt-6">
      <button class="btn-success"><?php echo T_("Update"); ?></button>
     </div>
    </form>
@@ -137,7 +137,7 @@
        </div>
 
 
-    <div class="txtRa mT25">
+    <div class="txtRa mt-6">
      <button class="btn-success"><?php echo T_("Update"); ?></button>
     </div>
    </form>

@@ -7,7 +7,7 @@
   <div class="avand-md impact font-16a">
    <p><?php echo T_("We have designed this page to answer your questions that you may be interested in investing in Jibres. These are just some of the questions that investors want to know about Jibres. Of course, you may have more and specific questions, so do not hesitate to contact us. We mentioned the version and the date of editing. So reading this page once will probably not be enough.") ?></p>
 
-   <div class="row alert-info mT25 mB0-f font-14">
+   <div class="row alert-info mt-6 mB0-f font-14">
      <div class="c-auto"><?php echo T_("Version"). ' '. \dash\fit::number(2, false); ?></div>
      <div class="c txtRa"><?php echo T_("Last Update"). ' '. \dash\fit::date("2021-08-15"); ?></div>
    </div>

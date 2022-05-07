@@ -17,7 +17,7 @@
 			?>
 
 
-			<button type="submit" class="btn block primary mT25">
+			<button type="submit" class="btn block primary mt-6">
 				<?php if(\dash\data::autoredirect_button()) { echo \dash\data::autoredirect_button(); } else { echo T_("Go");} ?>
 			</button>
 		</form>

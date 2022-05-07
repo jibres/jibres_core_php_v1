@@ -134,7 +134,7 @@ switch (a($value, 'preview', 'device'))
 
 
   <?php if($deleted_section) {?>
-    <label class="mT25"><?php echo T_("Deleted section") ?> <small><?php echo T_("After saving the page, this section will be deleted completely") ?></small></label>
+    <label class="mt-6"><?php echo T_("Deleted section") ?> <small><?php echo T_("After saving the page, this section will be deleted completely") ?></small></label>
 
     <nav class="sections items long">
       <ul data-sortable>

@@ -19,7 +19,7 @@ if(isset($dataRow['gallery_array']) && is_array($dataRow['gallery_array']))
       }
       elseif(in_array($endUrl, ['.pdf']))
       {
-        echo '<a href="'. $myUrl['path'] .'" class="btn lg mT25 primary">'. T_("Download"). ' '. T_("PDF"). '</a>';
+        echo '<a href="'. $myUrl['path'] .'" class="btn lg mt-6 primary">'. T_("Download"). ' '. T_("PDF"). '</a>';
       }
     }
   }

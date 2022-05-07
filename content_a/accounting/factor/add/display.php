@@ -249,7 +249,7 @@ if(!$myTotalVat && \dash\request::get('totalvat'))
             </div>
             <?php if(in_array($myType, ['cost', 'income', 'asset', ])) {?>
             <div class="cauto">
-        <div class="switch1 mT25 <?php if($docIsLock) { echo 'disabled'; } ?>">
+        <div class="switch1 mt-6 <?php if($docIsLock) { echo 'disabled'; } ?>">
           <input type="checkbox" name="quarterlyreport" id="quarterlyreport" <?php echo $disableInput;  if(a($dataRow, 'tax_document', 'quarterlyreport') === 'yes' || !a($dataRow, 'tax_document', 'quarterlyreport')) {echo ' checked';} ?>>
           <label for="quarterlyreport"><?php echo T_("Calculate in quarterly report") ?></label>
           <label for="quarterlyreport"><?php echo T_("Calculate in quarterly report") ?></label>

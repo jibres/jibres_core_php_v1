@@ -26,7 +26,7 @@
      <input type="text" name="bill" id="ibill" maxlength="15" value="<?php echo \dash\data::domainDetail_bill(); ?>" >
     </div>
 
-    <div class="txtRa mT25">
+    <div class="txtRa mt-6">
      <button class="btn-success"><?php echo T_("Update"); ?></button>
     </div>
    </form>
