@@ -45,7 +45,7 @@ class pageNav
           $html .= '<nav class="actionPrimary flex justify-between">';
           if(\dash\data::action_text() && \dash\data::action_link())
           {
-            $btnClass = "btn-primary";
+            $btnClass = "btn-primary mx-1";
             $html .= '<a class="'. $btnClass. '" href="'. \dash\data::action_link(). '" data-shortkey="120"><span>'. \dash\data::action_text(). '</span>';
             $html .= ' <kbd class="mx-1">F9</kbd></a>';
           }
