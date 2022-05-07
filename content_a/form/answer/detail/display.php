@@ -25,7 +25,7 @@ if(\dash\request::get('print'))
 
 				$html .= '<div class="cauto">';
 				{
-					$html .= '<a class="font-14 print:hidden" href="'. \dash\url::current(). \dash\request::full_get(['print' => null]) . '">'.  T_("Back") .'</a>';
+					$html .= '<a class="font-14 p-0" href="'. \dash\url::current(). \dash\request::full_get(['print' => null]) . '">'.  T_("Back") .'</a>';
 				}
 				$html .= '</div>';
 			}
@@ -203,7 +203,7 @@ else
 
 
 
-		$html .= '<div class="c-xs-12 c-sm-12 c-md-6 print:hidden">';
+		$html .= '<div class="c-xs-12 c-sm-12 c-md-6 p-0">';
 		{
 			$html .= '<form method="post" id="markasreview">';
 			{

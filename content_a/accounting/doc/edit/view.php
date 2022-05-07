@@ -100,7 +100,7 @@ class view
 
 			if(floatval($summary['debtor']) === floatval($summary['creditor']))
 			{
-				\dash\data::equalICON('<i class="mLR5 sf-check-circle text-red-800 fs12 print:hidden"></i>');
+				\dash\data::equalICON('<i class="mLR5 sf-check-circle text-red-800 fs12 p-0"></i>');
 			}
 			elseif(floatval($summary['debtor']) > floatval($summary['creditor']))
 			{

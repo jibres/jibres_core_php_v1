@@ -9,11 +9,11 @@
 						<div class=""><?php echo T_("Start date") ?> <b class="inline-block ltr text-left"><?php echo \dash\fit::date(a($value, 'startdate')) ?></b></div>
 						<div class=""><?php echo T_("End date") ?> <b class="inline-block ltr text-left"><?php echo \dash\fit::date(a($value, 'enddate')) ?></b></div>
 						<?php if(a($value, 'isdefault')) {?>
-							<div class="badge success"><?php echo T_("Current accounting year") ?></div>
+							<div class="link-success font-bold"><?php echo T_("Current accounting year") ?></div>
 						<?php }else{ ?>
-							<div class="badge primary" data-confirm data-data='{"setdefault": "setdefault", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Set as default year") ?></div>
+							<div class="link-primary" data-confirm data-data='{"setdefault": "setdefault", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Set as default year") ?></div>
 						<?php } //endif ?>
-						<a target="_blank" class="block" href="<?php echo \dash\url::this(). '/doc/printall'; ?>"><?php echo T_("Print all accounting document") ?></a>
+						<a target="_blank" class="link-primary" href="<?php echo \dash\url::this(). '/doc/printall'; ?>"><?php echo T_("Print all accounting document") ?></a>
 					</div>
 					<footer class="txtRa">
 						<a class="btn master" href="<?php echo \dash\url::that(). '/manage?id='. a($value, 'id'); ?>"><?php echo T_("Manage") ?></a>

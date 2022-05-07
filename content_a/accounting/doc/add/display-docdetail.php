@@ -2,7 +2,7 @@
 
 
 
-  <form method="post" autocomplete="off" class="box print:hidden">
+  <form method="post" autocomplete="off" class="box p-0">
 	 <input type="hidden" name="row" value="row">
     <div class="pad">
       <div class="row">

@@ -17,11 +17,11 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
  </div>
 
 
- <form method="post" autocomplete="off" class="box print:hidden">
+ <form method="post" autocomplete="off" class="box p-0">
   <div class="pad">
 
     <?php if(\dash\data::openingMode()) {?>
-      <div class="print:hidden">
+      <div class="p-0">
         <?php if(\dash\data::openingDoc()) {?>
           <div class="alert-warning font-bold text-center"><?php echo T_("You already add Opening Document in this year!"); ?> <a class="btn-link" href="<?php echo \dash\url::that().'/edit?id='. \dash\data::openingDoc_id() ?>"><?php echo T_("View Document"); ?></a></div>
         <?php }else{ ?>
@@ -32,7 +32,7 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
       </div>
     <?php } //endif ?>
     <div class="row align-end">
-      <div class="c-xs-12 c-sm-6 c-md-3 c-lg-3 c-xl-2 print:hidden">
+      <div class="c-xs-12 c-sm-6 c-md-3 c-lg-3 c-xl-2 p-0">
         <?php $defaultYear = null; ?>
 
         <?php if(\dash\data::accountingYear()) {?>
@@ -52,13 +52,13 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
         <?php } //endif ?>
       </div>
 
-      <div class="c-xs-6 c-sm-6 c-md-3 c-lg-3 c-xl-2 print:hidden">
+      <div class="c-xs-6 c-sm-6 c-md-3 c-lg-3 c-xl-2 p-0">
         <label for="number"><?php echo T_("Document Number") ?> <small class="text-red-800">* <?php echo T_("Automatic") ?></small></label>
         <div class="input mB0-f disabled">
           <input type="number" min="1" max="9999999999" name="number" id="number" readonly value="<?php echo \dash\data::dataRow_number() ?>" data-format=int <?php echo $disableInput; ?>>
         </div>
       </div>
-      <div class="c-xs-6 c-sm-6 c-md-3 c-lg-3 c-xl-1 print:hidden">
+      <div class="c-xs-6 c-sm-6 c-md-3 c-lg-3 c-xl-1 p-0">
         <label for="subnumber"><?php echo T_("Sub-Number") ?></label>
         <div class="input mB0-f">
           <input type="number" min="1" max="9999999999" name="subnumber" id="subnumber" value="<?php echo \dash\data::dataRow_subnumber() ?>" data-format=int <?php echo $disableInput; ?>>
@@ -82,24 +82,24 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
         <?php if($docIsLock) {}else{?>
           <?php if(!\dash\request::get('did')) {?>
             <?php if($docIsDel) {?>
-              <div class="c-xs c-auto print:hidden">
+              <div class="c-xs c-auto p-0">
                 <div class="btn mt-2 secondary" data-confirm data-data='{"newlockstatus": "temp"}'><?php echo T_("Restore") ?></div>
               </div>
-              <div class="c-xs c-auto print:hidden">
+              <div class="c-xs c-auto p-0">
                 <div class="btn mt-2 danger" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
               </div>
             <?php }else{ ?>
-              <div class="c-xs c-auto print:hidden">
+              <div class="c-xs c-auto p-0">
                 <div class="btn-link-danger mt-2" data-confirm data-data='{"remove": "remove"}'><?php echo T_("Remove") ?></div>
               </div>
-              <div class="c-xs-auto c-auto print:hidden">
+              <div class="c-xs-auto c-auto p-0">
                 <button class="btn-outline-secondary mt-2"><?php echo T_("Edit") ?></button>
               </div>
             <?php }//endif ?>
         <?php } //endif ?>
         <?php } //endif ?>
       <?php }else{ ?>
-      <div class="c-xs-12 c-auto print:hidden">
+      <div class="c-xs-12 c-auto p-0">
         <button class="btn mt-2 master"><?php echo T_("Add") ?></button>
       </div>
       <?php } //endif ?>
