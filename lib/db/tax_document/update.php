@@ -35,7 +35,7 @@ class update
 			ORDER BY
 				FIELD(tax_document.type, 'opening', 'normal', 'closing'),
 				tax_document.date ASC,
-				ISNULL(tax_document.subnumber),
+				tax_document.subnumber IS NOT NULL,
 				tax_document.subnumber ASC,
 				tax_document.id ASC
 		";
