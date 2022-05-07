@@ -1,4 +1,4 @@
-<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="p-0">
+<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="print:hidden">
   <?php if(\dash\request::get('contain')) {?><input type="hidden" name="contain" value="<?php echo \dash\request::get('contain'); ?>"><?php }//endif ?>
   <div class="box">
     <div class="pad">

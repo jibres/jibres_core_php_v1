@@ -20,7 +20,7 @@ echo $html;
 <form method="post" autocomplete="off" class="f" id='factorAdd' data-disallowEnter data-msgNewError='<?php echo T_("You can add new empty tab if current tab is filled!"); ?>' <?php if(\dash\request::get('extra') == 'true') {?> data-autoClose=2000 <?php } //endif ?>>
   <div class="c9 s12 pRa10">
 
-    <div class="cbox p-0" id="searchInProducts">
+    <div class="cbox print:hidden" id="searchInProducts">
       <div class="flex align-center">
         <div class="flex-grow">
           <select name="product" class="select22 barCode" id="productSearch" multiple='multiple' data-model='html' data-selection='clean' <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\data::productAjaxAddr(); ?>' data-shortkey-search data-placeholder='<?php echo T_("Search in list to add product"); ?> +'></select>
@@ -56,7 +56,7 @@ echo $html;
   </div>
   <div class="c3 s12">
 
-    <div class="cbox p-0">
+    <div class="cbox print:hidden">
     <div class="flex align-center">
       <div class="flex-grow">
         <select name="customer" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\data::customerAjaxAddr() ?>' data-shortkey-search data-placeholder='<?php echo \dash\data::customerAjaxInputTitle() ?>'>

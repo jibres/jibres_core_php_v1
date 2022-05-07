@@ -1,4 +1,4 @@
-<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="p-0">
+<form method="get" autocomplete="off" action="<?php echo \dash\url::current() ?>" class="print:hidden">
   <div class="box">
     <div class="pad">
       <div class="row">

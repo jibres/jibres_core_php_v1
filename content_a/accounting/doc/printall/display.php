@@ -87,7 +87,7 @@ if(\dash\data::dataTableAll())
 		echo "</div>";
 	}
 
-	echo '<div class="p-0">';
+	echo '<div class="print:hidden">';
 	{
 		\dash\utility\pagination::html();
 	}

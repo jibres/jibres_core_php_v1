@@ -5,7 +5,7 @@ $docIsDel = \dash\data::dataRow_status() === 'deleted';
 $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
 
 ?>
- <div class="box hide d-print-block">
+ <div class="box hidden print:block">
   <div class="pad">
     <div class="row align-center mb-2">
       <div class="c font-bold"><?php echo \lib\store::title(); ?></div>
@@ -17,7 +17,7 @@ $disableInput = ($docIsLock || $docIsDel) ? 'disabled' : null;
  </div>
 
 
- <form method="post" autocomplete="off" class="box p-0">
+ <form method="post" autocomplete="off" class="box print:hidden">
   <div class="pad">
 
     <?php if(\dash\data::openingMode()) {?>

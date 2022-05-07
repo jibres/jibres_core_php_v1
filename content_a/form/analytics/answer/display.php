@@ -43,7 +43,7 @@
 
 
 
-<div class="avand-lg p-0">
+<div class="avand-lg print:hidden">
 
     <form method="post" id="form1">
       <input type="hidden" name="addtag" value="addtag">
