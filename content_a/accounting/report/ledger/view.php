@@ -7,7 +7,16 @@ class view
 	public static function config()
 	{
 		\dash\permission::access('_group_accounting');
-		\dash\face::title(T_("Ledger"). ' - '. T_("Monthly"));
+		\dash\face::title(T_("Ledger"));
+
+		if(\dash\request::get('daily'))
+		{
+			\dash\face::title(T_("Ledger"). ' - '. T_("Daily"));
+		}
+		else
+		{
+			\dash\face::title(T_("Ledger"). ' - '. T_("Monthly"));
+		}
 
 		// back
 		\dash\data::back_text(T_('Back'));
