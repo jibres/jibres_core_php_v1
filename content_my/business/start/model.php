@@ -14,14 +14,14 @@ class model
 
 			if(!$title)
 			{
-				\dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => null, 'my_message' => T_("Please enter name of your business")]);
+				// \dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => null, 'my_message' => T_("Please enter name of your business")]);
 				\dash\notif::error(T_("Please enter name of your business"), 'bt');
 				return false;
 			}
 
 			if(mb_strlen($title) >= 100)
 			{
-				\dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => null, 'my_message' => T_("Please fill the business title less than 100 character")]);
+				// \dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => null, 'my_message' => T_("Please fill the business title less than 100 character")]);
 				\dash\notif::error(T_("Please fill the business title less than 100 character"), 'title');
 				return false;
 			}
@@ -32,7 +32,7 @@ class model
 				return false;
 			}
 
-			\dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => $title]);
+			// \dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => $title]);
 
 			$domain = \dash\validate::domain(\dash\request::get('domain'), false);
 
@@ -52,7 +52,7 @@ class model
 		{
 
 			$title = \dash\validate::title(\dash\request::post('bt'), false);
-			\dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => $title, 'my_message' => T_("Can not add new business!"), 'my_business_limit' => true]);
+			// \dash\log::set('business_creatingNew', ['my_step' => 'start', 'my_title' => $title, 'my_message' => T_("Can not add new business!"), 'my_business_limit' => true]);
 			\dash\log::oops('userCanNotAddNewStoreLimit', T_("Can not add new business!"));
 			return false;
 		}

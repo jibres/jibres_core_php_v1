@@ -55,7 +55,7 @@ class business_createNew
 			{
 				if(isset($_args['data']['log_user_detail']['avatar']) && $_args['data']['log_user_detail']['avatar'])
 				{
-					$msg .= ' '. $_args['data']['log_user_detail']['avatar']. "\n";
+					// $msg .= ' '. $_args['data']['log_user_detail']['avatar']. "\n";
 				}
 			}
 		}

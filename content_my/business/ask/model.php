@@ -48,7 +48,7 @@ class model
 
 		$business_token = \content_my\business\creating::cross_step('ask', $data);
 
-		\dash\log::set('business_creatingNew', ['my_step' => 'ask', 'my_skip' => $my_skip, 'my_answer' => $data]);
+		// \dash\log::set('business_creatingNew', ['my_step' => 'ask', 'my_skip' => $my_skip, 'my_answer' => $data]);
 
 		// \dash\redirect::to(\dash\url::this(). '/subdomain');
 
