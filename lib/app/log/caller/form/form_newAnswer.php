@@ -144,7 +144,7 @@ class form_newAnswer
 	public static function telegram_text($_args, $_chat_id)
 	{
 		$tg_msg = '';
-		$tg_msg .= "#New_Order  ";
+		$tg_msg .= "#New_form_answer  ";
 
 		$tg_msg .= " 🛒 \n";
 
