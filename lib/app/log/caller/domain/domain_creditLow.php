@@ -73,7 +73,7 @@ class domain_creditLow
 
 		$my_balance = isset($_args['data']['my_balance']) ? $_args['data']['my_balance'] : null;
 
-		if($my_balance < 150)
+		if($my_balance < 300)
 		{
 			$tg_msg .= " 🔴🔴🔴🔴🔴 \n";
 			$tg_msg .= T_("Domain credit low!");
