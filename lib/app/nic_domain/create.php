@@ -113,6 +113,15 @@ class create
 
 		$jibres_nic_contact = 'ji128-irnic';
 
+		// check domain available
+		$get_domain_info = \lib\app\nic_domain\get::check($domain);
+
+		if(a($get_domain_info, 'available') === false)
+		{
+			\dash\notif::error(T_("Domain is taken!"));
+			return false;
+		}
+
 
 		\lib\app\domains\detect::domain('register', $domain);
 		\lib\app\domains\detect::dns($ns1);
