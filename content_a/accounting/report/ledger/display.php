@@ -3,9 +3,9 @@
 <?php if(!\dash\data::reportDetail()) {?>
   <div class="alert2"><?php echo T_("No detail was founded") ?></div>
 <?php }else{ ?>
+<style type="text/css">.page-break{page-break-after:always}</style>
   <?php foreach (\dash\data::reportPerPage() as $pageNumber => $one_page) { ?>
 
-<style type="text/css">.page-break{page-break-after:always}</style>
   <div class="printArea" data-size='A4'>
     <div class="msg f align-center font-16">
       <div class="c5"><span><?php echo \dash\fit::number(a($one_page, 1, 'total_code')); ?></span> <span><?php echo a($one_page, 1, 'total_title'); ?></span></div>
