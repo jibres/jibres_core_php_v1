@@ -53,6 +53,7 @@ class ticket_answerTicketAlertSend
 		$masterid  =  \dash\app\log\support_tools::masterid($_args);
 		$title = T_("Regards"). "\n". T_("Ticket :val answered", ['val' => \dash\fit::text($masterid)]);
 		$title .= "\n";
+		$title .= \dash\app\log\msg::footer_business_sign($_args, 'sms');
 		$title .= \dash\app\log\support_tools::ticket_short_link($masterid);
 
 		$sms =

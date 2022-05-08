@@ -110,6 +110,7 @@ class sms_lowcharge
 		$tg_msg .= "\n";
 
 		$tg_msg .= self::get_msg($_args);
+		$tg_msg .= \dash\app\log\msg::footer_business_sign($_args, 'telegram');
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 
 		$tg                 = [];

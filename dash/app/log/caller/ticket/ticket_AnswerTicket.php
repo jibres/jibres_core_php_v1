@@ -92,6 +92,8 @@ class ticket_AnswerTicket
 			$tg_msg .= \lib\filepath::fix($file) . "\n";
 		}
 
+		$tg_msg .= \dash\app\log\msg::footer_business_sign($_args, 'telegram');
+
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
 
 		$tg                 = [];

@@ -57,12 +57,16 @@ class ticket_seeTicket
 		$tg_msg .= "🆔#Ticket".$masterid;
 		$tg_msg .= "\n🙄 ". \dash\log::from_name(). " #user". \dash\log::from_id(true);
 		$tg_msg .= "\n⏳ ". \dash\datetime::fit(date("Y-m-d H:i:s"), true);
+		$tg_msg .= \dash\app\log\msg::footer_business_sign($_args, 'telegram');
 
 		$tg                 = [];
 		$tg['chat_id']      = $_chat_id;
-		$tg['caption']      = $tg_msg;
-		$tg['method']       = 'sendDocument';
-		$tg['document']     = "https://media.giphy.com/media/3oz8xyBP22S5b6gmsw/giphy.gif";
+		$tg['text']         = $tg_msg;
+
+		// $tg['chat_id']      = $_chat_id;
+		// $tg['caption']      = $tg_msg;
+		// $tg['method']       = 'sendDocument';
+		// $tg['document']     = "https://media.giphy.com/media/3oz8xyBP22S5b6gmsw/giphy.gif";
 		$tg['reply_markup'] = \dash\app\log\support_tools::tg_btn2($masterid);
 
 		// $tg = json_encode($tg, JSON_UNESCAPED_UNICODE);
