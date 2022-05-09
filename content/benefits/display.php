@@ -4,10 +4,7 @@
 if (\dash\language::current() === 'fa')
 {
 ?>
-
 	<p class="alert-success text-center">از گشتن بین انواع و اقسام نرم‌افزارهای حسابداری خسته شده‌اید؟ جیبرس دوای درد شماست!</p>
-
-
 
 	<ul class="list">
 	 <li>قابلیت تعریف بی‌نهایت مشتری و ثبت اطلاعات تماس آنان</li>
@@ -37,15 +34,11 @@ if (\dash\language::current() === 'fa')
 else
 {
 ?>
-
 	<p>
 		<?php echo T_("Soon"); ?>
 	</p>
-
-
 <?php
 }
 ?>
-
   </div>
 </div>
