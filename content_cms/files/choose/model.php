@@ -6,8 +6,8 @@ class model
 {
 	public static function post()
 	{
-		$fileid = \dash\request::post('fileid');
-		$related = \dash\request::get('related');
+		$fileid     = \dash\request::post('fileid');
+		$related    = \dash\request::get('related');
 		$related_id = \dash\request::get('related_id');
 
 
