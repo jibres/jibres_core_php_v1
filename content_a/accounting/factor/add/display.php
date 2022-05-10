@@ -30,19 +30,31 @@ if(!\dash\data::editMode())
   $default_bank_profit = a($accountingSettingSaved, 'default_bank_profit');
 }
 
-$myTotal         = round(a($dataRow, 'tax_document', 'total'));
+$myTotal = 0;
+if(a($dataRow, 'tax_document', 'total'))
+{
+  $myTotal         = round(a($dataRow, 'tax_document', 'total'));
+}
 if(!$myTotal && \dash\request::get('total'))
 {
   $myTotal = \dash\request::get('total');
 }
 
-$myTotalDiscount = round(a($dataRow, 'tax_document', 'totaldiscount'));
+$myTotalDiscount = 0;
+if(a($dataRow, 'tax_document', 'totaldiscount'))
+{
+  $myTotalDiscount = round(a($dataRow, 'tax_document', 'totaldiscount'));
+}
 if(!$myTotalDiscount && \dash\request::get('totaldiscount'))
 {
   $myTotalDiscount = \dash\request::get('totaldiscount');
 }
 
-$myTotalVat      = round(a($dataRow, 'tax_document', 'totalvat'));
+$myTotalVat = 0;
+if(a($dataRow, 'tax_document', 'totalvat'))
+{
+  $myTotalVat      = round(a($dataRow, 'tax_document', 'totalvat'));
+}
 if(!$myTotalVat && \dash\request::get('totalvat'))
 {
   $myTotalVat = \dash\request::get('totalvat');
