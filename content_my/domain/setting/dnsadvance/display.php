@@ -2,7 +2,7 @@
 <?php if(\dash\data::internationalDomain()) {?>
   <div class="f justify-center">
     <div class="c9 m12 s12">
-      <div class="cbox">
+      <div class="box p-4">
 
         <p class="alert-warning"><?php echo T_('Filling the server IP address records (glue records) are required when you wish to set the name servers of a domain name to a hostname under the domain name itself.'); ?></p>
         <form method="post" autocomplete="off" >
@@ -52,7 +52,7 @@
 
     <div class="f justify-center">
       <div class="c9 m12 s12">
-        <div class="cbox">
+        <div class="box p-4">
           <p class="alert-warning"><?php echo T_('Filling the server IP address records (glue records) are required when you wish to set the name servers of a domain name to a hostname under the domain name itself.'); ?></p>
           <form method="post" autocomplete="off" >
             <?php echo \dash\csrf::html(); ?>

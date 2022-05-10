@@ -1,5 +1,5 @@
 
-<div class="cbox">
+<div class="box p-4">
 
 </div>
 <table class="tbl1 v4">

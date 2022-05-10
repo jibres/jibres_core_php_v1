@@ -1,5 +1,5 @@
 <?php if(false) {?>
-<div class="cbox">
+<div class="box p-4">
 	<div class="tblBox">
 		<table class="tbl1 v3">
 			<thead>
@@ -32,7 +32,7 @@
 
 </div>
 <?php } //endif ?>
-<div class="cbox">
+<div class="box p-4">
 	<div class="tblBox">
 		<table class="tbl1 v3">
 			<thead>

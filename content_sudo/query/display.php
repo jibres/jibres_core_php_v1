@@ -1,4 +1,4 @@
-<div class="cbox">
+<div class="box p-4">
 	<div class="tblBox">
 		<table class="tbl1 v1 ltr">
 			<thead>
@@ -25,7 +25,7 @@
 <?php print_r(\dash\data::showDatabases()) ?>
 </pre>
 
-<div class="cbox">
+<div class="box p-4">
 	<div class="tblBox">
 		<table class="tbl1 v3 ltr">
 			<thead>

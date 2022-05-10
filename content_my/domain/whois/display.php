@@ -1,4 +1,4 @@
-<div class="cbox">
+<div class="box p-4">
 	<div class="f justify-center">
 		<div class="c6 s12">
 			<form method="get" autocomplete="off" action="<?php echo \dash\url::that(); ?>"  >

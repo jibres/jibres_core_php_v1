@@ -4,7 +4,7 @@
     <p><?php echo T_("Nobody can tell the Jibres story better than you;)"); ?></p>
   </div>
 
-  <div class="cbox">
+  <div class="box p-4">
     <h2><?php echo T_("How it works?"); ?></h2>
     <ul>
       <li>
@@ -22,7 +22,7 @@
     </ul>
   </div>
 
-  <div class="cbox">
+  <div class="box p-4">
     <h3><?php echo T_("Share your link"); ?></h3>
     <p><?php echo T_("Copy your personal referral link and share it with your friends and followers."); ?></p>
 

@@ -2,7 +2,7 @@
 <form method="post" enctype="multipart/form-data" autocomplete="off">
   <div class="f justify-center">
     <div class="c8 s12">
-      <div class="cbox">
+      <div class="box p-4">
           <div class="switch1 mt-4">
            <input type="checkbox" name="forceremember" id="forceremember" <?php if(\dash\data::dataRow_forceremember()) { echo 'checked'; } ?>>
            <label for="forceremember"></label>

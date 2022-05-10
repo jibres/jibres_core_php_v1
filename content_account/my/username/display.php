@@ -1,7 +1,7 @@
 
 <div class="f justify-center">
   <div class="c6 m8 x5 s12">
-    <div class="cbox">
+    <div class="box p-4">
       <div class="alert2">
         <div><?php echo T_("You can choose a username"); ?></div>
         <div><?php echo T_("You can use a-z, 0-9 and underscores."); ?></div>

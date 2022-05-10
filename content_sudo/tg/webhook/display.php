@@ -5,7 +5,7 @@ $hook = \dash\data::hook();
 
 ?>
 
-<form class="cbox" method="post" autocomplete="off">
+<form class="box p-4" method="post" autocomplete="off">
   <div class="input ltr mb-2">
     <label for="url"><?php echo T_("Chat id or username"); ?></label>
     <input type="url" name="url" id="url" placeholder='<?php echo T_("HTTPS url to send updates to. Use an empty string to remove webhook integration"); ?>' value="">
@@ -29,7 +29,7 @@ $hook = \dash\data::hook();
 <?php if(isset($tg['send'])) {?>
 
 
-<div class="cbox">
+<div class="box p-4">
   <h2><?php echo T_("Last request"); ?></h2>
   <div class="alert-info">
     <pre><?php echo a($tg, 'send'); ?></pre>

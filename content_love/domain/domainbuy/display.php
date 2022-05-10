@@ -1,6 +1,6 @@
 <div class="f justify-center">
 <div class="c6 m8 s12">
-    <div class="cbox">
+    <div class="box p-4">
 
         <form method="post" autocomplete="off">
 

@@ -1,7 +1,7 @@
 
 <div class="f justify-center">
   <div class="c6 m8 x5 s12">
-    <div class="cbox">
+    <div class="box p-4">
       <div class="msg f">
        <div class="cauto">
         <span class="<?php if(\dash\user::detail('sidebar')) { echo 'sf-monitor'; }else{ echo 'sf-display'; } ?> fs40 p-2 pRa25 vlbottom"></span>

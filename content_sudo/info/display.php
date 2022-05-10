@@ -1,5 +1,5 @@
 
- <div class="cbox">
+ <div class="box p-4">
   <h2><?php echo T_("Info"); ?></h2>
    	<a class="btn" target='_blank' href="<?php echo \dash\url::here(); ?>/info/server"><?php echo T_("Show server info"); ?></a>
    	<a class="btn" target='_blank' href="<?php echo \dash\url::here(); ?>/info/php"><?php echo T_("Show PHP info"); ?></a>

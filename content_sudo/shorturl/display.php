@@ -3,7 +3,7 @@
   <?php echo T_("Test coding function"); ?>
 </div>
 
-<div class="cbox">
+<div class="box p-4">
   <form method="get" data-action>
     <div class="input ltr">
       <label class="addon"><?php echo T_("String or Number"); ?></label>
@@ -15,7 +15,7 @@
 
 <?php if(\dash\data::valEncode() || \dash\data::valDecode()) {?>
 
-<div class="cbox">
+<div class="box p-4">
   <div class="f">
     <div class="c">
       <p class="fs20"><?php echo T_("Encode"); ?></p>

@@ -5,7 +5,7 @@
     <div class="c6 m8 x5 s12">
 
       <?php echo \dash\csrf::html(); ?>
-      <div class="cbox">
+      <div class="box p-4">
         <h3 class="text-center mb-4"><?php echo \dash\face::title(); ?></h3>
 
 

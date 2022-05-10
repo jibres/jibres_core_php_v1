@@ -1,6 +1,6 @@
 <div class="f justify-center">
 <div class="c6 s12">
-	<div class="cbox">
+	<div class="box p-4">
 	 <div class="msg f"><?php echo T_("Cancel request") ?><div data-confirm data-data='{"status" : "cancel"}' class="cauto os btn-danger"><?php echo T_("Set status on Cancel"); ?></div></div>
 	 <div class="msg f"><?php echo T_("Set on queue request") ?><div data-confirm data-data='{"status" : "queue"}' class="cauto os btn-success"><?php echo T_("Set status on Cancel"); ?></div></div>
 	 <div class="msg f"><?php echo T_("id") ?> <span class="cauto os"><?php echo \dash\data::dataRow_id(); ?></span></div>

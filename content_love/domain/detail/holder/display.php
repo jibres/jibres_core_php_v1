@@ -1,7 +1,7 @@
 <?php require_once (root. 'content_love/domain/detail/pageStep.php'); ?>
 <div class="f justify-center">
  <div class="c9 m12 s12">
-  <div class="cbox">
+  <div class="box p-4">
    <div class="msg minimal pLR20-f fs16 font-bold ltr text-left success"><?php echo \dash\data::domainDetail_name() ?></div>
 
    <p class="alert-info"><?php echo T_('You can change domain technical and billing holder to another one to allow them to do some action.'); ?></p>

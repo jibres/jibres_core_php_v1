@@ -308,7 +308,7 @@ if(!$selected && \dash\engine\store::inStore())
 
 <h3 data-kerkere='.iDetailKerkere' class="msg mt-2" data-kerkere-icon='close'><?php echo T_("Detail"); ?></h3>
 <div class="iDetailKerkere ltr" data-kerkere-content='hide'>
-	<div class="cbox">
+	<div class="box p-4">
 		<div class="f">
 			<h3 data-kerkere-icon='close' data-kerkere='.kerkereDetail1'>Payment response <small>Setting</small></h3>
 				<div class="c s12 kerkereDetail1" data-kerkere-content='hide'>

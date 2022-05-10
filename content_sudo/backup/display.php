@@ -1,7 +1,7 @@
 
 <?php if(\dash\data::autoBackupLog() || \dash\request::get('show') === 'log') {?>
 
-<div class="cbox">
+<div class="box p-4">
     <p><a href="<?php echo \dash\url::here(); ?>/backup" class="badge primary"><?php echo T_("Back"); ?></a></p>
     <?php if(\dash\data::autoBackupLog()) {?>
     <pre>
@@ -18,7 +18,7 @@
 <div class="f">
 
   <div class="c s12 pRa10">
-    <div class="cbox">
+    <div class="box p-4">
       <h6><?php echo T_("Database info"); ?></h6>
       <div class="alert2">
         <li>Trafic received: <span><?php echo \dash\fit::number((((\dash\data::mysqlInfo_Bytes_received()) / 1024 ) / 1024)); ?></span> <small>MB</small></li>
@@ -33,7 +33,7 @@
   </div>
 
   <div class="c s12">
-    <div class="cbox">
+    <div class="box p-4">
       <form method="post">
       <input type="hidden" name="backup" value="schedule">
 

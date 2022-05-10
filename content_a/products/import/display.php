@@ -8,7 +8,7 @@
 
 <p class="alert-danger fs14"><?php echo T_("Before you start your import, make sure that you have a backup of your product data."); ?></p>
 
-<div class="cbox">
+<div class="box p-4">
 	<ul>
 		<li><?php echo T_("The maximum file size is 5 MB."); ?></li>
 		<li><?php echo T_("Only 1,000 products are accepted in each file"); ?>.</li>
@@ -34,7 +34,7 @@ $awaitingImport = \dash\data::awaitingImport();
 
 ?>
 
-<div class="cbox">
+<div class="box p-4">
 	<h4><?php echo T_("Result analysis file"); ?></h4>
 	<?php if(isset($awaitingImport['meta']['avalible_count']) && $awaitingImport['meta']['avalible_count']) {?>
 

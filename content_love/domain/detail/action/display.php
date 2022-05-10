@@ -1,7 +1,7 @@
 <?php require_once (root. 'content_love/domain/detail/pageStep.php'); ?>
 <div class="f justify-center">
  <div class="c9 m12 s12">
-  <div class="cbox">
+  <div class="box p-4">
    <div class="msg minimal pLR20-f fs16 font-bold ltr text-left success"><?php echo \dash\data::domainDetail_name() ?></div>
     <?php if(\dash\data::dataTable()) {?>
      	<?php foreach (\dash\data::dataTable() as $key => $value) {?>

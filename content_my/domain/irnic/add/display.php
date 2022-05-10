@@ -6,7 +6,7 @@
 
   <?php if(\dash\request::get('type') === 'new') {?>
 
-   <div class="cbox">
+   <div class="box p-4">
     <div class="alert2">
       <?php echo T_('Please go to nic.ir for register new account'); ?>
 
@@ -16,7 +16,7 @@
    </div>
 
     <?php if(false) { // the IRNIC disable create contact from api :) Date: 2020-06-22 ?>
-   <div class="cbox">
+   <div class="box p-4">
    <form method="post" autocomplete="off">
     <div class="msg fs09 info2"><?php echo T_('This form used to register iranian persons on nic.ir system and all fields is require because IRNIC need them. If you want to create another type of account or you are not iranian, please go to nic.ir website and directly create IRNIC handle.'); ?></div>
     <p class="alert-danger text-gray-400 fs09"><?php echo T_("Enter fill all data in English!"); ?></p>
@@ -128,7 +128,7 @@
 
 
 
-   <div class="cbox">
+   <div class="box p-4">
     <form method="post" autocomplete="off">
      <label for="ioldcontact"><?php echo T_("IRNIC Handle"); ?></label>
      <div class="input ltr">

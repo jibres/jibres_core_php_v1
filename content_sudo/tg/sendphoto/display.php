@@ -4,7 +4,7 @@
 $tg = \dash\data::tg();
 ?>
 
-<form class="cbox" method="post" autocomplete="off">
+<form class="box p-4" method="post" autocomplete="off">
   <div class="input ltr mb-2">
     <label for="chatid"><?php echo T_("Chat id or username"); ?></label>
     <input type="text" name="chatid" id="chatid" value="46898544" placeholder='<?php echo T_("Unique identifier for the target chat or username of the target channel (in the format @channelusername)"); ?>' required>
@@ -31,7 +31,7 @@ $tg = \dash\data::tg();
 <?php if(isset($tg['send'])) {?>
 
 
-<div class="cbox">
+<div class="box p-4">
   <h2><?php echo T_("Last request"); ?></h2>
   <div class="alert-info">
     <pre><?php echo a($tg, 'send'); ?></pre>
