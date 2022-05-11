@@ -184,7 +184,7 @@ class pdo
 		}
 
 		// calc exex time in ms
-		$qry_exec_time_ms = round(($qry_exec_time+$connection_exec_time)*1000);
+		$qry_exec_time_ms = round(($qry_exec_time)*1000);
 		// if spend more time, save it in special file
 		if($qry_exec_time_ms > 6000)
 		{
