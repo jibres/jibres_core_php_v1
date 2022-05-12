@@ -14,15 +14,16 @@ class get
 				factordetails
 			JOIN factors ON factors.id = factordetails.factor_id
 			WHERE
-				factors.date = :date
+				factors.date >= :start_date AND
+				factors.date <= :end_date
 			GROUP by
 				factors.date
 		";
 
-
 		$param =
 		[
-			':date' => $_date
+			':start_date' => $_date. ' 00:00:00',
+			':end_date'   => $_date. ' 23:59:59',
 		];
 
 		$limit = \dash\db\pagination::pagination_query($pagination_query, $param, 50);
@@ -36,16 +37,20 @@ class get
 				SUM(factordetails.discount) AS `discount`,
 				SUM(factordetails.vat) AS `vat`,
 				SUM(factordetails.finalprice) AS `finalprice`,
-				SUM(factordetails.count) AS `count`,
+				SUM(factordetails.count) AS `qty`,
 				SUM(factordetails.sum) AS `sum`,
-				factors.date AS `date`
+				factordetails.product_id AS `product_id`,
+				products.title as `product_title`
 			FROM
 				factordetails
 			JOIN factors ON factors.id = factordetails.factor_id
+			JOIN products ON products.id = factordetails.product_id
 			WHERE
-				factors.date = :date
+				factors.date >= :start_date AND
+				factors.date <= :end_date
 			GROUP by
-				factors.date
+				factordetails.product_id
+			ORDER BY `count` DESC
 			$limit
 		";
 

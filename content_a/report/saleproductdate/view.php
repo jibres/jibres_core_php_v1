@@ -30,7 +30,6 @@ class view
 
 		\dash\data::dataTable($result);
 
-		var_dump($result);exit;
 
 
 	}
