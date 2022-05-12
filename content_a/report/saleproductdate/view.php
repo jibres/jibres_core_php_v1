@@ -11,6 +11,16 @@ class view
 
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
+
+		$date = \dash\request::get('date');
+		if(!$date)
+		{
+			$date = \dash\fit::date_en(date("Y-m-d"));
+		}
+
+		\dash\data::currentDate($date);
+
+
 	}
 }
 ?>
