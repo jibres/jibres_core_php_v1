@@ -1,8 +1,8 @@
 <?php
-namespace lib\app\report\product;
+namespace lib\app\product\report;
 
 
-class get
+class statistics
 {
 	public static function count_all()
 	{
