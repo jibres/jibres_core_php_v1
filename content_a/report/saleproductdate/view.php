@@ -20,6 +20,18 @@ class view
 
 		\dash\data::currentDate($date);
 
+		$args =
+		[
+			'type' => 'date',
+			'date' => $date,
+		];
+
+		$result = \lib\app\product\report\sale_date::get_list($args);
+
+		\dash\data::dataTable($result);
+
+		var_dump($result);exit;
+
 
 	}
 }
