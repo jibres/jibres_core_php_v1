@@ -60,16 +60,24 @@ class business
 	 */
 	public static function check_website()
 	{
-
-		if(!\dash\engine\content::is('content_business'))
+		if(\dash\temp::get('ForceLoadSiteBuilderForJibres'))
 		{
-			return false;
+			// nothing
 		}
-
-		// only check in businessWebsite
-		if(!\dash\engine\store::inBusinessWebsite())
+		else
 		{
-			return false;
+
+			if(!\dash\engine\content::is('content_business'))
+			{
+				return false;
+			}
+
+			// only check in businessWebsite
+			if(!\dash\engine\store::inBusinessWebsite())
+			{
+				return false;
+			}
+
 		}
 
 		// store not found!
@@ -121,8 +129,7 @@ class business
 
 		if($siteBuilder)
 		{
-			self::$siteBuilder     = true;
-			self::$siteBuilder         = true;
+			self::$siteBuilder = true;
 
 			\dash\data::website($siteBuilder);
 

@@ -73,7 +73,7 @@ class controller
 				break;
 
 			default:
-				// nothing
+			// nothing
 				break;
 		}
 	}
@@ -89,9 +89,14 @@ class controller
 		// lock on jibres business
 		\dash\engine\store::force_lock_id($jibres_business_id);
 
+		\dash\temp::set('ForceLoadSiteBuilderForJibres', true);
+
+		// \dash\open::get();
+		// \dash\engine\template::find();
+		\dash\layout\business::check_website();
 
 		// unlock from jibres business
-		\dash\engine\store::unlock();
+		// \dash\engine\store::unlock();
 
 	}
 }
