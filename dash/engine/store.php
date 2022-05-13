@@ -577,6 +577,36 @@ class store
 	}
 
 
+	/**
+	 * Load store detail and lock on that
+	 *
+	 * @param      <type>  $_store_id  The store identifier
+	 *
+	 * @return     bool    ( description_of_the_return_value )
+	 */
+	public static function force_lock_id($_store_id)
+	{
+		$store_detail = \lib\db\store\get::by_id($_store_id);
+		if($store_detail)
+		{
+			return self::force_lock($store_detail);
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * Unlock from store
+	 */
+	public static function unlock()
+	{
+		\lib\store::force_clean();
+		self::$IN_STORE = false;
+		self::$store_loaded_detail = [];
+	}
+
+
 	private static function lock($_store_id, $_store_detail, $_force = false)
 	{
 		if($_store_id)
