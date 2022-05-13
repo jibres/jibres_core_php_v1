@@ -84,7 +84,8 @@ class controller
 	 */
 	private static function detect_jibres_website_pagebuilder()
 	{
-		$jibres_business_id = 1000005;
+		// https://jibres.ir/$jbjkb/a
+		$jibres_business_id = 1001208;
 
 		// lock on jibres business
 		\dash\engine\store::force_lock_id($jibres_business_id);
