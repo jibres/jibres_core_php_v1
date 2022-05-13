@@ -28,7 +28,7 @@
 			</nav>
 		</div>
 	</div>
-	<div class="c6 s12">
+	<!-- <div class="c6 s12">
 		<div class="mLa5">
 			<nav class="items long">
 				<ul>
@@ -42,5 +42,5 @@
 				</ul>
 			</nav>
 		</div>
-	</div>
+	</div> -->
 </div>
