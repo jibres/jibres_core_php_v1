@@ -47,9 +47,12 @@ class controller
 
 			\dash\redirect::to(\dash\url::kingdom(). '/a');
 		}
+
+		self::detect_jibres_website_pagebuilder();
 	}
 
-	public static function alias_module_redirect()
+
+	private static function alias_module_redirect()
 	{
 		switch (\dash\url::directory())
 		{
@@ -73,6 +76,23 @@ class controller
 				// nothing
 				break;
 		}
+	}
+
+
+	/**
+	 * Check is path exist in jibres business page builder
+	 */
+	private static function detect_jibres_website_pagebuilder()
+	{
+		$jibres_business_id = 1000005;
+
+		// lock on jibres business
+		\dash\engine\store::force_lock_id($jibres_business_id);
+
+
+		// unlock from jibres business
+		\dash\engine\store::unlock();
+
 	}
 }
 ?>
