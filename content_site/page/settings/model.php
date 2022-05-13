@@ -128,7 +128,7 @@ class model
 
 		\dash\notif::ok(T_("Page removed"));
 
-		\dash\redirect::to(\dash\url::here());
+		\dash\redirect::to(\dash\url::here(). '/pages');
 
 	}
 
