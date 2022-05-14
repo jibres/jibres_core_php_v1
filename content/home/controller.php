@@ -48,7 +48,7 @@ class controller
 			\dash\redirect::to(\dash\url::kingdom(). '/a');
 		}
 
-		self::detect_jibres_website_pagebuilder();
+		// self::detect_jibres_website_pagebuilder();
 	}
 
 
