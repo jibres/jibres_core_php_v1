@@ -20,7 +20,7 @@ class search
 
 	public static function last_5_active_ticket()
 	{
-		return self::list(null, ['limit' => 5, 'act' => 'y'], true);
+		return self::list(null, ['limit' => 5, 'act' => 'y',], true);
 	}
 
 	public static function last_ticket_user($_user_id)
@@ -98,7 +98,7 @@ class search
 		}
 		else
 		{
-			$and[] = " tickets.status NOT IN ('deleted', 'spam') ";
+			$and['check_status'] = " tickets.status NOT IN ('deleted', 'spam') ";
 		}
 
 		if($data['customer_mode'])
@@ -169,8 +169,11 @@ class search
 
 		if($data['act'] === 'y')
 		{
-			$and[] = " tickets.status NOT IN ('spam', 'deleted', 'close') ";
-			$order_sort = " ORDER BY tickets.id DESC, FIELD(tickets.status, 'awaiting', 'answered') ";
+			$and['check_status'] = " tickets.status NOT IN ('spam', 'deleted', 'close') ";
+			$meta['join']        = [];
+
+			$meta['join'][]        = 'LEFT JOIN tickets AS `childTicket` ON childTicket.id = tickets.parent ';
+			$order_sort          = " ORDER BY childTicket.datecreated DESC, tickets.datemodified DESC, tickets.id DESC, FIELD(tickets.status, 'awaiting', 'answered') ";
 			self::$is_filtered = true;
 		}
 

@@ -20,6 +20,7 @@ class search
 				users.avatar AS `avatar`
 			FROM
 				tickets
+				$q[join]
 			LEFT JOIN users ON users.id = tickets.user_id
 			$q[where] $q[order] $limit ";
 
