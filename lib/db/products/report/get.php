@@ -8,16 +8,23 @@ class get
 	{
 		$pagination_query  =
 		"
+
 			SELECT
-				COUNT(*) AS `count`
+				COUNT(pq.one) AS `count`
 			FROM
-				factordetails
-			JOIN factors ON factors.id = factordetails.factor_id
-			WHERE
-				factors.date >= :start_date AND
-				factors.date <= :end_date
-			GROUP by
-				factors.date
+			(
+				SELECT
+					1 AS `one`
+				FROM
+					factordetails
+				JOIN factors ON factors.id = factordetails.factor_id
+				JOIN products ON products.id = factordetails.product_id
+				WHERE
+					factors.date >= :start_date AND
+					factors.date <= :end_date
+				GROUP by
+					factordetails.product_id
+			) AS `pq`
 		";
 
 		$param =
