@@ -10,17 +10,19 @@
   </div>
 </form>
 
-<?php if(\dash\data::dataTable()) { ?>
+<?php if(\dash\data::dataTable()) {
+$currency = \lib\store::currency();
+?>
 <div class="tblBox">
   <table class="tbl1 v1">
     <thead>
       <tr>
         <th><?php echo T_("Product") ?></th>
-        <th><?php echo T_("Count") ?></th>
-        <th><?php echo T_("Price") ?></th>
-        <th><?php echo T_("Vat") ?></th>
-        <th><?php echo T_("Discount") ?></th>
-        <th><?php echo T_("Final price") ?></th>
+        <th><?php echo T_("Count Order") ?></th>
+        <th><?php echo T_("Total price") ?></th>
+        <th><?php echo T_("Total Vat") ?></th>
+        <th><?php echo T_("Total Discount") ?></th>
+        <th><?php echo T_("Total") ?></th>
         <th><?php echo T_("Qty") ?></th>
         <th><?php echo T_("Sum") ?></th>
       </tr>
@@ -29,13 +31,13 @@
       <?php foreach (\dash\data::dataTable() as $key => $value) { ?>
         <tr>
           <td><a href="<?php echo \dash\url::here(). '/products/edit?id='. a($value, 'product_id') ?>"><?php echo a($value, 'product_title') ?></a></td>
-          <td><?php echo \dash\fit::number(a($value, 'count')) ?></td>
-          <td><?php echo \dash\fit::number(a($value, 'price')) ?></td>
-          <td><?php echo \dash\fit::number(a($value, 'vat')) ?></td>
-          <td><?php echo \dash\fit::number(a($value, 'discount')) ?></td>
-          <td><?php echo \dash\fit::number(a($value, 'finalprice')) ?></td>
-          <td><?php echo \dash\fit::number(a($value, 'qty')) ?></td>
-          <td><?php echo \dash\fit::number(a($value, 'sum')) ?></td>
+          <td><?php echo \dash\fit::number_decimal(a($value, 'count')) ?></td>
+          <td><?php echo \dash\fit::number_decimal(a($value, 'price')); if(floatval(a($value, 'price'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
+          <td><?php echo \dash\fit::number_decimal(a($value, 'vat')); if(floatval(a($value, 'vat'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
+          <td><?php echo \dash\fit::number_decimal(a($value, 'discount')); if(floatval(a($value, 'discount'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
+          <td><?php echo \dash\fit::number_decimal(a($value, 'finalprice')); if(floatval(a($value, 'finalprice'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
+          <td><?php echo \dash\fit::number_decimal(a($value, 'qty')) ?></td>
+          <td><?php echo \dash\fit::number_decimal(a($value, 'sum')); if(floatval(a($value, 'sum'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
         </tr>
       <?php } //endfor ?>
     </tbody>
