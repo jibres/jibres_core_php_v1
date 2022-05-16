@@ -135,7 +135,10 @@ class edit
 		}
 
 
-		if(is_numeric($args['price']) || is_numeric($args['discount']) || is_numeric($args['buyprice']))
+		if(
+			(is_numeric($args['price']) || is_numeric($args['discount']) || is_numeric($args['buyprice'])) ||
+			(array_key_exists('price', $args) || array_key_exists('discount', $args) || array_key_exists('buyprice', $args))
+		  )
 		{
 			// check archive of price if price or discount or buyprice sended
 			\lib\app\product\updateprice::check($id, $args);

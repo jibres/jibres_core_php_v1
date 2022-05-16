@@ -204,7 +204,7 @@ class check
 		 * ------------------------------------------------------------------------------
 		 */
 
-		if(isset($data['price']) || isset($data['buyprice']) || isset($data['discount']))
+		if(array_key_exists('price', $data) || array_key_exists('buyprice', $data) || array_key_exists('discount', $data))
 		{
 			$discountpercent = null;
 			if(is_numeric($data['discount']) && is_numeric($data['price']) && floatval($data['price']) != 0)
