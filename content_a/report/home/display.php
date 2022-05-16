@@ -28,7 +28,6 @@
 			</nav>
 		</div>
 	</div>
-	<?php if(false) {?>
 	<div class="c6 s12">
 		<div class="mLa5">
 			<nav class="items long">
@@ -44,5 +43,4 @@
 			</nav>
 		</div>
 	</div>
-<?php } // endif ?>
 </div>
