@@ -4,7 +4,7 @@ namespace lib\db\products\report;
 
 class get
 {
-	public static function sale_in_date($_date)
+	public static function sale_in_date($_args)
 	{
 		$pagination_query  =
 		"
@@ -20,8 +20,8 @@ class get
 				JOIN factors ON factors.id = factordetails.factor_id
 				JOIN products ON products.id = factordetails.product_id
 				WHERE
-					factors.date >= :start_date AND
-					factors.date <= :end_date
+					factors.date >= :startdate AND
+					factors.date <= :enddate
 				GROUP by
 					factordetails.product_id
 			) AS `pq`
@@ -29,8 +29,8 @@ class get
 
 		$param =
 		[
-			':start_date' => $_date. ' 00:00:00',
-			':end_date'   => $_date. ' 23:59:59',
+			':startdate' => $_args['startdate'],
+			':enddate'   => $_args['enddate'],
 		];
 
 		$limit = \dash\db\pagination::pagination_query($pagination_query, $param, 50);
@@ -55,8 +55,8 @@ class get
 			JOIN products ON products.id = factordetails.product_id
 			LEFT JOIN productunit ON productunit.id = products.unit_id
 			WHERE
-				factors.date >= :start_date AND
-				factors.date <= :end_date
+				factors.date >= :startdate AND
+				factors.date <= :enddate
 			GROUP by
 				factordetails.product_id
 			ORDER BY `count` DESC

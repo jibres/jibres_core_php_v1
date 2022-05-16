@@ -20,10 +20,16 @@ class view
 
 		\dash\data::currentDate($date);
 
+		$startdate = \dash\request::get('startdate');
+		$enddate   = \dash\request::get('enddate');
+
 		$args =
 		[
-			'type' => 'date',
-			'date' => $date,
+			'type'      => 'date',
+			'type'      => 'period',
+			'date'      => $date,
+			'startdate' => $startdate,
+			'enddate'   => $enddate,
 		];
 
 		$result = \lib\app\product\report\sale_date::get_list($args);

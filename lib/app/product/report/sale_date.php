@@ -13,12 +13,29 @@ class sale_date
 	{
 		$condition =
 		[
-			'type' => ['enum' => ['date', 'week', 'month', 'year', 'period']],
-			'date' => 'date',
+			'type'      => ['enum' => ['date', 'week', 'month', 'year', 'period']],
+			'date'      => 'date',
+			'startdate' => 'date',
+			'enddate'   => 'date',
 		];
 
 		$require = ['type'];
-		$meta    = [];
+
+		if(a($_args, 'type') === 'period')
+		{
+			$require[] = 'startdate';
+			$require[] = 'enddate';
+		}
+
+		$meta    =
+		[
+			'field_title' =>
+			[
+				'startdate' => T_("Start date"),
+				'enddate' => T_("End date"),
+			],
+		];
+		$args    = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
@@ -28,7 +45,15 @@ class sale_date
 		switch ($data['type'])
 		{
 			case 'date':
-				$result = \lib\db\products\report\get::sale_in_date($data['date']);
+				$args['startdate'] = $data['date'] . ' 00:00:00';
+				$args['enddate']   = $data['date'] . ' 23:59:59';
+				$result = \lib\db\products\report\get::sale_in_date($args);
+				break;
+
+			case 'period':
+				$args['startdate'] = $data['startdate'] . ' 00:00:00';
+				$args['enddate']   = $data['enddate'] . ' 23:59:59';
+				$result = \lib\db\products\report\get::sale_in_date($args);
 				break;
 
 			default:
