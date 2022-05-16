@@ -20,8 +20,11 @@ class get
 				JOIN factors ON factors.id = factordetails.factor_id
 				JOIN products ON products.id = factordetails.product_id
 				WHERE
+					factors.status != 'deleted' AND
+					factors.type  IN ('sale', 'saleorder') AND
 					factors.date >= :startdate AND
-					factors.date <= :enddate
+					factors.date <= :enddate AND
+					factordetails.count > 0
 				GROUP by
 					factordetails.product_id
 			) AS `pq`
@@ -55,8 +58,11 @@ class get
 			JOIN products ON products.id = factordetails.product_id
 			LEFT JOIN productunit ON productunit.id = products.unit_id
 			WHERE
+				factors.status != 'deleted' AND
+				factors.type  IN ('sale', 'saleorder') AND
 				factors.date >= :startdate AND
-				factors.date <= :enddate
+				factors.date <= :enddate AND
+				factordetails.count > 0
 			GROUP by
 				factordetails.product_id
 			ORDER BY `count` DESC
