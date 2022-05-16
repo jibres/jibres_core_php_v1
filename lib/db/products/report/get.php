@@ -47,11 +47,13 @@ class get
 				SUM(factordetails.count) AS `qty`,
 				SUM(factordetails.sum) AS `sum`,
 				factordetails.product_id AS `product_id`,
-				products.title as `product_title`
+				products.title as `product_title`,
+				productunit.title as `product_unit`
 			FROM
 				factordetails
 			JOIN factors ON factors.id = factordetails.factor_id
 			JOIN products ON products.id = factordetails.product_id
+			LEFT JOIN productunit ON productunit.id = products.unit_id
 			WHERE
 				factors.date >= :start_date AND
 				factors.date <= :end_date

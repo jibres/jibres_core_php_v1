@@ -36,7 +36,7 @@ $currency = \lib\store::currency();
           <td><?php echo \dash\fit::number_decimal(a($value, 'vat')); if(floatval(a($value, 'vat'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'discount')); if(floatval(a($value, 'discount'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'finalprice')); if(floatval(a($value, 'finalprice'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
-          <td><?php echo \dash\fit::number_decimal(a($value, 'qty')) ?></td>
+          <td><?php echo \dash\fit::number_decimal(a($value, 'qty'));  if(floatval(a($value, 'qty'))){ echo ' <small class="text-gray-400">'. a($value, 'product_unit'). '</small>'; } ?></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'sum')); if(floatval(a($value, 'sum'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
         </tr>
       <?php } //endfor ?>
