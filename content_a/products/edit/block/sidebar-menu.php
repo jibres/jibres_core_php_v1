@@ -28,7 +28,7 @@
     <?php if(\dash\data::countOrdered_count()) {?>
       <p><?php echo T_(":total items of this product have been sold in :count factors", ['total' => \dash\fit::number(\dash\data::countOrdered_total()), 'count' => \dash\fit::number(\dash\data::countOrdered_count())]) ?></p>
       <div class="txtRa">
-        <a class="link" href="<?php echo \dash\url::here(); ?>/order?product=<?php echo \dash\request::get('id'); ?>"><?php echo T_("View factors") ?></a>
+        <a class="btn-link" href="<?php echo \dash\url::here(); ?>/order?product=<?php echo \dash\request::get('id'); ?>"><?php echo T_("View factors") ?></a>
       </div>
     <?php }else{ ?>
       <p class="mB0-f"><?php echo T_("This product has not been sold yet!") ?></p>
