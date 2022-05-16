@@ -42,4 +42,6 @@
   </table>
 </div>
 <?php \dash\utility\pagination::html(); ?>
+<?php }else{ ?>
+  <div class="alert-info text-center"><?php echo T_("No product was sale in this date") ?></div>
 <?php } //endif ?>
