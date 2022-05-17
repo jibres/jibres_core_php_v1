@@ -49,6 +49,15 @@
 						</a>
 					</li>
 				</ul>
+				<ul>
+					<li>
+						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleproductdate?type=year">
+							<i class="sf-tags"></i>
+							<div class="key"><?php echo T_("Product sales reports over year"); ?></div>
+							<div class="go"></div>
+						</a>
+					</li>
+				</ul>
 			</nav>
 		</div>
 	</div>

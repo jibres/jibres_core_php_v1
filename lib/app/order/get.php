@@ -237,5 +237,35 @@ class get
 		return $result;
 
 	}
+
+
+	public static function year_list()
+	{
+		$year_list = [];
+
+		$firs_order = \lib\db\orders\get::first_factor();
+
+		$first_year = null;
+		$this_year  = substr(\dash\fit::date_en(date("Y-m-d")), 0 , 4);
+
+		if($firs_order && a($firs_order, 'date'))
+		{
+			$first_year = \dash\fit::date_en(date("Y-m-d", strtotime($firs_order['date'])));
+			$first_year = substr($first_year, 0, 4);
+			$first_year = intval($first_year);
+		}
+
+		if($first_year)
+		{
+			for ($i=$first_year; $i < $this_year ; $i++)
+			{
+				$year_list[] = ['year' => $i, 'title' => T_("Year"). ' '. \dash\fit::text($i)];
+			}
+		}
+
+		$year_list[] = ['year' => intval($this_year), 'title' => T_("Year"). ' '. \dash\fit::text($this_year)];
+
+		return $year_list;
+	}
 }
 ?>

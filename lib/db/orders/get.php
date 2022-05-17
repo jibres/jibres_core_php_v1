@@ -49,6 +49,25 @@ class get
 	}
 
 
+	public static function first_factor($_type = null)
+	{
+		$param = [];
+
+		$type = null;
+
+		if($_type)
+		{
+			$type = ' AND factors.type = :type ';
+			$param[':type'] = $_type;
+		}
+
+		$query  = "SELECT * FROM factors WHERE factors.status != 'deleted' $type ORDER BY factors.id ASC LIMIT 1";
+
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+	}
+
+
 
 	public static function first_factor_id($_type = null)
 	{

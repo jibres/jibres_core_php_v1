@@ -1,4 +1,7 @@
-<form method="get" autocomplete="off" action="<?php echo \dash\url::that() ?>">
+<form method="get" autocomplete="off" action="<?php echo \dash\url::that() ?>" action="<?php echo \dash\url::this() ?>">
+  <?php if(\dash\request::get('type')) {?>
+    <input type="hidden" name="type" value="<?php echo \dash\request::get('type') ?>">
+  <?php } //endif ?>
   <div class="box">
     <div class="pad">
       <?php if(\dash\data::myArgs_type() === 'date') {?>
@@ -23,8 +26,14 @@
         </div>
       </div>
     <?php } //endif ?>
-
-      <div class="txtRa">
+    <?php if(\dash\data::myArgs_type() === 'year') {?>
+      <select name="year" class="select22">
+        <?php foreach (\dash\data::yearList() as $key => $value) {?>
+          <option value="<?php echo $value['year'] ?>" <?php if(intval($value['year']) === intval(\dash\data::myArgs_year())) {echo 'selected';} ?>><?php echo $value['title']; ?></option>
+        <?php }  //endif ?>
+      </select>
+    <?php } //endif ?>
+      <div class="txtRa mt-2">
         <button class="btn-primary"><?php echo T_("Report") ?></button>
       </div>
     </div>
