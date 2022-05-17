@@ -20,6 +20,7 @@ class view
 		$month     = \dash\request::get('month');
 		$starttime = \dash\request::get('starttime');
 		$endtime   = \dash\request::get('endtime');
+		$sort      = \dash\request::get('sort');
 
 
 
@@ -114,6 +115,7 @@ class view
 			'month'     => $month,
 			'starttime' => $starttime,
 			'endtime'   => $endtime,
+			'sort'   => $sort,
 		];
 
 		$result = \lib\app\product\report\sale_date::get_list($args);
@@ -122,6 +124,9 @@ class view
 
 
 		\dash\data::myArgs($args);
+
+
+		\dash\data::sortList(\lib\app\product\report\sale_date::sort_list());
 
 
 

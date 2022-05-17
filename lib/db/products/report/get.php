@@ -65,7 +65,7 @@ class get
 				factordetails.count > 0
 			GROUP by
 				factordetails.product_id
-			ORDER BY `count` DESC
+			ORDER BY `$_args[sort]` $_args[order]
 			$limit
 		";
 

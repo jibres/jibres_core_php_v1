@@ -83,9 +83,24 @@ $endtime .= '</div>';
         </div>
       </div>
     <?php } //endif ?>
-      <div class="txtRa mt-2">
-        <button class="btn-primary"><?php echo T_("Report") ?></button>
+
+      <div class="row">
+        <div class="c-auto">
+          <div class="w-64">
+            <label for="sort"><?php echo T_("Sort by") ?></label>
+            <select name="sort" class="select22">
+              <?php foreach (\dash\data::sortList() as $key => $value) {?>
+                <option value="<?php echo $value['key']; ?>" <?php if($value['key'] === \dash\data::myArgs_sort()) {echo 'selected';} ?>><?php echo $value['title']; ?></option>
+              <?php }  //endif ?>
+            </select>
+          </div>
+        </div>
+        <div class="c"></div>
+        <div class="c-auto">
+            <button class="btn-primary mt-6"><?php echo T_("Report") ?></button>
+        </div>
       </div>
+
     </div>
   </div>
 </form>
@@ -99,7 +114,7 @@ $currency = \lib\store::currency();
       <tr>
         <th><?php echo T_("Product") ?></th>
         <th><?php echo T_("Count Order") ?></th>
-        <th><?php echo T_("Total price") ?></th>
+        <th><?php echo T_("Price") ?></th>
         <th><?php echo T_("Total Vat") ?></th>
         <th><?php echo T_("Total Discount") ?></th>
         <th><?php echo T_("Total") ?></th>

@@ -4,6 +4,51 @@ namespace lib\app\product\report;
 
 class sale_date
 {
+	public static function sort_list($_need = null)
+	{
+		$sort_list =
+		[
+
+			['key' => 'countorderdesc', 'sort' => 'count', 				'order' => 'DESC', 		'title' => T_("Count order DESC")],
+			['key' => 'countorderasc', 	'sort' => 'count', 				'order' => 'ASC', 		'title' => T_("Count order ASC")],
+
+			['key' => 'pricedesc', 		'sort' => 'price',	 			'order' => 'DESC', 		'title' => T_("Price DESC")],
+			['key' => 'priceasc', 		'sort' => 'price',	 			'order' => 'ASC', 		'title' => T_("Price ASC")],
+
+			['key' => 'vatdesc', 		'sort' => 'vat',	 			'order' => 'DESC', 		'title' => T_("VAT DESC")],
+			['key' => 'vatasc', 		'sort' => 'vat',	 			'order' => 'ASC', 		'title' => T_("VAT ASC")],
+
+			['key' => 'discountdesc', 	'sort' => 'discount',	 		'order' => 'DESC', 		'title' => T_("Discount DESC")],
+			['key' => 'discountasc', 	'sort' => 'discount',	 		'order' => 'ASC', 		'title' => T_("Discount ASC")],
+
+			['key' => 'finalpricedesc', 'sort' => 'finalprice',			'order' => 'DESC', 		'title' => T_("Final price DESC")],
+			['key' => 'finalpriceasc', 	'sort' => 'finalprice',			'order' => 'ASC', 		'title' => T_("Final price ASC")],
+
+			['key' => 'qtydesc', 		'sort' => 'qty', 				'order' => 'DESC', 		'title' => T_("Qty DESC")],
+			['key' => 'qtyasc', 		'sort' => 'qty', 				'order' => 'ASC', 		'title' => T_("Qty ASC")],
+
+			['key' => 'sumdesc', 		'sort' => 'sum',	 			'order' => 'DESC', 		'title' => T_("Sum DESC")],
+			['key' => 'sumasc', 		'sort' => 'sum',	 			'order' => 'ASC', 		'title' => T_("Sum ASC")],
+
+		];
+
+		if($_need)
+		{
+			foreach ($sort_list as $key => $value)
+			{
+				if($_need === $value['key'])
+				{
+					return $value;
+				}
+			}
+
+			return false;
+		}
+
+		return $sort_list;
+	}
+
+
 	/**
 	 * Get list of sale product per date
 	 *
@@ -14,6 +59,7 @@ class sale_date
 		$condition =
 		[
 			'type'      => ['enum' => ['date', 'week', 'month', 'year', 'period']],
+			'sort'      => ['enum' => array_column(self::sort_list(), 'key')],
 			'date'      => 'date',
 			'startdate' => 'date',
 			'enddate'   => 'date',
@@ -58,6 +104,28 @@ class sale_date
 
 		$starttime = $data['starttime'];
 		$endtime   = $data['endtime'];
+
+		$sort  = 'count';
+		$order = 'DESC';
+
+		if($data['sort'])
+		{
+			$sort_detail = self::sort_list($data['sort']);
+
+			if(a($sort_detail, 'sort'))
+			{
+				$sort = $sort_detail['sort'];
+			}
+
+			if(a($sort_detail, 'order'))
+			{
+				$order = $sort_detail['order'];
+			}
+		}
+
+		$args['sort']  = $sort;
+		$args['order'] = $order;
+
 
 		$result = [];
 
