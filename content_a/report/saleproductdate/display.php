@@ -27,11 +27,32 @@
       </div>
     <?php } //endif ?>
     <?php if(\dash\data::myArgs_type() === 'year') {?>
+      <label for="year"><?php echo T_("Year") ?></label>
       <select name="year" class="select22">
         <?php foreach (\dash\data::yearList() as $key => $value) {?>
           <option value="<?php echo $value['year'] ?>" <?php if(intval($value['year']) === intval(\dash\data::myArgs_year())) {echo 'selected';} ?>><?php echo $value['title']; ?></option>
         <?php }  //endif ?>
       </select>
+    <?php } //endif ?>
+    <?php if(\dash\data::myArgs_type() === 'month') {?>
+      <div class="row">
+        <div class="c">
+          <label for="year"><?php echo T_("Year") ?></label>
+          <select name="year" class="select22">
+            <?php foreach (\dash\data::yearList() as $key => $value) {?>
+              <option value="<?php echo $value['year'] ?>" <?php if(intval($value['year']) === intval(\dash\data::myArgs_year())) {echo 'selected';} ?>><?php echo $value['title']; ?></option>
+            <?php }  //endif ?>
+          </select>
+        </div>
+        <div class="c">
+          <label for="month"><?php echo T_("Month") ?></label>
+          <select name="month" class="select22">
+            <?php for ($i=1; $i <= 12 ; $i++) { ?>
+              <option value="<?php echo $i ?>" <?php if(intval($i) === intval(\dash\data::myArgs_month())) {echo 'selected';} ?>><?php echo \dash\fit::number($i); ?></option>
+            <?php }  //endif ?>
+          </select>
+        </div>
+      </div>
     <?php } //endif ?>
       <div class="txtRa mt-2">
         <button class="btn-primary"><?php echo T_("Report") ?></button>

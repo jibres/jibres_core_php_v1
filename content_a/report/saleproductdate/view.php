@@ -17,6 +17,7 @@ class view
 		$startdate = \dash\request::get('startdate');
 		$enddate   = \dash\request::get('enddate');
 		$year      = \dash\request::get('year');
+		$month     = \dash\request::get('month');
 
 
 		if(!$type)
@@ -65,6 +66,24 @@ class view
 				\dash\data::yearList($year_list);
 				break;
 
+			case 'month':
+				\dash\face::title(T_('Product sales reports in month'));
+
+				if(!$year)
+				{
+					$year = substr(\dash\fit::date_en(date("Y-m-d")), 0, 4);
+				}
+
+				$year_list = \lib\app\order\get::year_list();
+
+				\dash\data::yearList($year_list);
+
+				if(!$month)
+				{
+					$month = substr(\dash\fit::date_en(date("Y-m-d")), 5, 2);
+				}
+				break;
+
 			default:
 				// code...
 				break;
@@ -79,6 +98,7 @@ class view
 			'startdate' => $startdate,
 			'enddate'   => $enddate,
 			'year'      => $year,
+			'month'      => $month,
 		];
 
 		$result = \lib\app\product\report\sale_date::get_list($args);
