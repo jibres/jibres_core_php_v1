@@ -802,6 +802,11 @@ class cleanse
 				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
 				break;
 
+			case 'intmonth':
+				$meta['enum'] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+				$data = \dash\validate\dataarray::enum($_data, $_notif, $element, $field_title, $meta);
+				break;
+
 			case 'bigint':
 				$meta['min']   = 0;
 				$meta['max']   = 9999999999999999999;
