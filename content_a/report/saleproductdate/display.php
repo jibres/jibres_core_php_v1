@@ -1,4 +1,4 @@
-<form method="get" autocomplete="off" action="<?php echo \dash\url::that() ?>" action="<?php echo \dash\url::this() ?>">
+<form method="get" autocomplete="off" action="<?php echo \dash\url::that() ?>" action="<?php echo \dash\url::this() ?>" data-timeout="0">
   <?php if(\dash\request::get('type')) {?>
     <input type="hidden" name="type" value="<?php echo \dash\request::get('type') ?>">
   <?php } //endif ?>

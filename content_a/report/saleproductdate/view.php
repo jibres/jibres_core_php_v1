@@ -7,7 +7,7 @@ class view
 	{
 		\dash\permission::access('_group_setting');
 
-		\dash\face::title(T_('Sale Product per date'));
+		\dash\face::title(T_('Product sales reports'));
 
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
@@ -24,37 +24,51 @@ class view
 			$type = 'date';
 		}
 
-		if($type === 'date' && !$date)
+		switch ($type)
 		{
-			$date = \dash\fit::date_en(date("Y-m-d"));
+			case 'date':
+				\dash\face::title(T_('Product sales reports in date'));
+
+				if(!$date)
+				{
+					$date = \dash\fit::date_en(date("Y-m-d"));
+				}
+
+				break;
+
+			case 'period':
+
+				\dash\face::title(T_('Product sales reports over time'));
+
+				if(!$startdate)
+				{
+					$startdate = \dash\fit::date_en(date("Y-m-d", strtotime('-7 days')));
+				}
+
+				if(!$enddate)
+				{
+					$enddate = \dash\fit::date_en(date("Y-m-d"));
+				}
+
+				break;
+
+			case 'year':
+				\dash\face::title(T_('Product sales reports in year'));
+
+				if(!$year)
+				{
+					$year = substr(\dash\fit::date_en(date("Y-m-d")), 0, 4);
+				}
+
+				$year_list = \lib\app\order\get::year_list();
+
+				\dash\data::yearList($year_list);
+				break;
+
+			default:
+				// code...
+				break;
 		}
-
-
-		if($type === 'period')
-		{
-			if(!$startdate)
-			{
-				$startdate = \dash\fit::date_en(date("Y-m-d", strtotime('-7 days')));
-			}
-
-			if(!$enddate)
-			{
-				$enddate = \dash\fit::date_en(date("Y-m-d"));
-			}
-		}
-
-		if($type === 'year')
-		{
-			if(!$year)
-			{
-				$year = substr(\dash\fit::date_en(date("Y-m-d")), 0, 4);
-			}
-
-			$year_list = \lib\app\order\get::year_list();
-
-			\dash\data::yearList($year_list);
-		}
-
 
 
 
