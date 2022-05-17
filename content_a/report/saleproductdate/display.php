@@ -105,17 +105,65 @@ $endtime .= '</div>';
   </div>
 </form>
 <?php if(\dash\data::summaryDetail()) { ?>
-  <div class="box">
-    <div class="pad">
-       <div><?php echo T_("Product") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_count()); ?></span></div>
-        <div><?php echo T_("Count Order") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_countorder()); ?></span></div>
-        <div><?php echo T_("Price") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_price()); ?></span></div>
-        <div><?php echo T_("Total Vat") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_vat()); ?></span></div>
-        <div><?php echo T_("Total Discount") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_discount()); ?></span></div>
-        <div><?php echo T_("Total") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_finalprice()); ?></span></div>
-        <div><?php echo T_("Sum") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_sum()); ?></span></div>
-    </div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-2">
+  <?php if(floatval(\dash\data::summaryDetail_count())) {?>
+    <div class="">
+      <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
+        <?php echo T_("Product") ?>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_count()); ?></div>
+      </div>
   </div>
+  <?php } //endif ?>
+  <?php if(floatval(\dash\data::summaryDetail_countorder())) {?>
+    <div class="">
+      <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
+        <?php echo T_("Count Order") ?>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_countorder()); ?></div>
+      </div>
+  </div>
+  <?php } //endif ?>
+  <?php if(floatval(\dash\data::summaryDetail_price())) {?>
+    <div class="">
+      <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
+        <?php echo T_("Price") ?>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_price()); ?></div>
+      </div>
+  </div>
+  <?php } //endif ?>
+  <?php if(floatval(\dash\data::summaryDetail_vat())) {?>
+    <div class="">
+      <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
+        <?php echo T_("Total Vat") ?>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_vat()); ?></div>
+      </div>
+  </div>
+  <?php } //endif ?>
+  <?php if(floatval(\dash\data::summaryDetail_discount())) {?>
+    <div class="">
+      <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
+        <?php echo T_("Total Discount") ?>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_discount()); ?></div>
+      </div>
+  </div>
+  <?php } //endif ?>
+  <?php if(floatval(\dash\data::summaryDetail_finalprice())) {?>
+    <div class="">
+      <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
+        <?php echo T_("Total") ?>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_finalprice()); ?></div>
+      </div>
+  </div>
+  <?php } //endif ?>
+  <?php if(floatval(\dash\data::summaryDetail_sum())) {?>
+    <div class="">
+      <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
+        <?php echo T_("Sum") ?>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_sum()); ?></div>
+      </div>
+  </div>
+  <?php } //endif ?>
+</div>
+
 <?php } // endif ?>
 
 
