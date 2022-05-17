@@ -35,7 +35,16 @@
 					<li>
 						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleproductdate">
 							<i class="sf-tags"></i>
-							<div class="key"><?php echo T_("Report sale Products per date"); ?></div>
+							<div class="key"><?php echo T_("Product sales reports in date"); ?></div>
+							<div class="go"></div>
+						</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleproductdate?type=period">
+							<i class="sf-tags"></i>
+							<div class="key"><?php echo T_("Product sales reports over time"); ?></div>
 							<div class="go"></div>
 						</a>
 					</li>

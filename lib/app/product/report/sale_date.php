@@ -51,9 +51,12 @@ class sale_date
 				break;
 
 			case 'period':
-				$args['startdate'] = $data['startdate'] . ' 00:00:00';
-				$args['enddate']   = $data['enddate'] . ' 23:59:59';
-				$result = \lib\db\products\report\get::sale_in_date($args);
+				if($data['startdate'] && $data['enddate'])
+				{
+					$args['startdate'] = $data['startdate'] . ' 00:00:00';
+					$args['enddate']   = $data['enddate'] . ' 23:59:59';
+					$result = \lib\db\products\report\get::sale_in_date($args);
+				}
 				break;
 
 			default:

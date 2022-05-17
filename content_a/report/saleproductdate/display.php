@@ -1,25 +1,28 @@
 <form method="get" autocomplete="off" action="<?php echo \dash\url::that() ?>">
   <div class="box">
     <div class="pad">
+      <?php if(\dash\data::myArgs_type() === 'date') {?>
       <label for="date"><?php echo T_("Date"); ?></label>
       <div class="input">
-        <input type="tel" name="date" value="<?php echo \dash\data::currentDate() ?>" data-format="date" id="date">
+        <input type="tel" name="date" value="<?php echo \dash\data::myArgs_date() ?>" data-format="date" id="date">
       </div>
-
+    <?php } //endif ?>
+    <?php if(\dash\data::myArgs_type() === 'period') {?>
       <div class="row">
         <div class="c">
           <label for="startdate"><?php echo T_("Start Date"); ?></label>
           <div class="input">
-            <input type="tel" name="startdate" value="<?php echo \dash\request::get('startdate') ?>" data-format="date" id="startdate">
+            <input type="tel" name="startdate" value="<?php echo \dash\data::myArgs_startdate() ?>" data-format="date" id="startdate">
           </div>
         </div>
         <div class="c">
           <label for="enddate"><?php echo T_("End Date"); ?></label>
           <div class="input">
-            <input type="tel" name="enddate" value="<?php echo \dash\request::get('enddate') ?>" data-format="date" id="enddate">
+            <input type="tel" name="enddate" value="<?php echo \dash\data::myArgs_enddate() ?>" data-format="date" id="enddate">
           </div>
         </div>
       </div>
+    <?php } //endif ?>
 
       <div class="txtRa">
         <button class="btn-primary"><?php echo T_("Report") ?></button>

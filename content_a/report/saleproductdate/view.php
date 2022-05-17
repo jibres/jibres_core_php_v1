@@ -12,21 +12,35 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		$date = \dash\request::get('date');
+		$date      = \dash\request::get('date');
+		$startdate = \dash\request::get('startdate');
+		$enddate   = \dash\request::get('enddate');
+		$type      = \dash\request::get('type');
+
 		if(!$date)
 		{
 			$date = \dash\fit::date_en(date("Y-m-d"));
 		}
 
-		\dash\data::currentDate($date);
+		if(!$type)
+		{
+			$type = 'date';
+		}
 
-		$startdate = \dash\request::get('startdate');
-		$enddate   = \dash\request::get('enddate');
+		if(!$startdate)
+		{
+			$startdate = \dash\fit::date_en(date("Y-m-d", strtotime('-7 days')));
+		}
+
+		if(!$enddate)
+		{
+			$enddate = \dash\fit::date_en(date("Y-m-d"));
+		}
+
 
 		$args =
 		[
-			'type'      => 'date',
-			'type'      => 'period',
+			'type'      => $type,
 			'date'      => $date,
 			'startdate' => $startdate,
 			'enddate'   => $enddate,
@@ -37,6 +51,7 @@ class view
 		\dash\data::dataTable($result);
 
 
+		\dash\data::myArgs($args);
 
 	}
 }
