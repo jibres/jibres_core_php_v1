@@ -108,12 +108,7 @@ class journal
 
 		$year_jalali = \dash\utility\jdate::date("Y", strtotime($year. '-05-01 00:00:00'), false);
 
-		$end_of_year = 29;
-
-		if( ($year_jalali % 4) == 3)
-		{
-			$end_of_year = 30;
-		}
+		$end_of_year = \dash\utility\jdate::day_of_end_of_year($year_jalali);
 
 		if($data['daily'])
 		{
