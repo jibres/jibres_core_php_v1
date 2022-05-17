@@ -18,11 +18,24 @@ class view
 		$enddate   = \dash\request::get('enddate');
 		$year      = \dash\request::get('year');
 		$month     = \dash\request::get('month');
+		$starttime = \dash\request::get('starttime');
+		$endtime   = \dash\request::get('endtime');
+
 
 
 		if(!$type)
 		{
 			$type = 'date';
+		}
+
+		if(!$starttime)
+		{
+			$starttime = '00:00:00';
+		}
+
+		if(!$endtime)
+		{
+			$endtime = '23:59:59';
 		}
 
 		switch ($type)
@@ -98,7 +111,9 @@ class view
 			'startdate' => $startdate,
 			'enddate'   => $enddate,
 			'year'      => $year,
-			'month'      => $month,
+			'month'     => $month,
+			'starttime' => $starttime,
+			'endtime'   => $endtime,
 		];
 
 		$result = \lib\app\product\report\sale_date::get_list($args);

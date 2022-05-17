@@ -19,6 +19,8 @@ class sale_date
 			'enddate'   => 'date',
 			'year'      => 'intstring_4',
 			'month'     => 'intmonth',
+			'starttime' => 'time',
+			'endtime'   => 'time',
 		];
 
 		$require = ['type'];
@@ -53,24 +55,25 @@ class sale_date
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$start_time = '00:00:00';
-		$end_time   = '23:59:59';
+
+		$starttime = $data['starttime'];
+		$endtime   = $data['endtime'];
 
 		$result = [];
 
 		switch ($data['type'])
 		{
 			case 'date':
-				$args['startdate'] = $data['date'] . ' '. $start_time;
-				$args['enddate']   = $data['date'] . ' '. $end_time;
+				$args['startdate'] = $data['date'] . ' '. $starttime;
+				$args['enddate']   = $data['date'] . ' '. $endtime;
 				$result = \lib\db\products\report\get::sale_in_date($args);
 				break;
 
 			case 'period':
 				if($data['startdate'] && $data['enddate'])
 				{
-					$args['startdate'] = $data['startdate'] . ' '. $start_time;
-					$args['enddate']   = $data['enddate'] . ' '. $end_time;
+					$args['startdate'] = $data['startdate'] . ' '. $starttime;
+					$args['enddate']   = $data['enddate'] . ' '. $endtime;
 					$result = \lib\db\products\report\get::sale_in_date($args);
 				}
 				break;
@@ -80,11 +83,11 @@ class sale_date
 				{
 					$end_of_year = \dash\utility\jdate::day_of_end_of_year($data['year']);
 
-					$start_year = $data['year']. '-01-01 '. $start_time;
-					$end_year   = $data['year']. "-12-$end_of_year ". $end_time;
+					$start_year = $data['year']. '-01-01 '. $starttime;
+					$end_year   = $data['year']. "-12-$end_of_year ". $endtime;
 
-					$args['startdate'] = \dash\validate::date($start_year) . ' '. $start_time;
-					$args['enddate']   = \dash\validate::date($end_year) . ' '. $end_time;
+					$args['startdate'] = \dash\validate::date($start_year) . ' 00:00:00';
+					$args['enddate']   = \dash\validate::date($end_year) . ' 23:59:59';
 
 					$result = \lib\db\products\report\get::sale_in_date($args);
 				}
@@ -93,33 +96,33 @@ class sale_date
 			case 'month':
 				if($data['month'] && $data['year'])
 				{
-					$start_month = date($data['year']. '-'. $data['month']. '-01 '. $start_time);
+					$start_month = date($data['year']. '-'. $data['month']. '-01');
 
 					if(\dash\language::current() === 'fa')
 					{
 						if($data['month'] <= 6)
 						{
-							$end_month   = $data['year']. '-'. $data['month']. '-31 '. $end_time;
+							$end_month   = $data['year']. '-'. $data['month']. '-31';
 						}
 						else
 						{
-							$end_month   = $data['year']. '-'. $data['month']. '-30 '. $end_time;
+							$end_month   = $data['year']. '-'. $data['month']. '-30';
 
 							if(intval($data['month']) === 12)
 							{
 								$end_of_year = \dash\utility\jdate::day_of_end_of_year($data['year']);
 
-								$end_month   = $data['year']. '-'. $data['month']. '-'. $end_of_year.' '. $end_time;
+								$end_month   = $data['year']. '-'. $data['month']. '-'. $end_of_year;
 							}
 						}
 					}
 					else
 					{
-						$end_month   = date($data['year']. '-'. $data['month']. '-t '. $end_time);
+						$end_month   = date($data['year']. '-'. $data['month']. '-t');
 					}
 
-					$args['startdate'] = \dash\validate::date($start_month) . ' '. $start_time;
-					$args['enddate']   = \dash\validate::date($end_month) . ' '. $end_time;
+					$args['startdate'] = \dash\validate::date($start_month) . ' 00:00:00';
+					$args['enddate']   = \dash\validate::date($end_month) . ' 23:59:59';
 
 					$result = \lib\db\products\report\get::sale_in_date($args);
 				}

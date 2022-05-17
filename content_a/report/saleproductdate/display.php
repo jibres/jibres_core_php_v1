@@ -1,14 +1,39 @@
-<form method="get" autocomplete="off" action="<?php echo \dash\url::that() ?>" action="<?php echo \dash\url::this() ?>" data-timeout="0">
+<?php
+
+$starttime = '<label for="starttime">'. T_("Start time"). '</label>';
+$starttime .= '<div class="input">';
+{
+  $starttime .= '<input type="tel" name="starttime" value="'. \dash\data::myArgs_starttime().'" data-format="time" id="starttime">';
+}
+$starttime .= '</div>';
+
+
+$endtime = '<label for="endtime">'. T_("End time"). '</label>';
+$endtime .= '<div class="input">';
+{
+  $endtime .= '<input type="tel" name="endtime" value="'. \dash\data::myArgs_endtime().'" data-format="time" id="endtime">';
+}
+$endtime .= '</div>';
+
+?>
+
+<form method="get" autocomplete="off" action="<?php echo \dash\url::that() ?>"  data-timeout="0">
   <?php if(\dash\request::get('type')) {?>
     <input type="hidden" name="type" value="<?php echo \dash\request::get('type') ?>">
   <?php } //endif ?>
   <div class="box">
     <div class="pad">
       <?php if(\dash\data::myArgs_type() === 'date') {?>
-      <label for="date"><?php echo T_("Date"); ?></label>
-      <div class="input">
-        <input type="tel" name="date" value="<?php echo \dash\data::myArgs_date() ?>" data-format="date" id="date">
-      </div>
+        <div class="row">
+          <div class="c-xs-12 c-sm-4">
+            <label for="date"><?php echo T_("Date"); ?></label>
+            <div class="input">
+              <input type="tel" name="date" value="<?php echo \dash\data::myArgs_date() ?>" data-format="date" id="date">
+            </div>
+          </div>
+          <div class="c-xs-12 c-sm-4"><?php echo $starttime ?></div>
+          <div class="c-xs-12 c-sm-4"><?php echo $endtime ?></div>
+        </div>
     <?php } //endif ?>
     <?php if(\dash\data::myArgs_type() === 'period') {?>
       <div class="row">
@@ -24,6 +49,10 @@
             <input type="tel" name="enddate" value="<?php echo \dash\data::myArgs_enddate() ?>" data-format="date" id="enddate">
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="c"><?php echo $starttime ?></div>
+        <div class="c"><?php echo $endtime ?></div>
       </div>
     <?php } //endif ?>
     <?php if(\dash\data::myArgs_type() === 'year') {?>
