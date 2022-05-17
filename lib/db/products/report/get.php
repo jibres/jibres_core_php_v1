@@ -10,11 +10,23 @@ class get
 		"
 
 			SELECT
-				COUNT(pq.one) AS `count`
+				COUNT(pq.one) AS `count`,
+				SUM(pq.countorder) AS `countorder`,
+				SUM(pq.price) AS `price`,
+				SUM(pq.discount) AS `discount`,
+				SUM(pq.vat) AS `vat`,
+				SUM(pq.finalprice) AS `finalprice`,
+				SUM(pq.sum) AS `sum`
 			FROM
 			(
 				SELECT
-					1 AS `one`
+					1 AS `one`,
+					COUNT(*) AS `countorder`,
+					SUM(factordetails.price) AS `price`,
+					SUM(factordetails.discount) AS `discount`,
+					SUM(factordetails.vat) AS `vat`,
+					SUM(factordetails.finalprice) AS `finalprice`,
+					SUM(factordetails.sum) AS `sum`
 				FROM
 					factordetails
 				JOIN factors ON factors.id = factordetails.factor_id
@@ -36,7 +48,15 @@ class get
 			':enddate'   => $_args['enddate'],
 		];
 
-		$limit = \dash\db\pagination::pagination_query($pagination_query, $param, 50);
+		$total_result = \dash\pdo::get($pagination_query, $param, null, true);
+
+		$total_rows = 0;
+		if(isset($total_result['count']))
+		{
+			$total_rows = $total_result['count'];
+		}
+
+		$limit = \dash\db\pagination::get_limit($total_rows, 50);
 
 
 		$query  =
@@ -69,7 +89,9 @@ class get
 			$limit
 		";
 
-		$result = \dash\pdo::get($query, $param);
+		$result            = [];
+		$result['summary'] = $total_result;
+		$result['list']    = \dash\pdo::get($query, $param);
 
 		return $result;
 	}

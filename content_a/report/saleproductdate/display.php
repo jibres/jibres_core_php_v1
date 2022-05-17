@@ -104,6 +104,20 @@ $endtime .= '</div>';
     </div>
   </div>
 </form>
+<?php if(\dash\data::summaryDetail()) { ?>
+  <div class="box">
+    <div class="pad">
+       <div><?php echo T_("Product") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_count()); ?></span></div>
+        <div><?php echo T_("Count Order") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_countorder()); ?></span></div>
+        <div><?php echo T_("Price") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_price()); ?></span></div>
+        <div><?php echo T_("Total Vat") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_vat()); ?></span></div>
+        <div><?php echo T_("Total Discount") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_discount()); ?></span></div>
+        <div><?php echo T_("Total") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_finalprice()); ?></span></div>
+        <div><?php echo T_("Sum") ?> <span class="font-bold"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_sum()); ?></span></div>
+    </div>
+  </div>
+<?php } // endif ?>
+
 
 <?php if(\dash\data::dataTable()) {
 $currency = \lib\store::currency();

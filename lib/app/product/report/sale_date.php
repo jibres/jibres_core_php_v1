@@ -200,6 +200,8 @@ class sale_date
 				// code...
 				break;
 		}
+
+
 		return $result;
 
 	}

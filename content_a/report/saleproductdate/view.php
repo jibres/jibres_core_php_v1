@@ -120,14 +120,23 @@ class view
 
 		$result = \lib\app\product\report\sale_date::get_list($args);
 
-		\dash\data::dataTable($result);
-
-		if($result && is_array($result))
+		if(isset($result['list']))
 		{
-			if(floatval(array_sum(array_column($result, 'vat'))) === floatval(0))
+
+			\dash\data::dataTable($result['list']);
+
+			if($result['list'] && is_array($result['list']))
 			{
-				\dash\data::hiddenVat(true);
+				if(floatval(array_sum(array_column($result['list'], 'vat'))) === floatval(0))
+				{
+					\dash\data::hiddenVat(true);
+				}
 			}
+		}
+
+		if(isset($result['summary']))
+		{
+			\dash\data::summaryDetail($result['summary']);
 		}
 
 
