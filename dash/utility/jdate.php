@@ -780,10 +780,7 @@ class jdate
 
         if(intval($jmonth) === 12)
         {
-            if(intval($jyear) % 4 == 3)
-            {
-                $j_days_in_month['12'] = 30;
-            }
+            $j_days_in_month['12'] = \dash\utility\jdate::day_of_end_of_year($jyear);
         }
 
         $end_day    = $j_days_in_month[$_month];
@@ -794,6 +791,26 @@ class jdate
         $end_date   = date("Y-m-d",$end_date);
         return [$start_date, $end_date];
 
+    }
+
+
+    /**
+     * Get end day of year
+     *
+     * @param      <type>  $_year  The year
+     *
+     * @return     int     ( description_of_the_return_value )
+     */
+    public static function day_of_end_of_year($_year)
+    {
+        $end_of_year = 29;
+
+        if( (intval($_year) % 4) == 3)
+        {
+            $end_of_year = 30;
+        }
+
+        return $end_of_year;
     }
 
 
