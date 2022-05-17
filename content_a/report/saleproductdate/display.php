@@ -115,7 +115,9 @@ $currency = \lib\store::currency();
         <th><?php echo T_("Product") ?></th>
         <th><?php echo T_("Count Order") ?></th>
         <th><?php echo T_("Price") ?></th>
-        <th><?php echo T_("Total Vat") ?></th>
+        <?php if(!\dash\data::hiddenVat()) {?>
+          <th><?php echo T_("Total Vat") ?></th>
+        <?php } //endif ?>
         <th><?php echo T_("Total Discount") ?></th>
         <th><?php echo T_("Total") ?></th>
         <th><?php echo T_("Qty") ?></th>
@@ -128,7 +130,9 @@ $currency = \lib\store::currency();
           <td><a class="link-primary" href="<?php echo \dash\url::here(). '/products/edit?id='. a($value, 'product_id') ?>"><?php echo a($value, 'product_title') ?></a></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'count')) ?></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'price')); if(floatval(a($value, 'price'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
-          <td><?php echo \dash\fit::number_decimal(a($value, 'vat')); if(floatval(a($value, 'vat'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
+          <?php if(!\dash\data::hiddenVat()) {?>
+            <td><?php echo \dash\fit::number_decimal(a($value, 'vat')); if(floatval(a($value, 'vat'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
+          <?php }  // endif ?>
           <td><?php echo \dash\fit::number_decimal(a($value, 'discount')); if(floatval(a($value, 'discount'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'finalprice')); if(floatval(a($value, 'finalprice'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'qty'));  if(floatval(a($value, 'qty'))){ echo ' <small class="text-gray-400">'. a($value, 'product_unit'). '</small>'; } ?></td>

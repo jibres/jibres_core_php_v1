@@ -122,6 +122,14 @@ class view
 
 		\dash\data::dataTable($result);
 
+		if($result && is_array($result))
+		{
+			if(floatval(array_sum(array_column($result, 'vat'))) === floatval(0))
+			{
+				\dash\data::hiddenVat(true);
+			}
+		}
+
 
 		\dash\data::myArgs($args);
 
