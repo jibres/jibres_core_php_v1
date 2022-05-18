@@ -66,17 +66,17 @@ foreach ($sample as $event => $value)
 }
 
 
-$html .= '<div class="alert-info mt-2" >';
-{
-  $html .= T_("If you want to change the text of the SMS template, you can let us know via the ticket so that we can define a new template for you.");
-  $html .= '<a href="'. \dash\url::jibres(). '/my/ticket/add?title='. T_("SMS template"). '" target="_blank" data-direct> ';
-  {
-    $html .= T_("Send ticket");
-  }
-  $html .= '</a>';
+// $html .= '<div class="alert-info mt-2" >';
+// {
+//   $html .= T_("If you want to change the text of the SMS template, you can let us know via the ticket so that we can define a new template for you.");
+//   $html .= '<a href="'. \dash\url::jibres(). '/my/ticket/add?title='. T_("SMS template"). '" target="_blank" data-direct> ';
+//   {
+//     $html .= T_("Send ticket");
+//   }
+//   $html .= '</a>';
 
-}
-$html .= '</div>';
+// }
+// $html .= '</div>';
 
 echo $html;
 ?>
