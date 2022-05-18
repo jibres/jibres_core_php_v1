@@ -22,7 +22,12 @@ foreach ($sample as $event => $value)
   $html .= '<section class="f" data-option="setting-notification-print-show-vat" id="setting-notification-print-show-vat">';
     $html .= '<div class="c8 s12">';
       $html .= '<div class="data">';
-        $html .= '<h3>'. T_("Send sms") . ' '. a($value, 'title').'</h3>';
+        $html .= '<h3>'. T_("Send sms") . ' '. a($value, 'title');
+        if(a($value, 'sub_title'))
+        {
+          $html .= '  <small class="text-gray-400 text-xs">'. a($value, 'sub_title'). '</small>';
+        }
+        $html .='</h3>';
         $html .= '<div class="body">';
           $html .= '<p>'. a($value, 'text').'</p>';
 

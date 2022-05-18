@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-05-13 14:20+0430\n"
-"PO-Revision-Date: 2022-05-13 14:21+0430\n"
+"POT-Creation-Date: 2022-05-18 16:41+0430\n"
+"PO-Revision-Date: 2022-05-18 16:41+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -10405,7 +10405,7 @@ msgstr "پرداخت نشده"
 
 #: content_a/order/status/display.php:107
 #: lib/app/log/caller/order/order_customerTrackingNumber.php:13
-#: lib/app/setting/notification.php:53
+#: lib/app/setting/notification.php:57
 msgid "Tracking number"
 msgstr "شماره رهگیری"
 
@@ -12754,40 +12754,24 @@ msgstr "برای ارسال پیام‌های اطلاع رسانی زیر شم�
 msgid "Send sms"
 msgstr "ارسال پیام"
 
-#: content_a/setting/notification/display.php:31
+#: content_a/setting/notification/display.php:36
 msgid "Change template"
 msgstr "ویرایش قالب"
 
-#: content_a/setting/notification/display.php:60 content_account/security/display.php:45
+#: content_a/setting/notification/display.php:65 content_account/security/display.php:45
 #: content_account/security/display.php:52
 #: content_business/profile/notifications/setting/display.php:74
 #: content_crm/member/notification/display.php:62
 msgid "On"
 msgstr "روشن"
 
-#: content_a/setting/notification/display.php:60 content_account/security/display.php:45
+#: content_a/setting/notification/display.php:65 content_account/security/display.php:45
 #: content_account/security/display.php:52
 #: content_business/profile/notifications/setting/display.php:74
 #: content_crm/member/notification/display.php:62
 #: content_love/domain/detail/display.php:101 content_love/domain/setting/display.php:83
 msgid "Off"
 msgstr "خاموش"
-
-#: content_a/setting/notification/display.php:71
-msgid ""
-"If you want to change the text of the SMS template, you can let us know via the ticket "
-"so that we can define a new template for you."
-msgstr ""
-"در صورت تمایل به تغییر متن قالب پیامکی می‌توانید این موضوع را از طریق تیکت به ما اطلاع "
-"دهید تا قالب جدیدی برای شما تعریف کنیم."
-
-#: content_a/setting/notification/display.php:72
-msgid "SMS template"
-msgstr "الگوی پیامک"
-
-#: content_a/setting/notification/display.php:74
-msgid "Send ticket"
-msgstr "ارسال تیکت"
 
 #: content_a/setting/notification/view.php:9 content_business/profile/display-menu.php:31
 #: content_business/profile/notifications/setting/view.php:9
@@ -41007,23 +40991,23 @@ msgstr "بیش از دو محصول با این بارکد به ثبت رسید�
 msgid "Some detail is wrong!"
 msgstr "برخی از جزئیات اشتباه هستند!"
 
-#: lib/app/product/edit.php:241
+#: lib/app/product/edit.php:244
 msgid "Title of product can not be null"
 msgstr "عنوان محصول نمی تواند خالی باشد"
 
-#: lib/app/product/edit.php:347
+#: lib/app/product/edit.php:350
 msgid "Can not update product"
 msgstr "نمی‌توانیم محصول را به‌روزرسانی کنیم"
 
-#: lib/app/product/edit.php:421 lib/app/product/edit.php:431
+#: lib/app/product/edit.php:424 lib/app/product/edit.php:434
 msgid "Your product successfully updated"
 msgstr "محصول با موفقیت به‌روزرسانی شد"
 
-#: lib/app/product/edit.php:440
+#: lib/app/product/edit.php:443
 msgid "Your product saved without change"
 msgstr "محصول شما بدون تغییر ذخیره شد"
 
-#: lib/app/product/edit.php:449
+#: lib/app/product/edit.php:452
 msgid "No value found for editing"
 msgstr "هیچ مقداری برای ویرایش وجود ندارد"
 
@@ -41865,23 +41849,32 @@ msgstr "تیپاکس"
 msgid "Before pay"
 msgstr "قبل از پرداخت"
 
-#: lib/app/setting/notification.php:35
+#: lib/app/setting/notification.php:30 lib/app/setting/notification.php:37
+msgid "Send to admin"
+msgstr "ارسال به مدیر"
+
+#: lib/app/setting/notification.php:36
 msgid "After pay"
 msgstr "بعد از پرداخت"
 
-#: lib/app/setting/notification.php:41
+#: lib/app/setting/notification.php:43
 msgid "New order"
 msgstr "سفارش جدید"
 
-#: lib/app/setting/notification.php:47
+#: lib/app/setting/notification.php:44 lib/app/setting/notification.php:51
+#: lib/app/setting/notification.php:58
+msgid "Send to customer"
+msgstr "ارسال به مشتری"
+
+#: lib/app/setting/notification.php:50
 msgid "Sending order"
 msgstr "ارسال سفارش"
 
-#: lib/app/setting/notification.php:228
+#: lib/app/setting/notification.php:233
 msgid "No notification found to send to this user"
 msgstr "هیچ پیام اطلاع رسانی برای ارسال به این کاربر یافت نشد"
 
-#: lib/app/setting/notification.php:296
+#: lib/app/setting/notification.php:301
 msgid "Invalid template id"
 msgstr "کلید قالب اشتباه است"
 
@@ -43474,6 +43467,19 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid ""
+#~ "If you want to change the text of the SMS template, you can let us know via the "
+#~ "ticket so that we can define a new template for you."
+#~ msgstr ""
+#~ "در صورت تمایل به تغییر متن قالب پیامکی می‌توانید این موضوع را از طریق تیکت به ما "
+#~ "اطلاع دهید تا قالب جدیدی برای شما تعریف کنیم."
+
+#~ msgid "SMS template"
+#~ msgstr "الگوی پیامک"
+
+#~ msgid "Send ticket"
+#~ msgstr "ارسال تیکت"
 
 #~ msgid "Logout from your account!"
 #~ msgstr "خروج از حساب کاربری!"
@@ -47585,9 +47591,6 @@ msgstr "یارد"
 
 #~ msgid "View base ticket"
 #~ msgstr "مشاهده تیکت اصلی"
-
-#~ msgid "Seen by customer"
-#~ msgstr "توسط مشتری دیده شده است"
 
 #~ msgid "File size error"
 #~ msgstr "حجم فایل بیش از اندازه مجاز است"

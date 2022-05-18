@@ -26,32 +26,37 @@ class notification
 
 		  'before_pay' =>
 		  [
-			'title'  => T_("Before pay"),
-			'fn'     => '\\lib\\app\\log\\caller\\order\\order_adminNewOrderBeforePay',
+			'title'     => T_("Before pay"),
+			'sub_title' => T_("Send to admin"),
+			'fn'        => '\\lib\\app\\log\\caller\\order\\order_adminNewOrderBeforePay',
 		  ],
 
 		  'after_pay' =>
 		  [
-			'title'  => T_("After pay"),
-			'fn'     => '\\lib\\app\\log\\caller\\order\\order_adminNewOrderAfterPay',
+			'title'     => T_("After pay"),
+			'sub_title' => T_("Send to admin"),
+			'fn'        => '\\lib\\app\\log\\caller\\order\\order_adminNewOrderAfterPay',
 		  ],
 
 		  'new_order' =>
 		  [
-			'title'  => T_("New order"),
-			'fn'     => '\\lib\\app\\log\\caller\\order\\order_customerNewOrder',
+			'title'     => T_("New order"),
+			'sub_title' => T_("Send to customer"),
+			'fn'        => '\\lib\\app\\log\\caller\\order\\order_customerNewOrder',
 		  ],
 
 		  'sending_order' =>
 		  [
-			'title'  => T_("Sending order"),
-			'fn'     => '\\lib\\app\\log\\caller\\order\\order_customerSendingOrder',
+			'title'     => T_("Sending order"),
+			'sub_title' => T_("Send to customer"),
+			'fn'        => '\\lib\\app\\log\\caller\\order\\order_customerSendingOrder',
 		  ],
 
 		  'tracking_number' =>
 		  [
-			'title'  => T_("Tracking number"),
-			'fn'     => '\\lib\\app\\log\\caller\\order\\order_customerTrackingNumber',
+			'title'     => T_("Tracking number"),
+			'sub_title' => T_("Send to customer"),
+			'fn'        => '\\lib\\app\\log\\caller\\order\\order_customerTrackingNumber',
 		  ],
 
 		];
