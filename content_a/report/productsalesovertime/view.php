@@ -1,5 +1,5 @@
 <?php
-namespace content_a\report\productsaleovertime;
+namespace content_a\report\productsalesovertime;
 
 class view
 {
