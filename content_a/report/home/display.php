@@ -33,16 +33,16 @@
 			<nav class="items long">
 				<ul>
 					<li>
-						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleproductdate">
+						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleovertime">
 							<i class="sf-tags"></i>
-							<div class="key"><?php echo T_("Product sales reports in date"); ?></div>
+							<div class="key"><?php echo T_("Product sales report by date"); ?></div>
 							<div class="go"></div>
 						</a>
 					</li>
 				</ul>
 				<ul>
 					<li>
-						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleproductdate?type=period">
+						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleovertime?type=period">
 							<i class="sf-tags"></i>
 							<div class="key"><?php echo T_("Product sales reports over time"); ?></div>
 							<div class="go"></div>
@@ -51,7 +51,7 @@
 				</ul>
 				<ul>
 					<li>
-						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleproductdate?type=month">
+						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleovertime?type=month">
 							<i class="sf-tags"></i>
 							<div class="key"><?php echo T_("Product sales reports over month"); ?></div>
 							<div class="go"></div>
@@ -60,7 +60,7 @@
 				</ul>
 				<ul>
 					<li>
-						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleproductdate?type=year">
+						<a class="item f" href="<?php echo \dash\url::this(); ?>/saleovertime?type=year">
 							<i class="sf-tags"></i>
 							<div class="key"><?php echo T_("Product sales reports over year"); ?></div>
 							<div class="go"></div>
