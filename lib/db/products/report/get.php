@@ -4,7 +4,7 @@ namespace lib\db\products\report;
 
 class get
 {
-	public static function sale_in_date($_args)
+	public static function product_sales_over_time($_args)
 	{
 		$pagination_query  =
 		"
@@ -85,6 +85,95 @@ class get
 				factordetails.count > 0
 			GROUP by
 				factordetails.product_id
+			ORDER BY `$_args[sort]` $_args[order]
+			$limit
+		";
+
+		$result            = [];
+		$result['summary'] = $total_result;
+		$result['list']    = \dash\pdo::get($query, $param);
+
+		return $result;
+	}
+
+
+	/**
+	 * Report sales over time
+	 *
+	 * @param      <type>  $_args  The arguments
+	 *
+	 * @return     array   ( description_of_the_return_value )
+	 */
+	public static function sales_over_time($_args)
+	{
+		$pagination_query  =
+		"
+
+			SELECT
+				COUNT(pq.one) AS `count`,
+				SUM(pq.price) AS `price`,
+				SUM(pq.discount) AS `discount`,
+				SUM(pq.vat) AS `vat`,
+				SUM(pq.sum) AS `sum`
+			FROM
+			(
+				SELECT
+					DATE(factors.date) AS `order_date`,
+					1 AS `one`,
+					SUM(factors.subprice) AS `price`,
+					SUM(factors.subdiscount) AS `discount`,
+					SUM(factors.subvat) AS `vat`,
+					SUM(factors.qty) AS `qty`,
+					SUM(factors.total) AS `sum`
+				FROM
+					factors
+				WHERE
+					factors.status != 'deleted' AND
+					factors.type  IN ('sale', 'saleorder') AND
+					factors.date >= :startdate AND
+					factors.date <= :enddate
+				GROUP by
+					`order_date`
+			) AS `pq`
+		";
+
+		$param =
+		[
+			':startdate' => $_args['startdate'],
+			':enddate'   => $_args['enddate'],
+		];
+
+		$total_result = \dash\pdo::get($pagination_query, $param, null, true);
+
+		$total_rows = 0;
+		if(isset($total_result['count']))
+		{
+			$total_rows = $total_result['count'];
+		}
+
+		$limit = \dash\db\pagination::get_limit($total_rows, 50);
+
+
+		$query  =
+		"
+			SELECT
+				DATE(factors.date) AS `order_date`,
+				COUNT(*) AS `count`,
+				SUM(factors.subprice) AS `price`,
+				SUM(factors.subdiscount) AS `discount`,
+				SUM(factors.subvat) AS `vat`,
+				SUM(factors.qty) AS `qty`,
+				SUM(factors.total) AS `sum`
+
+			FROM
+				factors
+			WHERE
+				factors.status != 'deleted' AND
+				factors.type  IN ('sale', 'saleorder') AND
+				factors.date >= :startdate AND
+				factors.date <= :enddate
+			GROUP by
+				`order_date`
 			ORDER BY `$_args[sort]` $_args[order]
 			$limit
 		";

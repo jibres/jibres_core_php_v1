@@ -58,6 +58,7 @@ class sale_date
 	{
 		$condition =
 		[
+			'groupby'   => ['enum' => ['product', 'date']],
 			'type'      => ['enum' => ['date', 'week', 'month', 'year', 'period']],
 			'sort'      => ['enum' => array_column(self::sort_list(), 'key')],
 			'date'      => 'date',
@@ -123,8 +124,11 @@ class sale_date
 			}
 		}
 
-		$args['sort']  = $sort;
-		$args['order'] = $order;
+		$args['sort']    = $sort;
+		$args['order']   = $order;
+		$args['groupby'] = $data['groupby'];
+
+		$ready_to_load_report = false;
 
 
 		$result = [];
@@ -132,32 +136,17 @@ class sale_date
 		switch ($data['type'])
 		{
 			case 'date':
-				$args['startdate'] = $data['date'] . ' '. $starttime;
-				$args['enddate']   = $data['date'] . ' '. $endtime;
-				$result = \lib\db\products\report\get::sale_in_date($args);
+				$args['startdate']    = $data['date'] . ' '. $starttime;
+				$args['enddate']      = $data['date'] . ' '. $endtime;
+				$ready_to_load_report = true;
 				break;
 
 			case 'period':
 				if($data['startdate'] && $data['enddate'])
 				{
-					$args['startdate'] = $data['startdate'] . ' '. $starttime;
-					$args['enddate']   = $data['enddate'] . ' '. $endtime;
-					$result = \lib\db\products\report\get::sale_in_date($args);
-				}
-				break;
-
-			case 'year':
-				if($data['year'])
-				{
-					$end_of_year = \dash\utility\jdate::day_of_end_of_year($data['year']);
-
-					$start_year = $data['year']. '-01-01 '. $starttime;
-					$end_year   = $data['year']. "-12-$end_of_year ". $endtime;
-
-					$args['startdate'] = \dash\validate::date($start_year) . ' 00:00:00';
-					$args['enddate']   = \dash\validate::date($end_year) . ' 23:59:59';
-
-					$result = \lib\db\products\report\get::sale_in_date($args);
+					$args['startdate']    = $data['startdate'] . ' '. $starttime;
+					$args['enddate']      = $data['enddate'] . ' '. $endtime;
+					$ready_to_load_report = true;
 				}
 				break;
 
@@ -189,16 +178,42 @@ class sale_date
 						$end_month   = date($data['year']. '-'. $data['month']. '-t');
 					}
 
-					$args['startdate'] = \dash\validate::date($start_month) . ' 00:00:00';
-					$args['enddate']   = \dash\validate::date($end_month) . ' 23:59:59';
+					$args['startdate']    = \dash\validate::date($start_month) . ' 00:00:00';
+					$args['enddate']      = \dash\validate::date($end_month) . ' 23:59:59';
+					$ready_to_load_report = true;
+				}
+				break;
 
-					$result = \lib\db\products\report\get::sale_in_date($args);
+			case 'year':
+				if($data['year'])
+				{
+					$end_of_year = \dash\utility\jdate::day_of_end_of_year($data['year']);
+
+					$start_year = $data['year']. '-01-01 '. $starttime;
+					$end_year   = $data['year']. "-12-$end_of_year ". $endtime;
+
+					$args['startdate']    = \dash\validate::date($start_year) . ' 00:00:00';
+					$args['enddate']      = \dash\validate::date($end_year) . ' 23:59:59';
+					$ready_to_load_report = true;
 				}
 				break;
 
 			default:
-				// code...
+				$ready_to_load_report = false;
 				break;
+		}
+
+
+		if($ready_to_load_report)
+		{
+			if($data['groupby'] === 'product')
+			{
+				$result = \lib\db\products\report\get::product_sales_over_time($args);
+			}
+			elseif($data['groupby'] === 'date')
+			{
+				$result = \lib\db\products\report\get::sales_over_time($args);
+			}
 		}
 
 

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\report\productsalesovertime;
+namespace content_a\report\salesovertime;
 
 class view
 {
@@ -7,7 +7,7 @@ class view
 	{
 		\dash\permission::access('_group_setting');
 
-		\dash\face::title(T_('Product sales reports'));
+		\dash\face::title(T_('Sales reports'));
 
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
@@ -43,7 +43,7 @@ class view
 		{
 
 			case 'date':
-				\dash\face::title(T_('Product sales report by date'));
+				\dash\face::title(T_('Sales report by date'));
 
 				if(!$date)
 				{
@@ -54,7 +54,7 @@ class view
 
 			case 'period':
 
-				\dash\face::title(T_('Product sales reports over time'));
+				\dash\face::title(T_('Sales reports over time'));
 
 				if(!$startdate)
 				{
@@ -69,7 +69,7 @@ class view
 				break;
 
 			case 'year':
-				\dash\face::title(T_('Product sales reports over year'));
+				\dash\face::title(T_('Sales reports over year'));
 
 				if(!$year)
 				{
@@ -82,7 +82,7 @@ class view
 				break;
 
 			case 'month':
-				\dash\face::title(T_('Product sales reports over month'));
+				\dash\face::title(T_('Sales reports over month'));
 
 				if(!$year)
 				{
@@ -108,7 +108,7 @@ class view
 
 		$args =
 		[
-			'groupby'   => 'product',
+			'groupby'   => 'date',
 			'type'      => $type,
 			'date'      => $date,
 			'startdate' => $startdate,
