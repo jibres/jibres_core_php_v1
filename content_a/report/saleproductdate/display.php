@@ -105,9 +105,9 @@ $endtime .= '</div>';
   </div>
 </form>
 <?php if(\dash\data::summaryDetail()) { ?>
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-2">
+<div class="row mb-2">
   <?php if(floatval(\dash\data::summaryDetail_count())) {?>
-    <div class="">
+    <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
         <?php echo T_("Product") ?>
         <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_count()); ?></div>
@@ -115,49 +115,41 @@ $endtime .= '</div>';
   </div>
   <?php } //endif ?>
   <?php if(floatval(\dash\data::summaryDetail_countorder())) {?>
-    <div class="">
+    <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
-        <?php echo T_("Count Order") ?>
+        <?php echo T_("Orders") ?>
         <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_countorder()); ?></div>
       </div>
   </div>
   <?php } //endif ?>
   <?php if(floatval(\dash\data::summaryDetail_price())) {?>
-    <div class="">
+    <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
-        <?php echo T_("Price") ?>
+        <?php echo T_("Gross sales") ?>
         <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_price()); ?></div>
       </div>
   </div>
   <?php } //endif ?>
   <?php if(floatval(\dash\data::summaryDetail_vat())) {?>
-    <div class="">
+    <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
-        <?php echo T_("Total Vat") ?>
+        <?php echo T_("Vat") ?>
         <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_vat()); ?></div>
       </div>
   </div>
   <?php } //endif ?>
   <?php if(floatval(\dash\data::summaryDetail_discount())) {?>
-    <div class="">
+    <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
-        <?php echo T_("Total Discount") ?>
+        <?php echo T_("Discounts") ?>
         <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_discount()); ?></div>
       </div>
   </div>
   <?php } //endif ?>
-  <?php if(floatval(\dash\data::summaryDetail_finalprice())) {?>
-    <div class="">
-      <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
-        <?php echo T_("Total") ?>
-        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_finalprice()); ?></div>
-      </div>
-  </div>
-  <?php } //endif ?>
   <?php if(floatval(\dash\data::summaryDetail_sum())) {?>
-    <div class="">
+    <div class="c-xs-12 c-sm-12 c-md-6 c-lg-8">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
-        <?php echo T_("Sum") ?>
+        <?php echo T_("Total sales") ?>
         <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_sum()); ?></div>
       </div>
   </div>
@@ -175,15 +167,15 @@ $currency = \lib\store::currency();
     <thead>
       <tr>
         <th><?php echo T_("Product") ?></th>
-        <th><?php echo T_("Count Order") ?></th>
-        <th><?php echo T_("Price") ?></th>
+        <th><?php echo T_("Orders") ?></th>
+        <th><?php echo T_("Gross sales") ?></th>
         <?php if(!\dash\data::hiddenVat()) {?>
-          <th><?php echo T_("Total Vat") ?></th>
+          <th><?php echo T_("Vat") ?></th>
         <?php } //endif ?>
-        <th><?php echo T_("Total Discount") ?></th>
-        <th><?php echo T_("Total") ?></th>
-        <th><?php echo T_("Qty") ?></th>
-        <th><?php echo T_("Sum") ?></th>
+        <th><?php echo T_("Discounts") ?></th>
+        <th><?php echo T_("Ordered quantity") ?></th>
+        <th><?php echo T_("Total sales") ?></th>
+
       </tr>
     </thead>
     <tbody>
@@ -196,7 +188,6 @@ $currency = \lib\store::currency();
             <td><?php echo \dash\fit::number_decimal(a($value, 'vat')); if(floatval(a($value, 'vat'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
           <?php }  // endif ?>
           <td><?php echo \dash\fit::number_decimal(a($value, 'discount')); if(floatval(a($value, 'discount'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
-          <td><?php echo \dash\fit::number_decimal(a($value, 'finalprice')); if(floatval(a($value, 'finalprice'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'qty'));  if(floatval(a($value, 'qty'))){ echo ' <small class="text-gray-400">'. a($value, 'product_unit'). '</small>'; } ?></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'sum')); if(floatval(a($value, 'sum'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
         </tr>
