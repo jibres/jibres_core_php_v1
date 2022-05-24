@@ -145,7 +145,7 @@ class view
 		\dash\data::myArgs($args);
 
 
-		\dash\data::sortList(\lib\app\product\report\sale_date::sort_list());
+		\dash\data::sortList(\lib\app\product\report\sale_date::sort_list('date'));
 
 
 
