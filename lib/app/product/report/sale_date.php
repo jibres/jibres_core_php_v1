@@ -9,26 +9,23 @@ class sale_date
 		$sort_list =
 		[
 
-			['key' => 'countorderdesc', 'sort' => 'count', 				'order' => 'DESC', 		'title' => T_("Count order DESC")],
-			['key' => 'countorderasc', 	'sort' => 'count', 				'order' => 'ASC', 		'title' => T_("Count order ASC")],
+			['key' => 'countorderdesc', 'sort' => 'count', 				'order' => 'DESC', 		'title' => T_("Count orders DESC"), 		],
+			['key' => 'countorderasc', 	'sort' => 'count', 				'order' => 'ASC', 		'title' => T_("Count orders ASC"), 			],
 
-			['key' => 'pricedesc', 		'sort' => 'price',	 			'order' => 'DESC', 		'title' => T_("Price DESC")],
-			['key' => 'priceasc', 		'sort' => 'price',	 			'order' => 'ASC', 		'title' => T_("Price ASC")],
+			['key' => 'pricedesc', 		'sort' => 'price',	 			'order' => 'DESC', 		'title' => T_("Cross sales DESC"), 			],
+			['key' => 'priceasc', 		'sort' => 'price',	 			'order' => 'ASC', 		'title' => T_("Cross sales ASC"), 			],
 
-			['key' => 'vatdesc', 		'sort' => 'vat',	 			'order' => 'DESC', 		'title' => T_("VAT DESC")],
-			['key' => 'vatasc', 		'sort' => 'vat',	 			'order' => 'ASC', 		'title' => T_("VAT ASC")],
+			['key' => 'vatdesc', 		'sort' => 'vat',	 			'order' => 'DESC', 		'title' => T_("VAT DESC"), 					],
+			['key' => 'vatasc', 		'sort' => 'vat',	 			'order' => 'ASC', 		'title' => T_("VAT ASC"), 					],
 
-			['key' => 'discountdesc', 	'sort' => 'discount',	 		'order' => 'DESC', 		'title' => T_("Discount DESC")],
-			['key' => 'discountasc', 	'sort' => 'discount',	 		'order' => 'ASC', 		'title' => T_("Discount ASC")],
+			['key' => 'discountdesc', 	'sort' => 'discount',	 		'order' => 'DESC', 		'title' => T_("Discounts DESC"), 			],
+			['key' => 'discountasc', 	'sort' => 'discount',	 		'order' => 'ASC', 		'title' => T_("Discounts ASC"), 			],
 
-			['key' => 'finalpricedesc', 'sort' => 'finalprice',			'order' => 'DESC', 		'title' => T_("Final price DESC")],
-			['key' => 'finalpriceasc', 	'sort' => 'finalprice',			'order' => 'ASC', 		'title' => T_("Final price ASC")],
+			['key' => 'qtydesc', 		'sort' => 'qty', 				'order' => 'DESC', 		'title' => T_("Ordered quantity DESC"), 	],
+			['key' => 'qtyasc', 		'sort' => 'qty', 				'order' => 'ASC', 		'title' => T_("Ordered quantity ASC"), 		],
 
-			['key' => 'qtydesc', 		'sort' => 'qty', 				'order' => 'DESC', 		'title' => T_("Qty DESC")],
-			['key' => 'qtyasc', 		'sort' => 'qty', 				'order' => 'ASC', 		'title' => T_("Qty ASC")],
-
-			['key' => 'sumdesc', 		'sort' => 'sum',	 			'order' => 'DESC', 		'title' => T_("Sum DESC")],
-			['key' => 'sumasc', 		'sort' => 'sum',	 			'order' => 'ASC', 		'title' => T_("Sum ASC")],
+			['key' => 'sumdesc', 		'sort' => 'sum',	 			'order' => 'DESC', 		'title' => T_("Total sales DESC"), 			],
+			['key' => 'sumasc', 		'sort' => 'sum',	 			'order' => 'ASC', 		'title' => T_("Total sales ASC"), 			],
 
 		];
 
