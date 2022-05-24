@@ -22,10 +22,10 @@ class get
 				SELECT
 					1 AS `one`,
 					COUNT(*) AS `countorder`,
-					SUM(factordetails.price) AS `price`,
-					SUM(factordetails.discount) AS `discount`,
-					SUM(factordetails.vat) AS `vat`,
-					SUM(factordetails.finalprice) AS `finalprice`,
+					SUM(factordetails.price * factordetails.count) AS `price`,
+					SUM(factordetails.discount * factordetails.count) AS `discount`,
+					SUM(factordetails.vat * factordetails.count) AS `vat`,
+					SUM(factordetails.finalprice * factordetails.count) AS `finalprice`,
 					SUM(factordetails.sum) AS `sum`
 				FROM
 					factordetails
@@ -35,8 +35,8 @@ class get
 					factors.status != 'deleted' AND
 					factors.type  IN ('sale', 'saleorder') AND
 					factors.date >= :startdate AND
-					factors.date <= :enddate AND
-					factordetails.count > 0
+					factors.date <= :enddate
+
 				GROUP by
 					factordetails.product_id
 			) AS `pq`
@@ -63,10 +63,10 @@ class get
 		"
 			SELECT
 				COUNT(*) AS `count`,
-				SUM(factordetails.price) AS `price`,
-				SUM(factordetails.discount) AS `discount`,
-				SUM(factordetails.vat) AS `vat`,
-				SUM(factordetails.finalprice) AS `finalprice`,
+				SUM(factordetails.price * factordetails.count) AS `price`,
+				SUM(factordetails.discount * factordetails.count) AS `discount`,
+				SUM(factordetails.vat * factordetails.count) AS `vat`,
+				SUM(factordetails.finalprice * factordetails.count) AS `finalprice`,
 				SUM(factordetails.count) AS `qty`,
 				SUM(factordetails.sum) AS `sum`,
 				factordetails.product_id AS `product_id`,
@@ -81,8 +81,8 @@ class get
 				factors.status != 'deleted' AND
 				factors.type  IN ('sale', 'saleorder') AND
 				factors.date >= :startdate AND
-				factors.date <= :enddate AND
-				factordetails.count > 0
+				factors.date <= :enddate
+
 			GROUP by
 				factordetails.product_id
 			ORDER BY `$_args[sort]` $_args[order]
