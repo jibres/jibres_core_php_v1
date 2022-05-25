@@ -146,11 +146,19 @@ $endtime .= '</div>';
       </div>
   </div>
   <?php } //endif ?>
-  <?php if(floatval(\dash\data::summaryDetail_sum())) {?>
-    <div class="c-xs-12 c-sm-12 c-md-6 c-lg-8">
+  <?php if(floatval(\dash\data::summaryDetail_shipping())) {?>
+    <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
+      <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
+        <?php echo T_("Shipping") ?>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_shipping()); ?></div>
+      </div>
+  </div>
+  <?php } //endif ?>
+  <?php if(floatval(\dash\data::summaryDetail_total())) {?>
+    <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
         <?php echo T_("Total sales") ?>
-        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_sum()); ?></div>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(\dash\data::summaryDetail_total()); ?></div>
       </div>
   </div>
   <?php } //endif ?>

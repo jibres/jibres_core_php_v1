@@ -56,6 +56,29 @@ class get
 			$total_rows = $total_result['count'];
 		}
 
+		$calculate_total =
+		"
+			SELECT
+				SUM(factors.total) AS `factortotal`,
+				SUM(factors.shipping) AS `shipping`
+			FROM
+				factors
+			WHERE
+				factors.status != 'deleted' AND
+				factors.type  IN ('sale', 'saleorder') AND
+				factors.date >= :startdate AND
+				factors.date <= :enddate
+		";
+
+		$calculate_total = \dash\pdo::get($calculate_total, $param, null, true);
+
+		if(is_array($calculate_total))
+		{
+			$total_result = array_merge($total_result, $calculate_total);
+		}
+
+		$total_result['total'] = floatval(a($total_result, 'sum')) + floatval(a($total_result, 'shipping'));
+
 		$limit = \dash\db\pagination::get_limit($total_rows, 50);
 
 
