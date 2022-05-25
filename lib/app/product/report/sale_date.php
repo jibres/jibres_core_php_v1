@@ -78,6 +78,7 @@ class sale_date
 			'type'      => ['enum' => ['date', 'week', 'month', 'year', 'period']],
 			'sort'      => ['enum' => array_column(self::sort_list(), 'key')],
 			'date'      => 'date',
+			'product'   => 'id',
 			'startdate' => 'date',
 			'enddate'   => 'date',
 			'year'      => 'intstring_4',

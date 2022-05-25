@@ -21,7 +21,7 @@ class view
 		$starttime = \dash\request::get('starttime');
 		$endtime   = \dash\request::get('endtime');
 		$sort      = \dash\request::get('sort');
-
+		$product   = \dash\request::get('product');
 
 
 		if(!$type)
@@ -110,6 +110,7 @@ class view
 		[
 			'groupby'   => 'product',
 			'type'      => $type,
+			'product'   => $product,
 			'date'      => $date,
 			'startdate' => $startdate,
 			'enddate'   => $enddate,
