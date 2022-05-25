@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		$pitchdeckVersion = "1.2";
+		$pitchdeckVersion = "1.3";
 		$FinancialVersion = "3";
 		switch (\dash\url::child())
 		{
