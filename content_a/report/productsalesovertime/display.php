@@ -26,7 +26,10 @@ $endtime .= '</div>';
 
       <p><?php echo T_("Choose spcial product") ?></p>
           <div class="mb-2">
-            <select name="product_id" class="select22" id="productSearch"  data-model='html' <?php \dash\layout\autofocus::html() ?>  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/products/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose spcial product"); ?> +'>
+            <select name="product" class="select22" id="productSearch"  data-model='html' <?php \dash\layout\autofocus::html() ?>  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/products/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose spcial product"); ?> +'>
+              <?php if(\dash\data::summaryDetail_producttitle()) {?>
+                <option value="<?php echo \dash\data::summaryDetail_productid() ?>" selected><?php echo \dash\data::summaryDetail_producttitle() ?></option>
+              <?php } ?>
             </select>
           </div>
 

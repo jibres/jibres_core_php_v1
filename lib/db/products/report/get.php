@@ -6,6 +6,18 @@ class get
 {
 	public static function product_sales_over_time($_args)
 	{
+		$param =
+		[
+			':startdate' => $_args['startdate'],
+			':enddate'   => $_args['enddate'],
+		];
+		$product_query = '';
+		if(isset($_args['product']) && $_args['product'])
+		{
+			$product_query        = ' AND factordetails.product_id = :product_id ';
+			$param[':product_id'] = $_args['product'];
+		}
+
 		$pagination_query  =
 		"
 
@@ -36,17 +48,13 @@ class get
 					factors.type  IN ('sale', 'saleorder') AND
 					factors.date >= :startdate AND
 					factors.date <= :enddate
+					$product_query
 
 				GROUP by
 					factordetails.product_id
 			) AS `pq`
 		";
 
-		$param =
-		[
-			':startdate' => $_args['startdate'],
-			':enddate'   => $_args['enddate'],
-		];
 
 		$total_result = \dash\pdo::get($pagination_query, $param, null, true);
 
@@ -105,6 +113,7 @@ class get
 				factors.type  IN ('sale', 'saleorder') AND
 				factors.date >= :startdate AND
 				factors.date <= :enddate
+				$product_query
 
 			GROUP by
 				factordetails.product_id

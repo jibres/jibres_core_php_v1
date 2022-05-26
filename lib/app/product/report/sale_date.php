@@ -147,6 +147,11 @@ class sale_date
 
 		$ready_to_load_report = false;
 
+		if($data['product'])
+		{
+			$args['product'] = $data['product'];
+		}
+
 
 		$result = [];
 
@@ -230,6 +235,18 @@ class sale_date
 			elseif($data['groupby'] === 'date')
 			{
 				$result = \lib\db\products\report\get::sales_over_time($args);
+			}
+		}
+
+		if($data['product'])
+		{
+			$load_product = \lib\app\product\get::inline_get($data['product']);
+
+			if($load_product && is_array(a($result, 'summary')))
+			{
+
+				$result['summary']['producttitle'] = a($load_product, 'title');
+				$result['summary']['productid'] = a($load_product, 'id');
 			}
 		}
 
