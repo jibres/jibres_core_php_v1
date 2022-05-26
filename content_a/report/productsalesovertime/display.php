@@ -23,7 +23,7 @@ $endtime .= '</div>';
   <?php } //endif ?>
   <div class="box">
     <div class="pad">
-
+<?php if(false) {?>
       <p><?php echo T_("Choose spcial product") ?></p>
           <div class="mb-2">
             <select name="product" class="select22" id="productSearch"  data-model='html' <?php \dash\layout\autofocus::html() ?>  data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/products/api'; ?>?json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose spcial product"); ?> +'>
@@ -32,6 +32,7 @@ $endtime .= '</div>';
               <?php } ?>
             </select>
           </div>
+<?php } //endif ?>
 
       <?php if(\dash\data::myArgs_type() === 'date') {?>
         <div class="row">

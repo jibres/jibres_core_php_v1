@@ -110,7 +110,7 @@ class view
 		[
 			'groupby'   => 'product',
 			'type'      => $type,
-			'product'   => $product,
+			// 'product'   => $product,
 			'date'      => $date,
 			'startdate' => $startdate,
 			'enddate'   => $enddate,
