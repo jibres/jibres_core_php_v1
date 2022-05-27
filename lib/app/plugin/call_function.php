@@ -6,7 +6,7 @@ class call_function
 {
 	/**
 	 * Gets the namespace.
-	 * discount_profesional > \lib\app\plugin\items\discount\discount_profesional
+	 * discount_professional > \lib\app\plugin\items\discount\discount_professional
 	 *
 	 * @param      <type>  $_plugin  The plugin key
 	 *
