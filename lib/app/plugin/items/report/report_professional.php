@@ -1,8 +1,8 @@
 <?php
-namespace lib\app\plugin\items\discount;
+namespace lib\app\plugin\items\report;
 
 
-class discount_profesional
+class report_professional
 {
 
 
@@ -10,8 +10,8 @@ class discount_profesional
 	{
 		return
 		[
-			'title'         => T_("Profesional discount code"),
-			'name'          => 'discount_profesional',
+			'title'         => T_("professional report"),
+			'name'          => 'report_professional',
 			'type'          => 'periodic',
 			'price_list'  =>
 			[
@@ -32,11 +32,11 @@ class discount_profesional
 				],
 			],
 			'max_period'  => '+400day', // +400 day 366+31 = 397 ~ 400
-			'relase_date' => '2022-01-27',
-			'last_update' => '2022-01-27',
-			'icon'        => ['Discounts', 'major', '#6366f1', 'text-indigo-500'],
+			'relase_date' => '2022-05-27',
+			'last_update' => '2022-05-27',
+			'icon'        => ['Reports', 'major', '#6366f1', 'text-indigo-500 p-1'],
 			'description' => self::desc(),
-			'keywords'    => [T_("discount code"), T_("Management")],
+			'keywords'    => [T_("Report"), T_("Management")],
 			'currency'    => \lib\currency::jibres_currency(true),
 		];
 
@@ -52,16 +52,13 @@ class discount_profesional
 
 			$html .= T_("These features include");
 			$html .= '<br>';
-			$html .= T_("Assigning discount code to a specific product category or product");
+			$html .= T_("Report sales over time by custom date");
 			$html .= '<br>';
-			$html .= T_("Set the minimum purchase amount or the minimum number of items in the order to activate the discount code");
+			$html .= T_("Report product sales over time in year");
+			// $html .= '<br>';
+			// $html .= T_("Change group-by report to hour, day, month and year");
 			$html .= '<br>';
-			$html .= T_("Ability to assign to a specific group of customers or clients");
-			$html .= '<br>';
-			$html .= T_("Ability to limit to one use per customer");
-			$html .= '<br>';
-			$html .= T_("Ability to set the expiration date of the discount code");
-			$html .= '<br>';
+			$html .= T_("And something else");
 		}
 		$html .= '</div>';
 
@@ -72,7 +69,7 @@ class discount_profesional
 
 	private static function desc() : string
 	{
-		return T_("By activating this plugin, you can use the advanced features of creating a discount code");
+		return T_("By activating this plugin, you can use the advanced reporting features");
 	}
 
 

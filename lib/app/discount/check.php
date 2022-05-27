@@ -114,9 +114,9 @@ class check
 
 
 		/**
-		 * If not active discount_profesional change something
+		 * If not active discount_professional change something
 		 */
-		if(!\lib\app\plugin\business::is_activated('discount_profesional'))
+		if(!\lib\app\plugin\business::is_activated('discount_professional'))
 		{
 			// set apply to all product
 			$data['applyto']         = 'all_products';

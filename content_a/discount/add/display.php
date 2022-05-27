@@ -188,7 +188,7 @@ $html .= '<div class="max-w-xl m-auto">';
 		$html .= '<div class="box">';
 		{
 
-			$html .= HTML_discount_profesional_is_not_activate();
+			$html .= HTML_discount_professional_is_not_activate();
 
 
 			$html .= '<div class="body">';
@@ -288,7 +288,7 @@ $html .= '<div class="max-w-xl m-auto">';
 		============================================*/
 		$html .= '<div class="box">';
 		{
-			$html .= HTML_discount_profesional_is_not_activate();
+			$html .= HTML_discount_professional_is_not_activate();
 			$html .= '<div class="body">';
 			{
 				$html .= '<h2>'. T_("Minimum requirements"). '</h2>';
@@ -360,7 +360,7 @@ $html .= '<div class="max-w-xl m-auto">';
 		============================================*/
 		$html .= '<div class="box">';
 		{
-			$html .= HTML_discount_profesional_is_not_activate();
+			$html .= HTML_discount_professional_is_not_activate();
 			$html .= '<div class="body">';
 			{
 				$html .= '<h2>'. T_("Customer eligibility"). '</h2>';
@@ -492,7 +492,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
-				$html .= HTML_discount_profesional_is_not_activate();
+				$html .= HTML_discount_professional_is_not_activate();
 				$html .= '<div class="check1">';
 				{
 					$html .= '<input type="checkbox" name="usageperuser"  id="usageperuser" '.(a($dataRow, 'usageperuser') ? 'checked' : '').'>';
@@ -544,7 +544,7 @@ $html .= '<div class="max-w-xl m-auto">';
 				}
 				$html .= '</div>';
 
-				$html .= HTML_discount_profesional_is_not_activate();
+				$html .= HTML_discount_professional_is_not_activate();
 				$html .= '<div class="check1">';
 				{
 					$html .= '<input type="checkbox" name="setenddate"  id="setenddate" '.(a($dataRow, 'enddate') ? 'checked' : '').'>';
@@ -659,9 +659,9 @@ $html .= '<div class="max-w-xl m-auto">';
 $html .= '</div>';
 
 
-function HTML_discount_profesional_is_not_activate()
+function HTML_discount_professional_is_not_activate()
 {
-	$plugin_key                   = 'discount_profesional';
+	$plugin_key                   = 'discount_professional';
 	$plugin_discount_is_activated = \lib\app\plugin\business::is_activated($plugin_key);
 
 	if(!$plugin_discount_is_activated)
