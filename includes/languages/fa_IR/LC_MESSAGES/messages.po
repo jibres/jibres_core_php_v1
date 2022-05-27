@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-05-27 13:30+0430\n"
-"PO-Revision-Date: 2022-05-27 13:30+0430\n"
+"POT-Creation-Date: 2022-05-27 14:23+0430\n"
+"PO-Revision-Date: 2022-05-27 14:25+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -11427,33 +11427,29 @@ msgstr "گزارش فروش"
 msgid "Products report"
 msgstr "گزارش محصولات"
 
-#: content_a/report/home/display.php:33
-msgid "Product sales over time"
-msgstr "گزارش فروش محصول در طول زمان"
+#: content_a/report/home/display.php:33 content_a/report/home/display.php:48
+msgid "Sales report by product over time"
+msgstr "گزارش فروش به تفکیک محصول در طول زمان"
 
-#: content_a/report/home/display.php:39 content_a/report/home/display.php:82
-#: content_a/report/productsalesovertime/view.php:46
-msgid "Product sales report by date"
-msgstr "گزارش فروش محصول بر اساس تاریخ"
+#: content_a/report/home/display.php:39
+msgid "Sales report by product by date"
+msgstr "گزارش فروش به تفکیک محصول در تاریخ خاص"
 
-#: content_a/report/home/display.php:48 content_a/report/home/display.php:91
-#: content_a/report/productsalesovertime/view.php:57
-msgid "Product sales reports over time"
-msgstr "گزارش فروش محصول در طول زمان"
+#: content_a/report/home/display.php:57
+msgid "Sales report by product over month"
+msgstr "گزارش فروش به تفکیک محصول در طول ماه"
 
-#: content_a/report/home/display.php:57 content_a/report/home/display.php:100
-#: content_a/report/productsalesovertime/view.php:85
-msgid "Product sales reports over month"
-msgstr "گزارش فروش محصول در طول ماه"
+#: content_a/report/home/display.php:66
+msgid "Sales report by product over year"
+msgstr "گزارش فروش به تفکیک محصول در طول سال"
 
-#: content_a/report/home/display.php:66 content_a/report/home/display.php:109
-#: content_a/report/productsalesovertime/view.php:72
-msgid "Product sales reports over year"
-msgstr "گزارش فروش محصول در طول سال"
-
-#: content_a/report/home/display.php:76
+#: content_a/report/home/display.php:77
 msgid "Sales over time"
 msgstr "فروش در طول زمان"
+
+#: content_a/report/home/display.php:83
+msgid "Sales report over date"
+msgstr "گزارش فروش به تفکیک محصول در تاریخ خاص"
 
 #: content_a/report/products/display.php:6
 msgid "Price history"
@@ -11600,6 +11596,22 @@ msgstr "هیچ محصولی در این تاریخ فروخته نشده است"
 #: content_a/report/productsalesovertime/view.php:10
 msgid "Product sales reports"
 msgstr "گزارش‌های فروش محصول"
+
+#: content_a/report/productsalesovertime/view.php:46
+msgid "Product sales report by date"
+msgstr "گزارش فروش محصول بر اساس تاریخ"
+
+#: content_a/report/productsalesovertime/view.php:57
+msgid "Product sales reports over time"
+msgstr "گزارش فروش محصول در طول زمان"
+
+#: content_a/report/productsalesovertime/view.php:72
+msgid "Product sales reports over year"
+msgstr "گزارش فروش محصول در طول سال"
+
+#: content_a/report/productsalesovertime/view.php:85
+msgid "Product sales reports over month"
+msgstr "گزارش فروش محصول در طول ماه"
 
 #: content_a/report/productvalue/display.php:12
 msgid "The amount you spent"
@@ -43667,6 +43679,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Product sales over time"
+#~ msgstr "گزارش فروش محصول در طول زمان"
 
 #~ msgid "Sale Product per date"
 #~ msgstr "گزارش فروش از محصولات بر اساس تاریخ"
