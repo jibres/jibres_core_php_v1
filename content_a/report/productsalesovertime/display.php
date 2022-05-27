@@ -35,16 +35,12 @@ $endtime .= '</div>';
 <?php } //endif ?>
 
       <?php if(\dash\data::myArgs_type() === 'date') {?>
-        <div class="row">
-          <div class="c-xs-12 c-sm-4">
-            <label for="date"><?php echo T_("Date"); ?></label>
-            <div class="input">
-              <input type="tel" name="date" value="<?php echo \dash\data::myArgs_date() ?>" data-format="date" id="date">
-            </div>
+
+          <label for="date"><?php echo T_("Date"); ?></label>
+          <div class="input">
+            <input type="tel" name="date" value="<?php echo \dash\data::myArgs_date() ?>" data-format="date" id="date">
           </div>
-          <div class="c-xs-12 c-sm-4"><?php echo $starttime ?></div>
-          <div class="c-xs-12 c-sm-4"><?php echo $endtime ?></div>
-        </div>
+
     <?php } //endif ?>
     <?php if(\dash\data::myArgs_type() === 'period') {?>
       <div class="row">
