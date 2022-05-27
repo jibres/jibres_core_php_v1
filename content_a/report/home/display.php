@@ -30,7 +30,7 @@
 	</div>
 	<div class="c6 s12">
 		<div class="mLa5">
-			<h4><?php echo T_("Product sale over time") ?></h4>
+			<h4><?php echo T_("Product sales over time") ?></h4>
 			<nav class="items long">
 				<ul>
 					<li>

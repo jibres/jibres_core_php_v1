@@ -14,8 +14,8 @@ class sale_date
 			['key' => 'countorderdesc', 'sort' => 'count', 				'order' => 'DESC', 		'title' => T_("Count orders DESC"), 		'type' => ['date', 'product']],
 			['key' => 'countorderasc', 	'sort' => 'count', 				'order' => 'ASC', 		'title' => T_("Count orders ASC"), 			'type' => ['date', 'product']],
 
-			['key' => 'pricedesc', 		'sort' => 'price',	 			'order' => 'DESC', 		'title' => T_("Cross sales DESC"), 			'type' => ['date', 'product']],
-			['key' => 'priceasc', 		'sort' => 'price',	 			'order' => 'ASC', 		'title' => T_("Cross sales ASC"), 			'type' => ['date', 'product']],
+			['key' => 'pricedesc', 		'sort' => 'price',	 			'order' => 'DESC', 		'title' => T_("Gross sales DESC"), 			'type' => ['date', 'product']],
+			['key' => 'priceasc', 		'sort' => 'price',	 			'order' => 'ASC', 		'title' => T_("Gross sales ASC"), 			'type' => ['date', 'product']],
 
 			['key' => 'vatdesc', 		'sort' => 'vat',	 			'order' => 'DESC', 		'title' => T_("VAT DESC"), 					'type' => ['date', 'product']],
 			['key' => 'vatasc', 		'sort' => 'vat',	 			'order' => 'ASC', 		'title' => T_("VAT ASC"), 					'type' => ['date', 'product']],
