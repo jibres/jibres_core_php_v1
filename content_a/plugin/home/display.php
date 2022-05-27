@@ -56,11 +56,11 @@ $html .= '<section class="text-gray-600 body-font">';
 	{
 		foreach ($pluginList as $key => $value)
 		{
-			$html .= '<div class="c-xs-12 c-sm-12 c-md-12 c-lg-6">';
+			$html .= '<div class="c-xs-12 c-sm-12 c-md-6 c-lg-4 flex p-2">';
 			{
 				$is_activated = \lib\app\plugin\business::is_activated(a($value, 'plugin'));
 
-				$html .= '<div class="bg-white mt-2 rounded-lg">';
+				$html .= '<div class="bg-white rounded-xl w-full">';
 				{
 
 					$html .= '<div class="p-4 flex">';
