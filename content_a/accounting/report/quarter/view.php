@@ -12,6 +12,7 @@ class view
 		\dash\data::back_link(\dash\url::this());
 		\dash\data::dataRow(\lib\app\tax\year\get::default_year());
 
+
 		$args           = [];
 		$args['type']   = \dash\request::get('type');
 		$args['detail'] = \dash\request::get('detail');
@@ -19,11 +20,11 @@ class view
 
 		if($args['type'] === 'income')
 		{
-			\dash\face::title(T_('Quarterly sell report'));
+			\dash\face::title(T_('Quarterly sell report'). ' | '. \dash\data::dataRow_title());
 		}
 		else
 		{
-			\dash\face::title(T_('Quarterly buy report'));
+			\dash\face::title(T_('Quarterly buy report'). ' | '. \dash\data::dataRow_title());
 		}
 
 		$args['doc_id'] = \dash\data::oneFactorId();
