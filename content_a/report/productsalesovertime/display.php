@@ -174,9 +174,15 @@ $endtime .= '</div>';
   </div>
   <?php } //endif ?>
 </div>
-
 <?php } // endif ?>
 
+<?php if(\dash\data::pluginDetail()) {?>
+<a target="_blank" class="text-center font-bold" href="<?php echo \dash\data::pluginDetail_link() ?>">
+  <div class="alert-danger">
+    <?php echo \dash\data::pluginDetail_title() ?>
+  </div>
+</a>
+<?php } //endif ?>
 
 <?php if(\dash\data::dataTable()) {
 $currency = \lib\store::currency();
@@ -215,6 +221,6 @@ $currency = \lib\store::currency();
   </table>
 </div>
 <?php echo \dash\utility\pagination::html(); ?>
-<?php }else{ ?>
+<?php }elseif(!\dash\data::pluginDetail()){ ?>
   <div class="alert-info text-center"><?php echo T_("No product was sale in this date") ?></div>
 <?php } //endif ?>

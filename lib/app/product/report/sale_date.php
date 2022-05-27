@@ -141,6 +141,7 @@ class sale_date
 			}
 		}
 
+
 		$args['sort']    = $sort;
 		$args['order']   = $order;
 		$args['groupby'] = $data['groupby'];
@@ -154,6 +155,14 @@ class sale_date
 
 
 		$result = [];
+
+		$advance_report = true;
+
+		if(!\lib\app\plugin\business::is_activated('report_professional') && $data['type'] !== 'date')
+		{
+			$advance_report = false;
+
+		}
 
 		switch ($data['type'])
 		{
@@ -226,7 +235,7 @@ class sale_date
 		}
 
 
-		if($ready_to_load_report)
+		if($ready_to_load_report && $advance_report)
 		{
 			if($data['groupby'] === 'product')
 			{
@@ -248,6 +257,15 @@ class sale_date
 				$result['summary']['producttitle'] = a($load_product, 'title');
 				$result['summary']['productid'] = a($load_product, 'id');
 			}
+		}
+
+		if(!$advance_report)
+		{
+			$result['plugin'] =
+			[
+				'title' => T_("Please activate professional report plugin to ganerate this report"),
+				'link' => \dash\url::kingdom(). '/a/plugin/view/report_professional',
+			];
 		}
 
 

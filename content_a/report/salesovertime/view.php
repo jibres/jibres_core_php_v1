@@ -141,6 +141,13 @@ class view
 			\dash\data::summaryDetail($result['summary']);
 		}
 
+		if(isset($result['plugin']))
+		{
+			\dash\data::pluginDetail($result['plugin']);
+		}
+
+
+
 
 		\dash\data::myArgs($args);
 
