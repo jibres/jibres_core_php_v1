@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-05-27 14:23+0430\n"
-"PO-Revision-Date: 2022-05-27 14:25+0430\n"
+"POT-Creation-Date: 2022-05-27 18:15+0430\n"
+"PO-Revision-Date: 2022-05-27 18:17+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -849,7 +849,7 @@ msgstr "بیشتر بخوانید"
 #: content_a/accounting/turnover/display.php:183 content_a/cart/home/display.php:171
 #: content_a/chap/size-a4/a4-1.php:26 content_a/form/analytics/answer/display.php:110
 #: content_a/order/editdate/display.php:31
-#: content_a/report/productsalesovertime/display.php:40
+#: content_a/report/productsalesovertime/display.php:39
 #: content_a/report/sale/display.php:177 content_a/report/salesovertime/display.php:29
 #: content_a/report/salesovertime/display.php:168 content_business/orders/display.php:20
 #: content_crm/member/transactions/minus/display.php:14
@@ -1819,8 +1819,8 @@ msgid "Registration"
 msgstr "ثبت"
 
 #: content/domains/pricing/display.php:42
-#: content_a/report/productsalesovertime/display.php:70
-#: content_a/report/productsalesovertime/display.php:80
+#: content_a/report/productsalesovertime/display.php:66
+#: content_a/report/productsalesovertime/display.php:76
 #: content_a/report/salesovertime/display.php:59
 #: content_a/report/salesovertime/display.php:69
 #: content_love/business/monthly/display.php:13 content_sudo/backup/display.php:149
@@ -4175,8 +4175,6 @@ msgstr "بیمه"
 #: content/shipping/irpost/display-calculate.php:125
 #: content_a/accounting/doc/edit/view.php:144 content_a/buy/opr/display.php:84
 #: content_a/order/productList.php:29 content_a/order/summary.php:22
-#: content_a/report/productsalesovertime/display.php:147
-#: content_a/report/productsalesovertime/display.php:198
 #: content_a/report/salesovertime/display.php:128
 #: content_a/report/salesovertime/display.php:172 content_a/sale/display.php:45
 #: content_business/cart/cartSummary.php:29 lib/app/product/filter.php:281
@@ -5833,6 +5831,8 @@ msgstr "بازکردن قفل"
 
 #: content_a/accounting/doc/edit/view.php:151
 #: content_a/accounting/turnover/display.php:102
+#: content_a/report/productsalesovertime/display.php:136
+#: content_a/report/productsalesovertime/display.php:180
 msgid "Tax"
 msgstr "مالیات"
 
@@ -6510,7 +6510,7 @@ msgstr "روز"
 
 #: content_a/accounting/report/journal/display.php:28
 #: content_a/accounting/report/ledger/display.php:29
-#: content_a/report/productsalesovertime/display.php:88
+#: content_a/report/productsalesovertime/display.php:84
 #: content_a/report/salesovertime/display.php:77
 #: content_crm/transactions/report/display.php:19
 #: content_love/business/monthly/display.php:14 content_sudo/backup/display.php:150
@@ -6790,8 +6790,8 @@ msgstr "جدول ۱: اطلاعات مربوط به فروش و صادرات ک�
 
 #: content_a/accounting/report/vatreport/display.php:60
 #: content_a/accounting/turnover/display.php:104
-#: content_a/report/productsalesovertime/display.php:171
-#: content_a/report/productsalesovertime/display.php:202
+#: content_a/report/productsalesovertime/display.php:154
+#: content_a/report/productsalesovertime/display.php:184
 #: content_a/report/salesovertime/display.php:144
 #: content_a/report/salesovertime/display.php:176
 msgid "Total sales"
@@ -6995,13 +6995,13 @@ msgid "Welcome to Cloud Accounting system"
 msgstr "به سیستم حسابداری ابری خوش‌آمدید"
 
 #: content_a/accounting/year/add/display.php:11
-#: content_a/report/productsalesovertime/display.php:52
+#: content_a/report/productsalesovertime/display.php:48
 #: content_a/report/salesovertime/display.php:41
 msgid "Start Date"
 msgstr "تاریخ شروع"
 
 #: content_a/accounting/year/add/display.php:20
-#: content_a/report/productsalesovertime/display.php:58
+#: content_a/report/productsalesovertime/display.php:54
 #: content_a/report/salesovertime/display.php:47
 msgid "End Date"
 msgstr "تاریخ پایان"
@@ -7903,7 +7903,7 @@ msgstr "خلاصه سفارش"
 #: content_a/cart/add/display.php:127 content_a/chap/size-a4/a4-1.php:148
 #: content_a/chap/size-receipt/receipt.php:178 content_a/order/discount/display.php:15
 #: content_a/order/home/display.php:24 content_a/order/summary.php:50
-#: content_a/report/productsalesovertime/display.php:163
+#: content_a/report/productsalesovertime/display.php:148
 #: content_a/setting/home/display.php:40 content_business/cart/cartSummary.php:36
 msgid "Shipping"
 msgstr "حمل و نقل"
@@ -7993,8 +7993,8 @@ msgstr "سبد خرید"
 
 #: content_a/cart/home/display.php:144 content_a/cart/home/display.php:183
 #: content_a/category/home/display.php:77 content_a/products/advance/display.php:24
-#: content_a/report/productsalesovertime/display.php:123
-#: content_a/report/productsalesovertime/display.php:194 content_a/sale/display.php:40
+#: content_a/report/productsalesovertime/display.php:118
+#: content_a/report/productsalesovertime/display.php:176 content_a/sale/display.php:40
 #: content_a/units/display.php:65 dash/layout/search/search_filter.php:490
 #: includes/languages/trans_static.php:499
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:154
@@ -9621,7 +9621,7 @@ msgstr "مقایسه با آیتم دیگر"
 
 #: content_a/form/report/answer/view.php:18 content_a/form/report/compare/view.php:29
 #: content_a/form/report/display.php:8 content_a/form/report/display.php:21
-#: content_a/form/report/view.php:18 content_a/report/productsalesovertime/display.php:111
+#: content_a/form/report/view.php:18 content_a/report/productsalesovertime/display.php:107
 #: content_a/report/salesovertime/display.php:100 includes/languages/trans_static.php:70
 #: lib/app/plugin/items/report/report_professional.php:39
 msgid "Report"
@@ -10470,8 +10470,8 @@ msgstr "نمایش کد تخفیف"
 msgid "Remove discount"
 msgstr "حذف کد تخفیف"
 
-#: content_a/order/view.php:9 content_a/report/productsalesovertime/display.php:131
-#: content_a/report/productsalesovertime/display.php:195
+#: content_a/order/view.php:9 content_a/report/productsalesovertime/display.php:124
+#: content_a/report/productsalesovertime/display.php:177
 #: content_a/report/salesovertime/display.php:112
 #: content_a/report/salesovertime/display.php:169 content_a/setting/home/display.php:51
 #: content_crm/member/glance/display.php:318 dash/layout/admin/admin-header.php:21
@@ -11429,7 +11429,7 @@ msgstr "گزارش محصولات"
 
 #: content_a/report/home/display.php:33 content_a/report/home/display.php:48
 msgid "Sales report by product over time"
-msgstr "گزارش فروش به تفکیک محصول در طول زمان"
+msgstr "گزارش فروش به تفکیک محصول در بازه زمانی"
 
 #: content_a/report/home/display.php:39
 msgid "Sales report by product by date"
@@ -11564,31 +11564,31 @@ msgstr "ساعت پایان"
 msgid "Choose spcial product"
 msgstr "انتخاب محصول خاص"
 
-#: content_a/report/productsalesovertime/display.php:101
+#: content_a/report/productsalesovertime/display.php:97
 #: content_a/report/salesovertime/display.php:90
 msgid "Sort by"
 msgstr "مرتب‌سازی بر اساس"
 
-#: content_a/report/productsalesovertime/display.php:139
-#: content_a/report/productsalesovertime/display.php:196
+#: content_a/report/productsalesovertime/display.php:130
+#: content_a/report/productsalesovertime/display.php:178
 #: content_a/report/salesovertime/display.php:120
 #: content_a/report/salesovertime/display.php:170
 msgid "Gross sales"
 msgstr "فروش ناخالص"
 
-#: content_a/report/productsalesovertime/display.php:155
-#: content_a/report/productsalesovertime/display.php:200
+#: content_a/report/productsalesovertime/display.php:142
+#: content_a/report/productsalesovertime/display.php:182
 #: content_a/report/salesovertime/display.php:136
 #: content_a/report/salesovertime/display.php:174
 msgid "Discounts"
 msgstr "تخفیف‌ها"
 
-#: content_a/report/productsalesovertime/display.php:201
+#: content_a/report/productsalesovertime/display.php:183
 #: content_a/report/salesovertime/display.php:175
 msgid "Ordered quantity"
 msgstr "مقدار سفارش داده شده"
 
-#: content_a/report/productsalesovertime/display.php:225
+#: content_a/report/productsalesovertime/display.php:207
 #: content_a/report/salesovertime/display.php:199
 msgid "No product was sale in this date"
 msgstr "هیچ محصولی در این تاریخ فروخته نشده است"
@@ -11598,12 +11598,12 @@ msgid "Product sales reports"
 msgstr "گزارش‌های فروش محصول"
 
 #: content_a/report/productsalesovertime/view.php:46
-msgid "Product sales report by date"
-msgstr "گزارش فروش محصول بر اساس تاریخ"
+msgid "Product sales report in date"
+msgstr "گزارش فروش به تفکیک محصول در تاریخ خاص"
 
 #: content_a/report/productsalesovertime/view.php:57
 msgid "Product sales reports over time"
-msgstr "گزارش فروش محصول در طول زمان"
+msgstr "گزارش فروش محصول در بازه زمانی"
 
 #: content_a/report/productsalesovertime/view.php:72
 msgid "Product sales reports over year"

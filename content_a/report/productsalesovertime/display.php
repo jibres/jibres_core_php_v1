@@ -188,7 +188,7 @@ $currency = \lib\store::currency();
     <tbody>
       <?php foreach (\dash\data::dataTable() as $key => $value) { ?>
         <tr>
-          <td><a class="link-primary" href="<?php echo \dash\url::here(). '/products/edit?id='. a($value, 'product_id') ?>"><?php echo a($value, 'product_title') ?></a></td>
+          <td><a class="link-primary text-xs" href="<?php echo \dash\url::here(). '/products/edit?id='. a($value, 'product_id') ?>"><?php echo a($value, 'product_title') ?></a></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'count')) ?></td>
           <td><?php echo \dash\fit::number_decimal(a($value, 'price')); if(floatval(a($value, 'price'))){ echo ' <small class="text-gray-400">'. $currency. '</small>'; }?></td>
           <?php if(!\dash\data::hiddenVat()) {?>

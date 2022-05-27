@@ -55,8 +55,8 @@ class report_professional
 			$html .= T_("Report sales over time by custom date");
 			$html .= '<br>';
 			$html .= T_("Report product sales over time in year");
-			$html .= '<br>';
-			$html .= T_("Change group-by report to hour, day, month and year");
+			// $html .= '<br>';
+			// $html .= T_("Change group-by report to hour, day, month and year");
 			$html .= '<br>';
 			$html .= T_("And something else");
 		}
