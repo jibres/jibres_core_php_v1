@@ -43,7 +43,7 @@ class view
 		{
 
 			case 'date':
-				\dash\face::title(T_('Product sales report by date'));
+				\dash\face::title(T_('Product sales report in date'));
 
 				if(!$date)
 				{
@@ -132,7 +132,7 @@ class view
 			{
 				if(floatval(array_sum(array_column($result['list'], 'vat'))) === floatval(0))
 				{
-					\dash\data::hiddenVat(true);
+					// \dash\data::hiddenVat(true);
 				}
 			}
 		}
