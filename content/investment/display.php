@@ -10,7 +10,7 @@
    <div class="row alert-info mt-6 mB0-f font-14 leading-8 px-4">
      <div class="c-auto"><?php echo T_("Version"). ' '. \dash\fit::number(3, false); ?></div>
      <div class="c txtRa"><?php echo T_("Last Update"); ?></div>
-     <div class="cauto txtRa ltr"><?php echo \dash\fit::date("2022-05-25"); ?></div>
+     <div class="cauto txtRa ltr"><?php echo \dash\fit::date("2022-05-31"); ?></div>
    </div>
 
  </div>
