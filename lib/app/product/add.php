@@ -317,7 +317,7 @@ class add
 			$return['id']       = $product_id;
 
 			// create sitemap
-			\dash\utility\sitemap::products($product_id);
+			// \dash\utility\sitemap::products($product_id);
 
 		}
 

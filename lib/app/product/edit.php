@@ -473,7 +473,7 @@ class edit
 
 		if($need_update)
 		{
-			\dash\utility\sitemap::products($_id);
+			// \dash\utility\sitemap::products($_id);
 		}
 	}
 }
