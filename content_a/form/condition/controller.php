@@ -16,6 +16,7 @@ class controller
 
 		\dash\data::formDetail($load);
 
+
 	}
 
 }
