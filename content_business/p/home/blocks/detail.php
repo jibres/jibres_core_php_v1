@@ -187,7 +187,7 @@ $html .= '<div class="row align-center">';
                 {
                   $html .= '<div class="input">';
                   {
-                    $html .= '<input type="text" name="count" value="'. \dash\data::productInCartCount(). '" placeholder="'. T_("Qty"). '" minlength="0" maxlength="4" data-format="pirce">';
+                    $html .= '<input type="text" name="count" value="'. round(floatval(\dash\data::productInCartCount())). '" placeholder="'. T_("Qty"). '" minlength="0" maxlength="4" data-format="pirce">';
                   }
                   $html .= '</div>';
                 }
