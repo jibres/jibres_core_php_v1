@@ -39,13 +39,13 @@ class view
 
 			if($resutl)
 			{
-				$store_have_application[] = $value['subdomain'];
+				$store_have_application[] = 'https://jibres.ir/'.\dash\store_coding::encode($value['id']).'/a/android/download#'.$value['subdomain'];
 			}
 
 			\dash\pdo::close();
 		}
 
-		\dash\log::to_supervisor('store with application: '. implode(",", $store_have_application));
+		\dash\log::to_supervisor('store with application: '. implode("\n". , $store_have_application));
 
 		var_dump($store_have_application);
 		var_dump('ok');
