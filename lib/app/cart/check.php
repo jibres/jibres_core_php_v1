@@ -9,19 +9,15 @@ class check
 	{
 		$ready = \lib\app\product\ready::row($_product_detail);
 
-
 		if(isset($ready['cart_limit']['sale_step']) && $ready['cart_limit']['sale_step'])
 		{
-			if(fmod($_count, $ready['cart_limit']['sale_step']))
+			if($_type === 'plus_count')
 			{
-				if($_type === 'plus_count')
-				{
-					$_count = $_count + fmod($_count, $ready['cart_limit']['sale_step']);
-				}
-				elseif($_type === 'minus_count')
-				{
-					$_count = $_count - fmod($_count, $ready['cart_limit']['sale_step']);
-				}
+				$_count = $_count +  floatval($ready['cart_limit']['sale_step']);
+			}
+			elseif($_type === 'minus_count')
+			{
+				$_count = $_count -  floatval($ready['cart_limit']['sale_step']);
 			}
 		}
 

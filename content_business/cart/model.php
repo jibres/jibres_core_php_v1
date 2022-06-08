@@ -30,11 +30,11 @@ class model
 
 		if(\dash\request::post('type') === 'minus_cart')
 		{
-			$result = \lib\app\cart\edit::update_cart($product_id, 1, null, 'minus_count');
+			$result = \lib\app\cart\edit::update_cart($product_id, \dash\request::post('count'), null, 'minus_count');
 		}
 		elseif(\dash\request::post('type') === 'plus_cart')
 		{
-			$result = \lib\app\cart\edit::update_cart($product_id, 1, null, 'plus_count');
+			$result = \lib\app\cart\edit::update_cart($product_id, \dash\request::post('count'), null, 'plus_count');
 		}
 		elseif(\dash\request::post('type') === 'remove')
 		{

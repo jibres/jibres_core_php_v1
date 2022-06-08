@@ -109,7 +109,11 @@ class edit
 		{
 			$new_count = intval($data['count']);
 
-			if($data['type'] === 'plus_count')
+			if($_from_website)
+			{
+				$new_count = \lib\app\cart\check::max_limit_product($new_count, $load_product, $data['type']);
+			}
+			elseif($data['type'] === 'plus_count')
 			{
 				$new_count = floatval($check_exist_record['count']) + $new_count;
 			}
@@ -141,10 +145,6 @@ class edit
 			else
 			{
 
-				if($_from_website)
-				{
-					$new_count = \lib\app\cart\check::max_limit_product($new_count, $load_product, $data['type']);
-				}
 
 				if($user_id)
 				{
