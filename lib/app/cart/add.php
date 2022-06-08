@@ -148,17 +148,18 @@ class add
 			return false;
 		}
 
+		if(isset($load_product['variant_child']) && $load_product['variant_child'])
+		{
+			\dash\notif::error(T_("This product has different types. Please specify one of these types"));
+			return false;
+		}
+
 		if($_mode === 'website')
 		{
 			$data['count'] = \lib\app\cart\check::max_limit_product($data['count'], $load_product);
 			\dash\notif::clean();
 		}
 
-		if(isset($load_product['variant_child']) && $load_product['variant_child'])
-		{
-			\dash\notif::error(T_("This product has different types. Please specify one of these types"));
-			return false;
-		}
 
 		$user_id = null;
 		if($data['user_id'])
@@ -248,6 +249,11 @@ class add
 			if(isset($load_product['finalprice']) && is_numeric($load_product['finalprice']))
 			{
 				$price = $load_product['finalprice'];
+			}
+
+			if($_mode === 'website')
+			{
+				$data['count'] = \lib\app\cart\check::max_limit_product($data['count'], $load_product, 'update_count');
 			}
 
 			$new_record =

@@ -379,6 +379,11 @@ class ready
 			$minsale = floatval($result['minsale']);
 		}
 
+		if(isset($result['stock']) && $result['stock'] && isset($result['trackquantity']) && $result['trackquantity'])
+		{
+			$maxsale = floatval($result['stock']);
+		}
+
 		if(isset($result['maxsale']) && is_numeric($result['maxsale']) && $result['maxsale'])
 		{
 			$maxsale = floatval($result['maxsale']);
@@ -393,10 +398,6 @@ class ready
 			$salestep = floatval($result['salestep']);
 		}
 
-		if(isset($result['stock']) && $result['stock'] && isset($result['trackquantity']) && $result['trackquantity'])
-		{
-			$maxsale = floatval($result['stock']);
-		}
 
 		if(isset($result['oversale']) && $result['oversale'])
 		{
