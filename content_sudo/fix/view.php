@@ -11,39 +11,13 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
-
+		self::find_application();
 	}
 
 
-	private static function fix_email()
-	{
-		$query = "SELECT *  FROM useremail where useremail.verify = 1 ";
-		$all_email = \dash\pdo::get($query, [], null, false);
-
-		$count = 0;
-
-		foreach ($all_email as $key => $value)
-		{
-			$query = "SELECT COUNT(*) AS `count`  FROM domain where domain.user_id = :user_id AND domain.email = :email ";
-
-			$this_count = floatval(\dash\pdo::get($query, [':user_id' => $value['user_id'], 'email' => $value['email']], 'count', true, 'nic'));
-
-			$count += $this_count;
-
-			$query = "UPDATE domain SET domain.verify = 1  where domain.user_id = :user_id AND domain.email = :email ";
-			\dash\pdo::query($query, [':user_id' => $value['user_id'], 'email' => $value['email']], 'nic');
 
 
-
-		}
-
-		var_dump($count);exit;
-		var_dump($all_email);exit;
-
-
-	}
-
-	private static function fix_store()
+	private static function find_application()
 	{
 		$list = \lib\db\store\get::all_store_fuel_detail();
 
@@ -55,62 +29,25 @@ class view
 
 		\dash\code::time_limit(0);
 
+		$store_have_application = [];
 		foreach ($list as $key => $value)
 		{
-			$query = "	SELECT * FROM producttag where producttag.id in (select producttagusage.producttag_id from producttagusage) ";
+			$query = "	SELECT * FROM setting where setting.platform = 'android' and setting.key in ('myket', 'cafebazar', 'googleplay') AND setting.value is not null ";
 			$store_id = $value['id'];
 			$dbname = \dash\engine\store::make_database_name($store_id);
 			$resutl = \dash\pdo::get($query, [], null, false, $value['fuel'], ['database' => $dbname]);
 
 			if($resutl)
 			{
-				foreach ($resutl as $one_tag)
-				{
-
-					$query = "	SELECT *  FROM productcategory where productcategory.title  = '$one_tag[title]' LIMIT 1 ";
-					$category_detail = \dash\pdo::get($query, [], null, true, $value['fuel'], ['database' => $dbname]);
-
-					if(isset($category_detail['id']))
-					{
-						$tag_id = $category_detail['id'];
-					}
-					else
-					{
-						$date = $one_tag['datecreated'];
-						$slug = \dash\validate::slug($one_tag['title']);
-						$query = " INSERT INTO productcategory SET productcategory.title = '$one_tag[title]', productcategory.slug = '$slug', productcategory.status = 'enable', productcategory.datecreated = '$date' ";
-						\dash\pdo::query($query, [], $value['fuel'], ['database' => $dbname]);
-						$tag_id = \dash\pdo::insert_id();
-					}
-
-					if($tag_id)
-					{
-						$old_tag_id = $one_tag['id'];
-						$query = "	SELECT *  FROM producttagusage where producttagusage.producttag_id  = '$old_tag_id' ";
-						$all_old_usage_tag = \dash\pdo::get($query, [], null, false, $value['fuel'], ['database' => $dbname]);
-
-						foreach ($all_old_usage_tag as $old_usage_tag)
-						{
-							$query = "	SELECT *  FROM productcategoryusage where productcategoryusage.productcategory_id  = '$tag_id' AND productcategoryusage.product_id = '$old_usage_tag[product_id]' LIMIT 1 ";
-							$tag_usage_detail = \dash\pdo::get($query, [], null, true, $value['fuel'], ['database' => $dbname]);
-
-							if(isset($tag_usage_detail['product_id']))
-							{
-								// this product have this tag
-							}
-							else
-							{
-								$query = " INSERT INTO productcategoryusage SET productcategoryusage.productcategory_id = '$tag_id', productcategoryusage.product_id = '$old_usage_tag[product_id]' ";
-								\dash\pdo::query($query, [], $value['fuel'], ['database' => $dbname]);
-							}
-						}
-					}
-				}
+				$store_have_application[] = $value['subdomain'];
 			}
 
 			\dash\pdo::close();
 		}
 
+		\dash\log::to_supervisor('store with application: '. implode(",", $store_have_application));
+
+		var_dump($store_have_application);
 		var_dump('ok');
 		exit();
 	}
