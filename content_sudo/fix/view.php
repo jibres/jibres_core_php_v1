@@ -45,7 +45,7 @@ class view
 			\dash\pdo::close();
 		}
 
-		\dash\log::to_supervisor('store with application: '. implode("\n". , $store_have_application));
+		\dash\log::to_supervisor('store with application: '. implode("\n" , $store_have_application));
 
 		var_dump($store_have_application);
 		var_dump('ok');
