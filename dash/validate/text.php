@@ -359,7 +359,7 @@ class text
 			return $data;
 		}
 
-		if(!preg_match("/^[A-Za-z0-9\s\:\-\.\_]+$/", $data))
+		if(!preg_match("/^[A-Za-z0-9\s\:\-\.\_\/]+$/", $data))
 		{
 			if($_notif)
 			{
