@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-05-27 18:26+0430\n"
-"PO-Revision-Date: 2022-05-27 18:27+0430\n"
+"POT-Creation-Date: 2022-06-10 17:33+0430\n"
+"PO-Revision-Date: 2022-06-10 17:34+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3265,7 +3265,8 @@ msgstr "آیکن"
 
 #: content/logo/section-icon.php:60 content/logo/section-standard.php:57
 #: content/logo/section-standard.php:190 content/logo/section-vertical.php:59
-#: content/logo/section-vertical.php:197 content_a/form/tag/edit/display.php:58
+#: content/logo/section-vertical.php:197 content_a/form/answer/detail/display.php:318
+#: content_a/form/tag/edit/display.php:58
 msgid "Black"
 msgstr "مشکی"
 
@@ -5546,9 +5547,10 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/accounting/factor/add/display.php:198
 #: content_a/accounting/factor/add/display.php:216
 #: content_a/category/remove/display.php:38 content_a/discount/add/display.php:299
-#: content_a/form/tag/remove/display.php:37 content_cms/hashtag/remove/display.php:37
-#: content_crm/member/legal/display.php:70 content_love/business/setting/display.php:87
-#: content_love/store/setting/display.php:79 content_my/domain/option/display.php:23
+#: content_a/form/answer/detail/display.php:329 content_a/form/tag/remove/display.php:37
+#: content_cms/hashtag/remove/display.php:37 content_crm/member/legal/display.php:70
+#: content_love/business/setting/display.php:87 content_love/store/setting/display.php:79
+#: content_my/domain/option/display.php:23
 #: content_site/options/background/background_effect.php:13
 #: content_site/options/effect/effect.php:12
 #: content_site/options/file/file_business_logo.php:97
@@ -8925,12 +8927,12 @@ msgid "Private"
 msgstr "خصوصی"
 
 #: content_a/form/analytics/answer/display.php:95
-#: content_a/form/answer/detail/display.php:323 content_a/order/comment/display.php:60
+#: content_a/form/answer/detail/display.php:345 content_a/order/comment/display.php:60
 msgid "Add comment"
 msgstr "افزودن یادداشت"
 
 #: content_a/form/analytics/answer/display.php:102
-#: content_a/form/answer/detail/display.php:342
+#: content_a/form/answer/detail/display.php:364
 msgid "Answer comment"
 msgstr "نظرات"
 
@@ -8944,7 +8946,7 @@ msgstr "دیدگاه"
 msgid "Privacy"
 msgstr "حریم خصوصی"
 
-#: content_a/form/analytics/answer/model.php:15 content_a/form/answer/detail/model.php:72
+#: content_a/form/analytics/answer/model.php:15 content_a/form/answer/detail/model.php:73
 #: content_a/form/answer/model.php:21
 msgid "Answer removed"
 msgstr "پاسخ حذف شد"
@@ -9173,6 +9175,42 @@ msgstr "ناموفق"
 #: content_a/form/answer/detail/display.php:167 content_a/form/answer/display.php:79
 msgid "View Order"
 msgstr "نمایش سفارش"
+
+#: content_a/form/answer/detail/display.php:317 content_a/form/tag/edit/display.php:51
+msgid "Blue"
+msgstr "آبی"
+
+#: content_a/form/answer/detail/display.php:319 content_a/form/tag/edit/display.php:44
+msgid "Green"
+msgstr "سبز"
+
+#: content_a/form/answer/detail/display.php:320 content_a/form/tag/edit/display.php:38
+msgid "Red"
+msgstr "قرمز"
+
+#: content_a/form/answer/detail/display.php:321
+msgid "Yellow"
+msgstr "زرد"
+
+#: content_a/form/answer/detail/display.php:322
+msgid "Light blue"
+msgstr "آبی کمرنگ"
+
+#: content_a/form/answer/detail/display.php:323 content_site/options/effect/effect.php:15
+msgid "Light"
+msgstr "روشن"
+
+#: content_a/form/answer/detail/display.php:324
+#: content_site/options/background/background_effect.php:15
+#: content_site/options/effect/effect.php:14
+msgid "Dark"
+msgstr "تیره"
+
+#: content_a/form/answer/detail/display.php:326 content_a/form/tag/edit/display.php:33
+#: content_site/options/background/background_color.php:10
+#: content_site/options/color/color.php:23
+msgid "Color"
+msgstr "رنگ"
 
 #: content_a/form/answer/detail/model.php:27
 msgid "Tag saved"
@@ -9737,24 +9775,6 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 #: lib/app/form/tag/remove.php:72
 msgid "Invalid tag id"
 msgstr "شناسه تگ نادرست است"
-
-#: content_a/form/tag/edit/display.php:33
-#: content_site/options/background/background_color.php:10
-#: content_site/options/color/color.php:23
-msgid "Color"
-msgstr "رنگ"
-
-#: content_a/form/tag/edit/display.php:38
-msgid "Red"
-msgstr "قرمز"
-
-#: content_a/form/tag/edit/display.php:44
-msgid "Green"
-msgstr "سبز"
-
-#: content_a/form/tag/edit/display.php:51
-msgid "Blue"
-msgstr "آبی"
 
 #: content_a/form/tag/edit/display.php:74
 msgid "You can delete this tag because we are not found any form in that."
@@ -10562,8 +10582,8 @@ msgstr "این افزونه برای بیزینس شما تا تاریخ :date �
 msgid "This plugin is active in your business"
 msgstr "این افزونه در حال حاضر در بیزینس شما فعال شده است"
 
-#: content_a/plugin/view/display.php:311 lib/app/product/ready.php:467
-#: lib/app/product/ready.php:478 lib/app/product/ready.php:484
+#: content_a/plugin/view/display.php:311 lib/app/product/ready.php:473
+#: lib/app/product/ready.php:484 lib/app/product/ready.php:490
 msgid "Buy now"
 msgstr "همین الان بخر"
 
@@ -15837,7 +15857,7 @@ msgstr "هیچ دسته‌بندی یافت نشد!"
 msgid "Search products"
 msgstr "جستجو در محصولات"
 
-#: content_business/f/home/controller.php:82
+#: content_business/f/home/controller.php:89
 msgid "This form is private form!"
 msgstr "این فرم یه فرم خصوصی است!"
 
@@ -19436,7 +19456,7 @@ msgstr ""
 #: dash/app/ticket/add.php:245 dash/app/user/email.php:91 dash/app/user/email.php:144
 #: dash/app/user/email.php:274 dash/app/user/email.php:340 lib/api/jibres/api.php:29
 #: lib/app/application/queue_search.php:27 lib/app/cart/add.php:64 lib/app/cart/add.php:86
-#: lib/app/cart/add.php:175 lib/app/cart/add.php:291 lib/app/cart/checkout.php:14
+#: lib/app/cart/add.php:176 lib/app/cart/add.php:297 lib/app/cart/checkout.php:14
 #: lib/app/cart/checkout.php:274 lib/app/cart/checkout.php:344 lib/app/cart/edit.php:19
 #: lib/app/cart/remove.php:36 lib/app/domains/search.php:27
 #: lib/app/gift/lookup/search.php:26 lib/app/gift/search.php:27
@@ -23829,11 +23849,6 @@ msgstr "رنگ خط سرصفحه"
 msgid "Mesh"
 msgstr "مش"
 
-#: content_site/options/background/background_effect.php:15
-#: content_site/options/effect/effect.php:14
-msgid "Dark"
-msgstr "تیره"
-
 #: content_site/options/background/background_effect.php:22
 #: content_site/options/background/background_effect.php:96
 msgid "Background Effect"
@@ -24110,10 +24125,6 @@ msgstr "کپی‌رایت"
 #: content_site/options/effect/effect.php:13
 msgid "Zoom"
 msgstr "بزرگنمایی"
-
-#: content_site/options/effect/effect.php:15
-msgid "Light"
-msgstr "روشن"
 
 #: content_site/options/effect/effect.php:40 content_site/options/effect/effect.php:62
 #: content_site/options/responsive/responsive_device.php:47
@@ -26071,7 +26082,7 @@ msgid "Please wait until your comment was approved"
 msgstr "لطفا صبر کنید تا دیگاه‌های شما تایید شود"
 
 #: dash/app/comment/add.php:49 dash/app/ticket/add.php:72 dash/utility/pay/start.php:219
-#: lib/app/cart/add.php:211 lib/app/factor/add.php:563 lib/app/order/add.php:479
+#: lib/app/cart/add.php:212 lib/app/factor/add.php:563 lib/app/order/add.php:479
 msgid "Who are you?"
 msgstr "شما کی هستید؟"
 
@@ -38052,37 +38063,37 @@ msgstr "امکان فروش در این بیزینس غیرفعال است"
 msgid "Invalid product"
 msgstr "شناسه محصول اشتباه است"
 
-#: lib/app/cart/add.php:159 lib/app/factor/check_detail.php:148
+#: lib/app/cart/add.php:153 lib/app/factor/check_detail.php:148
 msgid "This product has different types. Please specify one of these types"
 msgstr "این محصول دارای نمونه‌های متنوعی است. لطفا یکی از آنها را انتخاب کنید"
 
-#: lib/app/cart/add.php:186
+#: lib/app/cart/add.php:187
 msgid "Can not add this product to your cart"
 msgstr "نمی‌توانیم این محصول را به سبد خرید شما اضافه کنیم"
 
-#: lib/app/cart/add.php:200
+#: lib/app/cart/add.php:201
 msgid "Maximum capacity of your cart is full"
 msgstr "حداکثر ظرفیت سبد خرید شما تکمیل شده است"
 
-#: lib/app/cart/add.php:222 lib/app/cart/add.php:234
+#: lib/app/cart/add.php:223 lib/app/cart/add.php:235
 msgid "Maximum capacity of your cart is full. Please login to add more"
 msgstr ""
 "حداکثر ظرفیت سبد خرید شما تکمیل شده است. لطفا برای اضافه کردن موارد بیشتر وارد سیستم "
 "شوید"
 
-#: lib/app/cart/add.php:268
+#: lib/app/cart/add.php:274
 msgid "Product added to your cart"
 msgstr "محصول به سبد خرید شما اضافه شد"
 
-#: lib/app/cart/check.php:32
+#: lib/app/cart/check.php:28
 msgid "Can not order more than :val items"
 msgstr "نمی‌توانید بیشتر از :val مورد از این آیتم سفارش دهید"
 
-#: lib/app/cart/check.php:41
+#: lib/app/cart/check.php:37
 msgid "Can not order less than :val items"
 msgstr "نمی‌توانید کمتر از :val مورد از این آیتم سفارش دهید"
 
-#: lib/app/cart/check.php:63
+#: lib/app/cart/check.php:59
 msgid "Please choose customer to add cart"
 msgstr "برای ثبت سبد خرید لطفا مشتری را انتخاب کنید"
 
@@ -39036,7 +39047,7 @@ msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
 msgid "Choice removed"
 msgstr "گزینه حذف شد"
 
-#: lib/app/form/comment/add.php:57
+#: lib/app/form/comment/add.php:59
 msgid "Your comment was saved"
 msgstr "دیدگاه شما ذخیره شد"
 
@@ -41419,27 +41430,27 @@ msgstr "فردا"
 msgid "Today"
 msgstr "امروز"
 
-#: lib/app/product/ready.php:447
+#: lib/app/product/ready.php:453
 msgid "Product is not available for shop"
 msgstr "محصول برای فروش موجود نیست"
 
-#: lib/app/product/ready.php:456
+#: lib/app/product/ready.php:462
 msgid "Product is ready for shop"
 msgstr "محصول برای فروش آماده است"
 
-#: lib/app/product/ready.php:472
+#: lib/app/product/ready.php:478
 msgid "Temporary out of stock"
 msgstr "موجودی این محصول به طور موقت به اتمام رسیده است"
 
-#: lib/app/product/ready.php:495
+#: lib/app/product/ready.php:501
 msgid "Product was deleted"
 msgstr "محصول حذف شد"
 
-#: lib/app/product/ready.php:499
+#: lib/app/product/ready.php:505
 msgid "Product is not available"
 msgstr "محصول موجود نیست"
 
-#: lib/app/product/ready.php:508
+#: lib/app/product/ready.php:514
 msgid "Please choose a variants of this product to buy"
 msgstr "لطفا یکی از انواع این محصول را برای خرید انتخاب کنید"
 
@@ -45969,9 +45980,6 @@ msgstr "یارد"
 #~ msgid "Light Minimal"
 #~ msgstr "حداقل نور"
 
-#~ msgid "Light Gold"
-#~ msgstr "طلای سبک"
-
 #~ msgid "Text opacity"
 #~ msgstr "تیرگی متن"
 
@@ -50343,9 +50351,6 @@ msgstr "یارد"
 
 #~ msgid "Please choose yoru address"
 #~ msgstr "لطفا آدرس خود را انتخاب کنید"
-
-#~ msgid "Yellow"
-#~ msgstr "زرد"
 
 #~ msgid "How was it in one sentence?"
 #~ msgstr "در یک جمله،‌ چه‌طور بود؟"
