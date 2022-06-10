@@ -45,6 +45,7 @@ class model
 			$post = [];
 
 			$post['comment']   = \dash\request::post('comment');
+			$post['color']   = \dash\request::post('color');
 			$post['privacy']   = \dash\request::post('privacy');
 			$post['form_id']   = \dash\request::get('id');
 			$post['answer_id'] = \dash\request::get('aid');

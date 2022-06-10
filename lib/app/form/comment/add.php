@@ -12,6 +12,7 @@ class add
 		[
 			'comment'   => 'desc',
 			'privacy'   => ['enum' => ['public', 'private']],
+			'color'     => ['enum' => ['primary','secondary','success','danger','warning','info','light','dark',]],
 			'form_id'   => 'id',
 			'answer_id' => 'id',
 			'file'      => 'bit',
@@ -45,6 +46,7 @@ class add
 			'form_id'     => $form_id,
 			'answer_id'   => $answer_id,
 			'privacy'     => $data['privacy'],
+			'color'       => $data['color'],
 			'content'     => $data['comment'],
 			'user_id'     => \dash\user::id(),
 			'file'        => null,

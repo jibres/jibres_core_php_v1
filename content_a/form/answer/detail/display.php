@@ -313,6 +313,28 @@ else
 						}
 						$html .= '</div>';
 
+						$list   = [];
+						$list[] = ['key' => 'primary', 		'title' => T_('Blue') 		];
+						$list[] = ['key' => 'secondary', 	'title' => T_('Black') 		];
+						$list[] = ['key' => 'success', 		'title' => T_('Green') 		];
+						$list[] = ['key' => 'danger', 		'title' => T_('Red') 		];
+						$list[] = ['key' => 'warning', 		'title' => T_('Yellow') 	];
+						$list[] = ['key' => 'info', 		'title' => T_('Light blue') ];
+						$list[] = ['key' => 'light', 		'title' => T_('Light') 		];
+						$list[] = ['key' => 'dark', 		'title' => T_('Dark') 		];
+
+						$html .= '<label for="color">'. T_("Color") . '</label>';
+						$html .= '<select name="color" class="select22" id="color">';
+						{
+							$html .= '<option value="">'. T_("None"). '</option>';
+							foreach ($list as $key => $value)
+							{
+								$html .= '<option value="'. $value['key']. '">'. $value['title']. '</option>';
+							}
+						}
+						$html .= '</select>';
+
+
 					}
 					$html .= '</div>';
 
@@ -343,7 +365,17 @@ else
 
 						foreach (\dash\data::commentList() as $key => $value)
 						{
-							$html .= '<div class="alert-secondary">';
+							$html .= '<div class="';
+							if(a($value, 'color'))
+							{
+								$html .= 'alert-'. $value['color'];
+							}
+							else
+							{
+								$html .= 'alert-secondary';
+
+							}
+							$html .='">';
 							{
 								$html .= '<div class="m-2">'. a($value, 'content'). '</div>';
 								$html .= '<div class="row">';

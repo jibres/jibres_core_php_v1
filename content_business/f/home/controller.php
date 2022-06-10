@@ -21,6 +21,7 @@ class controller
 			}
 		}
 
+
 		if(\dash\url::subchild() === 'inquiry')
 		{
 			// not csrf
@@ -48,9 +49,15 @@ class controller
 			}
 
 			// redirect to slug
-			if(a($load_form, 'url') && urldecode($load_form['url']) !== urldecode(\dash\url::current()) && \dash\request::is('get'))
+			if(a($load_form, 'url') && urldecode($load_form['url']) !== urldecode(\dash\url::that()) && \dash\request::is('get'))
 			{
-				\dash\redirect::to($load_form['url']);
+				$url = $load_form['url'];
+				if(\dash\url::subchild() === 'inquiry')
+				{
+					$url .= '/inquiry';
+				}
+
+				\dash\redirect::to($url);
 			}
 
 
