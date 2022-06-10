@@ -435,6 +435,11 @@ class ready
 		{
 			$result['cart_limit']['sale_step_input'] = true;
 		}
+
+		if(empty(a($result, 'cart_limit', 'sale_step_list')) && !a($result, 'cart_limit', 'sale_step_input'))
+		{
+			$result['cart_limit']['sale_step_input'] = true;
+		}
 	}
 
 	/**
