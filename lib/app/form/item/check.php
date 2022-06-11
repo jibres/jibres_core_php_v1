@@ -28,7 +28,7 @@ class check
 			'maxdate'      => 'date',
 			'filetype'     => 'tag',
 			'send_sms'     => 'bit',
-			'sms_text'     => 'string_210',
+			'sms_text'     => 'string_500',
 			'defaultvalue' => 'string_200',
 			'signup'       => 'bit',
 			'link'         => 'string_200',
