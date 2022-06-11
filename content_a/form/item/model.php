@@ -48,7 +48,8 @@ class model
 			'signup',
 			'defaultvalue',
 			'link',
-			'targetblank'
+			'targetblank',
+			'uniquelist',
 		];
 
 		$typeString = implode('|', $allTypes);
