@@ -471,6 +471,17 @@ class add
 						return false;
 					}
 				}
+
+				if(a($item_detail, 'uniquelist') && is_string($item_detail['uniquelist']))
+				{
+					$check_manuall_unique_list = explode(',', $item_detail['uniquelist']);
+
+					if(in_array($my_answer, $check_manuall_unique_list))
+					{
+						\dash\notif::error(T_("You are answer to this form before"));
+						return false;
+					}
+				}
 			}
 		}
 
