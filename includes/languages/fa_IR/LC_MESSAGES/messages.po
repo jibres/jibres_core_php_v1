@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-11 17:12+0430\n"
-"PO-Revision-Date: 2022-06-11 17:14+0430\n"
+"POT-Creation-Date: 2022-06-11 17:27+0430\n"
+"PO-Revision-Date: 2022-06-11 17:29+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -9483,53 +9483,66 @@ msgstr "قرارگیری تصادفی گزینه‌ها"
 msgid "Check unique"
 msgstr "بررسی تکراری نبودن"
 
-#: content_a/form/item/display.php:254
-msgid "Manual duplicate list"
-msgstr "لیست تکراری دستی"
+#: content_a/form/item/display.php:259
+msgid "Prohibition of registration for the following nationalcode"
+msgstr "ممنوعیت ثبت‌نام برای کد‌ملی‌های زیر"
 
-#: content_a/form/item/display.php:255
+#: content_a/form/item/display.php:263
+msgid "Prohibition of registration for the following mobile phone number"
+msgstr "ممنوعیت ثبت‌نام برای شماره تلفن‌های همراه زیر"
+
+#: content_a/form/item/display.php:267
+msgid "Prohibition of registration for the following email address"
+msgstr "ممنوعیت ثبت‌نام برای ایمیل‌های زیر"
+
+#: content_a/form/item/display.php:271
+msgid "Prohibition of registration for the following answer"
+msgstr "ممنوعیت ثبت‌نام برای پاسخ‌های زیر"
+
+#: content_a/form/item/display.php:277
 msgid "Separate each option with a comma"
 msgstr "هر گزینه را با ویرگول جدا کنید"
 
-#: content_a/form/item/display.php:256
+#: content_a/form/item/display.php:278
 msgid ""
 "In addition to checking the non-duplication of this item in the list of previous "
-"answers, you can manually enter the list of items that you think are duplicate"
+"answers, you can manually enter the list of items that you think are duplicate so that "
+"they are not registered."
 msgstr ""
 "علاوه بر بررسی عدم تکراری بودن این مورد در لیست پاسخ‌های قبلی، می‌توانید به صورت دستی "
-"لیست مواردی که فکر می‌کنید تکراری هستند را وارد کنید."
+"لیست مواردی که فکر می‌کنید تکراری هستند را وارد کنید تا از ثبت‌نام آنها جلوگیری شود"
 
-#: content_a/form/item/display.php:272
+#: content_a/form/item/display.php:294
 msgid "Allow extention file"
 msgstr "فایل‌های مجاز به ارسال"
 
-#: content_a/form/item/display.php:275
+#: content_a/form/item/display.php:297
 msgid "Any file"
 msgstr "هرفایلی"
 
-#: content_a/form/item/display.php:292
+#: content_a/form/item/display.php:314
 msgid "Send notification after complete form?"
 msgstr "آیا بعد از تکمیل فرم پیام اطلاع‌رسانی ارسال شود؟"
 
-#: content_a/form/item/display.php:295
+#: content_a/form/item/display.php:317
 msgid "Notification text"
 msgstr "متن پیام"
 
-#: content_a/form/item/display.php:308
+#: content_a/form/item/display.php:330
 msgid "Signup user by this item?"
 msgstr "آیا کاربر با این آیتم در بیزینس شما ثبت‌نام شود؟"
 
-#: content_a/form/item/display.php:320
+#: content_a/form/item/display.php:342
 #: content_a/products/variants/display-add-new-child.php:51
 msgid "Default value"
 msgstr "مقدار پیش‌فرض"
 
-#: content_a/form/item/display.php:333 content_a/setting/order/carttext/display.php:14
+#: content_a/form/item/display.php:355 content_a/setting/order/carttext/display.php:14
 #: content_a/setting/shipping/text/display.php:6
 msgid "Message Type"
 msgstr "نوع پیام"
 
-#: content_a/form/item/display.php:336 content_a/setting/order/carttext/display.php:18
+#: content_a/form/item/display.php:358 content_a/setting/order/carttext/display.php:18
 #: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:9
 #: content_cms/posts/advance/view.php:29 content_cms/posts/publishdate/view.php:29
 #: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
@@ -9539,41 +9552,41 @@ msgstr "نوع پیام"
 msgid "Default"
 msgstr "پیش‌فرض"
 
-#: content_a/form/item/display.php:337 content_a/setting/order/carttext/display.php:19
+#: content_a/form/item/display.php:359 content_a/setting/order/carttext/display.php:19
 #: content_a/setting/shipping/text/display.php:10
 msgid "Red (For important warning message)"
 msgstr "قرمز (برای هشدار‌های مهم)"
 
-#: content_a/form/item/display.php:338 content_a/setting/order/carttext/display.php:20
+#: content_a/form/item/display.php:360 content_a/setting/order/carttext/display.php:20
 #: content_a/setting/shipping/text/display.php:11
 msgid "Green (For thank you message)"
 msgstr "سبز (برای پیام تشکر)"
 
-#: content_a/form/item/display.php:339 content_a/setting/order/carttext/display.php:21
+#: content_a/form/item/display.php:361 content_a/setting/order/carttext/display.php:21
 #: content_a/setting/shipping/text/display.php:12
 msgid "Blue (For information message)"
 msgstr "آبی (‌برای پیام اطلاع رسانی)"
 
-#: content_a/form/item/display.php:340 content_a/setting/order/carttext/display.php:22
+#: content_a/form/item/display.php:362 content_a/setting/order/carttext/display.php:22
 #: content_a/setting/shipping/text/display.php:13
 msgid "Yellow (For warning message)"
 msgstr "زرد (برای پیام هشدار)"
 
-#: content_a/form/item/display.php:352 content_a/setting/menu/display.php:9
+#: content_a/form/item/display.php:374 content_a/setting/menu/display.php:9
 #: content_a/setting/menu/roster/display.php:25 content_account/ref/display.php:30
 #: content_love/changelog/add/display.php:14 content_site/options/link/link_raw.php:22
 msgid "Link"
 msgstr "لینک"
 
-#: content_a/form/item/display.php:358
+#: content_a/form/item/display.php:380
 msgid "Open in blank page?"
 msgstr "باز کردن در صفحه جدید؟"
 
-#: content_a/form/item/display.php:368
+#: content_a/form/item/display.php:390
 msgid "Choices"
 msgstr "گزینه‌ها"
 
-#: content_a/form/item/display.php:371
+#: content_a/form/item/display.php:393
 msgid "Manage choice"
 msgstr "مدیریت گزینه‌"
 
@@ -43695,6 +43708,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Manual duplicate list"
+#~ msgstr "لیست تکراری دستی"
 
 #, fuzzy
 #~| msgid "Menu list"
