@@ -59,7 +59,6 @@ class transaction
 		}
 
 		if(
-			a($result, 'payment_response2') &&
 			!a($result, 'verify') &&
 			a($result, 'payment') === 'zarinpal' &&
 			(
