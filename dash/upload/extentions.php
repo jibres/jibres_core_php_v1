@@ -28,6 +28,7 @@ class extentions
 			'webp'     => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/webp'],
 			'gif'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/gif'],
 			'jpeg'     => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/jpeg'],
+			'jfif'     => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/jpeg'],
 			'jpg'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/jpeg'],
 			'png'      => [ 'allow' => true,	'type' => 'image',      'mime' => 'image/png'],
 			'tif'      => [ 'allow' => false,	'type' => 'image',      'mime' => 'image/tiff'],
