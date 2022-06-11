@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-10 17:33+0430\n"
-"PO-Revision-Date: 2022-06-10 17:34+0430\n"
+"POT-Creation-Date: 2022-06-11 17:12+0430\n"
+"PO-Revision-Date: 2022-06-11 17:14+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -9483,37 +9483,53 @@ msgstr "قرارگیری تصادفی گزینه‌ها"
 msgid "Check unique"
 msgstr "بررسی تکراری نبودن"
 
-#: content_a/form/item/display.php:267
+#: content_a/form/item/display.php:254
+msgid "Manual duplicate list"
+msgstr "لیست تکراری دستی"
+
+#: content_a/form/item/display.php:255
+msgid "Separate each option with a comma"
+msgstr "هر گزینه را با ویرگول جدا کنید"
+
+#: content_a/form/item/display.php:256
+msgid ""
+"In addition to checking the non-duplication of this item in the list of previous "
+"answers, you can manually enter the list of items that you think are duplicate"
+msgstr ""
+"علاوه بر بررسی عدم تکراری بودن این مورد در لیست پاسخ‌های قبلی، می‌توانید به صورت دستی "
+"لیست مواردی که فکر می‌کنید تکراری هستند را وارد کنید."
+
+#: content_a/form/item/display.php:272
 msgid "Allow extention file"
 msgstr "فایل‌های مجاز به ارسال"
 
-#: content_a/form/item/display.php:270
+#: content_a/form/item/display.php:275
 msgid "Any file"
 msgstr "هرفایلی"
 
-#: content_a/form/item/display.php:287
+#: content_a/form/item/display.php:292
 msgid "Send notification after complete form?"
 msgstr "آیا بعد از تکمیل فرم پیام اطلاع‌رسانی ارسال شود؟"
 
-#: content_a/form/item/display.php:290
+#: content_a/form/item/display.php:295
 msgid "Notification text"
 msgstr "متن پیام"
 
-#: content_a/form/item/display.php:303
+#: content_a/form/item/display.php:308
 msgid "Signup user by this item?"
 msgstr "آیا کاربر با این آیتم در بیزینس شما ثبت‌نام شود؟"
 
-#: content_a/form/item/display.php:315
+#: content_a/form/item/display.php:320
 #: content_a/products/variants/display-add-new-child.php:51
 msgid "Default value"
 msgstr "مقدار پیش‌فرض"
 
-#: content_a/form/item/display.php:328 content_a/setting/order/carttext/display.php:14
+#: content_a/form/item/display.php:333 content_a/setting/order/carttext/display.php:14
 #: content_a/setting/shipping/text/display.php:6
 msgid "Message Type"
 msgstr "نوع پیام"
 
-#: content_a/form/item/display.php:331 content_a/setting/order/carttext/display.php:18
+#: content_a/form/item/display.php:336 content_a/setting/order/carttext/display.php:18
 #: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:9
 #: content_cms/posts/advance/view.php:29 content_cms/posts/publishdate/view.php:29
 #: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
@@ -9523,45 +9539,45 @@ msgstr "نوع پیام"
 msgid "Default"
 msgstr "پیش‌فرض"
 
-#: content_a/form/item/display.php:332 content_a/setting/order/carttext/display.php:19
+#: content_a/form/item/display.php:337 content_a/setting/order/carttext/display.php:19
 #: content_a/setting/shipping/text/display.php:10
 msgid "Red (For important warning message)"
 msgstr "قرمز (برای هشدار‌های مهم)"
 
-#: content_a/form/item/display.php:333 content_a/setting/order/carttext/display.php:20
+#: content_a/form/item/display.php:338 content_a/setting/order/carttext/display.php:20
 #: content_a/setting/shipping/text/display.php:11
 msgid "Green (For thank you message)"
 msgstr "سبز (برای پیام تشکر)"
 
-#: content_a/form/item/display.php:334 content_a/setting/order/carttext/display.php:21
+#: content_a/form/item/display.php:339 content_a/setting/order/carttext/display.php:21
 #: content_a/setting/shipping/text/display.php:12
 msgid "Blue (For information message)"
 msgstr "آبی (‌برای پیام اطلاع رسانی)"
 
-#: content_a/form/item/display.php:335 content_a/setting/order/carttext/display.php:22
+#: content_a/form/item/display.php:340 content_a/setting/order/carttext/display.php:22
 #: content_a/setting/shipping/text/display.php:13
 msgid "Yellow (For warning message)"
 msgstr "زرد (برای پیام هشدار)"
 
-#: content_a/form/item/display.php:347 content_a/setting/menu/display.php:9
+#: content_a/form/item/display.php:352 content_a/setting/menu/display.php:9
 #: content_a/setting/menu/roster/display.php:25 content_account/ref/display.php:30
 #: content_love/changelog/add/display.php:14 content_site/options/link/link_raw.php:22
 msgid "Link"
 msgstr "لینک"
 
-#: content_a/form/item/display.php:353
+#: content_a/form/item/display.php:358
 msgid "Open in blank page?"
 msgstr "باز کردن در صفحه جدید؟"
 
-#: content_a/form/item/display.php:363
+#: content_a/form/item/display.php:368
 msgid "Choices"
 msgstr "گزینه‌ها"
 
-#: content_a/form/item/display.php:366
+#: content_a/form/item/display.php:371
 msgid "Manage choice"
 msgstr "مدیریت گزینه‌"
 
-#: content_a/form/item/model.php:82
+#: content_a/form/item/model.php:83
 msgid "Form items successfully edited"
 msgstr "آیتم‌های فرم با موفقیت ویرایش شد"
 
@@ -29775,11 +29791,11 @@ msgstr "نمی‌توانید این فایل را به عنوان ویدئو ا
 msgid "Can not set this file as post audio!"
 msgstr "نمی‌توانید این فایل را به عنوان پادکست انتخاب کنید!"
 
-#: dash/upload/extentions.php:171
+#: dash/upload/extentions.php:172
 msgid "Content type of this file is different by extension of file"
 msgstr "نوع محتوای فایل بارگذاری شده با پسوند فایل همخوانی ندارد"
 
-#: dash/upload/extentions.php:183
+#: dash/upload/extentions.php:184
 msgid "Can not upload this file. Some keywords of this file is wrong!"
 msgstr ""
 "امکان بارگذاری این نوع فایل وجود ندارد. بعضی از کلمات کلیدی اشتباه در این فایل یافت شد!"
@@ -38990,27 +39006,27 @@ msgstr "تاریخ وارد شده در محدوده مجاز نیست"
 msgid "Invalid item type"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:470
+#: lib/app/form/answer/add.php:470 lib/app/form/answer/add.php:481
 msgid "You are answer to this form before"
 msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 
-#: lib/app/form/answer/add.php:490
+#: lib/app/form/answer/add.php:501
 msgid "Please fill the required field"
 msgstr "لطفا موارد الزامی را تکمیل کنید"
 
-#: lib/app/form/answer/add.php:715
+#: lib/app/form/answer/add.php:726
 msgid "Can not save your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ذخیره کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:735
+#: lib/app/form/answer/add.php:746
 msgid "Can not edit your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ویرایش کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:749
+#: lib/app/form/answer/add.php:760
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
-#: lib/app/form/answer/add.php:755
+#: lib/app/form/answer/add.php:766
 msgid "No answer received"
 msgstr "هیچ پاسخی دریافت نشد"
 
@@ -39141,15 +39157,15 @@ msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 msgid "Form item successfully added"
 msgstr "آیتم‌ فرم با موفقیت ثبت شد"
 
-#: lib/app/form/item/check.php:79
+#: lib/app/form/item/check.php:80
 msgid "Minimum is larger than Maximum!"
 msgstr "مقدار حداقل بیشتر از مقدار حداکثر است!"
 
-#: lib/app/form/item/check.php:105
+#: lib/app/form/item/check.php:106
 msgid "Minimum date is larger than Maximum date!"
 msgstr "مقدار حداقل تاریخ بیشتر از مقدار حداکثر تاریخ است!"
 
-#: lib/app/form/item/check.php:167
+#: lib/app/form/item/check.php:168
 msgid "Invalid extentions"
 msgstr "نوع فایل نامعتبر است"
 
@@ -43679,6 +43695,11 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#, fuzzy
+#~| msgid "Menu list"
+#~ msgid "Unique list"
+#~ msgstr "لیست فهرست‌ها"
 
 #~ msgid ""
 #~ "If you want to change the text of the SMS template, you can let us know via the "
