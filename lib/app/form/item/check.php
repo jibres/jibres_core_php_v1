@@ -192,45 +192,6 @@ class check
 			}
 		}
 
-		if($data['uniquelist'])
-		{
-			$unique_list = explode(',', $data['uniquelist']);
-			$pretty_unique_list = [];
-
-			foreach ($unique_list as $unique_item)
-			{
-				if(a($_current_detail, 'type') === 'email')
-				{
-					if($my_email = \dash\validate::email($unique_item, false))
-					{
-						$pretty_unique_list[] = $my_email;
-					}
-				}
-				elseif(a($_current_detail, 'type') === 'nationalcode')
-				{
-					if($my_nationalcode = \dash\validate::nationalcode($unique_item, false))
-					{
-						$pretty_unique_list[] = $my_nationalcode;
-					}
-				}
-				elseif(a($_current_detail, 'type') === 'mobile')
-				{
-					if($my_mobile = \dash\validate::mobile($unique_item, false))
-					{
-						$pretty_unique_list[] = $my_mobile;
-					}
-				}
-			}
-
-			if($pretty_unique_list)
-			{
-				$data['uniquelist'] = implode(',', $pretty_unique_list);
-			}
-			else
-			{
-				$data['uniquelist'] = null;
-			}
-		}
 
 
 		$data['setting'] = json_encode($setting, JSON_UNESCAPED_UNICODE);

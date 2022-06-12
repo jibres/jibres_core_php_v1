@@ -251,31 +251,8 @@ function settingMaxdate($value) {?>
 	<label for="checkunique<?php echo a($value, 'id'); ?>"><?php echo T_("Check unique"); ?></label>
 </div>
 <div data-response='item_check_unique_<?php echo a($value, 'id') ?>' <?php if(a($value, 'setting', a($value,'type') , 'check_unique')){/*nothing*/}else{ echo 'data-response-hide';} ?>>
-	<label for="item_uniquelist_<?php echo a($value, 'id') ?>">
-<?php
-switch ($value['type'])
-{
-	case 'nationalcode':
-		$title = T_("Prohibition of registration for the following nationalcode");
-		break;
-
-	case 'mobile':
-		$title = T_("Prohibition of registration for the following mobile phone number");
-		break;
-
-	case 'email':
-		$title = T_("Prohibition of registration for the following email address");
-		break;
-
-	default:
-		$title = T_("Prohibition of registration for the following answer");
-		break;
-}
-echo $title;
-?>
-	</label>
-	<textarea class="txt" rows="3" name="item_uniquelist_<?php echo a($value, 'id') ?>" id="item_uniquelist_<?php echo a($value, 'id') ?>" placeholder='<?php echo T_("Separate each option with a comma") ?>'><?php echo a($value, 'uniquelist'); ?></textarea>
 	<small class="text-gray-400"><?php echo T_('In addition to checking the non-duplication of this item in the list of previous answers, you can manually enter the list of items that you think are duplicate so that they are not registered.') ?></small>
+	<a class="btn-link" href="<?php echo \dash\url::that(). '/duplicatelist'. \dash\request::full_get() ?>"><?php echo T_("Define duplicate list") ?></a>
 </div>
 <?php } // endfunction
 
