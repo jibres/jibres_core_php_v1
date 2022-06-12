@@ -210,6 +210,22 @@ class text
 	}
 
 
+	public static function longtext($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
+	{
+		$_meta['max'] = 100000000;
+
+		$data = self::string($_data, $_notif, $_element, $_field_title, $_meta);
+
+		if($data === false || $data === null)
+		{
+			return $data;
+		}
+
+
+		return $data;
+	}
+
+
 
 	public static function socialnetwork($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
