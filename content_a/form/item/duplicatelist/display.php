@@ -1,5 +1,4 @@
 <div class="avand-md">
-  <form method="post" autocomplete="off">
     <div class="box">
       <div class="body">
 <?php $itemDetail = \dash\data::itemDetail(); ?>
@@ -30,14 +29,27 @@ switch ($itemDetail['type'])
 echo $title;
 ?>
   </label>
+  <form method="post" autocomplete="off">
   <div class="input">
     <?php echo $input ?>
     <button class="btn-primary addon"><?php echo T_("Add") ?></button>
   </div>
-  <small class="text-gray-400"><?php echo T_('In addition to checking the non-duplication of this item in the list of previous answers, you can manually enter the list of items that you think are duplicate so that they are not registered.') ?></small>
+  </form>
+  <p class="text-gray-400"><?php echo T_('In addition to checking the non-duplication of this item in the list of previous answers, you can manually enter the list of items that you think are duplicate so that they are not registered.') ?></p>
+  <hr class="mt-6">
+  <p class="">
+    <?php echo T_('Import data from file') ?>
+    <br>
+      <form method="post" autocomplete="off">
+        <input type="hidden" name="import" value="file">
+        <input type="file" name="duplicatelist">
+        <button class="btn-primary"><?php echo T_("Import") ?></button>
+      </form>
+    </p>
+
+
       </div>
     </div>
-  </form>
 
 <?php if(a($itemDetail, 'uniquelist')) {
   $uniqueList = explode(',', $itemDetail['uniquelist']);

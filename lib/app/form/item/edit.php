@@ -109,7 +109,7 @@ class edit
 	}
 
 
-	public static function edit_uniquelist($_args, $_id, $_form_id)
+	public static function edit_uniquelist($_args, $_id, $_form_id, $_upload_from_file = false)
 	{
 		\dash\permission::access('ManageForm');
 
@@ -143,7 +143,8 @@ class edit
 
 		if($args['uniquelist'])
 		{
-			$unique_list = explode(',', $args['uniquelist']);
+			$unique_list = preg_split("/\,|\n/", $args['uniquelist']);
+
 			$pretty_unique_list = [];
 
 			foreach ($unique_list as $unique_item)
@@ -156,8 +157,11 @@ class edit
 					}
 					else
 					{
-						\dash\notif::error(T_("Invalid email"));
-						return false;
+						if(!$_upload_from_file)
+						{
+							\dash\notif::error(T_("Invalid email"));
+							return false;
+						}
 					}
 				}
 				elseif(a($load, 'type') === 'nationalcode')
@@ -168,8 +172,11 @@ class edit
 					}
 					else
 					{
-						\dash\notif::error(T_("Invalid nationalcode"));
-						return false;
+						if(!$_upload_from_file)
+						{
+							\dash\notif::error(T_("Invalid nationalcode"));
+							return false;
+						}
 					}
 				}
 				elseif(a($load, 'type') === 'mobile')
@@ -180,8 +187,11 @@ class edit
 					}
 					else
 					{
-						\dash\notif::error(T_("Invalid mobile"));
-						return false;
+						if(!$_upload_from_file)
+						{
+							\dash\notif::error(T_("Invalid mobile"));
+							return false;
+						}
 					}
 				}
 			}
@@ -210,12 +220,15 @@ class edit
 			$current_data = [];
 		}
 
-		foreach ($pretty_unique_list as $key => $value)
+		if(!$_upload_from_file)
 		{
-			if(in_array($value, $current_data))
+			foreach ($pretty_unique_list as $key => $value)
 			{
-				\dash\notif::error(T_(":val was exists in your list", ['val' => $value]));
-				return false;
+				if(in_array($value, $current_data))
+				{
+					\dash\notif::error(T_(":val was exists in your list", ['val' => $value]));
+					return false;
+				}
 			}
 		}
 
@@ -229,7 +242,14 @@ class edit
 
 		\lib\db\form_item\update::update(['uniquelist' => $current_data], $_id);
 
-		\dash\notif::ok(T_("Saved"));
+		if($_upload_from_file)
+		{
+			\dash\notif::ok(T_(":count data was imported", ['count' => \dash\fit::number(count($pretty_unique_list))]));
+		}
+		else
+		{
+			\dash\notif::ok(T_("Saved"));
+		}
 
 		return true;
 

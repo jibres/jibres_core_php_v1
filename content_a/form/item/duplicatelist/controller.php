@@ -6,6 +6,8 @@ class controller
 {
 	public static function routing()
 	{
+		\dash\allow::file();
+
 		$id = \dash\request::get('id');
 
 		$load = \lib\app\form\form\get::get($id);

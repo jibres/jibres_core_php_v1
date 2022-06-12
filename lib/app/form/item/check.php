@@ -34,7 +34,7 @@ class check
 			'link'         => 'string_200',
 			'targetblank'  => 'bit',
 			'checkrequire' => 'bit',
-			'uniquelist'   => 'string',
+			'uniquelist'   => 'longtext',
 		];
 
 		$require = ['title', 'type'];

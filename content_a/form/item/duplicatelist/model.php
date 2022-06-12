@@ -8,6 +8,33 @@ class model
 		$form_id = \dash\request::get('id');
 		$item_id = \dash\request::get('item');
 
+		if(\dash\request::post('import') === 'file')
+		{
+			$data = \dash\upload\quick::read_file('duplicatelist');
+
+			if(!$data)
+			{
+				\dash\notif::error(T_("No data was received!"));
+				return false;
+			}
+
+			if(is_string($data))
+			{
+
+				\lib\app\form\item\edit::edit_uniquelist($data, $item_id, $form_id, true);
+
+				if(\dash\engine\process::status())
+				{
+					\dash\redirect::pwd();
+				}
+			}
+			else
+			{
+				\dash\notif::error(T_("No valid data received"));
+				return false;
+			}
+		}
+
 
 		if(\dash\request::post('remove') === 'remove')
 		{
