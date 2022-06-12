@@ -628,6 +628,8 @@ class cleanse
 			case 'slug': 				$data = \dash\validate\text::slug(...$fn_args); 					break;
 			case 'barcode': 			$data = \dash\validate\text::barcode(...$fn_args); 					break;
 			case 'sku': 				$data = \dash\validate\text::sku(...$fn_args); 						break;
+			case 'longtext':			$data = \dash\validate\text::longtext(...$fn_args); 				break;
+
 			case 'search': 				$data = \dash\validate\text::search(...$fn_args); 					break;
 			case 'email': 				$data = \dash\validate\text::email(...$fn_args); 					break;
 			case 'email_raw': 			$data = \dash\validate\text::email_raw(...$fn_args); 				break;
