@@ -128,7 +128,7 @@ echo $title;
            {
             echo '<tr>';
               echo '<td>';
-                echo '<small><i>'. T_("No result was founded"). '</i></small>';
+                echo '<small><i>'. T_("No results found"). '</i></small>';
               echo '</td>';
               echo '<td class="collapsing"> </td>';
             echo '</tr>';

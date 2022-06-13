@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-11 17:27+0430\n"
-"PO-Revision-Date: 2022-06-11 17:29+0430\n"
+"POT-Creation-Date: 2022-06-13 11:48+0430\n"
+"PO-Revision-Date: 2022-06-13 11:53+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1409,7 +1409,8 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_a/form/analytics/table/display.php:41 content_a/form/answer/display.php:48
 #: content_a/form/answer/display.php:49 content_a/form/answer/item/display.php:37
 #: content_a/form/answer/item/display.php:38 content_a/form/home/display.php:73
-#: content_a/form/home/display.php:74 content_a/form/tag/display.php:74
+#: content_a/form/home/display.php:74 content_a/form/item/duplicatelist/display.php:30
+#: content_a/form/item/duplicatelist/display.php:64 content_a/form/tag/display.php:74
 #: content_a/notiflog/display.php:69 content_a/notiflog/display.php:70
 #: content_a/products/barcode/display.php:4 content_a/view.php:41
 #: content_business/search/view.php:9 content_cms/view.php:13 content_crm/view.php:20
@@ -4614,20 +4615,21 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/form/answer/view.php:13 content_a/form/duplicate/view.php:14
 #: content_a/form/edit/view.php:12 content_a/form/home/view.php:12
 #: content_a/form/inquiry/view.php:12 content_a/form/item/add/view.php:12
-#: content_a/form/item/choice/view.php:12 content_a/form/item/type/view.php:12
-#: content_a/form/item/view.php:12 content_a/form/report/answer/view.php:46
-#: content_a/form/report/compare/view.php:10 content_a/form/report/view.php:21
-#: content_a/form/setting/view.php:12 content_a/form/sorting/view.php:11
-#: content_a/form/status/view.php:12 content_a/form/tag/remove/view.php:17
-#: content_a/form/tag/view.php:16 content_a/form/thankyou/view.php:12
-#: content_a/notiflog/view.php:12 content_a/order/view.php:33
-#: content_a/plugin/view/view.php:16 content_a/products/advance/view.php:17
-#: content_a/products/barcode/view.php:12 content_a/products/bullet/view.php:17
-#: content_a/products/cartlimit/view.php:15 content_a/products/child/view.php:15
-#: content_a/products/comment/view.php:29 content_a/products/comment/view.php:36
-#: content_a/products/comment/view/view.php:13 content_a/products/desc/view.php:14
-#: content_a/products/duplicate/view.php:15 content_a/products/gallerysort/view.php:14
-#: content_a/products/poof/view.php:15 content_a/products/property/add/view.php:14
+#: content_a/form/item/choice/view.php:12 content_a/form/item/duplicatelist/view.php:12
+#: content_a/form/item/type/view.php:12 content_a/form/item/view.php:12
+#: content_a/form/report/answer/view.php:46 content_a/form/report/compare/view.php:10
+#: content_a/form/report/view.php:21 content_a/form/setting/view.php:12
+#: content_a/form/sorting/view.php:11 content_a/form/status/view.php:12
+#: content_a/form/tag/remove/view.php:17 content_a/form/tag/view.php:16
+#: content_a/form/thankyou/view.php:12 content_a/notiflog/view.php:12
+#: content_a/order/view.php:33 content_a/plugin/view/view.php:16
+#: content_a/products/advance/view.php:17 content_a/products/barcode/view.php:12
+#: content_a/products/bullet/view.php:17 content_a/products/cartlimit/view.php:15
+#: content_a/products/child/view.php:15 content_a/products/comment/view.php:29
+#: content_a/products/comment/view.php:36 content_a/products/comment/view/view.php:13
+#: content_a/products/desc/view.php:14 content_a/products/duplicate/view.php:15
+#: content_a/products/gallerysort/view.php:14 content_a/products/poof/view.php:15
+#: content_a/products/property/add/view.php:14
 #: content_a/products/property/edit/view.php:14 content_a/products/property/view.php:15
 #: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
 #: content_a/products/variants/view.php:14 content_a/report/products/view.php:12
@@ -5126,9 +5128,9 @@ msgstr "وضعیت"
 #: content_a/category/quickaccess/display.php:56 content_a/category/sort/display.php:29
 #: content_a/form/analytics/addfilter/display.php:11
 #: content_a/form/item/add/display.php:50 content_a/form/item/choice/display.php:19
-#: content_a/form/tag/add/display.php:12 content_a/order/products/display.php:65
-#: content_a/products/add/view.php:20 content_a/products/bullet/display.php:21
-#: content_a/products/property/add/display.php:60
+#: content_a/form/item/duplicatelist/display.php:39 content_a/form/tag/add/display.php:12
+#: content_a/order/products/display.php:65 content_a/products/add/view.php:20
+#: content_a/products/bullet/display.php:21 content_a/products/property/add/display.php:60
 #: content_a/products/property/display.php:73 content_a/products/quick/view.php:21
 #: content_a/products/variants/display-add-new-child.php:63
 #: content_a/setting/menu/item/display.php:124
@@ -7067,6 +7069,7 @@ msgid "Your factors detail"
 msgstr "اطلاعات فاکتور شما"
 
 #: content_a/accounting/year/import/display.php:15
+#: content_a/form/item/duplicatelist/display.php:50
 #: content_a/products/import/display.php:103 content_a/setting/product/display.php:17
 #: dash/layout/admin/admin-titlebox.php:18 dash/layout/m2/admin-titlebox.php:20
 #: dash/layout/m2/pageNav.php:27 lib/app/quickaccess/setting.php:573
@@ -7078,6 +7081,7 @@ msgid "Please Upload a file"
 msgstr "لطفا فایلی را بارگذاری کنید"
 
 #: content_a/accounting/year/import/model.php:19
+#: content_a/form/item/duplicatelist/model.php:17
 msgid "No data was received!"
 msgstr "هیچ اطلاعاتی دریافت نشد!"
 
@@ -7785,8 +7789,8 @@ msgstr "ورودی باید به صورت آرایه باشد"
 #: content_my/domain/option/model.php:19 content_site/section/html/model.php:89
 #: dash/app/changelog.php:362 dash/app/permission/edit.php:157
 #: dash/app/permission/edit.php:229 lib/app/category/edit.php:93
-#: lib/app/category/edit.php:166 lib/app/product/property.php:746
-#: lib/app/setting/policy_page.php:35
+#: lib/app/category/edit.php:166 lib/app/form/item/edit.php:251
+#: lib/app/product/property.php:746 lib/app/setting/policy_page.php:35
 msgid "Saved"
 msgstr "ذخیره شد"
 
@@ -9483,27 +9487,7 @@ msgstr "قرارگیری تصادفی گزینه‌ها"
 msgid "Check unique"
 msgstr "بررسی تکراری نبودن"
 
-#: content_a/form/item/display.php:259
-msgid "Prohibition of registration for the following nationalcode"
-msgstr "ممنوعیت ثبت‌نام برای کد‌ملی‌های زیر"
-
-#: content_a/form/item/display.php:263
-msgid "Prohibition of registration for the following mobile phone number"
-msgstr "ممنوعیت ثبت‌نام برای شماره تلفن‌های همراه زیر"
-
-#: content_a/form/item/display.php:267
-msgid "Prohibition of registration for the following email address"
-msgstr "ممنوعیت ثبت‌نام برای ایمیل‌های زیر"
-
-#: content_a/form/item/display.php:271
-msgid "Prohibition of registration for the following answer"
-msgstr "ممنوعیت ثبت‌نام برای پاسخ‌های زیر"
-
-#: content_a/form/item/display.php:277
-msgid "Separate each option with a comma"
-msgstr "هر گزینه را با ویرگول جدا کنید"
-
-#: content_a/form/item/display.php:278
+#: content_a/form/item/display.php:254 content_a/form/item/duplicatelist/display.php:42
 msgid ""
 "In addition to checking the non-duplication of this item in the list of previous "
 "answers, you can manually enter the list of items that you think are duplicate so that "
@@ -9512,37 +9496,41 @@ msgstr ""
 "علاوه بر بررسی عدم تکراری بودن این مورد در لیست پاسخ‌های قبلی، می‌توانید به صورت دستی "
 "لیست مواردی که فکر می‌کنید تکراری هستند را وارد کنید تا از ثبت‌نام آنها جلوگیری شود"
 
-#: content_a/form/item/display.php:294
+#: content_a/form/item/display.php:255
+msgid "Define duplicate list"
+msgstr "تعریف لیست پاسخ‌های تکراری"
+
+#: content_a/form/item/display.php:271
 msgid "Allow extention file"
 msgstr "فایل‌های مجاز به ارسال"
 
-#: content_a/form/item/display.php:297
+#: content_a/form/item/display.php:274
 msgid "Any file"
 msgstr "هرفایلی"
 
-#: content_a/form/item/display.php:314
+#: content_a/form/item/display.php:291
 msgid "Send notification after complete form?"
 msgstr "آیا بعد از تکمیل فرم پیام اطلاع‌رسانی ارسال شود؟"
 
-#: content_a/form/item/display.php:317
+#: content_a/form/item/display.php:294
 msgid "Notification text"
 msgstr "متن پیام"
 
-#: content_a/form/item/display.php:330
+#: content_a/form/item/display.php:307
 msgid "Signup user by this item?"
 msgstr "آیا کاربر با این آیتم در بیزینس شما ثبت‌نام شود؟"
 
-#: content_a/form/item/display.php:342
+#: content_a/form/item/display.php:319
 #: content_a/products/variants/display-add-new-child.php:51
 msgid "Default value"
 msgstr "مقدار پیش‌فرض"
 
-#: content_a/form/item/display.php:355 content_a/setting/order/carttext/display.php:14
+#: content_a/form/item/display.php:332 content_a/setting/order/carttext/display.php:14
 #: content_a/setting/shipping/text/display.php:6
 msgid "Message Type"
 msgstr "نوع پیام"
 
-#: content_a/form/item/display.php:358 content_a/setting/order/carttext/display.php:18
+#: content_a/form/item/display.php:335 content_a/setting/order/carttext/display.php:18
 #: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:9
 #: content_cms/posts/advance/view.php:29 content_cms/posts/publishdate/view.php:29
 #: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
@@ -9552,43 +9540,111 @@ msgstr "نوع پیام"
 msgid "Default"
 msgstr "پیش‌فرض"
 
-#: content_a/form/item/display.php:359 content_a/setting/order/carttext/display.php:19
+#: content_a/form/item/display.php:336 content_a/setting/order/carttext/display.php:19
 #: content_a/setting/shipping/text/display.php:10
 msgid "Red (For important warning message)"
 msgstr "قرمز (برای هشدار‌های مهم)"
 
-#: content_a/form/item/display.php:360 content_a/setting/order/carttext/display.php:20
+#: content_a/form/item/display.php:337 content_a/setting/order/carttext/display.php:20
 #: content_a/setting/shipping/text/display.php:11
 msgid "Green (For thank you message)"
 msgstr "سبز (برای پیام تشکر)"
 
-#: content_a/form/item/display.php:361 content_a/setting/order/carttext/display.php:21
+#: content_a/form/item/display.php:338 content_a/setting/order/carttext/display.php:21
 #: content_a/setting/shipping/text/display.php:12
 msgid "Blue (For information message)"
 msgstr "آبی (‌برای پیام اطلاع رسانی)"
 
-#: content_a/form/item/display.php:362 content_a/setting/order/carttext/display.php:22
+#: content_a/form/item/display.php:339 content_a/setting/order/carttext/display.php:22
 #: content_a/setting/shipping/text/display.php:13
 msgid "Yellow (For warning message)"
 msgstr "زرد (برای پیام هشدار)"
 
-#: content_a/form/item/display.php:374 content_a/setting/menu/display.php:9
+#: content_a/form/item/display.php:351 content_a/setting/menu/display.php:9
 #: content_a/setting/menu/roster/display.php:25 content_account/ref/display.php:30
 #: content_love/changelog/add/display.php:14 content_site/options/link/link_raw.php:22
 msgid "Link"
 msgstr "لینک"
 
-#: content_a/form/item/display.php:380
+#: content_a/form/item/display.php:357
 msgid "Open in blank page?"
 msgstr "باز کردن در صفحه جدید؟"
 
-#: content_a/form/item/display.php:390
+#: content_a/form/item/display.php:367
 msgid "Choices"
 msgstr "گزینه‌ها"
 
-#: content_a/form/item/display.php:393
+#: content_a/form/item/display.php:370
 msgid "Manage choice"
 msgstr "مدیریت گزینه‌"
+
+#: content_a/form/item/duplicatelist/controller.php:31
+msgid "This item have not duplicate list"
+msgstr "این آیتم دارای قابلیت ثبت پاسخ تکراری نیست"
+
+#: content_a/form/item/duplicatelist/display.php:10
+msgid "Prohibition of registration for the following nationalcode"
+msgstr "ممنوعیت ثبت‌نام برای کد‌ملی‌های زیر"
+
+#: content_a/form/item/duplicatelist/display.php:11 lib/app/form/item/type.php:129
+msgid "Enter nationalcode"
+msgstr "کدملی را وارد کنید"
+
+#: content_a/form/item/duplicatelist/display.php:12
+msgid "Search in nationalcode"
+msgstr "جستجو در کدملی"
+
+#: content_a/form/item/duplicatelist/display.php:16
+msgid "Prohibition of registration for the following mobile phone number"
+msgstr "ممنوعیت ثبت‌نام برای شماره تلفن‌های همراه زیر"
+
+#: content_a/form/item/duplicatelist/display.php:17 lib/app/form/item/type.php:377
+msgid "Enter mobile"
+msgstr "موبایل را وارد کنید"
+
+#: content_a/form/item/duplicatelist/display.php:18
+msgid "Search in mobile"
+msgstr "جستجو در موبایل"
+
+#: content_a/form/item/duplicatelist/display.php:22
+msgid "Prohibition of registration for the following email address"
+msgstr "ممنوعیت ثبت‌نام برای ایمیل‌های زیر"
+
+#: content_a/form/item/duplicatelist/display.php:23
+msgid "Enter email"
+msgstr "ایمیل را وارد کنید"
+
+#: content_a/form/item/duplicatelist/display.php:24
+msgid "Search in email"
+msgstr "جستجو در ایمیل"
+
+#: content_a/form/item/duplicatelist/display.php:28
+msgid "Prohibition of registration for the following answer"
+msgstr "ممنوعیت ثبت‌نام برای پاسخ‌های زیر"
+
+#: content_a/form/item/duplicatelist/display.php:29
+msgid "Enter answer"
+msgstr "پاسخ را وارد کنید"
+
+#: content_a/form/item/duplicatelist/display.php:45
+msgid "Import data from file"
+msgstr "وارد کردن دسته‌ای اطلاعات از فایل"
+
+#: content_a/form/item/duplicatelist/display.php:108
+msgid "+:count items"
+msgstr "+:count مورد دیگر"
+
+#: content_a/form/item/duplicatelist/display.php:131
+msgid "No result was founded"
+msgstr "نتیجه‌ای یافت نشد"
+
+#: content_a/form/item/duplicatelist/model.php:33
+msgid "No valid data received"
+msgstr "هیچ اطلاعات معتبری دریافت نشد"
+
+#: content_a/form/item/duplicatelist/view.php:9
+msgid "Manage duplicate list"
+msgstr "مدیریت لیست پاسخ‌های تکراری"
 
 #: content_a/form/item/model.php:83
 msgid "Form items successfully edited"
@@ -23333,7 +23389,7 @@ msgstr "کد دسترسی و شناسه کاربر الزامی است"
 msgid "Can not get instagram data"
 msgstr "نمی‌توانیم اطلاعات را از اینستاگرام دریافت کنیم"
 
-#: content_r10/jibres/telegram/model.php:14
+#: content_r10/jibres/telegram/model.php:14 lib/app/form/item/edit.php:192
 msgid "Invalid mobile"
 msgstr "شماره‌ی تلفن همراه نامعتبر است"
 
@@ -27778,7 +27834,7 @@ msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر م�
 msgid "Second part of string function must be larger than zero!"
 msgstr "قسمت دوم تابع اعتبار سنجی برای مقادیر متین باید بزرگتر از صفر باشد!"
 
-#: dash/cleanse.php:869
+#: dash/cleanse.php:871
 msgid "Invalid vaidate function "
 msgstr "تابع اعتبار سنجی اشتباه است. چنین تابعی برای اعتبار سنجی نداریم "
 
@@ -30896,120 +30952,120 @@ msgstr "مقدار :val  باید بزرگتر از :length حرف باشد"
 msgid "We have removed some unauthorized characters from your text"
 msgstr "ما برخی از کاراکتر‌های غیر مجاز را از محتوای ارسالی شما حذف کردیم"
 
-#: dash/validate/text.php:203 dash/validate/text.php:231
+#: dash/validate/text.php:203 dash/validate/text.php:247
 msgid "Only English character can be enter in field :val"
 msgstr "تنها کاراکتر‌های لاتین می‌تواند در فیلد :val ارسال شود"
 
-#: dash/validate/text.php:265 dash/validate/text.php:297
+#: dash/validate/text.php:281 dash/validate/text.php:313
 msgid "Bad filename :val"
 msgstr "نام فایل نادرست است"
 
-#: dash/validate/text.php:320
+#: dash/validate/text.php:336
 msgid "Only A-Za-z0-9. can use in filename"
 msgstr "شما باید فقط از حروف و اعداد لاتین در نام فایل استفاده کنید"
 
-#: dash/validate/text.php:332
+#: dash/validate/text.php:348
 msgid "Can not use more than one dot character in filename"
 msgstr "نمی‌توانید از بیشتر از یک نقطه در نام فایل استفاده کنید"
 
-#: dash/validate/text.php:342
+#: dash/validate/text.php:358
 msgid "Invlid filename"
 msgstr "نام فایل اشتباه"
 
-#: dash/validate/text.php:366
+#: dash/validate/text.php:382
 msgid "Only A-Za-z0-9 Can be set on static file content"
 msgstr "شما باید فقط از حروف و اعداد لاتین در متن فایل استفاده کنید"
 
-#: dash/validate/text.php:396
+#: dash/validate/text.php:412
 msgid "Only Numeric character can be enter in field :val"
 msgstr "تنها کاراکتر‌های عددی می‌تواند در فیلد :val ارسال شود"
 
-#: dash/validate/text.php:433
+#: dash/validate/text.php:449
 msgid "Username should contain a valid Latin letter"
 msgstr "نام کاربری باید شامل حداقل یک حرف لاتین باشد"
 
-#: dash/validate/text.php:441
+#: dash/validate/text.php:457
 msgid "We have removed _- characters from username"
 msgstr "ما کارکتر‌های ـ- را از نام کاربری شما حذف کردیم"
 
-#: dash/validate/text.php:449
+#: dash/validate/text.php:465
 msgid "Field username must be larger than 5 character"
 msgstr "نام کاربری باید بزرگتر از ۵ کاراکتر باشد"
 
-#: dash/validate/text.php:461
+#: dash/validate/text.php:477
 msgid "Only [A-Za-z0-9_-] can use in username"
 msgstr "شما باید فقط از حروف و اعداد لاتین در نام کاربری استفاده کنید"
 
-#: dash/validate/text.php:471
+#: dash/validate/text.php:487
 msgid "You must use a one character from [A-Za-z] in the username"
 msgstr "شما باید حتما از یک حرف لاتین در نام کاربری استفاده کنید"
 
-#: dash/validate/text.php:481
+#: dash/validate/text.php:497
 msgid "Username should contain a Latin letter"
 msgstr "نام کاربری باید شامل حداقل یک حرف لاتین باشد"
 
-#: dash/validate/text.php:491
+#: dash/validate/text.php:507
 msgid "The username must begin with latin letters"
 msgstr "نام کاربری باید با حرف لاتین شروع شود"
 
-#: dash/validate/text.php:529
+#: dash/validate/text.php:545
 msgid "Discount code should contain a valid Latin letter"
 msgstr "کد تخفیف باید شامل حداقل یک حرف لاتین باشد"
 
-#: dash/validate/text.php:537
+#: dash/validate/text.php:553
 msgid "We have removed _- characters from discount code"
 msgstr "ما کارکتر‌های ـ- را از کد تخفیف شما حذف کردیم"
 
-#: dash/validate/text.php:545
+#: dash/validate/text.php:561
 msgid "Field discount code must be larger than 2 character"
 msgstr "کد تخفیف باید بیش از ۲ کاراکتر باشد"
 
-#: dash/validate/text.php:557
+#: dash/validate/text.php:573
 msgid "Only [A-Za-z0-9_-] can use in discount code"
 msgstr "شما باید فقط از حروف و اعداد لاتین در کد تخفیف استفاده کنید"
 
-#: dash/validate/text.php:568
+#: dash/validate/text.php:584
 msgid "Discount code should contain a Latin letter"
 msgstr "کد تخفیف باید شامل حداقل یک حرف لاتین باشد"
 
-#: dash/validate/text.php:625
+#: dash/validate/text.php:641
 msgid "Email is invalid"
 msgstr "مقدار ایمیل اشتباه است"
 
-#: dash/validate/text.php:640
+#: dash/validate/text.php:656
 msgid "Email contain only one @ character!"
 msgstr "ایمیل باید فقط یه کاراکتر @ داشته باشد!"
 
-#: dash/validate/text.php:647
+#: dash/validate/text.php:663
 msgid "Invalid email!"
 msgstr "ایمیل اشتباه است!"
 
-#: dash/validate/text.php:729
+#: dash/validate/text.php:745
 msgid "Field :val must be exactly 32 character"
 msgstr "فیلد :val باید دقیقا ۳۲ حرف باشد"
 
-#: dash/validate/text.php:739
+#: dash/validate/text.php:755
 msgid "Invalid md5"
 msgstr "مقدار کدگذاری شده اشتباه است"
 
-#: dash/validate/text.php:763
+#: dash/validate/text.php:779
 msgid "Invalid language"
 msgstr "مقدار رشته زبان اشتباه است"
 
-#: dash/validate/text.php:858
+#: dash/validate/text.php:874
 msgid "Your barcode have wrong character. we change it. please check your product again"
 msgstr ""
 "بارکد شما دارای کاراکتر‌های اشتباه است. ما آن را تغییر دادیم. لطفا مجددا بررسی نمایید"
 
-#: dash/validate/text.php:881
+#: dash/validate/text.php:897
 msgid "Please set the sku less than 16 character"
 msgstr "لطفا کد محصول را کمتر از ۱۶ حرف وارد کنید"
 
-#: dash/validate/text.php:888
+#: dash/validate/text.php:904
 msgid "Only [A-Za-z0-9_-] can use in sku"
 msgstr "شما باید فقط از حروف و اعداد لاتین در کد محصول استفاده کنید"
 
-#: dash/validate/text.php:911 dash/validate/url.php:24
+#: dash/validate/text.php:927 dash/validate/url.php:24
 msgid "Url is invalid"
 msgstr "مقدار آدرس اینترنتی اشتباه است"
 
@@ -32387,7 +32443,7 @@ msgstr "اتمام"
 msgid "Rather"
 msgstr "نسبتا"
 
-#: includes/languages/trans_static.php:494
+#: includes/languages/trans_static.php:494 lib/app/form/item/edit.php:311
 msgid "Removed"
 msgstr "حذف شده"
 
@@ -39182,6 +39238,34 @@ msgstr "مقدار حداقل تاریخ بیشتر از مقدار حداکثر
 msgid "Invalid extentions"
 msgstr "نوع فایل نامعتبر است"
 
+#: lib/app/form/item/edit.php:162
+msgid "Invalid email"
+msgstr "رایانامه اشتباه"
+
+#: lib/app/form/item/edit.php:177
+msgid "Invalid nationalcode"
+msgstr "کد ملی اشتباه است"
+
+#: lib/app/form/item/edit.php:201
+msgid "Please fill the input"
+msgstr "لطفا ورودی را تکمیل کنید"
+
+#: lib/app/form/item/edit.php:208
+msgid "No valid entries found"
+msgstr "هیچ ورودی معتبری یافت نشد"
+
+#: lib/app/form/item/edit.php:229
+msgid ":val was exists in your list"
+msgstr ":val  در لیست شما وجود دارد"
+
+#: lib/app/form/item/edit.php:247
+msgid ":count data was imported"
+msgstr ":count آیتم با موفقیت اضافه شد"
+
+#: lib/app/form/item/edit.php:301
+msgid "This item not exists in your list"
+msgstr "این گزینه در لیست شما وجود ندارد"
+
 #: lib/app/form/item/type.php:56
 msgid "Short answer"
 msgstr "پاسخ کوتاه"
@@ -39199,10 +39283,6 @@ msgstr "عددی"
 #: lib/app/form/item/type.php:114
 msgid "Phone number"
 msgstr "شماره تلفن"
-
-#: lib/app/form/item/type.php:129
-msgid "Enter nationalcode"
-msgstr "کدملی را وارد کنید"
 
 #: lib/app/form/item/type.php:141
 msgid "Card Number"
@@ -39267,10 +39347,6 @@ msgstr "استان - شهر"
 #: lib/app/form/item/type.php:405 lib/app/form/item/type.php:421
 msgid "Signup form"
 msgstr "فرم ثبت‌نام"
-
-#: lib/app/form/item/type.php:377
-msgid "Enter mobile"
-msgstr "موبایل را وارد کنید"
 
 #: lib/app/form/item/type.php:394
 msgid "abc@youdomain.com"
@@ -43709,8 +43785,8 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
-#~ msgid "Manual duplicate list"
-#~ msgstr "لیست تکراری دستی"
+#~ msgid "Separate each option with a comma"
+#~ msgstr "هر گزینه را با ویرگول جدا کنید"
 
 #, fuzzy
 #~| msgid "Menu list"
@@ -44445,9 +44521,6 @@ msgstr "یارد"
 
 #~ msgid "Not verify"
 #~ msgstr "تایید نشده است"
-
-#~ msgid "No result founded!"
-#~ msgstr "نتیجه‌ای یافت نشد!"
 
 #~ msgid "Invalid title"
 #~ msgstr "عنوان اشتباه است"
@@ -48404,9 +48477,6 @@ msgstr "یارد"
 #~ msgid "Menu detail not found"
 #~ msgstr "جزئیات فهرست یافت نشد"
 
-#~ msgid "This item is not set in your menu list!"
-#~ msgstr "این گزینه در لیست فهرست شما وجود ندارد!"
-
 #~ msgid "Please enter url"
 #~ msgstr "لطفا آدرس را وارد کنید"
 
@@ -49783,9 +49853,6 @@ msgstr "یارد"
 
 #~ msgid "All the tools you need..."
 #~ msgstr "تمام ابزاری که نیاز دارید..."
-
-#~ msgid "Invalid nationalcode"
-#~ msgstr "کد ملی اشتباه است"
 
 #~ msgid "Show public comment to user"
 #~ msgstr "نمایش دیدگاه‌های عمومی به کاربر"
@@ -51738,9 +51805,6 @@ msgstr "یارد"
 #~ msgid "You must set name of template less than 50 character"
 #~ msgstr "شما باید نام الگو را کمتر از ۵۰ حرف وارد کنید"
 
-#~ msgid "This template is not in your template list!"
-#~ msgstr "این الگو در لیست الگوهای شما وجود ندارد!"
-
 #~ msgid "Please set the term title less than 150 character"
 #~ msgstr "لطفا عنوان ترم را کمتر از ۱۵۰ حرف وارد کنید"
 
@@ -52211,9 +52275,6 @@ msgstr "یارد"
 
 #~ msgid "Please select one way to send code"
 #~ msgstr "لطفا راهی برای ارسال کد انتخاب کنید"
-
-#~ msgid "Please fill the content"
-#~ msgstr "لطفا متن را وارد کنید"
 
 #~ msgid "Max size 5 MB"
 #~ msgstr "حداکثر اندازه فایل ۵ مگابایت است."
