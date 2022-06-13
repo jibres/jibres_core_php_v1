@@ -232,11 +232,15 @@ class edit
 			}
 		}
 
+		$count_before = count($current_data);
+
 		$current_data = array_merge($current_data, $pretty_unique_list);
 
 		$current_data = array_filter($current_data);
 
 		$current_data = array_unique($current_data);
+
+		$count_after = count($current_data);
 
 		$current_data = implode(',', $current_data);
 
@@ -244,7 +248,7 @@ class edit
 
 		if($_upload_from_file)
 		{
-			\dash\notif::ok(T_(":count data was imported", ['count' => \dash\fit::number(count($pretty_unique_list))]));
+			\dash\notif::ok(T_(":count data was imported", ['count' => \dash\fit::number(abs($count_before - $count_after))]));
 		}
 		else
 		{

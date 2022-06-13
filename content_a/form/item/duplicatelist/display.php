@@ -105,7 +105,7 @@ echo $title;
                 {
                   echo '<tr>';
                   echo '<td>';
-                    echo '<small><i>'. T_("+:count items", ['count' => \dash\fit::number(count($uniqueList) - $i)]). '</i></small>';
+                    echo '<small><i>'. T_("+:count items", ['count' => \dash\fit::number(count($uniqueList) - $i + 1)]). '</i></small>';
                   echo '</td>';
                   echo '<td class="collapsing"> ... </td>';
                 echo '</tr>';
