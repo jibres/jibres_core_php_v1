@@ -252,7 +252,7 @@ function settingMaxdate($value) {?>
 </div>
 <div data-response='item_check_unique_<?php echo a($value, 'id') ?>' <?php if(a($value, 'setting', a($value,'type') , 'check_unique')){/*nothing*/}else{ echo 'data-response-hide';} ?>>
 	<small class="text-gray-400"><?php echo T_('In addition to checking the non-duplication of this item in the list of previous answers, you can manually enter the list of items that you think are duplicate so that they are not registered.') ?></small>
-	<a class="btn-link" href="<?php echo \dash\url::that(). '/duplicatelist'. \dash\request::full_get() ?>"><?php echo T_("Define duplicate list") ?></a>
+	<a class="btn-link" href="<?php echo \dash\url::that(). '/duplicatelist'. \dash\request::full_get(['q' => null]) ?>"><?php echo T_("Define duplicate list") ?></a>
 </div>
 <?php } // endfunction
 
