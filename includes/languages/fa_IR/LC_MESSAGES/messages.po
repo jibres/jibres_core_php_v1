@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-13 11:48+0430\n"
-"PO-Revision-Date: 2022-06-13 11:53+0430\n"
+"POT-Creation-Date: 2022-06-14 11:04+0430\n"
+"PO-Revision-Date: 2022-06-14 11:05+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7530,7 +7530,7 @@ msgid "Set your application logo"
 msgstr "تنظیم لوگوی برنامه"
 
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
-#: content_a/form/inquiry/display.php:57 content_a/form/setting/display.php:28
+#: content_a/form/inquiry/display.php:65 content_a/form/setting/display.php:28
 #: content_a/order/comment/display.php:53 content_a/setting/general/display.php:37
 #: content_business/ticket/add/add_ticket_form.php:15 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
@@ -7612,7 +7612,7 @@ msgid "Intro page #1"
 msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
-#: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:58
+#: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:66
 #: content_a/form/setting/display.php:29 content_a/products/advance/display.php:38
 #: content_cms/files/home/display.php:37 content_cms/files/home/display.php:49
 #: content_crm/member/identification/display.php:108
@@ -7789,7 +7789,7 @@ msgstr "ورودی باید به صورت آرایه باشد"
 #: content_my/domain/option/model.php:19 content_site/section/html/model.php:89
 #: dash/app/changelog.php:362 dash/app/permission/edit.php:157
 #: dash/app/permission/edit.php:229 lib/app/category/edit.php:93
-#: lib/app/category/edit.php:166 lib/app/form/item/edit.php:251
+#: lib/app/category/edit.php:166 lib/app/form/item/edit.php:255
 #: lib/app/product/property.php:746 lib/app/setting/policy_page.php:35
 msgid "Saved"
 msgstr "ذخیره شد"
@@ -9392,7 +9392,11 @@ msgstr ""
 msgid "Enable inquiry"
 msgstr "فعال‌سازی استعلام"
 
-#: content_a/form/inquiry/display.php:20
+#: content_a/form/inquiry/display.php:17
+msgid "inquiry page address"
+msgstr "آدرس صفحه استعلام"
+
+#: content_a/form/inquiry/display.php:27
 msgid ""
 "You have not any inquiry question in your form. Questions that are mobile or national "
 "code can be used in the inquiry process"
@@ -9400,22 +9404,26 @@ msgstr ""
 "شما در فرم خود سوالی که بتوان از آن استعلام گرفت ندارید. تنها سوالاتی که از جنس تلفن "
 "همراه و یا کد ملی هستند توانایی استفاده در فرایند استعلام را خواهند داشت"
 
-#: content_a/form/inquiry/display.php:22
+#: content_a/form/inquiry/display.php:29
 msgid "Which question to ask?"
 msgstr "کدام سوال را برای استعلام قرار می‌دهید؟"
 
-#: content_a/form/inquiry/display.php:37
+#: content_a/form/inquiry/display.php:44
 msgid "Message if result founded"
 msgstr "پیام در صورت یافتن نتیجه"
 
-#: content_a/form/inquiry/display.php:42
+#: content_a/form/inquiry/display.php:49
 msgid "Message if result not founded"
 msgstr "پیام در صورتی که نتیجه‌ای یافت نشد"
 
-#: content_a/form/inquiry/display.php:48 content_a/form/inquiry/display.php:49
+#: content_a/form/inquiry/display.php:55 content_a/form/inquiry/display.php:56
 #: content_a/form/tag/edit/display.php:13
 msgid "Inquiry Message"
 msgstr "پیام قبل از استعلام"
+
+#: content_a/form/inquiry/display.php:62
+msgid "Inquiry page image"
+msgstr "تصویر صفحه استعلام"
 
 #: content_a/form/inquiry/view.php:9
 msgid "Form inquiry"
@@ -9635,7 +9643,7 @@ msgid "+:count items"
 msgstr "+:count مورد دیگر"
 
 #: content_a/form/item/duplicatelist/display.php:131
-msgid "No result was founded"
+msgid "No results found"
 msgstr "نتیجه‌ای یافت نشد"
 
 #: content_a/form/item/duplicatelist/model.php:33
@@ -15950,6 +15958,10 @@ msgstr "این فرم یه فرم خصوصی است!"
 msgid "Your tracking numbert is"
 msgstr "کد رهگیری شما"
 
+#: content_business/f/home/display-form-inquiry.php:62
+msgid "Back to form"
+msgstr "برگشت به فرم"
+
 #: content_business/f/home/display-form.php:19
 msgid "Your form is not publish. Only you can view this form."
 msgstr "فرم شما منتشر نشده است. فقط شما می‌توانید این فرم را ببینید."
@@ -15958,6 +15970,17 @@ msgstr "فرم شما منتشر نشده است. فقط شما می‌توان�
 #: lib/app/form/generator.php:157 lib/app/form/generator.php:231
 msgid "Submit"
 msgstr "تایید"
+
+#: content_business/f/home/display-form.php:38
+msgid ""
+"If you have already completed this form, you can check the status of your answer via "
+"the link below"
+msgstr ""
+"اگر قبلا این فرم را تکمیل کرده‌اید می‌توانید از طریق لینک زیر از وضعیت پاسخ خود مطلع شوید"
+
+#: content_business/f/home/display-form.php:39
+msgid "Inquiry your answer"
+msgstr "از وضعیت پاسخ خود مطلع شوید"
 
 #: content_business/n/controller.php:20 dash/app/posts/remove.php:15
 #: dash/upload/cms.php:18 dash/upload/cms.php:53 dash/upload/cms.php:124
@@ -32443,7 +32466,7 @@ msgstr "اتمام"
 msgid "Rather"
 msgstr "نسبتا"
 
-#: includes/languages/trans_static.php:494 lib/app/form/item/edit.php:311
+#: includes/languages/trans_static.php:494 lib/app/form/item/edit.php:315
 msgid "Removed"
 msgstr "حذف شده"
 
@@ -39258,11 +39281,11 @@ msgstr "هیچ ورودی معتبری یافت نشد"
 msgid ":val was exists in your list"
 msgstr ":val  در لیست شما وجود دارد"
 
-#: lib/app/form/item/edit.php:247
+#: lib/app/form/item/edit.php:251
 msgid ":count data was imported"
 msgstr ":count آیتم با موفقیت اضافه شد"
 
-#: lib/app/form/item/edit.php:301
+#: lib/app/form/item/edit.php:305
 msgid "This item not exists in your list"
 msgstr "این گزینه در لیست شما وجود ندارد"
 
@@ -43785,6 +43808,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "No result was founded"
+#~ msgstr "نتیجه‌ای یافت نشد"
+
 #~ msgid "Separate each option with a comma"
 #~ msgstr "هر گزینه را با ویرگول جدا کنید"
 
@@ -44746,9 +44772,6 @@ msgstr "یارد"
 
 #~ msgid "This is not a specialslider"
 #~ msgstr "این شناسه متعلق به اسلایدر ویژه نیست"
-
-#~ msgid "Slider page added"
-#~ msgstr "صفحه اسلایدر اضافه شد"
 
 #~ msgid "Slider index must be a number"
 #~ msgstr "شماره اسلایدر باید یک عدد باشد"
