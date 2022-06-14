@@ -162,7 +162,14 @@ class inquiry
 			return false;
 		}
 
-		$answer_id = $result['answer_id'];
+		$answer_id   = $result['answer_id'];
+
+
+		/**
+		 * Save last time fetch and update history
+		 */
+		self::update_inquiry_times($answer_id);
+
 
 		// add tag to this answer
 		$x = \lib\app\form\tag\add::public_answer_tag_plus(T_("Viewd"), $answer_id, $result['form_id'], true);
@@ -216,6 +223,84 @@ class inquiry
 
 	}
 
+
+	public static function update_inquiry_times($_answer_id)
+	{
+		$load_answer = \lib\db\form_answer\get::by_id($_answer_id);
+
+		$inquirytimes = [];
+
+		if(isset($load_answer['inquirytimes']) && $load_answer['inquirytimes'])
+		{
+			$inquirytimes = json_decode($load_answer['inquirytimes'], true);
+
+			if(!is_array($inquirytimes))
+			{
+				$inquirytimes = [];
+			}
+		}
+
+		$ip_id = \dash\utility\ip::id();
+		$agent = \dash\agent::get(true);
+		$now   = date("Y-m-d H:i:s");
+
+		if(!isset($inquirytimes['first']))
+		{
+			$inquirytimes['first'] =
+			[
+				'time'  => $now,
+				'ip'    => $ip_id,
+				'agent' => $agent,
+			];
+		}
+
+		$inquirytimes['last'] =
+		[
+			'time'  => $now,
+			'ip'    => $ip_id,
+			'agent' => $agent,
+		];
+
+		if(isset($inquirytimes['history']) && is_array($inquirytimes['history']))
+		{
+			$inquirytimes['history'][] =
+			[
+				'time'  => $now,
+				'ip'    => $ip_id,
+				'agent' => $agent,
+			];
+
+			if(count($inquirytimes['history']) > 10)
+			{
+				$inquirytimes['history'] = array_slice($inquirytimes['history'], -10, 10, true);
+			}
+		}
+		else
+		{
+			$inquirytimes['history'] = [];
+			$inquirytimes['history'][] =
+			[
+				'time'  => $now,
+				'ip'    => $ip_id,
+				'agent' => $agent,
+			];
+		}
+
+		if(isset($inquirytimes['count']) && is_numeric($inquirytimes['count']))
+		{
+			$inquirytimes['count'] = floatval($inquirytimes['count']) + 1;
+		}
+		else
+		{
+			$inquirytimes['count'] = 1;
+		}
+
+
+		$inquirytimes = json_encode($inquirytimes);
+
+		\lib\db\form_answer\update::update(['inquirytimes' => $inquirytimes], $_answer_id);
+
+	}
 
 
 	private static function input_quiry($value, $_type)
