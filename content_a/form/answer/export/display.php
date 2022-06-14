@@ -1,23 +1,50 @@
+<?php
+
+$html = '';
+
+$html .= '<div class="alert-info fs14">';
+{
+	$html .= T_("You can export your form answer to a CSV file to help with several tasks.");;
+}
+$html .= '</div>';
+
+if(!\dash\data::countAll())
+{
+	$html .= '<p class="alert-warning fs14">'. T_("You have not any answer to export!"). '</p>';
+}
+else
+{
+	$html .= '<div class="msg f fs14">';
+	{
+		$html .= '<div class="cauto mLa5 s12">'. T_("Answer count"). ' <b>'. \dash\fit::number(\dash\data::countAll()). '</b></div>';
+
+		$html .= '<div class="c mLa5">';
+		{
+			if(\dash\data::countAll() < 50)
+			{
+				$html .= '<a href="'. \dash\url::current(). '?id='. \dash\request::get('id'). '&download=now" data-direct class="mLa10 btn-link">'. T_("Download Now"). '</a>';
+			}
+			elseif(\dash\data::countAll() >= 50)
+			{
+				$html .= '<div class="btn-link" data-confirm data-data=\'{"export":"answer"}\' class="mLa10">'. T_("Send export request"). '</div>';
+			}
+		}
+		$html .= '</div>';
+	}
+	$html .= '</div>';
+}
 
 
-<div class="alert-info fs14">
-<?php echo T_("You can export your form answer to a CSV file to help with several tasks."); ?>
+$html .= '<div class="justify-center flex w-48">';
+{
+	$html .= '<img class="banner w300" src="'. \dash\url::cdn(). '/img/product/export1.png" align="'. T_("import answers"). '">';
+}
+$html .= '</div>';
 
-</div>
 
-<?php if(!\dash\data::countAll()) {?>
-<p class="alert-warning fs14"><?php echo T_("You have not any answer to export!"); ?></p>
-<?php }else{ ?>
-<div class="msg f fs14">
-	<div class="cauto mLa5 s12"><?php echo T_("Answer count"); ?> <b><?php echo \dash\fit::number(\dash\data::countAll()); ?></b></div>
-	<div class="c mLa5">
-		<?php if(\dash\data::countAll() < 50) {?>
-			<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>&download=now" data-direct class="mLa10 btn-link"><?php echo T_("Download Now"); ?></a>
-		<?php }elseif(\dash\data::countAll() >= 50) {?>
-			<div class="btn-link" data-confirm data-data='{"export":"answer"}' class="mLa10"><?php echo T_("Send export request"); ?></div>
-		<?php } //endif ?>
-	</div>
-</div>
+echo $html;
+?>
+
 
 <?php if(\dash\data::exportList()) {?>
 
@@ -59,9 +86,5 @@
 
 <?php } //endif ?>
 
-<?php } //endif ?>
-<div class="justify-center flex w-48">
-	<img class="banner w300" src="<?php echo \dash\url::cdn(); ?>/img/product/export1.png" align='<?php echo T_("import answers"); ?>'>
-</div>
 
 
