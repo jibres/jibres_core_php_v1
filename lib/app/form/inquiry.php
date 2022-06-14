@@ -180,6 +180,25 @@ class inquiry
 
 		$comment_list = \lib\app\form\comment\get::public_comment($answer_id);
 
+		$need_update_dateview = [];
+
+		if(is_array($comment_list))
+		{
+			foreach ($comment_list as $key => $value)
+			{
+				if(!a($value, 'dateview'))
+				{
+					$need_update_dateview[] = floatval(a($value, 'id'));
+				}
+			}
+
+		}
+
+		if(!empty($need_update_dateview))
+		{
+			\lib\db\form_comment\update::set_whole_dateview(implode(',', $need_update_dateview));
+		}
+
 		\dash\data::commentList($comment_list);
 
 		\dash\data::inquiryExecHaveResult($comment_list || $tag_list);
