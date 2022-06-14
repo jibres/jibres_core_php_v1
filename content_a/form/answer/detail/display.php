@@ -266,6 +266,83 @@ else
 			}
 			$html .= '</form>';
 
+			if(\dash\data::answerDetail_inquirytimes())
+			{
+				$inquerytimes = json_decode(\dash\data::answerDetail_inquirytimes(), true);
+				if(!is_array($inquerytimes))
+				{
+					$inquerytimes = [];
+				}
+
+				if($inquerytimes)
+				{
+					$html .= '<div class="box">';
+					{
+						$html .= '<header data-kerkere=".showInquiryTimes" data-kerkere-icon><h2>'. T_("Inquiry times by customer");
+						if(a($inquerytimes, 'last', 'time'))
+						{
+							$html .= '<b> '. \dash\fit::date_time(a($inquerytimes, 'first', 'time'), 'l j F Y H:i'). '</b>';
+						}
+
+						$html .=  '</h2></header>';
+						$html .= '<div class="body padLess showInquiryTimes" data-kerkere-content="hide">';
+						{
+							$html .= '<div class="tblBox">';
+							{
+
+								$html .= '<table class="tbl1 v2">';
+								{
+
+									$html .= '<tbody>';
+									{
+
+										if(a($inquerytimes, 'first', 'time') === a($inquerytimes, 'last', 'time'))
+										{
+											$html .= '<tr>';
+											{
+												$html .= '<th>'. T_("Last inquiry time").'</th>';
+												$html .= '<td>'. \dash\fit::date_time(a($inquerytimes, 'first', 'time'), 'l j F Y H:i'). '</td>';
+											}
+											$html .= '</tr>';
+										}
+										else
+										{
+											$html .= '<tr>';
+											{
+												$html .= '<th>'. T_("First inquiry time").'</th>';
+												$html .= '<td>'. \dash\fit::date_time(a($inquerytimes, 'first', 'time'), 'l j F Y H:i'). '</td>';
+											}
+											$html .= '</tr>';
+											$html .= '<tr>';
+											{
+												$html .= '<th>'. T_("Count inquiry").'</th>';
+												$html .= '<td>'. \dash\fit::number(a($inquerytimes, 'count')). ' '. T_("times"). '</td>';
+											}
+											$html .= '</tr>';
+											$html .= '<tr>';
+											{
+												$html .= '<th>'. T_("Last inquiry time").'</th>';
+												$html .= '<td>'. \dash\fit::date_time(a($inquerytimes, 'last', 'time'), 'l j F Y H:i'). '</td>';
+											}
+											$html .= '</tr>';
+										}
+
+									}
+									$html .= '</tbody>';
+								}
+								$html .= '</table>';
+							}
+
+							$html .= '</div>';
+						}
+						$html .= '</div>';
+					}
+					$html .= '</div>';
+
+				}
+
+			}
+
 
 
 
