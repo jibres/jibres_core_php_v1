@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-14 12:08+0430\n"
-"PO-Revision-Date: 2022-06-14 12:09+0430\n"
+"POT-Creation-Date: 2022-06-14 13:16+0430\n"
+"PO-Revision-Date: 2022-06-14 13:16+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3266,7 +3266,7 @@ msgstr "آیکن"
 
 #: content/logo/section-icon.php:60 content/logo/section-standard.php:57
 #: content/logo/section-standard.php:190 content/logo/section-vertical.php:59
-#: content/logo/section-vertical.php:197 content_a/form/answer/detail/display.php:318
+#: content/logo/section-vertical.php:197 content_a/form/answer/detail/display.php:395
 #: content_a/form/tag/edit/display.php:58
 msgid "Black"
 msgstr "مشکی"
@@ -5549,7 +5549,7 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/accounting/factor/add/display.php:198
 #: content_a/accounting/factor/add/display.php:216
 #: content_a/category/remove/display.php:38 content_a/discount/add/display.php:299
-#: content_a/form/answer/detail/display.php:329 content_a/form/tag/remove/display.php:37
+#: content_a/form/answer/detail/display.php:406 content_a/form/tag/remove/display.php:37
 #: content_cms/hashtag/remove/display.php:37 content_crm/member/legal/display.php:70
 #: content_love/business/setting/display.php:87 content_love/store/setting/display.php:79
 #: content_my/domain/option/display.php:23
@@ -6604,8 +6604,9 @@ msgstr "فروش"
 
 #: content_a/accounting/report/quarter/display-detail.php:15
 #: content_a/category/property/display.php:39 content_a/category/property/display.php:43
-#: content_a/discount/add/display.php:82 content_a/form/report/display.php:7
-#: content_a/order/home/display.php:32 content_a/products/property/add/display.php:32
+#: content_a/discount/add/display.php:82 content_a/form/answer/detail/display.php:485
+#: content_a/form/report/display.php:7 content_a/order/home/display.php:32
+#: content_a/products/property/add/display.php:32
 #: content_a/products/property/add/display.php:36
 #: content_a/products/property/display.php:45 content_a/products/property/display.php:49
 #: content_cms/files/view/display.php:26 content_crm/ticket/view/display.php:125
@@ -8813,7 +8814,7 @@ msgid "Please select on item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
 #: content_a/form/analytics/addcondition/display-condition.php:12
-#: content_a/form/answer/detail/display.php:401
+#: content_a/form/answer/detail/display.php:478
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:32
 msgid "Operator"
 msgstr "اپراتور"
@@ -8915,29 +8916,26 @@ msgid "Tag"
 msgstr "تگ"
 
 #: content_a/form/analytics/answer/display.php:72
-#: content_a/form/answer/detail/display.php:278
 msgid "Add comment to this answer"
 msgstr "افزودن دیدگاه به این پاسخ"
 
 #: content_a/form/analytics/answer/display.php:82
-#: content_a/form/answer/detail/display.php:308 content_a/form/tag/edit/display.php:22
+#: content_a/form/answer/detail/display.php:385 content_a/form/tag/edit/display.php:22
 #: includes/languages/trans_static.php:1006
 msgid "Public"
 msgstr "عمومی"
 
 #: content_a/form/analytics/answer/display.php:88
-#: content_a/form/answer/detail/display.php:297 content_a/form/tag/edit/display.php:28
+#: content_a/form/answer/detail/display.php:374 content_a/form/tag/edit/display.php:28
 #: includes/languages/trans_static.php:1009
 msgid "Private"
 msgstr "خصوصی"
 
-#: content_a/form/analytics/answer/display.php:95
-#: content_a/form/answer/detail/display.php:345 content_a/order/comment/display.php:60
+#: content_a/form/analytics/answer/display.php:95 content_a/order/comment/display.php:60
 msgid "Add comment"
 msgstr "افزودن یادداشت"
 
 #: content_a/form/analytics/answer/display.php:102
-#: content_a/form/answer/detail/display.php:364
 msgid "Answer comment"
 msgstr "نظرات"
 
@@ -9181,47 +9179,86 @@ msgstr "ناموفق"
 msgid "View Order"
 msgstr "نمایش سفارش"
 
-#: content_a/form/answer/detail/display.php:317 content_a/form/tag/edit/display.php:51
+#: content_a/form/answer/detail/display.php:281
+msgid "Inquiry time by customer"
+msgstr "زمان‌ استعلام توسط مشتری"
+
+#: content_a/form/answer/detail/display.php:303
+#: content_a/form/answer/detail/display.php:324
+msgid "Last inquiry time"
+msgstr "آخرین زمان استعلام"
+
+#: content_a/form/answer/detail/display.php:312
+msgid "First inquiry time"
+msgstr "اولین زمان استعلام"
+
+#: content_a/form/answer/detail/display.php:318
+msgid "Count inquiry"
+msgstr "تعداد دفعات استعلام"
+
+#: content_a/form/answer/detail/display.php:319
+msgid "times"
+msgstr "بار"
+
+#: content_a/form/answer/detail/display.php:355
+msgid "Add note to this answer"
+msgstr "افزودن یادداشت به این پاسخ"
+
+#: content_a/form/answer/detail/display.php:374
+msgid "Only your can view this note"
+msgstr "فقط شما می‌توانید این یادداشت را مشاهده کنید"
+
+#: content_a/form/answer/detail/display.php:385
+msgid "Your and customer can view this note"
+msgstr "شما و مشتری می‌توانید این یادداشت را مشاهده کنید"
+
+#: content_a/form/answer/detail/display.php:394 content_a/form/tag/edit/display.php:51
 msgid "Blue"
 msgstr "آبی"
 
-#: content_a/form/answer/detail/display.php:319 content_a/form/tag/edit/display.php:44
+#: content_a/form/answer/detail/display.php:396 content_a/form/tag/edit/display.php:44
 msgid "Green"
 msgstr "سبز"
 
-#: content_a/form/answer/detail/display.php:320 content_a/form/tag/edit/display.php:38
+#: content_a/form/answer/detail/display.php:397 content_a/form/tag/edit/display.php:38
 msgid "Red"
 msgstr "قرمز"
 
-#: content_a/form/answer/detail/display.php:321
+#: content_a/form/answer/detail/display.php:398
 msgid "Yellow"
 msgstr "زرد"
 
-#: content_a/form/answer/detail/display.php:322
+#: content_a/form/answer/detail/display.php:399
 msgid "Light blue"
 msgstr "آبی کمرنگ"
 
-#: content_a/form/answer/detail/display.php:323 content_site/options/effect/effect.php:15
+#: content_a/form/answer/detail/display.php:400 content_site/options/effect/effect.php:15
 msgid "Light"
 msgstr "روشن"
 
-#: content_a/form/answer/detail/display.php:324
+#: content_a/form/answer/detail/display.php:401
 #: content_site/options/background/background_effect.php:15
 #: content_site/options/effect/effect.php:14
 msgid "Dark"
 msgstr "تیره"
 
-#: content_a/form/answer/detail/display.php:326 content_a/form/tag/edit/display.php:33
+#: content_a/form/answer/detail/display.php:403 content_a/form/tag/edit/display.php:33
 #: content_site/options/background/background_color.php:10
 #: content_site/options/color/color.php:23
 msgid "Color"
 msgstr "رنگ"
 
-#: content_a/form/answer/detail/display.php:408
-msgid "Comment type"
-msgstr "نوع یادداشت"
+#: content_a/form/answer/detail/display.php:422
+#: content_crm/member/description/display.php:7
+msgid "Add note"
+msgstr "افزودن یادداشت"
 
-#: content_a/form/answer/detail/display.php:415 content_a/pricehistory/display.php:15
+#: content_a/form/answer/detail/display.php:441 content_crm/member/glance/display.php:337
+#: lib/app/factor/action.php:60
+msgid "Notes"
+msgstr "یادداشت‌ها"
+
+#: content_a/form/answer/detail/display.php:492 content_a/pricehistory/display.php:15
 #: content_cms/comments/view/display.php:65 content_cms/files/view/display.php:98
 #: content_crm/notification/view/display.php:38 content_crm/sms/view/display.php:68
 #: content_crm/transactions/detail/display.php:75
@@ -9232,12 +9269,12 @@ msgstr "نوع یادداشت"
 msgid "Date created"
 msgstr "تاریخ ثبت"
 
-#: content_a/form/answer/detail/display.php:424
+#: content_a/form/answer/detail/display.php:501
 msgid "Viewed by customer at"
 msgstr "مشاهده شده توسط مخاطب در"
 
-#: content_a/form/answer/detail/display.php:436
-msgid "Remove comment"
+#: content_a/form/answer/detail/display.php:513
+msgid "Remove note"
 msgstr "حذف یادداشت"
 
 #: content_a/form/answer/detail/model.php:27
@@ -17494,10 +17531,6 @@ msgstr "تعداد مجاز ساخت بیزینس برای کاربر"
 msgid "Edit jibres business user detail"
 msgstr "ویرایش تنظیمات مربوط به بیزینس کاربران"
 
-#: content_crm/member/description/display.php:7
-msgid "Add note"
-msgstr "افزودن یادداشت"
-
 #: content_crm/member/description/display.php:9
 msgid "Write your note about user."
 msgstr "یادداشت خود را درباره کاربر بنویسید."
@@ -17678,10 +17711,6 @@ msgstr "جزئیات شناسنامه‌ای"
 #: content_crm/member/glance/display.php:296
 msgid "Legal information"
 msgstr "اطلاعات حقوقی"
-
-#: content_crm/member/glance/display.php:337 lib/app/factor/action.php:60
-msgid "Notes"
-msgstr "یادداشت‌ها"
 
 #: content_crm/member/glance/display.php:348 content_love/domain/home/display.php:148
 #: content_my/domain/payments/view.php:9
@@ -39251,11 +39280,11 @@ msgstr "من خانم هستم"
 msgid "You have not complete this form"
 msgstr "شما این فرم را تکمیل نکرده‌اید"
 
-#: lib/app/form/inquiry.php:168
+#: lib/app/form/inquiry.php:175
 msgid "Viewd"
 msgstr "مشاهده شده"
 
-#: lib/app/form/inquiry.php:212
+#: lib/app/form/inquiry.php:219
 msgid "You have already complete this form"
 msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 
@@ -43821,6 +43850,12 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Comment type"
+#~ msgstr "نوع یادداشت"
+
+#~ msgid "Remove comment"
+#~ msgstr "حذف یادداشت"
 
 #~ msgid "No result was founded"
 #~ msgstr "نتیجه‌ای یافت نشد"
@@ -48494,9 +48529,6 @@ msgstr "یارد"
 
 #~ msgid "You updated git repository"
 #~ msgstr "شما مخازن گیت را به‌روزرسانی کردید"
-
-#~ msgid "Last error time: "
-#~ msgstr "آخرین زمان خطا: "
 
 #~ msgid "You are using all your menu build capacity and you cannot build a new menu"
 #~ msgstr ""

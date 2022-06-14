@@ -278,10 +278,10 @@ else
 				{
 					$html .= '<div class="box">';
 					{
-						$html .= '<header data-kerkere=".showInquiryTimes" data-kerkere-icon><h2>'. T_("Inquiry times by customer");
+						$html .= '<header data-kerkere=".showInquiryTimes" data-kerkere-icon><h2>'. T_("Inquiry time by customer");
 						if(a($inquerytimes, 'last', 'time'))
 						{
-							$html .= '<b> '. \dash\fit::date_time(a($inquerytimes, 'first', 'time'), 'l j F Y H:i'). '</b>';
+							$html .= '<b> '. \dash\fit::date_time(a($inquerytimes, 'last', 'time'), 'l j F Y H:i'). '</b>';
 						}
 
 						$html .=  '</h2></header>';
