@@ -59,6 +59,7 @@ if(!is_array($formItems))
 						<div class="mb-4"><?php echo \dash\data::formDetail_inquirymsg() ?></div>
 					<?php } // endif ?>
 					<?php \lib\app\form\inquiry::items(\dash\data::formDetail(), $formItems);?>
+					<a class="btn-link" href="<?php echo \dash\data::formDetail_url() ?>"><?php echo T_("Back to form") ?></a>
 				</div>
 			</div>
 			</div>

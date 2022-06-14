@@ -30,7 +30,14 @@ if(!is_array($formItems))
 			<footer class="txtRa">
 				<button class="btn master"><?php echo T_("Submit") ?></button>
 			</footer>
-		<?php } //endif ?>
+			<?php } //endif ?>
 		</div>
+
+			<?php if(\dash\data::formDetail_inquiry()) { ?>
+		<div class="box p-4">
+				<p><?php echo T_("If you have already completed this form, you can check the status of your answer via the link below") ?></p>
+				<a class="btn-link" href="<?php echo \dash\data::formDetail_url(). '/inquiry' ?>"><?php echo T_("Inquiry your answer") ?></a>
+		</div>
+			<?php } //endif ?>
 	</div>
 </form>
