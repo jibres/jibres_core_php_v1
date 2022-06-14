@@ -275,7 +275,7 @@ else
 				$html .= '<div class="box">';
 				{
 
-					$html .= '<header><h2>'. T_("Add comment to this answer"). '</h2></header>';
+					$html .= '<header><h2>'. T_("Add note to this answer"). '</h2></header>';
 					$html .= '<div class="body padLess">';
 					{
 
@@ -294,7 +294,7 @@ else
 								$html .= '<div class="radio3">';
 								{
 									$html .= '<input type="radio" name="privacy" value="private" checked id="privacyprivate">';
-									$html .= '<label for="privacyprivate">'. T_("Private") . '</label>';
+									$html .= '<label for="privacyprivate">'. T_("Private") . ' <small>'. T_('Only your can view this note').'</small></label>';
 								}
 								$html .= '</div>';
 							}
@@ -305,7 +305,7 @@ else
 								$html .= '<div class="radio3">';
 								{
 									$html .= '<input type="radio" name="privacy" value="public"  id="privacypublic">';
-									$html .= '<label for="privacypublic">'. T_("Public") . '</label>';
+									$html .= '<label for="privacypublic">'. T_("Public") . ' <small>'. T_('Your and customer can view this note').'</small></label>';
 								}
 								$html .= '</div>';
 							}
@@ -342,7 +342,7 @@ else
 					{
 						$html .= '<div class="c"></div>';
 						$html .= '<div class="cauto">';
-							$html .= '<button class="btn-outline-secondary btn-sm">'. T_("Add comment") . '</button>';
+							$html .= '<button class="btn-outline-secondary btn-sm">'. T_("Add note") . '</button>';
 						$html .= '</div>';
 					}
 					$html .= '</footer>';
@@ -361,7 +361,7 @@ else
 					$html .= '<div class="pad">';
 					{
 
-						$html .= '<h2>' . T_("Answer comment"). '</h2>';
+						$html .= '<h2>' . T_("Notes"). '</h2>';
 
 						foreach (\dash\data::commentList() as $key => $value)
 						{
@@ -405,7 +405,7 @@ else
 
 													$html .= '<tr>';
 													{
-														$html .= '<th>'. T_("Comment type").'</th>';
+														$html .= '<th>'. T_("Type").'</th>';
 														$html .= '<td>'. T_(ucfirst(strval(a($value, 'privacy')))). '</td>';
 													}
 													$html .= '</tr>';
@@ -421,7 +421,7 @@ else
 													{
 														$html .= '<tr>';
 														{
-															$html .= '<td colspan="2">'. T_("Viewed by customer at").  \dash\fit::date_time(a($value, 'dateview'), 'l j F Y H:i'). '</td>';
+															$html .= '<td colspan="2">'. T_("Viewed by customer at"). ' <b>'. \dash\fit::date_time(a($value, 'dateview'), 'l j F Y H:i'). '</b></td>';
 														}
 														$html .= '</tr>';
 													}
@@ -433,7 +433,7 @@ else
 
 															$html .= '<td colspan="2">';
 															{
-																$html .= '<div data-confirm data-data=\'{"removecomment" : "removecomment", "id" : "'.  a($value, 'id'). '"}\' class="text-red-500">'. T_("Remove comment"). '</div>';
+																$html .= '<div data-confirm data-data=\'{"removecomment" : "removecomment", "id" : "'.  a($value, 'id'). '"}\' class="text-red-500">'. T_("Remove note"). '</div>';
 
 															}
 															$html .= '</td>';
