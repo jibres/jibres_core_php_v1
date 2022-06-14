@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.importexport ADD `args` text NULL DEFAULT NULL AFTER `related_id`;
