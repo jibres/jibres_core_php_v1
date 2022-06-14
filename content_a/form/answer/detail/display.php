@@ -378,17 +378,82 @@ else
 							$html .='">';
 							{
 								$html .= '<div class="m-2">'. a($value, 'content'). '</div>';
-								$html .= '<div class="row">';
+
+								$html .= '<div data-kerkere=".showMore'. a($value, 'id'). '" >'. \dash\utility\icon::svg('three-dots', 'bootstrap', null, 'w-4'). '</div>';
+
+								$html .= '<div class="showMore'. a($value, 'id'). '" data-kerkere-content="hide" >';
 								{
-									$html .= '<div class="c">' . a($value, 'displayname'). '</div>';
-									$html .= '<div class="c">' . T_(ucfirst(a($value, 'privacy'))). '</div>';
-									$html .= '<div class="c">' . \dash\fit::date_time(a($value, 'datecreated')). '</div>';
-									if(\dash\permission::check('FormRemoveAnswer'))
+									$html .= '<hr class="my-2">';
+
+									$html .= '<div class="">';
 									{
-										$html .= '<div class="c-auto"><div data-confirm data-data=\'{"removecomment" : "removecomment", "id" : "'.  a($value, 'id'). '"}\' class="">'. \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3'). '</div></div>';
+										$html .= '<div class="tblBox">';
+										{
+
+											$html .= '<table class="tbl1 v2">';
+											{
+
+												$html .= '<tbody>';
+												{
+
+													$html .= '<tr>';
+													{
+														$html .= '<th>'. T_("Operator").'</th>';
+														$html .= '<td>'. a($value, 'displayname'). '</td>';
+													}
+													$html .= '</tr>';
+
+													$html .= '<tr>';
+													{
+														$html .= '<th>'. T_("Comment type").'</th>';
+														$html .= '<td>'. T_(ucfirst(strval(a($value, 'privacy')))). '</td>';
+													}
+													$html .= '</tr>';
+
+													$html .= '<tr>';
+													{
+														$html .= '<th>'. T_("Date created").'</th>';
+														$html .= '<td>'. \dash\fit::date_time(a($value, 'datecreated')). '</td>';
+													}
+													$html .= '</tr>';
+
+													if(a($value, 'dateview'))
+													{
+														$html .= '<tr>';
+														{
+															$html .= '<td colspan="2">'. T_("Viewed by customer at").  \dash\fit::date_time(a($value, 'dateview'), 'l j F Y H:i'). '</td>';
+														}
+														$html .= '</tr>';
+													}
+
+													if(\dash\permission::check('FormRemoveAnswer'))
+													{
+														$html .= '<tr>';
+														{
+
+															$html .= '<td colspan="2">';
+															{
+																$html .= '<div data-confirm data-data=\'{"removecomment" : "removecomment", "id" : "'.  a($value, 'id'). '"}\' class="text-red-500">'. T_("Remove comment"). '</div>';
+
+															}
+															$html .= '</td>';
+														}
+														$html .= '</tr>';
+													}
+
+												}
+												$html .= '</tbody>';
+											}
+											$html .= '</table>';
+										}
+
+										$html .= '</div>';
+
 									}
+									$html .= '</div>';
 								}
 								$html .= '</div>';
+
 							}
 							$html .= '</div>';
 
