@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.form_comment ADD `dateview` datetime NULL DEFAULT NULL AFTER `view`;
