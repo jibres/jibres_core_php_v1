@@ -12,7 +12,7 @@
 	<div class="cauto mLa5 s12"><?php echo T_("Answer count"); ?> <b><?php echo \dash\fit::number(\dash\data::countAll()); ?></b></div>
 	<div class="c mLa5">
 		<?php if(\dash\data::countAll() < 50) {?>
-			<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>&download=now" data-direct class="mLa10"><?php echo T_("Download Now"); ?></a>
+			<a href="<?php echo \dash\url::current(). '?id='. \dash\request::get('id'); ?>&download=now" data-direct class="mLa10 btn-link"><?php echo T_("Download Now"); ?></a>
 		<?php }elseif(\dash\data::countAll() >= 50) {?>
 			<div class="btn-link" data-confirm data-data='{"export":"answer"}' class="mLa10"><?php echo T_("Send export request"); ?></div>
 		<?php } //endif ?>
@@ -46,7 +46,7 @@
 				<div class="cauto mLa5">
 					<?php if(isset($value['status']) && $value['status'] == 'done') {?>
 
-					<a download href="<?php echo a($value, 'download_link'); ?>"><?php echo T_("Download"); ?></a>
+					<a download class="btn-link" href="<?php echo a($value, 'download_link'); ?>"><?php echo T_("Download"); ?></a>
 
 					<?php } //endif ?>
 				</div>
@@ -60,6 +60,8 @@
 <?php } //endif ?>
 
 <?php } //endif ?>
+<div class="justify-center flex w-48">
+	<img class="banner w300" src="<?php echo \dash\url::cdn(); ?>/img/product/export1.png" align='<?php echo T_("import answers"); ?>'>
+</div>
 
-<img class="banner w300" src="<?php echo \dash\url::cdn(); ?>/img/product/export1.png" align='<?php echo T_("import answers"); ?>'>
 
