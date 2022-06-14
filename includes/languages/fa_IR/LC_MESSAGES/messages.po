@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-14 11:04+0430\n"
-"PO-Revision-Date: 2022-06-14 11:05+0430\n"
+"POT-Creation-Date: 2022-06-14 12:08+0430\n"
+"PO-Revision-Date: 2022-06-14 12:09+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -8813,6 +8813,7 @@ msgid "Please select on item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
 #: content_a/form/analytics/addcondition/display-condition.php:12
+#: content_a/form/answer/detail/display.php:401
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:32
 msgid "Operator"
 msgstr "اپراتور"
@@ -9215,6 +9216,29 @@ msgstr "تیره"
 #: content_site/options/color/color.php:23
 msgid "Color"
 msgstr "رنگ"
+
+#: content_a/form/answer/detail/display.php:408
+msgid "Comment type"
+msgstr "نوع یادداشت"
+
+#: content_a/form/answer/detail/display.php:415 content_a/pricehistory/display.php:15
+#: content_cms/comments/view/display.php:65 content_cms/files/view/display.php:98
+#: content_crm/notification/view/display.php:38 content_crm/sms/view/display.php:68
+#: content_crm/transactions/detail/display.php:75
+#: content_love/business/domain/detail/display.php:31
+#: content_love/business/domain/dnslist/display.php:27
+#: content_love/domain/setting/display.php:313 content_love/files/view/display.php:95
+#: content_love/log/home/logTable.php:91
+msgid "Date created"
+msgstr "تاریخ ثبت"
+
+#: content_a/form/answer/detail/display.php:424
+msgid "Viewed by customer at"
+msgstr "مشاهده شده توسط مخاطب در"
+
+#: content_a/form/answer/detail/display.php:436
+msgid "Remove comment"
+msgstr "حذف یادداشت"
 
 #: content_a/form/answer/detail/model.php:27
 msgid "Tag saved"
@@ -10736,16 +10760,6 @@ msgstr "لطفا محصول را انتخاب کنید"
 #: lib/app/store/analytics.php:122
 msgid "Setting"
 msgstr "تنظیمات"
-
-#: content_a/pricehistory/display.php:15 content_cms/comments/view/display.php:65
-#: content_cms/files/view/display.php:98 content_crm/notification/view/display.php:38
-#: content_crm/sms/view/display.php:68 content_crm/transactions/detail/display.php:75
-#: content_love/business/domain/detail/display.php:31
-#: content_love/business/domain/dnslist/display.php:27
-#: content_love/domain/setting/display.php:313 content_love/files/view/display.php:95
-#: content_love/log/home/logTable.php:91
-msgid "Date created"
-msgstr "تاریخ ثبت"
 
 #: content_a/pricehistory/display.php:20
 msgid "Show Price in special date"
@@ -15958,7 +15972,7 @@ msgstr "این فرم یه فرم خصوصی است!"
 msgid "Your tracking numbert is"
 msgstr "کد رهگیری شما"
 
-#: content_business/f/home/display-form-inquiry.php:62
+#: content_business/f/home/display-form-inquiry.php:64
 msgid "Back to form"
 msgstr "برگشت به فرم"
 
@@ -39241,7 +39255,7 @@ msgstr "شما این فرم را تکمیل نکرده‌اید"
 msgid "Viewd"
 msgstr "مشاهده شده"
 
-#: lib/app/form/inquiry.php:193
+#: lib/app/form/inquiry.php:212
 msgid "You have already complete this form"
 msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 
@@ -43981,9 +43995,6 @@ msgstr "یارد"
 
 #~ msgid "Product founded"
 #~ msgstr "محصول یافت شد"
-
-#~ msgid "Filter by customer"
-#~ msgstr "فیلتر بر اساس مشتری"
 
 #~ msgid "Filter by start and end date"
 #~ msgstr "فیلتر بر اساس بازه زمانی"
