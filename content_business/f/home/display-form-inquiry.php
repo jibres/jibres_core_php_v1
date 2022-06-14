@@ -16,8 +16,8 @@ if(!is_array($formItems))
 				<div class="font-18 text-center font-bold">
 					<?php \dash\notif::get_in_html() ?>
 				</div>
-			<?php if(\dash\data::inquiryExecHaveResult()) {?>
 				<div class="box">
+						<?php if(\dash\data::answerID()) {?>
 
 					<div class="pad">
 
@@ -27,6 +27,7 @@ if(!is_array($formItems))
 							</div>
 						<?php } //endif ?>
 
+			<?php if(\dash\data::inquiryExecHaveResult()) {?>
 
 					<?php if(\dash\data::tagList()) {?>
 						<?php foreach (\dash\data::tagList() as $key => $value) {?>
@@ -46,6 +47,7 @@ if(!is_array($formItems))
 						<?php } //endfor ?>
 					<?php } //endif ?>
 
+			<?php } //endif ?>
 					</div>
 				</div>
 			<?php } //endif ?>
