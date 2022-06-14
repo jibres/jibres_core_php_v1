@@ -4,12 +4,12 @@ namespace lib\app\form\answer;
 class export
 {
 
-	public static function count_all($_form_id)
+	public static function count_all($_form_id, $_args = [])
 	{
 		\dash\permission::access('ManageForm');
 
 		$form_id = \dash\validate::id($_form_id);
-		$count_product_available = \lib\db\form_answer\get::count_all($form_id);
+		$count_product_available = \lib\db\form_answer\get::count_all_where($form_id, $_args);
 		return intval($count_product_available);
 	}
 
@@ -36,16 +36,78 @@ class export
 
 
 
-	public static function queue($_form_id)
+	public static function queue($_form_id, $_args = [])
 	{
 		\dash\permission::access('ManageForm');
 
 		$form_id = \dash\validate::id($_form_id);
 
-		$count_all = self::count_all($form_id);
+
+		$condition =
+		[
+			'startdate' => 'date',
+			'enddate'   => 'date',
+			'starttime' => 'time',
+			'endtime'   => 'time',
+			'tag_id'    => 'id',
+		];
+
+		$require = [];
+		$meta    = [];
+		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+
+		$startdate = null;
+		if($data['startdate'])
+		{
+			$startdate = $data['startdate'];
+
+			if($data['starttime'])
+			{
+				$startdate .= ' '. $data['starttime'];
+			}
+			else
+			{
+				$startdate .= ' 00:00:00';
+			}
+		}
+
+		$enddate = null;
+		if($data['enddate'])
+		{
+			$enddate = $data['enddate'];
+
+			if($data['endtime'])
+			{
+				$enddate .= ' '. $data['endtime'];
+			}
+			else
+			{
+				$enddate .= ' 23:59:59';
+			}
+		}
+
+		if($startdate && $enddate)
+		{
+			if(strtotime($startdate) > strtotime($enddate))
+			{
+				\dash\notif::error(T_("Start date must be less than end date!"), ['element' => ['startdate', 'enddate', 'starttime', 'endtime']]);
+				return false;
+			}
+		}
+
+		$new_args =
+		[
+			'startdate' => $startdate,
+			'enddate'   => $enddate,
+			'tag_id'    => $data['tag_id'],
+		];
+
+
+		$count_all = self::count_all($form_id, $new_args);
 		if(!$count_all)
 		{
-			\dash\notif::info(T_("You have not any answer to export"));
+			\dash\notif::info(T_("By this filter You have not any answer to export"));
 			return;
 		}
 

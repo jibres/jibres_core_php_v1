@@ -26,106 +26,105 @@ $html .= '<div class="justify-center flex"><div class="w-full lg:w-4/5 m-2">';
 				{
 					$html .= '<a href="'. \dash\url::current(). '?id='. \dash\request::get('id'). '&download=now" data-direct class="mLa10 btn-link">'. T_("Download Now"). '</a>';
 				}
-				elseif(\dash\data::countAll() >= 50)
-				{
-					$html .= '<div class="btn-link" data-confirm data-data=\'{"export":"answer"}\' class="mLa10">'. T_("Send export request"). '</div>';
-				}
 			}
 			$html .= '</div>';
 		}
 		$html .= '</div>';
 
-		$html .= '<form method="get" action="'. \dash\url::current().'">';
+		if(\dash\data::countAll() >= 50)
 		{
-			$html .= '<input type="hidden" name="id" value="'. \dash\request::get('id'). '">';
-			$html .= '<div class="box">';
+			$html .= '<form method="post" autocomplete="off">';
 			{
-				$html .= '<div class="pad">';
+				$html .= '<input type="hidden" name="export" value="answer">';
+				$html .= '<div class="box">';
 				{
-					$html .= '<h2 class="text-lg font-bold">'. T_("Export by special filter"). '</h2>';
-					$html .= '<div class="row">';
+					$html .= '<div class="pad">';
 					{
-						$html .= '<div class="c">';
+						$html .= '<h2 class="text-lg font-bold">'. T_("Export by special filter"). '</h2>';
+						$html .= '<div class="row">';
 						{
-							$html .= '<label for="startdate">'. T_("Start date").'</label>';
-							$html .= '<div class="input">';
+							$html .= '<div class="c">';
 							{
-								$html .= '<input type="tel" name="startdate" data-format="date" id="startdate">';
+								$html .= '<label for="startdate">'. T_("Start date").'</label>';
+								$html .= '<div class="input">';
+								{
+									$html .= '<input type="tel" name="startdate" data-format="date" id="startdate">';
+								}
+								$html .= '</div>';
+							}
+							$html .= '</div>';
+
+							$html .= '<div class="c">';
+							{
+
+								$html .= '<label for="starttime">'. T_("Start time").'</label>';
+								$html .= '<div class="input">';
+								{
+									$html .= '<input type="tel" name="starttime" data-format="time" id="starttime">';
+								}
+								$html .= '</div>';
 							}
 							$html .= '</div>';
 						}
 						$html .= '</div>';
 
-						$html .= '<div class="c">';
+						$html .= '<div class="row">';
 						{
 
-							$html .= '<label for="enddate">'. T_("Start time").'</label>';
-							$html .= '<div class="input">';
+							$html .= '<div class="c">';
 							{
-								$html .= '<input type="tel" name="enddate" data-format="date" id="enddate">';
+
+								$html .= '<label for="enddate">'. T_("End date").'</label>';
+								$html .= '<div class="input">';
+								{
+									$html .= '<input type="tel" name="enddate" data-format="date" id="date">';
+								}
+								$html .= '</div>';
+							}
+							$html .= '</div>';
+
+							$html .= '<div class="c">';
+							{
+
+								$html .= '<label for="endtime">'. T_("End time").'</label>';
+								$html .= '<div class="input">';
+								{
+									$html .= '<input type="tel" name="endtime" data-format="time" id="endtime">';
+								}
+								$html .= '</div>';
 							}
 							$html .= '</div>';
 						}
 						$html .= '</div>';
+
+						if(\dash\data::allTagList())
+						{
+
+							$html .= '<label for="tag">'. T_("Filter by tag").'</label>';
+							$html .= '<select name="tag" class="select22" id="tag" data-placeholder="'. T_("Choose a tag").'">';
+							{
+								$html .= '<option value="">'. T_("Choose a tag"). '</option>';
+								$html .= '<option value="0">'. T_("None"). '</option>';
+								foreach (\dash\data::allTagList() as $key => $value)
+								{
+									$html .= '<option value="'. a($value, 'id'). '">'. a($value, 'title'). '</option>';
+								}
+							}
+							$html .= '</select>';
+						}
 					}
 					$html .= '</div>';
 
-					$html .= '<div class="row">';
+					$html .= '<footer class="txtRa">';
 					{
-
-						$html .= '<div class="c">';
-						{
-
-							$html .= '<label for="starttime">'. T_("End date").'</label>';
-							$html .= '<div class="input">';
-							{
-								$html .= '<input type="tel" name="starttime" data-format="time" id="starttime">';
-							}
-							$html .= '</div>';
-						}
-						$html .= '</div>';
-
-						$html .= '<div class="c">';
-						{
-
-							$html .= '<label for="endtime">'. T_("End time").'</label>';
-							$html .= '<div class="input">';
-							{
-								$html .= '<input type="tel" name="endtime" data-format="time" id="endtime">';
-							}
-							$html .= '</div>';
-						}
-						$html .= '</div>';
+						$html .= '<button class="btn-primary">'. T_("Send export request"). '</button>';
 					}
-					$html .= '</div>';
-
-					if(\dash\data::allTagList())
-					{
-
-						$html .= '<label for="tag">'. T_("Filter by tag").'</label>';
-						$html .= '<select name="tag" class="select22" id="tag" data-placeholder="'. T_("Choose a tag").'">';
-						{
-							$html .= '<option value="">'. T_("Choose a tag"). '</option>';
-							$html .= '<option value="0">'. T_("None"). '</option>';
-							foreach (\dash\data::allTagList() as $key => $value)
-							{
-								$html .= '<option value="'. a($value, 'id'). '">'. a($value, 'title'). '</option>';
-							}
-						}
-						$html .= '</select>';
-					}
+					$html .= '</footer>';
 				}
 				$html .= '</div>';
-
-				$html .= '<footer class="txtRa">';
-				{
-					$html .= '<button class="btn-primary">'. T_("Apply filter"). '</button>';
-				}
-				$html .= '</footer>';
 			}
-			$html .= '</div>';
+			$html .= '</form>';
 		}
-		$html .= '</form>';
 	}
 
 
