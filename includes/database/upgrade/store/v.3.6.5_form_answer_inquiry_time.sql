@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.form_answer ADD `inquirytimes` text NULL DEFAULT NULL AFTER `review`;
