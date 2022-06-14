@@ -8,11 +8,18 @@
 			<div class="box">
 				<div class="pad">
 					<p><?php echo T_("The query feature allows you to inform the recipient of your result or response by referring to the form and entering your information.") ?></p>
-					<div class="switch1 mb-4">
+					<div class="switch1 mb-4 mt-4">
 						<input type="checkbox" name="inquiry" id="inquiry" <?php if(\dash\data::dataRow_inquiry()){ echo 'checked'; } ?>>
 						<label for="inquiry"></label>
 						<label for="inquiry"><?php echo T_("Enable inquiry") ?></label>
 					</div>
+					<?php if(\dash\data::dataRow_inquiry()){ ?>
+							<span><?php echo T_("inquiry page address") ?></span>
+						<div class="alert-secondary ltr text-left f">
+							<div class="text-left ltr"><a target="_blank" href="<?php echo \dash\data::dataRow_url(). '/inquiry'; ?>"><?php echo \dash\data::dataRow_url(). '/inquiry'; ?></a></div>
+							<div class="text-right" data-copy="<?php echo \dash\data::dataRow_url(). '/inquiry'; ?>"><?php echo \dash\utility\icon::svg('link') ?></div>
+						</div>
+					<?php } // endif ?>
 
 					<div data-response="inquiry" <?php if(\dash\data::dataRow_inquiry()){/*nothing*/}else{ echo 'data-response-hide'; } ?>>
 
@@ -52,6 +59,7 @@
 
 
 					<div class="mb-2">
+						<span><?php echo T_("Inquiry page image") ?></span>
 						<div data-uploader data-name='file' data-final='#finalImagefile1'>
 							<input type="file" accept="image/*" id="file1" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
 							<label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
