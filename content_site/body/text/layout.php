@@ -19,8 +19,14 @@ class layout
 		{
 			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
-				$color_text = a($_args, 'color_text:full_style');
-				$html .= "<div $color_text>";
+				$color_text = a($_args, 'color_text:style');
+				$style = "style='". $color_text. ";'";
+				$class = "class='leading-relaxed'";
+				if(\dash\language::current() === 'fa')
+				{
+					$class = "class='leading-loose'";
+				}
+				$html .= "<div $style $class>";
 				{
 					$html .= a($_args, 'html_text');
 				}
