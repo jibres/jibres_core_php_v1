@@ -114,7 +114,7 @@ class part
 		$html = '';
 		if(\dash\data::dataRow_content())
 		{
-			$html .= '<div class="text">';
+			$html .= '<div class="text" data-text-style="t1">';
 			$html .= \dash\data::dataRow_content();
 			$html .= \dash\layout\post\part::tagLine();
 			$html .= '</div>';
