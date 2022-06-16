@@ -43,7 +43,7 @@ class text
 	    	$html .= \content_site\options\generate::not_redirect();
 	    	$html .= \content_site\options\generate::opt_hidden(get_called_class());
 	    	$html .= \content_site\options\generate::multioption();
-	    	$html .= '<div class="h-full">';
+	    	$html .= '<div class="h-full" data-text-style="t1">';
 	    	{
 	    		$html .= '<textarea data-editor name="html" class="txt ltr txt-l h-full">'. $text_html .'</textarea>';
 	    	}
