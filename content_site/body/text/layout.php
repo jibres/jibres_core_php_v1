@@ -26,7 +26,7 @@ class layout
 				{
 					$class = "class='leading-loose'";
 				}
-				$html .= "<div $style $class>";
+				$html .= "<div data-text-style='t1' $style $class>";
 				{
 					$html .= a($_args, 'html_text');
 				}
