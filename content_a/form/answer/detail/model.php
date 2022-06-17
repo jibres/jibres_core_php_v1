@@ -9,6 +9,16 @@ class model
 
 		$answer_id = \dash\request::get('aid');
 
+		if(\dash\request::post('setstatus') === 'setstatus')
+		{
+			\lib\app\form\answer\edit::edit_status(\dash\request::post('status'), $answer_id);
+			if(\dash\engine\process::status())
+			{
+				// \dash\redirect::pwd();
+			}
+			return;
+		}
+
 		if(\dash\request::post('review') === 'review')
 		{
 			\lib\app\form\answer\edit::makr_as_review(\dash\request::get('id'), $answer_id);
