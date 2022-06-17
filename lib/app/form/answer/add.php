@@ -86,6 +86,7 @@ class add
 			$check_unique_args = [];
 			$maxlen            = null;
 			$min               = 0;
+			$lenght            = 0;
 			$max               = 99999999999999;
 
 			$mindate           = null;
@@ -115,6 +116,11 @@ class add
 			if(isset($item_detail['setting'][$type]['maxdate']) && $item_detail['setting'][$type]['maxdate'] && strtotime($item_detail['setting'][$type]['maxdate']))
 			{
 				$maxdate = strtotime(\dash\utility\jdate::to_gregorian($item_detail['setting'][$type]['maxdate']));
+			}
+
+			if(isset($item_detail['setting'][$type]['lenght']) && is_numeric($item_detail['setting'][$type]['lenght']))
+			{
+				$lenght = floatval($item_detail['setting'][$type]['lenght']);
 			}
 
 
@@ -155,11 +161,23 @@ class add
 
 			switch ($type)
 			{
+				case 'random':
+
+					if($lenght < 1 || $lenght > 50)
+					{
+						$lenght = 10;
+					}
+					$my_answer                       = \dash\utility\random::string($lenght);
+					$answer[$item_id] = ['answer' => $my_answer];
+					break;
+
+
 				case 'displayname':
 					$my_answer                       = \dash\validate::displayname($my_answer, true, $validate_meta);
 					$answer[$item_id] = ['answer' => $my_answer];
 					$signup_user_args['displayname'][] = $my_answer;
 					break;
+
 				case 'short_answer':
 					if(!$maxlen)
 					{
