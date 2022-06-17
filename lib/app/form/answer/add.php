@@ -721,14 +721,59 @@ class add
 
 		if($insert_answerdetail)
 		{
+			$answer_id = null;
+
+			if(!$edit_mode)
+			{
+				// save ip id
+				$add_answer_args['ip_id']    = \dash\utility\ip::id();
+
+				// save agent id
+				$add_answer_args['agent_id'] = \dash\agent::get(true);
+
+
+				$answer_id = \lib\db\form_answer\insert::new_record($add_answer_args);
+
+				if(!$answer_id)
+				{
+					\dash\log::oops('formAddAnswer');
+					\dash\notif::error(T_("Can not save your answer. Please contact to administrator"));
+					return false;
+				}
+
+				foreach ($insert_answerdetail as $key => $value)
+				{
+					$insert_answerdetail[$key]['answer_id'] = $answer_id;
+				}
+
+				$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
+
+				\dash\log::set('form_newAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $answer_id]);
+			}
+			else
+			{
+				$edit = edit::answer($insert_answerdetail, $check_true_item);
+
+				if(!$edit)
+				{
+					\dash\log::oops('formAddAnswer');
+					\dash\notif::error(T_("Can not edit your answer. Please contact to administrator"));
+					return false;
+				}
+
+				\dash\log::set('form_editAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $answer_id]);
+			}
+
 			if($total_price && !$data['factor_id'])
 			{
 				$meta =
 				[
-					'turn_back' => $redirect ? $redirect : \dash\url::pwd(),
-					'user_id'   => $data['user_id'],
-					'amount'    => $total_price,
-					'auto_back' => true,
+					'turn_back'     => $redirect ? $redirect : \dash\url::pwd(),
+					'user_id'       => $data['user_id'],
+					'amount'        => $total_price,
+					'auto_back'     => true,
+					'final_fn'      => ['/lib/app/form/answer/add', 'after_pay'],
+					'final_fn_args' => ['answer_id' => $answer_id],
 				];
 
 				// go to pay
@@ -744,47 +789,6 @@ class add
 					$redirect = $transaction_detail['url'];
 				}
 
-			}
-
-			if(!$edit_mode)
-			{
-				// save ip id
-				$add_answer_args['ip_id']    = \dash\utility\ip::id();
-
-				// save agent id
-				$add_answer_args['agent_id'] = \dash\agent::get(true);
-
-
-				$add_answer = \lib\db\form_answer\insert::new_record($add_answer_args);
-
-				if(!$add_answer)
-				{
-					\dash\log::oops('formAddAnswer');
-					\dash\notif::error(T_("Can not save your answer. Please contact to administrator"));
-					return false;
-				}
-
-				foreach ($insert_answerdetail as $key => $value)
-				{
-					$insert_answerdetail[$key]['answer_id'] = $add_answer;
-				}
-
-				$anwer_detail = \lib\db\form_answerdetail\insert::multi_insert($insert_answerdetail);
-
-				\dash\log::set('form_newAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $add_answer]);
-			}
-			else
-			{
-				$edit = edit::answer($insert_answerdetail, $check_true_item);
-
-				if(!$edit)
-				{
-					\dash\log::oops('formAddAnswer');
-					\dash\notif::error(T_("Can not edit your answer. Please contact to administrator"));
-					return false;
-				}
-
-				\dash\log::set('form_editAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $add_answer]);
 			}
 
 
@@ -811,6 +815,15 @@ class add
 
 
 		return true;
+	}
+
+
+	public static function after_pay($_args)
+	{
+		if(isset($_args['answer_id']) && is_numeric($_args['answer_id']))
+		{
+			\lib\db\form_answer\edit::update(['status' => 'payed'], $_args['answer_id']);
+		}
 	}
 
 
