@@ -15,6 +15,7 @@ class check
 			'color'        => ['enum' => ['red','green','blue','yellow',]],
 			'require'      => 'bit',
 			'maxlen'       => 'smallint',
+			'length'       => 'smallint',
 			'maxlen2'      => 'smallint',
 			'sort'         => 'int',
 			'placeholder'  => 'string_100',
@@ -154,6 +155,12 @@ class check
 			$setting[$data['type']]['defaultvalue'] = $data['defaultvalue'];
 		}
 
+		if(a($_current_detail, 'type_detail', 'length'))
+		{
+			$setting[$data['type']]['length'] = $data['length'];
+		}
+
+
 		if(a($_current_detail, 'type_detail', 'filetype'))
 		{
 			$filetype = \dash\upload\extentions::get_all_allow_ext();
@@ -207,6 +214,7 @@ class check
 		unset($data['random']);
 		unset($data['check_unique']);
 		unset($data['min']);
+		unset($data['length']);
 		unset($data['max']);
 		unset($data['mindate']);
 		unset($data['maxdate']);
