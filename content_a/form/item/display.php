@@ -155,6 +155,20 @@ function settingRecord($value)
 		settingChoice($value);
 	}
 
+	if(isset($value['type_detail']['lowercase']) && $value['type_detail']['lowercase'])
+	{
+		settingLovercase($value);
+	}
+
+
+	if(isset($value['type_detail']['uppercase']) && $value['type_detail']['uppercase'])
+	{
+		settingUppercase($value);
+	}
+
+
+
+
 
 }
 
@@ -177,6 +191,28 @@ function settingRecord($value)
 	<input type="tel" name="item_length_<?php echo a($value, 'id') ?>" id="item_length_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'length'); ?>">
 </div>
 <?php } //endif
+
+ function settingLovercase($value) {?>
+ 	<div class="switch1">
+	<input type="checkbox" name="item_lowercase_<?php echo a($value, 'id') ?>" id="item_lowercase_<?php echo a($value, 'id'); ?>" <?php if(a($value, 'setting', a($value, 'type'), 'lowercase')) { echo 'checked';} ?>>
+	<label for="item_lowercase_<?php echo a($value, 'id'); ?>"><?php echo T_("Include lowercase"); ?></label>
+	<label for="item_lowercase_<?php echo a($value, 'id'); ?>"><?php echo T_("Include lowercase"); ?></label>
+</div>
+
+<?php } //endif
+
+
+ function settingUppercase($value) {?>
+ 	<div class="switch1">
+	<input type="checkbox" name="item_uppercase_<?php echo a($value, 'id') ?>" id="item_uppercase_<?php echo a($value, 'id'); ?>" <?php if(a($value, 'setting', a($value, 'type'), 'uppercase')) { echo 'checked';} ?>>
+	<label for="item_uppercase_<?php echo a($value, 'id'); ?>"><?php echo T_("Include uppercase"); ?></label>
+	<label for="item_uppercase_<?php echo a($value, 'id'); ?>"><?php echo T_("Include uppercase"); ?></label>
+</div>
+
+<?php } //endif
+
+
+
 
 
 

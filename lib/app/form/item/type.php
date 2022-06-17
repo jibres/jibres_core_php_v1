@@ -507,12 +507,14 @@ class type
 
 		$type['random'] =
 		[
-			'key'          => 'random',
-			'title'        => T_('Random'),
-			'group'        => T_('Other'),
-			'require'      => false,
-			'length'       => true,
-			'default_load' =>
+			'key'               => 'random',
+			'title'             => T_('Random'),
+			'group'             => T_('Other'),
+			'require'           => false,
+			'length'            => true,
+			'lowercase' => true,
+			'uppercase' => true,
+			'default_load'      =>
 			[
 
 			],
