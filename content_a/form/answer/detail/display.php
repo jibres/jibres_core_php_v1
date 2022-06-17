@@ -113,6 +113,82 @@ else
 			}
 			$html .= '</div>';
 
+			$html .= '<div class="alert-ligth">';
+			{
+
+				$html .= '<div class="f">';
+				{
+					$html .= '<div class="cauto">';
+					{
+						$html .= '<span>'. T_("Answer Status"). '</span>';
+					}
+					$html .= '</div>';
+
+					$html .= '<div class="c"></div>';
+
+					$html .= '<div class="cauto">';
+					{
+						$status =
+						[
+							'start'       => T_("start"),
+							'complete'    => T_("complete"),
+							'skip'        => T_("skip"),
+							'spam'        => T_("spam"),
+							'filter'      => T_("filter"),
+							'block'       => T_("block"),
+							'draft'       => T_("draft"),
+							'enable'      => T_("enable"),
+							'disable'     => T_("disable"),
+							'deleted'     => T_("deleted"),
+							'archive'     => T_("archive"),
+							'done'        => T_("done"),
+							'review'      => T_("review"),
+							'pending'     => T_("pending"),
+							'other'       => T_("other"),
+							'payed'       => T_("payed"),
+							'expire'      => T_("expire"),
+							'cancel'      => T_("cancel"),
+							'reject'      => T_("reject"),
+							'trash'       => T_("trash"),
+							'approved'    => T_("approved"),
+							'awaiting'    => T_("awaiting"),
+							'unapproved'  => T_("unapproved"),
+							'close'       => T_("close"),
+							'active'      => T_("active"),
+							'deactive'    => T_("deactive"),
+							'unreachable' => T_("unreachable"),
+							'unknown'     => T_("unknown"),
+						];
+
+						$html .= '<form method="post" autocomplete="off" data-patch>';
+						{
+							$html .= '<input type="hidden" name="setstatus" value="setstatus">';
+
+							$html .= '<select name="status" class="select22">';
+							{
+								$html .= '<option value=""></option>';
+								foreach ($status as $key => $value)
+								{
+									$html .= '<option value="'. $key. '" ';
+									if(\dash\data::answerDetail_status() === $key)
+									{
+										$html .= 'selected';
+									}
+									$html .= '>'. $value. '</option>';
+								}
+							}
+							$html .= '</select>';
+						}
+						$html .= '</form>';
+
+					}
+					$html .= '</div>';
+
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
 			if(\dash\data::answerTransactionDetail())
 			{
 

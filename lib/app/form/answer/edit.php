@@ -48,6 +48,55 @@ class edit
 
 	}
 
+	public static function edit_status($_status, $_id)
+	{
+		$allow_status =
+		[
+			'start',
+			'complete',
+			'skip',
+			'spam',
+			'filter',
+			'block',
+			'draft',
+			'enable',
+			'disable',
+			'deleted',
+			'archive',
+			'done',
+			'review',
+			'pending',
+			'other',
+			'payed',
+			'expire',
+			'cancel',
+			'reject',
+			'trash',
+			'approved',
+			'awaiting',
+			'unapproved',
+			'close',
+			'active',
+			'deactive',
+			'unreachable',
+			'unknown',
+		];
+
+		if(!in_array($_status, $allow_status))
+		{
+			\dash\notif::error(T_("Invalid status"));
+			return false;
+		}
+
+		$id = \dash\validate::id($_id);
+
+		\lib\db\form_answer\edit::update(['status' => $_status], $id);
+
+		\dash\notif::ok(T_("Saved"));
+
+		return true;
+	}
+
 
 	/**
 	 * Edit form answer
