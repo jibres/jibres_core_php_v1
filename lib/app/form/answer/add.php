@@ -33,7 +33,7 @@ class add
 		$total_price        = 0;
 		$send_sms           = [];
 		$sms_text           = [];
-		$requred_not_answer = [];
+		$required_not_answered = [];
 
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
 		if(!is_array($answer))
@@ -148,7 +148,7 @@ class add
 					}
 					else
 					{
-						$requred_not_answer[] = ['message' => T_(":val is required", ['val' => a($item_detail, 'title')]), 'element' => 'a_'. $item_id];
+						$required_not_answered[] = ['message' => T_(":val is required", ['val' => a($item_detail, 'title')]), 'element' => 'a_'. $item_id];
 						continue;
 					}
 				}
@@ -343,7 +343,7 @@ class add
 							$city                  = \dash\validate::city($my_answer[1], true, $validate_meta);
 							if($is_required && !$city)
 							{
-								$requred_not_answer[] = ['message' => T_(":val is required", ['val' => T_("City")]), 'element' => 'a_'. $item_id];
+								$required_not_answered[] = ['message' => T_(":val is required", ['val' => T_("City")]), 'element' => 'a_'. $item_id];
 							}
 
 							if($city)
@@ -518,11 +518,11 @@ class add
 		}
 
 
-		if($requred_not_answer)
+		if($required_not_answered)
 		{
-			if(count($requred_not_answer) <= 2)
+			if(count($required_not_answered) <= 2)
 			{
-				foreach ($requred_not_answer as $key => $value)
+				foreach ($required_not_answered as $key => $value)
 				{
 					\dash\notif::error($value['message'], ['element' => $value['element']]);
 				}
@@ -530,7 +530,7 @@ class add
 			}
 			else
 			{
-				\dash\notif::error(T_("Please fill the required field"), ['alerty' => true, 'element' => array_column($requred_not_answer, 'element')]);
+				\dash\notif::error(T_("Please fill the required field"), ['alerty' => true, 'element' => array_column($required_not_answered, 'element')]);
 				return false;
 			}
 		}
@@ -645,6 +645,11 @@ class add
 			'startdate'   => $data['startdate'],
 			'enddate'     => date("Y-m-d H:i:s"),
 		];
+
+		if($total_price)
+		{
+			$add_answer_args['status'] = 'draft';
+		}
 
 
 		$insert_answerdetail = [];
