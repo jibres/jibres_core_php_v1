@@ -47,6 +47,8 @@ class model
 			'send_sms',
 			'sms_text',
 			'signup',
+			'lowercase',
+			'uppercase',
 			'defaultvalue',
 			'link',
 			'targetblank',

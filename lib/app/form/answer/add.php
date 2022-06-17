@@ -167,7 +167,21 @@ class add
 					{
 						$lenght = 10;
 					}
-					$my_answer                       = \dash\utility\random::string($lenght);
+
+					$alphabet = '1234567890';
+
+					if(isset($item_detail['setting'][$type]['lowercase']) && $item_detail['setting'][$type]['lowercase'])
+					{
+						$alphabet .= 'abcdefghijklmnopqrstuvwxyz';
+					}
+
+					if(isset($item_detail['setting'][$type]['uppercase']) && $item_detail['setting'][$type]['uppercase'])
+					{
+						$alphabet .= strtoupper('abcdefghijklmnopqrstuvwxyz');
+					}
+
+					$my_answer                       = \dash\utility\random::string($lenght, $alphabet);
+
 					$answer[$item_id] = ['answer' => $my_answer];
 					break;
 

@@ -23,6 +23,8 @@ class check
 			'choiceinline' => 'bit',
 			'random'       => 'bit',
 			'check_unique' => 'bit',
+			'lowercase'    => 'bit',
+			'uppercase'    => 'bit',
 			'min'          => 'intstring_50',
 			'max'          => 'intstring_50',
 			'mindate'      => 'date',
@@ -161,6 +163,18 @@ class check
 		}
 
 
+		if(a($_current_detail, 'type_detail', 'lowercase'))
+		{
+			$setting[$data['type']]['lowercase'] = $data['lowercase'];
+		}
+
+		if(a($_current_detail, 'type_detail', 'uppercase'))
+		{
+			$setting[$data['type']]['uppercase'] = $data['uppercase'];
+		}
+
+
+
 		if(a($_current_detail, 'type_detail', 'filetype'))
 		{
 			$filetype = \dash\upload\extentions::get_all_allow_ext();
@@ -215,6 +229,8 @@ class check
 		unset($data['check_unique']);
 		unset($data['min']);
 		unset($data['length']);
+		unset($data['lowercase']);
+		unset($data['uppercase']);
 		unset($data['max']);
 		unset($data['mindate']);
 		unset($data['maxdate']);

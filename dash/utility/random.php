@@ -5,9 +5,16 @@ class random
 {
 
 
-    public static function string($_length = 10) : string
+    public static function string($_length = 10, string $_alphabet = null) : string
     {
-        $characters       = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        if(!$_alphabet)
+        {
+            $characters  = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        }
+        else
+        {
+            $characters = $_alphabet;
+        }
         $charactersLength = strlen($characters);
         $randomString     = '';
 
