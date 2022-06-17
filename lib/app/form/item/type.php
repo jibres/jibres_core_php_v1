@@ -505,6 +505,20 @@ class type
 		];
 
 
+		$type['random'] =
+		[
+			'key'          => 'random',
+			'title'        => T_('Random'),
+			'group'        => T_('Other'),
+			'require'      => false,
+			'length'       => true,
+			'default_load' =>
+			[
+
+			],
+		];
+
+
 
 
 

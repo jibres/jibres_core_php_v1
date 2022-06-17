@@ -25,6 +25,7 @@
 
 			</div>
 
+			<?php if(a(\dash\data::itemDetail(), 'type_detail', 'require') === false){/*nothing*/}else{ ?>
 			<div class="mt-2">
 				<input type="hidden" name="item_checkrequire_<?php echo $myKey ?>" value="1">
 			<div class="switch1">
@@ -33,6 +34,7 @@
 				<label for="check1<?php echo $myKey; ?>"><?php echo T_("Is required?"); ?></label>
 			</div>
 			</div>
+		<?php } //endif ?>
 
 			<?php settingRecord(\dash\data::itemDetail()); ?>
 		</div>
@@ -80,6 +82,12 @@ function settingRecord($value)
 	{
 		settingMax($value);
 	}
+
+	if(isset($value['type_detail']['length']) && $value['type_detail']['length'])
+	{
+		settingLength($value);
+	}
+
 
 	if(isset($value['type_detail']['mindate']) && $value['type_detail']['mindate'])
 	{
@@ -158,11 +166,17 @@ function settingRecord($value)
  function settingMaxLen($value) {?>
 <label for="item_maxlen_<?php echo a($value, 'id') ?>"><?php echo T_("Maximum len") ?></label>
 <div class="input">
-	<input type="text" name="item_maxlen_<?php echo a($value, 'id') ?>" id="item_maxlen_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'maxlen'); ?>">
+	<input type="tel" name="item_maxlen_<?php echo a($value, 'id') ?>" id="item_maxlen_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'maxlen'); ?>">
 </div>
 <?php } //endif
 
 
+ function settingLength($value) {?>
+<label for="item_length_<?php echo a($value, 'id') ?>"><?php echo T_("Length") ?></label>
+<div class="input">
+	<input type="tel" name="item_length_<?php echo a($value, 'id') ?>" id="item_length_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'length'); ?>">
+</div>
+<?php } //endif
 
 
 
@@ -170,7 +184,7 @@ function settingRecord($value)
 function settingMin($value) {?>
 <label for="item_min_<?php echo a($value, 'id') ?>"><?php echo T_("Minimum") ?></label>
 <div class="input">
-	<input type="text" name="item_min_<?php echo a($value, 'id') ?>" id="item_min_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'min'); ?>">
+	<input type="tel" name="item_min_<?php echo a($value, 'id') ?>" id="item_min_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'min'); ?>">
 </div>
 <?php } //endif
 
@@ -199,7 +213,7 @@ function settingMaxdate($value) {?>
  function settingMax($value) {?>
 <label for="item_max_<?php echo a($value, 'id') ?>"><?php echo T_("Maximum") ?></label>
 <div class="input">
-	<input type="text" name="item_max_<?php echo a($value, 'id') ?>" id="item_max_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'max'); ?>">
+	<input type="tel" name="item_max_<?php echo a($value, 'id') ?>" id="item_max_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'max'); ?>">
 </div>
 <?php } //endif
 

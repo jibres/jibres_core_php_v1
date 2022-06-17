@@ -33,6 +33,7 @@ class model
 			'require',
 			'checkrequire',
 			'maxlen',
+			'length',
 			'placeholder',
 			'choice',
 			'choiceinline',
