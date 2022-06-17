@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.form_answer CHANGE `status` `status` ENUM('start','complete','skip','spam','filter','block','draft','enable','disable','deleted','archive','done','review','pending','other','payed','expire','cancel','reject','trash','approved','awaiting','unapproved','close','active','deactive','unreachable','unknown') CHARACTER SET utf8 NULL DEFAULT NULL;
