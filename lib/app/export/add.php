@@ -35,6 +35,13 @@ class add
 			unset($_meta['related']);
 		}
 
+		$args = [];
+		if(isset($_meta['args']) && is_array($_meta['args']))
+		{
+			$args = $_meta['args'];
+		}
+
+
 		$check_duplicate = \lib\db\export\get::check_duplicate_where($where);
 		if($check_duplicate)
 		{
@@ -63,6 +70,11 @@ class add
 		{
 			$_meta          = json_encode($_meta, JSON_UNESCAPED_UNICODE);
 			$insert['meta'] = $_meta;
+		}
+
+		if($args)
+		{
+			$insert['args'] = json_encode($args);
 		}
 
 		$export_id = \lib\db\export\insert::new_record($insert);

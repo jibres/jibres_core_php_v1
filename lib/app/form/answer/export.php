@@ -107,11 +107,11 @@ class export
 		$count_all = self::count_all($form_id, $new_args);
 		if(!$count_all)
 		{
-			\dash\notif::info(T_("By this filter You have not any answer to export"));
-			return;
+			\dash\notif::error(T_("By this filter You have not any answer to export"));
+			return false;
 		}
 
-		return \lib\app\export\add::request('form_answer', ['related' => 'form', 'related_id' => $_form_id]);
+		return \lib\app\export\add::request('form_answer', ['related' => 'form', 'related_id' => $_form_id, 'args' => $new_args]);
 
 	}
 
