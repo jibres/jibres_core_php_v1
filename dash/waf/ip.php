@@ -822,6 +822,12 @@ class ip
 			{
 				$logDetail .= ' - '. $_reason;
 			}
+
+			if(count($_ipData['log']) > 50)
+			{
+				$_ipData['log'] = array_slice($_ipData['log'], -50, 50, true)	;
+			}
+
 			$_ipData['log'][time()] = $logDetail;
 
 		}
