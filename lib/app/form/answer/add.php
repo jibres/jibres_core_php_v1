@@ -86,7 +86,7 @@ class add
 			$check_unique_args = [];
 			$maxlen            = null;
 			$min               = 0;
-			$lenght            = 0;
+			$length            = 0;
 			$max               = 99999999999999;
 
 			$mindate           = null;
@@ -118,11 +118,10 @@ class add
 				$maxdate = strtotime(\dash\utility\jdate::to_gregorian($item_detail['setting'][$type]['maxdate']));
 			}
 
-			if(isset($item_detail['setting'][$type]['lenght']) && is_numeric($item_detail['setting'][$type]['lenght']))
+			if(isset($item_detail['setting'][$type]['length']) && is_numeric($item_detail['setting'][$type]['length']))
 			{
-				$lenght = floatval($item_detail['setting'][$type]['lenght']);
+				$length = floatval($item_detail['setting'][$type]['length']);
 			}
-
 
 			$check_unique = false;
 			if(isset($item_detail['setting'][$type]['check_unique']) && $item_detail['setting'][$type]['check_unique'])
@@ -163,9 +162,9 @@ class add
 			{
 				case 'random':
 
-					if($lenght < 1 || $lenght > 50)
+					if($length < 1 || $length > 50)
 					{
-						$lenght = 10;
+						$length = 10;
 					}
 
 					$alphabet = '1234567890';
@@ -180,7 +179,7 @@ class add
 						$alphabet .= strtoupper('abcdefghijklmnopqrstuvwxyz');
 					}
 
-					$my_answer                       = \dash\utility\random::string($lenght, $alphabet);
+					$my_answer                       = \dash\utility\random::string($length, $alphabet);
 
 					$answer[$item_id] = ['answer' => $my_answer];
 					break;
@@ -650,6 +649,11 @@ class add
 		{
 			$add_answer_args['status'] = 'draft';
 		}
+		else
+		{
+			$add_answer_args['status'] = 'active';
+
+		}
 
 
 		$insert_answerdetail = [];
@@ -822,7 +826,7 @@ class add
 	{
 		if(isset($_args['answer_id']) && is_numeric($_args['answer_id']))
 		{
-			\lib\db\form_answer\edit::update(['status' => 'payed'], $_args['answer_id']);
+			\lib\db\form_answer\edit::update(['status' => 'active'], $_args['answer_id']);
 		}
 	}
 
