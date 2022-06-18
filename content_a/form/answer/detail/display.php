@@ -116,7 +116,7 @@ else
 			$html .= '<div class="alert-ligth">';
 			{
 
-				$html .= '<div class="f">';
+				$html .= '<div class="row">';
 				{
 					$html .= '<div class="cauto">';
 					{
@@ -126,7 +126,7 @@ else
 
 					$html .= '<div class="c"></div>';
 
-					$html .= '<div class="cauto">';
+					$html .= '<div class="c-auto">';
 					{
 						$status =
 						[
@@ -139,7 +139,7 @@ else
 							'draft'       => T_("draft"),
 							'enable'      => T_("enable"),
 							'disable'     => T_("disable"),
-							'deleted'     => T_("deleted"),
+							// 'deleted'     => T_("deleted"),
 							'archive'     => T_("archive"),
 							'done'        => T_("done"),
 							'review'      => T_("review"),
@@ -159,6 +159,11 @@ else
 							'unreachable' => T_("unreachable"),
 							'unknown'     => T_("unknown"),
 						];
+
+						if(\dash\data::answerDetail_status() === 'deleted')
+						{
+							$status['deleted'] = T_("deleted");
+						}
 
 						$html .= '<form method="post" autocomplete="off" data-patch>';
 						{
@@ -183,6 +188,20 @@ else
 
 					}
 					$html .= '</div>';
+
+					$html .= '<div class="c-auto">';
+					{
+						if(\dash\data::answerDetail_status() !== 'deleted')
+						{
+							$html .= '<div data-ajaxify data-data=\'{"setstatus" : "setstatus", "status" : "deleted"}\' data-method="post">';
+							{
+								$html .= \dash\utility\icon::svg('delete', 'major', 'red', 'w-6 mx-4 mt-1');
+							}
+							$html .= '</div>';
+						}
+					}
+					$html .= '</div>';
+
 
 				}
 				$html .= '</div>';

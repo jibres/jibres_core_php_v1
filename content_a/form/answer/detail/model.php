@@ -14,6 +14,10 @@ class model
 			\lib\app\form\answer\edit::edit_status(\dash\request::post('status'), $answer_id);
 			if(\dash\engine\process::status())
 			{
+				if(\dash\request::post('status') === 'deleted')
+				{
+					\dash\redirect::to(\dash\url::that(). '?id='. \dash\request::get('id'));
+				}
 				// \dash\redirect::pwd();
 			}
 			return;
