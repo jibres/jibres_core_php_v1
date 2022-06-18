@@ -18,6 +18,17 @@ class form_answer
 			return false;
 		}
 
+		$args = [];
+		if(isset($_detail['args']) && is_string($_detail['args']))
+		{
+			$args = json_decode($_detail['args'], true);
+
+			if(!is_array($args))
+			{
+				$args = [];
+			}
+		}
+
 
 		ini_set('max_execution_time', 300); //300 seconds = 5 minutes
 		\dash\code::time_limit(300);
@@ -32,7 +43,7 @@ class form_answer
 
 		if (ob_get_level() == 0) ob_start();
 
-		$result       = \lib\db\form_answer\get::export_list($form_id, $start_limit, $end_limit);
+		$result       = \lib\db\form_answer\get::export_list($form_id, $start_limit, $end_limit, $args);
 		$result       = \lib\app\form\answer\export::ready_for_export($result);
 
 		while ($result)
@@ -47,7 +58,7 @@ class form_answer
 			$first_record = false;
 			$end_limit    = $end_limit + $step;
 
-			$result       = \lib\db\form_answer\get::export_list($form_id, $start_limit, $step);
+			$result       = \lib\db\form_answer\get::export_list($form_id, $start_limit, $step, $args);
 			$result       = \lib\app\form\answer\export::ready_for_export($result);
 
 	        ob_flush();
