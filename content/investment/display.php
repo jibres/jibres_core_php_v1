@@ -8,9 +8,9 @@
    <p class="leading-8"><?php echo T_("We have designed this page to answer your questions that you may be interested in investing in Jibres. These are just some of the questions that investors want to know about Jibres. Of course, you may have more and specific questions, so do not hesitate to contact us. We mentioned the version and the date of editing. So reading this page once will probably not be enough.") ?></p>
 
    <div class="row alert-info mt-6 mB0-f font-14 leading-8 px-4">
-     <div class="c-auto"><?php echo T_("Version"). ' '. \dash\fit::number(4, false); ?></div>
+     <div class="c-auto"><?php echo T_("Version"). ' '. \dash\fit::number(5, false); ?></div>
      <div class="c txtRa"><?php echo T_("Last Update"); ?></div>
-     <div class="cauto txtRa ltr"><?php echo \dash\fit::date("2022-06-09"); ?></div>
+     <div class="cauto txtRa ltr"><?php echo \dash\fit::date("2022-06-18"); ?></div>
    </div>
 
  </div>
