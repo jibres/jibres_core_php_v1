@@ -98,7 +98,7 @@ else
 
 <?php function htmlStartAddNew() {?>
 
-<div class="fs14 alert-info pTB20">
+<div class="alert-info p-4 rounded">
   <p><?php echo T_("Hi!"); ?></p>
   <p><a href="<?php echo \dash\url::current(); ?>/add"><?php echo T_("Try to start with add new contact!"); ?></a></p>
 
