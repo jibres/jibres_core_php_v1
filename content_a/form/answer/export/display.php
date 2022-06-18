@@ -24,14 +24,14 @@ $html .= '<div class="justify-center flex"><div class="w-full lg:w-4/5 m-2">';
 			{
 				if(\dash\data::countAll() < 50)
 				{
-					$html .= '<a href="'. \dash\url::current(). '?id='. \dash\request::get('id'). '&download=now" data-direct class="mLa10 btn-link">'. T_("Download Now"). '</a>';
+					$html .= '<a href="'. \dash\url::current(). '?id='. \dash\request::get('id'). '&download=now" data-direct class="mLa10 btn-link">'. T_("Download all answer now"). '</a>';
 				}
 			}
 			$html .= '</div>';
 		}
 		$html .= '</div>';
 
-		if(\dash\data::countAll() >= 50)
+		if(\dash\data::countAll())
 		{
 			$html .= '<form method="post" autocomplete="off">';
 			{
