@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-17 10:43+0430\n"
-"PO-Revision-Date: 2022-06-17 10:44+0430\n"
+"POT-Creation-Date: 2022-06-18 15:37+0430\n"
+"PO-Revision-Date: 2022-06-18 15:38+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -5079,7 +5079,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/doc/display.php:14 content_a/accounting/factor/display.php:48
 #: content_a/accounting/turnover/display.php:185 content_a/android/apk/display.php:32
 #: content_a/discount/add/display.php:620 content_a/form/answer/display.php:66
-#: content_a/form/answer/export/display.php:69 content_a/form/itemLink.php:14
+#: content_a/form/answer/export/display.php:155 content_a/form/itemLink.php:14
 #: content_a/order/detail/display.php:29 content_a/products/edit/block/sidebar-menu.php:5
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
 #: content_cms/comments/view/display.php:127 content_crm/member/export/display.php:47
@@ -5549,7 +5549,8 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/accounting/factor/add/display.php:198
 #: content_a/accounting/factor/add/display.php:216
 #: content_a/category/remove/display.php:38 content_a/discount/add/display.php:299
-#: content_a/form/answer/detail/display.php:482 content_a/form/tag/remove/display.php:37
+#: content_a/form/answer/detail/display.php:482
+#: content_a/form/answer/export/display.php:107 content_a/form/tag/remove/display.php:37
 #: content_cms/hashtag/remove/display.php:37 content_crm/member/legal/display.php:70
 #: content_love/business/setting/display.php:87 content_love/store/setting/display.php:79
 #: content_my/domain/option/display.php:23
@@ -6111,15 +6112,17 @@ msgstr "انتخاب قالب"
 
 #: content_a/accounting/filter.php:56 content_a/accounting/turnover/display.php:25
 #: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:523
-#: content_a/form/answer/display.php:63 content_a/pricehistory/display.php:36
-#: content_a/report/sale/display.php:94 lib/app/product/report/sale_date.php:113
+#: content_a/form/answer/display.php:63 content_a/form/answer/export/display.php:48
+#: content_a/pricehistory/display.php:36 content_a/report/sale/display.php:94
+#: lib/app/product/report/sale_date.php:113
 msgid "Start date"
 msgstr "تاریخ شروع"
 
 #: content_a/accounting/filter.php:62 content_a/accounting/turnover/display.php:31
 #: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:568
-#: content_a/form/answer/display.php:64 content_a/pricehistory/display.php:37
-#: content_a/report/sale/display.php:116 lib/app/product/report/sale_date.php:114
+#: content_a/form/answer/display.php:64 content_a/form/answer/export/display.php:77
+#: content_a/pricehistory/display.php:37 content_a/report/sale/display.php:116
+#: lib/app/product/report/sale_date.php:114
 msgid "End date"
 msgstr "تاریخ پایان"
 
@@ -7307,7 +7310,7 @@ msgstr "زمان شروع قرارگیری در صف"
 msgid "Your application is ready to use"
 msgstr "برنامه شما برای استفاده آماده است"
 
-#: content_a/android/apk/display.php:48 content_a/form/answer/export/display.php:76
+#: content_a/android/apk/display.php:48 content_a/form/answer/export/display.php:162
 #: content_a/products/export/display.php:64 content_crm/member/export/display.php:54
 #: content_love/application/home/display.php:112 content_love/store/backup/display.php:22
 #: content_sudo/apilog/home/display.php:104 dash/layout/post/gallery-box.php:22
@@ -9456,40 +9459,68 @@ msgstr "هیچ پاسخی یافت نشد"
 msgid "Edit answer"
 msgstr "ویرایش پاسخ"
 
-#: content_a/form/answer/export/display.php:7
+#: content_a/form/answer/export/display.php:9
 msgid "You can export your form answer to a CSV file to help with several tasks."
 msgstr "شما می‌توانید داده‌های پاسخ خودتون رو برای برخی نیازها توی فایل سی‌اس‌وی دریافت کنید."
 
-#: content_a/form/answer/export/display.php:13
+#: content_a/form/answer/export/display.php:15
 msgid "You have not any answer to export!"
 msgstr "شما هیچ پاسخی برای خروجی گرفتن ندارید!"
 
-#: content_a/form/answer/export/display.php:19
+#: content_a/form/answer/export/display.php:21
 msgid "Answer count"
 msgstr "تعداد پاسخ"
 
-#: content_a/form/answer/export/display.php:25 content_a/products/export/display.php:29
-#: content_crm/member/export/display.php:19
-msgid "Download Now"
-msgstr "هم‌اکنون دانلود کنید"
+#: content_a/form/answer/export/display.php:27
+msgid "Download all answer now"
+msgstr "همه پاسخ‌ها را هم‌ اکنون دانلود کنید"
 
-#: content_a/form/answer/export/display.php:29 content_a/products/export/display.php:32
+#: content_a/form/answer/export/display.php:43
+msgid "Export by special filter"
+msgstr "دریافت خروجی با فیلتر خاص"
+
+#: content_a/form/answer/export/display.php:60
+#: content_a/report/productsalesovertime/display.php:3
+#: content_a/report/sale/display.php:105 content_a/report/salesovertime/display.php:3
+#: content_a/setting/order/schedule/display.php:51
+#: content_a/setting/order/schedule/display.php:78
+msgid "Start time"
+msgstr "ساعت شروع"
+
+#: content_a/form/answer/export/display.php:89
+#: content_a/report/productsalesovertime/display.php:11
+#: content_a/report/sale/display.php:127 content_a/report/salesovertime/display.php:11
+#: content_a/setting/order/schedule/display.php:52
+#: content_a/setting/order/schedule/display.php:83
+msgid "End time"
+msgstr "ساعت پایان"
+
+#: content_a/form/answer/export/display.php:103 lib/app/product/filter.php:433
+msgid "Filter by tag"
+msgstr "فلیتر بر اساس تگ"
+
+#: content_a/form/answer/export/display.php:104
+#: content_a/form/answer/export/display.php:106
+msgid "Choose a tag"
+msgstr "انتخاب تگ"
+
+#: content_a/form/answer/export/display.php:120 content_a/products/export/display.php:32
 #: content_crm/member/export/display.php:22
 msgid "Send export request"
 msgstr "ارسال درخواست خروجی"
 
-#: content_a/form/answer/export/display.php:40
-msgid "import answers"
-msgstr "ورود پاسخ"
-
-#: content_a/form/answer/export/display.php:51
+#: content_a/form/answer/export/display.php:133
 msgid "Answer exported list"
 msgstr "لیست خروجی‌های گرفته شده از پاسخ‌ها"
 
-#: content_a/form/answer/export/display.php:64 content_a/products/export/display.php:53
+#: content_a/form/answer/export/display.php:150 content_a/products/export/display.php:53
 #: content_crm/member/export/display.php:43
 msgid "Waiting to complete process..."
 msgstr "در انتظار تکمیل شدن فرایند ..."
+
+#: content_a/form/answer/export/display.php:181
+msgid "import answers"
+msgstr "ورود پاسخ"
 
 #: content_a/form/answer/export/view.php:11
 msgid "Export form answer"
@@ -11403,6 +11434,10 @@ msgstr ""
 msgid "You have not any product to export!"
 msgstr "شما هیچ محصولی برای خروجی گرفتن ندارید!"
 
+#: content_a/products/export/display.php:29 content_crm/member/export/display.php:19
+msgid "Download Now"
+msgstr "هم‌اکنون دانلود کنید"
+
 #: content_a/products/export/display.php:40
 msgid "Product exported list"
 msgstr "لیست خروجی‌های گرفته شده از محصولات"
@@ -11867,20 +11902,6 @@ msgstr "آخرین محصولات اضافه شده در سبد خرید"
 #: content_a/report/products/view.php:10
 msgid "Product report"
 msgstr "گزارش محصول"
-
-#: content_a/report/productsalesovertime/display.php:3
-#: content_a/report/sale/display.php:105 content_a/report/salesovertime/display.php:3
-#: content_a/setting/order/schedule/display.php:51
-#: content_a/setting/order/schedule/display.php:78
-msgid "Start time"
-msgstr "ساعت شروع"
-
-#: content_a/report/productsalesovertime/display.php:11
-#: content_a/report/sale/display.php:127 content_a/report/salesovertime/display.php:11
-#: content_a/setting/order/schedule/display.php:52
-#: content_a/setting/order/schedule/display.php:83
-msgid "End time"
-msgstr "ساعت پایان"
 
 #: content_a/report/productsalesovertime/display.php:27
 #: content_a/report/productsalesovertime/display.php:29
@@ -23806,7 +23827,7 @@ msgstr "فرم تماس"
 
 #: content_site/body/formbuilder/option.php:17 content_site/body/formbuilder/option.php:19
 #: dash/layout/m2/sidebar.php:239 dash/permission_caller.php:61
-#: lib/app/export/form_answer.php:74 lib/app/quickaccess/forms.php:30
+#: lib/app/export/form_answer.php:85 lib/app/quickaccess/forms.php:30
 msgid "Form builder"
 msgstr "فرم‌ساز"
 
@@ -38515,7 +38536,7 @@ msgstr "نمی‌توانیم یک نسخه کپی از کد تخفیف تولی
 msgid "Discount was duplicate"
 msgstr "کد تخفیف کپی شد"
 
-#: lib/app/discount/check.php:90
+#: lib/app/discount/check.php:90 lib/app/form/answer/export.php:94
 msgid "Start date must be less than end date!"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد!"
 
@@ -38777,19 +38798,19 @@ msgstr "وضعیت قفل نامشخص"
 msgid "Expire at"
 msgstr "منقضی در"
 
-#: lib/app/export/add.php:47
+#: lib/app/export/add.php:54
 msgid "Your request was saved before. please wait to export process is complete"
 msgstr "درخواست شما قبلا ثبت شده است. لطفا تا اتمام فرایند ساخت فایل خروجی صبر کنید"
 
-#: lib/app/export/add.php:56
+#: lib/app/export/add.php:63
 msgid "Your can make 10 export in every day"
 msgstr "شما تنها می‌توانید ۱۰ درخواست خروجی در هر روز داشته باشید"
 
-#: lib/app/export/add.php:71
+#: lib/app/export/add.php:83
 msgid "Your request was saved"
 msgstr "درخواست شما ذخیره شد"
 
-#: lib/app/export/add.php:76
+#: lib/app/export/add.php:88
 msgid "Can not save your export request"
 msgstr "نمی‌توانیم درخواست دریافت خروجی شما را ذخیره کنیم"
 
@@ -38797,11 +38818,11 @@ msgstr "نمی‌توانیم درخواست دریافت خروجی شما را
 msgid "File not available to download"
 msgstr "فایل آمادگی دانلود را ندارد"
 
-#: lib/app/export/form_answer.php:71
+#: lib/app/export/form_answer.php:82
 msgid "Create export form answer completed"
 msgstr "ساخت فایل خروجی از پاسخ‌ها تکمیل شد"
 
-#: lib/app/export/form_answer.php:72 lib/app/export/product.php:55
+#: lib/app/export/form_answer.php:83 lib/app/export/product.php:55
 #: lib/app/export/users.php:56
 msgid "This file will be automatically deleted tomorrow"
 msgstr "این فایل به صورت خودکار تا فردا حذف خواهد شد"
@@ -39214,9 +39235,9 @@ msgstr "پاسخ به عنوان بررسی شده ذخیره شد"
 msgid "Invalid status"
 msgstr "وضعیت نامعتبر است"
 
-#: lib/app/form/answer/export.php:48
-msgid "You have not any answer to export"
-msgstr "شما هیچ پاسخی برای خروجی گرفتن ندارید"
+#: lib/app/form/answer/export.php:110
+msgid "By this filter You have not any answer to export"
+msgstr "با این فیلتر هیچ پاسخی ثبت نشده است"
 
 #: lib/app/form/answer/get.php:115
 msgid "Answer not found"
@@ -41520,10 +41541,6 @@ msgstr "دارای تگ"
 #: lib/app/product/filter.php:423
 msgid "Have not tag"
 msgstr "بدون تگ"
-
-#: lib/app/product/filter.php:433
-msgid "Filter by tag"
-msgstr "فلیتر بر اساس تگ"
 
 #: lib/app/product/filter.php:443
 msgid "Filter by unit"
