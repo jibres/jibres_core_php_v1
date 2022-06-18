@@ -28,11 +28,12 @@ class search
 
 		$condition =
 		[
-			'order'   => 'order',
-			'sort'    => ['enum' => ['id']],
-			'type'    => ['enum' => ['assistant', 'group', 'total', 'details']],
-			'form_id' => 'id',
-			'tag_id' => 'id',
+			'order'       => 'order',
+			'sort'        => ['enum' => ['id']],
+			'type'        => ['enum' => ['assistant', 'group', 'total', 'details']],
+			'form_id'     => 'id',
+			'tag_id'      => 'id',
+			'not_deleted' => 'bit',
 		];
 
 		$require = [];
@@ -58,6 +59,10 @@ class search
 
 		}
 
+		if($data['not_deleted'])
+		{
+			$and[] = " form_answer.status != 'deleted' ";
+		}
 
 
 		$query_string = \dash\validate::search($_query_string, false);

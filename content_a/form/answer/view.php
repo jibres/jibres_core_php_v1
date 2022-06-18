@@ -16,11 +16,12 @@ class view
 
 		\dash\face::btnExport(\dash\url::that(). '/export?id='. \dash\request::get('id'));
 
-		$args            = [];
-		$args['sort']    = 'id';
-		$args['order']   = 'desc';
-		$args['form_id'] = \dash\request::get('id');
-		$args['tag_id'] = \dash\request::get('tagid');
+		$args                = [];
+		$args['sort']        = 'id';
+		$args['order']       = 'desc';
+		$args['form_id']     = \dash\request::get('id');
+		$args['tag_id']      = \dash\request::get('tagid');
+		$args['not_deleted'] = true;
 		$q               = \dash\validate::search_string();
 
 		$dataTable = \lib\app\form\answer\search::list($q, $args);
