@@ -7,7 +7,7 @@ class controller
 	public static function routing()
 	{
 		$pitchdeckVersion = "1.3";
-		$FinancialVersion = "4";
+		$FinancialVersion = "5";
 		switch (\dash\url::child())
 		{
 			case 'pitchdeck':
@@ -19,7 +19,7 @@ class controller
 				break;
 
 			case 'financial':
-				\dash\redirect::to(\dash\url::cdn(). '/business/financial/Jibres-Financial-Projection-v'. $FinancialVersion. '.xlsx?v=4');
+				\dash\redirect::to(\dash\url::cdn(). '/business/financial/Jibres-Financial-Projection-v'. $FinancialVersion. '.xlsx?v=5');
 				break;
 
 			case 'businessplan':
