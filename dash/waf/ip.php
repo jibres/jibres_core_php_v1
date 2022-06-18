@@ -218,11 +218,11 @@ class ip
 
 		// check agent count limit
 		$agents = a($_info, 'agent');
-		if(is_array($agents) && count($agents) > 50)
+		if(is_array($agents) && count($agents) > 1000)
 		{
-			// allow only 50 agent for each ip
+			// allow only 1000 agent for each ip
 			// block one day
-			self::do_block($_info, 'reach 50 agent per ip', 60 * 24);
+			self::do_block($_info, 'reach 1000 agent per ip', 60 * 24);
 			return $_info;
 		}
 
