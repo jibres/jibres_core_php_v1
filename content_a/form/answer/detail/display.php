@@ -113,7 +113,7 @@ else
 			}
 			$html .= '</div>';
 
-			$html .= '<div class="alert-ligth">';
+			$html .= '<div class="bg-white rounded-lg mb-2 p-4">';
 			{
 
 				$html .= '<div class="row">';
@@ -121,6 +121,7 @@ else
 					$html .= '<div class="cauto">';
 					{
 						$html .= '<span>'. T_("Answer Status"). '</span>';
+						// $html .= '<small class="block text-gray-600">'. T_("Change the status depending on your needs"). '</small>';
 					}
 					$html .= '</div>';
 
@@ -130,34 +131,34 @@ else
 					{
 						$status =
 						[
-							'start'       => T_("start"),
-							'complete'    => T_("complete"),
-							'skip'        => T_("skip"),
-							'spam'        => T_("spam"),
-							'filter'      => T_("filter"),
-							'block'       => T_("block"),
 							'draft'       => T_("draft"),
-							'enable'      => T_("enable"),
-							'disable'     => T_("disable"),
-							// 'deleted'     => T_("deleted"),
-							'archive'     => T_("archive"),
-							'done'        => T_("done"),
-							'review'      => T_("review"),
-							'pending'     => T_("pending"),
-							'other'       => T_("other"),
-							'payed'       => T_("payed"),
-							'expire'      => T_("expire"),
-							'cancel'      => T_("cancel"),
-							'reject'      => T_("reject"),
-							'trash'       => T_("trash"),
-							'approved'    => T_("approved"),
-							'awaiting'    => T_("awaiting"),
-							'unapproved'  => T_("unapproved"),
-							'close'       => T_("close"),
 							'active'      => T_("active"),
-							'deactive'    => T_("deactive"),
-							'unreachable' => T_("unreachable"),
-							'unknown'     => T_("unknown"),
+							'spam'        => T_("spam"),
+							'archive'     => T_("archive"),
+							// 'unknown'     => T_("unknown"),
+							// 'start'       => T_("start"),
+							// 'skip'        => T_("skip"),
+							// 'filter'      => T_("filter"),
+							// 'complete'    => T_("complete"),
+							// 'block'       => T_("block"),
+							// 'enable'      => T_("enable"),
+							// 'disable'     => T_("disable"),
+							// 'deleted'     => T_("deleted"),
+							// 'done'        => T_("done"),
+							// 'review'      => T_("review"),
+							// 'pending'     => T_("pending"),
+							// 'other'       => T_("other"),
+							// 'payed'       => T_("payed"),
+							// 'expire'      => T_("expire"),
+							// 'cancel'      => T_("cancel"),
+							// 'reject'      => T_("reject"),
+							// 'trash'       => T_("trash"),
+							// 'approved'    => T_("approved"),
+							// 'awaiting'    => T_("awaiting"),
+							// 'unapproved'  => T_("unapproved"),
+							// 'close'       => T_("close"),
+							// 'deactive'    => T_("deactive"),
+							// 'unreachable' => T_("unreachable"),
 						];
 
 						if(\dash\data::answerDetail_status() === 'deleted')
@@ -195,7 +196,7 @@ else
 						{
 							$html .= '<div data-ajaxify data-data=\'{"setstatus" : "setstatus", "status" : "deleted"}\' data-method="post">';
 							{
-								$html .= \dash\utility\icon::svg('delete', 'major', 'red', 'w-6 mx-4 mt-1');
+								$html .= \dash\utility\icon::svg('delete', 'major', 'red', 'w-5 mx-4 mt-2');
 							}
 							$html .= '</div>';
 						}
