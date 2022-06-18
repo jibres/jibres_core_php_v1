@@ -12,9 +12,22 @@ class model
 		}
 		else
 		{
-			\lib\app\form\answer\export::queue(\dash\request::get('id'));
+			$post =
+			[
+				'startdate' => \dash\request::post('startdate'),
+				'enddate'   => \dash\request::post('enddate'),
+				'starttime' => \dash\request::post('starttime'),
+				'endtime'   => \dash\request::post('endtime'),
+				'tag_id'    => \dash\request::post('tag'),
+			];
+
+			\lib\app\form\answer\export::queue(\dash\request::get('id'), $post);
 		}
-		\dash\redirect::pwd();
+
+		if(\dash\engine\process::status())
+		{
+			\dash\redirect::pwd();
+		}
 	}
 }
 ?>

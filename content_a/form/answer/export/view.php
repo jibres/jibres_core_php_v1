@@ -31,6 +31,10 @@ class view
 		\dash\data::exportList($list);
 
 
+
+		$all_tag = \lib\app\form\tag\get::all_tag();
+		\dash\data::allTagList($all_tag);
+
 		// \lib\app\export\run::crontab();
 	}
 }

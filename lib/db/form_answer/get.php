@@ -88,6 +88,59 @@ class get
 	}
 
 
+	public static function count_all_where($_form_id, $_args = [])
+	{
+		$param = [];
+
+		$startdate = '';
+
+		if(isset($_args['startdate']) && $_args['startdate'])
+		{
+			$startdate           = ' AND form_answer.datecreated >= :startdate ';
+			$param[':startdate'] = $_args['startdate'];
+		}
+
+		$enddate = '';
+
+		if(isset($_args['enddate']) && $_args['enddate'])
+		{
+			$enddate           = ' AND form_answer.datecreated <= :enddate ';
+			$param[':enddate'] = $_args['enddate'];
+		}
+
+		$tag_id   = '';
+		$tag_join = '';
+
+		if(isset($_args['tag_id']) && $_args['tag_id'])
+		{
+			$tag_join         = ' INNER JOIN form_tagusage ON form_tagusage.answer_id = form_answer.id ';
+			$tag_id           = ' AND form_tagusage.form_tag_id = :tag_id ';
+			$param[':tag_id'] = $_args['tag_id'];
+		}
+
+
+		$param[':id'] = $_form_id;
+
+		$query =
+		"
+			SELECT COUNT(*) AS `count`
+
+			FROM
+				form_answer
+				$tag_join
+			WHERE
+				 form_answer.form_id = :id
+				 $startdate
+				 $enddate
+				 $tag_id
+		";
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
+
+		return $result;
+	}
+
+
 
 	public static function by_form_id($_form_id)
 	{
@@ -114,25 +167,65 @@ class get
 
 
 
-	public static function export_list($_form_id, $_start_limit = 0, $_end_limit = 50)
+	public static function export_list($_form_id, $_start_limit = 0, $_end_limit = 50, $_args = [])
 	{
 		unset($result);
 		unset($answer_id);
 
 		$result = [];
 
+		$where = [];
+		$param = [];
+		$join  = '';
+
+		if($_args)
+		{
+			if(isset($_args['startdate']) && $_args['startdate'])
+			{
+				$where[] = " form_answer.datecreated >= :startdate ";
+				$param[':startdate'] = $_args['startdate'];
+			}
+
+			if(isset($_args['enddate']) && $_args['enddate'])
+			{
+				$where[] = " form_answer.datecreated <= :enddate ";
+				$param[':enddate'] = $_args['enddate'];
+			}
+
+			if(isset($_args['tag_id']) && $_args['tag_id'])
+			{
+				$where[]          = " form_tagusage.form_tag_id >= :tag_id ";
+				$join             = ' INNER JOIN form_tagusage ON form_answer.id = form_tagusage.answer_id ';
+				$param[':tag_id'] = $_args['tag_id'];
+			}
+
+
+		}
+
+		if($where)
+		{
+			$where = ' AND '. implode(' AND ', $where);
+		}
+		else
+		{
+			$where = '';
+		}
+
 		$query =
 		"
 			SELECT
-				*
+				form_answer.*
 			FROM
 				form_answer
+				$join
 			WHERE
 				form_answer.form_id = $_form_id
+				$where
 			LIMIT $_start_limit, $_end_limit
 		";
 
-		$result['answer'] = \dash\pdo::get($query);
+		$result['answer'] = \dash\pdo::get($query, $param);
+
 
 		if(is_array($result['answer']))
 		{
