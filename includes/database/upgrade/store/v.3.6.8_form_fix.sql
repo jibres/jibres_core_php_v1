@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.form_comment ADD `date` datetime NULL DEFAULT NULL AFTER `color`;
