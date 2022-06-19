@@ -22,7 +22,19 @@ class get
 
 		$list = \lib\db\form_comment\get::get_by_answer_id($_answer_id);
 
-		return $list;
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			$new_list[] = ready::row($value);
+		}
+
+		return $new_list;
 
 	}
 
@@ -46,7 +58,19 @@ class get
 
 		$list = \lib\db\form_comment\get::get_by_answer_id_public($_answer_id);
 
-		return $list;
+		if(!is_array($list))
+		{
+			$list = [];
+		}
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			$new_list[] = ready::row($value);
+		}
+
+		return $new_list;
 
 	}
 

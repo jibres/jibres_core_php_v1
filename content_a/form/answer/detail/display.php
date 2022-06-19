@@ -550,7 +550,7 @@ else
 							}
 							$html .='">';
 							{
-								$html .= '<div class="m-2">'. a($value, 'content'). '</div>';
+								$html .= '<div class="m-2">'. nl2br(strval(a($value, 'content'))). '</div>';
 
 								$html .= '<div data-kerkere=".showMore'. a($value, 'id'). '" >'. \dash\utility\icon::svg('three-dots', 'bootstrap', null, 'w-4'). '</div>';
 
