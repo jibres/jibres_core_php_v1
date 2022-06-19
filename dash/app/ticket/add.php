@@ -138,6 +138,40 @@ class add
 	}
 
 
+	public static function add_from_form_answer($_args, $_form_answer_id)
+	{
+		$args = \dash\app\ticket\check::variable($_args, null, false);
+		if(!$args)
+		{
+			return false;
+		}
+
+		$args['form_answer_id'] = $_form_answer_id;
+
+		unset($args['sendmessage']);
+
+		$ticket_id = \dash\db\tickets\insert::new_record($args);
+
+		if(!$ticket_id)
+		{
+			return false;
+		}
+
+		$log =
+		[
+			'from'     => $args['user_id'] ? $args['user_id'] : null,
+			'code'     => $ticket_id,
+			'masterid' => $ticket_id,
+			'via'      => null,
+		];
+
+		\dash\log::set('ticket_addNewTicket', $log);
+
+		return $ticket_id;
+
+
+	}
+
 	/**
 	 * Adds New ticetk by customer
 	 *
