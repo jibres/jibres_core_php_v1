@@ -147,7 +147,7 @@ class inquiry
 			$q = $q. "','". $mobile;
 		}
 
-		$result = \lib\db\form_answerdetail\get::by_items_id_answer(implode(',', $trust_field), $q);
+		$result = \lib\db\form_answerdetail\get::check_inquiry_answer(implode(',', $trust_field), $q);
 
 		if(!$result || !isset($result['answer_id']) || !isset($result['form_id']))
 		{

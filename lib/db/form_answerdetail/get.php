@@ -40,6 +40,25 @@ class get
 		return $result;
 	}
 
+	public static function check_inquiry_answer($_item_ids, $_answer)
+	{
+		$query =
+		"
+			SELECT
+				form_answerdetail.*
+			FROM
+				form_answerdetail
+			INNER JOIN form_answer ON form_answer.id = form_answerdetail.answer_id
+			WHERE
+				form_answer.status != 'deleted' AND
+				form_answerdetail.item_id IN ($_item_ids) AND
+				form_answerdetail.answer IN ('$_answer')
+			LIMIT 1
+		";
+		$result = \dash\pdo::get($query, [], null, true);
+		return $result;
+	}
+
 	public static function by_item_id_answer($_item_id, $_answer)
 	{
 		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.item_id = $_item_id AND form_answerdetail.answer = '$_answer' LIMIT 1";
