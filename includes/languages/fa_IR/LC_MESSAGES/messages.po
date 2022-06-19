@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-18 15:37+0430\n"
-"PO-Revision-Date: 2022-06-18 15:38+0430\n"
+"POT-Creation-Date: 2022-06-19 15:24+0430\n"
+"PO-Revision-Date: 2022-06-19 15:24+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3205,7 +3205,7 @@ msgstr "استان"
 #: content_a/setting3/home/section/general.php:127
 #: content_business/shipping/display.php:162 content_my/domain/irnic/add/display.php:72
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:49 dash/utility/location.php:181
-#: lib/app/form/answer/add.php:346
+#: lib/app/form/answer/add.php:345
 msgid "City"
 msgstr "شهر"
 
@@ -3266,8 +3266,8 @@ msgstr "آیکن"
 
 #: content/logo/section-icon.php:60 content/logo/section-standard.php:57
 #: content/logo/section-standard.php:190 content/logo/section-vertical.php:59
-#: content/logo/section-vertical.php:197 content_a/form/answer/detail/display.php:471
-#: content_a/form/tag/edit/display.php:58
+#: content/logo/section-vertical.php:197 content_a/form/answer/detail/display.php:491
+#: content_a/form/answer/note/display.php:61 content_a/form/tag/edit/display.php:58
 msgid "Black"
 msgstr "مشکی"
 
@@ -4612,24 +4612,24 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/form/analytics/tag/view.php:12 content_a/form/analytics/view.php:12
 #: content_a/form/answer/detail/display.php:28 content_a/form/answer/detail/view.php:12
 #: content_a/form/answer/edit/view.php:12 content_a/form/answer/item/view.php:12
-#: content_a/form/answer/view.php:13 content_a/form/duplicate/view.php:14
-#: content_a/form/edit/view.php:12 content_a/form/home/view.php:12
-#: content_a/form/inquiry/view.php:12 content_a/form/item/add/view.php:12
-#: content_a/form/item/choice/view.php:12 content_a/form/item/duplicatelist/view.php:12
-#: content_a/form/item/type/view.php:12 content_a/form/item/view.php:12
-#: content_a/form/report/answer/view.php:46 content_a/form/report/compare/view.php:10
-#: content_a/form/report/view.php:21 content_a/form/setting/view.php:12
-#: content_a/form/sorting/view.php:11 content_a/form/status/view.php:12
-#: content_a/form/tag/remove/view.php:17 content_a/form/tag/view.php:16
-#: content_a/form/thankyou/view.php:12 content_a/notiflog/view.php:12
-#: content_a/order/view.php:33 content_a/plugin/view/view.php:16
-#: content_a/products/advance/view.php:17 content_a/products/barcode/view.php:12
-#: content_a/products/bullet/view.php:17 content_a/products/cartlimit/view.php:15
-#: content_a/products/child/view.php:15 content_a/products/comment/view.php:29
-#: content_a/products/comment/view.php:36 content_a/products/comment/view/view.php:13
-#: content_a/products/desc/view.php:14 content_a/products/duplicate/view.php:15
-#: content_a/products/gallerysort/view.php:14 content_a/products/poof/view.php:15
-#: content_a/products/property/add/view.php:14
+#: content_a/form/answer/note/view.php:12 content_a/form/answer/view.php:13
+#: content_a/form/duplicate/view.php:14 content_a/form/edit/view.php:12
+#: content_a/form/home/view.php:12 content_a/form/inquiry/view.php:12
+#: content_a/form/item/add/view.php:12 content_a/form/item/choice/view.php:12
+#: content_a/form/item/duplicatelist/view.php:12 content_a/form/item/type/view.php:12
+#: content_a/form/item/view.php:12 content_a/form/report/answer/view.php:46
+#: content_a/form/report/compare/view.php:10 content_a/form/report/view.php:21
+#: content_a/form/setting/view.php:12 content_a/form/sorting/view.php:11
+#: content_a/form/status/view.php:12 content_a/form/tag/remove/view.php:17
+#: content_a/form/tag/view.php:16 content_a/form/thankyou/view.php:12
+#: content_a/notiflog/view.php:12 content_a/order/view.php:33
+#: content_a/plugin/view/view.php:16 content_a/products/advance/view.php:17
+#: content_a/products/barcode/view.php:12 content_a/products/bullet/view.php:17
+#: content_a/products/cartlimit/view.php:15 content_a/products/child/view.php:15
+#: content_a/products/comment/view.php:29 content_a/products/comment/view.php:36
+#: content_a/products/comment/view/view.php:13 content_a/products/desc/view.php:14
+#: content_a/products/duplicate/view.php:15 content_a/products/gallerysort/view.php:14
+#: content_a/products/poof/view.php:15 content_a/products/property/add/view.php:14
 #: content_a/products/property/edit/view.php:14 content_a/products/property/view.php:15
 #: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
 #: content_a/products/variants/view.php:14 content_a/report/products/view.php:12
@@ -5549,11 +5549,11 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/accounting/factor/add/display.php:198
 #: content_a/accounting/factor/add/display.php:216
 #: content_a/category/remove/display.php:38 content_a/discount/add/display.php:299
-#: content_a/form/answer/detail/display.php:482
-#: content_a/form/answer/export/display.php:107 content_a/form/tag/remove/display.php:37
-#: content_cms/hashtag/remove/display.php:37 content_crm/member/legal/display.php:70
-#: content_love/business/setting/display.php:87 content_love/store/setting/display.php:79
-#: content_my/domain/option/display.php:23
+#: content_a/form/answer/detail/display.php:502
+#: content_a/form/answer/export/display.php:107 content_a/form/answer/note/display.php:72
+#: content_a/form/tag/remove/display.php:37 content_cms/hashtag/remove/display.php:37
+#: content_crm/member/legal/display.php:70 content_love/business/setting/display.php:87
+#: content_love/store/setting/display.php:79 content_my/domain/option/display.php:23
 #: content_site/options/background/background_effect.php:13
 #: content_site/options/effect/effect.php:12
 #: content_site/options/file/file_business_logo.php:97
@@ -6607,7 +6607,7 @@ msgstr "فروش"
 
 #: content_a/accounting/report/quarter/display-detail.php:15
 #: content_a/category/property/display.php:39 content_a/category/property/display.php:43
-#: content_a/discount/add/display.php:82 content_a/form/answer/detail/display.php:561
+#: content_a/discount/add/display.php:82 content_a/form/answer/detail/display.php:581
 #: content_a/form/report/display.php:7 content_a/order/home/display.php:32
 #: content_a/products/property/add/display.php:32
 #: content_a/products/property/add/display.php:36
@@ -7032,7 +7032,7 @@ msgstr "چاپ همه اسناد حسابداری"
 
 #: content_a/accounting/year/display.php:19 content_a/form/analytics/answer/display.php:55
 #: content_a/form/analytics/tag/display.php:30
-#: content_a/form/answer/detail/display.php:313
+#: content_a/form/answer/detail/display.php:333
 #: content_a/products/edit/block/category.php:13
 #: content_a/setting/product/category/display.php:12
 #: content_love/domain/detail/display.php:72 content_love/domain/setting/display.php:47
@@ -7183,7 +7183,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/form/analytics/answer/display.php:65
 #: content_a/form/analytics/setting/display.php:38
 #: content_a/form/analytics/tag/display.php:41
-#: content_a/form/answer/detail/display.php:338 content_a/order/address/display.php:77
+#: content_a/form/answer/detail/display.php:358 content_a/order/address/display.php:77
 #: content_a/order/comment/display.php:17 content_a/order/discount/display.php:21
 #: content_a/order/editdate/display.php:46 content_a/order/productList.php:68
 #: content_a/order/shipping/display.php:143 content_a/order/status/display.php:118
@@ -7794,8 +7794,8 @@ msgstr "ورودی باید به صورت آرایه باشد"
 #: dash/app/changelog.php:362 dash/app/permission/edit.php:157
 #: dash/app/permission/edit.php:229 lib/app/category/edit.php:93
 #: lib/app/category/edit.php:166 lib/app/form/answer/edit.php:95
-#: lib/app/form/item/edit.php:255 lib/app/product/property.php:746
-#: lib/app/setting/policy_page.php:35
+#: lib/app/form/comment/edit.php:37 lib/app/form/item/edit.php:255
+#: lib/app/product/property.php:746 lib/app/setting/policy_page.php:35
 msgid "Saved"
 msgstr "ذخیره شد"
 
@@ -8818,7 +8818,7 @@ msgid "Please select on item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
 #: content_a/form/analytics/addcondition/display-condition.php:12
-#: content_a/form/answer/detail/display.php:554
+#: content_a/form/answer/detail/display.php:574
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:32
 msgid "Operator"
 msgstr "اپراتور"
@@ -8912,7 +8912,7 @@ msgstr "شناسه پاسخ"
 
 #: content_a/form/analytics/answer/display.php:54 content_a/form/analytics/pageStep.php:49
 #: content_a/form/analytics/tag/display.php:29
-#: content_a/form/answer/detail/display.php:302 content_love/changelog/add/display.php:19
+#: content_a/form/answer/detail/display.php:322 content_love/changelog/add/display.php:19
 #: dash/app/posts/dropdown.php:33 includes/languages/trans_static.php:557
 #: lib/app/product/filter.php:412 lib/app/product/filter.php:422
 #: lib/app/product/filter.php:432 lib/app/store/analytics.php:60
@@ -8924,14 +8924,14 @@ msgid "Add comment to this answer"
 msgstr "افزودن دیدگاه به این پاسخ"
 
 #: content_a/form/analytics/answer/display.php:82
-#: content_a/form/answer/detail/display.php:461 content_a/form/tag/edit/display.php:22
-#: includes/languages/trans_static.php:1006
+#: content_a/form/answer/detail/display.php:481 content_a/form/answer/note/display.php:51
+#: content_a/form/tag/edit/display.php:22 includes/languages/trans_static.php:1006
 msgid "Public"
 msgstr "عمومی"
 
 #: content_a/form/analytics/answer/display.php:88
-#: content_a/form/answer/detail/display.php:450 content_a/form/tag/edit/display.php:28
-#: includes/languages/trans_static.php:1009
+#: content_a/form/answer/detail/display.php:470 content_a/form/answer/note/display.php:35
+#: content_a/form/tag/edit/display.php:28 includes/languages/trans_static.php:1009
 msgid "Private"
 msgstr "خصوصی"
 
@@ -8953,7 +8953,7 @@ msgstr "دیدگاه"
 msgid "Privacy"
 msgstr "حریم خصوصی"
 
-#: content_a/form/analytics/answer/model.php:15 content_a/form/answer/detail/model.php:83
+#: content_a/form/analytics/answer/model.php:15 content_a/form/answer/detail/model.php:87
 #: content_a/form/answer/model.php:21
 msgid "Answer removed"
 msgstr "پاسخ حذف شد"
@@ -9168,251 +9168,137 @@ msgstr "تگ جدید وارد کنید یا یک تگ انتخاب کنید"
 msgid "Answer Status"
 msgstr "وضعیت پاسخ"
 
-#: content_a/form/answer/detail/display.php:133
-#: dash/social/telegram/commands/ermile.php:22 dash/social/telegram/step.php:321
-#: includes/languages/trans_static.php:236
-msgid "start"
-msgstr "شروع"
+#: content_a/form/answer/detail/display.php:134 content_love/gift/edit/display.php:86
+#: includes/languages/trans_static.php:297 includes/languages/trans_static.php:394
+#: includes/languages/trans_static_public.php:912
+msgid "draft"
+msgstr "پیش نویس"
 
-#: content_a/form/answer/detail/display.php:134
-msgid "complete"
-msgstr "کامل"
-
-#: content_a/form/answer/detail/display.php:135
-#: includes/languages/trans_static_public.php:915
-msgid "skip"
-msgstr "ردکردن"
+#: content_a/form/answer/detail/display.php:135 includes/languages/trans_static.php:230
+#: includes/languages/trans_static.php:362 includes/languages/trans_static_public.php:872
+msgid "active"
+msgstr "فعال"
 
 #: content_a/form/answer/detail/display.php:136 includes/languages/trans_static.php:207
 #: includes/languages/trans_static.php:384 includes/languages/trans_static_public.php:924
 msgid "spam"
 msgstr "هرزنامه"
 
-#: content_a/form/answer/detail/display.php:137 content_crm/member/status/display.php:26
-#: includes/languages/trans_static.php:234 includes/languages/trans_static.php:366
-#: includes/languages/trans_static_public.php:859
-msgid "filter"
-msgstr "فیلتر شده"
+#: content_a/form/answer/detail/display.php:137 dash/app/files/filter.php:37
+#: includes/languages/trans_static.php:1000
+msgid "archive"
+msgstr "آرشیو"
 
-#: content_a/form/answer/detail/display.php:138 includes/languages/trans_static.php:401
-#: includes/languages/trans_static.php:1044 includes/languages/trans_static_public.php:858
-msgid "block"
-msgstr "قفل شده"
-
-#: content_a/form/answer/detail/display.php:139 content_love/gift/edit/display.php:86
-#: includes/languages/trans_static.php:297 includes/languages/trans_static.php:394
-#: includes/languages/trans_static_public.php:912
-msgid "draft"
-msgstr "پیش نویس"
-
-#: content_a/form/answer/detail/display.php:140 content_love/gift/edit/display.php:87
-#: includes/languages/trans_static.php:260 includes/languages/trans_static.php:381
-#: includes/languages/trans_static_public.php:225
-#: includes/languages/trans_static_public.php:852
-msgid "enable"
-msgstr "فعال"
-
-#: content_a/form/answer/detail/display.php:141 content_love/gift/edit/display.php:88
-#: includes/languages/trans_static.php:261 includes/languages/trans_static.php:382
-#: includes/languages/trans_static_public.php:226
-#: includes/languages/trans_static_public.php:853
-msgid "disable"
-msgstr "غیرفعال"
-
-#: content_a/form/answer/detail/display.php:142 content_love/gift/edit/display.php:89
+#: content_a/form/answer/detail/display.php:166 content_love/gift/edit/display.php:89
 #: includes/languages/trans_static.php:208 includes/languages/trans_static.php:378
 #: includes/languages/trans_static_public.php:855
 msgid "deleted"
 msgstr "حذف شده"
 
-#: content_a/form/answer/detail/display.php:143 dash/app/files/filter.php:37
-#: includes/languages/trans_static.php:1000
-msgid "archive"
-msgstr "آرشیو"
-
-#: content_a/form/answer/detail/display.php:144 includes/languages/trans_static.php:486
-msgid "done"
-msgstr "اتمام"
-
-#: content_a/form/answer/detail/display.php:145
-msgid "review"
-msgstr "بررسی"
-
-#: content_a/form/answer/detail/display.php:146 includes/languages/trans_static.php:464
-#: includes/languages/trans_static.php:1032 includes/languages/trans_static_public.php:927
-msgid "pending"
-msgstr "در انتظار"
-
-#: content_a/form/answer/detail/display.php:147 includes/languages/trans_static.php:412
-#: includes/languages/trans_static.php:1045 includes/languages/trans_static_public.php:902
-msgid "other"
-msgstr "سایر"
-
-#: content_a/form/answer/detail/display.php:148
-msgid "payed"
-msgstr "پرداخت شده"
-
-#: content_a/form/answer/detail/display.php:149 content_love/gift/edit/display.php:90
-#: includes/languages/trans_static.php:262 includes/languages/trans_static.php:393
-#: includes/languages/trans_static_public.php:854
-msgid "expire"
-msgstr "منقضی شده"
-
-#: content_a/form/answer/detail/display.php:150 dash/social/telegram/step.php:211
-#: includes/languages/trans_static.php:403 includes/languages/trans_static.php:1043
-#: includes/languages/trans_static_public.php:893
-msgid "cancel"
-msgstr "انصراف"
-
-#: content_a/form/answer/detail/display.php:151
-#: includes/languages/trans_static_public.php:897
-msgid "reject"
-msgstr "پس دادن"
-
-#: content_a/form/answer/detail/display.php:152 includes/languages/trans_static.php:395
-msgid "trash"
-msgstr "زباله‌دان"
-
-#: content_a/form/answer/detail/display.php:153 includes/languages/trans_static.php:205
-#: includes/languages/trans_static.php:396 includes/languages/trans_static_public.php:933
-msgid "approved"
-msgstr "تایید شده"
-
-#: content_a/form/answer/detail/display.php:154 includes/languages/trans_static.php:231
-#: includes/languages/trans_static.php:363 includes/languages/trans_static_public.php:857
-#: includes/languages/trans_static_public.php:932
-msgid "awaiting"
-msgstr "در انتظار"
-
-#: content_a/form/answer/detail/display.php:155 includes/languages/trans_static.php:206
-#: includes/languages/trans_static.php:397 includes/languages/trans_static_public.php:934
-msgid "unapproved"
-msgstr "تایید نشده"
-
-#: content_a/form/answer/detail/display.php:156 content_crm/ticket/view/display.php:188
-#: includes/languages/trans_static.php:398 includes/languages/trans_static_public.php:860
-msgid "close"
-msgstr "بسته"
-
-#: content_a/form/answer/detail/display.php:157 includes/languages/trans_static.php:230
-#: includes/languages/trans_static.php:362 includes/languages/trans_static_public.php:872
-msgid "active"
-msgstr "فعال"
-
-#: content_a/form/answer/detail/display.php:158 includes/languages/trans_static.php:232
-#: includes/languages/trans_static.php:364 includes/languages/trans_static_public.php:873
-msgid "deactive"
-msgstr "غیر فعال"
-
-#: content_a/form/answer/detail/display.php:159 content_crm/member/status/display.php:22
-#: includes/languages/trans_static.php:367 includes/languages/trans_static_public.php:904
-msgid "unreachable"
-msgstr "غیر قابل دسترس"
-
-#: content_a/form/answer/detail/display.php:160 includes/languages/trans_static.php:414
-#: includes/languages/trans_static.php:1036
-msgid "unknown"
-msgstr "نامشخص"
-
-#: content_a/form/answer/detail/display.php:212
+#: content_a/form/answer/detail/display.php:232
 msgid "Total amount"
 msgstr "مبلغ کل"
 
-#: content_a/form/answer/detail/display.php:223 content_a/order/status/display.php:88
+#: content_a/form/answer/detail/display.php:243 content_a/order/status/display.php:88
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:14
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:14
 #: lib/app/factor/action.php:82 lib/app/factor/ready.php:100 lib/app/order/ready.php:100
 msgid "Successful payment"
 msgstr "پرداخت موفقیت‌آمیز"
 
-#: content_a/form/answer/detail/display.php:227
+#: content_a/form/answer/detail/display.php:247
 msgid "Unsuccess"
 msgstr "ناموفق"
 
-#: content_a/form/answer/detail/display.php:243 content_a/form/answer/display.php:81
+#: content_a/form/answer/detail/display.php:263 content_a/form/answer/display.php:81
 msgid "View Order"
 msgstr "نمایش سفارش"
 
-#: content_a/form/answer/detail/display.php:357
+#: content_a/form/answer/detail/display.php:377
 msgid "Inquiry time by customer"
 msgstr "زمان‌ استعلام توسط مشتری"
 
-#: content_a/form/answer/detail/display.php:379
-#: content_a/form/answer/detail/display.php:400
+#: content_a/form/answer/detail/display.php:399
+#: content_a/form/answer/detail/display.php:420
 msgid "Last inquiry time"
 msgstr "آخرین زمان استعلام"
 
-#: content_a/form/answer/detail/display.php:388
+#: content_a/form/answer/detail/display.php:408
 msgid "First inquiry time"
 msgstr "اولین زمان استعلام"
 
-#: content_a/form/answer/detail/display.php:394
+#: content_a/form/answer/detail/display.php:414
 msgid "Count inquiry"
 msgstr "تعداد دفعات استعلام"
 
-#: content_a/form/answer/detail/display.php:395
+#: content_a/form/answer/detail/display.php:415
 msgid "times"
 msgstr "بار"
 
-#: content_a/form/answer/detail/display.php:431
+#: content_a/form/answer/detail/display.php:451
 msgid "Add note to this answer"
 msgstr "افزودن یادداشت به این پاسخ"
 
-#: content_a/form/answer/detail/display.php:450
+#: content_a/form/answer/detail/display.php:470 content_a/form/answer/note/display.php:35
 msgid "Only your can view this note"
 msgstr "فقط شما می‌توانید این یادداشت را مشاهده کنید"
 
-#: content_a/form/answer/detail/display.php:461
+#: content_a/form/answer/detail/display.php:481 content_a/form/answer/note/display.php:51
 msgid "Your and customer can view this note"
 msgstr "شما و مشتری می‌توانید این یادداشت را مشاهده کنید"
 
-#: content_a/form/answer/detail/display.php:470 content_a/form/tag/edit/display.php:51
+#: content_a/form/answer/detail/display.php:490 content_a/form/answer/note/display.php:60
+#: content_a/form/tag/edit/display.php:51
 msgid "Blue"
 msgstr "آبی"
 
-#: content_a/form/answer/detail/display.php:472 content_a/form/tag/edit/display.php:44
+#: content_a/form/answer/detail/display.php:492 content_a/form/answer/note/display.php:62
+#: content_a/form/tag/edit/display.php:44
 msgid "Green"
 msgstr "سبز"
 
-#: content_a/form/answer/detail/display.php:473 content_a/form/tag/edit/display.php:38
+#: content_a/form/answer/detail/display.php:493 content_a/form/answer/note/display.php:63
+#: content_a/form/tag/edit/display.php:38
 msgid "Red"
 msgstr "قرمز"
 
-#: content_a/form/answer/detail/display.php:474
+#: content_a/form/answer/detail/display.php:494 content_a/form/answer/note/display.php:64
 msgid "Yellow"
 msgstr "زرد"
 
-#: content_a/form/answer/detail/display.php:475
+#: content_a/form/answer/detail/display.php:495 content_a/form/answer/note/display.php:65
 msgid "Light blue"
 msgstr "آبی کمرنگ"
 
-#: content_a/form/answer/detail/display.php:476 content_site/options/effect/effect.php:15
+#: content_a/form/answer/detail/display.php:496 content_a/form/answer/note/display.php:66
+#: content_site/options/effect/effect.php:15
 msgid "Light"
 msgstr "روشن"
 
-#: content_a/form/answer/detail/display.php:477
+#: content_a/form/answer/detail/display.php:497 content_a/form/answer/note/display.php:67
 #: content_site/options/background/background_effect.php:15
 #: content_site/options/effect/effect.php:14
 msgid "Dark"
 msgstr "تیره"
 
-#: content_a/form/answer/detail/display.php:479 content_a/form/tag/edit/display.php:33
+#: content_a/form/answer/detail/display.php:499 content_a/form/answer/note/display.php:69
+#: content_a/form/tag/edit/display.php:33
 #: content_site/options/background/background_color.php:10
 #: content_site/options/color/color.php:23
 msgid "Color"
 msgstr "رنگ"
 
-#: content_a/form/answer/detail/display.php:498
+#: content_a/form/answer/detail/display.php:518
 #: content_crm/member/description/display.php:7
 msgid "Add note"
 msgstr "افزودن یادداشت"
 
-#: content_a/form/answer/detail/display.php:517 content_crm/member/glance/display.php:337
+#: content_a/form/answer/detail/display.php:537 content_crm/member/glance/display.php:337
 #: lib/app/factor/action.php:60
 msgid "Notes"
 msgstr "یادداشت‌ها"
 
-#: content_a/form/answer/detail/display.php:568 content_a/pricehistory/display.php:15
+#: content_a/form/answer/detail/display.php:588 content_a/pricehistory/display.php:15
 #: content_cms/comments/view/display.php:65 content_cms/files/view/display.php:98
 #: content_crm/notification/view/display.php:38 content_crm/sms/view/display.php:68
 #: content_crm/transactions/detail/display.php:75
@@ -9423,15 +9309,20 @@ msgstr "یادداشت‌ها"
 msgid "Date created"
 msgstr "تاریخ ثبت"
 
-#: content_a/form/answer/detail/display.php:577
+#: content_a/form/answer/detail/display.php:597
 msgid "Viewed by customer at"
 msgstr "مشاهده شده توسط مخاطب در"
 
-#: content_a/form/answer/detail/display.php:589
+#: content_a/form/answer/detail/display.php:613 content_a/form/answer/note/display.php:13
+#: content_a/form/answer/note/display.php:119 content_a/form/answer/note/view.php:9
+msgid "Edit note"
+msgstr "ویرایش یادداشت"
+
+#: content_a/form/answer/detail/display.php:621
 msgid "Remove note"
 msgstr "حذف یادداشت"
 
-#: content_a/form/answer/detail/model.php:37
+#: content_a/form/answer/detail/model.php:41
 msgid "Tag saved"
 msgstr "تگ ذخیره شد"
 
@@ -9545,6 +9436,18 @@ msgstr "پاسخ"
 #: content_a/form/answer/item/display.php:50 content_a/form/answer/item/display.php:60
 msgid "Other answer"
 msgstr "سایر پاسخ‌ها"
+
+#: content_a/form/answer/note/controller.php:28 lib/app/form/comment/get.php:118
+msgid "Comment not found"
+msgstr "دیدگاه یافت نشد"
+
+#: content_a/form/answer/note/display.php:89
+msgid "Note date"
+msgstr "تاریخ"
+
+#: content_a/form/answer/note/display.php:101
+msgid "Note time"
+msgstr "ساعت"
 
 #: content_a/form/answer/pageStep.php:5 content_crm/notification/view/view.php:9
 msgid "Show detail"
@@ -12579,8 +12482,9 @@ msgstr "فیس‌بوک"
 #: lib/app/business_domain/dns.php:668 lib/app/category/edit.php:18
 #: lib/app/discount/get.php:24 lib/app/export/download.php:30 lib/app/factor/edit.php:59
 #: lib/app/form/answer/get.php:108 lib/app/form/answer/remove.php:14
-#: lib/app/form/choice/get.php:24 lib/app/form/filter/get.php:24
-#: lib/app/form/form/get.php:44 lib/app/form/item/get.php:22 lib/app/form/item/get.php:176
+#: lib/app/form/choice/get.php:24 lib/app/form/comment/edit.php:25
+#: lib/app/form/filter/get.php:24 lib/app/form/form/get.php:44
+#: lib/app/form/item/get.php:22 lib/app/form/item/get.php:176
 #: lib/app/form/item/get.php:210 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
 #: lib/app/menu/check.php:86 lib/app/menu/get.php:47 lib/app/nic_contact/get.php:35
@@ -18189,6 +18093,16 @@ msgstr "تایید نشده"
 msgid "Block"
 msgstr "قفل شده"
 
+#: content_crm/member/status/display.php:22 includes/languages/trans_static.php:367
+#: includes/languages/trans_static_public.php:904
+msgid "unreachable"
+msgstr "غیر قابل دسترس"
+
+#: content_crm/member/status/display.php:26 includes/languages/trans_static.php:234
+#: includes/languages/trans_static.php:366 includes/languages/trans_static_public.php:859
+msgid "filter"
+msgstr "فیلتر شده"
+
 #: content_crm/member/status/display.php:39
 msgid "User banned"
 msgstr "کاربر ممنوع شده است"
@@ -18726,6 +18640,11 @@ msgstr "برای ذخیره تیکت لطفا وارد شوید"
 #: content_crm/ticket/view/display.php:157
 msgid "Assign to user"
 msgstr "اختصاص به مشتری"
+
+#: content_crm/ticket/view/display.php:188 includes/languages/trans_static.php:398
+#: includes/languages/trans_static_public.php:860
+msgid "close"
+msgstr "بسته"
 
 #: content_crm/ticket/view/display.php:197
 msgid "Report as spam"
@@ -21853,6 +21772,23 @@ msgstr "هر موبایل در یک خط"
 #: content_love/gift/view/view.php:9 content_love/gift/view/view.php:17
 msgid "Edit gift card"
 msgstr "ویرایش کارت هدیه"
+
+#: content_love/gift/edit/display.php:87 includes/languages/trans_static.php:260
+#: includes/languages/trans_static.php:381 includes/languages/trans_static_public.php:225
+#: includes/languages/trans_static_public.php:852
+msgid "enable"
+msgstr "فعال"
+
+#: content_love/gift/edit/display.php:88 includes/languages/trans_static.php:261
+#: includes/languages/trans_static.php:382 includes/languages/trans_static_public.php:226
+#: includes/languages/trans_static_public.php:853
+msgid "disable"
+msgstr "غیرفعال"
+
+#: content_love/gift/edit/display.php:90 includes/languages/trans_static.php:262
+#: includes/languages/trans_static.php:393 includes/languages/trans_static_public.php:854
+msgid "expire"
+msgstr "منقضی شده"
 
 #: content_love/gift/edit/display.php:91 includes/languages/trans_static.php:438
 #: includes/languages/trans_static_public.php:923
@@ -29571,6 +29507,11 @@ msgstr "همه را نمی‌توان از خود راضی  نگه داشت"
 msgid "Test <b>:name</b> bot on :site"
 msgstr "تست بات <b>:name</b> در :site"
 
+#: dash/social/telegram/commands/ermile.php:22 dash/social/telegram/step.php:321
+#: includes/languages/trans_static.php:236
+msgid "start"
+msgstr "شروع"
+
 #: dash/social/telegram/commands/ermile.php:29 dash/social/telegram/step.php:322
 #: includes/languages/trans_static.php:299 includes/languages/trans_static.php:316
 #: includes/languages/trans_static_public.php:419 lib/app/quickaccess/setting.php:367
@@ -29973,6 +29914,11 @@ msgstr "پاسخ خالی از سرور"
 #: dash/social/telegram/log.php:172
 msgid "debug mode is off!"
 msgstr "حالت اشکال‌زدایی خاموش است!"
+
+#: dash/social/telegram/step.php:211 includes/languages/trans_static.php:403
+#: includes/languages/trans_static.php:1043 includes/languages/trans_static_public.php:893
+msgid "cancel"
+msgstr "انصراف"
 
 #: dash/social/telegram/step.php:364
 msgid "Press enter valid value"
@@ -32014,6 +31960,16 @@ msgstr "نظرات"
 msgid "comment"
 msgstr "دیدگاه"
 
+#: includes/languages/trans_static.php:205 includes/languages/trans_static.php:396
+#: includes/languages/trans_static_public.php:933
+msgid "approved"
+msgstr "تایید شده"
+
+#: includes/languages/trans_static.php:206 includes/languages/trans_static.php:397
+#: includes/languages/trans_static_public.php:934
+msgid "unapproved"
+msgstr "تایید نشده"
+
 #: includes/languages/trans_static.php:210 includes/languages/trans_static.php:293
 #: includes/languages/trans_static_public.php:131
 msgid "post"
@@ -32074,6 +32030,17 @@ msgstr "همراه با هدررفت"
 #: lib/app/quickaccess/setting.php:537 lib/app/quickaccess/setting.php:584
 msgid "all"
 msgstr "همه"
+
+#: includes/languages/trans_static.php:231 includes/languages/trans_static.php:363
+#: includes/languages/trans_static_public.php:857
+#: includes/languages/trans_static_public.php:932
+msgid "awaiting"
+msgstr "در انتظار"
+
+#: includes/languages/trans_static.php:232 includes/languages/trans_static.php:364
+#: includes/languages/trans_static_public.php:873
+msgid "deactive"
+msgstr "غیر فعال"
 
 #: includes/languages/trans_static.php:233 includes/languages/trans_static.php:365
 #: includes/languages/trans_static_public.php:903
@@ -32355,9 +32322,18 @@ msgstr "ترک کرد"
 msgid "delete"
 msgstr "حذف"
 
+#: includes/languages/trans_static.php:395
+msgid "trash"
+msgstr "زباله‌دان"
+
 #: includes/languages/trans_static.php:399 includes/languages/trans_static_public.php:988
 msgid "answered"
 msgstr "پاسخ‌داده‌شده"
+
+#: includes/languages/trans_static.php:401 includes/languages/trans_static.php:1044
+#: includes/languages/trans_static_public.php:858
+msgid "block"
+msgstr "قفل شده"
 
 #: includes/languages/trans_static.php:404
 msgid "notif"
@@ -32387,9 +32363,18 @@ msgstr "باشه"
 msgid "failed"
 msgstr "ناموفق"
 
+#: includes/languages/trans_static.php:412 includes/languages/trans_static.php:1045
+#: includes/languages/trans_static_public.php:902
+msgid "other"
+msgstr "سایر"
+
 #: includes/languages/trans_static.php:413
 msgid "bot"
 msgstr "ربات"
+
+#: includes/languages/trans_static.php:414 includes/languages/trans_static.php:1036
+msgid "unknown"
+msgstr "نامشخص"
 
 #: includes/languages/trans_static.php:415
 msgid "used"
@@ -32530,6 +32515,11 @@ msgstr "درخواست"
 msgid "redirect"
 msgstr "تغییر مسیر"
 
+#: includes/languages/trans_static.php:464 includes/languages/trans_static.php:1032
+#: includes/languages/trans_static_public.php:927
+msgid "pending"
+msgstr "در انتظار"
+
 #: includes/languages/trans_static.php:465 includes/languages/trans_static_public.php:928
 msgid "error"
 msgstr "خطا"
@@ -32570,6 +32560,10 @@ msgstr "خودکار"
 #: includes/languages/trans_static.php:485
 msgid "running"
 msgstr "درحال‌اجرا"
+
+#: includes/languages/trans_static.php:486
+msgid "done"
+msgstr "اتمام"
 
 #: includes/languages/trans_static.php:490
 msgid "Rather"
@@ -36899,6 +36893,10 @@ msgstr "تخصص"
 msgid "acept"
 msgstr "تایید"
 
+#: includes/languages/trans_static_public.php:897
+msgid "reject"
+msgstr "پس دادن"
+
 #: includes/languages/trans_static_public.php:898
 msgid "discount"
 msgstr "تخفیف"
@@ -36922,6 +36920,10 @@ msgstr "درست"
 #: includes/languages/trans_static_public.php:914
 msgid "false"
 msgstr "غلط"
+
+#: includes/languages/trans_static_public.php:915
+msgid "skip"
+msgstr "ردکردن"
 
 #: includes/languages/trans_static_public.php:942
 msgid "cpSmsSend"
@@ -39179,23 +39181,23 @@ msgstr "در روز :weekday تداخل ساعت وجود دارد"
 msgid "Invalid type of item"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:151 lib/app/form/answer/add.php:346
+#: lib/app/form/answer/add.php:150 lib/app/form/answer/add.php:345
 msgid ":val is required"
 msgstr ":val الزامی است"
 
-#: lib/app/form/answer/add.php:271
+#: lib/app/form/answer/add.php:270
 msgid "You must select at least :min options"
 msgstr "شما باید حداقل :min گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:280
+#: lib/app/form/answer/add.php:279
 msgid "You can choose up to :max options"
 msgstr "شما می‌توانید حداکثر :max گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:298 lib/app/form/answer/add.php:310
+#: lib/app/form/answer/add.php:297 lib/app/form/answer/add.php:309
 msgid "Your date is not in allowd range"
 msgstr "تاریخ وارد شده در محدوده مجاز نیست"
 
-#: lib/app/form/answer/add.php:479
+#: lib/app/form/answer/add.php:478
 msgid "Invalid item type"
 msgstr "نوع گزینه اشتباه است"
 
@@ -39207,19 +39209,19 @@ msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 msgid "Please fill the required field"
 msgstr "لطفا موارد الزامی را تکمیل کنید"
 
-#: lib/app/form/answer/add.php:740
+#: lib/app/form/answer/add.php:745
 msgid "Can not save your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ذخیره کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:760
+#: lib/app/form/answer/add.php:765
 msgid "Can not edit your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ویرایش کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:801
+#: lib/app/form/answer/add.php:806
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
-#: lib/app/form/answer/add.php:807
+#: lib/app/form/answer/add.php:812
 msgid "No answer received"
 msgstr "هیچ پاسخی دریافت نشد"
 
@@ -39264,13 +39266,9 @@ msgstr "گزینه حذف شد"
 msgid "Your comment was saved"
 msgstr "دیدگاه شما ذخیره شد"
 
-#: lib/app/form/comment/get.php:63 lib/app/plugin/activate.php:832
+#: lib/app/form/comment/get.php:111 lib/app/plugin/activate.php:832
 msgid "Id not set"
 msgstr "شناسه تنظیم نشده است"
-
-#: lib/app/form/comment/get.php:70
-msgid "Comment not found"
-msgstr "دیدگاه یافت نشد"
 
 #: lib/app/form/filter/add.php:52 lib/app/form/filter/add.php:84
 msgid "Condition successfully added"
@@ -43913,6 +43911,15 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "complete"
+#~ msgstr "کامل"
+
+#~ msgid "review"
+#~ msgstr "بررسی"
+
+#~ msgid "payed"
+#~ msgstr "پرداخت شده"
+
 #~ msgid "Comment type"
 #~ msgstr "نوع یادداشت"
 
@@ -45824,9 +45831,6 @@ msgstr "یارد"
 
 #~ msgid "Add new quote"
 #~ msgstr "افزودن نقل قول جدید"
-
-#~ msgid "Edit quote"
-#~ msgstr "ویرایش نقل قول"
 
 #~ msgid "Edit setting"
 #~ msgstr "ویرایش تنظیمات"
@@ -48065,9 +48069,6 @@ msgstr "یارد"
 
 #~ msgid "Share this post in social networks"
 #~ msgstr "اشتراک‌گذاری این نوشته از طریق شبکه‌های اجتماعی"
-
-#~ msgid "At time:"
-#~ msgstr "در ساعت:"
 
 #~ msgid "No domain renew in this time"
 #~ msgstr "در این ساعت هیچ دامنه‌ای تمدید نخواهد شد"
