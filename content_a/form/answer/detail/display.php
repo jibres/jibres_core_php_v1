@@ -585,8 +585,8 @@ else
 
 													$html .= '<tr>';
 													{
-														$html .= '<th>'. T_("Date created").'</th>';
-														$html .= '<td>'. \dash\fit::date_time(a($value, 'datecreated')). '</td>';
+														$html .= '<th>'. T_("Date").'</th>';
+														$html .= '<td>'. \dash\fit::date_time(a($value, 'date')). '</td>';
 													}
 													$html .= '</tr>';
 

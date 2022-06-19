@@ -41,7 +41,7 @@ if(!is_array($formItems))
 						<?php foreach (\dash\data::commentList() as $key => $value) {?>
 							<div class="p-2 mt-2 rounded-sm <?php if(a($value, 'color')) { echo 'alert-'. $value['color'];}else{echo 'alerty-primary';} ?> f">
 								<div class="c"><?php echo nl2br(strval(a($value, 'content'))) ?></div>
-								<div class="cauto"><?php echo \dash\fit::date_time(a($value, 'datecreated')) ?></div>
+								<div class="cauto"><?php echo \dash\fit::date_time(a($value, 'date')) ?></div>
 
 							</div>
 						<?php } //endfor ?>

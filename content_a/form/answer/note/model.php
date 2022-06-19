@@ -11,9 +11,11 @@ class model
 
 		$post = [];
 
-		$post['content']   = \dash\request::post('comment');
+		$post['content'] = \dash\request::post('comment');
 		$post['color']   = \dash\request::post('color');
-		$post['privacy']   = \dash\request::post('privacy');
+		$post['privacy'] = \dash\request::post('privacy');
+		$post['date']    = \dash\request::post('date');
+		$post['time']    = \dash\request::post('time');
 
 		if(\dash\request::files('file'))
 		{

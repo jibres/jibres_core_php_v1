@@ -14,6 +14,8 @@ class edit
 			'privacy'   => ['enum' => ['public', 'private']],
 			'color'     => ['enum' => ['primary','secondary','success','danger','warning','info','light','dark',]],
 			'file'      => 'bit',
+			'date'      => 'date',
+			'time'      => 'time',
 		];
 
 		$require = ['content', 'privacy'];
@@ -26,11 +28,27 @@ class edit
 			return false;
 		}
 
+
 		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+
+		if(!$data['date'])
+		{
+			$data['date'] = date("Y-m-d");
+		}
+
+		if(!$data['time'])
+		{
+			$data['time'] = date("H:i:s");
+		}
+
+		$data['date'] = $data['date']. ' '. $data['time'];
+		unset($data['time']);
 		unset($data['file']);
+
+		$data['datemodified'] = date("Y-m-d H:i:s");
 
 		\lib\db\form_comment\update::update($data, $id);
 

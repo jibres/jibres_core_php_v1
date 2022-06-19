@@ -82,6 +82,32 @@ $html .= '<form method="post" autocomplete="off">';
 			}
 			$html .= '</select>';
 
+			$html .= '<div class="row">';
+			{
+				$html .= '<div class="c">';
+				{
+					$html .= '<label for="date">'. T_("Date").'</label>';
+					$html .= '<div class="input">';
+					{
+						$html .= '<input type="tel" name="date" data-format="date" id="date" value="'.\dash\fit::date_en(date("Y-m-d", strtotime(\dash\data::dataRow_date()))).'">';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+
+				$html .= '<div class="c">';
+				{
+
+					$html .= '<label for="time">'. T_("Time").'</label>';
+					$html .= '<div class="input">';
+					{
+						$html .= '<input type="tel" name="time" data-format="time" id="time" value="'.date("H:i", strtotime(\dash\data::dataRow_date())).'">';
+					}
+					$html .= '</div>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
 
 		}
 		$html .= '</div>';
