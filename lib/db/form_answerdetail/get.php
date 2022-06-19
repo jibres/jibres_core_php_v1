@@ -66,6 +66,30 @@ class get
 
 	}
 
+	public static function check_duplicate_answer($_args)
+	{
+		$q  = \dash\pdo\prepare_query::generate_where('form_answerdetail', $_args);
+
+		$query  =
+		"
+			SELECT
+				form_answerdetail.*
+			FROM
+				form_answerdetail
+			INNER JOIN form_answer ON form_answer.id = form_answerdetail.answer_id
+			WHERE
+				form_answer.status != 'deleted' AND
+				$q[where]
+			LIMIT 1 ";
+		$param  = $q['param'];
+		$result = \dash\pdo::get($query, $param, null, true);
+
+		return $result;
+
+	}
+
+
+
 
 
 

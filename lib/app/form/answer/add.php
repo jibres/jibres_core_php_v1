@@ -488,7 +488,8 @@ class add
 				$check_unique_args_new['form_id'] = $form_id;
 				$check_unique_args_new['answer']  = $check_unique_args['answer'];
 
-				$is_answer_befor = \lib\db\form_answerdetail\get::get_where($check_unique_args_new);
+				$is_answer_befor = \lib\db\form_answerdetail\get::check_duplicate_answer($check_unique_args_new);
+
 				if(isset($is_answer_befor['id']))
 				{
 					if($edit_mode && floatval($_meta['answer_id']) === floatval($is_answer_befor['id']))
