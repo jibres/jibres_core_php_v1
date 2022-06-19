@@ -825,7 +825,11 @@ class add
 
 		if($save_as_ticket && !$total_price)
 		{
-			save_as_ticket::save($form_id, $answer_id);
+			$ticket_id = save_as_ticket::save($form_id, $answer_id);
+			if($ticket_id)
+			{
+				\lib\db\form_answer\update::update(['ticket_id' => $ticket_id], $answer_id);
+			}
 		}
 
 		if($redirect && !$edit_mode)
@@ -850,7 +854,11 @@ class add
 
 				if($load_form && a($load_form, 'setting', 'saveasticket'))
 				{
-					save_as_ticket::save($_args['form_id'], $_args['answer_id']);
+					$ticket_id = save_as_ticket::save($_args['form_id'], $_args['answer_id']);
+					if($ticket_id)
+					{
+						\lib\db\form_answer\update::update(['ticket_id' => $ticket_id], $_args['answer_id']);
+					}
 				}
 			}
 		}
