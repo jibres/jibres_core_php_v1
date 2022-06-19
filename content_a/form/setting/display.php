@@ -22,6 +22,13 @@
 						<textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Description") ?>"><?php if(\dash\data::dataRow_desc()) { echo strip_tags(\dash\data::dataRow_desc()); } ?></textarea>
 					</div>
 
+					<div class="switch1">
+						<input type="checkbox" name="saveasticket" id="saveasticket" <?php if(a(\dash\data::dataRow(), 'setting', 'saveasticket')) {echo 'checked';} ?>>
+						<label for="saveasticket"><?php echo T_("Save answer as ticket") ?></label>
+						<label for="saveasticket"><?php echo T_("Save answer as ticket") ?></label>
+					</div>
+
+
 					<div class="mb-2">
 						<div data-uploader data-name='file' data-final='#finalImagefile1' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
 							<input type="file" accept="image/*" id="file1">
