@@ -61,7 +61,7 @@ class search
 
 		if($data['not_deleted'])
 		{
-			$and[] = " form_answer.status != 'deleted' ";
+			$and[] = " (form_answer.status IS NULL OR form_answer.status != 'deleted') ";
 		}
 
 
