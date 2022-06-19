@@ -27,12 +27,13 @@ class add
 
 		$multiple_choice_answer = [];
 
-		$signup_user_args   = [];
-		$signup_user        = false;
-		$edit_mode          = false;
-		$total_price        = 0;
-		$send_sms           = [];
-		$sms_text           = [];
+		$signup_user_args      = [];
+		$signup_user           = false;
+		$save_as_ticket        = false;
+		$edit_mode             = false;
+		$total_price           = 0;
+		$send_sms              = [];
+		$sms_text              = [];
 		$required_not_answered = [];
 
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
@@ -47,6 +48,11 @@ class add
 		if(!$load_form)
 		{
 			return false;
+		}
+
+		if(a($load_form, 'setting', 'saveasticket'))
+		{
+			$save_as_ticket = true;
 		}
 
 		if(a($_meta, 'edit_mode') === true && a($_meta, 'answer_id'))
@@ -694,11 +700,11 @@ class add
 					if(in_array($myType, ['descriptive_answer']))
 					{
 						$new_answer   = null;
-						$new_textarea = $my_answer['answer'];
+						$new_textarea = a($my_answer, 'answer');
 					}
 					else
 					{
-						$new_answer   = $my_answer['answer'];
+						$new_answer   = a($my_answer, 'answer');
 						$new_textarea = null;
 					}
 
@@ -769,6 +775,8 @@ class add
 				\dash\log::set('form_editAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $answer_id]);
 			}
 
+
+
 			if($total_price && !$data['factor_id'])
 			{
 				$meta =
@@ -778,7 +786,7 @@ class add
 					'amount'        => $total_price,
 					'auto_back'     => true,
 					'final_fn'      => ['/lib/app/form/answer/add', 'after_pay'],
-					'final_fn_args' => ['answer_id' => $answer_id],
+					'final_fn_args' => ['answer_id' => $answer_id, 'form_id' => $form_id],
 				];
 
 				// go to pay
@@ -786,7 +794,9 @@ class add
 
 				if(isset($transaction_detail['transaction_id']))
 				{
-					$add_answer_args['transaction_id'] = \dash\coding::decode($transaction_detail['transaction_id']);
+					$update_answer = [];
+					$update_answer['transaction_id'] = \dash\coding::decode($transaction_detail['transaction_id']);
+					\lib\db\form_answer\update::update($update_answer, $answer_id);
 				}
 
 				if(isset($transaction_detail['url']))
@@ -813,6 +823,11 @@ class add
 		}
 
 
+		if($save_as_ticket && !$total_price)
+		{
+			save_as_ticket::save($form_id, $answer_id);
+		}
+
 		if($redirect && !$edit_mode)
 		{
 			\dash\redirect::to($redirect);
@@ -828,6 +843,16 @@ class add
 		if(isset($_args['answer_id']) && is_numeric($_args['answer_id']))
 		{
 			\lib\db\form_answer\edit::update(['status' => 'active'], $_args['answer_id']);
+
+			if(isset($_args['form_id']) && is_numeric($_args['form_id']))
+			{
+				$load_form = \lib\app\form\form\get::public_get($_args['form_id']);
+
+				if($load_form && a($load_form, 'setting', 'saveasticket'))
+				{
+					save_as_ticket::save($_args['form_id'], $_args['answer_id']);
+				}
+			}
 		}
 	}
 

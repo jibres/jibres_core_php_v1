@@ -22,9 +22,12 @@ class search
 	}
 
 
-	public static function list($_query_string, $_args, $_hot_query = [])
+	public static function list($_query_string, $_args, $_hot_query = [], $_force = false)
 	{
-		\dash\permission::access('_group_form');
+		if(!$_force)
+		{
+			\dash\permission::access('_group_form');
+		}
 
 		$condition =
 		[
