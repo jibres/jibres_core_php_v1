@@ -77,137 +77,9 @@ else
 	$html .= '<div class="row">';
 	{
 
-		$html .= '<div class="c-xs-12 c-sm-12 c-md-6">';
+		$html .= '<div class="c-xs-12 c-sm-12 c-md-7">';
 		{
 
-			$html .= '<div class="alert-info text-left ltr font-bold text-sm">';
-			{
-
-				$html .= '<div class="f">';
-				{
-					$html .= '<div class="cauto">';
-					{
-						$html .= '<span>'. T_("Answer ID"). '</span>';
-						$html .= '<span><code class="inline-block font-bold">'. \dash\request::get('id'). '_'.\dash\request::get('aid'). '</code></span>';
-					}
-					$html .= '</div>';
-
-					$html .= '<div class="c"></div>';
-
-					$html .= '<div class="cauto">';
-					{
-						$html .= '<a class="font-14" href="'. \dash\url::current(). \dash\request::full_get(['print' => 1]). '"><i class="sf-print"></i></a>';
-					}
-					$html .= '</div>';
-
-					$html .= '<div class="cauto">';
-					{
-						if(\dash\url::isLocal())
-						{
-							$html .= '<a class="btn-primary btn-sm mx-2" href="'. \dash\url::that(). '/edit'. \dash\request::full_get(). '">'. T_("Edit"). '</a>';
-						}
-					}
-					$html .= '</div>';
-				}
-				$html .= '</div>';
-			}
-			$html .= '</div>';
-
-			$html .= '<div class="bg-white rounded-lg mb-2 p-4">';
-			{
-
-				$html .= '<div class="row">';
-				{
-					$html .= '<div class="cauto">';
-					{
-						$html .= '<span>'. T_("Answer Status"). '</span>';
-						// $html .= '<small class="block text-gray-600">'. T_("Change the status depending on your needs"). '</small>';
-					}
-					$html .= '</div>';
-
-					$html .= '<div class="c"></div>';
-
-					$html .= '<div class="c-auto">';
-					{
-						$status =
-						[
-							'draft'       => T_("draft"),
-							'active'      => T_("active"),
-							'spam'        => T_("spam"),
-							'archive'     => T_("archive"),
-							// 'unknown'     => T_("unknown"),
-							// 'start'       => T_("start"),
-							// 'skip'        => T_("skip"),
-							// 'filter'      => T_("filter"),
-							// 'complete'    => T_("complete"),
-							// 'block'       => T_("block"),
-							// 'enable'      => T_("enable"),
-							// 'disable'     => T_("disable"),
-							// 'deleted'     => T_("deleted"),
-							// 'done'        => T_("done"),
-							// 'review'      => T_("review"),
-							// 'pending'     => T_("pending"),
-							// 'other'       => T_("other"),
-							// 'payed'       => T_("payed"),
-							// 'expire'      => T_("expire"),
-							// 'cancel'      => T_("cancel"),
-							// 'reject'      => T_("reject"),
-							// 'trash'       => T_("trash"),
-							// 'approved'    => T_("approved"),
-							// 'awaiting'    => T_("awaiting"),
-							// 'unapproved'  => T_("unapproved"),
-							// 'close'       => T_("close"),
-							// 'deactive'    => T_("deactive"),
-							// 'unreachable' => T_("unreachable"),
-						];
-
-						if(\dash\data::answerDetail_status() === 'deleted')
-						{
-							$status['deleted'] = T_("deleted");
-						}
-
-						$html .= '<form method="post" autocomplete="off" data-patch>';
-						{
-							$html .= '<input type="hidden" name="setstatus" value="setstatus">';
-
-							$html .= '<select name="status" class="select22">';
-							{
-								$html .= '<option value=""></option>';
-								foreach ($status as $key => $value)
-								{
-									$html .= '<option value="'. $key. '" ';
-									if(\dash\data::answerDetail_status() === $key)
-									{
-										$html .= 'selected';
-									}
-									$html .= '>'. $value. '</option>';
-								}
-							}
-							$html .= '</select>';
-						}
-						$html .= '</form>';
-
-					}
-					$html .= '</div>';
-
-					$html .= '<div class="c-auto">';
-					{
-						if(\dash\data::answerDetail_status() !== 'deleted')
-						{
-							$html .= '<div data-ajaxify data-data=\'{"setstatus" : "setstatus", "status" : "deleted"}\' data-method="post">';
-							{
-								$html .= \dash\utility\icon::svg('delete', 'major', 'red', 'w-5 mx-4 mt-2');
-							}
-							$html .= '</div>';
-						}
-					}
-					$html .= '</div>';
-
-
-				}
-				$html .= '</div>';
-			}
-			$html .= '</div>';
 
 			if(\dash\data::answerTransactionDetail())
 			{
@@ -256,14 +128,6 @@ else
 				$html .= '</a>';
 			}
 
-			if(a(\dash\data::answerDetail(), 'factor_id'))
-			{
-				$html .= '<div class="alert-info text-left ltr font-bold text-sm">';
-				{
-					$html .= '<a href="'. \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'). '">'. T_("View Order"). '</a>';
-				}
-				$html .= '</div>';
-			}
 
 
 			$html .= '<table class="tbl1 v6 responsive">';
@@ -299,13 +163,160 @@ else
 
 
 
-		$html .= '<div class="c-xs-12 c-sm-12 c-md-6 print:hidden">';
+		$html .= '<div class="c-xs-12 c-sm-12 c-md-5 print:hidden">';
 		{
 			$html .= '<form method="post" id="markasreview">';
 			{
 				$html .= '<input type="hidden" name="review" value="review">';
 			}
 			$html .= '</form>';
+
+			$html .= '<div class="tblBox">';
+			{
+
+				$html .= '<table class="tbl1 v2">';
+				{
+
+					$html .= '<tbody>';
+					{
+
+
+						$html .= '<tr>';
+						{
+							$html .= '<th>'. T_("Answer id").'</th>';
+							$html .= '<td>';
+							{
+								$html .= '<span><code class="inline-block font-bold">'. \dash\request::get('id'). '_'.\dash\request::get('aid'). '</code></span>';
+							}
+							$html .= '</td>';
+
+						}
+						$html .= '</tr>';
+
+						$html .= '<tr>';
+						{
+							$html .= '<th>'. T_("Print").'</th>';
+							$html .= '<td>';
+							{
+								$html .= '<a class="font-14" href="'. \dash\url::current(). \dash\request::full_get(['print' => 1]). '"><i class="sf-print"></i></a>';
+							}
+							$html .= '</td>';
+
+						}
+						$html .= '</tr>';
+
+
+						$html .= '<tr>';
+						{
+							$html .= '<th>'. T_("Answer status").'</th>';
+							$html .= '<td>';
+							{
+								$status =
+								[
+									'draft'       => T_("draft"),
+									'active'      => T_("active"),
+									'spam'        => T_("spam"),
+									'archive'     => T_("archive"),
+									// 'unknown'     => T_("unknown"),
+									// 'start'       => T_("start"),
+									// 'skip'        => T_("skip"),
+									// 'filter'      => T_("filter"),
+									// 'complete'    => T_("complete"),
+									// 'block'       => T_("block"),
+									// 'enable'      => T_("enable"),
+									// 'disable'     => T_("disable"),
+									// 'deleted'     => T_("deleted"),
+									// 'done'        => T_("done"),
+									// 'review'      => T_("review"),
+									// 'pending'     => T_("pending"),
+									// 'other'       => T_("other"),
+									// 'payed'       => T_("payed"),
+									// 'expire'      => T_("expire"),
+									// 'cancel'      => T_("cancel"),
+									// 'reject'      => T_("reject"),
+									// 'trash'       => T_("trash"),
+									// 'approved'    => T_("approved"),
+									// 'awaiting'    => T_("awaiting"),
+									// 'unapproved'  => T_("unapproved"),
+									// 'close'       => T_("close"),
+									// 'deactive'    => T_("deactive"),
+									// 'unreachable' => T_("unreachable"),
+								];
+
+								if(\dash\data::answerDetail_status() === 'deleted')
+								{
+									$status['deleted'] = T_("deleted");
+								}
+
+								$html .= '<form method="post" autocomplete="off" data-patch>';
+								{
+									$html .= '<input type="hidden" name="setstatus" value="setstatus">';
+
+									$html .= '<select name="status" class="select22">';
+									{
+										$html .= '<option value=""></option>';
+										foreach ($status as $key => $value)
+										{
+											$html .= '<option value="'. $key. '" ';
+											if(\dash\data::answerDetail_status() === $key)
+											{
+												$html .= 'selected';
+											}
+											$html .= '>'. $value. '</option>';
+										}
+									}
+									$html .= '</select>';
+								}
+								$html .= '</form>';
+							}
+							$html .= '</td>';
+
+						}
+						$html .= '</tr>';
+
+
+						if(\dash\data::answerDetail_status() !== 'deleted')
+						{
+							$html .= '<tr>';
+							{
+								$html .= '<th>'. T_("Remove answer").'</th>';
+								$html .= '<td>';
+								{
+									$html .= '<div data-confirm data-data=\'{"setstatus" : "setstatus", "status" : "deleted"}\' data-method="post">';
+									{
+										$html .= \dash\utility\icon::svg('delete', 'major', 'red', 'w-5 mx-4 mt-2');
+									}
+									$html .= '</div>';
+								}
+								$html .= '</td>';
+
+							}
+							$html .= '</tr>';
+						}
+
+
+						if(a(\dash\data::answerDetail(), 'factor_id'))
+						{
+							$html .= '<tr>';
+							{
+								$html .= '<th>'. T_("View Order").'</th>';
+								$html .= '<td>';
+								{
+									$html .= '<a href="'. \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'). '">'. T_("View Order"). '</a>';
+								}
+								$html .= '</td>';
+
+							}
+							$html .= '</tr>';
+						}
+					}
+					$html .= '</tbody>';
+				}
+				$html .= '</table>';
+			}
+			$html .= '</div>';
+
+
 
 			$html .= '<form method="post" id="form1">';
 			{
@@ -462,7 +473,7 @@ else
 
 						$html .= '<div class="row">';
 						{
-							$html .= '<div class="c-xs-6 c-sm-6">';
+							$html .= '<div class="c-xs-12 c-sm-12 mb-1">';
 							{
 								$html .= '<div class="radio3">';
 								{
@@ -473,7 +484,7 @@ else
 							}
 							$html .= '</div>';
 
-							$html .= '<div class="c-xs-6 c-sm-6">';
+							$html .= '<div class="c-xs-12 c-sm-12 mb-1">';
 							{
 								$html .= '<div class="radio3">';
 								{
