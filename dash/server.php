@@ -103,7 +103,7 @@ class server
 			// cloudflare
 			case 'jibres.com':
 			case 'jibres.xyz':
-			case 'myjibres.com':
+			// case 'myjibres.com':
 				if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
 				{
 					$ipaddress = $_SERVER["HTTP_CF_CONNECTING_IP"];
