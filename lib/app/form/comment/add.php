@@ -51,6 +51,7 @@ class add
 			'user_id'     => \dash\user::id(),
 			'file'        => null,
 			'view'        => null,
+			'date'        => date("Y-m-d H:i:s"),
 			'datecreated' => date("Y-m-d H:i:s"),
 		];
 
