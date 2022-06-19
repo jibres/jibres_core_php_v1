@@ -5,6 +5,26 @@ namespace lib\db\form_answer;
 class get
 {
 
+	public static function form_id_from_answer_id($_answer_id)
+	{
+		$query =
+		"
+			SELECT
+				form_answer.form_id AS `form_id`
+			FROM
+				form_answer
+			WHERE
+				form_answer.id = :id
+		";
+		$param =
+		[
+			':id' => $_answer_id,
+		];
+
+		$result = \dash\pdo::get($query, $param, 'form_id', true);
+		return $result;
+	}
+
 	public static function is_answered_factor_id($_factor_id)
 	{
 		$query =

@@ -22,7 +22,7 @@ class save_as_ticket
 			return false;
 		}
 
-		$files  = [];
+		$files       = [];
 		$answer_list = [];
 		$total_price = 0;
 
@@ -74,16 +74,19 @@ class save_as_ticket
 
 				// need check by other
 				case 'multiple_choice':
+					// nothing
 					break;
 
 				case 'country':
+					$answer = a($value, 'country_name');
 					break;
 
 				case 'province':
+					$answer = a($value, 'province_name');
 					break;
 
 				case 'province_city':
-					// $answer = $value['province_name']. ' '. $value['city'];
+					$answer = trim(a($value, 'province_name'). ' - '. a($value, 'city_name'));
 					break;
 
 				case 'agree':
@@ -114,9 +117,12 @@ class save_as_ticket
 					$answer      = null;
 					break;
 
+				case 'descriptive_answer':
+					$answer = a($value, 'textarea');
+
+					break;
 
 				case 'short_answer':
-				case 'descriptive_answer':
 				case 'single_choice':
 				case 'dropdown':
 				case 'email':

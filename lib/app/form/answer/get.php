@@ -4,6 +4,13 @@ namespace lib\app\form\answer;
 
 class get
 {
+	public static function form_id_from_answer_id($_answer_id)
+	{
+		$answer_id = \dash\validate::id($_answer_id);
+		return floatval(\lib\db\form_answer\get::form_id_from_answer_id($answer_id));
+	}
+
+
 	public static function is_answered_factor_id($_factor_id)
 	{
 		$factor_id = \dash\validate::id($_factor_id);
