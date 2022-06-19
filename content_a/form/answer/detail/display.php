@@ -205,6 +205,21 @@ else
 						}
 						$html .= '</tr>';
 
+						if(\dash\data::answerDetail_ticket_id())
+						{
+							$html .= '<tr>';
+							{
+								$html .= '<th>'. T_("View ticket").'</th>';
+								$html .= '<td>';
+								{
+									$html .= '<a class="btn-link" href="'. \dash\url::kingdom().'/crm/ticket/view?id='. \dash\data::answerDetail_ticket_id(). '">'. T_("Ticket :val", ['val' => \dash\fit::number(\dash\data::answerDetail_ticket_id())]).'</a>';
+								}
+								$html .= '</td>';
+
+							}
+							$html .= '</tr>';
+						}
+
 
 						$html .= '<tr>';
 						{
