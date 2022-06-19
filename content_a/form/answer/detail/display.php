@@ -606,7 +606,25 @@ else
 
 															$html .= '<td colspan="2">';
 															{
-																$html .= '<div data-confirm data-data=\'{"removecomment" : "removecomment", "id" : "'.  a($value, 'id'). '"}\' class="text-red-500">'. T_("Remove note"). '</div>';
+																$html .= '<div class="row">';
+																{
+																	$html .= '<div class="c-auto">';
+																	{
+																		$html .= '<a href="'.\dash\url::that().'/note'. \dash\request::full_get(['noteid' => $value['id']]).'" class="text-blue-500">'. T_("Edit note"). '</a>';
+
+																	}
+																	$html .= '</div>';
+																	$html .= '<div class="c"></div>';
+																	$html .= '<div class="c-auto">';
+																	{
+
+																		$html .= '<div data-confirm data-data=\'{"removecomment" : "removecomment", "id" : "'.  a($value, 'id'). '"}\' class="text-red-500">'. T_("Remove note"). '</div>';
+																	}
+																	$html .= '</div>';
+
+																}
+																$html .= '</div>';
+
 
 															}
 															$html .= '</td>';

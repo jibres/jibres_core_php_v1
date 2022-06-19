@@ -4,6 +4,33 @@ namespace lib\db\form_comment;
 
 class get
 {
+	public static function check_trust_comment($_form_id, $_answer_id, $_comment_id)
+	{
+		$query  =
+		"
+			SELECT
+				form_comment.*
+			FROM
+				form_comment
+			WHERE
+				form_comment.id        = :id AND
+				form_comment.form_id   = :form_id AND
+				form_comment.answer_id = :answer_id
+			LIMIT 1
+		";
+
+		$param =
+		[
+			':id'        => $_comment_id,
+			':answer_id' => $_answer_id,
+			':form_id'   => $_form_id,
+		];
+
+		$result = \dash\pdo::get($query, $param, null, true);
+
+		return $result;
+	}
+
 
 	public static function string_all_comment($_answer_id)
 	{

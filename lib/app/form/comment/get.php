@@ -4,6 +4,30 @@ namespace lib\app\form\comment;
 
 class get
 {
+	public static function check_trust_comment($_form_id, $_answer_id, $_note_id)
+	{
+		$form_id   = \dash\validate::id($_form_id);
+		$answer_id = \dash\validate::id($_answer_id);
+		$note_id   = \dash\validate::id($_note_id);
+
+		if(!$form_id || !$answer_id || !$note_id)
+		{
+			return false;
+		}
+
+		$load_comment = \lib\db\form_comment\get::check_trust_comment($form_id, $answer_id, $note_id);
+
+		if(!$load_comment)
+		{
+			return false;
+		}
+
+		$load_comment = ready::row($load_comment);
+
+		return $load_comment;
+
+	}
+
 	public static function get($_answer_id)
 	{
 		\dash\permission::access('_group_form');
