@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-21 16:44+0430\n"
-"PO-Revision-Date: 2022-06-21 16:45+0430\n"
+"POT-Creation-Date: 2022-06-21 17:19+0430\n"
+"PO-Revision-Date: 2022-06-21 17:20+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4111,7 +4111,7 @@ msgstr "وزن"
 #: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
 #: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
 #: content_crm/telegram/send/display.php:5 content_site/staticfile/display.php:11
-#: lib/app/form/generator.php:459
+#: lib/app/form/generator.php:478
 msgid "Required"
 msgstr "الزامی"
 
@@ -7625,7 +7625,7 @@ msgstr "صفحه اول مقدمه"
 #: content_love/files/home/display.php:49 content_love/home/display.php:118
 #: content_site/options/file/file.php:285 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
-#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1222
+#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1241
 msgid "File"
 msgstr "فایل"
 
@@ -10020,7 +10020,15 @@ msgstr "انتقال به زباله‌دان"
 msgid "Form activation schedule"
 msgstr "زمانبندی فعال شدن فرم"
 
+#: content_a/form/status/display.php:157
+msgid "This message is displayed before the start of the form response time"
+msgstr "این پیام قبل از آغاز زمان پاسخگویی به فرم نمایش داده می‌شود"
+
 #: content_a/form/status/display.php:164
+msgid "This message will be displayed after the response time of the form"
+msgstr "این پیام بعد از اتمام زمان پاسخگویی به فرم نمایش داده می‌شود"
+
+#: content_a/form/status/display.php:178
 msgid "Delete completely"
 msgstr "حذف به صورت کامل"
 
@@ -12342,7 +12350,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/commands/step_ticketCreate.php:111
 #: includes/languages/trans_static.php:508 lib/app/form/answer/save_as_ticket.php:95
-#: lib/app/form/generator.php:1362
+#: lib/app/form/generator.php:1381
 msgid "Yes"
 msgstr "بله"
 
@@ -12361,7 +12369,7 @@ msgstr "بله"
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
 #: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
-#: lib/app/form/answer/save_as_ticket.php:99 lib/app/form/generator.php:1380
+#: lib/app/form/answer/save_as_ticket.php:99 lib/app/form/generator.php:1399
 msgid "No"
 msgstr "خیر"
 
@@ -12646,7 +12654,7 @@ msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب 
 #: content_a/setting/general/display.php:160 content_account/my/profile/display.php:36
 #: content_business/profile/detail/display.php:35
 #: content_love/plugin/manage/display.php:47 content_love/plugin/manage/display.php:48
-#: lib/app/form/generator.php:531
+#: lib/app/form/generator.php:550
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -39279,7 +39287,7 @@ msgstr "با این فیلتر هیچ پاسخی ثبت نشده است"
 msgid "Answer not found"
 msgstr "پاسخی یافت نشد"
 
-#: lib/app/form/answer/get.php:149 lib/app/form/generator.php:1228
+#: lib/app/form/answer/get.php:149 lib/app/form/generator.php:1247
 msgid "Show file"
 msgstr "نمایش فایل"
 
@@ -39303,7 +39311,7 @@ msgstr "کسر شد."
 msgid "Choice successfully added"
 msgstr "گزینه با موفقیت اضافه شد"
 
-#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:48
+#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:64
 #: lib/app/form/item/edit.php:100 lib/app/menu/edit.php:60
 msgid "No data to change"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
@@ -39366,19 +39374,19 @@ msgstr "فرم تماس با موفقیت اضافه شد"
 msgid "Can not duplicate this form"
 msgstr "نمی‌توانیم این فرم را کپی کنیم"
 
-#: lib/app/form/form/check.php:69
+#: lib/app/form/form/check.php:71
 msgid "Duplicate form slug. Try another name"
 msgstr "نامک فرم تکراری است. لطفا نامک دیگری را وارد کنید"
 
-#: lib/app/form/form/check.php:140
+#: lib/app/form/form/check.php:171
 msgid "Start time must be less than end time"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
 
-#: lib/app/form/form/edit.php:57
+#: lib/app/form/form/edit.php:73
 msgid "This form used in menu and can not be remove"
 msgstr "این فرم در منو استفاده شده و امکان حذف آن وجود ندارد"
 
-#: lib/app/form/form/edit.php:80
+#: lib/app/form/form/edit.php:96
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
@@ -39391,7 +39399,7 @@ msgstr "فرم شما منتشر نشده است. فقط شما می‌توان�
 msgid "Submit"
 msgstr "تایید"
 
-#: lib/app/form/generator.php:398 lib/app/form/generator.php:418
+#: lib/app/form/generator.php:398 lib/app/form/generator.php:427
 msgid "Can not answer to this form at this time"
 msgstr "در حال حاضر نمی‌توان به این فرم پاسخ داد"
 
@@ -39399,15 +39407,15 @@ msgstr "در حال حاضر نمی‌توان به این فرم پاسخ دا�
 msgid "This form will be activated in :date"
 msgstr "این فرم در تاریخ :date فعال خواهد شد"
 
-#: lib/app/form/generator.php:419
+#: lib/app/form/generator.php:428
 msgid "This form has been active until :date"
 msgstr "این فرم تا تاریخ :date فعال بوده است"
 
-#: lib/app/form/generator.php:1046
+#: lib/app/form/generator.php:1065
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: lib/app/form/generator.php:1063
+#: lib/app/form/generator.php:1082
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
