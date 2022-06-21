@@ -3,7 +3,7 @@
     <?php require_once(root. 'content_a/form/itemLink.php');?>
   </div>
   <div class="c-xs-12 c-sm-12 c-lg-8">
-    <form method="post" autocomplete="off" id="form1" data-patch>
+    <form method="post" autocomplete="off" id="form1" >
       <div class="box">
         <div class="pad">
 
@@ -57,6 +57,107 @@
               </div>
             </div>
           </div>
+<?php
+
+$html = '';
+$html .= '<div data-response="status" data-response-where="publish"  ';
+{
+  if(\dash\data::dataRow_status() !== 'publish')
+  {
+    $html .= 'data-response-hide';
+  }
+  $html .= '>';
+
+  $have_schedule = false;
+
+  if(\dash\data::dataRow_starttime() || \dash\data::dataRow_endtime())
+  {
+    $have_schedule = true;
+  }
+  $html .= '<div class="switch1">';
+  {
+    $html .= '<input type="checkbox" name="schedule" id="schedule"';
+    if($have_schedule)
+    {
+      $html .= 'checked';
+    }
+
+    $html .='>';
+    $html .= '<label for="schedule"></label>';
+    $html .= '<label for="schedule">'.T_("Form activation schedule").'</label>';
+  }
+  $html .= '</div>';
+
+  $html .= '<div data-response="schedule"';
+  if(!$have_schedule)
+  {
+    $html .= 'data-response-hide';
+  }
+
+  $html .= '>';
+  {
+    $html .= '<div class="row">';
+    {
+      $html .= '<div class="c">';
+      {
+        $html .= '<label for="startdate">'. T_("Start date").'</label>';
+        $html .= '<div class="input">';
+        {
+          $html .= '<input type="tel" name="startdate" data-format="date" id="startdate" value="'. ((\dash\data::dataRow_starttime()) ? \dash\fit::number_en(\dash\fit::date(date("Y-m-d", strtotime(\dash\data::dataRow_starttime())))) : '').'">';
+        }
+        $html .= '</div>';
+      }
+      $html .= '</div>';
+
+      $html .= '<div class="c">';
+      {
+
+        $html .= '<label for="starttime">'. T_("Start time").'</label>';
+        $html .= '<div class="input">';
+        {
+          $html .= '<input type="tel" name="starttime" data-format="time" id="starttime" value="'. ((\dash\data::dataRow_starttime()) ? date("H:i", strtotime(\dash\data::dataRow_starttime())) : '').'">';
+        }
+        $html .= '</div>';
+      }
+      $html .= '</div>';
+    }
+    $html .= '</div>';
+
+    $html .= '<div class="row">';
+    {
+
+      $html .= '<div class="c">';
+      {
+
+        $html .= '<label for="enddate">'. T_("End date").'</label>';
+        $html .= '<div class="input">';
+        {
+          $html .= '<input type="tel" name="enddate" data-format="date" id="date" value="'. ((\dash\data::dataRow_endtime()) ? \dash\fit::number_en(\dash\fit::date(date("Y-m-d", strtotime(\dash\data::dataRow_endtime())))) : '').'">';
+        }
+        $html .= '</div>';
+      }
+      $html .= '</div>';
+
+      $html .= '<div class="c">';
+      {
+
+        $html .= '<label for="endtime">'. T_("End time").'</label>';
+        $html .= '<div class="input">';
+        {
+          $html .= '<input type="tel" name="endtime" data-format="time" id="endtime" value="'. ((\dash\data::dataRow_endtime()) ? date("H:i", strtotime(\dash\data::dataRow_endtime())) : '').'">';
+        }
+        $html .= '</div>';
+      }
+      $html .= '</div>';
+    }
+    $html .= '</div>';
+  }
+  $html .= '</div>';
+}
+$html .= '</div>';
+echo $html;
+?>
+
         </div>
         <?php if(\dash\data::dataRow_status() == 'trash') { ?>
           <footer class="txtRa">

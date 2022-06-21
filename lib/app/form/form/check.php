@@ -20,19 +20,21 @@ class check
 			'starttime'               => 'datetime',
 			'endtime'                 => 'datetime',
 			'file'                    => 'string_1000',
-
+			'startdate'               => 'date',
+			'enddate'                 => 'date',
+			'stime'                   => 'time',
+			'etime'                   => 'time',
 			'inquiry_mode'            => 'bit',
 			'inquiry'                 => 'bit',
 			'inquirymsg'              => 'desc',
 			'showcomment'             => 'bit',
+			'schedule'             => 'bit',
 			'showpulictag'            => 'bit',
 			'question'                => 'array',
 			'inquiryimage'            => 'string_1000',
 			'inquiry_msg_founded'     => 'string_250',
 			'inquiry_msg_not_founded' => 'string_250',
 			'saveasticket'            => 'bit',
-
-
 		];
 
 		$require = ['title', 'status'];
@@ -102,6 +104,55 @@ class check
 
 			$data['inquirysetting'] = json_encode($data['inquirysetting'], JSON_UNESCAPED_UNICODE);
 		}
+
+		if($data['startdate'])
+		{
+			$data['starttime'] = $data['startdate'];
+
+			if($data['stime'])
+			{
+				$data['starttime'] .= ' '. $data['stime'];
+			}
+			else
+			{
+				$data['starttime'] .= ' 00:00:00';
+			}
+		}
+
+		if($data['enddate'])
+		{
+			$data['endtime'] = $data['enddate'];
+
+			if($data['stime'])
+			{
+				$data['endtime'] .= ' '. $data['etime'];
+			}
+			else
+			{
+				$data['endtime'] .= ' 23:59:59';
+			}
+		}
+
+		if($data['starttime'] && $data['endtime'])
+		{
+			if(strtotime($data['starttime']) > strtotime($data['endtime']))
+			{
+				\dash\notif::error(T_("Start time must be less than end time"), ['element' => ['startdate', 'enddate', 'starttime', 'endtime']]);
+				return false;
+			}
+		}
+
+		if(!$data['schedule'])
+		{
+			$data['starttime'] = null;
+			$data['endtime']   = null;
+		}
+
+		unset($data['schedule']);
+		unset($data['startdate']);
+		unset($data['enddate']);
+		unset($data['stime']);
+		unset($data['etime']);
 
 		unset($data['saveasticket']);
 		unset($data['showpulictag']);
