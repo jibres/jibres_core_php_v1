@@ -397,6 +397,15 @@ class generator
 				{
 					$html .= T_("Can not answer to this form at this time"). '<br>';
 					$html .= T_("This form will be activated in :date", ['date' => \dash\fit::date_time($load_form['starttime'])]);
+
+					if(a($load_form, 'setting'))
+					{
+						$setting = json_decode($load_form['setting'], true);
+						if(isset($setting['beforestart']))
+						{
+							$html .= ' <br>'. $setting['beforestart'];
+						}
+					}
 				}
 				$html .= '</div>';
 
@@ -417,8 +426,18 @@ class generator
 				{
 					$html .= T_("Can not answer to this form at this time"). '<br>';
 					$html .= T_("This form has been active until :date", ['date' => \dash\fit::date_time($load_form['endtime'])]);
+
+					if(a($load_form, 'setting'))
+					{
+						$setting = json_decode($load_form['setting'], true);
+						if(isset($setting['afterend']))
+						{
+							$html .= ' <br>'. $setting['afterend'];
+						}
+					}
 				}
 				$html .= '</div>';
+
 
 				self::$schedule_message = $html;
 
