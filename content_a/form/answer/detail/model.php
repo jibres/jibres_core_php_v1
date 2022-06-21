@@ -9,6 +9,16 @@ class model
 
 		$answer_id = \dash\request::get('aid');
 
+		if(\dash\request::post('save_as_ticket') === "save_as_ticket")
+		{
+			$ticket_id = \lib\app\form\answer\save_as_ticket::save(\dash\request::get('id'), $answer_id);
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+			return;
+		}
+
 		if(\dash\request::post('setstatus') === 'setstatus')
 		{
 			\lib\app\form\answer\edit::edit_status(\dash\request::post('status'), $answer_id);

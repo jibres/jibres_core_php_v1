@@ -219,6 +219,20 @@ else
 							}
 							$html .= '</tr>';
 						}
+						else
+						{
+							$html .= '<tr>';
+							{
+								$html .= '<th>'. T_("Save as ticket").'</th>';
+								$html .= '<td>';
+								{
+									$html .= '<div class="btn-link" data-confirm data-data=\'{"save_as_ticket" : "save_as_ticket"}\'>'. T_("Save this answer as a ticket"). '</a>';
+								}
+								$html .= '</td>';
+
+							}
+							$html .= '</tr>';
+						}
 
 
 						$html .= '<tr>';

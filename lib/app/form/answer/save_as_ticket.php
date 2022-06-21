@@ -200,6 +200,7 @@ class save_as_ticket
 			return false;
 		}
 
+		\lib\db\form_answer\update::update(['ticket_id' => $ticket_id], $_answer_id);
 
 		if($files)
 		{
