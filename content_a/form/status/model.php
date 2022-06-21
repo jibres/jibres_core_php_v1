@@ -9,12 +9,14 @@ class model
 
 		$post =
 		[
-			'status'    => \dash\request::post('status'),
-			'startdate' => \dash\request::post('startdate'),
-			'enddate'   => \dash\request::post('enddate'),
-			'stime'     => \dash\request::post('starttime'),
-			'etime'     => \dash\request::post('endtime'),
-			'schedule'  => \dash\request::post('schedule'),
+			'status'      => \dash\request::post('status'),
+			'startdate'   => \dash\request::post('startdate'),
+			'enddate'     => \dash\request::post('enddate'),
+			'stime'       => \dash\request::post('starttime'),
+			'etime'       => \dash\request::post('endtime'),
+			'schedule'    => \dash\request::post('schedule'),
+			'beforestart' => \dash\request::post('beforestart'),
+			'afterend'    => \dash\request::post('afterend'),
 		];
 
 		$result = \lib\app\form\form\edit::edit($post, \dash\request::get('id'));

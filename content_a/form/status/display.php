@@ -151,6 +151,20 @@ $html .= '<div data-response="status" data-response-where="publish"  ';
       $html .= '</div>';
     }
     $html .= '</div>';
+
+    $html .= '<div class="mb-2">';
+    {
+      $html .= '<label for="beforestart">'. T_("This message is displayed before the start of the form response time") . '</label>';
+      $html .= '<textarea name="beforestart" class="txt" rows="3" id="beforestart" >'. a(\dash\data::dataRow(), 'setting', 'beforestart'). '</textarea>';
+    }
+    $html .= '</div>';
+
+    $html .= '<div class="mb-2">';
+    {
+      $html .= '<label for="afterend">'. T_("This message will be displayed after the response time of the form") . '</label>';
+      $html .= '<textarea name="afterend" class="txt" rows="3" id="afterend" >'. a(\dash\data::dataRow(), 'setting', 'afterend'). '</textarea>';
+    }
+    $html .= '</div>';
   }
   $html .= '</div>';
 }

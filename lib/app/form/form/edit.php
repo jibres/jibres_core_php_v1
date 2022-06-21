@@ -34,6 +34,22 @@ class edit
 			$exception[] = 'setting';
 		}
 
+
+		if(array_key_exists('beforestart', $_args))
+		{
+			$exception[] = 'setting';
+		}
+
+
+
+		if(array_key_exists('afterend', $_args))
+		{
+			$exception[] = 'setting';
+		}
+
+
+
+
 		if(array_key_exists('startdate', $_args))
 		{
 			$exception[] = 'starttime';

@@ -17,6 +17,8 @@ class check
 			'redirect'                => 'string_1000',
 			'desc'                    => 'desc',
 			'endmessage'              => 'desc',
+			'beforestart'             => 'desc',
+			'afterend'                => 'desc',
 			'starttime'               => 'datetime',
 			'endtime'                 => 'datetime',
 			'file'                    => 'string_1000',
@@ -73,9 +75,38 @@ class check
 			}
 		}
 
+		$load_form = [];
+		if($_id)
+		{
+			$load_form = \lib\db\form\get::by_id($_id);
+		}
+
 		$setting = [];
 
-		$setting['saveasticket'] = $data['saveasticket'];
+		if(isset($load_form['setting']) && $load_form['setting'])
+		{
+			$setting = json_decode($load_form['setting'], true);
+			if(!is_array($setting))
+			{
+				$setting = [];
+			}
+		}
+
+		if(array_key_exists('saveasticket', $_args))
+		{
+			$setting['saveasticket'] = $data['saveasticket'];
+		}
+
+		if(array_key_exists('beforestart', $_args))
+		{
+			$setting['beforestart'] = $data['beforestart'];
+		}
+
+		if(array_key_exists('afterend', $_args))
+		{
+			$setting['afterend'] = $data['afterend'];
+		}
+
 
 		$data['setting'] = json_encode($setting, JSON_UNESCAPED_UNICODE);
 
@@ -148,6 +179,8 @@ class check
 			$data['endtime']   = null;
 		}
 
+		unset($data['beforestart']);
+		unset($data['afterend']);
 		unset($data['schedule']);
 		unset($data['startdate']);
 		unset($data['enddate']);
