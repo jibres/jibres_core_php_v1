@@ -24,9 +24,14 @@ class ready
 					break;
 
 				case 'inquirysetting':
+				case 'setting':
 					if($value)
 					{
 						$result[$key] = json_decode($value, true);
+					}
+					else
+					{
+						$result[$key] = null;
 					}
 					break;
 

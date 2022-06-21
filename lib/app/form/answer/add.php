@@ -23,16 +23,20 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		$user_id              = $data['user_id'];
+		$new_signuped_user_id = null;
+
 		$form_id = $data['form_id'];
 
 		$multiple_choice_answer = [];
 
-		$signup_user_args   = [];
-		$signup_user        = false;
-		$edit_mode          = false;
-		$total_price        = 0;
-		$send_sms           = [];
-		$sms_text           = [];
+		$signup_user_args      = [];
+		$signup_user           = false;
+		$save_as_ticket        = false;
+		$edit_mode             = false;
+		$total_price           = 0;
+		$send_sms              = [];
+		$sms_text              = [];
 		$required_not_answered = [];
 
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
@@ -47,6 +51,11 @@ class add
 		if(!$load_form)
 		{
 			return false;
+		}
+
+		if(a($load_form, 'setting', 'saveasticket'))
+		{
+			$save_as_ticket = true;
 		}
 
 		if(a($_meta, 'edit_mode') === true && a($_meta, 'answer_id'))
@@ -605,18 +614,18 @@ class add
 					unset($value['sms_text']);
 					unset($value['send_sms']);
 
-					$user_id = \dash\db\users\insert::signup($value);
+					$new_signuped_user_id = \dash\db\users\insert::signup($value);
 
-					if(!$edit_mode && $my_send_sms && $my_sms_text && $user_id && isset($value['mobile']))
+					if(!$edit_mode && $my_send_sms && $my_sms_text && $new_signuped_user_id && isset($value['mobile']))
 					{
 						// send notif by sms for nabarvari.khadije.com
 						if(intval(\lib\store::id()) === 1000089)
 						{
-							\dash\log::send_sms($user_id, $my_sms_text);
+							\dash\log::send_sms($new_signuped_user_id, $my_sms_text);
 						}
 						else
 						{
-							\dash\log::send_notif($user_id, $my_sms_text);
+							\dash\log::send_notif($new_signuped_user_id, $my_sms_text);
 						}
 					}
 				}
@@ -636,10 +645,15 @@ class add
 			$data['startdate'] = date("Y-m-d H:i:s", time() - (60*60*1));
 		}
 
+		if(!$user_id && $new_signuped_user_id)
+		{
+			$user_id = $new_signuped_user_id;
+		}
+
 		$add_answer_args =
 		[
 			'form_id'     => $form_id,
-			'user_id'     => $data['user_id'],
+			'user_id'     => $user_id,
 			'factor_id'   => $data['factor_id'],
 			'datecreated' => date("Y-m-d H:i:s"),
 			'startdate'   => $data['startdate'],
@@ -670,7 +684,7 @@ class add
 						$insert_answerdetail[] =
 						[
 							'form_id'     => $form_id,
-							'user_id'     => $data['user_id'],
+							'user_id'     => $user_id,
 							'answer_id'   => null, // fill after this foreach
 							'item_id'     => $item_id,
 							'answer'      => $my_answer_one['answer'],
@@ -694,18 +708,18 @@ class add
 					if(in_array($myType, ['descriptive_answer']))
 					{
 						$new_answer   = null;
-						$new_textarea = $my_answer['answer'];
+						$new_textarea = a($my_answer, 'answer');
 					}
 					else
 					{
-						$new_answer   = $my_answer['answer'];
+						$new_answer   = a($my_answer, 'answer');
 						$new_textarea = null;
 					}
 
 					$insert_answerdetail[] =
 					[
 						'form_id'     => $form_id,
-						'user_id'     => $data['user_id'],
+						'user_id'     => $user_id,
 						'answer_id'   => null, // fill after this foreach
 						'item_id'     => $item_id,
 						'answer'      => $new_answer,
@@ -769,16 +783,18 @@ class add
 				\dash\log::set('form_editAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $answer_id]);
 			}
 
+
+
 			if($total_price && !$data['factor_id'])
 			{
 				$meta =
 				[
 					'turn_back'     => $redirect ? $redirect : \dash\url::pwd(),
-					'user_id'       => $data['user_id'],
+					'user_id'       => $user_id,
 					'amount'        => $total_price,
 					'auto_back'     => true,
 					'final_fn'      => ['/lib/app/form/answer/add', 'after_pay'],
-					'final_fn_args' => ['answer_id' => $answer_id],
+					'final_fn_args' => ['answer_id' => $answer_id, 'form_id' => $form_id],
 				];
 
 				// go to pay
@@ -786,7 +802,9 @@ class add
 
 				if(isset($transaction_detail['transaction_id']))
 				{
-					$add_answer_args['transaction_id'] = \dash\coding::decode($transaction_detail['transaction_id']);
+					$update_answer = [];
+					$update_answer['transaction_id'] = \dash\coding::decode($transaction_detail['transaction_id']);
+					\lib\db\form_answer\update::update($update_answer, $answer_id);
 				}
 
 				if(isset($transaction_detail['url']))
@@ -813,6 +831,11 @@ class add
 		}
 
 
+		if($save_as_ticket && !$total_price)
+		{
+			$ticket_id = save_as_ticket::save($form_id, $answer_id);
+		}
+
 		if($redirect && !$edit_mode)
 		{
 			\dash\redirect::to($redirect);
@@ -823,11 +846,41 @@ class add
 	}
 
 
-	public static function after_pay($_args)
+	public static function after_pay($_args, $_transaction_detail = [])
 	{
 		if(isset($_args['answer_id']) && is_numeric($_args['answer_id']))
 		{
 			\lib\db\form_answer\edit::update(['status' => 'active'], $_args['answer_id']);
+
+			$load_answer = \lib\db\form_answer\get::by_id($_args['answer_id']);
+
+			if(isset($load_answer['user_id']) && isset($_transaction_detail['plus']))
+			{
+				// minus transaction
+
+				$insert_transaction =
+				[
+					'user_id'      => $load_answer['user_id'],
+					'title'        => T_("Pay for form :val", ['val' => \dash\fit::number($_args['form_id'])]),
+					'amount'       => floatval($_transaction_detail['plus']),
+					'silent_notif' => true,
+				];
+
+				$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
+
+				\dash\temp::set('minusTransactionAfterPayForm', $transaction_id);
+				\dash\temp::set('minusTransactionAfterPayFormPrice', $_transaction_detail['plus']);
+			}
+
+			if(isset($_args['form_id']) && is_numeric($_args['form_id']))
+			{
+				$load_form = \lib\app\form\form\get::public_get($_args['form_id']);
+
+				if($load_form && a($load_form, 'setting', 'saveasticket'))
+				{
+					$ticket_id = save_as_ticket::save($_args['form_id'], $_args['answer_id']);
+				}
+			}
 		}
 	}
 

@@ -22,13 +22,20 @@ class edit
 			return false;
 		}
 
+		$exception = [];
+
 		if(isset($args['inquirysetting']))
 		{
-			$_args['inquirysetting'] = 'JUST FOT NOT REMOVE IN PATHC MODE FUNCTION :)';
+			$exception[] = 'inquirysetting';
+		}
+
+		if(array_key_exists('saveasticket', $_args))
+		{
+			$exception[] = 'setting';
 		}
 
 
-		$args = \dash\cleanse::patch_mode($_args, $args);
+		$args = \dash\cleanse::patch_mode($_args, $args, $exception);
 
 		if(empty($args))
 		{

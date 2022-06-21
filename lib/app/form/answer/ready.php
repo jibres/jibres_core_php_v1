@@ -41,6 +41,27 @@ class ready
 
 						}
 					}
+					elseif($value === 'country')
+					{
+						if(isset($_data['answer']) && $_data['answer'])
+						{
+							$result['country_name'] = \dash\utility\location\countres::get_localname($_data['answer']);
+						}
+					}
+					elseif($value === 'province')
+					{
+						if(isset($_data['answer']) && $_data['answer'])
+						{
+							$result['province_name'] = \dash\utility\location\provinces::get_localname($_data['answer']);
+						}
+					}
+					elseif($value === 'city')
+					{
+						if(isset($_data['answer']) && $_data['answer'])
+						{
+							$result['city_name'] = \dash\utility\location\cites::get_localname($_data['answer']);
+						}
+					}
 					break;
 				default:
 					$result[$key] = $value;

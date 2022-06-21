@@ -158,6 +158,7 @@ else
             </a>
           </li>
         <?php } //endif ?>
+
         <?php if(\dash\data::dataRow_useremail()){ ?>
         <li>
           <div class="f item" data-copy='<?php echo \dash\data::dataRow_useremail(); ?>'>
@@ -178,6 +179,22 @@ else
       <?php } //endif ?>
       </ul>
     </nav>
+    <?php if(\dash\data::dataRow_form_answer_id() && !$customer_mode)
+    {
+      $answer_id = \dash\data::dataRow_form_answer_id();
+      $answer_form_id = \lib\app\form\answer\get::form_id_from_answer_id($answer_id);
+      ?>
+      <nav class="items long">
+        <ul>
+          <li>
+          <a class="f item" href="<?php echo \lib\store::admin_url(). '/a/form/answer/detail?id='.$answer_form_id.'&aid='. $answer_id;  ?>">
+            <?php echo \dash\utility\icon::bootstrap('ui-checks-grid'); ?>
+            <div class="key"><?php echo T_("Show form answer") ?></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <?php }// endif ?>
 
     <nav class="items long">
       <ul>

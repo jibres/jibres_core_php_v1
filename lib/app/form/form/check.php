@@ -30,6 +30,7 @@ class check
 			'inquiryimage'            => 'string_1000',
 			'inquiry_msg_founded'     => 'string_250',
 			'inquiry_msg_not_founded' => 'string_250',
+			'saveasticket'            => 'bit',
 
 
 		];
@@ -70,6 +71,11 @@ class check
 			}
 		}
 
+		$setting = [];
+
+		$setting['saveasticket'] = $data['saveasticket'];
+
+		$data['setting'] = json_encode($setting, JSON_UNESCAPED_UNICODE);
 
 		if($data['inquiry_mode'])
 		{
@@ -97,13 +103,13 @@ class check
 			$data['inquirysetting'] = json_encode($data['inquirysetting'], JSON_UNESCAPED_UNICODE);
 		}
 
+		unset($data['saveasticket']);
 		unset($data['showpulictag']);
 		unset($data['showcomment']);
 		unset($data['inquiry_mode']);
 		unset($data['question']);
 		unset($data['inquiry_msg_founded']);
 		unset($data['inquiry_msg_not_founded']);
-
 
 		return $data;
 	}

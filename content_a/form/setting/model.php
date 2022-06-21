@@ -10,9 +10,11 @@ class model
 
 		$post =
 		[
-			'title'      => \dash\request::post('title'),
-			'slug'       => \dash\request::post('slug'),
-			'desc'       => \dash\request::post('desc'),
+			'title'        => \dash\request::post('title'),
+			'slug'         => \dash\request::post('slug'),
+			'desc'         => \dash\request::post('desc'),
+			'saveasticket' => \dash\request::post('saveasticket'),
+
 		];
 
 		if(\dash\request::files('file'))
