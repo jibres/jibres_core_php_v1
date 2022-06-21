@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-21 13:36+0430\n"
-"PO-Revision-Date: 2022-06-21 13:38+0430\n"
+"POT-Creation-Date: 2022-06-21 16:44+0430\n"
+"PO-Revision-Date: 2022-06-21 16:45+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4111,7 +4111,7 @@ msgstr "وزن"
 #: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
 #: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
 #: content_crm/telegram/send/display.php:5 content_site/staticfile/display.php:11
-#: lib/app/form/generator.php:334
+#: lib/app/form/generator.php:459
 msgid "Required"
 msgstr "الزامی"
 
@@ -6113,15 +6113,16 @@ msgstr "انتخاب قالب"
 #: content_a/accounting/filter.php:56 content_a/accounting/turnover/display.php:25
 #: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:523
 #: content_a/form/answer/display.php:63 content_a/form/answer/export/display.php:48
-#: content_a/pricehistory/display.php:36 content_a/report/sale/display.php:94
-#: lib/app/product/report/sale_date.php:113
+#: content_a/form/status/display.php:103 content_a/pricehistory/display.php:36
+#: content_a/report/sale/display.php:94 lib/app/product/report/sale_date.php:113
 msgid "Start date"
 msgstr "تاریخ شروع"
 
 #: content_a/accounting/filter.php:62 content_a/accounting/turnover/display.php:31
 #: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:568
-#: content_a/form/answer/export/display.php:77 content_a/pricehistory/display.php:37
-#: content_a/report/sale/display.php:116 lib/app/product/report/sale_date.php:114
+#: content_a/form/answer/export/display.php:77 content_a/form/status/display.php:132
+#: content_a/pricehistory/display.php:37 content_a/report/sale/display.php:116
+#: lib/app/product/report/sale_date.php:114
 msgid "End date"
 msgstr "تاریخ پایان"
 
@@ -7624,7 +7625,7 @@ msgstr "صفحه اول مقدمه"
 #: content_love/files/home/display.php:49 content_love/home/display.php:118
 #: content_site/options/file/file.php:285 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
-#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1097
+#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1222
 msgid "File"
 msgstr "فایل"
 
@@ -9397,7 +9398,7 @@ msgstr "همه پاسخ‌ها را هم‌ اکنون دانلود کنید"
 msgid "Export by special filter"
 msgstr "دریافت خروجی با فیلتر خاص"
 
-#: content_a/form/answer/export/display.php:60
+#: content_a/form/answer/export/display.php:60 content_a/form/status/display.php:115
 #: content_a/report/productsalesovertime/display.php:3
 #: content_a/report/sale/display.php:105 content_a/report/salesovertime/display.php:3
 #: content_a/setting/order/schedule/display.php:51
@@ -9405,7 +9406,7 @@ msgstr "دریافت خروجی با فیلتر خاص"
 msgid "Start time"
 msgstr "ساعت شروع"
 
-#: content_a/form/answer/export/display.php:89
+#: content_a/form/answer/export/display.php:89 content_a/form/status/display.php:144
 #: content_a/report/productsalesovertime/display.php:11
 #: content_a/report/sale/display.php:127 content_a/report/salesovertime/display.php:11
 #: content_a/setting/order/schedule/display.php:52
@@ -9847,7 +9848,7 @@ msgstr "ویرایش سوال"
 msgid "Glance"
 msgstr "نگاه اجمالی"
 
-#: content_a/form/itemLink.php:12 content_business/f/home/display-form.php:19
+#: content_a/form/itemLink.php:12 lib/app/form/generator.php:67
 msgid "Edit form"
 msgstr "ویرایش فرم"
 
@@ -10015,7 +10016,11 @@ msgstr "زباله‌دان"
 msgid "Move to trash"
 msgstr "انتقال به زباله‌دان"
 
-#: content_a/form/status/display.php:63
+#: content_a/form/status/display.php:87
+msgid "Form activation schedule"
+msgstr "زمانبندی فعال شدن فرم"
+
+#: content_a/form/status/display.php:164
 msgid "Delete completely"
 msgstr "حذف به صورت کامل"
 
@@ -12337,7 +12342,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/commands/step_ticketCreate.php:111
 #: includes/languages/trans_static.php:508 lib/app/form/answer/save_as_ticket.php:95
-#: lib/app/form/generator.php:1237
+#: lib/app/form/generator.php:1362
 msgid "Yes"
 msgstr "بله"
 
@@ -12356,7 +12361,7 @@ msgstr "بله"
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
 #: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
-#: lib/app/form/answer/save_as_ticket.php:99 lib/app/form/generator.php:1255
+#: lib/app/form/answer/save_as_ticket.php:99 lib/app/form/generator.php:1380
 msgid "No"
 msgstr "خیر"
 
@@ -12641,7 +12646,7 @@ msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب 
 #: content_a/setting/general/display.php:160 content_account/my/profile/display.php:36
 #: content_business/profile/detail/display.php:35
 #: content_love/plugin/manage/display.php:47 content_love/plugin/manage/display.php:48
-#: lib/app/form/generator.php:406
+#: lib/app/form/generator.php:531
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -16127,23 +16132,14 @@ msgstr "کد رهگیری شما"
 msgid "Back to form"
 msgstr "برگشت به فرم"
 
-#: content_business/f/home/display-form.php:19
-msgid "Your form is not publish. Only you can view this form."
-msgstr "فرم شما منتشر نشده است. فقط شما می‌توانید این فرم را ببینید."
-
-#: content_business/f/home/display-form.php:31 lib/app/form/generator.php:99
-#: lib/app/form/generator.php:157 lib/app/form/generator.php:231
-msgid "Submit"
-msgstr "تایید"
-
-#: content_business/f/home/display-form.php:38
+#: content_business/f/home/display-form.php:9
 msgid ""
 "If you have already completed this form, you can check the status of your answer via "
 "the link below"
 msgstr ""
 "اگر قبلا این فرم را تکمیل کرده‌اید می‌توانید از طریق لینک زیر از وضعیت پاسخ خود مطلع شوید"
 
-#: content_business/f/home/display-form.php:39
+#: content_business/f/home/display-form.php:10
 msgid "Inquiry your answer"
 msgstr "از وضعیت پاسخ خود مطلع شوید"
 
@@ -39283,7 +39279,7 @@ msgstr "با این فیلتر هیچ پاسخی ثبت نشده است"
 msgid "Answer not found"
 msgstr "پاسخی یافت نشد"
 
-#: lib/app/form/answer/get.php:149 lib/app/form/generator.php:1103
+#: lib/app/form/answer/get.php:149 lib/app/form/generator.php:1228
 msgid "Show file"
 msgstr "نمایش فایل"
 
@@ -39307,7 +39303,7 @@ msgstr "کسر شد."
 msgid "Choice successfully added"
 msgstr "گزینه با موفقیت اضافه شد"
 
-#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:42
+#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:48
 #: lib/app/form/item/edit.php:100 lib/app/menu/edit.php:60
 msgid "No data to change"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
@@ -39370,23 +39366,48 @@ msgstr "فرم تماس با موفقیت اضافه شد"
 msgid "Can not duplicate this form"
 msgstr "نمی‌توانیم این فرم را کپی کنیم"
 
-#: lib/app/form/form/check.php:67
+#: lib/app/form/form/check.php:69
 msgid "Duplicate form slug. Try another name"
 msgstr "نامک فرم تکراری است. لطفا نامک دیگری را وارد کنید"
 
-#: lib/app/form/form/edit.php:51
+#: lib/app/form/form/check.php:140
+msgid "Start time must be less than end time"
+msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
+
+#: lib/app/form/form/edit.php:57
 msgid "This form used in menu and can not be remove"
 msgstr "این فرم در منو استفاده شده و امکان حذف آن وجود ندارد"
 
-#: lib/app/form/form/edit.php:74
+#: lib/app/form/form/edit.php:80
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
-#: lib/app/form/generator.php:921
+#: lib/app/form/generator.php:67
+msgid "Your form is not publish. Only you can view this form."
+msgstr "فرم شما منتشر نشده است. فقط شما می‌توانید این فرم را ببینید."
+
+#: lib/app/form/generator.php:97 lib/app/form/generator.php:164
+#: lib/app/form/generator.php:234 lib/app/form/generator.php:309
+msgid "Submit"
+msgstr "تایید"
+
+#: lib/app/form/generator.php:398 lib/app/form/generator.php:418
+msgid "Can not answer to this form at this time"
+msgstr "در حال حاضر نمی‌توان به این فرم پاسخ داد"
+
+#: lib/app/form/generator.php:399
+msgid "This form will be activated in :date"
+msgstr "این فرم در تاریخ :date فعال خواهد شد"
+
+#: lib/app/form/generator.php:419
+msgid "This form has been active until :date"
+msgstr "این فرم تا تاریخ :date فعال بوده است"
+
+#: lib/app/form/generator.php:1046
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: lib/app/form/generator.php:938
+#: lib/app/form/generator.php:1063
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
