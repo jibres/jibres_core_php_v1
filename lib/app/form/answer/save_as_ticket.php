@@ -230,7 +230,7 @@ class save_as_ticket
 			{
 
 				$transaction_content = ' '. \dash\fit::number(a($answerTransactionDetail, 'plus')). ' '. \lib\store::currency();
-				$transaction_content .= T_("Payed."). "\n";
+				$transaction_content .= ' '. T_("Payed."). "\n";
 
 				$transaction_content .= T_("Tracking link"). "\n";
 
@@ -250,7 +250,7 @@ class save_as_ticket
 		if($transaction_id = \dash\temp::get('minusTransactionAfterPayForm'))
 		{
 				$transaction_content = ' '. \dash\fit::number(\dash\temp::get('minusTransactionAfterPayFormPrice')). ' '. \lib\store::currency();
-				$transaction_content .= T_("Was deducted."). "\n";
+				$transaction_content .= ' '. T_("Was deducted."). "\n";
 
 				$transaction_content .= T_("Tracking link"). "\n";
 
