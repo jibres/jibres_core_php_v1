@@ -23,6 +23,9 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		$user_id              = $data['user_id'];
+		$new_signuped_user_id = null;
+
 		$form_id = $data['form_id'];
 
 		$multiple_choice_answer = [];
@@ -611,18 +614,18 @@ class add
 					unset($value['sms_text']);
 					unset($value['send_sms']);
 
-					$user_id = \dash\db\users\insert::signup($value);
+					$new_signuped_user_id = \dash\db\users\insert::signup($value);
 
-					if(!$edit_mode && $my_send_sms && $my_sms_text && $user_id && isset($value['mobile']))
+					if(!$edit_mode && $my_send_sms && $my_sms_text && $new_signuped_user_id && isset($value['mobile']))
 					{
 						// send notif by sms for nabarvari.khadije.com
 						if(intval(\lib\store::id()) === 1000089)
 						{
-							\dash\log::send_sms($user_id, $my_sms_text);
+							\dash\log::send_sms($new_signuped_user_id, $my_sms_text);
 						}
 						else
 						{
-							\dash\log::send_notif($user_id, $my_sms_text);
+							\dash\log::send_notif($new_signuped_user_id, $my_sms_text);
 						}
 					}
 				}
@@ -642,10 +645,15 @@ class add
 			$data['startdate'] = date("Y-m-d H:i:s", time() - (60*60*1));
 		}
 
+		if(!$user_id && $new_signuped_user_id)
+		{
+			$user_id = $new_signuped_user_id;
+		}
+
 		$add_answer_args =
 		[
 			'form_id'     => $form_id,
-			'user_id'     => $data['user_id'],
+			'user_id'     => $user_id,
 			'factor_id'   => $data['factor_id'],
 			'datecreated' => date("Y-m-d H:i:s"),
 			'startdate'   => $data['startdate'],
@@ -676,7 +684,7 @@ class add
 						$insert_answerdetail[] =
 						[
 							'form_id'     => $form_id,
-							'user_id'     => $data['user_id'],
+							'user_id'     => $user_id,
 							'answer_id'   => null, // fill after this foreach
 							'item_id'     => $item_id,
 							'answer'      => $my_answer_one['answer'],
@@ -711,7 +719,7 @@ class add
 					$insert_answerdetail[] =
 					[
 						'form_id'     => $form_id,
-						'user_id'     => $data['user_id'],
+						'user_id'     => $user_id,
 						'answer_id'   => null, // fill after this foreach
 						'item_id'     => $item_id,
 						'answer'      => $new_answer,
@@ -782,7 +790,7 @@ class add
 				$meta =
 				[
 					'turn_back'     => $redirect ? $redirect : \dash\url::pwd(),
-					'user_id'       => $data['user_id'],
+					'user_id'       => $user_id,
 					'amount'        => $total_price,
 					'auto_back'     => true,
 					'final_fn'      => ['/lib/app/form/answer/add', 'after_pay'],
@@ -842,11 +850,31 @@ class add
 	}
 
 
-	public static function after_pay($_args)
+	public static function after_pay($_args, $_transaction_detail = [])
 	{
 		if(isset($_args['answer_id']) && is_numeric($_args['answer_id']))
 		{
 			\lib\db\form_answer\edit::update(['status' => 'active'], $_args['answer_id']);
+
+			$load_answer = \lib\db\form_answer\get::by_id($_args['answer_id']);
+
+			if(isset($load_answer['user_id']) && isset($_transaction_detail['plus']))
+			{
+				// minus transaction
+
+				$insert_transaction =
+				[
+					'user_id'      => $load_answer['user_id'],
+					'title'        => T_("Pay for form :val", ['val' => \dash\fit::number($_args['form_id'])]),
+					'amount'       => floatval($_transaction_detail['plus']),
+					'silent_notif' => true,
+				];
+
+				$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
+
+				\dash\temp::set('minusTransactionAfterPayForm', $transaction_id);
+				\dash\temp::set('minusTransactionAfterPayFormPrice', $_transaction_detail['plus']);
+			}
 
 			if(isset($_args['form_id']) && is_numeric($_args['form_id']))
 			{

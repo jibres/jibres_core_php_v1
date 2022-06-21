@@ -170,15 +170,26 @@ class save_as_ticket
 
 		$ticket_content = implode("\n", $ticket_content);
 
+		$user_id = null;
+
+		$load_answer = \lib\db\form_answer\get::by_id($_answer_id);
+
+		if(isset($load_answer['user_id']) && $load_answer['user_id'])
+		{
+			$user_id = $load_answer['user_id'];
+		}
+
 		$add_new_ticket =
 		[
 			'content' => $ticket_content,
-			'user_id' => null,
-			'title'   => null,
+			'user_id' => $user_id,
+			'title'   => T_("Answer to form #:val Answer id #:id", ['val' => \dash\fit::number($_form_id), 'id' => \dash\fit::number($_answer_id)]),
 			'via'     => null,
 			'file'    => null,
 			'parent'  => null,
 		];
+
+
 
 
 		$ticket_id = \dash\app\ticket\add::add_from_form_answer($add_new_ticket, $_answer_id);
@@ -200,6 +211,7 @@ class save_as_ticket
 					'content' => $value['title'],
 					'parent'  => $ticket_id,
 					'file'    => $value['file'],
+					'user_id' => $user_id,
 				];
 
 				\dash\app\ticket\add::add_from_form_answer($add_new_ticket, $_answer_id);
@@ -227,10 +239,30 @@ class save_as_ticket
 				[
 					'content' => $transaction_content,
 					'parent'  => $ticket_id,
+					'user_id' => $user_id,
 				];
 
 				\dash\app\ticket\add::add_from_form_answer($add_new_ticket, $_answer_id);
 			}
+		}
+
+		if($transaction_id = \dash\temp::get('minusTransactionAfterPayForm'))
+		{
+				$transaction_content = ' '. \dash\fit::number(\dash\temp::get('minusTransactionAfterPayFormPrice')). ' '. \lib\store::currency();
+				$transaction_content .= T_("Was deducted."). "\n";
+
+				$transaction_content .= T_("Tracking link"). "\n";
+
+				$transaction_content .=  \lib\store::admin_url(). '/crm/transactions/detail?id='. $transaction_id;
+
+				$add_new_ticket =
+				[
+					'content' => $transaction_content,
+					'parent'  => $ticket_id,
+					'user_id' => $user_id,
+				];
+
+				\dash\app\ticket\add::add_from_form_answer($add_new_ticket, $_answer_id);
 		}
 
 		return $ticket_id;
