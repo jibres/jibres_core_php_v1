@@ -49,6 +49,54 @@ class generator
 		return self::$html;
 	}
 
+	public static function master_form_page_html()
+	{
+		$html = '';
+		$html .= '<div class="box">';
+		{
+
+			$html .= '<header class="c-xs-0"><h2>'.  \dash\data::formDetail_title(). '</h2></header>';
+
+			$html .= '<div class="body" data-jform>';
+			{
+
+				$html .= '<input type="hidden" name="startdate" value="'. date("Y-m-d H:i:s"). '">';
+				$html .= \dash\csrf::html();
+				$html .= \dash\captcha\recaptcha::html();
+				if(\dash\data::formDetail_status() !== 'publish' && \dash\data::accessLoadItem())
+				{
+					$html .= '<div class="alert-warning text-center font-bold">'. T_("Your form is not publish. Only you can view this form.") .' <a class="btn-link" href="'. \lib\store::admin_url(). '/a/form/edit?id='. \dash\data::formDetail_id() .'">'. T_("Edit form"). '</a></div>';
+				}
+
+				if(\dash\data::formDetail_file())
+				{
+					$html .= '<img class="mb-2" src="'. \dash\data::formDetail_file() .'" alt="'. \dash\data::formDetail_title(). '">';
+				}
+				if(\dash\data::formDetail_desc())
+				{
+					$html .= '<div class="mb-4 leading-loose">'. nl2br(\dash\data::formDetail_desc()). '</div>';
+				}
+				if(\dash\data::accessLoadItem())
+				{
+					$html .= \lib\app\form\generator::items(\dash\data::formItems());
+				}
+			}
+			$html .= '</div>';
+
+			if(\dash\data::accessLoadItem())
+			{
+				$html .= '<footer class="txtRa">';
+				{
+					$html .= '<button class="btn master">'. T_("Submit"). '</button>';
+				}
+				$html .= '</footer>';
+			}
+		}
+		$html .= '</div>';
+
+		return $html;
+	}
+
 
 	public static function sitebuilder_full_html($_form_id)
 	{
@@ -250,6 +298,13 @@ class generator
 			return null;
 		}
 
+		$allow_time = true;
+		if(isset($_items[0]['form_id']))
+		{
+			$allow_time = self::check_schedule($_items[0]['form_id']);
+		}
+
+
 		self::div('row');
 		foreach ($_items as $item)
 		{
@@ -302,6 +357,20 @@ class generator
 
 		return self::$html;
 
+	}
+
+
+	private static function check_schedule($_form_id)
+	{
+		$load_form = \lib\db\form\get::by_id($_form_id);
+
+		if(isset($load_form['starttime']) && $load_form['starttime'])
+		{
+			if(time() < strtotime($load_form['starttime']))
+			{
+
+			}
+		}
 	}
 
 
