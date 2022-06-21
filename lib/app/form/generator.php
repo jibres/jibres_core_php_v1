@@ -8,6 +8,7 @@ class generator
 
 	private static $answer_detail = [];
 	private static $load_answer   = false;
+	private static $schedule_message = '';
 
 
 	public static function shipping_survey($_form_id)
@@ -81,6 +82,10 @@ class generator
 					{
 						$html .= \lib\app\form\generator::items(\dash\data::formItems());
 					}
+					else
+					{
+						$html .= self::$schedule_message;
+					}
 				}
 			}
 			$html .= '</div>';
@@ -143,6 +148,10 @@ class generator
 						if($allow_form_schedule = self::check_schedule(\dash\data::formDetail_id()))
 						{
 							\lib\app\form\generator::items($load_items);
+						}
+						else
+						{
+							self::$html .= self::$schedule_message;
 						}
 
 					}
@@ -209,6 +218,10 @@ class generator
 						if($allow_form_schedule = self::check_schedule(\dash\data::formDetail_id()))
 						{
 							\lib\app\form\generator::items($load_items);
+						}
+						else
+						{
+							self::$html .= self::$schedule_message;
 						}
 
 					}
@@ -378,7 +391,38 @@ class generator
 		{
 			if(time() < strtotime($load_form['starttime']))
 			{
+				$html = '';
 
+				$html .= '<div class="alert-warning font-bold text-center">';
+				{
+					$html .= T_("Can not answer to this form at this time"). '<br>';
+					$html .= T_("This form will be activated in :date", ['date' => \dash\fit::date_time($load_form['starttime'])]);
+				}
+				$html .= '</div>';
+
+				self::$schedule_message = $html;
+
+				return false;
+			}
+		}
+
+
+		if(isset($load_form['endtime']) && $load_form['endtime'])
+		{
+			if(time() > strtotime($load_form['endtime']))
+			{
+				$html = '';
+
+				$html .= '<div class="alert-warning font-bold text-center">';
+				{
+					$html .= T_("Can not answer to this form at this time"). '<br>';
+					$html .= T_("This form has been active until :date", ['date' => \dash\fit::date_time($load_form['endtime'])]);
+				}
+				$html .= '</div>';
+
+				self::$schedule_message = $html;
+
+				return false;
 			}
 		}
 
