@@ -54,12 +54,10 @@ class generator
 		$html = '';
 		$html .= '<div class="box">';
 		{
-
 			$html .= '<header class="c-xs-0"><h2>'.  \dash\data::formDetail_title(). '</h2></header>';
 
 			$html .= '<div class="body" data-jform>';
 			{
-
 				$html .= '<input type="hidden" name="startdate" value="'. date("Y-m-d H:i:s"). '">';
 				$html .= \dash\csrf::html();
 				$html .= \dash\captcha\recaptcha::html();
@@ -76,14 +74,18 @@ class generator
 				{
 					$html .= '<div class="mb-4 leading-loose">'. nl2br(\dash\data::formDetail_desc()). '</div>';
 				}
+
 				if(\dash\data::accessLoadItem())
 				{
-					$html .= \lib\app\form\generator::items(\dash\data::formItems());
+					if($allow_form_schedule = self::check_schedule(\dash\data::formDetail_id()))
+					{
+						$html .= \lib\app\form\generator::items(\dash\data::formItems());
+					}
 				}
 			}
 			$html .= '</div>';
 
-			if(\dash\data::accessLoadItem())
+			if(\dash\data::accessLoadItem() && isset($allow_form_schedule) && $allow_form_schedule)
 			{
 				$html .= '<footer class="txtRa">';
 				{
@@ -138,15 +140,23 @@ class generator
 							self::$html .= '<div class="mb-4 leading-relaxed">'. nl2br(a($load_form, 'desc')). '</div>';
 						}
 
-						\lib\app\form\generator::items($load_items);
+						if($allow_form_schedule = self::check_schedule(\dash\data::formDetail_id()))
+						{
+							\lib\app\form\generator::items($load_items);
+						}
+
 					}
 					self::$html .= '</div>';
 
-					self::$html .= '<footer class="txtRa">';
+					if(isset($allow_form_schedule) && $allow_form_schedule)
 					{
-						self::$html .= '<button class="btn master">'. T_("Submit"). '</button>';
+						self::$html .= '<footer class="txtRa">';
+						{
+							self::$html .= '<button class="btn master">'. T_("Submit"). '</button>';
+						}
+						self::$html .= '</footer>';
 					}
-					self::$html .= '</footer>';
+
 				}
 				self::$html .= '</div>';
 			}
@@ -196,15 +206,22 @@ class generator
 							self::$html .= '<div class="mb-4">'. nl2br(a($load_form, 'desc')). '</div>';
 						}
 
-						\lib\app\form\generator::items($load_items);
+						if($allow_form_schedule = self::check_schedule(\dash\data::formDetail_id()))
+						{
+							\lib\app\form\generator::items($load_items);
+						}
+
 					}
 					self::$html .= '</div>';
 
-					self::$html .= '<footer class="txtRa">';
+					if(isset($allow_form_schedule) && $allow_form_schedule)
 					{
-						self::$html .= '<button class="btn master">'. T_("Submit"). '</button>';
+						self::$html .= '<footer class="txtRa">';
+						{
+							self::$html .= '<button class="btn master">'. T_("Submit"). '</button>';
+						}
+						self::$html .= '</footer>';
 					}
-					self::$html .= '</footer>';
 				}
 				self::$html .= '</div>';
 			}
@@ -298,13 +315,6 @@ class generator
 			return null;
 		}
 
-		$allow_time = true;
-		if(isset($_items[0]['form_id']))
-		{
-			$allow_time = self::check_schedule($_items[0]['form_id']);
-		}
-
-
 		self::div('row');
 		foreach ($_items as $item)
 		{
@@ -371,6 +381,8 @@ class generator
 
 			}
 		}
+
+		return true;
 	}
 
 
