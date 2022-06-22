@@ -129,7 +129,7 @@ class pdo
 				}
 				else
 				{
-					\dash\pdo\log::log_error(json_encode(func_get_args()). ' -- Syntax error ', 0, 'error.sql');
+					\dash\pdo\log::log_error(0, json_encode(func_get_args()). ' -- Syntax error ', 0, 'error.sql');
 					return false;
 				}
 
@@ -155,7 +155,7 @@ class pdo
 			$temp_error .= $error. ' - ';
 			$temp_error .= ' -- '. \dash\pdo\connection::get_last_fuel_detail();
 
-			\dash\pdo\log::log_error($temp_error, $qry_exec_time, 'error.sql');
+			\dash\pdo\log::log_error($link->errorCode(), $temp_error, $qry_exec_time, 'error.sql');
 
 			if(\dash\url::isLocal())
 			{
@@ -313,7 +313,7 @@ class pdo
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log_error($e->getMessage());
+			\dash\pdo\log::log_error($link->errorCode(), $e->getMessage());
 
 			\dash\notif::error(T_("Can not start your request!"). ' T1001');
 
@@ -348,7 +348,7 @@ class pdo
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log_error($e->getMessage());
+			\dash\pdo\log::log_error($link->errorCode(), $e->getMessage());
 
 			\dash\notif::error(T_("Can not save your request!"). ' C1001');
 
@@ -382,7 +382,7 @@ class pdo
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log_error($e->getMessage());
+			\dash\pdo\log::log_error($link->errorCode(), $e->getMessage());
 
 			\dash\notif::error(T_("Can not close your request!"). ' R1001');
 
@@ -417,7 +417,7 @@ class pdo
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log_error($e->getMessage());
+			\dash\pdo\log::log_error($link->errorCode(), $e->getMessage());
 
 			\dash\notif::error(T_("Can not get id!"). ' I1001');
 

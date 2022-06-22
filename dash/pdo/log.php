@@ -27,9 +27,15 @@ class log
 	/**
 	 * Save error log in error.sql
 	 */
-	public static function log_error($_text, $_time = null, $_name = 'error.sql', $_type = 'sql')
+	public static function log_error($_error_no, $_text, $_time = null, $_name = 'error.sql', $_type = 'sql')
 	{
+		if(in_array($_error_no, [2006]))
+		{
+			$_name = 'error-goneaway.sql';
+		}
+
 		self::log($_text, $_time, $_name, $_type);
+
 
 		if(\dash\url::isLocal())
 		{

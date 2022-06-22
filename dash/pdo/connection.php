@@ -132,7 +132,7 @@ class connection
 		catch (\Exception $e)
 		{
 
-			\dash\pdo\log::log_error($e->getMessage(), 0, 'error.sql');
+			\dash\pdo\log::log_error(0, $e->getMessage(), 0, 'error.sql');
 
 			return self::make_error(503, T_("Please contact administrator!"). ' 1001', $_option);
 		}
@@ -212,7 +212,7 @@ class connection
 	{
 		self::$db_connection_error = true;
 
-		\dash\pdo\log::log_error('HTTP_CODE:'.$_header. '|'. $_msg);
+		\dash\pdo\log::log_error(0, 'HTTP_CODE:'.$_header. '|'. $_msg);
 
 		// ignore error
 		if(isset($_option['ignore_error']) && $_option['ignore_error'])
