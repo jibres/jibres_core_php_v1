@@ -278,6 +278,23 @@ class controller
 		}
 
 
+		$sqlError = YARD. 'jibres_log/database/error-goneaway.sql';
+
+		if(is_file($sqlError))
+		{
+			$file_mtime = filemtime($sqlError);
+
+			if(\dash\app\log::check_caller_code('su_sqlErrorGoneaway', $file_mtime))
+			{
+				/*nothing*/
+			}
+			else
+			{
+				\dash\log::set('su_sqlErrorGoneaway', ['code' => $file_mtime, 'my_domain' => \dash\url::domain()]);
+			}
+		}
+
+
 		$PDOerror = YARD. 'jibres_log/database/pdo.sql';
 
 		if(is_file($PDOerror))
