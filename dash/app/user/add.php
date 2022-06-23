@@ -4,9 +4,9 @@ namespace dash\app\user;
 
 trait add
 {
-	public static function quick_add($_args = [], $_non_jibres_user = false)
+	public static function quick_add($_args = [], $_none_jibres_user = false)
 	{
-		if(!$_non_jibres_user)
+		if(!$_none_jibres_user)
 		{
 			// in stroe whene user signuped we need to set jibres_user_id
 			if(\dash\engine\store::inStore() && isset($_args['mobile']))
@@ -35,7 +35,7 @@ trait add
 
 		$user_id =  \dash\db\users\insert::signup($_args);
 
-		if(!$_non_jibres_user)
+		if(!$_none_jibres_user)
 		{
 			// in stroe whene user signuped we need to set jibres_user_id
 			if(\dash\engine\store::inStore())
