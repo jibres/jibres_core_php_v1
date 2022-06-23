@@ -145,8 +145,10 @@ class pdo
 		}
 		catch (\Exception $e)
 		{
+			$eMessage = $e->getMessage();
 			$error = $query_log;
-			$error .= "\n". $e->getMessage();
+			$error .= "\n". $eMessage;
+
 			$error .= "\n". json_encode($_param, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
 			// no result exist
@@ -155,10 +157,17 @@ class pdo
 			$temp_error .= $error. ' - ';
 			$temp_error .= ' -- '. \dash\pdo\connection::get_last_fuel_detail();
 
+
 			$error_code = 0;
+
 			if(isset($e->errorInfo[1]))
 			{
 				$error_code = $e->errorInfo[1];
+			}
+
+			if($eMessage === 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away')
+			{
+				$error_code = 2006;
 			}
 
 			\dash\pdo\log::log_error($error_code, $temp_error, $qry_exec_time, 'error.sql');
