@@ -19,6 +19,7 @@ class controller
 		$result['user_not_found_in_store']                = 0;
 		$result['list1']                                  = [];
 		$result['list2']                                  = [];
+		$result['fix1']                                   = [];
 
 		foreach ($get_all_staff as $key => $staff_detail)
 		{
@@ -38,7 +39,8 @@ class controller
 				else
 				{
 					$result['in_store_admin_but_in_jibres_not_staff']++;
-					$result['list1'][] = $store_user_detail['mobile'];
+					$result['list1'][]     = $store_user_detail['mobile'];
+					$result['set_staff'][] = ['user_id' => $staff_detail['user_id'], 'store_id' => $staff_detail['store_id']];
 				}
 			}
 			elseif(isset($store_user_detail['id']))
