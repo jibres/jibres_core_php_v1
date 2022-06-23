@@ -155,7 +155,13 @@ class pdo
 			$temp_error .= $error. ' - ';
 			$temp_error .= ' -- '. \dash\pdo\connection::get_last_fuel_detail();
 
-			\dash\pdo\log::log_error($link->errorCode(), $temp_error, $qry_exec_time, 'error.sql');
+			$error_code = 0;
+			if(isset($e->errorInfo[1]))
+			{
+				$error_code = $e->errorInfo[1];
+			}
+
+			\dash\pdo\log::log_error($error_code, $temp_error, $qry_exec_time, 'error.sql');
 
 			if(\dash\url::isLocal())
 			{
