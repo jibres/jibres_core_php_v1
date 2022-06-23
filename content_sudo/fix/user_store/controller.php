@@ -9,15 +9,16 @@ class controller
 
 		\dash\code::time_limit(0);
 
-		$get_all_staff = \dash\pdo::get("SELECT * FROM store_user WHERE store_user.staff != 'no' ");
+		$get_all_staff = \dash\pdo::get("SELECT * FROM store_user WHERE 1 ");
 
-		$result                                   = [];
-		$result['count_all_staff']                = count($get_all_staff);
-		$result['count_have_permission']          = 0;
-		$result['count_have_not_permission']      = 0;
-		$result['count_not_exist']                = 0;
-		$result['check_user_have_not_permission'] = [];
-		$result['check_user_not_exists']          = [];
+		$result                                           = [];
+		$result['ok']                                     = 0;
+		$result['in_store_admin_but_in_jibres_not_staff'] = 0;
+		$result['in_store_customer_but_in_jibres_staff']  = 0;
+		$result['ok2']                                    = 0;
+		$result['user_not_found_in_store']                = 0;
+		$result['list1']                                  = [];
+		$result['list2']                                  = [];
 
 		foreach ($get_all_staff as $key => $staff_detail)
 		{
@@ -25,30 +26,40 @@ class controller
 
 			\dash\engine\store::force_lock($store);
 
-			$have_permission = \dash\pdo::get("SELECT * FROM users WHERE users.jibres_user_id = :jibres_user_id AND users.permission IS NOT NULL LIMIT 1", [':jibres_user_id' => a($staff_detail, 'user_id')], null, true);
+			$store_user_detail = \dash\pdo::get("SELECT * FROM users WHERE users.jibres_user_id = :jibres_user_id  LIMIT 1", [':jibres_user_id' => a($staff_detail, 'user_id')], null, true);
 
-			if($have_permission)
+			if(isset($store_user_detail['permission']) && $store_user_detail['permission'])
 			{
-				$result['count_have_permission']++;
-			}
-			else
-			{
-				// \dash\pdo::query("UPDATE store_user SET store_user.staff = 'no' WHERE store_user.id = :id LIMIT 1", [':id' => a($staff_detail, 'id')], 'master');
-
-				$have_not_permission = \dash\pdo::get("SELECT * FROM users WHERE users.jibres_user_id = :jibres_user_id  LIMIT 1", [':jibres_user_id' => a($staff_detail, 'user_id')], null, true);
-
-				if($have_not_permission)
+				if(isset($staff_detail['staff']) && $staff_detail['staff'] === 'yes')
 				{
-
-					$result['count_have_not_permission']++;
-					$result['check_user_have_not_permission'][] = self::get_mobile($staff_detail);
+					$result['ok']++;
+					// ok
 				}
 				else
 				{
-					$result['count_not_exist']++;
-					$result['check_user_not_exists'][] = self::get_mobile($staff_detail);
+					$result['in_store_admin_but_in_jibres_not_staff']++;
+					$result['list1'][] = $store_user_detail['mobile'];
 				}
 			}
+			elseif(isset($store_user_detail['id']))
+			{
+				if(isset($staff_detail['staff']) && $staff_detail['staff'] === 'yes')
+				{
+					$result['in_store_customer_but_in_jibres_staff']++;
+					$result['list2'][] = $store_user_detail['mobile'];
+					// ok
+				}
+				else
+				{
+					$result['ok2']++;
+				}
+			}
+			else
+			{
+				$result['user_not_found_in_store']++;
+			}
+
+
 
 
 			\dash\pdo::close();
