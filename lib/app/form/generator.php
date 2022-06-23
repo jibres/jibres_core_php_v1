@@ -385,7 +385,14 @@ class generator
 
 	private static function check_schedule($_form_id)
 	{
-		$load_form = \lib\db\form\get::by_id($_form_id);
+		if($_form_id && is_numeric($_form_id))
+		{
+			$load_form = \lib\db\form\get::by_id($_form_id);
+		}
+		else
+		{
+			return true;
+		}
 
 		if(isset($load_form['starttime']) && $load_form['starttime'])
 		{
