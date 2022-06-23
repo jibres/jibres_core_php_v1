@@ -94,7 +94,7 @@ trait add
 		$default_option =
 		[
 			'debug'           => true,
-			'non-jibres-user' => false
+			'none-jibres-user' => false
 		];
 
 		if(!is_array($_option))
@@ -160,7 +160,7 @@ trait add
 			}
 		}
 
-		if(isset($_option['non-jibres-user']) && $_option['non-jibres-user'])
+		if(isset($_option['none-jibres-user']) && $_option['none-jibres-user'])
 		{
 			$user_id = \dash\app\user::quick_add($args, true);
 		}
