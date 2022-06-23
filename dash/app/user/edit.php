@@ -40,7 +40,8 @@ trait edit
 
 	public static function quick_update($_args, $_id)
 	{
-		$is_staff = null;
+		$is_staff  = null;
+		$load_user = null;
 		// in stroe whene user signuped we need to set jibres_user_id
 		if(\dash\engine\store::inStore())
 		{
@@ -130,6 +131,14 @@ trait edit
 				{
 					$is_staff = false;
 				}
+				elseif(a($load_user, 'permission'))
+				{
+					$is_staff = true;
+				}
+				else
+				{
+					$is_staff = null;
+				}
 			}
 		}
 		else
@@ -153,11 +162,11 @@ trait edit
 
 		$result = \dash\db\users::update($_args, $_id);
 
-
-		if($result && isset($load_user))
+		if($load_user)
 		{
 			self::update_jibres_store_user($load_user, $_args, $is_staff);
 		}
+
 		return $result;
 
 	}
