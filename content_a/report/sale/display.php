@@ -174,7 +174,14 @@ $html .= '<div class="">';
 			{
 				$html .= '<tr>';
 				{
-					$html .= '<th>'. T_("Date"). '</th>';
+					if(\dash\request::get('groupby') === 'date')
+					{
+						$html .= '<th>'. T_("Date"). '</th>';
+					}
+					else
+					{
+						$html .= '<th>'. T_("Time"). '</th>';
+					}
 					$html .= '<th>'. T_("Count"). '</th>';
 					$html .= '<th>'. T_("Qty"). '</th>';
 					$html .= '<th>'. T_("Total"). '</th>';
