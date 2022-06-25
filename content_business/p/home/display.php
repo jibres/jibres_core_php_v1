@@ -51,9 +51,16 @@ $html .= '<div class="avand productPage">';
 
   if(\dash\data::similarProduct())
   {
-    // $html .= '<h2 class="jTitle1">'. T_("Related products"). '</h2>';
-    // \lib\website::product_list(\dash\data::similarProduct());
+    $html .= '<h2 class="font-bold leading-6 mb-5 text-center text-lg md:text-xl lg:text-2xl">'. T_("Related products"). '</h2>';
+    $optCard =
+    [
+      'grid' => true,
+    ];
+    $_args = [];
+    $html .= \content_site\body\product\p3_html::html($_args,\dash\data::similarProduct());
   }
+
+  echo $html;
 
 }
 echo '</div>';
