@@ -176,13 +176,12 @@
                     <th class="ltr text-left">Type</th>
                     <th class="ltr text-left">Key</th>
                     <th class="ltr text-left">Value</th>
-                    <th class="ltr text-left s0">Status</th>
-                    <th class="ltr text-left"></th>
+                    <th class="ltr text-left s0 collapsing">Status</th>
+                    <th class="ltr text-left collapsing"></th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach (\dash\data::dnsList() as $key => $value) {?>
-                          <?php if(a($value, 'allow_remove') || 1) {?>
                     <tr class="text-left">
                       <td class="ltr text-left"><?php echo a($value, 'type'); ?></td>
                       <td class="ltr text-left"><?php echo a($value, 'key'); ?></td>
@@ -191,13 +190,14 @@
                           <div class="badge" title="Priority"><?php echo a($value, 'priority'); ?></div>
                         <?php }  // end if?>
                       </td>
-                      <td class="ltr text-left s0"><?php echo a($value, 'status'); ?></td>
-                      <td class="ltr text-left">
+                      <td class="ltr text-left s0 collapsing"><?php echo a($value, 'status'); ?></td>
+                      <td class="ltr text-left collapsing">
+                          <?php if(a($value, 'allow_remove')) {?>
                         <?php if(a($value, 'status') !== 'pending_delete') {?>
                             <div data-confirm data-data='{"removedns": "removedns", "dnsid": "<?php echo a($value, 'id'); ?>"}'><i class="sf-trash text-red-800 font-14"></i></div>
                           <?php } //endif ?>
+                        <?php } //endif ?>
                       </td>
-                      <?php } //endif ?>
 
                     </tr>
                   <?php } // endif ?>
