@@ -15,6 +15,14 @@ $endtime .= '<div class="input">';
 }
 $endtime .= '</div>';
 
+
+$currency = \lib\store::currency();
+
+function myCurrencyHTML()
+{
+  return '<small class="text-gray-400">'. \lib\store::currency(). '</small>';
+}
+
 ?>
 
 <form method="get" autocomplete="off" action="<?php echo \dash\url::that() ?>"  data-timeout="0">
@@ -115,7 +123,7 @@ $endtime .= '</div>';
 <div class="row mb-2">
     <div class="c-xs-12 c-sm-12 c-md-6 c-lg-2">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
-        <?php echo T_("Product") ?>
+        <?php echo T_("Product count") ?>
         <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_count())); ?></div>
       </div>
   </div>
@@ -128,31 +136,31 @@ $endtime .= '</div>';
     <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
         <?php echo T_("Gross sales") ?>
-        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_price())); ?></div>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_price())). ' '. myCurrencyHTML(); ?></div>
       </div>
   </div>
     <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
         <?php echo T_("Tax") ?>
-        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_vat())); ?></div>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_vat())). ' '. myCurrencyHTML(); ?></div>
       </div>
   </div>
     <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
         <?php echo T_("Discounts") ?>
-        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_discount())); ?></div>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_discount())). ' '. myCurrencyHTML(); ?></div>
       </div>
   </div>
     <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
         <?php echo T_("Shipping") ?>
-        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_shipping())); ?></div>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_shipping())) . ' '. myCurrencyHTML(); ?></div>
       </div>
   </div>
     <div class="c-xs-12 c-sm-12 c-md-6 c-lg-4">
       <div class="bg-blue-100 p-5 m-1 rounded-lg text-center">
         <?php echo T_("Total sales") ?>
-        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_total())); ?></div>
+        <div class="font-bold text-xl"><?php echo \dash\fit::number_decimal(floatval(\dash\data::summaryDetail_total())) . ' '. myCurrencyHTML(); ?></div>
       </div>
   </div>
 </div>

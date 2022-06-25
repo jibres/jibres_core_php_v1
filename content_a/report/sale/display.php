@@ -183,7 +183,7 @@ $html .= '<div class="">';
 						$html .= '<th>'. T_("Time"). '</th>';
 					}
 					$html .= '<th>'. T_("Count"). '</th>';
-					$html .= '<th>'. T_("Qty"). '</th>';
+					$html .= '<th>'. T_("Ordered quantity"). '</th>';
 					$html .= '<th>'. T_("Total"). '</th>';
 				}
 				$html .= '</tr>';
@@ -207,7 +207,7 @@ $html .= '<div class="">';
 
 						$html .= '<td>'. \dash\fit::number_en(a($value, 'count')). '</td>';
 						$html .= '<td>'. \dash\fit::number_en(a($value, 'qty')). '</td>';
-						$html .= '<td>'. \dash\fit::price(a($value, 'total')). '</td>';
+						$html .= '<td>'. \dash\fit::price(a($value, 'total')).  ' <small>'. \lib\store::currency(). '</small></td>';
 					}
 					$html .= '</tr>';
 				}
