@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-21 17:19+0430\n"
-"PO-Revision-Date: 2022-06-21 17:20+0430\n"
+"POT-Creation-Date: 2022-06-25 13:23+0430\n"
+"PO-Revision-Date: 2022-06-25 13:24+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -753,7 +753,7 @@ msgstr "ارسال"
 
 #: content/bug/model.php:16 dash/app/log/caller/su/su_PDOError.php:15
 #: dash/app/log/caller/su/su_phpBug.php:14 dash/app/log/caller/su/su_sqlError.php:15
-#: dash/app/ticket/filter.php:57
+#: dash/app/log/caller/su/su_sqlErrorGoneaway.php:15 dash/app/ticket/filter.php:57
 msgid "Bug"
 msgstr "باگ"
 
@@ -851,7 +851,7 @@ msgstr "بیشتر بخوانید"
 #: content_a/form/answer/detail/display.php:628 content_a/form/answer/note/display.php:89
 #: content_a/order/editdate/display.php:31
 #: content_a/report/productsalesovertime/display.php:39
-#: content_a/report/sale/display.php:177 content_a/report/salesovertime/display.php:29
+#: content_a/report/sale/display.php:179 content_a/report/salesovertime/display.php:29
 #: content_a/report/salesovertime/display.php:168 content_business/orders/display.php:20
 #: content_crm/member/transactions/minus/display.php:14
 #: content_crm/member/transactions/plus/display.php:14
@@ -4111,7 +4111,7 @@ msgstr "وزن"
 #: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
 #: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
 #: content_crm/telegram/send/display.php:5 content_site/staticfile/display.php:11
-#: lib/app/form/generator.php:478
+#: lib/app/form/generator.php:485
 msgid "Required"
 msgstr "الزامی"
 
@@ -4215,7 +4215,7 @@ msgstr "۹٪"
 #: content_a/cart/add/display.php:136 content_a/chap/size-a4/a4-1.php:142
 #: content_a/order/home/display.php:27 content_a/order/links.php:97
 #: content_a/order/productList.php:38 content_a/order/summary.php:60
-#: content_a/report/sale/display.php:180 content_a/sale/display.php:47
+#: content_a/report/sale/display.php:187 content_a/sale/display.php:47
 #: content_business/cart/cartSummary.php:54 content_business/orders/display.php:19
 #: dash/utility/pagination.php:486
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:146
@@ -6032,7 +6032,7 @@ msgstr "افزودن درآمد"
 #: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
 #: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:70
 #: content_a/order/products/display.php:40 content_a/order/products/display.php:42
-#: content_a/report/sale/display.php:178 content_a/sale/display.php:41
+#: content_a/report/sale/display.php:185 content_a/sale/display.php:41
 #: content_cms/files/home/display.php:36 content_crm/home/display.php:6
 #: content_crm/sms/home/display.php:6 content_crm/telegram/home/display.php:6
 #: content_crm/ticket/home/display.php:6
@@ -6920,7 +6920,7 @@ msgstr "درخواست انتقال اضافه پرداخت به دوره بعد
 
 #: content_a/accounting/report/vatreport/display.php:241
 msgid "Refund the vat"
-msgstr "درخواست ارترداد اضافه پرداخت به مودی"
+msgstr "درخواست استرداد اضافه پرداخت به مودی"
 
 #: content_a/accounting/report/vatreport/view.php:11
 msgid "Quarterly tax report"
@@ -7625,7 +7625,7 @@ msgstr "صفحه اول مقدمه"
 #: content_love/files/home/display.php:49 content_love/home/display.php:118
 #: content_site/options/file/file.php:285 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
-#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1241
+#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1248
 msgid "File"
 msgstr "فایل"
 
@@ -8456,7 +8456,7 @@ msgid "Unit price"
 msgstr "مبلغ واحد"
 
 #: content_a/chap/size-a4/a4-1.php:41 content_a/chap/size-receipt/receipt.php:124
-#: content_a/order/home/display.php:15 content_a/report/sale/display.php:179
+#: content_a/order/home/display.php:15 content_a/report/sale/display.php:186
 #: content_business/orders/display.php:17 content_business/p/home/blocks/detail.php:190
 #: lib/app/order/filter.php:101
 msgid "Qty"
@@ -8734,6 +8734,7 @@ msgstr "تاریخ فعال شدن"
 
 #: content_a/discount/add/display.php:535 content_a/discount/add/display.php:580
 #: content_a/form/answer/note/display.php:101 content_a/order/editdate/display.php:38
+#: content_a/report/sale/display.php:183
 #: content_love/business/domain/action/display.php:25
 #: content_love/business/domain/log/display.php:13
 #: dash/layout/search/search_filter.php:384 lib/app/form/item/type.php:269
@@ -9141,6 +9142,7 @@ msgstr "حذف فیلتر"
 #: content_account/personalization/home/display.php:47
 #: content_sudo/apilog/home/display.php:75 dash/app/log/caller/su/su_PDOError.php:20
 #: dash/app/log/caller/su/su_phpBug.php:19 dash/app/log/caller/su/su_sqlError.php:20
+#: dash/app/log/caller/su/su_sqlErrorGoneaway.php:20
 #: dash/app/log/caller/su/su_sqlHardCritical.php:19
 msgid "Show"
 msgstr "نمایش"
@@ -12350,7 +12352,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketCreate.php:85
 #: dash/social/telegram/commands/step_ticketCreate.php:111
 #: includes/languages/trans_static.php:508 lib/app/form/answer/save_as_ticket.php:95
-#: lib/app/form/generator.php:1381
+#: lib/app/form/generator.php:1388
 msgid "Yes"
 msgstr "بله"
 
@@ -12369,7 +12371,7 @@ msgstr "بله"
 #: content_love/gift/view/display.php:34 content_my/domain/irnic/edit/display.php:19
 #: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
-#: lib/app/form/answer/save_as_ticket.php:99 lib/app/form/generator.php:1399
+#: lib/app/form/answer/save_as_ticket.php:99 lib/app/form/generator.php:1406
 msgid "No"
 msgstr "خیر"
 
@@ -12654,7 +12656,7 @@ msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب 
 #: content_a/setting/general/display.php:160 content_account/my/profile/display.php:36
 #: content_business/profile/detail/display.php:35
 #: content_love/plugin/manage/display.php:47 content_love/plugin/manage/display.php:48
-#: lib/app/form/generator.php:550
+#: lib/app/form/generator.php:557
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -15325,7 +15327,7 @@ msgstr "بیشتر بدانید"
 #: content_b1/user/address/add/model.php:14 content_b1/user/address/fetch/view.php:14
 #: content_b1/user/edit/avatar/model.php:16 content_b1/user/edit/avatar/model.php:42
 #: dash/app/address.php:44 dash/app/user/business.php:68 dash/app/user/description.php:20
-#: dash/app/user/description.php:51 dash/app/user/edit.php:232
+#: dash/app/user/description.php:51 dash/app/user/edit.php:241
 msgid "Invalid user id"
 msgstr "شناسه کاربر اشتباه است"
 
@@ -16307,6 +16309,10 @@ msgstr "محصول منتشر نشده است"
 #: content_business/p/home/controller.php:39
 msgid "This product cannot be sold in the online store"
 msgstr "این محصول امکان فروش در فروشگاه آنلاین را ندارد"
+
+#: content_business/p/home/display.php:54
+msgid "Related products"
+msgstr "محصولات مرتبط"
 
 #: content_business/p/home/shareBox.php:2 content_cms/posts/share/view.php:20
 #: dash/layout/post/part.php:295 dash/layout/post/share-box.php:2
@@ -26652,8 +26658,13 @@ msgid "Database have error!!"
 msgstr "خطا در پایگاه‌داده!!"
 
 #: dash/app/log/caller/su/su_sqlError.php:13
+#: dash/app/log/caller/su/su_sqlErrorGoneaway.php:13
 msgid "Sql error!"
 msgstr "خطای دیتابیس!"
+
+#: dash/app/log/caller/su/su_sqlErrorGoneaway.php:9
+msgid "Database have Gone away error!!"
+msgstr "در پایگاه داده خطای گاناوی رخ داده است!!"
 
 #: dash/app/log/caller/su/su_sqlHardCritical.php:9
 #: dash/app/log/caller/su/su_sqlHardCritical.php:63
@@ -27608,11 +27619,11 @@ msgstr "نمی‌توانید کاربری که داری سطح دسترسی ه�
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
-#: dash/app/user/add.php:132 dash/app/user/edit.php:250
+#: dash/app/user/add.php:132 dash/app/user/edit.php:259
 msgid "Duplicate mobile"
 msgstr "تلفن همراه تکراری"
 
-#: dash/app/user/add.php:155 dash/app/user/edit.php:289
+#: dash/app/user/add.php:155 dash/app/user/edit.php:298
 msgid "Duplicate nationalcode or pasportcode in your user list"
 msgstr "این کدملی یا شماره گذرنامه در لیست اعضا شما تکراری است"
 
@@ -27635,11 +27646,11 @@ msgstr ""
 "این مشتری قبلا به فروشگاه شما اضافه شده است. لطفا یا موبایلی برای این مشتری ثبت کرده و "
 "یا موبایل فعلی را ویرایش کنید"
 
-#: dash/app/user/business.php:60 dash/app/user/edit.php:224
+#: dash/app/user/business.php:60 dash/app/user/edit.php:233
 msgid "Can not access to edit user"
 msgstr "دسترسی لازم برای ویرایش کاربر وجود ندارد"
 
-#: dash/app/user/business.php:95 dash/app/user/edit.php:318
+#: dash/app/user/business.php:95 dash/app/user/edit.php:327
 msgid "User successfully updated"
 msgstr "کاربر با موفقیت به روزرسانی شد"
 
@@ -27671,32 +27682,32 @@ msgstr "یادداشت‌ یافت نشد"
 msgid "Notes removed"
 msgstr "یادداشت‌ حذف شد"
 
-#: dash/app/user/edit.php:58 dash/app/user/edit.php:63
+#: dash/app/user/edit.php:59 dash/app/user/edit.php:64
 msgid "Can not change business owner mobile or permission"
 msgstr "امکان تغییر سطح دسترسی یا موبایل صاحب فروشگاه وجود ندارد"
 
-#: dash/app/user/edit.php:90
+#: dash/app/user/edit.php:91
 msgid "Please remove user permission first!"
 msgstr "لطفا ابتدا سطح دسترسی کاربر را حذف کنید!"
 
-#: dash/app/user/edit.php:97
+#: dash/app/user/edit.php:98
 msgid "Can not set permission on removed user!"
 msgstr "نمی‌توانید سطح دسترسی کاربر ویرایش شده را تغییر دهید!"
 
-#: dash/app/user/edit.php:116
+#: dash/app/user/edit.php:117
 msgid "Please set mobile to this user and then change the permission"
 msgstr ""
 "لطفا برای تغییر سطح دسترسی کاربر ابتدا یک شماره تلفن همراه برای این کاربر ثبت کنید"
 
-#: dash/app/user/edit.php:141
+#: dash/app/user/edit.php:150
 msgid "Can not change customer mobile in jibres!"
 msgstr "در جیبرس نمی‌توانید شماره تلفن همراه مشتری را تغییر دهید!"
 
-#: dash/app/user/edit.php:262
+#: dash/app/user/edit.php:271
 msgid "Duplicate email"
 msgstr "ایمیل تکراری است"
 
-#: dash/app/user/edit.php:302
+#: dash/app/user/edit.php:311
 msgid "Can not remove mobile of users who have permission!"
 msgstr "نمی‌توانید موبایل کاربرانی که دارای سطح دسترسی هستند را حذف کنید!"
 
@@ -28963,19 +28974,19 @@ msgstr "کتابخانه فایل"
 msgid "Add new file"
 msgstr "افزودن فایل جدید"
 
-#: dash/pdo.php:318
+#: dash/pdo.php:333
 msgid "Can not start your request!"
 msgstr "نمی‌توانیم درخواست شما را شروع کنیم!"
 
-#: dash/pdo.php:353
+#: dash/pdo.php:368
 msgid "Can not save your request!"
 msgstr "نمی‌توانیم درخواست شما را ذخیره کنیم!"
 
-#: dash/pdo.php:387
+#: dash/pdo.php:402
 msgid "Can not close your request!"
 msgstr "نمی‌توانیم درخواست شما را تکمیل کنیم!"
 
-#: dash/pdo.php:422
+#: dash/pdo.php:437
 msgid "Can not get id!"
 msgstr "نمی‌توانیم شناسه را دریافت کنیم!"
 
@@ -39287,7 +39298,7 @@ msgstr "با این فیلتر هیچ پاسخی ثبت نشده است"
 msgid "Answer not found"
 msgstr "پاسخی یافت نشد"
 
-#: lib/app/form/answer/get.php:149 lib/app/form/generator.php:1247
+#: lib/app/form/answer/get.php:149 lib/app/form/generator.php:1254
 msgid "Show file"
 msgstr "نمایش فایل"
 
@@ -39399,23 +39410,23 @@ msgstr "فرم شما منتشر نشده است. فقط شما می‌توان�
 msgid "Submit"
 msgstr "تایید"
 
-#: lib/app/form/generator.php:398 lib/app/form/generator.php:427
+#: lib/app/form/generator.php:405 lib/app/form/generator.php:434
 msgid "Can not answer to this form at this time"
 msgstr "در حال حاضر نمی‌توان به این فرم پاسخ داد"
 
-#: lib/app/form/generator.php:399
+#: lib/app/form/generator.php:406
 msgid "This form will be activated in :date"
 msgstr "این فرم در تاریخ :date فعال خواهد شد"
 
-#: lib/app/form/generator.php:428
+#: lib/app/form/generator.php:435
 msgid "This form has been active until :date"
 msgstr "این فرم تا تاریخ :date فعال بوده است"
 
-#: lib/app/form/generator.php:1065
+#: lib/app/form/generator.php:1072
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: lib/app/form/generator.php:1082
+#: lib/app/form/generator.php:1089
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
@@ -42347,7 +42358,7 @@ msgstr "سال گذشته"
 msgid "Start date must be less than end date"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
 
-#: lib/app/report/sale/get.php:268
+#: lib/app/report/sale/get.php:276
 msgid "Only 1,000 record in result can be show"
 msgstr "تنها ۱۰۰۰ ردیف در خروجی قابل نمایش است"
 
@@ -46041,9 +46052,6 @@ msgstr "یارد"
 
 #~ msgid "Page successfully removed"
 #~ msgstr "صفحه با موفقیت حذف شد"
-
-#~ msgid "Related products"
-#~ msgstr "محصولات مرتبط"
 
 #~ msgid "Without Header"
 #~ msgstr "بدون سرصفحه"
