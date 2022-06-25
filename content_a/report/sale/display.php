@@ -189,7 +189,15 @@ $html .= '<div class="">';
 				{
 					$html .= '<tr>';
 					{
-						$html .= '<td>'. \dash\fit::date(a($value, 'groupbykey')). '</td>';
+						if(\dash\request::get('groupby') === 'date')
+						{
+							$html .= '<td>'. \dash\fit::date(a($value, 'groupbykey')). '</td>';
+						}
+						else
+						{
+							$html .= '<td>'. \dash\fit::text(a($value, 'groupbykey')). '</td>';
+						}
+
 						$html .= '<td>'. \dash\fit::number_en(a($value, 'count')). '</td>';
 						$html .= '<td>'. \dash\fit::number_en(a($value, 'qty')). '</td>';
 						$html .= '<td>'. \dash\fit::price(a($value, 'total')). '</td>';

@@ -177,7 +177,15 @@ class get
 		foreach ($ready_chart_category as $key => $value)
 		{
 			$chartvalue[] = floatval(a($value, 'total'));
-			$categories[] = \dash\fit::date(a($value, 'groupbykey'));
+			if($data['groupby'] === 'date')
+			{
+				$categories[] = \dash\fit::date(a($value, 'groupbykey'));
+			}
+			else
+			{
+				$categories[] = \dash\fit::text(a($value, 'groupbykey'));
+			}
+
 		}
 
 		$chart = [];
@@ -251,7 +259,7 @@ class get
 				{
 					if($i < 10)
 					{
-						$i = '0'. $i;
+						// $i = '0'. $i;
 					}
 					$mydate = $i;
 					$result[$mydate] = array_merge($default, ['groupbykey' => $mydate]);
