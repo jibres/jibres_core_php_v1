@@ -335,11 +335,13 @@ class get
 			$customer_detail['phone']                 = a($load_customer, 'phone');
 			$customer_detail['mobile']                = a($load_customer, 'mobile');
 
-
-			$customer_detail['companyeconomiccode']   = a($load_customer, 'companyeconomiccode');
-			$customer_detail['companyname']           = a($load_customer, 'companyname');
-			$customer_detail['companynationalid']     = a($load_customer, 'companynationalid');
-			$customer_detail['companyregisternumber'] = a($load_customer, 'companyregisternumber');
+			if($isLegalCustomer)
+			{
+				$customer_detail['companyeconomiccode']   = a($load_customer, 'companyeconomiccode');
+				$customer_detail['companyname']           = a($load_customer, 'companyname');
+				$customer_detail['companynationalid']     = a($load_customer, 'companynationalid');
+				$customer_detail['companyregisternumber'] = a($load_customer, 'companyregisternumber');
+			}
 
 			$factor['customer_detail'] = $customer_detail;
 		}

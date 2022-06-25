@@ -59,7 +59,7 @@ trait edit
 						\dash\notif::error(T_("Can not change business owner mobile or permission"));
 						return false;
 					}
-					else
+					elseif(array_key_exists('mobile', $_args) || array_key_exists('permission', $_args))
 					{
 						\dash\notif::warn(T_("Can not change business owner mobile or permission"));
 					}
