@@ -13,6 +13,11 @@ class vatreport
 
 		$vatsetting = a($year_detail, 'vatsetting');
 
+		if(is_string($vatsetting))
+		{
+			$vatsetting = json_decode($vatsetting, true);
+		}
+
 		if(!is_array($vatsetting))
 		{
 			$vatsetting = [];
