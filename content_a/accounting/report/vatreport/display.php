@@ -87,7 +87,7 @@ if(!$thisQurarter)
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(4) ?></td>
 							<td class=""><?php echo T_("Total vat in this quarter + export + vat") ?></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'income', 'final'); ?>'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'final'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'income', 'total-discount+vat'); ?>'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'total-discount+vat'), true, 'en') ?>"></div></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvatinclude6'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude6'), true, 'en') ?>"></div></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvatinclude3'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude3'), true, 'en') ?>"></div></td>
 						</tr>
