@@ -5,17 +5,17 @@ namespace lib\db\form_answer;
 class search
 {
 
-	public static function list($_and = null, $_or = null, $_order_sort = null, $_meta = [])
+	public static function list($_param, $_and = null, $_or = null, $_order_sort = null, $_meta = [])
 	{
 
-		$q = \dash\pdo\prepare_query::ready_to_sql($_and, $_or, $_order_sort, $_meta);
+		$q = \dash\pdo\prepare_query::binded_ready_to_sql($_and, $_or, $_order_sort, $_meta);
 
 		$pagination_query =	"SELECT COUNT(*) AS `count`	FROM form_answer $q[join] $q[where] ";
 
 		$limit = null;
 		if($q['pagination'] !== false)
 		{
-			$limit = \dash\db\pagination::pagination_query($pagination_query, [], $q['limit']);
+			$limit = \dash\db\pagination::pagination_query($pagination_query, $_param, $q['limit']);
 		}
 
 		$query =
@@ -30,7 +30,7 @@ class search
 			$limit
 		";
 
-		$result = \dash\pdo::get($query);
+		$result = \dash\pdo::get($query, $_param);
 
 
 		return $result;
