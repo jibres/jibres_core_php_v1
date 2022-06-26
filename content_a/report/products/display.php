@@ -24,9 +24,11 @@
       <?php } // endif ?>
 
 
-      <?php $maxsale = \lib\app\product\report\statistics::maxsale(); if($maxsale) {?>
-        <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. a($maxsale, 'id') ?>"><div class="key"><?php echo T_("Max sale count");?> :: <?php echo a($maxsale, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(a($maxsale, 'sold_count'));?> <small><?php echo T_("Item") ?></small></div><div class="go"></div></a></li>
-      <?php } // endif ?>
+
+        <li><a class="f" href="<?php echo \dash\url::that(). '/maxsale'; ?>"><div class="key"><?php echo T_("Max sale count");?> </div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::that(). '/maxsoldcount'; ?>"><div class="key"><?php echo T_("Max sold products");?> </div><div class="go"></div></a></li>
+        <li><a class="f" href="<?php echo \dash\url::that(). '/maxsoldproduct'; ?>"><div class="key"><?php echo T_("Max sold price");?> </div><div class="go"></div></a></li>
+
 
 
       <?php $max_price_change_count = \lib\app\product\report\statistics::max_price_change_count(); if($max_price_change_count) {?>
@@ -34,9 +36,8 @@
       <?php } // endif ?>
 
 
-      <?php $maxsaleprice = \lib\app\product\report\statistics::maxsaleprice(); if($maxsaleprice) { ?>
-        <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. a($maxsaleprice, 'id') ?>"><div class="key"><?php echo T_("Max sale price");?> :: <?php echo a($maxsaleprice, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(a($maxsaleprice, 'sold_price'));?> <small><?php echo \lib\store::currency(); ?></small></div><div class="go"></div></a></li>
-      <?php } // endif ?>
+
+        <li><a class="f" href="<?php echo \dash\url::that(). '/maxsaleprice'; ?>"><div class="key"><?php echo T_("Max sale price");?> </div><div class="go"></div></a></li>
 
 
 
@@ -65,9 +66,10 @@
         <li><a class="f" href="<?php echo \dash\url::here(). '/products' ?>"><div class="key"><?php echo T_("Total price change");?></div><div class="value"><?php echo \dash\fit::number($total_pricechange);?></div><div class="go"></div></a></li>
       <?php } // endif ?>
 
-      <?php $bestselling = \lib\app\product\report\statistics::bestselling(); if($bestselling) {?>
-        <li><a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. a($bestselling, 'id') ?>"><div class="key"><?php echo T_("Bestselling product");?> :: <?php echo a($bestselling, 'title'); ?></div><div class="value"><?php echo \dash\fit::number(a($bestselling, 'sold_count'));?></div><div class="go"></div></a></li>
-      <?php } // endif ?>
+        <li><a class="f" href="<?php echo \dash\url::that(). '/bestselling'; ?>"><div class="key"><?php echo T_("Bestselling product");?> </div><div class="go"></div></a></li>
+
+
+
 
 
 
@@ -148,46 +150,6 @@
       </div>
     <?php } //endif ?>
 
-
-    <?php $maxsale_list = \lib\app\product\report\statistics::maxsale_list(10); if($maxsale_list) {?>
-      <div class="c-xs-12 s-sm-12 c-md-6">
-        <h4><?php echo T_("Max sold products") ?></h4>
-        <nav class="items">
-          <ul>
-            <?php foreach ($maxsale_list as $key => $value) {?>
-              <li>
-                <a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. a($value, 'id'); ?>">
-                  <div class="key"><?php echo a($value, 'title'); ?></div>
-                  <div class="value"><?php echo \dash\fit::number(a($value, 'sold_count')); ?></div>
-                  <div class="go"></div>
-                </a>
-              </li>
-            <?php } //endfor ?>
-          </ul>
-        </nav>
-      </div>
-    <?php } //endif ?>
-
-
-
-    <?php $maxsaleprice_list = \lib\app\product\report\statistics::maxsaleprice_list(10); if($maxsaleprice_list) {?>
-      <div class="c-xs-12 s-sm-12 c-md-6">
-        <h4><?php echo T_("Max sold price") ?></h4>
-        <nav class="items">
-          <ul>
-            <?php foreach ($maxsaleprice_list as $key => $value) {?>
-              <li>
-                <a class="f" href="<?php echo \dash\url::here(). '/products/edit?id='. a($value, 'id'); ?>">
-                  <div class="key"><?php echo a($value, 'title'); ?></div>
-                  <div class="value"><?php echo \dash\fit::number(a($value, 'sold_price')); ?></div>
-                  <div class="go"></div>
-                </a>
-              </li>
-            <?php } //endfor ?>
-          </ul>
-        </nav>
-      </div>
-    <?php } //endif ?>
 
 
 

@@ -1,5 +1,5 @@
 <?php
-namespace content_a\report\products\maxsale;
+namespace content_a\report\products\maxsaleprice;
 
 class view
 {
