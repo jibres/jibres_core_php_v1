@@ -140,6 +140,7 @@ class inquiry
 
 		\dash\data::inquiryExec(true);
 
+		$query_raw = $q;
 
 		$mobile = \dash\validate::mobile($q, false);
 		if($mobile)
@@ -151,6 +152,23 @@ class inquiry
 
 		if(!$result || !isset($result['answer_id']) || !isset($result['form_id']))
 		{
+			// check in manual duplicate list
+			foreach ($_items as $key => $value)
+			{
+				if(in_array($value['id'], $trust_field))
+				{
+					if(isset($value['uniquelist']) && $value['uniquelist'])
+					{
+						if(strpos($value['uniquelist'], $query_raw) !== false)
+						{
+							\dash\notif::error(T_("Your mobile or nationalcode is blocked for answer this form"));
+							return false;
+						}
+					}
+				}
+			}
+
+
 			if(isset($_form_detail['inquirysetting']['inquiry_msg_not_founded']) && $_form_detail['inquirysetting']['inquiry_msg_not_founded'])
 			{
 				\dash\notif::error($_form_detail['inquirysetting']['inquiry_msg_not_founded']);
@@ -159,7 +177,10 @@ class inquiry
 			{
 				\dash\notif::error(T_("You have not complete this form"));
 			}
+
 			return false;
+
+
 		}
 
 		$answer_id   = $result['answer_id'];
