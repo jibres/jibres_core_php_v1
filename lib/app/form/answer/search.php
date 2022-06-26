@@ -31,6 +31,7 @@ class search
 			'order'       => 'order',
 			'sort'        => ['enum' => ['id']],
 			'type'        => ['enum' => ['assistant', 'group', 'total', 'details']],
+			'status'      => ['enum' => ['draft','active','spam', 'archive', 'deleted']],
 			'form_id'     => 'id',
 			'tag_id'      => 'id',
 			'not_deleted' => 'bit',
@@ -42,9 +43,10 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$param = [];
+		$and   = [];
+		$meta  = [];
+		$or    = [];
 
 		$meta['limit'] = 20;
 		// $meta['pagination'] = false;
@@ -54,14 +56,15 @@ class search
 		if($data['tag_id'])
 		{
 			$meta['join'][] = " LEFT JOIN form_tagusage ON form_tagusage.answer_id = form_answer.id ";
-			$and[] = " form_tagusage.form_tag_id = $data[tag_id] ";
+			$and[] = " form_tagusage.form_tag_id = :tag_id ";
+			$param[':tag_id'] = $data['tag_id'];
 			self::$is_filtered = true;
 
 		}
 
 		if($data['not_deleted'])
 		{
-			$and[] = " (form_answer.status IS NULL OR form_answer.status != 'deleted') ";
+			$and['not_deleted'] = " (form_answer.status IS NULL OR form_answer.status != 'deleted') ";
 		}
 
 
@@ -71,39 +74,51 @@ class search
 		{
 			$meta['join'][] = " LEFT JOIN form_answerdetail ON form_answerdetail.answer_id = form_answer.id ";
 
-			$or[] = " form_answer.id LIKE '%$query_string%' ";
-			$or[] = " form_answerdetail.answer LIKE '%$query_string%' ";
+			$or[] = " form_answer.id LIKE :serch_string1 ";
+			$or[] = " form_answerdetail.answer LIKE :serch_string2 ";
+
+			$param[':serch_string1'] = '%'. $query_string. '%';
+			$param[':serch_string2'] = '%'. $query_string. '%';
 
 			self::$is_filtered = true;
 		}
 
 		if($data['form_id'])
 		{
-			$and[] = " form_answer.form_id = $data[form_id] ";
+			$and[] = " form_answer.form_id = :form_id ";
+			$param[':form_id'] = $data['form_id'];
 		}
 
-
-		if($data['sort'] && !$order_sort)
+		if($data['status'])
 		{
-			if(in_array($data['sort'], ['id']))
-			{
-				$sort = \dash\str::mb_strtolower($data['sort']);
-				$order = null;
-				if($data['order'])
-				{
-					$order = \dash\str::mb_strtolower($data['order']);
-				}
+			$and[]           = " form_answer.status = :status ";
+			$param[':status'] = $data['status'];
+			unset($and['not_deleted']);
+			self::$is_filtered = true;
 
-				$order_sort = " ORDER BY $sort $order";
-			}
 		}
+
+
+		$check_order_trust = \lib\app\product\filter::check_allow($data['sort'], $data['order']);
+
+		if($check_order_trust)
+		{
+			$sort = \dash\str::mb_strtolower($data['sort']);
+			if($data['order'])
+			{
+				$order = \dash\str::mb_strtolower($data['order']);
+			}
+
+			$order_sort = " ORDER BY $sort $order";
+		}
+
 
 		if(!$order_sort)
 		{
 			$order_sort = " ORDER BY form_answer.id ASC";
 		}
 
-		$list = \lib\db\form_answer\search::list($and, $or, $order_sort, $meta);
+		$list = \lib\db\form_answer\search::list($param, $and, $or, $order_sort, $meta);
 
 
 		if(!is_array($list))

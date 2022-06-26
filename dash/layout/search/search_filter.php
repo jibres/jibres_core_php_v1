@@ -128,6 +128,13 @@ class search_filter
 						$html .= self::html_product_search($value);
 						break;
 
+
+					case 'form_answer_status':
+						$apply_filter_btn = true;
+						$html .= self::html_form_answer_status_search($value);
+						break;
+
+
 					case 'product_status_search':
 						$apply_filter_btn = true;
 						$html .= self::html_product_status_search($value);
@@ -542,21 +549,60 @@ class search_filter
 		{
 				$html .= '<option value=""></option>';
 		}
-		foreach (\dash\data::listUnits() as $k => $v)
+
+		if(is_array(\dash\data::listUnits()))
 		{
-				$html .= '<option value="'. $v['id']. '" ';
-				if(\dash\request::get('unitid') === $v['id'])
-				{
-					$html .= 'selected';
-				}
-				$html .= '> '.$v['title']. '</option>';
+			foreach (\dash\data::listUnits() as $k => $v)
+			{
+					$html .= '<option value="'. $v['id']. '" ';
+					if(\dash\request::get('unitid') === $v['id'])
+					{
+						$html .= 'selected';
+					}
+					$html .= '> '.$v['title']. '</option>';
+			}
 		}
+
 		$html .= '</select>';
 		$html .= '</div>';
 		$html .= "</div>";
 		return $html;
 	}
 
+
+	private static function html_form_answer_status_search($value)
+	{
+		self::set_input_loaded('status');
+
+		$html = '';
+		$html .= "<div class='mB10'>";
+		$html .= '<label for="status">'. T_("Status"). '</label>';
+		$html .= '<div>';
+		$html .= '<select name="status" id="status" class="select22"  data-placeholder="'. T_("Answer Status"). '">';
+		if(\dash\request::get('status'))
+		{
+				$html .= '<option value="0">'. T_("None"). '</option>';
+		}
+		else
+		{
+				$html .= '<option value=""></option>';
+		}
+
+		foreach (['draft','active','spam', 'archive', 'deleted'] as $k => $v)
+		{
+				$html .= '<option value="'. $v. '" ';
+				if(\dash\request::get('status') === $v)
+				{
+					$html .= 'selected';
+				}
+				$html .= '> '. T_(ucfirst($v)). '</option>';
+		}
+		$html .= '</select>';
+		$html .= '</div>';
+		$html .= '</div>';
+		return $html;
+
+	}
 
 
 	/**
