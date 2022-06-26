@@ -16,11 +16,29 @@ class view
 
 		\dash\face::btnExport(\dash\url::that(). '/export?id='. \dash\request::get('id'));
 
+
+		\dash\data::listEngine_start(true);
+
+		\dash\data::listEngine_before(__DIR__. '/display-before.php');
+
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(\lib\app\form\answer\filter::list());
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\lib\app\form\answer\filter::sort_list());
+		\dash\data::listEngine_cleanFilterUrl(\dash\url::that(). '?id='. \dash\request::get('id'));
+
+
 		$args                = [];
 		$args['sort']        = 'id';
 		$args['order']       = 'desc';
 		$args['form_id']     = \dash\request::get('id');
 		$args['tag_id']      = \dash\request::get('tagid');
+
+		if(\dash\request::get('status'))
+		{
+			$args['status'] = \dash\request::get('status');
+		}
+
 		$args['not_deleted'] = true;
 		$q               = \dash\validate::search_string();
 
@@ -33,8 +51,8 @@ class view
 		$count_not_reviewed = \lib\app\form\answer\get::count_not_reviewd(\dash\request::get('id'));
 		\dash\data::countNotReviewed($count_not_reviewed);
 
+		$isFiltered = \lib\app\form\answer\search::is_filtered();
 
-		\dash\data::filterBox($filterBox);
 		\dash\data::isFiltered($isFiltered);
 
 
