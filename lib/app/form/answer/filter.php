@@ -29,12 +29,12 @@ class filter
 
 		$list                = [];
 		$list['status']      = ['key' => 'status', 		'group' => T_("Status"),  	'title' => T_('Filter by status'),		'public' => true, 	'mode' => 'form_answer_status'];
-		$list['product_tag_search'] =
+		$list['form_answer_tag_search'] =
 		[
-			'key'    => 'product_tag_search',
+			'key'    => 'form_answer_tag_search',
 			'group'  => T_("Tag"),
 			'title'  => T_("Filter by tag"),
-			'mode'   => 'product_tag_search',
+			'mode'   => 'form_answer_tag_search',
 			'public' => false,
 		];
 

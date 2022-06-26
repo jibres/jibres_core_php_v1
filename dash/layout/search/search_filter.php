@@ -134,6 +134,11 @@ class search_filter
 						$html .= self::html_form_answer_status_search($value);
 						break;
 
+					case 'form_answer_tag_search':
+						$apply_filter_btn = true;
+						$html .= self::html_form_answer_tag_search($value);
+						break;
+
 
 					case 'product_status_search':
 						$apply_filter_btn = true;
@@ -438,6 +443,40 @@ class search_filter
 		return $html;
 	}
 
+	private static function html_form_answer_tag_search($value)
+	{
+		self::set_input_loaded('tagid');
+		$html = '';
+		$html .= "<div class='mB10'>";
+		$html .= '<div class="row align-center">';
+		$html .= '<div class="c"><label for="tag">'. T_("Category"). '</label></div>';
+		$html .= '<div class="c-auto os">';
+		$html .= '<a class="font-12"';
+		if(!\dash\detect\device::detectPWA())
+		{ $html .= " target='_blank' ";
+		}
+		$html .= ' href="'. \dash\url::kingdom(). '/a/form/tag?id='.\dash\request::get('id').'">'. T_("Manage"). ' <i class="sf-link-external"></i></a>';
+		$html .= '</div>';
+		$html .= '</div>';
+
+		$html .= '<div>';
+		$html .= '<select name="tagid" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Select one tag"). '" data-ajax--delay="100" data-ajax--url="'. \dash\url::kingdom(). '/a/form/tag/api?json=true&getid=1&id='.\dash\request::get('id').'">';
+		if(\dash\request::get('tagid'))
+		{
+				$html .= '<option value="0">'. T_("None"). '</option>';
+				$loadTag = \lib\app\form\tag\get::inline_get(\dash\request::get('tagid'));
+				$html .= '<option value="'. a($loadTag, 'id'). '" selected>'. a($loadTag, 'title') .'</option>';
+		}
+		else
+		{
+				$html .= '<option value=""></option>';
+		}
+
+		$html .= '</select>';
+		$html .= '</div>';
+		$html .= "</div>";
+		return $html;
+	}
 
 	/**
 	 * Search by product tag
