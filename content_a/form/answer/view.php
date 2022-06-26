@@ -39,6 +39,16 @@ class view
 			$args['status'] = \dash\request::get('status');
 		}
 
+		if(\dash\request::get('std'))
+		{
+			$args['start_date'] = \dash\request::get('std');
+		}
+
+		if(\dash\request::get('end'))
+		{
+			$args['end_date'] = \dash\request::get('end');
+		}
+
 		$args['not_deleted'] = true;
 		$q               = \dash\validate::search_string();
 

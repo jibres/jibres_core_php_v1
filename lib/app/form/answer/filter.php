@@ -38,6 +38,17 @@ class filter
 			'public' => false,
 		];
 
+		$list['daterange'] =
+		[
+			'key'    => 'daterange',
+			'group'  => T_("Date"),
+			'title'  => T_("Filter by date"),
+			'mode'   => 'daterange',
+			'public' => false,
+		];
+
+
+
 		return $list;
 
 	}

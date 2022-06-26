@@ -34,6 +34,8 @@ class search
 			'status'      => ['enum' => ['draft','active','spam', 'archive', 'deleted']],
 			'form_id'     => 'id',
 			'tag_id'      => 'id',
+			'start_date'  => 'date',
+			'end_date'    => 'date',
 			'not_deleted' => 'bit',
 		];
 
@@ -97,6 +99,24 @@ class search
 			self::$is_filtered = true;
 
 		}
+
+		if($data['start_date'])
+		{
+			$and[]           = " form_answer.datecreated >= :start_date ";
+			$param[':start_date'] = $data['start_date']. ' 00:00:00';
+			self::$is_filtered = true;
+
+		}
+
+
+		if($data['end_date'])
+		{
+			$and[]           = " form_answer.datecreated <= :end_date ";
+			$param[':end_date'] = $data['end_date']. ' 23:59:59';
+			self::$is_filtered = true;
+
+		}
+
 
 
 		$check_order_trust = \lib\app\product\filter::check_allow($data['sort'], $data['order']);
