@@ -11,7 +11,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
-		// self::find_application();
+		self::find_application();
 	}
 
 
@@ -26,28 +26,29 @@ class view
 		$file_error = [];
 		$duplicate = 0;
 		$run = 0;
+		$business_have_inquery = [];
 
 		\dash\code::time_limit(0);
 
 		$store_have_application = [];
 		foreach ($list as $key => $value)
 		{
-			$query = "	SELECT * FROM setting where setting.platform = 'android' and setting.key in ('myket', 'cafebazar', 'googleplay') AND setting.value is not null ";
+			$query    = "	SELECT COUNT(*) AS `count` FROM form where form.inquiry = 1 ";
 			$store_id = $value['id'];
-			$dbname = \dash\engine\store::make_database_name($store_id);
-			$resutl = \dash\pdo::get($query, [], null, false, $value['fuel'], ['database' => $dbname]);
+			$dbname   = \dash\engine\store::make_database_name($store_id);
+			$resutl   = \dash\pdo::get($query, [], 'count', true, $value['fuel'], ['database' => $dbname]);
 
 			if($resutl)
 			{
-				$store_have_application[] = 'https://jibres.ir/'.\dash\store_coding::encode($value['id']).'/a/android/download#'.$value['subdomain'];
+				$business_have_inquery[] = [$value, $resutl];
 			}
 
 			\dash\pdo::close();
 		}
 
-		\dash\log::to_supervisor('store with application: '. implode("\n" , $store_have_application));
+		\dash\log::to_supervisor('store with inquiry: '. json_encode($business_have_inquery));
 
-		var_dump($store_have_application);
+		var_dump($business_have_inquery);
 		var_dump('ok');
 		exit();
 	}
