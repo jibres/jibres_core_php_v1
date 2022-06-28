@@ -27,8 +27,8 @@ class view
 		\dash\data::filterBox($filterBox);
 		\dash\data::isFiltered($isFiltered);
 
-		$show_group_by = \dash\app\log_notif\search::group_by();
-		\dash\data::messgeGroupBy($show_group_by);
+		// $show_group_by = \dash\app\log_notif\search::group_by();
+		// \dash\data::messgeGroupBy($show_group_by);
 
 
 		\dash\data::dataTable($dataTable);
