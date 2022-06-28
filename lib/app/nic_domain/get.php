@@ -449,6 +449,11 @@ class get
 			return false;
 		}
 
+		if($_domain === 'apphouse.ir')
+		{
+			\dash\log::file(json_encode(debug_backtrace()), 'bug_domain.log', 'domain');
+		}
+
 		$result = \lib\api\nic\exec\domain_info::info($_domain);
 
 		\lib\app\domains\detect::domain_info($_domain, $result);
