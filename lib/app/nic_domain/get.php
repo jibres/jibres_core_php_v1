@@ -442,16 +442,25 @@ class get
 	}
 
 
-	public static function info($_domain)
+	public static function only_info($_domain)
 	{
 		if(!\dash\validate::domain($_domain))
 		{
 			return false;
 		}
 
-		if($_domain === 'apphouse.ir')
+		$result = \lib\api\nic\exec\domain_info::info($_domain);
+
+		return $result;
+
+	}
+
+
+	public static function info($_domain)
+	{
+		if(!\dash\validate::domain($_domain))
 		{
-			\dash\log::file(json_encode(debug_backtrace()), 'bug_domain.log', 'domain');
+			return false;
 		}
 
 		$result = \lib\api\nic\exec\domain_info::info($_domain);

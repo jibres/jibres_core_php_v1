@@ -112,43 +112,6 @@ class add
 		}
 
 
-		$cdn = 'arvancloud';
-
-		$ir_domain = \dash\validate::ir_domain($domain, false);
-		if($ir_domain)
-		{
-			// $fetch_domain = \lib\app\nic_domain\get::info($domain);
-			// if(isset($fetch_domain[$domain]['status']) && is_array($fetch_domain[$domain]['status']))
-			// {
-			// 	if(in_array('ok', $fetch_domain[$domain]['status']))
-			// 	{
-			// 		// ok
-			// 	}
-			// 	else
-			// 	{
-			// 		\dash\notif::error(T_("This domain is not activate yet in nic provider"));
-			// 		return false;
-			// 	}
-			// }
-			// else
-			// {
-			// 	if(isset($fetch_domain['available']) && $fetch_domain['available'] === true)
-			// 	{
-			// 		\dash\notif::error(T_("Domain not exist!"));
-			// 		return false;
-			// 	}
-			// 	else
-			// 	{
-			// 		\dash\notif::error(T_("Can not fetch domain detail from nic provider"));
-			// 		return false;
-			// 	}
-			// }
-		}
-		else
-		{
-			// $cdn = 'cloudflare'; // not ready yet
-			$cdn = 'arvancloud';
-		}
 
 		$update_store_id = null;
 
@@ -221,6 +184,45 @@ class add
 		{
 			\dash\notif::error(T_("Can not use local domain!"));
 			return false;
+		}
+
+
+		$cdn = 'arvancloud';
+
+		$ir_domain = \dash\validate::ir_domain($domain, false);
+		if($ir_domain)
+		{
+			$fetch_domain = \lib\app\nic_domain\get::only_info($domain);
+			if(isset($fetch_domain[$domain]['status']) && is_array($fetch_domain[$domain]['status']))
+			{
+				if(in_array('ok', $fetch_domain[$domain]['status']))
+				{
+					// ok
+				}
+				else
+				{
+					\dash\notif::error(T_("This domain is not activate yet in nic provider"));
+					return false;
+				}
+			}
+			else
+			{
+				if(isset($fetch_domain['available']) && $fetch_domain['available'] === true)
+				{
+					\dash\notif::error(T_("Domain not exist!"));
+					return false;
+				}
+				else
+				{
+					\dash\notif::error(T_("Can not fetch domain detail from nic provider"));
+					return false;
+				}
+			}
+		}
+		else
+		{
+			// $cdn = 'cloudflare'; // not ready yet
+			$cdn = 'arvancloud';
 		}
 
 

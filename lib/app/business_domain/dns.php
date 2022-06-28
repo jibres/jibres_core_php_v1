@@ -135,7 +135,7 @@ class dns
 			 */
 			if(\dash\validate::ir_domain($load['domain'], false))
 			{
-				$info_domain = \lib\app\nic_domain\get::info($load['domain']);
+				$info_domain = \lib\app\nic_domain\get::only_info($load['domain']);
 
 				if(isset($info_domain[$load['domain']]['ns']) && is_array($info_domain[$load['domain']]['ns']))
 				{
