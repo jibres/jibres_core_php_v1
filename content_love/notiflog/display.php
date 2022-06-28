@@ -61,7 +61,7 @@
 
 
 
-<?php function htmlSearchBox() { return; ?>
+<?php function htmlSearchBox() { ?>
 
   <div class="cbox fs12">
     <form method="get" action='<?php echo \dash\url::current(); ?>' >

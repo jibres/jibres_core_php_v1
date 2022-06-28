@@ -47,9 +47,10 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and   = [];
+		$meta  = [];
+		$or    = [];
+		$param = [];
 
 		$meta['limit'] = 20;
 		// $meta['pagination'] = false;
@@ -62,7 +63,12 @@ class search
 
 		if($query_string)
 		{
-			$or[] = " log_notif.type LIKE '%$query_string%' ";
+			$or[] = " log_notif.type LIKE :search1 ";
+			$or[] = " log_notif.message LIKE :search2 ";
+			$or[] = " log_notif.datecreated LIKE :search2 ";
+			$param[':search1'] = '%'. $query_string. '%';
+			$param[':search2'] = '%'. $query_string. '%';
+			$param[':search3'] = $query_string. '%';
 			self::$is_filtered = true;
 		}
 
@@ -87,7 +93,7 @@ class search
 			$order_sort = " ORDER BY log_notif.id DESC";
 		}
 
-		$list = \dash\db\log_notif\search::list($and, $or, $order_sort, $meta);
+		$list = \dash\db\log_notif\search::list($param, $and, $or, $order_sort, $meta);
 
 		if(!is_array($list))
 		{
