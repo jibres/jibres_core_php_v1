@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-29 16:44+0430\n"
-"PO-Revision-Date: 2022-06-29 16:45+0430\n"
+"POT-Creation-Date: 2022-06-29 18:10+0430\n"
+"PO-Revision-Date: 2022-06-29 18:11+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1410,7 +1410,7 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_a/form/analytics/table/display.php:41 content_a/form/answer/item/display.php:37
 #: content_a/form/answer/item/display.php:38 content_a/form/home/display.php:73
 #: content_a/form/home/display.php:74 content_a/form/item/duplicatelist/display.php:30
-#: content_a/form/item/duplicatelist/display.php:64 content_a/form/tag/display.php:74
+#: content_a/form/item/duplicatelist/display.php:64 content_a/form/tag/display.php:79
 #: content_a/notiflog/display.php:69 content_a/notiflog/display.php:70
 #: content_a/products/barcode/display.php:4 content_a/view.php:41
 #: content_business/search/view.php:9 content_cms/view.php:13 content_crm/view.php:20
@@ -2147,7 +2147,7 @@ msgid "Enter your mobile number"
 msgstr "شماره موبایل خود را وارد کنید"
 
 #: content/home/display.php:12 content_a/cart/user/display.php:37
-#: content_a/form/itemLink.php:59 content_a/pricehistory/choose/display.php:13
+#: content_a/form/itemLink.php:66 content_a/pricehistory/choose/display.php:13
 #: content_a/pricehistory/display.php:23
 #: content_a/setting/domain/existdomain/display.php:19 content_enter/app/display.php:60
 #: content_enter/home/display.php:47 content_enter/pass/change/display.php:17
@@ -4610,26 +4610,27 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/form/analytics/remove/view.php:12
 #: content_a/form/analytics/setting/view.php:12 content_a/form/analytics/table/view.php:12
 #: content_a/form/analytics/tag/view.php:12 content_a/form/analytics/view.php:12
-#: content_a/form/answer/detail/display.php:28 content_a/form/answer/detail/view.php:12
-#: content_a/form/answer/edit/view.php:12 content_a/form/answer/item/view.php:12
-#: content_a/form/answer/note/view.php:12 content_a/form/answer/view.php:13
-#: content_a/form/duplicate/view.php:14 content_a/form/edit/view.php:13
-#: content_a/form/home/view.php:12 content_a/form/inquiry/view.php:12
-#: content_a/form/item/add/view.php:12 content_a/form/item/choice/view.php:12
-#: content_a/form/item/duplicatelist/view.php:12 content_a/form/item/type/view.php:12
-#: content_a/form/item/view.php:12 content_a/form/report/answer/view.php:46
-#: content_a/form/report/compare/view.php:10 content_a/form/report/view.php:21
-#: content_a/form/setting/view.php:12 content_a/form/sorting/view.php:11
-#: content_a/form/status/view.php:12 content_a/form/tag/remove/view.php:17
-#: content_a/form/tag/view.php:16 content_a/form/thankyou/view.php:12
-#: content_a/notiflog/view.php:12 content_a/order/view.php:33
-#: content_a/plugin/view/view.php:16 content_a/products/advance/view.php:17
-#: content_a/products/barcode/view.php:12 content_a/products/bullet/view.php:17
-#: content_a/products/cartlimit/view.php:15 content_a/products/child/view.php:15
-#: content_a/products/comment/view.php:29 content_a/products/comment/view.php:36
-#: content_a/products/comment/view/view.php:13 content_a/products/desc/view.php:14
-#: content_a/products/duplicate/view.php:15 content_a/products/gallerysort/view.php:14
-#: content_a/products/poof/view.php:15 content_a/products/property/add/view.php:14
+#: content_a/form/answer/add/view.php:12 content_a/form/answer/detail/display.php:28
+#: content_a/form/answer/detail/view.php:12 content_a/form/answer/edit/view.php:12
+#: content_a/form/answer/item/view.php:12 content_a/form/answer/note/view.php:12
+#: content_a/form/answer/view.php:13 content_a/form/duplicate/view.php:14
+#: content_a/form/edit/view.php:13 content_a/form/home/view.php:12
+#: content_a/form/inquiry/view.php:12 content_a/form/item/add/view.php:12
+#: content_a/form/item/choice/view.php:12 content_a/form/item/duplicatelist/view.php:12
+#: content_a/form/item/type/view.php:12 content_a/form/item/view.php:12
+#: content_a/form/report/answer/view.php:46 content_a/form/report/compare/view.php:10
+#: content_a/form/report/view.php:21 content_a/form/setting/view.php:12
+#: content_a/form/sorting/view.php:11 content_a/form/status/view.php:12
+#: content_a/form/tag/remove/view.php:17 content_a/form/tag/view.php:16
+#: content_a/form/thankyou/view.php:12 content_a/notiflog/view.php:12
+#: content_a/order/view.php:33 content_a/plugin/view/view.php:16
+#: content_a/products/advance/view.php:17 content_a/products/barcode/view.php:12
+#: content_a/products/bullet/view.php:17 content_a/products/cartlimit/view.php:15
+#: content_a/products/child/view.php:15 content_a/products/comment/view.php:29
+#: content_a/products/comment/view.php:36 content_a/products/comment/view/view.php:13
+#: content_a/products/desc/view.php:14 content_a/products/duplicate/view.php:15
+#: content_a/products/gallerysort/view.php:14 content_a/products/poof/view.php:15
+#: content_a/products/property/add/view.php:14
 #: content_a/products/property/edit/view.php:14 content_a/products/property/view.php:15
 #: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
 #: content_a/products/variants/view.php:14
@@ -5337,7 +5338,7 @@ msgstr "تفصیل‌پذیر"
 #: content_a/form/analytics/table/display.php:105
 #: content_a/form/answer/item/display.php:71 content_a/form/answer/item/display.php:78
 #: content_a/form/home/display.php:134 content_a/form/home/display.php:142
-#: content_a/form/tag/display.php:96 content_a/notiflog/display.php:155
+#: content_a/form/tag/display.php:101 content_a/notiflog/display.php:155
 #: content_a/notiflog/display.php:163 content_business/search/display.php:47
 #: content_love/application/home/display.php:131
 #: content_love/business/domain/action/display.php:60
@@ -5384,7 +5385,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:88
 #: content_a/accounting/turnover/display.php:247 content_a/category/home/display.php:156
 #: content_a/form/answer/item/display.php:83 content_a/form/home/display.php:148
-#: content_a/form/tag/display.php:104 content_a/notiflog/display.php:169
+#: content_a/form/tag/display.php:109 content_a/notiflog/display.php:169
 #: content_a/units/display.php:153 content_account/notification/display.php:57
 #: content_business/orders/display.php:54 content_love/application/home/display.php:143
 #: content_love/domain/billing/display.php:152 content_love/domain/fetch/display.php:114
@@ -6298,7 +6299,7 @@ msgstr "شارژ تنخواه از طریق جاری شرکا"
 msgid "Charge Bank from partners"
 msgstr "شارژ حساب بانکی از طریق جاری شرکا"
 
-#: content_a/accounting/home/display.php:321 content_a/form/itemLink.php:25
+#: content_a/accounting/home/display.php:321 content_a/form/itemLink.php:31
 #: content_a/report/home/view.php:8 dash/panel.php:276
 msgid "Reports"
 msgstr "گزارش‌ها"
@@ -7983,7 +7984,7 @@ msgid "Filter"
 msgstr "فیلتر"
 
 #: content_a/cart/home/display.php:90 content_a/category/home/display.php:115
-#: content_a/form/tag/display.php:82 content_business/search/display.php:19
+#: content_a/form/tag/display.php:87 content_business/search/display.php:19
 #: dash/datafilter.php:72 dash/layout/search/search-bar.php:53
 #: lib/app/factor/filter.php:14 lib/app/form/answer/filter.php:15
 #: lib/app/order/filter.php:59 lib/app/product/filter.php:61 lib/app/product/filter.php:69
@@ -8268,27 +8269,26 @@ msgstr "ویرایش دسته‌‌بندی"
 msgid "New group title"
 msgstr "عنوان جدید گروه"
 
-#: content_a/category/home/display.php:70 content_a/form/tag/display.php:49
-#: content_a/products/home/display.php:12 content_a/products/home/display.php:36
-#: content_a/products/home/display.php:38
+#: content_a/category/home/display.php:70 content_a/products/home/display.php:12
+#: content_a/products/home/display.php:36 content_a/products/home/display.php:38
 msgid "in stock"
 msgstr "در انبار موجود است"
 
-#: content_a/category/home/display.php:74 content_a/form/tag/display.php:53
-#: content_a/products/home/display.php:16 content_a/products/home/display.php:42
+#: content_a/category/home/display.php:74 content_a/products/home/display.php:16
+#: content_a/products/home/display.php:42
 msgid "For"
 msgstr "از"
 
-#: content_a/category/home/display.php:74 content_a/form/tag/display.php:53
-#: content_a/products/home/display.php:16 content_a/products/home/display.php:42
+#: content_a/category/home/display.php:74 content_a/products/home/display.php:16
+#: content_a/products/home/display.php:42
 msgid "variants"
 msgstr "تنوع محصول"
 
-#: content_a/category/home/display.php:116 content_a/form/tag/display.php:83
+#: content_a/category/home/display.php:116 content_a/form/tag/display.php:88
 msgid "Sort by Title ASC"
 msgstr "عنوان، صعودی"
 
-#: content_a/category/home/display.php:117 content_a/form/tag/display.php:84
+#: content_a/category/home/display.php:117 content_a/form/tag/display.php:89
 msgid "Sort by Title DESC"
 msgstr "عنوان نزولی"
 
@@ -9173,6 +9173,18 @@ msgstr "غیر مشمول"
 msgid "Enter new tag or select one tag"
 msgstr "تگ جدید وارد کنید یا یک تگ انتخاب کنید"
 
+#: content_a/form/answer/add/display.php:7
+msgid "Your are in admin mode"
+msgstr "شما در حالت مدیریت هستید"
+
+#: content_a/form/answer/add/display.php:9
+msgid "Public address to access this form"
+msgstr "آدرس عمومی برای دسترسی به این فرم"
+
+#: content_a/form/answer/add/view.php:9
+msgid "Add answer"
+msgstr "افزودن پاسخ"
+
 #: content_a/form/answer/detail/display.php:104
 msgid "Total amount"
 msgstr "مبلغ کل"
@@ -9189,7 +9201,7 @@ msgid "Unsuccess"
 msgstr "ناموفق"
 
 #: content_a/form/answer/detail/display.php:186 content_a/form/home/model.php:12
-#: content_a/form/itemLink.php:55
+#: content_a/form/itemLink.php:62
 msgid "Answer id"
 msgstr "کد پاسخ"
 
@@ -9465,7 +9477,7 @@ msgstr "پاسخ‌ها"
 #: content_a/form/report/answer/display-pie.php:51
 #: content_a/form/report/answer/display-province.php:38
 #: content_a/form/report/answer/display-wordcloud.php:3
-#: content_a/form/report/compare/display.php:115 content_a/form/tag/display.php:56
+#: content_a/form/report/compare/display.php:115 content_a/form/tag/display.php:61
 #: dash/social/telegram/commands/ticket.php:101
 msgid "Answer"
 msgstr "پاسخ"
@@ -9878,15 +9890,19 @@ msgstr "تگ‌ها"
 msgid "Inquiry"
 msgstr "استعلام"
 
-#: content_a/form/itemLink.php:33
+#: content_a/form/itemLink.php:28
+msgid "Answer to this form"
+msgstr "پاسخ به این فرم"
+
+#: content_a/form/itemLink.php:39
 msgid "Analyze answers"
 msgstr "تجزیه و تحلیل اطلاعات"
 
-#: content_a/form/itemLink.php:43
+#: content_a/form/itemLink.php:50
 msgid "Add new question"
 msgstr "افزودن سوال جدید"
 
-#: content_a/form/itemLink.php:53
+#: content_a/form/itemLink.php:60
 msgid "Find answer detail by id"
 msgstr "یافتن پاسخ با داشتن کد پاسخ"
 
@@ -10053,11 +10069,11 @@ msgstr "نام تگ"
 msgid "Add new form tag"
 msgstr "افزودن تگ جدید"
 
-#: content_a/form/tag/display.php:105
+#: content_a/form/tag/display.php:110
 msgid "No tag founded."
 msgstr "هیچ تگی یافت نشد."
 
-#: content_a/form/tag/display.php:106
+#: content_a/form/tag/display.php:111
 msgid "Try to start with add new tag!"
 msgstr "با افزودن تگ جدید تلاشی برای شروع داشته باشید!"
 
@@ -48168,9 +48184,6 @@ msgstr "یارد"
 #~ msgstr ""
 #~ "مشتریان یادداشت‌های شما را مشاهده نمی‌کنند و فقط مدیران سیستم می‌توانند این یادداشت‌ها "
 #~ "را مشاهده کنند"
-
-#~ msgid "Send answer"
-#~ msgstr "ارسال پاسخ"
 
 #~ msgid "Solved status"
 #~ msgstr "وضعیت حل شدن تیکت"
