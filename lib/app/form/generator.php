@@ -336,6 +336,18 @@ class generator
 				continue;
 			}
 
+			// if(a($item, 'status') === 'deleted')
+			// {
+			// 	if(isset($item['user_answer'][0]['answer']))
+			// 	{
+			// 		// ok
+			// 	}
+			// 	else
+			// 	{
+			// 		continue;
+			// 	}
+			// }
+
 			switch ($item['type'])
 			{
 				case 'short_answer':		self::html_input_short_answer($item);break;
