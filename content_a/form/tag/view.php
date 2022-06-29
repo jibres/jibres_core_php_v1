@@ -43,6 +43,8 @@ class view
 			\dash\face::title(\dash\face::title() . ' | '. T_('Filtered'));
 		}
 
+		\content_a\form\edit\view::form_preview_link();
+
 	}
 }
 ?>
