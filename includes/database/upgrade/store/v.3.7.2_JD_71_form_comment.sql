@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.form_comment ADD `from_tag_id` int  NULL DEFAULT NULL;
