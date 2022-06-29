@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-06-29 16:37+0430\n"
-"PO-Revision-Date: 2022-06-29 16:39+0430\n"
+"POT-Creation-Date: 2022-06-29 16:44+0430\n"
+"PO-Revision-Date: 2022-06-29 16:45+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -9707,7 +9707,7 @@ msgstr "هرفایلی"
 msgid "Send notification after complete form?"
 msgstr "آیا بعد از تکمیل فرم پیام اطلاع‌رسانی ارسال شود؟"
 
-#: content_a/form/item/display.php:344
+#: content_a/form/item/display.php:344 content_a/form/tag/edit/display.php:87
 msgid "Notification text"
 msgstr "متن پیام"
 
@@ -10072,6 +10072,10 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 msgid "Invalid tag id"
 msgstr "شناسه تگ نادرست است"
 
+#: content_a/form/tag/edit/display.php:12
+msgid "This message will be displayed on the Inquiry page for answers that have this tag"
+msgstr "این پیام در صفحه استعلام برای پاسخ‌هایی که این تگ را دارند نمایش داده خواهد شد"
+
 #: content_a/form/tag/edit/display.php:73
 msgid "Save auto note after add this tag to answer?"
 msgstr "آیا بعد از ثبت این تگ یک یادداشت خودکار برای پاسخ ذخیره شود؟"
@@ -10083,10 +10087,6 @@ msgstr "متن یادداشت"
 #: content_a/form/tag/edit/display.php:83
 msgid "Send notification after add this tag to answer?"
 msgstr "آیا بعد از ثبت این تگ به پاسخ پیام اطلاع رسانی ارسال شود؟"
-
-#: content_a/form/tag/edit/display.php:87
-msgid "SMS text"
-msgstr "متن پیامک"
 
 #: content_a/form/tag/edit/display.php:99
 msgid "You can delete this tag because we are not found any form in that."
@@ -44063,6 +44063,9 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "SMS text"
+#~ msgstr "متن پیامک"
 
 #~ msgid "No anwer found"
 #~ msgstr "هیچ پاسخی یافت نشد"

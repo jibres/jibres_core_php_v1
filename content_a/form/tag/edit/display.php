@@ -9,7 +9,7 @@
           </div>
 
           <div class="mb-2">
-              <label for="desc"><?php echo T_("Description") ?></label>
+              <label for="desc"><?php echo T_("Description") ?> <small><?php echo T_("This message will be displayed on the Inquiry page for answers that have this tag") ?></small></label>
               <textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
             </div>
 
@@ -84,7 +84,7 @@
             </div>
             <div data-response='sendsms' <?php if(\dash\data::dataRow_sendsms()){/*nothing*/}else{echo 'data-response-hide';} ?>>
               <div class="mb-2">
-                <label for="smstext"><?php echo T_("SMS text") ?></label>
+                <label for="smstext"><?php echo T_("Notification text") ?></label>
                 <textarea name="smstext" class="txt" rows="3" id="smstext" ><?php echo \dash\data::dataRow_smstext(); ?></textarea>
               </div>
             </div>
