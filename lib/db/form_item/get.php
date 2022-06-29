@@ -14,9 +14,15 @@ class get
 
 
 
-	public static function by_form_id($_form_id)
+	public static function by_form_id($_form_id, $_all_item = false)
 	{
-		$query = "SELECT * FROM form_item WHERE form_item.form_id = $_form_id AND (form_item.status IS NULL OR form_item.status != 'deleted') ORDER BY IFNULL(form_item.sort, form_item.id) ASC ";
+		$allItem = "AND (form_item.status IS NULL OR form_item.status != 'deleted')";
+		if($_all_item)
+		{
+			$allItem = '';
+		}
+
+		$query = "SELECT * FROM form_item WHERE form_item.form_id = $_form_id $allItem ORDER BY IFNULL(form_item.sort, form_item.id) ASC ";
 		$result = \dash\pdo::get($query);
 		return $result;
 	}

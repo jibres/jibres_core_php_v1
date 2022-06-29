@@ -270,7 +270,7 @@ class generator
 		{
 			self::$load_answer = true;
 
-			$load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'));
+			$load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'), true);
 
 			if(is_array($load_items))
 			{
@@ -474,7 +474,13 @@ class generator
 		self::$html .= '</div>';
 	}
 
-
+	private static function isDeleted($value)
+	{
+		if(a($value, 'status') === 'deleted')
+		{
+		 	self::$html .= ' <small class="text-red-800">('.  T_("Deleted"). ')</small>';
+		}
+	}
 
 	private static function isRequired($value, $_html = false)
 	{
@@ -610,6 +616,7 @@ class generator
 
 	private static function label($value, $_special_text = null, $_special_id = null)
 	{
+
 		self::$html .= '<label class="q" for="';
 		if($_special_id)
 		{
@@ -631,6 +638,7 @@ class generator
 			}
 			self::isRequired($value, true);
 		}
+		self::isDeleted($value);
 		self::$html .= '</label>';
 	}
 
@@ -640,6 +648,7 @@ class generator
 		self::$html .= '<label class="q">';
 		self::$html .= a($value, 'title');
 		self::isRequired($value, true);
+		self::isDeleted($value);
 		self::$html .= '</label>';
 	}
 
@@ -666,6 +675,7 @@ class generator
 				self::$html .= a($value, 'title');
 			}
 		}
+		self::isDeleted($value);
 		self::$html .= '</label>';
 	}
 
@@ -1354,7 +1364,10 @@ class generator
 						}
 
 						self::$html .= '<input type="checkbox" name="'; self::myName($value); self::$html .= '" id="'; self::myID($value); self::$html .= '" value="1" '. $checked.'>';
-						self::$html .= '<label for="'; self::myID($value); self::$html .= '">'. $value['title'].'</label>';
+						self::$html .= '<label for="'; self::myID($value); self::$html .= '">';
+						self::$html .= $value['title'];
+						self::isDeleted($value);
+						self::$html .='</label>';
 					}
 					self::$html .= '</div>';
 				self::$html .= '</div>';
