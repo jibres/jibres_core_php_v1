@@ -723,7 +723,11 @@ class generator
 		self::HtmlMaxLen($value);
 		self::HtmlMin($value);
 		self::HtmlMax($value);
-		self::HtmlValue($value);
+
+		if(strpos($_meta, 'value=') === false)
+		{
+			self::HtmlValue($value);
+		}
 
 
 		self::$html .= $_meta;
@@ -1155,7 +1159,7 @@ class generator
 			self::label($value);
 			self::div('input');
 			{
-				self::input_raw('tel', $value, self::myName($value, true), self::myID($value, true),  ' data-format="shaba" ');
+				self::input_raw('tel', $value, self::myName($value, true), self::myID($value, true),  ' data-format2="shaba" ');
 			}
 			self::_div();
 			self::HtmlDesc($value);

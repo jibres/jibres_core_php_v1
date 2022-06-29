@@ -60,7 +60,7 @@ class add
 
 		if(a($_meta, 'edit_mode') === true && a($_meta, 'answer_id'))
 		{
-			$check_true_item = \lib\app\form\item\get::items_answer($form_id, $_meta['answer_id']);
+			$check_true_item = \lib\app\form\item\get::items_answer($form_id, $_meta['answer_id'], true);
 			$edit_mode = true;
 		}
 		else
@@ -771,7 +771,7 @@ class add
 			}
 			else
 			{
-				$edit = edit::answer($insert_answerdetail, $check_true_item);
+				$edit = edit::answer($insert_answerdetail, $check_true_item, a($_meta, 'answer_id'));
 
 				if(!$edit)
 				{
@@ -780,7 +780,11 @@ class add
 					return false;
 				}
 
-				\dash\log::set('form_editAnswer', ['my_form_id' => $form_id, 'my_answer_id' => $answer_id]);
+				\dash\log::set('form_editAnswer', ['my_form_id' => $form_id, 'my_answer_id' => a($_meta, 'answer_id')]);
+
+				\dash\notif::ok(T_("Answer update successfull"));
+
+				return true;
 			}
 
 
