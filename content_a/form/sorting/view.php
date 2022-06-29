@@ -18,6 +18,7 @@ class view
 
 		\dash\data::formItems($items);
 
+		\content_a\form\edit\view::form_preview_link();
 	}
 }
 ?>

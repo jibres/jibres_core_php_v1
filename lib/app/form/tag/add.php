@@ -269,14 +269,20 @@ class add
 		}
 
 
-		$check_exist_tag = \lib\db\form_tag\get::mulit_title($tag, $_form_id);
+		$get_tag         = \lib\db\form_tag\get::mulit_title($tag, $_form_id);
 
-		$all_tags_id = [];
+		$check_exist_tag = $get_tag;
+
+		$tags_by_id      = [];
+
+		$all_tags_id     = [];
 
 		$must_insert_tag = $tag;
 
 		if(is_array($check_exist_tag))
 		{
+			$tags_by_id = array_combine(array_column($get_tag, 'id'), $get_tag);
+
 			$check_exist_tag = array_column($check_exist_tag, 'title', 'id');
 			$check_exist_tag = array_filter($check_exist_tag);
 			$check_exist_tag = array_unique($check_exist_tag);
@@ -296,6 +302,7 @@ class add
 
 		$must_insert_tag = array_filter($must_insert_tag);
 		$must_insert_tag = array_unique($must_insert_tag);
+
 
 		if(!empty($must_insert_tag))
 		{
@@ -325,6 +332,7 @@ class add
 			$have_term_to_save_log = true;
 			$first_id    = \lib\db\form_tag\insert::multi_insert($multi_insert_tag);
 			$all_tags_id = array_merge($all_tags_id, \dash\pdo\tools::multi_insert_id($multi_insert_tag, $first_id));
+
 		}
 
 		$category_id = $all_tags_id;
@@ -354,9 +362,13 @@ class add
 				return false;
 			}
 
+			\dash\pdo::transaction();
+
 			$insert_multi = [];
 			foreach ($must_insert as $key => $value)
 			{
+				self::auto_comment_sms_tag($value, $_answer_id, $_form_id, $tags_by_id);
+
 				$insert_multi[] =
 				[
 					'form_tag_id' => $value,
@@ -365,10 +377,22 @@ class add
 
 				];
 			}
+
 			if(!empty($insert_multi))
 			{
 				$have_term_to_save_log = true;
 				\lib\db\form_tagusage\insert::multi_insert($insert_multi);
+			}
+
+			if(\dash\engine\process::status())
+			{
+				\dash\pdo::commit();
+			}
+			else
+			{
+				\dash\pdo::rollback();
+				\dash\notif::error(T_("Can not save your tag detail"));
+				return false;
 			}
 		}
 
@@ -395,10 +419,70 @@ class add
 	}
 
 
+	private static function auto_comment_sms_tag($_tag_id, $_answer_id, $_form_id, $_tags_detail)
+	{
+		if(isset($_tags_detail[$_tag_id]))
+		{
+			$tag_detail = $_tags_detail[$_tag_id];
+
+			if(isset($tag_detail['autocomment']) && $tag_detail['autocomment'] && isset($tag_detail['comment']) && $tag_detail['comment'])
+			{
+
+				$new_color = null;
+				switch ($tag_detail['color'])
+				{
+					case 'red':
+						$new_color = 'danger';
+						break;
+
+					case 'green':
+						$new_color = 'success';
+						break;
+
+					case 'blue':
+						$new_color = 'primary';
+						break;
+
+					case 'black':
+						$new_color = 'dark';
+						break;
+
+					default:
+						$new_color = null;
+						break;
+				}
+
+				$add_comment =
+				[
+					'comment'     => $tag_detail['comment'],
+					'privacy'     => a($tag_detail, 'privacy'),
+					'color'       => $new_color,
+					'form_id'     => $_form_id,
+					'answer_id'   => $_answer_id,
+					'from_tag_id' => $_tag_id,
+				];
+
+				\lib\app\form\comment\add::add($add_comment, true);
+			}
 
 
-
-
-
+			if(isset($tag_detail['sendsms']) && $tag_detail['sendsms'] && isset($tag_detail['smstext']) && $tag_detail['smstext'])
+			{
+				$load_answer = \lib\app\form\answer\get::by_id($_answer_id);
+				if(isset($load_answer['user_id']) && $load_answer['user_id'])
+				{
+					// send notif by sms for nabarvari.khadije.com
+					if(intval(\lib\store::id()) === 1000089)
+					{
+						\dash\log::send_sms($load_answer['user_id'], $tag_detail['smstext']);
+					}
+					else
+					{
+						\dash\log::send_notif($load_answer['user_id'], $tag_detail['smstext']);
+					}
+				}
+			}
+		}
+	}
 }
 ?>

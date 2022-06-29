@@ -16,6 +16,7 @@ class view
 
 		\dash\face::btnExport(\dash\url::that(). '/export?id='. \dash\request::get('id'));
 
+		\content_a\form\edit\view::form_preview_link();
 
 		\dash\data::listEngine_start(true);
 

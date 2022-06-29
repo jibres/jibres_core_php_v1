@@ -23,12 +23,16 @@ class model
 		}
 
 
-		$args            = [];
-		$args['title']   = \dash\request::post('title');
-		$args['desc']    = \dash\request::post('desc');
-		$args['slug']    = \dash\request::post('slug');
-		$args['privacy'] = \dash\request::post('privacy');
-		$args['color']   = \dash\request::post('color');
+		$args                = [];
+		$args['title']       = \dash\request::post('title');
+		$args['desc']        = \dash\request::post('desc');
+		$args['slug']        = \dash\request::post('slug');
+		$args['privacy']     = \dash\request::post('privacy');
+		$args['color']       = \dash\request::post('color');
+		$args['autocomment'] = \dash\request::post('autocomment');
+		$args['comment']     = \dash\request::post('comment');
+		$args['sendsms']     = \dash\request::post('sendsms');
+		$args['smstext']     = \dash\request::post('smstext');
 
 		$result = \lib\app\form\tag\edit::edit($args, $id);
 

@@ -387,6 +387,17 @@ else
 								}
 								$html .= '>';
 								$html .= $value['title'];
+
+								if(a($value, 'autocomment'))
+								{
+									$html .= ' 💬 ';
+								}
+
+								if(a($value, 'sendsms'))
+								{
+									$html .= ' 📱 ';
+								}
+
 								$html .= '</option>';
 							}
 						}
@@ -609,12 +620,25 @@ else
 												$html .= '<tbody>';
 												{
 
-													$html .= '<tr>';
+													if(a($value, 'from_tag_id'))
 													{
-														$html .= '<th>'. T_("Operator").'</th>';
-														$html .= '<td>'. a($value, 'displayname'). '</td>';
+														$html .= '<tr>';
+														{
+															$html .= '<th>'. T_("Auto note from tag").'</th>';
+															$html .= '<td>'. \lib\app\form\tag\get::get_title($value['from_tag_id']). '</td>';
+														}
+														$html .= '</tr>';
 													}
-													$html .= '</tr>';
+
+													if(a($value, 'displayname'))
+													{
+														$html .= '<tr>';
+														{
+															$html .= '<th>'. T_("Operator").'</th>';
+															$html .= '<td>'. a($value, 'displayname'). '</td>';
+														}
+														$html .= '</tr>';
+													}
 
 													$html .= '<tr>';
 													{
@@ -629,6 +653,7 @@ else
 														$html .= '<td>'. \dash\fit::date_time(a($value, 'date')). '</td>';
 													}
 													$html .= '</tr>';
+
 
 													if(a($value, 'dateview'))
 													{

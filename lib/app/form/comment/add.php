@@ -4,18 +4,22 @@ namespace lib\app\form\comment;
 
 class add
 {
-	public static function add($_args)
+	public static function add($_args, $_force = false)
 	{
-		\dash\permission::access('FormDescription');
+		if(!$_force)
+		{
+			\dash\permission::access('FormDescription');
+		}
 
 		$condition =
 		[
-			'comment'   => 'desc',
-			'privacy'   => ['enum' => ['public', 'private']],
-			'color'     => ['enum' => ['primary','secondary','success','danger','warning','info','light','dark',]],
-			'form_id'   => 'id',
-			'answer_id' => 'id',
-			'file'      => 'bit',
+			'comment'     => 'desc',
+			'privacy'     => ['enum' => ['public', 'private']],
+			'color'       => ['enum' => ['primary','secondary','success','danger','warning','info','light','dark',]],
+			'form_id'     => 'id',
+			'answer_id'   => 'id',
+			'from_tag_id' => 'id',
+			'file'        => 'bit',
 		];
 
 		$require = ['comment', 'form_id', 'answer_id'];
@@ -47,6 +51,7 @@ class add
 			'answer_id'   => $answer_id,
 			'privacy'     => $data['privacy'],
 			'color'       => $data['color'],
+			'from_tag_id' => $data['from_tag_id'],
 			'content'     => $data['comment'],
 			'user_id'     => \dash\user::id(),
 			'file'        => null,

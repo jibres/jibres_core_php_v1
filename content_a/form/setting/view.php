@@ -15,6 +15,8 @@ class view
 		$form_id = \dash\request::get('id');
 
 		\dash\face::btnSave('form1');
+
+		\content_a\form\edit\view::form_preview_link();
 	}
 }
 ?>

@@ -35,6 +35,7 @@ class get
 		}
 
 		$result = \lib\db\form_tag\get::all_tag($id);
+
 		return $result;
 	}
 
@@ -115,6 +116,17 @@ class get
 		}
 
 		return $load;
+	}
+
+
+	public static function get_title($_id)
+	{
+		$load = self::inline_get($_id);
+		if(isset($load['title']))
+		{
+			return $load['title'];
+		}
+		return null;
 	}
 
 
