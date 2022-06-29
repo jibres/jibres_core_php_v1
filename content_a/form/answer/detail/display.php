@@ -187,11 +187,14 @@ else
 							$html .= '<td>';
 							{
 								$html .= '<span><code class="inline-block font-bold">'. \dash\request::get('id'). '_'.\dash\request::get('aid'). '</code></span>';
+								$html .= '<a class="btn-link" href="'. \dash\url::that(). '/edit'. \dash\request::full_get(). '">'. T_("Edit"). "</div>";
 							}
 							$html .= '</td>';
 
 						}
 						$html .= '</tr>';
+
+
 
 						$html .= '<tr>';
 						{
