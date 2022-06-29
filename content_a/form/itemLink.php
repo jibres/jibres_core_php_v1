@@ -22,6 +22,12 @@
 <nav class="items">
  <ul>
       <li><a class="f item" href="<?php echo \dash\url::this(). '/answer?id='. \dash\request::get('id'); ?>"><i class="sf-file"></i><div class="key"><?php echo T_("Answers");?></div><div class="go"></div></a></li>
+      <li>
+        <a class="f" href="<?php echo \dash\url::this(). '/answer/add?id='. \dash\request::get('id') ?>">
+         <div class="go plus"></div>
+         <div class="key"><?php echo T_("Answer to this form") ?></div>
+       </a>
+      </li>
       <li><a class="f item" href="<?php echo \dash\url::this(). '/report?id='. \dash\request::get('id'); ?>"><i class="sf-pie-chart"></i><div class="key"><?php echo T_("Reports");?></div><div class="go"></div></a></li>
  </ul>
 </nav>
@@ -34,6 +40,7 @@
  </ul>
 </nav>
 <?php } //endif ?>
+
 
 <nav class="items">
  <ul>

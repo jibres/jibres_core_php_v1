@@ -29,6 +29,11 @@ class model
 		$answer['user_id']   = \lib\store::in_store() ? \dash\user::id() : null;
 		$answer['answer']    = [];
 
+		if(\dash\data::fillByAdmin())
+		{
+			$answer['user_id'] = null;
+		}
+
 		foreach ($post as $key => $value)
 		{
 			if(preg_match("/^a_(\d+)$/", $key, $split))
