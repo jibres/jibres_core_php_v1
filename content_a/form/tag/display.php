@@ -43,15 +43,20 @@ if(!is_array($dataTable))
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
      <li>
       <a class="f" href="<?php echo \dash\url::that(). '/edit?'. \dash\request::fix_get(['tid' => a($value, 'id')]); ?>">
-        <div class="key" title='<?php echo a($value, 'full_slug'); ?>'><?php echo a($value, 'title'); ?></div>
+        <div class="key" title='<?php echo a($value, 'full_slug'); ?>'>
+          <?php echo a($value, 'title');
+            if(a($value, 'autocomment'))
+            {
+              echo ' 💬 ';
+            }
 
-            <?php if(isset($value['variants_detail']['stock'])) {?>
-              <div class="key"><b><?php echo \dash\fit::number($value['variants_detail']['stock']); ?></b> <?php echo T_("in stock"); ?></div>
-            <?php } //endif ?>
+            if(a($value, 'sendsms'))
+            {
+              echo  ' 📱 ';
+            }
+          ?>
 
-            <?php if(isset($value['variants_detail']['count'])) {?>
-              <div class="key cauto"><?php echo T_("For"); ?> <b><?php echo \dash\fit::number($value['variants_detail']['count']); ?></b> <?php echo T_("variants"); ?></div>
-            <?php } //endif ?>
+          </div>
 
         <div class="value"><?php echo \dash\fit::number(a($value, 'count')); ?> <small><?php echo T_("Answer"); ?></small></div>
         <div class="go"></div>
