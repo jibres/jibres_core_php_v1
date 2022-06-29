@@ -118,6 +118,17 @@ class get
 	}
 
 
+	public static function get_title($_id)
+	{
+		$load = self::inline_get($_id);
+		if(isset($load['title']))
+		{
+			return $load['title'];
+		}
+		return null;
+	}
+
+
 	public static function get($_id)
 	{
 		\dash\permission::access('_group_form');
