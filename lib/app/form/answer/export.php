@@ -327,11 +327,11 @@ class export
 		{
 			$new_export[$answer_id]['answer_id'] = $answer_id;
 
-			foreach ($answer_detail as $item_id => $answer)
+			foreach ($answer_detail as $item_id => $answerDetail)
 			{
-				if(is_array($answer))
+				if(is_array($answerDetail))
 				{
-					foreach ($answer as $choice => $choice_answer)
+					foreach ($answerDetail as $choice => $choice_answer)
 					{
 						if(is_array($choice_answer))
 						{
@@ -343,11 +343,11 @@ class export
 				}
 				elseif(is_numeric($item_id))
 				{
-					$new_export[$answer_id][$items[$item_id]['id']] = $answer;
+					$new_export[$answer_id][$items[$item_id]['id']] = $answerDetail;
 				}
 				else
 				{
-					$new_export[$answer_id][$item_id] = $answer;
+					$new_export[$answer_id][$item_id] = $answerDetail;
 				}
 			}
 		}
@@ -408,16 +408,28 @@ class export
 				$temp[$new_key] = $value;
 			}
 
-			$load_tags        = \lib\db\form_tag\get::string_all_tag($answer_id);
-			$load_comments    = \lib\db\form_comment\get::string_all_comment($answer_id);
-			$temp['tags']     = $load_tags;
-			$temp['comments'] = $load_comments;
+			$load_tags           = \lib\db\form_tag\get::string_all_tag($answer_id);
+			$load_comments       = \lib\db\form_comment\get::string_all_comment($answer_id);
+			$temp['tags']        = $load_tags;
+			$temp['comments']    = $load_comments;
+			$temp['inquirytime'] = null;
+
 
 			$replace_item_id_to_item_title[$answer_id] = $temp;
 		}
 
 
-
+		foreach ($answer as $key => $value)
+		{
+			if(isset($value['inquirytimes']) && $value['inquirytimes'])
+			{
+				$times = json_decode($value['inquirytimes'], true);
+				if(isset($times['last']['time']) && isset($value['id']) && isset($replace_item_id_to_item_title[$value['id']]))
+				{
+					$replace_item_id_to_item_title[$value['id']]['inquirytime'] = \dash\utility\convert::to_en_number(\dash\fit::date_time($times['last']['time']));
+				}
+			}
+		}
 
 		return $replace_item_id_to_item_title;
 
