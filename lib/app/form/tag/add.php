@@ -471,7 +471,15 @@ class add
 				$load_answer = \lib\app\form\answer\get::by_id($_answer_id);
 				if(isset($load_answer['user_id']) && $load_answer['user_id'])
 				{
-					\dash\log::send_sms($load_answer['user_id'], $tag_detail['smstext']);
+					// send notif by sms for nabarvari.khadije.com
+					if(intval(\lib\store::id()) === 1000089)
+					{
+						\dash\log::send_sms($load_answer['user_id'], $tag_detail['smstext']);
+					}
+					else
+					{
+						\dash\log::send_notif($load_answer['user_id'], $tag_detail['smstext']);
+					}
 				}
 			}
 		}
