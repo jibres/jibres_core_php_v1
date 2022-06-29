@@ -68,10 +68,25 @@
 
       <div class="box">
         <div class="pad">
-
-            <div class="mb-2">
-              <label for="desc"><?php echo T_("Description") ?></label>
-              <textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
+            <div class="check1">
+              <input type="checkbox" name="autocomment" id="autocomment" <?php if(\dash\data::dataRow_autocomment()) {echo 'checked';} ?>>
+              <label for="autocomment"><?php echo T_("Save auto note after add this tag to answer?") ?></label>
+            </div>
+            <div data-response='autocomment' <?php if(\dash\data::dataRow_autocomment()){/*nothing*/}else{echo 'data-response-hide';} ?>>
+              <div class="mb-2">
+                <label for="comment"><?php echo T_("Note text") ?></label>
+                <textarea name="comment" class="txt" rows="3" id="comment" ><?php echo \dash\data::dataRow_comment(); ?></textarea>
+              </div>
+            </div>
+            <div class="check1">
+              <input type="checkbox" name="sendsms" id="sendsms" <?php if(\dash\data::dataRow_sendsms()) {echo 'checked';} ?>>
+              <label for="sendsms"><?php echo T_("Send notification after add this tag to answer?") ?></label>
+            </div>
+            <div data-response='sendsms' <?php if(\dash\data::dataRow_sendsms()){/*nothing*/}else{echo 'data-response-hide';} ?>>
+              <div class="mb-2">
+                <label for="smstext"><?php echo T_("SMS text") ?></label>
+                <textarea name="smstext" class="txt" rows="3" id="smstext" ><?php echo \dash\data::dataRow_smstext(); ?></textarea>
+              </div>
             </div>
         </div>
       </div>
