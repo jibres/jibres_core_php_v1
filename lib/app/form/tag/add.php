@@ -468,15 +468,13 @@ class add
 
 			if(isset($tag_detail['sendsms']) && $tag_detail['sendsms'] && isset($tag_detail['smstext']) && $tag_detail['smstext'])
 			{
-				// var_dump($tag_detail);
-				// exit;
+				$load_answer = \lib\app\form\answer\get::by_id($_answer_id);
+				if(isset($load_answer['user_id']) && $load_answer['user_id'])
+				{
+					\dash\log::send_sms($load_answer['user_id'], $tag_detail['smstext']);
+				}
 			}
 		}
 	}
-
-
-
-
-
 }
 ?>
