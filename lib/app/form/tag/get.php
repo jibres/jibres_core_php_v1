@@ -35,6 +35,7 @@ class get
 		}
 
 		$result = \lib\db\form_tag\get::all_tag($id);
+
 		return $result;
 	}
 

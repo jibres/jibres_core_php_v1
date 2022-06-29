@@ -387,6 +387,17 @@ else
 								}
 								$html .= '>';
 								$html .= $value['title'];
+
+								if(a($value, 'autocomment'))
+								{
+									$html .= ' 💬 ';
+								}
+
+								if(a($value, 'sendsms'))
+								{
+									$html .= ' 📱 ';
+								}
+
 								$html .= '</option>';
 							}
 						}

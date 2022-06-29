@@ -26,7 +26,9 @@ class get
 	public static function all_tag($_id)
 	{
 
-		$query  = "SELECT form_tag.id, form_tag.title FROM form_tag WHERE form_tag.form_id = $_id ";
+		$query  =
+		"
+			SELECT form_tag.id, form_tag.title, form_tag.autocomment, form_tag.sendsms FROM form_tag WHERE form_tag.form_id = $_id ";
 		$result = \dash\pdo::get($query);
 		return $result;
 	}
