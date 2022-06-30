@@ -30,8 +30,8 @@ class view
 
 
 		$args                = [];
-		$args['sort']        = 'id';
-		$args['order']       = 'desc';
+		$args['sort']        = \dash\request::get('sort');
+		$args['order']       = \dash\request::get('order');
 		$args['form_id']     = \dash\request::get('id');
 		$args['tag_id']      = \dash\request::get('tagid');
 
