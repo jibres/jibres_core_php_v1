@@ -25,18 +25,29 @@
 
 			</div>
 
-			<?php if(a(\dash\data::itemDetail(), 'type_detail', 'require') === false){/*nothing*/}else{ ?>
+		<?php if(a(\dash\data::itemDetail(), 'type_detail', 'require') === false){/*nothing*/}else{ ?>
 			<div class="mt-2">
 				<input type="hidden" name="item_checkrequire_<?php echo $myKey ?>" value="1">
 			<div class="switch1">
-				<input type="checkbox" name="item_require_<?php echo $myKey ?>" id="check1<?php echo $myKey; ?>" <?php if(a($value, 'require')) { echo 'checked';} ?>>
-				<label for="check1<?php echo $myKey; ?>"><?php echo T_("Is required?"); ?></label>
-				<label for="check1<?php echo $myKey; ?>"><?php echo T_("Is required?"); ?></label>
+				<input type="checkbox" name="item_require_<?php echo $myKey ?>" id="check1hidden<?php echo $myKey; ?>" <?php if(a($value, 'require')) { echo 'checked';} ?>>
+				<label for="check1hidden<?php echo $myKey; ?>"><?php echo T_("Is required?"); ?></label>
+				<label for="check1hidden<?php echo $myKey; ?>"><?php echo T_("Is required?"); ?></label>
 			</div>
 			</div>
 		<?php } //endif ?>
 
 			<?php settingRecord(\dash\data::itemDetail()); ?>
+
+
+			<div class="mt-2">
+				<input type="hidden" name="item_checkhidden_<?php echo $myKey ?>" value="1">
+			<div class="switch1">
+				<input type="checkbox" name="item_hidden_<?php echo $myKey ?>" id="check1<?php echo $myKey; ?>" <?php if(a($value, 'hidden')) { echo 'checked';} ?>>
+				<label for="check1<?php echo $myKey; ?>"><?php echo T_("Hidden"); ?></label>
+				<label for="check1<?php echo $myKey; ?>"><?php echo T_("Hidden"); ?> <small><?php echo T_("Only you can view this item and edit answer") ?></small></label>
+			</div>
+			</div>
+
 		</div>
 		<footer class="f">
 			<div class="cauto"><div class="btn-link-danger" data-confirm data-data='{"removeitem": "removeitem"}'><?php echo T_("Remove question") ?></div></div>

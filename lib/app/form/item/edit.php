@@ -85,6 +85,13 @@ class edit
 
 		unset($args['checkrequire']);
 
+		if(isset($args['checkhidden']))
+		{
+			$_args['hidden'] = 1;
+		}
+
+		unset($args['checkhidden']);
+
 		$args = \dash\cleanse::patch_mode($_args, $args);
 
 		foreach ($args as $key => $value)

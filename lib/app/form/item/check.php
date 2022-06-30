@@ -37,6 +37,8 @@ class check
 			'link'         => 'string_200',
 			'targetblank'  => 'bit',
 			'checkrequire' => 'bit',
+			'hidden'       => 'bit',
+			'checkhidden'  => 'bit',
 			'uniquelist'   => 'longtext',
 		];
 

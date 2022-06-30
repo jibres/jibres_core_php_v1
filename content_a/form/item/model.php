@@ -32,6 +32,8 @@ class model
 			'type',
 			'require',
 			'checkrequire',
+			'hidden',
+			'checkhidden',
 			'maxlen',
 			'length',
 			'placeholder',

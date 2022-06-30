@@ -23,6 +23,7 @@ class add
 		}
 
 		unset($args['checkrequire']);
+		unset($args['checkhidden']);
 
 
 		$args['datecreated'] = date("Y-m-d H:i:s");
