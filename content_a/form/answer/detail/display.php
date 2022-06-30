@@ -183,7 +183,7 @@ else
 
 						$html .= '<tr>';
 						{
-							$html .= '<th>'. T_("Answer id").'</th>';
+							$html .= '<th class="text-sm">'. T_("Answer id").'</th>';
 							$html .= '<td>';
 							{
 								$html .= '<span><code class="inline-block font-bold">'. \dash\request::get('id'). '_'.\dash\request::get('aid'). '</code></span>';
@@ -198,7 +198,7 @@ else
 
 						$html .= '<tr>';
 						{
-							$html .= '<th>'. T_("Print").'</th>';
+							$html .= '<th class="text-sm">'. T_("Print").'</th>';
 							$html .= '<td>';
 							{
 								$html .= '<a class="font-14" href="'. \dash\url::current(). \dash\request::full_get(['print' => 1]). '"><i class="sf-print"></i></a>';
@@ -212,7 +212,7 @@ else
 						{
 							$html .= '<tr>';
 							{
-								$html .= '<th>'. T_("View ticket").'</th>';
+								$html .= '<th class="text-sm">'. T_("View ticket").'</th>';
 								$html .= '<td>';
 								{
 									$html .= '<a class="btn-link" href="'. \dash\url::kingdom().'/crm/ticket/view?id='. \dash\data::answerDetail_ticket_id(). '">'. T_("Ticket :val", ['val' => \dash\fit::number(\dash\data::answerDetail_ticket_id())]).'</a>';
@@ -226,7 +226,7 @@ else
 						{
 							$html .= '<tr>';
 							{
-								$html .= '<th>'. T_("Save as ticket").'</th>';
+								$html .= '<th class="text-sm">'. T_("Save as ticket").'</th>';
 								$html .= '<td>';
 								{
 									$html .= '<div class="btn-link" data-confirm data-data=\'{"save_as_ticket" : "save_as_ticket"}\'>'. T_("Save this answer as a ticket"). '</a>';
@@ -240,7 +240,7 @@ else
 
 						$html .= '<tr>';
 						{
-							$html .= '<th>'. T_("Answer status").'</th>';
+							$html .= '<th class="text-sm">'. T_("Answer status").'</th>';
 							$html .= '<td>';
 							{
 								$status =
@@ -311,7 +311,7 @@ else
 						{
 							$html .= '<tr>';
 							{
-								$html .= '<th>'. T_("Remove answer").'</th>';
+								$html .= '<th class="text-sm">'. T_("Remove answer").'</th>';
 								$html .= '<td>';
 								{
 									$html .= '<div data-confirm data-data=\'{"setstatus" : "setstatus", "status" : "deleted"}\' data-method="post">';
@@ -331,7 +331,7 @@ else
 						{
 							$html .= '<tr>';
 							{
-								$html .= '<th>'. T_("View Order").'</th>';
+								$html .= '<th class="text-sm">'. T_("View Order").'</th>';
 								$html .= '<td>';
 								{
 									$html .= '<a href="'. \dash\url::kingdom(). '/a/order/comment?id='. a(\dash\data::answerDetail(), 'factor_id'). '">'. T_("View Order"). '</a>';
@@ -450,7 +450,7 @@ else
 										{
 											$html .= '<tr>';
 											{
-												$html .= '<th>'. T_("Last inquiry time").'</th>';
+												$html .= '<th class="text-sm">'. T_("Last inquiry time").'</th>';
 												$html .= '<td>'. \dash\fit::date_time(a($inquerytimes, 'first', 'time'), 'l j F Y H:i'). '</td>';
 											}
 											$html .= '</tr>';
@@ -459,19 +459,19 @@ else
 										{
 											$html .= '<tr>';
 											{
-												$html .= '<th>'. T_("First inquiry time").'</th>';
+												$html .= '<th class="text-sm">'. T_("First inquiry time").'</th>';
 												$html .= '<td>'. \dash\fit::date_time(a($inquerytimes, 'first', 'time'), 'l j F Y H:i'). '</td>';
 											}
 											$html .= '</tr>';
 											$html .= '<tr>';
 											{
-												$html .= '<th>'. T_("Count inquiry").'</th>';
+												$html .= '<th class="text-sm">'. T_("Count inquiry").'</th>';
 												$html .= '<td>'. \dash\fit::number(a($inquerytimes, 'count')). ' '. T_("times"). '</td>';
 											}
 											$html .= '</tr>';
 											$html .= '<tr>';
 											{
-												$html .= '<th>'. T_("Last inquiry time").'</th>';
+												$html .= '<th class="text-sm">'. T_("Last inquiry time").'</th>';
 												$html .= '<td>'. \dash\fit::date_time(a($inquerytimes, 'last', 'time'), 'l j F Y H:i'). '</td>';
 											}
 											$html .= '</tr>';
@@ -627,7 +627,7 @@ else
 													{
 														$html .= '<tr>';
 														{
-															$html .= '<th>'. T_("Auto note from tag").'</th>';
+															$html .= '<th class="text-sm">'. T_("Auto note from tag").'</th>';
 															$html .= '<td>'. \lib\app\form\tag\get::get_title($value['from_tag_id']). '</td>';
 														}
 														$html .= '</tr>';
@@ -637,7 +637,7 @@ else
 													{
 														$html .= '<tr>';
 														{
-															$html .= '<th>'. T_("Operator").'</th>';
+															$html .= '<th class="text-sm">'. T_("Operator").'</th>';
 															$html .= '<td>'. a($value, 'displayname'). '</td>';
 														}
 														$html .= '</tr>';
@@ -645,14 +645,14 @@ else
 
 													$html .= '<tr>';
 													{
-														$html .= '<th>'. T_("Type").'</th>';
+														$html .= '<th class="text-sm">'. T_("Type").'</th>';
 														$html .= '<td>'. T_(ucfirst(strval(a($value, 'privacy')))). '</td>';
 													}
 													$html .= '</tr>';
 
 													$html .= '<tr>';
 													{
-														$html .= '<th>'. T_("Date").'</th>';
+														$html .= '<th class="text-sm">'. T_("Date").'</th>';
 														$html .= '<td>'. \dash\fit::date_time(a($value, 'date')). '</td>';
 													}
 													$html .= '</tr>';
