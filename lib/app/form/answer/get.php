@@ -145,7 +145,32 @@ class get
 			{
 				$result .= \dash\fit::date($value['answer']);
 			}
+		}
+		elseif(a($value, 'item_type') === 'yes_no' || a($value, 'item_type') === 'gender')
+		{
+			if(a($value, 'answer'))
+			{
+				$result .= T_($value['answer']);
+			}
+		}
+		elseif(in_array(a($value, 'item_type'), ['manual_amount' , 'list_amount', 'hidden_amount']))
+		{
+			if(a($value, 'answer'))
+			{
+				$result .= \dash\fit::number($value['answer']). ' '. \lib\store::currency();
+			}
+		}
 
+		elseif(a($value, 'item_type') === 'agree')
+		{
+			if(a($value, 'answer'))
+			{
+				$result .= T_('Yes');
+			}
+			else
+			{
+				$result .= T_('No');
+			}
 		}
 		elseif(a($value, 'province_name') || a($value, 'city_name'))
 		{
