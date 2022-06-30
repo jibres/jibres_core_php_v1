@@ -31,16 +31,17 @@ class search
 
 		$condition =
 		[
-			'order'      => 'order',
-			'sort'       => ['enum' => ['title', 'id']],
-			'type'       => ['enum' => ['assistant', 'group', 'total', 'details']],
-			'answer_id'  => 'id',
-			'form_id'    => 'id',
-			'item_id'    => 'id',
-			'export'     => 'bit',
-			'filter_id'  => 'id',
-			'table_name' => 'string_100',
-			'get_count'  => 'bit',
+			'order'        => 'order',
+			'sort'         => ['enum' => ['title', 'id']],
+			'type'         => ['enum' => ['assistant', 'group', 'total', 'details']],
+			'answer_id'    => 'id',
+			'form_id'      => 'id',
+			'item_id'      => 'id',
+			'export'       => 'bit',
+			'filter_id'    => 'id',
+			'table_name'   => 'string_100',
+			'get_count'    => 'bit',
+			'sort_by_item' => 'bit',
 		];
 
 		$require = [];
@@ -49,11 +50,12 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and          = [];
+		$meta         = [];
+		$meta['join'] = [];
+		$or           = [];
 
-		$meta['limit'] = 50;
+		$meta['limit'] = 200;
 		if($data['export'])
 		{
 			$meta['pagination'] = false;
@@ -146,6 +148,11 @@ class search
 
 				$order_sort = " ORDER BY $sort $order";
 			}
+		}
+
+		if($data['sort_by_item'])
+		{
+			$order_sort     = " ORDER BY form_item.sort ASC, form_item.id ASC";
 		}
 
 		if(!$order_sort)

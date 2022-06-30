@@ -14,8 +14,9 @@ class view
 
 		$args              = [];
 
-		$args['answer_id'] = \dash\request::get('aid');
-		$args['form_id']   = \dash\request::get('id');
+		$args['answer_id']    = \dash\request::get('aid');
+		$args['form_id']      = \dash\request::get('id');
+		$args['sort_by_item'] = true;
 
 		$q = \dash\validate::search_string();
 
