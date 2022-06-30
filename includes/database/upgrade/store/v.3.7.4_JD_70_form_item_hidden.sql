@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.form_item ADD `hidden` bit  NULL DEFAULT NULL;
