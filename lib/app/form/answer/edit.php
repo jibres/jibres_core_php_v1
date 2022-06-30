@@ -145,7 +145,15 @@ class edit
 					{
 						if(a($old_answer, 'type') === 'file')
 						{
-							// not remove file
+							if(\dash\request::files('a_'. a($old_answer, 'id')))
+							{
+								$must_remove_old_answer[] = $the_old_answer['answer_detail_id'];
+							}
+							else
+							{
+								// file not uploaded. we dont need to remove it
+								// do nothing
+							}
 						}
 						else
 						{

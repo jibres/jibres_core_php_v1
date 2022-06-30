@@ -17,6 +17,9 @@ class controller
 
 		\dash\data::formDetail($load);
 
+
+		\dash\allow::file();
+
 	}
 
 }
