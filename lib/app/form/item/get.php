@@ -265,6 +265,12 @@ class get
 						$this_answer = $one_answer['answer'];
 					}
 
+					if(in_array($item['type'], ['date', 'birthdate']) && $this_answer)
+					{
+						$this_answer = \dash\utility\convert::to_en_number(\dash\fit::date($this_answer));
+					}
+
+
 					$items[$key]['user_answer'][] =
 					[
 						'answer_detail_id' => a($one_answer, 'id'),
