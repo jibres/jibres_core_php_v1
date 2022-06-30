@@ -35,6 +35,12 @@ class view
 
 		\dash\data::formItems($load_items);
 
+		\dash\face::btnInsert('jformbuilder');
+		\dash\face::btnInsertText(T_("Save"));
+
+
+
+
 
 	}
 
