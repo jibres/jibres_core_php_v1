@@ -1277,7 +1277,31 @@ class generator
 
 			if(a($value, 'user_answer', 0, 'answer'))
 			{
-				self::$html .= '<a class="btn-secondary" target="_blank" href="'. \lib\filepath::fix($value['user_answer'][0]['answer']). '">'. T_("Show file"). '</a>';
+				self::$html .= '<div class="row" data-removeElement>';
+				{
+					self::$html .= '<div class="c-auto">';
+					{
+						self::$html .= '<a class="btn-secondary" target="_blank" href="'. \lib\filepath::fix($value['user_answer'][0]['answer']). '">'. T_("Show file"). '</a>';
+					}
+					self::$html .= '</div>';
+
+					self::$html .= '<div class="c-auto">';
+					{
+						if(a($value, 'user_answer', 0, 'answer_detail_id'))
+						{
+							self::$html .= '<div data-confirm data-data=\'{"remove_file":"remove_file","answer_detail_id":"'.$value['user_answer'][0]['answer_detail_id'].'"}\' class="imageDel">';
+							{
+								self::$html .= \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-4 m-3');
+							}
+							self::$html .= '</div>';
+						}
+
+					}
+					self::$html .= '</div>';
+				}
+				self::$html .= '</div>';
+
+
 			}
 
 			self::HtmlDesc($value);
