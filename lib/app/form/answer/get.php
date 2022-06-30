@@ -139,6 +139,14 @@ class get
 			}
 
 		}
+		elseif(a($value, 'item_type') === 'date' || a($value, 'item_type') === 'birthdate')
+		{
+			if(a($value, 'answer'))
+			{
+				$result .= \dash\fit::date($value['answer']);
+			}
+
+		}
 		elseif(a($value, 'province_name') || a($value, 'city_name'))
 		{
 			$result.= a($value, 'province_name');
