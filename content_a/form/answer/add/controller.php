@@ -19,6 +19,9 @@ class controller
 
 		\dash\data::formId($form_id);
 		\dash\data::fillByAdmin(true);
+
+
+		\dash\allow::file();
 	}
 
 }
