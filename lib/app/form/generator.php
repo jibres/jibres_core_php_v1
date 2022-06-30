@@ -120,7 +120,7 @@ class generator
 
 		self::$html = '';
 
-		self::$html .= '<form method="post" autocomplete="off" action="'. $action.'" data-clear>';
+		self::$html .= '<form id="jformbuilder" method="post" autocomplete="off" action="'. $action.'" data-clear>';
 		{
 			self::$html .= '<div class="">';
 			{
@@ -192,7 +192,7 @@ class generator
 
 		self::$html = '';
 
-		self::$html .= '<form method="post" autocomplete="off">';
+		self::$html .= '<form id="jformbuilder" method="post" autocomplete="off">';
 		{
 
 			self::$html .= '<div class="">';
@@ -285,7 +285,7 @@ class generator
 
 		self::$html = '';
 
-		self::$html .= '<form method="post" autocomplete="off">';
+		self::$html .= '<form id="jformbuilder" method="post" autocomplete="off">';
 		{
 
 			self::$html .= '<div class="">';
