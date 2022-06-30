@@ -60,12 +60,19 @@ class add
 
 		if(a($_meta, 'edit_mode') === true && a($_meta, 'answer_id'))
 		{
-			$check_true_item = \lib\app\form\item\get::items_answer($form_id, $_meta['answer_id'], true);
+			$check_true_item = \lib\app\form\item\get::items_answer($form_id, $_meta['answer_id'], true, true);
 			$edit_mode = true;
 		}
 		else
 		{
-			$check_true_item = \lib\app\form\item\get::items($form_id);
+			if(\dash\data::fillByAdmin())
+			{
+				$check_true_item = \lib\app\form\item\get::items($form_id, false, false, true);
+			}
+			else
+			{
+				$check_true_item = \lib\app\form\item\get::items($form_id);
+			}
 		}
 
 
@@ -677,7 +684,7 @@ class add
 		{
 			if(isset($my_answer))
 			{
-				if(isset($my_answer[0]))
+				if(is_array($my_answer) && isset($my_answer[0]))
 				{
 					foreach ($my_answer as $my_answer_one)
 					{

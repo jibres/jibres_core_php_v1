@@ -179,7 +179,7 @@ class generator
 
 
 
-	public static function full_html($_form_id)
+	public static function full_html($_form_id, $_option = [])
 	{
 		$load_form = \lib\app\form\form\get::public_get($_form_id);
 
@@ -188,7 +188,7 @@ class generator
 			return null;
 		}
 
-		$load_items = \lib\app\form\item\get::items($_form_id);
+		$load_items = \lib\app\form\item\get::items($_form_id, false, a($_option, 'delete_item'), a($_option, 'hidden_item'));
 
 		self::$html = '';
 
@@ -270,7 +270,7 @@ class generator
 		{
 			self::$load_answer = true;
 
-			$load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'), true);
+			$load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'), true, true);
 
 			if(is_array($load_items))
 			{
@@ -491,6 +491,11 @@ class generator
 		if(a($value, 'status') === 'deleted')
 		{
 		 	self::$html .= ' <small class="text-red-800">('.  T_("Deleted"). ')</small>';
+		}
+
+		if(a($value, 'hidden'))
+		{
+		 	self::$html .= ' <small class="text-gray-500"> /* '.  T_("Hidden"). ' */ </small>';
 		}
 	}
 

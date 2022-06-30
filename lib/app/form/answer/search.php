@@ -29,7 +29,7 @@ class search
 		$condition =
 		[
 			'order'       => 'order',
-			'sort'        => ['enum' => ['id']],
+			'sort'        => ['enum' => ['id', 'datecreated']],
 			'type'        => ['enum' => ['assistant', 'group', 'total', 'details']],
 			'status'      => ['enum' => ['draft','active','spam', 'archive', 'deleted']],
 			'form_id'     => 'id',
@@ -119,7 +119,7 @@ class search
 
 
 
-		$check_order_trust = \lib\app\product\filter::check_allow($data['sort'], $data['order']);
+		$check_order_trust = \lib\app\form\answer\filter::check_allow($data['sort'], $data['order']);
 
 		if($check_order_trust)
 		{
@@ -135,7 +135,7 @@ class search
 
 		if(!$order_sort)
 		{
-			$order_sort = " ORDER BY form_answer.id ASC";
+			$order_sort = " ORDER BY form_answer.id DESC";
 		}
 
 		$list = \lib\db\form_answer\search::list($param, $and, $or, $order_sort, $meta);

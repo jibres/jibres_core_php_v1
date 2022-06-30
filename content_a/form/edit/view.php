@@ -18,7 +18,7 @@ class view
 		\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $form_id);
 
 
-		$items = \lib\app\form\item\get::items($form_id);
+		$items = \lib\app\form\item\get::items($form_id, false, false, true);
 
 		\dash\data::formItems($items);
 

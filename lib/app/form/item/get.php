@@ -14,7 +14,7 @@ class get
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
-	public static function items($_form_id, $_load_choice = true, $_all_item = false)
+	public static function items($_form_id, $_load_choice = true, $_deleted_item = false, $_hidden_item = false)
 	{
 		$_form_id = \dash\validate::id($_form_id);
 		if(!$_form_id)
@@ -23,7 +23,7 @@ class get
 			return false;
 		}
 
-		$list = \lib\db\form_item\get::by_form_id($_form_id, $_all_item);
+		$list = \lib\db\form_item\get::by_form_id($_form_id, $_deleted_item, $_hidden_item);
 
 		if(!is_array($list))
 		{
@@ -218,11 +218,11 @@ class get
 
 
 
-	public static function items_answer($_form_id, $_answer_id, $_full = false)
+	public static function items_answer($_form_id, $_answer_id, $_deleted_item = false, $_hidden_item = false)
 	{
 		\dash\permission::access('_group_form');
 
-		$items         = self::items($_form_id, true, $_full);
+		$items         = self::items($_form_id, true, $_deleted_item, $_hidden_item);
 
 		$_answer_id = \dash\validate::id($_answer_id);
 		if(!$_answer_id)

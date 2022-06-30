@@ -194,19 +194,30 @@ else
 						}
 						$html .= '</tr>';
 
-
-
 						$html .= '<tr>';
 						{
-							$html .= '<th class="text-sm">'. T_("Print").'</th>';
+							$html .= '<th class="text-sm">'. T_("Date register").'</th>';
 							$html .= '<td>';
 							{
-								$html .= '<a class="font-14" href="'. \dash\url::current(). \dash\request::full_get(['print' => 1]). '"><i class="sf-print"></i></a>';
+								$html .= \dash\fit::date_time(\dash\data::answerDetail_datecreated());
 							}
 							$html .= '</td>';
 
 						}
 						$html .= '</tr>';
+
+
+						// $html .= '<tr>';
+						// {
+						// 	$html .= '<th class="text-sm">'. T_("Print").'</th>';
+						// 	$html .= '<td>';
+						// 	{
+						// 		$html .= '<a class="font-14" href="'. \dash\url::current(). \dash\request::full_get(['print' => 1]). '"><i class="sf-print"></i></a>';
+						// 	}
+						// 	$html .= '</td>';
+
+						// }
+						// $html .= '</tr>';
 
 						if(\dash\data::answerDetail_ticket_id())
 						{
@@ -307,24 +318,41 @@ else
 						$html .= '</tr>';
 
 
-						if(\dash\data::answerDetail_status() !== 'deleted')
+						$html .= '<tr>';
 						{
-							$html .= '<tr>';
+							// $html .= '<th class="text-sm">'. T_("Print").'</th>';
+							$html .= '<td colspan="3">';
 							{
-								$html .= '<th class="text-sm">'. T_("Remove answer").'</th>';
-								$html .= '<td>';
+								$html .= '<div class="row">';
 								{
-									$html .= '<div data-confirm data-data=\'{"setstatus" : "setstatus", "status" : "deleted"}\' data-method="post">';
+									$html .= '<div class="c-auto">';
 									{
-										$html .= \dash\utility\icon::svg('delete', 'major', 'red', 'w-5 mx-4 mt-2');
+										$html .= '<a class="font-14" href="'. \dash\url::current(). \dash\request::full_get(['print' => 1]). '" title="'.T_("Print").'"><i class="sf-print"></i></a>';
+									}
+									$html .= '</div>';
+
+									$html .= '<div class="c"></div>';
+
+									$html .= '<div class="c-auto">';
+									{
+										if(\dash\data::answerDetail_status() !== 'deleted')
+										{
+											$html .= '<div data-confirm data-data=\'{"setstatus" : "setstatus", "status" : "deleted"}\' data-method="post" title= "'. T_("Remove answer").'">';
+											{
+												$html .= \dash\utility\icon::svg('delete', 'major', 'red', 'w-5 mx-4 mt-2');
+											}
+											$html .= '</div>';
+										}
 									}
 									$html .= '</div>';
 								}
-								$html .= '</td>';
+								$html .= '</div>';
 
 							}
-							$html .= '</tr>';
+							$html .= '</td>';
+
 						}
+						$html .= '</tr>';
 
 
 						if(a(\dash\data::answerDetail(), 'factor_id'))

@@ -13,6 +13,9 @@ class filter
 		// public => true means show in api and site
 		$sort_list   = [];
 		$sort_list[] = ['title' => T_("Sort"), 				'query' => ['sort' => null, 		 'order' => null], 		'public' => false];
+		$sort_list[] = ['title' => T_("ID ASC"), 			'query' => ['sort' => 'id',		 'order' => 'asc'], 	'public' => false];
+		$sort_list[] = ['title' => T_("ID DESC"), 		'query' => ['sort' => 'id',		 'order' => 'desc'], 	'public' => false];
+
 		$sort_list[] = ['title' => T_("Date ASC"), 			'query' => ['sort' => 'datecreated',		 'order' => 'asc'], 	'public' => false];
 		$sort_list[] = ['title' => T_("Date DESC"), 		'query' => ['sort' => 'datecreated',		 'order' => 'desc'], 	'public' => false];
 

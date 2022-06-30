@@ -14,15 +14,23 @@ class get
 
 
 
-	public static function by_form_id($_form_id, $_all_item = false)
+	public static function by_form_id($_form_id, $_deleted_itme = false, $_hidden_item = false)
 	{
-		$allItem = "AND (form_item.status IS NULL OR form_item.status != 'deleted')";
-		if($_all_item)
+		$delted = "AND (form_item.status IS NULL OR form_item.status != 'deleted') ";
+		// $delted = "AND (form_item.status IS NULL OR form_item.status != 'deleted') AND (form_item.hidden IS NULL OR form_item.hidden != 1 ) ";
+		if($_deleted_itme)
 		{
-			$allItem = '';
+			$delted = '';
 		}
 
-		$query = "SELECT * FROM form_item WHERE form_item.form_id = $_form_id $allItem ORDER BY IFNULL(form_item.sort, form_item.id) ASC ";
+
+		$hidden = "";
+		if(!$_hidden_item)
+		{
+			$hidden = " AND (form_item.hidden IS NULL OR form_item.hidden != 1 ) ";
+		}
+
+		$query = "SELECT * FROM form_item WHERE form_item.form_id = $_form_id $delted $hidden ORDER BY IFNULL(form_item.sort, form_item.id) ASC ";
 		$result = \dash\pdo::get($query);
 		return $result;
 	}

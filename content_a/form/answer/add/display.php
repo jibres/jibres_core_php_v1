@@ -13,5 +13,5 @@ $html .= '<div class="alert-danger text-center font-bold">';
 $html .= '</div>';
 
 echo $html;
-echo \lib\app\form\generator::full_html(\dash\request::get('id'));
+echo \lib\app\form\generator::full_html(\dash\request::get('id'), ['hidden_item' => true]);
 ?>
