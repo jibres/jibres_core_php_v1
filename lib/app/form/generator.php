@@ -188,7 +188,7 @@ class generator
 			return null;
 		}
 
-		$load_items = \lib\app\form\item\get::items($_form_id, false, a($_option, 'delete_item'), a($_option, 'hidden_item'));
+		$load_items = \lib\app\form\item\get::items($_form_id, true, a($_option, 'delete_item'), a($_option, 'hidden_item'));
 
 		self::$html = '';
 
