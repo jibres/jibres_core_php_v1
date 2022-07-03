@@ -30,12 +30,12 @@
     <div class="row" data-space='high'>
 <?php if(\dash\data::domainDetail_can_renew()) {?>
       <div class="c-auto">
-          <a class="link-primary" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew now") ?></a>
+          <a class="link-primary inline-block p-2" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew now") ?></a>
       </div>
 <?php } //endif ?>
       <div class="c"></div>
       <div class="c-auto">
-        <a class="link-primary" target="_blank" href="<?php echo \dash\url::support('ir'); ?>/irnic/renew"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
+        <a class="link-primary inline-block p-2" target="_blank" href="<?php echo \dash\url::support('ir'); ?>/irnic/renew"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
       </div>
     </div>
   </footer>

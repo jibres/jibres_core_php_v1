@@ -83,11 +83,11 @@
   <footer>
     <div class="row" data-space='high'>
       <div class="c-auto">
-        <a class="link-primary" target="_blank" href="<?php echo \dash\url::kingdom(). '/whois/'. \dash\data::domainDetail_name() ?>"><?php echo T_("Check Whois"); ?> <i class="sf-link-external"></i></a>
+        <a class="link-primary inline-block p-2" target="_blank" href="<?php echo \dash\url::kingdom(). '/whois/'. \dash\data::domainDetail_name() ?>"><?php echo T_("Check Whois"); ?> <i class="sf-link-external"></i></a>
       </div>
       <div class="c"></div>
       <div class="c-auto">
-        <a class="link-primary" target="_blank" href="<?php echo \dash\url::support('ir'); ?>/hashtag/nic-holder"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
+        <a class="link-primary inline-block p-2" target="_blank" href="<?php echo \dash\url::support('ir'); ?>/hashtag/nic-holder"><?php echo T_("Help") ?> <i class="sf-link-external"></i></a>
       </div>
     </div>
   </footer>
