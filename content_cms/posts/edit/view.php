@@ -95,7 +95,7 @@ class view
 		$result = '';
 		$result .= T_("You can change ths post type to :val", ['val' => T_(ucfirst($_type))]);
 		$result .= ' ';
-		$result .= '<span class="link" data-title="'.T_("Are you sure to convert this post type to :val", ['val' => T_(ucfirst($_type))]) .'" data-confirm data-data=\'{"forcesubtype": "'.$_type.'"}\'>'. T_("Convert now"). '</span>';
+		$result .= '<span class="link-primary" data-title="'.T_("Are you sure to convert this post type to :val", ['val' => T_(ucfirst($_type))]) .'" data-confirm data-data=\'{"forcesubtype": "'.$_type.'"}\'>'. T_("Convert now"). '</span>';
 		\dash\data::convertPostTo($result);
 	}
 }

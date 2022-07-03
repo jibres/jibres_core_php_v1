@@ -14,7 +14,7 @@
         <?php foreach (\dash\data::myList() as $key => $value) {?>
         <tr class="ltr text-left">
             <td class="ltr text-left">
-                <a href="<?php echo \dash\url::this(); ?>/setting?id=<?php echo \dash\coding::encode(a($value, 'myid')); ?>" class="link"><code><?php echo a($value, 'name'); ?></code></a>
+                <a href="<?php echo \dash\url::this(); ?>/setting?id=<?php echo \dash\coding::encode(a($value, 'myid')); ?>" class="link-primary"><code><?php echo a($value, 'name'); ?></code></a>
             </td>
             <td class="ltr text-left"><?php echo \dash\fit::date_time(a($value, 'dateexpire')); ?></td>
             <td class="ltr text-left"><?php echo a($value, 'autorenewperiod'); ?></td>

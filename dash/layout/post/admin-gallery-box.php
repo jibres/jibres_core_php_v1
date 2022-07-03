@@ -177,7 +177,7 @@ $html .= '<div class="box">';
         }
         if($product_suggestion)
         {
-          $html .= '<div class="link" data-ajaxify data-data=\'{"runaction_product_suggestion" : 1, "product_suggestion": "'. !$product_suggestion_status.'"}\' data-kerkere=".showProductSuggestion" >'. T_("Image suggestion"). '</div>';
+          $html .= '<div class="link-primary" data-ajaxify data-data=\'{"runaction_product_suggestion" : 1, "product_suggestion": "'. !$product_suggestion_status.'"}\' data-kerkere=".showProductSuggestion" >'. T_("Image suggestion"). '</div>';
         }
         $html .= '</div>';
         $html .= '<div class="c"></div>';

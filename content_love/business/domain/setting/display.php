@@ -148,7 +148,7 @@
       <div class="f">
         <div class="c">
           <p class=""><?php echo T_("Something else") ?></p>
-          <div data-confirm data-data='{"ssl_redirect": "true"}' class="link"><?php echo T_("Auto move HTTP to HTTPS") ?></div>
+          <div data-confirm data-data='{"ssl_redirect": "true"}' class="link-primary"><?php echo T_("Auto move HTTP to HTTPS") ?></div>
         </div>
       </div>
     </div>

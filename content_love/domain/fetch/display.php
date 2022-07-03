@@ -71,7 +71,7 @@ else
             <?php foreach (\dash\data::dataTable() as $key => $value) {?>
             <tr>
                <td>
-                    <a href="<?php echo \dash\url::that(); ?>/detail?id=<?php echo a($value, 'id'); ?>" class="link"><code><?php echo a($value, 'domain'); ?></code></a>
+                    <a href="<?php echo \dash\url::that(); ?>/detail?id=<?php echo a($value, 'id'); ?>" class="link-primary"><code><?php echo a($value, 'domain'); ?></code></a>
                 </td>
 
                 <td class="collapsing text-left"><?php echo \dash\fit::date(a($value, 'dateexpire')); ?></td>

@@ -28,7 +28,7 @@
             </div>
             <div class="c mb-2"></div>
             <div class="cauto s12">
-              <div class="link" data-kerkere='.changecustomerForm'><?php echo T_("Change customer") ?></div>
+              <div class="link-primary" data-kerkere='.changecustomerForm'><?php echo T_("Change customer") ?></div>
             </div>
           </div>
 
@@ -93,7 +93,7 @@
             <div class="c"></div>
             <div class="cauto s12">
               <div>
-                <div class="link" data-kerkere='.viewCustomerLegalInformation'><?php echo T_("View") ?></div>
+                <div class="link-primary" data-kerkere='.viewCustomerLegalInformation'><?php echo T_("View") ?></div>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@
                     </tr>
 
                     <tr>
-                      <td colspan="2"><a href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. a($orderDetail, 'factor', 'customer') ?>" class="link"><?php echo T_("Edit legal information") ?></a></td>
+                      <td colspan="2"><a href="<?php echo \dash\url::kingdom(). '/crm/member/legal?id='. a($orderDetail, 'factor', 'customer') ?>" class="link-primary"><?php echo T_("Edit legal information") ?></a></td>
                     </tr>
                   </tbody>
                 </table>

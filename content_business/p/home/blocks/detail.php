@@ -197,7 +197,7 @@ $html .= '<div class="row align-center">';
 
             if(\dash\data::productInCart())
             {
-              $html .= '<a href="'. \dash\url::kingdom(). '/cart" class="link">'. T_("In cart"). '</a>';
+              $html .= '<a href="'. \dash\url::kingdom(). '/cart" class="link-primary">'. T_("In cart"). '</a>';
               $html .= '<input type="hidden" name="type" value="update_cart">';
             }
             else

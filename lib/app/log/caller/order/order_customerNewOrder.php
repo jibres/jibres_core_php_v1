@@ -18,7 +18,7 @@ class order_customerNewOrder
 		$result['txt']       = self::get_msg($_args);
 
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
-		$result['txt'] .= ' <a target="_blank" class="link" href="'. \lib\store::url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
+		$result['txt'] .= ' <a target="_blank" class="link-primary" href="'. \lib\store::url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
 
 		return $result;
 

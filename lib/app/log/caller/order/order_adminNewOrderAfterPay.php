@@ -19,7 +19,7 @@ class order_adminNewOrderAfterPay
 		$result['txt']       = self::get_msg($_args, false);
 
 		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
-		$result['txt'] .= ' <a target="_blank" class="link" href="'. \lib\store::admin_url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
+		$result['txt'] .= ' <a target="_blank" class="link-primary" href="'. \lib\store::admin_url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
 		$result['txt'] .= ' <br> '. T_("Jibres; Sell and enjoy");
 		return $result;
 

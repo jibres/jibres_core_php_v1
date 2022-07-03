@@ -20,7 +20,7 @@
 
             <tr>
                 <td>
-                    <a href="<?php echo \dash\url::this(); ?>/setting?id=<?php echo a($value, 'id'); ?>" class="link"><code><?php echo a($value, 'name'); ?></code></a>
+                    <a href="<?php echo \dash\url::this(); ?>/setting?id=<?php echo a($value, 'id'); ?>" class="link-primary"><code><?php echo a($value, 'name'); ?></code></a>
                 </td>
 
                 <td class="collapsing text-left"><?php echo a($value, 'tstatus'); ?></td>

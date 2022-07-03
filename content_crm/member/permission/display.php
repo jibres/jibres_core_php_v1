@@ -35,7 +35,7 @@
       <div class="body">
         <p><?php echo T_("By creating an API Key, you will allow this user to access the system through a programming interface.") ?></p>
         <?php if(\dash\data::UserApiKey()) {?>
-            <div class="f msg minimal ltr info2 mB0-f mt-2" title="<?php echo T_("Copy") ?>" class="link" data-copy='<?php echo \dash\data::UserApiKey_auth(); ?>' data-copy-msg='<?php echo T_("Copied. Paste into your code!") ?>'>
+            <div class="f msg minimal ltr info2 mB0-f mt-2" title="<?php echo T_("Copy") ?>" class="link-primary" data-copy='<?php echo \dash\data::UserApiKey_auth(); ?>' data-copy-msg='<?php echo T_("Copied. Paste into your code!") ?>'>
               <code class="cauto font-bold"><?php echo ("API key") ?></code>
               <code class="c"><?php echo substr(\dash\data::UserApiKey_auth(), 0, 8). str_repeat('*', 16). substr(\dash\data::UserApiKey_auth(), 24); ?></code>
               <span class="cauto"><div class="btn-link btn-sm"><?php echo T_("Copy") ?></div></span>

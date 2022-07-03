@@ -6,7 +6,7 @@
         <div><?php echo T_("Your domain was conncted to") ?></div>
         <a class="mB25 fcWhite900 fs20"><?php echo a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'title') ?></a>
         <div class="f">
-          <div class="pA5"><a href="<?php echo a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'url'). '/a/setting/domain/manage?domain='. \dash\data::domainDetail_name() ?>" class="link"><div class="grShadow p-2 text-center"><?php echo T_("Manage Domain") ?></div></a></div>
+          <div class="pA5"><a href="<?php echo a(\dash\data::domainConnectedToMyBusiness(), 'detail', 'url'). '/a/setting/domain/manage?domain='. \dash\data::domainDetail_name() ?>" class="link-primary"><div class="grShadow p-2 text-center"><?php echo T_("Manage Domain") ?></div></a></div>
         </div>
       </div>
     <?php }else{ ?>
@@ -14,7 +14,7 @@
         <div class="alert-warning">
           <?php echo T_("Your domain was connected to a business but we can not find this business in you business list!") ?>
           <p>
-            <?php echo T_("If you need to know what happened") ?> <a href="<?php echo \dash\url::kingdom(). '/my/ticket/add?title=domainConnectedToAnotherBusiness' ?>" class="link"><?php echo T_("Contact with us") ?></a>
+            <?php echo T_("If you need to know what happened") ?> <a href="<?php echo \dash\url::kingdom(). '/my/ticket/add?title=domainConnectedToAnotherBusiness' ?>" class="link-primary"><?php echo T_("Contact with us") ?></a>
           </p>
         </div>
       </div>

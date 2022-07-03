@@ -45,7 +45,7 @@ elseif(\dash\data::appQueue_status() === 'done' || \dash\data::appQueue_status()
         <div class="body">
           <div class="alert-success f">
             <div class="c"><?php echo T_("Your application is ready to use"); ?></div>
-            <div class="cauto os"><a target="_blank" class="link" href="<?php echo \dash\data::downoadAPK();?>"><?php echo T_("Download");?></a></div>
+            <div class="cauto os"><a target="_blank" class="link-primary" href="<?php echo \dash\data::downoadAPK();?>"><?php echo T_("Download");?></a></div>
           </div>
 
           <?php if(\dash\data::downoadAPK()) {?>

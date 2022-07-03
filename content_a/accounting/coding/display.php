@@ -129,7 +129,7 @@
 							<tbody>
 
 								<tr>
-									<td class="font-bold"><code class="link"><?php echo \dash\data::loadDetail_code(); ?></code></td>
+									<td class="font-bold"><code class="link-primary"><?php echo \dash\data::loadDetail_code(); ?></code></td>
 									<td class="font-bold"><?php echo \dash\data::loadDetail_title(); ?></td>
 								</tr>
 
