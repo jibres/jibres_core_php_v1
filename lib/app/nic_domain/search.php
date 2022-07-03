@@ -354,24 +354,29 @@ class search
 
 		if($data['expireat'])
 		{
+			$now = date("Y-m-d H:i:s");
+
 			$and['domain_status_expire_checker'] = " (($not_prohibited_ir_status) OR ($is_com_domain)) ";
 			switch ($data['expireat'])
 			{
 				case 'week':
 					$expire_at = date("Y-m-d", strtotime("+7 days"));
 					$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					$and[]      = " domain.dateexpire >= '$now' ";
 					self::$is_filtered          = true;
 					break;
 
 				case 'month':
 					$expire_at = date("Y-m-d", strtotime("+30 days"));
 					$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					$and[]      = " domain.dateexpire >= '$now' ";
 					self::$is_filtered          = true;
 					break;
 
 				case 'year':
 					$expire_at = date("Y-m-d", strtotime("+365 days"));
 					$and[]      = " DATE(domain.dateexpire) <= DATE('$expire_at') ";
+					$and[]      = " domain.dateexpire >= '$now' ";
 					self::$is_filtered          = true;
 					break;
 
