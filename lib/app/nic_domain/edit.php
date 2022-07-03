@@ -494,5 +494,73 @@ class edit
 		return true;
 
 	}
+
+
+	public static function edit_holder($_args, $_id, $_admin_edit = false)
+	{
+		$_id = \dash\validate::code($_id);
+		if(!$_id)
+		{
+			return false;
+		}
+
+		$_id = \dash\coding::decode($_id);
+
+		if($_admin_edit === true)
+		{
+			$load_domain = \lib\app\nic_domain\get::only_by_id($_id);
+
+			if(!$load_domain || !isset($load_domain['id']))
+			{
+				return false;
+			}
+		}
+		else
+		{
+			$load_domain = \lib\app\nic_domain\get::by_id($_id);
+
+			if(!$load_domain || !isset($load_domain['id']))
+			{
+				return false;
+			}
+		}
+
+
+		$condition =
+		[
+			'holder' => 'string_100',
+			'admin'  => 'string_100',
+			'tech'   => 'string_100',
+			'bill'   => 'string_100',
+			'reseller'   => 'string_100',
+
+		];
+
+		$require = [];
+
+		$meta =
+		[
+			'field_title' =>
+			[
+
+			],
+		];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$args = \dash\cleanse::patch_mode($_args, $data);
+
+		if(!empty($args))
+		{
+			\lib\db\nic_domain\update::update($args, $load_domain['id']);
+		}
+
+
+
+		\dash\notif::ok(T_("Detail updated"));
+
+		return true;
+
+	}
 }
 ?>

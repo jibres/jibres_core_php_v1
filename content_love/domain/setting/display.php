@@ -136,6 +136,15 @@ else
     </div>
   </form>
 
+
+  <div class="box">
+    <header data-kerkere='.removeHolder'><h2><?php echo T_("Remove holder") ?></h2></header>
+    <div class="body removeHolder" data-kerkere-content='hide'>
+        Remove onlinenic holder for expired domain to available for new register
+        <div class="btn-danger" data-confirm data-data='{"removeHolder" : "removeHolder"}'>Remove holder</div>
+    </div>
+  </div>
+
   <div class="box">
     <header data-kerkere='.showBodyRaw'><h2><?php echo T_("Record detail raw") ?></h2></header>
     <div class="body showBodyRaw" data-kerkere-content='hide'>

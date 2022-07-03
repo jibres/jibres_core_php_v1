@@ -6,6 +6,36 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('removeHolder') === 'removeHolder')
+		{
+			if(\dash\data::domainDetail_registrar() === 'onlinenic')
+			{
+				$update =
+				[
+					'holder' => null,
+					'admin'  => null,
+					'tech'   => null,
+					'bill'   => null,
+					'reseller'   => null,
+
+				];
+
+				$result = \lib\app\nic_domain\edit::edit_holder($update, \dash\data::domainDetail_id(), true);
+
+			}
+			else
+			{
+				\dash\notif::error(T_("This action work only in onlinenic domains"));
+				return false;
+			}
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+
+		}
+
 		 if(\dash\request::post('whois') == 'fetch' && \dash\permission::supervisor())
 	    {
 	      \lib\app\domains\owner::fetch_domain_owner(\dash\data::domainDetail_name());
