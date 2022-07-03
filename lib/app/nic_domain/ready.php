@@ -404,6 +404,13 @@ class ready
 			{
 				$result['can_renew'] = false;
 			}
+
+			if(strtotime($result['dateexpire']) < (time() - (60*60*24*31)))
+			{
+				$result['can_renew'] = false;
+			}
+
+
 		}
 
 
