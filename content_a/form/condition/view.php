@@ -12,7 +12,7 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?'. \dash\request::fix_get());
 
-		$item = \lib\app\form\item\get::items(\dash\request::get('id'), true, false, true);
+		$item = \lib\app\form\item\get::items_conditionable(\dash\request::get('id'));
 
 
 		\dash\data::items($item);
