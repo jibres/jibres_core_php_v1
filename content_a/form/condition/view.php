@@ -14,12 +14,18 @@ class view
 
 		$item = \lib\app\form\item\get::items_conditionable(\dash\request::get('id'));
 
-
 		\dash\data::items($item);
 
-		$fields = \lib\app\form\form\ready::fields(\dash\data::formDetail());
 
-		\dash\data::fields($fields);
+		if(\dash\request::get('item') && is_array($item))
+		{
+			$load_choice = [];
+
+			foreach ($item as $key => $value) {
+				// code...
+			}
+		}
+
 
 	}
 
