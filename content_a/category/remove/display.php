@@ -7,7 +7,7 @@
         <div class="alert2">
           <?php echo T_(":val products by this category founded", ['val' => \dash\fit::number(\dash\data::dataRow_count())]) ?>
         <br>
-          <a class="link" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show products by this category"); ?></a>
+          <a class="link-primary" href="<?php echo \dash\url::here(); ?>/products?catid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show products by this category"); ?></a>
         </div>
 
         <p>

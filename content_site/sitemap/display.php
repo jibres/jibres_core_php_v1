@@ -7,7 +7,7 @@
       <div class="alert-success"><?php echo T_('We automatically build your sitemap.') ?></div>
 
       <div class="alert-info row ltr mb-0" data-copy='<?php echo \dash\utility\sitemap::url(); ?>'>
-        <div class="c"><a class="link" target="_blank" href="<?php echo \dash\utility\sitemap::url(); ?>"><i class="sf-link-external inline-block mR10"></i><?php echo \dash\utility\sitemap::url(); ?></a></div>
+        <div class="c"><a class="link-primary" target="_blank" href="<?php echo \dash\utility\sitemap::url(); ?>"><i class="sf-link-external inline-block mR10"></i><?php echo \dash\utility\sitemap::url(); ?></a></div>
         <div class="c-auto"><?php echo T_("Copy Sitemap URL"); ?></div>
       </div>
    </div>

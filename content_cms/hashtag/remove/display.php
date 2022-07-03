@@ -6,7 +6,7 @@
         <div class="alert2">
           <?php echo T_(":val post by this hashtag founded", ['val' => \dash\fit::number(\dash\data::dataRow_count())]) ?>
         <br>
-          <a class="link" href="<?php echo \dash\url::here(); ?>/posts?tagid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show post by this hashtag"); ?></a>
+          <a class="link-primary" href="<?php echo \dash\url::here(); ?>/posts?tagid=<?php echo \dash\data::dataRow_id(); ?>"><?php echo T_("Show post by this hashtag"); ?></a>
         </div>
 
         <p>

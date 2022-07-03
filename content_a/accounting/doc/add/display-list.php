@@ -45,7 +45,7 @@
               <td>
                 <div class="text-sm">
                   <a href="<?php echo \dash\url::this(). '/coding?view='. a($value, 'assistant_id') ?>"><code><?php echo a($value, 'assistant_code'); ?></code></a>
-                  <a class="link" target="_blank" href="<?php echo \dash\url::this(). '/turnover?contain='. a($value, 'assistant_id') ?>"><i class="sf-retweet" title="<?php echo T_("Turnover") ?>"></i> </a>
+                  <a class="link-primary" target="_blank" href="<?php echo \dash\url::this(). '/turnover?contain='. a($value, 'assistant_id') ?>"><i class="sf-retweet" title="<?php echo T_("Turnover") ?>"></i> </a>
                   <span class="inline-block"> <?php echo a($value, 'total_title') . ' - '. a($value, 'assistant_title'); ?> </span>
                 </div>
                 <div class="text-xs pLa10"><?php echo a($value, 'details_title'); ?>

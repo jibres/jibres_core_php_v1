@@ -48,7 +48,7 @@
             <time class="ltr"><?php echo \dash\fit::date_time(\dash\data::domainDetail_dateexpire()); ?></time>
             <?php if(\dash\data::tempPeriod()) { echo '*';}?>
 <?php if(\dash\data::domainDetail_can_renew()) {?>
-            <a class="link mLa10" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew") ?></a>
+            <a class="link-primary inline-block mx-2" href="<?php echo \dash\url::this(). '/renew?domain='. \dash\request::get('domain'); ?>"><?php echo T_("Renew") ?></a>
 <?php } //endif ?>
           </td>
         </tr>

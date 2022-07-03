@@ -33,7 +33,7 @@
   </form>
   <footer>
     <div class="row">
-        <div class="cauto"><a class="link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryaudio', 'type' => 'audio', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
+        <div class="cauto"><a class="link-primary" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryaudio', 'type' => 'audio', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
         <div class="c"></div>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <div class="cauto">
@@ -73,7 +73,7 @@ if(a($dataRow, 'subtype') === 'video') {?>
   </form>
   <footer>
     <div class="row">
-        <div class="cauto"><a class="link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryvideo', 'type' => 'video', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
+        <div class="cauto"><a class="link-primary" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'postsgalleryvideo', 'type' => 'video', 'related_id' => \dash\request::get('id')]); ?>"><?php echo T_("Choose from gallery") ?></a></div>
         <div class="c"></div>
       <?php if(a($dataRow, 'gallery_array', 0, 'path')) {?>
         <div class="cauto">
@@ -142,7 +142,7 @@ if(\dash\data::dataRow_thumbFromContent())
     <footer class="txtRa">
       <div class="row">
         <div class="c-auto">
-          <a class="link" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'poststhumb', 'related_id' => \dash\request::get('id'), 'type' => 'image', 'ratio' => \dash\data::ratioHtmlDetail_ratio_string()]) ?>"><?php echo T_("Choose from gallery") ?></a>
+          <a class="link-primary" href="<?php echo \dash\url::here(). '/files/choose?'. \dash\request::build_query(['related' => 'poststhumb', 'related_id' => \dash\request::get('id'), 'type' => 'image', 'ratio' => \dash\data::ratioHtmlDetail_ratio_string()]) ?>"><?php echo T_("Choose from gallery") ?></a>
         </div>
         <div class="c"></div>
         <div class="c-auto">

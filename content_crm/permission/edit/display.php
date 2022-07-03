@@ -21,7 +21,7 @@ if(!is_array($permissionList))
       <div class="c-xs c-sm"></div>
 
       <div class="c-xs-auto c-sm-auto">
-        <a class="link" href="<?php echo \dash\url::here(). '/member?permission='. \dash\data::dataRow_key(); ?>"><?php echo T_("List users by this permission") ?></a>
+        <a class="link-primary" href="<?php echo \dash\url::here(). '/member?permission='. \dash\data::dataRow_key(); ?>"><?php echo T_("List users by this permission") ?></a>
       </div>
     </div>
   </div>

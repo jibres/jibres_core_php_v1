@@ -173,7 +173,7 @@ $html .= '<div class="box">';
         $html .= '<div class="cauto">';
         if(isset($choose_gallery_link))
         {
-          $html .= '<a class="link" href="'. $choose_gallery_link .'">'. T_("Choose from gallery").'</a>';
+          $html .= '<a class="link-primary" href="'. $choose_gallery_link .'">'. T_("Choose from gallery").'</a>';
         }
         if($product_suggestion)
         {

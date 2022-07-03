@@ -21,7 +21,7 @@
 					<?php foreach (\dash\data::dataTable() as $key => $value) {?>
 						<tr class="text-sm">
 							<td class="font-14">
-								<a class="link" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">#<?php echo \dash\fit::number(a($value, 'number'), true, 'en'); ?></a>
+								<a class="link-primary" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">#<?php echo \dash\fit::number(a($value, 'number'), true, 'en'); ?></a>
 							</td>
 							<td class="font-bold"><a href="<?php echo \dash\url::that(). \dash\request::full_get(['startdate' => \dash\fit::date_en(a($value, 'date')), 'enddate' => \dash\fit::date_en(a($value, 'date'))]) ?>"><?php echo \dash\fit::date(a($value, 'date')) ?></a></td>
 							<td class="">

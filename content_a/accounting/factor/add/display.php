@@ -373,7 +373,7 @@ function htmlTurnoverLink($_type)
 
   if($docIsLock && a($dataRow, 'fill_value', $_type, 'details_id'))
   {
-    echo '<a class="link" target="_blank" href="'. \dash\url::this(). '/turnover?contain='. a($dataRow, 'fill_value', $_type, 'details_id'). '"><i class="sf-external-link"></i> '. T_("Turnover"). '</a>';
+    echo '<a class="link-primary" target="_blank" href="'. \dash\url::this(). '/turnover?contain='. a($dataRow, 'fill_value', $_type, 'details_id'). '"><i class="sf-external-link"></i> '. T_("Turnover"). '</a>';
   }
 }
 

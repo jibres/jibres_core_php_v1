@@ -198,7 +198,7 @@
 				<?php foreach ($myDataTable as $key => $value) {?>
 				<tr class="text-sm">
 					<td class="font-14">
-						<a class="link" href="<?php echo \dash\url::this(). '/doc/edit?id='. a($value, 'tax_document_id'); ?>">#<?php echo \dash\fit::number(a($value, 'number'), true, 'en'); ?></a>
+						<a class="link-primary" href="<?php echo \dash\url::this(). '/doc/edit?id='. a($value, 'tax_document_id'); ?>">#<?php echo \dash\fit::number(a($value, 'number'), true, 'en'); ?></a>
 					</td>
 
 

@@ -112,7 +112,7 @@ switch (\dash\data::dataRow_status())
     </div>
     <footer>
       <div class="row">
-        <div class="c-auto"><a class="link" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a></div>
+        <div class="c-auto"><a class="link-primary" href="<?php echo \dash\url::this(). '/seo'. \dash\request::full_get() ?>"><?php echo T_("Customize SEO") ?></a></div>
         <div class="c"></div>
       </div>
     </footer>

@@ -101,7 +101,7 @@
         <?php } //endif ?>
         <div class="msg minumal">
           <?php echo T_("To connect domain, all DNS servers must identify your domain DNS. The following link can show you the DNS status of your domain") ?>
-          <a class="link" target="_blank" href="https://dnschecker.org/#NS/<?php echo \dash\data::domainDetail_domain() ?>"><?php echo T_("Check DNS") ?></a>
+          <a class="link-primary" target="_blank" href="https://dnschecker.org/#NS/<?php echo \dash\data::domainDetail_domain() ?>"><?php echo T_("Check DNS") ?></a>
         </div>
       </div>
     </div>

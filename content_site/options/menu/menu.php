@@ -119,7 +119,7 @@ class menu
 			}
 			else
 			{
-				$html .= '<a class="link" href="'. \dash\url::kingdom(). '/a/setting/menu/add">'. T_("Add new menu"). '</a>';
+				$html .= '<a class="link-primary" href="'. \dash\url::kingdom(). '/a/setting/menu/add">'. T_("Add new menu"). '</a>';
 			}
 
 		}

@@ -24,7 +24,7 @@
                     <td>
                         <?php if(a($value, 'domain') && a($value, 'domain_id')) {?>
                             <div>
-                                <a class="link" href="<?php echo \dash\url::this(). '/setting?id='. $value['domain_id']; ?>">
+                                <a class="link-primary" href="<?php echo \dash\url::this(). '/setting?id='. $value['domain_id']; ?>">
                                     <code><?php echo a($value, 'domain') ?></code>
                                 </a>
                             </div>

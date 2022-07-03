@@ -66,7 +66,7 @@
         <tbody>
           <?php foreach (\dash\data::dataTable() as $key => $value) {?>
             <tr>
-              <td><a class="link" href="<?php echo \dash\url::that(). '?id='. a($value, 'id'); ?>"><?php echo a($value, 'title'); ?></a></td>
+              <td><a class="link-primary" href="<?php echo \dash\url::that(). '?id='. a($value, 'id'); ?>"><?php echo a($value, 'title'); ?></a></td>
               <td><?php echo a($value, 'desc'); ?></td>
               <td>
               <?php

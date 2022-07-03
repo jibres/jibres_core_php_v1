@@ -26,7 +26,7 @@
                     <td class="collapsing">
                         <?php if(a($value, 'domain') && a($value, 'domain_id')) {?>
                             <div>
-                                <a class="link" href="<?php echo \dash\url::this(). '/setting?domain='. $value['domain']; ?>">
+                                <a class="link-primary" href="<?php echo \dash\url::this(). '/setting?domain='. $value['domain']; ?>">
                                     <code><?php echo a($value, 'domain') ?></code>
                                 </a>
                             </div>
