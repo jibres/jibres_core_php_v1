@@ -1,4 +1,4 @@
-<div class="jibresBanner">
+<div class="jibresBanner" data-text-style="t1">
  <div>
 
 <article class="logo">

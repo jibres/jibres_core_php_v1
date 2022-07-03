@@ -9,28 +9,28 @@
 
 
   <section>
-   <h3><?php echo T_("Let's take a look at what goes on behind that domain."); ?></h3>
-   <div class="f">
-    <div class="c m12 s12 pRa20">
+   <h3 class="font-bold text-lg"><?php echo T_("Let's take a look at what goes on behind that domain."); ?></h3>
+   <div class="row">
+    <div class="c c-md-12 c-xs-12">
      <p><?php echo T_("Every website is identified by a unique series of numbers called an IP address. This numeric set is what your computer uses to connect to the server where the website data lives."); ?></p>
     </div>
-    <div class="cauto m12 s12"><img src='<?php echo \dash\url::cdn() ?>/img/domain/jibres-ip-address.png' alt='domain ip address'></div>
+    <div class="c-auto c-md-12 c-xs-12"><img src='<?php echo \dash\url::cdn() ?>/img/domain/jibres-ip-address.png' alt='domain ip address'></div>
    </div>
-   <p><?php echo T_("Numbers are great for a computer, but it's easier for people to use words they can remember. The words used to identify a website are known as the domain or URL, and like the IP address, they're unique to each website. Think of it like a mobile phone: you want to call your mother, so you simply click on your contact 'Mom' and your phone dials your mother's phone number. Domains are connected to IP addresses in much the same way."); ?></p>
+   <p class="mt-4"><?php echo T_("Numbers are great for a computer, but it's easier for people to use words they can remember. The words used to identify a website are known as the domain or URL, and like the IP address, they're unique to each website. Think of it like a mobile phone: you want to call your mother, so you simply click on your contact 'Mom' and your phone dials your mother's phone number. Domains are connected to IP addresses in much the same way."); ?></p>
   </section>
   <hr class="mb-12">
 
 
   <section class="domainParts">
-   <h3><?php echo T_('What are the parts of a domain?'); ?></h3>
+   <h3 class="font-bold text-lg"><?php echo T_('What are the parts of a domain?'); ?></h3>
    <p><?php echo T_('Domains, like most brilliant ideas, work on more than one level. They include both a top level domain and a second level domain. And, like brilliant ideas, they also center around a single point-or in this case, a dot.');?></p>
 
-   <div class="f">
-    <figure class="c6 s12 pRa5">
+   <div class="row">
+    <figure class="c-xs-12 c-md-6">
      <img src='<?php echo \dash\url::cdn() ?>/img/domain/second-level-domain.png' alt='second level domain on Jibres'>
      <figcaption><?php echo T_("To the left of the dot is the second level domain, which might be your name, the name of your business, blog, or store. It's the 'identity' of your site. In our case, the second level domain is 'jibres'."); ?></figcaption>
     </figure>
-    <figure class="c6 s12 pLa5">
+    <figure class="c-xs-12 c-md-6">
      <img src='<?php echo \dash\url::cdn() ?>/img/domain/top-level-domain.png' alt='top level domain on Jibres'>
      <figcaption><?php echo T_("To the right of the dot is the top-level domain (or TLD), in this case the TLD is '.com', but you may have also seen TLDs like .net, or .org, or country identifiers like .ir or .us."); ?></figcaption>
     </figure>
@@ -43,7 +43,7 @@
 
 
   <section>
-   <h3><?php echo T_("What's the purpose of a domain?"); ?></h3>
+   <h3 class="font-bold text-lg"><?php echo T_("What's the purpose of a domain?"); ?></h3>
    <p><?php echo T_("At some point someone probably said, 'Hey, you ought to register a domain.'' And you might have replied, 'Okay... but why?'"); ?></p>
    <p><?php echo T_('The truth is that if you have a website, it needs to have an address, and that address needs to have a name.'); ?></p>
 
@@ -61,7 +61,7 @@
   <div class="f">
    <div class="c s12">
     <section class="mT50">
-     <h3><?php echo T_("Don't have a website?"); ?> <?php echo T_("No problem!"); ?></h3>
+     <h3 class="font-bold text-lg"><?php echo T_("Don't have a website?"); ?> <?php echo T_("No problem!"); ?></h3>
      <p><?php echo T_("You can point your domain to your Instagram, Facebook, Twitter, Telegram or other social media account. I don't know about you, but I'd much rather tell people to friend me at minion.party than give out some long, convoluted URL. That reminds me, I should really register that domain now."); ?></p>
     </section>
    </div>
@@ -71,7 +71,7 @@
   </div>
 
   <section>
-   <h3><?php echo T_("What's the difference between a domain and hosting?"); ?></h3>
+   <h3 class="font-bold text-lg"><?php echo T_("What's the difference between a domain and hosting?"); ?></h3>
    <p><?php echo T_("To have a website, you need both a domain and hosting. Your domain gives people a way to find your website, and your hosting is space on a server (a remote computer) where all of your website content resides."); ?></p>
    <p><?php echo T_("Think of a domain like it's your website's street address, and hosting is like the website's house. You can have your address before you build your house, but to show off all your photos on your website, you'll need a place to put them."); ?></p>
   </section>

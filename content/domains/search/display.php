@@ -1,4 +1,4 @@
-<div class="jibresBanner">
+<div class="jibresBanner" data-text-style="t1">
  <div class="avand impact">
 
   <form class="domainSearchBox" action='<?php echo \dash\url::kingdom() ?>/domains/search' method='get' autocomplete='off'>

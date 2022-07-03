@@ -1,4 +1,4 @@
-<div class="jibresBanner">
+<div class="jibresBanner" data-text-style="t1">
 
  <div class="avand impact">
 <?php include "domain-topBox.php"; ?>

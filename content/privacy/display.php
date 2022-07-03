@@ -1,4 +1,4 @@
-<section class="jibresBanner">
+<section class="jibresBanner" data-text-style="t1">
  <div class="avand-lg impact zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-privacy-1.jpg" alt='<?php echo T_("What is Privacy?"); ?>'>
  </div>

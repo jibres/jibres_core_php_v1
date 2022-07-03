@@ -1,4 +1,4 @@
-<div class="jibresBanner">
+<div class="jibresBanner" data-text-style="t1">
  <div class="avand-lg impact zero">
   <img class="block" src="<?php echo \dash\url::cdn(); ?>/img/bg/jibres-contact-1.jpg" alt='<?php echo T_("Contact Jibres")?>'>
  </div>
@@ -36,8 +36,8 @@
       <div class="pA5">
        <textarea class="c txt" name="content" placeholder='<?php echo T_("Your Message"); ?>' rows=4 minlength="5" maxlength="1000" data-resizable></textarea>
       </div>
-      <div class="input pA5 mTB25">
-       <button type="submit" name="submit-contact" class="btn block success"><?php echo T_("Send"); ?></button>
+      <div class="txtRa mt-4">
+        <button type="submit" name="submit-contact" class="btn-success"><?php echo T_("Send"); ?></button>
       </div>
      </form>
 
@@ -51,14 +51,14 @@ if (\dash\language::current() === 'fa')
 {
 ?>
 
- <div class="avand-lg impact zero">
-  <iframe class="block" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.187296917843!2d50.876835765574285!3d34.64997254344046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f93bb7231d4a105%3A0x8843ca95f5a8e4a1!2sJibres!5e0!3m2!1sen!2s!4v1584467269428!5m2!1sen!2s"  height="300"  style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+ <div class="avand-lg impact zero w-full">
+  <iframe class="block w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.187296917843!2d50.876835765574285!3d34.64997254344046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f93bb7231d4a105%3A0x8843ca95f5a8e4a1!2sJibres!5e0!3m2!1sen!2s!4v1584467269428!5m2!1sen!2s"  height="300"  style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
  </div>
 
 
- <div class="avand impact">
-  <div class="f">
-    <div class="c8 s12 pRa10">
+ <div class="avand-lg impact">
+  <div class="row">
+    <div class="c-xs-12 c-md-8">
      <address class="vcard2">
       <div class="author author_name hide"><span class="fn"><?php echo T_("jibres"); ?></span></div>
       <div class="adr mb-4">
@@ -74,7 +74,7 @@ if (\dash\language::current() === 'fa')
 
     </div>
 
-    <div class="c4 s12">
+    <div class="c-md-4 c-xs-12">
       <a href="https://goo.gl/maps/HUdi1YmcFBz" target="_blank" class="map" title='<?php echo T_("Our location on map"); ?>'>
        <img src="<?php echo \dash\url::cdn(); ?>/images/map/ermile.png" alt="<?php echo \dash\face::site(); ?>">
       </a>

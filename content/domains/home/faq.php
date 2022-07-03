@@ -1,7 +1,7 @@
 
  <div class="avand impact mt-4">
   <section class="faq">
-   <h3><?php echo T_('Frequently Asked Questions'); ?></h3>
+   <h3 class="font-bold text-lg"><?php echo T_('Frequently Asked Questions'); ?></h3>
 
     <h4 data-kerkere="[data-faq1]" data-kerkere-icon='close'><?php echo T_('What is a domain? What is a TLD?'); ?></h4>
     <div data-kerkere-content='hide' data-faq1>
