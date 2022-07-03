@@ -1,7 +1,7 @@
 <div class="jibresBanner">
  <div class="avand impact">
 
-<div class="f justify-center text-center mB50">
+<div class="f justify-center text-center mb-12">
 	<div class="c6 s12 fs18">
 		<div class="mb-2"><?php echo T_("Start lock"); ?></div>
 		<br>

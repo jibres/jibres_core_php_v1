@@ -2,7 +2,7 @@
 
 	<div class="avand-md">
 		<div class="box">
-			<div class="pad mB50">
+			<div class="pad mb-12">
 				<label for="productid"><?php echo T_("Choose product"); ?></label>
 				<div>
 					<select name="id" required class="select22" data-model='html'  <?php \dash\layout\autofocus::html() ?> data-default data-ajax--delay="250" data-ajax--url='<?php echo \dash\url::here(). '/sale'; ?>?json=true' data-placeholder='<?php echo T_("Search in products"); ?>'>

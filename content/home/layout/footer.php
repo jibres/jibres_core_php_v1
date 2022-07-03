@@ -31,7 +31,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates' 
 
 <section id="jibresSupportLine">
     <h4><?php echo T_('Need Help?'). ' '. T_("We're here for you."); ?></h4>
-    <a class="btn lg success" href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact with a Live Person'); ?></a>
+    <a class="btn-success btn-lg m-4" href="<?php echo $kingdom; ?>/contact"><?php echo T_('Contact with a Live Person'); ?></a>
     <?php echo file_get_contents(root."content/home/layout/footer-wave.svg"); ?>
 </section>
 

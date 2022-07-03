@@ -1,11 +1,11 @@
 
  <blockquote class="avand impact mt-4" cite="https://www.namecheap.com/domains/domain-definition-what-is-a-domain-name/">
   <section>
-   <h2><?php echo T_('What is a domain?'); ?></h2>
+   <h2 class="font-bold text-lg"><?php echo T_('What is a domain?'); ?></h2>
    <p><?php echo T_('Everything you need to know about domains'); ?></p>
    <p><?php echo T_("Have you ever asked yourself, 'What is a domain, anyway?' Well, take a look up there at the top of the screen. See that part at the top of your browser window in the URL bar? It's the part that starts with '<span class='font-bold'>http://</span>' in the address bar. The second part of the URL is the domain. In our case, it's <span class='font-bold'>jibres.com</span>."); ?></p>
   </section>
-  <hr class="mB50">
+  <hr class="mb-12">
 
 
   <section>
@@ -18,7 +18,7 @@
    </div>
    <p><?php echo T_("Numbers are great for a computer, but it's easier for people to use words they can remember. The words used to identify a website are known as the domain or URL, and like the IP address, they're unique to each website. Think of it like a mobile phone: you want to call your mother, so you simply click on your contact 'Mom' and your phone dials your mother's phone number. Domains are connected to IP addresses in much the same way."); ?></p>
   </section>
-  <hr class="mB50">
+  <hr class="mb-12">
 
 
   <section class="domainParts">
@@ -39,7 +39,7 @@
    <p><?php echo T_("While the top level domain is essential for a domain to function, it's also less exciting than the second level domain. Which is probably why it's sometimes referred to as the 'parent' domain."); ?></p>
    <p><?php echo T_("The exciting thing about domains is that you can choose almost any name you want as your second level domain. And sure, you can go with .com for your top level domain, but who doesn't want a cool 'parent'? Options like .club, .store, even .pizza are just a few ways you can boost your top level domain game."); ?></p>
   </section>
-  <hr class="mB50">
+  <hr class="mb-12">
 
 
   <section>

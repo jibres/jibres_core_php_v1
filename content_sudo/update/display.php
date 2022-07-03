@@ -109,5 +109,5 @@ $needUpgrade = \dash\data::needUpgrade();
     <div class="btn-danger text-center" data-confirm data-timeout=0 data-data='{"type" : "all"}'><?php echo T_("Update & Upgrade all"); ?></div>
   </div>
 </div>
-<div class="mB50">&nbsp;</div>
+<div class="mb-12">&nbsp;</div>
 

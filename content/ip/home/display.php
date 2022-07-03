@@ -1,6 +1,6 @@
 <div class="jibresBanner" data-back='475'>
 <?php if(\dash\data::ip_flag() && \dash\data::ip_flag() !== 'zz') { ?>
- <div class="avand-sm zero mB50">
+ <div class="avand-sm zero mb-12">
 	<img class="block" src="<?php echo \dash\url::cdn(); ?>\img\flags\svg\<?php echo \dash\data::ip_flag(); ?>.svg" alt='<?php echo \dash\data::ip_country(); ?>'>
  </div>
 <?php } ?>

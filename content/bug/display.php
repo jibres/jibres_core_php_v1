@@ -37,7 +37,7 @@
 	<p><?php echo T_("Do not impact other users with your testing. If you are attempting to find an authorization bypass, you must use accounts you own."); ?></p>
 	<p><?php echo T_("The following are <b>never</b> allowed and are ineligible for reward. We may suspend your Jibres account and ban your IP address for"); ?></p>
 
-	<ul class="list mB50-f">
+	<ul class="list mb-12-f">
 		<li><?php echo T_("Performing distributed denial of service (DDoS) or other volumetric attacks."); ?></li>
 		<li><?php echo T_("Spamming content"); ?></li>
 		<li><?php echo T_("Large-scale vulnerability scanners, scrapers, or automated tools which produce excessive amounts of traffic."); ?></li>

@@ -1,4 +1,4 @@
-<div class="box mB50-f">
+<div class="box mb-12-f">
   <header><h2><?php echo T_("Intro"); ?></h2></header>
 
   <div class="body" id="intro">
