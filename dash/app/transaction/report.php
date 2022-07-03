@@ -64,10 +64,10 @@ class report
 
 			for ($i=0; $i < $month_count ; $i++)
 			{
-				$month_list[date("Y-m", strtotime("-$i month"))] = 0;
-				$category[] = date("Y F", strtotime("-$i month"));
+				$prev_month = (time() - ((60*60*24*30*$i) + (60*60*24*2)));
+				$month_list[date("Y-m", $prev_month)] = 0;
+				$category[] = date("Y F", $prev_month);
 			}
-
 
 		}
 
