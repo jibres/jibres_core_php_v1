@@ -323,7 +323,7 @@ class magicbox
 				}
 				elseif(a($_args, 'magicbox_title_position') === 'outside')
 				{
-					$card .= "<div class='block transition text-white px-4 py-2 z-10 $cardClass'>";
+					$card .= "<div class='block transition px-4 py-2 z-10 $cardClass'>";
 					{
 						$card .= self::htmlCaptionBox($_item, $_args, $showTitle, $showPrice);
 					}
