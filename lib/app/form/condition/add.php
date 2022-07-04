@@ -59,9 +59,13 @@ class add
 
 		foreach ($condition as $key => $value)
 		{
-			$check = [a($value, 'if'), a($value, 'then'), a($value, 'else')];
+			$check = [a($value, 'then'), a($value, 'else')];
 
-			if(in_array($data['if'], $check) || in_array($data['else'], $check) || in_array($data['then'], $check))
+			if(
+				($data['if'] && in_array($data['if'], $check) ) ||
+				($data['else'] && in_array($data['else'], $check) ) ||
+				($data['then'] && in_array($data['then'], $check) )
+			  )
 			{
 				\dash\notif::error(T_("A side of condition exist in current condition"));
 				return false;

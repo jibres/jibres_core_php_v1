@@ -21,7 +21,7 @@ $html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'" d
 
           foreach (\dash\data::itemsconditionable() as $key => $value)
           {
-            if(in_array($value['id'], \dash\data::myConditoinExistID())) {continue;}
+            if(in_array($value['id'], \dash\data::myConditoinThenElseIDS())) {continue;}
 
             $html .= '<option value="'. $value['id']. '" ';
             if(\dash\request::get('if') == $value['id'])
@@ -131,7 +131,7 @@ if(\dash\request::get('if'))
 
               foreach (\dash\data::items() as $key => $value)
               {
-                if(in_array($value['id'], \dash\data::myConditoinExistID())) {continue;}
+                if(in_array($value['id'], \dash\data::myConditoinThenElseIDS())) {continue;}
 
                 if($value['id'] == \dash\request::get('if'))
                 {
@@ -160,7 +160,7 @@ if(\dash\request::get('if'))
 
               foreach (\dash\data::items() as $key => $value)
               {
-                if(in_array($value['id'], \dash\data::myConditoinExistID())) {continue;}
+                if(in_array($value['id'], \dash\data::myConditoinThenElseIDS())) {continue;}
                 if($value['id'] == \dash\request::get('if'))
                 {
                   continue;

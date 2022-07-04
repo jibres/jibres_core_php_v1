@@ -8,8 +8,10 @@ class get
 	{
 		$form = \lib\app\form\form\get::by_id($_form_id);
 
-		$condition = [];
-		$all_ids = [];
+		$condition     = [];
+		$all_ids       = [];
+		$then_else_ids = [];
+
 
 		if(isset($form['condition']) && is_array($form['condition']))
 		{
@@ -47,11 +49,13 @@ class get
 				if(isset($value['else']) && isset($item_load_multi[$value['else']]['title']))
 				{
 					$my_condition[$key]['else_title'] = $item_load_multi[$value['else']]['title'];
+					$then_else_ids[] = $value['else'];
 				}
 
 				if(isset($value['then']) && isset($item_load_multi[$value['then']]['title']))
 				{
 					$my_condition[$key]['then_title'] = $item_load_multi[$value['then']]['title'];
+					$then_else_ids[] = $value['then'];
 				}
 			}
 
@@ -59,6 +63,7 @@ class get
 		}
 
 		\dash\data::myConditoinExistID($all_ids);
+		\dash\data::myConditoinThenElseIDS($then_else_ids);
 
 		return $condition;
 
