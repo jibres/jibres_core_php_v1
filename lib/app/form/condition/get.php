@@ -63,5 +63,58 @@ class get
 		return $condition;
 
 	}
+
+
+	private static $form_loaded        = false;
+	private static $form_condition     = [];
+	private static $form_condition_ids = [];
+
+	public static function item_have_condition($_form_id, $_item_id)
+	{
+		if(!self::$form_loaded)
+		{
+			self::$form_loaded = true;
+
+			self::$form_condition = self::list($_form_id);
+
+			self::$form_condition_ids = \dash\data::myConditoinExistID();
+		}
+
+
+
+		if(self::$form_condition)
+		{
+			$html = '';
+
+			foreach (self::$form_condition as $key => $value)
+			{
+				$found = false;
+				$data_response_where = '';
+
+				if($value['then'] == $_item_id)
+				{
+					$found = true;
+					$data_response_where = 'data-response-where';
+				}
+				elseif($value['else'] == $_item_id)
+				{
+					$found = true;
+					$data_response_where = 'data-response-where-not';
+				}
+
+				if($found)
+				{
+					$html .= '<div data-response="a_'. $value['if']. '" ';
+					$html .= $data_response_where . '="'. $value['value']. '" ';
+					$html .= 'data-response-hide ';
+					$html .= '>';
+					return $html;
+
+				}
+			}
+		}
+
+		return null;
+	}
 }
 ?>
