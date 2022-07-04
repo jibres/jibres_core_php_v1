@@ -63,7 +63,7 @@ if(\dash\request::get('if'))
         =================================*/
         $html .= '<div>';
         {
-          $html .= '<label for="operation">'. T_("Operator"). '</label>';
+          $html .= '<label for="operation">'. T_("Operation"). '</label>';
           $html .= '<select name="operation" class="select22" id="operation">';
           {
             $html .= '<option value="">-'. T_('Select operation') .' -</option>';
@@ -106,20 +106,12 @@ if(\dash\request::get('if'))
         }
         else
         {
-          if(\dash\data::choiceMode() === 'country')
+          $html .= '<lable>'. T_("Value"). '</label>';
+          $html .= '<div class="input">';
           {
-            $html .= '<label for="value">'. T_("Value"). '</label>';
-            $html .= \dash\utility\location::countrySelectorHtml(null, null, 'value', 'value');
+            $html .= '<input type="text" name="value">';
           }
-          else
-          {
-            $html .= '<lable>'. T_("Value"). '</label>';
-            $html .= '<div class="input">';
-            {
-              $html .= '<input type="text" name="value">';
-            }
-            $html .= '</div>';
-          }
+          $html .= '</div>';
         }
         /*=====  End of VALUE  ======*/
 
@@ -196,7 +188,7 @@ if(\dash\request::get('if'))
   $html .= '</form>';
 } // endif
 
-if($condition = \dash\data::formDetail_condition())
+if($condition = \dash\data::conditionList())
 {
 
 $html .= '<div class="tblBox">';
@@ -224,11 +216,11 @@ $html .= '<div class="tblBox">';
 
         $html .= '<tr>';
         {
-          $html .= '<td>'. a($value, 'if') .'</td>';
+          $html .= '<td>'. a($value, 'if_title') .'</td>';
           $html .= '<td>'. a($value, 'operation') .'</td>';
           $html .= '<td>'. a($value, 'value') .'</td>';
-          $html .= '<td>'. a($value, 'then') .'</td>';
-          $html .= '<td>'. a($value, 'else') .'</td>';
+          $html .= '<td>'. a($value, 'then_title') .'</td>';
+          $html .= '<td>'. a($value, 'else_title') .'</td>';
           $html .= '<td class="collapsing">';
           {
             $html .= '<div class="" data-confirm data-data=\'{"remove_condition": "remove_condition", "key" : "'.$key.'"}\'>'. \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3'). '</div>';
@@ -250,14 +242,3 @@ $html .= '</div>';
 
 echo $html;
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-</head>
-<body>
-
-</body>
-</html>

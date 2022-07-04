@@ -31,7 +31,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::pwd();
+			\dash\redirect::to(\dash\url::that(). \dash\request::full_get(['if' => null]));
 		}
 	}
 
