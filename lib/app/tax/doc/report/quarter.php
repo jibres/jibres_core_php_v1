@@ -46,10 +46,12 @@ class quarter
 
 		$quarter = [];
 
+		$end_of_year = \dash\utility\jdate::day_of_end_of_year($myYear);
+
 		$quarter[1] = ["$myYear-01-01", "$myYear-03-31"];
 		$quarter[2] = ["$myYear-04-01", "$myYear-06-31"];
 		$quarter[3] = ["$myYear-07-01", "$myYear-09-30"];
-		$quarter[4] = ["$myYear-10-01", "$myYear-12-30"];
+		$quarter[4] = ["$myYear-10-01", "$myYear-12-". $end_of_year];
 
 		$args = [];
 
