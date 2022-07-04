@@ -212,7 +212,7 @@ $html .= '<div class="tblBox">';
         $html .= '<th>'. T_("Value").'</th>';
         $html .= '<th>'. T_("Then").'</th>';
         $html .= '<th>'. T_("Else").'</th>';
-        $html .= '<th></th>';
+        $html .= '<th class="collapsing"></th>';
       }
       $html .= '</tr>';
     }
@@ -229,7 +229,11 @@ $html .= '<div class="tblBox">';
           $html .= '<td>'. a($value, 'value') .'</td>';
           $html .= '<td>'. a($value, 'then') .'</td>';
           $html .= '<td>'. a($value, 'else') .'</td>';
-          $html .= '<td></td>';
+          $html .= '<td class="collapsing">';
+          {
+            $html .= '<div class="" data-confirm data-data=\'{"remove_condition": "remove_condition", "key" : "'.$key.'"}\'>'. \dash\utility\icon::svg('trash', 'bootstrap', 'red', 'w-3'). '</div>';
+          }
+          $html .= '</td>';
         }
         $html .= '</tr>';
       }

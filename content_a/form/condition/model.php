@@ -6,6 +6,17 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('remove_condition') === 'remove_condition')
+		{
+			\lib\app\form\condition\remove::remove(\dash\request::post('key'), \dash\request::get('id'));
+
+			if(\dash\engine\process::status())
+			{
+				\dash\redirect::pwd();
+			}
+
+			return;
+		}
 
 		$post =
 		[
