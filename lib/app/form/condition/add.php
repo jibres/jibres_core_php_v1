@@ -28,6 +28,26 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		if($data['if'] === $data['then'])
+		{
+			\dash\notif::error(T_("A question cannot be conditioned on itself"));
+			return false;
+		}
+
+		if($data['if'] === $data['else'])
+		{
+			\dash\notif::error(T_("A question cannot be conditioned on itself"));
+			return false;
+		}
+
+		if($data['then'] === $data['else'])
+		{
+			\dash\notif::error(T_("Both sides of the bet should not be equal"));
+			return false;
+		}
+
+
+
 		$load_form = \lib\app\form\form\get::by_id($_form_id);
 
 		$condition = [];
@@ -35,6 +55,17 @@ class add
 		if(is_array(a($load_form, 'condition')))
 		{
 			$condition = $load_form['condition'];
+		}
+
+		foreach ($condition as $key => $value)
+		{
+			$check = [a($value, 'if'), a($value, 'then'), a($value, 'else')];
+
+			if(in_array($data['if'], $check) || in_array($data['else'], $check) || in_array($data['then'], $check))
+			{
+				\dash\notif::error(T_("A side of condition exist in current condition"));
+				return false;
+			}
 		}
 
 		$condition[] = $data;
