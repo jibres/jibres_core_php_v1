@@ -1,6 +1,6 @@
 <?php
 $html = '';
-$html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'">';
+$html .= '<form method="post" autocomplete="off">';
 {
   $html .= '<input type="hidden" name="id" value="'. \dash\request::get('id'). '">';
   $html .= '<div class="box">';
@@ -130,6 +130,39 @@ $html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'">'
 
 }
 $html .= '</form>';
+
+if($condition = \dash\data::formDetail_condition())
+{
+  foreach ($condition as $key => $value)
+  {
+
+    $html .= '<div>';
+    {
+      $html .= 'if: ';
+      $html .= $value['if'];
+      $html .= ' - ';
+
+      $html .= 'operation: ';
+      $html .= $value['operation'];
+      $html .= ' - ';
+
+      $html .= 'value: ';
+      $html .= $value['value'];
+      $html .= ' - ';
+
+      $html .= 'then:';
+      $html .= $value['then'];
+      $html .= ' - ';
+
+      $html .= 'else:';
+      $html .= $value['else'];
+      $html .= ' - ';
+
+    }
+    $html .= '</div>';
+  }
+
+}
 
 
 echo $html;

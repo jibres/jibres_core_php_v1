@@ -22,13 +22,10 @@ class view
 
 		$operation_list =
 		[
-			'=' 	=> '=',
-			'!=' 	=> '!=',
-			'>' 	=> '>',
-			'>=' 	=> '>=',
-			'<' 	=> '<',
-			'<=' 	=> '<=',
+			'isequal'    => T_('Is Equal'),
+			'isnotequal' => T_('Is not equal'),
 		];
+
 		\dash\data::operationList($operation_list);
 
 

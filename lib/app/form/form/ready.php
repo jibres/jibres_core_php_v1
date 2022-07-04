@@ -25,6 +25,7 @@ class ready
 
 				case 'inquirysetting':
 				case 'setting':
+				case 'condition':
 					if($value)
 					{
 						$result[$key] = json_decode($value, true);
