@@ -9,12 +9,12 @@ class get
 		$form = \lib\app\form\form\get::by_id($_form_id);
 
 		$condition = [];
+		$all_ids = [];
 
 		if(isset($form['condition']) && is_array($form['condition']))
 		{
 			$my_condition = $form['condition'];
 
-			$all_ids = [];
 			$all_ids = array_merge($all_ids, array_column($form['condition'], 'if'));
 			$all_ids = array_merge($all_ids, array_column($form['condition'], 'then'));
 			$all_ids = array_merge($all_ids, array_column($form['condition'], 'else'));
@@ -26,6 +26,7 @@ class get
 
 			if($all_ids)
 			{
+
 				$item_load_multi = \lib\db\form_item\get::by_multi_id(implode(',', $all_ids));
 				if(!is_array($item_load_multi))
 				{
@@ -57,6 +58,7 @@ class get
 			$condition = $my_condition;
 		}
 
+		\dash\data::myConditoinExistID($all_ids);
 
 		return $condition;
 
