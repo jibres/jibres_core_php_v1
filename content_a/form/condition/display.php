@@ -1,6 +1,6 @@
 <?php
 $html = '';
-$html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'">';
+$html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'" data-patch>';
 {
   $html .= '<input type="hidden" name="id" value="'.\dash\request::get('id').'">';
   $html .= '<div class="box">';
@@ -36,11 +36,11 @@ $html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'">'
       /*=====  End of IF  ======*/
     }
     $html .= '</div>';
-    $html .= '<footer class="txtRa">';
-    {
-      $html .= '<button class="btn-primary">'. T_("Next"). '</button>';
-    }
-    $html .= '</footer>';
+    // $html .= '<footer class="txtRa">';
+    // {
+    //   $html .= '<button class="btn-primary">'. T_("Next"). '</button>';
+    // }
+    // $html .= '</footer>';
   }
   $html .= '</div>';
 
@@ -53,7 +53,7 @@ if(\dash\request::get('if'))
 {
   $html .= '<form method="post" autocomplete="off">';
   {
-    $html .= '<input type="hidden" name="id" value="'. \dash\request::get('id'). '">';
+    $html .= '<input type="hidden" name="if" value="'.\dash\request::get('if').'">';
     $html .= '<div class="box">';
     {
       $html .= '<div class="body">';
@@ -84,12 +84,43 @@ if(\dash\request::get('if'))
         /*=============================
         =            VALUE            =
         =============================*/
-        $html .= '<lable>'. T_("Value"). '</label>';
-        $html .= '<div class="input">';
+        $choiceList = \dash\data::choiceList();
+        if($choiceList)
         {
-          $html .= '<input type="text" name="value">';
+           $html .= '<div>';
+          {
+            $html .= '<label for="value">'. T_("Value"). '</label>';
+            $html .= '<select name="value" class="select22" id="value">';
+            {
+              $html .= '<option value="">-'. T_('Select value') .' -</option>';
+
+              foreach (\dash\data::choiceList() as $key => $value)
+              {
+                $html .= '<option value="'. $value['id']. '" ';
+                $html .= '>'. $value['title']. '</option>';
+              }
+            }
+            $html .= '</select>';
+          }
+          $html .= '</div>';
         }
-        $html .= '</div>';
+        else
+        {
+          if(\dash\data::choiceMode() === 'country')
+          {
+            $html .= '<label for="value">'. T_("Value"). '</label>';
+            $html .= \dash\utility\location::countrySelectorHtml(null, null, 'value', 'value');
+          }
+          else
+          {
+            $html .= '<lable>'. T_("Value"). '</label>';
+            $html .= '<div class="input">';
+            {
+              $html .= '<input type="text" name="value">';
+            }
+            $html .= '</div>';
+          }
+        }
         /*=====  End of VALUE  ======*/
 
 
@@ -106,6 +137,11 @@ if(\dash\request::get('if'))
 
               foreach (\dash\data::items() as $key => $value)
               {
+                if($value['id'] == \dash\request::get('if'))
+                {
+                  continue;
+                }
+
                 $html .= '<option value="'. $value['id']. '" ';
                 $html .= '>'. $value['title']. '</option>';
               }
@@ -128,6 +164,11 @@ if(\dash\request::get('if'))
 
               foreach (\dash\data::items() as $key => $value)
               {
+                if($value['id'] == \dash\request::get('if'))
+                {
+                  continue;
+                }
+
                 $html .= '<option value="'. $value['id']. '" ';
                 $html .= '>'. $value['title']. '</option>';
               }

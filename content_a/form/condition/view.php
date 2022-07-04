@@ -28,15 +28,58 @@ class view
 
 		\dash\data::operationList($operation_list);
 
+		$currency_choice = [];
 
-		if(\dash\request::get('item') && is_array($item))
+		if(($if = \dash\request::get('if')) && is_array($item))
 		{
 			$load_choice = [];
 
-			foreach ($item as $key => $value) {
-				// code...
+			foreach ($item as $key => $value)
+			{
+				if($value['id'] == $if)
+				{
+
+					switch ($value['type'])
+					{
+						case 'yes_no':
+							$load_choice = [['id' => 'yes', 'title' => T_("Yes")],['id' => 'no', 'title' => T_("No")]];
+							break;
+
+						case 'single_choice':
+							$load_choice = $value['choice'];
+							break;
+
+						case 'dropdown':
+							$load_choice = $value['choice'];
+							break;
+
+						case 'country':
+							\dash\utility\location\countres::html_data();
+							\dash\data::choiceMode('country');
+							break;
+
+						case 'province':
+							\dash\utility\location\countres::html_data();
+							\dash\data::choiceMode('city');
+							break;
+
+						case 'gender':
+							$load_choice = [['id' => 'male', 'title' => T_("Male")],['id' => 'female', 'title' => T_("Female")]];
+							break;
+
+						case 'list_amount':
+							$load_choice = $value['choice'];
+							break;
+
+						default:
+							// code...
+							break;
+					}
+				}
 			}
 		}
+
+		\dash\data::choiceList($load_choice);
 
 
 	}
