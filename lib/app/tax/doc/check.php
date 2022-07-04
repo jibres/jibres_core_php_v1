@@ -195,6 +195,7 @@ class check
 					$data['totalnotincludevat'] = $final;
 				}
 
+
 				if($totalvat != $real_vat)
 				{
 					$totalincludevat    = ($totalvat / 9) * 100;
@@ -208,6 +209,15 @@ class check
 					$data['totalincludevat']    = $totalincludevat;
 					$data['totalnotincludevat'] = $totalnotincludevat;
 				}
+
+				// bug fix digikala invalid factor
+				// total not include vat < 0
+				if($data['totalnotincludevat'] < 0)
+				{
+					$data['totalincludevat'] += $data['totalnotincludevat'];
+					$data['totalnotincludevat'] = 0;
+				}
+
 			}
 		}
 		else
