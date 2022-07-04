@@ -14,13 +14,13 @@ class pageNav
 
     $html = '<div class="titleBox-v2 h-10 mb-2.5 hidden md:block select-none">';
     {
-      $html .= '<div class="flex flex-wrap content-center align-center">';
+      $html .= '<div class="flex flex-wrap11 content-center align-center">';
       {
         if(\dash\data::back_text() && \dash\data::back_link())
         {
           $html .= self::backBtn();
         }
-        $html .= '<div class="flex-grow px-5 font-bold">'. \dash\face::title(). '</div>';
+        $html .= '<div class="flex-grow px-5 font-bold truncate">'. \dash\face::title(). '</div>';
         // actionGroup
         $html .= '<nav class="actionExtra flex-none mx-1">';
         {
@@ -42,7 +42,7 @@ class pageNav
 
         if(\dash\face::btnSave() || \dash\face::btnInsert() || \dash\data::action_link())
         {
-          $html .= '<nav class="actionPrimary flex justify-between">';
+          $html .= '<nav class="actionPrimary flex flex-none justify-between">';
           if(\dash\data::action_text() && \dash\data::action_link())
           {
             $btnClass = "btn-primary mx-1";
