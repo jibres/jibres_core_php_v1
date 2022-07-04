@@ -7,7 +7,7 @@
 
 <style type="text/css">.page-break{page-break-after:always}</style>
   <div class="printArea" data-size='A4'>
-    <div class="msg f align-center text-center font-16">
+    <div class="alert-light f align-center text-center font-16">
       <div class="c3"></div>
       <div class="c6"><h2 class="font-bold"><?php echo T_("General Journal"); ?></h2></div>
       <div class="c3"><span class="inline-block w-16 h-8 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
@@ -90,7 +90,7 @@
       <?php } //endif ?>
     </tbody>
   </table>
-  <div class="msg mt-2 f align-center">
+  <div class="alert-light mt-2 f align-center">
     <div class="cauto pRa10"><?php echo T_("General Journal"); ?></div>
     <div class="cauto pRa10"><?php echo \lib\store::title(); ?></div>
     <div class="c pRa10"><?php echo a(\dash\data::currentYearDetail(), 'title'); ?></div>

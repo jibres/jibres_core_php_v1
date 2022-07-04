@@ -244,5 +244,5 @@
 	</table>
 	<?php \dash\utility\pagination::html(); ?>
 <?php }else{ ?>
-	<div class="msg fs14 success2"><?php echo T_("Hi!") ?></div>
+	<div class="alert-success fs14"><?php echo T_("Hi!") ?></div>
 <?php } //endif ?>

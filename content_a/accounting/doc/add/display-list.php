@@ -106,9 +106,9 @@
 
 <?php if(!\dash\data::printAllMode()) {?>
   <?php if( \dash\data::summary_debtor() && \dash\data::summary_creditor() && floatval(\dash\data::summary_debtor()) === floatval(\dash\data::summary_creditor())) {?>
-    <div class="msg p0 mt-4 success font-bold text-center fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
+    <div class="alert-success p0 mt-4 font-bold text-center fs14"><?php echo T_("Document balance") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }else{ ?>
-    <div class="msg p0 mt-4 danger font-bold text-center fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
+    <div class="alert-danger p0 mt-4 font-bold text-center fs14"><?php echo T_("Accounting document is not balance!") ?> <span class="fs08"><?php echo T_("Status"). ' '. \dash\data::dataRow_tstatus(); ?></span></div>
   <?php }//endif ?>
   <?php }//endif ?>
 

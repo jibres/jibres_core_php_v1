@@ -7,7 +7,7 @@
   <?php foreach (\dash\data::reportPerPage() as $pageNumber => $one_page) { ?>
 
   <div class="printArea" data-size='A4'>
-    <div class="msg f align-center font-16">
+    <div class="alert-light f align-center font-16">
       <div class="c5"><span><?php echo \dash\fit::number(a($one_page, 1, 'total_code')); ?></span> <span><?php echo a($one_page, 1, 'total_title'); ?></span></div>
       <div class="c2 text-center"><h2 class="font-bold"><?php echo T_("Ledger"); ?></h2></div>
       <div class="c5 text-center"><span class="inline-block w-16 h-8 rounded-full bg-gray-200 font-22"><?php echo \dash\fit::number($pageNumber); ?></span></div>
