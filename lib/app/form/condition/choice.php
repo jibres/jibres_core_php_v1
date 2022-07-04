@@ -27,11 +27,15 @@ class choice
 							break;
 
 						case 'single_choice':
-							$load_choice = $value['choice'];
+							$load_choice = self::ready_choice($value['choice']);
 							break;
 
 						case 'dropdown':
-							$load_choice = $value['choice'];
+							$load_choice = self::ready_choice($value['choice']);
+							break;
+
+						case 'list_amount':
+							$load_choice = self::ready_choice($value['choice']);
 							break;
 
 						case 'country':
@@ -54,9 +58,6 @@ class choice
 							$load_choice = [['id' => 'male', 'title' => T_("Male")],['id' => 'female', 'title' => T_("Female")]];
 							break;
 
-						case 'list_amount':
-							$load_choice = $value['choice'];
-							break;
 
 						default:
 							// code...
@@ -69,6 +70,18 @@ class choice
 		return $load_choice;
 
 
+	}
+
+	private static function ready_choice($data)
+	{
+		$new_data = [];
+
+		foreach ($data as $key => $value)
+		{
+			$new_data[] = ['id' => a($value, 'title'), 'title' => a($value, 'title')];
+		}
+
+		return $new_data;
 	}
 }
 ?>
