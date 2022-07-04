@@ -14,7 +14,22 @@ class view
 
 		$item = \lib\app\form\item\get::items_conditionable(\dash\request::get('id'));
 
-		\dash\data::items($item);
+		\dash\data::itemsconditionable($item);
+
+		$all_item = \lib\app\form\item\get::items(\dash\request::get('id'), false, false, true);
+
+		\dash\data::items($all_item);
+
+		$operation_list =
+		[
+			'=' 	=> '=',
+			'!=' 	=> '!=',
+			'>' 	=> '>',
+			'>=' 	=> '>=',
+			'<' 	=> '<',
+			'<=' 	=> '<=',
+		];
+		\dash\data::operationList($operation_list);
 
 
 		if(\dash\request::get('item') && is_array($item))
