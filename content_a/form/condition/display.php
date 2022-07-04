@@ -63,22 +63,22 @@ if(\dash\request::get('if'))
         /*=================================
         =            OPERATION            =
         =================================*/
-        $html .= '<div>';
-        {
-          $html .= '<label for="operation">'. T_("Operation"). '</label>';
-          $html .= '<select name="operation" class="select22" id="operation">';
-          {
-            $html .= '<option value="">-'. T_('Select operation') .' -</option>';
+        // $html .= '<div>';
+        // {
+        //   $html .= '<label for="operation">'. T_("Operation"). '</label>';
+        //   $html .= '<select name="operation" class="select22" id="operation">';
+        //   {
+        //     $html .= '<option value="">-'. T_('Select operation') .' -</option>';
 
-            foreach (\dash\data::operationList() as $key => $value)
-            {
-              $html .= '<option value="'. $key. '" ';
-              $html .= '>'. $value. '</option>';
-            }
-          }
-          $html .= '</select>';
-        }
-        $html .= '</div>';
+        //     foreach (\dash\data::operationList() as $key => $value)
+        //     {
+        //       $html .= '<option value="'. $key. '" ';
+        //       $html .= '>'. $value. '</option>';
+        //     }
+        //   }
+        //   $html .= '</select>';
+        // }
+        // $html .= '</div>';
         /*=====  End of OPERATION  ======*/
 
 
@@ -205,7 +205,7 @@ $html .= '<div class="tblBox">';
       $html .= '<tr>';
       {
         $html .= '<th>'. T_("If").'</th>';
-        $html .= '<th>'. T_("Operation").'</th>';
+        // $html .= '<th>'. T_("Operation").'</th>';
         $html .= '<th>'. T_("Value").'</th>';
         $html .= '<th>'. T_("Then").'</th>';
         $html .= '<th>'. T_("Else").'</th>';
@@ -222,7 +222,7 @@ $html .= '<div class="tblBox">';
         $html .= '<tr>';
         {
           $html .= '<td>'. a($value, 'if_title') .'</td>';
-          $html .= '<td>'. a($value, 'operation') .'</td>';
+          // $html .= '<td>'. a($value, 'operation') .'</td>';
           $html .= '<td>'. a($value, 'value') .'</td>';
           $html .= '<td>'. a($value, 'then_title') .'</td>';
           $html .= '<td>'. a($value, 'else_title') .'</td>';

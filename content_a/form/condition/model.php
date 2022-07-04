@@ -21,7 +21,7 @@ class model
 		$post =
 		[
 			'if'        => \dash\request::post('if'),
-			'operation' => \dash\request::post('operation'),
+			'operation' => 'isequal',
 			'value'     => \dash\request::post('value'),
 			'then'      => \dash\request::post('then'),
 			'else'      => \dash\request::post('else'),
