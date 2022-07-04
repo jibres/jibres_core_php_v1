@@ -704,6 +704,11 @@ class generator
 
 	private static function div_item($have_condition, $class = null)
 	{
+		if($have_condition)
+		{
+			$class = 'c-xs-12 c-12';
+		}
+
 		if($class)
 		{
 			self::$html .= '<div class="'. $class. '">';
