@@ -198,37 +198,62 @@ if(\dash\request::get('if'))
 
 if($condition = \dash\data::formDetail_condition())
 {
-  foreach ($condition as $key => $value)
+
+$html .= '<div class="tblBox">';
+{
+  $html .= '<table class="tbl1 v4">';
   {
-
-    $html .= '<div>';
+    $html .= '<thead>';
     {
-      $html .= 'if: ';
-      $html .= $value['if'];
-      $html .= ' - ';
+      $html .= '<tr>';
+      {
+        $html .= '<th>'. T_("If").'</th>';
+        $html .= '<th>'. T_("Operation").'</th>';
+        $html .= '<th>'. T_("Value").'</th>';
+        $html .= '<th>'. T_("Then").'</th>';
+        $html .= '<th>'. T_("Else").'</th>';
+        $html .= '<th></th>';
+      }
+      $html .= '</tr>';
+    }
+    $html .= '</thead>';
+    $html .= '<tbody>';
+    {
+      foreach ($condition as $key => $value)
+      {
 
-      $html .= 'operation: ';
-      $html .= $value['operation'];
-      $html .= ' - ';
-
-      $html .= 'value: ';
-      $html .= $value['value'];
-      $html .= ' - ';
-
-      $html .= 'then:';
-      $html .= $value['then'];
-      $html .= ' - ';
-
-      $html .= 'else:';
-      $html .= $value['else'];
-      $html .= ' - ';
+        $html .= '<tr>';
+        {
+          $html .= '<td>'. a($value, 'if') .'</td>';
+          $html .= '<td>'. a($value, 'operation') .'</td>';
+          $html .= '<td>'. a($value, 'value') .'</td>';
+          $html .= '<td>'. a($value, 'then') .'</td>';
+          $html .= '<td>'. a($value, 'else') .'</td>';
+          $html .= '<td></td>';
+        }
+        $html .= '</tr>';
+      }
 
     }
-    $html .= '</div>';
+    $html .= '</tbody>';
   }
+  $html .= '</table>';
+}
+$html .= '</div>';
 
 }
 
 
 echo $html;
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+
+</body>
+</html>
