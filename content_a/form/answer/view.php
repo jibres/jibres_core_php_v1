@@ -55,6 +55,12 @@ class view
 		$args['not_deleted'] = true;
 		$q               = \dash\validate::search_string();
 
+
+		if(\dash\data::getFilterArgsInModel())
+		{
+			return $args;
+		}
+
 		$dataTable = \lib\app\form\answer\search::list($q, $args);
 
 		$filterBox     = \lib\app\form\answer\search::filter_message();

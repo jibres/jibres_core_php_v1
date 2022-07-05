@@ -28,15 +28,18 @@ class search
 
 		$condition =
 		[
-			'order'       => 'order',
-			'sort'        => ['enum' => ['id', 'datecreated']],
-			'type'        => ['enum' => ['assistant', 'group', 'total', 'details']],
-			'status'      => ['enum' => ['draft','active','spam', 'archive', 'deleted']],
-			'form_id'     => 'id',
-			'tag_id'      => 'id',
-			'start_date'  => 'date',
-			'end_date'    => 'date',
-			'not_deleted' => 'bit',
+			'order'                   => 'order',
+			'sort'                    => ['enum' => ['id', 'datecreated']],
+			'type'                    => ['enum' => ['assistant', 'group', 'total', 'details']],
+			'status'                  => ['enum' => ['draft','active','spam', 'archive', 'deleted']],
+			'form_id'                 => 'id',
+			'tag_id'                  => 'id',
+			'start_date'              => 'date',
+			'end_date'                => 'date',
+			'not_deleted'             => 'bit',
+
+			'operation_add_group_tag' => 'bit',
+			'the_tag_id'              => 'id',
 		];
 
 		$require = [];
@@ -138,7 +141,16 @@ class search
 			$order_sort = " ORDER BY form_answer.id DESC";
 		}
 
-		$list = \lib\db\form_answer\search::list($param, $and, $or, $order_sort, $meta);
+		if($data['operation_add_group_tag'])
+		{
+			$group_tag = \lib\db\form_tag\insert::group_tag($param, $and, $or, $order_sort, $meta, $data['the_tag_id']);
+			return $group_tag;
+		}
+		else
+		{
+			$list = \lib\db\form_answer\search::list($param, $and, $or, $order_sort, $meta);
+		}
+
 
 
 		if(!is_array($list))

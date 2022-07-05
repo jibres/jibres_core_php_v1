@@ -65,6 +65,46 @@ class add
 	}
 
 
+	public static function group_answer_add($_q, $_tag, $_form_id, $_args)
+	{
+		if(!\dash\permission::check('ManageFormTags') && !\dash\permission::check('FormDescription'))
+		{
+			\dash\permission::deny();
+		}
+
+		$tag = \dash\validate::string_50($_tag);
+
+		if(!$tag)
+		{
+			\dash\notif::error(T_("Please enter the tag"));
+			return false;
+		}
+
+
+		$tag_detail = self::force_add($tag, $_form_id);
+
+		if(!isset($tag_detail['id']))
+		{
+			return false;
+		}
+
+		$tag_id = $tag_detail['id'];
+
+		$_args['operation_add_group_tag'] = true;
+		$_args['the_tag_id']              = $tag_id;
+
+		$add_tag = \lib\app\form\answer\search::list($_q, $_args);
+
+		if($add_tag)
+		{
+			\dash\notif::ok(T_("Tag added to this result"));
+			return true;
+		}
+
+	}
+
+
+
 	public static function add($_args)
 	{
 
