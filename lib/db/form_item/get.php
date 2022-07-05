@@ -5,6 +5,13 @@ namespace lib\db\form_item;
 class get
 {
 
+	public static function by_multi_id($_ids)
+	{
+		$query = "SELECT * FROM form_item WHERE form_item.id IN ($_ids)";
+		$result = \dash\pdo::get($query, []);
+		return $result;
+	}
+
 	public static function by_id($_id)
 	{
 		$query = "SELECT * FROM form_item WHERE form_item.id = $_id LIMIT 1";

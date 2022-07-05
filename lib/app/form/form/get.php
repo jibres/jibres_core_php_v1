@@ -26,6 +26,26 @@ class get
 
 	}
 
+	public static function by_id($_id)
+	{
+		$id = \dash\validate::id($_id);
+		if(!$id)
+		{
+			return false;
+		}
+
+		$load = \lib\db\form\get::by_id($id);
+
+		if(!$load)
+		{
+			return false;
+		}
+
+		$load = \lib\app\form\form\ready::row($load);
+
+		return $load;
+	}
+
 
 	public static function public_get($_id)
 	{

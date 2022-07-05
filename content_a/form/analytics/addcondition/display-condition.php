@@ -9,7 +9,7 @@
             <div class="c"></div>
             <div class="cauto"><?php echo $myType['title']; ?></div>
           </div>
-        <label for="condition"><?php echo T_("Operator") ?></label>
+        <label for="condition"><?php echo T_("Condition") ?></label>
         <select class="select22 mb-2" name="condition">
           <option value=""><?php echo T_("Please select on item") ?></option>
           <option value="isnull"><?php echo T_("Not answered") ?></option>

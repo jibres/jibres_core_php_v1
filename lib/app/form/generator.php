@@ -328,6 +328,13 @@ class generator
 			return null;
 		}
 
+		$form_id = null;
+
+		if(isset($_items[0]['form_id']))
+		{
+			$form_id = $_items[0]['form_id'];
+		}
+
 		self::div('row');
 		foreach ($_items as $item)
 		{
@@ -335,6 +342,8 @@ class generator
 			{
 				continue;
 			}
+
+			$have_condition = \lib\app\form\condition\get::item_have_condition($form_id, $item['id']);
 
 			// if(a($item, 'status') === 'deleted')
 			// {
@@ -348,39 +357,264 @@ class generator
 			// 	}
 			// }
 
+
 			switch ($item['type'])
 			{
-				case 'short_answer':		self::html_input_short_answer($item);break;
-				case 'displayname':			self::html_input_displayname($item);break;
-				case 'descriptive_answer':	self::html_input_descriptive_answer($item);break;
-				case 'numeric':				self::html_input_numeric($item);break;
-				case 'single_choice':		self::html_input_single_choice($item);break;
-				case 'multiple_choice':		self::html_input_multiple_choice($item);break;
-				case 'dropdown':			self::html_input_dropdown($item);break;
-				case 'date':				self::html_input_date($item);break;
-				case 'birthdate':			self::html_input_birthdate($item);break;
-				case 'country':				self::html_input_country($item);break;
-				case 'province':			self::html_input_province($item);break;
-				case 'province_city':		self::html_input_province_city($item);break;
-				case 'gender':				self::html_input_gender($item);break;
-				case 'time':				self::html_input_time($item);break;
-				case 'ircard':				self::html_input_ircard($item);break;
-				case 'irshaba':				self::html_input_irshaba($item);break;
-				case 'tel':					self::html_input_tel($item);break;
-				case 'file':				self::html_input_file($item);break;
-				case 'nationalcode':		self::html_input_nationalcode($item);break;
-				case 'mobile':				self::html_input_mobile($item);break;
-				case 'email':				self::html_input_email($item);break;
-				case 'website':				self::html_input_website($item);break;
-				case 'password':			self::html_input_password($item);break;
-				case 'yes_no':				self::html_input_yes_no($item);break;
-				case 'message':				self::html_input_message($item);break;
-				case 'agree':				self::html_input_agree($item);break;
-				case 'hidden':				self::html_input_hidden($item);break;
-				case 'postalcode':			self::html_input_postalcode($item);break;
-				case 'manual_amount':		self::html_input_manual_amount($item);break;
-				case 'list_amount':			self::html_input_list_amount($item);break;
-				case 'hidden_amount':		self::html_input_hidden_amount($item);break;
+				case 'short_answer':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_short_answer($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'displayname':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_displayname($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
+				case 'descriptive_answer':
+					self::html_input_descriptive_answer($item);
+					break;
+
+				case 'numeric':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_numeric($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'single_choice':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_single_choice($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
+				case 'multiple_choice':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_multiple_choice($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
+				case 'dropdown':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_dropdown($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'date':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_date($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'birthdate':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_birthdate($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'country':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_country($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
+				case 'province':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_province($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'province_city':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_province_city($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'gender':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_gender($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
+				case 'time':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_time($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'ircard':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_ircard($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'irshaba':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_irshaba($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'tel':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_tel($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
+				case 'file':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_file($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
+				case 'nationalcode':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_nationalcode($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'mobile':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_mobile($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'email':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_email($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'website':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_website($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'password':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_password($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'yes_no':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_yes_no($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
+				case 'message':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_message($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'agree':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_agree($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
+				case 'hidden':
+					self::html_input_hidden($item);
+					break;
+
+				case 'postalcode':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_postalcode($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'manual_amount':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_manual_amount($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'list_amount':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_list_amount($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+				case 'hidden_amount':
+					self::html_input_hidden_amount($item);
+					break;
+
 
 				default:
 					# code...
@@ -465,6 +699,39 @@ class generator
 		}
 
 		return true;
+	}
+
+
+	private static function div_item($have_condition, $class = null)
+	{
+		if($have_condition)
+		{
+			$class = 'c-xs-12 c-12';
+		}
+
+		if($class)
+		{
+			self::$html .= '<div class="'. $class. '">';
+		}
+		else
+		{
+			self::$html .= '<div>';
+		}
+
+		if($have_condition)
+		{
+			self::$html .= $have_condition;
+		}
+	}
+
+
+	private static function _div_item($have_condition)
+	{
+		self::$html .= '</div>';
+		if($have_condition)
+		{
+			self::$html .= '</div>';
+		}
 	}
 
 
@@ -750,13 +1017,13 @@ class generator
 
 	private static function html_input_short_answer($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value)	;
 			self::input('text', $value);
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
@@ -771,7 +1038,7 @@ class generator
 			}
 		}
 
-		self::div('c-xs-12 c-12');
+		// self::div('c-xs-12 c-12');
 		{
 			self::div('mB10');
 			{
@@ -792,7 +1059,7 @@ class generator
 			}
 			self::_div();
 		}
-		self::_div();
+		// self::_div();
 
 	}
 
@@ -800,44 +1067,44 @@ class generator
 
 	private static function html_input_displayname($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('text', $value);
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_manual_amount($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="price" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 
 	private static function html_input_numeric($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="price" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_single_choice($value)
 	{
-		self::div('c-sm-12 c-12');
+		// self::div('c-sm-12 c-12');
 		{
 			self::div('mB10');
 			{
@@ -876,7 +1143,7 @@ class generator
 			self::HtmlDesc($value);
 			self::_div();
 		}
-		self::_div();
+		// self::_div();
 
 	}
 
@@ -886,7 +1153,7 @@ class generator
 
 	private static function html_input_multiple_choice($value)
 	{
-		self::div('c-xs-12 c-12');
+		// self::div('c-xs-12 c-12');
 		{
 			self::div('mB10');
 			{
@@ -925,14 +1192,14 @@ class generator
 			self::HtmlDesc($value);
 			self::_div();
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 
 	private static function html_input_list_amount($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label_raw($value);
 			self::div('mB10');
@@ -959,13 +1226,13 @@ class generator
 			self::HtmlDesc($value);
 			self::_div();
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_dropdown($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label_raw($value);
 			self::div('mB10');
@@ -995,37 +1262,37 @@ class generator
 			self::HtmlDesc($value);
 			self::_div();
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_date($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="date" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_birthdate($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="date" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_country($value)
 	{
-		self::div('c-xs-12 c-12');
+		// self::div('c-xs-12 c-12');
 		{
 			self::div('mB10');
 			{
@@ -1035,19 +1302,19 @@ class generator
 			}
 			self::_div();
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_province($value)
 	{
-		self::div('c-xs-12 c-12');
+		// self::div('c-xs-12 c-12');
 		{
 			self::label($value);
 			self::$html .= \dash\utility\location::provinceSelectorHtml('IR', a($value, 'user_answer', 0, 'answer'), null, self::myName($value, true), self::myID($value, true));
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 
 	}
 
@@ -1055,7 +1322,7 @@ class generator
 
 	private static function html_input_province_city($value)
 	{
-		self::div('c-xs-12 c-12');
+		// self::div('c-xs-12 c-12');
 		{
 			self::div('mB10');
 			{
@@ -1076,14 +1343,14 @@ class generator
 			}
 			self::_div();
 		}
-		self::_div();
+		// self::_div();
 
 	}
 
 
 	private static function html_input_gender($value)
 	{
-		self::div('c-xs-12 c-12');
+		// self::div('c-xs-12 c-12');
 		{
 			self::label_raw($value);
 			self::div('mB10');
@@ -1129,37 +1396,37 @@ class generator
 			self::HtmlDesc($value);
 			self::_div();
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_time($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="time" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_ircard($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="creditCard" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_irshaba($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::div('input');
@@ -1169,98 +1436,98 @@ class generator
 			self::_div();
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_tel($value)
 	{
-		self::div('c-xs-12 c-12');
+		// self::div('c-xs-12 c-12');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="tel" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_nationalcode($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="nationalCode" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_mobile($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="mobile-enter" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 
 	private static function html_input_postalcode($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('tel', $value, ' data-format="postalCode" ');
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_email($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('email', $value);
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_website($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('url', $value);
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_password($value)
 	{
-		self::div('c-xs-12 c-6');
+		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
 			self::input('password', $value);
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
 	private static function html_input_file($value)
 	{
-		self::div('c-xs-12 c-12');
+		// self::div('c-xs-12 c-12');
 		{
 			if(isset($value['setting']['file']['accept']))
 			{
@@ -1311,7 +1578,7 @@ class generator
 
 			self::HtmlDesc($value);
 		}
-		self::_div();
+		// self::_div();
 	}
 
 
@@ -1319,7 +1586,7 @@ class generator
 	{
 		if(isset($value['title']))
 		{
-			self::div('c-xs-12 c-12');
+			// self::div('c-xs-12 c-12');
 			{
 				$class = null;
 				if(isset($value['setting']['message']['color']) && $value['setting']['message']['color'])
@@ -1371,7 +1638,7 @@ class generator
 				}
 				self::$html .= '</div>';
 			}
-			self::_div();
+			// self::_div();
 		}
 	}
 
@@ -1381,7 +1648,7 @@ class generator
 	{
 		if(isset($value['title']))
 		{
-			self::div('c-xs-12 c-12');
+			// self::div('c-xs-12 c-12');
 			{
 				$class = null;
 				if(isset($value['setting']['agree']['color']) && $value['setting']['agree']['color'])
@@ -1417,7 +1684,7 @@ class generator
 					self::$html .= '</div>';
 				self::$html .= '</div>';
 			}
-			self::_div();
+			// self::_div();
 		}
 	}
 
@@ -1425,7 +1692,7 @@ class generator
 
 	private static function html_input_yes_no($value)
 	{
-		self::div('c-xs-12 c-12');
+		// self::div('c-xs-12 c-12');
 		{
 			self::div('mB10');
 			{
@@ -1472,7 +1739,7 @@ class generator
 			self::HtmlDesc($value);
 			self::_div();
 		}
-		self::_div();
+		// self::_div();
 	}
 
 

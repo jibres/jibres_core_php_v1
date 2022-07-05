@@ -75,6 +75,8 @@ class add
 			}
 		}
 
+		$check_true_item = \lib\app\form\condition\check::true_item($check_true_item, a($load_form, 'condition'), $answer);
+
 
 		if(!$check_true_item || !is_array($check_true_item))
 		{

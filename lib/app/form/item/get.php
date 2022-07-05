@@ -72,6 +72,31 @@ class get
 		return $new_list;
 	}
 
+
+	public static function items_conditionable($_form_id)
+	{
+		$result = [];
+
+		$items = self::items($_form_id, true, false, true);
+
+		if(is_array($items))
+		{
+			foreach ($items as $key => $value)
+			{
+				if(!in_array(a($value, 'type'), ['yes_no','single_choice','dropdown','country','province','gender','list_amount',]))
+				{
+					continue;
+				}
+
+				$result[] = $value;
+			}
+		}
+
+
+		return $result;
+	}
+
+
 	public static function items_inquiryable($_form_id)
 	{
 		\dash\permission::access('_group_form');
