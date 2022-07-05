@@ -1095,7 +1095,14 @@ class generator
 		// self::div('c-xs-12 c-6');
 		{
 			self::label($value);
-			self::input('tel', $value, ' data-format="price" ');
+			self::input('tel', $value, ' data-format="price" data-response-realtime ');
+
+			// if(\dash\language::current() === 'fa')
+			// {
+			// 	self::$html .= '<div class="alert-info" ';
+			// 	self::$html .= 'data-response="'. self::myName($value, true). '"  data-response-call="wordifyResponse"></div>';
+			// }
+
 			self::HtmlDesc($value);
 		}
 		// self::_div();
