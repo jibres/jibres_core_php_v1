@@ -628,6 +628,14 @@ class generator
 					self::_div_item($have_condition);
 					break;
 
+				case 'hiddenurl':
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_hiddenurl($item);
+					}
+					self::_div_item($have_condition);
+					break;
+
 
 				default:
 					# code...
@@ -1772,6 +1780,46 @@ class generator
 		}
 		self::$html .= '<input type="hidden" name="'. self::myName($value, true). '" value="'. $my_value. '">';
 	}
+
+
+	private static function html_input_hiddenurl($value)
+	{
+		$urlkey = null;
+		if(isset($value['setting']['hiddenurl']['urlkey']))
+		{
+			$urlkey = $value['setting']['hiddenurl']['urlkey'];
+		}
+
+
+		$my_value = null;
+
+		if($urlkey && \dash\request::key_exists($urlkey, 'GET'))
+		{
+			$my_value = \dash\request::get($urlkey);
+
+			if(isset($value['setting']['hiddenurl']['whitelist']) && is_array($value['setting']['hiddenurl']['whitelist']))
+			{
+				if(!in_array($my_value, $value['setting']['hiddenurl']['whitelist']))
+				{
+					$my_value = null;
+				}
+			}
+			else
+			{
+				$my_value = \dash\validate::string_100($my_value, false);
+			}
+		}
+		else
+		{
+			if(isset($value['setting']['hidden']['defaultvalue']))
+			{
+				$my_value = $value['setting']['hidden']['defaultvalue'];
+			}
+		}
+		self::$html .= '<input type="hidden" name="'. self::myName($value, true). '" value="'. $my_value. '">';
+	}
+
+
 
 
 
