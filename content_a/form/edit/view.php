@@ -35,7 +35,7 @@ class view
 		}
 		else
 		{
-			\dash\face::btnPreview(\lib\store::url(). '/f/'. \dash\request::get('id'));
+			\dash\face::btnView(\lib\store::url(). '/f/'. \dash\request::get('id'));
 		}
 	}
 }

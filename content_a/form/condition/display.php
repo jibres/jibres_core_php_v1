@@ -7,7 +7,13 @@ $html .= '<form method="get" autocomplete="off" action="'.\dash\url::that().'" d
   {
     $html .= '<div class="body">';
     {
-      $html .= '<div class="msg">'. T_("Only questions that have options can be included in the condition"). '</div>';
+      $html .= '<div class="msg">';
+      {
+        $html .= T_("On this page you can link one question to another question");
+        $html .= '<br>';
+        $html .= T_("Only questions that have options can be included in the condition");
+      }
+      $html .= '</div>';
 
       /*==========================
       =            IF            =

@@ -10,6 +10,8 @@ class view
 
 		$form_id = \dash\request::get('id');
 
+		\content_a\form\edit\view::form_preview_link();
+
 		// back
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?'. \dash\request::fix_get());
