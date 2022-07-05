@@ -252,6 +252,8 @@ class export
 			}
 		}
 
+		// $value = \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
+
 		$export = [];
 
 		foreach ($answerdetail as $one_answer)
@@ -311,6 +313,51 @@ class export
 			{
 				$export[$my_answer_id][$this_item_id] = \dash\fit::date_en($one_answer['answer']);
 			}
+			elseif($this_item_detail['type'] === 'country')
+			{
+				if($one_answer['answer'])
+				{
+					$export[$my_answer_id][$this_item_id] = $one_answer['answer']. ' - '. \dash\utility\location\countres::get_localname($one_answer['answer']);
+				}
+				else
+				{
+					$export[$my_answer_id][$this_item_id] = $one_answer['answer'];
+				}
+			}
+			elseif($this_item_detail['type'] === 'province')
+			{
+				if($one_answer['answer'])
+				{
+					$export[$my_answer_id][$this_item_id] = $one_answer['answer']. ' - '. \dash\utility\location\provinces::get_localname($one_answer['answer']);
+				}
+				else
+				{
+					$export[$my_answer_id][$this_item_id] = $one_answer['answer'];
+				}
+			}
+			elseif($this_item_detail['type'] === 'province_city')
+			{
+				if($one_answer['answer'])
+				{
+					$province           = substr($one_answer['answer'], 0, 5);
+					$city               = substr($one_answer['answer'], 6);
+
+					if($province)
+					{
+						$export[$my_answer_id][$this_item_id] = $one_answer['answer']. ' - '. \dash\utility\location\provinces::get_localname($province);
+					}
+
+					if($city)
+					{
+						$export[$my_answer_id][$this_item_id] = $one_answer['answer']. ' - '. \dash\utility\location\cites::get_localname($city);
+					}
+				}
+				else
+				{
+					$export[$my_answer_id][$this_item_id] = $one_answer['answer'];
+				}
+			}
+
 			else
 			{
 				$export[$my_answer_id][$this_item_id] = $one_answer['answer'];
@@ -318,7 +365,6 @@ class export
 
 			$export[$my_answer_id]['date'] = \dash\utility\convert::to_en_number(\dash\fit::date_time($one_answer['datecreated']));
 		}
-
 
 		$new_export = [];
 

@@ -8,7 +8,7 @@
       <div class="body">
 
         <?php $i =0; $first = true; foreach (\dash\data::itemType() as $type_key => $type_value) { $i++;?>
-          <div class="msg minimal info2" data-kerkere='.showList<?php echo $i; ?>'><?php echo a($type_value, 'title'); ?></div>
+          <div class="alert-info minimal info2" data-kerkere='.showList<?php echo $i; ?>'><?php echo a($type_value, 'title'); ?></div>
           <div class="showList<?php echo $i; ?>" <?php if($first) { $first = false;}else{ ?> data-kerkere-content='hide2' <?php } //endif ?>>
 
             <div class="row">

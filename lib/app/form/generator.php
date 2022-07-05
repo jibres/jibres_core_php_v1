@@ -76,6 +76,7 @@ class generator
 					$html .= '<div class="mb-4 leading-loose">'. nl2br(\dash\data::formDetail_desc()). '</div>';
 				}
 
+
 				if(\dash\data::accessLoadItem())
 				{
 					if($allow_form_schedule = self::check_schedule(\dash\data::formDetail_id()))
@@ -86,6 +87,10 @@ class generator
 					{
 						$html .= self::$schedule_message;
 					}
+				}
+				else
+				{
+					$html .= '<div class="alert-warning">'. T_("Access to answer to this form is blocked"). '</div>';
 				}
 			}
 			$html .= '</div>';

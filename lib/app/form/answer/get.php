@@ -175,7 +175,10 @@ class get
 		elseif(a($value, 'province_name') || a($value, 'city_name'))
 		{
 			$result.= a($value, 'province_name');
-			$result.= a($value, 'city_name');
+			if(a($value, 'city_name'))
+			{
+				$result.= ' - '. a($value, 'city_name');
+			}
 		}
 		elseif(isset($value['item_type']) && $value['item_type'] === 'file')
 		{
