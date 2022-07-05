@@ -628,13 +628,13 @@ class generator
 					self::_div_item($have_condition);
 					break;
 
-				case 'hiddenurl':
-					self::div_item($have_condition, 'c-xs-12 c-6');
-					{
-						self::html_input_hiddenurl($item);
-					}
-					self::_div_item($have_condition);
-					break;
+				// case 'hiddenurl':
+				// 	self::div_item($have_condition, 'c-xs-12 c-6');
+				// 	{
+				// 		self::html_input_hiddenurl($item);
+				// 	}
+				// 	self::_div_item($have_condition);
+				// 	break;
 
 
 				default:
