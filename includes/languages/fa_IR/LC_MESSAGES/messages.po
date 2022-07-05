@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-04 17:30+0430\n"
-"PO-Revision-Date: 2022-07-04 17:33+0430\n"
+"POT-Creation-Date: 2022-07-05 11:55+0430\n"
+"PO-Revision-Date: 2022-07-05 11:56+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4613,7 +4613,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/form/answer/add/view.php:12 content_a/form/answer/detail/display.php:28
 #: content_a/form/answer/detail/view.php:12 content_a/form/answer/edit/view.php:12
 #: content_a/form/answer/item/view.php:12 content_a/form/answer/note/view.php:12
-#: content_a/form/answer/view.php:13 content_a/form/condition/view.php:14
+#: content_a/form/answer/view.php:13 content_a/form/condition/view.php:16
 #: content_a/form/duplicate/view.php:14 content_a/form/edit/view.php:13
 #: content_a/form/home/view.php:12 content_a/form/inquiry/view.php:12
 #: content_a/form/item/add/view.php:12 content_a/form/item/choice/view.php:12
@@ -8629,8 +8629,8 @@ msgstr "ارسال رایگان"
 #: content_a/discount/add/display.php:127
 #: content_a/form/analytics/addcondition/display-condition.php:27
 #: content_a/form/analytics/addcondition/display-condition.php:29
-#: content_a/form/condition/display.php:94 content_a/form/condition/display.php:111
-#: content_a/form/condition/display.php:209 content_a/products/property/add/display.php:47
+#: content_a/form/condition/display.php:100 content_a/form/condition/display.php:117
+#: content_a/form/condition/display.php:215 content_a/products/property/add/display.php:47
 #: content_a/products/property/display.php:60
 #: content_a/products/variants/display-add-variants.php:17
 #: content_a/products/variants/display-add-variants.php:38
@@ -8828,7 +8828,6 @@ msgid "Please select on item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
 #: content_a/form/analytics/addcondition/display-condition.php:12
-#: content_a/form/itemLink.php:17
 msgid "Condition"
 msgstr "قانون"
 
@@ -8883,7 +8882,7 @@ msgstr "انصراف"
 
 #: content_a/form/analytics/addcondition/display-condition.php:43
 #: content_a/form/analytics/addcondition/view.php:9
-#: content_a/form/analytics/pageStep.php:11 content_a/form/condition/display.php:185
+#: content_a/form/analytics/pageStep.php:11 content_a/form/condition/display.php:191
 msgid "Add condition"
 msgstr "افزودن شرط"
 
@@ -9514,44 +9513,48 @@ msgstr "نمایش جزئیات"
 msgid "Add tag"
 msgstr "افزودن برچسب"
 
-#: content_a/form/condition/display.php:10
+#: content_a/form/condition/display.php:12
+msgid "On this page you can link one question to another question"
+msgstr "در این صفحه شما می‌توانید یک سوال را به سوال دیگر وابسته کنید"
+
+#: content_a/form/condition/display.php:14
 msgid "Only questions that have options can be included in the condition"
 msgstr "تنها سوالاتی که داری گزینه هستند امکان قرار گیری در شروط را دارند"
 
-#: content_a/form/condition/display.php:17
+#: content_a/form/condition/display.php:23
 msgid "IF"
 msgstr "اگر"
 
-#: content_a/form/condition/display.php:20 content_a/form/condition/display.php:130
-#: content_a/form/condition/display.php:159
+#: content_a/form/condition/display.php:26 content_a/form/condition/display.php:136
+#: content_a/form/condition/display.php:165
 msgid "Select question"
 msgstr "انتخاب سوال"
 
-#: content_a/form/condition/display.php:97
+#: content_a/form/condition/display.php:103
 msgid "Select value"
 msgstr "انتخاب مقدار"
 
-#: content_a/form/condition/display.php:127 content_a/form/condition/display.php:210
+#: content_a/form/condition/display.php:133 content_a/form/condition/display.php:216
 msgid "Then"
 msgstr "آنگاه"
 
-#: content_a/form/condition/display.php:156 content_a/form/condition/display.php:211
+#: content_a/form/condition/display.php:162 content_a/form/condition/display.php:217
 msgid "Else"
 msgstr "در غیر این صورت"
 
-#: content_a/form/condition/display.php:207
+#: content_a/form/condition/display.php:213
 msgid "If"
 msgstr "اگر"
 
-#: content_a/form/condition/view.php:9
+#: content_a/form/condition/view.php:9 content_a/form/itemLink.php:17
 msgid "Form condition"
 msgstr "شروط فرم"
 
-#: content_a/form/condition/view.php:27
+#: content_a/form/condition/view.php:29
 msgid "Is Equal"
 msgstr "مساوی با"
 
-#: content_a/form/condition/view.php:28 lib/app/form/filter/ready.php:85
+#: content_a/form/condition/view.php:30 lib/app/form/filter/ready.php:85
 msgid "Is not equal"
 msgstr "نامساوی با"
 
