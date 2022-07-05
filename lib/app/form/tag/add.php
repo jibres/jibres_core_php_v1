@@ -81,25 +81,46 @@ class add
 		}
 
 
-		$tag_detail = self::force_add($tag, $_form_id);
+		// $tag_detail = self::force_add($tag, $_form_id);
 
-		if(!isset($tag_detail['id']))
+		// if(!isset($tag_detail['id']))
+		// {
+		// 	return false;
+		// }
+
+		// $tag_id = $tag_detail['id'];
+
+		$_args['get_answer_ids'] = true;
+
+
+		$ids = \lib\app\form\answer\search::list($_q, $_args);
+
+		if(!$ids)
 		{
+			\dash\notif::error(T_("No result found"));
 			return false;
 		}
 
-		$tag_id = $tag_detail['id'];
+		\dash\temp::set('addFromGroupTagAdd', true);
 
-		$_args['operation_add_group_tag'] = true;
-		$_args['the_tag_id']              = $tag_id;
-
-		$add_tag = \lib\app\form\answer\search::list($_q, $_args);
-
-		if($add_tag)
+		foreach ($ids as $key => $value)
 		{
+			self::answer_add($tag, $value['id'], $_form_id, true);
+
+			if(!\dash\engine\process::status())
+			{
+				return false;
+			}
+		}
+
+		if(\dash\engine\process::status())
+		{
+			\dash\notif::clean();
 			\dash\notif::ok(T_("Tag added to this result"));
 			return true;
 		}
+
+
 
 	}
 
@@ -436,15 +457,24 @@ class add
 			}
 		}
 
-		if(!empty($must_remove))
+		if(\dash\temp::get('addFromGroupTagAdd'))
 		{
-			$have_term_to_save_log = true;
-			$must_remove = array_filter($must_remove);
-			$must_remove = array_unique($must_remove);
+			// note remove old tag
+		}
+		else
+		{
 
-			$must_remove = implode(',', $must_remove);
+			if(!empty($must_remove))
+			{
+				$have_term_to_save_log = true;
+				$must_remove = array_filter($must_remove);
+				$must_remove = array_unique($must_remove);
 
-			\lib\db\form_tagusage\delete::hard_delete_answer_tag($must_remove, $_answer_id);
+				$must_remove = implode(',', $must_remove);
+
+				\lib\db\form_tagusage\delete::hard_delete_answer_tag($must_remove, $_answer_id);
+			}
+
 		}
 
 

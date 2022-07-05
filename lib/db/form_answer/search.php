@@ -18,11 +18,21 @@ class search
 			$limit = \dash\db\pagination::pagination_query($pagination_query, $_param, $q['limit']);
 		}
 
+		if($q['fields'])
+		{
+			$fields = $q['fields'];
+		}
+		else
+		{
+			$fields = 'form_answer.*,
+				(SELECT COUNT(*) FROM form_answerdetail WHERE form_answerdetail.answer_id = form_answer.id ) `count_answer`';
+		}
+
+
 		$query =
 		"
 			SELECT
-				form_answer.*,
-				(SELECT COUNT(*) FROM form_answerdetail WHERE form_answerdetail.answer_id = form_answer.id ) `count_answer`
+				$fields
 			FROM form_answer
 			$q[join]
 			$q[where]

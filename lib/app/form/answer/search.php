@@ -40,6 +40,7 @@ class search
 
 			'operation_add_group_tag' => 'bit',
 			'the_tag_id'              => 'id',
+			'get_answer_ids'          => 'bit',
 		];
 
 		$require = [];
@@ -55,6 +56,12 @@ class search
 
 		$meta['limit'] = 20;
 		// $meta['pagination'] = false;
+
+		if($data['get_answer_ids'])
+		{
+			$meta['pagination'] = false;
+			$meta['fields']     = 'form_answer.id';
+		}
 
 		$order_sort  = null;
 

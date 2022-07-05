@@ -11,13 +11,7 @@ class model
 		$args = \content_a\form\answer\view::config();
 		$q    = \dash\validate::search_string();
 
-		\lib\app\form\tag\add::group_answer_add($q, \dash\request::post('tag'), \dash\request::get('id'), $args);
-
-		if(\dash\engine\process::status())
-		{
-			\dash\notif::ok(T_("Tag saved"));
-		}
-
+		\lib\app\form\tag\add::group_answer_add($q, \dash\request::post('newtag'), \dash\request::get('id'), $args);
 
 		if(\dash\engine\process::status())
 		{

@@ -42,7 +42,7 @@ $html .= '<div class="justify-center flex"><div class="w-full lg:w-4/5 m-2">';
 							}
 							$html .= '</div>';
 						}
-						$html .= '<select name="tag" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Enter new tag or select one tag") . '"  data-ajax--delay="100" data-ajax--url="';
+						$html .= '<select name="newtag" id="tag" class="select22" data-model="tag" data-placeholder="'. T_("Enter new tag or select one tag") . '"  data-ajax--delay="100" data-ajax--url="';
 						$html .=  \dash\url::this(). '/tag/api?id='.\dash\request::get('id').'&json=true">';
 						$html .= '</select>';
 					}
