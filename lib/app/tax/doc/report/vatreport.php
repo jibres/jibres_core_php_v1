@@ -65,6 +65,7 @@ class vatreport
 
 				$list['cost']     = \lib\app\tax\doc\search::list(null, $args);
 			}
+			// var_dump($list);
 
 			$current_remain = floatval(a($list, 'income', 'totalincludevat')) - floatval(a($list, 'cost', 'totalincludevat'));
 
@@ -101,6 +102,8 @@ class vatreport
 			$result[$key] = array_merge($temp, $list);
 		}
 
+		// var_dump($result);exit;
+		// );exit;
 
 		return $result;
 	}

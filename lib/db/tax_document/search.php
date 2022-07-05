@@ -11,10 +11,15 @@ class search
 		$query =
 		"
 			SELECT
+
 				COUNT(*) AS `count`,
 				SUM(IFNULL(tax_document.total,0)) AS `total`,
 				SUM(IFNULL(tax_document.totaldiscount,0)) AS `totaldiscount`,
 				SUM(IFNULL(tax_document.totalvat,0)) AS `totalvat`,
+				SUM(ROUND((IFNULL(tax_document.totalvat,0) * 3) / 9)) AS `totalvat3`,
+				SUM(ROUND((IFNULL(tax_document.totalvat,0) * 6) / 9)) AS `totalvat6`,
+				SUM(ROUND((IFNULL(tax_document.totalincludevat,0) * 0.03))) AS `totalvatinclude3`,
+				SUM(ROUND((IFNULL(tax_document.totalincludevat,0) * 0.06))) AS `totalvatinclude6`,
 				SUM(IFNULL(tax_document.totalincludevat,0)) AS `totalincludevat`,
 				SUM(IFNULL(tax_document.totalnotincludevat,0)) AS `totalnotincludevat`
 			FROM tax_document

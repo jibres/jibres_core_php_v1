@@ -248,22 +248,22 @@ class search
 		{
 			$summary = \lib\db\tax_document\search::summary_detail($and, $or, $order_sort, $meta);
 
-			if(a($summary, 'totalvat') && a($summary, 'total'))
-			{
-				$summary['totalvat6'] = round((floatval($summary['totalvat']) / 9) * 6);
-				$summary['totalvat3'] = round((floatval($summary['totalvat']) / 9) * 3);
-			}
+			// if(a($summary, 'totalvat') && a($summary, 'total'))
+			// {
+			// 	$summary['totalvat6'] = round((floatval($summary['totalvat']) / 9) * 6);
+			// 	$summary['totalvat3'] = round((floatval($summary['totalvat']) / 9) * 3);
+			// }
 
 			if(a($summary, 'total') || a($summary, 'totaldiscount'))
 			{
 				$summary['final'] = (floatval($summary['total']) - floatval($summary['totaldiscount']));
 			}
 
-			if(a($summary, 'totalincludevat'))
-			{
-				$summary['totalvatinclude6'] = round(floatval($summary['totalincludevat']) * 0.06);
-				$summary['totalvatinclude3'] = round(floatval($summary['totalincludevat']) * 0.03);
-			}
+			// if(a($summary, 'totalincludevat'))
+			// {
+			// 	$summary['totalvatinclude6'] = round(floatval($summary['totalincludevat']) * 0.06);
+			// 	$summary['totalvatinclude3'] = round(floatval($summary['totalincludevat']) * 0.03);
+			// }
 
 
 			$summary['total-discount'] = floatval(a($summary, 'total')) - floatval(a($summary, 'totaldiscount'));
