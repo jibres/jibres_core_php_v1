@@ -415,6 +415,44 @@ class add
 					$answer[$item_id] = ['answer' => $my_answer];
 					break;
 
+				case 'hiddenurl':
+					$my_answer        = \dash\validate::string_100($my_answer, true, $validate_meta);
+					$urlkey = null;
+					if(isset($item_detail['setting']['hiddenurl']['urlkey']))
+					{
+						$urlkey = $item_detail['setting']['hiddenurl']['urlkey'];
+					}
+
+
+					$my_value = null;
+
+					if($urlkey && \dash\request::key_exists($urlkey, 'GET'))
+					{
+						$my_value = \dash\request::get($urlkey);
+
+						if(isset($item_detail['setting']['hiddenurl']['whitelist']) && is_array($item_detail['setting']['hiddenurl']['whitelist']))
+						{
+							if(!in_array($my_value, $item_detail['setting']['hiddenurl']['whitelist']))
+							{
+								$my_value = null;
+							}
+						}
+						else
+						{
+							$my_value = \dash\validate::string_100($my_value, false);
+						}
+					}
+					else
+					{
+						if(isset($item_detail['setting']['hidden']['defaultvalue']))
+						{
+							$my_value = $item_detail['setting']['hidden']['defaultvalue'];
+						}
+					}
+
+					$answer[$item_id] = ['answer' => $my_value];
+
+					break;
 				case 'nationalcode':
 					$my_answer        = \dash\validate::nationalcode($my_answer, true, $validate_meta);
 					$answer[$item_id] = ['answer' => $my_answer];
