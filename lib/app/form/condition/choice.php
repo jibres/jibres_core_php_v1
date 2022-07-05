@@ -78,7 +78,14 @@ class choice
 
 		foreach ($data as $key => $value)
 		{
-			$new_data[] = ['id' => a($value, 'title'), 'title' => a($value, 'title')];
+			$myId = a($value, 'title');
+
+			if(a($value, 'price'))
+			{
+				$myId = intval(a($value, 'price'));
+			}
+
+			$new_data[] = ['id' => $myId, 'title' => a($value, 'title')];
 		}
 
 		return $new_data;
