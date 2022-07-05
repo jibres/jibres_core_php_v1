@@ -18,7 +18,7 @@ class search
 			$limit = \dash\db\pagination::pagination_query($pagination_query, $_param, $q['limit']);
 		}
 
-		if($q['fields'])
+		if($q['fields'] !== '*')
 		{
 			$fields = $q['fields'];
 		}
