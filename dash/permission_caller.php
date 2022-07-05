@@ -183,6 +183,7 @@ class permission_caller
 		$master['AdvanceFormAnalyze']        = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'AdvanceFormAnalyze', 				'title' => T_('Advance Form Analyze'), 'require' => []];
 		$master['ManageFormTags']            = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'ManageFormTags', 					'title' => T_('Manage Form Tags'), 'require' => []];
 		$master['FormRemoveAnswer']          = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormRemoveAnswer', 				'title' => T_('Remove form answer'), 'require' => []];
+		$master['FormEditAnswer']            = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormEditAnswer', 					'title' => T_('Edit form answer'), 'require' => []];
 		$master['FormDescription']           = ['jibres' => false, 'business' => true,  'group' => 'form', 	'caller' => 'FormDescription', 					'title' => T_('Form Description'), 'require' => []];
 
 

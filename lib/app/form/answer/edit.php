@@ -106,6 +106,9 @@ class edit
 	 */
 	public static function answer($_new_answer, $_old_answer, $_answer_id)
 	{
+
+		\dash\permission::access('FormEditAnswer');
+
 		$must_remove_old_answer = [];
 
 		$new_answer = $_new_answer;
