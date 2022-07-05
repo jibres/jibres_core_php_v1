@@ -548,7 +548,7 @@ class add
 
 				if(isset($is_answer_befor['id']))
 				{
-					if($edit_mode && floatval($_meta['answer_id']) === floatval($is_answer_befor['id']))
+					if($edit_mode && floatval($_meta['answer_id']) === floatval($is_answer_befor['answer_id']))
 					{
 						// nothing
 						// just update current answer
