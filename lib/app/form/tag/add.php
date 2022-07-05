@@ -435,6 +435,7 @@ class add
 					'form_tag_id' => $value,
 					'answer_id'   => $_answer_id,
 					'form_id'     => $_form_id,
+					'datecreated' => date("Y-m-d H:i:s"),
 
 				];
 			}
