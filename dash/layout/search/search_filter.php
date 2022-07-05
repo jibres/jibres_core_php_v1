@@ -775,6 +775,13 @@ class search_filter
 
 				if(\dash\request::get())
 				{
+					if(\dash\data::listEngine_newActionByCurrentFilterURL() && \dash\data::listEngine_newActionByCurrentFilterTitle())
+					{
+						$html .= '<a class="btn-outline-success m-1" href="';
+						$html .= \dash\data::listEngine_newActionByCurrentFilterURL();
+						$html .= '"> '. \dash\data::listEngine_newActionByCurrentFilterTitle(). '</a>';
+					}
+
 					$html .= '<a class="btn-outline-secondary m-1" href="';
 					if(\dash\data::listEngine_cleanFilterUrl())
 					{

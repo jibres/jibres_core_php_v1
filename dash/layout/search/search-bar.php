@@ -20,7 +20,13 @@ $html .= '<form method="get" action="'. \dash\data::listEngine_search(). '" auto
 						{
 							$html .=  'apply';
 						}
-						$html .= '" data-kerkere-icon="close" data-kerkere=".filterBox">'. T_("Filter"). '</a>';
+						$open_close = 'data-kerkere-icon="close"';
+						if(\dash\data::listEngine_openKerkere())
+						{
+							$open_close = 'data-kerkere-icon="open"';
+						}
+
+						$html .= '" '.$open_close.' data-kerkere=".filterBox">'. T_("Filter"). '</a>';
 					}
 					$html .= '</div>';
 				}
@@ -42,17 +48,17 @@ $html .= '<form method="get" action="'. \dash\data::listEngine_search(). '" auto
 
 				if(\dash\data::listEngine_filter())
 				{
-					$html .= '<div class="c-2 c-xs-3 sortBox">';
+					if(\dash\data::sortList())
 					{
-						$html .= '<select class="select22 ';
-						if(\dash\request::get('sort') || \dash\request::get('order'))
+						$html .= '<div class="c-2 c-xs-3 sortBox">';
 						{
-							$html .= 'apply';
-						}
+							$html .= '<select class="select22 ';
+							if(\dash\request::get('sort') || \dash\request::get('order'))
+							{
+								$html .= 'apply';
+							}
 
-						$html .= '" data-link data-placeholder='. T_("Sort"). '>';
-						{
-							if(\dash\data::sortList())
+							$html .= '" data-link data-placeholder='. T_("Sort"). '>';
 							{
 								foreach (\dash\data::sortList() as $key => $value)
 								{
@@ -81,10 +87,10 @@ $html .= '<form method="get" action="'. \dash\data::listEngine_search(). '" auto
 									$html .= "</option>";
 								}
 							}
+							$html .= '</select>';
 						}
-						$html .= '</select>';
+						$html .= '</div>';
 					}
-					$html .= '</div>';
 				}
 			}
 			$html .= '</div>';
@@ -94,7 +100,14 @@ $html .= '<form method="get" action="'. \dash\data::listEngine_search(). '" auto
 
 	if(\dash\data::listEngine_filter())
 	{
-		$html .= '<div class="filterBox" data-kerkere-content="hide">';
+		$open_close = 'data-kerkere-content="hide"';
+
+		if(\dash\data::listEngine_openKerkere())
+		{
+			$open_close = 'data-kerkere-content="open"';
+		}
+
+		$html .= '<div class="filterBox" '.$open_close.'>';
 		{
 			$html .= \dash\layout\search\search_filter::get_html_filters();
 		}
