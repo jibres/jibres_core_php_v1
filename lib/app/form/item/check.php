@@ -40,6 +40,8 @@ class check
 			'hidden'       => 'bit',
 			'checkhidden'  => 'bit',
 			'uniquelist'   => 'longtext',
+			'whitelist'    => 'tag',
+			'urlkey'       => 'enstring_50',
 		];
 
 		$require = ['title', 'type'];
@@ -67,6 +69,16 @@ class check
 		if(a($_current_detail, 'type_detail', 'min'))
 		{
 			$setting[$data['type']]['min'] = $data['min'];
+		}
+
+		if(a($_current_detail, 'type_detail', 'urlkey'))
+		{
+			$setting[$data['type']]['urlkey'] = $data['urlkey'];
+		}
+
+		if(a($_current_detail, 'type_detail', 'whitelist'))
+		{
+			$setting[$data['type']]['whitelist'] = $data['whitelist'];
 		}
 
 		if(a($_current_detail, 'type_detail', 'max'))
@@ -245,6 +257,10 @@ class check
 		unset($data['link']);
 		unset($data['targetblank']);
 		unset($data['maxlen2']);
+
+		unset($data['urlkey']);
+		unset($data['whitelist']);
+
 		return $data;
 	}
 }

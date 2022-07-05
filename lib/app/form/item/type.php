@@ -489,6 +489,23 @@ class type
 		];
 
 
+		$type['hiddenurl'] =
+		[
+			'key'          => 'hiddenurl',
+			'title'        => T_('Hidden input from URL'),
+			'chart'        => false,
+			'chart_type'   => null,
+			'group'        => T_("Other"),
+			'urlkey'       => true,
+			'whitelist'    => true,
+			'defaultvalue' => true,
+			'default_load' =>
+			[
+
+			],
+		];
+
+
 
 		$type['agree'] =
 		[

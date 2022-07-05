@@ -84,6 +84,18 @@ function settingRecord($value)
 
 	}
 
+
+	if(isset($value['type_detail']['urlkey']) && $value['type_detail']['urlkey'])
+	{
+		settinguUrlkey($value);
+	}
+
+		if(isset($value['type_detail']['whitelist']) && $value['type_detail']['whitelist'])
+	{
+		settinguWhitelist($value);
+	}
+
+
 	if(isset($value['type_detail']['min']) && $value['type_detail']['min'])
 	{
 		settingMin($value);
@@ -380,6 +392,34 @@ function settingDefaultvalue($value) {?>
 <label for="item_defaultvalue_<?php echo a($value, 'id') ?>"><?php echo T_("Default value") ?></label>
 <div class="input">
 	<input type="text" name="item_defaultvalue_<?php echo a($value, 'id') ?>" id="item_defaultvalue_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'defaultvalue'); ?>">
+</div>
+<?php } // endfunction
+
+
+function settinguWhitelist($value) {
+$current_value = a($value, 'setting', a($value, 'type'), 'whitelist');
+if(!is_array($current_value))
+{
+	$current_value = [];
+}
+
+?>
+<label for="item_whitelist_<?php echo a($value, 'id') ?>"><?php echo T_("White list value"); ?></label>
+<div>
+<select class="select22" name="item_whitelist_<?php echo a($value, 'id') ?>[]" multiple="multiple" data-model='tag'>
+	<?php foreach ($current_value as $key => $value) {?>
+  	<option value="<?php echo $value ?>" selected><?php echo $value; ?></option>
+  <?php } //endfor ?>
+</select>
+</div>
+<?php } // endfunction
+
+
+function settinguUrlkey($value) {?>
+
+<label for="item_urlkey_<?php echo a($value, 'id') ?>"><?php echo T_("Define url key") ?></label>
+<div class="input ltr">
+	<input type="text" name="item_urlkey_<?php echo a($value, 'id') ?>" id="item_urlkey_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'urlkey'); ?>">
 </div>
 <?php } // endfunction
 

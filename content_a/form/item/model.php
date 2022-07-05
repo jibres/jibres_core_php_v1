@@ -55,6 +55,8 @@ class model
 			'link',
 			'targetblank',
 			'uniquelist',
+			'whitelist',
+			'urlkey',
 		];
 
 		$typeString = implode('|', $allTypes);
