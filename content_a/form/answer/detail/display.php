@@ -77,7 +77,7 @@ else
 	$html .= '<div class="row">';
 	{
 
-		$html .= '<div class="c-xs-12 c-sm-12 c-md-7">';
+		$html .= '<div class="c-xs-12 c-sm-12 c-md-12 c-lg-7">';
 		{
 
 
@@ -163,7 +163,7 @@ else
 
 
 
-		$html .= '<div class="c-xs-12 c-sm-12 c-md-5 print:hidden">';
+		$html .= '<div class="c-xs-12 c-sm-12 c-md-12 c-lg-5 print:hidden">';
 		{
 			$html .= '<form method="post" id="markasreview">';
 			{
@@ -549,7 +549,7 @@ else
 								$html .= '<div class="radio3">';
 								{
 									$html .= '<input type="radio" name="privacy" value="private" checked id="privacyprivate">';
-									$html .= '<label for="privacyprivate">'. T_("Private") . ' <small>'. T_('Only your can view this note').'</small></label>';
+									$html .= '<label for="privacyprivate">'. T_("Private") . ' <small class="hidden md:inline-block">'. T_('Only your can view this note').'</small></label>';
 								}
 								$html .= '</div>';
 							}
@@ -560,7 +560,7 @@ else
 								$html .= '<div class="radio3">';
 								{
 									$html .= '<input type="radio" name="privacy" value="public"  id="privacypublic">';
-									$html .= '<label for="privacypublic">'. T_("Public") . ' <small>'. T_('Your and customer can view this note').'</small></label>';
+									$html .= '<label for="privacypublic">'. T_("Public") . ' <small class="hidden md:inline-block">'. T_('Your and customer can view this note').'</small></label>';
 								}
 								$html .= '</div>';
 							}

@@ -449,7 +449,7 @@ class search_filter
 		$html = '';
 		$html .= "<div class='mB10'>";
 		$html .= '<div class="row align-center">';
-		$html .= '<div class="c"><label for="tag">'. T_("Category"). '</label></div>';
+		$html .= '<div class="c"><label for="tag">'. T_("Tag"). '</label></div>';
 		$html .= '<div class="c-auto os">';
 		$html .= '<a class="font-12"';
 		if(!\dash\detect\device::detectPWA())
@@ -775,7 +775,7 @@ class search_filter
 
 				if(\dash\request::get())
 				{
-					$html .= '<a class="btn-outline-secondary" href="';
+					$html .= '<a class="btn-outline-secondary m-1" href="';
 					if(\dash\data::listEngine_cleanFilterUrl())
 					{
 						$html .= \dash\data::listEngine_cleanFilterUrl();
@@ -788,7 +788,7 @@ class search_filter
 				}
 				if($apply_filter_btn)
 				{
-					$html .= '<button class="btn-outline-primary">'. T_("Apply filter"). '</button>';
+					$html .= '<button class="btn-outline-primary m-1">'. T_("Apply filter"). '</button>';
 				}
 			}
 			$html .= '</div>';
