@@ -378,7 +378,12 @@ class generator
 					break;
 
 				case 'descriptive_answer':
-					self::html_input_descriptive_answer($item);
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_descriptive_answer($item);
+					}
+					self::_div_item($have_condition);
+
 					break;
 
 				case 'numeric':
@@ -581,7 +586,11 @@ class generator
 					break;
 
 				case 'hidden':
-					self::html_input_hidden($item);
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_hidden($item);
+					}
+					self::_div_item($have_condition);
 					break;
 
 				case 'postalcode':
@@ -612,7 +621,11 @@ class generator
 					break;
 
 				case 'hidden_amount':
-					self::html_input_hidden_amount($item);
+					self::div_item($have_condition, 'c-xs-12 c-6');
+					{
+						self::html_input_hidden_amount($item);
+					}
+					self::_div_item($have_condition);
 					break;
 
 
