@@ -27,6 +27,8 @@ class view
 		\dash\data::listEngine_sort(true);
 		\dash\data::sortList(\lib\app\form\answer\filter::sort_list());
 		\dash\data::listEngine_cleanFilterUrl(\dash\url::that(). '?id='. \dash\request::get('id'));
+		\dash\data::listEngine_newActionByCurrentFilterURL(\dash\url::that(). '/grouptag'. \dash\request::full_get());
+		\dash\data::listEngine_newActionByCurrentFilterTitle(T_("Add tag by this result"));
 
 
 		$args                = [];
