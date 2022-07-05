@@ -165,8 +165,15 @@ class add
 					}
 					else
 					{
-						$required_not_answered[] = ['message' => T_(":val is required", ['val' => a($item_detail, 'title')]), 'element' => 'a_'. $item_id];
-						continue;
+						if(a($item_detail, 'status') === 'deleted')
+						{
+							// needless to add to required field
+						}
+						else
+						{
+							$required_not_answered[] = ['message' => T_(":val is required", ['val' => a($item_detail, 'title')]), 'element' => 'a_'. $item_id];
+							continue;
+						}
 					}
 				}
 
