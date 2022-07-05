@@ -15,6 +15,7 @@ class view extends \content_a\form\answer\view
 		\dash\data::back_text(T_('Answers'));
 		\dash\data::back_link(\dash\url::this(). '/answer?id='. $form_id);
 
+		\dash\data::listEngine_before(null);
 		\dash\face::btnExport(null);
 		\dash\data::listEngine_newActionByCurrentFilterURL(null);
 		\dash\data::listEngine_newActionByCurrentFilterTitle(null);
