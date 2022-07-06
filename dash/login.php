@@ -412,6 +412,10 @@ class login
 					$place = 'api_business';
 					break;
 
+				case 'admin':
+					$place = 'jibres';
+					break;
+
 				default:
 					$place = null;
 					break;

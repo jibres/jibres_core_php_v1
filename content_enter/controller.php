@@ -36,9 +36,13 @@ class controller
 				$query = '';
 			}
 
-			$url = \dash\url::sitelang().'/enter'. $query;
+			$url = \dash\url::kingdom().'/enter'. $query;
 
-			\dash\redirect::to($url);
+			if(\dash\url::pwd() != $url)
+			{
+				\dash\redirect::to($url);
+			}
+
 		}
 
 

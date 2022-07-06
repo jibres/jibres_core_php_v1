@@ -397,7 +397,7 @@ class url
 			$url .= self::protocol(). '://';
 			$url .= $_subdomain. '.';
 			$url .= self::domain();
-			if(self::lang())
+			if(self::lang() && !$_full)
 			{
 				$url .= '/'. self::lang();
 			}
@@ -409,10 +409,12 @@ class url
 
 		if($_full)
 		{
-			if(self::$url['directory'])
+
+			if(self::$url['path'])
 			{
-				$url .= '/'. self::$url['directory'];
+				$url .= self::$url['path'];
 			}
+
 		}
 
 		return $url;

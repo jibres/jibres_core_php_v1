@@ -144,6 +144,16 @@ class redirect
 		}
 	}
 
+	public static function admin_subdomain()
+	{
+		if(\dash\url::subdomain() !== 'admin')
+		{
+			// admin subdomain
+			$new_url = \dash\url::set_subdomain('admin', true);
+			\dash\redirect::to($new_url);
+		}
+	}
+
 
 	public static function remove_store()
 	{

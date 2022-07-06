@@ -15,7 +15,15 @@ class controller
 			\dash\redirect::to_login(true);
 		}
 
-		\dash\redirect::remove_subdomain();
+		if(\dash\url::isLocal())
+		{
+			\dash\redirect::admin_subdomain();
+		}
+		else
+		{
+			\dash\redirect::remove_subdomain();
+		}
+
 		\dash\redirect::remove_store();
 
 		if(\dash\request::get('utm_campaign') === 'pwa' && \dash\detect\device::detectPWA())
@@ -27,7 +35,6 @@ class controller
 			}
 		}
 
-		\dash\redirect::remove_store();
 	}
 }
 ?>
