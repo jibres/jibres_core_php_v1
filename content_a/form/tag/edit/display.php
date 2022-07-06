@@ -13,8 +13,15 @@
               <textarea name="desc" class="txt" rows="3" id="desc" placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
             </div>
 
+        </div>
 
-          <label class=""><?php echo T_("Privacy") ?></label>
+      </section>
+
+      <div class="box">
+        <div class="pad">
+
+
+        <label class=""><?php echo T_("Privacy") ?></label>
          <div class="row mb-2">
             <div class="c-xs-6 c-sm-6">
               <div class="radio3">
@@ -31,7 +38,7 @@
           </div>
 
           <label class=""><?php echo T_("Color") ?></label>
-           <div class="row">
+           <div class="row mb-4">
             <div class="c-xs-6 c-sm-3">
               <div class="radio3">
                 <input type="radio" name="color" value="red" <?php if(\dash\data::dataRow_color() === 'red') {echo 'checked';} ?>  id="colorred">
@@ -62,15 +69,9 @@
           </div>
 
 
-        </div>
-
-      </section>
-
-      <div class="box">
-        <div class="pad">
             <div class="check1">
               <input type="checkbox" name="autocomment" id="autocomment" <?php if(\dash\data::dataRow_autocomment()) {echo 'checked';} ?>>
-              <label for="autocomment"><?php echo T_("Save auto note after add this tag to answer?") ?></label>
+              <label for="autocomment"><?php echo T_("Save auto note after add this tag to answer") ?></label>
             </div>
             <div data-response='autocomment' <?php if(\dash\data::dataRow_autocomment()){/*nothing*/}else{echo 'data-response-hide';} ?>>
               <div class="mb-2">
@@ -80,7 +81,7 @@
             </div>
             <div class="check1">
               <input type="checkbox" name="sendsms" id="sendsms" <?php if(\dash\data::dataRow_sendsms()) {echo 'checked';} ?>>
-              <label for="sendsms"><?php echo T_("Send notification after add this tag to answer?") ?></label>
+              <label for="sendsms"><?php echo T_("Send notification after add this tag to answer") ?></label>
             </div>
             <div data-response='sendsms' <?php if(\dash\data::dataRow_sendsms()){/*nothing*/}else{echo 'data-response-hide';} ?>>
               <div class="mb-2">
