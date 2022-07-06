@@ -41,6 +41,8 @@ class search
 			'operation_add_group_tag' => 'bit',
 			'the_tag_id'              => 'id',
 			'get_answer_ids'          => 'bit',
+			'item'                    => 'id',
+			'answer'                  => 'string_500',
 		];
 
 		$require = [];
@@ -79,12 +81,27 @@ class search
 			$and['not_deleted'] = " (form_answer.status IS NULL OR form_answer.status != 'deleted') ";
 		}
 
-
 		$query_string = \dash\validate::search($_query_string, false);
+
+		if($query_string || ($data['item'] && !is_null($data['answer'])))
+		{
+			$meta['join'][] = " LEFT JOIN form_answerdetail ON form_answerdetail.answer_id = form_answer.id ";
+		}
+
+		if($data['item'] && !is_null($data['answer']))
+		{
+			$and[] = " form_answerdetail.item_id = :item_id ";
+			$and[] = " form_answerdetail.answer = :answer ";
+
+			$param[':item_id'] = $data['item'];
+			$param[':answer']  = $data['answer'];
+
+		}
+
+
 
 		if($query_string)
 		{
-			$meta['join'][] = " LEFT JOIN form_answerdetail ON form_answerdetail.answer_id = form_answer.id ";
 
 			$or[] = " form_answer.id LIKE :serch_string1 ";
 			$or[] = " form_answerdetail.answer LIKE :serch_string2 ";

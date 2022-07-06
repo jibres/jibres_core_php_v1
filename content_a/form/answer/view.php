@@ -35,7 +35,11 @@ class view
 		$args['sort']        = \dash\request::get('sort');
 		$args['order']       = \dash\request::get('order');
 		$args['form_id']     = \dash\request::get('id');
+
 		$args['tag_id']      = \dash\request::get('tagid');
+		$args['item']      = \dash\request::get('item');
+		$args['answer']      = \dash\request::get('answer');
+
 
 		if(\dash\request::get('status'))
 		{
