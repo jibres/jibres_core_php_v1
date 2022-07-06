@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-05 17:44+0430\n"
-"PO-Revision-Date: 2022-07-05 17:44+0430\n"
+"POT-Creation-Date: 2022-07-06 12:39+0430\n"
+"PO-Revision-Date: 2022-07-06 12:40+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3267,7 +3267,7 @@ msgstr "آیکن"
 #: content/logo/section-icon.php:60 content/logo/section-standard.php:57
 #: content/logo/section-standard.php:190 content/logo/section-vertical.php:59
 #: content/logo/section-vertical.php:197 content_a/form/answer/detail/display.php:573
-#: content_a/form/answer/note/display.php:61 content_a/form/tag/edit/display.php:58
+#: content_a/form/answer/note/display.php:61 content_a/form/tag/edit/display.php:65
 msgid "Black"
 msgstr "مشکی"
 
@@ -4110,7 +4110,7 @@ msgstr "وزن"
 #: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
 #: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
 #: content_crm/telegram/send/display.php:5 content_site/staticfile/display.php:11
-#: lib/app/form/generator.php:796
+#: lib/app/form/generator.php:801
 msgid "Required"
 msgstr "الزامی"
 
@@ -5825,7 +5825,7 @@ msgstr "سند اختتامیه"
 #: dash/app/ticket/filter.php:45 includes/languages/trans_static.php:507
 #: includes/languages/trans_static_public.php:1107 lib/app/discount/filter.php:55
 #: lib/app/factor/action.php:73 lib/app/factor/ready.php:124
-#: lib/app/form/generator.php:781 lib/app/order/ready.php:124 lib/app/product/load.php:132
+#: lib/app/form/generator.php:786 lib/app/order/ready.php:124 lib/app/product/load.php:132
 #: lib/app/store/filter.php:30
 msgid "Deleted"
 msgstr "حذف شده"
@@ -7636,7 +7636,7 @@ msgstr "صفحه اول مقدمه"
 #: content_love/files/home/display.php:49 content_love/home/display.php:118
 #: content_site/options/file/file.php:285 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
-#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1574
+#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1579
 msgid "File"
 msgstr "فایل"
 
@@ -8935,13 +8935,13 @@ msgstr "افزودن دیدگاه به این پاسخ"
 
 #: content_a/form/analytics/answer/display.php:82
 #: content_a/form/answer/detail/display.php:563 content_a/form/answer/note/display.php:51
-#: content_a/form/tag/edit/display.php:22 includes/languages/trans_static.php:1006
+#: content_a/form/tag/edit/display.php:29 includes/languages/trans_static.php:1006
 msgid "Public"
 msgstr "عمومی"
 
 #: content_a/form/analytics/answer/display.php:88
 #: content_a/form/answer/detail/display.php:552 content_a/form/answer/note/display.php:35
-#: content_a/form/tag/edit/display.php:28 includes/languages/trans_static.php:1009
+#: content_a/form/tag/edit/display.php:35 includes/languages/trans_static.php:1009
 msgid "Private"
 msgstr "خصوصی"
 
@@ -8958,7 +8958,7 @@ msgstr "نظرات"
 msgid "Comment"
 msgstr "دیدگاه"
 
-#: content_a/form/analytics/answer/display.php:109 content_a/form/tag/edit/display.php:17
+#: content_a/form/analytics/answer/display.php:109 content_a/form/tag/edit/display.php:24
 #: includes/languages/trans_static.php:1003
 msgid "Privacy"
 msgstr "حریم خصوصی"
@@ -9303,17 +9303,17 @@ msgid "Your and customer can view this note"
 msgstr "شما و مشتری می‌توانید این یادداشت را مشاهده کنید"
 
 #: content_a/form/answer/detail/display.php:572 content_a/form/answer/note/display.php:60
-#: content_a/form/tag/edit/display.php:51
+#: content_a/form/tag/edit/display.php:58
 msgid "Blue"
 msgstr "آبی"
 
 #: content_a/form/answer/detail/display.php:574 content_a/form/answer/note/display.php:62
-#: content_a/form/tag/edit/display.php:44
+#: content_a/form/tag/edit/display.php:51
 msgid "Green"
 msgstr "سبز"
 
 #: content_a/form/answer/detail/display.php:575 content_a/form/answer/note/display.php:63
-#: content_a/form/tag/edit/display.php:38
+#: content_a/form/tag/edit/display.php:45
 msgid "Red"
 msgstr "قرمز"
 
@@ -9337,7 +9337,7 @@ msgid "Dark"
 msgstr "تیره"
 
 #: content_a/form/answer/detail/display.php:581 content_a/form/answer/note/display.php:69
-#: content_a/form/tag/edit/display.php:33
+#: content_a/form/tag/edit/display.php:40
 #: content_site/options/background/background_color.php:10
 #: content_site/options/color/color.php:23
 msgid "Color"
@@ -9734,7 +9734,7 @@ msgstr "ویرایش نوع"
 
 #: content_a/form/item/display.php:46 content_a/form/item/display.php:47
 #: content_cms/posts/publishdate/display.php:54 content_cms/posts/writer/display.php:57
-#: content_site/section/part/section_control.php:64 lib/app/form/generator.php:786
+#: content_site/section/part/section_control.php:64 lib/app/form/generator.php:791
 msgid "Hidden"
 msgstr "مخفی"
 
@@ -9815,7 +9815,7 @@ msgstr "هرفایلی"
 msgid "Send notification after complete form?"
 msgstr "آیا بعد از تکمیل فرم پیام اطلاع‌رسانی ارسال شود؟"
 
-#: content_a/form/item/display.php:367 content_a/form/tag/edit/display.php:87
+#: content_a/form/item/display.php:367 content_a/form/tag/edit/display.php:88
 msgid "Notification text"
 msgstr "متن پیام"
 
@@ -10196,34 +10196,34 @@ msgstr "شناسه تگ نادرست است"
 msgid "This message will be displayed on the Inquiry page for answers that have this tag"
 msgstr "این پیام در صفحه استعلام برای پاسخ‌هایی که این تگ را دارند نمایش داده خواهد شد"
 
-#: content_a/form/tag/edit/display.php:73
-msgid "Save auto note after add this tag to answer?"
-msgstr "آیا بعد از ثبت این تگ یک یادداشت خودکار برای پاسخ ذخیره شود؟"
+#: content_a/form/tag/edit/display.php:74
+msgid "Save auto note after add this tag to answer"
+msgstr "بعد از ثبت این تگ، یک یادداشت خودکار برای پاسخ ذخیره شود"
 
-#: content_a/form/tag/edit/display.php:77
+#: content_a/form/tag/edit/display.php:78
 msgid "Note text"
 msgstr "متن یادداشت"
 
-#: content_a/form/tag/edit/display.php:83
-msgid "Send notification after add this tag to answer?"
-msgstr "آیا بعد از ثبت این تگ به پاسخ پیام اطلاع رسانی ارسال شود؟"
+#: content_a/form/tag/edit/display.php:84
+msgid "Send notification after add this tag to answer"
+msgstr "بعد از ثبت این تگ، پیام اطلاع رسانی ارسال شود"
 
-#: content_a/form/tag/edit/display.php:99
+#: content_a/form/tag/edit/display.php:100
 msgid "You can delete this tag because we are not found any form in that."
 msgstr "هیچ پاسخی با این تگ یافت نشد. شما می‌توانید این تگ را حذف کنید."
 
-#: content_a/form/tag/edit/display.php:101
+#: content_a/form/tag/edit/display.php:102
 msgid "You can delete this tag and merge all form in this tag by another tag."
 msgstr ""
 "شما می‌توانید این تگ را حذف کنید و همه پاسخ‌های موجود در این تگ را با تگ دیگر ادغام کنید."
 
-#: content_a/form/tag/edit/display.php:106 content_a/form/tag/edit/display.php:108
+#: content_a/form/tag/edit/display.php:107 content_a/form/tag/edit/display.php:109
 #: content_a/form/tag/remove/display.php:4 content_a/form/tag/remove/view.php:8
 #: content_cms/hashtag/edit/display.php:28 content_cms/hashtag/edit/display.php:30
 msgid "Remove tag"
 msgstr "حذف تگ"
 
-#: content_a/form/tag/edit/display.php:116
+#: content_a/form/tag/edit/display.php:117
 msgid "Show answer by this tag"
 msgstr "نمایش پاسخ‌های موجود در این تگ"
 
@@ -12503,7 +12503,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketCreate.php:111
 #: includes/languages/trans_static.php:508 lib/app/form/answer/get.php:168
 #: lib/app/form/answer/save_as_ticket.php:95 lib/app/form/condition/choice.php:26
-#: lib/app/form/generator.php:1741
+#: lib/app/form/generator.php:1746
 msgid "Yes"
 msgstr "بله"
 
@@ -12523,7 +12523,7 @@ msgstr "بله"
 #: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
 #: lib/app/form/answer/get.php:172 lib/app/form/answer/save_as_ticket.php:99
-#: lib/app/form/condition/choice.php:26 lib/app/form/generator.php:1759
+#: lib/app/form/condition/choice.php:26 lib/app/form/generator.php:1764
 msgid "No"
 msgstr "خیر"
 
@@ -12809,7 +12809,7 @@ msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب 
 #: content_a/setting/general/display.php:160 content_account/my/profile/display.php:36
 #: content_business/profile/detail/display.php:35
 #: content_love/plugin/manage/display.php:47 content_love/plugin/manage/display.php:48
-#: lib/app/form/generator.php:868
+#: lib/app/form/generator.php:873
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -39489,7 +39489,7 @@ msgstr "فیلتر بر اساس تاریخ"
 msgid "Answer not found"
 msgstr "پاسخی یافت نشد"
 
-#: lib/app/form/answer/get.php:182 lib/app/form/generator.php:1584
+#: lib/app/form/answer/get.php:185 lib/app/form/generator.php:1589
 msgid "Show file"
 msgstr "نمایش فایل"
 
@@ -39616,28 +39616,32 @@ msgstr "فرم تماس با موفقیت ویرایش شد"
 msgid "Your form is not publish. Only you can view this form."
 msgstr "فرم شما منتشر نشده است. فقط شما می‌توانید این فرم را ببینید."
 
-#: lib/app/form/generator.php:97 lib/app/form/generator.php:164
-#: lib/app/form/generator.php:234 lib/app/form/generator.php:309
+#: lib/app/form/generator.php:93
+msgid "Access to answer to this form is blocked"
+msgstr "دسترسی پاسخگویی به این فرم بسته شده است"
+
+#: lib/app/form/generator.php:102 lib/app/form/generator.php:169
+#: lib/app/form/generator.php:239 lib/app/form/generator.php:314
 msgid "Submit"
 msgstr "تایید"
 
-#: lib/app/form/generator.php:672 lib/app/form/generator.php:701
+#: lib/app/form/generator.php:677 lib/app/form/generator.php:706
 msgid "Can not answer to this form at this time"
 msgstr "در حال حاضر نمی‌توان به این فرم پاسخ داد"
 
-#: lib/app/form/generator.php:673
+#: lib/app/form/generator.php:678
 msgid "This form will be activated in :date"
 msgstr "این فرم در تاریخ :date فعال خواهد شد"
 
-#: lib/app/form/generator.php:702
+#: lib/app/form/generator.php:707
 msgid "This form has been active until :date"
 msgstr "این فرم تا تاریخ :date فعال بوده است"
 
-#: lib/app/form/generator.php:1398
+#: lib/app/form/generator.php:1403
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: lib/app/form/generator.php:1415
+#: lib/app/form/generator.php:1420
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
