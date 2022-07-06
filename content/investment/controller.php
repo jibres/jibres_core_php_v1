@@ -6,16 +6,16 @@ class controller
 {
 	public static function routing()
 	{
-		$pitchdeckVersion = "1.3";
+		$pitchdeckVersion = "1.4";
 		$FinancialVersion = "5";
 		switch (\dash\url::child())
 		{
 			case 'pitchdeck':
-				\dash\redirect::to(\dash\url::cdn(). '/business/pitch-deck/v1/Jibres-PitchDeck-v'. $pitchdeckVersion. '.pdf?v=3');
+				\dash\redirect::to(\dash\url::cdn(). '/business/pitch-deck/v1/Jibres-PitchDeck-v'. $pitchdeckVersion. '.pdf?v=4');
 				break;
 
 			case 'pitchdeck-ppt':
-				\dash\redirect::to(\dash\url::cdn(). '/business/pitch-deck/v1/Jibres-PitchDeck-v'. $pitchdeckVersion. '.pptx?v=3');
+				\dash\redirect::to(\dash\url::cdn(). '/business/pitch-deck/v1/Jibres-PitchDeck-v'. $pitchdeckVersion. '.pptx?v=4');
 				break;
 
 			case 'financial':
