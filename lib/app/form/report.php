@@ -425,12 +425,15 @@ class report
 
 		$real_answer = [];
 
+		$temp_table = [];
+
 		foreach ($load_answer as $key => $value)
 		{
 			if(preg_match("/^(IR\-(\d{2}))\-(.*)/", $value['answer'], $split))
 			{
 				$province = $split[1];
 				$province_map_code = \dash\utility\location\provinces::get($province, null, 'map_code');
+				$province_local_name = \dash\utility\location\provinces::get_localname($province);
 				if(isset($real_answer[$province_map_code]))
 				{
 					$real_answer[$province_map_code] = $real_answer[$province_map_code] + floatval($value['count']);
@@ -441,6 +444,22 @@ class report
 					$real_answer[$province_map_code] = floatval($value['count']);
 				}
 			}
+
+			if(isset($temp_table[$province_local_name]))
+			{
+				$temp_table[$province_local_name] += floatval($value['count']);
+			}
+			else
+			{
+				$temp_table[$province_local_name] = floatval($value['count']);
+			}
+
+		}
+
+		foreach ($temp_table as $key => $value)
+		{
+			$percent = round((($value * 100) / $all_answer_count), 2);
+			$table[] = ['name' => $key, 'count' =>  floatval($value), 'percent' => $percent];
 		}
 
 		foreach ($real_answer as $map_code => $count)
@@ -607,7 +626,7 @@ class report
 			if(\dash\validate::date($value ,false))
 			{
 				$temp = \dash\fit::date($value);
-				$myCountTemp = [strtok($temp, '-') => 1];
+				$myCountTemp = [strtok(strval($temp), '-') => 1];
 			}
 			else
 			{
