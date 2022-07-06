@@ -67,8 +67,8 @@ if(!$thisQurarter)
 							<td class="w-1  max-w-xs collapsing"><?php echo \dash\fit::number(1) ?></td>
 							<td class=""><?php echo T_("Sale <b>include</b> vat products") ?></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalincludevat'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalincludevat'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvatinclude6'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude6'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvatinclude3'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude3'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvat6'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvat6'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvat3'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvat3'), true, 'en') ?>"></div></td>
 						</tr>
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(2) ?></td>
@@ -88,8 +88,8 @@ if(!$thisQurarter)
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(4) ?></td>
 							<td class=""><?php echo T_("Total vat in this quarter + export + vat") ?></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'income', 'final'); ?>'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'final'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvatinclude6'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude6'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvatinclude3'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude3'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvat6'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvat6'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvat3'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvat3'), true, 'en') ?>"></div></td>
 						</tr>
 					</tbody>
 				</table>
@@ -111,8 +111,8 @@ if(!$thisQurarter)
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(1) ?></td>
 							<td class=""><?php echo T_("Buy products with <b>include vat</b>") ?></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalincludevat'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalincludevat'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat6'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat6'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat3'); ?>'><div class="input ltr"><input readonly type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat3'), true, 'en') ?>"></div></td>
 						</tr>
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(2) ?></td>
@@ -140,8 +140,8 @@ if(!$thisQurarter)
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(4) ?></td>
 							<td class=""><?php echo T_("Total buy and import in this quarter") ?></td>
 							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'final'); ?>'><div class="input ltr"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'final'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat6'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat6'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat3'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat3'), true, 'en') ?>"></div></td>
 
 						</tr>
 					</tbody>
@@ -162,8 +162,8 @@ if(!$thisQurarter)
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(1) ?></td>
 							<td class=""><?php echo T_("<b>Total</b> vat payed") ?> <small class="text-red-800"><?php echo T_("This section calculate automatic") ?></small></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat6'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat6'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat3'); ?>'><div class="input ltr bg-yellow-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat3'), true, 'en') ?>"></div></td>
 
 						</tr>
 						<tr>
@@ -175,8 +175,8 @@ if(!$thisQurarter)
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(3) ?></td>
 							<td class=""><?php echo T_("<b>Remain</b> vat refundable") ?> <small class="text-red-800"><?php echo T_("This section calculate automatic") ?></small></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat6'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat6'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat3'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat3'), true, 'en') ?>"></div></td>
 
 						</tr>
 					</tbody>
@@ -197,15 +197,15 @@ if(!$thisQurarter)
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(1) ?></td>
 							<td class=""><?php echo T_("Total vat payed. (From table 1)") ?></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvatinclude6'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude6'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvatinclude3'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvatinclude3'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvat6'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvat6'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'income', 'totalvat3'); ?>'><div class="input ltr bg-green-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'income', 'totalvat3'), true, 'en') ?>"></div></td>
 
 						</tr>
 						<tr>
 							<td class=" max-w-xs collapsing"><?php echo \dash\fit::number(2) ?></td>
 							<td class=""><?php echo T_("Total vat. (From table 3)") ?></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude6'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude6'), true, 'en') ?>"></div></td>
-							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvatinclude3'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvatinclude3'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat6'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat6'), true, 'en') ?>"></div></td>
+							<td class="w-4" data-copy='<?php echo a($value, 'cost', 'totalvat3'); ?>'><div class="input ltr bg-red-500"><input disabled type="text" value="<?php echo \dash\fit::number(a($value, 'cost', 'totalvat3'), true, 'en') ?>"></div></td>
 
 						</tr>
 						<tr>
