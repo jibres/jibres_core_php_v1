@@ -57,6 +57,11 @@ class controller
 					$url .= '/inquiry';
 				}
 
+				if(\dash\url::query())
+				{
+					$url .= '?'. \dash\url::query();
+				}
+
 				\dash\redirect::to($url);
 			}
 

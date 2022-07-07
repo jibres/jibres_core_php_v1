@@ -421,7 +421,35 @@ function settinguUrlkey($value) {?>
 <div class="input ltr">
 	<input type="text" name="item_urlkey_<?php echo a($value, 'id') ?>" id="item_urlkey_<?php echo a($value, 'id') ?>" value="<?php echo a($value, 'setting', a($value,'type') , 'urlkey'); ?>">
 </div>
-<?php } // endfunction
+
+<?php
+if(!a($value, 'setting', a($value,'type') , 'urlkey'))
+{
+	echo '<div class="alert-danger">'. T_("To use from this item you need to define the url key"). '</div>';
+}
+else
+{
+	echo '<div class="alert-info">';
+	{
+		echo  T_("The url key by this index");
+		echo '<br>';
+
+		$theurlkey = \dash\data::dataRow_urlraw(). '?d=a&'. a($value, 'setting', a($value,'type') , 'urlkey') . '=[YOURVALUE]';
+		echo '<div class="ltr">';
+		{
+			echo '<a class="ltr text-left font-bold" data-copy="'.$theurlkey.'" href="'. $theurlkey. '">';
+			echo $theurlkey;
+			echo '</a>';
+		}
+		echo '</div>';
+
+	}
+	echo '</div>';
+
+}
+
+
+ } // endfunction
 
 
 

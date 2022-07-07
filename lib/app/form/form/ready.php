@@ -20,6 +20,7 @@ class ready
 			{
 				case 'id':
 					$result[$key] = $value;
+					$result['urlraw'] = \lib\store::url(). '/f/'. $value;
 					$result['url'] = \lib\store::url(). '/f/'. $value;
 					break;
 
