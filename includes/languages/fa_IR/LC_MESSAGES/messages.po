@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-06 12:39+0430\n"
-"PO-Revision-Date: 2022-07-06 12:40+0430\n"
+"POT-Creation-Date: 2022-07-07 12:55+0430\n"
+"PO-Revision-Date: 2022-07-07 12:56+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3205,7 +3205,7 @@ msgstr "استان"
 #: content_a/setting3/home/section/general.php:127
 #: content_business/shipping/display.php:162 content_my/domain/irnic/add/display.php:72
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:49 dash/utility/location.php:181
-#: lib/app/form/answer/add.php:370
+#: lib/app/form/answer/add.php:380
 msgid "City"
 msgstr "شهر"
 
@@ -5288,7 +5288,7 @@ msgstr "افزودن سرفصل حسابداری جدید"
 #: content_site/options/responsive/responsive_device.php:34
 #: content_site/page/new/display-aside-top.php:16
 #: content_site/section/part/preview_list.php:20
-#: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:814
+#: dash/layout/admin/sidebar/sidebar-support.php:9 lib/app/form/report.php:833
 #: lib/app/form/report_advance.php:106
 msgid "All"
 msgstr "همه"
@@ -8563,9 +8563,7 @@ msgid "Date Printed"
 msgstr "تاریخ چاپ"
 
 #: content_a/chap/size-receipt/receipt.php:125
-#: content_a/form/report/answer/display-bar.php:25
-#: content_a/form/report/answer/display-pie.php:36
-#: content_a/form/report/answer/display-province.php:25
+#: content_a/form/report/answer/display-table.php:25
 #: content_a/form/report/compare/display.php:99
 #: content_crm/transactions/display-statistics.php:13
 #: content_crm/transactions/display-statistics.php:29
@@ -8649,13 +8647,8 @@ msgid "Discount value"
 msgstr "مقدار تخفیف"
 
 #: content_a/discount/add/display.php:137 content_a/discount/add/display.php:141
-#: content_a/form/report/answer/display-bar.php:19
-#: content_a/form/report/answer/display-bar.php:27
-#: content_a/form/report/answer/display-country.php:19
-#: content_a/form/report/answer/display-pie.php:29
-#: content_a/form/report/answer/display-pie.php:38
-#: content_a/form/report/answer/display-province.php:19
-#: content_a/form/report/answer/display-province.php:27
+#: content_a/form/report/answer/display-table.php:18
+#: content_a/form/report/answer/display-table.php:27
 #: content_a/form/report/answer/display.php:32
 #: content_a/form/report/compare/display.php:93
 #: content_a/form/report/compare/display.php:105 content_business/p/home/view.php:100
@@ -9509,10 +9502,10 @@ msgid "Group tag"
 msgstr "تگ گروهی"
 
 #: content_a/form/answer/item/display.php:49 content_a/form/home/display.php:101
-#: content_a/form/home/display.php:119 content_a/form/report/answer/display-bar.php:38
-#: content_a/form/report/answer/display-country.php:31
-#: content_a/form/report/answer/display-pie.php:51
-#: content_a/form/report/answer/display-province.php:38
+#: content_a/form/home/display.php:119 content_a/form/report/answer/display-bar.php:9
+#: content_a/form/report/answer/display-country.php:8
+#: content_a/form/report/answer/display-pie.php:19
+#: content_a/form/report/answer/display-province.php:10
 #: content_a/form/report/answer/display-wordcloud.php:3
 #: content_a/form/report/compare/display.php:115 content_a/form/tag/display.php:61
 #: dash/social/telegram/commands/ticket.php:101
@@ -9836,12 +9829,24 @@ msgstr "لیست مقادیر مجاز"
 msgid "Define url key"
 msgstr "تعریف کلید آدرس"
 
-#: content_a/form/item/display.php:433 content_a/setting/order/carttext/display.php:14
+#: content_a/form/item/display.php:428
+msgid "To use from this item you need to define the url key"
+msgstr "برای استفاده از این آیتم باید کلید آدرس را تعریف کنید"
+
+#: content_a/form/item/display.php:434
+msgid "The form url by this index"
+msgstr "آدرس فرم با این ورودی مخفی"
+
+#: content_a/form/item/display.php:438
+msgid "Replace :val to your value"
+msgstr " :val را با مقدار دلخواه جایگزین کنید"
+
+#: content_a/form/item/display.php:464 content_a/setting/order/carttext/display.php:14
 #: content_a/setting/shipping/text/display.php:6
 msgid "Message Type"
 msgstr "نوع پیام"
 
-#: content_a/form/item/display.php:436 content_a/setting/order/carttext/display.php:18
+#: content_a/form/item/display.php:467 content_a/setting/order/carttext/display.php:18
 #: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:9
 #: content_cms/posts/advance/view.php:29 content_cms/posts/publishdate/view.php:29
 #: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
@@ -9851,41 +9856,41 @@ msgstr "نوع پیام"
 msgid "Default"
 msgstr "پیش‌فرض"
 
-#: content_a/form/item/display.php:437 content_a/setting/order/carttext/display.php:19
+#: content_a/form/item/display.php:468 content_a/setting/order/carttext/display.php:19
 #: content_a/setting/shipping/text/display.php:10
 msgid "Red (For important warning message)"
 msgstr "قرمز (برای هشدار‌های مهم)"
 
-#: content_a/form/item/display.php:438 content_a/setting/order/carttext/display.php:20
+#: content_a/form/item/display.php:469 content_a/setting/order/carttext/display.php:20
 #: content_a/setting/shipping/text/display.php:11
 msgid "Green (For thank you message)"
 msgstr "سبز (برای پیام تشکر)"
 
-#: content_a/form/item/display.php:439 content_a/setting/order/carttext/display.php:21
+#: content_a/form/item/display.php:470 content_a/setting/order/carttext/display.php:21
 #: content_a/setting/shipping/text/display.php:12
 msgid "Blue (For information message)"
 msgstr "آبی (‌برای پیام اطلاع رسانی)"
 
-#: content_a/form/item/display.php:440 content_a/setting/order/carttext/display.php:22
+#: content_a/form/item/display.php:471 content_a/setting/order/carttext/display.php:22
 #: content_a/setting/shipping/text/display.php:13
 msgid "Yellow (For warning message)"
 msgstr "زرد (برای پیام هشدار)"
 
-#: content_a/form/item/display.php:452 content_a/setting/menu/display.php:9
+#: content_a/form/item/display.php:483 content_a/setting/menu/display.php:9
 #: content_a/setting/menu/roster/display.php:25 content_account/ref/display.php:30
 #: content_love/changelog/add/display.php:14 content_site/options/link/link_raw.php:22
 msgid "Link"
 msgstr "لینک"
 
-#: content_a/form/item/display.php:458
+#: content_a/form/item/display.php:489
 msgid "Open in blank page?"
 msgstr "باز کردن در صفحه جدید؟"
 
-#: content_a/form/item/display.php:468
+#: content_a/form/item/display.php:499
 msgid "Choices"
 msgstr "گزینه‌ها"
 
-#: content_a/form/item/display.php:471
+#: content_a/form/item/display.php:502
 msgid "Manage choice"
 msgstr "مدیریت گزینه‌"
 
@@ -10010,25 +10015,16 @@ msgstr "افزودن سوال جدید"
 msgid "Find answer detail by id"
 msgstr "یافتن پاسخ با داشتن کد پاسخ"
 
-#: content_a/form/report/answer/display-bar.php:9
-#: content_a/form/report/answer/display-country.php:9
-#: content_a/form/report/answer/display-pie.php:19
-#: content_a/form/report/answer/display-province.php:9
+#: content_a/form/report/answer/display-table.php:7
 msgid "Choice"
 msgstr "گزینه‌"
 
-#: content_a/form/report/answer/display-bar.php:10
-#: content_a/form/report/answer/display-country.php:10
-#: content_a/form/report/answer/display-pie.php:20
-#: content_a/form/report/answer/display-province.php:10
+#: content_a/form/report/answer/display-table.php:8
 #: content_a/form/report/compare/display.php:80
 msgid "Frequency"
 msgstr "فراوانی"
 
-#: content_a/form/report/answer/display-bar.php:11
-#: content_a/form/report/answer/display-country.php:11
-#: content_a/form/report/answer/display-pie.php:21
-#: content_a/form/report/answer/display-province.php:11
+#: content_a/form/report/answer/display-table.php:9
 #: content_a/form/report/compare/display.php:81
 msgid "Percent frequency"
 msgstr "درصد فراوانی"
@@ -16284,7 +16280,7 @@ msgstr "هیچ دسته‌بندی یافت نشد!"
 msgid "Search products"
 msgstr "جستجو در محصولات"
 
-#: content_business/f/home/controller.php:89
+#: content_business/f/home/controller.php:94
 msgid "This form is private form!"
 msgstr "این فرم یه فرم خصوصی است!"
 
@@ -39401,55 +39397,55 @@ msgstr "در روز :weekday تداخل ساعت وجود دارد"
 msgid "Invalid type of item"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:174 lib/app/form/answer/add.php:370
+#: lib/app/form/answer/add.php:184 lib/app/form/answer/add.php:380
 msgid ":val is required"
 msgstr ":val الزامی است"
 
-#: lib/app/form/answer/add.php:295
+#: lib/app/form/answer/add.php:305
 msgid "You must select at least :min options"
 msgstr "شما باید حداقل :min گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:304
+#: lib/app/form/answer/add.php:314
 msgid "You can choose up to :max options"
 msgstr "شما می‌توانید حداکثر :max گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:322 lib/app/form/answer/add.php:334
+#: lib/app/form/answer/add.php:332 lib/app/form/answer/add.php:344
 msgid "Your date is not in allowd range"
 msgstr "تاریخ وارد شده در محدوده مجاز نیست"
 
-#: lib/app/form/answer/add.php:541
+#: lib/app/form/answer/add.php:551
 msgid "Invalid item type"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:565 lib/app/form/answer/add.php:576
+#: lib/app/form/answer/add.php:575 lib/app/form/answer/add.php:586
 msgid "You are answer to this form before"
 msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 
-#: lib/app/form/answer/add.php:596
+#: lib/app/form/answer/add.php:606
 msgid "Please fill the required field"
 msgstr "لطفا موارد الزامی را تکمیل کنید"
 
-#: lib/app/form/answer/add.php:813
+#: lib/app/form/answer/add.php:823
 msgid "Can not save your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ذخیره کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:833
+#: lib/app/form/answer/add.php:843
 msgid "Can not edit your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ویرایش کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:839
+#: lib/app/form/answer/add.php:849
 msgid "Answer update successfull"
 msgstr "بروزرسانی پاسخ با موفقیت انجام شد"
 
-#: lib/app/form/answer/add.php:882
+#: lib/app/form/answer/add.php:892
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
-#: lib/app/form/answer/add.php:888
+#: lib/app/form/answer/add.php:898
 msgid "No answer received"
 msgstr "هیچ پاسخی دریافت نشد"
 
-#: lib/app/form/answer/add.php:922
+#: lib/app/form/answer/add.php:932
 msgid "Pay for form :val"
 msgstr "پرداخت برای فرم :val"
 
@@ -39572,7 +39568,7 @@ msgstr "ستون‌ها سفارشی شد"
 
 #: lib/app/form/filter/ready.php:55 lib/app/form/report.php:221
 #: lib/app/form/report.php:222 lib/app/form/report.php:354 lib/app/form/report.php:355
-#: lib/app/form/report.php:459
+#: lib/app/form/report.php:478
 msgid "Not answer"
 msgstr "بدون پاسخ"
 

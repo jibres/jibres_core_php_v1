@@ -431,13 +431,16 @@ else
 {
 	echo '<div class="alert-info">';
 	{
-		echo  T_("The url key by this index");
+		echo  T_("The form url by this index");
+
 		echo '<br>';
+
+		echo '<small>'. T_("Replace :val to your value", ['val' => '[YOURVALUE]']). '</small>';
 
 		$theurlkey = \dash\data::dataRow_urlraw(). '?d=a&'. a($value, 'setting', a($value,'type') , 'urlkey') . '=[YOURVALUE]';
 		echo '<div class="ltr">';
 		{
-			echo '<a class="ltr text-left font-bold" data-copy="'.$theurlkey.'" href="'. $theurlkey. '">';
+			echo '<a class="ltr text-left font-bold" data-copy="'.$theurlkey.'" >';
 			echo $theurlkey;
 			echo '</a>';
 		}
