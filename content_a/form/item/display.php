@@ -437,7 +437,7 @@ else
 
 		echo '<small>'. T_("Replace :val to your value", ['val' => '[YOURVALUE]']). '</small>';
 
-		$theurlkey = \dash\data::dataRow_urlraw(). '?d=a&'. a($value, 'setting', a($value,'type') , 'urlkey') . '=[YOURVALUE]';
+		$theurlkey = \dash\data::dataRow_urlraw(). '?'. a($value, 'setting', a($value,'type') , 'urlkey') . '=[YOURVALUE]';
 		echo '<div class="ltr">';
 		{
 			echo '<a class="ltr text-left font-bold" data-copy="'.$theurlkey.'" >';
