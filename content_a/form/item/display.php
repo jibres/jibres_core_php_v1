@@ -39,6 +39,7 @@
 			<?php settingRecord(\dash\data::itemDetail()); ?>
 
 
+		<?php if(a(\dash\data::itemDetail(), 'type_detail', 'hiddenable') === false){/*nothing*/}else{ ?>
 			<div class="mt-2">
 				<input type="hidden" name="item_checkhidden_<?php echo $myKey ?>" value="1">
 			<div class="switch1">
@@ -47,6 +48,7 @@
 				<label for="check1<?php echo $myKey; ?>"><?php echo T_("Hidden"); ?> <small><?php echo T_("Only you can view this item and edit answer") ?></small></label>
 			</div>
 			</div>
+		<?php } //ednif ?>
 
 		</div>
 		<footer class="f">
@@ -69,8 +71,14 @@ function settingRecord($value)
 		return;
 	}
 
-
-	settingDesc($value);
+	if(a(\dash\data::itemDetail(), 'type_detail', 'description') === false)
+	{
+		/*nothing*/
+	}
+	else
+	{
+		settingDesc($value);
+	}
 
 	if(isset($value['type_detail']['placeholder']) && $value['type_detail']['placeholder'])
 	{
