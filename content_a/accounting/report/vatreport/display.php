@@ -227,7 +227,10 @@ if(!$thisQurarter)
 
 				<?php
 				$vatsetting = \dash\data::dataRow_vatsetting();
-				$vatsetting = json_decode($vatsetting, true);
+				if(is_string($vatsetting))
+				{
+					$vatsetting = json_decode($vatsetting, true);
+				}
 				 ?>
 				<h5><?php echo T_("C. Decide on overpayment") ?></h5>
 				<form method="post" autocomplete="off" data-patch>
