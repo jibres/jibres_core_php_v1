@@ -158,6 +158,16 @@ class add
 					{
 						continue;
 					}
+					elseif(isset($item_detail['type']) && $item_detail['type'] === 'random' )
+					{
+						continue;
+					}
+					elseif(isset($item_detail['type']) && $item_detail['type'] === 'hiddenurl' && !a($item_detail, 'setting', 'hiddenurl', 'urlkey'))
+					{
+						// user not set the url key but set item as required!
+						// skipp required
+						continue;
+					}
 					elseif(isset($item_detail['type']) && $item_detail['type'] === 'file' && \dash\request::files('a_'. $item_id))
 					{
 						// in file mode check file sended or no
