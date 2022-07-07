@@ -52,7 +52,7 @@
 						<th><?php echo T_("Vat 6%") ?></th>
 						<th><?php echo T_("Vat 3%") ?></th>
 						<th><?php echo T_("Seller") ?></th>
-						<th class="collapsing"><?php echo T_("Detail") ?></th>
+						<th class="collapsing">#</th>
 
 					</tr>
 				</thead>
@@ -70,7 +70,7 @@
 						<td data-copy='<?php echo a($v, 'totalvat6') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a($v, 'totalvat6'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'totalvat3') ?>' class="text-sm ltr text-right"><code><?php echo \dash\fit::number(a($v, 'totalvat3'), true, 'en') ?></code></td>
 						<td data-copy='<?php echo a($v, 'user_detail', 'companyname'); ?>'><?php echo a($v, 'user_detail', 'companyname'); ?></td>
-						<td class="collapsing"><?php if(!a($v, 'merged')) { ?><a class="link font-bold " href="<?php echo \dash\url::current(). \dash\request::full_get(['fid' => a($v, 'id')]) ?>"><?php echo T_("Detail") ?></a><?php } //endif ?></td>
+						<td class="collapsing"><?php if(!a($v, 'merged')) { ?><a class="link-primary " href="<?php echo \dash\url::current(). \dash\request::full_get(['fid' => a($v, 'id')]) ?>">#<?php echo \dash\fit::number(a($v, 'number')) ?></a><?php } //endif ?></td>
 					</tr>
 				<?php } //endif ?>
 				</tbody>
