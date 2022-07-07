@@ -429,7 +429,7 @@ class prepare
 
 		if(\dash\str::strpos($full_target, '?') === false && \dash\request::get())
 		{
-			$full_target .= '?'. \dash\request::fix_get();
+			$full_target .= '?'. \dash\url::query();
 		}
 
 		if($target_host === \dash\url::base())
