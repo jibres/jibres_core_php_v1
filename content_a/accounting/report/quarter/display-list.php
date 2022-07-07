@@ -52,7 +52,7 @@
 						<th><?php echo T_("Vat 6%") ?></th>
 						<th><?php echo T_("Vat 3%") ?></th>
 						<th><?php echo T_("Seller") ?></th>
-						<th class="collapsing">#</th>
+						<th class="collapsing"><?php echo T_("Document Number") ?></th>
 
 					</tr>
 				</thead>
