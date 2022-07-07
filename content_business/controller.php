@@ -10,7 +10,14 @@ class controller
 		{
 			if(\dash\url::subdomain() === 'admin')
 			{
-				\dash\redirect::to(\dash\url::kingdom(). '/a');
+				if(\dash\url::store())
+				{
+					\dash\redirect::to(\dash\url::kingdom(). '/a');
+				}
+				else
+				{
+					\dash\redirect::to(\dash\url::sitelang());
+				}
 			}
 			else
 			{
