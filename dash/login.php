@@ -368,12 +368,19 @@ class login
 	}
 
 
+	private static function login_cookie_domain()
+	{
+		return '.'. \dash\url::domain();
+	}
+
+
+
 	/**
 	 * Delete cookie
 	 */
 	private static function delete_cookie()
 	{
-		\dash\utility\cookie::delete(self::cookie_name());
+		\dash\utility\cookie::delete(self::cookie_name(), null, self::login_cookie_domain());
 	}
 
 
@@ -566,7 +573,7 @@ class login
 			}
 
 
-			\dash\utility\cookie::write(self::cookie_name(), $code, $time);
+			\dash\utility\cookie::write(self::cookie_name(), $code, $time, self::login_cookie_domain());
 		}
 
 		return $load_user;
