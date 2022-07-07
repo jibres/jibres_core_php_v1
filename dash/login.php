@@ -420,7 +420,14 @@ class login
 					break;
 
 				case 'admin':
-					$place = 'jibres';
+					if(\dash\engine\store::inBusinessAdmin())
+					{
+						$place = 'admin';
+					}
+					else
+					{
+						$place = 'jibres';
+					}
 					break;
 
 				default:
