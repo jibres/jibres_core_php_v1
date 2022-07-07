@@ -33,7 +33,7 @@ class view
 		$store_have_application = [];
 		foreach ($list as $key => $value)
 		{
-			$query    = "	SELECT COUNT(*) AS `count` FROM form where form.inquiry = 1 ";
+			$query    = "	SELECT COUNT(*) AS `count` FROM form_item where type = 'hidden' ";
 			$store_id = $value['id'];
 			$dbname   = \dash\engine\store::make_database_name($store_id);
 			$resutl   = \dash\pdo::get($query, [], 'count', true, $value['fuel'], ['database' => $dbname]);
@@ -46,7 +46,7 @@ class view
 			\dash\pdo::close();
 		}
 
-		\dash\log::to_supervisor('store with inquiry: '. json_encode($business_have_inquery));
+		\dash\log::to_supervisor('store with hidden form item: '. json_encode($business_have_inquery));
 
 		var_dump($business_have_inquery);
 		var_dump('ok');
