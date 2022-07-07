@@ -18,6 +18,7 @@
           <th><?php echo T_("Count Factors Filtered") ?></th>
           <th><?php echo T_("Sum Factors") ?></th>
           <th><?php echo T_("Sum Factors Filtered") ?></th>
+          <th><?php echo T_("Count transaction") ?></th>
         </tr>
       </thead>
       <tbody>
@@ -32,6 +33,7 @@
             <td><?php echo \dash\fit::number_en(a($value, 'count_factors_filtered')) ?></td>
             <td><?php echo \dash\fit::number_en(a($value, 'sum_factors')) ?></td>
             <td><?php echo \dash\fit::number_en(a($value, 'sum_factors_filtered')) ?></td>
+            <td><?php echo \dash\fit::number_en(a($value, 'count_transaction')) ?></td>
           </tr>
         <?php } //endif ?>
       </tbody>

@@ -25,6 +25,8 @@ class stats_monthly
 
 			self::calc_factors($fuel, $dbname);
 
+			self::calc_transaction($fuel, $dbname);
+
 			\dash\pdo::close();
 
 		}
@@ -50,6 +52,10 @@ class stats_monthly
 	{
 		$result = \lib\db\products\get::count_group_by_month_fuel($_fuel, $_dbname);
 
+		if(!is_array($result))
+		{
+			$result = [];
+		}
 		foreach ($result as $key => $value)
 		{
 			if(isset($value['year_month']))
@@ -88,11 +94,69 @@ class stats_monthly
 	}
 
 
+	private static function calc_transaction($_fuel, $_dbname)
+	{
+		$result = \dash\db\transactions\get::count_group_by_month_fuel($_fuel, $_dbname);
+
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+		foreach ($result as $key => $value)
+		{
+			if(isset($value['year_month']))
+			{
+				$year = substr($value['year_month'], 0, 4);
+				$month = substr($value['year_month'], 5, 2);
+
+				$check_exists = \lib\db\temp_stats_monthly\get::check_exists($year, $month);
+
+				if(isset($check_exists['id']))
+				{
+
+					$update = [];
+
+					$count = floatval($value['count']);
+
+
+					// count_transaction_verify
+					if(isset($check_exists['count_transaction']) && $check_exists['count_transaction'])
+					{
+						$count += floatval($check_exists['count_transaction']);
+					}
+
+					$update['count_transaction'] = $count;
+
+
+					\lib\db\temp_stats_monthly\update::record($update, $check_exists['id']);
+
+				}
+				else
+				{
+					$insert =
+					[
+						'year'              => $year,
+						'month'             => $month,
+						'count_transaction' => floatval($value['count']),
+						'datecreated'       => date("Y-m-d H:i:s"),
+
+					];
+
+					\lib\db\temp_stats_monthly\insert::new_record($insert);
+				}
+			}
+		}
+	}
+
 
 	private static function calc_factors($_fuel, $_dbname)
 	{
 		$result = \lib\db\factors\get::count_group_by_month_fuel($_fuel, $_dbname);
 
+		if(!is_array($result))
+		{
+			$result = [];
+		}
 		foreach ($result as $key => $value)
 		{
 			if(isset($value['year_month']))
@@ -175,6 +239,10 @@ class stats_monthly
 	{
 		$result = \lib\db\store\get::count_group_by_month();
 
+		if(!is_array($result))
+		{
+			$result = [];
+		}
 		foreach ($result as $key => $value)
 		{
 			if(isset($value['year_month']))

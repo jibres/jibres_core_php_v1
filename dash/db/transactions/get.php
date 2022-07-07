@@ -5,6 +5,24 @@ namespace dash\db\transactions;
 class get
 {
 
+	public static function count_group_by_month_fuel($_fuel, $_dbname)
+	{
+		$query  =
+		"
+			SELECT
+				COUNT(*) AS `count`,
+				CONCAT(YEAR(transactions.datecreated), '-', MONTH(transactions.datecreated)) AS `year_month`
+			FROM
+				transactions
+			GROUP by
+				`year_month`
+		";
+
+		$result = \dash\pdo::get($query, [], null, false, $_fuel, ['database' => $_dbname]);
+
+		return $result;
+	}
+
 	public static function first_verify_transaction()
 	{
 		$query = "SELECT * FROM transactions WHERE transactions.verify = 1 ORDER BY transactions.id ASC LIMIT 1";
