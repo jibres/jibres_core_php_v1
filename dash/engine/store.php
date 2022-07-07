@@ -315,7 +315,7 @@ class store
 				// no problem
 				// https://business.jibres.com/$jb2jr/b1/product/add
 			}
-			elseif($subdomain === 'admin' && in_array(\dash\url::content(), ['a', 'enter', 'crm', 'cms', 'site', 'pay', '']))
+			elseif($subdomain === 'admin' && in_array(\dash\url::content(), ['a', 'enter', 'crm', 'cms', 'site', 'pay', 'account', '']))
 			{
 				// no problem
 				// https://admin.jibres.com/$jb2jr/a
