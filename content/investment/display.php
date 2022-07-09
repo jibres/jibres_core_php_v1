@@ -27,10 +27,6 @@
         </div>
       </a>
     </div>
-  </div>
-
-  <div class="row">
-
     <div class="c-xs-6 c-sm-6">
       <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/investment/pitchdeck-ppt">
         <div class="body">
@@ -40,12 +36,38 @@
         </div>
       </a>
     </div>
+  </div>
 
-    <div class="c-xs-6 c-sm-6">
+  <div class="row">
+
+
+    <div class="c-xs-6 c-sm-6 c-md-4">
       <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/investment/financial">
         <div class="body">
           <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/financial-growth.svg" alt="Jibres "></div>
-          <h2 class="title"><?php echo T_("Financial Projection"); ?></h2>
+          <h2 class="title"><?php echo T_("Financial Projection"); ?> 5B</h2>
+          <div class="text-gray-400"><?php echo T_("Forecast of future revenues and expenses") ?></div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="c-xs-6 c-sm-6 c-md-4">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/investment/financial-10b">
+        <div class="body">
+          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/financial-growth.svg" alt="Jibres "></div>
+          <h2 class="title"><?php echo T_("Financial Projection"); ?> 10B</h2>
+          <div class="text-gray-400"><?php echo T_("Forecast of future revenues and expenses") ?></div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="c-xs-6 c-sm-6 c-md-4">
+      <a class="box card1" target="_blank" href="<?php echo \dash\url::kingdom(); ?>/investment/financial-20b">
+        <div class="body">
+          <div class="imgBox"><img class="img50p" src="<?php echo \dash\url::cdn(); ?>/img/page/bp/financial-growth.svg" alt="Jibres "></div>
+          <h2 class="title"><?php echo T_("Financial Projection"); ?> 20B</h2>
           <div class="text-gray-400"><?php echo T_("Forecast of future revenues and expenses") ?></div>
         </div>
       </a>

@@ -6,8 +6,8 @@ class controller
 {
 	public static function routing()
 	{
-		$pitchdeckVersion = "1.4";
-		$FinancialVersion = "5";
+		$pitchdeckVersion = "1.5";
+		$FinancialVersion = "";
 		switch (\dash\url::child())
 		{
 			case 'pitchdeck':
@@ -19,15 +19,23 @@ class controller
 				break;
 
 			case 'financial':
-				\dash\redirect::to(\dash\url::cdn(). '/business/financial/Jibres-Financial-Projection-v'. $FinancialVersion. '.xlsx?v=5');
+				\dash\redirect::to(\dash\url::cdn(). '/business/financial/Jibres-Financial-Projection-5b-latest.xlsx?v=6');
+				break;
+
+			case 'financial-10b':
+				\dash\redirect::to(\dash\url::cdn(). '/business/financial/Jibres-Financial-Projection-10b-latest.xlsx?v=6');
+				break;
+
+			case 'financial-20b':
+				\dash\redirect::to(\dash\url::cdn(). '/business/financial/Jibres-Financial-Projection-20b-latest.xlsx?v=6');
 				break;
 
 			case 'businessplan':
-				\dash\redirect::to(\dash\url::cdn(). '/business/business-plan/Jibres-BusinessPlan-v1.1.pdf?v=2');
+				\dash\redirect::to(\dash\url::cdn(). '/business/business-plan/Jibres-BusinessPlan-v1.2.pdf?v=2');
 				break;
 
 			case 'businessplan-onepage':
-				\dash\redirect::to(\dash\url::cdn(). '/business/business-plan/Jibres-BusinessPlan-v1.1-OnePage.jpg?v=2');
+				\dash\redirect::to(\dash\url::cdn(). '/business/business-plan/Jibres-BusinessPlan-v1.2-OnePage.jpg?v=2');
 				break;
 
 			case 'swot':
