@@ -11,7 +11,7 @@ class controller
 		switch (\dash\url::child())
 		{
 			case 'pitchdeck':
-				\dash\redirect::to(\dash\url::cdn(). '/business/pitch-deck/v1/Jibres-PitchDeck-v'. $pitchdeckVersion. '.pdf?v=5');
+				\dash\redirect::to(\dash\url::cdn(). '/business/pitch-deck/v1/Jibres-PitchDeck-v'. $pitchdeckVersion. '.pdf?v=1.5');
 				break;
 
 			case 'pitchdeck-ppt':
