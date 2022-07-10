@@ -916,9 +916,14 @@ class ip
 				// okay
 				return true;
 			}
-			return false;
+			else
+			{
+				\dash\log::file(json_encode($_data, JSON_UNESCAPED_UNICODE), 'cannotsaveyamlfile.log', 'waf');
+				return false;
+			}
 		}
 
+		\dash\log::file(json_encode($_data, JSON_UNESCAPED_UNICODE), 'cannotsaveyamlfile2.log', 'waf');
 		// some error
 		return false;
 	}
