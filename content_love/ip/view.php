@@ -27,6 +27,9 @@ class view
 				$ipDetail = \dash\waf\ip::open_ip_file($ip);
 				\dash\data::ipDetail($ipDetail);
 
+				$ipFolder = \dash\waf\ip::find_ip_folder($ip);
+				\dash\data::ipFolder($ipFolder);
+
 				if($ip && !$ipDetail)
 				{
 					\dash\data::ipNotFound(true);

@@ -988,6 +988,21 @@ class ip
 
 	}
 
+
+	public static function remove_ip_file_folder(string $_ip, $_folder)
+	{
+		$ipPath = self::generate_file_path($_ip, $_folder);
+
+		if($ipPath)
+		{
+			return \dash\file::delete($ipPath);
+		}
+
+		return false;
+
+	}
+
+
 	public static function remove_folder($_mode)
 	{
 		$addr = self::generate_addr_path($_mode);
@@ -1048,6 +1063,34 @@ class ip
 		}
 
 		return null;
+	}
+
+
+	public static function find_ip_folder($_ip)
+	{
+		$myLocations =
+		[
+			'live'      => self::generate_file_path($_ip, 'live'),
+			'human'     => self::generate_file_path($_ip, 'human'),
+			'bot'       => self::generate_file_path($_ip, 'bot'),
+			'isolation' => self::generate_file_path($_ip, 'isolation'),
+			'ban'       => self::generate_file_path($_ip, 'ban'),
+			'whitelist' => self::generate_file_path($_ip, 'whitelist'),
+			'blacklist' => self::generate_file_path($_ip, 'blacklist'),
+		];
+
+
+		$result = [];
+
+		foreach ($myLocations as $key => $loc)
+		{
+			if(file_exists($loc))
+			{
+				$result[] = $key;
+			}
+		}
+
+		return $result;
 	}
 
 

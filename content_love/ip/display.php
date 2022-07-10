@@ -67,6 +67,28 @@
   </div>
 <?php } //endif ?>
 
+
+<?php if(\dash\data::ipFolder()) {?>
+  <div class="avand-md">
+
+ <nav class="items long">
+    <ul>
+      <?php foreach (\dash\data::ipFolder() as $key => $value) {?>
+      <li>
+        <a class="item f" data-confirm data-data='{"removefilefolder": "<?php echo $value ?>"}' >
+          <div class="key"><?php echo $value;?></div>
+          <div class="ok"></div>
+        </a>
+      </li>
+    <?php } //endif ?>
+      </ul>
+  </nav>
+  </div>
+<?php } //endif ?>
+
+
+
+
 <?php if(\dash\data::ipNotFound()) {?>
 <div class="avand-md">
 <div class="alert-warning"><?php echo T_("IP detail not found") ?></div>
