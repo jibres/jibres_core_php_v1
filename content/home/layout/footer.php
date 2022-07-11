@@ -100,9 +100,15 @@ else
                 <div class="go"></div>
                 </a>
               </li>
-              <li>
+              <li class="hidden">
                 <a class="item f" href="<?php echo $kingdom; ?>/whois">
                 <div class="key"><?php echo T_('Whois Lookup'); ?></div>
+                <div class="go"></div>
+                </a>
+              </li>
+              <li>
+                <a class="item f" href="<?php echo $kingdom; ?>/domains/pricing">
+                <div class="key"><?php echo T_('Domain Pricing'); ?></div>
                 <div class="go"></div>
                 </a>
               </li>

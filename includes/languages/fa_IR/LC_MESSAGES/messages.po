@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-11 18:41+0430\n"
-"PO-Revision-Date: 2022-07-11 18:41+0430\n"
+"POT-Creation-Date: 2022-07-11 20:06+0430\n"
+"PO-Revision-Date: 2022-07-11 20:19+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -21,23 +21,27 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: tmp\n"
 "X-Poedit-SearchPathExcluded-4: public_html/files\n"
 
-#: content/about/display.php:10 content/about/display.php:11 content/values/view.php:9
+#: content/about/display.php:10 content/about/display.php:11
+#: content/portfolio/display.php:8 content/portfolio/display.php:9
+#: content/values/view.php:9
 msgid "Jibres Values"
 msgstr "ارزش‌های جیبرس"
 
 #: content/about/display.php:16 content/about/display.php:17
-#: content/home/layout/footer.php:229 content/home/layout/pwa-footer.php:206
-#: content/mission/view.php:9
+#: content/home/layout/footer.php:235 content/home/layout/pwa-footer.php:206
+#: content/mission/view.php:9 content/portfolio/display.php:14
+#: content/portfolio/display.php:15
 msgid "Jibres Mission"
 msgstr "ماموریت جیبرس"
 
 #: content/about/display.php:22 content/about/display.php:23
-#: content/home/layout/footer.php:235 content/home/layout/pwa-footer.php:212
+#: content/home/layout/footer.php:241 content/home/layout/pwa-footer.php:212
+#: content/portfolio/display.php:20 content/portfolio/display.php:21
 #: content/vision/view.php:9
 msgid "Jibres Vision"
 msgstr "چشم‌انداز جیبرس"
 
-#: content/about/display.php:79 content/about/view.php:10
+#: content/about/display.php:79 content/about/view.php:10 content/portfolio/display.php:77
 msgid ""
 "Advancement of technology and development of Web-based business Cause Need new tools to "
 "resolve the daily needs and that’s the goal of making Jibres."
@@ -45,7 +49,7 @@ msgstr ""
 "با پیشرفت روزافزون تکنولوژی و گسترش بیزینس‌های مدرن مبتنی بر وب، احتیاج به ابزارهایی "
 "مدرن برای رفع نیازهای روزمره، جرقه‌ای برای تولد جیبرس بود."
 
-#: content/about/display.php:81
+#: content/about/display.php:81 content/portfolio/display.php:79
 msgid ""
 "Jibres have a set of simple and practical tools on a regular basis for modern "
 "businesses."
@@ -53,7 +57,7 @@ msgstr ""
 "جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار بیزینس‌های مدرن و "
 "همینطور تجارت‌های سنتی مایل به حرکت به‌سوی تکنولوژی قرار می‌دهد."
 
-#: content/about/view.php:9 content/home/layout/footer.php:223
+#: content/about/view.php:9 content/home/layout/footer.php:229
 #: content/home/layout/pwa-footer.php:200 content/mission/view.php:15
 #: content/values/view.php:15 content/vision/view.php:15
 #: content_r10/android/about/view.php:9
@@ -67,7 +71,7 @@ msgstr "درباره جیبرس"
 #: content/changelog/view.php:21 content/contact/view.php:24
 #: content/domains/home/view.php:16 content/enterprise/view.php:13
 #: content/forceunlock/view.php:12 content/free/view.php:12 content/investment/view.php:12
-#: content/press/view.php:15 content/privacy/view.php:15
+#: content/portfolio/view.php:12 content/press/view.php:15 content/privacy/view.php:15
 #: content/shipping/irpost/view.php:12 content/shipping/view.php:12
 #: content/socialresponsibility/view.php:15 content/story/view.php:12
 #: content/team/view.php:15 content/terms/view.php:15 content/whois/view.php:13
@@ -354,7 +358,7 @@ msgstr ""
 msgid "Jibres Brand"
 msgstr "برند جیبرس"
 
-#: content/brand/view.php:14 content/home/layout/footer.php:199
+#: content/brand/view.php:14 content/home/layout/footer.php:205
 #: content/home/layout/pwa-footer.php:236 content/logo/section-icon.php:10
 #: content/logo/section-icon.php:16 content/logo/section-icon.php:17
 #: content/logo/section-icon.php:18 content/logo/section-icon.php:62
@@ -756,7 +760,7 @@ msgstr "ارسال"
 msgid "Bug"
 msgstr "باگ"
 
-#: content/bug/view.php:11 content/home/layout/footer.php:149
+#: content/bug/view.php:11 content/home/layout/footer.php:155
 #: content/home/layout/pwa-footer.php:146
 msgid "Jibres Bug Program"
 msgstr "برنامه گزارش باگ جیبرس"
@@ -806,7 +810,7 @@ msgstr "کاتالوگ جیبرس"
 msgid "Jibres Certificates"
 msgstr "مجوزها و گواهینامه‌های جیبرس"
 
-#: content/certificates/view.php:9 content/home/layout/footer.php:187
+#: content/certificates/view.php:9 content/home/layout/footer.php:193
 #: content/home/layout/pwa-footer.php:182 content_a/setting/thirdparty/display.php:119
 #: content_a/setting3/home/html/test.php:119
 msgid "Certificates"
@@ -2622,7 +2626,11 @@ msgstr "تمدید دامنه"
 msgid "Whois Lookup"
 msgstr "جستجوی‌ دامنه"
 
-#: content/home/layout/footer.php:114 content/home/layout/pwa-footer.php:112
+#: content/home/layout/footer.php:111
+msgid "Domain Pricing"
+msgstr "تعرفه دامنه‌ها"
+
+#: content/home/layout/footer.php:120 content/home/layout/pwa-footer.php:112
 #: content_account/home/display.php:100 content_account/home/display.php:104
 #: dash/app/log/caller/ticket/ticket_AddNoteTicket.php:13
 #: dash/app/log/caller/ticket/ticket_AddToTicket.php:13
@@ -2637,94 +2645,94 @@ msgstr "جستجوی‌ دامنه"
 msgid "Support"
 msgstr "پشتیبانی"
 
-#: content/home/layout/footer.php:117 content/home/layout/pwa-footer.php:115
+#: content/home/layout/footer.php:123 content/home/layout/pwa-footer.php:115
 msgid "Support Center"
 msgstr "مرکز پشتیبانی"
 
-#: content/home/layout/footer.php:123 content/home/layout/pwa-footer.php:133
+#: content/home/layout/footer.php:129 content/home/layout/pwa-footer.php:133
 msgid "System Status"
 msgstr "وضعیت سیستم"
 
-#: content/home/layout/footer.php:129 content/home/layout/pwa-footer.php:121
+#: content/home/layout/footer.php:135 content/home/layout/pwa-footer.php:121
 #: content_love/domain/contactinfo/display.php:5
 #: content_site/body/contactform/option.php:23
 #: dash/social/telegram/commands/ermile.php:528 includes/languages/trans_static.php:600
 msgid "Contact"
 msgstr "تماس"
 
-#: content/home/layout/footer.php:136 content/home/layout/pwa-footer.php:127
+#: content/home/layout/footer.php:142 content/home/layout/pwa-footer.php:127
 msgid "FAQ"
 msgstr "سوالات پرتکرار"
 
-#: content/home/layout/footer.php:143 content/home/layout/pwa-footer.php:139
+#: content/home/layout/footer.php:149 content/home/layout/pwa-footer.php:139
 msgid "Send us Feedback"
 msgstr "ارسال بازخورد"
 
-#: content/home/layout/footer.php:158 content/home/layout/pwa-footer.php:155
+#: content/home/layout/footer.php:164 content/home/layout/pwa-footer.php:155
 msgid "Resources"
 msgstr "منابع"
 
-#: content/home/layout/footer.php:162 content/home/layout/pwa-footer.php:158
+#: content/home/layout/footer.php:168 content/home/layout/pwa-footer.php:158
 #: content_site/body/blog/option.php:21 content_site/home/display-aside-top.php:9
 msgid "Blog"
 msgstr "بلاگ"
 
-#: content/home/layout/footer.php:169 content/home/layout/pwa-footer.php:164
+#: content/home/layout/footer.php:175 content/home/layout/pwa-footer.php:164
 #: content_enter/signup/view.php:29 content_enter/signup/view.php:39
 #: content_my/business/start/view.php:11
 msgid "Terms of Service"
 msgstr "شرایط استفاده از خدمات"
 
-#: content/home/layout/footer.php:175 content/home/layout/pwa-footer.php:170
+#: content/home/layout/footer.php:181 content/home/layout/pwa-footer.php:170
 #: content/privacy/view.php:9 content_enter/signup/view.php:30
 #: content_enter/signup/view.php:40
 msgid "Privacy Policy"
 msgstr "حریم خصوصی"
 
-#: content/home/layout/footer.php:181 content/home/layout/pwa-footer.php:176
+#: content/home/layout/footer.php:187 content/home/layout/pwa-footer.php:176
 #: content_love/changelog/view.php:9 content_love/home/display.php:175
 msgid "Changelog"
 msgstr "پیشرفت پروژه"
 
-#: content/home/layout/footer.php:193 content/home/layout/pwa-footer.php:188
+#: content/home/layout/footer.php:199 content/home/layout/pwa-footer.php:188
 msgid "Social Responsibility"
 msgstr "مسئولیت اجتماعی"
 
-#: content/home/layout/footer.php:205 content/home/layout/pwa-footer.php:242
+#: content/home/layout/footer.php:211 content/home/layout/pwa-footer.php:242
 #: content/investment/display.php:120
 msgid "Brand Style Guide"
 msgstr "راهنمای نشان تجاری"
 
-#: content/home/layout/footer.php:214 content/home/layout/pwa-footer.php:197
+#: content/home/layout/footer.php:220 content/home/layout/pwa-footer.php:197
 msgid "Jibres Company"
 msgstr "شرکت جیبرس"
 
-#: content/home/layout/footer.php:217 content/story/view.php:9
+#: content/home/layout/footer.php:223 content/story/view.php:9
 msgid "Jibres Story"
 msgstr "داستان جیبرس"
 
-#: content/home/layout/footer.php:241 content/home/layout/pwa-footer.php:218
+#: content/home/layout/footer.php:247 content/home/layout/pwa-footer.php:218
 msgid "Our Values"
 msgstr "ارزش‌های ما"
 
-#: content/home/layout/footer.php:247 content/home/layout/pwa-footer.php:224
+#: content/home/layout/footer.php:253 content/home/layout/pwa-footer.php:224
 msgid "Our Team"
 msgstr "تیم ما"
 
-#: content/home/layout/footer.php:254 content/home/layout/pwa-footer.php:230
+#: content/home/layout/footer.php:260 content/home/layout/pwa-footer.php:230
 msgid "Careers"
 msgstr "فرصت‌های شغلی"
 
-#: content/home/layout/footer.php:261 content/home/layout/pwa-footer.php:248
+#: content/home/layout/footer.php:267 content/home/layout/pwa-footer.php:248
 #: content/press/view.php:9
 msgid "Press and Media"
 msgstr "مطبوعات و رسانه‌ها"
 
-#: content/home/layout/footer.php:271 content/home/layout/pwa-footer.php:258
+#: content/home/layout/footer.php:277 content/home/layout/pwa-footer.php:258
 msgid "All rights reserved."
 msgstr "تمام حقوق محفوظ است."
 
-#: content/home/layout/footer.php:271 content/home/layout/pwa-footer.php:258
+#: content/home/layout/footer.php:277 content/home/layout/pwa-footer.php:258
 msgid "Jibres, LLC"
 msgstr "جیبرس"
 
@@ -3308,6 +3316,18 @@ msgid ""
 "We are on a mission to simplify business system. Empowering businesses to creating "
 "money."
 msgstr "ماموریت ما آسان نمودن سیستم‌های بیزینس هاست. توانمندسازی بیزینس‌ها برای خلق ثروت."
+
+#: content/portfolio/view.php:9
+msgid "Jibres Portfolio"
+msgstr "نمونه‌ سایت‌ها"
+
+#: content/portfolio/view.php:10
+msgid ""
+"All websites are fully customizable with drag and drop. Personalize your website, pick "
+"a domain and get online today"
+msgstr ""
+"تمام وب‌سایت‌ها به‌صورت کامل قابلیت سفارشی سازی را دارند. شما هم سایت خودتون رو سفارشی "
+"کنید و یک دامنه بهش وصل کنید و همین امروز آنلاین بشید"
 
 #: content/press/view.php:10
 msgid "Need HELP? Be patient..."
