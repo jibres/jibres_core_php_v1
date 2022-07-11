@@ -15,7 +15,7 @@ class controller
 			\dash\redirect::to_login(true);
 		}
 
-		if(\dash\url::isLocal())
+		if(\dash\engine\store::admin_subdomain())
 		{
 			\dash\redirect::admin_subdomain();
 		}

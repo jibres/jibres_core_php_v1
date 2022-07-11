@@ -146,7 +146,7 @@ class redirect
 
 	public static function admin_subdomain()
 	{
-		if(\dash\url::subdomain() !== \dash\engine\store::admin_subdomain())
+		if(\dash\engine\store::admin_subdomain() && \dash\url::subdomain() !== \dash\engine\store::admin_subdomain())
 		{
 			// admin subdomain
 			$new_url = \dash\url::set_subdomain(\dash\engine\store::admin_subdomain(), true);

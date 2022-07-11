@@ -226,7 +226,7 @@ class store
 				\dash\redirect::to(\dash\url::kingdom());
 			}
 
-			if(\dash\url::isLocal())
+			if(self::admin_subdomain())
 			{
 				\dash\redirect::admin_subdomain();
 			}
@@ -393,8 +393,9 @@ class store
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
-	public static function admin_subdomain() : string
+	public static function admin_subdomain()
 	{
+		return null;
 		return 'my';
 	}
 
