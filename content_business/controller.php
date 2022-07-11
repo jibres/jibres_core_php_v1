@@ -8,7 +8,7 @@ class controller
 
 		if(\dash\engine\store::free_subdomain())
 		{
-			if(\dash\url::subdomain() === 'admin')
+			if(\dash\engine\store::admin_subdomain() && \dash\url::subdomain() === \dash\engine\store::admin_subdomain())
 			{
 				if(\dash\url::store())
 				{
