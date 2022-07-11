@@ -1,18 +1,18 @@
 <?php
-namespace content_love\changelog\edit;
+namespace content_love\portfolio\edit;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Edit changelog"));
+		\dash\face::title(T_("Edit portfolio"));
 
 		// btn
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
-		\dash\data::listChangelogTag(\dash\app\changelog::list_changelog_tags());
+		\dash\data::listPortfolioTag(\dash\app\portfolio::list_portfolio_tags());
 
 		$currentTag = [];
 		$currentTag[] = \dash\data::dataRow_tag1();

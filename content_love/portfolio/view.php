@@ -1,17 +1,17 @@
 <?php
-namespace content_love\changelog;
+namespace content_love\portfolio;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Changelog"));
+		\dash\face::title(T_("Portfolio"));
 		// btn
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::here());
 
-		\dash\face::btnView(\dash\url::kingdom(). '/changelog');
+		\dash\face::btnView(\dash\url::kingdom(). '/portfolio');
 		// btn
 		\dash\data::action_text(T_('Add'));
 		\dash\data::action_link(\dash\url::this(). '/add');
@@ -33,11 +33,11 @@ class view
 
 		$search_string = \dash\validate::search_string();
 
-		$list = \dash\app\changelog::list($search_string, $args);
+		$list = \dash\app\portfolio::list($search_string, $args);
 
 		\dash\data::dataTable($list);
 
-		$isFiltered = \dash\app\changelog::is_filtered();
+		$isFiltered = \dash\app\portfolio::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 

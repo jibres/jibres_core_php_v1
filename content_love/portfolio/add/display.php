@@ -4,29 +4,37 @@
     <div class="box">
       <div class="pad">
 
-        <textarea class="txt" rows="3" data-placeholder='<?php echo T_("Title") ?>'  name="html"><?php echo \dash\data::dataRow_title(); ?></textarea>
 
-        <label><?php echo T_("Date"); ?></label>
+        <label><?php echo T_("Title"); ?></label>
         <div class="input">
-          <input type="tel" name="date" placeholder="<?php echo T_("Soon"); ?>" value="<?php echo \dash\utility\convert::to_en_number(\dash\fit::date(\dash\data::dataRow_date())); ?>" data-format='date'>
+          <input type="text" name="title"  value="<?php echo \dash\data::dataRow_title(); ?>" >
         </div>
 
-        <label><?php echo T_("Link"); ?></label>
+        <label><?php echo T_("Industry"); ?></label>
         <div class="input">
-          <input type="url" name="link" value="<?php echo \dash\data::dataRow_link(); ?>">
+          <input type="text" name="industry"  value="<?php echo \dash\data::dataRow_industry(); ?>" >
+        </div>
+
+        <label><?php echo T_("Description"); ?></label>
+        <textarea class="txt" rows="3" data-placeholder='<?php echo T_("Title") ?>'  name="html"><?php echo \dash\data::dataRow_title(); ?></textarea>
+
+        <label><?php echo T_("Sort"); ?></label>
+        <div class="input">
+          <input type="tel" name="sort"  value="<?php echo \dash\data::dataRow_sort(); ?>" >
+        </div>
+
+        <label><?php echo T_("URL"); ?></label>
+        <div class="input">
+          <input type="url" name="url" value="<?php echo \dash\data::dataRow_url(); ?>">
         </div>
 
         <label><?php echo T_("Tag"); ?></label>
         <select name="tag[]" id="tag" class="select22 mb-4" data-model="tag" multiple="multiple">
-          <?php foreach (\dash\data::listChangelogTag() as $key => $value) {?>
+          <?php foreach (\dash\data::listPortfolioTag() as $key => $value) {?>
             <option value="<?php echo $value; ?>" <?php if(is_array(\dash\data::currentTag()) && in_array($value, \dash\data::currentTag())) {echo 'selected'; } ?>><?php echo $value; ?></option>
           <?php } //endfor ?>
         </select>
 
-        <div class="check1 mt-2">
-          <input type="checkbox" name="sendtg" id="sendtg">
-          <label for="sendtg"><?php echo T_("Send in Telegram"); ?></label>
-        </div>
 
       </div>
       <footer>

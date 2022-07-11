@@ -1,5 +1,5 @@
 <?php
-namespace content_love\changelog\edit;
+namespace content_love\portfolio\edit;
 
 
 class controller
@@ -8,7 +8,7 @@ class controller
 	{
 		\dash\allow::html();
 		$id = \dash\request::get('id');
-		$load = \dash\app\changelog::get($id);
+		$load = \dash\app\portfolio::get($id);
 		if(!$id)
 		{
 			\dash\header::status(404);

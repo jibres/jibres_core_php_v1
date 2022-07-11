@@ -1,5 +1,5 @@
 <?php
-namespace content_love\changelog\add;
+namespace content_love\portfolio\add;
 
 
 class model
@@ -19,19 +19,19 @@ class model
 		{
 			if(\dash\request::post('remove') === 'remove')
 			{
-				\dash\app\changelog::remove(\dash\request::get('id'));
+				\dash\app\portfolio::remove(\dash\request::get('id'));
 				\dash\redirect::to(\dash\url::this());
 			}
 			else
 			{
-				$id = \dash\app\changelog::edit($post, \dash\request::get('id'));
+				$id = \dash\app\portfolio::edit($post, \dash\request::get('id'));
 
 				\dash\redirect::pwd(\dash\url::this());
 			}
 		}
 		else
 		{
-			$id = \dash\app\changelog::add($post);
+			$id = \dash\app\portfolio::add($post);
 
 			if($id)
 			{

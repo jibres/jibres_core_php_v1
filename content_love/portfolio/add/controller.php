@@ -1,5 +1,5 @@
 <?php
-namespace content_love\changelog\add;
+namespace content_love\portfolio\add;
 
 
 class controller
