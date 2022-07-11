@@ -10,7 +10,24 @@
  	</div>
  </div>
 
- <div class="m-auto max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 bg-white rounded-lg relative py-5">
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas adipisci modi consectetur, quam dicta ab alias enim excepturi in obcaecati officia repellat voluptates et rem harum necessitatibus, dolore quod laudantium.
+ <div class="m-auto max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 relative py-5">
+	<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
+		
+			<figure>
+				<img class="aspect-video bg-white rounded-lg" loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/cover/Jibres-cover-portfolio-1.jpg" alt="w1">
+				<figcaption class="items long mt-2">
+					<ul class="">
+						<li>
+							<a class="item f" href="https://Bitty.ir" target="_blank" rel="nofollow noopener">
+							<div class="key">Bitty Store</div>
+							<div class="value">Bitty.ir</div>
+							<div class="go external"></div>
+							</a>
+						</li>
+					</ul>
+				</figcaption>
+			</figure>
 
+	</div>
  </div>
+</div>
