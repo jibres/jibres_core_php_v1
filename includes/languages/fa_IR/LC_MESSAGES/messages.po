@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-07 12:55+0430\n"
-"PO-Revision-Date: 2022-07-07 12:56+0430\n"
+"POT-Creation-Date: 2022-07-11 18:41+0430\n"
+"PO-Revision-Date: 2022-07-11 18:41+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
-"X-Poedit-Basepath: ../../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: T_\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -67,12 +67,12 @@ msgstr "درباره جیبرس"
 #: content/changelog/view.php:21 content/contact/view.php:24
 #: content/domains/home/view.php:16 content/enterprise/view.php:13
 #: content/forceunlock/view.php:12 content/free/view.php:12 content/investment/view.php:12
-#: content/press/view.php:15 content/pricing/view.php:13 content/privacy/view.php:15
+#: content/press/view.php:15 content/privacy/view.php:15
 #: content/shipping/irpost/view.php:12 content/shipping/view.php:12
-#: content/socialresponsibility/view.php:15 content/status/view.php:12
-#: content/story/view.php:12 content/team/view.php:15 content/terms/view.php:15
-#: content/whois/view.php:13 content_business/p/home/view.php:17
-#: content_enter/home/view.php:35 content_love/subscribe/view.php:13
+#: content/socialresponsibility/view.php:15 content/story/view.php:12
+#: content/team/view.php:15 content/terms/view.php:15 content/whois/view.php:13
+#: content_business/p/home/view.php:17 content_enter/home/view.php:35
+#: content_love/subscribe/view.php:13
 #: content_site/options/responsive/responsive_footer_link_add.php:53
 #: dash/layout/pwa/pwa_menu.php:238 includes/languages/trans_static_public.php:70
 msgid "Home"
@@ -92,10 +92,9 @@ msgstr ""
 
 #: content/benefits/display.php:38 content/changelog/display.php:30
 #: content/changelog/display.php:68 content/press/display.php:8
-#: content/pricing/priceTable.php:28 content/pricing/priceTable.php:52
-#: content/pricing/priceTable.php:77 content/story/display.php:54
-#: content_love/changelog/add/display.php:11 content_love/changelog/display.php:8
-#: content_love/changelog/display.php:22 includes/languages/trans_static.php:505
+#: content/story/display.php:54 content_love/changelog/add/display.php:11
+#: content_love/changelog/display.php:8 content_love/changelog/display.php:22
+#: includes/languages/trans_static.php:505
 msgid "Soon"
 msgstr "بزودی"
 
@@ -111,7 +110,7 @@ msgstr "جیبرس چه کارهایی میتواند انجام دهد؟"
 msgid "Jibres Brand Style Guide"
 msgstr "راهنمای نشان تجاری جیبرس"
 
-#: content/brand/display.php:10 content/investment/display.php:99
+#: content/brand/display.php:10 content/investment/display.php:121
 msgid "MEET THE LOGO"
 msgstr "با نشان تجاری آشنا شوید"
 
@@ -698,13 +697,13 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/accounting/factor/add/display.php:109
 #: content_a/accounting/report/quarter/display-list.php:48
 #: content_a/accounting/report/vatreport/display.php:59
-#: content_a/accounting/report/vatreport/display.php:103
-#: content_a/accounting/report/vatreport/display.php:156
-#: content_a/accounting/report/vatreport/display.php:191
-#: content_a/android/intro/display.php:23 content_a/android/review/display.php:84
+#: content_a/accounting/report/vatreport/display.php:99
+#: content_a/accounting/report/vatreport/display.php:149
+#: content_a/accounting/report/vatreport/display.php:182
+#: content_a/android/intro/display.php:24 content_a/android/review/display.php:84
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/category/edit/display.php:10 content_a/category/edit/display.php:11
-#: content_a/discount/add/display.php:65 content_a/form/item/display.php:199
+#: content_a/discount/add/display.php:65 content_a/form/item/display.php:207
 #: content_a/form/setting/display.php:21 content_a/form/setting/display.php:22
 #: content_a/form/tag/edit/display.php:12 content_a/order/comment/display.php:13
 #: content_a/order/detail/display.php:74 content_a/products/desc/display.php:8
@@ -798,7 +797,7 @@ msgstr ""
 "بهترین نکته درباره جیبرس، تیم ماست. ما همواره به دنبال توانمندسازی اعضای تیم خود هستیم "
 "تا همه در کنار هم بتوانیم بهترین تلاش خود را برای خدمت به شما انجام دهیم."
 
-#: content/catalog/controller.php:12 content/investment/display.php:108
+#: content/catalog/controller.php:12 content/investment/display.php:130
 msgid "Jibres Catalog"
 msgstr "کاتالوگ جیبرس"
 
@@ -1392,7 +1391,7 @@ msgstr "تمدید خودکار"
 msgid "Beautiful Panel"
 msgstr "پنل مدیریت زیبا"
 
-#: content/domains/home/domain-topBox.php:2 content/home/display.php:82
+#: content/domains/home/domain-topBox.php:2 content/home/display.php:89
 #: content_my/domain/home/display.php:7
 msgid "Search for your dream domain"
 msgstr "به دنبال دامنه‌ی رویایی خودتان بگردید"
@@ -1444,7 +1443,7 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 msgid "Search"
 msgstr "جستجو"
 
-#: content/domains/home/domain-topBox.php:16 content/home/display.php:83
+#: content/domains/home/domain-topBox.php:16 content/home/display.php:90
 #: content_love/domain/domainbuy/display.php:126 content_my/domain/home/display.php:12
 msgid "Register Domain"
 msgstr "ثبت دامنه"
@@ -1807,11 +1806,6 @@ msgid "Buy A Domain"
 msgstr "خرید دامنه"
 
 #: content/domains/pricing/controller.php:116 content/home/view.php:76
-#: content/pricing/display.php:52 content/pricing/display.php:53
-#: content/pricing/display.php:54 content/pricing/display.php:77
-#: content/pricing/display.php:78 content/pricing/display.php:79
-#: content/pricing/display.php:106 content/pricing/display.php:107
-#: content/pricing/display.php:108
 msgid "Hezar Toman"
 msgstr "هزار تومان"
 
@@ -2165,34 +2159,44 @@ msgstr ""
 "جیبرس را به صورت رایگان امتحان کنید و تمام خدمات مورد نیاز برای شروع، اداره و رشد "
 "بیزینس خود را کاوش کنید."
 
-#: content/home/display.php:27 content/home/view.php:11 content/view.php:17
+#: content/home/display.php:18
+msgid "Free Forever"
+msgstr "رایگان برای همیشه"
+
+#: content/home/display.php:20
+msgid "Fast"
+msgstr "سریع"
+
+#: content/home/display.php:22
+msgid "Secure"
+msgstr "ایمن"
+
+#: content/home/display.php:34 content/home/view.php:11 content/view.php:17
 msgid "Online Store Website"
 msgstr "وب‌سایت فروشگاه آنلاین"
 
-#: content/home/display.php:28
+#: content/home/display.php:35
 msgid "Online store builder allows you robust your business in a faster way, simpler way!"
 msgstr ""
 "با فروشگاه ساز جیبرس بیزینس خودتون رو تقویت کنید. با سریع‌ترین و ساده‌ترین روش ممکن!"
 
-#: content/home/display.php:34 content/home/view.php:12 content/view.php:18
+#: content/home/display.php:41 content/home/view.php:12 content/view.php:18
 #: content_a/setting/home/display.php:121
 msgid "Mobile Online Store"
 msgstr "اپلیکیشن موبایل فروشگاهی"
 
-#: content/home/display.php:35
+#: content/home/display.php:42
 msgid "Create a mobile app for your online store."
 msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی داشته باشید."
 
-#: content/home/display.php:35 content/pricing/display.php:38
-#: content/pricing/priceTable.php:7 content/pricing/priceTable.php:18
-#: content_a/cart/add/display.php:131 content_a/order/summary.php:54
-#: content_a/plugin/view/display.php:228 content_a/products/edit/block/price.php:68
-#: content_business/cart/cartSummary.php:40 content_business/p/home/blocks/detail.php:75
-#: content_site/assemble/wrench/price.php:36
+#: content/home/display.php:42 content_a/cart/add/display.php:131
+#: content_a/order/summary.php:54 content_a/plugin/view/display.php:228
+#: content_a/products/edit/block/price.php:68 content_business/cart/cartSummary.php:40
+#: content_business/p/home/blocks/detail.php:75 content_site/assemble/wrench/price.php:36
 msgid "Free"
 msgstr "رایگان"
 
-#: content/home/display.php:35 content/home/display.php:42
+#: content/home/display.php:42 content/home/display.php:49
 #: content_a/category/edit/display.php:65 content_a/chap/size-a4/oneSide-buyer.php:39
 #: content_a/chap/size-a4/oneSide-buyer.php:49
 #: content_a/chap/size-a4/oneSide-seller.php:31
@@ -2203,47 +2207,47 @@ msgstr "رایگان"
 msgid ", "
 msgstr "، "
 
-#: content/home/display.php:35
+#: content/home/display.php:42
 msgid "Fully Customizable"
 msgstr "کاملا سفارشی"
 
-#: content/home/display.php:41 content_a/setting/home/display.php:131
+#: content/home/display.php:48 content_a/setting/home/display.php:131
 msgid "Point of Sale Software"
 msgstr "نرم‌افزار صندوق فروشگاهی"
 
-#: content/home/display.php:42
+#: content/home/display.php:49
 msgid "Barcode reader"
 msgstr "بارکدخوان"
 
-#: content/home/display.php:42
+#: content/home/display.php:49
 msgid "Receipt printer"
 msgstr "فیش پرینتر"
 
-#: content/home/display.php:42
+#: content/home/display.php:49
 msgid "PC POS"
 msgstr "اتصال به پی‌سی پوز"
 
-#: content/home/display.php:42
+#: content/home/display.php:49
 msgid "Label Printing Scale"
 msgstr "ترازوی لیبل پرینتر"
 
-#: content/home/display.php:42
+#: content/home/display.php:49
 msgid "Invoice Software"
 msgstr "نرم‌افزار صدور فاکتور"
 
-#: content/home/display.php:48 content/home/view.php:13 content/view.php:19
+#: content/home/display.php:55 content/home/view.php:13 content/view.php:19
 #: content_a/setting/home/display.php:141
 msgid "Social Marketing"
 msgstr "فروش در شبکه‌های اجتماعی"
 
-#: content/home/display.php:49
+#: content/home/display.php:56
 msgid ""
 "Easily add e-commerce to any website and social networks by embedding a single buy "
 "button."
 msgstr ""
 "با دکمه خرید جیبرس، به‌راحتی تجارت الکترونیکی خودتان را در شبکه‌های اجتماعی گسترش دهید."
 
-#: content/home/display.php:55
+#: content/home/display.php:62
 msgid ""
 "By using each sales channel on Jibres, you can keep track of your products, orders, and "
 "customers in one place."
@@ -2251,24 +2255,24 @@ msgstr ""
 "با افزودن و استفاده از هر کدام از کانال‌های فروش در جیبرس، شما می‌توانید موجودی کالاها، "
 "سفارشات و مشتریان را به صورت یکپارچه داشته باشید."
 
-#: content/home/display.php:68
+#: content/home/display.php:75
 msgid "Start your online business"
 msgstr "بیزینس آنلاین خود را شروع کنید"
 
-#: content/home/display.php:69 content/home/layout/header.php:15 content/home/view.php:25
+#: content/home/display.php:76 content/home/layout/header.php:15 content/home/view.php:25
 #: content/home/view.php:59
 msgid "No.1 Free eCommerce Solution"
 msgstr "برترین فروشگاه‌ساز و اپ‌ساز آنلاین رایگان"
 
-#: content/home/display.php:77
+#: content/home/display.php:84
 msgid "Jibres Domain Center"
 msgstr "مرکز دامنه جیبرس"
 
-#: content/home/display.php:79
+#: content/home/display.php:86
 msgid "Get your :val .IR domain"
 msgstr "با :val دامنه دات آی‌آر خودتون رو بخرید"
 
-#: content/home/display.php:87
+#: content/home/display.php:94
 msgid ""
 "Every website starts with a great domain name. Jibres offers cheap domain names with "
 "the most reliable service. Buy domain names with Jibres and see why we are cool!"
@@ -2277,15 +2281,15 @@ msgstr ""
 "پیشنهاد خرید و تمدید دامنه را با کم‌ترین و ارزان‌ترین قیمت ممکن برای شما دارد. یک دامنه "
 "با جیبرس بخرید تا بفهمید چرا ما خفن هستیم!"
 
-#: content/home/display.php:96
+#: content/home/display.php:103
 msgid "Of course Made with love 😍"
 msgstr "صد البته با عشق ساختیمش 😍"
 
-#: content/home/display.php:96
+#: content/home/display.php:103
 msgid "Jibres has created for futuristic entrepreneurs"
 msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته شده است"
 
-#: content/home/display.php:100 content_a/products/add/view.php:15
+#: content/home/display.php:107 content_a/products/add/view.php:15
 #: content_a/products/edit/view.php:22 content_a/products/home/view.php:11
 #: content_a/products/quick/view.php:12 content_a/setting/home/display.php:18
 #: content_a/setting/menu/item/display.php:20 content_site/body/product/option.php:17
@@ -2310,25 +2314,25 @@ msgstr "جیبرس برای کارآفرینان آینده‌نگر ساخته 
 msgid "Products"
 msgstr "محصولات"
 
-#: content/home/display.php:104 dash/layout/admin/sidebar/sidebar-a.php:10
+#: content/home/display.php:111 dash/layout/admin/sidebar/sidebar-a.php:10
 #: lib/app/store/analytics.php:76 lib/app/tax/doc/template.php:273
 #: lib/app/tax/doc/template.php:296
 msgid "Factor"
 msgstr "فاکتور"
 
-#: content/home/display.php:108
+#: content/home/display.php:115
 msgid "Sold on Jibres"
 msgstr "فروخته شده با جیبرس"
 
-#: content/home/display.php:119
+#: content/home/display.php:126
 msgid "Create an Invoice You're Proud Of"
 msgstr "فاکتور بسازید و به آن افتخار کنید"
 
-#: content/home/display.php:122
+#: content/home/display.php:129
 msgid "Invoice your customers in seconds"
 msgstr "فاکتور مشتریان خود را در چند ثانیه بسازید"
 
-#: content/home/display.php:123
+#: content/home/display.php:130
 msgid ""
 "Create, send, and track professional invoices in seconds. Customize awesome invoices to "
 "reflect your brand and increase your customer's trust. Add your company logo, "
@@ -2340,7 +2344,7 @@ msgstr ""
 "بیشتری از جانب مشتریان کسب کنید. لوگوی خودتون رو به فاکتور اضافه کنید، قالب فاکتور رو "
 "به‌صورت رایگان سفارشی کنید و پیش فاکتور یا فاکتورهایی چشم‌گیر در چند ثانیه بسازید."
 
-#: content/home/display.php:124
+#: content/home/display.php:131
 msgid ""
 "Looking to send an invoice right now? Use Jibres online invoice generator to be more "
 "productive. Create and send a beautiful invoice from any device, anytime."
@@ -2349,7 +2353,7 @@ msgstr ""
 "استفاده کنید و بهره‌وری خودتون رو افزایش بدید. با هر دستگاهی که هستید در هر زمانی که "
 "مایلید می‌تونید به فاکتورساز جیبرس برای ساخت و ارسال فاکتورهای خودتون دسترسی داشته باشید."
 
-#: content/home/display.php:126
+#: content/home/display.php:133
 msgid ""
 "Your account is always connected and your data is saved securely for you. Send invoices "
 "via email, SMS, and Telegram. Just one click and your invoice gets sent to your client."
@@ -2358,11 +2362,11 @@ msgstr ""
 "در دسترس شما هستند. شما می‌توانید فاکتورها را چاپ کنید یا آن را از طریق ایمیل، پیامک، "
 "تلگرام یا واتس‌اپ ارسال کنید. فقط با یک کلیک فاکتور برای مشتری شما ارسال می‌شود."
 
-#: content/home/display.php:135
+#: content/home/display.php:142
 msgid "Free Online Form Builder"
 msgstr "فرم‌ساز آنلاین رایگان"
 
-#: content/home/display.php:137
+#: content/home/display.php:144
 msgid ""
 "Let us handle your data collection. Focus on the work that can't be automated. Create "
 "beautiful online forms without any technical knowledge. Jibres form builder allows you "
@@ -2373,7 +2377,7 @@ msgstr ""
 "جیبرس به شما این امکان را می‌دهد تا به سرعت فرم‌هایی کارآمد بسازید؛ به‌سادگی به‌اشتراک "
 "بگذارید و نرخ تکمیل بالایی را از مخاطبان خود به‌دست بیاورید."
 
-#: content/home/display.php:138
+#: content/home/display.php:145
 msgid ""
 "Design professional forms with Jibres Online Form Builder. Customize to match your "
 "branding. Create a form to register in style, get contact details, or to collect "
@@ -2383,11 +2387,11 @@ msgstr ""
 "از این فرم‌ها برای دریافت اطلاعات تماس، رضایت مشتری، ثبت‌نام در برنامه‌های خاص، فرم دریافت "
 "رزومه، ساخت پرسشنامه دانشگاهی و جمع‌آوری هرگونه بازخوردی استفاده کنید."
 
-#: content/home/display.php:140
+#: content/home/display.php:147
 msgid "100% Free"
 msgstr "۱۰۰ ٪ رایگان"
 
-#: content/home/display.php:141
+#: content/home/display.php:148
 msgid ""
 "Every form has its URL, so you can share the form with or without your own website. "
 "Create forms and surveys that people enjoy answering with Jibres."
@@ -2397,11 +2401,11 @@ msgstr ""
 "نیز وصل کنید و آن را به‌اشتراک بگذارید. فرم‌ها و پرسشنامه‌ها و نظرسنجی‌هایی با جیبرس ایجاد "
 "کنید که مردم از پاسخ‌دهی به آن لذت ببرند."
 
-#: content/home/display.php:143
+#: content/home/display.php:150
 msgid "Reduce paper usage"
 msgstr "کاهش مصرف کاغذ"
 
-#: content/home/display.php:144
+#: content/home/display.php:151
 msgid ""
 "Don't let paperwork slow you down anymore. Jibres Forms will increase your efficiency "
 "by automating tiresome manual tasks. You'll never have to waste paper and your valuable "
@@ -2411,15 +2415,15 @@ msgstr ""
 "فرآیندهای دستی و خسته‌کننده، کارآیی شما را افزایش می‌دهند. دیگر اجازه ندهید تا کاری، کاغذ "
 "و مهم‌تر از آن وقت ارزشمند شما را تلف کند. کافی است بنشینید و بر جریان کار نظارت کنید."
 
-#: content/home/display.php:150
+#: content/home/display.php:157
 msgid "All-in-one Commerce Solution for your Business"
 msgstr "تمام راه‌حل‌های تجارت الکترونیک یکجا برای کسب و کار شما"
 
-#: content/home/display.php:155 content/view.php:27
+#: content/home/display.php:162 content/view.php:27
 msgid "SEO Optimized"
 msgstr "دوستدار موتورهای جستجو"
 
-#: content/home/display.php:156
+#: content/home/display.php:163
 msgid ""
 "Billions of searches are conducted online every single day. Many people search for "
 "specific products and services with the intent to pay for these things."
@@ -2427,11 +2431,11 @@ msgstr ""
 "هر روز میلیاردها جستجو به‌صورت آنلاین انجام می‌شود. بسیاری از مردم با هدف خرید کالا یا "
 "خدمات جستجو می‌کنند و حاضر به پرداخت هزینه برای آن هستند."
 
-#: content/home/display.php:162
+#: content/home/display.php:169
 msgid "Fully Hosted"
 msgstr "هاست رایگان"
 
-#: content/home/display.php:163
+#: content/home/display.php:170
 msgid ""
 "We are maintain your store files and data in the cloud. You would not need to setup "
 "your own server, we are storing your data for you."
@@ -2439,23 +2443,23 @@ msgstr ""
 "ما فایل‌های بیزینس شما در سرورهای ابری ذخیره و نگهداری می‌کنیم. شما نیاز خرید و راه‌اندازی "
 "هاست یا سرور ندارید. ما برای شما، داده‌های شما را نگه می‌داریم."
 
-#: content/home/display.php:169
+#: content/home/display.php:176
 msgid "Free SSL Certificate"
 msgstr "گواهی امنیتی SSL رایگان"
 
-#: content/home/display.php:170
+#: content/home/display.php:177
 msgid "SSL Protection For Anyone."
 msgstr "محافظت امنیتی برای هر کسی."
 
-#: content/home/display.php:170
+#: content/home/display.php:177
 msgid "Protect your information, generate trust and improve Search Engine Ranking."
 msgstr "حفاظت از داده‌های شما، ایجاد اعتماد و بهبود رتبه‌بندی در موتورهای جستجو."
 
-#: content/home/display.php:178
+#: content/home/display.php:185
 msgid "Accept Credit Cards"
 msgstr "پذیرش کارت‌های اعتباری"
 
-#: content/home/display.php:179
+#: content/home/display.php:186
 msgid ""
 "It's easy to accept various payment options in Jibres, including PayPal, Credit Cards, "
 "and other offline methods."
@@ -2463,11 +2467,11 @@ msgstr ""
 "با جیبرس به‌آسانی می‌توانید هزینه خدمات و کالاهای خود را به‌صورت آنلاین از طریق کارت "
 "اعتباری و درگاه آنلاین و حتی روش‌های آفلاین دریافت کنید."
 
-#: content/home/display.php:185
+#: content/home/display.php:192
 msgid "Fully API"
 msgstr "ای‌پی‌آی کامل"
 
-#: content/home/display.php:186
+#: content/home/display.php:193
 msgid ""
 "API gives you full creative control to add Jibres buying experiences anywhere your "
 "customers are, including websites, apps, and social networks."
@@ -2475,67 +2479,67 @@ msgstr ""
 "رابط برنامه‌نویسی جیبرس به شما کنترل خلاقانه و کاملی برای ایجاد تجربه خرید در هر جایی "
 "توسط مشتریان‌تان را می‌دهد. وب‌سایت، اپلیکیشن‌ها و حتی شبکه‌های اجتماعی."
 
-#: content/home/display.php:192
+#: content/home/display.php:199
 msgid "Premium Support"
 msgstr "پشتیبانی متفاوت"
 
-#: content/home/display.php:193
+#: content/home/display.php:200
 msgid "With the Most Helpful Humans in the world, You're Never Alone."
 msgstr "با صمیم قلب برای کمک به شما اینجا هستیم. شما هیچوقت تنها نیستید."
 
-#: content/home/display.php:193
+#: content/home/display.php:200
 msgid "Rely on our 24/7/365 Human Support."
 msgstr "به پشتیبانی انسانی ۲۴/۷/۳۶۵ ما اعتماد کنید."
 
-#: content/home/display.php:204
+#: content/home/display.php:211
 msgid "Download Jibres App"
 msgstr "دانلود اپلیکیشن جیبرس"
 
-#: content/home/display.php:206
+#: content/home/display.php:213
 msgid "Jibres Mobile App"
 msgstr "اپلیکیشن موبایل جیبرس"
 
-#: content/home/display.php:207
+#: content/home/display.php:214
 msgid "No matter where you are, Jibres stays in sync across all of your devices."
 msgstr "هر کجا که هستید، جیبرس را همراه خود داشته باشید."
 
-#: content/home/display.php:210
+#: content/home/display.php:217
 msgid "Download Jibres App from Google play"
 msgstr "دانلود اپ جیبرس از گوگل پلی"
 
-#: content/home/display.php:212 content/home/display.php:214
+#: content/home/display.php:219 content/home/display.php:221
 msgid "Jibres app on Google play"
 msgstr "اپلیکیشن جیبرس در گوگل پلی"
 
-#: content/home/display.php:217 content/home/display.php:219 content/home/display.php:221
+#: content/home/display.php:224 content/home/display.php:226 content/home/display.php:228
 msgid "Direct download Jibres app"
 msgstr "دانلود مستقیم اپ جیبرس"
 
-#: content/home/display.php:235
+#: content/home/display.php:242
 msgid "Simplest forever"
 msgstr "ساده‌ترین برای همیشه"
 
-#: content/home/display.php:235
+#: content/home/display.php:242
 msgid "Keep it simple"
 msgstr "ساده نگهش داشتیم"
 
-#: content/home/display.php:236
+#: content/home/display.php:243
 msgid "Simplicity is the ultimate sophistication"
 msgstr "سادگی غایت پیچیدگی است"
 
-#: content/home/display.php:237
+#: content/home/display.php:244
 msgid "No one can fulfill your e-commerce needs like us"
 msgstr "هیچ‌کسی مثل ما نمی‌تونه نیازهای یک بیزینس الکترونیکی رو برآورده کنه"
 
-#: content/home/display.php:256
+#: content/home/display.php:263
 msgid "Our Happy Friends!"
 msgstr "دوستان خوشحال ما!"
 
-#: content/home/display.php:301
+#: content/home/display.php:308
 msgid "Security & Privacy"
 msgstr "امنیت و حریم‌خصوصی"
 
-#: content/home/display.php:302
+#: content/home/display.php:309
 msgid ""
 "Privacy is at the core of everything we do. We are here to protect your information. "
 "Privacy is one of our most important core values. In a world of increasing complexity, "
@@ -2687,7 +2691,7 @@ msgid "Social Responsibility"
 msgstr "مسئولیت اجتماعی"
 
 #: content/home/layout/footer.php:205 content/home/layout/pwa-footer.php:242
-#: content/investment/display.php:98
+#: content/investment/display.php:120
 msgid "Brand Style Guide"
 msgstr "راهنمای نشان تجاری"
 
@@ -3095,59 +3099,61 @@ msgstr "پیچ دک"
 msgid "Brief but informative overview of Jibres"
 msgstr "مروری مختصر و مفید بر جیبرس"
 
-#: content/investment/display.php:38
+#: content/investment/display.php:34
 msgid "Pitch Deck Slides"
 msgstr "پاورپورینت پیچ دک"
 
-#: content/investment/display.php:39
+#: content/investment/display.php:35
 msgid "Presentation that helps potential investors"
 msgstr "ارائه‌ای برای کمک به سرمایه‌گذاران بالقوه"
 
-#: content/investment/display.php:48
+#: content/investment/display.php:48 content/investment/display.php:59
+#: content/investment/display.php:70
 msgid "Financial Projection"
 msgstr "برنامه مالی"
 
-#: content/investment/display.php:49
+#: content/investment/display.php:49 content/investment/display.php:60
+#: content/investment/display.php:71
 msgid "Forecast of future revenues and expenses"
 msgstr "پیش‌بینی درآمدها و هزینه‌های آینده"
 
-#: content/investment/display.php:58
+#: content/investment/display.php:80
 msgid "Business Model Canvas"
 msgstr "بوم مدل کسب و کار"
 
-#: content/investment/display.php:59
+#: content/investment/display.php:81
 msgid "Strategic management tool to define concept"
 msgstr "ابزاری استراتژیک برای توصیف مدل بیزینس"
 
-#: content/investment/display.php:68
+#: content/investment/display.php:90
 msgid "SWOT Analysis"
 msgstr "آنالیز SWOT"
 
-#: content/investment/display.php:69
+#: content/investment/display.php:91
 msgid "Strengths, Weaknesses, Opportunities, and Threats"
 msgstr "نقاط قوت، نقاط ضعف، فرصت‌ها و تهدیدها"
 
-#: content/investment/display.php:78
+#: content/investment/display.php:100
 msgid "One Page Business Plan"
 msgstr "بیزینس مدل یک صفحه‌ای"
 
-#: content/investment/display.php:79
+#: content/investment/display.php:101
 msgid "Essential information about Jibres strategy"
 msgstr "اطلاعاتی ضروری درباره استراتژی جیبرس"
 
-#: content/investment/display.php:88
+#: content/investment/display.php:110
 msgid "Business Plan"
 msgstr "بیزینس پلن"
 
-#: content/investment/display.php:89
+#: content/investment/display.php:111
 msgid "A business plan is more than a document"
 msgstr "طرح کسب و کار بیش از یک سند است"
 
-#: content/investment/display.php:109
+#: content/investment/display.php:131
 msgid "Jibres museum"
 msgstr "موزه جیبرس"
 
-#: content/investment/display.php:125
+#: content/investment/display.php:147
 msgid "Invest in Jibres"
 msgstr "سرمایه‌گذاری در جیبرس"
 
@@ -3306,422 +3312,6 @@ msgstr "ماموریت ما آسان نمودن سیستم‌های بیزینس
 #: content/press/view.php:10
 msgid "Need HELP? Be patient..."
 msgstr "کمک نیاز دارید؟ صبور باشید..."
-
-#: content/pricing/display.php:14
-msgid "30 day satisfaction guarantee"
-msgstr "۳۰ روز گارانتی رضایت"
-
-#: content/pricing/display.php:15
-msgid "no questions asked!"
-msgstr "هیچ سوالی پرسیده نخواهد شد!"
-
-#: content/pricing/display.php:16
-msgid "We stand behind our service and we mean it!"
-msgstr "ما به سرویس خودمون اعتقاد داریم و این برای تایید آن است!"
-
-#: content/pricing/display.php:16
-msgid "Despite our offer 14 days free trial to start use Jibres,"
-msgstr ""
-"با وجود ارائه پیشنهاد ۱۴ روز استفاده از نسخه آزمایشی و رایگان برای شروع استفاده از "
-"جیبرس،"
-
-#: content/pricing/display.php:16
-msgid ""
-"if at any time within the first 30 days period you are not happy with Jibres, you can "
-"request money back and we will refund it."
-msgstr ""
-"اگر در هر زمانی، در طول اولین دوره‌ی ۳۰ روزه، از جیبرس ناراضی بودید، شما می‌توانید "
-"درخواست بازگشت پول خود را دهید و ما مبلغ پرداخت شده را به‌صورت کامل پس خواهیم داد."
-
-#: content/pricing/display.php:21
-msgid "30 day Guarantee"
-msgstr "۳۰ روز گارنتی"
-
-#: content/pricing/display.php:39 content/pricing/priceTable.php:26
-msgid "Bronze"
-msgstr "برنزی"
-
-#: content/pricing/display.php:40 content/pricing/priceTable.php:50
-msgid "Silver"
-msgstr "نقره‌ای"
-
-#: content/pricing/display.php:41 content/pricing/priceTable.php:75
-msgid "Gold"
-msgstr "طلایی"
-
-#: content/pricing/display.php:46 content/pricing/display.php:69
-#: content/pricing/display.php:98 content_a/chap/size-receipt/receipt.php:123
-#: content_a/form/item/choice/display.php:10 content_a/order/home/display.php:16
-#: content_a/order/products/display.php:49 content_a/order/products/display.php:51
-#: content_a/plugin/view/display.php:221 content_a/pricehistory/display.php:8
-#: content_a/pricehistory/display.php:39 content_a/pricehistory/display.php:77
-#: content_a/products/child/display.php:95 content_a/products/child/display.php:165
-#: content_a/products/share/display.php:32 content_a/products/share/model.php:62
-#: content_a/products/variants/display-add-product.php:30
-#: content_a/products/variants/display-add-product.php:69 content_a/sale/display.php:42
-#: content_business/p/home/blocks/detail.php:56 content_business/p/home/view.php:106
-#: content_love/domain/billing/display.php:92
-#: content_love/domain/setting/action/display.php:44 content_love/gift/usage/display.php:7
-#: content_love/plugin/history/display.php:12 lib/app/form/item/type.php:551
-#: lib/app/form/item/type.php:570 lib/app/form/item/type.php:586
-#: lib/app/log/caller/business/business_plugin.php:81 lib/app/order/filter.php:99
-#: lib/app/order/filter.php:100 lib/app/order/filter.php:101 lib/app/order/filter.php:102
-#: lib/app/order/filter.php:103 lib/app/product/filter.php:193
-#: lib/app/product/filter.php:202 lib/app/product/property.php:249
-#: lib/app/product/site_list.php:217 lib/app/product/updateprice.php:125
-msgid "Price"
-msgstr "قیمت"
-
-#: content/pricing/display.php:46
-msgid "Pay monthly"
-msgstr "پرداخت ماهیانه"
-
-#: content/pricing/display.php:47 content/pricing/display.php:72
-msgid "FREE"
-msgstr "رایگان"
-
-#: content/pricing/display.php:69 content/pricing/display.php:98
-msgid "Pay yearly"
-msgstr "پرداخت سالیانه"
-
-#: content/pricing/display.php:70
-msgid "Two month free"
-msgstr "دو ماه رایگان"
-
-#: content/pricing/display.php:99
-msgid "First Year"
-msgstr "سال اول"
-
-#: content/pricing/display.php:100
-msgid "More than 50 percent off"
-msgstr "بیش از ۵۰ درصد تخفیف"
-
-#: content/pricing/display.php:127
-msgid "Data max limit"
-msgstr "محدودیت‌های حداکثر داده‌ها"
-
-#: content/pricing/display.php:130
-msgid "Max product"
-msgstr "حداکثر تعداد محصولات"
-
-#: content/pricing/display.php:133 content/pricing/display.php:134
-#: content/pricing/display.php:140 content/pricing/display.php:141
-#: content/pricing/display.php:147 content/pricing/display.php:148
-#: content/pricing/display.php:154 content/pricing/display.php:155
-msgid "Unlimited"
-msgstr "نامحدود"
-
-#: content/pricing/display.php:137
-msgid "Max third party"
-msgstr "حداکثر تعداد طرف حساب"
-
-#: content/pricing/display.php:144
-msgid "Max invoice each day"
-msgstr "حداکثر فاکتور در هر روز"
-
-#: content/pricing/display.php:151
-msgid "Max item in each invoice"
-msgstr "حداکثر تعداد آیتم‌ها در هر فاکتور"
-
-#: content/pricing/display.php:160
-msgid "Basic Features"
-msgstr "ویژگی‌های اولیه"
-
-#: content/pricing/display.php:167
-msgid "Each SMS cost"
-msgstr "هزینه هر پیامک"
-
-#: content/pricing/display.php:167
-msgid "Optional"
-msgstr "اختیاری"
-
-#: content/pricing/display.php:177 content/pricing/priceTable.php:12
-msgid "Integrated Sales"
-msgstr "فروش یکپارچه"
-
-#: content/pricing/display.php:184 content/pricing/priceTable.php:13
-msgid "Free Invoicing"
-msgstr "فاکتور رایگان"
-
-#: content/pricing/display.php:191 content/pricing/priceTable.php:14
-msgid "Online Accounting"
-msgstr "حسابداری آنلاین"
-
-#: content/pricing/display.php:198
-msgid "Sale on social networks"
-msgstr "فروش در شبکه‌های اجتماعی"
-
-#: content/pricing/display.php:205 content/pricing/priceTable.php:83
-msgid "Search Engine Optimized"
-msgstr "بهینه‌سازی‌شده برای موتورهای جستجو"
-
-#: content/pricing/display.php:214
-msgid "Starter Features"
-msgstr "ویژگی‌های پلن شروع"
-
-#: content/pricing/display.php:217 content/pricing/display.php:231
-#: content/pricing/priceTable.php:30
-msgid "vCard Website"
-msgstr "وب‌سایت کارت ویزیت"
-
-#: content/pricing/display.php:224 content/pricing/priceTable.php:31
-msgid "Staff Accounts"
-msgstr "حساب‌کاربری کارمندان"
-
-#: content/pricing/display.php:240
-msgid "Simple Features"
-msgstr "ویژگی‌های پلن ساده"
-
-#: content/pricing/display.php:243 content/pricing/priceTable.php:54
-msgid "Advance Reports"
-msgstr "گزارشات پیشرفته"
-
-#: content/pricing/display.php:250 content/pricing/priceTable.php:55
-msgid "All Invoice Types"
-msgstr "همه انواع فاکتور"
-
-#: content/pricing/display.php:257 content/pricing/priceTable.php:56
-msgid "Product Intro Website"
-msgstr "وب‌سایت معرفی محصولات"
-
-#: content/pricing/display.php:264
-msgid "Advance Settings"
-msgstr "تنظیمات پیشرفته"
-
-#: content/pricing/display.php:273
-msgid "Standard Features"
-msgstr "ویژگی‌های پلن استاندارد"
-
-#: content/pricing/display.php:276 content/pricing/priceTable.php:79
-msgid "Online Store"
-msgstr "فروشگاه آنلاین"
-
-#: content/pricing/display.php:283 content/pricing/priceTable.php:80
-msgid "News website"
-msgstr "وب‌سایت خبری"
-
-#: content/pricing/display.php:290
-msgid "Online Shop with Your Domain"
-msgstr "فروشگاه آنلاین با دامنه شما"
-
-#: content/pricing/display.php:297 content/pricing/priceTable.php:82
-msgid "Full Permission Control"
-msgstr "مدیریت کامل سطوح دسترسی"
-
-#: content/pricing/display.php:318
-msgid "Ready to use Jibres Enterprise?"
-msgstr "آماده استفاده از پلن سازمانی جیبرس هستید؟"
-
-#: content/pricing/display.php:319
-msgid "Get started with our Enterprise plan."
-msgstr "با پلن سازمانی ما شروع کنید."
-
-#: content/pricing/display.php:322
-msgid "Get in Touch"
-msgstr "با ما در تماس باشید"
-
-#: content/pricing/display.php:332
-msgid "Billing & Invoicing"
-msgstr "مالی و فاکتور"
-
-#: content/pricing/display.php:335
-msgid "Is there a setup fee?"
-msgstr "آیا هزینه اولیه راه‌اندازی وجود داد؟"
-
-#: content/pricing/display.php:336
-msgid "No. There are no setup fees on any of our plans!"
-msgstr "نه. هیچ‌گونه هزینه اولیه راه‌اندازی برای هیچ‌کدام از پلن‌ها وجود ندارد!"
-
-#: content/pricing/display.php:340
-msgid "Can I cancel my account at any time?"
-msgstr "آیا می‌توانم حساب کاربری خودم را هر زمانی لغو کنم؟"
-
-#: content/pricing/display.php:341
-msgid ""
-"Yes. If you ever decide that Jibres isn’t the best platform for your business, simply "
-"cancel your account."
-msgstr ""
-"بله. اگر هر زمانی تصمیم گرفتید که جیبرس بهترین خدمات موجود را به بیزینس شما ارائه "
-"نمی‌دهد، به‌راحتی حساب کاربری خود را لغو کنید."
-
-#: content/pricing/display.php:345
-msgid "How long are your contracts?"
-msgstr "مدت زمان قراردادهای شما چقدر است؟"
-
-#: content/pricing/display.php:346
-msgid "All Jibres plans are month to month. simple."
-msgstr "تمامی پلن‌های جیبرس به مدت یکماه است. ساده‌ی ساده."
-
-#: content/pricing/display.php:349
-msgid "Can I change my plan later on?"
-msgstr "آیا در آینده می‌توانم پلن انتخابی را تغییر دهم؟"
-
-#: content/pricing/display.php:350
-msgid "Absolutely! You can upgrade or downgrade your plan at any time."
-msgstr ""
-"قطعا! شما هر زمانی لازم دیدید می‌توانید پلن خود را ارتقا داده و یا به پلن‌های پایین‌تر "
-"جابجا شوید."
-
-#: content/pricing/display.php:353
-msgid "When is my billing date?"
-msgstr "موعد پرداخت هزینه‌های مالی من چه‌زمانی است؟"
-
-#: content/pricing/display.php:354
-msgid ""
-"The date you first select a paid plan will be the recurring billing date. For example: "
-"If you sign up for the first time on July 15, all future charges will be billed on the "
-"15th of every month."
-msgstr ""
-"اولین روزی که پلن مالی را انتخاب کردید به‌عنوان روز شروع تعیین شده و در دوره‌های زمانی "
-"تکرار می‌شود. به‌طور مثال اگر شما اولین بار در تاریخ ۱۷ خرداد پلن خود را انتخاب کردید، "
-"تمامی فاکتورهای بعدی در تاریخ ۱۷‌ ام ماه‌های آینده صادر و کسر خواهند شد."
-
-#: content/pricing/display.php:360
-msgid "General questions"
-msgstr "سوالات عمومی"
-
-#: content/pricing/display.php:363
-msgid "How does Jibres work?"
-msgstr "جیبرس چگونه کار می‌کند؟"
-
-#: content/pricing/display.php:364
-msgid ""
-"The easiest way to learn how to use Jibres is enter to it, which takes less than 3 "
-"minutes to setup your team."
-msgstr ""
-"آسان‌ترین راه برای یادگیری نحوه‌ی کارکرد جیبرس ورود به آن است که کمتر از ۳ دقیقه از زمان "
-"شما را برای راه‌اندازی اولیه و شروع به‌کار می‌گیرد."
-
-#: content/pricing/display.php:367
-msgid "What is your privacy and security policy?"
-msgstr "قوانین و شرایط حریم خصوصی شما چیست؟"
-
-#: content/pricing/display.php:368
-msgid "View Jibres's privacy and security policy at"
-msgstr "نگاه ما به حریم خصوصی را در این صفحه بخوانید"
-
-#: content/pricing/display.php:371
-msgid "Where can I find your Terms of Service (TOS)?"
-msgstr "کجا می‌توانم شرایط و قوانین استفاده از سرویس را پیدا کنم؟"
-
-#: content/pricing/display.php:372
-msgid "You can find them at"
-msgstr "شما می‌توانید آن را در اینجا بیابید"
-
-#: content/pricing/display.php:375
-msgid "What are your bandwidth fees?"
-msgstr "تعرفه‌ی پهنای باند شما چقدر است؟"
-
-#: content/pricing/display.php:376
-msgid "There are none. All Jibres plans include unlimited bandwidth for free."
-msgstr ""
-"هیچ! تمامی پلن‌های جیبرس شامل پهنای‌باند نامحدود رایگان هستند و شما هزینه‌ای برای "
-"پهنای‌باند پرداخت نمی‌کنید."
-
-#: content/pricing/display.php:379
-msgid "Do I need a web host?"
-msgstr "آیا برای استفاده از خدمات نیاز به هاست دارم؟"
-
-#: content/pricing/display.php:380
-msgid "No! Jibres includes secure, unlimited hosting on all plans with free bandwidth."
-msgstr ""
-"خیر! جیبرس به‌همراه هاست نامحدود و امن شده بر روی تمامی پلن‌ها به همراه پهنای باند "
-"نامحدود برای شما قابل استفاده است."
-
-#: content/pricing/priceTable.php:6
-msgid "Free Plan"
-msgstr "پلن رایگان"
-
-#: content/pricing/priceTable.php:8
-msgid "All the basics for personal use."
-msgstr "همه نیازهای اولیه برای استفاده شخصی."
-
-#: content/pricing/priceTable.php:8
-msgid ""
-"Also <span class='font-bold'>sell on social networks</span> with easy online payment."
-msgstr ""
-"هم‌چنین <span class='font-bold'> فروش در شبکه‌های اجتماعی</span> به‌سادگی با پرداخت آنلاین."
-
-#: content/pricing/priceTable.php:9
-msgid "Beta Version"
-msgstr "نسخه بتا"
-
-#: content/pricing/priceTable.php:21 content_enter/home/view.php:37
-msgid "Signup"
-msgstr "ثبت‌نام"
-
-#: content/pricing/priceTable.php:25
-msgid "Starter Plan"
-msgstr "پلن شروع"
-
-#: content/pricing/priceTable.php:27
-msgid "Special choice for starting a new business."
-msgstr "انتخابی ویژه برای شروع یک بیزینس جدید."
-
-#: content/pricing/priceTable.php:32
-msgid "Increase Basic Limits"
-msgstr "افزایش محدودیت‌های اولیه"
-
-#: content/pricing/priceTable.php:36 content/pricing/priceTable.php:61
-#: content/pricing/priceTable.php:87 content_a/accounting/home/display.php:73
-#: content_a/accounting/home/display.php:81
-#: content_a/accounting/report/journal/view.php:18
-#: content_a/accounting/report/ledger/view.php:18 includes/languages/trans_static.php:612
-msgid "Monthly"
-msgstr "ماهانه"
-
-#: content/pricing/priceTable.php:41 content/pricing/priceTable.php:66
-#: content/pricing/priceTable.php:92
-msgid "Annually"
-msgstr "سالانه"
-
-#: content/pricing/priceTable.php:49
-msgid "Simple Plan"
-msgstr "پلن ساده"
-
-#: content/pricing/priceTable.php:51
-msgid "For who want try to change!"
-msgstr "برای کسانی که تلاش به تغییر دارند!"
-
-#: content/pricing/priceTable.php:51
-msgid "Enjoy modern era."
-msgstr "از دوران مدرنیته لذت ببرید."
-
-#: content/pricing/priceTable.php:57
-msgid "Without Limit"
-msgstr "بدون محدودیت"
-
-#: content/pricing/priceTable.php:74
-msgid "Standard Plan"
-msgstr "پلن استاندارد"
-
-#: content/pricing/priceTable.php:76
-msgid "For someones ready to use Jibres as hero."
-msgstr "برای کسانی که آماده استفاده از جیبرس هستند."
-
-#: content/pricing/priceTable.php:76
-msgid "<span class='bold'>Everything you need</span> for a growing business."
-msgstr "<span class='bold'>تمام نیازهای شما</span> برای یک بیزینس درحال توسعه."
-
-#: content/pricing/priceTable.php:81
-msgid "Shop with Your Domain"
-msgstr "فروشگاه با دامنه شما"
-
-#: content/pricing/priceTable.php:97
-msgid "Start your free trial"
-msgstr "استفاده آزمایشی و رایگان را شروع کنید"
-
-#: content/pricing/view.php:9
-msgid "Plans and Pricing of Jibres"
-msgstr "پلن‌ها و هزینه‌های جیبرس"
-
-#: content/pricing/view.php:10
-msgid "Always know what you'll pay per month."
-msgstr "همیشه از پرداختی ماهیانه خود آگاه باشید."
-
-#: content/pricing/view.php:10
-msgid "Simple pricing"
-msgstr "هزینه‌های شفاف و ساده"
 
 #: content/privacy/display.php:3 content/privacy/display.php:7
 msgid "What is Privacy?"
@@ -4378,14 +3968,6 @@ msgstr "ما در حال ساختن در جیبرس هستیم"
 msgid "Jibres Social Responsibility"
 msgstr "مسئولیت اجتماعی جیبرس"
 
-#: content/status/view.php:9
-msgid "Jibres Real Time Status"
-msgstr "وضعیت برخط جیبرس"
-
-#: content/status/view.php:10
-msgid "Welcome to Jibres real-time and historical data on system performance."
-msgstr "به سیستم بهینه‌سازی عملکرد و آرشیو داده‌های لحظه‌ای جیبرس خوش آمدید."
-
 #: content/story/display.php:21
 msgid "Fog in the Caspian Sea"
 msgstr "مه در دریای خزر"
@@ -4911,8 +4493,8 @@ msgstr "لطفا والد را انتخاب کنید"
 #: content_a/accounting/report/balancesheet/display.php:10
 #: content_a/accounting/report/group/display.php:12
 #: content_a/accounting/report/vatreport/display.php:58
-#: content_a/accounting/report/vatreport/display.php:102
-#: content_a/accounting/report/vatreport/display.php:155
+#: content_a/accounting/report/vatreport/display.php:98
+#: content_a/accounting/report/vatreport/display.php:148
 #: content_developers/docs/004-responses.php:57 content_enter/verify/sendsms/display.php:6
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:73
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:89 dash/app/files/ready.php:96
@@ -4925,7 +4507,7 @@ msgstr "کد"
 #: content_a/accounting/coding/add/display-add.php:30
 #: content_a/accounting/coding/display-list.php:109
 #: content_a/accounting/coding/display.php:80 content_a/accounting/year/add/display.php:5
-#: content_a/android/intro/display.php:17 content_a/android/review/display.php:82
+#: content_a/android/intro/display.php:18 content_a/android/review/display.php:82
 #: content_a/android/review/display.php:90 content_a/android/review/display.php:97
 #: content_a/category/add/display.php:5 content_a/category/edit/display.php:6
 #: content_a/form/item/add/display.php:17 content_a/form/item/add/display.php:19
@@ -5420,13 +5002,11 @@ msgstr "همین الان وارد کن"
 msgid "Natuer group"
 msgstr "ماهیت گروه"
 
-#: content_a/accounting/coding/display.php:120
-#: content_a/accounting/report/quarter/display-list.php:55
-#: content_a/accounting/report/quarter/display-list.php:73
-#: content_a/cart/home/display.php:180 content_a/form/answer/display.php:12
-#: content_a/form/answer/display.php:29 content_love/log/home/logTable.php:9
-#: content_pay/home/display-transaction.php:309 content_sudo/apilog/home/display.php:103
-#: content_sudo/smsclient/home/display.php:52 includes/languages/trans_static.php:678
+#: content_a/accounting/coding/display.php:120 content_a/cart/home/display.php:180
+#: content_a/form/answer/display.php:12 content_a/form/answer/display.php:29
+#: content_love/log/home/logTable.php:9 content_pay/home/display-transaction.php:309
+#: content_sudo/apilog/home/display.php:103 content_sudo/smsclient/home/display.php:52
+#: includes/languages/trans_static.php:678
 msgid "Detail"
 msgstr "جزئیات"
 
@@ -5645,6 +5225,7 @@ msgid "Opening Document"
 msgstr "سند افتتاحیه"
 
 #: content_a/accounting/doc/add/display-doc.php:56
+#: content_a/accounting/report/quarter/display-list.php:55
 msgid "Document Number"
 msgstr "شماره سند"
 
@@ -5800,8 +5381,8 @@ msgid "File successfully uploaded"
 msgstr "فایل با موفقیت آپلود شد"
 
 #: content_a/accounting/doc/edit/model.php:171 content_a/products/edit/model.php:430
-#: content_cms/posts/edit/model.php:106 content_love/ip/model.php:17
-#: lib/app/staticfile/remove.php:37
+#: content_cms/posts/edit/model.php:106 content_love/ip/model.php:19
+#: content_love/ip/model.php:37 lib/app/staticfile/remove.php:37
 msgid "File removed"
 msgstr "فایل حذف شد"
 
@@ -6216,6 +5797,12 @@ msgstr "تراز آزمایشی در سطح تفصیل"
 #: content_a/accounting/report/journal_cover.php:4
 msgid "General Journal"
 msgstr "دفتر روزنامه"
+
+#: content_a/accounting/home/display.php:73 content_a/accounting/home/display.php:81
+#: content_a/accounting/report/journal/view.php:18
+#: content_a/accounting/report/ledger/view.php:18 includes/languages/trans_static.php:612
+msgid "Monthly"
+msgstr "ماهانه"
 
 #: content_a/accounting/home/display.php:80 content_a/accounting/home/display.php:97
 #: content_a/accounting/report/journal_cover.php:4
@@ -6690,18 +6277,10 @@ msgid "Minus vat"
 msgstr "مالیات مکسوره"
 
 #: content_a/accounting/report/quarter/display-detail.php:73
-#: content_a/accounting/report/quarter/display-list.php:52
-#: content_a/accounting/report/vatreport/display.php:61
-#: content_a/accounting/report/vatreport/display.php:105
-#: content_a/accounting/report/vatreport/display.php:157
 msgid "Vat 6%"
 msgstr "مالیات ۶٪"
 
 #: content_a/accounting/report/quarter/display-detail.php:77
-#: content_a/accounting/report/quarter/display-list.php:53
-#: content_a/accounting/report/vatreport/display.php:62
-#: content_a/accounting/report/vatreport/display.php:106
-#: content_a/accounting/report/vatreport/display.php:158
 msgid "Vat 3%"
 msgstr "عوارض ۳٪"
 
@@ -6761,6 +6340,14 @@ msgstr "فصل ۴"
 msgid "Winter"
 msgstr "زمستان"
 
+#: content_a/accounting/report/quarter/display-list.php:52
+#: content_a/accounting/report/quarter/display-summary.php:65
+#: content_a/accounting/report/vatreport/display.php:61
+#: content_a/accounting/report/vatreport/display.php:101
+#: content_a/accounting/report/vatreport/display.php:150
+msgid "Vat 9%"
+msgstr "مالیات ۹٪"
+
 #: content_a/accounting/report/quarter/display-summary.php:28
 msgid "Total vat 6%"
 msgstr "جمع مالیات ۶٪"
@@ -6776,10 +6363,6 @@ msgstr "جمع - تخفیف"
 #: content_a/accounting/report/quarter/display-summary.php:57
 msgid "Total - Discount + vat"
 msgstr "جمع - تخفیف + مالیات"
-
-#: content_a/accounting/report/quarter/display-summary.php:65
-msgid "Vat 9%"
-msgstr "مالیات ۹٪"
 
 #: content_a/accounting/report/quarter/view.php:23
 msgid "Quarterly sell report"
@@ -6814,120 +6397,116 @@ msgstr "جدول ۱: اطلاعات مربوط به فروش و صادرات ک�
 msgid "Total sales"
 msgstr "کل فروش"
 
-#: content_a/accounting/report/vatreport/display.php:68
+#: content_a/accounting/report/vatreport/display.php:67
 msgid "Sale <b>include</b> vat products"
 msgstr "فروش کالاها و خدمات <b>مشمول</b>"
 
-#: content_a/accounting/report/vatreport/display.php:75
+#: content_a/accounting/report/vatreport/display.php:73
 msgid "Sale <b>non-include</b> vat products"
 msgstr "فروش کالاها و خدمات <b>معاف</b>"
 
-#: content_a/accounting/report/vatreport/display.php:82
+#: content_a/accounting/report/vatreport/display.php:79
 msgid "<b>Export</b> products <b>include and not non-include vat</b>"
 msgstr "<b>صادرات</b> کالاها و خدمات <b>معاف و مشمول</b>"
 
-#: content_a/accounting/report/vatreport/display.php:89
+#: content_a/accounting/report/vatreport/display.php:86
 msgid "Total vat in this quarter + export + vat"
 msgstr "<b>جمع فروش و صادرات و مالیات و عوارض این دوره</b>"
 
-#: content_a/accounting/report/vatreport/display.php:98
+#: content_a/accounting/report/vatreport/display.php:94
 msgid "Table #2. Buy product report and service"
 msgstr "جدول ۲: اطلاعات مربوط به خرید و واردات کالاها و خدمات"
 
-#: content_a/accounting/report/vatreport/display.php:104
+#: content_a/accounting/report/vatreport/display.php:100
 msgid "Total cost"
 msgstr "مجموع هزینه‌"
 
-#: content_a/accounting/report/vatreport/display.php:112
+#: content_a/accounting/report/vatreport/display.php:107
 msgid "Buy products with <b>include vat</b>"
 msgstr "خرید کالاها و خدمات <b>مشمول با پرداخت </b> مالیات و عوارض"
 
-#: content_a/accounting/report/vatreport/display.php:119
+#: content_a/accounting/report/vatreport/display.php:114
 msgid "Buy products with <b>non-include vat</b>"
 msgstr ""
 "خرید کالاها و خدمات <b>معاف</b>: <br> و کالاها و خدمات مشمول، <b>بدون پرداخت</b> پرداخت "
 "مالیات و عوارض"
 
-#: content_a/accounting/report/vatreport/display.php:126
+#: content_a/accounting/report/vatreport/display.php:120
 msgid "Import products <b>include vat</b>"
 msgstr "واردات کالاها و خدمات <b>مشمول</b>"
 
-#: content_a/accounting/report/vatreport/display.php:134
+#: content_a/accounting/report/vatreport/display.php:128
 msgid "Import products <b>non-include vat</b>"
 msgstr "واردات کالاها و خدمات <b>معاف</b>"
 
-#: content_a/accounting/report/vatreport/display.php:141
+#: content_a/accounting/report/vatreport/display.php:135
 msgid "Total buy and import in this quarter"
 msgstr "<b>جمع خرید و واردات و مالیات و عوارض این دوره</b>"
 
-#: content_a/accounting/report/vatreport/display.php:151
+#: content_a/accounting/report/vatreport/display.php:144
 msgid "Table #3. Calculate remain vat"
 msgstr "جدول ۳: محاسبه مانده مالیات و عوارض پرداختنی قابل کسر یا استرداد"
 
-#: content_a/accounting/report/vatreport/display.php:164
+#: content_a/accounting/report/vatreport/display.php:156
 msgid "<b>Total</b> vat payed"
 msgstr "<b>جمع کل</b> مالیات‌ها و عوارض پرداختنی"
 
-#: content_a/accounting/report/vatreport/display.php:164
-#: content_a/accounting/report/vatreport/display.php:177
-#: content_a/accounting/report/vatreport/display.php:219
+#: content_a/accounting/report/vatreport/display.php:156
+#: content_a/accounting/report/vatreport/display.php:169
+#: content_a/accounting/report/vatreport/display.php:208
 msgid "This section calculate automatic"
 msgstr "این قسمت به صورت خودکار تکمیل می‌گردد"
 
-#: content_a/accounting/report/vatreport/display.php:171
+#: content_a/accounting/report/vatreport/display.php:163
 msgid "<b>(Minus)</b> Total vat can not be refund"
 msgstr ""
 "<b>کسر می‌شود</b> جمع کل مالیات‌ها و عوارض پرداختی که قابل کسر از مالیات‌های فروش یا "
 "استرداد نمی‌باشد"
 
-#: content_a/accounting/report/vatreport/display.php:177
+#: content_a/accounting/report/vatreport/display.php:169
 msgid "<b>Remain</b> vat refundable"
 msgstr ""
 "<b> مانده </b> مالیات‌ها و عوارض پرداختی که قابل کسر از مالیات‌های فروش یا استرداد می‌باشد"
 
-#: content_a/accounting/report/vatreport/display.php:186
+#: content_a/accounting/report/vatreport/display.php:177
 msgid "B. Calculate remain vat"
 msgstr "ب. محاسبه مانده مالیات و عوارض"
 
-#: content_a/accounting/report/vatreport/display.php:190 content_a/sale/display.php:39
+#: content_a/accounting/report/vatreport/display.php:181 content_a/sale/display.php:39
 msgid "Row"
 msgstr "ردیف"
 
-#: content_a/accounting/report/vatreport/display.php:192
+#: content_a/accounting/report/vatreport/display.php:183
 msgid "Accounting Vat"
 msgstr "مالیات بر ارزش افزوده"
 
-#: content_a/accounting/report/vatreport/display.php:193
-msgid "Accounting Tax"
-msgstr "عوارض بر ازرش افزوده"
-
-#: content_a/accounting/report/vatreport/display.php:199
+#: content_a/accounting/report/vatreport/display.php:189
 msgid "Total vat payed. (From table 1)"
 msgstr "جمع مالیات و عوارض متعلقه بابت فروش کالا و ارائه خدمات (نقل از جدول ۱)"
 
-#: content_a/accounting/report/vatreport/display.php:206
+#: content_a/accounting/report/vatreport/display.php:196
 msgid "Total vat. (From table 3)"
 msgstr ""
 "(کسر می‌شود) جمع مالیات و عوارض پرداختی قابل محاسبه به عنوان اعتبار مالیاتی (نقل از جدول "
 "۳)"
 
-#: content_a/accounting/report/vatreport/display.php:213
+#: content_a/accounting/report/vatreport/display.php:203
 msgid "Remain vat from last quarter or year."
 msgstr "(کسر می‌شود)‌ اضافه پرداختی مالیات و عوارض انتقالی از دوره قبل."
 
-#: content_a/accounting/report/vatreport/display.php:219
+#: content_a/accounting/report/vatreport/display.php:208
 msgid "Total remain. Negative number if creditor"
 msgstr "مانده بدهی/ بستانکاری مالیات و عوارض (بستانکاری به صورت عدد منفی)"
 
-#: content_a/accounting/report/vatreport/display.php:232
+#: content_a/accounting/report/vatreport/display.php:223
 msgid "C. Decide on overpayment"
 msgstr "ج. تصمیم در مورد اضافه پرداخت مالیاتی"
 
-#: content_a/accounting/report/vatreport/display.php:237
+#: content_a/accounting/report/vatreport/display.php:228
 msgid "Move to next quarter"
 msgstr "درخواست انتقال اضافه پرداخت به دوره بعدی عملکرد مودی"
 
-#: content_a/accounting/report/vatreport/display.php:241
+#: content_a/accounting/report/vatreport/display.php:232
 msgid "Refund the vat"
 msgstr "درخواست استرداد اضافه پرداخت به مودی"
 
@@ -7346,7 +6925,7 @@ msgstr "کپی لینک دانلود اپ"
 msgid "Your old request status"
 msgstr "وضعیت درخواست قبلی شما"
 
-#: content_a/android/apk/display.php:84 content_a/android/setupGuide.php:23
+#: content_a/android/apk/display.php:84 content_a/android/setupGuide.php:24
 msgid "Build it now"
 msgstr "همین الان بساز"
 
@@ -7473,16 +7052,16 @@ msgstr "وضعیت اپلیکیشن"
 msgid "Setup Your app"
 msgstr "اپلیکیشن خود را بسازید"
 
-#: content_a/android/intro/display.php:12
+#: content_a/android/intro/display.php:13
 msgid "App Intro detail"
 msgstr "جزئیات صفحه معرفی اپ"
 
-#: content_a/android/intro/display.php:12 content_site/view.php:40
+#: content_a/android/intro/display.php:13 content_site/view.php:40
 #: lib/app/store/analytics.php:55
 msgid "Page"
 msgstr "صفحه"
 
-#: content_a/android/intro/display.php:28 content_cms/files/home/display.php:92
+#: content_a/android/intro/display.php:29 content_cms/files/home/display.php:92
 #: content_cms/files/images/display.php:11 content_cms/files/remove/display.php:11
 #: content_love/files/home/display.php:92 content_love/files/images/display.php:11
 #: content_love/files/remove/display.php:11 content_site/body/gallery/option.php:28
@@ -7494,13 +7073,13 @@ msgstr "صفحه"
 msgid "Image"
 msgstr "تصویر"
 
-#: content_a/android/intro/display.php:51 content_a/android/intro/display.php:55
+#: content_a/android/intro/display.php:52 content_a/android/intro/display.php:56
 #: content_my/business/ask/display.php:38 content_r10/android/intro/view.php:53
 #: content_v2/android/intro/view.php:29
 msgid "Skip"
 msgstr "رد شو"
 
-#: content_a/android/intro/display.php:53 content_a/android/intro/display.php:57
+#: content_a/android/intro/display.php:54 content_a/android/intro/display.php:58
 #: content_a/form/analytics/addcondition/display-chose-item.php:17
 #: content_a/products/variants/display-add-variants.php:73
 #: content_my/business/ask/display.php:35 content_r10/android/intro/view.php:51
@@ -7508,7 +7087,7 @@ msgstr "رد شو"
 msgid "Next"
 msgstr "بعدی"
 
-#: content_a/android/intro/display.php:59
+#: content_a/android/intro/display.php:60
 msgid "Get Started"
 msgstr "بزن بریم"
 
@@ -7669,11 +7248,11 @@ msgstr "روند تنظیم اولیه"
 msgid "General Settings"
 msgstr "تنظیمات عمومی"
 
-#: content_a/android/setupGuide.php:19
+#: content_a/android/setupGuide.php:20
 msgid "Easily Create your store application"
 msgstr "اپلیکیشن فروشگاه خود را به راحتی ایجاد کنید"
 
-#: content_a/android/setupGuide.php:20
+#: content_a/android/setupGuide.php:21
 msgid "Create a custom app for your store"
 msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی داشته باشید"
 
@@ -7772,7 +7351,7 @@ msgstr "قیمت فروش"
 msgid "Sale Discount"
 msgstr "تخفیف فروش"
 
-#: content_a/buy/opr/display.php:315 content_a/form/item/display.php:244
+#: content_a/buy/opr/display.php:315 content_a/form/item/display.php:252
 #: content_love/business/analytics/display.php:38
 #: content_love/business/analytics/display.php:65
 msgid "Minimum"
@@ -7786,7 +7365,7 @@ msgstr "حداقل"
 msgid "Average"
 msgstr "میانگین"
 
-#: content_a/buy/opr/display.php:317 content_a/form/item/display.php:273
+#: content_a/buy/opr/display.php:317 content_a/form/item/display.php:281
 #: content_love/business/analytics/display.php:37
 #: content_love/business/analytics/display.php:64
 msgid "Maximum"
@@ -8561,6 +8140,28 @@ msgstr "تلفن"
 #: content_a/chap/size-receipt/receipt.php:111
 msgid "Date Printed"
 msgstr "تاریخ چاپ"
+
+#: content_a/chap/size-receipt/receipt.php:123 content_a/form/item/choice/display.php:10
+#: content_a/order/home/display.php:16 content_a/order/products/display.php:49
+#: content_a/order/products/display.php:51 content_a/plugin/view/display.php:221
+#: content_a/pricehistory/display.php:8 content_a/pricehistory/display.php:39
+#: content_a/pricehistory/display.php:77 content_a/products/child/display.php:95
+#: content_a/products/child/display.php:165 content_a/products/share/display.php:32
+#: content_a/products/share/model.php:62
+#: content_a/products/variants/display-add-product.php:30
+#: content_a/products/variants/display-add-product.php:69 content_a/sale/display.php:42
+#: content_business/p/home/blocks/detail.php:56 content_business/p/home/view.php:106
+#: content_love/domain/billing/display.php:92
+#: content_love/domain/setting/action/display.php:44 content_love/gift/usage/display.php:7
+#: content_love/plugin/history/display.php:12 lib/app/form/item/type.php:557
+#: lib/app/form/item/type.php:576 lib/app/form/item/type.php:592
+#: lib/app/log/caller/business/business_plugin.php:81 lib/app/order/filter.php:99
+#: lib/app/order/filter.php:100 lib/app/order/filter.php:101 lib/app/order/filter.php:102
+#: lib/app/order/filter.php:103 lib/app/product/filter.php:193
+#: lib/app/product/filter.php:202 lib/app/product/property.php:249
+#: lib/app/product/site_list.php:217 lib/app/product/updateprice.php:125
+msgid "Price"
+msgstr "قیمت"
 
 #: content_a/chap/size-receipt/receipt.php:125
 #: content_a/form/report/answer/display-table.php:25
@@ -9725,25 +9326,25 @@ msgstr "نوع آیتم"
 msgid "Change type"
 msgstr "ویرایش نوع"
 
-#: content_a/form/item/display.php:46 content_a/form/item/display.php:47
+#: content_a/form/item/display.php:47 content_a/form/item/display.php:48
 #: content_cms/posts/publishdate/display.php:54 content_cms/posts/writer/display.php:57
 #: content_site/section/part/section_control.php:64 lib/app/form/generator.php:791
 msgid "Hidden"
 msgstr "مخفی"
 
-#: content_a/form/item/display.php:47
+#: content_a/form/item/display.php:48
 msgid "Only you can view this item and edit answer"
 msgstr "فقط شما می‌توانید این آیتم را مشاهده کنید و پاسخ آن را ویرایش کنید"
 
-#: content_a/form/item/display.php:53
+#: content_a/form/item/display.php:55
 msgid "Remove question"
 msgstr "حذف سوال"
 
-#: content_a/form/item/display.php:204
+#: content_a/form/item/display.php:212
 msgid "Maximum len"
 msgstr "حداکثر طول"
 
-#: content_a/form/item/display.php:212 content_a/order/shipping/display.php:69
+#: content_a/form/item/display.php:220 content_a/order/shipping/display.php:69
 #: content_a/setting/shipping/package/display.php:30
 #: content_a/setting/shipping/package/display.php:90 content_crm/sms/view/display.php:49
 #: lib/app/product/property.php:64 lib/app/product/property.php:344
@@ -9751,39 +9352,39 @@ msgstr "حداکثر طول"
 msgid "Length"
 msgstr "طول"
 
-#: content_a/form/item/display.php:221 content_a/form/item/display.php:222
+#: content_a/form/item/display.php:229 content_a/form/item/display.php:230
 msgid "Include lowercase"
 msgstr "شامل حروف کوچک"
 
-#: content_a/form/item/display.php:231 content_a/form/item/display.php:232
+#: content_a/form/item/display.php:239 content_a/form/item/display.php:240
 msgid "Include uppercase"
 msgstr "شامل حروف بزرگ"
 
-#: content_a/form/item/display.php:254
+#: content_a/form/item/display.php:262
 msgid "Minimum date"
 msgstr "حداقل تاریخ"
 
-#: content_a/form/item/display.php:262
+#: content_a/form/item/display.php:270
 msgid "Maximum date"
 msgstr "حداکثر تاریخ"
 
-#: content_a/form/item/display.php:284
+#: content_a/form/item/display.php:292
 msgid "Placeholder"
 msgstr "متن راهنمایی"
 
-#: content_a/form/item/display.php:301
+#: content_a/form/item/display.php:309
 msgid "Put every choice in one line"
 msgstr "قرار دادن هر گزینه در یک خط"
 
-#: content_a/form/item/display.php:312
+#: content_a/form/item/display.php:320
 msgid "Random choice"
 msgstr "قرارگیری تصادفی گزینه‌ها"
 
-#: content_a/form/item/display.php:324
+#: content_a/form/item/display.php:332
 msgid "Check unique"
 msgstr "بررسی تکراری نبودن"
 
-#: content_a/form/item/display.php:327 content_a/form/item/duplicatelist/display.php:42
+#: content_a/form/item/display.php:335 content_a/form/item/duplicatelist/display.php:42
 msgid ""
 "In addition to checking the non-duplication of this item in the list of previous "
 "answers, you can manually enter the list of items that you think are duplicate so that "
@@ -9792,61 +9393,61 @@ msgstr ""
 "علاوه بر بررسی عدم تکراری بودن این مورد در لیست پاسخ‌های قبلی، می‌توانید به صورت دستی "
 "لیست مواردی که فکر می‌کنید تکراری هستند را وارد کنید تا از ثبت‌نام آنها جلوگیری شود"
 
-#: content_a/form/item/display.php:328
+#: content_a/form/item/display.php:336
 msgid "Define duplicate list"
 msgstr "تعریف لیست پاسخ‌های تکراری"
 
-#: content_a/form/item/display.php:344
+#: content_a/form/item/display.php:352
 msgid "Allow extention file"
 msgstr "فایل‌های مجاز به ارسال"
 
-#: content_a/form/item/display.php:347
+#: content_a/form/item/display.php:355
 msgid "Any file"
 msgstr "هرفایلی"
 
-#: content_a/form/item/display.php:364
+#: content_a/form/item/display.php:372
 msgid "Send notification after complete form?"
 msgstr "آیا بعد از تکمیل فرم پیام اطلاع‌رسانی ارسال شود؟"
 
-#: content_a/form/item/display.php:367 content_a/form/tag/edit/display.php:88
+#: content_a/form/item/display.php:375 content_a/form/tag/edit/display.php:88
 msgid "Notification text"
 msgstr "متن پیام"
 
-#: content_a/form/item/display.php:380
+#: content_a/form/item/display.php:388
 msgid "Signup user by this item?"
 msgstr "آیا کاربر با این آیتم در بیزینس شما ثبت‌نام شود؟"
 
-#: content_a/form/item/display.php:392
+#: content_a/form/item/display.php:400
 #: content_a/products/variants/display-add-new-child.php:51
 msgid "Default value"
 msgstr "مقدار پیش‌فرض"
 
-#: content_a/form/item/display.php:407
+#: content_a/form/item/display.php:415
 msgid "White list value"
 msgstr "لیست مقادیر مجاز"
 
-#: content_a/form/item/display.php:420
+#: content_a/form/item/display.php:428
 msgid "Define url key"
 msgstr "تعریف کلید آدرس"
 
-#: content_a/form/item/display.php:428
+#: content_a/form/item/display.php:436
 msgid "To use from this item you need to define the url key"
 msgstr "برای استفاده از این آیتم باید کلید آدرس را تعریف کنید"
 
-#: content_a/form/item/display.php:434
+#: content_a/form/item/display.php:442
 msgid "The form url by this index"
 msgstr "آدرس فرم با این ورودی مخفی"
 
-#: content_a/form/item/display.php:438
+#: content_a/form/item/display.php:446
 msgid "Replace :val to your value"
 msgstr " :val را با مقدار دلخواه جایگزین کنید"
 
-#: content_a/form/item/display.php:464 content_a/setting/order/carttext/display.php:14
+#: content_a/form/item/display.php:472 content_a/setting/order/carttext/display.php:14
 #: content_a/setting/shipping/text/display.php:6
 msgid "Message Type"
 msgstr "نوع پیام"
 
-#: content_a/form/item/display.php:467 content_a/setting/order/carttext/display.php:18
+#: content_a/form/item/display.php:475 content_a/setting/order/carttext/display.php:18
 #: content_a/setting/pcpos/display.php:125 content_a/setting/shipping/text/display.php:9
 #: content_cms/posts/advance/view.php:29 content_cms/posts/publishdate/view.php:29
 #: content_cms/posts/writer/view.php:38 content_crm/member/glance/display.php:180
@@ -9856,41 +9457,41 @@ msgstr "نوع پیام"
 msgid "Default"
 msgstr "پیش‌فرض"
 
-#: content_a/form/item/display.php:468 content_a/setting/order/carttext/display.php:19
+#: content_a/form/item/display.php:476 content_a/setting/order/carttext/display.php:19
 #: content_a/setting/shipping/text/display.php:10
 msgid "Red (For important warning message)"
 msgstr "قرمز (برای هشدار‌های مهم)"
 
-#: content_a/form/item/display.php:469 content_a/setting/order/carttext/display.php:20
+#: content_a/form/item/display.php:477 content_a/setting/order/carttext/display.php:20
 #: content_a/setting/shipping/text/display.php:11
 msgid "Green (For thank you message)"
 msgstr "سبز (برای پیام تشکر)"
 
-#: content_a/form/item/display.php:470 content_a/setting/order/carttext/display.php:21
+#: content_a/form/item/display.php:478 content_a/setting/order/carttext/display.php:21
 #: content_a/setting/shipping/text/display.php:12
 msgid "Blue (For information message)"
 msgstr "آبی (‌برای پیام اطلاع رسانی)"
 
-#: content_a/form/item/display.php:471 content_a/setting/order/carttext/display.php:22
+#: content_a/form/item/display.php:479 content_a/setting/order/carttext/display.php:22
 #: content_a/setting/shipping/text/display.php:13
 msgid "Yellow (For warning message)"
 msgstr "زرد (برای پیام هشدار)"
 
-#: content_a/form/item/display.php:483 content_a/setting/menu/display.php:9
+#: content_a/form/item/display.php:491 content_a/setting/menu/display.php:9
 #: content_a/setting/menu/roster/display.php:25 content_account/ref/display.php:30
 #: content_love/changelog/add/display.php:14 content_site/options/link/link_raw.php:22
 msgid "Link"
 msgstr "لینک"
 
-#: content_a/form/item/display.php:489
+#: content_a/form/item/display.php:497
 msgid "Open in blank page?"
 msgstr "باز کردن در صفحه جدید؟"
 
-#: content_a/form/item/display.php:499
+#: content_a/form/item/display.php:507
 msgid "Choices"
 msgstr "گزینه‌ها"
 
-#: content_a/form/item/display.php:502
+#: content_a/form/item/display.php:510
 msgid "Manage choice"
 msgstr "مدیریت گزینه‌"
 
@@ -14916,9 +14517,9 @@ msgstr "امنیتی"
 #: content_site/options/twitter/twitter.php:10 dash/app/files/filter.php:46
 #: dash/app/telegram/filter.php:40 includes/languages/trans_static.php:541
 #: includes/languages/trans_static.php:1062 lib/app/form/item/type.php:352
-#: lib/app/form/item/type.php:466 lib/app/form/item/type.php:483
-#: lib/app/form/item/type.php:498 lib/app/form/item/type.php:517
-#: lib/app/form/item/type.php:529 lib/app/sms/filter.php:30
+#: lib/app/form/item/type.php:466 lib/app/form/item/type.php:486
+#: lib/app/form/item/type.php:504 lib/app/form/item/type.php:523
+#: lib/app/form/item/type.php:535 lib/app/sms/filter.php:30
 #: lib/app/store/analytics.php:114 lib/app/store/analytics.php:115
 #: lib/app/store/analytics.php:116 lib/app/store/analytics.php:117
 #: lib/app/store/analytics.php:118 lib/app/store/analytics.php:119
@@ -16072,13 +15673,13 @@ msgid "Terminate"
 msgstr "مسدودسازی"
 
 #: content_account/security/view.php:74
-#: content_site/options/responsive/responsive_device.php:35 dash/login.php:772
+#: content_site/options/responsive/responsive_device.php:35 dash/login.php:800
 #: includes/languages/trans_static_public.php:342
 msgid "Windows"
 msgstr "ویندوز"
 
 #: content_account/security/view.php:78
-#: content_site/options/responsive/responsive_device.php:36 dash/login.php:777
+#: content_site/options/responsive/responsive_device.php:36 dash/login.php:805
 #: includes/languages/trans_static_public.php:343
 msgid "Linux"
 msgstr "لینوکس"
@@ -16124,8 +15725,8 @@ msgstr "لطفا شناسه تیکت اصلی را ارسال کنید"
 msgid "Please set store code in url"
 msgstr "لطفا کد‌ فروشگاه را در آدرس وارد کنید"
 
-#: content_b1/tools.php:43 content_business/controller.php:17 content_r10/tools.php:106
-#: content_v2/controller.php:19 dash/engine/store.php:209 dash/engine/store.php:368
+#: content_b1/tools.php:43 content_business/controller.php:31 content_r10/tools.php:106
+#: content_v2/controller.php:19 dash/engine/store.php:215 dash/engine/store.php:384
 #: lib/app/application/queue.php:12 lib/app/application/queue.php:243
 #: lib/app/business_domain/add.php:68 lib/app/business_domain/business.php:109
 #: lib/app/business_domain/business.php:116 lib/app/business_domain/edit.php:100
@@ -19694,6 +19295,10 @@ msgstr "برای ثبت‌نام کلیک کنید"
 msgid "Welcome back. Bring your idea to life with Jibres."
 msgstr "خوش برگشتی. ایده خود را با جیبرس زنده کنید."
 
+#: content_enter/home/view.php:37
+msgid "Signup"
+msgstr "ثبت‌نام"
+
 #: content_enter/okay/display.php:3
 msgid "You are logined ;)"
 msgstr "شما وارد سیستم شدید;)"
@@ -20752,6 +20357,10 @@ msgstr "جمع فاکتور‌ها"
 #: content_love/business/monthly/display.php:20
 msgid "Sum Factors Filtered"
 msgstr "جمع فاکتور‌های فیلتر شده"
+
+#: content_love/business/monthly/display.php:21
+msgid "Count transaction"
+msgstr "تعداد تراکنش"
 
 #: content_love/business/monthly/model.php:15 lib/app/tax/doc/closing.php:192
 #: lib/app/tax/doc/closing.php:363 lib/app/twitter/business.php:257
@@ -22144,23 +21753,23 @@ msgstr "افزونه"
 msgid "Jibres Management"
 msgstr "مدیریت جیبرس"
 
-#: content_love/ip/display.php:72
+#: content_love/ip/display.php:94
 msgid "IP detail not found"
 msgstr "اطلاعات آی‌پی‌ یافت نشد"
 
-#: content_love/ip/model.php:33
+#: content_love/ip/model.php:53
 msgid "Folder removed"
 msgstr "پوشه پاک شد"
 
-#: content_love/ip/model.php:37 content_site/call_function.php:53
+#: content_love/ip/model.php:57 content_site/call_function.php:53
 msgid "Invalid folder"
 msgstr "پوشه اشتباه"
 
-#: content_love/ip/model.php:51
+#: content_love/ip/model.php:71
 msgid "IP is required"
 msgstr "آی‌پی الزامی است"
 
-#: content_love/ip/view.php:55
+#: content_love/ip/view.php:58
 msgid "Can not open this folder!"
 msgstr "نمی‌توانیم این پوشه را باز کنیم!"
 
@@ -25891,11 +25500,11 @@ msgstr "۳ روز"
 msgid "5 days"
 msgstr "۵ روز"
 
-#: content_sudo/controller.php:16
+#: content_sudo/controller.php:24
 msgid "Local mode"
 msgstr "مد محلی"
 
-#: content_sudo/controller.php:17
+#: content_sudo/controller.php:25
 msgid "You are in Supervisor Panel of Local Mode"
 msgstr "شما در پنل مدیریت فنی در مد محلی هستید"
 
@@ -28310,23 +27919,23 @@ msgstr "سلام، مستندات را بخوان و پروژه خودتو شر�
 msgid "We can't find the page you're looking for!"
 msgstr "ما صفحه‌ای که به‌دنبال آن هستید را نمی‌یابیم!"
 
-#: dash/engine/store.php:310
+#: dash/engine/store.php:326
 msgid "Subdomain and store code conflict!"
 msgstr "زیردامنه و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:325
+#: dash/engine/store.php:341
 msgid "Can not route subdomain in your domain!"
 msgstr "به زیردامنه‌های شما در حالت دامنه اختصاصی پاسخ داده نخواهد شد!"
 
-#: dash/engine/store.php:331
+#: dash/engine/store.php:347
 msgid "Domain and store code conflict!"
 msgstr "دامنه اختصاصی و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:343
+#: dash/engine/store.php:359
 msgid "Can not route this address from your domain!"
 msgstr "نمی‌توانیم به درخواست از این آدرس در این دامنه پاسخ دهیم!"
 
-#: dash/engine/store.php:628
+#: dash/engine/store.php:659
 msgid "This business is currently unavailable!"
 msgstr "این بیزینس در حال حاضر در دسترس نیست!"
 
@@ -29088,11 +28697,11 @@ msgstr "شروع به افزودن آیتم‌های خود کنید"
 msgid "Oops! We cannot complete your request. Please contact to administrator"
 msgstr "اوه! ما نتونستیم درخواست شما رو تکمیل کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: dash/login.php:684
+#: dash/login.php:712
 msgid "All other session terminated"
 msgstr "تمام دسترسی‌های دیگر مسدود شد"
 
-#: dash/login.php:715
+#: dash/login.php:743
 msgid "Session terminated"
 msgstr "این روش ورود مسدود شد"
 
@@ -39799,27 +39408,27 @@ msgstr "http://"
 msgid "Hidden input"
 msgstr "ورودی مخفی"
 
-#: lib/app/form/item/type.php:495
+#: lib/app/form/item/type.php:498
 msgid "Hidden input from URL"
 msgstr "ورودی مخفی از آدرس"
 
-#: lib/app/form/item/type.php:513
+#: lib/app/form/item/type.php:519
 msgid "Agree"
 msgstr "موافقت"
 
-#: lib/app/form/item/type.php:528
+#: lib/app/form/item/type.php:534
 msgid "Random"
 msgstr "تصادفی"
 
-#: lib/app/form/item/type.php:547
+#: lib/app/form/item/type.php:553
 msgid "Manual amount"
 msgstr "مبلغ دلخواه"
 
-#: lib/app/form/item/type.php:566
+#: lib/app/form/item/type.php:572
 msgid "List amount"
 msgstr "لیست گزینه با مبلغ"
 
-#: lib/app/form/item/type.php:582
+#: lib/app/form/item/type.php:588
 msgid "Hidden amount"
 msgstr "مبلغ ثابت مخفی"
 
@@ -44227,6 +43836,305 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "30 day satisfaction guarantee"
+#~ msgstr "۳۰ روز گارانتی رضایت"
+
+#~ msgid "no questions asked!"
+#~ msgstr "هیچ سوالی پرسیده نخواهد شد!"
+
+#~ msgid "We stand behind our service and we mean it!"
+#~ msgstr "ما به سرویس خودمون اعتقاد داریم و این برای تایید آن است!"
+
+#~ msgid "Despite our offer 14 days free trial to start use Jibres,"
+#~ msgstr ""
+#~ "با وجود ارائه پیشنهاد ۱۴ روز استفاده از نسخه آزمایشی و رایگان برای شروع استفاده از "
+#~ "جیبرس،"
+
+#~ msgid ""
+#~ "if at any time within the first 30 days period you are not happy with Jibres, you "
+#~ "can request money back and we will refund it."
+#~ msgstr ""
+#~ "اگر در هر زمانی، در طول اولین دوره‌ی ۳۰ روزه، از جیبرس ناراضی بودید، شما می‌توانید "
+#~ "درخواست بازگشت پول خود را دهید و ما مبلغ پرداخت شده را به‌صورت کامل پس خواهیم داد."
+
+#~ msgid "30 day Guarantee"
+#~ msgstr "۳۰ روز گارنتی"
+
+#~ msgid "Bronze"
+#~ msgstr "برنزی"
+
+#~ msgid "Silver"
+#~ msgstr "نقره‌ای"
+
+#~ msgid "Gold"
+#~ msgstr "طلایی"
+
+#~ msgid "Pay monthly"
+#~ msgstr "پرداخت ماهیانه"
+
+#~ msgid "FREE"
+#~ msgstr "رایگان"
+
+#~ msgid "Pay yearly"
+#~ msgstr "پرداخت سالیانه"
+
+#~ msgid "Two month free"
+#~ msgstr "دو ماه رایگان"
+
+#~ msgid "First Year"
+#~ msgstr "سال اول"
+
+#~ msgid "More than 50 percent off"
+#~ msgstr "بیش از ۵۰ درصد تخفیف"
+
+#~ msgid "Data max limit"
+#~ msgstr "محدودیت‌های حداکثر داده‌ها"
+
+#~ msgid "Max product"
+#~ msgstr "حداکثر تعداد محصولات"
+
+#~ msgid "Unlimited"
+#~ msgstr "نامحدود"
+
+#~ msgid "Max third party"
+#~ msgstr "حداکثر تعداد طرف حساب"
+
+#~ msgid "Max invoice each day"
+#~ msgstr "حداکثر فاکتور در هر روز"
+
+#~ msgid "Max item in each invoice"
+#~ msgstr "حداکثر تعداد آیتم‌ها در هر فاکتور"
+
+#~ msgid "Basic Features"
+#~ msgstr "ویژگی‌های اولیه"
+
+#~ msgid "Each SMS cost"
+#~ msgstr "هزینه هر پیامک"
+
+#~ msgid "Optional"
+#~ msgstr "اختیاری"
+
+#~ msgid "Integrated Sales"
+#~ msgstr "فروش یکپارچه"
+
+#~ msgid "Free Invoicing"
+#~ msgstr "فاکتور رایگان"
+
+#~ msgid "Online Accounting"
+#~ msgstr "حسابداری آنلاین"
+
+#~ msgid "Sale on social networks"
+#~ msgstr "فروش در شبکه‌های اجتماعی"
+
+#~ msgid "Search Engine Optimized"
+#~ msgstr "بهینه‌سازی‌شده برای موتورهای جستجو"
+
+#~ msgid "Starter Features"
+#~ msgstr "ویژگی‌های پلن شروع"
+
+#~ msgid "vCard Website"
+#~ msgstr "وب‌سایت کارت ویزیت"
+
+#~ msgid "Staff Accounts"
+#~ msgstr "حساب‌کاربری کارمندان"
+
+#~ msgid "Simple Features"
+#~ msgstr "ویژگی‌های پلن ساده"
+
+#~ msgid "Advance Reports"
+#~ msgstr "گزارشات پیشرفته"
+
+#~ msgid "All Invoice Types"
+#~ msgstr "همه انواع فاکتور"
+
+#~ msgid "Product Intro Website"
+#~ msgstr "وب‌سایت معرفی محصولات"
+
+#~ msgid "Advance Settings"
+#~ msgstr "تنظیمات پیشرفته"
+
+#~ msgid "Standard Features"
+#~ msgstr "ویژگی‌های پلن استاندارد"
+
+#~ msgid "Online Store"
+#~ msgstr "فروشگاه آنلاین"
+
+#~ msgid "News website"
+#~ msgstr "وب‌سایت خبری"
+
+#~ msgid "Online Shop with Your Domain"
+#~ msgstr "فروشگاه آنلاین با دامنه شما"
+
+#~ msgid "Full Permission Control"
+#~ msgstr "مدیریت کامل سطوح دسترسی"
+
+#~ msgid "Ready to use Jibres Enterprise?"
+#~ msgstr "آماده استفاده از پلن سازمانی جیبرس هستید؟"
+
+#~ msgid "Get started with our Enterprise plan."
+#~ msgstr "با پلن سازمانی ما شروع کنید."
+
+#~ msgid "Get in Touch"
+#~ msgstr "با ما در تماس باشید"
+
+#~ msgid "Billing & Invoicing"
+#~ msgstr "مالی و فاکتور"
+
+#~ msgid "Is there a setup fee?"
+#~ msgstr "آیا هزینه اولیه راه‌اندازی وجود داد؟"
+
+#~ msgid "No. There are no setup fees on any of our plans!"
+#~ msgstr "نه. هیچ‌گونه هزینه اولیه راه‌اندازی برای هیچ‌کدام از پلن‌ها وجود ندارد!"
+
+#~ msgid "Can I cancel my account at any time?"
+#~ msgstr "آیا می‌توانم حساب کاربری خودم را هر زمانی لغو کنم؟"
+
+#~ msgid ""
+#~ "Yes. If you ever decide that Jibres isn’t the best platform for your business, "
+#~ "simply cancel your account."
+#~ msgstr ""
+#~ "بله. اگر هر زمانی تصمیم گرفتید که جیبرس بهترین خدمات موجود را به بیزینس شما ارائه "
+#~ "نمی‌دهد، به‌راحتی حساب کاربری خود را لغو کنید."
+
+#~ msgid "How long are your contracts?"
+#~ msgstr "مدت زمان قراردادهای شما چقدر است؟"
+
+#~ msgid "All Jibres plans are month to month. simple."
+#~ msgstr "تمامی پلن‌های جیبرس به مدت یکماه است. ساده‌ی ساده."
+
+#~ msgid "Can I change my plan later on?"
+#~ msgstr "آیا در آینده می‌توانم پلن انتخابی را تغییر دهم؟"
+
+#~ msgid "Absolutely! You can upgrade or downgrade your plan at any time."
+#~ msgstr ""
+#~ "قطعا! شما هر زمانی لازم دیدید می‌توانید پلن خود را ارتقا داده و یا به پلن‌های پایین‌تر "
+#~ "جابجا شوید."
+
+#~ msgid "When is my billing date?"
+#~ msgstr "موعد پرداخت هزینه‌های مالی من چه‌زمانی است؟"
+
+#~ msgid ""
+#~ "The date you first select a paid plan will be the recurring billing date. For "
+#~ "example: If you sign up for the first time on July 15, all future charges will be "
+#~ "billed on the 15th of every month."
+#~ msgstr ""
+#~ "اولین روزی که پلن مالی را انتخاب کردید به‌عنوان روز شروع تعیین شده و در دوره‌های زمانی "
+#~ "تکرار می‌شود. به‌طور مثال اگر شما اولین بار در تاریخ ۱۷ خرداد پلن خود را انتخاب کردید، "
+#~ "تمامی فاکتورهای بعدی در تاریخ ۱۷‌ ام ماه‌های آینده صادر و کسر خواهند شد."
+
+#~ msgid "General questions"
+#~ msgstr "سوالات عمومی"
+
+#~ msgid "How does Jibres work?"
+#~ msgstr "جیبرس چگونه کار می‌کند؟"
+
+#~ msgid ""
+#~ "The easiest way to learn how to use Jibres is enter to it, which takes less than 3 "
+#~ "minutes to setup your team."
+#~ msgstr ""
+#~ "آسان‌ترین راه برای یادگیری نحوه‌ی کارکرد جیبرس ورود به آن است که کمتر از ۳ دقیقه از "
+#~ "زمان شما را برای راه‌اندازی اولیه و شروع به‌کار می‌گیرد."
+
+#~ msgid "What is your privacy and security policy?"
+#~ msgstr "قوانین و شرایط حریم خصوصی شما چیست؟"
+
+#~ msgid "View Jibres's privacy and security policy at"
+#~ msgstr "نگاه ما به حریم خصوصی را در این صفحه بخوانید"
+
+#~ msgid "Where can I find your Terms of Service (TOS)?"
+#~ msgstr "کجا می‌توانم شرایط و قوانین استفاده از سرویس را پیدا کنم؟"
+
+#~ msgid "You can find them at"
+#~ msgstr "شما می‌توانید آن را در اینجا بیابید"
+
+#~ msgid "What are your bandwidth fees?"
+#~ msgstr "تعرفه‌ی پهنای باند شما چقدر است؟"
+
+#~ msgid "There are none. All Jibres plans include unlimited bandwidth for free."
+#~ msgstr ""
+#~ "هیچ! تمامی پلن‌های جیبرس شامل پهنای‌باند نامحدود رایگان هستند و شما هزینه‌ای برای "
+#~ "پهنای‌باند پرداخت نمی‌کنید."
+
+#~ msgid "Do I need a web host?"
+#~ msgstr "آیا برای استفاده از خدمات نیاز به هاست دارم؟"
+
+#~ msgid "No! Jibres includes secure, unlimited hosting on all plans with free bandwidth."
+#~ msgstr ""
+#~ "خیر! جیبرس به‌همراه هاست نامحدود و امن شده بر روی تمامی پلن‌ها به همراه پهنای باند "
+#~ "نامحدود برای شما قابل استفاده است."
+
+#~ msgid "Free Plan"
+#~ msgstr "پلن رایگان"
+
+#~ msgid "All the basics for personal use."
+#~ msgstr "همه نیازهای اولیه برای استفاده شخصی."
+
+#~ msgid ""
+#~ "Also <span class='font-bold'>sell on social networks</span> with easy online payment."
+#~ msgstr ""
+#~ "هم‌چنین <span class='font-bold'> فروش در شبکه‌های اجتماعی</span> به‌سادگی با پرداخت "
+#~ "آنلاین."
+
+#~ msgid "Beta Version"
+#~ msgstr "نسخه بتا"
+
+#~ msgid "Starter Plan"
+#~ msgstr "پلن شروع"
+
+#~ msgid "Special choice for starting a new business."
+#~ msgstr "انتخابی ویژه برای شروع یک بیزینس جدید."
+
+#~ msgid "Increase Basic Limits"
+#~ msgstr "افزایش محدودیت‌های اولیه"
+
+#~ msgid "Annually"
+#~ msgstr "سالانه"
+
+#~ msgid "Simple Plan"
+#~ msgstr "پلن ساده"
+
+#~ msgid "For who want try to change!"
+#~ msgstr "برای کسانی که تلاش به تغییر دارند!"
+
+#~ msgid "Enjoy modern era."
+#~ msgstr "از دوران مدرنیته لذت ببرید."
+
+#~ msgid "Without Limit"
+#~ msgstr "بدون محدودیت"
+
+#~ msgid "Standard Plan"
+#~ msgstr "پلن استاندارد"
+
+#~ msgid "For someones ready to use Jibres as hero."
+#~ msgstr "برای کسانی که آماده استفاده از جیبرس هستند."
+
+#~ msgid "<span class='bold'>Everything you need</span> for a growing business."
+#~ msgstr "<span class='bold'>تمام نیازهای شما</span> برای یک بیزینس درحال توسعه."
+
+#~ msgid "Shop with Your Domain"
+#~ msgstr "فروشگاه با دامنه شما"
+
+#~ msgid "Start your free trial"
+#~ msgstr "استفاده آزمایشی و رایگان را شروع کنید"
+
+#~ msgid "Plans and Pricing of Jibres"
+#~ msgstr "پلن‌ها و هزینه‌های جیبرس"
+
+#~ msgid "Always know what you'll pay per month."
+#~ msgstr "همیشه از پرداختی ماهیانه خود آگاه باشید."
+
+#~ msgid "Simple pricing"
+#~ msgstr "هزینه‌های شفاف و ساده"
+
+#~ msgid "Jibres Real Time Status"
+#~ msgstr "وضعیت برخط جیبرس"
+
+#~ msgid "Welcome to Jibres real-time and historical data on system performance."
+#~ msgstr "به سیستم بهینه‌سازی عملکرد و آرشیو داده‌های لحظه‌ای جیبرس خوش آمدید."
+
+#~ msgid "Accounting Tax"
+#~ msgstr "عوارض بر ازرش افزوده"
 
 #~ msgid "SMS text"
 #~ msgstr "متن پیامک"
