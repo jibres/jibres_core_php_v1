@@ -20,6 +20,7 @@ if(!$meta_color)
 	$meta_color = '#333333';
 }
 ?>
+<?php require_once('mobileFrame.php') ?>
 
 <section class="mobileFrame" data-splash style="<?php echo $style; ?>">
   <div class="screen">
