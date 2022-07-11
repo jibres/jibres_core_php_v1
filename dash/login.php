@@ -242,16 +242,24 @@ class login
 
 		$place = $_detail['place'];
 
-		if(isset($_detail['trustdomain']) && $_detail['trustdomain'] === \dash\url::host())
+		if(\dash\url::root() === 'jibres')
 		{
-			// ok
+			// nothing. not check trust domain
+			// bug in jibres.com and admin.jibres.com
 		}
 		else
 		{
-			self::$error[] = 'trustdomain not match by login record';
-			self::$error[] = 'saved trustdomain is :' . $_detail['trustdomain'];
-			self::$error[] = 'used in :' . \dash\url::host();
-			return false;
+			if(isset($_detail['trustdomain']) && $_detail['trustdomain'] === \dash\url::host())
+			{
+				// ok
+			}
+			else
+			{
+				self::$error[] = 'trustdomain not match by login record';
+				self::$error[] = 'saved trustdomain is :' . $_detail['trustdomain'];
+				self::$error[] = 'used in :' . \dash\url::host();
+				return false;
+			}
 		}
 
 		if(isset($_detail['ip_md5']) && isset($_detail['agent_md5']))
@@ -419,8 +427,9 @@ class login
 					$place = 'api_business';
 					break;
 
+
 				case 'admin':
-					if(\dash\engine\store::inBusinessAdmin())
+					if(\dash\url::store())
 					{
 						$place = 'admin';
 					}
