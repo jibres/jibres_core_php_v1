@@ -395,7 +395,7 @@ class store
 	 */
 	public static function admin_subdomain() : string
 	{
-		return 'admin';
+		return 'my';
 	}
 
 

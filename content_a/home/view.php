@@ -26,7 +26,7 @@ class view
 		{
 			// back
 			\dash\data::back_text(T_('Control Center'));
-			\dash\data::back_link(\dash\url::set_subdomain('admin'). '/my');
+			\dash\data::back_link(\dash\url::set_subdomain(\dash\engine\store::admin_subdomain()). '/my');
 			// \dash\data::back_direct(true);
 		}
 	}
