@@ -1,12 +1,13 @@
 <?php require_once(core. 'layout/tools/stepGuide.php'); ?>
+<?php require_once(root. 'content_a/android/mobileFrame.php') ?>
 
 <?php $introSaved = \dash\data::introSaved(); ?>
 
-<form method="post" autocomplete="off" class="f">
+<form method="post" autocomplete="off" class="row">
 
 <?php for ($i=1; $i <= 3 ; $i++) { ?>
 
-  <div class="justify-center mb-4 c4 s12 pA5">
+  <div class="justify-center mb-4 c4 c-xs-12 c pA5">
     <div class="c6 m8 s12">
       <div class="box">
         <header><h2><?php echo T_("App Intro detail"); ?> <?php echo T_("Page"). ' '. \dash\fit::number($i); ?></h2></header>

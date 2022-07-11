@@ -62,27 +62,33 @@
 }
 .mobileFrame[data-splash] h2{
 	font-weight: 900;
-	font-size: 2.5rem;
+	font-size: 1.2rem;
+	text-align: center;
 	height: 40px;
 	line-height: 40px;
 	overflow: hidden;
 	padding: 0 10px;
 }
 .mobileFrame[data-splash] h3{
-	font-size: 1.3rem;
+	font-size: 1rem;
+	font-weight: 700;
 	height: 30px;
+	text-align: center;
 	line-height: 30px;
 	overflow: hidden;
 	padding: 0 10px;
 }
 .mobileFrame[data-splash] .desc{
 	position: absolute;
-	bottom: 25px;
+	text-align: center;
+	bottom: 50px;
+	top: 360px;
 	right: 20px;
 	left: 20px;
-	padding: 0 5px;
-	max-height: 100px;
-	line-height: 15px;
+	padding: 0 10px;
+	max-height: 200px;
+	line-height: 30px;
+	font-weight: 400;
 	overflow: hidden;
 }
 .mobileFrame[data-splash][data-color='red']{
@@ -169,13 +175,13 @@
 }
 .mobileFrame[data-intro] h2{
 	font-weight: 800;
-	font-size: 1.4rem;
+	/*font-size: 1.4rem;*/
 	line-height: 30px;
 	overflow: hidden;
 	padding: 0 10px;
 }
 .mobileFrame[data-intro] p{
-	font-size: 1.2rem;
+	font-size: 0.8rem;
 	line-height: 1.6rem;
 	overflow: hidden;
 	padding: 0 10px;
@@ -192,10 +198,12 @@
 }
 .mobileFrame[data-intro] nav .prev{
 	color: #999;
+	font-size: 10px;
 }
 .mobileFrame[data-intro] nav .next{
 	color: #0b9ee4;
 	font-weight: 700;
+	font-size: 10px;
 }
 .mobileFrame[data-intro] nav .step i{
 	display: inline-block;
