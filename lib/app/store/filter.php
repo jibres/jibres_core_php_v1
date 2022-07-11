@@ -26,11 +26,12 @@ class filter
 
 		$list             = [];
 
+		$list['awaiting'] = ['key' => 'awaiting', 	'group' => T_("Status"), 'title' => T_('Awaiting'), 	'query' => ['status' => 'awaiting'], 	'public' => true];
 		$list['enable']   = ['key' => 'enable', 	'group' => T_("Status"), 'title' => T_('Enable'), 	'query' => ['status' => 'enable'], 	'public' => true];
 		$list['deleted']  = ['key' => 'deleted', 	'group' => T_("Status"), 'title' => T_('Deleted'), 	'query' => ['status' => 'deleted'], 	'public' => true];
-		$list['transfer'] = ['key' => 'transfer', 	'group' => T_("Status"), 'title' => T_('Transfer'), 	'query' => ['status' => 'transfer'], 	'public' => true];
+		// $list['transfer'] = ['key' => 'transfer', 	'group' => T_("Status"), 'title' => T_('Transfer'), 	'query' => ['status' => 'transfer'], 	'public' => true];
 
-		$list['dblsub']   = ['key' => 'dblsub', 	'group' => T_("Subdomain"), 'title' => T_('Duplicate subdomain'), 	'query' => ['dblsub' => 'y'], 	'public' => true];
+		// $list['dblsub']   = ['key' => 'dblsub', 	'group' => T_("Subdomain"), 'title' => T_('Duplicate subdomain'), 	'query' => ['dblsub' => 'y'], 	'public' => true];
 
 		return $list;
 

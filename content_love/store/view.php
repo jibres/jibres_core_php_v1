@@ -12,11 +12,22 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
+
+		\dash\data::listEngine_start(true);
+
+		\dash\data::listEngine_before(__DIR__. '/display-before.php');
+
+		\dash\data::listEngine_search(\dash\url::that());
+		\dash\data::listEngine_filter(\lib\app\store\filter::list());
+		\dash\data::listEngine_sort(true);
+		\dash\data::sortList(\lib\app\store\filter::sort_list());
+
 		$args =
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
 			'user'   => \dash\request::get('user'),
+			'status'   => \dash\request::get('status'),
 
 		];
 
@@ -26,20 +37,11 @@ class view
 
 		\dash\data::dataTable($list);
 
-		$sortLink = \dash\app\sort::make_sortLink(['name', 'dateexpire', 'dateregister', 'dateupdate'], \dash\url::this());
-		\dash\data::sortLink($sortLink);
-
-
-		\dash\data::filterBox(\lib\app\nic_domain\search::filter_message());
-
-		$isFiltered = \lib\app\nic_domain\search::is_filtered();
+		$isFiltered = \lib\app\store\search::is_filtered();
 
 		\dash\data::isFiltered($isFiltered);
 
-		if($isFiltered)
-		{
-			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
-		}
+
 
 	}
 }

@@ -25,7 +25,8 @@ class search
 		$condition =
 		[
 			'order'       => 'order',
-			'sort'        => ['enum' => ['name','id']],
+			'sort'        => ['enum' => ['datecreated', 'id']],
+			'status'        => ['enum' => ['awaiting','reserve_creating','enable','close','deleted','spam','hard_delete','upgrade','transfer','backup','lock','broken','limitation','creating','failed','error']],
 			'user'        => 'code',
 			'fstatus'     => 'string_100',
 			'plugin'      => 'string_100',
@@ -40,9 +41,10 @@ class search
 
 
 
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and          = [];
+		$meta         = [];
+		$or           = [];
+		$param        = [];
 		$meta['join'] = [];
 
 		$meta['limit'] = 20;
@@ -95,8 +97,15 @@ class search
 				$and[] = "store_plugin.plugin = '$data[plugin]' ";
 			}
 
+			self::$is_filtered = true;
 
+		}
 
+		if($data['status'])
+		{
+			$and[] = "store.status = '$data[status]' ";
+
+			self::$is_filtered = true;
 		}
 
 
@@ -120,21 +129,19 @@ class search
 		}
 
 
-		if($data['sort'] && !$order_sort)
+		$check_order_trust = \lib\app\form\answer\filter::check_allow($data['sort'], $data['order']);
+
+		if($check_order_trust)
 		{
-			if(in_array($data['sort'], ['name', 'id']))
+			$sort = \dash\str::mb_strtolower($data['sort']);
+			if($data['order'])
 			{
-
-				$sort = \dash\str::mb_strtolower($data['sort']);
-				$order = null;
-				if($data['order'])
-				{
-					$order = \dash\str::mb_strtolower($data['order']);
-				}
-
-				$order_sort = " ORDER BY $sort $order";
+				$order = \dash\str::mb_strtolower($data['order']);
 			}
+
+			$order_sort = " ORDER BY store.$sort $order";
 		}
+
 
 		if(!$order_sort)
 		{
