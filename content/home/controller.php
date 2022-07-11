@@ -72,6 +72,13 @@ class controller
 				\dash\redirect::to('https://stats.uptimerobot.com/39MgXFm7x7');
 				break;
 
+			case 'price':
+			case 'pricing':
+			case 'plan':
+			case 'plans':
+				\dash\redirect::to(\dash\url::kingdom(). '/free');
+				break;
+
 			default:
 			// nothing
 				break;
