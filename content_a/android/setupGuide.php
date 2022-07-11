@@ -1,7 +1,7 @@
 <?php if(!\dash\data::appQueue_status()) { ?>
 <div class="alert-info fs16"><?php echo T_("Please set general detail about your app, then let us create your android application."); ?></div>
 
-<div class="setupGuide">
+<div class="stepGuide">
  <header><?php echo T_("Setup Progress"); ?></header>
  <section>
   <div class="f">
@@ -15,9 +15,10 @@
  </section>
 </div>
 
+
 <div class="welcome">
   <p><?php echo T_("Easily Create your store application"); ?></p>
-  <h2><?php echo T_("Create a custom app for your store"); ?></h2>
+  <h2 class=""><?php echo T_("Create a custom app for your store"); ?></h2>
 
   <div class="buildBtn">
     <a class="btn xl master" href="<?php echo \dash\url::this(); ?>/logo?setup=wizard"><?php echo T_("Build it now"); ?></a>
