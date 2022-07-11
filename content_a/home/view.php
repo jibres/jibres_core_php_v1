@@ -26,8 +26,15 @@ class view
 		{
 			// back
 			\dash\data::back_text(T_('Control Center'));
-			\dash\data::back_link(\dash\url::sitelang(). '/my');
-			// \dash\data::back_direct(true);
+
+			if(\dash\engine\store::admin_subdomain())
+			{
+				\dash\data::back_link(\dash\url::set_subdomain(\dash\engine\store::admin_subdomain()). '/my');
+			}
+			else
+			{
+				\dash\data::back_link(\dash\url::sitelang(). '/my');
+			}
 		}
 	}
 }

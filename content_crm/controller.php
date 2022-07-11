@@ -11,6 +11,18 @@ class controller
 		{
 			\dash\engine\store::gate('crm');
 		}
+		else
+		{
+			if(\dash\engine\store::admin_subdomain())
+			{
+				\dash\redirect::admin_subdomain();
+			}
+			else
+			{
+				\dash\redirect::remove_subdomain();
+			}
+
+		}
 
 
 		\dash\redirect::to_login();

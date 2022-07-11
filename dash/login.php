@@ -242,16 +242,24 @@ class login
 
 		$place = $_detail['place'];
 
-		if(isset($_detail['trustdomain']) && $_detail['trustdomain'] === \dash\url::host())
+		if(\dash\url::root() === 'jibres')
 		{
-			// ok
+			// nothing. not check trust domain
+			// bug in jibres.com and admin.jibres.com
 		}
 		else
 		{
-			self::$error[] = 'trustdomain not match by login record';
-			self::$error[] = 'saved trustdomain is :' . $_detail['trustdomain'];
-			self::$error[] = 'used in :' . \dash\url::host();
-			return false;
+			if(isset($_detail['trustdomain']) && $_detail['trustdomain'] === \dash\url::host())
+			{
+				// ok
+			}
+			else
+			{
+				self::$error[] = 'trustdomain not match by login record';
+				self::$error[] = 'saved trustdomain is :' . $_detail['trustdomain'];
+				self::$error[] = 'used in :' . \dash\url::host();
+				return false;
+			}
 		}
 
 		if(isset($_detail['ip_md5']) && isset($_detail['agent_md5']))
@@ -368,12 +376,19 @@ class login
 	}
 
 
+	private static function login_cookie_domain()
+	{
+		return '.'. \dash\url::domain();
+	}
+
+
+
 	/**
 	 * Delete cookie
 	 */
 	private static function delete_cookie()
 	{
-		\dash\utility\cookie::delete(self::cookie_name());
+		\dash\utility\cookie::delete(self::cookie_name(), null, self::login_cookie_domain());
 	}
 
 
@@ -410,6 +425,19 @@ class login
 
 				case 'business':
 					$place = 'api_business';
+					break;
+
+
+				case \dash\engine\store::admin_subdomain():
+
+					if(\dash\url::store())
+					{
+						$place = 'admin';
+					}
+					else
+					{
+						$place = 'jibres';
+					}
 					break;
 
 				default:
@@ -562,7 +590,7 @@ class login
 			}
 
 
-			\dash\utility\cookie::write(self::cookie_name(), $code, $time);
+			\dash\utility\cookie::write(self::cookie_name(), $code, $time, self::login_cookie_domain());
 		}
 
 		return $load_user;

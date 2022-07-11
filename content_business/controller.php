@@ -8,7 +8,21 @@ class controller
 
 		if(\dash\engine\store::free_subdomain())
 		{
-			\dash\engine\prepare::html_raw_page('dnsPoint');
+			if(\dash\engine\store::admin_subdomain() && \dash\url::subdomain() === \dash\engine\store::admin_subdomain())
+			{
+				if(\dash\url::store())
+				{
+					\dash\redirect::to(\dash\url::kingdom(). '/a');
+				}
+				else
+				{
+					\dash\redirect::to(\dash\url::sitelang());
+				}
+			}
+			else
+			{
+				\dash\engine\prepare::html_raw_page('dnsPoint');
+			}
 		}
 		else
 		{

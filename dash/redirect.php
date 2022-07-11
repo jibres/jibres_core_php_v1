@@ -144,6 +144,16 @@ class redirect
 		}
 	}
 
+	public static function admin_subdomain()
+	{
+		if(\dash\engine\store::admin_subdomain() && \dash\url::subdomain() !== \dash\engine\store::admin_subdomain())
+		{
+			// admin subdomain
+			$new_url = \dash\url::set_subdomain(\dash\engine\store::admin_subdomain(), true);
+			\dash\redirect::to($new_url);
+		}
+	}
+
 
 	public static function remove_store()
 	{

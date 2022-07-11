@@ -88,6 +88,12 @@ class store
 			// api.jibres.com/$jb2dj
 			if(self::free_subdomain())
 			{
+				// admin.jibres.com/$jb2js
+				if(\dash\url::subdomain() === self::admin_subdomain() && \dash\url::store())
+				{
+					return true;
+				}
+
 				return false;
 			}
 
@@ -219,6 +225,11 @@ class store
 			{
 				\dash\redirect::to(\dash\url::kingdom());
 			}
+
+			if(self::admin_subdomain())
+			{
+				\dash\redirect::admin_subdomain();
+			}
 		}
 	}
 
@@ -305,6 +316,11 @@ class store
 				// no problem
 				// https://business.jibres.com/$jb2jr/b1/product/add
 			}
+			elseif($subdomain === self::admin_subdomain() && in_array(\dash\url::content(), ['a', 'enter', 'crm', 'cms', 'site', 'pay', 'account', '']))
+			{
+				// no problem
+				// https://admin.jibres.com/$jb2jr/a
+			}
 			else
 			{
 				\dash\header::status(409, T_("Subdomain and store code conflict!"));
@@ -370,6 +386,20 @@ class store
 	}
 
 
+	/**
+	 * The admin subdomain
+	 * admin.jibres.com
+	 * admin.jibres.com/$jb2jr
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function admin_subdomain()
+	{
+		return null;
+		return 'my';
+	}
+
+
 	public static function free_subdomain($_subdomain = null)
 	{
 		if(!$_subdomain)
@@ -390,6 +420,7 @@ class store
 			'core',
 			'business',
 			'shop',
+			self::admin_subdomain(),
 		];
 
 

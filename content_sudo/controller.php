@@ -5,7 +5,15 @@ class controller
 {
 	public static function routing()
 	{
-		\dash\redirect::remove_subdomain();
+		if(\dash\engine\store::admin_subdomain())
+		{
+			\dash\redirect::admin_subdomain();
+		}
+		else
+		{
+			\dash\redirect::remove_subdomain();
+		}
+
 
 		\dash\redirect::remove_store();
 
