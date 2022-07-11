@@ -13,7 +13,11 @@ class view
 		\dash\data::back_link(\dash\url::kingdom());
 
 		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-free-1.jpg');
-
+		
+		if(\dash\language::current() === 'fa')
+		{
+			\dash\face::cover(\dash\url::cdn(). '/img/cover/ir/Jibres-cover-free-fa-1.jpg');
+		}
 	}
 }
 ?>
