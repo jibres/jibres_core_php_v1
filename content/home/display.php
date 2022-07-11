@@ -14,6 +14,13 @@
     </form>
   <?php } // endif ?>
     <p><?php echo T_("Try Jibres for free, and explore all services you need to start, run, and grow your business."); ?></p>
+    <h4>
+      <span><?php echo T_("Free Forever"); ?></span>
+      <span>•</span>
+      <span><?php echo T_("Fast"); ?></span>
+      <span>•</span>
+      <span><?php echo T_("Secure"); ?></span>
+    </h4>
 
   </div>
 </section>
