@@ -1098,13 +1098,13 @@ class ip
 	{
 		$myLocations =
 		[
-			'live'      => self::generate_file_path($_ip, 'live'),
-			'human'     => self::generate_file_path($_ip, 'human'),
-			'bot'       => self::generate_file_path($_ip, 'bot'),
-			'isolation' => self::generate_file_path($_ip, 'isolation'),
-			'ban'       => self::generate_file_path($_ip, 'ban'),
-			'whitelist' => self::generate_file_path($_ip, 'whitelist'),
 			'blacklist' => self::generate_file_path($_ip, 'blacklist'),
+			'whitelist' => self::generate_file_path($_ip, 'whitelist'),
+			'ban'       => self::generate_file_path($_ip, 'ban'),
+			'isolation' => self::generate_file_path($_ip, 'isolation'),
+			'bot'       => self::generate_file_path($_ip, 'bot'),
+			'human'     => self::generate_file_path($_ip, 'human'),
+			'live'      => self::generate_file_path($_ip, 'live'),
 		];
 
 		$ipPath = null;
@@ -1113,9 +1113,17 @@ class ip
 		{
 			if(file_exists($loc))
 			{
-				$ipPath = $loc;
+				if($ipPath)
+				{
+					\dash\file::delete($loc);
+				}
+				else
+				{
+					$ipPath = $loc;
+				}
 			}
 		}
+
 
 		return $ipPath;
 	}
