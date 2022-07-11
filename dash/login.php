@@ -428,7 +428,8 @@ class login
 					break;
 
 
-				case 'admin':
+				case \dash\engine\store::admin_subdomain():
+
 					if(\dash\url::store())
 					{
 						$place = 'admin';

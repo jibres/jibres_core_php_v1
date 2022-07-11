@@ -88,7 +88,8 @@ class store
 			// api.jibres.com/$jb2dj
 			if(self::free_subdomain())
 			{
-				if(\dash\url::subdomain() === 'admin')
+				// admin.jibres.com/$jb2js
+				if(\dash\url::subdomain() === self::admin_subdomain() && \dash\url::store())
 				{
 					return true;
 				}
@@ -315,7 +316,7 @@ class store
 				// no problem
 				// https://business.jibres.com/$jb2jr/b1/product/add
 			}
-			elseif($subdomain === 'admin' && in_array(\dash\url::content(), ['a', 'enter', 'crm', 'cms', 'site', 'pay', 'account', '']))
+			elseif($subdomain === self::admin_subdomain() && in_array(\dash\url::content(), ['a', 'enter', 'crm', 'cms', 'site', 'pay', 'account', '']))
 			{
 				// no problem
 				// https://admin.jibres.com/$jb2jr/a
@@ -385,6 +386,19 @@ class store
 	}
 
 
+	/**
+	 * The admin subdomain
+	 * admin.jibres.com
+	 * admin.jibres.com/$jb2jr
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function admin_subdomain() : string
+	{
+		return 'admin';
+	}
+
+
 	public static function free_subdomain($_subdomain = null)
 	{
 		if(!$_subdomain)
@@ -405,7 +419,7 @@ class store
 			'core',
 			'business',
 			'shop',
-			'admin',
+			self::admin_subdomain(),
 		];
 
 
