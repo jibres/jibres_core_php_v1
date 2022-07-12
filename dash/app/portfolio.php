@@ -130,7 +130,7 @@ class portfolio
 			{
 				case 'thumb':
 				case 'image':
-					$result[$key] = \lib\filepath::fix($value);
+					// $result[$key] = \lib\filepath::fix($value);
 					break;
 
 				case 'url':
@@ -154,6 +154,14 @@ class portfolio
 					break;
 			}
 		}
+
+		$store_code = \dash\store_coding::encode_raw(a($result, 'store_id'));
+
+		$cdn =  \dash\url::cdn(). '/img/portfolio/'. $store_code. '/';
+
+		$result['img'] = $cdn . $store_code. '.jpg';
+
+		$result['full'] = $cdn . $store_code. '-full.jpg';
 
 		return $result;
 	}
