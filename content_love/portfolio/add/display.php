@@ -17,6 +17,20 @@
             <option value="<?php echo \dash\data::dataRow_store_id() ?>" selected><?php echo \dash\data::selectedStoreTitle(); ?></option>
           <?php } //endif ?>
             </select>
+          <?php if(\dash\data::dataRow_store_id()) {?>
+            <div class="row">
+              <div class="c-xs-6">
+                <a href="<?php echo \dash\data::dataRow_img() ?>">
+                  <img src="<?php echo \dash\data::dataRow_img() ?>" alt='img'>
+                </a>
+              </div>
+              <div class="c-xs-6">
+                <a href="<?php echo \dash\data::dataRow_img_full() ?>">
+                  <img src="<?php echo \dash\data::dataRow_img_full() ?>" alt='full'>
+                </a>
+              </div>
+            </div>
+          <?php } //endif ?>
 
 
         <label><?php echo T_("URL"); ?></label>
