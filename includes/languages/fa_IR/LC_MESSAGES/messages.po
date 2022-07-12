@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-12 15:46+0430\n"
-"PO-Revision-Date: 2022-07-12 15:52+0430\n"
+"POT-Creation-Date: 2022-07-12 16:09+0430\n"
+"PO-Revision-Date: 2022-07-12 16:12+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: T_\n"
@@ -724,7 +724,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_love/gift/create/message/display.php:14
 #: content_love/gift/create/review/display.php:28 content_love/gift/edit/display.php:40
 #: content_love/gift/view/display.php:28 content_love/log/home/logTable.php:10
-#: content_love/plugin/history/display.php:15 content_love/portfolio/add/display.php:66
+#: content_love/plugin/history/display.php:15 content_love/portfolio/add/display.php:79
 #: content_site/options/description/description.php:18
 #: content_site/options/description/description.php:33
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:83
@@ -2735,7 +2735,7 @@ msgid "Why Free?"
 msgstr "چرا رایگان؟"
 
 #: content/home/layout/header.php:19 content_love/home/display.php:194
-#: content_love/portfolio/view.php:9
+#: content_love/portfolio/view.php:9 content_site/portfolio/display.php:18
 msgid "Portfolio"
 msgstr "نمونه‌کارها"
 
@@ -4344,27 +4344,28 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_site/gallery/view.php:11 content_site/icon/view.php:11
 #: content_site/page/design/view.php:13 content_site/page/factor/view.php:16
 #: content_site/page/new/view.php:11 content_site/page/settings/view.php:13
-#: content_site/page/view.php:10 content_site/preview/display.php:18
-#: content_site/section/html/view.php:45 content_site/section/view.php:41
-#: content_site/section/view.php:83 content_site/section/view.php:236
-#: content_site/sitemap/view.php:10 content_site/staticfile/view.php:15
-#: content_sudo/apilog/home/view.php:9 content_sudo/apilog/view/view.php:9
-#: content_sudo/backup/display.php:5 content_sudo/backup/view.php:10
-#: content_sudo/changeallfuel/view.php:8 content_sudo/check/view.php:11
-#: content_sudo/cronjob/view.php:9 content_sudo/dbversion/view.php:9
-#: content_sudo/dnsprovider/view.php:8 content_sudo/fix/view.php:11
-#: content_sudo/homepage/view.php:11 content_sudo/info/view.php:8
-#: content_sudo/ip/view.php:10 content_sudo/log/view.php:10 content_sudo/log/view.php:16
-#: content_sudo/passwd/view.php:8 content_sudo/processlist/view.php:9
-#: content_sudo/query/view.php:9 content_sudo/server/view.php:9
-#: content_sudo/session/view.php:9 content_sudo/shorturl/view.php:9
-#: content_sudo/smsclient/edit/view.php:9 content_sudo/smsclient/home/view.php:8
-#: content_sudo/tempfile/view.php:16 content_sudo/tempfile/view.php:50
-#: content_sudo/tg/home/view.php:8 content_sudo/tg/log/view.php:9
-#: content_sudo/tg/logshow/view.php:9 content_sudo/tg/sendmessage/view.php:8
-#: content_sudo/tg/sendphoto/view.php:9 content_sudo/tg/system/view.php:9
-#: content_sudo/tg/users/view.php:9 content_sudo/tg/webhook/view.php:8
-#: content_sudo/update/view.php:8 content_sudo/usage/view.php:8 dash/engine/view.php:222
+#: content_site/page/view.php:10 content_site/portfolio/view.php:10
+#: content_site/preview/display.php:18 content_site/section/html/view.php:45
+#: content_site/section/view.php:41 content_site/section/view.php:83
+#: content_site/section/view.php:236 content_site/sitemap/view.php:10
+#: content_site/staticfile/view.php:15 content_sudo/apilog/home/view.php:9
+#: content_sudo/apilog/view/view.php:9 content_sudo/backup/display.php:5
+#: content_sudo/backup/view.php:10 content_sudo/changeallfuel/view.php:8
+#: content_sudo/check/view.php:11 content_sudo/cronjob/view.php:9
+#: content_sudo/dbversion/view.php:9 content_sudo/dnsprovider/view.php:8
+#: content_sudo/fix/view.php:11 content_sudo/homepage/view.php:11
+#: content_sudo/info/view.php:8 content_sudo/ip/view.php:10 content_sudo/log/view.php:10
+#: content_sudo/log/view.php:16 content_sudo/passwd/view.php:8
+#: content_sudo/processlist/view.php:9 content_sudo/query/view.php:9
+#: content_sudo/server/view.php:9 content_sudo/session/view.php:9
+#: content_sudo/shorturl/view.php:9 content_sudo/smsclient/edit/view.php:9
+#: content_sudo/smsclient/home/view.php:8 content_sudo/tempfile/view.php:16
+#: content_sudo/tempfile/view.php:50 content_sudo/tg/home/view.php:8
+#: content_sudo/tg/log/view.php:9 content_sudo/tg/logshow/view.php:9
+#: content_sudo/tg/sendmessage/view.php:8 content_sudo/tg/sendphoto/view.php:9
+#: content_sudo/tg/system/view.php:9 content_sudo/tg/users/view.php:9
+#: content_sudo/tg/webhook/view.php:8 content_sudo/update/view.php:8
+#: content_sudo/usage/view.php:8 dash/engine/view.php:222
 msgid "Back"
 msgstr "بازگشت"
 
@@ -4568,7 +4569,7 @@ msgstr "کد"
 #: content_love/domain/action/display.php:11
 #: content_love/domain/setting/action/display.php:13
 #: content_love/files/view/display.php:20 content_love/portfolio/add/display.php:8
-#: content_love/portfolio/add/display.php:67 content_my/domain/irnic/edit/display.php:11
+#: content_love/portfolio/add/display.php:80 content_my/domain/irnic/edit/display.php:11
 #: content_site/body/title/option.php:34 content_site/body/title/option.php:36
 #: content_site/body/title/title1.php:36
 #: content_site/options/caption/caption_gallery.php:17
@@ -4722,7 +4723,7 @@ msgstr "غیرفعال"
 #: content_love/gift/create/review/display.php:31 content_love/gift/edit/display.php:84
 #: content_love/gift/view/display.php:31 content_love/plugin/business/display.php:10
 #: content_love/plugin/history/display.php:11 content_love/plugin/manage/display.php:9
-#: content_love/portfolio/add/display.php:78 content_love/sms/sending/display.php:19
+#: content_love/portfolio/add/display.php:91 content_love/sms/sending/display.php:19
 #: content_love/telegram/datalist/display.php:7
 #: content_love/telegram/sending/display.php:19
 #: content_my/domain/setting/elements/superdetail.php:23
@@ -4767,7 +4768,7 @@ msgstr "وضعیت"
 #: content_crm/member/add/display.php:15 content_crm/permission/add/display.php:11
 #: content_crm/staff/add/display.php:25 content_love/business/domain/add/display.php:18
 #: content_love/changelog/add/display.php:44 content_love/changelog/view.php:16
-#: content_love/plugin/manage/display.php:57 content_love/portfolio/add/display.php:148
+#: content_love/plugin/manage/display.php:57 content_love/portfolio/add/display.php:161
 #: content_love/portfolio/view.php:16 content_site/options/menu/menu.php:84
 #: content_site/page/new/display.php:21 content_site/staticfile/display.php:24
 #: dash/layout/admin/admin-titlebox.php:95 dash/layout/m2/admin-titlebox.php:115
@@ -4804,7 +4805,7 @@ msgstr "افزودن"
 #: content_cms/comments/edit/display.php:39 content_crm/permission/setting/display.php:11
 #: content_crm/permission/user/display.php:11 content_crm/ticket/view/display-live.php:87
 #: content_love/changelog/add/display.php:42 content_love/plugin/edit/display.php:34
-#: content_love/plugin/manage/display.php:31 content_love/portfolio/add/display.php:146
+#: content_love/plugin/manage/display.php:31 content_love/portfolio/add/display.php:159
 #: content_my/domain/irnic/edit/display.php:25
 #: content_site/assemble/wrench/section.php:131
 #: includes/languages/trans_static_public.php:144 lib/app/category/get.php:487
@@ -4832,7 +4833,7 @@ msgstr "ویرایش"
 #: content_crm/permission/setting/display.php:26
 #: content_crm/permission/user/display.php:26 content_crm/ticket/setting/display.php:121
 #: content_love/changelog/add/display.php:36 content_love/domain/detail/display.php:195
-#: content_love/portfolio/add/display.php:140 content_love/store/backup/display.php:19
+#: content_love/portfolio/add/display.php:153 content_love/store/backup/display.php:19
 #: content_my/domain/irnic/edit/display.php:24
 #: content_my/domain/setting/elements/remove.php:13
 #: content_site/page/settings/display-aside-top.php:192
@@ -7105,7 +7106,7 @@ msgstr "صفحه"
 #: content_a/android/intro/display.php:29 content_cms/files/home/display.php:92
 #: content_cms/files/images/display.php:11 content_cms/files/remove/display.php:11
 #: content_love/files/home/display.php:92 content_love/files/images/display.php:11
-#: content_love/files/remove/display.php:11 content_love/portfolio/add/display.php:114
+#: content_love/files/remove/display.php:11 content_love/portfolio/add/display.php:127
 #: content_site/body/gallery/option.php:28 content_site/body/imagetext/option.php:23
 #: content_site/options/background/background_pack.php:143
 #: content_site/options/file/file.php:273 content_site/options/image/image_add2.php:48
@@ -7167,12 +7168,12 @@ msgstr "تنظیم لوگوی برنامه"
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
 #: content_a/form/inquiry/display.php:65 content_a/form/setting/display.php:35
 #: content_a/order/comment/display.php:53 content_a/setting/general/display.php:37
-#: content_business/ticket/add/add_ticket_form.php:15 content_cms/files/add/display.php:7
+#: content_business/ticket/add/add_ticket_form.php:19 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
 #: content_crm/member/identification/display.php:107
 #: content_crm/member/identification/display.php:119 content_crm/ticket/add/display.php:18
 #: content_crm/ticket/edit/display.php:18 content_crm/ticket/view/display-answer.php:40
-#: content_love/portfolio/add/display.php:99 content_love/portfolio/add/display.php:118
+#: content_love/portfolio/add/display.php:112 content_love/portfolio/add/display.php:131
 #: content_site/options/file/file.php:250 dash/layout/elements/input.php:274
 #: dash/layout/post/admin-gallery-box.php:15
 msgid "Drag &amp; Drop your files or Browse"
@@ -7424,7 +7425,7 @@ msgstr "ورودی باید به صورت آرایه باشد"
 #: content_crm/member/notification/model.php:15 content_crm/sms/send/model.php:18
 #: content_my/domain/option/model.php:19 content_site/section/html/model.php:89
 #: dash/app/changelog.php:362 dash/app/permission/edit.php:157
-#: dash/app/permission/edit.php:229 dash/app/portfolio.php:378
+#: dash/app/permission/edit.php:229 dash/app/portfolio.php:389
 #: lib/app/category/edit.php:93 lib/app/category/edit.php:166
 #: lib/app/form/answer/edit.php:95 lib/app/form/comment/edit.php:55
 #: lib/app/form/item/edit.php:262 lib/app/product/property.php:746
@@ -7611,7 +7612,7 @@ msgstr "فیلتر"
 
 #: content_a/cart/home/display.php:90 content_a/category/home/display.php:115
 #: content_a/form/tag/display.php:87 content_business/search/display.php:19
-#: content_love/portfolio/add/display.php:45 dash/datafilter.php:72
+#: content_love/portfolio/add/display.php:58 dash/datafilter.php:72
 #: dash/layout/search/search-bar.php:61 lib/app/factor/filter.php:14
 #: lib/app/form/answer/filter.php:15 lib/app/order/filter.php:59
 #: lib/app/product/filter.php:61 lib/app/product/filter.php:69
@@ -8560,7 +8561,7 @@ msgstr "شناسه پاسخ"
 #: content_a/form/analytics/answer/display.php:54 content_a/form/analytics/pageStep.php:49
 #: content_a/form/analytics/tag/display.php:29
 #: content_a/form/answer/detail/display.php:393 content_love/changelog/add/display.php:19
-#: content_love/portfolio/add/display.php:71 dash/app/posts/dropdown.php:33
+#: content_love/portfolio/add/display.php:84 dash/app/posts/dropdown.php:33
 #: dash/layout/search/search_filter.php:452 includes/languages/trans_static.php:557
 #: lib/app/form/answer/filter.php:38 lib/app/product/filter.php:412
 #: lib/app/product/filter.php:422 lib/app/product/filter.php:432
@@ -14571,7 +14572,7 @@ msgstr "امنیتی"
 #: lib/app/store/analytics.php:118 lib/app/store/analytics.php:119
 #: lib/app/store/analytics.php:120 lib/app/store/analytics.php:121
 #: lib/app/store/analytics.php:122 lib/app/store/analytics.php:123
-#: lib/app/store/check.php:29
+#: lib/app/store/check.php:36
 msgid "Other"
 msgstr "سایر"
 
@@ -15390,7 +15391,7 @@ msgstr "تنظیمات را برای خودتان سفارشی و مدیریت �
 #: content_account/personalization/home/display.php:41
 #: content_account/personalization/language/display.php:9
 #: content_account/personalization/language/view.php:10
-#: content_love/portfolio/add/display.php:51
+#: content_love/portfolio/add/display.php:64
 msgid "Language"
 msgstr "زبان"
 
@@ -16185,17 +16186,17 @@ msgstr "هیچ کالایی در سبد خرید شما یافت نشد"
 msgid "Your mobile successfully added to subscribe list"
 msgstr "تلفن همراه شما به لیست دریافت کنندگان خبرنامه اضافه شد"
 
-#: content_business/ticket/add/add_ticket_form.php:5 content_crm/ticket/add/display.php:10
+#: content_business/ticket/add/add_ticket_form.php:8 content_crm/ticket/add/display.php:10
 #: content_crm/ticket/add/display.php:12 content_crm/ticket/view/display.php:50
 #: content_love/email/history/view/display.php:10
 msgid "Subject"
 msgstr "موضوع"
 
-#: content_business/ticket/add/add_ticket_form.php:10
+#: content_business/ticket/add/add_ticket_form.php:14
 msgid "Enter your message ..."
 msgstr "متن خود را بنویسید ..."
 
-#: content_business/ticket/add/add_ticket_form.php:21
+#: content_business/ticket/add/add_ticket_form.php:25
 #: content_crm/ticket/add/display.php:23
 msgid "Add Ticket"
 msgstr "افزودن تیکت"
@@ -21917,17 +21918,17 @@ msgstr "ارسال درخواست یکپارچه‌سازی امکانات به 
 msgid "Choose Business"
 msgstr "انتخاب بیزینس"
 
-#: content_love/portfolio/add/display.php:22 dash/app/posts/filter.php:163
+#: content_love/portfolio/add/display.php:35 dash/app/posts/filter.php:163
 #: dash/app/posts/filter.php:173 dash/app/posts/filter.php:183
 #: dash/app/posts/filter.php:193
 msgid "URL"
 msgstr "نشانی اینترنتی"
 
-#: content_love/portfolio/add/display.php:27
+#: content_love/portfolio/add/display.php:40
 msgid "Industry"
 msgstr "صنعت"
 
-#: content_love/portfolio/add/display.php:95
+#: content_love/portfolio/add/display.php:108
 msgid "Thumb"
 msgstr "تصویر"
 
@@ -22197,7 +22198,7 @@ msgid "Please fill the business title less than 100 character"
 msgstr "لطفا عنوان بیزینس را کمتر از ۱۰۰ حرف وارد کنید"
 
 #: content_my/business/start/model.php:31 lib/app/store/add.php:81
-#: lib/app/store/check.php:110
+#: lib/app/store/check.php:116
 msgid "You can use less than 8 space character in business name"
 msgstr "شما نباید بیشتر از ۸ کاراکتر فاصله در نام بیزینس استفاده کنید"
 
@@ -23873,6 +23874,10 @@ msgstr "فایل‌های ثابت"
 msgid "Menu"
 msgstr "منو"
 
+#: content_site/home/display.php:48 content_site/portfolio/view.php:8
+msgid "Jibres portfolio"
+msgstr "نمونه‌کارهای جیبرس"
+
 #: content_site/home/view.php:9
 msgid "Site Builder"
 msgstr "سایت‌ساز"
@@ -25142,6 +25147,34 @@ msgstr "دارای تغییرات ذخیره نشده است"
 #: content_site/pages/view.php:9
 msgid "Site Builder pages"
 msgstr "صفحات سایت"
+
+#: content_site/portfolio/display.php:7
+msgid "You can introduce your site as an portfolio of Jibers sites"
+msgstr "شما می‌توانید وب‌سایت خودتان را به عنوان یک نمونه‌کار در جیبرس معرفی کنید"
+
+#: content_site/portfolio/display.php:9
+msgid "Your request will be reviewed"
+msgstr "درخواست شما مورد بررسی قرار خواهد گرفت"
+
+#: content_site/portfolio/display.php:11
+msgid ""
+"If your request is approved, your website title and website address will be placed on "
+"the Jibers portfolio page"
+msgstr ""
+"در صورتی که درخواست شما تایید شد نام و آدرس وب‌سایت شما در صفحه نمونه‌کارهای جیبرس قرار "
+"خواهد گرفت"
+
+#: content_site/portfolio/display.php:13
+msgid "Your website must meet our minimum standards for inclusion"
+msgstr "وب‌سایت شما باید حداقل استاندارد‌های لازم را از نظر ما داشته باشد"
+
+#: content_site/portfolio/display.php:15
+msgid "Jibres portfolio page"
+msgstr "صفحه نمونه‌کارهای جیبرس"
+
+#: content_site/portfolio/display.php:18
+msgid "Send request"
+msgstr "ارسال درخواست"
 
 #: content_site/preview/controller.php:27
 msgid "Invalid section name or preview key"
@@ -26743,15 +26776,15 @@ msgstr "هیچ راهی برای افزودن نمونه‌کار وجود ند�
 msgid "Portfolio added"
 msgstr "نمونه‌کار اضافه شد"
 
-#: dash/app/portfolio.php:341
+#: dash/app/portfolio.php:352
 msgid "Can not access to edit portfolio"
 msgstr "شما دسترسی لازم برای ویرایش این نمونه‌کار را ندارید"
 
-#: dash/app/portfolio.php:390
+#: dash/app/portfolio.php:401
 msgid "Can not access to remove this portfolio"
 msgstr "شما دسترسی لازم برای حذف این نمونه‌کار را ندارید"
 
-#: dash/app/portfolio.php:401
+#: dash/app/portfolio.php:412
 msgid "Portfolio removed"
 msgstr "نمونه‌کار حذف شد"
 
@@ -42796,70 +42829,94 @@ msgid "Beauty"
 msgstr "زیبایی"
 
 #: lib/app/store/check.php:14
-msgid "Personal website"
-msgstr "وب‌سایت شخصی"
-
-#: lib/app/store/check.php:15
 msgid "Clothing"
 msgstr "پوشاک"
 
-#: lib/app/store/check.php:16
+#: lib/app/store/check.php:15
 msgid "Electronics"
 msgstr "الکترونیک"
 
-#: lib/app/store/check.php:17
+#: lib/app/store/check.php:16
 msgid "Furniture"
 msgstr "مبلمان"
 
-#: lib/app/store/check.php:18
+#: lib/app/store/check.php:17
 msgid "Handcrafts"
 msgstr "صنایع دستی"
 
-#: lib/app/store/check.php:19
+#: lib/app/store/check.php:18
 msgid "Jewelry"
 msgstr "جواهر سازی"
 
-#: lib/app/store/check.php:20
+#: lib/app/store/check.php:19
 msgid "Painting"
 msgstr "نقاشی"
 
-#: lib/app/store/check.php:21
+#: lib/app/store/check.php:20
 msgid "Photography"
 msgstr "عکاسی"
 
-#: lib/app/store/check.php:22
+#: lib/app/store/check.php:21
 msgid "Restaurants"
 msgstr "رستوران‌ها"
 
-#: lib/app/store/check.php:23
+#: lib/app/store/check.php:22
 msgid "Groceries"
 msgstr "مواد غذایی"
 
-#: lib/app/store/check.php:24
+#: lib/app/store/check.php:23
 msgid "Other food and drink"
 msgstr "سایر مواد غذایی و نوشیدنی"
 
-#: lib/app/store/check.php:25
+#: lib/app/store/check.php:24
 msgid "Sports"
 msgstr "ورزشی"
 
-#: lib/app/store/check.php:26
+#: lib/app/store/check.php:25
 msgid "Toys"
 msgstr "اسباب بازی"
 
-#: lib/app/store/check.php:27
+#: lib/app/store/check.php:26
 msgid "Services"
 msgstr "خدمات"
 
-#: lib/app/store/check.php:28
+#: lib/app/store/check.php:27
 msgid "Virtual services"
 msgstr "خدمات مجازی"
 
-#: lib/app/store/check.php:30
+#: lib/app/store/check.php:28
 msgid "Charity"
 msgstr "خیریه"
 
-#: lib/app/store/check.php:120
+#: lib/app/store/check.php:29
+msgid "Personal website"
+msgstr "وب‌سایت شخصی"
+
+#: lib/app/store/check.php:30
+msgid "Company website"
+msgstr "وب‌سایت شرکتی"
+
+#: lib/app/store/check.php:31
+msgid "University"
+msgstr "دانشگاه"
+
+#: lib/app/store/check.php:32
+msgid "Wiki"
+msgstr "دانشنامه"
+
+#: lib/app/store/check.php:33
+msgid "Academy"
+msgstr "مرکز آموزشی"
+
+#: lib/app/store/check.php:34
+msgid "Learning"
+msgstr "یادگیری"
+
+#: lib/app/store/check.php:35
+msgid "Book"
+msgstr "کتاب"
+
+#: lib/app/store/check.php:126
 msgid "Only Latin letter and number can use in google analytics code"
 msgstr "تنها می‌توانید از کاراکتر‌های لاتین برای کد تحلیل‌گر گوگل استفاده کنید"
 
@@ -50572,9 +50629,6 @@ msgstr "یارد"
 #~ msgid "Raw request"
 #~ msgstr "درخواست خام"
 
-#~ msgid "Send request again"
-#~ msgstr "ارسال مجدد درخواست"
-
 #~ msgid "Reset config"
 #~ msgstr "ریست تنظیمات"
 
@@ -52118,9 +52172,6 @@ msgstr "یارد"
 
 #~ msgid "Danger"
 #~ msgstr "خطرناک"
-
-#~ msgid "Warning"
-#~ msgstr "اخطار"
 
 #~ msgid "Pain"
 #~ msgstr "درد"
