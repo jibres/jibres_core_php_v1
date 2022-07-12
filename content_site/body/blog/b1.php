@@ -105,6 +105,8 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
+				'radius_normal'         => 'none',
+				'post_play_item'        => null,
 				'post_show_readingtime' => true,
 				'post_show_image'       => true,
 				'post_show_excerpt'     => true,
