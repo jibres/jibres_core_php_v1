@@ -18,12 +18,12 @@
 
 
  <div class="m-auto max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 relative py-5">
- 	<?php foreach (\dash\data::dataTable() as $key => $value) { ?>
 	<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
-		
+
+<?php foreach (\dash\data::dataTable() as $key => $value) { ?>		
 		<figure class="my-4">
-			<a class="hover:shadow-lg shadow transition block rounded-lg" target="_blank" data-fancybox="portfolioPreview" href="<?php echo \lib\filepath::fix(a($value, 'image')) ?>">
-				<img class="aspect-video bg-white rounded-lg" loading="lazy" src="<?php echo \lib\filepath::fix(a($value, 'thumb')) ?>" alt="w1">
+			<a class="hover:shadow-lg shadow transition block rounded-lg" target="_blank" data-fancybox="portfolioPreview" data-caption="<?php echo a($value, 'title') ?>" href="<?php echo \lib\filepath::fix(a($value, 'image')) ?>">
+				<img class="aspect-video bg-white rounded-lg" loading="lazy" src="<?php echo \lib\filepath::fix(a($value, 'thumb')) ?>" alt="<?php echo a($value, 'title') ?>">
 			</a>
 			<figcaption class="items long mt-2">
 				<ul class="">
@@ -37,7 +37,7 @@
 				</ul>
 			</figcaption>
 		</figure>
+<?php } // endfor ?>
 
 	</div>
-<?php } // endfor ?>
  </div>
