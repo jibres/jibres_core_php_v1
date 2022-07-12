@@ -311,7 +311,7 @@ class portfolio
 			self::$is_filtered = true;
 		}
 
-		$order_sort = " ORDER BY portfolio.sort ASC, portfolio.id DESC ";
+		$order_sort = " ORDER BY portfolio.sort IS NULL, portfolio.sort ASC, portfolio.id DESC ";
 
 
 		$list = \dash\db\portfolio::list($param, $and, $or, $order_sort, $meta);
