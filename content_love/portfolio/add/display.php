@@ -11,6 +11,19 @@
         </div>
 
 
+        <label><?php echo T_("Business"); ?></label>
+        <select name="store_id" class="select22"  data-model='html'  data-ajax--url='<?php echo \dash\url::here(); ?>/store/api?json=true' data-shortkey-search data-placeholder='<?php echo T_("Choose Business"); ?>'>
+          <?php if(\dash\data::dataRow_store_id()) {?>
+            <option value="<?php echo \dash\data::dataRow_store_id() ?>" selected><?php echo \dash\data::selectedStoreTitle(); ?></option>
+          <?php } //endif ?>
+            </select>
+
+
+        <label><?php echo T_("URL"); ?></label>
+        <div class="input">
+          <input type="url" name="url" value="<?php echo \dash\data::dataRow_url(); ?>">
+        </div>
+
         <label><?php echo T_("Industry"); ?></label>
         <select class="select22" name="industry">
           <option value=""></option>
@@ -27,11 +40,6 @@
           ?>
         </select>
 
-
-        <label><?php echo T_("URL"); ?></label>
-        <div class="input">
-          <input type="url" name="url" value="<?php echo \dash\data::dataRow_url(); ?>">
-        </div>
 
 
         <label><?php echo T_("Sort"); ?></label>
@@ -54,12 +62,6 @@
           }
           ?>
         </select>
-
-
-        <label><?php echo T_("Store id"); ?></label>
-        <div class="input">
-          <input type="tel" name="store_id"  value="<?php echo \dash\data::dataRow_store_id(); ?>" >
-        </div>
 
         <label><?php echo T_("Description"); ?></label>
         <textarea class="txt" rows="3" data-placeholder='<?php echo T_("Title") ?>'  name="desc"><?php echo \dash\data::dataRow_desc(); ?></textarea>

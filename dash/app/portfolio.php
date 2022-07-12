@@ -83,7 +83,7 @@ class portfolio
 
 		];
 
-		$require = ['title'];
+		$require = ['title', 'store_id', 'url'];
 		$meta    = [];
 
 		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);

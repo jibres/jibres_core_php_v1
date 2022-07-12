@@ -2,10 +2,12 @@
 namespace content_love\portfolio\edit;
 
 
-class view
+class view extends \content_love\portfolio\add\view
 {
 	public static function config()
 	{
+		parent::config();
+
 		\dash\face::title(T_("Edit portfolio"));
 
 		// btn

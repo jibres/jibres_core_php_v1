@@ -16,6 +16,16 @@ class view
 
 		\dash\data::dataRow_date(date("Y-m-d"));
 
+		if(\dash\data::dataRow_store_id())
+		{
+			$load_store = \lib\app\store\get::data_by_id(\dash\data::dataRow_store_id());
+
+			if(isset($load_store['title']))
+			{
+				\dash\data::selectedStoreTitle($load_store['title']);
+			}
+		}
+
 
 	}
 }
