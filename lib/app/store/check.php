@@ -25,11 +25,12 @@ class check
 			'toys'             => T_('Toys'),
 			'services'         => T_('Services'),
 			'virtual_services' => T_('Virtual services'),
-			'other'            => T_('Other'),
 			'charity'          => T_('Charity'),
 			'personal_website' => T_('Personal website'),
 			'company_website'  => T_('Company website'),
 			'university'       => T_('University'),
+			'wiki'             => T_('Wiki'),
+			'other'            => T_('Other'),
 		];
 	}
 
