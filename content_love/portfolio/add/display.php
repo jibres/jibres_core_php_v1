@@ -18,17 +18,16 @@
           <?php } //endif ?>
             </select>
           <?php if(\dash\data::dataRow_store_id()) {?>
-            <div class="row">
-              <div class="c-xs-6">
-                <a href="<?php echo \dash\data::dataRow_img() ?>">
-                  <img src="<?php echo \dash\data::dataRow_img() ?>" alt='img'>
+            <div class="grid grid-cols-2">
+
+                <a target="_blank" href="<?php echo \dash\data::dataRow_img() ?>">
+                  <img class="accept-video" src="<?php echo \dash\data::dataRow_img() ?>" alt='img'>
                 </a>
-              </div>
-              <div class="c-xs-6">
-                <a href="<?php echo \dash\data::dataRow_img_full() ?>">
-                  <img src="<?php echo \dash\data::dataRow_img_full() ?>" alt='full'>
+
+                <a target="_blank" href="<?php echo \dash\data::dataRow_img_full() ?>">
+                  <img class="accept-video" src="<?php echo \dash\data::dataRow_img_full() ?>" alt='full'>
                 </a>
-              </div>
+
             </div>
           <?php } //endif ?>
 
