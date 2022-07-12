@@ -136,7 +136,9 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'post_show_readingtime' => null,
+				'radius_normal'         => 'none',
+				'radius'                => 'lg',
+				'post_show_readingtime' => false,
 				'post_show_image'       => true,
 				'post_show_excerpt'     => true,
 				'post_show_date'        => 'no',
@@ -147,10 +149,9 @@ class b1
 				'coverratio'            => '1:1',
 				'count'                 => 4,
 				'color_text'            => '#333333',
-				'radius'                => 'lg',
+				'btn_viewall_mode'      => 'dark',
 				'btn_viewall_check'     => true,
 				'btn_viewall'           => T_('View all'),
-				'btn_viewall_mode'      => 'dark',
 				'background_pack'       => 'solid',
 				'background_color'      => '#dec4d6',
 			],
@@ -166,6 +167,8 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
+				'radius_normal'            => 'none',
+				'radius'                   => 'lg',
 				'post_show_readingtime'    => null,
 				'post_show_image'          => true,
 				'post_show_excerpt'        => true,
@@ -177,13 +180,14 @@ class b1
 				'coverratio'               => '16:9',
 				'count'                    => 2,
 				'color_text'               => '#333333',
-				'radius'                   => 'lg',
+				'btn_viewall_mode'         => 'dark',
 				'btn_viewall_check'        => null,
 				'btn_viewall'              => T_('View all'),
 				'background_pack'          => 'gradient',
 				'background_gradient_type' => 'to bottom right',
 				'background_gradient_to'   => '#1e19c5',
 				'background_gradient_from' => '#f81b73',
+				'background_color'         => '#dec4d6',
 			],
 		];
 	}
