@@ -88,6 +88,7 @@
           ?>
         </select>
 
+        <?php if(false) { ?>
 
           <lable><?php echo T_("Thumb"); ?></lable>
           <div class="body2">
@@ -126,7 +127,7 @@
           </div>
 
 
-
+        <?php } // endif ?>
 
 
       </div>

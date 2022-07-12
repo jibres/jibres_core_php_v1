@@ -1060,6 +1060,7 @@ class TransStatic
 	echo T_('Cancel');
 	echo T_('Block');
 	echo T_('Other');
+	echo T_('accept');
 
  }
 }
