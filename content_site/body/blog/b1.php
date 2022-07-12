@@ -302,7 +302,9 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'post_show_readingtime'    => null,
+				'radius_normal'            => 'none',
+				'radius'                   => 'lg',
+				'post_show_readingtime'    => false,
 				'post_show_image'          => true,
 				'post_show_excerpt'        => true,
 				'post_show_date'           => 'no',
@@ -313,7 +315,7 @@ class b1
 				'coverratio'               => '3:1',
 				'count'                    => 9,
 				'color_text'               => '#022b79',
-				'radius'                   => 'lg',
+				'btn_viewall_mode'         => 'dark',
 				'btn_viewall_check'        => null,
 				'btn_viewall'              => T_('View all'),
 				'background_size'          => 'auto',
