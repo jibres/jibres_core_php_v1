@@ -11,6 +11,7 @@ class check
 		[
 			'do_not_know'      => T_('I haven’t decided yet'),
 			'beauty'           => T_('Beauty'),
+			'personal_website' => T_('Personal website'),
 			'clothing'         => T_('Clothing'),
 			'electronics'      => T_('Electronics'),
 			'furniture'        => T_('Furniture'),
