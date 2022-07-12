@@ -8,11 +8,15 @@ class model
 	{
 		$post =
 		[
-			'title'  => \dash\request::post('html'),
-			'date'   => \dash\request::post('date'),
-			'link'   => \dash\request::post('link'),
-			'tag'    => \dash\request::post('tag'),
-			'sendtg' => \dash\request::post('sendtg'),
+			'title'    => \dash\request::post('title'),
+			'industry' => \dash\request::post('industry'),
+			'url'      => \dash\request::post('url'),
+			'sort'     => \dash\request::post('sort'),
+			'language' => \dash\request::post('language'),
+			'store_id' => \dash\request::post('store_id'),
+			'desc'     => \dash\request::post('desc'),
+			'tag'      => \dash\request::post('tag'),
+			'status'   => \dash\request::post('status'),
 		];
 
 		if(\dash\data::editMode())
