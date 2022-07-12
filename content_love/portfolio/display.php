@@ -7,7 +7,7 @@
         <div class="key"><?php echo strip_tags(a($value, 'title')); ?></div>
         <div class="value"><?php echo htmlGenerateTag($value) ?></div>
         <time class="value"><?php echo T_(ucfirst(strval(a($value, 'industry')))) ?></time>
-        <div class="go"></div>
+        <div class="go <?php if(a($value, 'status') === 'accept') {echo 'ok';} ?>"></div>
       </a>
      </li>
     <?php } //endfor ?>
