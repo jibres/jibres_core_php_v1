@@ -30,6 +30,9 @@ class check
 			'company_website'  => T_('Company website'),
 			'university'       => T_('University'),
 			'wiki'             => T_('Wiki'),
+			'academy'          => T_('Academy'),
+			'learning'         => T_('Learning'),
+			'book'             => T_('Book'),
 			'other'            => T_('Other'),
 		];
 	}
