@@ -219,11 +219,13 @@ class portfolio
 	{
 		$args =
 		[
-			'language' => \dash\language::current(),
-			'limit'    => 100,
-			'status'    => 'accept',
-			'tag'      => $_tag,
+			'language'     => \dash\language::current(),
+			'limit'        => 100,
+			'status'       => 'accept',
+			'website_mode' => true,
+			'tag'          => $_tag,
 		];
+
 		return self::list(null, $args);
 	}
 
@@ -233,12 +235,13 @@ class portfolio
 
 		$condition =
 		[
-			'order'    => 'order',
-			'sort'     => 'string_50',
-			'tag'      => 'string_50',
-			'language' => 'language',
-			'status' => 'string_50',
-			'limit'    => 'int',
+			'order'        => 'order',
+			'sort'         => 'string_50',
+			'tag'          => 'string_50',
+			'language'     => 'language',
+			'website_mode' => 'bit',
+			'status'       => 'string_50',
+			'limit'        => 'int',
 		];
 
 		$require = [];
@@ -311,7 +314,15 @@ class portfolio
 			self::$is_filtered = true;
 		}
 
-		$order_sort = " ORDER BY portfolio.sort IS NULL, portfolio.sort ASC, portfolio.id DESC ";
+		if($data['website_mode'])
+		{
+			$order_sort = " ORDER BY portfolio.sort IS NULL, portfolio.sort ASC, RAND() ";
+
+		}
+		else
+		{
+			$order_sort = " ORDER BY portfolio.sort IS NULL, portfolio.sort ASC, portfolio.id DESC ";
+		}
 
 
 		$list = \dash\db\portfolio::list($param, $and, $or, $order_sort, $meta);
