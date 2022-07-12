@@ -367,7 +367,9 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
-				'post_show_readingtime'    => null,
+				'radius_normal'            => 'none',
+				'radius'                   => 'lg',
+				'post_show_readingtime'    => false,
 				'post_show_image'          => null,
 				'post_show_excerpt'        => true,
 				'post_show_date'           => 'no',
@@ -378,10 +380,9 @@ class b1
 				'coverratio'               => '16:9',
 				'count'                    => 9,
 				'color_text'               => '#333333',
-				'radius'                   => 'lg',
-				'btn_viewall_check'        => true,
-				'btn_viewall'              => T_("View all"),
 				'btn_viewall_mode'         => 'dark',
+				'btn_viewall_check'        => true,
+				'btn_viewall'              => T_('View all'),
 				'background_pack'          => 'gradient',
 				'background_gradient_type' => 'to bottom left',
 				'background_gradient_to'   => '#b3c6db',
