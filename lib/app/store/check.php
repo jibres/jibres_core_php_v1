@@ -27,6 +27,7 @@ class check
 			'services'         => T_('Services'),
 			'virtual_services' => T_('Virtual services'),
 			'other'            => T_('Other'),
+			'charity'          => T_('Charity'),
 		];
 	}
 
