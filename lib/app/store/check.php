@@ -11,7 +11,6 @@ class check
 		[
 			'do_not_know'      => T_('I haven’t decided yet'),
 			'beauty'           => T_('Beauty'),
-			'personal_website' => T_('Personal website'),
 			'clothing'         => T_('Clothing'),
 			'electronics'      => T_('Electronics'),
 			'furniture'        => T_('Furniture'),
@@ -28,6 +27,9 @@ class check
 			'virtual_services' => T_('Virtual services'),
 			'other'            => T_('Other'),
 			'charity'          => T_('Charity'),
+			'personal_website' => T_('Personal website'),
+			'company_website'  => T_('Company website'),
+			'university'       => T_('University'),
 		];
 	}
 
