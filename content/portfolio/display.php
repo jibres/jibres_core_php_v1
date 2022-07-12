@@ -22,8 +22,8 @@
 
 <?php foreach (\dash\data::dataTable() as $key => $value) { ?>		
 		<figure class="my-4">
-			<a class="hover:shadow-lg shadow transition block rounded-lg" target="_blank" data-fancybox="portfolioPreview" data-caption="<?php echo a($value, 'title') ?>" href="<?php echo \lib\filepath::fix(a($value, 'image')) ?>">
-				<img class="aspect-video bg-white rounded-lg" loading="lazy" src="<?php echo \lib\filepath::fix(a($value, 'thumb')) ?>" alt="<?php echo a($value, 'title') ?>">
+			<a class="hover:shadow-lg shadow transition block rounded-lg" target="_blank" data-fancybox="portfolioPreview" data-caption="<?php echo a($value, 'title') ?>" href="<?php echo \lib\filepath::fix(a($value, 'img_full')) ?>">
+				<img class="aspect-video bg-white rounded-lg" loading="lazy" src="<?php echo \lib\filepath::fix(a($value, 'img')) ?>" alt="<?php echo a($value, 'title') ?>">
 			</a>
 			<figcaption class="items long mt-2">
 				<ul class="">
