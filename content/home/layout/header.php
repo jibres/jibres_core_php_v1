@@ -16,6 +16,7 @@ else
      </div>
      <nav class="c s0">
        <a href="<?php echo \dash\url::kingdom(); ?>/free"><?php echo T_("Why Free?"); ?></a>
+       <a href="<?php echo \dash\url::kingdom(); ?>/portfolio"><?php echo T_("Portfolio"); ?></a>
        <a href="<?php echo \dash\url::kingdom(); ?>/domains"><?php echo T_("Domains"); ?></a>
 <?php if (\dash\url::tld() === 'ir') {?>
        <a target="_blank" href="<?php echo \dash\url::support(); ?>"><?php echo T_("Help Center"); ?> <i class="sf-link-external"></i></a>
