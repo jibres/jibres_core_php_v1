@@ -73,8 +73,6 @@
           <?php } //endfor ?>
         </select>
 
-
-
         <label><?php echo T_("Status"); ?></label>
         <select class="select22" name="status">
           <?php
@@ -89,6 +87,23 @@
           }
           ?>
         </select>
+
+        <label><?php echo T_("Thumb image"); ?></label>
+        <div class="input">
+          <input type="file" name="thumb">
+        </div>
+        <?php if(\dash\data::dataRow_thumb()) {?>
+          <img src="<?php echo \lib\filepath::fix(\dash\data::dataRow_thumb()) ?>" alt='thumb'>
+        <?php } //endif ?>
+
+        <label><?php echo T_("Image"); ?></label>
+        <div class="input">
+          <input type="file" name="image">
+        </div>
+        <?php if(\dash\data::dataRow_image()) {?>
+          <img src="<?php echo \lib\filepath::fix(\dash\data::dataRow_image()) ?>" alt='thumb'>
+        <?php } //endif ?>
+
 
 
 

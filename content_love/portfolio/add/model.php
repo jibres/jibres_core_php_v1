@@ -19,6 +19,16 @@ class model
 			'status'   => \dash\request::post('status'),
 		];
 
+		if($thumb = \dash\upload\quick::upload('thumb'))
+		{
+			$post['thumb'] = $thumb;
+		}
+
+		if($image = \dash\upload\quick::upload('image'))
+		{
+			$post['image'] = $image;
+		}
+
 		if(\dash\data::editMode())
 		{
 			if(\dash\request::post('remove') === 'remove')
@@ -39,7 +49,7 @@ class model
 
 			if($id)
 			{
-				\dash\redirect::to(\dash\url::this());
+				\dash\redirect::to(\dash\url::this(). '/edit?id='. $id);
 			}
 		}
 

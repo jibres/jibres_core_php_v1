@@ -76,6 +76,8 @@ class portfolio
 			'store_id' => 'id',
 			'desc'     => 'desc',
 			'tag'      => 'tag',
+			'thumb'    => 'string',
+			'image'    => 'string',
 			'status'   => ['enum' => ['request','accept','reject','delete']],
 
 
