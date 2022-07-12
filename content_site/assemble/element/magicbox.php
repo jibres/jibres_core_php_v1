@@ -164,7 +164,7 @@ class magicbox
 			// thumb
 			// if($myThumb && a($_args, 'post_show_image'))
 			{
-				$mediaBoxClass = 'transition relative shadow-sm hover:shadow-md';
+				$mediaBoxClass = 'transition relative shadow-sm hover:shadow-md w-full';
 				if(a($_args, 'coverratio:class'))
 				{
 					$mediaBoxClass .= ' '. a($_args, 'coverratio:class');
