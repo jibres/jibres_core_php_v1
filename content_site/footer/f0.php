@@ -48,8 +48,7 @@ class f0
 			'version'        => 1,
 			'options' =>
 			[
-				'use_as_footer_link'    => 'none',
-
+				'use_as_footer_link' => 'none',
 			],
 		];
 	}
