@@ -36,7 +36,7 @@ class controller
 				$query = '';
 			}
 
-			$url = \dash\url::kingdom().'/enter'. $query;
+			$url = \dash\url::sitelang().'/enter'. $query;
 
 			if(\dash\url::pwd() != $url)
 			{
