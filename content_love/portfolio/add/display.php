@@ -94,7 +94,7 @@
           foreach (['request','accept','reject','delete'] as $key => $value)
           {
             echo '<option value="'. $value. '"';
-            if(\dash\data::dataRow_status() === $value)
+            if(\dash\data::dataRow_status() === $value || (!\dash\data::dataRow_status() && $value == 'accept'))
             {
               echo ' selected';
             }
