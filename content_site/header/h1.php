@@ -52,8 +52,12 @@ class h1
 			'version'        => 1,
 			'options' =>
 			[
+				'use_as_logo'        => 'business_logo',
 				'use_as_heading'     => 'business_heading',
 				'use_as_description' => 'business_description',
+				'link_search'        => true,
+				'link_enter'         => true,
+				'link_cart'          => true,
 			],
 		];
 	}
