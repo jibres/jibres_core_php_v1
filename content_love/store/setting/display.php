@@ -90,12 +90,12 @@
       <input type="hidden" name="set_storage" value="1">
       <div class="box">
         <div class="body">
-          <label for="storage"><?php echo T_("Chage business storage limit") ?></label>
+          <label for="storage"><?php echo T_("Chage business storage limit") ?> (storage limit)</label>
           <div class="input">
             <label for="storage" class="addon">MB</label>
             <input type="number" name="storage" value="<?php echo \dash\data::dataRowData_storage() ?>" id="storage">
           </div>
-          <label for="uploadsize"><?php echo T_("Chage business upload file size limit") ?></label>
+          <label for="uploadsize"><?php echo T_("Chage business upload file size limit") ?> (File size)</label>
           <div class="input">
             <label for="uploadsize" class="addon">MB</label>
             <input type="number" name="uploadsize" value="<?php echo \dash\data::dataRowData_uploadsize() ?>" id="uploadsize">
