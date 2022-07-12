@@ -161,7 +161,7 @@ class portfolio
 
 		$result['img'] = $cdn . $store_code. '.jpg';
 
-		$result['full'] = $cdn . $store_code. '-full.jpg';
+		$result['img_full'] = $cdn . $store_code. '-full.jpg';
 
 		return $result;
 	}
