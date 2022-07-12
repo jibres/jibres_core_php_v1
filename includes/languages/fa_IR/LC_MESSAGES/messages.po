@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-12 16:09+0430\n"
-"PO-Revision-Date: 2022-07-12 16:12+0430\n"
+"POT-Creation-Date: 2022-07-12 16:37+0430\n"
+"PO-Revision-Date: 2022-07-12 16:38+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: T_\n"
@@ -2968,7 +2968,7 @@ msgstr "شماره تلفن مرکز اصلی شرکت"
 #: content_a/setting/factor/seller/display.php:29 content_account/my/home/display.php:156
 #: content_account/my/social/display.php:12 content_cms/posts/share/display.php:46
 #: content_crm/member/legal/display.php:32 content_my/business/home/display.php:63
-#: dash/social/telegram/commands/ermile.php:346
+#: dash/layout/m2/sidebar.php:474 dash/social/telegram/commands/ermile.php:346
 #: dash/social/telegram/commands/ermile.php:533 lib/app/form/item/type.php:435
 msgid "Website"
 msgstr "وب‌سایت"
@@ -4480,8 +4480,9 @@ msgstr "پلتفرم مالی شماره یک جهان."
 #: content_my/domain/renew/display.php:24 content_my/domain/setting/pageStep.php:7
 #: content_my/domain/transfer/display.php:7 content_my/domain/transfer/display.php:23
 #: content_my/domain/whois/display.php:6 content_site/home/display.php:26
-#: lib/app/business_domain/filter.php:66 lib/app/business_domain/filter.php:67
-#: lib/app/gift/filter.php:55 lib/app/log/caller/domain/domain_AutoRenewAlert.php:14
+#: dash/layout/m2/sidebar.php:512 lib/app/business_domain/filter.php:66
+#: lib/app/business_domain/filter.php:67 lib/app/gift/filter.php:55
+#: lib/app/log/caller/domain/domain_AutoRenewAlert.php:14
 #: lib/app/log/caller/domain/domain_creditLow.php:15
 #: lib/app/log/caller/domain/domain_expireDomainInNextDay.php:15
 #: lib/app/log/caller/domain/domain_expireDomainInNextWeek.php:15
@@ -16759,10 +16760,10 @@ msgstr "سئو هوشمند"
 
 #: content_cms/home/display.php:161 content_site/body/blog/b1.php:62
 #: content_site/body/blog/b1.php:102 content_site/body/blog/b1.php:133
-#: content_site/body/blog/b1.php:163 content_site/body/blog/b1.php:194
-#: content_site/body/blog/b1.php:222 content_site/body/blog/b1.php:253
-#: content_site/body/blog/b1.php:285 content_site/body/blog/b1.php:317
-#: content_site/body/blog/b1.php:346 content_site/body/blog/b2.php:58
+#: content_site/body/blog/b1.php:164 content_site/body/blog/b1.php:198
+#: content_site/body/blog/b1.php:226 content_site/body/blog/b1.php:257
+#: content_site/body/blog/b1.php:289 content_site/body/blog/b1.php:321
+#: content_site/body/blog/b1.php:350 content_site/body/blog/b2.php:58
 #: content_site/body/blog/b2.php:100 content_site/body/blog/b2.php:130
 #: content_site/body/blog/b2.php:163 content_site/body/blog/b2.php:196
 #: content_site/body/blog/b2.php:232 content_site/body/blog/b2.php:268
@@ -20508,7 +20509,7 @@ msgstr "نقشه سایت برای همه بیزینس‌ها ساخته شد"
 
 #: content_love/business/sitemap/view.php:8 content_site/home/display-aside-top.php:43
 #: content_site/home/display.php:33 content_site/sitemap/view.php:8
-#: dash/app/posts/dropdown.php:51 dash/layout/m2/sidebar.php:512
+#: dash/app/posts/dropdown.php:51 dash/layout/m2/sidebar.php:536
 #: lib/app/quickaccess/setting.php:237
 msgid "Sitemap"
 msgstr "نقشه‌ی سایت"
@@ -21583,8 +21584,8 @@ msgid "any"
 msgstr "همه"
 
 #: content_love/gift/create/usage/display.php:27 content_love/gift/edit/display.php:72
-#: content_site/home/display-aside-top.php:54 dash/layout/m2/sidebar.php:501
-#: includes/languages/trans_static.php:665 lib/app/plugin/items/admin/admin_domain.php:38
+#: content_site/home/display-aside-top.php:54 includes/languages/trans_static.php:665
+#: lib/app/plugin/items/admin/admin_domain.php:38
 msgid "domain"
 msgstr "دامنه"
 
@@ -23537,7 +23538,6 @@ msgid "To disable auto-save and publish Click herer"
 msgstr "برای غیرفعال سازی ذخیره و انتشار خودکار کلیک کنید"
 
 #: content_site/autosave/view.php:8 content_site/home/display-aside-top.php:88
-#: dash/layout/m2/sidebar.php:549
 msgid "Setting auto-save and publish"
 msgstr "تنظیمات ذخیره و انتشار خودکار"
 
@@ -23559,10 +23559,10 @@ msgid "Card Design"
 msgstr "دیزاین کارت"
 
 #: content_site/body/blog/b1.php:72 content_site/body/blog/b1.php:123
-#: content_site/body/blog/b1.php:152 content_site/body/blog/b1.php:182
-#: content_site/body/blog/b1.php:241 content_site/body/blog/b1.php:272
-#: content_site/body/blog/b1.php:304 content_site/body/blog/b1.php:336
-#: content_site/body/blog/b1.php:365 content_site/body/blog/b2.php:63
+#: content_site/body/blog/b1.php:154 content_site/body/blog/b1.php:185
+#: content_site/body/blog/b1.php:245 content_site/body/blog/b1.php:276
+#: content_site/body/blog/b1.php:308 content_site/body/blog/b1.php:340
+#: content_site/body/blog/b1.php:369 content_site/body/blog/b2.php:63
 #: content_site/body/blog/b2.php:121 content_site/body/blog/b2.php:152
 #: content_site/body/blog/b2.php:185 content_site/body/blog/b2.php:218
 #: content_site/body/blog/b2.php:254 content_site/body/blog/b2.php:290
@@ -23870,7 +23870,7 @@ msgstr "فایل‌های ثابت"
 
 #: content_site/home/display-aside-top.php:78 content_site/home/display.php:19
 #: content_site/options/menu/menu.php:31 content_site/options/menu/menu.php:51
-#: dash/layout/m2/sidebar.php:538
+#: dash/layout/m2/sidebar.php:500
 msgid "Menu"
 msgstr "منو"
 
@@ -28667,20 +28667,16 @@ msgid "Discount Code"
 msgstr "کد تخفیف"
 
 #: dash/layout/m2/sidebar.php:458
-msgid "Sales Channels"
-msgstr "کانال‌های فروش"
-
-#: dash/layout/m2/sidebar.php:474
-msgid "Online Website"
-msgstr "وب‌سایت فروشگاه آنلاین"
+msgid "Channels"
+msgstr "کانال‌ها"
 
 #: dash/layout/m2/sidebar.php:490
 msgid "Site builder"
 msgstr "سایت‌ساز"
 
 #: dash/layout/m2/sidebar.php:572
-msgid "Mobile App"
-msgstr "اپلیکیشن موبایل"
+msgid "Android App"
+msgstr "اپ اندروید"
 
 #: dash/layout/m2/sidebar.php:634
 msgid "Business setting"
@@ -44003,6 +43999,15 @@ msgstr "اینچ"
 #: lib/units.php:29
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Sales Channels"
+#~ msgstr "کانال‌های فروش"
+
+#~ msgid "Online Website"
+#~ msgstr "وب‌سایت فروشگاه آنلاین"
+
+#~ msgid "Mobile App"
+#~ msgstr "اپلیکیشن موبایل"
 
 #~ msgid "Store id"
 #~ msgstr "شناسه فروشگاه"

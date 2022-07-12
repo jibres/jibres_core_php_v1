@@ -455,7 +455,7 @@ class sidebar
 
 		$menu["channels"] =
 		[
-			'title'     => T_("Sales Channels"),
+			'title'     => T_("Channels"),
 		];
 
 
@@ -471,7 +471,7 @@ class sidebar
 		===================================*/
 		$menu["site"] =
 		[
-			'title'     => T_("Online Website"),
+			'title'     => T_("Website"),
 			'url'       => \dash\url::kingdom().'/site',
 			'icon'      => 'Online Store',
 			'iconColor' => 'green',
@@ -493,28 +493,28 @@ class sidebar
 				'selected' => ($content === 'site' && !in_array($module, ['sitemap', 'staticfile', 'autosave']))
 			];
 
+
+			$sidebar_links[] =
+			[
+				'url'     => $kingdom. '/a/setting/menu',
+				'title'   => T_("Menu"),
+				// 'icon' => 'MobileHamburger',
+				'direct'  => true,
+				'selected' => ($content === 'a' && $module === 'setting' && $child === 'menu')
+			];
+
+
 			if(\dash\permission::check('siteBuilderSetting'))
 			{
 			  $sidebar_links[] =
 			  [
 				'url'      => $kingdom. '/a/setting/domain',
-				'title'    => T_("domain"),
+				'title'    => T_("Domain"),
 				// 'icon'  => 'Domains',
 				'direct'   => true,
 				'selected' => ($content === 'a' && $module === 'setting' && $child === 'domain')
 			  ];
-
 			}
-
-			$sidebar_links[] =
-			[
-				'url'      => $kingdom. '/site/sitemap',
-				'title'    => T_("Sitemap"),
-				// 'icon'  => 'Globe',
-				'direct'   => false,
-				'selected' => ($module === 'sitemap'),
-			];
-
 
 
 			if(\dash\permission::check('siteBuilderSetting'))
@@ -530,28 +530,28 @@ class sidebar
 			}
 
 
-
-
 			$sidebar_links[] =
 			[
-				'url'     => $kingdom. '/a/setting/menu',
-				'title'   => T_("Menu"),
-				// 'icon' => 'MobileHamburger',
-				'direct'  => true,
-				'selected' => ($content === 'a' && $module === 'setting' && $child === 'menu')
+				'url'      => $kingdom. '/site/sitemap',
+				'title'    => T_("Sitemap"),
+				// 'icon'  => 'Globe',
+				'direct'   => false,
+				'selected' => ($module === 'sitemap'),
 			];
 
-			if(\dash\permission::check('siteBuilderSetting'))
-			{
-			  $sidebar_links[] =
-			  [
-				'url'      => $kingdom. '/site/autosave',
-				'title'    => T_("Setting auto-save and publish"),
-				// 'icon'  => 'FlipCamera',
-				'direct'   => false,
-				'selected' => ($module === 'autosave'),
-			  ];
-			}
+
+
+			// if(\dash\permission::check('siteBuilderSetting'))
+			// {
+			//   $sidebar_links[] =
+			//   [
+			// 	'url'      => $kingdom. '/site/autosave',
+			// 	'title'    => T_("Setting auto-save and publish"),
+			// 	// 'icon'  => 'FlipCamera',
+			// 	'direct'   => false,
+			// 	'selected' => ($module === 'autosave'),
+			//   ];
+			// }
 
 
 
@@ -569,7 +569,7 @@ class sidebar
 		===================================*/
 		$menu["android"] =
 		[
-			'title'     => T_("Mobile App"),
+			'title'     => T_("Android App"),
 			'url'       => \dash\url::kingdom().'/a/android',
 			'icon'      => 'mobile',
 			'iconColor' => '#a1b2c3',
