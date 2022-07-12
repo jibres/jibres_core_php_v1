@@ -128,7 +128,21 @@ class portfolio
 
 			switch ($key)
 			{
+				case 'url':
+					$result[$key] = $value;
+					$display_url = $value;
+					if($value)
+					{
+						$temp = \dash\validate\url::parseUrl($value);
+						if(isset($temp['host']))
+						{
+							$display_url = $temp['host'];
+						}
+					}
+					$result['display_url'] = $display_url;
 
+
+					break;
 
 				default:
 					$result[$key] = $value;
@@ -190,7 +204,14 @@ class portfolio
 
 	public static function public_list($_tag = null)
 	{
-		return self::list(null, ['language' => \dash\language::current(), 'limit' => 100, 'tag' => $_tag]);
+		$args =
+		[
+			'language' => \dash\language::current(),
+			'limit'    => 100,
+			'status'    => 'accept',
+			'tag'      => $_tag,
+		];
+		return self::list(null, $args);
 	}
 
 
@@ -203,6 +224,7 @@ class portfolio
 			'sort'     => 'string_50',
 			'tag'      => 'string_50',
 			'language' => 'language',
+			'status' => 'string_50',
 			'limit'    => 'int',
 		];
 
@@ -228,6 +250,11 @@ class portfolio
 		{
 			$and[] = " portfolio.language = :lang ";
 			$param[':lang'] = $data['language'];
+		}
+		if($data['status'])
+		{
+			$and[] = " portfolio.status = :status ";
+			$param[':status'] = $data['status'];
 		}
 
 		if($data['tag'])
@@ -271,7 +298,7 @@ class portfolio
 			self::$is_filtered = true;
 		}
 
-		$order_sort = " ORDER BY portfolio.id DESC ";
+		$order_sort = " ORDER BY portfolio.sort ASC, portfolio.id DESC ";
 
 
 		$list = \dash\db\portfolio::list($param, $and, $or, $order_sort, $meta);

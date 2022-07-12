@@ -26,7 +26,6 @@ class view
 		$list = \dash\app\portfolio::public_list(\dash\request::get('tag'));
 		\dash\data::dataTable($list);
 
-		var_dump($list);exit;
 
 		if(!$list && \dash\request::get())
 		{

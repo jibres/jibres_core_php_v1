@@ -18,18 +18,19 @@
 
 
  <div class="m-auto max-w-screen-lg w-full px-2 sm:px-4 lg:px-5 relative py-5">
+ 	<?php foreach (\dash\data::dataTable() as $key => $value) { ?>
 	<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
 		
 		<figure class="my-4">
-			<a class="hover:shadow-lg shadow transition block rounded-lg" target="_blank" data-fancybox="portfolioPreview" href="<?php echo \dash\url::cdn(); ?>/img/cover/Jibres-cover-portfolio-1.jpg">
-				<img class="aspect-video bg-white rounded-lg" loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/cover/Jibres-cover-portfolio-1.jpg" alt="w1">
+			<a class="hover:shadow-lg shadow transition block rounded-lg" target="_blank" data-fancybox="portfolioPreview" href="<?php echo \lib\filepath::fix(a($value, 'image')) ?>">
+				<img class="aspect-video bg-white rounded-lg" loading="lazy" src="<?php echo \lib\filepath::fix(a($value, 'thumb')) ?>" alt="w1">
 			</a>
 			<figcaption class="items long mt-2">
 				<ul class="">
 					<li>
-						<a class="item f" href="https://Bitty.ir" target="_blank" rel="nofollow noopener">
-						<div class="key">Bitty Store</div>
-						<div class="value">Bitty.ir</div>
+						<a class="item f" href="<?php echo a($value, 'url') ?>" target="_blank" rel="nofollow noopener">
+						<div class="key"><?php echo a($value, 'title') ?></div>
+						<div class="value"><?php echo a($value, 'display_url') ?></div>
 						<div class="go external"></div>
 						</a>
 					</li>
@@ -38,4 +39,5 @@
 		</figure>
 
 	</div>
+<?php } // endfor ?>
  </div>
