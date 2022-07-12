@@ -18,7 +18,7 @@
           <?php } //endif ?>
             </select>
           <?php if(\dash\data::dataRow_store_id()) {?>
-            <div class="grid grid-cols-2 cap-2 my-2">
+            <div class="grid grid-cols-2 gap-2 my-2">
 
                 <a target="_blank" href="<?php echo \dash\data::dataRow_img() ?>">
                   <img class="accept-video" src="<?php echo \dash\data::dataRow_img() ?>" alt='img'>
