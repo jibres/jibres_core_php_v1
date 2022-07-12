@@ -88,21 +88,43 @@
           ?>
         </select>
 
-        <label><?php echo T_("Thumb image"); ?></label>
-        <div class="input">
-          <input type="file" name="thumb">
-        </div>
-        <?php if(\dash\data::dataRow_thumb()) {?>
-          <img src="<?php echo \lib\filepath::fix(\dash\data::dataRow_thumb()) ?>" alt='thumb'>
-        <?php } //endif ?>
 
-        <label><?php echo T_("Image"); ?></label>
-        <div class="input">
-          <input type="file" name="image">
-        </div>
-        <?php if(\dash\data::dataRow_image()) {?>
-          <img src="<?php echo \lib\filepath::fix(\dash\data::dataRow_image()) ?>" alt='thumb'>
-        <?php } //endif ?>
+          <lable><?php echo T_("Thumb"); ?></lable>
+          <div class="body2">
+            <div data-uploader data-name='thumb' data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(\dash\data::dataRow_thumb()) { echo "data-fill";}?>>
+              <input type="file" accept="image/jpeg, image/png" id="image1">
+              <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+              <?php if(\dash\data::dataRow_thumb()) {?>
+                <?php $myExt = substr(\dash\data::dataRow_thumb(), -3); ?>
+                <?php if(in_array($myExt, ['png', 'jpg', 'gif'])) {?>
+                  <label for="image1"><img id="finalImage" src="<?php echo \dash\data::dataRow_thumb(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>"></label>
+                  <span class="imageDel" data-confirm data-data='{"deletefile" : "thumb"}'></span>
+                <?php }//endif ?>
+              <?php } else {//endif ?>
+                <label for="image1"><img id="finalImage" alt="<?php echo \dash\data::dataRow_title(); ?>"></label>
+              <?php }//endif ?>
+            </div>
+          </div>
+
+
+
+          <lable><?php echo T_("Image"); ?></lable>
+          <div class="body2">
+            <div data-uploader data-name='image' data-final='#finalImage2' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(\dash\data::dataRow_image()) { echo "data-fill";}?>>
+              <input type="file" accept="image/jpeg, image/png" id="image2">
+              <label for="image2"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+              <?php if(\dash\data::dataRow_image()) {?>
+                <?php $myExt = substr(\dash\data::dataRow_image(), -3); ?>
+                <?php if(in_array($myExt, ['png', 'jpg', 'gif'])) {?>
+                  <label for="image2"><img id="finalImage2" src="<?php echo \dash\data::dataRow_image(); ?>" alt="<?php echo \dash\data::dataRow_title(); ?>"></label>
+                  <span class="imageDel" data-confirm data-data='{"deletefile" : "image"}'></span>
+                <?php }//endif ?>
+              <?php } else {//endif ?>
+                <label for="image2"><img id="finalImage2" alt="<?php echo \dash\data::dataRow_title(); ?>"></label>
+              <?php }//endif ?>
+            </div>
+          </div>
+
 
 
 

@@ -128,6 +128,11 @@ class portfolio
 
 			switch ($key)
 			{
+				case 'thumb':
+				case 'image':
+					$result[$key] = \lib\filepath::fix($value);
+					break;
+
 				case 'url':
 					$result[$key] = $value;
 					$display_url = $value;

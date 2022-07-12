@@ -6,6 +6,24 @@ class model
 {
 	public static function post()
 	{
+		if(\dash\request::post('deletefile') === 'image')
+		{
+			\dash\app\portfolio::edit(['image' => null], \dash\request::get('id'));
+
+			\dash\redirect::pwd();
+
+			return;
+		}
+
+		if(\dash\request::post('deletefile') === 'thumb')
+		{
+			\dash\app\portfolio::edit(['thumb' => null], \dash\request::get('id'));
+
+			\dash\redirect::pwd();
+
+			return;
+		}
+
 		$post =
 		[
 			'title'    => \dash\request::post('title'),
@@ -40,7 +58,7 @@ class model
 			{
 				$id = \dash\app\portfolio::edit($post, \dash\request::get('id'));
 
-				\dash\redirect::pwd(\dash\url::this());
+				\dash\redirect::pwd();
 			}
 		}
 		else
