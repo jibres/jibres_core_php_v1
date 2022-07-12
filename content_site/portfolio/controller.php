@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\portfolio;
+namespace content_site\portfolio;
 
 class controller
 {

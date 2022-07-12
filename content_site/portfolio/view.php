@@ -1,5 +1,5 @@
 <?php
-namespace content_a\setting\portfolio;
+namespace content_site\portfolio;
 
 class view
 {
@@ -8,7 +8,7 @@ class view
 		\dash\face::title(T_('Jibres portfolio'));
 
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this());
+		\dash\data::back_link(\dash\url::here());
 	}
 }
 ?>

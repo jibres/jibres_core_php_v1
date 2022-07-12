@@ -42,6 +42,17 @@ echo $html;
 		</a>
 	</div>
 
+	<div class="c-xs-12 c-4 mb-1">
+		<a href="<?php echo \dash\url::this(). '/portfolio' ?>">
+			<div class="bg-white rounded-lg flex justify-center items-center align-middle h-16 w-full block">
+				<div class="text-center "><?php echo T_("Jibres portfolio") ?></div>
+			</div>
+		</a>
+	</div>
+
+
+
+
 
 
 </section>
