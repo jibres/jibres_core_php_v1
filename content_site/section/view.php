@@ -45,10 +45,9 @@ class view
 		// load section list if needed
 		self::show_section_preview_in_group();
 
-
 		if(\dash\permission::supervisor() && \dash\request::get('downloadjson'))
 		{
-			\content_site\utility::downloadjson();
+			\content_site\utility::downloadjson(null, false);
 		}
 
 		if((\dash\url::child() === 'text' && !\dash\url::subchild()) || (\dash\url::child() === 'imagetext' && \dash\url::subchild() === 'text'))
