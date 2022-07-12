@@ -61,11 +61,12 @@ class h3
 			'version'        => 1,
 			'options' =>
 			[
-				'use_as_logo'              => 'business_logo',
-				'use_as_heading'           => 'business_heading',
-				'link_search'              => true,
-				'link_enter'               => true,
-				'link_cart'                => true,
+				'use_as_logo'    => 'business_logo',
+				'use_as_heading' => 'business_heading',
+				'link_search'    => true,
+				'link_enter'     => true,
+				'link_cart'      => true,
+				'container'      => 'xl',
 			],
 		];
 	}
