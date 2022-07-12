@@ -336,6 +336,8 @@ class b1
 			'version'        => 1,
 			'options' =>
 			[
+				'radius_normal'         => 'none',
+				'radius'                => 'lg',
 				'post_show_readingtime' => null,
 				'post_show_image'       => true,
 				'post_show_excerpt'     => null,
@@ -347,9 +349,9 @@ class b1
 				'coverratio'            => '16:9',
 				'count'                 => 7,
 				'color_text'            => '#333333',
-				'radius'                => 'lg',
+				'btn_viewall_mode'      => 'dark',
 				'btn_viewall_check'     => null,
-				'btn_viewall'           => T_("View all"),
+				'btn_viewall'           => T_('View all'),
 				'background_pack'       => 'solid',
 				'background_color'      => '#eeeeee',
 			],
