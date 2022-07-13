@@ -31,6 +31,13 @@ class model
 			return;
 		}
 
+		if(\dash\request::post('set_status'))
+		{
+			\dash\app\posts\edit::edit(['status' => \dash\request::post('status')], \dash\data::currentPageDetail_id());
+			\dash\redirect::pwd();
+			return;
+		}
+
 		// page option seo setting
 		if(\dash\request::post('seosettings'))
 		{

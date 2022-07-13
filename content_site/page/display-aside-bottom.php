@@ -1,5 +1,14 @@
 <?php
     $html = '';
+    if(\dash\data::currentPageDetail_status() === 'draft')
+    {
+      $html .= '<a href="'.\dash\url::this(). '/settings'. \dash\request::full_get() .'"><div class="alert-info font-14a">';
+      {
+        $html .= T_("This page is a draft and not published yet. You must publish it if you want it visible to everyone");
+      }
+      $html .= '</div></a>';
+    }
+
     $html .= '<div>';
     {
       $html .= '<a class="btn-outline-dark btn-sm flex align-center" href="'.\dash\url::this(). '/settings'. \dash\request::full_get().'">';

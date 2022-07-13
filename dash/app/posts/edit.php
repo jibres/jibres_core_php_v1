@@ -126,7 +126,6 @@ class edit
 				{
 					$args['datemodified'] = date("Y-m-d H:i:s");
 				}
-
 				\dash\db\posts\update::record($args, $id);
 			}
 

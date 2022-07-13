@@ -180,8 +180,29 @@ echo $html;
 </form>
 
 
+
 <?php if(!$is_homepage && \dash\permission::check('removeSiteBuilderPage')) {?>
-  <div class='mt-10'>
+  <form method="post" autocomplete="off" data-patch class="mt-4">
+    <input type="hidden" name="set_status" value="1">
+     <div class=''>
+          <div class='font-bold'><?php echo T_('Page Status') ?></div>
+          <div class='row'>
+            <div class='c-xs-12 c-sm-6 c-md'>
+              <div class='radio3'>
+                <input type='radio' name='status' value='draft' id='draft'  <?php if(\dash\data::dataRow_status() === 'draft') {echo 'checked';} ?>>
+                <label for='draft'><?php echo T_('Draft') ?></label>
+              </div>
+            </div>
+            <div class='c-xs-12 c-sm-6 c-md'>
+              <div class='radio3'>
+                <input type='radio' name='status' value='publish' id='publish' <?php if(\dash\data::dataRow_status() === 'publish') {echo 'checked';} ?>>
+                <label for='publish'><?php echo T_('Publish') ?></label>
+              </div>
+            </div>
+          </div>
+        </div>
+  </form>
+  <div class='mt-4'>
     <hr class='mb-5'>
     <div class='text-red-800'><?php echo T_('Remove page and all section') ?></div>
     <div class='check1'>
