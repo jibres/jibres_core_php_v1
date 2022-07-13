@@ -82,43 +82,43 @@ class utility
 
 	public static function wow_update_all_section()
 	{
-		\dash\pdo::transaction();
+		// \dash\pdo::transaction();
 
-		\dash\temp::set('siteBuilderForceDisableRedirect', true);
-		\dash\temp::set('clesnse_not_end_with_error', true);
-		\dash\code::time_limit(0);
+		// \dash\temp::set('siteBuilderForceDisableRedirect', true);
+		// \dash\temp::set('clesnse_not_end_with_error', true);
+		// \dash\code::time_limit(0);
 
-		$list = \dash\data::previewSectionList();
-		foreach ($list as $key => $value)
-		{
-			$add_new_section =
-			[
-				'section'     => a($value, 'section'),
-				'opt_model'   => a($value, 'opt_model'),
-				'preview_key' => a($value, 'preview_key'),
-			];
+		// $list = \dash\data::previewSectionList();
+		// foreach ($list as $key => $value)
+		// {
+		// 	$add_new_section =
+		// 	[
+		// 		'section'     => a($value, 'section'),
+		// 		'opt_model'   => a($value, 'opt_model'),
+		// 		'preview_key' => a($value, 'preview_key'),
+		// 	];
 
-			\dash\request::overwrite_POST($add_new_section);
+		// 	\dash\request::overwrite_POST($add_new_section);
 
-			\content_site\section\model::post();
+		// 	\content_site\section\model::post();
 
-			$sid = \dash\temp::get('siteBuilderNewSectionIDAdded');
+		// 	$sid = \dash\temp::get('siteBuilderNewSectionIDAdded');
 
-			$page_id    = \dash\coding::decode(\dash\request::get('id'));
-			$section_detail = \lib\db\sitebuilder\get::by_id_related_id($sid, $page_id);
-
-
-			$section_detail = \content_site\section\view::ready_section_list($section_detail);
-
-			\dash\temp::set('putJsonInFile', true);
-
-			$downloadjson = self::downloadjson($section_detail, false, true);
+		// 	$page_id    = \dash\coding::decode(\dash\request::get('id'));
+		// 	$section_detail = \lib\db\sitebuilder\get::by_id_related_id($sid, $page_id);
 
 
+		// 	$section_detail = \content_site\section\view::ready_section_list($section_detail);
 
-		}
+		// 	\dash\temp::set('putJsonInFile', true);
 
-		\dash\pdo::rollback();
+		// 	$downloadjson = self::downloadjson($section_detail, false, true);
+
+
+
+		// }
+
+		// \dash\pdo::rollback();
 	}
 
 
@@ -341,10 +341,10 @@ class utility
 			$new_file_content .= $code_function;
 			$new_file_content .= implode('', $after_function);
 			// var_dump($new_file_content);exit;
-			if(\dash\url::isLocal())
-			{
-				file_put_contents(root. $file_path, $new_file_content);
-			}
+			// if(\dash\url::isLocal())
+			// {
+			// 	file_put_contents(root. $file_path, $new_file_content);
+			// }
 
 			return;
 		}
