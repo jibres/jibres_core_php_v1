@@ -63,20 +63,37 @@ class formbuilder1
 	/**
 	 * Preview 1
 	 */
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 19:02:21
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/formbuilder/formbuilder1.php
+	 * body / formbuilder / formbuilder1 / p1
+	 *
+	*/
 	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'radius'               => 'full',
-
+				'radius_normal'    => 'none',
+				'radius'           => 'full',
+				'height'           => 'md',
+				'heading_position' => 'center',
+				'coverratio'       => '16:9',
+				'count'            => 3,
+				'color_text'       => '#333333',
+				'background_pack'  => 'none',
 			],
 		];
 	}
-
-
-
+	// path content_site/body/formbuilder/formbuilder1.php
+	// body / formbuilder / formbuilder1 / p1
 }
 ?>
