@@ -15,9 +15,9 @@
 </div>
 <?php }else{ ?>
 
-<div class="f">
+<div class="avand-md">
 
-  <div class="c s12 pRa10">
+  <div class="c12 s12 pRa10">
     <div class="box p-4">
       <h6><?php echo T_("Database info"); ?></h6>
       <div class="alert2">
@@ -26,34 +26,12 @@
       </div>
 
       <div class="btn-success block mb-2" data-confirm data-timeout=0 data-data='{"backupnow": "jibres"}'>Backup Jibres Database</div>
-      <div class="btn-outline-success block mb-2" data-confirm data-timeout=0 data-data='{"backupnow": "domain"}'>Backup Domains Database</div>
-      <div class="btn-outline-success block mb-2" data-confirm data-timeout=0 data-data='{"backupnow": "business"}'>Backup All business Database</div>
+
 
     </div>
   </div>
 
-  <div class="c s12">
-    <div class="box p-4">
-      <form method="post">
-      <input type="hidden" name="backup" value="schedule">
 
-      <div class="switch1">
-       <input type="checkbox" name="auto_backup" id="auto_backup" <?php if(\dash\data::configBackup_auto_backup()) {?> checked <?php } ?>>
-       <label for="auto_backup"></label>
-       <label for="auto_backup"><?php echo T_("Auto backup"); ?></label>
-      </div>
-
-      <div data-response="auto_backup"<?php if(\dash\data::configBackup_auto_backup()) {}else{?>   data-response-hide <?php } ?> class="">
-        <div class="f">
-          <div class="c"><?php iEvery(); ?></div>
-          <div class="c mLa5"><?php iStartAtTime(); ?></div>
-        </div>
-        <?php iLifeTime(); ?>
-      </div>
-      <button class="btn-primary block mT5 "><?php echo T_("Save"); ?></button>
-    </form>
-    </div>
-  </div>
 
 </div>
 

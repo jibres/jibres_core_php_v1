@@ -11,18 +11,6 @@ class model
 			\dash\notif::ok("Jibres database backup complete");
 		}
 
-		if(\dash\request::post('backupnow') === 'domain')
-		{
-			\dash\engine\backup\database::make_backup_now(true, 'domain');
-			\dash\notif::ok("Domain database backup complete");
-
-		}
-
-		if(\dash\request::post('backupnow') === 'business')
-		{
-			\dash\engine\backup\database::make_backup_now(true, 'business');
-			\dash\notif::ok("Business database backup complete");
-		}
 
 		\dash\redirect::pwd();
 

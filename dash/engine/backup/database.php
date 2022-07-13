@@ -155,11 +155,11 @@ class database
 
 			$fuel      = \dash\engine\fuel::get('visitor');
 			self::backup_dump_exec($backup_dir, $fuel, 'jibres_visitor');
-		}
 
-		if(!$_only || $_only === 'domain')
-		{
-			// make nic backup
+			$fuel      = \dash\engine\fuel::get('api_log');
+			self::backup_dump_exec($backup_dir, $fuel, 'jibres_api_log');
+
+
 			$fuel      = \dash\engine\fuel::get('nic');
 			self::backup_dump_exec($backup_dir, $fuel, 'jibres_nic');
 
@@ -170,24 +170,6 @@ class database
 			self::backup_dump_exec($backup_dir, $fuel, 'jibres_onlinenic_log');
 		}
 
-		if(!$_only || $_only === 'ipg')
-		{
-			$fuel      = \dash\engine\fuel::get('shaparak');
-			self::backup_dump_exec($backup_dir, $fuel, 'jibres_shaparak');
-
-			$fuel      = \dash\engine\fuel::get('shaparak_log');
-			self::backup_dump_exec($backup_dir, $fuel, 'jibres_shaparak_log');
-		}
-
-		if(!$_only || $_only === 'business')
-		{
-			foreach ($all_store as $key => $value)
-			{
-				$fuel      = \dash\engine\fuel::get($value['fuel']);
-				$db_name   = \dash\engine\store::make_database_name($value['id']);
-				self::backup_dump_exec($backup_dir, $fuel, $db_name);
-			}
-		}
 
 		\dash\file::append(__DIR__.'/temp.me.exec', ' echo end '. "\n");
 
@@ -202,6 +184,7 @@ class database
 
 		$cmd  = "mysqldump ";
 		$cmd .= " --single-transaction ";
+		$cmd .= " --no-data";
 		$cmd .= " --databases ";
 		$cmd .= " --add-drop-table ";
 		$cmd .= " --skip-lock-tables ";
@@ -231,10 +214,12 @@ class database
 	private static function backup_dump_exec($_dir, $_fuel, $_database_name)
 	{
 		$date       = date('Y-m-d_H-i-s');
-		$dest_file  = $_database_name. '_'. $date. '.sql.bz2';
+		// $dest_file  = $_database_name. '_'. $date. '.sql.bz2';
+		$dest_file  = $_database_name. '_'. $date. '.sql';
 
 		$cmd = self::backup_cmd($_fuel, $_database_name);
-		$cmd .= " | bzip2 -c > $_dir/$dest_file &&";
+		$cmd .= "  > $_dir/$dest_file &&";
+		// $cmd .= " | bzip2 -c > $_dir/$dest_file &&";
 		// $cmd .= " | bzip2 -c > $_dir/$dest_file 2>&1 &";
 
 		// to import this file
