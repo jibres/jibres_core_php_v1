@@ -147,14 +147,14 @@ class renew
 				$msg .= '<br>';
 				$msg .= T_("Can not renew again at this time!");
 
-				\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+				\dash\notif::error(strip_tags($msg),['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 				return false;
 			}
 
 			if(in_array('serverRenewProhibited', $get_domain_info['status']))
 			{
 				$msg = T_("Can not renew again at this time!");
-				\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+				\dash\notif::error(strip_tags($msg),['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 				return false;
 			}
 		}
@@ -184,7 +184,7 @@ class renew
 			$msg .= T_("Because the maximum validity period of the domain is six years, and depending on the period you choose and the expiration date of the domain, your domain will be more than six years, and this is not possible.");
 			$msg .= '<br>';
 
-			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			\dash\notif::error(strip_tags($msg),['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
 
 			return false;
@@ -228,7 +228,7 @@ class renew
 			$msg .= T_("If you are administrator of this domain Your must go to nic.ir and set billing holder of this domain on 'ji128-irnic' ");
 			$msg .= '<br>';
 
-			\dash\notif::error(1,['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			\dash\notif::error(strip_tags($msg),['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
 			// \dash\notif::error(T_("We can not renew this domain because the bill holder of IRNIC can not access to renew"));
 			return false;
@@ -519,7 +519,7 @@ class renew
 			$msg .= '<br>';
 			$msg .= \dash\fit::date($expiredate);
 
-			\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			\dash\notif::ok(strip_tags($msg),['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
 			// fetch nic credit after renew domain
 			$credit = \lib\app\nic_credit\get::fetch(true);
@@ -536,8 +536,6 @@ class renew
 			];
 
 			\dash\log::set('domain_newRegister', $log);
-
-			// \dash\notif::ok(, ['alerty' => true]);
 
 			\lib\app\nic_domain\edit::remove_last_fetch(\dash\coding::encode($domain_id));
 
@@ -599,7 +597,7 @@ class renew
 			}
 
 
-			\dash\notif::error(1,['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			\dash\notif::error(strip_tags($msg),['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
 			return false;
 		}
 	}

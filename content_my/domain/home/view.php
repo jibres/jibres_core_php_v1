@@ -51,7 +51,7 @@ class view
 						$msg .= '<br>';
 					}
 
-					\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+					\dash\notif::ok(strip_tags($msg),['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
 					if($domain)
 					{
@@ -63,7 +63,7 @@ class view
 				{
 					$msg = T_("Payment unsuccessful");
 					$msg .= '<br>';
-					\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+					\dash\notif::error(strip_tags($msg),['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 				}
 			}
 			else

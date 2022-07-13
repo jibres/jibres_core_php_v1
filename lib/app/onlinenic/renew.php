@@ -131,7 +131,7 @@ class renew
 			$msg .= T_("Because the maximum validity period of the domain is 10 years, and depending on the period you choose and the expiration date of the domain, your domain will be more than 10 years, and this is not possible.");
 			$msg .= '<br>';
 
-			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			\dash\notif::error(strip_tags($msg),['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
 
 			return false;
@@ -413,7 +413,7 @@ class renew
 			$msg .= '<br>';
 			$msg .= \dash\fit::date($expiredate);
 
-			\dash\notif::ok(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			\dash\notif::ok(strip_tags($msg),['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
 			if(\dash\validate::ir_domain($domain, false))
 			{

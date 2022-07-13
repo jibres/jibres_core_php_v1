@@ -531,7 +531,7 @@ class add
 				$minimumorderamount_html = T_("Minimum order amount is :val :currency", ['val' => \dash\fit::number($cart_setting['minimumorderamount']), 'currency' => \lib\store::currency()]);
 				$minimumorderamount_html .= '<br>';
 				$minimumorderamount_html .= T_("You must add :val :currency to your cart", ['val' => \dash\fit::number($cart_setting['minimumorderamount'] - $_subtotal), 'currency' => \lib\store::currency()]);
-				\dash\notif::error('1', ['alerty' => true, 'html' => $minimumorderamount_html]);
+				\dash\notif::error(strip_tags($minimumorderamount_html), ['alerty' => true, 'html' => $minimumorderamount_html]);
 				return false;
 			}
 		}

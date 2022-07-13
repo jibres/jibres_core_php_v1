@@ -213,7 +213,7 @@ class create
 			$msg .= T_("Your must go to nic.ir and set change holder setting and allow to reseller to access to your account");
 			$msg .= '<br>';
 
-			\dash\notif::error(1,['timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			\dash\notif::error(strip_tags($msg),['timeout' => 0, 'alerty' => true, 'html' => $msg]);
 			return false;
 		}
 

@@ -154,7 +154,7 @@ class transfer
 			$msg .= '<a href="'.\dash\url::kingdom(). '/my/domain/renew?domain='. $data['domain']. '">'. T_("Renew :domain", ['domain' => $data['domain']]). '</a>';
 			$msg .= '<br>';
 
-			\dash\notif::error(1,['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
+			\dash\notif::error(strip_tags($msg),['target1' => '#myidx', 'timeout' => 0, 'alerty' => true, 'html' => $msg]);
 
 			// \dash\notif::error(T_("We can not renew this domain because the bill holder of IRNIC can not access to renew"));
 			return false;
