@@ -215,12 +215,10 @@ class utility
 			$code = '';
 		}
 
-		$code .= "\t\t\t// start-option";
-		$code .= "\n";
 		$code .= "\t\t\t[";
 		$code .= "\n";
 
-		$code .= "\t\t\t\t// $folder / $section_key / $model / $preview_key \n";
+		// $code .= "\t\t\t\t// $folder / $section_key / $model / $preview_key \n";
 
 		foreach ($preview as $key => $value)
 		{
@@ -274,14 +272,21 @@ class utility
 		}
 		$code .= "\t\t\t],";
 		$code .= "\n";
-		$code .= "\t\t\t// end-option";
-		$code .= "\n";
 
 		if(\dash\temp::get('putJsonInFile'))
 		{
 			$code_function = '';
 
 			$code_function .= "\n\n";
+			$code_function .= "\n\t/**";
+			$code_function .= "\n\t * Auto Generate Function ";
+			$code_function .= "\n\t * @date ". date("Y-m-d H:i:s");
+			$code_function .= "\n\t * @author ". \dash\user::detail('email');
+			$code_function .= "\n\t *";
+			$code_function .= "\n\t * @path ". $file_path;
+			$code_function .= "\n\t * $folder / $section_key / $model / $preview_key" ;
+			$code_function .= "\n\t *";
+			$code_function .= "\n\t*/\n";
 			$code_function .= "\tpublic static function $preview_key()\n";
 			$code_function .= "\t{\n";
 
@@ -292,6 +297,9 @@ class utility
 			$code_function .= $code;
 			$code_function .= "\t\t];\n";
 			$code_function .= "\t}\n";
+
+			$code_function .= "\t// path ". $file_path;
+			$code_function .= "\n\t// $folder / $section_key / $model / $preview_key" ;
 
 			$read_file = file((root. $file_path));
 
