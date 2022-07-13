@@ -69,20 +69,36 @@ class imagetext1
 	/**
 	 * Preview 1
 	 */
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:59:11
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/imagetext/imagetext1.php
+	 * body / imagetext / imagetext1 / p1
+	 *
+	*/
 	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-
-
+				'radius'          => '3xl',
+				'html_text'       => T_("Your text"),
+				'height'          => 'md',
+				'file'            => \dash\sample\img::background(),
+				'coverratio'      => '16:9',
+				'background_pack' => 'none',
 			],
 		];
 	}
-
-
+	// path content_site/body/imagetext/imagetext1.php
+	// body / imagetext / imagetext1 / p1
 
 }
 ?>
