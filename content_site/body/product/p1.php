@@ -80,15 +80,25 @@ class p1
 	/**
 	 * Preview 1
 	 */
-	public static function p1($_title = null)
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:54:09
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/product/p1.php
+	 * body / product / p1 / p1
+	 *
+	*/
+	public static function p1()
 	{
-		$_title = T_("Products");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'count'              => 8,
 				'radius_normal'      => 'none',
 				'radius'             => 'lg',
 				'product_show_title' => true,
@@ -96,7 +106,9 @@ class p1
 				'product_show_image' => true,
 				'height'             => 'sm',
 				'heading_position'   => 'center',
+				'heading'            => T_("Products"),
 				'coverratio'         => '16:9',
+				'count'              => 8,
 				'color_text'         => '#333333',
 				'btn_viewall_mode'   => 'secondary',
 				'btn_viewall_check'  => true,
@@ -105,5 +117,7 @@ class p1
 			],
 		];
 	}
+	// path content_site/body/product/p1.php
+	// body / product / p1 / p1
 }
 ?>

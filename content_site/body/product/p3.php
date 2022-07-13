@@ -91,46 +91,70 @@ class p3
 	/**
 	 * Preview 1
 	 */
-	public static function p1($_title = null)
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:54:09
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/product/p3.php
+	 * body / product / p3 / p1
+	 *
+	*/
+	public static function p1()
 	{
-		$_title = T_("Products");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'slider_size'             => 'sm',
-				'slider_next_prev'        => true,
-				'slider_effect'           => 'slide',
-				'slider_autoplay'         => 5,
-				'radius_normal'           => 'none',
-				'radius'                  => 'lg',
-				'product_show_title'      => true,
-				'product_show_price'      => true,
-				'product_show_image'      => 1,
-				'link_color'              => 'dark',
-				'height'                  => 'sm',
-				'heading_position'        => 'center',
-				'coverratio'              => '1:1',
-				'count'                   => 15,
-				'container'               => 'xl',
-				'color_text'              => '#333333',
-				'btn_viewall_mode'        => 'dark',
-				'btn_viewall_check'       => 1,
-				'btn_viewall'             => T_("View all"),
-				'background_pack'         => 'none',
-				'background_color'        => '#218b82',
+				'slider_size'        => 'sm',
+				'slider_next_prev'   => true,
+				'slider_effect'      => 'slide',
+				'slider_autoplay'    => 5,
+				'radius_normal'      => 'none',
+				'radius'             => 'lg',
+				'product_show_title' => true,
+				'product_show_price' => true,
+				'product_show_image' => 1,
+				'link_color'         => 'dark',
+				'height'             => 'sm',
+				'heading_position'   => 'center',
+				'heading'            => T_("Products"),
+				'coverratio'         => '1:1',
+				'count'              => 15,
+				'container'          => 'xl',
+				'color_text'         => '#333333',
+				'btn_viewall_mode'   => 'dark',
+				'btn_viewall_check'  => 1,
+				'btn_viewall'        => T_("View all"),
+				'background_pack'    => 'none',
+				'background_color'   => '#218b82',
 			],
 		];
 	}
+	// path content_site/body/product/p3.php
+	// body / product / p3 / p1
 
 
-	public static function p2($_title = null)
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:54:09
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/product/p3.php
+	 * body / product / p3 / p2
+	 *
+	*/
+	public static function p2()
 	{
-		$_title = T_("Products");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'slider_size'        => 'md',
@@ -145,6 +169,7 @@ class p3
 				'link_color'         => 'dark',
 				'height'             => 'sm',
 				'heading_position'   => 'center',
+				'heading'            => T_("Products"),
 				'coverratio'         => '1:1',
 				'count'              => 15,
 				'container'          => 'xl',
@@ -157,14 +182,24 @@ class p3
 			],
 		];
 	}
+	// path content_site/body/product/p3.php
+	// body / product / p3 / p2
 
 
-	public static function p3($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:54:09
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/product/p3.php
+	 * body / product / p3 / p3
+	 *
+	*/
+	public static function p3()
 	{
-		$_title = T_("Products");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'slider_size'        => 'lg',
@@ -179,6 +214,7 @@ class p3
 				'link_color'         => 'dark',
 				'height'             => 'sm',
 				'heading_position'   => 'center',
+				'heading'            => T_("Products"),
 				'coverratio'         => '1:1',
 				'count'              => 15,
 				'container'          => 'xl',
@@ -191,14 +227,24 @@ class p3
 			],
 		];
 	}
+	// path content_site/body/product/p3.php
+	// body / product / p3 / p3
 
 
-	public static function p4($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:54:09
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/product/p3.php
+	 * body / product / p3 / p4
+	 *
+	*/
+	public static function p4()
 	{
-		$_title = T_("Products");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'slider_size'        => 'xl',
@@ -213,6 +259,7 @@ class p3
 				'link_color'         => 'dark',
 				'height'             => 'sm',
 				'heading_position'   => 'center',
+				'heading'            => T_("Products"),
 				'coverratio'         => '1:1',
 				'count'              => 15,
 				'container'          => 'xl',
@@ -225,14 +272,24 @@ class p3
 			],
 		];
 	}
+	// path content_site/body/product/p3.php
+	// body / product / p3 / p4
 
 
-	public static function p5($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:54:09
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/product/p3.php
+	 * body / product / p3 / p5
+	 *
+	*/
+	public static function p5()
 	{
-		$_title = T_("Products");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'slider_size'        => 'md',
@@ -247,6 +304,7 @@ class p3
 				'link_color'         => 'dark',
 				'height'             => 'sm',
 				'heading_position'   => 'center',
+				'heading'            => T_("Products"),
 				'coverratio'         => '1:1',
 				'count'              => 15,
 				'container'          => 'lg',
@@ -259,14 +317,24 @@ class p3
 			],
 		];
 	}
+	// path content_site/body/product/p3.php
+	// body / product / p3 / p5
 
 
-	public static function p6($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:54:09
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/product/p3.php
+	 * body / product / p3 / p6
+	 *
+	*/
+	public static function p6()
 	{
-		$_title = T_("Products");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'slider_size'              => 'md',
@@ -281,6 +349,7 @@ class p3
 				'link_color'               => 'dark',
 				'height'                   => 'sm',
 				'heading_position'         => 'center',
+				'heading'                  => T_("Products"),
 				'coverratio'               => '1:1',
 				'count'                    => 15,
 				'container'                => 'xl',
@@ -296,14 +365,24 @@ class p3
 			],
 		];
 	}
+	// path content_site/body/product/p3.php
+	// body / product / p3 / p6
 
 
-	public static function p7($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:54:09
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/product/p3.php
+	 * body / product / p3 / p7
+	 *
+	*/
+	public static function p7()
 	{
-		$_title = T_("Products");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'slider_size'              => 'md',
@@ -318,6 +397,7 @@ class p3
 				'link_color'               => 'dark',
 				'height'                   => 'sm',
 				'heading_position'         => 'center',
+				'heading'                  => T_("Products"),
 				'coverratio'               => '16:9',
 				'count'                    => 15,
 				'container'                => 'xl',
@@ -333,5 +413,7 @@ class p3
 			],
 		];
 	}
+	// path content_site/body/product/p3.php
+	// body / product / p3 / p7
 }
 ?>

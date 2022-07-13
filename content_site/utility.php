@@ -255,7 +255,7 @@ class utility
 					}
 					elseif($section_key === 'product')
 					{
-						$myValue = 'T_("Latest Products")';
+						$myValue = 'T_("Products")';
 					}
 					else
 					{
