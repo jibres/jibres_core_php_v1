@@ -74,20 +74,40 @@ class socialnetwork1
 	/**
 	 * Preview 1
 	 */
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 19:17:40
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/socialnetwork/socialnetwork1.php
+	 * body / socialnetwork / socialnetwork1 / p1
+	 *
+	*/
 	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'use_as_socialnetwork' => 'business_socialnetwork',
+				'radius_normal'        => 'none',
 				'radius'               => 'full',
-
+				'height'               => 'md',
+				'heading_position'     => 'center',
+				'heading'              => T_("Social Networks"),
+				'coverratio'           => '16:9',
+				'count'                => 3,
+				'color_text'           => '#333333',
+				'background_pack'      => 'none',
 			],
 		];
 	}
-
-
+	// path content_site/body/socialnetwork/socialnetwork1.php
+	// body / socialnetwork / socialnetwork1 / p1
 
 }
 ?>
