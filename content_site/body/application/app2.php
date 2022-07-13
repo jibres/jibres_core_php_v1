@@ -66,19 +66,33 @@ class app2
 	/**
 	 * Preview 1
 	 */
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 19:16:39
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/application/app2.php
+	 * body / application / app2 / p1
+	 *
+	*/
 	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-
+				'heading'          => null,
+				'background_pack'  => 'solid',
+				'background_color' => '#eeeeee',
 			],
 		];
 	}
-
-
+	// path content_site/body/application/app2.php
+	// body / application / app2 / p1
 
 }
 ?>

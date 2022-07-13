@@ -75,20 +75,36 @@ class app1
 	/**
 	 * Preview 1
 	 */
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 19:16:39
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/application/app1.php
+	 * body / application / app1 / p1
+	 *
+	*/
 	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'radius'               => 'full',
-
+				'radius'                   => 'full',
+				'heading'                  => null,
+				'background_pack'          => 'gradient',
+				'background_gradient_type' => 'to bottom left',
+				'background_gradient_to'   => '#fa0076',
+				'background_gradient_from' => '#3c0876',
 			],
 		];
 	}
-
-
+	// path content_site/body/application/app1.php
+	// body / application / app1 / p1
 
 }
 ?>
