@@ -63,6 +63,12 @@ class view
 			\dash\face::btnSaveAttr(null);
 		}
 
+
+		if(\dash\permission::supervisor() && \dash\request::get('exportalljson') === 'exportalljson')
+		{
+			\content_site\utility::wow_update_all_section();
+		}
+
 	}
 
 
@@ -461,8 +467,13 @@ class view
 
 		$this_default = array_merge($option_default, $identify, $detail,  $default);
 
+		if(!is_array(a($result, 'preview')))
+		{
+			$result['preview'] = [];
+		}
 
-		$result['preview']                 = array_merge($this_default, $result['preview'], $force);
+
+		$result['preview']                 = array_merge($this_default, a($result, 'preview'), $force);
 
 
 		$result['preview']['preview_mode'] = true;
