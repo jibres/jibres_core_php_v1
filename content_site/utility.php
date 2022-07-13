@@ -80,8 +80,47 @@ class utility
 		}
 	}
 
+	public static function wow_update_all_section()
+	{
+		\dash\pdo::transaction();
 
-	public static function downloadjson($_section_detail = null, $_multiple = true)
+		\dash\temp::set('siteBuilderForceDisableRedirect', true);
+
+		$list = \dash\data::previewSectionList();
+		foreach ($list as $key => $value)
+		{
+			$add_new_section =
+			[
+				'section'     => a($value, 'section'),
+				'opt_model'   => a($value, 'opt_model'),
+				'preview_key' => a($value, 'preview_key'),
+			];
+
+			\dash\request::overwrite_POST($add_new_section);
+
+			\content_site\section\model::post();
+
+			$sid = \dash\temp::get('siteBuilderNewSectionIDAdded');
+
+			$page_id    = \dash\coding::decode(\dash\request::get('id'));
+			$section_detail = \lib\db\sitebuilder\get::by_id_related_id($sid, $page_id);
+
+
+			$section_detail = \content_site\section\view::ready_section_list($section_detail);
+
+			\dash\temp::set('putJsonInFile', true);
+
+			$downloadjson = self::downloadjson($section_detail, false, true);
+
+
+
+		}
+
+		\dash\pdo::rollback();
+	}
+
+
+	public static function downloadjson($_section_detail = null, $_multiple = true, $_return = false)
 	{
 		if(!$_section_detail)
 		{
@@ -154,7 +193,7 @@ class utility
 		$section_key = a($section_detail, 'section');
 		$model       = a($section_detail, 'model');
 		$preview_key = a($section_detail, 'preview_key');
-
+		$file_path   = "content_site/$folder/$section_key/$model.php";
 		$code = '';
 		if(!$_multiple)
 		{
@@ -165,11 +204,19 @@ class utility
 			$code .= " * @date ".date("Y-m-d H:i:s")." \n";
 			$code .= " * \n";
 			$code .= " * This is options of one preview function \n";
-			$code .= " * Put this code on content_site/$folder/$section_key/$model.php \n";
+			$code .= " * Put this code on $file_path \n";
 			$code .= " * @preview: $preview_key \n";
 			$code .= " */ ";
 			$code .= "\n\n\n";
 		}
+
+		if(\dash\temp::get('putJsonInFile'))
+		{
+			$code = '';
+		}
+
+		$code .= "\t\t\t// start-option";
+		$code .= "\n";
 		$code .= "\t\t\t[";
 		$code .= "\n";
 
@@ -202,7 +249,18 @@ class utility
 				}
 				elseif($key === 'heading' && !$_multiple)
 				{
-					$myValue = '$_title';
+					if($section_key === 'blog')
+					{
+						$myValue = 'T_("Latest Posts")';
+					}
+					elseif($section_key === 'product')
+					{
+						$myValue = 'T_("Latest Products")';
+					}
+					else
+					{
+						$myValue = "null";
+					}
 				}
 				else
 				{
@@ -216,6 +274,70 @@ class utility
 		}
 		$code .= "\t\t\t],";
 		$code .= "\n";
+		$code .= "\t\t\t// end-option";
+		$code .= "\n";
+
+		if(\dash\temp::get('putJsonInFile'))
+		{
+			$code_function = '';
+
+			$code_function .= "\n\n";
+			$code_function .= "\tpublic static function $preview_key()\n";
+			$code_function .= "\t{\n";
+
+			$code_function .= "\t\treturn\n";
+			$code_function .= "\t\t[\n";
+			$code_function .= "\t\t\t'version' => 1,\n";
+			$code_function .= "\t\t\t'options' =>\n";
+			$code_function .= $code;
+			$code_function .= "\t\t];\n";
+			$code_function .= "\t}\n";
+
+			$read_file = file((root. $file_path));
+
+			$before_function = [];
+			$after_function  = [];
+			$start_function = false;
+			$end_function = false;
+			foreach ($read_file as $line)
+			{
+				if(strpos($line, "public static function $preview_key(") !== false)
+				{
+					$start_function = true;
+				}
+
+				if($start_function && strpos($line, "}") !== false)
+				{
+					$end_function = true;
+				}
+
+				else
+				{
+					if(!$start_function)
+					{
+						$before_function[] = $line;
+					}
+					else
+					{
+						if($end_function)
+						{
+							$after_function[] = $line;
+						}
+					}
+				}
+			}
+
+			$new_file_content = implode('', $before_function);
+			$new_file_content .= $code_function;
+			$new_file_content .= implode('', $after_function);
+			// var_dump($new_file_content);exit;
+			if(\dash\url::isLocal())
+			{
+				file_put_contents(root. $file_path, $new_file_content);
+			}
+
+			return;
+		}
 
 		if(!$_multiple)
 		{
@@ -223,7 +345,7 @@ class utility
 			$code .= '?>';
 		}
 
-		if($_multiple)
+		if($_multiple || $_return)
 		{
 			return $code;
 		}
