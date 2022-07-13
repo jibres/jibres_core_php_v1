@@ -93,199 +93,263 @@ class b2
 
 
 	/**
-	 * Preview 1
+	 * Preview list
 	 */
-	public static function p1($_title = null)
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p1
+	 *
+	*/
+	public static function p1()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'dark',
 				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 12,
 				'color_text'                => '#333333',
-				'btn_viewall_check'         => true,
 				'btn_viewall_mode'          => 'dark',
+				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
 				'background_pack'           => 'none',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p1
 
 
-	public static function p2($_title = null)
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p2
+	 *
+	*/
+	public static function p2()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'dark',
 				'coverratio'                => '3:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 10,
 				'color_text'                => '#333333',
 				'color_heading'             => '#0173cb',
+				'btn_viewall_mode'          => 'primary',
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'primary',
 				'background_pack'           => 'solid',
 				'background_color'          => '#e5faff',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p2
 
 
-	public static function p3($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p3
+	 *
+	*/
+	public static function p3()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 8,
 				'color_text'                => '#333333',
 				'color_heading'             => '#000000',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
 				'background_pack'           => 'solid',
 				'background_color'          => '#dcdbd9',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p3
 
 
-	public static function p4($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p4
+	 *
+	*/
+	public static function p4()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'dark',
 				'coverratio'                => '3:4',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 4,
 				'color_text'                => '#333333',
 				'color_heading'             => '#000000',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
 				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#c4c2d0',
 				'background_gradient_from'  => '#bce2e6',
 				'background_color'          => '#dcdbd9',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p4
 
 
-	public static function p5($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p5
+	 *
+	*/
+	public static function p5()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'outside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 4,
 				'color_text'                => '#333333',
 				'color_heading'             => '#d7bf1d',
+				'btn_viewall_mode'          => 'light',
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
 				'background_gradient_from'  => '#0ff53b',
 				'background_color'          => '#000000',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p5
 
 
-	public static function p6($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p6
+	 *
+	*/
+	public static function p6()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'squircle',
 				'height'                    => 'auto',
 				'heading_position'          => 'left',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 8,
 				'color_text'                => '#333333',
 				'color_heading'             => '#000000',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => null,
 				'btn_viewall'               => T_("View all"),
 				'background_pack'           => 'solid',
@@ -293,34 +357,45 @@ class b2
 				'background_gradient_to'    => '#1663a9',
 				'background_gradient_from'  => '#0ff53b',
 				'background_color'          => '#f4c815',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p6
 
 
-	public static function p7($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p7
+	 *
+	*/
+	public static function p7()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'hide',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'hide',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'heart',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'light',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 1,
 				'color_text'                => '#333333',
 				'color_heading'             => '#ff1493',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => null,
 				'btn_viewall'               => T_("View all"),
 				'background_pack'           => 'solid',
@@ -328,58 +403,79 @@ class b2
 				'background_gradient_to'    => '#1663a9',
 				'background_gradient_from'  => '#0ff53b',
 				'background_color'          => '#ffc0cb',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p7
 
 
-	public static function p8($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p8
+	 *
+	*/
+	public static function p8()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'outside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'hexagon-2',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'none',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 3,
 				'color_text'                => '#333333',
 				'color_heading'             => '#ffffff',
+				'btn_viewall_mode'          => 'light',
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
 				'background_gradient_from'  => '#0ff53b',
 				'background_color'          => '#8fa2a6',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p8
 
 
-	public static function p9($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p9
+	 *
+	*/
+	public static function p9()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'hide',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'hide',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'parallelogram',
@@ -388,130 +484,161 @@ class b2
 				'heading'                   => null,
 				'effect'                    => 'none',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 3,
 				'color_text'                => '#333333',
 				'color_heading'             => '#ffffff',
+				'btn_viewall_mode'          => 'light',
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
 				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#e6a691',
 				'background_gradient_from'  => '#915118',
 				'background_color'          => '#8fa2a6',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p9
 
 
-	public static function p10($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:02
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p10
+	 *
+	*/
+	public static function p10()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'outside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'parallelogram-4',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 4,
 				'color_text'                => '#333333',
 				'color_heading'             => '#ffffff',
+				'btn_viewall_mode'          => 'light',
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'light',
 				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#674c4b',
 				'background_gradient_from'  => '#1f1004',
 				'background_color'          => '#8fa2a6',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p10
 
 
-	public static function p11($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:02
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p11
+	 *
+	*/
+	public static function p11()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'outside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'secondary',
 				'image_mask'                => 'none',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'dark',
 				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 7,
 				'color_text'                => '#333333',
 				'color_heading'             => '#333333',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
 				'background_pack'           => 'none',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#0db8d9',
 				'background_gradient_from'  => '#0b2365',
 				'background_color'          => '#8fa2a6',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p11
 
 
-	public static function p12($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:02
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b2.php
+	 * body / blog / b2 / p12
+	 *
+	*/
+	public static function p12()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
 				'height'                    => 'auto',
 				'heading_position'          => 'center',
-				'heading'                   => $_title,
+				'heading'                   => T_("Latest Posts"),
 				'effect'                    => 'dark',
 				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 6,
 				'color_text'                => '#333333',
 				'color_heading'             => '#333333',
+				'btn_viewall_mode'          => 'dark',
 				'btn_viewall_check'         => true,
 				'btn_viewall'               => T_("View all"),
-				'btn_viewall_mode'          => 'dark',
 				'background_pack'           => 'solid',
 				'background_image'          => null,
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#0db8d9',
 				'background_gradient_from'  => '#0b2365',
 				'background_color'          => '#eeeeee',
-			]
+			],
 		];
 	}
+	// path content_site/body/blog/b2.php
+	// body / blog / b2 / p12
 
 }
 ?>

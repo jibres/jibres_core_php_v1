@@ -97,12 +97,23 @@ class b1
 	/**
 	 * Preview 1
 	 */
-	public static function p1($_title = null)
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:00
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b1.php
+	 * body / blog / b1 / p1
+	 *
+	*/
+	public static function p1()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius_normal'         => 'none',
@@ -115,7 +126,7 @@ class b1
 				'post_play_item'        => null,
 				'height'                => 'md',
 				'heading_position'      => 'center',
-				'heading'               => $_title,
+				'heading'               => T_("Latest Posts"),
 				'coverratio'            => '16:9',
 				'count'                 => 3,
 				'color_text'            => '#333333',
@@ -126,14 +137,26 @@ class b1
 			],
 		];
 	}
+	// path content_site/body/blog/b1.php
+	// body / blog / b1 / p1
 
 
-	public static function p2($_title = null)
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:00
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b1.php
+	 * body / blog / b1 / p2
+	 *
+	*/
+	public static function p2()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius_normal'         => 'none',
@@ -145,7 +168,7 @@ class b1
 				'post_show_author'      => null,
 				'height'                => 'md',
 				'heading_position'      => 'center',
-				'heading'               => $_title,
+				'heading'               => T_("Latest Posts"),
 				'coverratio'            => '1:1',
 				'count'                 => 4,
 				'color_text'            => '#333333',
@@ -157,14 +180,24 @@ class b1
 			],
 		];
 	}
+	// path content_site/body/blog/b1.php
+	// body / blog / b1 / p2
 
 
-	public static function p3($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:00
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b1.php
+	 * body / blog / b1 / p3
+	 *
+	*/
+	public static function p3()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius_normal'            => 'none',
@@ -191,14 +224,24 @@ class b1
 			],
 		];
 	}
+	// path content_site/body/blog/b1.php
+	// body / blog / b1 / p3
 
 
-	public static function p4($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:00
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b1.php
+	 * body / blog / b1 / p4
+	 *
+	*/
+	public static function p4()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius_normal'            => 'none',
@@ -223,17 +266,26 @@ class b1
 				'background_gradient_from' => '#f81b73',
 				'background_color'         => '#90cdc3',
 			],
-
 		];
 	}
+	// path content_site/body/blog/b1.php
+	// body / blog / b1 / p4
 
 
-	public static function p5($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:00
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b1.php
+	 * body / blog / b1 / p5
+	 *
+	*/
+	public static function p5()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius_normal'            => 'none',
@@ -259,14 +311,24 @@ class b1
 			],
 		];
 	}
+	// path content_site/body/blog/b1.php
+	// body / blog / b1 / p5
 
 
-	public static function p6($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b1.php
+	 * body / blog / b1 / p6
+	 *
+	*/
+	public static function p6()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius_normal'            => 'none',
@@ -293,14 +355,24 @@ class b1
 			],
 		];
 	}
+	// path content_site/body/blog/b1.php
+	// body / blog / b1 / p6
 
 
-	public static function p7($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b1.php
+	 * body / blog / b1 / p7
+	 *
+	*/
+	public static function p7()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius_normal'            => 'none',
@@ -327,14 +399,24 @@ class b1
 			],
 		];
 	}
+	// path content_site/body/blog/b1.php
+	// body / blog / b1 / p7
 
 
-	public static function p8($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b1.php
+	 * body / blog / b1 / p8
+	 *
+	*/
+	public static function p8()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius_normal'         => 'none',
@@ -346,7 +428,7 @@ class b1
 				'post_show_author'      => null,
 				'height'                => 'md',
 				'heading_position'      => 'left',
-				'heading'               => $_title,
+				'heading'               => T_("Latest Posts"),
 				'coverratio'            => '16:9',
 				'count'                 => 7,
 				'color_text'            => '#333333',
@@ -358,14 +440,24 @@ class b1
 			],
 		];
 	}
+	// path content_site/body/blog/b1.php
+	// body / blog / b1 / p8
 
 
-	public static function p9($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b1.php
+	 * body / blog / b1 / p9
+	 *
+	*/
+	public static function p9()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'radius_normal'            => 'none',
@@ -377,7 +469,7 @@ class b1
 				'post_show_author'         => null,
 				'height'                   => 'md',
 				'heading_position'         => 'left',
-				'heading'                  => $_title,
+				'heading'                  => T_("Latest Posts"),
 				'coverratio'               => '16:9',
 				'count'                    => 9,
 				'color_text'               => '#333333',
@@ -392,5 +484,8 @@ class b1
 			],
 		];
 	}
+	// path content_site/body/blog/b1.php
+	// body / blog / b1 / p9
+
 }
 ?>

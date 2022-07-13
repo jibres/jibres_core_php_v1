@@ -80,14 +80,25 @@ class b3
 
 
 	/**
-	 * Preview 1
+	 * Preview list
 	 */
-	public static function p1($_title = null)
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:02
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b3.php
+	 * body / blog / b3 / p1
+	 *
+	*/
+	public static function p1()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'post_show_read_more' => true,
@@ -96,26 +107,38 @@ class b3
 				'link_color'          => 'primary',
 				'height'              => 'auto',
 				'heading_position'    => 'left',
-				'heading'             => $_title,
+				'heading'             => T_("Latest Posts"),
 				'description'         => 'All the latest news, straight from the team.',
 				'count'               => 5,
 				'color_text'          => '#444444',
 				'color_heading'       => '#000000',
 				'btn_viewall_mode'    => 'dark',
-				'btn_viewall_check'   => '1',
+				'btn_viewall_check'   => 1,
 				'btn_viewall'         => T_("View all"),
 				'background_pack'     => 'none',
 			],
 		];
 	}
+	// path content_site/body/blog/b3.php
+	// body / blog / b3 / p1
 
 
-	public static function p2($_title = null)
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:02
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b3.php
+	 * body / blog / b3 / p2
+	 *
+	*/
+	public static function p2()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'post_show_read_more' => null,
@@ -124,27 +147,37 @@ class b3
 				'link_color'          => 'primary',
 				'height'              => 'auto',
 				'heading_position'    => 'left',
-				'heading'             => $_title,
+				'heading'             => T_("Latest Posts"),
 				'description'         => 'All the latest news, straight from the team.',
 				'count'               => 2,
 				'color_text'          => '#444444',
 				'color_heading'       => '#000000',
 				'btn_viewall_mode'    => 'secondary',
-				'btn_viewall_check'   => '1',
+				'btn_viewall_check'   => 1,
 				'btn_viewall'         => T_("View all"),
 				'background_pack'     => 'solid',
 				'background_color'    => '#eeeeee',
 			],
 		];
 	}
+	// path content_site/body/blog/b3.php
+	// body / blog / b3 / p2
 
 
-	public static function p3($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:02
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b3.php
+	 * body / blog / b3 / p3
+	 *
+	*/
+	public static function p3()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'post_show_read_more' => null,
@@ -153,27 +186,37 @@ class b3
 				'link_color'          => 'primary',
 				'height'              => 'auto',
 				'heading_position'    => 'left',
-				'heading'             => $_title,
+				'heading'             => T_("Latest Posts"),
 				'description'         => 'All the latest news, straight from the team.',
 				'count'               => 2,
 				'color_text'          => '#ffffff',
 				'color_heading'       => '#c2b500',
 				'btn_viewall_mode'    => 'light',
-				'btn_viewall_check'   => '1',
+				'btn_viewall_check'   => 1,
 				'btn_viewall'         => T_("View all"),
 				'background_pack'     => 'solid',
 				'background_color'    => '#000000',
 			],
 		];
 	}
+	// path content_site/body/blog/b3.php
+	// body / blog / b3 / p3
 
 
-	public static function p4($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:04:02
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/blog/b3.php
+	 * body / blog / b3 / p4
+	 *
+	*/
+	public static function p4()
 	{
-		$_title = T_("Latest Posts");
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
 				'post_show_read_more'      => null,
@@ -183,13 +226,13 @@ class b3
 				'key'                      => 'blog',
 				'height'                   => 'auto',
 				'heading_position'         => 'left',
-				'heading'                  => $_title,
+				'heading'                  => T_("Latest Posts"),
 				'description'              => 'All the latest news, straight from the team.',
 				'count'                    => 2,
 				'color_text'               => '#ffffff',
 				'color_heading'            => '#ffffff',
 				'btn_viewall_mode'         => 'light',
-				'btn_viewall_check'        => '1',
+				'btn_viewall_check'        => 1,
 				'btn_viewall'              => T_("View all"),
 				'background_pack'          => 'gradient',
 				'background_gradient_type' => 'to bottom left',
@@ -199,6 +242,8 @@ class b3
 			],
 		];
 	}
+	// path content_site/body/blog/b3.php
+	// body / blog / b3 / p4
 
 }
 ?>
