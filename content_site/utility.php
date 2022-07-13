@@ -85,6 +85,8 @@ class utility
 		\dash\pdo::transaction();
 
 		\dash\temp::set('siteBuilderForceDisableRedirect', true);
+		\dash\temp::set('clesnse_not_end_with_error', true);
+		\dash\code::time_limit(0);
 
 		$list = \dash\data::previewSectionList();
 		foreach ($list as $key => $value)
