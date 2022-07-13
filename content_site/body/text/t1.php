@@ -55,35 +55,60 @@ class t1
 	/**
 	 * Preview 1
 	 */
-	public static function p1($_title = null)
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 19:12:42
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/text/t1.php
+	 * body / text / t1 / p1
+	 *
+	*/
+	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'heading'          => T_("Text box"),
 				'use_as_heading'   => null,
 				'height'           => 'sm',
 				'heading_position' => null,
+				'heading'          => T_("Text box"),
 				'container'        => 'sm',
 				'background_pack'  => 'none',
 			],
 		];
 	}
+	// path content_site/body/text/t1.php
+	// body / text / t1 / p1
 
 
-	public static function p2($_title = null)
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 19:12:42
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/text/t1.php
+	 * body / text / t1 / p2
+	 *
+	*/
+	public static function p2()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'heading'                  => T_("Text box"),
 				'use_as_heading'           => null,
 				'height'                   => 'sm',
 				'heading_position'         => null,
+				'heading'                  => T_("Text box"),
 				'container'                => 'sm',
 				'background_pack'          => 'solid',
 				'background_gradient_type' => 'to bottom right',
@@ -93,6 +118,8 @@ class t1
 			],
 		];
 	}
+	// path content_site/body/text/t1.php
+	// body / text / t1 / p2
 
 }
 ?>
