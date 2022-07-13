@@ -75,19 +75,38 @@ class twitter1
 	/**
 	 * Preview 1
 	 */
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 19:18:59
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/twitter/twitter1.php
+	 * body / twitter / twitter1 / p1
+	 *
+	*/
 	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-
+				'radius'           => 'normal',
+				'height'           => 'md',
+				'heading_position' => 'center',
+				'heading'          => T_("Twitter"),
+				'coverratio'       => '16:9',
+				'count'            => 1,
+				'color_text'       => '#333333',
+				'background_pack'  => 'none',
 			],
 		];
 	}
-
-
+	// path content_site/body/twitter/twitter1.php
+	// body / twitter / twitter1 / p1
 
 }
 ?>
