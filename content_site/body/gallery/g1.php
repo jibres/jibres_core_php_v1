@@ -88,14 +88,25 @@ class g1
 	/**
 	 * Preview 1
 	 */
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:24:59
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p1
+	 *
+	*/
 	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count' => 1,
 				'image_list' =>
 				[
 					[
@@ -106,25 +117,38 @@ class g1
 				'radius'                  => 'none',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
+				'link_color'              => 'inside',
+				'image_count'             => 1,
 				'height'                  => 'auto',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
 				'container'               => 'fluid',
 				'background_pack'         => 'none',
-
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p1
 
 
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:24:59
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p2
+	 *
+	*/
 	public static function p2()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count' => 1,
 				'image_list' =>
 				[
 					[
@@ -135,31 +159,43 @@ class g1
 				'radius'                  => '3xl',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
+				'link_color'              => 'inside',
+				'image_count'             => 1,
 				'height'                  => 'sm',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
 				'container'               => '2xl',
 				'background_pack'         => 'none',
-
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p2
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:24:59
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p3
+	 *
+	*/
 	public static function p3()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 1,
 				'radius'                   => '3xl',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'md',
 				'link_color'               => 'light',
 				'key'                      => 'gallery',
 				'image_mask'               => 'heart',
+				'image_count'              => 1,
 				'height'                   => 'auto',
 				'effect'                   => 'zoom',
 				'coverratio'               => 'free',
@@ -172,43 +208,65 @@ class g1
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p3
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:24:59
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p4
+	 *
+	*/
 	public static function p4()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'             => 2,
 				'radius'                  => '3xl',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
+				'link_color'              => 'inside',
+				'image_count'             => 2,
 				'height'                  => 'sm',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
 				'container'               => '2xl',
 				'background_pack'         => 'none',
-
-
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p4
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:00
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p5
+	 *
+	*/
 	public static function p5()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'             => 3,
 				'radius'                  => '3xl',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'md',
+				'link_color'              => 'inside',
 				'image_random'            => 1,
+				'image_count'             => 3,
 				'height'                  => 'sm',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
@@ -217,16 +275,26 @@ class g1
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p5
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:00
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p6
+	 *
+	*/
 	public static function p6()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 3,
 				'radius'                   => '3xl',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'md',
@@ -234,6 +302,7 @@ class g1
 				'key'                      => 'gallery',
 				'image_random'             => 1,
 				'image_mask'               => 'hexagon',
+				'image_count'              => 3,
 				'height'                   => 'sm',
 				'effect'                   => 'dark',
 				'coverratio'               => '1:1',
@@ -246,46 +315,69 @@ class g1
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p6
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:00
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p7
+	 *
+	*/
 	public static function p7()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 4,
-				'radius'                   => 'lg',
-				'magicbox_title_position'  => 'hide',
-				'magicbox_gap'             => 'md',
-				'link_color'               => 'light',
-				'key'                      => 'gallery',
-				'image_random'             => true,
-				'image_mask'               => 'none',
-				'height'                   => 'sm',
-				'effect'                   => 'zoom',
-				'coverratio'               => 'free',
-				'container'                => '2xl',
-				'background_pack'          => 'none',
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'md',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_random'            => true,
+				'image_mask'              => 'none',
+				'image_count'             => 4,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => 'free',
+				'container'               => '2xl',
+				'background_pack'         => 'none',
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p7
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:01
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p8
+	 *
+	*/
 	public static function p8()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'             => 4,
 				'radius'                  => 'none',
 				'magicbox_title_position' => 'hide',
 				'magicbox_gap'            => 'none',
+				'link_color'              => 'inside',
 				'image_random'            => true,
 				'image_mask'              => 'none',
+				'image_count'             => 4,
 				'height'                  => 'auto',
 				'effect'                  => 'zoom',
 				'coverratio'              => 'free',
@@ -294,16 +386,26 @@ class g1
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p8
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:02
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p9
+	 *
+	*/
 	public static function p9()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 5,
 				'radius'                   => 'lg',
 				'magicbox_title_position'  => 'hide',
 				'magicbox_gap'             => 'md',
@@ -311,6 +413,7 @@ class g1
 				'key'                      => 'gallery',
 				'image_random'             => true,
 				'image_mask'               => 'none',
+				'image_count'              => 5,
 				'height'                   => 'sm',
 				'effect'                   => 'zoom',
 				'coverratio'               => 'free',
@@ -323,105 +426,152 @@ class g1
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p9
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:02
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p10
+	 *
+	*/
 	public static function p10()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 6,
-				'radius'                   => 'lg',
-				'magicbox_title_position'  => 'hide',
-				'magicbox_gap'             => 'md',
-				'link_color'               => 'light',
-				'key'                      => 'gallery',
-				'image_random'             => true,
-				'image_mask'               => 'none',
-				'height'                   => 'sm',
-				'effect'                   => 'zoom',
-				'coverratio'               => 'free',
-				'container'                => '2xl',
-				'background_pack'          => 'none',
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'md',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_random'            => true,
+				'image_mask'              => 'none',
+				'image_count'             => 6,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => 'free',
+				'container'               => '2xl',
+				'background_pack'         => 'none',
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p10
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:03
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p11
+	 *
+	*/
 	public static function p11()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 8,
-				'radius'                   => 'lg',
-				'magicbox_title_position'  => 'hide',
-				'magicbox_gap'             => 'sm',
-				'link_color'               => 'light',
-				'key'                      => 'gallery',
-				'image_random'             => true,
-				'image_mask'               => 'none',
-				'height'                   => 'sm',
-				'effect'                   => 'zoom',
-				'coverratio'               => 'free',
-				'container'                => '2xl',
-				'background_pack'          => 'none',
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_random'            => true,
+				'image_mask'              => 'none',
+				'image_count'             => 8,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => 'free',
+				'container'               => '2xl',
+				'background_pack'         => 'none',
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p11
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:04
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p12
+	 *
+	*/
 	public static function p12()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 10,
-				'radius'                   => 'lg',
-				'magicbox_title_position'  => 'hide',
-				'magicbox_gap'             => 'sm',
-				'link_color'               => 'light',
-				'key'                      => 'gallery',
-				'image_random'             => true,
-				'image_mask'               => 'none',
-				'height'                   => 'sm',
-				'effect'                   => 'zoom',
-				'coverratio'               => 'free',
-				'container'                => '2xl',
-				'background_pack'          => 'none',
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_random'            => true,
+				'image_mask'              => 'none',
+				'image_count'             => 10,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => 'free',
+				'container'               => '2xl',
+				'background_pack'         => 'none',
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p12
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:06
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g1.php
+	 * body / gallery / g1 / p13
+	 *
+	*/
 	public static function p13()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 12,
-				'radius'                   => 'lg',
-				'magicbox_title_position'  => 'hide',
-				'magicbox_gap'             => 'sm',
-				'link_color'               => 'light',
-				'key'                      => 'gallery',
-				'image_random'             => true,
-				'image_mask'               => 'none',
-				'height'                   => 'sm',
-				'effect'                   => 'zoom',
-				'coverratio'               => 'free',
-				'container'                => '2xl',
-				'background_pack'          => 'none',
+				'radius'                  => 'lg',
+				'magicbox_title_position' => 'hide',
+				'magicbox_gap'            => 'sm',
+				'link_color'              => 'light',
+				'key'                     => 'gallery',
+				'image_random'            => true,
+				'image_mask'              => 'none',
+				'image_count'             => 12,
+				'height'                  => 'sm',
+				'effect'                  => 'zoom',
+				'coverratio'              => 'free',
+				'container'               => '2xl',
+				'background_pack'         => 'none',
 			],
 		];
 	}
+	// path content_site/body/gallery/g1.php
+	// body / gallery / g1 / p13
+
 }
 ?>

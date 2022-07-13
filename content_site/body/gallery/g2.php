@@ -94,14 +94,25 @@ class g2
 	/**
 	 * Preview 1
 	 */
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:07
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p1
+	 *
+	*/
 	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'             => 7,
 				'slider_pagination'       => true,
 				'slider_next_prev'        => true,
 				'slider_effect'           => 'slide',
@@ -111,6 +122,7 @@ class g2
 				'magicbox_gap'            => 'sm',
 				'link_color'              => 'light',
 				'image_random'            => true,
+				'image_count'             => 7,
 				'height'                  => 'sm',
 				'effect'                  => 'zoom',
 				'coverratio'              => '16:9',
@@ -120,16 +132,28 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p1
 
 
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:08
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p2
+	 *
+	*/
 	public static function p2()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'             => 7,
 				'slider_pagination'       => true,
 				'slider_next_prev'        => true,
 				'slider_effect'           => 'coverflow',
@@ -139,6 +163,7 @@ class g2
 				'magicbox_gap'            => 'sm',
 				'link_color'              => 'light',
 				'image_random'            => true,
+				'image_count'             => 7,
 				'height'                  => 'sm',
 				'effect'                  => 'dark',
 				'coverratio'              => '1:1',
@@ -148,16 +173,26 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p2
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:10
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p3
+	 *
+	*/
 	public static function p3()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'             => 7,
 				'slider_pagination'       => true,
 				'slider_next_prev'        => false,
 				'slider_effect'           => 'fade',
@@ -167,6 +202,7 @@ class g2
 				'magicbox_gap'            => 'sm',
 				'link_color'              => 'light',
 				'image_random'            => true,
+				'image_count'             => 7,
 				'height'                  => 'md',
 				'effect'                  => 'zoom',
 				'coverratio'              => '3:1',
@@ -176,16 +212,26 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p3
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:11
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p4
+	 *
+	*/
 	public static function p4()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'             => 7,
 				'slider_pagination'       => true,
 				'slider_next_prev'        => true,
 				'slider_effect'           => 'coverflow',
@@ -195,6 +241,7 @@ class g2
 				'magicbox_gap'            => 'sm',
 				'link_color'              => 'light',
 				'image_random'            => true,
+				'image_count'             => 7,
 				'height'                  => 'sm',
 				'effect'                  => 'light',
 				'coverratio'              => '3:4',
@@ -204,16 +251,26 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p4
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:13
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p5
+	 *
+	*/
 	public static function p5()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'             => 7,
 				'slider_pagination'       => true,
 				'slider_next_prev'        => false,
 				'slider_effect'           => 'fade',
@@ -224,6 +281,7 @@ class g2
 				'link_color'              => 'light',
 				'image_random'            => true,
 				'image_mask'              => 'none',
+				'image_count'             => 7,
 				'height'                  => 'sm',
 				'effect'                  => 'dark',
 				'coverratio'              => '16:9',
@@ -233,16 +291,26 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p5
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:15
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p6
+	 *
+	*/
 	public static function p6()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'             => 7,
 				'slider_pagination'       => true,
 				'slider_next_prev'        => true,
 				'slider_effect'           => 'slide',
@@ -253,6 +321,7 @@ class g2
 				'link_color'              => 'light',
 				'image_random'            => true,
 				'image_mask'              => 'none',
+				'image_count'             => 7,
 				'height'                  => 'sm',
 				'effect'                  => 'zoom',
 				'coverratio'              => '16:9',
@@ -262,16 +331,26 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p6
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:18
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p7
+	 *
+	*/
 	public static function p7()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 7,
 				'slider_pagination'        => true,
 				'slider_next_prev'         => true,
 				'slider_effect'            => 'cube',
@@ -282,6 +361,7 @@ class g2
 				'link_color'               => 'light',
 				'image_random'             => true,
 				'image_mask'               => 'none',
+				'image_count'              => 7,
 				'height'                   => 'md',
 				'effect'                   => 'none',
 				'coverratio'               => '1:1',
@@ -294,16 +374,26 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p7
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:21
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p8
+	 *
+	*/
 	public static function p8()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 7,
 				'slider_pagination'        => true,
 				'slider_next_prev'         => false,
 				'slider_effect'            => 'fade',
@@ -314,6 +404,7 @@ class g2
 				'link_color'               => 'light',
 				'image_random'             => true,
 				'image_mask'               => 'none',
+				'image_count'              => 7,
 				'height'                   => 'sm',
 				'effect'                   => 'none',
 				'coverratio'               => '1:1',
@@ -326,16 +417,26 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p8
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:23
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p9
+	 *
+	*/
 	public static function p9()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 7,
 				'slider_pagination'        => true,
 				'slider_next_prev'         => false,
 				'slider_effect'            => 'fade',
@@ -346,6 +447,7 @@ class g2
 				'link_color'               => 'light',
 				'image_random'             => true,
 				'image_mask'               => 'parallelogram-4',
+				'image_count'              => 7,
 				'height'                   => 'md',
 				'effect'                   => 'none',
 				'coverratio'               => '1:1',
@@ -358,16 +460,26 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p9
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:27
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p10
+	 *
+	*/
 	public static function p10()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 7,
 				'slider_pagination'        => false,
 				'slider_next_prev'         => true,
 				'slider_effect'            => 'fade',
@@ -378,6 +490,7 @@ class g2
 				'link_color'               => 'light',
 				'image_random'             => true,
 				'image_mask'               => 'hexagon-2',
+				'image_count'              => 7,
 				'height'                   => 'md',
 				'effect'                   => 'none',
 				'coverratio'               => '1:1',
@@ -390,16 +503,26 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p10
 
 
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:25:29
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g2.php
+	 * body / gallery / g2 / p11
+	 *
+	*/
 	public static function p11()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count'              => 7,
 				'slider_pagination'        => false,
 				'slider_next_prev'         => false,
 				'slider_effect'            => 'fade',
@@ -410,6 +533,7 @@ class g2
 				'link_color'               => 'light',
 				'image_random'             => true,
 				'image_mask'               => 'heart',
+				'image_count'              => 7,
 				'height'                   => 'md',
 				'effect'                   => 'none',
 				'coverratio'               => '1:1',
@@ -422,5 +546,8 @@ class g2
 			],
 		];
 	}
+	// path content_site/body/gallery/g2.php
+	// body / gallery / g2 / p11
+
 }
 ?>
