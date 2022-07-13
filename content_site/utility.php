@@ -194,7 +194,7 @@ class utility
 				{
 					$myValue = "null";
 				}
-				elseif($value === 'View all')
+				elseif($value === 'View all' || $value === 'نمایش همه')
 				{
 					$myValue = 'T_("View all")';
 				}
