@@ -58,6 +58,7 @@ class h1
 				'link_search'        => true,
 				'link_enter'         => true,
 				'link_cart'          => true,
+				'description'        => null,
 			],
 		];
 	}
