@@ -49,343 +49,427 @@ class g5
 	/**
 	 * Preview 1
 	 */
-	public static function p1($_title = null)
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:46:18
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p1
+	 *
+	*/
+	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
+				'image_count'               => 12,
 				'height'                    => 'auto',
 				'effect'                    => 'dark',
 				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 12,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'none',
-			]
+			],
 		];
 	}
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p1
 
 
-	public static function p2($_title = null)
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:46:28
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p2
+	 *
+	*/
+	public static function p2()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
+				'image_count'               => 12,
 				'height'                    => 'auto',
 				'effect'                    => 'dark',
 				'coverratio'                => '3:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 10,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'solid',
 				'background_color'          => '#e5faff',
-			]
+			],
 		];
 	}
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p2
 
 
-	public static function p3($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:46:36
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p3
+	 *
+	*/
+	public static function p3()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
+				'image_count'               => 12,
 				'height'                    => 'auto',
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 8,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'solid',
 				'background_color'          => '#dcdbd9',
-			]
+			],
 		];
 	}
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p3
 
 
-	public static function p4($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:46:46
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p4
+	 *
+	*/
+	public static function p4()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
+				'image_count'               => 12,
 				'height'                    => 'auto',
 				'effect'                    => 'dark',
 				'coverratio'                => '3:4',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 4,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#c4c2d0',
 				'background_gradient_from'  => '#bce2e6',
 				'background_color'          => '#dcdbd9',
-			]
+			],
 		];
 	}
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p4
 
 
-	public static function p5($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:46:57
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p5
+	 *
+	*/
+	public static function p5()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'outside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'none',
+				'image_count'               => 12,
 				'height'                    => 'auto',
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 4,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
 				'background_gradient_from'  => '#0ff53b',
 				'background_color'          => '#000000',
-			]
+			],
 		];
 	}
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p5
 
 
-	public static function p6($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:47:06
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p6
+	 *
+	*/
+	public static function p6()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'inside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'squircle',
+				'image_count'               => 12,
 				'height'                    => 'auto',
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 8,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
 				'background_gradient_from'  => '#0ff53b',
 				'background_color'          => '#f4c815',
-			]
+			],
 		];
 	}
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p6
 
 
-	public static function p7($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:47:19
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p7
+	 *
+	*/
+	public static function p7()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'hide',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'hide',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'heart',
+				'image_count'               => 12,
 				'height'                    => 'auto',
 				'effect'                    => 'light',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 1,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
 				'background_gradient_from'  => '#0ff53b',
 				'background_color'          => '#ffc0cb',
-			]
+			],
 		];
 	}
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p7
 
 
-	public static function p8($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:47:29
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p8
+	 *
+	*/
+	public static function p8()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
-				'image_count' => 3,
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'outside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'hexagon-2',
+				'image_count'               => 3,
 				'height'                    => 'auto',
 				'effect'                    => 'none',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 3,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'solid',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#1663a9',
 				'background_gradient_from'  => '#0ff53b',
 				'background_color'          => '#8fa2a6',
-			]
+			],
 		];
 	}
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p8
 
 
-	public static function p9($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:47:39
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p9
+	 *
+	*/
+	public static function p9()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'hide',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'hide',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'parallelogram',
+				'image_count'               => 12,
 				'height'                    => 'auto',
 				'effect'                    => 'none',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 3,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#e6a691',
 				'background_gradient_from'  => '#915118',
 				'background_color'          => '#8fa2a6',
-			]
+			],
 		];
 	}
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p9
 
 
-	public static function p10($_title = null)
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 18:47:51
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/gallery/g5.php
+	 * body / gallery / g5 / p10
+	 *
+	*/
+	public static function p10()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'slider_effect'             => 'slide',
 				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
 				'post_show_image'           => true,
+				'magicbox_title_position'   => 'outside',
+				'magicbox_gap'              => 'sm',
 				'link_color_magicbox_title' => 'light',
 				'link_color'                => 'light',
 				'image_mask'                => 'parallelogram-4',
+				'image_count'               => 12,
 				'height'                    => 'auto',
 				'effect'                    => 'dark',
 				'coverratio'                => '1:1',
-				'magicbox_gap'              => 'sm',
 				'count'                     => 4,
+				'container'                 => 'fluid',
 				'color_text'                => '#333333',
 				'background_pack'           => 'gradient',
 				'background_gradient_type'  => 'to bottom right',
 				'background_gradient_to'    => '#674c4b',
 				'background_gradient_from'  => '#1f1004',
 				'background_color'          => '#8fa2a6',
-			]
+			],
 		];
 	}
-
-
-	public static function p11($_title = null)
-	{
-		return
-		[
-			'version'        => 1,
-			'options' =>
-			[
-				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'outside',
-				'post_show_image'           => true,
-				'link_color_magicbox_title' => 'light',
-				'link_color'                => 'secondary',
-				'image_mask'                => 'none',
-				'height'                    => 'auto',
-				'effect'                    => 'dark',
-				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 7,
-				'color_text'                => '#333333',
-				'background_pack'           => 'none',
-				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#0db8d9',
-				'background_gradient_from'  => '#0b2365',
-				'background_color'          => '#8fa2a6',
-			]
-		];
-	}
-
-
-	public static function p12($_title = null)
-	{
-		return
-		[
-			'version'        => 1,
-			'options' =>
-			[
-				'radius'                    => 'lg',
-				'magicbox_title_position'   => 'inside',
-				'post_show_image'           => true,
-				'link_color_magicbox_title' => 'light',
-				'link_color'                => 'light',
-				'image_mask'                => 'none',
-				'height'                    => 'auto',
-				'effect'                    => 'dark',
-				'coverratio'                => '16:9',
-				'magicbox_gap'              => 'sm',
-				'count'                     => 6,
-				'color_text'                => '#333333',
-				'background_pack'           => 'solid',
-				'background_image'          => null,
-				'background_gradient_type'  => 'to bottom right',
-				'background_gradient_to'    => '#0db8d9',
-				'background_gradient_from'  => '#0b2365',
-				'background_color'          => '#eeeeee',
-			]
-		];
-	}
-
+	// path content_site/body/gallery/g5.php
+	// body / gallery / g5 / p10
 }
 ?>
