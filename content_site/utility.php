@@ -173,6 +173,8 @@ class utility
 		$code .= "\t\t\t[";
 		$code .= "\n";
 
+		$code .= "\t\t\t\t// $folder / $section_key / $model / $preview_key \n";
+
 		foreach ($preview as $key => $value)
 		{
 			if(in_array($key, $need_unset))
