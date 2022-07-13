@@ -151,7 +151,7 @@ class b1
 				'color_text'            => '#333333',
 				'btn_viewall_mode'      => 'dark',
 				'btn_viewall_check'     => true,
-				'btn_viewall'           => T_('View all'),
+				'btn_viewall'           => T_("View all"),
 				'background_pack'       => 'solid',
 				'background_color'      => '#dec4d6',
 			],
@@ -182,7 +182,7 @@ class b1
 				'color_text'               => '#333333',
 				'btn_viewall_mode'         => 'dark',
 				'btn_viewall_check'        => null,
-				'btn_viewall'              => T_('View all'),
+				'btn_viewall'              => T_("View all"),
 				'background_pack'          => 'gradient',
 				'background_gradient_type' => 'to bottom right',
 				'background_gradient_to'   => '#1e19c5',
@@ -216,13 +216,14 @@ class b1
 				'color_text'               => '#333333',
 				'btn_viewall_mode'         => 'dark',
 				'btn_viewall_check'        => null,
-				'btn_viewall'              => T_('View all'),
+				'btn_viewall'              => T_("View all"),
 				'background_pack'          => 'solid',
 				'background_gradient_type' => 'to bottom right',
 				'background_gradient_to'   => '#1e19c5',
 				'background_gradient_from' => '#f81b73',
 				'background_color'         => '#90cdc3',
 			],
+
 		];
 	}
 
@@ -250,7 +251,7 @@ class b1
 				'color_text'               => '#333333',
 				'btn_viewall_mode'         => 'dark',
 				'btn_viewall_check'        => null,
-				'btn_viewall'              => T_('View all'),
+				'btn_viewall'              => T_("View all"),
 				'background_pack'          => 'gradient',
 				'background_gradient_type' => 'to bottom right',
 				'background_gradient_to'   => '#e378d1',
@@ -267,7 +268,7 @@ class b1
 		[
 			'version'        => 1,
 			'options' =>
-						[
+			[
 				'radius_normal'            => 'none',
 				'radius'                   => 'lg',
 				'post_show_readingtime'    => false,
@@ -283,7 +284,7 @@ class b1
 				'color_text'               => '#333333',
 				'btn_viewall_mode'         => 'dark',
 				'btn_viewall_check'        => null,
-				'btn_viewall'              => T_('View all'),
+				'btn_viewall'              => T_("View all"),
 				'background_pack'          => 'solid',
 				'background_gradient_type' => 'to bottom right',
 				'background_gradient_to'   => '#e378d1',
@@ -317,7 +318,7 @@ class b1
 				'color_text'               => '#022b79',
 				'btn_viewall_mode'         => 'dark',
 				'btn_viewall_check'        => null,
-				'btn_viewall'              => T_('View all'),
+				'btn_viewall'              => T_("View all"),
 				'background_size'          => 'auto',
 				'background_pack'          => 'gradient',
 				'background_gradient_type' => 'to bottom',
@@ -351,7 +352,7 @@ class b1
 				'color_text'            => '#333333',
 				'btn_viewall_mode'      => 'dark',
 				'btn_viewall_check'     => null,
-				'btn_viewall'           => T_('View all'),
+				'btn_viewall'           => T_("View all"),
 				'background_pack'       => 'solid',
 				'background_color'      => '#eeeeee',
 			],
@@ -382,7 +383,7 @@ class b1
 				'color_text'               => '#333333',
 				'btn_viewall_mode'         => 'dark',
 				'btn_viewall_check'        => true,
-				'btn_viewall'              => T_('View all'),
+				'btn_viewall'              => T_("View all"),
 				'background_pack'          => 'gradient',
 				'background_gradient_type' => 'to bottom left',
 				'background_gradient_to'   => '#b3c6db',
