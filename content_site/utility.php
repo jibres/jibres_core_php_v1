@@ -153,6 +153,7 @@ class utility
 		$folder      = a($section_detail, 'folder');
 		$section_key = a($section_detail, 'section');
 		$model       = a($section_detail, 'model');
+		$preview_key = a($section_detail, 'preview_key');
 
 		$code = '';
 		if(!$_multiple)
@@ -160,8 +161,12 @@ class utility
 			$code .= '<?php ';
 			$code .= "\n";
 			$code .= "/** \n";
+			$code .= " * @author ".\dash\user::detail('email')." \n";
+			$code .= " * @date ".date("Y-m-d H:i:s")." \n";
+			$code .= " * \n";
 			$code .= " * This is options of one preview function \n";
 			$code .= " * Put this code on content_site/$folder/$section_key/$model.php \n";
+			$code .= " * @preview: $preview_key \n";
 			$code .= " */ ";
 			$code .= "\n\n\n";
 		}
