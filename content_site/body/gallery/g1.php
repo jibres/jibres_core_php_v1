@@ -160,7 +160,7 @@ class g1
 				'link_color'               => 'light',
 				'key'                      => 'gallery',
 				'image_mask'               => 'heart',
-				'height'                   => 'fullscreen',
+				'height'                   => 'auto',
 				'effect'                   => 'zoom',
 				'coverratio'               => 'free',
 				'container'                => 'lg',
