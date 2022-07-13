@@ -80,15 +80,28 @@ class headline1
 	/**
 	 * Preview 1
 	 */
+
+
+
+	/**
+	 * Auto Generate Function
+	 * @date 2022-07-13 19:03:34
+	 * @author rm.biqarar@gmail.com
+	 *
+	 * @path content_site/body/headline/headline1.php
+	 * body / headline / headline1 / p1
+	 *
+	*/
 	public static function p1()
 	{
 		return
 		[
-			'version'        => 1,
+			'version' => 1,
 			'options' =>
 			[
+				'use_as_description' => null,
 				'height'             => 'fullscreen',
-				'heading'            => T_("Coming Soon") ,
+				'heading'            => T_("Coming Soon"),
 				'container_justify'  => 'left',
 				'container_align'    => 'end',
 				'color_text'         => '#ffffff',
@@ -99,8 +112,8 @@ class headline1
 			],
 		];
 	}
-
-
+	// path content_site/body/headline/headline1.php
+	// body / headline / headline1 / p1
 
 }
 ?>
