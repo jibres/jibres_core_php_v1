@@ -42,6 +42,12 @@ class request
 	}
 
 
+	public static function overwrite_POST($_post)
+	{
+		self::$POST = $_post;
+	}
+
+
 	/**
 	 * Get the html posted
 	 * Everywhere need to save html use this function
