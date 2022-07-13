@@ -51,7 +51,7 @@ class quote1
 			'default'      =>
 			[
 				'heading'          => T_("quote"),
-				'height'           => 'fullscreen',
+				'height'           => 'auto',
 			],
 			'preview_list' =>
 			[
