@@ -916,7 +916,15 @@ class model
 
 		\content_site\model::check_auto_save_page();
 
-		\dash\redirect::to($url);
+		if(\dash\temp::get('siteBuilderForceDisableRedirect'))
+		{
+			\dash\temp::set('siteBuilderNewSectionIDAdded', $id);
+			// nothing
+		}
+		else
+		{
+			\dash\redirect::to($url);
+		}
 
 	}
 
@@ -976,8 +984,15 @@ class model
 
 			if(floatval($count_section_in_page) >= 50)
 			{
-				\dash\notif::error(T_("Maximum capacity of page section is full"));
-				return false;
+				if(\dash\url::isLocal())
+				{
+					// nothing
+				}
+				else
+				{
+					\dash\notif::error(T_("Maximum capacity of page section is full"));
+					return false;
+				}
 			}
 
 			$id = \lib\db\sitebuilder\insert::new_record($insert);
