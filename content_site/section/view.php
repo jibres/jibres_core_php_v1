@@ -391,6 +391,8 @@ class view
 
 		$this_model = a($result, 'model');
 
+		\dash\temp::set('AppendToSectionArray', false);
+
 		$default = [];
 
 		$detail  = [];
@@ -486,6 +488,12 @@ class view
 
 					$result['preview_layout'] = \content_site\call_function::layout($section_key, $result['preview']);
 
+					if(is_array(\dash\temp::get('AppendToSectionArray')))
+					{
+						$result['preview'] = array_merge($result['preview'], \dash\temp::get('AppendToSectionArray'));
+						\dash\temp::set('AppendToSectionArray', false);
+					}
+
 					if(\dash\request::get('psid') && is_numeric(\dash\request::get('psid')))
 					{
 						if(floatval(a($result, 'id')) !== floatval(\dash\request::get('psid')))
@@ -530,11 +538,19 @@ class view
 					$result['body'] = \content_site\assemble\fire::me($result['body']);
 
 					$result['body_layout']    = \content_site\call_function::layout($section_key, $result['body']);
+
+					if(is_array(\dash\temp::get('AppendToSectionArray')))
+					{
+						$result['body'] = array_merge($result['body'], \dash\temp::get('AppendToSectionArray'));
+						\dash\temp::set('AppendToSectionArray', false);
+					}
 				}
 
 			}
 
 		}
+
+
 
 		$result['section:list:id']       = \content_site\assemble\tools::section_id_raw($this_model, a($result, 'id'));
 		$result['section:preview:title'] = \content_site\call_function::get_preview_title(a($result, 'section'), $this_model);

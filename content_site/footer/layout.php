@@ -60,6 +60,8 @@ class layout
 			$_args['responsive'] = [];
 		}
 
+		\dash\temp::set('AppendToSectionArray', ['footer_pwa_btn' => a($_args, 'responsive')]);
+
 		\dash\data::currentFooterPwaBtn(a($_args, 'responsive'));
 
 

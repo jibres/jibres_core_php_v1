@@ -281,7 +281,9 @@ class pwa_menu
 
 	public static function businessWebsite()
 	{
-		$footer = \dash\data::currentFooterPwaBtn();
+		// $footer = \dash\data::currentFooterPwaBtn();
+		$footer = a(\dash\data::website_footer(), 'body', 'footer_pwa_btn');
+
 
 		if($footer && is_array($footer))
 		{
