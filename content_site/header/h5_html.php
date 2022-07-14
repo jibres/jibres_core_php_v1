@@ -35,10 +35,25 @@ class h5_html
 			{
 				$html .= '<div class="flex align-center h-20 rounded-lg relative py-2 px-4 overflow-hidden" style="background-color:'. $color. ';">';
 				{
-					$html .= '<a href="'. \dash\url::kingdom() .'" class="h-16 w-24 siteLogo rounded-lg overflow-hidden">';
-					$html .= '<img class="block mx-auto h-full" src="'. \dash\url::cdn(). '/enterprise/rafiei/logo/svg/logo-rafiei-oval-white-v1.svg" alt="'. a($_args, 'heading'). '">';
+					$html .= '<a href="'. \dash\url::kingdom() .'" class="h-16 siteLogo overflow-hidden flex flex-1 flex-none items-center">';
+					{
+						$logo = a($_args, 'logo');
 
-					$html .= '<h1 class="hidden">'. a($_args, 'heading'). "</h1>";
+						if($logo)
+						{
+							$html .= '<img class="inline-block h-full rounded-lg" src="'. $logo. '" alt="'. a($_args, 'heading'). '">';
+						}
+
+						if(a($_args, 'heading'))
+						{
+							// add title
+							$html .= '<h1 class="inline-block px-2 text-2xl font-bold">';
+							{
+								$html .= $_args['heading'];
+							}
+							$html .= '</h1>';
+						}
+					}
 					$html .= '</a>';
 
 					$menuOpt =
