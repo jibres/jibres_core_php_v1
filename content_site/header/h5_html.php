@@ -17,9 +17,12 @@ class h5_html
 
 		$html .= share::announcement($_args);
 
-		$html = \content_site\assemble\wrench\section::element_start($_args, 'header');
+		// remove background of entire header
+		$headerTag = $_args;
+		unset($headerTag['background:style']);
+
+		$html = \content_site\assemble\wrench\section::element_start($headerTag, 'header');
 		{
-			$color = '#004bb0';
 			$color = a($_args, 'background_color');
 			$topBgStyle = 'background-image: url('. \dash\url::cdn() .'/enterprise/rafiei/v2/header-pattern-1.png);background-repeat:repeat-x;';
 			$topBgStyle .= 'animation:bgMoveLtr 60s linear infinite;';
