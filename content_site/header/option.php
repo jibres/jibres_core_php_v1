@@ -49,6 +49,8 @@ class option
 			'h1',
 			'h3',
 			'h4',
+			'h5',
+			// enterprise
 			'h_rafiei',
 			'h_rafiei2',
 		];
@@ -63,6 +65,7 @@ class option
 			'h1:p1',
 			'h3:p1',
 			// 'h4:p1',
+			// 'h5:p1',
 		];
 	}
 
