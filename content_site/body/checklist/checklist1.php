@@ -22,7 +22,7 @@ class checklist1
 				[
 					'checklist_title',
 					'checklist_link',
-					'checklist_text',
+					// 'checklist_text',
 					'checklist_status',
 					'checklist_remove',
 				],
@@ -41,6 +41,7 @@ class checklist1
 					'height',
 					'padding_top',
 					'padding_bottom',
+					'container_checklist',
 				],
 				'responsive' =>
 				[
