@@ -11,6 +11,8 @@ class checklist1_html
 
 			$html .= \content_site\assemble\wrench\section::container($_args);
 			{
+				$html .= \content_site\assemble\wrench\heading::simple1($_args);
+
 				$html .= '<div class="">';
 				{
 					$checklist = [];
