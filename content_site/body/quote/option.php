@@ -28,7 +28,7 @@ class option
 			'group'   => T_("Quote"),
 			'section' => 'quote',
 			'title'   => T_("Quote"),
-			'icon'    => \dash\utility\icon::url('ChecklistAlternate'),
+			'icon'    => \dash\utility\icon::url('Conversation', 'minor'),
 		];
 	}
 
