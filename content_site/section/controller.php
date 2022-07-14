@@ -29,6 +29,7 @@ class controller
 			// 'title',
 			'visitcard',
 			'quote',
+			'checklist',
 			'text',
 			'separator',
 			'application',
