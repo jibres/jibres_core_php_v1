@@ -327,15 +327,16 @@ class prepare
 		// decalare target url
 		$target_host = '';
 
-		// fix protocol
-		if(\dash\url::isLocal())
-		{
-			$target_host = \dash\url::protocol().'://';
-		}
-		else
-		{
-			$target_host = 'https://';
-		}
+		// // fix protocol
+		// if(\dash\url::isLocal())
+		// {
+		// 	$target_host = \dash\url::protocol().'://';
+		// }
+		// else
+		// {
+
+		// }
+		$target_host = 'https://';
 
 		if(\dash\url::subdomain() && \dash\url::subdomain() !== 'www')
 		{
