@@ -39,16 +39,38 @@ class checklist_list
 				      		{
 					            $html .= '<input type="hidden" name="sort_child[]" value="'.  a($value, 'index'). '">';
 
-				      			if(isset($value['avatar']) && $value['avatar'])
-				      			{
-				        			$file_url = \lib\filepath::fix($value['avatar']);
-				      			}
-				      			else
-				      			{
-				        			$file_url = \dash\utility\icon::url('Image', 'major');
-				      			}
 
-				        		$html .= '<img src="'. $file_url. '" alt="'. a($value, 'title'). '">';
+
+								$status = '';
+								switch (a($value, 'link_color'))
+								{
+									case 'success':
+										// $status = 'data-okay';
+				        				$html .= \dash\utility\icon::svg('CircleTick', 'major', 'green');
+										break;
+
+									case 'danger':
+										// $status = 'data-fail';
+				        				$html .= \dash\utility\icon::svg('CircleCancel', 'major', 'red');
+										break;
+
+									case 'warning':
+										// $status = 'data-warn';
+										$html .= \dash\utility\icon::svg('lightbulb', 'bootstrap', 'orange');
+										break;
+
+
+									case 'primary':
+									default:
+										// $status = 'data-info';
+										$html .= \dash\utility\icon::svg('CircleInformation', 'major', '#009ae7');
+										break;
+								}
+
+
+
+
+				        		// $html .= '<img src="'. $file_url. '" alt="'. a($value, 'title'). '">';
 				        		$html .= '<div class="key">'. a($value, 'title').' </div>';
 
             					if (count($currentSectionDetail['preview']['checklist_list']) > 1)
