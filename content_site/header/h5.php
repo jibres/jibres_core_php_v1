@@ -15,32 +15,29 @@ class h5
 			'title'        => T_("Box 1"),
 			'options'      =>
 			[
-				// 'file_business_logo_header',
+				'heading_business_header',
+				'file_business_logo_header',
 				'menu_1',
 				'announcement' => share::set_announcement(),
-				// 'style' => \content_site\utility::set_style_option(
-				// [
-				// 	'font',
-				// 	'container',
-				// 	'background_pack',
-				// 	'link_color',
-				// 	'background_color_header_line',
-				// ]),
+				'style' => \content_site\utility::set_style_option(
+				[
+					'font',
+					'background_pack',
+					'link_color',
+					'background_color_header_line',
+				]),
 				'responsive' => share::set_responsive_option_header(),
 				'spacing' =>
 				[
 					'padding_top',
 					'padding_bottom',
-					// 'container',
+					'container',
 				],
 			],
 			'default'      =>
 			[
-				// 'use_as_logo'    => 'business_logo',
-				// 'use_as_heading' => 'business_heading',
-				// 'link_search'    => true,
-				// 'link_enter'     => true,
-				// 'link_cart'      => true,
+				'use_as_logo'    => 'business_logo',
+				'use_as_heading' => 'business_heading',
 			],
 
 			'force' =>
@@ -66,15 +63,10 @@ class h5
 			'version'        => 1,
 			'options' =>
 			[
-				// 'use_as_logo'              => 'business_logo',
+				'use_as_logo'              => 'business_logo',
 				'use_as_heading'           => 'business_heading',
-				// 'link_search'              => true,
-				// 'link_enter'               => true,
-				// 'link_cart'                => true,
 			],
 		];
 	}
-
-
 }
 ?>
