@@ -24,47 +24,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `jibres_nic_log` /*!40100 DEFAULT CHARA
 USE `jibres_nic_log`;
 
 --
--- Table structure for table `domainactivity`
---
-
-DROP TABLE IF EXISTS `domainactivity`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `domainactivity` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `domain_id` bigint unsigned DEFAULT NULL,
-  `user_id` int unsigned DEFAULT NULL,
-  `datecreated` timestamp NULL DEFAULT NULL,
-  `type` varchar(200) DEFAULT NULL,
-  `available` bit(1) DEFAULT NULL,
-  `ip` varchar(100) DEFAULT NULL,
-  `result` text,
-  `runtime` text,
-  `holder` varchar(30) DEFAULT NULL,
-  `admin` varchar(30) DEFAULT NULL,
-  `tech` varchar(30) DEFAULT NULL,
-  `bill` varchar(30) DEFAULT NULL,
-  `nicstatus` text,
-  `reseller` varchar(100) DEFAULT NULL,
-  `roid` varchar(100) DEFAULT NULL,
-  `dateregister` timestamp NULL DEFAULT NULL,
-  `dateexpire` timestamp NULL DEFAULT NULL,
-  `ns1` varchar(200) DEFAULT NULL,
-  `ns2` varchar(200) DEFAULT NULL,
-  `ns3` varchar(200) DEFAULT NULL,
-  `ns4` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `domainactivity_domain_id` (`domain_id`),
-  KEY `domainactivity_index_search_type` (`type`),
-  KEY `domainactivity_index_search_available` (`available`),
-  KEY `domainactivity_index_search_user_id` (`user_id`),
-  KEY `domainactivity_search_index_available` (`available`),
-  KEY `domainactivity_search_index_type` (`type`),
-  CONSTRAINT `domainactivity_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2580888 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `domains`
 --
 
@@ -104,6 +63,47 @@ CREATE TABLE `domains` (
   KEY `domains_search_index_registrar` (`registrar`),
   KEY `domains_index_search_len` (`domainlen`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1846034 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `domainactivity`
+--
+
+DROP TABLE IF EXISTS `domainactivity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `domainactivity` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `domain_id` bigint unsigned DEFAULT NULL,
+  `user_id` int unsigned DEFAULT NULL,
+  `datecreated` timestamp NULL DEFAULT NULL,
+  `type` varchar(200) DEFAULT NULL,
+  `available` bit(1) DEFAULT NULL,
+  `ip` varchar(100) DEFAULT NULL,
+  `result` text,
+  `runtime` text,
+  `holder` varchar(30) DEFAULT NULL,
+  `admin` varchar(30) DEFAULT NULL,
+  `tech` varchar(30) DEFAULT NULL,
+  `bill` varchar(30) DEFAULT NULL,
+  `nicstatus` text,
+  `reseller` varchar(100) DEFAULT NULL,
+  `roid` varchar(100) DEFAULT NULL,
+  `dateregister` timestamp NULL DEFAULT NULL,
+  `dateexpire` timestamp NULL DEFAULT NULL,
+  `ns1` varchar(200) DEFAULT NULL,
+  `ns2` varchar(200) DEFAULT NULL,
+  `ns3` varchar(200) DEFAULT NULL,
+  `ns4` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `domainactivity_domain_id` (`domain_id`),
+  KEY `domainactivity_index_search_type` (`type`),
+  KEY `domainactivity_index_search_available` (`available`),
+  KEY `domainactivity_index_search_user_id` (`user_id`),
+  KEY `domainactivity_search_index_available` (`available`),
+  KEY `domainactivity_search_index_type` (`type`),
+  CONSTRAINT `domainactivity_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `domains` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2580888 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
