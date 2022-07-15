@@ -28,6 +28,8 @@ class h5_html
 			// $html .= '<div id="bgHeaderSymbol" class="absolute h-24 w-full mx-auto top-0 right-0 left-0 opacity-30" style="'. $topBgStyle. '"></div>';
 
 			$color = a($_args, 'background_color');
+			$color_heading    = a($_args, 'color_heading:full_style');
+
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'select-none']);
 			{
 				$html .= '<div class="flex align-center h-20 rounded-lg relative py-2 px-4 overflow-hidden" style="background-color:'. $color. ';">';
@@ -44,7 +46,7 @@ class h5_html
 						if(a($_args, 'heading'))
 						{
 							// add title
-							$html .= '<h1 class="inline-block px-2 text-2xl font-bold">';
+							$html .= '<h1 class="inline-block px-2 text-2xl font-bold" '. $color_heading. '>';
 							{
 								$html .= $_args['heading'];
 							}

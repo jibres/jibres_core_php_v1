@@ -23,6 +23,7 @@ class h5
 				[
 					'font',
 					'background_pack',
+					'color_heading',
 					'link_color',
 					'background_color_header_line',
 				]),
