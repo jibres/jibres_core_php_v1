@@ -23,19 +23,16 @@ class h5_html
 
 		$html = \content_site\assemble\wrench\section::element_start($headerTag, 'header');
 		{
+			// $topBgStyle = 'background-image: url('. \dash\url::cdn() .'/img/business/pattern/pattern-1.png);background-repeat:repeat-x;';
+			// $topBgStyle .= 'animation:bgMoveLtr 60s linear infinite;';
+			// $html .= '<div id="bgHeaderSymbol" class="absolute h-24 w-full mx-auto top-0 right-0 left-0 opacity-30" style="'. $topBgStyle. '"></div>';
+
 			$color = a($_args, 'background_color');
-			$topBgStyle = 'background-image: url('. \dash\url::cdn() .'/enterprise/rafiei/v2/header-pattern-1.png);background-repeat:repeat-x;';
-			$topBgStyle .= 'animation:bgMoveLtr 60s linear infinite;';
-
-
-			$html .= '<div id="bgHeaderSymbol" class="absolute h-24 w-full mx-auto top-0 right-0 left-0 opacity-30" style="'. $topBgStyle. '"></div>';
-
-
 			$html .= \content_site\assemble\wrench\section::container($_args, ['class' => 'select-none']);
 			{
 				$html .= '<div class="flex align-center h-20 rounded-lg relative py-2 px-4 overflow-hidden" style="background-color:'. $color. ';">';
 				{
-					$html .= '<a href="'. \dash\url::kingdom() .'" class="h-16 siteLogo overflow-hidden flex flex-1 flex-none items-center">';
+					$html .= '<a href="'. \dash\url::kingdom() .'" class="h-16 siteLogo overflow-hidden flex flex-none items-center">';
 					{
 						$logo = a($_args, 'logo');
 
