@@ -60,10 +60,10 @@ class view
 		\dash\face::slogan(T_(\dash\face::siteSlogan()));
 		\dash\face::logo(\dash\face::hereIcon());
 
-
+		\dash\engine\runtime::set('View', 'globalLoaded');
 		// load detail of business website
 		\dash\layout\business::check_website();
-
+		\dash\engine\runtime::set('View', 'businessSiteLoaded');
 
 		/*=======================================================
 		=            Check some variable if In Store            =
