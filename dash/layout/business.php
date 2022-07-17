@@ -88,9 +88,9 @@ class business
 			return false;
 		}
 
-
 		// load page builder by detect current page
 		$siteBuilder = \content_site\load\load::current_page();
+		\dash\engine\runtime::set('LayoutBusiness', 'loaded');
 
 		if(isset($siteBuilder['post_detail']['ishomepage']) && $siteBuilder['post_detail']['ishomepage'])
 		{

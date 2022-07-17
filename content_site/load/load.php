@@ -288,9 +288,9 @@ class load
 		{
 			$result['template'] = 'publish';
 		}
-
+		\dash\engine\runtime::set('SiteLoad', 'readyBefore');
 		self::ready($result, $list, $need_explode_homepage_header_footer, $homepage_id);
-
+		\dash\engine\runtime::set('SiteLoad', 'readyLoaded');
 		if(empty(array_merge($result['header'], $result['body'], $result['footer'])))
 		{
 			\dash\data::emptySectionList(true);
@@ -315,6 +315,11 @@ class load
 
 		$section_counter = 0;
 
+		\dash\engine\runtime::set('SiteLoad', 'readyBeforeLoop');
+		// @todo: @reza detect problem of this block of code
+		// it takes more than 1.6 second to do this loop for sample webpage on windows!
+		// it's only array with 6 child and each child has about 60 line of code
+		// total json is about 644 loc
 
 		foreach ($list as $key => $value)
 		{
@@ -355,7 +360,7 @@ class load
 				$result[$value['folder']][] = \content_site\section\view::ready_section_list($value, true, $section_option);
 			}
 		}
-
+		\dash\engine\runtime::set('SiteLoad', 'readyAfterLoop');
 		$new_body = [];
 
 		foreach ($result['body'] as $key => $value)
