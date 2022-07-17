@@ -24,10 +24,10 @@ class controller
 		// check master permisson
 		\dash\permission::access('_group_sitebuilder');
 
-		$sys_module = 
+		$sys_module =
 		[
-			'body', 
-			'header', 
+			'body',
+			'header',
 			'footer',
 			'options',
 			'assemble',
