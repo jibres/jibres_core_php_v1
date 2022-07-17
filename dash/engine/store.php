@@ -287,15 +287,19 @@ class store
 		if($store)
 		{
 			self::config_by_store_id();
+			\dash\engine\runtime::set('engineStoreConf', 'inStore');
 		}
 		elseif(self::inCustomerDomain() && self::$customerDomainStore_id)
 		{
 			self::init_by_id(self::$customerDomainStore_id);
+			\dash\engine\runtime::set('engineStoreConf', 'inCustomerDomain');
 		}
 		elseif($subdomain)
 		{
 			self::config_by_subdomain();
+			\dash\engine\runtime::set('engineStoreConf', 'inSubdomain');
 		}
+
 	}
 
 
@@ -447,7 +451,6 @@ class store
 		{
 			return;
 		}
-
 		self::init_subdomain($subdomain);
 	}
 
@@ -549,7 +552,9 @@ class store
 
 		if($get_store_id)
 		{
+
 			$result = self::lock($get_store_id, $get_store_detail);
+
 
 			$all_store_setting = \lib\store::detail();
 
@@ -561,6 +566,7 @@ class store
 				}
 				else
 				{
+					\dash\engine\runtime::set('engineStoreConf', 'sub46');
 					$new_url = \lib\store::master_domain(true);
 
 					if($new_url)
@@ -572,7 +578,6 @@ class store
 			}
 			return $result;
 		}
-
 
 		return false;
 	}
@@ -642,6 +647,7 @@ class store
 	{
 		if($_store_id)
 		{
+
 			$db_name           = self::make_database_name($_store_id);
 
 			if(!$_force)
@@ -661,7 +667,6 @@ class store
 				}
 			}
 
-
 			$detail              = [];
 			$detail['id']        = $_store_id;
 			$detail['store']     = $_store_detail;
@@ -672,7 +677,6 @@ class store
 			self::$store_loaded_detail = $detail;
 
 			self::$IN_STORE = true;
-
 			if(!\dash\url::store())
 			{
 				$store_data = self::store_data($_store_id);
@@ -692,7 +696,9 @@ class store
 
 	private static function store_data($_store_id)
 	{
+		\dash\engine\runtime::set('engineStore', 'fileDataBefore');
 		$result = \lib\store::file_store_data(['id' => $_store_id]);
+		\dash\engine\runtime::set('engineStore', 'fileDataLoaded');
 		return $result;
 	}
 
