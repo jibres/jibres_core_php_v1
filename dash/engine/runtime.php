@@ -8,7 +8,7 @@ class runtime
 
 	public static function start_engine()
 	{
-		self::set('engine', 'start', true);
+		self::set('power', 'on', true);
 	}
 
 
@@ -39,18 +39,37 @@ class runtime
 		}
 
 		$formatedResult = [];
+		$prevTime = null;
+		$totalTime = 0;
 		foreach (self::$runtime as $key => $startTime)
 		{
+			if(!$prevTime)
+			{
+				$prevTime = $startTime;
+			}
+
 			// calc diff of start and end
-			$diff = microtime(true) - $startTime;
-			$diff_round = round($diff, 2);
+			// $diff = microtime(true) - $startTime;
+			// $diff_round = round($diff, 2);
+
+
+			$diff_from_last = $startTime - $prevTime;
+			$diff_from_last_round = round($diff_from_last, 2);
+			$totalTime += round($diff_from_last, 2);
 			// calc diff in second
 			// $diff_Sec = intval($diff);
 
-			$formatedResult[$key] = $diff_round. 's';
+			$formatedResult[$key] = $diff_from_last_round. ' -> '. $totalTime;
+			if($diff_from_last_round > 0.3)
+			{
+				$formatedResult[$key] .= str_repeat(' ***', intval($diff_from_last_round / 0.3));
+			}
+
+			// set prev time for next one
+			$prevTime = $startTime;
 		}
 
-		return json_encode($formatedResult, JSON_UNESCAPED_UNICODE);
+		return json_encode($formatedResult, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ;
 	}
 
 
