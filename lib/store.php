@@ -356,7 +356,6 @@ class store
 			switch ($key)
 			{
 				case 'logo':
-					\dash\engine\runtime::set('libStore', 'logo');
 					if($value)
 					{
 						$value = \lib\filepath::fix($value);
@@ -370,7 +369,6 @@ class store
 					break;
 
 				case 'country':
-					\dash\engine\runtime::set('libStore', 'country');
 					if($value)
 					{
 						$result['country_detail'] = [];
@@ -380,7 +378,6 @@ class store
 					break;
 
 				case 'province':
-					\dash\engine\runtime::set('libStore', 'province');
 					if($value)
 					{
 						$result['province_detail'] = [];
@@ -390,7 +387,6 @@ class store
 					break;
 
 				case 'city':
-					\dash\engine\runtime::set('libStore', 'city1');
 					if($value)
 					{
 						$result['city_detail'] = [];
@@ -400,7 +396,6 @@ class store
 					break;
 
 				case 'currency':
-					\dash\engine\runtime::set('libStore', 'currency');
 					if($value)
 					{
 						$result['currency_detail'] = \lib\currency::detail($value);
@@ -409,7 +404,6 @@ class store
 					break;
 
 				case 'length_unit':
-					\dash\engine\runtime::set('libStore', 'lenght');
 					if($value)
 					{
 						$result['length_detail'] = \lib\units::detail($value, 'length');
@@ -418,7 +412,6 @@ class store
 					break;
 
 				case 'mass_unit':
-					\dash\engine\runtime::set('libStore', 'mass');
 					if($value)
 					{
 						$result['mass_detail'] = \lib\units::detail($value, 'mass');
@@ -428,7 +421,6 @@ class store
 
 
 				default:
-					\dash\engine\runtime::set('libStore', 'default');
 					$result[$key] = $value;
 					break;
 			}

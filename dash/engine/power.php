@@ -44,8 +44,12 @@ class power
 		\dash\login::check();
 
 		// LAUNCH !
-		\dash\engine\runtime::set('powerMVC', 'start');
+		\dash\engine\runtime::set('MVC', 'start');
 		\dash\engine\mvc::fire();
+
+		// everything done
+		\dash\engine\runtime::set('power', 'done');
+		// \dash\engine\runtime::jsonDebug();
 	}
 }
 ?>
