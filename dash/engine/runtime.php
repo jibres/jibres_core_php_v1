@@ -38,7 +38,19 @@ class runtime
 			return null;
 		}
 
-		return json_encode(self::$runtime, JSON_UNESCAPED_UNICODE);
+		$formatedResult = [];
+		foreach (self::$runtime as $key => $startTime)
+		{
+			// calc diff of start and end
+			$diff = microtime(true) - $startTime;
+			$diff_round = round($diff, 2);
+			// calc diff in second
+			// $diff_Sec = intval($diff);
+
+			$formatedResult[$key] = $diff_round. 's';
+		}
+
+		return json_encode($formatedResult, JSON_UNESCAPED_UNICODE);
 	}
 
 
