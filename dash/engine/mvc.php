@@ -266,19 +266,23 @@ class mvc
 		if(\dash\request::is('get') && !\dash\request::json_accept())
 		{
 			\dash\engine\view::variable();
+			\dash\engine\runtime::set('MVC', 'ViewSFnVariableLoaded');
 
 			// run content default function for set something if needed
 			$content_view = \dash\engine\content::get().'\\view';
+			\dash\engine\runtime::set('MVC', 'ViewFnConfigContentStart');
 			if(is_callable([$content_view, 'config']))
 			{
 				$content_view::config();
 			}
+			\dash\engine\runtime::set('MVC', 'ViewFnConfigContentLoaded');
 
 			// run default function of view
 			if(is_callable([$my_view, 'config']))
 			{
 				$my_view::config();
 			}
+			\dash\engine\runtime::set('MVC', 'ViewFnConfigModuleLoaded');
 
 			// call custom function if exist
 			$my_view_function = \dash\open::license(null, true);
@@ -304,11 +308,13 @@ class mvc
 
 			\dash\engine\view::lastChanges();
 
+			\dash\engine\runtime::set('MVC', 'ViewFnLastChanges');
+
 			// add header before echo anything
 			\dash\waf\race::requestDone();
 
 			$nativeTemplate = \dash\layout\func::shoot();
-
+			\dash\engine\runtime::set('MVC', 'ViewFnTemplate');
 			if(!$nativeTemplate)
 			{
 				if(\dash\url::is_api())
