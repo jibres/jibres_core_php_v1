@@ -12,7 +12,9 @@ class protection
 		\dash\waf\dog::bark();
 
 		// block baby to not allow to harm yourself :/
+		\dash\engine\runtime::set('waf', 'babyStart');
 		\dash\waf\baby::block();
+		\dash\engine\runtime::set('waf', 'babyEnd');
 
 		// check ip
 		\dash\waf\ip::monitor();

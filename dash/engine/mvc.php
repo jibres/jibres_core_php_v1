@@ -17,13 +17,17 @@ class mvc
 	{
 		// get best controller
 		$finded_controller  = self::find_ctrl();
+		\dash\engine\runtime::set('MVC', 'findCtrl');
 		if($finded_controller)
 		{
 			self::load_controller();
+			\dash\engine\runtime::set('MVC', 'CtrlLoaded');
 
 			self::load_view();
+			\dash\engine\runtime::set('MVC', 'ViewLoaded');
 
 			self::load_model();
+			\dash\engine\runtime::set('MVC', 'ModelLoaded');
 		}
 	}
 
