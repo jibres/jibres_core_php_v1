@@ -73,6 +73,13 @@ class runtime
 	}
 
 
+	public static function jsonDebug()
+	{
+		$jsonData = self::json();
+		\dash\code::jsonBoom($jsonData);
+	}
+
+
 	public static function show()
 	{
 		if(empty(self::$runtime))
