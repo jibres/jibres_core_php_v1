@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-14 13:10+0430\n"
-"PO-Revision-Date: 2022-07-14 13:12+0430\n"
+"POT-Creation-Date: 2022-07-19 13:05+0430\n"
+"PO-Revision-Date: 2022-07-19 13:06+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1100,7 +1100,7 @@ msgstr "لطفا شماره موبایل معتبری وارد کنید. :val ا
 #: content_site/body/contactform/cf1_html.php:65 dash/app/ticket/contact.php:111
 #: includes/languages/trans_static_public.php:941
 #: includes/languages/trans_static_public.php:983 lib/app/form/item/type.php:389
-#: lib/store.php:494
+#: lib/store.php:498
 msgid "Email"
 msgstr "ایمیل"
 
@@ -3744,7 +3744,7 @@ msgstr "وزن"
 msgid "Required"
 msgstr "الزامی"
 
-#: content/shipping/irpost/display-calculate.php:10 lib/units.php:13
+#: content/shipping/irpost/display-calculate.php:10 lib/units.php:30
 msgid "Gram"
 msgstr "گرم"
 
@@ -6177,7 +6177,8 @@ msgstr "ماه"
 #: content_a/accounting/report/ledger/display.php:30
 #: content_a/accounting/report/ledger/display.php:31
 #: content_a/accounting/report/ledger/display.php:32 dash/utility/ir_post.php:85
-#: dash/utility/ir_post.php:156 lib/currency.php:13
+#: dash/utility/ir_post.php:156 includes/languages/trans_static.php:1068
+#: lib/currency.php:259
 msgid "Rial"
 msgstr "ریال"
 
@@ -11861,7 +11862,7 @@ msgstr "نام کاربری شما در آپارات."
 
 #: content_a/setting/aparat/view.php:8 content_a/setting/social/display.php:85
 #: content_a/setting/social/display.php:86 includes/languages/trans_static_public.php:252
-#: lib/store.php:504
+#: lib/store.php:508
 msgid "Aparat"
 msgstr "آپارات"
 
@@ -12319,7 +12320,7 @@ msgstr "نام کاربری شما در فیسبوک."
 #: content_a/setting/fb/view.php:8 content_a/setting/social/display.php:29
 #: content_a/setting/social/display.php:30 content_account/my/home/display.php:167
 #: content_account/my/social/display.php:20 content_account/my/social/display.php:23
-#: lib/store.php:496
+#: lib/store.php:500
 msgid "Facebook"
 msgstr "فیس‌بوک"
 
@@ -12569,7 +12570,7 @@ msgstr "نام کاربری شما در گیت‌هاب."
 
 #: content_a/setting/github/view.php:8 content_a/setting/social/display.php:61
 #: content_a/setting/social/display.php:62 includes/languages/trans_static_public.php:250
-#: lib/store.php:497
+#: lib/store.php:501
 msgid "Github"
 msgstr "گیت‌هاب"
 
@@ -12707,7 +12708,7 @@ msgstr "سرویس اتصال اینستاگرام در حال حاضر در د�
 #: content_account/my/social/display.php:41 content_account/my/social/display.php:44
 #: content_site/body/instagram/instagram1.php:17
 #: content_site/body/instagram/instagram1.php:51 content_site/body/instagram/option.php:36
-#: lib/store.php:493
+#: lib/store.php:497
 msgid "Instagram"
 msgstr "اینستاگرام"
 
@@ -12761,7 +12762,7 @@ msgstr "نام کاربری شما در لینکدین."
 #: content_a/setting/linkedin/view.php:8 content_a/setting/social/display.php:45
 #: content_a/setting/social/display.php:46 content_account/my/home/display.php:177
 #: content_account/my/social/display.php:34 content_account/my/social/display.php:37
-#: includes/languages/trans_static_public.php:251 lib/store.php:498
+#: includes/languages/trans_static_public.php:251 lib/store.php:502
 msgid "Linkedin"
 msgstr "لینکدین"
 
@@ -13711,7 +13712,7 @@ msgstr "شبکه‌های اجتماعی متصل به اشتراک‌گذاری
 #: content_crm/ticket/view/display.php:175 content_love/log/home/logTable.php:60
 #: content_sudo/home/display.php:210 content_sudo/tg/home/view.php:11
 #: dash/layout/admin/sidebar/sidebar-su.php:27 includes/languages/trans_static.php:598
-#: lib/store.php:492
+#: lib/store.php:496
 msgid "Telegram"
 msgstr "تلگرام"
 
@@ -13725,7 +13726,7 @@ msgstr "رسانه‌های اجتماعی"
 #: content_site/body/twitter/option.php:20 content_site/body/twitter/twitter1.php:17
 #: content_site/body/twitter/twitter1.php:53 content_site/body/twitter/twitter1.php:100
 #: content_site/body/twitter/twitter1_html.php:90
-#: content_site/options/twitter/twitter.php:49 lib/store.php:495
+#: content_site/options/twitter/twitter.php:49 lib/store.php:499
 msgid "Twitter"
 msgstr "توییتر"
 
@@ -15186,7 +15187,7 @@ msgstr ""
 "شما تصویر پروفایل خود را به دفعات تغییر دادید. تا مدتی امکان تغییر مجدد آن برای شما "
 "وجود ندارد."
 
-#: content_account/my/avatar/view.php:10 content_my/home/display_site.php:137
+#: content_account/my/avatar/view.php:10 content_my/home/display_site.php:152
 msgid "Set Avatar"
 msgstr "تنظیم آواتار"
 
@@ -15786,7 +15787,7 @@ msgid "Please set store code in url"
 msgstr "لطفا کد‌ فروشگاه را در آدرس وارد کنید"
 
 #: content_b1/tools.php:43 content_business/controller.php:31 content_r10/tools.php:106
-#: content_v2/controller.php:19 dash/engine/store.php:215 dash/engine/store.php:384
+#: content_v2/controller.php:19 dash/engine/store.php:215 dash/engine/store.php:388
 #: lib/app/application/queue.php:12 lib/app/application/queue.php:243
 #: lib/app/business_domain/add.php:68 lib/app/business_domain/business.php:109
 #: lib/app/business_domain/business.php:116 lib/app/business_domain/edit.php:100
@@ -17544,7 +17545,7 @@ msgid "Active Order"
 msgstr "سفارشات فعال"
 
 #: content_crm/member/glance/display.php:58 content_crm/member/glance/display.php:85
-#: content_my/domain/review/display.php:223 content_my/home/display_site.php:21
+#: content_my/domain/review/display.php:223 content_my/home/display_site.php:22
 msgid "Account Balance"
 msgstr "موجودی حساب"
 
@@ -21763,7 +21764,7 @@ msgstr "مجموع فراخوانی‌های ناموفق"
 msgid "Show lookup list"
 msgstr "نمایش لیست فراخوانی کد هدیه"
 
-#: content_love/home/display.php:7 content_my/home/display_site.php:201
+#: content_love/home/display.php:7 content_my/home/display_site.php:230
 #: dash/layout/admin/admin-sidebar-frame.php:36 dash/layout/m2/sidebar.php:626
 msgid "Supervisor Panel"
 msgstr "پنل مدیر فنی"
@@ -21797,7 +21798,7 @@ msgid "Plugin"
 msgstr "افزونه"
 
 #: content_love/home/view.php:9 content_love/view.php:9
-#: content_my/home/display_site.php:194
+#: content_my/home/display_site.php:223
 msgid "Jibres Management"
 msgstr "مدیریت جیبرس"
 
@@ -22311,8 +22312,8 @@ msgid "Try another"
 msgstr "مجددا تلاش کنید"
 
 #: content_my/domain/buy/display-settings-com.php:29
-#: content_my/domain/review/display.php:192 lib/api/namecheap/api.php:158
-#: lib/currency.php:12
+#: content_my/domain/review/display.php:192 includes/languages/trans_static.php:1067
+#: lib/api/namecheap/api.php:158 lib/currency.php:258
 msgid "Toman"
 msgstr "تومان"
 
@@ -22948,7 +22949,7 @@ msgstr ""
 "برای ساخت وب‌سایت می‌توانید دامنه خود را به یکی از بیزینس‌ها متصل کنید و یا بیزینس جدیدی "
 "بسازید"
 
-#: content_my/domain/setting/business/display.php:45 content_my/home/display_site.php:65
+#: content_my/domain/setting/business/display.php:45 content_my/home/display_site.php:67
 msgid "Add New Business"
 msgstr "افزودن بیزینس جدید"
 
@@ -23238,71 +23239,71 @@ msgstr "سرویس‌های جیبرس"
 msgid "Homepage"
 msgstr "صفحه نخست"
 
-#: content_my/home/display_site.php:28
+#: content_my/home/display_site.php:29
 msgid ""
 "If you have any questions, you can raise them through the ticket with the support of "
 "Jibres."
 msgstr ""
 "اگر سوالی دارید می‌توانید آن را از طریق سامانه تیکتینگ با پشتیبانی جیبرس مطرح کنید."
 
-#: content_my/home/display_site.php:30
+#: content_my/home/display_site.php:31
 msgid "Support system"
 msgstr "سامانه پشتیبانی"
 
-#: content_my/home/display_site.php:37
+#: content_my/home/display_site.php:38
 msgid "Business that you are owner"
 msgstr "بیزینس‌هایی که مالک آن هستید"
 
-#: content_my/home/display_site.php:74
+#: content_my/home/display_site.php:76
 msgid "Business that you are staff"
 msgstr "بیزینس‌هایی که در آن مشغول به کارید"
 
-#: content_my/home/display_site.php:92
+#: content_my/home/display_site.php:96
 msgid "You are not staff yet!"
 msgstr "شما هنوز در هیچ بیزینسی کار نمی‌کنید!"
 
-#: content_my/home/display_site.php:105 includes/languages/trans_static_public.php:295
+#: content_my/home/display_site.php:110 includes/languages/trans_static_public.php:295
 msgid "Account Status"
 msgstr "وضعیت حساب کاربری"
 
-#: content_my/home/display_site.php:106
+#: content_my/home/display_site.php:111
 msgid ""
 "Badges are little bits of digital flair that you earn for your simple actions on Jibres"
 msgstr "با تکمیل پروفایل و استفاده از امکانات جیبرس، به‌سادگی سطح کاربری خود را ارتقا دهید"
 
-#: content_my/home/display_site.php:113
+#: content_my/home/display_site.php:120
 msgid "Verify Mobile"
 msgstr "تایید موبایل"
 
-#: content_my/home/display_site.php:119
+#: content_my/home/display_site.php:128
 msgid "Verify Email"
 msgstr "تایید ایمیل"
 
-#: content_my/home/display_site.php:125
+#: content_my/home/display_site.php:136
 msgid "Set Username"
 msgstr "تنظیم نام کاربری"
 
-#: content_my/home/display_site.php:131
+#: content_my/home/display_site.php:144
 msgid "Set Birthday"
 msgstr "تنظیم تاریخ تولد"
 
-#: content_my/home/display_site.php:148
+#: content_my/home/display_site.php:165
 msgid "Top up Your Account"
 msgstr "شارژ کیف پول"
 
-#: content_my/home/display_site.php:159
+#: content_my/home/display_site.php:179
 msgid "Add Your First Business"
 msgstr "افزودن اولین بیزینس شما"
 
-#: content_my/home/display_site.php:165
+#: content_my/home/display_site.php:187
 msgid "Add Your First Product"
 msgstr "افزودن اولین محصول شما"
 
-#: content_my/home/display_site.php:171
+#: content_my/home/display_site.php:195
 msgid "Sale Your First Invoice"
 msgstr "ثبت اولین فاکتور فروش"
 
-#: content_my/home/display_site.php:182
+#: content_my/home/display_site.php:209
 msgid "Buy Your First Domain"
 msgstr "خرید اولین دامنه"
 
@@ -23849,6 +23850,14 @@ msgstr "سرصفحه فروشگاهی"
 #: content_site/header/h3_html.php:77
 msgid "Enter to account"
 msgstr "ورود به حساب‌کاربری"
+
+#: content_site/header/h4.php:16
+msgid "Simple Curve"
+msgstr ""
+
+#: content_site/header/h5.php:15
+msgid "Box 1"
+msgstr ""
 
 #: content_site/header/h_rafiei.php:23
 msgid "Rafiei Header"
@@ -28077,31 +28086,31 @@ msgstr "بازگشت به صفحه‌نخست"
 msgid "Please wait a moment, The system is being updated ..."
 msgstr "لطفا چند لحظه صبر کنید، سیستم در حال به‌روزرسانی است ..."
 
-#: dash/engine/mvc.php:123
+#: dash/engine/mvc.php:127
 msgid "Hey, Read documentation and start your project!"
 msgstr "سلام، مستندات را بخوان و پروژه خودتو شروع کن!"
 
-#: dash/engine/mvc.php:233
+#: dash/engine/mvc.php:237
 msgid "We can't find the page you're looking for!"
 msgstr "ما صفحه‌ای که به‌دنبال آن هستید را نمی‌یابیم!"
 
-#: dash/engine/store.php:326
+#: dash/engine/store.php:330
 msgid "Subdomain and store code conflict!"
 msgstr "زیردامنه و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:341
+#: dash/engine/store.php:345
 msgid "Can not route subdomain in your domain!"
 msgstr "به زیردامنه‌های شما در حالت دامنه اختصاصی پاسخ داده نخواهد شد!"
 
-#: dash/engine/store.php:347
+#: dash/engine/store.php:351
 msgid "Domain and store code conflict!"
 msgstr "دامنه اختصاصی و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:359
+#: dash/engine/store.php:363
 msgid "Can not route this address from your domain!"
 msgstr "نمی‌توانیم به درخواست از این آدرس در این دامنه پاسخ دهیم!"
 
-#: dash/engine/store.php:659
+#: dash/engine/store.php:665
 msgid "This business is currently unavailable!"
 msgstr "این بیزینس در حال حاضر در دسترس نیست!"
 
@@ -34256,6 +34265,482 @@ msgstr "تحویل داده نشده"
 #: includes/languages/trans_static.php:1063
 msgid "accept"
 msgstr "پذیرش"
+
+#: includes/languages/trans_static.php:1069 lib/currency.php:260
+msgid "US Dollar"
+msgstr "دلار آمریکا"
+
+#: includes/languages/trans_static.php:1070 lib/currency.php:261
+msgid "Euro"
+msgstr "یورو"
+
+#: includes/languages/trans_static.php:1071 lib/currency.php:262
+msgid "British Pound Sterling"
+msgstr "استرلینگ پوند انگلیس"
+
+#: includes/languages/trans_static.php:1072 lib/currency.php:263
+msgid "Japanese Yen"
+msgstr "ین ژاپن"
+
+#: includes/languages/trans_static.php:1073 lib/currency.php:264
+msgid "Canadian Dollar"
+msgstr "دلار کانادایی"
+
+#: includes/languages/trans_static.php:1074 lib/currency.php:265
+msgid "United Arab Emirates Dirham"
+msgstr "درهم امارات متحده عربی"
+
+#: includes/languages/trans_static.php:1075 lib/currency.php:266
+msgid "Afghan Afghani"
+msgstr "افغانی افغانستان"
+
+#: includes/languages/trans_static.php:1076 lib/currency.php:267
+msgid "Albanian Lek"
+msgstr "لک آلبانیایی"
+
+#: includes/languages/trans_static.php:1077 lib/currency.php:268
+msgid "Armenian Dram"
+msgstr "درام ارمنی"
+
+#: includes/languages/trans_static.php:1078 lib/currency.php:269
+msgid "Argentine Peso"
+msgstr "پزو آرژانتین"
+
+#: includes/languages/trans_static.php:1079 lib/currency.php:270
+msgid "Australian Dollar"
+msgstr "دلار استرالیا"
+
+#: includes/languages/trans_static.php:1080 lib/currency.php:271
+msgid "Azerbaijani Manat"
+msgstr "مانات آذربایجانی"
+
+#: includes/languages/trans_static.php:1081 lib/currency.php:272
+msgid "Bosnia-Herzegovina Convertible Mark"
+msgstr "مارک تبدیل پذیر بوسنی و هرزگوین"
+
+#: includes/languages/trans_static.php:1082 lib/currency.php:273
+msgid "Bangladeshi Taka"
+msgstr "تاکا بنگلادشی"
+
+#: includes/languages/trans_static.php:1083 lib/currency.php:274
+msgid "Bulgarian Lev"
+msgstr "لو بلغار"
+
+#: includes/languages/trans_static.php:1084 lib/currency.php:275
+msgid "Bahraini Dinar"
+msgstr "دینار بحرین"
+
+#: includes/languages/trans_static.php:1085 lib/currency.php:276
+msgid "Burundian Franc"
+msgstr "فرانک بروندی"
+
+#: includes/languages/trans_static.php:1086 lib/currency.php:277
+msgid "Brunei Dollar"
+msgstr "دلار برونئی"
+
+#: includes/languages/trans_static.php:1087 lib/currency.php:278
+msgid "Bolivian Boliviano"
+msgstr "بولیوی بولیویایی"
+
+#: includes/languages/trans_static.php:1088 lib/currency.php:279
+msgid "Brazilian Real"
+msgstr "رئال برزیل"
+
+#: includes/languages/trans_static.php:1089 lib/currency.php:280
+msgid "Botswanan Pula"
+msgstr "پولای بوتسوانا"
+
+#: includes/languages/trans_static.php:1090 lib/currency.php:281
+msgid "Belarusian Ruble"
+msgstr "روبل بلاروس"
+
+#: includes/languages/trans_static.php:1091 lib/currency.php:282
+msgid "Belize Dollar"
+msgstr "دلار بلیز"
+
+#: includes/languages/trans_static.php:1092 lib/currency.php:283
+msgid "Congolese Franc"
+msgstr "فرانک کنگو"
+
+#: includes/languages/trans_static.php:1093 lib/currency.php:284
+msgid "Swiss Franc"
+msgstr "فرانک سوئیس"
+
+#: includes/languages/trans_static.php:1094 lib/currency.php:285
+msgid "Chilean Peso"
+msgstr "پزو شیلی"
+
+#: includes/languages/trans_static.php:1095 lib/currency.php:286
+msgid "Chinese Yuan"
+msgstr "یوان چینی"
+
+#: includes/languages/trans_static.php:1096 lib/currency.php:287
+msgid "Colombian Peso"
+msgstr "پزو کلمبیا"
+
+#: includes/languages/trans_static.php:1097 lib/currency.php:288
+msgid "Costa Rican Colón"
+msgstr "کولون کاستاریکا"
+
+#: includes/languages/trans_static.php:1098 lib/currency.php:289
+msgid "Cape Verdean Escudo"
+msgstr "اسکودوی کیپ ورد"
+
+#: includes/languages/trans_static.php:1099 lib/currency.php:290
+msgid "Czech Republic Koruna"
+msgstr "کرونای چک"
+
+#: includes/languages/trans_static.php:1100 lib/currency.php:291
+msgid "Djiboutian Franc"
+msgstr "فرانک جیبوتی"
+
+#: includes/languages/trans_static.php:1101 lib/currency.php:292
+msgid "Danish Krone"
+msgstr "کرون دانمارکی"
+
+#: includes/languages/trans_static.php:1102 lib/currency.php:293
+msgid "Dominican Peso"
+msgstr "پزو دومینیکن"
+
+#: includes/languages/trans_static.php:1103 lib/currency.php:294
+msgid "Algerian Dinar"
+msgstr "دینار الجزایر"
+
+#: includes/languages/trans_static.php:1104 lib/currency.php:295
+msgid "Estonian Kroon"
+msgstr "کرون استونی"
+
+#: includes/languages/trans_static.php:1105 lib/currency.php:296
+msgid "Egyptian Pound"
+msgstr "پوند مصر"
+
+#: includes/languages/trans_static.php:1106 lib/currency.php:297
+msgid "Eritrean Nakfa"
+msgstr "ناکفای اریتره"
+
+#: includes/languages/trans_static.php:1107 lib/currency.php:298
+msgid "Ethiopian Birr"
+msgstr "بیر اتیوپی"
+
+#: includes/languages/trans_static.php:1108 lib/currency.php:299
+msgid "Georgian Lari"
+msgstr "لاری گرجستان"
+
+#: includes/languages/trans_static.php:1109 lib/currency.php:300
+msgid "Ghanaian Cedi"
+msgstr "سدی غنا"
+
+#: includes/languages/trans_static.php:1110 lib/currency.php:301
+msgid "Guinean Franc"
+msgstr "فرانک گینه"
+
+#: includes/languages/trans_static.php:1111 lib/currency.php:302
+msgid "Guatemalan Quetzal"
+msgstr "کوتزال گواتمالا"
+
+#: includes/languages/trans_static.php:1112 lib/currency.php:303
+msgid "Hong Kong Dollar"
+msgstr "دلار هنگ کنگ"
+
+#: includes/languages/trans_static.php:1113 lib/currency.php:304
+msgid "Honduran Lempira"
+msgstr "لامپیرای هندوراس"
+
+#: includes/languages/trans_static.php:1114 lib/currency.php:305
+msgid "Croatian Kuna"
+msgstr "کونا کرواتی"
+
+#: includes/languages/trans_static.php:1115 lib/currency.php:306
+msgid "Hungarian Forint"
+msgstr "فورینت مجارستانی"
+
+#: includes/languages/trans_static.php:1116 lib/currency.php:307
+msgid "Indonesian Rupiah"
+msgstr "روپیه اندونزیایی"
+
+#: includes/languages/trans_static.php:1117 lib/currency.php:308
+msgid "Israeli New Sheqel"
+msgstr ""
+
+#: includes/languages/trans_static.php:1118 lib/currency.php:309
+msgid "Indian Rupee"
+msgstr "روپیه هند"
+
+#: includes/languages/trans_static.php:1119 lib/currency.php:310
+msgid "Iraqi Dinar"
+msgstr "دینار عراقی"
+
+#: includes/languages/trans_static.php:1120 lib/currency.php:311
+msgid "Thousand Toman"
+msgstr "هزار تومان"
+
+#: includes/languages/trans_static.php:1121 lib/currency.php:312
+msgid "Thousand Rial"
+msgstr "هزار ریال"
+
+#: includes/languages/trans_static.php:1122 lib/currency.php:313
+msgid "Icelandic Króna"
+msgstr "کرونای ایسلند"
+
+#: includes/languages/trans_static.php:1123 lib/currency.php:314
+msgid "Jamaican Dollar"
+msgstr "دلار جامائیکا"
+
+#: includes/languages/trans_static.php:1124 lib/currency.php:315
+msgid "Jordanian Dinar"
+msgstr "دینار اردن"
+
+#: includes/languages/trans_static.php:1125 lib/currency.php:316
+msgid "Kenyan Shilling"
+msgstr "شیلینگ کنیا"
+
+#: includes/languages/trans_static.php:1126 lib/currency.php:317
+msgid "Cambodian Riel"
+msgstr "ریال کامبوج"
+
+#: includes/languages/trans_static.php:1127 lib/currency.php:318
+msgid "Comorian Franc"
+msgstr "کامور فرانک"
+
+#: includes/languages/trans_static.php:1128 lib/currency.php:319
+msgid "South Korean Won"
+msgstr "وون کره جنوبی"
+
+#: includes/languages/trans_static.php:1129 lib/currency.php:320
+msgid "Kuwaiti Dinar"
+msgstr "دینار کویت"
+
+#: includes/languages/trans_static.php:1130 lib/currency.php:321
+msgid "Kazakhstani Tenge"
+msgstr "تنگه قزاقستانی"
+
+#: includes/languages/trans_static.php:1131 lib/currency.php:322
+msgid "Lebanese Pound"
+msgstr "پوند لبنان"
+
+#: includes/languages/trans_static.php:1132 lib/currency.php:323
+msgid "Sri Lankan Rupee"
+msgstr "روپیه سری‌لانکا"
+
+#: includes/languages/trans_static.php:1133 lib/currency.php:324
+msgid "Lithuanian Litas"
+msgstr "لیتاس لیتوانیایی"
+
+#: includes/languages/trans_static.php:1134 lib/currency.php:325
+msgid "Latvian Lats"
+msgstr "لاتس لتونی"
+
+#: includes/languages/trans_static.php:1135 lib/currency.php:326
+msgid "Libyan Dinar"
+msgstr "دینار لیبی"
+
+#: includes/languages/trans_static.php:1136 lib/currency.php:327
+msgid "Moroccan Dirham"
+msgstr "درهم مراکش"
+
+#: includes/languages/trans_static.php:1137 lib/currency.php:328
+msgid "Moldovan Leu"
+msgstr "لئوی مولداوی"
+
+#: includes/languages/trans_static.php:1138 lib/currency.php:329
+msgid "Malagasy Ariary"
+msgstr "آریاری ماداگاسکار"
+
+#: includes/languages/trans_static.php:1139 lib/currency.php:330
+msgid "Macedonian Denar"
+msgstr "دلار مقدونی"
+
+#: includes/languages/trans_static.php:1140 lib/currency.php:331
+msgid "Myanma Kyat"
+msgstr "کیات میانمار"
+
+#: includes/languages/trans_static.php:1141 lib/currency.php:332
+msgid "Macanese Pataca"
+msgstr "پاتاکای ماکانز"
+
+#: includes/languages/trans_static.php:1142 lib/currency.php:333
+msgid "Mauritian Rupee"
+msgstr "روپیه موریتانی"
+
+#: includes/languages/trans_static.php:1143 lib/currency.php:334
+msgid "Mexican Peso"
+msgstr "پزو مکزیکی"
+
+#: includes/languages/trans_static.php:1144 lib/currency.php:335
+msgid "Malaysian Ringgit"
+msgstr "رینگیت مالزی"
+
+#: includes/languages/trans_static.php:1145 lib/currency.php:336
+msgid "Mozambican Metical"
+msgstr "متیکال موزامبیکی"
+
+#: includes/languages/trans_static.php:1146 lib/currency.php:337
+msgid "Namibian Dollar"
+msgstr "دلار نامیبیان"
+
+#: includes/languages/trans_static.php:1147 lib/currency.php:338
+msgid "Nigerian Naira"
+msgstr "نایارای نیجریه"
+
+#: includes/languages/trans_static.php:1148 lib/currency.php:339
+msgid "Nicaraguan Córdoba"
+msgstr "کوردوبای نیکاراگوئه"
+
+#: includes/languages/trans_static.php:1149 lib/currency.php:340
+msgid "Norwegian Krone"
+msgstr "کرون نروژی"
+
+#: includes/languages/trans_static.php:1150 lib/currency.php:341
+msgid "Nepalese Rupee"
+msgstr "روپیه نپال"
+
+#: includes/languages/trans_static.php:1151 lib/currency.php:342
+msgid "New Zealand Dollar"
+msgstr "دلار نیوزیلند"
+
+#: includes/languages/trans_static.php:1152 lib/currency.php:343
+msgid "Omani Rial"
+msgstr "ریال عمانی"
+
+#: includes/languages/trans_static.php:1153 lib/currency.php:344
+msgid "Panamanian Balboa"
+msgstr "بالبوآ پاناما"
+
+#: includes/languages/trans_static.php:1154 lib/currency.php:345
+msgid "Peruvian Nuevo Sol"
+msgstr "سول پرو"
+
+#: includes/languages/trans_static.php:1155 lib/currency.php:346
+msgid "Philippine Peso"
+msgstr "پزو فیلیپین"
+
+#: includes/languages/trans_static.php:1156 lib/currency.php:347
+msgid "Pakistani Rupee"
+msgstr "روپیه پاکستان"
+
+#: includes/languages/trans_static.php:1157 lib/currency.php:348
+msgid "Polish Zloty"
+msgstr "زلوتی لهستانی"
+
+#: includes/languages/trans_static.php:1158 lib/currency.php:349
+msgid "Paraguayan Guarani"
+msgstr "پارسی گاروانی"
+
+#: includes/languages/trans_static.php:1159 lib/currency.php:350
+msgid "Qatari Rial"
+msgstr "ریال قطر"
+
+#: includes/languages/trans_static.php:1160 lib/currency.php:351
+msgid "Romanian Leu"
+msgstr "لو رومانیایی"
+
+#: includes/languages/trans_static.php:1161 lib/currency.php:352
+msgid "Serbian Dinar"
+msgstr "دینار صربستان"
+
+#: includes/languages/trans_static.php:1162 lib/currency.php:353
+msgid "Russian Ruble"
+msgstr "روبل روسی"
+
+#: includes/languages/trans_static.php:1163 lib/currency.php:354
+msgid "Rwandan Franc"
+msgstr "فرانک رواندا"
+
+#: includes/languages/trans_static.php:1164 lib/currency.php:355
+msgid "Saudi Riyal"
+msgstr "ریال سعودی"
+
+#: includes/languages/trans_static.php:1165 lib/currency.php:356
+msgid "Sudanese Pound"
+msgstr "پوند سودانی"
+
+#: includes/languages/trans_static.php:1166 lib/currency.php:357
+msgid "Swedish Krona"
+msgstr "کرون سوئدی"
+
+#: includes/languages/trans_static.php:1167 lib/currency.php:358
+msgid "Singapore Dollar"
+msgstr "دلار سنگاپور"
+
+#: includes/languages/trans_static.php:1168 lib/currency.php:359
+msgid "Somali Shilling"
+msgstr "شیلینگ سومالی"
+
+#: includes/languages/trans_static.php:1169 lib/currency.php:360
+msgid "Syrian Pound"
+msgstr "پوند سوریه"
+
+#: includes/languages/trans_static.php:1170 lib/currency.php:361
+msgid "Thai Baht"
+msgstr "بات تایلندی"
+
+#: includes/languages/trans_static.php:1171 lib/currency.php:362
+msgid "Tunisian Dinar"
+msgstr "دینار تونسی"
+
+#: includes/languages/trans_static.php:1172 lib/currency.php:363
+msgid "Tongan Paʻanga"
+msgstr "پاآنگای تونگا"
+
+#: includes/languages/trans_static.php:1173 lib/currency.php:364
+msgid "Turkish Lira"
+msgstr "لیر ترکیه"
+
+#: includes/languages/trans_static.php:1174 lib/currency.php:365
+msgid "Trinidad and Tobago Dollar"
+msgstr "دلار ترینیداد و توباگو"
+
+#: includes/languages/trans_static.php:1175 lib/currency.php:366
+msgid "New Taiwan Dollar"
+msgstr "دلار جدید تایوان"
+
+#: includes/languages/trans_static.php:1176 lib/currency.php:367
+msgid "Tanzanian Shilling"
+msgstr "شیلینگ تانزانیا"
+
+#: includes/languages/trans_static.php:1177 lib/currency.php:368
+msgid "Ukrainian Hryvnia"
+msgstr "گریونا اوکراین"
+
+#: includes/languages/trans_static.php:1178 lib/currency.php:369
+msgid "Ugandan Shilling"
+msgstr "شیلینگ اوگاندا"
+
+#: includes/languages/trans_static.php:1179 lib/currency.php:370
+msgid "Uruguayan Peso"
+msgstr "پزو اروگوئه"
+
+#: includes/languages/trans_static.php:1180 lib/currency.php:371
+msgid "Uzbekistan Som"
+msgstr "سام ازبکستان"
+
+#: includes/languages/trans_static.php:1181 lib/currency.php:372
+msgid "Venezuelan Bolívar"
+msgstr "بولیوار ونزوئلا"
+
+#: includes/languages/trans_static.php:1182 lib/currency.php:373
+msgid "Vietnamese Dong"
+msgstr "دونگ ویتنامی"
+
+#: includes/languages/trans_static.php:1183 lib/currency.php:374
+msgid "CFA Franc BEAC"
+msgstr "فرانک سی‌اف‌ای آفریقای میانه"
+
+#: includes/languages/trans_static.php:1184 lib/currency.php:375
+msgid "CFA Franc BCEAO"
+msgstr "فرانک سی‌اف‌ای آفریقای غربی"
+
+#: includes/languages/trans_static.php:1185 lib/currency.php:376
+msgid "Yemeni Rial"
+msgstr "ریال یمن"
+
+#: includes/languages/trans_static.php:1186 lib/currency.php:377
+msgid "South African Rand"
+msgstr "رند آفریقای جنوبی"
+
+#: includes/languages/trans_static.php:1187 lib/currency.php:378
+msgid "Zambian Kwacha"
+msgstr "کواچای زامبیا"
 
 #: includes/languages/trans_static_domain.php:7
 msgid "contact_check"
@@ -43515,478 +44000,6 @@ msgstr "نمی‌توانیم به سرور دریافت اطلاعات دامن
 msgid "No servers matched for domain :val"
 msgstr "هیچ منبعی برای دریافت اطلاعات دامنه :val یافت نشد"
 
-#: lib/currency.php:14
-msgid "US Dollar"
-msgstr "دلار آمریکا"
-
-#: lib/currency.php:15
-msgid "Euro"
-msgstr "یورو"
-
-#: lib/currency.php:16
-msgid "British Pound Sterling"
-msgstr "استرلینگ پوند انگلیس"
-
-#: lib/currency.php:17
-msgid "Japanese Yen"
-msgstr "ین ژاپن"
-
-#: lib/currency.php:19
-msgid "Canadian Dollar"
-msgstr "دلار کانادایی"
-
-#: lib/currency.php:20
-msgid "United Arab Emirates Dirham"
-msgstr "درهم امارات متحده عربی"
-
-#: lib/currency.php:21
-msgid "Afghan Afghani"
-msgstr "افغانی افغانستان"
-
-#: lib/currency.php:22
-msgid "Albanian Lek"
-msgstr "لک آلبانیایی"
-
-#: lib/currency.php:23
-msgid "Armenian Dram"
-msgstr "درام ارمنی"
-
-#: lib/currency.php:24
-msgid "Argentine Peso"
-msgstr "پزو آرژانتین"
-
-#: lib/currency.php:25
-msgid "Australian Dollar"
-msgstr "دلار استرالیا"
-
-#: lib/currency.php:26
-msgid "Azerbaijani Manat"
-msgstr "مانات آذربایجانی"
-
-#: lib/currency.php:27
-msgid "Bosnia-Herzegovina Convertible Mark"
-msgstr "مارک تبدیل پذیر بوسنی و هرزگوین"
-
-#: lib/currency.php:28
-msgid "Bangladeshi Taka"
-msgstr "تاکا بنگلادشی"
-
-#: lib/currency.php:29
-msgid "Bulgarian Lev"
-msgstr "لو بلغار"
-
-#: lib/currency.php:30
-msgid "Bahraini Dinar"
-msgstr "دینار بحرین"
-
-#: lib/currency.php:31
-msgid "Burundian Franc"
-msgstr "فرانک بروندی"
-
-#: lib/currency.php:32
-msgid "Brunei Dollar"
-msgstr "دلار برونئی"
-
-#: lib/currency.php:33
-msgid "Bolivian Boliviano"
-msgstr "بولیوی بولیویایی"
-
-#: lib/currency.php:34
-msgid "Brazilian Real"
-msgstr "رئال برزیل"
-
-#: lib/currency.php:35
-msgid "Botswanan Pula"
-msgstr "پولای بوتسوانا"
-
-#: lib/currency.php:36
-msgid "Belarusian Ruble"
-msgstr "روبل بلاروس"
-
-#: lib/currency.php:37
-msgid "Belize Dollar"
-msgstr "دلار بلیز"
-
-#: lib/currency.php:38
-msgid "Congolese Franc"
-msgstr "فرانک کنگو"
-
-#: lib/currency.php:39
-msgid "Swiss Franc"
-msgstr "فرانک سوئیس"
-
-#: lib/currency.php:40
-msgid "Chilean Peso"
-msgstr "پزو شیلی"
-
-#: lib/currency.php:41
-msgid "Chinese Yuan"
-msgstr "یوان چینی"
-
-#: lib/currency.php:42
-msgid "Colombian Peso"
-msgstr "پزو کلمبیا"
-
-#: lib/currency.php:43
-msgid "Costa Rican Colón"
-msgstr "کولون کاستاریکا"
-
-#: lib/currency.php:44
-msgid "Cape Verdean Escudo"
-msgstr "اسکودوی کیپ ورد"
-
-#: lib/currency.php:45
-msgid "Czech Republic Koruna"
-msgstr "کرونای چک"
-
-#: lib/currency.php:46
-msgid "Djiboutian Franc"
-msgstr "فرانک جیبوتی"
-
-#: lib/currency.php:47
-msgid "Danish Krone"
-msgstr "کرون دانمارکی"
-
-#: lib/currency.php:48
-msgid "Dominican Peso"
-msgstr "پزو دومینیکن"
-
-#: lib/currency.php:49
-msgid "Algerian Dinar"
-msgstr "دینار الجزایر"
-
-#: lib/currency.php:50
-msgid "Estonian Kroon"
-msgstr "کرون استونی"
-
-#: lib/currency.php:51
-msgid "Egyptian Pound"
-msgstr "پوند مصر"
-
-#: lib/currency.php:52
-msgid "Eritrean Nakfa"
-msgstr "ناکفای اریتره"
-
-#: lib/currency.php:53
-msgid "Ethiopian Birr"
-msgstr "بیر اتیوپی"
-
-#: lib/currency.php:54
-msgid "Georgian Lari"
-msgstr "لاری گرجستان"
-
-#: lib/currency.php:55
-msgid "Ghanaian Cedi"
-msgstr "سدی غنا"
-
-#: lib/currency.php:56
-msgid "Guinean Franc"
-msgstr "فرانک گینه"
-
-#: lib/currency.php:57
-msgid "Guatemalan Quetzal"
-msgstr "کوتزال گواتمالا"
-
-#: lib/currency.php:58
-msgid "Hong Kong Dollar"
-msgstr "دلار هنگ کنگ"
-
-#: lib/currency.php:59
-msgid "Honduran Lempira"
-msgstr "لامپیرای هندوراس"
-
-#: lib/currency.php:60
-msgid "Croatian Kuna"
-msgstr "کونا کرواتی"
-
-#: lib/currency.php:61
-msgid "Hungarian Forint"
-msgstr "فورینت مجارستانی"
-
-#: lib/currency.php:62
-msgid "Indonesian Rupiah"
-msgstr "روپیه اندونزیایی"
-
-#: lib/currency.php:64
-msgid "Indian Rupee"
-msgstr "روپیه هند"
-
-#: lib/currency.php:65
-msgid "Iraqi Dinar"
-msgstr "دینار عراقی"
-
-#: lib/currency.php:66
-msgid "Thousand Toman"
-msgstr "هزار تومان"
-
-#: lib/currency.php:67
-msgid "Thousand Rial"
-msgstr "هزار ریال"
-
-#: lib/currency.php:68
-msgid "Icelandic Króna"
-msgstr "کرونای ایسلند"
-
-#: lib/currency.php:69
-msgid "Jamaican Dollar"
-msgstr "دلار جامائیکا"
-
-#: lib/currency.php:70
-msgid "Jordanian Dinar"
-msgstr "دینار اردن"
-
-#: lib/currency.php:71
-msgid "Kenyan Shilling"
-msgstr "شیلینگ کنیا"
-
-#: lib/currency.php:72
-msgid "Cambodian Riel"
-msgstr "ریال کامبوج"
-
-#: lib/currency.php:73
-msgid "Comorian Franc"
-msgstr "کامور فرانک"
-
-#: lib/currency.php:74
-msgid "South Korean Won"
-msgstr "وون کره جنوبی"
-
-#: lib/currency.php:75
-msgid "Kuwaiti Dinar"
-msgstr "دینار کویت"
-
-#: lib/currency.php:76
-msgid "Kazakhstani Tenge"
-msgstr "تنگه قزاقستانی"
-
-#: lib/currency.php:77
-msgid "Lebanese Pound"
-msgstr "پوند لبنان"
-
-#: lib/currency.php:78
-msgid "Sri Lankan Rupee"
-msgstr "روپیه سری‌لانکا"
-
-#: lib/currency.php:79
-msgid "Lithuanian Litas"
-msgstr "لیتاس لیتوانیایی"
-
-#: lib/currency.php:80
-msgid "Latvian Lats"
-msgstr "لاتس لتونی"
-
-#: lib/currency.php:81
-msgid "Libyan Dinar"
-msgstr "دینار لیبی"
-
-#: lib/currency.php:82
-msgid "Moroccan Dirham"
-msgstr "درهم مراکش"
-
-#: lib/currency.php:83
-msgid "Moldovan Leu"
-msgstr "لئوی مولداوی"
-
-#: lib/currency.php:84
-msgid "Malagasy Ariary"
-msgstr "آریاری ماداگاسکار"
-
-#: lib/currency.php:85
-msgid "Macedonian Denar"
-msgstr "دلار مقدونی"
-
-#: lib/currency.php:86
-msgid "Myanma Kyat"
-msgstr "کیات میانمار"
-
-#: lib/currency.php:87
-msgid "Macanese Pataca"
-msgstr "پاتاکای ماکانز"
-
-#: lib/currency.php:88
-msgid "Mauritian Rupee"
-msgstr "روپیه موریتانی"
-
-#: lib/currency.php:89
-msgid "Mexican Peso"
-msgstr "پزو مکزیکی"
-
-#: lib/currency.php:90
-msgid "Malaysian Ringgit"
-msgstr "رینگیت مالزی"
-
-#: lib/currency.php:91
-msgid "Mozambican Metical"
-msgstr "متیکال موزامبیکی"
-
-#: lib/currency.php:92
-msgid "Namibian Dollar"
-msgstr "دلار نامیبیان"
-
-#: lib/currency.php:93
-msgid "Nigerian Naira"
-msgstr "نایارای نیجریه"
-
-#: lib/currency.php:94
-msgid "Nicaraguan Córdoba"
-msgstr "کوردوبای نیکاراگوئه"
-
-#: lib/currency.php:95
-msgid "Norwegian Krone"
-msgstr "کرون نروژی"
-
-#: lib/currency.php:96
-msgid "Nepalese Rupee"
-msgstr "روپیه نپال"
-
-#: lib/currency.php:97
-msgid "New Zealand Dollar"
-msgstr "دلار نیوزیلند"
-
-#: lib/currency.php:98
-msgid "Omani Rial"
-msgstr "ریال عمانی"
-
-#: lib/currency.php:99
-msgid "Panamanian Balboa"
-msgstr "بالبوآ پاناما"
-
-#: lib/currency.php:100
-msgid "Peruvian Nuevo Sol"
-msgstr "سول پرو"
-
-#: lib/currency.php:101
-msgid "Philippine Peso"
-msgstr "پزو فیلیپین"
-
-#: lib/currency.php:102
-msgid "Pakistani Rupee"
-msgstr "روپیه پاکستان"
-
-#: lib/currency.php:103
-msgid "Polish Zloty"
-msgstr "زلوتی لهستانی"
-
-#: lib/currency.php:104
-msgid "Paraguayan Guarani"
-msgstr "پارسی گاروانی"
-
-#: lib/currency.php:105
-msgid "Qatari Rial"
-msgstr "ریال قطر"
-
-#: lib/currency.php:106
-msgid "Romanian Leu"
-msgstr "لو رومانیایی"
-
-#: lib/currency.php:107
-msgid "Serbian Dinar"
-msgstr "دینار صربستان"
-
-#: lib/currency.php:108
-msgid "Russian Ruble"
-msgstr "روبل روسی"
-
-#: lib/currency.php:109
-msgid "Rwandan Franc"
-msgstr "فرانک رواندا"
-
-#: lib/currency.php:110
-msgid "Saudi Riyal"
-msgstr "ریال سعودی"
-
-#: lib/currency.php:111
-msgid "Sudanese Pound"
-msgstr "پوند سودانی"
-
-#: lib/currency.php:112
-msgid "Swedish Krona"
-msgstr "کرون سوئدی"
-
-#: lib/currency.php:113
-msgid "Singapore Dollar"
-msgstr "دلار سنگاپور"
-
-#: lib/currency.php:114
-msgid "Somali Shilling"
-msgstr "شیلینگ سومالی"
-
-#: lib/currency.php:115
-msgid "Syrian Pound"
-msgstr "پوند سوریه"
-
-#: lib/currency.php:116
-msgid "Thai Baht"
-msgstr "بات تایلندی"
-
-#: lib/currency.php:117
-msgid "Tunisian Dinar"
-msgstr "دینار تونسی"
-
-#: lib/currency.php:118
-msgid "Tongan Paʻanga"
-msgstr "پاآنگای تونگا"
-
-#: lib/currency.php:119
-msgid "Turkish Lira"
-msgstr "لیر ترکیه"
-
-#: lib/currency.php:120
-msgid "Trinidad and Tobago Dollar"
-msgstr "دلار ترینیداد و توباگو"
-
-#: lib/currency.php:121
-msgid "New Taiwan Dollar"
-msgstr "دلار جدید تایوان"
-
-#: lib/currency.php:122
-msgid "Tanzanian Shilling"
-msgstr "شیلینگ تانزانیا"
-
-#: lib/currency.php:123
-msgid "Ukrainian Hryvnia"
-msgstr "گریونا اوکراین"
-
-#: lib/currency.php:124
-msgid "Ugandan Shilling"
-msgstr "شیلینگ اوگاندا"
-
-#: lib/currency.php:125
-msgid "Uruguayan Peso"
-msgstr "پزو اروگوئه"
-
-#: lib/currency.php:126
-msgid "Uzbekistan Som"
-msgstr "سام ازبکستان"
-
-#: lib/currency.php:127
-msgid "Venezuelan Bolívar"
-msgstr "بولیوار ونزوئلا"
-
-#: lib/currency.php:128
-msgid "Vietnamese Dong"
-msgstr "دونگ ویتنامی"
-
-#: lib/currency.php:129
-msgid "CFA Franc BEAC"
-msgstr "فرانک سی‌اف‌ای آفریقای میانه"
-
-#: lib/currency.php:130
-msgid "CFA Franc BCEAO"
-msgstr "فرانک سی‌اف‌ای آفریقای غربی"
-
-#: lib/currency.php:131
-msgid "Yemeni Rial"
-msgstr "ریال یمن"
-
-#: lib/currency.php:132
-msgid "South African Rand"
-msgstr "رند آفریقای جنوبی"
-
-#: lib/currency.php:133
-msgid "Zambian Kwacha"
-msgstr "کواچای زامبیا"
-
 #: lib/db/tax_coding/insert.php:24 lib/db/tax_year/insert.php:24
 msgid "Duplicate code"
 msgstr "کد تکراری است"
@@ -43999,39 +44012,39 @@ msgstr "۱:۱ (پیش‌فرض)"
 msgid "16:9 (Default)"
 msgstr "۱۶:۹ (پیش‌فرض)"
 
-#: lib/store.php:499
+#: lib/store.php:503
 msgid "Whatsapp"
 msgstr "واتساپ"
 
-#: lib/store.php:505
+#: lib/store.php:509
 msgid "Eitaa"
 msgstr "ایتا"
 
-#: lib/units.php:12
+#: lib/units.php:29
 msgid "Kilogram"
 msgstr "کیلوگرم"
 
-#: lib/units.php:14
+#: lib/units.php:31
 msgid "Pound"
 msgstr "پوند"
 
-#: lib/units.php:15
+#: lib/units.php:32
 msgid "Ounce"
 msgstr "اونس"
 
-#: lib/units.php:26
+#: lib/units.php:43
 msgid "Centimetre"
 msgstr "سانتی‌متر"
 
-#: lib/units.php:27
+#: lib/units.php:44
 msgid "Millimetre"
 msgstr "میلیمتر"
 
-#: lib/units.php:28
+#: lib/units.php:45
 msgid "Inch"
 msgstr "اینچ"
 
-#: lib/units.php:29
+#: lib/units.php:46
 msgid "Yard"
 msgstr "یارد"
 
@@ -46314,9 +46327,6 @@ msgstr "یارد"
 
 #~ msgid "Text box Setting"
 #~ msgstr "تنظیمات جعبه متن"
-
-#~ msgid "Simple view"
-#~ msgstr "حالت نمایشی ساده"
 
 #~ msgid "Special view"
 #~ msgstr "حالت نمایشی ویژه"
