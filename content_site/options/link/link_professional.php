@@ -56,6 +56,7 @@ class link_professional
 
 	public static function admin_html()
 	{
+
 		if(static::have_specialsave())
 		{
 			$url           = \content_site\section\view::get_current_index_detail('url');
@@ -77,6 +78,15 @@ class link_professional
 
 		}
 
+		// $link_detail =
+		// [
+		// 	'url'           => $url,
+		// 	'pointer'       => $pointer,
+		// 	'target'        => $target,
+		// 	'related_id'    => $related_id,
+		// 	'socialnetwork' => $socialnetwork,
+		// ];
+
 		$html = '';
 
 		$kingdom = \dash\url::kingdom();
@@ -89,7 +99,7 @@ class link_professional
 				$html .= \content_site\options\generate::specialsave();;
 			}
 
-			$option_key = \content_site\utility::className(get_called_class());
+			// $option_key = \content_site\utility::className(get_called_class());
 
 			$html .= \content_site\options\generate::opt_hidden(get_called_class());
 
@@ -211,6 +221,18 @@ class link_professional
 				   	$html .= "</div>";
 				}
 			}
+
+			// $link = \content_site\assemble\link::generate($link_detail, true);
+			// if($link)
+			// {
+			// 	$html .= '<a class="btn-light block mt-2" href="'. $link . '" target="_blank">';
+			// 	{
+			// 		$html .= \dash\utility\icon::svg('box-arrow-up-right', 'bootstrap', null, 'w-4 mx-2');
+			// 		$html .= T_('View link');
+			// 	}
+			// 	$html .= '</a>';
+			// }
+
 		}
 		$html .= "</form>";
 
