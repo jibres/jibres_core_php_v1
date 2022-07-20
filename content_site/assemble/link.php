@@ -11,7 +11,7 @@ class link
 
 		$target_blank = false;
 
-		$link = \dash\url::kingdom();
+		$link = \lib\store::url();
 
 		switch (a($_link_detail, 'pointer'))
 		{
