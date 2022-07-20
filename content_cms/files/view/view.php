@@ -14,6 +14,8 @@ class view
 		$usage_count = \dash\app\files\get::usage_count(\dash\request::get('id'));
 		\dash\data::usageCount($usage_count);
 
+		\dash\face::btnView(\lib\filepath::fix(\dash\data::dataRow_path()));
+
 	}
 }
 ?>
