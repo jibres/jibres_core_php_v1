@@ -106,8 +106,8 @@ class link_professional
 					[
 						'homepage'      => ['title' => T_('Homepage'),		'api_link' => null, ],
 						'products'      => ['title' => T_('Products'),		'api_link' => '/a/products/api?json=true', ],
+						'pages'         => ['title' => T_('Site Builder'),	'api_link' => '/cms/posts/api?json=true&ptype=page', ],
 						'posts'         => ['title' => T_('Posts'),			'api_link' => '/cms/posts/api?json=true', ],
-						'pages'         => ['title' => T_('Pages'),			'api_link' => '/cms/posts/api?json=true&ptype=page', ],
 						'category'      => ['title' => T_('Categories'),	'api_link' => '/a/category/api?json=true&getid=1', ],
 						'hashtag'       => ['title' => T_('Hashtag'),		'api_link' => '/cms/hashtag/api?json=true&getid=1', ],
 						'forms'         => ['title' => T_('Forms'),			'api_link' => '/a/form/api?json=true', ],
