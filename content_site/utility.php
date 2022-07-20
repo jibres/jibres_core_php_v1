@@ -212,7 +212,7 @@ class utility
 			$code .= "\n\n\n";
 		}
 
-		if(\dash\temp::get('putJsonInFile'))
+		// if(\dash\temp::get('putJsonInFile'))
 		{
 			$code = '';
 		}
@@ -275,10 +275,10 @@ class utility
 		$code .= "\t\t\t],";
 		$code .= "\n";
 
-		if(\dash\temp::get('putJsonInFile'))
+		// if(\dash\temp::get('putJsonInFile'))
 		{
 			$code_function = '';
-
+			$code_function .= '<?php ';
 			$code_function .= "\n\n";
 			$code_function .= "\n\t/**";
 			$code_function .= "\n\t * Auto Generate Function ";
@@ -303,50 +303,50 @@ class utility
 			$code_function .= "\t// path ". $file_path;
 			$code_function .= "\n\t// $folder / $section_key / $model / $preview_key" ;
 
-			$read_file = file((root. $file_path));
+			// $read_file = file((root. $file_path));
 
-			$before_function = [];
-			$after_function  = [];
-			$start_function = false;
-			$end_function = false;
-			foreach ($read_file as $line)
-			{
-				if(strpos($line, "public static function $preview_key(") !== false)
-				{
-					$start_function = true;
-				}
+			// $before_function = [];
+			// $after_function  = [];
+			// $start_function = false;
+			// $end_function = false;
+			// foreach ($read_file as $line)
+			// {
+			// 	if(strpos($line, "public static function $preview_key(") !== false)
+			// 	{
+			// 		$start_function = true;
+			// 	}
 
-				if($start_function && strpos($line, "}") !== false)
-				{
-					$end_function = true;
-				}
+			// 	if($start_function && strpos($line, "}") !== false)
+			// 	{
+			// 		$end_function = true;
+			// 	}
 
-				else
-				{
-					if(!$start_function)
-					{
-						$before_function[] = $line;
-					}
-					else
-					{
-						if($end_function)
-						{
-							$after_function[] = $line;
-						}
-					}
-				}
-			}
+			// 	else
+			// 	{
+			// 		if(!$start_function)
+			// 		{
+			// 			$before_function[] = $line;
+			// 		}
+			// 		else
+			// 		{
+			// 			if($end_function)
+			// 			{
+			// 				$after_function[] = $line;
+			// 			}
+			// 		}
+			// 	}
+			// }
 
-			$new_file_content = implode('', $before_function);
-			$new_file_content .= $code_function;
-			$new_file_content .= implode('', $after_function);
+			$new_file_content = '';
+			$new_file_content = $code_function;
+			// $new_file_content .= implode('', $after_function);
 			// var_dump($new_file_content);exit;
 			// if(\dash\url::isLocal())
 			// {
 			// 	file_put_contents(root. $file_path, $new_file_content);
 			// }
-
-			return;
+			$code = $new_file_content;
+			// return;
 		}
 
 		if(!$_multiple)
