@@ -22,14 +22,11 @@ class g5
 		unset($option['break_image_list']);
 		unset($option['options']['slider_setting']);
 
-		// $myKey = array_search('slider_effect', $option['options']['slider_setting']);
-		// $option['options']['slider_setting'] = array_replace($option['options']['slider_setting'], [$myKey => 'slider_effect_full']);
-
-		$myKey = array_search('container_gallery', $option['options']['style']);
-		$option['options']['style'] = array_replace($option['options']['style'], [$myKey => 'container_gallery_g4']);
+		$myKey = array_search('container_gallery', $option['options']['spacing']);
+		$option['options']['spacing'] = array_replace($option['options']['spacing'], [$myKey => 'container_gallery_g4']);
 
 
-		$option['preview_list'] =
+		$option['preview_list']           =
 		[
 				'p1',
 				'p2',
