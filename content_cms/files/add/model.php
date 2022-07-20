@@ -48,7 +48,15 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::to(\dash\url::this(). '/datalist');
+			if(isset($file_detail['id']))
+			{
+				\dash\redirect::to(\dash\url::this(). '/view?id='. \dash\coding::encode($file_detail['id']));
+			}
+			else
+			{
+				\dash\redirect::to(\dash\url::this(). '/datalist');
+			}
+
 		}
 	}
 }
