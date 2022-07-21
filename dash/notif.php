@@ -420,7 +420,10 @@ class notif
 			}
 		}
 
-		self::$notif = [];
+		if(isset(self::$notif['msg']))
+		{
+			self::$notif['msg'] = [];
+		}
 	}
 
 
