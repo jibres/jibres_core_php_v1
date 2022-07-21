@@ -179,6 +179,7 @@ class option
 
 		$new_list = [];
 
+
 		foreach ($list as $key => $value)
 		{
 			if($_preview_mode)
@@ -193,7 +194,7 @@ class option
 					{
 						$value['preview']['url'] = a($value, 'url');
 					}
-					$value = array_merge($value, $value['preview']);
+					$value = array_merge($value, \lib\app\menu\ready::row($value['preview']));
 
 					$new_list[] = $value;
 				}
@@ -208,7 +209,7 @@ class option
 						{
 							$value['body']['url'] = a($value, 'url');
 						}
-						$value = array_merge($value, $value['body']);
+						$value = array_merge($value, \lib\app\menu\ready::row($value['body']));
 					}
 
 					$new_list[] = $value;
@@ -225,6 +226,7 @@ class option
 				array_multisort($new_list, SORT_ASC, SORT_NUMERIC, $sort_column);
 			}
 		}
+
 
 		return $new_list;
 	}

@@ -43,15 +43,78 @@ class ready
 		{
 			$result['url'] = self::get_my_social($result['socialnetwork']);
 		}
-
-		if(isset($result['pointer']) && $result['pointer'] === 'selffile' && isset($result['file']))
+		elseif(isset($result['pointer']) && $result['pointer'] === 'selffile' && isset($result['file']))
 		{
 			$result['url'] = \lib\filepath::fix($result['file']);
 		}
-
-		if(isset($result['pointer']) && $result['pointer'] === 'homepage')
+		elseif(isset($result['pointer']) && $result['pointer'] === 'homepage')
 		{
 			$result['url'] = \lib\store::url();
+		}
+		elseif(!a($result, 'related_id'))
+		{
+			$link = \lib\store::url();
+			switch (a($result, 'pointer'))
+			{
+				case 'homepage':
+					$link = $link;
+					break;
+
+				case 'products':
+					$link .= '/p';
+					break;
+
+				case 'posts':
+					$link .= '/n';
+					break;
+
+				case 'forms':
+					$link .= '/f';
+					break;
+
+				case 'tags':
+				case 'category':
+					$link .= '/category';
+					break;
+
+				case 'hashtag':
+					$link .= '/hashtag';
+					break;
+
+				case 'socialnetwork':
+					if(!a($result, 'socialnetwork'))
+					{
+						// nothing
+					}
+					else
+					{
+						$social_detail = \lib\store::social($result['socialnetwork']);
+						$link = a($social_detail, 'link');
+					}
+					break;
+
+				case 'other':
+					if(!a($result, 'url'))
+					{
+						// nothing
+					}
+					else
+					{
+						$target_blank = true;
+						$link = $result['url'];
+					}
+					break;
+
+				case 'title':
+				case 'separator':
+				case 'selffile':
+				default:
+					// have no link
+					// nothing
+					break;
+			}
+
+			$result['url'] = $link;
 		}
 
 		$result['child'] = [];
