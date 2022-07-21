@@ -26,13 +26,13 @@ class model
 
 			$file_detail = \dash\upload\file::upload('file', $meta);
 
-			if(!\dash\engine\process::status())
+			if(\dash\engine\process::status() && isset($file_detail['id']))
 			{
-				\dash\notif::error(T_("Can not upload file"));
+				\dash\notif::ok(T_("File successfully uploaded"));
 			}
 			else
 			{
-				\dash\notif::ok(T_("File successfully uploaded"));
+				\dash\notif::error(T_("Can not upload file"));
 			}
 
 			if(\dash\temp::get('isApi'))
