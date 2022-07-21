@@ -39,6 +39,9 @@ class link_professional
 		unset($data['description']);
 
 
+		\dash\notif::tada('#linkProfessionalPreview',  self::html_preview_link($data));
+
+
 		return [static::db_key() => $data];
 	}
 
@@ -78,14 +81,14 @@ class link_professional
 
 		}
 
-		// $link_detail =
-		// [
-		// 	'url'           => $url,
-		// 	'pointer'       => $pointer,
-		// 	'target'        => $target,
-		// 	'related_id'    => $related_id,
-		// 	'socialnetwork' => $socialnetwork,
-		// ];
+		$link_detail =
+		[
+			'url'           => $url,
+			'pointer'       => $pointer,
+			'target'        => $target,
+			'related_id'    => $related_id,
+			'socialnetwork' => $socialnetwork,
+		];
 
 		$html = '';
 
@@ -222,16 +225,7 @@ class link_professional
 				}
 			}
 
-			// $link = \content_site\assemble\link::generate($link_detail, true);
-			// if($link)
-			// {
-			// 	$html .= '<a class="btn-light block mt-2" href="'. $link . '" target="_blank">';
-			// 	{
-			// 		$html .= \dash\utility\icon::svg('box-arrow-up-right', 'bootstrap', null, 'w-4 mx-2');
-			// 		$html .= T_('View link');
-			// 	}
-			// 	$html .= '</a>';
-			// }
+			$html .= self::html_preview_link($link_detail);
 
 		}
 		$html .= "</form>";
@@ -239,6 +233,38 @@ class link_professional
 
 		return $html;
 	}
+
+
+	/**
+	 * Generate html of preview link
+	 * call in spesical save function
+	 *
+	 * @param      <type>  $_link_detail  The link detail
+	 *
+	 * @return     string  ( description_of_the_return_value )
+	 */
+	public static function html_preview_link($_link_detail)
+	{
+		$html = '';
+		$link = \content_site\assemble\link::generate($_link_detail, true);
+		if($link)
+		{
+			$html .= '<div id="linkProfessionalPreview">';
+			{
+				$html .= '<a class="btn-light block mt-2" href="'. $link . '" target="_blank">';
+				{
+					$html .= \dash\utility\icon::svg('box-arrow-up-right', 'bootstrap', null, 'w-4 mx-2');
+					$html .= T_('View link');
+				}
+				$html .= '</a>';
+			}
+			$html .= '</div>';
+		}
+
+		return $html;
+	}
+
+
 
 	private static function fill_selected($_pointer, $_related_id)
 	{

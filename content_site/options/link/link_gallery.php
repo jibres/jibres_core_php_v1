@@ -25,6 +25,8 @@ class link_gallery extends link_professional
 			'socialnetwork' => a($_data, 'socialnetwork'),
 		];
 
+		\dash\notif::tada('#linkProfessionalPreview',  static::html_preview_link($args));
+
 		return \content_site\body\gallery\option::update_one_gallery_item($args);
 	}
 
