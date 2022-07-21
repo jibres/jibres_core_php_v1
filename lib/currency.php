@@ -3,7 +3,7 @@ namespace lib;
 
 class currency {
 
-	private $currencylist =
+	private static $currencylist =
 	[
 		'IRT' 	=> ['symbol' => 'IRT', 	'decimal_digits' => 0, 'code' => 'IRT', 'symbol_native' => 'تومان',	 'name' => 'Toman', 'group' => 'iran', 'exchange_rial' => 10],
 		'IRR' 	=> ['symbol' => 'IRR', 	'decimal_digits' => 0, 'code' => 'IRR', 'symbol_native' => '﷼',		 'name' => 'Rial', 'group' => 'iran', 'exchange_rial' => 1],
@@ -128,6 +128,12 @@ class currency {
 		'ZAR' 	=> ['symbol' => 'R', 	'decimal_digits' => 2, 'code' => 'ZAR', 'symbol_native' => 'R',		 'name' => 'South African Rand'],
 		'ZMK' 	=> ['symbol' => 'ZK', 	'decimal_digits' => 0, 'code' => 'ZMK', 'symbol_native' => 'ZK',	 'name' => 'Zambian Kwacha'],
 	];
+
+
+	public static function list()
+	{
+		return self::$currencylist;
+	}
 
 
 	public static function list_pretty()
