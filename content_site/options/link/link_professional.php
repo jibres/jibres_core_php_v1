@@ -24,6 +24,8 @@ class link_professional
 
 		$data = \lib\app\menu\check::variable($args, true);
 
+		var_dump($data, $_data);exit;
+
 
 		unset($data['parent1']);
 		unset($data['parent2']);
@@ -126,6 +128,7 @@ class link_professional
 						'forms'         => ['title' => T_('Forms'),			'api_link' => '/a/form/api?json=true', ],
 						'socialnetwork' => ['title' => T_('Socialnetwork'),	'api_link' => null, ],
 						'other'         => ['title' => T_('Other'),			'api_link' => null, ],
+						'file'          => ['title' => T_('File'),'api_link' => null, ],
 						// 'selffile'      => ['title' => T_('Self file addr'),'api_link' => null, ],
 					];
 
@@ -189,6 +192,14 @@ class link_professional
 				elseif($key === 'selffile')
 				{
 
+				}
+				elseif($key === 'file')
+				{
+					$html .= "<div data-response='pointer' data-response-where='$key' $data_response_hide>";
+					{
+						$html .= \content_site\options\file\file_link_professional::html_upload_file();
+					}
+					$html .= '</div>';
 				}
 				elseif($key === 'other')
 				{

@@ -108,6 +108,12 @@ class file
 	}
 
 
+	public static function option_key()
+	{
+		return \content_site\utility::className(get_called_class());
+	}
+
+
 	public static function have_specialsave()
 	{
 		return false;
@@ -140,6 +146,11 @@ class file
 		return false;
 	}
 
+	public static function hidden_input()
+	{
+		return true;
+	}
+
 	public static function file_action_meta()
 	{
 		return [];
@@ -159,7 +170,7 @@ class file
 	public static function html_upload_file($_section_detail = null)
 	{
 
-		$option_key = \content_site\utility::className(get_called_class());
+		$option_key = static::option_key();
 
 		$db_key     = static::db_key();
 
@@ -192,8 +203,11 @@ class file
 		}
 		// form
 		{
-			$html .= \content_site\options\generate::opt_hidden(get_called_class());
-			$html .= \content_site\options\generate::multioption();
+			if(static::hidden_input())
+			{
+				$html .= \content_site\options\generate::opt_hidden(get_called_class());
+				$html .= \content_site\options\generate::multioption();
+			}
 
 			// need special save
 			if(static::have_specialsave())
