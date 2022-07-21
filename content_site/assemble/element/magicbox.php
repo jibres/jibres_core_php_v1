@@ -76,6 +76,12 @@ class magicbox
 		if(a($_item, $link_index))
 		{
 			$myLinkHref   = "href='". a($_item, $link_index). "'";
+
+			if(a($_item, 'pointer') === 'other')
+			{
+				$myLinkHref .= ' target="_blank"';
+			}
+
 			$myMagicBoxEl = 'a';
 		}
 
