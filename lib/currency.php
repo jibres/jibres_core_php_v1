@@ -166,7 +166,7 @@ class currency {
 			$result = self::$currencylist[$_key];
 			if(isset($result['name']))
 			{
-				$result['name'] = T_($result);
+				$result['name'] = T_($result['name']);
 			}
 
 			return $result;
