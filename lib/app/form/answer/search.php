@@ -91,10 +91,19 @@ class search
 		if($data['item'] && !is_null($data['answer']))
 		{
 			$and[] = " form_answerdetail.item_id = :item_id ";
-			$and[] = " form_answerdetail.answer = :answer ";
+
+			if(substr($data['answer'], 0, 3) === 'IR-')
+			{
+				$and[] = " form_answerdetail.answer LIKE :answer ";
+				$param[':answer']  = $data['answer']. '%';
+			}
+			else
+			{
+				$and[] = " form_answerdetail.answer = :answer ";
+				$param[':answer']  = $data['answer'];
+			}
 
 			$param[':item_id'] = $data['item'];
-			$param[':answer']  = $data['answer'];
 
 		}
 

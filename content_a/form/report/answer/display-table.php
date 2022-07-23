@@ -10,10 +10,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach ($myData['data_table'] as $key => $value) {?>
+			<?php foreach ($myData['data_table'] as $key => $value) { ?>
 				<tr>
 
-					<td><a class="link-primary" href="<?php echo \dash\url::this(). '/answer'. \dash\request::full_get(['iid' => null, 'item' => \dash\request::get('iid'), 'answer' => a($value, 'name')]); ?>"><?php echo a($value, 'name') ?></a></td>
+					<td><a class="link-primary" href="<?php echo \dash\url::this(). '/answer'. \dash\request::full_get(['iid' => null, 'item' => \dash\request::get('iid'), 'answer' => a($value, 'answer')]); ?>"><?php if(a($value, 'name')) { echo a($value, 'name'); }else{ echo '-'; } ?></a></td>
 					<td class="ltr text-left collapsing"><?php echo \dash\fit::number(a($value, 'count')) ?></td>
 					<td class="ltr text-left collapsing"><?php echo T_("%"); ?> <b><?php echo \dash\fit::text(a($value, 'percent')); ?></b></td>
 				</tr>

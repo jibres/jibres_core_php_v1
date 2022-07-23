@@ -234,6 +234,7 @@ class report
 			{
 				if(isset($value['name']))
 				{
+					$table[$key]['answer'] = $value['name'];
 					$table[$key]['name'] = T_($value['name']);
 				}
 			}
@@ -419,11 +420,13 @@ class report
 			$not_answer = 0;
 		}
 
-		$other_choice_percent = 0;
+		$other_choice_percent       = 0;
 		$other_choice_percent_title = null;
 		$other_choice_percent_count = 0;
-
-		$real_answer = [];
+		$province_local_name        = null;
+		$real_answer                = [];
+		$reverce_array_key          = [];
+		$province                   = null;
 
 		$temp_table = [];
 
@@ -452,14 +455,14 @@ class report
 			else
 			{
 				$temp_table[$province_local_name] = floatval($value['count']);
+				$reverce_array_key[$province_local_name] = $province;
 			}
-
 		}
 
 		foreach ($temp_table as $key => $value)
 		{
 			$percent = round((($value * 100) / $all_answer_count), 2);
-			$table[] = ['name' => $key, 'count' =>  floatval($value), 'percent' => $percent];
+			$table[] = ['name' => $key, 'answer' => a($reverce_array_key, $key), 'count' =>  floatval($value), 'percent' => $percent];
 		}
 
 		foreach ($real_answer as $map_code => $count)
@@ -558,7 +561,7 @@ class report
 				$percent = round((($temp['value'] * 100) / $all_answer_count), 2);
 			}
 
-			$table[] = ['name' => $temp['name'], 'count' => $temp['value'], 'percent' => $percent];
+			$table[] = ['name' => $temp['name'], 'answer' => $value['answer'], 'count' => $temp['value'], 'percent' => $percent];
 		}
 
 
