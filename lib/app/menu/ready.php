@@ -105,6 +105,18 @@ class ready
 					}
 					break;
 
+				case 'file':
+					if(!a($result, 'url'))
+					{
+						// nothing
+					}
+					else
+					{
+						$target_blank = true;
+						$link = \lib\filepath::fix($result['url']);
+					}
+					break;
+
 				case 'title':
 				case 'separator':
 				case 'selffile':
