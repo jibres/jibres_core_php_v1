@@ -24,6 +24,21 @@ class link_professional
 
 		$data = \lib\app\menu\check::variable($args, true);
 
+		if(a($_data, 'umenufile') === 'umenufile')
+		{
+			$file_path = \dash\upload\website::upload_everything('menufile');
+
+			if($file_path)
+			{
+				$data['url'] = $file_path;
+
+				\content_site\utility::need_redirect(true);
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 		unset($data['parent1']);
 		unset($data['parent2']);
@@ -126,6 +141,7 @@ class link_professional
 						'forms'         => ['title' => T_('Forms'),			'api_link' => '/a/form/api?json=true', ],
 						'socialnetwork' => ['title' => T_('Socialnetwork'),	'api_link' => null, ],
 						'other'         => ['title' => T_('Other'),			'api_link' => null, ],
+						'file'          => ['title' => T_('File'),'api_link' => null, ],
 						// 'selffile'      => ['title' => T_('Self file addr'),'api_link' => null, ],
 					];
 
@@ -189,6 +205,48 @@ class link_professional
 				elseif($key === 'selffile')
 				{
 
+				}
+				elseif($key === 'file')
+				{
+					$html .= "<div data-response='pointer' data-response-where='$key' $data_response_hide>";
+					{
+						$html .= \content_site\options\generate::hidden('umenufile', 'umenufile');
+
+
+						$html .= '<div data-uploader data-name="menufile" data-final="#finalImage" data-autoSend data-file-max-size="'. \dash\data::maxFileSize(). '"';
+						if($url)
+						{
+							$html .=  "data-fill";
+						}
+
+						$html .= '>';
+						{
+
+							$html .= '<input type="file"  id="image1">';
+							$html .= '<label for="image1">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
+
+							if($url)
+							{
+								$myExt = substr($url, -3);
+								if(in_array($myExt, ['png', 'jpg', 'gif']))
+								{
+									$html .= '<label for="image1"><img id="finalImage" src="'. \lib\filepath::fix($url). '" alt="File"></label>';
+									// $html .= '<span class="imageDel" data-confirm data-data=\'{"deletefile" : 1}\'></span>';
+								}
+								else
+								{
+									$html .= '<label for="image1"><img id="finalImage" src="'. \dash\app::static_image_url(). '" alt="File"></label>';
+
+								}
+							}
+							else
+							{
+								$html .= '<label for="image1"><img id="finalImage" alt="File"></label>';
+							}
+						}
+						$html .= '</div>';
+					}
+					$html .= '</div>';
 				}
 				elseif($key === 'other')
 				{

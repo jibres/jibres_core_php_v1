@@ -77,7 +77,7 @@ class magicbox
 		{
 			$myLinkHref   = "href='". a($_item, $link_index). "'";
 
-			if(a($_item, 'pointer') === 'other')
+			if(a($_item, 'pointer') === 'other' || a($_item, 'pointer') === 'file')
 			{
 				$myLinkHref .= ' target="_blank"';
 			}

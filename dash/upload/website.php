@@ -74,6 +74,21 @@ class website
 	/**
 	 * Upload a file
 	 */
+	public static function upload_everything($_upload_name)
+	{
+		$meta =
+		[
+			'allow_size' => \dash\upload\size::get(),
+			'ext'        => array_keys(extentions::get_all_allow_ext()),
+		];
+
+		return self::upload($_upload_name, $meta);
+	}
+
+
+	/**
+	 * Upload a file
+	 */
 	public static function upload_image($_upload_name)
 	{
 		$meta =

@@ -27,6 +27,22 @@ class link_gallery extends link_professional
 
 		\dash\notif::tada('#linkProfessionalPreview',  static::html_preview_link($args));
 
+		if(a($_data, 'umenufile') === 'umenufile')
+		{
+			$file_path = \dash\upload\website::upload_everything('menufile');
+
+			if($file_path)
+			{
+				$args['url'] = $file_path;
+
+				\content_site\utility::need_redirect(true);
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		return \content_site\body\gallery\option::update_one_gallery_item($args);
 	}
 
