@@ -61,7 +61,17 @@ class login
 				}
 			}
 
-			self::delete_cookie();
+			if(\dash\url::subdomain())
+			{
+				// not remove cookie in subdomain
+				// for example user login in jibres.com and route blog.jibres.com
+				// this code maybe make bug in some uses subdomain!
+			}
+			else
+			{
+				self::delete_cookie();
+			}
+
 			return false;
 		}
 
