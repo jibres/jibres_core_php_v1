@@ -212,28 +212,34 @@ class link_professional
 					{
 						$html .= \content_site\options\generate::hidden('umenufile', 'umenufile');
 
-						$html .= '<div data-uploader class="mb-2" data-file-max-size="'. \dash\data::maxFileSize() .'" data-name="menufile" data-ratio-free data-final="#menufileImage" data-autoSend '.($url ? 'data-fill' : '').'>';
-						{
-							$html .= '<input type="file" id="menufile">';
 
-							$html .= '<label for="menufile">';
+						$html .= '<div data-uploader data-name="menufile" data-final="#finalImage" data-autoSend data-file-max-size="'. \dash\data::maxFileSize(). '"';
+						if($url)
+						{
+							$html .=  "data-fill";
+						}
+
+						$html .= '>';
+						{
+
+							$html .= '<input type="file" accept="image/jpeg, image/png" id="image1">';
+							$html .= '<label for="image1">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
+
+							if($url)
 							{
-								// if($url)
-								// {
-								// 	$html .= '<img id="menufileImage" alt="'. T_("File"). '" src="'.\lib\filepath::fix($url).'">';
-								// 	// $html .= '<img id="menufileImage" src="" alt="'. T_("File"). '">';
-								// 	$html .= T_('Drag &amp; Drop your files or Browse');
-								// }
-								// else
+								$myExt = substr($url, -3);
+								if(in_array($myExt, ['png', 'jpg', 'gif']))
 								{
-									$html .= '<img id="menufileImage" src="" alt="'. T_("File"). '">';
-									$html .= T_('Drag &amp; Drop your files or Browse');
+									$html .= '<label for="image1"><img id="finalImage" src="'. \lib\filepath::fix($url). '" alt="File"></label>';
+									// $html .= '<span class="imageDel" data-confirm data-data=\'{"deletefile" : 1}\'></span>';
 								}
 							}
-							$html .= '</label>';
+							else
+							{
+								$html .= '<label for="image1"><img id="finalImage" alt="File"></label>';
+							}
 						}
 						$html .= '</div>';
-
 					}
 					$html .= '</div>';
 				}
