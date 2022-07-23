@@ -222,7 +222,7 @@ class link_professional
 						$html .= '>';
 						{
 
-							$html .= '<input type="file" accept="image/jpeg, image/png" id="image1">';
+							$html .= '<input type="file"  id="image1">';
 							$html .= '<label for="image1">'. T_('Drag &amp; Drop your files or Browse'). '</label>';
 
 							if($url)
@@ -232,6 +232,11 @@ class link_professional
 								{
 									$html .= '<label for="image1"><img id="finalImage" src="'. \lib\filepath::fix($url). '" alt="File"></label>';
 									// $html .= '<span class="imageDel" data-confirm data-data=\'{"deletefile" : 1}\'></span>';
+								}
+								else
+								{
+									$html .= '<label for="image1"><img id="finalImage" src="'. \dash\app::static_image_url(). '" alt="File"></label>';
+
 								}
 							}
 							else
