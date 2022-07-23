@@ -24,8 +24,21 @@ class link_professional
 
 		$data = \lib\app\menu\check::variable($args, true);
 
-		var_dump($data, $_data);exit;
+		if(a($_data, 'umenufile') === 'umenufile')
+		{
+			$file_path = \dash\upload\website::upload_everything('menufile');
 
+			if($file_path)
+			{
+				$data['url'] = $file_path;
+
+				\content_site\utility::need_redirect(true);
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 		unset($data['parent1']);
 		unset($data['parent2']);
@@ -197,7 +210,30 @@ class link_professional
 				{
 					$html .= "<div data-response='pointer' data-response-where='$key' $data_response_hide>";
 					{
-						$html .= \content_site\options\file\file_link_professional::html_upload_file();
+						$html .= \content_site\options\generate::hidden('umenufile', 'umenufile');
+
+						$html .= '<div data-uploader class="mb-2" data-file-max-size="'. \dash\data::maxFileSize() .'" data-name="menufile" data-ratio-free data-final="#menufileImage" data-autoSend '.($url ? 'data-fill' : '').'>';
+						{
+							$html .= '<input type="file" id="menufile">';
+
+							$html .= '<label for="menufile">';
+							{
+								// if($url)
+								// {
+								// 	$html .= '<img id="menufileImage" alt="'. T_("File"). '" src="'.\lib\filepath::fix($url).'">';
+								// 	// $html .= '<img id="menufileImage" src="" alt="'. T_("File"). '">';
+								// 	$html .= T_('Drag &amp; Drop your files or Browse');
+								// }
+								// else
+								{
+									$html .= '<img id="menufileImage" src="" alt="'. T_("File"). '">';
+									$html .= T_('Drag &amp; Drop your files or Browse');
+								}
+							}
+							$html .= '</label>';
+						}
+						$html .= '</div>';
+
 					}
 					$html .= '</div>';
 				}

@@ -91,6 +91,18 @@ class link
 				}
 				break;
 
+			case 'file':
+				if(!a($_link_detail, 'url'))
+				{
+					// nothing
+				}
+				else
+				{
+					$target_blank = true;
+					$link = \lib\filepath::fix($_link_detail['url']);
+				}
+				break;
+
 			case 'title':
 			case 'separator':
 			case 'selffile':
