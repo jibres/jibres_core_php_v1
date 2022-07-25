@@ -33,7 +33,7 @@ class view
 		$store_have_application = [];
 		foreach ($list as $key => $value)
 		{
-			$query    = "SELECT setting.value, setting.key FROM setting where setting.cat = 'bank_payment_setting'  and setting.key in ('mellat', 'irkish') ";
+			$query    = "SELECT setting.value, setting.key FROM setting where setting.cat = 'bank_payment_setting'  and setting.key in ('mellat', 'irkish') AND setting.value like '%\"status\":1%' ";
 			$store_id = $value['id'];
 			$dbname   = \dash\engine\store::make_database_name($store_id);
 			$resutl   = \dash\pdo::get($query, [], null, false, $value['fuel'], ['database' => $dbname]);
