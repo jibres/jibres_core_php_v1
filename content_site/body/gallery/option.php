@@ -263,7 +263,7 @@ class option
 			return false;
 		}
 
-		if(!is_array($menu['preview']))
+		if(!is_array(a($menu, 'preview')))
 		{
 			$menu['preview'] = [];
 		}

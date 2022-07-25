@@ -37,7 +37,7 @@ class duplicate
 				case 'language':
 				case 'title':
 				case 'seotitle':
-				case 'url':
+				// case 'url':
 				case 'content':
 				case 'thumb':
 				case 'cover':
@@ -57,10 +57,13 @@ class duplicate
 				case 'publishdate':
 				case 'subtype':
 				case 'redirecturl':
-				case 'specialaddress':
 				// case 'analyzecontent':
 
 					$copy_posts[$key] = $value;
+					break;
+
+				case 'specialaddress':
+					$copy_posts[$key] = 'independence';
 					break;
 
 				case 'datemodified':
