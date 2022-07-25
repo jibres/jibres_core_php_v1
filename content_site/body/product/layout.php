@@ -114,7 +114,7 @@ class layout
 
 		if($_preview_mode || \dash\url::subdomain() === 'demo')
 		{
-			$img = \dash\sample\img::image();
+			$img = \dash\sample\img::static_image();
 		}
 		else
 		{

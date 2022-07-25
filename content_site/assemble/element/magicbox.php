@@ -59,7 +59,8 @@ class magicbox
 
 		if(!a($_item, $file_index))
 		{
-			$_item[$file_index] = \dash\sample\img::image();
+
+			$_item[$file_index] = \dash\sample\img::static_image();
 		}
 
 		$image_size = 'raw';

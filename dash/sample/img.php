@@ -41,6 +41,11 @@ class img
 		return $url;
 	}
 
+	public static function static_image()
+	{
+		return \dash\app::static_image_url(...func_get_args());
+	}
+
 
 	public static function blank()
 	{

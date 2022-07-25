@@ -98,7 +98,7 @@ class layout
 				}
 				else
 				{
-					$myFile  = \dash\sample\img::image();
+					$myFile  = \dash\sample\img::static_image();
 
 					if(!$myTitle)
 					{
@@ -126,7 +126,7 @@ class layout
 			{
 				$counter++;
 
-				$rand_img = \dash\sample\img::image();
+				$rand_img = \dash\sample\img::static_image();
 				$image_list[] =
 				[
 					'title' => T_("Image :val", ['val' => \dash\fit::number($i)]),
