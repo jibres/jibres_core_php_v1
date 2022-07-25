@@ -110,6 +110,7 @@ echo $html;
       </div>
 
       <div class='mb-5'>
+      <?php if($is_homepage) {?><div class="alert-info"><?php echo T_("In homepage page url is your domain") ?></div><?php } //endif ?>
         <div class='font-bold mb-5'><?php echo T_('Special Address') ?></div>
         <div class='row'>
           <div class='c-xs-12 c-sm-6 c-md'>
@@ -142,7 +143,6 @@ echo $html;
         <?php } //endif ?>
         </div>
       </div>
-      <?php if($is_homepage) {?><div class="text-gray-400 text-sm"><?php echo T_("In homepage page url is your domain") ?></div><?php } //endif ?>
 
       <div class='mT10' data-response='specialaddress' data-response-where-not='independence' <?php if(\dash\data::dataRow_specialaddress() === 'independence') {echo 'data-response-hide';} ?>>
           <label for='seoSlug'><?php echo T_('Url'); ?> <small><?php echo T_('End part of your news url.'); ?></small></label>
