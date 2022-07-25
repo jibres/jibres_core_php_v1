@@ -37,10 +37,11 @@ class link_gallery extends link_professional
 
 				\content_site\utility::need_redirect(true);
 			}
-			else
-			{
-				return false;
-			}
+			// else
+			// {
+
+			// 	return false;
+			// }
 		}
 
 		return \content_site\body\gallery\option::update_one_gallery_item($args);

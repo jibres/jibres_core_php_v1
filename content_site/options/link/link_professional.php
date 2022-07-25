@@ -34,10 +34,10 @@ class link_professional
 
 				\content_site\utility::need_redirect(true);
 			}
-			else
-			{
-				return false;
-			}
+			// else
+			// {
+			// 	return false;
+			// }
 		}
 
 		unset($data['parent1']);
