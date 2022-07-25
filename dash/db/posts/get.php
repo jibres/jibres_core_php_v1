@@ -93,6 +93,17 @@ class get
 		return $result;
 	}
 
+
+	public static function check_duplicate_title($_title, $_id)
+	{
+		$query  = "SELECT * FROM posts WHERE posts.status != 'deleted' AND posts.title = :title AND posts.id != :id LIMIT 1";
+
+		$param  = [':title' => $_title, ':id' => $_id];
+
+		$result = \dash\pdo::get($query, $param, null, true);
+		return $result;
+	}
+
 	public static function have_any_pagebuilder()
 	{
 		$query  = "SELECT * FROM posts WHERE posts.type = 'pagebuilder' LIMIT 1";

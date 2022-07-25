@@ -11,7 +11,14 @@
 
     $html .= '<div>';
     {
-      $html .= '<a class="btn-outline-dark btn-sm flex align-center" href="'.\dash\url::this(). '/settings'. \dash\request::full_get().'">';
+      $html .= '<a class="btn-outline-dark btn-sm flex align-center" href="'.\dash\url::this(). '/duplicate'. \dash\request::full_get().'">';
+      {
+        $html .= '<img class="w-6" src="'. \dash\utility\icon::url('Duplicate', 'minor'). '" alt="Setting">';
+        $html .= '<span class="px-2">'. T_("Duplicate").'</span>';
+      }
+      $html .= '</a>';
+
+      $html .= '<a class="btn-outline-dark btn-sm flex align-center mt-2" href="'.\dash\url::this(). '/settings'. \dash\request::full_get().'">';
       {
         $html .= '<img class="w-6" src="'. \dash\utility\icon::url('Settings', 'minor'). '" alt="Setting">';
         $html .= '<span class="px-2">'. T_("Page setting").'</span>';

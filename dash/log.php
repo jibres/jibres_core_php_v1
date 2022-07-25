@@ -859,9 +859,13 @@ class log
 				}
 			}
 
-			$result = \lib\api\jibres\api::send_multiple_notif($sending_queue);
+			if(!empty($sending_queue['sms']) || !empty($sending_queue['telegram']) || !empty($sending_queue['email']))
+			{
+				$result = \lib\api\jibres\api::send_multiple_notif($sending_queue);
 
-			self::save_multiple_notif_result($result);
+				self::save_multiple_notif_result($result);
+
+			}
 		}
 
 	}
