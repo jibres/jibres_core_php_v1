@@ -33,10 +33,10 @@ class view
 		$store_have_application = [];
 		foreach ($list as $key => $value)
 		{
-			$query    = "	SELECT COUNT(*) AS `count` FROM form_item where type = 'hidden' ";
+			$query    = "SELECT setting.value, setting.key FROM setting where setting.cat = 'bank_payment_setting'  and setting.key in ('mellat', 'irkish') ";
 			$store_id = $value['id'];
 			$dbname   = \dash\engine\store::make_database_name($store_id);
-			$resutl   = \dash\pdo::get($query, [], 'count', true, $value['fuel'], ['database' => $dbname]);
+			$resutl   = \dash\pdo::get($query, [], null, false, $value['fuel'], ['database' => $dbname]);
 
 			if($resutl)
 			{
@@ -46,7 +46,7 @@ class view
 			\dash\pdo::close();
 		}
 
-		\dash\log::to_supervisor('store with hidden form item: '. json_encode($business_have_inquery));
+		\dash\log::to_supervisor('Store enable mellat, irkish payment: '. json_encode($business_have_inquery));
 
 		var_dump($business_have_inquery);
 		var_dump('ok');
