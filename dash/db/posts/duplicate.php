@@ -79,7 +79,7 @@ class duplicate
 
 			if($have_menu_first_level)
 			{
-				$new_menu_first_level_id = self::duplicate_record_from_menu($have_menu_first_level['id'], $new_pagebuilder_id);
+				$new_menu_first_level_id = self::duplicate_menu_record($have_menu_first_level['id'], $new_pagebuilder_id);
 
 				if(!$new_menu_first_level_id)
 				{
@@ -115,7 +115,7 @@ class duplicate
 				{
 					foreach ($have_menu_level_1 as $level_1_menu)
 					{
-						$new_level_1_id = self::duplicate_record_from_menu_child($level_1_menu['id'], $new_pagebuilder_id, $new_menu_first_level_id);
+						$new_level_1_id = self::duplicate_menu_record_child($level_1_menu['id'], $new_pagebuilder_id, $new_menu_first_level_id);
 					}
 				}
 
@@ -130,7 +130,7 @@ class duplicate
 
 
 
-	private static function duplicate_record_from_menu_child($_old_id, $_new_related_id, $_new_parent_1)
+	private static function duplicate_menu_record_child($_old_id, $_new_for_id, $_new_parent_1)
 	{
 		$now = date("Y-m-d H:i:s");
 
@@ -177,7 +177,7 @@ class duplicate
 				menu.preview,
 				menu.body,
 				menu.for,
-				$_new_related_id,
+				$_new_for_id,
 				'$now',
 				null
 			FROM
@@ -192,7 +192,7 @@ class duplicate
 		return \dash\pdo::insert_id();
 	}
 
-	private static function duplicate_record_from_menu($_old_id, $_new_related_id)
+	private static function duplicate_menu_record($_old_id, $new_for_id)
 	{
 		$now = date("Y-m-d H:i:s");
 
@@ -239,7 +239,7 @@ class duplicate
 				menu.preview,
 				menu.body,
 				menu.for,
-				$_new_related_id,
+				$new_for_id,
 				'$now',
 				null
 			FROM

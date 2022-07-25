@@ -89,6 +89,7 @@ class duplicate
 			if($ok)
 			{
 				\dash\pdo::commit();
+				// \dash\pdo::rollback();
 
 				\dash\notif::ok(T_("Duplicate created"));
 
