@@ -82,7 +82,6 @@ class pdo
 		if($_param)
 		{
 			$query_log = 'BIND; ';
-			$query_log .= PHP_EOL;
 			$query_log .= ' -- '. json_encode($_param, JSON_UNESCAPED_UNICODE);
 			$query_log .= PHP_EOL;
 		}
