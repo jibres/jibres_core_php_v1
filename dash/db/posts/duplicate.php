@@ -22,6 +22,7 @@ class duplicate
 			$set['gallery'] = $get_gallery;
 		}
 
+
 		if($set)
 		{
 			$q     = \dash\pdo\prepare_query::generate_set('posts', $set);
@@ -42,7 +43,8 @@ class duplicate
 			$pagebuilder_list = [];
 		}
 
-		foreach ($pagebuilder_list as $key => $pagebuilder)
+
+		foreach ($pagebuilder_list as $pagebuilder)
 		{
 			$new_pagebuilder_id = self::duplicate_record_from_pagebuilder($pagebuilder['id'], $_new_id);
 

@@ -84,7 +84,9 @@ class duplicate
 		{
 			\dash\notif::clean();
 
-			$ok = \dash\db\posts\duplicate::make_duplicate_pagebuilder(\dash\coding::decode($result['post_id']), $load['id']);
+            $post_code = \dash\coding::decode($result['post_id']);
+
+			$ok = \dash\db\posts\duplicate::make_duplicate_pagebuilder($post_code, $load['id']);
 
 			if($ok)
 			{
@@ -110,4 +112,3 @@ class duplicate
 
 	}
 }
-?>

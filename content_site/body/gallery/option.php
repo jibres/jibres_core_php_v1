@@ -141,7 +141,8 @@ class option
 				unset($update['parent2']);
 				unset($update['parent3']);
 				unset($update['parent4']);
-				unset($update['parent5']);
+                unset($update['parent5']);
+                unset($update['for_id']);
 
 				\lib\app\menu\edit::edit($update, $value['id'], true);
 
@@ -168,7 +169,7 @@ class option
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public static function gallery_items($_section_id, $_preview_mode)
+	public static function gallery_items($_section_id, $_preview_mode) : array
 	{
 		$list = \lib\app\menu\get::get_by_for_id('gallery', $_section_id);
 
@@ -194,6 +195,12 @@ class option
 					{
 						$value['preview']['url'] = a($value, 'url');
 					}
+
+					if(a($value, 'for_id'))
+					{
+						$value['preview']['for_id'] = $value['for_id'];
+					}
+
 					$value = array_merge($value, \lib\app\menu\ready::row($value['preview']));
 
 					$new_list[] = $value;
@@ -210,6 +217,12 @@ class option
 						{
 							$value['body']['url'] = a($value, 'url');
 						}
+
+						if(a($value, 'for_id'))
+						{
+							$value['body']['for_id'] = $value['for_id'];
+						}
+
 						$value = array_merge($value, \lib\app\menu\ready::row($value['body']));
 					}
 
@@ -267,6 +280,8 @@ class option
 		{
 			$menu['preview'] = [];
 		}
+
+		unset($menu['preview']['for_id']);
 
 		$menu = array_merge($menu, $menu['preview']);
 
@@ -675,7 +690,12 @@ class option
 			{
 				$preview = [];
 			}
+
+			unset($preview['for_id']);
+
 		}
+
+		$preview['for_id'] = $record['for_id'];
 
 		$option = [];
 
@@ -690,11 +710,11 @@ class option
 		if(!is_array($args))
 		{
 			$args = [];
-		}
+        }
 
-		$args = array_merge($preview, $args, $_meta);
+        $args = array_merge($preview, $args, $_meta);
 
-		$args['is_preview_menu'] = true;
+        $args['is_preview_menu'] = true;
 
 		if($_add_edit_mode === 'edit')
 		{
@@ -767,4 +787,3 @@ class option
 	}
 
 }
-?>
