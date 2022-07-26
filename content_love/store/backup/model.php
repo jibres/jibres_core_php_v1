@@ -8,7 +8,7 @@ class model
 	{
 		if(\dash\request::post('backup') === 'backup')
 		{
-			\lib\app\store\backup::now(\dash\request::get('id'));
+			\lib\app\store\backup::now(\dash\request::get('id'), true);
 			\dash\redirect::pwd();
 			return;
 		}

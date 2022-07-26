@@ -24,7 +24,7 @@ class backup
 	}
 
 
-	public static function now($_store_id)
+	public static function now($_store_id, $_by_data = false)
 	{
 		$load = \lib\app\store\get::by_id($_store_id);
 
@@ -47,7 +47,7 @@ class backup
 		$current_fuel_detail = \dash\engine\fuel::get($load['fuel']);
 
 
-		$backup = \dash\engine\backup\database::backup_cmd($current_fuel_detail, $db_name);
+		$backup = \dash\engine\backup\database::backup_cmd($current_fuel_detail, $db_name, $_by_data);
 		$backup .= ' > '. $addr;
 
 		$sh = exec($backup, $output);

@@ -178,13 +178,16 @@ class database
 	}
 
 
-	public static function backup_cmd($_fuel, $_database_name)
+	public static function backup_cmd($_fuel, $_database_name, $_by_data = false)
 	{
 		$db_charset = 'utf8mb4';
 
 		$cmd  = "mysqldump ";
 		$cmd .= " --single-transaction ";
-		$cmd .= " --no-data";
+        if(!$_by_data)
+        {
+            $cmd .= " --no-data";
+        }
 		$cmd .= " --databases ";
 		$cmd .= " --add-drop-table ";
 		$cmd .= " --skip-lock-tables ";
