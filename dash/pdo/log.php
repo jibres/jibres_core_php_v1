@@ -87,17 +87,17 @@ class log
 		switch ($_type)
 		{
 			case 'sql':
-				if(strlen($_text) > 250)
+				// if(strlen($_text) > 250)
 				{
 					// simplify this query in multi line
 					$_text = str_replace("\t\t\t", "\t", $_text);
 					$_text = str_replace('   ', ' ', $_text);
 				}
-				else
-				{
-					$_text = trim($_text);
-					$_text = preg_replace('!\s+!', ' ', $_text);
-				}
+				// else
+				// {
+				// 	$_text = trim($_text);
+				// 	$_text = preg_replace('!\s+!', ' ', $_text);
+				// }
 				// add tab before it
 				// trim input text
 				$_text = trim($_text);

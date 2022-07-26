@@ -77,16 +77,19 @@ class pdo
 		}
 
 		$query_log = '';
+		$query_log .= PHP_EOL . ' -- connection_time: '. round($connection_exec_time*1000). ' ms | '. PHP_EOL;
 
 		if($_param)
 		{
 			$query_log = 'BIND; ';
+			$query_log .= PHP_EOL;
+			$query_log .= ' -- '. json_encode($_param, JSON_UNESCAPED_UNICODE);
+			$query_log .= PHP_EOL;
 		}
 
-		$query_log .= ' -- connection_time: '. round($connection_exec_time*1000). ' ms | '. PHP_EOL;
 		$query_log .= $_query;
 
-		$query_log .= ' -- '. json_encode(func_get_args());
+		// $query_log .= ' -- '. json_encode(func_get_args());
 
 		try
 		{
