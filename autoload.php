@@ -75,12 +75,3 @@ class autoload
 }
 
 spl_autoload_register("\autoload::load");
-
-if(defined('AJIB_JIBRES_COMMAND_LINE'))
-{
-	return;
-}
-
-// LAUNCH DASH!
-\dash\engine\power::on();
-?>
