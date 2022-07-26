@@ -5,6 +5,7 @@ namespace lib\ajib;
 class detect
 {
 	public $commad = null;
+	public $args = [];
 
 	public function __construct($_args)
 	{
@@ -12,6 +13,14 @@ class detect
 		{
 			$this->commad = $_args[1];
 		}
+
+        foreach ($_args as $key => $value)
+        {
+            if($key > 1)
+            {
+                $this->args[] = $value;
+            }
+        }
 
 
 		if(!$this->commad)
@@ -21,23 +30,17 @@ class detect
 	}
 
 
-	public function go()
+	public function go() : void
 	{
 		switch ($this->commad)
 		{
-			case 'install-jibres-db':
-				$ok = (new \lib\ajib\installdb)->install();
+			case 'install':
+				$ok = (new \lib\ajib\installer)->execute($this->args);
 				break;
 
 			default:
-				return throw new \Exception("Invalid ajib argument", 1);
+				throw new \Exception("Invalid ajib argument", 1);
 				break;
-		}
-
-		if($ok)
-		{
-			return 'Ok. ;)';
 		}
 	}
 }
-?>

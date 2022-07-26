@@ -11,9 +11,5 @@ use \lib\ajib\detect;
 
 $detect = new detect($argv);
 
-$ok = $detect->go();
+$detect->go();
 
-if($ok)
-{
-    echo $ok;
-}
