@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-25 11:40+0430\n"
-"PO-Revision-Date: 2022-07-25 11:40+0430\n"
+"POT-Creation-Date: 2022-07-26 15:27+0430\n"
+"PO-Revision-Date: 2022-07-26 16:03+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4347,30 +4347,30 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_my/domain/setting/holder/view.php:12
 #: content_my/domain/setting/transfer/view.php:12 content_site/autosave/view.php:10
 #: content_site/gallery/view.php:11 content_site/icon/view.php:11
-#: content_site/page/design/view.php:13 content_site/page/factor/view.php:16
-#: content_site/page/new/view.php:11 content_site/page/settings/view.php:13
-#: content_site/page/view.php:10 content_site/portfolio/view.php:10
-#: content_site/preview/display.php:18 content_site/section/html/view.php:45
-#: content_site/section/view.php:41 content_site/section/view.php:89
-#: content_site/section/view.php:242 content_site/sitemap/view.php:10
-#: content_site/staticfile/view.php:15 content_sudo/apilog/home/view.php:9
-#: content_sudo/apilog/view/view.php:9 content_sudo/backup/display.php:5
-#: content_sudo/backup/view.php:10 content_sudo/changeallfuel/view.php:8
-#: content_sudo/check/view.php:11 content_sudo/cronjob/view.php:9
-#: content_sudo/dbversion/view.php:9 content_sudo/dnsprovider/view.php:8
-#: content_sudo/fix/view.php:11 content_sudo/homepage/view.php:11
-#: content_sudo/info/view.php:8 content_sudo/ip/view.php:10 content_sudo/log/view.php:10
-#: content_sudo/log/view.php:16 content_sudo/passwd/view.php:8
-#: content_sudo/processlist/view.php:9 content_sudo/query/view.php:9
-#: content_sudo/server/view.php:9 content_sudo/session/view.php:9
-#: content_sudo/shorturl/view.php:9 content_sudo/smsclient/edit/view.php:9
-#: content_sudo/smsclient/home/view.php:8 content_sudo/tempfile/view.php:16
-#: content_sudo/tempfile/view.php:50 content_sudo/tg/home/view.php:8
-#: content_sudo/tg/log/view.php:9 content_sudo/tg/logshow/view.php:9
-#: content_sudo/tg/sendmessage/view.php:8 content_sudo/tg/sendphoto/view.php:9
-#: content_sudo/tg/system/view.php:9 content_sudo/tg/users/view.php:9
-#: content_sudo/tg/webhook/view.php:8 content_sudo/update/view.php:8
-#: content_sudo/usage/view.php:8 dash/engine/view.php:222
+#: content_site/page/design/view.php:13 content_site/page/duplicate/view.php:13
+#: content_site/page/factor/view.php:16 content_site/page/new/view.php:11
+#: content_site/page/settings/view.php:13 content_site/page/view.php:10
+#: content_site/portfolio/view.php:10 content_site/preview/display.php:18
+#: content_site/section/html/view.php:45 content_site/section/view.php:41
+#: content_site/section/view.php:89 content_site/section/view.php:242
+#: content_site/sitemap/view.php:10 content_site/staticfile/view.php:15
+#: content_sudo/apilog/home/view.php:9 content_sudo/apilog/view/view.php:9
+#: content_sudo/backup/display.php:5 content_sudo/backup/view.php:10
+#: content_sudo/changeallfuel/view.php:8 content_sudo/check/view.php:11
+#: content_sudo/cronjob/view.php:9 content_sudo/dbversion/view.php:9
+#: content_sudo/dnsprovider/view.php:8 content_sudo/fix/view.php:11
+#: content_sudo/homepage/view.php:11 content_sudo/info/view.php:8
+#: content_sudo/ip/view.php:10 content_sudo/log/view.php:10 content_sudo/log/view.php:16
+#: content_sudo/passwd/view.php:8 content_sudo/processlist/view.php:9
+#: content_sudo/query/view.php:9 content_sudo/server/view.php:9
+#: content_sudo/session/view.php:9 content_sudo/shorturl/view.php:9
+#: content_sudo/smsclient/edit/view.php:9 content_sudo/smsclient/home/view.php:8
+#: content_sudo/tempfile/view.php:16 content_sudo/tempfile/view.php:50
+#: content_sudo/tg/home/view.php:8 content_sudo/tg/log/view.php:9
+#: content_sudo/tg/logshow/view.php:9 content_sudo/tg/sendmessage/view.php:8
+#: content_sudo/tg/sendphoto/view.php:9 content_sudo/tg/system/view.php:9
+#: content_sudo/tg/users/view.php:9 content_sudo/tg/webhook/view.php:8
+#: content_sudo/update/view.php:8 content_sudo/usage/view.php:8 dash/engine/view.php:222
 msgid "Back"
 msgstr "بازگشت"
 
@@ -5411,7 +5411,7 @@ msgstr "شماره سند حسابداری جدید"
 #: content_a/accounting/doc/duplicate/display.php:16
 #: content_a/products/duplicate/display.php:12
 #: content_crm/member/permission/display.php:38
-#: content_crm/member/permission/display.php:41
+#: content_crm/member/permission/display.php:41 content_site/page/duplicate/display.php:31
 #: includes/languages/trans_static_public.php:107
 msgid "Copy"
 msgstr "کپی"
@@ -8674,14 +8674,14 @@ msgid "Create duplicate filter"
 msgstr "ساخت کپی از فیلتر"
 
 #: content_a/form/analytics/duplicate/display.php:6 content_a/form/duplicate/display.php:6
-#: content_a/products/duplicate/display.php:7
+#: content_a/products/duplicate/display.php:7 content_site/page/duplicate/display.php:19
 msgid "New Title"
 msgstr "عنوان جدید"
 
 #: content_a/form/analytics/duplicate/display.php:12
-#: content_a/form/duplicate/display.php:12 dash/layout/admin/admin-titlebox.php:27
-#: dash/layout/button.php:108 dash/layout/m2/admin-titlebox.php:31
-#: dash/layout/m2/pageNav.php:30
+#: content_a/form/duplicate/display.php:12 content_site/page/display-aside-bottom.php:17
+#: dash/layout/admin/admin-titlebox.php:27 dash/layout/button.php:108
+#: dash/layout/m2/admin-titlebox.php:31 dash/layout/m2/pageNav.php:30
 msgid "Duplicate"
 msgstr "کپی"
 
@@ -17217,27 +17217,27 @@ msgid "Edit post redirect"
 msgstr "ویرایش آدرس انتقال مطلب"
 
 #: content_cms/posts/seo/display.php:37
-#: content_site/page/settings/display-aside-top.php:113
+#: content_site/page/settings/display-aside-top.php:114
 msgid "Special Address"
 msgstr "آدرس اختصاصی"
 
 #: content_cms/posts/seo/display.php:42
-#: content_site/page/settings/display-aside-top.php:118
+#: content_site/page/settings/display-aside-top.php:119
 msgid "Independence"
 msgstr "مستقل"
 
 #: content_cms/posts/seo/display.php:48
-#: content_site/page/settings/display-aside-top.php:124
+#: content_site/page/settings/display-aside-top.php:125
 msgid "Special"
 msgstr "خاص"
 
 #: content_cms/posts/seo/display.php:55
-#: content_site/page/settings/display-aside-top.php:131 dash/app/posts/filter.php:184
+#: content_site/page/settings/display-aside-top.php:132 dash/app/posts/filter.php:184
 msgid "Under tag"
 msgstr "زیرمجموعه تگ"
 
 #: content_cms/posts/seo/display.php:63
-#: content_site/page/settings/display-aside-top.php:139 dash/app/posts/filter.php:194
+#: content_site/page/settings/display-aside-top.php:140 dash/app/posts/filter.php:194
 msgid "Under page"
 msgstr "زیرمجموعه صفحه‌ای دیگر"
 
@@ -23675,23 +23675,23 @@ msgid "Card Slider"
 msgstr "اسلایدر کارتی"
 
 #: content_site/body/gallery/layout.php:105 content_site/body/gallery/layout.php:132
-#: content_site/body/gallery/option.php:608
+#: content_site/body/gallery/option.php:624
 msgid "Image :val"
 msgstr "تصویر :val"
 
-#: content_site/body/gallery/option.php:586
+#: content_site/body/gallery/option.php:602
 msgid "Maximum capacity of this gallery is full"
 msgstr "ظرفیت صفحات این گالری تصویر تکمیل است"
 
-#: content_site/body/gallery/option.php:640 content_site/body/gallery/option.php:723
+#: content_site/body/gallery/option.php:656 content_site/body/gallery/option.php:744
 msgid "Invalid index"
 msgstr "شناسه فهرست اشتباه است"
 
-#: content_site/body/gallery/option.php:742
+#: content_site/body/gallery/option.php:763
 msgid "On this gallery model you need at least :min item"
 msgstr "در این مدل گالری شما باید حداقل :min آیتم داشته باشید"
 
-#: content_site/body/gallery/option.php:746
+#: content_site/body/gallery/option.php:767
 msgid "Can not remove last gallery item"
 msgstr "نمی‌توانید آخرین آیتم یک گالری را حذف کنید"
 
@@ -23809,6 +23809,22 @@ msgstr "نمونه :val"
 #: content_site/controller.php:60 content_site/controller.php:73
 msgid "Invalid page id"
 msgstr "شماره صفحه نادرست"
+
+#: content_site/duplicate.php:18
+msgid "Please set posts title"
+msgstr "لطفا عنوان صفحه را وارد کنید"
+
+#: content_site/duplicate.php:28
+msgid "Please change the posts name to copy"
+msgstr "لطفا نام صفحه را برای تهیه نسخه کپی وارد کنید"
+
+#: content_site/duplicate.php:96
+msgid "Duplicate created"
+msgstr "کپی ایجاد شد"
+
+#: content_site/duplicate.php:108
+msgid "Can not make duplicate from this page"
+msgstr "نمی‌توانیم از این صفحه نسخه کپی ایجاد کنیم"
 
 #: content_site/footer/f0.php:36
 msgid "This footer is emtpy. Have not any option!"
@@ -24907,7 +24923,7 @@ msgstr "اندازه اسلایدر"
 msgid "Spacing"
 msgstr "فاصله گذاری"
 
-#: content_site/options/style/style.php:24 content_site/page/display-aside-bottom.php:24
+#: content_site/options/style/style.php:24 content_site/page/display-aside-bottom.php:31
 msgid "Personalize"
 msgstr "شخصی‌سازی"
 
@@ -25023,11 +25039,11 @@ msgstr ""
 "این صفحه پیش‌نویس است و هنوز منتشر نشده است. برای اینکه توسط همه قابل مشاهده باشد باید "
 "آن را منتشر کنید"
 
-#: content_site/page/display-aside-bottom.php:17 content_site/page/settings/view.php:11
+#: content_site/page/display-aside-bottom.php:24 content_site/page/settings/view.php:11
 msgid "Page setting"
 msgstr "تنظیمات صفحه"
 
-#: content_site/page/display-aside-bottom.php:22
+#: content_site/page/display-aside-bottom.php:29
 msgid "Change Background"
 msgstr "تغییر پس‌زمینه"
 
@@ -25042,6 +25058,26 @@ msgstr "بخش‌های حذف شده"
 #: content_site/page/display-aside-top.php:137
 msgid "After saving the page, this section will be deleted completely"
 msgstr "پس از ذخیره صفحه این بخش‌ به صورت کامل حذف خواهد شد"
+
+#: content_site/page/duplicate/display-aside-top.php:6
+msgid "You can make duplicate from this page."
+msgstr "شما می‌توانید از این صفحه یک نسخه کپی ایجاد کنید"
+
+#: content_site/page/duplicate/display-aside-top.php:8
+msgid "All section and setting will be duplicated."
+msgstr "تمامی بخش‌ها و تنظیمات کپی خواهند شد"
+
+#: content_site/page/duplicate/display.php:13
+msgid "Copy from"
+msgstr "کپی از"
+
+#: content_site/page/duplicate/display.php:15
+msgid "Make a copy of this page"
+msgstr "یک نسخه کپی از این صفحه ایجاد کنید"
+
+#: content_site/page/duplicate/view.php:11
+msgid "Duplicate page"
+msgstr "کپی از صفحه"
 
 #: content_site/page/factor/model.php:30
 msgid "Nothing to pay"
@@ -25149,7 +25185,7 @@ msgstr ""
 msgid "Page cover"
 msgstr "کاور صفحه"
 
-#: content_site/page/settings/display-aside-top.php:145
+#: content_site/page/settings/display-aside-top.php:113
 msgid "In homepage page url is your domain"
 msgstr "در صفحه نخست،‌آدرس صفحه شما، آدرس دامنه شماست"
 
@@ -28909,19 +28945,19 @@ msgstr "کتابخانه فایل"
 msgid "Add new file"
 msgstr "افزودن فایل جدید"
 
-#: dash/pdo.php:333
+#: dash/pdo.php:335
 msgid "Can not start your request!"
 msgstr "نمی‌توانیم درخواست شما را شروع کنیم!"
 
-#: dash/pdo.php:368
+#: dash/pdo.php:370
 msgid "Can not save your request!"
 msgstr "نمی‌توانیم درخواست شما را ذخیره کنیم!"
 
-#: dash/pdo.php:402
+#: dash/pdo.php:404
 msgid "Can not close your request!"
 msgstr "نمی‌توانیم درخواست شما را تکمیل کنیم!"
 
-#: dash/pdo.php:437
+#: dash/pdo.php:439
 msgid "Can not get id!"
 msgstr "نمی‌توانیم شناسه را دریافت کنیم!"
 
@@ -50520,9 +50556,6 @@ msgstr "یارد"
 #~ msgid "Can not get domain dns record from CDN panel"
 #~ msgstr "نمی‌توانیم رکوردهای دی‌ان‌اس را از پنل سی‌دی‌ان دریافت کنیم"
 
-#~ msgid "Duplicate tag"
-#~ msgstr "تگ تکراری است"
-
 #~ msgid "Server id"
 #~ msgstr "شناسه سرور"
 
@@ -50961,9 +50994,6 @@ msgstr "یارد"
 
 #~ msgid "Set as pending send"
 #~ msgstr "در انتظار ارسال است"
-
-#~ msgid "Copy of"
-#~ msgstr "کپی از"
 
 #~ msgid "This category have some child and your can not remove it"
 #~ msgstr "این دسته‌بندی دارای تعدادی زیرمجموعه است و امکان حذف آن وجود ندارد"
