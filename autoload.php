@@ -75,7 +75,3 @@ class autoload
 }
 
 spl_autoload_register("\autoload::load");
-
-// LAUNCH DASH!
-\dash\engine\power::on();
-?>

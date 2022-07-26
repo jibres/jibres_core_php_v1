@@ -5,4 +5,6 @@
 
 require_once( '../autoload.php');
 
-?>
+
+// LAUNCH DASH!
+\dash\engine\power::on();
