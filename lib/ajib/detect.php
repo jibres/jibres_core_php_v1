@@ -35,7 +35,8 @@ class detect
 		switch ($this->commad)
 		{
 			case 'install':
-				$ok = (new \lib\ajib\installer)->execute($this->args);
+                $installer = new installer($this->args);
+				$installer->execute();
 				break;
 
 			default:
