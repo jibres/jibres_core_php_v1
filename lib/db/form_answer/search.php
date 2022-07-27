@@ -24,7 +24,7 @@ class search
 		}
 		else
 		{
-			$fields = 'form_answer.*,
+			$fields = 'DISTINCT form_answer.*,
 				(SELECT COUNT(*) FROM form_answerdetail WHERE form_answerdetail.answer_id = form_answer.id ) `count_answer`';
 		}
 
