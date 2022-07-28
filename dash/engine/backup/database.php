@@ -225,8 +225,14 @@ class database
 		$dest_file  = $_database_name. '_'. $date. '.sql';
 
 		$cmd = self::backup_cmd($_fuel, $_database_name, $_by_data);
-		$cmd .= "  > $_dir/$dest_file &&";
-		// $cmd .= " | bzip2 -c > $_dir/$dest_file &&";
+        if($_by_data)
+        {
+            $cmd .= " | bzip2 -c > $_dir/$dest_file &&";
+        }
+        else
+        {
+            $cmd .= "  > $_dir/$dest_file &&";
+        }
 		// $cmd .= " | bzip2 -c > $_dir/$dest_file 2>&1 &";
 
 		// to import this file
