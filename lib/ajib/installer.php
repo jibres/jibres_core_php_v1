@@ -67,11 +67,15 @@ class installer implements command
         switch ($this->command)
         {
             case 'db':
-                $this->install_db();
+                $this->first_install_all_jibres_db();
                 break;
 
             case 'business-db':
                 $this->install_business_db();
+                break;
+
+            case 'jibres-db':
+                $this->install_jibres_db();
                 break;
 
             default:
@@ -81,7 +85,7 @@ class installer implements command
     }
 
 
-    private function install_db() : void
+    private function first_install_all_jibres_db() : void
     {
         $sql_file = glob(root. 'includes/database/jibres_install_db/*.sql');
         $username = $this->username;
@@ -109,6 +113,26 @@ class installer implements command
                 throw new \Exception('Only sql file can be supported');
             }
             $cmd = "mysql -u{$this->username} -p{$this->password} < {$this->sql_file}";
+
+            exec($cmd);
+        }
+        else
+        {
+            throw new \Exception('Sql file not found');
+        }
+    }
+
+
+    private function install_jibres_db() : void
+    {
+        if($this->sql_file && is_file($this->sql_file))
+        {
+            if(!str_ends_with($this->sql_file, '.bz2'))
+            {
+                throw new \Exception('Only .bz2 file can be supported');
+            }
+
+            $cmd = "bunzip2 < {$this->sql_file} | mysql -u{$this->username} -p{$this->password}  ";
 
             exec($cmd);
         }
