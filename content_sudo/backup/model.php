@@ -11,6 +11,12 @@ class model
 			\dash\notif::ok("Jibres database backup complete");
 		}
 
+		if(\dash\request::post('backupnow') === 'jibres-data')
+		{
+			\dash\engine\backup\database::make_backup_now(true, 'jibres-data');
+			\dash\notif::ok("Jibres database backup complete");
+		}
+
 
 		\dash\redirect::pwd();
 

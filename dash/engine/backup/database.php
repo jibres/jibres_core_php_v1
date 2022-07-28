@@ -146,8 +146,12 @@ class database
 		\dash\file::makeDir($backup_dir, null, true);
 
 		\dash\file::delete(__DIR__.'/temp.me.exec');
-
-		if(!$_only || $_only === 'jibres')
+        if($_only === 'jibres-data')
+        {
+            $fuel      = \dash\engine\fuel::get('master');
+            self::backup_dump_exec($backup_dir, $fuel, 'jibres', true);
+        }
+		elseif(!$_only || $_only === 'jibres')
 		{
 			// make jibres backup
 			$fuel      = \dash\engine\fuel::get('master');
@@ -214,13 +218,13 @@ class database
 	}
 
 
-	private static function backup_dump_exec($_dir, $_fuel, $_database_name)
+	private static function backup_dump_exec($_dir, $_fuel, $_database_name, $_by_data = false)
 	{
 		$date       = date('Y-m-d_H-i-s');
 		// $dest_file  = $_database_name. '_'. $date. '.sql.bz2';
 		$dest_file  = $_database_name. '_'. $date. '.sql';
 
-		$cmd = self::backup_cmd($_fuel, $_database_name);
+		$cmd = self::backup_cmd($_fuel, $_database_name, $_by_data);
 		$cmd .= "  > $_dir/$dest_file &&";
 		// $cmd .= " | bzip2 -c > $_dir/$dest_file &&";
 		// $cmd .= " | bzip2 -c > $_dir/$dest_file 2>&1 &";
