@@ -41,7 +41,7 @@ class exec
 		}
 
 		// if api key is not set get it from options
-		// if(!tg::$api_token)
+		if(!tg::$api_token)
 		{
 			tg::$api_token = \dash\social\telegram\tg::setting('token');
 		}
@@ -56,6 +56,9 @@ class exec
 			else
 			{
 				\dash\log::set('tg:apikey:invalid');
+                // set null api_token to fill in other request
+                tg::$api_token = null;
+
 				return T_('Api key is not correct!');
 			}
 		}
@@ -70,6 +73,9 @@ class exec
 		if(self::$hit > 20)
 		{
 			\dash\log::set('tg:hit20', ["meta" => 'hit'. self::$hit]);
+            // set null api_token to fill in other request
+            tg::$api_token = null;
+
 			return T_('Maybe we have problem!');
 		}
 		else if(self::$hit > 10)
@@ -95,6 +101,9 @@ class exec
 		if ($ch === false)
 		{
 			\dash\log::set('tg:curl:failed');
+            // set null api_token to fill in other request
+            tg::$api_token = null;
+
 			return T_('Curl failed to initialize');
 		}
 		$customHeader = [];
@@ -157,9 +166,14 @@ class exec
 		// set custom header on all conditions
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $customHeader);
 
-		$result = curl_exec($ch);
-		$mycode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		if ($result === false)
+
+        $result = curl_exec($ch);
+        $mycode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        // set null api_token to fill in other request
+        tg::$api_token = null;
+
+        if ($result === false)
 		{
 			\dash\log::set('tg:error', ["meta" => curl_error($ch). ':'. curl_errno($ch)]);
 			return curl_error($ch). ':'. curl_errno($ch);
