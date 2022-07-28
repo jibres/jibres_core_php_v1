@@ -118,8 +118,13 @@ class create
 
 		if(a($get_domain_info, 'available') === false)
 		{
-			\dash\notif::error(T_("Domain is taken!"));
-			return false;
+            // admin can add force domain
+            // the unsupported domain have available false
+            if(!$data['admin_register_force'])
+            {
+                \dash\notif::error(T_("Domain is taken!"));
+                return false;
+            }
 		}
 
 
