@@ -2,8 +2,6 @@
 namespace lib\ajib;
 
 
-use lib\app\product\variants;
-use mysql_xdevapi\Exception;
 
 class installer implements command
 {
