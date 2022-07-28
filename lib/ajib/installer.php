@@ -122,17 +122,18 @@ class installer implements command
         }
     }
 
-
+    /**
+     * Install jibres database from ajib command
+     * @command php ajib install jibres-db -u root -p root -f /filepath.sql.bz2
+     * @return void
+     * @throws \Exception
+     */
     private function install_jibres_db() : void
     {
         if($this->sql_file && is_file($this->sql_file))
         {
-            if(!str_ends_with($this->sql_file, '.bz2'))
-            {
-                throw new \Exception('Only .bz2 file can be supported');
-            }
 
-            $cmd = "bunzip2 < {$this->sql_file} | mysql -u{$this->username} -p{$this->password}  ";
+            $cmd = "bunzip2 < {$this->sql_file} | mysql -u{$this->username} -p{$this->password} jibres ";
 
             exec($cmd);
         }
