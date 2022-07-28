@@ -23,11 +23,12 @@ class filter
 
 		$list               = [];
 
-		$list['pending'] = ['key' => 'pending', 'group' => T_("Status"), 'title' => T_('Pending'), 	'query' => ['status' => 'pending'], 'public' => true];
-		$list['sending'] = ['key' => 'sending', 'group' => T_("Status"), 'title' => T_('Sending'), 	'query' => ['status' => 'sending'], 'public' => true];
-		$list['send']    = ['key' => 'send', 	'group' => T_("Status"), 'title' => T_('Send'), 	'query' => ['status' => 'send'], 	'public' => true];
-		$list['failed']  = ['key' => 'failed', 	'group' => T_("Status"), 'title' => T_('Failed'), 	'query' => ['status' => 'failed'], 	'public' => true];
-		$list['other']   = ['key' => 'other', 	'group' => T_("Status"), 'title' => T_('Other'), 	'query' => ['status' => 'other'], 	'public' => true];
+		$list['pending']  = ['key' => 'pending', 'group' => T_("Status"), 'title' => T_('Pending'),  'query' => ['status' => 'pending'], 'public' => true];
+		$list['sending']  = ['key' => 'sending', 'group' => T_("Status"), 'title' => T_('Sending'),  'query' => ['status' => 'sending'], 'public' => true];
+		$list['send']     = ['key' => 'send', 	 'group' => T_("Status"), 'title' => T_('Send'), 	 'query' => ['status' => 'send'], 	 'public' => true];
+		$list['moneylow'] = ['key' => 'moneylow','group' => T_("Status"), 'title' => T_('Money low'),'query' => ['status' => 'moneylow'],'public' => true];
+		$list['failed']   = ['key' => 'failed',  'group' => T_("Status"), 'title' => T_('Failed'), 	 'query' => ['status' => 'failed'],  'public' => true];
+		$list['other']    = ['key' => 'other', 	 'group' => T_("Status"), 'title' => T_('Other'), 	 'query' => ['status' => 'other'], 	 'public' => true];
 
 		return $list;
 

@@ -148,14 +148,10 @@ class queue
 	}
 
 
-	/**
-	 * Adds a new sms record.
-	 * Call from api and self
-	 *
-	 * @param      <type>  $_args  The arguments
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
+    /**
+     * @param $_args
+     * @return array
+     */
 	public static function add_new_sms_record($_args)
 	{
 

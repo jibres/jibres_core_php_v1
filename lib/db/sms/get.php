@@ -23,6 +23,19 @@ class get
 	}
 
 
+	/**
+	 * Get count not send sms in business database
+	 * @return array|false|mixed|null
+	 */
+	public static function notSentSMSCount()
+	{
+		$query  = "SELECT COUNT(*) AS `count` FROM sms_log WHERE  sms_log.status = :status ";
+		$param = [':status' => 'moneylow'];
+		$result = \dash\pdo::get($query, $param, 'count', true);
+		return $result;
+	}
+
+
 
 
 	public static function sum_sms_sended_by_package_id($_business_id, $_package_id)

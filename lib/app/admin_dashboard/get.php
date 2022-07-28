@@ -8,19 +8,19 @@ class get
 {
 	public static function get()
 	{
-		$result                   = [];
-		$result['product_count']  = floatval(\lib\db\products\get::count_all_for_dashboard());
-		$result['customer_count'] = floatval(\dash\db\users::count_ok_users());
-		$result['staff_count']    = floatval(\dash\db\users::count_users_have_permission());
-		$result['chart']          = self::sale_time_chart();
+		$result                    = [];
+		$result['product_count']   = floatval(\lib\db\products\get::count_all_for_dashboard());
+		$result['customer_count']  = floatval(\dash\db\users::count_ok_users());
+		$result['staff_count']     = floatval(\dash\db\users::count_users_have_permission());
+		$result['chart']           = self::sale_time_chart();
+    	$result['new_order']       = floatval(\lib\db\factors\get::count_new_order());
+		$result['new_ticket']      = \dash\db\tickets\get::count_awaiting();
+		$result['new_comment']     = floatval(\dash\app\comment\search::get_count_status('awaiting'));
+		$result['notSentSMSCount'] = \lib\app\sms\get::notSentSMSCount();
+		$result['new_form_answer'] = \lib\app\form\answer\get::need_review_form();
+		$result['notif_count']     = \dash\app\log::my_notif_count();
 
-		$result['new_order']      = floatval(\lib\db\factors\get::count_new_order());
-		$result['new_ticket']     = floatval(\dash\db\tickets\get::count_awaiting());
-		$result['new_comment']    = floatval(\dash\app\comment\search::get_count_status('awaiting'));
-		$result['new_form_answer']    = \lib\app\form\answer\get::need_review_form();
-
-		$result['notif_count'] = \dash\app\log::my_notif_count();
-
+        
 		return $result;
 	}
 
