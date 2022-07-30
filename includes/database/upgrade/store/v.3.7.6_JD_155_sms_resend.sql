@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.sms_log CHANGE `status` `status` ENUM('register','pending','sending','expired','moneylow','unknown','send','sended','delivered','queue','failed','undelivered','cancel','block','other','resend') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL;
