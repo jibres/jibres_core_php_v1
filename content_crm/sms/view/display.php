@@ -81,8 +81,8 @@ $smsMeta = \dash\data::smsMeta();
   <ul>
      <li>
       <a class="f item" href="<?php echo \dash\url::that(). '?id='. $smsMeta['resend-id'] ?>">
-        <div class="key"><?php echo T_("This sms was resened") ?></div>
-        <div class="value font-bold"></div>
+        <div class="key"><?php echo T_("Show resended message") ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::text($smsMeta['resend-id']) ?></div>
         <div class="go"></div>
       </a>
      </li>
@@ -94,8 +94,8 @@ $smsMeta = \dash\data::smsMeta();
   <ul>
      <li>
       <a class="f item" href="<?php echo \dash\url::that(). '?id='. $smsMeta['resendfrom'] ?>">
-        <div class="key"><?php echo T_("This sms was resened from") ?></div>
-        <div class="value font-bold"></div>
+        <div class="key"><?php echo T_("Resended from") ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::text($smsMeta['resendfrom']) ?></div>
         <div class="go"></div>
       </a>
      </li>

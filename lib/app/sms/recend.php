@@ -49,7 +49,7 @@ class recend
 
                     $meta = json_encode($meta);
 
-                    \lib\db\sms_log\update::record(['status' => 'cancel', 'meta' => $meta], $id);
+                    \lib\db\sms_log\update::record(['status' => 'resend', 'meta' => $meta], $id);
 
                     \dash\notif::ok(T_("Your sms was resended"));
                     return true;
