@@ -16,7 +16,14 @@ class get
     	$result['new_order']       = floatval(\lib\db\factors\get::count_new_order());
 		$result['new_ticket']      = \dash\db\tickets\get::count_awaiting();
 		$result['new_comment']     = floatval(\dash\app\comment\search::get_count_status('awaiting'));
-		$result['notSentSMSCount'] = \lib\app\sms\get::notSentSMSCount();
+
+
+		$smsPackPlugin = \lib\app\plugin\business::detail('sms_pack');
+		if($smsPackPlugin)
+		{
+			$result['notSentSMSCount'] = \lib\app\sms\get::notSentSMSCount();
+		}
+
 		$result['new_form_answer'] = \lib\app\form\answer\get::need_review_form();
 		$result['notif_count']     = \dash\app\log::my_notif_count();
 
