@@ -9,6 +9,7 @@ class model
         if(\dash\request::post('status') === 'recend')
         {
             // recend sms
+            \lib\app\sms\recend::one(\dash\request::get('id'));
         }
 
         if(\dash\request::post('status') === 'archive')

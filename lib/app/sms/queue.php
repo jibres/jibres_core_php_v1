@@ -43,13 +43,14 @@ class queue
 		$args['agent_id']    = \dash\agent::get(true);
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
-		if(a($args, 'token') || a($args, 'token2') || a($args, 'token3'))
+		if(a($args, 'token') || a($args, 'token2') || a($args, 'token3') || a($args, 'resendfrom'))
 		{
 			$args['meta'] = json_encode(
 			[
 				'token' => a($args, 'token'),
-				'token2' => a($args, 'token2'),
-				'token3' => a($args, 'token3'),
+                'token2' => a($args, 'token2'),
+                'token3' => a($args, 'token3'),
+                'resendfrom' => a($args, 'resendfrom'),
 			]);
 		}
 
