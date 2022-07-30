@@ -119,6 +119,7 @@ class recend
 
                 $result = \lib\app\sms\queue::add_one($resendArgs, ['return_args' => true]);
 
+
                 if(isset($result['id']))
                 {
                     $meta = [];
@@ -151,10 +152,9 @@ class recend
             $finalResult = \lib\api\jibres\api::send_multiple_notif($sending_queue);
 
             \dash\log::save_multiple_notif_result($finalResult);
-
         }
 
-        \dash\notif::ok(T_(":val SMS was resended", ['val' => \dash\fit::number(count($moneylow_list))]));
+        \dash\notif::ok(T_(":val SMS was resended", ['val' => \dash\fit::number(count($sending_queue['sms']))]));
         return true;
     }
 }

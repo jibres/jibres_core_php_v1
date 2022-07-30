@@ -7,7 +7,7 @@ class get
 	{
 		$query  = "SELECT * FROM sms_log WHERE  sms_log.status = :status  LIMIT 200 ";
 		$param  = [':status' => 'moneylow'];
-		$result = \dash\pdo::get($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param);
         return $result;
 	}
 
