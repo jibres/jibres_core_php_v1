@@ -1,4 +1,7 @@
-<?php $data = \dash\data::dataRow(); ?>
+<?php
+$data = \dash\data::dataRow();
+$smsMeta = \dash\data::smsMeta();
+?>
 <nav class="items">
   <ul>
       <li>
@@ -72,10 +75,44 @@
      </li>
   </ul>
 </nav>
-<?php if(a($data, 'message')) { ?>
-<div class="box">
-  <div class="pad">
-      <p><?php  echo nl2br(a($data, 'message')); ?></p>
-  </div>
-</div>
+
+<?php if(a($smsMeta, 'resend-id')) {?>
+<nav class="items">
+  <ul>
+     <li>
+      <a class="f item" href="<?php echo \dash\url::that(). '?id='. $smsMeta['resend-id'] ?>">
+        <div class="key"><?php echo T_("Show resended message") ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::text($smsMeta['resend-id']) ?></div>
+        <div class="go"></div>
+      </a>
+     </li>
+   </ul>
+</nav>
 <?php } //endif ?>
+<?php if(a($smsMeta, 'resendfrom')) {?>
+<nav class="items">
+  <ul>
+     <li>
+      <a class="f item" href="<?php echo \dash\url::that(). '?id='. $smsMeta['resendfrom'] ?>">
+        <div class="key"><?php echo T_("Resended from") ?></div>
+        <div class="value font-bold"><?php echo \dash\fit::text($smsMeta['resendfrom']) ?></div>
+        <div class="go"></div>
+      </a>
+     </li>
+   </ul>
+</nav>
+<?php } //endif
+ if(\dash\data::dataRow_status() === 'moneylow')
+{
+  require_once(root. 'content_crm/sms/display-resend.php');
+}
+?>
+
+<?php if(a($data, 'message')) { ?>
+    <div class="box">
+        <div class="pad">
+            <p><?php  echo nl2br(a($data, 'message')); ?></p>
+        </div>
+    </div>
+<?php } //endif ?>
+

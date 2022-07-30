@@ -20,7 +20,7 @@ class phpinput
 			// only can be text
 			\dash\waf\gate\toys\only::text($phpinput);
 
-			\dash\waf\gate\toys\general::len($phpinput, 0, 50000); // for api add post by content
+			\dash\waf\gate\toys\general::len($phpinput, 0, 7000000); // for api add post by content
 
 			$phpinput = \dash\waf\gate\toys\only::json($phpinput);
 

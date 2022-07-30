@@ -46,5 +46,15 @@ class get
 
 		return $load;
 	}
+
+
+    /**
+     * @return float
+     */
+    public static function notSentSMSCount() : float
+    {
+        $count = \lib\db\sms_log\get::notSentSMSCount();
+        return floatval($count);
+    }
 }
 ?>

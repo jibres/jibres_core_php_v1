@@ -20,6 +20,13 @@
       </div>
     <?php } //endif ?>
     <div class="text-sm">
+      <?php if(a($dashboardData, 'notSentSMSCount')) {?>
+        <a href="<?php echo \dash\url::kingdom(). '/crm/sms/datalist?status=moneylow' ?>">
+          <div class="alert-warning mb-3 font-bold">
+            <?php echo T_("You have :val not sent SMS", ['val' => \dash\fit::number(a($dashboardData, 'notSentSMSCount'))]) ?>
+          </div>
+        </a>
+      <?php } //endif ?>
       <?php if(a($dashboardData, 'new_order')) {?>
         <a href="<?php echo \dash\url::here(). '/order/unprocessed' ?>">
           <div class="alert-success mb-3 font-bold">

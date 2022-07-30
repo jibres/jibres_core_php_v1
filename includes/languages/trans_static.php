@@ -1185,6 +1185,8 @@ class TransStatic
 	echo T_('Yemeni Rial');
 	echo T_('South African Rand');
 	echo T_('Zambian Kwacha');
+	echo T_('Resend');
+	echo T_('resend');
  }
 }
 ?>

@@ -43,13 +43,14 @@ class queue
 		$args['agent_id']    = \dash\agent::get(true);
 		$args['datecreated'] = date("Y-m-d H:i:s");
 
-		if(a($args, 'token') || a($args, 'token2') || a($args, 'token3'))
+		if(a($args, 'token') || a($args, 'token2') || a($args, 'token3') || a($args, 'resendfrom'))
 		{
 			$args['meta'] = json_encode(
 			[
-				'token' => a($args, 'token'),
-				'token2' => a($args, 'token2'),
-				'token3' => a($args, 'token3'),
+				'token'      => a($args, 'token'),
+				'token2'     => a($args, 'token2'),
+				'token3'     => a($args, 'token3'),
+				'resendfrom' => a($args, 'resendfrom'),
 			]);
 		}
 
@@ -74,6 +75,7 @@ class queue
 		unset($args['token']);
 		unset($args['token2']);
 		unset($args['token3']);
+		unset($args['resendfrom']);
 
 		$sms_store_smslog_id = \lib\db\sms_log\insert::new_record($args);
 
@@ -95,6 +97,7 @@ class queue
 
 			if(isset($_options['return_args']) && $_options['return_args'] === true)
 			{
+				$jibres_sms['id'] = $sms_store_smslog_id;
 				return $jibres_sms;
 			}
 
@@ -148,14 +151,10 @@ class queue
 	}
 
 
-	/**
-	 * Adds a new sms record.
-	 * Call from api and self
-	 *
-	 * @param      <type>  $_args  The arguments
-	 *
-	 * @return     <type>  ( description_of_the_return_value )
-	 */
+    /**
+     * @param $_args
+     * @return array
+     */
 	public static function add_new_sms_record($_args)
 	{
 

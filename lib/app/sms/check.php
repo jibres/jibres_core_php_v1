@@ -19,6 +19,7 @@ class check
 			'token'    => 'string_100',
 			'token2'   => 'string_100',
 			'token3'   => 'string_100',
+            'resendfrom' => 'id',
 			'meta'     => 'json'
 		];
 
