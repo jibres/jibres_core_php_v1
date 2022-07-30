@@ -23,17 +23,41 @@ class recend
 
             if(\lib\app\plugin\business::is_activated('sms_pack'))
             {
-                $post            = [];
-                $post['mobile']  = a($load, 'mobile');
-                $post['message'] = a($load, 'message');
-                $post['sender']  = 'admin';
-                $post['resendfrom']  = a($load, 'id');
+                $post               = [];
+                $post['mobile']     = a($load, 'mobile');
+                $post['message']    = a($load, 'message');
+                $post['sender']     = 'admin';
+                $post['resendfrom'] = a($load, 'id');
 
                 $result = \lib\app\sms\queue::add_one($post);
 
                 if(isset($result['id']))
                 {
-                    \dash\redirect::to(\dash\url::this(). '/view?id='. $result['id']);
+                    $meta = [];
+
+                    if(is_string($load['meta']))
+                    {
+                        $meta = json_decode($load['meta'], true);
+
+                        if(!is_array($meta))
+                        {
+                            $meta = [];
+                        }
+                    }
+
+                    $meta['resend-id'] = $result['id'];
+
+                    $meta = json_encode($meta);
+
+                    \lib\db\sms_log\update::record(['status' => 'cancel', 'meta' => $meta], $id);
+
+                    \dash\notif::ok(T_("Your sms was resended"));
+                    return true;
+                }
+                else
+                {
+                    \dash\notif::error(T_("Can not resend your sms"));
+                    return false;
                 }
 
             }

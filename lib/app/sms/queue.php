@@ -47,10 +47,10 @@ class queue
 		{
 			$args['meta'] = json_encode(
 			[
-				'token' => a($args, 'token'),
-                'token2' => a($args, 'token2'),
-                'token3' => a($args, 'token3'),
-                'resendfrom' => a($args, 'resendfrom'),
+				'token'      => a($args, 'token'),
+				'token2'     => a($args, 'token2'),
+				'token3'     => a($args, 'token3'),
+				'resendfrom' => a($args, 'resendfrom'),
 			]);
 		}
 
@@ -75,6 +75,7 @@ class queue
 		unset($args['token']);
 		unset($args['token2']);
 		unset($args['token3']);
+		unset($args['resendfrom']);
 
 		$sms_store_smslog_id = \lib\db\sms_log\insert::new_record($args);
 

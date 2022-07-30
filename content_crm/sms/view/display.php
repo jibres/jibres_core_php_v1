@@ -1,4 +1,7 @@
-<?php $data = \dash\data::dataRow(); ?>
+<?php
+$data = \dash\data::dataRow();
+$smsMeta = \dash\data::smsMeta();
+?>
 <nav class="items">
   <ul>
       <li>
@@ -72,6 +75,33 @@
      </li>
   </ul>
 </nav>
+
+<?php if(a($smsMeta, 'resend-id')) {?>
+<nav class="items">
+  <ul>
+     <li>
+      <a class="f item" href="<?php echo \dash\url::that(). '?id='. $smsMeta['resend-id'] ?>">
+        <div class="key"><?php echo T_("This sms was resened") ?></div>
+        <div class="value font-bold"></div>
+        <div class="go"></div>
+      </a>
+     </li>
+   </ul>
+</nav>
+<?php } //endif ?>
+<?php if(a($smsMeta, 'resendfrom')) {?>
+<nav class="items">
+  <ul>
+     <li>
+      <a class="f item" href="<?php echo \dash\url::that(). '?id='. $smsMeta['resendfrom'] ?>">
+        <div class="key"><?php echo T_("This sms was resened from") ?></div>
+        <div class="value font-bold"></div>
+        <div class="go"></div>
+      </a>
+     </li>
+   </ul>
+</nav>
+<?php } //endif ?>
 <?php if(\dash\data::dataRow_status() === 'moneylow')
 {
     $smsPack = false;
