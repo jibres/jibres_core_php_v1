@@ -876,7 +876,7 @@ class log
 	 *
 	 * @param      <type>  $_result  The result
 	 */
-	private static function save_multiple_notif_result($_result)
+	public static function save_multiple_notif_result($_result)
 	{
 		$result = $_result;
 

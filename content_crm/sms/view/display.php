@@ -101,69 +101,12 @@ $smsMeta = \dash\data::smsMeta();
      </li>
    </ul>
 </nav>
-<?php } //endif ?>
-<?php if(\dash\data::dataRow_status() === 'moneylow')
+<?php } //endif
+ if(\dash\data::dataRow_status() === 'moneylow')
 {
-    $smsPack = false;
-    if(\lib\app\plugin\business::is_activated('sms_pack'))
-    {
-        $smsPack = true;
-    }
+  require_once(root. 'content_crm/sms/display-resend.php');
+}
 ?>
-<div class="box">
-    <div class="body">
-        <?php if(!$smsPack) {?>
-            <div class="alert-info">
-                <span class="block">
-                    <?php echo T_("You must get SMS plugin to send sms"); ?>
-                </span>
-                <a class="btn-success" href="<?php echo \dash\url::kingdom(). '/a/plugin/view/sms_pack' ?>">
-                    <?php echo T_("Buy now") ?>
-                </a>
-
-
-
-            </div>
-        <?php  } // endif ?>
-        <div class="row align-center">
-            <div class="c">
-                <?php echo T_("This message not sent because your sms balance is low."); ?>
-                <br>
-                <?php echo T_("You can recend message if have new sms pack or archive it"); ?>
-                <br>
-
-            </div>
-
-            <div
-                    data-ajaxify
-                    data-data='{"status": "recend"}'
-                    class="btn-success
-                    <?php
-                    if(!$smsPack)
-                    {
-//                        echo ' disabled';
-                    }
-                    ?>
-                    "
-            >
-                <?php echo T_("Recend"); ?>
-            </div>
-            <div class="c-auto c-xs-6">
-            </div>
-
-            <div class="c-auto c-xs-6">
-                <div
-                        data-ajaxify
-                        data-data='{"status": "archive"}'
-                        class="btn-secondary">
-                    <?php echo T_("Archive"); ?>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-<?php } // endif ?>
 
 <?php if(a($data, 'message')) { ?>
     <div class="box">

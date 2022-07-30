@@ -3,6 +3,13 @@ namespace lib\db\sms_log;
 
 class get
 {
+	public static function moneylow_list()
+	{
+		$query  = "SELECT * FROM sms_log WHERE  sms_log.status = :status  LIMIT 200 ";
+		$param  = [':status' => 'moneylow'];
+		$result = \dash\pdo::get($query, $param, null, true);
+        return $result;
+	}
 
     /**
      * Get count not send sms in business database

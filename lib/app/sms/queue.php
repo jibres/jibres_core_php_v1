@@ -97,6 +97,7 @@ class queue
 
 			if(isset($_options['return_args']) && $_options['return_args'] === true)
 			{
+				$jibres_sms['id'] = $sms_store_smslog_id;
 				return $jibres_sms;
 			}
 
