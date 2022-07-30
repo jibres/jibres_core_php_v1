@@ -72,6 +72,39 @@
      </li>
   </ul>
 </nav>
+
+<?php if(\dash\data::dataRow_status() === 'moneylow') {?>
+    <div class="box">
+        <div class="body">
+            <div class="row align-center">
+                <div class="c">
+                    <?php echo T_("This message not sent because your sms balance is low."); ?>
+                    <br>
+                    <?php echo T_("You can recend message if have new sms pack or archive it"); ?>
+                </div>
+                <div class="c-auto c-xs-6">
+                    <div
+                            data-ajaxify
+                            data-data='{"status": "recend"}'
+                            class="btn-success">
+                        <?php echo T_("Recend"); ?>
+                    </div>
+                </div>
+
+                <div class="c-auto c-xs-6">
+                    <div
+                            data-ajaxify
+                            data-data='{"status": "archive"}'
+                            class="btn-secondary">
+                        <?php echo T_("Archive"); ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<?php } // endif ?>
+
 <?php if(a($data, 'message')) { ?>
 <div class="box">
   <div class="pad">

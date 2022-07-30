@@ -53,7 +53,7 @@ class get
      */
     public static function notSentSMSCount() : float
     {
-        $count = \lib\db\sms\get::notSentSMSCount();
+        $count = \lib\db\sms_log\get::notSentSMSCount();
         return floatval($count);
     }
 }

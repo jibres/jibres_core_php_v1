@@ -24,10 +24,10 @@ class view
 
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
-			'status' => \dash\request::get('status'),
-			'mobile' => \dash\request::get('mobile'),
+			'order' => \dash\request::get('order'),
+            'sort' => \dash\request::get('sort'),
+            'status' => \dash\request::get('status'),
+            'mobile' => \dash\request::get('mobile'),
 
 		];
 
@@ -37,6 +37,10 @@ class view
 
 		\dash\data::dataTable($list);
 
+		if($list && \dash\request::get('status') === 'moneylow')
+		{
+            \dash\data::listEngine_before(__DIR__ . '/display-before.php');
+		}
 
 		$isFiltered = \lib\app\sms\search::is_filtered();
 
@@ -49,4 +53,3 @@ class view
 
 	}
 }
-?>
