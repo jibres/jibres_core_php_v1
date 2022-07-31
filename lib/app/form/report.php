@@ -195,7 +195,7 @@ class report
 						$chart[] = ['name' => $value['answer'], 'y' =>  floatval($value['count'])];
 					}
 
-					$table[] = ['name' => $value['answer'], 'count' =>  floatval($value['count']), 'percent' => $percent];
+					$table[] = ['name' => $value['answer'], 'answer' => $value['answer'], 'count' =>  floatval($value['count']), 'percent' => $percent];
 				}
 			}
 
