@@ -301,6 +301,29 @@ class get
 
 	}
 
+	public static function by_answer_id_form_id_item_id($_form_id, $_answer_id, array $_singuped_mobile_item)
+	{
+		$item_ids = implode(',', $_singuped_mobile_item);
+		$query =
+		"
+			SELECT
+				*
+			FROM
+				form_answerdetail
+			WHERE
+				form_answerdetail.form_id = :form_id AND
+				form_answerdetail.answer_id = :answer_id AND
+				form_answerdetail.item_id IN ($item_ids) 
+		";
+		$param =
+		[
+			':form_id' => $_form_id,
+			':answer_id' => $_answer_id,
+		];
+
+		return \dash\pdo::get($query, $param);
+	}
+
 
 }
 ?>

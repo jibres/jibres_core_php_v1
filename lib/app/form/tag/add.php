@@ -540,20 +540,97 @@ class add
 			if(isset($tag_detail['sendsms']) && $tag_detail['sendsms'] && isset($tag_detail['smstext']) && $tag_detail['smstext'])
 			{
 				$load_answer = \lib\app\form\answer\get::by_id($_answer_id);
+
+                $must_send_to_user = [];
+
 				if(isset($load_answer['user_id']) && $load_answer['user_id'])
 				{
-					// send notif by sms for nabarvari.khadije.com
-					if(intval(\lib\store::id()) === 1000089)
-					{
-						\dash\log::send_sms($load_answer['user_id'], $tag_detail['smstext']);
-					}
-					else
-					{
-						\dash\log::send_notif($load_answer['user_id'], $tag_detail['smstext']);
-					}
+                    $must_send_to_user[] = $load_answer['user_id'];
 				}
+
+                $find_other_user = self::find_other_user_id($_answer_id, a($load_answer, 'form_id'));
+                if(is_array($find_other_user))
+                {
+                    $must_send_to_user = array_merge($must_send_to_user, $find_other_user);
+                    $must_send_to_user = array_filter($must_send_to_user);
+                    $must_send_to_user = array_unique($must_send_to_user);
+                }
+
+
+                foreach ($must_send_to_user as $user_id)
+                {
+                    // send notif by sms for nabarvari.khadije.com
+                    if(intval(\lib\store::id()) === 1000089)
+                    {
+                        \dash\log::send_sms($user_id, $tag_detail['smstext']);
+                    }
+                    else
+                    {
+                        \dash\log::send_notif($user_id, $tag_detail['smstext']);
+                    }
+                }
 			}
 		}
+
+
 	}
+
+    private static function find_other_user_id($_answer_id, $_form_id)
+    {
+        if(!$_answer_id || !$_form_id)
+        {
+            return false;
+        }
+
+        $load_all_mobile_item = \lib\db\form_item\get::by_type_form_id($_form_id, 'mobile');
+
+        if(!is_array($load_all_mobile_item))
+        {
+            $load_all_mobile_item = [];
+        }
+
+        $singuped_mobile_item = [];
+        foreach ($load_all_mobile_item as $item)
+        {
+            if(is_string(a($item, 'setting')))
+            {
+                $setting = json_decode($item['setting'], true);
+                if(isset($setting['mobile']['signup']))
+                {
+                    $singuped_mobile_item[] = $item['id'];
+                }
+            }
+        }
+
+        if($singuped_mobile_item)
+        {
+            $load_answer_detail = \lib\db\form_answer\get::by_answer_id_form_id_item_id($_form_id, $_answer_id, $singuped_mobile_item);
+            if(!is_array($load_answer_detail))
+            {
+                $load_answer_detail = [];
+            }
+
+            $mobiles = [];
+            foreach ($load_answer_detail as $answer)
+            {
+                if(isset($answer['answer']) && $mobile = \dash\validate::mobile($answer['answer'], false))
+                {
+                    $mobiles[] = $mobile;
+                }
+            }
+
+            if($mobiles)
+            {
+                $find_user_ids = \dash\db\users::get_id_by_multi_mobile($mobiles);
+
+                if(is_array($find_user_ids))
+                {
+                    return $find_user_ids;
+                }
+            }
+        }
+
+        return null;
+    }
 }
 ?>

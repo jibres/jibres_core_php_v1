@@ -193,10 +193,15 @@ class users
 		return \dash\pdo::get($query, [], null, true);
 	}
 
+    public static function get_id_by_multi_mobile(array $_mobiles)
+    {
+		$mobiles = implode("','", $_mobiles);
+		$query = "SELECT users.id AS `id` FROM users WHERE users.mobile IN ('$mobiles') ";
+		return \dash\pdo::get($query, [], 'id');
+    }
 
 
-
-	private static function insert()
+    private static function insert()
 	{
 		return \dash\pdo\query_template::insert('users', ...func_get_args());
 	}

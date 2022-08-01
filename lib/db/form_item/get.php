@@ -59,6 +59,18 @@ class get
 		return $result;
 	}
 
+    public static function by_type_form_id($_form_id, $_type)
+    {
+		$query = "SELECT * FROM form_item WHERE form_item.form_id = :form_id AND form_item.type = :type ";
+		$param =
+			[
+				':form_id' => $_form_id,
+				':type'    => $_type,
+			];
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+    }
+
 
 }
 ?>
