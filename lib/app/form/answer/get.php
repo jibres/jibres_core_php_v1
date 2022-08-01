@@ -184,6 +184,10 @@ class get
 		{
 			$result .= '<a target="_blank" href="'. \lib\filepath::fix($value['answer']). '" class="btn-link" >'. T_("Show file"). '</a>';
 		}
+        elseif(isset($value['item_type']) && $value['item_type'] === 'mobile')
+        {
+            $result .= '<a target="_blank" href="'. \dash\url::kingdom(). '/crm/member?ae=1&q='. $value['answer']. '" class="btn-link" >'. \dash\fit::mobile($value['answer']). '</a>';
+        }
 		else
 		{
 			$result .= a($value, 'answer');

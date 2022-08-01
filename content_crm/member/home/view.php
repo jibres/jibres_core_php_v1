@@ -51,6 +51,14 @@ class view
 
 		\dash\data::dataTable($userList);
 
+        if(\dash\request::get('ae') && is_array($userList) && count($userList) === 1)
+        {
+            if(isset($userList[0]['id']))
+            {
+                \dash\redirect::to(\dash\url::this(). '/glance?id='. $userList[0]['id']);
+            }
+        }
+
 		$isFiltered = \dash\app\user\search::is_filtered();
 		\dash\data::isFiltered($isFiltered);
 
