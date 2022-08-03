@@ -2,6 +2,7 @@
 namespace content_enter\callback;
 
 
+
 class model
 {
 	public static function post()
@@ -29,6 +30,12 @@ class model
 		if(\dash\request::request('type') === 'delivery')
 		{
 			\dash\log::set('smsHookDelivery', ['my_data' => \dash\request::request()]);
+
+            // {"my_data":{"service":"kavenegar","type":"delivery","uid":"20200114","messageid":"163712088","status":"10"}}
+            $sms_id = \dash\request::request('messageid');
+            $status = \dash\request::request('status');
+            $service = \dash\request::request('service');
+            \lib\app\sms\delivery::save_delivery($service, $sms_id, $status);
 
 			// too many request for delivery. needless to save anything
 			return;

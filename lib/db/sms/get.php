@@ -15,6 +15,18 @@ class get
 	}
 
 
+	public static function by_messageid($_messageid)
+	{
+		$query  = "SELECT * FROM sms WHERE  sms.provider_messageid = :messageid LIMIT 1";
+		$param =
+		[
+			':messageid' => $_messageid
+		];
+		$result = \dash\pdo::get($query, $param, null, true, 'api_log');
+		return $result;
+	}
+
+
 	public static function by_multi_id(string $_ids)
 	{
 		$query  = "SELECT * FROM sms WHERE  sms.id IN ($_ids)";
