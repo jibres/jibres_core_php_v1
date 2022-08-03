@@ -379,7 +379,14 @@ if(a($dataRowMember,  'status') === 'ban')
           </a>
         </li>
 
-        <li>
+         <li>
+              <a class="item f" href="<?php echo \dash\url::here(). '/sms/datalist?mobile='. \dash\data::dataRowMember_mobile();?>">
+                  <div class="key"><?php echo T_("SMS") ?></div>
+                  <div class="go"></div>
+              </a>
+         </li>
+
+          <li>
           <a class="item f" href="<?php echo \dash\url::here(). '/notification/datalist?touser='. \dash\request::get('id');?>">
             <div class="key"><?php echo T_("Messages") ?></div>
             <div class="go"></div>
