@@ -20,25 +20,25 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
         </p>
         <div class="row mb-2">
           <div class="c-auto">
-            <div class="btn mB5 <?php if($orderStatus === 'preparing') { echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "preparing"}'><?php echo T_("Set as preparing") ?></div>
+            <div class="<?php if($orderStatus === 'preparing') { echo 'btn-primary';}else{ echo "btn";} ?> mB5" data-confirm data-data='{"orderaction": "preparing"}'><?php echo T_("Set as preparing") ?></div>
           </div>
           <div class="c-auto">
-            <div class="btn mB5 <?php if($orderStatus === 'sending') { echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "sending"}'><i class="sf-bell"></i> <?php echo T_("Set as sending") ?></div>
-          </div>
-
-          <div class="c-auto">
-            <div class="btn mB5 <?php if($orderStatus === 'delivered') { echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "delivered"}'><?php echo T_("Set as delivered") ?></div>
+            <div class="<?php if($orderStatus === 'sending') { echo 'btn-primary';}else{ echo "btn";} ?> mB5" data-confirm data-data='{"orderaction": "sending"}'><i class="sf-bell"></i> <?php echo T_("Set as sending") ?></div>
           </div>
 
           <div class="c-auto">
-            <div class="btn mB5" data-kerkere='.showAllStatusOrder'> <?php echo T_("Something else") ?></div>
+            <div class="<?php if($orderStatus === 'delivered') { echo 'btn-primary';}else{ echo "btn";} ?> mB5" data-confirm data-data='{"orderaction": "delivered"}'><?php echo T_("Set as delivered") ?></div>
+          </div>
+
+          <div class="c-auto">
+            <div class="<?php if(!in_array($orderStatus, ['preparing', 'sending', 'delivered'])) { echo "btn-primary "; }else{ echo 'btn';}?> mB5" data-kerkere='.showAllStatusOrder'> <?php echo T_("Something else") ?></div>
           </div>
 
 
         </div>
 
 
-        <div class="showAllStatusOrder" data-kerkere-content='hide'>
+        <div class="showAllStatusOrder" <?php if(in_array($orderStatus, ['preparing', 'sending', 'delivered'])) { echo "data-kerkere-content='hide' "; }?> >
           <label for="istatus"><?php echo T_("Choose order status to change it") ?></label>
           <select name="orderaction" id="istatus" class="select22">
             <option value ="draft" <?php if($orderStatus === 'draft') { echo 'selected';} ?>><?php echo T_('Draft') ?></option>
@@ -70,26 +70,26 @@ $orderPayStatus = a($orderDetail, 'factor', 'paystatus');
         </p>
         <div class="row mb-2">
           <div class="c-auto">
-            <div class="btn mB5 <?php if($orderPayStatus === 'awaiting_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "awaiting_payment"}'><?php echo T_('Awaiting payment') ?></div>
+            <div class="<?php if($orderPayStatus === 'awaiting_payment') {echo 'btn-primary';}else{ echo "btn"; } ?> mB5" data-confirm data-data='{"orderaction": "awaiting_payment"}'><?php echo T_('Awaiting payment') ?></div>
           </div>
           <div class="c-auto">
-            <div class="btn mB5 <?php if($orderPayStatus === 'awaiting_verify_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "awaiting_verify_payment"}'><?php echo T_('Awaiting verify payment') ?></div>
-          </div>
-
-          <div class="c-auto">
-            <div class="btn mB5 <?php if($orderPayStatus === 'unsuccessful_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "unsuccessful_payment"}'><?php echo T_('Unsuccessful payment') ?></div>
+            <div class="<?php if($orderPayStatus === 'awaiting_verify_payment') {echo 'btn-primary';}else{ echo "btn"; } ?> mB5" data-confirm data-data='{"orderaction": "awaiting_verify_payment"}'><?php echo T_('Awaiting verify payment') ?></div>
           </div>
 
           <div class="c-auto">
-            <div class="btn mB5 <?php if($orderPayStatus === 'payment_unverified') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "payment_unverified"}'><?php echo T_('Payment unverified') ?></div>
+            <div class="<?php if($orderPayStatus === 'unsuccessful_payment') {echo 'btn-primary';}else{ echo "btn"; } ?> mB5" data-confirm data-data='{"orderaction": "unsuccessful_payment"}'><?php echo T_('Unsuccessful payment') ?></div>
           </div>
 
           <div class="c-auto">
-            <div class="btn mB5 <?php if($orderPayStatus === 'successful_payment') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "successful_payment"}'><?php echo T_('Successful payment') ?></div>
+            <div class="<?php if($orderPayStatus === 'payment_unverified') {echo 'btn-primary';}else{ echo "btn"; } ?> mB5" data-confirm data-data='{"orderaction": "payment_unverified"}'><?php echo T_('Payment unverified') ?></div>
           </div>
 
           <div class="c-auto">
-            <div class="btn mB5 <?php if($orderPayStatus === 'unpaid') {echo 'primary2';} ?>" data-confirm data-data='{"orderaction": "unpaid"}'><?php echo T_('Unpaid') ?></div>
+            <div class="<?php if($orderPayStatus === 'successful_payment') {echo 'btn-primary';}else{ echo "btn"; } ?> mB5" data-confirm data-data='{"orderaction": "successful_payment"}'><?php echo T_('Successful payment') ?></div>
+          </div>
+
+          <div class="c-auto">
+            <div class="<?php if($orderPayStatus === 'unpaid') {echo 'btn-primary';}else{ echo "btn"; } ?> mB5" data-confirm data-data='{"orderaction": "unpaid"}'><?php echo T_('Unpaid') ?></div>
           </div>
         </div>
 
