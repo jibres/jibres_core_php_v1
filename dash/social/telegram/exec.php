@@ -195,12 +195,12 @@ class exec
 			switch ($result['error_code'])
 			{
 				case 403:
-					\dash\log::set('tg:user:block1', ['my_result' => $result]);
+					\dash\log::set('tg:user:block1', ['my_result' => $result, 'my_data' => $_data]);
 					user::block();
 					break;
 
 				default:
-					\dash\log::set('tg:user:error2', ['my_result' => $result]);
+					\dash\log::set('tg:user:error2', ['my_result' => $result, 'my_data' => $_data]);
 					break;
 			}
 		}
