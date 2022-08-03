@@ -87,7 +87,6 @@ class api
 
 		// \dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'arvan_cdn_api.log', 'arvand_api');
 
-		// var_dump($log);exit;
 
 		if(!$response)
 		{
@@ -131,8 +130,15 @@ class api
 	}
 
 
+    public static function set_sms_delivery($_business_id, $_args)
+    {
+        $result = self::run($_business_id, 'sms/delivery','post', null, $_args);
+        return $result;
+    }
 
-	public static function set_instagram_detail($_business_id, $_args)
+
+
+    public static function set_instagram_detail($_business_id, $_args)
 	{
 		$result = self::run($_business_id, 'instagram/detail','post', null, $_args);
 		return $result;

@@ -20,6 +20,12 @@ class delivery
             return false;
         }
 
+        if($sms_detail['status'] === $status)
+        {
+            // nothing
+            return false;
+        }
+
         $update =
         [
             'provider_status' => $_status,
@@ -34,7 +40,37 @@ class delivery
 
         \lib\db\sms\update::record($update, $sms_detail['id']);
 
+        if(isset($sms_detail['store_id']))
+        {
+            // send status by api in business
+            $send =
+            [
+                'store_smslog_id' => $sms_detail['store_smslog_id'],
+                'status' => $status,
+            ];
+            \lib\api\business\api::set_sms_delivery($sms_detail['store_id'], $send);
+        }
 
+
+
+    }
+
+
+    public static function business_set_delivery($_sms_log_id, $_status)
+    {
+        if($id = \dash\validate::id($_sms_log_id))
+        {
+            $load = \lib\app\sms\get::get($id);
+            if(isset($load['id']))
+            {
+                $update =
+                [
+                    'status' => $_status,
+                ];
+
+                \lib\db\sms_log\update::record($update, $load['id']);
+            }
+        }
 
     }
 

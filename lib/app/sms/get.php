@@ -57,4 +57,3 @@ class get
         return floatval($count);
     }
 }
-?>
