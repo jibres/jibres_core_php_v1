@@ -172,6 +172,8 @@ class pdo
 				$error_code = 2006;
 			}
 
+            $qry_exec_time = microtime(true) - $qry_exec_time;
+
 			\dash\pdo\log::log_error($error_code, $temp_error, $qry_exec_time, 'error.sql');
 
 			if(\dash\url::isLocal())
