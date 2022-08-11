@@ -272,8 +272,6 @@ class search
 		$result['subvat'] = $subvat;
 		$result['total']    = ($result['subtotal'] + $result['shipping']) - $result['discount'] + $result['subvat'];
 
-
-		// var_dump($result,func_get_args());exit;
 		return $result;
 
 	}

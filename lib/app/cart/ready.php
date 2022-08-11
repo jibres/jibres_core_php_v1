@@ -61,6 +61,7 @@ class ready
 					{
 						$result[$key] = $value;
 					}
+					$get_from_product[$key] = $value;
 					break;
 				case 'price':
 				case 'buyprice':
@@ -110,6 +111,7 @@ class ready
 			$get_from_product = \lib\app\product\ready::row($get_from_product);
 
 
+
 			$result['oversale']      = a($get_from_product, 'oversale');
 			$result['minsale']       = a($get_from_product, 'minsale');
 			$result['maxsale']       = a($get_from_product, 'maxsale');
@@ -125,6 +127,7 @@ class ready
 
 
 		}
+
 
 		return $result;
 	}

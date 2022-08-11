@@ -365,6 +365,7 @@ class ready
 		$max_cart_limit = 10;
 		$minsale        = 1;
 		$maxsale        = $max_cart_limit;
+		$stock          = null;
 		$salestep       = 1;
 
 		$cart_setting = \lib\app\setting\get::cart_setting();
@@ -381,8 +382,9 @@ class ready
 
 		if(isset($result['stock']) && $result['stock'] && isset($result['trackquantity']) && $result['trackquantity'])
 		{
-			$maxsale = floatval($result['stock']);
+			$stock = floatval($result['stock']);
 		}
+
 
 		if(isset($result['maxsale']) && is_numeric($result['maxsale']) && $result['maxsale'])
 		{
@@ -393,10 +395,17 @@ class ready
 			$maxsale = $max_cart_limit;
 		}
 
+		if($maxsale && $stock)
+		{
+			$maxsale = min($maxsale, $stock);
+		}
+
+
 		if(isset($result['salestep']) && is_numeric($result['salestep']) && $result['salestep'])
 		{
 			$salestep = floatval($result['salestep']);
 		}
+
 
 
 		if(isset($result['oversale']) && $result['oversale'])
@@ -440,6 +449,7 @@ class ready
 		{
 			$result['cart_limit']['sale_step_input'] = true;
 		}
+
 	}
 
 	/**
