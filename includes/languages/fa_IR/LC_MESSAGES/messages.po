@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-07-30 16:46+0430\n"
-"PO-Revision-Date: 2022-07-30 16:52+0430\n"
+"POT-Creation-Date: 2022-08-11 14:19+0430\n"
+"PO-Revision-Date: 2022-08-11 14:19+0430\n"
 "Last-Translator: Javad Adib <Mr.Javad.Adib@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2191,7 +2191,7 @@ msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی د
 #: content/home/display.php:42 content_a/cart/add/display.php:131
 #: content_a/order/summary.php:54 content_a/plugin/view/display.php:228
 #: content_a/products/edit/block/price.php:68 content_business/cart/cartSummary.php:40
-#: content_business/p/home/blocks/detail.php:75 content_site/assemble/wrench/price.php:36
+#: content_business/p/home/blocks/detail.php:75 content_site/assemble/wrench/price.php:56
 msgid "Free"
 msgstr "رایگان"
 
@@ -7967,7 +7967,7 @@ msgstr "تنظیمات محصولات"
 #: content_cms/files/choose/view.php:39 content_cms/files/datalist/view.php:42
 #: content_cms/hashtag/home/view.php:47 content_cms/posts/home/view.php:85
 #: content_crm/log/enter/view.php:37 content_crm/log/home/view.php:52
-#: content_crm/member/home/view.php:59 content_crm/member/log/view.php:50
+#: content_crm/member/home/view.php:67 content_crm/member/log/view.php:50
 #: content_crm/notification/datalist/view.php:43 content_crm/sms/conversation/view.php:45
 #: content_crm/sms/datalist/view.php:51 content_crm/telegram/conversation/view.php:43
 #: content_crm/telegram/datalist/view.php:42 content_crm/ticket/datalist/view.php:51
@@ -8209,13 +8209,14 @@ msgstr "تاریخ چاپ"
 #: content_business/p/home/blocks/detail.php:56 content_business/p/home/view.php:106
 #: content_love/domain/billing/display.php:92
 #: content_love/domain/setting/action/display.php:44 content_love/gift/usage/display.php:7
-#: content_love/plugin/history/display.php:12 lib/app/form/item/type.php:557
-#: lib/app/form/item/type.php:576 lib/app/form/item/type.php:592
-#: lib/app/log/caller/business/business_plugin.php:81 lib/app/order/filter.php:99
-#: lib/app/order/filter.php:100 lib/app/order/filter.php:101 lib/app/order/filter.php:102
-#: lib/app/order/filter.php:103 lib/app/product/filter.php:193
-#: lib/app/product/filter.php:202 lib/app/product/property.php:249
-#: lib/app/product/site_list.php:217 lib/app/product/updateprice.php:125
+#: content_love/plugin/history/display.php:12 content_site/assemble/wrench/price.php:43
+#: lib/app/form/item/type.php:557 lib/app/form/item/type.php:576
+#: lib/app/form/item/type.php:592 lib/app/log/caller/business/business_plugin.php:81
+#: lib/app/order/filter.php:99 lib/app/order/filter.php:100 lib/app/order/filter.php:101
+#: lib/app/order/filter.php:102 lib/app/order/filter.php:103
+#: lib/app/product/filter.php:193 lib/app/product/filter.php:202
+#: lib/app/product/property.php:249 lib/app/product/site_list.php:217
+#: lib/app/product/updateprice.php:125
 msgid "Price"
 msgstr "قیمت"
 
@@ -10665,8 +10666,8 @@ msgid "This plugin is active in your business"
 msgstr "این افزونه در حال حاضر در بیزینس شما فعال شده است"
 
 #: content_a/plugin/view/display.php:311 content_crm/sms/display-resend.php:30
-#: lib/app/product/ready.php:473 lib/app/product/ready.php:484
-#: lib/app/product/ready.php:490
+#: lib/app/product/ready.php:483 lib/app/product/ready.php:494
+#: lib/app/product/ready.php:500
 msgid "Buy now"
 msgstr "همین الان بخر"
 
@@ -10869,7 +10870,7 @@ msgstr "مدیریت تنوع محصول"
 
 #: content_a/products/comment/view.php:23
 #: content_a/products/edit/block/sidebar-menu.php:78 content_cms/comments/home/view.php:9
-#: content_cms/comments/view/view.php:14 content_crm/member/glance/display.php:399
+#: content_cms/comments/view/view.php:14 content_crm/member/glance/display.php:406
 #: dash/app/posts/filter.php:203 dash/app/posts/filter.php:213
 #: dash/layout/m2/sidebar.php:311 includes/languages/trans_static.php:574
 #: includes/languages/trans_static_public.php:94
@@ -15659,7 +15660,7 @@ msgstr "بررسی تمام نشست‌های فعال"
 
 #: content_account/security/display.php:104 content_account/security/display.php:143
 #: content_account/security/sessions/display.php:5
-#: content_crm/member/glance/display.php:406 content_crm/member/sessions/view.php:12
+#: content_crm/member/glance/display.php:413 content_crm/member/sessions/view.php:12
 #: includes/languages/trans_static_public.php:1122
 msgid "Sessions"
 msgstr "نشست‌ها"
@@ -17360,10 +17361,10 @@ msgstr "پرداختی‌های موفق"
 msgid "All payments"
 msgstr "همه پرداختی‌ها"
 
-#: content_crm/home/display.php:148 content_crm/sms/conversation/view.php:12
-#: content_crm/sms/datalist/view.php:12 content_crm/sms/home/view.php:9
-#: content_crm/sms/send/view.php:12 content_love/log/home/logTable.php:61
-#: includes/languages/trans_static_public.php:940
+#: content_crm/home/display.php:148 content_crm/member/glance/display.php:384
+#: content_crm/sms/conversation/view.php:12 content_crm/sms/datalist/view.php:12
+#: content_crm/sms/home/view.php:9 content_crm/sms/send/view.php:12
+#: content_love/log/home/logTable.php:61 includes/languages/trans_static_public.php:940
 #: includes/languages/trans_static_public.php:982 lib/app/gift/filter.php:57
 #: lib/app/log/caller/sms/sms_lowcharge.php:20 lib/app/plugin/items/sms/sms_pack.php:12
 #: lib/app/plugin/items/sms/sms_pack.php:38
@@ -17650,17 +17651,17 @@ msgstr "افزایش شارژ حساب مشتری"
 msgid "Reduce account recharge"
 msgstr "کاهش شارژ حساب مشتری"
 
-#: content_crm/member/glance/display.php:384 content_crm/ticket/message/view.php:9
+#: content_crm/member/glance/display.php:391 content_crm/ticket/message/view.php:9
 #: content_love/gift/create/stepGuide.php:98 dash/layout/pwa/pwa_menu.php:92
 msgid "Messages"
 msgstr "پیام‌ها"
 
-#: content_crm/member/glance/display.php:392 content_sudo/tg/home/display.php:19
+#: content_crm/member/glance/display.php:399 content_sudo/tg/home/display.php:19
 #: content_sudo/tg/sendmessage/view.php:11
 msgid "Send message"
 msgstr "ارسال پیام"
 
-#: content_crm/member/glance/display.php:413
+#: content_crm/member/glance/display.php:420
 msgid "Customer Logs History"
 msgstr "تاریخچه ردپای مشتری"
 
@@ -19183,7 +19184,7 @@ msgstr "هشدار!"
 msgid "What are you doing?"
 msgstr "اینجا چیکار می‌کنی عزیز جان!؟"
 
-#: content_enter/alert/view.php:28 content_enter/callback/model.php:172
+#: content_enter/alert/view.php:28 content_enter/callback/model.php:179
 #: includes/languages/trans_static_public.php:542
 msgid "OK"
 msgstr "تایید"
@@ -19294,27 +19295,27 @@ msgstr "حساب کاربری خود را بسازید"
 msgid "Create Account"
 msgstr "ساخت حساب کاربری"
 
-#: content_enter/callback/model.php:16
+#: content_enter/callback/model.php:17
 msgid "Invalid service"
 msgstr "سرویس اشتباه"
 
-#: content_enter/callback/model.php:61
+#: content_enter/callback/model.php:68
 msgid "Message is empty"
 msgstr "پیام خالی است"
 
-#: content_enter/callback/model.php:70
+#: content_enter/callback/model.php:77
 msgid "Mobile not set"
 msgstr "موبایل تنظیم نشده است"
 
-#: content_enter/callback/model.php:115
+#: content_enter/callback/model.php:122
 msgid "User signup by sms"
 msgstr "کاربر با ارسال پیامک ثبت نام شد"
 
-#: content_enter/callback/model.php:147
+#: content_enter/callback/model.php:154
 msgid "Log not found"
 msgstr "لاگ یافت نشد"
 
-#: content_enter/callback/model.php:161
+#: content_enter/callback/model.php:168
 msgid "More than one log found"
 msgstr "بیشتر از یک لاگ یافت شد"
 
@@ -23522,6 +23523,10 @@ msgstr "نماد ساماندهی"
 msgid "Payping Certificate"
 msgstr "نماد اطمینان پی‌پینگ"
 
+#: content_site/assemble/wrench/price.php:34
+msgid "Compare at price"
+msgstr "قیمت پس از تخفیف"
+
 #: content_site/autosave/display.php:4
 msgid "Auto save and publish"
 msgstr "ذخیره و انتشار خودکار"
@@ -26967,7 +26972,7 @@ msgstr "نمی‌توانید صفحه‌ای را به‌عنوان والد خ
 msgid "Duplicate post url. This post url is already exists in your post list"
 msgstr "آدرس نوشته تکراری است. این آدرس نوشته در لیست نوشته‌های شما وجود دارد"
 
-#: dash/app/posts/check.php:299 lib/app/cart/search.php:293 lib/app/store/edit.php:34
+#: dash/app/posts/check.php:299 lib/app/cart/search.php:291 lib/app/store/edit.php:34
 msgid "Invalid user"
 msgstr "کاربر نامعتبر"
 
@@ -28984,19 +28989,19 @@ msgstr "کتابخانه فایل"
 msgid "Add new file"
 msgstr "افزودن فایل جدید"
 
-#: dash/pdo.php:335
+#: dash/pdo.php:337
 msgid "Can not start your request!"
 msgstr "نمی‌توانیم درخواست شما را شروع کنیم!"
 
-#: dash/pdo.php:370
+#: dash/pdo.php:372
 msgid "Can not save your request!"
 msgstr "نمی‌توانیم درخواست شما را ذخیره کنیم!"
 
-#: dash/pdo.php:404
+#: dash/pdo.php:406
 msgid "Can not close your request!"
 msgstr "نمی‌توانیم درخواست شما را تکمیل کنیم!"
 
-#: dash/pdo.php:439
+#: dash/pdo.php:441
 msgid "Can not get id!"
 msgstr "نمی‌توانیم شناسه را دریافت کنیم!"
 
@@ -42321,27 +42326,27 @@ msgstr "فردا"
 msgid "Today"
 msgstr "امروز"
 
-#: lib/app/product/ready.php:453
+#: lib/app/product/ready.php:463
 msgid "Product is not available for shop"
 msgstr "محصول برای فروش موجود نیست"
 
-#: lib/app/product/ready.php:462
+#: lib/app/product/ready.php:472
 msgid "Product is ready for shop"
 msgstr "محصول برای فروش آماده است"
 
-#: lib/app/product/ready.php:478
+#: lib/app/product/ready.php:488
 msgid "Temporary out of stock"
 msgstr "موجودی این محصول به طور موقت به اتمام رسیده است"
 
-#: lib/app/product/ready.php:501
+#: lib/app/product/ready.php:511
 msgid "Product was deleted"
 msgstr "محصول حذف شد"
 
-#: lib/app/product/ready.php:505
+#: lib/app/product/ready.php:515
 msgid "Product is not available"
 msgstr "محصول موجود نیست"
 
-#: lib/app/product/ready.php:514
+#: lib/app/product/ready.php:524
 msgid "Please choose a variants of this product to buy"
 msgstr "لطفا یکی از انواع این محصول را برای خرید انتخاب کنید"
 
@@ -48161,9 +48166,6 @@ msgstr "یارد"
 
 #~ msgid "Profile type"
 #~ msgstr "نوع پروفایل"
-
-#~ msgid "Complete profile"
-#~ msgstr "تکمیل پروفایل"
 
 #~ msgid "Upload Document"
 #~ msgstr "ارسال مدارک"
