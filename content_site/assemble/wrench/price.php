@@ -14,28 +14,57 @@ class price
 		$priceEl = '';
 		$priceEl .= '<div class="priceLine">';
 		{
-      $price = \dash\fit::price(a($_value, 'finalprice'));
-      if(!$price)
+      $price      = a($_value, 'price');
+      $finalprice = a($_value, 'finalprice');
+      $discount   = a($_value, 'discount');
+
+      if(!$finalprice)
       {
-			 $price = \dash\fit::price(a($_value, 'price'));
+       $finalprice = a($_value, 'price');
       }
+
+      if($discount)
+      {
+        $priceTitle = T_("Compare at price");
+      }
+      else
+      {
+        $priceTitle = T_("Price");
+      }
+
+
 			$freeText = a($_value, 'free_button_title');
 			$freeLink = a($_value, 'free_button_link');
 
-      if($price)
+      if($finalprice)
       {
-        $priceEl .= '<div class="priceShow" data-final>';
+        $priceEl .= '<div class="flex">';
         {
-          $priceEl .= '<span class="price">'. \dash\fit::price($price). '</span> ';
-          $priceEl .= '<span class="unit">'. \lib\store::currency().'</span>';
+          $priceEl .= '<div class="priceShow grow" data-final title="'. $priceTitle.'">';
+          {
+            $priceEl .= '<span class="price">'. \dash\fit::price($finalprice). '</span> ';
+            $priceEl .= '<span class="unit text-sm">'. \lib\store::currency().'</span>';
+          }
+          $priceEl .= '</div>';
+
+          if($discount)
+          {
+            $priceEl .= '<div class="priceShow line-through text-red-600" data-final title="'. T_("Price").'">';
+            {
+              $priceEl .= '<span class="price">'. \dash\fit::price($price). '</span> ';
+              $priceEl .= '<span class="unit text-sm">'. \lib\store::currency().'</span>';
+            }
+            $priceEl .= '</div>';
+          }
+
         }
         $priceEl .= '</div>';
       }
-      elseif((string) $price === '0')
+      elseif((string) $finalprice === '0')
       {
         $priceEl .= '<span class="font-bold fc-green">'. T_("Free"). '</span>';
       }
-      elseif(is_null($price))
+      elseif(is_null($finalprice))
       {
         if($freeText && $freeLink)
         {
