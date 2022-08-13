@@ -56,7 +56,7 @@
 
         </div>
 
-        <?php if(!a(\dash\data::dataRow_order(), 'pay') && a(\dash\data::dataRow_order(), 'status') !== 'cancel') {?>
+        <?php if(a(\dash\data::dataRow_order(), 'paystatus') !== 'successful_payment' && a(\dash\data::dataRow_order(), 'status') !== 'cancel') {?>
           <footer class="txtRa">
             <div class="btn-warning" data-confirm data-data='{"set_status": "cancel"}'><?php echo T_("Cancel order") ?></div>
           </footer>
@@ -78,11 +78,21 @@
             <div class="c">
               <h3 class="title"><a href="<?php echo a($value, 'url'); ?>"><?php echo a($value, 'title') ?></a></h3>
 
-
               <div class="priceShow" data-cart>
                 <span class="price"><?php echo \dash\fit::number(a($value, 'price')); ?></span>
-                <span class="unit"><?php echo \lib\store::currency(); ?></span>
+                <span class="currency text-gray-400"><?php echo \lib\store::currency(); ?></span>
               </div>
+
+
+                <div class="priceShow" data-cart>
+                    <?php if(!a($value, 'unit')) { ?>
+                        <span class="unit text-gray-400"><?php echo T_("Count"); ?></span>
+                    <?php } // endif ?>
+                    <span class="count"><?php echo \dash\fit::number_decimal(a($value, 'count')); ?></span>
+                    <span class="unit text-gray-400"><?php echo a($value, 'unit'); ?></span>
+                </div>
+
+
             </div>
 
 
