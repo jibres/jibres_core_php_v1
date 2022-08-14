@@ -90,8 +90,21 @@
   <div class=""><span class="text-2xs"><?php echo T_("Tel"); ?></span> <span dir="ltr" class="text-xs"><?php echo \dash\fit::text($address['phone']); ?></span></div>
 <?php } //endif ?>
 
-<?php if(isset($address['mobile']) && $address['mobile']) {?>
-  <div class="txtRa flex-grow"><span class="text-2xs"><?php echo T_("Mobile"); ?></span> <span dir="ltr" class="font-bold"><?php echo \dash\fit::mobile($address['mobile']); ?></span></div>
+<?php
+$showMobile = null;
+if(isset($address['mobile']) && $address['mobile']) {
+$showMobile = $address['mobile'];
+}
+
+if(!$showMobile && \dash\data::customer_mobile()) {
+    $showMobile = \dash\data::customer_mobile();
+}
+if($showMobile)
+{
+
+
+    ?>
+  <div class="txtRa flex-grow"><span class="text-2xs"><?php echo T_("Mobile"); ?></span> <span dir="ltr" class="font-bold"><?php echo \dash\fit::mobile($showMobile); ?></span></div>
 <?php } //endif ?>
 </div>
 

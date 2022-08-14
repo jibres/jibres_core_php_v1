@@ -78,6 +78,7 @@ if($address)
   // echo '</span>';
 }
 ?></div>
+
             <div class="w-3/12 flex px-2"><?php
 $phone = \dash\data::address_phone();
 $fax = \dash\data::address_fax();
@@ -107,6 +108,25 @@ else if($fax)
 ?></div>
           </div>
 
+<?php
+$addressDetail = \dash\data::address();
+$showMobile = null;
+if(isset($addressDetail['mobile']) && $addressDetail['mobile']) {
+    $showMobile = $addressDetail['mobile'];
+}
+
+if(!$showMobile && \dash\data::customer_mobile()) {
+    $showMobile = \dash\data::customer_mobile();
+}
+if($showMobile)
+{
+    echo '<div>';
+    echo '<span class="self-center">'.T_("Mobile"). '</span>';
+    echo '<span class="font-black mx-2">'. \dash\fit::text($showMobile). ' <small>';
+    echo '</div>';
+}
+
+?>
 
           <?php if(a(\dash\data::customerDebt(), 'debt_until_order')) {?>
 <div>
