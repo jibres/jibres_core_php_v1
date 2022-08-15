@@ -2,7 +2,7 @@
 
 namespace lib\app\plan;
 
-class diamond implements planInterface
+class diamond extends planTools
 {
     public function name(): string
     {
@@ -14,8 +14,13 @@ class diamond implements planInterface
         return T_("Diamond");
     }
 
-    public function price(): int
+    public function priceRial(): int
     {
-        return 20000000;
+        return 900000; // IRT
+    }
+
+    public function priceDollar(): int
+    {
+        return 29; // USD
     }
 }

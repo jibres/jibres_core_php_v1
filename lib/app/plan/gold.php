@@ -2,7 +2,7 @@
 
 namespace lib\app\plan;
 
-class gold implements planInterface
+class gold extends planTools
 {
 
     public function name(): string
@@ -15,8 +15,13 @@ class gold implements planInterface
         return T_("Gold");
     }
 
-    public function price(): int
+    public function priceRial(): int
     {
-        return 2000000;
+        return 200000; // IRT
+    }
+
+    public function priceDollar(): int
+    {
+        return 9; // USD
     }
 }
