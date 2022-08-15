@@ -613,6 +613,15 @@ class sidebar
 		];
 
 
+		$menu["plan"] =
+		[
+			'title'     => T_("Plan"),
+			'url'       => \dash\url::kingdom().'/a/plan',
+			'icon'      => 'Capital',
+			'iconColor' => '#da9e51',
+		];
+
+
 
 		if(\dash\permission::supervisor())
 		{
