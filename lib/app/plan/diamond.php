@@ -23,4 +23,14 @@ class diamond extends planTools
     {
         return 29; // USD
     }
+
+    public function featureList() : array
+    {
+        return
+        [
+            T_("Up to 19000 product"),
+            T_("Discount Advanced"),
+            T_("Test"),
+        ];
+    }
 }

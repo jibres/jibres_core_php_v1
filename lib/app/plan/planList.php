@@ -40,6 +40,7 @@ class planList
             'name'         => $_myPlan->name(),
             'title'        => $_myPlan->title(),
             'price'        => $_myPlan->calculatePrice(1),
+            'featureList'  => $_myPlan->featureList(),
             'currency'     => $currency,
             'currencyName' => $currencyName,
         ];

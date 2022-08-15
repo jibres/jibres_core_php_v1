@@ -24,4 +24,13 @@ class gold extends planTools
     {
         return 9; // USD
     }
+
+    public function featureList() : array
+    {
+        return
+        [
+            T_("Up to 50000 product"),
+            T_("Discount"),
+        ];
+    }
 }
