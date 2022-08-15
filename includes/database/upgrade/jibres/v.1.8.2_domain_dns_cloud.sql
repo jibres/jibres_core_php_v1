@@ -1,1 +1,0 @@
-ALTER TABLE jibres.business_domain_dns ADD `cloud` bit(1) NULL DEFAULT 1 AFTER `value`;
