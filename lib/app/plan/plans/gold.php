@@ -12,20 +12,24 @@ class gold implements plan
         return 'gold';
     }
 
+
     public function title(): string
     {
         return T_("Gold");
     }
+
 
     public function priceRial(): int
     {
         return 200000; // IRT
     }
 
+
     public function priceDollar(): int
     {
         return 9; // USD
     }
+
 
     public function featureList() : array
     {

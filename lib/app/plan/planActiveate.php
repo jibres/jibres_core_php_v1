@@ -2,8 +2,9 @@
 
 namespace lib\app\plan;
 
-class planActive
+class planActiveate
 {
+
     public static function activate($_business_id, array $_args)
     {
         $data = self::cleanArgs($_args);
