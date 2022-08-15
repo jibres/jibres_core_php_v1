@@ -35,8 +35,10 @@ class planList
     {
         $planPrice = new planPrice($_myPlan);
 
-        $currency     = $planPrice->getCurrency();
-        $currencyName = \lib\currency::name($currency);
+        $currency           = $planPrice->getCurrency();
+        $currencyName       = \lib\currency::name($currency);
+
+        $currnentPlanDetail = businessPlanDetail::currnentPlan();
 
         $planDetail =
         [
@@ -46,6 +48,7 @@ class planList
             'featureList'  => $_myPlan->featureList(),
             'currency'     => $currency,
             'currencyName' => $currencyName,
+            'currentPlanName' => $currnentPlanDetail,
         ];
 
         return $planDetail;
