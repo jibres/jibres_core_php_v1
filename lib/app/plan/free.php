@@ -24,4 +24,13 @@ class free extends planTools
     {
         return 0; // USD
     }
+
+
+    public function featureList() : array
+    {
+        return
+        [
+            T_("Up to 500 product"),
+        ];
+    }
 }

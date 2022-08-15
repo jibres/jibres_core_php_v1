@@ -44,6 +44,7 @@ class api
 		if(\dash\url::isLocal())
 		{
 			$array_url[] = \dash\url::protocol(). '://core.jibres.local';
+			$array_url[] = \dash\language::current();
 		}
 		else
 		{
@@ -196,6 +197,12 @@ class api
 		return false;
 	}
 
+
+	public static function plan_activate($_args)
+	{
+		$result = self::run('plan','post', null, $_args);
+		return $result;
+	}
 
 	public static function plugin_activate($_args)
 	{

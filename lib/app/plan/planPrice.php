@@ -52,6 +52,11 @@ abstract class planPrice
             $month = 10;
         }
 
+        if(!$month || $month < 0)
+        {
+            $month = 1;
+        }
+
         return $month;
     }
 }

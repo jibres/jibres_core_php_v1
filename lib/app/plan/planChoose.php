@@ -6,31 +6,59 @@ class planChoose
 {
 
 
-    public static function choose(string $_plan_name)
+    public static function choose(array $_args)
     {
-        $plan = \dash\validate::string_50($_plan_name);
+        $data = self::cleanArgs($_args);
 
-        if(!in_array($plan, planList::list()))
+        $planActivateOnJibres = \lib\api\jibres\api::plan_activate($data);
+
+        $detectApiResult = self::detectApiResult($planActivateOnJibres);
+
+        if($detectApiResult->payLink)
         {
-            \dash\notif::error(T_("Invalid plan"));
-            return false;
+            \dash\redirect::to($detectApiResult->payLink);
         }
 
-
-        $class = sprintf('%s\%s', __NAMESPACE__, $plan);
-        $myPlan = new $class;
-
-        var_dump(get_class_methods($myPlan));
-        var_dump($myPlan);exit;
-
-        // $planDetail[] =
-        //     [
-        //         'name' => $myPlan->name(),
-        //         'title' => $myPlan->title(),
-        //         'price' => $myPlan->price(),
-        //     ];
+    }
 
 
-        return $planDetail;
+    private static function detectApiResult($_result) : object
+    {
+        $detectApiResult = (object)
+        [
+            'needPay' => false,
+            'payLink' => null,
+        ];
+
+        if(isset($_result['result']['needPay']))
+        {
+            $detectApiResult->needPay = $_result['result']['needPay'];
+        }
+
+        if(isset($_result['result']['payLink']))
+        {
+            $detectApiResult->payLink = $_result['result']['payLink'];
+        }
+
+        return $detectApiResult;
+    }
+
+    private static function cleanArgs(array $_args)
+    {
+        $condition =
+        [
+            'plan'       => ['enum' => planList::list()],
+            'period'     => ['enum' => ['1', '12']],
+            'use_budget' => 'bit',
+            'turn_back'  => 'string_2000',
+        ];
+
+        $require = ['plan'];
+
+        $meta    = [];
+
+        $data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+        return $data;
     }
 }
