@@ -1,1 +1,0 @@
-ALTER TABLE jibres_api_log.sms ADD `meta` text  NULL DEFAULT NULL AFTER `currency`;

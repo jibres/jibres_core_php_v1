@@ -1,1 +1,0 @@
-ALTER TABLE jibres.store_plugin ADD `packagecount` INT NULL DEFAULT NULL;
