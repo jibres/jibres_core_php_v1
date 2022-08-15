@@ -5,10 +5,12 @@ use lib\app\plan\plan;
 
 class free implements plan
 {
+
     public function name(): string
     {
         return 'free';
     }
+
 
     public function title(): string
     {
@@ -20,6 +22,7 @@ class free implements plan
     {
         return 0; // IRT
     }
+
 
     public function priceDollar(): int
     {

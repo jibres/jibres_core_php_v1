@@ -17,7 +17,7 @@ class model
 			'turn_back'  => \dash\request::input_body('turn_back'),
 		];
 
-		$result = \lib\app\plan\planActive::activate($business_id, $args);
+		$result = \lib\app\plan\planActiveate::activate($business_id, $args);
 
 		\content_r10\tools::say($result);
 	}

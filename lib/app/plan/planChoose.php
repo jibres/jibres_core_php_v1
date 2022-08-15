@@ -43,6 +43,7 @@ class planChoose
         return $detectApiResult;
     }
 
+
     private static function cleanArgs(array $_args)
     {
         $condition =
