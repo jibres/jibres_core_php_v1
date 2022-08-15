@@ -1,9 +1,10 @@
 <?php
-
 namespace lib\app\plan;
+
 
 class planList
 {
+
     public static function list() : array
     {
         return
@@ -14,32 +15,34 @@ class planList
         ];
     }
 
+
     public static function listByDetail()
     {
         $planDetail = [];
 
         foreach (self::list() as $plan)
         {
-            $class        = sprintf('%s\%s', __NAMESPACE__, $plan);
+            $class        = sprintf('%s\%s\%s', __NAMESPACE__, 'plans', $plan);
             $myPlan       = new $class;
             $planDetail[] = self::getPlanDetail($myPlan);
         }
-
 
         return $planDetail;
     }
 
 
-    private static function getPlanDetail($_myPlan) : array
+    private static function getPlanDetail(plan $_myPlan) : array
     {
-        $currency     = $_myPlan->getCurrency();
+        $planPrice = new planPrice($_myPlan);
+
+        $currency     = $planPrice->getCurrency();
         $currencyName = \lib\currency::name($currency);
 
         $planDetail =
         [
             'name'         => $_myPlan->name(),
             'title'        => $_myPlan->title(),
-            'price'        => $_myPlan->calculatePrice(1),
+            'price'        => $planPrice->calculatePrice(1),
             'featureList'  => $_myPlan->featureList(),
             'currency'     => $currency,
             'currencyName' => $currencyName,

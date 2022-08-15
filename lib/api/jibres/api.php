@@ -44,7 +44,10 @@ class api
 		if(\dash\url::isLocal())
 		{
 			$array_url[] = \dash\url::protocol(). '://core.jibres.local';
-			$array_url[] = \dash\language::current();
+			if(\dash\url::lang())
+			{
+				$array_url[] = \dash\language::current();
+			}
 		}
 		else
 		{

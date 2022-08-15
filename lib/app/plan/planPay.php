@@ -6,27 +6,32 @@ namespace lib\app\plan;
 class planPay
 {
     private $plan;
+    private $planPrice;
     private $needPay = false;
     private $payLink = null;
 
-    public function __construct($_plan)
+    public function __construct(plan $_plan, planPrice $_planPrice)
     {
-        $this->plan = $_plan;
+        $this->plan      = $_plan;
+        $this->planPrice = $_planPrice;
     }
+
 
     public function needPay()
     {
         return $this->needPay;
     }
 
+
     public function payLink()
     {
         return $this->payLink;
     }
 
+
     public function readyToPay(array $_data)
     {
-        $price = $this->plan->calculatePrice(intval($_data['period']));
+        $price = $this->planPrice->calculatePrice(intval($_data['period']));
 
         $userId = $this->getUserId();
 

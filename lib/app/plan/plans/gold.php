@@ -1,36 +1,38 @@
 <?php
+namespace lib\app\plan\plans;
 
-namespace lib\app\plan;
+use lib\app\plan\plan;
 
-class free extends planTools
+
+class gold implements plan
 {
+
     public function name(): string
     {
-        return 'free';
+        return 'gold';
     }
 
     public function title(): string
     {
-        return T_("Free");
+        return T_("Gold");
     }
-
 
     public function priceRial(): int
     {
-        return 0; // IRT
+        return 200000; // IRT
     }
 
     public function priceDollar(): int
     {
-        return 0; // USD
+        return 9; // USD
     }
-
 
     public function featureList() : array
     {
         return
         [
-            T_("Up to 500 product"),
+            T_("Up to 50000 product"),
+            T_("Discount"),
         ];
     }
 }
