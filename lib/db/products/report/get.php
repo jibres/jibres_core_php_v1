@@ -117,7 +117,7 @@ class get
 
 			GROUP by
 				factordetails.product_id
-			ORDER BY `$_args[sort]` $_args[order]
+			ORDER BY `$_args[sort]` $_args[order], factordetails.product_id DESC
 			$limit
 		";
 
