@@ -201,6 +201,13 @@ class api
 	}
 
 
+	public static function plan_detail()
+	{
+		$result = self::run('plan','get');
+		return $result;
+	}
+
+
 	public static function plan_activate($_args)
 	{
 		$result = self::run('plan','post', null, $_args);

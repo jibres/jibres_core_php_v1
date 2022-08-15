@@ -19,12 +19,19 @@ class planActiveate
 
         $result =
         [
-            'needPay' => $readyPlan->needPay(),
-            'payLink' => $readyPlan->payLink(),
+            'is_activated' => self::is_activated($_business_id),
+            'needPay'      => $readyPlan->needPay(),
+            'payLink'      => $readyPlan->payLink(),
         ];
 
 
         return $result;
+    }
+
+
+    public static function currentPlanDetail($_business_id)
+    {
+        var_dump($_business_id);
     }
 
 
