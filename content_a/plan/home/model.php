@@ -6,7 +6,13 @@ class model
 {
     public static function post()
     {
-        $choose = \lib\app\plan\planChoose::choose(\dash\request::post('plan'));
+        $args =
+        [
+            'plan'  => \dash\request::post('plan'),
+            'month' => \dash\request::post('month'),
+        ];
+
+        $choose = \lib\app\plan\planChoose::choose($args);
     }
 
 }

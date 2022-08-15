@@ -2,7 +2,7 @@
 
 namespace lib\app\plan;
 
-class free implements planInterface
+class free extends planTools
 {
     public function name(): string
     {
@@ -14,8 +14,14 @@ class free implements planInterface
         return T_("Free");
     }
 
-    public function price(): int
+
+    public function priceRial(): int
     {
-        return 200000;
+        return 0; // IRT
+    }
+
+    public function priceDollar(): int
+    {
+        return 0; // USD
     }
 }
