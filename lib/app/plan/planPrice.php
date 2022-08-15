@@ -3,8 +3,17 @@
 namespace lib\app\plan;
 
 
-abstract class planPrice
+class planPrice
 {
+    private $plan;
+
+
+    public function __construct(plan $_plan)
+    {
+        $this->plan = $_plan;
+    }
+
+
     public function calculatePrice(int $_month)
     {
         $month = $this->getRealMonth($_month);
@@ -32,11 +41,11 @@ abstract class planPrice
     {
         if($this->getCurrency() === 'IRT')
         {
-            $price = $this->priceRial();
+            $price = $this->plan->priceRial();
         }
         else
         {
-            $price = $this->priceDollar();
+            $price = $this->plan->priceDollar();
         }
 
         return $price;
