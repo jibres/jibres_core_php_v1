@@ -49,11 +49,11 @@ composer.lock
 phpunit.xml
 /vendor
 
-
 *.swo
 *.swp
 cache/*.json
 .idea
+.run
 yarn.lock
 
 /dash/lib/engine/cronjob/crontab.txt
