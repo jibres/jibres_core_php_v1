@@ -33,5 +33,5 @@ KEY `store_plan_action_creator` (`user_id`),
 CONSTRAINT `store_plan_action_giftusage_id` FOREIGN KEY (`giftusage_id`) REFERENCES `giftusage` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `store_plan_action_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
 CONSTRAINT `store_plan_action_store_id` FOREIGN KEY (`store_id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4;
 
