@@ -36,6 +36,8 @@ class upgrade
 	{
 		self::$start_time = time();
 
+		\dash\code::time_limit(0);
+
 		$jibres_last_upgrade_version = self::jibres_last_upgrade_version();
 		$jibres_last_version         = self::jibres_last_version();
 
@@ -206,17 +208,18 @@ class upgrade
 			\dash\file::makeDir($version_addr, null, true);
 		}
 
-		// $version_file = $version_addr . 'jibres';
-
 		foreach ($list as $key => $file)
 		{
 			$name = basename($file);
 			if(preg_match("/^v\.(\d+\.\d+\.\d+)\_(.*)$/", $name, $split))
 			{
 				$current_version = $split[1];
-				if(version_compare($current_version, $_last_version, '>'))
+				if(version_compare($current_version, strval($_last_version), '>'))
 				{
-					self::runExecFile($file, 'master');
+					$loadFile = \dash\file::read($file);
+
+					self::runMultipleQuery($loadFile, 'master');
+
 					self::jibres_last_version($current_version);
 				}
 			}
@@ -224,54 +227,20 @@ class upgrade
 	}
 
 
-	private static function runExecFile($_file, $_fuel)
+	private static function runMultipleQuery($_queries, $_fuel, $_database = null)
 	{
-		$fuel    = \dash\engine\fuel::get($_fuel);
-		// --force on mysql command mean ignore error if happend and continue to other query
-		// $exec    = "mysql --force -u'$fuel[user]' -p'$fuel[pass]' -h'$fuel[host]' < $_file 2>&1";
-		$exec    = "mysql --force";
-		$exec    .= " -u'$fuel[user]'";
-		if($fuel['pass'] === 'root' )
+		$queryLine = explode(";", $_queries);
+
+		foreach ($queryLine as $query)
 		{
-			$exec .= " -proot";
+			if(preg_match("/\w+/", $query))
+			{
+				\dash\pdo::query($query, [], $_fuel, ['database' => $_database]);
+			}
 		}
-		else
-		{
-			$exec .= " -p'$fuel[pass]'";
-		}
-		if($fuel['host'] !== 'localhost')
-		{
-			$exec .= " -h'$fuel[host]'";
-		}
-		$exec    .= " < $_file 2>&1";
 
-		$runExec = exec($exec, $return);
-
-
-		$log_detail = '@Date: '. date("Y-m-d H:i:s");
-		$log_detail .= "\n";
-		$log_detail .= '@Query: '. str_repeat('-', 50);
-		$log_detail .= "\n";
-		$log_detail .= str_replace(' ; ', "\n", file_get_contents($_file));
-		$log_detail .= "\n";
-		$log_detail .= '@Result: '. str_repeat('-', 50);
-		$log_detail .= "\n";
-		$log_detail .= implode("\n", $return). "\n";
-
-		\dash\log::file($log_detail, 'upgrade_db_'. date("Y_m_d_H_i_s"), 'upgrade_database');
-
-
-		// End line of sql file write SELECT 'OK'; to return ok in exec result ;)
-		if($runExec === 'OK')
-		{
-			// Everything is ok
-		}
-		else
-		{
-			// have error!
-		}
-		// save log return in file
 	}
+
 
 
 	private static function upgrade_store_database()
@@ -313,33 +282,15 @@ class upgrade
 					if(version_compare($current_version, $dbversion, '>'))
 					{
 						$temp_sql = \dash\file::read($file);
+
 						$temp_sql = str_replace('jibres_XXXXXXX', $database_name, $temp_sql);
-						// $temp_sql .= ' -- '. $subdomain;
+
 						self::update_query_db_version($current_version, $store_id);
-						$this_store_sql[] = $temp_sql;
+
+						self::runMultipleQuery($temp_sql, $myFuel, $database_name);
 					}
 				}
 			}
-
-			if($this_store_sql)
-			{
-				// set on the fuel list
-				if(!isset($store_fuel[$myFuel]))
-				{
-					$store_fuel[$myFuel] = [];
-				}
-
-				$store_fuel[$myFuel][] = $this_store_sql;
-			}
-		}
-
-		foreach ($store_fuel as $fuel => $query)
-		{
-			$temp_addr = self::temp_store_exec_addr();
-			$query = array_map(function($_a) {return implode(' ; ', $_a);}, $query);
-			$query = implode(' ; ', $query);
-			\dash\file::write($temp_addr, $query);
-			self::runExecFile($temp_addr, $fuel);
 		}
 
 		self::update_all_database_version();
@@ -372,9 +323,6 @@ class upgrade
 		{
 			$query[] = \lib\db\store\get_string::update_db_version($version, $versiondate, $store_id);
 		}
-
-		\dash\file::write(self::temp_sql_addr(), implode(";\n", $query));
-		self::runExecFile(self::temp_sql_addr(), 'master');
 	}
 
 
