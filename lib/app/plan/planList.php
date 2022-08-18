@@ -33,21 +33,20 @@ class planList
 
     private static function getPlanDetail(plan $_myPlan) : array
     {
-        $planPrice = new planPrice($_myPlan);
-
+        $planPrice          = new planPrice($_myPlan);
         $currency           = $planPrice->getCurrency();
         $currencyName       = \lib\currency::name($currency);
 
-        $currnentPlanDetail = businessPlanDetail::currnentPlan();
+        $currnentPlanDetail = new businessPlanDetail(\lib\store::id());
 
         $planDetail =
         [
-            'name'         => $_myPlan->name(),
-            'title'        => $_myPlan->title(),
-            'price'        => $planPrice->calculatePrice(1),
-            'featureList'  => $_myPlan->featureList(),
-            'currency'     => $currency,
-            'currencyName' => $currencyName,
+            'name'            => $_myPlan->name(),
+            'title'           => $_myPlan->title(),
+            'featureList'     => $_myPlan->featureList(),
+            'price'           => $planPrice->calculatePrice(1),
+            'currency'        => $currency,
+            'currencyName'    => $currencyName,
             'currentPlanName' => $currnentPlanDetail,
         ];
 

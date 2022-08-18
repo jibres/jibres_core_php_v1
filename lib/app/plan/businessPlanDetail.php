@@ -4,30 +4,29 @@ namespace lib\app\plan;
 
 class businessPlanDetail
 {
-    private static $currnentPlanDetail = null;
+    private $store_id           = null;
+
+    private $currnentPlanDetail = null;
 
 
-    public static function currnentPlan()
+    public function __construct($_business_id)
     {
-        if(!\dash\engine\store::inStore())
-        {
-            return false;
-        }
+        $this->store_id = $_business_id;
 
-        self::loadDetailOnce();
-
+        $this->loadDetailOnce();
     }
 
 
-    private static function loadDetailOnce()
+    private function loadDetailOnce()
     {
         // load once!
-        if(is_array(self::$currnentPlanDetail))
+        if(is_array($this->currnentPlanDetail))
         {
             return;
         }
 
-        $planDetailOnJibres = \lib\api\jibres\api::plan_detail(\lib\store::id());
+        $planDetailOnJibres = \lib\api\jibres\api::plan_detail($this->store_id);
+
         var_dump($planDetailOnJibres);
         exit;
     }

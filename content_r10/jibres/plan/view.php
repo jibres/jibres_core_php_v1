@@ -8,7 +8,7 @@ class view
 	{
 		$business_id = \content_r10\tools::get_current_business_id();
 
-		$result = \lib\app\plan\planActiveate::currentPlanDetail($business_id);
+		$result = \lib\app\plan\storePlan::currentPlan($business_id);
 
 		\content_r10\tools::say($result);
 	}

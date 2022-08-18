@@ -22,7 +22,7 @@ class planPrice
     }
 
 
-    public function getCurrency()
+    public function getCurrency() : string
     {
         if(\dash\language::current() === 'fa')
         {

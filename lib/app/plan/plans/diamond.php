@@ -18,7 +18,7 @@ class diamond implements plan
     }
 
 
-    public function priceRial(): int
+    public function priceRial(): float
     {
         return 900000; // IRT
     }
