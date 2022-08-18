@@ -24,14 +24,7 @@ class planActiveate
             'payLink'      => $readyPlan->payLink(),
         ];
 
-
         return $result;
-    }
-
-
-    public static function currentPlanDetail($_business_id)
-    {
-        var_dump($_business_id);
     }
 
 
