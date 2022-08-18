@@ -45,7 +45,7 @@ $sortLink = \dash\data::sortLink();
             <a href="<?php echo a($sortLink, 'date', 'link'); ?>"><?php echo T_("Invoice Date"); ?></a>
         </th>
 
-          <th class=""><?php echo T_("Order status"); ?></th>
+          <th class="s0"><?php echo T_("Order status"); ?></th>
           <th class=""><?php echo T_("Pay status"); ?></th>
         <?php if(!\dash\request::get('type')) {?>
           <th class="s0" data-sort="<?php echo a($sortLink, 'type', 'order'); ?>">
@@ -97,7 +97,7 @@ $sortLink = \dash\data::sortLink();
           <td class="collapsing">
             <?php echo \dash\fit::date_time(a($value, 'date')); ?>
           </td>
-          <td><?php echo a($value, 't_status') ?></td>
+          <td class="s0"><?php echo a($value, 't_status') ?></td>
           <td><?php echo a($value, 't_paystatus') ?></td>
           <?php if(!\dash\request::get('type')) {?>
 
