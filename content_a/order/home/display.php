@@ -10,31 +10,50 @@ $sortLink = \dash\data::sortLink();
   <table class="tbl1 v6 fs12">
     <thead>
       <tr class="fs08">
-        <th class="s0" data-sort="<?php echo a($sortLink, 'customer', 'order'); ?>"><a href="<?php echo a($sortLink, 'customer', 'link'); ?>"><?php echo T_("Customer"); ?></a></th>
-        <th class="s0" data-sort="<?php echo a($sortLink, 'item', 'order'); ?>"><a href="<?php echo a($sortLink, 'item', 'link'); ?>"><?php echo T_("Items"); ?></a></th>
-        <th class="s0" data-sort="<?php echo a($sortLink, 'qty', 'order'); ?>"><a href="<?php echo a($sortLink, 'qty', 'link'); ?>"><?php echo T_("Qty"); ?></a></th>
-        <th class="s0" data-sort="<?php echo a($sortLink, 'subprice', 'order'); ?>"><a href="<?php echo a($sortLink, 'subprice', 'link'); ?>"><?php echo T_("Price"); ?></a></th>
-        <th class="s0" data-sort="<?php echo a($sortLink, 'subdiscount', 'order'); ?>"><a href="<?php echo a($sortLink, 'subdiscount', 'link'); ?>"><?php echo T_("Discount"); ?></a></th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'customer', 'order'); ?>">
+            <a href="<?php echo a($sortLink, 'customer', 'link'); ?>"><?php echo T_("Customer"); ?></a>
+        </th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'item', 'order'); ?>">
+            <a href="<?php echo a($sortLink, 'item', 'link'); ?>"><?php echo T_("Items"); ?></a>
+        </th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'qty', 'order'); ?>">
+            <a href="<?php echo a($sortLink, 'qty', 'link'); ?>"><?php echo T_("Qty"); ?></a>
+        </th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'subprice', 'order'); ?>">
+            <a href="<?php echo a($sortLink, 'subprice', 'link'); ?>"><?php echo T_("Price"); ?></a>
+        </th>
+        <th class="s0" data-sort="<?php echo a($sortLink, 'subdiscount', 'order'); ?>">
+            <a href="<?php echo a($sortLink, 'subdiscount', 'link'); ?>"><?php echo T_("Discount"); ?></a>
+        </th>
 
         <?php if(!\dash\data::hideSubvat()) {?>
-          <th class="s0" data-sort="<?php echo a($sortLink, 'subvat', 'order'); ?>"><a href="<?php echo a($sortLink, 'subvat', 'link'); ?>"><?php echo T_("VAT"); ?></a></th>
+          <th class="s0" data-sort="<?php echo a($sortLink, 'subvat', 'order'); ?>">
+              <a href="<?php echo a($sortLink, 'subvat', 'link'); ?>"><?php echo T_("VAT"); ?></a>
+          </th>
         <?php } //endif ?>
 
         <?php if(!\dash\data::hideShipping()) {?>
-          <th class="s0" data-sort="<?php echo a($sortLink, 'shipping', 'order'); ?>"><a href="<?php echo a($sortLink, 'shipping', 'link'); ?>"><?php echo T_("Shipping"); ?></a></th>
+          <th class="s0" data-sort="<?php echo a($sortLink, 'shipping', 'order'); ?>">
+              <a href="<?php echo a($sortLink, 'shipping', 'link'); ?>"><?php echo T_("Shipping"); ?></a>
+          </th>
         <?php } //endif ?>
 
-        <th data-sort="<?php echo a($sortLink, 'subtotal', 'order'); ?>"><a href="<?php echo a($sortLink, 'subtotal', 'link'); ?>"><?php echo T_("Total"); ?></a></th>
-        <th data-sort="<?php echo a($sortLink, 'date', 'order'); ?>"><a href="<?php echo a($sortLink, 'date', 'link'); ?>"><?php echo T_("Invoice Date"); ?></a></th>
+        <th data-sort="<?php echo a($sortLink, 'subtotal', 'order'); ?>">
+            <a href="<?php echo a($sortLink, 'subtotal', 'link'); ?>"><?php echo T_("Total"); ?></a>
+        </th>
+        <th data-sort="<?php echo a($sortLink, 'date', 'order'); ?>">
+            <a href="<?php echo a($sortLink, 'date', 'link'); ?>"><?php echo T_("Invoice Date"); ?></a>
+        </th>
 
-        <th class=""><?php echo T_("Pay status"); ?></th>
+          <th class=""><?php echo T_("Order status"); ?></th>
+          <th class=""><?php echo T_("Pay status"); ?></th>
         <?php if(!\dash\request::get('type')) {?>
-          <th class="s0" data-sort="<?php echo a($sortLink, 'type', 'order'); ?>"><a href="<?php echo a($sortLink, 'type', 'link'); ?>"><?php echo T_("Type"); ?></a></th>
+          <th class="s0" data-sort="<?php echo a($sortLink, 'type', 'order'); ?>">
+              <a href="<?php echo a($sortLink, 'type', 'link'); ?>"><?php echo T_("Type"); ?></a>
+          </th>
         <?php } //endif ?>
-
         <th class="collapsing"><?php echo T_("Operation"); ?></th>
       </tr>
-
     </thead>
     <tbody>
       <?php foreach ($dataTable as $key => $value) {?>
@@ -78,6 +97,7 @@ $sortLink = \dash\data::sortLink();
           <td class="collapsing">
             <?php echo \dash\fit::date_time(a($value, 'date')); ?>
           </td>
+          <td><?php echo a($value, 't_status') ?></td>
           <td><?php echo a($value, 't_paystatus') ?></td>
           <?php if(!\dash\request::get('type')) {?>
 
