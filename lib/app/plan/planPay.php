@@ -17,9 +17,9 @@ class planPay
         $this->planPrice = $_planPrice;
     }
 
-    public function setStoreId($_stroe_id)
+    public function setStoreId($_store_id)
     {
-        $this->store_id = $_stroe_id;
+        $this->store_id = $_store_id;
     }
 
 
@@ -80,11 +80,6 @@ class planPay
             {
                 $this->payLink = $result_pay['url'];
             }
-            else
-            {
-                // error
-            }
-
         }
         else
         {
@@ -110,8 +105,10 @@ class planPay
 
     public static function after_pay($_args, $_transaction_detail = [])
     {
-        var_dump($_args);
-        var_dump($_transaction_detail);
-        exit();
+        $args = $_args;
+        $args['transaction_id'] = a($_transaction_detail, 'id');
+
+        storePlan::afterPay($args);
+
     }
 }

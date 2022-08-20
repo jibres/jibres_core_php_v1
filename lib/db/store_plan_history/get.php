@@ -21,7 +21,10 @@ class get
 				    store_plan_history 
 				WHERE 
 				    store_plan_history.store_id = :store_id AND 
-				    store_plan_history.expirydate <= :date
+				    (
+				        store_plan_history.expirydate IS NULL OR
+				        store_plan_history.expirydate <= :date
+				    )
 				ORDER BY 
 				    store_plan_history.expirydate DESC,
 				    store_plan_history.id DESC
@@ -30,10 +33,10 @@ class get
 		$param =
 			[
 				':store_id' => $_business_id,
-				':date' => $_date_now,
+				':date'     => $_date_now,
 			];
 
-		$result = \dash\pdo::get($query, $param, null, true);
+		$result = \dash\pdo::get($query, $param);
 
 		if(!is_array($result))
 		{
