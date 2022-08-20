@@ -40,6 +40,7 @@ class storePlan
         $result = [];
         $result['name'] = $_plan->name();
         $result['title'] = $_plan->title();
+        $result['planexp'] = null;
         return $result;
     }
 
