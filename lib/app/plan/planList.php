@@ -12,6 +12,7 @@ class planList
             'free',
             'gold',
             'diamond',
+            'rafiei'
         ];
     }
 
@@ -25,12 +26,34 @@ class planList
 
         foreach (self::list() as $plan)
         {
-            $class        = sprintf('%s\%s\%s', __NAMESPACE__, 'plans', $plan);
-            $myPlan       = new $class;
-            $planDetail[] = self::getPlanDetail($myPlan, $currnentPlan);
+            $myPlan = planLoader::load($plan);
+
+            if(self::allowToShow($myPlan))
+            {
+                $planDetail[] = self::getPlanDetail($myPlan, $currnentPlan);
+            }
         }
 
+        storePlan::afterPay();
+
         return $planDetail;
+    }
+
+    private static function allowToShow(plan $myPlan)
+    {
+        if($myPlan->type() === 'public')
+        {
+            return true;
+        }
+
+        if($myPlan->type() === 'enterprise')
+        {
+            if(\lib\store::enterprise() === $myPlan->enterprise())
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 

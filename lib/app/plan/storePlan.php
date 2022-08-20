@@ -2,46 +2,126 @@
 
 namespace lib\app\plan;
 
-use lib\app\plan\plans\nullObjectPlan;
+
+
+use lib\app\plan\plans\free;
 
 class storePlan
 {
 
-    public static function currentPlan($_business_id)
+    public static function activate($_business_id, array $_args)
     {
-        $dateNow = date("Y-m-d H:i:s");
+        $data = self::cleanArgs($_args);
 
-        $loadBusinessData = \lib\db\store\get::data($_business_id);
-        $planHistoryList = \lib\db\store_plan_history\get::activePlanList($_business_id, $dateNow);
+        $plan   = $data['plan'];
+        $myPlan = planLoader::load($plan);
 
-        $plan = self::detectPlan($_business_id, $loadBusinessData, $planHistoryList);
+        $planPrice = new planPrice($myPlan);
+        $readyPlan = new planPay($myPlan, $planPrice);
+        $readyPlan->setStoreId($_business_id);
 
-        $resutl = self::readyPlan($plan);
+        $readyPlan->readyToPay($data);
 
-        return $resutl;
+        $result =
+            [
+                'needPay'      => $readyPlan->needPay(),
+                'payLink'      => $readyPlan->payLink(),
+            ];
+
+        return $result;
     }
 
-    private static function detectPlan($_business_id, $_loadBusinessData, $_planHistoryList) : plan
+
+    private static function cleanArgs(array $_args)
     {
-        $result = null;
+        $condition =
+            [
+                'plan'       => ['enum' => planList::list()],
+                'period'     => ['enum' => ['monthly', 'yearly']],
+                'use_budget' => 'bit',
+                'turn_back'  => 'string_2000',
+            ];
+
+        $require = ['plan'];
+
+        $meta    = [];
+
+        $data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+        return $data;
+    }
+
+
+    public static function currentPlan($_business_id)
+    {
+
+        $loadBusinessData = \lib\db\store\get::data($_business_id);
+        $planHistoryList  = self::activePlanList($_business_id);
+        $planDetail       = self::detectPlan($_business_id, $loadBusinessData, $planHistoryList);
+
+        return $planDetail;
+
+    }
+
+    private static function activePlanList($_business_id)
+    {
+        $dateNow = date("Y-m-d H:i:s");
+        $planHistoryList = \lib\db\store_plan_history\get::activePlanList($_business_id, $dateNow);
+
+        if(!$planHistoryList)
+        {
+            planSet::set($_business_id, 'free');
+            $planHistoryList = \lib\db\store_plan_history\get::activePlanList($_business_id, $dateNow);
+        }
+        return $planHistoryList;
+    }
+
+    private static function detectPlan($_business_id, $_loadBusinessData, $_planHistoryList) : array
+    {
+        $result = [];
 
         if(!$_planHistoryList)
         {
-            // no active plan
-            $result = new nullObjectPlan();
+            // @BUG All business must have plan record
+            return $result;
         }
+
+
 
         return $result;
 
     }
 
-    private static function readyPlan(plan $_plan) : array
+    public static function afterPay($_args = [])
     {
-        $result = [];
-        $result['name'] = $_plan->name();
-        $result['title'] = $_plan->title();
-        $result['planexp'] = null;
-        return $result;
+        $args = $_args;
+        if(!$args)
+        {
+            $args =
+                [
+                    'store_id'       => 1001483,
+                    'plan'           => 'diamond',
+                    'period'         => 'monthly',
+                    'transaction_id' => 6519,
+                ];
+        }
+         // TODO remove in production!
+        // force unlock and lock on jibres
+        \dash\engine\store::unlock();
+
+        $store_id       = a($args, 'store_id');
+        $plan           = a($args, 'plan');
+        $period         = a($args, 'period');
+        $transaction_id = a($args, 'transaction_id');
+
+        $currentPlan = self::currentPlan($store_id);
+        var_dump($currentPlan);
+
+
+
+
+        var_dump($args);exit();
+
     }
 
 
