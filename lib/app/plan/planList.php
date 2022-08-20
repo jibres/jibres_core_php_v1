@@ -21,26 +21,27 @@ class planList
         $planDetail = [];
 
         $currnentPlanDetail = new businessPlanDetail(\lib\store::id());
+        $currnentPlan = $currnentPlanDetail->currentPlan();
 
         foreach (self::list() as $plan)
         {
             $class        = sprintf('%s\%s\%s', __NAMESPACE__, 'plans', $plan);
             $myPlan       = new $class;
-            $planDetail[] = self::getPlanDetail($myPlan, $currnentPlanDetail);
+            $planDetail[] = self::getPlanDetail($myPlan, $currnentPlan);
         }
-        var_dump($planDetail);exit();
+
         return $planDetail;
     }
 
 
-    private static function getPlanDetail(plan $_myPlan, plan $_currentPlan) : array
+    private static function getPlanDetail(plan $_myPlan, $_currentPlan) : array
     {
         $planPrice          = new planPrice($_myPlan);
         $currency           = $planPrice->getCurrency();
         $currencyName       = \lib\currency::name($currency);
 
         $isActive = false;
-        if($_currentPlan->name() === $_myPlan->name())
+        if(isset($_currentPlan['name']) && $_currentPlan['name'] === $_myPlan->name())
         {
             $isActive = true;
         }

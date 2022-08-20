@@ -37,6 +37,10 @@ $planList     = \dash\data::planList();
         </ul>
       </div>
 
+        <?php if($plan['isActive']) :?>
+            <div class="alert-success"><?php echo T_("Active"); ?></div>
+        <?php endif; ?>
+
       <div data-ajaxify data-data='{"plan": "<?php echo $plan['name'] ?>"}' class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium">Monthly billing</div>
     </div>
 

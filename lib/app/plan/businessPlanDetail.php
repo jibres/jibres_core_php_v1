@@ -2,11 +2,9 @@
 
 namespace lib\app\plan;
 
-use lib\app\plan\plans\nullObjectPlan;
-
 class businessPlanDetail
 {
-    private $currnentPlanDetail;
+    private $currnentPlanDetail = null;
 
 
     public function __construct($_business_id)
@@ -15,14 +13,13 @@ class businessPlanDetail
 
         $this->loadDetailOnce();
 
-        return $this->currnentPlanDetail;
     }
 
 
     private function loadDetailOnce()
     {
         // load once!
-        if(!is_a($this->currnentPlanDetail, 'plan'))
+        if(!is_array($this->currnentPlanDetail))
         {
             $planDetailOnJibres = \lib\api\jibres\api::plan_detail();
 
@@ -30,13 +27,14 @@ class businessPlanDetail
             {
                 $this->currnentPlanDetail = $planDetailOnJibres['result'];
             }
-            else
-            {
-                $this->currnentPlanDetail = new nullObjectPlan();
-            }
         }
 
         return $this->currnentPlanDetail;
 
+    }
+
+    public function currentPlan()
+    {
+        return $this->currnentPlanDetail;
     }
 }
