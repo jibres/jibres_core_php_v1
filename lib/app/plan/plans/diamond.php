@@ -1,9 +1,10 @@
 <?php
 namespace lib\app\plan\plans;
 
-use lib\app\plan\plan;
 
-class diamond implements plan
+use lib\app\plan\planPrepare;
+
+class diamond extends planPrepare
 {
 
     public function name(): string
@@ -38,5 +39,10 @@ class diamond implements plan
             T_("Discount Advanced"),
             T_("Test"),
         ];
+    }
+
+    public function type(): string
+    {
+        return 'public';
     }
 }
