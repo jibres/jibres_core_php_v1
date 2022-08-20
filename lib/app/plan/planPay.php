@@ -7,6 +7,7 @@ class planPay
 {
     private $plan;
     private $planPrice;
+    private $sote_id;
     private $needPay = false;
     private $payLink = null;
 
@@ -14,6 +15,11 @@ class planPay
     {
         $this->plan      = $_plan;
         $this->planPrice = $_planPrice;
+    }
+
+    public function setStoreId($_stroe_id)
+    {
+        $this->store_id = $_stroe_id;
     }
 
 
@@ -31,7 +37,7 @@ class planPay
 
     public function readyToPay(array $_data)
     {
-        $price = $this->planPrice->calculatePrice(intval($_data['period']));
+        $price = $this->planPrice->calculatePrice($_data['period']);
 
         $userId = $this->getUserId();
 
@@ -43,6 +49,13 @@ class planPay
         }
         if($price)
         {
+            $fn_args =
+                [
+                    'sotre_id' => $this->store_id,
+                    'plan' => $this->plan->name(),
+                    'period' => $_data['period']
+                ];
+
             $this->needPay = true;
             // go to bank
             $meta =
@@ -55,8 +68,10 @@ class planPay
                 'turn_back'     => $turnBack,
                 'user_id'       => $userId,
                 'amount'        => $price,
-                'final_fn'      => ['/lib/app/plan/pay', 'after_pay'],
-                'final_fn_args' => ['plan' => $this->plan->name(), 'month' => intval($_data['period'])],
+                'final_fn'      => ['/lib/app/plan/planPay', 'after_pay'],
+                'final_fn_args' => $fn_args,
+
+
             ];
 
             $result_pay = \dash\utility\pay\start::api($meta);
@@ -90,5 +105,13 @@ class planPay
         }
 
         return $userId;
+    }
+
+
+    public static function after_pay($_args, $_transaction_detail = [])
+    {
+        var_dump($_args);
+        var_dump($_transaction_detail);
+        exit();
     }
 }

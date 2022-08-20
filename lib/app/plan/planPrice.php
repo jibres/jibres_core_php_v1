@@ -14,9 +14,9 @@ class planPrice
     }
 
 
-    public function calculatePrice(int $_month)
+    public function calculatePrice($_period)
     {
-        $month = $this->getRealMonth($_month);
+        $month = $this->getRealMonth($_period);
         $price = $this->getPriceInCurrentCurrency();
         return $price * $month;
     }
@@ -52,11 +52,11 @@ class planPrice
     }
 
 
-    private function getRealMonth(int $_month) : int
+    private function getRealMonth($_period) : int
     {
-        $month = $_month;
+        $month = 1;
 
-        if($_month === 12)
+        if($_period === 'yearly')
         {
             $month = 10;
         }

@@ -49,7 +49,7 @@ class planChoose
         $condition =
         [
             'plan'       => ['enum' => planList::list()],
-            'period'     => ['enum' => ['1', '12']],
+            'period'     => ['enum' => ['monthly', 'yearly']],
             'use_budget' => 'bit',
             'turn_back'  => 'string_2000',
         ];

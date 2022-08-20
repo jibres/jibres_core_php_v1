@@ -27,6 +27,10 @@ class businessPlanDetail
             {
                 $this->currnentPlanDetail = $planDetailOnJibres['result'];
             }
+            else
+            {
+                $this->currnentPlanDetail = [];
+            }
         }
 
         return $this->currnentPlanDetail;

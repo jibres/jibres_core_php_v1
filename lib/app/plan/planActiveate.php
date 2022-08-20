@@ -15,11 +15,12 @@ class planActiveate
 
         $planPrice = new planPrice($myPlan);
         $readyPlan = new planPay($myPlan, $planPrice);
+        $readyPlan->setStoreId($_business_id);
+
         $readyPlan->readyToPay($data);
 
         $result =
         [
-            'is_activated' => self::is_activated($_business_id),
             'needPay'      => $readyPlan->needPay(),
             'payLink'      => $readyPlan->payLink(),
         ];
@@ -33,7 +34,7 @@ class planActiveate
         $condition =
         [
             'plan'       => ['enum' => planList::list()],
-            'period'     => ['enum' => ['1', '12']],
+            'period'     => ['enum' => ['monthly', 'yearly']],
             'use_budget' => 'bit',
             'turn_back'  => 'string_2000',
         ];
