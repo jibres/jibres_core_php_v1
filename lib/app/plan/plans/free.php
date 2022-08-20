@@ -1,9 +1,10 @@
 <?php
 namespace lib\app\plan\plans;
 
-use lib\app\plan\plan;
 
-class free implements plan
+use lib\app\plan\planPrepare;
+
+class free extends  planPrepare
 {
 
     public function name(): string
@@ -36,5 +37,10 @@ class free implements plan
         [
             T_("Up to 500 product"),
         ];
+    }
+
+    public function type(): string
+    {
+        return 'public';
     }
 }

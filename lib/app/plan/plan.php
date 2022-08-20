@@ -8,4 +8,9 @@ interface plan
 
 
     public function title(): string;
+
+
+    public function type(): string;
+
+
 }

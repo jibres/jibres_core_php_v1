@@ -1,10 +1,11 @@
 <?php
 namespace lib\app\plan\plans;
 
-use lib\app\plan\plan;
+
+use lib\app\plan\planPrepare;
 
 
-class gold implements plan
+class gold extends  planPrepare
 {
 
     public function name(): string
@@ -38,5 +39,10 @@ class gold implements plan
             T_("Up to 50000 product"),
             T_("Discount"),
         ];
+    }
+
+    public function type(): string
+    {
+       return 'public';
     }
 }
