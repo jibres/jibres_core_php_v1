@@ -12,9 +12,34 @@ class get
 		return $result;
 	}
 
-    public static function activePlanList($_business_id, $_date)
+    public static function activePlanList($_business_id, $_date_now) : array
     {
+		$query =
+			'
+				SELECT * 
+				FROM 
+				    store_plan_history 
+				WHERE 
+				    store_plan_history.store_id = :store_id AND 
+				    store_plan_history.expirydate <= :date
+				ORDER BY 
+				    store_plan_history.expirydate DESC,
+				    store_plan_history.id DESC
+			';
 
+		$param =
+			[
+				':store_id' => $_business_id,
+				':date' => $_date_now,
+			];
+
+		$result = \dash\pdo::get($query, $param, null, true);
+
+		if(!is_array($result))
+		{
+			$result = [];
+		}
+		return $result;
     }
 
 
