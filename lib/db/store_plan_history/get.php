@@ -12,6 +12,11 @@ class get
 		return $result;
 	}
 
+    public static function activePlanList($_business_id, $_date)
+    {
+
+    }
+
 
 }
 ?>
