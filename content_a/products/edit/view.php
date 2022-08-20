@@ -10,7 +10,7 @@ class view
 
 		\dash\data::editMode(true);
 
-		\dash\face::title(T_("Edit Product"));
+		\dash\face::title(T_("Edit Product"). sprintf(' #%s', $id));
 
 		\dash\face::btnNext(\dash\url::this(). '/next/'. \dash\request::get('id'));
 		\dash\face::btnPrev(\dash\url::this(). '/prev/'. \dash\request::get('id'));
