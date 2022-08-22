@@ -12,7 +12,8 @@
                         <?php echo T_('No.1 Free eCommerce Solution'); ?></h1></a>
             </div>
             <nav class="c s0">
-                <a clas=="hidden" href="<?php echo \dash\url::kingdom(); ?>/free"><?php echo T_("Why Free?"); ?></a>
+                <a class="hide hidden"
+                    href="<?php echo \dash\url::kingdom(); ?>/free"><?php echo T_("Why Free?"); ?></a>
                 <a href="<?php echo \dash\url::kingdom(); ?>/portfolio"><?php echo T_("Portfolio"); ?></a>
                 <a href="<?php echo \dash\url::kingdom(); ?>/domains"><?php echo T_("Domains"); ?></a>
                 <?php if (\dash\url::tld() === 'ir') { ?>
