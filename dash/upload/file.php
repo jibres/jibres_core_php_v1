@@ -199,6 +199,7 @@ class file
                     'storageLimit' => $storage_limit,
                     'totalUsed'    => $total_used,
                     'storeStorage' => $storeData,
+                    'storeStorageTitle' => \lib\store::title(),
                 ];
 
 			\dash\notif::error(T_("Your storage space is full. Please contact support"), $notifMeta);
