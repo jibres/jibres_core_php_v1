@@ -120,14 +120,22 @@ class file
 	{
 		$default_meta =
 		[
-			'allow_size'        => null,
-			'upload_from_path'  => null,
-			'special_path_name' => null,
-			'special_file_name' => null,
-			'special_file_ext'  => null,
-			'upload_name'       => null,
-			'ext'               => null,
-			'return_real_addr' 	=> false, // try to upload but not save it. only return real addr of file
+            'allow_size'              => null,
+            'upload_from_path'        => null,
+            'special_path_name'       => null,
+            'special_file_name'       => null,
+            'special_file_ext'        => null,
+            'upload_name'             => null,
+            'ext'                     => null,
+
+            /**
+             * System upload this file.
+             * Only check max storage limit
+             * Not check allow size
+             */
+            'system_upload_this_file' => false,
+
+            'return_real_addr' => false, // try to upload but not save it. only return real addr of file
 		];
 
 		if(!is_array($_meta))
@@ -165,8 +173,16 @@ class file
 		$check_size = \dash\upload\size::ok($myFile['size'], $_meta);
 		if(!$check_size)
 		{
-			\dash\notif::error(T_("File size is greater than allowed"));
-			return false;
+            if(isset($_meta['system_upload_this_file']) && $_meta['system_upload_this_file'] === true)
+            {
+                // System upload this file.
+                // needless to check max limit
+            }
+            else
+            {
+                \dash\notif::error(T_("File size is greater than allowed"));
+                return false;
+            }
 		}
 
 		if(!\dash\upload\storage::have_space($myFile['size']))

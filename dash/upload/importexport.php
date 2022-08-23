@@ -11,13 +11,14 @@ class importexport
 	{
 		$meta =
 		[
-			'allow_size'        => filesize($_tmpname) + 1024, // allow size
-			'upload_from_path'  => $_tmpname,
-			'special_path_name' => 'export/'. $_type,
-			'special_file_name' => $_filename,
-			'special_file_ext'  => 'csv',
-			'upload_name'       => 'export',
-			'ext'               =>
+            'allow_size'              => filesize($_tmpname) + 1024, // allow size
+            'upload_from_path'        => $_tmpname,
+            'special_path_name'       => 'export/' . $_type,
+            'special_file_name'       => $_filename,
+            'special_file_ext'        => 'csv',
+            'upload_name'             => 'export',
+            'system_upload_this_file' => true,
+            'ext'                     =>
 			[
 				'csv',
 			],
