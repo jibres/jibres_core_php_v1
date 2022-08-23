@@ -191,7 +191,17 @@ class file
 		{
             $storage_limit = \dash\upload\storage::limit();
             $total_used    = floatval(\dash\db\files::total_size());
-			\dash\notif::error(T_("Your storage space is full. Please contact support"), ['filesize' => $myFile['size'], 'storageLimit' => $storage_limit, 'totalUsed' => $total_used]);
+            $storeData = \lib\store::detail('storage');
+
+            $notifMeta =
+                [
+                    'filesize'     => $myFile['size'],
+                    'storageLimit' => $storage_limit,
+                    'totalUsed'    => $total_used,
+                    'storeStorage' => $storeData,
+                ];
+
+			\dash\notif::error(T_("Your storage space is full. Please contact support"), $notifMeta);
 			return false;
 		}
 
