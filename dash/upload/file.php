@@ -2,6 +2,8 @@
 namespace dash\upload;
 
 
+use dash\engine\store;
+
 class file
 {
 	private static $MY_FILES = [];
@@ -187,7 +189,9 @@ class file
 
 		if(!\dash\upload\storage::have_space($myFile['size']))
 		{
-			\dash\notif::error(T_("Your storage space is full. Please contact support"));
+            $storage_limit = \dash\upload\storage::limit();
+            $total_used    = floatval(\dash\db\files::total_size());
+			\dash\notif::error(T_("Your storage space is full. Please contact support"), ['filesize' => $myFile['size'], 'storageLimit' => $storage_limit, 'totalUsed' => $total_used]);
 			return false;
 		}
 
