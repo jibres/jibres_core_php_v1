@@ -176,6 +176,12 @@ class guard
 			'block-all-mixed-content' => [],
 		];
 
+        if(\dash\url::content() === 'pay')
+        {
+            $policy['form-action'][] = 'https://*.shaparak.ir';
+        }
+
+
 		if(self::header_xframe_option(true) || \dash\url::module() === 'billboard')
 		{
 			// remove ancestors;
