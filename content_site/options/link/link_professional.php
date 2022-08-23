@@ -305,18 +305,26 @@ class link_professional
 	{
 		$html = '';
 		$link = \content_site\assemble\link::generate($_link_detail, true);
+
 		if($link)
 		{
-			$html .= '<div id="linkProfessionalPreview">';
-			{
-				$html .= '<a class="btn-light block mt-2" href="'. $link . '" target="_blank">';
-				{
-					$html .= \dash\utility\icon::svg('box-arrow-up-right', 'bootstrap', null, 'w-4 mx-2');
-					$html .= T_('View link');
-				}
-				$html .= '</a>';
-			}
-			$html .= '</div>';
+            if(is_array($_link_detail) && array_key_exists('pointer', $_link_detail) && $_link_detail['pointer'] === null)
+            {
+                // nothing
+            }
+            else
+            {
+                $html .= '<div id="linkProfessionalPreview">';
+                {
+                    $html .= '<a class="btn-light block mt-2" href="'. $link . '" target="_blank">';
+                    {
+                        $html .= \dash\utility\icon::svg('box-arrow-up-right', 'bootstrap', null, 'w-4 mx-2');
+                        $html .= T_('View link');
+                    }
+                    $html .= '</a>';
+                }
+                $html .= '</div>';
+            }
 		}
 
 		return $html;
