@@ -4,6 +4,23 @@ namespace dash\utility;
 /** zip files management **/
 class zip
 {
+    public static function unzip($_zipFile, $_unzipAddr)
+    {
+        $zip = new \ZipArchive();
+        $res = $zip->open($_zipFile);
+        if ($res === true)
+        {
+            $zip->extractTo(dirname($_unzipAddr));
+            $fileName = $zip->getNameIndex(0);
+            $zip->close();
+            return dirname($_unzipAddr). DIRECTORY_SEPARATOR. $fileName;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 	public static function create($_zipAddr, $_file, $_fileNewName = null)
 	{
 		$zip = new \ZipArchive();
