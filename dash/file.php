@@ -558,5 +558,16 @@ class file
 
 		return $count;
 	}
+
+
+    public static function getTempFile()
+    {
+        $tmpFile = tempnam(sys_get_temp_dir(), 'JTMPFILE');
+        if(!is_dir(dirname($tmpFile)))
+        {
+            self::makeDir($tmpFile, null, true);
+        }
+        return $tmpFile;
+    }
 }
 ?>
