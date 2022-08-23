@@ -54,16 +54,15 @@ class storePlan
 
     public static function currentPlan($_business_id)
     {
-
         $loadBusinessData = \lib\db\store\get::data($_business_id);
-        $planHistoryList  = self::activePlanList($_business_id);
+        $planHistoryList  = self::planHistoryList($_business_id);
         $planDetail       = self::detectPlan($_business_id, $loadBusinessData, $planHistoryList);
 
         return $planDetail;
 
     }
 
-    private static function activePlanList($_business_id)
+    private static function planHistoryList($_business_id)
     {
         $dateNow = date("Y-m-d H:i:s");
         $planHistoryList = \lib\db\store_plan_history\get::activePlanList($_business_id, $dateNow);
@@ -86,6 +85,7 @@ class storePlan
             return $result;
         }
 
+        
 
 
         return $result;
@@ -106,14 +106,13 @@ class storePlan
                 ];
         }
 
-
         $store_id       = a($args, 'store_id');
         $plan           = a($args, 'plan');
         $period         = a($args, 'period');
         $transaction_id = a($args, 'transaction_id');
 
         $currentPlan = self::currentPlan($store_id);
-        return;
+//        return;
         var_dump($currentPlan);;
 
 
