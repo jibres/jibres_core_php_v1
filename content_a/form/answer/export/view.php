@@ -2,6 +2,8 @@
 namespace content_a\form\answer\export;
 
 
+use dash\code;
+
 class view
 {
 	public static function config()
@@ -32,7 +34,8 @@ class view
 
 		if(\dash\request::get('iam') === 'su' && \dash\permission::supervisor())
 		{
-			\dash\code::jsonBoom($list);
+
+			\dash\code::jsonBoom([$list, \lib\store::detail('storage'), \lib\store::detail()]);
 		}
 
 
