@@ -208,7 +208,7 @@ class controller
 	{
 		\lib\app\factor\edit::auto_expire_order();
 
-		if(self::every_5_min())
+//		if(self::every_5_min())
 		{
 			// run export if exists
 			\lib\app\export\run::crontab();
