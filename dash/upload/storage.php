@@ -23,7 +23,7 @@ class storage
 		}
 		else
 		{
-			// jibres have unlimit storage
+			// jibres have unlimited storage
 			$storage_limit = 1000 * 1000 * 1024 * 1024; // 1TB
 		}
 
