@@ -15,6 +15,7 @@ class mvc
 	 */
 	public static function fire()
 	{
+        \dash\pdo::transaction();
 		// get best controller
 		$finded_controller  = self::find_ctrl();
 		\dash\engine\runtime::set('MVC', 'findCtrl');
