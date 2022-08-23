@@ -105,9 +105,7 @@ class storePlan
                     'transaction_id' => 6519,
                 ];
         }
-         // TODO remove in production!
-        // force unlock and lock on jibres
-        \dash\engine\store::unlock();
+
 
         $store_id       = a($args, 'store_id');
         $plan           = a($args, 'plan');
@@ -115,7 +113,8 @@ class storePlan
         $transaction_id = a($args, 'transaction_id');
 
         $currentPlan = self::currentPlan($store_id);
-        var_dump($currentPlan);
+        return;
+        var_dump($currentPlan);;
 
 
 
