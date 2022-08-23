@@ -51,7 +51,7 @@ class planPay
         {
             $fn_args =
                 [
-                    'sotre_id' => $this->store_id,
+                    'store_id' => $this->store_id,
                     'plan' => $this->plan->name(),
                     'period' => $_data['period']
                 ];
