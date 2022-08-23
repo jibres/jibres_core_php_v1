@@ -607,7 +607,7 @@ class store
 	{
 		if(isset($_store_detail['id']))
 		{
-			\lib\store::force_clean();
+			self::unlock();
 			self::lock($_store_detail['id'], $_store_detail, true);
 		}
 	}
