@@ -30,6 +30,11 @@ class view
 		$list = \lib\app\form\answer\export::list($form_id);
 		\dash\data::exportList($list);
 
+		if(\dash\request::get('iam') === 'su' && \dash\permission::supervisor())
+		{
+			\dash\code::jsonBoom($list);
+		}
+
 
 
 		$all_tag = \lib\app\form\tag\get::all_tag();
