@@ -218,7 +218,14 @@
             <div class="go"></div>
           </a>
        </li>
-
+        <?php if(\dash\url::isLocal()) : ?>
+            <li>
+                <a class="f" href="<?php echo \dash\url::here();?>/import">
+                    <div class="key"><?php echo 'Local Import db';?></div>
+                    <div class="go"></div>
+                </a>
+            </li>
+        <?php endif; ?>
 
      </ul>
    </nav>
