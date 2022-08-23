@@ -1,4 +1,5 @@
 <?php
+
 namespace content\home;
 
 
@@ -7,22 +8,21 @@ class view
 	public static function config()
 	{
 		$homepageShortDesc = '';
-		$homepageShortDesc .= T_('All-in-One Ecommerce Software'). '. ';
-		$homepageShortDesc .= T_('Online Store Website'). ' + ';
-		$homepageShortDesc .= T_('Mobile Online Store'). ' + ';
-		$homepageShortDesc .= T_('Social Marketing'). ' + ';
-		$homepageShortDesc .= T_('POS Software'). '. ';
+		$homepageShortDesc .= T_('All-in-One Ecommerce Software') . '. ';
+		$homepageShortDesc .= T_('Online Store Website') . ' + ';
+		$homepageShortDesc .= T_('Mobile Online Store') . ' + ';
+		$homepageShortDesc .= T_('Social Marketing') . ' + ';
+		$homepageShortDesc .= T_('POS Software') . '. ';
 
-		if(\dash\language::current() == 'en')
-		{
-			$homepageShortDesc .= T_('Jibres is a next generation technology for integrated eCommerce platform software.'). ' ';
-			$homepageShortDesc .= T_('Easiest way to make money in digital age.'). ' ';
+		if (\dash\language::current() == 'en') {
+			$homepageShortDesc .= T_('Jibres is a next generation technology for integrated eCommerce platform software.') . ' ';
+			$homepageShortDesc .= T_('Easiest way to make money in digital age.') . ' ';
 		}
 
-		$homepageShortDesc .= T_('Sell more and more.'). ' ';
+		$homepageShortDesc .= T_('Sell more and more.') . ' ';
 
 
-		\dash\face::seo(\dash\face::site(). ' - '. T_('No.1 Free eCommerce Solution'));
+		\dash\face::seo(\dash\face::site() . ' - ' . T_('No.1 Free eCommerce Solution'));
 
 		// Starting An Online Store? - Try Shopify® For Free
 		#All-In-One Commerce Solution - Ecommerce Software And Point Of Sale
@@ -56,11 +56,10 @@ class view
 
 
 		// \dash\face::title(\dash\face::site(). ' - '. T_('Start Selling'));
-		\dash\face::title(\dash\face::site(). ' - '. T_('No.1 Free eCommerce Solution'));
+		\dash\face::title(\dash\face::site() . ' - ' . T_('No.1 Free eCommerce Solution'));
 
 		// for bots check seo title
-		if(\dash\agent::isBot())
-		{
+		if (\dash\agent::isBot()) {
 			\dash\face::title(\dash\face::seo());
 		}
 
@@ -71,70 +70,64 @@ class view
 		\dash\data::homepagenumber(\lib\app\statistics\homepage::get());
 
 		\dash\data::moneyUnit('$');
-		if(\dash\language::current() === 'fa')
-		{
+		if (\dash\language::current() === 'fa') {
 			\dash\data::moneyUnit(T_('Hezar Toman'));
 		}
 
-		if(\dash\user::id())
-		{
+		if (\dash\user::id()) {
 			// back
 			\dash\data::action_text(T_('Dashboard'));
-			\dash\data::action_link(\dash\url::kingdom(). '/my');
-		}
-		else
-		{
+			\dash\data::action_link(\dash\url::kingdom() . '/my');
+		} else {
 			// btn
 			\dash\data::action_text(T_('Enter'));
-			\dash\data::action_link(\dash\url::this(). '/enter');
+			\dash\data::action_link(\dash\url::this() . '/enter');
 		}
 
 
 		// add page cover to all pages
-		\dash\face::cover(\dash\url::cdn(). '/img/cover/Jibres-cover-3.jpg');
-		if(\dash\url::tld() === 'ir')
-		{
-			\dash\face::cover(\dash\url::cdn(). '/img/cover/ir/Jibres-cover-fa-3.jpg');
+		\dash\face::cover(\dash\url::cdn() . '/img/cover/Jibres-cover-3.jpg');
+		if (\dash\url::tld() === 'ir') {
+			\dash\face::cover(\dash\url::cdn() . '/img/cover/ir/Jibres-cover-fa-3.jpg');
 		}
 
 
 		$quote =
-		[
 			[
-				"name"     => T_("Majid Sadeghi"),
-				"position" => T_("Sales Supervisor at SuperSaeed"),
-				"avatar"   => "majid-sadeghi",
-				"quote"    => T_("With Jibres we take less time of our customers and this means modern customer orientation"). '.',
-			],
-			[
-				"name"     => T_("Ahmad Karimi"),
-				"position" => T_("UX Designer"),
-				"avatar"   => "ahmad-karimi",
-				"quote"    => T_("Who would have thought that one day an Iranian company could launch such a simple and attractive domain registration system? That one, despite something called IRNIC! Keep up the good work, Jibres!"),
-			],
-			[
-				"name"     => T_("Hasan Salehi"),
-				"position" => T_("Software Developer"),
-				"avatar"   => "hasan-salehi",
-				"quote"    => T_("It was one of the best and most convenient domain registration panels I've ever seen, especially the three-letter domain dictionary :))"),
-			],
-			[
-				"name"     => T_("Saman Soltani"),
-				"position" => T_("Software Developer"),
-				"avatar"   => "saman-soltani",
-				"quote"    => T_("Jibres is the most fastest website builder which I saw. At first, it maybe a bit complicated, but you will deeply understand these features by challenges that you are going to face in your business."),
-			],
-		];
-
-		if(\dash\language::current() === 'fa')
-		{
-			$quote[] =
-			[
-				"name"     => 'صالح سوزنچی',
-				"position" => 'توسعه‌دهنده‌ و طراح فونت فارسی',
-				"avatar"   => "saleh-soozanchi",
-				"quote"    => 'بالاخره فرصت پیش اومد تا جیبرس رو امتحان کنم. خرید و پرداخت یک دامین رو باهاش انجام دادم. دمشون گرم، تجربه خیلی عالی بود. تمیز، بدون درد و خونریزی:)) بقیه دامین‌ها رو هم ایمپورت کردم تا مشتری‌شون باشم.',
+				[
+					"name"     => T_("Majid Sadeghi"),
+					"position" => T_("Sales Supervisor at SuperSaeed"),
+					"avatar"   => "majid-sadeghi",
+					"quote"    => T_("With Jibres we take less time of our customers and this means modern customer orientation") . '.',
+				],
+				[
+					"name"     => T_("Ahmad Karimi"),
+					"position" => T_("UX Designer"),
+					"avatar"   => "ahmad-karimi",
+					"quote"    => T_("Who would have thought that one day an Iranian company could launch such a simple and attractive domain registration system? That one, despite something called IRNIC! Keep up the good work, Jibres!"),
+				],
+				[
+					"name"     => T_("Hasan Salehi"),
+					"position" => T_("Software Developer"),
+					"avatar"   => "hasan-salehi",
+					"quote"    => T_("It was one of the best and most convenient domain registration panels I've ever seen, especially the three-letter domain dictionary :))"),
+				],
+				[
+					"name"     => T_("Saman Soltani"),
+					"position" => T_("Senior Software Engineer"),
+					"avatar"   => "saman-soltani",
+					"quote"    => T_("Jibres is the most fastest website builder which I saw. At first, it maybe a bit complicated, but you will deeply understand these features by challenges that you are going to face in your business."),
+				],
 			];
+
+		if (\dash\language::current() === 'fa') {
+			$quote[] =
+				[
+					"name"     => 'صالح سوزنچی',
+					"position" => 'توسعه‌دهنده‌ و طراح فونت فارسی',
+					"avatar"   => "saleh-soozanchi",
+					"quote"    => 'بالاخره فرصت پیش اومد تا جیبرس رو امتحان کنم. خرید و پرداخت یک دامین رو باهاش انجام دادم. دمشون گرم، تجربه خیلی عالی بود. تمیز، بدون درد و خونریزی:)) بقیه دامین‌ها رو هم ایمپورت کردم تا مشتری‌شون باشم.',
+				];
 		}
 
 		shuffle($quote);
@@ -143,11 +136,10 @@ class view
 
 
 		$domainPrice =
-		[
-			'ir1year' => \lib\app\nic_domain\price::register('1year'),
-		];
+			[
+				'ir1year' => \lib\app\nic_domain\price::register('1year'),
+			];
 
 		\dash\data::domainPrice($domainPrice);
 	}
 }
-?>
