@@ -54,41 +54,62 @@ class storePlan
 
     public static function currentPlan($_business_id)
     {
-        $loadBusinessData = \lib\db\store\get::data($_business_id);
-        $planHistoryList  = self::planHistoryList($_business_id);
-        $planDetail       = self::detectPlan($_business_id, $loadBusinessData, $planHistoryList);
-
+        $loadBusinessData      = \lib\db\store\get::data($_business_id);
+        $lastPlanHistoryRecord = self::lastPlanHistoryRecord($_business_id);
+        $currentPlan            = self::detectPlan($_business_id, $loadBusinessData, $lastPlanHistoryRecord);
+        var_dump($currentPlan);;exit();
         return $planDetail;
 
     }
 
-    private static function planHistoryList($_business_id)
+    private static function lastPlanHistoryRecord($_business_id)
     {
-        $dateNow = date("Y-m-d H:i:s");
-        $planHistoryList = \lib\db\store_plan_history\get::activePlanList($_business_id, $dateNow);
+        $lastPlanHistoryRecord = \lib\db\store_plan_history\get::lastPlanHistoryRecord($_business_id);
 
-        if(!$planHistoryList)
+        if(!$lastPlanHistoryRecord)
         {
             planSet::set($_business_id, 'free');
-            $planHistoryList = \lib\db\store_plan_history\get::activePlanList($_business_id, $dateNow);
+            $lastPlanHistoryRecord = \lib\db\store_plan_history\get::lastPlanHistoryRecord($_business_id);
         }
-        return $planHistoryList;
+        return $lastPlanHistoryRecord;
     }
 
-    private static function detectPlan($_business_id, $_loadBusinessData, $_planHistoryList) : array
+    private static function detectPlan($_business_id, $_loadBusinessData, $_lastPlanRecord) : array
     {
         $result = [];
 
-        if(!$_planHistoryList)
+        if(!$_lastPlanRecord)
         {
             // @BUG All business must have plan record
             return $result;
         }
 
-        
+        $currentPlan = null;
+
+        if(isset($_lastPlanRecord['plan']) && $_lastPlanRecord['plan'])
+        {
+            $currentPlan = $_lastPlanRecord['plan'];
+        }
+
+        // TODO need check status and
+        if(isset($_lastPlanRecord['status']) && $_lastPlanRecord['status'] === 'active')
+        {
+            // ok. Nothing.
+        }
+
+        if(!\dash\validate::is_equal($currentPlan, a($_loadBusinessData, 'plan')))
+        {
+            \lib\db\store\update::store_data('plan', $currentPlan, $_business_id);
+        }
 
 
-        return $result;
+        if(!\dash\validate::is_equal(a($_lastPlanRecord, 'expirydate'), a($_loadBusinessData, 'planexp')))
+        {
+            \lib\db\store\update::store_data('planexp', $_lastPlanRecord['expirydate'], $_business_id);
+        }
+
+        return $currentPlan;
+
 
     }
 
@@ -112,6 +133,7 @@ class storePlan
         $transaction_id = a($args, 'transaction_id');
 
         $currentPlan = self::currentPlan($store_id);
+
 //        return;
         var_dump($currentPlan);;
 
