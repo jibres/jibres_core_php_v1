@@ -76,14 +76,22 @@ class magicbox
 		$myLinkHref   = '';
 		if(a($_item, $link_index))
 		{
-			$myLinkHref   = "href='". a($_item, $link_index). "'";
+            if(array_key_exists('pointer', $_item) && array_key_exists('urlRaw', $_item) && $_item['urlRaw'] === null)
+            {
+                // no change in link.
+                // user add video for example to gallery and not linked to any where
+            }
+            else
+            {
+                $myLinkHref   = "href='". a($_item, $link_index). "'";
 
-			if(a($_item, 'pointer') === 'other' || a($_item, 'pointer') === 'file')
-			{
-				$myLinkHref .= ' target="_blank"';
-			}
+                if(a($_item, 'pointer') === 'other' || a($_item, 'pointer') === 'file')
+                {
+                    $myLinkHref .= ' target="_blank"';
+                }
 
-			$myMagicBoxEl = 'a';
+                $myMagicBoxEl = 'a';
+            }
 		}
 
 

@@ -32,6 +32,10 @@ class ready
 					}
 
 					break;
+                case 'url':
+                    $result[$key] = $value;
+                    $result['urlRaw'] = $value;
+                    break;
 
 				default:
 					$result[$key] = $value;
@@ -57,7 +61,7 @@ class ready
 			switch (a($result, 'pointer'))
 			{
 				case 'homepage':
-					$link = $link;
+                    // nothing $link = $link !
 					break;
 
 				case 'products':
@@ -121,6 +125,7 @@ class ready
 				case 'separator':
 				case 'selffile':
 				default:
+                    $result['urlRaw'] = null;
 					// have no link
 					// nothing
 					break;
