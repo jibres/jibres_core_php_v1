@@ -9,9 +9,9 @@ class model
         $args =
         [
             'plan'       => \dash\request::post('plan'),
-            'period'     => \dash\request::post('period'),
+            'period'     => \dash\request::get('period'),
             'turn_back'  => \dash\url::pwd(),
-            'use_budget' => null,
+            'use_budget' => \dash\request::post('use_budget'),
         ];
 
         $choose = \lib\app\plan\planChoose::choose($args);

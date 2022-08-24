@@ -10,20 +10,11 @@ $planList = \dash\data::planList();
         engaging your audience, creating customer loyalty, and driving sales.</p>
     <div class="mb-4 mt-4 mx-auto">
         <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'monthly']) ?>"
-           class="<?php if (\dash\request::get('p') == 'monthly') {
-               echo 'btn-primary';
-           } else {
-               echo 'btn';
-           } ?>">
+           class="<?php if (\dash\request::get('p') == 'monthly') : echo 'btn-primary'; else: echo 'btn'; endif; ?>">
             Monthly billing
         </a>
-
         <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'yearly']) ?>"
-           class="<?php if (\dash\request::get('p') == 'yearly') {
-               echo 'btn-primary';
-           } else {
-               echo 'btn';
-           } ?>">
+           class="<?php if (\dash\request::get('p') == 'yearly') : echo 'btn-primary'; else: echo 'btn'; endif; ?>">
             Yearly billing
         </a>
     </div>
@@ -31,7 +22,6 @@ $planList = \dash\data::planList();
 
     <form method="post" autocomplete="off">
         <div class="mt-24 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8">
-
             <?php foreach ($planList as $plan) : ?>
                 <!-- Tiers -->
                 <div class="relative p-8 mx-1 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
@@ -45,18 +35,15 @@ $planList = \dash\data::planList();
                                     echo T_("year");
                                 } ?></span>
                         </p>
-
                         <?php if (\dash\request::get('p') != 'monthly' && $plan['price']) : ?>
                             <div class="alert-info mt-4">To month free !</div>
                         <?php endif; ?>
-
                         <p class="mt-6 text-gray-500">The essentials to provide your best work for clients.</p>
 
-                        <!-- Feature list -->
                         <ul role="list" class="mt-6 space-y-6">
                             <?php foreach ($plan['featureList'] as $feature) : ?>
                                 <li class="flex">
-                                    <!-- Heroicon name: outline/check -->
+
                                     <svg class="flex-shrink-0 w-6 h-6 text-indigo-500"
                                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -77,6 +64,38 @@ $planList = \dash\data::planList();
                 </div>
             <?php endforeach; ?>
         </div>
+        <?php if (\dash\data::myBudget())
+        {
+            if (\dash\data::myBudget())
+            {
+                $html = '';
+                $html .= '<div class="p-2 mt-4">';
+                {
+                    $html .= '<div class="switch1">';
+                    {
+                        $html .= '<input type="checkbox" name="use_budget" id="use_budget">';
+                        $html .= '<label for="use_budget"></label>';
+                        $html .= '<label for="use_budget">';
+                        {
+                            $html .= T_('Use from budget');
+                            $html .= ' ( ';
+                            {
+                                $html .= \dash\fit::number(\dash\data::myBudget_budget());
+                                $html .= ' ';
+                                $html .= \dash\data::myBudget_currency();
+                            }
+                            $html .= ' )';
+
+                        }
+                        $html .= '</label>';
+                    }
+                    $html .= '</div>';
+                }
+                $html .= '</div>';
+                echo $html;
+            }
+        } ?>
+
     </form>
 </div>
 
