@@ -12,36 +12,19 @@ class planChoose
 
         $planActivateOnJibres = \lib\api\jibres\api::plan_activate($data);
 
-        $detectApiResult = self::detectApiResult($planActivateOnJibres);
 
-        if($detectApiResult->payLink)
+        if(isset($planActivateOnJibres['result']['payLink']))
         {
-            \dash\redirect::to($detectApiResult->payLink);
+            \dash\redirect::to($planActivateOnJibres['result']['payLink']);
+        }
+        elseif(isset($planActivateOnJibres['result']['planActivate']) && $planActivateOnJibres['result']['planActivate'])
+        {
+            \dash\redirect::pwd();
         }
 
     }
 
 
-    private static function detectApiResult($_result) : object
-    {
-        $detectApiResult = (object)
-        [
-            'needPay' => false,
-            'payLink' => null,
-        ];
-
-        if(isset($_result['result']['needPay']))
-        {
-            $detectApiResult->needPay = $_result['result']['needPay'];
-        }
-
-        if(isset($_result['result']['payLink']))
-        {
-            $detectApiResult->payLink = $_result['result']['payLink'];
-        }
-
-        return $detectApiResult;
-    }
 
 
     private static function cleanArgs(array $_args)

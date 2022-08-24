@@ -15,6 +15,8 @@ class storePlan
 
         $plan   = $data['plan'];
         $myPlan = planLoader::load($plan);
+        $myPlan->setPeriod($data['period']);
+        $myPlan->prepare();
 
         $planPrice = new planPrice($myPlan);
         $readyPlan = new planPay($myPlan, $planPrice);
@@ -22,11 +24,35 @@ class storePlan
 
         $readyPlan->readyToPay($data);
 
-        $result =
-            [
-                'needPay'      => $readyPlan->needPay(),
-                'payLink'      => $readyPlan->payLink(),
-            ];
+        if($readyPlan->needPay())
+        {
+            $result =
+                [
+                    'needPay'       => $readyPlan->needPay(),
+                    'payLink'       => $readyPlan->payLink(),
+                    'planActiveate' => false,
+                ];
+        }
+        else
+        {
+            $readyToSetPlan =
+                [
+                    'plan'           => $plan,
+                    'period'         => $data['period'],
+                    'transaction_id' => null,
+                    'store_id'       => $_business_id,
+                    'planName'       => $myPlan->title(),
+                    'user_id'        => \dash\user::id(),
+                    'price'          => $myPlan->price(),
+                ];
+            $activate = self::afterPay($readyToSetPlan);
+            $result =
+                [
+                    'needPay'       => $readyPlan->needPay(),
+                    'payLink'       => $readyPlan->payLink(),
+                    'planActiveate' => $activate,
+                ];
+        }
 
         return $result;
     }
@@ -167,7 +193,7 @@ class storePlan
                 'store_id'       => 'id',
                 'planName'       => 'string',
                 'user_id'        => 'id',
-                'price'          => 'id',
+                'price'          => 'price',
             ];
 
         $require = ['plan'];
@@ -181,6 +207,12 @@ class storePlan
 
     private static function minusTransaction(array $_args)
     {
+        // for free plan needless to minus transaction
+        if(!floatval($_args['price']))
+        {
+            return;
+        }
+
         $insert_transaction =
             [
                 'user_id' => $_args['user_id'],
