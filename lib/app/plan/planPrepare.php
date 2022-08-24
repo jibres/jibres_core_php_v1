@@ -59,7 +59,12 @@ abstract class planPrepare implements plan
 
     public function calculateDays() : int
     {
-        $days = 0;
+        // skipp check period for free plan
+        if($this->name() === 'free')
+        {
+            return 0;
+        }
+
         if($this->period === 'monthly')
         {
             $days = 31;
