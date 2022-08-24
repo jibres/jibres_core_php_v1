@@ -34,8 +34,6 @@ class planList
             }
         }
 
-        storePlan::afterPay();
-
         return $planDetail;
     }
 
