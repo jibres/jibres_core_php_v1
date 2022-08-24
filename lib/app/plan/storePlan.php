@@ -31,7 +31,6 @@ class storePlan
         $planPrice = new planPrice($newPlan);
         $readyPlan = new planPay($newPlan, $planPrice);
         $readyPlan->setStoreId($_business_id);
-
         $readyPlan->readyToPay($data);
 
         if($readyPlan->needPay())

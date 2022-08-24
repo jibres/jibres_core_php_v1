@@ -66,7 +66,7 @@ abstract class planPrepare implements plan
         }
         elseif($this->period === 'yearly')
         {
-            $days = 365;
+            $days = 366;
         }
         elseif($this->period === 'custom')
         {
