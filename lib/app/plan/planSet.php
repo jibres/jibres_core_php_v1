@@ -7,8 +7,6 @@ class planSet
 
     public static function setFirstPlan($_business_id, string $_plan, $_period = null)
     {
-        $expirydate = null;
-
         $myPlan = planLoader::load($_plan);
         $myPlan->prepare();
 
@@ -17,13 +15,32 @@ class planSet
             $myPlan->setPeriod($_period);
         }
 
+        self::set($_business_id, $myPlan);
+    }
+
+    public static function set($_business_id, plan $_newPlan, $_currentPlan = null)
+    {
+        $myPlan      = $_newPlan;
+        $currentPlan = $_currentPlan;
+        $startdate = date("Y-m-d H:i:s");
+        if(isset($currentPlan['expirydate']) && $currentPlan['expirydate'])
+        {
+            $startdate = date("Y-m-d H:i:s", strtotime($currentPlan['expirydate']) + 1);
+        }
+
+        $expirydate = null;
+        if($days = $myPlan->calculateDays())
+        {
+            $expirydate = date("Y-m-d H:i:s", strtotime($startdate) + ($days * 60 * 60 * 24));
+        }
+
 
         $insert =
             [
                 'store_id'         => $_business_id,
                 'user_id'          => \dash\user::id(),
-                'plan'             => $_plan,
-                'startdate'        => date("Y-m-d H:i:s"),
+                'plan'             => $myPlan->name(),
+                'startdate'        => $startdate,
                 'expirydate'       => $expirydate,
                 'type'             => $myPlan->type(),
                 'action'           => 'set',
@@ -43,7 +60,8 @@ class planSet
                 'datemodified'     => null,
             ];
 
-        $save = \lib\db\store_plan_history\insert::new_record($insert);
+        $planHistoryId = \lib\db\store_plan_history\insert::new_record($insert);
+        return $planHistoryId;
 
     }
 
