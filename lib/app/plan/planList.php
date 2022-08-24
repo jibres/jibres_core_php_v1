@@ -21,10 +21,9 @@ class planList
     {
         $planDetail = [];
 
-        $currnentPlanDetail = new businessPlanDetail(\lib\store::id());
-        $currnentPlan = $currnentPlanDetail->currentPlan();
-
-        $period = 'yearly';
+        $currentPlanDetail = new businessPlanDetail(\lib\store::id());
+        $currentPlan       = $currentPlanDetail->currentPlan();
+        $period            = 'yearly';
 
         if(isset($_args['period']) && in_array($_args['period'], ['monthly', 'yearly']))
         {
@@ -37,7 +36,7 @@ class planList
 
             if(self::allowToShow($myPlan))
             {
-                $planDetail[] = self::getPlanDetail($myPlan, $currnentPlan, $period);
+                $planDetail[] = self::getPlanDetail($myPlan, $currentPlan, $period);
             }
         }
 
