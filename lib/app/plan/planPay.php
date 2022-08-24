@@ -48,6 +48,18 @@ class planPay
         {
             $turnBack = \dash\url::jibres_domain();
         }
+
+        if($_data['use_budget'])
+        {
+            $userBudget = \dash\app\transaction\budget::user($userId);
+            $price = $price - $userBudget;
+
+            if($price < 0)
+            {
+                $price = 0;
+            }
+        }
+
         if($price)
         {
             $fn_args =
