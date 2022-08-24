@@ -22,6 +22,9 @@ class view
 		// load budget from jibres api
 		$my_jibres_budget = \lib\api\jibres\api::budget();
 		\dash\data::myBudget($my_jibres_budget);
+
+		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyPlanDetail());
+
 	}
 }
 ?>
