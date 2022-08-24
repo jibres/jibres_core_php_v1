@@ -80,9 +80,9 @@ $planList = \dash\data::planList();
 
                         echo $html;
                         ?>
-                        <div class="btn-primary text-3xl">
+                        <button class="btn-primary text-3xl" name="plan" value="<?php echo $plan['name']; ?>" type="submit">
                             <?php echo T_("Current plan") ?>
-                        </div>
+                        </button>
                     <?php else: ?>
                         <button name="plan" value="<?php echo $plan['name']; ?>" type="submit"
                                 class="btn-success text-3xl">
