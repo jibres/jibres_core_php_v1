@@ -33,6 +33,7 @@ class store
 	 */
 	public static function force_clean()
 	{
+        \lib\app\setting\get::reset_setting_cache();
 		self::$store = [];
 	}
 
