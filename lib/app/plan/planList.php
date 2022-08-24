@@ -24,6 +24,7 @@ class planList
         $currnentPlanDetail = new businessPlanDetail(\lib\store::id());
         $currnentPlan = $currnentPlanDetail->currentPlan();
 
+
         foreach (self::list() as $plan)
         {
             $myPlan = planLoader::load($plan);
@@ -62,7 +63,7 @@ class planList
         $currencyName       = \lib\currency::name($currency);
 
         $isActive = false;
-        if(isset($_currentPlan['name']) && $_currentPlan['name'] === $_myPlan->name())
+        if(isset($_currentPlan['plan']) && $_currentPlan['plan'] === $_myPlan->name())
         {
             $isActive = true;
         }
