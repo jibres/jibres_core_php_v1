@@ -14,12 +14,22 @@ class storePlan
         $data = self::cleanArgs($_args);
 
         $plan   = $data['plan'];
-        $myPlan = planLoader::load($plan);
-        $myPlan->setPeriod($data['period']);
-        $myPlan->prepare();
+        $newPlan = planLoader::load($plan);
+        $newPlan->setPeriod($data['period']);
+        $newPlan->prepare();
 
-        $planPrice = new planPrice($myPlan);
-        $readyPlan = new planPay($myPlan, $planPrice);
+        $currentPlan = self::currentPlan($_business_id);
+
+
+        if(!planChoose::allowChoosePlan($currentPlan, $newPlan))
+        {
+            \dash\notif::error_once(T_("Can not choose this plan"));
+            return false;
+        }
+
+
+        $planPrice = new planPrice($newPlan);
+        $readyPlan = new planPay($newPlan, $planPrice);
         $readyPlan->setStoreId($_business_id);
 
         $readyPlan->readyToPay($data);
@@ -41,9 +51,9 @@ class storePlan
                     'period'         => $data['period'],
                     'transaction_id' => null,
                     'store_id'       => $_business_id,
-                    'planName'       => $myPlan->title(),
+                    'planName'       => $newPlan->title(),
                     'user_id'        => \dash\user::id(),
-                    'price'          => $myPlan->price(),
+                    'price'          => $newPlan->price(),
                 ];
             $activate = self::afterPay($readyToSetPlan);
             $result =
@@ -130,16 +140,23 @@ class storePlan
             // ok. Nothing.
         }
 
+        $updateStoreData = [];
+
         if(!\dash\validate::is_equal($currentPlan, a($_loadBusinessData, 'plan')))
         {
-            \lib\db\store\update::store_data('plan', $currentPlan, $_business_id);
+            $updateStoreData['plan'] = $currentPlan;
         }
-
 
         if(!\dash\validate::is_equal(a($_lastPlanRecord, 'expirydate'), a($_loadBusinessData, 'planexp')))
         {
-            \lib\db\store\update::store_data('planexp', $_lastPlanRecord['expirydate'], $_business_id);
+            $updateStoreData['planexp'] = $_lastPlanRecord['expirydate'];
         }
+
+        if($updateStoreData)
+        {
+            \lib\db\store\update::record_data($updateStoreData, $_business_id);
+        }
+
 
         return $currentPlan;
 
@@ -178,7 +195,7 @@ class storePlan
         }
         else
         {
-            \dash\notif::error(T_("Can not choose this plan"));
+            \dash\notif::error_once(T_("Can not choose this plan"));
             return false;
         }
     }
@@ -221,7 +238,7 @@ class storePlan
 
             ];
 
-        \dash\app\transaction\budget::plus($insert_transaction);
+        \dash\app\transaction\budget::minus($insert_transaction);
 
     }
 

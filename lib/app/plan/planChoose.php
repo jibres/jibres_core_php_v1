@@ -46,10 +46,31 @@ class planChoose
         return $data;
     }
 
-    public static function allowChoosePlan(array $currentPlan, plan $newPlan)
+    public static function allowChoosePlan(array $_currentPlan, plan $_newPlan) : bool
     {
-        return true;
-//        var_dump($currentPlan);
-//        var_dump($newPlan->getArrayDetail());
+        $plan = $_currentPlan['plan'];
+
+        if($plan === $_newPlan->name() && $plan === 'free')
+        {
+            \dash\notif::error(T_("Your current plan by new plan is equal!"));
+            return false;
+        }
+
+        if(isset($_currentPlan['expirydate']) && $_currentPlan['expirydate'])
+        {
+            if(strtotime($_currentPlan['expirydate']) >= strtotime("+30 days"))
+            {
+                \dash\notif::error_once(T_("You can get a new plan only within 30 days before the plan expires"));
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
     }
 }
