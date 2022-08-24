@@ -24,16 +24,17 @@ class planPrice
 
     public function getCurrency() : string
     {
-        if(\dash\language::current() === 'fa')
-        {
-            $currency = 'IRT';
-        }
-        else
-        {
-            $currency = 'USD';
-        }
-
-        return $currency;
+        return 'IRT';
+//
+//        if(\dash\language::current() === 'fa')
+//        {
+//            $currency = 'IRT';
+//        }
+//        else
+//        {
+//            $currency = 'USD';
+//        }
+//        return $currency;
     }
 
 
