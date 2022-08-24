@@ -53,6 +53,33 @@ $planList = \dash\data::planList();
                         </ul>
                     </div>
                     <?php if ($plan['isActive']) : ?>
+
+                        <?php
+                        $html = '';
+                        $html .= '<div class="alert-info mt-2 mb-2 ">';
+                        {
+                            if (\dash\data::myPlanDetail_expirydate())
+                            {
+                                $html .= '<div>';
+                                {
+                                    $html .= T_("Current plan expire date is :date", ['date' => '<b>'. \dash\fit::date_time(\dash\data::myPlanDetail_expirydate()). '</b>']);
+                                }
+                                $html .= '</div>';
+                            }
+
+                            if (\dash\data::myPlanDetail_daysLeft())
+                            {
+                                $html .= '<div>';
+                                {
+                                    $html .= T_(":days left to expire plan", ['days' => '<b>'. \dash\fit::number(\dash\data::myPlanDetail_daysLeft()). '</b>']);
+                                }
+                                $html .= '</div>';
+                            }
+                        }
+                        $html .= '</div>';
+
+                        echo $html;
+                        ?>
                         <div class="btn-primary text-3xl">
                             <?php echo T_("Current plan") ?>
                         </div>
@@ -94,25 +121,6 @@ $planList = \dash\data::planList();
                 }
                 $html .= '</div>';
             }
-
-            if(\dash\data::myPlanDetail_expirydate())
-            {
-                $html .= '<div class="alert-info">';
-                {
-                    $html .= T_("Current plan expire date is :date", ['date' => \dash\fit::date_time(\dash\data::myPlanDetail_expirydate())]);
-                }
-                $html .= '</div>';
-            }
-
-            if(\dash\data::myPlanDetail_daysLeft())
-            {
-                $html .= '<div class="alert-info">';
-                {
-                    $html .= T_(":days left to expire plan", ['days' => \dash\fit::number(\dash\data::myPlanDetail_daysLeft())]);
-                }
-                $html .= '</div>';
-            }
-
 
 
         }
