@@ -13,4 +13,6 @@ interface plan
     public function type(): string;
 
 
+    public function description(): string;
+
 }
