@@ -12,7 +12,12 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
-		\dash\data::planList(\lib\app\plan\planList::listByDetail());
+		$args =
+		[
+			'period' => \dash\request::get('p'),
+		];
+
+		\dash\data::planList(\lib\app\plan\planList::listByDetail($args));
 
 		// load budget from jibres api
 		$my_jibres_budget = \lib\api\jibres\api::budget();

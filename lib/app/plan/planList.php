@@ -17,13 +17,19 @@ class planList
     }
 
 
-    public static function listByDetail()
+    public static function listByDetail($_args = [])
     {
         $planDetail = [];
 
         $currnentPlanDetail = new businessPlanDetail(\lib\store::id());
         $currnentPlan = $currnentPlanDetail->currentPlan();
 
+        $period = 'yearly';
+
+        if(isset($_args['period']) && in_array($_args['period'], ['monthly', 'yearly']))
+        {
+            $period = $_args['period'];
+        }
 
         foreach (self::list() as $plan)
         {
@@ -31,7 +37,7 @@ class planList
 
             if(self::allowToShow($myPlan))
             {
-                $planDetail[] = self::getPlanDetail($myPlan, $currnentPlan);
+                $planDetail[] = self::getPlanDetail($myPlan, $currnentPlan, $period);
             }
         }
 
@@ -56,7 +62,7 @@ class planList
     }
 
 
-    private static function getPlanDetail(plan $_myPlan, $_currentPlan) : array
+    private static function getPlanDetail(plan $_myPlan, $_currentPlan, $_period) : array
     {
         $planPrice          = new planPrice($_myPlan);
         $currency           = $planPrice->getCurrency();
@@ -73,7 +79,7 @@ class planList
             'name'            => $_myPlan->name(),
             'title'           => $_myPlan->title(),
             'featureList'     => $_myPlan->featureList(),
-            'price'           => $planPrice->calculatePrice(1),
+            'price'           => $planPrice->calculatePrice($_period),
             'currency'        => $currency,
             'currencyName'    => $currencyName,
             'isActive'        => $isActive,
