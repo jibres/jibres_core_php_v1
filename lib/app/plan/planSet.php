@@ -5,7 +5,7 @@ namespace lib\app\plan;
 class planSet
 {
 
-    public static function set($_business_id, string $_plan, $_period = null)
+    public static function setFirstPlan($_business_id, string $_plan, $_period = null)
     {
         $expirydate = null;
 
@@ -46,4 +46,6 @@ class planSet
         $save = \lib\db\store_plan_history\insert::new_record($insert);
 
     }
+
+
 }

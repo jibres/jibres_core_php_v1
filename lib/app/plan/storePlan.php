@@ -52,12 +52,23 @@ class storePlan
     }
 
 
-    public static function currentPlan($_business_id)
+    public static function currentPlan($_business_id) : array
     {
         $loadBusinessData      = \lib\db\store\get::data($_business_id);
         $lastPlanHistoryRecord = self::lastPlanHistoryRecord($_business_id);
-        $currentPlan            = self::detectPlan($_business_id, $loadBusinessData, $lastPlanHistoryRecord);
-        var_dump($currentPlan);;exit();
+        $currentPlan           = self::detectPlan($_business_id, $loadBusinessData, $lastPlanHistoryRecord);
+
+        if($currentPlan)
+        {
+            $planDetailObject            = planLoader::load($currentPlan);
+            $planDetail = $planDetailObject->getArrayDetail();
+        }
+        else
+        {
+            $planDetail = [];
+        }
+
+
         return $planDetail;
 
     }
@@ -68,13 +79,13 @@ class storePlan
 
         if(!$lastPlanHistoryRecord)
         {
-            planSet::set($_business_id, 'free');
+            planSet::setFirstPlan($_business_id, 'free');
             $lastPlanHistoryRecord = \lib\db\store_plan_history\get::lastPlanHistoryRecord($_business_id);
         }
         return $lastPlanHistoryRecord;
     }
 
-    private static function detectPlan($_business_id, $_loadBusinessData, $_lastPlanRecord) : array
+    private static function detectPlan($_business_id, $_loadBusinessData, $_lastPlanRecord)
     {
         $result = [];
 
@@ -133,6 +144,8 @@ class storePlan
         $transaction_id = a($args, 'transaction_id');
 
         $currentPlan = self::currentPlan($store_id);
+
+
 
 //        return;
         var_dump($currentPlan);;
