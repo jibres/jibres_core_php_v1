@@ -18,6 +18,11 @@ class diamond extends planPrepare
         return T_("Diamond");
     }
 
+    public function description(): string
+    {
+        return T_("Diamond description");
+    }
+
 
     public function priceRial(): float
     {

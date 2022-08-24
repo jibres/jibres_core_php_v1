@@ -19,6 +19,11 @@ class gold extends  planPrepare
         return T_("Gold");
     }
 
+    public function description(): string
+    {
+        return '';
+    }
+
 
     public function priceRial(): int
     {

@@ -18,6 +18,10 @@ class free extends  planPrepare
         return T_("Free");
     }
 
+    public function description(): string
+    {
+        return '';
+    }
 
     public function priceRial(): int
     {

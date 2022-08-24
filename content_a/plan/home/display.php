@@ -3,20 +3,21 @@ $planList = \dash\data::planList();
 ?>
 
 
-<div class="max-w-7xl mx-auto py-24 px-4 bg-white sm:px-6 lg:px-8">
-    <h2 class="text-3xl tracking-tight font-bold text-gray-900 sm:text-5xl sm:tracking-tight sm:leading-none lg:text-6xl lg:tracking-tight">
-        Pricing plans</h2>
-    <p class="mt-6 max-w-2xl text-xl text-gray-500">Choose an affordable plan that's packed with the best features for
+<div class="max-w-7xl mx-auto py-6 px-4 bg-white sm:px-6 lg:px-8">
+
+    <p class="max-w-2xl text-xl text-gray-500">Choose an affordable plan that's packed with the best features for
         engaging your audience, creating customer loyalty, and driving sales.</p>
-    <div class="mb-4 mt-4 mx-auto">
-        <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'monthly']) ?>"
-           class="<?php if (\dash\request::get('p') == 'monthly') : echo 'btn-primary'; else: echo 'btn'; endif; ?>">
-            Monthly billing
-        </a>
-        <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'yearly']) ?>"
-           class="<?php if (\dash\request::get('p') == 'yearly') : echo 'btn-primary'; else: echo 'btn'; endif; ?>">
-            Yearly billing
-        </a>
+    <div class="mb-4 mt-4  flex">
+        <div class="mx-auto">
+            <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'monthly']) ?>"
+               class="<?php if (\dash\request::get('p') == 'monthly') : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
+                <?php echo T_("Monthly billing") ?>
+            </a>
+            <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'yearly']) ?>"
+               class="<?php if (\dash\request::get('p') == 'yearly' || !\dash\request::get('p')) : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
+                <?php echo T_("Yearly billing"); ?> <small> ( <?php echo T_("2 month free!") ?> ) </small>
+            </a>
+        </div>
     </div>
 
 
@@ -35,10 +36,7 @@ $planList = \dash\data::planList();
                                     echo T_("year");
                                 } ?></span>
                         </p>
-                        <?php if (\dash\request::get('p') != 'monthly' && $plan['price']) : ?>
-                            <div class="alert-info mt-4">To month free !</div>
-                        <?php endif; ?>
-                        <p class="mt-6 text-gray-500">The essentials to provide your best work for clients.</p>
+                        <p class="mt-6 text-gray-500"><?php echo a($plan, 'description') ?></p>
 
                         <ul role="list" class="mt-6 space-y-6">
                             <?php foreach ($plan['featureList'] as $feature) : ?>
@@ -55,19 +53,21 @@ $planList = \dash\data::planList();
                         </ul>
                     </div>
                     <?php if ($plan['isActive']) : ?>
-                        <div class="alert-success"><?php echo T_("Active"); ?></div>
+
+                        <div class="btn-primary">
+                            <?php echo T_("Current plan") ?>
+                        </div>
+                    <?php else: ?>
+                        <button name="plan" value="<?php echo $plan['name']; ?>" type="submit"
+                                class="btn-success">
+                            <?php echo T_("Choose this plan") ?>
+                        </button>
                     <?php endif; ?>
-                    <button name="plan" value="<?php echo $plan['name']; ?>" type="submit"
-                            class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium">
-                        Monthly billing
-                    </button>
                 </div>
             <?php endforeach; ?>
         </div>
-        <?php if (\dash\data::myBudget())
-        {
-            if (\dash\data::myBudget())
-            {
+        <?php if (\dash\data::myBudget()) {
+            if (\dash\data::myBudget()) {
                 $html = '';
                 $html .= '<div class="p-2 mt-4">';
                 {

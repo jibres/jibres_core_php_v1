@@ -6,7 +6,7 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Jibres Plan"));
+		\dash\face::title(T_("Pick a plan"));
 
 		// back
 		\dash\data::back_text(T_('Dashboard'));

@@ -19,6 +19,11 @@ class rafiei extends planPrepare
         return T_("Rafiei");
     }
 
+    public function description(): string
+    {
+        return '';
+    }
+
 
     public function priceRial(): int
     {
