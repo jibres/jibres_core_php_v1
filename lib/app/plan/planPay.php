@@ -17,6 +17,7 @@ class planPay
         $this->planPrice = $_planPrice;
     }
 
+
     public function setStoreId($_store_id)
     {
         $this->store_id = $_store_id;
@@ -52,8 +53,11 @@ class planPay
             $fn_args =
                 [
                     'store_id' => $this->store_id,
-                    'plan' => $this->plan->name(),
-                    'period' => $_data['period']
+                    'plan'     => $this->plan->name(),
+                    'period'   => $_data['period'],
+                    'planName' => $this->plan->title(),
+                    'user_id'  => $userId,
+                    'price'    => $price,
                 ];
 
             $this->needPay = true;

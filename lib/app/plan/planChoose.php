@@ -62,4 +62,11 @@ class planChoose
 
         return $data;
     }
+
+    public static function allowChoosePlan(array $currentPlan, plan $newPlan)
+    {
+        return true;
+//        var_dump($currentPlan);
+//        var_dump($newPlan->getArrayDetail());
+    }
 }

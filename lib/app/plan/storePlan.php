@@ -56,21 +56,17 @@ class storePlan
     {
         $loadBusinessData      = \lib\db\store\get::data($_business_id);
         $lastPlanHistoryRecord = self::lastPlanHistoryRecord($_business_id);
-        $currentPlan           = self::detectPlan($_business_id, $loadBusinessData, $lastPlanHistoryRecord);
+        $currentPlan           = self::checkPlanRecord($_business_id, $loadBusinessData, $lastPlanHistoryRecord);
 
         if($currentPlan)
         {
-            $planDetailObject            = planLoader::load($currentPlan);
-            $planDetail = $planDetailObject->getArrayDetail();
+            $planDetail = $lastPlanHistoryRecord;
         }
         else
         {
             $planDetail = [];
         }
-
-
         return $planDetail;
-
     }
 
     private static function lastPlanHistoryRecord($_business_id)
@@ -85,7 +81,7 @@ class storePlan
         return $lastPlanHistoryRecord;
     }
 
-    private static function detectPlan($_business_id, $_loadBusinessData, $_lastPlanRecord)
+    private static function checkPlanRecord($_business_id, $_loadBusinessData, $_lastPlanRecord)
     {
         $result = [];
 
@@ -126,34 +122,74 @@ class storePlan
 
     public static function afterPay($_args = [])
     {
-        $args = $_args;
-        if(!$args)
-        {
-            $args =
-                [
-                    'store_id'       => 1001483,
-                    'plan'           => 'diamond',
-                    'period'         => 'monthly',
-                    'transaction_id' => 6519,
-                ];
-        }
+        $args = self::cleanArgsAfterPay($_args);
 
         $store_id       = a($args, 'store_id');
         $plan           = a($args, 'plan');
         $period         = a($args, 'period');
-        $transaction_id = a($args, 'transaction_id');
-
-        $currentPlan = self::currentPlan($store_id);
 
 
+        if(!$plan)
+        {
+            \dash\notif::error(T_("Plan not found"));
+            return false;
+        }
 
-//        return;
-        var_dump($currentPlan);;
+        $currentPlan = self::currentPlan($store_id, true);
+
+        $newPlan = planLoader::load($plan);
+        $newPlan->setPeriod($period);
+        $newPlan->prepare();
 
 
+        if(planChoose::allowChoosePlan($currentPlan, $newPlan))
+        {
+            $title = T_("Activate plan :plan", ['plan' => $newPlan->title()]);
 
+            planSet::set($store_id, $newPlan, $currentPlan);
+            self::minusTransaction($args);
+            return true;
+        }
+        else
+        {
+            \dash\notif::error(T_("Can not choose this plan"));
+            return false;
+        }
+    }
 
-        var_dump($args);exit();
+    private static function cleanArgsAfterPay(array $_args)
+    {
+        $condition =
+            [
+                'plan'           => ['enum' => planList::list()],
+                'period'         => ['enum' => ['monthly', 'yearly']],
+                'transaction_id' => 'id',
+                'store_id'       => 'id',
+                'planName'       => 'string',
+                'user_id'        => 'id',
+                'price'          => 'id',
+            ];
+
+        $require = ['plan'];
+
+        $meta    = [];
+
+        $data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+        return $data;
+    }
+
+    private static function minusTransaction(array $_args)
+    {
+        $insert_transaction =
+            [
+                'user_id' => $_args['user_id'],
+                'title'   => T_("Activate plan :plan", ['plan' => $_args['planName']]),
+                'amount'  => floatval($_args['price']),
+
+            ];
+
+        \dash\app\transaction\budget::plus($insert_transaction);
 
     }
 
