@@ -186,10 +186,8 @@ class storePlan
 
         if(planChoose::allowChoosePlan($currentPlan, $newPlan))
         {
-            $title = T_("Activate plan :plan", ['plan' => $newPlan->title()]);
-
             planSet::set($store_id, $newPlan, $currentPlan);
-            self::minusTransaction($args);
+            self::minusTransaction($args, $newPlan);
             return true;
         }
         else
@@ -221,7 +219,7 @@ class storePlan
         return $data;
     }
 
-    private static function minusTransaction(array $_args)
+    private static function minusTransaction(array $_args, $newPlan)
     {
         // for free plan needless to minus transaction
         if(!floatval($_args['price']))
@@ -229,10 +227,12 @@ class storePlan
             return;
         }
 
+        $title = T_("Activate plan :plan ( :period ) ", ['plan' => $newPlan->title(), 'period' => $newPlan->period()]);
+
         $insert_transaction =
             [
                 'user_id' => $_args['user_id'],
-                'title'   => T_("Activate plan :plan", ['plan' => $_args['planName']]),
+                'title'   => $title,
                 'amount'  => floatval($_args['price']),
 
             ];

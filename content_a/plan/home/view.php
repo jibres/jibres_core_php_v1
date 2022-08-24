@@ -12,6 +12,10 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
+		// TODO need to set plan hashtag in help center
+        \dash\face::help(\dash\url::support(). '/hashtag/plan');
+		\dash\face::help(\dash\url::support());
+
 		$args =
 		[
 			'period' => \dash\request::get('p'),
