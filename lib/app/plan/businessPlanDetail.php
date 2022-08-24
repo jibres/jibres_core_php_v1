@@ -15,6 +15,16 @@ class businessPlanDetail
 
     }
 
+    public function name()
+    {
+        if(isset($this->currnentPlanDetail['plan']))
+        {
+            return $this->currnentPlanDetail['plan'];
+        }
+        return null;
+    }
+
+
 
     private function loadDetailOnce()
     {
