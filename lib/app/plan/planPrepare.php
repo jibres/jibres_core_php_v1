@@ -80,7 +80,18 @@ abstract class planPrepare implements plan
         return $days;
     }
 
+    public function getArrayDetail() : array
+    {
+        $detail           = [];
+        $detail['name']   = $this->name();
+        $detail['title']  = $this->title();
+        $detail['type']   = $this->type();
+        $detail['period'] = $this->period();
+        $detail['days']   = $this->calculateDays();
 
+
+        return $detail;
+    }
 
 
 }
