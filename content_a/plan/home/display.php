@@ -11,11 +11,11 @@ $planList = \dash\data::planList();
         <div class="mx-auto">
             <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'monthly']) ?>"
                class="<?php if (\dash\request::get('p') == 'monthly') : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
-                <?php echo T_("Monthly billing") ?>
+                <?php echo T_("Monthly") ?>
             </a>
             <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'yearly']) ?>"
                class="<?php if (\dash\request::get('p') == 'yearly' || !\dash\request::get('p')) : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
-                <?php echo T_("Yearly billing"); ?> <small> ( <?php echo T_("2 month free!") ?> ) </small>
+                <?php echo T_("Yearly"); ?> <small> ( <?php echo T_("2 month free!") ?> ) </small>
             </a>
         </div>
     </div>
@@ -26,7 +26,7 @@ $planList = \dash\data::planList();
             <?php foreach ($planList as $plan) : ?>
                 <!-- Tiers -->
                 <div class="relative p-8 mx-1 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                    <div class="flex-1">
+                    <div class="flex-1 mb-4">
                         <h3 class="text-xl font-semibold text-gray-900"><?php echo $plan['title']; ?></h3>
                         <p class="mt-4 flex items-baseline text-gray-900">
                             <span class="text-5xl tracking-tight font-bold"><?php echo \dash\fit::number($plan['price']) ?> <small><?php echo $plan['currencyName']; ?></small></span>
@@ -53,22 +53,23 @@ $planList = \dash\data::planList();
                         </ul>
                     </div>
                     <?php if ($plan['isActive']) : ?>
-
-                        <div class="btn-primary">
+                        <div class="btn-primary text-3xl">
                             <?php echo T_("Current plan") ?>
                         </div>
                     <?php else: ?>
                         <button name="plan" value="<?php echo $plan['name']; ?>" type="submit"
-                                class="btn-success">
+                                class="btn-success text-3xl">
                             <?php echo T_("Choose this plan") ?>
                         </button>
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>
-        <?php if (\dash\data::myBudget()) {
+
+        <?php
+        $html = '';
+        if (\dash\data::myBudget()) {
             if (\dash\data::myBudget()) {
-                $html = '';
                 $html .= '<div class="p-2 mt-4">';
                 {
                     $html .= '<div class="switch1">';
@@ -92,9 +93,32 @@ $planList = \dash\data::planList();
                     $html .= '</div>';
                 }
                 $html .= '</div>';
-                echo $html;
             }
-        } ?>
+
+            if(\dash\data::myPlanDetail_expirydate())
+            {
+                $html .= '<div class="alert-info">';
+                {
+                    $html .= T_("Current plan expire date is :date", ['date' => \dash\fit::date_time(\dash\data::myPlanDetail_expirydate())]);
+                }
+                $html .= '</div>';
+            }
+
+            if(\dash\data::myPlanDetail_daysLeft())
+            {
+                $html .= '<div class="alert-info">';
+                {
+                    $html .= T_(":days left to expire plan", ['days' => \dash\fit::number(\dash\data::myPlanDetail_daysLeft())]);
+                }
+                $html .= '</div>';
+            }
+
+
+
+        }
+        echo $html;
+        ?>
+
 
     </form>
 </div>
