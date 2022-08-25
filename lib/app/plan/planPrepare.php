@@ -42,7 +42,7 @@ abstract class planPrepare implements plan
 
     public function setBy()
     {
-        if(in_array(\dash\url::conent(), ['love']))
+        if(in_array(\dash\url::content(), ['love']))
         {
             $setBy = 'admin';
         }
