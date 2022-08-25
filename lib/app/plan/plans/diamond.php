@@ -55,7 +55,12 @@ class diamond extends planPrepare
     {
         return
         [
-            'plugin_1',
+            'admin_domain',
+            'discount_professional',
+            'remove_brand',
+            'ganje_product',
+            'report_professional',
+            'sms_pack',
         ];
     }
 }
