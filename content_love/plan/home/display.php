@@ -7,6 +7,7 @@
             <th><?php echo T_("Plan"); ?></th>
             <th><?php echo T_("Start Date"). ' / '. T_("Expire Date"); ?></th>
             <th><?php echo T_("Period"); ?></th>
+            <th><?php echo T_("Price"); ?></th>
             <th><?php echo T_("User"); ?></th>
             <th><?php echo T_("datecreated"); ?></th>
             <th class="collapsing">#</th>
@@ -43,15 +44,19 @@
                 <td>
                     <?php echo T_(strval(a($value, 'periodtype'))) ?>
                 </td>
-
+                <td>
+                    <?php echo \dash\fit::price(a($value, 'finalprice')) ?>
+                    <small class="block text-gray-400"><?php echo \lib\currency::name($value['currency']) ?></small>
+                </td>
                 <td>
                     <img src="<?php echo a($value, 'user_detail', 'avatar'); ?>" class="avatar">
                     <?php echo a($value, 'user_detail', 'displayname'); ?>
                     <br>
                     <div class="badge light"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
                 </td>
-                <td title="<?php echo \dash\fit::date_time(a($value, 'datecreated')); ?>">
+                <td title="<?php echo a($value, 'datecreated'); ?>">
                     <?php echo \dash\fit::date_human(a($value, 'datecreated')); ?>
+                    <small class="block text-gray-400"><?php echo \dash\fit::date_time($value['datecreated']) ?></small>
                 </td>
                 <td class="collapsing">
                     <a href="<?php echo \dash\url::this() . '/detail?id=' . a($value, 'id') ?>"
