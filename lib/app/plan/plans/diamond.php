@@ -50,4 +50,12 @@ class diamond extends planPrepare
     {
         return 'public';
     }
+
+    public function contain(): array
+    {
+        return
+        [
+            'plugin_1',
+        ];
+    }
 }

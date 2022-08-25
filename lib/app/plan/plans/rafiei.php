@@ -56,4 +56,12 @@ class rafiei extends planPrepare
     {
         return 'rafiei';
     }
+
+    public function contain(): array
+    {
+        return
+            [
+                // nothing!
+            ];
+    }
 }

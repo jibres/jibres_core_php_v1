@@ -47,4 +47,12 @@ class free extends  planPrepare
     {
         return 'public';
     }
+
+    public function contain(): array
+    {
+        return
+        [
+            // nothing!
+        ];
+    }
 }
