@@ -20,7 +20,7 @@ class search
 	}
 
 
-	public static function list_admin($_query_string, $_args)
+	public static function list($_query_string, $_args)
 	{
 		$condition =
 		[
@@ -69,12 +69,14 @@ class search
 
 		$query_string = \dash\validate::search($_query_string, false);
 
-		$meta['join'][] = " LEFT JOIN store_data ON store_data.id = store.id ";
+        $meta['join'][] = " LEFT JOIN store ON store_plan_history.store_id = store.id ";
+        $meta['join'][] = " LEFT JOIN store_data ON store_data.id = store.id ";
 
 		$meta['fields'] =
 		"
 			store_plan_history.*,
 			store.status AS `store_status`,
+			store.subdomain,
 			store_data.owner AS `owner`
 		";
 
@@ -92,12 +94,14 @@ class search
 		{
             $meta['join'][] = " LEFT JOIN users ON users.id = store_data.owner ";
 
+            $or[] = " store_plan_history.plan LIKE :q0 ";
             $or[] = " store_data.title LIKE :q1 ";
             $or[] = " store.subdomain LIKE :q2 ";
             $or[] = " store.id LIKE :q3 ";
             $or[] = " users.displayname LIKE :q4";
             $or[] = " users.mobile LIKE :q5 ";
 
+            $param[':q0'] = "%$query_string%";
             $param[':q1'] = "%$query_string%";
             $param[':q2'] = "%$query_string%";
             $param[':q3'] = "%$query_string%";
@@ -130,7 +134,7 @@ class search
 
 
 
-		$list = \lib\db\store_plan_history\search::list($and, $or, $order_sort, $meta);
+		$list = \lib\db\store_plan_history\search::list($param, $and, $or, $order_sort, $meta);
 
 		if(!is_array($list))
 		{
