@@ -26,12 +26,59 @@ class filter
 
 		$list             = [];
 
-		$list['awaiting'] = ['key' => 'awaiting', 	'group' => T_("Status"), 'title' => T_('Awaiting'), 	'query' => ['status' => 'awaiting'], 	'public' => true];
-		$list['enable']   = ['key' => 'enable', 	'group' => T_("Status"), 'title' => T_('Enable'), 	'query' => ['status' => 'enable'], 	'public' => true];
-		$list['deleted']  = ['key' => 'deleted', 	'group' => T_("Status"), 'title' => T_('Deleted'), 	'query' => ['status' => 'deleted'], 	'public' => true];
-		// $list['transfer'] = ['key' => 'transfer', 	'group' => T_("Status"), 'title' => T_('Transfer'), 	'query' => ['status' => 'transfer'], 	'public' => true];
+        $planList = planList::list();
 
-		// $list['dblsub']   = ['key' => 'dblsub', 	'group' => T_("Subdomain"), 'title' => T_('Duplicate subdomain'), 	'query' => ['dblsub' => 'y'], 	'public' => true];
+        foreach ($planList as $planName)
+        {
+            $list[$planName] =
+                [
+                    'key' => $planName,
+                    'group' => T_("Plan"),
+                    'title' => T_($planName),
+                    'query' =>
+                        [
+                            'plan' => $planName
+                        ],
+                    'public' => true
+                ];
+        }
+
+        $list['pmonthly'] =
+            [
+                'key'    => 'pmonthly',
+                'group' => T_("Period type"),
+                'title' => T_('Monthly'),
+                'query' =>
+                    [
+                        'periodtype' => 'monthly'
+                    ],
+                'public' => true
+            ];
+
+        $list['pyearly']  =
+            [
+                'key'    => 'pyearly',
+                'group' => T_("Period type"),
+                'title' => T_('Yearly'),
+                'query'  =>
+                    [
+                        'periodtype' => 'yearly'
+                    ],
+                'public' => true
+            ];
+
+        $list['pcustom']  =
+            [
+                'key'    => 'pcustom',
+                'group' => T_("Period type"),
+                'title' => T_('Yearly'),
+                'query'  =>
+                    [
+                        'periodtype' => 'custom'
+                    ],
+                'public' => true
+            ];
+
 
 		return $list;
 
