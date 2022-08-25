@@ -73,6 +73,11 @@ class get
 		return $result;
 	}
 
+    public static function by_id($_id)
+    {
+		return \dash\pdo\query_template::get('store_plan_history', $_id);
+    }
+
 
 }
-?>
+
