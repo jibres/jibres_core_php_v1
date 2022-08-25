@@ -46,7 +46,8 @@ class planChoose
         return $data;
     }
 
-    public static function allowChoosePlan(array $_currentPlan, plan $_newPlan) : bool
+
+    public static function allowChoosePlan(array $_currentPlan, plan $_newPlan, $_admin = false) : bool
     {
         $plan = $_currentPlan['plan'];
 
@@ -56,12 +57,19 @@ class planChoose
             return false;
         }
 
-        if(isset($_currentPlan['expirydate']) && $_currentPlan['expirydate'])
+        if(!$_admin)
         {
-            if(strtotime($_currentPlan['expirydate']) >= strtotime("+30 days"))
+            if(isset($_currentPlan['expirydate']) && $_currentPlan['expirydate'])
             {
-                \dash\notif::error_once(T_("You can get a new plan only within 30 days before the plan expires"));
-                return false;
+                if(strtotime($_currentPlan['expirydate']) >= strtotime("+30 days"))
+                {
+                    \dash\notif::error_once(T_("You can get a new plan only within 30 days before the plan expires"));
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
             else
             {
@@ -72,5 +80,10 @@ class planChoose
         {
             return true;
         }
+    }
+
+    public static function allowChoosePlanAdmin(array $currentPlan, plan $newPlan)
+    {
+        return self::allowChoosePlan($currentPlan, $newPlan, true);
     }
 }

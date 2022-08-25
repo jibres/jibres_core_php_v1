@@ -65,5 +65,53 @@ class planSet
 
     }
 
+    public static function setManual(array $_args)
+    {
+        $data = self::cleanArgs($_args);
+
+
+        $currentPlan = storePlan::currentPlan($data['store_id']);
+
+        $newPlan = planLoader::load($data['plan']);
+        $newPlan->setPeriod($data['period']);
+        $newPlan->setDays($data['days']);
+        $newPlan->prepare();
+
+
+        if(planChoose::allowChoosePlanAdmin($currentPlan, $newPlan))
+        {
+            self::set($data['store_id'], $newPlan, $currentPlan);
+            return true;
+        }
+        else
+        {
+            \dash\notif::error_once(T_("Can not choose this plan"));
+            return false;
+        }
+
+
+    }
+
+
+    private static function cleanArgs(array $_args)
+    {
+        $condition =
+            [
+                'plan'     => ['enum' => planList::list()],
+                'period'   => ['enum' => ['monthly', 'yearly', 'custom']],
+                'days'     => 'id',
+                'store_id' => 'id',
+            ];
+
+        $require = ['plan', 'store_id'];
+
+        $meta    = [];
+
+        $data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+        return $data;
+    }
+
+
 
 }

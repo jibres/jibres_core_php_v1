@@ -12,6 +12,11 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
+		if($business_id = \dash\request::get('business_id'))
+		{
+			\dash\data::action_text(T_('Add plan'));
+			\dash\data::action_link(\dash\url::this(). '/add?business_id='. $business_id);
+		}
 
 		\dash\data::listEngine_start(true);
 
