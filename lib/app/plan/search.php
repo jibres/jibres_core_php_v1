@@ -26,12 +26,7 @@ class search
 		[
             'order'       => 'order',
             'sort'        => ['enum' => ['datecreated', 'id']],
-            'status'      => [
-                'enum' => [
-                    'awaiting', 'reserve_creating', 'enable', 'close', 'deleted', 'spam', 'hard_delete', 'upgrade',
-                    'transfer', 'backup', 'lock', 'broken', 'limitation', 'creating', 'failed', 'error'
-                ]
-            ],
+            'status'      => ['enum' => ['active', 'deactive',]],
             'user'        => 'code',
             'plan'        => 'string_100',
             'periodtype'  => 'string_100',
