@@ -27,7 +27,7 @@ class view
 			'user'       => \dash\request::get('user'),
 			'plan'       => \dash\request::get('plan'),
 			'periodtype' => \dash\request::get('periodtype'),
-
+			'business_id' => \dash\request::get('business_id'),
 		];
 
 		$search_string = \dash\validate::search_string();

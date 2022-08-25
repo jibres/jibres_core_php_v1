@@ -106,6 +106,15 @@ class search
             self::$is_filtered = true;
         }
 
+        if($data['business_id'])
+        {
+            $and[] = "store_plan_history.store_id = :business_id ";
+            $param[':business_id'] = $data['business_id'];
+
+            self::$is_filtered = true;
+        }
+
+
         if($query_string)
 		{
             $meta['join'][] = " LEFT JOIN users ON users.id = store_data.owner ";
