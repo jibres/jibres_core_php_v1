@@ -8,9 +8,10 @@
             <th><?php echo T_("Start Date"). ' / '. T_("Expire Date"); ?></th>
             <th><?php echo T_("Period"); ?></th>
             <th><?php echo T_("Price"); ?></th>
+            <th><?php echo T_("Status"); ?></th>
             <th><?php echo T_("User"); ?></th>
             <th><?php echo T_("datecreated"); ?></th>
-            <th class="collapsing">#</th>
+            <th class="collapsing"></th>
         </tr>
         </thead>
         <tbody>
@@ -45,11 +46,16 @@
                     <a href="<?php echo \dash\url::this(). \dash\request::full_get(['periodtype' => $value['periodtype']]) ?>">
                         <?php echo T_(strval(a($value, 'periodtype'))) ?>
                     </a>
-
+                    <small class="txt-gray-500 block"><?php echo \dash\fit::number(a($value, 'days')) . ' '. T_("Day") ?> </small>
                 </td>
                 <td>
                     <?php echo \dash\fit::price(a($value, 'finalprice')) ?>
                     <small class="block text-gray-400"><?php echo \lib\currency::name($value['currency']) ?></small>
+                </td>
+                <td>
+                    <a href="<?php echo \dash\url::this(). \dash\request::full_get(['status' => $value['status']]) ?>">
+                        <?php echo T_(strval(a($value, 'status'))) ?>
+                    </a>
                 </td>
                 <td>
                     <img src="<?php echo a($value, 'user_detail', 'avatar'); ?>" class="avatar">

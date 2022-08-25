@@ -33,6 +33,7 @@ class view
 			'plan'       => \dash\request::get('plan'),
 			'periodtype' => \dash\request::get('periodtype'),
 			'business_id' => \dash\request::get('business_id'),
+			'status' => \dash\request::get('status'),
 		];
 
 		$search_string = \dash\validate::search_string();
