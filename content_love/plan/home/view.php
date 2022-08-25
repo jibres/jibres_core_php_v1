@@ -22,10 +22,11 @@ class view
 
 		$args =
 		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
-			'user'   => \dash\request::get('user'),
-			'status' => \dash\request::get('status'),
+			'order'      => \dash\request::get('order'),
+			'sort'       => \dash\request::get('sort'),
+			'user'       => \dash\request::get('user'),
+			'plan'       => \dash\request::get('plan'),
+			'periodtype' => \dash\request::get('periodtype'),
 
 		];
 

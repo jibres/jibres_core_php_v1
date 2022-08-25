@@ -34,6 +34,7 @@ class search
             ],
             'user'        => 'code',
             'plan'        => 'string_100',
+            'periodtype'  => 'string_100',
             'business_id' => 'id',
 		];
 
@@ -89,8 +90,23 @@ class search
 			self::$is_filtered = true;
 		}
 
+        if($data['plan'])
+        {
+            $and[] = "store_plan_history.plan = :plan ";
+            $param[':plan'] = $data['plan'];
 
-		if($query_string)
+            self::$is_filtered = true;
+        }
+
+        if($data['periodtype'])
+        {
+            $and[] = "store_plan_history.periodtype = :periodtype ";
+            $param[':periodtype'] = $data['periodtype'];
+
+            self::$is_filtered = true;
+        }
+
+        if($query_string)
 		{
             $meta['join'][] = " LEFT JOIN users ON users.id = store_data.owner ";
 
