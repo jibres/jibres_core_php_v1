@@ -212,6 +212,7 @@ class get
 				factordetails
 			INNER JOIN factors ON factors.id = factordetails.factor_id
 			WHERE
+			    factors.status != 'deleted' AND
 				factordetails.product_id = :product_id AND
 				factors.type  IN ('sale', 'saleorder') AND
 				factordetails.count > 0
