@@ -42,7 +42,10 @@
                     <?php endif; ?>
                 </td>
                 <td>
-                    <?php echo T_(strval(a($value, 'periodtype'))) ?>
+                    <a href="<?php echo \dash\url::this(). \dash\request::full_get(['periodtype' => $value['periodtype']]) ?>">
+                        <?php echo T_(strval(a($value, 'periodtype'))) ?>
+                    </a>
+
                 </td>
                 <td>
                     <?php echo \dash\fit::price(a($value, 'finalprice')) ?>
