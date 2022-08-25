@@ -177,7 +177,7 @@ class storePlan
             return false;
         }
 
-        $currentPlan = self::currentPlan($store_id, true);
+        $currentPlan = self::currentPlan($store_id);
 
         $newPlan = planLoader::load($plan);
         $newPlan->setPeriod($period);
