@@ -15,4 +15,7 @@ interface plan
 
     public function description(): string;
 
+
+    public function contain() : array;
+
 }
