@@ -1,57 +1,68 @@
-
 <div class="tblBox">
 
-<table class="tbl1 v1 fs12 selectable">
-  <thead>
-    <tr>
-      <th><?php echo T_("id"); ?></th>
-      <th><?php echo T_("Plan"); ?></th>
-      <th><?php echo T_("subdomain"); ?></th>
-      <th><?php echo T_("title"); ?></th>
-      <th><?php echo T_("owner"); ?></th>
-      <th><?php echo T_("status"); ?></th>
+    <table class="tbl1 v1 fs12 selectable">
+        <thead>
+        <tr>
+            <th><?php echo T_("Business"); ?></th>
+            <th><?php echo T_("Plan"); ?></th>
+            <th><?php echo T_("Start Date"). ' / '. T_("Expire Date"); ?></th>
+            <th><?php echo T_("Period"); ?></th>
+            <th><?php echo T_("User"); ?></th>
+            <th><?php echo T_("datecreated"); ?></th>
+            <th class="collapsing">#</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach (\dash\data::dataTable() as $key => $value) : ?>
+            <tr>
+                <td class="collapsing">
+                    <a class="block"
+                       href="<?php echo \dash\url::that() . '?' . \dash\request::build_query(['business_id' => a($value, 'store_id')]) ?>">
+                        <code>
+                            <?php echo a($value, 'store_id'); ?>
+                        </code>
+                    </a>
+                    <a class="block"
+                       href="<?php echo \dash\url::kingdom() . '/' . \dash\store_coding::encode(a($value, 'store_id')); ?>">
+                        <code>
+                            <?php echo \dash\store_coding::encode(a($value, 'store_id')); ?>
+                        </code>
+                    </a>
+                </td>
+                <td>
+                    <a href="<?php echo \dash\url::this() . \dash\request::full_get(['plan' => $value['plan']]) ?>">
+                        <?php echo a($value, 't_plan') ?>
+                    </a>
+                </td>
+                <td>
+                    <span class="block text-green-600" title="<?php echo T_("Start Date"); ?>"><?php echo \dash\fit::date_time(a($value, 'startdate')) ?></span>
+                    <?php if(a($value, 'expirydate')) : ?>
+                    <span class="block text-red-600" title="<?php echo T_("Expire date"); ?>"><?php echo \dash\fit::date_time(a($value, 'expirydate')) ?></span>
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <?php echo T_(strval(a($value, 'periodtype'))) ?>
+                </td>
 
-      <th><?php echo T_("datecreated"); ?></th>
-      <th class="collapsing"><?php echo T_("Setting"); ?></th>
+                <td>
+                    <img src="<?php echo a($value, 'user_detail', 'avatar'); ?>" class="avatar">
+                    <?php echo a($value, 'user_detail', 'displayname'); ?>
+                    <br>
+                    <div class="badge light"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
+                </td>
+                <td title="<?php echo \dash\fit::date_time(a($value, 'datecreated')); ?>">
+                    <?php echo \dash\fit::date_human(a($value, 'datecreated')); ?>
+                </td>
+                <td class="collapsing">
+                    <a href="<?php echo \dash\url::this() . '/detail?id=' . a($value, 'id') ?>"
+                       class="btn-primary btn-sm"><?php echo T_("Detail") ?></a>
+                </td>
 
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
+            </tr>
 
-    <tr>
-      <td><code><?php echo a($value, 'id'); ?></code></td>
-      <td><?php echo a($value, 'plan') ?></td>
-      <td>
-        <img src="<?php echo a($value, 'logo'); ?>" class="avatar">
-        <?php echo a($value, 'title'); ?>
-
-      </td>
-      <td>
-        <img src="<?php echo a($value, 'user_detail', 'avatar'); ?>" class="avatar">
-          <?php echo a($value, 'user_detail', 'displayname'); ?>
-          <br>
-          <div class="badge light"><?php echo \dash\fit::mobile(a($value, 'user_detail', 'mobile')); ?></div>
-          <a target="_blank" href="<?php echo \dash\url::kingdom(). '/enter?userid='. \dash\coding::decode(a($value, 'creator')); ?>"><i class="sf-in-alt"></i></a>
-      </td>
-
-
-      <td><?php echo T_(a($value, 'store_status')); ?></td>
-      <td title="<?php echo \dash\fit::date_time(a($value, 'datecreated')); ?>">
-
-
-        <?php echo \dash\fit::date_human(a($value, 'datecreated')); ?>
-
-      </td>
-      <td class="collapsing">
-        <a href="<?php echo \dash\url::this(). '/setting?id='. a($value, 'id') ?>" class="btn-link"><?php echo T_("Setting") ?></a>
-      </td>
-
-    </tr>
-
-    <?php } //endfor ?>
-  </tbody>
-</table>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>
 
 
