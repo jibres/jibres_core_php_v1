@@ -39,7 +39,15 @@ class free extends  planPrepare
     {
         return
         [
-            T_("Up to 500 product"),
+            T_("Unlimited product"),
+            T_("Unlimited order"),
+            T_("Online website"),
+            T_("Special application"),
+            T_("CRM"),
+            T_("CMS"),
+            T_("Simple Discount code"),
+            T_("1 GiB Space"),
+
         ];
     }
 
