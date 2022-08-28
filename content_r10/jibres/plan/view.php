@@ -8,7 +8,14 @@ class view
 	{
 		$business_id = \content_r10\tools::get_current_business_id();
 
-		$result = \lib\app\plan\storePlan::currentPlan($business_id);
+        if(\dash\request::get('gethistory'))
+        {
+            $result = \lib\app\plan\storePlan::activePlanHistory($business_id);
+        }
+        else
+        {
+            $result = \lib\app\plan\storePlan::currentPlan($business_id);
+        }
 
 		\content_r10\tools::say($result);
 	}

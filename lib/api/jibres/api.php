@@ -207,6 +207,12 @@ class api
 		return $result;
 	}
 
+    public static function plan_detail_history()
+    {
+        $result = self::run('plan','get', ['gethistory' => true]);
+        return $result;
+    }
+
 
 	public static function plan_activate($_args)
 	{
