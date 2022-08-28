@@ -4,7 +4,8 @@ namespace lib\app\plan;
 
 class businessPlanDetail
 {
-    private $currnentPlanDetail = null;
+    private $currnentPlanRecordDetail = null;
+    private $currentPlan;
 
     public static function getMyPlanDetail()
     {
@@ -15,9 +16,22 @@ class businessPlanDetail
 
         $currentPlanDetail = new businessPlanDetail(\lib\store::id());
         $currentPlanDetail->prepare();
-        return $currentPlanDetail->currentPlan();
+
+        return $currentPlanDetail;
+
     }
 
+
+
+    public static function getMyPlanHistoryDetail()
+    {
+        $currentPlanDetail = self::getMyPlanDetail();
+        if($currentPlanDetail)
+        {
+            return $currentPlanDetail->currentPlan();
+        }
+        return false;
+    }
 
     public function __construct($_business_id)
     {
@@ -29,9 +43,9 @@ class businessPlanDetail
 
     public function name()
     {
-        if(isset($this->currnentPlanDetail['plan']))
+        if(isset($this->currnentPlanRecordDetail['plan']))
         {
-            return $this->currnentPlanDetail['plan'];
+            return $this->currnentPlanRecordDetail['plan'];
         }
         return null;
     }
@@ -39,7 +53,7 @@ class businessPlanDetail
     private function loadDetailOnce()
     {
         // load once!
-        if(!is_array($this->currnentPlanDetail))
+        if(!is_array($this->currnentPlanRecordDetail))
         {
             // TODO check sync required
             // TODO check local account and if need send api request to get last detail
@@ -47,26 +61,26 @@ class businessPlanDetail
 
             if(isset($planDetailOnJibres['result']))
             {
-                $this->currnentPlanDetail = $planDetailOnJibres['result'];
+                $this->currnentPlanRecordDetail = $planDetailOnJibres['result'];
             }
             else
             {
-                $this->currnentPlanDetail = [];
+                $this->currnentPlanRecordDetail = [];
             }
         }
 
-        return $this->currnentPlanDetail;
+        return $this->currnentPlanRecordDetail;
 
     }
 
     public function prepare()
     {
-        if($this->currnentPlanDetail)
+        if($this->currnentPlanRecordDetail)
         {
-            if(isset($this->currnentPlanDetail['expirydate']) &&$this->currnentPlanDetail['expirydate'])
+            if(isset($this->currnentPlanRecordDetail['expirydate']) &&$this->currnentPlanRecordDetail['expirydate'])
             {
                 $date1 = new \DateTime(date("Y-m-d H:i:s"));  //current date or any date
-                $date2 = new \DateTime($this->currnentPlanDetail['expirydate']);   //Future date
+                $date2 = new \DateTime($this->currnentPlanRecordDetail['expirydate']);   //Future date
                 $diff = $date2->diff($date1)->format("%a");  //find difference
                 $days = intval($diff);   //rounding days
 
@@ -75,14 +89,31 @@ class businessPlanDetail
                     $days = null;
                 }
 
-                $this->currnentPlanDetail['daysLeft'] = $days;
+                $this->currnentPlanRecordDetail['daysLeft'] = $days;
 
             }
+        }
+
+        // TODO check expire date and disable if expired
+
+        if($this->name())
+        {
+            $this->currentPlan = planLoader::load($this->name());
         }
     }
 
     public function currentPlan()
     {
-        return $this->currnentPlanDetail;
+        return $this->currnentPlanRecordDetail;
+    }
+
+
+    public function contain() : array
+    {
+        if($this->currentPlan)
+        {
+            return $this->currentPlan->contain();
+        }
+        return [];
     }
 }
