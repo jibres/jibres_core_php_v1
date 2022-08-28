@@ -66,13 +66,13 @@ class post
 		}
 
 
-		$msgData['reply_markup'] = false;
+//		$msgData['reply_markup'] = false;
 
 		$social = \lib\store::social();
 
 		$reply_markup = [];
 
-		$telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn');
+        $telegrambtn = a($telegram_setting, 'telegrambtn');
 
 		if(empty($social) || !$telegrambtn)
 		{
@@ -142,10 +142,6 @@ class post
 		}
 
 
-
-
-
-
 		\dash\social\telegram\tg::$api_token = $telegram_setting['apikey'];
 		\dash\social\telegram\tg::$name      = $botname;
 		if(isset($msgData['photo']))
@@ -159,6 +155,18 @@ class post
 			$myResult = \dash\social\telegram\tg::sendMessage($msgData);
 		}
 
+
+
+        if(isset($myResult['error_code']) && $myResult['error_code'] && isset($myResult['description']))
+        {
+            \dash\log::set('ProductErrorrSendTelegram', ['tgResult' => $myResult]);
+            \dash\notif::error(T_("Can not send this post to telegram"), ['description' => $myResult['description']]);
+        }
+        else
+        {
+            \dash\notif::ok(T_("Post successfully on telegram"));
+            return true;
+        }
 		// if bot user is not exist in chat
 		// description: "Bad Request: chat not found"
 		// error_code: 400
@@ -180,8 +188,7 @@ class post
 		// description: "Bad Request: wrong file identifier/HTTP URL specified"
 		// error_code: 400
 		// ok: false
-		\dash\notif::ok(T_("Post successfully on telegram"));
-		return true;
+
 
 	}
 
