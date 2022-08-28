@@ -61,7 +61,12 @@ class rafiei extends planPrepare
     {
         return
             [
-                // nothing!
+                'admin_domain',
+                'discount_professional',
+                'remove_brand',
+                'ganje_product',
+                'report_professional',
+                'sms_pack',
             ];
     }
 }

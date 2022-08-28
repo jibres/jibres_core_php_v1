@@ -57,7 +57,10 @@ class gold extends  planPrepare
     {
         return
             [
-                // nothing!
+                'discount_professional',
+                'ganje_product',
+                'report_professional',
+                'sms_pack',
             ];
     }
 }
