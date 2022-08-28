@@ -23,9 +23,12 @@ class planSet
         $myPlan      = $_newPlan;
         $currentPlan = $_currentPlan;
         $startdate = date("Y-m-d H:i:s");
-        if(isset($currentPlan['expirydate']) && $currentPlan['expirydate'])
+        if(isset($_currentPlan['plan']) && $_currentPlan['plan'] === $_newPlan->name())
         {
-            $startdate = date("Y-m-d H:i:s", strtotime($currentPlan['expirydate']) + 1);
+            if(isset($currentPlan['expirydate']) && $currentPlan['expirydate'])
+            {
+                $startdate = date("Y-m-d H:i:s", strtotime($currentPlan['expirydate']) + 1);
+            }
         }
 
         $expirydate = null;
