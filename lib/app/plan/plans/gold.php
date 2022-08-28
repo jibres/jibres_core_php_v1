@@ -21,7 +21,7 @@ class gold extends  planPrepare
 
     public function description(): string
     {
-        return '';
+        return T_("Description of gold");
     }
 
 
@@ -45,6 +45,7 @@ class gold extends  planPrepare
             T_("Special Discount code"),
             T_("Special report"),
             T_("Access to Ganje plugin"),
+            T_("2GB storage"),
         ];
     }
 

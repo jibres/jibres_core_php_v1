@@ -43,6 +43,7 @@ class diamond extends planPrepare
                 T_("Every feature in free and gold plan +"),
                 T_("Remove Jibres brank"),
                 T_("Access admin from your domain"),
+                T_("5GB storage"),
             ];
     }
 
