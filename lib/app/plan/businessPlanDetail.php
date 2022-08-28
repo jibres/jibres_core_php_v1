@@ -6,7 +6,7 @@ class businessPlanDetail
 {
     private $currnentPlanRecordDetail = null;
     private $currentPlan;
-    private $settingRecord;
+
 
     public static function getMyPlanDetail()
     {
@@ -115,25 +115,65 @@ class businessPlanDetail
 
     private function settingRecord()
     {
-        $planSettingRecord = \lib\db\setting\get::by_cat('plan');
+        $planSettingRecord = \lib\db\setting\get::by_cat_key('plan', 'last');
 
         if(!is_array($planSettingRecord))
         {
             $planSettingRecord = [];
         }
 
-        $this->settingRecord = $planSettingRecord;
+        if(isset($planSettingRecord['value']))
+        {
+            $planSettingRecord = json_decode($planSettingRecord['value'], true);
+            if(!is_array($planSettingRecord))
+            {
+                $planSettingRecord = [];
+            }
+        }
+        else
+        {
+            $planSettingRecord = [];
+        }
+
+
         return $planSettingRecord;
     }
 
     private function syncRequired()
     {
-        if($this->settingRecord)
+        $syncRequired = true;
+
+        $planSyncSetting = \lib\db\setting\get::by_cat_key('plan', 'synced');
+
+        if(isset($planSyncSetting['value']))
         {
-            return false;
+            if($planSyncSetting['value'] === 'no')
+            {
+                $syncRequired = true;
+            }
+            elseif($syncTime = strtotime($planSyncSetting['value']))
+            {
+                if($syncTime < (time() - (60*1)))
+                {
+                    $syncRequired = true;
+                }
+                else
+                {
+                    $syncRequired = false;
+                }
+            }
+            else
+            {
+                $syncRequired = true;
+            }
+        }
+        else
+        {
+            $syncRequired = true;
         }
 
-        return true;
+        return $syncRequired;
+
     }
 
     private function syncPlanSetting()
@@ -149,10 +189,24 @@ class businessPlanDetail
             $result = [];
         }
 
-        // save synced time
-        // save plan detail
+        $this->setSynced();
+
+        $this->savePlanInSetting($result);
+
+
 
         return $result;
+
+    }
+
+    private function setSynced()
+    {
+        \lib\db\setting\update::overwirte_cat_key(date("Y-m-d H:i:s"), 'plan', 'synced');
+    }
+
+    private function savePlanInSetting($_planDetail)
+    {
+        \lib\db\setting\update::overwirte_cat_key(json_encode($_planDetail), 'plan', 'last');
 
     }
 }
