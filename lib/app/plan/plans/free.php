@@ -20,7 +20,7 @@ class free extends  planPrepare
 
     public function description(): string
     {
-        return '';
+        return T_("Small business");
     }
 
     public function priceRial(): int
@@ -46,7 +46,7 @@ class free extends  planPrepare
             T_("CRM"),
             T_("CMS"),
             T_("Simple Discount code"),
-            T_("1 GiB Space"),
+            T_("1GB storage"),
 
         ];
     }

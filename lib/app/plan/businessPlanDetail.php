@@ -153,7 +153,7 @@ class businessPlanDetail
             }
             elseif($syncTime = strtotime($planSyncSetting['value']))
             {
-                if($syncTime < (time() - (60*30)))
+                if($syncTime < (time() - (60*30)) || 1)
                 {
                     $syncRequired = true;
                 }
