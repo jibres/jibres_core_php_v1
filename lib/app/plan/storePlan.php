@@ -241,5 +241,12 @@ class storePlan
 
     }
 
+    public static function activePlanHistory($_business_id)
+    {
+        $activePlanHistoryRecord = \lib\db\store_plan_history\get::activePlanHistoryRecord($_business_id);
+        return $activePlanHistoryRecord;
+
+    }
+
 
 }

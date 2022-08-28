@@ -78,6 +78,41 @@ class get
 		return \dash\pdo\query_template::get('store_plan_history', $_id);
     }
 
+    public static function activePlanHistoryRecord($_business_id) : array
+    {
+        $query =
+            '
+				SELECT * 
+				FROM 
+				    store_plan_history 
+				WHERE 
+				    store_plan_history.store_id = :store_id AND
+				    store_plan_history.status = :status AND
+				    (
+				        store_plan_history.expirydate IS NULL OR
+				        store_plan_history.expirydate >= :datenow 
+				    )
+				ORDER BY 
+				    store_plan_history.id DESC
+				
+			';
+
+        $param =
+            [
+                ':store_id' => $_business_id,
+                ':status'   => 'active',
+                ':datenow'  => date("Y-m-d H:i:s"),
+            ];
+
+        $result = \dash\pdo::get($query, $param);
+
+        if(!is_array($result))
+        {
+            $result = [];
+        }
+        return $result;
+    }
+
 
 }
 

@@ -6,6 +6,7 @@ class businessPlanDetail
 {
     private $currnentPlanRecordDetail = null;
     private $currentPlan;
+    private $settingRecord;
 
     public static function getMyPlanDetail()
     {
@@ -55,17 +56,11 @@ class businessPlanDetail
         // load once!
         if(!is_array($this->currnentPlanRecordDetail))
         {
-            // TODO check sync required
-            // TODO check local account and if need send api request to get last detail
-            $planDetailOnJibres = \lib\api\jibres\api::plan_detail();
+            $this->currnentPlanRecordDetail = $this->settingRecord();
 
-            if(isset($planDetailOnJibres['result']))
+            if($this->syncRequired())
             {
-                $this->currnentPlanRecordDetail = $planDetailOnJibres['result'];
-            }
-            else
-            {
-                $this->currnentPlanRecordDetail = [];
+                $this->currnentPlanRecordDetail = $this->syncPlanSetting();
             }
         }
 
@@ -115,5 +110,49 @@ class businessPlanDetail
             return $this->currentPlan->contain();
         }
         return [];
+    }
+
+
+    private function settingRecord()
+    {
+        $planSettingRecord = \lib\db\setting\get::by_cat('plan');
+
+        if(!is_array($planSettingRecord))
+        {
+            $planSettingRecord = [];
+        }
+
+        $this->settingRecord = $planSettingRecord;
+        return $planSettingRecord;
+    }
+
+    private function syncRequired()
+    {
+        if($this->settingRecord)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function syncPlanSetting()
+    {
+        $planDetailOnJibres = \lib\api\jibres\api::plan_detail();
+
+        if(isset($planDetailOnJibres['result']))
+        {
+            $result = $planDetailOnJibres['result'];
+        }
+        else
+        {
+            $result = [];
+        }
+
+        // save synced time
+        // save plan detail
+
+        return $result;
+
     }
 }
