@@ -41,8 +41,10 @@ class gold extends  planPrepare
     {
         return
         [
-            T_("Up to 50000 product"),
-            T_("Discount"),
+            T_("Every feature in free plan +"),
+            T_("Special Discount code"),
+            T_("Special report"),
+            T_("Access to Ganje plugin"),
         ];
     }
 

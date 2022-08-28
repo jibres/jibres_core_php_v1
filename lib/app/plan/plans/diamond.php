@@ -39,11 +39,11 @@ class diamond extends planPrepare
     public function featureList() : array
     {
         return
-        [
-            T_("Up to 19000 product"),
-            T_("Discount Advanced"),
-            T_("Test"),
-        ];
+            [
+                T_("Every feature in free and gold plan +"),
+                T_("Remove Jibres brank"),
+                T_("Access admin from your domain"),
+            ];
     }
 
     public function type(): string

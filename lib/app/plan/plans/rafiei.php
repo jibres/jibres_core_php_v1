@@ -41,7 +41,7 @@ class rafiei extends planPrepare
     {
         return
         [
-
+            T_("Everything you need ❤"),
             T_("Enterprice plan"),
         ];
     }
