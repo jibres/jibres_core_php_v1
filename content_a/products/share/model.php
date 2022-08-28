@@ -85,39 +85,40 @@ class model
 		  $txt .= "\n". \dash\data::catStr();
 		}
 
-		$msgData['reply_markup'] = false;
+
+//		$msgData['reply_markup'] = false;
 
 		$social = \lib\store::social();
 
-		// $reply_markup =
-		// [
-		// 	[
-		// 		'text' => T_("Website"),
-		// 		'url'  => \lib\store::url(),
-		// 	],
-		// ];
+		 $reply_markup =
+		 [
+		 	[
+		 		'text' => T_("Website"),
+		 		'url'  => \lib\store::url(),
+		 	],
+		 ];
 
 
-		// $telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn');
+		 $telegrambtn = a(\dash\data::telegramSetting(), 'telegrambtn');
 
-		// if(empty($social) || !$telegrambtn)
-		// {
-		// // nothing
-		// }
-		// else
-		// {
-		// 	foreach ($social as $key => $value)
-		// 	{
-		// 		if(a($social, $key) && a($telegrambtn, $key))
-		// 		{
-		// 			$reply_markup[] =
-		// 			[
-		// 				'text' => a($value, 'title'),
-		// 				'url'  => a($social, $key, 'link'),
-		// 			];
-		// 		}
-		// 	}
-		// }
+		 if(empty($social) || !$telegrambtn)
+		 {
+		 // nothing
+		 }
+		 else
+		 {
+		 	foreach ($social as $key => $value)
+		 	{
+		 		if(a($social, $key) && a($telegrambtn, $key))
+		 		{
+		 			$reply_markup[] =
+		 			[
+		 				'text' => a($value, 'title'),
+		 				'url'  => a($social, $key, 'link'),
+		 			];
+		 		}
+		 	}
+		 }
 
 
 		$msgData['reply_markup'] =
@@ -131,7 +132,7 @@ class model
 					],
 				],
 
-				// $reply_markup,
+				 $reply_markup,
 
 				// [
 				// 	[
@@ -141,8 +142,6 @@ class model
 				// ]
 			],
 		];
-
-
 
 
 		bot::$api_token = $telegram_setting['apikey'];
@@ -158,6 +157,18 @@ class model
 			$myResult = bot::sendMessage($msgData);
 
 		}
+
+        if(isset($myResult['error_code']) && $myResult['error_code'] && isset($myResult['description']))
+        {
+            \dash\log::set('ProductErrorrSendTelegram', ['tgResult' => $myResult]);
+            \dash\notif::error(T_("Can not send this post to telegram"), ['description' => $myResult['description']]);
+        }
+        else
+        {
+            \dash\notif::ok(T_("Post successfully on telegram"));
+            return true;
+        }
+
 
 		// if bot user is not exist in chat
 		// description: "Bad Request: chat not found"
@@ -180,8 +191,6 @@ class model
 		// description: "Bad Request: wrong file identifier/HTTP URL specified"
 		// error_code: 400
 		// ok: false
-		\dash\notif::ok(T_("Post successfully on telegram"));
-		return true;
 
 	}
 

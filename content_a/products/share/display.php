@@ -42,7 +42,7 @@ if(\dash\data::propStr())
 
               <textarea class="txt mb-2" name="sharetext"  rows="6" maxlength="2000" placeholder='<?php echo T_("Share text"); ?>'><?php echo a(\dash\data::productDataRow(),'sharetext'); ?></textarea>
 
-              <p><?php echo nl2br(\dash\data::telegramSetting_share_text()); ?></p>
+              <p><?php echo nl2br(strval(\dash\data::telegramSetting_share_text())); ?></p>
 
 <?php
 if(\dash\data::catStr())
