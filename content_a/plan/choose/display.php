@@ -28,7 +28,7 @@ $planList = \dash\data::planList();
                         <table class="w-full">
                             <caption
                                     class="border-t border-gray-200 bg-gray-50 py-3 px-4 text-left text-sm font-medium text-gray-900">
-                                Reporting
+                                <?php echo $group ?>
                             </caption>
                             <thead>
                             <tr>
@@ -36,155 +36,50 @@ $planList = \dash\data::planList();
                                 <th class="sr-only" scope="col">Included</th>
                             </tr>
                             </thead>
+
                             <tbody class="divide-y divide-gray-200">
-                            <tr class="border-t border-gray-200">
-                                <th class="py-5 px-4 text-left text-sm font-normal text-gray-500" scope="row">Adipiscing.</th>
-                                <td class="py-5 pr-4">
-                                    <!-- Heroicon name: mini/check -->
-                                    <svg class="ml-auto h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                    <span class="sr-only">Yes</span>
-                                </td>
-                            </tr>
+                            <?php foreach ($list as $item => $v) :?>
+                                <tr class="border-t border-gray-200">
+                                    <th class="py-5 px-4 text-left text-sm font-normal text-gray-500" scope="row"><?php echo $item ?></th>
+                                    <td class="py-5 pr-4">
 
-                            <tr class="border-t border-gray-200">
-                                <th class="py-5 px-4 text-left text-sm font-normal text-gray-500" scope="row">Eget risus
-                                    integer.
-                                </th>
-                                <td class="py-5 pr-4">
-                                    <!-- Heroicon name: mini/minus -->
-                                    <svg class="ml-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M3 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H3.75A.75.75 0 013 10z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                    <span class="sr-only">No</span>
-                                </td>
-                            </tr>
 
-                            <tr class="border-t border-gray-200">
-                                <th class="py-5 px-4 text-left text-sm font-normal text-gray-500" scope="row">Gravida leo urna
-                                    velit.
-                                </th>
-                                <td class="py-5 pr-4">
-                                    <!-- Heroicon name: mini/minus -->
-                                    <svg class="ml-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M3 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H3.75A.75.75 0 013 10z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                    <span class="sr-only">No</span>
-                                </td>
-                            </tr>
+                                        <?php if ($v === true) : ?>
+                                            <!-- Heroicon name: mini/check -->
+                                            <svg class="h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
+                                                 viewBox="0 0 20 20"
+                                                 fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                      d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                      clip-rule="evenodd"/>
+                                            </svg>
+                                        <?php elseif (is_string($v)): ?>
+                                            <?php echo $v ?>
+                                        <?php else: ?>
+                                            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                                 viewBox="0 0 20 20"
+                                                 fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                      d="M3 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H3.75A.75.75 0 013 10z"
+                                                      clip-rule="evenodd"/>
+                                            </svg>
 
-                            <tr class="border-t border-gray-200">
-                                <th class="py-5 px-4 text-left text-sm font-normal text-gray-500" scope="row">Elementum ut
-                                    dapibus mi feugiat cras nisl.
-                                </th>
-                                <td class="py-5 pr-4">
-                                    <!-- Heroicon name: mini/minus -->
-                                    <svg class="ml-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                              d="M3 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H3.75A.75.75 0 013 10z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                    <span class="sr-only">No</span>
-                                </td>
-                            </tr>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+
+
                             </tbody>
                         </table>
                     <?php endforeach; ?>
 
 
 
-                    <table class="w-full">
-                        <caption
-                                class="border-t border-gray-200 bg-gray-50 py-3 px-4 text-left text-sm font-medium text-gray-900">
-                            Support
-                        </caption>
-                        <thead>
-                        <tr>
-                            <th class="sr-only" scope="col">Feature</th>
-                            <th class="sr-only" scope="col">Included</th>
-                        </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                        <tr class="border-t border-gray-200">
-                            <th class="py-5 px-4 text-left text-sm font-normal text-gray-500" scope="row">Sit dignissim.
-                            </th>
-                            <td class="py-5 pr-4">
-                                <!-- Heroicon name: mini/check -->
-                                <svg class="ml-auto h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                          d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                                          clip-rule="evenodd"/>
-                                </svg>
-                                <span class="sr-only">Yes</span>
-                            </td>
-                        </tr>
-
-                        <tr class="border-t border-gray-200">
-                            <th class="py-5 px-4 text-left text-sm font-normal text-gray-500" scope="row">Congue at nibh
-                                et.
-                            </th>
-                            <td class="py-5 pr-4">
-                                <!-- Heroicon name: mini/minus -->
-                                <svg class="ml-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                          d="M3 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H3.75A.75.75 0 013 10z"
-                                          clip-rule="evenodd"/>
-                                </svg>
-                                <span class="sr-only">No</span>
-                            </td>
-                        </tr>
-
-                        <tr class="border-t border-gray-200">
-                            <th class="py-5 px-4 text-left text-sm font-normal text-gray-500" scope="row">Volutpat feugiat
-                                mattis.
-                            </th>
-                            <td class="py-5 pr-4">
-                                <!-- Heroicon name: mini/minus -->
-                                <svg class="ml-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                          d="M3 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H3.75A.75.75 0 013 10z"
-                                          clip-rule="evenodd"/>
-                                </svg>
-                                <span class="sr-only">No</span>
-                            </td>
-                        </tr>
-
-                        <tr class="border-t border-gray-200">
-                            <th class="py-5 px-4 text-left text-sm font-normal text-gray-500" scope="row">Tristique
-                                pellentesque ornare diam sapien.
-                            </th>
-                            <td class="py-5 pr-4">
-                                <!-- Heroicon name: mini/minus -->
-                                <svg class="ml-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                          d="M3 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H3.75A.75.75 0 013 10z"
-                                          clip-rule="evenodd"/>
-                                </svg>
-                                <span class="sr-only">No</span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-
                     <div class="border-t border-gray-200 px-4 pt-5">
                         <a href="#"
                            class="block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">Buy
-                            Basic</a>
+                            <?php echo $plan['title'] ?></a>
                     </div>
                 </section>
             <?php endforeach; ?>
