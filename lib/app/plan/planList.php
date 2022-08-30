@@ -40,6 +40,12 @@ class planList
             }
         }
 
+        $preparePlanFeacureList = self::preparePlanFeacureList($planDetail);
+        foreach ($planDetail as $key => $value) 
+        {
+            $planDetail[$key]['preparePlanFeatureList'] = array_merge($preparePlanFeacureList, $value['featureList']);
+        }
+
         return $planDetail;
     }
 
@@ -75,15 +81,43 @@ class planList
 
         $planDetail =
         [
-            'name'            => $_myPlan->name(),
-            'title'           => $_myPlan->title(),
-            'description'     => $_myPlan->description(),
-            'outstandingFeatures'     => $_myPlan->outstandingFeatures(),
-            'price'           => $planPrice->calculatePrice($_period),
-            'currency'        => $currency,
-            'currencyName'    => $currencyName,
-            'isActive'        => $isActive,
+            'name'                => $_myPlan->name(),
+            'title'               => $_myPlan->title(),
+            'description'         => $_myPlan->description(),
+            'outstandingFeatures' => $_myPlan->outstandingFeatures(),
+            'featureList'         => $_myPlan->featureList(),
+            'price'               => $planPrice->calculatePrice($_period),
+            'currency'            => $currency,
+            'currencyName'        => $currencyName,
+            'isActive'            => $isActive,
         ];
         return $planDetail;
+    }
+
+    private static function preparePlanFeacureList(array $_planDetail)
+    {
+        $allFeature = [];
+        foreach ($_planDetail as $planDetail) 
+        {
+            foreach ($planDetail['featureList'] as $group => $list)
+            {
+                if(!isset($allFeature[$group]))
+                {
+                    $allFeature[$group] = [];
+                }
+
+                foreach ($list as $item_key => $item_value)
+                {
+                    if(!array_key_exists($item_key, $allFeature[$group]))
+                    {
+                        $allFeature[$group][$item_key] = null;
+                    }
+                }
+
+            }    
+        }
+
+        return $allFeature;
+
     }
 }

@@ -47,6 +47,35 @@ class diamond extends planPrepare
             ];
     }
 
+
+
+    public function  featureList()
+    {
+        return
+            [
+                T_("Products") =>
+                    [
+                        T_("Full feature") => true,
+                        T_("Count limited") => \dash\fit::text('+650,000'),
+                        T_("Image gallery") => true,
+                        T_("Advance detail") => true,
+                        T_("Full controlle") => true,
+                    ],
+                T_("Cart & shipping")    =>
+                    [
+                        T_("Allow to manage cart") => true,
+                        T_("Specail manage") => true,
+                    ],
+                T_("API base ")    =>
+                    [
+                        T_("Allow to use from api") => true,
+                    ],
+            ];
+
+    }
+
+
+
     public function type(): string
     {
         return 'public';
