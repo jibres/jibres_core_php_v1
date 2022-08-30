@@ -1,135 +1,95 @@
 <?php
 $planList = \dash\data::planList();
 ?>
-
-
-<div class="max-w-7xl mx-auto py-6 px-4 bg-white sm:px-6 lg:px-8">
-
-    <p class="max-w-2xl text-xl text-gray-500">Choose an affordable plan that's packed with the best features for
-        engaging your audience, creating customer loyalty, and driving sales.</p>
-    <div class="mb-4 mt-4  flex">
-        <div class="mx-auto">
-            <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'monthly']) ?>"
-               class="<?php if (\dash\request::get('p') == 'monthly') : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
-                <?php echo T_("Monthly") ?>
-            </a>
-            <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'yearly']) ?>"
-               class="<?php if (\dash\request::get('p') == 'yearly' || !\dash\request::get('p')) : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
-                <?php echo T_("Yearly"); ?> <small> ( <?php echo T_("2 month free!") ?> ) </small>
-            </a>
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="bg-gray-100">
+    <div class="pt-12 sm:pt-16 lg:pt-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">Simple no-tricks pricing</h2>
+                <p class="mt-4 text-xl text-gray-600">If you're not satisfied, contact us within the first 14 days and we'll send you a full refund.</p>
+            </div>
         </div>
     </div>
-
-
-    <form method="post" autocomplete="off">
-        <div class="mt-24 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8">
-            <?php foreach ($planList as $plan) : ?>
-                <!-- Tiers -->
-                <div class="relative p-8 mx-1 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                    <div class="flex-1 mb-4">
-                        <h3 class="text-xl font-semibold text-gray-900"><?php echo $plan['title']; ?></h3>
-                        <p class="mt-4 flex items-baseline text-gray-900">
-                            <span class="text-5xl tracking-tight font-bold"><?php echo \dash\fit::number($plan['price']) ?> <small><?php echo $plan['currencyName']; ?></small></span>
-                            <span class="ml-1 text-xl font-semibold">/<?php if (\dash\request::get('p') == 'monthly') {
-                                    echo T_("month");
-                                } else {
-                                    echo T_("year");
-                                } ?></span>
-                        </p>
-                        <p class="mt-6 text-gray-500"><?php echo a($plan, 'description') ?></p>
-
-                        <ul role="list" class="mt-6 space-y-6">
-                            <?php foreach ($plan['featureList'] as $feature) : ?>
-                                <li class="flex">
-
-                                    <svg class="flex-shrink-0 w-6 h-6 text-indigo-500"
-                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                         stroke-width="2" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    <span class="ml-3 text-gray-500"><?php echo $feature ?></span>
+    <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
+        <div class="relative">
+            <div class="absolute inset-0 h-1/2 bg-gray-100"></div>
+            <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-lg overflow-hidden rounded-lg shadow-lg lg:flex lg:max-w-none">
+                    <div class="flex-1 bg-white px-6 py-8 lg:p-12">
+                        <h3 class="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight">Lifetime Membership</h3>
+                        <p class="mt-6 text-base text-gray-500">Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis repellendus etur quidem assumenda.</p>
+                        <div class="mt-8">
+                            <div class="flex items-center">
+                                <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-indigo-600">What's included</h4>
+                                <div class="flex-1 border-t-2 border-gray-200"></div>
+                            </div>
+                            <ul role="list" class="mt-8 space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0">
+                                <li class="flex items-start lg:col-span-1">
+                                    <div class="flex-shrink-0">
+                                        <!-- Heroicon name: mini/check-circle -->
+                                        <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-sm text-gray-700">Private forum access</p>
                                 </li>
-                            <?php endforeach; ?>
-                        </ul>
+
+                                <li class="flex items-start lg:col-span-1">
+                                    <div class="flex-shrink-0">
+                                        <!-- Heroicon name: mini/check-circle -->
+                                        <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-sm text-gray-700">Member resources</p>
+                                </li>
+
+                                <li class="flex items-start lg:col-span-1">
+                                    <div class="flex-shrink-0">
+                                        <!-- Heroicon name: mini/check-circle -->
+                                        <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-sm text-gray-700">Entry to annual conference</p>
+                                </li>
+
+                                <li class="flex items-start lg:col-span-1">
+                                    <div class="flex-shrink-0">
+                                        <!-- Heroicon name: mini/check-circle -->
+                                        <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-sm text-gray-700">Official member t-shirt</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <?php if ($plan['isActive']) : ?>
-
-                        <?php
-                        $html = '';
-                        $html .= '<div class="alert-info mt-2 mb-2 ">';
-                        {
-                            if (\dash\data::myPlanDetail_expirydate())
-                            {
-                                $html .= '<div>';
-                                {
-                                    $html .= T_("Current plan expire date is :date", ['date' => '<b>'. \dash\fit::date_time(\dash\data::myPlanDetail_expirydate()). '</b>']);
-                                }
-                                $html .= '</div>';
-                            }
-
-                            if (\dash\data::myPlanDetail_daysLeft())
-                            {
-                                $html .= '<div>';
-                                {
-                                    $html .= T_(":days left to expire plan", ['days' => '<b>'. \dash\fit::number(\dash\data::myPlanDetail_daysLeft()). '</b>']);
-                                }
-                                $html .= '</div>';
-                            }
-                        }
-                        $html .= '</div>';
-
-                        echo $html;
-                        ?>
-                        <button class="btn-primary text-3xl" name="plan" value="<?php echo $plan['name']; ?>" type="submit">
-                            <?php echo T_("Current plan") ?>
-                        </button>
-                    <?php else: ?>
-                        <button name="plan" value="<?php echo $plan['name']; ?>" type="submit"
-                                class="btn-success text-3xl">
-                            <?php echo T_("Choose this plan") ?>
-                        </button>
-                    <?php endif; ?>
+                    <div class="bg-gray-50 py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
+                        <p class="text-lg font-medium leading-6 text-gray-900">Pay once, own it forever</p>
+                        <div class="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-gray-900">
+                            <span>$349</span>
+                            <span class="ml-3 text-xl font-medium tracking-normal text-gray-500">USD</span>
+                        </div>
+                        <p class="mt-4 text-sm">
+                            <a href="#" class="font-medium text-gray-500 underline">Learn about our membership policy</a>
+                        </p>
+                        <div class="mt-6">
+                            <div class="rounded-md shadow">
+                                <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900">Get Access</a>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-sm">
+                            <a href="#" class="font-medium text-gray-900">
+                                Get a free sample
+                                <span class="font-normal text-gray-500">(20MB)</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
         </div>
-
-        <?php
-        $html = '';
-        if (\dash\data::myBudget()) {
-            if (\dash\data::myBudget()) {
-                $html .= '<div class="p-2 mt-4">';
-                {
-                    $html .= '<div class="switch1">';
-                    {
-                        $html .= '<input type="checkbox" name="use_budget" id="use_budget">';
-                        $html .= '<label for="use_budget"></label>';
-                        $html .= '<label for="use_budget">';
-                        {
-                            $html .= T_('Use from budget');
-                            $html .= ' ( ';
-                            {
-                                $html .= \dash\fit::number(\dash\data::myBudget_budget());
-                                $html .= ' ';
-                                $html .= \dash\data::myBudget_currency();
-                            }
-                            $html .= ' )';
-
-                        }
-                        $html .= '</label>';
-                    }
-                    $html .= '</div>';
-                }
-                $html .= '</div>';
-            }
-
-
-        }
-        echo $html;
-        ?>
-
-
-    </form>
+    </div>
 </div>
-
-
-
