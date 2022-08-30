@@ -216,6 +216,7 @@ class export
 
 		$template = [];
 
+        $answer_status = a($answer, 'status');
 
 		foreach ($items as $item_id => $item_detail)
 		{
@@ -363,7 +364,7 @@ class export
 				$export[$my_answer_id][$this_item_id] = $one_answer['answer'];
 			}
 
-			$export[$my_answer_id]['date'] = \dash\utility\convert::to_en_number(\dash\fit::date_time($one_answer['datecreated']));
+            $export[$my_answer_id]['date'] = \dash\utility\convert::to_en_number(\dash\fit::date_time($one_answer['datecreated']));
 		}
 
 		$new_export = [];
@@ -456,6 +457,7 @@ class export
 
 			$load_tags           = \lib\db\form_tag\get::string_all_tag($answer_id);
 			$load_comments       = \lib\db\form_comment\get::string_all_comment($answer_id);
+            $temp['answer_status'] = $answer_status;
 			$temp['tags']        = $load_tags;
 			$temp['comments']    = $load_comments;
 			$temp['inquirytime'] = null;
@@ -475,6 +477,8 @@ class export
 					$replace_item_id_to_item_title[$value['id']]['inquirytime'] = \dash\utility\convert::to_en_number(\dash\fit::date_time($times['last']['time']));
 				}
 			}
+            $replace_item_id_to_item_title[$value['id']]['answer_status'] = a($value, 'status');
+
 		}
 
 		return $replace_item_id_to_item_title;
