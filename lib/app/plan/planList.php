@@ -78,7 +78,7 @@ class planList
             'name'            => $_myPlan->name(),
             'title'           => $_myPlan->title(),
             'description'     => $_myPlan->description(),
-            'featureList'     => $_myPlan->featureList(),
+            'outstandingFeatures'     => $_myPlan->outstandingFeatures(),
             'price'           => $planPrice->calculatePrice($_period),
             'currency'        => $currency,
             'currencyName'    => $currencyName,

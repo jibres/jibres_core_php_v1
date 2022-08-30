@@ -35,7 +35,7 @@ class free extends  planPrepare
     }
 
 
-    public function featureList() : array
+    public function outstandingFeatures() : array
     {
         return
         [
@@ -50,6 +50,9 @@ class free extends  planPrepare
 
         ];
     }
+
+
+
 
     public function type(): string
     {

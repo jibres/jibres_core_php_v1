@@ -20,7 +20,7 @@ $planList = \dash\data::planList();
                     <div class="flex-1 bg-white px-6 py-8 lg:p-12">
                         <h3 class="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight"><?php echo \dash\data::myPlanDetail_planTitle() ?></h3>
                         <p class="mt-6 text-base text-gray-500"><?php echo \dash\data::myPlanDetail_planDescription() ?></p>
-                        <?php if (\dash\data::myPlanDetail_planFeatureList()) : ?>
+                        <?php if (\dash\data::myPlanDetail_planoutstandingFeatures()) : ?>
                             <div class="mt-8">
                                 <div class="flex items-center">
                                     <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-indigo-600">
@@ -29,7 +29,7 @@ $planList = \dash\data::planList();
                                 </div>
                                 <ul role="list"
                                     class="mt-8 space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0">
-                                    <?php foreach (\dash\data::myPlanDetail_planFeatureList() as $feature) : ?>
+                                    <?php foreach (\dash\data::myPlanDetail_planoutstandingFeatures() as $feature) : ?>
                                         <li class="flex items-start lg:col-span-1">
                                             <div class="flex-shrink-0">
                                                 <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ $planList = \dash\data::planList();
                             </p>
                             <div class="mt-6">
                                 <div class="rounded-md shadow">
-                                    <a href="#"
+                                    <a href="<?php echo \dash\url::this(). '/choose' ?>"
                                        class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900">Renew</a>
                                 </div>
                             </div>

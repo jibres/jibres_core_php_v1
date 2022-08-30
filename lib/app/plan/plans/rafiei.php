@@ -37,7 +37,7 @@ class rafiei extends planPrepare
     }
 
 
-    public function featureList() : array
+    public function outstandingFeatures() : array
     {
         return
         [

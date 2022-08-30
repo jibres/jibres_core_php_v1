@@ -19,7 +19,7 @@ class planReady
                         $loadPlan = planLoader::load($value);
                         $result['planTitle'] = $loadPlan->title();
                         $result['planDescription'] = $loadPlan->description();
-                        $result['planFeatureList'] = $loadPlan->featureList();
+                        $result['planoutstandingFeatures'] = $loadPlan->outstandingFeatures();
                     }
                     break;
 
