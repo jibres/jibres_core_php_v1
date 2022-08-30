@@ -1,6 +1,6 @@
 <?php
 $planList    = \dash\data::planList();
-$registerUrl = \dash\url::this();
+$registerUrl = \dash\url::this(). '/set';
 
 if (\dash\request::get('p') == 'monthly') {
     $periodType = T_("month");
