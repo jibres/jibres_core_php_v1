@@ -1,5 +1,5 @@
 <?php
-namespace content_a\plan\home;
+namespace content_a\plan\set;
 
 
 use lib\app\plan\planCheck;
@@ -8,11 +8,11 @@ class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_("Plan"));
+		\dash\face::title(T_("Set plan"));
 
 		// back
-		\dash\data::back_text(T_('Dashboard'));
-		\dash\data::back_link(\dash\url::here());
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this(). '/choose');
 
 		// TODO need to set plan hashtag in help center
         \dash\face::help(\dash\url::support(). '/hashtag/plan');

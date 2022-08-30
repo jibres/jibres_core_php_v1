@@ -14,6 +14,10 @@ class controller
 		}
 
 
+        \dash\open::get();
+        \dash\open::post();
+
+
 	}
 }
 

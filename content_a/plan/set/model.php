@@ -1,6 +1,6 @@
 <?php
 
-namespace content_a\plan\home;
+namespace content_a\plan\set;
 
 class model
 {
