@@ -29,7 +29,7 @@ class view
 		$business_have_inquery = [];
 
 		\dash\code::time_limit(0);
-        var_dump($list);
+
 		$store_have_application = [];
 		foreach ($list as $key => $value)
 		{
@@ -41,7 +41,11 @@ class view
 
 			if($resutl)
 			{
-				$business_have_inquery[$store_id] = $resutl;
+                $query    = "SELECT products.id AS `count` FROM products where products.price > 0 AND products.finalprice <= 0 ";
+
+                $ids   = \dash\pdo::get($query, [], 'count', false, $value['fuel'], ['database' => $dbname]);
+
+				$business_have_inquery[$store_id] = [$resutl, $ids];
 			}
 
 			\dash\pdo::close();
