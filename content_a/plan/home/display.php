@@ -48,28 +48,39 @@ $planList = \dash\data::planList();
                         <?php endif; ?>
                     </div>
                     <div class="bg-gray-50 py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
-                        <p class="text-lg font-medium leading-6 text-gray-900">Pay once, own it forever</p>
-                        <div class="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-gray-900">
-                            <span>$349</span>
-                            <span class="ml-3 text-xl font-medium tracking-normal text-gray-500">USD</span>
-                        </div>
-                        <p class="mt-4 text-sm">
-                            <a href="#" class="font-medium text-gray-500 underline">Learn about our membership
-                                policy</a>
-                        </p>
-                        <div class="mt-6">
-                            <div class="rounded-md shadow">
-                                <a href="#"
-                                   class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900">Get
-                                    Access</a>
+                        <?php if (\dash\data::myPlanDetail_plan() === 'free') : ?>
+                            <p class="text-lg font-medium leading-6 text-gray-900"><?php echo T_("Upgrade your plan to use from ultimate feature"); ?></p>
+                            <div class="mt-6">
+                                <div class="rounded-md shadow">
+                                    <a href="<?php echo \dash\url::this(). '/choose'; ?>"
+                                       class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900">Choose plan
+                                        </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="mt-4 text-sm">
-                            <a href="#" class="font-medium text-gray-900">
-                                Get a free sample
-                                <span class="font-normal text-gray-500">(20MB)</span>
-                            </a>
-                        </div>
+                        <?php else: ?>
+
+                            <section class="circularChartBox">
+                                <?php $myPercent=intval(80) ; include core.'/layout/elements/circularChart.php';?>
+                                <h3><?php echo T_("30 days  Remain");?></h3>
+                            </section>
+
+
+                            <p class="mt-4 text-sm">
+                                <a href="#" class="font-medium text-gray-500 underline">Learn about our plan policy</a>
+                            </p>
+                            <div class="mt-6">
+                                <div class="rounded-md shadow">
+                                    <a href="#"
+                                       class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900">Renew</a>
+                                </div>
+                            </div>
+
+                                <p class="mt-4 text-sm">
+                                    <a href="#" class="font-medium text-gray-500 underline">Cancel plan</a>
+                                </p>
+
+                        <?php endif; ?>
+
                     </div>
                 </div>
             </div>
