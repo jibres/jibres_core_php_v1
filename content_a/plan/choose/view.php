@@ -30,7 +30,7 @@ class view
 		$my_jibres_budget = \lib\api\jibres\api::budget();
 		\dash\data::myBudget($my_jibres_budget);
 
-		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyPlanHistoryDetail());
+		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyCurrentPlanDetail());
 
 	}
 }

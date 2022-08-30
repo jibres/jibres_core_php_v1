@@ -18,19 +18,9 @@ class view
         \dash\face::help(\dash\url::support(). '/hashtag/plan');
 		\dash\face::help(\dash\url::support());
 
-		$args =
-		[
-			'period' => \dash\request::get('p'),
-		];
 
+		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyCurrentPlanDetail());
 
-		\dash\data::planList(\lib\app\plan\planList::listByDetail($args));
-
-		// load budget from jibres api
-		$my_jibres_budget = \lib\api\jibres\api::budget();
-		\dash\data::myBudget($my_jibres_budget);
-
-		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyPlanHistoryDetail());
 
 	}
 }

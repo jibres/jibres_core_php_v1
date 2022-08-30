@@ -24,12 +24,12 @@ class businessPlanDetail
 
 
 
-    public static function getMyPlanHistoryDetail()
+    public static function getMyCurrentPlanDetail()
     {
         $currentPlanDetail = self::getMyPlanDetail();
         if($currentPlanDetail)
         {
-            return $currentPlanDetail->currentPlan();
+            return planReady::ready($currentPlanDetail->currentPlan());
         }
         return false;
     }
