@@ -11,8 +11,8 @@ class view
 		\dash\face::title(T_("Pick a plan"));
 
 		// back
-		\dash\data::back_text(T_('Dashboard'));
-		\dash\data::back_link(\dash\url::here());
+		\dash\data::back_text(T_('Plan'));
+		\dash\data::back_link(\dash\url::this());
 
 		// TODO need to set plan hashtag in help center
         \dash\face::help(\dash\url::support(). '/hashtag/plan');

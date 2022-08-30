@@ -20,7 +20,7 @@ class free extends  planPrepare
 
     public function description(): string
     {
-        return T_("Small business");
+        return T_("For ever!");
     }
 
     public function priceRial(): int
