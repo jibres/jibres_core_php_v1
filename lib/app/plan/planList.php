@@ -40,11 +40,8 @@ class planList
             }
         }
 
-        $preparePlanFeacureList = self::preparePlanFeacureList($planDetail);
-        foreach ($planDetail as $key => $value) 
-        {
-            $planDetail[$key]['preparePlanFeatureList'] = array_merge($preparePlanFeacureList, $value['featureList']);
-        }
+
+
 
         return $planDetail;
     }
@@ -94,8 +91,12 @@ class planList
         return $planDetail;
     }
 
-    private static function preparePlanFeacureList(array $_planDetail)
+    public static function preparePlanFeacureList(array $_planDetail)
     {
+        $allPlan = array_column($_planDetail, 'name');
+        $allPlan = array_flip($allPlan);
+        $allPlan = array_map(function(){return null;}, $allPlan);
+
         $allFeature = [];
         foreach ($_planDetail as $planDetail) 
         {
@@ -110,11 +111,23 @@ class planList
                 {
                     if(!array_key_exists($item_key, $allFeature[$group]))
                     {
-                        $allFeature[$group][$item_key] = null;
+                        $allFeature[$group][$item_key] = $allPlan;
                     }
                 }
 
             }    
+        }
+
+        foreach ($_planDetail as $plan)
+        {
+            foreach ($plan['featureList'] as $group => $list)
+            {
+                foreach ($list as $item => $value)
+                {
+                    $allFeature[$group][$item][$plan['name']] = $value;
+                }
+            }
+
         }
 
         return $allFeature;

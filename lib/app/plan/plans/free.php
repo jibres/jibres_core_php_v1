@@ -61,6 +61,7 @@ class free extends  planPrepare
                         T_("Count limited") => \dash\fit::text('+10,000'),
                         T_("Image gallery") => true,
                         T_("Advance detail") => false,
+                        T_("Free for ever") => true,
                     ],
                 T_("Cart & shipping")    =>
                     [

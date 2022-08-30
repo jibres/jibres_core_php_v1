@@ -23,14 +23,16 @@ class view
 			'period' => \dash\request::get('p'),
 		];
 
-
-		\dash\data::planList(\lib\app\plan\planList::listByDetail($args));
+		$planList = \lib\app\plan\planList::listByDetail($args);
+		\dash\data::planList($planList);
+		\dash\data::tableFeatureList(\lib\app\plan\planList::preparePlanFeacureList($planList));
 
 		// load budget from jibres api
 		$my_jibres_budget = \lib\api\jibres\api::budget();
 		\dash\data::myBudget($my_jibres_budget);
 
 		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyCurrentPlanDetail());
+
 
 	}
 }
