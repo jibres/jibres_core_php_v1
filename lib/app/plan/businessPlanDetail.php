@@ -141,8 +141,6 @@ class businessPlanDetail
 
     private function syncRequired()
     {
-        $syncRequired = true;
-
         $planSyncSetting = \lib\db\setting\get::by_cat_key('plan', 'synced');
 
         if(isset($planSyncSetting['value']))
