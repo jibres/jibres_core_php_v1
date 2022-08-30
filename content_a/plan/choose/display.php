@@ -1,5 +1,7 @@
 <?php
 $planList = \dash\data::planList();
+
+$registerUrl = \dash\url::this();
 ?>
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-white">
@@ -19,7 +21,7 @@ $planList = \dash\data::planList();
                                 } ?></span>
                         </p>
                         <p class="mt-4 text-sm text-gray-500"><?php echo $plan['description'] ?></p>
-                        <a href="#"
+                        <a href="<?php echo $registerUrl. '/'. $plan['name'] ?>"
                            class="mt-6 block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">Buy
                             <?php echo $plan['title'] ?></a>
                     </div>
@@ -77,7 +79,7 @@ $planList = \dash\data::planList();
 
 
                     <div class="border-t border-gray-200 px-4 pt-5">
-                        <a href="#"
+                        <a href="<?php echo $registerUrl. '/'. $plan['name'] ?>"
                            class="block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">Buy
                             <?php echo $plan['title'] ?></a>
                     </div>
@@ -118,15 +120,19 @@ $planList = \dash\data::planList();
                         <td class="h-full py-8 px-6 align-top">
                             <div class="relative table h-full">
                                 <p>
+                                    <?php if($plan['price']) : ?>
                                     <span class="text-4xl font-bold tracking-tight text-gray-900"><?php echo \dash\fit::number($plan['price']) ?> <small><?php echo $plan['currencyName']; ?></small></span>
                                     <span class="text-base font-medium text-gray-500">/<?php if (\dash\request::get('p') == 'monthly') {
                                             echo T_("month");
                                         } else {
                                             echo T_("year");
                                         } ?></span>
+                                    <?php else: ?>
+                                        <span class="text-4xl font-bold tracking-tight text-gray-900"><?php echo T_("Free"); ?></span>
+                                    <?php endif; ?>
                                 </p>
                                 <p class="mt-4 mb-16 text-sm text-gray-500"><?php echo $plan['description'] ?></p>
-                                <a href="#"
+                                <a href="<?php echo $registerUrl. '/'. $plan['name'] ?>"
                                    class="5 absolute bottom-0 block w-full flex-grow rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">
                                     <?php echo T_("Choose plan") ?></a>
                             </div>
@@ -188,7 +194,7 @@ $planList = \dash\data::planList();
                     <?php foreach ($planList as $plan) : ?>
 
                         <td class="px-6 pt-5">
-                            <a href="#"
+                            <a href="<?php echo $registerUrl. '/'. $plan['name'] ?>"
                                class="block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">Buy
                                 <?php echo $plan['title'] ?></a>
                         </td>
