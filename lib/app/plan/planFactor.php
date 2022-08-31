@@ -114,35 +114,103 @@ class planFactor
 		$access      = true;
 		$reason      = null;
 
-		$currentPlans = storePlan::currentPlan($_business_id);
+		$currentPlan = storePlan::currentPlan($_business_id);
 
-
-		if (a($currentPlans, 'plan') === 'free')
+		if (a($currentPlan, 'plan') === 'free')
 		{
 			$access = false;
 			$reason = T_("Can not cancel free plan!");
 		}
 
+		$price = $currentPlan['finalprice'];
+
+		$factor[] = ['title' => T_("Your payment"), 'price' => $price];
+
 		$actionTitle = T_("Cancel plan");
 
-		print_r($currentPlans);exit();
+		$myPlan = $currentPlan['plan'];
 
-		if ($data['period'] === 'monthly')
+		$myPlan = planLoader::load($myPlan);
+		$planTitle = $myPlan->title();
+
+		planReady::calculateDays($currentPlan);
+
+		$daysLeft  = floatval(a($currentPlan, 'daysLeft'));
+		$daysSpent = floatval(a($currentPlan, 'daysSpent'));
+		$days      = floatval(a($currentPlan, 'days'));
+		if(!$days)
 		{
-			$detail[] = ['title' => T_("Period"), 'value' => T_("One month")];
+			$days = 1;
+		}
+
+
+
+		if($daysLeft)
+		{
+			$detail[] = ['title' => T_("Days left"), 'value' => \dash\fit::number($daysLeft)];
+		}
+		if($daysSpent)
+		{
+			$detail[] = ['title' => T_("Days Spent"), 'value' => \dash\fit::number($daysSpent)];
+		}
+
+		$guaranteeDays = null;
+
+		if(a($currentPlan, 'periodtype') === 'yearly')
+		{
+
+			$guaranteeDays = 30;
+		}
+		elseif(a($currentPlan, 'periodtype') === 'monthly')
+		{
+			$guaranteeDays = 7;
+		}
+
+		$refund_full = false;
+		if($guaranteeDays && $daysLeft && $daysSpent)
+		{
+			if($daysSpent <= $guaranteeDays)
+			{
+				// TODO this business use from guarantee refund
+				if(true)
+				{
+					$refund_full = true;
+				}
+			}
+		}
+
+		if($refund_full)
+		{
+			$factor[] = ['title' => T_("Guarantee refund"), 'price' => a($currentPlan, 'finalprice')];
+			$detail[] = ['title' => T_("Guarantee"), 'value' => T_("Valid")];
 		}
 		else
 		{
-			$detail[] = ['title' => T_("Period"), 'value' => T_("One year")];
+			// calculate spend days
+			$pricePerDays  = $price / $days;
+			$priceSpent = $pricePerDays * $daysSpent;
+			// round 10000
+			// 1633879.7814208
+			// 1,633,879.7814208
+			// 1,630,000
+			$priceSpent = round($priceSpent, -4, PHP_ROUND_HALF_DOWN);
+
+			$factor[] = ['title' => T_("Price spent"), 'price' => $priceSpent];
+
+			$refund = $price - $priceSpent;
+
+			$factor[] = ['title' => T_("Refund"), 'price' => $refund];
+			
+			$price = $refund;
+
 		}
 
+		if($price < 0)
+		{
+			$price = 0;
+		}
 
 		$result['factor'] = $factor;
-		$result['total']  =
-			[
-				"price"    => $price,
-				"currency" => 'IRT',
-			];
 
 		$result['access'] =
 			[
@@ -151,13 +219,13 @@ class planFactor
 				'type'   => 'error',
 			];
 
-		$result['user'] =
-			[
-				'budget' => \dash\db\transactions::budget(\dash\user::id()),
-			];
 
 		$result['detail'] = $detail;
-
+		$result['total']  =
+			[
+				"price"    => $price,
+				"currency" => 'IRT',
+			];
 
 		$result['meta'] =
 			[

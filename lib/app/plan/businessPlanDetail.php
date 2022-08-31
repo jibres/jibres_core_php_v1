@@ -89,47 +89,7 @@ class businessPlanDetail
     {
         if($this->currnentPlanRecordDetail)
         {
-            if(isset($this->currnentPlanRecordDetail['expirydate']) &&$this->currnentPlanRecordDetail['expirydate'])
-            {
-				if(strtotime($this->currnentPlanRecordDetail['expirydate']) > time())
-				{
-					$date1 = new \DateTime(date("Y-m-d H:i:s"));  //current date or any date
-					$date2 = new \DateTime($this->currnentPlanRecordDetail['expirydate']);   //Future date
-					$diff = $date2->diff($date1)->format("%a");  //find difference
-					$days = intval($diff) + 1;   //rounding days 1 is today
-				}
-				else
-				{
-					$days = 0;
-				}
-
-				// var_dump($diff, $days);exit();
-                if($days < 0)
-                {
-                    $days = null;
-                }
-
-				$daysRemainPercent = 0;
-
-				if(isset($this->currnentPlanRecordDetail['days']) && $this->currnentPlanRecordDetail['days'] && $days)
-				{
-					$daysRemainPercent = \dash\number::percent($days, $this->currnentPlanRecordDetail['days']);
-					$daysRemainPercent = round($daysRemainPercent);
-					if($daysRemainPercent > 100)
-					{
-						$daysRemainPercent = 100;
-					}
-					if($daysRemainPercent < 0)
-					{
-						$daysRemainPercent = 0;
-					}
-
-				}
-
-                $this->currnentPlanRecordDetail['daysLeft'] = $days;
-				$this->currnentPlanRecordDetail['daysRemainPercent'] = $daysRemainPercent;
-
-            }
+          planReady::calculateDays($this->currnentPlanRecordDetail);
         }
 
         // TODO check expire date and disable if expired
