@@ -225,6 +225,12 @@ class api
 
 	}
 
+	public static function plan_cancel()
+	{
+		$result = self::run('plan', 'delete');
+		return $result;
+	}
+
 
 	public static function plan_activate($_args)
 	{
@@ -309,5 +315,7 @@ class api
 	}
 
 
+
+
+
 }
-?>

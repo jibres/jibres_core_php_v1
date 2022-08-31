@@ -51,6 +51,22 @@ class businessPlanDetail
 	}
 
 
+	public static function doCancel()
+	{
+		$doCancelPlan = \lib\api\jibres\api::plan_cancel();
+
+		if(isset($doCancelPlan['result']))
+		{
+			$result = $doCancelPlan['result'];
+		}
+		else
+		{
+			$result = [];
+		}
+		return $result;
+	}
+
+
 	public function __construct($_business_id)
     {
         $this->store_id = $_business_id;
@@ -104,6 +120,7 @@ class businessPlanDetail
     {
         return $this->currnentPlanRecordDetail;
     }
+
 
 
 
