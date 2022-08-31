@@ -17,7 +17,18 @@ class planList
     }
 
 
-    public static function listByDetail($_args = [])
+	public static function cancelAble() : array
+	{
+		return
+		[
+			'gold',
+			'diamond',
+		];
+	}
+
+
+
+	public static function listByDetail($_args = [])
     {
         $planDetail = [];
 
@@ -133,4 +144,6 @@ class planList
         return $allFeature;
 
     }
+
+
 }

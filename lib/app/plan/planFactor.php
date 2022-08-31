@@ -7,6 +7,33 @@ class planFactor
 
 	public static function calculate($_business_id, array $_args)
 	{
+		$data = self::cleanArgs($_args);
+
+		if (!$data['plan'])
+		{
+			\dash\notif::error_once(T_("Plan arguments is required!"));
+			return false;
+		}
+
+		if ($data['action_type'] === 'register')
+		{
+			return self::registerFactor($_business_id, $data);
+		}
+		elseif ($data['action_type'] === 'cancel')
+		{
+			return self::cancelFactor($_business_id, $data);
+		}
+		else
+		{
+			\dash\notif::error_once(T_("Invalid action type"));
+			return false;
+		}
+
+	}
+
+
+	private static function registerFactor($_business_id, array $data)
+	{
 		$result      = [];
 		$factor      = [];
 		$detail      = [];
@@ -14,33 +41,30 @@ class planFactor
 		$reason      = null;
 		$actionTitle = null;
 
-		$data = self::cleanArgs($_args);
-
 		$currentPlans = storePlan::currentPlan($_business_id);
 
-		if(a($currentPlans, 'plan') !== 'free')
+		if (a($currentPlans, 'plan') !== 'free')
 		{
-			if($data['action_type'] === 'register')
+			if ($data['action_type'] === 'register')
 			{
 				$access = false;
 				$reason = T_("You must cancel current plan to choose another");
 			}
 		}
 
-
 		$loadPlan = planLoader::load($data['plan']);
 		$loadPlan->setPeriod($data['period']);
 		$loadPlan->prepare();
 
 		$planTitle = $loadPlan->title();
-		$price = $loadPlan->price();
+		$price     = $loadPlan->price();
 
-		if($data['action_type'] === 'register')
+		if ($data['action_type'] === 'register')
 		{
 			$actionTitle = T_("Buy plan");
 		}
 
-		if($data['period'] === 'monthly')
+		if ($data['period'] === 'monthly')
 		{
 			$detail[] = ['title' => T_("Period"), 'value' => T_("One month")];
 		}
@@ -82,44 +106,48 @@ class planFactor
 	}
 
 
-	private static function  sampleResult()
+	private static function cancelFactor($_business_id, array $data)
 	{
-		$result           = [];
-		$result['factor'] =
-			[
-				[
-					'title'       => 'Buy plan a',
-					'price'       => 200000,
-					'type'        => 'plus',
-					'currency'    => 'IRT',
-					'description' => T_("Period One month"),
-				],
-				[
-					'title'       => 'Vat',
-					'price'       => 200,
-					'type'        => 'plus',
-					'currency'    => 'IRT',
-					'description' => T_("Vat"),
-				],
-				[
-					'title'       => 'Discount',
-					'price'       => 150000,
-					'type'        => 'minus',
-					'currency'    => 'IRT',
-					'description' => T_("Vat"),
-				],
-			];
+		$result      = [];
+		$factor      = [];
+		$detail      = [];
+		$access      = true;
+		$reason      = null;
 
-		$result['total'] =
+		$currentPlans = storePlan::currentPlan($_business_id);
+
+
+		if (a($currentPlans, 'plan') === 'free')
+		{
+			$access = false;
+			$reason = T_("Can not cancel free plan!");
+		}
+
+		$actionTitle = T_("Cancel plan");
+
+		print_r($currentPlans);exit();
+
+		if ($data['period'] === 'monthly')
+		{
+			$detail[] = ['title' => T_("Period"), 'value' => T_("One month")];
+		}
+		else
+		{
+			$detail[] = ['title' => T_("Period"), 'value' => T_("One year")];
+		}
+
+
+		$result['factor'] = $factor;
+		$result['total']  =
 			[
-				"price"    => 198000,
+				"price"    => $price,
 				"currency" => 'IRT',
 			];
 
 		$result['access'] =
 			[
-				'ok'     => false,
-				'reason' => T_("You must discart current plan"),
+				'ok'     => $access,
+				'reason' => $reason,
 				'type'   => 'error',
 			];
 
@@ -128,27 +156,16 @@ class planFactor
 				'budget' => \dash\db\transactions::budget(\dash\user::id()),
 			];
 
-		$result['detail'] =
-			[
+		$result['detail'] = $detail;
 
-				[
-					'title' => T_("Plan"),
-					'value' => T_("Gold"),
-				],
-				[
-					'title' => T_("Start date"),
-					'value' => \dash\fit::date(date("Y-m-d")),
-				],
-			];
 
 		$result['meta'] =
 			[
-
-				'action_title' => T_("Register new plan"),
-				'plan_title' => T_("Gold"),
-				'period_title' => T_("One year"),
-
+				'action_title' => $actionTitle,
+				'plan_title'   => $planTitle,
 			];
+
+		return $result;
 	}
 
 
@@ -165,7 +182,7 @@ class planFactor
 
 		$require = ['plan'];
 
-		$meta    = [];
+		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
