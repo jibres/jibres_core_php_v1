@@ -16,21 +16,21 @@ class planFactor
 					'price'       => 200000,
 					'type'        => 'plus',
 					'currency'    => 'IRT',
-					'descritpion' => T_("Period One month"),
+					'description' => T_("Period One month"),
 				],
 				[
 					'title'       => 'Vat',
 					'price'       => 200,
 					'type'        => 'plus',
 					'currency'    => 'IRT',
-					'descritpion' => T_("Vat"),
+					'description' => T_("Vat"),
 				],
 				[
 					'title'       => 'Discount',
 					'price'       => 150000,
 					'type'        => 'minus',
 					'currency'    => 'IRT',
-					'descritpion' => T_("Vat"),
+					'description' => T_("Vat"),
 				],
 			];
 
@@ -45,6 +45,33 @@ class planFactor
 				'ok'     => false,
 				'reason' => T_("You must discart current plan"),
 				'type'   => 'error',
+			];
+
+		$result['user'] =
+			[
+				'budget' => \dash\db\transactions::budget(\dash\user::id()),
+			];
+
+		$result['detail'] =
+			[
+
+				[
+					'title' => T_("Plan"),
+					'value' => T_("Gold"),
+				],
+				[
+					'title' => T_("Start date"),
+					'value' => \dash\fit::date(date("Y-m-d")),
+				],
+			];
+
+		$result['meta'] =
+			[
+
+				'action_title' => T_("Register new plan"),
+				'plan_title' => T_("Gold"),
+				'period_title' => T_("One year"),
+
 			];
 
 		return $result;

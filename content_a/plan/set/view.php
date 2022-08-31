@@ -18,17 +18,20 @@ class view
         \dash\face::help(\dash\url::support(). '/hashtag/plan');
 		\dash\face::help(\dash\url::support());
 
+		\dash\data::global_scriptPage("my_domain_review.js");
+
 
 		$loadNewPlan =
 			[
 				'plan'        => \dash\data::planName(),
 				'period'      => \dash\request::get('p'),
+				'gift'        => \dash\request::get('gift'),
 				'business_id' => \lib\store::id(),
 				'action_type' => 'register',
 			];
 
 		$planFactor = \lib\app\plan\businessPlanDetail::calculateFactor($loadNewPlan);
-
+		\dash\data::planFactor($planFactor);
 	}
 }
-?>
+

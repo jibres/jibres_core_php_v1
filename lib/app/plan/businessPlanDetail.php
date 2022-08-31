@@ -37,7 +37,7 @@ class businessPlanDetail
 	public static function calculateFactor(array $_args)
 	{
 		$planFactorOnJibres = \lib\api\jibres\api::plan_factor($_args);
-		var_dump($planFactorOnJibres);
+
 		if(isset($planFactorOnJibres['result']))
 		{
 			$result = $planFactorOnJibres['result'];
