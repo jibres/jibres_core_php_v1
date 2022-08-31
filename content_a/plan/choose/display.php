@@ -1,6 +1,6 @@
 <?php
 $planList    = \dash\data::planList();
-$registerUrl = \dash\url::this(). '/set';
+
 
 if (\dash\request::get('p') == 'monthly') {
     $periodType = T_("month");
@@ -18,6 +18,12 @@ function HTMLValueDetectorPricing($value)
         return \dash\utility\icon::svg('Minus', 'minor', '#DCDCDC', 'w-5 h-5');
 
     }
+}
+
+function  HTMLPlanLinkUrl($plan)
+{
+    $registerUrl = \dash\url::this(). '/set/%s?p='. \dash\request::get('p');
+    return sprintf($registerUrl, $plan);
 }
 
 
@@ -58,7 +64,7 @@ function HTMLValueDetectorPricing($value)
                             </p>
                         <?php endif; ?>
                         <p class="mt-4 text-sm text-gray-500"><?php echo $plan['description'] ?></p>
-                        <a href="<?php echo $registerUrl . '/' . $plan['name'] ?>"
+                        <a href="<?php echo HTMLPlanLinkUrl($plan['name']); ?>"
                            class="mt-6 block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">Buy
                             <?php echo $plan['title'] ?></a>
                     </div>
@@ -82,7 +88,7 @@ function HTMLValueDetectorPricing($value)
                         </table>
                     <?php endforeach; ?>
                     <div class="border-t border-gray-200 px-4 pt-5">
-                        <a href="<?php echo $registerUrl . '/' . $plan['name'] ?>"
+                        <a href="<?php echo HTMLPlanLinkUrl($plan['name']); ?>"
                            class="block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">Buy
                             <?php echo $plan['title'] ?></a>
                     </div>
@@ -126,7 +132,7 @@ function HTMLValueDetectorPricing($value)
                                     <?php endif; ?>
                                 </p>
                                 <p class="mt-4 mb-16 text-sm text-gray-500"><?php echo $plan['description'] ?></p>
-                                <a href="<?php echo $registerUrl . '/' . $plan['name'] ?>"
+                                <a href="<?php echo HTMLPlanLinkUrl($plan['name']); ?>"
                                    class="5 absolute bottom-0 block w-full flex-grow rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">
                                     <?php echo T_("Choose plan") ?></a>
                             </div>
@@ -154,7 +160,7 @@ function HTMLValueDetectorPricing($value)
                     <th class="sr-only" scope="row">Choose your plan</th>
                     <?php foreach ($planList as $plan) : ?>
                         <td class="px-6 pt-5">
-                            <a href="<?php echo $registerUrl . '/' . $plan['name'] ?>"
+                            <a href="<?php echo HTMLPlanLinkUrl($plan['name']); ?>"
                                class="block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">Buy
                                 <?php echo $plan['title'] ?></a>
                         </td>
