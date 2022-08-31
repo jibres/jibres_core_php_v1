@@ -13,6 +13,8 @@ class controller
 			\dash\header::status(404, T_("Invalid plan name"));
 		}
 
+        \dash\data::planName($plan);
+
 
         \dash\open::get();
         \dash\open::post();

@@ -34,7 +34,24 @@ class businessPlanDetail
         return false;
     }
 
-    public function __construct($_business_id)
+	public static function calculateFactor(array $_args)
+	{
+		$planFactorOnJibres = \lib\api\jibres\api::plan_factor($_args);
+		var_dump($planFactorOnJibres);
+		if(isset($planFactorOnJibres['result']))
+		{
+			$result = $planFactorOnJibres['result'];
+		}
+		else
+		{
+			$result = [];
+		}
+
+		return $result;
+	}
+
+
+	public function __construct($_business_id)
     {
         $this->store_id = $_business_id;
 
@@ -103,7 +120,8 @@ class businessPlanDetail
     }
 
 
-    public function contain() : array
+
+	public function contain() : array
     {
         if($this->currentPlan)
         {

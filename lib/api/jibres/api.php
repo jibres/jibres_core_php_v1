@@ -148,7 +148,11 @@ class api
 
 		if(!$response)
 		{
-				\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jibres_api_error.log', 'jibres_api');
+			if(\dash\url::isLocal())
+			{
+				var_dump($log);exit();
+			}
+			\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jibres_api_error.log', 'jibres_api');
 			if($CurlError)
 			{
 				// \dash\log::to_supervisor('#jibres_api #CURL_Error: '. $CurlError);
@@ -208,10 +212,18 @@ class api
 	}
 
     public static function plan_detail_history()
-    {
-        $result = self::run('plan','get', ['gethistory' => true]);
-        return $result;
-    }
+	{
+		$result = self::run('plan', 'get', ['gethistory' => true]);
+		return $result;
+	}
+
+	public static function plan_factor(array $_args)
+	{
+		$_args['factor'] = true;
+		$result = self::run('plan', 'get', $_args);
+		return $result;
+
+	}
 
 
 	public static function plan_activate($_args)
@@ -295,5 +307,7 @@ class api
 		$result = self::run('telegram','post', [], $_args, ['not_check_login' => true]);
 		return $result;
 	}
+
+
 }
 ?>

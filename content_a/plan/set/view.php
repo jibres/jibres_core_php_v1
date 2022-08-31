@@ -19,8 +19,15 @@ class view
 		\dash\face::help(\dash\url::support());
 
 
-		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyCurrentPlanDetail());
+		$loadNewPlan =
+			[
+				'plan'        => \dash\data::planName(),
+				'period'      => \dash\request::get('p'),
+				'business_id' => \lib\store::id(),
+				'action_type' => 'register',
+			];
 
+		$planFactor = \lib\app\plan\businessPlanDetail::calculateFactor($loadNewPlan);
 
 	}
 }

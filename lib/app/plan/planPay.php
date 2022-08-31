@@ -7,7 +7,7 @@ class planPay
 {
     private $plan;
     private $planPrice;
-    private $sote_id;
+    private $store_id;
     private $needPay = false;
     private $payLink = null;
 
