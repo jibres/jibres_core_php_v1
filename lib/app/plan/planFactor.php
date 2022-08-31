@@ -10,11 +10,9 @@ class planFactor
 		$result      = [];
 		$factor      = [];
 		$detail      = [];
-		$price       = 0;
-		$access      = null;
+		$access      = true;
 		$reason      = null;
 		$actionTitle = null;
-		$planTitle   = null;
 
 		$data = self::cleanArgs($_args);
 

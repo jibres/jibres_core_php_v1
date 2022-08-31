@@ -32,7 +32,7 @@ $totalPrice = a($planFactor, 'total', 'price');
         </div>
         <div class="c s12">
 
-			<?php if (!a($planFactor, 'access', 'ok')) { ?>
+			<?php if (a($planFactor, 'access', 'reason')) { ?>
                 <div class="alert-danger fs14">
 					<?php echo a($planFactor, 'access', 'reason'); ?>
                 </div>

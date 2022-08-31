@@ -8,11 +8,12 @@ class model
     {
         $args =
         [
-            'plan'       => \dash\request::post('plan'),
+            'plan'       => \dash\data::planName(),
             'period'     => \dash\request::get('p'),
-            'turn_back'  => \dash\url::pwd(),
-            'use_budget' => \dash\request::post('use_budget'),
+            'turn_back'  => \dash\url::this(),
+            'use_budget' => \dash\request::post('usebudget'),
         ];
+
 
         if(!$args['period'])
         {
@@ -23,7 +24,7 @@ class model
 
         if(\dash\engine\process::status())
         {
-            \dash\redirect::pwd();
+            \dash\redirect::to(\dash\url::this());
         }
     }
 
