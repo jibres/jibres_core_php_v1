@@ -26,7 +26,6 @@ class view
 				'plan'        => \dash\data::planName(),
 				'period'      => \dash\request::get('p'),
 				'gift'        => \dash\request::get('gift'),
-				'business_id' => \lib\store::id(),
 				'action_type' => 'register',
 			];
 

@@ -179,7 +179,11 @@ $totalPrice = a($planFactor, 'total', 'price');
                         </div>
                         <div class="c"></div>
                         <div class="cauto">
+                            <?php if(a($planFactor, 'access', 'ok')) :?>
                             <button class="btn-success"><?php echo T_("Pay"); ?></button>
+                            <?php else: ?>
+                                <button class="btn-success disabled"><?php echo T_("Pay"); ?></button>
+                            <?php endif; ?>
                         </div>
                     </footer>
                 </div>
