@@ -133,11 +133,24 @@ class storePlan
             $currentPlan = $_lastPlanRecord['plan'];
         }
 
-        // TODO need check status and
+
         if(isset($_lastPlanRecord['status']) && $_lastPlanRecord['status'] === 'active')
         {
             // ok. Nothing.
         }
+
+		$expDate = a($_lastPlanRecord, 'expirydate');
+
+		if($expDate)
+		{
+			if(strtotime($_lastPlanRecord['expirydate']) < time())
+			{
+				\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'expired'], $_lastPlanRecord['id']);
+				planSet::setFirstPlan($_business_id, 'free');
+				$currentPlan = 'free';
+				$expDate     = null;
+			}
+		}
 
         $updateStoreData = [];
 
@@ -146,9 +159,9 @@ class storePlan
             $updateStoreData['plan'] = $currentPlan;
         }
 
-        if(!\dash\validate::is_equal(a($_lastPlanRecord, 'expirydate'), a($_loadBusinessData, 'planexp')))
+        if(!\dash\validate::is_equal($expDate, a($_loadBusinessData, 'planexp')))
         {
-            $updateStoreData['planexp'] = $_lastPlanRecord['expirydate'];
+            $updateStoreData['planexp'] = $expDate;
         }
 
         if($updateStoreData)
@@ -186,6 +199,7 @@ class storePlan
 
         if(planChoose::allowChoosePlan($currentPlan, $newPlan))
         {
+			\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'buy new plan'], $currentPlan['id']);
             planSet::set($store_id, $newPlan, $currentPlan);
             self::minusTransaction($args, $newPlan);
             return true;

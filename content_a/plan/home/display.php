@@ -7,8 +7,8 @@ $planList = \dash\data::planList();
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"><?php echo T_("Your current plan"); ?></h2>
-                <p class="mt-4 text-xl text-gray-600">Must be show current plan days or notif for expire or can upgrade
-                    and downgrade</p>
+                <p class="mt-4 text-xl text-gray-600"><?php echo T_("Must be show current plan days or notif for expire or can upgrade
+                    and downgrade"); ?></p>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@ $planList = \dash\data::planList();
                             <div class="mt-8">
                                 <div class="flex items-center">
                                     <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-indigo-600">
-                                        What's included</h4>
+                                        <?php echo T_("What's included"); ?></h4>
                                     <div class="flex-1 border-t-2 border-gray-200"></div>
                                 </div>
                                 <ul role="list"
@@ -53,30 +53,30 @@ $planList = \dash\data::planList();
                             <div class="mt-6">
                                 <div class="rounded-md shadow">
                                     <a href="<?php echo \dash\url::this(). '/choose'; ?>"
-                                       class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900">Choose plan
+                                       class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900"><?php echo T_("Choose plan"); ?>
                                         </a>
                                 </div>
                             </div>
                         <?php else: ?>
 
                             <section class="circularChartBox">
-                                <?php $myPercent=intval(80) ; include core.'/layout/elements/circularChart.php';?>
-                                <h3><?php echo T_("30 days  Remain");?></h3>
+                                <?php $myPercent=intval(\dash\data::myPlanDetail_daysRemainPercent()) ; include core.'/layout/elements/circularChart.php';?>
+                                <h3><?php echo T_(":val days  Remain", ['val' => \dash\fit::number(\dash\data::myPlanDetail_daysLeft())]);?></h3>
                             </section>
 
 
                             <p class="mt-4 text-sm">
-                                <a href="#" class="font-medium text-gray-500 underline">Learn about our plan policy</a>
+                                <a href="<?php echo \dash\face::help() ?>" class="font-medium text-gray-500 underline"><?php echo T_("Learn about our plan policy"); ?></a>
                             </p>
                             <div class="mt-6">
                                 <div class="rounded-md shadow">
-                                    <a href="<?php echo \dash\url::this(). '/choose' ?>"
-                                       class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900">Renew</a>
+                                    <a href="<?php echo \dash\url::this(). '/renew' ?>"
+                                       class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900"><?php echo T_("Renew"); ?></a>
                                 </div>
                             </div>
 
                                 <p class="mt-4 text-sm">
-                                    <a href="#" class="font-medium text-gray-500 underline">Cancel plan</a>
+                                    <a href="<?php echo \dash\url::this(). '/cancel' ?>" class="font-medium text-gray-500 underline"><?php echo T_("Cancel plan"); ?></a>
                                 </p>
 
                         <?php endif; ?>
