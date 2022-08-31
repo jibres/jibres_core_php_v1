@@ -23,9 +23,23 @@ function HTMLValueDetectorPricing($value)
 
 ?>
 
-<div class="bg-white">
+
+
     <div class="mx-auto max-w-7xl bg-white py-16 sm:py-24 sm:px-6 lg:px-8">
-        <!-- xs to lg -->
+        <div class="bg-white">
+            <div class="mb-4 mt-4  flex">
+                <div class="mx-auto">
+                    <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'monthly']) ?>"
+                       class="<?php if (\dash\request::get('p') == 'monthly') : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
+                        <?php echo T_("Monthly") ?>
+                    </a>
+                    <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'yearly']) ?>"
+                       class="<?php if (\dash\request::get('p') == 'yearly' || !\dash\request::get('p')) : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
+                        <?php echo T_("Yearly"); ?> <small> ( <?php echo T_("2 month free!") ?> ) </small>
+                    </a>
+                </div>
+            </div>
+            <!-- xs to lg -->
         <div class="mx-auto max-w-2xl space-y-16 lg:hidden">
             <?php foreach ($planList as $plan) : ?>
                 <section>
