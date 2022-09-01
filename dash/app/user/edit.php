@@ -42,10 +42,14 @@ trait edit
 	{
 		$is_staff  = null;
 		$load_user = null;
+		$jibres_user_id = null;
+
 		// in stroe whene user signuped we need to set jibres_user_id
 		if(\dash\engine\store::inStore())
 		{
 			$load_user = \dash\db\users::get_by_id($_id);
+
+			$jibres_user_id = a($load_user, 'jibres_user_id');
 
 			if(isset($load_user['jibres_user_id']) && $load_user['jibres_user_id'] && \lib\store::detail('owner'))
 			{
@@ -66,6 +70,7 @@ trait edit
 				}
 			}
 
+
 			if(array_key_exists('mobile', $_args))
 			{
 				if($_args['mobile'])
@@ -74,11 +79,15 @@ trait edit
 					if($mobile)
 					{
 						$_args['jibres_user_id'] = \lib\app\sync\user::jibres_user_id(['mobile' => $mobile]);
+						$jibres_user_id = $_args['jibres_user_id'];
 					}
 				}
 				else
 				{
 					$_args['jibres_user_id'] = null;
+					// remove staff from old jibres user id
+					$jibres_user_id          = $load_user['jibres_user_id'];
+					$is_staff                = false;
 				}
 			}
 
@@ -98,9 +107,6 @@ trait edit
 					\dash\notif::error(T_("Can not set permission on removed user!"));
 					return false;
 				}
-
-
-				$is_staff = true;
 
 				if(isset($load_user['jibres_user_id']) && $load_user['jibres_user_id'])
 				{
@@ -153,49 +159,54 @@ trait edit
 
 				if(empty($_args))
 				{
-					return;
+					return false;
 				}
 			}
 		}
 
+
 		\dash\log::set('editUser', ['code' => $_id]);
+
+		if(a($_args, 'jibres_user_id') != a($load_user, 'jibres_user_id') && a($load_user, 'jibres_user_id'))
+		{
+			if(\dash\engine\store::inStore())
+			{
+				// remove old jibres user staff
+				\lib\db\store_user\update::jibres_store_user_update(\lib\store::id(), $load_user['jibres_user_id'], ['staff' => 'no']);
+			}
+		}
 
 		$result = \dash\db\users::update($_args, $_id);
 
-		if($load_user)
-		{
-			self::update_jibres_store_user($load_user, $_args, $is_staff);
-		}
+
+		self::update_jibres_store_user($is_staff, $jibres_user_id);
+
 
 		return $result;
 
 	}
 
 
-	public static function update_jibres_store_user($load_user, $_args, $_is_staff)
+	public static function update_jibres_store_user($_is_staff, $_jibres_user_id)
 	{
+		if(!$_jibres_user_id)
+		{
+			return;
+		}
+
 		if($_is_staff === true || $_is_staff === false)
 		{
-
-			if(isset($load_user['jibres_user_id']) || isset($_args['jibres_user_id']))
+			if($_is_staff === true)
 			{
-				if($_is_staff === true)
-				{
-					$set = ['staff' => 'yes'];
-				}
-				else
-				{
-					$set = ['staff' => 'no'];
-				}
-
-				$jibres_user_id = isset($load_user['jibres_user_id']) ? $load_user['jibres_user_id'] : $_args['jibres_user_id'];
-
-				\lib\db\store_user\update::jibres_store_user_update(\lib\store::id(), $jibres_user_id, $set);
+				$set = ['staff' => 'yes'];
 			}
 			else
 			{
-				// \dash\notif::warn(T_("Please set mobile to this user and then change the permission"));
+				$set = ['staff' => 'no'];
 			}
+
+			\lib\db\store_user\update::jibres_store_user_update(\lib\store::id(), $_jibres_user_id, $set);
+
 		}
 	}
 

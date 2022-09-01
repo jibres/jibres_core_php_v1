@@ -6,6 +6,7 @@ trait add
 {
 	public static function quick_add($_args = [], $_none_jibres_user = false)
 	{
+		$jibres_user_id = null;
 		if(!$_none_jibres_user)
 		{
 			// in stroe whene user signuped we need to set jibres_user_id
@@ -17,6 +18,7 @@ trait add
 					$jibres_user_add           = [];
 					$jibres_user_add['mobile'] = $mobile;
 					$_args['jibres_user_id']   = \lib\app\sync\user::jibres_user_id($jibres_user_add);
+					$jibres_user_id            = $_args['jibres_user_id'];
 				}
 			}
 		}
@@ -41,7 +43,7 @@ trait add
 			if(\dash\engine\store::inStore())
 			{
 				$load_user = \dash\db\users::get_by_id($user_id);
-				\dash\app\user::update_jibres_store_user($load_user, $_args, $is_statff);
+				\dash\app\user::update_jibres_store_user($is_statff, $jibres_user_id);
 			}
 		}
 
