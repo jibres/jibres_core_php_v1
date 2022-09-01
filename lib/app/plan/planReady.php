@@ -74,6 +74,15 @@ class planReady
 			$currnentPlanRecordDetail['daysLeft'] = $days;
 			$currnentPlanRecordDetail['daysRemainPercent'] = $daysRemainPercent;
 
+			if($days <= 14)
+			{
+				$currnentPlanRecordDetail['canRenew'] = true;
+			}
+			else
+			{
+				$currnentPlanRecordDetail['canRenew'] = false;
+			}
+
 		}
 
 		if(isset($currnentPlanRecordDetail['startdate']) && $currnentPlanRecordDetail['startdate'])

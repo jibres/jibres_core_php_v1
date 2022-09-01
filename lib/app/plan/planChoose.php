@@ -59,9 +59,10 @@ class planChoose
 		{
 			if (isset($_currentPlan['expirydate']) && $_currentPlan['expirydate'])
 			{
-				if (strtotime($_currentPlan['expirydate']) >= strtotime("+10 days"))
+				// show renew button if less than 14 days remain and in backend open at +15 days
+				if (strtotime($_currentPlan['expirydate']) >= strtotime("+15 days"))
 				{
-					\dash\notif::error_once(T_("You can get a new plan only within 10 days before the plan expires"));
+					\dash\notif::error_once(T_("You can get a new plan only within 14 days before the plan expires"));
 					return false;
 				}
 				else

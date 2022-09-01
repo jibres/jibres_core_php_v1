@@ -68,12 +68,14 @@ $planList = \dash\data::planList();
                             <p class="mt-4 text-sm">
                                 <a href="<?php echo \dash\face::help() ?>" class="font-medium text-gray-500 underline"><?php echo T_("Learn about our plan policy"); ?></a>
                             </p>
+                            <?php if(\dash\data::myPlanDetail_canRenew()) :?>
                             <div class="mt-6">
                                 <div class="rounded-md shadow">
                                     <a href="<?php echo \dash\url::this(). '/renew' ?>"
                                        class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900"><?php echo T_("Renew"); ?></a>
                                 </div>
                             </div>
+                            <?php endif; ?>
 
                                 <p class="mt-4 text-sm">
                                     <a href="<?php echo \dash\url::this(). '/cancel' ?>" class="font-medium text-gray-500 underline"><?php echo T_("Cancel plan"); ?></a>
