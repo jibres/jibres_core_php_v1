@@ -27,7 +27,7 @@ class model
 	{
 		$business_id = \content_r10\tools::get_current_business_id();
 
-		$result = \lib\app\plan\planCancel::doCancel($business_id);
+		$result = \lib\app\plan\storePlan::doCancel($business_id);
 
 		\content_r10\tools::say($result);
 	}

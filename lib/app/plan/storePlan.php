@@ -264,4 +264,25 @@ class storePlan
     }
 
 
+	public static function doCancel($_business_id)
+	{
+		$store_id = $_business_id;
+
+		$currentPlan = self::currentPlan($store_id);
+
+		$newPlan = planLoader::load($plan);
+		$newPlan->setPeriod($period);
+		$newPlan->prepare();
+
+
+		if(planChoose::allowChoosePlan($currentPlan, $newPlan))
+		{
+			\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'buy new plan'], $currentPlan['id']);
+			planSet::set($store_id, $newPlan, $currentPlan);
+			self::minusTransaction($args, $newPlan);
+			return true;
+		}
+	}
+
+
 }

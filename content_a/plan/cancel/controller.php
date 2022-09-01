@@ -9,9 +9,15 @@ class controller
 
 		$planDetail = \lib\app\plan\businessPlanDetail::getMyCurrentPlanDetail();
 
+
 		if(!isset($planDetail['plan']))
 		{
 			\dash\header::status(404, T_("Plan Not found"));
+		}
+
+		if(!a($planDetail, 'canCancel'))
+		{
+			\dash\header::status(403, T_("Only owner of business can cancel plan"));
 		}
 
 		if(!in_array($planDetail['plan'], \lib\app\plan\planList::cancelAble()))
