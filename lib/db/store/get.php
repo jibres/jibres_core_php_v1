@@ -78,6 +78,16 @@ class get
 	}
 
 
+
+	public static function owner($_store_id)
+	{
+		$query  = "SELECT store_data.owner AS `owner` FROM store_data  WHERE store_data.id = :id LIMIT 1";
+		$param  = [':id' => $_store_id];
+		$result = \dash\pdo::get($query, $param, 'owner', true);
+		return $result;
+	}
+
+
 	public static function user_first_product($_user_id)
 	{
 		$query =

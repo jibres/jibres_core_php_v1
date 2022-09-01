@@ -76,10 +76,11 @@ $planList = \dash\data::planList();
                                 </div>
                             </div>
                             <?php endif; ?>
-
+						<?php if(\dash\data::myPlanDetail_canCancel()) :?>
                                 <p class="mt-4 text-sm">
                                     <a href="<?php echo \dash\url::this(). '/cancel' ?>" class="font-medium text-gray-500 underline"><?php echo T_("Cancel plan"); ?></a>
                                 </p>
+						<?php endif; ?>
 
                         <?php endif; ?>
 

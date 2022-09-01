@@ -953,5 +953,12 @@ class store
 
 		return null;
 	}
+
+
+	public static function owner()
+	{
+		return self::detail('owner');
+	}
+
 }
 ?>

@@ -33,65 +33,101 @@ class planReady
     }
 
 
-	public static function calculateDays(&$currnentPlanRecordDetail)
+	public static function calculateDays(&$currentPlanRecordDetail)
 	{
-		if(isset($currnentPlanRecordDetail['expirydate']) &&$currnentPlanRecordDetail['expirydate'])
+		self::detectUserCanCancel($currentPlanRecordDetail);
+
+		if(isset($currentPlanRecordDetail['expirydate']) &&$currentPlanRecordDetail['expirydate'])
 		{
-			if(strtotime($currnentPlanRecordDetail['expirydate']) > time())
+			self::detectDays($currentPlanRecordDetail);
+
+			if($currentPlanRecordDetail['daysLeft'] <= 14)
 			{
-				$date1 = new \DateTime(date("Y-m-d H:i:s"));  //current date or any date
-				$date2 = new \DateTime($currnentPlanRecordDetail['expirydate']);   //Future date
-				$diff = $date2->diff($date1)->format("%a");  //find difference
-				$days = intval($diff) + 1;   //rounding days 1 is today
+				$currentPlanRecordDetail['canRenew'] = true;
 			}
 			else
 			{
-				$days = 0;
-			}
-
-			if($days < 0)
-			{
-				$days = null;
-			}
-
-			$daysRemainPercent = 0;
-
-			if(isset($currnentPlanRecordDetail['days']) && $currnentPlanRecordDetail['days'] && $days)
-			{
-				$daysRemainPercent = \dash\number::percent($days, $currnentPlanRecordDetail['days']);
-				$daysRemainPercent = round($daysRemainPercent);
-				if($daysRemainPercent > 100)
-				{
-					$daysRemainPercent = 100;
-				}
-				if($daysRemainPercent < 0)
-				{
-					$daysRemainPercent = 0;
-				}
-
-			}
-
-			$currnentPlanRecordDetail['daysLeft'] = $days;
-			$currnentPlanRecordDetail['daysRemainPercent'] = $daysRemainPercent;
-
-			if($days <= 14)
-			{
-				$currnentPlanRecordDetail['canRenew'] = true;
-			}
-			else
-			{
-				$currnentPlanRecordDetail['canRenew'] = false;
+				$currentPlanRecordDetail['canRenew'] = false;
 			}
 
 		}
 
-		if(isset($currnentPlanRecordDetail['startdate']) && $currnentPlanRecordDetail['startdate'])
+		self::detectDaysSpent($currentPlanRecordDetail);
+
+	}
+
+
+	private static function detectUserCanCancel(&$currentPlanRecordDetail)
+	{
+		$currentPlanRecordDetail['canCancel'] = false;
+		if(\dash\engine\store::inStore())
+		{
+			$owner   = \lib\store::owner();
+			$user_id = \dash\user::jibres_user();
+		}
+		else
+		{
+			$owner   = \lib\db\store\get::owner($currentPlanRecordDetail['store_id']);
+			$user_id = \dash\user::id();
+		}
+
+		if(\dash\validate::is_equal($owner, $user_id))
+		{
+			$currentPlanRecordDetail['canCancel'] = true;
+		}
+	}
+
+
+	private static function detectDays(&$currentPlanRecordDetail)
+	{
+		if(strtotime($currentPlanRecordDetail['expirydate']) > time())
+		{
+			$date1 = new \DateTime(date("Y-m-d H:i:s"));  //current date or any date
+			$date2 = new \DateTime($currentPlanRecordDetail['expirydate']);   //Future date
+			$diff = $date2->diff($date1)->format("%a");  //find difference
+			$days = intval($diff) + 1;   //rounding days 1 is today
+		}
+		else
+		{
+			$days = 0;
+		}
+
+		if($days < 0)
+		{
+			$days = null;
+		}
+
+		$daysRemainPercent = 0;
+
+		if(isset($currentPlanRecordDetail['days']) && $currentPlanRecordDetail['days'] && $days)
+		{
+			$daysRemainPercent = \dash\number::percent($days, $currentPlanRecordDetail['days']);
+			$daysRemainPercent = round($daysRemainPercent);
+			if($daysRemainPercent > 100)
+			{
+				$daysRemainPercent = 100;
+			}
+			if($daysRemainPercent < 0)
+			{
+				$daysRemainPercent = 0;
+			}
+
+		}
+
+		$currentPlanRecordDetail['daysLeft'] = $days;
+		$currentPlanRecordDetail['daysRemainPercent'] = $daysRemainPercent;
+	}
+
+
+	private static function detectDaysSpent(&$currentPlanRecordDetail)
+	{
+		if(isset($currentPlanRecordDetail['startdate']) && $currentPlanRecordDetail['startdate'])
 		{
 			$date1                                 = new \DateTime(date("Y-m-d H:i:s"));  //current date or any date
-			$date2                                 = new \DateTime($currnentPlanRecordDetail['startdate']);   //Future date
+			$date2                                 = new \DateTime($currentPlanRecordDetail['startdate']);   //Future date
 			$diff                                  = $date2->diff($date1)->format("%a");  //find difference
 			$days                                  = intval($diff);   //rounding days 1 is today
-			$currnentPlanRecordDetail['daysSpent'] = $days;
+			$currentPlanRecordDetail['daysSpent'] = $days;
 
 		}
 	}
