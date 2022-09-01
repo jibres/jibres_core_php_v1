@@ -53,7 +53,8 @@ class get
 				FROM 
 				    store_plan_history 
 				WHERE 
-				    store_plan_history.store_id = :store_id 
+				    store_plan_history.store_id = :store_id AND
+				    store_plan_history.status = :status
 				ORDER BY 
 				    store_plan_history.id DESC
 				LIMIT 1
@@ -62,6 +63,7 @@ class get
 		$param =
 			[
 				':store_id' => $_business_id,
+				':status'   => 'active',
 			];
 
 		$result = \dash\pdo::get($query, $param, null, true);

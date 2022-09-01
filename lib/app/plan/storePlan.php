@@ -120,6 +120,7 @@ class storePlan
     {
         $result = [];
 
+
         if(!$_lastPlanRecord)
         {
             // @BUG All business must have plan record

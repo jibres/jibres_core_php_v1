@@ -37,7 +37,7 @@ class planSet
             $expirydate = date("Y-m-d H:i:s", strtotime($startdate) + ($days * 60 * 60 * 24));
         }
 
-
+		\lib\db\store_plan_history\update::allOldActivePlanOnDeactive($_business_id);
         $insert =
             [
                 'store_id'         => $_business_id,
