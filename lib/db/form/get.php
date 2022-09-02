@@ -42,8 +42,18 @@ class get
 
 	public static function load_public_form($_slug_or_id)
 	{
-		$query = "SELECT * FROM form WHERE form.slug = :slug OR form.id = :id LIMIT 1";
-		$param = [':slug' => $_slug_or_id, ':id' => $_slug_or_id];
+		if(is_numeric($_slug_or_id))
+		{
+			$query = "SELECT * FROM form WHERE form.slug = :slug OR form.id = :id LIMIT 1";
+			$param = [':slug' => $_slug_or_id, ':id' => $_slug_or_id];
+		}
+	else
+		{
+			$query = "SELECT * FROM form WHERE form.slug = :slug  LIMIT 1";
+			$param = [':slug' => $_slug_or_id];
+		}
+
+
 		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
