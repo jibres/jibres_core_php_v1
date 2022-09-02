@@ -49,6 +49,11 @@ class get
 		}
 	else
 		{
+			$_slug_or_id = \dash\validate::slug($_slug_or_id, false);
+			if(!$_slug_or_id)
+			{
+				return false;
+			}
 			$query = "SELECT * FROM form WHERE form.slug = :slug  LIMIT 1";
 			$param = [':slug' => $_slug_or_id];
 		}
