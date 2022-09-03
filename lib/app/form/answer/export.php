@@ -499,13 +499,14 @@ class export
 
 		$new_result = [];
 
+
 		foreach ($result as $key => $value)
 		{
 			foreach ($value as $k => $v)
 			{
 				if($k)
 				{
-					$myKey = 'f_'. $k;
+					$myKey = 'f_'. substr($k, 0, strpos($k, '_'));
 
 					$new_result[$key][$myKey] = $v;
 					self::$sql_column_list[$myKey] = $k;
