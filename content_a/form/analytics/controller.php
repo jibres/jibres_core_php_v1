@@ -29,7 +29,7 @@ class controller
 			return  true;
 		}
 
-		if(!$count_answer || floatval($count_answer) < 1000)
+		if(!$count_answer || floatval($count_answer) < 100)
 		{
 			if($_block)
 			{
