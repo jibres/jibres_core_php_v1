@@ -136,6 +136,7 @@ class planFactor
 		planReady::calculateDays($currentPlan);
 
 		$daysLeft  = floatval(a($currentPlan, 'daysLeft'));
+		$finalprice  = floatval(a($currentPlan, 'finalprice'));
 		$daysSpent = floatval(a($currentPlan, 'daysSpent'));
 		$days      = floatval(a($currentPlan, 'days'));
 		if (!$days)
@@ -196,6 +197,12 @@ class planFactor
 			// 1,630,000
 
 			$priceSpent = round($priceSpent, -3, PHP_ROUND_HALF_DOWN);
+
+			if($priceSpent > $finalprice)
+			{
+				$priceSpent = $finalprice;
+			}
+
 
 			$factor[] = ['title' => T_("Price spent"), 'price' => $priceSpent];
 

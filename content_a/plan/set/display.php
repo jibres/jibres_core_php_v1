@@ -8,12 +8,10 @@ $totalPrice = a($planFactor, 'total', 'price');
 	<?php $giftCode = 0; ?>
     <div class="f">
         <div class="c4 s12 pRa10">
-
             <div class="stat">
                 <h3><?php echo a($planFactor, 'meta', 'action_title'); ?></h3>
                 <div class="val ltr"><?php echo a($planFactor, 'meta', 'plan_title') ?></div>
             </div>
-
 			<?php if (is_array(a($planFactor, 'detail')))  { foreach ($planFactor['detail'] as $key => $value) { ?>
                 <nav class="items">
                     <ul>
@@ -27,17 +25,13 @@ $totalPrice = a($planFactor, 'total', 'price');
                     </ul>
                 </nav>
 			<?php } /*endforeach*/ } //endif ?>
-
-
         </div>
         <div class="c s12">
-
 			<?php if (a($planFactor, 'access', 'reason')) { ?>
                 <div class="alert-danger fs14">
 					<?php echo a($planFactor, 'access', 'reason'); ?>
                 </div>
 			<?php } // endif ?>
-
             <?php if(false) {?>
             <div class="box impact">
                 <div class="body">
@@ -104,7 +98,7 @@ $totalPrice = a($planFactor, 'total', 'price');
                                         <?php endif; ?>
                                     </th>
 
-                                    <td class="txtRa"><?php echo \dash\fit::number(a($item, 'price')); ?><?php echo T_("Toman") ?></td>
+                                    <td class="txtRa"><?php echo \dash\fit::number(a($item, 'price')); ?> <?php echo T_("Toman") ?></td>
 
 
                                 </tr>
@@ -112,10 +106,7 @@ $totalPrice = a($planFactor, 'total', 'price');
 							<?php if ($giftCode || $userBudget) { ?>
                                 <tr data-price='<?php echo $totalPrice; ?>'>
                                     <th><?php echo T_("Total Price") ?></th>
-
-                                    <td class="txtRa"><?php echo \dash\fit::number($totalPrice); ?><?php echo T_("Toman") ?></td>
-
-
+                                    <td class="txtRa"><?php echo \dash\fit::number($totalPrice); ?> <?php echo T_("Toman") ?></td>
                                 </tr>
 							<?php } // endif ?>
 
@@ -136,14 +127,12 @@ $totalPrice = a($planFactor, 'total', 'price');
                                         <span><?php echo \dash\fit::number($giftCode); ?></span>
                                         <span class="text-gray-400 mLa5"><?php echo \lib\currency::unit(); ?></span>
                                     </td>
-
                                 </tr>
 							<?php } // endif ?>
 							<?php $mypayedprice = $totalPrice - $giftCode;
 							if ($mypayedprice < 0) {
 								$mypayedprice = 0;
 							} ?>
-
 							<?php if ($userBudget && $mypayedprice) { ?>
                                 <tr data-budget='<?php echo $userBudget; ?>'>
                                     <th>
@@ -159,7 +148,6 @@ $totalPrice = a($planFactor, 'total', 'price');
                                     </td>
                                 </tr>
 							<?php } //endif ?>
-
                             <tr data-payable>
                                 <th><?php echo T_("Amount payable") ?></th>
                                 <td class="txtRa collapsing">
@@ -168,7 +156,6 @@ $totalPrice = a($planFactor, 'total', 'price');
                                     <span class="text-gray-400 mLa5"><?php echo \lib\currency::unit(); ?></span>
                                 </td>
                             </tr>
-
                             </tbody>
                         </table>
                     </div>
@@ -188,9 +175,6 @@ $totalPrice = a($planFactor, 'total', 'price');
                     </footer>
                 </div>
             </form>
-
-
         </div>
     </div>
-
 </div>
