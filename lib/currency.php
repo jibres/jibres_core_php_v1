@@ -196,6 +196,11 @@ class currency {
 		}
 		else
 		{
+			if($business_currency = \lib\store::currency('code'))
+			{
+				return $business_currency;
+			}
+
 			if(\dash\url::tld() === 'ir')
 			{
 				return 'IRT';
