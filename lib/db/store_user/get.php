@@ -18,5 +18,12 @@ class get
 		$result = \dash\pdo::get($query, [], null, true, 'master');
 		return $result;
 	}
+
+
+	public static function by_id($_id)
+	{
+		return \dash\pdo\query_template::get('store_user', $_id);
+	}
+
 }
 ?>
