@@ -284,10 +284,22 @@ class storePlan
 			if(isset($cancelDetail['total']['price']) && $cancelDetail['total']['price'])
 			{
 				self::plusTransaction($cancelDetail, $cancelDetail['total']['price'], $store_id);
-				\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'refund'], $currentPlan['id']);
+
+				if(isset($cancelDetail['meta']['guarantee']) && $cancelDetail['meta']['guarantee'])
+				{
+					\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'refund+guarantee'], $currentPlan['id']);
+				}
+				else
+				{
+
+					\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'refund'], $currentPlan['id']);
+				}
+			}
+			else
+			{
+				\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'cancel'], $currentPlan['id']);
 			}
 
-			\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'cancel'], $currentPlan['id']);
 			planSet::setFirstPlan($store_id, 'free');
 
 		}

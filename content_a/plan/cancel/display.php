@@ -53,18 +53,10 @@ $totalPrice = a($planFactor, 'total', 'price');
                                         <small class="block"><?php echo a($item, 'description') ?></small>
 									<?php endif; ?>
                                 </th>
-                                <td class="txtRa"><?php echo \dash\fit::number(a($item, 'price')); ?><?php echo T_("Toman") ?></td>
+                                <td class="txtRa"><?php echo \dash\fit::number(a($item, 'price')); ?> <?php echo T_("Toman") ?></td>
                             </tr>
 						<?php endforeach; endif; ?>
 
-                        <tr data-payable class="active">
-                            <th><?php echo T_("Refund price") ?></th>
-                            <td class="txtRa collapsing">
-                                    <span class="font-bold fs20"
-                                          id='domainPayablePrice'><?php echo \dash\fit::number($totalPrice) ?></span>
-                                <span class="text-gray-400 mLa5"><?php echo \lib\currency::unit(); ?></span>
-                            </td>
-                        </tr>
 
                         </tbody>
                     </table>
