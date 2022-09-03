@@ -52,6 +52,11 @@
                 </td>
 
             </tr>
+            <tr class="">
+                <td colspan="7">
+                    <pre class="hide"><?php print_r($value) ?></pre>
+                </td>
+            </tr>
 
 		<?php } //endfor ?>
         </tbody>
