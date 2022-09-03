@@ -21,8 +21,12 @@ class remove
 		$table_name = \lib\app\form\view\get::is_created_table($form_id);
 		if(!$table_name)
 		{
-			\dash\notif::error(T_("No analyze table founded"));
-			return false;
+			\dash\notif::warn(T_("No analyze table founded"));
+//			return false;
+		}
+		else
+		{
+			\lib\db\form_view\delete::view_table($table_name);
 		}
 
 		$update_form =
@@ -32,8 +36,6 @@ class remove
 		];
 
 		\lib\db\form\update::update($update_form, $form_id);
-
-		\lib\db\form_view\delete::view_table($table_name);
 
 		\lib\db\form_filter\delete::all_filter($form_id);
 
