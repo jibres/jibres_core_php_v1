@@ -24,6 +24,11 @@ class controller
 
 		$count_answer = \lib\db\form_answer\get::count_by_form_id($form_id);
 
+		if(\dash\permission::supervisor())
+		{
+			return  true;
+		}
+
 		if(!$count_answer || floatval($count_answer) < 1000)
 		{
 			if($_block)
