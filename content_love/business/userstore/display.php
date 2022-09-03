@@ -70,7 +70,7 @@
 <?php
 function HTMLCheckIsCustormer($value)
 {
-	if ($value)
+	if ($value === 'yes')
 	{
 		return \dash\utility\icon::svg('CircleTick', 'major', 'green', 'w-4');
 	}
