@@ -51,39 +51,28 @@ class controller
 			{
 				$result['a1']++;
 				$result['a1l'][] = [$user_store['id'], self::get_mobile($user_store)];
-				continue;
-			}
 
-			if($in_business_user_admin && $in_jibres_user_staff)
+			}
+			elseif($in_business_user_admin && $in_jibres_user_staff)
 			{
 				$result['ok']++;
-				continue;
 			}
-
-			if($in_business_user_admin && !$in_jibres_user_staff)
+			elseif($in_business_user_admin && !$in_jibres_user_staff)
 			{
 				$result['a2']++;
 				$result['a2l'][] = [$user_store['id'], self::get_mobile($user_store)];
-				continue;
-			}
 
-			if(!$in_business_user_admin && $in_jibres_user_staff)
+			}
+			elseif(!$in_business_user_admin && $in_jibres_user_staff)
 			{
 				$result['a3']++;
 				$result['a3l'][] = [$user_store['id'], self::get_mobile($user_store)];
-				continue;
-			}
 
-			if(!$in_business_user_admin && !$in_jibres_user_staff)
+			}
+			elseif(!$in_business_user_admin && !$in_jibres_user_staff)
 			{
 				$result['ok2']++;
-				continue;
 			}
-
-
-
-
-
 
 			\dash\engine\store::unlock();
 			\dash\pdo::close();
