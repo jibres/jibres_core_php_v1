@@ -16,18 +16,9 @@ class view
 
 		\dash\data::fields($fields);
 
-
-
-
 		$all_tag = \lib\app\form\tag\get::all_tag();
 		\dash\data::allTagList($all_tag);
-
-
-
-
 	}
 
-
-
 }
-?>
+
