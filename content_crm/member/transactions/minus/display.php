@@ -26,7 +26,8 @@
 
         <label for="amount"><?php echo T_("Amount") ?> <small class="text-red-800">* <?php echo T_("Required") ?></small></label>
         <div class="input">
-          <input type="tel" name="amount" required data-format='price' maxlength="15">
+          <input type="tel" name="amount" required data-format='price' maxlength="15" id="tprice">
+            <label class="addon" for="tprice"><?php echo \lib\currency::unit() ?></label>
         </div>
 
       </div>
