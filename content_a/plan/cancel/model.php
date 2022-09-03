@@ -1,6 +1,6 @@
 <?php
 
-namespace content_a\plan\set;
+namespace content_a\plan\cancel;
 
 class model
 {

@@ -270,18 +270,50 @@ class storePlan
 
 		$currentPlan = self::currentPlan($store_id);
 
-		$newPlan = planLoader::load($plan);
-		$newPlan->setPeriod($period);
-		$newPlan->prepare();
+		$meta =
+			[
+				'action_type' => 'cancel',
+				'plan'        => 'free',
+			];
 
+		$cancelDetail = planFactor::calculate($store_id, $meta);
 
-		if(planChoose::allowChoosePlan($currentPlan, $newPlan))
+		if(isset($cancelDetail['access']['ok']) && $cancelDetail['access']['ok'])
 		{
-			\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'buy new plan'], $currentPlan['id']);
-			planSet::set($store_id, $newPlan, $currentPlan);
-			self::minusTransaction($args, $newPlan);
-			return true;
+			// ok
+			if(isset($cancelDetail['total']['price']) && $cancelDetail['total']['price'])
+			{
+				self::plusTransaction($cancelDetail, $cancelDetail['total']['price'], $store_id);
+				\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'refund'], $currentPlan['id']);
+			}
+
+			\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'cancel'], $currentPlan['id']);
+			planSet::setFirstPlan($store_id, 'free');
+
 		}
+		else
+		{
+			\dash\notif::error(T_("Can not cancel this plan"));
+			return false;
+		}
+
+	}
+
+
+	private static function plusTransaction($detail, $_price, $_business_id)
+	{
+
+		$title = T_("Refund plan :plan ", ['plan' => a($detail, 'meta', 'plan_title')]);
+
+		$insert_transaction =
+			[
+				'user_id' => \lib\app\store\get::owner($_business_id),
+				'title'   => $title,
+				'amount'  => floatval($_price),
+
+			];
+
+		\dash\app\transaction\budget::plus($insert_transaction);
 	}
 
 

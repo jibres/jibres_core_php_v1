@@ -65,5 +65,21 @@ class get
 		}
 		return false;
 	}
+
+
+	public static function owner($_business_id)
+	{
+		if(\dash\engine\store::inStore())
+		{
+			$owner   = \lib\store::owner();
+		}
+		else
+		{
+			$owner   = \lib\db\store\get::owner($_business_id);
+		}
+
+		return $owner;
+	}
+
 }
 ?>
