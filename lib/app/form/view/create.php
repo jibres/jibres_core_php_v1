@@ -111,13 +111,29 @@ class create
 		$database_name = \lib\store::my_db_name();
 		$db_charset = 'utf8mb4';
 
-		$cmd  = "mysql ";
-		$cmd .= " --host='$fuel[host]' --default-character-set='$db_charset'";
-		$cmd .= " --user='$fuel[user]'";
-		$cmd .= " --password='$fuel[pass]' '$database_name'";
-		$cmd .= " < $addr ";
-
-		$result = exec($cmd, $c, $v);
+		$loadQuery = \dash\file::read($addr);
+		if($loadQuery)
+		{
+			$query = explode(';', $loadQuery);
+			if($query)
+			{
+				foreach ($query as $oneLine)
+				{
+					if(trim($oneLine))
+					{
+						\dash\pdo::query($oneLine, \lib\store::detail('fuel'), ['database' => $table_name]);
+					}
+				}
+			}
+		}
+//
+//		$cmd  = "mysql ";
+//		$cmd .= " --host='$fuel[host]' --default-character-set='$db_charset'";
+//		$cmd .= " --user='$fuel[user]'";
+//		$cmd .= " --password='$fuel[pass]' '$database_name'";
+//		$cmd .= " < $addr ";
+//
+//		$result = exec($cmd, $c, $v);
 
 
 

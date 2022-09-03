@@ -43,7 +43,7 @@ class view
 		$all_tag = \lib\app\form\tag\get::all_tag();
 		\dash\data::allTagList($all_tag);
 
-		// \lib\app\export\run::crontab();
+//		 \lib\app\export\run::crontab();
 	}
 }
 ?>

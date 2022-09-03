@@ -506,7 +506,20 @@ class export
 			{
 				if($k)
 				{
-					$myKey = 'f_'. substr($k, 0, strpos($k, '_'));
+					switch ($k)
+					{
+						case 'answer_id':
+							$myKey = 'f_'. $k;
+							break;
+						default:
+							$myKey = 'f_'. substr($k, 0, strpos($k, '_'));
+							break;
+					}
+
+					if($myKey === 'f_' || $myKey === 'f_answer')
+					{
+						continue;
+					}
 
 					$new_result[$key][$myKey] = $v;
 					self::$sql_column_list[$myKey] = $k;

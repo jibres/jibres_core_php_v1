@@ -98,6 +98,49 @@ class insert
 		return \dash\pdo\query_template::insert('form_tag', $_args);
 	}
 
+	public static function get_answer_id_before_apply_to_filter($_table_name, $_where, $_type, $_rand_limit)
+	{
+		if(!$_where)
+		{
+			return false;
+		}
+
+		$where = implode(' AND ', $_where);
+
+		if($_type === 'include' || $_type === 'notinclude')
+		{
+			$type = $_type === 'include' ? '  ' : ' NOT  ';
+
+			$query =
+				"
+				SELECT
+					`$_table_name`.`f_answer_id` AS `id`
+				FROM
+					`$_table_name`
+				WHERE $type	( $where )
+				ORDER BY rand()
+				LIMIT $_rand_limit
+			";
+
+		}
+		else
+		{
+			$query =
+				"
+				SELECT
+				
+					`$_table_name`.`f_answer_id` AS `id`
+				FROM
+					`$_table_name`
+				ORDER BY rand()
+				LIMIT $_rand_limit
+			";
+		}
+
+		$result = \dash\pdo::get($query, [], 'id');
+		return $result;
+	}
+
 
 }
 ?>

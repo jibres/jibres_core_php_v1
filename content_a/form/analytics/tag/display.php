@@ -2,7 +2,7 @@
 <div class="avand-md">
 
 
-  <form method="post" >
+  <form method="post" autocomplete="off">
       <input type="hidden" name="addtagtoall" value="addtagtoall">
       <div  class="box impact mB25-f">
     <header><h2><?php echo T_("Add tag to all answer");?></h2></header>
@@ -22,6 +22,18 @@
               </div>
             </div>
 
+          </div>
+
+          <div class="check1">
+              <input type="checkbox" name="randomtag" id="randomtag">
+              <label for="randomtag"><?php echo T_("Choosing random results (e.g. for lottery)"); ?></label>
+          </div>
+
+          <div data-response="randomtag" data-response-hide>
+              <label for="taglimitcount"><?php echo T_("How many results to choose?"); ?></label>
+              <div class="input">
+                  <input type="tel" name="taglimitcount" >
+              </div>
           </div>
 
          <div>
