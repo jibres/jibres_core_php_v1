@@ -585,8 +585,8 @@ class add
 
 				foreach ($must_send_to_user as $user_id)
 				{
-					// send notif by sms for nabarvari.khadije.com
-					if (intval(\lib\store::id()) === 1000089)
+					// send notif by sms for nabarvari.khadije.com + sobati
+					if(in_array(intval(\lib\store::id()), [1000089, 1001466]))
 					{
 						\dash\log::send_sms($user_id, $tag_detail['smstext']);
 					}
