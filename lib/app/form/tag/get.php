@@ -111,7 +111,7 @@ class get
 		$load = \lib\db\form_tag\get::one($_id);
 		if(!$load)
 		{
-			\dash\notif::error(T_("Invalid tag id"));
+//			\dash\notif::error(T_("Invalid tag id"));
 			return false;
 		}
 
@@ -154,6 +154,17 @@ class get
 
 		$load = \lib\app\form\tag\ready::row($load);
 		return $load;
+	}
+
+
+	public static function by_title($_tag, $_form_id)
+	{
+		$result = \lib\db\form_tag\get::by_title($_tag, $_form_id);
+		if($result)
+		{
+			$result = ready::row($result);
+		}
+		return $result;
 	}
 
 }

@@ -67,8 +67,7 @@ class add
 
 		$fields = \lib\app\form\form\ready::fields($load);
 
-		$args = \lib\app\form\filter\check::variable_where($_args, $fields);
-
+		$args = \lib\app\form\filter\check::variable_where($_args, $_form_id, $fields);
 
 		if(!$args)
 		{

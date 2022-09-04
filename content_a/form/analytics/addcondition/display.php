@@ -1,5 +1,6 @@
 <?php require_once(root. 'content_a/form/analytics/pageStep.php'); ?>
 <div class="avand-lg">
+
   <?php if(\dash\data::itemDetail()) {?>
     <?php require_once('display-condition.php'); ?>
   <?php }else{ ?>

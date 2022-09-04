@@ -25,6 +25,7 @@ class view
 		// \dash\face::btnView(\dash\url::that(). '/table?'. \dash\request::fix_get());
 
 		$where_list = \lib\app\form\filter\get::where_list(\dash\request::get('fid'), \dash\request::get('id'));
+
 		\dash\data::whereList($where_list);
 
 		$allChoice = \lib\app\form\choice\get::all_choice(\dash\request::get('id'));
