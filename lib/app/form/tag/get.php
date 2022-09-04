@@ -111,7 +111,7 @@ class get
 		$load = \lib\db\form_tag\get::one($_id);
 		if(!$load)
 		{
-			\dash\notif::error(T_("Invalid tag id"));
+//			\dash\notif::error(T_("Invalid tag id"));
 			return false;
 		}
 

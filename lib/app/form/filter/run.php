@@ -46,18 +46,7 @@ class run
 		{
 			if(isset($value['query_condition']))
 			{
-				$temp = " `$table_name`.$value[field] $value[query_condition] ";
-				if(isset($value['value']) && $value['value'])
-				{
-					if($value['query_condition'] === 'LIKE')
-					{
-						$temp .= " '$value[value]%' ";
-					}
-					else
-					{
-						$temp .= " '$value[value]' ";
-					}
-				}
+				$temp = \lib\app\form\filter\get::generateQueryCondition($value, $table_name, $_form_id);
 
 				$all_where[] = $temp;
 			}
@@ -92,18 +81,7 @@ class run
 		{
 			if(isset($value['query_condition']))
 			{
-				$temp = " `$table_name`.$value[field] $value[query_condition] ";
-				if(isset($value['value']) && $value['value'])
-				{
-					if($value['query_condition'] === 'LIKE')
-					{
-						$temp .= " '$value[value]%' ";
-					}
-					else
-					{
-						$temp .= " '$value[value]' ";
-					}
-				}
+				$temp = \lib\app\form\filter\get::generateQueryCondition($value, $table_name, $_form_id);
 
 				$all_where[] = $temp;
 				$this_where  = $temp;
