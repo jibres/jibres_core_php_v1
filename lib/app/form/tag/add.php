@@ -63,26 +63,29 @@ class add
 		if($data['randomtag'] && $data['taglimitcount'])
 		{
 			$get_all_answer_id = \lib\db\form_tag\insert::get_answer_id_before_apply_to_filter($table_name, $where, $data['type'], $data['taglimitcount']);
-
-			if($get_all_answer_id)
+		}
+		else
+		{
+			$get_all_answer_id = \lib\db\form_tag\insert::get_answer_id_before_apply_to_filter($table_name, $where, $data['type']);
+		}
+		if($get_all_answer_id)
+		{
+			foreach ($get_all_answer_id as $answer_id)
 			{
-				foreach ($get_all_answer_id as $answer_id)
-				{
-					self::answer_add($data['tag'], $answer_id, $data['form_id'], true);
-				}
-			}
-			else
-			{
-				\dash\notif::clean();
-				\dash\notif::error(T_("No result found to add tag"));
-				return false;
+				self::answer_add($data['tag'], $answer_id, $data['form_id'], true);
 			}
 		}
 		else
 		{
-
-			\lib\db\form_tag\insert::apply_to_filter($tag_id, $data['form_id'], $table_name, $where, $data['type']);
+			\dash\notif::clean();
+			\dash\notif::error(T_("No result found to add tag"));
+			return false;
 		}
+		//		else
+//		{
+//
+//			\lib\db\form_tag\insert::apply_to_filter($tag_id, $data['form_id'], $table_name, $where, $data['type']);
+//		}
 
 		\dash\notif::clean();
 
