@@ -1,16 +1,18 @@
 <?php
+
 namespace lib\app\form\filter;
 
 
 class check
 {
+
 	public static function variable($_args, $_id = null)
 	{
 		$condition =
-		[
-			'title'     => 'title',
+			[
+				'title' => 'title',
 
-		];
+			];
 
 		$require = ['title'];
 
@@ -26,12 +28,19 @@ class check
 	{
 
 		$condition =
-		[
-			'condition' => ['enum' => ['isnull','isnotnull','larger','less','equal','notequal', 'like']],
-			'operator'  => ['enum' => ['and', 'or']],
-			'field'     => ['enum' => array_column($_fields, 'field')],
-			'value'     => 'string_100',
-		];
+			[
+				'condition'        => [
+					'enum' => [
+						'isnull', 'isnotnull', 'larger', 'less', 'equal', 'notequal', 'like',
+					],
+				],
+				'operator'         => ['enum' => ['and', 'or']],
+				'field'            => ['enum' => array_column($_fields, 'field')],
+				'value'            => 'string_100',
+				'tagorquestion'    => ['enum' => ['tag', 'question']],
+				'tag'              => 'string_100',
+				'withorwithouttag' => ['enum' => ['with', 'without']],
+			];
 
 		$require = ['field', 'condition'];
 
@@ -41,5 +50,7 @@ class check
 
 		return $data;
 	}
+
 }
+
 ?>
