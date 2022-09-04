@@ -68,11 +68,15 @@ class add
 		{
 			$get_all_answer_id = \lib\db\form_tag\insert::get_answer_id_before_apply_to_filter($table_name, $where, $data['type']);
 		}
+
+		$tagDetail = \lib\app\form\tag\get::get($tag_id);
+
 		if($get_all_answer_id)
 		{
 			foreach ($get_all_answer_id as $answer_id)
 			{
-				self::answer_add($data['tag'], $answer_id, $data['form_id'], true);
+				self::public_answer_tag_plus($data['tag'], $answer_id, $data['form_id']);
+				self::auto_comment_sms_tag($tag_id, $answer_id, $data['form_id'], $tagDetail);
 			}
 		}
 		else
