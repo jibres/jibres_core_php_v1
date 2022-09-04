@@ -37,7 +37,7 @@ class model
 				'value'            => $value,
 				'tagorquestion'    => \dash\request::post('tq'),
 				'tag'              => \dash\request::post('tag'),
-				'withorwithouttag' => \dash\request::post('wtg'),
+				'tag_include' => \dash\request::post('wtg'),
 			];
 
 		\lib\app\form\filter\add::add_where($post, \dash\request::get('id'), \dash\request::get('fid'));

@@ -156,5 +156,16 @@ class get
 		return $load;
 	}
 
+
+	public static function by_title($_tag, $_form_id)
+	{
+		$result = \lib\db\form_tag\get::by_title($_tag, $_form_id);
+		if($result)
+		{
+			$result = ready::row($result);
+		}
+		return $result;
+	}
+
 }
 ?>
