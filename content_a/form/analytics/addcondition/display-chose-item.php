@@ -1,4 +1,8 @@
-<form method="get" autocomplete="off" action="<?php echo \dash\url::current(); ?>">
+
+<form method="post" autocomplete="off"  id="tagfomrpost" name="tagfomrpost">
+    
+</form>
+    <form method="get" autocomplete="off" action="<?php echo \dash\url::current(); ?>">
   <input type="hidden" name="id" value="<?php echo \dash\request::get('id') ?>">
   <input type="hidden" name="fid" value="<?php echo \dash\request::get('fid') ?>">
   <div class="box">
@@ -8,13 +12,13 @@
         <div class="row">
             <div class="c-xs-12 c-sm-6">
                 <div class="radio3">
-                    <input type="radio" name="tq" value="question" id="tqquestion" checked>
+                    <input form="tagfomrpost" type="radio" name="tq" value="question" id="tqquestion" checked>
                     <label for="tqquestion"><?php echo T_("Question"); ?></label>
                 </div>
             </div>
             <div class="c-xs-12 c-sm-6">
                 <div class="radio3">
-                    <input type="radio" name="tq" value="tag" id="tqtag">
+                    <input form="tagfomrpost" type="radio" name="tq" value="tag" id="tqtag">
                     <label for="tqtag"><?php echo T_("Tag"); ?></label>
                 </div>
             </div>
@@ -37,7 +41,7 @@
                 <div class="c"><label for='tag'><?php echo T_("Tag"); ?></label></div>
                 <div class="c-auto os"><a class="text-sm"<?php if(!\dash\detect\device::detectPWA()) { echo " target='_blank' ";} ?>href="<?php echo \dash\url::here(). '/form/tag'. \dash\request::full_get() ?>"><?php echo T_("Manage"); ?> <i class="sf-link-external"></i></a></div>
             </div>
-            <select name="tag" id="tag" class="select22" data-model="tag" data-placeholder="<?php echo T_("Enter new tag or select one tag") ?>">
+            <select form="tagfomrpost" name="tag" id="tag" class="select22" data-model="tag" data-placeholder="<?php echo T_("Enter new tag or select one tag") ?>">
                 <option value="" readonly></option>
 				<?php foreach (\dash\data::allTagList() as $key => $value) {?>
                     <option value="<?php echo $value['title']; ?>"><?php echo $value['title']; ?></option>
@@ -46,13 +50,13 @@
             <div class="row mt-2">
                 <div class="c-xs-12 c-sm-6">
                     <div class="radio3">
-                        <input type="radio" name="wtg" value="with" id="withtag" checked>
+                        <input form="tagfomrpost" type="radio" name="wtg" value="with" id="withtag" checked>
                         <label for="withtag"><?php echo T_("Answer with this tag"); ?></label>
                     </div>
                 </div>
                 <div class="c-xs-12 c-sm-6">
                     <div class="radio3">
-                        <input type="radio" name="wtg" value="without" id="witouttag" >
+                        <input form="tagfomrpost" type="radio" name="wtg" value="without" id="witouttag" >
                         <label for="witouttag"><?php echo T_("Answer without this tag"); ?></label>
                     </div>
                 </div>
@@ -62,7 +66,15 @@
   </div>
   <footer class="f">
     <div class="c"></div>
-    <div class="cauto"><button class="btn master"><?php echo T_("Next") ?></button></div>
+    <div class="cauto">
+        <div data-response="tq"  data-response-effect="slide" data-response-where="question">
+            <button class="btn master"><?php echo T_("Next") ?></button>
+        </div>
+        <div data-response="tq"  data-response-effect="slide" data-response-where="tag" data-response-hide>
+            <button type="submit" form="tagfomrpost" class="btn master"><?php echo T_("Apply") ?></button>
+        </div>
+
+    </div>
   </footer>
 </div>
 </form>

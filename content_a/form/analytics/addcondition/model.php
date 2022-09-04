@@ -35,6 +35,7 @@ class model
 			'condition' => \dash\request::post('condition'),
 			'value'     => $value,
 		];
+		var_dump($_POST);exit();
 
 		\lib\app\form\filter\add::add_where($post, \dash\request::get('id'), \dash\request::get('fid'));
 
