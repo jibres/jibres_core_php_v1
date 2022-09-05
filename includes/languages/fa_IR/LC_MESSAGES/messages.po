@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-05 15:59+0430\n"
-"PO-Revision-Date: 2022-09-05 15:59+0430\n"
+"POT-Creation-Date: 2022-09-05 16:16+0430\n"
+"PO-Revision-Date: 2022-09-05 16:17+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -16058,7 +16058,7 @@ msgstr "کد رهگیری شما"
 
 #: content_business/f/home/display-form-inquiry.php:64
 msgid "Back to form"
-msgstr "برگشت به فرم"
+msgstr "بازگشت به فرم"
 
 #: content_business/f/home/display-form.php:9
 msgid ""
@@ -16067,9 +16067,9 @@ msgid ""
 msgstr ""
 "اگر قبلا این فرم را تکمیل کرده‌اید می‌توانید از طریق لینک زیر از وضعیت پاسخ خود مطلع شوید"
 
-#: content_business/f/home/display-form.php:10
-msgid "Inquiry your answer"
-msgstr "از وضعیت پاسخ خود مطلع شوید"
+#: content_business/f/home/display-form.php:13
+msgid "Search my answer"
+msgstr "پاسخ من را جستجو کن"
 
 #: content_business/f/home/display-result-page.php:66
 msgid "Result page for this form is blocked"
@@ -44324,6 +44324,9 @@ msgstr "اینچ"
 #: lib/units.php:46
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Inquiry your answer"
+#~ msgstr "از وضعیت پاسخ خود مطلع شوید"
 
 #~ msgid "Answer to this form"
 #~ msgstr "پاسخ به این فرم"
