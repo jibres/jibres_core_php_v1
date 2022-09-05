@@ -92,7 +92,6 @@ class view
 		}
 
 		\dash\data::listEngine_start(true);
-		\dash\data::listEngine_before(__DIR__ . '/display-result-page-before.php');
 		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(\lib\app\form\answer\filter::list());
 		\dash\data::listEngine_sort(true);
