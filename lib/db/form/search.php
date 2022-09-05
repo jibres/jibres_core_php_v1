@@ -22,7 +22,7 @@ class search
 			SELECT
 				form.*,
 				(SELECT COUNT(*) FROM form_item WHERE form_item.form_id = form.id AND (form_item.status IS NULL OR form_item.status != 'deleted')) AS `item_count`,
-				(SELECT COUNT(*) FROM form_answer WHERE form_answer.form_id = form.id) AS `answer_count`
+				(SELECT COUNT(*) FROM form_answer WHERE form_answer.form_id = form.id AND form_answer.status != 'deleted') AS `answer_count`
 			FROM form
 			$q[join]
 			$q[where]
@@ -31,7 +31,6 @@ class search
 		";
 
 		$result = \dash\pdo::get($query);
-
 
 		return $result;
 
