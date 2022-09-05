@@ -328,8 +328,7 @@ class get
 		{
 			if(isset($value['type']))
 			{
-//				if(in_array($value['type'], ['/*nothing yet*/']))
-				{
+				if(in_array($value['type'], ['short_answer', 'nationalcode', 'birthdate', 'displayname', 'mobile'])){
 					$new_list[] = $value;
 				}
 			}
