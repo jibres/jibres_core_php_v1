@@ -46,6 +46,11 @@
                 <div class="key"><?php echo T_("Inquiry"); ?></div>
                 <div class="go"></div>
             </a></li>
+        <li><a class="f item" href="<?php echo \dash\url::this() . '/resultpage?id=' . \dash\request::get('id'); ?>">
+                <i class="sf-list-ul"></i>
+                <div class="key"><?php echo T_("Result Page"); ?></div>
+                <div class="go"></div>
+            </a></li>
 
     </ul>
 </nav>

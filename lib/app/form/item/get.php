@@ -310,5 +310,34 @@ class get
 
 		return $items;
 	}
+
+
+	public static function items_resulpageable($_form_id)
+	{
+		\dash\permission::access('_group_form');
+
+		$list = self::items($_form_id, false);
+		if(!is_array($list))
+		{
+			return $list;
+		}
+
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['type']))
+			{
+//				if(in_array($value['type'], ['/*nothing yet*/']))
+				{
+					$new_list[] = $value;
+				}
+			}
+
+		}
+
+		return $new_list;
+	}
+
 }
 ?>
