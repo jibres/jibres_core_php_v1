@@ -121,6 +121,13 @@ class search
 			$param[':serch_string1'] = '%'. $query_string. '%';
 			$param[':serch_string2'] = '%'. $query_string. '%';
 
+			if($isMobile = \dash\validate::mobile($query_string, false))
+			{
+				$or[] = " form_answerdetail.answer LIKE :serch_string3 ";
+				$param[':serch_string3'] = '%'. $isMobile. '%';
+
+			}
+
 			self::$is_filtered = true;
 		}
 

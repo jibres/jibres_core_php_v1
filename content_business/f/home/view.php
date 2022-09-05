@@ -102,7 +102,11 @@ class view
 		$args['form_id'] = \dash\data::formId();
 		//		$args['sort']        = \dash\request::get('sort');
 		//		$args['order']       = \dash\request::get('order');
-		//		$args['tag_id']      = \dash\request::get('tagid');
+
+		if (a(\dash\data::formDetail(), 'resultpagesetting', 'tag_id'))
+		{
+			$args['tag_id'] = a(\dash\data::formDetail(), 'resultpagesetting', 'tag_id');
+		}
 
 		$args['not_deleted'] = true;
 		$q                   = \dash\validate::search_string();
@@ -115,9 +119,9 @@ class view
 			$answerList = [];
 		}
 
-		$result = [];
+		$result        = [];
 		$allowShowItem = [];
-		if(is_array(a(\dash\data::formDetail(), 'resultpagesetting', 'question')))
+		if (is_array(a(\dash\data::formDetail(), 'resultpagesetting', 'question')))
 		{
 			$allowShowItem = a(\dash\data::formDetail(), 'resultpagesetting', 'question');
 			$allowShowItem = array_map('floatval', $allowShowItem);
@@ -130,20 +134,20 @@ class view
 
 		foreach ($load_items as $key => $item)
 		{
-			if(!in_array(floatval($item['id']), $allowShowItem))
+			if (!in_array(floatval($item['id']), $allowShowItem))
 			{
 				unset($load_items[$key]);
 			}
 		}
 
-		$col = [];
+		$col   = [];
 		$clone = [];
 		foreach ($load_items as $load_item)
 		{
 			$clone[$load_item['id']] = null;
-			$col[$load_item['id']] =
+			$col[$load_item['id']]   =
 				[
-					'title' => $load_item['title']
+					'title' => $load_item['title'],
 				];
 
 		}
@@ -160,14 +164,14 @@ class view
 			$getAnserDetailList = \lib\db\form_answer\get::for_result_page($form_id, $answer['id'], $allowShowItem);
 			foreach ($getAnserDetailList as $oneAnswerDetail)
 			{
-				if(!isset($result[$answer['id']]))
+				if (!isset($result[$answer['id']]))
 				{
 					$result[$answer['id']] = $clone;
 				}
 
 				$myAnswer = $oneAnswerDetail['answer'];
 
-				if($myAnswer)
+				if ($myAnswer)
 				{
 					switch ($oneAnswerDetail['type'])
 					{
@@ -176,9 +180,9 @@ class view
 							break;
 
 						case 'nationalcode':
-							$myAnswer = substr($myAnswer, 0, 3). ' * * * * * '. substr($myAnswer, 8, 2);
+							$myAnswer = substr($myAnswer, 0, 3) . ' * * * * * ' . substr($myAnswer, 8, 2);
 							$myAnswer = \dash\fit::text($myAnswer);
-							$myAnswer = '<div class="ltr ">'. $myAnswer. '</div>';
+							$myAnswer = '<div class="ltr ">' . $myAnswer . '</div>';
 
 							break;
 						case 'birthdate':
@@ -187,9 +191,9 @@ class view
 						case 'displayname':
 							break;
 						case 'mobile':
-							$myAnswer = substr($myAnswer, 0, 5). ' * * * * '. substr($myAnswer, 8, 4);
+							$myAnswer = substr($myAnswer, 0, 5) . ' * * * * ' . substr($myAnswer, 8, 4);
 							$myAnswer = \dash\fit::text($myAnswer);
-							$myAnswer = '<div class="ltr ">'. $myAnswer. '</div>';
+							$myAnswer = '<div class="ltr ">' . $myAnswer . '</div>';
 							break;
 					}
 				}
