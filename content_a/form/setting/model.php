@@ -14,6 +14,7 @@ class model
 			'slug'         => \dash\request::post('slug'),
 			'desc'         => \dash\request::post('desc'),
 			'saveasticket' => \dash\request::post('saveasticket'),
+			'reportpage'   => \dash\request::post_html(),
 
 		];
 

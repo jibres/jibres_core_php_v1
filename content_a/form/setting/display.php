@@ -50,6 +50,32 @@
                     </div>
                 </div>
             </div>
+            <div class="box">
+                <div class="pad">
+                    <div class="switch1">
+                        <input type="checkbox" name="reportpagecheck"
+                               id="reportpagecheck" <?php if (a(\dash\data::dataRow(), 'reportpage'))
+						{
+							echo 'checked';
+						} ?>>
+                        <label for="reportpagecheck"><?php echo T_("Have special print page for answers?") ?></label>
+                        <label for="reportpagecheck"><?php echo T_("Have special print page for answers?") ?></label>
+                    </div>
+
+                    <div data-response="reportpagecheck" <?php if(!\dash\data::dataRow_reportpage()) { echo 'data-response-hide'; } ?>>
+                        <?php if(false): ?>
+                        <div class="ltr h-1/2 w-full rounded-lg overflow-hidden">
+                            <input type="hidden" name="savehtml" value="html">
+                            <pre id="codeEditorLive" data-code-editor="html" data-code-editor-sync="[name='html']" class="h-full"><?php echo htmlentities(\dash\data::myHtmlText()); ?></pre>
+                            <textarea name="html" class="hide ltr w-full h-full p-5 resize-none mt-5" placeholder="Write yout HTML here ..."><?php echo htmlentities(\dash\data::myHtmlText()); ?></textarea>
+                        </div>
+                        <?php endif; ?>
+                        <textarea name="html" class="ltr w-full h-full p-5 resize-none mt-5" placeholder="Write yout HTML here ..."><?php echo htmlentities(strval(\dash\data::dataRow_reportpage())); ?></textarea>
+                    </div>
+
+
+                </div>
+            </div>
 
         </form>
     </div>

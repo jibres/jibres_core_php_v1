@@ -49,6 +49,7 @@ class check
 				'resultpagetext'          => 'real_html',
 				'resultpagetag'           => 'id',
 				'resultpageimage'         => 'string_1000',
+				'reportpage'              => 'real_html_full',
 
 			];
 
@@ -158,16 +159,16 @@ class check
 			$data['resultpagesetting']['tag_id'] = $data['resultpagetag'];
 
 			$oldResultPageData = a($load_form, 'resultpagesetting');
-			if(is_string($oldResultPageData))
+			if (is_string($oldResultPageData))
 			{
 				$oldResultPageData = json_decode($oldResultPageData, true);
 			}
 
-			if($data['resultpageimage'])
+			if ($data['resultpageimage'])
 			{
 				$data['resultpagesetting']['image'] = $data['resultpageimage'];
 			}
-			elseif(a($oldResultPageData, 'image'))
+			elseif (a($oldResultPageData, 'image'))
 			{
 				$data['resultpagesetting']['image'] = $oldResultPageData['image'];
 			}

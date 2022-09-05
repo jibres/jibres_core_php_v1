@@ -4,15 +4,16 @@ namespace content_a\form\answer\detail;
 
 class view
 {
+
 	public static function config()
 	{
-		\dash\face::title(T_('Answer Detail'). ' | '. \dash\data::formDetail_title());
+		\dash\face::title(T_('Answer Detail') . ' | ' . \dash\data::formDetail_title());
 
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::that() . '?id='. \dash\request::get('id'));
+		\dash\data::back_link(\dash\url::that() . '?id=' . \dash\request::get('id'));
 
-		$args              = [];
+		$args = [];
 
 		$args['answer_id']    = \dash\request::get('aid');
 		$args['form_id']      = \dash\request::get('id');
@@ -22,8 +23,8 @@ class view
 
 		$dataTable = \lib\app\form\answerdetail\search::list($q, $args);
 
-		$filterBox     = \lib\app\form\answerdetail\search::filter_message();
-		$isFiltered    = \lib\app\form\answerdetail\search::is_filtered();
+		$filterBox  = \lib\app\form\answerdetail\search::filter_message();
+		$isFiltered = \lib\app\form\answerdetail\search::is_filtered();
 
 
 		\dash\data::filterBox($filterBox);
@@ -37,14 +38,13 @@ class view
 		\dash\data::formItems($load_items);
 
 
-
 		$all_tag = \lib\app\form\tag\get::all_tag();
 
 		\dash\data::allTagList($all_tag);
 
 
 		$tag_list = \lib\app\form\tag\get::answer_tag(\dash\request::get('aid'));
-		if(!is_array($tag_list))
+		if (!is_array($tag_list))
 		{
 			$tag_list = [];
 		}
@@ -57,23 +57,37 @@ class view
 		$load_answer = \lib\app\form\answer\get::by_id(\dash\request::get('aid'));
 		\dash\data::answerDetail($load_answer);
 
-		if(isset($load_answer['transaction_id']) && $load_answer['transaction_id'])
+		if (isset($load_answer['transaction_id']) && $load_answer['transaction_id'])
 		{
 			\dash\data::answerTransactionDetail(\dash\app\transaction\get::get(($load_answer['transaction_id'])));
 		}
 
-		if(isset($load_answer['review']) && $load_answer['review'])
-		{
-			// nothing
-		}
-		else
-		{
 
-			\dash\face::btnSave('markasreview');
-			\dash\face::btnSaveText(T_("Mark as reviewed"));
+		\dash\face::btnPrint(true);
+
+		if (\dash\request::get('special') && \dash\data::formDetail_reportpage())
+		{
+			self::detectSpecialReportPage();
+		}
+	}
+
+
+	private static function detectSpecialReportPage()
+	{
+		$specailPage = \dash\data::formDetail_reportpage();
+
+		foreach (\dash\data::dataTable() as $answerDetail)
+		{
+			$id          = $answerDetail['item_id'];
+			$answer      = strval($answerDetail['answer']);
+			$search      = '[[:' . $id . ':]]';
+			$specailPage = str_replace($search, $answer, $specailPage);
 		}
 
+
+		\dash\data::specailPage($specailPage);
 	}
 
 }
+
 ?>
