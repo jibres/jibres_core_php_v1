@@ -104,6 +104,9 @@ class controller
 			}
 
 
+			// TODO if inquiry or result page and not enable this setting make 403 error
+
+
 			$load_items = \lib\app\form\item\get::items($form_id);
 
 			\dash\data::formId($form_id);

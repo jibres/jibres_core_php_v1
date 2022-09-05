@@ -325,5 +325,38 @@ class get
 	}
 
 
+	public static function for_result_page($_form_id, $_answer_id, array $_allowShowItem)
+	{
+		if(!$_allowShowItem)
+		{
+			return false;
+		}
+
+		$item_ids = implode(',', $_allowShowItem);
+		$query =
+			"
+			SELECT
+				form_answerdetail.answer,
+				form_answerdetail.item_id,
+				form_item.title,
+				form_item.type			
+			FROM
+				form_answerdetail
+			JOIN form_item ON form_item.id = form_answerdetail.item_id
+			WHERE
+				form_answerdetail.form_id = :form_id AND
+				form_answerdetail.answer_id = :answer_id AND
+				form_answerdetail.item_id IN ($item_ids) 
+		";
+		$param =
+			[
+				':form_id' => $_form_id,
+				':answer_id' => $_answer_id,
+			];
+
+		return \dash\pdo::get($query, $param);
+	}
+
+
 }
 ?>

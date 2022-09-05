@@ -22,9 +22,12 @@ class search
 	}
 
 
-	public static function list($_query_string, $_args)
+	public static function list($_query_string, $_args, $_force = false)
 	{
-		\dash\permission::access('_group_form');
+		if(!$_force)
+		{
+			\dash\permission::access('_group_form');
+		}
 
 		$condition =
 		[
@@ -56,7 +59,7 @@ class search
 		$meta  = [];
 		$or    = [];
 
-		$meta['limit'] = 20;
+		$meta['limit'] = 5;
 		// $meta['pagination'] = false;
 
 		if($data['get_answer_ids'])
