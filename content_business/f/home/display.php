@@ -3,6 +3,10 @@ if(\dash\data::inquiryForm())
 {
 	require_once('display-form-inquiry.php');
 }
+elseif(\dash\data::resultPage())
+{
+	require_once('display-result-page.php');
+}
 else
 {
 

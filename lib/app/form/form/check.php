@@ -1,43 +1,55 @@
 <?php
+
 namespace lib\app\form\form;
 
 
 class check
 {
+
 	public static function variable($_args, $_id = null)
 	{
 		$condition =
-		[
-			'title'                   => 'title',
-			'slug'                    => 'slug',
-			'lang'                    => 'lang',
-			'password'                => 'string_100',
-			'privacy'                 => ['enum' => ['public', 'private']],
-			'status'                  => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','trash','full']],
-			'redirect'                => 'string_1000',
-			'desc'                    => 'desc',
-			'endmessage'              => 'desc',
-			'beforestart'             => 'desc',
-			'afterend'                => 'desc',
-			'starttime'               => 'datetime',
-			'endtime'                 => 'datetime',
-			'file'                    => 'string_1000',
-			'startdate'               => 'date',
-			'enddate'                 => 'date',
-			'stime'                   => 'time',
-			'etime'                   => 'time',
-			'inquiry_mode'            => 'bit',
-			'inquiry'                 => 'bit',
-			'inquirymsg'              => 'desc',
-			'showcomment'             => 'bit',
-			'schedule'             => 'bit',
-			'showpulictag'            => 'bit',
-			'question'                => 'array',
-			'inquiryimage'            => 'string_1000',
-			'inquiry_msg_founded'     => 'string_250',
-			'inquiry_msg_not_founded' => 'string_250',
-			'saveasticket'            => 'bit',
-		];
+			[
+				'title'                   => 'title',
+				'slug'                    => 'slug',
+				'lang'                    => 'lang',
+				'password'                => 'string_100',
+				'privacy'                 => ['enum' => ['public', 'private']],
+				'status'                  => [
+					'enum' => [
+						'draft', 'publish', 'expire', 'deleted', 'lock', 'awaiting', 'block', 'filter', 'close',
+						'trash', 'full',
+					],
+				],
+				'redirect'                => 'string_1000',
+				'desc'                    => 'desc',
+				'endmessage'              => 'desc',
+				'beforestart'             => 'desc',
+				'afterend'                => 'desc',
+				'starttime'               => 'datetime',
+				'endtime'                 => 'datetime',
+				'file'                    => 'string_1000',
+				'startdate'               => 'date',
+				'enddate'                 => 'date',
+				'stime'                   => 'time',
+				'etime'                   => 'time',
+				'inquiry_mode'            => 'bit',
+				'inquiry'                 => 'bit',
+				'inquirymsg'              => 'desc',
+				'showcomment'             => 'bit',
+				'schedule'                => 'bit',
+				'showpulictag'            => 'bit',
+				'question'                => 'array',
+				'inquiryimage'            => 'string_1000',
+				'inquiry_msg_founded'     => 'string_250',
+				'inquiry_msg_not_founded' => 'string_250',
+				'saveasticket'            => 'bit',
+				'resultpage_mode'         => 'bit',
+				'resultpage'              => 'bit',
+				'resultpagetext'          => 'desc',
+				'resultpagetag'           => 'id',
+
+			];
 
 		$require = ['title', 'status'];
 
@@ -45,25 +57,25 @@ class check
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if(!$data['slug'])
+		if (!$data['slug'])
 		{
 			$data['slug'] = \dash\validate::slug($data['title']);
 		}
 
-		if($data['slug'])
+		if ($data['slug'])
 		{
 			$check_duplicate = \lib\db\form\get::by_slug($data['slug']);
-			if(isset($check_duplicate['id']))
+			if (isset($check_duplicate['id']))
 			{
-				if(intval($check_duplicate['id']) === intval($_id))
+				if (intval($check_duplicate['id']) === intval($_id))
 				{
 					// ok
 				}
 				else
 				{
-					if(is_null($_id))
+					if (is_null($_id))
 					{
-						$data['slug'] = $data['slug']. rand(111, 999);
+						$data['slug'] = $data['slug'] . rand(111, 999);
 						// in add mode
 					}
 					else
@@ -76,33 +88,33 @@ class check
 		}
 
 		$load_form = [];
-		if($_id)
+		if ($_id)
 		{
 			$load_form = \lib\db\form\get::by_id($_id);
 		}
 
 		$setting = [];
 
-		if(isset($load_form['setting']) && $load_form['setting'])
+		if (isset($load_form['setting']) && $load_form['setting'])
 		{
 			$setting = json_decode($load_form['setting'], true);
-			if(!is_array($setting))
+			if (!is_array($setting))
 			{
 				$setting = [];
 			}
 		}
 
-		if(array_key_exists('saveasticket', $_args))
+		if (array_key_exists('saveasticket', $_args))
 		{
 			$setting['saveasticket'] = $data['saveasticket'];
 		}
 
-		if(array_key_exists('beforestart', $_args))
+		if (array_key_exists('beforestart', $_args))
 		{
 			$setting['beforestart'] = $data['beforestart'];
 		}
 
-		if(array_key_exists('afterend', $_args))
+		if (array_key_exists('afterend', $_args))
 		{
 			$setting['afterend'] = $data['afterend'];
 		}
@@ -110,21 +122,21 @@ class check
 
 		$data['setting'] = json_encode($setting, JSON_UNESCAPED_UNICODE);
 
-		if($data['inquiry_mode'])
+		if ($data['inquiry_mode'])
 		{
-			$data['inquirysetting']                            = [];
+			$data['inquirysetting'] = [];
 
-			$data['inquirysetting']['showcomment']             = $data['showcomment'];
-			$data['inquirysetting']['showpulictag']            = $data['showpulictag'];
+			$data['inquirysetting']['showcomment']  = $data['showcomment'];
+			$data['inquirysetting']['showpulictag'] = $data['showpulictag'];
 
 			$data['inquirysetting']['inquiry_msg_founded']     = $data['inquiry_msg_founded'];
 			$data['inquirysetting']['inquiry_msg_not_founded'] = $data['inquiry_msg_not_founded'];
 
-			if($data['question'])
+			if ($data['question'])
 			{
 				foreach ($data['question'] as $key => $value)
 				{
-					if(!\dash\validate::id($value))
+					if (!\dash\validate::id($value))
 					{
 						return false;
 					}
@@ -136,13 +148,38 @@ class check
 			$data['inquirysetting'] = json_encode($data['inquirysetting'], JSON_UNESCAPED_UNICODE);
 		}
 
-		if($data['startdate'])
+		if ($data['resultpage_mode'])
+		{
+			$data['resultpagesetting'] = [];
+
+			$data['resultpagesetting']['status'] = $data['resultpage'];
+			$data['resultpagesetting']['tag_id'] = $data['resultpagetag'];
+			//			$data['resultpagesetting']['showpulictag'] = $data['showpulictag'];
+
+
+			if ($data['question'])
+			{
+				foreach ($data['question'] as $key => $value)
+				{
+					if (!\dash\validate::id($value))
+					{
+						return false;
+					}
+				}
+
+				$data['resultpagesetting']['question'] = $data['question'];
+			}
+
+			$data['resultpagesetting'] = json_encode($data['resultpagesetting'], JSON_UNESCAPED_UNICODE);
+		}
+
+		if ($data['startdate'])
 		{
 			$data['starttime'] = $data['startdate'];
 
-			if($data['stime'])
+			if ($data['stime'])
 			{
-				$data['starttime'] .= ' '. $data['stime'];
+				$data['starttime'] .= ' ' . $data['stime'];
 			}
 			else
 			{
@@ -150,13 +187,13 @@ class check
 			}
 		}
 
-		if($data['enddate'])
+		if ($data['enddate'])
 		{
 			$data['endtime'] = $data['enddate'];
 
-			if($data['stime'])
+			if ($data['stime'])
 			{
-				$data['endtime'] .= ' '. $data['etime'];
+				$data['endtime'] .= ' ' . $data['etime'];
 			}
 			else
 			{
@@ -164,16 +201,20 @@ class check
 			}
 		}
 
-		if($data['starttime'] && $data['endtime'])
+		if ($data['starttime'] && $data['endtime'])
 		{
-			if(strtotime($data['starttime']) > strtotime($data['endtime']))
+			if (strtotime($data['starttime']) > strtotime($data['endtime']))
 			{
-				\dash\notif::error(T_("Start time must be less than end time"), ['element' => ['startdate', 'enddate', 'starttime', 'endtime']]);
+				\dash\notif::error(T_("Start time must be less than end time"), [
+					'element' => [
+						'startdate', 'enddate', 'starttime', 'endtime',
+					],
+				]);
 				return false;
 			}
 		}
 
-		if(!$data['schedule'])
+		if (!$data['schedule'])
 		{
 			$data['starttime'] = null;
 			$data['endtime']   = null;
@@ -195,7 +236,14 @@ class check
 		unset($data['inquiry_msg_founded']);
 		unset($data['inquiry_msg_not_founded']);
 
+		unset($data['resultpage_mode']);
+		unset($data['resultpage']);
+		unset($data['resultpagetag']);
+
+
 		return $data;
 	}
+
 }
+
 ?>

@@ -29,6 +29,11 @@ class edit
 			$exception[] = 'inquirysetting';
 		}
 
+		if(isset($args['resultpagesetting']))
+		{
+			$exception[] = 'resultpagesetting';
+		}
+
 		if(array_key_exists('saveasticket', $_args))
 		{
 			$exception[] = 'setting';
@@ -86,6 +91,7 @@ class edit
 
 
 		}
+
 
 		$args['datemodified'] = date("Y-m-d H:i:s");
 
