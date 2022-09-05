@@ -81,7 +81,7 @@ class search
 			FROM
 				factors
 			WHERE
-				factors.status = 'pending_pay' AND
+				factors.status = 'registered' AND
 				factors.type = 'saleorder' AND
 				factors.paystatus = 'awaiting_payment'  AND
 				factors.datecreated <= '$_expire_date'
