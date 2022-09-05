@@ -73,7 +73,7 @@ if($image)
 
                         <div class="mb-2">
                             <label for="resultpagetext"><?php echo T_("Result page Message") ?></label>
-                            <textarea name="resultpagetext" class="txt" rows="3" id="resultagemsg"
+                            <textarea data-editor name="html" class="txt" rows="3" id="resultagemsg"
                                       placeholder="<?php echo T_("Result page Message") ?>"><?php echo \dash\data::dataRow_resultpagetext(); ?></textarea>
                         </div>
                         <div class="mb-2">

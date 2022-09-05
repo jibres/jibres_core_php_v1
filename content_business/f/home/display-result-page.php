@@ -1,12 +1,28 @@
+<?php
+$image = a(\dash\data::formDetail_resultpagesetting(), 'image');
+if ($image)
+{
+	$image = \lib\filepath::fix($image);
+}
+
+?>
 <?php if (a(\dash\data::formDetail_resultpagesetting(), 'status')) : ?>
-    <div class="avand">
-		<?php if (\dash\data::formDetail_resultpagetext()) : ?>
-            <div class="msg">
-				<?php echo \dash\data::formDetail_resultpagetext(); ?>
+    <div class="avand mb-4">
+		<?php if (\dash\data::formDetail_resultpagetext() || $image) : ?>
+            <div class="box">
+                <div class="pad">
+					<?php if ($image) : ?>
+                        <img class="mb-2" src="<?php echo $image ?>" alt="<?php echo \dash\face::pageTitle(); ?>">
+					<?php endif; ?>
+					<?php if (\dash\data::formDetail_resultpagetext()): ?>
+                        <div class="mb-4">
+							<?php echo \dash\data::formDetail_resultpagetext(); ?>
+                        </div>
+					<?php endif; ?>
+                </div>
             </div>
 		<?php endif; ?>
         <form method="get" class="mb-4 mt-4" action='<?php echo \dash\url::current(); ?>'>
-
             <div class="input">
                 <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q"
                        value="<?php echo \dash\validate::search_string(); ?>" autocomplete='off'>
@@ -28,9 +44,12 @@
 				<?php foreach (\dash\data::dataTable() as $key => $value) { ?>
                     <tr>
 						<?php foreach (\dash\data::col() as $item => $item_title) : ?>
-                            <td><?php if (a($value, $item)) {
+                            <td><?php if (a($value, $item))
+								{
 									echo a($value, $item);
-								} else {
+								}
+								else
+								{
 									echo '-';
 								} ?></td>
 						<?php endforeach; ?>

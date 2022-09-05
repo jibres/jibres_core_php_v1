@@ -13,7 +13,7 @@ class model
 			[
 				'resultpage_mode' => 1,
 				'resultpage'      => \dash\request::post('resultpage'),
-				'resultpagetext'  => \dash\request::post('resultpagetext'),
+				'resultpagetext'  => \dash\request::post_html(),
 				'question'        => \dash\request::post('question'),
 				'resultpagetag'      => \dash\request::post('tag'),
 

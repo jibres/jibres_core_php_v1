@@ -46,7 +46,7 @@ class check
 				'saveasticket'            => 'bit',
 				'resultpage_mode'         => 'bit',
 				'resultpage'              => 'bit',
-				'resultpagetext'          => 'desc',
+				'resultpagetext'          => 'real_html',
 				'resultpagetag'           => 'id',
 				'resultpageimage'         => 'string_1000',
 
