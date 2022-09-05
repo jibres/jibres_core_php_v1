@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-04 16:48+0430\n"
-"PO-Revision-Date: 2022-09-04 16:52+0430\n"
+"POT-Creation-Date: 2022-09-05 14:37+0430\n"
+"PO-Revision-Date: 2022-09-05 14:39+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -704,7 +704,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/category/edit/display.php:10 content_a/category/edit/display.php:11
 #: content_a/discount/add/display.php:65 content_a/form/item/display.php:207
-#: content_a/form/setting/display.php:21 content_a/form/setting/display.php:22
+#: content_a/form/setting/display.php:22 content_a/form/setting/display.php:24
 #: content_a/form/tag/edit/display.php:12 content_a/order/comment/display.php:13
 #: content_a/order/detail/display.php:74 content_a/products/desc/display.php:8
 #: content_a/products/desc/display.php:11 content_a/setting/fund/display.php:18
@@ -1414,7 +1414,9 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_a/form/item/duplicatelist/display.php:64 content_a/form/tag/display.php:79
 #: content_a/notiflog/display.php:69 content_a/notiflog/display.php:70
 #: content_a/products/barcode/display.php:4 content_a/view.php:41
-#: content_business/search/view.php:9 content_cms/view.php:13 content_crm/view.php:20
+#: content_business/f/home/display-result-page.php:11
+#: content_business/f/home/display-result-page.php:13 content_business/search/view.php:9
+#: content_cms/view.php:13 content_crm/view.php:20
 #: content_love/application/home/display.php:58
 #: content_love/application/home/display.php:59
 #: content_love/business/domain/action/display.php:6
@@ -2141,7 +2143,7 @@ msgid "Enter your mobile number"
 msgstr "شماره موبایل خود را وارد کنید"
 
 #: content/home/display.php:12 content_a/cart/user/display.php:37
-#: content_a/form/itemLink.php:67 content_a/pricehistory/choose/display.php:13
+#: content_a/form/itemLink.php:109 content_a/pricehistory/choose/display.php:13
 #: content_a/pricehistory/display.php:23
 #: content_a/setting/domain/existdomain/display.php:19 content_enter/app/display.php:60
 #: content_enter/home/display.php:47 content_enter/pass/change/display.php:17
@@ -3736,7 +3738,7 @@ msgstr "وزن"
 #: content_a/accounting/doc/add/display-docdetail.php:95
 #: content_a/accounting/doc/duplicate/display.php:7 content_a/android/title/display.php:8
 #: content_a/form/add/display.php:6 content_a/form/item/add/display.php:23
-#: content_a/form/setting/display.php:9
+#: content_a/form/setting/display.php:10
 #: content_crm/member/transactions/minus/display.php:9
 #: content_crm/member/transactions/minus/display.php:27
 #: content_crm/member/transactions/plus/display.php:9
@@ -4248,17 +4250,18 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/form/item/duplicatelist/view.php:12 content_a/form/item/type/view.php:12
 #: content_a/form/item/view.php:12 content_a/form/report/answer/view.php:46
 #: content_a/form/report/compare/view.php:10 content_a/form/report/view.php:21
-#: content_a/form/setting/view.php:12 content_a/form/sorting/view.php:11
-#: content_a/form/status/view.php:12 content_a/form/tag/remove/view.php:17
-#: content_a/form/tag/view.php:16 content_a/form/thankyou/view.php:12
-#: content_a/notiflog/view.php:12 content_a/order/view.php:33
-#: content_a/plugin/view/view.php:16 content_a/products/advance/view.php:17
-#: content_a/products/barcode/view.php:12 content_a/products/bullet/view.php:17
-#: content_a/products/cartlimit/view.php:15 content_a/products/child/view.php:15
-#: content_a/products/comment/view.php:29 content_a/products/comment/view.php:36
-#: content_a/products/comment/view/view.php:13 content_a/products/desc/view.php:14
-#: content_a/products/duplicate/view.php:15 content_a/products/gallerysort/view.php:14
-#: content_a/products/poof/view.php:15 content_a/products/property/add/view.php:14
+#: content_a/form/resultpage/view.php:12 content_a/form/setting/view.php:12
+#: content_a/form/sorting/view.php:11 content_a/form/status/view.php:12
+#: content_a/form/tag/remove/view.php:17 content_a/form/tag/view.php:16
+#: content_a/form/thankyou/view.php:12 content_a/notiflog/view.php:12
+#: content_a/order/view.php:33 content_a/plugin/view/view.php:16
+#: content_a/products/advance/view.php:17 content_a/products/barcode/view.php:12
+#: content_a/products/bullet/view.php:17 content_a/products/cartlimit/view.php:15
+#: content_a/products/child/view.php:15 content_a/products/comment/view.php:29
+#: content_a/products/comment/view.php:36 content_a/products/comment/view/view.php:13
+#: content_a/products/desc/view.php:14 content_a/products/duplicate/view.php:15
+#: content_a/products/gallerysort/view.php:14 content_a/products/poof/view.php:15
+#: content_a/products/property/add/view.php:14
 #: content_a/products/property/edit/view.php:14 content_a/products/property/view.php:15
 #: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
 #: content_a/products/variants/view.php:14
@@ -4721,7 +4724,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/doc/display.php:14 content_a/accounting/factor/display.php:48
 #: content_a/accounting/turnover/display.php:185 content_a/android/apk/display.php:32
 #: content_a/discount/add/display.php:620 content_a/form/answer/display.php:9
-#: content_a/form/answer/export/display.php:155 content_a/form/itemLink.php:14
+#: content_a/form/answer/export/display.php:155 content_a/form/itemLink.php:26
 #: content_a/order/detail/display.php:29 content_a/products/edit/block/sidebar-menu.php:5
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
 #: content_cms/comments/view/display.php:127 content_crm/member/export/display.php:47
@@ -5951,7 +5954,7 @@ msgstr "شارژ تنخواه از طریق جاری شرکا"
 msgid "Charge Bank from partners"
 msgstr "شارژ حساب بانکی از طریق جاری شرکا"
 
-#: content_a/accounting/home/display.php:321 content_a/form/itemLink.php:32
+#: content_a/accounting/home/display.php:321 content_a/form/itemLink.php:68
 #: content_a/report/home/view.php:8 dash/panel.php:276
 msgid "Reports"
 msgstr "گزارش‌ها"
@@ -7189,7 +7192,7 @@ msgid "Set your application logo"
 msgstr "تنظیم لوگوی برنامه"
 
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
-#: content_a/form/inquiry/display.php:65 content_a/form/setting/display.php:35
+#: content_a/form/inquiry/display.php:65 content_a/form/setting/display.php:45
 #: content_a/order/comment/display.php:53 content_a/setting/general/display.php:37
 #: content_business/ticket/add/add_ticket_form.php:19 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
@@ -7274,7 +7277,7 @@ msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
 #: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:66
-#: content_a/form/setting/display.php:36 content_a/products/advance/display.php:38
+#: content_a/form/setting/display.php:48 content_a/products/advance/display.php:38
 #: content_cms/files/home/display.php:37 content_cms/files/home/display.php:49
 #: content_crm/member/identification/display.php:108
 #: content_crm/member/identification/display.php:120
@@ -7814,7 +7817,7 @@ msgstr "عنوان برای موتورهای جستجو"
 msgid "Recommended being more than 40 character."
 msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر باشد."
 
-#: content_a/category/edit/display.php:41 content_a/form/setting/display.php:14
+#: content_a/category/edit/display.php:41 content_a/form/setting/display.php:15
 #: content_a/products/edit/block/seo.php:22 content_a/products/edit/block/seo.php:24
 msgid "Slug"
 msgstr "نامک"
@@ -8901,7 +8904,7 @@ msgid "Unsuccess"
 msgstr "ناموفق"
 
 #: content_a/form/answer/detail/display.php:186 content_a/form/home/model.php:12
-#: content_a/form/itemLink.php:63
+#: content_a/form/itemLink.php:105
 msgid "Answer id"
 msgstr "کد پاسخ"
 
@@ -9180,7 +9183,7 @@ msgid "Export form answer"
 msgstr "خروجی از پاسخ‌ فرم"
 
 #: content_a/form/answer/export/view.php:15 content_a/form/answer/grouptag/view.php:15
-#: content_a/form/answer/view.php:9 content_a/form/itemLink.php:25
+#: content_a/form/answer/view.php:9 content_a/form/itemLink.php:62
 #: content_a/form/report/display.php:23
 msgid "Answers"
 msgstr "پاسخ‌ها"
@@ -9231,7 +9234,11 @@ msgstr "نمایش جزئیات"
 msgid "Add tag"
 msgstr "افزودن برچسب"
 
-#: content_a/form/answer/view.php:31
+#: content_a/form/answer/view.php:16
+msgid "Add new answer"
+msgstr "افزودن پاسخ جدید"
+
+#: content_a/form/answer/view.php:33
 msgid "Add tag by this result"
 msgstr "افزودن تگ به نتایج فعلی"
 
@@ -9268,7 +9275,7 @@ msgstr "در غیر این صورت"
 msgid "If"
 msgstr "اگر"
 
-#: content_a/form/condition/view.php:9 content_a/form/itemLink.php:17
+#: content_a/form/condition/view.php:9 content_a/form/itemLink.php:41
 msgid "Form condition"
 msgstr "شروط فرم"
 
@@ -9681,40 +9688,40 @@ msgstr "ویرایش سوال"
 msgid "Glance"
 msgstr "نگاه اجمالی"
 
-#: content_a/form/itemLink.php:12 lib/app/form/generator.php:67
-msgid "Edit form"
-msgstr "ویرایش فرم"
+#: content_a/form/itemLink.php:16
+msgid "Edit form setting"
+msgstr "ویرایش تنظیمات فرم"
 
-#: content_a/form/itemLink.php:13
+#: content_a/form/itemLink.php:21
 msgid "Thank you message"
 msgstr "پیام تشکر"
 
-#: content_a/form/itemLink.php:15
+#: content_a/form/itemLink.php:31
 msgid "Sort items"
 msgstr "مرتب‌سازی آیتم‌ها"
 
-#: content_a/form/itemLink.php:16 content_a/form/tag/add/view.php:10
+#: content_a/form/itemLink.php:36 content_a/form/tag/add/view.php:10
 #: content_a/form/tag/edit/view.php:17 includes/languages/trans_static_public.php:975
 msgid "Tags"
 msgstr "تگ‌ها"
 
-#: content_a/form/itemLink.php:18
+#: content_a/form/itemLink.php:46
 msgid "Inquiry"
 msgstr "استعلام"
 
-#: content_a/form/itemLink.php:29
-msgid "Answer to this form"
-msgstr "پاسخ به این فرم"
+#: content_a/form/itemLink.php:51
+msgid "Result Page"
+msgstr "صفحه نمایش نتایج"
 
-#: content_a/form/itemLink.php:40
+#: content_a/form/itemLink.php:80
 msgid "Analyze answers"
 msgstr "تجزیه و تحلیل اطلاعات"
 
-#: content_a/form/itemLink.php:51
+#: content_a/form/itemLink.php:93
 msgid "Add new question"
 msgstr "افزودن سوال جدید"
 
-#: content_a/form/itemLink.php:61
+#: content_a/form/itemLink.php:103
 msgid "Find answer detail by id"
 msgstr "یافتن پاسخ با داشتن کد پاسخ"
 
@@ -9791,7 +9798,37 @@ msgstr ":val قابل مقایسه نیست"
 msgid "Form item"
 msgstr "آیتم‌های فرم"
 
-#: content_a/form/setting/display.php:27 content_a/form/setting/display.php:28
+#: content_a/form/resultpage/display.php:10
+msgid ""
+"By activating this feature, the customer can see a list of registered responses to this "
+"form."
+msgstr "با فعال کردن این امکان، مشتریان می‌توانند پاسخ‌های ثبت شده در فرم را مشاهده کنند"
+
+#: content_a/form/resultpage/display.php:17
+msgid "Enable result page"
+msgstr "فعال‌سازی درگاه صفحه نمایش نتایج"
+
+#: content_a/form/resultpage/display.php:25
+msgid "Result page address"
+msgstr "آدرس صفحه نمایش نتایج"
+
+#: content_a/form/resultpage/display.php:36
+msgid "You have not any question in your form."
+msgstr "شما هیچ سوالی در فرم خود ایجاد نکرده‌اید."
+
+#: content_a/form/resultpage/display.php:38
+msgid "Which question display in result page?"
+msgstr "کدام سوال را برای صفحه نمایش نتایج قرار می‌دهید؟"
+
+#: content_a/form/resultpage/display.php:59 content_a/form/resultpage/display.php:61
+msgid "Result page Message"
+msgstr "پیام در صفحه نمایش نتایج"
+
+#: content_a/form/resultpage/view.php:9
+msgid "Result page"
+msgstr "صفحه نمایش نتایج"
+
+#: content_a/form/setting/display.php:36 content_a/form/setting/display.php:37
 msgid "Save answer as ticket"
 msgstr "ذخیره پاسخ به عنوان تیکت"
 
@@ -12901,7 +12938,7 @@ msgstr "صفحات"
 msgid "Hashtag of posts"
 msgstr "هشتگ نوشته‌ها"
 
-#: content_a/setting/menu/item/display.php:25 content_business/f/home/view.php:17
+#: content_a/setting/menu/item/display.php:25 content_business/f/home/view.php:19
 #: content_site/options/link/link_professional.php:141
 #: lib/app/log/caller/form/form_newAnswer.php:16 lib/app/store/analytics.php:105
 #: lib/app/store/analytics.php:106 lib/app/store/analytics.php:107
@@ -16002,7 +16039,7 @@ msgstr "هیچ دسته‌بندی یافت نشد!"
 msgid "Search products"
 msgstr "جستجو در محصولات"
 
-#: content_business/f/home/controller.php:94
+#: content_business/f/home/controller.php:103
 msgid "This form is private form!"
 msgstr "این فرم یه فرم خصوصی است!"
 
@@ -16024,6 +16061,10 @@ msgstr ""
 #: content_business/f/home/display-form.php:10
 msgid "Inquiry your answer"
 msgstr "از وضعیت پاسخ خود مطلع شوید"
+
+#: content_business/f/home/display-result-page.php:47
+msgid "Result page for this form is blocked"
+msgstr "صفحه نمایش نتایج برای این فرم بسته است"
 
 #: content_business/n/controller.php:20 dash/app/posts/remove.php:15
 #: dash/upload/cms.php:18 dash/upload/cms.php:53 dash/upload/cms.php:124
@@ -16681,7 +16722,7 @@ msgstr "نمایش فایل"
 msgid "Hashtag name"
 msgstr "نام هشتگ"
 
-#: content_cms/hashtag/add/model.php:19 lib/app/form/tag/add.php:89
+#: content_cms/hashtag/add/model.php:19 lib/app/form/tag/add.php:96
 msgid "Tag added"
 msgstr "تگ اضافه شد"
 
@@ -20071,7 +20112,7 @@ msgid "Count created store per year"
 msgstr "تعداد بیزینس‌ها به تفکیک سال"
 
 #: content_love/business/domain/action/display.php:15
-#: content_love/business/domain/dnslist/display.php:15 lib/app/form/tag/add.php:127
+#: content_love/business/domain/dnslist/display.php:15 lib/app/form/tag/add.php:134
 msgid "No result found"
 msgstr "نتیجه‌ای یافت نشد"
 
@@ -39053,7 +39094,7 @@ msgstr "مشخصه یافت نشد"
 msgid "General property removed"
 msgstr "مشخصات عمومی حذف شد"
 
-#: lib/app/category/add.php:285 lib/app/form/tag/add.php:179 lib/app/form/tag/add.php:221
+#: lib/app/category/add.php:285 lib/app/form/tag/add.php:186 lib/app/form/tag/add.php:228
 #: lib/app/fund/add.php:27 lib/app/inventory/add.php:40 lib/app/nic_contact/add.php:179
 #: lib/app/nic_contact/add.php:345 lib/app/product/unit.php:46 lib/app/product/unit.php:96
 msgid "No way to insert data"
@@ -39939,7 +39980,7 @@ msgstr "کسر شد."
 msgid "Choice successfully added"
 msgstr "گزینه با موفقیت اضافه شد"
 
-#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:64
+#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:69
 #: lib/app/form/item/edit.php:107 lib/app/menu/edit.php:60
 msgid "No data to change"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
@@ -40034,25 +40075,29 @@ msgstr "فرم تماس با موفقیت اضافه شد"
 msgid "Can not duplicate this form"
 msgstr "نمی‌توانیم این فرم را کپی کنیم"
 
-#: lib/app/form/form/check.php:71
+#: lib/app/form/form/check.php:83
 msgid "Duplicate form slug. Try another name"
 msgstr "نامک فرم تکراری است. لطفا نامک دیگری را وارد کنید"
 
-#: lib/app/form/form/check.php:171
+#: lib/app/form/form/check.php:208
 msgid "Start time must be less than end time"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
 
-#: lib/app/form/form/edit.php:73
+#: lib/app/form/form/edit.php:78
 msgid "This form used in menu and can not be remove"
 msgstr "این فرم در منو استفاده شده و امکان حذف آن وجود ندارد"
 
-#: lib/app/form/form/edit.php:96
+#: lib/app/form/form/edit.php:102
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
 #: lib/app/form/generator.php:67
 msgid "Your form is not publish. Only you can view this form."
 msgstr "فرم شما منتشر نشده است. فقط شما می‌توانید این فرم را ببینید."
+
+#: lib/app/form/generator.php:67
+msgid "Edit form"
+msgstr "ویرایش فرم"
 
 #: lib/app/form/generator.php:93
 msgid "Access to answer to this form is blocked"
@@ -40290,39 +40335,39 @@ msgstr "گزینه سوم گزینه‌ای نیست"
 msgid "Can not add tag"
 msgstr "نمی‌توانیم این تگ را اضافه کنیم"
 
-#: lib/app/form/tag/add.php:77
+#: lib/app/form/tag/add.php:85
 msgid "No result found to add tag"
 msgstr "نتیجه‌ای برای افزودن تگ یافت نشد"
 
-#: lib/app/form/tag/add.php:106
+#: lib/app/form/tag/add.php:113
 msgid "Please enter the tag"
 msgstr "لطفا تگ را وارد کنید"
 
-#: lib/app/form/tag/add.php:146
+#: lib/app/form/tag/add.php:153
 msgid "Tag added to this result"
 msgstr "تگ با موفقیت به نتایج فعلی اضافه شد"
 
-#: lib/app/form/tag/add.php:183
+#: lib/app/form/tag/add.php:190
 msgid "Tag successfully added"
 msgstr "تگ با موفقیت اضافه شد"
 
-#: lib/app/form/tag/add.php:250 lib/app/form/tag/add.php:303
+#: lib/app/form/tag/add.php:257 lib/app/form/tag/add.php:310
 msgid "Answer id is required"
 msgstr "شناسه پاسخ الزامی است"
 
-#: lib/app/form/tag/add.php:352
+#: lib/app/form/tag/add.php:359
 msgid "Invalid tag format"
 msgstr "فرمت تگ نادرست است"
 
-#: lib/app/form/tag/add.php:400
+#: lib/app/form/tag/add.php:407
 msgid "Tag is too long!"
 msgstr "کلید‌واژه خیلی طولانی است!"
 
-#: lib/app/form/tag/add.php:448
+#: lib/app/form/tag/add.php:455
 msgid "You can set maximum 20 tag to answer"
 msgstr "شما می‌توانید حداکثر ۲۰ کلید‌واژه به یک پاسخ اضافه کنید"
 
-#: lib/app/form/tag/add.php:482
+#: lib/app/form/tag/add.php:489
 msgid "Can not save your tag detail"
 msgstr "نمی‌توانیم اطلاعات تگ را ذخیره کنیم"
 
@@ -44271,6 +44316,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Answer to this form"
+#~ msgstr "پاسخ به این فرم"
+
 #~ msgid "Auto backup"
 #~ msgstr "پشتیبان گیری خودکار"
 
@@ -46508,9 +46556,6 @@ msgstr "یارد"
 
 #~ msgid "Add new quote"
 #~ msgstr "افزودن نقل قول جدید"
-
-#~ msgid "Edit setting"
-#~ msgstr "ویرایش تنظیمات"
 
 #~ msgid "Can not find this quote index in your list"
 #~ msgstr "نمی‌توانیم شناسه این نقل قول را در لیست پیدا کنیم"
@@ -50113,9 +50158,6 @@ msgstr "یارد"
 
 #~ msgid "List of permissions"
 #~ msgstr "لیست سطوح دسترسی"
-
-#~ msgid "You have not any permission group"
-#~ msgstr "شما هیچ گروه دسترسی ندارید"
 
 #~ msgid "aCustomerView"
 #~ msgstr "نمایش لیست مشتریان"
