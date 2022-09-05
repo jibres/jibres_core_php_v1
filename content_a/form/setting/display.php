@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="box">
+            <div class="box hidden">
                 <div class="pad">
                     <div class="switch1">
                         <input type="checkbox" name="reportpagecheck"
