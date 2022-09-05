@@ -20,10 +20,10 @@ class model
 			];
 
 
-		//		if(\dash\request::files('file'))
-		//		{
-		//			$post['resultpageimage']   = \dash\upload\form::form($form_id);
-		//		}
+		if (\dash\request::files('file'))
+		{
+			$post['resultpageimage'] = \dash\upload\form::form($form_id);
+		}
 
 		$result = \lib\app\form\form\edit::edit($post, \dash\request::get('id'));
 

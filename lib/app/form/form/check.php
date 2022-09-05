@@ -48,6 +48,7 @@ class check
 				'resultpage'              => 'bit',
 				'resultpagetext'          => 'desc',
 				'resultpagetag'           => 'id',
+				'resultpageimage'         => 'string_1000',
 
 			];
 
@@ -129,6 +130,7 @@ class check
 			$data['inquirysetting']['showcomment']  = $data['showcomment'];
 			$data['inquirysetting']['showpulictag'] = $data['showpulictag'];
 
+
 			$data['inquirysetting']['inquiry_msg_founded']     = $data['inquiry_msg_founded'];
 			$data['inquirysetting']['inquiry_msg_not_founded'] = $data['inquiry_msg_not_founded'];
 
@@ -154,8 +156,21 @@ class check
 
 			$data['resultpagesetting']['status'] = $data['resultpage'];
 			$data['resultpagesetting']['tag_id'] = $data['resultpagetag'];
-			//			$data['resultpagesetting']['showpulictag'] = $data['showpulictag'];
 
+			$oldResultPageData = a($load_form, 'resultpagesetting');
+			if(is_string($oldResultPageData))
+			{
+				$oldResultPageData = json_decode($oldResultPageData, true);
+			}
+
+			if($data['resultpageimage'])
+			{
+				$data['resultpagesetting']['image'] = $data['resultpageimage'];
+			}
+			elseif(a($oldResultPageData, 'image'))
+			{
+				$data['resultpagesetting']['image'] = $oldResultPageData['image'];
+			}
 
 			if ($data['question'])
 			{
@@ -239,6 +254,7 @@ class check
 		unset($data['resultpage_mode']);
 		unset($data['resultpage']);
 		unset($data['resultpagetag']);
+		unset($data['resultpageimage']);
 
 
 		return $data;

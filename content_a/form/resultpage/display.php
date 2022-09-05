@@ -1,4 +1,12 @@
-<?php $inquerySetting = \dash\data::dataRow_resultpagesetting() ?>
+<?php
+$inquerySetting = \dash\data::dataRow_resultpagesetting();
+$image = a(\dash\data::dataRow_resultpagesetting(), 'image');
+if($image)
+{
+    $image = \lib\filepath::fix($image);
+}
+
+?>
 <div class="row">
     <div class="c-xs-0 c-sm-0 c-lg-4 d-lg-block">
 		<?php require_once(root . 'content_a/form/itemLink.php'); ?>
@@ -68,6 +76,17 @@
                             <textarea name="resultpagetext" class="txt" rows="3" id="resultagemsg"
                                       placeholder="<?php echo T_("Result page Message") ?>"><?php echo \dash\data::dataRow_resultpagetext(); ?></textarea>
                         </div>
+                        <div class="mb-2">
+                            <span><?php echo T_("Result page image") ?></span>
+                            <div data-uploader data-name='file' data-final='#finalImagefile1'>
+                                <input type="file" accept="image/*" id="file1" data-file-max-size='<?php echo \dash\data::maxFileSize() ?>'>
+                                <label for="file1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+                                <label for="file1"><img id="finalImagefile1" <?php if($image) {?>src="<?php echo $image; ?>" <?php } //endif ?> alt="<?php echo T_("File") ?>"></label>
+                            </div>
+                        </div>
+
+
+
 
 
                     </div>
