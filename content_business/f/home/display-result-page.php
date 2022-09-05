@@ -29,7 +29,7 @@ if ($image)
                 <button class="addon btn "><?php echo T_("Search"); ?></button>
             </div>
         </form>
-
+        <?php if(\dash\data::dataTable()) :?>
         <div class="tblBox">
 
             <table class="tbl1 v1">
@@ -59,6 +59,9 @@ if ($image)
             </table>
         </div>
 		<?php \dash\utility\pagination::html(); ?>
+        <?php else: ?>
+            <div class="alert-warning text-center font-bold"><?php echo T_("No result found"); ?></div>
+        <?php endif; ?>
 
     </div>
 <?php else: ?>
