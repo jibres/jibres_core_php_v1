@@ -1,0 +1,1 @@
+ALTER TABLE jibres_XXXXXXX.form ADD  `reportpage` mediumtext NULL DEFAULT NULL;
