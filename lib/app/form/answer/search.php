@@ -59,7 +59,7 @@ class search
 		$meta  = [];
 		$or    = [];
 
-		$meta['limit'] = 5;
+		$meta['limit'] = 20;
 		// $meta['pagination'] = false;
 
 		if($data['get_answer_ids'])

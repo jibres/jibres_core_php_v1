@@ -166,7 +166,36 @@ class view
 					$result[$answer['id']] = $clone;
 				}
 
-				$result[$answer['id']][$oneAnswerDetail['item_id']] = $oneAnswerDetail['answer'];
+				$myAnswer = $oneAnswerDetail['answer'];
+
+				if($myAnswer)
+				{
+					switch ($oneAnswerDetail['type'])
+					{
+						case 'short_answer':
+							//						$myAnswer = $myAnswer;
+							break;
+
+						case 'nationalcode':
+							$myAnswer = substr($myAnswer, 0, 3). ' * * * * * '. substr($myAnswer, 8, 2);
+							$myAnswer = \dash\fit::text($myAnswer);
+							$myAnswer = '<div class="ltr ">'. $myAnswer. '</div>';
+
+							break;
+						case 'birthdate':
+
+							break;
+						case 'displayname':
+							break;
+						case 'mobile':
+							$myAnswer = substr($myAnswer, 0, 5). ' * * * * '. substr($myAnswer, 8, 4);
+							$myAnswer = \dash\fit::text($myAnswer);
+							$myAnswer = '<div class="ltr ">'. $myAnswer. '</div>';
+							break;
+					}
+				}
+
+				$result[$answer['id']][$oneAnswerDetail['item_id']] = $myAnswer;
 
 			}
 

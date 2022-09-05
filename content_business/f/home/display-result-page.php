@@ -13,9 +13,7 @@
             </tr>
             </thead>
             <tbody>
-			<?php foreach (\dash\data::dataTable() as $key => $value) {
-
-                ?>
+			<?php foreach (\dash\data::dataTable() as $key => $value) {?>
                 <tr>
                     <?php foreach (\dash\data::col() as $item => $item_title) : ?>
                         <td><?php if(a($value, $item))  { echo a($value, $item); }else{ echo '-';} ?></td>
