@@ -19,6 +19,18 @@ class view
 		$items = \lib\app\form\item\get::items_resulpageable($form_id);
 
 		\dash\data::formItems($items);
+
+
+		$tag_list = \lib\app\form\tag\get::all_tag();
+
+		if(!is_array($tag_list))
+		{
+			$tag_list = [];
+		}
+
+		\dash\data::listTag($tag_list);
+
+
 	}
 }
 ?>

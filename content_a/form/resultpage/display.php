@@ -54,6 +54,14 @@
 							<?php } //endif ?>
 						<?php } //endif ?>
 
+                        <label for="tag"><?php echo T_("Filter result by tag"); ?></label>
+                        <select  name="tag" id="tag" class="select22" data-model="tag" >
+                            <option value="" readonly></option>
+							<?php foreach (\dash\data::listTag() as $key => $value) { ?>
+                                <option value="<?php echo $value['id']; ?>" <?php if($value['id'] == a(\dash\data::dataRow_resultpagesetting(), 'tag_id')) { echo 'selected';} ?>><?php echo $value['title']; ?></option>
+							<?php } //endfor ?>
+                        </select>
+
 
                         <div class="mb-2">
                             <label for="resultpagetext"><?php echo T_("Result page Message") ?></label>

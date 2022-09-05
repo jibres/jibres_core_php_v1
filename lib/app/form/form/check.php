@@ -44,10 +44,10 @@ class check
 				'inquiry_msg_founded'     => 'string_250',
 				'inquiry_msg_not_founded' => 'string_250',
 				'saveasticket'            => 'bit',
-
-				'resultpage_mode' => 'bit',
-				'resultpage'      => 'bit',
-				'resultpagetext'  => 'desc',
+				'resultpage_mode'         => 'bit',
+				'resultpage'              => 'bit',
+				'resultpagetext'          => 'desc',
+				'resultpagetag'           => 'id',
 
 			];
 
@@ -152,9 +152,9 @@ class check
 		{
 			$data['resultpagesetting'] = [];
 
-			$data['resultpagesetting']['status']  = $data['resultpage'];
-//			$data['resultpagesetting']['showpulictag'] = $data['showpulictag'];
-
+			$data['resultpagesetting']['status'] = $data['resultpage'];
+			$data['resultpagesetting']['tag_id'] = $data['resultpagetag'];
+			//			$data['resultpagesetting']['showpulictag'] = $data['showpulictag'];
 
 
 			if ($data['question'])
@@ -238,8 +238,7 @@ class check
 
 		unset($data['resultpage_mode']);
 		unset($data['resultpage']);
-
-
+		unset($data['resultpagetag']);
 
 
 		return $data;

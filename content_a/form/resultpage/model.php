@@ -15,6 +15,7 @@ class model
 				'resultpage'      => \dash\request::post('resultpage'),
 				'resultpagetext'  => \dash\request::post('resultpagetext'),
 				'question'        => \dash\request::post('question'),
+				'resultpagetag'      => \dash\request::post('tag'),
 
 			];
 

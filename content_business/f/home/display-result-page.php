@@ -1,11 +1,11 @@
 <?php if (a(\dash\data::formDetail_resultpagesetting(), 'status')) : ?>
     <div class="avand">
 		<?php if (\dash\data::formDetail_resultpagetext()) : ?>
-            <div>
+            <div class="msg">
 				<?php echo \dash\data::formDetail_resultpagetext(); ?>
             </div>
 		<?php endif; ?>
-        <form method="get" class="mb-4" action='<?php echo \dash\url::current(); ?>'>
+        <form method="get" class="mb-4 mt-4" action='<?php echo \dash\url::current(); ?>'>
 
             <div class="input">
                 <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q"
