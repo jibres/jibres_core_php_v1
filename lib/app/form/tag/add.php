@@ -60,18 +60,22 @@ class add
 
 		$table_name = \lib\app\form\view\get::is_created_table($data['form_id']);
 
-		if($data['randomtag'] && $data['taglimitcount'])
+		if ($data['randomtag'] && $data['taglimitcount'])
 		{
-			$get_all_answer_id = \lib\db\form_tag\insert::get_answer_id_before_apply_to_filter($table_name, $where, $data['type'], $data['taglimitcount']);
+			$get_all_answer_id =
+				\lib\db\form_tag\insert::get_answer_id_before_apply_to_filter($table_name, $where, $data['type'], $data['taglimitcount']);
 		}
 		else
 		{
-			$get_all_answer_id = \lib\db\form_tag\insert::get_answer_id_before_apply_to_filter($table_name, $where, $data['type']);
+			$get_all_answer_id =
+				\lib\db\form_tag\insert::get_answer_id_before_apply_to_filter($table_name, $where, $data['type']);
 		}
 
-		$tagDetail = \lib\app\form\tag\get::get($tag_id);
+		$tagDetailRaw       = \lib\app\form\tag\get::get($tag_id);
+		$tagDetail          = [];
+		$tagDetail[$tag_id] = $tagDetailRaw;
 
-		if($get_all_answer_id)
+		if ($get_all_answer_id)
 		{
 			foreach ($get_all_answer_id as $answer_id)
 			{
@@ -86,10 +90,10 @@ class add
 			return false;
 		}
 		//		else
-//		{
-//
-//			\lib\db\form_tag\insert::apply_to_filter($tag_id, $data['form_id'], $table_name, $where, $data['type']);
-//		}
+		//		{
+		//
+		//			\lib\db\form_tag\insert::apply_to_filter($tag_id, $data['form_id'], $table_name, $where, $data['type']);
+		//		}
 
 		\dash\notif::clean();
 
@@ -593,7 +597,7 @@ class add
 				foreach ($must_send_to_user as $user_id)
 				{
 					// send notif by sms for nabarvari.khadije.com + sobati
-					if(in_array(intval(\lib\store::id()), [1000089, 1001466]))
+					if (in_array(intval(\lib\store::id()), [1000089, 1001466]))
 					{
 						\dash\log::send_sms($user_id, $tag_detail['smstext']);
 					}
