@@ -82,6 +82,60 @@ class sidebar
 		/*=====  End of Home / Dashboard  ======*/
 
 
+		/*================================
+		=            Products            =
+		================================*/
+		$menu["products"] =
+			[
+				'title'     => T_("Products"),
+				'url'       => \dash\url::kingdom().'/a/products',
+				'icon'      => 'products',
+				'iconColor' => '#a1b2c3',
+				'selected'  => null,
+			];
+
+
+		if(in_array($module, ['products', 'category', 'units', 'pricehistory']))
+		{
+			$menu['products']['iconColor'] = $blue;
+
+			$product_child = [];
+
+			$product_child['all'] =
+				[
+					'title'    => T_("All products"),
+					'url'      => $kingdom. '/a/products',
+					'selected' => (in_array($module, ['products', 'pricehistory']) && $child !== 'add'),
+				];
+
+
+			$product_child['add'] =
+				[
+					'title'    => T_("Add product"),
+					'url'      => $kingdom. '/a/products/add',
+					'selected' => ($child === 'add'),
+				];
+
+			$product_child['category'] =
+				[
+					'title'    => T_("Category"),
+					'url'      => $kingdom. '/a/category',
+					'selected' => ($module === 'category'),
+				];
+
+			$product_child['units'] =
+				[
+					'title'    => T_("Units"),
+					'url'      => $kingdom. '/a/units',
+					'selected' => ($module === 'units'),
+				];
+
+			$menu['products']['child'] = $product_child;
+		}
+		/*=====  End of Products  ======*/
+
+
+
 		/*==============================
 		=            Orders            =
 		==============================*/
@@ -140,59 +194,6 @@ class sidebar
 			$menu['orders']['child'] = $orders_child;
 		}
 		/*=====  End of Orders  ======*/
-
-
-		/*================================
-		=            Products            =
-		================================*/
-		$menu["products"] =
-		[
-			'title'     => T_("Products"),
-			'url'       => \dash\url::kingdom().'/a/products',
-			'icon'      => 'products',
-			'iconColor' => '#a1b2c3',
-			'selected'  => null,
-		];
-
-
-		if(in_array($module, ['products', 'category', 'units', 'pricehistory']))
-		{
-			$menu['products']['iconColor'] = $blue;
-
-			$product_child = [];
-
-			$product_child['all'] =
-			[
-				'title'    => T_("All products"),
-				'url'      => $kingdom. '/a/products',
-				'selected' => (in_array($module, ['products', 'pricehistory']) && $child !== 'add'),
-			];
-
-
-			$product_child['add'] =
-			[
-				'title'    => T_("Add product"),
-				'url'      => $kingdom. '/a/products/add',
-				'selected' => ($child === 'add'),
-			];
-
-			$product_child['category'] =
-			[
-				'title'    => T_("Category"),
-				'url'      => $kingdom. '/a/category',
-				'selected' => ($module === 'category'),
-			];
-
-			$product_child['units'] =
-			[
-				'title'    => T_("Units"),
-				'url'      => $kingdom. '/a/units',
-				'selected' => ($module === 'units'),
-			];
-
-			$menu['products']['child'] = $product_child;
-		}
-		/*=====  End of Products  ======*/
 
 
 
