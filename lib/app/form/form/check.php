@@ -148,6 +148,31 @@ class check
 			$data['inquirysetting'] = json_encode($data['inquirysetting'], JSON_UNESCAPED_UNICODE);
 		}
 
+		if ($data['resultpage_mode'])
+		{
+			$data['resultpagesetting'] = [];
+
+//			$data['resultpagesetting']['showcomment']  = $data['showcomment'];
+//			$data['resultpagesetting']['showpulictag'] = $data['showpulictag'];
+
+
+
+			if ($data['question'])
+			{
+				foreach ($data['question'] as $key => $value)
+				{
+					if (!\dash\validate::id($value))
+					{
+						return false;
+					}
+				}
+
+				$data['resultpagesetting']['question'] = $data['question'];
+			}
+
+			$data['resultpagesetting'] = json_encode($data['resultpagesetting'], JSON_UNESCAPED_UNICODE);
+		}
+
 		if ($data['startdate'])
 		{
 			$data['starttime'] = $data['startdate'];
