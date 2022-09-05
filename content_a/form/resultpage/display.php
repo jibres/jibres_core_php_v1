@@ -10,29 +10,29 @@
                     <p><?php echo T_("By activating this feature, the customer can see a list of registered responses to this form.") ?></p>
                     <div class="switch1 mb-4 mt-4">
                         <input type="checkbox" name="resultpage"
-                               id="resultpage" <?php if (\dash\data::dataRow_resultpage()) {
+                               id="resultpage" <?php if (a(\dash\data::dataRow_resultpagesetting(), 'status')) {
 							echo 'checked';
 						} ?>>
                         <label for="resultpage"></label>
                         <label for="resultage"><?php echo T_("Enable result page") ?></label>
                     </div>
-					<?php if (\dash\data::dataRow_resultpage()) { ?>
-                        <span><?php echo T_("Result page address") ?></span>
-                        <div class="alert-secondary ltr text-left f">
-                            <div class="text-left ltr"><a target="_blank"
-                                                          href="<?php echo \dash\data::dataRow_url() . '/result'; ?>"><?php echo \dash\data::dataRow_url() . '/result'; ?></a>
-                            </div>
-                            <div class="text-right"
-                                 data-copy="<?php echo \dash\data::dataRow_url() . '/result'; ?>"><?php echo \dash\utility\icon::svg('link') ?></div>
-                        </div>
-					<?php } // endif ?>
 
-                    <div data-response="resultpage" <?php if (\dash\data::dataRow_resultpage()) {/*nothing*/
+                    <div data-response="resultpage" <?php if (a(\dash\data::dataRow_resultpagesetting(), 'status')) {/*nothing*/
 					} else {
 						echo 'data-response-hide';
 					} ?>>
 
-						<?php if (!\dash\data::formItems()) { ?>
+                            <span><?php echo T_("Result page address") ?></span>
+                            <div class="alert-secondary ltr text-left f">
+                                <div class="text-left ltr"><a target="_blank"
+                                                              href="<?php echo \dash\data::dataRow_url() . '/result'; ?>"><?php echo \dash\data::dataRow_url() . '/result'; ?></a>
+                                </div>
+                                <div class="text-right"
+                                     data-copy="<?php echo \dash\data::dataRow_url() . '/result'; ?>"><?php echo \dash\utility\icon::svg('link') ?></div>
+                            </div>
+
+
+                        <?php if (!\dash\data::formItems()) { ?>
                             <div class="alert-warning"><?php echo T_("You have not any question in your form.") ?></div>
 						<?php } else { ?>
                             <p class="mB0-f"><?php echo T_("Which question display in result page?") ?></p>

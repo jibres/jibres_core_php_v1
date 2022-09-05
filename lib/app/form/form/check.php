@@ -152,7 +152,7 @@ class check
 		{
 			$data['resultpagesetting'] = [];
 
-//			$data['resultpagesetting']['showcomment']  = $data['showcomment'];
+			$data['resultpagesetting']['status']  = $data['resultpage'];
 //			$data['resultpagesetting']['showpulictag'] = $data['showpulictag'];
 
 
