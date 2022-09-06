@@ -8,6 +8,7 @@ class model
 		if(\dash\request::post('remove') === 'remove')
 		{
 			\dash\file::delete(YARD. 'jibres_temp/stores/');
+			\dash\file::delete(YARD. 'jibres_temp/busy/');
 			\dash\notif::ok(T_("Temp file removed"));
 			\dash\redirect::pwd();
 		}
