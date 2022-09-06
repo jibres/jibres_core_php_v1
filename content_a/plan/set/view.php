@@ -26,12 +26,18 @@ class view
 			$period = \dash\request::get('p');
 		}
 
+		$actionType = 'register';
+		if(\dash\request::get('renew'))
+		{
+			$actionType = 'renew';
+		}
+
 		$loadNewPlan =
 			[
 				'plan'        => \dash\data::planName(),
 				'period'      => $period,
 				'gift'        => \dash\request::get('gift'),
-				'action_type' => 'register',
+				'action_type' => $actionType,
 			];
 
 		$planFactor = \lib\app\plan\businessPlanDetail::calculateFactor($loadNewPlan);

@@ -29,10 +29,11 @@ class planChoose
 	{
 		$condition =
 			[
-				'plan'       => ['enum' => planList::list()],
-				'period'     => ['enum' => ['monthly', 'yearly']],
-				'use_budget' => 'bit',
-				'turn_back'  => 'string_2000',
+				'plan'        => ['enum' => planList::list()],
+				'period'      => ['enum' => ['monthly', 'yearly']],
+				'action_type' => ['enum' => ['register', 'renew']],
+				'use_budget'  => 'bit',
+				'turn_back'   => 'string_2000',
 			];
 
 		$require = ['plan'];
@@ -41,11 +42,12 @@ class planChoose
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+
 		return $data;
 	}
 
 
-	public static function allowChoosePlan(array $_currentPlan, plan $_newPlan, $_admin = false): bool
+	public static function allowChoosePlan(array $_currentPlan, plan $_newPlan, $_admin = false) : bool
 	{
 		$plan = $_currentPlan['plan'];
 

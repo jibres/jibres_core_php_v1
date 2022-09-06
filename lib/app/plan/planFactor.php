@@ -15,7 +15,7 @@ class planFactor
 			return false;
 		}
 
-		if ($data['action_type'] === 'register')
+		if ($data['action_type'] === 'register' || $data['action_type'] === 'renew')
 		{
 			return self::registerFactor($_business_id, $data);
 		}
@@ -62,6 +62,10 @@ class planFactor
 		if ($data['action_type'] === 'register')
 		{
 			$actionTitle = T_("Buy plan");
+		}
+		elseif ($data['action_type'] === 'renew')
+		{
+			$actionTitle = T_("Renew plan");
 		}
 
 		if ($data['period'] === 'monthly')
@@ -135,10 +139,10 @@ class planFactor
 
 		planReady::calculateDays($currentPlan);
 
-		$daysLeft  = floatval(a($currentPlan, 'daysLeft'));
-		$finalprice  = floatval(a($currentPlan, 'finalprice'));
-		$daysSpent = floatval(a($currentPlan, 'daysSpent'));
-		$days      = floatval(a($currentPlan, 'days'));
+		$daysLeft   = floatval(a($currentPlan, 'daysLeft'));
+		$finalprice = floatval(a($currentPlan, 'finalprice'));
+		$daysSpent  = floatval(a($currentPlan, 'daysSpent'));
+		$days       = floatval(a($currentPlan, 'days'));
 		if (!$days)
 		{
 			$days = 1;
@@ -165,7 +169,6 @@ class planFactor
 		{
 			$guaranteeDays = 7;
 		}
-
 
 
 		$useGuarantee = false;
@@ -198,7 +201,7 @@ class planFactor
 
 			$priceSpent = round($priceSpent, -3, PHP_ROUND_HALF_DOWN);
 
-			if($priceSpent > $finalprice)
+			if ($priceSpent > $finalprice)
 			{
 				$priceSpent = $finalprice;
 			}
@@ -253,7 +256,7 @@ class planFactor
 			[
 				'plan'        => ['enum' => planList::list()],
 				'period'      => ['enum' => ['monthly', 'yearly']],
-				'action_type' => ['enum' => ['register', 'cancel']],
+				'action_type' => ['enum' => ['register', 'cancel', 'renew']],
 				'gift'        => 'string_100',
 				'factor'      => 'bit', // just save for skipp input error
 			];
@@ -265,6 +268,11 @@ class planFactor
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		return $data;
+	}
+
+
+	private static function renewFactor($_business_id, array $_data)
+	{
 	}
 
 }

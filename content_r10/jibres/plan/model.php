@@ -4,18 +4,20 @@ namespace content_r10\jibres\plan;
 
 class model
 {
+
 	public static function post()
 	{
 
 		$business_id = \content_r10\tools::get_current_business_id();
 
 		$args =
-		[
-			'plan'       => \dash\request::input_body('plan'),
-			'period'     => \dash\request::input_body('period'),
-			'use_budget' => \dash\request::input_body('use_budget'),
-			'turn_back'  => \dash\request::input_body('turn_back'),
-		];
+			[
+				'plan'        => \dash\request::input_body('plan'),
+				'period'      => \dash\request::input_body('period'),
+				'use_budget'  => \dash\request::input_body('use_budget'),
+				'turn_back'   => \dash\request::input_body('turn_back'),
+				'action_type' => \dash\request::input_body('action_type'),
+			];
 
 		$result = \lib\app\plan\storePlan::activate($business_id, $args);
 
@@ -31,5 +33,7 @@ class model
 
 		\content_r10\tools::say($result);
 	}
+
 }
+
 ?>
