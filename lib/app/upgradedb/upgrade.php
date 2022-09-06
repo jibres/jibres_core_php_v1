@@ -14,7 +14,7 @@ class upgrade
 		$jibres_last_version         = self::jibres_last_version();
 
 		$result = [];
-		if(version_compare($jibres_last_upgrade_version, $jibres_last_version, '>'))
+		if(version_compare(strval($jibres_last_upgrade_version), strval($jibres_last_version), '>'))
 		{
 			$result['jibres'] = ['current' => $jibres_last_version, 'upgrade' => $jibres_last_upgrade_version];
 		}
@@ -23,7 +23,7 @@ class upgrade
 		$store_last_upgrade_version = self::store_last_upgrade_version();
 		$store_min_version         = self::store_min_version();
 
-		if(version_compare($store_last_upgrade_version, $store_min_version, '>'))
+		if(version_compare(strval($store_last_upgrade_version), strval($store_min_version), '>'))
 		{
 			$result['store'] = ['current' => $store_min_version, 'upgrade' => $store_last_upgrade_version];
 		}
@@ -35,6 +35,8 @@ class upgrade
 	public static function run()
 	{
 		self::$start_time = time();
+
+		\dash\code::time_limit(0);
 
 		$jibres_last_upgrade_version = self::jibres_last_upgrade_version();
 		$jibres_last_version         = self::jibres_last_version();

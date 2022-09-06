@@ -1,1 +1,0 @@
-TRUNCATE jibres.business_domain_action;

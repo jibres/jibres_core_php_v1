@@ -1,2 +1,0 @@
-ALTER TABLE jibres.store_plugin_action ADD `action` varchar(100) NULL DEFAULT NULL AFTER `plugin_id`;
-ALTER TABLE jibres.store_plugin_action ADD INDEX `index_search_store_plugin_action_action` (`action`);
