@@ -147,7 +147,7 @@ class storePlan
 			if(strtotime($_lastPlanRecord['expirydate']) < time())
 			{
 				\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'expired'], $_lastPlanRecord['id']);
-				planSet::setFirstPlan($_business_id, 'free');
+				planSet::setFirstPlan($_business_id, 'free', null, $_lastPlanRecord);
 				$currentPlan = 'free';
 				$expDate     = null;
 			}
@@ -300,7 +300,7 @@ class storePlan
 				\lib\db\store_plan_history\update::record(['status' => 'deactive', 'reason' => 'cancel'], $currentPlan['id']);
 			}
 
-			planSet::setFirstPlan($store_id, 'free');
+			planSet::setFirstPlan($store_id, 'free', null, $currentPlan);
 
 		}
 		else
