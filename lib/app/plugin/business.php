@@ -357,68 +357,71 @@ class business
 
 	public static function is_activated(string $_plugin) : bool
 	{
-        return \lib\app\plan\planCheck::access($_plugin);
+		if(\dash\url::isLocal())
+		{
+			return \lib\app\plan\planCheck::access($_plugin);
+		}
 
-//
-//		// not check is active plugin in jibres!
-//		if(!\dash\engine\store::inStore())
-//		{
-//			return false;
-//		}
-//
-//		self::load_once();
-//
-//		$plugin_detail = \lib\app\plugin\get::detail($_plugin);
-//
-//		foreach (self::$business_plugin_list as $key => $value)
-//		{
-//			if($_plugin === a($value, 'plugin'))
-//			{
-//				if($plugin_detail['type'] === 'once')
-//				{
-//					if($value['status'] === 'enable')
-//					{
-//						return true;
-//					}
-//					else
-//					{
-//						return false;
-//					}
-//				}
-//				elseif($plugin_detail['type'] === 'periodic')
-//				{
-//					if(a($value, 'expiredate') && ($myTime = strtotime($value['expiredate'])) !== false)
-//					{
-//						if($myTime > time())
-//						{
-//							return true;
-//						}
-//						else
-//						{
-//							return false;
-//						}
-//					}
-//					else
-//					{
-//						return false;
-//					}
-//				}
-//				elseif($plugin_detail['type'] === 'counting_package')
-//				{
-//					if($value['status'] === 'enable')
-//					{
-//						return true;
-//					}
-//					else
-//					{
-//						return false;
-//					}
-//				}
-//			}
-//		}
-//
-//
-//		return false;
+
+		// not check is active plugin in jibres!
+		if(!\dash\engine\store::inStore())
+		{
+			return false;
+		}
+
+		self::load_once();
+
+		$plugin_detail = \lib\app\plugin\get::detail($_plugin);
+
+		foreach (self::$business_plugin_list as $key => $value)
+		{
+			if($_plugin === a($value, 'plugin'))
+			{
+				if($plugin_detail['type'] === 'once')
+				{
+					if($value['status'] === 'enable')
+					{
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				}
+				elseif($plugin_detail['type'] === 'periodic')
+				{
+					if(a($value, 'expiredate') && ($myTime = strtotime($value['expiredate'])) !== false)
+					{
+						if($myTime > time())
+						{
+							return true;
+						}
+						else
+						{
+							return false;
+						}
+					}
+					else
+					{
+						return false;
+					}
+				}
+				elseif($plugin_detail['type'] === 'counting_package')
+				{
+					if($value['status'] === 'enable')
+					{
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
+
+
+		return false;
 
 	}
 
