@@ -9,7 +9,7 @@ class run
 		// expire old export
 		// self::expire();
 		// \dash\pdo::transaction();
-
+		\dash\log::debug_line(__LINE__, 'start');
 		// check have running
 		// if have any record as runing skip other export
 		$any_running = \lib\db\export\get::any_running();
@@ -18,7 +18,7 @@ class run
 			return;
 		}
 
-		// \dash\log::debug_line(__LINE__, $any_running);
+		\dash\log::debug_line(__LINE__, $any_running);
 
 		// check have request
 		// if have not any request return
