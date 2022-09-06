@@ -17,7 +17,7 @@ class planFactor
 
 		if ($data['action_type'] === 'register' || $data['action_type'] === 'renew')
 		{
-			return self::registerFactor($_business_id, $data);
+			return self::registerOrRenewFactor($_business_id, $data);
 		}
 		elseif ($data['action_type'] === 'cancel')
 		{
@@ -32,7 +32,7 @@ class planFactor
 	}
 
 
-	private static function registerFactor($_business_id, array $data)
+	private static function registerOrRenewFactor($_business_id, array $data)
 	{
 		$result      = [];
 		$factor      = [];
@@ -52,29 +52,46 @@ class planFactor
 			}
 		}
 
+		if ($data['action_type'] === 'renew')
+		{
+			planReady::calculateDays($currentPlans);
+			print_r($currentPlans);
+			exit();
+		}
+
 		$loadPlan = planLoader::load($data['plan']);
 		$loadPlan->setPeriod($data['period']);
 		$loadPlan->prepare();
 
+
 		$planTitle = $loadPlan->title();
 		$price     = $loadPlan->price();
 
-		if ($data['action_type'] === 'register')
-		{
-			$actionTitle = T_("Buy plan");
-		}
-		elseif ($data['action_type'] === 'renew')
-		{
-			$actionTitle = T_("Renew plan");
-		}
+		$detail[] = ['title' => T_("Start date"), 'value' => T_("Today")];
 
 		if ($data['period'] === 'monthly')
 		{
-			$detail[] = ['title' => T_("Period"), 'value' => T_("One month")];
+			$detail[]    = ['title' => T_("Period"), 'value' => T_("One month")];
 		}
 		else
 		{
 			$detail[] = ['title' => T_("Period"), 'value' => T_("One year")];
+		}
+
+		if ($data['action_type'] === 'register')
+		{
+			$endDateTime = sprintf("+%s days", $loadPlan->calculateDays());
+			$endDate     = date("Y-m-d", strtotime($endDateTime));
+			$detail[]    = ['title' => T_("End date"), 'value' => \dash\fit::date($endDate)];
+
+			$actionTitle = T_("Buy plan");
+		}
+		elseif ($data['action_type'] === 'renew')
+		{
+			$endDateTime = sprintf("+%s days", $loadPlan->calculateDays() + $currentPlans['']);
+			$endDate     = date("Y-m-d", strtotime($endDateTime));
+			$detail[]    = ['title' => T_("End date"), 'value' => \dash\fit::date($endDate)];
+			$actionTitle = T_("Renew plan");
 		}
 
 
