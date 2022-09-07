@@ -10,7 +10,7 @@ class planSet
 		$myPlan = planLoader::load($_plan);
 		$myPlan->prepare();
 
-		if ($_period)
+		if($_period)
 		{
 			$myPlan->setPeriod($_period);
 		}
@@ -31,22 +31,29 @@ class planSet
 		$currentPlan = $_currentPlan;
 		$startdate   = date("Y-m-d H:i:s");
 
-		if (isset($_currentPlan['plan']) && $_currentPlan['plan'] === $_newPlan->name())
+		$days     = $myPlan->calculateDays();
+		$realdays = $days;
+
+		if(isset($_currentPlan['plan']) && $_currentPlan['plan'] === $_newPlan->name())
 		{
-			if (isset($currentPlan['expirydate']) && $currentPlan['expirydate'])
+			if(isset($currentPlan['expirydate']) && strtotime($currentPlan['expirydate']) > time())
 			{
-				$startdate = date("Y-m-d H:i:s", strtotime($currentPlan['expirydate']) + 1);
+				$date1    = new \DateTime($startdate);  //current date or any date
+				$date2    = new \DateTime($currentPlan['expirydate']);   //Future date
+				$diff     = $date2->diff($date1)->format("%a");  //find difference
+				$realdays = $days + intval($diff) + 1;   //rounding days 1 is today
 			}
 		}
 
+
 		$expirydate = null;
-		if ($days = $myPlan->calculateDays())
+		if($days = $myPlan->calculateDays())
 		{
-			$expirydate = date("Y-m-d H:i:s", strtotime($startdate) + ($days * 60 * 60 * 24));
+			$expirydate = date("Y-m-d H:i:s", strtotime($startdate) + ($realdays * 60 * 60 * 24));
 		}
 
 		$previous_plan_id = null;
-		if (isset($_currentPlan['id']))
+		if(isset($_currentPlan['id']))
 		{
 			$previous_plan_id = $_currentPlan['id'];
 		}
@@ -67,7 +74,8 @@ class planSet
 				'reason'           => null,
 				'periodtype'       => $myPlan->period(),
 				'setby'            => $myPlan->setBy(),
-				'days'             => $myPlan->calculateDays(),
+				'days'             => $days,
+				'realdays'         => $realdays,
 				'price'            => $myPlan->price(),
 				'discount'         => null,
 				'vat'              => null,
@@ -98,7 +106,7 @@ class planSet
 		$newPlan->prepare();
 
 
-		if (planChoose::allowChoosePlanAdmin($currentPlan, $newPlan))
+		if(planChoose::allowChoosePlanAdmin($currentPlan, $newPlan))
 		{
 			self::set($data['store_id'], $newPlan, $currentPlan);
 			return true;
@@ -135,31 +143,31 @@ class planSet
 
 	private static function detectPlanAction($_current_plan, $_new_plan)
 	{
-		if (!$_current_plan)
+		if(!$_current_plan)
 		{
 			$action = 'set';
 		}
-		elseif ($_new_plan === $_current_plan)
+		elseif($_new_plan === $_current_plan)
 		{
 			$action = 'extends';
 		}
 		else
 		{
-			if ($_new_plan === 'free')
+			if($_new_plan === 'free')
 			{
 				$action = 'downgrade';
 			}
-			elseif ($_current_plan === 'free')
+			elseif($_current_plan === 'free')
 			{
 				$action = 'upgrade';
 			}
 			else
 			{
-				if (in_array($_current_plan, ['gold']) && in_array($_new_plan, ['diamond']))
+				if(in_array($_current_plan, ['gold']) && in_array($_new_plan, ['diamond']))
 				{
 					$action = 'upgrade';
 				}
-				elseif (in_array($_current_plan, ['diamond']) && in_array($_new_plan, ['gold']))
+				elseif(in_array($_current_plan, ['diamond']) && in_array($_new_plan, ['gold']))
 				{
 					$action = 'downgrade';
 				}

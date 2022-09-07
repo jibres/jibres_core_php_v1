@@ -55,8 +55,7 @@ class planFactor
 		if ($data['action_type'] === 'renew')
 		{
 			planReady::calculateDays($currentPlans);
-			print_r($currentPlans);
-			exit();
+
 		}
 
 		$loadPlan = planLoader::load($data['plan']);
@@ -78,21 +77,25 @@ class planFactor
 			$detail[] = ['title' => T_("Period"), 'value' => T_("One year")];
 		}
 
+		$realDays  = $loadPlan->calculateDays();
+
 		if ($data['action_type'] === 'register')
 		{
-			$endDateTime = sprintf("+%s days", $loadPlan->calculateDays());
-			$endDate     = date("Y-m-d", strtotime($endDateTime));
-			$detail[]    = ['title' => T_("End date"), 'value' => \dash\fit::date($endDate)];
-
 			$actionTitle = T_("Buy plan");
 		}
 		elseif ($data['action_type'] === 'renew')
 		{
-			$endDateTime = sprintf("+%s days", $loadPlan->calculateDays() + $currentPlans['']);
-			$endDate     = date("Y-m-d", strtotime($endDateTime));
-			$detail[]    = ['title' => T_("End date"), 'value' => \dash\fit::date($endDate)];
+			if(isset($currentPlans['daysLeft']) && $currentPlans['daysLeft'])
+			{
+				$realDays += $currentPlans['daysLeft'];
+				$detail[]    = ['title' => T_("+Days left current plan"), 'value' => \dash\fit::number($currentPlans['daysLeft'])];
+			}
 			$actionTitle = T_("Renew plan");
 		}
+
+		$endDateTime = sprintf("+%s days", $realDays);
+		$endDate     = date("Y-m-d", strtotime($endDateTime));
+		$detail[]    = ['title' => T_("End date"), 'value' => \dash\fit::date($endDate)];
 
 
 		$result['factor'] = $factor;
