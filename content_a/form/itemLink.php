@@ -105,8 +105,19 @@
                 <input type="number" name="aid" placeholder="<?php echo T_("Answer id") ?>" id="aid">
             </div>
         </div>
-        <footer class="txtRa">
-            <button class="btn"><?php echo T_("Go") ?></button>
+        <footer class="">
+            <div class="row">
+                <div class="c-auto">
+                    <?php if(\lib\app\form\form\get::enterpriseSpecialFormBuilder()) :?>
+                        <a class="btn-primary"  href="<?php echo \dash\url::this(). '/find?id='. \dash\request::get('id') ?>"><?php echo T_("Find & Print"); ?></a>
+                    <?php endif; ?>
+                </div>
+                <div class="c"></div>
+                <div class="c-auto">
+                    <button class="btn"><?php echo T_("Go") ?></button>
+                </div>
+            </div>
+
         </footer>
     </div>
 </form>
