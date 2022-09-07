@@ -73,6 +73,13 @@ $smsMeta = \dash\data::smsMeta();
         <div class="go detail"></div>
       </a>
      </li>
+      <li>
+      <a class="f item">
+          <div class="key"><?php echo T_("Send ID") ?></div>
+          <div class="value font-bold"><?php echo \dash\fit::text(\dash\data::dataRow_jibres_sms_id()); ?></div>
+          <div class="go detail"></div>
+      </a>
+      </li>
   </ul>
 </nav>
 
