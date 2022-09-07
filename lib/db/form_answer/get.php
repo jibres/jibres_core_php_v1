@@ -214,7 +214,7 @@ class get
 
 			if(isset($_args['tag_id']) && $_args['tag_id'])
 			{
-				$where[]          = " form_tagusage.form_tag_id >= :tag_id ";
+				$where[]          = " form_tagusage.form_tag_id = :tag_id ";
 				$join             = ' INNER JOIN form_tagusage ON form_answer.id = form_tagusage.answer_id ';
 				$param[':tag_id'] = $_args['tag_id'];
 			}
