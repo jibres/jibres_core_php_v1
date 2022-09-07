@@ -683,7 +683,7 @@ class add
 					if(!$edit_mode && $my_send_sms && $my_sms_text && $new_signuped_user_id && isset($value['mobile']))
 					{
 						// send notif by sms for nabarvari.khadije.com + sobati
-						if(in_array(intval(\lib\store::id()), [1000089, 1001466]))
+						if(\lib\app\form\form\get::enterpriseSpecialFormBuilder())
 						{
 							\dash\log::send_sms($new_signuped_user_id, $my_sms_text);
 						}

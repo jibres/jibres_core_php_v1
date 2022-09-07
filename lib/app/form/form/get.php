@@ -69,5 +69,12 @@ class get
 
 		return $load;
 	}
+
+
+	public static function enterpriseSpecialFormBuilder()
+	{
+		return in_array(intval(\lib\store::id()), [1000089, 1001466]);
+	}
+
 }
 ?>
