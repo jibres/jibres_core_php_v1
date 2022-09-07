@@ -63,6 +63,7 @@ class view
 		}
 
 
+
 		\dash\face::btnPrint(true);
 
 		if (\dash\request::get('special') && \dash\data::formDetail_reportpage())

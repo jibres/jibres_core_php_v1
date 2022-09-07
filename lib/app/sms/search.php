@@ -4,7 +4,7 @@ namespace lib\app\sms;
 class search
 {
 
-	private static $is_filtered    = false;
+	private static $is_filtered = false;
 
 
 	public static function is_filtered()
@@ -13,38 +13,41 @@ class search
 	}
 
 
-
 	public static function list($_query_string, $_args)
 	{
 		$condition =
-		[
-			'order'        => 'order',
-			'sort'         => 'string_100',
-			'store_id'     => 'id',
-			'status'       => ['enum' => ['pending', 'sending', 'send', 'expired', 'delivered','queue','failed','undelivered','cancel','block','other', 'moneylow']],
-			// 'type'      => ['enum' => []],
-			'mobile'       => 'mobile',
-			'conversation' => 'bit',
-		];
-
+			[
+				'order'        => 'order',
+				'sort'         => 'string_100',
+				'store_id'     => 'id',
+				'status'       => [
+					'enum' => [
+						'pending', 'sending', 'send', 'expired', 'delivered', 'queue', 'failed', 'undelivered',
+						'cancel', 'block', 'other', 'moneylow',
+					],
+				],
+				// 'type'      => ['enum' => []],
+				'mobile'       => 'mobile',
+				'conversation' => 'bit',
+				'notsend'    => 'bit',
+			];
 
 
 		$require = [];
-		$meta    =	[];
+		$meta    = [];
 
-		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and          = [];
+		$meta         = [];
+		$or           = [];
 		$meta['join'] = [];
 
 		$meta['limit'] = 20;
 
 
-		$order_sort  = null;
+		$order_sort = null;
 
 
 		if($data['store_id'])
@@ -54,7 +57,7 @@ class search
 
 		if($data['mobile'])
 		{
-			$and[] = " sms_log.mobile = '$data[mobile]' ";
+			$and[]             = " sms_log.mobile = '$data[mobile]' ";
 			self::$is_filtered = true;
 		}
 
@@ -79,12 +82,20 @@ class search
 			$mobile = \dash\validate::mobile($query_string, false);
 			if($mobile)
 			{
-				$or[]        = " sms_log.mobile = '$mobile'";
+				$or[] = " sms_log.mobile = '$mobile'";
 			}
 			else
 			{
-				$or[]        = " sms_log.mobile LIKE '%$query_string%'";
+				$or[] = " sms_log.mobile LIKE '%$query_string%'";
 			}
+			self::$is_filtered = true;
+		}
+
+		if($data['notsend'])
+		{
+			$and               = [];
+			$or                = [];
+			$and[]             = " sms_log.status IN('pending', 'register') AND sms_log.jibres_sms_id IS NULL ";
 			self::$is_filtered = true;
 		}
 
@@ -133,8 +144,8 @@ class search
 				{
 					if(isset($value['user_id']) && $value['user_id'] && isset($load_some_user[$value['user_id']]))
 					{
-						$user_detail = $load_some_user[$value['user_id']];
-						$user_detail = \dash\app\user::ready($user_detail);
+						$user_detail               = $load_some_user[$value['user_id']];
+						$user_detail               = \dash\app\user::ready($user_detail);
 						$list[$key]['user_detail'] = $user_detail;
 					}
 					else
@@ -151,38 +162,39 @@ class search
 	}
 
 
-
-
 	public static function jibres_list($_query_string, $_args)
 	{
 		$condition =
-		[
-			'order'        => 'order',
-			'sort'         => 'string_100',
-			'store_id'     => 'id',
-			'status'       => ['enum' => ['pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other']],
-			// 'type'      => ['enum' => []],
-			'mobile'       => 'mobile',
-		];
-
+			[
+				'order'    => 'order',
+				'sort'     => 'string_100',
+				'store_id' => 'id',
+				'status'   => [
+					'enum' => [
+						'pending', 'sending', 'send', 'delivered', 'queue', 'failed', 'undelivered', 'cancel', 'block',
+						'other',
+					],
+				],
+				// 'type'      => ['enum' => []],
+				'mobile'   => 'mobile',
+			];
 
 
 		$require = [];
-		$meta    =	[];
+		$meta    = [];
 
-		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and          = [];
+		$meta         = [];
+		$or           = [];
 		$meta['join'] = [];
 
 		$meta['limit'] = 20;
 
 
-		$order_sort  = null;
+		$order_sort = null;
 
 
 		if($data['store_id'])
@@ -192,7 +204,7 @@ class search
 
 		if($data['mobile'])
 		{
-			$and[] = " sms.mobile = '$data[mobile]' ";
+			$and[]             = " sms.mobile = '$data[mobile]' ";
 			self::$is_filtered = true;
 		}
 
@@ -217,11 +229,11 @@ class search
 			$mobile = \dash\validate::mobile($query_string, false);
 			if($mobile)
 			{
-				$or[]        = " sms.mobile = '$mobile'";
+				$or[] = " sms.mobile = '$mobile'";
 			}
 			else
 			{
-				$or[]        = " sms.mobile LIKE '%$query_string%'";
+				$or[] = " sms.mobile LIKE '%$query_string%'";
 			}
 			self::$is_filtered = true;
 		}
@@ -255,32 +267,33 @@ class search
 	}
 
 
-
-
 	public static function sms_sending_list($_query_string, $_args)
 	{
 		$condition =
-		[
-			'order'        => 'order',
-			'sort'         => 'string_100',
-			'store_id'     => 'id',
-			'status'       => ['enum' => ['pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other']],
-			// 'type'      => ['enum' => []],
-			'mobile'       => 'mobile',
-		];
-
+			[
+				'order'    => 'order',
+				'sort'     => 'string_100',
+				'store_id' => 'id',
+				'status'   => [
+					'enum' => [
+						'pending', 'sending', 'send', 'delivered', 'queue', 'failed', 'undelivered', 'cancel', 'block',
+						'other',
+					],
+				],
+				// 'type'      => ['enum' => []],
+				'mobile'   => 'mobile',
+			];
 
 
 		$require = [];
-		$meta    =	[];
+		$meta    = [];
 
-		$data    = \dash\cleanse::input($_args, $condition, $require, $meta);
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and          = [];
+		$meta         = [];
+		$or           = [];
 		$meta['join'] = [];
 
 		$meta['limit'] = 20;
@@ -300,5 +313,7 @@ class search
 
 		return $list;
 	}
+
 }
+
 ?>
