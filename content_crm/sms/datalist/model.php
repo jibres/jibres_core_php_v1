@@ -6,16 +6,16 @@ class model
 {
 	public static function post()
     {
-        if(\dash\request::post('status') === 'recend')
+        if(\dash\request::post('status') === 'resend')
         {
-            // recend sms
-            \lib\app\sms\recend::all();
+            // resend sms
+            \lib\app\sms\resend::all();
         }
 
         if(\dash\request::post('status') === 'archive')
         {
             // set status of sms as archive
-            \lib\app\sms\recend::archive_all();
+            \lib\app\sms\resend::archive_all();
         }
 
         if(\dash\engine\process::status())

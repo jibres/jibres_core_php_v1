@@ -859,7 +859,10 @@ class log
 				}
 			}
 
-			if(!empty($sending_queue['sms']) || !empty($sending_queue['telegram']) || !empty($sending_queue['email']))
+			// skipp send sms in live api
+			// sms send by crontab
+			// if(!empty($sending_queue['sms']) || !empty($sending_queue['telegram']) || !empty($sending_queue['email']))
+			if(!empty($sending_queue['telegram']) || !empty($sending_queue['email']))
 			{
 				$result = \lib\api\jibres\api::send_multiple_notif($sending_queue);
 

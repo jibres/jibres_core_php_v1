@@ -3,7 +3,7 @@
 namespace lib\app\sms;
 
 
-class recend
+class resend
 {
     public static function one($_id)
     {

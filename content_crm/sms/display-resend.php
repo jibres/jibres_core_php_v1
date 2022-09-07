@@ -42,7 +42,7 @@ else
                     <?php }else{ ?>
                         <?php echo T_("This message not sent because your sms balance is low."); ?>
                         <br>
-                        <?php echo T_("You can recend message if have new sms pack or archive it"); ?>
+                        <?php echo T_("You can resend message if have new sms pack or archive it"); ?>
                         <br>
                     <?php } //endif ?>
 

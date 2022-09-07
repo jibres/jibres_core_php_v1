@@ -4,6 +4,7 @@ namespace content_hook\job;
 
 class controller
 {
+
 	use \content_hook\job\times;
 
 
@@ -16,7 +17,7 @@ class controller
 		}
 
 		// not run in local
-		if(is_file(root. 'islocal.me.conf'))
+		if(is_file(root . 'islocal.me.conf'))
 		{
 			\dash\code::boom('job local!');
 			return;
@@ -25,11 +26,10 @@ class controller
 
 		self::cronjob_run();
 
-		\dash\notif::ok("Cronjob ended. Date: ". date("Y-m-d"), ['end_time' => date("H:i:s")]);
+		\dash\notif::ok("Cronjob ended. Date: " . date("Y-m-d"), ['end_time' => date("H:i:s")]);
 
 		\dash\code::jsonBoom(\dash\notif::get());
 	}
-
 
 
 	private static function cronjob_run()
@@ -38,7 +38,7 @@ class controller
 
 		$server_detail = \dash\setting\servername::current_detail();
 
-		$run_jibres   = false;
+		$run_jibres = false;
 
 		$run_business = false;
 
@@ -87,14 +87,13 @@ class controller
 	}
 
 
-
 	private static function run_jibres()
 	{
 
 		if(CRONJOB_MODE === 'php_run_loop')
 		{
 			\lib\app\loop\run::fire();
-			\dash\notif::ok("Run loop cronjob ended. Time: ". date("Y-m-d H:i:s"));
+			\dash\notif::ok("Run loop cronjob ended. Time: " . date("Y-m-d H:i:s"));
 		}
 
 		if(CRONJOB_MODE === 'php_run_jibres_cronjob')
@@ -107,7 +106,7 @@ class controller
 			return;
 		}
 
-		\dash\notif::ok("Run jibres cronjob started. Time: ". date("Y-m-d H:i:s"));
+		\dash\notif::ok("Run jibres cronjob started. Time: " . date("Y-m-d H:i:s"));
 
 		// \lib\app\store\changefuel::run();
 
@@ -172,7 +171,7 @@ class controller
 
 		\lib\app\store\reserve::create_business_as_reserved();
 
-		\dash\notif::ok("Run jibres cronjob ended. Time: ". date("Y-m-d H:i:s"));
+		\dash\notif::ok("Run jibres cronjob ended. Time: " . date("Y-m-d H:i:s"));
 	}
 
 
@@ -184,7 +183,7 @@ class controller
 
 			\content_hook\job\business::run_once($fn, 'business_once');
 
-			\dash\notif::ok("Run business cronjob once ended. Time: ". date("Y-m-d H:i:s"));
+			\dash\notif::ok("Run business cronjob once ended. Time: " . date("Y-m-d H:i:s"));
 
 		}
 		elseif(CRONJOB_MODE === 'php_run_business_cronjob_force')
@@ -193,10 +192,8 @@ class controller
 
 			\content_hook\job\business::run_once($fn, 'public_cronjob');
 
-			\dash\notif::ok("Run business cronjob force ended. Time: ". date("Y-m-d H:i:s"));
+			\dash\notif::ok("Run business cronjob force ended. Time: " . date("Y-m-d H:i:s"));
 		}
-
-
 
 
 		// check and auto expire order
@@ -208,7 +205,9 @@ class controller
 	{
 		\lib\app\factor\edit::auto_expire_order();
 
-//		if(self::every_5_min())
+		\lib\app\sms\send::notSended();
+
+		//		if(self::every_5_min())
 		{
 			// run export if exists
 			\lib\app\export\run::crontab();
@@ -226,6 +225,7 @@ class controller
 			\dash\app\dayevent::save();
 		}
 	}
+
 
 	public static function public_cronjob()
 	{
@@ -248,12 +248,9 @@ class controller
 	}
 
 
-
-
-
 	private static function check_error_file()
 	{
-		$sqlHardCritical = YARD. 'jibres_log/database/log-hard-critical.sql';
+		$sqlHardCritical = YARD . 'jibres_log/database/log-hard-critical.sql';
 
 		if(is_file($sqlHardCritical))
 		{
@@ -261,7 +258,7 @@ class controller
 		}
 
 
-		$sqlError = YARD. 'jibres_log/database/error.sql';
+		$sqlError = YARD . 'jibres_log/database/error.sql';
 
 		if(is_file($sqlError))
 		{
@@ -278,7 +275,7 @@ class controller
 		}
 
 
-		$sqlError = YARD. 'jibres_log/database/error-goneaway.sql';
+		$sqlError = YARD . 'jibres_log/database/error-goneaway.sql';
 
 		if(is_file($sqlError))
 		{
@@ -295,7 +292,7 @@ class controller
 		}
 
 
-		$PDOerror = YARD. 'jibres_log/database/pdo.sql';
+		$PDOerror = YARD . 'jibres_log/database/pdo.sql';
 
 		if(is_file($PDOerror))
 		{
@@ -312,7 +309,7 @@ class controller
 		}
 
 
-		$phpBug = YARD. 'jibres_log/php/exception.log';
+		$phpBug = YARD . 'jibres_log/php/exception.log';
 
 		if(is_file($phpBug))
 		{
@@ -330,4 +327,5 @@ class controller
 	}
 
 }
+
 ?>

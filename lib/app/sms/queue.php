@@ -77,6 +77,13 @@ class queue
 		unset($args['token3']);
 		unset($args['resendfrom']);
 
+		if(isset($_options['return_args_without_insert']) && $_options['return_args_without_insert'] === true)
+		{
+			$jibres_sms['store_smslog_id'] = null;
+			$jibres_sms['id'] = null;
+			return $jibres_sms;
+		}
+
 		$sms_store_smslog_id = \lib\db\sms_log\insert::new_record($args);
 
 		if(!$sms_store_smslog_id)
@@ -101,18 +108,18 @@ class queue
 				return $jibres_sms;
 			}
 
-			// curl to jibres to save
-			$jibres_sms_result = \lib\api\jibres\api::add_store_sms($jibres_sms);
-
-			if(isset($jibres_sms_result['result']['jibres_sms_id']) && is_numeric($jibres_sms_result['result']['jibres_sms_id']))
-			{
-				$jibres_sms_id = floatval($jibres_sms_result['result']['jibres_sms_id']);
-			}
-
-			if(isset($jibres_sms_result['result']['status']) && $jibres_sms_result['result']['status'])
-			{
-				$new_status = $jibres_sms_result['result']['status'];
-			}
+			// // curl to jibres to save
+			// $jibres_sms_result = \lib\api\jibres\api::add_store_sms($jibres_sms);
+			//
+			// if(isset($jibres_sms_result['result']['jibres_sms_id']) && is_numeric($jibres_sms_result['result']['jibres_sms_id']))
+			// {
+			// 	$jibres_sms_id = floatval($jibres_sms_result['result']['jibres_sms_id']);
+			// }
+			//
+			// if(isset($jibres_sms_result['result']['status']) && $jibres_sms_result['result']['status'])
+			// {
+			// 	$new_status = $jibres_sms_result['result']['status'];
+			// }
 		}
 		else
 		{

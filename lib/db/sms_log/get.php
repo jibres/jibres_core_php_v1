@@ -35,7 +35,7 @@ class get
 
 	public static function not_sended($_limit)
 	{
-		$query = "SELECT * FROM sms_log WHERE sms_log.status = 'pending' LIMIT $_limit ";
+		$query = "SELECT * FROM sms_log WHERE sms_log.status IN('pending', 'register') AND sms_log.jibres_sms_id IS NULL LIMIT $_limit ";
 		$result = \dash\pdo::get($query);
 		return $result;
 	}
