@@ -45,7 +45,6 @@ class planSet
 			}
 		}
 
-
 		$expirydate = null;
 		if($days = $myPlan->calculateDays())
 		{
