@@ -21,7 +21,7 @@ class search
 			'order'        => 'order',
 			'sort'         => 'string_100',
 			'store_id'     => 'id',
-			'status'       => ['enum' => ['pending', 'sending', 'send', 'delivered','queue','failed','undelivered','cancel','block','other', 'moneylow']],
+			'status'       => ['enum' => ['pending', 'sending', 'send', 'expired', 'delivered','queue','failed','undelivered','cancel','block','other', 'moneylow']],
 			// 'type'      => ['enum' => []],
 			'mobile'       => 'mobile',
 			'conversation' => 'bit',
