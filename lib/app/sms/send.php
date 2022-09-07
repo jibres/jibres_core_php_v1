@@ -352,7 +352,7 @@ class send
 
 	public static function notSended()
 	{
-		$notSend = \lib\db\sms_log\get::not_sended(200);
+		$notSend = \lib\db\sms_log\get::not_sended(1);
 
 		if(!is_array($notSend))
 		{
