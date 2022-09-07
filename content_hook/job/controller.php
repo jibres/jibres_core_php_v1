@@ -205,7 +205,7 @@ class controller
 	{
 		\lib\app\factor\edit::auto_expire_order();
 
-		\lib\app\sms\send::notSended();
+		// \lib\app\sms\send::notSended();
 
 		//		if(self::every_5_min())
 		{
