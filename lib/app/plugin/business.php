@@ -357,10 +357,10 @@ class business
 
 	public static function is_activated(string $_plugin) : bool
 	{
-		if(\dash\url::isLocal())
-		{
-			return \lib\app\plan\planCheck::access($_plugin);
-		}
+		// if(\dash\url::isLocal())
+		// {
+		// 	return \lib\app\plan\planCheck::access($_plugin);
+		// }
 
 
 		// not check is active plugin in jibres!
