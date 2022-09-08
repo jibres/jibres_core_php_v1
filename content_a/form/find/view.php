@@ -119,6 +119,16 @@ class view
 							break;
 						case 'displayname':
 							break;
+						case 'file':
+							if($myAnswer)
+							{
+								$myAnswer = T_("Yes");
+							}
+							else
+							{
+								$myAnswer = '-';
+							}
+							break;
 						case 'mobile':
 							// $myAnswer = substr($myAnswer, 0, 5) . ' * * * * ' . substr($myAnswer, 8, 4);
 							$myAnswer = \dash\fit::text($myAnswer);
