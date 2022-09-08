@@ -19,6 +19,8 @@ $html .= '<div class="print:hidden avand">';
 					$html .= 'این فرم قبلا چاپ شده است و هدیه تحویل داده شده است';
 				}
 				$html .= '</div>';
+				$printUrl = \dash\url::current(). \dash\request::full_get(['print' => 'auto']);
+				$html .= '<a class="btn-link" href="'.$printUrl.'">چاپ مجدد</a>';
 			}
 			else
 			{
@@ -32,9 +34,19 @@ $html .= '<div class="print:hidden avand">';
 				}
 				else
 				{
-					$html .= '<div>';
+					$html .= '<div class="text-xl">';
 					{
+						$html .= 'به ایشان هدیه تعلق گرفته است';
+						$html .= '<br>';
 						$html .= 'برای چاپ و تایید تحویل مبلغ هدیه روی دکه تایید کلیک کنید';
+						$html .= '<br>';
+						$html .= ' مبلغ هدیه ';
+						$html .= '<span class="text-red-600 font-bold">';
+						{
+							$html .= \dash\fit::number($data->payablePrice);
+						}
+						$html .= '</span>';
+						$html .= ' تومان می باشد';
 
 						$html .= '<div class="txtRa">';
 						{

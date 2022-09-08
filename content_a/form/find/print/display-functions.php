@@ -154,9 +154,11 @@ function HTMLPrintBefore(object $data)
 	$html .= '<div class="alert-danger text-xl">';
 	{
 		$html .= <<<HTML
-این فرم قبلا در تاریخ
+
+هدیه تحویل داده شد 
+
 <span class="ltr">$date</span>
-چاپ شده است
+
 HTML;
 
 	}
