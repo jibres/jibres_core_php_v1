@@ -120,14 +120,7 @@ class view
 						case 'displayname':
 							break;
 						case 'file':
-							if($myAnswer)
-							{
-								$myAnswer = T_("Yes");
-							}
-							else
-							{
-								$myAnswer = '-';
-							}
+							$myAnswer = null;
 							break;
 						case 'mobile':
 							// $myAnswer = substr($myAnswer, 0, 5) . ' * * * * ' . substr($myAnswer, 8, 4);

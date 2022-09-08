@@ -16,7 +16,7 @@
                 <tr>
                     <td class="collapsing">
                         <a class="btn"
-                           href="<?php echo \dash\url::this(). '/answer/detail' . \dash\request::full_get(['aid' => $answer_id]); ?>">
+                           href="<?php echo \dash\url::this(). '/answer/detail' . \dash\request::full_get(['q' => null, 'aid' => $answer_id]); ?>">
 							<?php echo $answer_id; ?>
                         </a>
                     </td>
@@ -32,7 +32,7 @@
 					<?php endforeach; ?>
                     <td class="collapsing">
                         <a class="btn-primary"
-                           href="<?php echo \dash\url::that(). '/print' . \dash\request::full_get(['aid' => $answer_id]); ?>">
+                           href="<?php echo \dash\url::that(). '/print' . \dash\request::full_get(['q' => null, 'aid' => $answer_id]); ?>">
                             <?php echo T_("Print"); ?>
                         </a>
                     </td>
