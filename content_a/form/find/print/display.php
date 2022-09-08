@@ -37,9 +37,14 @@ $html .= '<div class="print:hidden avand">';
 				{
 					$html .= '<div class="text-xl">';
 					{
-						$html .= 'به ایشان هدیه تعلق گرفته است';
+						$html .= '<div class="alert-success">';
+						{
+							$html .= 'به ایشان هدیه تعلق گرفته است';
+						}
+						$html .='</div>';
+
 						$html .= '<br>';
-						$html .= 'برای چاپ و تایید تحویل مبلغ هدیه روی دکه تایید کلیک کنید';
+						$html .= 'برای چاپ و تایید تحویل مبلغ هدیه روی دکمه تایید کلیک کنید';
 						$html .= '<br>';
 						$html .= ' مبلغ هدیه ';
 						$html .= '<span class="text-red-600 font-bold">';
