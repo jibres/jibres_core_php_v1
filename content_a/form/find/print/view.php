@@ -25,20 +25,11 @@ class view
 
 		$dataTable = \lib\app\form\answerdetail\search::list(null, $args);
 
-		$filterBox  = \lib\app\form\answerdetail\search::filter_message();
-		$isFiltered = \lib\app\form\answerdetail\search::is_filtered();
-
-
-		\dash\data::filterBox($filterBox);
-		\dash\data::isFiltered($isFiltered);
-
 
 		\dash\data::dataTable($dataTable);
 
 		$load_items = \lib\app\form\item\get::items_answer(\dash\request::get('id'), \dash\request::get('aid'));
-
 		\dash\data::formItems($load_items);
-
 
 		$tag_list = \lib\app\form\tag\get::answer_tag(\dash\request::get('aid'));
 
@@ -47,7 +38,7 @@ class view
 			$tag_list = [];
 		}
 		\dash\data::tagsSavedID(array_column($tag_list, 'form_tag_id'));
-		\dash\data::tagsSavedTitle(array_column($tag_list, 'title'));
+
 
 
 		$comment_list = \lib\app\form\comment\get::get(\dash\request::get('aid'));
@@ -62,9 +53,36 @@ class view
 		}
 
 
+		self::fillIDS();
 
-		\dash\face::btnPrint(true);
 
+		// \dash\face::btnPrint(true);
+
+
+
+	}
+
+
+	public static function fillIDS()
+	{
+		$ids = (object)
+		[
+			'win'     => 7,
+			'remain'  => 18,
+			'printed' => 19,
+		];
+
+		if(\dash\url::isLocal())
+		{
+			$ids = (object)
+			[
+				'win'     => 10,
+				'remain'  => 9,
+				'printed' => 7,
+			];
+		}
+
+		\dash\data::ids($ids);
 
 	}
 

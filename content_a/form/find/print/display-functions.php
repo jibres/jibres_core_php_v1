@@ -1,11 +1,22 @@
 <?php
 
+
+function HTMLIsPrintBefore()
+{
+	$ids = \dash\data::ids();
+	return in_array($ids->printed, \dash\data::tagsSavedID());
+}
+
+
 function HTMLDetectData()
 {
+	$ids = \dash\data::ids();
+
 	$allTagID       = \dash\data::tagsSavedID();
-	$tagWinner      = in_array(7, $allTagID);
-	$tagRemain      = in_array(18, $allTagID);
-	$tagPrintBefore = in_array(19, $allTagID);
+	$tagWinner      = in_array($ids->win, $allTagID);
+	$tagWinner      = true;
+	$tagRemain      = in_array($ids->remain, $allTagID);
+	$tagPrintBefore = HTMLIsPrintBefore();
 	$province       = \dash\data::provinceCode();
 	$eastProvince   = isEastProvince($province);
 

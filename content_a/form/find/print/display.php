@@ -2,8 +2,60 @@
 
 require_once 'display-functions.php';
 
+
 $data = HTMLDetectData();
 $html = '';
+
+$html .= '<div class="print:hidden avand">';
+{
+	$html .= '<div class="box">';
+	{
+		$html .= '<div class="pad">';
+		{
+			if(HTMLIsPrintBefore())
+			{
+				$html .= '<div class="alert-danger">';
+				{
+					$html .= 'این فرم قبلا چاپ شده است و هدیه تحویل داده شده است';
+				}
+				$html .= '</div>';
+			}
+			else
+			{
+				if(!$data->payablePrice)
+				{
+					$html .= '<div class="alert-danger">';
+					{
+						$html .= 'هدیه به ایشان تعلق نگرفته است';
+					}
+					$html .= '</div>';
+				}
+				else
+				{
+					$html .= '<div>';
+					{
+						$html .= 'برای چاپ و تایید تحویل مبلغ هدیه روی دکه تایید کلیک کنید';
+
+						$html .= '<div class="txtRa">';
+						{
+							$html .= '<div class="btn-success" data-ajaxify data-data=\'{"print":"print"}\'>';
+							{
+								$html .= 'ثبت پرداخت و تحویل هدیه';
+							}
+							$html .= '</div>';
+						}
+						$html .= '</div>';
+					}
+					$html .= '</div>';
+				}
+			}
+		}
+		$html .= '</div>';
+
+	}
+	$html .= '</div>';
+}
+$html .= '</div>';
 
 
 $html .= '<div class="printArea" data-size="A4">';
