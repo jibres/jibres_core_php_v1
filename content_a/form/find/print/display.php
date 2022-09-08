@@ -89,7 +89,7 @@ $html .= '<div class="printArea" data-size="A4">';
 
 	$allowItem = \dash\data::allowItem();
 
-	$html .= '<div class="row">';
+	$html .= '<div class="row mt-4">';
 	{
 		$html .= '<div class="c-xs-6 c-sm-6">';
 		{
@@ -115,13 +115,13 @@ $html .= '<div class="printArea" data-size="A4">';
 
 						$html .= '<tr>';
 						{
-							$html .= '<th class="">';
+							$html .= '<td class="">';
 							{
 								$html .= a($value, 'item_title');
 							}
-							$html .= '</th>';
+							$html .= '</td>';
 
-							$html .= '<td class="">';
+							$html .= '<td class="font-bold">';
 							{
 								$answerValue = \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
 								$temp = strip_tags($answerValue);
