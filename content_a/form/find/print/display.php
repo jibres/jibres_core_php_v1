@@ -80,10 +80,15 @@ $html .= '<div class="printArea" data-size="A4">';
 	}
 	$html .= '</div>';
 
-	if($data->tagWinner)
+	if($data->tagWinner || $data->tagRemain)
 	{
 		$html .= HTMLWinnerMessage($data);
 	}
+	else
+	{
+		$html .= HTMLOtherMessage($data);
+	}
+
 
 	if($data->payablePrice)
 	{

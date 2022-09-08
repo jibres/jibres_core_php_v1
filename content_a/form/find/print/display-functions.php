@@ -3,10 +3,9 @@
 function HTMLDetectData()
 {
 
-	$tagWinner    = false;
-	$tagRemain    = false;
-	$eastProvince = false;
-
+	$tagWinner      = false;
+	$tagRemain      = false;
+	$eastProvince   = false;
 	$tagPrintBefore = false;
 
 	$tagWinner    = true;
@@ -79,19 +78,63 @@ function HTMLWinnerMessage(object $data)
 	$html = '';
 	$html .= '<div class="alert-success">';
 	{
-		$html .= 'winner';
+		$html .= '
+			ضمن عرض تسلیت به مناسبت فرارسیدن اربعین حسینی
+			<br>
+		 خدا را شکر که در جوانی توفیق تشرف به کربلای معلی نصیب و‌ روزی‌تان شد.
+		 ';
 	}
 	$html .= '</div>';
+
+	$html .= <<<HTML
+
+		<div class="p-6">
+		
+		 اینجانب هدیه برنامه سمت خدا و موسسه حضرت خدیجه سلام الله علیها را دریافت نمودم و متعهد می‌شوم این مبلغ را صرفا برای سفر اربعین هزینه کنم
+		<br>
+		همچنین با امضاء این فرم اعلام میدارم که از سایر نهادها کمک همایتی اربعین دریافت نکرده ام
+			
+			<div class="txtRa">
+			امضا
+			</div>
+		</div>
+
+HTML;
+
+	return $html;
+}
+
+
+function HTMLOtherMessage(object $data)
+{
+	$html = '';
+	$html .= <<<HTML
+متاسفانه شما شرایط لازم را برای دریافت هدیه ندارید. 
+HTML;
+
 	return $html;
 }
 
 
 function HTMLPaAblePrice(object $data)
 {
-	$html = '';
-	$html .= '<div class="alert-info">';
+	$price = \dash\fit::number($data->payablePrice);
+	$html  = '';
+	$html  .= '<div class="alert-info">';
 	{
-		$html .= 'Your price is ' . $data->payablePrice;
+		$html .= <<<HTML
+<div>
+مبلغ هدیه شما
+
+<span class="font-bold">$price</span>
+
+تومان
+می باشد
+
+</div>
+HTML;
+
+
 	}
 	$html .= '</div>';
 	return $html;
@@ -100,10 +143,17 @@ function HTMLPaAblePrice(object $data)
 
 function HTMLPrintBefore(object $data)
 {
+	$date = date("Y-m-d H:i:s");
+	$date = \dash\fit::date_time($date);
 	$html = '';
-	$html .= '<div class="alert-info">';
+	$html .= '<div class="alert-danger text-xl">';
 	{
-		$html .= 'Print before ' . date("Y-m-d H:i:s");
+		$html .= <<<HTML
+این فرم قبلا در تاریخ
+<span class="ltr">$date</span>
+چاپ شده است
+HTML;
+
 	}
 	$html .= '</div>';
 	return $html;
