@@ -123,7 +123,9 @@ $html .= '<div class="printArea" data-size="A4">';
 
 							$html .= '<td class="">';
 							{
-								$html .= \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
+								$answerValue = \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
+								$temp = strip_tags($answerValue);
+								$html .= $temp;
 							}
 							$html .= '</td>';
 						}
@@ -157,7 +159,7 @@ $html .= '<div class="printArea" data-size="A4">';
 
 					$html .= '<div>';
 					{
-						$html  .= a($value, 'item_title');
+						// $html  .= a($value, 'item_title');
 						$image = \lib\filepath::fix(a($value, 'answer'));
 						$html  .= '<img class="w-96" src="' . $image . '">';
 
