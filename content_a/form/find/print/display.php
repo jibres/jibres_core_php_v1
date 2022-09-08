@@ -37,6 +37,10 @@ $html .= '<div class="printArea" data-size="A4">';
 				{
 					continue;
 				}
+				if(a($value, 'item_type') === 'province_city')
+				{
+					\dash\data::provinceCode(a($value, 'province'));
+				}
 				$html .= '<tr>';
 				{
 					$html .= '<th class="">';

@@ -40,16 +40,13 @@ class view
 		\dash\data::formItems($load_items);
 
 
-		$all_tag = \lib\app\form\tag\get::all_tag();
-
-		\dash\data::allTagList($all_tag);
-
-
 		$tag_list = \lib\app\form\tag\get::answer_tag(\dash\request::get('aid'));
+
 		if (!is_array($tag_list))
 		{
 			$tag_list = [];
 		}
+		\dash\data::tagsSavedID(array_column($tag_list, 'form_tag_id'));
 		\dash\data::tagsSavedTitle(array_column($tag_list, 'title'));
 
 

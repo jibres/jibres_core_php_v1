@@ -2,18 +2,12 @@
 
 function HTMLDetectData()
 {
-
-	$tagWinner      = false;
-	$tagRemain      = false;
-	$eastProvince   = false;
-	$tagPrintBefore = false;
-
-	$tagWinner    = true;
-	$tagRemain    = true;
-	$province     = null;
-	$eastProvince = isEastProvince($province);
-
-	$tagPrintBefore = true;
+	$allTagID       = \dash\data::tagsSavedID();
+	$tagWinner      = in_array(7, $allTagID);
+	$tagRemain      = in_array(18, $allTagID);
+	$tagPrintBefore = in_array(19, $allTagID);
+	$province       = \dash\data::provinceCode();
+	$eastProvince   = isEastProvince($province);
 
 	if($tagWinner)
 	{
