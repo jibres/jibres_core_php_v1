@@ -86,6 +86,11 @@ $html .= '<div class="printArea" data-size="A4">';
 				$html .= '<div class="inline-block px-2 text-2xl font-bold mt-4">' . \lib\store::title() . '</div>';
 			}
 			$html .= '</div>';
+			$html .= '<div class="c-auto mb-1">';
+			{
+				$html .= '<img class="inline-block w-16 h-16 rounded" src="' . \lib\store::logo() . '">';
+			}
+			$html .= '</div>';
 		}
 		$html .= '</div>';
 
@@ -100,6 +105,25 @@ $html .= '<div class="printArea" data-size="A4">';
 
 					$html .= '<tbody class="text-sm">';
 					{
+						$html .= '<tr>';
+						{
+							$html .= '<td class="">';
+							{
+								$html .= T_("ID");
+							}
+							$html .= '</td>';
+
+							$html .= '<td class="font-bold text-black">';
+							{
+								$html .= '<code>';
+								{
+									$html        .= (\dash\request::get('aid'));
+								}
+								$html .= '</code>';
+							}
+							$html .= '</td>';
+						}
+						$html .= '</tr>';
 						foreach (\dash\data::dataTable() as $key => $value)
 						{
 							if(!in_array($value['item_id'], $allowItem))
@@ -133,6 +157,26 @@ $html .= '<div class="printArea" data-size="A4">';
 							}
 							$html .= '</tr>';
 						}
+
+						$html .= '<tr>';
+						{
+							$html .= '<td class="">';
+							{
+								$html .= T_("Date");
+							}
+							$html .= '</td>';
+
+							$html .= '<td class="font-bold text-black">';
+							{
+								$html .= '<span>';
+								{
+									$html        .= \dash\fit::date_time(date("Y-m-d H:i:s"));
+								}
+								$html .= '</span>';
+							}
+							$html .= '</td>';
+						}
+						$html .= '</tr>';
 					}
 					$html .= '</tbody>';
 				}
