@@ -6,6 +6,7 @@ require_once 'display-functions.php';
 $data = HTMLDetectData();
 $html = '';
 
+
 $html .= '<div class="print:hidden avand">';
 {
 	$html .= '<div class="box">';
@@ -70,8 +71,9 @@ $html .= '<div class="print:hidden avand">';
 $html .= '</div>';
 
 
-$html .= '<div class="printArea" data-size="A4">';
+$html .= '<div class="printArea relative"  data-size="A4" style="min-height: 296mm">';
 {
+	// $html .= '<img src="https://cloud.talambar.ir/jbjse/202209/15597-595c4ecb7c4099ffc0bd2d0f85f0a764.jpg">';
 	$html .= '<div class="p-8 max-w-4xl leading-10">';
 	{
 		$html .= '<div class="row">';
@@ -83,7 +85,13 @@ $html .= '<div class="printArea" data-size="A4">';
 			$html .= '</div>';
 			$html .= '<div class="c">';
 			{
-				$html .= '<div class="inline-block px-2 text-2xl font-bold mt-4">' . \lib\store::title() . '</div>';
+				$html .= '<div class="inline-block px-2 text-xl font-bold mt-4">سمت خدا</div>';
+			}
+			$html .= '</div>';
+			$html .= '<div class="c-auto mb-1">';
+			{
+				$html .= '<div class="inline-block px-2 text-xl font-bold mt-4">موسسه حضرت خدیجه سلام الله علیها</div>';
+
 			}
 			$html .= '</div>';
 			$html .= '<div class="c-auto mb-1">';
@@ -117,7 +125,7 @@ $html .= '<div class="printArea" data-size="A4">';
 							{
 								$html .= '<code>';
 								{
-									$html        .= (\dash\request::get('aid'));
+									$html .= (\dash\request::get('aid'));
 								}
 								$html .= '</code>';
 							}
@@ -170,7 +178,7 @@ $html .= '<div class="printArea" data-size="A4">';
 							{
 								$html .= '<span>';
 								{
-									$html        .= \dash\fit::date_time(date("Y-m-d H:i:s"));
+									$html .= \dash\fit::date_time(date("Y-m-d H:i:s"));
 								}
 								$html .= '</span>';
 							}
@@ -241,6 +249,7 @@ $html .= '<div class="printArea" data-size="A4">';
 
 	}
 	$html .= '</div>';
+
 
 	$html .= '<div style="position: absolute;    bottom: 0;    right: 0;    left: 0;">';
 	{
