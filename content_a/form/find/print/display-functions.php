@@ -14,7 +14,6 @@ function HTMLDetectData()
 
 	$allTagID       = \dash\data::tagsSavedID();
 	$tagWinner      = in_array($ids->win, $allTagID);
-	$tagWinner      = true;
 	$tagRemain      = in_array($ids->remain, $allTagID);
 	$tagPrintBefore = HTMLIsPrintBefore();
 	$province       = \dash\data::provinceCode();
