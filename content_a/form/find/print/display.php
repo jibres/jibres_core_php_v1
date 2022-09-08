@@ -44,7 +44,7 @@ $html .= '<div class="print:hidden avand">';
 						$html .='</div>';
 
 						$html .= '<br>';
-						$html .= 'برای چاپ و تایید تحویل مبلغ هدیه روی دکمه تایید کلیک کنید';
+						$html .= 'برای چاپ رسید و تثبت تحویل مبلغ هدیه، روی دکمه زیر کنید';
 						$html .= '<br>';
 						$html .= ' مبلغ هدیه ';
 						$html .= '<span class="text-red-600 font-bold">';
