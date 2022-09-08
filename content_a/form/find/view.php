@@ -115,7 +115,7 @@ class view
 
 							break;
 						case 'birthdate':
-
+							$myAnswer = \dash\fit::date($myAnswer);
 							break;
 						case 'displayname':
 							break;
