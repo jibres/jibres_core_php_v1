@@ -4,7 +4,8 @@
         <table class="tbl1 v1">
             <thead>
             <tr>
-				<?php foreach (\dash\data::col() as $item) : ?>
+                <th class="collapsing"><?php echo T_("ID"); ?></th>
+                <?php foreach (\dash\data::col() as $item) : ?>
                     <th class><?php echo a($item, 'title'); ?></th>
 				<?php endforeach; ?>
                 <th class="collapsing"><?php echo T_("Print"); ?></th>
@@ -13,6 +14,12 @@
             <tbody>
 			<?php foreach (\dash\data::dataTable() as $answer_id => $value) { ?>
                 <tr>
+                    <td class="collapsing">
+                        <a class="btn"
+                           href="<?php echo \dash\url::this(). '/answer/detail' . \dash\request::full_get(['aid' => $answer_id]); ?>">
+							<?php echo $answer_id; ?>
+                        </a>
+                    </td>
 					<?php foreach (\dash\data::col() as $item => $item_title) : ?>
                         <td><?php if(a($value, $item))
 							{
