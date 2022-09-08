@@ -72,109 +72,110 @@ $html .= '</div>';
 
 $html .= '<div class="printArea" data-size="A4">';
 {
-	$html .= '<div class="row">';
+	$html .= '<div class="p-8 max-w-4xl leading-10">';
 	{
-		$html .= '<div class="c-auto mb-1">';
+		$html .= '<div class="row">';
 		{
-			$html .= '<img class="inline-block w-16 h-16 rounded" src="' . \lib\store::logo() . '">';
-		}
-		$html .= '</div>';
-		$html .= '<div class="c">';
-		{
-			$html .= '<div class="inline-block px-2 text-2xl font-bold mt-4">' . \lib\store::title() . '</div>';
-		}
-		$html .= '</div>';
-	}
-	$html .= '</div>';
-
-	$allowItem = \dash\data::allowItem();
-
-	$html .= '<div class="row mt-4">';
-	{
-		$html .= '<div class="c-xs-6 c-sm-6">';
-		{
-			$html .= '<table class="tbl2 v6 responsive">';
+			$html .= '<div class="c-auto mb-1">';
 			{
-
-				$html .= '<tbody class="text-sm">';
-				{
-					foreach (\dash\data::dataTable() as $key => $value)
-					{
-						if(!in_array($value['item_id'], $allowItem))
-						{
-							continue;
-						}
-						if(a($value, 'item_type') === 'file')
-						{
-							continue;
-						}
-						if(a($value, 'item_type') === 'province_city')
-						{
-							\dash\data::provinceCode(a($value, 'province'));
-						}
-
-						$html .= '<tr>';
-						{
-							$html .= '<td class="">';
-							{
-								$html .= a($value, 'item_title');
-							}
-							$html .= '</td>';
-
-							$html .= '<td class="font-bold">';
-							{
-								$answerValue = \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
-								$temp = strip_tags($answerValue);
-								$html .= $temp;
-							}
-							$html .= '</td>';
-						}
-						$html .= '</tr>';
-					}
-				}
-				$html .= '</tbody>';
+				$html .= '<img class="inline-block w-16 h-16 rounded" src="' . \lib\store::logo() . '">';
 			}
-			$html .= '</table>';
-			$html .= \dash\utility\pagination::html(true);
-
-		}
-		$html .= '</div>';
-
-		$html .= '<div class="c-xs-6 c-sm-6">';
-		{
-
-			$html .= '<div class="flex mb-4">';
+			$html .= '</div>';
+			$html .= '<div class="c">';
 			{
-				foreach (\dash\data::dataTable() as $key => $value)
-				{
-					if(a($value, 'item_type') !== 'file')
-					{
-						continue;
-					}
-
-					if(!in_array($value['item_id'], $allowItem))
-					{
-						continue;
-					}
-
-					$html .= '<div>';
-					{
-						// $html  .= a($value, 'item_title');
-						$image = \lib\filepath::fix(a($value, 'answer'));
-						$html  .= '<img class="h-96 rounded-lg" src="' . $image . '">';
-
-					}
-					$html .= '</div>';
-				}
+				$html .= '<div class="inline-block px-2 text-2xl font-bold mt-4">' . \lib\store::title() . '</div>';
 			}
 			$html .= '</div>';
 		}
 		$html .= '</div>';
-	}
-	$html .= '</div>';
 
-	$html .= '<div class="p-8 max-w-4xl leading-10">';
-	{
+		$allowItem = \dash\data::allowItem();
+
+		$html .= '<div class="row mt-4">';
+		{
+			$html .= '<div class="c-xs-6 c-sm-6">';
+			{
+				$html .= '<table class="tbl2 v6 responsive">';
+				{
+
+					$html .= '<tbody class="text-sm">';
+					{
+						foreach (\dash\data::dataTable() as $key => $value)
+						{
+							if(!in_array($value['item_id'], $allowItem))
+							{
+								continue;
+							}
+							if(a($value, 'item_type') === 'file')
+							{
+								continue;
+							}
+							if(a($value, 'item_type') === 'province_city')
+							{
+								\dash\data::provinceCode(a($value, 'province'));
+							}
+
+							$html .= '<tr>';
+							{
+								$html .= '<td class="">';
+								{
+									$html .= a($value, 'item_title');
+								}
+								$html .= '</td>';
+
+								$html .= '<td class="font-bold">';
+								{
+									$answerValue = \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
+									$temp        = strip_tags($answerValue);
+									$html        .= $temp;
+								}
+								$html .= '</td>';
+							}
+							$html .= '</tr>';
+						}
+					}
+					$html .= '</tbody>';
+				}
+				$html .= '</table>';
+				$html .= \dash\utility\pagination::html(true);
+
+			}
+			$html .= '</div>';
+
+			$html .= '<div class="c-xs-6 c-sm-6">';
+			{
+
+				$html .= '<div class="flex mb-4">';
+				{
+					foreach (\dash\data::dataTable() as $key => $value)
+					{
+						if(a($value, 'item_type') !== 'file')
+						{
+							continue;
+						}
+
+						if(!in_array($value['item_id'], $allowItem))
+						{
+							continue;
+						}
+
+						$html .= '<div>';
+						{
+							// $html  .= a($value, 'item_title');
+							$image = \lib\filepath::fix(a($value, 'answer'));
+							$html  .= '<img class="h-96 rounded-lg" src="' . $image . '">';
+
+						}
+						$html .= '</div>';
+					}
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+
+
 		if($data->payablePrice)
 		{
 			$html .= HTMLPaAblePrice($data);
@@ -187,7 +188,6 @@ $html .= '<div class="printArea" data-size="A4">';
 		{
 			$html .= HTMLOtherMessage($data);
 		}
-
 
 
 		if($data->tagPrintBefore)
