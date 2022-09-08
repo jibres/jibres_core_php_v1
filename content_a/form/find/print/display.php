@@ -78,7 +78,7 @@ $html .= '<div class="printArea" data-size="A4">';
 		{
 			$html .= '<div class="c-auto mb-1">';
 			{
-				$html .= '<img class="inline-block w-16 h-16 rounded" src="' . \lib\store::logo() . '">';
+				$html .= '<img class="inline-block w-16 h-16 rounded" src="https://cloud.talambar.ir/jbjse/202209/15596-6fc6f13bbdd1c298c2b6db27576777c2.png">';
 			}
 			$html .= '</div>';
 			$html .= '<div class="c">';
@@ -242,9 +242,14 @@ $html .= '<div class="printArea" data-size="A4">';
 	}
 	$html .= '</div>';
 
-
+	$html .= '<div style="position: absolute;    bottom: 0;    right: 0;    left: 0;">';
+	{
+		$html .= '<img src="https://cloud.talambar.ir/jbjse/202209/15595-37bb15744e65d841c9f383d94133cef1.jpg">';
+	}
+	$html .= '</div>';
 }
 $html .= '</div>';
+
 
 $html .= \dash\utility\pagination::html(true);
 
