@@ -3,18 +3,18 @@
 function HTMLDetectData()
 {
 
-	$tagWinner      = false;
-	$tagRemain      = false;
-	$eastProvince   = false;
-	$westProvince   = false;
+	$tagWinner    = false;
+	$tagRemain    = false;
+	$eastProvince = false;
+
 	$tagPrintBefore = false;
 
-	$tagWinner      = true;
-	$tagRemain      = true;
-	$eastProvince   = true;
-	$westProvince   = true;
-	$tagPrintBefore = true;
+	$tagWinner    = true;
+	$tagRemain    = true;
+	$province     = null;
+	$eastProvince = isEastProvince($province);
 
+	$tagPrintBefore = true;
 
 	if($tagWinner)
 	{
@@ -24,7 +24,6 @@ function HTMLDetectData()
 		{
 			$payablePrice = 2500000;
 		}
-
 	}
 	elseif($tagRemain)
 	{
@@ -40,7 +39,6 @@ function HTMLDetectData()
 	$data = (object)
 	[
 		'tagPrintBefore' => $tagPrintBefore,
-		'westProvince'   => $westProvince,
 		'tagWinner'      => $tagWinner,
 		'eastProvince'   => $eastProvince,
 		'tagRemain'      => $tagRemain,
@@ -51,6 +49,29 @@ function HTMLDetectData()
 	return $data;
 }
 
+function isEastProvince($_province)
+{
+	// مبلغ هدیه برای ساکنین استان‌های شرقی شامل سیستان، کرمان، خراسان‌ها و گلستان معادل ۲.۵ میلیون تومان و برای سایر استان‌ها ۲ میلیون تومان می‌باشد
+	$eastProvince =
+		[
+			'IR-13', // systan
+			'IR-15', // kerman
+			'IR-29', // khorasan
+			'IR-30', // khorasan
+			'IR-31', // khorasan
+			'IR-27', // golestan
+
+		];
+
+	if(in_array($_province, $eastProvince))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
 
 function HTMLWinnerMessage(object $data)
@@ -70,7 +91,7 @@ function HTMLPaAblePrice(object $data)
 	$html = '';
 	$html .= '<div class="alert-info">';
 	{
-		$html .= 'Your price is '. $data->payablePrice;
+		$html .= 'Your price is ' . $data->payablePrice;
 	}
 	$html .= '</div>';
 	return $html;
@@ -82,12 +103,11 @@ function HTMLPrintBefore(object $data)
 	$html = '';
 	$html .= '<div class="alert-info">';
 	{
-		$html .= 'Print before '. date("Y-m-d H:i:s");
+		$html .= 'Print before ' . date("Y-m-d H:i:s");
 	}
 	$html .= '</div>';
 	return $html;
 }
-
 
 
 ?>
