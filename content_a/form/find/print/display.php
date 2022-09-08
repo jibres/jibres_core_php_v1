@@ -161,7 +161,7 @@ $html .= '<div class="printArea" data-size="A4">';
 					{
 						// $html  .= a($value, 'item_title');
 						$image = \lib\filepath::fix(a($value, 'answer'));
-						$html  .= '<img class="w-96" src="' . $image . '">';
+						$html  .= '<img class="h-96 rounded-lg" src="' . $image . '">';
 
 					}
 					$html .= '</div>';
@@ -173,8 +173,12 @@ $html .= '<div class="printArea" data-size="A4">';
 	}
 	$html .= '</div>';
 
-	$html .= '<div class="p-6">';
+	$html .= '<div class="p-8 max-w-4xl leading-10">';
 	{
+		if($data->payablePrice)
+		{
+			$html .= HTMLPaAblePrice($data);
+		}
 		if($data->tagWinner || $data->tagRemain)
 		{
 			$html .= HTMLWinnerMessage($data);
@@ -185,10 +189,6 @@ $html .= '<div class="printArea" data-size="A4">';
 		}
 
 
-		if($data->payablePrice)
-		{
-			$html .= HTMLPaAblePrice($data);
-		}
 
 		if($data->tagPrintBefore)
 		{

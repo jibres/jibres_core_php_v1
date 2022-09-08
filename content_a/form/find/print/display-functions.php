@@ -80,12 +80,10 @@ function isEastProvince($_province)
 function HTMLWinnerMessage(object $data)
 {
 	$html = '';
-	$html .= '<div class="alert">';
+	$html .= '<div class="mt-5">';
 	{
 		$html .= '
-			ضمن عرض تسلیت به مناسبت فرارسیدن اربعین حسینی
-			<br>
-		 خدا را شکر که در جوانی توفیق تشرف به کربلای معلی نصیب و‌ روزی‌تان شد.
+
 		 ';
 	}
 	$html .= '</div>';
@@ -97,9 +95,10 @@ function HTMLWinnerMessage(object $data)
 		 اینجانب هدیه برنامه سمت خدا و موسسه حضرت خدیجه سلام الله علیها را دریافت نمودم و متعهد می‌شوم این مبلغ را صرفا برای سفر اربعین هزینه کنم
 		<br>
 		همچنین با امضاء این فرم اعلام میدارم که از سایر نهادها کمک حمایتی اربعین دریافت نکرده ام
-			
-			<div class="txtRa">
-			امضا
+			<div class="m-4">
+				<div class="txtRa ">
+				امضا
+				</div>
 			</div>
 		</div>
 
@@ -124,7 +123,7 @@ function HTMLPaAblePrice(object $data)
 {
 	$price = \dash\fit::number($data->payablePrice);
 	$html  = '';
-	$html  .= '<div class="alert">';
+	$html  .= '<div class="alert-info text-center text-2xl leading-10 p-6">';
 	{
 		$html .= <<<HTML
 <div>
@@ -150,7 +149,7 @@ function HTMLPrintBefore(object $data)
 	$date = date("Y-m-d H:i:s");
 	$date = \dash\fit::date_time($date);
 	$html = '';
-	$html .= '<div class="alert text-xl">';
+	$html  .= '<div class="alert-danger text-center text-2xl leading-10 p-6">';
 	{
 		$html .= <<<HTML
 
