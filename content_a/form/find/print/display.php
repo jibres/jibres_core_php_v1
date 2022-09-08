@@ -77,6 +77,7 @@ $html .= '<div class="printArea" data-size="A4">';
 	}
 	$html .= '</div>';
 
+	$allowItem = \dash\data::allowItem();
 
 	$html .= '<table class="tbl1 v6 responsive">';
 	{
@@ -85,6 +86,10 @@ $html .= '<div class="printArea" data-size="A4">';
 		{
 			foreach (\dash\data::dataTable() as $key => $value)
 			{
+				if(!in_array($value['item_id'], $allowItem))
+				{
+					continue;
+				}
 				if(a($value, 'item_type') === 'file')
 				{
 					continue;
@@ -120,6 +125,11 @@ $html .= '<div class="printArea" data-size="A4">';
 		foreach (\dash\data::dataTable() as $key => $value)
 		{
 			if(a($value, 'item_type') !== 'file')
+			{
+				continue;
+			}
+
+			if(!in_array($value['item_id'], $allowItem))
 			{
 				continue;
 			}

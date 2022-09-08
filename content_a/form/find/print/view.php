@@ -58,6 +58,7 @@ class view
 
 		// \dash\face::btnPrint(true);
 
+		\content_a\form\find\view::allowShowItem();
 
 
 	}

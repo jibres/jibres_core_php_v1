@@ -45,23 +45,10 @@ class view
 
 		$load_items = \lib\app\form\item\get::items($form_id);
 
-		$result        = [];
-		$allowShowItem = [];
-		if(is_array(a(\dash\data::formDetail(), 'resultpagesetting', 'question')))
-		{
-			$allowShowItem = a(\dash\data::formDetail(), 'resultpagesetting', 'question');
-			$allowShowItem = array_map('floatval', $allowShowItem);
-		}
 
-		if(\dash\url::isLocal())
-		{
-			$allowShowItem = array_column($load_items, 'id');
-		}
-		elseif(\lib\app\form\form\get::enterpriseSpecialFormBuilder())
-		{
-			$allowShowItem = array_column($load_items, 'id');
-		}
+		self::allowShowItem();
 
+		$allowShowItem = \dash\data::allowItem();
 
 		foreach ($load_items as $key => $item)
 		{
@@ -144,7 +131,6 @@ class view
 				}
 
 				$result[$answer['id']][$oneAnswerDetail['item_id']] = $myAnswer;
-
 			}
 
 
@@ -153,9 +139,34 @@ class view
 		\dash\data::col($col);
 		\dash\data::dataTable($result);
 
+
 	}
 
 
+	public static function allowShowItem()
+	{
+		$item =
+			[
+				1,
+				17,
+			];
+
+
+		if(\dash\url::isLocal())
+		{
+			$item =
+				[
+					1,
+					2,
+					3,
+					4,
+				];
+
+		}
+		\dash\data::allowItem($item);
+
+		return $item;
+	}
 
 
 }
