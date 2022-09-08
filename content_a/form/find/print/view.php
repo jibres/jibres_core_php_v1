@@ -39,11 +39,13 @@ class view
 		}
 		\dash\data::tagsSavedID(array_column($tag_list, 'form_tag_id'));
 
-
-
-		$comment_list = \lib\app\form\comment\get::get(\dash\request::get('aid'));
-		\dash\data::commentList($comment_list);
-
+		foreach ($dataTable as $value)
+		{
+			if(a($value, 'item_type') === 'province_city')
+			{
+				\dash\data::provinceCode(a($value, 'province'));
+			}
+		}
 		$load_answer = \lib\app\form\answer\get::by_id(\dash\request::get('aid'));
 		\dash\data::answerDetail($load_answer);
 
