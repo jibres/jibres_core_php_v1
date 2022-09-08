@@ -123,7 +123,7 @@ $html .= '<div class="printArea" data-size="A4">';
 								}
 								$html .= '</td>';
 
-								$html .= '<td class="font-bold">';
+								$html .= '<td class="font-bold text-black">';
 								{
 									$answerValue = \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
 									$temp        = strip_tags($answerValue);

@@ -109,7 +109,7 @@
             <div class="row">
                 <div class="c-auto">
                     <?php if(\lib\app\form\form\get::enterpriseSpecialFormBuilder()) :?>
-                        <a class="btn-primary hidden"  href="<?php echo \dash\url::this(). '/find?id='. \dash\request::get('id') ?>"><?php echo T_("Find & Print"); ?></a>
+                        <a class="btn-primary"  href="<?php echo \dash\url::this(). '/find?id='. \dash\request::get('id') ?>"><?php echo T_("Find & Print"); ?></a>
                     <?php endif; ?>
                 </div>
                 <div class="c"></div>
