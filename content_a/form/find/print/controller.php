@@ -1,5 +1,5 @@
 <?php
-namespace content_a\form\find;
+namespace content_a\form\find\print;
 
 
 class controller
