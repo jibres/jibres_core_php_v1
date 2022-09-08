@@ -42,7 +42,8 @@ if ($image)
                 </thead>
                 <tbody>
 				<?php foreach (\dash\data::dataTable() as $key => $value) { ?>
-                    <tr>
+
+                    <tr title="<?php echo $key ?>">
 						<?php foreach (\dash\data::col() as $item => $item_title) : ?>
                             <td><?php if (a($value, $item))
 								{
