@@ -51,7 +51,8 @@ $html .= '<div class="print:hidden avand">';
 
 						$html .= '<div class="txtRa">';
 						{
-							$html .= '<div class="btn-success" data-ajaxify data-data=\'{"print":"print"}\'>';
+							$price = $data->payablePrice;
+							$html .= '<div class="btn-success" data-ajaxify data-data=\'{"print":"print", "price":"'.$price.'"}\'>';
 							{
 								$html .= 'ثبت پرداخت و تحویل هدیه';
 							}

@@ -2,6 +2,8 @@
 namespace content_a\form\find;
 
 
+use content_site\options\count\count;
+
 class view
 {
 
@@ -41,6 +43,13 @@ class view
 		if(!$answerList)
 		{
 			$answerList = [];
+		}
+
+
+		if(count($answerList) === 1 )
+		{
+			$one_id = a($answerList, 0, 'id');
+			\dash\redirect::to(\dash\url::that(). '/print?id='. $form_id. '&aid='. $one_id);
 		}
 
 		$load_items = \lib\app\form\item\get::items($form_id);

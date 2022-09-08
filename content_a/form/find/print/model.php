@@ -20,6 +20,9 @@ class model
 
 			\lib\app\form\tag\add::public_answer_tag_plus(a($load_tag, 'title'), $answer_id, $form_id);
 
+			$priceTag = T_("Gift"). ' '. \dash\request::post('price');
+			\lib\app\form\tag\add::public_answer_tag_plus($priceTag, $answer_id, $form_id);
+
 			\dash\notif::ok(T_('Saved'));
 
 			\dash\redirect::to(\dash\url::current(). \dash\request::full_get(['print' => 'auto']));
