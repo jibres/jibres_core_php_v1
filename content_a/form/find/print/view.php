@@ -23,7 +23,7 @@ class view
 
 		$q = \dash\validate::search_string();
 
-		$dataTable = \lib\app\form\answerdetail\search::list($q, $args);
+		$dataTable = \lib\app\form\answerdetail\search::list(null, $args);
 
 		$filterBox  = \lib\app\form\answerdetail\search::filter_message();
 		$isFiltered = \lib\app\form\answerdetail\search::is_filtered();
