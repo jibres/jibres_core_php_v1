@@ -18,9 +18,9 @@ $html .= '<div class="print:hidden avand">';
 				{
 					$html .= 'این فرم قبلا چاپ شده است و هدیه تحویل داده شده است';
 				}
-				$html .= '</div>';
-				$printUrl = \dash\url::current(). \dash\request::full_get(['print' => 'auto']);
-				$html .= '<a class="btn-link" href="'.$printUrl.'">چاپ مجدد</a>';
+				$html     .= '</div>';
+				$printUrl = \dash\url::current() . \dash\request::full_get(['print' => 'auto']);
+				$html     .= '<a class="btn-link" href="' . $printUrl . '">چاپ مجدد</a>';
 			}
 			else
 			{
@@ -71,8 +71,6 @@ $html .= '</div>';
 
 
 $html .= '<div class="printArea" data-size="A4">';
-
-
 {
 	$html .= '<div class="row">';
 	{
@@ -91,92 +89,112 @@ $html .= '<div class="printArea" data-size="A4">';
 
 	$allowItem = \dash\data::allowItem();
 
-	$html .= '<table class="tbl1 v6 responsive">';
+	$html .= '<div class="row">';
 	{
-
-		$html .= '<tbody class="text-sm">';
+		$html .= '<div class="c-xs-6 c-sm-6">';
 		{
-			foreach (\dash\data::dataTable() as $key => $value)
+			$html .= '<table class="tbl2 v6 responsive">';
 			{
-				if(!in_array($value['item_id'], $allowItem))
-				{
-					continue;
-				}
-				if(a($value, 'item_type') === 'file')
-				{
-					continue;
-				}
-				if(a($value, 'item_type') === 'province_city')
-				{
-					\dash\data::provinceCode(a($value, 'province'));
-				}
-				$html .= '<tr>';
-				{
-					$html .= '<th class="">';
-					{
-						$html .= a($value, 'item_title');
-					}
-					$html .= '</th>';
 
-					$html .= '<td class="">';
+				$html .= '<tbody class="text-sm">';
+				{
+					foreach (\dash\data::dataTable() as $key => $value)
 					{
-						$html .= \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
+						if(!in_array($value['item_id'], $allowItem))
+						{
+							continue;
+						}
+						if(a($value, 'item_type') === 'file')
+						{
+							continue;
+						}
+						if(a($value, 'item_type') === 'province_city')
+						{
+							\dash\data::provinceCode(a($value, 'province'));
+						}
+
+						$html .= '<tr>';
+						{
+							$html .= '<th class="">';
+							{
+								$html .= a($value, 'item_title');
+							}
+							$html .= '</th>';
+
+							$html .= '<td class="">';
+							{
+								$html .= \lib\app\form\answer\get::HTMLshowDetaiRecrod($value);
+							}
+							$html .= '</td>';
+						}
+						$html .= '</tr>';
 					}
-					$html .= '</td>';
 				}
-				$html .= '</tr>';
+				$html .= '</tbody>';
 			}
+			$html .= '</table>';
+			$html .= \dash\utility\pagination::html(true);
+
 		}
-		$html .= '</tbody>';
-	}
-	$html .= '</table>';
-	$html .= \dash\utility\pagination::html(true);
+		$html .= '</div>';
 
-	$html .= '<div class="flex mb-4">';
-	{
-		foreach (\dash\data::dataTable() as $key => $value)
+		$html .= '<div class="c-xs-6 c-sm-6">';
 		{
-			if(a($value, 'item_type') !== 'file')
-			{
-				continue;
-			}
 
-			if(!in_array($value['item_id'], $allowItem))
+			$html .= '<div class="flex mb-4">';
 			{
-				continue;
-			}
+				foreach (\dash\data::dataTable() as $key => $value)
+				{
+					if(a($value, 'item_type') !== 'file')
+					{
+						continue;
+					}
 
-			$html .= '<div>';
-			{
-				$html  .= a($value, 'item_title');
-				$image = \lib\filepath::fix(a($value, 'answer'));
-				$html  .= '<img class="w-96" src="' . $image . '">';
+					if(!in_array($value['item_id'], $allowItem))
+					{
+						continue;
+					}
 
+					$html .= '<div>';
+					{
+						$html  .= a($value, 'item_title');
+						$image = \lib\filepath::fix(a($value, 'answer'));
+						$html  .= '<img class="w-96" src="' . $image . '">';
+
+					}
+					$html .= '</div>';
+				}
 			}
 			$html .= '</div>';
 		}
+		$html .= '</div>';
 	}
 	$html .= '</div>';
 
-	if($data->tagWinner || $data->tagRemain)
+	$html .= '<div class="p-6">';
 	{
-		$html .= HTMLWinnerMessage($data);
-	}
-	else
-	{
-		$html .= HTMLOtherMessage($data);
-	}
+		if($data->tagWinner || $data->tagRemain)
+		{
+			$html .= HTMLWinnerMessage($data);
+		}
+		else
+		{
+			$html .= HTMLOtherMessage($data);
+		}
 
 
-	if($data->payablePrice)
-	{
-		$html .= HTMLPaAblePrice($data);
-	}
+		if($data->payablePrice)
+		{
+			$html .= HTMLPaAblePrice($data);
+		}
 
-	if($data->tagPrintBefore)
-	{
-		$html .= HTMLPrintBefore($data);
+		if($data->tagPrintBefore)
+		{
+			$html .= HTMLPrintBefore($data);
+		}
+
 	}
+	$html .= '</div>';
 
 
 }
