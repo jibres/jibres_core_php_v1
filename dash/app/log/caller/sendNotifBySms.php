@@ -54,7 +54,7 @@ class sendNotifBySms
 
 	public static function telegram()
 	{
-		return true;
+		return false;
 	}
 
 

@@ -18,6 +18,12 @@ class update
 
 	}
 
+    public static function record_data($_args, $_id)
+    {
+        return \dash\pdo\query_template::update('store_data', $_args, $_id, 'master');
+
+    }
+
 
 
 

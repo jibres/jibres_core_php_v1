@@ -13,6 +13,8 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
 
+		\dash\data::action_text(T_('Add new answer'));
+		\dash\data::action_link(\dash\url::that(). '/add?id='. \dash\request::get('id'));
 
 		\dash\face::btnExport(\dash\url::that(). '/export?id='. \dash\request::get('id'));
 

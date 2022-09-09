@@ -1,4 +1,5 @@
 <?php
+
 namespace lib\app\form\filter;
 
 
@@ -7,12 +8,12 @@ class ready
 
 	public static function row($_data, $_choice = [])
 	{
-		if(!is_array($_data))
+		if (!is_array($_data))
 		{
 			$_data = [];
 		}
 
-		$result     = [];
+		$result = [];
 
 		foreach ($_data as $key => $value)
 		{
@@ -33,12 +34,12 @@ class ready
 	public static function row_where($_data, $_field_title = [])
 	{
 
-		if(!is_array($_data))
+		if (!is_array($_data))
 		{
 			$_data = [];
 		}
 
-		$result     = [];
+		$result = [];
 
 		foreach ($_data as $key => $value)
 		{
@@ -89,19 +90,19 @@ class ready
 
 							break;
 					}
-					$result[$key] = $value;
+					$result[$key]              = $value;
 					$result['query_condition'] = $query_condition;
 					$result['condition_title'] = $condition_title;
 					break;
 
 				case 'field':
 					$result[$key] = $value;
-					if(isset($_field_title[$value]['title']))
+					if (isset($_field_title[$value]['title']))
 					{
 						$result['field_title'] = $_field_title[$value]['title'];
 					}
 
-					if(isset($_field_title[$value]['item_id']))
+					if (isset($_field_title[$value]['item_id']))
 					{
 						$result['item_id'] = $_field_title[$value]['item_id'];
 					}
@@ -113,11 +114,29 @@ class ready
 			}
 		}
 
+		if (a($result, 'tag_id'))
+		{
+			$tagDetail = \lib\app\form\tag\get::get($result['tag_id']);
+
+			$result['condition_title'] = a($tagDetail, 'title');
+
+			if (a($result, 'tag_include') === 'with')
+			{
+				$result['query_condition'] = ' IN ';
+				$result['field_title'] = T_("Include tag");
+			}
+			else
+			{
+				$result['query_condition'] = ' NOT IN ';
+				$result['field_title'] = T_("Not Include tag");
+			}
+		}
+
 
 		return $result;
 	}
 
 
-
 }
+
 ?>

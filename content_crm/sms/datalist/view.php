@@ -28,6 +28,7 @@ class view
             'sort' => \dash\request::get('sort'),
             'status' => \dash\request::get('status'),
             'mobile' => \dash\request::get('mobile'),
+            'notsend' => \dash\request::get('notsend'),
 
 		];
 

@@ -14,6 +14,13 @@ class add
 		{
 			\dash\permission::access('cmsManagePost');
 		}
+
+		if(!\lib\store::in_store())
+		{
+			\dash\notif::error(T_("Your are not in this store!"));
+			return false;
+		}
+
 		// check args
 		$args = \dash\app\posts\check::variable($_args, null, $_force);
 

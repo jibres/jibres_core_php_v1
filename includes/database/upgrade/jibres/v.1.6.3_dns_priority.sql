@@ -1,1 +1,0 @@
-ALTER TABLE jibres.business_domain_dns  ADD `priority` VARCHAR(100) CHARACTER SET utf8mb4 NULL DEFAULT NULL AFTER `value`;

@@ -77,6 +77,13 @@ class queue
 		unset($args['token3']);
 		unset($args['resendfrom']);
 
+		if(isset($_options['return_args_without_insert']) && $_options['return_args_without_insert'] === true)
+		{
+			$jibres_sms['store_smslog_id'] = null;
+			$jibres_sms['id'] = null;
+			return $jibres_sms;
+		}
+
 		$sms_store_smslog_id = \lib\db\sms_log\insert::new_record($args);
 
 		if(!$sms_store_smslog_id)

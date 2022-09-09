@@ -98,7 +98,7 @@ class insert
 		return \dash\pdo\query_template::insert('form_tag', $_args);
 	}
 
-	public static function get_answer_id_before_apply_to_filter($_table_name, $_where, $_type, $_rand_limit)
+	public static function get_answer_id_before_apply_to_filter($_table_name, $_where, $_type, $_rand_limit = null)
 	{
 		if(!$_where)
 		{
@@ -106,6 +106,12 @@ class insert
 		}
 
 		$where = implode(' AND ', $_where);
+		$limit = null;
+		if($_rand_limit)
+		{
+			$limit = " ORDER BY rand() LIMIT $_rand_limit ";
+		}
+
 
 		if($_type === 'include' || $_type === 'notinclude')
 		{
@@ -118,8 +124,7 @@ class insert
 				FROM
 					`$_table_name`
 				WHERE $type	( $where )
-				ORDER BY rand()
-				LIMIT $_rand_limit
+				$limit
 			";
 
 		}
@@ -132,8 +137,7 @@ class insert
 					`$_table_name`.`f_answer_id` AS `id`
 				FROM
 					`$_table_name`
-				ORDER BY rand()
-				LIMIT $_rand_limit
+				$limit
 			";
 		}
 

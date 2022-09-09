@@ -1,1 +1,0 @@
-ALTER TABLE jibres.log MODIFY `response` LONGTEXT

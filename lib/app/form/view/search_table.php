@@ -75,10 +75,12 @@ class search_table
 			$and[] = " `$data[table_name]`.f_answer_id = $data[f_answer_id] ";
 			$meta['pagination'] = false;
 		}
+		$table_name = $data['table_name'];
 
 		if($data['filter_id'])
 		{
 			$where_list = \lib\app\form\filter\get::where_list($data['filter_id'], $data['form_id']);
+
 
 			if($where_list && is_array($where_list))
 			{
@@ -86,18 +88,7 @@ class search_table
 				{
 					if(isset($value['query_condition']))
 					{
-						$temp = " `$data[table_name]`.$value[field] $value[query_condition] ";
-						if(isset($value['value']) && $value['value'])
-						{
-							if($value['query_condition'] === 'LIKE')
-							{
-								$temp .= " '$value[value]%' ";
-							}
-							else
-							{
-								$temp .= " '$value[value]' ";
-							}
-						}
+						$temp = \lib\app\form\filter\get::generateQueryCondition($value, $table_name, $data['form_id']);
 
 						self::$is_filtered = true;
 						$and[] = $temp;

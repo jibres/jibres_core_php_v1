@@ -44,6 +44,10 @@ class api
 		if(\dash\url::isLocal())
 		{
 			$array_url[] = \dash\url::protocol(). '://core.jibres.local';
+			if(\dash\url::lang())
+			{
+				$array_url[] = \dash\language::current();
+			}
 		}
 		else
 		{
@@ -144,7 +148,11 @@ class api
 
 		if(!$response)
 		{
-				\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jibres_api_error.log', 'jibres_api');
+			if(\dash\url::isLocal())
+			{
+				var_dump($log);exit();
+			}
+			\dash\log::file(json_encode($log, JSON_UNESCAPED_UNICODE), 'jibres_api_error.log', 'jibres_api');
 			if($CurlError)
 			{
 				// \dash\log::to_supervisor('#jibres_api #CURL_Error: '. $CurlError);
@@ -196,6 +204,39 @@ class api
 		return false;
 	}
 
+
+	public static function plan_detail()
+	{
+		$result = self::run('plan','get');
+		return $result;
+	}
+
+    public static function plan_detail_history()
+	{
+		$result = self::run('plan', 'get', ['gethistory' => true]);
+		return $result;
+	}
+
+	public static function plan_factor(array $_args)
+	{
+		$_args['factor'] = true;
+		$result = self::run('plan', 'get', $_args);
+		return $result;
+
+	}
+
+	public static function plan_cancel()
+	{
+		$result = self::run('plan', 'delete');
+		return $result;
+	}
+
+
+	public static function plan_activate($_args)
+	{
+		$result = self::run('plan','post', null, $_args);
+		return $result;
+	}
 
 	public static function plugin_activate($_args)
 	{
@@ -272,5 +313,9 @@ class api
 		$result = self::run('telegram','post', [], $_args, ['not_check_login' => true]);
 		return $result;
 	}
+
+
+
+
+
 }
-?>

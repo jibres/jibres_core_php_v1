@@ -15,6 +15,10 @@ class controller
 			{
 				\dash\data::inquiryForm(true);
 			}
+			elseif(\dash\url::subchild() === 'result')
+			{
+				\dash\data::resultPage(true);
+			}
 			else
 			{
 				\dash\header::status(404);
@@ -22,7 +26,7 @@ class controller
 		}
 
 
-		if(\dash\url::subchild() === 'inquiry')
+		if(\dash\url::subchild() === 'inquiry' || \dash\url::subchild() === 'result')
 		{
 			// not csrf
 		}
@@ -55,6 +59,11 @@ class controller
 				if(\dash\url::subchild() === 'inquiry')
 				{
 					$url .= '/inquiry';
+				}
+
+				if(\dash\url::subchild() === 'result')
+				{
+					$url .= '/result';
 				}
 
 				if(\dash\url::query())
@@ -93,6 +102,9 @@ class controller
 			{
 				\dash\header::status(403, T_("This form is private form!"));
 			}
+
+
+			// TODO if inquiry or result page and not enable this setting make 403 error
 
 
 			$load_items = \lib\app\form\item\get::items($form_id);

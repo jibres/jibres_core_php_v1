@@ -6,7 +6,7 @@ class controller
 {
 	public static function routing()
 	{
-		$url = \dash\url::child();
+		$url = \dash\request::get('url');
 
 		if($url)
 		{
@@ -25,7 +25,8 @@ class controller
 			$url = 'https://jibres.ir/ip/me';
 		}
 
-		$result = \dash\curl::go($url);
+		$result = \dash\curl::go($url, null, null, null, true);
+
 		\dash\code::jsonBoom($result, 'text');
 
 

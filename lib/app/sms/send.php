@@ -348,5 +348,59 @@ class send
 		$result    = $myApiData->account_info();
 		return $result;
 	}
+
+
+	public static function notSended()
+	{
+		$notSend = \lib\db\sms_log\get::not_sended(200);
+
+		if(!is_array($notSend))
+		{
+			$notSend = [];
+		}
+
+		if(!$notSend)
+		{
+			return null;
+		}
+
+		$sending_queue =
+			[
+				'telegram' => [],
+				'sms'      => [],
+				'email'    => [],
+			];
+
+		foreach ($notSend as $key => $value)
+		{
+			if(isset($value['mobile']) && isset($value['message']))
+			{
+				$resendArgs =
+					[
+						'mobile'     => $value['mobile'],
+						'message'    => $value['message'],
+
+					];
+
+				$result = \lib\app\sms\queue::add_one($resendArgs, ['return_args_without_insert' => true]);
+
+				$result['id'] = $value['id'];
+				$result['store_smslog_id'] = $value['id'];
+				$sending_queue['sms'][$key]['sms_param'] = $result;
+
+			}
+		}
+
+		if(!empty($sending_queue['sms']))
+		{
+			$finalResult = \lib\api\jibres\api::send_multiple_notif($sending_queue);
+
+			\dash\log::save_multiple_notif_result($finalResult);
+		}
+
+		\dash\notif::ok(T_(":val SMS was sended by cronjob", ['val' => \dash\fit::number(count($sending_queue['sms']))]));
+		return true;
+	}
+
 }
 ?>

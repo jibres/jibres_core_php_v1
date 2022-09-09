@@ -34,7 +34,7 @@
                 <td class="collapsing text-sm"><div class="btn-link-danger" data-confirm data-data='{"remove": "remove", "id" : "<?php echo a($value, 'id') ?>"}'><?php echo T_("Remove") ?></div></td>
                 <td class="collapsing text-sm">
                   <a href="<?php echo \dash\url::this().'/report/answer?'. \dash\request::fix_get(['iid' => a($value, 'item_id')]) ?>">
-                    <span class="font-bold"><?php echo \dash\fit::number(a($value, 'item_id')) ?>.</span> <?php echo a($value, 'field_title') ?>
+                    <span class="font-bold"><?php if(a($value, 'item_id')) { echo \dash\fit::number(a($value, 'item_id')) . '.'; } ?> </span> <?php echo a($value, 'field_title') ?>
                   </a>
 
                 </td>

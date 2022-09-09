@@ -69,5 +69,27 @@ class get
 
 		return $load;
 	}
+
+
+	/**
+	 * @return bool
+	 */
+	public static function enterpriseSpecialFormBuilder() : bool
+	{
+		$ok = in_array(intval(\lib\store::id()), [1000089, 1001466]);
+
+		if($ok)
+		{
+			return true;
+		}
+
+		if(\dash\url::isLocal())
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 }
 ?>

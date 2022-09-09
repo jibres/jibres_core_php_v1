@@ -6,10 +6,10 @@ class model
 {
     public static function post()
     {
-        if(\dash\request::post('status') === 'recend')
+        if(\dash\request::post('status') === 'resend')
         {
-            // recend sms
-            \lib\app\sms\recend::one(\dash\request::get('id'));
+            // resend sms
+            \lib\app\sms\resend::one(\dash\request::get('id'));
         }
 
         if(\dash\request::post('status') === 'archive')

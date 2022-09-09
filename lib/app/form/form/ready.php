@@ -25,6 +25,7 @@ class ready
 					break;
 
 				case 'inquirysetting':
+				case 'resultpagesetting':
 				case 'setting':
 				case 'condition':
 					if($value)

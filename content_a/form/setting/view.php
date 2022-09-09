@@ -17,6 +17,9 @@ class view
 		\dash\face::btnSave('form1');
 
 		\content_a\form\edit\view::form_preview_link();
+
+		\dash\data::myHtmlText('hi');
+
 	}
 }
 ?>

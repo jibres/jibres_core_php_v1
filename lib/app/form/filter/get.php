@@ -79,10 +79,10 @@ class get
 		}
 
 
+
 		$fields = \lib\app\form\form\ready::fields($load_form);
 
 		$fields = array_combine(array_column($fields, 'field'), $fields);
-
 
 		$new_result = [];
 		foreach ($load as $key => $value)
@@ -94,6 +94,32 @@ class get
 	}
 
 
+	public static function generateQueryCondition($value, $table_name, $form_id)
+	{
+
+		if(isset($value['tag_id']) && $value['tag_id'])
+		{
+			$temp = " `$table_name`.f_answer_id $value[query_condition] (SELECT form_tagusage.answer_id FROM form_tagusage WHERE form_tagusage.form_id = $form_id AND form_tagusage.form_tag_id = $value[tag_id]) ";
+		}
+		else
+		{
+
+			$temp = " `$table_name`.$value[field] $value[query_condition] ";
+			if(isset($value['value']) && $value['value'])
+			{
+				if($value['query_condition'] === 'LIKE')
+				{
+					$temp .= " '$value[value]%' ";
+				}
+				else
+				{
+					$temp .= " '$value[value]' ";
+				}
+			}
+		}
+
+		return $temp;
+	}
 
 
 }

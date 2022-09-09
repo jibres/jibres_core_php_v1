@@ -84,7 +84,6 @@
     <section class="circularChartBox">
       <?php $myPercent=intval(\dash\data::businessCheckLisst_percent()) ; include core.'/layout/elements/circularChart.php';?>
       <h3><?php echo T_("Business setup");?></h3>
-
     </section>
 
     <nav class="items long">
