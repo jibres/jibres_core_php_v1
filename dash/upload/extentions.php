@@ -92,11 +92,13 @@ class extentions
 
 		return $mimes;
 	}
+
+
 	/**
 	 * Get the MIME and type of file extension.
 	 * @param string $_ext File extension
 	 * @access public
-	 * @return string MIME type of file.
+	 * @return array MIME type of file.
 	 * @static
 	 */
 	public static function check($_file_addr, $_ext = null, $_meta = [])
