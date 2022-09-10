@@ -221,7 +221,7 @@ $html .= '<div class="printArea relative"  data-size="A4" style="min-height: 296
 						{
 							// $html  .= a($value, 'item_title');
 							$image = \lib\filepath::fix(a($value, 'answer'));
-							$html  .= '<img class="h-96 rounded-lg" src="' . $image . '">';
+							$html  .= '<img style="max-height: 250px;" class="h-96 rounded-lg" src="' . $image . '">';
 
 						}
 						$html .= '</div>';
