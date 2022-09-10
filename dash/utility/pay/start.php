@@ -307,17 +307,22 @@ class start
 
 		$insert_transaction =
 			[
-				'caller'           => 'payment',
 				'title'            => $_args['title'] ? $_args['title'] : T_("Pay whith :bank", ['bank' => T_(ucfirst(strval($_args['bank'])))]),
 				'currency'         => $_args['currency'],
 				'type'             => $_args['type'] ? $_args['type'] : 'money',
 				'plus'             => $_args['amount'],
 				'factor_id'        => $_args['factor_id'],
+				'caller'           => $_args['caller'],
 				'amount_request'   => $_args['amount'],
 				'payment'          => \dash\str::mb_strtolower($_args['bank']),
 				'user_id'          => $_args['user_id'],
 				'payment_response' => $payment_response,
 			];
+
+		if(isset($payment_response['store_id']) && $payment_response['store_id'])
+		{
+			$insert_transaction['store_id'] = $payment_response['store_id'];
+		}
 
 
 		$token = json_encode($insert_transaction);
@@ -329,6 +334,7 @@ class start
 
 		$insert_transaction['condition'] = 'request';
 		$insert_transaction['token']     = $token;
+
 
 		$result = \dash\utility\pay\transactions::start($insert_transaction);
 
