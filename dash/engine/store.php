@@ -310,7 +310,7 @@ class store
 
 		if($subdomain && $store)
 		{
-			if($subdomain === 'api' && \dash\url::content() === 'v2')
+			if($subdomain === 'api' && in_array(\dash\url::content(), ['v2', 'v3']))
 			{
 				// no problem
 				// https://api.jibres.com/$jb2jr/v2/cart/add
