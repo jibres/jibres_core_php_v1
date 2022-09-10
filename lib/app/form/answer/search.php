@@ -115,17 +115,25 @@ class search
 		if($query_string)
 		{
 
-			$or[] = " form_answer.id LIKE :serch_string1 ";
-			$or[] = " form_answerdetail.answer LIKE :serch_string2 ";
+			$isNumber = \dash\utility\convert::to_en_number($query_string);
+			if(is_numeric($isNumber))
+			{
+				$query_string = $isNumber;
+			}
 
-			$param[':serch_string1'] = '%'. $query_string. '%';
+			if(is_numeric($query_string))
+			{
+				$or[] = " form_answer.id LIKE :serch_string1 ";
+				$param[':serch_string1'] = '%'. $query_string. '%';
+			}
+
+			$or[] = " form_answerdetail.answer LIKE :serch_string2 ";
 			$param[':serch_string2'] = '%'. $query_string. '%';
 
 			if($isMobile = \dash\validate::mobile($query_string, false))
 			{
 				$or[] = " form_answerdetail.answer LIKE :serch_string3 ";
 				$param[':serch_string3'] = '%'. $isMobile. '%';
-
 			}
 
 			self::$is_filtered = true;
