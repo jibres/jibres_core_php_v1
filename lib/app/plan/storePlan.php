@@ -18,7 +18,7 @@ class storePlan
 		$currentPlan = self::currentPlan($_business_id);
 
 
-		if (!planChoose::allowChoosePlan($currentPlan, $newPlan))
+		if(!planChoose::allowChoosePlan($currentPlan, $newPlan))
 		{
 			\dash\notif::error_once(T_("Can not choose this plan"));
 			return false;
@@ -30,7 +30,7 @@ class storePlan
 		$readyPlan->setStoreId($_business_id);
 		$readyPlan->readyToPay($data);
 
-		if ($readyPlan->needPay())
+		if($readyPlan->needPay())
 		{
 			$result =
 				[
@@ -91,7 +91,7 @@ class storePlan
 		$lastPlanHistoryRecord = self::lastPlanHistoryRecord($_business_id);
 		$currentPlan           = self::checkPlanRecord($_business_id, $loadBusinessData, $lastPlanHistoryRecord);
 
-		if ($currentPlan)
+		if($currentPlan)
 		{
 			$planDetail = $lastPlanHistoryRecord;
 		}
@@ -107,7 +107,7 @@ class storePlan
 	{
 		$lastPlanHistoryRecord = \lib\db\store_plan_history\get::lastPlanHistoryRecord($_business_id);
 
-		if (!$lastPlanHistoryRecord)
+		if(!$lastPlanHistoryRecord)
 		{
 			planSet::setFirstPlan($_business_id, 'free');
 			$lastPlanHistoryRecord = \lib\db\store_plan_history\get::lastPlanHistoryRecord($_business_id);
@@ -121,7 +121,7 @@ class storePlan
 		$result = [];
 
 
-		if (!$_lastPlanRecord)
+		if(!$_lastPlanRecord)
 		{
 			// @BUG All business must have plan record
 			return $result;
@@ -129,22 +129,22 @@ class storePlan
 
 		$currentPlan = null;
 
-		if (isset($_lastPlanRecord['plan']) && $_lastPlanRecord['plan'])
+		if(isset($_lastPlanRecord['plan']) && $_lastPlanRecord['plan'])
 		{
 			$currentPlan = $_lastPlanRecord['plan'];
 		}
 
 
-		if (isset($_lastPlanRecord['status']) && $_lastPlanRecord['status'] === 'active')
+		if(isset($_lastPlanRecord['status']) && $_lastPlanRecord['status'] === 'active')
 		{
 			// ok. Nothing.
 		}
 
 		$expDate = a($_lastPlanRecord, 'expirydate');
 
-		if ($expDate)
+		if($expDate)
 		{
-			if (strtotime($_lastPlanRecord['expirydate']) < time())
+			if(strtotime($_lastPlanRecord['expirydate']) < time())
 			{
 				\lib\db\store_plan_history\update::record([
 					'status' => 'deactive', 'reason' => 'expired',
@@ -157,17 +157,17 @@ class storePlan
 
 		$updateStoreData = [];
 
-		if (!\dash\validate::is_equal($currentPlan, a($_loadBusinessData, 'plan')))
+		if(!\dash\validate::is_equal($currentPlan, a($_loadBusinessData, 'plan')))
 		{
 			$updateStoreData['plan'] = $currentPlan;
 		}
 
-		if (!\dash\validate::is_equal($expDate, a($_loadBusinessData, 'planexp')))
+		if(!\dash\validate::is_equal($expDate, a($_loadBusinessData, 'planexp')))
 		{
 			$updateStoreData['planexp'] = $expDate;
 		}
 
-		if ($updateStoreData)
+		if($updateStoreData)
 		{
 			\lib\db\store\update::record_data($updateStoreData, $_business_id);
 		}
@@ -188,7 +188,7 @@ class storePlan
 		$period   = a($args, 'period');
 
 
-		if (!$plan)
+		if(!$plan)
 		{
 			\dash\notif::error(T_("Plan not found"));
 			return false;
@@ -201,7 +201,7 @@ class storePlan
 		$newPlan->prepare();
 
 
-		if (planChoose::allowChoosePlan($currentPlan, $newPlan))
+		if(planChoose::allowChoosePlan($currentPlan, $newPlan))
 		{
 			\lib\db\store_plan_history\update::record([
 				'status' => 'deactive', 'reason' => 'buy new plan',
@@ -244,7 +244,7 @@ class storePlan
 	private static function minusTransaction(array $_args, $newPlan)
 	{
 		// for free plan needless to minus transaction
-		if (!floatval($_args['price']))
+		if(!floatval($_args['price']))
 		{
 			return;
 		}
@@ -253,9 +253,11 @@ class storePlan
 
 		$insert_transaction =
 			[
-				'user_id' => $_args['user_id'],
-				'title'   => $title,
-				'amount'  => floatval($_args['price']),
+				'caller'   => 'business:plan:minus',
+				'store_id' => $_args['store_id'],
+				'user_id'  => $_args['user_id'],
+				'title'    => $title,
+				'amount'   => floatval($_args['price']),
 
 			];
 
@@ -286,14 +288,14 @@ class storePlan
 
 		$cancelDetail = planFactor::calculate($store_id, $meta);
 
-		if (isset($cancelDetail['access']['ok']) && $cancelDetail['access']['ok'])
+		if(isset($cancelDetail['access']['ok']) && $cancelDetail['access']['ok'])
 		{
 			// ok
-			if (isset($cancelDetail['total']['price']) && $cancelDetail['total']['price'])
+			if(isset($cancelDetail['total']['price']) && $cancelDetail['total']['price'])
 			{
 				self::plusTransaction($cancelDetail, $cancelDetail['total']['price'], $store_id);
 
-				if (isset($cancelDetail['meta']['guarantee']) && $cancelDetail['meta']['guarantee'])
+				if(isset($cancelDetail['meta']['guarantee']) && $cancelDetail['meta']['guarantee'])
 				{
 					\lib\db\store_plan_history\update::record([
 						'status' => 'deactive', 'reason' => 'refund+guarantee',

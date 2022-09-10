@@ -79,7 +79,7 @@ class planPay
 			$meta =
 				[
 					'store_id'      => $this->store_id,
-					'caller'        => 'plan',
+					'caller'        => 'business:plan:pay',
 
 					'pay_on_jibres' => true,
 					'msg_go'        => T_("Activate plan :val", ['val' => $this->plan->title()]),
