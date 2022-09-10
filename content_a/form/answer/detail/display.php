@@ -254,6 +254,25 @@ else
 							$html .= '</tr>';
 						}
 
+						$html .= '<tr>';
+						{
+							$html .= '<th class="text-sm">'. T_("Review").'</th>';
+							$html .= '<td>';
+							{
+								if(\dash\data::answerDetail_review())
+								{
+									$html .= '<div>'. \dash\fit::date_time(\dash\data::answerDetail_review()). '</a>';
+								}
+								else
+								{
+									$html .= '<div class="btn-link" data-ajaxify data-method="post" data-data=\'{"review" : "review"}\'>'. T_("Mark as reviewed"). '</a>';
+								}
+							}
+							$html .= '</td>';
+
+						}
+						$html .= '</tr>';
+
 
 						$html .= '<tr>';
 						{
