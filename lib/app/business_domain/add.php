@@ -192,7 +192,8 @@ class add
 		$ir_domain = \dash\validate::ir_domain($domain, false);
 		if($ir_domain)
 		{
-			$fetch_domain = \lib\app\nic_domain\get::only_info($domain);
+			$domainRaw = $parse_url['root']. '.'. $parse_url['tld'];
+			$fetch_domain = \lib\app\nic_domain\get::only_info($domainRaw);
 			if(isset($fetch_domain[$domain]['status']) && is_array($fetch_domain[$domain]['status']))
 			{
 				if(in_array('ok', $fetch_domain[$domain]['status']))
