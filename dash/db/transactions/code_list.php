@@ -6,7 +6,7 @@ trait code_list
 	/**
 	 * make caller
 	 *
-	 * @return     <type>  ( description_of_the_return_value )
+	 * @return     array  ( description_of_the_return_value )
 	 */
 	public static function config()
 	{
