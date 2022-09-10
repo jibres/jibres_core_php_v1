@@ -116,7 +116,7 @@ class budget
 
 		$add =
 			[
-				'caller'     => 'manually',
+				'caller'     => $data['caller'],
 				'title'      => $data['title'],
 				'user_id'    => $user_id,
 				'payment'    => null,
@@ -126,6 +126,11 @@ class budget
 				'verify'     => 1,
 				'dateverify' => time(),
 			];
+
+		if(isset($data['store_id']) && $data['store_id'])
+		{
+			$add['store_id'] = $data['store_id'];
+		}
 
 		if($data['type'] === 'plus')
 		{
