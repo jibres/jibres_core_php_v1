@@ -33,8 +33,6 @@ class view
 						'chooseLanguage' => false,
 						'url'            => \content_v3\get::endpoint('android') . '/language',
 					],
-				// 'defaultLanguage' => \lib\store::detail('lang'),
-				// 'language' => ,
 				'logo'      =>
 					[
 						'standard' => \dash\url::logo(),
