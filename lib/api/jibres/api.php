@@ -217,6 +217,14 @@ class api
 		return $result;
 	}
 
+
+	public static function transaction_list(array $_args)
+	{
+		$result = self::run('transaction','get', $_args);
+		return $result;
+	}
+
+
 	public static function plan_factor(array $_args)
 	{
 		$_args['factor'] = true;
@@ -313,8 +321,6 @@ class api
 		$result = self::run('telegram','post', [], $_args, ['not_check_login' => true]);
 		return $result;
 	}
-
-
 
 
 
