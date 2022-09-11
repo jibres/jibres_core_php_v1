@@ -83,8 +83,14 @@ $planList = \dash\data::planList();
 						<?php endif; ?>
 
                         <?php endif; ?>
-
+                        <p class="mt-4 text-sm">
+                            <a href="<?php echo \dash\url::this(). '/history' ?>" class="font-medium text-gray-500 underline"><?php echo T_("History"); ?></a>
+                        </p>
+                        <p class="mt-4 text-sm">
+                            <a href="<?php echo \dash\url::this(). '/transactions' ?>" class="font-medium text-gray-500 underline"><?php echo T_("Transactions"); ?></a>
+                        </p>
                     </div>
+
                 </div>
             </div>
         </div>
