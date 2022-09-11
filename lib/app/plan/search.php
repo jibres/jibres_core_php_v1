@@ -3,9 +3,10 @@ namespace lib\app\plan;
 
 class search
 {
+
 	private static $filter_message = null;
-	private static $filter_args    = [];
-	private static $is_filtered    = false;
+	private static $filter_args = [];
+	private static $is_filtered = false;
 
 
 	public static function filter_message()
@@ -23,21 +24,21 @@ class search
 	public static function list($_query_string, $_args)
 	{
 		$condition =
-		[
-            'order'       => 'order',
-            'sort'        => filter::sort_enum(),
-            'status'      => ['enum' => ['active', 'deactive',]],
-            'user'        => 'code',
-            'plan'        => 'string_100',
-            'periodtype'  => 'string_100',
-            'business_id' => 'id',
-		];
+			[
+				'order'       => 'order',
+				'sort'        => filter::sort_enum(),
+				'action'      => ['enum' => ['set', 'upgrade', 'downgrade', 'extends',]],
+				'status'      => ['enum' => ['active', 'deactive',]],
+				'user'        => 'code',
+				'plan'        => 'string_100',
+				'periodtype'  => 'string_100',
+				'business_id' => 'id',
+			];
 
 		$require = [];
-		$meta    =	[];
+		$meta    = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
-
 
 
 		$and          = [];
@@ -49,15 +50,15 @@ class search
 		$meta['limit'] = 20;
 
 
-		$order_sort  = null;
+		$order_sort = null;
 
 		if($data['user'])
 		{
 			$user_id = \dash\coding::decode($data['user']);
 			if($user_id)
 			{
-				$and[] = " store_data.owner = :user_id ";
-                $param[':user_id'] = $user_id;
+				$and[]             = " store_data.owner = :user_id ";
+				$param[':user_id'] = $user_id;
 				self::$is_filtered = true;
 			}
 		}
@@ -65,11 +66,11 @@ class search
 
 		$query_string = \dash\validate::search($_query_string, false);
 
-        $meta['join'][] = " LEFT JOIN store ON store_plan_history.store_id = store.id ";
-        $meta['join'][] = " LEFT JOIN store_data ON store_data.id = store.id ";
+		$meta['join'][] = " LEFT JOIN store ON store_plan_history.store_id = store.id ";
+		$meta['join'][] = " LEFT JOIN store_data ON store_data.id = store.id ";
 
 		$meta['fields'] =
-		"
+			"
 			store_plan_history.*,
 			store.status AS `store_status`,
 			store.subdomain,
@@ -79,54 +80,63 @@ class search
 
 		if($data['status'])
 		{
-			$and[] = "store_plan_history.status = :status ";
-            $param[':status'] = $data['status'];
+			$and[]            = "store_plan_history.status = :status ";
+			$param[':status'] = $data['status'];
 
 			self::$is_filtered = true;
 		}
 
-        if($data['plan'])
-        {
-            $and[] = "store_plan_history.plan = :plan ";
-            $param[':plan'] = $data['plan'];
-
-            self::$is_filtered = true;
-        }
-
-        if($data['periodtype'])
-        {
-            $and[] = "store_plan_history.periodtype = :periodtype ";
-            $param[':periodtype'] = $data['periodtype'];
-
-            self::$is_filtered = true;
-        }
-
-        if($data['business_id'])
-        {
-            $and[] = "store_plan_history.store_id = :business_id ";
-            $param[':business_id'] = $data['business_id'];
-
-            self::$is_filtered = true;
-        }
-
-
-        if($query_string)
+		if($data['plan'])
 		{
-            $meta['join'][] = " LEFT JOIN users ON users.id = store_data.owner ";
+			$and[]          = "store_plan_history.plan = :plan ";
+			$param[':plan'] = $data['plan'];
 
-            $or[] = " store_plan_history.plan LIKE :q0 ";
-            $or[] = " store_data.title LIKE :q1 ";
-            $or[] = " store.subdomain LIKE :q2 ";
-            $or[] = " store.id LIKE :q3 ";
-            $or[] = " users.displayname LIKE :q4";
-            $or[] = " users.mobile LIKE :q5 ";
+			self::$is_filtered = true;
+		}
 
-            $param[':q0'] = "%$query_string%";
-            $param[':q1'] = "%$query_string%";
-            $param[':q2'] = "%$query_string%";
-            $param[':q3'] = "%$query_string%";
-            $param[':q4'] = "%$query_string%";
-            $param[':q5'] = "%$query_string%";
+		if($data['periodtype'])
+		{
+			$and[]                = "store_plan_history.periodtype = :periodtype ";
+			$param[':periodtype'] = $data['periodtype'];
+
+			self::$is_filtered = true;
+		}
+
+
+		if($data['action'])
+		{
+			$and[]                = "store_plan_history.action = :action ";
+			$param[':action'] = $data['action'];
+
+			self::$is_filtered = true;
+		}
+
+		if($data['business_id'])
+		{
+			$and[]                 = "store_plan_history.store_id = :business_id ";
+			$param[':business_id'] = $data['business_id'];
+
+			self::$is_filtered = true;
+		}
+
+
+		if($query_string)
+		{
+			$meta['join'][] = " LEFT JOIN users ON users.id = store_data.owner ";
+
+			$or[] = " store_plan_history.plan LIKE :q0 ";
+			$or[] = " store_data.title LIKE :q1 ";
+			$or[] = " store.subdomain LIKE :q2 ";
+			$or[] = " store.id LIKE :q3 ";
+			$or[] = " users.displayname LIKE :q4";
+			$or[] = " users.mobile LIKE :q5 ";
+
+			$param[':q0'] = "%$query_string%";
+			$param[':q1'] = "%$query_string%";
+			$param[':q2'] = "%$query_string%";
+			$param[':q3'] = "%$query_string%";
+			$param[':q4'] = "%$query_string%";
+			$param[':q5'] = "%$query_string%";
 
 
 			self::$is_filtered = true;
@@ -153,7 +163,6 @@ class search
 		}
 
 
-
 		$list = \lib\db\store_plan_history\search::list($param, $and, $or, $order_sort, $meta);
 
 		if(!is_array($list))
@@ -176,8 +185,8 @@ class search
 				{
 					if(isset($value['owner']) && $value['owner'] && isset($load_some_user[$value['owner']]))
 					{
-						$user_detail = $load_some_user[$value['owner']];
-						$user_detail = \dash\app\user::ready($user_detail);
+						$user_detail               = $load_some_user[$value['owner']];
+						$user_detail               = \dash\app\user::ready($user_detail);
 						$list[$key]['user_detail'] = $user_detail;
 					}
 					else
@@ -215,34 +224,32 @@ class search
 		$field_list = \lib\app\store\analytics::field_list();
 
 		$condition =
-		[
-			'order' => 'order',
-			'sort'  => ['enum' => ['name','id']],
-			'f'      => ['enum' => array_keys($field_list)],
-		];
+			[
+				'order' => 'order',
+				'sort'  => ['enum' => ['name', 'id']],
+				'f'     => ['enum' => array_keys($field_list)],
+			];
 
 		$require = ['f'];
 
 		$meta =
-		[
-			'field_title' =>
 			[
-				'f' => T_("Field"),
-			],
-		];
+				'field_title' =>
+					[
+						'f' => T_("Field"),
+					],
+			];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and  = [];
+		$meta = [];
+		$or   = [];
 
 		$meta['limit'] = 20;
 
-		$order_sort  = null;
-
+		$order_sort = null;
 
 
 		$query_string = \dash\validate::search($_query_string, false);
@@ -250,7 +257,7 @@ class search
 
 		if($query_string)
 		{
-			$or[]        = " store_data.title LIKE '%$query_string%'";
+			$or[] = " store_data.title LIKE '%$query_string%'";
 
 			self::$is_filtered = true;
 		}
@@ -261,7 +268,7 @@ class search
 			if(in_array($data['sort'], ['name', 'id']))
 			{
 
-				$sort = \dash\str::mb_strtolower($data['sort']);
+				$sort  = \dash\str::mb_strtolower($data['sort']);
 				$order = null;
 				if($data['order'])
 				{
@@ -300,8 +307,8 @@ class search
 				{
 					if(isset($value['creator']) && $value['creator'] && isset($load_some_user[$value['creator']]))
 					{
-						$user_detail = $load_some_user[$value['creator']];
-						$user_detail = \dash\app\user::ready($user_detail);
+						$user_detail               = $load_some_user[$value['creator']];
+						$user_detail               = \dash\app\user::ready($user_detail);
 						$list[$key]['user_detail'] = $user_detail;
 					}
 					else
@@ -333,30 +340,28 @@ class search
 	}
 
 
-
 	public static function list_domain($_query_string, $_args)
 	{
 
 		$condition =
-		[
-			'order'          => 'order',
-			'sort'           => ['enum' => ['name','id']],
-		];
+			[
+				'order' => 'order',
+				'sort'  => ['enum' => ['name', 'id']],
+			];
 
 		$require = [];
-		$meta    =	[];
+		$meta    = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 
-		$and         = [];
-		$meta        = [];
-		$or          = [];
+		$and  = [];
+		$meta = [];
+		$or   = [];
 
 		$meta['limit'] = 20;
 
-		$order_sort  = null;
-
+		$order_sort = null;
 
 
 		$query_string = \dash\validate::search($_query_string, false);
@@ -364,7 +369,7 @@ class search
 
 		if($query_string)
 		{
-			$or[]        = " store_data.title LIKE '%$query_string%'";
+			$or[] = " store_data.title LIKE '%$query_string%'";
 
 			self::$is_filtered = true;
 		}
@@ -375,7 +380,7 @@ class search
 			if(in_array($data['sort'], ['domain', 'id']))
 			{
 
-				$sort = \dash\str::mb_strtolower($data['sort']);
+				$sort  = \dash\str::mb_strtolower($data['sort']);
 				$order = null;
 				if($data['order'])
 				{
@@ -390,7 +395,6 @@ class search
 		{
 			$order_sort = " ORDER BY store_domain.id DESC";
 		}
-
 
 
 		$list = \lib\db\store\search::list_domain($and, $or, $order_sort, $meta);
@@ -415,8 +419,8 @@ class search
 				{
 					if(isset($value['creator']) && $value['creator'] && isset($load_some_user[$value['creator']]))
 					{
-						$user_detail = $load_some_user[$value['creator']];
-						$user_detail = \dash\app\user::ready($user_detail);
+						$user_detail               = $load_some_user[$value['creator']];
+						$user_detail               = \dash\app\user::ready($user_detail);
 						$list[$key]['user_detail'] = $user_detail;
 					}
 					else
@@ -450,4 +454,6 @@ class search
 	}
 
 
-}?>
+}
+
+?>

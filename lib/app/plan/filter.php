@@ -88,6 +88,58 @@ class filter
 				'public' => true,
 			];
 
+		$list['actionu'] =
+			[
+				'key'    => 'actionu',
+				'group'  => T_("Action"),
+				'title'  => T_('Upgrade'),
+				'query'  =>
+					[
+						'action' => 'upgrade',
+					],
+				'public' => true,
+			];
+
+
+		$list['actiond'] =
+			[
+				'key'    => 'actiond',
+				'group'  => T_("Action"),
+				'title'  => T_('Downgrade'),
+				'query'  =>
+					[
+						'action' => 'downgrade',
+					],
+				'public' => true,
+			];
+
+
+		$list['actione'] =
+			[
+				'key'    => 'actione',
+				'group'  => T_("Action"),
+				'title'  => T_('Extends'),
+				'query'  =>
+					[
+						'action' => 'extends',
+					],
+				'public' => true,
+			];
+
+		$list['actions'] =
+			[
+				'key'    => 'actions',
+				'group'  => T_("Action"),
+				'title'  => T_('Set'),
+				'query'  =>
+					[
+						'action' => 'set',
+					],
+				'public' => true,
+			];
+
+
+
 
 		return $list;
 

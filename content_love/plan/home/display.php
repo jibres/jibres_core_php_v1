@@ -4,7 +4,7 @@
         <thead>
         <tr>
             <th><?php echo T_("Business"); ?></th>
-            <th><?php echo T_("Plan"); ?></th>
+            <th><?php echo T_("Plan"). ' / '. T_("Action");?></th>
             <th><?php echo T_("Start Date"). ' / '. T_("Expire Date"); ?></th>
             <th><?php echo T_("Period"); ?></th>
             <th><?php echo T_("Price"); ?></th>
@@ -33,7 +33,7 @@
                 </td>
                 <td>
                     <a href="<?php echo \dash\url::this() . \dash\request::full_get(['plan' => $value['plan']]) ?>">
-                        <?php echo a($value, 't_plan') ?>
+                        <?php echo a($value, 't_plan'). ' / '. T_(strval(a($value, 'action'))) ?>
                     </a>
                 </td>
                 <td>
