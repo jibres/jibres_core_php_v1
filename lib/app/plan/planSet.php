@@ -108,6 +108,9 @@ class planSet
 		if(planChoose::allowChoosePlanAdmin($currentPlan, $newPlan))
 		{
 			self::set($data['store_id'], $newPlan, $currentPlan);
+
+			\lib\api\business\api::plan_sync_required($data['store_id']);
+			// need to call sync event
 			return true;
 		}
 		else

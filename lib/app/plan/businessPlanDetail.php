@@ -122,8 +122,6 @@ class businessPlanDetail
     }
 
 
-
-
 	public function contain() : array
     {
         if($this->currentPlan)
@@ -172,7 +170,7 @@ class businessPlanDetail
             }
             elseif($syncTime = strtotime($planSyncSetting['value']))
             {
-                if($syncTime < (time() - (60*30)) || 1)
+                if($syncTime < (time() - (60*30)))
                 {
                     $syncRequired = true;
                 }
@@ -228,4 +226,12 @@ class businessPlanDetail
         \lib\db\setting\update::overwirte_cat_key(json_encode($_planDetail), 'plan', 'last');
 
     }
+
+
+	public static function sync_required()
+	{
+		\lib\db\setting\update::overwirte_cat_key('no', 'plan', 'synced');
+	}
+
+
 }
