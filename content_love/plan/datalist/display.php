@@ -25,7 +25,7 @@
                         </code>
                     </a>
                     <a class="block"
-                       href="<?php echo \dash\url::kingdom() . '/' . \dash\store_coding::encode(a($value, 'store_id')); ?>">
+                       href="<?php echo \dash\url::here() . '/store/setting?id=' . a($value, 'store_id'); ?>">
                         <code>
 							<?php echo \dash\store_coding::encode(a($value, 'store_id')); ?>
                         </code>
