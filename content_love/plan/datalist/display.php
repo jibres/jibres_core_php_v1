@@ -50,13 +50,17 @@
                     </a>
                     <small class="txt-gray-500 block">
                         <?php
+                        if(a($value, 'days'))
+						{
+							echo \dash\fit::number(a($value, 'days')) . ' ' . T_("Day");
+						}
 
-						echo \dash\fit::number(a($value, 'days')) . ' ' . T_("Day");
-						// if(!\dash\validate::is_equal(a($value, 'days'), a($value, 'realdays'))):
-                        //     echo '<span class="" title="'. T_("Read days"). '='. a($value, 'realdays'). '">';
-						// 	echo \dash\utility\icon::svg('FraudProtectUnprotected', 'major', 'green', 'w-4 h-4 mt-2');
-                        //     echo '</span>';
-						// endif;
+						if(!\dash\validate::is_equal(a($value, 'days'), a($value, 'realdays')) && a($value, 'realdays')):
+                            echo '<span class="block text-green-600" >';
+                            echo T_("Real days"). ' '. \dash\fit::number(a($value, 'realdays')). ' ';
+
+                            echo '</span>';
+						endif;
 
 						?>
 

@@ -48,32 +48,55 @@ $html    .= "<div class='avand'>";
 		{
 			$html .= '<ul>';
 			{
-				foreach ($data as $field => $value)
+				$html .= '<li>';
 				{
-
-					$allowField = ['id', 'title', 'plan', 'planexp'];
-
-					if(!in_array($field, $allowField))
+					$html .= '<a class="f item">';
 					{
-						continue;
+						$html .= '<div class="key">' . a($data, 'id') . '</div>';
+						$html .= '<div class="value font-bold">' . T_("ID") . '</div>';
 					}
-					$html .= '<li>';
-					{
-						$html .= '<a class="f item">';
-						{
-							$html .= '<div class="key">' . $value . '</div>';
-							$html .= '<div class="value font-bold">' . $field . '</div>';
-						}
-						$html .= '</a>';
-					}
-					$html .= '</li>';
+					$html .= '</a>';
 				}
+				$html .= '</li>';
 
 				$html .= '<li>';
 				{
-					$html .= '<a class="f item" href="'.\dash\url::this(). '/datalist?business_id='. $storeId. '">';
+					$html .= '<a class="f item">';
 					{
+						$html .= '<div class="key">' . a($data, 'title') . '</div>';
+						$html .= '<div class="value font-bold">' . T_("Business title") . '</div>';
+					}
+					$html .= '</a>';
+				}
+				$html .= '</li>';
 
+				$html .= '<li>';
+				{
+					$html .= '<a class="f item">';
+					{
+						$html .= '<div class="key">' . T_(ucfirst(strval(a($data, 'plan')))) . '</div>';
+						$html .= '<div class="value font-bold">' . T_("Current plan") . '</div>';
+					}
+					$html .= '</a>';
+				}
+				$html .= '</li>';
+
+
+				$html .= '<li>';
+				{
+					$html .= '<a class="f item">';
+					{
+						$html .= '<div class="key">' . (a($data, 'planexp') ? \dash\fit::date_time(a($data, 'planexp')) : '-') . '</div>';
+						$html .= '<div class="value font-bold">' . T_("Current plan expire date") . '</div>';
+					}
+					$html .= '</a>';
+				}
+				$html .= '</li>';
+
+				$html .= '<li>';
+				{
+					$html .= '<a class="f item" href="' . \dash\url::this() . '/datalist?business_id=' . $storeId . '">';
+					{
 						$html .= '<div class="value font-bold">' . T_("Go to plan list") . '</div>';
 					}
 					$html .= '</a>';
@@ -89,15 +112,19 @@ $html    .= "<div class='avand'>";
 			{
 				$html .= '<form method="post" autocomplete="off">';
 				{
-					$html .= '<br>';
+					$html .= '<p>';
+					{
+						$html .= T_("If current plan is equal by new plan, plan was extended");
+					}
+					$html .= '</p>';
 
-					$html .= '<label for="plan">' . T_("Plan") . '</label>';
+					$html .= '<label for="plan">' . T_("New Plan") . '</label>';
 
 					$html .= '<select name="plan" class="select22" id="plan">';
 					{
 						foreach (\dash\data::planList() as $item)
 						{
-							$html .= '<option value="' . $item . '">' . $item . '</option>';
+							$html .= '<option value="' . $item . '">' . T_(ucfirst($item)) . '</option>';
 						}
 					}
 					$html .= '</select>';
@@ -124,9 +151,9 @@ $html    .= "<div class='avand'>";
 					}
 					$html .= '</div>';
 
-					$html .= '<div class="txtRa mt-2">';
+					$html .= '<div class="txtRa mt-8">';
 					{
-						$html .= '<a class="btn-secondary outline mx-4" href="'. \dash\url::that(). '">'. T_("Cancel"). '</a>';
+						$html .= '<a class="btn-secondary outline mx-4" href="' . \dash\url::that() . '">' . T_("Cancel") . '</a>';
 						$html .= '<button type="submit" class="btn-success">' . T_("Set plan") . '</button>';
 					}
 					$html .= '</div>';
