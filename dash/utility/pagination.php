@@ -47,7 +47,13 @@ class pagination
 	{
 		if(isset($_pagination_detail['total_rows']))
 		{
-			self::init($_pagination_detail['total_rows']);
+			$limit = 10;
+			if(isset($_pagination_detail['limit']) && is_numeric($_pagination_detail['limit']))
+			{
+				$limit = intval($_pagination_detail['limit']);
+			}
+
+			self::init($_pagination_detail['total_rows'], $limit);
 		}
 	}
 

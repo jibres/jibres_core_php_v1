@@ -15,7 +15,7 @@ class view
 				'status'      => \dash\request::get('status'),
 				'verify'      => \dash\request::get('verify'),
 				'user_code'   => \dash\request::get('user'),
-				'charge_type' => \dash\request::get('ct'),
+				'charge_type' => \dash\request::get('charge_type'),
 				'start_date'  => \dash\request::get('std'),
 				'end_date'    => \dash\request::get('end'),
 				'caller'      => \dash\request::get('caller'),
