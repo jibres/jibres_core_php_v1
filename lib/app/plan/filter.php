@@ -138,7 +138,55 @@ class filter
 				'public' => true,
 			];
 
+		$list['refundguarantee'] =
+			[
+				'key'    => 'refundguarantee',
+				'group'  => T_("Refund"),
+				'title'  => T_('Refund + Guarantee'),
+				'query'  =>
+					[
+						'reason' => 'refund+guarantee',
+					],
+				'public' => true,
+			];
 
+
+		$list['refund'] =
+			[
+				'key'    => 'refund',
+				'group'  => T_("Refund"),
+				'title'  => T_('Refund'),
+				'query'  =>
+					[
+						'reason' => 'refund',
+					],
+				'public' => true,
+			];
+
+		$list['setbya'] =
+			[
+				'key'    => 'setbya',
+				'group'  => T_("Set by"),
+				'title'  => T_('Admin'),
+				'query'  =>
+					[
+						'setby' => 'admin',
+					],
+				'public' => true,
+			];
+
+
+		$list['setbyc'] =
+			[
+				'key'    => 'setbyc',
+				'group'  => T_("Set by"),
+				'title'  => T_('Customer'),
+				'query'  =>
+					[
+						'setby' => 'customer',
+					],
+				'public' => true,
+			];
 
 
 		return $list;

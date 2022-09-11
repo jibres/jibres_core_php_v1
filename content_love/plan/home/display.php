@@ -8,7 +8,7 @@
             <th><?php echo T_("Start Date"). ' / '. T_("Expire Date"); ?></th>
             <th><?php echo T_("Period"); ?></th>
             <th><?php echo T_("Price"); ?></th>
-            <th><?php echo T_("Status"); ?></th>
+            <th><?php echo T_("Status"). ' / '. T_("Reason"); ?></th>
             <th><?php echo T_("User"); ?></th>
             <th><?php echo T_("datecreated"); ?></th>
             <th class="collapsing"></th>
@@ -54,7 +54,14 @@
                 </td>
                 <td>
                     <a href="<?php echo \dash\url::this(). \dash\request::full_get(['status' => $value['status']]) ?>">
-                        <?php echo T_(strval(a($value, 'status'))) ?>
+                        <?php
+                        echo T_(strval(a($value, 'status')));
+                        if(a($value, 'reason'))
+						{
+                            echo ' / '. T_($value['reason']);
+                        }
+
+                        ?>
                     </a>
                 </td>
                 <td>

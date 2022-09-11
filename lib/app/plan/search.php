@@ -31,6 +31,7 @@ class search
 				'status'      => ['enum' => ['active', 'deactive',]],
 				'user'        => 'code',
 				'plan'        => 'string_100',
+				'reason'      => 'string_100',
 				'periodtype'  => 'string_100',
 				'business_id' => 'id',
 			];
@@ -86,6 +87,14 @@ class search
 			self::$is_filtered = true;
 		}
 
+		if($data['reason'])
+		{
+			$and[]            = "store_plan_history.reason = :reason ";
+			$param[':reason'] = $data['reason'];
+
+			self::$is_filtered = true;
+		}
+
 		if($data['plan'])
 		{
 			$and[]          = "store_plan_history.plan = :plan ";
@@ -105,7 +114,7 @@ class search
 
 		if($data['action'])
 		{
-			$and[]                = "store_plan_history.action = :action ";
+			$and[]            = "store_plan_history.action = :action ";
 			$param[':action'] = $data['action'];
 
 			self::$is_filtered = true;

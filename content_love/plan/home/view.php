@@ -34,6 +34,7 @@ class view
 				'plan'        => \dash\request::get('plan'),
 				'periodtype'  => \dash\request::get('periodtype'),
 				'action'      => \dash\request::get('action'),
+				'reason'      => \dash\request::get('reason'),
 				'business_id' => \dash\request::get('business_id'),
 				'status'      => \dash\request::get('status'),
 			];
