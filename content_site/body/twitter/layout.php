@@ -7,7 +7,7 @@ class layout
 
 	private static function remove_t_co_link($_content)
 	{
-		return preg_replace("/https\:\/\/t\.co\/([^\s]+)/", '', $_content);
+		return preg_replace("/https\:\/\/t\.co\/([^\s]+)/", '', strval($_content));
 	}
 
 	/**
