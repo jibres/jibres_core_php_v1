@@ -29,6 +29,7 @@ class search
 				'sort'        => filter::sort_enum(),
 				'action'      => ['enum' => ['set', 'upgrade', 'downgrade', 'extends',]],
 				'status'      => ['enum' => ['active', 'deactive',]],
+				'setby'       => ['enum' => ['admin', 'customer',]],
 				'user'        => 'code',
 				'plan'        => 'string_100',
 				'reason'      => 'string_100',
@@ -83,6 +84,15 @@ class search
 		{
 			$and[]            = "store_plan_history.status = :status ";
 			$param[':status'] = $data['status'];
+
+			self::$is_filtered = true;
+		}
+
+
+		if($data['setby'])
+		{
+			$and[]            = "store_plan_history.setby = :setby ";
+			$param[':setby'] = $data['setby'];
 
 			self::$is_filtered = true;
 		}
