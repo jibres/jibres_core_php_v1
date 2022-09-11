@@ -115,6 +115,11 @@ class add
 			'dateverify' => 'int',
 		];
 
+		if(!\dash\engine\store::inStore())
+		{
+			$condition['store_id'] = 'id';
+		}
+
 		$require = ['title',  'type'];
 
 		$meta = [];
@@ -138,7 +143,15 @@ class add
 		$insert['title']    = $data['title'];
 		$insert['type']     = $data['type'];
 		$insert['status']   = $data['status'];
+		$insert['caller']   = $data['caller'];
 		$insert['verify']   = $data['verify'] ? 1 : 0;
+
+
+		if(isset($data['store_id']) && $data['store_id'])
+		{
+			$insert['store_id'] = $data['store_id'];
+		}
+
 
 		$currency = $data['currency'];
 

@@ -66,9 +66,14 @@ trait set
 		];
 
 		$caller = $_args['caller'];
-		unset($_args['caller']);
+		// unset($_args['caller']);
 
 		$insert = array_merge($other_field, $_args);
+
+		if(isset($_args['store_id']) && $_args['store_id'])
+		{
+			$insert['store_id'] = $_args['store_id'];
+		}
 
 		// save ip id
 		$insert['ip_id']    = \dash\utility\ip::id();

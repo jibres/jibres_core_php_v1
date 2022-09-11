@@ -3,6 +3,7 @@ namespace dash\app\transaction;
 
 class budget
 {
+
 	public static function user($_user_id)
 	{
 		$user_id = \dash\validate::id($_user_id);
@@ -27,13 +28,13 @@ class budget
 	}
 
 
-
 	public static function minus($_args)
 	{
 		$_args['type'] = 'minus';
 		return self::set($_args);
 
 	}
+
 
 	public static function plus($_args)
 	{
@@ -45,19 +46,25 @@ class budget
 	private static function set($_args)
 	{
 		$condition =
-		[
-			'title'        => 'string_200',
-			'amount'       => 'price',
-			'date'         => 'date',
-			'time'         => 'time',
-			'user_id'      => 'id',
-			'user_code'    => 'code',
-			'dblm'         => 'bit',
-			'type'         => ['enum' => ['minus', 'plus']],
-			'silent_notif' => 'bit',
-		];
+			[
+				'caller'       => 'string_100',
+				'title'        => 'string_200',
+				'amount'       => 'price',
+				'date'         => 'date',
+				'time'         => 'time',
+				'user_id'      => 'id',
+				'user_code'    => 'code',
+				'dblm'         => 'bit',
+				'type'         => ['enum' => ['minus', 'plus']],
+				'silent_notif' => 'bit',
+			];
 
-		$require = ['title',  'amount', 'type',];
+		$require = ['title', 'amount', 'type',];
+
+		if(!\dash\engine\store::inStore())
+		{
+			$condition['store_id'] = 'id';
+		}
 
 		$meta = [];
 
@@ -105,20 +112,25 @@ class budget
 			$data['time'] = date("H:i:s");
 		}
 
-		$date = $data['date']. ' '. $data['time'];
+		$date = $data['date'] . ' ' . $data['time'];
 
 		$add =
-		[
-			'caller'    => 'manually',
-			'title'     => $data['title'],
-			'user_id'   => $user_id,
-			'payment'   => null,
-			'type'      => 'money',
-			'unit'      => $currency,
-			'date'      => $date,
-			'verify'    => 1,
-			'dateverify' => time(),
-		];
+			[
+				'caller'     => $data['caller'],
+				'title'      => $data['title'],
+				'user_id'    => $user_id,
+				'payment'    => null,
+				'type'       => 'money',
+				'unit'       => $currency,
+				'date'       => $date,
+				'verify'     => 1,
+				'dateverify' => time(),
+			];
+
+		if(isset($data['store_id']) && $data['store_id'])
+		{
+			$add['store_id'] = $data['store_id'];
+		}
 
 		if($data['type'] === 'plus')
 		{
@@ -134,17 +146,17 @@ class budget
 		if(\dash\engine\process::status())
 		{
 			$log =
-			[
-				'my_title'           => $data['title'],
-				'my_amount'          => $data['amount'],
-				'my_type'            => $data['type'],
-				'my_for_user'        => $user_id,
-				'my_oprator'         => \dash\user::id(),
-				'my_currency'        => $currency,
-				'my_transaction_id'  => $transaction_id,
-				'my_for_user_name'   => \dash\data::dataRowMember_displayname(),
-				'my_for_user_mobile' => \dash\data::dataRowMember_mobile(),
-			];
+				[
+					'my_title'           => $data['title'],
+					'my_amount'          => $data['amount'],
+					'my_type'            => $data['type'],
+					'my_for_user'        => $user_id,
+					'my_oprator'         => \dash\user::id(),
+					'my_currency'        => $currency,
+					'my_transaction_id'  => $transaction_id,
+					'my_for_user_name'   => \dash\data::dataRowMember_displayname(),
+					'my_for_user_mobile' => \dash\data::dataRowMember_mobile(),
+				];
 
 			if(!$data['silent_notif'])
 			{
@@ -155,7 +167,7 @@ class budget
 
 			if($data['type'] === 'plus' && $data['dblm'])
 			{
-				$new_data = $data;
+				$new_data         = $data;
 				$new_data['type'] = 'minus';
 				$new_data['dblm'] = null;
 
@@ -170,5 +182,7 @@ class budget
 
 		return false;
 	}
+
 }
+
 ?>
