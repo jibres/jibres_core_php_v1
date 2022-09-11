@@ -319,9 +319,9 @@ class start
 				'payment_response' => $payment_response,
 			];
 
-		if(isset($payment_response['store_id']) && $payment_response['store_id'])
+		if(isset($_args['store_id']) && $_args['store_id'])
 		{
-			$insert_transaction['store_id'] = $payment_response['store_id'];
+			$insert_transaction['store_id'] = $_args['store_id'];
 		}
 
 

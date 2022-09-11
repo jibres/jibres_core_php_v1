@@ -120,6 +120,17 @@ class search
 			self::$is_filtered  = true;
 		}
 
+		if($data['store_id'] && !\dash\engine\store::inStore())
+		{
+			$and[]              = " transactions.store_id = :store_id ";
+			$param[':store_id'] = $data['store_id'];
+		}
+
+		if($data['caller'])
+		{
+			$and[]            = " transactions.caller LIKE :caller ";
+			$param[':caller'] = $data['caller'] . '%';
+		}
 
 		$query_string = \dash\validate::search($_query_string, false);
 
