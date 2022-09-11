@@ -2,11 +2,13 @@
 namespace content_r10\jibres\telegram;
 
 
-class controller
+class controller extends \content_r10\jibres\controller
 {
+
 	public static function routing()
 	{
+		parent::routing();
 
 	}
+
 }
-?>
