@@ -16,7 +16,7 @@
         </thead>
         <tbody>
 		<?php foreach (\dash\data::dataTable() as $key => $value) : ?>
-            <tr>
+            <tr <?php if(a($value, 'status') === 'active') { echo 'class="positive"'; } ?>>
                 <td class="collapsing">
                     <a class="block"
                        href="<?php echo \dash\url::that() . '?' . \dash\request::build_query(['business_id' => a($value, 'store_id')]) ?>">

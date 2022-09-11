@@ -16,7 +16,7 @@ class model
 
 		if(\dash\engine\process::status())
 		{
-			\dash\redirect::pwd();
+			\dash\redirect::to(\dash\url::this(). '/datalist?business_id='. \dash\data::storeDetail_id());
 		}
 
 

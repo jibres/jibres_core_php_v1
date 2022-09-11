@@ -15,6 +15,13 @@ class controller
 
 		\dash\data::dataRow($load);
 
+		$store_id = a($load, 'store_id');
+		if($store_id)
+		{
+			$storeData = \lib\app\store\get::data_by_id($store_id);
+			\dash\data::storeDetail($storeData);
+		}
+
 	}
 }
 ?>

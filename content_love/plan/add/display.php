@@ -44,68 +44,8 @@ $html    .= "<div class='avand'>";
 	else
 	{
 
-		$html .= '<nav class="items ltr">';
-		{
-			$html .= '<ul>';
-			{
-				$html .= '<li>';
-				{
-					$html .= '<a class="f item">';
-					{
-						$html .= '<div class="key">' . a($data, 'id') . '</div>';
-						$html .= '<div class="value font-bold">' . T_("ID") . '</div>';
-					}
-					$html .= '</a>';
-				}
-				$html .= '</li>';
+		$html .= \content_love\plan\storeDetail::html($data);
 
-				$html .= '<li>';
-				{
-					$html .= '<a class="f item">';
-					{
-						$html .= '<div class="key">' . a($data, 'title') . '</div>';
-						$html .= '<div class="value font-bold">' . T_("Business title") . '</div>';
-					}
-					$html .= '</a>';
-				}
-				$html .= '</li>';
-
-				$html .= '<li>';
-				{
-					$html .= '<a class="f item">';
-					{
-						$html .= '<div class="key">' . T_(ucfirst(strval(a($data, 'plan')))) . '</div>';
-						$html .= '<div class="value font-bold">' . T_("Current plan") . '</div>';
-					}
-					$html .= '</a>';
-				}
-				$html .= '</li>';
-
-
-				$html .= '<li>';
-				{
-					$html .= '<a class="f item">';
-					{
-						$html .= '<div class="key">' . (a($data, 'planexp') ? \dash\fit::date_time(a($data, 'planexp')) : '-') . '</div>';
-						$html .= '<div class="value font-bold">' . T_("Current plan expire date") . '</div>';
-					}
-					$html .= '</a>';
-				}
-				$html .= '</li>';
-
-				$html .= '<li>';
-				{
-					$html .= '<a class="f item" href="' . \dash\url::this() . '/datalist?business_id=' . $storeId . '">';
-					{
-						$html .= '<div class="value font-bold">' . T_("Go to plan list") . '</div>';
-					}
-					$html .= '</a>';
-				}
-				$html .= '</li>';
-			}
-			$html .= '</ul>';
-		}
-		$html .= '</nav>';
 		$html .= "<div class='box'>";
 		{
 			$html .= "<div class='pad'>";
