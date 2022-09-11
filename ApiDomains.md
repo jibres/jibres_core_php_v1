@@ -17,7 +17,7 @@
 ## Jibres
 - api.jibres.ir/r10/ (business -> jibres)
 - x.jibres.ir/   (Public jibres)
-- x.jibres.ir
+- x.jibres.ir (Private jibres -> jibres) *****
 
 
 
