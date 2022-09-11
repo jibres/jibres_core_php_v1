@@ -48,7 +48,20 @@
                     <a href="<?php echo \dash\url::this() . \dash\request::full_get(['periodtype' => $value['periodtype']]) ?>">
 						<?php echo T_(strval(a($value, 'periodtype'))) ?>
                     </a>
-                    <small class="txt-gray-500 block"><?php echo \dash\fit::number(a($value, 'days')) . ' ' . T_("Day") ?> </small>
+                    <small class="txt-gray-500 block">
+                        <?php
+
+						echo \dash\fit::number(a($value, 'days')) . ' ' . T_("Day");
+						// if(!\dash\validate::is_equal(a($value, 'days'), a($value, 'realdays'))):
+                        //     echo '<span class="" title="'. T_("Read days"). '='. a($value, 'realdays'). '">';
+						// 	echo \dash\utility\icon::svg('FraudProtectUnprotected', 'major', 'green', 'w-4 h-4 mt-2');
+                        //     echo '</span>';
+						// endif;
+
+						?>
+
+
+                    </small>
                 </td>
                 <td>
 					<?php echo \dash\fit::price(a($value, 'finalprice')) ?>

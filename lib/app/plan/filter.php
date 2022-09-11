@@ -26,6 +26,9 @@ class filter
 		$sort_list[] =
 			['title' => T_("Price, DESC"), 'query' => ['sort' => 'finalprice', 'order' => 'desc'], 'public' => true];
 
+		$sort_list[] =
+			['title' => T_("Days, DESC"), 'query' => ['sort' => 'days', 'order' => 'desc'], 'public' => true];
+
 		return $sort_list;
 	}
 
