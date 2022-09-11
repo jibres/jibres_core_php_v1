@@ -27,9 +27,9 @@
 		</a>
 	</div>
 	<div class="c3 s12">
-		<a href="<?php echo \dash\url::current(). '/action'; ?>" class="stat">
-			<h3><?php echo T_("Test");?></h3>
-			<div class="val"><?php echo \dash\fit::stats(rand());?></div>
+		<a href="<?php echo \dash\url::current(). '/add'; ?>" class="stat">
+
+			<div class="val"><?php echo T_("Add plan to business") ?></div>
 		</a>
 	</div>
 </section>

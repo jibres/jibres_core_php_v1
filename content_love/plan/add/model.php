@@ -19,7 +19,7 @@ class model
         if(\dash\engine\process::status())
         {
             // return to list plan for this business
-            \dash\redirect::to(\dash\url::this(). \dash\request::full_get());
+            \dash\redirect::to(\dash\url::this(). '/datalist?business_id='. \dash\request::get('business_id'));
         }
 	}
 }

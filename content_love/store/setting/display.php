@@ -27,9 +27,9 @@
     <nav class="items">
       <ul>
         <li>
-          <a class="f item" href="<?php echo \dash\url::this(). '/transfer?id='. \dash\request::get('id'); ?>">
-            <i class="sf-exchange"></i>
-            <div class="key"><?php echo T_("Change business fuel") ?></div>
+          <a class="f item" href="<?php echo \dash\url::here(). '/plan/datalist?business_id='. \dash\request::get('id'); ?>">
+            <i class="sf-tree"></i>
+            <div class="key"><?php echo T_("Plan") ?></div>
             <div class="go"></div>
           </a>
         </li>
