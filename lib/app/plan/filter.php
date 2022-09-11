@@ -14,12 +14,17 @@ class filter
 		$sort_list = [];
 		// $sort_list[] = ['title' => T_("None"), 				'query' => [], 												'public' => true];
 		$sort_list[] =
-			['title' => T_("Date ASC"), 'query' => ['sort' => 'datecreated', 'order' => 'asc'], 'public' => false];
+			['title' => T_("Date ASC"), 'query' => ['sort' => 'datecreated', 'order' => 'asc'], 'public' => true];
 		$sort_list[] =
-			['title' => T_("Date DESC"), 'query' => ['sort' => 'datecreated', 'order' => 'desc'], 'public' => false];
+			['title' => T_("Date DESC"), 'query' => ['sort' => 'datecreated', 'order' => 'desc'], 'public' => true];
 
-		$sort_list[] = ['title' => T_("ID, ASC"), 'query' => ['sort' => 'id', 'order' => 'asc'], 'public' => false];
-		$sort_list[] = ['title' => T_("ID, DESC"), 'query' => ['sort' => 'id', 'order' => 'desc'], 'public' => false];
+		$sort_list[] = ['title' => T_("ID, ASC"), 'query' => ['sort' => 'id', 'order' => 'asc'], 'public' => true];
+		$sort_list[] = ['title' => T_("ID, DESC"), 'query' => ['sort' => 'id', 'order' => 'desc'], 'public' => true];
+
+		$sort_list[] =
+			['title' => T_("Price, ASC"), 'query' => ['sort' => 'finalprice', 'order' => 'asc'], 'public' => true];
+		$sort_list[] =
+			['title' => T_("Price, DESC"), 'query' => ['sort' => 'finalprice', 'order' => 'desc'], 'public' => true];
 
 		return $sort_list;
 	}
@@ -75,7 +80,7 @@ class filter
 			[
 				'key'    => 'pcustom',
 				'group'  => T_("Period type"),
-				'title'  => T_('Yearly'),
+				'title'  => T_('Custom'),
 				'query'  =>
 					[
 						'periodtype' => 'custom',

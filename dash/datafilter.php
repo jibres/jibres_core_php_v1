@@ -7,8 +7,8 @@ trait datafilter
 	// get public sort list for api and application
 	public static function public_sort_list($_module = null)
 	{
-		$_module = \dash\validate::string($_module);
-		$list = self::sort_list($_module);
+		$_module          = \dash\validate::string($_module);
+		$list             = self::sort_list($_module);
 		$public_sort_list = [];
 		foreach ($list as $key => $value)
 		{
@@ -45,42 +45,53 @@ trait datafilter
 	}
 
 
+	public static function sort_enum($_module = null)
+	{
+		$list     = self::sort_list($_module);
+		$query    = array_column($list, 'query');
+		$sort_key = array_column($query, 'sort');
+		$sort_key = array_filter($sort_key);
+		$sort_key = array_unique($sort_key);
+
+		return ['enum' => $sort_key];
+	}
+
 
 	public static function sort_list()
 	{
 		// public => true means show in api and site
 
-		$sort_list   = [];
+		$sort_list = [];
 
 		if(\dash\request::get('sort'))
 		{
 			$sort_list[] =
-			[
-				'title' => T_("Clear Sort"),
-				'query' =>
 				[
-					'sort' => null,
-					'order' => null
-				],
-				'public' => true
-			];
+					'title'  => T_("Clear Sort"),
+					'query'  =>
+						[
+							'sort'  => null,
+							'order' => null,
+						],
+					'public' => true,
+				];
 		}
 		else
 		{
 			$sort_list[] =
-			[
-				'title' => T_("Sort"),
-				'query' =>
 				[
-					'sort' => null,
-					'order' => null,
-				],
-				'clear' => true,
-				'public' => true
-			];
+					'title'  => T_("Sort"),
+					'query'  =>
+						[
+							'sort'  => null,
+							'order' => null,
+						],
+					'clear'  => true,
+					'public' => true,
+				];
 		}
 
-		$sort_list   = array_merge($sort_list, self::sort_list_array(...func_get_args()));
+		$sort_list = array_merge($sort_list, self::sort_list_array(...func_get_args()));
 
 		$current_string_query = \dash\request::get();
 		unset($current_string_query['sort']);
@@ -88,8 +99,8 @@ trait datafilter
 
 		foreach ($sort_list as $key => $value)
 		{
-			$myQuery = [];
-			$myQuery = array_merge($value['query'], $current_string_query);
+			$myQuery                         = [];
+			$myQuery                         = array_merge($value['query'], $current_string_query);
 			$sort_list[$key]['query_string'] = http_build_query($myQuery);
 		}
 
@@ -119,7 +130,10 @@ trait datafilter
 
 				if($active)
 				{
-					$myQuery      = array_map(function($_a) {return null;}, $value['query']);
+					$myQuery      = array_map(function ($_a)
+					{
+						return null;
+					}, $value['query']);
 					$query_string = \dash\request::fix_get($myQuery);
 				}
 				else
@@ -137,4 +151,5 @@ trait datafilter
 
 
 }
+
 ?>

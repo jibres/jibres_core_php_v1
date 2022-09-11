@@ -25,7 +25,7 @@ class search
 		$condition =
 		[
             'order'       => 'order',
-            'sort'        => ['enum' => ['datecreated', 'id']],
+            'sort'        => filter::sort_enum(),
             'status'      => ['enum' => ['active', 'deactive',]],
             'user'        => 'code',
             'plan'        => 'string_100',
@@ -132,8 +132,8 @@ class search
 			self::$is_filtered = true;
 		}
 
+		$check_order_trust = filter::check_allow($data['sort'], $data['order']);
 
-		$check_order_trust = \lib\app\plan\filter::check_allow($data['sort'], $data['order']);
 
 		if($check_order_trust)
 		{
