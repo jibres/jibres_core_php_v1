@@ -42,6 +42,15 @@ class pagination
 		}
 	}
 
+
+	public static function initFromAPI($_pagination_detail)
+	{
+		if(isset($_pagination_detail['total_rows']))
+		{
+			self::init($_pagination_detail['total_rows']);
+		}
+	}
+
 	public static function api_detail()
 	{
 		if(!self::detail('total_rows'))

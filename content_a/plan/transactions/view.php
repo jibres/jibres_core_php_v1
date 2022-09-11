@@ -22,17 +22,18 @@ class view
 		$search_string = \dash\validate::search_string();
 		$args          =
 			[
-				'caller'      => 'business:plan',
-				'store_id'    => \lib\store::id(),
+				'caller'   => 'business:plan',
+				'store_id' => \lib\store::id(),
 				// 'order'       => \dash\request::get('order'),
 				// 'sort'        => \dash\request::get('sort'),
 				// 'status'      => \dash\request::get('status'),
-				// 'verify'      => \dash\request::get('verify'),
+				'verify'   => 'y',
 				// 'user_code'   => \dash\request::get('user'),
 				// 'charge_type' => \dash\request::get('ct'),
 				// 'start_date'  => \dash\request::get('std'),
 				// 'end_date'    => \dash\request::get('end'),
-				'q'           => $search_string,
+				'page'     => \dash\request::get('page'),
+				'q'        => $search_string,
 			];
 
 		$result = \lib\api\jibres\api::transaction_list($args);
@@ -48,6 +49,9 @@ class view
 
 		$pagenation = a($result, 'pagination');
 		$isFiltered = a($result, 'meta', 'is_filtered');
+
+		\dash\utility\pagination::initFromAPI($pagenation);
+
 
 	}
 
