@@ -4,13 +4,25 @@ namespace lib\app\factor;
 
 class schedule_order
 {
+
 	private static $status_mode = null;
 
 
 	public static function check($_notif = false)
 	{
 		$load = \lib\store::detail('order_schedule');
-		$load = json_decode($load, true);
+		if($load && is_string($load))
+		{
+			$load = json_decode($load, true);
+			if(!is_array($load))
+			{
+				$load = [];
+			}
+		}
+		else
+		{
+			$load = [];
+		}
 
 		// if not have schedule it is ok
 		if(!a($load, 'status'))
@@ -39,7 +51,6 @@ class schedule_order
 		{
 			return true;
 		}
-
 
 
 		if(isset($load['schedule']) && is_array($load['schedule']))
@@ -103,7 +114,19 @@ class schedule_order
 		$html = '';
 
 		$load = \lib\store::detail('order_schedule');
-		$load = json_decode($load, true);
+		if($load && is_string($load))
+		{
+			$load = json_decode($load, true);
+			if(!is_array($load))
+			{
+				$load = [];
+			}
+		}
+		else
+		{
+			$load = [];
+		}
+
 
 		// if not have schedule it is ok
 		if(!a($load, 'status'))
@@ -118,7 +141,7 @@ class schedule_order
 
 		if(a($load, 'status') === 'deactive')
 		{
-			$html .= '<div class="alert alert-danger p-2 rounded-lg mb-1  fs14 danger2">'. T_("Receiving the order is temporarily disabled") . '</div>';
+			$html .= '<div class="alert alert-danger p-2 rounded-lg mb-1  fs14 danger2">' . T_("Receiving the order is temporarily disabled") . '</div>';
 		}
 		elseif(!self::check())
 		{
@@ -137,17 +160,18 @@ class schedule_order
 			{
 				if(isset($value['weekday']) && $value['weekday'] === $weekday_now)
 				{
-					$active_time_today[] = \dash\fit::text(substr($value['start'], 0, 5)). ' - '. \dash\fit::text(substr($value['end'], 0, 5));
+					$active_time_today[] =
+						\dash\fit::text(substr($value['start'], 0, 5)) . ' - ' . \dash\fit::text(substr($value['end'], 0, 5));
 				}
 			}
 
 			if(empty($active_time_today))
 			{
-				$html .= '<div class="alert alert-danger p-2 rounded-lg mb-1  fs14 danger2">'. T_("Can not get order today") . '</div>';
+				$html .= '<div class="alert alert-danger p-2 rounded-lg mb-1  fs14 danger2">' . T_("Can not get order today") . '</div>';
 			}
 			else
 			{
-				$html .= '<div class="alert alert-danger p-2 rounded-lg mb-1  fs14 danger2">'. T_("Today order time is :val", ['val' => '<br>'. implode("<br>", $active_time_today)]) . '</div>';
+				$html .= '<div class="alert alert-danger p-2 rounded-lg mb-1  fs14 danger2">' . T_("Today order time is :val", ['val' => '<br>' . implode("<br>", $active_time_today)]) . '</div>';
 
 			}
 
@@ -159,12 +183,11 @@ class schedule_order
 	}
 
 
-
-
 	public static function save()
 	{
 
-		$status = \dash\validate::enum(\dash\request::post('status'), false, ['enum' => ['active', 'deactive', 'schedule']]);
+		$status =
+			\dash\validate::enum(\dash\request::post('status'), false, ['enum' => ['active', 'deactive', 'schedule']]);
 		if(!$status)
 		{
 			$status = 'active';
@@ -192,7 +215,7 @@ class schedule_order
 		if(\dash\request::post('remove') === 'time')
 		{
 			$status = 'schedule';
-			$index = \dash\request::post('index');
+			$index  = \dash\request::post('index');
 			if(isset($schedule[$index]))
 			{
 				unset($schedule[$index]);
@@ -256,9 +279,12 @@ class schedule_order
 
 	}
 
+
 	private static function int_time($_time)
 	{
 		return floatval(str_replace(':', '', $_time));
 	}
+
 }
+
 ?>
