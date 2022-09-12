@@ -37,6 +37,18 @@ class free extends planPrepare
 	}
 
 
+	public function maxFileUploadSize() : int
+	{
+		return 1 * 1024 * 1024; // 20 MB
+	}
+
+
+	public function totalStorageSize() : int
+	{
+		return 1 * 1024 * 1024 * 1024; // 20 GB
+	}
+
+
 	public function outstandingFeatures() : array
 	{
 		return
@@ -63,8 +75,8 @@ class free extends planPrepare
 					[
 						T_("Permission")             => false,
 						T_("Persenel count")         => T_("2 user"),
-						T_("Allow upload file site") => \dash\fit::number(1) . ' ' . T_('MB'),
-						T_("Total storage size")     => \dash\fit::number(1) . ' ' . T_('GB'),
+						T_("Allow upload file site") => \dash\fit::file_size($this->maxFileUploadSize()),
+						T_("Total storage size")     => \dash\fit::file_size($this->totalStorageSize()),
 						T_("Free domain")            => false,
 						T_("Ganje")                  => T_("10 request for test"),
 						T_("SMS Cost")               => \dash\fit::number($this->smsCost()) . ' ' . $this->currencyName(),

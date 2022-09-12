@@ -38,6 +38,18 @@ class gold extends planPrepare
 	}
 
 
+	public function maxFileUploadSize() : int
+	{
+		return 5 * 1024 * 1024; // 20 MB
+	}
+
+
+	public function totalStorageSize() : int
+	{
+		return 5 * 1024 * 1024 * 1024; // 20 GB
+	}
+
+
 	public function outstandingFeatures() : array
 	{
 		return
@@ -59,8 +71,8 @@ class gold extends planPrepare
 					[
 						T_("Permission")             => T_("Simple"),
 						T_("Persenel count")         => T_("5 user"),
-						T_("Allow upload file site") => \dash\fit::number(5) . ' ' . T_('MB'),
-						T_("Total storage size")     => \dash\fit::number(5) . ' ' . T_('GB'),
+						T_("Allow upload file site") => \dash\fit::file_size($this->maxFileUploadSize()),
+						T_("Total storage size")     => \dash\fit::file_size($this->totalStorageSize()),
 						T_("Free domain")            => T_(".ir Domain"),
 						T_("Ganje")                  => true,
 						T_("SMS Cost")               => \dash\fit::number($this->smsCost()) . ' ' . $this->currencyName(),

@@ -44,6 +44,18 @@ class rafiei extends planPrepare
 	}
 
 
+	public function maxFileUploadSize() : int
+	{
+		return 20 * 1024 * 1024; // 20 MB
+	}
+
+
+	public function totalStorageSize() : int
+	{
+		return 20 * 1024 * 1024 * 1024; // 20 GB
+	}
+
+
 	public function outstandingFeatures() : array
 	{
 		return
