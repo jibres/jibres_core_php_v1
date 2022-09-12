@@ -13,7 +13,6 @@ class storePlan
 		$plan    = $data['plan'];
 		$newPlan = planLoader::load($plan);
 		$newPlan->setPeriod($data['period']);
-		$newPlan->prepare();
 
 		$currentPlan = self::currentPlan($_business_id);
 
@@ -24,9 +23,7 @@ class storePlan
 			return false;
 		}
 
-
-		$planPrice = new planPrice($newPlan);
-		$readyPlan = new planPay($newPlan, $planPrice);
+		$readyPlan = new planPay($newPlan);
 		$readyPlan->setStoreId($_business_id);
 		$readyPlan->readyToPay($data);
 
@@ -198,8 +195,6 @@ class storePlan
 
 		$newPlan = planLoader::load($plan);
 		$newPlan->setPeriod($period);
-		$newPlan->prepare();
-
 
 		if(planChoose::allowChoosePlan($currentPlan, $newPlan))
 		{

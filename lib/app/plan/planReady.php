@@ -5,39 +5,39 @@ namespace lib\app\plan;
 class planReady
 {
 
-    public static function ready($_data)
-    {
-        $result = [];
-        foreach ($_data as $key => $value)
-        {
-            switch ($key)
-            {
-                case 'plan':
-                    $result[$key] = $value;
-                    if($value)
-                    {
-                        $loadPlan = planLoader::load($value);
-                        $result['planTitle'] = $loadPlan->title();
-                        $result['planDescription'] = $loadPlan->description();
-                        $result['planoutstandingFeatures'] = $loadPlan->outstandingFeatures();
-                    }
-                    break;
+	public static function ready($_data)
+	{
+		$result = [];
+		foreach ($_data as $key => $value)
+		{
+			switch ($key)
+			{
+				case 'plan':
+					$result[$key] = $value;
+					if($value)
+					{
+						$loadPlan                          = planLoader::load($value);
+						$result['planTitle']               = $loadPlan->title();
+						$result['planDescription']         = $loadPlan->description();
+						$result['planoutstandingFeatures'] = $loadPlan->outstandingFeatures();
+					}
+					break;
 
-                default:
-                    $result[$key] = $value;
-                    break;
-            }
-        }
+				default:
+					$result[$key] = $value;
+					break;
+			}
+		}
 
-        return $result;
-    }
+		return $result;
+	}
 
 
 	public static function calculateDays(&$currentPlanRecordDetail)
 	{
 		self::detectUserCanCancel($currentPlanRecordDetail);
 
-		if(isset($currentPlanRecordDetail['expirydate']) &&$currentPlanRecordDetail['expirydate'])
+		if(isset($currentPlanRecordDetail['expirydate']) && $currentPlanRecordDetail['expirydate'])
 		{
 			self::detectDays($currentPlanRecordDetail);
 
@@ -53,6 +53,7 @@ class planReady
 		}
 
 		self::detectDaysSpent($currentPlanRecordDetail);
+
 
 	}
 
@@ -84,8 +85,8 @@ class planReady
 		{
 			$date1 = new \DateTime(date("Y-m-d H:i:s"));  //current date or any date
 			$date2 = new \DateTime($currentPlanRecordDetail['expirydate']);   //Future date
-			$diff = $date2->diff($date1)->format("%a");  //find difference
-			$days = intval($diff) + 1;   //rounding days 1 is today
+			$diff  = $date2->diff($date1)->format("%a");  //find difference
+			$days  = intval($diff) + 1;   //rounding days 1 is today
 		}
 		else
 		{
@@ -114,7 +115,7 @@ class planReady
 
 		}
 
-		$currentPlanRecordDetail['daysLeft'] = $days;
+		$currentPlanRecordDetail['daysLeft']          = $days;
 		$currentPlanRecordDetail['daysRemainPercent'] = $daysRemainPercent;
 	}
 
@@ -123,10 +124,11 @@ class planReady
 	{
 		if(isset($currentPlanRecordDetail['startdate']) && $currentPlanRecordDetail['startdate'])
 		{
-			$date1                                 = new \DateTime(date("Y-m-d H:i:s"));  //current date or any date
-			$date2                                 = new \DateTime($currentPlanRecordDetail['startdate']);   //Future date
-			$diff                                  = $date2->diff($date1)->format("%a");  //find difference
-			$days                                  = intval($diff);   //rounding days 1 is today
+			$date1                                = new \DateTime(date("Y-m-d H:i:s"));  //current date or any date
+			$date2                                =
+				new \DateTime($currentPlanRecordDetail['startdate']);   //Future date
+			$diff                                 = $date2->diff($date1)->format("%a");  //find difference
+			$days                                 = intval($diff);   //rounding days 1 is today
 			$currentPlanRecordDetail['daysSpent'] = $days;
 
 		}

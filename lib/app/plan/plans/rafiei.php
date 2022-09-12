@@ -38,6 +38,12 @@ class rafiei extends planPrepare
 	}
 
 
+	public function smsCost() : int
+	{
+		return 60;
+	}
+
+
 	public function outstandingFeatures() : array
 	{
 		return

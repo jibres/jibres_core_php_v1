@@ -60,7 +60,7 @@ class planFactor
 
 		$loadPlan = planLoader::load($data['plan']);
 		$loadPlan->setPeriod($data['period']);
-		$loadPlan->prepare();
+
 
 
 		$planTitle = $loadPlan->title();

@@ -7,16 +7,15 @@ class planPay
 {
 
 	private $plan;
-	private $planPrice;
 	private $store_id;
 	private $needPay = false;
 	private $payLink = null;
 
 
-	public function __construct(plan $_plan, planPrice $_planPrice)
+	public function __construct(plan $_plan)
 	{
 		$this->plan      = $_plan;
-		$this->planPrice = $_planPrice;
+
 	}
 
 
@@ -40,7 +39,7 @@ class planPay
 
 	public function readyToPay(array $_data)
 	{
-		$price = $this->planPrice->calculatePrice($_data['period']);
+		$price = $this->plan->calculatePrice($_data['period']);
 
 		$userId = $this->getUserId();
 

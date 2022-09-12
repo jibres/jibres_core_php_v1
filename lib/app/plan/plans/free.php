@@ -31,12 +31,17 @@ class free extends planPrepare
 	}
 
 
+	public function smsCost() : int
+	{
+		return 100;
+	}
 
 
 	public function outstandingFeatures() : array
 	{
 		return
 			[
+				T_("Free for ever!"),
 				T_("Unlimited product"),
 				T_("Unlimited order"),
 				T_("Online website"),
@@ -54,18 +59,22 @@ class free extends planPrepare
 	{
 		return
 			[
-				T_("Products")        =>
+				T_("Features") =>
 					[
-						T_("Full feature")   => true,
-						T_("Count limited")  => \dash\fit::text('+10,000'),
-						T_("Image gallery")  => true,
-						T_("Advance detail") => false,
-						T_("Free for ever")  => true,
+						T_("Permission")             => false,
+						T_("Persenel count")         => T_("2 user"),
+						T_("Allow upload file site") => \dash\fit::number(1) . ' ' . T_('MB'),
+						T_("Total storage size")     => \dash\fit::number(1) . ' ' . T_('GB'),
+						T_("Free domain")            => false,
+						T_("Ganje")                  => T_("10 request for test"),
+						T_("SMS Cost")               => $this->smsCost() . ' ' . $this->currency(),
+						T_("Remove Jibres brank")    => false,
+						T_("Admin on your domain")   => false,
+						T_("Advance report")         => false,
+						T_("Advance discount code")  => false,
+
 					],
-				T_("Cart & shipping") =>
-					[
-						T_("Allow to manage cart") => true,
-					],
+
 			];
 	}
 

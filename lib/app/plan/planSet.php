@@ -8,7 +8,6 @@ class planSet
 	public static function setFirstPlan($_business_id, string $_plan, $_period = null, $_currentPlan = null)
 	{
 		$myPlan = planLoader::load($_plan);
-		$myPlan->prepare();
 
 		if($_period)
 		{
@@ -105,7 +104,6 @@ class planSet
 		$newPlan = planLoader::load($data['plan']);
 		$newPlan->setPeriod($data['period']);
 		$newPlan->setDays($data['days']);
-		$newPlan->prepare();
 
 
 		if(planChoose::allowChoosePlanAdmin($currentPlan, $newPlan))

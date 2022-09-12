@@ -4,13 +4,9 @@ namespace lib\app\plan;
 abstract class planPrepare implements plan
 {
     private $period;
-    private planPrice $planPrice;
+
     private $days = 0;
 
-    public function prepare()
-    {
-        $this->planPrice = new planPrice($this);
-    }
 
     public function period()
     {
@@ -31,13 +27,47 @@ abstract class planPrepare implements plan
 
     public function price()
     {
-        return $this->planPrice->calculatePrice($this->period);
+        return $this->calculatePrice($this->period);
     }
 
     public function currency()
     {
-        return $this->planPrice->getCurrency();
+        return $this->getCurrency();
     }
+
+
+	public function calculatePrice($_period)
+	{
+		$month = $this->getRealMonth($_period);
+		$price = $this->priceIRT();
+		return $price * $month;
+	}
+
+
+	public function getCurrency() : string
+	{
+		return 'IRT';
+	}
+
+
+
+
+	private function getRealMonth($_period) : int
+	{
+		$month = 1;
+
+		if($_period === 'yearly')
+		{
+			$month = 10;
+		}
+
+		if(!$month || $month < 0)
+		{
+			$month = 1;
+		}
+
+		return $month;
+	}
 
 
     public function setBy()
@@ -83,19 +113,6 @@ abstract class planPrepare implements plan
         }
 
         return $days;
-    }
-
-    public function getArrayDetail() : array
-    {
-        $detail           = [];
-        $detail['name']   = $this->name();
-        $detail['title']  = $this->title();
-        $detail['type']   = $this->type();
-        $detail['period'] = $this->period();
-        $detail['days']   = $this->calculateDays();
-
-
-        return $detail;
     }
 
 
