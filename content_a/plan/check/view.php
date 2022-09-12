@@ -14,6 +14,17 @@ class view
 				\lib\app\plan\planCheck::access('permission', 'simple1'),
 			];
 
+
+		$result[] =
+			[
+				'permission:simple',
+				\lib\app\plan\planCheck::access('permission', 'simple1'),
+			];
+
+
+
+
+
 		var_dump($result);
 		exit();
 
