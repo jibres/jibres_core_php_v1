@@ -24,15 +24,9 @@ class diamond extends planPrepare
     }
 
 
-    public function priceRial(): float
+    public function priceIRT(): int
     {
         return 900000; // IRT
-    }
-
-
-    public function priceDollar(): int
-    {
-        return 29; // USD
     }
 
 

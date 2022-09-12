@@ -25,16 +25,11 @@ class gold extends  planPrepare
     }
 
 
-    public function priceRial(): int
+    public function priceIRT(): int
     {
         return 200000; // IRT
     }
 
-
-    public function priceDollar(): int
-    {
-        return 9; // USD
-    }
 
 
     public function outstandingFeatures() : array

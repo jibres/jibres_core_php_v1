@@ -40,16 +40,8 @@ class planPrice
 
     private function getPriceInCurrentCurrency()
     {
-        if($this->getCurrency() === 'IRT')
-        {
-            $price = $this->plan->priceRial();
-        }
-        else
-        {
-            $price = $this->plan->priceDollar();
-        }
+		return  $this->plan->priceIRT();
 
-        return $price;
     }
 
 
