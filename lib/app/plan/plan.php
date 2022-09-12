@@ -73,4 +73,7 @@ interface plan
 	 */
 	public function totalStorageSize() : int;
 
+
+	public function staffAccountCount() : int;
+
 }

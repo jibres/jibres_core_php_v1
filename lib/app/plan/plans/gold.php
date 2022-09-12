@@ -50,13 +50,19 @@ class gold extends planPrepare
 	}
 
 
+	public function staffAccountCount() : int
+	{
+		return 5;
+	}
+
+
 	public function outstandingFeatures() : array
 	{
 		return
 			[
 				T_("Every feature in free plan +"),
-				T_("Special Discount code"),
-				T_("Special report"),
+				T_("Professional Discount code"),
+				T_("Professional reports"),
 				T_("Access to Ganje"),
 				T_("5GB storage"),
 			];
@@ -70,7 +76,7 @@ class gold extends planPrepare
 				T_("Features") =>
 					[
 						T_("Permission")             => T_("Simple"),
-						T_("Persenel count")         => T_("5 user"),
+						T_("Staff")                  => \dash\fit::number($this->staffAccountCount()) . ' ' . T_("Staff"),
 						T_("Allow upload file site") => \dash\fit::file_size($this->maxFileUploadSize()),
 						T_("Total storage size")     => \dash\fit::file_size($this->totalStorageSize()),
 						T_("Free domain")            => T_(".ir Domain"),

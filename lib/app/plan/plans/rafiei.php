@@ -56,6 +56,12 @@ class rafiei extends planPrepare
 	}
 
 
+	public function staffAccountCount() : int
+	{
+		return 0;
+	}
+
+
 	public function outstandingFeatures() : array
 	{
 		return

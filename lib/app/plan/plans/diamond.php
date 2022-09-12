@@ -49,6 +49,12 @@ class diamond extends planPrepare
 	}
 
 
+	public function staffAccountCount() : int
+	{
+		return 20;
+	}
+
+
 	public function outstandingFeatures() : array
 	{
 		return
@@ -67,7 +73,7 @@ class diamond extends planPrepare
 				T_("Features") =>
 					[
 						T_("Permission")             => T_("Professional"),
-						T_("Persenel count")         => T_("20 user"),
+						T_("Staff")                  => \dash\fit::number($this->staffAccountCount()) . ' ' . T_("Staff"),
 						T_("Allow upload file site") => \dash\fit::file_size($this->maxFileUploadSize()),
 						T_("Total storage size")     => \dash\fit::file_size($this->totalStorageSize()),
 						T_("Free domain")            => T_(".com Domain"),

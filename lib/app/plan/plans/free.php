@@ -49,13 +49,19 @@ class free extends planPrepare
 	}
 
 
+	public function staffAccountCount() : int
+	{
+		return 2;
+	}
+
+
 	public function outstandingFeatures() : array
 	{
 		return
 			[
 				T_("Free for ever!"),
-				T_("Unlimited product"),
-				T_("Unlimited order"),
+				T_("Basic reports"),
+				T_("2 staff accounts"),
 				T_("Online website"),
 				T_("Special application"),
 				T_("CRM"),
@@ -74,7 +80,7 @@ class free extends planPrepare
 				T_("Features") =>
 					[
 						T_("Permission")             => false,
-						T_("Persenel count")         => T_("2 user"),
+						T_("Staff")                  => \dash\fit::number($this->staffAccountCount()) . ' ' . T_("Staff"),
 						T_("Allow upload file site") => \dash\fit::file_size($this->maxFileUploadSize()),
 						T_("Total storage size")     => \dash\fit::file_size($this->totalStorageSize()),
 						T_("Free domain")            => false,
