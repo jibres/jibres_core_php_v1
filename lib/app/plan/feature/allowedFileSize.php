@@ -34,5 +34,10 @@ class allowedFileSize extends featurePreapre
 
 	}
 
+	public function access() : bool
+	{
+		return false;
+	}
+
 
 }

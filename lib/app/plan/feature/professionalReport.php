@@ -34,5 +34,10 @@ class professionalReport extends featurePreapre
 
 	}
 
+	public function access() : bool
+	{
+		return $this->access;
+	}
+
 
 }

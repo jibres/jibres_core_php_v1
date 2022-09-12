@@ -16,7 +16,7 @@ class permission extends featurePreapre
 	}
 
 
-	public function access($_place)
+	public function access($_place) : bool
 	{
 		if(!$this->mode)
 		{

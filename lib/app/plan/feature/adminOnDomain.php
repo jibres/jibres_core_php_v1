@@ -35,4 +35,9 @@ class adminOnDomain extends featurePreapre
 	}
 
 
+	public function access() : bool
+	{
+		return $this->access;
+	}
+
 }

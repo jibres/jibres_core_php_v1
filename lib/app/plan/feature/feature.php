@@ -12,4 +12,5 @@ interface feature
 
 	public function value() : string;
 
+
 }
