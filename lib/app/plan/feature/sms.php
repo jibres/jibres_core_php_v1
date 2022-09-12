@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\plan\feature;
 
-class sms
+class sms extends featurePreapre
 {
 
 	private $cost = null;
@@ -15,21 +15,22 @@ class sms
 		}
 	}
 
-	public function group()
+
+	public function group() : string
 	{
 		return T_("Feature");
 	}
 
 
-	public function title()
+	public function title() : string
 	{
 		return T_("SMS Cost");
 	}
 
 
-	public function value()
+	public function value() : string
 	{
-		return \dash\fit::number($this->cost). ' '. T_("Toman");
+		return \dash\fit::number($this->cost) . ' ' . T_("Toman");
 
 	}
 

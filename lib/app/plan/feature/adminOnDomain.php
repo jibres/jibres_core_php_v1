@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\plan\feature;
 
-class adminOnDomain
+class adminOnDomain extends featurePreapre
 {
 
 	private $access = false;
@@ -15,19 +15,20 @@ class adminOnDomain
 		}
 	}
 
-	public function group()
+
+	public function group() : string
 	{
 		return T_("Feature");
 	}
 
 
-	public function title()
+	public function title() : string
 	{
 		return T_("Admin on your domain");
 	}
 
 
-	public function value()
+	public function value() : string
 	{
 		return $this->access;
 

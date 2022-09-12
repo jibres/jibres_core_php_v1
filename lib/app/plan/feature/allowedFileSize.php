@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\plan\feature;
 
-class allowedFileSize
+class allowedFileSize extends featurePreapre
 {
 
 	private $size = null;
@@ -15,19 +15,20 @@ class allowedFileSize
 		}
 	}
 
-	public function group()
+
+	public function group() : string
 	{
 		return T_("Feature");
 	}
 
 
-	public function title()
+	public function title() : string
 	{
 		return T_("Allowed file upload size");
 	}
 
 
-	public function value()
+	public function value() : string
 	{
 		return \dash\fit::file_size($this->size);
 

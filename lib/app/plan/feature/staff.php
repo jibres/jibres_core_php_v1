@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\plan\feature;
 
-class staff
+class staff extends featurePreapre
 {
 
 	private $count = null;
@@ -15,21 +15,22 @@ class staff
 		}
 	}
 
-	public function group()
+
+	public function group() : string
 	{
 		return T_("Feature");
 	}
 
 
-	public function title()
+	public function title() : string
 	{
 		return T_("Staff");
 	}
 
 
-	public function value()
+	public function value() : string
 	{
-		return \dash\fit::number($this->count). ' '. T_("Staff");
+		return \dash\fit::number($this->count) . ' ' . T_("Staff");
 
 	}
 

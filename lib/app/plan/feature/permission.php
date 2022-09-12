@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\plan\feature;
 
-class permission
+class permission extends featurePreapre
 {
 
 	private $mode = null;
@@ -15,19 +15,48 @@ class permission
 		}
 	}
 
-	public function group()
+
+	public function access($_place)
+	{
+		if(!$this->mode)
+		{
+			return false;
+		}
+		elseif($this->mode === 'simple')
+		{
+			if($_place === 'simple')
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		elseif($this->mode === 'professional')
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+
+	public function group() : string
 	{
 		return T_("Feature");
 	}
 
 
-	public function title()
+	public function title() : string
 	{
 		return T_("Permission");
 	}
 
 
-	public function value()
+	public function value() : string
 	{
 		if(!$this->mode)
 		{

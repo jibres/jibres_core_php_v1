@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\plan\feature;
 
-class removeBrand
+class removeBrand extends featurePreapre
 {
 
 	private $access = false;
@@ -15,19 +15,20 @@ class removeBrand
 		}
 	}
 
-	public function group()
+
+	public function group() : string
 	{
 		return T_("Feature");
 	}
 
 
-	public function title()
+	public function title() : string
 	{
 		return T_("Remove Jibres brand");
 	}
 
 
-	public function value()
+	public function value() : string
 	{
 		return $this->access;
 

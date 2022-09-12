@@ -56,7 +56,7 @@ class generate
 			{
 				if(is_string($value))
 				{
-					$result[] = $title . ' '. $value;
+					$result[] = $title . ' ' . $value;
 				}
 				else
 				{

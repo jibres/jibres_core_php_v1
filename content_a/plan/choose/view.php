@@ -2,12 +2,15 @@
 namespace content_a\plan\choose;
 
 
+use lib\app\plan\plan;
 use lib\app\plan\planCheck;
 
 class view
 {
 	public static function config()
 	{
+
+
 		\lib\app\plan\businessPlanDetail::sync_required();
 
 		\dash\face::title(T_("Pick a plan"));

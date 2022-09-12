@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\plan\feature;
 
-class ganje
+class ganje extends featurePreapre
 {
 
 	private $access = false;
@@ -15,19 +15,20 @@ class ganje
 		}
 	}
 
-	public function group()
+
+	public function group() : string
 	{
 		return T_("Feature");
 	}
 
 
-	public function title()
+	public function title() : string
 	{
 		return T_("Ganje");
 	}
 
 
-	public function value()
+	public function value() : string
 	{
 		if($this->access)
 		{
