@@ -33,7 +33,7 @@ class mvc
 
 
 	/**
-	 * find best controller for this url
+	 * find the best controller for this url
 	 * @return [type] [description]
 	 */
 	private static function find_ctrl()
