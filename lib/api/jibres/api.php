@@ -239,6 +239,13 @@ class api
 		return $result;
 	}
 
+	public static function plan_list(array $_args)
+	{
+		$_args['list'] = true;
+		$result = self::run('plan', 'get', $_args);
+		return $result;
+
+	}
 
 	public static function plan_activate($_args)
 	{
@@ -321,6 +328,7 @@ class api
 		$result = self::run('telegram','post', [], $_args, ['not_check_login' => true]);
 		return $result;
 	}
+
 
 
 
