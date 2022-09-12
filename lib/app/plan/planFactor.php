@@ -9,17 +9,17 @@ class planFactor
 	{
 		$data = self::cleanArgs($_args);
 
-		if (!$data['plan'])
+		if(!$data['plan'])
 		{
 			\dash\notif::error_once(T_("Plan arguments is required!"));
 			return false;
 		}
 
-		if ($data['action_type'] === 'register' || $data['action_type'] === 'renew')
+		if($data['action_type'] === 'register' || $data['action_type'] === 'renew')
 		{
 			return self::registerOrRenewFactor($_business_id, $data);
 		}
-		elseif ($data['action_type'] === 'cancel')
+		elseif($data['action_type'] === 'cancel')
 		{
 			return self::cancelFactor($_business_id, $data);
 		}
@@ -43,16 +43,16 @@ class planFactor
 
 		$currentPlans = storePlan::currentPlan($_business_id);
 
-		if (a($currentPlans, 'plan') !== 'free')
+		if(a($currentPlans, 'plan') !== 'free')
 		{
-			if ($data['action_type'] === 'register')
+			if($data['action_type'] === 'register')
 			{
 				$access = false;
 				$reason = T_("You must cancel current plan to choose another");
 			}
 		}
 
-		if ($data['action_type'] === 'renew')
+		if($data['action_type'] === 'renew')
 		{
 			planReady::calculateDays($currentPlans);
 
@@ -68,27 +68,28 @@ class planFactor
 
 		$detail[] = ['title' => T_("Start date"), 'value' => T_("Today")];
 
-		if ($data['period'] === 'monthly')
+		if($data['period'] === 'monthly')
 		{
-			$detail[]    = ['title' => T_("Period"), 'value' => T_("One month")];
+			$detail[] = ['title' => T_("Period"), 'value' => T_("One month")];
 		}
 		else
 		{
 			$detail[] = ['title' => T_("Period"), 'value' => T_("One year")];
 		}
 
-		$realDays  = $loadPlan->calculateDays();
+		$realDays = $loadPlan->calculateDays();
 
-		if ($data['action_type'] === 'register')
+		if($data['action_type'] === 'register')
 		{
 			$actionTitle = T_("Buy plan");
 		}
-		elseif ($data['action_type'] === 'renew')
+		elseif($data['action_type'] === 'renew')
 		{
 			if(isset($currentPlans['daysLeft']) && $currentPlans['daysLeft'])
 			{
 				$realDays += $currentPlans['daysLeft'];
-				$detail[]    = ['title' => T_("+Days left current plan"), 'value' => \dash\fit::number($currentPlans['daysLeft'])];
+				$detail[] =
+					['title' => T_("+Days left current plan"), 'value' => \dash\fit::number($currentPlans['daysLeft'])];
 			}
 			$actionTitle = T_("Renew plan");
 		}
@@ -140,7 +141,7 @@ class planFactor
 
 		$currentPlan = storePlan::currentPlan($_business_id);
 
-		if (a($currentPlan, 'plan') === 'free')
+		if(a($currentPlan, 'plan') === 'free')
 		{
 			$access = false;
 			$reason = T_("Can not cancel free plan!");
@@ -163,40 +164,40 @@ class planFactor
 		$finalprice = floatval(a($currentPlan, 'finalprice'));
 		$daysSpent  = floatval(a($currentPlan, 'daysSpent'));
 		$days       = floatval(a($currentPlan, 'days'));
-		if (!$days)
+		if(!$days)
 		{
 			$days = 1;
 		}
 
 
-		if ($daysLeft)
+		if($daysLeft)
 		{
 			$detail[] = ['title' => T_("Days left"), 'value' => \dash\fit::number($daysLeft)];
 		}
-		if ($daysSpent)
+		if($daysSpent)
 		{
 			$detail[] = ['title' => T_("Days Spent"), 'value' => \dash\fit::number($daysSpent)];
 		}
 
 		$guaranteeDays = null;
 
-		if (a($currentPlan, 'periodtype') === 'yearly')
+		if(a($currentPlan, 'periodtype') === 'yearly')
 		{
 
 			$guaranteeDays = 30;
 		}
-		elseif (a($currentPlan, 'periodtype') === 'monthly')
+		elseif(a($currentPlan, 'periodtype') === 'monthly')
 		{
 			$guaranteeDays = 7;
 		}
 
 
 		$useGuarantee = false;
-		if ($guaranteeDays && $daysLeft)
+		if($guaranteeDays && $daysLeft)
 		{
-			if ($daysSpent <= $guaranteeDays)
+			if($daysSpent <= $guaranteeDays)
 			{
-				if (!\lib\db\store_plan_history\get::user_before_from_guarantee($_business_id))
+				if(!\lib\db\store_plan_history\get::user_before_from_guarantee($_business_id))
 				{
 					$useGuarantee = true;
 				}
@@ -204,7 +205,7 @@ class planFactor
 		}
 
 
-		if ($useGuarantee)
+		if($useGuarantee)
 		{
 			$factor[] = ['title' => T_("Guarantee refund"), 'price' => a($currentPlan, 'finalprice')];
 			$detail[] = ['title' => T_("Guarantee"), 'value' => T_("Valid")];
@@ -221,7 +222,7 @@ class planFactor
 
 			$priceSpent = round($priceSpent, -3, PHP_ROUND_HALF_DOWN);
 
-			if ($priceSpent > $finalprice)
+			if($priceSpent > $finalprice)
 			{
 				$priceSpent = $finalprice;
 			}
@@ -237,10 +238,14 @@ class planFactor
 
 		}
 
-		if ($price < 0)
+		if($price < 0)
 		{
 			$price = 0;
 		}
+
+		$owner       = \lib\app\store\get::owner($_business_id);
+		$ownerDetail = \dash\app\user::get(\dash\coding::encode($owner));
+
 
 		$result['factor'] = $factor;
 
@@ -264,6 +269,8 @@ class planFactor
 				'action_title' => $actionTitle,
 				'plan_title'   => $planTitle,
 				'guarantee'    => $useGuarantee,
+				'owner'        => $owner,
+				'ownerDetail'  => $ownerDetail,
 			];
 
 		return $result;
@@ -290,9 +297,5 @@ class planFactor
 		return $data;
 	}
 
-
-	private static function renewFactor($_business_id, array $_data)
-	{
-	}
 
 }

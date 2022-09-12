@@ -64,7 +64,7 @@ $html    .= "<div class='avand'>";
 					{
 						foreach (\dash\data::planList() as $item)
 						{
-							$html .= '<option value="' . $item . '">' . T_(ucfirst($item)) . '</option>';
+							$html .= '<option value="' . $item . '" ' . (\dash\request::get('plan') === $item ? 'selected' : '') . '>' . T_(ucfirst($item)) . '</option>';
 						}
 					}
 					$html .= '</select>';
@@ -73,9 +73,9 @@ $html    .= "<div class='avand'>";
 
 					$html .= '<select name="periodtype" class="select22" id="periodtype">';
 					{
-						$html .= '<option value="yearly">' . T_("Yearly") . '</option>';
-						$html .= '<option value="monthly">' . T_("Monthly") . '</option>';
-						$html .= '<option value="custom">' . T_("Custom") . '</option>';
+						$html .= '<option value="yearly"' . (\dash\request::get('periodtype') === 'yearly' ? 'selected' : '') . '>' . T_("Yearly") . '</option>';
+						$html .= '<option value="monthly"' . (\dash\request::get('periodtype') === 'monthly' ? 'selected' : '') . '>' . T_("Monthly") . '</option>';
+						$html .= '<option value="custom"' . (\dash\request::get('periodtype') === 'custom' ? 'selected' : '') . '>' . T_("Custom") . '</option>';
 					}
 					$html .= '</select>';
 

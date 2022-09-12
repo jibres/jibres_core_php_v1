@@ -34,12 +34,25 @@ $html .= '<div class="avand">';
 								$html .= '<a class="f item">';
 								{
 									$html .= '<div class="key">' . $item['title'] . '</div>';
-									$html .= '<div class="value font-bold">' . \dash\fit::number($item['price']). ' '. T_("Toman") . '</div>';
+									$html .= '<div class="value font-bold">' . \dash\fit::number($item['price']) . ' ' . T_("Toman") . '</div>';
 								}
 								$html .= '</a>';
 							}
 							$html .= '</li>';
 						}
+
+						$html .= '<li>';
+						{
+							$html .= '<a class="f item">';
+							{
+								$html .= '<div class="key">' . T_("Refund price to") . ' ' . a(\dash\data::cancelFactor(), 'meta', 'ownerDetail', 'displayname') . '</div>';
+								$html .= '<div class="value font-bold">' . \dash\fit::mobile(a(\dash\data::cancelFactor(), 'meta', 'ownerDetail', 'mobile')) . '</div>';
+							}
+							$html .= '</a>';
+						}
+						$html .= '</li>';
+
+
 					}
 					$html .= '</ul>';
 				}
@@ -71,7 +84,13 @@ $html .= '<div class="avand">';
 
 			$html .= '<div class="txtRa mt-2">';
 			{
-				$html .= '<div data-ajaxify data-data=\'{"actiontype": "renew"}\'  class="btn-primary">' . T_("Renew plan") . '</div>';
+				$renew =
+					[
+						'business_id' => \dash\data::dataRow_store_id(),
+						'plan'        => \dash\data::dataRow_plan(),
+						'periodtype'  => \dash\data::dataRow_periodtype(),
+					];
+				$html  .= '<a href="' . \dash\url::this() . '/add?' . \dash\request::build_query($renew) . '"  class="btn-primary">' . T_("Renew plan") . '</a>';
 			}
 			$html .= '</div>';
 
