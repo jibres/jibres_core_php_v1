@@ -61,7 +61,7 @@ class planDetail
 					{
 						$html .= '<a class="f item">';
 						{
-							$html .= '<div class="key">' . T_("Days remain percent") . '</div>';
+							$html .= '<div class="key">' . T_("Days remaining percent") . '</div>';
 							$html .= '<div class="value font-bold">' . \dash\fit::number($data['daysRemainPercent']) . ' ' . T_("%") . '</div>';
 						}
 						$html .= '</a>';
@@ -74,7 +74,7 @@ class planDetail
 					{
 						$html .= '<a class="f item">';
 						{
-							$html .= '<div class="key">' . T_("Days remain percent") . '</div>';
+							$html .= '<div class="key">' . T_("Days remaining percent") . '</div>';
 							$html .= '<div class="value font-bold">' . \dash\fit::number($data['daysSpent']) . ' ' . T_("Day") . '</div>';
 						}
 						$html .= '</a>';

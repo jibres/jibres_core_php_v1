@@ -7,8 +7,8 @@ $planList = \dash\data::planList();
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"><?php echo T_("Your current plan"); ?></h2>
-                <p class="mt-4 text-xl text-gray-600"><?php echo T_("Must be show current plan days or notif for expire or can upgrade
-                    and downgrade"); ?></p>
+                <p class="mt-4 text-xl text-gray-600">
+
             </div>
         </div>
     </div>
