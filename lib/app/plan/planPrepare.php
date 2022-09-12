@@ -35,6 +35,11 @@ abstract class planPrepare implements plan
         return $this->getCurrency();
     }
 
+	public function currencyName()
+	{
+		return \lib\currency::name($this->currency());
+	}
+
 
 	public function calculatePrice($_period)
 	{

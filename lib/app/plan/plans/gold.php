@@ -45,8 +45,8 @@ class gold extends planPrepare
 				T_("Every feature in free plan +"),
 				T_("Special Discount code"),
 				T_("Special report"),
-				T_("Access to Ganje plugin"),
-				T_("2GB storage"),
+				T_("Access to Ganje"),
+				T_("5GB storage"),
 			];
 	}
 
@@ -55,20 +55,23 @@ class gold extends planPrepare
 	{
 		return
 			[
-				T_("Products")        =>
+				T_("Features") =>
 					[
-						T_("Full feature")   => true,
-						T_("Count limited")  => \dash\fit::text('+500,000'),
-						T_("Image gallery")  => true,
-						T_("Advance detail") => true,
-					],
-				T_("Cart & shipping") =>
-					[
-						T_("Allow to manage cart") => true,
-						T_("Specail manage")       => true,
-					],
-			];
+						T_("Permission")             => T_("Simple"),
+						T_("Persenel count")         => T_("5 user"),
+						T_("Allow upload file site") => \dash\fit::number(5) . ' ' . T_('MB'),
+						T_("Total storage size")     => \dash\fit::number(5) . ' ' . T_('GB'),
+						T_("Free domain")            => T_(".ir Domain"),
+						T_("Ganje")                  => true,
+						T_("SMS Cost")               => \dash\fit::number($this->smsCost()) . ' ' . $this->currencyName(),
+						T_("Remove Jibres brank")    => true,
+						T_("Admin on your domain")   => false,
+						T_("Advance report")         => true,
+						T_("Advance discount code")  => true,
 
+					],
+
+			];
 	}
 
 

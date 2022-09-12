@@ -67,7 +67,7 @@ class free extends planPrepare
 						T_("Total storage size")     => \dash\fit::number(1) . ' ' . T_('GB'),
 						T_("Free domain")            => false,
 						T_("Ganje")                  => T_("10 request for test"),
-						T_("SMS Cost")               => $this->smsCost() . ' ' . $this->currency(),
+						T_("SMS Cost")               => \dash\fit::number($this->smsCost()) . ' ' . $this->currencyName(),
 						T_("Remove Jibres brank")    => false,
 						T_("Admin on your domain")   => false,
 						T_("Advance report")         => false,
