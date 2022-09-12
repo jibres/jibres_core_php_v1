@@ -38,40 +38,6 @@ class rafiei extends planPrepare
 	}
 
 
-	public function smsCost() : int
-	{
-		return 60;
-	}
-
-
-	public function maxFileUploadSize() : int
-	{
-		return 20 * 1024 * 1024; // 20 MB
-	}
-
-
-	public function totalStorageSize() : int
-	{
-		return 20 * 1024 * 1024 * 1024; // 20 GB
-	}
-
-
-	public function staffAccountCount() : int
-	{
-		return 0;
-	}
-
-
-	public function outstandingFeatures() : array
-	{
-		return
-			[
-				T_("Everything you need ❤"),
-				T_("Enterprice plan"),
-			];
-	}
-
-
 	public function type() : string
 	{
 		return 'enterprise';
@@ -88,13 +54,19 @@ class rafiei extends planPrepare
 	{
 		return
 			[
-				'admin_domain',
-				'discount_professional',
-				'remove_brand',
-				'ganje_product',
-				'report_professional',
-				'sms_pack',
+				'permission'           => ['mode' => 'simple'],
+				'staff'                => ['count' => 20],
+				'allowedFileSize'      => ['size' => \dash\utility\convert::mb_to_byte(20)],
+				'totalStorage'         => ['size' => \dash\utility\convert::gb_to_byte(20)],
+				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
+				'ganje'                => true,
+				'sms'                  => ['cost' => 60],
+				'removeBrand'          => true,
+				'adminOnDomain'        => true,
+				'professionalReport'   => true,
+				'professionalDiscount' => true,
 			];
 	}
+
 
 }

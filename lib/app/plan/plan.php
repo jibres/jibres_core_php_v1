@@ -55,25 +55,4 @@ interface plan
 	public function contain() : array;
 
 
-	public function smsCost() : int;
-
-
-	/**
-	 * Max file size in upload in MB
-	 *
-	 * @return int
-	 */
-	public function maxFileUploadSize() : int;
-
-
-	/**
-	 * Total storage limit in MB
-	 *
-	 * @return int
-	 */
-	public function totalStorageSize() : int;
-
-
-	public function staffAccountCount() : int;
-
 }

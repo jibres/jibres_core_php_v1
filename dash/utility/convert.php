@@ -47,5 +47,18 @@ class convert
         $result = str_replace($wrong, $right, $result);
         return $result;
     }
+
+
+	public static function mb_to_byte(int $_mb)
+	{
+		return $_mb * 1024 * 1024;
+	}
+
+
+	public static function gb_to_byte(int $_gb)
+	{
+		return self::mb_to_byte($_gb) * 1024;
+	}
+
 }
 ?>

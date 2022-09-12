@@ -32,67 +32,6 @@ class gold extends planPrepare
 	}
 
 
-	public function smsCost() : int
-	{
-		return 90;
-	}
-
-
-	public function maxFileUploadSize() : int
-	{
-		return 5 * 1024 * 1024; // 20 MB
-	}
-
-
-	public function totalStorageSize() : int
-	{
-		return 5 * 1024 * 1024 * 1024; // 20 GB
-	}
-
-
-	public function staffAccountCount() : int
-	{
-		return 5;
-	}
-
-
-	public function outstandingFeatures() : array
-	{
-		return
-			[
-				T_("Every feature in free plan +"),
-				T_("Professional Discount code"),
-				T_("Professional reports"),
-				T_("Access to Ganje"),
-				T_(":val storage", ['val' => \dash\fit::file_size($this->totalStorageSize())]),
-			];
-	}
-
-
-	public function featureList()
-	{
-		return
-			[
-				T_("Features") =>
-					[
-						T_("Permission")             => T_("Simple"),
-						T_("Staff")                  => \dash\fit::number($this->staffAccountCount()) . ' ' . T_("Staff"),
-						T_("Allowed file upload size") => \dash\fit::file_size($this->maxFileUploadSize()),
-						T_("Total storage size")     => \dash\fit::file_size($this->totalStorageSize()),
-						T_("Free domain")            => T_(".ir Domain"),
-						T_("Ganje")                  => true,
-						T_("SMS Cost")               => \dash\fit::number($this->smsCost()) . ' ' . $this->currencyName(),
-						T_("Remove Jibres brand")    => true,
-						T_("Admin on your domain")   => false,
-						T_("Advance report")         => true,
-						T_("Advance discount code")  => true,
-
-					],
-
-			];
-	}
-
-
 	public function type() : string
 	{
 		return 'public';
@@ -103,10 +42,17 @@ class gold extends planPrepare
 	{
 		return
 			[
-				'discount_professional',
-				'ganje_product',
-				'report_professional',
-				'sms_pack',
+				'permission'           => ['mode' => 'simple'],
+				'staff'                => ['count' => 5],
+				'allowedFileSize'      => ['size' => \dash\utility\convert::mb_to_byte(5)],
+				'totalStorage'         => ['size' => \dash\utility\convert::gb_to_byte(5)],
+				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
+				'ganje'                => true,
+				'sms'                  => ['cost' => 90],
+				'removeBrand'          => true,
+				'adminOnDomain'        => false,
+				'professionalReport'   => true,
+				'professionalDiscount' => true,
 			];
 	}
 
