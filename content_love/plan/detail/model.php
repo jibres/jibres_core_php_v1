@@ -12,15 +12,22 @@ class model
 			\dash\header::status(403, T_("Only active plan record can be edit!"));
 		}
 
+		$business_id = \dash\data::dataRow_store_id();
+
+		if(\dash\request::post('actiontype') === 'cancel')
+		{
+			\lib\app\plan\storePlan::doCancel($business_id);
+		}
 
 
-		$args =
-			[
-				'status' => \dash\request::post('status'),
-				'reason' => \dash\request::post('reason'),
-			];
+		// $args =
+		// 	[
+		// 		'status' => \dash\request::post('status'),
+		// 		'reason' => \dash\request::post('reason'),
+		// 	];
+		//
+		// \lib\app\plan\planEdit::edit($args, \dash\request::get('id'));
 
-		\lib\app\plan\planEdit::edit($args, \dash\request::get('id'));
 
 		if(\dash\engine\process::status())
 		{

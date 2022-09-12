@@ -15,15 +15,42 @@ $html .= '<div class="avand">';
 	{
 		$html .= "<div class='pad'>";
 		{
-			$html .= '<h2 class="text-xl">';
+			$html .= '<h2 class="text-xl" data-kerkere=".showCancelFactor" data-kerkere-icon="close">';
 			{
 				$html .= T_("Cancel plan");
 			}
 			$html .= '</h2>';
 
-			$html .= '<div class="txtRa mt-2">';
+			$html .= '<div class="showCancelFactor" data-kerkere-content="hide">';
 			{
-				$html .= '<div data-ajaxify data-data=\'{"actiontype": "cancel"}\' class="btn-danger">' . T_("Cancel plan") . '</div>';
+				$html .= '<nav class="items">';
+				{
+					$html .= '<ul>';
+					{
+						foreach (\dash\data::cancelFactor_factor() as $item)
+						{
+							$html .= '<li>';
+							{
+								$html .= '<a class="f item">';
+								{
+									$html .= '<div class="key">' . $item['title'] . '</div>';
+									$html .= '<div class="value font-bold">' . \dash\fit::number($item['price']). ' '. T_("Toman") . '</div>';
+								}
+								$html .= '</a>';
+							}
+							$html .= '</li>';
+						}
+					}
+					$html .= '</ul>';
+				}
+				$html .= '</nav>';
+
+
+				$html .= '<div class="txtRa mt-2">';
+				{
+					$html .= '<div data-confirm data-data=\'{"actiontype": "cancel"}\' class="btn-danger">' . T_("Cancel plan") . '</div>';
+				}
+				$html .= '</div>';
 			}
 			$html .= '</div>';
 
