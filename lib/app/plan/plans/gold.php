@@ -64,7 +64,7 @@ class gold extends planPrepare
 				T_("Professional Discount code"),
 				T_("Professional reports"),
 				T_("Access to Ganje"),
-				T_("5GB storage"),
+				T_(":val storage", ['val' => \dash\fit::file_size($this->totalStorageSize())]),
 			];
 	}
 

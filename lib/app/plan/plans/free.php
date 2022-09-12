@@ -61,13 +61,13 @@ class free extends planPrepare
 			[
 				T_("Free for ever!"),
 				T_("Basic reports"),
-				T_("2 staff accounts"),
+				\dash\fit::number($this->staffAccountCount()) . ' ' . T_("Staff account"),
 				T_("Online website"),
 				T_("Special application"),
 				T_("CRM"),
 				T_("CMS"),
 				T_("Simple Discount code"),
-				T_("1GB storage"),
+				T_(":val storage", ['val' => \dash\fit::file_size($this->totalStorageSize())]),
 
 			];
 	}

@@ -61,7 +61,7 @@ class diamond extends planPrepare
 			[
 				T_("Every feature in free and gold plan +"),
 				T_("Access admin from your domain"),
-				T_("20GB storage"),
+				T_(":val storage", ['val' => \dash\fit::file_size($this->totalStorageSize())]),
 			];
 	}
 
