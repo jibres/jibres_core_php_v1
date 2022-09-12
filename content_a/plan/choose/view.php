@@ -36,6 +36,7 @@ class view
 		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyCurrentPlanDetail());
 
 
+
 	}
 }
 ?>

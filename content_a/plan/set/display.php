@@ -148,6 +148,7 @@ $totalPrice = a($planFactor, 'total', 'price');
                                     </td>
                                 </tr>
 							<?php } //endif ?>
+                            <?php if($mypayedprice): ?>
                             <tr data-payable>
                                 <th><?php echo T_("Amount payable") ?></th>
                                 <td class="txtRa collapsing">
@@ -156,6 +157,7 @@ $totalPrice = a($planFactor, 'total', 'price');
                                     <span class="text-gray-400 mLa5"><?php echo T_("Toman"); ?></span>
                                 </td>
                             </tr>
+                            <?php endif; ?>
                             </tbody>
                         </table>
                     </div>

@@ -16,6 +16,11 @@ class controller
 
 		\dash\data::planName($plan);
 
+		if($plan === 'free')
+		{
+			\dash\header::status(404, T_("Plan free can not be loaded on this page"));
+		}
+
 
 		\dash\open::get();
 		\dash\open::post();
