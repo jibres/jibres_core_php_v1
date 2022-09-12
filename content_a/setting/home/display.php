@@ -81,21 +81,7 @@
     </div>
 </div>
 
-<div class="box" data-settings>
-    <div class="body">
-        <div class="row">
-            <div class="mt-5 c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/accounting">
-                    <div class="c-auto"><div class=" w-20 p-5 pt-1"><?php echo \dash\utility\icon::svg('Legal') ?></div></div>
-                    <div class="c">
-                        <h2><?php echo T_("Accounting"); ?></h2>
-                        <p class="text-gray-500"><?php echo T_("Manage your business accounting"); ?></p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 
