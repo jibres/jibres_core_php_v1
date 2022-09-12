@@ -6,6 +6,14 @@ class model
 {
 	public static function post()
 	{
+
+		if(\dash\data::dataRow_status() !== 'active')
+		{
+			\dash\header::status(403, T_("Only active plan record can be edit!"));
+		}
+
+
+
 		$args =
 			[
 				'status' => \dash\request::post('status'),

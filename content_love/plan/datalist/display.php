@@ -94,10 +94,11 @@
                     <small class="block text-gray-400"><?php echo \dash\fit::date_time($value['datecreated']) ?></small>
                 </td>
                 <td class="collapsing">
+                    <?php if(a($value, 'status') === 'active') : ?>
                     <a href="<?php echo \dash\url::this() . '/detail?id=' . a($value, 'id') ?>"
                        class="btn-primary btn-sm"><?php echo T_("Detail") ?>
-
                     </a>
+                    <?php endif; ?>
 					<?php if(a($value, 'setby') === 'admin') : ?>
                         <span title="<?php echo T_("Added by admin"); ?>">
                                 <?php echo \dash\utility\icon::svg('SmileyHappy', 'major', 'green', 'w-4 h-4 mt-2') ?>
