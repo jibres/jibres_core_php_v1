@@ -26,12 +26,6 @@ class rafiei extends planPrepare
 	}
 
 
-	public function featureList()
-	{
-		return [];
-	}
-
-
 	public function priceIRT() : int
 	{
 		return 2000000; // IRT

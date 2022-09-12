@@ -84,14 +84,14 @@ class planList
 			$isActive = true;
 		}
 
-		$featureList = \lib\app\plan\feature\generate::featureList($_myPlan);
-
-		$planDetail =
+		$featureList         = \lib\app\plan\feature\generate::featureList($_myPlan);
+		$outstandingFeatures = \lib\app\plan\feature\generate::outstandingFeatures($_myPlan);
+		$planDetail          =
 			[
 				'name'                => $_myPlan->name(),
 				'title'               => $_myPlan->title(),
 				'description'         => $_myPlan->description(),
-				// 'outstandingFeatures' => $_myPlan->outstandingFeatures(),
+				'outstandingFeatures' => $outstandingFeatures,
 				'featureList'         => $featureList,
 				'price'               => $_myPlan->calculatePrice($_period),
 				'currency'            => $currency,

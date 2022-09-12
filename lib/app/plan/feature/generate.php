@@ -39,4 +39,35 @@ class generate
 		return $result;
 	}
 
+
+	public static function outstandingFeatures(plan $_plan)
+	{
+		$result  = [];
+		$contain = $_plan->contain();
+
+		foreach ($contain as $feature => $initArgs)
+		{
+			$loadFeature = self::loadFeature($feature, $initArgs);
+
+			$title = $loadFeature->title();
+			$value = $loadFeature->value();
+
+			if($value)
+			{
+				if(is_string($value))
+				{
+					$result[] = $title . ' '. $value;
+				}
+				else
+				{
+					$result[] = $title;
+				}
+			}
+
+
+		}
+
+		return $result;
+	}
+
 }
