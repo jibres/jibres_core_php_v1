@@ -2,6 +2,8 @@
 namespace content_love\plan\detail;
 
 
+use lib\app\plan\planReady;
+
 class controller
 {
 	public static function routing()
@@ -12,6 +14,9 @@ class controller
 		{
 			\dash\header::status(404, T_("Plan not found"));
 		}
+
+		\lib\app\plan\planReady::calculateDays($load);
+
 
 		\dash\data::dataRow($load);
 

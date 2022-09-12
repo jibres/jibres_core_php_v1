@@ -3,60 +3,82 @@ $data = \dash\data::dataRow();
 $html = '';
 $html .= '<div class="avand">';
 {
-	$html .= '<form method="post" autocomplete="off">';
+
+	$html .= '<h3>' . T_("Store detail") . '</h3>';
+	$html .= \content_love\plan\storeDetail::html(\dash\data::storeDetail());
+
+	$html .= '<h3>' . T_("Current plan detail") . '</h3>';
+	$html .= \content_love\plan\planDetail::html(\dash\data::dataRow());
+
+
+	$html .= "<div class='box'>";
 	{
-		$html .= '<h3 for="status">' . T_("Store detail") . '</h3>';
-		$html .= \content_love\plan\storeDetail::html(\dash\data::storeDetail());
-
-		$html .= "<div class='box'>";
+		$html .= "<div class='pad'>";
 		{
-			$html .= "<div class='pad'>";
+			$html .= '<h2 class="text-xl">';
 			{
-                $html .= '<p>';
-                {
-                    $html .= T_("You try to change business plan");
-                }
-                $html .= '</p>';
-
-				$html .= '<label for="status">' . T_("Status") . '</label>';
-
-				$html .= '<select name="status" class="select22" id="status">';
-				{
-					$html .= '<option value="active" ';
-					if(\dash\data::dataRow_status() === 'active')
-					{
-						$html .= 'selected';
-					}
-					$html .= '>' . T_("Active") . '</option>';
-					$html .= '<option value="deactive" ';
-					if(\dash\data::dataRow_status() === 'deactive')
-					{
-						$html .= 'selected';
-					}
-					$html .= '>' . T_("Deactive") . '</option>';
-				}
-				$html .= '</select>';
-
-				$html .= '<label for="reason">' . T_("Reason") . '</label>';
-				$html .= '<div class="input">';
-				{
-					$html .= '<input type="text" name="reason" placeholder="' . T_("Reason") . '" value="' . a($data, 'reason') . '">';
-				}
-				$html .= '</div>';
-
-				$html .= '<div class="txtRa mt-2">';
-				{
-					$html .= '<button type="submit" class="btn-success">' . T_("Save") . '</button>';
-				}
-				$html .= '</div>';
-
+				$html .= T_("Cancel plan");
 			}
-			$html .= "</div>";
+			$html .= '</h2>';
+
+			$html .= '<div class="txtRa mt-2">';
+			{
+				$html .= '<div data-ajaxify data-data=\'{"actiontype": "cancel"}\' class="btn-danger">' . T_("Cancel plan") . '</div>';
+			}
+			$html .= '</div>';
+
 		}
 		$html .= "</div>";
-
 	}
-	$html .= '</form>';
+	$html .= "</div>";
+
+	$html .= "<div class='box'>";
+	{
+		$html .= "<div class='pad'>";
+		{
+			$html .= '<h2 class="text-xl">';
+			{
+				$html .= T_("Renew plan");
+			}
+			$html .= '</h2>';
+
+			$html .= '<div class="txtRa mt-2">';
+			{
+				$html .= '<div data-ajaxify data-data=\'{"actiontype": "renew"}\'  class="btn-primary">' . T_("Renew plan") . '</div>';
+			}
+			$html .= '</div>';
+
+		}
+		$html .= "</div>";
+	}
+	$html .= "</div>";
+
+	$html .= "<div class='box'>";
+	{
+		$html .= "<div class='pad'>";
+		{
+			$html .= '<h2 class="text-xl">';
+			{
+				$html .= T_("Add new plan");
+			}
+			$html .= '</h2>';
+
+			$html .= '<p class="">';
+			{
+				$html .= T_("Start new plan for this business");
+			}
+			$html .= '</p>';
+
+			$html .= '<div class="txtRa mt-2">';
+			{
+				$html .= '<a href="' . \dash\url::this() . '/add?business_id=' . \dash\data::dataRow_store_id() . '"  class="btn-success">' . T_("Add new plan") . '</a>';
+			}
+			$html .= '</div>';
+
+		}
+		$html .= "</div>";
+	}
+	$html .= "</div>";
 
 
 	$html .= '<nav class="items">';

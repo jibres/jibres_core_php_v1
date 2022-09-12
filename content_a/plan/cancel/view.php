@@ -8,6 +8,8 @@ class view
 {
 	public static function config()
 	{
+		\lib\app\plan\businessPlanDetail::sync_required();
+
 		\dash\face::title(T_("Cancel plan"));
 
 		// back
