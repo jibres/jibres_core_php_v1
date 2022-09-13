@@ -1,7 +1,7 @@
 <?php
 namespace lib\app\plan\feature;
 
-class adminOnDomain extends featurePreapre
+class professionalFormBuilder extends featurePreapre
 {
 
 	private $access = false;
@@ -24,7 +24,7 @@ class adminOnDomain extends featurePreapre
 
 	public function title() : string
 	{
-		return T_("Admin on your domain");
+		return T_("Professional form builder");
 	}
 
 
@@ -34,10 +34,5 @@ class adminOnDomain extends featurePreapre
 
 	}
 
-
-	public function access() : bool
-	{
-		return $this->access;
-	}
 
 }

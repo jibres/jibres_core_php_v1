@@ -10,7 +10,7 @@ interface feature
 	public function title() : string;
 
 
-	public function value() : string;
+	public function value() ;
 
 
 }

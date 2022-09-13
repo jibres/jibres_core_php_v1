@@ -28,7 +28,7 @@ class ganje extends featurePreapre
 	}
 
 
-	public function value() : string
+	public function value() 
 	{
 		if($this->access)
 		{

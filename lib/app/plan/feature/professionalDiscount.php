@@ -28,7 +28,7 @@ class professionalDiscount extends featurePreapre
 	}
 
 
-	public function value() : string
+	public function value() 
 	{
 		return $this->access;
 

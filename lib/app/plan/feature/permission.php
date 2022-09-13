@@ -56,7 +56,7 @@ class permission extends featurePreapre
 	}
 
 
-	public function value() : string
+	public function value() 
 	{
 		if(!$this->mode)
 		{

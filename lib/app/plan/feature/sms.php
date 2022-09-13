@@ -28,7 +28,7 @@ class sms extends featurePreapre
 	}
 
 
-	public function value() : string
+	public function value() 
 	{
 		return \dash\fit::number($this->cost) . ' ' . T_("Toman");
 

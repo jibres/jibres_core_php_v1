@@ -28,7 +28,7 @@ class totalStorage extends featurePreapre
 	}
 
 
-	public function value() : string
+	public function value() 
 	{
 		return \dash\fit::file_size($this->size);
 
