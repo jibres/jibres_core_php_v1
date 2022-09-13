@@ -939,6 +939,8 @@ class add
 			$ticket_id = save_as_ticket::save($form_id, $answer_id);
 		}
 
+		self::checkDefaultTag($form_id, $answer_id);
+
 		if($redirect && !$edit_mode)
 		{
 			\dash\redirect::to($redirect);
@@ -947,6 +949,9 @@ class add
 
 		return true;
 	}
+
+
+
 
 
 	public static function after_pay($_args, $_transaction_detail = [])
@@ -1035,6 +1040,28 @@ class add
 		}
 
 		return true;
+	}
+
+
+	private static function checkDefaultTag($_form_id, $_answer_id)
+	{
+		if(!$_form_id || !$_answer_id)
+		{
+			return false;
+		}
+
+		$getDefaultTag = \lib\db\form_tag\get::isDefaultList($_form_id);
+
+		if(!$getDefaultTag)
+		{
+			return false;
+		}
+
+		foreach ($getDefaultTag as $tagDetail)
+		{
+			\lib\app\form\tag\add::public_answer_tag_plus($tagDetail['title'], $_answer_id, $_form_id);
+		}
+
 	}
 
 }

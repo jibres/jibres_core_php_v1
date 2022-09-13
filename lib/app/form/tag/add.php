@@ -273,6 +273,7 @@ class add
 			return false;
 		}
 
+
 		$tag_id             = $load_tag['id'];
 		$tagDetail          = [];
 		$tagDetail[$tag_id] = $load_tag;
@@ -294,6 +295,7 @@ class add
 				];
 
 			\lib\db\form_tagusage\insert::new_record($insert);
+
 			self::auto_comment_sms_tag($tag_id, $_answer_id, $_form_id, $tagDetail);
 
 			return true;
@@ -570,14 +572,14 @@ class add
 						'answer_id'   => $_answer_id,
 						'from_tag_id' => $_tag_id,
 					];
-
 				\lib\app\form\comment\add::add($add_comment, true);
+
 			}
 
 
 			if(isset($tag_detail['sendsms']) && $tag_detail['sendsms'] && isset($tag_detail['smstext']) && $tag_detail['smstext'])
 			{
-				$load_answer = \lib\app\form\answer\get::by_id($_answer_id);
+				$load_answer = \lib\app\form\answer\get::public_by_id($_answer_id);
 
 				$must_send_to_user = [];
 

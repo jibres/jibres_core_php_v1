@@ -137,5 +137,14 @@ class get
 		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
+
+
+	public static function isDefaultList($_form_id)
+	{
+		$query  = "SELECT * FROM form_tag WHERE form_tag.form_id = :form_id AND form_tag.isdefault = 1 ";
+		$result = \dash\pdo::get($query, [':form_id' => $_form_id]);
+		return $result;
+	}
+
 }
 ?>

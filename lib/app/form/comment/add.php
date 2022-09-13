@@ -6,6 +6,7 @@ class add
 {
 	public static function add($_args, $_force = false)
 	{
+
 		if(!$_force)
 		{
 			\dash\permission::access('FormDescription');
@@ -32,13 +33,14 @@ class add
 
 		$answer_id = $data['answer_id'];
 
-		$load_form = \lib\app\form\form\get::get($form_id);
+
+		$load_form = \lib\app\form\form\get::public_get($form_id);
 		if(!$load_form)
 		{
 			return false;
 		}
 
-		$load_answer = \lib\app\form\answer\get::by_id($answer_id);
+		$load_answer = \lib\app\form\answer\get::public_by_id($answer_id);
 		if(!$load_answer)
 		{
 			return false;
