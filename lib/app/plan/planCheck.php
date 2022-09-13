@@ -15,7 +15,6 @@ class planCheck
 	{
 		$loadCurrentPlan = businessPlanDetail::getMyPlanDetail();
 
-
 		if($loadCurrentPlan)
 		{
 			$contain = businessPlanDetail::contain();
