@@ -14,9 +14,9 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
-		// TODO need to set plan hashtag in help center
-        \dash\face::help(\dash\url::support(). '/hashtag/plan');
-		\dash\face::help(\dash\url::support());
+		// // TODO need to set plan hashtag in help center
+        // \dash\face::help(\dash\url::support(). '/hashtag/plan');
+		// \dash\face::help(\dash\url::support());
 
 
 		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyCurrentPlanDetail());

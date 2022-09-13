@@ -65,9 +65,6 @@ $planList = \dash\data::planList();
                             </section>
 
 
-                            <p class="mt-4 text-sm">
-                                <a href="<?php echo \dash\face::help() ?>" class="font-medium text-gray-500 underline"><?php echo T_("Learn about our plan policy"); ?></a>
-                            </p>
                             <?php if(\dash\data::myPlanDetail_canRenew()) :?>
                             <div class="mt-6">
                                 <div class="rounded-md shadow">
