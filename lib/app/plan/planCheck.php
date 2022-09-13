@@ -5,36 +5,53 @@ namespace lib\app\plan;
 class planCheck
 {
 
-    public static function access($_feature_key, $_place = null) : bool
-    {
-        $loadCurrentPlan = businessPlanDetail::getMyPlanDetail();
+	public static function access($_feature_key, $_args = null) : bool
+	{
+		return self::get($_feature_key, 'access', $_args);
+	}
 
-        if($loadCurrentPlan)
-        {
-            $contain = $loadCurrentPlan->contain();
+
+	public static function load(string $_feature_key)
+	{
+		$loadCurrentPlan = businessPlanDetail::getMyPlanDetail();
+
+
+		if($loadCurrentPlan)
+		{
+			$contain = businessPlanDetail::contain();
 
 			if(isset($contain[$_feature_key]))
 			{
-				return self::checkAccess($_feature_key, $contain[$_feature_key], $_place);
+				$loadFeature = \lib\app\plan\feature\generate::loadFeature($_feature_key, $contain[$_feature_key]);
+				return $loadFeature;
 			}
 			else
 			{
 				return false;
 			}
-        }
+		}
 		else
 		{
 			return false;
 		}
+	}
 
-    }
 
-
-	private static function checkAccess($_feature_key, mixed $_args, $_place) : bool
+	public static function get(string $_feature_key, string $_function_name, $_args = [])
 	{
-		$loadFeature = \lib\app\plan\feature\generate::loadFeature($_feature_key, $_args);
+		$load = self::load($_feature_key);
+		if(!$load)
+		{
+			return false;
+		}
 
-		return $loadFeature->access($_place);
+		if(!method_exists($load, $_function_name))
+		{
+			return false;
+		}
+
+
+		return call_user_func([$load, $_function_name], [$_args]);
 	}
 
 

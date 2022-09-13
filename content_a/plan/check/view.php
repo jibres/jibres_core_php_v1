@@ -21,6 +21,24 @@ class view
 				\lib\app\plan\planCheck::access('permission', 'simple1'),
 			];
 
+		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+
+		$result[] =
+			[
+				'sms',
+				$load,
+
+
+			];
+
 
 
 

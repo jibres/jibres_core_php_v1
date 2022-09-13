@@ -34,6 +34,11 @@ class sms extends featurePreapre
 
 	}
 
+	public function cost()
+	{
+		return $this->cost;
+	}
+
 
 
 }

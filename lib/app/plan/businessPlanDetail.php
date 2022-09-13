@@ -4,35 +4,45 @@ namespace lib\app\plan;
 
 class businessPlanDetail
 {
-    private $currnentPlanRecordDetail = null;
-    private $currentPlan;
+
+	private static $currnentPlanRecordDetail = null;
+	private static $currentPlan;
 
 
-    public static function getMyPlanDetail()
-    {
-        if(!\lib\store::id())
-        {
-            return false;
-        }
+	public static function getMyPlanDetail()
+	{
+		if(!\lib\store::id())
+		{
+			return false;
+		}
 
-        $currentPlanDetail = new businessPlanDetail(\lib\store::id());
-        $currentPlanDetail->prepare();
+		self::loadDetailOnce();
 
-        return $currentPlanDetail;
+		if(self::$currnentPlanRecordDetail)
+		{
+			planReady::calculateDays(self::$currnentPlanRecordDetail);
+		}
 
-    }
+		if(self::name())
+		{
+			self::$currentPlan = planLoader::load(self::name());
+		}
+
+		return self::$currnentPlanRecordDetail;
+
+	}
 
 
+	public static function getMyCurrentPlanDetail()
+	{
+		$currentPlanDetail = self::getMyPlanDetail();
+		if($currentPlanDetail)
+		{
+			return planReady::ready($currentPlanDetail->currentPlan());
+		}
+		return false;
+	}
 
-    public static function getMyCurrentPlanDetail()
-    {
-        $currentPlanDetail = self::getMyPlanDetail();
-        if($currentPlanDetail)
-        {
-            return planReady::ready($currentPlanDetail->currentPlan());
-        }
-        return false;
-    }
 
 	public static function calculateFactor(array $_args)
 	{
@@ -67,165 +77,149 @@ class businessPlanDetail
 	}
 
 
-	public function __construct($_business_id)
-    {
-        $this->store_id = $_business_id;
-
-        $this->loadDetailOnce();
-
-    }
-
-    public function name()
-    {
-        if(isset($this->currnentPlanRecordDetail['plan']))
-        {
-            return $this->currnentPlanRecordDetail['plan'];
-        }
-        return null;
-    }
-
-    private function loadDetailOnce()
-    {
-        // load once!
-        if(!is_array($this->currnentPlanRecordDetail))
-        {
-            $this->currnentPlanRecordDetail = $this->settingRecord();
-
-            if($this->syncRequired())
-            {
-                $this->currnentPlanRecordDetail = $this->syncPlanSetting();
-            }
-        }
-
-        return $this->currnentPlanRecordDetail;
-
-    }
-
-    public function prepare()
-    {
-        if($this->currnentPlanRecordDetail)
-        {
-          planReady::calculateDays($this->currnentPlanRecordDetail);
-        }
-
-        // TODO check expire date and disable if expired
-
-        if($this->name())
-        {
-            $this->currentPlan = planLoader::load($this->name());
-        }
-    }
-
-    public function currentPlan()
-    {
-        return $this->currnentPlanRecordDetail;
-    }
+	public static function name()
+	{
+		if(isset(self::$currnentPlanRecordDetail['plan']))
+		{
+			return self::$currnentPlanRecordDetail['plan'];
+		}
+		return null;
+	}
 
 
-	public function contain() : array
-    {
-        if($this->currentPlan)
-        {
-            return $this->currentPlan->contain();
-        }
-        return [];
-    }
+	private static function loadDetailOnce()
+	{
+		// load once!
+		if(!is_array(self::$currnentPlanRecordDetail))
+		{
+			self::$currnentPlanRecordDetail = self::settingRecord();
 
+			if(self::syncRequired())
+			{
+				self::$currnentPlanRecordDetail = self::syncPlanSetting();
+			}
+		}
 
-    private function settingRecord()
-    {
-        $planSettingRecord = \lib\db\setting\get::by_cat_key('plan', 'last');
+		return self::$currnentPlanRecordDetail;
 
-        if(!is_array($planSettingRecord))
-        {
-            $planSettingRecord = [];
-        }
-
-        if(isset($planSettingRecord['value']))
-        {
-            $planSettingRecord = json_decode($planSettingRecord['value'], true);
-            if(!is_array($planSettingRecord))
-            {
-                $planSettingRecord = [];
-            }
-        }
-        else
-        {
-            $planSettingRecord = [];
-        }
-
-
-        return $planSettingRecord;
-    }
-
-    private function syncRequired()
-    {
-        $planSyncSetting = \lib\db\setting\get::by_cat_key('plan', 'synced');
-
-        if(isset($planSyncSetting['value']))
-        {
-            if($planSyncSetting['value'] === 'no')
-            {
-                $syncRequired = true;
-            }
-            elseif($syncTime = strtotime($planSyncSetting['value']))
-            {
-                if($syncTime < (time() - (60*30)))
-                {
-                    $syncRequired = true;
-                }
-                else
-                {
-                    $syncRequired = false;
-                }
-            }
-            else
-            {
-                $syncRequired = true;
-            }
-        }
-        else
-        {
-            $syncRequired = true;
-        }
-
-        return $syncRequired;
-
-    }
-
-    private function syncPlanSetting()
-    {
-        $planDetailOnJibres = \lib\api\jibres\api::plan_detail();
-
-        if(isset($planDetailOnJibres['result']))
-        {
-            $result = $planDetailOnJibres['result'];
-        }
-        else
-        {
-            $result = [];
-        }
-
-        $this->setSynced();
-
-        $this->savePlanInSetting($result);
+	}
 
 
 
-        return $result;
 
-    }
+	public static function currentPlan()
+	{
+		return self::$currnentPlanRecordDetail;
+	}
 
-    private function setSynced()
-    {
-        \lib\db\setting\update::overwirte_cat_key(date("Y-m-d H:i:s"), 'plan', 'synced');
-    }
 
-    private function savePlanInSetting($_planDetail)
-    {
-        \lib\db\setting\update::overwirte_cat_key(json_encode($_planDetail), 'plan', 'last');
+	public static function contain() : array
+	{
+		if(self::$currentPlan)
+		{
+			return self::$currentPlan->contain();
+		}
+		return [];
+	}
 
-    }
+
+	private static function settingRecord()
+	{
+		$planSettingRecord = \lib\db\setting\get::by_cat_key('plan', 'last');
+
+		if(!is_array($planSettingRecord))
+		{
+			$planSettingRecord = [];
+		}
+
+		if(isset($planSettingRecord['value']))
+		{
+			$planSettingRecord = json_decode($planSettingRecord['value'], true);
+			if(!is_array($planSettingRecord))
+			{
+				$planSettingRecord = [];
+			}
+		}
+		else
+		{
+			$planSettingRecord = [];
+		}
+
+
+		return $planSettingRecord;
+	}
+
+
+	private static function syncRequired()
+	{
+		$planSyncSetting = \lib\db\setting\get::by_cat_key('plan', 'synced');
+
+		if(isset($planSyncSetting['value']))
+		{
+			if($planSyncSetting['value'] === 'no')
+			{
+				$syncRequired = true;
+			}
+			elseif($syncTime = strtotime($planSyncSetting['value']))
+			{
+				if($syncTime < (time() - (60 * 30)))
+				{
+					$syncRequired = true;
+				}
+				else
+				{
+					$syncRequired = false;
+				}
+			}
+			else
+			{
+				$syncRequired = true;
+			}
+		}
+		else
+		{
+			$syncRequired = true;
+		}
+
+		return $syncRequired;
+
+	}
+
+
+	private static function syncPlanSetting()
+	{
+		$planDetailOnJibres = \lib\api\jibres\api::plan_detail();
+
+		if(isset($planDetailOnJibres['result']))
+		{
+			$result = $planDetailOnJibres['result'];
+		}
+		else
+		{
+			$result = [];
+		}
+
+		self::setSynced();
+
+		self::savePlanInSetting($result);
+
+
+		return $result;
+
+	}
+
+
+	private static function setSynced()
+	{
+		\lib\db\setting\update::overwirte_cat_key(date("Y-m-d H:i:s"), 'plan', 'synced');
+	}
+
+
+	private static function savePlanInSetting($_planDetail)
+	{
+		\lib\db\setting\update::overwirte_cat_key(json_encode($_planDetail), 'plan', 'last');
+
+	}
 
 
 	public static function sync_required()
