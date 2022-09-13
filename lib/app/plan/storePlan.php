@@ -137,6 +137,8 @@ class storePlan
 			// ok. Nothing.
 		}
 
+		planAlert::check($_lastPlanRecord);
+
 		$expDate = a($_lastPlanRecord, 'expirydate');
 
 		if($expDate)
