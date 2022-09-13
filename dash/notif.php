@@ -6,6 +6,7 @@ namespace dash;
 class notif
 {
 	private static $notif = [];
+	private static $lock = false;
 
 
 	/**
@@ -27,6 +28,11 @@ class notif
 
 	private static function add($_type, $_text, $_meta)
 	{
+		if(self::$lock)
+		{
+			return;
+		}
+
 		self::$notif['ok'] = \dash\engine\process::status();
 
 		if(!isset(self::$notif['msg']))
@@ -500,5 +506,17 @@ class notif
 			}
 		}
 	}
+
+
+	public static function lock()
+	{
+		self::$lock = true;
+	}
+
+	public static function unlock()
+	{
+		self::$lock = false;
+	}
+
 }
 ?>

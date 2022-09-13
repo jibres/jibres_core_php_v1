@@ -1057,10 +1057,16 @@ class add
 			return false;
 		}
 
+
+		\dash\notif::lock();
+
 		foreach ($getDefaultTag as $tagDetail)
 		{
 			\lib\app\form\tag\add::public_answer_tag_plus($tagDetail['title'], $_answer_id, $_form_id);
+
 		}
+
+		\dash\notif::unlock();
 
 	}
 
