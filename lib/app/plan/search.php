@@ -42,6 +42,10 @@ class search
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
+		if($data['reason'] === 'refund guarantee')
+		{
+			$data['reason'] = 'refund+guarantee';
+		}
 
 		$and          = [];
 		$meta         = [];
@@ -99,6 +103,7 @@ class search
 
 		if($data['reason'])
 		{
+			// var_dump($data['reason']);
 			$and[]            = "store_plan_history.reason = :reason ";
 			$param[':reason'] = $data['reason'];
 

@@ -42,6 +42,8 @@ class view
 
 		$search_string = \dash\validate::search_string();
 
+
+
 		$list = \lib\app\plan\search::list($search_string, $args);
 
 		\dash\data::dataTable($list);

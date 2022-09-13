@@ -38,7 +38,7 @@ class businessPlanDetail
 		$currentPlanDetail = self::getMyPlanDetail();
 		if($currentPlanDetail)
 		{
-			return planReady::ready($currentPlanDetail->currentPlan());
+			return planReady::ready(self::$currnentPlanRecordDetail);
 		}
 		return false;
 	}
