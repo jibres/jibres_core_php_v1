@@ -18,7 +18,7 @@ class view
 		$result[] =
 			[
 				'permission:simple',
-				\lib\app\plan\planCheck::access('permission', 'simple1'),
+				\lib\app\plan\planCheck::access('permission', 'simple'),
 			];
 
 		$load = \lib\app\plan\planCheck::get('sms', 'cost');

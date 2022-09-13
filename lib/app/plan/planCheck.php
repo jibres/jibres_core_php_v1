@@ -11,6 +11,24 @@ class planCheck
 	}
 
 
+	public static function get(string $_feature_key, string $_function_name, $_args = [])
+	{
+		$load = self::load($_feature_key);
+		if(!$load)
+		{
+			return false;
+		}
+
+		if(!method_exists($load, $_function_name))
+		{
+			return false;
+		}
+
+
+		return call_user_func([$load, $_function_name], $_args);
+	}
+
+
 	public static function load(string $_feature_key)
 	{
 		$loadCurrentPlan = businessPlanDetail::getMyPlanDetail();
@@ -33,24 +51,6 @@ class planCheck
 		{
 			return false;
 		}
-	}
-
-
-	public static function get(string $_feature_key, string $_function_name, $_args = [])
-	{
-		$load = self::load($_feature_key);
-		if(!$load)
-		{
-			return false;
-		}
-
-		if(!method_exists($load, $_function_name))
-		{
-			return false;
-		}
-
-
-		return call_user_func([$load, $_function_name], [$_args]);
 	}
 
 
