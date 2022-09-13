@@ -153,5 +153,162 @@ class get
 	}
 
 
+	public static function groupByPlan()
+	{
+		$query =
+			'
+				SELECT 
+				    COUNT(*) AS `count`,
+				    store_plan_history.plan,
+				    store_plan_history.status				
+				FROM 
+				    store_plan_history 
+				GROUP BY  
+				    store_plan_history.plan, store_plan_history.status
+			';
+
+		$param =
+			[
+
+			];
+
+		$result = \dash\pdo::get($query, $param, null, true);
+
+		if (!is_array($result))
+		{
+			$result = [];
+		}
+
+		$newResult = [];
+		foreach ($result as $value)
+		{
+			if(!isset($newResult[$value['plan']]))
+			{
+				$newResult[$value['plan']] = ['active' => 0, 'deactive' => 0];
+			}
+
+			if($value['status'] === 'active')
+			{
+				$newResult[$value['plan']]['active'] = $value['count'];
+			}
+
+			if($value['status'] === 'deactive')
+			{
+				$newResult[$value['plan']]['deactive'] = $value['count'];
+			}
+
+		}
+		return $newResult;
+	}
+
+
+	public static function totalRows()
+	{
+		return \dash\pdo\query_template::table_rows('store_plan_history');
+	}
+
+
+	public static function totalRowsRefundGuarantee()
+	{
+		$query =
+			'
+				SELECT 
+				    COUNT(*) AS `count`
+				    				
+				FROM 
+				    store_plan_history
+				WHERE 
+				    store_plan_history.status = :status AND
+				    store_plan_history.reason = :reason
+
+			';
+
+		$param =
+			[
+				':status' => 'deactive',
+				':reason' => 'refund+guarantee',
+			];
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
+		return $result;
+
+	}
+
+
+	public static function totalRowsRefund()
+	{
+		$query =
+			'
+				SELECT 
+				    COUNT(*) AS `count`
+				    				
+				FROM 
+				    store_plan_history
+				WHERE 
+				    store_plan_history.status = :status AND
+				    store_plan_history.reason = :reason
+
+			';
+
+		$param =
+			[
+				':status' => 'deactive',
+				':reason' => 'refund',
+			];
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
+		return $result;
+
+	}
+
+
+	public static function totalRowsStatus(string $_staus)
+	{
+		$query =
+			'
+				SELECT 
+				    COUNT(*) AS `count`
+				    				
+				FROM 
+				    store_plan_history
+				WHERE 
+				    store_plan_history.status = :status 		
+			';
+
+		$param =
+			[
+				':status' => $_staus,
+
+			];
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
+		return $result;
+	}
+
+
+	public static function totalRowsPeriodType(string $_periodtype)
+	{
+		$query =
+			'
+				SELECT 
+				    COUNT(*) AS `count`
+				    				
+				FROM 
+				    store_plan_history
+				WHERE 
+				    store_plan_history.periodtype = :periodtype 		
+			';
+
+		$param =
+			[
+				':periodtype' => $_periodtype,
+
+			];
+
+		$result = \dash\pdo::get($query, $param, 'count', true);
+		return $result;
+	}
+
+
 }
 

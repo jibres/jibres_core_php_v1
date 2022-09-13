@@ -13,6 +13,8 @@ class view
 		\dash\data::back_text(T_('Dashboard'));
 		\dash\data::back_link(\dash\url::here());
 
+		$dashboardDetail = \lib\app\plan\dashboard::detail();
+		\dash\data::dashboardDetail($dashboardDetail);
 
 	}
 

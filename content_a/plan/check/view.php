@@ -22,14 +22,7 @@ class view
 			];
 
 		$load = \lib\app\plan\planCheck::get('sms', 'cost');
-		$load = \lib\app\plan\planCheck::get('sms', 'cost');
-		$load = \lib\app\plan\planCheck::get('sms', 'cost');
-		$load = \lib\app\plan\planCheck::get('sms', 'cost');
-		$load = \lib\app\plan\planCheck::get('sms', 'cost');
-		$load = \lib\app\plan\planCheck::get('sms', 'cost');
-		$load = \lib\app\plan\planCheck::get('sms', 'cost');
-		$load = \lib\app\plan\planCheck::get('sms', 'cost');
-		$load = \lib\app\plan\planCheck::get('sms', 'cost');
+
 
 		$result[] =
 			[

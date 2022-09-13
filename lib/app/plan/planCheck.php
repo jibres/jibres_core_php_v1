@@ -24,7 +24,6 @@ class planCheck
 			return false;
 		}
 
-
 		return call_user_func([$load, $_function_name], $_args);
 	}
 
