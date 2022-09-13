@@ -12,13 +12,13 @@ function HTMLDetectData()
 {
 	$ids = \dash\data::ids();
 
-	$allTagID       = \dash\data::tagsSavedID();
-	$tagWinner      = in_array($ids->win, $allTagID);
-	$tagRemain      = in_array($ids->remain, $allTagID);
-
+	$allTagID   = \dash\data::tagsSavedID();
+	$tagWinner  = in_array($ids->win, $allTagID);
+	$tagRemain  = in_array($ids->remain, $allTagID);
+	$tagRemain2 = in_array($ids->remain2, $allTagID);
 	if(!$tagRemain)
 	{
-		$tagRemain      = in_array($ids->remain2, $allTagID);
+		$tagRemain = $tagRemain2;
 	}
 	$tagPrintBefore = HTMLIsPrintBefore();
 	$province       = \dash\data::provinceCode();
@@ -26,12 +26,21 @@ function HTMLDetectData()
 
 	if($tagWinner)
 	{
-		$payablePrice = 2000000;
-
-		if($eastProvince)
+		if($tagRemain2)
 		{
-			$payablePrice = 2500000;
+			$payablePrice = 1000000;
+
 		}
+		else
+		{
+			$payablePrice = 2000000;
+
+			if($eastProvince)
+			{
+				$payablePrice = 2500000;
+			}
+		}
+
 	}
 	elseif($tagRemain)
 	{
@@ -155,7 +164,7 @@ function HTMLPrintBefore(object $data)
 	$date = date("Y-m-d H:i:s");
 	$date = \dash\fit::date_time($date);
 	$html = '';
-	$html  .= '<div class="alert-danger text-center text-xl leading-10 p-6 font-bold">';
+	$html .= '<div class="alert-danger text-center text-xl leading-10 p-6 font-bold">';
 	{
 		$html .= <<<HTML
 
