@@ -48,18 +48,18 @@ class khadije extends planPrepare
 	{
 		return
 			[
-				'permission'           => true,
-				'staff'                => true,
-				'allowedFileSize'      => ['size' => \dash\utility\convert::mb_to_byte(20)],
-				'totalStorage'         => ['size' => \dash\utility\convert::gb_to_byte(20)],
+				'permission'              => true,
+				'staff'                   => true,
+				'allowedFileSize'         => ['size' => \dash\utility\convert::mb_to_byte(20)],
+				'totalStorage'            => ['size' => \dash\utility\convert::gb_to_byte(20)],
 				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
-				'ganje'                => true,
-				'sms'                  => ['cost' => 60],
-				'removeBrand'          => true,
-				'adminOnDomain'        => true,
-				'professionalReport'   => true,
-				'professionalDiscount' => true,
-				'specialFormBuilder'   => true,
+				'ganje'                   => true,
+				'sms'                     => ['cost' => 60],
+				'removeBrand'             => true,
+				'adminOnDomain'           => true,
+				'professionalReport'      => true,
+				'professionalDiscount'    => true,
+				'professionalFormBuilder' => true,
 			];
 	}
 

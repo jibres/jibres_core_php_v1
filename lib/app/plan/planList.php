@@ -13,6 +13,7 @@ class planList
 				'gold',
 				'diamond',
 				'rafiei',
+				'khadije',
 			];
 	}
 
