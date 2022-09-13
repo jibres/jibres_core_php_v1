@@ -143,9 +143,7 @@ class storePlan
 		{
 			if(strtotime($_lastPlanRecord['expirydate']) < time())
 			{
-				\lib\db\store_plan_history\update::record([
-					'status' => 'deactive', 'reason' => 'expired',
-				], $_lastPlanRecord['id']);
+				planSet::setDeactivePlan($_lastPlanRecord['id'], 'expire');
 				planSet::setFirstPlan($_business_id, 'free', null, $_lastPlanRecord);
 				$currentPlan = 'free';
 				$expDate     = null;
@@ -198,9 +196,8 @@ class storePlan
 
 		if(planChoose::allowChoosePlan($currentPlan, $newPlan))
 		{
-			\lib\db\store_plan_history\update::record([
-				'status' => 'deactive', 'reason' => 'buy new plan',
-			], $currentPlan['id']);
+			planSet::setDeactivePlan($currentPlan['id'], 'buy new plan');
+
 			planSet::set($store_id, $newPlan, $currentPlan);
 			self::minusTransaction($args, $newPlan);
 			return true;
@@ -300,23 +297,19 @@ class storePlan
 				{
 					$log['guarantee'] = $cancelDetail['meta']['guarantee'];
 
-					\lib\db\store_plan_history\update::record([
-						'status' => 'deactive', 'reason' => 'refund+guarantee',
-					], $currentPlan['id']);
+					planSet::setDeactivePlan($currentPlan['id'], 'refund_guarantee');
 				}
 				else
 				{
 
-					\lib\db\store_plan_history\update::record([
-						'status' => 'deactive', 'reason' => 'refund',
-					], $currentPlan['id']);
+					planSet::setDeactivePlan($currentPlan['id'], 'refund');
+
 				}
 			}
 			else
 			{
-				\lib\db\store_plan_history\update::record([
-					'status' => 'deactive', 'reason' => 'cancel',
-				], $currentPlan['id']);
+				planSet::setDeactivePlan($currentPlan['id'], 'cancel');
+
 			}
 
 

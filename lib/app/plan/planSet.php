@@ -189,4 +189,12 @@ class planSet
 	}
 
 
+	public static function setDeactivePlan($_plan_history_id, string $_reason)
+	{
+		\lib\db\store_plan_history\update::record([
+			'status' => 'deactive', 'reason' => $_reason,
+		], $_plan_history_id);
+	}
+
+
 }

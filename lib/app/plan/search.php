@@ -44,7 +44,7 @@ class search
 
 		if($data['reason'] === 'refund guarantee')
 		{
-			$data['reason'] = 'refund+guarantee';
+			$data['reason'] = 'refund_guarantee';
 		}
 
 		$and          = [];

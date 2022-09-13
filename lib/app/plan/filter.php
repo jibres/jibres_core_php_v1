@@ -148,7 +148,7 @@ class filter
 				'title'  => T_('Refund + Guarantee'),
 				'query'  =>
 					[
-						'reason' => 'refund+guarantee',
+						'reason' => 'refund_guarantee',
 					],
 				'public' => true,
 			];
