@@ -15,6 +15,11 @@ function HTMLDetectData()
 	$allTagID       = \dash\data::tagsSavedID();
 	$tagWinner      = in_array($ids->win, $allTagID);
 	$tagRemain      = in_array($ids->remain, $allTagID);
+
+	if(!$tagRemain)
+	{
+		$tagRemain      = in_array($ids->remain2, $allTagID);
+	}
 	$tagPrintBefore = HTMLIsPrintBefore();
 	$province       = \dash\data::provinceCode();
 	$eastProvince   = isEastProvince($province);
@@ -30,7 +35,7 @@ function HTMLDetectData()
 	}
 	elseif($tagRemain)
 	{
-		$payablePrice = 500000;
+		$payablePrice = 1000000;
 	}
 	else
 	{
@@ -128,12 +133,12 @@ function HTMLPaAblePrice(object $data)
 	{
 		$html .= <<<HTML
 <div>
-مبلغ هدیه شما
+مبلغ هدیه 
 
 <span class="font-bold">$price</span>
 
 تومان
-می باشد
+
 
 </div>
 HTML;
@@ -150,13 +155,13 @@ function HTMLPrintBefore(object $data)
 	$date = date("Y-m-d H:i:s");
 	$date = \dash\fit::date_time($date);
 	$html = '';
-	$html  .= '<div class="alert-danger text-center text-2xl leading-10 p-6">';
+	$html  .= '<div class="alert-danger text-center text-xl leading-10 p-6 font-bold">';
 	{
 		$html .= <<<HTML
 
 هدیه تحویل داده شد 
 
-<span class="ltr">$date</span>
+<span class="ltr block">$date</span>
 
 HTML;
 

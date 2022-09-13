@@ -197,13 +197,24 @@ $html .= '<div class="printArea relative"  data-size="A4" style="min-height: 296
 				$html .= '</table>';
 				$html .= \dash\utility\pagination::html(true);
 
+
+				if($data->payablePrice)
+				{
+					$html .= HTMLPaAblePrice($data);
+				}
+
+				if($data->tagPrintBefore)
+				{
+					$html .= HTMLPrintBefore($data);
+				}
+
 			}
 			$html .= '</div>';
 
 			$html .= '<div class="c-xs-6 c-sm-6">';
 			{
 
-				$html .= '<div class="flex mb-4">';
+				$html .= '<div class=" mb-4">';
 				{
 					foreach (\dash\data::dataTable() as $key => $value)
 					{
@@ -221,7 +232,7 @@ $html .= '<div class="printArea relative"  data-size="A4" style="min-height: 296
 						{
 							// $html  .= a($value, 'item_title');
 							$image = \lib\filepath::fix(a($value, 'answer'));
-							$html  .= '<img style="max-height: 400px;" class="h-96 rounded-lg" src="' . $image . '">';
+							$html  .= '<img style="max-height: 300px;" class="h-96 rounded-lg mx-1" src="' . $image . '">';
 
 						}
 						$html .= '</div>';
@@ -234,10 +245,7 @@ $html .= '<div class="printArea relative"  data-size="A4" style="min-height: 296
 		$html .= '</div>';
 
 
-		if($data->payablePrice)
-		{
-			$html .= HTMLPaAblePrice($data);
-		}
+
 		if($data->tagWinner || $data->tagRemain)
 		{
 			$html .= HTMLWinnerMessage($data);
@@ -248,10 +256,6 @@ $html .= '<div class="printArea relative"  data-size="A4" style="min-height: 296
 		}
 
 
-		if($data->tagPrintBefore)
-		{
-			$html .= HTMLPrintBefore($data);
-		}
 
 	}
 	$html .= '</div>';

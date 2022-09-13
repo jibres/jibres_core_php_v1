@@ -72,6 +72,7 @@ class view
 		[
 			'win'     => 7,
 			'remain'  => 18,
+			'remain2'  => 23,
 			'printed' => 19,
 		];
 
@@ -81,6 +82,8 @@ class view
 			[
 				'win'     => 10,
 				'remain'  => 9,
+				'remain2'  => 9,
+
 				'printed' => 7,
 			];
 		}

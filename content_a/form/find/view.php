@@ -2,8 +2,6 @@
 namespace content_a\form\find;
 
 
-use content_site\options\count\count;
-
 class view
 {
 
@@ -46,10 +44,10 @@ class view
 		}
 
 
-		if(count($answerList) === 1 )
+		if(count($answerList) === 1)
 		{
 			$one_id = a($answerList, 0, 'id');
-			\dash\redirect::to(\dash\url::that(). '/print?id='. $form_id. '&aid='. $one_id);
+			\dash\redirect::to(\dash\url::that() . '/print?id=' . $form_id . '&aid=' . $one_id);
 		}
 
 		$load_items = \lib\app\form\item\get::items($form_id);
@@ -167,6 +165,8 @@ class view
 				7,
 				12,
 				9,
+				10,
+				23,
 
 			];
 
@@ -180,6 +180,7 @@ class view
 					3,
 					4,
 					9,
+					10,
 				];
 
 		}
