@@ -310,5 +310,27 @@ class get
 	}
 
 
+	public static function adminChart()
+	{
+		$query =
+			'
+				SELECT 
+				    COUNT(*) AS `count`,
+				    store_plan_history.plan,
+				    DATE(store_plan_history.datecreated) AS `categories`
+				FROM 
+				    store_plan_history
+				GROUP BY `categories`, store_plan_history.plan
+			';
+
+		$param =
+			[
+			];
+
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+	}
+
+
 }
 

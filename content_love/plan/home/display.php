@@ -37,8 +37,13 @@
 
 <section class="f">
     <div class="c9 s12 pRa10">
-        <div id="chartdivactionday" class="box chart x210" data-hint1='Action lasy 30 days per date'
-             data-abc='management/domainhomepage'></div>
+        <div id="chartdivplanadmin" class="box chart x210" data-hint1='Plan'
+             data-abc='management/planadmin'></div>
+        <div class="hidden">
+            <div id="chartplanadmintitle"><?php echo T_("Plan register per date"); ?></div>
+            <div id="chartdivplanadmincategory"><?php echo a(\dash\data::dashboardDetail_chart(), 'categories') ?></div>
+            <div id="chartdivplanadminseries"><?php echo a(\dash\data::dashboardDetail_chart(), 'series') ?></div>
+        </div>
     </div>
     <div class="c3 s12">
         <a href="<?php echo \dash\url::current() . '/datalist?periodtype=yearly'; ?>" class="stat">
