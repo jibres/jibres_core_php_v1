@@ -4,17 +4,17 @@ namespace lib\app\form\answer;
 
 class add
 {
+
 	public static function public_new_answer($_args, $_meta = [])
 	{
 		$condition =
-		[
-			'form_id'   => 'id',
-			'user_id'   => 'id',
-			'factor_id' => 'id',
-			'startdate' => 'datetime',
-			'answer'    => 'bit', // just for skip clean error
-		];
-
+			[
+				'form_id'   => 'id',
+				'user_id'   => 'id',
+				'factor_id' => 'id',
+				'startdate' => 'datetime',
+				'answer'    => 'bit', // just for skip clean error
+			];
 
 
 		$require = ['form_id'];
@@ -53,6 +53,19 @@ class add
 			return false;
 		}
 
+		if(isset($load_form['answerlimit']) && $load_form['answerlimit'] && is_numeric($load_form['answerlimit']))
+		{
+			$answerLimit              = intval($load_form['answerlimit']);
+			$getTotalActiveAnserCount = \lib\db\form_answer\get::countActive($form_id);
+
+			if(floatval($getTotalActiveAnserCount) >= $answerLimit)
+			{
+				\dash\notif::error(T_("The answer limit of this form is full. You can not add your answer. Plese contacto to administrator"), ['alerty' => true]);
+				return false;
+			}
+
+		}
+
 		if(a($load_form, 'setting', 'saveasticket'))
 		{
 			$save_as_ticket = true;
@@ -61,7 +74,7 @@ class add
 		if(a($_meta, 'edit_mode') === true && a($_meta, 'answer_id'))
 		{
 			$check_true_item = \lib\app\form\item\get::items_answer($form_id, $_meta['answer_id'], true, true);
-			$edit_mode = true;
+			$edit_mode       = true;
 		}
 		else
 		{
@@ -75,7 +88,8 @@ class add
 			}
 		}
 
-		$check_true_item = \lib\app\form\condition\check::true_item($check_true_item, a($load_form, 'condition'), $answer);
+		$check_true_item =
+			\lib\app\form\condition\check::true_item($check_true_item, a($load_form, 'condition'), $answer);
 
 
 		if(!$check_true_item || !is_array($check_true_item))
@@ -107,8 +121,8 @@ class add
 			$length            = 0;
 			$max               = 99999999999999;
 
-			$mindate           = null;
-			$maxdate           = null;
+			$mindate = null;
+			$maxdate = null;
 
 			if(isset($item_detail['maxlen']) && is_numeric($item_detail['maxlen']) && floatval($item_detail['maxlen']) < 200)
 			{
@@ -154,11 +168,11 @@ class add
 				$is_required = true;
 				if((!$my_answer && $my_answer !== '0') || (is_array($my_answer) && empty($my_answer)) || (is_array($my_answer) && empty(array_filter($my_answer))))
 				{
-					if(isset($item_detail['type']) && $item_detail['type'] === 'message' )
+					if(isset($item_detail['type']) && $item_detail['type'] === 'message')
 					{
 						continue;
 					}
-					elseif(isset($item_detail['type']) && $item_detail['type'] === 'random' )
+					elseif(isset($item_detail['type']) && $item_detail['type'] === 'random')
 					{
 						continue;
 					}
@@ -168,7 +182,7 @@ class add
 						// skipp required
 						continue;
 					}
-					elseif(isset($item_detail['type']) && $item_detail['type'] === 'file' && \dash\request::files('a_'. $item_id))
+					elseif(isset($item_detail['type']) && $item_detail['type'] === 'file' && \dash\request::files('a_' . $item_id))
 					{
 						// in file mode check file sended or no
 						continue;
@@ -181,7 +195,10 @@ class add
 						}
 						else
 						{
-							$required_not_answered[] = ['message' => T_(":val is required", ['val' => a($item_detail, 'title')]), 'element' => 'a_'. $item_id];
+							$required_not_answered[] = [
+								'message' => T_(":val is required", ['val' => a($item_detail, 'title')]),
+								'element' => 'a_' . $item_id,
+							];
 							continue;
 						}
 					}
@@ -190,7 +207,7 @@ class add
 			}
 
 			$validate_meta                = [];
-			$validate_meta['element']     = 'a_'. $item_id;
+			$validate_meta['element']     = 'a_' . $item_id;
 			$validate_meta['field_title'] = $item_detail['title'];
 
 			switch ($type)
@@ -214,15 +231,15 @@ class add
 						$alphabet .= strtoupper('abcdefghijklmnopqrstuvwxyz');
 					}
 
-					$my_answer                       = \dash\utility\random::string($length, $alphabet);
+					$my_answer = \dash\utility\random::string($length, $alphabet);
 
 					$answer[$item_id] = ['answer' => $my_answer];
 					break;
 
 
 				case 'displayname':
-					$my_answer                       = \dash\validate::displayname($my_answer, true, $validate_meta);
-					$answer[$item_id] = ['answer' => $my_answer];
+					$my_answer                         = \dash\validate::displayname($my_answer, true, $validate_meta);
+					$answer[$item_id]                  = ['answer' => $my_answer];
 					$signup_user_args['displayname'][] = $my_answer;
 					break;
 
@@ -232,7 +249,7 @@ class add
 						$maxlen = 200;
 					}
 
-					$fn               = 'string_'. $maxlen;
+					$fn               = 'string_' . $maxlen;
 					$my_answer        = \dash\validate::$fn($my_answer, true, $validate_meta);
 					$answer[$item_id] = ['answer' => $my_answer];
 					break;
@@ -244,7 +261,7 @@ class add
 					}
 					else
 					{
-						$fn = 'string_'. $maxlen;
+						$fn = 'string_' . $maxlen;
 					}
 
 					$my_answer        = \dash\validate::$fn($my_answer, true, $validate_meta);
@@ -257,7 +274,9 @@ class add
 				// 	break;
 
 				case 'numeric':
-					$my_answer        = \dash\validate::number($my_answer, true, array_merge($validate_meta, ['min' => $min, 'max' => $max]));
+					$my_answer        = \dash\validate::number($my_answer, true, array_merge($validate_meta, [
+						'min' => $min, 'max' => $max,
+					]));
 					$answer[$item_id] = ['answer' => $my_answer];
 					break;
 
@@ -274,14 +293,17 @@ class add
 				case 'manual_amount':
 				case 'hidden_amount':
 				case 'list_amount':
-					$my_answer        = \dash\validate::price($my_answer, true, array_merge($validate_meta, ['min' => $min, 'max' => $max]));
+					$my_answer        = \dash\validate::price($my_answer, true, array_merge($validate_meta, [
+						'min' => $min, 'max' => $max,
+					]));
 					$answer[$item_id] = ['answer' => $my_answer];
-					$total_price += $my_answer;
+					$total_price      += $my_answer;
 					break;
 
 				case 'single_choice':
 					$my_answer        = \dash\validate::string_200($my_answer, true, $validate_meta);
-					$answer[$item_id] = ['answer' => $my_answer, 'choice_id' => self::find_choice_id($item_id, $my_answer, $items)];
+					$answer[$item_id] =
+						['answer' => $my_answer, 'choice_id' => self::find_choice_id($item_id, $my_answer, $items)];
 					break;
 
 				case 'multiple_choice':
@@ -295,7 +317,10 @@ class add
 
 					foreach ($my_answer as $k => $v)
 					{
-						$multiple_choice_answer[] = ['answer' => \dash\validate::string_200($v, true, $validate_meta), 'choice_id' => self::find_choice_id($item_id, $v, $items)];
+						$multiple_choice_answer[] = [
+							'answer'    => \dash\validate::string_200($v, true, $validate_meta),
+							'choice_id' => self::find_choice_id($item_id, $v, $items),
+						];
 					}
 
 					if($min)
@@ -321,11 +346,12 @@ class add
 
 				case 'dropdown':
 					$my_answer        = \dash\validate::string_200($my_answer, true, $validate_meta);
-					$answer[$item_id] = ['answer' => $my_answer, 'choice_id' => self::find_choice_id($item_id, $my_answer, $items)];
+					$answer[$item_id] =
+						['answer' => $my_answer, 'choice_id' => self::find_choice_id($item_id, $my_answer, $items)];
 					break;
 
 				case 'date':
-					$my_answer        = \dash\validate::date($my_answer, true, $validate_meta);
+					$my_answer = \dash\validate::date($my_answer, true, $validate_meta);
 
 					if(!self::check_min_max_date($my_answer, $mindate, $maxdate))
 					{
@@ -337,7 +363,7 @@ class add
 					break;
 
 				case 'birthdate':
-					$my_answer                    = \dash\validate::birthdate($my_answer, true, $validate_meta);
+					$my_answer = \dash\validate::birthdate($my_answer, true, $validate_meta);
 
 					if(!self::check_min_max_date($my_answer, $mindate, $maxdate))
 					{
@@ -345,7 +371,7 @@ class add
 						return false;
 					}
 
-					$answer[$item_id] = ['answer' => $my_answer];
+					$answer[$item_id]               = ['answer' => $my_answer];
 					$signup_user_args['birthday'][] = $my_answer;
 					break;
 
@@ -374,10 +400,13 @@ class add
 
 						if(isset($my_answer[1]))
 						{
-							$city                  = \dash\validate::city($my_answer[1], true, $validate_meta);
+							$city = \dash\validate::city($my_answer[1], true, $validate_meta);
 							if($is_required && !$city)
 							{
-								$required_not_answered[] = ['message' => T_(":val is required", ['val' => T_("City")]), 'element' => 'a_'. $item_id];
+								$required_not_answered[] = [
+									'message' => T_(":val is required", ['val' => T_("City")]),
+									'element' => 'a_' . $item_id,
+								];
 							}
 
 							if($city)
@@ -392,8 +421,12 @@ class add
 					break;
 
 				case 'gender':
-					$my_answer                  = \dash\validate::enum($my_answer, true, array_merge($validate_meta, ['enum' => ['male', 'female']]));
-					$answer[$item_id] = ['answer' => $my_answer];
+					$my_answer                    = \dash\validate::enum($my_answer, true, array_merge($validate_meta, [
+						'enum' => [
+							'male', 'female',
+						],
+					]));
+					$answer[$item_id]             = ['answer' => $my_answer];
 					$signup_user_args['gender'][] = $my_answer;
 					break;
 
@@ -408,7 +441,7 @@ class add
 					break;
 
 				case 'file':
-					if(\dash\request::files('a_'. $item_id))
+					if(\dash\request::files('a_' . $item_id))
 					{
 						$ext = null;
 						if(isset($item_detail['setting']['file']['filetype']))
@@ -416,7 +449,7 @@ class add
 							$ext = $item_detail['setting']['file']['filetype'];
 						}
 
-						$path = \dash\upload\form::upload($form_id, 'a_'. $item_id, 1, $ext);
+						$path = \dash\upload\form::upload($form_id, 'a_' . $item_id, 1, $ext);
 						if(!\dash\engine\process::status())
 						{
 							return false;
@@ -433,8 +466,8 @@ class add
 					break;
 
 				case 'hiddenurl':
-					$my_answer        = \dash\validate::string_100($my_answer, true, $validate_meta);
-					$urlkey = null;
+					$my_answer = \dash\validate::string_100($my_answer, true, $validate_meta);
+					$urlkey    = null;
 					if(isset($item_detail['setting']['hiddenurl']['urlkey']))
 					{
 						$urlkey = $item_detail['setting']['hiddenurl']['urlkey'];
@@ -481,7 +514,7 @@ class add
 					break;
 
 				case 'mobile':
-					$my_answer                  = \dash\validate::mobile($my_answer, true, $validate_meta);
+					$my_answer = \dash\validate::mobile($my_answer, true, $validate_meta);
 
 					$answer[$item_id] = ['answer' => $my_answer];
 
@@ -509,8 +542,8 @@ class add
 					break;
 
 				case 'email':
-					$my_answer                  = \dash\validate::email($my_answer, true, $validate_meta);
-					$answer[$item_id] = ['answer' => $my_answer];
+					$my_answer                   = \dash\validate::email($my_answer, true, $validate_meta);
+					$answer[$item_id]            = ['answer' => $my_answer];
 					$signup_user_args['email'][] = $my_answer;
 					break;
 
@@ -530,7 +563,8 @@ class add
 					break;
 
 				case 'yes_no':
-					$my_answer        = \dash\validate::enum($my_answer, true, array_merge($validate_meta, ['enum' => ['yes', 'no']]));
+					$my_answer        =
+						\dash\validate::enum($my_answer, true, array_merge($validate_meta, ['enum' => ['yes', 'no']]));
 					$answer[$item_id] = ['answer' => $my_answer];
 					break;
 
@@ -603,7 +637,9 @@ class add
 			}
 			else
 			{
-				\dash\notif::error(T_("Please fill the required field"), ['alerty' => true, 'element' => array_column($required_not_answered, 'element')]);
+				\dash\notif::error(T_("Please fill the required field"), ['alerty'  => true,
+																		  'element' => array_column($required_not_answered, 'element'),
+				]);
 				return false;
 			}
 		}
@@ -613,7 +649,7 @@ class add
 			$new_signup_user = [];
 
 			// we only 5 signup form option
-			for ($i = 0; $i <= 5 ; $i++)
+			for ($i = 0 ; $i <= 5 ; $i++)
 			{
 				$temp = [];
 
@@ -704,9 +740,9 @@ class add
 			$data['startdate'] = date("Y-m-d H:i:s");
 		}
 
-		if(!$edit_mode && $startdate && time() - strtotime($startdate) > (60*60*1))
+		if(!$edit_mode && $startdate && time() - strtotime($startdate) > (60 * 60 * 1))
 		{
-			$data['startdate'] = date("Y-m-d H:i:s", time() - (60*60*1));
+			$data['startdate'] = date("Y-m-d H:i:s", time() - (60 * 60 * 1));
 		}
 
 		if(!$user_id && $new_signuped_user_id)
@@ -715,14 +751,14 @@ class add
 		}
 
 		$add_answer_args =
-		[
-			'form_id'     => $form_id,
-			'user_id'     => $user_id,
-			'factor_id'   => $data['factor_id'],
-			'datecreated' => date("Y-m-d H:i:s"),
-			'startdate'   => $data['startdate'],
-			'enddate'     => date("Y-m-d H:i:s"),
-		];
+			[
+				'form_id'     => $form_id,
+				'user_id'     => $user_id,
+				'factor_id'   => $data['factor_id'],
+				'datecreated' => date("Y-m-d H:i:s"),
+				'startdate'   => $data['startdate'],
+				'enddate'     => date("Y-m-d H:i:s"),
+			];
 
 		if($total_price)
 		{
@@ -746,16 +782,16 @@ class add
 					foreach ($my_answer as $my_answer_one)
 					{
 						$insert_answerdetail[] =
-						[
-							'form_id'     => $form_id,
-							'user_id'     => $user_id,
-							'answer_id'   => null, // fill after this foreach
-							'item_id'     => $item_id,
-							'answer'      => $my_answer_one['answer'],
-							'choice_id'   => a($my_answer_one, 'choice_id'),
-							'textarea'    => null,
-							'datecreated' => date("Y-m-d H:i:s"),
-						];
+							[
+								'form_id'     => $form_id,
+								'user_id'     => $user_id,
+								'answer_id'   => null, // fill after this foreach
+								'item_id'     => $item_id,
+								'answer'      => $my_answer_one['answer'],
+								'choice_id'   => a($my_answer_one, 'choice_id'),
+								'textarea'    => null,
+								'datecreated' => date("Y-m-d H:i:s"),
+							];
 					}
 				}
 				else
@@ -781,16 +817,16 @@ class add
 					}
 
 					$insert_answerdetail[] =
-					[
-						'form_id'     => $form_id,
-						'user_id'     => $user_id,
-						'answer_id'   => null, // fill after this foreach
-						'item_id'     => $item_id,
-						'answer'      => $new_answer,
-						'choice_id'   => a($my_answer, 'choice_id'),
-						'textarea'    => $new_textarea,
-						'datecreated' => date("Y-m-d H:i:s"),
-					];
+						[
+							'form_id'     => $form_id,
+							'user_id'     => $user_id,
+							'answer_id'   => null, // fill after this foreach
+							'item_id'     => $item_id,
+							'answer'      => $new_answer,
+							'choice_id'   => a($my_answer, 'choice_id'),
+							'textarea'    => $new_textarea,
+							'datecreated' => date("Y-m-d H:i:s"),
+						];
 				}
 			}
 		}
@@ -809,7 +845,7 @@ class add
 			if(!$edit_mode)
 			{
 				// save ip id
-				$add_answer_args['ip_id']    = \dash\utility\ip::id();
+				$add_answer_args['ip_id'] = \dash\utility\ip::id();
 
 				// save agent id
 				$add_answer_args['agent_id'] = \dash\agent::get(true);
@@ -852,25 +888,24 @@ class add
 			}
 
 
-
 			if($total_price && !$data['factor_id'])
 			{
 				$meta =
-				[
-					'turn_back'     => $redirect ? $redirect : \dash\url::pwd(),
-					'user_id'       => $user_id,
-					'amount'        => $total_price,
-					'auto_back'     => true,
-					'final_fn'      => ['/lib/app/form/answer/add', 'after_pay'],
-					'final_fn_args' => ['answer_id' => $answer_id, 'form_id' => $form_id],
-				];
+					[
+						'turn_back'     => $redirect ? $redirect : \dash\url::pwd(),
+						'user_id'       => $user_id,
+						'amount'        => $total_price,
+						'auto_back'     => true,
+						'final_fn'      => ['/lib/app/form/answer/add', 'after_pay'],
+						'final_fn_args' => ['answer_id' => $answer_id, 'form_id' => $form_id],
+					];
 
 				// go to pay
 				$transaction_detail = \dash\utility\pay\start::api($meta);
 
 				if(isset($transaction_detail['transaction_id']))
 				{
-					$update_answer = [];
+					$update_answer                   = [];
 					$update_answer['transaction_id'] = \dash\coding::decode($transaction_detail['transaction_id']);
 					\lib\db\form_answer\update::update($update_answer, $answer_id);
 				}
@@ -927,12 +962,12 @@ class add
 				// minus transaction
 
 				$insert_transaction =
-				[
-					'user_id'      => $load_answer['user_id'],
-					'title'        => T_("Pay for form :val", ['val' => \dash\fit::number($_args['form_id'])]),
-					'amount'       => floatval($_transaction_detail['plus']),
-					'silent_notif' => true,
-				];
+					[
+						'user_id'      => $load_answer['user_id'],
+						'title'        => T_("Pay for form :val", ['val' => \dash\fit::number($_args['form_id'])]),
+						'amount'       => floatval($_transaction_detail['plus']),
+						'silent_notif' => true,
+					];
 
 				$transaction_id = \dash\app\transaction\budget::minus($insert_transaction);
 
@@ -951,7 +986,6 @@ class add
 			}
 		}
 	}
-
 
 
 	private static function find_choice_id($_item_id, $_answer, $_items)
@@ -1002,5 +1036,7 @@ class add
 
 		return true;
 	}
+
 }
+
 ?>

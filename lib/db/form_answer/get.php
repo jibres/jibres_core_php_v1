@@ -358,5 +358,13 @@ class get
 	}
 
 
+	public static function countActive($_form_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = :form_id AND form_answer.status != 'deleted' ";
+		$result = \dash\pdo::get($query, [':form_id' => $_form_id], 'count', true);
+		return $result;
+	}
+
+
 }
 ?>

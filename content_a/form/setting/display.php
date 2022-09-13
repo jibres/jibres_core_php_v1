@@ -37,6 +37,12 @@
                         <label for="saveasticket"><?php echo T_("Save answer as ticket") ?></label>
                     </div>
 
+                    <label for="answerlimit"><?php echo T_("Answer limit") ?> <small><?php echo T_("If answer limit is full no body can add new answer to this form"); ?></small></label>
+                    <div class="input ltr">
+
+                        <input type="tel" id="answerlimit" name="answerlimit" value="<?php echo \dash\data::dataRow_answerlimit(); ?>" data-format="price">
+                    </div>
+
 
                     <div class="mb-2">
                         <div data-uploader data-name='file' data-final='#finalImagefile1'

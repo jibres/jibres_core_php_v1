@@ -22,6 +22,7 @@ class check
 					],
 				],
 				'redirect'                => 'string_1000',
+				'answerlimit'             => 'int',
 				'desc'                    => 'desc',
 				'endmessage'              => 'desc',
 				'beforestart'             => 'desc',
@@ -59,23 +60,23 @@ class check
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		if (!$data['slug'])
+		if(!$data['slug'])
 		{
 			$data['slug'] = \dash\validate::slug($data['title']);
 		}
 
-		if ($data['slug'])
+		if($data['slug'])
 		{
 			$check_duplicate = \lib\db\form\get::by_slug($data['slug']);
-			if (isset($check_duplicate['id']))
+			if(isset($check_duplicate['id']))
 			{
-				if (intval($check_duplicate['id']) === intval($_id))
+				if(intval($check_duplicate['id']) === intval($_id))
 				{
 					// ok
 				}
 				else
 				{
-					if (is_null($_id))
+					if(is_null($_id))
 					{
 						$data['slug'] = $data['slug'] . rand(111, 999);
 						// in add mode
@@ -90,33 +91,33 @@ class check
 		}
 
 		$load_form = [];
-		if ($_id)
+		if($_id)
 		{
 			$load_form = \lib\db\form\get::by_id($_id);
 		}
 
 		$setting = [];
 
-		if (isset($load_form['setting']) && $load_form['setting'])
+		if(isset($load_form['setting']) && $load_form['setting'])
 		{
 			$setting = json_decode($load_form['setting'], true);
-			if (!is_array($setting))
+			if(!is_array($setting))
 			{
 				$setting = [];
 			}
 		}
 
-		if (array_key_exists('saveasticket', $_args))
+		if(array_key_exists('saveasticket', $_args))
 		{
 			$setting['saveasticket'] = $data['saveasticket'];
 		}
 
-		if (array_key_exists('beforestart', $_args))
+		if(array_key_exists('beforestart', $_args))
 		{
 			$setting['beforestart'] = $data['beforestart'];
 		}
 
-		if (array_key_exists('afterend', $_args))
+		if(array_key_exists('afterend', $_args))
 		{
 			$setting['afterend'] = $data['afterend'];
 		}
@@ -124,7 +125,7 @@ class check
 
 		$data['setting'] = json_encode($setting, JSON_UNESCAPED_UNICODE);
 
-		if ($data['inquiry_mode'])
+		if($data['inquiry_mode'])
 		{
 			$data['inquirysetting'] = [];
 
@@ -135,11 +136,11 @@ class check
 			$data['inquirysetting']['inquiry_msg_founded']     = $data['inquiry_msg_founded'];
 			$data['inquirysetting']['inquiry_msg_not_founded'] = $data['inquiry_msg_not_founded'];
 
-			if ($data['question'])
+			if($data['question'])
 			{
 				foreach ($data['question'] as $key => $value)
 				{
-					if (!\dash\validate::id($value))
+					if(!\dash\validate::id($value))
 					{
 						return false;
 					}
@@ -151,7 +152,7 @@ class check
 			$data['inquirysetting'] = json_encode($data['inquirysetting'], JSON_UNESCAPED_UNICODE);
 		}
 
-		if ($data['resultpage_mode'])
+		if($data['resultpage_mode'])
 		{
 			$data['resultpagesetting'] = [];
 
@@ -159,25 +160,25 @@ class check
 			$data['resultpagesetting']['tag_id'] = $data['resultpagetag'];
 
 			$oldResultPageData = a($load_form, 'resultpagesetting');
-			if (is_string($oldResultPageData))
+			if(is_string($oldResultPageData))
 			{
 				$oldResultPageData = json_decode($oldResultPageData, true);
 			}
 
-			if ($data['resultpageimage'])
+			if($data['resultpageimage'])
 			{
 				$data['resultpagesetting']['image'] = $data['resultpageimage'];
 			}
-			elseif (a($oldResultPageData, 'image'))
+			elseif(a($oldResultPageData, 'image'))
 			{
 				$data['resultpagesetting']['image'] = $oldResultPageData['image'];
 			}
 
-			if ($data['question'])
+			if($data['question'])
 			{
 				foreach ($data['question'] as $key => $value)
 				{
-					if (!\dash\validate::id($value))
+					if(!\dash\validate::id($value))
 					{
 						return false;
 					}
@@ -189,11 +190,11 @@ class check
 			$data['resultpagesetting'] = json_encode($data['resultpagesetting'], JSON_UNESCAPED_UNICODE);
 		}
 
-		if ($data['startdate'])
+		if($data['startdate'])
 		{
 			$data['starttime'] = $data['startdate'];
 
-			if ($data['stime'])
+			if($data['stime'])
 			{
 				$data['starttime'] .= ' ' . $data['stime'];
 			}
@@ -203,11 +204,11 @@ class check
 			}
 		}
 
-		if ($data['enddate'])
+		if($data['enddate'])
 		{
 			$data['endtime'] = $data['enddate'];
 
-			if ($data['stime'])
+			if($data['stime'])
 			{
 				$data['endtime'] .= ' ' . $data['etime'];
 			}
@@ -217,9 +218,9 @@ class check
 			}
 		}
 
-		if ($data['starttime'] && $data['endtime'])
+		if($data['starttime'] && $data['endtime'])
 		{
-			if (strtotime($data['starttime']) > strtotime($data['endtime']))
+			if(strtotime($data['starttime']) > strtotime($data['endtime']))
 			{
 				\dash\notif::error(T_("Start time must be less than end time"), [
 					'element' => [
@@ -230,7 +231,7 @@ class check
 			}
 		}
 
-		if (!$data['schedule'])
+		if(!$data['schedule'])
 		{
 			$data['starttime'] = null;
 			$data['endtime']   = null;
