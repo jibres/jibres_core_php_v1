@@ -24,7 +24,7 @@ class staff extends featurePreapre
 
 	public function title() : string
 	{
-		return T_("Staff");
+		return T_("Staff count");
 	}
 
 
