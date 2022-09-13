@@ -273,7 +273,11 @@ class storePlan
 	{
 		$store_id = $_business_id;
 
-		$currentPlan = self::currentPlan($store_id);
+		$currentPlan        = self::currentPlan($store_id);
+		$log                = [];
+		$log['plan']        = a($currentPlan, 'plan');
+		$log['store_id']    = $_business_id;
+		$log['currentPlan'] = $currentPlan;
 
 		$meta =
 			[
@@ -288,10 +292,14 @@ class storePlan
 			// ok
 			if(isset($cancelDetail['total']['price']) && $cancelDetail['total']['price'])
 			{
+				$log['price'] = $cancelDetail['total']['price'];
+
 				self::plusTransaction($cancelDetail, $cancelDetail['total']['price'], $store_id);
 
 				if(isset($cancelDetail['meta']['guarantee']) && $cancelDetail['meta']['guarantee'])
 				{
+					$log['guarantee'] = $cancelDetail['meta']['guarantee'];
+
 					\lib\db\store_plan_history\update::record([
 						'status' => 'deactive', 'reason' => 'refund+guarantee',
 					], $currentPlan['id']);
@@ -310,6 +318,10 @@ class storePlan
 					'status' => 'deactive', 'reason' => 'cancel',
 				], $currentPlan['id']);
 			}
+
+
+			\dash\log::set('plan_cancelPlan', ['myData' => $log]);
+
 
 			planSet::setFirstPlan($store_id, 'free', null, $currentPlan);
 

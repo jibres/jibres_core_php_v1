@@ -89,6 +89,11 @@ class planSet
 
 		\lib\api\business\api::plan_sync_required($_business_id);
 
+		if($myPlan->name() !== 'free')
+		{
+			\dash\log::set('plan_newPlanActivate', ['myData' => $insert]);
+		}
+
 		return $planHistoryId;
 
 	}
