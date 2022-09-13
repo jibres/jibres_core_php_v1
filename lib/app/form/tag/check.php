@@ -8,26 +8,27 @@ class check
 	public static function variable($_args, $_id = null)
 	{
 		$condition =
-		[
-			'title'       => 'title',
-			'desc'        => 'desc',
-			'slug'        => 'slug',
-			'form_id'     => 'id',
-			'privacy'     => ['enum' => ['public', 'private']],
-			'color'       => ['enum' => ['red', 'green', 'blue', 'black']],
-			'autocomment' => 'bit',
-			'comment'     => 'desc',
-			'sendsms'     => 'bit',
-			'smstext'     => 'desc',
+			[
+				'title'       => 'title',
+				'desc'        => 'desc',
+				'slug'        => 'slug',
+				'form_id'     => 'id',
+				'privacy'     => ['enum' => ['public', 'private']],
+				'color'       => ['enum' => ['red', 'green', 'blue', 'black']],
+				'autocomment' => 'bit',
+				'comment'     => 'desc',
+				'sendsms'     => 'bit',
+				'smstext'     => 'desc',
+				'isdefault'   => 'bit',
 
-		];
+			];
 
 		$require = ['title', 'form_id'];
 
 		$meta =
-		[
+			[
 
-		];
+			];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
@@ -70,4 +71,5 @@ class check
 	}
 
 }
+
 ?>

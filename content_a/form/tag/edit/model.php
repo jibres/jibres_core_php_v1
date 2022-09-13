@@ -4,9 +4,9 @@ namespace content_a\form\tag\edit;
 
 class model
 {
+
 	public static function post()
 	{
-
 
 
 		$id = \dash\request::get('tid');
@@ -17,7 +17,7 @@ class model
 
 			if(\dash\engine\process::status())
 			{
-				\dash\redirect::to(\dash\url::that(). \dash\request::fix_get(null, true));
+				\dash\redirect::to(\dash\url::that() . \dash\request::fix_get(null, true));
 			}
 			return;
 		}
@@ -33,6 +33,7 @@ class model
 		$args['comment']     = \dash\request::post('comment');
 		$args['sendsms']     = \dash\request::post('sendsms');
 		$args['smstext']     = \dash\request::post('smstext');
+		$args['isdefault']   = \dash\request::post('isdefault');
 
 		$result = \lib\app\form\tag\edit::edit($args, $id);
 
@@ -49,5 +50,7 @@ class model
 		}
 
 	}
+
 }
+
 ?>
