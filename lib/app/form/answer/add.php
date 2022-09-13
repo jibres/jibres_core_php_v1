@@ -38,6 +38,7 @@ class add
 		$send_sms              = [];
 		$sms_text              = [];
 		$required_not_answered = [];
+		$checkRequired         = true;
 
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
 		if(!is_array($answer))
@@ -73,6 +74,7 @@ class add
 
 		if(a($_meta, 'edit_mode') === true && a($_meta, 'answer_id'))
 		{
+			$checkRequired = false;
 			$check_true_item = \lib\app\form\item\get::items_answer($form_id, $_meta['answer_id'], true, true);
 			$edit_mode       = true;
 		}
@@ -80,6 +82,7 @@ class add
 		{
 			if(\dash\data::fillByAdmin())
 			{
+				$checkRequired = false;
 				$check_true_item = \lib\app\form\item\get::items($form_id, false, false, true);
 			}
 			else
@@ -625,7 +628,7 @@ class add
 		}
 
 
-		if($required_not_answered)
+		if($required_not_answered && $checkRequired)
 		{
 			if(count($required_not_answered) <= 2)
 			{
@@ -637,8 +640,9 @@ class add
 			}
 			else
 			{
-				\dash\notif::error(T_("Please fill the required field"), ['alerty'  => true,
-																		  'element' => array_column($required_not_answered, 'element'),
+				\dash\notif::error(T_("Please fill the required field"), [
+					'alerty'  => true,
+					'element' => array_column($required_not_answered, 'element'),
 				]);
 				return false;
 			}
@@ -949,9 +953,6 @@ class add
 
 		return true;
 	}
-
-
-
 
 
 	public static function after_pay($_args, $_transaction_detail = [])
