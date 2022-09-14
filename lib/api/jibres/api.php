@@ -105,6 +105,7 @@ class api
 		}
 
 
+
 		if($_param && is_array($_param))
 		{
 			$url .= '?'. http_build_query($_param);
@@ -225,6 +226,14 @@ class api
 	}
 
 
+	public static function business_sms_detail()
+	{
+		$result = self::run('business_sms', 'get');
+		return $result;
+	}
+
+
+
 	public static function plan_factor(array $_args)
 	{
 		$_args['factor'] = true;
@@ -328,7 +337,6 @@ class api
 		$result = self::run('telegram','post', [], $_args, ['not_check_login' => true]);
 		return $result;
 	}
-
 
 
 
