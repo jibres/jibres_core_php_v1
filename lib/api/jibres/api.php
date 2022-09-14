@@ -232,6 +232,12 @@ class api
 		return $result;
 	}
 
+	public static function business_sms_charge($_args)
+	{
+		$result = self::run('business_sms', 'post',  [] , $_args);
+		return $result;
+	}
+
 
 
 	public static function plan_factor(array $_args)
