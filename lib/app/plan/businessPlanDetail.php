@@ -94,7 +94,7 @@ class businessPlanDetail
 		{
 			self::$currnentPlanRecordDetail = self::settingRecord();
 
-			if(self::syncRequired())
+			if(self::syncRequired() || !self::$currnentPlanRecordDetail)
 			{
 				self::$currnentPlanRecordDetail = self::syncPlanSetting();
 			}
