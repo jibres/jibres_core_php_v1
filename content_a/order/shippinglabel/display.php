@@ -24,7 +24,7 @@ $html .= '<div class="m-4 p-4 box">';
 		}
 		$html .= '</div>';
 
-		$html .= '<div class="text-xl font-bold">';
+		$html .= '<div class="text-xl font-bold leading-9	">';
 		{
 			$html .= HTMLBuyerAddress();
 		}
@@ -40,12 +40,40 @@ echo $html;
 function HTMLFactorDetail()
 {
 	$html = '';
-	$html .= '<h2 class="text-xl font-bold">';
+	$html .= '<div class="row">';
 	{
-		$html .= T_("Order Number");
-		$html .= ' ' . \dash\fit::text(a(\dash\data::orderDetail(), 'factor', 'id'));
+		$html .= '<div class="c-auto">';
+		{
+			$html .= '<h2 class="text-xl font-bold">';
+			{
+				$html .= T_("Order number");
+				$html .= ' #<code>' . (a(\dash\data::orderDetail(), 'factor', 'id')). '</code>';
+
+
+			}
+			$html .= '</h2>';
+		}
+		$html .= '</div>';
+		$html .= '<div class="c"></div>';
+		$html .= '<div class="c-auto">';
+		{
+			$html .= '<div class="hidden" id="factorid" data-val="'. \dash\data::invoice_id(). '"></div>';
+			$html .= '<div class="text-center">';
+			{
+				$html .= '<div class="barcodeBox">';
+				{
+					$html .= '<svg class="barcodePrev wide mx-auto w-60" data-val="#factorid" data-height=30 data-hideValue></svg>';
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+		}
+		$html .= '</div>';
+
+
 	}
-	$html .= '</h2>';
+	$html .= '</div>';
+
 
 	$html .= '<div class="mb-2 mt-2">';
 	{
@@ -139,7 +167,7 @@ function HTMLBuyerAddress()
 	$html .= '<hr class="mt-1">';
 	$html .= '<div class=" mt-4 text-l">';
 	{
-		$html .= '<div class="text-xl">';
+		$html .= '<div class="text-2xl font-bold">';
 		{
 			$html .= T_("Buyer") . ' / ' . T_("Recipient");
 		}
