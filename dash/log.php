@@ -206,9 +206,6 @@ class log
 				case 'expiredate':
 				case 'to':
 				case 'from':
-				case 'sms':
-				case 'telegram':
-				case 'email':
 				case 'type':
 					$field[$key] = $value;
 					break;
