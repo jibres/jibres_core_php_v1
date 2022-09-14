@@ -98,15 +98,21 @@ class planAlert
 			$notifAlert['countAlert'] = 1;
 		}
 
+		\lib\db\store_plan_history\update::record(['notifalert' => json_encode($notifAlert)], $_plan_history['id']);
+
 		$log = [];
+
+		$log['store_id'] = $_plan_history['store_id'];
+		$log['plan_id']  = $_plan_history['id'];
 
 		switch ($_mode)
 		{
 			case '3days':
-
+				$log['expiretitle'] = T_("Three days");
 				break;
 
 			case '1week':
+				$log['expiretitle'] = T_("One days");
 				break;
 
 			default:
@@ -114,7 +120,6 @@ class planAlert
 				break;
 		}
 
-		\lib\db\store_plan_history\update::record(['notifalert' => json_encode($notifAlert)], $_plan_history['id']);
 
 		$sendTo   = [];
 		$sendTo[] = $_plan_history['user_id'];

@@ -10,7 +10,7 @@ class plan_expireAlert
 	{
 		$result = [];
 
-		$result['title'] = T_("Your plan will be expire");
+		$result['title'] = T_("Plan expiration warning");
 
 		$result['icon']      = 'tree';
 		$result['cat']       = T_("Plan");
@@ -24,29 +24,23 @@ class plan_expireAlert
 
 	public static function get_msg($_args = [])
 	{
-		$msg       = '';
-		$plan      = isset($_args['data']['myData']['plan']) ? $_args['data']['myData']['plan'] : null;
-		$store_id  = isset($_args['data']['myData']['store_id']) ? $_args['data']['myData']['store_id'] : null;
-		$price     = a($_args, 'data', 'myData', 'price');
-		$guarantee = a($_args, 'data', 'myData', 'guarantee');
+		$msg = '';
 
-		$msg .= '#CancelPlan ';
+		$store_id      = isset($_args['data']['myData']['store_id']) ? $_args['data']['myData']['store_id'] : null;
+		$expiretitle   = isset($_args['data']['myData']['expiretitle']) ? $_args['data']['myData']['expiretitle'] : null;
+		$businessTitle = null;
 		if($store_id)
 		{
-			$store_detail = \lib\app\store\get::data_by_id($store_id);
-			$msg          .= T_("Business") . ': ' . a($store_detail, 'title');
+			$store_detail  = \lib\app\store\get::data_by_id($store_id);
+			$businessTitle = a($store_detail, 'title');
 		}
-
-		$msg .= ' ' . PHP_EOL;
-		$msg .= T_("Plan") . ': ' . T_(ucfirst(strval($plan)));
-		$msg .= ' ' . PHP_EOL;
-		$msg .= T_("Refund price") . ': ' . \dash\fit::number($price) . ' ' . \lib\currency::unit();
-
-		if($guarantee)
-		{
-			$msg .= ' ' . PHP_EOL;
-			$msg .= T_("Include guarantee");
-		}
+		$msg .= T_("Your current plan at :business Business will expire in :val. ", [
+			'business' => $businessTitle, 'val' => $expiretitle,
+		]);
+		$msg .= "\n";
+		$msg .= T_("Please purchase a new plan");
+		$msg .= "\n";
+		$msg .= ' ' . T_("Jibres; Sell and enjoy");
 
 		return $msg;
 	}
@@ -65,7 +59,6 @@ class plan_expireAlert
 	}
 
 
-
 	public static function telegram()
 	{
 		return true;
@@ -74,7 +67,7 @@ class plan_expireAlert
 
 	public static function sms()
 	{
-		return false;
+		return true;
 	}
 
 
