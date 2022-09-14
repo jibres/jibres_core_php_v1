@@ -112,7 +112,7 @@ class planAlert
 				break;
 
 			case '1week':
-				$log['expiretitle'] = T_("One days");
+				$log['expiretitle'] = T_("One week");
 				break;
 
 			default:

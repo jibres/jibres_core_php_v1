@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-14 11:44+0430\n"
-"PO-Revision-Date: 2022-09-14 11:46+0430\n"
+"POT-Creation-Date: 2022-09-14 14:57+0430\n"
+"PO-Revision-Date: 2022-09-14 14:57+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1053,7 +1053,7 @@ msgstr "نام کامل"
 #: content_a/chap/size-receipt/receipt.php:107 content_a/order/address/display.php:25
 #: content_a/order/address/display.php:57 content_a/order/address/display.php:151
 #: content_a/order/address/display.php:201 content_a/order/detail/display.php:60
-#: content_a/order/shippinglabel/display.php:203 content_a/sale/display.php:70
+#: content_a/order/shippinglabel/display.php:235 content_a/sale/display.php:70
 #: content_account/address.php:49 content_account/address.php:142
 #: content_account/my/home/display.php:43 content_business/orders/view/display.php:40
 #: content_business/shipping/display.php:27 content_business/shipping/display.php:134
@@ -1137,7 +1137,7 @@ msgstr "ساختمان یاس، طبقه دوم"
 #: content/contact/display.php:69 content/investment/display-company-info.php:48
 #: content_a/chap/size-a4/oneSide-buyer.php:58
 #: content_a/chap/size-a4/oneSide-seller.php:49
-#: content_a/order/shippinglabel/display.php:117
+#: content_a/order/shippinglabel/display.php:149
 msgid "Postal Code"
 msgstr "کد پستی"
 
@@ -2208,10 +2208,10 @@ msgstr "رایگان"
 #: content_a/chap/size-a4/oneSide-buyer.php:49
 #: content_a/chap/size-a4/oneSide-seller.php:31
 #: content_a/chap/size-a4/oneSide-seller.php:41
-#: content_a/order/shippinglabel/display.php:97
-#: content_a/order/shippinglabel/display.php:107
-#: content_a/order/shippinglabel/display.php:166
-#: content_a/order/shippinglabel/display.php:178 content_sudo/view.php:144
+#: content_a/order/shippinglabel/display.php:129
+#: content_a/order/shippinglabel/display.php:139
+#: content_a/order/shippinglabel/display.php:198
+#: content_a/order/shippinglabel/display.php:210 content_sudo/view.php:144
 #: dash/app/sort.php:88 includes/languages/trans_static_public.php:35
 msgid ", "
 msgstr "، "
@@ -3218,8 +3218,8 @@ msgstr "کشور"
 #: content_a/accounting/report/quarter/display-detail.php:35
 #: content_a/chap/size-a4/oneSide-buyer.php:41
 #: content_a/chap/size-a4/oneSide-seller.php:33 content_a/form/analytics/pageStep.php:42
-#: content_a/order/shippinglabel/display.php:99
-#: content_a/order/shippinglabel/display.php:169
+#: content_a/order/shippinglabel/display.php:131
+#: content_a/order/shippinglabel/display.php:201
 #: content_a/setting/factor/address/display.php:19
 #: content_a/setting/general/address/display.php:22
 #: content_a/setting/general/display.php:56
@@ -3233,8 +3233,8 @@ msgstr "استان"
 #: content_a/accounting/report/quarter/display-detail.php:37
 #: content_a/chap/size-a4/oneSide-buyer.php:51
 #: content_a/chap/size-a4/oneSide-seller.php:43
-#: content_a/order/shippinglabel/display.php:109
-#: content_a/order/shippinglabel/display.php:181
+#: content_a/order/shippinglabel/display.php:141
+#: content_a/order/shippinglabel/display.php:213
 #: content_a/setting/factor/address/display.php:28
 #: content_a/setting/general/address/display.php:31
 #: content_a/setting/general/display.php:57
@@ -5569,14 +5569,14 @@ msgstr "تبدیل به فاکتور هزینه"
 
 #: content_a/accounting/factor/add/display.php:147
 #: content_a/chap/size-a4/oneSide-buyer.php:8 content_a/chap/size-receipt/receipt.php:38
-#: content_a/order/shippinglabel/display.php:140
+#: content_a/order/shippinglabel/display.php:172
 msgid "Buyer"
 msgstr "خریدار"
 
 #: content_a/accounting/factor/add/display.php:147
 #: content_a/accounting/report/quarter/display-list.php:54
 #: content_a/chap/size-a4/oneSide-seller.php:4
-#: content_a/order/shippinglabel/display.php:67
+#: content_a/order/shippinglabel/display.php:99
 msgid "Seller"
 msgstr "فروشنده"
 
@@ -6254,7 +6254,7 @@ msgstr "کدپستی"
 #: content_a/chap/size-a4/oneSide-buyer.php:87
 #: content_a/chap/size-a4/oneSide-seller.php:74 content_a/order/address/display.php:158
 #: content_a/order/address/display.php:194 content_a/order/detail/display.php:63
-#: content_a/order/shippinglabel/display.php:227
+#: content_a/order/shippinglabel/display.php:259
 #: content_a/setting/factor/address/display.php:42
 #: content_a/setting/general/address/display.php:45
 #: content_a/setting/general/display.php:59 content_a/setting3/home/html/address.php:20
@@ -8204,7 +8204,7 @@ msgstr "شناسه ملی"
 
 #: content_a/chap/size-a4/oneSide-buyer.php:95
 #: content_a/chap/size-a4/oneSide-seller.php:82
-#: content_a/order/shippinglabel/display.php:238
+#: content_a/order/shippinglabel/display.php:270
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:78
 msgid "Fax"
 msgstr "فکس"
@@ -10592,23 +10592,24 @@ msgstr "تاریخ ارسال سفارش"
 msgid "Thist order have not any address!"
 msgstr "این سفارش دارای آدرس ارسال نیست!"
 
-#: content_a/order/shippinglabel/display.php:45
-msgid "Order Number"
+#: content_a/order/shippinglabel/display.php:49
+#: content_business/orders/view/display.php:13
+msgid "Order number"
 msgstr "شماره سفارش"
 
-#: content_a/order/shippinglabel/display.php:52
+#: content_a/order/shippinglabel/display.php:80
 msgid "Order Date"
 msgstr "زمان سفارش"
 
-#: content_a/order/shippinglabel/display.php:67
+#: content_a/order/shippinglabel/display.php:99
 msgid "sender"
 msgstr "فرستنده"
 
-#: content_a/order/shippinglabel/display.php:140
+#: content_a/order/shippinglabel/display.php:172
 msgid "Recipient"
 msgstr "گیرنده"
 
-#: content_a/order/shippinglabel/display.php:215 content_account/address.php:126
+#: content_a/order/shippinglabel/display.php:247 content_account/address.php:126
 #: content_business/orders/view/display.php:33
 msgid "Postal code"
 msgstr "کد پستی"
@@ -10859,6 +10860,7 @@ msgstr "یک پلن انتخاب کنید"
 #: content_love/plan/planDetail.php:18 content_love/store/setting/display.php:32
 #: dash/layout/m2/sidebar.php:621 lib/app/log/caller/plan/plan_cancelPlan.php:16
 #: lib/app/log/caller/plan/plan_cancelPlan.php:41
+#: lib/app/log/caller/plan/plan_expireAlert.php:16
 #: lib/app/log/caller/plan/plan_newPlanActivate.php:16
 #: lib/app/log/caller/plan/plan_newPlanActivate.php:47 lib/app/plan/filter.php:48
 msgid "Plan"
@@ -16379,10 +16381,6 @@ msgstr "این سفارش شما نیست"
 #: content_business/orders/view/controller.php:35 lib/app/factor/edit.php:292
 msgid "Order not found"
 msgstr "سفارش یافت نشد"
-
-#: content_business/orders/view/display.php:13
-msgid "Order number"
-msgstr "شماره سفارش"
 
 #: content_business/orders/view/display.php:47
 msgid "Your tracking number is"
@@ -41318,6 +41316,7 @@ msgstr "نمایش سفارش"
 
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:23
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:83
+#: lib/app/log/caller/plan/plan_expireAlert.php:45
 msgid "Jibres; Sell and enjoy"
 msgstr "جیبرس؛ بفروش و لذت ببر"
 
@@ -41390,6 +41389,18 @@ msgstr "مبلغ بازپرداخت"
 #: lib/app/log/caller/plan/plan_cancelPlan.php:48
 msgid "Include guarantee"
 msgstr "شامل گارانتی"
+
+#: lib/app/log/caller/plan/plan_expireAlert.php:13
+msgid "Plan expiration warning"
+msgstr "هشدار انقضای پلن"
+
+#: lib/app/log/caller/plan/plan_expireAlert.php:39
+msgid "Your current plan at :business Business will expire in :val. "
+msgstr "پلن فعلی شما در بیزینس :business تا :val دیگر منقضی خواهد شد"
+
+#: lib/app/log/caller/plan/plan_expireAlert.php:43
+msgid "Please purchase a new plan"
+msgstr "لطفا نسبت به تهیه پلن جدید اقدام کنید"
 
 #: lib/app/log/caller/plan/plan_newPlanActivate.php:13
 msgid "New plan activated :)"
@@ -42254,6 +42265,14 @@ msgstr "بازه زمانی"
 #: lib/app/plan/filter.php:124
 msgid "Extends"
 msgstr "تمدید"
+
+#: lib/app/plan/planAlert.php:111
+msgid "Three days"
+msgstr "سه روز"
+
+#: lib/app/plan/planAlert.php:115
+msgid "One week"
+msgstr "یک هفته"
 
 #: lib/app/plan/planChoose.php:56
 msgid "Your current plan by new plan is equal!"
@@ -44867,6 +44886,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Order Number"
+#~ msgstr "شماره سفارش"
+
 #~ msgid "Learn about our plan policy"
 #~ msgstr "درباره خط مشی پلن‌های ما بیشتر بدانید"
 
@@ -45445,9 +45467,6 @@ msgstr "یارد"
 
 #~ msgid "Jibres branding was deactive in your website"
 #~ msgstr "نمایش برند جیبرس در وب‌سایت شما غیرفعال شد"
-
-#~ msgid "Please choose a plan"
-#~ msgstr "لطفا پلن را انتخاب کنید"
 
 #~ msgid "Invalid plan"
 #~ msgstr "پلن انتخابی اشتباه است"
