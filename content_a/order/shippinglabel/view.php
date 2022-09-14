@@ -6,7 +6,11 @@ class view
 {
 	public static function config()
 	{
+		\content_a\chap\view::config();
+
 		\content_a\order\view::master_order_view();
+
+		\dash\face::title(T_("Print order lable"));
 
 		$id = \dash\request::get('id');
 		$myFactor = \lib\app\factor\get::full($id);
@@ -23,6 +27,7 @@ class view
 			\dash\data::customer($myFactor['factor']['customer_detail']);
 		}
 
+		\dash\face::btnPrint(true);
 
 	}
 }

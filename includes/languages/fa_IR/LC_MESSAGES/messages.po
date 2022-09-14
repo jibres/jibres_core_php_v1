@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-13 16:57+0430\n"
-"PO-Revision-Date: 2022-09-13 17:01+0430\n"
+"POT-Creation-Date: 2022-09-14 11:44+0430\n"
+"PO-Revision-Date: 2022-09-14 11:46+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1053,7 +1053,7 @@ msgstr "نام کامل"
 #: content_a/chap/size-receipt/receipt.php:107 content_a/order/address/display.php:25
 #: content_a/order/address/display.php:57 content_a/order/address/display.php:151
 #: content_a/order/address/display.php:201 content_a/order/detail/display.php:60
-#: content_a/order/shippinglabel/display.php:83 content_a/sale/display.php:70
+#: content_a/order/shippinglabel/display.php:203 content_a/sale/display.php:70
 #: content_account/address.php:49 content_account/address.php:142
 #: content_account/my/home/display.php:43 content_business/orders/view/display.php:40
 #: content_business/shipping/display.php:27 content_business/shipping/display.php:134
@@ -1137,6 +1137,7 @@ msgstr "ساختمان یاس، طبقه دوم"
 #: content/contact/display.php:69 content/investment/display-company-info.php:48
 #: content_a/chap/size-a4/oneSide-buyer.php:58
 #: content_a/chap/size-a4/oneSide-seller.php:49
+#: content_a/order/shippinglabel/display.php:117
 msgid "Postal Code"
 msgstr "کد پستی"
 
@@ -1484,7 +1485,7 @@ msgid "Transfer Now"
 msgstr "همین الان منتقل کن"
 
 #: content/domains/home/domain-topBox.php:30 content/domains/pricing/display.php:53
-#: content_a/plan/home/display.php:75 content_love/domain/home/display.php:245
+#: content_a/plan/home/display.php:72 content_love/domain/home/display.php:245
 #: content_my/domain/setting/elements/detail.php:51
 msgid "Renew"
 msgstr "تمدید"
@@ -2207,8 +2208,10 @@ msgstr "رایگان"
 #: content_a/chap/size-a4/oneSide-buyer.php:49
 #: content_a/chap/size-a4/oneSide-seller.php:31
 #: content_a/chap/size-a4/oneSide-seller.php:41
-#: content_a/order/shippinglabel/display.php:46
-#: content_a/order/shippinglabel/display.php:58 content_sudo/view.php:144
+#: content_a/order/shippinglabel/display.php:97
+#: content_a/order/shippinglabel/display.php:107
+#: content_a/order/shippinglabel/display.php:166
+#: content_a/order/shippinglabel/display.php:178 content_sudo/view.php:144
 #: dash/app/sort.php:88 includes/languages/trans_static_public.php:35
 msgid ", "
 msgstr "، "
@@ -3215,7 +3218,8 @@ msgstr "کشور"
 #: content_a/accounting/report/quarter/display-detail.php:35
 #: content_a/chap/size-a4/oneSide-buyer.php:41
 #: content_a/chap/size-a4/oneSide-seller.php:33 content_a/form/analytics/pageStep.php:42
-#: content_a/order/shippinglabel/display.php:49
+#: content_a/order/shippinglabel/display.php:99
+#: content_a/order/shippinglabel/display.php:169
 #: content_a/setting/factor/address/display.php:19
 #: content_a/setting/general/address/display.php:22
 #: content_a/setting/general/display.php:56
@@ -3229,14 +3233,15 @@ msgstr "استان"
 #: content_a/accounting/report/quarter/display-detail.php:37
 #: content_a/chap/size-a4/oneSide-buyer.php:51
 #: content_a/chap/size-a4/oneSide-seller.php:43
-#: content_a/order/shippinglabel/display.php:61
+#: content_a/order/shippinglabel/display.php:109
+#: content_a/order/shippinglabel/display.php:181
 #: content_a/setting/factor/address/display.php:28
 #: content_a/setting/general/address/display.php:31
 #: content_a/setting/general/display.php:57
 #: content_a/setting3/home/section/general.php:127
 #: content_business/shipping/display.php:162 content_my/domain/irnic/add/display.php:72
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:49 dash/utility/location.php:181
-#: lib/app/form/answer/add.php:407
+#: lib/app/form/answer/add.php:410
 msgid "City"
 msgstr "شهر"
 
@@ -4250,7 +4255,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/form/answer/item/view.php:12 content_a/form/answer/note/view.php:12
 #: content_a/form/answer/view.php:13 content_a/form/condition/view.php:16
 #: content_a/form/duplicate/view.php:14 content_a/form/edit/view.php:13
-#: content_a/form/find/print/view.php:13 content_a/form/find/view.php:15
+#: content_a/form/find/print/view.php:13 content_a/form/find/view.php:13
 #: content_a/form/home/view.php:12 content_a/form/inquiry/view.php:12
 #: content_a/form/item/add/view.php:12 content_a/form/item/choice/view.php:12
 #: content_a/form/item/duplicatelist/view.php:12 content_a/form/item/type/view.php:12
@@ -5564,12 +5569,14 @@ msgstr "تبدیل به فاکتور هزینه"
 
 #: content_a/accounting/factor/add/display.php:147
 #: content_a/chap/size-a4/oneSide-buyer.php:8 content_a/chap/size-receipt/receipt.php:38
+#: content_a/order/shippinglabel/display.php:140
 msgid "Buyer"
 msgstr "خریدار"
 
 #: content_a/accounting/factor/add/display.php:147
 #: content_a/accounting/report/quarter/display-list.php:54
 #: content_a/chap/size-a4/oneSide-seller.php:4
+#: content_a/order/shippinglabel/display.php:67
 msgid "Seller"
 msgstr "فروشنده"
 
@@ -5779,7 +5786,8 @@ msgstr "انتخاب قالب"
 #: content_a/form/answer/display.php:7 content_a/form/answer/export/display.php:48
 #: content_a/form/status/display.php:103 content_a/pricehistory/display.php:36
 #: content_a/report/sale/display.php:94 content_love/plan/planDetail.php:29
-#: lib/app/plan/planFactor.php:69 lib/app/product/report/sale_date.php:113
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:49 lib/app/plan/planFactor.php:69
+#: lib/app/product/report/sale_date.php:113
 msgid "Start date"
 msgstr "تاریخ شروع"
 
@@ -6246,7 +6254,7 @@ msgstr "کدپستی"
 #: content_a/chap/size-a4/oneSide-buyer.php:87
 #: content_a/chap/size-a4/oneSide-seller.php:74 content_a/order/address/display.php:158
 #: content_a/order/address/display.php:194 content_a/order/detail/display.php:63
-#: content_a/order/shippinglabel/display.php:107
+#: content_a/order/shippinglabel/display.php:227
 #: content_a/setting/factor/address/display.php:42
 #: content_a/setting/general/address/display.php:45
 #: content_a/setting/general/display.php:59 content_a/setting3/home/html/address.php:20
@@ -7476,8 +7484,8 @@ msgstr "ورودی باید به صورت آرایه باشد"
 #: dash/app/permission/edit.php:229 dash/app/portfolio.php:389
 #: lib/app/category/edit.php:93 lib/app/category/edit.php:166
 #: lib/app/form/answer/edit.php:95 lib/app/form/comment/edit.php:55
-#: lib/app/form/item/edit.php:262 lib/app/plan/planEdit.php:18
-#: lib/app/product/property.php:746 lib/app/setting/policy_page.php:35
+#: lib/app/form/item/edit.php:262 lib/app/product/property.php:746
+#: lib/app/setting/policy_page.php:35
 msgid "Saved"
 msgstr "ذخیره شد"
 
@@ -8196,7 +8204,7 @@ msgstr "شناسه ملی"
 
 #: content_a/chap/size-a4/oneSide-buyer.php:95
 #: content_a/chap/size-a4/oneSide-seller.php:82
-#: content_a/order/shippinglabel/display.php:118
+#: content_a/order/shippinglabel/display.php:238
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:78
 msgid "Fax"
 msgstr "فکس"
@@ -8256,11 +8264,11 @@ msgstr "تاریخ چاپ"
 #: content_site/assemble/wrench/price.php:32 content_site/assemble/wrench/price.php:52
 #: lib/app/form/item/type.php:557 lib/app/form/item/type.php:576
 #: lib/app/form/item/type.php:592 lib/app/log/caller/business/business_plugin.php:81
-#: lib/app/order/filter.php:99 lib/app/order/filter.php:100 lib/app/order/filter.php:101
-#: lib/app/order/filter.php:102 lib/app/order/filter.php:103
-#: lib/app/product/filter.php:193 lib/app/product/filter.php:202
-#: lib/app/product/property.php:249 lib/app/product/site_list.php:217
-#: lib/app/product/updateprice.php:125
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:61 lib/app/order/filter.php:99
+#: lib/app/order/filter.php:100 lib/app/order/filter.php:101 lib/app/order/filter.php:102
+#: lib/app/order/filter.php:103 lib/app/product/filter.php:193
+#: lib/app/product/filter.php:202 lib/app/product/property.php:249
+#: lib/app/product/site_list.php:217 lib/app/product/updateprice.php:125
 msgid "Price"
 msgstr "قیمت"
 
@@ -8803,8 +8811,8 @@ msgstr "نمودار شامل شده‌ها"
 #: content_love/business/domain/log/display.php:12
 #: content_love/domain/billing/display.php:90 content_love/plan/datalist/display.php:7
 #: content_love/plugin/history/display.php:10 content_sudo/smsclient/home/display.php:19
-#: lib/app/plan/filter.php:97 lib/app/plan/filter.php:110 lib/app/plan/filter.php:123
-#: lib/app/plan/filter.php:135
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:53 lib/app/plan/filter.php:97
+#: lib/app/plan/filter.php:110 lib/app/plan/filter.php:123 lib/app/plan/filter.php:135
 msgid "Action"
 msgstr "عملیات"
 
@@ -9365,7 +9373,7 @@ msgstr "ویرایش فرم تماس"
 msgid "No result found"
 msgstr "نتیجه‌ای یافت نشد"
 
-#: content_a/form/find/print/display-functions.php:40 content_a/plan/cancel/display.php:56
+#: content_a/form/find/print/display-functions.php:54 content_a/plan/cancel/display.php:56
 #: content_a/plan/set/display.php:101 content_a/plan/set/display.php:109
 #: content_a/plan/set/display.php:128 content_a/plan/set/display.php:147
 #: content_a/plan/set/display.php:157 content_love/plan/detail/display.php:37
@@ -9383,7 +9391,7 @@ msgstr "هدیه"
 msgid "Print Result"
 msgstr "چاپ نتایج"
 
-#: content_a/form/find/view.php:12
+#: content_a/form/find/view.php:10
 msgid "Find answer and print"
 msgstr "جستجوی پاسخ و چاپ آن"
 
@@ -10584,14 +10592,30 @@ msgstr "تاریخ ارسال سفارش"
 msgid "Thist order have not any address!"
 msgstr "این سفارش دارای آدرس ارسال نیست!"
 
-#: content_a/order/shippinglabel/display.php:20
+#: content_a/order/shippinglabel/display.php:45
 msgid "Order Number"
 msgstr "شماره سفارش"
 
-#: content_a/order/shippinglabel/display.php:95 content_account/address.php:126
+#: content_a/order/shippinglabel/display.php:52
+msgid "Order Date"
+msgstr "زمان سفارش"
+
+#: content_a/order/shippinglabel/display.php:67
+msgid "sender"
+msgstr "فرستنده"
+
+#: content_a/order/shippinglabel/display.php:140
+msgid "Recipient"
+msgstr "گیرنده"
+
+#: content_a/order/shippinglabel/display.php:215 content_account/address.php:126
 #: content_business/orders/view/display.php:33
 msgid "Postal code"
 msgstr "کد پستی"
+
+#: content_a/order/shippinglabel/view.php:13
+msgid "Print order lable"
+msgstr "چاپ برچسب سفارش"
 
 #: content_a/order/status/display.php:18
 msgid "Change Order status"
@@ -10785,7 +10809,7 @@ msgstr "پلن یافت نشد"
 msgid "Only owner of business can cancel plan"
 msgstr "تنها مالک بیزینس می‌تواند پلن را لغو کند"
 
-#: content_a/plan/cancel/controller.php:25 lib/app/plan/storePlan.php:319
+#: content_a/plan/cancel/controller.php:25 lib/app/plan/storePlan.php:326
 msgid "Can not cancel this plan"
 msgstr "نمی‌توانید این پلن را لغو کنید"
 
@@ -10793,7 +10817,7 @@ msgstr "نمی‌توانید این پلن را لغو کنید"
 msgid "Refund money and cancel plan"
 msgstr "بازپرداخت هزینه و لغو پلن"
 
-#: content_a/plan/cancel/view.php:13 content_a/plan/home/display.php:81
+#: content_a/plan/cancel/view.php:13 content_a/plan/home/display.php:78
 #: content_love/plan/detail/display.php:20 content_love/plan/detail/display.php:64
 #: lib/app/plan/planFactor.php:154
 msgid "Cancel plan"
@@ -10833,7 +10857,10 @@ msgstr "یک پلن انتخاب کنید"
 #: content_a/plan/home/view.php:11 content_a/plan/transactions/view.php:13
 #: content_love/plan/datalist/display.php:7 content_love/plan/datalist/view.php:13
 #: content_love/plan/planDetail.php:18 content_love/store/setting/display.php:32
-#: dash/layout/m2/sidebar.php:621 lib/app/plan/filter.php:48
+#: dash/layout/m2/sidebar.php:621 lib/app/log/caller/plan/plan_cancelPlan.php:16
+#: lib/app/log/caller/plan/plan_cancelPlan.php:41
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:16
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:47 lib/app/plan/filter.php:48
 msgid "Plan"
 msgstr "پلن"
 
@@ -10862,16 +10889,12 @@ msgstr "پلن خود را برای استفاده از امکانات بیشت�
 msgid ":val days  Remain"
 msgstr ":val روز باقیمانده"
 
-#: content_a/plan/home/display.php:69
-msgid "Learn about our plan policy"
-msgstr "درباره خط مشی پلن‌های ما بیشتر بدانید"
-
-#: content_a/plan/home/display.php:87 content_love/email/view.php:14
+#: content_a/plan/home/display.php:84 content_love/email/view.php:14
 #: content_love/plugin/home/display.php:25
 msgid "History"
 msgstr "تاریخچه"
 
-#: content_a/plan/home/display.php:90 content_crm/member/transactions/view.php:20
+#: content_a/plan/home/display.php:87 content_crm/member/transactions/view.php:20
 #: content_crm/transactions/view.php:8 dash/layout/m2/sidebar.php:232
 msgid "Transactions"
 msgstr "تراکنش‌ها"
@@ -20772,6 +20795,8 @@ msgstr "کاربران بیزینس"
 #: lib/app/log/caller/business/business_creatingNew.php:19
 #: lib/app/log/caller/business/business_plugin.php:63
 #: lib/app/log/caller/business/business_plugin.php:76
+#: lib/app/log/caller/plan/plan_cancelPlan.php:37
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:43
 msgid "Business"
 msgstr "بیزینس"
 
@@ -20954,8 +20979,7 @@ msgid "Store_id"
 msgstr "شناسه فروشگاه"
 
 #: content_love/business/userstore/display.php:11 includes/languages/trans_static.php:76
-#: lib/app/plan/feature/staff.php:27 lib/app/plan/feature/staff.php:33
-#: lib/app/store/analytics.php:28
+#: lib/app/plan/feature/staff.php:33 lib/app/store/analytics.php:28
 msgid "Staff"
 msgstr "کارمند"
 
@@ -20990,6 +21014,7 @@ msgstr "رخدادهای دامنه"
 #: content_love/gift/view/display.php:21 content_love/plan/datalist/display.php:44
 #: content_love/plugin/edit/display.php:14 content_love/plugin/history/display.php:14
 #: content_love/plugin/manage/display.php:12 content_my/domain/predict/display.php:37
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:51
 msgid "Expire date"
 msgstr "تاریخ انقضا"
 
@@ -20999,7 +21024,8 @@ msgstr "تاریخ ایجاد"
 
 #: content_love/domain/billing/display.php:91 content_love/plan/add/display.php:72
 #: content_love/plan/datalist/display.php:9 content_my/domain/history/display.php:10
-#: content_my/domain/setting/action/display.php:14 lib/app/plan/planFactor.php:73
+#: content_my/domain/setting/action/display.php:14
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:55 lib/app/plan/planFactor.php:73
 #: lib/app/plan/planFactor.php:77
 msgid "Period"
 msgstr "بازه زمانی"
@@ -40191,66 +40217,66 @@ msgstr "ساعت شروع باید قبل از ساعت پایان باشد!"
 msgid "Conflict time in :weekday"
 msgstr "در روز :weekday تداخل ساعت وجود دارد"
 
-#: lib/app/form/answer/add.php:63
+#: lib/app/form/answer/add.php:64
 msgid ""
 "The answer limit of this form is full. You can not add your answer. Plese contacto to "
 "administrator"
 msgstr ""
 "ظرفیت پاسخ به این فرم تکمیل شده است. شما نمی‌توانید پاسخ خود را به این فرم اضافه کنید"
 
-#: lib/app/form/answer/add.php:112
+#: lib/app/form/answer/add.php:115
 msgid "Invalid type of item"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:199 lib/app/form/answer/add.php:407
+#: lib/app/form/answer/add.php:202 lib/app/form/answer/add.php:410
 msgid ":val is required"
 msgstr ":val الزامی است"
 
-#: lib/app/form/answer/add.php:330
+#: lib/app/form/answer/add.php:333
 msgid "You must select at least :min options"
 msgstr "شما باید حداقل :min گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:339
+#: lib/app/form/answer/add.php:342
 msgid "You can choose up to :max options"
 msgstr "شما می‌توانید حداکثر :max گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:358 lib/app/form/answer/add.php:370
+#: lib/app/form/answer/add.php:361 lib/app/form/answer/add.php:373
 msgid "Your date is not in allowd range"
 msgstr "تاریخ وارد شده در محدوده مجاز نیست"
 
-#: lib/app/form/answer/add.php:585
+#: lib/app/form/answer/add.php:588
 msgid "Invalid item type"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:609 lib/app/form/answer/add.php:620
+#: lib/app/form/answer/add.php:612 lib/app/form/answer/add.php:623
 msgid "You are answer to this form before"
 msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 
-#: lib/app/form/answer/add.php:640
+#: lib/app/form/answer/add.php:643
 msgid "Please fill the required field"
 msgstr "لطفا موارد الزامی را تکمیل کنید"
 
-#: lib/app/form/answer/add.php:859
+#: lib/app/form/answer/add.php:863
 msgid "Can not save your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ذخیره کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:879
+#: lib/app/form/answer/add.php:883
 msgid "Can not edit your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ویرایش کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:885
+#: lib/app/form/answer/add.php:889
 msgid "Answer update successfull"
 msgstr "بروزرسانی پاسخ با موفقیت انجام شد"
 
-#: lib/app/form/answer/add.php:927
+#: lib/app/form/answer/add.php:931
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
-#: lib/app/form/answer/add.php:933
+#: lib/app/form/answer/add.php:937
 msgid "No answer received"
 msgstr "هیچ پاسخی دریافت نشد"
 
-#: lib/app/form/answer/add.php:972
+#: lib/app/form/answer/add.php:973
 msgid "Pay for form :val"
 msgstr "پرداخت برای فرم :val"
 
@@ -41353,6 +41379,31 @@ msgstr "کد رهگیری سفارش شما"
 msgid "By opening the following link, you can track the status of sending your order"
 msgstr "با بازکردن لینک زیر می‌تونید وضعیت ارسال سفارش خودتون رو رهگیری کنید"
 
+#: lib/app/log/caller/plan/plan_cancelPlan.php:13
+msgid "Plan canceled :("
+msgstr "پلن لغو شد :("
+
+#: lib/app/log/caller/plan/plan_cancelPlan.php:43
+msgid "Refund price"
+msgstr "مبلغ بازپرداخت"
+
+#: lib/app/log/caller/plan/plan_cancelPlan.php:48
+msgid "Include guarantee"
+msgstr "شامل گارانتی"
+
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:13
+msgid "New plan activated :)"
+msgstr "پلن جدید فعال شد :)"
+
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:57 lib/app/plan/filter.php:172
+#: lib/app/plan/filter.php:185
+msgid "Set by"
+msgstr "تنظیم شده توسط"
+
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:59
+msgid "Plan day"
+msgstr "روز‌های پلن"
+
 #: lib/app/log/caller/sms/sms_lowcharge.php:16 lib/app/log/caller/sms/sms_lowcharge.php:40
 #: lib/app/log/caller/sms/sms_lowcharge.php:108
 msgid "Your SMS package is running out"
@@ -42168,6 +42219,10 @@ msgstr "حذف نشان تجاری جیبرس"
 msgid "SMS Cost"
 msgstr "هزینه هر پیامک"
 
+#: lib/app/plan/feature/staff.php:27
+msgid "Staff count"
+msgstr "تعداد کارمندان"
+
 #: lib/app/plan/feature/totalStorage.php:27
 msgid "Total storage"
 msgstr "حجم فضای ذخیره سازی"
@@ -42199,10 +42254,6 @@ msgstr "بازه زمانی"
 #: lib/app/plan/filter.php:124
 msgid "Extends"
 msgstr "تمدید"
-
-#: lib/app/plan/filter.php:172 lib/app/plan/filter.php:185
-msgid "Set by"
-msgstr "تنظیم شده توسط"
 
 #: lib/app/plan/planChoose.php:56
 msgid "Your current plan by new plan is equal!"
@@ -42285,8 +42336,8 @@ msgstr "مبلغ مصرف شده"
 msgid "Activate plan :val"
 msgstr "فعال سازی پلن :val"
 
-#: lib/app/plan/planSet.php:118 lib/app/plan/storePlan.php:22
-#: lib/app/plan/storePlan.php:210
+#: lib/app/plan/planSet.php:123 lib/app/plan/storePlan.php:22
+#: lib/app/plan/storePlan.php:209
 msgid "Can not choose this plan"
 msgstr "نمی‌توانید این پلن را انتخاب کنید"
 
@@ -42314,11 +42365,11 @@ msgstr "خدیجه"
 msgid "Field"
 msgstr "فیلد"
 
-#: lib/app/plan/storePlan.php:247
+#: lib/app/plan/storePlan.php:246
 msgid "Activate plan :plan ( :period ) "
 msgstr "فعال سازی پلن :plan ( :period )"
 
-#: lib/app/plan/storePlan.php:329
+#: lib/app/plan/storePlan.php:336
 msgid "Refund plan :plan "
 msgstr "بازپرداخت پلن :plan"
 
@@ -44816,6 +44867,9 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Learn about our plan policy"
+#~ msgstr "درباره خط مشی پلن‌های ما بیشتر بدانید"
+
 #~ msgid "Free plan"
 #~ msgstr "پلن رایگان"
 
@@ -44851,9 +44905,6 @@ msgstr "یارد"
 
 #~ msgid "Basic reports"
 #~ msgstr "گزارش‌های پایه"
-
-#~ msgid "Staff account"
-#~ msgstr "حساب‌کاربری کارمند"
 
 #~ msgid "Online website"
 #~ msgstr "وب‌سایت فروشگاه آنلاین"
