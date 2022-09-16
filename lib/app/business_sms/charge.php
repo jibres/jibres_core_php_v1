@@ -192,10 +192,10 @@ class charge
 			return false;
 		}
 
-		$amountRound = round($amount, -4);
+		$amountRound = round($amount, -3, PHP_ROUND_HALF_DOWN);
 		if($amount != $amountRound)
 		{
-			\dash\notif::warn(T_("Your amount change to :val", ['val' => \dash\fit::number($amountRound)]));
+			\dash\notif::warn(T_("Your amount changed to :val", ['val' => \dash\fit::number($amountRound)]));
 
 		}
 
