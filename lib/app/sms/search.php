@@ -204,7 +204,7 @@ class search
 		{
 			$and[]              = " sms.store_id = :store_id";
 			$param[':store_id'] = $data['store_id'];
-			self::$is_filtered = true;
+			self::$is_filtered  = true;
 		}
 
 		if($data['mobile'])
@@ -235,7 +235,7 @@ class search
 			}
 			else
 			{
-				$and[] = " sms.status = :status ";
+				$and[]            = " sms.status = :status ";
 				$param[':status'] = $data['status'];
 			}
 			self::$is_filtered = true;
@@ -248,12 +248,12 @@ class search
 			$mobile = \dash\validate::mobile($query_string, false);
 			if($mobile)
 			{
-				$or[] = " sms.mobile = :search_mobile ";
+				$or[]                    = " sms.mobile = :search_mobile ";
 				$param[':search_mobile'] = $mobile;
 			}
 			else
 			{
-				$or[] = " sms.mobile LIKE :q1 ";
+				$or[]         = " sms.mobile LIKE :q1 ";
 				$param[':q1'] = "%$query_string%";
 			}
 			self::$is_filtered = true;

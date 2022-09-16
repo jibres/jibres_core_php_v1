@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\jibres\business_sms;
+namespace content_r10\jibres\sms_charge;
 
 
 class view
@@ -14,7 +14,7 @@ class view
 
 				'budget'     => \dash\user::budget(),
 				'currency'   => \lib\currency::unit(),
-				'charge' => \lib\app\business_sms\charge::getBalance($business_id),
+				'charge' => \lib\app\sms_charge\charge::getBalance($business_id),
 			];
 
 		\content_r10\tools::say($result);

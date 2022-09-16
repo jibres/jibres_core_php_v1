@@ -226,15 +226,15 @@ class api
 	}
 
 
-	public static function business_sms_detail()
+	public static function sms_charge_detail()
 	{
-		$result = self::run('business_sms', 'get');
+		$result = self::run('sms_charge', 'get');
 		return $result;
 	}
 
-	public static function business_sms_charge($_args)
+	public static function sms_charge_charge($_args)
 	{
-		$result = self::run('business_sms', 'post',  [] , $_args);
+		$result = self::run('sms_charge', 'post',  [] , $_args);
 		return $result;
 	}
 

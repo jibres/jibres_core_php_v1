@@ -15,7 +15,7 @@ class model
 			];
 
 
-		\lib\app\business_sms\charge::newPay($args);
+		\lib\app\sms_charge\charge::newPay($args);
 
 		if(\dash\engine\process::status())
 		{

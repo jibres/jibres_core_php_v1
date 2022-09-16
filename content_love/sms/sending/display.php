@@ -1,41 +1,31 @@
-
-
-  <div class="cbox fs12">
-  <form method="get" action='<?php echo \dash\url::this(); ?>' >
-
-    <div class="input">
-      <input type="search" name="q" placeholder='<?php echo T_("Search"); ?>' id="q" value="<?php echo \dash\validate::search_string(); ?>" <?php \dash\layout\autofocus::html() ?> autocomplete='off'>
-
-      <button class="addon btn "><?php echo T_("Search"); ?></button>
-    </div>
-  </form>
+<div class="alert-info  text-center">
+    <?php echo T_("Most of the time this list is empty, Because the sms must be send in that time by cronjob every 1 second"); ?>
 </div>
-
-<table class="tbl1 v1 fs12 selectable">
-  <thead>
+<table class="tbl1 v3 fs12 selectable">
+    <thead>
     <tr>
-      <th class="collapsing"><?php echo T_("ID"); ?></th>
-      <th class="collapsing"><?php echo T_("SMS ID"); ?></th>
-      <th class=""><?php echo T_("Status"); ?></th>
-      <th class="collapsing"><?php echo T_("datecreated"); ?></th>
-      <th class="collapsing"><?php echo T_("datemodified"); ?></th>
-
+        <th class=""><?php echo T_("ID"); ?></th>
+        <th class=""><?php echo T_("SMS ID"); ?></th>
+        <th class=""><?php echo T_("Status"); ?></th>
+        <th class=""><?php echo T_("datecreated"); ?></th>
+        <th></th>
     </tr>
-  </thead>
-  <tbody>
-    <?php foreach (\dash\data::dataTable() as $key => $value) {?>
-
-    <tr>
-      <td><?php echo $value['id']; ?></td>
-      <td><?php echo $value['sms_id']; ?></td>
-      <td><?php echo $value['status']; ?></td>
-      <td><?php echo $value['datecreated']; ?></td>
-      <td><?php echo $value['datemodified']; ?></td>
-
-    </tr>
-
-    <?php } //endfor ?>
-  </tbody>
+    </thead>
+    <tbody>
+	<?php foreach (\dash\data::dataTable() as $key => $value) { ?>
+        <tr>
+            <td><code>#<?php echo $value['id']; ?></code></td>
+            <td>
+                <a class="text-blue-400" href="<?php echo \dash\url::this() . '/view?id=' . $value['sms_id'] ?>">
+                    <code>#<?php echo $value['sms_id']; ?></code>
+                </a>
+            </td>
+            <td><?php echo T_(ucfirst(strval($value['status']))); ?></td>
+            <td><?php echo \dash\fit::date_time($value['datecreated']); ?></td>
+            <td><?php echo \dash\fit::date_human($value['datecreated']); ?></td>
+        </tr>
+	<?php } //endfor ?>
+    </tbody>
 </table>
 
 <?php \dash\utility\pagination::html(); ?>

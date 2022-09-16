@@ -1,13 +1,13 @@
 <?php
 
-namespace lib\app\business_sms;
+namespace lib\app\sms_charge;
 
 class charge
 {
 
 	public static function getDetail()
 	{
-		$detail = \lib\api\jibres\api::business_sms_detail();
+		$detail = \lib\api\jibres\api::sms_charge_detail();
 
 		if(isset($detail['result']))
 		{
@@ -32,7 +32,7 @@ class charge
 		}
 		$data['amount'] = $amount;
 
-		$detail = \lib\api\jibres\api::business_sms_charge($data);
+		$detail = \lib\api\jibres\api::sms_charge_charge($data);
 
 		if(isset($detail['result']['payLink']) && $detail['result']['payLink'])
 		{
@@ -118,7 +118,7 @@ class charge
 					'turn_back'     => $turnBack,
 					'user_id'       => $userId,
 					'amount'        => $amount,
-					'final_fn'      => ['/lib/app/business_sms/charge', 'after_pay'],
+					'final_fn'      => ['/lib/app/sms_charge/charge', 'after_pay'],
 					'final_fn_args' => $fn_args,
 
 

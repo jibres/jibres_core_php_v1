@@ -197,7 +197,7 @@ class queue
 
 		$add_sending_record = false;
 
-		$chargingMode = \lib\app\business_sms\charge::isChargingMode();
+		$chargingMode = \lib\app\sms_charge\charge::isChargingMode();
 
 		$jibres_sms =
 			[
@@ -233,7 +233,7 @@ class queue
 		{
 			if($chargingMode)
 			{
-				$add_sending_record = \lib\app\business_sms\charge::checkBusinessChargeOnSendingSMS($jibres_sms);
+				$add_sending_record = \lib\app\sms_charge\charge::checkBusinessChargeOnSendingSMS($jibres_sms);
 			}
 			else
 			{

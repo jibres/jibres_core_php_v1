@@ -17,7 +17,7 @@ class view
 		\dash\data::global_scriptPage("my_domain_review.js");
 
 
-		$smsDeail = \lib\app\business_sms\charge::getDetail();
+		$smsDeail = \lib\app\sms_charge\charge::getDetail();
 
 		\dash\data::smsChargeDetail($smsDeail);
 

@@ -1,5 +1,5 @@
 <?php
-namespace content_r10\jibres\business_sms;
+namespace content_r10\jibres\sms_charge;
 
 
 class model
@@ -19,7 +19,7 @@ class model
 
 			];
 
-		$result = \lib\app\business_sms\charge::pay($business_id, $args);
+		$result = \lib\app\sms_charge\charge::pay($business_id, $args);
 
 		\content_r10\tools::say($result);
 
