@@ -73,7 +73,7 @@
         <a class="bg-white block m-2 text-2xl" href='<?php echo \dash\url::this(); ?>/sms'>
             <div class="statistic blue">
                 <div class="value"><i class="text-3xl sf-envelope"></i></div>
-                <div class="label"><?php echo T_("Sms Log"); ?></div>
+                <div class="label"><?php echo T_("Sms"); ?></div>
             </div>
         </a>
     </div>
