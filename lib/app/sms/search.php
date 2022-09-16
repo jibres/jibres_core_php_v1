@@ -29,7 +29,7 @@ class search
 				// 'type'      => ['enum' => []],
 				'mobile'       => 'mobile',
 				'conversation' => 'bit',
-				'notsend'    => 'bit',
+				'notsend'      => 'bit',
 			];
 
 
@@ -166,17 +166,19 @@ class search
 	{
 		$condition =
 			[
-				'order'    => 'order',
-				'sort'     => 'string_100',
-				'store_id' => 'id',
-				'status'   => [
+				'order'          => 'order',
+				'sort'           => filter::sort_enum(),
+				'calculate_cost' => 'y_n',
+				'store_id'       => 'id',
+				'status'         => [
 					'enum' => [
-						'pending', 'sending', 'send', 'delivered', 'queue', 'failed', 'undelivered', 'cancel', 'block',
+						'pending', 'moneylow', 'sending', 'send', 'delivered', 'queue', 'failed', 'undelivered',
+						'cancel', 'block',
 						'other',
 					],
 				],
 				// 'type'      => ['enum' => []],
-				'mobile'   => 'mobile',
+				'mobile'         => 'mobile',
 			];
 
 
@@ -189,6 +191,7 @@ class search
 		$and          = [];
 		$meta         = [];
 		$or           = [];
+		$param        = [];
 		$meta['join'] = [];
 
 		$meta['limit'] = 20;
@@ -199,12 +202,26 @@ class search
 
 		if($data['store_id'])
 		{
-			$and[] = " sms.store_id = $data[store_id] ";
+			$and[]              = " sms.store_id = :store_id";
+			$param[':store_id'] = $data['store_id'];
 		}
 
 		if($data['mobile'])
 		{
-			$and[]             = " sms.mobile = '$data[mobile]' ";
+			$and[]             = " sms.mobile = :mobile ";
+			$param[':mobile']  = $data['mobile'];
+			self::$is_filtered = true;
+		}
+
+
+		if($data['calculate_cost'] === 'y')
+		{
+			$and[]             = " sms.calculate_cost = 1 ";
+			self::$is_filtered = true;
+		}
+		elseif($data['calculate_cost'] === 'n')
+		{
+			$and[]             = " sms.calculate_cost IS NULL ";
 			self::$is_filtered = true;
 		}
 
@@ -217,7 +234,8 @@ class search
 			}
 			else
 			{
-				$and[] = " sms.status = '$data[status]' ";
+				$and[] = " sms.status = :status ";
+				$param[':status'] = $data['status'];
 			}
 			self::$is_filtered = true;
 		}
@@ -229,11 +247,13 @@ class search
 			$mobile = \dash\validate::mobile($query_string, false);
 			if($mobile)
 			{
-				$or[] = " sms.mobile = '$mobile'";
+				$or[] = " sms.mobile = :search_mobile ";
+				$param[':search_mobile'] = $mobile;
 			}
 			else
 			{
-				$or[] = " sms.mobile LIKE '%$query_string%'";
+				$or[] = " sms.mobile LIKE :q1 ";
+				$param[':q1'] = "%$query_string%";
 			}
 			self::$is_filtered = true;
 		}
@@ -252,7 +272,7 @@ class search
 			$order_sort = " ORDER BY sms.id DESC";
 		}
 
-		$list = \lib\db\sms\search::list($and, $or, $order_sort, $meta);
+		$list = \lib\db\sms\search::list($param, $and, $or, $order_sort, $meta);
 
 
 		if(!is_array($list))

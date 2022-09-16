@@ -57,3 +57,36 @@
         </a>
     </div>
 </section>
+
+
+<section class="f">
+    <div class="c pRa10">
+        <a href="<?php echo \dash\url::current() ?>" class="stat">
+            <h3><?php echo T_("Current Jibres SMS Panel Charge"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(rand()); ?></div>
+        </a>
+    </div>
+    <div class="c pRa10">
+        <a href="<?php echo \dash\url::current() ?>" class="stat">
+            <h3><?php echo T_("Current Business SMS Panel Charge"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(rand()); ?></div>
+        </a>
+    </div>
+</section>
+
+
+All sms group by status
+<section class="f">
+    <div class="c pRa10">
+        <a href="<?php echo \dash\url::current() ?>" class="stat">
+            <h3><?php echo T_("Sending"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(rand()); ?></div>
+        </a>
+    </div>
+    <div class="c pRa10">
+        <a href="<?php echo \dash\url::current() ?>" class="stat">
+            <h3><?php echo T_("Current Business SMS Panel Charge"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(rand()); ?></div>
+        </a>
+    </div>
+</section>

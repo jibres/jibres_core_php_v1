@@ -25,6 +25,8 @@ class view
 		[
 			'order'  => \dash\request::get('order'),
 			'sort'   => \dash\request::get('sort'),
+			'status' => \dash\request::get('status'),
+			'calculate_cost' => \dash\request::get('calculate_cost'),
 
 		];
 
