@@ -22,6 +22,16 @@ class charge
 	{
 		$data = self::checkArgs($_args);
 
+		$amount = $data['amount'];
+
+		$amount = self::checkAmount($amount);
+
+		if(!$amount)
+		{
+			return false;
+		}
+		$data['amount'] = $amount;
+
 		$detail = \lib\api\jibres\api::business_sms_charge($data);
 
 		if(isset($detail['result']['payLink']) && $detail['result']['payLink'])
@@ -34,6 +44,8 @@ class charge
 		}
 
 	}
+
+
 
 
 	private static function checkArgs(array $_args)
@@ -151,6 +163,45 @@ class charge
 		$args['transaction_id'] = a($_transaction_detail, 'id');
 
 
+	}
+
+
+	private static function checkAmount($_amount)
+	{
+		if(!$_amount || !is_numeric($_amount))
+		{
+			\dash\notif::error(T_("Amount is required"));
+			return false;
+		}
+
+		$amount = intval($_amount);
+
+
+		$minimum = 50000;
+		$maximum = 5000000;
+
+		if($amount < $minimum)
+		{
+			\dash\notif::error(T_("The minimum charge for SMS is :val :currency", ['val' => \dash\fit::number($minimum) ,'currency' => \lib\currency::jibres_currency(true)]));
+			return false;
+		}
+
+		if($amount > $maximum)
+		{
+			\dash\notif::error(T_("The maximum charge for SMS is :val :currency", ['val' => \dash\fit::number($maximum) ,'currency' => \lib\currency::jibres_currency(true)]));
+			return false;
+		}
+
+		$amountRound = round($amount, -4);
+		if($amount != $amountRound)
+		{
+			\dash\notif::warn(T_("Your amount change to :val", ['val' => \dash\fit::number($amountRound)]));
+
+		}
+
+		$amount = $amountRound;
+
+		return $amount;
 	}
 
 
