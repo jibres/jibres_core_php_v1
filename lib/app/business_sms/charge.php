@@ -236,4 +236,43 @@ class charge
 	}
 
 
+	public static function isChargingMode() : bool
+	{
+		if(\dash\url::isLocal())
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+
+	public static function checkBusinessChargeOnSendingSMS(array &$jibres_sms) : bool
+	{
+		$store_id = $jibres_sms['store_id'];
+
+		$balance = self::getBalance($store_id);
+
+		if(!$balance || $balance <= 0)
+		{
+			return false;
+		}
+
+		$planSMSCost = \lib\app\plan\planCheck::jibresCheck($store_id, 'sms', 'cost');
+
+		if(!$planSMSCost)
+		{
+			$planSMSCost = 100;
+		}
+
+		$cost = $planSMSCost * floatval($jibres_sms['smscount']);
+
+		$jibres_sms['final_cost']   = $cost;
+		$jibres_sms['initial_cost'] = $cost;
+
+		return true;
+
+	}
+
+
 }

@@ -12,27 +12,27 @@ class queue
 			return false;
 		}
 
-		$myIp   = \dash\server::ip();
-		$ip_id  = \dash\utility\ip::id($myIp);
+		$myIp  = \dash\server::ip();
+		$ip_id = \dash\utility\ip::id($myIp);
 
 		if(!a($args, 'status'))
 		{
-			$args['status']      = 'pending';
+			$args['status'] = 'pending';
 		}
 
 		if(!a($args, 'type'))
 		{
-			$args['type']        = 'notif';
+			$args['type'] = 'notif';
 		}
 
 		if(!a($args, 'mode'))
 		{
-			$args['mode']        = 'sms';
+			$args['mode'] = 'sms';
 		}
 
 		if(!$args['sender'])
 		{
-			$args['sender']      = 'customer';
+			$args['sender'] = 'customer';
 		}
 
 		$args['user_id']     = \dash\user::id();
@@ -46,31 +46,31 @@ class queue
 		if(a($args, 'token') || a($args, 'token2') || a($args, 'token3') || a($args, 'resendfrom'))
 		{
 			$args['meta'] = json_encode(
-			[
-				'token'      => a($args, 'token'),
-				'token2'     => a($args, 'token2'),
-				'token3'     => a($args, 'token3'),
-				'resendfrom' => a($args, 'resendfrom'),
-			]);
+				[
+					'token'      => a($args, 'token'),
+					'token2'     => a($args, 'token2'),
+					'token3'     => a($args, 'token3'),
+					'resendfrom' => a($args, 'resendfrom'),
+				]);
 		}
 
 		$jibres_sms =
-		[
-			'store_smslog_id' => null,
-			'mobile'          => a($args, 'mobile'),
-			'message'         => a($args, 'message'),
-			'sender'          => a($args, 'sender'),
-			'len'             => a($args, 'len'),
-			'smscount'        => a($args, 'smscount'),
-			'status'          => a($args, 'status'),
-			'type'            => a($args, 'type'),
-			'mode'            => a($args, 'mode'),
-			'token'           => a($args, 'token'),
-			'token2'          => a($args, 'token2'),
-			'token3'          => a($args, 'token3'),
-			'template'        => a($args, 'template'),
+			[
+				'store_smslog_id' => null,
+				'mobile'          => a($args, 'mobile'),
+				'message'         => a($args, 'message'),
+				'sender'          => a($args, 'sender'),
+				'len'             => a($args, 'len'),
+				'smscount'        => a($args, 'smscount'),
+				'status'          => a($args, 'status'),
+				'type'            => a($args, 'type'),
+				'mode'            => a($args, 'mode'),
+				'token'           => a($args, 'token'),
+				'token2'          => a($args, 'token2'),
+				'token3'          => a($args, 'token3'),
+				'template'        => a($args, 'template'),
 
-		];
+			];
 
 		unset($args['token']);
 		unset($args['token2']);
@@ -80,7 +80,7 @@ class queue
 		if(isset($_options['return_args_without_insert']) && $_options['return_args_without_insert'] === true)
 		{
 			$jibres_sms['store_smslog_id'] = null;
-			$jibres_sms['id'] = null;
+			$jibres_sms['id']              = null;
 			return $jibres_sms;
 		}
 
@@ -130,7 +130,10 @@ class queue
 
 		}
 
-		if(in_array($new_status, ['register','pending','sending','expired','moneylow','unknown','send','sended','delivered','queue','failed','undelivered','cancel','block','other']))
+		if(in_array($new_status, [
+			'register', 'pending', 'sending', 'expired', 'moneylow', 'unknown', 'send', 'sended', 'delivered', 'queue',
+			'failed', 'undelivered', 'cancel', 'block', 'other',
+		]))
 		{
 			$update_sms['status'] = $new_status;
 		}
@@ -158,32 +161,33 @@ class queue
 	}
 
 
-    /**
-     * @param $_args
-     * @return array
-     */
+	/**
+	 * @param $_args
+	 *
+	 * @return array
+	 */
 	public static function add_new_sms_record($_args)
 	{
 
 		$condition =
-		[
-			'store_smslog_id' => 'id',
-			'store_id'        => 'id',
-			'mobile'          => 'mobile',
-			'message'         => 'desc',
-			'sender'          => ['enum' => ['system', 'admin', 'customer']],
-			'len'             => 'int',
-			'smscount'        => 'int',
-			'status'          => 'string',
-			'type'            => 'string',
-			'mode'            => 'string',
-			'template'        => 'string',
-			'token'           => 'string',
-			'token2'          => 'string',
-			'token3'          => 'string',
+			[
+				'store_smslog_id' => 'id',
+				'store_id'        => 'id',
+				'mobile'          => 'mobile',
+				'message'         => 'desc',
+				'sender'          => ['enum' => ['system', 'admin', 'customer']],
+				'len'             => 'int',
+				'smscount'        => 'int',
+				'status'          => 'string',
+				'type'            => 'string',
+				'mode'            => 'string',
+				'template'        => 'string',
+				'token'           => 'string',
+				'token2'          => 'string',
+				'token3'          => 'string',
 
 
-		];
+			];
 
 		$require = ['mobile'];
 
@@ -193,40 +197,58 @@ class queue
 
 		$add_sending_record = false;
 
+		$chargingMode = \lib\app\business_sms\charge::isChargingMode();
+
 		$jibres_sms =
-		[
-			'store_smslog_id' => a($data, 'store_smslog_id'),
-			'mobile'          => a($data, 'mobile'),
-			'store_id'        => a($data, 'store_id'),
-			'message'         => a($data, 'message'),
-			'sender'          => a($data, 'sender'),
-			'len'             => a($data, 'len'),
-			'smscount'        => a($data, 'smscount'),
-			'status'          => a($data, 'status'),
-			'type'            => a($data, 'type'),
-			'mode'            => a($data, 'mode'),
-			'template'        => a($data, 'template'),
-			'datecreated'     => date("Y-m-d H:i:s"),
-		];
+			[
+				'store_smslog_id' => a($data, 'store_smslog_id'),
+				'mobile'          => a($data, 'mobile'),
+				'store_id'        => a($data, 'store_id'),
+				'message'         => a($data, 'message'),
+				'sender'          => a($data, 'sender'),
+				'len'             => a($data, 'len'),
+				'smscount'        => a($data, 'smscount'),
+				'status'          => a($data, 'status'),
+				'type'            => a($data, 'type'),
+				'mode'            => a($data, 'mode'),
+				'template'        => a($data, 'template'),
+				'datecreated'     => date("Y-m-d H:i:s"),
+				'final_cost'      => 0,
+				'real_cost'       => 0,
+				'initial_cost'    => 0,
+				'calculate_cost'  => $chargingMode ? 1 : null,
+			];
 
 		if(a($data, 'token') || a($data, 'token2') || a($data, 'token3'))
 		{
 			$jibres_sms['meta'] = json_encode(
-			[
-				'token'  => a($data, 'token'),
-				'token2' => a($data, 'token2'),
-				'token3' => a($data, 'token3'),
-			]);
+				[
+					'token'  => a($data, 'token'),
+					'token2' => a($data, 'token2'),
+					'token3' => a($data, 'token3'),
+				]);
 		}
 
 		if(a($jibres_sms, 'store_id'))
 		{
-			// check store package remain
-			$add_sending_record = \lib\app\sms\package::check($jibres_sms);
+			if($chargingMode)
+			{
+				$add_sending_record = \lib\app\business_sms\charge::checkBusinessChargeOnSendingSMS($jibres_sms);
+			}
+			else
+			{
+				// check store package remain
+				$add_sending_record = \lib\app\sms\package::check($jibres_sms);
+			}
 		}
 		else
 		{
 			$add_sending_record = true;
+		}
+
+		if(!$add_sending_record)
+		{
+			$jibres_sms['status'] = 'moneylow';
 		}
 
 		$jibres_sms_id = \lib\db\sms\insert::new_record($jibres_sms);
@@ -234,11 +256,11 @@ class queue
 		if($jibres_sms_id && $add_sending_record)
 		{
 			$sms_sending =
-			[
-				'sms_id'      => $jibres_sms_id,
-				'status'      => 'pending',
-				'datecreated' => date("Y-m-d H:i:s"),
-			];
+				[
+					'sms_id'      => $jibres_sms_id,
+					'status'      => 'pending',
+					'datecreated' => date("Y-m-d H:i:s"),
+				];
 
 			\lib\db\sms\insert::new_record_sending($sms_sending);
 		}
@@ -248,14 +270,13 @@ class queue
 		}
 
 		$result =
-		[
-			'id'     => $jibres_sms_id,
-			'status' => a($jibres_sms, 'status'),
-		];
+			[
+				'id'     => $jibres_sms_id,
+				'status' => a($jibres_sms, 'status'),
+			];
 
 		return $result;
 	}
-
 
 
 	public static function send()
@@ -371,7 +392,7 @@ class queue
 				continue;
 			}
 
-			if(time() - strtotime($sms['datecreated']) > (60*60*12))
+			if(time() - strtotime($sms['datecreated']) > (60 * 60 * 12))
 			{
 				self::update_sms($sms_id, ['status' => 'expired']);
 				continue;
@@ -385,7 +406,7 @@ class queue
 
 			if(a($sms, 'mode') === 'verification')
 			{
-				if(time() - strtotime($sms['datecreated']) > (60*6))
+				if(time() - strtotime($sms['datecreated']) > (60 * 6))
 				{
 					self::update_sms($sms_id, ['status' => 'expired']);
 					continue;
@@ -398,7 +419,7 @@ class queue
 
 			if(a($sms, 'mode') === 'tts')
 			{
-				if(time() - strtotime($sms['datecreated']) > (60*6))
+				if(time() - strtotime($sms['datecreated']) > (60 * 6))
 				{
 					self::update_sms($sms_id, ['status' => 'expired']);
 					continue;
@@ -416,7 +437,9 @@ class queue
 			{
 				$business_mode = a($sms, 'store_id') ? true : false;
 
-				$sms_result = \lib\api\kavenegar\api::send_tts($sms['mobile'], $sms['message'], ['localid' => $sms['id'], 'business_mode' => $business_mode]);
+				$sms_result = \lib\api\kavenegar\api::send_tts($sms['mobile'], $sms['message'], [
+					'localid' => $sms['id'], 'business_mode' => $business_mode,
+				]);
 
 				$provider_date = null;
 
@@ -426,25 +449,24 @@ class queue
 				}
 
 				$update_sms =
-				[
-					'status'             => 'sended',
-					'provider'           => 'kavenegar',
-					'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
-					'responsecode'       => a($sms_result, 'return', 'status'),
-					'provider_status'    => a($sms_result, 'entries', 0, 'status'),
-					'provider_messageid' => a($sms_result, 'entries', 0, 'messageid'),
-					'provider_sender'    => a($sms_result, 'entries', 0, 'sender'),
-					'provider_receptor'  => a($sms_result, 'entries', 0, 'receptor'),
-					'provider_date'      => $provider_date,
-					'provider_cost'      => a($sms_result, 'entries', 0, 'cost'),
-					'provider_currency'  => 'IRR',
-				];
+					[
+						'status'             => 'sended',
+						'provider'           => 'kavenegar',
+						'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
+						'responsecode'       => a($sms_result, 'return', 'status'),
+						'provider_status'    => a($sms_result, 'entries', 0, 'status'),
+						'provider_messageid' => a($sms_result, 'entries', 0, 'messageid'),
+						'provider_sender'    => a($sms_result, 'entries', 0, 'sender'),
+						'provider_receptor'  => a($sms_result, 'entries', 0, 'receptor'),
+						'provider_date'      => $provider_date,
+						'provider_cost'      => a($sms_result, 'entries', 0, 'cost'),
+						'provider_currency'  => 'IRR',
+					];
 
 				self::update_sms($sms['id'], $update_sms);
 
 			}
 		}
-
 
 
 		if($verification_sms)
@@ -460,7 +482,10 @@ class queue
 
 				$business_mode = a($sms, 'store_id') ? true : false;
 
-				$sms_result = \lib\api\kavenegar\api::verification($sms['mobile'], $sms['template'], a($meta, 'token'), ['token20' => a($meta, 'token2'), 'business_mode' => $business_mode]);
+				$sms_result =
+					\lib\api\kavenegar\api::verification($sms['mobile'], $sms['template'], a($meta, 'token'), [
+						'token20' => a($meta, 'token2'), 'business_mode' => $business_mode,
+					]);
 
 				$provider_date = null;
 
@@ -470,23 +495,21 @@ class queue
 				}
 
 				$update_sms =
-				[
-					'status'             => 'sended',
-					'provider'           => 'kavenegar',
-					'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
-					'responsecode'       => a($sms_result, 'return', 'status'),
-					'provider_status'    => a($sms_result, 'entries', 0, 'status'),
-					'provider_messageid' => a($sms_result, 'entries', 0, 'messageid'),
-					'provider_sender'    => a($sms_result, 'entries', 0, 'sender'),
-					'provider_receptor'  => a($sms_result, 'entries', 0, 'receptor'),
-					'provider_date'      => $provider_date,
-					'provider_cost'      => a($sms_result, 'entries', 0, 'cost'),
-					'provider_currency'  => 'IRR',
-				];
+					[
+						'status'             => 'sended',
+						'provider'           => 'kavenegar',
+						'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
+						'responsecode'       => a($sms_result, 'return', 'status'),
+						'provider_status'    => a($sms_result, 'entries', 0, 'status'),
+						'provider_messageid' => a($sms_result, 'entries', 0, 'messageid'),
+						'provider_sender'    => a($sms_result, 'entries', 0, 'sender'),
+						'provider_receptor'  => a($sms_result, 'entries', 0, 'receptor'),
+						'provider_date'      => $provider_date,
+						'provider_cost'      => a($sms_result, 'entries', 0, 'cost'),
+						'provider_currency'  => 'IRR',
+					];
 
 				self::update_sms($sms['id'], $update_sms);
-
-
 
 
 			}
@@ -499,7 +522,9 @@ class queue
 			{
 				$business_mode = a($sms, 'store_id') ? true : false;
 
-				$sms_result = \lib\api\kavenegar\api::send($sms['mobile'], $sms['message'], ['localid' => $sms['id'], 'business_mode' => $business_mode]);
+				$sms_result = \lib\api\kavenegar\api::send($sms['mobile'], $sms['message'], [
+					'localid' => $sms['id'], 'business_mode' => $business_mode,
+				]);
 
 				$provider_date = null;
 
@@ -509,19 +534,19 @@ class queue
 				}
 
 				$update_sms =
-				[
-					'status'             => 'sended',
-					'provider'           => 'kavenegar',
-					'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
-					'responsecode'       => a($sms_result, 'return', 'status'),
-					'provider_status'    => a($sms_result, 'entries', 0, 'status'),
-					'provider_messageid' => a($sms_result, 'entries', 0, 'messageid'),
-					'provider_sender'    => a($sms_result, 'entries', 0, 'sender'),
-					'provider_receptor'  => a($sms_result, 'entries', 0, 'receptor'),
-					'provider_date'      => $provider_date,
-					'provider_cost'      => a($sms_result, 'entries', 0, 'cost'),
-					'provider_currency'  => 'IRR',
-				];
+					[
+						'status'             => 'sended',
+						'provider'           => 'kavenegar',
+						'response'           => is_string($sms_result) ? $sms_result : json_encode($sms_result),
+						'responsecode'       => a($sms_result, 'return', 'status'),
+						'provider_status'    => a($sms_result, 'entries', 0, 'status'),
+						'provider_messageid' => a($sms_result, 'entries', 0, 'messageid'),
+						'provider_sender'    => a($sms_result, 'entries', 0, 'sender'),
+						'provider_receptor'  => a($sms_result, 'entries', 0, 'receptor'),
+						'provider_date'      => $provider_date,
+						'provider_cost'      => a($sms_result, 'entries', 0, 'cost'),
+						'provider_currency'  => 'IRR',
+					];
 
 				self::update_sms($sms['id'], $update_sms);
 			}
@@ -536,9 +561,9 @@ class queue
 	private static function update_sms($_id, $_update)
 	{
 		$defalt =
-		[
-			'datemodified' => date("Y-m-d H:i:s"),
-		];
+			[
+				'datemodified' => date("Y-m-d H:i:s"),
+			];
 
 		$update = array_merge($defalt, $_update);
 
@@ -546,4 +571,5 @@ class queue
 	}
 
 }
+
 ?>

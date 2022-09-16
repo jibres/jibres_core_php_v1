@@ -28,9 +28,16 @@ class planCheck
 	}
 
 
-	public static function load(string $_feature_key)
+	private static function load(string $_feature_key, $_business_id = null)
 	{
-		$loadCurrentPlan = businessPlanDetail::getMyPlanDetail();
+		if(!$_business_id)
+		{
+			$loadCurrentPlan = businessPlanDetail::getMyPlanDetail();
+		}
+		else
+		{
+			$loadCurrentPlan = storePlan::currentPlan($_business_id);
+		}
 
 		if($loadCurrentPlan)
 		{
@@ -50,6 +57,23 @@ class planCheck
 		{
 			return false;
 		}
+	}
+
+	public static function jibresCheck($_business_id, $_feature_key, $_function_name, $_args = [])
+	{
+		$load = self::load($_feature_key, $_business_id);
+		if(!$load)
+		{
+			return false;
+		}
+
+		if(!method_exists($load, $_function_name))
+		{
+			return false;
+		}
+
+		return call_user_func([$load, $_function_name], $_args);
+
 	}
 
 
