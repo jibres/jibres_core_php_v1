@@ -28,7 +28,7 @@
                 <div><?php echo T_(ucfirst(strval($value['status']))); ?></div>
             </td>
 
-            <td class="" title="<?php echo T_("Length"). ': '. \dash\fit::number($value['len']) ?>">
+            <td class="" title="<?php echo T_("Length") . ': ' . \dash\fit::number($value['len']) ?>">
                 <span class="font-bold"><?php echo \dash\fit::number($value['smscount']); ?></span>
                 <small class="text-gray-400"><?php echo T_("SMS") ?></small>
             </td>
@@ -41,8 +41,10 @@
 
 
             <td class="">
+                <a href="<?php echo \dash\url::here() . '/store/setting?id=' . $value['store_id']; ?>">
+					<?php echo a($value, 'store_id'); ?>
+                </a>
 
-                <?php echo a($value, 'store_id'); ?>
             </td>
             <td class="collapsing">
                 <div><?php echo \dash\fit::date_time($value['datecreated']); ?></div>

@@ -4,6 +4,7 @@ namespace content_love\sms\datalist;
 
 class view
 {
+
 	public static function config()
 	{
 		\dash\face::title(T_("Sms log"));
@@ -11,7 +12,6 @@ class view
 		// btn
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
-
 
 
 		\dash\data::listEngine_start(true);
@@ -22,13 +22,14 @@ class view
 		\dash\data::sortList(\lib\app\sms\filter::sort_list());
 
 		$args =
-		[
-			'order'  => \dash\request::get('order'),
-			'sort'   => \dash\request::get('sort'),
-			'status' => \dash\request::get('status'),
-			'calculate_cost' => \dash\request::get('calculate_cost'),
+			[
+				'order'          => \dash\request::get('order'),
+				'sort'           => \dash\request::get('sort'),
+				'status'         => \dash\request::get('status'),
+				'calculate_cost' => \dash\request::get('calculate_cost'),
+				'store_id'       => \dash\request::get('business_id'),
 
-		];
+			];
 
 		$search_string = \dash\validate::search_string();
 
@@ -43,11 +44,12 @@ class view
 
 		if($isFiltered)
 		{
-			\dash\face::title(\dash\face::title() . '  '. T_('Filtered'));
+			\dash\face::title(\dash\face::title() . '  ' . T_('Filtered'));
 		}
 
 
-
 	}
+
 }
+
 ?>

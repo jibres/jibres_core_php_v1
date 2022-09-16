@@ -204,6 +204,7 @@ class search
 		{
 			$and[]              = " sms.store_id = :store_id";
 			$param[':store_id'] = $data['store_id'];
+			self::$is_filtered = true;
 		}
 
 		if($data['mobile'])
