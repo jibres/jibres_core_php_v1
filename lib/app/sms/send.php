@@ -5,30 +5,33 @@ namespace lib\app\sms;
 /** Sms management class **/
 class send
 {
+
 	private static function kavenegar_auth($_business_mode = false)
 	{
 		return \dash\setting\kavenegar::apikey($_business_mode);
 	}
+
 
 	private static function line($_business_mode = false)
 	{
 		return \dash\setting\kavenegar::line($_business_mode);
 	}
 
+
 	/**
 	 * Makes a message.
 	 *
-	 * @param      <type>  $_message  The message
+	 * @param <type> $_message The message
 	 *
 	 * @return     string  ( description_of_the_return_value )
 	 */
 	private static function make_message($_message, $_options = [])
 	{
 		$default_option =
-		[
-			'header'         => true,
-			'footer'         => true,
-		];
+			[
+				'header' => true,
+				'footer' => true,
+			];
 
 		if(!is_array($_options))
 		{
@@ -45,7 +48,7 @@ class send
 
 		if(!\dash\engine\store::inStore())
 		{
-			$sms_header = T_('Jibres') . ' | '. T_('Sell and Enjoy');
+			$sms_header = T_('Jibres') . ' | ' . T_('Sell and Enjoy');
 			if(\dash\url::tld() === 'ir')
 			{
 				$sms_footer .= T_('Jibres.ir');
@@ -60,16 +63,16 @@ class send
 
 		if($sms_header && $_options['header'])
 		{
-			$message    .= $sms_header;
-			$message    .= "\n";
+			$message .= $sms_header;
+			$message .= "\n";
 		}
 
 		$message .= $_message;
 
 		if($sms_footer && $_options['footer'])
 		{
-			$message    .= "\n";
-			$message    .= $sms_footer;
+			$message .= "\n";
+			$message .= $sms_footer;
 		}
 
 		// try to change big message into one message
@@ -89,19 +92,20 @@ class send
 
 			if($sms_footer && $_options['footer'])
 			{
-				$message    .= "\n";
-				$message    .= $sms_footer;
+				$message .= "\n";
+				$message .= $sms_footer;
 			}
 		}
 		return $message;
 	}
 
+
 	/**
 	 * send sms
 	 *
-	 * @param      <type>     $_mobile   The mobile
-	 * @param      <type>     $_message  The message
-	 * @param      array      $_options  The options
+	 * @param <type> $_mobile  The mobile
+	 * @param <type> $_message The message
+	 * @param array  $_options The options
 	 *
 	 * @return     \|boolean  ( description_of_the_return_value )
 	 */
@@ -113,14 +117,14 @@ class send
 		}
 
 		$default_option =
-		[
-			'line'           => self::line($_business_mode),
-			'type'           => 1,
-			'date'           => 0,
-			'LocalMessageid' => null,
-			'header'         => true,
-			'footer'         => true,
-		];
+			[
+				'line'           => self::line($_business_mode),
+				'type'           => 1,
+				'date'           => 0,
+				'LocalMessageid' => null,
+				'header'         => true,
+				'footer'         => true,
+			];
 
 		if(!is_array($_options))
 		{
@@ -142,19 +146,20 @@ class send
 
 		// send sms
 		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth($_business_mode), $_options['line']);
-		$result    = $myApiData->send($mobile, $message, $_options['type'], $_options['date'], $_options['LocalMessageid']);
+		$result    =
+			$myApiData->send($mobile, $message, $_options['type'], $_options['date'], $_options['LocalMessageid']);
 
 		$insert_kavenegar_log =
-		[
-			'mobile'       => $mobile,
-			'message'      => $message,
-			'line'         => $_options['line'],
-			'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
-			'send'         => json_encode($_options, JSON_UNESCAPED_UNICODE),
-			'datesend'     => $datesend,
-			'dateresponse' => date("Y-m-d H:i:s"),
-			'apikey'       => self::kavenegar_auth(),
-		];
+			[
+				'mobile'       => $mobile,
+				'message'      => $message,
+				'line'         => $_options['line'],
+				'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
+				'send'         => json_encode($_options, JSON_UNESCAPED_UNICODE),
+				'datesend'     => $datesend,
+				'dateresponse' => date("Y-m-d H:i:s"),
+				'apikey'       => self::kavenegar_auth(),
+			];
 
 		if($_log_id)
 		{
@@ -190,9 +195,9 @@ class send
 		}
 
 		$default_option =
-		[
-			'line'           => self::line($_business_mode),
-		];
+			[
+				'line' => self::line($_business_mode),
+			];
 
 		$_options = [];
 
@@ -212,13 +217,13 @@ class send
 		$result    = $myApiData->verify($mobile, $_token, $_token2, $_token3, $_token10, $_token20, $_template, $_type);
 
 		$insert_kavenegar_log =
-		[
-			'mobile'       => $mobile,
-			'line'         => $_options['line'],
-			'datesend'     => $datesend,
-			'dateresponse' => date("Y-m-d H:i:s"),
-			'apikey'       => self::kavenegar_auth($_business_mode),
-		];
+			[
+				'mobile'       => $mobile,
+				'line'         => $_options['line'],
+				'datesend'     => $datesend,
+				'dateresponse' => date("Y-m-d H:i:s"),
+				'apikey'       => self::kavenegar_auth($_business_mode),
+			];
 
 		if($_log_id)
 		{
@@ -233,17 +238,63 @@ class send
 	}
 
 
+	public static function calculateSMSCount($_message)
+	{
+		// fa : 70,  64,  67,  67,  ...
+		$fa = [70, 64, 67];
+
+		// en : 160, 146, 153, 153, ...
+		$en = [160, 146, 153];
+
+		$len       = mb_strlen($_message);
+		$isRtl     = \dash\validate::is_rtl($_message);
+		$countSMS  = 0;
+
+		$checkArgs = $isRtl ? $fa : $en;
+
+		if($len <= array_sum($checkArgs))
+		{
+			$lenCounterPlus = 0;
+
+			foreach ($checkArgs as $stepLen)
+			{
+				$countSMS++;
+				$lenCounterPlus += $stepLen;
+
+				if($len <= $lenCounterPlus)
+				{
+					break;
+				}
+			}
+		}
+		else
+		{
+			$overflow       = $len - array_sum($checkArgs);
+			$end            = end($checkArgs);
+			$overflow_count = ceil($overflow / $end);
+			$countSMS       = $overflow_count + count($checkArgs); // 3 sms for first 3 value in $checkArgs
+
+		}
+
+		return $countSMS;
+
+	}
+
+
 	/**
 	 * check the input is rtl or not
+	 *
 	 * @param  [type]  $string [description]
 	 * @param  [type]  $type   [description]
+	 *
 	 * @return boolean         [description]
 	 */
 	public static function lengthOfOneSMSBaseOnContent($_str)
 	{
-		$result = \dash\validate::is_rtl($_str);
+		$isRtl = \dash\validate::is_rtl($_str);
 
-		$result = $result ? 70 : 160;
+
+		$result = $isRtl ? 70 : 160;
 
 		return $result;
 	}
@@ -253,9 +304,9 @@ class send
 	 * Sends an array.
 	 * send one message to multi mobile
 	 *
-	 * @param      <type>     $_mobiles  The mobiles
-	 * @param      <type>     $_message  The message
-	 * @param      array      $_options  The options
+	 * @param <type> $_mobiles The mobiles
+	 * @param <type> $_message The message
+	 * @param array  $_options The options
 	 *
 	 * @return     \|boolean  ( description_of_the_return_value )
 	 */
@@ -267,13 +318,13 @@ class send
 		}
 
 		$default_option =
-		[
-			'line'   => self::line(),
-			'type'   => 1,
-			'date'   => 0,
-			'header' => true,
-			'footer' => true,
-		];
+			[
+				'line'   => self::line(),
+				'type'   => 1,
+				'date'   => 0,
+				'header' => true,
+				'footer' => true,
+			];
 
 		if(!is_array($_options))
 		{
@@ -307,23 +358,24 @@ class send
 		$message   = self::make_message($_message, $_options);
 		$myApiData = new \dash\utility\kavenegar_api(self::kavenegar_auth(), $_options['line']);
 		\dash\log::set('smsSendArray', ['count_send' => count($accepted_mobile)]);
-		$chunk   = array_chunk($accepted_mobile, 200);
+		$chunk = array_chunk($accepted_mobile, 200);
 		foreach ($chunk as $key => $last_200_mobile)
 		{
-			$result[] = $myApiData->sendarray($_options['line'], $last_200_mobile, $message, $_options['type'], $_options['date']);
+			$result[] =
+				$myApiData->sendarray($_options['line'], $last_200_mobile, $message, $_options['type'], $_options['date']);
 		}
 
 		$insert_kavenegar_log =
-		[
-			'mobile'       => null,
-			'message'      => $message,
-			'line'         => $_options['line'],
-			'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
-			'send'         => json_encode($_options, JSON_UNESCAPED_UNICODE),
-			'datesend'     => $datesend,
-			'dateresponse' => date("Y-m-d H:i:s"),
-			'apikey'       => self::kavenegar_auth(),
-		];
+			[
+				'mobile'       => null,
+				'message'      => $message,
+				'line'         => $_options['line'],
+				'response'     => json_encode($result, JSON_UNESCAPED_UNICODE),
+				'send'         => json_encode($_options, JSON_UNESCAPED_UNICODE),
+				'datesend'     => $datesend,
+				'dateresponse' => date("Y-m-d H:i:s"),
+				'apikey'       => self::kavenegar_auth(),
+			];
 
 		if($_log_id)
 		{
@@ -333,8 +385,6 @@ class send
 		{
 			\lib\app\sms\history::add($insert_kavenegar_log);
 		}
-
-
 
 
 		return $result;
@@ -376,15 +426,15 @@ class send
 			{
 				$resendArgs =
 					[
-						'mobile'     => $value['mobile'],
-						'message'    => $value['message'],
+						'mobile'  => $value['mobile'],
+						'message' => $value['message'],
 
 					];
 
 				$result = \lib\app\sms\queue::add_one($resendArgs, ['return_args_without_insert' => true]);
 
-				$result['id'] = $value['id'];
-				$result['store_smslog_id'] = $value['id'];
+				$result['id']                            = $value['id'];
+				$result['store_smslog_id']               = $value['id'];
 				$sending_queue['sms'][$key]['sms_param'] = $result;
 
 			}
@@ -401,5 +451,6 @@ class send
 		return true;
 	}
 
+
 }
-?>
+
