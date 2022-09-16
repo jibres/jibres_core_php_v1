@@ -42,13 +42,17 @@ class gold extends planPrepare
 	{
 		return
 			[
-				'permission'           => ['mode' => 'simple'],
-				'staff'                => ['count' => 5],
-				'allowedFileSize'      => ['size' => \dash\utility\convert::mb_to_byte(5)],
-				'totalStorage'         => ['size' => \dash\utility\convert::gb_to_byte(5)],
+				'permission'      => ['mode' => 'simple'],
+				'staff'           => ['count' => 5],
+				'allowedFileSize' => ['size' => \dash\utility\convert::mb_to_byte(5)],
+				'totalStorage'    => ['size' => \dash\utility\convert::gb_to_byte(5)],
 				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
-				'ganje'                => true,
-				'sms'                  => ['cost' => 90],
+				'ganje'           => true,
+				'sms'                  =>
+					[
+						'fa_cost' => 90,
+						'en_cost' => 170,
+					],
 				'removeBrand'          => true,
 				'adminOnDomain'        => false,
 				'professionalReport'   => true,

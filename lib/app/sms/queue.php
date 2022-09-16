@@ -335,6 +335,11 @@ class queue
 	 */
 	public static function send_real_time($_debug = false)
 	{
+		if(\dash\url::isLocal())
+		{
+			// return false;
+		}
+
 		$result = [];
 
 		$get_sending_list = \lib\db\sms\get::not_sended_list();
@@ -566,6 +571,12 @@ class queue
 			];
 
 		$update = array_merge($defalt, $_update);
+
+		if(isset($_update['provider_cost']) && $_update['provider_cost'] && is_numeric($_update['provider_cost']))
+		{
+			// convert IRR to IRT
+			$update['real_cost'] = floatval($_update['provider_cost']) / 10;
+		}
 
 		\lib\db\sms\update::record($update, $_id);
 	}

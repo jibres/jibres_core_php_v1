@@ -54,7 +54,11 @@ class rafiei extends planPrepare
 				'totalStorage'         => ['size' => \dash\utility\convert::gb_to_byte(20)],
 				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
 				'ganje'                => true,
-				'sms'                  => ['cost' => 60],
+				'sms'                  =>
+					[
+						'fa_cost' => 60,
+						'en_cost' => 120,
+					],
 				'removeBrand'          => true,
 				'adminOnDomain'        => true,
 				'professionalReport'   => true,

@@ -4,14 +4,21 @@ namespace lib\app\plan\feature;
 class sms extends featurePreapre
 {
 
-	private $cost = null;
+	private $fa_cost = null;
+
+	private $en_cost = null;
 
 
 	public function __construct($_init)
 	{
-		if(isset($_init['cost']))
+		if(isset($_init['fa_cost']))
 		{
-			$this->cost = $_init['cost'];
+			$this->fa_cost = $_init['fa_cost'];
+		}
+
+		if(isset($_init['en_cost']))
+		{
+			$this->en_cost = $_init['en_cost'];
 		}
 	}
 
@@ -30,13 +37,26 @@ class sms extends featurePreapre
 
 	public function value() 
 	{
-		return \dash\fit::number($this->cost) . ' ' . T_("Toman");
+		$value = '';
+		$value .= T_("Persian") . ' '. \dash\fit::number($this->fa_cost) . ' <small class="text-gray-400">' . T_("Toman"). '</small>';
+		$value .= '<br>';
+		$value .= T_("English") . ' '. \dash\fit::number($this->en_cost) . ' <small class="text-gray-400">' . T_("Toman"). '</small>';
+		return $value;
+
 
 	}
 
-	public function cost()
+	public function cost($_lang = null)
 	{
-		return $this->cost;
+		if($_lang === 'fa')
+
+		{
+			return $this->fa_cost;
+		}
+		else
+		{
+			return $this->en_cost;
+		}
 	}
 
 
