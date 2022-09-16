@@ -2,7 +2,7 @@
     <div class="c pRa10">
         <a href="<?php echo \dash\url::current() . '/datalist' ?>" class="stat">
             <h3><?php echo T_("SMS List"); ?></h3>
-            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_totalRows()); ?></div>
+            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_countall()); ?></div>
         </a>
     </div>
 
@@ -68,6 +68,11 @@
     </div>
 </section>
 
+avg of charge
+avg business charge
+total spent
+total real spent
+list of full usage business
 
 All sms group by status
 <section class="f">

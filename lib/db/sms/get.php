@@ -67,6 +67,12 @@ class get
 		return $result;
 	}
 
+
+	public static function count_all()
+	{
+		return \dash\pdo\query_template::get_count('sms', [], 'api_log');
+	}
+
 }
 
 ?>
