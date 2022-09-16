@@ -7,12 +7,14 @@ class view
 
 	public static function config()
 	{
+		$business_id = \content_r10\tools::get_current_business_id();
+
 		$result =
 			[
 
 				'budget'     => \dash\user::budget(),
 				'currency'   => \lib\currency::unit(),
-				'charge' => rand(100000, 900000000),
+				'charge' => \lib\app\business_sms\charge::getBalance($business_id),
 			];
 
 		\content_r10\tools::say($result);

@@ -175,7 +175,6 @@ class charge
 		\lib\db\sms_charge\insert::new_record($insert);
 
 
-
 	}
 
 
@@ -221,6 +220,19 @@ class charge
 		$amount = $amountRound;
 
 		return $amount;
+	}
+
+
+	public static function getBalance($_business_id)
+	{
+
+		$charge = \lib\db\sms_charge\get::total_charge($_business_id);
+		$spent  = \lib\db\sms\get::store_spent($_business_id);
+
+		$balance = $charge - $spent;
+
+		return $balance;
+
 	}
 
 
