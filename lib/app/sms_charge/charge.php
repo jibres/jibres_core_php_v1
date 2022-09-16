@@ -163,18 +163,27 @@ class charge
 		$user_id        = a($_args, 'user_id');
 		$amount         = a($_args, 'amount');
 
+		$insert_minus_transaction = self::minusTransaction($_args);
+
+		if(!$insert_minus_transaction)
+		{
+			\dash\log::set('canNOtMinusSmsTransaction', ['my_data' => $_args]);
+			return false;
+		}
+
+
 		$insert =
 			[
 				'store_id'       => $store_id,
 				'user_id'        => $user_id,
-				'transaction_id' => $transaction_id,
+				'transaction_id' => $insert_minus_transaction,
 				'amount'         => $amount,
 				'datecreated'    => date("Y-m-d H:i:s"),
 			];
 
 		\lib\db\sms_charge\insert::new_record($insert);
 
-		self::minusTransaction($_args);
+
 
 
 	}
@@ -195,7 +204,7 @@ class charge
 
 			];
 
-		\dash\app\transaction\budget::minus($insert_transaction);
+		return \dash\app\transaction\budget::minus($insert_transaction);
 
 	}
 

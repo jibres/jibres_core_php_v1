@@ -32,7 +32,7 @@
             </td>
 
             <td class="">
-                <a href="<?php echo \dash\url::here() . '/store/setting?id=' . $value['store_id']; ?>">
+                <a href="<?php echo \dash\url::kingdom() . '/crm/transactions/detail?id=' . $value['transaction_id']; ?>">
                     <code>#<?php echo a($value, 'transaction_id'); ?></code>
                 </a>
             </td>

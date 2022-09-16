@@ -7,7 +7,7 @@ class view
 
 	public static function config()
 	{
-		\dash\face::title(T_("Charge"));
+		\dash\face::title(T_("SMS charge list"));
 
 		// btn
 		\dash\data::back_text(T_('Back'));
