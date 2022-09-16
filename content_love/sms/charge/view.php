@@ -34,7 +34,7 @@ class view
 		$search_string = \dash\validate::search_string();
 
 
-		$list = \lib\app\sms_charge\search::jibres_list($search_string, $args);
+		$list = \lib\app\sms_charge\search::list($search_string, $args);
 
 		\dash\data::dataTable($list);
 
