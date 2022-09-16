@@ -174,8 +174,31 @@ class charge
 
 		\lib\db\sms_charge\insert::new_record($insert);
 
+		self::minusTransaction($_args);
+
 
 	}
+
+
+	private static function minusTransaction(array $_args)
+	{
+
+		$title = T_("Charge sms");
+
+		$insert_transaction =
+			[
+				'caller'   => 'business:sms:minus',
+				'store_id' => $_args['store_id'],
+				'user_id'  => $_args['user_id'],
+				'title'    => $title,
+				'amount'   => floatval($_args['amount']),
+
+			];
+
+		\dash\app\transaction\budget::minus($insert_transaction);
+
+	}
+
 
 
 	private static function checkAmount($_amount)
