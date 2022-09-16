@@ -46,8 +46,6 @@ class charge
 	}
 
 
-
-
 	private static function checkArgs(array $_args)
 	{
 		$condition =
@@ -80,29 +78,29 @@ class charge
 			$turnBack = \dash\url::jibres_domain();
 		}
 
-		$price = $data['amount'];
+		$amount = $data['amount'];
 
 		if($data['use_budget'])
 		{
 			$userBudget = \dash\app\transaction\budget::user($userId);
-			$price      = $price - $userBudget;
+			$amount     = $amount - $userBudget;
 
-			if($price < 0)
+			if($amount < 0)
 			{
-				$price = 0;
+				$amount = 0;
 			}
 		}
 
 
 		$payLink = null;
 
-		if($price)
+		if($amount)
 		{
 			$fn_args =
 				[
 					'store_id' => $_business_id,
 					'user_id'  => $userId,
-					'price'    => $price,
+					'amount'   => $amount,
 				];
 
 			$needPay = true;
@@ -119,7 +117,7 @@ class charge
 					'final_msg'     => false,
 					'turn_back'     => $turnBack,
 					'user_id'       => $userId,
-					'amount'        => $price,
+					'amount'        => $amount,
 					'final_fn'      => ['/lib/app/business_sms/charge', 'after_pay'],
 					'final_fn_args' => $fn_args,
 
@@ -159,8 +157,23 @@ class charge
 
 	public static function after_pay($_args, $_transaction_detail = [])
 	{
-		$args                   = $_args;
-		$args['transaction_id'] = a($_transaction_detail, 'id');
+
+		$transaction_id = a($_transaction_detail, 'id');
+		$store_id       = a($_args, 'store_id');
+		$user_id        = a($_args, 'user_id');
+		$amount         = a($_args, 'amount');
+
+		$insert =
+			[
+				'store_id'       => $store_id,
+				'user_id'        => $user_id,
+				'transaction_id' => $transaction_id,
+				'amount'         => $amount,
+				'datecreated'    => date("Y-m-d H:i:s"),
+			];
+
+		\lib\db\sms_charge\insert::new_record($insert);
+
 
 
 	}
@@ -182,13 +195,19 @@ class charge
 
 		if($amount < $minimum)
 		{
-			\dash\notif::error(T_("The minimum charge for SMS is :val :currency", ['val' => \dash\fit::number($minimum) ,'currency' => \lib\currency::jibres_currency(true)]));
+			\dash\notif::error(T_("The minimum charge for SMS is :val :currency", [
+				'val'      => \dash\fit::number($minimum),
+				'currency' => \lib\currency::jibres_currency(true),
+			]));
 			return false;
 		}
 
 		if($amount > $maximum)
 		{
-			\dash\notif::error(T_("The maximum charge for SMS is :val :currency", ['val' => \dash\fit::number($maximum) ,'currency' => \lib\currency::jibres_currency(true)]));
+			\dash\notif::error(T_("The maximum charge for SMS is :val :currency", [
+				'val'      => \dash\fit::number($maximum),
+				'currency' => \lib\currency::jibres_currency(true),
+			]));
 			return false;
 		}
 
