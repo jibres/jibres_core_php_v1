@@ -200,7 +200,6 @@ class charge
 	}
 
 
-
 	private static function checkAmount($_amount)
 	{
 		if(!$_amount || !is_numeric($_amount))
@@ -281,7 +280,15 @@ class charge
 			return false;
 		}
 
-		$planSMSCost = \lib\app\plan\planCheck::jibresCheck($store_id, 'sms', 'cost');
+		if(\dash\validate::is_ltr($jibres_sms['message']))
+		{
+			$planSMSCost = \lib\app\plan\planCheck::jibresCheck($store_id, 'sms', 'cost', 'en');
+		}
+		else
+		{
+			$planSMSCost = \lib\app\plan\planCheck::jibresCheck($store_id, 'sms', 'cost', 'fa');
+		}
+
 
 		if(!$planSMSCost)
 		{

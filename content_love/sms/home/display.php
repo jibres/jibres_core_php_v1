@@ -14,12 +14,6 @@
         </a>
     </div>
 
-    <div class="c pRa10">
-        <a href="<?php echo \dash\url::current() . '/sending?manual=run'; ?>" class="stat">
-            <h3><?php echo T_("Run manually"); ?></h3>
-            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_refund()); ?></div>
-        </a>
-    </div>
 
     <div class="c pRa10">
         <a href="<?php echo \dash\url::current() . '/charge'; ?>" class="stat">

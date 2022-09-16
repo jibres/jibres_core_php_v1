@@ -23,6 +23,8 @@ class check
 			'meta'     => 'json'
 		];
 
+
+
 		$require = ['mobile'];
 
 		$meta = [];
@@ -32,7 +34,8 @@ class check
 		if($data['message'])
 		{
 			$data['len']      = mb_strlen($data['message']);
-			$data['smscount'] = ceil($data['len'] / 70);
+			// $data['smscount'] = ceil($data['len'] / 70);
+			$data['smscount'] = ceil($data['len'] / send::lengthOfOneSMSBaseOnContent($data['message']));
 		}
 
 		return $data;

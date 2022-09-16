@@ -39,9 +39,12 @@ class planCheck
 			$loadCurrentPlan = storePlan::currentPlan($_business_id);
 		}
 
+
 		if($loadCurrentPlan)
 		{
-			$contain = businessPlanDetail::contain();
+			$myPlan   = $loadCurrentPlan['plan'];
+			$loadPlan = planLoader::load($myPlan);
+			$contain  = $loadPlan->contain();
 
 			if(isset($contain[$_feature_key]))
 			{
@@ -59,9 +62,11 @@ class planCheck
 		}
 	}
 
+
 	public static function jibresCheck($_business_id, $_feature_key, $_function_name, $_args = [])
 	{
 		$load = self::load($_feature_key, $_business_id);
+
 		if(!$load)
 		{
 			return false;

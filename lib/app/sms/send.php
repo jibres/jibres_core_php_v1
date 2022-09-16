@@ -75,14 +75,14 @@ class send
 		// try to change big message into one message
 		// it must be optional
 		// fix it later
-		if(mb_strlen($message) > self::is_rtl($message, true))
+		if(mb_strlen($message) > self::lengthOfOneSMSBaseOnContent($message))
 		{
 			// if($sms_header && $_options['header'])
 			// {
 			// 	$message = $sms_header. "\n". $_message;
 			// }
 
-			if(mb_strlen($message) > self::is_rtl($message, true))
+			if(mb_strlen($message) > self::lengthOfOneSMSBaseOnContent($message))
 			{
 				$message = $_message;
 			}
@@ -239,13 +239,12 @@ class send
 	 * @param  [type]  $type   [description]
 	 * @return boolean         [description]
 	 */
-	private static function is_rtl($_str, $_type = false)
+	public static function lengthOfOneSMSBaseOnContent($_str)
 	{
 		$result = \dash\validate::is_rtl($_str);
-		if($_type)
-		{
-			$result = $result? 70: 160;
-		}
+
+		$result = $result ? 70 : 160;
+
 		return $result;
 	}
 
