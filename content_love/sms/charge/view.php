@@ -13,6 +13,15 @@ class view
 		\dash\data::back_text(T_('Back'));
 		\dash\data::back_link(\dash\url::this());
 
+		// btn
+		\dash\data::action_text(T_('Plus minus business charge'));
+		\dash\data::action_link(\dash\url::that(). '/add');
+
+		if($business_id = \dash\request::get('business_id'))
+		{
+			\dash\data::action_link(\dash\url::that(). '/add?business_id='. $business_id);
+		}
+
 
 		\dash\data::listEngine_start(true);
 		\dash\data::listEngine_search(\dash\url::that());

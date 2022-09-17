@@ -184,8 +184,6 @@ class charge
 		\lib\db\sms_charge\insert::new_record($insert);
 
 
-
-
 	}
 
 
@@ -310,6 +308,45 @@ class charge
 		$jibres_sms['initial_cost'] = $cost;
 
 		return true;
+
+	}
+
+
+	public static function setManual(array $_args)
+	{
+		$condition =
+			[
+				'store_id' => 'id',
+				'amount'   => 'price',
+				'type'     => ['enum' => ['minus', 'plus']],
+			];
+
+		$require = ['amount', 'store_id', 'type'];
+
+		$meta = [];
+
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		$amount = abs($data['amount']);
+
+		if($data['type'] === 'minus')
+		{
+			$amount = $amount * -1;
+		}
+
+
+		$insert =
+			[
+				'store_id'       => $data['store_id'],
+				'user_id'        => \dash\user::id(),
+				'transaction_id' => null,
+				'amount'         => $amount,
+				'datecreated'    => date("Y-m-d H:i:s"),
+			];
+
+		\lib\db\sms_charge\insert::new_record($insert);
+
+
 
 	}
 

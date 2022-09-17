@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="c3 s12">
-        <a href="<?php echo \dash\url::current() . '/charge'; ?>" class="stat">
+        <a href="<?php echo \dash\url::current() . '/datalist'; ?>" class="stat">
             <h3><?php echo T_("Total Spent"); ?></h3>
             <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_totalspent()); ?></div>
         </a>
