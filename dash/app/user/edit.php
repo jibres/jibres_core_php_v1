@@ -49,6 +49,8 @@ trait edit
 		{
 			$load_user = \dash\db\users::get_by_id($_id);
 
+			$nowIsStaff = a($load_user, 'permission') ? true : false;
+
 			$jibres_user_id = a($load_user, 'jibres_user_id');
 
 			if(isset($load_user['jibres_user_id']) && $load_user['jibres_user_id'] && \lib\store::detail('owner'))
@@ -146,6 +148,17 @@ trait edit
 					$is_staff = null;
 				}
 			}
+
+			if(!$nowIsStaff && $is_staff)
+			{
+				// check plan staff count
+				if(!\lib\app\plan\planCheck::access('staff'))
+				{
+					\dash\notif::error(\lib\app\plan\planCheck::get('staff', 'access_message'), ['alerty' => true]);
+					return false;
+				}
+			}
+
 		}
 		else
 		{
