@@ -4,8 +4,10 @@ namespace content_r10;
 
 class tools
 {
-	public static $r10            = [];
+
+	public static $r10 = [];
 	private static $lock_on_store = [];
+
 
 	/**
 	 * this function route as first of every request on api
@@ -37,7 +39,6 @@ class tools
 			self::accesstoken_required();
 		}
 	}
-
 
 
 	/**
@@ -82,7 +83,7 @@ class tools
 
 
 		// check business
-		$business         = \dash\header::get('HTTP_X_BUSISNESS');
+		$business = \dash\header::get('HTTP_X_BUSISNESS');
 
 
 		if(!$business)
@@ -121,33 +122,69 @@ class tools
 		$jibres_user_code = \dash\header::get('HTTP_X_JUSER');
 		$business_user    = \dash\header::get('HTTP_X_BUSER');
 
+		$loginIsRequired = true;
+		if(in_array(\dash\url::child(), ['plan']))
+		{
+			$loginIsRequired = false;
+		}
+
+
 		// check jibres user code
 		if(!$jibres_user_code)
 		{
-			self::stop(400, T_("Jibres user code required"));
-			return false;
+			if($loginIsRequired)
+			{
+				self::stop(400, T_("Jibres user code required"));
+				return false;
+			}
+			else
+			{
+				return true;
+			}
 		}
 
 		if(!\dash\validate::code($jibres_user_code, false))
 		{
-			self::stop(400, T_("Invalid jibres user code"));
-			return false;
+			if($loginIsRequired)
+			{
+				self::stop(400, T_("Invalid jibres user code"));
+				return false;
+			}
+			else
+			{
+				return true;
+			}
 		}
 
 		$jibres_user = \dash\coding::decode($jibres_user_code);
 
 		if(!\dash\validate::id($jibres_user))
 		{
-			self::stop(400, T_("Invalid jibres user id"));
-			return false;
+			if($loginIsRequired)
+			{
+				self::stop(400, T_("Invalid jibres user id"));
+				return false;
+			}
+			else
+			{
+				return true;
+			}
 		}
 
 		\dash\user::init($jibres_user, 'api_core');
 
 		if(!\dash\user::id())
 		{
-			self::stop(403, T_("User not found"));
-			return false;
+			if($loginIsRequired)
+			{
+				self::stop(403, T_("User not found"));
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+
 		}
 
 
@@ -212,7 +249,7 @@ class tools
 			self::stop(400, T_("Appkey not set"));
 		}
 
-		$appkey_is_ok              = \dash\app\user_auth::check_appkey($appkey);
+		$appkey_is_ok = \dash\app\user_auth::check_appkey($appkey);
 
 		self::$r10['appkey_detail'] = $appkey_is_ok;
 
@@ -225,7 +262,6 @@ class tools
 			self::stop(400, T_("Invalid app key"));
 		}
 	}
-
 
 
 	/**
@@ -249,12 +285,12 @@ class tools
 		\dash\app\apilog::static_var('apikey', $accesstoken);
 
 		$get =
-		[
-			'status'  => 'enable',
-			'type'    => 'member',
-			'auth'    => $accesstoken,
-			'limit'   => 1,
-		];
+			[
+				'status' => 'enable',
+				'type'   => 'member',
+				'auth'   => $accesstoken,
+				'limit'  => 1,
+			];
 
 		$get = \dash\db\user_auth::get($get);
 
@@ -278,7 +314,7 @@ class tools
 	{
 		\dash\header::set($_code);
 
-		if(in_array(intval($_code), [400,401,403,404,429,405,415]) && \dash\engine\process::status())
+		if(in_array(intval($_code), [400, 401, 403, 404, 429, 405, 415]) && \dash\engine\process::status())
 		{
 			\dash\engine\process::stop();
 		}
@@ -298,4 +334,5 @@ class tools
 	}
 
 }
+
 ?>
