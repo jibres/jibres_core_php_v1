@@ -330,7 +330,8 @@ class find
 			return;
 		}
 
-		if(\lib\app\plugin\business::is_activated('remove_brand'))
+		// check plan has remove brand
+		if(false)
 		{
 			return;
 		}
