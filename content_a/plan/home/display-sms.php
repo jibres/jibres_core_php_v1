@@ -18,17 +18,18 @@ $planList = \dash\data::planList();
             <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="mx-auto max-w-lg overflow-hidden rounded-lg shadow-lg lg:flex lg:max-w-none">
                     <div class="flex-1 bg-white px-6 py-8 lg:p-12">
-                        <h3 class="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight"><?php echo T_("The charge amount of your SMS plan") ?></h3>
-                        <p class="mt-6 text-base text-gray-500"><?php echo \dash\data::mySmsDetail_balance() ?></p>
+                        <h3 class="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight"><?php echo T_("The charge amount of your SMS account") ?></h3>
+                        <div class="mt-6 text-xl">
+                            <div><?php echo T_("Current charge"); ?></div>
+                            <div class="font-bold">
+								<?php echo \dash\fit::number(\dash\data::mySMSCharge_charge()) ?>
+                            </div>
+
+                            <small><?php echo \dash\data::mySMSCharge_currency() ?></small>
+                        </div>
                     </div>
                     <div class="bg-gray-50 py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
 
-
-                        <section class="circularChartBox">
-							<?php $myPercent = intval(\dash\data::myPlanDetail_daysRemainPercent());
-							include core . '/layout/elements/circularChart.php'; ?>
-                           <!-- <h3><?php echo T_(":val days  Remain", ['val' => \dash\fit::number(\dash\data::myPlanDetail_daysLeft())]); ?></h3> !-->
-                        </section>
 
                         <div class="mt-6">
                             <div class="rounded-md shadow">

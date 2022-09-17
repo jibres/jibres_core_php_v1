@@ -22,6 +22,9 @@ class view
 		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyCurrentPlanDetail());
 //		var_dump(\dash\data::myPlanDetail());exit();
 
+		\dash\data::mySMSCharge(\lib\app\sms_charge\charge::getDetail());
+				// var_dump(\dash\data::mySMSCharge());exit();
+
 
 	}
 }
