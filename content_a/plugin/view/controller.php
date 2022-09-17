@@ -7,6 +7,11 @@ class controller
 
 	public static function routing()
 	{
+		if(!\dash\permission::supervisor())
+		{
+			\dash\header::status(404);
+		}
+
 		$plugin = \dash\url::subchild();
 
 		if(!$plugin)

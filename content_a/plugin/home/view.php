@@ -6,6 +6,11 @@ class view
 {
 	public static function config()
 	{
+		if(!\dash\permission::supervisor())
+		{
+			\dash\header::status(404);
+		}
+
 		\dash\face::title(T_("Jibres plugins"));
 
 		// back
