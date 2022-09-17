@@ -7,6 +7,13 @@ class add
 
 	public static function add($_args)
 	{
+		if(!\lib\app\plan\planCheck::access('permission'))
+		{
+			$msg = \lib\app\plan\planCheck::get('permission', 'access_message');
+			\dash\notif::error($msg, ['alerty' => true]);
+			return false;
+		}
+
 		$data = \dash\app\permission\check::variable($_args);
 		if(!$data)
 		{

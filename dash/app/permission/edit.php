@@ -162,6 +162,14 @@ class edit
 
 	public static function edit($_args, $_id)
 	{
+		if(!\lib\app\plan\planCheck::access('permission'))
+		{
+			$msg = \lib\app\plan\planCheck::get('permission', 'access_message');
+			\dash\notif::error($msg, ['alerty' => true]);
+			return false;
+		}
+
+		
 		if(!is_array($_args))
 		{
 			$_args = [];
