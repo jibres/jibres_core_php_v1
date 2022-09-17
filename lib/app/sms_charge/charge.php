@@ -257,7 +257,7 @@ class charge
 	public static function getBalance($_business_id)
 	{
 
-		$charge = \lib\db\sms_charge\get::total_charge($_business_id);
+		$charge = \lib\db\sms_charge\get::store_total_charge($_business_id);
 		$spent  = \lib\db\sms\get::store_spent($_business_id);
 
 		$balance = $charge - $spent;

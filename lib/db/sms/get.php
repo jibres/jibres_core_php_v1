@@ -71,8 +71,51 @@ class get
 	public static function count_all()
 	{
 		return \dash\pdo\query_template::get_count('sms', [], 'api_log');
+
+	}
+
+
+	public static function count_all_sending()
+	{
+		return \dash\pdo\query_template::get_count('sms_sending', [], 'api_log');
+	}
+
+
+	public static function total_spent()
+	{
+		$query  =
+			"SELECT SUM(sms.final_cost) AS `spent` FROM sms WHERE  sms.calculate_cost = 1 ";
+		$param  = [];
+		$result = \dash\pdo::get($query, $param, 'spent', true, 'api_log');
+		return floatval($result);
+	}
+
+
+	public static function total_real_spent()
+	{
+		$query  =
+			"SELECT SUM(sms.real_cost) AS `spent` FROM sms WHERE  sms.calculate_cost = 1 ";
+		$param  = [];
+		$result = \dash\pdo::get($query, $param, 'spent', true, 'api_log');
+		return floatval($result);
+	}
+
+
+	public static function count_by_status()
+	{
+		$query  =
+			"
+				SELECT 
+				    COUNT(*) AS `count`,
+				    sms.status
+				FROM 
+				    sms 
+				GROUP BY 
+				    	sms.status
+			";
+		$param  = [];
+		$result = \dash\pdo::get($query, $param, null, false, 'api_log');
+		return $result;
 	}
 
 }
-
-?>

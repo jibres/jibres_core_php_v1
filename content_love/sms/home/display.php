@@ -7,10 +7,11 @@
     </div>
 
 
+
     <div class="c pRa10">
         <a href="<?php echo \dash\url::current() . '/sending'; ?>" class="stat">
             <h3><?php echo T_("Sending List"); ?></h3>
-            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_refundGuarantee()); ?></div>
+            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_countallsending()); ?></div>
         </a>
     </div>
 
@@ -18,13 +19,13 @@
     <div class="c pRa10">
         <a href="<?php echo \dash\url::current() . '/charge'; ?>" class="stat">
             <h3><?php echo T_("Charge list"); ?></h3>
-            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_active()); ?></div>
+            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_countallcharge()); ?></div>
         </a>
     </div>
     <div class="c3 s12">
         <a href="<?php echo \dash\url::current() . '/charge'; ?>" class="stat">
             <h3><?php echo T_("Total charge"); ?></h3>
-            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_active()); ?></div>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::dashboardDetail_totalcharge()); ?></div>
 
         </a>
     </div>
@@ -43,11 +44,11 @@
     <div class="c3 s12">
         <a href="<?php echo \dash\url::current() . '/charge'; ?>" class="stat">
             <h3><?php echo T_("Total Spent"); ?></h3>
-            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_yearlyCount()); ?></div>
+            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_totalspent()); ?></div>
         </a>
         <a href="<?php echo \dash\url::current() . '/charge'; ?>" class="stat">
             <h3><?php echo T_("Count business Have charge"); ?></h3>
-            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_monthlyCount()); ?></div>
+            <div class="val"><?php echo \dash\fit::stats(\dash\data::dashboardDetail_countbusinesscharge()); ?></div>
         </a>
     </div>
 </section>
@@ -57,35 +58,46 @@
     <div class="c pRa10">
         <a href="<?php echo \dash\url::current() ?>" class="stat">
             <h3><?php echo T_("Current Jibres SMS Panel Charge"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(rand()); ?></div>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::dashboardDetail_kavenegarjibressmspanelcharge()); ?></div>
         </a>
     </div>
     <div class="c pRa10">
         <a href="<?php echo \dash\url::current() ?>" class="stat">
             <h3><?php echo T_("Current Business SMS Panel Charge"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(rand()); ?></div>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::dashboardDetail_kavenegarbusinessmspanelcharge()); ?></div>
         </a>
     </div>
 </section>
 
-avg of charge
-avg business charge
-total spent
-total real spent
-list of full usage business
-
-All sms group by status
 <section class="f">
     <div class="c pRa10">
         <a href="<?php echo \dash\url::current() ?>" class="stat">
-            <h3><?php echo T_("Sending"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(rand()); ?></div>
+            <h3><?php echo T_("Average charge"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::dashboardDetail_avgcharge()); ?></div>
         </a>
     </div>
     <div class="c pRa10">
         <a href="<?php echo \dash\url::current() ?>" class="stat">
-            <h3><?php echo T_("Current Business SMS Panel Charge"); ?></h3>
-            <div class="val"><?php echo \dash\fit::number(rand()); ?></div>
+            <h3><?php echo T_("Total real spent"); ?></h3>
+            <div class="val"><?php echo \dash\fit::number(\dash\data::dashboardDetail_totalrealspent()); ?></div>
         </a>
     </div>
 </section>
+
+
+
+
+
+
+<?php if(($smsPerStatus = \dash\data::dashboardDetail_smsperstatus()) && is_array($smsPerStatus)) : ?>
+    <section class="f">
+		<?php foreach ($smsPerStatus as $value) : ?>
+            <div class="c pRa10">
+                <a href="<?php echo \dash\url::current(). '/datalist?status='. $value['status'] ?>" class="stat">
+                    <h3><?php echo T_(ucfirst(strval($value['status']))); ?></h3>
+                    <div class="val"><?php echo \dash\fit::number($value['count']); ?></div>
+                </a>
+            </div>
+		<?php endforeach; ?>
+    </section>
+<?php endif; ?>
