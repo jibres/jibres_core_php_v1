@@ -14,7 +14,7 @@ class view
 		\dash\data::back_link(\dash\url::this());
 
 		\dash\data::listEngine_start(true);
-		\dash\data::listEngine_search(\dash\url::that());
+		// \dash\data::listEngine_search(\dash\url::that());
 		// \dash\data::listEngine_filter(\dash\app\transaction\filter::list());
 		// \dash\data::listEngine_sort(true);
 		// \dash\data::sortList(\dash\app\transaction\filter::sort_list());

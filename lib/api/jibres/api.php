@@ -262,6 +262,14 @@ class api
 
 	}
 
+
+	public static function sms_charge_list(array $args)
+	{
+		$_args['list'] = true;
+		$result = self::run('sms_charge', 'get', $_args);
+		return $result;
+	}
+
 	public static function plan_activate($_args)
 	{
 		$result = self::run('plan','post', null, $_args);
@@ -343,6 +351,7 @@ class api
 		$result = self::run('telegram','post', [], $_args, ['not_check_login' => true]);
 		return $result;
 	}
+
 
 
 

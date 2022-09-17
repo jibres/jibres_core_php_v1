@@ -6,13 +6,9 @@
 
                     <div class="key">
 						<?php
-						echo T_(ucfirst(strval(a($value, 'sms'))));
-						if(a($value, 'periodtype'))
-						{
 
-							echo ' / ';
-							echo T_(ucfirst(strval(a($value, 'periodtype'))));
-						}
+                        echo \dash\fit::number(a($value, 'amount'));
+                        echo ' '. \lib\currency::jibres_currency(true);
 
 						if(a($value, 'expirydate') && a($value, 'status') === 'active')
 						{
@@ -22,7 +18,7 @@
                             {
                                 echo T_("Expire at");
                                 echo ' ';
-								echo \dash\fit::date(a($value, 'expirydate'), 'l j F Y');
+								echo \dash\fit::date(a($value, 'date'), 'l j F Y');
 							}
 							echo '</span>';
 						}
@@ -36,7 +32,7 @@
                             +<?php echo \dash\fit::price($value['plus']); ?></b><?php } ?><?php if(isset($value['minus']) && $value['minus']) { ?>
                             <b>-<?php echo \dash\fit::price($value['minus']); ?></b><?php } ?></div>
 
-                    <div class="value datetime s0"><?php echo \dash\fit::date_time(a($value, 'startdate')); ?></div>
+                    <div class="value datetime s0"><?php echo \dash\fit::date_time(a($value, 'datecreated')); ?></div>
                     <div class="go detail s0"></div>
                 </div>
             </li>
