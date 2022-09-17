@@ -189,9 +189,11 @@ class store
 
 	public static function enable_plugin_admin_special_domain()
 	{
-		if(\lib\app\plugin\business::is_activated('admin_domain'))
+
+		if(\lib\app\plan\planCheck::access('adminOnDomain'))
 		{
 			$master_domain = \lib\store::master_domain();
+
 
 			if($master_domain === \dash\url::base())
 			{
