@@ -5,6 +5,11 @@ if(\lib\app\plugin\business::is_activated('sms_pack'))
     $smsPack = true;
 }
 
+if(!isset($notSentSMSCount))
+{
+    $notSentSMSCount = 0;
+}
+
 
 if(isset($resendAll) && $resendAll)
 {
@@ -50,7 +55,7 @@ else
 
                 <div
                 data-ajaxify
-                data-data='{"status": "recend"}'
+                data-data='{"status": "resend"}'
                 class="btn-success
                 <?php
                 if(!$smsPack)
@@ -60,7 +65,7 @@ else
                 ?>
                 "
                 >
-                <?php if($resendAll) { echo T_("Recend All"); }else{ echo T_("Resend");} ?>
+                <?php if($resendAll) { echo T_("Resend All"); }else{ echo T_("Resend");} ?>
             </div>
             <div class="c-auto c-xs-6">
             </div>
