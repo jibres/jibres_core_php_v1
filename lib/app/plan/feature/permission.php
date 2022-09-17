@@ -54,7 +54,7 @@ class permission extends featurePreapre
 
 	public function access_message()
 	{
-		return T_("You must upgrade your plan to add new permission");
+		return T_("You must upgrade your plan to add or edit permission");
 	}
 
 
