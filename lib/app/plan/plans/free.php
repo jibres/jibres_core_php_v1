@@ -47,15 +47,15 @@ class free extends planPrepare
 				'totalStorage'         => ['size' => \dash\utility\convert::gb_to_byte(1)],
 				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
 				'ganje'                => false,
+				'removeBrand'          => false,
+				'adminOnDomain'        => false,
+				'professionalReport'   => false,
+				'professionalDiscount' => false,
 				'sms'                  =>
 					[
 						'fa_cost' => 100,
 						'en_cost' => 200,
 					],
-				'removeBrand'          => false,
-				'adminOnDomain'        => false,
-				'professionalReport'   => false,
-				'professionalDiscount' => false,
 			];
 	}
 

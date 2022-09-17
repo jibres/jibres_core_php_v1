@@ -48,15 +48,15 @@ class gold extends planPrepare
 				'totalStorage'    => ['size' => \dash\utility\convert::gb_to_byte(5)],
 				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
 				'ganje'           => true,
+				'removeBrand'          => true,
+				'adminOnDomain'        => false,
+				'professionalReport'   => true,
+				'professionalDiscount' => true,
 				'sms'                  =>
 					[
 						'fa_cost' => 90,
 						'en_cost' => 170,
 					],
-				'removeBrand'          => true,
-				'adminOnDomain'        => false,
-				'professionalReport'   => true,
-				'professionalDiscount' => true,
 			];
 	}
 

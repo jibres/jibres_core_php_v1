@@ -47,15 +47,15 @@ class diamond extends planPrepare
 				'totalStorage'         => ['size' => \dash\utility\convert::gb_to_byte(20)],
 				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
 				'ganje'                => true,
+				'removeBrand'          => true,
+				'adminOnDomain'        => true,
+				'professionalReport'   => true,
+				'professionalDiscount' => true,
 				'sms'                  =>
 					[
 						'fa_cost' => 60,
 						'en_cost' => 120,
 					],
-				'removeBrand'          => true,
-				'adminOnDomain'        => true,
-				'professionalReport'   => true,
-				'professionalDiscount' => true,
 			];
 	}
 
