@@ -120,7 +120,7 @@ $html          .= "<div class='avand'>";
 							{
 
 								$html .= '<input type="radio" name="type" value="minus" id="minus" >';
-								$html .= '<label for="minus">' . T_("Reducing the chage") . '</label>';
+								$html .= '<label for="minus">' . T_("Reducing the charge") . '</label>';
 							}
 							$html .= '</div>';
 						}
