@@ -111,7 +111,7 @@ class charge
 					'caller'   => 'business:sms:pay',
 
 					'pay_on_jibres' => true,
-					'msg_go'        => T_("Charge SMS"),
+					'msg_go'        => T_("Increase SMS panel charge"),
 					'auto_go'       => false,
 					'auto_back'     => true,
 					'final_msg'     => false,
