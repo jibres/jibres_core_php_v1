@@ -34,9 +34,9 @@ class totalStorage extends featurePreapre
 
 	}
 
-	public function access() : bool
+	public function size()
 	{
-		return false;
+		return $this->size;
 	}
 
 

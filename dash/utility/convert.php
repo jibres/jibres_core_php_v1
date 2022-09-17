@@ -60,5 +60,11 @@ class convert
 		return self::mb_to_byte($_gb) * 1024;
 	}
 
+
+	public static function byte_to_mb($_byte)
+	{
+		return $_byte / 1024 / 1024;
+	}
+
 }
 ?>
