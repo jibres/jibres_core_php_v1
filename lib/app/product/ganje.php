@@ -18,12 +18,14 @@ class ganje
 	 */
 	public static function limited()
 	{
-		if(\lib\app\plugin\business::is_activated('ganje_product'))
+		if(\lib\app\plan\planCheck::access('ganje'))
 		{
 			return false;
 		}
 
 		$count_added_by_ganje = \lib\db\products\get::count_added_by_ganje();
+
+
 
 		if(floatval($count_added_by_ganje) >= 10)
 		{
@@ -455,14 +457,10 @@ class ganje
 			$need_update['barcode2'] = $ganje_product['barcode2'];
 		}
 
-		return;
+		return null;
 
 
-		var_dump($need_update);
 
-		var_dump($ganje_product);
-
-		var_dump($_product_detail);exit;
 	}
 
 
@@ -576,7 +574,9 @@ class ganje
 					{
 						if(a($_data, 'limited'))
 						{
-							$html .= '<a href="'.\dash\url::here(). '/plugin/view/ganje_product" class="btn-success">'. T_("Buy ganje plugin"). '</a>';
+							$planMessageTitle = \lib\app\plan\planMessage::needUpgrade();
+							$planMessageLink = \lib\app\plan\planMessage::getLink();
+							$html .= '<a href="'.$planMessageLink. '" class="btn-success">'. $planMessageTitle. '</a>';
 						}
 						else
 						{
