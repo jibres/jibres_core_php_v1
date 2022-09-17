@@ -318,6 +318,7 @@ class charge
 			[
 				'store_id' => 'id',
 				'amount'   => 'price',
+				'desc'     => 'desc',
 				'type'     => ['enum' => ['minus', 'plus']],
 			];
 
@@ -342,10 +343,10 @@ class charge
 				'transaction_id' => null,
 				'amount'         => $amount,
 				'datecreated'    => date("Y-m-d H:i:s"),
+				'desc'           => $data['desc'],
 			];
 
 		\lib\db\sms_charge\insert::new_record($insert);
-
 
 
 	}

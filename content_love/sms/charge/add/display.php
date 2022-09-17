@@ -160,6 +160,7 @@ $html          .= "<div class='avand'>";
 						}
 						$html .= '</div>';
 
+						$html .= '<textarea name="desc" class="txt" rows="5" placeholder="'. T_("Description of this manual charging").'"></textarea>';
 
 					}
 					$html .= '</div>';

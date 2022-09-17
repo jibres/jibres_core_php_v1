@@ -12,6 +12,7 @@ class model
 				'store_id' => \dash\request::get('business_id'),
 				'amount'   => \dash\request::post('amount'),
 				'type'     => \dash\request::post('type'),
+				'desc'     => \dash\request::post('desc'),
 
 			];
 
