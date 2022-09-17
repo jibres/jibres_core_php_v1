@@ -71,6 +71,10 @@ class permission extends featurePreapre
 			{
 				return true;
 			}
+			elseif(!$_place)
+			{
+				return true;
+			}
 			else
 			{
 				return false;
