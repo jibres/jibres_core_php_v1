@@ -36,7 +36,7 @@
         <div id="chartdivplanadmin" class="box chart x210" data-hint1='Plan'
              data-abc='management/planadmin'></div>
         <div class="hidden">
-            <div id="chartplanadmintitle"><?php echo T_("Plan register per date"); ?></div>
+            <div id="chartplanadmintitle"><?php echo T_("Sms status per date"); ?></div>
             <div id="chartdivplanadmincategory"><?php echo a(\dash\data::dashboardDetail_chart(), 'categories') ?></div>
             <div id="chartdivplanadminseries"><?php echo a(\dash\data::dashboardDetail_chart(), 'series') ?></div>
         </div>

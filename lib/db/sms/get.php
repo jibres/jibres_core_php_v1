@@ -118,4 +118,26 @@ class get
 		return $result;
 	}
 
+
+	public static function adminChart()
+	{
+		$query =
+			'
+				SELECT 
+				    COUNT(*) AS `count`,
+				    sms.status,
+				    DATE(sms.datecreated) AS `categories`
+				FROM 
+				    sms
+				GROUP BY `categories`, sms.status
+			';
+
+		$param =
+			[
+			];
+
+		$result = \dash\pdo::get($query, $param, null, false, 'api_log');
+		return $result;
+	}
+
 }
