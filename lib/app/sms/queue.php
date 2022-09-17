@@ -197,7 +197,6 @@ class queue
 
 		$add_sending_record = false;
 
-		$chargingMode = \lib\app\sms_charge\charge::isChargingMode();
 
 		$jibres_sms =
 			[
@@ -216,7 +215,7 @@ class queue
 				'final_cost'      => 0,
 				'real_cost'       => 0,
 				'initial_cost'    => 0,
-				'calculate_cost'  => $chargingMode ? 1 : null,
+				'calculate_cost'  => 1,
 			];
 
 		if(a($data, 'token') || a($data, 'token2') || a($data, 'token3'))
@@ -231,15 +230,7 @@ class queue
 
 		if(a($jibres_sms, 'store_id'))
 		{
-			if($chargingMode)
-			{
-				$add_sending_record = \lib\app\sms_charge\charge::checkBusinessChargeOnSendingSMS($jibres_sms);
-			}
-			else
-			{
-				// check store package remain
-				$add_sending_record = \lib\app\sms\package::check($jibres_sms);
-			}
+			$add_sending_record = \lib\app\sms_charge\charge::checkBusinessChargeOnSendingSMS($jibres_sms);
 		}
 		else
 		{

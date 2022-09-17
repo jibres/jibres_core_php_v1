@@ -158,7 +158,7 @@ class sale_date
 
 		$advance_report = true;
 
-		if(!\lib\app\plugin\business::is_activated('report_professional') && $data['type'] !== 'date')
+		if(!\lib\app\plan\planCheck::access('professionalReport') && $data['type'] !== 'date')
 		{
 			$advance_report = false;
 
@@ -263,8 +263,8 @@ class sale_date
 		{
 			$result['plugin'] =
 			[
-				'title' => T_("Please activate professional report plugin to ganerate this report"),
-				'link' => \dash\url::kingdom(). '/a/plugin/view/report_professional',
+				'title' => \lib\app\plan\planMessage::needUpgrade(),
+				'link' => \lib\app\plan\planMessage::getLink(),
 			];
 		}
 

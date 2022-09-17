@@ -663,7 +663,9 @@ function HTML_discount_professional_is_not_activate()
 
 	if(!$plugin_discount_is_activated)
 	{
-		return '<a class="alert2 alert-danger content-center p-3 block" href="' . \dash\url::kingdom() . '/a/plan'. '" data-direct target="_blank">' . T_("You must upgrade your plan to use from this feature") . '</a>';
+		$title = \lib\app\plan\planMessage::needUpgrade();
+		$link  = \lib\app\plan\planMessage::getLink();
+		return '<a class="alert2 alert-danger content-center p-3 block" href="' . $link . '" data-direct target="_blank">' . $title . '</a>';
 	}
 
 	return null;

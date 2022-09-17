@@ -265,17 +265,6 @@ class charge
 	}
 
 
-	public static function isChargingMode() : bool
-	{
-		if(\dash\url::isLocal())
-		{
-			return true;
-		}
-
-		return false;
-	}
-
-
 	public static function checkBusinessChargeOnSendingSMS(array &$jibres_sms) : bool
 	{
 		$store_id = $jibres_sms['store_id'];
