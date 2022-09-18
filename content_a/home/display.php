@@ -84,7 +84,7 @@
 				include core . '/layout/elements/circularChart.php'; ?>
                 <h3><?php echo \dash\data::myPlanDetail_planTitle(); ?></h3>
                 <p>
-					<?php echo T_(":val days left to expire paln", ['val' => \dash\data::myPlanDetail_daysLeft()]); ?>
+					<?php echo T_(":val days left to expire paln", ['val' => \dash\fit::number(\dash\data::myPlanDetail_daysLeft())]); ?>
                 </p>
             </a>
 		<?php endif; ?>
