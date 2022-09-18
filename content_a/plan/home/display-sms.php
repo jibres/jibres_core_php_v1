@@ -2,11 +2,11 @@
 $planList = \dash\data::planList();
 ?>
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-gray-100">
-    <div class="pt-12 sm:pt-16 lg:pt-20">
+<div class="bg-white">
+    <div class="pt-4">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"><?php echo T_("SMS"); ?></h2>
+                <h2 class="text-xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"><?php echo T_("SMS"); ?></h2>
                 <p class="mt-4 text-xl text-gray-600">
 
             </div>
@@ -14,7 +14,7 @@ $planList = \dash\data::planList();
     </div>
     <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
         <div class="relative">
-            <div class="absolute inset-0 h-1/2 bg-gray-100"></div>
+            <div class="absolute inset-0 h-1/2 bg-white"></div>
             <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="mx-auto max-w-lg overflow-hidden rounded-lg shadow-lg lg:flex lg:max-w-none">
                     <div class="flex-1 bg-white px-6 py-8 lg:p-12">
