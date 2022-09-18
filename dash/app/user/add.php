@@ -2,10 +2,31 @@
 namespace dash\app\user;
 
 
+use dash\notif;
+
 trait add
 {
 	public static function quick_add($_args = [], $_none_jibres_user = false)
 	{
+		$is_staff = false;
+
+		if(isset($_args['permission']) && $_args['permission'])
+		{
+			$is_staff = true;
+		}
+
+		if($is_staff && \dash\engine\store::inStore())
+		{
+			// check plan staff count
+			if(!\lib\app\plan\planCheck::access('staff'))
+			{
+
+				\dash\notif::error(\lib\app\plan\planCheck::get('staff', 'access_message'), ['alerty' => true]);
+				return false;
+			}
+		}
+
+
 		$jibres_user_id = null;
 		if(!$_none_jibres_user)
 		{
@@ -28,12 +49,6 @@ trait add
 			$_args['displayname'] = null;
 		}
 
-		$is_statff = false;
-
-		if(isset($_args['permission']) && $_args['permission'])
-		{
-			$is_statff = true;
-		}
 
 		$user_id =  \dash\db\users\insert::signup($_args);
 
@@ -43,7 +58,7 @@ trait add
 			if(\dash\engine\store::inStore())
 			{
 				$load_user = \dash\db\users::get_by_id($user_id);
-				\dash\app\user::update_jibres_store_user($is_statff, $jibres_user_id);
+				\dash\app\user::update_jibres_store_user($is_staff, $jibres_user_id);
 			}
 		}
 
@@ -64,9 +79,9 @@ trait add
 
 		if(!\dash\engine\process::status())
 		{
-			\dash\notif::clean();
-
-			\dash\engine\process::continue();
+			// \dash\notif::clean();
+			//
+			// \dash\engine\process::continue();
 
 			if(isset($result['id']))
 			{
@@ -174,7 +189,7 @@ trait add
 		if(!$user_id)
 		{
 			\dash\log::set('api:user:no:way:to:insert:user');
-			if($_option['debug']) \dash\notif::error(T_("No way to insert user"), 'db', 'system');
+			if($_option['debug']) \dash\notif::error_once(T_("No way to insert user"), 'db', 'system');
 			return false;
 		}
 

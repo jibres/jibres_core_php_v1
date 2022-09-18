@@ -5,7 +5,31 @@ namespace lib\app\sms_charge;
 class charge
 {
 
-	public static function getDetail()
+	public static function getDetail($_force = false)
+	{
+		if($_force)
+		{
+			$result = self::getFromAPI();
+		}
+
+		$result = self::settingRecord();
+
+		if(!$result || self::syncRequired())
+		{
+			$result = self::getFromAPI();
+
+			self::setSynced();
+
+			self::saveSMSSettingRecord($result);
+		}
+
+		$result['currency'] = \lib\currency::jibres_currency(true);
+
+		return $result;
+	}
+
+
+	private static function getFromAPI()
 	{
 		$detail = \lib\api\jibres\api::sms_charge_detail();
 
@@ -15,6 +39,87 @@ class charge
 		}
 
 		return [];
+	}
+
+
+	private static function setSynced()
+	{
+		\lib\db\setting\update::overwirte_cat_key(date("Y-m-d H:i:s"), 'sms', 'synced');
+	}
+
+
+	private static function saveSMSSettingRecord($_data)
+	{
+		\lib\db\setting\update::overwirte_cat_key(json_encode($_data), 'sms', 'charge');
+	}
+
+
+	public static function sync_required()
+	{
+		\lib\db\setting\update::overwirte_cat_key('no', 'sms', 'synced');
+	}
+
+
+	private static function syncRequired()
+	{
+		$planSyncSetting = \lib\db\setting\get::by_cat_key('sms', 'synced');
+
+		if(isset($planSyncSetting['value']))
+		{
+			if($planSyncSetting['value'] === 'no')
+			{
+				$syncRequired = true;
+			}
+			elseif($syncTime = strtotime($planSyncSetting['value']))
+			{
+				if($syncTime < (time() - (60 * 30)))
+				{
+					$syncRequired = true;
+				}
+				else
+				{
+					$syncRequired = false;
+				}
+			}
+			else
+			{
+				$syncRequired = true;
+			}
+		}
+		else
+		{
+			$syncRequired = true;
+		}
+
+		return $syncRequired;
+
+	}
+
+
+	private static function settingRecord()
+	{
+		$smsSettingRecord = \lib\db\setting\get::by_cat_key('sms', 'charge');
+
+		if(!is_array($smsSettingRecord))
+		{
+			$smsSettingRecord = [];
+		}
+
+		if(isset($smsSettingRecord['value']))
+		{
+			$smsSettingRecord = json_decode($smsSettingRecord['value'], true);
+			if(!is_array($smsSettingRecord))
+			{
+				$smsSettingRecord = [];
+			}
+		}
+		else
+		{
+			$smsSettingRecord = [];
+		}
+
+
+		return $smsSettingRecord;
 	}
 
 
@@ -31,6 +136,7 @@ class charge
 			return false;
 		}
 		$data['amount'] = $amount;
+
 
 		$detail = \lib\api\jibres\api::sms_charge_charge($data);
 
@@ -69,6 +175,7 @@ class charge
 	{
 		$data = $_args;
 
+
 		$userId = self::getUserId();
 
 		$turnBack = $data['turn_back'];
@@ -79,6 +186,19 @@ class charge
 		}
 
 		$amount = $data['amount'];
+
+		$totalCharge = 10000000;
+
+		$currentStoreCharge = self::getBalance($_business_id);
+
+		if($currentStoreCharge + $amount >= $totalCharge)
+		{
+			\dash\notif::error(T_("Can not charge your sms panel more than :max :currency", ['max'      => \dash\fit::number($totalCharge),
+																							 'currency' => \lib\currency::jibres_currency(true),
+			]));
+			return ['payLink' => null, 'needPay' => false, 'error' => true];
+		}
+
 
 		if($data['use_budget'])
 		{
@@ -111,7 +231,7 @@ class charge
 					'caller'   => 'business:sms:pay',
 
 					'pay_on_jibres' => true,
-					'msg_go'        => T_("Charge SMS"),
+					'msg_go'        => T_("Increase SMS panel charge"),
 					'auto_go'       => false,
 					'auto_back'     => true,
 					'final_msg'     => false,
@@ -171,18 +291,34 @@ class charge
 			return false;
 		}
 
-
-		$insert =
+		$args =
 			[
 				'store_id'       => $store_id,
 				'user_id'        => $user_id,
 				'transaction_id' => $insert_minus_transaction,
 				'amount'         => $amount,
-				'datecreated'    => date("Y-m-d H:i:s"),
 			];
+
+		self::addNewSMSChargeRecord($args);
+
+	}
+
+
+	private static function addNewSMSChargeRecord($_args)
+	{
+
+		$insert                = $_args;
+		$insert['datecreated'] = date("Y-m-d H:i:s");
 
 		\lib\db\sms_charge\insert::new_record($insert);
 
+		\lib\api\business\api::sms_sync_required($insert['store_id']);
+
+		$log = $_args;
+
+		$log['balance'] = self::getBalance($insert['store_id']);
+
+		\dash\log::set('sms_newSMSCharge', ['myData' => $log]);
 
 	}
 
@@ -248,6 +384,7 @@ class charge
 
 		$amount = $amountRound;
 
+
 		return $amount;
 	}
 
@@ -262,17 +399,6 @@ class charge
 
 		return $balance;
 
-	}
-
-
-	public static function isChargingMode() : bool
-	{
-		if(\dash\url::isLocal())
-		{
-			return true;
-		}
-
-		return false;
 	}
 
 
@@ -336,17 +462,16 @@ class charge
 		}
 
 
-		$insert =
+		$args =
 			[
 				'store_id'       => $data['store_id'],
 				'user_id'        => \dash\user::id(),
 				'transaction_id' => null,
 				'amount'         => $amount,
-				'datecreated'    => date("Y-m-d H:i:s"),
 				'desc'           => $data['desc'],
 			];
 
-		\lib\db\sms_charge\insert::new_record($insert);
+		self::addNewSMSChargeRecord($args);
 
 
 	}

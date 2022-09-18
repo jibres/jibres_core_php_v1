@@ -58,6 +58,12 @@ else
           <nav class="c s12 ph12 m6 pLR10 items long simple">
             <ul>
               <li class="title"><?php echo T_('eCommerce'); ?></li>
+                <li>
+                    <a class="item f" href="<?php echo $kingdom; ?>/pricing">
+                        <div class="key"><?php echo T_('Pricing'); ?></div>
+                        <div class="go"></div>
+                    </a>
+                </li>
               <li>
                 <a class="item f" href="<?php echo $kingdom; ?>/benefits">
                   <div class="key"><?php echo T_('Benefits'); ?></div>

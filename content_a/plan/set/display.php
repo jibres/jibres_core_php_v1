@@ -30,6 +30,12 @@ $totalPrice = a($planFactor, 'total', 'price');
 			<?php if (a($planFactor, 'access', 'reason')) { ?>
                 <div class="alert-danger fs14">
 					<?php echo a($planFactor, 'access', 'reason'); ?>
+                    <?php if(a($planFactor, 'access', 'errorCancelPlan')): ?>
+                    <div class="mt-4">
+                        <?php echo T_("To cancel current plan click here"); ?>
+                        <a class="btn-danger" href="<?php echo \dash\url::this(). '/cancel' ?>"><?php echo T_("Cancel plan"); ?></a>
+                    </div>
+                <?php endif ?>
                 </div>
 			<?php } // endif ?>
             <?php if(false) {?>

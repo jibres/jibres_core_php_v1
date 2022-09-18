@@ -1,10 +1,11 @@
 <?php
 namespace lib\app\plan\feature;
 
-class ganje extends featurePreapre
+class instagram extends featurePreapre
 {
 
-	private $access = false;
+
+	private $access = null;
 
 
 	public function __construct($_init)
@@ -13,7 +14,12 @@ class ganje extends featurePreapre
 		{
 			$this->access = true;
 		}
+
+
+
 	}
+
+
 
 
 	public function group() : string
@@ -24,20 +30,25 @@ class ganje extends featurePreapre
 
 	public function title() : string
 	{
-		return T_("Smart product suggestion system");
+		return T_("Instagram");
 	}
 
 
 	public function value() 
 	{
-		return $this->access;
-	}
+		if(!$this->access)
+		{
+			return false;
+		}
+
+		if($this->access)
+		{
+			return T_("Soon");
+		}
 
 
-	public function access() : bool
-	{
-		return $this->access;
 	}
+
 
 
 

@@ -31,19 +31,39 @@ class sms extends featurePreapre
 
 	public function title() : string
 	{
-		return T_("SMS Cost");
+		return T_("SMS Cost"). ' - '. T_("Persian");
 	}
 
 
 	public function value() 
 	{
 		$value = '';
-		$value .= T_("Persian") . ' '. \dash\fit::number($this->fa_cost) . ' <small class="text-gray-400">' . T_("Toman"). '</small>';
-		$value .= '<br>';
-		$value .= T_("English") . ' '. \dash\fit::number($this->en_cost) . ' <small class="text-gray-400">' . T_("Toman"). '</small>';
+		$value .=  \dash\fit::number($this->fa_cost) . ' <small class="text-gray-400">' . T_("Toman"). '</small>';
+		// $value .= '<br>';
+		// $value .= T_("English") . ' '. \dash\fit::number($this->en_cost) . ' <small class="text-gray-400">' . T_("Toman"). '</small>';
 		return $value;
+	}
 
+	public function access() : bool
+	{
+		// check have charge or not
+		$charge = \lib\app\sms_charge\charge::getDetail(true);
 
+		if(isset($charge['charge']) && $charge['charge'])
+		{
+			if(intval($charge['charge']) > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	public function cost($_lang = null)

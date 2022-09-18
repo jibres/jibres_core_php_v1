@@ -16,7 +16,7 @@ class model
 
         if(!$args['period'])
         {
-            $args['period'] = 'yearly';
+            $args['period'] = \lib\app\plan\planGet::defultPeriod();
         }
 
         \lib\app\plan\planChoose::choose($args);

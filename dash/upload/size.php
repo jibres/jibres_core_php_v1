@@ -13,6 +13,8 @@ class size
 
 		if(\dash\engine\store::inStore())
 		{
+			$mb = 1;
+
 			if(\lib\store::detail('special_upload_provider'))
 			{
 				$mb = 100;
@@ -20,6 +22,16 @@ class size
 			elseif(is_numeric(\lib\store::detail('uploadsize')))
 			{
 				$mb = floatval(\lib\store::detail('uploadsize'));
+			}
+			else
+			{
+				$allowedFileSize = \lib\app\plan\planCheck::get('allowedFileSize', 'size');
+
+				if(is_numeric($allowedFileSize))
+				{
+					$mb = \dash\utility\convert::byte_to_mb($allowedFileSize);
+				}
+
 			}
 		}
 

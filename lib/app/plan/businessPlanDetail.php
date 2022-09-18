@@ -199,7 +199,15 @@ class businessPlanDetail
 			$result = [];
 		}
 
+
 		self::setSynced();
+
+		if(!isset($result['plan']))
+		{
+			// error in get detail
+			// do not save invalid result
+		}
+
 
 		self::savePlanInSetting($result);
 

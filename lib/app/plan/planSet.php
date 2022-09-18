@@ -170,11 +170,11 @@ class planSet
 			}
 			else
 			{
-				if(in_array($_current_plan, ['gold']) && in_array($_new_plan, ['diamond']))
+				if(in_array($_current_plan, ['basic']) && in_array($_new_plan, ['advanced']))
 				{
 					$action = 'upgrade';
 				}
-				elseif(in_array($_current_plan, ['diamond']) && in_array($_new_plan, ['gold']))
+				elseif(in_array($_current_plan, ['advanced']) && in_array($_new_plan, ['basic']))
 				{
 					$action = 'downgrade';
 				}

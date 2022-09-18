@@ -1,18 +1,18 @@
 <?php
 $html = '';
 
-if(!\lib\app\plugin\business::is_activated('sms_pack'))
-{
-  $html .= '<a href="'. \dash\url::kingdom(). '/a/plugin/view/sms_pack">';
+
+
+  $html .= '<a href="'. \dash\url::kingdom(). '/a/plan">';
   {
     $html .= '<div class="alert-info text-sm font-bold">';
     {
-      $html .= '<div>' .T_("You must get the sms pack plugin to active this notification"). '</div>';
+      $html .= '<div>' .T_("Check your SMS charge"). '</div>';
     }
     $html .= '</div>';
   }
   $html .= '</a>';
-}
+
 
 
 $sample  = \lib\app\setting\notification::get_sample();

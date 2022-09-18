@@ -10,6 +10,7 @@ class api
 
 	private static function run($_path, $_method, $_param = null, $_body = null, $_option = [])
 	{
+
 		if(a($_option, 'not_check_login'))
 		{
 			// needless to check login
@@ -30,6 +31,7 @@ class api
 				return false;
 			}
 		}
+
 
 		if(!\dash\engine\store::inStore())
 		{
@@ -87,16 +89,8 @@ class api
 		$header   = [];
 		$header[] = 'Authorization: '. $apikey;
 		$header[] = 'x-busisness: '. \lib\store::code();
-
-		if(a($_option, 'not_check_login'))
-		{
-			// needless to send login detail in header
-		}
-		else
-		{
-			$header[] = 'x-buser: '. \dash\user::code();
-			$header[] = 'x-juser: '. \dash\coding::encode(\dash\user::jibres_user());
-		}
+		$header[] = 'x-buser: '. \dash\user::code();
+		$header[] = 'x-juser: '. \dash\coding::encode(\dash\user::jibres_user());
 
 		if($_body)
 		{
@@ -208,7 +202,7 @@ class api
 
 	public static function plan_detail()
 	{
-		$result = self::run('plan','get');
+		$result = self::run('plan','get', null, null, ['not_check_login' => true]);
 		return $result;
 	}
 
@@ -228,7 +222,7 @@ class api
 
 	public static function sms_charge_detail()
 	{
-		$result = self::run('sms_charge', 'get');
+		$result = self::run('sms_charge', 'get', [], [], ['not_check_login' => true]);
 		return $result;
 	}
 

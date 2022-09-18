@@ -16,32 +16,6 @@ class permission extends featurePreapre
 	}
 
 
-	public function access($_place) : bool
-	{
-		if(!$this->mode)
-		{
-			return false;
-		}
-		elseif($this->mode === 'simple')
-		{
-			if($_place === 'simple')
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		elseif($this->mode === 'professional')
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
 
 
 	public function group() : string
@@ -75,6 +49,45 @@ class permission extends featurePreapre
 			return false;
 		}
 
+	}
+
+
+	public function access_message()
+	{
+		return T_("You must upgrade your plan to add or edit permission");
+	}
+
+
+
+	public function access($_place = null) : bool
+	{
+		if(!$this->mode)
+		{
+			return false;
+		}
+		elseif($this->mode === 'simple')
+		{
+			if($_place === 'simple')
+			{
+				return true;
+			}
+			elseif(!$_place)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		elseif($this->mode === 'professional')
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 

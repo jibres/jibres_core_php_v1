@@ -1,5 +1,6 @@
 <?php
 $planList = \dash\data::planList();
+$loadChooseplanLink = false;
 ?>
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-gray-100">
@@ -23,7 +24,7 @@ $planList = \dash\data::planList();
                         <?php if (\dash\data::myPlanDetail_planoutstandingFeatures()) : ?>
                             <div class="mt-8">
                                 <div class="flex items-center">
-                                    <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-indigo-600">
+                                    <h4 class="flex-shrink-0 bg-white px-4 text-base font-semibold text-indigo-600">
                                         <?php echo T_("What's included"); ?></h4>
                                     <div class="flex-1 border-t-2 border-gray-200"></div>
                                 </div>
@@ -32,7 +33,7 @@ $planList = \dash\data::planList();
                                     <?php foreach (\dash\data::myPlanDetail_planoutstandingFeatures() as $feature) : ?>
                                         <li class="flex items-start lg:col-span-1">
                                             <div class="flex-shrink-0">
-                                                <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg"
+                                                <svg class="h-5 w-5 mx-1 text-green-400" xmlns="http://www.w3.org/2000/svg"
                                                      viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                     <path fill-rule="evenodd"
                                                           d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
@@ -48,7 +49,7 @@ $planList = \dash\data::planList();
                         <?php endif; ?>
                     </div>
                     <div class="bg-gray-50 py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
-                        <?php if (\dash\data::myPlanDetail_plan() === 'free') : ?>
+                        <?php if (\dash\data::myPlanDetail_plan() === 'free') : $loadChooseplanLink = true; ?>
                             <p class="text-lg font-medium leading-6 text-gray-900"><?php echo T_("Upgrade your plan to use from ultimate feature"); ?></p>
                             <div class="mt-6">
                                 <div class="rounded-md shadow">
@@ -86,6 +87,11 @@ $planList = \dash\data::planList();
                         <p class="mt-4 text-sm">
                             <a href="<?php echo \dash\url::this(). '/transactions' ?>" class="font-medium text-gray-500 underline"><?php echo T_("Transactions"); ?></a>
                         </p>
+                        <?php if(!$loadChooseplanLink): ?>
+                        <p class="mt-4 text-sm">
+                            <a href="<?php echo \dash\url::this(). '/choose' ?>" class="font-medium text-gray-500 underline"><?php echo T_("Choose plan"); ?></a>
+                        </p>
+                        <?php endif; ?>
                     </div>
 
                 </div>

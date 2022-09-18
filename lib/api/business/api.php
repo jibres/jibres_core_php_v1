@@ -137,7 +137,14 @@ class api
 	}
 
 
-    public static function set_sms_delivery($_business_id, $_args)
+	public static function sms_sync_required($_business_id)
+	{
+		$result = self::run($_business_id, 'sms','post', null, ['sync_required' => 'yes']);
+		return $result;
+	}
+
+
+	public static function set_sms_delivery($_business_id, $_args)
     {
         $result = self::run($_business_id, 'sms/delivery','post', null, $_args);
         return $result;

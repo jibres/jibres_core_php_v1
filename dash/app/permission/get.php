@@ -97,6 +97,11 @@ class get
 
 	public static function list($_load_user_count = false)
 	{
+		if(!\lib\app\plan\planCheck::access('permission'))
+		{
+			return false;
+		}
+
 		$list = \lib\db\setting\get::by_cat('permission');
 
 		if(!is_array($list))
@@ -124,6 +129,7 @@ class get
 				}
 			}
 		}
+
 
 		return $list;
 

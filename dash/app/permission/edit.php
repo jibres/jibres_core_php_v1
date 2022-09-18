@@ -71,7 +71,7 @@ class edit
 
 			if(empty($caller))
 			{
-				$old_value[$group]['access'] = 'customized';
+				$old_value[$group]['access'] = self::canSetCustomized();
 			}
 
 			$advance = $list[$group]['advance'];
@@ -141,13 +141,13 @@ class edit
 				}
 				else
 				{
-					$old_value[$group]['access'] = 'customized';
+					$old_value[$group]['access'] = self::canSetCustomized();
 
 				}
 			}
 			else
 			{
-				$old_value[$group]['access'] = 'customized';
+				$old_value[$group]['access'] = self::canSetCustomized();
 			}
 		}
 
@@ -162,6 +162,14 @@ class edit
 
 	public static function edit($_args, $_id)
 	{
+		if(!\lib\app\plan\planCheck::access('permission'))
+		{
+			$msg = \lib\app\plan\planCheck::get('permission', 'access_message');
+			\dash\notif::error($msg, ['alerty' => true]);
+			return false;
+		}
+
+		
 		if(!is_array($_args))
 		{
 			$_args = [];
@@ -222,7 +230,6 @@ class edit
 			}
 		}
 
-
 		$old_value = json_encode($old_value, JSON_UNESCAPED_UNICODE);
 		\lib\db\setting\update::value($old_value, $load['id']);
 
@@ -230,5 +237,24 @@ class edit
 		return true;
 
 	}
+
+
+	private static function canSetCustomized()
+	{
+		$return = 'full';
+
+		if(\lib\app\plan\planCheck::access('permission', 'professional'))
+		{
+			$return = 'customized';
+		}
+		else
+		{
+			\dash\notif::warn(T_("To set advance permission you must upgrade your plan"), ['alerty' => true]);
+		}
+
+		return $return;
+
+	}
+
 }
 ?>

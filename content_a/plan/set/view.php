@@ -20,7 +20,7 @@ class view
 
 		\dash\data::global_scriptPage("my_domain_review.js");
 
-		$period = 'yearly';
+		$period = \lib\app\plan\planGet::defultPeriod();
 		if(\dash\request::get('p'))
 		{
 			$period = \dash\request::get('p');

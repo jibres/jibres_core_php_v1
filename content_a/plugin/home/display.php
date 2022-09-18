@@ -58,7 +58,7 @@ $html .= '<section class="text-gray-600 body-font">';
 		{
 			$html .= '<div class="c-xs-12 c-sm-12 c-md-6 c-lg-4 flex p-2">';
 			{
-				$is_activated = \lib\app\plugin\business::is_activated(a($value, 'plugin'));
+				$is_activated = false;
 
 				$html .= '<div class="bg-white rounded-xl w-full">';
 				{

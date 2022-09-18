@@ -10,8 +10,8 @@ class planList
 		return
 			[
 				'free',
-				'gold',
-				'diamond',
+				'basic',
+				'advanced',
 				'rafiei',
 				'khadije',
 			];
@@ -22,8 +22,8 @@ class planList
 	{
 		return
 			[
-				'gold',
-				'diamond',
+				'basic',
+				'advanced',
 			];
 	}
 
@@ -34,7 +34,7 @@ class planList
 
 		$currentPlanDetail = new businessPlanDetail(\lib\store::id());
 		$currentPlan       = $currentPlanDetail->currentPlan();
-		$period            = 'yearly';
+		$period            = \lib\app\plan\planGet::defultPeriod();;
 
 		if(isset($_args['period']) && in_array($_args['period'], ['monthly', 'yearly']))
 		{

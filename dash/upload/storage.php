@@ -18,7 +18,16 @@ class storage
 			}
 			else
 			{
-				$storage_limit = 1000 * 1024 * 1024; // 1 GB
+				$planStorage = \lib\app\plan\planCheck::get('totalStorage', 'size');
+
+				if(is_numeric($planStorage))
+				{
+					$storage_limit = $planStorage;
+				}
+				else
+				{
+					$storage_limit = 1000 * 1024 * 1024; // 1 GB
+				}
 			}
 		}
 		else
