@@ -2,13 +2,13 @@
 $planList = \dash\data::planList();
 
 
-if(\dash\request::get('p') == 'monthly')
+if(\dash\request::get('p') == 'yearly')
 {
-	$periodType = T_("month");
+	$periodType = T_("year");
 }
 else
 {
-	$periodType = T_("year");
+	$periodType = T_("month");
 }
 
 function HTMLValueDetectorPricing($value)
