@@ -21,7 +21,7 @@ class advanced extends planPrepare
 
 	public function description() : string
 	{
-		return T_("For someones ready to use Jibres as hero."). ' '. T_("<span class='bold'>Everything you need</span> for a growing business.");
+		return T_("For someones ready to use Jibres as hero.") . ' ' . T_("<span class='bold'>Everything you need</span> for a growing business.");
 	}
 
 
@@ -45,12 +45,14 @@ class advanced extends planPrepare
 				'staff'                => ['count' => 20],
 				'allowedFileSize'      => ['size' => \dash\utility\convert::mb_to_byte(20)],
 				'totalStorage'         => ['size' => \dash\utility\convert::gb_to_byte(20)],
-				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
+				'freeDomain'           => ['irDomain' => true, 'comDomain' => true],
 				'ganje'                => true,
 				'removeBrand'          => true,
 				'adminOnDomain'        => true,
 				'professionalReport'   => true,
 				'professionalDiscount' => true,
+				'support'              => ['mode' => 'top_priority'],
+				'instagram'            => true,
 				'sms'                  =>
 					[
 						'fa_cost' => 60,

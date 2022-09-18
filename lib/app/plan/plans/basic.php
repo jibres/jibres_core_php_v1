@@ -23,7 +23,7 @@ class basic extends planPrepare
 	public function description() : string
 	{
 
-		return  T_("For who want try to change!"). ' '. '<br><span class="font-bold">'. T_("Enjoy modern era."). '</span>';
+		return T_("For who want try to change!") . ' ' . '<br><span class="font-bold">' . T_("Enjoy modern era.") . '</span>';
 	}
 
 
@@ -43,16 +43,18 @@ class basic extends planPrepare
 	{
 		return
 			[
-				'permission'      => ['mode' => 'simple'],
-				'staff'           => ['count' => 5],
-				'allowedFileSize' => ['size' => \dash\utility\convert::mb_to_byte(5)],
-				'totalStorage'    => ['size' => \dash\utility\convert::gb_to_byte(5)],
-				// 'freeDomain'           => ['irDomain' => false, 'comDomain' => false],
-				'ganje'           => true,
+				'permission'           => ['mode' => 'simple'],
+				'staff'                => ['count' => 5],
+				'allowedFileSize'      => ['size' => \dash\utility\convert::mb_to_byte(5)],
+				'totalStorage'         => ['size' => \dash\utility\convert::gb_to_byte(5)],
+				'freeDomain'           => ['irDomain' => true, 'comDomain' => false],
+				'ganje'                => true,
 				'removeBrand'          => true,
 				'adminOnDomain'        => false,
 				'professionalReport'   => true,
 				'professionalDiscount' => true,
+				'support'              => true,
+				'instagram'            => false,
 				'sms'                  =>
 					[
 						'fa_cost' => 90,

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-18 18:37+0430\n"
-"PO-Revision-Date: 2022-09-18 18:38+0430\n"
+"POT-Creation-Date: 2022-09-18 19:10+0430\n"
+"PO-Revision-Date: 2022-09-18 19:10+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -94,7 +94,7 @@ msgstr ""
 #: content/changelog/display.php:68 content/press/display.php:8
 #: content/story/display.php:54 content_love/changelog/add/display.php:11
 #: content_love/changelog/display.php:8 content_love/changelog/display.php:22
-#: includes/languages/trans_static.php:505
+#: includes/languages/trans_static.php:505 lib/app/plan/feature/instagram.php:46
 msgid "Soon"
 msgstr "بزودی"
 
@@ -2653,9 +2653,10 @@ msgstr "تعرفه دامنه‌ها"
 #: dash/app/log/caller/ticket/ticket_answerTicketAlert.php:14
 #: dash/app/log/caller/ticket/ticket_answerTicketAlertSend.php:14
 #: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:19
-#: dash/app/log/caller/ticket/ticket_seeTicket.php:13 lib/app/store/analytics.php:47
-#: lib/app/store/analytics.php:48 lib/app/store/analytics.php:49
-#: lib/app/store/analytics.php:50 lib/app/store/analytics.php:51
+#: dash/app/log/caller/ticket/ticket_seeTicket.php:13 lib/app/plan/feature/support.php:36
+#: lib/app/store/analytics.php:47 lib/app/store/analytics.php:48
+#: lib/app/store/analytics.php:49 lib/app/store/analytics.php:50
+#: lib/app/store/analytics.php:51
 msgid "Support"
 msgstr "پشتیبانی"
 
@@ -13142,7 +13143,7 @@ msgstr "سرویس اتصال اینستاگرام در حال حاضر در د�
 #: content_account/my/social/display.php:41 content_account/my/social/display.php:44
 #: content_site/body/instagram/instagram1.php:17
 #: content_site/body/instagram/instagram1.php:51 content_site/body/instagram/option.php:36
-#: lib/store.php:498
+#: lib/app/plan/feature/instagram.php:33 lib/store.php:498
 msgid "Instagram"
 msgstr "اینستاگرام"
 
@@ -22478,12 +22479,13 @@ msgstr "همه افزونه‌ها"
 #: lib/app/log/caller/business/business_plugin.php:69
 #: lib/app/log/caller/business/business_plugin.php:75
 #: lib/app/plan/feature/adminOnDomain.php:21 lib/app/plan/feature/allowedFileSize.php:21
-#: lib/app/plan/feature/ganje.php:21 lib/app/plan/feature/permission.php:23
+#: lib/app/plan/feature/freeDomain.php:29 lib/app/plan/feature/ganje.php:21
+#: lib/app/plan/feature/instagram.php:27 lib/app/plan/feature/permission.php:23
 #: lib/app/plan/feature/professionalDiscount.php:21
 #: lib/app/plan/feature/professionalFormBuilder.php:21
 #: lib/app/plan/feature/professionalReport.php:21 lib/app/plan/feature/removeBrand.php:21
 #: lib/app/plan/feature/sms.php:28 lib/app/plan/feature/staff.php:21
-#: lib/app/plan/feature/totalStorage.php:21
+#: lib/app/plan/feature/support.php:30 lib/app/plan/feature/totalStorage.php:21
 msgid "Feature"
 msgstr "ویژگی"
 
@@ -42373,13 +42375,21 @@ msgstr "مدیریت بیزینس در دامنه اختصاصی"
 msgid "Allowed file upload size"
 msgstr "اندازه مجاز آپلود فایل"
 
+#: lib/app/plan/feature/freeDomain.php:35
+msgid "Gift domain"
+msgstr "دامنه هدیه"
+
+#: lib/app/plan/feature/freeDomain.php:50
+msgid ".ir domain"
+msgstr "دامنه آی‌آر"
+
+#: lib/app/plan/feature/freeDomain.php:56
+msgid ".com domain"
+msgstr "دامنه دات کام"
+
 #: lib/app/plan/feature/ganje.php:27
 msgid "Smart product suggestion system"
 msgstr "سیستم پیشنهاد خودکار"
-
-#: lib/app/plan/feature/ganje.php:39
-msgid "10 request for test"
-msgstr "۱۰ درخواست برای تست"
 
 #: lib/app/plan/feature/permission.php:45
 msgid "Professional"
@@ -42420,6 +42430,10 @@ msgstr "تعداد کارمندان"
 #: lib/app/plan/feature/staff.php:39
 msgid "To add new staff you must upgrade your plan"
 msgstr "برای اضافه کردن کارمند جدید باید پلن خود را ارتقاء دهید"
+
+#: lib/app/plan/feature/support.php:49
+msgid "Top priority"
+msgstr "اولویت بالا"
 
 #: lib/app/plan/feature/totalStorage.php:27
 msgid "Total storage"
@@ -42551,33 +42565,33 @@ msgstr "فعال سازی پلن :val"
 msgid "Can not choose this plan"
 msgstr "نمی‌توانید این پلن را انتخاب کنید"
 
-#: lib/app/plan/plans/diamond.php:18
+#: lib/app/plan/plans/advanced.php:18
 msgid "Advanced"
 msgstr "پیشرفته"
 
-#: lib/app/plan/plans/diamond.php:24
+#: lib/app/plan/plans/advanced.php:24
 msgid "For someones ready to use Jibres as hero."
 msgstr "برای کسانی که آماده استفاده از جیبرس هستند."
 
-#: lib/app/plan/plans/diamond.php:24
+#: lib/app/plan/plans/advanced.php:24
 msgid "<span class='bold'>Everything you need</span> for a growing business."
 msgstr "<span class='bold'>تمام نیازهای شما</span> برای یک بیزینس درحال توسعه."
+
+#: lib/app/plan/plans/basic.php:19
+msgid "Basic"
+msgstr "پایه"
+
+#: lib/app/plan/plans/basic.php:26
+msgid "For who want try to change!"
+msgstr "برای کسانی که تلاش به تغییر دارند!"
+
+#: lib/app/plan/plans/basic.php:26
+msgid "Enjoy modern era."
+msgstr "از دوران مدرنیته لذت ببرید."
 
 #: lib/app/plan/plans/free.php:24
 msgid "For ever!"
 msgstr "برای همیشه!"
-
-#: lib/app/plan/plans/gold.php:19
-msgid "Basic"
-msgstr "پایه"
-
-#: lib/app/plan/plans/gold.php:26
-msgid "For who want try to change!"
-msgstr "برای کسانی که تلاش به تغییر دارند!"
-
-#: lib/app/plan/plans/gold.php:26
-msgid "Enjoy modern era."
-msgstr "از دوران مدرنیته لذت ببرید."
 
 #: lib/app/plan/plans/khadije.php:19
 msgid "Khadije"
@@ -45129,6 +45143,12 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Free domain"
+#~ msgstr "دامنه رایگان"
+
+#~ msgid "10 request for test"
+#~ msgstr "۱۰ درخواست برای تست"
+
 #~ msgid "Gold"
 #~ msgstr "طلایی"
 
@@ -45199,12 +45219,6 @@ msgstr "یارد"
 #~ msgid ":val storage"
 #~ msgstr ":val فضای ذخیره سازی"
 
-#~ msgid "Free domain"
-#~ msgstr "دامنه رایگان"
-
-#~ msgid ".com Domain"
-#~ msgstr "دامنه .com"
-
 #~ msgid "Advance report"
 #~ msgstr "گزارشات پیشرفته"
 
@@ -45231,9 +45245,6 @@ msgstr "یارد"
 
 #~ msgid "Access to Ganje"
 #~ msgstr "دسترسی به گنجه"
-
-#~ msgid ".ir Domain"
-#~ msgstr "دامنه آی‌آر"
 
 #~ msgid "Everything you need ❤"
 #~ msgstr "هر آنچه شما نیاز دارید ❤"
