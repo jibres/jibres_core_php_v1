@@ -278,7 +278,30 @@ class sidebar
 			if(in_array($module, ['form']))
 			{
 				$menu['formbuilder']['iconColor'] = $blue;
-				$menu['formbuilder']['selected']  = true;
+				if($child !== 'add')
+				{
+					$menu['formbuilder']['selected']  = true;
+				}
+
+				$form_child = [];
+
+				$form_child['addNewForm'] =
+					[
+						'title'    => T_("Add new form"),
+						'url'      => $kingdom. '/a/form/add',
+						'selected' => ($content === 'a' &&  $module === 'form' && $child === 'add'),
+					];
+
+				// $form_child['formList'] =
+				// 	[
+				// 		'title'    => T_("List of forms"),
+				// 		'url'      => $kingdom. '/a/form',
+				// 		'selected' => ($content === 'a' &&  $module === 'form' && !$child),
+				// 	];
+
+
+
+				$menu['formbuilder']['child'] = $form_child;
 			}
 		}
 
