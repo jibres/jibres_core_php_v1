@@ -39,7 +39,10 @@ sms charge
         <th>packagecount</th>
         <th>usage</th>
         <th>remain</th>
-
+        <th>current charge</th>
+        <th>
+            action
+        </th>
     </tr>
     </thead>
     <tbody>
@@ -70,6 +73,17 @@ sms charge
                 <?php
 				echo \dash\fit::number(floatval(a($item, 'packagecount')) - floatval($count_usage));
                 ?>
+
+            </td>
+            <td>
+                <?php
+                $currentCharge = \lib\app\sms_charge\charge::getBalance($item['store_id']);
+                echo  \dash\fit::number($currentCharge);
+                ?>
+            </td>
+            <td>
+
+                    <div class="btn-success" data-ajaxify data-data='{"pid": "<?php echo $item['id'] ?>", "pc":"<?php echo $item['packagecount'] ?>", "store_id": "<?php echo a($item, 'store_id'); ?>"}'>Charge now</div>
 
             </td>
 
