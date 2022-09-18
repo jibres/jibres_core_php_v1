@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-17 16:15+0430\n"
-"PO-Revision-Date: 2022-09-17 16:16+0430\n"
+"POT-Creation-Date: 2022-09-18 19:15+0430\n"
+"PO-Revision-Date: 2022-09-18 19:16+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -26,13 +26,13 @@ msgid "Jibres Values"
 msgstr "ارزش‌های جیبرس"
 
 #: content/about/display.php:16 content/about/display.php:17
-#: content/home/layout/footer.php:235 content/home/layout/pwa-footer.php:206
+#: content/home/layout/footer.php:241 content/home/layout/pwa-footer.php:206
 #: content/mission/view.php:9
 msgid "Jibres Mission"
 msgstr "ماموریت جیبرس"
 
 #: content/about/display.php:22 content/about/display.php:23
-#: content/home/layout/footer.php:241 content/home/layout/pwa-footer.php:212
+#: content/home/layout/footer.php:247 content/home/layout/pwa-footer.php:212
 #: content/vision/view.php:9
 msgid "Jibres Vision"
 msgstr "چشم‌انداز جیبرس"
@@ -53,7 +53,7 @@ msgstr ""
 "جیبرس مجموعه ابزارهایی ساده و کاربردی را به‌صورت یکپارچه در اختیار بیزینس‌های مدرن و "
 "همینطور تجارت‌های سنتی مایل به حرکت به‌سوی تکنولوژی قرار می‌دهد."
 
-#: content/about/view.php:9 content/home/layout/footer.php:229
+#: content/about/view.php:9 content/home/layout/footer.php:235
 #: content/home/layout/pwa-footer.php:200 content/mission/view.php:15
 #: content/values/view.php:15 content/vision/view.php:15
 #: content_r10/android/about/view.php:9
@@ -67,12 +67,12 @@ msgstr "درباره جیبرس"
 #: content/changelog/view.php:21 content/contact/view.php:24
 #: content/domains/home/view.php:16 content/enterprise/view.php:13
 #: content/forceunlock/view.php:12 content/free/view.php:12 content/investment/view.php:12
-#: content/portfolio/view.php:20 content/press/view.php:15 content/privacy/view.php:15
-#: content/shipping/irpost/view.php:12 content/shipping/view.php:12
-#: content/socialresponsibility/view.php:15 content/story/view.php:12
-#: content/team/view.php:15 content/terms/view.php:15 content/whois/view.php:13
-#: content_business/p/home/view.php:17 content_enter/home/view.php:35
-#: content_love/subscribe/view.php:13
+#: content/portfolio/view.php:20 content/press/view.php:15 content/pricing/view.php:12
+#: content/privacy/view.php:15 content/shipping/irpost/view.php:12
+#: content/shipping/view.php:12 content/socialresponsibility/view.php:15
+#: content/story/view.php:12 content/team/view.php:15 content/terms/view.php:15
+#: content/whois/view.php:13 content_business/p/home/view.php:17
+#: content_enter/home/view.php:35 content_love/subscribe/view.php:13
 #: content_site/options/responsive/responsive_footer_link_add.php:53
 #: dash/layout/pwa/pwa_menu.php:238 includes/languages/trans_static_public.php:70
 msgid "Home"
@@ -94,7 +94,7 @@ msgstr ""
 #: content/changelog/display.php:68 content/press/display.php:8
 #: content/story/display.php:54 content_love/changelog/add/display.php:11
 #: content_love/changelog/display.php:8 content_love/changelog/display.php:22
-#: includes/languages/trans_static.php:505
+#: includes/languages/trans_static.php:505 lib/app/plan/feature/instagram.php:46
 msgid "Soon"
 msgstr "بزودی"
 
@@ -355,7 +355,7 @@ msgstr ""
 msgid "Jibres Brand"
 msgstr "برند جیبرس"
 
-#: content/brand/view.php:14 content/home/layout/footer.php:205
+#: content/brand/view.php:14 content/home/layout/footer.php:211
 #: content/home/layout/pwa-footer.php:236 content/logo/section-icon.php:10
 #: content/logo/section-icon.php:16 content/logo/section-icon.php:17
 #: content/logo/section-icon.php:18 content/logo/section-icon.php:62
@@ -758,7 +758,7 @@ msgstr "ارسال"
 msgid "Bug"
 msgstr "باگ"
 
-#: content/bug/view.php:11 content/home/layout/footer.php:155
+#: content/bug/view.php:11 content/home/layout/footer.php:161
 #: content/home/layout/pwa-footer.php:146
 msgid "Jibres Bug Program"
 msgstr "برنامه گزارش باگ جیبرس"
@@ -808,7 +808,7 @@ msgstr "کاتالوگ جیبرس"
 msgid "Jibres Certificates"
 msgstr "مجوزها و گواهینامه‌های جیبرس"
 
-#: content/certificates/view.php:9 content/home/layout/footer.php:193
+#: content/certificates/view.php:9 content/home/layout/footer.php:199
 #: content/home/layout/pwa-footer.php:182 content_a/setting/thirdparty/display.php:119
 #: content_a/setting3/home/html/test.php:119
 msgid "Certificates"
@@ -1039,7 +1039,7 @@ msgstr ""
 #: content_enter/signup/display.php:12 content_love/subscribe/display.php:15
 #: content_site/body/contactform/cf1_html.php:87 dash/app/ticket/contact.php:116
 #: dash/layout/comment/comment-add.php:18
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:201
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:202
 msgid "Name"
 msgstr "نام"
 
@@ -1081,7 +1081,7 @@ msgstr "نام کامل"
 #: dash/app/ticket/contact.php:106 dash/layout/comment/comment-add.php:25
 #: dash/layout/comment/comment-add.php:26 includes/languages/trans_static_public.php:162
 #: lib/app/form/item/type.php:367
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:202
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:203
 msgid "Mobile"
 msgstr "موبایل"
 
@@ -1484,7 +1484,7 @@ msgid "Transfer Now"
 msgstr "همین الان منتقل کن"
 
 #: content/domains/home/domain-topBox.php:30 content/domains/pricing/display.php:53
-#: content_a/plan/home/display-plan.php:72 content_love/domain/home/display.php:245
+#: content_a/plan/home/display-plan.php:73 content_love/domain/home/display.php:245
 #: content_my/domain/setting/elements/detail.php:51
 msgid "Renew"
 msgstr "تمدید"
@@ -1859,7 +1859,7 @@ msgid "Cheap Domain Names | Find Domain Prices at Jibres"
 msgstr "دامنه ارزان | ارزان‌ترین قیمت دامنه را در جیبرس پیدا کنید"
 
 #: content/domains/pricing/view.php:19 content/domains/search/view.php:16
-#: content/home/layout/header.php:18 content_account/billing/view.php:17
+#: content/home/layout/header.php:20 content_account/billing/view.php:17
 #: content_developers/docs/home/display.php:30
 #: content_love/business/domain/action/view.php:12
 #: content_love/business/domain/add/view.php:12
@@ -2068,7 +2068,7 @@ msgstr ""
 "یا نه. اگر پسوند دات کام گرفته شده بود یادتون باشه صدها پسوند دیگه هم در دسترس هستند. "
 "در نهایت از هر کدوم خوشتون اومد تعلل نکنید و اون رو با جیبرس بخرید."
 
-#: content/domains/search/view.php:9 content/home/layout/footer.php:81
+#: content/domains/search/view.php:9 content/home/layout/footer.php:87
 #: content/home/layout/pwa-footer.php:79
 msgid "Domain Name Search"
 msgstr "جستجو نام دامنه"
@@ -2194,8 +2194,8 @@ msgid "Create a mobile app for your online store."
 msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی داشته باشید."
 
 #: content/home/display.php:42 content_a/cart/add/display.php:131
-#: content_a/order/summary.php:54 content_a/plan/choose/display.php:70
-#: content_a/plan/choose/display.php:153 content_a/plugin/view/display.php:228
+#: content_a/order/summary.php:54 content_a/plan/choose/display.php:78
+#: content_a/plan/choose/display.php:159 content_a/plugin/view/display.php:228
 #: content_a/products/edit/block/price.php:68 content_business/cart/cartSummary.php:40
 #: content_business/p/home/blocks/detail.php:75 content_site/assemble/wrench/price.php:65
 #: lib/app/plan/plans/free.php:18
@@ -2599,46 +2599,52 @@ msgstr "درباره جیبرس بیشتر بدانید"
 msgid "eCommerce"
 msgstr "تجارت الکترونیک"
 
-#: content/home/layout/footer.php:63 content/home/layout/pwa-footer.php:60
+#: content/home/layout/footer.php:63 content/home/layout/header.php:18
+#: content/pricing/view.php:9 content_a/plan/choose/display.php:150
+#: content_sudo/smsclient/home/display.php:18
+msgid "Pricing"
+msgstr "هزینه‌ها"
+
+#: content/home/layout/footer.php:69 content/home/layout/pwa-footer.php:60
 msgid "Benefits"
 msgstr "مزایا"
 
-#: content/home/layout/footer.php:78 content/home/layout/pwa-footer.php:76
+#: content/home/layout/footer.php:84 content/home/layout/pwa-footer.php:76
 #: content_my/domain/buy/view.php:13 content_my/domain/history/view.php:12
 #: content_my/domain/home/view.php:9 content_my/domain/option/view.php:12
 #: content_my/domain/other/view.php:12 content_my/domain/payments/view.php:12
 #: content_my/domain/predict/view.php:12 content_my/domain/renew/view.php:12
 #: content_my/domain/search/view.php:12 content_my/domain/short/view.php:12
 #: content_my/domain/transfer/view.php:12 content_my/domain/whois/view.php:14
-#: content_my/home/display_pwa.php:7 dash/layout/m2/sidebar.php:718 dash/panel.php:78
+#: content_my/home/display_pwa.php:7 dash/layout/m2/sidebar.php:708 dash/panel.php:78
 msgid "Domain Center"
 msgstr "مرکز دامنه"
 
-#: content/home/layout/footer.php:87 content/home/layout/pwa-footer.php:85
+#: content/home/layout/footer.php:93 content/home/layout/pwa-footer.php:85
 #: content_a/setting/domain/add/display.php:10
 #: dash/layout/admin/sidebar/sidebar-api-domain.php:19
 msgid "Buy new domain"
 msgstr "خرید دامنه جدید"
 
-#: content/home/layout/footer.php:93 content/home/layout/pwa-footer.php:91
+#: content/home/layout/footer.php:99 content/home/layout/pwa-footer.php:91
 #: content_my/domain/transfer/display.php:11 content_my/domain/transfer/display.php:62
 #: lib/app/nic_domainaction/ready.php:101 lib/app/nic_domainbilling/ready.php:115
 msgid "Transfer Domain"
 msgstr "انتقال دامنه"
 
-#: content/home/layout/footer.php:99 content/home/layout/pwa-footer.php:97
+#: content/home/layout/footer.php:105 content/home/layout/pwa-footer.php:97
 msgid "Renew your Domain"
 msgstr "تمدید دامنه"
 
-#: content/home/layout/footer.php:105 content/home/layout/pwa-footer.php:103
+#: content/home/layout/footer.php:111 content/home/layout/pwa-footer.php:103
 msgid "Whois Lookup"
 msgstr "جستجوی‌ دامنه"
 
-#: content/home/layout/footer.php:111
+#: content/home/layout/footer.php:117
 msgid "Domain Pricing"
 msgstr "تعرفه دامنه‌ها"
 
-#: content/home/layout/footer.php:120 content/home/layout/pwa-footer.php:112
+#: content/home/layout/footer.php:126 content/home/layout/pwa-footer.php:112
 #: content_account/home/display.php:100 content_account/home/display.php:104
 #: dash/app/log/caller/ticket/ticket_AddNoteTicket.php:13
 #: dash/app/log/caller/ticket/ticket_AddToTicket.php:13
@@ -2647,100 +2653,101 @@ msgstr "تعرفه دامنه‌ها"
 #: dash/app/log/caller/ticket/ticket_answerTicketAlert.php:14
 #: dash/app/log/caller/ticket/ticket_answerTicketAlertSend.php:14
 #: dash/app/log/caller/ticket/ticket_notAnsweredTicket.php:19
-#: dash/app/log/caller/ticket/ticket_seeTicket.php:13 lib/app/store/analytics.php:47
-#: lib/app/store/analytics.php:48 lib/app/store/analytics.php:49
-#: lib/app/store/analytics.php:50 lib/app/store/analytics.php:51
+#: dash/app/log/caller/ticket/ticket_seeTicket.php:13 lib/app/plan/feature/support.php:36
+#: lib/app/store/analytics.php:47 lib/app/store/analytics.php:48
+#: lib/app/store/analytics.php:49 lib/app/store/analytics.php:50
+#: lib/app/store/analytics.php:51
 msgid "Support"
 msgstr "پشتیبانی"
 
-#: content/home/layout/footer.php:123 content/home/layout/pwa-footer.php:115
+#: content/home/layout/footer.php:129 content/home/layout/pwa-footer.php:115
 msgid "Support Center"
 msgstr "مرکز پشتیبانی"
 
-#: content/home/layout/footer.php:129 content/home/layout/pwa-footer.php:133
+#: content/home/layout/footer.php:135 content/home/layout/pwa-footer.php:133
 msgid "System Status"
 msgstr "وضعیت سیستم"
 
-#: content/home/layout/footer.php:135 content/home/layout/pwa-footer.php:121
+#: content/home/layout/footer.php:141 content/home/layout/pwa-footer.php:121
 #: content_love/domain/contactinfo/display.php:5
 #: content_site/body/contactform/option.php:23
 #: dash/social/telegram/commands/ermile.php:528 includes/languages/trans_static.php:600
 msgid "Contact"
 msgstr "تماس"
 
-#: content/home/layout/footer.php:142 content/home/layout/pwa-footer.php:127
+#: content/home/layout/footer.php:148 content/home/layout/pwa-footer.php:127
 msgid "FAQ"
 msgstr "سوالات پرتکرار"
 
-#: content/home/layout/footer.php:149 content/home/layout/pwa-footer.php:139
+#: content/home/layout/footer.php:155 content/home/layout/pwa-footer.php:139
 msgid "Send us Feedback"
 msgstr "ارسال بازخورد"
 
-#: content/home/layout/footer.php:164 content/home/layout/pwa-footer.php:155
+#: content/home/layout/footer.php:170 content/home/layout/pwa-footer.php:155
 msgid "Resources"
 msgstr "منابع"
 
-#: content/home/layout/footer.php:168 content/home/layout/pwa-footer.php:158
+#: content/home/layout/footer.php:174 content/home/layout/pwa-footer.php:158
 #: content_site/body/blog/option.php:21 content_site/home/display-aside-top.php:9
 msgid "Blog"
 msgstr "بلاگ"
 
-#: content/home/layout/footer.php:175 content/home/layout/pwa-footer.php:164
+#: content/home/layout/footer.php:181 content/home/layout/pwa-footer.php:164
 #: content_enter/signup/view.php:29 content_enter/signup/view.php:39
 #: content_my/business/start/view.php:11
 msgid "Terms of Service"
 msgstr "شرایط استفاده از خدمات"
 
-#: content/home/layout/footer.php:181 content/home/layout/pwa-footer.php:170
+#: content/home/layout/footer.php:187 content/home/layout/pwa-footer.php:170
 #: content/privacy/view.php:9 content_enter/signup/view.php:30
 #: content_enter/signup/view.php:40
 msgid "Privacy Policy"
 msgstr "حریم خصوصی"
 
-#: content/home/layout/footer.php:187 content/home/layout/pwa-footer.php:176
+#: content/home/layout/footer.php:193 content/home/layout/pwa-footer.php:176
 #: content_love/changelog/view.php:9 content_love/home/display.php:164
 msgid "Changelog"
 msgstr "پیشرفت پروژه"
 
-#: content/home/layout/footer.php:199 content/home/layout/pwa-footer.php:188
+#: content/home/layout/footer.php:205 content/home/layout/pwa-footer.php:188
 msgid "Social Responsibility"
 msgstr "مسئولیت اجتماعی"
 
-#: content/home/layout/footer.php:211 content/home/layout/pwa-footer.php:242
+#: content/home/layout/footer.php:217 content/home/layout/pwa-footer.php:242
 #: content/investment/display.php:120
 msgid "Brand Style Guide"
 msgstr "راهنمای نشان تجاری"
 
-#: content/home/layout/footer.php:220 content/home/layout/pwa-footer.php:197
+#: content/home/layout/footer.php:226 content/home/layout/pwa-footer.php:197
 msgid "Jibres Company"
 msgstr "شرکت جیبرس"
 
-#: content/home/layout/footer.php:223 content/story/view.php:9
+#: content/home/layout/footer.php:229 content/story/view.php:9
 msgid "Jibres Story"
 msgstr "داستان جیبرس"
 
-#: content/home/layout/footer.php:247 content/home/layout/pwa-footer.php:218
+#: content/home/layout/footer.php:253 content/home/layout/pwa-footer.php:218
 msgid "Our Values"
 msgstr "ارزش‌های ما"
 
-#: content/home/layout/footer.php:253 content/home/layout/pwa-footer.php:224
+#: content/home/layout/footer.php:259 content/home/layout/pwa-footer.php:224
 msgid "Our Team"
 msgstr "تیم ما"
 
-#: content/home/layout/footer.php:260 content/home/layout/pwa-footer.php:230
+#: content/home/layout/footer.php:266 content/home/layout/pwa-footer.php:230
 msgid "Careers"
 msgstr "فرصت‌های شغلی"
 
-#: content/home/layout/footer.php:267 content/home/layout/pwa-footer.php:248
+#: content/home/layout/footer.php:273 content/home/layout/pwa-footer.php:248
 #: content/press/view.php:9
 msgid "Press and Media"
 msgstr "مطبوعات و رسانه‌ها"
 
-#: content/home/layout/footer.php:277 content/home/layout/pwa-footer.php:258
+#: content/home/layout/footer.php:283 content/home/layout/pwa-footer.php:258
 msgid "All rights reserved."
 msgstr "تمام حقوق محفوظ است."
 
-#: content/home/layout/footer.php:277 content/home/layout/pwa-footer.php:258
+#: content/home/layout/footer.php:283 content/home/layout/pwa-footer.php:258
 msgid "Jibres, LLC"
 msgstr "جیبرس"
 
@@ -2748,22 +2755,22 @@ msgstr "جیبرس"
 msgid "Why Free?"
 msgstr "چرا رایگان؟"
 
-#: content/home/layout/header.php:17 content_love/home/display.php:183
+#: content/home/layout/header.php:19 content_love/home/display.php:183
 #: content_love/portfolio/view.php:9 content_site/portfolio/display.php:18
 msgid "Portfolio"
 msgstr "نمونه‌کارها"
 
-#: content/home/layout/header.php:20 dash/layout/admin/admin-header.php:19
+#: content/home/layout/header.php:22 dash/layout/admin/admin-header.php:19
 #: dash/layout/admin/admin-sidebar-frame.php:47 dash/layout/m2/header.php:67
 msgid "Help Center"
 msgstr "مرکز راهنمایی"
 
-#: content/home/layout/header.php:26 content_a/home/view.php:28 content_my/home/view.php:9
-#: dash/layout/m2/sidebar.php:689 dash/layout/pwa/pwa_menu.php:86 dash/panel.php:33
+#: content/home/layout/header.php:28 content_a/home/view.php:28 content_my/home/view.php:9
+#: dash/layout/m2/sidebar.php:679 dash/layout/pwa/pwa_menu.php:86 dash/panel.php:33
 msgid "Control Center"
 msgstr "مرکز کنترل"
 
-#: content/home/layout/header.php:28 content/home/view.php:83
+#: content/home/layout/header.php:30 content/home/view.php:83
 #: content_enter/pass/display.php:38 content_enter/pass/recovery/model.php:55
 #: content_enter/signup/view.php:21 dash/app/log/caller/enter/enter_NewAccountLogin.php:18
 #: dash/app/log/caller/enter/enter_VerificationCode.php:16
@@ -2771,7 +2778,7 @@ msgstr "مرکز کنترل"
 msgid "Enter"
 msgstr "ورود"
 
-#: content/home/layout/header.php:29
+#: content/home/layout/header.php:31
 msgid "SIGN UP"
 msgstr "ثبت‌نام"
 
@@ -2806,7 +2813,7 @@ msgstr "بیشتر و بیشتر بفروش."
 
 #: content/home/view.php:79 content/ip/home/view.php:9 content_a/discount/home/view.php:15
 #: content_a/home/view.php:9 content_a/order/home/view.php:112 content_a/order/view.php:11
-#: content_a/plan/home/view.php:14 content_a/plugin/home/view.php:12
+#: content_a/plan/home/view.php:14 content_a/plugin/home/view.php:17
 #: content_a/products/home/view.php:14 content_a/report/home/view.php:10
 #: content_a/setting/home/view.php:10 content_a/setting/pos/view.php:10
 #: content_a/setting3/home/view.php:44 content_account/notification/view.php:14
@@ -2970,8 +2977,8 @@ msgstr "ایران، قم"
 #: content_love/domain/nicdetail/display.php:14 content_my/domain/irnic/add/display.php:82
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:57
 #: dash/layout/admin/sidebar/sidebar-account.php:9
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:223
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:248
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:225
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:250
 #: lib/app/quickaccess/setting.php:438 lib/app/store/analytics.php:30
 msgid "Address"
 msgstr "آدرس"
@@ -3864,8 +3871,8 @@ msgstr "۹٪"
 #: content_a/report/sale/display.php:187 content_a/sale/display.php:47
 #: content_business/cart/cartSummary.php:54 content_business/orders/display.php:19
 #: dash/utility/pagination.php:501
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:146
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:157
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:148
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:159
 msgid "Total"
 msgstr "مجموع"
 
@@ -4354,17 +4361,18 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_love/plugin/all/view.php:27 content_love/plugin/all/view/view.php:16
 #: content_love/plugin/business/view.php:12 content_love/plugin/edit/view.php:12
 #: content_love/plugin/history/view.php:12 content_love/plugin/manage/view.php:12
-#: content_love/plugin/sync/view.php:12 content_love/portfolio/add/view.php:12
-#: content_love/portfolio/edit/view.php:14 content_love/portfolio/view.php:11
-#: content_love/sms/charge/add/view.php:12 content_love/sms/charge/view.php:13
-#: content_love/sms/datalist/view.php:13 content_love/sms/sending/view.php:12
-#: content_love/sms/view/view.php:12 content_love/smslog/view/view.php:12
-#: content_love/store/backup/view.php:12 content_love/store/owner/view.php:12
-#: content_love/store/setting/view.php:12 content_love/store/transfer/view.php:12
-#: content_love/telegram/datalist/view.php:12 content_love/telegram/sending/view.php:12
-#: content_love/telegram/view/view.php:12 content_my/business/error/view.php:23
-#: content_my/business/start/display.php:37 content_my/domain/irnic/add/view.php:22
-#: content_my/domain/irnic/edit/view.php:14 content_my/domain/setting/action/view.php:12
+#: content_love/plugin/sync/view.php:12 content_love/plugin/who/view.php:20
+#: content_love/portfolio/add/view.php:12 content_love/portfolio/edit/view.php:14
+#: content_love/portfolio/view.php:11 content_love/sms/charge/add/view.php:12
+#: content_love/sms/charge/view.php:13 content_love/sms/datalist/view.php:13
+#: content_love/sms/sending/view.php:12 content_love/sms/view/view.php:12
+#: content_love/smslog/view/view.php:12 content_love/store/backup/view.php:12
+#: content_love/store/owner/view.php:12 content_love/store/setting/view.php:12
+#: content_love/store/transfer/view.php:12 content_love/telegram/datalist/view.php:12
+#: content_love/telegram/sending/view.php:12 content_love/telegram/view/view.php:12
+#: content_my/business/error/view.php:23 content_my/business/start/display.php:37
+#: content_my/domain/irnic/add/view.php:22 content_my/domain/irnic/edit/view.php:14
+#: content_my/domain/setting/action/view.php:12
 #: content_my/domain/setting/business/view.php:12
 #: content_my/domain/setting/dns/view.php:12
 #: content_my/domain/setting/dnsadvance/view.php:12
@@ -4689,7 +4697,7 @@ msgid "followup"
 msgstr "پیگیری"
 
 #: content_a/accounting/coding/add/display-add.php:139
-#: content_a/discount/add/display.php:632 content_a/setting/order/display.php:57
+#: content_a/discount/add/display.php:629 content_a/setting/order/display.php:57
 #: content_a/setting/order/display.php:116 content_a/setting/order/display.php:138
 #: content_a/setting/shipping/method/display.php:18
 #: content_a/setting/shipping/method/display.php:50
@@ -4737,7 +4745,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/doc/add/display-list.php:111
 #: content_a/accounting/doc/display.php:14 content_a/accounting/factor/display.php:48
 #: content_a/accounting/turnover/display.php:185 content_a/android/apk/display.php:32
-#: content_a/discount/add/display.php:620 content_a/form/answer/display.php:9
+#: content_a/discount/add/display.php:617 content_a/form/answer/display.php:9
 #: content_a/form/answer/export/display.php:155 content_a/form/itemLink.php:26
 #: content_a/order/detail/display.php:29 content_a/products/edit/block/sidebar-menu.php:5
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
@@ -5219,7 +5227,7 @@ msgstr "افزودن تفصیل جدید"
 #: content_a/accounting/factor/add/display.php:181
 #: content_a/accounting/factor/add/display.php:198
 #: content_a/accounting/factor/add/display.php:216
-#: content_a/category/remove/display.php:38 content_a/discount/add/display.php:299
+#: content_a/category/remove/display.php:38 content_a/discount/add/display.php:298
 #: content_a/form/answer/detail/display.php:620
 #: content_a/form/answer/export/display.php:107 content_a/form/answer/note/display.php:72
 #: content_a/form/tag/remove/display.php:37 content_cms/hashtag/remove/display.php:37
@@ -5483,7 +5491,7 @@ msgid "Closing Document"
 msgstr "سند اختتامیه"
 
 #: content_a/accounting/doc/edit/view.php:23 content_a/accounting/filter.php:26
-#: content_a/discount/add/display.php:641 content_a/products/advance/view.php:23
+#: content_a/discount/add/display.php:638 content_a/products/advance/view.php:23
 #: content_a/products/child/view.php:23 content_a/products/edit/block/sidebar-menu.php:14
 #: content_cms/posts/advance/display.php:39
 #: content_love/business/domain/setting/display.php:131
@@ -5707,7 +5715,7 @@ msgstr "افزودن درآمد"
 #: content_a/android/home/display.php:117 content_a/buy/opr/display.php:105
 #: content_a/buy/opr/display.php:159 content_a/cart/add/display.php:39
 #: content_a/cart/add/display.php:41 content_a/form/analytics/chart/display.php:8
-#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:77
+#: content_a/form/analytics/chart2/display.php:8 content_a/home/display.php:65
 #: content_a/order/products/display.php:40 content_a/order/products/display.php:42
 #: content_a/report/sale/display.php:185 content_a/sale/display.php:41
 #: content_business/orders/view/display.php:89 content_cms/files/home/display.php:36
@@ -5769,7 +5777,7 @@ msgstr "لطفا ماه را انتخاب کنید"
 msgid "Choose status"
 msgstr "انتخاب وضعیت"
 
-#: content_a/accounting/filter.php:23 content_a/discount/add/display.php:625
+#: content_a/accounting/filter.php:23 content_a/discount/add/display.php:622
 #: content_a/form/status/display.php:17 content_a/order/status/display.php:44
 #: content_a/products/edit/block/sidebar-menu.php:8 content_cms/home/display.php:7
 #: content_cms/posts/advance/display.php:22
@@ -5790,20 +5798,20 @@ msgid "Choose template"
 msgstr "انتخاب قالب"
 
 #: content_a/accounting/filter.php:56 content_a/accounting/turnover/display.php:25
-#: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:523
+#: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:521
 #: content_a/form/answer/display.php:7 content_a/form/answer/export/display.php:48
 #: content_a/form/status/display.php:103 content_a/pricehistory/display.php:36
 #: content_a/report/sale/display.php:94 content_love/plan/planDetail.php:29
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:49 lib/app/plan/planFactor.php:69
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:49 lib/app/plan/planFactor.php:68
 #: lib/app/product/report/sale_date.php:113
 msgid "Start date"
 msgstr "تاریخ شروع"
 
 #: content_a/accounting/filter.php:62 content_a/accounting/turnover/display.php:31
-#: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:568
+#: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:565
 #: content_a/form/answer/export/display.php:77 content_a/form/status/display.php:132
 #: content_a/pricehistory/display.php:37 content_a/report/sale/display.php:116
-#: content_love/plan/planDetail.php:40 lib/app/plan/planFactor.php:99
+#: content_love/plan/planDetail.php:40 lib/app/plan/planFactor.php:98
 #: lib/app/product/report/sale_date.php:114
 msgid "End date"
 msgstr "تاریخ پایان"
@@ -5845,7 +5853,7 @@ msgstr "پاک‌سازی فیلترها"
 #: content_a/accounting/filter.php:126 content_a/accounting/filter_only_year.php:21
 #: content_a/accounting/turnover/display.php:121
 #: content_a/form/analytics/addcondition/display-chose-item.php:74
-#: content_a/plan/set/display.php:45 content_a/report/sale/display.php:145
+#: content_a/plan/set/display.php:51 content_a/report/sale/display.php:145
 #: content_business/shipping/display.php:60 content_my/domain/review/display.php:141
 msgid "Apply"
 msgstr "اعمال‌کردن"
@@ -5894,7 +5902,7 @@ msgstr "دفتر روزنامه"
 
 #: content_a/accounting/home/display.php:73 content_a/accounting/home/display.php:81
 #: content_a/accounting/report/journal/view.php:18
-#: content_a/accounting/report/ledger/view.php:18 content_a/plan/choose/display.php:47
+#: content_a/accounting/report/ledger/view.php:18 content_a/plan/choose/display.php:55
 #: content_love/plan/add/display.php:77 includes/languages/trans_static.php:612
 #: lib/app/plan/filter.php:62
 msgid "Monthly"
@@ -6253,8 +6261,8 @@ msgstr "شماره ثبت"
 #: content_a/accounting/report/journal_cover.php:37
 #: content_a/setting/general/display.php:58
 #: content_a/setting3/home/section/general.php:132 includes/languages/trans_static.php:671
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:237
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:250
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:239
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:252
 msgid "Postcode"
 msgstr "کدپستی"
 
@@ -6271,8 +6279,8 @@ msgstr "کدپستی"
 #: content_business/shipping/display.php:34 content_business/shipping/display.php:180
 #: content_love/domain/nicdetail/display.php:16
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:94 lib/app/form/item/type.php:110
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:232
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:249
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:234
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:251
 msgid "Phone"
 msgstr "شماره تلفن"
 
@@ -6301,7 +6309,7 @@ msgstr "فروش"
 
 #: content_a/accounting/report/quarter/display-detail.php:15
 #: content_a/category/property/display.php:39 content_a/category/property/display.php:43
-#: content_a/discount/add/display.php:82 content_a/form/answer/detail/display.php:712
+#: content_a/discount/add/display.php:81 content_a/form/answer/detail/display.php:712
 #: content_a/form/report/display.php:7 content_a/order/home/display.php:52
 #: content_a/products/property/add/display.php:32
 #: content_a/products/property/add/display.php:36
@@ -7488,7 +7496,7 @@ msgstr "ورودی باید به صورت آرایه باشد"
 #: content_crm/member/notification/model.php:15 content_crm/sms/send/model.php:18
 #: content_my/domain/option/model.php:19 content_site/section/html/model.php:89
 #: dash/app/changelog.php:362 dash/app/permission/edit.php:157
-#: dash/app/permission/edit.php:229 dash/app/portfolio.php:389
+#: dash/app/permission/edit.php:236 dash/app/portfolio.php:389
 #: lib/app/category/edit.php:93 lib/app/category/edit.php:166
 #: lib/app/form/answer/edit.php:95 lib/app/form/comment/edit.php:55
 #: lib/app/form/item/edit.php:262 lib/app/product/property.php:746
@@ -7706,8 +7714,8 @@ msgstr "سبد خرید"
 #: content_a/report/productsalesovertime/display.php:184 content_a/sale/display.php:40
 #: content_a/units/display.php:65 dash/layout/search/search_filter.php:536
 #: includes/languages/trans_static.php:499
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:154
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:155
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:156
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:157
 #: lib/app/order/filter.php:93 lib/app/order/filter.php:94 lib/app/order/filter.php:95
 #: lib/app/order/filter.php:96 lib/app/order/filter.php:97 lib/app/order/filter.php:105
 #: lib/app/store/analytics.php:64 lib/app/store/analytics.php:66
@@ -7921,7 +7929,7 @@ msgstr "تنظیم مشخصات عمومی محصول"
 msgid "Choose product to add product to this Category"
 msgstr "برای افزودن محصول به این دسته‌بندی، یک محصول را انتخاب کنید"
 
-#: content_a/category/edit/display.php:80 content_a/discount/add/display.php:262
+#: content_a/category/edit/display.php:80 content_a/discount/add/display.php:261
 #: content_a/pricehistory/choose/display.php:8
 msgid "Search in products"
 msgstr "جستجو در محصولات"
@@ -8168,7 +8176,7 @@ msgstr "تعداد"
 
 #: content_a/chap/size-a4/a4-1.php:43 content_a/products/property/display.php:124
 #: content_a/units/display.php:113 dash/layout/search/search_filter.php:570
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:155
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:157
 #: lib/app/product/filter.php:442 lib/app/product/property.php:272
 msgid "Unit"
 msgstr "واحد"
@@ -8244,8 +8252,8 @@ msgstr "بدهی فعلی"
 #: dash/app/ticket/filter.php:52 dash/app/ticket/filter.php:53
 #: dash/app/transaction/filter.php:55 includes/languages/trans_static.php:72
 #: lib/app/log/caller/business/business_creatingNew.php:42
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:180
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:200
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:181
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:201
 #: lib/app/order/filter.php:92 lib/app/plan/filter.php:186 lib/app/store/analytics.php:27
 msgid "Customer"
 msgstr "مشتری"
@@ -8334,19 +8342,19 @@ msgstr "مثل SPRINGSALE"
 msgid "Customers will enter this discount code at checkout."
 msgstr "مشتریان هنگام پرداخت این کد را وارد می‌کنند."
 
-#: content_a/discount/add/display.php:87
+#: content_a/discount/add/display.php:86
 msgid "Percentage"
 msgstr "درصد"
 
-#: content_a/discount/add/display.php:94
+#: content_a/discount/add/display.php:93
 msgid "Fixed amount"
 msgstr "مبلغ ثابت"
 
-#: content_a/discount/add/display.php:101 lib/app/discount/get.php:88
+#: content_a/discount/add/display.php:100 lib/app/discount/get.php:88
 msgid "Free shipping"
 msgstr "ارسال رایگان"
 
-#: content_a/discount/add/display.php:127
+#: content_a/discount/add/display.php:126
 #: content_a/form/analytics/addcondition/display-condition.php:27
 #: content_a/form/analytics/addcondition/display-condition.php:29
 #: content_a/form/condition/display.php:100 content_a/form/condition/display.php:117
@@ -8363,16 +8371,16 @@ msgstr "ارسال رایگان"
 msgid "Value"
 msgstr "مقدار"
 
-#: content_a/discount/add/display.php:137 content_a/discount/add/display.php:166
+#: content_a/discount/add/display.php:136 content_a/discount/add/display.php:165
 msgid "Discount value"
 msgstr "مقدار تخفیف"
 
-#: content_a/discount/add/display.php:137 content_a/discount/add/display.php:141
+#: content_a/discount/add/display.php:136 content_a/discount/add/display.php:140
 #: content_a/form/report/answer/display-table.php:18
 #: content_a/form/report/answer/display-table.php:27
 #: content_a/form/report/answer/display.php:32
 #: content_a/form/report/compare/display.php:93
-#: content_a/form/report/compare/display.php:105 content_a/plan/set/display.php:121
+#: content_a/form/report/compare/display.php:105 content_a/plan/set/display.php:127
 #: content_business/p/home/view.php:100 content_cms/files/home/display.php:175
 #: content_cms/posts/analyze/display.php:31 content_cms/posts/edit/display.php:125
 #: content_cms/seo/display.php:11 content_cms/seo/display.php:32
@@ -8385,79 +8393,79 @@ msgstr "مقدار تخفیف"
 msgid "%"
 msgstr "٪"
 
-#: content_a/discount/add/display.php:146
+#: content_a/discount/add/display.php:145
 msgid "Maximum amount"
 msgstr "حداکثر مبلغ"
 
-#: content_a/discount/add/display.php:196
+#: content_a/discount/add/display.php:195
 msgid "Apply to"
 msgstr "اعمال به"
 
-#: content_a/discount/add/display.php:201
+#: content_a/discount/add/display.php:200
 msgid "All product"
 msgstr "همه محصولات"
 
-#: content_a/discount/add/display.php:208
+#: content_a/discount/add/display.php:207
 msgid "Special category"
 msgstr "دسته‌بندی خاص"
 
-#: content_a/discount/add/display.php:250
+#: content_a/discount/add/display.php:249
 msgid "Special products"
 msgstr "محصولات خاص"
 
-#: content_a/discount/add/display.php:294
+#: content_a/discount/add/display.php:293
 msgid "Minimum requirements"
 msgstr "حداقل الزامات"
 
-#: content_a/discount/add/display.php:306
+#: content_a/discount/add/display.php:305
 msgid "Minimum purchase amount :currency"
 msgstr "حداقل مبلغ خرید :currency"
 
-#: content_a/discount/add/display.php:330
+#: content_a/discount/add/display.php:329
 msgid "Minimum quantity of items"
 msgstr "حداقل تعداد اقلام"
 
-#: content_a/discount/add/display.php:366
+#: content_a/discount/add/display.php:364
 msgid "Customer eligibility"
 msgstr "اختصاص به مشتری"
 
-#: content_a/discount/add/display.php:371 lib/app/discount/get.php:125
+#: content_a/discount/add/display.php:369 lib/app/discount/get.php:125
 msgid "Everyone"
 msgstr "هرکس"
 
-#: content_a/discount/add/display.php:378
+#: content_a/discount/add/display.php:376
 msgid "Special group of customers"
 msgstr "گروهی خاص از مشتریان"
 
-#: content_a/discount/add/display.php:422
+#: content_a/discount/add/display.php:420
 msgid "Special customers"
 msgstr "مشتریان خاص"
 
-#: content_a/discount/add/display.php:434
+#: content_a/discount/add/display.php:432
 msgid "Search in customers123"
 msgstr "جستجو در مشتریان۱۲۳"
 
-#: content_a/discount/add/display.php:468
+#: content_a/discount/add/display.php:466
 msgid "Usage limits"
 msgstr "محدودیت استفاده"
 
-#: content_a/discount/add/display.php:473
+#: content_a/discount/add/display.php:471
 msgid "Limit number of times this discount can be used in total"
 msgstr "تعداد دفعات استفاده از این کد تخفیف در مجموع محدود است"
 
-#: content_a/discount/add/display.php:489 content_love/gift/card/giftcard.php:42
+#: content_a/discount/add/display.php:487 content_love/gift/card/giftcard.php:42
 msgid "Times"
 msgstr "بار"
 
-#: content_a/discount/add/display.php:499
+#: content_a/discount/add/display.php:497
 msgid "Limit to one use per customer"
 msgstr "محدود به یک بار استفاده برای هر مشتری"
 
-#: content_a/discount/add/display.php:517
+#: content_a/discount/add/display.php:515
 msgid "Active date"
 msgstr "تاریخ فعال شدن"
 
-#: content_a/discount/add/display.php:535 content_a/discount/add/display.php:580
+#: content_a/discount/add/display.php:532 content_a/discount/add/display.php:577
 #: content_a/form/answer/note/display.php:101 content_a/order/editdate/display.php:38
 #: content_a/report/sale/display.php:183
 #: content_love/business/domain/action/display.php:25
@@ -8466,29 +8474,25 @@ msgstr "تاریخ فعال شدن"
 msgid "Time"
 msgstr "زمان"
 
-#: content_a/discount/add/display.php:551
+#: content_a/discount/add/display.php:548
 msgid "Set end date"
 msgstr "تنظیم تاریخ پایان"
 
-#: content_a/discount/add/display.php:603
+#: content_a/discount/add/display.php:600
 msgid "Message after applying the discount code"
 msgstr "پیام بعد از اعمال کد تخفیف"
 
-#: content_a/discount/add/display.php:605 lib/app/discount/discount_check.php:577
+#: content_a/discount/add/display.php:602 lib/app/discount/discount_check.php:577
 msgid "Discount code applied"
 msgstr "کد تخفیف اعمال شد"
 
-#: content_a/discount/add/display.php:606
+#: content_a/discount/add/display.php:603
 msgid "This message displayed after applying discount by customer"
 msgstr "این پیام بعد از استفاده مشتریان از کد تخفیف نمایش داده می‌شود"
 
-#: content_a/discount/add/display.php:656
+#: content_a/discount/add/display.php:653
 msgid "Remove Discount code"
 msgstr "حذف کد تخفیف"
-
-#: content_a/discount/add/display.php:669
-msgid "Need to activate discount plugin"
-msgstr "نیاز به فعال سازی این افزونه کد تخفیف حرفه‌ای"
 
 #: content_a/discount/add/view.php:9
 msgid "Add new discount code"
@@ -8602,7 +8606,7 @@ msgstr "کوچکتر از"
 
 #: content_a/form/analytics/addcondition/display-condition.php:41
 #: content_a/form/analytics/remove/display.php:8 content_a/order/status/display.php:48
-#: content_a/plan/cancel/display.php:68 content_a/plan/set/display.php:167
+#: content_a/plan/cancel/display.php:68 content_a/plan/set/display.php:173
 #: content_a/products/property/add/display.php:54
 #: content_a/products/property/display.php:67
 #: content_a/setting/general/remove/display.php:34
@@ -9385,15 +9389,14 @@ msgid "No result found"
 msgstr "نتیجه‌ای یافت نشد"
 
 #: content_a/form/find/print/display-functions.php:54 content_a/plan/cancel/display.php:56
-#: content_a/plan/set/display.php:101 content_a/plan/set/display.php:109
-#: content_a/plan/set/display.php:128 content_a/plan/set/display.php:147
-#: content_a/plan/set/display.php:157 content_a/sms/charge/display.php:59
+#: content_a/plan/set/display.php:107 content_a/plan/set/display.php:115
+#: content_a/plan/set/display.php:134 content_a/plan/set/display.php:153
+#: content_a/plan/set/display.php:163 content_a/sms/charge/display.php:59
 #: content_a/sms/charge/display.php:80 content_a/sms/charge/display.php:90
 #: content_love/plan/detail/display.php:37
 #: content_my/domain/buy/display-settings-com.php:29
 #: content_my/domain/review/display.php:192 includes/languages/trans_static.php:1067
 #: lib/api/namecheap/api.php:158 lib/app/plan/feature/sms.php:41
-#: lib/app/plan/feature/sms.php:43
 msgid "Toman"
 msgstr "تومان"
 
@@ -10162,47 +10165,51 @@ msgstr "شما کجا هستید؟"
 msgid "Choose fund"
 msgstr "انتخاب صندوق"
 
-#: content_a/home/display.php:13
-msgid ""
-"If you wish, by purchasing an SMS package, you can be aware of it after receiving the "
-"order and add the ability to log in to your site via SMS."
-msgstr ""
-"در صورت تمایل با خرید بسته پیامکی می‌توانید پس از دریافت سفارش، از آن آگاه شوید و قابلیت "
-"ورود با پیامک را به سایت خودتون اضافه کنید."
-
-#: content_a/home/display.php:26
+#: content_a/home/display.php:11
 msgid "You have :val not sent SMS"
 msgstr "شما :val پیام‌کوتاه ارسال نشده دارید"
 
-#: content_a/home/display.php:33
+#: content_a/home/display.php:18
 msgid "You have :val Unprocessed order"
 msgstr "شما :val سفارش جدید دارید"
 
-#: content_a/home/display.php:40
+#: content_a/home/display.php:25
 msgid "You have :val Unanswered ticket"
 msgstr "شما :val تیکت در انتظار پاسخ دارید"
 
-#: content_a/home/display.php:47
+#: content_a/home/display.php:32
 msgid "You have :val awaiting comment"
 msgstr "شما :val نظر در انتظار تایید دارید"
 
-#: content_a/home/display.php:54 content_hook/smile/controller.php:17
+#: content_a/home/display.php:39 content_hook/smile/controller.php:17
 msgid "You have :val new message!"
 msgstr "شما :val پیام جدید دارید!"
 
-#: content_a/home/display.php:62
+#: content_a/home/display.php:47
 msgid "You have :val not reviewed answer in :form"
 msgstr "شما :val پاسخ از فرم :form دریافت کرده‌اید که هنوز بررسی نشده‌اند"
 
-#: content_a/home/display.php:75
+#: content_a/home/display.php:63
 msgid "Sum factor price and count of it group by hours"
 msgstr "جمع مبالغ فاکتور و تعداد آن به تفکیک ساعت"
 
-#: content_a/home/display.php:76
+#: content_a/home/display.php:64
 msgid "Sum price"
 msgstr "جمع مبالغ"
 
-#: content_a/home/display.php:86
+#: content_a/home/display.php:76 content_a/plan/home/display-plan.php:10
+msgid "Your current plan"
+msgstr "پلن فعلی شما"
+
+#: content_a/home/display.php:87
+msgid ":val days left to expire paln"
+msgstr ":val روز باقیمانده تا انقضای پلن"
+
+#: content_a/home/display.php:93
+msgid "Your SMS charge"
+msgstr "شارژ پیامک شما"
+
+#: content_a/home/display.php:104
 msgid "Business setup"
 msgstr "راه‌اندازی کسب و کار"
 
@@ -10342,8 +10349,8 @@ msgid "Save address"
 msgstr "ذخیره آدرس"
 
 #: content_a/order/address/model.php:48 content_enter/home/model.php:65
-#: content_love/domain/domainbuy/model.php:22 content_r10/tools.php:149
-#: dash/app/address.php:259 dash/app/user/add.php:111 dash/upload/category.php:68
+#: content_love/domain/domainbuy/model.php:22 content_r10/tools.php:180
+#: dash/app/address.php:259 dash/app/user/add.php:126 dash/upload/category.php:68
 #: dash/upload/user.php:22 dash/upload/user.php:79 dash/upload/user.php:98
 #: dash/upload/user.php:156
 msgid "User not found"
@@ -10706,7 +10713,7 @@ msgid "Success"
 msgstr "موفقیت‌آمیز"
 
 #: content_a/order/status/display.php:55 content_a/products/edit/block/sidebar-menu.php:11
-#: content_crm/sms/display-resend.php:78 dash/app/files/ready.php:61
+#: content_crm/sms/display-resend.php:66 dash/app/files/ready.php:61
 #: includes/languages/trans_static.php:999 lib/app/factor/action.php:72
 #: lib/app/factor/ready.php:123 lib/app/order/ready.php:123
 msgid "Archive"
@@ -10832,9 +10839,9 @@ msgstr "نمی‌توانید این پلن را لغو کنید"
 msgid "Refund money and cancel plan"
 msgstr "بازپرداخت هزینه و لغو پلن"
 
-#: content_a/plan/cancel/view.php:13 content_a/plan/home/display-plan.php:78
-#: content_love/plan/detail/display.php:20 content_love/plan/detail/display.php:64
-#: lib/app/plan/planFactor.php:154
+#: content_a/plan/cancel/view.php:13 content_a/plan/home/display-plan.php:79
+#: content_a/plan/set/display.php:36 content_love/plan/detail/display.php:20
+#: content_love/plan/detail/display.php:64 lib/app/plan/planFactor.php:154
 msgid "Cancel plan"
 msgstr "لغو پلن"
 
@@ -10843,26 +10850,30 @@ msgstr "لغو پلن"
 msgid "month"
 msgstr "ماه"
 
-#: content_a/plan/choose/display.php:51 content_love/plan/add/display.php:76
+#: content_a/plan/choose/display.php:59 content_love/plan/add/display.php:76
 #: includes/languages/trans_static.php:613 lib/app/plan/filter.php:74
 msgid "Yearly"
 msgstr "سالانه"
 
-#: content_a/plan/choose/display.php:51
+#: content_a/plan/choose/display.php:59
 msgid "2 month free!"
 msgstr "دو ماه رایگان!"
 
-#: content_a/plan/choose/display.php:77 content_a/plan/choose/display.php:108
-#: content_a/plan/choose/display.php:160 content_a/plan/choose/display.php:196
-#: content_love/plan/storeDetail.php:39 content_love/sms/charge/add/display.php:78
+#: content_a/plan/choose/display.php:85 content_a/plan/choose/display.php:116
+#: content_a/plan/choose/display.php:193 content_love/plan/storeDetail.php:39
+#: content_love/sms/charge/add/display.php:78
 msgid "Current plan"
 msgstr "پلن فعلی"
 
-#: content_a/plan/choose/display.php:80 content_a/plan/choose/display.php:111
-#: content_a/plan/choose/display.php:163 content_a/plan/choose/display.php:199
-#: content_a/plan/home/display-plan.php:56
+#: content_a/plan/choose/display.php:88 content_a/plan/choose/display.php:119
+#: content_a/plan/choose/display.php:196 content_a/plan/home/display-plan.php:57
+#: content_a/plan/home/display-plan.php:92
 msgid "Choose plan"
 msgstr "انتخاب پلن"
+
+#: content_a/plan/choose/display.php:139 content_love/home/display.php:194
+msgid "Plans"
+msgstr "پلن‌ها"
 
 #: content_a/plan/choose/view.php:16
 msgid "Pick a plan"
@@ -10872,7 +10883,7 @@ msgstr "یک پلن انتخاب کنید"
 #: content_a/plan/home/view.php:11 content_a/plan/transactions/view.php:13
 #: content_love/plan/datalist/display.php:7 content_love/plan/datalist/view.php:13
 #: content_love/plan/planDetail.php:18 content_love/store/setting/display.php:28
-#: dash/layout/m2/sidebar.php:621 lib/app/log/caller/plan/plan_cancelPlan.php:16
+#: dash/layout/m2/sidebar.php:612 lib/app/log/caller/plan/plan_cancelPlan.php:16
 #: lib/app/log/caller/plan/plan_cancelPlan.php:41
 #: lib/app/log/caller/plan/plan_expireAlert.php:16
 #: lib/app/log/caller/plan/plan_newPlanActivate.php:16
@@ -10890,28 +10901,24 @@ msgstr "منقضی در"
 msgid "Plan history"
 msgstr "تاریخچه پلن"
 
-#: content_a/plan/home/display-plan.php:9
-msgid "Your current plan"
-msgstr "پلن فعلی شما"
-
-#: content_a/plan/home/display-plan.php:27
+#: content_a/plan/home/display-plan.php:28
 msgid "What's included"
 msgstr "شامل چه چیز‌هایی هست"
 
-#: content_a/plan/home/display-plan.php:52
+#: content_a/plan/home/display-plan.php:53
 msgid "Upgrade your plan to use from ultimate feature"
 msgstr "پلن خود را برای استفاده از امکانات بیشتر ارتقاء دهید"
 
-#: content_a/plan/home/display-plan.php:64
+#: content_a/plan/home/display-plan.php:65
 msgid ":val days  Remain"
 msgstr ":val روز باقیمانده"
 
-#: content_a/plan/home/display-plan.php:84 content_a/plan/home/display-sms.php:45
+#: content_a/plan/home/display-plan.php:85 content_a/plan/home/display-sms.php:45
 #: content_love/email/view.php:14 content_love/plugin/home/display.php:25
 msgid "History"
 msgstr "تاریخچه"
 
-#: content_a/plan/home/display-plan.php:87 content_a/plan/home/display-sms.php:49
+#: content_a/plan/home/display-plan.php:88 content_a/plan/home/display-sms.php:49
 #: content_crm/member/transactions/view.php:20 content_crm/transactions/view.php:8
 #: dash/layout/m2/sidebar.php:232
 msgid "Transactions"
@@ -10924,7 +10931,8 @@ msgstr "تراکنش‌ها"
 #: content_love/sms/datalist/display.php:33 content_love/store/setting/display.php:37
 #: includes/languages/trans_static_public.php:940
 #: includes/languages/trans_static_public.php:982 lib/app/gift/filter.php:57
-#: lib/app/log/caller/sms/sms_lowcharge.php:20 lib/app/plugin/items/sms/sms_pack.php:12
+#: lib/app/log/caller/sms/sms_lowcharge.php:20
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:16 lib/app/plugin/items/sms/sms_pack.php:12
 #: lib/app/plugin/items/sms/sms_pack.php:38
 msgid "SMS"
 msgstr "پیام کوتاه"
@@ -10949,51 +10957,51 @@ msgstr "در این زمان شما نمی‌توانید پلن را تمدید
 msgid "Invalid plan name"
 msgstr "نام پلن اشتباه است"
 
-#: content_a/plan/set/controller.php:21
-msgid "Plan free can not be loaded on this page"
-msgstr "پلن رایگان نمی‌تواند در این صفحه باز شود"
+#: content_a/plan/set/display.php:35
+msgid "To cancel current plan click here"
+msgstr "برای لغو پلن فعلی کلیک کنید"
 
-#: content_a/plan/set/display.php:41 content_my/domain/review/display.php:138
+#: content_a/plan/set/display.php:47 content_my/domain/review/display.php:138
 msgid "If you have gift cart enter here"
 msgstr "اگر کد هدیه‌ای در اختیار دارید در این قسمت وارد کنید"
 
-#: content_a/plan/set/display.php:44 content_love/gift/create/code/display.php:13
+#: content_a/plan/set/display.php:50 content_love/gift/create/code/display.php:13
 #: content_love/gift/create/code/view.php:9 content_love/gift/create/review/display.php:11
 #: content_love/gift/edit/display.php:10 content_love/gift/view/display.php:11
 #: content_my/domain/review/display.php:140
 msgid "Gift code"
 msgstr "کد هدیه"
 
-#: content_a/plan/set/display.php:76 content_my/domain/review/display.php:172
+#: content_a/plan/set/display.php:82 content_my/domain/review/display.php:172
 #: lib/app/gift/check.php:40 lib/app/gift/check.php:50 lib/app/gift/check.php:52
 msgid "Invalid gift code"
 msgstr "کد هدیه نامعتبر است"
 
-#: content_a/plan/set/display.php:108 content_a/sms/charge/display.php:58
+#: content_a/plan/set/display.php:114 content_a/sms/charge/display.php:58
 msgid "Total Price"
 msgstr "مبلغ کل"
 
-#: content_a/plan/set/display.php:115 content_my/domain/review/display.php:200
+#: content_a/plan/set/display.php:121 content_my/domain/review/display.php:200
 msgid "Your Gift"
 msgstr "هدیه شما"
 
-#: content_a/plan/set/display.php:139 content_a/sms/charge/display.php:72
+#: content_a/plan/set/display.php:145 content_a/sms/charge/display.php:72
 #: content_crm/member/glance/display.php:58 content_crm/member/glance/display.php:85
 #: content_my/domain/review/display.php:223 content_my/home/display_site.php:22
 msgid "Account Balance"
 msgstr "موجودی حساب"
 
-#: content_a/plan/set/display.php:142 content_a/sms/charge/display.php:75
+#: content_a/plan/set/display.php:148 content_a/sms/charge/display.php:75
 #: content_my/domain/review/display.php:226
 msgid "Pay from my account balance"
 msgstr "استفاده از شارژ حساب کاربری"
 
-#: content_a/plan/set/display.php:153 content_a/sms/charge/display.php:86
+#: content_a/plan/set/display.php:159 content_a/sms/charge/display.php:86
 #: content_my/domain/review/display.php:237
 msgid "Amount payable"
 msgstr "مبلغ قابل پرداخت"
 
-#: content_a/plan/set/display.php:172 content_a/plan/set/display.php:174
+#: content_a/plan/set/display.php:178 content_a/plan/set/display.php:180
 #: content_a/sms/charge/display.php:105 content_business/cart/cartSummary.php:85
 #: content_business/shipping/view.php:11 content_love/domain/action/display.php:35
 #: content_love/domain/setting/action/display.php:37 content_my/domain/stepGuide.php:65
@@ -11025,11 +11033,11 @@ msgstr "مشاهده جزئیات"
 msgid "Add plugin"
 msgstr "افزودن افزونه‌"
 
-#: content_a/plugin/home/view.php:9
+#: content_a/plugin/home/view.php:14
 msgid "Jibres plugins"
 msgstr "افزونه‌های جیبرس"
 
-#: content_a/plugin/view/controller.php:21 content_love/plugin/all/view/controller.php:21
+#: content_a/plugin/view/controller.php:26 content_love/plugin/all/view/controller.php:21
 msgid "plugin key is invalid"
 msgstr "کلید افزونه اشتباه است"
 
@@ -11083,9 +11091,8 @@ msgstr "این افزونه برای بیزینس شما تا تاریخ :date �
 msgid "This plugin is active in your business"
 msgstr "این افزونه در حال حاضر در بیزینس شما فعال شده است"
 
-#: content_a/plugin/view/display.php:311 content_crm/sms/display-resend.php:35
-#: lib/app/product/ready.php:483 lib/app/product/ready.php:494
-#: lib/app/product/ready.php:500
+#: content_a/plugin/view/display.php:311 lib/app/product/ready.php:483
+#: lib/app/product/ready.php:494 lib/app/product/ready.php:500
 msgid "Buy now"
 msgstr "همین الان بخر"
 
@@ -11200,7 +11207,7 @@ msgid "File Size"
 msgstr "حجم فایل"
 
 #: content_a/products/advance/display.php:52 content_a/products/cartlimit/display.php:17
-#: content_sudo/backup/display.php:86 dash/upload/size.php:99 dash/utility/human.php:104
+#: content_sudo/backup/display.php:86 dash/upload/size.php:111 dash/utility/human.php:104
 #: includes/languages/trans_static_public.php:45
 msgid "MB"
 msgstr "مگابایت"
@@ -13069,14 +13076,13 @@ msgstr "سرویس‌های افزودنی دیگران"
 msgid "Connect to other services like google analytics, live chat"
 msgstr "اتصال به سایر سرویس‌ها مثل گوگل آنالیتیکز، چت آنلاین، کد ساماندهی و اینماد"
 
-#: content_a/setting/home/display.php:73 content_love/store/setting/display.php:56
-#: dash/layout/m2/sidebar.php:610
-msgid "Plugins"
-msgstr "افزونه‌ها"
+#: content_a/setting/home/display.php:73 content_love/log/home/logTable.php:59
+msgid "Notification"
+msgstr "پیام"
 
 #: content_a/setting/home/display.php:74
-msgid "Plugin and failures"
-msgstr "افزونه‌ها و امکانات"
+msgid "Notification settings and changing the message format"
+msgstr "تنظیمات اطلاع رسانی و تغییر قالب پیام"
 
 #: content_a/setting/home/display.php:97
 msgid "Manage your business website settings"
@@ -13138,7 +13144,7 @@ msgstr "سرویس اتصال اینستاگرام در حال حاضر در د�
 #: content_account/my/social/display.php:41 content_account/my/social/display.php:44
 #: content_site/body/instagram/instagram1.php:17
 #: content_site/body/instagram/instagram1.php:51 content_site/body/instagram/option.php:36
-#: lib/store.php:498
+#: lib/app/plan/feature/instagram.php:33 lib/store.php:498
 msgid "Instagram"
 msgstr "اینستاگرام"
 
@@ -13388,16 +13394,14 @@ msgid "Menu list"
 msgstr "لیست فهرست‌ها"
 
 #: content_a/setting/notification/display.php:10
-#: content_business/profile/notifications/setting/display.php:17
-#: content_crm/member/notification/display.php:11
-msgid "You must get the sms pack plugin to active this notification"
-msgstr "برای ارسال پیام‌های اطلاع رسانی زیر شما باید ابتدا بسته پیامکی خریداری کنید"
+msgid "Check your SMS charge"
+msgstr "میزان شارژ پنل پیامک خود را بررسی کنید"
 
 #: content_a/setting/notification/display.php:25
-#: content_business/profile/notifications/setting/display.php:41
-#: content_business/profile/notifications/setting/display.php:45
-#: content_crm/member/notification/display.php:29
-#: content_crm/member/notification/display.php:33 content_crm/sms/home/display.php:45
+#: content_business/profile/notifications/setting/display.php:28
+#: content_business/profile/notifications/setting/display.php:32
+#: content_crm/member/notification/display.php:18
+#: content_crm/member/notification/display.php:22 content_crm/sms/home/display.php:45
 #: content_crm/sms/send/view.php:9
 msgid "Send sms"
 msgstr "ارسال پیام"
@@ -13408,15 +13412,15 @@ msgstr "ویرایش قالب"
 
 #: content_a/setting/notification/display.php:65 content_account/security/display.php:45
 #: content_account/security/display.php:52
-#: content_business/profile/notifications/setting/display.php:74
-#: content_crm/member/notification/display.php:62
+#: content_business/profile/notifications/setting/display.php:61
+#: content_crm/member/notification/display.php:51
 msgid "On"
 msgstr "روشن"
 
 #: content_a/setting/notification/display.php:65 content_account/security/display.php:45
 #: content_account/security/display.php:52
-#: content_business/profile/notifications/setting/display.php:74
-#: content_crm/member/notification/display.php:62
+#: content_business/profile/notifications/setting/display.php:61
+#: content_crm/member/notification/display.php:51
 #: content_love/domain/detail/display.php:101 content_love/domain/setting/display.php:83
 msgid "Off"
 msgstr "خاموش"
@@ -15089,7 +15093,7 @@ msgstr "مبلغی را برای شارژ پنل پیامک خود وارد کن
 msgid "Checkout"
 msgstr "پرداخت"
 
-#: content_a/sms/charge/view.php:10 lib/app/sms_charge/charge.php:114
+#: content_a/sms/charge/view.php:10
 msgid "Charge SMS"
 msgstr "شامل پیامک"
 
@@ -15590,7 +15594,7 @@ msgstr "بیشتر بدانید"
 #: content_b1/user/address/add/model.php:14 content_b1/user/address/fetch/view.php:14
 #: content_b1/user/edit/avatar/model.php:16 content_b1/user/edit/avatar/model.php:42
 #: dash/app/address.php:44 dash/app/user/business.php:68 dash/app/user/description.php:20
-#: dash/app/user/description.php:51 dash/app/user/edit.php:252
+#: dash/app/user/description.php:51 dash/app/user/edit.php:265
 msgid "Invalid user id"
 msgstr "شناسه کاربر اشتباه است"
 
@@ -15672,7 +15676,7 @@ msgstr "در انتظار تایید"
 msgid "Send verify email"
 msgstr "ارسال ایمیل اعتبارسنجی"
 
-#: content_account/my/email/display.php:68 content_crm/sms/display-resend.php:68
+#: content_account/my/email/display.php:68 content_crm/sms/display-resend.php:49
 #: includes/languages/trans_static.php:1188
 msgid "Resend"
 msgstr "ارسال مجدد"
@@ -15702,7 +15706,7 @@ msgstr "پروفایل"
 #: content_crm/staff/add/display.php:13 content_sudo/home/display.php:202
 #: dash/app/user/filter.php:35 dash/app/user/filter.php:36
 #: dash/layout/admin/sidebar/sidebar-su.php:23 dash/layout/m2/sidebar.php:257
-#: lib/app/plan/feature/permission.php:55
+#: lib/app/plan/feature/permission.php:29
 msgid "Permission"
 msgstr "سطح‌دسترسی"
 
@@ -16201,7 +16205,8 @@ msgid "Linux"
 msgstr "لینوکس"
 
 #: content_b1/business/instagram/detail/model.php:22 content_b1/business/plan/model.php:17
-#: content_b1/business/plugin/model.php:17 lib/app/nic_usersetting/set.php:86
+#: content_b1/business/plugin/model.php:17 content_b1/business/sms/model.php:17
+#: lib/app/nic_usersetting/set.php:86
 msgid "Setting saved"
 msgstr "تنظیمات ذخیره شد"
 
@@ -16244,8 +16249,8 @@ msgstr "لطفا کد‌ فروشگاه را در آدرس وارد کنید"
 
 #: content_b1/tools.php:43 content_business/controller.php:31
 #: content_love/plan/add/controller.php:16 content_love/sms/charge/add/controller.php:15
-#: content_r10/tools.php:106 content_v2/controller.php:19 content_v3/controller.php:19
-#: dash/engine/store.php:215 dash/engine/store.php:388 lib/app/application/queue.php:12
+#: content_r10/tools.php:107 content_v2/controller.php:19 content_v3/controller.php:19
+#: dash/engine/store.php:217 dash/engine/store.php:390 lib/app/application/queue.php:12
 #: lib/app/application/queue.php:243 lib/app/business_domain/add.php:68
 #: lib/app/business_domain/business.php:109 lib/app/business_domain/business.php:116
 #: lib/app/business_domain/edit.php:100 lib/app/category/add.php:73
@@ -16264,19 +16269,19 @@ msgstr "فروشگاه یافت نشد"
 msgid "Apikey not set"
 msgstr "کلید ای‌پی‌آی تنظیم نشده است"
 
-#: content_b1/tools.php:96 content_r10/tools.php:54
+#: content_b1/tools.php:96 content_r10/tools.php:55
 msgid "Authorization is not string!"
 msgstr "مجوز متنی نیست!"
 
-#: content_b1/tools.php:102 content_r10/tools.php:60
+#: content_b1/tools.php:102 content_r10/tools.php:61
 msgid "Authorization not set"
 msgstr "مجوز تنظیم نشده است"
 
-#: content_b1/tools.php:108 content_r10/tools.php:66
+#: content_b1/tools.php:108 content_r10/tools.php:67
 msgid "Authorization is too long!"
 msgstr "مجوز بسیار طولانی است!"
 
-#: content_b1/tools.php:121 content_r10/tools.php:79
+#: content_b1/tools.php:121 content_r10/tools.php:80
 msgid "Invalid Authorization"
 msgstr "مجوز نامعتبر است"
 
@@ -16611,8 +16616,8 @@ msgstr "افزودن تیکت جدید"
 msgid "Login"
 msgstr "ورود به سیستم"
 
-#: content_business/profile/notifications/setting/display.php:51
-#: content_crm/member/notification/display.php:39
+#: content_business/profile/notifications/setting/display.php:38
+#: content_crm/member/notification/display.php:28
 msgid "Disabled from sms setting"
 msgstr "از بخش تنظیمات اطلاع‌رسانی بیزینس غیرفعال شده است"
 
@@ -17773,7 +17778,7 @@ msgstr "درصد موفقیت تمامی تراکنش‌ها"
 #: content_crm/home/display.php:46 content_crm/member/add/view.php:12
 #: content_crm/member/glance/view.php:19 content_crm/staff/add/view.php:12
 #: content_developers/docs/001-intro.php:17 dash/layout/m2/sidebar.php:206
-#: dash/layout/m2/sidebar.php:702 includes/languages/trans_static.php:73
+#: dash/layout/m2/sidebar.php:692 includes/languages/trans_static.php:73
 #: lib/app/quickaccess/customers.php:30
 msgid "Customers"
 msgstr "مشتریان"
@@ -18520,6 +18525,7 @@ msgid "Edit permissions"
 msgstr "ویرایش سطح دسترسی"
 
 #: content_crm/permission/display.php:8 content_love/domain/nicdetail/display.php:12
+#: lib/app/plan/feature/staff.php:33
 msgid "Person"
 msgstr "نفر"
 
@@ -18571,29 +18577,25 @@ msgstr "خالی"
 msgid "Send sms history"
 msgstr "تاریخچه پیامک‌های ارسال شده"
 
-#: content_crm/sms/display-resend.php:29
-msgid "You must get SMS plugin to send sms"
-msgstr "برای ارسال پیام‌های اطلاع رسانی شما باید ابتدا بسته پیامکی خریداری کنید"
-
-#: content_crm/sms/display-resend.php:46
+#: content_crm/sms/display-resend.php:28
 msgid "You have :val not sent sms"
 msgstr "شما :val پیام‌کوتاه ارسال نشده دارید"
 
-#: content_crm/sms/display-resend.php:48
+#: content_crm/sms/display-resend.php:30
 msgid "This message not sent because your sms balance is low."
 msgstr "این پیامک به دلیل عدم موجودی کافی ارسال نشده است."
 
-#: content_crm/sms/display-resend.php:50
+#: content_crm/sms/display-resend.php:32
 msgid "You can resend message if have new sms pack or archive it"
 msgstr ""
 "در صورتی که بسته پیامک جدید تهیه کنید می‌توانید پیامک را مجددا ارسال کنید یا آن را آرشیو "
 "کنید"
 
-#: content_crm/sms/display-resend.php:68
+#: content_crm/sms/display-resend.php:45
 msgid "Resend All"
 msgstr "ارسال مجدد همه"
 
-#: content_crm/sms/display-resend.php:78
+#: content_crm/sms/display-resend.php:62
 msgid "Archive All"
 msgstr "آرشیو همه"
 
@@ -19993,7 +19995,7 @@ msgstr ""
 #: content_enter/twostep/controller.php:11 content_enter/twostep/model.php:11
 #: content_enter/twostep/view.php:11 dash/app/ticket/add.php:207
 #: dash/app/ticket/add.php:279 dash/app/user/email.php:91 dash/app/user/email.php:144
-#: dash/app/user/email.php:274 dash/app/user/email.php:340 lib/api/jibres/api.php:29
+#: dash/app/user/email.php:274 dash/app/user/email.php:340 lib/api/jibres/api.php:30
 #: lib/app/application/queue_search.php:27 lib/app/cart/add.php:64 lib/app/cart/add.php:86
 #: lib/app/cart/add.php:176 lib/app/cart/add.php:297 lib/app/cart/checkout.php:14
 #: lib/app/cart/checkout.php:274 lib/app/cart/checkout.php:344 lib/app/cart/edit.php:19
@@ -20853,6 +20855,7 @@ msgstr "کاربران بیزینس"
 #: lib/app/log/caller/business/business_plugin.php:76
 #: lib/app/log/caller/plan/plan_cancelPlan.php:37
 #: lib/app/log/caller/plan/plan_newPlanActivate.php:43
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:37
 msgid "Business"
 msgstr "بیزینس"
 
@@ -21036,7 +21039,7 @@ msgid "Store_id"
 msgstr "شناسه فروشگاه"
 
 #: content_love/business/userstore/display.php:11 includes/languages/trans_static.php:76
-#: lib/app/plan/feature/staff.php:33 lib/app/store/analytics.php:28
+#: lib/app/store/analytics.php:28
 msgid "Staff"
 msgstr "کارمند"
 
@@ -21082,8 +21085,8 @@ msgstr "تاریخ ایجاد"
 #: content_love/domain/billing/display.php:91 content_love/plan/add/display.php:72
 #: content_love/plan/datalist/display.php:9 content_my/domain/history/display.php:10
 #: content_my/domain/setting/action/display.php:14
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:55 lib/app/plan/planFactor.php:73
-#: lib/app/plan/planFactor.php:77
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:55 lib/app/plan/planFactor.php:72
+#: lib/app/plan/planFactor.php:76
 msgid "Period"
 msgstr "بازه زمانی"
 
@@ -22254,7 +22257,7 @@ msgid "Show lookup list"
 msgstr "نمایش لیست فراخوانی کد هدیه"
 
 #: content_love/home/display.php:7 content_my/home/display_site.php:230
-#: dash/layout/admin/admin-sidebar-frame.php:36 dash/layout/m2/sidebar.php:639
+#: dash/layout/admin/admin-sidebar-frame.php:36 dash/layout/m2/sidebar.php:629
 msgid "Supervisor Panel"
 msgstr "پنل مدیر فنی"
 
@@ -22286,10 +22289,6 @@ msgstr "کارت‌ هدیه"
 #: content_love/home/display.php:174 content_love/plugin/history/display.php:9
 msgid "Plugin"
 msgstr "افزونه"
-
-#: content_love/home/display.php:194
-msgid "Plans"
-msgstr "پلن‌ها"
 
 #: content_love/home/view.php:9 content_love/view.php:9
 #: content_my/home/display_site.php:223
@@ -22336,10 +22335,6 @@ msgstr "پروفایل کاربر"
 #: includes/languages/trans_static.php:548
 msgid "Guest"
 msgstr "میهمان"
-
-#: content_love/log/home/logTable.php:59
-msgid "Notification"
-msgstr "پیام"
 
 #: content_love/log/home/logTable.php:138
 msgid "Try to start with add new record!"
@@ -22403,7 +22398,7 @@ msgid "Refund price to"
 msgstr "بازپرداخت هزینه به"
 
 #: content_love/plan/detail/display.php:81 content_love/plan/detail/display.php:93
-#: lib/app/plan/planFactor.php:94
+#: lib/app/plan/planFactor.php:93
 msgid "Renew plan"
 msgstr "تمدید پلن"
 
@@ -22485,12 +22480,13 @@ msgstr "همه افزونه‌ها"
 #: lib/app/log/caller/business/business_plugin.php:69
 #: lib/app/log/caller/business/business_plugin.php:75
 #: lib/app/plan/feature/adminOnDomain.php:21 lib/app/plan/feature/allowedFileSize.php:21
-#: lib/app/plan/feature/ganje.php:21 lib/app/plan/feature/permission.php:49
+#: lib/app/plan/feature/freeDomain.php:29 lib/app/plan/feature/ganje.php:21
+#: lib/app/plan/feature/instagram.php:27 lib/app/plan/feature/permission.php:23
 #: lib/app/plan/feature/professionalDiscount.php:21
 #: lib/app/plan/feature/professionalFormBuilder.php:21
 #: lib/app/plan/feature/professionalReport.php:21 lib/app/plan/feature/removeBrand.php:21
 #: lib/app/plan/feature/sms.php:28 lib/app/plan/feature/staff.php:21
-#: lib/app/plan/feature/totalStorage.php:21
+#: lib/app/plan/feature/support.php:30 lib/app/plan/feature/totalStorage.php:21
 msgid "Feature"
 msgstr "ویژگی"
 
@@ -22518,6 +22514,10 @@ msgstr "لیست‌ همه افزونه‌ها"
 msgid "Sync all business"
 msgstr "همگام سازی همه بیزینس‌ها"
 
+#: content_love/plugin/home/display.php:45
+msgid "How have plugin"
+msgstr "کی پلاگین خریده"
+
 #: content_love/plugin/home/view.php:9
 msgid "Business plugin list"
 msgstr "لیست افزونه‌های بیزینس"
@@ -22541,6 +22541,10 @@ msgstr "مدیریت افزونه بیزینس"
 #: content_love/plugin/sync/display.php:11
 msgid "Send sync request to all business"
 msgstr "ارسال درخواست یکپارچه‌سازی امکانات به همه بیزینس‌ها"
+
+#: content_love/plugin/who/model.php:35
+msgid "Move from sms package system"
+msgstr "انتقال از بسته پیامکی"
 
 #: content_love/portfolio/add/display.php:35 dash/app/posts/filter.php:163
 #: dash/app/posts/filter.php:173 dash/app/posts/filter.php:183
@@ -22767,6 +22771,10 @@ msgstr "مالک جدید را انتخاب کنید"
 #: content_love/store/owner/view.php:42
 msgid "Use not found"
 msgstr "کاربر یافت نشد"
+
+#: content_love/store/setting/display.php:56
+msgid "Plugins"
+msgstr "افزونه‌ها"
 
 #: content_love/subscribe/display.php:6 content_love/subscribe/view.php:9
 msgid "Subscribe to Jibres world"
@@ -24094,7 +24102,7 @@ msgid "Choose your language"
 msgstr "زبان خود را انتخاب کنید"
 
 #: content_r10/android/splash/view.php:15 content_v2/android/splash/view.php:22
-#: content_v3/android/splash/view.php:22 dash/layout/find.php:339 dash/layout/find.php:345
+#: content_v3/android/splash/view.php:22 dash/layout/find.php:340 dash/layout/find.php:346
 msgid "Powered by Jibres"
 msgstr "قدرت گرفته از جیبرس"
 
@@ -24136,44 +24144,44 @@ msgstr "شناسه توییت اشتباه است"
 msgid "Please choose city"
 msgstr "لطفا شهر را انتخاب کنید"
 
-#: content_r10/tools.php:19
+#: content_r10/tools.php:21
 msgid "Can not set store in url"
 msgstr "نمی‌توانید شناسه فروشگاه را در آدرس بیاورید"
 
-#: content_r10/tools.php:90
+#: content_r10/tools.php:91
 msgid "Business code is required"
 msgstr "شناسه بیزینس الزامی است"
 
-#: content_r10/tools.php:98
+#: content_r10/tools.php:99
 msgid "Invalid business id"
 msgstr "شناسه بیزینس اشتباه است"
 
-#: content_r10/tools.php:127
+#: content_r10/tools.php:137
 msgid "Jibres user code required"
 msgstr "شناسه کد کاربری در جیبرس الزامی است"
 
-#: content_r10/tools.php:133
+#: content_r10/tools.php:150
 msgid "Invalid jibres user code"
 msgstr "کد کاربر در جیبرس اشتباه است"
 
-#: content_r10/tools.php:141
+#: content_r10/tools.php:165
 msgid "Invalid jibres user id"
 msgstr "شناسه کاربر در جیبرس اشتباه است"
 
-#: content_r10/tools.php:176 content_r10/tools.php:212 content_v2/tools.php:29
+#: content_r10/tools.php:213 content_r10/tools.php:249 content_v2/tools.php:29
 #: content_v2/tools.php:58 content_v3/tools.php:29 content_v3/tools.php:58
 msgid "Appkey not set"
 msgstr "کلید برنامه تنظیم نشده است"
 
-#: content_r10/tools.php:185
+#: content_r10/tools.php:222
 msgid "Access token not set"
 msgstr "کلید دسترسی تنظیم نشده است"
 
-#: content_r10/tools.php:225 content_v2/tools.php:71 content_v3/tools.php:71
+#: content_r10/tools.php:262 content_v2/tools.php:71 content_v3/tools.php:71
 msgid "Invalid app key"
 msgstr "کلید برنامه نامعتبر است"
 
-#: content_r10/tools.php:263
+#: content_r10/tools.php:299
 msgid "Invalid accesstoken"
 msgstr "کلید دسترسی اشتباه است"
 
@@ -24261,7 +24269,7 @@ msgstr "برای مدیریت لینک‌های دانلود اپلیکیشن"
 
 #: content_site/body/application/app2.php:17 content_site/body/separator/separator1.php:17
 #: content_site/footer/f1.php:17 content_site/header/h1.php:17
-#: lib/app/plan/feature/permission.php:67
+#: lib/app/plan/feature/permission.php:41
 msgid "Simple"
 msgstr "ساده"
 
@@ -25164,7 +25172,7 @@ msgstr "مثلثی"
 msgid "Pentagon"
 msgstr "پنج ضلعی"
 
-#: content_site/options/image/image_mask.php:18 lib/app/plan/plans/diamond.php:18
+#: content_site/options/image/image_mask.php:18
 msgid "Diamond"
 msgstr "الماس"
 
@@ -26624,10 +26632,6 @@ msgstr "اعتبار"
 msgid "Last login date"
 msgstr "تاریخ آخرین ورود"
 
-#: content_sudo/smsclient/home/display.php:18
-msgid "Pricing"
-msgstr "هزینه‌ها"
-
 #: content_sudo/smsclient/home/display.php:39
 msgid "Minimum allow credit"
 msgstr "حداقل مبلغ شارژ"
@@ -27010,7 +27014,7 @@ msgstr "پشرفت پروژه حذف شد"
 msgid "Please wait until your comment was approved"
 msgstr "لطفا صبر کنید تا دیگاه‌های شما تایید شود"
 
-#: dash/app/comment/add.php:49 dash/app/ticket/add.php:72 dash/utility/pay/start.php:227
+#: dash/app/comment/add.php:49 dash/app/ticket/add.php:72 dash/utility/pay/start.php:228
 #: lib/app/cart/add.php:212 lib/app/factor/add.php:563 lib/app/order/add.php:479
 msgid "Who are you?"
 msgstr "شما کی هستید؟"
@@ -27509,11 +27513,11 @@ msgstr "ارتباط با مدیریت"
 msgid "application"
 msgstr "برنامه"
 
-#: dash/app/permission/add.php:19
+#: dash/app/permission/add.php:26
 msgid "This permission title is already exists in your list, Try another title"
 msgstr "این نام قبلا در لیست سطوح دسترسی شما ثبت شده است، نامی دیگر انتخاب کنید"
 
-#: dash/app/permission/add.php:27
+#: dash/app/permission/add.php:34
 msgid "You have used the maximum capacity to define permission"
 msgstr "شما از حداکثر ظرفیت خود برای تعریف سطح دسترسی استفاده کرده‌اید"
 
@@ -27545,9 +27549,13 @@ msgstr "صداکننده اشتباه است"
 msgid "Pleace open access to group :group first"
 msgstr "لطفا ابتدا دسترسی را به گروه :group باز کنید"
 
-#: dash/app/permission/edit.php:194
+#: dash/app/permission/edit.php:202
 msgid "No change in your permission"
 msgstr "تغییری در سطح دسترسی ایجاد نشد"
+
+#: dash/app/permission/edit.php:252
+msgid "To set advance permission you must upgrade your plan"
+msgstr "برای تنظیم سطح دسترسی حرفه‌ای باید پلن خود را ارتقاء دهید"
 
 #: dash/app/permission/get.php:25
 msgid "Invalid permission id"
@@ -27800,7 +27808,7 @@ msgid "Publish in the future"
 msgstr "انتشار در آینده"
 
 #: dash/app/posts/filter.php:95 lib/app/product/filter.php:260
-#: lib/app/product/ganje.php:555
+#: lib/app/product/ganje.php:553
 msgid "Have gallery"
 msgstr "دارای گالری تصاویر"
 
@@ -28202,7 +28210,7 @@ msgstr "تست درگاه پرداخت"
 msgid "We need transaction currency! Please contact to administrator"
 msgstr "ما به واحد مالی تراکنش نیاز داریم! لطفا با مدیر سیستم تماس بگیرید"
 
-#: dash/app/transaction/add.php:201 lib/app/sms_charge/charge.php:214
+#: dash/app/transaction/add.php:201 lib/app/sms_charge/charge.php:350
 msgid "Amount is required"
 msgstr "مبلغ الزامی است"
 
@@ -28311,38 +28319,38 @@ msgstr "نمی‌توانید کاربری که داری سطح دسترسی ه�
 msgid "This user was removed"
 msgstr "این کاربر قبلا حذف شده است"
 
-#: dash/app/user/add.php:134 dash/app/user/edit.php:270
+#: dash/app/user/add.php:149 dash/app/user/edit.php:283
 msgid "Duplicate mobile"
 msgstr "تلفن همراه تکراری"
 
-#: dash/app/user/add.php:157 dash/app/user/edit.php:309
+#: dash/app/user/add.php:172 dash/app/user/edit.php:322
 msgid "Duplicate nationalcode or pasportcode in your user list"
 msgstr "این کدملی یا شماره گذرنامه در لیست اعضا شما تکراری است"
 
-#: dash/app/user/add.php:177
+#: dash/app/user/add.php:192
 msgid "No way to insert user"
 msgstr "هیچ راهی برای ثبت کاربر یافت نشد"
 
-#: dash/app/user/add.php:189
+#: dash/app/user/add.php:204
 msgid "User successfuly added"
 msgstr "کاربر با موفقیت اضافه شد"
 
-#: dash/app/user/add.php:226 lib/app/factor/check.php:113 lib/app/order/check.php:113
+#: dash/app/user/add.php:241 lib/app/factor/check.php:113 lib/app/order/check.php:113
 msgid "Customer detail is invalid"
 msgstr "اطلاعات مشتری اشتباه است"
 
-#: dash/app/user/add.php:254 lib/app/factor/check.php:141 lib/app/order/check.php:141
+#: dash/app/user/add.php:269 lib/app/factor/check.php:141 lib/app/order/check.php:141
 msgid ""
 "This thirdparyt already added to your store. plase set her mobile or change the name"
 msgstr ""
 "این مشتری قبلا به فروشگاه شما اضافه شده است. لطفا یا موبایلی برای این مشتری ثبت کرده و "
 "یا موبایل فعلی را ویرایش کنید"
 
-#: dash/app/user/business.php:60 dash/app/user/edit.php:244
+#: dash/app/user/business.php:60 dash/app/user/edit.php:257
 msgid "Can not access to edit user"
 msgstr "دسترسی لازم برای ویرایش کاربر وجود ندارد"
 
-#: dash/app/user/business.php:95 dash/app/user/edit.php:338
+#: dash/app/user/business.php:95 dash/app/user/edit.php:351
 msgid "User successfully updated"
 msgstr "کاربر با موفقیت به روزرسانی شد"
 
@@ -28374,32 +28382,32 @@ msgstr "یادداشت‌ یافت نشد"
 msgid "Notes removed"
 msgstr "یادداشت‌ حذف شد"
 
-#: dash/app/user/edit.php:63 dash/app/user/edit.php:68
+#: dash/app/user/edit.php:65 dash/app/user/edit.php:70
 msgid "Can not change business owner mobile or permission"
 msgstr "امکان تغییر سطح دسترسی یا موبایل صاحب فروشگاه وجود ندارد"
 
-#: dash/app/user/edit.php:100
+#: dash/app/user/edit.php:102
 msgid "Please remove user permission first!"
 msgstr "لطفا ابتدا سطح دسترسی کاربر را حذف کنید!"
 
-#: dash/app/user/edit.php:107
+#: dash/app/user/edit.php:109
 msgid "Can not set permission on removed user!"
 msgstr "نمی‌توانید سطح دسترسی کاربر ویرایش شده را تغییر دهید!"
 
-#: dash/app/user/edit.php:123
+#: dash/app/user/edit.php:125
 msgid "Please set mobile to this user and then change the permission"
 msgstr ""
 "لطفا برای تغییر سطح دسترسی کاربر ابتدا یک شماره تلفن همراه برای این کاربر ثبت کنید"
 
-#: dash/app/user/edit.php:156
+#: dash/app/user/edit.php:169
 msgid "Can not change customer mobile in jibres!"
 msgstr "در جیبرس نمی‌توانید شماره تلفن همراه مشتری را تغییر دهید!"
 
-#: dash/app/user/edit.php:282
+#: dash/app/user/edit.php:295
 msgid "Duplicate email"
 msgstr "ایمیل تکراری است"
 
-#: dash/app/user/edit.php:322
+#: dash/app/user/edit.php:335
 msgid "Can not remove mobile of users who have permission!"
 msgstr "نمی‌توانید موبایل کاربرانی که دارای سطح دسترسی هستند را حذف کنید!"
 
@@ -28516,7 +28524,7 @@ msgid "Have not permission"
 msgstr "بدون سطح دسترسی"
 
 #: dash/app/user/filter.php:40 dash/app/user/filter.php:41 dash/app/user/filter.php:43
-#: dash/app/user/filter.php:44 lib/app/log/caller/order/order_adminNewOrderAfterPay.php:17
+#: dash/app/user/filter.php:44 lib/app/log/caller/order/order_adminNewOrderAfterPay.php:18
 #: lib/app/log/caller/order/order_adminNewOrderBeforePay.php:16
 #: lib/app/log/caller/order/order_customerNewOrder.php:16
 #: lib/app/log/caller/order/order_customerSendingOrder.php:16
@@ -28855,23 +28863,23 @@ msgstr "سلام، مستندات را بخوان و پروژه خودتو شر�
 msgid "We can't find the page you're looking for!"
 msgstr "ما صفحه‌ای که به‌دنبال آن هستید را نمی‌یابیم!"
 
-#: dash/engine/store.php:330
+#: dash/engine/store.php:332
 msgid "Subdomain and store code conflict!"
 msgstr "زیردامنه و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:345
+#: dash/engine/store.php:347
 msgid "Can not route subdomain in your domain!"
 msgstr "به زیردامنه‌های شما در حالت دامنه اختصاصی پاسخ داده نخواهد شد!"
 
-#: dash/engine/store.php:351
+#: dash/engine/store.php:353
 msgid "Domain and store code conflict!"
 msgstr "دامنه اختصاصی و کد فروشگاه باهم تداخل دارند!"
 
-#: dash/engine/store.php:363
+#: dash/engine/store.php:365
 msgid "Can not route this address from your domain!"
 msgstr "نمی‌توانیم به درخواست از این آدرس در این دامنه پاسخ دهیم!"
 
-#: dash/engine/store.php:665
+#: dash/engine/store.php:667
 msgid "This business is currently unavailable!"
 msgstr "این بیزینس در حال حاضر در دسترس نیست!"
 
@@ -28911,7 +28919,7 @@ msgstr "پنل جیبرس"
 msgid "Jibres Domains"
 msgstr "دامنه‌های جیبرس"
 
-#: dash/layout/admin/admin-sidebar-frame.php:12 dash/layout/m2/sidebar.php:728
+#: dash/layout/admin/admin-sidebar-frame.php:12 dash/layout/m2/sidebar.php:718
 #: dash/panel.php:85
 msgid "My Business"
 msgstr "بیزینس‌های من"
@@ -28924,7 +28932,7 @@ msgstr "پنل مدیریت ارتباط با مشتریان"
 msgid "Jibres Managment"
 msgstr "مدیریت جیبرس"
 
-#: dash/layout/admin/admin-sidebar-frame.php:45 dash/layout/m2/sidebar.php:739
+#: dash/layout/admin/admin-sidebar-frame.php:45 dash/layout/m2/sidebar.php:729
 #: dash/panel.php:96
 msgid "My Account"
 msgstr "حساب من"
@@ -29338,7 +29346,7 @@ msgstr "نظر خودتون رو در مورد این نوشته بنویسید 
 msgid "User reviews"
 msgstr "نظرات کاربران"
 
-#: dash/layout/find.php:346
+#: dash/layout/find.php:347
 msgid "You can remove jibres brand"
 msgstr "شما می‌توانید نشان تجاری جیبرس را از وب‌سایت خود حذف کنید"
 
@@ -29483,11 +29491,11 @@ msgstr "سایت‌ساز"
 msgid "Android App"
 msgstr "اپ اندروید"
 
-#: dash/layout/m2/sidebar.php:647
+#: dash/layout/m2/sidebar.php:637
 msgid "Business setting"
 msgstr "تنظیمات بیزینس"
 
-#: dash/layout/m2/sidebar.php:756
+#: dash/layout/m2/sidebar.php:746
 msgid "Supervisor panel"
 msgstr "پنل مدیر فنی"
 
@@ -30779,25 +30787,25 @@ msgstr "نمی‌توانیم به سرور فایل‌ها متصل شویم!"
 msgid "Factor not found"
 msgstr "فاکتور یافت نشد"
 
-#: dash/upload/size.php:99 includes/languages/trans_static_public.php:43
+#: dash/upload/size.php:111 includes/languages/trans_static_public.php:43
 msgid "Byte"
 msgstr "بایت"
 
-#: dash/upload/size.php:99 dash/utility/human.php:103
+#: dash/upload/size.php:111 dash/utility/human.php:103
 #: includes/languages/trans_static_public.php:44
 msgid "KB"
 msgstr "کیلوبایت"
 
-#: dash/upload/size.php:99 dash/utility/human.php:105
+#: dash/upload/size.php:111 dash/utility/human.php:105
 #: includes/languages/trans_static_public.php:46
 msgid "GB"
 msgstr "گیگابایت"
 
-#: dash/upload/size.php:99 includes/languages/trans_static_public.php:47
+#: dash/upload/size.php:111 includes/languages/trans_static_public.php:47
 msgid "TB"
 msgstr "ترابایت"
 
-#: dash/upload/size.php:99 includes/languages/trans_static_public.php:48
+#: dash/upload/size.php:111 includes/languages/trans_static_public.php:48
 msgid "PB"
 msgstr "پترابایت"
 
@@ -31525,21 +31533,21 @@ msgstr "این درگاه پرداخت در این سرویس پشتیبانی �
 msgid "Invalid amount"
 msgstr "مقدار نامعتبر"
 
-#: dash/utility/pay/start.php:216
+#: dash/utility/pay/start.php:217
 msgid "You have a lot of unpaid transactions, please try again in a few minutes."
 msgstr "شما تعدادی تراکنش پرداخت نشده دارید. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید."
 
-#: dash/utility/pay/start.php:238
+#: dash/utility/pay/start.php:239
 msgid "You have a lot of unpaid transactions, please login or try again in a few minutes!"
 msgstr ""
 "شما تعدادی تراکنش پرداخت نشده دارید. لطفا چند دقیقه صبر کنید و یا برای ثبت تراکنش بیشتر "
 "وارد سیستم شوید!"
 
-#: dash/utility/pay/start.php:251
+#: dash/utility/pay/start.php:252
 msgid "You have a lot of unpaid transactions, please login or try again in a few minutes."
 msgstr "شما تعدادی تراکنش پرداخت نشده دارید. لطفا چند دقیقه صبر کنید و مجددا تلاش کنید."
 
-#: dash/utility/pay/start.php:310
+#: dash/utility/pay/start.php:311
 msgid "Pay whith :bank"
 msgstr "پرداخت با :bank"
 
@@ -38789,7 +38797,7 @@ msgstr "نیاز به تایید ایمیل"
 msgid "Can not connect to file server!"
 msgstr "نمی‌توانیم به سرور فایل‌ها متصل شویم!"
 
-#: lib/api/jibres/api.php:36
+#: lib/api/jibres/api.php:38
 msgid "This method works only in business mode"
 msgstr "این متود تنها در حالت بیزینس قابل اجرا است"
 
@@ -41463,12 +41471,12 @@ msgstr "مشاهده پاسخ"
 msgid "New answer to form"
 msgstr "پاسخ جدید به فرم"
 
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:14
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:15
 #: lib/app/log/caller/order/order_customerSendingOrder.php:13
 msgid "Hooray :)"
 msgstr "هورا :)"
 
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:22
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:23
 #: lib/app/log/caller/order/order_adminNewOrderBeforePay.php:21
 #: lib/app/log/caller/order/order_customerNewOrder.php:21
 #: lib/app/log/caller/order/order_customerSendingOrder.php:21
@@ -41476,8 +41484,8 @@ msgstr "هورا :)"
 msgid "Show order"
 msgstr "نمایش سفارش"
 
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:23
-#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:83
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:24
+#: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:84
 #: lib/app/log/caller/plan/plan_expireAlert.php:45
 msgid "Jibres; Sell and enjoy"
 msgstr "جیبرس؛ بفروش و لذت ببر"
@@ -41585,6 +41593,22 @@ msgstr "بسته پیامکی شما رو به اتمام است"
 #: lib/app/log/caller/sms/sms_lowcharge.php:42
 msgid "Please purchase a new SMS package in :val Business"
 msgstr "لطفا نسبت به خرید بسته پیامکی جدید در بیزینس :val اقدام کنید"
+
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:13
+msgid "New sms charge :)"
+msgstr "شارژ جدید پیامک انجام شد :)"
+
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:44
+msgid "Increase the charge to the amount"
+msgstr "افزایش شارژ به میزان"
+
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:50
+msgid "Reduce the charge to the amount"
+msgstr "کاهش شارژ به میزان"
+
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:54
+msgid "Current balance"
+msgstr "بالانس فعلی"
 
 #: lib/app/menu/add.php:34
 msgid "Menu created"
@@ -42360,17 +42384,29 @@ msgstr "مدیریت بیزینس در دامنه اختصاصی"
 msgid "Allowed file upload size"
 msgstr "اندازه مجاز آپلود فایل"
 
-#: lib/app/plan/feature/ganje.php:27 lib/app/plugin/items/ganje/ganje_product.php:12
-msgid "Ganje"
-msgstr "گنجه"
+#: lib/app/plan/feature/freeDomain.php:35
+msgid "Gift domain"
+msgstr "دامنه هدیه"
 
-#: lib/app/plan/feature/ganje.php:39
-msgid "10 request for test"
-msgstr "۱۰ درخواست برای تست"
+#: lib/app/plan/feature/freeDomain.php:50
+msgid ".ir domain"
+msgstr "دامنه آی‌آر"
 
-#: lib/app/plan/feature/permission.php:71
+#: lib/app/plan/feature/freeDomain.php:56
+msgid ".com domain"
+msgstr "دامنه دات کام"
+
+#: lib/app/plan/feature/ganje.php:27
+msgid "Smart product suggestion system"
+msgstr "سیستم پیشنهاد خودکار"
+
+#: lib/app/plan/feature/permission.php:45
 msgid "Professional"
 msgstr "حرفه‌ای"
+
+#: lib/app/plan/feature/permission.php:57
+msgid "You must upgrade your plan to add or edit permission"
+msgstr "برای ثبت یا ویرایش سطح دسترسی باید پلن خود را ارتقاء دهید"
 
 #: lib/app/plan/feature/professionalDiscount.php:27
 msgid "Professional Discount"
@@ -42392,17 +42428,21 @@ msgstr "حذف نشان تجاری جیبرس"
 msgid "SMS Cost"
 msgstr "هزینه هر پیامک"
 
-#: lib/app/plan/feature/sms.php:41
+#: lib/app/plan/feature/sms.php:34
 msgid "Persian"
 msgstr "فارسی"
-
-#: lib/app/plan/feature/sms.php:43
-msgid "English"
-msgstr "انگلیسی"
 
 #: lib/app/plan/feature/staff.php:27
 msgid "Staff count"
 msgstr "تعداد کارمندان"
+
+#: lib/app/plan/feature/staff.php:39
+msgid "To add new staff you must upgrade your plan"
+msgstr "برای اضافه کردن کارمند جدید باید پلن خود را ارتقاء دهید"
+
+#: lib/app/plan/feature/support.php:49
+msgid "Top priority"
+msgstr "اولویت بالا"
 
 #: lib/app/plan/feature/totalStorage.php:27
 msgid "Total storage"
@@ -42464,12 +42504,12 @@ msgstr "نوع عملیات اشتباه است"
 msgid "You must cancel current plan to choose another"
 msgstr "برای خرید پلن جدید باید پلن فعلی خود را لغو کنید"
 
-#: lib/app/plan/planFactor.php:69 lib/app/product/ready.php:257
+#: lib/app/plan/planFactor.php:68 lib/app/product/ready.php:257
 #: lib/app/report/sale/get.php:11
 msgid "Today"
 msgstr "امروز"
 
-#: lib/app/plan/planFactor.php:73 lib/app/plugin/items/admin/admin_domain.php:20
+#: lib/app/plan/planFactor.php:72 lib/app/plugin/items/admin/admin_domain.php:20
 #: lib/app/plugin/items/discount/discount_professional.php:21
 #: lib/app/plugin/items/ganje/ganje_product.php:20
 #: lib/app/plugin/items/remove/remove_brand.php:25
@@ -42477,7 +42517,7 @@ msgstr "امروز"
 msgid "One month"
 msgstr "یک ماه"
 
-#: lib/app/plan/planFactor.php:77 lib/app/plugin/items/admin/admin_domain.php:27
+#: lib/app/plan/planFactor.php:76 lib/app/plugin/items/admin/admin_domain.php:27
 #: lib/app/plugin/items/discount/discount_professional.php:28
 #: lib/app/plugin/items/ganje/ganje_product.php:27
 #: lib/app/plugin/items/remove/remove_brand.php:32
@@ -42485,11 +42525,11 @@ msgstr "یک ماه"
 msgid "One year"
 msgstr "یک سال"
 
-#: lib/app/plan/planFactor.php:84
+#: lib/app/plan/planFactor.php:83
 msgid "Buy plan"
 msgstr "خرید پلن"
 
-#: lib/app/plan/planFactor.php:92
+#: lib/app/plan/planFactor.php:91
 msgid "+Days left current plan"
 msgstr "+ روز‌های باقیمانده از پلن فعلی"
 
@@ -42521,6 +42561,10 @@ msgstr "معتبر"
 msgid "Price spent"
 msgstr "مبلغ مصرف شده"
 
+#: lib/app/plan/planMessage.php:10
+msgid "To use from this feature you must upgrade your plan"
+msgstr "برای استفاده از این امکان باید پلن خود را ارتقاء دهید"
+
 #: lib/app/plan/planPay.php:84
 msgid "Activate plan :val"
 msgstr "فعال سازی پلن :val"
@@ -42530,21 +42574,33 @@ msgstr "فعال سازی پلن :val"
 msgid "Can not choose this plan"
 msgstr "نمی‌توانید این پلن را انتخاب کنید"
 
-#: lib/app/plan/plans/diamond.php:24
-msgid "Diamond description"
-msgstr "توضیحات الماس"
+#: lib/app/plan/plans/advanced.php:18
+msgid "Advanced"
+msgstr "پیشرفته"
+
+#: lib/app/plan/plans/advanced.php:24
+msgid "For someones ready to use Jibres as hero."
+msgstr "برای کسانی که آماده استفاده از جیبرس هستند."
+
+#: lib/app/plan/plans/advanced.php:24
+msgid "<span class='bold'>Everything you need</span> for a growing business."
+msgstr "<span class='bold'>تمام نیازهای شما</span> برای یک بیزینس درحال توسعه."
+
+#: lib/app/plan/plans/basic.php:19
+msgid "Basic"
+msgstr "پایه"
+
+#: lib/app/plan/plans/basic.php:26
+msgid "For who want try to change!"
+msgstr "برای کسانی که تلاش به تغییر دارند!"
+
+#: lib/app/plan/plans/basic.php:26
+msgid "Enjoy modern era."
+msgstr "از دوران مدرنیته لذت ببرید."
 
 #: lib/app/plan/plans/free.php:24
 msgid "For ever!"
 msgstr "برای همیشه!"
-
-#: lib/app/plan/plans/gold.php:19
-msgid "Gold"
-msgstr "طلایی"
-
-#: lib/app/plan/plans/gold.php:25
-msgid "Description of gold"
-msgstr "توضیح پلن طلایی"
 
 #: lib/app/plan/plans/khadije.php:19
 msgid "Khadije"
@@ -42748,6 +42804,10 @@ msgstr "امکان تنظیم تاریخ انقضا برای کد تخفیف"
 msgid ""
 "By activating this plugin, you can use the advanced features of creating a discount code"
 msgstr "با فعال سازی این افزونه شما می‌توانید از امکانات ساخت کد تخفیف حرفه‌ای استفاده کنید"
+
+#: lib/app/plugin/items/ganje/ganje_product.php:12
+msgid "Ganje"
+msgstr "گنجه"
 
 #: lib/app/plugin/items/ganje/ganje_product.php:38
 msgid "ganje"
@@ -43133,10 +43193,6 @@ msgstr "حداکثر تعداد فایل در گالری ۱۰ فایل است"
 msgid "Please reload page to sort all image in this product gallery"
 msgstr "لطفا برای مرتب سازی همه تصاویر موجود در این محصول صفحه را مجددا بارگذاری نمایید"
 
-#: lib/app/product/ganje.php:579
-msgid "Buy ganje plugin"
-msgstr "خرید افزونه گنجه"
-
 #: lib/app/product/get.php:52 lib/app/product/get.php:93 lib/app/product/get.php:124
 msgid "Product id not set"
 msgstr "شناسه محصول یافت نشد"
@@ -43316,10 +43372,6 @@ msgstr "مجموع فروش، نزولی"
 #: lib/app/product/report/sale_date.php:30
 msgid "Total sales ASC"
 msgstr "مجموع فروش، صعودی"
-
-#: lib/app/product/report/sale_date.php:266
-msgid "Please activate professional report plugin to ganerate this report"
-msgstr "برای ساخت این گزارش لطفا افزونه گزارش‌ حرفه‌ای را تهیه کنید"
 
 #: lib/app/product/site_list.php:21
 msgid "Product not found."
@@ -44053,28 +44105,24 @@ msgstr "محاسبه شده در هزینه"
 msgid "None-Calculate cost"
 msgstr "بدون محاسبه در هزینه"
 
-#: lib/app/sms/resend.php:54
+#: lib/app/sms/resend.php:53
 msgid "Your sms was resended"
 msgstr "پیامک شما مجددا ارسال شد"
 
-#: lib/app/sms/resend.php:59
+#: lib/app/sms/resend.php:58
 msgid "Can not resend your sms"
 msgstr "نمی‌توانیم پیامک شما را مجددا ارسال کنیم"
 
-#: lib/app/sms/resend.php:66
-msgid "You must have active sms pack plugin to resend sms"
-msgstr "برای ارسال مجدد پیامک باید بسته پیامکی فعال داشته باشید"
-
-#: lib/app/sms/resend.php:72
+#: lib/app/sms/resend.php:64
 msgid ""
 "Only SMS messages that have not been sent due to insufficient charge can be re-sent"
 msgstr "تنها پیامک‌هایی که به دلیل عدم اعتبار کافی ارسال نشده‌اند امکان ارسال مجدد دارند"
 
-#: lib/app/sms/resend.php:84
+#: lib/app/sms/resend.php:74
 msgid "All Not sent sms was archived"
 msgstr "همه پیامک‌های ارسال نشده آرشیو شد"
 
-#: lib/app/sms/resend.php:157
+#: lib/app/sms/resend.php:147
 msgid ":val SMS was resended"
 msgstr ":val پیامک مجددا ارسال شد"
 
@@ -44090,19 +44138,27 @@ msgstr "Jibres.com"
 msgid ":val SMS was sended by cronjob"
 msgstr ":val پیامک مجددا ارسال شد از طریق پس‌زمینه"
 
-#: lib/app/sms_charge/charge.php:193
+#: lib/app/sms_charge/charge.php:196
+msgid "Can not charge your sms panel more than :max :currency"
+msgstr "نمی‌توانید بیشتر از :max :currency پنل پیامک خود را شارژ کنید"
+
+#: lib/app/sms_charge/charge.php:234
+msgid "Increase SMS panel charge"
+msgstr "افزایش شارژ پلن پیامک"
+
+#: lib/app/sms_charge/charge.php:329
 msgid "Charge sms"
 msgstr "شارژ پیامک"
 
-#: lib/app/sms_charge/charge.php:226
+#: lib/app/sms_charge/charge.php:362
 msgid "The minimum charge for SMS is :val :currency"
 msgstr "حداقل مبلغ شارژ پیامک :val :currency است"
 
-#: lib/app/sms_charge/charge.php:235
+#: lib/app/sms_charge/charge.php:371
 msgid "The maximum charge for SMS is :val :currency"
 msgstr "حداکثر مبلغ شارژ پیامک :val :currency است"
 
-#: lib/app/sms_charge/charge.php:245
+#: lib/app/sms_charge/charge.php:381
 msgid "Your amount changed to :val"
 msgstr "مبلغ شما به :val تغییر یافت"
 
@@ -45096,6 +45152,49 @@ msgstr "اینچ"
 msgid "Yard"
 msgstr "یارد"
 
+#~ msgid "Need to activate discount plugin"
+#~ msgstr "نیاز به فعال سازی این افزونه کد تخفیف حرفه‌ای"
+
+#~ msgid ""
+#~ "If you wish, by purchasing an SMS package, you can be aware of it after receiving "
+#~ "the order and add the ability to log in to your site via SMS."
+#~ msgstr ""
+#~ "در صورت تمایل با خرید بسته پیامکی می‌توانید پس از دریافت سفارش، از آن آگاه شوید و "
+#~ "قابلیت ورود با پیامک را به سایت خودتون اضافه کنید."
+
+#~ msgid "Plan free can not be loaded on this page"
+#~ msgstr "پلن رایگان نمی‌تواند در این صفحه باز شود"
+
+#~ msgid "Plugin and failures"
+#~ msgstr "افزونه‌ها و امکانات"
+
+#~ msgid "You must get the sms pack plugin to active this notification"
+#~ msgstr "برای ارسال پیام‌های اطلاع رسانی زیر شما باید ابتدا بسته پیامکی خریداری کنید"
+
+#~ msgid "You must get SMS plugin to send sms"
+#~ msgstr "برای ارسال پیام‌های اطلاع رسانی شما باید ابتدا بسته پیامکی خریداری کنید"
+
+#~ msgid "10 request for test"
+#~ msgstr "۱۰ درخواست برای تست"
+
+#~ msgid "English"
+#~ msgstr "انگلیسی"
+
+#~ msgid "Diamond description"
+#~ msgstr "توضیحات الماس"
+
+#~ msgid "Gold"
+#~ msgstr "طلایی"
+
+#~ msgid "Description of gold"
+#~ msgstr "توضیح پلن طلایی"
+
+#~ msgid "Please activate professional report plugin to ganerate this report"
+#~ msgstr "برای ساخت این گزارش لطفا افزونه گزارش‌ حرفه‌ای را تهیه کنید"
+
+#~ msgid "You must have active sms pack plugin to resend sms"
+#~ msgstr "برای ارسال مجدد پیامک باید بسته پیامکی فعال داشته باشید"
+
 #~ msgid "Sms Log"
 #~ msgstr "لاگ پیامک"
 
@@ -45126,9 +45225,6 @@ msgstr "یارد"
 #~ msgid "Free domain"
 #~ msgstr "دامنه رایگان"
 
-#~ msgid ".com Domain"
-#~ msgstr "دامنه .com"
-
 #~ msgid "Advance report"
 #~ msgstr "گزارشات پیشرفته"
 
@@ -45155,9 +45251,6 @@ msgstr "یارد"
 
 #~ msgid "Access to Ganje"
 #~ msgstr "دسترسی به گنجه"
-
-#~ msgid ".ir Domain"
-#~ msgstr "دامنه آی‌آر"
 
 #~ msgid "Everything you need ❤"
 #~ msgstr "هر آنچه شما نیاز دارید ❤"
@@ -45498,23 +45591,11 @@ msgstr "یارد"
 #~ msgid "Simple Plan"
 #~ msgstr "پلن ساده"
 
-#~ msgid "For who want try to change!"
-#~ msgstr "برای کسانی که تلاش به تغییر دارند!"
-
-#~ msgid "Enjoy modern era."
-#~ msgstr "از دوران مدرنیته لذت ببرید."
-
 #~ msgid "Without Limit"
 #~ msgstr "بدون محدودیت"
 
 #~ msgid "Standard Plan"
 #~ msgstr "پلن استاندارد"
-
-#~ msgid "For someones ready to use Jibres as hero."
-#~ msgstr "برای کسانی که آماده استفاده از جیبرس هستند."
-
-#~ msgid "<span class='bold'>Everything you need</span> for a growing business."
-#~ msgstr "<span class='bold'>تمام نیازهای شما</span> برای یک بیزینس درحال توسعه."
 
 #~ msgid "Shop with Your Domain"
 #~ msgstr "فروشگاه با دامنه شما"
@@ -45680,9 +45761,6 @@ msgstr "یارد"
 
 #~ msgid "Invalid plan"
 #~ msgstr "پلن انتخابی اشتباه است"
-
-#~ msgid "Can not register plan more than 1.5 year"
-#~ msgstr "نمی‌توانید بیشتر از بازه زمانی یک سال و نیم پلن خریداری کنید"
 
 #~ msgid "Can not start transaction on PDO link!"
 #~ msgstr "نمی‌توانیم لینک PDO را شروع کنیم!"
@@ -48255,9 +48333,6 @@ msgstr "یارد"
 
 #~ msgid "Product detail suggestion"
 #~ msgstr "پیشنهاد جزئیات محصولات"
-
-#~ msgid "Enable product suggestion"
-#~ msgstr "فعال‌سازی پیشنهاد تصاویر محصولات"
 
 #~ msgid "Product Setting"
 #~ msgstr "تنظیمات محصولات"
