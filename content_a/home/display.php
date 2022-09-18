@@ -5,20 +5,7 @@
     <div class="c-xs-12 c-sm-12 c-md-9">
     <?php } //endif ?>
 
-    <?php if(!\lib\app\plugin\business::is_activated('sms_pack') && !\lib\app\setting\tools::get('admin_notification', 'sms_pack_alert_hide')) { ?>
-      <div class="alert-info text-xs" data-removeElement>
-        <div class="row">
-          <div class="c">
-            <a href="<?php echo \dash\url::here(). '/plugin/view/sms_pack' ?>">
-              <?php echo T_("If you wish, by purchasing an SMS package, you can be aware of it after receiving the order and add the ability to log in to your site via SMS.") ?>
-            </a>
-          </div>
-          <div class="c-auto" >
-            <div data-ajaxify data-data='{"hide":"sms_notif"}' data-metho='post' data-removeElTrigger ><?php echo \dash\utility\icon::svg('x', 'bootstrap', null, 'w-4'); ?></div>
-          </div>
-        </div>
-      </div>
-    <?php } //endif ?>
+
     <div class="text-sm">
       <?php if(a($dashboardData, 'notSentSMSCount')) {?>
         <a href="<?php echo \dash\url::kingdom(). '/crm/sms/datalist?status=moneylow' ?>">
