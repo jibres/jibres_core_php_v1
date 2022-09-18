@@ -39,8 +39,8 @@ class view
 
 
 		$smsDeail = \lib\app\sms_charge\charge::getDetail();
-
 		\dash\data::smsChargeDetail($smsDeail);
+		\dash\data::myPlanDetail(\lib\app\plan\businessPlanDetail::getMyCurrentPlanDetail());
 
 	}
 }
