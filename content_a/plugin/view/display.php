@@ -6,7 +6,7 @@ $currency               = \lib\store::currency();
 
 $plugin                 = \dash\data::pluginKey();
 
-$is_activated           = \lib\app\plugin\business::is_activated($plugin);
+$is_activated           = false;
 
 $business_plugin_detail = \lib\app\plugin\business::detail($plugin);
 

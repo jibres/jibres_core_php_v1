@@ -67,11 +67,11 @@
             </div>
 
              <div class="mt-5 c-xs-12 c-md-6 c-lg-4 c-xxl-3">
-                <a class="row" data-item href="<?php echo \dash\url::here(); ?>/plugin">
-                    <div class="c-auto"><div class=" w-20 p-5 pt-1"><?php echo \dash\utility\icon::svg('Apps', 'major') ?></div></div>
+                <a class="row" data-item href="<?php echo \dash\url::this(); ?>/notification">
+                    <div class="c-auto"><div class=" w-20 p-5 pt-1"><?php echo \dash\utility\icon::svg('Notification', 'major') ?></div></div>
                     <div class="c">
-                        <h2><?php echo T_("Plugins"); ?></h2>
-                        <p class="text-gray-500"><?php echo T_("Plugin and failures"); ?></p>
+                        <h2><?php echo T_("Notification"); ?></h2>
+                        <p class="text-gray-500"><?php echo T_("Notification settings and changing the message format"); ?></p>
                     </div>
                 </a>
             </div>
