@@ -24,7 +24,7 @@ class ganje extends featurePreapre
 
 	public function title() : string
 	{
-		return T_("Ganje");
+		return T_("Smart product suggestion system");
 	}
 
 

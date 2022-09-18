@@ -21,7 +21,8 @@ class diamond extends planPrepare
 
 	public function description() : string
 	{
-		return T_("Diamond description");
+		return '';
+		// return T_("Diamond description");
 	}
 
 

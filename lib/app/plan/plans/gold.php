@@ -22,7 +22,8 @@ class gold extends planPrepare
 
 	public function description() : string
 	{
-		return T_("Description of gold");
+		return '';
+		// return T_("Description of gold");
 	}
 
 
@@ -55,7 +56,7 @@ class gold extends planPrepare
 				'sms'                  =>
 					[
 						'fa_cost' => 90,
-						'en_cost' => 170,
+						'en_cost' => 180,
 					],
 			];
 	}

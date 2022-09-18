@@ -15,7 +15,7 @@ function HTMLValueDetectorPricing($value)
 {
 	if($value === true)
 	{
-		return \dash\utility\icon::svg('Tick', 'minor', 'green', 'w-5 h-5');
+		return \dash\utility\icon::svg('Tick', 'minor', 'green', 'w-5 h-5 mx-auto');
 	}
     elseif(is_string($value))
 	{
@@ -23,7 +23,7 @@ function HTMLValueDetectorPricing($value)
 	}
 	else
 	{
-		return \dash\utility\icon::svg('Minus', 'minor', '#DCDCDC', 'w-5 h-5');
+		return \dash\utility\icon::svg('CancelSmall', 'minor', '#DCDCDC', 'w-5 h-5 mx-auto');
 
 	}
 }
@@ -46,7 +46,7 @@ function HTMLPlanLinkUrl($plan)
 ?>
 
 
-<div class="mx-auto max-w-7xl bg-white py-16 sm:py-24 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-7xl bg-white sm:px-6 lg:px-8">
     <div class="bg-white">
         <div class="mb-4 mt-4  flex">
             <div class="mx-auto">
@@ -103,7 +103,7 @@ function HTMLPlanLinkUrl($plan)
                                 <tr class="border-t border-gray-200">
                                     <th class="py-5 px-4 text-left text-sm font-normal text-gray-500"
                                         scope="row"><?php echo $item ?></th>
-                                    <td class="py-5 pr-4"><?php echo HTMLValueDetectorPricing($v); ?> </td>
+                                    <td class="py-5 pr-4 text-center"><?php echo HTMLValueDetectorPricing($v); ?> </td>
                                 </tr>
 							<?php endforeach; ?>
                             </tbody>
@@ -131,14 +131,12 @@ function HTMLPlanLinkUrl($plan)
         <!-- lg+ -->
         <div class="hidden lg:block">
             <table class="h-px w-full table-fixed">
-                <caption class="sr-only">
-                    Pricing plan comparison
-                </caption>
+
                 <thead>
                 <tr>
                     <th class="px-6 pb-4 text-left text-sm font-medium text-gray-900" scope="col">
-                        <span class="sr-only">Feature by</span>
-                        <span>Plans</span>
+
+                        <span><?php echo T_("Plans"); ?></span>
                     </th>
 					<?php foreach ($planList as $plan) : ?>
                         <th class="w-1/4 px-6 pb-4 text-left text-lg font-medium leading-6 text-gray-900" scope="col">
@@ -149,7 +147,7 @@ function HTMLPlanLinkUrl($plan)
                 </thead>
                 <tbody class="divide-y divide-gray-200 border-t border-gray-200">
                 <tr>
-                    <th class="py-8 px-6 text-left align-top text-sm font-medium text-gray-900" scope="row">Pricing</th>
+                    <th class="py-8 px-6 text-left align-top text-sm font-medium text-gray-900" scope="row"><?php echo T_("Pricing"); ?></th>
 					<?php foreach ($planList as $plan) : ?>
                         <td class="h-full py-8 px-6 align-top">
                             <div class="relative table h-full">
@@ -179,7 +177,7 @@ function HTMLPlanLinkUrl($plan)
                 </tr>
 				<?php foreach (\dash\data::tableFeatureList() as $group => $list) : ?>
                     <tr>
-                        <th class="bg-gray-50 py-3 pl-6 text-left text-sm font-medium text-gray-900"
+                        <th class="bg-gray-50 py-3 pl-6 text-left text-right text-sm font-medium text-gray-900"
                             colspan="<?php echo count($planList) + 1 ?>" scope="colgroup"><?php echo $group ?></th>
                     </tr>
 					<?php foreach ($list as $item => $value): ?>
@@ -187,7 +185,7 @@ function HTMLPlanLinkUrl($plan)
                             <th class="py-5 px-6 text-left text-sm font-normal text-gray-500"
                                 scope="row"><?php echo $item ?></th>
 							<?php foreach ($value as $v) : ?>
-                                <td class="py-5 px-6"><?php echo HTMLValueDetectorPricing($v); ?></td>
+                                <td class="py-5 px-6 text-center"><?php echo HTMLValueDetectorPricing($v); ?></td>
 							<?php endforeach; ?>
                         </tr>
 					<?php endforeach; ?>
