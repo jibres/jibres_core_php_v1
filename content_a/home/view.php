@@ -36,6 +36,12 @@ class view
 				\dash\data::back_link(\dash\url::sitelang(). '/my');
 			}
 		}
+
+
+		$smsDeail = \lib\app\sms_charge\charge::getDetail();
+
+		\dash\data::smsChargeDetail($smsDeail);
+
 	}
 }
 ?>
