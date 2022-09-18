@@ -176,7 +176,6 @@ class charge
 		$data = $_args;
 
 
-
 		$userId = self::getUserId();
 
 		$turnBack = $data['turn_back'];
@@ -194,7 +193,9 @@ class charge
 
 		if($currentStoreCharge + $amount >= $totalCharge)
 		{
-			\dash\notif::error(T_("Can not charge your sms panel more than :max :currency", ['max' => \dash\fit::number($totalCharge), 'currency' => \lib\currency::jibres_currency(true)]));
+			\dash\notif::error(T_("Can not charge your sms panel more than :max :currency", ['max'      => \dash\fit::number($totalCharge),
+																							 'currency' => \lib\currency::jibres_currency(true),
+			]));
 			return ['payLink' => null, 'needPay' => false, 'error' => true];
 		}
 
@@ -290,20 +291,34 @@ class charge
 			return false;
 		}
 
-
-		$insert =
+		$args =
 			[
 				'store_id'       => $store_id,
 				'user_id'        => $user_id,
 				'transaction_id' => $insert_minus_transaction,
 				'amount'         => $amount,
-				'datecreated'    => date("Y-m-d H:i:s"),
 			];
+
+		self::addNewSMSChargeRecord($args);
+
+	}
+
+
+	private static function addNewSMSChargeRecord($_args)
+	{
+
+		$insert                = $_args;
+		$insert['datecreated'] = date("Y-m-d H:i:s");
 
 		\lib\db\sms_charge\insert::new_record($insert);
 
-		\lib\api\business\api::sms_sync_required($store_id);
+		\lib\api\business\api::sms_sync_required($insert['store_id']);
 
+		$log = $_args;
+
+		$log['balance'] = self::getBalance($insert['store_id']);
+
+		\dash\log::set('sms_newSMSCharge', ['myData' => $log]);
 
 	}
 
@@ -339,8 +354,8 @@ class charge
 		$amount = intval($_amount);
 
 
-		$minimum     = 50000;
-		$maximum     = 5000000;
+		$minimum = 50000;
+		$maximum = 5000000;
 
 		if($amount < $minimum)
 		{
@@ -447,19 +462,16 @@ class charge
 		}
 
 
-		$insert =
+		$args =
 			[
 				'store_id'       => $data['store_id'],
 				'user_id'        => \dash\user::id(),
 				'transaction_id' => null,
 				'amount'         => $amount,
-				'datecreated'    => date("Y-m-d H:i:s"),
 				'desc'           => $data['desc'],
 			];
 
-		\lib\db\sms_charge\insert::new_record($insert);
-
-		\lib\api\business\api::sms_sync_required($data['store_id']);
+		self::addNewSMSChargeRecord($args);
 
 
 	}
