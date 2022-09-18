@@ -182,6 +182,11 @@ class get
 		$newResult = [];
 		foreach ($result as $value)
 		{
+			if(!isset($value['plan']))
+			{
+				continue;
+			}
+
 			if(!isset($newResult[$value['plan']]))
 			{
 				$newResult[$value['plan']] = ['active' => 0, 'deactive' => 0];
