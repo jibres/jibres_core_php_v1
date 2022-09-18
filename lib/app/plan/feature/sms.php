@@ -42,8 +42,28 @@ class sms extends featurePreapre
 		$value .= '<br>';
 		$value .= T_("English") . ' '. \dash\fit::number($this->en_cost) . ' <small class="text-gray-400">' . T_("Toman"). '</small>';
 		return $value;
+	}
 
+	public function access() : bool
+	{
+		// check have charge or not
+		$charge = \lib\app\sms_charge\charge::getDetail();
 
+		if(isset($charge['charge']) && $charge['charge'])
+		{
+			if(intval($charge['charge']) > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	public function cost($_lang = null)

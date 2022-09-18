@@ -84,10 +84,7 @@ class search
 
 			foreach ($list as $key => $value)
 			{
-				if(\lib\app\plugin\business::is_activated(a($value, 'plugin')))
-				{
-					$new_list[] = $value;
-				}
+				$new_list[] = $value;
 			}
 
 			$list = $new_list;

@@ -222,7 +222,7 @@ class api
 
 	public static function sms_charge_detail()
 	{
-		$result = self::run('sms_charge', 'get');
+		$result = self::run('sms_charge', 'get', [], [], ['not_check_login' => true]);
 		return $result;
 	}
 

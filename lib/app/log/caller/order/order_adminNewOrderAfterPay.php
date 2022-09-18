@@ -2,29 +2,29 @@
 namespace lib\app\log\caller\order;
 
 
-
 class order_adminNewOrderAfterPay
 {
+
 	private static $load_once_factor_detail = null;
+
 
 	public static function site($_args = [])
 	{
-		$result              = [];
+		$result = [];
 
-		$result['title']     = T_("Hooray :)");
+		$result['title'] = T_("Hooray :)");
 
 		$result['icon']      = 'buy';
 		$result['cat']       = T_("Order");
 		$result['iconClass'] = 'fc-green';
 		$result['txt']       = self::get_msg($_args, false);
 
-		$my_id       = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
-		$result['txt'] .= ' <a target="_blank" class="link-primary" href="'. \lib\store::admin_url(). '/:'. $my_id. '">'. T_("Show order"). '</a>';
-		$result['txt'] .= ' <br> '. T_("Jibres; Sell and enjoy");
+		$my_id         = isset($_args['data']['my_id']) ? $_args['data']['my_id'] : null;
+		$result['txt'] .= ' <a target="_blank" class="link-primary" href="' . \lib\store::admin_url() . '/:' . $my_id . '">' . T_("Show order") . '</a>';
+		$result['txt'] .= ' <br> ' . T_("Jibres; Sell and enjoy");
 		return $result;
 
 	}
-
 
 
 	public static function get_msg($_args = [], $_link = true)
@@ -65,7 +65,10 @@ class order_adminNewOrderAfterPay
 			default:
 			case '1':
 			case 1:
-				$msg .= "💰  ". T_("A final order and the amount of :amount :currency was paid in :business :)", ['amount' => $my_amount, 'currency' => $my_currency, 'business' => \lib\store::title()]);
+				$msg .= "💰  " . T_("A final order and the amount of :amount :currency was paid in :business :)", ['amount'   => $my_amount,
+																												  'currency' => $my_currency,
+																												  'business' => \lib\store::title(),
+					]);
 				break;
 		}
 
@@ -74,14 +77,12 @@ class order_adminNewOrderAfterPay
 			if(!a($_args, 'data', 'my_hide_link'))
 			{
 				$msg .= "\n";
-				$msg .= \lib\store::admin_url('raw'). '/:'. $my_id;
+				$msg .= \lib\store::admin_url('raw') . '/:' . $my_id;
 			}
 
-			if(!\lib\app\plugin\business::is_activated('remove_brand'))
-			{
-				$msg .= "\n";
-				$msg .= ' '. T_("Jibres; Sell and enjoy");
-			}
+			$msg .= "\n";
+			$msg .= ' ' . T_("Jibres; Sell and enjoy");
+
 		}
 
 		return $msg;
@@ -95,25 +96,26 @@ class order_adminNewOrderAfterPay
 		foreach ([1, 2, 3, 4] as $key => $value)
 		{
 			$_args['data']['template'] = $value;
-			$template_list[$value] = self::get_msg($_args);
+			$template_list[$value]     = self::get_msg($_args);
 		}
 
 		return $template_list;
 	}
 
+
 	private static function load_once_factor_detail($my_id)
 	{
 		if(self::$load_once_factor_detail === null)
 		{
-			$option =
-			[
-				'skipp_check_permission'  => true,
-				'include_order_detail'    => true,
-				'include_customer_detail' => true,
-				'include_shipping_detail' => true,
-				'include_action_detail'   => false,
-				'include_discount_detail' => false,
-			];
+			$option                        =
+				[
+					'skipp_check_permission'  => true,
+					'include_order_detail'    => true,
+					'include_customer_detail' => true,
+					'include_shipping_detail' => true,
+					'include_action_detail'   => false,
+					'include_discount_detail' => false,
+				];
 			self::$load_once_factor_detail = \lib\app\factor\get::full($my_id, $option);
 		}
 
@@ -136,14 +138,14 @@ class order_adminNewOrderAfterPay
 					if(floatval(a($value, 'count')) > 1)
 					{
 						$msg .= " ";
-						$msg .= \dash\fit::number($value['count']). ' '. a($value, 'unit');
+						$msg .= \dash\fit::number($value['count']) . ' ' . a($value, 'unit');
 					}
 
 				}
 			}
 
 			$msg .= "\n";
-			$msg .= T_("Total"). ' '. \dash\fit::number(a($load_factor, 'factor', 'total'));
+			$msg .= T_("Total") . ' ' . \dash\fit::number(a($load_factor, 'factor', 'total'));
 			$msg .= " ";
 			$msg .= $my_currency;
 
@@ -151,17 +153,16 @@ class order_adminNewOrderAfterPay
 		elseif($my_id === '...')
 		{
 			$msg .= "\n";
-			$msg .= T_("Product"). \dash\fit::number(1). "\n";
-			$msg .= T_("Product"). \dash\fit::number(2). " ". \dash\fit::number(3). ' '. T_("Unit");
+			$msg .= T_("Product") . \dash\fit::number(1) . "\n";
+			$msg .= T_("Product") . \dash\fit::number(2) . " " . \dash\fit::number(3) . ' ' . T_("Unit");
 			$msg .= "\n";
-			$msg .= T_("Total"). ' ...';
+			$msg .= T_("Total") . ' ...';
 			$msg .= " ";
 			$msg .= $my_currency;
 		}
 
 		return $msg;
 	}
-
 
 
 	public static function msg_fill_customer_detail($my_id)
@@ -177,16 +178,16 @@ class order_adminNewOrderAfterPay
 			if(a($customer_detail, 'displayname') || a($customer_detail, 'mobile'))
 			{
 				$msg .= PHP_EOL;
-				$msg .= T_("Customer"). PHP_EOL;
+				$msg .= T_("Customer") . PHP_EOL;
 
 				if(a($customer_detail, 'displayname'))
 				{
-					$msg .= $customer_detail['displayname']. PHP_EOL;
+					$msg .= $customer_detail['displayname'] . PHP_EOL;
 				}
 
 				if(a($customer_detail, 'mobile'))
 				{
-					$msg .= \dash\fit::mobile($customer_detail['mobile']). PHP_EOL;
+					$msg .= \dash\fit::mobile($customer_detail['mobile']) . PHP_EOL;
 				}
 
 				$msg .= " ";
@@ -197,14 +198,15 @@ class order_adminNewOrderAfterPay
 		{
 
 			$msg .= PHP_EOL;
-			$msg .= T_("Customer"). PHP_EOL;
-			$msg .= T_("Name"). PHP_EOL;
-			$msg .= T_("Mobile"). PHP_EOL;
+			$msg .= T_("Customer") . PHP_EOL;
+			$msg .= T_("Name") . PHP_EOL;
+			$msg .= T_("Mobile") . PHP_EOL;
 			$msg .= " ";
 		}
 
 		return $msg;
 	}
+
 
 	public static function msg_fill_customer_address($my_id)
 	{
@@ -220,21 +222,21 @@ class order_adminNewOrderAfterPay
 			if(a($address, 'address') || a($address, 'phone') || a($address, 'postcode'))
 			{
 				$msg .= PHP_EOL;
-				$msg .= T_("Address"). PHP_EOL;
+				$msg .= T_("Address") . PHP_EOL;
 
 				if(a($address, 'address'))
 				{
-					$msg .= $address['address']. PHP_EOL;
+					$msg .= $address['address'] . PHP_EOL;
 				}
 
 				if(a($address, 'phone'))
 				{
-					$msg .= T_("Phone"). ' '. \dash\fit::text($address['phone']). PHP_EOL;
+					$msg .= T_("Phone") . ' ' . \dash\fit::text($address['phone']) . PHP_EOL;
 				}
 
 				if(a($address, 'postcode'))
 				{
-					$msg .= T_("Postcode"). ' '. \dash\fit::text($address['postcode']). PHP_EOL;
+					$msg .= T_("Postcode") . ' ' . \dash\fit::text($address['postcode']) . PHP_EOL;
 				}
 
 				$msg .= " ";
@@ -245,9 +247,9 @@ class order_adminNewOrderAfterPay
 		{
 
 			$msg .= PHP_EOL;
-			$msg .= T_("Address"). PHP_EOL;
-			$msg .= T_("Phone"). PHP_EOL;
-			$msg .= T_("Postcode"). PHP_EOL;
+			$msg .= T_("Address") . PHP_EOL;
+			$msg .= T_("Phone") . PHP_EOL;
+			$msg .= T_("Postcode") . PHP_EOL;
 			$msg .= " ";
 		}
 
@@ -255,11 +257,10 @@ class order_adminNewOrderAfterPay
 	}
 
 
-
 	public static function expire()
 	{
 		// 7 days
-		return date("Y-m-d H:i:s", time() + (60*60*24*3));
+		return date("Y-m-d H:i:s", time() + (60 * 60 * 24 * 3));
 	}
 
 
@@ -273,7 +274,6 @@ class order_adminNewOrderAfterPay
 	{
 		return ['admin', 'orderNotificationReceiver'];
 	}
-
 
 
 	public static function telegram()
@@ -293,20 +293,21 @@ class order_adminNewOrderAfterPay
 		return \lib\app\setting\notification::is_enable_user('after_pay', $_user_id);
 	}
 
+
 	public static function sms_text($_args, $_mobile)
 	{
 		$title = self::get_msg($_args);
 
 		$sms =
-		[
-			'mobile' => $_mobile,
-			'text'   => $title,
-			'meta'   =>
 			[
-				'header' => false,
-				'footer' => false
-			]
-		];
+				'mobile' => $_mobile,
+				'text'   => $title,
+				'meta'   =>
+					[
+						'header' => false,
+						'footer' => false,
+					],
+			];
 
 		return json_encode($sms, JSON_UNESCAPED_UNICODE);
 	}
@@ -321,12 +322,14 @@ class order_adminNewOrderAfterPay
 
 		$tg_msg .= self::get_msg($_args);
 
-		$tg                 = [];
-		$tg['chat_id']      = $_chat_id;
-		$tg['text']         = $tg_msg;
+		$tg            = [];
+		$tg['chat_id'] = $_chat_id;
+		$tg['text']    = $tg_msg;
 
 		return $tg;
 
 	}
+
 }
+
 ?>
