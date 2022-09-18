@@ -210,7 +210,7 @@ class sidebar
 		];
 
 
-		if(in_array($content, ['crm']) || ($content === 'a' && $module === 'form'))
+		if(in_array($content, ['crm']))
 		{
 			$menu['crm']['iconColor'] = $blue;
 			if(!$module)
@@ -235,12 +235,12 @@ class sidebar
 			];
 
 
-			$crm_child['form'] =
-			[
-				'title'    => T_("Form builder"),
-				'url'      => $kingdom. '/a/form',
-				'selected' => ($content === 'a' && $module === 'form'),
-			];
+			// $crm_child['form'] =
+			// [
+			// 	'title'    => T_("Form builder"),
+			// 	'url'      => $kingdom. '/a/form',
+			// 	'selected' => ($content === 'a' && $module === 'form'),
+			// ];
 
 
 			$crm_child['ticket'] =
@@ -265,6 +265,22 @@ class sidebar
 
 		/*=====  End of CRM  ======*/
 
+		if(\dash\permission::check('_group_form'))
+		{
+			$menu["formbuilder"] =
+				[
+					'title'     => T_("Form builder"),
+					'url'       => \dash\url::kingdom().'/a/form',
+					'icon'      => 'Forms',
+					'iconColor' => '#a1b2c3',
+				];
+
+			if(in_array($module, ['form']))
+			{
+				$menu['formbuilder']['iconColor'] = $blue;
+				$menu['formbuilder']['selected']  = true;
+			}
+		}
 
 
 
