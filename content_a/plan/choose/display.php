@@ -46,7 +46,7 @@ function HTMLPlanLinkUrl($plan)
 ?>
 
 
-<div class="mx-auto max-w-7xl bg-white sm:px-6 lg:px-8">
+<div class="mx-auto max-w-7xl bg-white sm:px-6 lg:px-8 p-2">
     <div class="bg-white">
         <div class="mb-4 mt-4  flex">
             <div class="mx-auto">

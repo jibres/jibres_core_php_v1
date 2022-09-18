@@ -10,8 +10,8 @@ class planList
 		return
 			[
 				'free',
-				'gold',
-				'diamond',
+				'basic',
+				'advanced',
 				'rafiei',
 				'khadije',
 			];
@@ -22,8 +22,8 @@ class planList
 	{
 		return
 			[
-				'gold',
-				'diamond',
+				'basic',
+				'advanced',
 			];
 	}
 

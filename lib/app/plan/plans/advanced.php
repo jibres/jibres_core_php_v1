@@ -4,12 +4,12 @@ namespace lib\app\plan\plans;
 
 use lib\app\plan\planPrepare;
 
-class diamond extends planPrepare
+class advanced extends planPrepare
 {
 
 	public function name() : string
 	{
-		return 'diamond';
+		return 'advanced';
 	}
 
 
