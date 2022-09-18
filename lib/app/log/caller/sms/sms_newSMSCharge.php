@@ -71,6 +71,13 @@ class sms_newSMSCharge
 	}
 
 
+	public static function active_bot()
+	{
+		return 'JibresPlanBot';
+	}
+
+
+
 	public static function send_to()
 	{
 		return ['supervisor'];

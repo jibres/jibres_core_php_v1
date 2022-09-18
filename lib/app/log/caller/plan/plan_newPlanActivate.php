@@ -43,28 +43,25 @@ class plan_newPlanActivate
 			$msg          .= T_("Business") . ': ' . a($store_detail, 'title');
 		}
 
-		$msg .= ' '. PHP_EOL;
+		$msg .= ' ' . PHP_EOL;
 		$msg .= T_("Plan") . ': ' . T_(ucfirst(strval($plan)));
-		$msg .= ' '. PHP_EOL;
+		$msg .= ' ' . PHP_EOL;
 		$msg .= T_("Start date") . ': ' . \dash\fit::date($startdate);
-		$msg .= ' '. PHP_EOL;
+		$msg .= ' ' . PHP_EOL;
 		$msg .= T_("Expire date") . ': ' . \dash\fit::date($expirydate);
-		$msg .= ' '. PHP_EOL;
+		$msg .= ' ' . PHP_EOL;
 		$msg .= T_("Action") . ': ' . T_(ucfirst(strval($action)));
-		$msg .= ' '. PHP_EOL;
+		$msg .= ' ' . PHP_EOL;
 		$msg .= T_("Period") . ': ' . T_(ucfirst(strval($periodtype)));
-		$msg .= ' '. PHP_EOL;
+		$msg .= ' ' . PHP_EOL;
 		$msg .= T_("Set by") . ': ' . T_(ucfirst(strval($setby)));
-		$msg .= ' '. PHP_EOL;
+		$msg .= ' ' . PHP_EOL;
 		$msg .= T_("Plan day") . ': ' . \dash\fit::number($days);
-		$msg .= ' '. PHP_EOL;
+		$msg .= ' ' . PHP_EOL;
 		$msg .= T_("Price") . ': ' . \dash\fit::number($finalprice);
 
 		return $msg;
 	}
-
-
-
 
 
 	public static function expire()
@@ -77,6 +74,12 @@ class plan_newPlanActivate
 	public static function is_notif()
 	{
 		return true;
+	}
+
+
+	public static function active_bot()
+	{
+		return 'JibresPlanBot';
 	}
 
 
@@ -96,8 +99,6 @@ class plan_newPlanActivate
 	{
 		return false;
 	}
-
-
 
 
 	public static function telegram_text($_args, $_chat_id)
