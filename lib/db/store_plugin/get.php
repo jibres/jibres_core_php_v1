@@ -114,5 +114,25 @@ class get
 	}
 
 
+	public static function active_plugin()
+	{
+		$query = "SELECT * FROM store_plugin WHERE store_plugin.status = 'enable' and store_plugin.expiredate > :now and store_plugin.plugin != 'sms_pack' ";
+		$param = [':now' => date("Y-m-d H:i:s")];
+
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+	}
+
+
+	public static function active_plugin_sms()
+	{
+		$query = "SELECT * FROM store_plugin WHERE store_plugin.status = 'enable'  and store_plugin.plugin = 'sms_pack' ";
+		$param = [];
+
+		$result = \dash\pdo::get($query, $param);
+		return $result;
+	}
+
+
 }
 ?>
