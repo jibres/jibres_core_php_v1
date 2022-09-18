@@ -47,7 +47,7 @@ class sms extends featurePreapre
 	public function access() : bool
 	{
 		// check have charge or not
-		$charge = \lib\app\sms_charge\charge::getDetail();
+		$charge = \lib\app\sms_charge\charge::getDetail(true);
 
 		if(isset($charge['charge']) && $charge['charge'])
 		{
