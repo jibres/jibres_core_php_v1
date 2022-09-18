@@ -30,7 +30,15 @@ function HTMLValueDetectorPricing($value)
 
 function HTMLPlanLinkUrl($plan)
 {
-	$registerUrl = \dash\url::this() . '/set/%s?p=' . \dash\request::get('p');
+	if(!\dash\url::content())
+	{
+		$registerUrl = \dash\url::kingdom() . '/my?cb=1&plan=%s&p='. \dash\request::get('p');
+
+	}
+	else
+	{
+		$registerUrl = \dash\url::this() . '/set/%s?p=' . \dash\request::get('p');
+	}
 	return sprintf($registerUrl, $plan);
 }
 
@@ -71,15 +79,15 @@ function HTMLPlanLinkUrl($plan)
                             </p>
 						<?php endif; ?>
                         <p class="mt-4 text-sm text-gray-500"><?php echo $plan['description'] ?></p>
-                        <?php if(\dash\data::myPlanDetail_plan() === $plan['name']): ?>
+						<?php if(\dash\data::myPlanDetail_plan() === $plan['name']): ?>
                             <div
-                               class="mt-6 block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">
+                                    class="mt-6 block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900">
 								<?php echo T_("Current plan") ?></div>
-                        <?php else: ?>
+						<?php else: ?>
                             <a href="<?php echo HTMLPlanLinkUrl($plan['name']); ?>"
                                class="mt-6 block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"><?php echo T_("Choose plan"); ?>
 								<?php echo $plan['title'] ?></a>
-                        <?php endif; ?>
+						<?php endif; ?>
 
                     </div>
 
@@ -161,7 +169,7 @@ function HTMLPlanLinkUrl($plan)
 								<?php else: ?>
                                     <a href="<?php echo HTMLPlanLinkUrl($plan['name']); ?>"
                                        class="mt-6 block w-full rounded-md border border-gray-800 bg-gray-800 py-2 text-center text-sm font-semibold text-white hover:bg-gray-900"><?php echo T_("Choose plan"); ?>
-								</a>
+                                    </a>
 								<?php endif; ?>
 
 

@@ -14,6 +14,8 @@
             <nav class="c s0">
                 <a class="hide hidden"
                     href="<?php echo \dash\url::kingdom(); ?>/free"><?php echo T_("Why Free?"); ?></a>
+                <a class=""
+                   href="<?php echo \dash\url::kingdom(); ?>/pricing"><?php echo T_("Pricing"); ?></a>
                 <a href="<?php echo \dash\url::kingdom(); ?>/portfolio"><?php echo T_("Portfolio"); ?></a>
                 <a href="<?php echo \dash\url::kingdom(); ?>/domains"><?php echo T_("Domains"); ?></a>
                 <?php if (\dash\url::tld() === 'ir') { ?>
