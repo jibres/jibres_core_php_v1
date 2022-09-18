@@ -2,18 +2,7 @@
  require_once(root. 'content_crm/member/userDetail.php');
 $html = '';
 
-if(!\lib\app\plugin\business::is_activated('sms_pack'))
-{
-  $html .= '<a href="'. \dash\url::kingdom(). '/a/plugin/view/sms_pack">';
-  {
-    $html .= '<div class="alert-info text-sm font-bold">';
-    {
-      $html .= '<div>' .T_("You must get the sms pack plugin to active this notification"). '</div>';
-    }
-    $html .= '</div>';
-  }
-  $html .= '</a>';
-}
+
 
 
 $sample  = \lib\app\setting\notification::get_sample_user(\dash\request::get('id'));
