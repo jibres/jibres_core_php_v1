@@ -62,7 +62,6 @@ class planFactor
 		$loadPlan->setPeriod($data['period']);
 
 
-
 		$planTitle = $loadPlan->title();
 		$price     = $loadPlan->price();
 
@@ -108,9 +107,10 @@ class planFactor
 
 		$result['access'] =
 			[
-				'ok'     => $access,
-				'reason' => $reason,
-				'type'   => 'error',
+				'ok'              => $access,
+				'reason'          => $reason,
+				'type'            => 'error',
+				'errorCancelPlan' => true,
 			];
 
 		$result['user'] =

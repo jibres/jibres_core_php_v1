@@ -1,5 +1,6 @@
 <?php
 $planList = \dash\data::planList();
+$loadChooseplanLink = false;
 ?>
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-gray-100">
@@ -23,7 +24,7 @@ $planList = \dash\data::planList();
                         <?php if (\dash\data::myPlanDetail_planoutstandingFeatures()) : ?>
                             <div class="mt-8">
                                 <div class="flex items-center">
-                                    <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-indigo-600">
+                                    <h4 class="flex-shrink-0 bg-white px-4 text-base font-semibold text-indigo-600">
                                         <?php echo T_("What's included"); ?></h4>
                                     <div class="flex-1 border-t-2 border-gray-200"></div>
                                 </div>
@@ -48,7 +49,7 @@ $planList = \dash\data::planList();
                         <?php endif; ?>
                     </div>
                     <div class="bg-gray-50 py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
-                        <?php if (\dash\data::myPlanDetail_plan() === 'free') : ?>
+                        <?php if (\dash\data::myPlanDetail_plan() === 'free') : $loadChooseplanLink = true; ?>
                             <p class="text-lg font-medium leading-6 text-gray-900"><?php echo T_("Upgrade your plan to use from ultimate feature"); ?></p>
                             <div class="mt-6">
                                 <div class="rounded-md shadow">
@@ -86,6 +87,11 @@ $planList = \dash\data::planList();
                         <p class="mt-4 text-sm">
                             <a href="<?php echo \dash\url::this(). '/transactions' ?>" class="font-medium text-gray-500 underline"><?php echo T_("Transactions"); ?></a>
                         </p>
+                        <?php if(!$loadChooseplanLink): ?>
+                        <p class="mt-4 text-sm">
+                            <a href="<?php echo \dash\url::this(). '/choose' ?>" class="font-medium text-gray-500 underline"><?php echo T_("Choose plan"); ?></a>
+                        </p>
+                        <?php endif; ?>
                     </div>
 
                 </div>
