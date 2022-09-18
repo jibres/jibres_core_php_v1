@@ -188,17 +188,15 @@ class charge
 
 		$amount = $data['amount'];
 
-		$totalCharge = 20000000;
-		//
-		// $currentStoreCharge = self::getBalance($_business_id);
-		//
-		//
-		//
-		// if($currentStoreCharge + $amount >= $totalCharge)
-		// {
-		// 	\dash\notif::error(T_("Can not charge your sms panel more than :max :currency", ['max' => $totalCharge, 'currency' => \lib\currency::jibres_currency(true)]));
-		// 	return ['payLink' => null, 'needPay' => false, 'error' => true];
-		// }
+		$totalCharge = 10000000;
+
+		$currentStoreCharge = self::getBalance($_business_id);
+
+		if($currentStoreCharge + $amount >= $totalCharge)
+		{
+			\dash\notif::error(T_("Can not charge your sms panel more than :max :currency", ['max' => \dash\fit::number($totalCharge), 'currency' => \lib\currency::jibres_currency(true)]));
+			return ['payLink' => null, 'needPay' => false, 'error' => true];
+		}
 
 
 		if($data['use_budget'])

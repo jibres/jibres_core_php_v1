@@ -111,7 +111,7 @@ class tools
 		self::$lock_on_store = $load_store;
 
 
-		if(in_array(\dash\url::child(), ['ip', 'sms', 'sms_charge', 'multiplenotif', 'telegram']))
+		if(in_array(\dash\url::child(), ['ip', 'sms', 'multiplenotif', 'telegram']))
 		{
 			// needless to check user login
 			return true;

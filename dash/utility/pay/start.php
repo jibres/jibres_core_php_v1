@@ -206,6 +206,7 @@ class start
 
 		$filter_date = date("Y-m-d H:i:s", (time() - (60 * 60)));
 
+
 		if($user_is_login)
 		{
 			$count_awating_transaction_per_user =
