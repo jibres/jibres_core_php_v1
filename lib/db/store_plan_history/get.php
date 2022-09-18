@@ -140,7 +140,7 @@ class get
 			[
 				':store_id'         => $_business_id,
 				':status'           => 'deactive',
-				':guarantee_string' => 'refund+guarantee',
+				':guarantee_string' => 'refund_guarantee',
 			];
 
 		$result = \dash\pdo::get($query, $param, null, true);
