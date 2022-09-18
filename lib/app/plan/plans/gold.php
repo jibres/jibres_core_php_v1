@@ -5,25 +5,25 @@ namespace lib\app\plan\plans;
 use lib\app\plan\planPrepare;
 
 
-class gold extends planPrepare
+class basic extends planPrepare
 {
 
 	public function name() : string
 	{
-		return 'gold';
+		return 'basic';
 	}
 
 
 	public function title() : string
 	{
-		return T_("Gold");
+		return T_("Basic");
 	}
 
 
 	public function description() : string
 	{
-		return '';
-		// return T_("Description of gold");
+
+		return  T_("For who want try to change!"). ' '. '<br><span class="font-bold">'. T_("Enjoy modern era."). '</span>';
 	}
 
 

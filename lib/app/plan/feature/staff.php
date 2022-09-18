@@ -30,7 +30,7 @@ class staff extends featurePreapre
 
 	public function value() 
 	{
-		return \dash\fit::number($this->count) . ' ' . T_("Staff");
+		return \dash\fit::number($this->count) . ' ' . T_("Person");
 
 	}
 

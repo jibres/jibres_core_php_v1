@@ -15,14 +15,13 @@ class diamond extends planPrepare
 
 	public function title() : string
 	{
-		return T_("Diamond");
+		return T_("Advanced");
 	}
 
 
 	public function description() : string
 	{
-		return '';
-		// return T_("Diamond description");
+		return T_("For someones ready to use Jibres as hero."). ' '. T_("<span class='bold'>Everything you need</span> for a growing business.");
 	}
 
 

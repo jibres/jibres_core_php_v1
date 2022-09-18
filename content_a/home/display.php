@@ -79,7 +79,7 @@
 
             </div>
 		<?php else: ?>
-            <a href="<?php echo \dash\url::here() . '/plan'; ?>" class="circularChartBox" title="<?php echo T_(""); ?>">
+            <a href="<?php echo \dash\url::here() . '/plan'; ?>" class="circularChartBox" title="">
 				<?php $myPercent = intval(\dash\data::myPlanDetail_daysRemainPercent());
 				include core . '/layout/elements/circularChart.php'; ?>
                 <h3><?php echo \dash\data::myPlanDetail_planTitle(); ?></h3>
