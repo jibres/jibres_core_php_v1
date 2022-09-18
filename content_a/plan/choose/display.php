@@ -43,11 +43,11 @@ function HTMLPlanLinkUrl($plan)
         <div class="mb-4 mt-4  flex">
             <div class="mx-auto">
                 <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'monthly']) ?>"
-                   class="<?php if(\dash\request::get('p') == 'monthly') : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
+                   class="<?php if(\dash\request::get('p') == 'monthly' || !\dash\request::get('p')) : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
 					<?php echo T_("Monthly") ?>
                 </a>
                 <a href="<?php echo \dash\url::current() . \dash\request::full_get(['p' => 'yearly']) ?>"
-                   class="<?php if(\dash\request::get('p') == 'yearly' || !\dash\request::get('p')) : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
+                   class="<?php if(\dash\request::get('p') == 'yearly') : echo 'btn-success'; else: echo 'btn-ligth'; endif; ?> text-3xl">
 					<?php echo T_("Yearly"); ?> <small> ( <?php echo T_("2 month free!") ?> ) </small>
                 </a>
             </div>

@@ -20,4 +20,10 @@ class planGet
     }
 
 
+	public static function defultPeriod()
+	{
+		return 'monthly';
+	}
+
+
 }
