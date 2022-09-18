@@ -287,7 +287,7 @@ class sidebar
 
 				$form_child['addNewForm'] =
 					[
-						'title'    => T_("Add new form"),
+						'title'    => T_("Add new Form"),
 						'url'      => $kingdom. '/a/form/add',
 						'selected' => ($content === 'a' &&  $module === 'form' && $child === 'add'),
 					];
