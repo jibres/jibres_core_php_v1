@@ -31,6 +31,7 @@ class plan_cancelPlan
 		$guarantee = a($_args, 'data', 'myData', 'guarantee');
 
 		$msg .= '#CancelPlan ';
+		$msg .= ' ' . PHP_EOL;
 		if($store_id)
 		{
 			$store_detail = \lib\app\store\get::data_by_id($store_id);
@@ -92,7 +93,6 @@ class plan_cancelPlan
 	public static function telegram_text($_args, $_chat_id)
 	{
 		$tg_msg = '';
-		$tg_msg .= "#CancelPlan  ";
 
 		$tg_msg .= "🪵 \n";
 

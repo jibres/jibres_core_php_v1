@@ -37,6 +37,7 @@ class plan_newPlanActivate
 		$finalprice = a($_args, 'data', 'myData', 'finalprice');
 
 		$msg .= '#NewPlan ';
+		$msg .= ' ' . PHP_EOL;
 		if($store_id)
 		{
 			$store_detail = \lib\app\store\get::data_by_id($store_id);
@@ -104,7 +105,7 @@ class plan_newPlanActivate
 	public static function telegram_text($_args, $_chat_id)
 	{
 		$tg_msg = '';
-		$tg_msg .= "#newPlan  ";
+
 
 		$tg_msg .= "🌳 \n";
 

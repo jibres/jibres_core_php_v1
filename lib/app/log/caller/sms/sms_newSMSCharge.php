@@ -31,6 +31,7 @@ class sms_newSMSCharge
 		$balance  = a($_args, 'data', 'myData', 'balance');
 
 		$msg .= '#NewSMSCharge ';
+		$msg .= ' ' . PHP_EOL;
 		if($store_id)
 		{
 			$store_detail = \lib\app\store\get::data_by_id($store_id);
@@ -99,7 +100,6 @@ class sms_newSMSCharge
 	public static function telegram_text($_args, $_chat_id)
 	{
 		$tg_msg = '';
-		$tg_msg .= "#newSMSCharge  ";
 
 		$tg_msg .= "📨 \n";
 
