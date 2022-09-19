@@ -176,7 +176,7 @@ $html .= '<div class="justify-center flex"><div class="w-full lg:w-4/5 m-2">';
 	}
 
 
-	$html .= '<div class="justify-center flex w-48">';
+	$html .= '<div class="justify-center flex w-full mx-auto">';
 	{
 		$html .= '<img class="banner w300" src="'. \dash\url::cdn(). '/img/product/export1.png" alt="'. T_("import answers"). '">';
 	}
