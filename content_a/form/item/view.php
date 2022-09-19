@@ -8,8 +8,8 @@ class view
 	{
 		\dash\face::title(T_('Edit question'));
 
-			// back
-		\dash\data::back_text(T_('Back'));
+		\content_a\form\edit\view::form_preview_link();
+
 		\content_a\form\home\view::backModuleLink();
 
 		\dash\data::action_text(T_('Add new item'));
@@ -25,4 +25,3 @@ class view
 		\dash\data::allAllowFileExt(\dash\upload\extentions::get_all_allow_ext());
 	}
 }
-?>

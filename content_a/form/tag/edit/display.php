@@ -3,7 +3,7 @@
 		<?php require_once(root . 'content_a/form/itemLink.php'); ?>
     </div>
     <div class="c-xs-12 c-sm-12 c-lg-8">
-
+		<?php require_once(root . 'content_a/form/formTitle.php'); ?>
         <form method="post" autocomplete="off" id='form1'>
             <div class="avand-md">
 
@@ -12,7 +12,7 @@
                         <label for="itagname"><?php echo T_("Title"); ?></label>
                         <div class="input">
                             <input type="text" name="title" id="itagname" placeholder='<?php echo T_("Tag name"); ?>'
-                                   value="<?php echo \dash\data::dataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?>
+                                   value="<?php echo \dash\data::tagDataRow_title(); ?>" <?php \dash\layout\autofocus::html() ?>
                                    maxlength='50' minlength="1" required>
                         </div>
 
@@ -20,7 +20,7 @@
                             <label for="desc"><?php echo T_("Description") ?>
                                 <small><?php echo T_("This message will be displayed on the Inquiry page for answers that have this tag") ?></small></label>
                             <textarea name="desc" class="txt" rows="3" id="desc"
-                                      placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::dataRow_desc(); ?></textarea>
+                                      placeholder="<?php echo T_("Inquiry Message") ?>"><?php echo \dash\data::tagDataRow_desc(); ?></textarea>
                         </div>
 
                     </div>
@@ -32,7 +32,7 @@
 
                         <div class="check1">
                             <input type="checkbox" name="isdefault"
-                                   id="isdefault" <?php if(\dash\data::dataRow_isdefault())
+                                   id="isdefault" <?php if(\dash\data::tagDataRow_isdefault())
 							{
 								echo 'checked';
 							} ?>>
@@ -44,7 +44,7 @@
                             <div class="c-xs-6 c-sm-6">
                                 <div class="radio3">
                                     <input type="radio" name="privacy"
-                                           value="public" <?php if(\dash\data::dataRow_privacy() === 'public')
+                                           value="public" <?php if(\dash\data::tagDataRow_privacy() === 'public')
 									{
 										echo 'checked';
 									} ?> id="privacypublic">
@@ -54,7 +54,7 @@
                             <div class="c-xs-6 c-sm-6">
                                 <div class="radio3">
                                     <input type="radio" name="privacy"
-                                           value="private" <?php if(\dash\data::dataRow_privacy() === 'private')
+                                           value="private" <?php if(\dash\data::tagDataRow_privacy() === 'private')
 									{
 										echo 'checked';
 									} ?> id="privacyprivate">
@@ -68,7 +68,7 @@
                             <div class="c-xs-6 c-sm-3">
                                 <div class="radio3">
                                     <input type="radio" name="color"
-                                           value="red" <?php if(\dash\data::dataRow_color() === 'red')
+                                           value="red" <?php if(\dash\data::tagDataRow_color() === 'red')
 									{
 										echo 'checked';
 									} ?> id="colorred">
@@ -78,7 +78,7 @@
                             <div class="c-xs-6 c-sm-3">
                                 <div class="radio3">
                                     <input type="radio" name="color"
-                                           value="green" <?php if(\dash\data::dataRow_color() === 'green')
+                                           value="green" <?php if(\dash\data::tagDataRow_color() === 'green')
 									{
 										echo 'checked';
 									} ?> id="colorgreen">
@@ -89,7 +89,7 @@
                             <div class="c-xs-6 c-sm-3">
                                 <div class="radio3">
                                     <input type="radio" name="color"
-                                           value="blue" <?php if(\dash\data::dataRow_color() === 'blue')
+                                           value="blue" <?php if(\dash\data::tagDataRow_color() === 'blue')
 									{
 										echo 'checked';
 									} ?> id="colorblue">
@@ -100,7 +100,7 @@
                             <div class="c-xs-6 c-sm-3">
                                 <div class="radio3">
                                     <input type="radio" name="color"
-                                           value="black" <?php if(\dash\data::dataRow_color() === 'black')
+                                           value="black" <?php if(\dash\data::tagDataRow_color() === 'black')
 									{
 										echo 'checked';
 									} ?> id="colorblack">
@@ -113,13 +113,13 @@
 
                         <div class="check1">
                             <input type="checkbox" name="autocomment"
-                                   id="autocomment" <?php if(\dash\data::dataRow_autocomment())
+                                   id="autocomment" <?php if(\dash\data::tagDataRow_autocomment())
 							{
 								echo 'checked';
 							} ?>>
                             <label for="autocomment"><?php echo T_("Save auto note after add this tag to answer") ?></label>
                         </div>
-                        <div data-response='autocomment' <?php if(\dash\data::dataRow_autocomment())
+                        <div data-response='autocomment' <?php if(\dash\data::tagDataRow_autocomment())
 						{/*nothing*/
 						}
 						else
@@ -129,17 +129,17 @@
                             <div class="mb-2">
                                 <label for="comment"><?php echo T_("Note text") ?></label>
                                 <textarea name="comment" class="txt" rows="3"
-                                          id="comment"><?php echo \dash\data::dataRow_comment(); ?></textarea>
+                                          id="comment"><?php echo \dash\data::tagDataRow_comment(); ?></textarea>
                             </div>
                         </div>
                         <div class="check1">
-                            <input type="checkbox" name="sendsms" id="sendsms" <?php if(\dash\data::dataRow_sendsms())
+                            <input type="checkbox" name="sendsms" id="sendsms" <?php if(\dash\data::tagDataRow_sendsms())
 							{
 								echo 'checked';
 							} ?>>
                             <label for="sendsms"><?php echo T_("Send notification after add this tag to answer") ?></label>
                         </div>
-                        <div data-response='sendsms' <?php if(\dash\data::dataRow_sendsms())
+                        <div data-response='sendsms' <?php if(\dash\data::tagDataRow_sendsms())
 						{/*nothing*/
 						}
 						else
@@ -149,7 +149,7 @@
                             <div class="mb-2">
                                 <label for="smstext"><?php echo T_("Notification text") ?></label>
                                 <textarea name="smstext" class="txt" rows="3"
-                                          id="smstext"><?php echo \dash\data::dataRow_smstext(); ?></textarea>
+                                          id="smstext"><?php echo \dash\data::tagDataRow_smstext(); ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -158,14 +158,14 @@
 
                 <section class="box">
                     <div class="pad">
-						<?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) { ?>
+						<?php if(!\dash\data::tagDataRow_count() && !\dash\data::tagDataRow_have_child()) { ?>
                             <p><?php echo T_("You can delete this tag because we are not found any form in that."); ?></p>
 						<?php } else { ?>
                             <p><?php echo T_("You can delete this tag and merge all form in this tag by another tag."); ?></p>
 						<?php }//endif ?>
                     </div>
                     <footer>
-						<?php if(!\dash\data::dataRow_count() && !\dash\data::dataRow_have_child()) { ?>
+						<?php if(!\dash\data::tagDataRow_count() && !\dash\data::tagDataRow_have_child()) { ?>
                             <div class="txtRa"><span data-confirm data-data='{"delete" : "delete"}'
                                                      class="btn-link-danger"><?php echo T_("Remove tag"); ?></span>
                             </div>
@@ -181,10 +181,10 @@
                         <li>
                             <a class="f item"
                                href="<?php echo \dash\url::here() . '/form/answer?' . \dash\request::build_query([
-									   'id' => \dash\request::get('id'), 'tagid' => \dash\data::dataRow_id(),
+									   'id' => \dash\request::get('id'), 'tagid' => \dash\data::tagDataRow_id(),
 								   ]); ?>">
                                 <div class="key"><?php echo T_("Show answer by this tag"); ?></div>
-                                <div class="value"><?php echo \dash\fit::number(\dash\data::dataRow_count()) ?></div>
+                                <div class="value"><?php echo \dash\fit::number(\dash\data::tagDataRow_count()) ?></div>
                                 <div class="go"></div>
                             </a>
                         </li>

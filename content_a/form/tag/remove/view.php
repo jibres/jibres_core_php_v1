@@ -7,10 +7,7 @@ class view
 	{
 		\dash\face::title(T_('Remove tag'));
 
-		if(\dash\data::dataRow_title())
-		{
-			\dash\face::title(\dash\face::title(). ' | '. \dash\data::dataRow_title());
-		}
+		\content_a\form\edit\view::form_preview_link();
 
 		$id = \dash\request::get('tid');
 

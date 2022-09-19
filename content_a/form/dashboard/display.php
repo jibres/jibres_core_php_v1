@@ -7,6 +7,13 @@
 
         <?php require_once(root . 'content_a/form/formTitle.php'); ?>
 
+        <div class="box">
+            <div class="pad">
+                <?php echo T_("To make duplicate from this form"); ?>
+                <a class="btn-link" href="<?php echo \dash\url::this(). '/duplicate?id='. \dash\request::get('id') ?>"><?php echo T_("click here"); ?></a>
+            </div>
+        </div>
+
         <form method="post" action="<?php echo \dash\url::this() ?>">
             <div class="box">
                 <div class="pad">

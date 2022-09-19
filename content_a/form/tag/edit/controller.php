@@ -6,9 +6,11 @@ class controller
 	public static function routing()
 	{
 		\content_a\form\tag\controller::check_form_id();
+		\content_a\form\tag\controller::loadForm();
+
 
 		$dataRow = \lib\app\form\tag\get::get(\dash\request::get('tid'));
-		\dash\data::dataRow($dataRow);
+		\dash\data::tagDataRow($dataRow);
 
 		if(!$dataRow)
 		{

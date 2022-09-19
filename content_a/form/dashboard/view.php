@@ -15,7 +15,6 @@ class view
 
 		$form_id = \dash\request::get('id');
 
-		\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $form_id);
 
 
 

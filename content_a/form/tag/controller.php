@@ -7,14 +7,7 @@ class controller
 	{
 		\content_a\form\tag\controller::check_form_id();
 
-		$id = \dash\request::get('id');
-
-		$load = \lib\app\form\form\get::get($id);
-		if(!$load)
-		{
-			\dash\header::status(404);
-		}
-		\dash\data::dataRow($load);
+		self::loadForm();
 
 	}
 
@@ -26,5 +19,22 @@ class controller
 			\dash\redirect::to(\dash\url::this());
 		}
 	}
+
+
+	public static function loadForm()
+	{
+		$id = \dash\request::get('id');
+
+		$load = \lib\app\form\form\get::get($id);
+
+		if(!$load)
+		{
+			\dash\header::status(404);
+		}
+
+		\dash\data::dataRow($load);
+
+		return $load;
+	}
+
 }
-?>

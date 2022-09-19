@@ -8,11 +8,11 @@ class view
 	{
 		\dash\face::title(T_('Add new item'));
 
-		// back
-		\dash\data::back_text(T_('Back'));
 		\content_a\form\home\view::backModuleLink();
 
 		$form_id = \dash\request::get('id');
+
+		\content_a\form\edit\view::form_preview_link();
 
 		// \dash\face::btnInsert('form1');
 

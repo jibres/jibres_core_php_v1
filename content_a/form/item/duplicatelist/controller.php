@@ -8,15 +8,7 @@ class controller
 	{
 		\dash\allow::file();
 
-		$id = \dash\request::get('id');
-
-		$load = \lib\app\form\form\get::get($id);
-		if(!$load)
-		{
-			\dash\header::status(404);
-		}
-
-		\dash\data::dataRow($load);
+		\content_a\form\tag\controller::loadForm();
 
 		$item = \dash\request::get('item');
 
