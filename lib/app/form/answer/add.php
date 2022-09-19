@@ -894,9 +894,14 @@ class add
 
 			if($total_price && !$data['factor_id'])
 			{
+				$pwdClean = \dash\url::current();
+				$allGet = \dash\request::get();
+				unset($allGet['jftoken']);
+				$pwdClean .= '?'. \dash\request::build_query($allGet);
+
 				$meta =
 					[
-						'turn_back'     => $redirect ? $redirect : \dash\url::pwd(),
+						'turn_back'     => $redirect ? $redirect : $pwdClean,
 						'user_id'       => $user_id,
 						'amount'        => $total_price,
 						'auto_back'     => false,

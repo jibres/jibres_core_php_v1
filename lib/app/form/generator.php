@@ -1910,6 +1910,7 @@ class generator
 				{
 					$type  = 'error';
 					$title = T_("Payment unsuccessfull");
+					$desc  = null;
 				}
 
 				$html .= '<div data-notif="' . $desc . '" data-notif-title="' . $title . '" data-notif-type="' . $type . '" data-notif-icon="person" data-notif-autorun data-alerty></div>';
