@@ -11,8 +11,10 @@ class dashboard
 
 		$result[] = self::answerItem($_form_id);
 		$result[] = self::answerCount($_form_id);
+		$result[] = self::totalPayed($_form_id);
 		$result[] = self::makeDuplicate($_form_id);
 
+		$result = array_filter($result);
 
 		return $result;
 	}
@@ -57,6 +59,28 @@ class dashboard
 				'link'      => true,
 				'url'       => \dash\url::kingdom() . '/a/form/duplicate?id=' . $_form_id,
 				'linkTitle' => T_("Duplicate"),
+			];
+		return $result;
+	}
+
+
+	private static function totalPayed($_form_id)
+	{
+		$haveTransactionId = \lib\db\form_answer\get::haveTransactionId($_form_id);
+		if(!$haveTransactionId)
+		{
+			return null;
+		}
+
+		$totalPayed = \lib\db\form_answer\get::totalPayed($_form_id);
+
+		$result      =
+			[
+				'title'     => T_("Total payed by this form"),
+				'value'     => \dash\fit::number($totalPayed) . ' <small class="text-gray-400">' .\lib\store::currency() . '</small>',
+				'link'      => true,
+				'url'       => \dash\url::kingdom() . '/crm/transactions?form_id=' . $_form_id,
+				'linkTitle' => T_("Show transaction list"),
 			];
 		return $result;
 	}

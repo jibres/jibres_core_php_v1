@@ -8,7 +8,7 @@ class get
 	public static function form_id_from_answer_id($_answer_id)
 	{
 		$query =
-		"
+			"
 			SELECT
 				form_answer.form_id AS `form_id`
 			FROM
@@ -17,18 +17,19 @@ class get
 				form_answer.id = :id
 		";
 		$param =
-		[
-			':id' => $_answer_id,
-		];
+			[
+				':id' => $_answer_id,
+			];
 
 		$result = \dash\pdo::get($query, $param, 'form_id', true);
 		return $result;
 	}
 
+
 	public static function is_answered_factor_id($_factor_id)
 	{
 		$query =
-		"
+			"
 			SELECT
 				form_answer.*,
 				form.title
@@ -39,9 +40,9 @@ class get
 				form_answer.factor_id = :factor_id
 		";
 		$param =
-		[
-			':factor_id' => $_factor_id,
-		];
+			[
+				':factor_id' => $_factor_id,
+			];
 
 		$result = \dash\pdo::get($query, $param);
 		return $result;
@@ -51,21 +52,24 @@ class get
 
 	public static function is_answered_form_factor_id($_form_id, $_factor_id)
 	{
-		$query = "SELECT * FROM form_answer WHERE form_answer.form_id = :form_id AND form_answer.factor_id = :factor_id LIMIT 1";
+		$query =
+			"SELECT * FROM form_answer WHERE form_answer.form_id = :form_id AND form_answer.factor_id = :factor_id LIMIT 1";
 		$param =
-		[
-			':form_id'   => $_form_id,
+			[
+				':form_id' => $_form_id,
 
-			':factor_id' => $_factor_id,
-		];
+				':factor_id' => $_factor_id,
+			];
 
 		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 
+
 	public static function need_review_form()
 	{
-		$query = "SELECT COUNT(*) AS `count`, form_answer.form_id FROM form_answer WHERE form_answer.review IS NULL GROUP BY form_answer.form_id";
+		$query  =
+			"SELECT COUNT(*) AS `count`, form_answer.form_id FROM form_answer WHERE form_answer.review IS NULL GROUP BY form_answer.form_id";
 		$result = \dash\pdo::get($query);
 		return $result;
 
@@ -74,7 +78,8 @@ class get
 
 	public static function need_review_form_id($_form_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id AND form_answer.review IS NULL ";
+		$query  =
+			"SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id AND form_answer.review IS NULL ";
 		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
@@ -82,9 +87,9 @@ class get
 
 	public static function user_answer($_answer_id)
 	{
-		$result                  = [];
-		$query                   = "SELECT * FROM form_answer WHERE form_answer.id = $_answer_id LIMIT 1";
-		$result['answer']        = \dash\pdo::get($query, [], null, true);
+		$result           = [];
+		$query            = "SELECT * FROM form_answer WHERE form_answer.id = $_answer_id LIMIT 1";
+		$result['answer'] = \dash\pdo::get($query, [], null, true);
 
 		$query                   = "SELECT * FROM form_answerdetail WHERE form_answerdetail.answer_id = $_answer_id ";
 		$result['answer_detail'] = \dash\pdo::get($query);
@@ -95,14 +100,15 @@ class get
 
 	public static function by_id($_id)
 	{
-		$query = "SELECT * FROM form_answer WHERE form_answer.id = $_id LIMIT 1";
+		$query  = "SELECT * FROM form_answer WHERE form_answer.id = $_id LIMIT 1";
 		$result = \dash\pdo::get($query, [], null, true);
 		return $result;
 	}
 
+
 	public static function count_all($_form_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id";
+		$query  = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id";
 		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
@@ -142,7 +148,7 @@ class get
 		$param[':id'] = $_form_id;
 
 		$query =
-		"
+			"
 			SELECT COUNT(*) AS `count`
 
 			FROM
@@ -161,10 +167,10 @@ class get
 	}
 
 
-
 	public static function by_form_id($_form_id)
 	{
-		$query = "SELECT * FROM form_answer WHERE form_answer.form_id = $_form_id ORDER BY IFNULL(form_answer.sort, form_answer.id) ASC ";
+		$query  =
+			"SELECT * FROM form_answer WHERE form_answer.form_id = $_form_id ORDER BY IFNULL(form_answer.sort, form_answer.id) ASC ";
 		$result = \dash\pdo::get($query);
 		return $result;
 	}
@@ -172,19 +178,19 @@ class get
 
 	public static function item_id_form_id($_ids, $_form_id)
 	{
-		$query = "SELECT * FROM form_answer WHERE form_answer.form_id = $_form_id AND form_answer.id IN ($_ids) ";
+		$query  = "SELECT * FROM form_answer WHERE form_answer.form_id = $_form_id AND form_answer.id IN ($_ids) ";
 		$result = \dash\pdo::get($query);
 		return $result;
 
 	}
 
+
 	public static function count_by_form_id($_form_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id ";
+		$query  = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id ";
 		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
-
 
 
 	public static function export_list($_form_id, $_start_limit = 0, $_end_limit = 50, $_args = [])
@@ -202,13 +208,13 @@ class get
 		{
 			if(isset($_args['startdate']) && $_args['startdate'])
 			{
-				$where[] = " form_answer.datecreated >= :startdate ";
+				$where[]             = " form_answer.datecreated >= :startdate ";
 				$param[':startdate'] = $_args['startdate'];
 			}
 
 			if(isset($_args['enddate']) && $_args['enddate'])
 			{
-				$where[] = " form_answer.datecreated <= :enddate ";
+				$where[]           = " form_answer.datecreated <= :enddate ";
 				$param[':enddate'] = $_args['enddate'];
 			}
 
@@ -224,7 +230,7 @@ class get
 
 		if($where)
 		{
-			$where = ' AND '. implode(' AND ', $where);
+			$where = ' AND ' . implode(' AND ', $where);
 		}
 		else
 		{
@@ -232,7 +238,7 @@ class get
 		}
 
 		$query =
-		"
+			"
 			SELECT
 				form_answer.*
 			FROM
@@ -255,8 +261,8 @@ class get
 			if($answer_id)
 			{
 				$answer_id = implode(',', $answer_id);
-				$query =
-				"
+				$query     =
+					"
 					SELECT
 						*
 					FROM
@@ -272,7 +278,7 @@ class get
 
 
 		$query =
-		"
+			"
 			SELECT
 				form_item.*
 			FROM
@@ -286,7 +292,7 @@ class get
 
 
 		$query =
-		"
+			"
 			SELECT
 				form_choice.*
 			FROM
@@ -301,11 +307,12 @@ class get
 
 	}
 
+
 	public static function by_answer_id_form_id_item_id($_form_id, $_answer_id, array $_singuped_mobile_item)
 	{
 		$item_ids = implode(',', $_singuped_mobile_item);
-		$query =
-		"
+		$query    =
+			"
 			SELECT
 				*
 			FROM
@@ -315,11 +322,11 @@ class get
 				form_answerdetail.answer_id = :answer_id AND
 				form_answerdetail.item_id IN ($item_ids) 
 		";
-		$param =
-		[
-			':form_id' => $_form_id,
-			':answer_id' => $_answer_id,
-		];
+		$param    =
+			[
+				':form_id'   => $_form_id,
+				':answer_id' => $_answer_id,
+			];
 
 		return \dash\pdo::get($query, $param);
 	}
@@ -333,7 +340,7 @@ class get
 		}
 
 		$item_ids = implode(',', $_allowShowItem);
-		$query =
+		$query    =
 			"
 			SELECT
 				form_answerdetail.answer,
@@ -348,9 +355,9 @@ class get
 				form_answerdetail.answer_id = :answer_id AND
 				form_answerdetail.item_id IN ($item_ids) 
 		";
-		$param =
+		$param    =
 			[
-				':form_id' => $_form_id,
+				':form_id'   => $_form_id,
 				':answer_id' => $_answer_id,
 			];
 
@@ -360,11 +367,50 @@ class get
 
 	public static function countActive($_form_id)
 	{
-		$query = "SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = :form_id AND form_answer.status != 'deleted' ";
+		$query  =
+			"SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = :form_id AND form_answer.status != 'deleted' ";
 		$result = \dash\pdo::get($query, [':form_id' => $_form_id], 'count', true);
 		return $result;
 	}
 
 
+	public static function haveTransactionId($_form_id)
+	{
+		$query  =
+			"
+				SELECT 
+				    * 
+				FROM 
+				    form_answer
+				
+				WHERE 
+				    form_answer.form_id = :form_id AND
+					form_answer.transaction_id IS NOT NULL
+				LIMIT 1
+			";
+		$result = \dash\pdo::get($query, [':form_id' => $_form_id], null, true);
+		return $result;
+	}
+
+
+	public static function totalPayed($_form_id)
+	{
+		$query  =
+			"
+				SELECT 
+				    SUM(transactions.plus) AS `totalPayed` 
+				FROM 
+				    transactions
+				INNER JOIN form_answer ON form_answer.transaction_id = transactions.id
+				WHERE 
+				    transactions.verify = 1 AND 
+				    form_answer.form_id = :form_id
+			";
+		$result = \dash\pdo::get($query, [':form_id' => $_form_id], 'totalPayed', true);
+		return $result;
+	}
+
+
 }
+
 ?>
