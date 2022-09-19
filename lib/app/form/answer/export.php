@@ -8,7 +8,7 @@ class export
 	{
 		\dash\permission::access('ManageForm');
 
-		$form_id = \dash\validate::id($_form_id);
+		$form_id                 = \dash\validate::id($_form_id);
 		$count_product_available = \lib\db\form_answer\get::count_all_where($form_id, $_args);
 		return intval($count_product_available);
 	}
@@ -29,11 +29,13 @@ class export
 		{
 			$list = \lib\db\form_answer\get::export_list($form_id);
 			$list = self::ready_for_export($list);
-			\dash\utility\export::csv(['name' => 'export-form-'. $form_id. '-'.date("Y-m-d").'-'. date("His"). '-'. $count_all, 'data' => $list]);
+			\dash\utility\export::csv([
+				'name' => 'export-form-' . $form_id . '-' . date("Y-m-d") . '-' . date("His") . '-' . $count_all,
+				'data' => $list,
+			]);
 			return;
 		}
 	}
-
 
 
 	public static function queue($_form_id, $_args = [])
@@ -44,13 +46,13 @@ class export
 
 
 		$condition =
-		[
-			'startdate' => 'date',
-			'enddate'   => 'date',
-			'starttime' => 'time',
-			'endtime'   => 'time',
-			'tag_id'    => 'id',
-		];
+			[
+				'startdate' => 'date',
+				'enddate'   => 'date',
+				'starttime' => 'time',
+				'endtime'   => 'time',
+				'tag_id'    => 'id',
+			];
 
 		$require = [];
 		$meta    = [];
@@ -64,7 +66,7 @@ class export
 
 			if($data['starttime'])
 			{
-				$startdate .= ' '. $data['starttime'];
+				$startdate .= ' ' . $data['starttime'];
 			}
 			else
 			{
@@ -79,7 +81,7 @@ class export
 
 			if($data['endtime'])
 			{
-				$enddate .= ' '. $data['endtime'];
+				$enddate .= ' ' . $data['endtime'];
 			}
 			else
 			{
@@ -91,17 +93,21 @@ class export
 		{
 			if(strtotime($startdate) > strtotime($enddate))
 			{
-				\dash\notif::error(T_("Start date must be less than end date!"), ['element' => ['startdate', 'enddate', 'starttime', 'endtime']]);
+				\dash\notif::error(T_("Start date must be less than end date!"), [
+					'element' => [
+						'startdate', 'enddate', 'starttime', 'endtime',
+					],
+				]);
 				return false;
 			}
 		}
 
 		$new_args =
-		[
-			'startdate' => $startdate,
-			'enddate'   => $enddate,
-			'tag_id'    => $data['tag_id'],
-		];
+			[
+				'startdate' => $startdate,
+				'enddate'   => $enddate,
+				'tag_id'    => $data['tag_id'],
+			];
 
 
 		$count_all = self::count_all($form_id, $new_args);
@@ -111,10 +117,11 @@ class export
 			return false;
 		}
 
-		return \lib\app\export\add::request('form_answer', ['related' => 'form', 'related_id' => $_form_id, 'args' => $new_args]);
+		return \lib\app\export\add::request('form_answer', [
+			'related' => 'form', 'related_id' => $_form_id, 'args' => $new_args,
+		]);
 
 	}
-
 
 
 	public static function remove($_id)
@@ -140,7 +147,7 @@ class export
 	 * Ready data to export
 	 * this function needless to call permission caller
 	 *
-	 * @param      <type>         $_result  The result
+	 * @param <type> $_result The result
 	 *
 	 * @return     array|boolean  ( description_of_the_return_value )
 	 */
@@ -157,7 +164,6 @@ class export
 		unset($this_item_detail);
 		unset($my_answer_id);
 		unset($new_export);
-
 
 
 		$answer       = a($_result, 'answer');
@@ -185,7 +191,7 @@ class export
 		}
 
 		$all_choice_raw = a($_result, 'choice');
-		$allChoice     = [];
+		$allChoice      = [];
 
 		if(!is_array($all_choice_raw))
 		{
@@ -216,7 +222,7 @@ class export
 
 		$template = [];
 
-        $answer_status = a($answer, 'status');
+		$answer_status = a($answer, 'status');
 
 		foreach ($items as $item_id => $item_detail)
 		{
@@ -293,7 +299,7 @@ class export
 
 			if($this_item_detail['type'] === 'multiple_choice')
 			{
-				if(array_key_exists($one_answer['choice_id'] , $export[$my_answer_id][$this_item_id]))
+				if(array_key_exists($one_answer['choice_id'], $export[$my_answer_id][$this_item_id]))
 				{
 					$export[$my_answer_id][$this_item_id][$one_answer['choice_id']] = $one_answer['answer'];
 				}
@@ -318,7 +324,8 @@ class export
 			{
 				if($one_answer['answer'])
 				{
-					$export[$my_answer_id][$this_item_id] = $one_answer['answer']. ' - '. \dash\utility\location\countres::get_localname($one_answer['answer']);
+					$export[$my_answer_id][$this_item_id] =
+						$one_answer['answer'] . ' - ' . \dash\utility\location\countres::get_localname($one_answer['answer']);
 				}
 				else
 				{
@@ -329,7 +336,8 @@ class export
 			{
 				if($one_answer['answer'])
 				{
-					$export[$my_answer_id][$this_item_id] = $one_answer['answer']. ' - '. \dash\utility\location\provinces::get_localname($one_answer['answer']);
+					$export[$my_answer_id][$this_item_id] =
+						$one_answer['answer'] . ' - ' . \dash\utility\location\provinces::get_localname($one_answer['answer']);
 				}
 				else
 				{
@@ -340,17 +348,19 @@ class export
 			{
 				if($one_answer['answer'])
 				{
-					$province           = substr($one_answer['answer'], 0, 5);
-					$city               = substr($one_answer['answer'], 6);
+					$province = substr($one_answer['answer'], 0, 5);
+					$city     = substr($one_answer['answer'], 6);
 
 					if($province)
 					{
-						$export[$my_answer_id][$this_item_id] = $one_answer['answer']. ' - '. \dash\utility\location\provinces::get_localname($province);
+						$export[$my_answer_id][$this_item_id] =
+							$one_answer['answer'] . ' - ' . \dash\utility\location\provinces::get_localname($province);
 					}
 
 					if($city)
 					{
-						$export[$my_answer_id][$this_item_id] = $one_answer['answer']. ' - '. \dash\utility\location\cites::get_localname($city);
+						$export[$my_answer_id][$this_item_id] =
+							$one_answer['answer'] . ' - ' . \dash\utility\location\cites::get_localname($city);
 					}
 				}
 				else
@@ -364,7 +374,8 @@ class export
 				$export[$my_answer_id][$this_item_id] = $one_answer['answer'];
 			}
 
-            $export[$my_answer_id]['date'] = \dash\utility\convert::to_en_number(\dash\fit::date_time($one_answer['datecreated']));
+			$export[$my_answer_id]['date'] =
+				\dash\utility\convert::to_en_number(\dash\fit::date_time($one_answer['datecreated']));
 		}
 
 		$new_export = [];
@@ -385,7 +396,7 @@ class export
 							$choice_answer = implode(',', $choice_answer);
 						}
 
-						$new_export[$answer_id][$items[$item_id]['id']. '_'. $choice] = $choice_answer;
+						$new_export[$answer_id][$items[$item_id]['id'] . '_' . $choice] = $choice_answer;
 					}
 				}
 				elseif(is_numeric($item_id))
@@ -445,22 +456,24 @@ class export
 					}
 				}
 
-				$new_key = $key. '_'. $item_title;
+				$new_key = $key . '_' . $item_title;
 
 				if($choice_title)
 				{
-					$new_key .= '_'. $choice_title;
+					$new_key .= '_' . $choice_title;
 				}
 
 				$temp[$new_key] = $value;
 			}
 
-			$load_tags           = \lib\db\form_tag\get::string_all_tag($answer_id);
-			$load_comments       = \lib\db\form_comment\get::string_all_comment($answer_id);
-            $temp['answer_status'] = $answer_status;
-			$temp['tags']        = $load_tags;
-			$temp['comments']    = $load_comments;
-			$temp['inquirytime'] = null;
+			$load_tags             = \lib\db\form_tag\get::string_all_tag($answer_id);
+			$load_comments         = \lib\db\form_comment\get::string_all_comment($answer_id);
+			$temp['answer_status'] = $answer_status;
+			$temp['amount']        = null;
+			$temp['payed']         = null;
+			$temp['tags']          = $load_tags;
+			$temp['comments']      = $load_comments;
+			$temp['inquirytime']   = null;
 
 
 			$replace_item_id_to_item_title[$answer_id] = $temp;
@@ -474,10 +487,13 @@ class export
 				$times = json_decode($value['inquirytimes'], true);
 				if(isset($times['last']['time']) && isset($value['id']) && isset($replace_item_id_to_item_title[$value['id']]))
 				{
-					$replace_item_id_to_item_title[$value['id']]['inquirytime'] = \dash\utility\convert::to_en_number(\dash\fit::date_time($times['last']['time']));
+					$replace_item_id_to_item_title[$value['id']]['inquirytime'] =
+						\dash\utility\convert::to_en_number(\dash\fit::date_time($times['last']['time']));
 				}
 			}
-            $replace_item_id_to_item_title[$value['id']]['answer_status'] = a($value, 'status');
+			$replace_item_id_to_item_title[$value['id']]['answer_status'] = a($value, 'status');
+			$replace_item_id_to_item_title[$value['id']]['payed']         = a($value, 'payed');
+			$replace_item_id_to_item_title[$value['id']]['amount']        = a($value, 'amount');
 
 		}
 
@@ -486,8 +502,8 @@ class export
 	}
 
 
-
 	public static $sql_column_list = [];
+
 
 	public static function ready_for_export_sql($_result, $_table_name)
 	{
@@ -509,10 +525,10 @@ class export
 					switch ($k)
 					{
 						case 'answer_id':
-							$myKey = 'f_'. $k;
+							$myKey = 'f_' . $k;
 							break;
 						default:
-							$myKey = 'f_'. substr($k, 0, strpos($k, '_'));
+							$myKey = 'f_' . substr($k, 0, strpos($k, '_'));
 							break;
 					}
 
@@ -521,7 +537,7 @@ class export
 						continue;
 					}
 
-					$new_result[$key][$myKey] = $v;
+					$new_result[$key][$myKey]      = $v;
 					self::$sql_column_list[$myKey] = $k;
 				}
 			}
@@ -530,7 +546,7 @@ class export
 		$sql = [];
 		foreach ($new_result as $key => $value)
 		{
-			$sql[] = "INSERT IGNORE INTO `$_table_name` SET ". self::make_set($value, ['type' => 'insert']);
+			$sql[] = "INSERT IGNORE INTO `$_table_name` SET " . self::make_set($value, ['type' => 'insert']);
 		}
 
 		return $sql;
@@ -540,14 +556,14 @@ class export
 	/**
 	 * Makes a set.
 	 *
-	 * @param      <type>  $_args  The arguments
+	 * @param <type> $_args The arguments
 	 */
 	public static function make_set($_args, $_options = [])
 	{
 		$default_options =
-		[
-			'type' => 'update',
-		];
+			[
+				'type' => 'update',
+			];
 
 		if(!is_array($_options))
 		{
@@ -575,7 +591,7 @@ class export
 					$set[] = " `$key` = NULL ";
 				}
 			}
-			elseif(is_string($value) && (!isset($value) || $value == '' ))
+			elseif(is_string($value) && (!isset($value) || $value == ''))
 			{
 				if($_options['type'] === 'insert')
 				{
@@ -635,4 +651,5 @@ class export
 
 
 }
+
 ?>
