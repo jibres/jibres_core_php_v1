@@ -4,13 +4,7 @@
     </div>
     <div class="c-xs-12 c-sm-12 c-lg-8">
 
-        <div class="box">
-            <div class="body">
-                <span><?php echo T_("Form Title"); ?></span>
-                <span class="font-bold"> <?php echo \dash\data::dataRow_title(); ?></span>
-            </div>
-        </div>
-
+		<?php require_once(root . 'content_a/form/formTitle.php'); ?>
 		<?php
 		$dataTable = \dash\data::formItems();
 

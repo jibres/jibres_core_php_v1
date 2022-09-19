@@ -15,6 +15,7 @@ class controller
 		}
 
 		\dash\data::formDetail($load);
+		\dash\data::dataRow($load);
 
 
 	}

@@ -3,6 +3,7 @@
 		<?php require_once(root. 'content_a/form/itemLink.php');?>
 	</div>
 	<div class="c-xs-12 c-sm-12 c-lg-8">
+		<?php require_once(root . 'content_a/form/formTitle.php'); ?>
 		<form method="post" autocomplete="off" id="form1">
 			<div class="box">
 				<div class="pad">
