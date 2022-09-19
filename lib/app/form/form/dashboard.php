@@ -77,7 +77,7 @@ class dashboard
 			[
 				'title'     => T_("Total payed by this form"),
 				'value'     => \dash\fit::number(a($totalPayedVerify, 'totalPayed')) . ' <small class="text-gray-400">' . \lib\store::currency() . '</small>',
-				'value2'     => T_("In"). ' '.  \dash\fit::number(a($totalPayedVerify, 'count')) . ' <small class="text-gray-400">' . T_("Transaction") . '</small>',
+				'value2'    => '<small class="text-gray-400">' . T_("In") . ' </small> ' . \dash\fit::number(a($totalPayedVerify, 'count')) . ' <small class="text-gray-400">' . T_("Transaction") . '</small>',
 				'link'      => true,
 				'url'       => \dash\url::kingdom() . '/crm/transactions?verify=y&form_id=' . $_form_id,
 				'linkTitle' => T_("Show transaction list"),
@@ -88,7 +88,7 @@ class dashboard
 			[
 				'title'     => T_("Total unverify payed by this form"),
 				'value'     => \dash\fit::number(a($totalPayedUnverify, 'totalPayed')) . ' <small class="text-gray-400">' . \lib\store::currency() . '</small>',
-				'value2'     => T_("In"). ' '.  \dash\fit::number(a($totalPayedUnverify, 'count')) . ' <small class="text-gray-400">' . T_("Transaction") . '</small>',
+				'value2'    => '<small class="text-gray-400">' . T_("In") . ' </small> ' . \dash\fit::number(a($totalPayedUnverify, 'count')) . ' <small class="text-gray-400">' . T_("Transaction") . '</small>',
 				'link'      => true,
 				'url'       => \dash\url::kingdom() . '/crm/transactions?verify=n&form_id=' . $_form_id,
 				'linkTitle' => T_("Show transaction list"),
