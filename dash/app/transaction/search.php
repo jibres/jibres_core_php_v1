@@ -29,6 +29,7 @@ class search
 				'user_history'  => 'bit',
 				'need_calc_sum' => 'bit',
 				'verify'        => 'y_n',
+				'by_form'       => 'y_n',
 				'charge_type'   => 'y_n',
 			];
 
@@ -101,6 +102,19 @@ class search
 		elseif($data['charge_type'] === 'n')
 		{
 			$and[]             = " transactions.minus > 0 ";
+			self::$is_filtered = true;
+		}
+
+
+		if($data['by_form'] === 'y')
+		{
+			$and[]             = " transactions.id IN (SELECT form_answer.transaction_id FROM form_answer) ";
+			self::$is_filtered = true;
+		}
+		elseif($data['by_form'] === 'n')
+		{
+			$and[]             = " transactions.id NOT IN (SELECT form_answer.transaction_id FROM form_answer) ";
+
 			self::$is_filtered = true;
 		}
 
