@@ -13,13 +13,14 @@
                             <input type="text" name="title" required <?php \dash\layout\autofocus::html(); ?>
                                    value="<?php echo \dash\data::choiceDataRow_title() ?>">
                         </div>
-						<?php if(a(\dash\data::itemDetail(), 'type') === 'list_amount') { ?>
+						<?php  if(a(\dash\data::itemDetail(), 'type_detail', 'is_amount')) { ?>
                             <label for="iprice"><?php echo T_("Price") ?></label>
                             <div class="input">
 
-                                <input type="tel" name="price" required
+                                <input type="tel" name="price" required id="price"
                                        value="<?php echo round(floatval(\dash\data::choiceDataRow_price())) ?>"
                                        data-format="price" maxlength="15">
+                                <label class="addon" for="price"><?php echo \lib\store::currency() ?></label>
                             </div>
 						<?php } // endif ?>
 

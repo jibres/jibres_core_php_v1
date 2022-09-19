@@ -69,9 +69,14 @@
 
                     </div>
                     <footer class="f">
+
                         <div class="cauto">
                             <div class="btn-link-danger" data-confirm
                                  data-data='{"removeitem": "removeitem"}'><?php echo T_("Remove question") ?></div>
+                        </div>
+                        <div class="c"></div>
+                        <div class="cauto">
+                            <button class="btn-success" type="submit"><?php echo T_("Save"); ?></button>
                         </div>
 
 

@@ -20,7 +20,10 @@ class view
 		$choice = \lib\app\form\choice\get::choice_item(\dash\request::get('item'));
 		\dash\data::choiceList($choice);
 
-		\dash\face::btnSave('form1');
+		if(\dash\request::is_pwa())
+		{
+			\dash\face::btnSave('form1');
+		}
 
 		\dash\data::allAllowFileExt(\dash\upload\extentions::get_all_allow_ext());
 	}
