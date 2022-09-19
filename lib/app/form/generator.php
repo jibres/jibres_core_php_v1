@@ -633,6 +633,16 @@ class generator
 
 					break;
 
+				case 'amount_suggestion':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_amount_suggestion($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
+
 				case 'hidden_amount':
 					self::div_item($have_condition, 'c-xs-12 c-6');
 					{
@@ -1117,7 +1127,7 @@ class generator
 	}
 
 
-	private static function html_input_manual_amount($value)
+	private static function html_input_manual_amount($value, $_lable = true)
 	{
 		// self::div('c-xs-12 c-6');
 		{
@@ -1127,7 +1137,10 @@ class generator
 			$addons .= \lib\store::currency();
 			$addons .= '</label>';
 
-			self::label($value);
+			if($_lable)
+			{
+				self::label($value);
+			}
 			self::input('tel', $value, ' data-format="price" data-response-realtime ', $addons);
 
 			// if(\dash\language::current() === 'fa')
@@ -1278,6 +1291,47 @@ class generator
 					}
 				}
 				self::$html .= '</select>';
+			}
+			self::HtmlDesc($value);
+			self::_div();
+		}
+		// self::_div();
+	}
+
+
+	private static function html_input_amount_suggestion($value)
+	{
+		// self::div('c-xs-12 c-6');
+		{
+			self::label_raw($value);
+
+			self::div('mB10');
+			{
+				self::$html .= '<div class="row mb-2">';
+				{
+					if(isset($value['choice']) && is_array($value['choice']))
+					{
+						foreach ($value['choice'] as $k => $v)
+						{
+							$myPrice = round(floatval(a($v, 'price')));
+							$myTitle =  a($v, 'title');
+
+							self::$html .= '<div class="c bg-green-100 mx-1 rounded text-center">';
+							{
+								self::$html .= '<span class="bg-green-100">';
+								{
+									self::$html .= $myTitle;
+
+								}
+								self::$html .= '</span>';
+							}
+							self::$html .= '</div>';
+						}
+					}
+				}
+				self::$html .= '</div>';
+
+				self::html_input_manual_amount($value, false);
 			}
 			self::HtmlDesc($value);
 			self::_div();
