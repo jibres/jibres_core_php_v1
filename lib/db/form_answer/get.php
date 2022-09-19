@@ -393,7 +393,7 @@ class get
 	}
 
 
-	public static function totalPayed($_form_id)
+	public static function totalPayed($_form_id) : float
 	{
 		$query  =
 			"
@@ -407,7 +407,7 @@ class get
 				    form_answer.form_id = :form_id
 			";
 		$result = \dash\pdo::get($query, [':form_id' => $_form_id], 'totalPayed', true);
-		return $result;
+		return floatval($result);
 	}
 
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-19 15:49+0430\n"
-"PO-Revision-Date: 2022-09-19 15:50+0430\n"
+"POT-Creation-Date: 2022-09-19 16:08+0430\n"
+"PO-Revision-Date: 2022-09-19 16:09+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -4854,7 +4854,7 @@ msgstr "افزودن"
 #: content_my/domain/irnic/edit/display.php:25
 #: content_site/assemble/wrench/section.php:131
 #: includes/languages/trans_static_public.php:144 lib/app/category/get.php:487
-#: lib/app/form/form/dashboard.php:30 lib/app/menu/generate.php:87
+#: lib/app/form/form/dashboard.php:32 lib/app/menu/generate.php:87
 #: lib/app/menu/generate2.php:65
 msgid "Edit"
 msgstr "ویرایش"
@@ -5431,7 +5431,7 @@ msgstr "شماره"
 
 #: content_a/accounting/doc/display.php:15 content_a/accounting/factor/display.php:49
 #: content_a/cart/home/display.php:27 content_a/cart/home/display.php:170
-#: lib/app/form/form/dashboard.php:26
+#: lib/app/form/form/dashboard.php:28
 msgid "Item count"
 msgstr "تعداد آیتم‌ها"
 
@@ -7728,7 +7728,7 @@ msgstr "محصول"
 
 #: content_a/cart/home/display.php:147 content_a/cart/home/display.php:186
 #: content_a/form/answer/item/display.php:48
-#: content_a/report/products/maxsale/display.php:6 lib/app/form/form/dashboard.php:27
+#: content_a/report/products/maxsale/display.php:6 lib/app/form/form/dashboard.php:29
 #: lib/app/order/filter.php:100
 msgid "Item"
 msgstr "گزینه"
@@ -8775,7 +8775,7 @@ msgstr "عنوان جدید"
 #: content_a/form/duplicate/display.php:12 content_site/page/display-aside-bottom.php:17
 #: dash/layout/admin/admin-titlebox.php:27 dash/layout/button.php:108
 #: dash/layout/m2/admin-titlebox.php:31 dash/layout/m2/pageNav.php:30
-#: lib/app/form/form/dashboard.php:59
+#: lib/app/form/form/dashboard.php:61
 msgid "Duplicate"
 msgstr "کپی"
 
@@ -9274,7 +9274,7 @@ msgstr "تگ گروهی"
 #: content_a/form/report/answer/display-province.php:10
 #: content_a/form/report/answer/display-wordcloud.php:3
 #: content_a/form/report/compare/display.php:115 content_a/form/tag/display.php:81
-#: dash/social/telegram/commands/ticket.php:101 lib/app/form/form/dashboard.php:42
+#: dash/social/telegram/commands/ticket.php:101 lib/app/form/form/dashboard.php:44
 msgid "Answer"
 msgstr "پاسخ"
 
@@ -40640,17 +40640,25 @@ msgstr "نامک فرم تکراری است. لطفا نامک دیگری را �
 msgid "Start time must be less than end time"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
 
-#: lib/app/form/form/dashboard.php:41
+#: lib/app/form/form/dashboard.php:43
 msgid "Total answer"
 msgstr "تعداد پاسخ‌ها"
 
-#: lib/app/form/form/dashboard.php:45
+#: lib/app/form/form/dashboard.php:47
 msgid "show answers"
 msgstr "نمایش پاسخ‌ها"
 
-#: lib/app/form/form/dashboard.php:55
+#: lib/app/form/form/dashboard.php:57
 msgid "Make a copy of this form"
 msgstr "تهیه نسخه کپی از این فرم"
+
+#: lib/app/form/form/dashboard.php:79
+msgid "Total payed by this form"
+msgstr "مجموع پرداختی از طریق این فرم"
+
+#: lib/app/form/form/dashboard.php:83
+msgid "Show transaction list"
+msgstr "نمایش لیست تراکنش‌ها"
 
 #: lib/app/form/form/edit.php:78
 msgid "This form used in menu and can not be remove"
@@ -49817,9 +49825,6 @@ msgstr "یارد"
 
 #~ msgid "Show staff where"
 #~ msgstr "نمایش کارمندان با شرط"
-
-#~ msgid "Show transaction where"
-#~ msgstr "نمایش تراکنش‌ها با شرط"
 
 #~ msgid "Duplicate note for user founded"
 #~ msgstr "یادداشت تکراری است"

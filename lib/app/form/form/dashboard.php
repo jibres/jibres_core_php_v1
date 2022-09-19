@@ -79,7 +79,7 @@ class dashboard
 				'title'     => T_("Total payed by this form"),
 				'value'     => \dash\fit::number($totalPayed) . ' <small class="text-gray-400">' .\lib\store::currency() . '</small>',
 				'link'      => true,
-				'url'       => \dash\url::kingdom() . '/crm/transactions?form_id=' . $_form_id,
+				'url'       => \dash\url::kingdom() . '/crm/transactions?verify=y&form_id=' . $_form_id,
 				'linkTitle' => T_("Show transaction list"),
 			];
 		return $result;
