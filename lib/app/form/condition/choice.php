@@ -91,6 +91,3 @@ class choice
 		return $new_data;
 	}
 }
-?>
-
-
