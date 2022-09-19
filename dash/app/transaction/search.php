@@ -31,6 +31,7 @@ class search
 				'verify'        => 'y_n',
 				'by_form'       => 'y_n',
 				'charge_type'   => 'y_n',
+				'form_id'       => 'id',
 			];
 
 		$require = [];
@@ -113,10 +114,19 @@ class search
 		}
 		elseif($data['by_form'] === 'n')
 		{
-			$and[]             = " transactions.id NOT IN (SELECT form_answer.transaction_id FROM form_answer) ";
+			$and[] = " transactions.id NOT IN (SELECT form_answer.transaction_id FROM form_answer) ";
 
 			self::$is_filtered = true;
 		}
+
+		if($data['form_id'])
+		{
+			$and[]             =
+				" transactions.id IN (SELECT form_answer.transaction_id FROM form_answer WHERE form_answer.form_id = :form_id) ";
+			$param[':form_id'] = $data['form_id'];
+			self::$is_filtered = true;
+		}
+
 
 		if($data['start_date'])
 		{

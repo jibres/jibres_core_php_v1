@@ -109,6 +109,15 @@ class filter
 				'query' => ['bf' => 'n'], 'public' => true,
 			];
 
+			$list['form'] =
+				[
+					'key'    => 'form',
+					'group'  => T_("Form"),
+					'title'  => T_("Search in form"),
+					'mode'   => 'form_search',
+					'public' => false,
+				];
+
 		}
 
 		return $list;

@@ -139,6 +139,12 @@ class search_filter
 						$html .= self::html_form_answer_tag_search($value);
 						break;
 
+					case 'form_search':
+						$apply_filter_btn = true;
+						$html .= self::html_form_search($value, $special_name);
+						break;
+
+
 
 					case 'product_status_search':
 						$apply_filter_btn = true;
@@ -433,6 +439,39 @@ class search_filter
 			{
 				$html .= '<option value="'. a($userselected_detail, 'id'). '">';
 				$html .= a($userselected_detail, 'displayname');
+				$html .= '</option>';
+			}
+			// $html .= "<option value=''>". T_("None"). '</option>';
+		}
+		$html .= '</select>';
+		$html .= "</div>";
+
+		return $html;
+	}
+
+
+	private static function html_form_search($value, $_specail_name = null)
+	{
+		$request_get_name = 'form_id';
+
+		if($_specail_name)
+		{
+			$request_get_name = $_specail_name;
+		}
+
+		self::set_input_loaded($request_get_name);
+
+		$html = '';
+		$html .= "<div class='mB10'>";
+		$html .= '<label>'. a($value, 'title'). '</label>';
+		$html .= '<select name="'.$request_get_name.'" class="select22"  data-model=\'html\'  data-ajax--url="'. \dash\url::kingdom(). '/a/form/api?json=true" data-shortkey-search data-placeholder="'. a($value, 'title'). '">';
+		if(\dash\request::get($request_get_name))
+		{
+			$userselected_detail = \lib\app\form\form\get::public_get(\dash\request::get($request_get_name));
+			if($userselected_detail)
+			{
+				$html .= '<option value="'. a($userselected_detail, 'id'). '">';
+				$html .= a($userselected_detail, 'title');
 				$html .= '</option>';
 			}
 			// $html .= "<option value=''>". T_("None"). '</option>';

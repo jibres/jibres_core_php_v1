@@ -39,6 +39,7 @@ class view
 				'by_form'       => \dash\request::get('bf'),
 				'start_date'    => \dash\request::get('std'),
 				'end_date'      => \dash\request::get('end'),
+				'form_id'       => \dash\request::get('form_id'),
 				'need_calc_sum' => 1,
 			];
 
