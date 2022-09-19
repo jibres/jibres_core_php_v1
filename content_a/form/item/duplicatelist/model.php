@@ -1,6 +1,8 @@
 <?php
 namespace content_a\form\item\duplicatelist;
 
+use dash\number;
+
 class model
 {
 	public static function post()
@@ -51,6 +53,7 @@ class model
 
 
 		$duplicateitem = \dash\request::post('duplicateitem');
+		$duplicateitem = \dash\number::clean($duplicateitem);
 
 		\lib\app\form\item\edit::edit_uniquelist($duplicateitem, $item_id, $form_id);
 

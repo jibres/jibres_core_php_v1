@@ -23,9 +23,9 @@
 							case 'mobile':
 								$title        = T_("Prohibition of registration for the following mobile phone number");
 								$input        =
-									'<input type="tel" name="duplicateitem" id="duplicateitem" placeholder="' . T_("Enter mobile") . '" data-format="mobile">';
+									'<input type="tel" name="duplicateitem" id="duplicateitem" placeholder="' . T_("Enter mobile") . '" >';
 								$input_search =
-									'<input type="tel" name="q" id="q" value="' . \dash\validate::search_string() . '" placeholder="' . T_("Search in mobile") . '" data-format="mobile" >';
+									'<input type="tel" name="q" id="q" value="' . \dash\validate::search_string() . '" placeholder="' . T_("Search in mobile") . '"  >';
 								break;
 
 							case 'email':

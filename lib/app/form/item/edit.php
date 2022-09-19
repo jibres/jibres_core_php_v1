@@ -151,7 +151,7 @@ class edit
 		if($args['uniquelist'])
 		{
 			$unique_list = preg_split("/\,|\n/", $args['uniquelist']);
-
+			
 			$pretty_unique_list = [];
 
 			foreach ($unique_list as $unique_item)
