@@ -42,6 +42,9 @@ class view
 		$args['item']      = \dash\request::get('item');
 		$args['answer']      = \dash\request::get('answer');
 
+		$args['payed']      = \dash\request::get('payed');
+		$args['amount']      = \dash\request::get('amount');
+
 
 		if(\dash\request::get('status'))
 		{

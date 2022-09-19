@@ -6,8 +6,8 @@ class search
 {
 
 	private static $filter_message = null;
-	private static $filter_args    = [];
-	private static $is_filtered    = false;
+	private static $filter_args = [];
+	private static $is_filtered = false;
 
 
 	public static function filter_message()
@@ -30,27 +30,29 @@ class search
 		}
 
 		$condition =
-		[
-			'order'                   => 'order',
-			'sort'                    => ['enum' => ['id', 'datecreated']],
-			'type'                    => ['enum' => ['assistant', 'group', 'total', 'details']],
-			'status'                  => ['enum' => ['draft','active','spam', 'archive', 'deleted']],
-			'form_id'                 => 'id',
-			'tag_id'                  => 'id',
-			'start_date'              => 'date',
-			'end_date'                => 'date',
-			'not_deleted'             => 'bit',
+			[
+				'order'       => 'order',
+				'sort'        => filter::sort_enum(),
+				'type'        => ['enum' => ['assistant', 'group', 'total', 'details']],
+				'status'      => ['enum' => ['draft', 'active', 'spam', 'archive', 'deleted']],
+				'form_id'     => 'id',
+				'tag_id'      => 'id',
+				'start_date'  => 'date',
+				'end_date'    => 'date',
+				'not_deleted' => 'bit',
 
-			'operation_add_group_tag' => 'bit',
-			'the_tag_id'              => 'id',
-			'get_answer_ids'          => 'bit',
-			'item'                    => 'id',
-			'answer'                  => 'string_500',
-		];
+				'operation_add_group_tag' => 'bit',
+				'the_tag_id'              => 'id',
+				'get_answer_ids'          => 'bit',
+				'item'                    => 'id',
+				'answer'                  => 'string_500',
+				'payed'                   => 'y_n',
+				'amount'                  => 'price',
+			];
 
 		$require = [];
 
-		$meta    =	[];
+		$meta = [];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
@@ -68,13 +70,13 @@ class search
 			$meta['fields']     = 'form_answer.id';
 		}
 
-		$order_sort  = null;
+		$order_sort = null;
 
 		if($data['tag_id'])
 		{
-			$meta['join'][] = " LEFT JOIN form_tagusage ON form_tagusage.answer_id = form_answer.id ";
-			$and[] = " form_tagusage.form_tag_id = :tag_id ";
-			$param[':tag_id'] = $data['tag_id'];
+			$meta['join'][]    = " LEFT JOIN form_tagusage ON form_tagusage.answer_id = form_answer.id ";
+			$and[]             = " form_tagusage.form_tag_id = :tag_id ";
+			$param[':tag_id']  = $data['tag_id'];
 			self::$is_filtered = true;
 
 		}
@@ -82,6 +84,24 @@ class search
 		if($data['not_deleted'])
 		{
 			$and['not_deleted'] = " (form_answer.status IS NULL OR form_answer.status != 'deleted') ";
+		}
+
+		if($data['payed'] === 'y')
+		{
+			$and[]             = " form_answer.payed = 1 ";
+			self::$is_filtered = true;
+		}
+		elseif($data['payed'] === 'n')
+		{
+			$and[]             = " form_answer.payed != 1 ";
+			self::$is_filtered = true;
+		}
+
+		if($data['amount'])
+		{
+			$and[]             = " form_answer.amount = :amount ";
+			$param[':amount']  = $data['amount'];
+			self::$is_filtered = true;
 		}
 
 		$query_string = \dash\validate::search($_query_string, false);
@@ -97,19 +117,18 @@ class search
 
 			if(substr($data['answer'], 0, 3) === 'IR-')
 			{
-				$and[] = " form_answerdetail.answer LIKE :answer ";
-				$param[':answer']  = $data['answer']. '%';
+				$and[]            = " form_answerdetail.answer LIKE :answer ";
+				$param[':answer'] = $data['answer'] . '%';
 			}
 			else
 			{
-				$and[] = " form_answerdetail.answer = :answer ";
-				$param[':answer']  = $data['answer'];
+				$and[]            = " form_answerdetail.answer = :answer ";
+				$param[':answer'] = $data['answer'];
 			}
 
 			$param[':item_id'] = $data['item'];
 
 		}
-
 
 
 		if($query_string)
@@ -123,17 +142,17 @@ class search
 
 			if(is_numeric($query_string))
 			{
-				$or[] = " form_answer.id LIKE :serch_string1 ";
-				$param[':serch_string1'] = '%'. $query_string. '%';
+				$or[]                    = " form_answer.id LIKE :serch_string1 ";
+				$param[':serch_string1'] = '%' . $query_string . '%';
 			}
 
-			$or[] = " form_answerdetail.answer LIKE :serch_string2 ";
-			$param[':serch_string2'] = '%'. $query_string. '%';
+			$or[]                    = " form_answerdetail.answer LIKE :serch_string2 ";
+			$param[':serch_string2'] = '%' . $query_string . '%';
 
 			if($isMobile = \dash\validate::mobile($query_string, false))
 			{
-				$or[] = " form_answerdetail.answer LIKE :serch_string3 ";
-				$param[':serch_string3'] = '%'. $isMobile. '%';
+				$or[]                    = " form_answerdetail.answer LIKE :serch_string3 ";
+				$param[':serch_string3'] = '%' . $isMobile . '%';
 			}
 
 			self::$is_filtered = true;
@@ -141,13 +160,13 @@ class search
 
 		if($data['form_id'])
 		{
-			$and[] = " form_answer.form_id = :form_id ";
+			$and[]             = " form_answer.form_id = :form_id ";
 			$param[':form_id'] = $data['form_id'];
 		}
 
 		if($data['status'])
 		{
-			$and[]           = " form_answer.status = :status ";
+			$and[]            = " form_answer.status = :status ";
 			$param[':status'] = $data['status'];
 			unset($and['not_deleted']);
 			self::$is_filtered = true;
@@ -156,21 +175,20 @@ class search
 
 		if($data['start_date'])
 		{
-			$and[]           = " form_answer.datecreated >= :start_date ";
-			$param[':start_date'] = $data['start_date']. ' 00:00:00';
-			self::$is_filtered = true;
+			$and[]                = " form_answer.datecreated >= :start_date ";
+			$param[':start_date'] = $data['start_date'] . ' 00:00:00';
+			self::$is_filtered    = true;
 
 		}
 
 
 		if($data['end_date'])
 		{
-			$and[]           = " form_answer.datecreated <= :end_date ";
-			$param[':end_date'] = $data['end_date']. ' 23:59:59';
-			self::$is_filtered = true;
+			$and[]              = " form_answer.datecreated <= :end_date ";
+			$param[':end_date'] = $data['end_date'] . ' 23:59:59';
+			self::$is_filtered  = true;
 
 		}
-
 
 
 		$check_order_trust = \lib\app\form\answer\filter::check_allow($data['sort'], $data['order']);
@@ -203,7 +221,6 @@ class search
 		}
 
 
-
 		if(!is_array($list))
 		{
 			$list = [];
@@ -231,4 +248,5 @@ class search
 	}
 
 }
+
 ?>
