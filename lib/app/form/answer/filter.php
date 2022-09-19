@@ -57,6 +57,14 @@ class filter
 				'public' => false,
 			];
 
+		$list['amount'] = [
+			'key'  => 'amount',
+			'group' => T_("Payment"),
+			'title' => T_('Pay Amount'),
+			'public' => true,
+			'mode' => 'less_equal_large:amount',
+		];
+
 
 		$list['payedy'] =
 			[

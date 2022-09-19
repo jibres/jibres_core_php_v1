@@ -4,46 +4,48 @@ namespace content_a\form\answer;
 
 class view
 {
+
 	public static function config()
 	{
-		\dash\face::title(T_('Answers'). ' | '. \dash\data::formDetail_title());
+		\dash\face::title(T_('Answers') . ' | ' . \dash\data::formDetail_title());
 
 		// back
-				// back
+		// back
 		\dash\data::back_text(T_('Back'));
 		\content_a\form\home\view::backModuleLink();
 
 		\dash\data::action_text(T_('Add new answer'));
-		\dash\data::action_link(\dash\url::that(). '/add?id='. \dash\request::get('id'));
+		\dash\data::action_link(\dash\url::that() . '/add?id=' . \dash\request::get('id'));
 
-		\dash\face::btnExport(\dash\url::that(). '/export?id='. \dash\request::get('id'));
+		\dash\face::btnExport(\dash\url::that() . '/export?id=' . \dash\request::get('id'));
 
 		\content_a\form\edit\view::form_preview_link();
 
 		\dash\data::listEngine_start(true);
 
-		\dash\data::listEngine_before(__DIR__. '/display-before.php');
+		\dash\data::listEngine_before(__DIR__ . '/display-before.php');
 
 		\dash\data::listEngine_search(\dash\url::that());
 		\dash\data::listEngine_filter(\lib\app\form\answer\filter::list());
 		\dash\data::listEngine_sort(true);
 		\dash\data::sortList(\lib\app\form\answer\filter::sort_list());
-		\dash\data::listEngine_cleanFilterUrl(\dash\url::that(). '?id='. \dash\request::get('id'));
-		\dash\data::listEngine_newActionByCurrentFilterURL(\dash\url::that(). '/grouptag'. \dash\request::full_get());
+		\dash\data::listEngine_cleanFilterUrl(\dash\url::that() . '?id=' . \dash\request::get('id'));
+		\dash\data::listEngine_newActionByCurrentFilterURL(\dash\url::that() . '/grouptag' . \dash\request::full_get());
 		\dash\data::listEngine_newActionByCurrentFilterTitle(T_("Add tag by this result"));
 
 
-		$args                = [];
-		$args['sort']        = \dash\request::get('sort');
-		$args['order']       = \dash\request::get('order');
-		$args['form_id']     = \dash\request::get('id');
-
-		$args['tag_id']      = \dash\request::get('tagid');
-		$args['item']      = \dash\request::get('item');
-		$args['answer']      = \dash\request::get('answer');
-
-		$args['payed']      = \dash\request::get('payed');
-		$args['amount']      = \dash\request::get('amount');
+		$args                 = [];
+		$args['sort']         = \dash\request::get('sort');
+		$args['order']        = \dash\request::get('order');
+		$args['form_id']      = \dash\request::get('id');
+		$args['tag_id']       = \dash\request::get('tagid');
+		$args['item']         = \dash\request::get('item');
+		$args['answer']       = \dash\request::get('answer');
+		$args['payed']        = \dash\request::get('payed');
+		$args['amount']       = \dash\request::get('amount');
+		$args['amountless']   = \dash\request::get('amountless');
+		$args['amountequal']  = \dash\request::get('amountequal');
+		$args['amountlarger'] = \dash\request::get('amountlarger');
 
 
 		if(\dash\request::get('status'))
@@ -62,7 +64,7 @@ class view
 		}
 
 		$args['not_deleted'] = true;
-		$q               = \dash\validate::search_string();
+		$q                   = \dash\validate::search_string();
 
 
 		if(\dash\data::getFilterArgsInModel())
@@ -92,4 +94,5 @@ class view
 	}
 
 }
+
 ?>

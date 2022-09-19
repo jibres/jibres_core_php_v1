@@ -31,16 +31,15 @@ class search
 
 		$condition =
 			[
-				'order'       => 'order',
-				'sort'        => filter::sort_enum(),
-				'type'        => ['enum' => ['assistant', 'group', 'total', 'details']],
-				'status'      => ['enum' => ['draft', 'active', 'spam', 'archive', 'deleted']],
-				'form_id'     => 'id',
-				'tag_id'      => 'id',
-				'start_date'  => 'date',
-				'end_date'    => 'date',
-				'not_deleted' => 'bit',
-
+				'order'                   => 'order',
+				'sort'                    => filter::sort_enum(),
+				'type'                    => ['enum' => ['assistant', 'group', 'total', 'details']],
+				'status'                  => ['enum' => ['draft', 'active', 'spam', 'archive', 'deleted']],
+				'form_id'                 => 'id',
+				'tag_id'                  => 'id',
+				'start_date'              => 'date',
+				'end_date'                => 'date',
+				'not_deleted'             => 'bit',
 				'operation_add_group_tag' => 'bit',
 				'the_tag_id'              => 'id',
 				'get_answer_ids'          => 'bit',
@@ -48,6 +47,9 @@ class search
 				'answer'                  => 'string_500',
 				'payed'                   => 'y_n',
 				'amount'                  => 'price',
+				'amountless'              => 'price',
+				'amountequal'             => 'price',
+				'amountlarger'            => 'price',
 			];
 
 		$require = [];
@@ -96,6 +98,28 @@ class search
 			$and[]             = " form_answer.payed != 1 ";
 			self::$is_filtered = true;
 		}
+
+		if($data['amountless'])
+		{
+			$and[]                = " form_answer.amount < :amountless ";
+			$param[':amountless'] = $data['amountless'];
+			self::$is_filtered    = true;
+		}
+
+		if($data['amountequal'])
+		{
+			$and[]                 = " form_answer.amount = :amountequal ";
+			$param[':amountequal'] = $data['amountequal'];
+			self::$is_filtered     = true;
+		}
+
+		if($data['amountlarger'])
+		{
+			$and[]                  = " form_answer.amount > :amountlarger ";
+			$param[':amountlarger'] = $data['amountlarger'];
+			self::$is_filtered      = true;
+		}
+
 
 		if($data['amount'])
 		{
