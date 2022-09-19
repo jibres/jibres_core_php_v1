@@ -7,7 +7,11 @@
 			<div class="input">
 				<input type="text" name="title" required id="ititle" <?php \dash\layout\autofocus::html() ?>>
 			</div>
+
 		</div>
+      <footer class="txtRa">
+          <button class="btn-primary"><?php echo T_("Add"); ?></button>
+      </footer>
 	</div>
 </div>
 </form>

@@ -112,7 +112,7 @@
  <ul>
     <?php foreach (\dash\data::dataTable() as $key => $value) {?>
       <li>
-        <a class="f item multiLine" href="<?php echo \dash\url::that(). '/edit?id='. a($value, 'id'); ?>">
+        <a class="f item multiLine" href="<?php echo \dash\url::that(). '/dashboard?id='. a($value, 'id'); ?>">
           <i class="<?php echo a($value, 'status_class') ?>"></i>
           <div class="value s0"><?php echo \dash\fit::number(a($value, 'item_count')). ' '. T_("Question"); ?></div>
           <div class="key"><?php echo a($value, 'title');?></div>
