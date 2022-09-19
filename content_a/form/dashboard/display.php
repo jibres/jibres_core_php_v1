@@ -5,14 +5,38 @@
     </div>
     <div class="c-xs-12 c-sm-12 c-md-8">
 
-        <?php require_once(root . 'content_a/form/formTitle.php'); ?>
 
-        <div class="box">
-            <div class="pad">
-                <?php echo T_("To make duplicate from this form"); ?>
-                <a class="btn-link" href="<?php echo \dash\url::this(). '/duplicate?id='. \dash\request::get('id') ?>"><?php echo T_("click here"); ?></a>
+
+        <div class="bg-white p-4 rounded mb-2">
+
+            <div>
+                <h3 class="text-lg font-medium leading-6 text-gray-900"><?php echo \dash\data::dataRow_title(); ?></h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500"><?php echo T_("Form Dashboard"); ?></p>
             </div>
+			<?php foreach (\dash\data::dashboardDetail() as $item) : ?>
+
+                <div class="mt-2 border-t border-gray-200">
+                    <dl class="divide-y divide-gray-200">
+                        <div class="py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
+                            <dt class="text-sm font-medium text-gray-500"><?php echo $item['title'] ?></dt>
+                            <dd class="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                <span class="flex-grow"><?php echo $item['value'] ?></span>
+                                <?php if($item['link']): ?>
+                                <span class="mx-2 flex-shrink-0">
+                                    <a type="button" href="<?php echo $item['url'] ?>"
+                                            class="rounded-md bg-white font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                        <?php echo $item['linkTitle'] ?>
+                                    </a>
+                                </span>
+                                <?php endif; ?>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+			<?php endforeach; ?>
+
         </div>
+
 
         <form method="post" action="<?php echo \dash\url::this() ?>">
             <div class="box">
@@ -40,7 +64,6 @@
                 </footer>
             </div>
         </form>
-
 
 
         <div class="text-gray-500 text-sm">

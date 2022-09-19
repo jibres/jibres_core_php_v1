@@ -72,5 +72,18 @@ class get
     }
 
 
+	public static function count_all($_form_id)
+	{
+		$query = "SELECT COUNT(*) AS `count` FROM form_item WHERE form_item.form_id = :form_id ";
+		$param =
+			[
+				':form_id' => $_form_id,
+
+			];
+		$result = \dash\pdo::get($query, $param, 'count', true);
+		return $result;
+	}
+
+
 }
 ?>

@@ -2,6 +2,8 @@
 namespace content_a\form\dashboard;
 
 
+use lib\app\form\form\get;
+
 class view
 {
 	public static function config()
@@ -15,6 +17,9 @@ class view
 
 		$form_id = \dash\request::get('id');
 
+		$dashboardDetail = \lib\app\form\form\dashboard::detail($form_id);
+
+		\dash\data::dashboardDetail($dashboardDetail);
 
 
 
