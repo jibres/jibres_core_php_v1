@@ -85,11 +85,11 @@ if(\dash\data::payDetail_final_msg())
 	$myTurnBackUrl = \dash\data::payDetail_turn_back();
 	if(\dash\str::strpos($myTurnBackUrl, '?') === false)
 	{
-		$myTurnBackUrl .= '?token='. \dash\data::dataRow_token();
+		$myTurnBackUrl .= '?jftoken='. \dash\data::dataRow_token();
 	}
 	else
 	{
-		$myTurnBackUrl .= '&token='. \dash\data::dataRow_token();
+		$myTurnBackUrl .= '&jftoken='. \dash\data::dataRow_token();
 	}
 
 }
