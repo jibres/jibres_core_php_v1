@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-19 16:23+0430\n"
-"PO-Revision-Date: 2022-09-19 16:24+0430\n"
+"POT-Creation-Date: 2022-09-19 17:12+0430\n"
+"PO-Revision-Date: 2022-09-19 17:13+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -3764,7 +3764,7 @@ msgstr "وزن"
 #: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
 #: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
 #: content_crm/telegram/send/display.php:5 content_site/staticfile/display.php:11
-#: lib/app/form/generator.php:801
+#: lib/app/form/generator.php:811
 msgid "Required"
 msgstr "الزامی"
 
@@ -5499,7 +5499,7 @@ msgstr "سند اختتامیه"
 #: dash/app/ticket/filter.php:45 includes/languages/trans_static.php:507
 #: includes/languages/trans_static_public.php:1107 lib/app/discount/filter.php:55
 #: lib/app/factor/action.php:73 lib/app/factor/ready.php:124
-#: lib/app/form/generator.php:786 lib/app/order/ready.php:124 lib/app/product/load.php:132
+#: lib/app/form/generator.php:795 lib/app/order/ready.php:124 lib/app/product/load.php:132
 #: lib/app/store/filter.php:31 lib/app/store_user/filter.php:31
 msgid "Deleted"
 msgstr "حذف شده"
@@ -7328,7 +7328,7 @@ msgstr "صفحه اول مقدمه"
 #: content_site/options/file/file.php:299
 #: content_site/options/link/link_professional.php:144 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
-#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1579
+#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1608
 msgid "File"
 msgstr "فایل"
 
@@ -9546,7 +9546,7 @@ msgstr "ویرایش نوع"
 
 #: content_a/form/item/display.php:63 content_a/form/item/display.php:64
 #: content_cms/posts/publishdate/display.php:54 content_cms/posts/writer/display.php:57
-#: content_site/section/part/section_control.php:64 lib/app/form/generator.php:791
+#: content_site/section/part/section_control.php:64 lib/app/form/generator.php:800
 msgid "Hidden"
 msgstr "مخفی"
 
@@ -12612,7 +12612,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketCreate.php:111
 #: includes/languages/trans_static.php:508 lib/app/form/answer/get.php:168
 #: lib/app/form/answer/save_as_ticket.php:95 lib/app/form/condition/choice.php:26
-#: lib/app/form/generator.php:1746
+#: lib/app/form/generator.php:1797
 msgid "Yes"
 msgstr "بله"
 
@@ -12632,7 +12632,7 @@ msgstr "بله"
 #: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
 #: lib/app/form/answer/get.php:172 lib/app/form/answer/save_as_ticket.php:99
-#: lib/app/form/condition/choice.php:26 lib/app/form/generator.php:1764
+#: lib/app/form/condition/choice.php:26 lib/app/form/generator.php:1815
 msgid "No"
 msgstr "خیر"
 
@@ -12918,7 +12918,7 @@ msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب 
 #: content_a/setting/general/display.php:160 content_account/my/profile/display.php:36
 #: content_business/profile/detail/display.php:35
 #: content_love/plugin/manage/display.php:47 content_love/plugin/manage/display.php:48
-#: lib/app/form/generator.php:873
+#: lib/app/form/generator.php:883
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -16500,7 +16500,7 @@ msgstr "این فایل دارای آدرس نیست!"
 msgid "Thanks for your shopping"
 msgstr "با تشکر از خرید شما"
 
-#: content_business/orders/view/view.php:24
+#: content_business/orders/view/view.php:24 lib/app/form/generator.php:1912
 msgid "Payment unsuccessfull"
 msgstr "پرداخت ناموفق بود"
 
@@ -40460,15 +40460,15 @@ msgstr "نمی‌توانیم پاسخ شما را ویرایش کنیم. لطف
 msgid "Answer update successfull"
 msgstr "بروزرسانی پاسخ با موفقیت انجام شد"
 
-#: lib/app/form/answer/add.php:931
+#: lib/app/form/answer/add.php:937
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
-#: lib/app/form/answer/add.php:937
+#: lib/app/form/answer/add.php:943
 msgid "No answer received"
 msgstr "هیچ پاسخی دریافت نشد"
 
-#: lib/app/form/answer/add.php:973
+#: lib/app/form/answer/add.php:979
 msgid "Pay for form :val"
 msgstr "پرداخت برای فرم :val"
 
@@ -40510,7 +40510,7 @@ msgstr "فیلتر بر اساس تاریخ"
 msgid "Answer not found"
 msgstr "پاسخی یافت نشد"
 
-#: lib/app/form/answer/get.php:185 lib/app/form/generator.php:1589
+#: lib/app/form/answer/get.php:185 lib/app/form/generator.php:1618
 msgid "Show file"
 msgstr "نمایش فایل"
 
@@ -40677,42 +40677,50 @@ msgstr "این فرم در منو استفاده شده و امکان حذف آ�
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
-#: lib/app/form/generator.php:67
+#: lib/app/form/generator.php:71
 msgid "Your form is not publish. Only you can view this form."
 msgstr "فرم شما منتشر نشده است. فقط شما می‌توانید این فرم را ببینید."
 
-#: lib/app/form/generator.php:67
+#: lib/app/form/generator.php:71
 msgid "Edit form"
 msgstr "ویرایش فرم"
 
-#: lib/app/form/generator.php:93
+#: lib/app/form/generator.php:97
 msgid "Access to answer to this form is blocked"
 msgstr "دسترسی پاسخگویی به این فرم بسته شده است"
 
-#: lib/app/form/generator.php:102 lib/app/form/generator.php:169
-#: lib/app/form/generator.php:239 lib/app/form/generator.php:314
+#: lib/app/form/generator.php:106 lib/app/form/generator.php:174
+#: lib/app/form/generator.php:246 lib/app/form/generator.php:322
 msgid "Submit"
 msgstr "تایید"
 
-#: lib/app/form/generator.php:677 lib/app/form/generator.php:706
+#: lib/app/form/generator.php:685 lib/app/form/generator.php:714
 msgid "Can not answer to this form at this time"
 msgstr "در حال حاضر نمی‌توان به این فرم پاسخ داد"
 
-#: lib/app/form/generator.php:678
+#: lib/app/form/generator.php:686
 msgid "This form will be activated in :date"
 msgstr "این فرم در تاریخ :date فعال خواهد شد"
 
-#: lib/app/form/generator.php:707
+#: lib/app/form/generator.php:715
 msgid "This form has been active until :date"
 msgstr "این فرم تا تاریخ :date فعال بوده است"
 
-#: lib/app/form/generator.php:1403
+#: lib/app/form/generator.php:1433
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: lib/app/form/generator.php:1420
+#: lib/app/form/generator.php:1450
 msgid "I'm Female"
 msgstr "من خانم هستم"
+
+#: lib/app/form/generator.php:1903
+msgid "Thanks for your payment"
+msgstr "با تشکر از پرداخت شما"
+
+#: lib/app/form/generator.php:1904
+msgid "The amount of :val :currency was received"
+msgstr "مبلغ :val :currency دریافت شد"
 
 #: lib/app/form/inquiry.php:164
 msgid "Your mobile or nationalcode is blocked for answer this form"
