@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-18 19:15+0430\n"
-"PO-Revision-Date: 2022-09-18 19:16+0430\n"
+"POT-Creation-Date: 2022-09-19 14:44+0430\n"
+"PO-Revision-Date: 2022-09-19 14:45+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -704,9 +704,9 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/android/intro/display.php:24 content_a/android/review/display.php:84
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/category/edit/display.php:10 content_a/category/edit/display.php:11
-#: content_a/discount/add/display.php:65 content_a/form/item/display.php:207
-#: content_a/form/setting/display.php:22 content_a/form/setting/display.php:24
-#: content_a/form/tag/edit/display.php:14 content_a/order/comment/display.php:13
+#: content_a/discount/add/display.php:65 content_a/form/item/display.php:225
+#: content_a/form/setting/display.php:23 content_a/form/setting/display.php:25
+#: content_a/form/tag/edit/display.php:20 content_a/order/comment/display.php:13
 #: content_a/order/detail/display.php:74 content_a/products/desc/display.php:8
 #: content_a/products/desc/display.php:11 content_a/setting/fund/display.php:18
 #: content_a/setting/fund/display.php:61 content_a/setting/general/title/display.php:14
@@ -866,7 +866,7 @@ msgstr "بیشتر بخوانید"
 #: content_love/gift/usage/display.php:11 content_love/log/home/logTable.php:11
 #: content_love/plugin/history/display.php:13 content_pay/home/display-transaction.php:124
 #: content_site/options/post/post_show_date.php:15 content_sudo/ip/display.php:61
-#: dash/app/transaction/filter.php:43 dash/layout/search/search_filter.php:372
+#: dash/app/transaction/filter.php:67 dash/layout/search/search_filter.php:378
 #: includes/languages/trans_static_public.php:195 lib/app/form/answer/filter.php:47
 #: lib/app/form/item/type.php:235 lib/app/report/sale/get.php:37
 msgid "Date"
@@ -1412,8 +1412,8 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_a/category/home/display.php:107 content_a/form/analytics/table/display.php:40
 #: content_a/form/analytics/table/display.php:41 content_a/form/answer/item/display.php:37
 #: content_a/form/answer/item/display.php:38 content_a/form/home/display.php:73
-#: content_a/form/home/display.php:74 content_a/form/item/duplicatelist/display.php:30
-#: content_a/form/item/duplicatelist/display.php:64 content_a/form/tag/display.php:95
+#: content_a/form/home/display.php:74 content_a/form/item/duplicatelist/display.php:44
+#: content_a/form/item/duplicatelist/display.php:81 content_a/form/tag/display.php:104
 #: content_a/notiflog/display.php:69 content_a/notiflog/display.php:70
 #: content_a/products/barcode/display.php:4 content_a/view.php:41
 #: content_business/f/home/display-result-page.php:27
@@ -1885,7 +1885,7 @@ msgstr "دامنه ارزان | ارزان‌ترین قیمت دامنه را �
 msgid "Domains"
 msgstr "دامنه‌ها"
 
-#: content/domains/pricing/view.php:35 content_a/plan/choose/display.php:11
+#: content/domains/pricing/view.php:35 content_a/plan/choose/display.php:7
 #: dash/utility/human.php:27 includes/languages/trans_static_public.php:25
 msgid "year"
 msgstr "سال"
@@ -2144,7 +2144,7 @@ msgid "Enter your mobile number"
 msgstr "شماره موبایل خود را وارد کنید"
 
 #: content/home/display.php:12 content_a/cart/user/display.php:37
-#: content_a/form/itemLink.php:117 content_a/pricehistory/choose/display.php:13
+#: content_a/form/dashboard/display.php:29 content_a/pricehistory/choose/display.php:13
 #: content_a/pricehistory/display.php:23
 #: content_a/setting/domain/existdomain/display.php:19 content_enter/app/display.php:60
 #: content_enter/home/display.php:47 content_enter/pass/change/display.php:17
@@ -2616,7 +2616,7 @@ msgstr "مزایا"
 #: content_my/domain/predict/view.php:12 content_my/domain/renew/view.php:12
 #: content_my/domain/search/view.php:12 content_my/domain/short/view.php:12
 #: content_my/domain/transfer/view.php:12 content_my/domain/whois/view.php:14
-#: content_my/home/display_pwa.php:7 dash/layout/m2/sidebar.php:708 dash/panel.php:78
+#: content_my/home/display_pwa.php:7 dash/layout/m2/sidebar.php:747 dash/panel.php:78
 msgid "Domain Center"
 msgstr "مرکز دامنه"
 
@@ -2766,7 +2766,7 @@ msgid "Help Center"
 msgstr "مرکز راهنمایی"
 
 #: content/home/layout/header.php:28 content_a/home/view.php:28 content_my/home/view.php:9
-#: dash/layout/m2/sidebar.php:679 dash/layout/pwa/pwa_menu.php:86 dash/panel.php:33
+#: dash/layout/m2/sidebar.php:718 dash/layout/pwa/pwa_menu.php:86 dash/panel.php:33
 msgid "Control Center"
 msgstr "مرکز کنترل"
 
@@ -2995,7 +2995,7 @@ msgstr "شماره تلفن مرکز اصلی شرکت"
 #: content_a/setting/factor/seller/display.php:29 content_account/my/home/display.php:156
 #: content_account/my/social/display.php:12 content_cms/posts/share/display.php:46
 #: content_crm/member/legal/display.php:32 content_my/business/home/display.php:63
-#: dash/layout/m2/sidebar.php:475 dash/social/telegram/commands/ermile.php:346
+#: dash/layout/m2/sidebar.php:514 dash/social/telegram/commands/ermile.php:346
 #: dash/social/telegram/commands/ermile.php:533 lib/app/form/item/type.php:435
 msgid "Website"
 msgstr "وب‌سایت"
@@ -3067,7 +3067,7 @@ msgstr "PWA ساز"
 #: content_crm/member/home/view.php:16 content_crm/notification/home/view.php:12
 #: content_crm/sms/datalist/view.php:15 content_crm/sms/home/view.php:12
 #: content_crm/telegram/datalist/view.php:12 content_crm/telegram/home/view.php:12
-#: content_crm/ticket/home/view.php:12 content_crm/transactions/view.php:11
+#: content_crm/ticket/home/view.php:12 content_crm/transactions/view.php:12
 #: content_love/home/display.php:144 dash/permission_caller.php:104
 #: includes/languages/trans_static_public.php:1113 lib/app/quickaccess/forms.php:30
 msgid "CRM"
@@ -3078,7 +3078,7 @@ msgstr "مدیریت ارتباط با مشتریان"
 msgid "Content Management System"
 msgstr "سیستم مدیریت محتوا"
 
-#: content/investment/display-company-info.php:87 content_a/form/home/view.php:9
+#: content/investment/display-company-info.php:87 content_a/form/home/view.php:10
 #: content_crm/home/display.php:136
 msgid "Form Builder"
 msgstr "فرم‌ساز"
@@ -3309,7 +3309,7 @@ msgstr "آیکن"
 #: content/logo/section-icon.php:60 content/logo/section-standard.php:57
 #: content/logo/section-standard.php:190 content/logo/section-vertical.php:59
 #: content/logo/section-vertical.php:197 content_a/form/answer/detail/display.php:609
-#: content_a/form/answer/note/display.php:61 content_a/form/tag/edit/display.php:94
+#: content_a/form/answer/note/display.php:61 content_a/form/tag/edit/display.php:107
 msgid "Black"
 msgstr "مشکی"
 
@@ -3753,8 +3753,8 @@ msgstr "وزن"
 #: content_a/accounting/doc/add/display-docdetail.php:11
 #: content_a/accounting/doc/add/display-docdetail.php:95
 #: content_a/accounting/doc/duplicate/display.php:7 content_a/android/title/display.php:8
-#: content_a/form/add/display.php:6 content_a/form/item/add/display.php:23
-#: content_a/form/setting/display.php:10
+#: content_a/form/add/display.php:6 content_a/form/item/add/display.php:20
+#: content_a/form/setting/display.php:11
 #: content_crm/member/transactions/minus/display.php:9
 #: content_crm/member/transactions/minus/display.php:27
 #: content_crm/member/transactions/plus/display.php:9
@@ -4260,26 +4260,26 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/form/answer/detail/view.php:13 content_a/form/answer/edit/view.php:12
 #: content_a/form/answer/item/view.php:12 content_a/form/answer/note/view.php:12
 #: content_a/form/answer/view.php:13 content_a/form/condition/view.php:16
-#: content_a/form/duplicate/view.php:14 content_a/form/edit/view.php:13
+#: content_a/form/dashboard/view.php:13 content_a/form/duplicate/view.php:14
 #: content_a/form/find/print/view.php:13 content_a/form/find/view.php:13
-#: content_a/form/home/view.php:12 content_a/form/inquiry/view.php:12
-#: content_a/form/item/add/view.php:12 content_a/form/item/choice/view.php:12
-#: content_a/form/item/duplicatelist/view.php:12 content_a/form/item/type/view.php:12
-#: content_a/form/item/view.php:12 content_a/form/report/answer/view.php:46
-#: content_a/form/report/compare/view.php:10 content_a/form/report/view.php:21
-#: content_a/form/resultpage/view.php:12 content_a/form/setting/view.php:12
-#: content_a/form/sorting/view.php:11 content_a/form/status/view.php:12
-#: content_a/form/tag/remove/view.php:17 content_a/form/tag/view.php:16
-#: content_a/form/thankyou/view.php:12 content_a/notiflog/view.php:12
-#: content_a/order/view.php:33 content_a/plan/cancel/view.php:16
-#: content_a/plan/set/view.php:14 content_a/plugin/view/view.php:16
-#: content_a/products/advance/view.php:17 content_a/products/barcode/view.php:12
-#: content_a/products/bullet/view.php:17 content_a/products/cartlimit/view.php:15
-#: content_a/products/child/view.php:15 content_a/products/comment/view.php:29
-#: content_a/products/comment/view.php:36 content_a/products/comment/view/view.php:13
-#: content_a/products/desc/view.php:14 content_a/products/duplicate/view.php:15
-#: content_a/products/gallerysort/view.php:14 content_a/products/poof/view.php:15
-#: content_a/products/property/add/view.php:14
+#: content_a/form/home/view.php:13 content_a/form/home/view.php:43
+#: content_a/form/inquiry/view.php:12 content_a/form/item/add/view.php:12
+#: content_a/form/item/choice/view.php:12 content_a/form/item/duplicatelist/view.php:12
+#: content_a/form/item/type/view.php:12 content_a/form/item/view.php:12
+#: content_a/form/report/answer/view.php:46 content_a/form/report/compare/view.php:10
+#: content_a/form/report/view.php:21 content_a/form/resultpage/view.php:12
+#: content_a/form/setting/view.php:12 content_a/form/sorting/view.php:11
+#: content_a/form/status/view.php:12 content_a/form/tag/remove/view.php:17
+#: content_a/form/tag/view.php:16 content_a/form/thankyou/view.php:12
+#: content_a/notiflog/view.php:12 content_a/order/view.php:33
+#: content_a/plan/cancel/view.php:16 content_a/plan/set/view.php:14
+#: content_a/plugin/view/view.php:16 content_a/products/advance/view.php:17
+#: content_a/products/barcode/view.php:12 content_a/products/bullet/view.php:17
+#: content_a/products/cartlimit/view.php:15 content_a/products/child/view.php:15
+#: content_a/products/comment/view.php:29 content_a/products/comment/view.php:36
+#: content_a/products/comment/view/view.php:13 content_a/products/desc/view.php:14
+#: content_a/products/duplicate/view.php:15 content_a/products/gallerysort/view.php:14
+#: content_a/products/poof/view.php:15 content_a/products/property/add/view.php:14
 #: content_a/products/property/edit/view.php:14 content_a/products/property/view.php:15
 #: content_a/products/share/view.php:15 content_a/products/sharetext/view.php:15
 #: content_a/products/variants/view.php:14
@@ -4517,7 +4517,7 @@ msgstr "پلتفرم مالی شماره یک جهان."
 #: content_my/domain/renew/display.php:24 content_my/domain/setting/pageStep.php:7
 #: content_my/domain/transfer/display.php:7 content_my/domain/transfer/display.php:23
 #: content_my/domain/whois/display.php:6 content_site/home/display.php:36
-#: dash/layout/m2/sidebar.php:513 lib/app/business_domain/filter.php:66
+#: dash/layout/m2/sidebar.php:552 lib/app/business_domain/filter.php:66
 #: lib/app/business_domain/filter.php:67 lib/app/gift/filter.php:55
 #: lib/app/log/caller/domain/domain_AutoRenewAlert.php:14
 #: lib/app/log/caller/domain/domain_creditLow.php:15
@@ -4585,9 +4585,9 @@ msgstr "کد"
 #: content_a/android/intro/display.php:18 content_a/android/review/display.php:82
 #: content_a/android/review/display.php:90 content_a/android/review/display.php:97
 #: content_a/category/add/display.php:5 content_a/category/edit/display.php:6
-#: content_a/form/item/add/display.php:17 content_a/form/item/add/display.php:19
-#: content_a/form/item/display.php:12 content_a/form/setting/display.php:9
-#: content_a/form/tag/add/display.php:6 content_a/form/tag/edit/display.php:6
+#: content_a/form/item/add/display.php:14 content_a/form/item/add/display.php:16
+#: content_a/form/item/display.php:19 content_a/form/setting/display.php:10
+#: content_a/form/tag/add/display.php:12 content_a/form/tag/edit/display.php:12
 #: content_a/products/bulk/display.php:22 content_a/setting/fund/display.php:13
 #: content_a/setting/general/title/display.php:10
 #: content_a/setting/menu/item/display.php:17 content_a/setting/menu/item/display.php:32
@@ -4746,7 +4746,7 @@ msgstr "غیرفعال"
 #: content_a/accounting/doc/display.php:14 content_a/accounting/factor/display.php:48
 #: content_a/accounting/turnover/display.php:185 content_a/android/apk/display.php:32
 #: content_a/discount/add/display.php:617 content_a/form/answer/display.php:9
-#: content_a/form/answer/export/display.php:155 content_a/form/itemLink.php:26
+#: content_a/form/answer/export/display.php:155 content_a/form/itemLink.php:31
 #: content_a/order/detail/display.php:29 content_a/products/edit/block/sidebar-menu.php:5
 #: content_a/products/export/display.php:57 content_business/orders/display.php:21
 #: content_cms/comments/view/display.php:127 content_crm/member/export/display.php:47
@@ -4778,7 +4778,7 @@ msgstr "غیرفعال"
 #: dash/app/ticket/filter.php:42 dash/app/ticket/filter.php:44
 #: dash/app/ticket/filter.php:45 dash/app/user/filter.php:27 dash/app/user/filter.php:28
 #: dash/app/user/filter.php:29 dash/app/user/filter.php:30 dash/app/user/filter.php:31
-#: dash/layout/search/search_filter.php:618 dash/layout/search/search_filter.php:659
+#: dash/layout/search/search_filter.php:657 dash/layout/search/search_filter.php:698
 #: lib/app/business_domain/filter.php:34 lib/app/business_domain/search.php:102
 #: lib/app/business_domain/search_dns.php:59 lib/app/discount/filter.php:35
 #: lib/app/discount/filter.php:44 lib/app/discount/filter.php:54
@@ -4803,8 +4803,8 @@ msgstr "وضعیت"
 #: content_a/category/property/display.php:55
 #: content_a/category/quickaccess/display.php:56 content_a/category/sort/display.php:29
 #: content_a/form/analytics/addfilter/display.php:11
-#: content_a/form/item/add/display.php:50 content_a/form/item/choice/display.php:19
-#: content_a/form/item/duplicatelist/display.php:39 content_a/form/tag/add/display.php:12
+#: content_a/form/item/add/display.php:47 content_a/form/item/choice/display.php:31
+#: content_a/form/item/duplicatelist/display.php:53 content_a/form/tag/add/display.php:20
 #: content_a/order/products/display.php:65 content_a/products/add/view.php:20
 #: content_a/products/bullet/display.php:21 content_a/products/property/add/display.php:60
 #: content_a/products/property/display.php:73 content_a/products/quick/view.php:21
@@ -4835,7 +4835,7 @@ msgstr "افزودن"
 #: content_a/accounting/year/manage/display.php:14
 #: content_a/category/editgroup/display.php:13 content_a/category/property/display.php:64
 #: content_a/category/quickaccess/display.php:30
-#: content_a/form/answer/detail/display.php:196 content_a/form/item/choice/display.php:19
+#: content_a/form/answer/detail/display.php:196 content_a/form/item/choice/display.php:29
 #: content_a/order/detail/display.php:38 content_a/pricehistory/display.php:9
 #: content_a/products/bullet/display.php:21 content_a/products/bullet/display.php:28
 #: content_a/products/property/add/display.php:56
@@ -4865,7 +4865,7 @@ msgstr "ویرایش"
 #: content_a/accounting/doc/add/display-doc.php:93
 #: content_a/accounting/year/add/display.php:31
 #: content_a/form/analytics/filter/display.php:34
-#: content_a/form/item/choice/display.php:55 content_a/products/bullet/display.php:29
+#: content_a/form/item/choice/display.php:73 content_a/products/bullet/display.php:29
 #: content_a/setting/fund/display.php:40 content_a/setting/instagram/display.php:45
 #: content_a/setting/menu/item/display.php:122
 #: content_a/setting/menu/setting/display.php:41 content_a/setting/pcpos/display.php:161
@@ -5013,7 +5013,7 @@ msgstr "تفصیل‌پذیر"
 #: content_a/form/analytics/table/display.php:105
 #: content_a/form/answer/item/display.php:71 content_a/form/answer/item/display.php:78
 #: content_a/form/home/display.php:134 content_a/form/home/display.php:142
-#: content_a/form/tag/display.php:133 content_a/notiflog/display.php:155
+#: content_a/form/tag/display.php:149 content_a/notiflog/display.php:155
 #: content_a/notiflog/display.php:163 content_business/search/display.php:47
 #: content_love/application/home/display.php:131
 #: content_love/business/domain/action/display.php:60
@@ -5030,7 +5030,7 @@ msgstr "تفصیل‌پذیر"
 #: content_sudo/apilog/home/display.php:196 content_sudo/ip/display.php:108
 #: content_sudo/tg/log/display.php:192 content_sudo/tg/log/display.php:200
 #: content_sudo/tg/users/display.php:133 content_sudo/tg/users/display.php:141
-#: dash/layout/search/search_filter.php:794
+#: dash/layout/search/search_filter.php:833
 msgid "Clear filters"
 msgstr "پاک‌سازی فیلترها"
 
@@ -5060,7 +5060,7 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:88
 #: content_a/accounting/turnover/display.php:247 content_a/category/home/display.php:156
 #: content_a/form/answer/item/display.php:83 content_a/form/home/display.php:148
-#: content_a/form/tag/display.php:142 content_a/notiflog/display.php:169
+#: content_a/form/tag/display.php:158 content_a/notiflog/display.php:169
 #: content_a/units/display.php:153 content_account/notification/display.php:57
 #: content_business/orders/display.php:54 content_love/application/home/display.php:143
 #: content_love/domain/billing/display.php:152 content_love/domain/fetch/display.php:114
@@ -5241,9 +5241,9 @@ msgstr "افزودن تفصیل جدید"
 #: content_site/options/magicbox/magicbox_gap.php:13
 #: content_site/options/post/post_template.php:24
 #: content_site/options/responsive/responsive_footer.php:71
-#: dash/layout/search/search_filter.php:466 dash/layout/search/search_filter.php:508
-#: dash/layout/search/search_filter.php:541 dash/layout/search/search_filter.php:585
-#: dash/layout/search/search_filter.php:623 dash/layout/search/search_filter.php:664
+#: dash/layout/search/search_filter.php:505 dash/layout/search/search_filter.php:547
+#: dash/layout/search/search_filter.php:580 dash/layout/search/search_filter.php:624
+#: dash/layout/search/search_filter.php:662 dash/layout/search/search_filter.php:703
 msgid "None"
 msgstr "هیچ‌کدام"
 
@@ -5721,8 +5721,8 @@ msgstr "افزودن درآمد"
 #: content_business/orders/view/display.php:89 content_cms/files/home/display.php:36
 #: content_crm/home/display.php:6 content_crm/sms/home/display.php:6
 #: content_crm/telegram/home/display.php:6 content_crm/ticket/home/display.php:6
-#: content_crm/transactions/display-statistics.php:21
-#: content_crm/transactions/display-statistics.php:37
+#: content_crm/transactions/display-statistics.php:20
+#: content_crm/transactions/display-statistics.php:36
 #: content_love/domain/home/display.php:248 content_love/files/home/display.php:36
 #: content_love/gift/home/display.php:7 content_love/sms/datalist/display.php:7
 #: content_sudo/tg/system/display.php:10 content_sudo/tg/users/display.php:85
@@ -5778,7 +5778,7 @@ msgid "Choose status"
 msgstr "انتخاب وضعیت"
 
 #: content_a/accounting/filter.php:23 content_a/discount/add/display.php:622
-#: content_a/form/status/display.php:17 content_a/order/status/display.php:44
+#: content_a/form/status/display.php:18 content_a/order/status/display.php:44
 #: content_a/products/edit/block/sidebar-menu.php:8 content_cms/home/display.php:7
 #: content_cms/posts/advance/display.php:22
 #: content_site/page/settings/display-aside-top.php:193 dash/app/posts/filter.php:57
@@ -5800,16 +5800,16 @@ msgstr "انتخاب قالب"
 #: content_a/accounting/filter.php:56 content_a/accounting/turnover/display.php:25
 #: content_a/accounting/year/display.php:9 content_a/discount/add/display.php:521
 #: content_a/form/answer/display.php:7 content_a/form/answer/export/display.php:48
-#: content_a/form/status/display.php:103 content_a/pricehistory/display.php:36
+#: content_a/form/status/display.php:104 content_a/pricehistory/display.php:36
 #: content_a/report/sale/display.php:94 content_love/plan/planDetail.php:29
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:49 lib/app/plan/planFactor.php:68
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:50 lib/app/plan/planFactor.php:68
 #: lib/app/product/report/sale_date.php:113
 msgid "Start date"
 msgstr "تاریخ شروع"
 
 #: content_a/accounting/filter.php:62 content_a/accounting/turnover/display.php:31
 #: content_a/accounting/year/display.php:10 content_a/discount/add/display.php:565
-#: content_a/form/answer/export/display.php:77 content_a/form/status/display.php:132
+#: content_a/form/answer/export/display.php:77 content_a/form/status/display.php:133
 #: content_a/pricehistory/display.php:37 content_a/report/sale/display.php:116
 #: content_love/plan/planDetail.php:40 lib/app/plan/planFactor.php:98
 #: lib/app/product/report/sale_date.php:114
@@ -5992,7 +5992,7 @@ msgstr "شارژ تنخواه از طریق جاری شرکا"
 msgid "Charge Bank from partners"
 msgstr "شارژ حساب بانکی از طریق جاری شرکا"
 
-#: content_a/accounting/home/display.php:321 content_a/form/itemLink.php:68
+#: content_a/accounting/home/display.php:321 content_a/form/itemLink.php:73
 #: content_a/report/home/view.php:8 dash/panel.php:276
 msgid "Reports"
 msgstr "گزارش‌ها"
@@ -6326,8 +6326,8 @@ msgstr "فروش"
 #: content_love/smslog/view/display.php:12 content_my/domain/setting/elements/irnic.php:26
 #: content_site/options/separator/separator_type.php:21
 #: content_site/options/separator/separator_type.php:42 dash/app/ticket/filter.php:57
-#: dash/app/ticket/filter.php:58 dash/app/transaction/filter.php:36
-#: dash/app/transaction/filter.php:37 dash/layout/search/search_filter.php:728
+#: dash/app/ticket/filter.php:58 dash/app/transaction/filter.php:55
+#: dash/app/transaction/filter.php:59 dash/layout/search/search_filter.php:767
 #: lib/app/application/queue_search.php:66 lib/app/category/add.php:100
 #: lib/app/gift/filter.php:51 lib/app/gift/filter.php:52 lib/app/nic_log/search.php:69
 #: lib/app/onlinenic/log/search.php:69
@@ -6740,8 +6740,8 @@ msgstr "چاپ همه اسناد حسابداری"
 #: content_site/options/heading/heading.php:101
 #: content_site/options/instagram/instagram.php:42 content_site/options/menu/menu.php:80
 #: content_site/options/socialnetwork/socialnetwork.php:71 dash/engine/pwa.php:63
-#: dash/engine/pwa.php:64 dash/layout/search/search_filter.php:458
-#: dash/layout/search/search_filter.php:500 dash/layout/search/search_filter.php:577
+#: dash/engine/pwa.php:64 dash/layout/search/search_filter.php:497
+#: dash/layout/search/search_filter.php:539 dash/layout/search/search_filter.php:616
 msgid "Manage"
 msgstr "مدیریت"
 
@@ -6770,7 +6770,7 @@ msgid "Your factors detail"
 msgstr "اطلاعات فاکتور شما"
 
 #: content_a/accounting/year/import/display.php:15
-#: content_a/form/item/duplicatelist/display.php:50
+#: content_a/form/item/duplicatelist/display.php:64
 #: content_a/products/import/display.php:103 content_a/setting/product/display.php:17
 #: dash/layout/admin/admin-titlebox.php:18 dash/layout/m2/admin-titlebox.php:20
 #: dash/layout/m2/pageNav.php:27 lib/app/quickaccess/setting.php:573
@@ -7233,8 +7233,8 @@ msgid "Set your application logo"
 msgstr "تنظیم لوگوی برنامه"
 
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
-#: content_a/form/inquiry/display.php:65 content_a/form/resultpage/display.php:83
-#: content_a/form/setting/display.php:51 content_a/order/comment/display.php:53
+#: content_a/form/inquiry/display.php:66 content_a/form/resultpage/display.php:84
+#: content_a/form/setting/display.php:52 content_a/order/comment/display.php:53
 #: content_a/setting/general/display.php:37
 #: content_business/ticket/add/add_ticket_form.php:19 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
@@ -7318,8 +7318,8 @@ msgid "Intro page #1"
 msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
-#: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:66
-#: content_a/form/resultpage/display.php:84 content_a/form/setting/display.php:54
+#: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:67
+#: content_a/form/resultpage/display.php:85 content_a/form/setting/display.php:55
 #: content_a/products/advance/display.php:38 content_cms/files/home/display.php:37
 #: content_cms/files/home/display.php:49 content_crm/member/identification/display.php:108
 #: content_crm/member/identification/display.php:120
@@ -7464,21 +7464,21 @@ msgstr "قیمت فروش"
 msgid "Sale Discount"
 msgstr "تخفیف فروش"
 
-#: content_a/buy/opr/display.php:315 content_a/form/item/display.php:252
+#: content_a/buy/opr/display.php:315 content_a/form/item/display.php:280
 #: content_love/business/analytics/display.php:38
 #: content_love/business/analytics/display.php:65
 msgid "Minimum"
 msgstr "حداقل"
 
-#: content_a/buy/opr/display.php:316 content_crm/transactions/display-statistics.php:17
-#: content_crm/transactions/display-statistics.php:33
+#: content_a/buy/opr/display.php:316 content_crm/transactions/display-statistics.php:16
+#: content_crm/transactions/display-statistics.php:32
 #: content_love/business/analytics/display.php:39
 #: content_love/business/analytics/display.php:66
 #: includes/languages/trans_static_public.php:900
 msgid "Average"
 msgstr "میانگین"
 
-#: content_a/buy/opr/display.php:317 content_a/form/item/display.php:281
+#: content_a/buy/opr/display.php:317 content_a/form/item/display.php:312
 #: content_love/business/analytics/display.php:37
 #: content_love/business/analytics/display.php:64
 msgid "Maximum"
@@ -7682,7 +7682,7 @@ msgid "Filter"
 msgstr "فیلتر"
 
 #: content_a/cart/home/display.php:90 content_a/category/home/display.php:115
-#: content_a/form/tag/display.php:109 content_business/search/display.php:19
+#: content_a/form/tag/display.php:121 content_business/search/display.php:19
 #: content_love/portfolio/add/display.php:58 dash/datafilter.php:83
 #: dash/layout/search/search-bar.php:61 lib/app/factor/filter.php:14
 #: lib/app/form/answer/filter.php:15 lib/app/order/filter.php:59
@@ -7712,7 +7712,7 @@ msgstr "سبد خرید"
 #: content_a/cart/home/display.php:144 content_a/cart/home/display.php:183
 #: content_a/category/home/display.php:77 content_a/products/advance/display.php:24
 #: content_a/report/productsalesovertime/display.php:184 content_a/sale/display.php:40
-#: content_a/units/display.php:65 dash/layout/search/search_filter.php:536
+#: content_a/units/display.php:65 dash/layout/search/search_filter.php:575
 #: includes/languages/trans_static.php:499
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:156
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:157
@@ -7862,7 +7862,7 @@ msgstr "عنوان برای موتورهای جستجو"
 msgid "Recommended being more than 40 character."
 msgstr "توصیه می‌شود حداقل بیش از ۴۰ کاراکتر باشد."
 
-#: content_a/category/edit/display.php:41 content_a/form/setting/display.php:15
+#: content_a/category/edit/display.php:41 content_a/form/setting/display.php:16
 #: content_a/products/edit/block/seo.php:22 content_a/products/edit/block/seo.php:24
 msgid "Slug"
 msgstr "نامک"
@@ -7989,11 +7989,11 @@ msgstr "از"
 msgid "variants"
 msgstr "تنوع محصول"
 
-#: content_a/category/home/display.php:116 content_a/form/tag/display.php:114
+#: content_a/category/home/display.php:116 content_a/form/tag/display.php:128
 msgid "Sort by Title ASC"
 msgstr "عنوان، صعودی"
 
-#: content_a/category/home/display.php:117 content_a/form/tag/display.php:119
+#: content_a/category/home/display.php:117 content_a/form/tag/display.php:135
 msgid "Sort by Title DESC"
 msgstr "عنوان نزولی"
 
@@ -8038,7 +8038,7 @@ msgstr "تنظیمات محصولات"
 #: content_crm/sms/datalist/view.php:52 content_crm/telegram/conversation/view.php:43
 #: content_crm/telegram/datalist/view.php:42 content_crm/ticket/datalist/view.php:51
 #: content_crm/ticket/message/view.php:43 content_crm/transactions/userbudget/view.php:49
-#: content_crm/transactions/view.php:61 content_love/business/datalist/view.php:41
+#: content_crm/transactions/view.php:63 content_love/business/datalist/view.php:41
 #: content_love/business/domain/action/view.php:39
 #: content_love/business/domain/alllist/view.php:60
 #: content_love/business/domain/dnslist/view.php:59
@@ -8115,7 +8115,7 @@ msgstr "انتخاب دسته‌بندی جدید"
 msgid "New category"
 msgstr "دسته‌بندی جدید"
 
-#: content_a/category/remove/display.php:36 dash/layout/search/search_filter.php:505
+#: content_a/category/remove/display.php:36 dash/layout/search/search_filter.php:544
 msgid "Select one category"
 msgstr "لطفا یک دسته را انتخاب کنید"
 
@@ -8175,7 +8175,7 @@ msgid "Qty"
 msgstr "تعداد"
 
 #: content_a/chap/size-a4/a4-1.php:43 content_a/products/property/display.php:124
-#: content_a/units/display.php:113 dash/layout/search/search_filter.php:570
+#: content_a/units/display.php:113 dash/layout/search/search_filter.php:609
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:157
 #: lib/app/product/filter.php:442 lib/app/product/property.php:272
 msgid "Unit"
@@ -8250,7 +8250,7 @@ msgstr "بدهی فعلی"
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:32
 #: dash/app/log/caller/transaction/transaction_newPaySuccessfull.php:68
 #: dash/app/ticket/filter.php:52 dash/app/ticket/filter.php:53
-#: dash/app/transaction/filter.php:55 includes/languages/trans_static.php:72
+#: dash/app/transaction/filter.php:79 includes/languages/trans_static.php:72
 #: lib/app/log/caller/business/business_creatingNew.php:42
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:181
 #: lib/app/log/caller/order/order_adminNewOrderAfterPay.php:201
@@ -8266,7 +8266,7 @@ msgstr "تلفن"
 msgid "Date Printed"
 msgstr "تاریخ چاپ"
 
-#: content_a/chap/size-receipt/receipt.php:136 content_a/form/item/choice/display.php:10
+#: content_a/chap/size-receipt/receipt.php:136 content_a/form/item/choice/display.php:17
 #: content_a/order/home/display.php:23 content_a/order/products/display.php:49
 #: content_a/order/products/display.php:51 content_a/plugin/view/display.php:221
 #: content_a/pricehistory/display.php:8 content_a/pricehistory/display.php:39
@@ -8283,7 +8283,7 @@ msgstr "تاریخ چاپ"
 #: content_site/assemble/wrench/price.php:52 lib/app/form/item/type.php:557
 #: lib/app/form/item/type.php:576 lib/app/form/item/type.php:592
 #: lib/app/log/caller/business/business_plugin.php:81
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:61 lib/app/order/filter.php:99
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:62 lib/app/order/filter.php:99
 #: lib/app/order/filter.php:100 lib/app/order/filter.php:101 lib/app/order/filter.php:102
 #: lib/app/order/filter.php:103 lib/app/product/filter.php:193
 #: lib/app/product/filter.php:202 lib/app/product/property.php:249
@@ -8294,8 +8294,8 @@ msgstr "قیمت"
 #: content_a/chap/size-receipt/receipt.php:138
 #: content_a/form/report/answer/display-table.php:25
 #: content_a/form/report/compare/display.php:99
-#: content_crm/transactions/display-statistics.php:13
-#: content_crm/transactions/display-statistics.php:29
+#: content_crm/transactions/display-statistics.php:12
+#: content_crm/transactions/display-statistics.php:28
 #: content_love/business/analytics/display.php:36
 #: content_love/business/analytics/display.php:63
 msgid "Sum"
@@ -8357,8 +8357,8 @@ msgstr "ارسال رایگان"
 #: content_a/discount/add/display.php:126
 #: content_a/form/analytics/addcondition/display-condition.php:27
 #: content_a/form/analytics/addcondition/display-condition.php:29
-#: content_a/form/condition/display.php:100 content_a/form/condition/display.php:117
-#: content_a/form/condition/display.php:215 content_a/products/property/add/display.php:47
+#: content_a/form/condition/display.php:107 content_a/form/condition/display.php:124
+#: content_a/form/condition/display.php:227 content_a/products/property/add/display.php:47
 #: content_a/products/property/display.php:60
 #: content_a/products/variants/display-add-variants.php:17
 #: content_a/products/variants/display-add-variants.php:38
@@ -8470,7 +8470,7 @@ msgstr "تاریخ فعال شدن"
 #: content_a/report/sale/display.php:183
 #: content_love/business/domain/action/display.php:25
 #: content_love/business/domain/log/display.php:13
-#: dash/layout/search/search_filter.php:396 lib/app/form/item/type.php:269
+#: dash/layout/search/search_filter.php:402 lib/app/form/item/type.php:269
 msgid "Time"
 msgstr "زمان"
 
@@ -8552,7 +8552,7 @@ msgstr "سوال"
 #: content_a/form/analytics/tag/display.php:41
 #: content_a/form/answer/detail/display.php:429 content_love/changelog/add/display.php:19
 #: content_love/portfolio/add/display.php:84 dash/app/posts/dropdown.php:33
-#: dash/layout/search/search_filter.php:452 includes/languages/trans_static.php:557
+#: dash/layout/search/search_filter.php:491 includes/languages/trans_static.php:557
 #: lib/app/form/answer/filter.php:38 lib/app/product/filter.php:412
 #: lib/app/product/filter.php:422 lib/app/product/filter.php:432
 #: lib/app/store/analytics.php:60
@@ -8636,7 +8636,7 @@ msgstr "انصراف"
 
 #: content_a/form/analytics/addcondition/display-condition.php:43
 #: content_a/form/analytics/addcondition/view.php:10
-#: content_a/form/analytics/pageStep.php:11 content_a/form/condition/display.php:191
+#: content_a/form/analytics/pageStep.php:11 content_a/form/condition/display.php:203
 msgid "Add condition"
 msgstr "افزودن شرط"
 
@@ -8678,13 +8678,13 @@ msgstr "افزودن دیدگاه به این پاسخ"
 
 #: content_a/form/analytics/answer/display.php:82
 #: content_a/form/answer/detail/display.php:599 content_a/form/answer/note/display.php:51
-#: content_a/form/tag/edit/display.php:43 includes/languages/trans_static.php:1006
+#: content_a/form/tag/edit/display.php:51 includes/languages/trans_static.php:1006
 msgid "Public"
 msgstr "عمومی"
 
 #: content_a/form/analytics/answer/display.php:88
 #: content_a/form/answer/detail/display.php:588 content_a/form/answer/note/display.php:35
-#: content_a/form/tag/edit/display.php:52 includes/languages/trans_static.php:1009
+#: content_a/form/tag/edit/display.php:61 includes/languages/trans_static.php:1009
 msgid "Private"
 msgstr "خصوصی"
 
@@ -8701,7 +8701,7 @@ msgstr "نظرات"
 msgid "Comment"
 msgstr "دیدگاه"
 
-#: content_a/form/analytics/answer/display.php:109 content_a/form/tag/edit/display.php:35
+#: content_a/form/analytics/answer/display.php:109 content_a/form/tag/edit/display.php:42
 #: includes/languages/trans_static.php:1003
 msgid "Privacy"
 msgstr "حریم خصوصی"
@@ -8826,7 +8826,7 @@ msgstr "نمودار شامل شده‌ها"
 #: content_love/business/domain/log/display.php:12
 #: content_love/domain/billing/display.php:90 content_love/plan/datalist/display.php:7
 #: content_love/plugin/history/display.php:10 content_sudo/smsclient/home/display.php:19
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:53 lib/app/plan/filter.php:97
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:54 lib/app/plan/filter.php:97
 #: lib/app/plan/filter.php:110 lib/app/plan/filter.php:123 lib/app/plan/filter.php:135
 msgid "Action"
 msgstr "عملیات"
@@ -8953,8 +8953,8 @@ msgstr "پرداخت موفقیت‌آمیز"
 msgid "Unsuccess"
 msgstr "ناموفق"
 
-#: content_a/form/answer/detail/display.php:192 content_a/form/home/model.php:12
-#: content_a/form/itemLink.php:105
+#: content_a/form/answer/detail/display.php:192 content_a/form/dashboard/display.php:16
+#: content_a/form/home/model.php:12
 msgid "Answer id"
 msgstr "کد پاسخ"
 
@@ -9064,17 +9064,17 @@ msgid "Your and customer can view this note"
 msgstr "شما و مشتری می‌توانید این یادداشت را مشاهده کنید"
 
 #: content_a/form/answer/detail/display.php:608 content_a/form/answer/note/display.php:60
-#: content_a/form/tag/edit/display.php:84
+#: content_a/form/tag/edit/display.php:96
 msgid "Blue"
 msgstr "آبی"
 
 #: content_a/form/answer/detail/display.php:610 content_a/form/answer/note/display.php:62
-#: content_a/form/tag/edit/display.php:74
+#: content_a/form/tag/edit/display.php:85
 msgid "Green"
 msgstr "سبز"
 
 #: content_a/form/answer/detail/display.php:611 content_a/form/answer/note/display.php:63
-#: content_a/form/tag/edit/display.php:65
+#: content_a/form/tag/edit/display.php:75
 msgid "Red"
 msgstr "قرمز"
 
@@ -9098,7 +9098,7 @@ msgid "Dark"
 msgstr "تیره"
 
 #: content_a/form/answer/detail/display.php:617 content_a/form/answer/note/display.php:69
-#: content_a/form/tag/edit/display.php:57
+#: content_a/form/tag/edit/display.php:66
 #: content_site/options/background/background_color.php:10
 #: content_site/options/color/color.php:23
 msgid "Color"
@@ -9192,7 +9192,7 @@ msgstr "همه پاسخ‌ها را هم‌ اکنون دانلود کنید"
 msgid "Export by special filter"
 msgstr "دریافت خروجی با فیلتر خاص"
 
-#: content_a/form/answer/export/display.php:60 content_a/form/status/display.php:115
+#: content_a/form/answer/export/display.php:60 content_a/form/status/display.php:116
 #: content_a/report/productsalesovertime/display.php:3
 #: content_a/report/sale/display.php:105 content_a/report/salesovertime/display.php:3
 #: content_a/setting/order/schedule/display.php:51
@@ -9200,7 +9200,7 @@ msgstr "دریافت خروجی با فیلتر خاص"
 msgid "Start time"
 msgstr "ساعت شروع"
 
-#: content_a/form/answer/export/display.php:89 content_a/form/status/display.php:144
+#: content_a/form/answer/export/display.php:89 content_a/form/status/display.php:145
 #: content_a/report/productsalesovertime/display.php:11
 #: content_a/report/sale/display.php:127 content_a/report/salesovertime/display.php:11
 #: content_a/setting/order/schedule/display.php:52
@@ -9241,7 +9241,7 @@ msgid "Export form answer"
 msgstr "خروجی از پاسخ‌ فرم"
 
 #: content_a/form/answer/export/view.php:15 content_a/form/answer/grouptag/view.php:15
-#: content_a/form/answer/view.php:9 content_a/form/itemLink.php:62
+#: content_a/form/answer/view.php:9 content_a/form/itemLink.php:67
 #: content_a/form/report/display.php:23
 msgid "Answers"
 msgstr "پاسخ‌ها"
@@ -9271,7 +9271,7 @@ msgstr "تگ گروهی"
 #: content_a/form/report/answer/display-pie.php:19
 #: content_a/form/report/answer/display-province.php:10
 #: content_a/form/report/answer/display-wordcloud.php:3
-#: content_a/form/report/compare/display.php:115 content_a/form/tag/display.php:74
+#: content_a/form/report/compare/display.php:115 content_a/form/tag/display.php:81
 #: dash/social/telegram/commands/ticket.php:101
 msgid "Answer"
 msgstr "پاسخ"
@@ -9300,40 +9300,40 @@ msgstr "افزودن پاسخ جدید"
 msgid "Add tag by this result"
 msgstr "افزودن تگ به نتایج فعلی"
 
-#: content_a/form/condition/display.php:12
+#: content_a/form/condition/display.php:18
 msgid "On this page you can link one question to another question"
 msgstr "در این صفحه شما می‌توانید یک سوال را به سوال دیگر وابسته کنید"
 
-#: content_a/form/condition/display.php:14
+#: content_a/form/condition/display.php:20
 msgid "Only questions that have options can be included in the condition"
 msgstr "تنها سوالاتی که داری گزینه هستند امکان قرار گیری در شروط را دارند"
 
-#: content_a/form/condition/display.php:23
+#: content_a/form/condition/display.php:29
 msgid "IF"
 msgstr "اگر"
 
-#: content_a/form/condition/display.php:26 content_a/form/condition/display.php:136
-#: content_a/form/condition/display.php:165
+#: content_a/form/condition/display.php:32 content_a/form/condition/display.php:142
+#: content_a/form/condition/display.php:174
 msgid "Select question"
 msgstr "انتخاب سوال"
 
-#: content_a/form/condition/display.php:103
+#: content_a/form/condition/display.php:110
 msgid "Select value"
 msgstr "انتخاب مقدار"
 
-#: content_a/form/condition/display.php:133 content_a/form/condition/display.php:216
+#: content_a/form/condition/display.php:139 content_a/form/condition/display.php:228
 msgid "Then"
 msgstr "آنگاه"
 
-#: content_a/form/condition/display.php:162 content_a/form/condition/display.php:217
+#: content_a/form/condition/display.php:171 content_a/form/condition/display.php:229
 msgid "Else"
 msgstr "در غیر این صورت"
 
-#: content_a/form/condition/display.php:213
+#: content_a/form/condition/display.php:225
 msgid "If"
 msgstr "اگر"
 
-#: content_a/form/condition/view.php:9 content_a/form/itemLink.php:41
+#: content_a/form/condition/view.php:9 content_a/form/itemLink.php:46
 msgid "Form condition"
 msgstr "شروط فرم"
 
@@ -9345,6 +9345,38 @@ msgstr "مساوی با"
 msgid "Is not equal"
 msgstr "نامساوی با"
 
+#: content_a/form/dashboard/display.php:14
+msgid "Find answer detail by id"
+msgstr "یافتن پاسخ با داشتن کد پاسخ"
+
+#: content_a/form/dashboard/display.php:24
+msgid "Find & Print"
+msgstr "جستجو و چاپ"
+
+#: content_a/form/dashboard/display.php:43
+msgid "This is a private form. Cannot use independently"
+msgstr "این یک فرم خصوصی است و امکان استفاده از این فرم به صورت مستقل وجود ندارد"
+
+#: content_a/form/dashboard/display.php:47
+msgid "This form used in shipping page"
+msgstr "این فرم در صفحه ارسال سفارش استفاده شده است"
+
+#: content_a/form/dashboard/display.php:51
+msgid "This form used for satisfaction after register order"
+msgstr "این فرم برای رضایت‌سنجی پس از ثبت سفارش استفاده می‌شود"
+
+#: content_a/form/dashboard/display.php:58
+msgid ""
+"Using this short code, you can use this form in the description of the product or post "
+"or site builder"
+msgstr ""
+"با استفاده از این کد کوتاه می‌توانید از این فرم در توضیح محصولات،‌ نوشته‌ها و سایت‌ساز "
+"استفاده کنید"
+
+#: content_a/form/dashboard/view.php:9 content_a/form/itemLink.php:5
+msgid "Form Dashboard"
+msgstr "داشبورد فرم"
+
 #: content_a/form/duplicate/display.php:4
 msgid "Create duplicate form"
 msgstr "ایجاد کپی از فرم"
@@ -9353,30 +9385,10 @@ msgstr "ایجاد کپی از فرم"
 msgid "Duplicate form"
 msgstr "کپی از فرم"
 
-#: content_a/form/edit/display.php:20 content_a/order/home/display.php:17
+#: content_a/form/edit/display.php:11 content_a/order/home/display.php:17
 #: content_business/orders/display.php:16
 msgid "Items"
 msgstr "آیتم‌ها"
-
-#: content_a/form/edit/display.php:56
-msgid "This is a private form. Cannot use independently"
-msgstr "این یک فرم خصوصی است و امکان استفاده از این فرم به صورت مستقل وجود ندارد"
-
-#: content_a/form/edit/display.php:60
-msgid "This form used in shipping page"
-msgstr "این فرم در صفحه ارسال سفارش استفاده شده است"
-
-#: content_a/form/edit/display.php:64
-msgid "This form used for satisfaction after register order"
-msgstr "این فرم برای رضایت‌سنجی پس از ثبت سفارش استفاده می‌شود"
-
-#: content_a/form/edit/display.php:72
-msgid ""
-"Using this short code, you can use this form in the description of the product or post "
-"or site builder"
-msgstr ""
-"با استفاده از این کد کوتاه می‌توانید از این فرم در توضیح محصولات،‌ نوشته‌ها و سایت‌ساز "
-"استفاده کنید"
 
 #: content_a/form/edit/view.php:9 content_a/form/setting/view.php:9
 msgid "Edit new contact form"
@@ -9436,11 +9448,11 @@ msgstr "همین الان یک فرم تماس ایجاد کنید!"
 msgid "Please enter the answer id to load detail"
 msgstr "برای بارگزاری اطلاعات، لطفا کد پاسخ را وارد کنید"
 
-#: content_a/form/home/view.php:16
+#: content_a/form/home/view.php:17 dash/layout/m2/sidebar.php:290
 msgid "Add new Form"
 msgstr "افزودن فرم جدید"
 
-#: content_a/form/inquiry/display.php:10
+#: content_a/form/inquiry/display.php:11
 msgid ""
 "The query feature allows you to inform the recipient of your result or response by "
 "referring to the form and entering your information."
@@ -9448,15 +9460,15 @@ msgstr ""
 "ویژگی استعلام این امکان را به شما می‌دهد تا مخاطب شما با مراجعه به فرم و وارد کردن "
 "اطلاعات،‌ از نتیجه پاسخ خود مطلع شود."
 
-#: content_a/form/inquiry/display.php:14
+#: content_a/form/inquiry/display.php:15
 msgid "Enable inquiry"
 msgstr "فعال‌سازی استعلام"
 
-#: content_a/form/inquiry/display.php:17
+#: content_a/form/inquiry/display.php:18
 msgid "inquiry page address"
 msgstr "آدرس صفحه استعلام"
 
-#: content_a/form/inquiry/display.php:27
+#: content_a/form/inquiry/display.php:28
 msgid ""
 "You have not any inquiry question in your form. Questions that are mobile or national "
 "code can be used in the inquiry process"
@@ -9464,24 +9476,24 @@ msgstr ""
 "شما در فرم خود سوالی که بتوان از آن استعلام گرفت ندارید. تنها سوالاتی که از جنس تلفن "
 "همراه و یا کد ملی هستند توانایی استفاده در فرایند استعلام را خواهند داشت"
 
-#: content_a/form/inquiry/display.php:29
+#: content_a/form/inquiry/display.php:30
 msgid "Which question to ask?"
 msgstr "کدام سوال را برای استعلام قرار می‌دهید؟"
 
-#: content_a/form/inquiry/display.php:44
+#: content_a/form/inquiry/display.php:45
 msgid "Message if result founded"
 msgstr "پیام در صورت یافتن نتیجه"
 
-#: content_a/form/inquiry/display.php:49
+#: content_a/form/inquiry/display.php:50
 msgid "Message if result not founded"
 msgstr "پیام در صورتی که نتیجه‌ای یافت نشد"
 
-#: content_a/form/inquiry/display.php:55 content_a/form/inquiry/display.php:56
-#: content_a/form/tag/edit/display.php:17
+#: content_a/form/inquiry/display.php:56 content_a/form/inquiry/display.php:57
+#: content_a/form/tag/edit/display.php:23
 msgid "Inquiry Message"
 msgstr "پیام قبل از استعلام"
 
-#: content_a/form/inquiry/display.php:62
+#: content_a/form/inquiry/display.php:63
 msgid "Inquiry page image"
 msgstr "تصویر صفحه استعلام"
 
@@ -9489,21 +9501,21 @@ msgstr "تصویر صفحه استعلام"
 msgid "Form inquiry"
 msgstr "استعلام از فرم"
 
-#: content_a/form/item/add/display.php:15 content_a/form/item/add/view.php:9
+#: content_a/form/item/add/display.php:12 content_a/form/item/add/view.php:9
 #: content_a/form/item/view.php:15
 msgid "Add new item"
 msgstr "افزودن آیتم جدید"
 
-#: content_a/form/item/add/display.php:24 content_a/form/item/display.php:33
-#: content_a/form/item/display.php:34
+#: content_a/form/item/add/display.php:21 content_a/form/item/display.php:45
+#: content_a/form/item/display.php:46
 msgid "Is required?"
 msgstr "آیا الزامی است؟"
 
-#: content_a/form/item/choice/display.php:5
+#: content_a/form/item/choice/display.php:11
 msgid "Tilti of Choice"
 msgstr "عنوان گزینه"
 
-#: content_a/form/item/choice/display.php:53 content_site/assemble/wrench/section.php:125
+#: content_a/form/item/choice/display.php:70 content_site/assemble/wrench/section.php:125
 msgid "Editing..."
 msgstr "در حال ویرایش..."
 
@@ -9511,37 +9523,37 @@ msgstr "در حال ویرایش..."
 msgid "Manage item choice"
 msgstr "مدیریت گزینه‌ها"
 
-#: content_a/form/item/display.php:10
+#: content_a/form/item/display.php:16
 msgid "Item title"
 msgstr "عنوان گزینه"
 
-#: content_a/form/item/display.php:18
+#: content_a/form/item/display.php:25
 msgid "Item type"
 msgstr "نوع آیتم"
 
-#: content_a/form/item/display.php:22
+#: content_a/form/item/display.php:30
 msgid "Change type"
 msgstr "ویرایش نوع"
 
-#: content_a/form/item/display.php:47 content_a/form/item/display.php:48
+#: content_a/form/item/display.php:63 content_a/form/item/display.php:64
 #: content_cms/posts/publishdate/display.php:54 content_cms/posts/writer/display.php:57
 #: content_site/section/part/section_control.php:64 lib/app/form/generator.php:791
 msgid "Hidden"
 msgstr "مخفی"
 
-#: content_a/form/item/display.php:48
+#: content_a/form/item/display.php:65
 msgid "Only you can view this item and edit answer"
 msgstr "فقط شما می‌توانید این آیتم را مشاهده کنید و پاسخ آن را ویرایش کنید"
 
-#: content_a/form/item/display.php:55
+#: content_a/form/item/display.php:74
 msgid "Remove question"
 msgstr "حذف سوال"
 
-#: content_a/form/item/display.php:212
+#: content_a/form/item/display.php:232
 msgid "Maximum len"
 msgstr "حداکثر طول"
 
-#: content_a/form/item/display.php:220 content_a/order/shipping/display.php:69
+#: content_a/form/item/display.php:242 content_a/order/shipping/display.php:69
 #: content_a/setting/shipping/package/display.php:30
 #: content_a/setting/shipping/package/display.php:90 content_crm/sms/view/display.php:52
 #: content_love/sms/datalist/display.php:31 lib/app/product/property.php:64
@@ -9549,39 +9561,39 @@ msgstr "حداکثر طول"
 msgid "Length"
 msgstr "طول"
 
-#: content_a/form/item/display.php:229 content_a/form/item/display.php:230
+#: content_a/form/item/display.php:257 content_a/form/item/display.php:258
 msgid "Include lowercase"
 msgstr "شامل حروف کوچک"
 
-#: content_a/form/item/display.php:239 content_a/form/item/display.php:240
+#: content_a/form/item/display.php:271 content_a/form/item/display.php:272
 msgid "Include uppercase"
 msgstr "شامل حروف بزرگ"
 
-#: content_a/form/item/display.php:262
+#: content_a/form/item/display.php:290
 msgid "Minimum date"
 msgstr "حداقل تاریخ"
 
-#: content_a/form/item/display.php:270
+#: content_a/form/item/display.php:301
 msgid "Maximum date"
 msgstr "حداکثر تاریخ"
 
-#: content_a/form/item/display.php:292
+#: content_a/form/item/display.php:322
 msgid "Placeholder"
 msgstr "متن راهنمایی"
 
-#: content_a/form/item/display.php:309
+#: content_a/form/item/display.php:338
 msgid "Put every choice in one line"
 msgstr "قرار دادن هر گزینه در یک خط"
 
-#: content_a/form/item/display.php:320
+#: content_a/form/item/display.php:350
 msgid "Random choice"
 msgstr "قرارگیری تصادفی گزینه‌ها"
 
-#: content_a/form/item/display.php:332
+#: content_a/form/item/display.php:362
 msgid "Check unique"
 msgstr "بررسی تکراری نبودن"
 
-#: content_a/form/item/display.php:335 content_a/form/item/duplicatelist/display.php:42
+#: content_a/form/item/display.php:368 content_a/form/item/duplicatelist/display.php:56
 msgid ""
 "In addition to checking the non-duplication of this item in the list of previous "
 "answers, you can manually enter the list of items that you think are duplicate so that "
@@ -9590,61 +9602,61 @@ msgstr ""
 "علاوه بر بررسی عدم تکراری بودن این مورد در لیست پاسخ‌های قبلی، می‌توانید به صورت دستی "
 "لیست مواردی که فکر می‌کنید تکراری هستند را وارد کنید تا از ثبت‌نام آنها جلوگیری شود."
 
-#: content_a/form/item/display.php:336
+#: content_a/form/item/display.php:370
 msgid "Define duplicate list"
 msgstr "تعریف لیست پاسخ‌های تکراری"
 
-#: content_a/form/item/display.php:352
+#: content_a/form/item/display.php:383
 msgid "Allow extention file"
 msgstr "فایل‌های مجاز به ارسال"
 
-#: content_a/form/item/display.php:355
+#: content_a/form/item/display.php:386
 msgid "Any file"
 msgstr "هرفایلی"
 
-#: content_a/form/item/display.php:372
+#: content_a/form/item/display.php:404
 msgid "Send notification after complete form?"
 msgstr "آیا بعد از تکمیل فرم پیام اطلاع‌رسانی ارسال شود؟"
 
-#: content_a/form/item/display.php:375 content_a/form/tag/edit/display.php:129
+#: content_a/form/item/display.php:410 content_a/form/tag/edit/display.php:150
 msgid "Notification text"
 msgstr "متن پیام"
 
-#: content_a/form/item/display.php:388
+#: content_a/form/item/display.php:424
 msgid "Signup user by this item?"
 msgstr "آیا کاربر با این آیتم در بیزینس شما ثبت‌نام شود؟"
 
-#: content_a/form/item/display.php:400
+#: content_a/form/item/display.php:432
 #: content_a/products/variants/display-add-new-child.php:51
 msgid "Default value"
 msgstr "مقدار پیش‌فرض"
 
-#: content_a/form/item/display.php:415
+#: content_a/form/item/display.php:450
 msgid "White list value"
 msgstr "لیست مقادیر مجاز"
 
-#: content_a/form/item/display.php:428
+#: content_a/form/item/display.php:465
 msgid "Define url key"
 msgstr "تعریف کلید آدرس"
 
-#: content_a/form/item/display.php:436
+#: content_a/form/item/display.php:475
 msgid "To use from this item you need to define the url key"
 msgstr "برای استفاده از این آیتم باید کلید آدرس را تعریف کنید"
 
-#: content_a/form/item/display.php:442
+#: content_a/form/item/display.php:481
 msgid "The form url by this index"
 msgstr "آدرس فرم با این ورودی مخفی"
 
-#: content_a/form/item/display.php:446
+#: content_a/form/item/display.php:485
 msgid "Replace :val to your value"
 msgstr ":val را با مقدار دلخواه جایگزین کنید"
 
-#: content_a/form/item/display.php:472 content_a/setting/order/carttext/display.php:14
+#: content_a/form/item/display.php:508 content_a/setting/order/carttext/display.php:14
 #: content_a/setting/shipping/text/display.php:6
 msgid "Message Type"
 msgstr "نوع پیام"
 
-#: content_a/form/item/display.php:475 content_a/form/tag/display.php:68
+#: content_a/form/item/display.php:511 content_a/form/tag/display.php:75
 #: content_a/setting/order/carttext/display.php:18 content_a/setting/pcpos/display.php:125
 #: content_a/setting/shipping/text/display.php:9 content_cms/posts/advance/view.php:29
 #: content_cms/posts/publishdate/view.php:29 content_cms/posts/writer/view.php:38
@@ -9655,41 +9667,41 @@ msgstr "نوع پیام"
 msgid "Default"
 msgstr "پیش‌فرض"
 
-#: content_a/form/item/display.php:476 content_a/setting/order/carttext/display.php:19
+#: content_a/form/item/display.php:514 content_a/setting/order/carttext/display.php:19
 #: content_a/setting/shipping/text/display.php:10
 msgid "Red (For important warning message)"
 msgstr "قرمز (برای هشدار‌های مهم)"
 
-#: content_a/form/item/display.php:477 content_a/setting/order/carttext/display.php:20
+#: content_a/form/item/display.php:517 content_a/setting/order/carttext/display.php:20
 #: content_a/setting/shipping/text/display.php:11
 msgid "Green (For thank you message)"
 msgstr "سبز (برای پیام تشکر)"
 
-#: content_a/form/item/display.php:478 content_a/setting/order/carttext/display.php:21
+#: content_a/form/item/display.php:520 content_a/setting/order/carttext/display.php:21
 #: content_a/setting/shipping/text/display.php:12
 msgid "Blue (For information message)"
 msgstr "آبی (‌برای پیام اطلاع رسانی)"
 
-#: content_a/form/item/display.php:479 content_a/setting/order/carttext/display.php:22
+#: content_a/form/item/display.php:523 content_a/setting/order/carttext/display.php:22
 #: content_a/setting/shipping/text/display.php:13
 msgid "Yellow (For warning message)"
 msgstr "زرد (برای پیام هشدار)"
 
-#: content_a/form/item/display.php:491 content_a/setting/menu/display.php:9
+#: content_a/form/item/display.php:532 content_a/setting/menu/display.php:9
 #: content_a/setting/menu/roster/display.php:25 content_account/ref/display.php:30
 #: content_love/changelog/add/display.php:14 content_site/options/link/link_raw.php:22
 msgid "Link"
 msgstr "لینک"
 
-#: content_a/form/item/display.php:497
+#: content_a/form/item/display.php:543
 msgid "Open in blank page?"
 msgstr "باز کردن در صفحه جدید؟"
 
-#: content_a/form/item/display.php:507
+#: content_a/form/item/display.php:553
 msgid "Choices"
 msgstr "گزینه‌ها"
 
-#: content_a/form/item/display.php:510
+#: content_a/form/item/display.php:557
 msgid "Manage choice"
 msgstr "مدیریت گزینه‌"
 
@@ -9697,59 +9709,59 @@ msgstr "مدیریت گزینه‌"
 msgid "This item have not duplicate list"
 msgstr "این آیتم دارای قابلیت ثبت پاسخ تکراری نیست"
 
-#: content_a/form/item/duplicatelist/display.php:10
+#: content_a/form/item/duplicatelist/display.php:16
 msgid "Prohibition of registration for the following nationalcode"
 msgstr "ممنوعیت ثبت‌نام برای کد‌ملی‌های زیر"
 
-#: content_a/form/item/duplicatelist/display.php:11 lib/app/form/item/type.php:129
+#: content_a/form/item/duplicatelist/display.php:18 lib/app/form/item/type.php:129
 msgid "Enter nationalcode"
 msgstr "کدملی را وارد کنید"
 
-#: content_a/form/item/duplicatelist/display.php:12
+#: content_a/form/item/duplicatelist/display.php:20
 msgid "Search in nationalcode"
 msgstr "جستجو در کدملی"
 
-#: content_a/form/item/duplicatelist/display.php:16
+#: content_a/form/item/duplicatelist/display.php:24
 msgid "Prohibition of registration for the following mobile phone number"
 msgstr "ممنوعیت ثبت‌نام برای شماره تلفن‌های همراه زیر"
 
-#: content_a/form/item/duplicatelist/display.php:17 lib/app/form/item/type.php:377
+#: content_a/form/item/duplicatelist/display.php:26 lib/app/form/item/type.php:377
 msgid "Enter mobile"
 msgstr "موبایل را وارد کنید"
 
-#: content_a/form/item/duplicatelist/display.php:18
+#: content_a/form/item/duplicatelist/display.php:28
 msgid "Search in mobile"
 msgstr "جستجو در موبایل"
 
-#: content_a/form/item/duplicatelist/display.php:22
+#: content_a/form/item/duplicatelist/display.php:32
 msgid "Prohibition of registration for the following email address"
 msgstr "ممنوعیت ثبت‌نام برای ایمیل‌های زیر"
 
-#: content_a/form/item/duplicatelist/display.php:23
+#: content_a/form/item/duplicatelist/display.php:34
 msgid "Enter email"
 msgstr "ایمیل را وارد کنید"
 
-#: content_a/form/item/duplicatelist/display.php:24
+#: content_a/form/item/duplicatelist/display.php:36
 msgid "Search in email"
 msgstr "جستجو در ایمیل"
 
-#: content_a/form/item/duplicatelist/display.php:28
+#: content_a/form/item/duplicatelist/display.php:40
 msgid "Prohibition of registration for the following answer"
 msgstr "ممنوعیت ثبت‌نام برای پاسخ‌های زیر"
 
-#: content_a/form/item/duplicatelist/display.php:29
+#: content_a/form/item/duplicatelist/display.php:42
 msgid "Enter answer"
 msgstr "پاسخ را وارد کنید"
 
-#: content_a/form/item/duplicatelist/display.php:45
+#: content_a/form/item/duplicatelist/display.php:59
 msgid "Import data from file"
 msgstr "وارد کردن دسته‌ای اطلاعات از فایل"
 
-#: content_a/form/item/duplicatelist/display.php:108
+#: content_a/form/item/duplicatelist/display.php:129
 msgid "+:count items"
 msgstr "+:count مورد دیگر"
 
-#: content_a/form/item/duplicatelist/display.php:131
+#: content_a/form/item/duplicatelist/display.php:152
 msgid "No results found"
 msgstr "نتیجه‌ای یافت نشد"
 
@@ -9765,7 +9777,7 @@ msgstr "مدیریت لیست پاسخ‌های تکراری"
 msgid "Form items successfully edited"
 msgstr "آیتم‌های فرم با موفقیت ویرایش شد"
 
-#: content_a/form/item/type/display.php:7 content_a/form/item/type/view.php:9
+#: content_a/form/item/type/display.php:13 content_a/form/item/type/view.php:9
 msgid "Edit item type"
 msgstr "ویرایش نوع آیتم"
 
@@ -9773,50 +9785,42 @@ msgstr "ویرایش نوع آیتم"
 msgid "Edit question"
 msgstr "ویرایش سوال"
 
-#: content_a/form/itemLink.php:5 content_a/order/links.php:7
-msgid "Glance"
-msgstr "نگاه اجمالی"
-
 #: content_a/form/itemLink.php:16
+msgid "Items list"
+msgstr "لیست آیتم‌ها"
+
+#: content_a/form/itemLink.php:21
 msgid "Edit form setting"
 msgstr "ویرایش تنظیمات فرم"
 
-#: content_a/form/itemLink.php:21
+#: content_a/form/itemLink.php:26
 msgid "Thank you message"
 msgstr "پیام تشکر"
 
-#: content_a/form/itemLink.php:31
+#: content_a/form/itemLink.php:36
 msgid "Sort items"
 msgstr "مرتب‌سازی آیتم‌ها"
 
-#: content_a/form/itemLink.php:36 content_a/form/tag/add/view.php:10
+#: content_a/form/itemLink.php:41 content_a/form/tag/add/view.php:10
 #: content_a/form/tag/edit/view.php:17 includes/languages/trans_static_public.php:975
 msgid "Tags"
 msgstr "تگ‌ها"
 
-#: content_a/form/itemLink.php:46
+#: content_a/form/itemLink.php:51
 msgid "Inquiry"
 msgstr "استعلام"
 
-#: content_a/form/itemLink.php:51
+#: content_a/form/itemLink.php:56
 msgid "Result Page"
 msgstr "صفحه نمایش نتایج"
 
-#: content_a/form/itemLink.php:80
+#: content_a/form/itemLink.php:85
 msgid "Analyze answers"
 msgstr "تجزیه و تحلیل اطلاعات"
 
-#: content_a/form/itemLink.php:93
+#: content_a/form/itemLink.php:98
 msgid "Add new question"
 msgstr "افزودن سوال جدید"
-
-#: content_a/form/itemLink.php:103
-msgid "Find answer detail by id"
-msgstr "یافتن پاسخ با داشتن کد پاسخ"
-
-#: content_a/form/itemLink.php:112
-msgid "Find & Print"
-msgstr "جستجو و چاپ"
 
 #: content_a/form/report/answer/display-table.php:7
 msgid "Choice"
@@ -9891,37 +9895,37 @@ msgstr ":val قابل مقایسه نیست"
 msgid "Form item"
 msgstr "آیتم‌های فرم"
 
-#: content_a/form/resultpage/display.php:18
+#: content_a/form/resultpage/display.php:19
 msgid ""
 "By activating this feature, the customer can see a list of registered responses to this "
 "form."
 msgstr "با فعال کردن این امکان، مشتریان می‌توانند پاسخ‌های ثبت شده در فرم را مشاهده کنند"
 
-#: content_a/form/resultpage/display.php:25
+#: content_a/form/resultpage/display.php:26
 msgid "Enable result page"
 msgstr "فعال‌سازی درگاه صفحه نمایش نتایج"
 
-#: content_a/form/resultpage/display.php:33
+#: content_a/form/resultpage/display.php:34
 msgid "Result page address"
 msgstr "آدرس صفحه نمایش نتایج"
 
-#: content_a/form/resultpage/display.php:44
+#: content_a/form/resultpage/display.php:45
 msgid "You have not any question in your form."
 msgstr "شما هیچ سوالی در فرم خود ایجاد نکرده‌اید."
 
-#: content_a/form/resultpage/display.php:46
+#: content_a/form/resultpage/display.php:47
 msgid "Which question display in result page?"
 msgstr "کدام سوال را برای صفحه نمایش نتایج قرار می‌دهید؟"
 
-#: content_a/form/resultpage/display.php:65
+#: content_a/form/resultpage/display.php:66
 msgid "Filter result by tag"
 msgstr "فلیتر نتایج بر اساس تگ"
 
-#: content_a/form/resultpage/display.php:75 content_a/form/resultpage/display.php:77
+#: content_a/form/resultpage/display.php:76 content_a/form/resultpage/display.php:78
 msgid "Result page Message"
 msgstr "پیام در صفحه نمایش نتایج"
 
-#: content_a/form/resultpage/display.php:80
+#: content_a/form/resultpage/display.php:81
 msgid "Result page image"
 msgstr "تصویر صفحه نمایش نتایج"
 
@@ -9929,25 +9933,21 @@ msgstr "تصویر صفحه نمایش نتایج"
 msgid "Result page"
 msgstr "صفحه نمایش نتایج"
 
-#: content_a/form/setting/display.php:36 content_a/form/setting/display.php:37
+#: content_a/form/setting/display.php:37 content_a/form/setting/display.php:38
 msgid "Save answer as ticket"
 msgstr "ذخیره پاسخ به عنوان تیکت"
 
-#: content_a/form/setting/display.php:40
+#: content_a/form/setting/display.php:41
 msgid "Answer limit"
 msgstr "محدودیت تعداد پاسخ"
 
-#: content_a/form/setting/display.php:40
+#: content_a/form/setting/display.php:41
 msgid "If answer limit is full no body can add new answer to this form"
 msgstr "اگر ظرفیت پاسخ این فرم تکمیل شود هیچ کسی نمی‌تواند پاسخ جدید به این فرم اضافه کند"
 
-#: content_a/form/setting/display.php:67 content_a/form/setting/display.php:68
+#: content_a/form/setting/display.php:68 content_a/form/setting/display.php:69
 msgid "Have special print page for answers?"
 msgstr "آیا برای نمایش پاسخ‌ها صفحه‌ی مخصوصی طراحی کرده‌اید؟"
-
-#: content_a/form/sorting/display.php:3
-msgid "Form Title"
-msgstr "عنوان فرم"
 
 #: content_a/form/sorting/display.php:17
 msgid ""
@@ -9961,54 +9961,54 @@ msgstr ""
 msgid "Edit question sort"
 msgstr "ویرایش ترتیب سوالات"
 
-#: content_a/form/status/display.php:18
+#: content_a/form/status/display.php:19
 msgid "The form is draft"
 msgstr "فرم پیش‌نویس است"
 
-#: content_a/form/status/display.php:29 content_cms/home/display.php:8
+#: content_a/form/status/display.php:30 content_cms/home/display.php:8
 #: content_love/gift/create/review/display.php:47
 #: content_site/page/settings/display-aside-top.php:199
 #: includes/languages/trans_static.php:529
 msgid "Publish"
 msgstr "انتشار"
 
-#: content_a/form/status/display.php:30
+#: content_a/form/status/display.php:31
 msgid "The form is publish"
 msgstr "فرم منتشر شده است"
 
-#: content_a/form/status/display.php:41 content_a/order/status/display.php:49
+#: content_a/form/status/display.php:42 content_a/order/status/display.php:49
 #: content_love/domain/setting/display.php:128 includes/languages/trans_static.php:522
 #: lib/app/factor/action.php:66 lib/app/factor/ready.php:117 lib/app/order/ready.php:117
 msgid "Expire"
 msgstr "منقضی شده"
 
-#: content_a/form/status/display.php:42
+#: content_a/form/status/display.php:43
 msgid "The form is expire"
 msgstr "فرم منقضی شده است"
 
-#: content_a/form/status/display.php:53 dash/app/posts/filter.php:67
+#: content_a/form/status/display.php:54 dash/app/posts/filter.php:67
 #: dash/app/posts/ready.php:111 dash/layout/admin/sidebar/sidebar-support.php:50
 #: includes/languages/trans_static.php:524
 msgid "Trash"
 msgstr "زباله‌دان"
 
-#: content_a/form/status/display.php:54
+#: content_a/form/status/display.php:55
 msgid "Move to trash"
 msgstr "انتقال به زباله‌دان"
 
-#: content_a/form/status/display.php:87
+#: content_a/form/status/display.php:88
 msgid "Form activation schedule"
 msgstr "زمانبندی فعال شدن فرم"
 
-#: content_a/form/status/display.php:157
+#: content_a/form/status/display.php:158
 msgid "This message is displayed before the start of the form response time"
 msgstr "این پیام قبل از آغاز زمان پاسخگویی به فرم نمایش داده می‌شود"
 
-#: content_a/form/status/display.php:164
+#: content_a/form/status/display.php:165
 msgid "This message will be displayed after the response time of the form"
 msgstr "این پیام بعد از اتمام زمان پاسخگویی به فرم نمایش داده می‌شود"
 
-#: content_a/form/status/display.php:178
+#: content_a/form/status/display.php:179
 msgid "Delete completely"
 msgstr "حذف به صورت کامل"
 
@@ -10016,7 +10016,7 @@ msgstr "حذف به صورت کامل"
 msgid "Edit status of form"
 msgstr "ویرایش وضعیت فرم"
 
-#: content_a/form/tag/add/display.php:8 content_a/form/tag/edit/display.php:8
+#: content_a/form/tag/add/display.php:15 content_a/form/tag/edit/display.php:14
 msgid "Tag name"
 msgstr "نام تگ"
 
@@ -10024,15 +10024,15 @@ msgstr "نام تگ"
 msgid "Add new form tag"
 msgstr "افزودن تگ جدید"
 
-#: content_a/form/tag/display.php:67
+#: content_a/form/tag/display.php:74
 msgid "By default, this tag is added to all new answer"
 msgstr "به صورت پیشفرض این تگ به همه پاسخ‌های جدید اضافه خواهد شد"
 
-#: content_a/form/tag/display.php:143
+#: content_a/form/tag/display.php:159
 msgid "No tag founded."
 msgstr "هیچ تگی یافت نشد."
 
-#: content_a/form/tag/display.php:145
+#: content_a/form/tag/display.php:161
 msgid "Try to start with add new tag!"
 msgstr "با افزودن تگ جدید تلاشی برای شروع داشته باشید!"
 
@@ -10046,42 +10046,42 @@ msgstr "با افزودن تگ جدید تلاشی برای شروع داشته 
 msgid "Invalid tag id"
 msgstr "شناسه تگ نادرست است"
 
-#: content_a/form/tag/edit/display.php:15
+#: content_a/form/tag/edit/display.php:21
 msgid "This message will be displayed on the Inquiry page for answers that have this tag"
 msgstr "این پیام در صفحه استعلام برای پاسخ‌هایی که این تگ را دارند نمایش داده خواهد شد"
 
-#: content_a/form/tag/edit/display.php:32
+#: content_a/form/tag/edit/display.php:39
 msgid "Add this tag by default to all new answer"
 msgstr "اضافه شدن این تگ به صورت پیشفرض به همه پاسخ‌های جدید"
 
-#: content_a/form/tag/edit/display.php:106
+#: content_a/form/tag/edit/display.php:120
 msgid "Save auto note after add this tag to answer"
 msgstr "بعد از ثبت این تگ، یک یادداشت خودکار برای پاسخ ذخیره شود"
 
-#: content_a/form/tag/edit/display.php:113
+#: content_a/form/tag/edit/display.php:130
 msgid "Note text"
 msgstr "متن یادداشت"
 
-#: content_a/form/tag/edit/display.php:122
+#: content_a/form/tag/edit/display.php:140
 msgid "Send notification after add this tag to answer"
 msgstr "بعد از ثبت این تگ، پیام اطلاع رسانی ارسال شود"
 
-#: content_a/form/tag/edit/display.php:141
+#: content_a/form/tag/edit/display.php:162
 msgid "You can delete this tag because we are not found any form in that."
 msgstr "هیچ پاسخی با این تگ یافت نشد. شما می‌توانید این تگ را حذف کنید."
 
-#: content_a/form/tag/edit/display.php:143
+#: content_a/form/tag/edit/display.php:164
 msgid "You can delete this tag and merge all form in this tag by another tag."
 msgstr ""
 "شما می‌توانید این تگ را حذف کنید و همه پاسخ‌های موجود در این تگ را با تگ دیگر ادغام کنید."
 
-#: content_a/form/tag/edit/display.php:149 content_a/form/tag/edit/display.php:152
+#: content_a/form/tag/edit/display.php:170 content_a/form/tag/edit/display.php:175
 #: content_a/form/tag/remove/display.php:4 content_a/form/tag/remove/view.php:8
 #: content_cms/hashtag/edit/display.php:28 content_cms/hashtag/edit/display.php:30
 msgid "Remove tag"
 msgstr "حذف تگ"
 
-#: content_a/form/tag/edit/display.php:163
+#: content_a/form/tag/edit/display.php:186
 msgid "Show answer by this tag"
 msgstr "نمایش پاسخ‌های موجود در این تگ"
 
@@ -10115,7 +10115,7 @@ msgstr "انتخاب تگ جدید"
 msgid "New Tag"
 msgstr "تگ جدید"
 
-#: content_a/form/tag/remove/display.php:35 dash/layout/search/search_filter.php:463
+#: content_a/form/tag/remove/display.php:35 dash/layout/search/search_filter.php:502
 msgid "Select one tag"
 msgstr "یکی از تگ‌ها را انتخاب کنید"
 
@@ -10145,11 +10145,11 @@ msgstr "تگ فرم‌ها"
 msgid "Add new tag"
 msgstr "افزودن تگ جدید"
 
-#: content_a/form/thankyou/display.php:11
+#: content_a/form/thankyou/display.php:12
 msgid "Redirect after submit"
 msgstr "انتقال بعد از تکمیل فرم"
 
-#: content_a/form/thankyou/display.php:17 content_a/form/thankyou/display.php:18
+#: content_a/form/thankyou/display.php:18 content_a/form/thankyou/display.php:19
 msgid "End message"
 msgstr "پیام آخر"
 
@@ -10487,6 +10487,10 @@ msgstr "افزودن :type جدید"
 #: content_a/order/home/view.php:109
 msgid "Add new order"
 msgstr "ثبت سفارش جدید"
+
+#: content_a/order/links.php:7
+msgid "Glance"
+msgstr "نگاه اجمالی"
 
 #: content_a/order/links.php:27
 msgid "Landscape"
@@ -10845,7 +10849,7 @@ msgstr "بازپرداخت هزینه و لغو پلن"
 msgid "Cancel plan"
 msgstr "لغو پلن"
 
-#: content_a/plan/choose/display.php:7 dash/utility/human.php:28
+#: content_a/plan/choose/display.php:11 dash/utility/human.php:28
 #: includes/languages/trans_static_public.php:26
 msgid "month"
 msgstr "ماه"
@@ -10883,11 +10887,11 @@ msgstr "یک پلن انتخاب کنید"
 #: content_a/plan/home/view.php:11 content_a/plan/transactions/view.php:13
 #: content_love/plan/datalist/display.php:7 content_love/plan/datalist/view.php:13
 #: content_love/plan/planDetail.php:18 content_love/store/setting/display.php:28
-#: dash/layout/m2/sidebar.php:612 lib/app/log/caller/plan/plan_cancelPlan.php:16
-#: lib/app/log/caller/plan/plan_cancelPlan.php:41
+#: dash/layout/m2/sidebar.php:651 lib/app/log/caller/plan/plan_cancelPlan.php:16
+#: lib/app/log/caller/plan/plan_cancelPlan.php:42
 #: lib/app/log/caller/plan/plan_expireAlert.php:16
 #: lib/app/log/caller/plan/plan_newPlanActivate.php:16
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:47 lib/app/plan/filter.php:48
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:48 lib/app/plan/filter.php:48
 msgid "Plan"
 msgstr "پلن"
 
@@ -10919,7 +10923,7 @@ msgid "History"
 msgstr "تاریخچه"
 
 #: content_a/plan/home/display-plan.php:88 content_a/plan/home/display-sms.php:49
-#: content_crm/member/transactions/view.php:20 content_crm/transactions/view.php:8
+#: content_crm/member/transactions/view.php:20 content_crm/transactions/view.php:9
 #: dash/layout/m2/sidebar.php:232
 msgid "Transactions"
 msgstr "تراکنش‌ها"
@@ -11299,7 +11303,7 @@ msgstr "مدیریت تنوع محصول"
 #: content_a/products/edit/block/sidebar-menu.php:78 content_cms/comments/home/view.php:9
 #: content_cms/comments/view/view.php:14 content_crm/member/glance/display.php:406
 #: dash/app/posts/filter.php:203 dash/app/posts/filter.php:213
-#: dash/layout/m2/sidebar.php:312 includes/languages/trans_static.php:574
+#: dash/layout/m2/sidebar.php:351 includes/languages/trans_static.php:574
 #: includes/languages/trans_static_public.php:94
 #: includes/languages/trans_static_public.php:978
 msgid "Comments"
@@ -11351,7 +11355,7 @@ msgstr "کد تعریف شده روی ترازو"
 #: content_a/setting/product/category/display.php:11 content_business/category/view.php:9
 #: content_love/gift/create/review/display.php:19 content_love/gift/view/display.php:12
 #: dash/layout/m2/sidebar.php:121 dash/layout/pwa/pwa_menu.php:245
-#: dash/layout/search/search_filter.php:494 lib/app/product/property.php:327
+#: dash/layout/search/search_filter.php:533 lib/app/product/property.php:327
 #: lib/app/quickaccess/setting.php:492 lib/app/quickaccess/setting.php:507
 #: lib/app/quickaccess/setting.php:525 lib/app/quickaccess/setting.php:540
 msgid "Category"
@@ -11773,7 +11777,7 @@ msgid "Add new property"
 msgstr "افزودن مشخصات جدید"
 
 #: content_a/products/property/display.php:125 content_a/products/property/display.php:126
-#: dash/layout/search/search_filter.php:582
+#: dash/layout/search/search_filter.php:621
 msgid "like Qty, kg, etc"
 msgstr "مثل عدد، کیلوگرم، تعداد"
 
@@ -11958,11 +11962,11 @@ msgid "Variants"
 msgstr "تنوع محصول"
 
 #: content_a/report/home/display.php:9 content_a/report/sale/display.php:161
-#: content_a/report/sale/view.php:10 dash/layout/m2/sidebar.php:373
+#: content_a/report/sale/view.php:10 dash/layout/m2/sidebar.php:412
 msgid "Sale report"
 msgstr "گزارش فروش"
 
-#: content_a/report/home/display.php:23 dash/layout/m2/sidebar.php:380
+#: content_a/report/home/display.php:23 dash/layout/m2/sidebar.php:419
 msgid "Products report"
 msgstr "گزارش محصولات"
 
@@ -12189,7 +12193,7 @@ msgstr "ارزش محصول"
 msgid "Date range"
 msgstr "بازه زمانی"
 
-#: content_a/report/sale/display.php:60 dash/layout/search/search_filter.php:160
+#: content_a/report/sale/display.php:60 dash/layout/search/search_filter.php:166
 msgid "Group by"
 msgstr "به تفکیک"
 
@@ -12365,7 +12369,7 @@ msgstr ""
 "روز صبر کنید و سپس دوباره سعی کنید تأیید کنید"
 
 #: content_a/setting/domain/manage/display.php:38 content_enter/verify/view.php:151
-#: dash/app/transaction/filter.php:32 dash/app/transaction/filter.php:33
+#: dash/app/transaction/filter.php:45 dash/app/transaction/filter.php:49
 msgid "Verify"
 msgstr "اعتبارسنجی"
 
@@ -13261,7 +13265,7 @@ msgstr "صفحه نخست"
 
 #: content_a/setting/menu/item/display.php:21 content_cms/posts/home/view.php:9
 #: content_site/options/link/link_professional.php:138 dash/app/comment/filter.php:30
-#: dash/layout/m2/sidebar.php:297 includes/languages/trans_static.php:570
+#: dash/layout/m2/sidebar.php:336 includes/languages/trans_static.php:570
 #: includes/languages/trans_static_public.php:90
 #: includes/languages/trans_static_public.php:973
 msgid "Posts"
@@ -13290,7 +13294,7 @@ msgstr "فرم‌ها"
 msgid "Social network"
 msgstr "شبکه‌های اجتماعی"
 
-#: content_a/setting/menu/item/display.php:40 dash/layout/search/search_filter.php:538
+#: content_a/setting/menu/item/display.php:40 dash/layout/search/search_filter.php:577
 msgid "Search in product"
 msgstr "جستجو در محصولات"
 
@@ -13648,7 +13652,7 @@ msgid "Receive orders according to the weekly schedule"
 msgstr "دریافت سفارش طبق جدول زمانبندی هفتگی"
 
 #: content_a/setting/order/schedule/display.php:50
-#: dash/layout/search/search_filter.php:694
+#: dash/layout/search/search_filter.php:733
 msgid "Weekday"
 msgstr "روز هفته"
 
@@ -14434,7 +14438,7 @@ msgid "DigitalOcean S3"
 msgstr "دیجیتال‌ اوشن S3"
 
 #: content_a/setting/thirdparty/display.php:3 content_a/setting3/home/html/test.php:3
-#: dash/layout/m2/sidebar.php:354 lib/app/quickaccess/setting.php:47
+#: dash/layout/m2/sidebar.php:393 lib/app/quickaccess/setting.php:47
 msgid "Analytics"
 msgstr "تجزیه و تحلیل"
 
@@ -16904,7 +16908,7 @@ msgstr "بارگذاری"
 #: content_cms/files/home/view.php:9 content_cms/files/view/view.php:11
 #: content_love/files/datalist/view.php:9 content_love/files/home/view.php:9
 #: content_love/files/view/view.php:11 content_site/home/display-aside-top.php:21
-#: dash/layout/m2/sidebar.php:333 includes/languages/trans_static.php:573
+#: dash/layout/m2/sidebar.php:372 includes/languages/trans_static.php:573
 #: lib/app/store/analytics.php:116
 msgid "Files"
 msgstr "فایل‌ها"
@@ -17201,7 +17205,7 @@ msgstr "پادکست"
 
 #: content_cms/home/display.php:88 content_site/options/link/link_professional.php:140
 #: dash/app/posts/filter.php:223 dash/app/posts/filter.php:233
-#: dash/layout/m2/sidebar.php:305
+#: dash/layout/m2/sidebar.php:344
 msgid "Hashtag"
 msgstr "هشتگ"
 
@@ -17778,7 +17782,7 @@ msgstr "درصد موفقیت تمامی تراکنش‌ها"
 #: content_crm/home/display.php:46 content_crm/member/add/view.php:12
 #: content_crm/member/glance/view.php:19 content_crm/staff/add/view.php:12
 #: content_developers/docs/001-intro.php:17 dash/layout/m2/sidebar.php:206
-#: dash/layout/m2/sidebar.php:692 includes/languages/trans_static.php:73
+#: dash/layout/m2/sidebar.php:731 includes/languages/trans_static.php:73
 #: lib/app/quickaccess/customers.php:30
 msgid "Customers"
 msgstr "مشتریان"
@@ -18070,14 +18074,14 @@ msgstr "پرداختی‌ها"
 #: content_crm/member/glance/display.php:354
 #: content_crm/member/transactions/plus/view.php:12
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:60
-#: dash/app/transaction/filter.php:36
+#: dash/app/transaction/filter.php:55
 msgid "Increase account recharge"
 msgstr "افزایش شارژ حساب مشتری"
 
 #: content_crm/member/glance/display.php:360
 #: content_crm/member/transactions/minus/view.php:12
 #: dash/app/log/caller/transaction/transaction_addTransactionManualy.php:64
-#: dash/app/transaction/filter.php:37
+#: dash/app/transaction/filter.php:59
 msgid "Reduce account recharge"
 msgstr "کاهش شارژ حساب مشتری"
 
@@ -19034,15 +19038,15 @@ msgstr "ویرایش تراکنش‌ها"
 msgid "Verify again"
 msgstr "اعتبارسنجی مجدد"
 
-#: content_crm/transactions/display-statistics.php:5
+#: content_crm/transactions/display-statistics.php:3
 msgid "Statistics of this list"
 msgstr "آمار این لیست"
 
-#: content_crm/transactions/display-statistics.php:10
+#: content_crm/transactions/display-statistics.php:9
 msgid "Plus transaction"
 msgstr "افزایش شارژ حساب کاربری"
 
-#: content_crm/transactions/display-statistics.php:26
+#: content_crm/transactions/display-statistics.php:25
 msgid "Minus transaction"
 msgstr "کاهش شارژ حساب کاربری"
 
@@ -20853,9 +20857,9 @@ msgstr "کاربران بیزینس"
 #: lib/app/log/caller/business/business_creatingNew.php:19
 #: lib/app/log/caller/business/business_plugin.php:63
 #: lib/app/log/caller/business/business_plugin.php:76
-#: lib/app/log/caller/plan/plan_cancelPlan.php:37
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:43
-#: lib/app/log/caller/sms/sms_newSMSCharge.php:37
+#: lib/app/log/caller/plan/plan_cancelPlan.php:38
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:44
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:38
 msgid "Business"
 msgstr "بیزینس"
 
@@ -20986,7 +20990,7 @@ msgstr "نقشه سایت برای همه بیزینس‌ها ساخته شد"
 
 #: content_love/business/sitemap/view.php:8 content_site/home/display-aside-top.php:43
 #: content_site/home/display.php:43 content_site/sitemap/view.php:8
-#: dash/app/posts/dropdown.php:51 dash/layout/m2/sidebar.php:537
+#: dash/app/posts/dropdown.php:51 dash/layout/m2/sidebar.php:576
 #: lib/app/quickaccess/setting.php:237
 msgid "Sitemap"
 msgstr "نقشه‌ی سایت"
@@ -21074,7 +21078,7 @@ msgstr "رخدادهای دامنه"
 #: content_love/gift/view/display.php:21 content_love/plan/datalist/display.php:44
 #: content_love/plugin/edit/display.php:14 content_love/plugin/history/display.php:14
 #: content_love/plugin/manage/display.php:12 content_my/domain/predict/display.php:37
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:51
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:52
 msgid "Expire date"
 msgstr "تاریخ انقضا"
 
@@ -21085,7 +21089,7 @@ msgstr "تاریخ ایجاد"
 #: content_love/domain/billing/display.php:91 content_love/plan/add/display.php:72
 #: content_love/plan/datalist/display.php:9 content_my/domain/history/display.php:10
 #: content_my/domain/setting/action/display.php:14
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:55 lib/app/plan/planFactor.php:72
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:56 lib/app/plan/planFactor.php:72
 #: lib/app/plan/planFactor.php:76
 msgid "Period"
 msgstr "بازه زمانی"
@@ -22257,7 +22261,7 @@ msgid "Show lookup list"
 msgstr "نمایش لیست فراخوانی کد هدیه"
 
 #: content_love/home/display.php:7 content_my/home/display_site.php:230
-#: dash/layout/admin/admin-sidebar-frame.php:36 dash/layout/m2/sidebar.php:629
+#: dash/layout/admin/admin-sidebar-frame.php:36 dash/layout/m2/sidebar.php:668
 msgid "Supervisor Panel"
 msgstr "پنل مدیر فنی"
 
@@ -23166,7 +23170,7 @@ msgstr "انتقال دامنه"
 msgid "Buy 3 letter domains"
 msgstr "خرید دامنه‌های ۳ حرفی"
 
-#: content_my/domain/home/display.php:120 dash/layout/m2/sidebar.php:430
+#: content_my/domain/home/display.php:120 dash/layout/m2/sidebar.php:469
 #: dash/panel.php:288
 msgid "Settings"
 msgstr "تنظیمات"
@@ -24364,7 +24368,7 @@ msgid "Contact Form"
 msgstr "فرم تماس"
 
 #: content_site/body/formbuilder/option.php:17 content_site/body/formbuilder/option.php:19
-#: dash/layout/m2/sidebar.php:240 dash/permission_caller.php:61
+#: dash/layout/m2/sidebar.php:272 dash/permission_caller.php:61
 #: lib/app/export/form_answer.php:85 lib/app/quickaccess/forms.php:30
 msgid "Form builder"
 msgstr "فرم‌ساز"
@@ -24607,7 +24611,7 @@ msgstr "سرصفحه #رفیعی نسخه ۲"
 msgid "Header"
 msgstr "سرصفحه"
 
-#: content_site/home/display-aside-top.php:9 dash/layout/m2/sidebar.php:279
+#: content_site/home/display-aside-top.php:9 dash/layout/m2/sidebar.php:318
 msgid "Content Management"
 msgstr "سیستم مدیریت محتوا"
 
@@ -24616,13 +24620,13 @@ msgid "Legal pages"
 msgstr "صفحات حقوقی"
 
 #: content_site/home/display-aside-top.php:66 content_site/home/display.php:50
-#: dash/layout/m2/sidebar.php:526
+#: dash/layout/m2/sidebar.php:565
 msgid "Static file"
 msgstr "فایل‌های ثابت"
 
 #: content_site/home/display-aside-top.php:78 content_site/home/display.php:29
 #: content_site/options/menu/menu.php:31 content_site/options/menu/menu.php:51
-#: dash/layout/m2/sidebar.php:501
+#: dash/layout/m2/sidebar.php:540
 msgid "Menu"
 msgstr "منو"
 
@@ -28251,61 +28255,78 @@ msgstr "نمی‌توانید تراکنش‌های بانکی را وایرای
 msgid "Transactions updated"
 msgstr "تراکنش‌ به‌روزرسانی شد"
 
-#: dash/app/transaction/filter.php:12
+#: dash/app/transaction/filter.php:14
 msgid "Amount plus, ASC"
 msgstr "مبلغ اضافه شده، صعودی"
 
-#: dash/app/transaction/filter.php:13
+#: dash/app/transaction/filter.php:16
 msgid "Amount plus, DESC"
 msgstr "مبلغ اضافه شده، نزولی"
 
-#: dash/app/transaction/filter.php:15
+#: dash/app/transaction/filter.php:19
 msgid "Amount minus, ASC"
 msgstr "مبلغ کسر شده، صعودی"
 
-#: dash/app/transaction/filter.php:16
+#: dash/app/transaction/filter.php:21
 msgid "Amount minus, DESC"
 msgstr "مبلغ کسر شده، نزولی"
 
-#: dash/app/transaction/filter.php:18 dash/app/user/filter.php:15
+#: dash/app/transaction/filter.php:24 dash/app/user/filter.php:15
 msgid "Date register, ASC"
 msgstr "تاریخ ثبت،‌ صعودی"
 
-#: dash/app/transaction/filter.php:19 dash/app/user/filter.php:16
+#: dash/app/transaction/filter.php:28 dash/app/user/filter.php:16
 msgid "Date register, DESC"
 msgstr "تاریخ ثبت، نزولی"
 
-#: dash/app/transaction/filter.php:21
+#: dash/app/transaction/filter.php:32
 msgid "Date, ASC"
 msgstr "تاریخ صعودی"
 
-#: dash/app/transaction/filter.php:22
+#: dash/app/transaction/filter.php:34
 msgid "Date, DESC"
 msgstr "تاریخ نزولی"
 
-#: dash/app/transaction/filter.php:32
+#: dash/app/transaction/filter.php:45
 msgid "Verified"
 msgstr "تایید شده"
 
-#: dash/app/transaction/filter.php:33
+#: dash/app/transaction/filter.php:49
 msgid "Not verified"
 msgstr "تایید نشده"
 
-#: dash/app/transaction/filter.php:44
+#: dash/app/transaction/filter.php:68
 msgid "Show in date"
 msgstr "نمایش در تاریخ"
 
-#: dash/app/transaction/filter.php:56
+#: dash/app/transaction/filter.php:80
 msgid "Search in customer"
 msgstr "جستجو در مشتریان"
 
-#: dash/app/transaction/filter.php:68 lib/app/quickaccess/setting.php:47
+#: dash/app/transaction/filter.php:92 lib/app/quickaccess/setting.php:47
 msgid "Statistics"
 msgstr "آمار"
 
-#: dash/app/transaction/filter.php:69
+#: dash/app/transaction/filter.php:93
 msgid "Show statistics of this result"
 msgstr "آمار نتایج فعلی"
+
+#: dash/app/transaction/filter.php:103 dash/app/transaction/filter.php:108
+#: dash/app/transaction/filter.php:115 lib/app/store/analytics.php:105
+msgid "Form"
+msgstr "فرم‌ها"
+
+#: dash/app/transaction/filter.php:103
+msgid "Transactions related to the form"
+msgstr "تراکنش‌های مرتبط با فرم"
+
+#: dash/app/transaction/filter.php:108
+msgid "Transactions un-related to the form"
+msgstr "تراکنش‌های غیر مرتبط با فرم"
+
+#: dash/app/transaction/filter.php:116
+msgid "Search in form"
+msgstr "جستجو در فرم‌ها"
 
 #: dash/app/user.php:348
 msgid "This accounting detail already in use for another user"
@@ -28919,7 +28940,7 @@ msgstr "پنل جیبرس"
 msgid "Jibres Domains"
 msgstr "دامنه‌های جیبرس"
 
-#: dash/layout/admin/admin-sidebar-frame.php:12 dash/layout/m2/sidebar.php:718
+#: dash/layout/admin/admin-sidebar-frame.php:12 dash/layout/m2/sidebar.php:757
 #: dash/panel.php:85
 msgid "My Business"
 msgstr "بیزینس‌های من"
@@ -28932,7 +28953,7 @@ msgstr "پنل مدیریت ارتباط با مشتریان"
 msgid "Jibres Managment"
 msgstr "مدیریت جیبرس"
 
-#: dash/layout/admin/admin-sidebar-frame.php:45 dash/layout/m2/sidebar.php:729
+#: dash/layout/admin/admin-sidebar-frame.php:45 dash/layout/m2/sidebar.php:768
 #: dash/panel.php:96
 msgid "My Account"
 msgstr "حساب من"
@@ -29475,27 +29496,27 @@ msgstr "ثبت سفارش خرید جدید"
 msgid "All customers"
 msgstr "همه مشتریان"
 
-#: dash/layout/m2/sidebar.php:406
+#: dash/layout/m2/sidebar.php:445
 msgid "Discount Code"
 msgstr "کد تخفیف"
 
-#: dash/layout/m2/sidebar.php:459
+#: dash/layout/m2/sidebar.php:498
 msgid "Channels"
 msgstr "کانال‌ها"
 
-#: dash/layout/m2/sidebar.php:491
+#: dash/layout/m2/sidebar.php:530
 msgid "Site builder"
 msgstr "سایت‌ساز"
 
-#: dash/layout/m2/sidebar.php:573
+#: dash/layout/m2/sidebar.php:612
 msgid "Android App"
 msgstr "اپ اندروید"
 
-#: dash/layout/m2/sidebar.php:637
+#: dash/layout/m2/sidebar.php:676
 msgid "Business setting"
 msgstr "تنظیمات بیزینس"
 
-#: dash/layout/m2/sidebar.php:746
+#: dash/layout/m2/sidebar.php:785
 msgid "Supervisor panel"
 msgstr "پنل مدیر فنی"
 
@@ -29585,39 +29606,39 @@ msgstr ""
 "اگر فقط مایل به مشاهده موارد خاصی هستید، فیلتر مربوطه را اعمال کنید. با سازماندهی "
 "داده‌ها، آنالیز آن‌ها ساده‌تر می‌شود."
 
-#: dash/layout/search/search_filter.php:245
+#: dash/layout/search/search_filter.php:251
 msgid "From date"
 msgstr "از تاریخ"
 
-#: dash/layout/search/search_filter.php:246
+#: dash/layout/search/search_filter.php:252
 msgid "To date"
 msgstr "تا تاریخ"
 
-#: dash/layout/search/search_filter.php:308
+#: dash/layout/search/search_filter.php:314
 msgid "less than"
 msgstr "کوچکتر از"
 
-#: dash/layout/search/search_filter.php:309
+#: dash/layout/search/search_filter.php:315
 msgid "equal"
 msgstr "مساوی با"
 
-#: dash/layout/search/search_filter.php:310
+#: dash/layout/search/search_filter.php:316
 msgid "larger than"
 msgstr "بزرگتر از"
 
-#: dash/layout/search/search_filter.php:620
+#: dash/layout/search/search_filter.php:659
 msgid "Answer Status"
 msgstr "وضعیت پاسخ"
 
-#: dash/layout/search/search_filter.php:661
+#: dash/layout/search/search_filter.php:700
 msgid "Product Status"
 msgstr "وضعیت محصول"
 
-#: dash/layout/search/search_filter.php:769
+#: dash/layout/search/search_filter.php:808
 msgid "Record founded"
 msgstr "ردیف یافت شد"
 
-#: dash/layout/search/search_filter.php:798
+#: dash/layout/search/search_filter.php:837
 msgid "Apply filter"
 msgstr "اعمال‌کردن فیلتر"
 
@@ -41552,11 +41573,11 @@ msgstr "با بازکردن لینک زیر می‌تونید وضعیت ارس�
 msgid "Plan canceled :("
 msgstr "پلن لغو شد :("
 
-#: lib/app/log/caller/plan/plan_cancelPlan.php:43
+#: lib/app/log/caller/plan/plan_cancelPlan.php:44
 msgid "Refund price"
 msgstr "مبلغ بازپرداخت"
 
-#: lib/app/log/caller/plan/plan_cancelPlan.php:48
+#: lib/app/log/caller/plan/plan_cancelPlan.php:49
 msgid "Include guarantee"
 msgstr "شامل گارانتی"
 
@@ -41576,12 +41597,12 @@ msgstr "لطفا نسبت به تهیه پلن جدید اقدام کنید"
 msgid "New plan activated :)"
 msgstr "پلن جدید فعال شد :)"
 
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:57 lib/app/plan/filter.php:172
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:58 lib/app/plan/filter.php:172
 #: lib/app/plan/filter.php:185
 msgid "Set by"
 msgstr "تنظیم شده توسط"
 
-#: lib/app/log/caller/plan/plan_newPlanActivate.php:59
+#: lib/app/log/caller/plan/plan_newPlanActivate.php:60
 msgid "Plan day"
 msgstr "روز‌های پلن"
 
@@ -41598,15 +41619,15 @@ msgstr "لطفا نسبت به خرید بسته پیامکی جدید در بی
 msgid "New sms charge :)"
 msgstr "شارژ جدید پیامک انجام شد :)"
 
-#: lib/app/log/caller/sms/sms_newSMSCharge.php:44
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:45
 msgid "Increase the charge to the amount"
 msgstr "افزایش شارژ به میزان"
 
-#: lib/app/log/caller/sms/sms_newSMSCharge.php:50
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:51
 msgid "Reduce the charge to the amount"
 msgstr "کاهش شارژ به میزان"
 
-#: lib/app/log/caller/sms/sms_newSMSCharge.php:54
+#: lib/app/log/caller/sms/sms_newSMSCharge.php:55
 msgid "Current balance"
 msgstr "بالانس فعلی"
 
@@ -44358,10 +44379,6 @@ msgstr "سی‌اس‌آر‌اف"
 msgid "Day event"
 msgstr "رویداد‌های روزانه"
 
-#: lib/app/store/analytics.php:105
-msgid "Form"
-msgstr "فرم‌ها"
-
 #: lib/app/store/analytics.php:106
 msgid "Form answer"
 msgstr "پاسخ فرم‌ها"
@@ -45151,6 +45168,9 @@ msgstr "اینچ"
 #: lib/units.php:46
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Form Title"
+#~ msgstr "عنوان فرم"
 
 #~ msgid "Need to activate discount plugin"
 #~ msgstr "نیاز به فعال سازی این افزونه کد تخفیف حرفه‌ای"
