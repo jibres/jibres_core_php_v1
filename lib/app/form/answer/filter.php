@@ -60,7 +60,7 @@ class filter
 		$list['amount'] = [
 			'key'  => 'amount',
 			'group' => T_("Payment"),
-			'title' => T_('Pay Amount'),
+			'title' => T_('Payable Amount'),
 			'public' => true,
 			'mode' => 'less_equal_large:amount',
 		];
