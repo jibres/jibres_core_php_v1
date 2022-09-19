@@ -1,8 +1,8 @@
 <nav class="items">
     <ul>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/edit?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-info-circle"></i>
-                <div class="key"><?php echo T_("Glance"); ?></div>
+        <li><a class="f item" href="<?php echo \dash\url::this() . '/dashboard?id=' . \dash\request::get('id'); ?>">
+                <i class="sf-gauge"></i>
+                <div class="key"><?php echo T_("Form Dashboard"); ?></div>
                 <div class="go"></div>
             </a></li>
     </ul>
@@ -11,6 +11,11 @@
 
 <nav class="items">
     <ul>
+        <li><a class="f item" href="<?php echo \dash\url::this() . '/edit?id=' . \dash\request::get('id'); ?>">
+                <i class="sf-list-ul"></i>
+                <div class="key"><?php echo T_("Items list"); ?></div>
+                <div class="go"></div>
+            </a></li>
         <li><a class="f item" href="<?php echo \dash\url::this() . '/setting?id=' . \dash\request::get('id'); ?>">
                 <i class="sf-pencil-square-o"></i>
                 <div class="key"><?php echo T_("Edit form setting"); ?></div>
@@ -72,7 +77,7 @@
 </nav>
 
 
-<?php if (\content_a\form\analytics\controller::check_count_answer_1000()) { ?>
+<?php if(\content_a\form\analytics\controller::check_count_answer_1000()) { ?>
     <nav class="items">
         <ul>
             <li><a class="f item" href="<?php echo \dash\url::this() . '/analytics?id=' . \dash\request::get('id'); ?>">
@@ -95,30 +100,3 @@
         </li>
     </ul>
 </nav>
-
-<form method="post" action="<?php echo \dash\url::this() ?>">
-    <div class="box">
-        <div class="pad">
-            <input type="hidden" name="findanswerid" value="findanswerid">
-            <label for="aid"><?php echo T_("Find answer detail by id") ?></label>
-            <div class="input">
-                <input type="number" name="aid" placeholder="<?php echo T_("Answer id") ?>" id="aid">
-            </div>
-        </div>
-        <footer class="">
-            <div class="row">
-                <div class="c-auto">
-                    <?php if(\lib\app\form\form\get::enterpriseSpecialFormBuilder()) :?>
-                        <a class="btn-primary"  href="<?php echo \dash\url::this(). '/find?id='. \dash\request::get('id') ?>"><?php echo T_("Find & Print"); ?></a>
-                    <?php endif; ?>
-                </div>
-                <div class="c"></div>
-                <div class="c-auto">
-                    <button class="btn"><?php echo T_("Go") ?></button>
-                </div>
-            </div>
-
-        </footer>
-    </div>
-</form>
-

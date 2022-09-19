@@ -1,28 +1,31 @@
 <?php
-namespace content_a\form\edit;
+namespace content_a\form\dashboard;
 
 
 class view
 {
 	public static function config()
 	{
-		\dash\face::title(T_('Edit new contact form'));
+		\dash\face::title(T_('Form Dashboard'));
 
 		\content_a\form\edit\view::form_preview_link();
-
-		\content_a\form\home\view::backModuleLink();
+		// back
+		\dash\data::back_text(T_('Back'));
+		\dash\data::back_link(\dash\url::this());
 
 		$form_id = \dash\request::get('id');
 
-		$items = \lib\app\form\item\get::items($form_id, false, false, true);
+		\dash\face::btnDuplicate(\dash\url::this(). '/duplicate?id='. $form_id);
 
-		\dash\data::formItems($items);
+
+
 
 	}
 
 
 	public static function form_preview_link()
 	{
+
 		// preview
 		if(\dash\data::dataRow_privacy() === 'private')
 		{

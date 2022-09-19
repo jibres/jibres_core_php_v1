@@ -19,7 +19,7 @@ class view
 
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+		\content_a\form\home\view::backModuleLink();
 
 
 		$items = \lib\app\form\item\get::items_answerable($id);

@@ -7,10 +7,10 @@ class view
 	{
 		\dash\face::title(T_('Edit tag'));
 
-		if(\dash\data::dataRow_title())
-		{
-			\dash\face::title(\dash\data::dataRow_title());
-		}
+		// if(\dash\data::dataRow_title())
+		// {
+		// 	\dash\face::title(\dash\data::dataRow_title());
+		// }
 
 		$id = \dash\request::get('tid');
 

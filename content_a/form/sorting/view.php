@@ -9,7 +9,7 @@ class view
 		\dash\face::title(T_('Edit question sort'));
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/edit?id='. \dash\request::get('id'));
+		\content_a\form\home\view::backModuleLink();
 
 
 		$form_id = \dash\request::get('id');
