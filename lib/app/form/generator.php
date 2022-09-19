@@ -1303,11 +1303,11 @@ class generator
 	{
 		// self::div('c-xs-12 c-6');
 		{
-			self::label_raw($value);
+			// self::label_raw($value);
 
 			self::div('mB10');
 			{
-				self::$html .= '<div class="row mb-2">';
+				self::$html .= '<div class="row mt-2">';
 				{
 					if(isset($value['choice']) && is_array($value['choice']))
 					{
@@ -1331,7 +1331,7 @@ class generator
 				}
 				self::$html .= '</div>';
 
-				self::html_input_manual_amount($value, false);
+				self::html_input_manual_amount($value);
 			}
 			self::HtmlDesc($value);
 			self::_div();
