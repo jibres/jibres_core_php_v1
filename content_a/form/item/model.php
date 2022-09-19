@@ -57,6 +57,7 @@ class model
 			'uniquelist',
 			'whitelist',
 			'urlkey',
+			'coefficient',
 		];
 
 		$typeString = implode('|', $allTypes);

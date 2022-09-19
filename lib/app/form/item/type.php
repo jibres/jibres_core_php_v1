@@ -579,6 +579,24 @@ class type
 					],
 			];
 
+		$type['amount_with_coefficient'] =
+			[
+				'key'          => 'amount_with_coefficient',
+				'title'        => T_('The amount with the coefficient'),
+				'chart'        => false,
+				'compare'      => false,
+				'chart_type'   => 'bar',
+				'group'        => T_('Price'),
+				'is_amount'    => true,
+				'choice'       => true,
+				'coefficient'  => true,
+				'min'          => true,
+				'max'          => true,
+				'default_load' =>
+					[
+					],
+			];
+
 
 		$type['hidden_amount'] =
 			[

@@ -4,45 +4,51 @@ namespace lib\app\form\item;
 
 class check
 {
+
 	public static function variable($_args, $_id = null, $_current_detail = [])
 	{
 		$condition =
-		[
-			'title'        => 'title',
-			'desc'         => 'desc',
-			'type'         => ['enum' =>	\lib\app\form\item\type::get_keys()],
-			'status'       => ['enum' => ['draft','publish','expire','deleted','lock','awaiting','block','filter','close','full']],
-			'color'        => ['enum' => ['red','green','blue','yellow',]],
-			'require'      => 'bit',
-			'maxlen'       => 'smallint',
-			'length'       => 'smallint',
-			'maxlen2'      => 'smallint',
-			'sort'         => 'int',
-			'placeholder'  => 'string_100',
-			'choice'       => 'tag_long',
-			'choiceinline' => 'bit',
-			'random'       => 'bit',
-			'check_unique' => 'bit',
-			'lowercase'    => 'bit',
-			'uppercase'    => 'bit',
-			'min'          => 'intstring_50',
-			'max'          => 'intstring_50',
-			'mindate'      => 'date',
-			'maxdate'      => 'date',
-			'filetype'     => 'tag',
-			'send_sms'     => 'bit',
-			'sms_text'     => 'string_500',
-			'defaultvalue' => 'string_200',
-			'signup'       => 'bit',
-			'link'         => 'string_200',
-			'targetblank'  => 'bit',
-			'checkrequire' => 'bit',
-			'hidden'       => 'bit',
-			'checkhidden'  => 'bit',
-			'uniquelist'   => 'longtext',
-			'whitelist'    => 'tag',
-			'urlkey'       => 'enstring_50',
-		];
+			[
+				'title'        => 'title',
+				'desc'         => 'desc',
+				'type'         => ['enum' => \lib\app\form\item\type::get_keys()],
+				'status'       => [
+					'enum' => [
+						'draft', 'publish', 'expire', 'deleted', 'lock', 'awaiting', 'block', 'filter', 'close', 'full',
+					],
+				],
+				'color'        => ['enum' => ['red', 'green', 'blue', 'yellow',]],
+				'require'      => 'bit',
+				'maxlen'       => 'smallint',
+				'length'       => 'smallint',
+				'maxlen2'      => 'smallint',
+				'sort'         => 'int',
+				'placeholder'  => 'string_100',
+				'choice'       => 'tag_long',
+				'choiceinline' => 'bit',
+				'random'       => 'bit',
+				'check_unique' => 'bit',
+				'lowercase'    => 'bit',
+				'uppercase'    => 'bit',
+				'min'          => 'intstring_50',
+				'max'          => 'intstring_50',
+				'mindate'      => 'date',
+				'maxdate'      => 'date',
+				'filetype'     => 'tag',
+				'send_sms'     => 'bit',
+				'sms_text'     => 'string_500',
+				'defaultvalue' => 'string_200',
+				'signup'       => 'bit',
+				'link'         => 'string_200',
+				'targetblank'  => 'bit',
+				'checkrequire' => 'bit',
+				'hidden'       => 'bit',
+				'checkhidden'  => 'bit',
+				'uniquelist'   => 'longtext',
+				'whitelist'    => 'tag',
+				'urlkey'       => 'enstring_50',
+				'coefficient'  => 'int',
+			];
 
 		$require = ['title', 'type'];
 
@@ -86,6 +92,11 @@ class check
 			$setting[$data['type']]['max'] = $data['max'];
 		}
 
+		if(a($_current_detail, 'type_detail', 'coefficient'))
+		{
+			$setting[$data['type']]['coefficient'] = $data['coefficient'];
+		}
+
 		if(isset($setting[$data['type']]['min']) && isset($setting[$data['type']]['max']))
 		{
 			$min = floatval($setting[$data['type']]['min']);
@@ -125,8 +136,6 @@ class check
 				}
 			}
 		}
-
-
 
 
 		if(a($_current_detail, 'type_detail', 'choiceinline'))
@@ -188,7 +197,6 @@ class check
 		}
 
 
-
 		if(a($_current_detail, 'type_detail', 'filetype'))
 		{
 			$filetype = \dash\upload\extentions::get_all_allow_ext();
@@ -210,7 +218,6 @@ class check
 		}
 
 
-
 		$choice = null;
 		if(a($_current_detail, 'type_detail', 'choice'))
 		{
@@ -220,13 +227,12 @@ class check
 				foreach ($data['choice'] as $key => $value)
 				{
 					$choice[] =
-					[
-						'title' => $value,
-					];
+						[
+							'title' => $value,
+						];
 				}
 			}
 		}
-
 
 
 		$data['setting'] = json_encode($setting, JSON_UNESCAPED_UNICODE);
@@ -257,11 +263,13 @@ class check
 		unset($data['link']);
 		unset($data['targetblank']);
 		unset($data['maxlen2']);
-
 		unset($data['urlkey']);
 		unset($data['whitelist']);
+		unset($data['coefficient']);
 
 		return $data;
 	}
+
 }
+
 ?>

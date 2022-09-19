@@ -111,6 +111,11 @@
 			settingPlaceHolder($value);
 		}
 
+		if(isset($value['type_detail']['coefficient']) && $value['type_detail']['coefficient'])
+		{
+			settingCoefficient($value);
+		}
+
 
 		if(isset($value['type_detail']['maxlen']) && $value['type_detail']['maxlen'])
 		{
@@ -144,6 +149,8 @@
 		{
 			settingLength($value);
 		}
+
+
 
 
 		if(isset($value['type_detail']['mindate']) && $value['type_detail']['mindate'])
@@ -241,6 +248,17 @@
         </div>
 	<?php } //endif
 
+
+    function settingCoefficient($value)
+	{ ?>
+        <label for="item_length_<?php echo a($value, 'id') ?>"><?php echo T_("Coefficient") ?></label>
+        <div class="input">
+            <input type="tel" name="item_coefficient_<?php echo a($value, 'id') ?>"
+                   id="item_coefficient_<?php echo a($value, 'id') ?>"
+                   value="<?php echo a($value, 'setting', a($value, 'type'), 'coefficient'); ?>" data-format="price">
+            <label class="addon" for="item_coefficient_<?php echo a($value, 'id') ?>"><?php echo \lib\store::currency() ?></label>
+        </div>
+	<?php } //endif
 
 	function settingLength($value)
 	{ ?>
