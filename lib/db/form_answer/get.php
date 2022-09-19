@@ -379,35 +379,44 @@ class get
 		$query  =
 			"
 				SELECT 
-				    * 
+				    COUNT(*) AS `count` 
 				FROM 
 				    form_answer
-				
 				WHERE 
 				    form_answer.form_id = :form_id AND
 					form_answer.transaction_id IS NOT NULL
 				LIMIT 1
 			";
-		$result = \dash\pdo::get($query, [':form_id' => $_form_id], null, true);
+		$result = \dash\pdo::get($query, [':form_id' => $_form_id], 'count', true);
 		return $result;
 	}
 
 
-	public static function totalPayed($_form_id) : float
+	public static function totalPayed($_form_id, $_only_verify = false)
 	{
+		if($_only_verify)
+		{
+			$verify = " transactions.verify = 1 ";
+		}
+		else
+		{
+			$verify = " transactions.verify != 1 ";
+		}
+
 		$query  =
 			"
 				SELECT 
-				    SUM(transactions.plus) AS `totalPayed` 
+				    SUM(transactions.plus) AS `totalPayed`,
+					COUNT(transactions.id) AS `count`
 				FROM 
 				    transactions
 				INNER JOIN form_answer ON form_answer.transaction_id = transactions.id
 				WHERE 
-				    transactions.verify = 1 AND 
+				    $verify  AND
 				    form_answer.form_id = :form_id
 			";
-		$result = \dash\pdo::get($query, [':form_id' => $_form_id], 'totalPayed', true);
-		return floatval($result);
+		$result = \dash\pdo::get($query, [':form_id' => $_form_id], null, true);
+		return $result;
 	}
 
 

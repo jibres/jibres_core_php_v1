@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-19 16:08+0430\n"
-"PO-Revision-Date: 2022-09-19 16:09+0430\n"
+"POT-Creation-Date: 2022-09-19 16:23+0430\n"
+"PO-Revision-Date: 2022-09-19 16:24+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -2144,7 +2144,7 @@ msgid "Enter your mobile number"
 msgstr "شماره موبایل خود را وارد کنید"
 
 #: content/home/display.php:12 content_a/cart/user/display.php:37
-#: content_a/form/dashboard/display.php:60 content_a/pricehistory/choose/display.php:13
+#: content_a/form/dashboard/display.php:65 content_a/pricehistory/choose/display.php:13
 #: content_a/pricehistory/display.php:23
 #: content_a/setting/domain/existdomain/display.php:19 content_enter/app/display.php:60
 #: content_enter/home/display.php:47 content_enter/pass/change/display.php:17
@@ -4854,7 +4854,7 @@ msgstr "افزودن"
 #: content_my/domain/irnic/edit/display.php:25
 #: content_site/assemble/wrench/section.php:131
 #: includes/languages/trans_static_public.php:144 lib/app/category/get.php:487
-#: lib/app/form/form/dashboard.php:32 lib/app/menu/generate.php:87
+#: lib/app/form/form/dashboard.php:30 lib/app/menu/generate.php:87
 #: lib/app/menu/generate2.php:65
 msgid "Edit"
 msgstr "ویرایش"
@@ -5431,7 +5431,7 @@ msgstr "شماره"
 
 #: content_a/accounting/doc/display.php:15 content_a/accounting/factor/display.php:49
 #: content_a/cart/home/display.php:27 content_a/cart/home/display.php:170
-#: lib/app/form/form/dashboard.php:28
+#: lib/app/form/form/dashboard.php:26
 msgid "Item count"
 msgstr "تعداد آیتم‌ها"
 
@@ -7728,7 +7728,7 @@ msgstr "محصول"
 
 #: content_a/cart/home/display.php:147 content_a/cart/home/display.php:186
 #: content_a/form/answer/item/display.php:48
-#: content_a/report/products/maxsale/display.php:6 lib/app/form/form/dashboard.php:29
+#: content_a/report/products/maxsale/display.php:6 lib/app/form/form/dashboard.php:27
 #: lib/app/order/filter.php:100
 msgid "Item"
 msgstr "گزینه"
@@ -8775,7 +8775,7 @@ msgstr "عنوان جدید"
 #: content_a/form/duplicate/display.php:12 content_site/page/display-aside-bottom.php:17
 #: dash/layout/admin/admin-titlebox.php:27 dash/layout/button.php:108
 #: dash/layout/m2/admin-titlebox.php:31 dash/layout/m2/pageNav.php:30
-#: lib/app/form/form/dashboard.php:61
+#: lib/app/form/form/dashboard.php:59
 msgid "Duplicate"
 msgstr "کپی"
 
@@ -8955,7 +8955,7 @@ msgstr "پرداخت موفقیت‌آمیز"
 msgid "Unsuccess"
 msgstr "ناموفق"
 
-#: content_a/form/answer/detail/display.php:192 content_a/form/dashboard/display.php:47
+#: content_a/form/answer/detail/display.php:192 content_a/form/dashboard/display.php:52
 #: content_a/form/home/model.php:12
 msgid "Answer id"
 msgstr "کد پاسخ"
@@ -9274,7 +9274,7 @@ msgstr "تگ گروهی"
 #: content_a/form/report/answer/display-province.php:10
 #: content_a/form/report/answer/display-wordcloud.php:3
 #: content_a/form/report/compare/display.php:115 content_a/form/tag/display.php:81
-#: dash/social/telegram/commands/ticket.php:101 lib/app/form/form/dashboard.php:44
+#: dash/social/telegram/commands/ticket.php:101 lib/app/form/form/dashboard.php:42
 msgid "Answer"
 msgstr "پاسخ"
 
@@ -9352,27 +9352,27 @@ msgstr "نامساوی با"
 msgid "Form Dashboard"
 msgstr "داشبورد فرم"
 
-#: content_a/form/dashboard/display.php:45
+#: content_a/form/dashboard/display.php:50
 msgid "Find answer detail by id"
 msgstr "یافتن پاسخ با داشتن کد پاسخ"
 
-#: content_a/form/dashboard/display.php:55
+#: content_a/form/dashboard/display.php:60
 msgid "Find & Print"
 msgstr "جستجو و چاپ"
 
-#: content_a/form/dashboard/display.php:73
+#: content_a/form/dashboard/display.php:78
 msgid "This is a private form. Cannot use independently"
 msgstr "این یک فرم خصوصی است و امکان استفاده از این فرم به صورت مستقل وجود ندارد"
 
-#: content_a/form/dashboard/display.php:77
+#: content_a/form/dashboard/display.php:82
 msgid "This form used in shipping page"
 msgstr "این فرم در صفحه ارسال سفارش استفاده شده است"
 
-#: content_a/form/dashboard/display.php:81
+#: content_a/form/dashboard/display.php:86
 msgid "This form used for satisfaction after register order"
 msgstr "این فرم برای رضایت‌سنجی پس از ثبت سفارش استفاده می‌شود"
 
-#: content_a/form/dashboard/display.php:88
+#: content_a/form/dashboard/display.php:93
 msgid ""
 "Using this short code, you can use this form in the description of the product or post "
 "or site builder"
@@ -21168,7 +21168,8 @@ msgid "Balance"
 msgstr "تراز"
 
 #: content_love/domain/credit/display.php:36 content_love/sms/charge/display.php:8
-#: dash/utility/pay/api/zarinpal/go.php:65 lib/app/store/analytics.php:87
+#: dash/utility/pay/api/zarinpal/go.php:65 lib/app/form/form/dashboard.php:80
+#: lib/app/form/form/dashboard.php:91 lib/app/store/analytics.php:87
 #: lib/app/store/analytics.php:88 lib/app/store/analytics.php:89
 msgid "Transaction"
 msgstr "تراکنش‌"
@@ -40640,25 +40641,33 @@ msgstr "نامک فرم تکراری است. لطفا نامک دیگری را �
 msgid "Start time must be less than end time"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
 
-#: lib/app/form/form/dashboard.php:43
+#: lib/app/form/form/dashboard.php:41
 msgid "Total answer"
 msgstr "تعداد پاسخ‌ها"
 
-#: lib/app/form/form/dashboard.php:47
+#: lib/app/form/form/dashboard.php:45
 msgid "show answers"
 msgstr "نمایش پاسخ‌ها"
 
-#: lib/app/form/form/dashboard.php:57
+#: lib/app/form/form/dashboard.php:55
 msgid "Make a copy of this form"
 msgstr "تهیه نسخه کپی از این فرم"
 
-#: lib/app/form/form/dashboard.php:79
+#: lib/app/form/form/dashboard.php:78
 msgid "Total payed by this form"
 msgstr "مجموع پرداختی از طریق این فرم"
 
-#: lib/app/form/form/dashboard.php:83
+#: lib/app/form/form/dashboard.php:80 lib/app/form/form/dashboard.php:91
+msgid "In"
+msgstr "در"
+
+#: lib/app/form/form/dashboard.php:83 lib/app/form/form/dashboard.php:94
 msgid "Show transaction list"
 msgstr "نمایش لیست تراکنش‌ها"
+
+#: lib/app/form/form/dashboard.php:89
+msgid "Total unverify payed by this form"
+msgstr "مجموع تراکنش‌های پرداخت نشده از طریق این فرم"
 
 #: lib/app/form/form/edit.php:78
 msgid "This form used in menu and can not be remove"

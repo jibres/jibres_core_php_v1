@@ -20,7 +20,12 @@
                         <div class="py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
                             <dt class="text-sm font-medium text-gray-500"><?php echo $item['title'] ?></dt>
                             <dd class="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                <span class="flex-grow"><?php echo $item['value'] ?></span>
+                                <span class="flex-grow">
+                                    <?php echo $item['value'] ?>
+                                </span>
+                                <span class="flex-grow">
+                                    <?php echo a($item, 'value2') ?>
+                                </span>
                                 <?php if($item['link']): ?>
                                 <span class="mx-2 flex-shrink-0">
                                     <a type="button" href="<?php echo $item['url'] ?>"
