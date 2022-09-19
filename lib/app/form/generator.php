@@ -990,7 +990,7 @@ class generator
 	}
 
 
-	private static function input($type, $value, $_meta = null)
+	private static function input($type, $value, $_meta = null, $_addons = null)
 	{
 		self::$html .= '<div class="input">';
 		{
@@ -1008,6 +1008,11 @@ class generator
 			self::$html .= $_meta;
 			self::$html .= '>';
 		}
+		if($_addons)
+		{
+			self::$html .= $_addons;
+		}
+
 		self::$html .= '</div>';
 
 	}
@@ -1107,9 +1112,15 @@ class generator
 	{
 		// self::div('c-xs-12 c-6');
 		{
-			self::label($value);
-			self::input('tel', $value, ' data-format="price" data-response-realtime ');
+			$addons = '';
+			$addons .= '<label for="'. self::myID($value, true). '"';
+			$addons .= ' class="addon">';
+			$addons .=  \lib\store::currency();
+			$addons .= '</label>';
 
+			self::label($value);
+			self::input('tel', $value, ' data-format="price" data-response-realtime ', $addons);
+			
 			// if(\dash\language::current() === 'fa')
 			// {
 			// 	self::$html .= '<div class="alert-info" ';

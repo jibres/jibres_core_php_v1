@@ -74,7 +74,7 @@ class add
 
 		if(a($_meta, 'edit_mode') === true && a($_meta, 'answer_id'))
 		{
-			$checkRequired = false;
+			$checkRequired   = false;
 			$check_true_item = \lib\app\form\item\get::items_answer($form_id, $_meta['answer_id'], true, true);
 			$edit_mode       = true;
 		}
@@ -82,7 +82,7 @@ class add
 		{
 			if(\dash\data::fillByAdmin())
 			{
-				$checkRequired = false;
+				$checkRequired   = false;
 				$check_true_item = \lib\app\form\item\get::items($form_id, false, false, true);
 			}
 			else
@@ -899,7 +899,8 @@ class add
 						'turn_back'     => $redirect ? $redirect : \dash\url::pwd(),
 						'user_id'       => $user_id,
 						'amount'        => $total_price,
-						'auto_back'     => true,
+						'auto_back'     => false,
+						'final_msg'     => true,
 						'final_fn'      => ['/lib/app/form/answer/add', 'after_pay'],
 						'final_fn_args' => ['answer_id' => $answer_id, 'form_id' => $form_id],
 					];
