@@ -69,9 +69,12 @@ class view
 
 		$dataTable = \lib\app\form\answer\search::list($q, $args);
 
-		$filterBox     = \lib\app\form\answer\search::filter_message();
-		$isFiltered    = \lib\app\form\answer\search::is_filtered();
+		if(!is_array($dataTable))
+		{
+			$dataTable = [];
+		}
 
+		\dash\data::havePay(array_filter(array_column($dataTable, 'amount')));
 
 		$count_not_reviewed = \lib\app\form\answer\get::count_not_reviewd(\dash\request::get('id'));
 		\dash\data::countNotReviewed($count_not_reviewed);

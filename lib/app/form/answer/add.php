@@ -35,6 +35,7 @@ class add
 		$save_as_ticket        = false;
 		$edit_mode             = false;
 		$total_price           = 0;
+		$havePriceItem         = false;
 		$send_sms              = [];
 		$sms_text              = [];
 		$required_not_answered = [];
@@ -301,6 +302,7 @@ class add
 					]));
 					$answer[$item_id] = ['answer' => $my_answer];
 					$total_price      += $my_answer;
+					$havePriceItem    = true;
 					break;
 
 				case 'single_choice':
@@ -762,6 +764,7 @@ class add
 				'datecreated' => date("Y-m-d H:i:s"),
 				'startdate'   => $data['startdate'],
 				'enddate'     => date("Y-m-d H:i:s"),
+				'amount'      => $havePriceItem ? $total_price : null,
 			];
 
 		if($total_price)
@@ -895,9 +898,9 @@ class add
 			if($total_price && !$data['factor_id'])
 			{
 				$pwdClean = \dash\url::current();
-				$allGet = \dash\request::get();
+				$allGet   = \dash\request::get();
 				unset($allGet['jftoken']);
-				$pwdClean .= '?'. \dash\request::build_query($allGet);
+				$pwdClean .= '?' . \dash\request::build_query($allGet);
 
 				$meta =
 					[
@@ -965,7 +968,7 @@ class add
 	{
 		if(isset($_args['answer_id']) && is_numeric($_args['answer_id']))
 		{
-			\lib\db\form_answer\edit::update(['status' => 'active'], $_args['answer_id']);
+			\lib\db\form_answer\edit::update(['status' => 'active', 'payed' => 1], $_args['answer_id']);
 
 			$load_answer = \lib\db\form_answer\get::by_id($_args['answer_id']);
 
