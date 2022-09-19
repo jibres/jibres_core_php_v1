@@ -59,7 +59,7 @@ class filter
 
 		$list['amount'] = [
 			'key'  => 'amount',
-			'group' => T_("Payment"),
+			'group' => T_("Pay"),
 			'title' => T_('Payable Amount'),
 			'public' => true,
 			'mode' => 'less_equal_large:amount',
@@ -69,7 +69,7 @@ class filter
 		$list['payedy'] =
 			[
 				'key'    => 'payedy',
-				'group'  => T_("Payment"),
+				'group'  => T_("Pay"),
 				'title'  => T_("Successful payment"),
 				'query'  => ['payed' => 'y'],
 				'public' => false,
@@ -78,7 +78,7 @@ class filter
 		$list['payedn'] =
 			[
 				'key'    => 'payedn',
-				'group'  => T_("Payment"),
+				'group'  => T_("Pay"),
 				'title'  => T_("Unsuccessful payment"),
 				'query'  => ['payed' => 'n'],
 				'public' => false,
