@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-20 12:44+0430\n"
-"PO-Revision-Date: 2022-09-20 12:44+0430\n"
+"POT-Creation-Date: 2022-09-20 13:27+0430\n"
+"PO-Revision-Date: 2022-09-20 13:27+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -705,7 +705,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/category/edit/display.php:10 content_a/category/edit/display.php:11
 #: content_a/discount/add/display.php:65 content_a/form/item/display.php:237
-#: content_a/form/setting/display.php:23 content_a/form/setting/display.php:25
+#: content_a/form/setting/display.php:54 content_a/form/setting/display.php:56
 #: content_a/form/tag/edit/display.php:20 content_a/order/comment/display.php:13
 #: content_a/order/detail/display.php:74 content_a/products/desc/display.php:8
 #: content_a/products/desc/display.php:11 content_a/setting/fund/display.php:18
@@ -7236,7 +7236,7 @@ msgstr "تنظیم لوگوی برنامه"
 
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
 #: content_a/form/inquiry/display.php:66 content_a/form/resultpage/display.php:84
-#: content_a/form/setting/display.php:52 content_a/order/comment/display.php:53
+#: content_a/form/setting/display.php:69 content_a/order/comment/display.php:53
 #: content_a/setting/general/display.php:37
 #: content_business/ticket/add/add_ticket_form.php:19 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
@@ -7321,7 +7321,7 @@ msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
 #: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:67
-#: content_a/form/resultpage/display.php:85 content_a/form/setting/display.php:55
+#: content_a/form/resultpage/display.php:85 content_a/form/setting/display.php:72
 #: content_a/products/advance/display.php:38 content_cms/files/home/display.php:37
 #: content_cms/files/home/display.php:49 content_crm/member/identification/display.php:108
 #: content_crm/member/identification/display.php:120
@@ -9953,21 +9953,25 @@ msgstr "پیام در صفحه نمایش نتایج"
 msgid "Result page image"
 msgstr "تصویر صفحه نمایش نتایج"
 
-#: content_a/form/setting/display.php:37 content_a/form/setting/display.php:38
+#: content_a/form/setting/display.php:27 content_a/form/setting/display.php:28
+msgid "Disable short link"
+msgstr "غیرفعال کردن لینک کوتاه فرم"
+
+#: content_a/form/setting/display.php:41 content_a/form/setting/display.php:42
 msgid "Save answer as ticket"
 msgstr "ذخیره پاسخ به عنوان تیکت"
 
-#: content_a/form/setting/display.php:41
+#: content_a/form/setting/display.php:45
 msgid "Answer limit"
 msgstr "محدودیت تعداد پاسخ"
 
-#: content_a/form/setting/display.php:41
+#: content_a/form/setting/display.php:46
 msgid "If answer limit is full no body can add new answer to this form"
 msgstr "اگر ظرفیت پاسخ این فرم تکمیل شود هیچ کسی نمی‌تواند پاسخ جدید به این فرم اضافه کند"
 
-#: content_a/form/setting/display.php:68 content_a/form/setting/display.php:69
-msgid "Have special print page for answers?"
-msgstr "آیا برای نمایش پاسخ‌ها صفحه‌ی مخصوصی طراحی کرده‌اید؟"
+#: content_a/form/setting/display.php:65
+msgid "Banner image in form page"
+msgstr "تصویر بنر صفحه نمایش فرم"
 
 #: content_a/form/sorting/display.php:17
 msgid ""
@@ -16414,7 +16418,7 @@ msgstr "هیچ دسته‌بندی یافت نشد!"
 msgid "Search products"
 msgstr "جستجو در محصولات"
 
-#: content_business/f/home/controller.php:103
+#: content_business/f/home/controller.php:108
 msgid "This form is private form!"
 msgstr "این فرم یه فرم خصوصی است!"
 
@@ -40569,7 +40573,7 @@ msgstr "کسر شد."
 msgid "Choice successfully added"
 msgstr "گزینه با موفقیت اضافه شد"
 
-#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:69
+#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:77
 #: lib/app/form/item/edit.php:107 lib/app/menu/edit.php:60
 msgid "No data to change"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
@@ -40664,11 +40668,11 @@ msgstr "فرم تماس با موفقیت اضافه شد"
 msgid "Can not duplicate this form"
 msgstr "نمی‌توانیم این فرم را کپی کنیم"
 
-#: lib/app/form/form/check.php:86
+#: lib/app/form/form/check.php:87
 msgid "Duplicate form slug. Try another name"
 msgstr "نامک فرم تکراری است. لطفا نامک دیگری را وارد کنید"
 
-#: lib/app/form/form/check.php:225
+#: lib/app/form/form/check.php:232
 msgid "Start time must be less than end time"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
 
@@ -40700,11 +40704,11 @@ msgstr "نمایش لیست تراکنش‌ها"
 msgid "Total unverify payed by this form"
 msgstr "مجموع تراکنش‌های پرداخت نشده از طریق این فرم"
 
-#: lib/app/form/form/edit.php:78
+#: lib/app/form/form/edit.php:86
 msgid "This form used in menu and can not be remove"
 msgstr "این فرم در منو استفاده شده و امکان حذف آن وجود ندارد"
 
-#: lib/app/form/form/edit.php:102
+#: lib/app/form/form/edit.php:110
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
@@ -45248,6 +45252,9 @@ msgstr "اینچ"
 #: lib/units.php:46
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Have special print page for answers?"
+#~ msgstr "آیا برای نمایش پاسخ‌ها صفحه‌ی مخصوصی طراحی کرده‌اید؟"
 
 #~ msgid "Result Page"
 #~ msgstr "صفحه نمایش نتایج"
