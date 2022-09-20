@@ -26,5 +26,20 @@ class get
 
 
 	}
+
+
+
+	public static function getReadyFull($_id)
+	{
+		$load = self::get($_id);
+		if($load)
+		{
+			$load = \dash\app\transaction::readyFull($load);
+		}
+
+		return $load;
+
+
+	}
 }
 ?>

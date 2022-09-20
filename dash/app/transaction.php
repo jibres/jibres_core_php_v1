@@ -5,8 +5,6 @@ class transaction
 {
 
 
-
-
 	public static function ready($_data)
 	{
 		if(!is_array($_data))
@@ -27,7 +25,7 @@ class transaction
 					}
 					break;
 				case 'user_id':
-					$result[$key] = $value;
+					$result[$key]        = $value;
 					$result['user_code'] = \dash\coding::encode($value);
 
 					break;
@@ -73,27 +71,73 @@ class transaction
 		if(\dash\temp::get('isApi'))
 		{
 			unset($result['user_id']);
-            unset($result['code']);
-            unset($result['caller']);
-            unset($result['amount_request']);
-            unset($result['amount_end']);
-            unset($result['parent_id']);
-            unset($result['related_user_id']);
-            unset($result['related_foreign']);
-            unset($result['related_id']);
-            unset($result['payment_response']);
-            unset($result['meta']);
-            unset($result['payment_response1']);
-            unset($result['payment_response2']);
-            unset($result['payment_response3']);
-            unset($result['payment_response4']);
-            unset($result['token']);
-            unset($result['banktoken']);
-            unset($result['finalmsg']);
-            unset($result['factor_id']);
+			unset($result['code']);
+			unset($result['caller']);
+			unset($result['amount_request']);
+			unset($result['amount_end']);
+			unset($result['parent_id']);
+			unset($result['related_user_id']);
+			unset($result['related_foreign']);
+			unset($result['related_id']);
+			unset($result['payment_response']);
+			unset($result['meta']);
+			unset($result['payment_response1']);
+			unset($result['payment_response2']);
+			unset($result['payment_response3']);
+			unset($result['payment_response4']);
+			unset($result['token']);
+			unset($result['banktoken']);
+			unset($result['finalmsg']);
+			unset($result['factor_id']);
 		}
 
 		return $result;
 	}
+
+
+	public static function readyFull($_load)
+	{
+		$result = self::ready($_load);
+
+		if(isset($result['payment_response1']) && is_string($result['payment_response1']))
+		{
+			$result['payment_response1'] = json_decode($result['payment_response1'], true);
+		}
+
+		if(isset($result['payment_response2']) && is_string($result['payment_response2']))
+		{
+			$result['payment_response2'] = json_decode($result['payment_response2'], true);
+		}
+
+		if(isset($result['payment_response3']) && is_string($result['payment_response3']))
+		{
+			$result['payment_response3'] = json_decode($result['payment_response3'], true);
+		}
+
+		if(isset($result['payment_response4']) && is_string($result['payment_response4']))
+		{
+			$result['payment_response4'] = json_decode($result['payment_response4'], true);
+		}
+
+		$bankTrackingNumber  = null;
+		$bankReferenceNumber = null;
+
+		switch ($result['payment'])
+		{
+			case 'payir':
+				$bankTrackingNumber  = a($result, 'payment_response3', 'traceNumber');
+				$bankReferenceNumber = a($result, 'payment_response3', 'transId');
+				break;
+			default:
+				break;
+		}
+
+		$result['bankTrackingNumber']  = $bankTrackingNumber;
+		$result['bankReferenceNumber'] = $bankReferenceNumber;
+
+		return $result;
+	}
+
 }
+
 ?>

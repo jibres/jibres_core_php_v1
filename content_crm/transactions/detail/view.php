@@ -24,7 +24,6 @@ class view
 			\dash\data::myUserID(false);
 		}
 
-		// var_dump(\dash\data::dataRow());exit();
 	}
 }
 ?>

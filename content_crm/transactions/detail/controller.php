@@ -9,12 +9,13 @@ class controller
 
 		$id = \dash\request::get('id');
 
-		$load = \dash\app\transaction\get::get($id);
+		$load = \dash\app\transaction\get::getReadyFull($id);
 
 		if(!$load)
 		{
 			\dash\header::status(404);
 		}
+
 
 		\dash\data::dataRow($load);
 	}
