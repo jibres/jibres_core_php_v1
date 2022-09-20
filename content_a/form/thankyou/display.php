@@ -16,7 +16,7 @@
 
 					<div class="mb-2">
 						<label for="endmessage"><?php echo T_("End message") ?></label>
-						<textarea name="endmessage" class="txt" rows="3" id="endmessage" placeholder="<?php echo T_("End message") ?>"><?php echo \dash\data::dataRow_endmessage(); ?></textarea>
+						<textarea name="endmessage" class="txt" rows="7" id="endmessage" placeholder="<?php echo T_("End message") ?>"><?php echo \dash\data::dataRow_endmessage(); ?></textarea>
 					</div>
 
 				</div>

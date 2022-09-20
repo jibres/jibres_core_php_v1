@@ -21,7 +21,7 @@
 
                     <div class="mb-2">
                         <label for="desc"><?php echo T_("Description") ?></label>
-                        <textarea name="desc" class="txt" rows="3" id="desc"
+                        <textarea name="desc" class="txt" rows="7" id="desc"
                                   placeholder="<?php echo T_("Description") ?>"><?php if (\dash\data::dataRow_desc())
 							{
 								echo strip_tags(\dash\data::dataRow_desc());

@@ -28,7 +28,7 @@
                                 </span>
                                 <?php if($item['link']): ?>
                                 <span class="mx-2 flex-shrink-0">
-                                    <a type="button" href="<?php echo $item['url'] ?>"
+                                    <a  href="<?php echo $item['url'] ?>"
                                             class="rounded-md bg-white font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                         <?php echo $item['linkTitle'] ?>
                                     </a>

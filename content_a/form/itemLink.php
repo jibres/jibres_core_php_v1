@@ -1,102 +1,170 @@
-<nav class="items">
-    <ul>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/dashboard?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-gauge"></i>
-                <div class="key"><?php echo T_("Form Dashboard"); ?></div>
-                <div class="go"></div>
-            </a></li>
-    </ul>
-</nav>
+<?php
+$links   = [];
+$links[] =
+	[
+		'group' => 1,
+		'path'  => 'dashboard',
+		'icon'  => 'sf-gauge',
+		'title' => T_("Form Dashboard"),
+	];
+$links[] =
+	[
+		'group' => 2,
+		'path'  => 'edit',
+		'icon'  => 'sf-list-ul',
+		'title' => T_("Items list"),
+	];
+
+$links[] =
+	[
+		'group' => 2,
+		'path'  => 'setting',
+		'icon'  => 'sf-pencil-square-o',
+		'title' => T_("Edit form setting"),
+	];
+
+$links[] =
+	[
+		'group' => 2,
+		'path'  => 'thankyou',
+		'icon'  => 'sf-heart-o',
+		'title' => T_("Thank you message"),
+	];
 
 
-<nav class="items">
-    <ul>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/edit?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-list-ul"></i>
-                <div class="key"><?php echo T_("Items list"); ?></div>
-                <div class="go"></div>
-            </a></li>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/setting?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-pencil-square-o"></i>
-                <div class="key"><?php echo T_("Edit form setting"); ?></div>
-                <div class="go"></div>
-            </a></li>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/thankyou?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-heart-o"></i>
-                <div class="key"><?php echo T_("Thank you message"); ?></div>
-                <div class="go"></div>
-            </a></li>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/status?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-plug"></i>
-                <div class="key"><?php echo T_("Status"); ?></div>
-                <div class="go"></div>
-            </a></li>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/sorting?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-sort"></i>
-                <div class="key"><?php echo T_("Sort items"); ?></div>
-                <div class="go"></div>
-            </a></li>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/tag?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-tag"></i>
-                <div class="key"><?php echo T_("Tags"); ?></div>
-                <div class="go"></div>
-            </a></li>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/condition?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-atom"></i>
-                <div class="key"><?php echo T_("Form condition"); ?></div>
-                <div class="go"></div>
-            </a></li>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/inquiry?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-group-full"></i>
-                <div class="key"><?php echo T_("Inquiry"); ?></div>
-                <div class="go"></div>
-            </a></li>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/resultpage?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-list-ul"></i>
-                <div class="key"><?php echo T_("Result Page"); ?></div>
-                <div class="go"></div>
-            </a></li>
+$links[] =
+	[
+		'group' => 2,
+		'path'  => 'status',
+		'icon'  => 'sf-plug',
+		'title' => T_("Status"),
+	];
 
-    </ul>
-</nav>
-
-<nav class="items">
-    <ul>
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/answer?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-file"></i>
-                <div class="key"><?php echo T_("Answers"); ?></div>
-                <div class="go"></div>
-            </a></li>
-
-        <li><a class="f item" href="<?php echo \dash\url::this() . '/report?id=' . \dash\request::get('id'); ?>">
-                <i class="sf-pie-chart"></i>
-                <div class="key"><?php echo T_("Reports"); ?></div>
-                <div class="go"></div>
-            </a></li>
-    </ul>
-</nav>
+$links[] =
+	[
+		'group' => 2,
+		'path'  => 'sorting',
+		'icon'  => 'sf-sort',
+		'title' => T_("Sort items"),
+	];
 
 
-<?php if(\content_a\form\analytics\controller::check_count_answer_1000()) { ?>
-    <nav class="items">
-        <ul>
-            <li><a class="f item" href="<?php echo \dash\url::this() . '/analytics?id=' . \dash\request::get('id'); ?>">
-                    <i class="sf-atom"></i>
-                    <div class="key"><?php echo T_("Analyze answers"); ?></div>
-                    <div class="go"></div>
-                </a></li>
-        </ul>
-    </nav>
-<?php } //endif ?>
+
+$links[] =
+	[
+		'group' => 2,
+		'path'  => 'tag',
+		'icon'  => 'sf-tag',
+		'title' => T_("Tags"),
+	];
 
 
-<nav class="items">
-    <ul>
-        <li>
-            <a class="f" href="<?php echo \dash\url::this() . '/item/add?id=' . \dash\request::get('id') ?>">
-                <div class="go plus ok"></div>
-                <div class="key"><?php echo T_("Add new question") ?></div>
-            </a>
-        </li>
-    </ul>
-</nav>
+$links[] =
+	[
+		'group' => 2,
+		'path'  => 'condition',
+		'icon'  => 'sf-atom',
+		'title' => T_("Form condition"),
+	];
+
+$links[] =
+	[
+		'group' => 2,
+		'path'  => 'inquiry',
+		'icon'  => 'sf-group-full',
+		'title' => T_("Inquiry"),
+	];
+
+
+
+$links[] =
+	[
+		'group' => 2,
+		'path'  => 'resultpage',
+		'icon'  => 'sf-eye',
+		'title' => T_("Result page"),
+	];
+
+
+
+$links[] =
+	[
+		'group' => 3,
+		'path'  => 'answer',
+		'icon'  => 'sf-file-text',
+		'title' => T_("Answers"),
+	];
+
+
+$links[] =
+	[
+		'group' => 3,
+		'path'  => 'report',
+		'icon'  => 'sf-pie-chart',
+		'title' => T_("Reports"),
+	];
+
+if(\content_a\form\analytics\controller::check_count_answer_1000())
+{
+
+	$links[] =
+		[
+			'group' => 4,
+			'path'  => 'analytics',
+			'icon'  => 'sf-analytics-chart-graph',
+			'title' => T_("Analyze answers"),
+		];
+
+}
+$links[] =
+	[
+		'group' => 5,
+		'path'  => 'item/add',
+		'icon'  => 'sf-plus ok',
+		'title' => T_("Add new question"),
+	];
+
+
+
+$html       = '';
+$last_group = null;
+$id         = \dash\request::get('id');
+$urlThis    = \dash\url::this();
+foreach ($links as $key => $link)
+{
+	if($link['group'] !== $last_group)
+	{
+		$last_group = $link['group'];
+		$html       .= '<nav class="items">';
+		$html       .= '<ul>';
+	}
+
+    $ok = null;
+    if(\dash\url::child() === $link['path'] || \dash\url::child() === substr($link['path'], 0, strpos($link['path'], '/')))
+	{
+        $ok = 'ok';
+    }
+
+	$html .= '<li>';
+	{
+		$html .= '<a class="f item" href="' . $urlThis . '/' . $link['path'] . '?id=' . $id . '">';
+		{
+			$html .= '<i class="' . $link['icon'] . '"></i>';
+			$html .= '<div class="key">' . $link['title'] . '</div>';
+			$html .= '<div class="go '.$ok.'"></div>';
+		}
+		$html .= '</a>';
+	}
+	$html .= '</li>';
+
+	if(a($links, ($key + 1), 'group') !== $last_group)
+	{
+
+		$html       .= '</ul>';
+		$html       .= '</nav>';
+	}
+
+
+}
+echo $html;
+?>
