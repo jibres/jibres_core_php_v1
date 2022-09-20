@@ -93,8 +93,8 @@ $html .= '<div class="row align-center">';
             {
               if(!a($value, 'parent'))
               {
-                $html .= '<option value="'. a($value, 'url').'" >';
-                $html .= a($value, 'title').'</option>';
+                // $html .= '<option value="'. a($value, 'url').'" >';
+                // $html .= a($value, 'title').'</option>';
               }
               else
               {

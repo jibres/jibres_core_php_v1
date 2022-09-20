@@ -6,6 +6,21 @@ $html .= '<div class="box shareBox">';
   {
     $html .= '<div class="c">';
     {
+		if(\dash\data::dataRow_parent())
+		{
+
+			$html .= '<a data-copy="'. \dash\url::kingdom(). '/p/'. \dash\data::dataRow_parent(). '" href="'. \dash\url::kingdom(). '/p/'. \dash\data::dataRow_parent(). '">';
+			{
+				$html .= T_("Parent product id");
+				$html .= ' <span class="font-bold">';
+				{
+					$html .= \dash\fit::text(\dash\data::dataRow_parent());
+				}
+				$html .= '</span>';
+			}
+			$html .= '</a> / ';
+		}
+
       $html .= '<a data-copy="'. \dash\url::kingdom(). '/p/'. \dash\data::dataRow_id(). '" href="'. \dash\url::kingdom(). '/p/'. \dash\data::dataRow_id(). '">';
       {
         $html .= T_("Product Code");
