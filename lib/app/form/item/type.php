@@ -548,21 +548,6 @@ class type
 					],
 			];
 
-		$type['amount_suggestion'] =
-			[
-				'key'          => 'amount_suggestion',
-				'title'        => T_('Amount suggestion'),
-				'chart'        => false,
-				'compare'      => false,
-				'chart_type'   => 'bar',
-				'group'        => T_('Price'),
-				'is_amount'    => true,
-				'choice'       => true,
-				'default_load' =>
-					[
-					],
-			];
-
 
 		$type['list_amount'] =
 			[
@@ -579,23 +564,42 @@ class type
 					],
 			];
 
-		$type['amount_with_coefficient'] =
-			[
-				'key'          => 'amount_with_coefficient',
-				'title'        => T_('The amount with the coefficient'),
-				'chart'        => false,
-				'compare'      => false,
-				'chart_type'   => 'bar',
-				'group'        => T_('Price'),
-				'is_amount'    => true,
-				'choice'       => true,
-				'coefficient'  => true,
-				'min'          => true,
-				'max'          => true,
-				'default_load' =>
-					[
-					],
-			];
+		if(\dash\url::isLocal())
+		{
+			$type['amount_suggestion'] =
+				[
+					'key'          => 'amount_suggestion',
+					'title'        => T_('Amount suggestion'),
+					'chart'        => false,
+					'compare'      => false,
+					'chart_type'   => 'bar',
+					'group'        => T_('Price'),
+					'is_amount'    => true,
+					'choice'       => true,
+					'default_load' =>
+						[
+						],
+				];
+
+
+			$type['amount_with_coefficient'] =
+				[
+					'key'          => 'amount_with_coefficient',
+					'title'        => T_('The amount with the coefficient'),
+					'chart'        => false,
+					'compare'      => false,
+					'chart_type'   => 'bar',
+					'group'        => T_('Price'),
+					'is_amount'    => true,
+					'choice'       => true,
+					'coefficient'  => true,
+					'min'          => true,
+					'max'          => true,
+					'default_load' =>
+						[
+						],
+				];
+		}
 
 
 		$type['hidden_amount'] =
