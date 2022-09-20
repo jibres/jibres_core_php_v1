@@ -13,24 +13,24 @@ class f1
 	public static function option()
 	{
 		return
-		[
-			'title'        => T_("Simple"),
-			'options'      =>
 			[
-				'heading_business_header',
-				'description_copyright',
-				'responsive' => share::set_responsive_option_footer(),
+				'title'        => T_("Simple"),
+				'options'      =>
+					[
+						'heading_business_header',
+						'description_copyright',
+						'responsive' => share::set_responsive_option_footer(),
 
-			],
-			'default'      =>
-			[
-				'use_as_heading'     => 'business_heading',
-			],
-			'preview_list' =>
-			[
-				'p1',
-			],
-		];
+					],
+				'default'      =>
+					[
+						'use_as_heading' => 'business_heading',
+					],
+				'preview_list' =>
+					[
+						'p1',
+					],
+			];
 	}
 
 
@@ -40,15 +40,17 @@ class f1
 	public static function p1()
 	{
 		return
-		[
-			'version'        => 1,
-			'options' =>
 			[
-				'use_as_heading'     => 'business_heading',
-			],
-		];
+				'version' => 1,
+				'options' =>
+					[
+						'use_as_heading'     => 'business_heading',
+						'use_as_footer_link' => 'default',
+					],
+			];
 	}
 
 
 }
+
 ?>
