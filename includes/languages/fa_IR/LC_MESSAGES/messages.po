@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-20 13:27+0430\n"
-"PO-Revision-Date: 2022-09-20 13:27+0430\n"
+"POT-Creation-Date: 2022-09-20 14:44+0430\n"
+"PO-Revision-Date: 2022-09-20 14:44+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -1411,8 +1411,8 @@ msgstr "داستان هر وب‌سایت با یک دامنه فوق العاد
 #: content_a/accounting/coding/display.php:53 content_a/accounting/coding/display.php:54
 #: content_a/accounting/filter.php:9 content_a/cart/home/display.php:82
 #: content_a/category/home/display.php:107 content_a/form/analytics/table/display.php:40
-#: content_a/form/analytics/table/display.php:41 content_a/form/answer/item/display.php:37
-#: content_a/form/answer/item/display.php:38 content_a/form/home/display.php:73
+#: content_a/form/analytics/table/display.php:41 content_a/form/answer/item/display.php:38
+#: content_a/form/answer/item/display.php:41 content_a/form/home/display.php:73
 #: content_a/form/home/display.php:74 content_a/form/item/duplicatelist/display.php:44
 #: content_a/form/item/duplicatelist/display.php:81 content_a/form/tag/display.php:104
 #: content_a/notiflog/display.php:69 content_a/notiflog/display.php:70
@@ -4267,7 +4267,7 @@ msgstr "متن توافقنامه ثبت دامنه .ir و .ایران.ir "
 #: content_a/form/inquiry/view.php:12 content_a/form/item/choice/view.php:13
 #: content_a/form/item/duplicatelist/view.php:13 content_a/form/item/type/view.php:15
 #: content_a/form/report/answer/view.php:46 content_a/form/report/compare/view.php:10
-#: content_a/form/report/view.php:21 content_a/form/resultpage/view.php:12
+#: content_a/form/report/view.php:18 content_a/form/resultpage/view.php:12
 #: content_a/form/setting/view.php:12 content_a/form/sorting/view.php:11
 #: content_a/form/status/view.php:12 content_a/form/tag/remove/view.php:14
 #: content_a/form/tag/view.php:16 content_a/form/thankyou/view.php:12
@@ -5012,7 +5012,7 @@ msgstr "تفصیل‌پذیر"
 #: content_a/cart/home/display.php:225 content_a/category/home/display.php:145
 #: content_a/form/analytics/table/display.php:98
 #: content_a/form/analytics/table/display.php:105
-#: content_a/form/answer/item/display.php:71 content_a/form/answer/item/display.php:78
+#: content_a/form/answer/item/display.php:82 content_a/form/answer/item/display.php:91
 #: content_a/form/home/display.php:134 content_a/form/home/display.php:142
 #: content_a/form/tag/display.php:149 content_a/notiflog/display.php:155
 #: content_a/notiflog/display.php:163 content_business/search/display.php:47
@@ -5037,7 +5037,7 @@ msgstr "پاک‌سازی فیلترها"
 
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:224
 #: content_a/form/analytics/table/display.php:104
-#: content_a/form/answer/item/display.php:77 content_a/form/home/display.php:141
+#: content_a/form/answer/item/display.php:89 content_a/form/home/display.php:141
 #: content_a/notiflog/display.php:162 content_love/domain/irnic/display.php:92
 #: content_love/domain/polls/display.php:101 content_love/log/home/logTable.php:131
 #: content_love/notiflog/display.php:166 content_my/domain/irnic/display.php:92
@@ -5048,7 +5048,7 @@ msgstr "نتیجه‌ای یافت نشد!"
 
 #: content_a/accounting/coding/display-list.php:166 content_a/cart/home/display.php:224
 #: content_a/form/analytics/table/display.php:104
-#: content_a/form/answer/item/display.php:77 content_a/form/home/display.php:141
+#: content_a/form/answer/item/display.php:89 content_a/form/home/display.php:141
 #: content_a/notiflog/display.php:162 content_love/domain/irnic/display.php:92
 #: content_love/domain/polls/display.php:101 content_love/log/home/logTable.php:131
 #: content_love/notiflog/display.php:166 content_my/domain/irnic/display.php:92
@@ -5060,10 +5060,10 @@ msgstr "کلمه ای جدید جستجو کنید."
 #: content_a/accounting/coding/display-list.php:173
 #: content_a/accounting/doc/display.php:46 content_a/accounting/factor/display.php:88
 #: content_a/accounting/turnover/display.php:247 content_a/category/home/display.php:156
-#: content_a/form/answer/item/display.php:83 content_a/form/home/display.php:148
-#: content_a/form/tag/display.php:158 content_a/notiflog/display.php:169
-#: content_a/units/display.php:153 content_account/notification/display.php:57
-#: content_business/orders/display.php:54 content_love/application/home/display.php:143
+#: content_a/form/home/display.php:148 content_a/form/tag/display.php:158
+#: content_a/notiflog/display.php:169 content_a/units/display.php:153
+#: content_account/notification/display.php:57 content_business/orders/display.php:54
+#: content_love/application/home/display.php:143
 #: content_love/domain/billing/display.php:152 content_love/domain/fetch/display.php:114
 #: content_love/domain/irnic/display.php:102 content_love/domain/log/display.php:161
 #: content_love/domain/onlineniclog/display.php:161 content_love/log/home/logTable.php:138
@@ -7235,7 +7235,7 @@ msgid "Set your application logo"
 msgstr "تنظیم لوگوی برنامه"
 
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
-#: content_a/form/inquiry/display.php:66 content_a/form/resultpage/display.php:84
+#: content_a/form/inquiry/display.php:77 content_a/form/resultpage/display.php:84
 #: content_a/form/setting/display.php:69 content_a/order/comment/display.php:53
 #: content_a/setting/general/display.php:37
 #: content_business/ticket/add/add_ticket_form.php:19 content_cms/files/add/display.php:7
@@ -7320,7 +7320,7 @@ msgid "Intro page #1"
 msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
-#: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:67
+#: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:80
 #: content_a/form/resultpage/display.php:85 content_a/form/setting/display.php:72
 #: content_a/products/advance/display.php:38 content_cms/files/home/display.php:37
 #: content_cms/files/home/display.php:49 content_crm/member/identification/display.php:108
@@ -7729,7 +7729,6 @@ msgid "Product"
 msgstr "محصول"
 
 #: content_a/cart/home/display.php:147 content_a/cart/home/display.php:186
-#: content_a/form/answer/item/display.php:48
 #: content_a/report/products/maxsale/display.php:6 lib/app/form/form/dashboard.php:27
 #: lib/app/order/filter.php:100
 msgid "Item"
@@ -8546,7 +8545,8 @@ msgstr "افزودن شرط بر اساس"
 
 #: content_a/form/analytics/addcondition/display-chose-item.php:16
 #: content_a/form/analytics/addcondition/display-chose-item.php:28
-#: content_a/form/home/display.php:99 content_a/form/home/display.php:117
+#: content_a/form/answer/item/display.php:53 content_a/form/home/display.php:99
+#: content_a/form/home/display.php:117
 msgid "Question"
 msgstr "سوال"
 
@@ -8960,8 +8960,8 @@ msgstr "پرداخت موفقیت‌آمیز"
 msgid "Unsuccess"
 msgstr "ناموفق"
 
-#: content_a/form/answer/detail/display.php:192 content_a/form/dashboard/display.php:52
-#: content_a/form/home/model.php:12
+#: content_a/form/answer/detail/display.php:192 content_a/form/answer/item/display.php:52
+#: content_a/form/dashboard/display.php:52 content_a/form/home/model.php:12
 msgid "Answer id"
 msgstr "کد پاسخ"
 
@@ -9278,7 +9278,7 @@ msgstr "انتخاب تگ"
 msgid "Group tag"
 msgstr "تگ گروهی"
 
-#: content_a/form/answer/item/display.php:49 content_a/form/home/display.php:101
+#: content_a/form/answer/item/display.php:54 content_a/form/home/display.php:101
 #: content_a/form/home/display.php:119 content_a/form/report/answer/display-bar.php:9
 #: content_a/form/report/answer/display-country.php:8
 #: content_a/form/report/answer/display-pie.php:19
@@ -9289,9 +9289,18 @@ msgstr "تگ گروهی"
 msgid "Answer"
 msgstr "پاسخ"
 
-#: content_a/form/answer/item/display.php:50 content_a/form/answer/item/display.php:60
+#: content_a/form/answer/item/display.php:55
 msgid "Other answer"
 msgstr "سایر پاسخ‌ها"
+
+#: content_a/form/answer/item/display.php:68
+#: lib/app/log/caller/form/form_newAnswer.php:109
+msgid "View answer"
+msgstr "مشاهده پاسخ"
+
+#: content_a/form/answer/item/display.php:97
+msgid "No detail was found!"
+msgstr "هیچ جزئياتی یافت نشد!"
 
 #: content_a/form/answer/note/controller.php:28 lib/app/form/comment/get.php:118
 msgid "Comment not found"
@@ -9404,7 +9413,7 @@ msgstr "کپی از فرم"
 msgid "Items"
 msgstr "آیتم‌ها"
 
-#: content_a/form/edit/view.php:9 content_a/form/setting/view.php:9
+#: content_a/form/edit/view.php:10 content_a/form/setting/view.php:9
 msgid "Edit new contact form"
 msgstr "ویرایش فرم تماس"
 
@@ -9480,15 +9489,15 @@ msgstr ""
 "ویژگی استعلام این امکان را به شما می‌دهد تا مخاطب شما با مراجعه به فرم و وارد کردن "
 "اطلاعات،‌ از نتیجه پاسخ خود مطلع شود."
 
-#: content_a/form/inquiry/display.php:15
+#: content_a/form/inquiry/display.php:17
 msgid "Enable inquiry"
 msgstr "فعال‌سازی استعلام"
 
-#: content_a/form/inquiry/display.php:18
+#: content_a/form/inquiry/display.php:20
 msgid "inquiry page address"
 msgstr "آدرس صفحه استعلام"
 
-#: content_a/form/inquiry/display.php:28
+#: content_a/form/inquiry/display.php:36
 msgid ""
 "You have not any inquiry question in your form. Questions that are mobile or national "
 "code can be used in the inquiry process"
@@ -9496,24 +9505,24 @@ msgstr ""
 "شما در فرم خود سوالی که بتوان از آن استعلام گرفت ندارید. تنها سوالاتی که از جنس تلفن "
 "همراه و یا کد ملی هستند توانایی استفاده در فرایند استعلام را خواهند داشت"
 
-#: content_a/form/inquiry/display.php:30
+#: content_a/form/inquiry/display.php:38
 msgid "Which question to ask?"
 msgstr "کدام سوال را برای استعلام قرار می‌دهید؟"
 
-#: content_a/form/inquiry/display.php:45
-msgid "Message if result founded"
-msgstr "پیام در صورت یافتن نتیجه"
-
-#: content_a/form/inquiry/display.php:50
-msgid "Message if result not founded"
-msgstr "پیام در صورتی که نتیجه‌ای یافت نشد"
-
-#: content_a/form/inquiry/display.php:56 content_a/form/inquiry/display.php:57
+#: content_a/form/inquiry/display.php:55 content_a/form/inquiry/display.php:57
 #: content_a/form/tag/edit/display.php:23
 msgid "Inquiry Message"
 msgstr "پیام قبل از استعلام"
 
-#: content_a/form/inquiry/display.php:63
+#: content_a/form/inquiry/display.php:60
+msgid "Message if result founded"
+msgstr "پیام در صورت یافتن نتیجه"
+
+#: content_a/form/inquiry/display.php:66
+msgid "Message if result not founded"
+msgstr "پیام در صورتی که نتیجه‌ای یافت نشد"
+
+#: content_a/form/inquiry/display.php:73
 msgid "Inquiry page image"
 msgstr "تصویر صفحه استعلام"
 
@@ -9886,7 +9895,7 @@ msgstr "مقایسه با آیتم دیگر"
 
 #: content_a/form/report/answer/view.php:18 content_a/form/report/compare/view.php:29
 #: content_a/form/report/display.php:8 content_a/form/report/display.php:21
-#: content_a/form/report/view.php:18 content_a/report/productsalesovertime/display.php:115
+#: content_a/form/report/view.php:15 content_a/report/productsalesovertime/display.php:115
 #: content_a/report/salesovertime/display.php:100 includes/languages/trans_static.php:70
 #: lib/app/plugin/items/report/report_professional.php:39
 msgid "Report"
@@ -41567,10 +41576,6 @@ msgstr "پاسخ جدید"
 #: lib/app/log/caller/form/form_newAnswer.php:96
 msgid "A new response to the form was registered"
 msgstr "یک پاسخ جدید به فرم‌ها ثبت شد"
-
-#: lib/app/log/caller/form/form_newAnswer.php:109
-msgid "View answer"
-msgstr "مشاهده پاسخ"
 
 #: lib/app/log/caller/form/form_newAnswer.php:117
 msgid "New answer to form"
