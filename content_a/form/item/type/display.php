@@ -2,10 +2,10 @@
 $value = \dash\data::itemDetail();
 ?>
 <div class="row">
-    <div class="c-xs-0 c-sm-0 c-lg-4 d-lg-block">
+    <div class="c-xs-0 c-sm-0 c-lg-4 c-xl-3 d-lg-block">
 		<?php require_once(root . 'content_a/form/itemLink.php'); ?>
     </div>
-    <div class="c-xs-12 c-sm-12 c-lg-8">
+    <div class="c-lg-8 c-xl-9">
 		<?php require_once(root . 'content_a/form/formTitle.php'); ?>
         <div class="avand-md">
             <form method="post" autocomplete="off" id="form1" data-patch>

@@ -12,7 +12,7 @@ class view
 		$form_id = \dash\request::get('id');
 		// back
 		\dash\data::back_text(T_('Back'));
-		\dash\data::back_link(\dash\url::this(). '/edit?'. \dash\request::fix_get());
+		\dash\data::back_link(\dash\url::this(). '/dashboard?'. \dash\request::fix_get());
 
 	}
 }

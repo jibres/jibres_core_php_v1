@@ -131,7 +131,7 @@ foreach ($links as $key => $link)
 	if($link['group'] !== $last_group)
 	{
 		$last_group = $link['group'];
-		$html       .= '<nav class="items">';
+		$html       .= '<nav class="items long">';
 		$html       .= '<ul>';
 	}
 
