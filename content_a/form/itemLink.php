@@ -49,7 +49,6 @@ $links[] =
 	];
 
 
-
 $links[] =
 	[
 		'group' => 2,
@@ -76,7 +75,6 @@ $links[] =
 	];
 
 
-
 $links[] =
 	[
 		'group' => 2,
@@ -84,7 +82,6 @@ $links[] =
 		'icon'  => 'sf-eye',
 		'title' => T_("Result page"),
 	];
-
 
 
 $links[] =
@@ -125,7 +122,6 @@ $links[] =
 	];
 
 
-
 $html       = '';
 $last_group = null;
 $id         = \dash\request::get('id');
@@ -139,11 +135,11 @@ foreach ($links as $key => $link)
 		$html       .= '<ul>';
 	}
 
-    $ok = null;
-    if(\dash\url::child() === $link['path'] || \dash\url::child() === substr($link['path'], 0, strpos($link['path'], '/')))
+	$ok = null;
+	if(\dash\url::child() === $link['path'] || \dash\url::child() === substr($link['path'], 0, strpos($link['path'], '/')))
 	{
-        $ok = 'ok';
-    }
+		$ok = 'ok';
+	}
 
 	$html .= '<li>';
 	{
@@ -151,7 +147,7 @@ foreach ($links as $key => $link)
 		{
 			$html .= '<i class="' . $link['icon'] . '"></i>';
 			$html .= '<div class="key">' . $link['title'] . '</div>';
-			$html .= '<div class="go '.$ok.'"></div>';
+			$html .= '<div class="go ' . $ok . '"></div>';
 		}
 		$html .= '</a>';
 	}
@@ -160,8 +156,8 @@ foreach ($links as $key => $link)
 	if(a($links, ($key + 1), 'group') !== $last_group)
 	{
 
-		$html       .= '</ul>';
-		$html       .= '</nav>';
+		$html .= '</ul>';
+		$html .= '</nav>';
 	}
 
 

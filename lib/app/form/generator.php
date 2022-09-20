@@ -642,6 +642,15 @@ class generator
 
 					break;
 
+				case 'amount_with_coefficient':
+					self::div_item($have_condition, 'c-xs-12 c-12');
+					{
+						self::html_input_amount_with_coefficient($item);
+					}
+					self::_div_item($have_condition);
+
+					break;
+
 
 				case 'hidden_amount':
 					self::div_item($have_condition, 'c-xs-12 c-6');
@@ -1051,7 +1060,7 @@ class generator
 		self::HtmlMin($value);
 		self::HtmlMax($value);
 
-		if(strpos($_meta, 'value=') === false)
+		if(strpos(strval($_meta), 'value=') === false)
 		{
 			self::HtmlValue($value);
 		}
@@ -1314,7 +1323,7 @@ class generator
 						foreach ($value['choice'] as $k => $v)
 						{
 							$myPrice = round(floatval(a($v, 'price')));
-							$myTitle =  a($v, 'title');
+							$myTitle = a($v, 'title');
 
 							self::$html .= '<div class="c bg-green-100 mx-1 rounded text-center">';
 							{
@@ -1332,6 +1341,37 @@ class generator
 				self::$html .= '</div>';
 
 				self::html_input_manual_amount($value);
+			}
+			self::HtmlDesc($value);
+			self::_div();
+		}
+		// self::_div();
+	}
+
+
+	private static function html_input_amount_with_coefficient($value)
+	{
+		// self::div('c-xs-12 c-6');
+		{
+			// self::label_raw($value);
+
+			self::div('mB10');
+			{
+				$coefficient = a($value, 'setting', 'amount_with_coefficient', 'coefficient');
+
+				$myName     = self::myName($value, true);
+				$myId       = self::myID($value, true);
+
+				self::label($value);
+				self::$html .= '<div class="input">';
+				{
+					self::$html .= '<lable class="addon" for="' . $myId . '">+</lable>';
+					self::input_raw('tel', '', $myName, $myId, ' data-format="price" ');
+					self::$html .= '<lable class="addon" for="' . $myId . '">-</lable>';
+
+				}
+				self::$html .= '</div>';
+
 			}
 			self::HtmlDesc($value);
 			self::_div();
