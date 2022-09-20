@@ -135,13 +135,15 @@ foreach ($links as $key => $link)
 		$html       .= '<ul>';
 	}
 
-	$ok = null;
+	$ok      = null;
+	$liClass = null;
 	if(\dash\url::child() === $link['path'] || \dash\url::child() === substr($link['path'], 0, strpos($link['path'], '/')))
 	{
-		$ok = 'ok';
+		$ok      = 'ok';
+		$liClass = 'bg-gray-100';
 	}
 
-	$html .= '<li>';
+	$html .= '<li class="' . $liClass . '">';
 	{
 		$html .= '<a class="f item" href="' . $urlThis . '/' . $link['path'] . '?id=' . $id . '">';
 		{
