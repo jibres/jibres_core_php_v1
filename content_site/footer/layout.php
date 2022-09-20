@@ -53,7 +53,8 @@ class layout
 		}
 		elseif(a($_args, 'use_as_footer_link') === 'none')
 		{
-			$_args['responsive'] = false;
+			$_args['responsive'] = []; // bug fix
+			// $_args['responsive'] = false;
 		}
 		else
 		{
