@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-20 12:20+0430\n"
-"PO-Revision-Date: 2022-09-20 12:23+0430\n"
+"POT-Creation-Date: 2022-09-20 12:44+0430\n"
+"PO-Revision-Date: 2022-09-20 12:44+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -16549,33 +16549,37 @@ msgstr "در سبد خرید"
 msgid "Add to cart"
 msgstr "افزودن به سبد خرید"
 
-#: content_business/p/home/blocks/sharebox.php:11
+#: content_business/p/home/blocks/sharebox.php:14
+msgid "Parent product id"
+msgstr "شناسه محصول والد"
+
+#: content_business/p/home/blocks/sharebox.php:26
 msgid "Product Code"
 msgstr "شناسه محصول"
 
-#: content_business/p/home/blocks/sharebox.php:25
-#: content_business/p/home/blocks/sharebox.php:27 content_business/p/home/shareBox.php:4
+#: content_business/p/home/blocks/sharebox.php:40
+#: content_business/p/home/blocks/sharebox.php:42 content_business/p/home/shareBox.php:4
 #: content_business/p/home/shareBox.php:5 dash/layout/post/share-box.php:4
 #: dash/layout/post/share-box.php:5 includes/languages/trans_static_public.php:422
 msgid "facebook"
 msgstr "فیسبوک"
 
-#: content_business/p/home/blocks/sharebox.php:31
-#: content_business/p/home/blocks/sharebox.php:34 content_business/p/home/shareBox.php:8
+#: content_business/p/home/blocks/sharebox.php:46
+#: content_business/p/home/blocks/sharebox.php:49 content_business/p/home/shareBox.php:8
 #: content_business/p/home/shareBox.php:9 dash/layout/post/share-box.php:8
 #: dash/layout/post/share-box.php:9 includes/languages/trans_static_public.php:423
 msgid "twitter"
 msgstr "توییتر"
 
-#: content_business/p/home/blocks/sharebox.php:38
-#: content_business/p/home/blocks/sharebox.php:40 content_business/p/home/shareBox.php:12
+#: content_business/p/home/blocks/sharebox.php:53
+#: content_business/p/home/blocks/sharebox.php:55 content_business/p/home/shareBox.php:12
 #: content_business/p/home/shareBox.php:13 dash/layout/post/share-box.php:12
 #: dash/layout/post/share-box.php:13 includes/languages/trans_static_public.php:425
 msgid "linkedin"
 msgstr "لینکدین"
 
-#: content_business/p/home/blocks/sharebox.php:44
-#: content_business/p/home/blocks/sharebox.php:46 content_business/p/home/shareBox.php:16
+#: content_business/p/home/blocks/sharebox.php:59
+#: content_business/p/home/blocks/sharebox.php:61 content_business/p/home/shareBox.php:16
 #: content_business/p/home/shareBox.php:17 dash/app/log/support_tools.php:147
 #: dash/layout/post/share-box.php:16 dash/layout/post/share-box.php:17
 #: includes/languages/trans_static.php:469
