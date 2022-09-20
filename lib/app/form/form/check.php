@@ -45,6 +45,7 @@ class check
 				'inquiry_msg_founded'     => 'string_250',
 				'inquiry_msg_not_founded' => 'string_250',
 				'saveasticket'            => 'bit',
+				'disableshortlink'        => 'bit',
 				'resultpage_mode'         => 'bit',
 				'resultpage'              => 'bit',
 				'resultpagetext'          => 'real_html',
@@ -111,6 +112,12 @@ class check
 		{
 			$setting['saveasticket'] = $data['saveasticket'];
 		}
+
+		if(array_key_exists('disableshortlink', $_args))
+		{
+			$setting['disableshortlink'] = $data['disableshortlink'];
+		}
+
 
 		if(array_key_exists('beforestart', $_args))
 		{
@@ -244,7 +251,6 @@ class check
 		unset($data['enddate']);
 		unset($data['stime']);
 		unset($data['etime']);
-
 		unset($data['saveasticket']);
 		unset($data['showpulictag']);
 		unset($data['showcomment']);
@@ -252,7 +258,7 @@ class check
 		unset($data['question']);
 		unset($data['inquiry_msg_founded']);
 		unset($data['inquiry_msg_not_founded']);
-
+		unset($data['disableshortlink']);
 		unset($data['resultpage_mode']);
 		unset($data['resultpage']);
 		unset($data['resultpagetag']);

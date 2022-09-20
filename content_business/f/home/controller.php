@@ -55,6 +55,11 @@ class controller
 			// redirect to slug
 			if(a($load_form, 'url') && urldecode($load_form['url']) !== urldecode(\dash\url::that()) && \dash\request::is('get'))
 			{
+				if(a($load_form, 'setting', 'disableshortlink'))
+				{
+					\dash\header::status(404);
+				}
+
 				$url = $load_form['url'];
 				if(\dash\url::subchild() === 'inquiry')
 				{

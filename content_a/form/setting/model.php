@@ -11,11 +11,12 @@ class model
 
 		$post =
 			[
-				'title'        => \dash\request::post('title'),
-				'slug'         => \dash\request::post('slug'),
-				'desc'         => \dash\request::post('desc'),
-				'saveasticket' => \dash\request::post('saveasticket'),
-				'answerlimit'  => \dash\request::post('answerlimit'),
+				'title'            => \dash\request::post('title'),
+				'slug'             => \dash\request::post('slug'),
+				'desc'             => \dash\request::post('desc'),
+				'saveasticket'     => \dash\request::post('saveasticket'),
+				'answerlimit'      => \dash\request::post('answerlimit'),
+				'disableshortlink' => \dash\request::post('disableshortlink'),
 
 			];
 

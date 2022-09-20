@@ -40,6 +40,14 @@ class edit
 		}
 
 
+		if(array_key_exists('disableshortlink', $_args))
+		{
+			$exception[] = 'setting';
+		}
+
+
+
+
 		if(array_key_exists('beforestart', $_args))
 		{
 			$exception[] = 'setting';
