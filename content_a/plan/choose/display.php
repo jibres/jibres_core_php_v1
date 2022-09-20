@@ -32,7 +32,7 @@ function HTMLPlanLinkUrl($plan)
 {
 	if(!\dash\url::content())
 	{
-		$registerUrl = \dash\url::kingdom() . '/my?cb=1&plan=%s&p='. \dash\request::get('p');
+		$registerUrl = \dash\url::kingdom() . '/my?cb=1&plan=%s&p=' . \dash\request::get('p');
 
 	}
 	else
@@ -147,24 +147,32 @@ function HTMLPlanLinkUrl($plan)
                 </thead>
                 <tbody class="divide-y divide-gray-200 border-t border-gray-200">
                 <tr>
-                    <th class="py-8 px-6  align-top text-sm font-medium text-gray-900" scope="row"><?php echo T_("Pricing"); ?></th>
+                    <th class="py-8 px-6  align-top text-sm font-medium text-gray-900"
+                        scope="row"><?php echo T_("Pricing"); ?></th>
 					<?php foreach ($planList as $plan) : ?>
-                        <td class="h-full py-8 px-6 align-top">
-                            <div class="relative table h-full w-full">
-                                <p>
-									<?php if($plan['price']) : ?>
-                                        <span class="text-2xl font-bold tracking-tight text-gray-900"><?php echo \dash\fit::number($plan['price']) ?> <small><?php echo $plan['currencyName']; ?></small></span>
-                                        <span class="text-base font-medium text-gray-500">/<?php echo $periodType; ?></span>
-									<?php else: ?>
-                                        <span class="text-2xl font-bold tracking-tight text-gray-900"><?php echo T_("Free"); ?></span>
-									<?php endif; ?>
-                                </p>
-                                <p class="mt-4 text-sm text-gray-500"><?php echo $plan['description'] ?></p>
-
-
+                    <td class="h-full py-8 px-6 align-top">
+                        <div class="relative table h-full w-full">
+                            <p>
+								<?php if($plan['price']) : ?>
+								<?php if($plan['discount']) : ?>
+                                    <div>
+                                    <span class="text-2xl font-bold tracking-tight text-red-900 line-through decoration-red-800	"><?php echo \dash\fit::number($plan['realPrice']) ?></span>
+                                <span class="bg-green-100 p-1 rounded-lg m-1"><?php echo T_("Discount") . ' '. \dash\fit::number($plan['discount']) ?></span>
                             </div>
-                        </td>
-					<?php endforeach; ?>
+
+                                    <?php endif; ?>
+                                    <span class="text-2xl font-bold tracking-tight text-gray-900"><?php echo \dash\fit::number($plan['price']) ?> <small><?php echo $plan['currencyName']; ?></small></span>
+                                    <span class="text-base font-medium text-gray-500">/<?php echo $periodType; ?></span>
+								<?php else: ?>
+                                    <span class="text-2xl font-bold tracking-tight text-gray-900"><?php echo T_("Free"); ?></span>
+								<?php endif; ?>
+                            </p>
+                            <p class="mt-4 text-sm text-gray-500"><?php echo $plan['description'] ?></p>
+
+
+                        </div>
+                    </td>
+                    <?php endforeach; ?>
                 </tr>
 				<?php foreach (\dash\data::tableFeatureList() as $group => $list) : ?>
                     <tr>

@@ -101,7 +101,7 @@ class search
 
 		if($data['amountless'])
 		{
-			$and[]                = " form_answer.amount < :amountless ";
+			$and[]                = " form_answer.amount <= :amountless ";
 			$param[':amountless'] = $data['amountless'];
 			self::$is_filtered    = true;
 		}
@@ -115,7 +115,7 @@ class search
 
 		if($data['amountlarger'])
 		{
-			$and[]                  = " form_answer.amount > :amountlarger ";
+			$and[]                  = " form_answer.amount >= :amountlarger ";
 			$param[':amountlarger'] = $data['amountlarger'];
 			self::$is_filtered      = true;
 		}

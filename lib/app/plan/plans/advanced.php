@@ -31,6 +31,7 @@ class advanced extends planPrepare
 	}
 
 
+
 	public function type() : string
 	{
 		return 'public';

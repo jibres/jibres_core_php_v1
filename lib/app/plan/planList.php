@@ -95,6 +95,8 @@ class planList
 				'outstandingFeatures' => $outstandingFeatures,
 				'featureList'         => $featureList,
 				'price'               => $_myPlan->calculatePrice($_period),
+				'discount'            => $_myPlan->discount($_period),
+				'realPrice'           => $_myPlan->calculatePrice($_period, false),
 				'currency'            => $currency,
 				'currencyName'        => $currencyName,
 				'isActive'            => $isActive,

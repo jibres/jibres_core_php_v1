@@ -28,7 +28,7 @@
                         <span class="<?php if(a($value, 'payed')) {
 							echo "text-green-600";
 						} else {
-							echo 'text-red-600';
+							echo 'text-gray-600';
 						} ?>" title="<?php if(a($value, 'payed')) {
 							echo T_("Successful payment");
 						} else {

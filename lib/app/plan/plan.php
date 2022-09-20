@@ -38,8 +38,6 @@ interface plan
 	public function priceIRT() : int;
 
 
-	public function discount() : int;
-
 
 	/**
 	 * Plan description

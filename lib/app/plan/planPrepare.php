@@ -46,31 +46,36 @@ abstract class planPrepare implements plan
 	}
 
 
-	public function calculatePrice($_period)
+	public function calculatePrice($_period, $_calculate_discount = true)
 	{
 		$month = $this->getRealMonth($_period);
 		$price = $this->priceIRT();
+		$price = $price * $month;
 
-		$discount = $this->discount();
-
-		if($discount)
+		if($_calculate_discount)
 		{
-			$price = $price - $discount;
-			if($price < 0)
+			$discount = $this->discount($_period);
+
+			if($discount)
 			{
-				$price = 0;
+				$price = $price - $discount;
+				if($price < 0)
+				{
+					$price = 0;
+				}
 			}
 		}
 
-		return $price * $month;
+		return $price;
 	}
 
 
-	public function discount() : int
+	public function discount($_period = null) : int
 	{
+		$month = $this->getRealMonth($_period);
 		if(false)
 		{
-			return 100000;
+			return 100000 * $month;
 		}
 		else
 		{
