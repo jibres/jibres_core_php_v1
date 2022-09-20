@@ -8,14 +8,11 @@ class view
 	{
 		$id = \dash\request::get('id');
 
-		$load = \lib\app\form\form\get::get($id);
-		if(!$load)
-		{
-			\dash\header::status(404);
-		}
-		\dash\data::formDetail($load);
+		\content_a\form\edit\view::form_preview_link();
 
-		\dash\face::title(T_('Report'). ' | '. \dash\data::formDetail_title());
+
+
+		\dash\face::title(T_('Report'). ' | '. \dash\data::dataRow_title());
 
 		// back
 		\dash\data::back_text(T_('Back'));
