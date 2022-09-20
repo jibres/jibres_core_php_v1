@@ -16,7 +16,6 @@ class model
 				'desc'         => \dash\request::post('desc'),
 				'saveasticket' => \dash\request::post('saveasticket'),
 				'answerlimit'  => \dash\request::post('answerlimit'),
-				'reportpage'   => \dash\request::post_html(),
 
 			];
 

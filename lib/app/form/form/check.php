@@ -50,7 +50,7 @@ class check
 				'resultpagetext'          => 'real_html',
 				'resultpagetag'           => 'id',
 				'resultpageimage'         => 'string_1000',
-				'reportpage'              => 'real_html_full',
+
 
 			];
 
