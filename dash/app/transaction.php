@@ -134,7 +134,7 @@ class transaction
 				break;
 
 			case 'mellat':
-				$bankTrackingNumber  = a($result, 'payment_response3', 'RefId');
+				$bankTrackingNumber  = a($result, 'payment_response2', 'RefId');
 				$bankReferenceNumber = a($result, 'payment_response2', 'SaleReferenceId');
 				break;
 
