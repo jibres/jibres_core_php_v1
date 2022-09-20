@@ -12,7 +12,7 @@
       <?php foreach (\dash\data::formItems() as $key => $value) {?>
         <tr>
 
-          <td class="collapsing"><?php echo \dash\fit::number(a($value, 'sort')); ?></td>
+          <td class="collapsing"><?php echo \dash\fit::number(a($value, 'sort') ? $value['sort'] + 1 : $key + 1  ); ?></td>
           <td><?php echo a($value, 'title'); ?></td>
           <td><?php echo a($value, 'type_detail', 'title') ?></td>
 

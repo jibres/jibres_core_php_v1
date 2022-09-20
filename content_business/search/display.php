@@ -42,7 +42,7 @@ if(\dash\data::dataTable())
 <?php \dash\utility\pagination::html(); ?>
 
 <?php if(\dash\data::filterBox()) {?>
-<p class="f fs14 alert-warning">
+<p class="f fs14 alert-warning p-2 rounded">
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::that(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>

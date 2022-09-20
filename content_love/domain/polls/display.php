@@ -89,7 +89,7 @@ else
 
 
 <?php function htmlFilter() {?>
-<p class="f fs14 alert-warning">
+<p class="f fs14 alert-warning p-2 rounded">
   <span class="c"><?php echo \dash\data::filterBox(); ?></span>
   <a class="cauto" href="<?php echo \dash\url::current(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
@@ -97,7 +97,7 @@ else
 
 
 <?php function htmlFilterNoResult() {?>
-<p class="f fs14 alert-warning">
+<p class="f fs14 alert-warning p-2 rounded">
   <span class="c s12"><?php echo T_("Result not found!"); ?> <?php echo T_("Search with new keywords."); ?> </span>
   <a class="cauto" href="<?php echo \dash\url::current(); ?>"><?php echo T_("Clear filters"); ?></a>
 </p>
