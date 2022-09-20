@@ -128,9 +128,20 @@ class transaction
 				$bankTrackingNumber  = a($result, 'payment_response3', 'traceNumber');
 				$bankReferenceNumber = a($result, 'payment_response3', 'transId');
 				break;
+
+			case 'zarinpal':
+				$bankReferenceNumber = a($result, 'payment_response3', 'RefID');
+				break;
+
+			case 'mellat':
+				$bankTrackingNumber  = a($result, 'payment_response3', 'RefId');
+				$bankReferenceNumber = a($result, 'payment_response2', 'SaleReferenceId');
+				break;
+
 			default:
 				break;
 		}
+
 
 		$result['bankTrackingNumber']  = $bankTrackingNumber;
 		$result['bankReferenceNumber'] = $bankReferenceNumber;
