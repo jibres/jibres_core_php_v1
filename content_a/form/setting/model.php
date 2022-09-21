@@ -17,7 +17,7 @@ class model
 				'saveasticket'     => \dash\request::post('saveasticket'),
 				'answerlimit'      => \dash\request::post('answerlimit'),
 				'disableshortlink' => \dash\request::post('disableshortlink'),
-
+				'timelimit'        => \dash\request::post('timelimit'),
 			];
 
 		if(\dash\request::files('file'))

@@ -51,6 +51,7 @@ class check
 				'resultpagetext'          => 'real_html',
 				'resultpagetag'           => 'id',
 				'resultpageimage'         => 'string_1000',
+				'timelimit'               => 'int',
 
 
 			];
@@ -117,6 +118,13 @@ class check
 		{
 			$setting['disableshortlink'] = $data['disableshortlink'];
 		}
+
+		if(array_key_exists('timelimit', $_args))
+		{
+			$setting['timelimit'] = $data['timelimit'];
+		}
+
+
 
 
 		if(array_key_exists('beforestart', $_args))
@@ -263,6 +271,7 @@ class check
 		unset($data['resultpage']);
 		unset($data['resultpagetag']);
 		unset($data['resultpageimage']);
+		unset($data['timelimit']);
 
 
 		return $data;

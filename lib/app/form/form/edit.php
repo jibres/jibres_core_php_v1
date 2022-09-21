@@ -39,6 +39,12 @@ class edit
 			$exception[] = 'setting';
 		}
 
+		if(array_key_exists('timelimit', $_args))
+		{
+			$exception[] = 'setting';
+		}
+
+
 
 		if(array_key_exists('disableshortlink', $_args))
 		{
