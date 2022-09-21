@@ -6,6 +6,19 @@ namespace dash\captcha;
  */
 class recaptcha
 {
+
+	private static function isEnable() : bool
+	{
+		if(\dash\url::isLocal())
+		{
+			return false;
+		}
+
+		return true;
+
+		// return false; // if have problem in load google services
+	}
+
 	/**
 	 * Default action
 	 */
@@ -37,6 +50,11 @@ class recaptcha
 	 */
 	private static function secret_v3()
 	{
+		if(!self::isEnable())
+		{
+			return null;
+		}
+
 		return \dash\setting\recaptcha::secret_v3();
 	}
 
@@ -48,6 +66,11 @@ class recaptcha
 	 */
 	private static function secret_v2()
 	{
+		if(!self::isEnable())
+		{
+			return null;
+		}
+
 		return \dash\setting\recaptcha::secret_v2();
 	}
 
@@ -59,6 +82,11 @@ class recaptcha
 	 */
 	public static function sitekey_v2()
 	{
+		if(!self::isEnable())
+		{
+			return null;
+		}
+
 		return \dash\setting\recaptcha::sitekey_v2();
 	}
 
@@ -70,6 +98,11 @@ class recaptcha
 	 */
 	public static function sitekey_v3()
 	{
+		if(!self::isEnable())
+		{
+			return null;
+		}
+
 		return \dash\setting\recaptcha::sitekey_v3();
 	}
 
@@ -79,6 +112,11 @@ class recaptcha
 	 */
 	public static function sitekey()
 	{
+		if(!self::isEnable())
+		{
+			return null;
+		}
+
 		$v3 = self::sitekey_v3();
 		if($v3)
 		{
@@ -102,6 +140,11 @@ class recaptcha
 	 */
 	public static function set($_action = null)
 	{
+		if(!self::isEnable())
+		{
+			return null;
+		}
+
 		$request = \dash\request::is();
 		$request = \dash\str::mb_strtolower($request);
 
@@ -130,6 +173,11 @@ class recaptcha
 
 	private static function verify_v3()
 	{
+		if(!self::isEnable())
+		{
+			return true;
+		}
+
 		$recaptcha_token   = \dash\request::post('recaptcha_token');
 		$recaptcha_sitekey = \dash\request::post('recaptcha_sitekey');
 		$recaptcha_action  = \dash\request::post('recaptcha_action');
@@ -248,6 +296,11 @@ class recaptcha
 
 	public static function verify_v2($_token)
 	{
+		if(!self::isEnable())
+		{
+			return true;
+		}
+
 		$secret     = self::secret_v2();
 
 		$myIp       = \dash\server::ip();
@@ -285,6 +338,11 @@ class recaptcha
 
 	public static function html()
 	{
+		if(!self::isEnable())
+		{
+			return '';
+		}
+
 		$result = '';
 		$result .= '<div class="hide">';
 		$result .= '<input type="hidden" name="recaptcha_sitekey" value="'. self::sitekey_v3(). '" data-unclear>';
