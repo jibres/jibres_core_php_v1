@@ -11,7 +11,7 @@ class recaptcha
 	{
 		if(\dash\url::isLocal())
 		{
-			return false;
+			// return false;
 		}
 
 		return true;
