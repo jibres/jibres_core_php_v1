@@ -1,12 +1,12 @@
 <?php if(!\dash\data::dataTable() && !\dash\request::get()) {?>
 
-  <h2><?php echo T_("Contact form") ?></h2>
 
-  <div class="welcome">
+
+  <div class="bg-white p-4 w-full text-center leading-10">
     <p><?php echo T_("We give you the opportunity to measure your customers' satisfaction with a variety of questions. In addition, you can get any other information from your audience"); ?></p>
-    <h2><?php echo T_("Survey your customers with Form Maker"); ?></h2>
+    <h2 class="text-4xl font-bold"><?php echo T_("Survey your customers with Form Maker"); ?></h2>
 
-    <div class="buildBtn">
+    <div class="buildBtn mt-4">
       <a class="btn xl master" href="<?php echo \dash\url::this(). '/add'; ?>" ><?php echo T_("Add contact form now!"); ?></a>
     </div>
   </div>
