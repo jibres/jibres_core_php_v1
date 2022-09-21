@@ -40,6 +40,7 @@ class add
 		$sms_text              = [];
 		$required_not_answered = [];
 		$checkRequired         = true;
+		$fillByUser            = true;
 
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
 		if(!is_array($answer))
@@ -75,6 +76,7 @@ class add
 
 		if(a($_meta, 'edit_mode') === true && a($_meta, 'answer_id'))
 		{
+			$fillByUser      = false;
 			$checkRequired   = false;
 			$check_true_item = \lib\app\form\item\get::items_answer($form_id, $_meta['answer_id'], true, true);
 			$edit_mode       = true;
@@ -83,12 +85,30 @@ class add
 		{
 			if(\dash\data::fillByAdmin())
 			{
+				$fillByUser      = false;
 				$checkRequired   = false;
 				$check_true_item = \lib\app\form\item\get::items($form_id, false, false, true);
 			}
 			else
 			{
 				$check_true_item = \lib\app\form\item\get::items($form_id);
+			}
+		}
+
+		if($fillByUser)
+		{
+			if(($myStartTime = \lib\app\form\form\get::getMyStartTime($form_id)) && a($load_form, 'setting', 'timelimit'))
+			{
+				$timeLimit   = $load_form['setting']['timelimit'];
+
+				if((time() - floatval($myStartTime)) > floatval($timeLimit))
+				{
+					\lib\app\form\form\get::resetMyStartTime($form_id);
+					\dash\notif::error(T_("The deadline for your response to this form has expired. It is not possible to save your answer, The page will be reload automatically"), ['alerty' => true]);
+					\dash\redirect::pwd();
+					return false;
+				}
+
 			}
 		}
 
@@ -297,6 +317,7 @@ class add
 				case 'manual_amount':
 				case 'hidden_amount':
 				case 'list_amount':
+				case 'amount_suggestion':
 					$my_answer        = \dash\validate::price($my_answer, true, array_merge($validate_meta, [
 						'min' => $min, 'max' => $max,
 					]));
@@ -867,6 +888,8 @@ class add
 					return false;
 				}
 
+				\lib\app\form\form\get::resetMyStartTime($form_id);
+
 				foreach ($insert_answerdetail as $key => $value)
 				{
 					$insert_answerdetail[$key]['answer_id'] = $answer_id;
@@ -927,9 +950,7 @@ class add
 				{
 					$redirect = $transaction_detail['url'];
 				}
-
 			}
-
 
 			if(isset($load_form['endmessage']) && $load_form['endmessage'])
 			{
@@ -939,13 +960,11 @@ class add
 			{
 				\dash\notif::ok(T_("Your answer was saved"), ['alerty' => true]);
 			}
-
 		}
 		else
 		{
 			\dash\notif::error(T_("No answer received"));
 		}
-
 
 		if($save_as_ticket && !$total_price)
 		{

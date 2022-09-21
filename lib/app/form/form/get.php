@@ -4,6 +4,7 @@ namespace lib\app\form\form;
 
 class get
 {
+
 	public static function sitemap_list($_from, $_to)
 	{
 		$list = \lib\db\form\get::sitemap_list($_from, $_to);
@@ -26,6 +27,7 @@ class get
 
 	}
 
+
 	public static function by_id($_id)
 	{
 		$id = \dash\validate::id($_id);
@@ -44,6 +46,52 @@ class get
 		$load = \lib\app\form\form\ready::row($load);
 
 		return $load;
+	}
+
+
+	public static function resetMyStartTime($_form_id)
+	{
+		$key = 'formStartTime_' . $_form_id;
+
+		\dash\session::set($key, null);
+	}
+
+
+	public static function getMyStartTime($_form_id)
+	{
+		$key = 'formStartTime_' . $_form_id;
+
+		return \dash\session::get($key);
+	}
+
+
+	private static function fillMyStartDate(&$result)
+	{
+		if(a($result, 'setting', 'timelimit'))
+		{
+			$form_id = a($result, 'id');
+
+			$key = 'formStartTime_' . $form_id;
+
+			// user Refresh the page
+			if(!self::getMyStartTime($form_id))
+			{
+				\dash\session::set($key, time());
+			}
+
+			$myStartDate           = \dash\session::get($key);
+			$result['myStartDate'] = $myStartDate;
+		}
+	}
+
+
+	public static function public_get_for_generate($_id)
+	{
+		$result = self::public_get($_id);
+
+		self::fillMyStartDate($result);
+
+		return $result;
 	}
 
 
@@ -92,4 +140,5 @@ class get
 	}
 
 }
+
 ?>

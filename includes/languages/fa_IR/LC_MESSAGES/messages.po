@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-09-20 14:44+0430\n"
-"PO-Revision-Date: 2022-09-20 14:44+0430\n"
+"POT-Creation-Date: 2022-09-21 15:29+0430\n"
+"PO-Revision-Date: 2022-09-21 15:33+0430\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -705,7 +705,7 @@ msgstr "عنوانی روشن و مختصر شامل نوع آسیب‌پذیر�
 #: content_a/android/review/display.php:92 content_a/android/review/display.php:99
 #: content_a/category/edit/display.php:10 content_a/category/edit/display.php:11
 #: content_a/discount/add/display.php:65 content_a/form/item/display.php:237
-#: content_a/form/setting/display.php:54 content_a/form/setting/display.php:56
+#: content_a/form/setting/display.php:63 content_a/form/setting/display.php:65
 #: content_a/form/tag/edit/display.php:20 content_a/order/comment/display.php:13
 #: content_a/order/detail/display.php:74 content_a/products/desc/display.php:8
 #: content_a/products/desc/display.php:11 content_a/setting/fund/display.php:18
@@ -2145,7 +2145,7 @@ msgid "Enter your mobile number"
 msgstr "شماره موبایل خود را وارد کنید"
 
 #: content/home/display.php:12 content_a/cart/user/display.php:37
-#: content_a/form/dashboard/display.php:65 content_a/pricehistory/choose/display.php:13
+#: content_a/form/dashboard/display.php:67 content_a/pricehistory/choose/display.php:13
 #: content_a/pricehistory/display.php:23
 #: content_a/setting/domain/existdomain/display.php:19 content_enter/app/display.php:60
 #: content_enter/home/display.php:47 content_enter/pass/change/display.php:17
@@ -2196,7 +2196,7 @@ msgstr "برای فروشگاه آنلاین خودتان اپ اختصاصی د
 
 #: content/home/display.php:42 content_a/cart/add/display.php:131
 #: content_a/order/summary.php:54 content_a/plan/choose/display.php:78
-#: content_a/plan/choose/display.php:159 content_a/plugin/view/display.php:228
+#: content_a/plan/choose/display.php:167 content_a/plugin/view/display.php:228
 #: content_a/products/edit/block/price.php:68 content_business/cart/cartSummary.php:40
 #: content_business/p/home/blocks/detail.php:75 content_site/assemble/wrench/price.php:65
 #: lib/app/plan/plans/free.php:18
@@ -2601,7 +2601,7 @@ msgid "eCommerce"
 msgstr "تجارت الکترونیک"
 
 #: content/home/layout/footer.php:63 content/home/layout/header.php:18
-#: content/pricing/view.php:9 content_a/plan/choose/display.php:150
+#: content/pricing/view.php:9 content_a/plan/choose/display.php:151
 #: content_sudo/smsclient/home/display.php:18
 msgid "Pricing"
 msgstr "هزینه‌ها"
@@ -3248,7 +3248,7 @@ msgstr "استان"
 #: content_a/setting3/home/section/general.php:127
 #: content_business/shipping/display.php:162 content_my/domain/irnic/add/display.php:72
 #: content_my/domain/whoisdetail/whoisDetailForm.old.php:49 dash/utility/location.php:181
-#: lib/app/form/answer/add.php:412
+#: lib/app/form/answer/add.php:433
 msgid "City"
 msgstr "شهر"
 
@@ -3765,7 +3765,7 @@ msgstr "وزن"
 #: content_crm/permission/add/display.php:5 content_crm/permission/setting/display.php:5
 #: content_crm/permission/user/display.php:5 content_crm/sms/send/display.php:5
 #: content_crm/telegram/send/display.php:5 content_site/staticfile/display.php:11
-#: lib/app/form/generator.php:830
+#: lib/app/form/generator.php:837
 msgid "Required"
 msgstr "الزامی"
 
@@ -5501,7 +5501,7 @@ msgstr "سند اختتامیه"
 #: dash/app/ticket/filter.php:45 includes/languages/trans_static.php:507
 #: includes/languages/trans_static_public.php:1107 lib/app/discount/filter.php:55
 #: lib/app/factor/action.php:73 lib/app/factor/ready.php:124
-#: lib/app/form/generator.php:814 lib/app/order/ready.php:124 lib/app/product/load.php:132
+#: lib/app/form/generator.php:821 lib/app/order/ready.php:124 lib/app/product/load.php:132
 #: lib/app/store/filter.php:31 lib/app/store_user/filter.php:31
 msgid "Deleted"
 msgstr "حذف شده"
@@ -6365,8 +6365,9 @@ msgstr "کد پستی"
 #: content_a/cart/add/display.php:121 content_a/order/home/display.php:26
 #: content_a/order/productList.php:21 content_a/order/products/display.php:55
 #: content_a/order/products/display.php:57 content_a/order/summary.php:29
-#: content_a/pricehistory/display.php:40 content_a/products/child/display.php:102
-#: content_a/products/child/display.php:172 content_a/products/edit/block/price.php:35
+#: content_a/plan/choose/display.php:160 content_a/pricehistory/display.php:40
+#: content_a/products/child/display.php:102 content_a/products/child/display.php:172
+#: content_a/products/edit/block/price.php:35
 #: content_a/products/variants/display-add-product.php:31
 #: content_a/products/variants/display-add-product.php:75 content_a/sale/display.php:43
 #: content_business/cart/cartSummary.php:15 content_business/p/home/view.php:100
@@ -7236,7 +7237,7 @@ msgstr "تنظیم لوگوی برنامه"
 
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
 #: content_a/form/inquiry/display.php:77 content_a/form/resultpage/display.php:84
-#: content_a/form/setting/display.php:69 content_a/order/comment/display.php:53
+#: content_a/form/setting/display.php:78 content_a/order/comment/display.php:53
 #: content_a/setting/general/display.php:37
 #: content_business/ticket/add/add_ticket_form.php:19 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
@@ -7321,7 +7322,7 @@ msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
 #: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:80
-#: content_a/form/resultpage/display.php:85 content_a/form/setting/display.php:72
+#: content_a/form/resultpage/display.php:85 content_a/form/setting/display.php:81
 #: content_a/products/advance/display.php:38 content_cms/files/home/display.php:37
 #: content_cms/files/home/display.php:49 content_crm/member/identification/display.php:108
 #: content_crm/member/identification/display.php:120
@@ -7330,7 +7331,7 @@ msgstr "صفحه اول مقدمه"
 #: content_site/options/file/file.php:299
 #: content_site/options/link/link_professional.php:144 content_sudo/log/display.php:52
 #: dash/app/files/ready.php:107 dash/layout/post/admin-gallery-box.php:143
-#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1702
+#: includes/languages/trans_static.php:500 lib/app/form/generator.php:1709
 msgid "File"
 msgstr "فایل"
 
@@ -8769,13 +8770,14 @@ msgstr "افزودن فیلتر جدید"
 msgid "Create duplicate filter"
 msgstr "ساخت کپی از فیلتر"
 
-#: content_a/form/analytics/duplicate/display.php:6 content_a/form/duplicate/display.php:6
-#: content_a/products/duplicate/display.php:7 content_site/page/duplicate/display.php:19
+#: content_a/form/analytics/duplicate/display.php:6
+#: content_a/form/duplicate/display.php:12 content_a/products/duplicate/display.php:7
+#: content_site/page/duplicate/display.php:19
 msgid "New Title"
 msgstr "عنوان جدید"
 
 #: content_a/form/analytics/duplicate/display.php:12
-#: content_a/form/duplicate/display.php:12 content_site/page/display-aside-bottom.php:17
+#: content_a/form/duplicate/display.php:18 content_site/page/display-aside-bottom.php:17
 #: dash/layout/admin/admin-titlebox.php:27 dash/layout/button.php:108
 #: dash/layout/m2/admin-titlebox.php:31 dash/layout/m2/pageNav.php:30
 #: lib/app/form/form/dashboard.php:59
@@ -8961,7 +8963,7 @@ msgid "Unsuccess"
 msgstr "ناموفق"
 
 #: content_a/form/answer/detail/display.php:192 content_a/form/answer/item/display.php:52
-#: content_a/form/dashboard/display.php:52 content_a/form/home/model.php:12
+#: content_a/form/dashboard/display.php:54 content_a/form/home/model.php:12
 msgid "Answer id"
 msgstr "کد پاسخ"
 
@@ -9367,32 +9369,32 @@ msgstr "مساوی با"
 msgid "Is not equal"
 msgstr "نامساوی با"
 
-#: content_a/form/dashboard/display.php:14 content_a/form/dashboard/view.php:11
+#: content_a/form/dashboard/display.php:16 content_a/form/dashboard/view.php:11
 #: content_a/form/itemLink.php:8
 msgid "Form Dashboard"
 msgstr "داشبورد فرم"
 
-#: content_a/form/dashboard/display.php:50
+#: content_a/form/dashboard/display.php:52
 msgid "Find answer detail by id"
 msgstr "یافتن پاسخ با داشتن کد پاسخ"
 
-#: content_a/form/dashboard/display.php:60
+#: content_a/form/dashboard/display.php:62
 msgid "Find & Print"
 msgstr "جستجو و چاپ"
 
-#: content_a/form/dashboard/display.php:78
+#: content_a/form/dashboard/display.php:80
 msgid "This is a private form. Cannot use independently"
 msgstr "این یک فرم خصوصی است و امکان استفاده از این فرم به صورت مستقل وجود ندارد"
 
-#: content_a/form/dashboard/display.php:82
+#: content_a/form/dashboard/display.php:84
 msgid "This form used in shipping page"
 msgstr "این فرم در صفحه ارسال سفارش استفاده شده است"
 
-#: content_a/form/dashboard/display.php:86
+#: content_a/form/dashboard/display.php:88
 msgid "This form used for satisfaction after register order"
 msgstr "این فرم برای رضایت‌سنجی پس از ثبت سفارش استفاده می‌شود"
 
-#: content_a/form/dashboard/display.php:93
+#: content_a/form/dashboard/display.php:95
 msgid ""
 "Using this short code, you can use this form in the description of the product or post "
 "or site builder"
@@ -9400,7 +9402,7 @@ msgstr ""
 "با استفاده از این کد کوتاه می‌توانید از این فرم در توضیح محصولات،‌ نوشته‌ها و سایت‌ساز "
 "استفاده کنید"
 
-#: content_a/form/duplicate/display.php:4
+#: content_a/form/duplicate/display.php:10
 msgid "Create duplicate form"
 msgstr "ایجاد کپی از فرم"
 
@@ -9408,7 +9410,7 @@ msgstr "ایجاد کپی از فرم"
 msgid "Duplicate form"
 msgstr "کپی از فرم"
 
-#: content_a/form/edit/display.php:11 content_a/order/home/display.php:17
+#: content_a/form/edit/display.php:10 content_a/order/home/display.php:17
 #: content_business/orders/display.php:16
 msgid "Items"
 msgstr "آیتم‌ها"
@@ -9566,7 +9568,7 @@ msgstr "ویرایش نوع"
 
 #: content_a/form/item/display.php:63 content_a/form/item/display.php:64
 #: content_cms/posts/publishdate/display.php:54 content_cms/posts/writer/display.php:57
-#: content_site/section/part/section_control.php:64 lib/app/form/generator.php:819
+#: content_site/section/part/section_control.php:64 lib/app/form/generator.php:826
 msgid "Hidden"
 msgstr "مخفی"
 
@@ -9978,7 +9980,15 @@ msgstr "محدودیت تعداد پاسخ"
 msgid "If answer limit is full no body can add new answer to this form"
 msgstr "اگر ظرفیت پاسخ این فرم تکمیل شود هیچ کسی نمی‌تواند پاسخ جدید به این فرم اضافه کند"
 
-#: content_a/form/setting/display.php:65
+#: content_a/form/setting/display.php:54
+msgid "Total time limit (second)"
+msgstr "محدودیت زمان پاسخ‌دهی ( به ثانیه )"
+
+#: content_a/form/setting/display.php:55
+msgid "e.g. For take exam"
+msgstr "مثلا برای گرفتن آزمون"
+
+#: content_a/form/setting/display.php:74
 msgid "Banner image in form page"
 msgstr "تصویر بنر صفحه نمایش فرم"
 
@@ -10178,11 +10188,11 @@ msgstr "تگ فرم‌ها"
 msgid "Add new tag"
 msgstr "افزودن تگ جدید"
 
-#: content_a/form/thankyou/display.php:12
+#: content_a/form/thankyou/display.php:10
 msgid "Redirect after submit"
 msgstr "انتقال بعد از تکمیل فرم"
 
-#: content_a/form/thankyou/display.php:18 content_a/form/thankyou/display.php:19
+#: content_a/form/thankyou/display.php:15 content_a/form/thankyou/display.php:17
 msgid "End message"
 msgstr "پیام آخر"
 
@@ -10892,13 +10902,13 @@ msgid "2 month free!"
 msgstr "دو ماه رایگان!"
 
 #: content_a/plan/choose/display.php:85 content_a/plan/choose/display.php:116
-#: content_a/plan/choose/display.php:193 content_love/plan/storeDetail.php:39
+#: content_a/plan/choose/display.php:201 content_love/plan/storeDetail.php:39
 #: content_love/sms/charge/add/display.php:78
 msgid "Current plan"
 msgstr "پلن فعلی"
 
 #: content_a/plan/choose/display.php:88 content_a/plan/choose/display.php:119
-#: content_a/plan/choose/display.php:196 content_a/plan/home/display-plan.php:57
+#: content_a/plan/choose/display.php:204 content_a/plan/home/display-plan.php:57
 #: content_a/plan/home/display-plan.php:92
 msgid "Choose plan"
 msgstr "انتخاب پلن"
@@ -12632,7 +12642,7 @@ msgstr ""
 #: dash/social/telegram/commands/step_ticketCreate.php:111
 #: includes/languages/trans_static.php:508 lib/app/form/answer/get.php:168
 #: lib/app/form/answer/save_as_ticket.php:95 lib/app/form/condition/choice.php:26
-#: lib/app/form/generator.php:1891
+#: lib/app/form/generator.php:1898
 msgid "Yes"
 msgstr "بله"
 
@@ -12652,7 +12662,7 @@ msgstr "بله"
 #: content_site/options/background/background_repeat.php:14
 #: content_site/options/post/post_show_date.php:14 includes/languages/trans_static.php:509
 #: lib/app/form/answer/get.php:172 lib/app/form/answer/save_as_ticket.php:99
-#: lib/app/form/condition/choice.php:26 lib/app/form/generator.php:1909
+#: lib/app/form/condition/choice.php:26 lib/app/form/generator.php:1916
 msgid "No"
 msgstr "خیر"
 
@@ -12810,7 +12820,7 @@ msgstr "فیس‌بوک"
 #: lib/app/form/answer/get.php:115 lib/app/form/answer/remove.php:14
 #: lib/app/form/answer/remove.php:32 lib/app/form/answer/remove.php:39
 #: lib/app/form/choice/get.php:24 lib/app/form/comment/edit.php:27
-#: lib/app/form/filter/get.php:24 lib/app/form/form/get.php:64
+#: lib/app/form/filter/get.php:24 lib/app/form/form/get.php:112
 #: lib/app/form/item/get.php:22 lib/app/form/item/get.php:201
 #: lib/app/form/item/get.php:235 lib/app/form/view/field.php:22
 #: lib/app/form/view/get.php:22 lib/app/gift/edit.php:13 lib/app/gift/get.php:13
@@ -12938,7 +12948,7 @@ msgstr "لطفا زبان پیش‌فرض بیزینس خود را انتخاب 
 #: content_a/setting/general/display.php:160 content_account/my/profile/display.php:36
 #: content_business/profile/detail/display.php:35
 #: content_love/plugin/manage/display.php:47 content_love/plugin/manage/display.php:48
-#: lib/app/form/generator.php:902
+#: lib/app/form/generator.php:909
 msgid "Please select one item"
 msgstr "لطفا یک گزینه را انتخاب کنید"
 
@@ -16520,7 +16530,7 @@ msgstr "این فایل دارای آدرس نیست!"
 msgid "Thanks for your shopping"
 msgstr "با تشکر از خرید شما"
 
-#: content_business/orders/view/view.php:24 lib/app/form/generator.php:2006
+#: content_business/orders/view/view.php:24 lib/app/form/generator.php:2013
 msgid "Payment unsuccessfull"
 msgstr "پرداخت ناموفق بود"
 
@@ -40441,66 +40451,74 @@ msgstr "ساعت شروع باید قبل از ساعت پایان باشد!"
 msgid "Conflict time in :weekday"
 msgstr "در روز :weekday تداخل ساعت وجود دارد"
 
-#: lib/app/form/answer/add.php:65
+#: lib/app/form/answer/add.php:66
 msgid ""
 "The answer limit of this form is full. You can not add your answer. Plese contacto to "
 "administrator"
 msgstr ""
 "ظرفیت پاسخ به این فرم تکمیل شده است. شما نمی‌توانید پاسخ خود را به این فرم اضافه کنید"
 
-#: lib/app/form/answer/add.php:116
+#: lib/app/form/answer/add.php:107
+msgid ""
+"The deadline for your response to this form has expired. It is not possible to save "
+"your answer, The page will be reload automatically"
+msgstr ""
+"مهلت پاسخگویی شما به این فرم به پایان رسیده است. امکان ذخیره پاسخ شما وجود ندارد، صفحه "
+"به طور خودکار بارگیری مجدد می‌شود"
+
+#: lib/app/form/answer/add.php:136
 msgid "Invalid type of item"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:203 lib/app/form/answer/add.php:412
+#: lib/app/form/answer/add.php:223 lib/app/form/answer/add.php:433
 msgid ":val is required"
 msgstr ":val الزامی است"
 
-#: lib/app/form/answer/add.php:335
+#: lib/app/form/answer/add.php:356
 msgid "You must select at least :min options"
 msgstr "شما باید حداقل :min گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:344
+#: lib/app/form/answer/add.php:365
 msgid "You can choose up to :max options"
 msgstr "شما می‌توانید حداکثر :max گزینه انتخاب کنید"
 
-#: lib/app/form/answer/add.php:363 lib/app/form/answer/add.php:375
+#: lib/app/form/answer/add.php:384 lib/app/form/answer/add.php:396
 msgid "Your date is not in allowd range"
 msgstr "تاریخ وارد شده در محدوده مجاز نیست"
 
-#: lib/app/form/answer/add.php:590
+#: lib/app/form/answer/add.php:611
 msgid "Invalid item type"
 msgstr "نوع گزینه اشتباه است"
 
-#: lib/app/form/answer/add.php:614 lib/app/form/answer/add.php:625
+#: lib/app/form/answer/add.php:635 lib/app/form/answer/add.php:646
 msgid "You are answer to this form before"
 msgstr "شما قبلا این فرم را تکمیل کرده‌اید"
 
-#: lib/app/form/answer/add.php:645
+#: lib/app/form/answer/add.php:666
 msgid "Please fill the required field"
 msgstr "لطفا موارد الزامی را تکمیل کنید"
 
-#: lib/app/form/answer/add.php:866
+#: lib/app/form/answer/add.php:887
 msgid "Can not save your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ذخیره کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:886
+#: lib/app/form/answer/add.php:909
 msgid "Can not edit your answer. Please contact to administrator"
 msgstr "نمی‌توانیم پاسخ شما را ویرایش کنیم. لطفا با مدیر سیستم تماس بگیرید"
 
-#: lib/app/form/answer/add.php:892
+#: lib/app/form/answer/add.php:915
 msgid "Answer update successfull"
 msgstr "بروزرسانی پاسخ با موفقیت انجام شد"
 
-#: lib/app/form/answer/add.php:940
+#: lib/app/form/answer/add.php:961
 msgid "Your answer was saved"
 msgstr "پاسخ شما ذخیره شد"
 
-#: lib/app/form/answer/add.php:946
+#: lib/app/form/answer/add.php:966
 msgid "No answer received"
 msgstr "هیچ پاسخی دریافت نشد"
 
-#: lib/app/form/answer/add.php:982
+#: lib/app/form/answer/add.php:1001
 msgid "Pay for form :val"
 msgstr "پرداخت برای فرم :val"
 
@@ -40554,7 +40572,7 @@ msgstr "مبلغ قابل پرداخت"
 msgid "Answer not found"
 msgstr "پاسخی یافت نشد"
 
-#: lib/app/form/answer/get.php:185 lib/app/form/generator.php:1712
+#: lib/app/form/answer/get.php:185 lib/app/form/generator.php:1719
 msgid "Show file"
 msgstr "نمایش فایل"
 
@@ -40582,7 +40600,7 @@ msgstr "کسر شد."
 msgid "Choice successfully added"
 msgstr "گزینه با موفقیت اضافه شد"
 
-#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:77
+#: lib/app/form/choice/edit.php:68 lib/app/form/form/edit.php:83
 #: lib/app/form/item/edit.php:107 lib/app/menu/edit.php:60
 msgid "No data to change"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
@@ -40677,11 +40695,11 @@ msgstr "فرم تماس با موفقیت اضافه شد"
 msgid "Can not duplicate this form"
 msgstr "نمی‌توانیم این فرم را کپی کنیم"
 
-#: lib/app/form/form/check.php:87
+#: lib/app/form/form/check.php:88
 msgid "Duplicate form slug. Try another name"
 msgstr "نامک فرم تکراری است. لطفا نامک دیگری را وارد کنید"
 
-#: lib/app/form/form/check.php:232
+#: lib/app/form/form/check.php:240
 msgid "Start time must be less than end time"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
 
@@ -40713,58 +40731,70 @@ msgstr "نمایش لیست تراکنش‌ها"
 msgid "Total unverify payed by this form"
 msgstr "مجموع تراکنش‌های پرداخت نشده از طریق این فرم"
 
-#: lib/app/form/form/edit.php:86
+#: lib/app/form/form/edit.php:92
 msgid "This form used in menu and can not be remove"
 msgstr "این فرم در منو استفاده شده و امکان حذف آن وجود ندارد"
 
-#: lib/app/form/form/edit.php:110
+#: lib/app/form/form/edit.php:116
 msgid "Contact form successfully updated"
 msgstr "فرم تماس با موفقیت ویرایش شد"
 
-#: lib/app/form/generator.php:71
+#: lib/app/form/generator.php:75
 msgid "Your form is not publish. Only you can view this form."
 msgstr "فرم شما منتشر نشده است. فقط شما می‌توانید این فرم را ببینید."
 
-#: lib/app/form/generator.php:71
+#: lib/app/form/generator.php:75
 msgid "Edit form"
 msgstr "ویرایش فرم"
 
-#: lib/app/form/generator.php:97
+#: lib/app/form/generator.php:101
 msgid "Access to answer to this form is blocked"
 msgstr "دسترسی پاسخگویی به این فرم بسته شده است"
 
-#: lib/app/form/generator.php:106 lib/app/form/generator.php:174
-#: lib/app/form/generator.php:246 lib/app/form/generator.php:322
+#: lib/app/form/generator.php:110 lib/app/form/generator.php:178
+#: lib/app/form/generator.php:250 lib/app/form/generator.php:326
 msgid "Submit"
 msgstr "تایید"
 
-#: lib/app/form/generator.php:704 lib/app/form/generator.php:733
+#: lib/app/form/generator.php:711 lib/app/form/generator.php:740
 msgid "Can not answer to this form at this time"
 msgstr "در حال حاضر نمی‌توان به این فرم پاسخ داد"
 
-#: lib/app/form/generator.php:705
+#: lib/app/form/generator.php:712
 msgid "This form will be activated in :date"
 msgstr "این فرم در تاریخ :date فعال خواهد شد"
 
-#: lib/app/form/generator.php:734
+#: lib/app/form/generator.php:741
 msgid "This form has been active until :date"
 msgstr "این فرم تا تاریخ :date فعال بوده است"
 
-#: lib/app/form/generator.php:1527
+#: lib/app/form/generator.php:1534
 msgid "I'm Male"
 msgstr "من آقا هستم"
 
-#: lib/app/form/generator.php:1544
+#: lib/app/form/generator.php:1551
 msgid "I'm Female"
 msgstr "من خانم هستم"
 
-#: lib/app/form/generator.php:1997
+#: lib/app/form/generator.php:2004
 msgid "Thanks for your payment"
 msgstr "با تشکر از پرداخت شما"
 
-#: lib/app/form/generator.php:1998
+#: lib/app/form/generator.php:2005
 msgid "The amount of :val :currency was received"
 msgstr "مبلغ :val :currency دریافت شد"
+
+#: lib/app/form/generator.php:2058
+msgid "You must answer this form within :val seconds"
+msgstr "شما باید این فرم را در مهلت :val ثانیه پاسخ دهید"
+
+#: lib/app/form/generator.php:2062
+msgid "Your start time is :val"
+msgstr "زمان شروع پاسخ شما :val"
+
+#: lib/app/form/generator.php:2064
+msgid "And your end time is :val"
+msgstr "و زمان پایان فرصت شما :val  می‌باشد"
 
 #: lib/app/form/inquiry.php:164
 msgid "Your mobile or nationalcode is blocked for answer this form"

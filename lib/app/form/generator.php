@@ -6,15 +6,17 @@ class generator
 {
 
 	private static $html = '';
-
 	private static $answer_detail = [];
 	private static $load_answer = false;
 	private static $schedule_message = '';
+	private static $formDetail = [];
+	private static $startTime = null;
+	private static $formTimeLimited = false;
 
 
 	public static function shipping_survey($_form_id)
 	{
-		$load_form = \lib\app\form\form\get::public_get($_form_id);
+		$load_form = \lib\app\form\form\get::public_get_for_generate($_form_id);
 
 		if(!$load_form)
 		{
@@ -29,7 +31,7 @@ class generator
 		{
 			self::$html .= '<div class="pad" >';
 			{
-				self::$html .= '<input type="hidden" name="startdate" value="' . date("Y-m-d H:i:s") . '">';
+				self::$html .= self::startTimeHtml($load_form);
 				self::$html .= '<input type="hidden" name="answerform" value="answerform">';
 
 				if(a($load_form, 'file'))
@@ -40,6 +42,7 @@ class generator
 				{
 					self::$html .= '<div class="mb-4">' . a($load_form, 'desc') . '</div>';
 				}
+
 
 				\lib\app\form\generator::items($load_items);
 			}
@@ -63,9 +66,10 @@ class generator
 
 			$html .= '<div class="body" data-jform>';
 			{
-				$html .= '<input type="hidden" name="startdate" value="' . date("Y-m-d H:i:s") . '">';
-				$html .= \dash\csrf::html();
-				$html .= \dash\captcha\recaptcha::html();
+				$load_form = \dash\data::formDetail();
+				$html      .= self::startTimeHtml($load_form);
+				$html      .= \dash\csrf::html();
+				$html      .= \dash\captcha\recaptcha::html();
 				if(\dash\data::formDetail_status() !== 'publish' && \dash\data::accessLoadItem())
 				{
 					$html .= '<div class="alert-warning text-center font-bold">' . T_("Your form is not publish. Only you can view this form.") . ' <a class="btn-link" href="' . \lib\store::admin_url() . '/a/form/edit?id=' . \dash\data::formDetail_id() . '">' . T_("Edit form") . '</a></div>';
@@ -116,7 +120,7 @@ class generator
 
 	public static function sitebuilder_full_html($_form_id)
 	{
-		$load_form = \lib\app\form\form\get::public_get($_form_id);
+		$load_form = \lib\app\form\form\get::public_get_for_generate($_form_id);
 
 		if(!$load_form)
 		{
@@ -143,7 +147,7 @@ class generator
 					self::$html .= '<header class="c-xs-0"><h2>' . a($load_form, 'title') . '</h2></header>';
 					self::$html .= '<div class="body" data-jform>';
 					{
-						self::$html .= '<input type="hidden" name="startdate" value="' . date("Y-m-d H:i:s") . '">';
+						self::$html .= self::startTimeHtml($load_form);
 						self::$html .= '<input type="hidden" name="answerform" value="answerform">';
 
 						if(a($load_form, 'file'))
@@ -190,7 +194,7 @@ class generator
 
 	public static function full_html($_form_id, $_option = [])
 	{
-		$load_form = \lib\app\form\form\get::public_get($_form_id);
+		$load_form = \lib\app\form\form\get::public_get_for_generate($_form_id);
 
 		if(!$load_form)
 		{
@@ -215,7 +219,7 @@ class generator
 					self::$html .= '<header class="c-xs-0"><h2>' . a($load_form, 'title') . '</h2></header>';
 					self::$html .= '<div class="body" data-jform>';
 					{
-						self::$html .= '<input type="hidden" name="startdate" value="' . date("Y-m-d H:i:s") . '">';
+						self::$html .= self::startTimeHtml($load_form);
 						self::$html .= '<input type="hidden" name="answerform" value="answerform">';
 
 						if(a($load_form, 'file'))
@@ -269,7 +273,7 @@ class generator
 	 */
 	public static function edit_html($_form_id, $_answer_id = null)
 	{
-		$load_form = \lib\app\form\form\get::public_get($_form_id);
+		$load_form = \lib\app\form\form\get::public_get_for_generate($_form_id);
 
 		if(!$load_form)
 		{
@@ -309,7 +313,7 @@ class generator
 					self::$html .= '<header class="c-xs-0"><h2>' . a($load_form, 'title') . '</h2></header>';
 					self::$html .= '<div class="body" data-jform>';
 					{
-						self::$html .= '<input type="hidden" name="startdate" value="' . date("Y-m-d H:i:s") . '">';
+						self::$html .= self::startTimeHtml($load_form);
 						self::$html .= '<input type="hidden" name="answerform" value="answerform">';
 
 
@@ -347,6 +351,9 @@ class generator
 		{
 			$form_id = $_items[0]['form_id'];
 		}
+
+		self::$html .= self::timeLimitMessage();
+
 
 		self::div('row');
 		foreach ($_items as $item)
@@ -1359,8 +1366,8 @@ class generator
 			{
 				$coefficient = a($value, 'setting', 'amount_with_coefficient', 'coefficient');
 
-				$myName     = self::myName($value, true);
-				$myId       = self::myID($value, true);
+				$myName = self::myName($value, true);
+				$myId   = self::myID($value, true);
 
 				self::label($value);
 				self::$html .= '<div class="input">';
@@ -2014,6 +2021,50 @@ class generator
 
 		return $html;
 
+	}
+
+
+	private static function startTimeHtml(array $_load_form)
+	{
+
+		$dateTime = date("Y-m-d H:i:s");
+
+		if(a($_load_form, 'myStartDate'))
+		{
+			$dateTime              = date("Y-m-d H:i:s", $_load_form['myStartDate']);
+			self::$formTimeLimited = true;
+		}
+
+		self::$formDetail = $_load_form;
+		self::$startTime  = strtotime($dateTime);
+
+		$html = '<input type="hidden" name="startdate" value="' . $dateTime . '">';
+		return $html;
+
+	}
+
+
+	private static function timeLimitMessage()
+	{
+		if(self::$startTime && self::$formTimeLimited)
+		{
+			$totalTime = a(self::$formDetail, 'setting', 'timelimit');
+
+			$startTime = \dash\fit::date_time(date("Y-m-d H:i:s", self::$startTime));
+			$endTime   = \dash\fit::date_time(date("Y-m-d H:i:s", (self::$startTime + $totalTime)));
+
+			self::$html .= '<div class="alert-info text-center font-bold">';
+			{
+				self::$html .= T_("You must answer this form within :val seconds", [
+					'val' => \dash\fit::number($totalTime), 'min' => '2',
+				]);
+				self::$html .= '<br>';
+				self::$html .= T_("Your start time is :val", ['val' => $startTime]);
+				self::$html .= '<br>';
+				self::$html .= T_("And your end time is :val", ['val' =>$endTime]);
+			}
+			self::$html .= '</div>';
+		}
 	}
 
 }
