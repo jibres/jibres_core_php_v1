@@ -16,7 +16,7 @@ class recaptcha
 
 		// return true;
 
-		return false; // if have problem in load google services
+		return false; // if we have problem in load google services
 	}
 
 	/**
@@ -27,7 +27,7 @@ class recaptcha
 	/**
 	 * { function_description }
 	 *
-	 * @return     <type>  ( description_of_the_return_value )
+	 * @return     string|void  ( description_of_the_return_value )
 	 */
 	private static function action($_action = null)
 	{
