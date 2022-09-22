@@ -1,5 +1,5 @@
 <?php
-$isPublic = \dash\data::dataRow_privacy() === 'public';
+$isPublic = \dash\data::dataRow_privacy() !== 'private';
 ?>
 <div class="row">
     <div class="c-xs-0 c-sm-0 c-lg-4 c-xl-3 d-lg-block">
