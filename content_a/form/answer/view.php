@@ -9,9 +9,7 @@ class view
 	{
 		\dash\face::title(T_('Answers') . ' | ' . \dash\data::formDetail_title());
 
-		// back
-		// back
-		\dash\data::back_text(T_('Back'));
+
 		\content_a\form\home\view::backModuleLink();
 
 		\dash\data::action_text(T_('Add new answer'));

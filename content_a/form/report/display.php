@@ -26,5 +26,9 @@
       <?php } //endif ?>
     </tbody>
   </table>
+    <?php }else{ ?>
+    <div class="alert-warning text-center font-bold">
+        <?php echo T_("No item to generate report"); ?>
+    </div>
 <?php } //endif ?>
 

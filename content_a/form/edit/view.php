@@ -24,21 +24,25 @@ class view
 
 	public static function form_preview_link()
 	{
+		$data = \dash\data::dataRow();
+		if(!$data)
+		{
+			$data = \dash\data::formDetail();
+		}
 
 		// preview
-		if(\dash\data::dataRow_privacy() === 'private')
+		if(a($data, 'privacy') === 'private')
 		{
 			// nolink
 		}
 		else
 		{
-			if(\dash\data::dataRow_url())
+			if(a($data, 'url'))
 			{
-				\dash\face::btnView(\dash\data::dataRow_url());
+				\dash\face::btnView($data['url']);
 			}
 			else
 			{
-
 				\dash\face::btnView(\lib\store::url() . '/f/' . \dash\request::get('id'));
 			}
 		}

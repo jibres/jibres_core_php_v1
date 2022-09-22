@@ -22,7 +22,7 @@ class view
 		// \dash\data::action_link(\dash\url::that(). '/addcondition?'. \dash\request::fix_get());
 
 		\dash\face::btnDuplicate(\dash\url::that(). '/duplicate?'. \dash\request::fix_get());
-		// \dash\face::btnView(\dash\url::that(). '/table?'. \dash\request::fix_get());
+
 
 		$where_list = \lib\app\form\filter\get::where_list(\dash\request::get('fid'), \dash\request::get('id'));
 

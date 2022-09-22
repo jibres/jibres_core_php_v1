@@ -27,18 +27,5 @@ class view
 	}
 
 
-	public static function form_preview_link()
-	{
-
-		// preview
-		if(\dash\data::dataRow_privacy() === 'private')
-		{
-			// nolink
-		}
-		else
-		{
-			\dash\face::btnView(\lib\store::url(). '/f/'. \dash\request::get('id'));
-		}
-	}
 }
 ?>
