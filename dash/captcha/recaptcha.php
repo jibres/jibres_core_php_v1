@@ -14,9 +14,9 @@ class recaptcha
 			// return false;
 		}
 
-		return true;
+		// return true;
 
-		// return false; // if have problem in load google services
+		return false; // if have problem in load google services
 	}
 
 	/**
