@@ -74,6 +74,8 @@ class add
 			return false;
 		}
 
+		$form_load_id = $tokenDetail['id'];
+
 		if(isset($load_form['answerlimit']) && $load_form['answerlimit'] && is_numeric($load_form['answerlimit']))
 		{
 			$answerLimit              = intval($load_form['answerlimit']);
@@ -798,13 +800,13 @@ class add
 
 		$add_answer_args =
 			[
-				'form_id'     => $form_id,
-				'user_id'     => $user_id,
-				'factor_id'   => $data['factor_id'],
-				'datecreated' => date("Y-m-d H:i:s"),
-				'startdate'   => $data['startdate'],
-				'enddate'     => date("Y-m-d H:i:s"),
-				'amount'      => $havePriceItem ? $total_price : null,
+				'form_id'      => $form_id,
+				'user_id'      => $user_id,
+				'factor_id'    => $data['factor_id'],
+				'datecreated'  => date("Y-m-d H:i:s"),
+				'startdate'    => $data['startdate'],
+				'enddate'      => date("Y-m-d H:i:s"),
+				'amount'       => $havePriceItem ? $total_price : null,
 			];
 
 		if($total_price)
@@ -896,6 +898,9 @@ class add
 
 				// save agent id
 				$add_answer_args['agent_id'] = \dash\agent::get(true);
+
+				// save form load id
+				$add_answer_args['form_load_id'] = $form_load_id;
 
 
 				$answer_id = \lib\db\form_answer\insert::new_record($add_answer_args);
