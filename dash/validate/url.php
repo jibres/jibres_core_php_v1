@@ -634,7 +634,7 @@ class url
 	 */
 	public static function parseUrl($_url)
 	{
-		$url = \dash\validate::string_1000($_url, false);
+		$url = \dash\validate::string_2000($_url, false);
 		if(!$url)
 		{
 			return false;

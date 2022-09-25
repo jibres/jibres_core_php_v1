@@ -15,7 +15,7 @@ class token
 		$formLoadDetail =
 			[
 				'token' => $token,
-				'id' => $formLoadId,
+				'id'    => $formLoadId,
 			];
 
 		$result['formLoad'] = $formLoadDetail;
@@ -53,8 +53,8 @@ class token
 				'user_id'    => \dash\user::id(),
 				'viewtime'   => date("Y-m-d H:i:s"),
 				'starttime'  => null,
-				'url_id'     => null,
-				'referer_id' => null,
+				'url_id'     => \lib\app\urls\get::url_id(),
+				'referer_id' => \lib\app\urls\get::referer_id(),
 				'questions'  => null,
 			];
 
