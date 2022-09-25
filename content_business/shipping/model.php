@@ -4,6 +4,7 @@ namespace content_business\shipping;
 
 class model
 {
+
 	public static function post()
 	{
 		$check_schedule_order = \lib\app\factor\schedule_order::check(true);
@@ -20,7 +21,7 @@ class model
 
 			if(!\dash\validate::code($address_id, false) || $address_id == 'new_address')
 			{
-				$address_id = null;
+				$address_id       = null;
 				$args['title']    = \dash\request::post('title');
 				$args['name']     = \dash\request::post('xnm');
 				$args['country']  = \dash\request::post('country');
@@ -59,12 +60,14 @@ class model
 			$post  = \dash\request::post();
 			$files = \dash\request::files();
 
-			$answer              = [];
-			$answer['form_id']   = \dash\data::shippingSurveyForm();
-			$answer['factor_id'] = null;
-			$answer['startdate'] = \dash\request::post('startdate');
-			$answer['user_id']   = \dash\user::id();
-			$answer['answer']    = [];
+			$answer                  = [];
+			$answer['form_id']       = \dash\data::shippingSurveyForm();
+			$answer['factor_id']     = null;
+			$answer['startdate']     = \dash\request::post('startdate');
+			$answer['user_id']       = \dash\user::id();
+			$answer['formloadtoken'] = \dash\request::post('formloadtoken');
+			$answer['formloadtid']   = \dash\request::post('formloadtid');
+			$answer['answer']        = [];
 
 			foreach ($post as $key => $value)
 			{
@@ -93,15 +96,17 @@ class model
 		{
 			if(isset($saveorder['factor_id']))
 			{
-				\dash\redirect::to(\dash\url::kingdom(). '/orders/view?id='. $saveorder['factor_id']);
+				\dash\redirect::to(\dash\url::kingdom() . '/orders/view?id=' . $saveorder['factor_id']);
 			}
 			else
 			{
-				\dash\redirect::to(\dash\url::kingdom(). '/orders');
+				\dash\redirect::to(\dash\url::kingdom() . '/orders');
 			}
 		}
 		return;
 
 	}
+
 }
+
 ?>

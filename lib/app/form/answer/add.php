@@ -9,19 +9,31 @@ class add
 	{
 		$condition =
 			[
-				'form_id'   => 'id',
-				'user_id'   => 'id',
-				'factor_id' => 'id',
-				'startdate' => 'datetime',
-				'answer'    => 'bit', // just for skip clean error
+				'form_id'       => 'id',
+				'user_id'       => 'id',
+				'factor_id'     => 'id',
+				'startdate'     => 'datetime',
+				'answer'        => 'bit', // just for skip clean error
+				'formloadtoken' => 'string_32',
+				'formloadtid'   => 'id',
 			];
 
 
-		$require = ['form_id'];
+		$require = ['form_id', 'formloadtoken', 'formloadtid'];
 
-		$meta = [];
+		$meta =
+			[
+				'field_title' =>
+					[
+						'formloadtoken' => T_("Form load token"),
+						'formloadtid'   => T_("Form load token id"),
+					],
+			];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
+
+		var_dump($data);
+		exit();
 
 		$user_id              = $data['user_id'];
 		$new_signuped_user_id = null;
@@ -97,9 +109,10 @@ class add
 
 		if($fillByUser)
 		{
-			if(($myStartTime = \lib\app\form\form\get::getMyStartTime($form_id)) && a($load_form, 'setting', 'timelimit'))
+			if(($myStartTime =
+					\lib\app\form\form\get::getMyStartTime($form_id)) && a($load_form, 'setting', 'timelimit'))
 			{
-				$timeLimit   = $load_form['setting']['timelimit'];
+				$timeLimit = $load_form['setting']['timelimit'];
 
 				if((time() - floatval($myStartTime)) > floatval($timeLimit))
 				{

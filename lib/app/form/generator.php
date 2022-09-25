@@ -67,7 +67,8 @@ class generator
 
 			$html .= '<div class="body" data-jform>';
 			{
-				$load_form = \dash\data::formDetail();
+				$load_form = \lib\app\form\form\get::public_get_for_generate(\dash\data::formId());
+
 				$html      .= self::startTimeHtml($load_form);
 				$html      .= self::setLoadTokenInputHTML($load_form);
 				$html      .= \dash\csrf::html();

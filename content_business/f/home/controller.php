@@ -46,7 +46,7 @@ class controller
 
 		if($child)
 		{
-			$load_form = \lib\app\form\form\get::public_get_for_generate(urldecode($child));
+			$load_form = \lib\app\form\form\get::public_get(urldecode($child));
 			if(!$load_form || !isset($load_form['id']))
 			{
 				\dash\header::status(404);
