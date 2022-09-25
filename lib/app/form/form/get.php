@@ -91,6 +91,8 @@ class get
 
 		self::fillMyStartDate($result);
 
+		\lib\app\form\load\token::generateTokenBeforeLoad($result);
+
 		return $result;
 	}
 
