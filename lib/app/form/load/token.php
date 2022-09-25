@@ -20,8 +20,6 @@ class token
 
 		$result['formLoad'] = $formLoadDetail;
 
-		var_dump($result);
-		exit();
 
 	}
 

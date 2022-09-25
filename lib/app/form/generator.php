@@ -32,6 +32,7 @@ class generator
 			self::$html .= '<div class="pad" >';
 			{
 				self::$html .= self::startTimeHtml($load_form);
+				self::$html .= self::setLoadTokenInputHTML($load_form);
 				self::$html .= '<input type="hidden" name="answerform" value="answerform">';
 
 				if(a($load_form, 'file'))
@@ -68,6 +69,7 @@ class generator
 			{
 				$load_form = \dash\data::formDetail();
 				$html      .= self::startTimeHtml($load_form);
+				$html      .= self::setLoadTokenInputHTML($load_form);
 				$html      .= \dash\csrf::html();
 				$html      .= \dash\captcha\recaptcha::html();
 				if(\dash\data::formDetail_status() !== 'publish' && \dash\data::accessLoadItem())
@@ -148,6 +150,7 @@ class generator
 					self::$html .= '<div class="body" data-jform>';
 					{
 						self::$html .= self::startTimeHtml($load_form);
+						self::$html .= self::setLoadTokenInputHTML($load_form);
 						self::$html .= '<input type="hidden" name="answerform" value="answerform">';
 
 						if(a($load_form, 'file'))
@@ -220,6 +223,7 @@ class generator
 					self::$html .= '<div class="body" data-jform>';
 					{
 						self::$html .= self::startTimeHtml($load_form);
+						self::$html .= self::setLoadTokenInputHTML($load_form);
 						self::$html .= '<input type="hidden" name="answerform" value="answerform">';
 
 						if(a($load_form, 'file'))
@@ -314,6 +318,7 @@ class generator
 					self::$html .= '<div class="body" data-jform>';
 					{
 						self::$html .= self::startTimeHtml($load_form);
+						self::$html .= self::setLoadTokenInputHTML($load_form);
 						self::$html .= '<input type="hidden" name="answerform" value="answerform">';
 
 
@@ -2061,10 +2066,34 @@ class generator
 				self::$html .= '<br>';
 				self::$html .= T_("Your start time is :val", ['val' => $startTime]);
 				self::$html .= '<br>';
-				self::$html .= T_("And your end time is :val", ['val' =>$endTime]);
+				self::$html .= T_("And your end time is :val", ['val' => $endTime]);
 			}
 			self::$html .= '</div>';
 		}
+	}
+
+
+	private static function setLoadTokenInputHTML($load_form) : string
+	{
+		$html = '';
+		if(isset($load_form['formLoad']['token']))
+		{
+			$html .= sprintf(
+				'<input type="hidden" name="formloadtoken" value="%s">',
+				$load_form['formLoad']['token']
+			);
+		}
+
+		if(isset($load_form['formLoad']['id']))
+		{
+			$html .= sprintf(
+				'<input type="hidden" name="formloadtid" value="%s">',
+				$load_form['formLoad']['id']
+			);
+		}
+
+		return $html;
+
 	}
 
 }
