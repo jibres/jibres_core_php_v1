@@ -5,6 +5,7 @@ namespace lib\app\form\answer;
 class add
 {
 
+
 	public static function public_new_answer($_args, $_meta = [])
 	{
 		$condition =
@@ -32,10 +33,9 @@ class add
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		var_dump($data);
-		exit();
+		$user_id = $data['user_id'];
 
-		$user_id              = $data['user_id'];
+
 		$new_signuped_user_id = null;
 
 		$form_id = $data['form_id'];
@@ -64,6 +64,12 @@ class add
 
 		$load_form = \lib\app\form\form\get::public_get($form_id);
 		if(!$load_form)
+		{
+			return false;
+		}
+
+		$tokenDetail = self::checkFormLoadToken($data);
+		if(!$tokenDetail)
 		{
 			return false;
 		}
@@ -1110,6 +1116,36 @@ class add
 
 		\dash\notif::unlock();
 
+	}
+
+
+	private static function checkFormLoadToken(array $data)
+	{
+		$form_id = $data['form_id'];
+		$token   = $data['formloadtoken'];
+		$tokenid = $data['formloadtid'];
+
+		$getTokenDetail = \lib\db\form_load\get::get($tokenid);
+
+		if(!isset($getTokenDetail['id']) || !isset($getTokenDetail['form_id']))
+		{
+			\dash\notif::error(T_("Invalid form token id! Please reload the page"));
+			return false;
+		}
+
+		if(!\dash\validate::is_equal($getTokenDetail['form_id'], $form_id))
+		{
+			\dash\notif::error(T_("The form ID does not match the token ID!"));
+			return false;
+		}
+
+		if(!\dash\validate::is_equal($getTokenDetail['token'], $token))
+		{
+			\dash\notif::error(T_("The form load detail does not match the token!"));
+			return false;
+		}
+
+		return $getTokenDetail;
 	}
 
 }
