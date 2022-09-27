@@ -117,16 +117,25 @@ class add
 
 		if($fillByUser)
 		{
-			if(($myStartTime =
-					\lib\app\form\form\get::getMyStartTime($form_id)) && a($load_form, 'setting', 'timelimit'))
+			$timeLimit = $load_form['setting']['timelimit'];
+
+			if($timeLimit)
 			{
-				$timeLimit = $load_form['setting']['timelimit'];
+				$myStartTime = $tokenDetail['starttime'];
+				if(!$myStartTime)
+				{
+					\dash\notif::error(T_("Your session is not started. Please reload the page and try again"));
+					self::redirectToFirst($load_form);
+					return  false;
+				}
+
+				$myStartTime = strtotime($myStartTime);
 
 				if((time() - floatval($myStartTime)) > floatval($timeLimit))
 				{
 					\lib\app\form\form\get::resetMyStartTime($form_id);
 					\dash\notif::error(T_("The deadline for your response to this form has expired. It is not possible to save your answer, The page will be reload automatically"), ['alerty' => true]);
-					\dash\redirect::pwd();
+					self::redirectToFirst($load_form);
 					return false;
 				}
 
@@ -1154,6 +1163,16 @@ class add
 		return $getTokenDetail;
 	}
 
-}
+	private static function redirectToFirst($_load_form)
+	{
+		if(isset($_load_form['url']))
+		{
+			\dash\redirect::to($_load_form['url']);
+		}
+		else
+		{
+			\dash\redirect::pwd();
+		}
+	}
 
-?>
+}
