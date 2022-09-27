@@ -25,27 +25,32 @@ trait startButton
 
 			$json = json_encode($json);
 
-			$url = \dash\url::kingdom() . '/f/' . $form_id. '/start';
+			$url = \dash\url::kingdom() . '/f/' . $form_id . '/start';
 
-			$html   = '';
-			$format =
-				"<div 
-					class='btn-primary btn-xl' 
+			$html = '';
+			$html .= '<div class="text-center">';
+			{
+				$format =
+					"<div 
+					class='btn-primary btn-xl ' 
 					data-ajaxify 
 					data-action='%s' 
 					data-data='%s' 
 					data-method='post'>";
-			$html   .= sprintf($format, $url,  $json);
-			{
-				$html .= T_("Let's Go");
+				$html   .= sprintf($format, $url, $json);
+				{
+					$html .= T_("Start");
+				}
+				$html .= '</div>';
 			}
 			$html .= '</div>';
+
 
 			self::$html .= $html;
 
 			self::$formStartButton = true;
 
-			return  true;
+			return true;
 
 		}
 
