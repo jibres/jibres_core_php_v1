@@ -3,6 +3,7 @@ namespace content_business\f\home;
 
 class controller
 {
+
 	public static function routing()
 	{
 
@@ -18,6 +19,14 @@ class controller
 			elseif(\dash\url::subchild() === 'result')
 			{
 				\dash\data::resultPage(true);
+			}
+			elseif(\dash\url::subchild() === 'start' && \dash\request::is('post'))
+			{
+				$access = \lib\app\form\load\startToken::userStartToken();
+				if(!$access)
+				{
+					\dash\header::status(404);
+				}
 			}
 			else
 			{
@@ -73,7 +82,7 @@ class controller
 
 				if(\dash\url::query())
 				{
-					$url .= '?'. \dash\url::query();
+					$url .= '?' . \dash\url::query();
 				}
 
 				\dash\redirect::to($url);
@@ -127,8 +136,8 @@ class controller
 		}
 		else
 		{
-			$args = [];
-			$args['status'] = 'publish';
+			$args             = [];
+			$args['status']   = 'publish';
 			$get_publish_form = \lib\app\form\form\search::public_list(null, $args);
 			\dash\data::dataTable($get_publish_form);
 		}
@@ -140,4 +149,5 @@ class controller
 
 
 }
+
 ?>
