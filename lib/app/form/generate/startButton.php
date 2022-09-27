@@ -38,6 +38,8 @@ trait startButton
 
 			self::$html .= $html;
 
+			self::$formStartButton = true;
+
 			return  true;
 
 		}

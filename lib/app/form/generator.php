@@ -4,6 +4,7 @@ namespace lib\app\form;
 
 use lib\app\form\generate\element;
 use lib\app\form\generate\formBoxHtml;
+use lib\app\form\generate\formFooter;
 use lib\app\form\generate\items;
 use lib\app\form\generate\schedule;
 use lib\app\form\generate\startButton;
@@ -22,6 +23,7 @@ class generator
 	use element;
 	use items;
 	use startButton;
+	use formFooter;
 
 
 	private static $html = '';
@@ -31,6 +33,7 @@ class generator
 	private static $formDetail = [];
 	private static $startTime = null;
 	private static $formTimeLimited = false;
+	private static $formStartButton = false;
 
 
 }

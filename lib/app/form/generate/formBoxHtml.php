@@ -98,13 +98,11 @@ trait formBoxHtml
 			}
 			$html .= '</div>';
 
+
+
 			if(\dash\data::accessLoadItem() && isset($allow_form_schedule) && $allow_form_schedule)
 			{
-				$html .= '<footer class="txtRa">';
-				{
-					$html .= '<button class="btn master">' . T_("Submit") . '</button>';
-				}
-				$html .= '</footer>';
+				$html .= self::formFooter();
 			}
 		}
 		$html .= '</div>';
@@ -167,13 +165,10 @@ trait formBoxHtml
 					}
 					self::$html .= '</div>';
 
+
 					if(isset($allow_form_schedule) && $allow_form_schedule)
 					{
-						self::$html .= '<footer class="txtRa">';
-						{
-							self::$html .= '<button class="btn master">' . T_("Submit") . '</button>';
-						}
-						self::$html .= '</footer>';
+						self::$html .= self::formFooter();
 					}
 
 				}
@@ -242,11 +237,7 @@ trait formBoxHtml
 
 					if(isset($allow_form_schedule) && $allow_form_schedule)
 					{
-						self::$html .= '<footer class="txtRa">';
-						{
-							self::$html .= '<button class="btn master">' . T_("Submit") . '</button>';
-						}
-						self::$html .= '</footer>';
+						self::$html .= self::formFooter();
 					}
 				}
 				self::$html .= '</div>';
@@ -319,11 +310,7 @@ trait formBoxHtml
 					}
 					self::$html .= '</div>';
 
-					self::$html .= '<footer class="txtRa">';
-					{
-						self::$html .= '<button class="btn master">' . T_("Submit") . '</button>';
-					}
-					self::$html .= '</footer>';
+					self::$html .= self::formFooter();
 				}
 				self::$html .= '</div>';
 			}
