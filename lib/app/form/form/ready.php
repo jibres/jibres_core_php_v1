@@ -102,7 +102,10 @@ class ready
 
 		$result['formStartButton'] = false;
 
-		if(a($result, 'setting', 'timelimit'))
+		if(
+			a($result, 'setting', 'timelimit') ||
+			a($result, 'setting', 'randomquestion')
+		  )
 		{
 			$result['formStartButton'] = true;
 		}

@@ -52,7 +52,7 @@ class check
 				'resultpagetag'           => 'id',
 				'resultpageimage'         => 'string_1000',
 				'timelimit'               => 'int',
-
+				'randomquestion'          => 'int',
 
 			];
 
@@ -124,6 +124,10 @@ class check
 			$setting['timelimit'] = $data['timelimit'];
 		}
 
+		if(array_key_exists('randomquestion', $_args))
+		{
+			$setting['randomquestion'] = $data['randomquestion'];
+		}
 
 
 
@@ -272,6 +276,7 @@ class check
 		unset($data['resultpagetag']);
 		unset($data['resultpageimage']);
 		unset($data['timelimit']);
+		unset($data['randomquestion']);
 
 
 		return $data;

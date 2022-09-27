@@ -44,37 +44,31 @@ class edit
 			$exception[] = 'setting';
 		}
 
-
+		if(array_key_exists('randomquestion', $_args))
+		{
+			$exception[] = 'setting';
+		}
 
 		if(array_key_exists('disableshortlink', $_args))
 		{
 			$exception[] = 'setting';
 		}
 
-
-
-
 		if(array_key_exists('beforestart', $_args))
 		{
 			$exception[] = 'setting';
 		}
-
-
 
 		if(array_key_exists('afterend', $_args))
 		{
 			$exception[] = 'setting';
 		}
 
-
-
-
 		if(array_key_exists('startdate', $_args))
 		{
 			$exception[] = 'starttime';
 			$exception[] = 'endtime';
 		}
-
 
 		$args = \dash\cleanse::patch_mode($_args, $args, $exception);
 

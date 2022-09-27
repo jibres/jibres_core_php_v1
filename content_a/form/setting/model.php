@@ -18,6 +18,7 @@ class model
 				'answerlimit'      => \dash\request::post('answerlimit'),
 				'disableshortlink' => \dash\request::post('disableshortlink'),
 				'timelimit'        => \dash\request::post('timelimit'),
+				'randomquestion'   => \dash\request::post('randomquestion'),
 			];
 
 		if(\dash\request::files('file'))

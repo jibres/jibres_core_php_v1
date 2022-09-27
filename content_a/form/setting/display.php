@@ -69,6 +69,14 @@ $isPublic = \dash\data::dataRow_privacy() !== 'private';
                                        data-format="price">
                             </div>
 
+                        <label for="randomquestion"><?php echo T_("Random question count") ?>
+                            <small><?php echo T_("Random question count"); ?></small></label>
+                        <div class="input ltr">
+                            <input type="tel" id="randomquestion" name="randomquestion"
+                                   value="<?php echo a(\dash\data::dataRow(), 'setting', 'randomquestion'); ?>"
+                                   data-format="price">
+                        </div>
+
 
 
                         <div class="mb-2">
