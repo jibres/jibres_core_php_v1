@@ -8,15 +8,24 @@ class token
 	public static function generateTokenBeforeLoad(&$result)
 	{
 
-		$token = self::generageTokenString($result);
+		if($token = \dash\data::loadByCurrentToken())
+		{
+			$formLoadDetail = \lib\db\form_load\get::by_token($token);
+		}
+		else
+		{
+			$token = self::generageTokenString($result);
 
-		$formLoadId = self::insertFormLoadRecord($token, $result);
+			$formLoadId = self::insertFormLoadRecord($token, $result);
 
-		$formLoadDetail =
-			[
-				'token' => $token,
-				'id'    => $formLoadId,
-			];
+			$formLoadDetail =
+				[
+					'token' => $token,
+					'id'    => $formLoadId,
+				];
+		}
+
+
 
 		$result['formLoad'] = $formLoadDetail;
 

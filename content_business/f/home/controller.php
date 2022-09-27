@@ -6,7 +6,7 @@ class controller
 
 	public static function routing()
 	{
-
+		$fixFormUrl = true;
 
 		$child = \dash\url::child();
 
@@ -15,6 +15,23 @@ class controller
 			if(\dash\url::subchild() === 'inquiry')
 			{
 				\dash\data::inquiryForm(true);
+			}
+			elseif(\dash\url::subchild() === 't')
+			{
+				if(\dash\url::dir(4))
+				{
+					\dash\header::status(404);
+				}
+
+				$token = \dash\url::dir(3);
+				$token = \dash\validate::md5($token);
+				if(!$token)
+				{
+					\dash\header::status(404);
+				}
+
+				\dash\data::loadByCurrentToken($token);
+				$fixFormUrl = false;
 			}
 			elseif(\dash\url::subchild() === 'result')
 			{
@@ -61,32 +78,36 @@ class controller
 				\dash\header::status(404);
 			}
 
-			// redirect to slug
-			if(a($load_form, 'url') && urldecode($load_form['url']) !== urldecode(\dash\url::that()) && \dash\request::is('get'))
+			if($fixFormUrl)
 			{
-				if(a($load_form, 'setting', 'disableshortlink'))
+				// redirect to slug
+				if(a($load_form, 'url') && urldecode($load_form['url']) !== urldecode(\dash\url::that()) && \dash\request::is('get'))
 				{
-					\dash\header::status(404);
-				}
+					if(a($load_form, 'setting', 'disableshortlink'))
+					{
+						\dash\header::status(404);
+					}
 
-				$url = $load_form['url'];
-				if(\dash\url::subchild() === 'inquiry')
-				{
-					$url .= '/inquiry';
-				}
+					$url = $load_form['url'];
+					if(\dash\url::subchild() === 'inquiry')
+					{
+						$url .= '/inquiry';
+					}
 
-				if(\dash\url::subchild() === 'result')
-				{
-					$url .= '/result';
-				}
+					if(\dash\url::subchild() === 'result')
+					{
+						$url .= '/result';
+					}
 
-				if(\dash\url::query())
-				{
-					$url .= '?' . \dash\url::query();
-				}
+					if(\dash\url::query())
+					{
+						$url .= '?' . \dash\url::query();
+					}
 
-				\dash\redirect::to($url);
+					\dash\redirect::to($url);
+				}
 			}
+
 
 
 			$form_id = $load_form['id'];

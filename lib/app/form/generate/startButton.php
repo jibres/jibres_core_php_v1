@@ -10,6 +10,11 @@ trait startButton
 	{
 		if(isset(self::$formDetail['formStartButton']) && self::$formDetail['formStartButton'])
 		{
+			if(isset(self::$formDetail['formLoad']['starttime']) && self::$formDetail['formLoad']['starttime'])
+			{
+				return false;
+			}
+
 			$form_id = self::$formDetail['id'];
 			$json    =
 				[
