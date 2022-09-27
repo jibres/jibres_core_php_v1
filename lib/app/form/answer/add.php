@@ -153,8 +153,35 @@ class add
 
 		$items = array_combine(array_column($check_true_item, 'id'), $check_true_item);
 
+
+		$randomQuestions = [];
+
+		if(isset($tokenDetail['questions']) && is_string($tokenDetail['questions']))
+		{
+			$randomQuestions = json_decode($tokenDetail['questions'], true);
+			if(!is_array($randomQuestions))
+			{
+				$randomQuestions = [];
+			}
+		}
+
 		foreach ($items as $item_id => $item_detail)
 		{
+			if($randomQuestions)
+			{
+				if(isset($item_detail['require']) && $item_detail['require'])
+				{
+					// ok.
+				}
+				else
+				{
+					if(!in_array($item_detail['id'], $randomQuestions))
+					{
+						continue;
+					}
+				}
+			}
+
 			$my_answer = null;
 			if(isset($answer[$item_id]))
 			{
