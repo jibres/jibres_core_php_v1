@@ -944,7 +944,8 @@ class add
 
 			if($total_price && !$data['factor_id'])
 			{
-				$pwdClean = \dash\url::current();
+
+				$pwdClean = a($load_form, 'url');
 				$allGet   = \dash\request::get();
 				unset($allGet['jftoken']);
 				$pwdClean .= '?' . \dash\request::build_query($allGet);
