@@ -79,7 +79,15 @@ class model
 			}
 			else
 			{
-				\dash\redirect::pwd();
+				if(\dash\data::formDetail_url())
+				{
+					\dash\redirect::to(\dash\data::formDetail_url());
+				}
+				else
+				{
+
+					\dash\redirect::pwd();
+				}
 			}
 		}
 	}
