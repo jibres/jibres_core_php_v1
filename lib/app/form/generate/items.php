@@ -19,7 +19,12 @@ trait items
 			$form_id = $_items[0]['form_id'];
 		}
 
-		self::$html .= self::timeLimitMessage();
+		self::timeLimitMessage();
+
+		if(self::formStartButton())
+		{
+			return self::$html;
+		}
 
 
 		self::div('row');

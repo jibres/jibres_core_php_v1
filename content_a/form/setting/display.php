@@ -61,7 +61,6 @@ $isPublic = \dash\data::dataRow_privacy() !== 'private';
                         </div>
 
 
-						<?php if(false): ?>
                             <label for="timelimit"><?php echo T_("Total time limit (second)") ?>
                                 <small><?php echo T_("e.g. For take exam"); ?></small></label>
                             <div class="input ltr">
@@ -69,7 +68,7 @@ $isPublic = \dash\data::dataRow_privacy() !== 'private';
                                        value="<?php echo a(\dash\data::dataRow(), 'setting', 'timelimit'); ?>"
                                        data-format="price">
                             </div>
-						<?php endif; ?>
+
 
 
                         <div class="mb-2">
