@@ -2,6 +2,8 @@
 namespace lib\app\form\load;
 
 
+use lib\app\product\variants;
+
 class startToken
 {
 
@@ -21,8 +23,10 @@ class startToken
 
 		if(!$postToken || !$postTokenId)
 		{
-			return  false;
+			return false;
 		}
+
+		$update = [];
 
 
 		$tokenDetail = \lib\db\form_load\get::get($postTokenId);
@@ -35,14 +39,28 @@ class startToken
 			return false;
 		}
 
-		$setStartTime =
-			[
-				'starttime' => date("Y-m-d H:i:s"),
-			];
+		$loadForm = \lib\app\form\form\get::by_id($tokenDetail['form_id']);
 
-		\lib\db\form_load\update::update($setStartTime, $postTokenId);
+		if(!a($tokenDetail, 'starttime'))
+		{
+			$update['starttime'] = date("Y-m-d H:i:s");
+		}
 
-		$url = \dash\url::kingdom() .'/f/'. $urlFormId. '/t/'. $postToken;
+		if(a($loadForm, 'setting', 'randomquestion'))
+		{
+			$countRandom = $loadForm['setting']['randomquestion'];
+
+			$randomId = \lib\db\form_item\get::randomItems($tokenDetail['form_id'], $countRandom);
+			if($randomId)
+			{
+				$update['questions'] = json_encode($randomId);
+			}
+
+		}
+
+		\lib\db\form_load\update::update($update, $postTokenId);
+
+		$url = \dash\url::kingdom() . '/f/' . $urlFormId . '/t/' . $postToken;
 
 		\dash\redirect::to($url);
 

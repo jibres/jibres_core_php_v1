@@ -6,11 +6,13 @@ use lib\app\form\generate\element;
 use lib\app\form\generate\formBoxHtml;
 use lib\app\form\generate\formFooter;
 use lib\app\form\generate\items;
+use lib\app\form\generate\randomQuestion;
 use lib\app\form\generate\schedule;
 use lib\app\form\generate\startButton;
 use lib\app\form\generate\timeLimit;
 use lib\app\form\generate\token;
 use lib\app\form\generate\transactionMessage;
+
 
 class generator
 {
@@ -24,6 +26,7 @@ class generator
 	use items;
 	use startButton;
 	use formFooter;
+	use randomQuestion;
 
 
 	private static $html = '';

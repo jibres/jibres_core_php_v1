@@ -26,11 +26,15 @@ trait items
 			return self::$html;
 		}
 
-
 		self::div('row');
 		foreach ($_items as $item)
 		{
 			if(!isset($item['type']))
+			{
+				continue;
+			}
+
+			if(!self::randomQuestion($item))
 			{
 				continue;
 			}
