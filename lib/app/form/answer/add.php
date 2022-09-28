@@ -47,12 +47,14 @@ class add
 		$save_as_ticket        = false;
 		$edit_mode             = false;
 		$total_price           = 0;
+		$totalScore            = 0;
 		$havePriceItem         = false;
 		$send_sms              = [];
 		$sms_text              = [];
 		$required_not_answered = [];
 		$checkRequired         = true;
 		$fillByUser            = true;
+
 
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
 		if(!is_array($answer))
@@ -126,7 +128,7 @@ class add
 				{
 					\dash\notif::error(T_("Your session is not started. Please reload the page and try again"));
 					self::redirectToFirst($load_form);
-					return  false;
+					return false;
 				}
 
 				$myStartTime = strtotime($myStartTime);
@@ -386,7 +388,11 @@ class add
 				case 'single_choice':
 					$my_answer        = \dash\validate::string_200($my_answer, true, $validate_meta);
 					$answer[$item_id] =
-						['answer' => $my_answer, 'choice_id' => self::find_choice_id($item_id, $my_answer, $items)];
+						[
+							'answer'    => $my_answer,
+							'choice_id' => self::find_choice_id($item_id, $my_answer, $items),
+							'score'     => self::find_choice_score($item_id, $my_answer, $items),
+						];
 					break;
 
 				case 'multiple_choice':
@@ -403,6 +409,7 @@ class add
 						$multiple_choice_answer[] = [
 							'answer'    => \dash\validate::string_200($v, true, $validate_meta),
 							'choice_id' => self::find_choice_id($item_id, $v, $items),
+							'score'     => self::find_choice_score($item_id, $v, $items),
 						];
 					}
 
@@ -430,7 +437,11 @@ class add
 				case 'dropdown':
 					$my_answer        = \dash\validate::string_200($my_answer, true, $validate_meta);
 					$answer[$item_id] =
-						['answer' => $my_answer, 'choice_id' => self::find_choice_id($item_id, $my_answer, $items)];
+						[
+							'answer'    => $my_answer,
+							'choice_id' => self::find_choice_id($item_id, $my_answer, $items),
+							'score'     => self::find_choice_score($item_id, $my_answer, $items),
+						];
 					break;
 
 				case 'date':
@@ -836,13 +847,13 @@ class add
 
 		$add_answer_args =
 			[
-				'form_id'      => $form_id,
-				'user_id'      => $user_id,
-				'factor_id'    => $data['factor_id'],
-				'datecreated'  => date("Y-m-d H:i:s"),
-				'startdate'    => $data['startdate'],
-				'enddate'      => date("Y-m-d H:i:s"),
-				'amount'       => $havePriceItem ? $total_price : null,
+				'form_id'     => $form_id,
+				'user_id'     => $user_id,
+				'factor_id'   => $data['factor_id'],
+				'datecreated' => date("Y-m-d H:i:s"),
+				'startdate'   => $data['startdate'],
+				'enddate'     => date("Y-m-d H:i:s"),
+				'amount'      => $havePriceItem ? $total_price : null,
 			];
 
 		if($total_price)
@@ -874,6 +885,7 @@ class add
 								'item_id'     => $item_id,
 								'answer'      => $my_answer_one['answer'],
 								'choice_id'   => a($my_answer_one, 'choice_id'),
+								'score'       => a($my_answer_one, 'score'),
 								'textarea'    => null,
 								'datecreated' => date("Y-m-d H:i:s"),
 							];
@@ -909,12 +921,26 @@ class add
 							'item_id'     => $item_id,
 							'answer'      => $new_answer,
 							'choice_id'   => a($my_answer, 'choice_id'),
+							'score'       => a($my_answer, 'score'),
 							'textarea'    => $new_textarea,
 							'datecreated' => date("Y-m-d H:i:s"),
 						];
 				}
 			}
 		}
+
+		$totalScore = array_column($insert_answerdetail, 'score');
+		$totalScore = array_filter($totalScore);
+		if(!$totalScore)
+		{
+			$totalScore = null;
+		}
+		else
+		{
+			$totalScore = array_sum($totalScore);
+		}
+
+		$add_answer_args['totalscore'] = $totalScore;
 
 		$redirect = null;
 
@@ -1104,6 +1130,27 @@ class add
 	}
 
 
+	private static function find_choice_score($_item_id, $_answer, $_items)
+	{
+		$choice = [];
+
+		if(isset($_items[$_item_id]['choice']) && is_array($_items[$_item_id]['choice']))
+		{
+			$choice = $_items[$_item_id]['choice'];
+		}
+
+		foreach ($choice as $key => $value)
+		{
+			if(isset($value['title']) && isset($value['id']) && $value['title'] === $_answer)
+			{
+				return $value['score'];
+			}
+		}
+
+		return null;
+	}
+
+
 	public static function check_min_max_date($_value, $_mindate, $_maxdate)
 	{
 		if(!$_value)
@@ -1189,6 +1236,7 @@ class add
 
 		return $getTokenDetail;
 	}
+
 
 	private static function redirectToFirst($_load_form)
 	{
