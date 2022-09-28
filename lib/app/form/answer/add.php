@@ -828,17 +828,29 @@ class add
 		}
 
 
-		$startdate = $data['startdate'];
-
-		if(!$startdate)
+		if(a($tokenDetail, 'starttime'))
 		{
-			$data['startdate'] = date("Y-m-d H:i:s");
+			$data['startdate'] = $tokenDetail['starttime'];
+		}
+		elseif(a($tokenDetail, 'viewtime'))
+		{
+			$data['startdate'] = $tokenDetail['viewtime'];
+		}
+		else
+		{
+			$startdate = $data['startdate'];
+
+			if(!$startdate)
+			{
+				$data['startdate'] = date("Y-m-d H:i:s");
+			}
+
+			if(!$edit_mode && $startdate && time() - strtotime($startdate) > (60 * 60 * 1))
+			{
+				$data['startdate'] = date("Y-m-d H:i:s", time() - (60 * 60 * 1));
+			}
 		}
 
-		if(!$edit_mode && $startdate && time() - strtotime($startdate) > (60 * 60 * 1))
-		{
-			$data['startdate'] = date("Y-m-d H:i:s", time() - (60 * 60 * 1));
-		}
 
 		if(!$user_id && $new_signuped_user_id)
 		{
@@ -973,7 +985,6 @@ class add
 					\dash\notif::error(T_("Can not save your answer. Please contact to administrator"));
 					return false;
 				}
-
 
 
 				foreach ($insert_answerdetail as $key => $value)
