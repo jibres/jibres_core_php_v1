@@ -8,15 +8,9 @@ trait timeLimit
 
 	private static function timeLimitMessage()
 	{
-
-		if(self::$startTime && self::$formTimeLimited)
+		$totalTime = a(self::$formDetail, 'setting', 'timelimit');
+		if($totalTime)
 		{
-			$totalTime = a(self::$formDetail, 'setting', 'timelimit');
-
-
-
-
-
 			self::$html .= '<div class="alert-info text-center font-bold">';
 			{
 				self::$html .= T_("You must answer this form within :val seconds", [
@@ -25,9 +19,10 @@ trait timeLimit
 
 				if(isset(self::$formDetail['formLoad']['starttime']) && self::$formDetail['formLoad']['starttime'])
 				{
+					$startTimeInt = strtotime(self::$formDetail['formLoad']['starttime']);
 
-					$startTime = \dash\fit::date_time(date("Y-m-d H:i:s", self::$startTime));
-					$endTime   = \dash\fit::date_time(date("Y-m-d H:i:s", (self::$startTime + $totalTime)));
+					$startTime = \dash\fit::date_time(date("Y-m-d H:i:s", $startTimeInt));
+					$endTime   = \dash\fit::date_time(date("Y-m-d H:i:s", ($startTimeInt + $totalTime)));
 
 					self::$html .= '<br>';
 					self::$html .= T_("Your start time is :val", ['val' => $startTime]);

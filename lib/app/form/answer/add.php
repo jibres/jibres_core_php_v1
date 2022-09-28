@@ -135,7 +135,7 @@ class add
 
 				if((time() - floatval($myStartTime)) > floatval($timeLimit))
 				{
-					\lib\app\form\form\get::resetMyStartTime($form_id);
+
 					\dash\notif::error(T_("The deadline for your response to this form has expired. It is not possible to save your answer, The page will be reload automatically"), ['alerty' => true]);
 					self::redirectToFirst($load_form);
 					return false;
@@ -974,7 +974,7 @@ class add
 					return false;
 				}
 
-				\lib\app\form\form\get::resetMyStartTime($form_id);
+
 
 				foreach ($insert_answerdetail as $key => $value)
 				{

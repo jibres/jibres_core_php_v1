@@ -11,14 +11,7 @@ trait token
 
 		$dateTime = date("Y-m-d H:i:s");
 
-		if(a($_load_form, 'myStartDate'))
-		{
-			$dateTime              = date("Y-m-d H:i:s", $_load_form['myStartDate']);
-			self::$formTimeLimited = true;
-		}
-
 		self::$formDetail = $_load_form;
-		self::$startTime  = strtotime($dateTime);
 
 		$html = '<input type="hidden" name="startdate" value="' . $dateTime . '">';
 		return $html;
