@@ -19,6 +19,11 @@ trait items
 			$form_id = $_items[0]['form_id'];
 		}
 
+		if(self::formCheckLoginButton())
+		{
+			return self::$html;
+		}
+
 		self::timeLimitMessage();
 
 		if(self::formStartButton())

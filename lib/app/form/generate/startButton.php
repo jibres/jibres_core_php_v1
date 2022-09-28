@@ -4,6 +4,42 @@ namespace lib\app\form\generate;
 
 trait startButton
 {
+	private static function formCheckLoginButton()
+	{
+		if(isset(self::$formDetail['setting']['loginrequired']) && self::$formDetail['setting']['loginrequired'])
+		{
+			if(\dash\user::id())
+			{
+				return false;
+			}
+			else
+			{
+				$url = \dash\url::kingdom(). '/enter?referer='. \dash\url::location();
+
+				$html = '';
+				$html .= '<div class="text-center">';
+				{
+					$format = "<a class='btn-primary btn-xl ' href='%s' >";
+					$html   .= sprintf($format, $url);
+					{
+						$html .= T_("Please login to continue");
+					}
+					$html .= '</a>';
+				}
+				$html .= '</div>';
+
+
+				self::$html .= $html;
+
+				self::$formStartButton = true;
+
+
+				return true;
+			}
+
+		}
+		return false;
+	}
 
 
 	private static function formStartButton()
