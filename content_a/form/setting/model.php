@@ -19,6 +19,8 @@ class model
 				'disableshortlink' => \dash\request::post('disableshortlink'),
 				'timelimit'        => \dash\request::post('timelimit'),
 				'randomquestion'   => \dash\request::post('randomquestion'),
+				'loginrequired'    => \dash\request::post('loginrequired'),
+				'uniquesession'    => \dash\request::post('uniquesession'),
 			];
 
 		if(!\dash\request::post('randqcheck'))

@@ -53,6 +53,8 @@ class check
 				'resultpageimage'         => 'string_1000',
 				'timelimit'               => 'int',
 				'randomquestion'          => 'int',
+				'loginrequired'           => 'bit',
+				'uniquesession'           => 'bit',
 
 			];
 
@@ -128,7 +130,14 @@ class check
 		{
 			$setting['randomquestion'] = $data['randomquestion'];
 		}
-
+		if(array_key_exists('loginrequired', $_args))
+		{
+			$setting['loginrequired'] = $data['loginrequired'];
+		}
+		if(array_key_exists('uniquesession', $_args))
+		{
+			$setting['uniquesession'] = $data['uniquesession'];
+		}
 
 
 		if(array_key_exists('beforestart', $_args))
@@ -277,6 +286,8 @@ class check
 		unset($data['resultpageimage']);
 		unset($data['timelimit']);
 		unset($data['randomquestion']);
+		unset($data['loginrequired']);
+		unset($data['uniquesession']);
 
 
 		return $data;
