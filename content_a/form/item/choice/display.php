@@ -13,6 +13,16 @@
                             <input type="text" name="title" required <?php \dash\layout\autofocus::html(); ?>
                                    value="<?php echo \dash\data::choiceDataRow_title() ?>">
                         </div>
+						<?php  if(a(\dash\data::itemDetail(), 'type_detail', 'have_score')) { ?>
+                            <label for="iscore"><?php echo T_("Score") ?></label>
+                            <div class="input">
+
+                                <input type="tel" name="score" required id="iscore"
+                                       value="<?php echo round(floatval(\dash\data::choiceDataRow_score())) ?>"
+                                       data-format="price" maxlength="15">
+
+                            </div>
+						<?php } // endif ?>
 						<?php  if(a(\dash\data::itemDetail(), 'type_detail', 'is_amount')) { ?>
                             <label for="iprice"><?php echo T_("Price") ?></label>
                             <div class="input">
@@ -52,19 +62,35 @@
                                         <a href="<?php echo \dash\url::current() . '?' . \dash\request::fix_get(['cid' => a($value, 'id')]) ?>"><i
                                                     class="sf-edit"></i> <?php echo a($value, 'title');
 
-											if(a($value, 'price'))
-											{
-												echo '<span class="px-4 text-gray-400">';
 
-												echo \dash\fit::number($value['price']) . ' ' . \lib\store::currency();
-												echo '</span>';
-
-											}
 											?>
 
                                         </a>
 
 
+                                    </td>
+                                    <td>
+                                        <?php
+										if(a($value, 'price'))
+										{
+											echo '<span class="px-4 text-gray-400">';
+
+											echo \dash\fit::number($value['price']) . ' ' . \lib\store::currency();
+											echo '</span>';
+
+										} ?>
+                                    </td>
+                                    <td>
+                                        <?php
+										if(a($value, 'score'))
+										{
+											echo '<span class="px-4 text-gray-400">';
+
+											echo  T_("Score"). ': '. \dash\fit::number($value['score']) ;
+											echo '</span>';
+
+										}
+                                        ?>
                                     </td>
                                     <td class="collapsing">
 										<?php if(a($value, 'id') === \dash\request::get('cid')) { ?>

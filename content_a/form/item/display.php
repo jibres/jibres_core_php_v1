@@ -598,8 +598,13 @@
 								echo \dash\fit::number(a($value, 'price')) . ' ' . \lib\store::currency();
 							}
 							?>
-
-
+                        </td>
+                        <td>
+							<?php if(a($value, 'score'))
+							{
+								echo T_("Score"). ': '. \dash\fit::number(a($value, 'score'));
+							}
+							?>
                         </td>
                     </tr>
 				<?php } //endfor ?>
