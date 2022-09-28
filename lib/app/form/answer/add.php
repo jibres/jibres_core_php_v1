@@ -78,7 +78,16 @@ class add
 
 		$form_load_id = $tokenDetail['id'];
 
-		if(isset($load_form['answerlimit']) && $load_form['answerlimit'] && is_numeric($load_form['answerlimit']))
+		if(isset($load_form['setting']['loginrequired']) && $load_form['setting']['loginrequired'])
+		{
+			if(!\dash\user::id())
+			{
+				\dash\notif::error(T_("To answer this form, you must log in first"));
+				return false;
+			}
+		}
+
+			if(isset($load_form['answerlimit']) && $load_form['answerlimit'] && is_numeric($load_form['answerlimit']))
 		{
 			$answerLimit              = intval($load_form['answerlimit']);
 			$getTotalActiveAnserCount = \lib\db\form_answer\get::countActive($form_id);
