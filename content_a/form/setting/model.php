@@ -21,6 +21,12 @@ class model
 				'randomquestion'   => \dash\request::post('randomquestion'),
 			];
 
+		if(!\dash\request::post('randqcheck'))
+		{
+			$post['randomquestion'] = null;
+		}
+
+
 		if(\dash\request::files('file'))
 		{
 			$post['file'] = \dash\upload\form::form($form_id);
