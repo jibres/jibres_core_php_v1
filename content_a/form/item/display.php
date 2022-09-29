@@ -29,14 +29,14 @@
                         </div>
                         <div class="displayAttach mb-2" <?php if(!\dash\data::itemDetail_file()) { echo 'data-kerkere-content="hide"';}?> >
                             <div data-uploader data-name='file' data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(\dash\data::itemDetail_file()) { echo "data-fill";}?>>
-                                <input type="file"  id="image1">
+                                <input type="file"  id="image1" accept="*/*">
                                 <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
 								<?php if(\dash\data::itemDetail_file()) {?>
-									<?php $myExt = substr(\dash\data::itemDetail_file(), -3); ?>
-									<?php if(in_array($myExt, ['png', 'jpg', 'gif'])) {?>
-                                        <label for="image1"><img id="finalImage" src="<?php echo \dash\data::itemDetail_file(); ?>" alt="<?php echo \dash\data::itemDetail_title(); ?>"></label>
+                                        <label for="image1">
+                                            <?php echo \dash\layout\elements\filePreview::byExtension(\dash\data::itemDetail_file()) ?>
+                                        </label>
                                         <span class="imageDel" data-confirm data-data='{"deletefile" : 1}'></span>
-									<?php }//endif ?>
+
 								<?php } else {//endif ?>
                                     <label for="image1"><img id="finalImage" alt="<?php echo \dash\data::dataRow_title(); ?>"></label>
 								<?php }//endif ?>

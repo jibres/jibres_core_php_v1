@@ -37,7 +37,7 @@ class extentions
 			'pdf'      => [ 'allow' => true,	'type' => 'pdf',        'mime' => 'application/pdf'],
 			// video
 
-			'ogv'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'audio/ogg'],
+			'ogv'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/ogg'],
 			'webm'     => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/webm'],
 			'mpeg'     => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/mpeg'],
 			'mpg'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/mpeg'],

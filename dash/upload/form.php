@@ -111,7 +111,7 @@ class form
 		$meta =
 			[
 				'allow_size' => \dash\upload\size::get(),
-				'ext' => extentions::allow_ext_by_type(['image', 'video', 'audio']),
+				'ext' => extentions::allow_ext_by_type(['image', 'video', 'audio', 'pdf']),
 
 			];
 
