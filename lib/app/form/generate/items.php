@@ -63,11 +63,19 @@ trait items
 			// 	}
 			// }
 
+			$classC6S12 = 'c-xs-12 c-6';
+
+			if(isset($item['file']) && $item['file'])
+			{
+				$classC6S12 = 'c-xs-12 c-12';
+				self::$html .= \dash\layout\elements\filePreview::byExtension($item['file']);
+			}
+
 
 			switch ($item['type'])
 			{
 				case 'short_answer':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_short_answer($item);
 					}
@@ -76,7 +84,7 @@ trait items
 					break;
 
 				case 'displayname':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_displayname($item);
 					}
@@ -84,7 +92,7 @@ trait items
 					break;
 
 				case 'descriptive_answer':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_descriptive_answer($item);
 					}
@@ -93,7 +101,7 @@ trait items
 					break;
 
 				case 'numeric':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_numeric($item);
 					}
@@ -118,7 +126,7 @@ trait items
 					break;
 
 				case 'dropdown':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_dropdown($item);
 					}
@@ -127,7 +135,7 @@ trait items
 					break;
 
 				case 'date':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_date($item);
 					}
@@ -136,7 +144,7 @@ trait items
 					break;
 
 				case 'birthdate':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_birthdate($item);
 					}
@@ -179,7 +187,7 @@ trait items
 					break;
 
 				case 'time':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_time($item);
 					}
@@ -188,7 +196,7 @@ trait items
 					break;
 
 				case 'ircard':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_ircard($item);
 					}
@@ -197,7 +205,7 @@ trait items
 					break;
 
 				case 'irshaba':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_irshaba($item);
 					}
@@ -222,7 +230,7 @@ trait items
 					break;
 
 				case 'nationalcode':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_nationalcode($item);
 					}
@@ -231,7 +239,7 @@ trait items
 					break;
 
 				case 'mobile':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_mobile($item);
 					}
@@ -240,7 +248,7 @@ trait items
 					break;
 
 				case 'email':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_email($item);
 					}
@@ -249,7 +257,7 @@ trait items
 					break;
 
 				case 'website':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_website($item);
 					}
@@ -258,7 +266,7 @@ trait items
 					break;
 
 				case 'password':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_password($item);
 					}
@@ -292,7 +300,7 @@ trait items
 					break;
 
 				case 'hidden':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_hidden($item);
 					}
@@ -300,7 +308,7 @@ trait items
 					break;
 
 				case 'postalcode':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_postalcode($item);
 					}
@@ -309,7 +317,7 @@ trait items
 					break;
 
 				case 'manual_amount':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_manual_amount($item);
 					}
@@ -318,7 +326,7 @@ trait items
 					break;
 
 				case 'list_amount':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_list_amount($item);
 					}
@@ -346,7 +354,7 @@ trait items
 
 
 				case 'hidden_amount':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_hidden_amount($item);
 					}
@@ -354,7 +362,7 @@ trait items
 					break;
 
 				case 'hiddenurl':
-					self::div_item($have_condition, 'c-xs-12 c-6');
+					self::div_item($have_condition, $classC6S12);
 					{
 						self::html_input_hiddenurl($item);
 					}
