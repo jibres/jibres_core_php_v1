@@ -69,8 +69,19 @@ class get
 	public static function need_review_form()
 	{
 		$query  =
-			"SELECT COUNT(*) AS `count`, form_answer.form_id FROM form_answer WHERE form_answer.review IS NULL GROUP BY form_answer.form_id";
+			"
+				SELECT 
+				    COUNT(*) AS `count`, 
+				    form_answer.form_id 
+				FROM 
+				    form_answer 
+				WHERE 
+				    form_answer.review IS NULL AND 
+				    form_answer.status != 'deleted' 
+				GROUP BY form_answer.form_id
+			";
 		$result = \dash\pdo::get($query);
+
 		return $result;
 
 	}
@@ -79,7 +90,16 @@ class get
 	public static function need_review_form_id($_form_id)
 	{
 		$query  =
-			"SELECT COUNT(*) AS `count` FROM form_answer WHERE form_answer.form_id = $_form_id AND form_answer.review IS NULL ";
+			"
+				SELECT 
+				    COUNT(*) AS `count` 
+				FROM 
+				    form_answer 
+				WHERE 
+				    form_answer.form_id = $_form_id AND 
+				    form_answer.review IS NULL AND
+				    form_answer.status != 'deleted'
+			";
 		$result = \dash\pdo::get($query, [], 'count', true);
 		return $result;
 	}
