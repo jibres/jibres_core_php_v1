@@ -15,9 +15,34 @@
 						?>
                         <label><?php echo T_("Item title") ?></label>
                         <div class="input">
-                            <input type="text" name="item_title_<?php echo $myKey ?>"
-                                   placeholder="<?php echo T_("Title") ?>" value="<?php echo a($value, 'title'); ?>">
+                            <input type="text"
+                                   name="item_title_<?php echo $myKey ?>"
+                                   id="item_title_<?php echo $myKey ?>"
+                                   placeholder="<?php echo T_("Title") ?>"
+                                   value="<?php echo a($value, 'title'); ?>"
+                            >
+                            <label for="item_title_<?php echo $myKey ?>" class="addon"
+                                   data-kerkere=".displayAttach"
+                            >
+                                <?php echo  \dash\utility\icon::svg('Attachment', 'major', null, 'w-4 h-4') ?>
+                            </label>
                         </div>
+                        <div class="displayAttach mb-2" <?php if(!\dash\data::itemDetail_file()) { echo 'data-kerkere-content="hide"';}?> >
+                            <div data-uploader data-name='file' data-final='#finalImage' data-file-max-size='<?php echo \dash\data::maxFileSize() ?>' <?php if(\dash\data::itemDetail_file()) { echo "data-fill";}?>>
+                                <input type="file"  id="image1">
+                                <label for="image1"><?php echo T_('Drag &amp; Drop your files or Browse'); ?></label>
+								<?php if(\dash\data::itemDetail_file()) {?>
+									<?php $myExt = substr(\dash\data::itemDetail_file(), -3); ?>
+									<?php if(in_array($myExt, ['png', 'jpg', 'gif'])) {?>
+                                        <label for="image1"><img id="finalImage" src="<?php echo \dash\data::itemDetail_file(); ?>" alt="<?php echo \dash\data::itemDetail_title(); ?>"></label>
+                                        <span class="imageDel" data-confirm data-data='{"deletefile" : 1}'></span>
+									<?php }//endif ?>
+								<?php } else {//endif ?>
+                                    <label for="image1"><img id="finalImage" alt="<?php echo \dash\data::dataRow_title(); ?>"></label>
+								<?php }//endif ?>
+                            </div>
+                        </div>
+
 
                         <div class="alert2">
                             <div class="f">

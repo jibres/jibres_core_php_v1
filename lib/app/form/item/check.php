@@ -48,6 +48,7 @@ class check
 				'whitelist'    => 'tag',
 				'urlkey'       => 'enstring_50',
 				'coefficient'  => 'int',
+				'file'         => 'string',
 			];
 
 		$require = ['title', 'type'];

@@ -18,6 +18,8 @@ class controller
 		}
 
 		\dash\data::itemDetail($load_item);
+
+		\dash\allow::file();
 	}
 }
 ?>

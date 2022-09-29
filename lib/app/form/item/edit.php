@@ -34,6 +34,15 @@ class edit
 	}
 
 
+	public static function removeItemFile($_id)
+	{
+		\dash\permission::access('ManageForm');
+
+		\lib\db\form_item\update::update(['file' => null], $_id);
+	}
+
+
+
 	private static $form_detail = [];
 
 	public static function edit($_args, $_id, $_form_id)

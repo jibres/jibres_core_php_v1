@@ -6,6 +6,7 @@ class model
 	public static function post()
 	{
 		$form_id = \dash\request::get('id');
+		$item_id = \dash\request::get('item');
 
 		if(\dash\request::post('removeitem') === 'removeitem')
 		{
@@ -75,6 +76,20 @@ class model
 
 				$whole_edit[$split[2]][$split[1]] = $value;
 			}
+		}
+
+
+		$file = \dash\upload\form::form_item($form_id);
+		if($file)
+		{
+			$whole_edit[$item_id]['file'] = $file;
+		}
+
+		if(\dash\request::post('deletefile'))
+		{
+			\lib\app\form\item\edit::removeItemFile($item_id);
+			\dash\redirect::pwd();
+			return;
 		}
 
 		if(!empty($whole_edit))
