@@ -8,24 +8,41 @@ class token
 	public static function generateTokenBeforeLoad(&$result)
 	{
 
+		$checkUniqueSession = boolval(a($result, 'setting', 'uniquesession'));
+
 		if($token = \dash\data::loadByCurrentToken())
 		{
 			$formLoadDetail = \lib\db\form_load\get::by_token($token);
+			if($checkUniqueSession)
+			{
+				$formLoadDetail['isUnique'] = checkUnique::uniqueToken($formLoadDetail);
+			}
 		}
 		else
 		{
-			$token = self::generageTokenString($result);
+			$formId           = $result['id'];
+			$formLoadDetail   = [];
+			$generateNewToken = true;
 
-			$formLoadId = self::insertFormLoadRecord($token, $result);
+			if($checkUniqueSession)
+			{
+				$formLoadDetail['isUnique'] = checkUnique::uniqueIpAgent($formId);
+				if(!$formLoadDetail['isUnique'])
+				{
+					$generateNewToken = false;
+				}
+			}
 
-			$formLoadDetail =
-				[
-					'token' => $token,
-					'id'    => $formLoadId,
-				];
+			if($generateNewToken)
+			{
+				$token                   = self::generateTokenString($result);
+				$formLoadDetail['token'] = $token;
+
+				$formLoadId           = self::insertFormLoadRecord($token, $result);
+				$formLoadDetail['id'] = $formLoadId;
+			}
+
 		}
-
-
 
 		$result['formLoad'] = $formLoadDetail;
 
@@ -33,7 +50,7 @@ class token
 	}
 
 
-	private static function generageTokenString($result) : string
+	private static function generateTokenString($result) : string
 	{
 		$token   = [];
 		$token[] = json_encode($result);

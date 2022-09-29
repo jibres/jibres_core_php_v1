@@ -24,6 +24,11 @@ trait items
 			return self::$html;
 		}
 
+		if(self::checkUniqueSession())
+		{
+			return self::$html;
+		}
+
 		self::timeLimitMessage();
 
 		if(self::formStartButton())

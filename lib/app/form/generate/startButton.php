@@ -4,6 +4,31 @@ namespace lib\app\form\generate;
 
 trait startButton
 {
+	private static function checkUniqueSession()
+	{
+		if(a(self::$formDetail, 'formLoad', 'isUnique') === false)
+		{
+			$html = '';
+			$html .= '<div class="text-center">';
+			{
+				$html = "<div class='alert-secondary text-center font-bold ' >";
+				{
+					$html .= T_("You answered to this form before");
+				}
+				$html .= '</div>';
+			}
+			$html .= '</div>';
+
+			self::$html .= $html;
+
+			self::$formStartButton = true;
+
+			return true;
+		}
+		return false;
+
+	}
+
 	private static function formCheckLoginButton()
 	{
 		if(isset(self::$formDetail['setting']['loginrequired']) && self::$formDetail['setting']['loginrequired'])
