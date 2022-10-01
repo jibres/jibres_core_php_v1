@@ -79,7 +79,8 @@ class controller
 	{
 	    if($_url === null)
 	    {
-	    	$_url = 'https://github.com/jibres/talambar_cdn';
+	    	// $_url = 'https://github.com/jibres/talambar_cdn';
+	    	$_url = 'https://tejarak.com';
 	    }
 
 	    $ch = curl_init($_url);
