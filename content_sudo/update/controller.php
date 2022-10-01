@@ -28,7 +28,7 @@ class controller
 	public static function gitUpdate($_name, $_show_result = true)
 	{
 		$result   = [];
-		if(!self::ping())
+		if(!self::ping() && !\dash\request::get('force'))
 		{
 			if($_show_result)
 			{
@@ -82,6 +82,7 @@ class controller
 	    	// $_url = 'https://github.com/jibres/talambar_cdn';
 	    	$_url = 'https://tejarak.com';
 	    }
+
 
 	    $ch = curl_init($_url);
 	    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
