@@ -21,7 +21,7 @@
         <div>
           <label for="seoSlug"><?php echo T_("Slug"); ?> <small><?php echo T_("End part of your product url."); ?></small></label>
           <div class="input ltr mb-2">
-            <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo a($productDataRow,'slug'); ?>" maxlength='100' minlength="1" pattern=".{1,100}">
+            <input type="text" name="slug" id="seoSlug" placeholder='<?php echo T_("Slug"); ?>' value="<?php echo a($productDataRow,'slug'); ?>" maxlength='100' minlength="1" ">
           </div>
         </div>
         <div>
