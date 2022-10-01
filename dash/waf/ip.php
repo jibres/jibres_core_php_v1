@@ -557,7 +557,7 @@ class ip
 	private static function do_isolate(&$_ipData, $_reason = null)
 	{
 		// reset request count
-		self::resetRequestLimit($_ipData, 'isolate', 'isolation', $_reason);
+		// self::resetRequestLimit($_ipData, 'isolate', 'isolation', $_reason);
 	}
 
 
