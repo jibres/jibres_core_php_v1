@@ -61,8 +61,8 @@ $isPublic = \dash\data::dataRow_privacy() !== 'private';
 						{
 							echo 'checked';
 						} ?>>
-                        <label for="loginrequired"><?php echo T_("Login required") ?></label>
-                        <label for="loginrequired"><?php echo T_("Login required") ?> <small><?php echo T_("User must be login to answer to this form"); ?></small></label>
+                        <label for="loginrequired"><?php echo T_("Force user to login and continue") ?></label>
+                        <label for="loginrequired"><?php echo T_("Force user to login and continue") ?> <small><?php echo T_("User must be login to answer to this form"); ?></small></label>
                     </div>
 
                     <div class="switch1">

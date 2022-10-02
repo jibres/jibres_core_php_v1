@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-10-02 02:39+0330\n"
-"PO-Revision-Date: 2022-10-02 02:45+0330\n"
+"POT-Creation-Date: 2022-10-02 11:34+0330\n"
+"PO-Revision-Date: 2022-10-02 11:34+0330\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -9984,8 +9984,8 @@ msgid "Save answer as ticket"
 msgstr "ذخیره پاسخ به عنوان تیکت"
 
 #: content_a/form/setting/display.php:64 content_a/form/setting/display.php:65
-msgid "Login required"
-msgstr "ورود به سیستم الزامی است"
+msgid "Force user to login and continue"
+msgstr "اجبار کاربران به ورود برای ثبت پاسخ"
 
 #: content_a/form/setting/display.php:65
 msgid "User must be login to answer to this form"
@@ -45374,6 +45374,9 @@ msgstr "اینچ"
 #: lib/units.php:46
 msgid "Yard"
 msgstr "یارد"
+
+#~ msgid "Login required"
+#~ msgstr "ورود به سیستم الزامی است"
 
 #~ msgid "Have special print page for answers?"
 #~ msgstr "آیا برای نمایش پاسخ‌ها صفحه‌ی مخصوصی طراحی کرده‌اید؟"
