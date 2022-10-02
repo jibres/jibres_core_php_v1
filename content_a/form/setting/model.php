@@ -18,7 +18,16 @@ class model
 				'answerlimit'      => \dash\request::post('answerlimit'),
 				'disableshortlink' => \dash\request::post('disableshortlink'),
 				'timelimit'        => \dash\request::post('timelimit'),
+				'randomquestion'   => \dash\request::post('randomquestion'),
+				'loginrequired'    => \dash\request::post('loginrequired'),
+				'uniquesession'    => \dash\request::post('uniquesession'),
 			];
+
+		if(!\dash\request::post('randqcheck'))
+		{
+			$post['randomquestion'] = null;
+		}
+
 
 		if(\dash\request::files('file'))
 		{

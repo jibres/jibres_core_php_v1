@@ -100,6 +100,16 @@ class ready
 			$result['url'] = \lib\store::url(). '/f/'. $result['slug'];
 		}
 
+		$result['formStartButton'] = false;
+
+		if(
+			a($result, 'setting', 'timelimit') ||
+			a($result, 'setting', 'randomquestion')
+		  )
+		{
+			$result['formStartButton'] = true;
+		}
+
 
 		return $result;
 	}

@@ -3,9 +3,10 @@ namespace content_business\f\home;
 
 class controller
 {
+
 	public static function routing()
 	{
-
+		$fixFormUrl = true;
 
 		$child = \dash\url::child();
 
@@ -15,9 +16,34 @@ class controller
 			{
 				\dash\data::inquiryForm(true);
 			}
+			elseif(\dash\url::subchild() === 't')
+			{
+				if(\dash\url::dir(4))
+				{
+					\dash\header::status(404);
+				}
+
+				$token = \dash\url::dir(3);
+				$token = \dash\validate::md5($token);
+				if(!$token)
+				{
+					\dash\header::status(404);
+				}
+
+				\dash\data::loadByCurrentToken($token);
+				$fixFormUrl = false;
+			}
 			elseif(\dash\url::subchild() === 'result')
 			{
 				\dash\data::resultPage(true);
+			}
+			elseif(\dash\url::subchild() === 'start' && \dash\request::is('post'))
+			{
+				$access = \lib\app\form\load\startToken::userStartToken();
+				if(!$access)
+				{
+					\dash\header::status(404);
+				}
 			}
 			else
 			{
@@ -46,38 +72,42 @@ class controller
 
 		if($child)
 		{
-			$load_form = \lib\app\form\form\get::public_get_for_generate(urldecode($child));
+			$load_form = \lib\app\form\form\get::public_get(urldecode($child));
 			if(!$load_form || !isset($load_form['id']))
 			{
 				\dash\header::status(404);
 			}
 
-			// redirect to slug
-			if(a($load_form, 'url') && urldecode($load_form['url']) !== urldecode(\dash\url::that()) && \dash\request::is('get'))
+			if($fixFormUrl)
 			{
-				if(a($load_form, 'setting', 'disableshortlink'))
+				// redirect to slug
+				if(a($load_form, 'url') && urldecode($load_form['url']) !== urldecode(\dash\url::that()) && \dash\request::is('get'))
 				{
-					\dash\header::status(404);
-				}
+					if(a($load_form, 'setting', 'disableshortlink'))
+					{
+						\dash\header::status(404);
+					}
 
-				$url = $load_form['url'];
-				if(\dash\url::subchild() === 'inquiry')
-				{
-					$url .= '/inquiry';
-				}
+					$url = $load_form['url'];
+					if(\dash\url::subchild() === 'inquiry')
+					{
+						$url .= '/inquiry';
+					}
 
-				if(\dash\url::subchild() === 'result')
-				{
-					$url .= '/result';
-				}
+					if(\dash\url::subchild() === 'result')
+					{
+						$url .= '/result';
+					}
 
-				if(\dash\url::query())
-				{
-					$url .= '?'. \dash\url::query();
-				}
+					if(\dash\url::query())
+					{
+						$url .= '?' . \dash\url::query();
+					}
 
-				\dash\redirect::to($url);
+					\dash\redirect::to($url);
+				}
 			}
+
 
 
 			$form_id = $load_form['id'];
@@ -127,8 +157,8 @@ class controller
 		}
 		else
 		{
-			$args = [];
-			$args['status'] = 'publish';
+			$args             = [];
+			$args['status']   = 'publish';
 			$get_publish_form = \lib\app\form\form\search::public_list(null, $args);
 			\dash\data::dataTable($get_publish_form);
 		}
@@ -140,4 +170,5 @@ class controller
 
 
 }
+
 ?>

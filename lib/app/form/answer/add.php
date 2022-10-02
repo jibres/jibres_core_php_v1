@@ -5,25 +5,37 @@ namespace lib\app\form\answer;
 class add
 {
 
+
 	public static function public_new_answer($_args, $_meta = [])
 	{
 		$condition =
 			[
-				'form_id'   => 'id',
-				'user_id'   => 'id',
-				'factor_id' => 'id',
-				'startdate' => 'datetime',
-				'answer'    => 'bit', // just for skip clean error
+				'form_id'       => 'id',
+				'user_id'       => 'id',
+				'factor_id'     => 'id',
+				'startdate'     => 'datetime',
+				'answer'        => 'bit', // just for skip clean error
+				'formloadtoken' => 'string_32',
+				'formloadtid'   => 'id',
 			];
 
 
-		$require = ['form_id'];
+		$require = ['form_id', 'formloadtoken', 'formloadtid'];
 
-		$meta = [];
+		$meta =
+			[
+				'field_title' =>
+					[
+						'formloadtoken' => T_("Form load token"),
+						'formloadtid'   => T_("Form load token id"),
+					],
+			];
 
 		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
-		$user_id              = $data['user_id'];
+		$user_id = $data['user_id'];
+
+
 		$new_signuped_user_id = null;
 
 		$form_id = $data['form_id'];
@@ -35,12 +47,14 @@ class add
 		$save_as_ticket        = false;
 		$edit_mode             = false;
 		$total_price           = 0;
+		$totalScore            = 0;
 		$havePriceItem         = false;
 		$send_sms              = [];
 		$sms_text              = [];
 		$required_not_answered = [];
 		$checkRequired         = true;
 		$fillByUser            = true;
+
 
 		$answer = isset($_args['answer']) ? $_args['answer'] : [];
 		if(!is_array($answer))
@@ -56,7 +70,24 @@ class add
 			return false;
 		}
 
-		if(isset($load_form['answerlimit']) && $load_form['answerlimit'] && is_numeric($load_form['answerlimit']))
+		$tokenDetail = self::checkFormLoadToken($data);
+		if(!$tokenDetail)
+		{
+			return false;
+		}
+
+		$form_load_id = $tokenDetail['id'];
+
+		if(isset($load_form['setting']['loginrequired']) && $load_form['setting']['loginrequired'])
+		{
+			if(!\dash\user::id())
+			{
+				\dash\notif::error(T_("To answer this form, you must log in first"));
+				return false;
+			}
+		}
+
+			if(isset($load_form['answerlimit']) && $load_form['answerlimit'] && is_numeric($load_form['answerlimit']))
 		{
 			$answerLimit              = intval($load_form['answerlimit']);
 			$getTotalActiveAnserCount = \lib\db\form_answer\get::countActive($form_id);
@@ -97,15 +128,25 @@ class add
 
 		if($fillByUser)
 		{
-			if(($myStartTime = \lib\app\form\form\get::getMyStartTime($form_id)) && a($load_form, 'setting', 'timelimit'))
+			$timeLimit = $load_form['setting']['timelimit'];
+
+			if($timeLimit)
 			{
-				$timeLimit   = $load_form['setting']['timelimit'];
+				$myStartTime = $tokenDetail['starttime'];
+				if(!$myStartTime)
+				{
+					\dash\notif::error(T_("Your session is not started. Please reload the page and try again"));
+					self::redirectToFirst($load_form);
+					return false;
+				}
+
+				$myStartTime = strtotime($myStartTime);
 
 				if((time() - floatval($myStartTime)) > floatval($timeLimit))
 				{
-					\lib\app\form\form\get::resetMyStartTime($form_id);
+
 					\dash\notif::error(T_("The deadline for your response to this form has expired. It is not possible to save your answer, The page will be reload automatically"), ['alerty' => true]);
-					\dash\redirect::pwd();
+					self::redirectToFirst($load_form);
 					return false;
 				}
 
@@ -123,8 +164,35 @@ class add
 
 		$items = array_combine(array_column($check_true_item, 'id'), $check_true_item);
 
+
+		$randomQuestions = [];
+
+		if(isset($tokenDetail['questions']) && is_string($tokenDetail['questions']))
+		{
+			$randomQuestions = json_decode($tokenDetail['questions'], true);
+			if(!is_array($randomQuestions))
+			{
+				$randomQuestions = [];
+			}
+		}
+
 		foreach ($items as $item_id => $item_detail)
 		{
+			if($randomQuestions)
+			{
+				if(isset($item_detail['require']) && $item_detail['require'])
+				{
+					// ok.
+				}
+				else
+				{
+					if(!in_array($item_detail['id'], $randomQuestions))
+					{
+						continue;
+					}
+				}
+			}
+
 			$my_answer = null;
 			if(isset($answer[$item_id]))
 			{
@@ -329,7 +397,11 @@ class add
 				case 'single_choice':
 					$my_answer        = \dash\validate::string_200($my_answer, true, $validate_meta);
 					$answer[$item_id] =
-						['answer' => $my_answer, 'choice_id' => self::find_choice_id($item_id, $my_answer, $items)];
+						[
+							'answer'    => $my_answer,
+							'choice_id' => self::find_choice_id($item_id, $my_answer, $items),
+							'score'     => self::find_choice_score($item_id, $my_answer, $items),
+						];
 					break;
 
 				case 'multiple_choice':
@@ -346,6 +418,7 @@ class add
 						$multiple_choice_answer[] = [
 							'answer'    => \dash\validate::string_200($v, true, $validate_meta),
 							'choice_id' => self::find_choice_id($item_id, $v, $items),
+							'score'     => self::find_choice_score($item_id, $v, $items),
 						];
 					}
 
@@ -373,7 +446,11 @@ class add
 				case 'dropdown':
 					$my_answer        = \dash\validate::string_200($my_answer, true, $validate_meta);
 					$answer[$item_id] =
-						['answer' => $my_answer, 'choice_id' => self::find_choice_id($item_id, $my_answer, $items)];
+						[
+							'answer'    => $my_answer,
+							'choice_id' => self::find_choice_id($item_id, $my_answer, $items),
+							'score'     => self::find_choice_score($item_id, $my_answer, $items),
+						];
 					break;
 
 				case 'date':
@@ -760,17 +837,29 @@ class add
 		}
 
 
-		$startdate = $data['startdate'];
-
-		if(!$startdate)
+		if(a($tokenDetail, 'starttime'))
 		{
-			$data['startdate'] = date("Y-m-d H:i:s");
+			$data['startdate'] = $tokenDetail['starttime'];
+		}
+		elseif(a($tokenDetail, 'viewtime'))
+		{
+			$data['startdate'] = $tokenDetail['viewtime'];
+		}
+		else
+		{
+			$startdate = $data['startdate'];
+
+			if(!$startdate)
+			{
+				$data['startdate'] = date("Y-m-d H:i:s");
+			}
+
+			if(!$edit_mode && $startdate && time() - strtotime($startdate) > (60 * 60 * 1))
+			{
+				$data['startdate'] = date("Y-m-d H:i:s", time() - (60 * 60 * 1));
+			}
 		}
 
-		if(!$edit_mode && $startdate && time() - strtotime($startdate) > (60 * 60 * 1))
-		{
-			$data['startdate'] = date("Y-m-d H:i:s", time() - (60 * 60 * 1));
-		}
 
 		if(!$user_id && $new_signuped_user_id)
 		{
@@ -817,6 +906,7 @@ class add
 								'item_id'     => $item_id,
 								'answer'      => $my_answer_one['answer'],
 								'choice_id'   => a($my_answer_one, 'choice_id'),
+								'score'       => a($my_answer_one, 'score'),
 								'textarea'    => null,
 								'datecreated' => date("Y-m-d H:i:s"),
 							];
@@ -852,12 +942,26 @@ class add
 							'item_id'     => $item_id,
 							'answer'      => $new_answer,
 							'choice_id'   => a($my_answer, 'choice_id'),
+							'score'       => a($my_answer, 'score'),
 							'textarea'    => $new_textarea,
 							'datecreated' => date("Y-m-d H:i:s"),
 						];
 				}
 			}
 		}
+
+		$totalScore = array_column($insert_answerdetail, 'score');
+		$totalScore = array_filter($totalScore);
+		if(!$totalScore)
+		{
+			$totalScore = null;
+		}
+		else
+		{
+			$totalScore = array_sum($totalScore);
+		}
+
+		$add_answer_args['totalscore'] = $totalScore;
 
 		$redirect = null;
 
@@ -878,6 +982,9 @@ class add
 				// save agent id
 				$add_answer_args['agent_id'] = \dash\agent::get(true);
 
+				// save form load id
+				$add_answer_args['form_load_id'] = $form_load_id;
+
 
 				$answer_id = \lib\db\form_answer\insert::new_record($add_answer_args);
 
@@ -888,7 +995,6 @@ class add
 					return false;
 				}
 
-				\lib\app\form\form\get::resetMyStartTime($form_id);
 
 				foreach ($insert_answerdetail as $key => $value)
 				{
@@ -920,7 +1026,8 @@ class add
 
 			if($total_price && !$data['factor_id'])
 			{
-				$pwdClean = \dash\url::current();
+
+				$pwdClean = a($load_form, 'url');
 				$allGet   = \dash\request::get();
 				unset($allGet['jftoken']);
 				$pwdClean .= '?' . \dash\request::build_query($allGet);
@@ -1043,6 +1150,27 @@ class add
 	}
 
 
+	private static function find_choice_score($_item_id, $_answer, $_items)
+	{
+		$choice = [];
+
+		if(isset($_items[$_item_id]['choice']) && is_array($_items[$_item_id]['choice']))
+		{
+			$choice = $_items[$_item_id]['choice'];
+		}
+
+		foreach ($choice as $key => $value)
+		{
+			if(isset($value['title']) && isset($value['id']) && $value['title'] === $_answer)
+			{
+				return $value['score'];
+			}
+		}
+
+		return null;
+	}
+
+
 	public static function check_min_max_date($_value, $_mindate, $_maxdate)
 	{
 		if(!$_value)
@@ -1099,6 +1227,47 @@ class add
 
 	}
 
-}
 
-?>
+	private static function checkFormLoadToken(array $data)
+	{
+		$form_id = $data['form_id'];
+		$token   = $data['formloadtoken'];
+		$tokenid = $data['formloadtid'];
+
+		$getTokenDetail = \lib\db\form_load\get::get($tokenid);
+
+		if(!isset($getTokenDetail['id']) || !isset($getTokenDetail['form_id']))
+		{
+			\dash\notif::error(T_("Invalid form token id! Please reload the page"));
+			return false;
+		}
+
+		if(!\dash\validate::is_equal($getTokenDetail['form_id'], $form_id))
+		{
+			\dash\notif::error(T_("The form ID does not match the token ID!"));
+			return false;
+		}
+
+		if(!\dash\validate::is_equal($getTokenDetail['token'], $token))
+		{
+			\dash\notif::error(T_("The form load detail does not match the token!"));
+			return false;
+		}
+
+		return $getTokenDetail;
+	}
+
+
+	private static function redirectToFirst($_load_form)
+	{
+		if(isset($_load_form['url']))
+		{
+			\dash\redirect::to($_load_form['url']);
+		}
+		else
+		{
+			\dash\redirect::pwd();
+		}
+	}
+
+}

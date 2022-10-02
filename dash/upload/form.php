@@ -104,5 +104,38 @@ class form
 
 		return $file_detail['path'];
 	}
+
+
+	public static function form_item($_form_id)
+	{
+		$meta =
+			[
+				'allow_size' => \dash\upload\size::get(),
+				'ext' => extentions::allow_ext_by_type(['image', 'video', 'audio', 'pdf']),
+
+			];
+
+		$file_detail = \dash\upload\file::upload('file', $meta);
+
+		if(!$file_detail)
+		{
+			return false;
+		}
+
+		$fileusage =
+			[
+				'file_id'     => $file_detail['id'],
+				'user_id'     => \dash\user::id(),
+				'title'       => null,
+				'alt'         => null,
+				'desc'        => null,
+				'related'     => 'form_item',
+				'related_id'  => $_form_id,
+				'datecreated' => date("Y-m-d H:i:s"),
+			];
+
+		\dash\db\fileusage::insert($fileusage);
+
+		return $file_detail['path'];
+	}
 }
-?>

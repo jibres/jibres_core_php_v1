@@ -37,7 +37,7 @@ class extentions
 			'pdf'      => [ 'allow' => true,	'type' => 'pdf',        'mime' => 'application/pdf'],
 			// video
 
-			'ogv'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'audio/ogg'],
+			'ogv'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/ogg'],
 			'webm'     => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/webm'],
 			'mpeg'     => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/mpeg'],
 			'mpg'      => [ 'allow' => true,	'type' => 'video',      'mime' => 'video/mpeg'],
@@ -260,5 +260,25 @@ class extentions
 
 		return $new_list;
 	}
+
+
+	public static function allow_ext_by_type(array $_array_of_type)
+	{
+		$list = self::mime();
+		$new_list = [];
+
+		foreach ($list as $key => $value)
+		{
+			if(isset($value['allow']) && $value['allow'])
+			{
+				if(in_array($value['type'], $_array_of_type))
+				{
+					$new_list[] = $key;
+				}
+			}
+		}
+		return $new_list;
+	}
+
 }
 ?>

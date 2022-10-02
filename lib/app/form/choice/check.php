@@ -4,14 +4,16 @@ namespace lib\app\form\choice;
 
 class check
 {
+
 	public static function variable($_args, $_id = null, $_current_detail = [])
 	{
 		$condition =
-		[
-			'title'        => 'title',
-			'desc'         => 'desc',
-			'price'         => 'price',
-		];
+			[
+				'title' => 'title',
+				'desc'  => 'desc',
+				'price' => 'price',
+				'score' => 'int',
+			];
 
 		$require = ['title'];
 
@@ -21,5 +23,5 @@ class check
 
 		return $data;
 	}
+
 }
-?>

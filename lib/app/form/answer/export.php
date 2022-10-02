@@ -470,6 +470,7 @@ class export
 			$load_comments         = \lib\db\form_comment\get::string_all_comment($answer_id);
 			$temp['answer_status'] = $answer_status;
 			$temp['amount']        = null;
+			$temp['totalscore']    = null;
 			$temp['payed']         = null;
 			$temp['tags']          = $load_tags;
 			$temp['comments']      = $load_comments;
@@ -494,6 +495,7 @@ class export
 			$replace_item_id_to_item_title[$value['id']]['answer_status'] = a($value, 'status');
 			$replace_item_id_to_item_title[$value['id']]['payed']         = a($value, 'payed');
 			$replace_item_id_to_item_title[$value['id']]['amount']        = a($value, 'amount');
+			$replace_item_id_to_item_title[$value['id']]['totalscore']    = a($value, 'totalscore');
 
 		}
 

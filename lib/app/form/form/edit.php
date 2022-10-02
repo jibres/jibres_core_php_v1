@@ -4,6 +4,7 @@ namespace lib\app\form\form;
 
 class edit
 {
+
 	public static function edit($_args, $_id)
 	{
 		\dash\permission::access('ManageForm');
@@ -44,37 +45,42 @@ class edit
 			$exception[] = 'setting';
 		}
 
+		if(array_key_exists('loginrequired', $_args))
+		{
+			$exception[] = 'setting';
+		}
 
+		if(array_key_exists('uniquesession', $_args))
+		{
+			$exception[] = 'setting';
+		}
+
+
+		if(array_key_exists('randomquestion', $_args))
+		{
+			$exception[] = 'setting';
+		}
 
 		if(array_key_exists('disableshortlink', $_args))
 		{
 			$exception[] = 'setting';
 		}
 
-
-
-
 		if(array_key_exists('beforestart', $_args))
 		{
 			$exception[] = 'setting';
 		}
-
-
 
 		if(array_key_exists('afterend', $_args))
 		{
 			$exception[] = 'setting';
 		}
 
-
-
-
 		if(array_key_exists('startdate', $_args))
 		{
 			$exception[] = 'starttime';
 			$exception[] = 'endtime';
 		}
-
 
 		$args = \dash\cleanse::patch_mode($_args, $args, $exception);
 
@@ -119,7 +125,6 @@ class edit
 	}
 
 
-
 	private static function check_update_sitemap($_data, $_args, $_id)
 	{
 
@@ -146,5 +151,7 @@ class edit
 			\dash\utility\sitemap::forms($_id);
 		}
 	}
+
 }
+
 ?>

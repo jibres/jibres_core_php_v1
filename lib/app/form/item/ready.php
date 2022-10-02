@@ -23,6 +23,14 @@ class ready
 					$result['type_detail'] = \lib\app\form\item\type::get($value);
 					break;
 
+				case 'file':
+					if($value)
+					{
+						$value = \lib\filepath::fix($value);
+					}
+					$result[$key] = $value;
+					break;
+
 				case 'setting':
 				case 'choice':
 					if($value && is_string($value))

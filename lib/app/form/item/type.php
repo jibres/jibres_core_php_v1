@@ -180,6 +180,7 @@ class type
 				'group'        => T_('Optional choice'),
 				'choice'       => true,
 				'random'       => true,
+				'have_score'   => true,
 				'default_load' =>
 					[
 					],
@@ -197,6 +198,7 @@ class type
 				'random'       => true,
 				'min'          => true,
 				'max'          => true,
+				'have_score'   => true,
 				'default_load' =>
 					[
 						'min'         => 1,
@@ -216,6 +218,7 @@ class type
 				'placeholder'  => true,
 				'choice'       => true,
 				'random'       => true,
+				'have_score'   => true,
 				'default_load' =>
 					[
 						'placeholder' => T_("Please choose one item"),
