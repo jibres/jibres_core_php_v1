@@ -15,6 +15,11 @@
               <div>
                 <select name="life_time" class="select22">
                   <option value="0"><?php echo T_("Default (Never expire order)"); ?></option>
+                  <option value="<?php $time = (60*5); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("5 minutes"); ?></option>
+                  <option value="<?php $time = (60*10); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("10 minutes"); ?></option>
+                  <option value="<?php $time = (60*15); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("15 minutes"); ?></option>
+                  <option value="<?php $time = (60*30); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("30 minutes"); ?></option>
+                  <option value="<?php $time = (60*45); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("45 minutes"); ?></option>
                   <option value="<?php $time = (60*60*1); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("1 hour"); ?></option>
                   <option value="<?php $time = (60*60*3); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("3 hour"); ?></option>
                   <option value="<?php $time = (60*60*5); echo $time; ?>" <?php if(\dash\data::orderSettingSaved_life_time() == $time) { echo 'selected'; } ?>><?php echo T_("5 hour"); ?></option>

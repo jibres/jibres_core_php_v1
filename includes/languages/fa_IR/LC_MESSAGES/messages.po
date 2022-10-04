@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-10-02 11:34+0330\n"
-"PO-Revision-Date: 2022-10-02 11:34+0330\n"
+"POT-Creation-Date: 2022-10-04 16:23+0330\n"
+"PO-Revision-Date: 2022-10-04 16:27+0330\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -6904,7 +6904,7 @@ msgstr "مبلغ حدنصاب سالیانه برای محاسبه مالیات"
 #: content_a/setting/order/carttext/display.php:37
 #: content_a/setting/order/minimum/display.php:26
 #: content_a/setting/order/schedule/display.php:36
-#: content_a/setting/order/validity/display.php:36
+#: content_a/setting/order/validity/display.php:41
 #: content_a/setting/product/category/display.php:19
 #: content_a/setting/product/free/display.php:23
 #: content_a/setting/product/preparationtime/display.php:21
@@ -13767,38 +13767,58 @@ msgid "Default (Never expire order)"
 msgstr "پیش‌فرض (هیچ گاه منقضی نخواهد شد)"
 
 #: content_a/setting/order/validity/display.php:18
+msgid "5 minutes"
+msgstr "۵ دقیقه"
+
+#: content_a/setting/order/validity/display.php:19
+msgid "10 minutes"
+msgstr "۱۰ دقیقه"
+
+#: content_a/setting/order/validity/display.php:20
+msgid "15 minutes"
+msgstr "۱۵ دقیقه"
+
+#: content_a/setting/order/validity/display.php:21
+msgid "30 minutes"
+msgstr "۳۰ دقیقه"
+
+#: content_a/setting/order/validity/display.php:22
+msgid "45 minutes"
+msgstr "۴۵ دقیقه"
+
+#: content_a/setting/order/validity/display.php:23
 msgid "1 hour"
 msgstr "یک ساعت"
 
-#: content_a/setting/order/validity/display.php:19
+#: content_a/setting/order/validity/display.php:24
 msgid "3 hour"
 msgstr "سه ساعت"
 
-#: content_a/setting/order/validity/display.php:20
+#: content_a/setting/order/validity/display.php:25
 msgid "5 hour"
 msgstr "پنج ساعت"
 
-#: content_a/setting/order/validity/display.php:21
+#: content_a/setting/order/validity/display.php:26
 msgid "10 hour"
 msgstr "ده ساعت"
 
-#: content_a/setting/order/validity/display.php:22
+#: content_a/setting/order/validity/display.php:27
 msgid "1 Day"
 msgstr "یک روز"
 
-#: content_a/setting/order/validity/display.php:23
+#: content_a/setting/order/validity/display.php:28
 msgid "3 Day"
 msgstr "سه روز"
 
-#: content_a/setting/order/validity/display.php:24
+#: content_a/setting/order/validity/display.php:29
 msgid "5 Day"
 msgstr "پنج روز"
 
-#: content_a/setting/order/validity/display.php:25
+#: content_a/setting/order/validity/display.php:30
 msgid "10 Day"
 msgstr "ده روز"
 
-#: content_a/setting/order/validity/display.php:26
+#: content_a/setting/order/validity/display.php:31
 msgid "30 Day"
 msgstr "یک ماه"
 
