@@ -128,7 +128,7 @@ class add
 
 		if($fillByUser)
 		{
-			$timeLimit = $load_form['setting']['timelimit'];
+			$timeLimit = a($load_form, 'setting', 'timelimit');
 
 			if($timeLimit)
 			{
