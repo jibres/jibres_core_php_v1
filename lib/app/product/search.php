@@ -298,18 +298,20 @@ class search
 		// stock
 		if(isset($data['st']) && $data['st'] === 'y')
 		{
-			$and[] = "products.instock  = 1";
+			$and['inStockeCheck'] = "products.instock  = 'yes' ";
 			self::$is_filtered        = true;
 		}
 		elseif(isset($data['st']) && $data['st'] === 'n')
 		{
-			$and[] = "( products.instock  = 0 OR products.instock  IS NULL )";
+			$and['inStockeCheck'] = "( products.instock  = 'no' OR products.instock  IS NULL )";
+			$and[] = " (SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) >= 0 ";
 			self::$is_filtered        = true;
 		}
 
 		// negative stock
 		if(isset($data['nst']) && $data['nst'] === 'y')
 		{
+			unset($and['inStockeCheck']);
 			$and[] = " (SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) < 0 ";
 			self::$is_filtered        = true;
 		}

@@ -95,7 +95,7 @@ class filter
 			'key'            => 'product_instork',
 			'group'          => T_("Stock"),
 			'title'          => T_("Instock"),
-			'query'			 => ['st' => 'y'],
+			'query'			 => ['st' => 'y', 'nst' => null],
 		];
 
 		$list['with_discount'] =
@@ -230,7 +230,7 @@ class filter
 			'key'            => 'product_instork',
 			'group'          => T_("Stock"),
 			'title'          => T_("Instock"),
-			'query'			 => ['st' => 'y'],
+			'query'			 => ['st' => 'y', 'nst' => null],
 			'public'         => false,
 		];
 
@@ -239,7 +239,7 @@ class filter
 			'key'            => 'product_outofinstork',
 			'group'          => T_("Stock"),
 			'title'          => T_("Out of stock"),
-			'query'			 => ['st' => 'n'],
+			'query'			 => ['st' => 'n', 'nst' => null],
 			'public'         => false,
 		];
 
@@ -248,7 +248,7 @@ class filter
 			'key'            => 'product_negrativeinventory',
 			'group'          => T_("Stock"),
 			'title'          => T_("Negative Inventory"),
-			'query'			 => ['nst' => 'y'],
+			'query'			 => ['nst' => 'y', 'st' => null],
 			'public'         => false,
 		];
 
