@@ -450,6 +450,7 @@ class ready
 			$result['cart_limit']['sale_step_input'] = true;
 		}
 
+
 	}
 
 	/**
@@ -478,6 +479,11 @@ class ready
 						if($result['trackquantity'])
 						{
 							if(isset($result['instock']) && $result['instock'])
+							{
+								$allow_shop = true;
+								$shop_message = T_("Buy now");
+							}
+							elseif(isset($result['oversale']) && $result['oversale'])
 							{
 								$allow_shop = true;
 								$shop_message = T_("Buy now");
@@ -524,8 +530,10 @@ class ready
 			$shop_message = T_("Please choose a variants of this product to buy");
 		}
 
+
 		$result['allow_shop'] = $allow_shop;
 		$result['shop_message'] = $shop_message;
+
 	}
 
 
