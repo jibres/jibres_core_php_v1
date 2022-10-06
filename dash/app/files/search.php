@@ -114,9 +114,8 @@ class search
 		{
 			if(\dash\app\files\filter::check_allow($data['sort'], $data['order']))
 			{
-				$order_sort = " ORDER BY :sort :order ";
-				$param[':sort'] = $data['sort'];
-				$param[':order'] = $data['order'];
+				$order_sort = " ORDER BY $data[sort] $data[order] ";
+
 			}
 
 		}

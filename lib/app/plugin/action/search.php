@@ -81,9 +81,8 @@ class search
 
 		if($data['sort'] && !$order_sort)
 		{
-			$order_sort      = " ORDER BY :sort :order";
-			$param[':sort']  = $data['sort'];
-			$param[':order'] = $data['order'];
+			$order_sort      = " ORDER BY $data[sort] $data[order] ";
+
 		}
 
 		if(!$order_sort)
