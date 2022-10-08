@@ -31,7 +31,7 @@ class checkout
 
 		$meta =	[];
 
-		$data = \dash\cleanse::input($args, $condition, $require, $meta);
+		$data = \dash\cleanse::input($_args, $condition, $require, $meta);
 
 		$address_id = $data['address_id'];
 
@@ -341,8 +341,10 @@ class checkout
 
 		if(\dash\url::content() !== 'a' && \lib\store::detail('forceloginorder') && !\dash\user::id())
 		{
-			$msg = '<a href="'. \lib\store::url(). '/enter?referer=cart'. '">'. T_("Please login to continue"). '</a>';
-			\dash\notif::error($msg);
+			$loginUrl = \lib\store::url(). '/enter?referer=cart';
+			$msg = T_("Please login to continue");
+			\dash\notif::error($msg, ['alerty' => true]);
+			\dash\redirect::to($loginUrl);
 			return false;
 		}
 
