@@ -574,17 +574,24 @@ class get
 		"
 			SELECT
 				products.*,
-				(IF(products.thumb IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.thumb FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.thumb)) AS `thumb`,
-				(IF(products.gallery IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.gallery FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.gallery)) AS `gallery`,
+				-- (IF(products.thumb IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.thumb FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.thumb)) AS `thumb`,
+				-- (IF(products.gallery IS NULL AND products.parent IS NOT NULL, (SELECT pProduct.gallery FROM products AS pProduct WHERE pProduct.id = products.parent LIMIT 1), products.gallery)) AS `gallery`,
+				IF(products.parent IS NOT NULL , parentProduct.thumb, products.thumb)  as `thumb`,
+				IF(products.parent IS NOT NULL , parentProduct.gallery, products.gallery)  as `gallery`,
+				IF(products.parent IS NOT NULL , parentProduct.preparationtime, products.preparationtime)  as `preparationtime`,
+				IF(products.parent IS NOT NULL , parentProduct.preparationtime, products.preparationtime)  as `preparationtime`,
+				
 				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`
   			FROM
 				products
+  			LEFT JOIN products AS `parentProduct` ON parentProduct.id = products.parent
 			WHERE
 				products.id = :id
 			LIMIT 1
 		";
 		$param = [':id' => $_id];
 		$result = \dash\pdo::get($query, $param, null, true);
+
 		return $result;
 	}
 

@@ -163,7 +163,8 @@ class property
 			return false;
 		}
 
-		$load = \lib\app\product\get::get($id);
+		$load = \lib\app\product\get::site($id);
+		// $load = \lib\app\product\get::get($id);
 
 		if(!$load)
 		{
@@ -265,6 +266,7 @@ class property
 		{
 			self::push($result, T_("General property"), ['key' => a($load, 'optionname3'), 'value' => \dash\fit::number(a($load, 'optionvalue3')),]);
 		}
+
 
 		self::push($result, T_("General property"), ['key' => T_("Weight"), 'value' => a($load, 'weight'), 'lock' => false, 'field_name' => 'weight', 'placeholder' => $mass_name, 'unit' => $mass_name]);
 		self::push($result, T_("General property"), ['key' => T_("Preparation time"), 'value' => a($load, 'preparationtime'), 'lock' => false, 'field_name' => 'preparationtime', 'placeholder' => T_('Hour'), 'unit' => T_('Hour')]);
