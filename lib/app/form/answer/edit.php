@@ -7,6 +7,8 @@ class edit
 
 	public static function makr_all_as_review($_form_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$id = \dash\validate::id($_form_id);
 
 		if(!$id)
@@ -25,6 +27,8 @@ class edit
 
 	public static function makr_as_review($_form_id, $_answer_id)
 	{
+		\dash\permission::access('_group_form');
+
 		$id = \dash\validate::id($_form_id);
 
 		if(!$id)
@@ -89,6 +93,16 @@ class edit
 		}
 
 		$id = \dash\validate::id($_id);
+
+		if($_status === 'deleted')
+		{
+			\dash\permission::access('FormRemoveAnswer');
+		}
+		else
+		{
+			\dash\permission::access('_group_form');
+		}
+
 
 		\lib\db\form_answer\edit::update(['status' => $_status], $id);
 

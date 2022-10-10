@@ -2,7 +2,6 @@
 namespace lib\app\form\load;
 
 
-use lib\app\product\variants;
 
 class startToken
 {

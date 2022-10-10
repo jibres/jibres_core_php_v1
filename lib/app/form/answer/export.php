@@ -16,6 +16,7 @@ class export
 
 	public static function download_now($_form_id)
 	{
+		\dash\permission::access('_group_form');
 
 		$form_id = \dash\validate::id($_form_id);
 

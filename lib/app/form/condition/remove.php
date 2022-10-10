@@ -6,7 +6,7 @@ class remove
 {
 	public static function remove($_key, $_form_id)
 	{
-
+		\dash\permission::access('ManageForm');
 
 		$load_form = \lib\app\form\form\get::by_id($_form_id);
 
