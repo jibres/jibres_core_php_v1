@@ -580,7 +580,28 @@ class get
 				IF(products.parent IS NOT NULL , parentProduct.gallery, products.gallery)  as `gallery`,
 				IF(products.parent IS NOT NULL , parentProduct.preparationtime, products.preparationtime)  as `preparationtime`,
 				IF(products.parent IS NOT NULL , parentProduct.preparationtime, products.preparationtime)  as `preparationtime`,
-				
+				IF(products.parent IS NOT NULL , parentProduct.oversale, products.oversale)  as `oversale`,
+				IF(products.parent IS NOT NULL , parentProduct.title2, products.title2) AS `title2`,
+				IF(products.parent IS NOT NULL , parentProduct.seotitle, products.seotitle) AS `seotitle`,
+				IF(products.parent IS NOT NULL , parentProduct.seodesc, products.seodesc) AS `seodesc`,
+				IF(products.parent IS NOT NULL , parentProduct.`desc`, products.`desc`) AS `desc`,
+				IF(products.parent IS NOT NULL , parentProduct.salestep, products.salestep) AS `salestep`,
+				IF(products.parent IS NOT NULL , parentProduct.minsale, products.minsale) AS `minsale`,
+				IF(products.parent IS NOT NULL , parentProduct.maxsale, products.maxsale) AS `maxsale`,
+				IF(products.parent IS NOT NULL , parentProduct.scalecode, products.scalecode) AS `scalecode`,
+				IF(products.parent IS NOT NULL , parentProduct.weight, products.weight) AS `weight`,
+				IF(products.parent IS NOT NULL , parentProduct.length, products.length) AS `length`,
+				IF(products.parent IS NOT NULL , parentProduct.width, products.width) AS `width`,
+				IF(products.parent IS NOT NULL , parentProduct.height, products.height) AS `height`,
+				IF(products.parent IS NOT NULL , parentProduct.status, products.status) AS `status`,
+				IF(products.parent IS NOT NULL , parentProduct.vat, products.vat) AS `vat`,
+				IF(products.parent IS NOT NULL , parentProduct.trackquantity, products.trackquantity) AS `trackquantity`,
+				IF(products.parent IS NOT NULL , parentProduct.saleonline, products.saleonline) AS `saleonline`,
+				IF(products.parent IS NOT NULL , parentProduct.saletelegram, products.saletelegram) AS `saletelegram`,
+				IF(products.parent IS NOT NULL , parentProduct.saleapp, products.saleapp) AS `saleapp`,
+				IF(products.parent IS NOT NULL , parentProduct.minstock, products.minstock) AS `minstock`,
+				IF(products.parent IS NOT NULL , parentProduct.maxstock, products.maxstock) AS `maxstock`,
+				        
 				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`
   			FROM
 				products
