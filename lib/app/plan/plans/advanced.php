@@ -37,18 +37,18 @@ class advanced extends planPrepare
 		return 'public';
 	}
 
-	public function discount($_period = null) : int
-	{
-		if($_period === 'yearly')
-		{
-			return 4000000;
-		}
-		else
-		{
-			return 400000;
-		}
-
-	}
+	// public function discount($_period = null) : int
+	// {
+	// 	if($_period === 'yearly')
+	// 	{
+	// 		return 4000000;
+	// 	}
+	// 	else
+	// 	{
+	// 		return 400000;
+	// 	}
+	//
+	// }
 
 
 	public function contain() : array
