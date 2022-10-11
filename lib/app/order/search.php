@@ -155,40 +155,40 @@ class search
 
 		if($data['startdate'] && $data['enddate'])
 		{
-			$and[] = " DATE(factors.datecreated) >=  :factor_datecreated_larger ";
-			$param[':factor_datecreated_larger'] = $data['startdate'];
+			$and[] = " DATE(factors.date) >=  :factor_date_larger ";
+			$param[':factor_date_larger'] = $data['startdate'];
 
-			$and[] = " DATE(factors.datecreated) <=  :factor_datecreated_less ";
-			$param[':factor_datecreated_less'] = $data['enddate'];
+			$and[] = " DATE(factors.date) <=  :factor_date_less ";
+			$param[':factor_date_less'] = $data['enddate'];
 
 			self::$is_filtered          = true;
 		}
 		elseif($data['startdate'])
 		{
-			$and[] = " DATE(factors.datecreated) >=  :factor_datecreated_equal_larger ";
-			$param[':factor_datecreated_equal_larger'] = $data['startdate'];
+			$and[] = " DATE(factors.date) >=  :factor_date_equal_larger ";
+			$param[':factor_date_equal_larger'] = $data['startdate'];
 			self::$is_filtered          = true;
 		}
 		elseif($data['enddate'])
 		{
-			$and[] = " DATE(factors.datecreated) <=  :factor_datecreated_equal_less ";
-			$param[':factor_datecreated_equal_less'] = $data['enddate'];
+			$and[] = " DATE(factors.date) <=  :factor_date_equal_less ";
+			$param[':factor_date_equal_less'] = $data['enddate'];
 			self::$is_filtered          = true;
 		}
 
 
 		if($data['date'])
 		{
-			$and[] = " DATE(factors.datecreated) =  :factor_datecreated_is_equal ";
-			$param[':factor_datecreated_is_equal'] = $data['date'];
+			$and[] = " DATE(factors.date) =  :factor_date_is_equal ";
+			$param[':factor_date_is_equal'] = $data['date'];
 			self::$is_filtered = true;
 		}
 
 		if($data['time'])
 		{
 			$time  = $data['time'];
-			$and[] =  " HOUR(factors.datecreated) =  HOUR(:factor_hour) ";
-			$and[] =  " MINUTE(factors.datecreated) =  MINUTE(:factor_min) ";
+			$and[] =  " HOUR(factors.date) =  HOUR(:factor_hour) ";
+			$and[] =  " MINUTE(factors.date) =  MINUTE(:factor_min) ";
 			$param[':factor_hour'] = $time;
 			$param[':factor_min'] = $time;
 
@@ -197,8 +197,8 @@ class search
 
 		if($data['weekday'])
 		{
-			$and[] = " DAYNAME(factors.datecreated) = :factor_datecreated_dayname " ;
-			$param[':factor_datecreated_dayname'] = $data['weekday'];
+			$and[] = " DAYNAME(factors.date) = :factor_date_dayname " ;
+			$param[':factor_date_dayname'] = $data['weekday'];
 			self::$is_filtered = true;
 		}
 
