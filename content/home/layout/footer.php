@@ -4,6 +4,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates' 
 {
 ?>
 <section id="jibresCertificates">
+
   <div class="avand-md">
     <h3><a href="<?php echo $kingdom ?>/certificates"><?php echo T_('Jibres Certificates'); ?></a></h3>
     <div class="f">
@@ -14,7 +15,7 @@ if(\dash\language::current() === 'fa' && \dash\url::module() !== 'certificates' 
 <?php }?>
       <div class="c3 s6 ph4"><a tabindex='-1'><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-bmn-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-bmn.png  2x" alt='بنیاد ملی نخبگان'></a></div>
       <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="<?php echo $kingdom ?>/certificates/irnic"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-irnic-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-irnic.png  2x" alt='جیبرس نماینده رسمی ایرنیک'></a></div>
-      <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="<?php echo $kingdom ?>/certificates/enamad"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-enamad-binamad-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-enamad-1.png  2x" alt='جیبرس دارای نماد اعتماد الکترونیکی'></a></div>
+      <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="<?php echo $kingdom ?>/certificates/enamad"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-enamad-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-enamad-1.png  2x" alt='جیبرس دارای نماد اعتماد الکترونیکی'></a></div>
       <div class="c3 s6 ph4"><a tabindex='-1' target="_blank" rel='nofollow noopener' href="<?php echo $kingdom ?>/certificates/nsr"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-nsr-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-nsr.png  2x" alt='جیبرس عضو رسمی سازمان نظام صنفی رایانه'></a></div>
       <div class="c3 s6 ph4"><a tabindex='-1' href="<?php echo $kingdom ?>/brand"><img loading="lazy" src="<?php echo \dash\url::cdn(); ?>/img/certificates/200px/jibres-certificate-brand-200px.png" srcset="<?php echo \dash\url::cdn(); ?>/img/certificates/jibres-certificate-brand.png  2x" alt='جیبرس برند ثبت شده'></a></div>
 
