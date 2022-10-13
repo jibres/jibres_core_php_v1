@@ -783,7 +783,7 @@ class get
 				products
 			WHERE
 				products.parent IN ($_ids) AND
-				products.finalprice = (SELECT MAX(min_products.finalprice) FROM products AS `min_products` WHERE min_products.parent = products.parent AND min_products.status != 'deleted' AND min_products.instock = 1)
+				products.finalprice = (SELECT MAX(min_products.finalprice) FROM products AS `min_products` WHERE min_products.parent = products.parent AND min_products.status != 'deleted')
 			GROUP BY products.parent
 		";
 
@@ -809,7 +809,7 @@ class get
 				products
 			WHERE
 				products.parent IN ($_ids) AND
-				products.finalprice = (SELECT MIN(min_products.finalprice) FROM products AS `min_products` WHERE min_products.parent = products.parent AND min_products.status != 'deleted' AND min_products.instock = 1)
+				products.finalprice = (SELECT MIN(min_products.finalprice) FROM products AS `min_products` WHERE min_products.parent = products.parent AND min_products.status != 'deleted')
 			GROUP BY products.parent
 		";
 
