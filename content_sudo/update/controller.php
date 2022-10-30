@@ -32,12 +32,12 @@ class controller
 		{
 			if($_show_result)
 			{
-				$result[] = "<h1>We have not any response from https://github.com!</h1>";
+				$result[] = "<h1>We have not any response from https://tejarak.com!</h1>";
 				return $result;
 			}
 			else
 			{
-				\dash\notif::error('We have not any response from https://github.com!');
+				\dash\notif::error('We have not any response from https://tejarak.com!');
 				return false;
 			}
 		}
@@ -80,20 +80,28 @@ class controller
 	    if($_url === null)
 	    {
 	    	// $_url = 'https://github.com/jibres/talambar_cdn';
-	    	$_url = 'https://tejarak.com';
+	    	$_url = 'https://tejarak.com/';
 	    }
 
 
 	    $ch = curl_init($_url);
-	    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+	    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 	    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-	    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+	    curl_setopt($ch, CURLOPT_PROXY_SSL_VERIFYHOST, false);
+	    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	    $data = curl_exec($ch);
-	    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	    curl_close($ch);
+	    curl_setopt($ch, CURLOPT_PROXY, '');
+		curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 
-	    if($httpcode >= 200 && $httpcode <= 301)
+		$data = curl_exec($ch);
+	    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+		curl_close($ch);
+
+
+
+		if($httpcode >= 200 && $httpcode <= 301)
 	    {
 	        return true;
 	    }
