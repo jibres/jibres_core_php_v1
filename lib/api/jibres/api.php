@@ -123,6 +123,11 @@ class api
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 2);
 
+		if(\dash\url::isLocal())
+		{
+			curl_setopt($ch, CURLOPT_PROXY, '');
+		}
+
 		$response  = curl_exec($ch);
 		$CurlError = curl_error($ch);
 		$getInfo   = curl_getinfo($ch);

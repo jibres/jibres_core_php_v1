@@ -68,6 +68,10 @@ class api
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+		if(\dash\url::isLocal())
+		{
+			curl_setopt($ch, CURLOPT_PROXY, '');
+		}
 
 		$response  = curl_exec($ch);
 		$CurlError = curl_error($ch);
