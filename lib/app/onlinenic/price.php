@@ -6,7 +6,7 @@ class price
 {
 	private static function dollar()
 	{
-        return 35000;
+        return 40000;
         // return 30000; // 2022-07-28
 		// return 32000; // 2022-04-08
 		// return 29957; // 2021-12-05
