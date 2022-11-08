@@ -14,12 +14,6 @@ class get
 
 
 
-	public static function by_form_id($_form_id)
-	{
-		$query = "SELECT * FROM form_answerdetail WHERE form_answerdetail.form_id = $_form_id ORDER BY IFNULL(form_answerdetail.sort, form_answerdetail.id) ASC ";
-		$result = \dash\pdo::get($query);
-		return $result;
-	}
 
 
 	public static function item_id_form_id($_ids, $_form_id)
@@ -252,6 +246,24 @@ class get
 		}
 
 		$result = \dash\pdo::get($query);
+		return $result;
+	}
+
+
+	public static function choise_id_used($_id)
+	{
+		$query =
+			"
+			SELECT
+				*
+			FROM
+				form_answerdetail
+			WHERE
+				form_answerdetail.choice_id = :id 
+			limit 1
+		";
+		$param = [':id' => $_id];
+		$result = \dash\pdo::get($query, $param, null, true);
 		return $result;
 	}
 

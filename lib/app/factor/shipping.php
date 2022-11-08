@@ -58,6 +58,20 @@ class shipping
 			return $factor;
 		}
 
+		$shippingSetting = \lib\app\setting\get::shipping_setting();
+
+		if(isset($shippingSetting['shipping_status']) && $shippingSetting['shipping_status'])
+		{
+			// ok
+		}
+		else
+		{
+			return  $factor;
+		}
+
+		// shipping_status
+
+
 		$shipping_value = 0;
 
 		if(isset($_option['shipping_value']) &&  is_numeric($_option['shipping_value']))

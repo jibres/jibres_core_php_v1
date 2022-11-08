@@ -26,7 +26,8 @@
             <div class="availability" data-green data-type='stock'><?php echo T_("In Stock"); ?></div>
           <?php }elseif($stock > 0) {?>
             <div class="availability" data-red data-type='orderSoon'><?php echo T_("Only :val :unit left in stock - order soon.", ['val' => \dash\fit::number($stock), 'unit' => a($value, 'unit')]); ?></div>
-          <?php }elseif ($stock <= 0) {?>
+          <?php }elseif ($stock <= 0 && !a($value, 'oversale')) {?>
+
             <div class="availability" data-red data-type='outOfStock'><?php echo T_("Temporarily out of stock."); ?></div>
           <?php } // endif ?>
         <?php } //endif ?>

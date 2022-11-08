@@ -69,7 +69,9 @@ class controller
 
 			case 'status':
 			case 'uptime':
-				\dash\redirect::to('https://stats.uptimerobot.com/39MgXFm7x7');
+
+				\dash\redirect::to('https://stats.uptimerobot.com/znLJpflDQ'); // reza
+				// \dash\redirect::to('https://stats.uptimerobot.com/39MgXFm7x7'); // javad
 				break;
 
 			case 'price':
