@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-11-15 10:32+0330\n"
-"PO-Revision-Date: 2022-11-15 10:34+0330\n"
+"POT-Creation-Date: 2022-11-15 11:21+0330\n"
+"PO-Revision-Date: 2022-11-15 11:21+0330\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7239,7 +7239,7 @@ msgstr "تنظیم لوگوی برنامه"
 
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
 #: content_a/form/inquiry/display.php:77 content_a/form/item/display.php:33
-#: content_a/form/resultpage/display.php:113 content_a/form/setting/display.php:35
+#: content_a/form/resultpage/display.php:114 content_a/form/setting/display.php:35
 #: content_a/order/comment/display.php:53 content_a/setting/general/display.php:37
 #: content_business/ticket/add/add_ticket_form.php:19 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
@@ -7324,7 +7324,7 @@ msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
 #: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:80
-#: content_a/form/resultpage/display.php:114 content_a/form/setting/display.php:38
+#: content_a/form/resultpage/display.php:115 content_a/form/setting/display.php:38
 #: content_a/products/advance/display.php:38 content_cms/files/home/display.php:37
 #: content_cms/files/home/display.php:49 content_crm/member/identification/display.php:108
 #: content_crm/member/identification/display.php:120
@@ -9964,11 +9964,7 @@ msgstr "شما هیچ سوالی در فرم خود ایجاد نکرده‌ای
 msgid "Which question display in result page?"
 msgstr "کدام سوال را برای صفحه نمایش نتایج قرار می‌دهید؟"
 
-#: content_a/form/resultpage/display.php:75
-msgid "Show total amount"
-msgstr "نمایش مبلغ کل"
-
-#: content_a/form/resultpage/display.php:77
+#: content_a/form/resultpage/display.php:68
 msgid ""
 "Due to the fact that your form has an amount, you can display the total amount paid "
 "instead of displaying the question."
@@ -9976,19 +9972,23 @@ msgstr ""
 "با توجه به اینکه این فرم،‌ سوالاتی از نوع مبلغ دارد شما می‌توانید به جای نمایش سوال "
 "مبلغی، مبلغ کل پرداخت شده را نمایش دهید."
 
-#: content_a/form/resultpage/display.php:89
+#: content_a/form/resultpage/display.php:76
+msgid "Show total amount"
+msgstr "نمایش مبلغ کل"
+
+#: content_a/form/resultpage/display.php:90
 msgid "Only show successfull payment"
 msgstr "فقط تراکنش‌های موفق را نمایش بده"
 
-#: content_a/form/resultpage/display.php:95
+#: content_a/form/resultpage/display.php:96
 msgid "Filter result by tag"
 msgstr "فلیتر نتایج بر اساس تگ"
 
-#: content_a/form/resultpage/display.php:105 content_a/form/resultpage/display.php:107
+#: content_a/form/resultpage/display.php:106 content_a/form/resultpage/display.php:108
 msgid "Result page Message"
 msgstr "پیام در صفحه نمایش نتایج"
 
-#: content_a/form/resultpage/display.php:110
+#: content_a/form/resultpage/display.php:111
 msgid "Result page image"
 msgstr "تصویر صفحه نمایش نتایج"
 
@@ -39721,22 +39721,22 @@ msgstr "لطفا برای ادامه موبایل خود را وارد کنید 
 msgid "Address is required"
 msgstr "آدرس الزامی است"
 
-#: lib/app/cart/checkout.php:461
+#: lib/app/cart/checkout.php:465
 msgid "Can not add your order."
 msgstr "نمی‌توانیم سفارش شما را ایجاد کنیم."
 
-#: lib/app/cart/checkout.php:577
+#: lib/app/cart/checkout.php:581
 msgid "Pay order"
 msgstr "پرداخت سفارش"
 
-#: lib/app/cart/checkout.php:598 lib/app/nic_domain/create.php:580
+#: lib/app/cart/checkout.php:602 lib/app/nic_domain/create.php:580
 #: lib/app/nic_domain/renew.php:375 lib/app/nic_domain/transfer.php:362
 #: lib/app/onlinenic/create.php:430 lib/app/onlinenic/renew.php:268
 #: lib/app/onlinenic/transfer.php:372
 msgid "Pay link :val"
 msgstr "لینک پرداخت :val"
 
-#: lib/app/cart/checkout.php:677 lib/app/order/add.php:558
+#: lib/app/cart/checkout.php:681 lib/app/order/add.php:558
 msgid "Pay order :val"
 msgstr "پرداخت سفارش :val"
 
@@ -40371,7 +40371,11 @@ msgstr "هیچ کالای معتبری در لیست این فاکتور پید�
 msgid "Invalid proudct in factor :key"
 msgstr "خطا در کالای :key در فاکتور"
 
-#: lib/app/factor/check_detail.php:224 lib/app/order/check_detail.php:195
+#: lib/app/factor/check_detail.php:207
+msgid "The stock of a product :product is less than the quantity you requested"
+msgstr "موجودی فعلی محصول :product کمتر از میزان درخواستی شماست"
+
+#: lib/app/factor/check_detail.php:240 lib/app/order/check_detail.php:195
 msgid "Can not add factor item price less than 0"
 msgstr "نمی‌توانید قیمت یک آیتم سفارش را زیر صفر وارد کنید"
 

@@ -458,6 +458,10 @@ class checkout
 		// check can add new factor
 		if(!isset($result['factor_id']) || !isset($result['factor_total']))
 		{
+			if(\dash\temp::get('MSGORDERBUGNEEDFIX'))
+			{
+				\dash\notif::error(\dash\temp::get('MSGORDERBUGNEEDFIX'));
+			}
 			\dash\notif::error_once(T_("Can not add your order."));
 			\dash\log::set('orderErrorInsert');
 			return false;

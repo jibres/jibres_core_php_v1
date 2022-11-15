@@ -196,6 +196,22 @@ class check_detail
 				$factor_detail_record['track_stock_temp'] = false;
 			}
 
+			if($factor_detail_record['track_stock_temp'] && a($this_proudct, 'oversale') === 'no' && \dash\url::content() !== 'a')
+			{
+				if(floatval(a($this_proudct, 'stock')) >= floatval($count))
+				{
+					// ok
+				}
+				else
+				{
+					$msg = T_("The stock of a product :product is less than the quantity you requested", ['product' => $this_proudct['title']]);
+					\dash\temp::set('MSGORDERBUGNEEDFIX', $msg);
+					\dash\notif::error($msg, ['alerty' => true]);
+					return false;
+				}
+			}
+
+
 
 			if(array_key_exists('vat', $this_proudct) && $this_proudct['vat'] === 'yes')
 			{

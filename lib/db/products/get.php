@@ -674,7 +674,8 @@ class get
 		$query  =
 		"
 			SELECT
-				products.*
+				products.*,
+				(SELECT productinventory.stock FROM productinventory WHERE productinventory.product_id = products.id ORDER BY productinventory.id DESC LIMIT 1) AS `stock`
 			FROM products
 			WHERE products.id IN ($_ids)
 		";
