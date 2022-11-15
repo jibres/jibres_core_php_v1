@@ -55,6 +55,8 @@ class check
 				'randomquestion'          => 'int',
 				'loginrequired'           => 'bit',
 				'uniquesession'           => 'bit',
+				'showtotalamount'         => 'bit',
+				'showsuccessfullpayment'  => 'bit',
 
 			];
 
@@ -139,7 +141,6 @@ class check
 			$setting['uniquesession'] = $data['uniquesession'];
 		}
 
-
 		if(array_key_exists('beforestart', $_args))
 		{
 			$setting['beforestart'] = $data['beforestart'];
@@ -184,8 +185,11 @@ class check
 		{
 			$data['resultpagesetting'] = [];
 
-			$data['resultpagesetting']['status'] = $data['resultpage'];
-			$data['resultpagesetting']['tag_id'] = $data['resultpagetag'];
+			$data['resultpagesetting']['status']                 = $data['resultpage'];
+			$data['resultpagesetting']['tag_id']                 = $data['resultpagetag'];
+			$data['resultpagesetting']['showtotalamount']        = $data['showtotalamount'];
+			$data['resultpagesetting']['showsuccessfullpayment'] = $data['showsuccessfullpayment'];
+
 
 			$oldResultPageData = a($load_form, 'resultpagesetting');
 			if(is_string($oldResultPageData))
@@ -288,6 +292,8 @@ class check
 		unset($data['randomquestion']);
 		unset($data['loginrequired']);
 		unset($data['uniquesession']);
+		unset($data['showtotalamount']);
+		unset($data['showsuccessfullpayment']);
 
 
 		return $data;

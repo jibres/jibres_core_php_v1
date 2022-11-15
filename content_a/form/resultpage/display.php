@@ -63,6 +63,35 @@ if($image)
 							<?php } //endif ?>
 						<?php } //endif ?>
 
+                        <?php if(\dash\data::isAmountForm()) {?>
+
+                            <div class="check1">
+                                <input type="checkbox" name="showtotalamount" value="1"
+                                       id="showtotalamount" <?php if (a(\dash\data::dataRow_resultpagesetting(), 'showtotalamount')) {
+									echo 'checked';
+								} ?>>
+
+                                <label for="showtotalamount">
+									<?php echo T_("Show total amount") ?>
+                                    <span class="text-gray-500">
+                                        <?php echo T_("Due to the fact that your form has an amount, you can display the total amount paid instead of displaying the question."); ?>
+                                    </span>
+                                </label>
+                            </div>
+
+
+                            <div class="check1">
+                                <input type="checkbox" name="showsuccessfullpayment" value="1"
+                                       id="showsuccessfullpayment" <?php if (a(\dash\data::dataRow_resultpagesetting(), 'showsuccessfullpayment')) {
+									echo 'checked';
+								} ?>>
+                                <label for="showsuccessfullpayment">
+									<?php echo T_("Only show successfull payment") ?>
+                                </label>
+                            </div>
+
+                        <?php } // endif ?>
+
                         <label for="tag"><?php echo T_("Filter result by tag"); ?></label>
                         <select  name="tag" id="tag" class="select22" data-model="tag" >
                             <option value="" readonly></option>

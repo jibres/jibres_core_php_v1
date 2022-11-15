@@ -324,11 +324,27 @@ class get
 
 		$new_list = [];
 
+		$resultable =
+			[
+				'short_answer',
+				'nationalcode',
+				'birthdate',
+				'displayname',
+				'mobile',
+
+				// amount question
+				'manual_amount',
+				'list_amount',
+				'amount_suggestion',
+				'amount_with_coefficient',
+				'hidden_amount',
+			];
+
 		foreach ($list as $key => $value)
 		{
 			if(isset($value['type']))
 			{
-				if(in_array($value['type'], ['short_answer', 'nationalcode', 'birthdate', 'displayname', 'mobile'])){
+				if(in_array($value['type'], $resultable)){
 					$new_list[] = $value;
 				}
 			}

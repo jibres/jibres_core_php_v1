@@ -38,6 +38,9 @@ if ($image)
 					<?php foreach (\dash\data::col() as $item) : ?>
                         <th class><?php echo a($item, 'title'); ?></th>
 					<?php endforeach; ?>
+                    <?php if(a(\dash\data::formDetail_resultpagesetting(), 'showtotalamount')): ?>
+                        <th class><?php echo T_("Total amount"); ?></th>
+                    <?php endif; ?>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,6 +57,10 @@ if ($image)
 									echo '-';
 								} ?></td>
 						<?php endforeach; ?>
+						<?php if(a(\dash\data::formDetail_resultpagesetting(), 'showtotalamount')): ?>
+
+                            <td class><?php echo \dash\fit::number(a($value, 'totalamount')) ?> <smsll><?php echo \lib\store::currency() ?></smsll></td>
+						<?php endif; ?>
                     </tr>
 				<?php } //endif ?>
                 </tbody>

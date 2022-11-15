@@ -108,11 +108,17 @@ class view
 			$args['tag_id'] = a(\dash\data::formDetail(), 'resultpagesetting', 'tag_id');
 		}
 
+		if (a(\dash\data::formDetail(), 'resultpagesetting', 'showsuccessfullpayment'))
+		{
+			$args['payed'] = 'y';
+		}
+
 		$args['not_deleted'] = true;
 		$q                   = \dash\validate::search_string();
 
 
 		$answerList = \lib\app\form\answer\search::list($q, $args, true);
+
 
 		if (!$answerList)
 		{
@@ -154,8 +160,10 @@ class view
 
 		$result = [];
 
+		$currency = \lib\store::currency();
 		foreach ($answerList as $answer)
 		{
+
 			$loadAnswerDetailargs                 = [];
 			$loadAnswerDetailargs['answer_id']    = $answer['id'];
 			$loadAnswerDetailargs['form_id']      = $form_id;
@@ -167,6 +175,8 @@ class view
 				if (!isset($result[$answer['id']]))
 				{
 					$result[$answer['id']] = $clone;
+					$result[$answer['id']]['totalamount'] = a($answer, 'amount');
+					$result[$answer['id']]['status'] = a($answer, 'status');
 				}
 
 				$myAnswer = $oneAnswerDetail['answer'];
@@ -175,6 +185,15 @@ class view
 				{
 					switch ($oneAnswerDetail['type'])
 					{
+						case 'manual_amount':
+						case 'list_amount':
+						case 'amount_suggestion':
+						case 'amount_with_coefficient':
+						case 'hidden_amount':
+							$myAnswer = \dash\fit::number($myAnswer);
+							$myAnswer = '<div class="ltr ">' . $myAnswer . ' <small>'. $currency. '</small></div>';
+							break;
+
 						case 'short_answer':
 							//						$myAnswer = $myAnswer;
 							break;

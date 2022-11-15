@@ -20,6 +20,15 @@ class view
 
 		\dash\data::formItems($items);
 
+		foreach ($items as $item)
+		{
+			if(isset($item['type_detail']['is_amount']) && $item['type_detail']['is_amount'])
+			{
+				\dash\data::isAmountForm(true);
+				break;
+			}
+		}
+
 
 		$tag_list = \lib\app\form\tag\get::all_tag();
 
