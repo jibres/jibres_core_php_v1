@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Jibres - Persian\n"
-"POT-Creation-Date: 2022-10-20 16:39+0330\n"
-"PO-Revision-Date: 2022-10-20 16:58+0330\n"
+"POT-Creation-Date: 2022-11-15 10:32+0330\n"
+"PO-Revision-Date: 2022-11-15 10:34+0330\n"
 "Last-Translator: Reza <Rm.Biqarar@gmail.com>\n"
 "Language-Team: Ermile <info@jibres.com>\n"
 "Language: fa_IR\n"
@@ -7239,7 +7239,7 @@ msgstr "تنظیم لوگوی برنامه"
 
 #: content_a/android/logo/display.php:10 content_a/category/edit/display.php:106
 #: content_a/form/inquiry/display.php:77 content_a/form/item/display.php:33
-#: content_a/form/resultpage/display.php:84 content_a/form/setting/display.php:35
+#: content_a/form/resultpage/display.php:113 content_a/form/setting/display.php:35
 #: content_a/order/comment/display.php:53 content_a/setting/general/display.php:37
 #: content_business/ticket/add/add_ticket_form.php:19 content_cms/files/add/display.php:7
 #: content_cms/posts/advance/display.php:61 content_cms/posts/edit/display-gallery.php:3
@@ -7324,7 +7324,7 @@ msgstr "صفحه اول مقدمه"
 
 #: content_a/android/review/display.php:86 content_a/android/review/display.php:94
 #: content_a/android/review/display.php:101 content_a/form/inquiry/display.php:80
-#: content_a/form/resultpage/display.php:85 content_a/form/setting/display.php:38
+#: content_a/form/resultpage/display.php:114 content_a/form/setting/display.php:38
 #: content_a/products/advance/display.php:38 content_cms/files/home/display.php:37
 #: content_cms/files/home/display.php:49 content_crm/member/identification/display.php:108
 #: content_crm/member/identification/display.php:120
@@ -8285,9 +8285,9 @@ msgstr "تاریخ چاپ"
 #: content_love/domain/setting/action/display.php:44 content_love/gift/usage/display.php:7
 #: content_love/plan/datalist/display.php:10 content_love/plugin/history/display.php:12
 #: content_love/sms/datalist/display.php:8 content_site/assemble/wrench/price.php:32
-#: content_site/assemble/wrench/price.php:52 lib/app/form/item/type.php:544
-#: lib/app/form/item/type.php:562 lib/app/form/item/type.php:579
-#: lib/app/form/item/type.php:595 lib/app/form/item/type.php:615
+#: content_site/assemble/wrench/price.php:52 lib/app/form/item/type.php:545
+#: lib/app/form/item/type.php:563 lib/app/form/item/type.php:580
+#: lib/app/form/item/type.php:596 lib/app/form/item/type.php:617
 #: lib/app/log/caller/business/business_plugin.php:81
 #: lib/app/log/caller/plan/plan_newPlanActivate.php:62 lib/app/order/filter.php:99
 #: lib/app/order/filter.php:100 lib/app/order/filter.php:101 lib/app/order/filter.php:102
@@ -8948,6 +8948,7 @@ msgid "Add answer"
 msgstr "افزودن پاسخ"
 
 #: content_a/form/answer/detail/display.php:110
+#: content_business/f/home/display-result-page.php:42
 msgid "Total amount"
 msgstr "مبلغ کل"
 
@@ -9425,7 +9426,7 @@ msgstr "آیتم‌ها"
 msgid "Edit new contact form"
 msgstr "ویرایش فرم تماس"
 
-#: content_a/form/find/display.php:46 content_business/f/home/display-result-page.php:64
+#: content_a/form/find/display.php:46 content_business/f/home/display-result-page.php:71
 #: content_love/business/domain/action/display.php:15
 #: content_love/business/domain/dnslist/display.php:15 lib/app/form/tag/add.php:136
 msgid "No result found"
@@ -9963,15 +9964,31 @@ msgstr "شما هیچ سوالی در فرم خود ایجاد نکرده‌ای
 msgid "Which question display in result page?"
 msgstr "کدام سوال را برای صفحه نمایش نتایج قرار می‌دهید؟"
 
-#: content_a/form/resultpage/display.php:66
+#: content_a/form/resultpage/display.php:75
+msgid "Show total amount"
+msgstr "نمایش مبلغ کل"
+
+#: content_a/form/resultpage/display.php:77
+msgid ""
+"Due to the fact that your form has an amount, you can display the total amount paid "
+"instead of displaying the question."
+msgstr ""
+"با توجه به اینکه این فرم،‌ سوالاتی از نوع مبلغ دارد شما می‌توانید به جای نمایش سوال "
+"مبلغی، مبلغ کل پرداخت شده را نمایش دهید."
+
+#: content_a/form/resultpage/display.php:89
+msgid "Only show successfull payment"
+msgstr "فقط تراکنش‌های موفق را نمایش بده"
+
+#: content_a/form/resultpage/display.php:95
 msgid "Filter result by tag"
 msgstr "فلیتر نتایج بر اساس تگ"
 
-#: content_a/form/resultpage/display.php:76 content_a/form/resultpage/display.php:78
+#: content_a/form/resultpage/display.php:105 content_a/form/resultpage/display.php:107
 msgid "Result page Message"
 msgstr "پیام در صفحه نمایش نتایج"
 
-#: content_a/form/resultpage/display.php:81
+#: content_a/form/resultpage/display.php:110
 msgid "Result page image"
 msgstr "تصویر صفحه نمایش نتایج"
 
@@ -16528,7 +16545,7 @@ msgstr ""
 msgid "Search my answer"
 msgstr "پاسخ من را جستجو کن"
 
-#: content_business/f/home/display-result-page.php:70
+#: content_business/f/home/display-result-page.php:77
 msgid "Result page for this form is blocked"
 msgstr "صفحه نمایش نتایج برای این فرم بسته است"
 
@@ -31712,8 +31729,8 @@ msgstr "قالب رنگ نادرست است"
 msgid "Field :val must be json"
 msgstr "مقدار :val باید جیسون باشد"
 
-#: dash/validate/dataarray.php:66 dash/validate/datetime.php:22
-#: dash/validate/datetime.php:228
+#: dash/validate/dataarray.php:66 dash/validate/datetime.php:21
+#: dash/validate/datetime.php:234
 msgid "Field :val must be string or number"
 msgstr "فیلد :val باید به صورت عددی یا متی وارد شود"
 
@@ -31733,37 +31750,37 @@ msgstr "شما می‌توانید حداکثر ۱۰۰ کلید‌واژه اض�
 msgid "You can set maximum 50 cat"
 msgstr "شما می‌توانید حداکثر ۵۰ دسته‌بندی اضافه کنید"
 
-#: dash/validate/datetime.php:32 dash/validate/datetime.php:238
+#: dash/validate/datetime.php:31 dash/validate/datetime.php:244
 msgid "Field :val must be larger than 2 character"
 msgstr "فیلد :val باید بزرگتر از ۲ حرف باشد"
 
-#: dash/validate/datetime.php:43
+#: dash/validate/datetime.php:42
 msgid "Field :val must be less than 30 character"
 msgstr "فیلد :val باید کمتر از ۳۰ حرف باشد"
 
-#: dash/validate/datetime.php:56 dash/validate/datetime.php:85
+#: dash/validate/datetime.php:55 dash/validate/datetime.php:84
 msgid "Field :val is not a valid date field"
 msgstr "فیلد :val وارد شد شامل یک تاریخ صحیح نیست"
 
-#: dash/validate/datetime.php:114 dash/validate/datetime.php:124
-#: dash/validate/datetime.php:138 lib/app/tax/year/check.php:81
+#: dash/validate/datetime.php:113 dash/validate/datetime.php:129
+#: dash/validate/datetime.php:145 lib/app/tax/year/check.php:81
 #: lib/app/tax/year/check.php:88
 msgid "Invalid date"
 msgstr "تاریخ نامعتبر است"
 
-#: dash/validate/datetime.php:165 dash/validate/datetime.php:192
+#: dash/validate/datetime.php:171 dash/validate/datetime.php:198
 msgid "Invalid birthday"
 msgstr "تاریخ تولد اشتباه است"
 
-#: dash/validate/datetime.php:182
+#: dash/validate/datetime.php:188
 msgid "Invalid birthday, birthday can not larger than date now!"
 msgstr "تاریخ تولد اشتباه است. تاریخ تولد نباید بزرگتر از تاریخ امروز باشد!"
 
-#: dash/validate/datetime.php:249
+#: dash/validate/datetime.php:255
 msgid "Field :val must be less than 8 character"
 msgstr "فیلد :val باید کمتر از ۸ حرف باشد"
 
-#: dash/validate/datetime.php:280
+#: dash/validate/datetime.php:286
 msgid "Invalid time format, Please enter the time by correct format for example 12:15"
 msgstr "قالب ساعت اشتباه است. لطفا ساعت را به درستی وارد کنید برای مثال ۱۲:۱۵"
 
@@ -40710,7 +40727,7 @@ msgstr "گزینه با موفقیت اضافه شد"
 msgid "No data to change"
 msgstr "هیچ تغییری در اطلاعات شما رخ نداد"
 
-#: lib/app/form/choice/remove.php:22
+#: lib/app/form/choice/remove.php:31
 msgid "Choice removed"
 msgstr "گزینه حذف شد"
 
@@ -40800,11 +40817,11 @@ msgstr "فرم تماس با موفقیت اضافه شد"
 msgid "Can not duplicate this form"
 msgstr "نمی‌توانیم این فرم را کپی کنیم"
 
-#: lib/app/form/form/check.php:90
+#: lib/app/form/form/check.php:92
 msgid "Duplicate form slug. Try another name"
 msgstr "نامک فرم تکراری است. لطفا نامک دیگری را وارد کنید"
 
-#: lib/app/form/form/check.php:253
+#: lib/app/form/form/check.php:257
 msgid "Start time must be less than end time"
 msgstr "تاریخ شروع باید کوچک‌تر از تاریخ پایان باشد"
 
@@ -41082,19 +41099,19 @@ msgstr "تصادفی"
 msgid "Manual amount"
 msgstr "مبلغ دلخواه"
 
-#: lib/app/form/item/type.php:558
+#: lib/app/form/item/type.php:559
 msgid "List amount"
 msgstr "لیست گزینه با مبلغ"
 
-#: lib/app/form/item/type.php:575
+#: lib/app/form/item/type.php:576
 msgid "Amount suggestion"
 msgstr "پیشنهاد مبلغ"
 
-#: lib/app/form/item/type.php:591
+#: lib/app/form/item/type.php:592
 msgid "The amount with the coefficient"
 msgstr "مبلغ با ضریب"
 
-#: lib/app/form/item/type.php:611
+#: lib/app/form/item/type.php:612
 msgid "Hidden amount"
 msgstr "مبلغ ثابت مخفی"
 
@@ -51462,11 +51479,6 @@ msgstr "یارد"
 
 #~ msgid "Access to CMS"
 #~ msgstr "دسترسی به سیستم مدیریت محتوا"
-
-#, fuzzy
-#~| msgid "Unsuccessful payment"
-#~ msgid "New successfull payment"
-#~ msgstr "پرداخت ناموفق"
 
 #~ msgid "Not Payed"
 #~ msgstr "پرداخت نشده"

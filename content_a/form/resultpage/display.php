@@ -64,7 +64,8 @@ if($image)
 						<?php } //endif ?>
 
                         <?php if(\dash\data::isAmountForm()) {?>
-
+                            <hr class="mb-4">
+							<?php echo T_("Due to the fact that your form has an amount, you can display the total amount paid instead of displaying the question."); ?>
                             <div class="check1">
                                 <input type="checkbox" name="showtotalamount" value="1"
                                        id="showtotalamount" <?php if (a(\dash\data::dataRow_resultpagesetting(), 'showtotalamount')) {
@@ -74,7 +75,7 @@ if($image)
                                 <label for="showtotalamount">
 									<?php echo T_("Show total amount") ?>
                                     <span class="text-gray-500">
-                                        <?php echo T_("Due to the fact that your form has an amount, you can display the total amount paid instead of displaying the question."); ?>
+
                                     </span>
                                 </label>
                             </div>
