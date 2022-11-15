@@ -795,6 +795,7 @@ class text
 			return $data;
 		}
 
+
 		// $rules   = true; // old config
 		$rules   = 'persian';
 		$splitor = null;
@@ -814,13 +815,15 @@ class text
 			$slugify = new \dash\utility\slugify();
 			$slugify->activateRuleset('persian');
 			$data = $slugify->slugify($data);
+
 		}
 		elseif($rules === 'persian')
 		{
-			$data = mb_ereg_replace('([^ءئآا-ی۰-۹a-zA-Z0-9]|-)+', '-', $data);
+			$data = mb_ereg_replace('([^ءئآا-ی۰-۹a-z_A-Z0-9]|-)+', '-', $data);
 			$data = trim($data, '-');
 			$data = trim($data);
 			$data = \dash\str::mb_strtolower($data);
+
 		}
 		else
 		{
@@ -833,8 +836,8 @@ class text
 			{
 				$data = $slugify->slugify($data);
 			}
-		}
 
+		}
 
 		$length = null;
 		if(isset($_meta['max']) && is_numeric($_meta['max']))
