@@ -48,6 +48,12 @@ class zarinpal
 			return self::$load;
 		}
 
+		// bug fix: TypeError(array_key_exists(): Argument #2 ($array) must be of type array, null given)
+		if(!is_array(self::$load))
+		{
+			return null;
+		}
+
 		if(array_key_exists($_key, self::$load))
 		{
 			return self::$load[$_key];
