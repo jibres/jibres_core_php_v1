@@ -5,7 +5,6 @@ class datetime
 {
 
 
-
 	public static function date($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
 		$data = $_data;
@@ -49,7 +48,7 @@ class datetime
 		$data = \dash\utility\convert::to_en_number($data);
 
 		$convertedDate = strtotime($data);
-		if ($convertedDate === false)
+		if($convertedDate === false)
 		{
 			if($_notif)
 			{
@@ -90,7 +89,7 @@ class datetime
 
 			if($time)
 			{
-				$data = $data. ' '. $time;
+				$data = $data . ' ' . $time;
 			}
 
 		}
@@ -102,7 +101,7 @@ class datetime
 		{
 
 			$data_datetime = new \DateTime($data);
-			$year = $data_datetime->format("Y");
+			$year          = $data_datetime->format("Y");
 
 			/**
 			 * MySQL retrieves and displays DATETIME values in ' YYYY-MM-DD hh:mm:ss ' format. The supported range is '1000-01-01 00:00:00' to '9999-12-31 23:59:59' . The TIMESTAMP data type is used for values that contain both date and time parts. TIMESTAMP has a range of '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC.
@@ -117,21 +116,29 @@ class datetime
 				return false;
 			}
 
-			if(intval($year) < 1971)
+			if(isset($_meta['is_birthdate']) && $_meta['is_birthdate'])
 			{
-				if($_notif)
-				{
-					\dash\notif::error(T_("Invalid date"), ['element' => $_element]);
-					\dash\cleanse::$status = false;
-				}
-				return false;
+				// notthing
 			}
+			else
+			{
+				if(intval($year) < 1971)
+				{
+					if($_notif)
+					{
+						\dash\notif::error(T_("Invalid date"), ['element' => $_element]);
+						\dash\cleanse::$status = false;
+					}
+					return false;
+				}
+			}
+
 
 			$date = $data_datetime->format($format);
 
 
 		}
-		catch(\Exception $e)
+		catch (\Exception $e)
 		{
 			if($_notif)
 			{
@@ -146,11 +153,10 @@ class datetime
 	}
 
 
-
 	public static function birthdate($_data, $_notif = false, $_element = null, $_field_title = null, $_meta = [])
 	{
-
-		$data = self::date($_data, $_notif, $_element, $_field_title, $_meta);
+		$_meta['is_birthdate'] = true;
+		$data                  = self::date($_data, $_notif, $_element, $_field_title, $_meta);
 
 		if($data === false || $data === null)
 		{
@@ -185,7 +191,7 @@ class datetime
 				return false;
 			}
 		}
-		catch(\Exception $e)
+		catch (\Exception $e)
 		{
 			if($_notif)
 			{
@@ -266,12 +272,12 @@ class datetime
 		elseif(preg_match("/^\d{4}$/", $data))
 		{
 			$split = str_split($data);
-			$data = $split[0] . $split[1]. ':'. $split[2]. $split[3]. ':00';
+			$data  = $split[0] . $split[1] . ':' . $split[2] . $split[3] . ':00';
 		}
 		elseif(preg_match("/^\d{2}$/", $data))
 		{
 			$split = str_split($data);
-			$data = $split[0] . $split[1]. ':00:00';
+			$data  = $split[0] . $split[1] . ':00:00';
 		}
 		else
 		{
@@ -287,4 +293,5 @@ class datetime
 	}
 
 }
+
 ?>
