@@ -103,10 +103,29 @@ class datetime
 			$data_datetime = new \DateTime($data);
 			$year          = $data_datetime->format("Y");
 
+
+			if(isset($_meta['is_timestamp']) && $_meta['is_timestamp'])
+			{
+				$minYear = 1971;
+				$maxYear = 2035;
+			}
+			elseif(isset($_meta['is_birthdate']) && $_meta['is_birthdate'])
+			{
+				$currentYear = date("Y");
+				$minYear     = intval($currentYear) - 150;
+				$maxYear     = intval($currentYear);
+			}
+			else
+			{
+				$minYear = 1000;
+				$maxYear = 9999;
+			}
+
 			/**
-			 * MySQL retrieves and displays DATETIME values in ' YYYY-MM-DD hh:mm:ss ' format. The supported range is '1000-01-01 00:00:00' to '9999-12-31 23:59:59' . The TIMESTAMP data type is used for values that contain both date and time parts. TIMESTAMP has a range of '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC.
+			 * MySQL retrieves and displays DATETIME values in ' YYYY-MM-DD hh:mm:ss ' format. The supported range is '1000-01-01 00:00:00' to '9999-12-31 23:59:59' .
+			 * The TIMESTAMP data type is used for values that contain both date and time parts. TIMESTAMP has a range of '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC.
 			 */
-			if(intval($year) > 2035)
+			if(intval($year) > $maxYear)
 			{
 				if($_notif)
 				{
@@ -116,21 +135,14 @@ class datetime
 				return false;
 			}
 
-			if(isset($_meta['is_birthdate']) && $_meta['is_birthdate'])
+			if(intval($year) < $minYear)
 			{
-				// notthing
-			}
-			else
-			{
-				if(intval($year) < 1971)
+				if($_notif)
 				{
-					if($_notif)
-					{
-						\dash\notif::error(T_("Invalid date"), ['element' => $_element]);
-						\dash\cleanse::$status = false;
-					}
-					return false;
+					\dash\notif::error(T_("Invalid date"), ['element' => $_element]);
+					\dash\cleanse::$status = false;
 				}
+				return false;
 			}
 
 
