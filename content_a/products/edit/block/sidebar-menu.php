@@ -87,6 +87,14 @@
             <div class="go"></div>
           </a>
         </li>
+        <li>
+            <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\request::get('id'); ?>">
+				<?php echo \dash\utility\icon::svg('Transaction', 'major'); ?>
+                <div class="key"><?php echo T_("Product inventory history"); ?></div>
+                <div class="go"></div>
+            </a>
+        </li>
+
     </ul>
   </nav>
 

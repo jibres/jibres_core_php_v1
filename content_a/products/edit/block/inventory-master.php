@@ -35,6 +35,7 @@ if(!$productDataRow || in_array(\dash\data::productDataRow_type(), ['product', '
                 </div>
                 <p class="text-gray-400 text-sm"><?php echo T_("If you want to change the stock enter current stock here") ?></p>
               </div>
+
             <?php } //endif ?>
             <?php if(\dash\url::child() !== 'add') {?>
             <div class="f">

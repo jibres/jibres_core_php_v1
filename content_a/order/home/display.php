@@ -5,6 +5,7 @@ $andType = \dash\request::get('type') ? '&type='. \dash\request::get('type') : n
 
 $sortLink = \dash\data::sortLink();
 ?>
+
 <div class="tblBox mt-3">
 
   <table class="tbl1 v6 fs12">
