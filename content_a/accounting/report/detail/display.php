@@ -38,17 +38,17 @@
       <?php foreach ($group['list'] as $key => $value) {?>
         <tr>
           <td class="collapsing"><?php echo \dash\fit::number(floatval($key) + 1); ?></td>
-          <td class="fs09">
+          <td class="text-sm">
             <a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id')]); ?>">
               <code><?php echo a($value, 'total_code') ?></code>
               <?php echo a($value, 'total_title') ?></a>
           </td>
-          <td class="fs09">
+          <td class="text-sm">
             <a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id')]); ?>">
               <code><?php echo a($value, 'assistant_code') ?></code>
               <?php echo a($value, 'assistant_title') ?></a>
           </td>
-            <td class="fs09"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id'), 'details' => a($value, 'details_id')]); ?>"><?php echo a($value, 'details_title') ?></a></td>
+            <td class="text-sm"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id'), 'details' => a($value, 'details_id')]); ?>"><?php echo a($value, 'details_title') ?></a></td>
           <?php if(\dash\request::get('show') === 'col6') {?>
             <td data-copy='<?php echo a($value, 'opening_debtor'); ?>' class="text-sm ltr text-right text-green-700"><code><?php echo \dash\fit::number(a($value, 'opening_debtor'), true, 'en') ?></code></td>
             <td data-copy='<?php echo a($value, 'opening_creditor'); ?>' class="text-sm ltr text-right text-red-800"><code><?php echo \dash\fit::number(a($value, 'opening_creditor'), true, 'en') ?></code></td>

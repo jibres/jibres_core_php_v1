@@ -3,7 +3,7 @@
 
 
   <table class="tbl1 v1 cbox fs12">
-    <thead class="fs09">
+    <thead class="text-sm">
       <tr>
         <th><?php echo T_("User"); ?></th>
         <th><?php echo T_("Detail"); ?></th>

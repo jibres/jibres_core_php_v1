@@ -56,7 +56,7 @@
 
       <table class="tbl1 v1 text-center cbox fs12 ">
         <thead>
-          <tr class="fs09">
+          <tr class="text-sm">
             <th><?php echo T_("Name"); ?></th>
             <th><?php echo T_("Description"); ?></th>
             <th><?php echo T_("Pos"); ?></th>

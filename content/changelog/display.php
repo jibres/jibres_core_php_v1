@@ -17,7 +17,7 @@
         <?php if(\dash\data::myTable() || \dash\request::get()) {?>
             <?php foreach (\dash\data::myTable() as $year => $year_detail) { ?>
                 <div class="avand-lg impact zero">
-                    <table class="tbl1 v10 fs09 mb-0 responsive">
+                    <table class="tbl1 v10 text-sm mb-0 responsive">
                         <tbody>
                             <?php if($year === 'soon') {?>
                             <tr>
@@ -48,7 +48,7 @@
  <div class="avand-lg impact zero">
 
 
-        <table class="tbl1 v10 fs09 mb-0">
+        <table class="tbl1 v10 text-sm mb-0">
             <thead>
                 <tr>
                     <th class="collapsing"><?php echo T_("Date"); ?></th>

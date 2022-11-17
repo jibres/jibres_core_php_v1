@@ -42,7 +42,7 @@
               <code><?php echo a($value, 'total_code') ?></code>
             <?php echo a($value, 'total_title') ?></a>
           </td>
-            <td class="fs09"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id')]); ?>">
+            <td class="text-sm"><a href="<?php echo \dash\url::this(). '/turnover?'. http_build_query(['year_id' => \dash\request::get('year_id'), 'group' => a($value, 'group_id'), 'total' => a($value, 'total_id'), 'assistant' => a($value, 'assistant_id')]); ?>">
               <code><?php echo a($value, 'assistant_code') ?></code>
               <?php echo a($value, 'assistant_title') ?></a>
             </td>

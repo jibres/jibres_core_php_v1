@@ -35,7 +35,7 @@
             <label for='discount'><?php echo T_("Discount"); ?></label>
             <div class="input fix ltr mB5-f">
               <input type="tel" name="discount" id="discount" data-format='price' value="<?php echo a($productDataRow,'discount'); ?>" maxlength="18" data-run-input='calcProductMargin'>
-              <div class="addon fs09" id='discountRate'></div>
+              <div class="addon text-sm" id='discountRate'></div>
             </div>
           </div>
         </div>

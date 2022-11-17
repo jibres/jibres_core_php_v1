@@ -23,7 +23,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
                 <div class="input">
                   <input type="tel" name="stock" id="stock" data-format='number' placeholder="<?php echo T_('Current Stock Count'). ' '. \dash\fit::number(\dash\data::productDataRow_stock()); ?>" maxlength="7">
                 </div>
-                <p class="text-gray-400 fs09"><?php echo T_("If you want to change the stock enter current stock here") ?></p>
+                <p class="text-gray-400 text-sm"><?php echo T_("If you want to change the stock enter current stock here") ?></p>
               </div>
             <?php } //endif ?>
             <div class="f">
@@ -40,7 +40,7 @@ $have_variant_child =\dash\data::productDataRow_variant_child();
                 </div>
               </div>
             </div>
-            <p class="fs09 text-gray-400 mB0-f"><?php echo T_("Optimize your inventory decisions."); ?> <?php echo T_("Know which products are the most profitable and which you should re-order when."); ?> <b><?php echo T_("Demand forecasting!"); ?></b> <?php echo T_("Receive recommendations on your products based on your rate of sales."); ?>
+            <p class="text-sm text-gray-400 mB0-f"><?php echo T_("Optimize your inventory decisions."); ?> <?php echo T_("Know which products are the most profitable and which you should re-order when."); ?> <b><?php echo T_("Demand forecasting!"); ?></b> <?php echo T_("Receive recommendations on your products based on your rate of sales."); ?>
           </p>
         </div>
       </div>

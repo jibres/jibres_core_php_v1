@@ -46,7 +46,7 @@ if(!is_array($child_list))
                     <input type="hidden" name="wholeeditchild" value="wholeeditchild">
 
                     <div class="tblBox mt-2">
-                        <table class="tbl1 v5 fs09 responsive">
+                        <table class="tbl1 v5 text-sm responsive">
                             <tbody>
 							<?php foreach ($myChildList as $key => $value) { ?>
 
@@ -153,7 +153,7 @@ if(!is_array($child_list))
                     </div>
                     <div class="addNewLine" data-kerkere-content='hide'>
                         <div class="tblBox">
-                            <table class="tbl1 v5 fs09 responsive">
+                            <table class="tbl1 v5 text-sm responsive">
                                 <tbody>
                                 <tr>
                                     <td class="collapsing"><i class="sf-asterisk text-red-800"></i></td>

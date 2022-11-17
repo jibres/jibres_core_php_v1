@@ -35,7 +35,7 @@
           <td ><a href="<?php echo \dash\url::this(); ?>?subtotal=<?php echo a($value, 'subtotal'); ?><?php echo $andType; ?>"><?php echo \dash\fit::number(a($value, 'subtotal')); ?></a></td>
           <td class="collapsing">
             <div class="f">
-              <div class="c fs09"><?php echo \dash\fit::date_time(a($value, 'date')); ?>
+              <div class="c text-sm"><?php echo \dash\fit::date_time(a($value, 'date')); ?>
               <div class="cauto os font-bold pRa10"><?php echo \dash\fit::date_human(a($value, 'date')); ?></div>
             </div>
           </td>

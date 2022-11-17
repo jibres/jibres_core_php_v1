@@ -18,8 +18,8 @@
     <?php if(false) { // the IRNIC disable create contact from api :) Date: 2020-06-22 ?>
    <div class="box p-4">
    <form method="post" autocomplete="off">
-    <div class="msg fs09 info2"><?php echo T_('This form used to register iranian persons on nic.ir system and all fields is require because IRNIC need them. If you want to create another type of account or you are not iranian, please go to nic.ir website and directly create IRNIC handle.'); ?></div>
-    <p class="alert-danger text-gray-400 fs09"><?php echo T_("Enter fill all data in English!"); ?></p>
+    <div class="msg text-sm info2"><?php echo T_('This form used to register iranian persons on nic.ir system and all fields is require because IRNIC need them. If you want to create another type of account or you are not iranian, please go to nic.ir website and directly create IRNIC handle.'); ?></div>
+    <p class="alert-danger text-gray-400 text-sm"><?php echo T_("Enter fill all data in English!"); ?></p>
 
     <h3><?php echo T_('Basic Information'); ?></h3>
     <div class="hide">

@@ -114,7 +114,7 @@ if(!is_array($dataTable))
         <div class="mb-2">
           <a href="<?php echo \dash\url::that(); ?>?hooktext=<?php echo a($value, 'hooktext'); ?>"><?php echo a($value, 'hooktext'); ?></a>
         </div>
-        <div class="f fs09">
+        <div class="f text-sm">
           <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo a($value, 'id'); ?>#hook" class="cauto mRa5"><i class="sf-save"></i></a>
           <a href="<?php echo \dash\url::that(); ?>?hookdate=<?php echo a($value, 'hookdate'); ?>" title='<?php echo a($value, 'hookdate'); ?>' class="cauto"><?php echo a($value, 'hookdate'); ?></a>
           <div class="cauto">
@@ -149,13 +149,13 @@ if(!is_array($dataTable))
         <div class="mb-2">
           <a href="<?php echo \dash\url::that(); ?>?sendtext=<?php echo a($value, 'sendtext'); ?>"><?php echo a($value, 'sendtext'); ?></a>
         </div>
-        <div class="f fs09">
+        <div class="f text-sm">
           <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo a($value, 'id'); ?>#send" class="cauto mRa5" title='<?php echo T_("Check more detail"); ?>'><i class="sf-save"></i></a>
           <a href="<?php echo \dash\url::that(); ?>?senddate=<?php echo a($value, 'senddate'); ?>" title='<?php echo a($value, 'senddate'); ?>' class="c font-bold"><?php echo a($value, 'senddate'); ?></a>
         </div>
           <?php if(isset($value['response']) && $value['response']) {?>
 
-        <div class="f fs09">
+        <div class="f text-sm">
           <a href="<?php echo \dash\url::this(); ?>/logshow?id=<?php echo a($value, 'id'); ?>#response" class="cauto mRa5" title='<?php echo T_("Check more detail"); ?>'><i class="sf-save"></i></a>
           <a href="<?php echo \dash\url::that(); ?>?responsedate=<?php echo a($value, 'responsedate'); ?>" title='<?php echo a($value, 'responsedate'); ?>' class="c font-bold"><?php echo a($value, 'responsedate'); ?></a>
         </div>

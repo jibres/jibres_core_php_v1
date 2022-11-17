@@ -19,7 +19,7 @@
 
               <input type="hidden" name="setvariants" value="1">
               <div class="tblBox mt-2">
-                <table class="tbl1 v4 fs09">
+                <table class="tbl1 v4 text-sm">
                   <thead>
                     <tr>
                       <th class="collapsing"></th>

@@ -109,7 +109,7 @@
 
     <table class="tbl1 v1 cbox fs12">
       <thead>
-        <tr class="fs09">
+        <tr class="text-sm">
           <th><?php echo T_("Unit"); ?></th>
 
           <th class="text-center"><?php echo T_("Count product"); ?></th>

@@ -4,7 +4,7 @@
         <div class="pad">
           <h1><?php echo T_("Choose your online address"); ?></h1>
           <p><?php echo T_("Your online business has online address on Jibres domain."); ?> <?php echo T_("Although you can connect your domain into business but to finish setup we need to set it."); ?></p>
-          <p class="msg fs09"><?php echo T_("Set it carefully, you can not change it."); ?></p>
+          <p class="msg text-sm"><?php echo T_("Set it carefully, you can not change it."); ?></p>
 
           <form method="post" autocomplete="off">
             <?php echo \dash\csrf::html(); ?>

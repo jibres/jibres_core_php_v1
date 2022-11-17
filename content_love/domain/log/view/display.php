@@ -86,7 +86,7 @@
     <div class="cauto pRa10"><?php echo \dash\fit::date_human(\dash\data::dataRow_datesend()); ?> /</div>
     <div class="cauto"><?php echo \dash\fit::date_time(\dash\data::dataRow_datesend()); ?></div>
   </header>
-  <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_send()); ?></samp>
+  <samp class="text-sm"><?php echo htmlspecialchars(\dash\data::dataRow_send()); ?></samp>
 </div>
 
 <div class="box">
@@ -95,7 +95,7 @@
     <div class="cauto pRa10"><?php echo \dash\fit::date_human(\dash\data::dataRow_dateresponse()); ?> /</div>
     <div class="cauto"><?php echo \dash\fit::date_time(\dash\data::dataRow_dateresponse()); ?></div>
   </header>
-  <samp class="fs09"><?php if(\dash\data::dataRow_response())  { echo htmlspecialchars(\dash\data::dataRow_response()); } ?></samp>
+  <samp class="text-sm"><?php if(\dash\data::dataRow_response())  { echo htmlspecialchars(\dash\data::dataRow_response()); } ?></samp>
 </div>
 
 
@@ -106,7 +106,7 @@
     <div class="cauto pRa10"></div>
     <div class="cauto"></div>
   </header>
-  <samp class="fs09"><?php echo htmlspecialchars(\dash\data::dataRow_result()); ?></samp>
+  <samp class="text-sm"><?php echo htmlspecialchars(\dash\data::dataRow_result()); ?></samp>
 </div>
 <?php } //endif ?>
 

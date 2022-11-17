@@ -2,7 +2,7 @@
 <div class="fs12">
     <table class="tbl1 v1 responsive">
         <thead>
-            <tr class="fs09">
+            <tr class="text-sm">
                 <th><?php echo T_("Transaction ID"); ?></th>
                 <th><?php echo T_("Price"); ?></th>
                 <th><?php echo T_("Discount"); ?></th>

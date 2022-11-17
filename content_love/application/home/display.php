@@ -69,7 +69,7 @@ else
 <div class="fs12">
     <table class="tbl1 v1 responsive">
         <thead>
-            <tr class="fs09">
+            <tr class="text-sm">
                 <th class="collapsing">#</th>
                 <th><?php echo T_("Store"); ?></th>
                 <th><?php echo T_("User"); ?></th>

@@ -55,7 +55,7 @@ else
 <div class="fs12">
     <table class="tbl1 v1 responsive">
         <thead>
-            <tr class="fs09">
+            <tr class="text-sm">
 
                 <th data-sort="<?php echo a($sortLink, 'domain', 'order'); ?>" ><a href="<?php echo a($sortLink, 'domain', 'link'); ?>"><?php echo T_("Domain"); ?></a></th>
 

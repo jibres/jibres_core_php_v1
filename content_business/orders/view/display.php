@@ -10,14 +10,14 @@
         <div class="body">
           <div class="row">
             <div class="c-auto">
-              <div class="badge pA10-f mb-2 fs09 light"><?php echo T_("Order number") ?> <code class="link-primary"><?php echo a(\dash\data::dataRow_order(), 'id'); ?></code></div>
+              <div class="badge pA10-f mb-2 text-sm light"><?php echo T_("Order number") ?> <code class="link-primary"><?php echo a(\dash\data::dataRow_order(), 'id'); ?></code></div>
             </div>
             <div class="c-auto">
-              <div class="badge pA10-f mb-2 fs09 light"><?php echo T_("Order status") ?> <span class="link-primary"><?php echo a(\dash\data::dataRow_order(), 't_status'); ?></span></div>
+              <div class="badge pA10-f mb-2 text-sm light"><?php echo T_("Order status") ?> <span class="link-primary"><?php echo a(\dash\data::dataRow_order(), 't_status'); ?></span></div>
             </div>
 
             <div class="c-auto">
-              <div class="badge pA10-f mb-2 fs09 light"><?php echo T_("Order date") ?> <span class="link-primary"><?php echo \dash\fit::date_time(a(\dash\data::dataRow_order(), 'date')); ?></span></div>
+              <div class="badge pA10-f mb-2 text-sm light"><?php echo T_("Order date") ?> <span class="link-primary"><?php echo \dash\fit::date_time(a(\dash\data::dataRow_order(), 'date')); ?></span></div>
             </div>
 
           </div>

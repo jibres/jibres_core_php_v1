@@ -119,7 +119,7 @@
 
     <table class="tbl1 v1 text-center cbox fs12 ">
       <thead>
-        <tr class="fs09">
+        <tr class="text-sm">
           <th colspan="2" class=""><?php echo T_("Bank"); ?></th>
           <th><?php echo T_("Name"); ?></th>
           <th class="s0"><?php echo T_("Default"); ?></th>

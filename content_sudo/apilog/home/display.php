@@ -70,7 +70,7 @@ else
 <div class="tblbox">
 
   <table class="tbl1 v3 cbox fs12">
-    <thead class="fs09">
+    <thead class="text-sm">
       <tr>
         <th><?php echo T_("Show"); ?></th>
         <th><?php echo T_("Auth"); ?></th>
