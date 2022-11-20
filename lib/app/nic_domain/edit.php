@@ -20,7 +20,15 @@ class edit
 		}
 		else
 		{
-			$load_domain = \lib\app\nic_domain\get::by_id($_id);
+			if(\dash\url::content() === 'sudo')
+			{
+				$load_domain = \lib\app\nic_domain\get::only_by_id($_id);
+			}
+			else
+			{
+				$load_domain = \lib\app\nic_domain\get::by_id($_id);
+			}
+
 		}
 
 		if(!$load_domain || !isset($load_domain['id']))
