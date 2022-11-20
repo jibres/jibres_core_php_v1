@@ -164,7 +164,7 @@ class prepare
 				return;
 			}
 			// force set ir to fa lang
-			if(\dash\url::tld() === 'ir')
+			if(\dash\url::tld() === 'ir' || \dash\url::tld() === 'com')
 			{
 				$ipCountry = 'IR';
 			}
