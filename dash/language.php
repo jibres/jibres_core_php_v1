@@ -25,7 +25,7 @@ class language
 		if(\dash\url::root() === 'jibres')
 		{
 			// for ir domain default lang is fa
-			if(\dash\url::tld() === 'ir' || \dash\url::tld() === 'com' || \dash\url::tld() === 'local')
+			if(\dash\url::tld() === 'ir')
 			{
 				return 'fa';
 			}
