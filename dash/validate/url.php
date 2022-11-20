@@ -626,7 +626,7 @@ class url
 	 * user:pass@example.com:8080/path/to/index.html
 	 * http://127.0.0.2:2020/
 	 * https://username:password@x.subdomain.noshahr.gov.ir:9090/path?arg=value#anchor
-	 * https://rezamohiti.s3.ir-thr-at1.arvanstorage.com/local/jb2jr/202102/31-f281b1f2cfada600339a6e85b2fea613-w1100.webp
+	 * https://rezamohiti.s3.ir-thr-at1.arvanstorage.ir/local/jb2jr/202102/31-f281b1f2cfada600339a6e85b2fea613-w1100.webp
 	 *
 	 * @param      <type>   $_url   The url
 	 *

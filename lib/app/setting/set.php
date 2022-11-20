@@ -442,7 +442,7 @@ class set
 		{
 			$check_domain = $analyze_url['root']. '.'. $analyze_url['tld'];
 
-			if(in_array($check_domain, ['arvanstorage.com', 'digitaloceanspaces.com', 'amazonaws.com']))
+			if(in_array($check_domain, ['arvanstorage.com', 'arvanstorage.ir', 'digitaloceanspaces.com', 'amazonaws.com']))
 			{
 				// ok
 			}
