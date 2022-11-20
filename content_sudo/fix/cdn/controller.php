@@ -2,78 +2,48 @@
 
 namespace content_sudo\fix\cdn;
 
-use Cassandra\Varint;
-use dash\coding;
-
 class controller
 {
 
 	public static function routing()
 	{
 
+		$list = \lib\db\store\get::all_store_fuel_detail();
+
+
+		$business_have_s3_file = [];
+
 		\dash\code::time_limit(0);
 
-		$all_domain = \dash\pdo::get(
-			"SELECT * FROM domain
-         	WHERE 
-         	    
-         	    (
-         	        domain.ns1 LIKE '%arvancdn.com%' OR
-         	    	domain.ns2 LIKE '%arvancdn.com%'
-         	    ) 
-         LIMIT 10 
-", [], null, false, 'nic');
-
-
-		$result = [];
-
-		foreach ($all_domain as $one_domain)
+		$store_have_application = [];
+		foreach ($list as $key => $value)
 		{
-			if(isset($one_domain['ns1']) && in_array($one_domain['ns1'], ['p.ns.arvancdn.com', 'h.ns.arvancdn.com']))
-			{
-				if(isset($one_domain['ns2']) && in_array($one_domain['ns2'], ['p.ns.arvancdn.com', 'h.ns.arvancdn.com']))
-				{
-					if($one_domain['ns1'] !== $one_domain['ns2'])
-					{
-						$result[] = $one_domain['name'];
-						self::updateDomain($one_domain['name'], $one_domain['id']);
-					}
-				}
-			}
+			$query    = "SELECT COUNT(*) AS `count` FROM files where files.path like '%arvanstorage.com%'  ";
+
+			$store_id = $value['id'];
+			$dbname   = \dash\engine\store::make_database_name($store_id);
+			$resutl   = \dash\pdo::get($query, [], 'count', true, $value['fuel'], ['database' => $dbname]);
+
+			// if($resutl)
+			// {
+			// 	$query    = "SELECT products.id AS `count` FROM products where products.price > 0 AND products.finalprice <= 0 ";
+			//
+			// 	$ids   = \dash\pdo::get($query, [], 'count', false, $value['fuel'], ['database' => $dbname]);
+			//
+			// }
+			$business_have_s3_file[$store_id] = $resutl;
+
+			\dash\pdo::close();
 		}
 
+		\dash\log::to_supervisor('ArvanStorageFile: '. json_encode($business_have_s3_file));
+		\dash\log::to_supervisor('TotalFileOnArvanStorageS3: '. array_sum($business_have_s3_file));
 
-
-		var_dump($result);
-		var_dump('DONE');
-		exit;
-
-
+		var_dump(array_sum($business_have_s3_file));
+		var_dump($business_have_s3_file);
+		var_dump('ok');
+		exit();
 	}
-
-
-	private static function updateDomain(mixed $name, $id)
-	{
-		$id = \dash\coding::encode($id);
-		\lib\app\nic_domain\get::force_fetch($name);
-		$newDetail = \dash\pdo::get("SELECT * FROM domain WHERE domain.name = :domain LIMIT 1 ", [':domain' => $name], null, true, 'nic');
-		if(isset($newDetail['ns1']) && in_array($newDetail['ns1'], ['p.ns.arvancdn.com', 'h.ns.arvancdn.com']))
-		{
-			if(isset($newDetail['ns2']) && in_array($newDetail['ns2'], ['p.ns.arvancdn.com', 'h.ns.arvancdn.com']))
-			{
-				$post =
-					[
-						'ns1'   => 'p.ns.arvancdn.ir',
-						'ns2'   => 'h.ns.arvancdn.ir',
-					];
-					$result = \lib\app\nic_domain\edit::domain($post, $id, 'dns', false, true);
-					\dash\log::to_supervisor('domain '. $name. ' was updated.');
-
-			}
-		}
-
-	}
-
 
 }
 
