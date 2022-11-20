@@ -19,7 +19,7 @@ class api
 
 		$language = \dash\language::current() === 'fa' ? 'fa' : 'en';
 
-		$master_url = "https://napi.arvancloud.com/cdn/4.0/domains/%s";
+		$master_url = "https://napi.arvancloud.ir/cdn/4.0/domains/%s";
 
 		$url = sprintf($master_url, $_path);
 

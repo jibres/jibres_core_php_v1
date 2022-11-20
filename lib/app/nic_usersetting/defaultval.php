@@ -20,6 +20,42 @@ class defaultval
 	{
 		if($_domain && \dash\validate::ir_domain($_domain, false))
 		{
+			return 'p.ns.arvancdn.ir';
+		}
+		elseif($_domain)
+		{
+			return 'p.ns.arvancdn.ir';
+			// return 'mark.ns.cloudflare.com';
+		}
+		else
+		{
+			return 'p.ns.arvancdn.ir';
+		}
+
+	}
+
+
+	public static function ns2($_domain = null)
+	{
+		if($_domain && \dash\validate::ir_domain($_domain, false))
+		{
+			return 'h.ns.arvancdn.ir';
+		}
+		elseif($_domain)
+		{
+			return 'h.ns.arvancdn.ir';
+			// return 'wanda.ns.cloudflare.com';
+		}
+		else
+		{
+			return 'h.ns.arvancdn.ir';
+		}
+	}
+
+	public static function ns1_old($_domain = null)
+	{
+		if($_domain && \dash\validate::ir_domain($_domain, false))
+		{
 			return 'p.ns.arvancdn.com';
 		}
 		elseif($_domain)
@@ -35,7 +71,7 @@ class defaultval
 	}
 
 
-	public static function ns2($_domain = null)
+	public static function ns2_old($_domain = null)
 	{
 		if($_domain && \dash\validate::ir_domain($_domain, false))
 		{
