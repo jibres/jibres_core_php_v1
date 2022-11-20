@@ -87,6 +87,7 @@
             <div class="go"></div>
           </a>
         </li>
+        <?php if(\dash\permission::supervisor()) : ?>
         <li>
             <a class="item f" href="<?php echo \dash\url::this(); ?>/inventory?id=<?php echo \dash\request::get('id'); ?>">
 				<?php echo \dash\utility\icon::svg('Transaction', 'major'); ?>
@@ -94,6 +95,7 @@
                 <div class="go"></div>
             </a>
         </li>
+        <?php endif; // supervisor ?>
 
     </ul>
   </nav>
