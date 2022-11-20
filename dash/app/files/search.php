@@ -104,6 +104,9 @@ class search
 			{
 				$or[]        = " files.filename LIKE :query_string ";
 				$param[':query_string'] = '%'. $query_string. '%';
+
+				$or[]        = " files.path LIKE :q2 ";
+				$param[':q2'] = '%'. $query_string. '%';
 			}
 
 			self::$is_filtered = true;

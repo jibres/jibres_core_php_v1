@@ -18,7 +18,7 @@ class filepath
 		{
 			if(substr($_path, 0, 7) === 'http://' || substr($_path, 0, 8) === 'https://' )
 			{
-				$new_path = $_path;
+				$new_path = self::fixArvandFailedDomain($_path);
 			}
 			else
 			{
@@ -159,6 +159,17 @@ class filepath
 		}
 
 		return $addr;
+	}
+
+
+	private static function fixArvandFailedDomain(string $_path)
+	{
+		if(strpos($_path, 'arvanstorage.com') !== false)
+		{
+			return str_replace('arvanstorage.com', 'arvanstorage.ir', $_path);
+		}
+
+		return $_path;
 	}
 
 
