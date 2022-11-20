@@ -642,8 +642,11 @@ class prepare
 		// emergency domain
 		$emergency_domain =
 		[
+
 			'jibres.xyz',
 			'jibres.icu',
+			'jb8.ir',
+			'jb5.ir',
 			// 'jibres.me',
 		];
 
