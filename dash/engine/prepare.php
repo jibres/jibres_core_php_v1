@@ -355,7 +355,7 @@ class prepare
 				// local is exception
 				$target_host .= '.'.\dash\url::tld();
 			}
-			elseif(in_array(\dash\url::tld(), ['icu', 'xyz', 'store', 'club', 'me']) && \dash\url::root() === 'jibres')
+			elseif(in_array(\dash\url::tld(), ['icu', 'xyz', 'store', 'club', 'me', 'com']) && \dash\url::root() === 'jibres')
 			{
 				// icu and xyz is exception
 				$target_host .= '.'.\dash\url::tld();
