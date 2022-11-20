@@ -364,6 +364,7 @@ class prepare
 			{
 				// disallow open fa in another tld
 				$target_host .= '.ir';
+				$target_host .= '.com';
 			}
 			elseif(\dash\language::current() === 'en' && \dash\url::root() === 'jibres')
 			{
