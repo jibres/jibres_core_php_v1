@@ -16,7 +16,7 @@ class controller
 		$all_domain = \dash\pdo::get(
 			"SELECT * FROM domain
          	WHERE 
-         	    domain.name = 'rezamohiti.ir' AND
+         	    
          	    (
          	        domain.ns1 LIKE '%arvancdn.com%' OR
          	    	domain.ns2 LIKE '%arvancdn.com%'
@@ -25,21 +25,26 @@ class controller
 ", [], null, false, 'nic');
 
 
+		$result = [];
+
 		foreach ($all_domain as $one_domain)
 		{
 			if(isset($one_domain['ns1']) && in_array($one_domain['ns1'], ['p.ns.arvancdn.com', 'h.ns.arvancdn.com']))
 			{
 				if(isset($one_domain['ns2']) && in_array($one_domain['ns2'], ['p.ns.arvancdn.com', 'h.ns.arvancdn.com']))
 				{
-
-					self::updateDomain($one_domain['name'], $one_domain['id']);
+					if($one_domain['ns1'] !== $one_domain['ns2'])
+					{
+						$result[] = $one_domain['name'];
+						self::updateDomain($one_domain['name'], $one_domain['id']);
+					}
 				}
 			}
 		}
 
 
 
-
+		var_dump($result);
 		var_dump('DONE');
 		exit;
 
