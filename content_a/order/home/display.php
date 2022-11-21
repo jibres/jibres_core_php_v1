@@ -109,7 +109,7 @@ $sortLink = \dash\data::sortLink();
           </td>
         </tr>
         <tr>
-          <td colspan="<?php if(!\dash\request::get('type')) {echo 11;}else{echo 10;}?>" class="p-1">
+          <td colspan="<?php $colspan = 0; if(!\dash\data::hideSubvat()){$colspan = 1;} if(!\dash\request::get('type')) {echo $colspan + 11;}else{echo $colspan+ 10;}?>" class="p-1">
 
             <?php
 
