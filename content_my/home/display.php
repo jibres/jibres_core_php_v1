@@ -5,6 +5,8 @@
 // }
 // else
 {
+
+  // require_once(root. 'content_my/changeDomanPriceAlert.php');
   require_once('display_site.php');
 }
 ?>

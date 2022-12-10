@@ -1,3 +1,4 @@
+<?php require_once(root. 'content_my/changeDomanPriceAlert.php'); ?>
 <?php require_once(core. 'layout/tools/stepGuide.php'); ?>
 
 <?php

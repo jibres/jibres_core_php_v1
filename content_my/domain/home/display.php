@@ -1,5 +1,7 @@
 <?php $myData = \dash\data::dashboardDetail(); ?>
 
+<?php require_once(root. 'content_my/changeDomanPriceAlert.php'); ?>
+
 
 <div class="f">
   <div class="c9 s12 pRa10">
