@@ -9,11 +9,11 @@ class price
 	{
 		if($_period === '5year')
 		{
-			return 36000;
+			return 42000;
 		}
 		else
 		{
-			return 12000;
+			return 14000;
 		}
 	}
 
@@ -23,11 +23,11 @@ class price
 		$price = 0;
 		if($_period === '5year')
 		{
-			$price = 36000;
+			$price = 42000;
 		}
 		else
 		{
-			$price = 12000;
+			$price = 14000;
 		}
 
 		if($_expire_date)
@@ -56,7 +56,7 @@ class price
 
 	public static function transfer()
 	{
-		return 12000;
+		return 14000;
 	}
 
 
