@@ -1,5 +1,5 @@
 <?php
-if(\dash\language::current() === 'fa') :
+if(\dash\language::current() === 'fa' && false) :
 ?>
 <div class="alert-warning">
 
